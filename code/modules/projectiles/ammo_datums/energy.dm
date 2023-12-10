@@ -66,7 +66,7 @@
 
 /datum/ammo/energy/lasburster
 	name = "lasburster bolt"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
 	hud_state = "laser_overcharge"
 	armor_type = LASER
 	damage = 40

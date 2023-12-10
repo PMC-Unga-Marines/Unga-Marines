@@ -671,4 +671,41 @@
 	if(istype(in_chamber, /obj/item/ammo_magazine/agls37/incendiary))
 		gun_user?.record_war_crime()
 
+// Non-TGMC HMG
 
+/obj/item/weapon/gun/kord
+	name = "\improper KRD-61ES mounted heavy machinegun"
+	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
+	icon = 'icons/obj/items/gun/kord.dmi'
+	icon_state = "kord"
+
+	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
+	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
+
+	w_class = WEIGHT_CLASS_HUGE
+	equip_slot_flags = ITEM_SLOT_BACK
+
+	scatter = 10
+	deployed_scatter_change = -10
+	accuracy_mult = 1.2 //it's got a bipod
+	fire_delay = 0.25 SECONDS
+
+	default_ammo_type = /obj/item/ammo_magazine/kord
+	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)
+
+	item_flags = IS_DEPLOYABLE|TWOHANDED
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	aim_fire_delay = 0.05 SECONDS
+	aim_speed_modifier = 5
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
+
+	deploy_time = 1.5 SECONDS
+	undeploy_time = 0.5 SECONDS
+	deployable_item = /obj/machinery/deployable/mounted
+
+	max_integrity = 200
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
+
+	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)

@@ -246,8 +246,8 @@
 			/obj/item/weapon/gun/rifle/icc_mg = -1,
 			/obj/item/ammo_magazine/icc_mg = -1,
 			/obj/item/ammo_magazine/icc_mg/belt = -1,
-			/obj/item/weapon/gun/icc_hmg = -1,
-			/obj/item/ammo_magazine/icc_hmg = -1,
+			/obj/item/weapon/gun/kord = -1,
+			/obj/item/ammo_magazine/kord = -1,
 		),
 		"PMC" = list(
 			/obj/item/weapon/gun/rifle/sniper/elite = -1,
