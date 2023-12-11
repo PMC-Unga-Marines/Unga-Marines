@@ -385,6 +385,10 @@ directive is properly returned.
 		AM.stop_throw()
 		return TRUE
 
+///Psionic interaction with this atom
+/atom/proc/psi_act(psi_power, mob/living/user)
+	return
+
 /atom/proc/GenerateTag()
 	return
 
