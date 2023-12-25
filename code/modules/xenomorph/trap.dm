@@ -40,6 +40,8 @@
 			icon_state = "trap_hugger_resin"
 		if(TRAP_HUGGER_SLASH)
 			icon_state = "trap_hugger_slash"
+		if(TRAP_HUGGER_OZELOMELYN)
+			icon_state = "trap_hugger_ozelomelyn"
 		if(TRAP_SMOKE_NEURO)
 			icon_state = "trap_neuro_gas"
 		if(TRAP_SMOKE_ACID)
@@ -70,7 +72,7 @@
 		return
 	. += span_notice("A hole for a little one to hide in ambush or for spewing acid.")
 	switch(trap_type)
-		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH)
+		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH, TRAP_HUGGER_OZELOMELYN)
 			. += span_notice("There's a little one inside.")
 		if(TRAP_SMOKE_NEURO)
 			. += span_notice("There's pressurized neurotoxin inside.")
@@ -103,7 +105,7 @@
 		crosser.visible_message(span_warning("[crosser] trips on [src]!"), span_danger("You trip on [src]!"))
 		crosser.ParalyzeNoChain(4 SECONDS)
 	switch(trap_type)
-		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH)
+		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH, TRAP_HUGGER_OZELOMELYN)
 			if(!AM)
 				drop_hugger()
 				return
@@ -141,7 +143,7 @@
 
 	if(xeno_attacker.a_intent == INTENT_HARM)
 		return ..()
-	if(trap_type == (TRAP_HUGGER_LARVAL || TRAP_HUGGER_NEURO || TRAP_HUGGER_ACID || TRAP_HUGGER_RESIN || TRAP_HUGGER_SLASH))
+	if(trap_type == (TRAP_HUGGER_LARVAL || TRAP_HUGGER_NEURO || TRAP_HUGGER_ACID || TRAP_HUGGER_RESIN || TRAP_HUGGER_SLASH || TRAP_HUGGER_OZELOMELYN))
 		if(!(xeno_attacker.xeno_caste.can_flags & CASTE_CAN_HOLD_FACEHUGGERS))
 			return
 		if(!hugger)
