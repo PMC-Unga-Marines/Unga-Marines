@@ -119,6 +119,9 @@
 /obj/item/weapon/gun/rifle/ar18/plasma_pistol
 	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
 
+/obj/item/weapon/gun/rifle/ar18/beginner
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
+
 //-------------------------------------------------------
 //AR-12 Assault Rifle
 
@@ -289,6 +292,8 @@
 /obj/item/weapon/gun/rifle/dmr37/marksman
 	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/angledgrip, /obj/item/attachable/extended_barrel)
 
+/obj/item/weapon/gun/rifle/dmr37/beginner
+	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
 
 
 //-------------------------------------------------------
@@ -965,6 +970,15 @@
 	scatter_unwielded = 80
 	movement_acc_penalty_mult = 6
 
+/obj/item/weapon/gun/rifle/mg42/autorifleman
+	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
+
+/obj/item/weapon/gun/rifle/mg42/autorifleman
+	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
+
+/obj/item/weapon/gun/rifle/mg42/beginner
+	starting_attachment_types = list(/obj/item/attachable/extended_barrel, /obj/item/attachable/reddot, /obj/item/attachable/verticalgrip)
+
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
@@ -1035,11 +1049,11 @@
 
 	placed_overlay_iconstate = "lmg"
 
-/obj/item/weapon/gun/rifle/mg42/autorifleman
-	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
-
 /obj/item/weapon/gun/rifle/mg60/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t60stock, /obj/item/attachable/foldable/bipod, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel)
+
+/obj/item/weapon/gun/rifle/mg60/beginner
+	starting_attachment_types = list(/obj/item/attachable/stock/t60stock, /obj/item/attachable/foldable/bipod, /obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel)
 
 //-------------------------------------------------------
 //M41AE2 Heavy Pulse Rifle

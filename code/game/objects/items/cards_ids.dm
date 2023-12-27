@@ -26,6 +26,8 @@
 	var/access = list()
 	/// The name registered_name on the card
 	var/registered_name = "Unknown"
+	///Miscelaneous ID flags
+	var/flags_id = CAN_BUY_LOADOUT
 	///Blood type of the person that has it.
 	var/blood_type = "\[UNSET\]"
 
@@ -34,8 +36,6 @@
 
 	///What category of items can you buy - used for armor and poucehs
 	var/marine_buy_choices = list()
-	///Used for quick vendor, to restrict buying loadout more than once
-	var/can_buy_loadout = TRUE
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job

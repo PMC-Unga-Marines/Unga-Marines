@@ -16,8 +16,17 @@
 		"No Top" = "_r",
 	)
 
+/obj/item/clothing/under/marine/holster
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
+
+/obj/item/clothing/under/marine/corpman_vest
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
+
 /obj/item/clothing/under/marine/black_vest
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
+
+/obj/item/clothing/under/marine/brown_vest
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/brown_vest)
 
 //Squad colored turtlenecks
 /obj/item/clothing/under/marine/squad/neck
