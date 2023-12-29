@@ -19,11 +19,10 @@ const category_icon = {
   'Pending Order': 'shopping-cart',
 };
 
-export const Assembler = (props, context) => {
-  const { act, data } = useBackend(context);
+export const Assembler = (props) => {
+  const { act, data } = useBackend();
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
-    context,
     'selectedMenu',
     null
   );
@@ -52,11 +51,10 @@ export const Assembler = (props, context) => {
   );
 };
 
-const MenuButton = (props, context) => {
+const MenuButton = (props) => {
   const { condition, menuname, icon, width } = props;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
-    context,
     'selectedMenu',
     null
   );
@@ -73,8 +71,8 @@ const MenuButton = (props, context) => {
   );
 };
 
-const Menu = (props, context) => {
-  const { act, data } = useBackend(context);
+const Menu = (props) => {
+  const { act, data } = useBackend();
   const { readOnly } = props;
 
   const { categories } = data;
@@ -98,8 +96,8 @@ const Menu = (props, context) => {
   );
 };
 
-const Pack = (props, context) => {
-  const { act, data } = useBackend(context);
+const Pack = (props) => {
+  const { act, data } = useBackend();
   const { pack } = props;
   const { supplypackscontents } = data;
   const { name, inputs, outputs } = supplypackscontents[pack];
@@ -120,7 +118,7 @@ const Pack = (props, context) => {
   );
 };
 
-const PackName = (props, context) => {
+const PackName = (props) => {
   const { name, pl } = props;
 
   return (
@@ -131,8 +129,8 @@ const PackName = (props, context) => {
   );
 };
 
-const CategoryButton = (props, context) => {
-  const { act, data } = useBackend(context);
+const CategoryButton = (props) => {
+  const { act, data } = useBackend();
   const { icon, disabled, id, mode } = props;
 
   return (
@@ -149,20 +147,19 @@ const CategoryButton = (props, context) => {
   );
 };
 
-const Category = (props, context) => {
-  const { act, data } = useBackend(context);
+const Category = (props) => {
+  const { act, data } = useBackend();
 
   const { supplypackscontents, assemblercraft } = data;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
-    context,
     'selectedMenu',
     null
   );
 
   const { selectedPackCat, should_filter, level } = props;
 
-  const [filter, setFilter] = useLocalState(context, `pack-name-filter`, null);
+  const [filter, setFilter] = useLocalState(`pack-name-filter`, null);
 
   const filterSearch = (entry) =>
     should_filter && filter
@@ -217,7 +214,7 @@ const Category = (props, context) => {
   );
 };
 
-const InputContents = (props, context) => {
+const InputContents = (props) => {
   const { input } = props;
 
   return (
@@ -236,7 +233,7 @@ const InputContents = (props, context) => {
   );
 };
 
-const OutputContents = (props, context) => {
+const OutputContents = (props) => {
   const { output } = props;
 
   return (
