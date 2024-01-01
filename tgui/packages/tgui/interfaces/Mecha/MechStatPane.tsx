@@ -1,11 +1,13 @@
+import { toFixed } from 'common/math';
+
 import { useBackend } from '../../backend';
 import {
-  Stack,
-  Button,
-  Section,
   Box,
-  ProgressBar,
+  Button,
   LabeledList,
+  ProgressBar,
+  Section,
+  Stack,
 } from '../../components';
 import { OperatorData } from './data';
 
