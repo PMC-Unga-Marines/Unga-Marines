@@ -60,7 +60,8 @@ export const PlayerPreferences = (props) => {
     <Button
       key={idx + 1}
       selected={idx + 1 === slot}
-      onClick={() => act('changeslot', { changeslot: idx + 1 })}>
+      onClick={() => act('changeslot', { changeslot: idx + 1 })}
+    >
       {slotNames[idx] || `Character ${idx + 1}`}
     </Button>
   ));
@@ -94,42 +95,50 @@ const NavigationSelector = (props) => {
     <Tabs vertical>
       <Tabs.Tab
         selected={tabIndex === 1}
-        onClick={() => act('tab_change', { tabIndex: 1 })}>
+        onClick={() => act('tab_change', { tabIndex: 1 })}
+      >
         Character Customization
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 2}
-        onClick={() => act('tab_change', { tabIndex: 2 })}>
+        onClick={() => act('tab_change', { tabIndex: 2 })}
+      >
         Predator Customization
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 3}
-        onClick={() => act('tab_change', { tabIndex: 3 })}>
+        onClick={() => act('tab_change', { tabIndex: 3 })}
+      >
         Background Information
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 4}
-        onClick={() => act('tab_change', { tabIndex: 4 })}>
+        onClick={() => act('tab_change', { tabIndex: 4 })}
+      >
         Gear Customization
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 5}
-        onClick={() => act('tab_change', { tabIndex: 5 })}>
+        onClick={() => act('tab_change', { tabIndex: 5 })}
+      >
         Job Preferences
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 6}
-        onClick={() => act('tab_change', { tabIndex: 6 })}>
+        onClick={() => act('tab_change', { tabIndex: 6 })}
+      >
         Game Settings
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 7}
-        onClick={() => act('tab_change', { tabIndex: 7 })}>
+        onClick={() => act('tab_change', { tabIndex: 7 })}
+      >
         Keybindings
       </Tabs.Tab>
       <Tabs.Tab
         selected={tabIndex === 8}
-        onClick={() => act('tab_change', { tabIndex: 8 })}>
+        onClick={() => act('tab_change', { tabIndex: 8 })}
+      >
         Draw Order
       </Tabs.Tab>
     </Tabs>

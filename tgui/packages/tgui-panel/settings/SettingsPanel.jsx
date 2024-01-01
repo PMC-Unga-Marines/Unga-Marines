@@ -8,13 +8,38 @@ import { toFixed } from 'common/math';
 import { capitalize } from 'common/string';
 import { useLocalState } from 'tgui/backend';
 import { useDispatch, useSelector } from 'tgui/backend';
-import { Box, Button, Collapsible, ColorBox, Divider, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
+import {
+  Box,
+  Button,
+  Collapsible,
+  ColorBox,
+  Divider,
+  Dropdown,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+  Tabs,
+  TextArea,
+} from 'tgui/components';
 import { ChatPageSettings } from '../chat';
 import { clearChat, rebuildChat, saveChatToDisk } from '../chat/actions';
 import { THEMES } from '../themes';
-import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
+import {
+  changeSettingsTab,
+  updateSettings,
+  addHighlightSetting,
+  removeHighlightSetting,
+  updateHighlightSetting,
+} from './actions';
 import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
-import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
+import {
+  selectActiveTab,
+  selectSettings,
+  selectHighlightSettings,
+  selectHighlightSettingById,
+} from './selectors';
 
 export const SettingsPanel = (props) => {
   const activeTab = useSelector(selectActiveTab);
@@ -34,7 +59,8 @@ export const SettingsPanel = (props) => {
                       tabId: tab.id,
                     })
                   )
-                }>
+                }
+              >
                 {tab.name}
               </Tabs.Tab>
             ))}
@@ -90,7 +116,8 @@ export const SettingsGeneral = (props) => {
                       setFreeFont(!freeFont);
                     }}
                   />
-                }>
+                }
+              >
                 {FONTS.map((FONT) => (
                   <Button
                     key={FONT}
