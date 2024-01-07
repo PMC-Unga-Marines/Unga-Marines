@@ -23,6 +23,11 @@
 	 */
 	var/del_on_map_removal = TRUE
 
+/atom/movable/screen/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	if(hud_owner && istype(hud_owner))
+		hud = hud_owner
+
 /atom/movable/screen/Destroy()
 	master = null
 	hud = null
@@ -91,16 +96,20 @@
 		return TRUE
 
 /atom/movable/screen/inventory/hand
+	///The tag used by this hand, used for activate_hand()
+	var/hand_tag = ""
+
+/atom/movable/screen/inventory/hand/left
 	name = "l_hand"
 	icon_state = "hand_l"
 	screen_loc = ui_lhand
-	var/hand_tag = "l"
+	hand_tag = "l"
 
-/atom/movable/screen/inventory/hand/update_icon(active = FALSE)
+/atom/movable/screen/inventory/hand/left/update_overlays()
 	. = ..()
-	cut_overlays()
-	if(active)
-		add_overlay("hand_active")
+	if(!hud?.mymob?.hand)
+		return
+	. += "hand_active"
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
 	. = ..()
@@ -113,6 +122,12 @@
 	icon_state = "hand_r"
 	screen_loc = ui_rhand
 	hand_tag = "r"
+
+/atom/movable/screen/inventory/hand/right/update_overlays()
+	. = ..()
+	if(!hud?.mymob || hud.mymob.hand)
+		return
+	. += "hand_active"
 
 /atom/movable/screen/close
 	name = "close"
@@ -371,13 +386,14 @@
 							return BODY_ZONE_PRECISE_EYES
 				return BODY_ZONE_HEAD
 
-/atom/movable/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
+/atom/movable/screen/zone_sel/proc/set_selected_zone(choice = BODY_ZONE_CHEST, mob/user)
 	if(isobserver(user))
 		return
 
 	if(choice != selecting)
 		selecting = choice
-		update_icon(user)
+		user.zone_selected = selecting
+	update_icon()
 	return TRUE
 
 /atom/movable/screen/zone_sel/update_overlays()
@@ -404,7 +420,7 @@
 /atom/movable/screen/stamina_hud
 	icon = 'icons/mob/screen/health.dmi'
 	name = "stamina"
-	icon_state = "staminaloss0"
+	icon_state = "stamloss-14"
 	screen_loc = UI_STAMINA
 	mouse_opacity = MOUSE_OPACITY_ICON
 
@@ -436,7 +452,7 @@
 /atom/movable/screen/component_button
 	var/atom/movable/screen/parent
 
-/atom/movable/screen/component_button/Initialize(mapload, atom/movable/screen/parent)
+/atom/movable/screen/component_button/Initialize(mapload, datum/hud/hud_owner, atom/movable/screen/parent)
 	. = ..()
 	src.parent = parent
 
@@ -543,20 +559,35 @@
 				icon_state = "temp-4"
 		return
 
-/atom/movable/screen/oxygen
-	name = "oxygen"
-	icon_state = "oxy0"
-	screen_loc = ui_oxygen
+	var/temp_step
+	if(human_mymob.bodytemperature >= human_mymob.species.body_temperature)
+		temp_step = (human_mymob.species.heat_level_1 - human_mymob.species.body_temperature) / 4
 
-/atom/movable/screen/oxygen/update_icon_state()
-	. = ..()
-	if(!ishuman(hud?.mymob))
+		if(human_mymob.bodytemperature >= human_mymob.species.heat_level_1)
+			icon_state = "temp4"
+		else if(human_mymob.bodytemperature >= human_mymob.species.body_temperature + temp_step * 3)
+			icon_state = "temp3"
+		else if(human_mymob.bodytemperature >= human_mymob.species.body_temperature + temp_step * 2)
+			icon_state = "temp2"
+		else if(human_mymob.bodytemperature >= human_mymob.species.body_temperature + temp_step * 1)
+			icon_state = "temp1"
+		else
+			icon_state = "temp0"
 		return
-	var/mob/living/carbon/human/human_mymob = hud.mymob
-	if(human_mymob.hal_screwyhud == 3 || human_mymob.oxygen_alert)
-		icon_state = "oxy1"
-	else
-		icon_state = "oxy0"
+
+	if(human_mymob.bodytemperature < human_mymob.species.body_temperature)
+		temp_step = (human_mymob.species.body_temperature - human_mymob.species.cold_level_1)/4
+
+		if(human_mymob.bodytemperature <= human_mymob.species.cold_level_1)
+			icon_state = "temp-4"
+		else if(human_mymob.bodytemperature <= human_mymob.species.body_temperature - temp_step * 3)
+			icon_state = "temp-3"
+		else if(human_mymob.bodytemperature <= human_mymob.species.body_temperature - temp_step * 2)
+			icon_state = "temp-2"
+		else if(human_mymob.bodytemperature <= human_mymob.species.body_temperature - temp_step * 1)
+			icon_state = "temp-1"
+		else
+			icon_state = "temp0"
 
 /atom/movable/screen/nutrition
 	name = "nutrition"
@@ -579,7 +610,7 @@
 			icon_state = "nutrition4"
 
 /atom/movable/screen/fire
-	name = "fire"
+	name = "body temperature"
 	icon_state = "fire0"
 	screen_loc = ui_fire
 
@@ -629,7 +660,7 @@
 	///List of possible screen locs
 	var/static/list/ammo_screen_loc_list = list(ui_ammo1, ui_ammo2, ui_ammo3, ui_ammo4)
 
-/atom/movable/screen/ammo/Initialize(mapload)
+/atom/movable/screen/ammo/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	flash_holder = new
 	flash_holder.icon_state = "frame"
@@ -725,7 +756,7 @@
 	deltimer(del_timer)
 	qdel(src)
 
-/atom/movable/screen/arrow/Initialize(mapload) //Self-deletes
+/atom/movable/screen/arrow/Initialize(mapload, datum/hud/hud_owner) //Self-deletes
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	del_timer = addtimer(CALLBACK(src, PROC_REF(kill_arrow)), duration, TIMER_STOPPABLE)

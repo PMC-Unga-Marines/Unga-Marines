@@ -442,6 +442,7 @@
 	return ..()
 
 /datum/status_effect/spacefreeze
+	alert_type = /atom/movable/screen/alert/status_effect/spacefreeze
 	id = "spacefreeze"
 	alert_type = /atom/movable/screen/alert/status_effect/spacefreeze
 
@@ -841,3 +842,8 @@
 	scale = generator(GEN_VECTOR, list(0.6, 0.6), list(1, 1), NORMAL_RAND)
 	friction = -0.05
 	color = "#818181"
+
+/atom/movable/screen/alert/status_effect/spacefreeze
+	name = "Freezing"
+	desc = "Space is very very cold, who would've thought?"
+	icon_state = "cold3"
