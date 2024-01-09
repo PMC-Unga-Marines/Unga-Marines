@@ -686,3 +686,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/distress/echo
 	name = "\improper Echo Task Force headset"
 	keyslot = /obj/item/encryptionkey/echo
+
+/obj/item/radio/headset/distress/retired
+	name = "retirement home headset"
+	keyslot = /obj/item/encryptionkey/retired
+	frequency = FREQ_RETIRED

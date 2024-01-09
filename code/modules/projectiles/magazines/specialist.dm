@@ -439,6 +439,20 @@
 	caliber = CALIBER_10X26_CASELESS
 	item_map_variant_flags = null
 
+//"External magazine" for the wheelchair-mounted minigun
+/obj/item/ammo_magazine/minigun_wheelchair
+	name = "\improper Mounted MG-100 Vindicator ammo rack"
+	desc = "A case filled to the brim with ammunition. Appears custom made to be slotted into a feeding system."
+	icon = 'icons/obj/items/ammo.dmi'
+	icon_state = "minigun"
+	flags_atom = CONDUCT
+	flags_magazine = MAGAZINE_REFILLABLE
+	flags_equip_slot = ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_HUGE
+	default_ammo = /datum/ammo/bullet/minigun
+	current_rounds = 1000
+	max_rounds = 1000
+	reload_delay = 0.75 SECONDS
 
 // ICC coilgun
 
