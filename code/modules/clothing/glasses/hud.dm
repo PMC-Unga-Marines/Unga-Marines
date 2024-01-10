@@ -2,7 +2,9 @@
 	name = "HUD"
 	desc = "A heads-up display that provides important info in (almost) real time."
 	flags_armor_protection = NONE //doesn't protect eyes because it's a monocle, duh
+	///The hud type(s) to give this type of glasses
 	var/hud_type
+	///The user wearing the glasses
 	var/mob/living/carbon/human/affected_user
 
 /obj/item/clothing/glasses/hud/Destroy()
@@ -35,21 +37,38 @@
 	var/mob/living/carbon/human/hud_user = user
 	if(hud_user.glasses != src)
 		return
+	activate_hud(hud_user)
 
-	if(active)
-		activate_hud(hud_user)
-	else
-		deactivate_hud(hud_user)
+
+/obj/item/clothing/glasses/hud/deactivate_glasses(mob/user, silent = FALSE)
+	. = ..()
+	if(QDELETED(affected_user))
+		return
+	var/mob/living/carbon/human/hud_user = user
+	if(hud_user.glasses != src)
+		return
+	deactivate_hud(hud_user)
 
 ///Activates the hud(s) these glasses have
 /obj/item/clothing/glasses/hud/proc/activate_hud(mob/living/carbon/human/user)
-	var/datum/atom_hud/hud_datum = GLOB.huds[hud_type]
-	hud_datum.add_hud_to(user)
+	if(islist(hud_type))
+		for(var/hud in hud_type)
+			var/datum/atom_hud/hud_datum = GLOB.huds[hud]
+			hud_datum.add_hud_to(user)
+	else
+		var/datum/atom_hud/hud_datum = GLOB.huds[hud_type]
+		hud_datum.add_hud_to(user)
 	affected_user = user
 
-/obj/item/clothing/glasses/hud/proc/deactivate_hud()
-	var/datum/atom_hud/hud_datum = GLOB.huds[hud_type]
-	hud_datum.remove_hud_from(affected_user)
+///Deactivates the hud(s) these glasses have
+/obj/item/clothing/glasses/hud/proc/deactivate_hud(mob/user)
+	if(islist(hud_type))
+		for(var/hud in hud_type)
+			var/datum/atom_hud/hud_datum = GLOB.huds[hud]
+			hud_datum.remove_hud_from(user)
+	else
+		var/datum/atom_hud/hud_datum = GLOB.huds[hud_type]
+		hud_datum.remove_hud_from(user)
 	affected_user = null
 
 /obj/item/clothing/glasses/hud/health
@@ -177,7 +196,7 @@
 	item_state = "sunglasses"
 	eye_protection = 2
 	darkness_view = 8
-	hud_type = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_SQUAD_TERRAGOV, DATA_HUD_ORDER)
+	hud_type = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_SQUAD_TERRAGOV, DATA_HUD_SQUAD_SOM, DATA_HUD_ORDER)
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	activation_sound = null
