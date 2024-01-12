@@ -153,7 +153,8 @@
 	else
 		qdel(src)
 
-/obj/machinery/door/update_icon()
+/obj/machinery/door/update_icon_state()
+	. = ..()
 	if(density)
 		icon_state = "door1"
 	else

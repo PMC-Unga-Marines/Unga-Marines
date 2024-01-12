@@ -44,6 +44,7 @@
 
 
 /obj/item/defibrillator/update_icon_state()
+	. = ..()
 	icon_state = "defib"
 	if(ready)
 		icon_state += "_out"
@@ -372,5 +373,4 @@
 		defibrillate(target, user)
 
 /obj/item/defibrillator/gloves/update_icon_state()
-	return
-
+	return //The parent has some behaviour we don't want

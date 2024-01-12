@@ -91,6 +91,7 @@
 	take_damage(severity, BRUTE, BOMB)
 
 /obj/structure/xeno/trap/update_icon_state()
+	. = ..()
 	switch(trap_type)
 		if(TRAP_HUGGER)
 			icon_state = "traphugger"
@@ -1286,6 +1287,7 @@ TUNNEL
 	update_icon()
 
 /obj/structure/xeno/pherotower/update_icon_state()
+	. = ..()
 	switch(current_aura.aura_types[1])
 		if(AURA_XENO_RECOVERY)
 			icon_state = "recoverytower"

@@ -155,8 +155,8 @@
 	pull_icon.update_icon(owner)
 	hotkeybuttons += pull_icon
 
-	zone_sel = new /atom/movable/screen/zone_sel/alien()
-	zone_sel.update_icon(owner)
+	zone_sel = new /atom/movable/screen/zone_sel/alien(null, src)
+	zone_sel.update_icon()
 	static_inventory += zone_sel
 
 /datum/hud/alien/persistent_inventory_update()

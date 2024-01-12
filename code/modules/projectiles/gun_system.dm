@@ -517,7 +517,7 @@
 	SIGNAL_HANDLER
 	set_gun_user(null)
 
-/obj/item/weapon/gun/update_icon(mob/user)
+/obj/item/weapon/gun/update_icon()
 	. = ..()
 
 	for(var/datum/action/action AS in actions)
@@ -1502,7 +1502,7 @@
 		num_of_casings--
 	if(num_of_casings)
 		casing.current_casings += num_of_casings
-		casing.update_icon()
+		casing.update_appearance()
 	playsound(current_turf, sound_to_play, 25, 1, 5)
 
 
