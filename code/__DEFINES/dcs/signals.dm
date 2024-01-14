@@ -349,7 +349,6 @@
 
 #define COMSIG_ITEM_TOGGLE_ACTION "item_toggle_action"			//from base of obj/item/ui_interact(): (/mob/user)
 #define COMSIG_ITEM_TOGGLE_ACTIVE "item_toggle_active"			//from base of /obj/item/toggle_active(): (new_state)
-#define COMSIG_ITEM_EXCLUSIVE_TOGGLE "item_exclusive_toggle"
 
 #define COMSIG_ITEM_MIDDLECLICKON "item_middleclickon"					//from base of mob/living/carbon/human/MiddleClickOn(): (/atom, /mob)
 #define COMSIG_ITEM_SHIFTCLICKON "item_shiftclickon"					//from base of mob/living/carbon/human/ShiftClickOn(): (/atom, /mob)
@@ -938,6 +937,10 @@
 #define COMSIG_KB_DEFENDORDER "keybind_defendorder"
 #define COMSIG_KB_RETREATORDER "keybind_retreatorder"
 #define COMSIG_KB_VEHICLEHONK "keybind_vehiclehonk"
+
+//Item toggle keybinds
+#define COMSIG_ITEM_TOGGLE_JETPACK "item_toggle_jetpack"
+#define COMSIG_ITEM_TOGGLE_BLINKDRIVE "item_toggle_blinkdrive"
 
 //Weapon related ability keybinds
 #define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
