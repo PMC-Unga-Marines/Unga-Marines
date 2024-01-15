@@ -19,6 +19,19 @@
 	var/max_temperature = 1800 //K, walls will take damage if they're next to a fire hotter than this
 	var/d_state = 0 //Normal walls are now as difficult to remove as reinforced walls
 	var/obj/effect/acid_hole/acided_hole //the acid hole inside the wall
+
+	///The current number of bulletholes in this turf
+	var/current_bulletholes = 0
+	///A reference to the current bullethole overlay image, this is added and deleted as needed
+	var/image/bullethole_overlay
+	/**
+	 * The variation set we're using
+	 * There are 10 sets and it gets picked randomly the first time a wall is shot
+	 * It corresponds to the first number in the icon_state (bhole_[**bullethole_variation**]_[current_bulletholes])
+	 * Gets reset to 0 if the wall reaches maximum health, so a new variation is picked when the wall gets shot again
+	 */
+	var/bullethole_variation = 0
+
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(
 		SMOOTH_GROUP_CLOSED_TURFS,
@@ -46,6 +59,11 @@
 		if(M)
 			visible_message(span_warning("\The [M] is sealed inside the wall as it is built"))
 			qdel(M)
+
+/turf/closed/wall/Destroy(force)
+	QDEL_NULL(acided_hole)
+	QDEL_NULL(bullethole_overlay)
+	return ..()
 
 /turf/closed/wall/ChangeTurf(newtype)
 	if(acided_hole)
@@ -131,10 +149,12 @@
 		if(7)
 			. += span_info("The inner sheath is gone. A blowtorch should finish off this wall.")
 
-//todo: eventually re-introduce bullhole overlays, they haven't worked in ages and the sprites suck so I'm not going to put effort into making them work
 /turf/closed/wall/update_overlays()
 	. = ..()
 	if(wall_integrity == max_integrity)
+		current_bulletholes = 0
+		bullethole_variation = 0
+		QDEL_NULL(bullethole_overlay)
 		return
 
 	if(!damage_overlays[1]) //list hasn't been populated
@@ -151,6 +171,12 @@
 		overlay = length(damage_overlays)
 
 	. += damage_overlays[overlay]
+
+	if(current_bulletholes && current_bulletholes <= BULLETHOLE_MAX)
+		if(!bullethole_variation)
+			bullethole_variation = rand(1, BULLETHOLE_STATES)
+		bullethole_overlay = image('icons/effects/bulletholes.dmi', src, "bhole_[bullethole_variation]_[current_bulletholes]")
+	. += bullethole_overlay
 
 ///Applies damage to the wall
 /turf/closed/wall/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, armour_penetration = 0)
