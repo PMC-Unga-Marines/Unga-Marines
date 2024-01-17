@@ -444,14 +444,13 @@
 	if(!check_rights(R_SERVER))
 		return
 
-	if(tgui_alert(usr, "Are you sure you want to reload admins?", "Reload admins", list("No", "Yes")) != "Yes")
+	if(tgui_alert(usr, "Are you sure you want to reload admins?", "Reload admins", list("Yes", "No")) != "Yes")
 		return
 
 	load_admins()
 
 	log_admin("[key_name(src)] manually reloaded admins.")
 	message_admins("[ADMIN_TPMONTY(usr)] manually reloaded admins.")
-
 
 /datum/admins/proc/change_ground_map()
 	set category = "Server.Server"
