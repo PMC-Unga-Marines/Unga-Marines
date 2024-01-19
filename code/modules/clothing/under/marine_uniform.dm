@@ -614,3 +614,16 @@
 	desc = "Protective, reinforced with Kevlar fiber with rubberized metal inserts, this 'separatist' combat kit has proven its reliability in many situations of unrest among the civilian population after the capture of the colonies of Terra. In memory of the victims of the militia, this set was delivered to the Marine Corps ship TerraGov."
 	icon_state = "separatist"
 	adjustment_variants = list()
+
+/obj/item/clothing/under/marine/specops
+	name = "Tactical turtleneck"
+	desc = "A TGMC turtleneck issued to special operation units"
+	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
+	icon_state = "specops_uniform"
+	item_icons = list(
+		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
+	)
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
+	item_state = "specops_uniform"
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+	has_sensor = 0
