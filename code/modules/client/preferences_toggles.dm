@@ -147,7 +147,7 @@
 		to_chat(src, span_notice("You will now hear ambient sounds."))
 	else
 		to_chat(src, span_notice("You will no longer hear ambient sounds."))
-		mob.stop_sound_channel(CHANNEL_AMBIENT)
+		mob.stop_sound_channel(CHANNEL_AMBIENCE)
 	usr.client.update_ambience_pref()
 
 /client/verb/toggle_special(role in BE_SPECIAL_FLAGS)
