@@ -42,12 +42,17 @@
 	if(species.species_flags & IS_SYNTHETIC)
 		if(stat != DEAD)
 			status_hud.icon_state = "synth"
-		else if(!client)
-			var/mob/dead/observer/G = get_ghost(FALSE, TRUE)
+		else if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
+			status_hud.icon_state = "synth_dnr"
+			return TRUE
+		else if(!mind)
+			var/mob/dead/observer/G = get_ghost(TRUE)
 			if(!G)
 				status_hud.icon_state = "synth_dnr"
 			else
 				status_hud.icon_state = "synth_dead"
+		else
+			status_hud.icon_state = "synth_dead"
 		return TRUE
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
@@ -64,8 +69,8 @@
 				else
 					status_hud.icon_state = "dead"
 				return TRUE
-			if(!client)
-				var/mob/dead/observer/ghost = get_ghost()
+			if(!mind)
+				var/mob/dead/observer/ghost = get_ghost(TRUE)
 				if(!ghost?.can_reenter_corpse)
 					if(species.species_flags & ROBOTIC_LIMBS)
 						status_hud.icon_state = "dead_robot"
