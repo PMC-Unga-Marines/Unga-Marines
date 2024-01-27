@@ -729,3 +729,32 @@
 	max_rounds = 120
 	icon_state_mini = "mag_rifle_big_yellow"
 	bonus_overlay = "t25_ext"
+	
+//ML-14 Assault Machiengun
+/obj/item/ammo_magazine/icc_mg
+	name = "\improper ML-14 GPMG box magazine (10x25mm)"
+	desc = "A belt box for the ML-14 assault machinegun."
+	icon_state = "minimi"
+	icon_state_mini = "mag_gpmg"
+	caliber = CALIBER_10x26_CASELESS
+	default_ammo = /datum/ammo/bullet/rifle/machinegun
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 150
+	reload_delay = 2 SECONDS
+
+// This is a 'belt'.
+/obj/item/ammo_magazine/icc_mg/belt
+	name = "\improper ML-14 GPMG buttpack magazine (10x25mm)"
+	desc = "A buttpack for the ML-14 which carries the ammo inside."
+	icon_state = "minimi_belt"
+	flags_equip_slot = ITEM_SLOT_BELT
+	flags_magazine = MAGAZINE_WORN
+	w_class = WEIGHT_CLASS_HUGE
+	max_rounds = 750
+
+/obj/item/ammo_magazine/icc_mg/packet
+	name = "box of 10x26mm"
+	desc = "A box containing 500 rounds of 10x26mm caseless."
+	icon_state = "box_minimi"
+	current_rounds = 500
+	max_rounds = 500
