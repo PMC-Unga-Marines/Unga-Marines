@@ -24,7 +24,6 @@
 	// *** Evolution *** //
 	evolution_threshold = 225
 
-	evolves_to = list(/mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/warlock, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/chimera)
 	deevolves_to = /mob/living/carbon/xenomorph/defender
 
 	// *** Flags *** //
