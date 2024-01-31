@@ -853,7 +853,7 @@ directive is properly returned.
 				var/image/I = image('icons/mob/hud/human_misc.dmi', src, "")
 				if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
 					I = image('icons/mob/hud/yautja.dmi', src, "")
-				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
+				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM|KEEP_APART
 				hud_list[hud] = I
 
 /**
