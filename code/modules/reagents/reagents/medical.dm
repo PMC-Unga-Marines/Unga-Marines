@@ -299,7 +299,7 @@
 
 /datum/reagent/medicine/saline_glucose/on_mob_life(mob/living/L, metabolism)
 	if(L.blood_volume < BLOOD_VOLUME_NORMAL)
-		L.blood_volume += 1.2
+		L.adjust_blood_volume(1.2)
 	return ..()
 
 /datum/reagent/medicine/saline_glucose/overdose_process(mob/living/L, metabolism)
@@ -855,7 +855,7 @@
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
 
 /datum/reagent/medicine/quickclot/on_mob_life(mob/living/L, metabolism)
-	L.blood_volume += 0.2
+	L.adjust_blood_volume(0.2)
 	if(!ishuman(L) || L.bodytemperature > 169) //only heals IB at cryogenic temperatures.
 		return ..()
 	var/mob/living/carbon/human/H = L
@@ -944,10 +944,10 @@
 
 /datum/reagent/medicine/quickclotplus/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(1.5*effect_str, TOX)
-	L.blood_volume -= 4
+	L.adjust_blood_volume(-4)
 
 /datum/reagent/medicine/quickclotplus/overdose_crit_process(mob/living/L, metabolism)
-	L.blood_volume -= 20
+	L.adjust_blood_volume(-20)
 
 /datum/reagent/medicine/nanoblood
 	name = "Nanoblood"
@@ -957,13 +957,13 @@
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5 //10u
 
 /datum/reagent/medicine/nanoblood/on_mob_life(mob/living/L, metabolism)
-	L.blood_volume += 3.4
+	L.adjust_blood_volume(3.4)
 	L.adjust_tox_loss(effect_str)
-	L.adjust_stamina_loss(6*effect_str)
+	L.adjust_stamina_loss(6 * effect_str)
 	if(L.blood_volume < BLOOD_VOLUME_OKAY)
-		L.blood_volume += 3.4
+		L.adjust_blood_volume(3.4)
 	if(L.blood_volume < BLOOD_VOLUME_BAD)
-		L.blood_volume = (BLOOD_VOLUME_BAD + 2)
+		L.set_blood_volume(BLOOD_VOLUME_BAD + 2)
 		L.reagents.add_reagent(/datum/reagent/toxin, 25)
 		L.AdjustSleeping(10 SECONDS)
 	return ..()
@@ -1422,7 +1422,7 @@
 		if(77 to INFINITY)
 			if(volume < 30) //smol injection will self-replicate up to 30u using 240u of blood.
 				L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.15)
-				L.blood_volume -= 2
+				L.adjust_blood_volume(-2)
 
 			if(volume < 35) //allows 10 ticks of healing for 20 points of free heal to lower scratch damage bloodloss amounts.
 				L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.1)

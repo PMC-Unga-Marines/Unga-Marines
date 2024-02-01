@@ -20,7 +20,7 @@
 /datum/reagent/thwei/on_mob_life(mob/living/carbon/L, metabolism)
 	. = ..()
 	if(isyautja(L))
-		L.blood_volume += 3
+		L.adjust_blood_volume(3)
 		L.hallucination = 0
 		L.dizziness = 0
 		L.adjust_stamina_loss(-15)
