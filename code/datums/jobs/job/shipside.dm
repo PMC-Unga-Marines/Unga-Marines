@@ -371,7 +371,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
-		/datum/job/terragov/command/assault_crewman = ARMORED_VEHICLE_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
@@ -436,7 +435,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	title = PILOT_OFFICER
 	paygrade = "WO"
 	comm_title = "PO"
-	total_positions = 2
+	total_positions = 1
 	access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT)
 	minimal_access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO, ACCESS_MARINE_RO, ACCESS_MARINE_MEDBAY)
 	skills_type = /datum/skills/pilot
@@ -457,7 +456,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 		<b>You answer to the</b> acting Command Staff<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
-		<b>Duty</b>: Choose between the Condor, a modular attack aircraft that provides close air support with a variety of weapons ranging from the inbuilt gatling to wing mounted rockets; or the Tadpole, a versatile dropship capable of fulfilling roles ranging from ambulance to mobile bunker.
+		<b>Duty</b>: Pilot the Condor, a modular attack aircraft that provides close air support with a variety of weapons ranging from the inbuilt gatling to wing mounted rockets.
 	"}
 	minimap_icon = "pilot"
 
@@ -481,9 +480,9 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 
 /datum/job/terragov/command/pilot/radio_help_message(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to support marines with either close air support via the Condor, or mobile dropship support with the Tadpole.
-While you are in charge of all aerial crafts the Normandy does not require supervision outside of turning automatic mode on or off at crucial times, and you are expected to choose between the Condor and Tadpole.
-Though you are a warrant officer, your authority is limited to the dropship and your chosen aerial craft, where you have authority over the enlisted personnel.
+	to_chat(M, {"Your job is to support marines with either close air support via the Condor.
+You are expected to use the Condor as the Alamo is able to be ran automatically, though at some points you will be required to take control of the Alamo for the operation's success, though highly unlikey.
+Though you are a warrant officer, your authority is limited to the dropship and the Condor, where you have authority over the enlisted personnel.
 "})
 
 /datum/outfit/job/command/pilot

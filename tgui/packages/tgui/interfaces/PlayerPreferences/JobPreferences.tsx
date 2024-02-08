@@ -25,6 +25,7 @@ export const JobPreferences = (props, context) => {
     'Field Commander',
     'Staff Officer',
     'Pilot Officer',
+    'Transport Officer',
     'Synthetic',
     'AI',
     'Mech Pilot',
