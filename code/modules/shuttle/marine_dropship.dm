@@ -720,14 +720,22 @@
 		do_hijack(M, CT, X)
 
 	if(href_list["abduct"])
-		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
-		if(living_player_list[1] > 5)
-			to_chat(X, span_xenowarning("Еще осталась добыча, на которую можно поохотиться!"))
-			return
-
 		var/confirm = tgui_alert(usr, "Хотите захватить металлическую птицу?\n ЭТО ЗАВЕРШИТ РАУНД", "Захватить птицу?", list( "Да", "Нет"))
 		if(confirm != "Да")
 			return
+
+		var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
+		if(groundside_humans > 5)
+			to_chat(X, span_xenowarning("Еще осталась добыча, на которую можно охотиться!"))
+			return
+		//these are all stinky checks, someone make this tgui
+		if(X != usr)
+			return
+		if(X.stat)
+			return
+		if(!Adjacent(X))
+			return
+
 		priority_announce("Нормандия захвачена! Потеряв главный путь к земле, морпехи вынуждены отступить.", title = "Нормандия Захвачена", color_override = "orange")
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
