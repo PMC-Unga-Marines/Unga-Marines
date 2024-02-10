@@ -210,9 +210,20 @@
 
 	var/turf/target = locate(T.x + inaccurate_fuel * pick(-2, 2),T.y + inaccurate_fuel * pick(-2, 2),T.z)
 
-	playsound_z_humans(target.z, 'sound/effects/OB_warning_announce.ogg', 100) //for marines on ground
+	// Give marines a warning if misfuelled.
+	var/fuel_warning = "Warhead fuel level: safe."
+	if(inaccurate_fuel > 0)
+		fuel_warning = "Warhead fuel level: incorrect.<br>Warhead may be inaccurate."
+
+	priority_announce(
+		message = "Get out of danger close!<br><br>Warhead type: [tray.warhead.warhead_kind].<br>[fuel_warning]<br>Estimated location of impact: [get_area(T)].",
+		title = "Orbital bombardment launch command detected!",
+		type = ANNOUNCEMENT_PRIORITY,
+		sound = 'sound/effects/OB_warning_announce.ogg',
+		channel_override = SSsounds.random_available_channel(), // This way, we can't have it be cut off by other sounds.
+		color_override = "red"
+	)
 	playsound(target, 'sound/effects/OB_warning_announce_novoiceover.ogg', 125, FALSE, 30, 10) //VOX-less version for xenomorphs
-	playsound_z(z, 'sound/effects/OB_warning_announce.ogg', 100) //for the ship
 
 	var/impact_time = 10 SECONDS + (WARHEAD_FLY_TIME * (GLOB.current_orbit/3))
 
