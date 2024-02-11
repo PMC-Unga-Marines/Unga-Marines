@@ -1122,3 +1122,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	new_predator.apply_assigned_role_to_spawn(job)
 	job.after_spawn(new_predator)
 	qdel(pred_candidate)
+
+/datum/game_mode/proc/start_hunt()
+	return
+
+/datum/game_mode/proc/can_hunt()
+	return FALSE
