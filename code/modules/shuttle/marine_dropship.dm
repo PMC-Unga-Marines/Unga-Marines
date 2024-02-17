@@ -497,6 +497,13 @@
 		to_chat(xeno_attacker, span_xenowarning("It's too early to do this!"))
 		return
 	#endif
+	var/obj/docking_port/mobile/marine_dropship/shuttle = SSshuttle.getShuttle(shuttleId)
+	if(shuttle.hijack_state != HIJACK_STATE_CALLED_DOWN) //Process of corrupting the controls
+		to_chat(xeno_attacker, span_xenowarning("We corrupt the bird's controls, unlocking the doors[(shuttle.mode != SHUTTLE_IGNITING) ? "and preventing it from flying." : ", but we are unable to prevent it from flying as it is already taking off!"]"))
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED, src)
+		if(shuttle.mode != SHUTTLE_IGNITING)
+			shuttle.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
+			shuttle.do_start_hijack_timer()
 	interact(xeno_attacker)
 
 /obj/machinery/computer/shuttle/marine_dropship/ui_state(mob/user)
@@ -602,10 +609,10 @@
 	if(.)
 		return
 
-	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
-	if(!M)
+	var/obj/docking_port/mobile/marine_dropship/shuttle = SSshuttle.getShuttle(shuttleId)
+	if(!shuttle)
 		return
-	if(M.hijack_state == HIJACK_STATE_CALLED_DOWN)
+	if(shuttle.hijack_state == HIJACK_STATE_CALLED_DOWN && ishuman(usr))
 		return
 
 	switch(action)
@@ -613,23 +620,23 @@
 			Topic(null, list("move" = params["move"]))
 			return
 		if("lockdown")
-			M.lockdown_all()
+			shuttle.lockdown_all()
 			. = TRUE
 		if("release")
-			M.unlock_all()
+			shuttle.unlock_all()
 			. = TRUE
 		if("lock")
-			M.lockdown_airlocks(params["lock"])
+			shuttle.lockdown_airlocks(params["lock"])
 			. = TRUE
 		if("unlock")
-			M.unlock_airlocks(params["unlock"])
+			shuttle.unlock_airlocks(params["unlock"])
 			. = TRUE
 		if("automation_on")
-			M.automatic_cycle_on = params["automation_on"]
-			if(!M.automatic_cycle_on)
-				deltimer(M.cycle_timer)
+			shuttle.automatic_cycle_on = params["automation_on"]
+			if(!shuttle.automatic_cycle_on)
+				deltimer(shuttle.cycle_timer)
 		if("cycle_time_change")
-			M.time_between_cycle = params["cycle_time_change"]
+			shuttle.time_between_cycle = params["cycle_time_change"]
 
 		if("hunt")
 			var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
@@ -640,17 +647,17 @@
 			var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
 			if(mode.can_hunt())
 				mode.round_stage = INFESTATION_MARINE_MINOR
-				
+
 		//These are actions for the Xeno dropship UI
 		if("hijack")
 			var/mob/living/carbon/xenomorph/xeno = usr
 			if(!(xeno.hive.hive_flags & HIVE_CAN_HIJACK))
 				to_chat(xeno, span_warning("Нашему улью не хватает экстрасенсорных способностей, чтобы украсть птицу."))
 				return
-			if(M.mode == SHUTTLE_RECHARGING)
+			if(shuttle.mode == SHUTTLE_RECHARGING)
 				to_chat(xeno, span_xenowarning("Птица все еще остывает..."))
 				return
-			if(M.mode != SHUTTLE_IDLE)
+			if(shuttle.mode != SHUTTLE_IDLE)
 				to_chat(xeno, span_xenowarning("Мы не можем сделать это сейчас."))
 				return
 			var/confirm = tgui_alert(usr, "Хотите угнать металлическую птицу?", "Угнать птицу?", list("Да", "Нет"))
@@ -659,7 +666,7 @@
 			var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
 			if(!CT)
 				return
-			do_hijack(M, CT, xeno)
+			do_hijack(shuttle, CT, xeno)
 		if("abduct")
 			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
 			if(groundside_humans > 5)
@@ -1229,13 +1236,13 @@
 	if(action != "selectDestination")
 		return FALSE
 
-	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
+	var/obj/docking_port/mobile/shuttle = SSshuttle.getShuttle(shuttleId)
 	#ifndef TESTING
-	if(!(M.shuttle_flags & GAMEMODE_IMMUNE) && world.time < SSticker.round_start_time + SSticker.mode.deploy_time_lock)
+	if(!(shuttle.shuttle_flags & GAMEMODE_IMMUNE) && world.time < SSticker.round_start_time + SSticker.mode.deploy_time_lock)
 		to_chat(usr, span_warning("The engines are still refueling."))
 		return TRUE
 	#endif
-	if(!M.can_move_topic(usr))
+	if(!shuttle.can_move_topic(usr))
 		return TRUE
 
 	if(!params["destination"])
@@ -1246,8 +1253,8 @@
 		message_admins("[ADMIN_TPMONTY(usr)] may be attempting a href dock exploit on [src] with target location \"[html_encode(params["destination"])]\"")
 		return TRUE
 
-	var/previous_status = M.mode
-	log_game("[key_name(usr)] has sent the shuttle [M] to [params["destination"]]")
+	var/previous_status = shuttle.mode
+	log_game("[key_name(usr)] has sent the shuttle [shuttle] to [params["destination"]]")
 
 	switch(SSshuttle.moveShuttle(shuttleId, params["destination"], 1))
 		if(0)
@@ -1270,12 +1277,12 @@
 /obj/machinery/computer/shuttle/shuttle_control/ui_data(mob/user)
 	var/list/data = list()
 	var/list/options = valid_destinations()
-	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
-	if(!M)
+	var/obj/docking_port/mobile/shuttle = SSshuttle.getShuttle(shuttleId)
+	if(!shuttle)
 		return data //empty but oh well
 
-	data["linked_shuttle_name"] = M.name
-	data["shuttle_status"] = M.getStatusText()
+	data["linked_shuttle_name"] = shuttle.name
+	data["shuttle_status"] = shuttle.getStatusText()
 	for(var/option in options)
 		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
 			if(option != S.shuttle_id)
@@ -1283,7 +1290,7 @@
 			var/list/dataset = list()
 			dataset["id"] = S.shuttle_id
 			dataset["name"] = S.name
-			dataset["locked"] = !M.check_dock(S, silent=TRUE)
+			dataset["locked"] = !shuttle.check_dock(S, silent=TRUE)
 			data["destinations"] += list(dataset)
 	return data
 
