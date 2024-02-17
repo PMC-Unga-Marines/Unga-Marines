@@ -13,14 +13,14 @@
 	throw_range = 5
 	var/init_reagent_flags
 	var/amount_per_transfer_from_this = 5
-	///Used to adjust how many units are transfered/injected in a single click
+	/// Used to adjust how many units are transfered/injected in a single click
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
-	var/liquifier = FALSE //Can liquify/grind pills without needing fluid to dissolve.
+	/// Can liquify/grind pills without needing fluid to dissolve.
+	var/liquifier = FALSE
 	var/list/list_reagents
-	///Whether we can restock this in a vendor without it having its starting reagents
+	/// Whether we can restock this in a vendor without it having its starting reagents
 	var/free_refills = TRUE
-
 
 /obj/item/reagent_containers/Initialize(mapload)
 	. = ..()
@@ -32,35 +32,25 @@
 	. = ..()
 	afterattack(user, user) //If player uses the container, use it on themselves
 
-/obj/item/reagent_containers/unique_action(mob/user, special_treatment)
+/obj/item/reagent_containers/attack_self_alternate(mob/living/user)
 	. = ..()
-	if(.)
-		return
+	change_transfer_amount(user)
 
-	open_ui(user)
-
-///Opens the relevant UI
-/obj/item/reagent_containers/proc/open_ui(mob/user)
-	if(!length(possible_transfer_amounts))
-		return
-
-	var/N = tgui_input_list(user, "Amount per transfer from this:", "[src]", possible_transfer_amounts)
-	if(!N)
-		return
-
-	amount_per_transfer_from_this = N
+///Opens a tgui_input_list and changes the transfer_amount of our container based on our selection
+/obj/item/reagent_containers/proc/change_transfer_amount(mob/living/user)
+	if(!possible_transfer_amounts)
+		return FALSE
+	var/result = tgui_input_list(user, "Amount per transfer from this:","[src]", possible_transfer_amounts)
+	if(result)
+		amount_per_transfer_from_this = result
+	return TRUE
 
 /obj/item/reagent_containers/verb/set_APTFT()
 	set name = "Set transfer amount"
 	set category = "IC.Object"
 	set src in view(1)
 
-	var/N = tgui_input_list(usr, "Amount per transfer from this:", "[src]", possible_transfer_amounts)
-	if(!N)
-		return
-
-	amount_per_transfer_from_this = N
-
+	change_transfer_amount(usr)
 
 //returns a text listing the reagents (and their volume) in the atom. Used by Attack logs for reagents in pills
 /obj/item/reagent_containers/proc/get_reagent_list_text()
