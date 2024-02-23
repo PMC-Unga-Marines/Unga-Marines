@@ -65,7 +65,7 @@
 	if(GLOB.hive_datums[hivenumber])
 		SSticker.mode.update_silo_death_timer(GLOB.hive_datums[hivenumber])
 
-/obj/structure/xeno/silo/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/structure/xeno/silo/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	if(GLOB.hive_datums[hivenumber])
 		INVOKE_NEXT_TICK(SSticker.mode, TYPE_PROC_REF(/datum/game_mode, update_silo_death_timer), GLOB.hive_datums[hivenumber]) // checks all silos next tick after this one is gone
 		UnregisterSignal(GLOB.hive_datums[hivenumber], list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK))
@@ -100,7 +100,7 @@
 		if(80 to 100)
 			. += span_info("It appears in good shape, pulsating healthily.")
 
-/obj/structure/xeno/silo/take_damage(damage_amount, damage_type, damage_flag = null, sound_effect, attack_dir, armour_penetration)
+/obj/structure/xeno/silo/take_damage(damage_amount, damage_type, damage_flag = null, effects = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
 	. = ..()
 
 	//We took damage, so it's time to start regenerating if we're not already processing

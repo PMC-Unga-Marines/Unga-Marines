@@ -53,7 +53,7 @@
 	SIGNAL_HANDLER
 	qdel(src)
 
-/obj/structure/xeno/turret/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/structure/xeno/turret/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
 		on_destruction()
 		playsound(loc,'sound/effects/alien/turret_death.ogg', 70)

@@ -38,6 +38,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	var/projectile_damage = 0
 	var/melee_damage = 0
 
+	var/mechs_destroyed = 0
+
 	//We are watching
 	var/friendly_fire_damage = 0
 
@@ -62,6 +64,7 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 
 	var/times_revived = 0
 	var/deaths = 0
+	var/shrapnel_removed = 0
 
 	//Downtime
 	var/time_resting = 0
@@ -154,6 +157,9 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	if(internal_injuries_inflicted)
 		stats += "Inflicted [internal_injuries_inflicted] internal injur[internal_injuries_inflicted > 1 ? "ies" : "y"] on [internal_injuries_inflicted > 1 ? "others" : "somebody"]."
 
+	if(mechs_destroyed)
+		stats += "[mechs_destroyed] hostile mechs destroyed."
+
 	//Medical
 	stats += "<hr>"
 	if(self_heals)
@@ -167,6 +173,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	if(times_revived)
 		stats += "You were revived [times_revived] time\s."
 	stats += deaths ? "You died [deaths] time\s." : "You survived the whole round."
+	if(shrapnel_removed)
+		stats += "Removed [shrapnel_removed] piece\s of shrapnel."
 
 	//Downtime
 	var/list/downtime_stats = list()

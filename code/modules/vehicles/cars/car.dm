@@ -71,7 +71,7 @@
 	kidnapped.forceMove(src)
 	add_occupant(kidnapped, VEHICLE_CONTROL_KIDNAPPED)
 
-/obj/vehicle/sealed/car/obj_destruction(damage_flag)
+/obj/vehicle/sealed/car/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	cell_explosion(src, 55, 30, adminlog = FALSE)
 	log_message("[src] exploded due to destruction", LOG_ATTACK)
 	return ..()
