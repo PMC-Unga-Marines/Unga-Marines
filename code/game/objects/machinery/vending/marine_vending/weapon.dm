@@ -608,6 +608,7 @@
 			/obj/item/explosive/grenade/sticky/cloaker = -1,
 			/obj/item/explosive/grenade/incendiary = -1,
 			/obj/item/explosive/grenade/bullet/laser = -1,
+			/obj/item/explosive/grenade/bullet/hefa = -1,
 			/obj/item/explosive/grenade/smokebomb = -1,
 			/obj/item/explosive/grenade/smokebomb/cloak = -1,
 			/obj/item/explosive/grenade/smokebomb/drain = -1,
