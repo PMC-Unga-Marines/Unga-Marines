@@ -23,7 +23,7 @@
 	desc = "A crate containing a basic set of a mortar and some shells, to get an engineer started."
 
 /obj/structure/closet/crate/mortar_ammo/mortar_kit/PopulateContents()
-	new /obj/item/mortar_kit(src)
+	new /obj/item/storage/holster/backholster/mortar/full(src)
 	for(var/i in 1 to 8)
 		new /obj/item/mortal_shell/he(src)
 	for(var/i in 1 to 8)
