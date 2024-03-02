@@ -465,6 +465,9 @@
 		gun_user.client?.mouse_pointer_icon = initial(gun_user.client.mouse_pointer_icon)
 		SEND_SIGNAL(gun_user, COMSIG_GUN_USER_UNSET, src)
 		gun_user.hud_used?.remove_ammo_hud(src)
+		if(heat_meter)
+			gun_user.client.images -= heat_meter
+			heat_meter = null
 		gun_user = null
 
 	if(!user)
@@ -476,6 +479,10 @@
 	SEND_SIGNAL(gun_user, COMSIG_GUN_USER_SET, src)
 	if(gun_features_flags & GUN_AMMO_COUNTER)
 		gun_user.hud_used?.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
+	if(heat_per_fire)
+		heat_meter = new(loc=gun_user)
+		heat_meter.animate_change(heat_amount * 0.01, 5)
+		gun_user.client.images += heat_meter
 	if(master_gun)
 		return
 	setup_bullet_accuracy()
