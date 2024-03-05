@@ -191,30 +191,30 @@
 		if("explosionCustom")
 			if(explosionChoice == 1)
 				explosionChoice = 0
-				temp_pod.explosionSize = list(0, 0, 0, 0)
+				temp_pod.explosion_power = 0
+				temp_pod.explosion_falloff = 0
 				. = TRUE
 				return
-			var/list/expNames = list("Devastation", "Heavy Damage", "Light Damage", "Flash")
-			var/list/boomInput = list()
-			for(var/i in 1 to length(expNames))
-				boomInput.Add(input("[expNames[i]] Range", "Enter the [expNames[i]] range of the explosion. WARNING: This ignores the bomb cap!", 0) as null|num)
-				if(isnull(boomInput[i]))
-					return
-				if(!isnum(boomInput[i]))
-					to_chat(holder, span_warning("That wasnt a number! Value set to zero instead."))
-					boomInput = 0
+
 			explosionChoice = 1
-			temp_pod.explosionSize = boomInput
+			var/input_severity = tgui_input_number(usr, "Explosion Severity:", "Drop Bomb", 500, EXPLOSION_MAX_POWER, 1)
+			if(isnull(input_severity))
+				return
+			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, EXPLOSION_MAX_POWER, 1)
+			if(isnull(input_falloff))
+				return
+			temp_pod.explosion_power = power_input
+			temp_pod.explosion_falloff = falloff_input
 			. = TRUE
 
 		if("explosionBus")
 			if(explosionChoice == 2)
 				explosionChoice = 0
-				temp_pod.explosionSize = list(0, 0, 0, 0)
 				. = TRUE
 				return
 			explosionChoice = 2
-			temp_pod.explosionSize = list(GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, GLOB.MAX_EX_FLAME_RANGE)
+			temp_pod.explosion_power = 1500
+			temp_pod.explosion_falloff = 30
 			. = TRUE
 
 		if("damageCustom")
