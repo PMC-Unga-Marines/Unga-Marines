@@ -514,7 +514,7 @@
 //Any projectile can decloak a predator. It does defeat one free bullet though.
 /obj/item/clothing/gloves/yautja/proc/bullet_act_sim(mob/living/carbon/human/H, obj/projectile/proj)
 	var/ammo_flags = proj.ammo.flags_ammo_behavior
-	if(ammo_flags & (AMMO_ROCKET|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
+	if(ammo_flags & (AMMO_SNIPER|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
 		decloak(H) //Continue on to damage.
 	else if(prob(20))
 		decloak(H)

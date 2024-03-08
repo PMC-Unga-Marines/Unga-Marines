@@ -15,7 +15,7 @@
 /datum/ammo/energy/emitter //Damage is determined in emitter.dm
 	name = "emitter bolt"
 	icon_state = "emitter"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_ARMOR
+	flags_ammo_behavior = AMMO_ENERGY
 	accurate_range = 10
 	max_range = 10
 	bullet_color = COLOR_VIBRANT_LIME
@@ -478,7 +478,7 @@
 	hitscan_effect_icon = "xray_beam"
 
 /datum/ammo/energy/lasgun/marine/heavy_laser
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_ENERGY|AMMO_HITSCAN|AMMO_INCENDIARY
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_INCENDIARY
 	hud_state = "laser_overcharge"
 	damage = 50
 	penetration = 10
@@ -515,7 +515,7 @@
 
 /datum/ammo/energy/xeno/psy_blast
 	name = "psychic blast"
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_ENERGY|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
+	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
 	damage = 35
 	penetration = 10
 	sundering = 1
@@ -631,7 +631,7 @@
 	max_range = 14
 	penetration = 5
 	shell_speed = 1.5
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_TARGET_TURF
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 	///Fire burn time
 	var/heat = 12

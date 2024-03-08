@@ -1,7 +1,7 @@
 /datum/ammo/mortar
 	name = "80mm shell"
 	icon_state = "mortar"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	shell_speed = 0.75
 	damage = 0
 	penetration = 0
@@ -170,7 +170,7 @@
 	handful_amount = 1
 	ping = null //no bounce off.
 	sound_bounce = "rocket_bounce"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_IFF
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_IFF
 	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2
@@ -275,7 +275,7 @@
 
 /datum/ammo/grenade_container/ags_grenade
 	name = "grenade shell"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_IFF
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_IFF
 	icon_state = "grenade_projectile"
 	hud_state = "grenade_he"
 	hud_state_empty = "grenade_empty"

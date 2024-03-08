@@ -105,7 +105,7 @@
 	name = "plasma eradicator"
 	icon_state = "bluespace"
 	bullet_color = COLOR_BRIGHT_BLUE
-	flags_ammo_behavior = AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_TARGET_TURF
 	shell_speed = 2
 	accuracy = 40
 
