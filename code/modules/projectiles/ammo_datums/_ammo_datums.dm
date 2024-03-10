@@ -110,7 +110,7 @@
 	return
 
 ///Special effects for leaving a turf. Only called if the projectile has AMMO_LEAVE_TURF enabled
-/datum/ammo/proc/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/proc/on_leave_turf(turf/T, obj/projectile/proj)
 	return
 
 ///Handles CC application on the victim
@@ -189,7 +189,7 @@
 			continue
 		victim.visible_message(span_danger("[victim] is hit by backlash from \a [proj.name]!"),
 			isxeno(victim) ? span_xenodanger("We are hit by backlash from \a </b>[proj.name]</b>!") : span_highdanger("You are hit by backlash from \a </b>[proj.name]</b>!"))
-		victim.apply_damage(proj.damage * proj.airburst_multiplier, proj.ammo.damage_type, blocked = armor_type, updating_health = TRUE)
+		victim.apply_damage(proj.damage * airburst_multiplier, proj.ammo.damage_type, blocked = armor_type, updating_health = TRUE)
 
 ///handles the probability of a projectile hit to trigger fire_burst, based off actual damage done
 /datum/ammo/proc/deflagrate(atom/target, obj/projectile/proj)
@@ -320,5 +320,5 @@
 		new_angle -= 360
 
 	bonus_projectiles_amount = 1
-	fire_bonus_projectiles(proj, T, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(T, dir_to_proj))
+	fire_bonus_projectiles(proj, null, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(T, dir_to_proj))
 	bonus_projectiles_amount = 0

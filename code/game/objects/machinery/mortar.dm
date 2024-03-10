@@ -267,17 +267,13 @@
 		if(TALLY_ROCKET_ARTY)
 			GLOB.round_statistics.rocket_shells_fired++
 			SSblackbox.record_feedback("tally", "round_statistics", 1, "rocket_shells_fired")
-	/* ORIGINAL
-	playsound(loc, fire_sound, 50, 1)
-	*/
-	playsound(loc, fire_sound, 70, 0) //RUTGMC EDIT
+	playsound(loc, fire_sound, 70, 0)
 	flick(icon_state + "_fire", src)
 	var/obj/projectile/shell = new /obj/projectile(loc)
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
 	shell.generate_bullet(ammo)
 	var/shell_range = min(get_dist_euclidean(src, target), ammo.max_range)
-	// shell.fire_at(target, null, src, shell_range, ammo.shell_speed) // FUTURE ORIGINAL, WE DON'T HAVE NEEDED CHANGES YET
-	shell.fire_at(target, src, src, shell_range, ammo.shell_speed) // RUTGMC OLD VERSION
+	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
 
