@@ -408,7 +408,7 @@
 	warhead_kind_rus = "зажигательный"
 	icon_state = "ob_warhead_2"
 	var/flame_range_num
-	var/flame_intensity = 36
+	var/flame_intensity = 46
 	var/flame_duration = 40
 	var/flame_colour = "blue"
 	var/smoke_radius = 17
