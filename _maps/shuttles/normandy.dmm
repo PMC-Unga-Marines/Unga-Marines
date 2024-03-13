@@ -19,9 +19,6 @@
 	},
 /area/shuttle/dropship/normandy)
 "bq" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -65,6 +62,9 @@
 /area/shuttle/dropship/normandy)
 "fP" = (
 /turf/closed/shuttle/dropship2/window,
+/area/shuttle/dropship/normandy)
+"fR" = (
+/turf/open/shuttle/dropship/thirtyone,
 /area/shuttle/dropship/normandy)
 "gt" = (
 /turf/closed/shuttle/dropship2/enginethree{
@@ -117,12 +117,11 @@
 	},
 /area/shuttle/dropship/normandy)
 "kZ" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 8
-	},
 /obj/machinery/camera/autoname/mainship/dropship_two{
 	dir = 8
 	},
+/obj/structure/bed/chair/dropship/doublewide/right,
+/obj/structure/bed/chair/dropship/doublewide/left,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "lp" = (
@@ -158,10 +157,8 @@
 /turf/template_noop,
 /area/shuttle/dropship/normandy)
 "oF" = (
-/obj/machinery/telecomms/relay/preset/telecomms/onboard,
-/turf/closed/shuttle/dropship2/aisle{
-	dir = 4
-	},
+/obj/machinery/telecomms/relay/preset/telecomms/onboard/nondense,
+/turf/open/shuttle/dropship/five,
 /area/shuttle/dropship/normandy)
 "pm" = (
 /obj/machinery/computer/shuttle/marine_dropship/one,
@@ -173,13 +170,11 @@
 /turf/closed/shuttle/dropship2/finleft,
 /area/shuttle/dropship/normandy)
 "pO" = (
-/obj/structure/bed/chair/dropship/passenger,
+/obj/structure/bed/chair/dropship/doublewide/right,
+/obj/structure/bed/chair/dropship/doublewide/left,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "rC" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -246,6 +241,13 @@
 "yt" = (
 /turf/closed/shuttle/dropship2/aisle,
 /area/shuttle/dropship/normandy)
+"yG" = (
+/obj/structure/bed/chair/dropship/doublewide/right/bravo,
+/obj/structure/bed/chair/dropship/doublewide/left/alpha,
+/turf/open/shuttle/dropship/floor/out{
+	dir = 8
+	},
+/area/shuttle/dropship/normandy)
 "zl" = (
 /turf/closed/shuttle/dropship2/enginethree{
 	dir = 4
@@ -298,22 +300,19 @@
 /turf/closed/shuttle/dropship2/engine_sidealt,
 /area/shuttle/dropship/normandy)
 "FA" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
-	},
 /obj/machinery/camera/autoname/mainship/dropship_two{
 	dir = 4
 	},
+/obj/structure/bed/chair/dropship/doublewide/right,
+/obj/structure/bed/chair/dropship/doublewide/left,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "FO" = (
 /turf/open/shuttle/dropship/five,
 /area/shuttle/dropship/normandy)
 "GC" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
-	},
-/turf/open/shuttle/dropship/floor,
+/obj/structure/bed/chair/dropship/doublewide/fieldcommander,
+/turf/open/shuttle/dropship/floor/alt,
 /area/shuttle/dropship/normandy)
 "Hf" = (
 /obj/structure/dropship_piece/two/front/right{
@@ -337,9 +336,6 @@
 /turf/open/shuttle/dropship/four,
 /area/shuttle/dropship/normandy)
 "IC" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
-	},
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 4
 	},
@@ -355,9 +351,6 @@
 /turf/template_noop,
 /area/shuttle/dropship/normandy)
 "KQ" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 8
-	},
 /obj/machinery/vending/nanomed{
 	dir = 8
 	},
@@ -378,9 +371,6 @@
 /turf/template_noop,
 /area/shuttle/dropship/normandy)
 "Ns" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 8
-	},
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
 	},
@@ -413,9 +403,6 @@
 	},
 /area/shuttle/dropship/normandy)
 "Qp" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
-	},
 /obj/machinery/vending/nanomed{
 	dir = 4
 	},
@@ -426,9 +413,6 @@
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "QV" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
-	},
 /obj/machinery/vending/nanomed{
 	dir = 4
 	},
@@ -459,6 +443,9 @@
 /area/shuttle/dropship/normandy)
 "Tk" = (
 /turf/open/shuttle/dropship/eight,
+/area/shuttle/dropship/normandy)
+"Tm" = (
+/turf/open/shuttle/dropship/thirtytwo,
 /area/shuttle/dropship/normandy)
 "Tw" = (
 /turf/closed/shuttle/dropship2/finleft{
@@ -508,10 +495,11 @@
 	},
 /area/shuttle/dropship/normandy)
 "XL" = (
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 8
+/obj/structure/bed/chair/dropship/doublewide/right/delta,
+/obj/structure/bed/chair/dropship/doublewide/left/charlie,
+/turf/open/shuttle/dropship/floor/out{
+	dir = 4
 	},
-/turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "XN" = (
 /turf/closed/shuttle/dropship2/interiorwindow,
@@ -591,14 +579,14 @@ cN
 cN
 KP
 Od
-GC
+pO
 FA
-GC
+pO
 ZE
 ZE
-GC
-GC
-GC
+pO
+pO
+pO
 rJ
 kD
 kD
@@ -616,17 +604,17 @@ XN
 Od
 Km
 Cd
-Cd
+fR
 Cd
 Cd
 Cd
 Cd
 HY
-GC
+pO
 QV
 IC
 rC
-GC
+ZE
 VE
 lp
 HU
@@ -638,11 +626,11 @@ PH
 VB
 Yi
 FO
-bq
-XL
+yG
+FO
 KQ
 Ns
-XL
+ZE
 bq
 YR
 Cd
@@ -661,9 +649,9 @@ pm
 ZE
 QD
 FO
-yt
+GC
 oF
-cE
+yt
 cE
 kh
 Dw
@@ -684,11 +672,11 @@ jc
 WO
 EF
 FO
-rC
-GC
+XL
+FO
 Qp
 IC
-GC
+ZE
 rC
 YR
 Cd
@@ -708,17 +696,17 @@ NN
 Od
 sx
 Cd
-Cd
+Tm
 Cd
 Cd
 Cd
 Cd
 Tk
-XL
+pO
 KQ
 Ns
 bq
-XL
+ZE
 VE
 jY
 Te
@@ -729,14 +717,14 @@ cN
 cN
 tn
 Od
-XL
+pO
 kZ
-XL
+pO
 ZE
 ZE
-XL
-XL
-XL
+pO
+pO
+pO
 uU
 ex
 ex
