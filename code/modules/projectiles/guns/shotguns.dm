@@ -343,6 +343,7 @@
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "trenchgun"
 	item_state = "trenchgun"
+	cock_animation = "trenchgun_pump"
 	fire_sound = 'sound/weapons/guns/fire/trenchgun.ogg'
 	reload_sound = 'sound/weapons/guns/interact/shotgun_cmb_insert.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/trenchgun_pump.ogg'

@@ -1108,6 +1108,7 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "m412l1"
 	item_state = "m412l1"
+	fire_animation = "m412l1_fire"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
@@ -2795,6 +2796,7 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "minimi"
 	item_state = "minimi"
+	fire_animation = "minimi_fire"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
