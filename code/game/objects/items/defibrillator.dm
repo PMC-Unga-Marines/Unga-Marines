@@ -354,7 +354,7 @@
 
 /obj/item/clothing/gloves/defibrillator
 	name = "advanced medical combat gloves"
-	desc = "Advanced medical gloves, these include small electrodes to defibrilate a patiant. Ignores armor and doesn't deal any damage to the patient's heart!"
+	desc = "Advanced medical gloves, these include small electrodes to defibrilate a patient. Ignores armor and doesn't deal any damage to the patient's heart!"
 	icon_state = "defib_out_full"
 	item_state = "defib_gloves"
 	soft_armor = list(MELEE = 25, BULLET = 15, LASER = 10, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 15)
