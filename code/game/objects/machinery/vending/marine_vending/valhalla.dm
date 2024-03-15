@@ -46,7 +46,7 @@
 			/obj/item/ammo_magazine/rifle/famas = -1,
 		),
 		"Mounted" = list(
-			/obj/item/weapon/gun/atr22 = -1,
+			/obj/structure/largecrate/supply/weapons/atr22 = -1,
 			/obj/item/ammo_magazine/atr22 = -1,
 			/obj/item/ammo_magazine/atr22/flak = -1,
 			/obj/item/weapon/gun/standard_minigun = -1,
@@ -58,7 +58,7 @@
 			/obj/item/ammo_magazine/agls37/flare = -1,
 			/obj/item/ammo_magazine/agls37/cloak = -1,
 			/obj/item/ammo_magazine/agls37/tanglefoot = -1,
-			/obj/item/weapon/gun/fk88 = -1,
+			/obj/structure/largecrate/supply/weapons/fk88 = -1,
 			/obj/item/ammo_magazine/fk88/he = -1,
 			/obj/item/ammo_magazine/fk88/sabot = -1,
 		),

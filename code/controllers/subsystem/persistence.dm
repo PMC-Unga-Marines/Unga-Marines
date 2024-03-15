@@ -347,6 +347,9 @@ SUBSYSTEM_DEF(persistence)
 	name = "Shock Weapons"
 	description = "RR and MLRS for roundstart vendors."
 	item_list = list(
+		/obj/structure/largecrate/supply/weapons/fk88 = 1,
+		/obj/item/ammo_magazine/fk88/he = 8,
+		/obj/item/ammo_magazine/fk88/sabot = 5,
 		/obj/item/storage/holster/backholster/rpg/full = 2,
 		/obj/item/ammo_magazine/rocket/recoilless = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/light = 4,
@@ -354,6 +357,4 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
 		/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
 		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 16,
-		/obj/structure/closet/crate/mortar_ammo/mlrs_kit = 2,
-		/obj/item/storage/box/mlrs_rockets_gas = 4,
 	)
