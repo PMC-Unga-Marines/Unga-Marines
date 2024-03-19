@@ -49,14 +49,8 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOMATIC)
 
-	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/hsg102,
-	)
-
-	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/hsg102,
-	)
-
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/hsg102,
 	)
@@ -124,7 +118,6 @@
 	aim_fire_delay = 0.05 SECONDS
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
-
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/heavy_minigun)
@@ -146,9 +139,7 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
-
-	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest,)
-
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
 
 //-------------------------------------------------------
@@ -224,7 +215,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
-
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 
 	allowed_ammo_types = list(/obj/item/cell/lasgun/heavy_laser)
