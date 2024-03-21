@@ -1,11 +1,18 @@
 //Species unarmed attacks
 /datum/unarmed_attack
-	var/attack_verb = list("attack")	// Empty hand hurt intent verb.
-	var/damage = 0						// Extra empty hand attack damage.
+	/// Empty hand hurt intent verb.
+	var/attack_verb = list("attack")
+	/// Extra empty hand attack damage.
+	var/damage = 0
+	/// Sound that plays when you land a punch
 	var/attack_sound = "punch"
+	/// Sound that plays when you miss a punch
 	var/miss_sound = 'sound/weapons/punchmiss.ogg'
-	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
+	/// Calls the old attack_alien() behavior on objects/mobs when on harm intent.
+	var/shredding = 0
+	/// Whether our unarmed attack cuts
 	var/sharp = 0
+	/// Whether our unarmed attack is more likely to dismember
 	var/edge = 0
 
 /datum/unarmed_attack/proc/is_usable(mob/living/carbon/human/user)

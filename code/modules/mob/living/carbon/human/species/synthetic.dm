@@ -1,6 +1,5 @@
 /datum/species/synthetic
 	name = "Synthetic"
-	name_plural = "Synthetics"
 
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic

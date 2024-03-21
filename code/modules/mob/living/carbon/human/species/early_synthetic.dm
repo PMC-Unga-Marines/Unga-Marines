@@ -1,7 +1,6 @@
 //It really should be just a subtype of synthetic
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"
-	name_plural = "Early Synthetics"
 	icobase = 'icons/mob/human_races/r_synthetic.dmi'
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
