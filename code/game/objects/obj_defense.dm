@@ -61,6 +61,12 @@
 		return
 	take_damage(severity, BRUTE, BOMB, FALSE, direction)
 
+/obj/lava_act()
+	take_damage(25, BURN, FIRE)
+	if(QDELETED(src))
+		return
+	fire_act()
+
 /obj/hitby(atom/movable/AM, speed = 5)
 	. = ..()
 	if(!.)
