@@ -229,7 +229,7 @@
 
 /turf/closed/gm/ex_act(severity)
 	if(severity >= EXPLODE_DEVASTATE)
-		change_turf(/turf/open/ground/grass)
+		change_turf(/turf/open/ground/grass/weedable)
 
 /turf/closed/gm/dense
 	name = "dense jungle wall"
