@@ -197,7 +197,7 @@
 
 /obj/effect/landmark/resin_jelly_pod
 	name = "xeno jelly pod landmark"
-	icon = 'icons/Xeno/resinpod.dmi'
+	icon = 'icons/Xeno/resin_pod.dmi'
 	icon_state = "resinpod"
 
 /obj/effect/landmark/resin_jelly_pod/Initialize(mapload)
@@ -207,7 +207,7 @@
 
 /obj/effect/landmark/xeno_turret
 	name = "xeno turret landmark"
-	icon = 'icons/Xeno/acidturret.dmi'
+	icon = 'icons/Xeno/acid_turret.dmi'
 	icon_state = "acid_turret"
 
 /obj/effect/landmark/xeno_turret/Initialize(mapload)
