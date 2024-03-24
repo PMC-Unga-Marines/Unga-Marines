@@ -130,6 +130,3 @@
 
 /obj/structure/fence/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
-	
-/obj/structure/fence/broken
-	chance_to_break = 100
