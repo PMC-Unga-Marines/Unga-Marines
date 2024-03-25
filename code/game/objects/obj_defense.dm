@@ -62,10 +62,14 @@
 	take_damage(severity, BRUTE, BOMB, FALSE, direction)
 
 /obj/lava_act()
-	take_damage(25, BURN, FIRE)
+	if(resistance_flags & INDESTRUCTIBLE)
+		return FALSE
+	if(!take_damage(50, BURN, FIRE))
+		return FALSE
 	if(QDELETED(src))
-		return
+		return FALSE
 	fire_act()
+	return TRUE
 
 /obj/hitby(atom/movable/AM, speed = 5)
 	. = ..()
