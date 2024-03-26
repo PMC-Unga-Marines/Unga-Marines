@@ -184,7 +184,7 @@
 	new /obj/effect/acid_hole(src)
 
 ///Applies damage to the wall
-/turf/closed/wall/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, armour_penetration = 0)
+/turf/closed/wall/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = null, armour_penetration = 0)
 	if(resistance_flags & INDESTRUCTIBLE) //Hull is literally invincible
 		return
 

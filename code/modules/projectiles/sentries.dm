@@ -309,7 +309,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	set_on(FALSE)
 	update_icon()
 
-/obj/machinery/deployable/mounted/sentry/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
+/obj/machinery/deployable/mounted/sentry/take_damage(damage_amount, damage_type, damage_flag = null, effects, attack_dir, armour_penetration)
 	if(damage_amount <= 0)
 		return
 	if(prob(10))

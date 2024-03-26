@@ -41,7 +41,7 @@
 		if(80 to 100)
 			. += span_info("It appears in good shape, pulsating healthily.")
 
-/obj/structure/xeno/spawner/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/structure/xeno/spawner/take_damage(damage_amount, damage_type, damage_flag = null, sound_effect, attack_dir, armour_penetration)
 	. = ..()
 	spawner_damage_alert()
 

@@ -62,7 +62,7 @@
 		playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
 		user.visible_message(span_notice("[user] repairs [src] with [R]."),
 		span_notice("You repair [src] with [R]"))
-	
+
 /obj/structure/fence/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	if(!isliving(grab.grabbed_thing))
 		return
@@ -130,3 +130,6 @@
 
 /obj/structure/fence/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
+	
+/obj/structure/fence/broken
+	chance_to_break = 100
