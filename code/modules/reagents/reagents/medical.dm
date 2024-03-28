@@ -791,8 +791,8 @@
 	scannable = TRUE
 
 /datum/reagent/medicine/peridaxon_plus/on_mob_life(mob/living/L, metabolism)
-	L.reagents.add_reagent(/datum/reagent/toxin,5)
-	L.adjust_stamina_loss(10*effect_str)
+	L.reagents.add_reagent(/datum/reagent/toxin/scannable, 5)
+	L.adjust_stamina_loss(10 * effect_str)
 	if(!ishuman(L))
 		return ..()
 	var/mob/living/carbon/human/H = L
@@ -928,7 +928,7 @@
 		target_IB = null
 
 /datum/reagent/medicine/quickclotplus/on_mob_life(mob/living/L, metabolism)
-	L.reagents.add_reagent(/datum/reagent/toxin,5)
+	L.reagents.add_reagent(/datum/reagent/toxin/scannable,5)
 	L.reagent_shock_modifier -= PAIN_REDUCTION_VERY_HEAVY
 	L.adjust_stamina_loss(15*effect_str)
 	if(!target_IB)
@@ -992,8 +992,8 @@
 	if(L.blood_volume < BLOOD_VOLUME_OKAY)
 		L.blood_volume += 3.4
 	if(L.blood_volume < BLOOD_VOLUME_BAD)
-		L.blood_volume = (BLOOD_VOLUME_BAD+2)
-		L.reagents.add_reagent(/datum/reagent/toxin,25)
+		L.blood_volume = (BLOOD_VOLUME_BAD + 2)
+		L.reagents.add_reagent(/datum/reagent/toxin/scannable, 25)
 		L.AdjustSleeping(10 SECONDS)
 	return ..()
 

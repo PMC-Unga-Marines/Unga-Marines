@@ -17,6 +17,10 @@
 		L.adjust_tox_loss(toxpwr*0.5*effect_str)
 	return ..()
 
+///For medicines that generate toxin reagent when metabolized
+/datum/reagent/toxin/scannable
+	scannable = TRUE
+
 /datum/reagent/toxin/hptoxin
 	name = "Toxin"
 	description = "A toxic chemical."
