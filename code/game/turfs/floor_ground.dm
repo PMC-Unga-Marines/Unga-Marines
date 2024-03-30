@@ -168,6 +168,7 @@
 /turf/open/floor/plating/ground/mars/random/cave
 	name = "cave"
 	icon_state = "mars_cave"
+	smoothing_groups = list(SMOOTH_GROUP_SAND)
 
 /turf/open/floor/plating/ground/mars/random/cave/darker
 	color = "#948a7c"
@@ -348,7 +349,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth/alt
 	icon = 'icons/turf/floors/asphalt-sunbleached.dmi'
 	base_icon_state = "asphalt-sunbleached"
-
+	
 //CAVE
 /turf/open/floor/plating/ground/desertdam/cave
 	name = "cave"

@@ -34543,10 +34543,6 @@
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/deltastation/command/heads_quarters/ce)
-"hao" = (
-/obj/machinery/landinglight/lz1,
-/turf/open/floor/asteroidfloor,
-/area/deltastation/external/landingzone)
 "har" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
@@ -35136,6 +35132,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/aft)
+"hfw" = (
+/obj/machinery/landinglight/lz1{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "hfA" = (
 /obj/structure/lattice,
 /obj/structure/grille/smoothing,
@@ -59570,6 +59573,12 @@
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
 /turf/closed/mineral/smooth,
 /area/deltastation/hallway/secondary/entry)
+"msq" = (
+/obj/machinery/floodlight/landing,
+/obj/effect/turf_decal/warning_stripes,
+/obj/structure/cable,
+/turf/open/floor/mech_bay_recharge_floor,
+/area/deltastation/external/landingzone)
 "msD" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 2;
@@ -75267,6 +75276,12 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted,
 /turf/open/floor/iron,
 /area/deltastation/cargo/office)
+"pHi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/landinglight/lz1,
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "pHj" = (
 /obj/effect/turf_decal/tile/transparent/neutral{
 	dir = 4
@@ -78479,6 +78494,11 @@
 /obj/effect/spawner/random/misc/structure/fire_closet,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/department/science/xenobiology)
+"qoE" = (
+/obj/machinery/landinglight/lz1,
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "qoF" = (
 /obj/machinery/door/poddoor/shutters/opened{
 	dir = 2;
@@ -97598,11 +97618,6 @@
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
 /turf/open/floor/plating,
 /area/deltastation/tcommsat/server)
-"uin" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/landinglight/lz1,
-/turf/open/floor/asteroidfloor,
-/area/deltastation/external/landingzone)
 "uit" = (
 /obj/effect/turf_decal/tile/transparent/neutral/anticorner/contrasted{
 	dir = 8
@@ -164352,7 +164367,7 @@ dfm
 xuY
 xuY
 xuY
-vNR
+xuY
 vNR
 vNR
 cSG
@@ -164610,8 +164625,8 @@ xuY
 xuY
 dfm
 xuY
-vNR
-vNR
+xuY
+xuY
 cSG
 sbS
 vNR
@@ -164868,7 +164883,7 @@ dfm
 xuY
 xuY
 xuY
-vNR
+xuY
 cSG
 sbS
 vNR
@@ -165101,8 +165116,7 @@ vNR
 pCr
 dfm
 xuY
-vXs
-orp
+msq
 rTj
 rTj
 rLQ
@@ -165125,6 +165139,7 @@ rTj
 rTj
 rTj
 orp
+xuY
 dfm
 cSG
 sbS
@@ -165358,8 +165373,7 @@ vNR
 xoq
 xoq
 sfZ
-bYh
-uin
+pHi
 phF
 wVi
 wVi
@@ -165382,6 +165396,7 @@ wVi
 wVi
 dQu
 guZ
+xuY
 xuY
 cSG
 sbS
@@ -165615,8 +165630,7 @@ vNR
 toH
 nZF
 aZA
-vXs
-hao
+qoE
 pCO
 qgB
 mmf
@@ -165639,6 +165653,7 @@ mmf
 qgB
 nEs
 dOS
+xuY
 bqa
 cSG
 sbS
@@ -165872,8 +165887,7 @@ vNR
 jOD
 gdc
 aZA
-vXs
-uin
+pHi
 pCO
 qgB
 qgB
@@ -165896,6 +165910,7 @@ qgB
 qgB
 nEs
 guZ
+dfm
 dfm
 cSG
 sbS
@@ -166129,8 +166144,7 @@ vNR
 toH
 xaf
 aZA
-bYh
-hao
+qoE
 pCO
 qgB
 qgB
@@ -166153,6 +166167,7 @@ qgB
 qgB
 nEs
 dOS
+xuY
 xuY
 cSG
 sbS
@@ -166386,8 +166401,7 @@ vNR
 bPd
 bPd
 kZL
-vXs
-uin
+pHi
 pCO
 qgB
 qgB
@@ -166410,6 +166424,7 @@ qgB
 qgB
 nEs
 dOS
+dfm
 dfm
 cSG
 sbS
@@ -166643,8 +166658,7 @@ vNR
 toH
 toH
 aZA
-bYh
-uin
+pHi
 pCO
 qgB
 qgB
@@ -166667,6 +166681,7 @@ qgB
 qgB
 nEs
 dOS
+xuY
 xuY
 cSG
 sbS
@@ -166900,8 +166915,7 @@ vNR
 npA
 toH
 sYK
-vXs
-uin
+pHi
 pCO
 qgB
 qgB
@@ -166924,6 +166938,7 @@ qgB
 qgB
 nEs
 dOS
+dfm
 dfm
 cSG
 sbS
@@ -167157,8 +167172,7 @@ vNR
 toH
 xuo
 kZL
-vXs
-hao
+qoE
 pCO
 qgB
 qgB
@@ -167181,6 +167195,7 @@ qgB
 qgB
 nEs
 dOS
+dfm
 xuY
 cSG
 sbS
@@ -167414,8 +167429,7 @@ vNR
 toH
 xuo
 kZL
-bYh
-uin
+pHi
 pCO
 qgB
 qgB
@@ -167437,7 +167451,8 @@ qgB
 qgB
 qgB
 nEs
-guZ
+hfw
+xuY
 dfm
 cSG
 sbS
@@ -167671,8 +167686,7 @@ vNR
 xuo
 toH
 sYK
-vXs
-uin
+pHi
 pCO
 qgB
 mmf
@@ -167695,6 +167709,7 @@ mmf
 qgB
 nEs
 dOS
+xuY
 bqa
 cSG
 sbS
@@ -167928,8 +167943,7 @@ vNR
 njf
 njf
 liB
-bYh
-hao
+qoE
 wIv
 wAz
 wAz
@@ -167952,6 +167966,7 @@ wAz
 wAz
 wkR
 guZ
+xuY
 dfm
 cSG
 sbS
@@ -168185,8 +168200,7 @@ vNf
 xuY
 dfm
 xuY
-vXs
-orp
+msq
 fcv
 exa
 fcv
@@ -168209,6 +168223,7 @@ exa
 fcv
 fcv
 orp
+xuY
 xuY
 cSG
 sbS

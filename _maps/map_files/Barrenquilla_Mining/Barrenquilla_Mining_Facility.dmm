@@ -20,13 +20,13 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 1
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "am" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "an" = (
 /obj/machinery/floodlight/landing,
@@ -176,7 +176,7 @@
 "bc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "bd" = (
 /obj/structure/sign/poster,
@@ -281,7 +281,7 @@
 /area/barren/misc/genstorage)
 "bB" = (
 /obj/structure/sign/poster,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "bD" = (
 /obj/machinery/camera/autoname/lz_camera,
@@ -403,7 +403,7 @@
 /area/shuttle/drop1/lz1)
 "ci" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "cj" = (
 /obj/structure/table,
@@ -1843,7 +1843,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "iH" = (
 /obj/item/storage/firstaid,
@@ -2519,7 +2519,7 @@
 /area/barren/civilian/workdorm)
 "lJ" = (
 /obj/structure/fence,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/cave/west)
 "lK" = (
 /obj/structure/sign/nosmoking_2,
@@ -3667,7 +3667,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/cave/lz1)
 "rd" = (
 /obj/structure/barricade/wooden{
@@ -4313,7 +4313,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "ua" = (
 /obj/effect/decal/cleanable/blood,
@@ -5689,7 +5689,7 @@
 /area/barren/cave/central)
 "AH" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/southwest)
 "AI" = (
 /obj/structure/cable,
@@ -6071,7 +6071,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "Cv" = (
 /obj/effect/turf_decal/woodsiding{
@@ -6950,7 +6950,7 @@
 /area/barren/security)
 "GK" = (
 /obj/structure/cable,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "GL" = (
 /obj/structure/bed/chair/comfy/black{
@@ -9221,7 +9221,7 @@
 /area/barren/misc/ruin)
 "RO" = (
 /obj/docking_port/stationary/crashmode,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "RP" = (
 /obj/structure/closet/crate/trashcart,
@@ -9503,7 +9503,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/cave/west)
 "Tk" = (
 /obj/structure/cable,
@@ -10237,7 +10237,7 @@
 /area/barren/caves/south)
 "WS" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "WT" = (
 /obj/machinery/door/airlock/colony/medical{
@@ -10839,7 +10839,7 @@
 /turf/open/floor,
 /area/barren/misc/eastarmory)
 "ZK" = (
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/cave/central)
 "ZL" = (
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -10874,7 +10874,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "ZS" = (
-/turf/closed/mineral/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "ZT" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
