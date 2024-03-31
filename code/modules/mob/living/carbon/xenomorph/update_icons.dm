@@ -20,8 +20,7 @@
 	update_icons()
 
 /mob/living/carbon/xenomorph/update_icons(state_change = TRUE)
-	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED))
-		return
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_UPDATE_ICONS, state_change)
 	if(state_change)
 		if(stat == DEAD)
 			icon_state = "[xeno_caste.caste_name] Dead"
@@ -102,7 +101,7 @@
 	wound_overlay.layer = layer + 0.3
 	wound_overlay.icon = src.icon
 	wound_overlay.vis_flags |= VIS_HIDE
-	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED) || HAS_TRAIT(src, TRAIT_BURROWED))
+	if(HAS_TRAIT(src, TRAIT_XENOMORPH_INVISIBLE_BLOOD) || HAS_TRAIT(src, TRAIT_BURROWED))
 		wound_overlay.icon_state = "none"
 		return
 	if(health > health_threshold_crit)

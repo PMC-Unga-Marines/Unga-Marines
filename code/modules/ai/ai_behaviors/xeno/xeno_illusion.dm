@@ -8,7 +8,7 @@
 /datum/ai_behavior/xeno/illusion/New(loc, parent_to_assign, escorted_atom)
 	if(!escorted_atom)
 		base_action = MOVING_TO_NODE
-	..()
+	return ..()
 
 /// We want a separate look_for_new_state in order to make illusions behave as we wish
 /datum/ai_behavior/xeno/illusion/look_for_new_state()
