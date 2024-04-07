@@ -188,6 +188,10 @@
 	shuttle_id = SHUTTLE_SUPPLY
 	name = SHUTTLE_SUPPLY
 
+/datum/map_template/shuttle/supply/vehicle
+	shuttle_id = SHUTTLE_VEHICLE_SUPPLY
+	name = SHUTTLE_VEHICLE_SUPPLY
+
 /datum/map_template/shuttle/tgs_canterbury
 	shuttle_id = SHUTTLE_CANTERBURY
 	name = "Canterbury"
