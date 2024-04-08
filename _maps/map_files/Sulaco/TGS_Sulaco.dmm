@@ -1803,6 +1803,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/prison/plate,
 /area/sulaco/cargo/prep)
+"aiT" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "aiW" = (
 /obj/machinery/power/apc/mainship{
 	dir = 4
@@ -2236,6 +2246,12 @@
 	dir = 6
 	},
 /area/sulaco/research)
+"alR" = (
+/obj/machinery/door/poddoor/railing{
+	id = "vehicle_elevator_railing"
+	},
+/turf/closed/wall/mainship/gray,
+/area/sulaco/hangar/storage)
 "alW" = (
 /obj/structure/sign/prop2,
 /turf/open/floor/plating,
@@ -7984,6 +8000,14 @@
 	},
 /turf/open/floor/prison/bright_clean,
 /area/sulaco/hangar)
+"aRS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door_control/mainship/mech{
+	dir = 1;
+	id = "mech_shutters_1"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "aRT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{
 	dir = 4
@@ -11241,6 +11265,15 @@
 /obj/machinery/door/firedoor/mainship,
 /turf/open/floor/plating/platebotc,
 /area/mainship/shipboard/weapon_room)
+"dDW" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/machinery/vending/engivend,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "dEd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -14193,6 +14226,17 @@
 	dir = 8
 	},
 /area/sulaco/medbay/west)
+"hAn" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/obj/machinery/tank_part_fabricator,
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "hAO" = (
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 1
@@ -15695,6 +15739,11 @@
 	},
 /turf/open/floor/prison,
 /area/sulaco/marine/chapel)
+"jmy" = (
+/obj/machinery/light/mainship,
+/obj/structure/bed/bunkbed,
+/turf/open/floor/mainship/black,
+/area/sulaco/mechpilotquarters)
 "jnn" = (
 /obj/structure/window/framed/mainship/gray/toughened,
 /obj/machinery/door/poddoor/telecomms,
@@ -17662,6 +17711,18 @@
 /obj/effect/turf_decal/warning_stripes/thick/corner,
 /turf/open/floor/plating,
 /area/sulaco/hangar)
+"lML" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/structure/rack,
+/obj/machinery/light/mainship/small{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "lMO" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 8
@@ -18819,6 +18880,18 @@
 	dir = 4
 	},
 /area/sulaco/marine)
+"npC" = (
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/yellow/hidden{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/sulaco/marine)
 "nqJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod,
@@ -19000,6 +19073,16 @@
 	},
 /turf/open/floor/prison/bright_clean,
 /area/sulaco/hangar)
+"nGd" = (
+/obj/machinery/door/poddoor/railing{
+	id = "vehicle_elevator_railing"
+	},
+/obj/machinery/door/firedoor/mainship,
+/obj/machinery/door/poddoor/mainship/mech{
+	id = "mech_shutters_3"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "nGG" = (
 /obj/machinery/door_control/mainship/tcomms{
 	dir = 8;
@@ -19805,6 +19888,16 @@
 	},
 /turf/open/floor/tile/hydro,
 /area/sulaco/hydro)
+"oEr" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "oEw" = (
 /obj/structure/window/framed/mainship/gray/toughened,
 /turf/open/floor/prison,
@@ -21206,6 +21299,15 @@
 /obj/effect/ai_node,
 /turf/open/floor/prison,
 /area/sulaco/marine)
+"qwj" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "qxr" = (
 /turf/open/floor/plating,
 /area/mainship/command/self_destruct)
@@ -24244,6 +24346,13 @@
 	},
 /turf/open/floor/prison,
 /area/sulaco/cargo/prep)
+"uiA" = (
+/obj/effect/turf_decal/warning_stripes/thick/corner{
+	dir = 4
+	},
+/obj/machinery/gear/vehicle,
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "uiN" = (
 /obj/structure/table/mainship/nometal,
 /obj/item/weapon/gun/rifle/m412,
@@ -24350,6 +24459,15 @@
 	},
 /turf/open/floor/plating,
 /area/sulaco/hangar)
+"uoJ" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/machinery/vending/tool,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "uoT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -26250,6 +26368,15 @@
 "wTo" = (
 /turf/open/floor/prison/arrow/clean,
 /area/mainship/command/self_destruct)
+"wTy" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 10
+	},
+/obj/effect/turf_decal/warning_stripes/thick/corner,
+/obj/machinery/gear/vehicle,
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "wTC" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
@@ -26478,6 +26605,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/sulaco/engineering/storage)
+"xiF" = (
+/obj/docking_port/stationary/supply/vehicle,
+/turf/open/floor/mainship/empty,
+/area/sulaco/hangar/storage)
 "xjl" = (
 /obj/structure/window/framed/mainship/gray/toughened,
 /obj/machinery/door/poddoor/shutters/opened/medbay{
@@ -26851,6 +26982,15 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/sulaco/hallway/lower_main_hall)
+"xLQ" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "xMC" = (
 /obj/structure/window/framed/mainship/gray/toughened,
 /obj/machinery/door/poddoor/opened{

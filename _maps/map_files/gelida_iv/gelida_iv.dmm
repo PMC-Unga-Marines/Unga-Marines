@@ -7356,6 +7356,9 @@
 	dir = 4
 	},
 /area/gelida/indoors/a_block/dorms)
+"eQn" = (
+/turf/closed/mineral/smooth/darkfrostwall,
+/area/gelida/outdoors/rock)
 "eQB" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -8561,19 +8564,6 @@
 	},
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
-"fMY" = (
-/obj/machinery/door/airlock/mainship/security/glass{
-	name = "\improper Marshall Office Interrogation";
-	req_access = null
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship/stripesquare,
-/area/gelida/indoors/a_block/security)
 "fNo" = (
 /obj/structure/bed{
 	dir = 5;
@@ -12042,6 +12032,10 @@
 	dir = 6
 	},
 /area/gelida/indoors/a_block/admin)
+"ieX" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth/darkfrostwall,
+/area/gelida/outdoors/rock)
 "ieY" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -19693,6 +19687,9 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/west_caves)
+"nqU" = (
+/turf/closed/mineral/smooth/darkfrostwall,
+/area/gelida/powergen)
 "nqZ" = (
 /obj/effect/spawner/random/engineering/wood,
 /turf/open/floor/prison/darkbrown/full,
@@ -30250,6 +30247,16 @@
 	},
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/mining)
+"uuY" = (
+/obj/machinery/door/airlock/mainship/security/glass{
+	name = "\improper Marshall Office Interrogation";
+	req_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor/mainship/stripesquare,
+/area/gelida/indoors/a_block/security)
 "uvE" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -54596,7 +54603,7 @@ wtG
 haP
 haP
 haP
-fMY
+uuY
 haP
 qWi
 qWi

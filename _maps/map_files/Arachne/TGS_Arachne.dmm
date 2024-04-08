@@ -142,6 +142,18 @@
 /obj/effect/landmark/start/job/squadsmartgunner,
 /turf/open/floor/mainship/black/full,
 /area/mainship/living/cryo_cells)
+"aiK" = (
+/obj/machinery/vending/nanomed{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/living/tankerbunks)
 "aiT" = (
 /obj/machinery/line_nexter,
 /turf/open/floor/plating,
@@ -586,6 +598,18 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/medical/medical_science)
+"aDg" = (
+/obj/machinery/camera/autoname/mainship{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/living/tankerbunks)
 "aDl" = (
 /obj/machinery/telecomms/hub/preset,
 /turf/open/floor/mainship/tcomms,
@@ -1221,6 +1245,16 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/living/grunt_rnr)
+"bjs" = (
+/obj/machinery/door/poddoor/mainship/mech{
+	id = "vehicle_shutters";
+	name = "Vehicle Bay Shutters"
+	},
+/obj/machinery/door/firedoor/mainship{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/living/tankerbunks)
 "bkt" = (
 /obj/structure/closet/secure_closet/shiptech,
 /turf/open/floor/mainship/cargo,
@@ -3657,6 +3691,19 @@
 /obj/machinery/firealarm,
 /turf/open/floor/wood,
 /area/mainship/hallways/port_hallway)
+"dkg" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
+/area/mainship/living/tankerbunks)
 "dki" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/structure/window/reinforced/windowstake{
@@ -3743,6 +3790,19 @@
 	dir = 8
 	},
 /area/mainship/living/cryo_cells)
+"dnw" = (
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/structure/disposalpipe/segment/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/tankerbunks)
 "dnA" = (
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/lounge)
@@ -3806,6 +3866,23 @@
 	dir = 9
 	},
 /area/mainship/medical/upper_medical)
+"dpk" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange,
+/area/mainship/living/tankerbunks)
 "dpm" = (
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/mainship/red,
@@ -4144,6 +4221,21 @@
 "dCk" = (
 /turf/open/floor/mainship/floor,
 /area/mainship/command/self_destruct)
+"dCr" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 4
+	},
+/area/mainship/living/tankerbunks)
 "dCA" = (
 /turf/open/floor/mainship/black/corner,
 /area/mainship/hallways/starboard_hallway)
@@ -8157,6 +8249,15 @@
 	dir = 6
 	},
 /area/mainship/engineering/engineering_workshop)
+"gYD" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/open/floor/mainship/orange,
+/area/mainship/living/tankerbunks)
 "gYN" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/wood,
@@ -8223,6 +8324,15 @@
 	dir = 1
 	},
 /area/mainship/command/airoom)
+"hcy" = (
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
+/area/mainship/living/tankerbunks)
 "hcM" = (
 /obj/machinery/door/airlock/multi_tile/mainship/secdoor/glass{
 	dir = 1;
@@ -8553,6 +8663,18 @@
 "hoN" = (
 /turf/open/floor/mainship/floor,
 /area/mainship/hull/starboard_hull)
+"hpn" = (
+/obj/machinery/firealarm{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/living/tankerbunks)
 "hpL" = (
 /obj/structure/table/mainship/nometal,
 /obj/machinery/power/monitor,
@@ -8976,12 +9098,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/living/evacuation)
-"hFd" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship/floor,
-/area/mainship/living/evacuation)
 "hFf" = (
 /obj/machinery/door_control/mainship/ammo{
 	id = "ammo1";
@@ -8991,6 +9107,28 @@
 	dir = 1
 	},
 /area/mainship/hallways/hangar)
+"hFG" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
+/area/mainship/living/tankerbunks)
 "hFH" = (
 /obj/machinery/telecomms/receiver/preset_left,
 /turf/open/floor/mainship/tcomms,
@@ -9228,6 +9366,17 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
 /area/mainship/medical/upper_medical)
+"hSz" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/cable,
+/turf/open/floor/mainship/orange/corner{
+	dir = 4
+	},
+/area/mainship/living/tankerbunks)
 "hSH" = (
 /obj/machinery/door/poddoor/mainship/ammo{
 	dir = 4;
@@ -11832,6 +11981,16 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/engineering_workshop)
+"jVr" = (
+/obj/machinery/door_control/mainship/mech{
+	dir = 8;
+	id = "vehicle_shutters";
+	name = "Vehicle Bay Shutter"
+	},
+/turf/open/floor/mainship/black{
+	dir = 4
+	},
+/area/mainship/hallways/hangar)
 "jVv" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/visible/layer1{
 	dir = 8
@@ -12013,6 +12172,17 @@
 "kei" = (
 /turf/closed/wall/mainship,
 /area/mainship/command/self_destruct)
+"keB" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/living/tankerbunks)
 "keF" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -12543,6 +12713,18 @@
 	dir = 4
 	},
 /area/mainship/hallways/hangar)
+"kAu" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/closet/toolcloset,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/living/tankerbunks)
 "kAC" = (
 /obj/structure/closet/radiation,
 /obj/machinery/firealarm{
@@ -13042,6 +13224,25 @@
 /obj/effect/landmark/start/job/researcher,
 /turf/open/floor/wood,
 /area/mainship/medical/medical_science)
+"kQT" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment/corner,
+/obj/structure/cable,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/mainship/orange/corner{
+	dir = 8
+	},
+/area/mainship/living/tankerbunks)
 "kQU" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
@@ -14008,6 +14209,9 @@
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
+"lEn" = (
+/turf/open/floor/mainship/empty,
+/area/mainship/living/tankerbunks)
 "lEN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -14674,6 +14878,13 @@
 "meP" = (
 /turf/open/space/basic,
 /area/space)
+"mfy" = (
+/obj/machinery/door/poddoor/mainship/mech{
+	id = "vehicle_shutters";
+	name = "Vehicle Bay Shutters"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/living/tankerbunks)
 "mfz" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -15169,6 +15380,20 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/purple/side,
 /area/mainship/medical/upper_medical)
+"mAG" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange,
+/area/mainship/living/tankerbunks)
 "mBg" = (
 /obj/machinery/holopad,
 /turf/open/floor/mainship/silver,
@@ -19528,6 +19753,36 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/hallways/starboard_ert)
+"qfK" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/clipboard{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/paper{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/tool/pen{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/tool/stamp/qm{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/machinery/door_control/old/req{
+	pixel_x = -9;
+	pixel_y = -5
+	},
+/obj/effect/spawner/random/misc/paperbin{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/turf/open/floor/mainship/green{
+	dir = 1
+	},
+/area/mainship/squads/req)
 "qfR" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
@@ -19877,6 +20132,16 @@
 /obj/machinery/status_display,
 /turf/closed/wall/mainship,
 /area/mainship/engineering/engineering_workshop)
+"qvT" = (
+/obj/machinery/light/mainship,
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/living/tankerbunks)
 "qwC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -20087,6 +20352,17 @@
 	dir = 1
 	},
 /area/mainship/medical/lower_medical)
+"qHE" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 4
+	},
+/area/mainship/living/tankerbunks)
 "qHK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -20923,6 +21199,24 @@
 /obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/mainship/hallways/port_hallway)
+"roL" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/mainship/orange/corner{
+	dir = 2
+	},
+/area/mainship/living/tankerbunks)
 "roV" = (
 /obj/structure/cable,
 /obj/machinery/power/smes/preset,
@@ -22682,6 +22976,16 @@
 /obj/machinery/holopad,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_one)
+"sMZ" = (
+/obj/effect/ai_node,
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
+/area/mainship/living/tankerbunks)
 "sOH" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/structure/cable,
@@ -23750,6 +24054,13 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plating,
 /area/mainship/engineering/engineering_workshop)
+"tPp" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/tank_part_fabricator,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/tankerbunks)
 "tPr" = (
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/lower_medical)
@@ -23807,6 +24118,11 @@
 /obj/structure/toilet,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/pilotbunks)
+"tSO" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship/floor,
+/area/mainship/living/evacuation)
 "tTm" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 1;
@@ -23997,6 +24313,11 @@
 	dir = 6
 	},
 /area/mainship/command/self_destruct)
+"ufS" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship/black,
+/area/mainship/hallways/port_hallway)
 "uge" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -24902,6 +25223,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
+"uQk" = (
+/obj/docking_port/stationary/supply/vehicle,
+/turf/open/floor/mainship/empty,
+/area/mainship/living/tankerbunks)
 "uQp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -25201,15 +25526,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
-"veo" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship/silver{
-	dir = 1
-	},
-/area/mainship/living/evacuation)
 "veE" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -25846,6 +26162,23 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
+"vFz" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/mainship{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/mainship/mech{
+	id = "vehicle_shutters";
+	name = "Vehicle Bay Shutters"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/living/tankerbunks)
 "vFY" = (
 /obj/effect/ai_node,
 /turf/open/floor/wood,
@@ -26105,17 +26438,6 @@
 	dir = 4
 	},
 /area/mainship/medical/upper_medical)
-"vQh" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship/silver{
-	dir = 1
-	},
-/area/mainship/living/evacuation)
 "vQH" = (
 /obj/machinery/computer/med_data,
 /turf/open/floor/mainship/sterile/dark,
@@ -26800,6 +27122,19 @@
 	dir = 5
 	},
 /area/mainship/command/cic)
+"wvI" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 5
+	},
+/obj/machinery/door_control/mainship/mech{
+	dir = 4;
+	id = "vehicle_shutters";
+	name = "Vehicle Bay Shutter"
+	},
+/turf/open/floor/mainship/orange/corner{
+	dir = 4
+	},
+/area/mainship/living/tankerbunks)
 "wvL" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -27523,6 +27858,23 @@
 	dir = 4
 	},
 /area/mainship/hallways/starboard_hallway)
+"xaN" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/tankerbunks)
 "xaR" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -27989,6 +28341,20 @@
 	dir = 10
 	},
 /area/mainship/hallways/port_hallway)
+"xyg" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/tankerbunks)
 "xyx" = (
 /obj/structure/window/framed/mainship/white,
 /obj/machinery/door/firedoor/mainship{
@@ -34982,7 +35348,7 @@ fyL
 wmf
 puU
 etL
-veo
+bUi
 jou
 pHG
 fld
@@ -35084,7 +35450,7 @@ fyL
 wmf
 hEO
 dGV
-veo
+bUi
 efm
 xha
 xDu
@@ -35186,7 +35552,7 @@ rZc
 rwL
 uYs
 dGV
-hYZ
+bUi
 ecY
 ecY
 ncu
@@ -37297,7 +37663,7 @@ lKr
 tEM
 jDI
 iaJ
-dkl
+qfK
 iGV
 aQr
 aQr
@@ -37402,7 +37768,7 @@ iaJ
 fIq
 wKd
 oKw
-iwn
+oab
 gqm
 gLl
 mrT
