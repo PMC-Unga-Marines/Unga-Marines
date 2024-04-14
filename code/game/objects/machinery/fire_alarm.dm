@@ -83,9 +83,10 @@
 	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
 		. += mutable_appearance(icon, "fire_o1")
 
-/obj/machinery/firealarm/fire_act(temperature, volume)
-	if(detecting && (temperature > T0C+200))
-		alarm()			// added check of detector status here
+/obj/machinery/firealarm/fire_act(burn_level)
+	if(!detecting)
+		return
+	alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
 	if(prob(50/severity))

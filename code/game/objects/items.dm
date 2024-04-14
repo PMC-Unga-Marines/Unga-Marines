@@ -1025,8 +1025,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 					W.reagents.reaction(atm)
 					if(istype(atm, /obj/flamer_fire))
 						var/obj/flamer_fire/FF = atm
-						if(FF.firelevel > 20)
-							FF.firelevel -= 20
+						if(FF.fire_level > 20)
+							FF.fire_level -= 20
 							FF.updateicon()
 						else
 							qdel(atm)

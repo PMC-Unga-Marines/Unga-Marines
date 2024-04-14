@@ -240,8 +240,8 @@
 		return FALSE
 
 	var/datum/ammo/flamethrower/loaded_ammo = CHECK_BITFIELD(flags_flamer_features, FLAMER_USES_GUN_FLAMES) ? ammo_datum_type : get_magazine_default_ammo(chamber_items[current_chamber_position])
-	var/burn_level = initial(loaded_ammo.burnlevel) * burn_level_mod
-	var/burn_time = initial(loaded_ammo.burntime) * burn_time_mod
+	var/burn_level = initial(loaded_ammo.burn_level) * burn_level_mod
+	var/burn_time = initial(loaded_ammo.burn_time) * burn_time_mod
 	var/fire_color = initial(loaded_ammo.fire_color)
 
 	for(var/turf/turf_to_ignite AS in turfs_to_burn)
@@ -453,8 +453,8 @@
 	//extinguish any flame present
 	var/obj/flamer_fire/old_fire = locate(/obj/flamer_fire) in src
 	if(old_fire)
-		var/new_fire_level = min(fire_lvl + old_fire.firelevel, fire_lvl * 2)
-		var/new_burn_level = min(burn_lvl + old_fire.burnlevel, burn_lvl * 1.5)
+		var/new_fire_level = min(fire_lvl + old_fire.fire_level, fire_lvl * 2)
+		var/new_burn_level = min(burn_lvl + old_fire.burn_level, burn_lvl * 1.5)
 		old_fire.set_fire(new_fire_level, new_burn_level, f_color, fire_stacks, fire_damage)
 		return
 
@@ -510,9 +510,9 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	light_range = 3
 	light_power = 3
 	///Tracks how much "fire" there is. Basically the timer of how long the fire burns
-	var/firelevel = 12
+	var/fire_level = 12
 	///Tracks how HOT the fire is. This is basically the heat level of the fire and determines the temperature
-	var/burnlevel = 20
+	var/burn_level = 20
 	///The color the flames and associated particles appear
 	var/flame_color = "red"
 
@@ -536,16 +536,16 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 ///Effects applied to a mob that crosses a burning turf
 /obj/flamer_fire/proc/on_cross(datum/source, mob/living/M, oldloc, oldlocs)
 	if(istype(M))
-		M.flamer_fire_act(burnlevel, flame_color)
+		M.fire_act(burn_level, flame_color)
 
 /obj/flamer_fire/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
 	if(!CHECK_BITFIELD(S.smoke_traits, SMOKE_EXTINGUISH)) //Fire suppressing smoke
 		return
 
-	firelevel -= 20 //Water level extinguish
+	fire_level -= 20 //Water level extinguish
 	updateicon()
-	if(firelevel < 1) //Extinguish if our firelevel is less than 1
+	if(fire_level < 1) //Extinguish if our fire_level is less than 1
 		playsound(S, 'sound/effects/smoke_extinguish.ogg', 20)
 		qdel(src)
 
@@ -561,15 +561,15 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	icon_state = "[flame_color]_2"
 
 	if(fire_lvl)
-		firelevel = fire_lvl
+		fire_level = fire_lvl
 	if(burn_lvl)
-		burnlevel = burn_lvl
+		burn_level = burn_lvl
 
 	if(!fire_stacks && !fire_damage)
 		return
 
 	for(var/mob/living/C in get_turf(src))
-		C.flamer_fire_act(fire_stacks, flame_color)
+		C.fire_act(fire_stacks, flame_color)
 		C.take_overall_damage(fire_damage, BURN, FIRE, updating_health = TRUE)
 
 /obj/flamer_fire/proc/updateicon()
@@ -582,7 +582,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 			light_color = LIGHT_COLOR_BLUE_FLAME
 		if("green")
 			light_color = LIGHT_COLOR_ELECTRIC_GREEN
-	switch(firelevel)
+	switch(fire_level)
 		if(1 to 9)
 			icon_state = "[flame_color]_1"
 			light_intensity = 2
@@ -596,18 +596,18 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 
 /obj/flamer_fire/process()
 	var/turf/T = loc
-	firelevel = max(0, firelevel)
+	fire_level = max(0, fire_level)
 	if(!istype(T)) //Is it a valid turf?
 		qdel(src)
 		return
 
 	updateicon()
 
-	if(!firelevel)
+	if(!fire_level)
 		qdel(src)
 		return
 
-	T.flamer_fire_act(burnlevel, flame_color)
+	T.fire_act(burn_level, flame_color)
 
 	var/j = 0
 	for(var/i in T)
@@ -616,9 +616,9 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 		var/atom/A = i
 		if(QDELETED(A)) //The destruction by fire of one atom may destroy others in the same turf.
 			continue
-		A.flamer_fire_act(burnlevel, flame_color)
+		A.fire_act(burn_level, flame_color)
 
-	firelevel -= 2 //reduce the intensity by 2 per tick
+	fire_level -= 2 //reduce the intensity by 2 per tick
 
 /obj/item/weapon/gun/flamer/hydro_cannon
 	name = "underslung hydrocannon"

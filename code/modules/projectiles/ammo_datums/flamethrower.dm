@@ -13,13 +13,13 @@
 	incendiary_strength = 30 //Firestacks cap at 20, but that's after armor.
 	bullet_color = LIGHT_COLOR_FIRE
 	var/fire_color = FLAME_COLOR_RED
-	var/burntime = 17
-	var/burnlevel = 31
+	var/burn_time = 17
+	var/burn_level = 31
 
 /datum/ammo/flamethrower/drop_flame(turf/T)
 	if(!istype(T))
 		return
-	T.ignite(burntime, burnlevel, fire_color)
+	T.ignite(burn_time, burn_level, fire_color)
 
 /datum/ammo/flamethrower/on_hit_mob(mob/M, obj/projectile/P)
 	drop_flame(get_turf(M))
@@ -43,8 +43,8 @@
 	hud_state = "flame_blue"
 	max_range = 7
 	fire_color = FLAME_COLOR_BLUE
-	burntime = 40
-	burnlevel = 46
+	burn_time = 40
+	burn_level = 46
 	bullet_color = COLOR_NAVY
 
 /datum/ammo/flamethrower/green
@@ -52,8 +52,8 @@
 	hud_state = "flame_green"
 	max_range = 8
 	fire_color = FLAME_COLOR_LIME
-	burntime = 12
-	burnlevel = 18
+	burn_time = 12
+	burn_level = 18
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 
 /datum/ammo/water
