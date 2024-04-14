@@ -258,16 +258,18 @@
 	smoke_contact(S)
 
 /mob/living/proc/smoke_contact(obj/effect/particle_effect/smoke/S)
-	var/protection = max(1 - get_permeability_protection() * S.bio_protection, 0)
+	var/bio_protection = max(1 - get_permeability_protection() * S.bio_protection, 0)
+	var/acid_protection = max(1 - get_soft_acid_protection(), 0)
+	var/acid_hard_protection = get_hard_acid_protection()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_EXTINGUISH))
 		ExtinguishMob()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING))
-		adjust_fire_loss(15 * protection)
+		adjust_fire_loss(15 * bio_protection)
 		to_chat(src, span_danger("It feels as if you've been dumped into an open fire!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
-		if(prob(25 * protection))
+		if(prob(25 * acid_protection))
 			to_chat(src, span_danger("Your skin feels like it is melting away!"))
-		adjust_fire_loss(S.strength * rand(20, 23) * protection)
+		adjust_fire_loss(max(S.strength * rand(20, 23) * acid_protection - acid_hard_protection), 0)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_TOXIC))
 		if(HAS_TRAIT(src, TRAIT_INTOXICATION_IMMUNE))
 			return
@@ -278,7 +280,6 @@
 		adjust_fire_loss(SENTINEL_TOXIC_GRENADE_GAS_DAMAGE * protection)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_CHEM))
 		S.reagents?.reaction(src, TOUCH, S.fraction)
-	return protection
 
 /mob/living/proc/check_shields(attack_type, damage, damage_type = MELEE, silent, penetration = 0)
 	if(!damage)
