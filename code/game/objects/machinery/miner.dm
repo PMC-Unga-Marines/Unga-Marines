@@ -260,7 +260,7 @@
 
 /obj/machinery/miner/examine(mob/user)
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) && !isobserver(user))
 		return
 	if(!miner_upgrade_type)
 		. += span_info("[src]'s module sockets seem empty, an upgrade could be installed.")
