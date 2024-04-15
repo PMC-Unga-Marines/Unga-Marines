@@ -9,7 +9,7 @@
 	minimap_icon_state = null
 	turret_icon = null
 	interior = null
-	secondary_turret_icon = null
+	flags_armored = NONE
 	pixel_x = -48
 	pixel_y = -40
 	obj_integrity = 2000
