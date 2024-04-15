@@ -1,8 +1,9 @@
 
 /obj/structure/ammo_rack
 	icon = 'icons/obj/armored/3x3/tank_interior.dmi'
-	///ref to the actual internal storage
-	var/obj/item/storage/internal/storage = /obj/item/storage/internal
+	resistance_flags = RESIST_ALL
+	///Determines what subtype of storage is on our item, see datums\storage\subtypes
+	var/storage_type = /datum/storage/tank
 
 /obj/structure/ammo_rack/Initialize(mapload)
 	. = ..()

@@ -100,3 +100,9 @@
 /area/interior
 	name = "ERROR AREA DO NOT USE"
 	base_lighting_alpha = 128
+
+/turf/closed/interior
+	resistance_flags = RESIST_ALL
+
+/turf/open/interior
+	resistance_flags = RESIST_ALL
