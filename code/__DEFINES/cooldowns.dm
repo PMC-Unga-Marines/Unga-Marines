@@ -54,6 +54,7 @@
 #define COOLDOWN_SENTIENT_HUGGER "sentient_hugger"
 #define COOLDOWN_EVASION_ACTIVATION "cooldown_evasion_activation"
 #define COOLDOWN_TANK_SWIVEL "tank_turret_swivel"
+#define COOLDOWN_ARMORED_HORN "cooldown_armored_horn"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"
