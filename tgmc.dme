@@ -870,6 +870,7 @@
 #include "code\game\objects\items\implants\implantchair.dm"
 #include "code\game\objects\items\implants\implanter.dm"
 #include "code\game\objects\items\implants\implantpad.dm"
+#include "code\game\objects\items\implants\jump_mod.dm"
 #include "code\game\objects\items\implants\sandevistan.dm"
 #include "code\game\objects\items\implants\skill_implants\implant_code.dm"
 #include "code\game\objects\items\implants\skill_implants\implant_skill.dm"
