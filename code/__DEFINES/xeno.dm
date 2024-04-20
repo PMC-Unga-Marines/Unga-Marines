@@ -145,6 +145,7 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/mantis/ai,
 	/mob/living/carbon/xenomorph/scorpion/ai,
 	/mob/living/carbon/xenomorph/nymph/ai,
+	/mob/living/carbon/xenomorph/baneling/ai,
 ))
 
 /// Used by the is_valid_for_resin_structure proc.

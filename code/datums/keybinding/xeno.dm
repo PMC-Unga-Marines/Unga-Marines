@@ -198,6 +198,12 @@
 //
 // Single caste, alphabetical order
 //
+/datum/keybinding/xeno/baneling_explode
+	name = "Explode"
+	full_name = "Baneling: Explode"
+	description = "Detonate yourself, spreading your currently selected reagent. Size depends on current stored plasma, more plasma is more reagent."
+	keybind_signal = COMSIG_XENOABILITY_BANELING_EXPLODE
+	hotkey_keys = list("E")
 
 /datum/keybinding/xeno/long_range_sight
 	name = "long_range_sight"
