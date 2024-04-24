@@ -354,6 +354,7 @@
 	icon_state = "sentry_system"
 	dropship_equipment_flags = IS_INTERACTABLE
 	point_cost = 350
+	pixel_y = 32
 	var/deployment_cooldown
 	var/obj/machinery/deployable/mounted/sentry/deployed_turret
 	var/sentry_type = /obj/item/weapon/gun/sentry/basic/dropship
