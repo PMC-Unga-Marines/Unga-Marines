@@ -547,7 +547,8 @@
 	data["show_hunt"] = show_hunt
 
 	var/datum/game_mode/infestation/infestation_mode = SSticker.mode
-	data["shuttle_hijacked"] = (infestation_mode.round_stage == INFESTATION_MARINE_CRASHING) //If we hijacked, our capture button greys out
+	if(istype(infestation_mode))
+		data["shuttle_hijacked"] = (infestation_mode.round_stage == INFESTATION_MARINE_CRASHING) //If we hijacked, our capture button greys out
 
 	var/locked = 0
 	var/reardoor = 0
