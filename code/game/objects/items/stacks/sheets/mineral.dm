@@ -24,7 +24,7 @@
 	. += GLOB.iron_recipes
 
 GLOBAL_LIST_INIT(iron_recipes, list ( \
-	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	null, \
 	))
 
@@ -38,8 +38,8 @@ GLOBAL_LIST_INIT(iron_recipes, list ( \
 	sheettype = "sandstone"
 
 GLOBAL_LIST_INIT(sandstone_recipes, list ( \
-	new/datum/stack_recipe("pile of dirt", /obj/prop/hydroponics/soil, 3, time = 1 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE), \
-	new/datum/stack_recipe("sandstone door", /obj/structure/mineral_door/sandstone, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("pile of dirt", /obj/prop/hydroponics/soil, 3, time = 1 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("sandstone door", /obj/structure/mineral_door/sandstone, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/sandstone/get_main_recipes()
@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/diamond
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
-	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/diamond/get_main_recipes()
@@ -91,7 +91,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/uranium
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
-	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/uranium/get_main_recipes()
@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/phoron
 
 GLOBAL_LIST_INIT(phoron_recipes, list ( \
-	new/datum/stack_recipe("phoron door", /obj/structure/mineral_door/transparent/phoron, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("phoron door", /obj/structure/mineral_door/transparent/phoron, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/phoron/get_main_recipes()
@@ -133,12 +133,12 @@ GLOBAL_LIST_INIT(phoron_recipes, list ( \
 	perunit = 2000
 
 GLOBAL_LIST_INIT(plastic_recipes, list ( \
-	new/datum/stack_recipe("plastic crate", /obj/structure/closet/crate/plastic, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
-	new/datum/stack_recipe("plastic ashtray", /obj/item/ashtray/plastic, 2, one_per_turf = TRUE, on_solid_ground = TRUE), \
-	new/datum/stack_recipe("plastic fork", /obj/item/tool/kitchen/utensil/pfork, 1, on_solid_ground = TRUE), \
-	new/datum/stack_recipe("plastic spoon", /obj/item/tool/kitchen/utensil/pspoon, 1, on_solid_ground = TRUE), \
-	new/datum/stack_recipe("plastic knife", /obj/item/tool/kitchen/utensil/pknife, 1, on_solid_ground = TRUE), \
-	new/datum/stack_recipe("plastic bag", /obj/item/storage/bag/plasticbag, 3, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("plastic crate", /obj/structure/closet/crate/plastic, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic ashtray", /obj/item/ashtray/plastic, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic fork", /obj/item/tool/kitchen/utensil/pfork, 1, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic spoon", /obj/item/tool/kitchen/utensil/pspoon, 1, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic knife", /obj/item/tool/kitchen/utensil/pknife, 1, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic bag", /obj/item/storage/bag/plasticbag, 3, crafting_flags = CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/plastic/get_main_recipes()
@@ -159,7 +159,7 @@ GLOBAL_LIST_INIT(plastic_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/gold
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
-	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/gold/get_main_recipes()
@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	number_of_extra_variants = 2
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	))
 
 /obj/item/stack/sheet/mineral/silver/get_main_recipes()
