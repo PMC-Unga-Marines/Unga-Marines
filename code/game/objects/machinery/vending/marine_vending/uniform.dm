@@ -2,8 +2,8 @@
 	name = "\improper Surplus Clothing Vendor"
 	desc = "An automated equipment rack hooked up to a colossal storage of clothing and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
 	icon_state = "surplus_clothes"
-	icon_vend = "surplus-vend"
-	icon_deny = "surplus_clothes-deny"
+	icon_vend = "surplus_clothes_vend"
+	icon_deny = "surplus_clothes_deny"
 	wrenchable = FALSE
 	isshared = TRUE
 	product_ads = "Be the musician that you parents never approve you of.;You gotta look good when you're in the battlefield.;We have all types of hats here!;What did one hat say to the other on the hiking trip? I'll wait here, you go on ahead;Sometimes, a beret is better than a helmet.;Drip is the priority, marine."
