@@ -248,3 +248,10 @@
 	item_state = "ammoboxtracking"
 	base_icon_state = "ammoboxtracking"
 	ammo_type = /datum/ammo/bullet/shotgun/tracker
+
+/obj/item/shotgunbox/blank
+	name = "blank ammo box"
+	icon_state = "ammoboxblank"
+	item_state = "ammoboxblank"
+	base_icon_state = "ammoboxblank"
+	ammo_type = /datum/ammo/bullet/shotgun/blank
