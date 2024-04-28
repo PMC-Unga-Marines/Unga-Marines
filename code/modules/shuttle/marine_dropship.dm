@@ -165,6 +165,8 @@
 	var/cycle_timer
 	///If first landing is false intro sequence wont play
 	var/static/first_landing = TRUE
+	///If this dropship can play the takeoff announcement
+	var/takeoff_alarm_locked = FALSE
 
 /obj/docking_port/mobile/marine_dropship/register()
 	. = ..()
@@ -176,6 +178,7 @@
 		return
 	// pull the shuttle from datum/source, and state info from the shuttle itself
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_TRANSIT)
+	takeoff_alarm_locked = FALSE // Allow the alarm to be used again
 	if(first_landing)
 		first_landing = FALSE
 		var/op_name = GLOB.operation_namepool[/datum/operation_namepool].get_random_name()
@@ -258,7 +261,7 @@
 	if(hijack_state != HIJACK_STATE_NORMAL)
 		return
 	cycle_timer = addtimer(CALLBACK(src, PROC_REF(go_to_previous_destination)), 20 SECONDS, TIMER_STOPPABLE)
-	priority_announce("The Alamo will depart towards [previous.name] in 20 seconds.", "Dropship Automatic Departure", color_override = "grey")
+	priority_announce("The Alamo will depart towards [previous.name] in 20 seconds.", "Dropship Automatic Departure", color_override = "grey", playing_sound = FALSE)
 
 ///Send the dropship to its previous dock
 /obj/docking_port/mobile/marine_dropship/proc/go_to_previous_destination()
