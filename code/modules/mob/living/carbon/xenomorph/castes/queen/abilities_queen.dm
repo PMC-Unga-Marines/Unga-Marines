@@ -40,14 +40,14 @@
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
 	for(var/mob/living/carbon/xenomorph/X AS in Q.hive.get_all_xenos())
 		switch(Q.caste_base_type)
-			if(/mob/living/carbon/xenomorph/queen)
+			if(/datum/xeno_caste/queen)
 				SEND_SOUND(X, queen_sound)
 				//In case in combat, couldn't read fast enough, or needs to copy paste into a translator. Here's the old hive message.
 				to_chat(X, span_xenoannounce("<h2 class='alert'>The words of the queen reverberate in your head...</h2><br>[span_alert(input)]<br><br>"))
-			if(/mob/living/carbon/xenomorph/king)
+			if(/datum/xeno_caste/king)
 				SEND_SOUND(X, king_sound)
 				to_chat(X, span_xenoannounce("<h2 class='alert'>The words of the king reverberate in your head...</h2><br>[span_alert(input)]<br><br>"))
-			if(/mob/living/carbon/xenomorph/shrike)
+			if(/datum/xeno_caste/shrike)
 				SEND_SOUND(X, queen_sound)
 				to_chat(X, span_xenoannounce("<h2 class='alert'>The words of the shrike reverberate in your head...</h2><br>[span_alert(input)]<br><br>"))
 		//Display the ruler's hive message at the top of the game screen.

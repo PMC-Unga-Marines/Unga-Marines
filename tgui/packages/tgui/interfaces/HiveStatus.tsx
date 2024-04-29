@@ -22,7 +22,6 @@ type InputPack = {
   hive_death_timers: DeathTimer[];
   hive_queen_max: number;
   hive_structures: StructureData[];
-  hive_forbiden_castes: ForbidenData[]; // RUTGMC EDIT ADDITION
   // ----- Per xeno info ------
   xeno_info: XenoData[];
   static_info: StaticData[];
@@ -84,10 +83,6 @@ type DeathTimer = {
   time_left: number;
   end_time: number;
 };
-
-type ForbidenData = {
-  is_forbid: boolean;
-}; // RUTGMC EDIT ADDITION
 
 export const HiveStatus = (_props, context) => {
   const { act, data } = useBackend<InputPack>(context);
@@ -382,7 +377,6 @@ const PopulationPyramid = (_props, context) => {
     hive_max_tier_three,
     hive_minion_count,
     hive_primos,
-    hive_forbiden_castes, // RUTGMC EDIT ADDITION
     xeno_info,
     static_info,
     user_ref,
@@ -561,11 +555,8 @@ const PopulationPyramid = (_props, context) => {
                     return <Box />;
                   }
                   const static_entry = static_info[value];
-                  const forbid_entry = hive_forbiden_castes[value]; // RUTGMC EDIT ADDITION
                   return (
                     <Flex.Item
-                      textColor={forbid_entry.is_forbid ? 'red' : 'white'} // RUTGMC EDIT ADDITION
-                      width="100%"
                       minWidth={row_width}
                       bold
                       key={static_entry.name}>
@@ -576,13 +567,6 @@ const PopulationPyramid = (_props, context) => {
                           transform: 'scale(3) translateX(-3.5px)',
                           '-ms-interpolation-mode': 'nearest-neighbor',
                         }}
-                        onClick={
-                          () =>
-                            act('Forbid', {
-                              xeno: user_ref,
-                              forbidcaste: value,
-                            }) // RUTGMC EDIT ADDITION
-                        }
                       />
                       {static_entry.name}
                     </Flex.Item>

@@ -25,7 +25,7 @@
 	max_health = 350
 
 	// *** Evolution *** //
-	deevolves_to = /mob/living/carbon/xenomorph/hunter
+	deevolves_to = /datum/xeno_caste/hunter
 
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD

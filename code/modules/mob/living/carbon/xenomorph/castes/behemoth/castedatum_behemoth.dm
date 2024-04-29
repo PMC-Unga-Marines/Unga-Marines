@@ -22,7 +22,7 @@
 	// *** Health *** //
 	max_health = 750
 
-	deevolves_to = /mob/living/carbon/xenomorph/bull
+	deevolves_to = /datum/xeno_caste/bull
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG|CASTE_STAGGER_RESISTANT|CASTE_ACID_BLOOD

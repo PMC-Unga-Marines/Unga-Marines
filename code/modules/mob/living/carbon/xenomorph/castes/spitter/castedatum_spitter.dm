@@ -24,7 +24,7 @@
 	// *** Evolution *** //
 	evolution_threshold = 225
 
-	deevolves_to = /mob/living/carbon/xenomorph/sentinel
+	deevolves_to = /datum/xeno_caste/sentinel
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD

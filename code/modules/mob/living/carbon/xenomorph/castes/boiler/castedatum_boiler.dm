@@ -25,7 +25,7 @@
 	// *** Health *** //
 	max_health = 325
 
-	deevolves_to = /mob/living/carbon/xenomorph/spitter
+	deevolves_to = /datum/xeno_caste/spitter
 
 	// *** Darksight *** ///
 	conscious_see_in_dark = 20

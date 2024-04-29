@@ -49,11 +49,16 @@ GLOBAL_LIST_INIT_TYPED(xeno_caste_datums, /list/datum/xeno_caste, init_xeno_cast
 
 /proc/init_xeno_caste_list()
 	. = list()
-	for(var/X in subtypesof(/datum/xeno_caste))
-		var/datum/xeno_caste/C = new X
-		if(!(C.caste_type_path in .))
-			.[C.caste_type_path] = list()
-		.[C.caste_type_path][C.upgrade] = C
+	var/list/typelist = subtypesof(/datum/xeno_caste)
+	for(var/datum/xeno_caste/typepath AS in typelist)
+		if(initial(typepath.upgrade) == XENO_UPGRADE_BASETYPE)
+			.[typepath] = list()
+			.[typepath][XENO_UPGRADE_BASETYPE] = new typepath
+			typelist -= typepath
+
+	for(var/typepath in typelist)
+		var/datum/xeno_caste/caste = new typepath
+		.[caste.get_base_caste_type()][caste.upgrade] = caste
 
 GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/runner,
@@ -109,53 +114,45 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/facehugger,
 ))
 
-GLOBAL_LIST_INIT(forbid_excepts, list(
-	/mob/living/carbon/xenomorph/king,
-	/mob/living/carbon/xenomorph/queen,
-	/mob/living/carbon/xenomorph/shrike,
-	/mob/living/carbon/xenomorph/larva,
-	/mob/living/carbon/xenomorph/drone,
-))
-
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)
 GLOBAL_LIST_EMPTY_TYPED(yautja_mob_list, /mob/living/carbon/human/species/yautja)
 
 GLOBAL_LIST_EMPTY_TYPED(mob_illusions_list, /mob/illusion)
 
 GLOBAL_LIST_INIT(xeno_types_tier_one, list(
-	/mob/living/carbon/xenomorph/defender,
-	/mob/living/carbon/xenomorph/drone,
-	/mob/living/carbon/xenomorph/runner,
-	/mob/living/carbon/xenomorph/sentinel,
+	/datum/xeno_caste/defender,
+	/datum/xeno_caste/drone,
+	/datum/xeno_caste/runner,
+	/datum/xeno_caste/sentinel,
 ))
 
 GLOBAL_LIST_INIT(xeno_types_tier_two, list(
-	/mob/living/carbon/xenomorph/bull,
-	/mob/living/carbon/xenomorph/carrier,
-	/mob/living/carbon/xenomorph/hivelord,
-	/mob/living/carbon/xenomorph/hunter,
-	/mob/living/carbon/xenomorph/panther,
-	/mob/living/carbon/xenomorph/spitter,
-	/mob/living/carbon/xenomorph/warrior,
+	/datum/xeno_caste/bull,
+	/datum/xeno_caste/carrier,
+	/datum/xeno_caste/hivelord,
+	/datum/xeno_caste/hunter,
+	/datum/xeno_caste/panther,
+	/datum/xeno_caste/spitter,
+	/datum/xeno_caste/warrior,
 ))
 
 GLOBAL_LIST_INIT(xeno_types_tier_three, list(
-	/mob/living/carbon/xenomorph/behemoth,
-	/mob/living/carbon/xenomorph/boiler,
-	/mob/living/carbon/xenomorph/chimera,
-	/mob/living/carbon/xenomorph/crusher,
-	/mob/living/carbon/xenomorph/defiler,
-	/mob/living/carbon/xenomorph/gorger,
-	/mob/living/carbon/xenomorph/praetorian,
-	/mob/living/carbon/xenomorph/ravager,
-	/mob/living/carbon/xenomorph/warlock,
+	/datum/xeno_caste/behemoth,
+	/datum/xeno_caste/boiler,
+	/datum/xeno_caste/chimera,
+	/datum/xeno_caste/crusher,
+	/datum/xeno_caste/defiler,
+	/datum/xeno_caste/gorger,
+	/datum/xeno_caste/praetorian,
+	/datum/xeno_caste/ravager,
+	/datum/xeno_caste/warlock,
 ))
 
 GLOBAL_LIST_INIT(xeno_types_tier_four, list(
-	/mob/living/carbon/xenomorph/shrike,
-	/mob/living/carbon/xenomorph/queen,
-	/mob/living/carbon/xenomorph/king,
-	/mob/living/carbon/xenomorph/hivemind,
+	/datum/xeno_caste/shrike,
+	/datum/xeno_caste/queen,
+	/datum/xeno_caste/king,
+	/datum/xeno_caste/hivemind,
 ))
 
 GLOBAL_LIST_INIT_TYPED(hive_datums, /datum/hive_status, init_hive_datum_list()) // init by make_datum_references_lists()

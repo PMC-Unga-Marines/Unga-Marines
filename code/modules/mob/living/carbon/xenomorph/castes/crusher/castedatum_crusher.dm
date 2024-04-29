@@ -23,8 +23,7 @@
 	// *** Health *** //
 	max_health = 400
 
-	// *** Evolution *** //
-	deevolves_to = /mob/living/carbon/xenomorph/bull
+	deevolves_to = /datum/xeno_caste/bull
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER

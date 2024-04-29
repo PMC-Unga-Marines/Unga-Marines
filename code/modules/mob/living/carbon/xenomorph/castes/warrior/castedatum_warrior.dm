@@ -27,7 +27,7 @@
 	// *** Evolution *** //
 	evolution_threshold = 225
 
-	deevolves_to = /mob/living/carbon/xenomorph/defender
+	deevolves_to = /datum/xeno_caste/defender
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG|CASTE_ACID_BLOOD

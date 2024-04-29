@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/panther
-	caste_base_type = /mob/living/carbon/xenomorph/panther
+	caste_base_type = /datum/xeno_caste/panther
 	name = "Panther"
 	desc = "What you have done with this cute little rouny?"
 	icon = 'icons/Xeno/castes/panther.dmi'
