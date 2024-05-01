@@ -23100,6 +23100,11 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/caves/nanotrasen_lab)
+"ttJ" = (
+/obj/machinery/computer/shuttle/shuttle_control/dropship,
+/obj/structure/table,
+/turf/open/floor,
+/area/lv624/lazarus/console)
 "ttK" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/effect/landmark/weed_node,
@@ -76030,7 +76035,7 @@ uty
 wEk
 wEk
 wEk
-wEk
+ttJ
 wEk
 wEk
 uty
@@ -76083,7 +76088,7 @@ rac
 nFU
 nFU
 nFU
-nFU
+ttJ
 nFU
 nFU
 rac
