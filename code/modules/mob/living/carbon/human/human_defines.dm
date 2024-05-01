@@ -145,7 +145,8 @@
 
 	///Used to help determine the severity icon state for our damage hud overlays
 	var/damageoverlaytemp = 0
-
+	///chestburst state
+	var/chestburst = CARBON_NO_CHEST_BURST
 	///The cooldown for being pushed by xenos on harm intent
 	COOLDOWN_DECLARE(xeno_push_delay)
 

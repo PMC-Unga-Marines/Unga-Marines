@@ -77,3 +77,10 @@
 		else if(target.a_intent == INTENT_HELP || target.restrained())
 			return SWAPPING
 	return NO_SWAP
+
+/mob/living/carbon/human/relaymove(mob/user, direction)
+	if(user.incapacitated(TRUE))
+		return
+	if(!chestburst && (status_flags & XENO_HOST) && isxenolarva(user))
+		var/mob/living/carbon/xenomorph/larva/L = user
+		L.initiate_burst(src)

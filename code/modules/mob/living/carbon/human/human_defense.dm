@@ -429,7 +429,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	remove_organ_slot(ORGAN_SLOT_HEART)
 	var/obj/item/organ/heart/heart = new
 	user.put_in_hands(heart)
-	chestburst = 2
+	chestburst = CARBON_CHEST_BURSTED
 	update_burst()
 
 /mob/living/carbon/human/ExtinguishMob()

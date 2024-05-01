@@ -69,7 +69,7 @@
 		if(CHESTBURST_DEATH)
 			victim.remove_organ_slot(ORGAN_SLOT_HEART)
 			victim.remove_organ_slot(ORGAN_SLOT_LUNGS)
-			victim.chestburst = 2
+			victim.chestburst = CARBON_CHEST_BURSTED
 			victim.update_burst()
 		if(COCOONED_DEATH) //Just cocooned
 			new /obj/structure/cocoon/opened_cocoon(loc)
