@@ -9,13 +9,16 @@
 	deactive_state = "goggles_off"
 
 /obj/item/clothing/glasses/thermal/emp_act(severity)
+	. = ..()
 	if(ishuman(loc))
-		var/mob/living/carbon/human/M = src.loc
+		var/mob/living/carbon/human/M = loc
 		to_chat(M, span_warning("The Optical Thermal Scanner overloads and blinds you!"))
 		if(M.glasses == src)
 			M.blind_eyes(3)
 			M.blur_eyes(5)
-	return ..()
+			M.disabilities |= NEARSIGHTED
+			spawn(100)
+				M.disabilities &= ~NEARSIGHTED
 
 /obj/item/clothing/glasses/thermal/yautja
 	name = "bio-mask thermal"

@@ -320,15 +320,15 @@
 		qdel(src)
 
 /obj/machinery/sleeper/emp_act(severity)
+	. = ..()
 	if(filtering)
 		toggle_filter()
 	if(stasis)
 		toggle_stasis()
 	if(machine_stat & (BROKEN|NOPOWER))
-		return ..(severity)
+		return
 	if(occupant)
 		go_out()
-	return ..()
 
 /obj/machinery/sleeper/proc/toggle_filter()
 	if(!occupant)

@@ -84,11 +84,11 @@
 		L.Paralyze(strength)
 
 /obj/machinery/flasher/emp_act(severity)
+	. = ..()
 	if(machine_stat & (BROKEN|NOPOWER))
-		return ..(severity)
-	if(prob(75/severity))
+		return
+	if(prob(75 / severity))
 		flash()
-	return ..(severity)
 
 /obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
 	if((disable) || (last_flash && world.time < last_flash + 150))

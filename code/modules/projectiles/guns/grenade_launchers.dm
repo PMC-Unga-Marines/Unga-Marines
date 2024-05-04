@@ -58,6 +58,7 @@
 		/obj/item/explosive/grenade/flashbang/stun,
 		/obj/item/explosive/grenade/bullet/laser,
 		/obj/item/explosive/grenade/bullet/hefa,
+		/obj/item/explosive/grenade/emp,
 	)
 	reciever_flags = NONE
 
@@ -195,6 +196,7 @@
 		/obj/item/explosive/grenade/mirage,
 		/obj/item/explosive/grenade/bullet/laser,
 		/obj/item/explosive/grenade/bullet/hefa,
+		/obj/item/explosive/grenade/emp,
 	)
 
 	wield_delay_mod = 0.2 SECONDS

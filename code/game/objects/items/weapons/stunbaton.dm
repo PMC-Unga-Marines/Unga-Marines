@@ -182,9 +182,9 @@
 	return TRUE
 
 /obj/item/weapon/baton/emp_act(severity)
+	. = ..()
 	if(bcell)
 		bcell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
-	return ..()
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/baton/cattleprod
@@ -252,11 +252,11 @@
 			update_icon()
 
 /obj/item/weapon/stunprod/emp_act(severity)
-	switch(severity)
-		if(1)
-			charges = 0
-		if(2)
-			charges = max(0, charges - 5)
+	. = ..()
+	if(severity == EMP_DEVASTATE)
+		charges = 0
+	else
+		charges = max(0, charges - (6 - severity))
 	if(charges < 1)
 		status = 0
 		update_icon()
