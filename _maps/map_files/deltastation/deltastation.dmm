@@ -26922,10 +26922,6 @@
 	},
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port/fore)
-"fyi" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/shuttle/drop1/lz1)
 "fyj" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -32948,14 +32944,6 @@
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/plating,
 /area/deltastation/service/library/abandoned)
-"gIk" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/shuttle/drop1/lz1)
 "gIm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
@@ -96088,10 +96076,6 @@
 	dir = 1
 	},
 /area/deltastation/engineering/atmos/pumproom)
-"tRz" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/shuttle/drop1/lz1)
 "tRG" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -165381,7 +165365,7 @@ wVi
 wVi
 wVi
 wVi
-gIk
+wVi
 wVi
 wVi
 uDj
@@ -165634,7 +165618,7 @@ qoE
 pCO
 qgB
 mmf
-fyi
+qgB
 qgB
 qgB
 qgB
@@ -165891,7 +165875,7 @@ pHi
 pCO
 qgB
 qgB
-tRz
+qgB
 qgB
 qgB
 qgB
@@ -167433,7 +167417,7 @@ pHi
 pCO
 qgB
 qgB
-tRz
+qgB
 qgB
 qgB
 qgB
@@ -167690,7 +167674,7 @@ pHi
 pCO
 qgB
 mmf
-fyi
+qgB
 qgB
 qgB
 qgB
