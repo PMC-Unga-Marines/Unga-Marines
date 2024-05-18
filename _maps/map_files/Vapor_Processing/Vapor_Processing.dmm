@@ -3714,7 +3714,7 @@
 "vC" = (
 /obj/structure/table/flipped,
 /obj/item/reagent_containers/glass/beaker,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
 "vE" = (
@@ -3806,7 +3806,7 @@
 /area/shuttle/drop1/lz1)
 "wV" = (
 /obj/structure/table/flipped,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
 "wX" = (
@@ -4476,7 +4476,7 @@
 "HA" = (
 /obj/structure/table/flipped,
 /obj/item/reagent_containers/glass/beaker/large,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
 "HD" = (
@@ -5454,7 +5454,7 @@
 "We" = (
 /obj/structure/table/flipped,
 /obj/item/reagent_containers/glass/rag,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
 "Wh" = (

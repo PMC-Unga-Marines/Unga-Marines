@@ -12790,7 +12790,7 @@
 /obj/structure/table/wood{
 	flipped = 1
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/soda,
+/obj/item/reagent_containers/cup/glass/drinking_glass/soda,
 /turf/open/floor/wood,
 /area/magmoor/civilian/bar)
 "jlm" = (
@@ -16747,7 +16747,7 @@
 /area/magmoor/engi/thermal)
 "lZs" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 6;
 	pixel_y = 13
 	},
@@ -16850,7 +16850,7 @@
 /area/magmoor/civilian/arrival/east)
 "mcQ" = (
 /obj/structure/table/wood/gambling,
-/obj/item/reagent_containers/food/drinks/drinkingglass/soda,
+/obj/item/reagent_containers/cup/glass/drinking_glass/soda,
 /turf/open/floor/wood,
 /area/magmoor/civilian/gambling)
 "mcS" = (
