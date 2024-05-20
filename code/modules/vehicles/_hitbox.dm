@@ -67,6 +67,7 @@
 			new_pos = get_step(root, turn(get_dir(desant, root), -90))
 		else
 			new_pos = get_step(root, turn(get_dir(desant, root), 90))
+		desant.set_glide_size(32)
 		desant.forceMove(new_pos)
 
 ///signal handler when someone jumping lands on us
@@ -108,10 +109,17 @@
 	direction = get_dir(oldloc, mover)
 	var/move_dist = get_dist(oldloc, mover)
 	forceMove(mover.loc)
+	var/new_z = (z != oldloc.z)
 	for(var/mob/living/tank_desant AS in tank_desants)
-		step(tank_desant, direction, root.step_size)
-		if(isxeno(tank_desant) || move_dist > 1) //skips xenos, and
-			return
+		tank_desant.set_glide_size(root.glide_size)
+		tank_desant.forceMove(new_z ? loc : get_step(tank_desant, direction)) //For simplicity we just move desants to the middle of the tank on z change to avoid various issues
+		if(isxeno(tank_desant))
+			continue
+		if(move_dist > 1)
+			continue
+		if(!tank_desant.l_hand || !tank_desant.r_hand)
+			continue
+		balloon_alert(tank_desant, "poor grip!")
 		var/away_dir = get_dir(tank_desant, root)
 		if(!away_dir)
 			away_dir = pick(GLOB.alldirs)

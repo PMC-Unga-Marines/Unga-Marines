@@ -10,7 +10,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	obj_flags = CAN_BE_HIT
 	flags_atom = CRITICAL_ATOM
-	appearance_flags = TILE_BOUND|PIXEL_SCALE
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_AIR
 	COOLDOWN_DECLARE(cooldown_vehicle_move)
@@ -167,7 +167,7 @@
 /obj/vehicle/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	. = ..()
 	if(trailer)
-		trailer.Move(old_loc, movement_dir)
+		trailer.Move(old_loc, movement_dir, glide_size)
 
 
 //TGMC ADDED BELOW
