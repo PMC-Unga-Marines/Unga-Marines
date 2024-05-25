@@ -126,17 +126,17 @@
 /obj/item/clothing/glasses/night/yautja/dropped(mob/living/carbon/human/user)
 	if(istype(user) && user.glasses == src)
 		user.clear_fullscreen("robothalf", 5)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/night/yautja/equipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLASSES)
 		user.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/machine/pred/night)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/night/yautja/unequipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLASSES)
 		user.clear_fullscreen("robothalf", 5)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/night_vision
 	name = "\improper BE-47 night vision goggles"
@@ -282,3 +282,16 @@
 /obj/item/clothing/glasses/night_vision/mounted/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, NIGHT_VISION_GOGGLES_TRAIT)
+
+/obj/item/clothing/glasses/night/vsd
+	name = "\improper CM-12 night vision goggles"
+	desc = "V.S.D's standard issue night vision goggles! For the extra tacticool feel! Crash Core and your superior officers are not responsible for blindness and burning."
+	icon = 'icons/mob/clothing/eyes.dmi'
+	icon_state = "vsd_nvg"
+	worn_icon_state = "vsd_nvg"
+	deactive_state = "vsd_nvg_off"
+	darkness_view = 9
+	toggleable = TRUE
+	actions_types = list(/datum/action/item_action/toggle)
+	tint = COLOR_GREEN
+	worn_layer = COLLAR_LAYER

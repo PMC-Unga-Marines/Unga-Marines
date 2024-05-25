@@ -168,6 +168,10 @@
 	accuracy = -10
 	additional_xeno_penetration = 17.5
 
+/datum/ammo/bullet/revolver/heavy/incendiarydiary
+	name = "incendiary heavy revolver bullet"
+	ammo_behavior_flags = AMMO_INCENDIARY|AMMO_BALLISTIC
+
 /datum/ammo/bullet/revolver/t76
 	name = "magnum 12.7 bullet"
 	handful_amount = 5

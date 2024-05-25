@@ -840,3 +840,8 @@
 /obj/item/storage/backpack/marine/radiopack/proc/on_interference_check(datum/source, list/inplace_interference)
 	SIGNAL_HANDLER
 	inplace_interference[1] = max(0, inplace_interference[1] - 1)
+
+/obj/item/storage/backpack/lightpack/vsd
+	name = "\improper Crasher branded combat backpack"
+	desc = "A backpack design from 21st century still proves to be a good design in the 25th century."
+	icon_state = "vsd_bag0"
