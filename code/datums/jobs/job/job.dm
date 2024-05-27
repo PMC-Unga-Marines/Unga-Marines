@@ -60,8 +60,10 @@ GLOBAL_PROTECT(exp_specialmap)
 	var/multiple_outfits = FALSE
 	///list of outfit variants
 	var/list/datum/outfit/job/outfits = list()
-
+	///Skills for this job
 	var/skills_type = /datum/skills
+	///Any special traits that are assigned for this job
+	var/list/job_traits
 
 	var/display_order = JOB_DISPLAY_ORDER_DEFAULT
 	var/job_flags = NONE
@@ -287,6 +289,8 @@ GLOBAL_PROTECT(exp_specialmap)
 		player = client
 	job = assigned_role
 	set_skills(getSkillsType(job.return_skills_type(player?.prefs)))
+	if(islist(job.job_traits))
+		add_traits(job.job_traits, INNATE_TRAIT)
 	faction = job.faction
 	job.announce(src)
 	GLOB.round_statistics.total_humans_created[faction]++
