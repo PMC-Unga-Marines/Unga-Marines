@@ -22,13 +22,14 @@ GLOBAL_LIST_INIT(beginner_loadouts, init_beginner_loadouts())
 		/datum/outfit/quick/beginner/smartgunner/sg85,
 	)
 
-	for(var/X in loadout_list)
-		.[X] = new X
+	for(var/loadout in loadout_list)
+		.[loadout] = new loadout
 
 /obj/machinery/quick_vendor/beginner //Loadout vendor that shits out basic pre-made loadouts so new players can get something usable
 	icon_state = "loadoutvendor"
 	categories = list(
 		"Squad Marine",
+		"Squad Robot",
 		"Squad Engineer",
 		"Squad Corpsman",
 		"Squad Smartgunner",
