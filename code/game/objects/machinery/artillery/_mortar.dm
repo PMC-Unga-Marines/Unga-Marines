@@ -255,7 +255,7 @@
 
 	record_shell_fired()
 
-	playsound(loc, fire_sound, 70, 0)
+	playsound(loc, fire_sound, GUN_FIRE_SOUND_VOLUME, 0)
 	flick(icon_state + "_fire", src)
 	var/obj/projectile/shell = new /obj/projectile(loc)
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
