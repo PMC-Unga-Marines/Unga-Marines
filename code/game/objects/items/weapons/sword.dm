@@ -81,14 +81,15 @@
 	if(isobj(target))
 		var/obj/obj_victim = target
 		obj_victim.take_damage(damage, BRUTE, MELEE, TRUE, TRUE, get_dir(obj_victim, carbon_owner), penetration, carbon_owner)
-		if(!obj_victim.anchored && obj_victim.move_resist < MOVE_FORCE_VERY_STRONG)
-			obj_victim.knockback(carbon_owner, 1, 2)
-	else if(ishuman(target))
-		var/mob/living/carbon/human/human_victim = target
-		human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration)
-		human_victim.adjust_stagger(1 SECONDS)
-		playsound(human_victim, "sound/weapons/wristblades_hit.ogg", 25, 0, 5)
-		shake_camera(human_victim, 2, 1)
+		obj_victim.knockback(carbon_owner, 1, 2, knockback_force = MOVE_FORCE_VERY_STRONG)
+		return
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/human_victim = target
+	human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration)
+	human_victim.adjust_stagger(1 SECONDS)
+	playsound(human_victim, "sound/weapons/wristblades_hit.ogg", 25, 0, 5)
+	shake_camera(human_victim, 2, 1)
 
 /obj/item/weapon/sword/mercsword
 	name = "combat sword"
