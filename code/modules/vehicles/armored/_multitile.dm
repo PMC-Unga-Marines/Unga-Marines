@@ -42,3 +42,13 @@
 
 /obj/vehicle/sealed/armored/multitile/remove_desant(mob/living/old_desant)
 	old_desant.pass_flags &= ~pass_flags
+
+/obj/vehicle/sealed/armored/multitile/ex_act(severity)
+	if(QDELETED(src))
+		return
+	take_damage(severity, BRUTE, BOMB, 0)
+
+/obj/vehicle/sealed/armored/multitile/lava_act()
+	if(QDELETED(src))
+		return
+	take_damage(30, BURN, FIRE)
