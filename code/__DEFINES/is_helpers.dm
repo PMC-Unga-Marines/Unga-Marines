@@ -245,6 +245,8 @@
 
 #define isarmoredvehicle(A) (istype(A, /obj/vehicle/sealed/armored))
 
+#define ishitbox(A) (istype(A, /obj/hitbox))
+
 #define isorgan(A) (istype(A, /datum/limb))
 
 #define isidcard(A) (istype(A, /obj/item/card/id))
