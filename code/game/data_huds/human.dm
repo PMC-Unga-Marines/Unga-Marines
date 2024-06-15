@@ -42,17 +42,23 @@
 	if(species.species_flags & IS_SYNTHETIC)
 		if(stat != DEAD)
 			status_hud.icon_state = "synth"
+			switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
+				if(-29 to 4) // close to overheating: should appear when health is less than 5
+					status_hud.icon_state = "synthsoftcrit"
+				if(-INFINITY to -30) // dying
+					status_hud.icon_state = "synthhardcrit"
 		else if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
 			status_hud.icon_state = "synth_dnr"
 			return TRUE
 		else if(!mind)
-			var/mob/dead/observer/G = get_ghost(TRUE)
-			if(!G)
-				status_hud.icon_state = "synth_dnr"
-			else
-				status_hud.icon_state = "synth_dead"
-		else
-			status_hud.icon_state = "synth_dead"
+			var/mob/dead/observer/ghost = get_ghost(TRUE)
+			if(!ghost)
+				return TRUE
+			if(!ghost.client) // DC'd ghost detected
+				status_hud.overlays += "dead_noclient"
+		if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
+			status_hud.overlays += "dead_noclient"
+		status_hud.icon_state = "synth_dead"
 		return TRUE
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
@@ -71,12 +77,16 @@
 				return TRUE
 			if(!mind)
 				var/mob/dead/observer/ghost = get_ghost(TRUE)
-				if(!ghost?.can_reenter_corpse)
+				if(!ghost) // No ghost detected. DNR player or NPC
 					if(species.species_flags & ROBOTIC_LIMBS)
 						status_hud.icon_state = "dead_robot"
 					else
-						status_hud.icon_state = "dead"
+						status_hud.icon_state = "dead_dnr"
 					return TRUE
+				if(!ghost.client) // DC'd ghost detected
+					status_hud.overlays += "dead_noclient"
+			if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
+				status_hud.overlays += "dead_noclient"
 			var/stage
 			switch(dead_ticks)
 				if(0 to 0.4 * TIME_BEFORE_DNR)
@@ -286,14 +296,10 @@
 	var/static/image/intoxicated_amount_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_amount0")
 	var/static/image/intoxicated_high_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_high")
 	var/static/image/hive_target_image = image('icons/mob/hud/human_misc.dmi', icon_state = "hive_target")
-	var/static/image/hunter_silence_image = image('icons/mob/hud/human_misc.dmi', icon_state = "silence_debuff")
 
 	//Xeno debuff section start
 	xeno_debuff.overlays.Cut()
 	xeno_debuff.icon_state = ""
-
-	if(stat != DEAD && has_status_effect(STATUS_EFFECT_MUTED))
-		xeno_debuff.overlays += hunter_silence_image
 
 	if(HAS_TRAIT(src, TRAIT_HIVE_TARGET))
 		xeno_debuff.overlays += hive_target_image
