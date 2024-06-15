@@ -191,7 +191,7 @@
 		if(!istype(arrived))
 			break
 		our_explosion.on_turf_entered(arrived)
-	..()
+	return ..()
 
 /turf/proc/get_cell(type)
 	for(var/datum/automata_cell/our_cell in autocells)
@@ -783,3 +783,17 @@
 	if(SEND_SIGNAL(src, COMSIG_TURF_TELEPORT_CHECK))
 		return FALSE
 	return TRUE
+
+///Returns the number that represents how submerged an AM is by a turf and its contents
+/turf/proc/get_submerge_height(turf_only = FALSE)
+	. = 0
+	if(turf_only)
+		return
+	var/list/submerge_list = list()
+	SEND_SIGNAL(src, COMSIG_TURF_SUBMERGE_CHECK, submerge_list)
+	for(var/i in submerge_list)
+		. += i
+
+///Returns the number that shows how far an AM is offset when submerged in this turf
+/turf/proc/get_submerge_depth()
+	return 0

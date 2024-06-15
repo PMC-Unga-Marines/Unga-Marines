@@ -316,6 +316,8 @@
 #define COMSIG_TURF_TELEPORT_CHECK "turf_teleport_check" //from /turf/proc/can_teleport_here()
 ///from base of /datum/turf_reservation/proc/Release: (datum/turf_reservation/reservation)
 #define COMSIG_TURF_RESERVATION_RELEASED "turf_reservation_released"
+///from /turf/proc/get_submerge_height() checking if something on the turf should submerge an AM
+#define COMSIG_TURF_SUBMERGE_CHECK "turf_submerge_check"
 
 // /obj signals
 #define COMSIG_OBJ_SETANCHORED "obj_setanchored"				//called in /obj/structure/setAnchored(): (value)
