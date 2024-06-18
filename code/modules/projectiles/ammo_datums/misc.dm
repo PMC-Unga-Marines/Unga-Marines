@@ -300,12 +300,13 @@
 	///projectile speed for the bonus projectiles
 	var/bonus_projectile_speed = 3
 
-/datum/ammo/bullet/micro_rail/do_at_max_range(turf/T, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+/datum/ammo/bullet/micro_rail/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	var/datum/effect_system/smoke_spread/smoke = new
 	smoke.set_up(0, get_turf(proj), 1)
 	smoke.start()
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(proj.firer, get_turf(proj)) )
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(proj.firer, det_turf) )
 
 //piercing scatter shot
 /datum/ammo/bullet/micro_rail/airburst
@@ -341,6 +342,13 @@
 	bonus_projectiles_scatter = 20
 	bonus_projectile_range = 6
 	bonus_projectile_speed = 2
+
+/datum/ammo/bullet/micro_rail/smoke_burst/tank
+	max_range = 3
+	bonus_projectiles_type = /datum/ammo/smoke_burst/tank
+	bonus_projectile_quantity = 5
+	bonus_projectiles_scatter = 30
+	bonus_projectile_range = 7
 
 //submunitions for micro grenades
 /datum/ammo/bullet/micro_rail_spread
@@ -476,6 +484,9 @@
 
 /datum/ammo/smoke_burst/do_at_max_range(turf/T, obj/projectile/P)
 	drop_nade(T.density ? P.loc : T)
+
+/datum/ammo/smoke_burst/tank
+	smokeradius = 2
 
 /*
 //================================================

@@ -15,8 +15,6 @@
 
 	pixel_x = -8
 	pixel_y = -3
-	old_x = -8
-	old_y = -3
 
 	// default_honor_value = 0
 

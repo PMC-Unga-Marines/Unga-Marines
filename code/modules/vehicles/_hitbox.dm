@@ -9,8 +9,6 @@
 	density = TRUE
 	anchored = TRUE
 	invisibility = INVISIBILITY_MAXIMUM
-	bound_width = 96
-	bound_height = 96
 	bound_x = -32
 	bound_y = -32
 	max_integrity = INFINITY
@@ -19,9 +17,15 @@
 	var/list/atom/movable/tank_desants
 	///The "parent" that this hitbox is attached to and to whom it will relay damage
 	var/obj/vehicle/root = null
+	///Length of the vehicle. Assumed to be longer than it is wide
+	var/vehicle_length = 96
+	///Width of the vehicle
+	var/vehicle_width = 96
 
 /obj/hitbox/Initialize(mapload, obj/vehicle/new_root)
 	. = ..()
+	bound_height = vehicle_length
+	bound_width = vehicle_width
 	root = new_root
 	allow_pass_flags = root.allow_pass_flags
 	atom_flags = root.atom_flags
@@ -47,6 +51,9 @@
 	root = null
 	return ..()
 
+/obj/hitbox/Shake(pixelshiftx = 2, pixelshifty = 2, duration = 2.5 SECONDS, shake_interval = 0.02 SECONDS)
+	root.Shake(pixelshiftx, pixelshifty, duration, shake_interval)
+
 /obj/hitbox/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_HULL] = 4.5
 
@@ -61,6 +68,8 @@
 	SIGNAL_HANDLER
 	if(!new_dir || new_dir == old_dir)
 		return FALSE
+	if(vehicle_length != vehicle_width)
+		return TRUE //handled by child types
 	for(var/mob/living/desant AS in tank_desants)
 		if(desant.loc == root.loc)
 			continue
@@ -162,12 +171,21 @@
 	SIGNAL_HANDLER
 	if(ISDIAGONALDIR(direction))
 		return COMPONENT_DRIVER_BLOCK_MOVE
-	if((root.dir != direction) && (root.dir != REVERSE_DIR(direction)))
+	var/obj/vehicle/sealed/armored/armor = root
+	var/is_strafing = FALSE
+	if(armor?.strafe)
+		is_strafing = TRUE
+		for(var/mob/driver AS in armor.return_drivers())
+			if(driver.client?.keys_held["Alt"])
+				is_strafing = FALSE
+				break
+	if((root.dir == direction) || (root.dir == REVERSE_DIR(direction)))
+		is_strafing = FALSE
+	else if(!is_strafing) //we turn
+		armor?.play_engine_sound()
 		root.setDir(direction)
-		if(isarmoredvehicle(root))
-			var/obj/vehicle/sealed/armored/armor = root
-			playsound(armor, armor.engine_sound, 100, TRUE, 20)
 		return COMPONENT_DRIVER_BLOCK_MOVE
+	///
 	//Due to this being a hot proc this part here is inlined and set on a by-hitbox-size basis
 	/////////////////////////////
 	var/turf/centerturf = get_step(get_step(root, direction), direction)
@@ -187,10 +205,7 @@
 				continue
 			root.Bump(AM) //manually call bump on everything
 			canstep = FALSE
-
-	if(canstep)
-		return NONE
-	return COMPONENT_DRIVER_BLOCK_MOVE
+	return canstep ? NONE : COMPONENT_DRIVER_BLOCK_MOVE
 
 /obj/hitbox/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -226,21 +241,36 @@
 /obj/hitbox/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	return (CHARGE_SPEED(charge_datum) * 50)
 
+///Returns the turf where primary weapon projectiles should source from
+/obj/hitbox/proc/get_projectile_loc(obj/item/armored_weapon/weapon)
+	if(!isarmoredvehicle(root))
+		return loc
+	var/obj/vehicle/sealed/armored/armored_root = root
+	return get_step(src, armored_root.turret_overlay.dir)
+
 ///2x2 hitbox version
 /obj/hitbox/medium
-	bound_width = 64
-	bound_height = 64
+	vehicle_length = 64
+	vehicle_width = 64
 	bound_x = 0
 	bound_y = -32
 
 /obj/hitbox/medium/on_attempt_drive(atom/movable/movable_parent, mob/living/user, direction)
 	if(ISDIAGONALDIR(direction))
 		return COMPONENT_DRIVER_BLOCK_MOVE
-	if((root.dir != direction) && (root.dir != REVERSE_DIR(direction)))
+	var/obj/vehicle/sealed/armored/armor = root
+	var/is_strafing = FALSE
+	if(armor?.strafe)
+		is_strafing = TRUE
+		for(var/mob/driver AS in armor.return_drivers())
+			if(driver.client?.keys_held["Alt"])
+				is_strafing = FALSE
+				break
+	if((root.dir == direction) || (root.dir == REVERSE_DIR(direction)))
+		is_strafing = FALSE
+	else if(!is_strafing) //we turn
+		armor?.play_engine_sound()
 		root.setDir(direction)
-		if(isarmoredvehicle(root))
-			var/obj/vehicle/sealed/armored/armor = root
-			playsound(armor, armor.engine_sound, 100, TRUE, 20)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 	///////////////////////////
 	var/turf/centerturf = get_step(root, direction)
@@ -269,6 +299,139 @@
 			root.Bump(O) //manually call bump on everything
 			canstep = FALSE
 
+	return canstep ? NONE : COMPONENT_DRIVER_BLOCK_MOVE
+
+//3x4
+/obj/hitbox/rectangle
+
+	bound_x = -32
+	bound_y = -64
+	vehicle_length = 128
+	vehicle_width = 96
+
+/obj/hitbox/rectangle/owner_turned(datum/source, old_dir, new_dir)
+	. = ..()
+	if(!.)
+		return
+	var/list/old_locs = locs.Copy()
+	switch(new_dir)
+		if(NORTH)
+			bound_height = vehicle_length
+			bound_width = vehicle_width
+			bound_x = -32
+			bound_y = -32
+			root.pixel_x = -65
+			root.pixel_y = -48
+		if(SOUTH)
+			bound_height = vehicle_length
+			bound_width = vehicle_width
+			bound_x = -32
+			bound_y = -64
+			root.pixel_x = -65
+			root.pixel_y = -80
+		if(WEST)
+			bound_height = vehicle_width
+			bound_width = vehicle_length
+			bound_x = -64
+			bound_y = -32
+			root.pixel_x = -80
+			root.pixel_y = -56
+		if(EAST)
+			bound_height = vehicle_width
+			bound_width = vehicle_length
+			bound_x = -32
+			bound_y = -32
+			root.pixel_x = -48
+			root.pixel_y = -56
+
+	var/angle_change = dir2angle(new_dir) - dir2angle(old_dir)
+	//north needing to be considered 0 OR 360 is inconvenient, I'm sure there is a non ungabrain way to do this
+	switch(angle_change)
+		if(-270)
+			angle_change = 90
+		if(270)
+			angle_change = -90
+	for(var/mob/living/desant AS in tank_desants)
+		if(desant.loc == root.loc)
+			continue
+		var/new_x
+		var/new_y
+		if(angle_change > 0) //clockwise turn
+			new_x = root.x + (desant.y - root.y)
+			new_y = root.y - (desant.x - root.x)
+		else //anti-clockwise
+			new_x = root.x - (desant.y - root.y)
+			new_y = root.y + (desant.x - root.x)
+
+		desant.forceMove(locate(new_x, new_y, z))
+
+	SEND_SIGNAL(src, COMSIG_MULTITILE_VEHICLE_ROTATED, loc, new_dir, null, old_locs)
+
+/obj/hitbox/rectangle/on_attempt_drive(atom/movable/movable_parent, mob/living/user, direction)
+	if(ISDIAGONALDIR(direction))
+		return COMPONENT_DRIVER_BLOCK_MOVE
+	var/obj/vehicle/sealed/armored/armor = root
+	var/is_strafing = FALSE
+	if(armor?.strafe)
+		is_strafing = TRUE
+		for(var/mob/driver AS in armor.return_drivers())
+			if(driver.client?.keys_held["Alt"])
+				is_strafing = FALSE
+				break
+	if((root.dir == direction) || (root.dir == REVERSE_DIR(direction)))
+		is_strafing = FALSE
+	else if(isarmoredvehicle(root) && !is_strafing) //we turn
+		armor.play_engine_sound()
+
+	/////////////////////////////
+	var/turf/centerturf = get_turf(root)
+	var/dist_count = 3
+	if(root.dir != direction)
+		dist_count =2
+	for(var/i in 1 to dist_count)
+		centerturf = get_step(centerturf, direction)
+	var/list/enteringturfs = list(centerturf)
+	enteringturfs += get_step(centerturf, turn(direction, 90))
+	enteringturfs += get_step(centerturf, turn(direction, -90))
+	/////////////////////////////
+	if(is_strafing)
+		centerturf = get_step(centerturf, root.dir)
+		centerturf = get_step(centerturf, root.dir)
+		enteringturfs += centerturf
+	var/canstep = TRUE
+	for(var/turf/T AS in enteringturfs)	//No break because we want to crush all the turfs before we start trying to move
+		if(!T.Enter(root, direction))	//Check if we can cross the turf first/bump the turf
+			canstep = FALSE
+
+		for(var/atom/movable/O AS in T.contents) // this is checked in turf/enter but it doesnt return false so lmao
+			if(O.CanPass(root))	// Then check for obstacles to crush
+				continue
+			root.Bump(O) //manually call bump on everything
+			canstep = FALSE
+
 	if(canstep)
-		return NONE
+		if((root.dir != direction) && (root.dir != REVERSE_DIR(direction)) && (!is_strafing))
+			root.setDir(direction)
+			return COMPONENT_DRIVER_BLOCK_MOVE
+		else
+			return NONE
 	return COMPONENT_DRIVER_BLOCK_MOVE
+
+//Some hover specific stuff for the SOM tank
+/obj/hitbox/rectangle/som_tank/get_projectile_loc(obj/item/armored_weapon/weapon)
+	return get_step(get_step(src, root.dir), root.dir)
+
+/obj/hitbox/rectangle/som_tank/on_jump_landed(datum/source, atom/lander)
+	if(HAS_TRAIT(lander, TRAIT_TANK_DESANT))
+		return
+	. = ..()
+	var/obj/vehicle/sealed/armored/multitile/som_tank/tank = root
+	tank.add_desant(lander)
+
+/obj/hitbox/rectangle/som_tank/on_exited(atom/source, atom/movable/AM, direction)
+	var/is_desant = HAS_TRAIT(AM, TRAIT_TANK_DESANT)
+	. = ..()
+	if(!is_desant || HAS_TRAIT(AM, TRAIT_TANK_DESANT))
+		return
+	var/obj/vehicle/sealed/armored/multitile/som_tank/tank = root
+	tank.remove_desant(AM)

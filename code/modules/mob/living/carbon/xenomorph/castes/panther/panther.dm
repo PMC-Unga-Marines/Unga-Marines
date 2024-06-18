@@ -13,7 +13,6 @@
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
 	pixel_x = -16
-	old_x = -16
 	bubble_icon = "alien"
 	gib_chance = 0
 	inherent_verbs = list(

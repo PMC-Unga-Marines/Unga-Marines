@@ -9,7 +9,6 @@
 	maxHealth = 400
 	plasma_stored = 300
 	pixel_x = -16
-	old_x = -16
 	drag_delay = 3
 	tier = XENO_TIER_THREE
 	upgrade = XENO_UPGRADE_NORMAL

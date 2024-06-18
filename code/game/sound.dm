@@ -428,4 +428,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			soundin = pick('sound/weapons/clan_sword_hit_1.ogg', 'sound/weapons/clan_sword_hit_2.ogg')
 		if(SFX_CHAIN_SWING)
 			soundin = pick('sound/items/chain_swing1.ogg', 'sound/items/chain_swing2.ogg', 'sound/items/chain_swing3.ogg')
+
+		if(SFX_HOVER_TANK)
+			soundin = pick('sound/vehicles/hover_1.ogg', 'sound/vehicles/hover_2.ogg', 'sound/vehicles/hover_3.ogg', 'sound/vehicles/hover_4.ogg')
 	return soundin

@@ -60,6 +60,7 @@
 #define COOLDOWN_CRIT "adrenaline_heal_crit"
 #define COOLDOWN_WHISTLE_BLOW "cooldown_whistle_blow"
 #define COOLDOWN_WHISTLE_WARCRY "cooldown_whistle_warcry"
+#define COOLDOWN_ARMORED_SMOKE "cooldown_armored_smoke"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"

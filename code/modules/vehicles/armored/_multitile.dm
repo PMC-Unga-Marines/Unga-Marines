@@ -20,8 +20,17 @@
 	max_integrity = 700
 	soft_armor = list(MELEE = 40, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 40)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
-	permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/ability/zoom)
-	permitted_weapons = list(/obj/item/armored_weapon, /obj/item/armored_weapon/ltaap, /obj/item/armored_weapon/secondary_weapon, /obj/item/armored_weapon/secondary_flamer)
+	permitted_mods = list(
+		/obj/item/tank_module/overdrive,
+		/obj/item/tank_module/ability/zoom,
+		/obj/item/tank_module/ability/smoke_launcher
+	)
+	permitted_weapons = list(
+		/obj/item/armored_weapon,
+		/obj/item/armored_weapon/ltaap,
+		/obj/item/armored_weapon/secondary_weapon,
+		/obj/item/armored_weapon/secondary_flamer
+	)
 	max_occupants = 4
 	move_delay = 0.75 SECONDS
 	glide_size = 2.5
@@ -59,3 +68,19 @@
 	if(QDELETED(src))
 		return
 	take_damage(30, BURN, FIRE)
+
+//THe HvX tank is not balanced at all for HvH
+/obj/vehicle/sealed/armored/multitile/campaign
+	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
+	max_integrity = 1400
+	soft_armor = list(MELEE = 80, BULLET = 85 , LASER = 85, ENERGY = 90, BOMB = 85, BIO = 100, FIRE = 100, ACID = 75)
+	hard_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 10, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
+	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.6, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.6)
+	move_delay = 0.6 SECONDS
+	glide_size = 2.5
+	vis_range_mod = 4
+
+/obj/vehicle/sealed/armored/multitile/campaign/Initialize(mapload)
+	. = ..()
+	var/obj/item/tank_module/module = new /obj/item/tank_module/ability/smoke_launcher()
+	module.on_equip(src)
