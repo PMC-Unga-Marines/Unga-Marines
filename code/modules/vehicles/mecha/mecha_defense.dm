@@ -175,7 +175,7 @@
 		try_damage_component(., user.zone_selected)
 
 /obj/vehicle/sealed/mecha/wrench_act(mob/living/user, obj/item/I)
-	..()
+	. = ..()
 	. = TRUE
 	if(construction_state == MECHA_SECURE_BOLTS)
 		construction_state = MECHA_LOOSE_BOLTS
@@ -186,7 +186,7 @@
 		to_chat(user, span_notice("You tighten the securing bolts."))
 
 /obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/I)
-	..()
+	. = ..()
 	. = TRUE
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_OPEN_HATCH
@@ -217,7 +217,7 @@
 			visual_effect_icon = ATTACK_EFFECT_MECHFIRE
 		else if(damtype == TOX)
 			visual_effect_icon = ATTACK_EFFECT_MECHTOXIN
-	..()
+	return ..()
 
 /obj/vehicle/sealed/mecha/proc/ammo_resupply(obj/item/mecha_ammo/reload_box, mob/user,fail_chat_override = FALSE)
 	if(!reload_box.rounds)
@@ -263,3 +263,9 @@
 		else
 			to_chat(user, span_notice("None of the equipment on this exosuit can use this ammo!"))
 	return FALSE
+
+/obj/vehicle/sealed/mecha/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
+	for(var/mob/living/carbon/human/crew AS in occupants)
+		if(crew.wear_id?.iff_signal & proj.iff_signal)
+			return FALSE
+	return ..()
