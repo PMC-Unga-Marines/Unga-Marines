@@ -1557,6 +1557,14 @@ RU TGMC EDIT*/
 			/obj/item/implanter/chem/blood = -1,
 			/obj/item/implanter/blade = -1,
 		),
+		"Assault Vehicle" = list(
+			/obj/item/armored_weapon = -1,
+			/obj/item/armored_weapon/ltaap = -1,
+			/obj/item/armored_weapon/secondary_weapon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
+			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
+			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
+		),
 	)
 
 /obj/machinery/vending/valhalla_seasonal_req
