@@ -58,15 +58,15 @@
 		to_chat(user, span_warning("The gibber is full, empty it first!"))
 		return
 
-	else if(!(istype(I, /obj/item/grab)) )
+	else if(!(istype(grab, /obj/item/grab)) )
 		to_chat(user, span_warning("This item is not suitable for the gibber!"))
 		return
 
-	else if(!iscarbon(I.grabbed_thing) && !istype(I.grabbed_thing, /mob/living/simple_animal))
+	else if(!iscarbon(grab.grabbed_thing) && !istype(grab.grabbed_thing, /mob/living/simple_animal))
 		to_chat(user, span_warning("This item is not suitable for the gibber!"))
 		return
 
-	var/mob/living/M = I.grabbed_thing
+	var/mob/living/M = grab.grabbed_thing
 	if(user.grab_state < GRAB_AGGRESSIVE)
 		to_chat(user, span_warning("You need a better grip to do that!"))
 		return
