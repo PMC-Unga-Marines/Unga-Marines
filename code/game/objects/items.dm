@@ -288,23 +288,23 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/facepaint/premium) && unique_reskin && !current_skin)
-		reskin_obj(I, user)
+/obj/item/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/facepaint/premium) && unique_reskin && !current_skin)
+		reskin_obj(attacking_item, user)
 		return TRUE
 
-	if(istype(I, /obj/item/facepaint) && colorable_allowed != NONE)
-		color_item(I, user)
+	if(istype(attacking_item, /obj/item/facepaint) && colorable_allowed != NONE)
+		color_item(attacking_item, user)
 		return TRUE
 
 	. = ..()
 	if(.)
 		return TRUE
 
-	if(!istype(I, /obj/item/storage))
-		return FALSE
+	if(!istype(attacking_item, /obj/item/storage))
+		return
 
-	var/obj/item/storage/attacked_storage = I
+	var/obj/item/storage/attacked_storage = attacking_item
 
 	if(!attacked_storage.storage_datum.use_to_pickup || !isturf(loc))
 		return
@@ -333,9 +333,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	else if(attacked_storage.storage_datum.can_be_inserted(src, user))
 		attacked_storage.storage_datum.handle_item_insertion(src, FALSE, user)
 
-/obj/item/attackby_alternate(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/facepaint))
-		alternate_color_item(I, user)
+/obj/item/attackby_alternate(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/facepaint))
+		alternate_color_item(attacking_item, user)
 		return TRUE
 	. = ..()
 	if(.)
