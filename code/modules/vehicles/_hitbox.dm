@@ -188,7 +188,7 @@
 /obj/hitbox/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
-		take_damage(10 * S.strength, BURN, ACID)
+		take_damage((10 * S.strength) * 0.2 , BURN, ACID)
 
 ///2x2 hitbox version
 /obj/hitbox/medium
