@@ -398,17 +398,19 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(parent.loc != user && parent.loc.loc != user) //loc.loc handles edge case of storage attached to an item attached to another item (modules/boots)
 		return COMPONENT_NO_MOUSEDROP
 
-	if(user.restrained() || user.stat != CONSCIOUS)
+	if(user.restrained() || user.stat)
 		return COMPONENT_NO_MOUSEDROP
 
-	if(istype(over_object, /atom/movable/screen/inventory/hand))
-		switch(over_object.name)
-			if("r_hand")
-				INVOKE_ASYNC(src, PROC_REF(put_item_in_r_hand), source, user)
-				return COMPONENT_NO_MOUSEDROP
-			if("l_hand")
-				INVOKE_ASYNC(src, PROC_REF(put_item_in_l_hand), source, user)
-				return COMPONENT_NO_MOUSEDROP
+	put_storage_in_hand(source, over_object, user)
+	return COMPONENT_NO_MOUSEDROP
+
+///Wrapper that puts the storage into our chosen hand
+/datum/storage/proc/put_storage_in_hand(datum/source, obj/over_object, mob/living/carbon/human/user)
+	switch(over_object.name)
+		if("r_hand")
+			INVOKE_ASYNC(src, PROC_REF(put_item_in_r_hand), source, user)
+		if("l_hand")
+			INVOKE_ASYNC(src, PROC_REF(put_item_in_l_hand), source, user)
 
 	if(istype(over_object, /atom/movable/screen))
 		return
