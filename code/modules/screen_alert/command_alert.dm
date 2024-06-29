@@ -62,19 +62,20 @@
 			if(ALPHA_SQUAD)
 				override_color = "red"
 			if(BRAVO_SQUAD)
-				override_color = "orange"
+				override_color = "yellow"
 			if(CHARLIE_SQUAD)
 				override_color = "purple"
 			if(DELTA_SQUAD)
 				override_color = "blue"
+			else
+				override_color = "grey"
 		for(var/mob/living/carbon/human/marine AS in human_owner.assigned_squad.marines_list | GLOB.observer_list)
 			marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>SQUAD ANNOUNCEMENT:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(marine, assemble_alert(
 				title = "Squad [human_owner.assigned_squad.name] Announcement",
 				subtitle = "Sent by [human_owner.real_name]",
 				message = text,
-				color_override = override_color,
-				minor = TRUE
+				color_override = override_color
 			))
 		return
 	for(var/mob/faction_receiver in alert_receivers)
