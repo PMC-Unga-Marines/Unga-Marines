@@ -1,0 +1,5 @@
+/obj/item/cell/ex_act(severity)
+	if(severity >= EXPLODE_WEAK && prob((severity / 2)))
+		qdel(src)
+	else if(prob(severity / 2))
+		corrupt()

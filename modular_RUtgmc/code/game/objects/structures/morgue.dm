@@ -1,0 +1,6 @@
+/obj/structure/morgue/ex_act(severity)
+	if(prob(severity / 4))
+		for(var/atom/movable/A in src)
+			A.forceMove(loc)
+			ex_act(severity)
+		qdel(src)

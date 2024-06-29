@@ -1,0 +1,48 @@
+@use '../base.scss';
+
+.underlineCell {
+  border-bottom: 1px solid #fff;
+}
+
+.whiteDescription {
+  color: white;
+  font-weight: bold;
+  font-family: inherit;
+
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.noPadCell {
+  padding: 2px;
+}
+
+.clan_td_th {
+  padding: 10px 10px 10px 10px;
+  border-bottom: 1px solid #252933;
+}
+
+.clan_h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.clan_h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.filter {
+  background-color: #684675;
+  color: #ccab7f;
+  border: 1px solid #161616;
+}
+
+.clan_list {
+  border-collapse: collapse;
+  width: 100%;
+}

@@ -1,0 +1,52 @@
+{
+	"highlight_kama":[
+		{
+			"type": "hyperscale",
+			"icon_state": "kama"
+		}
+	],
+	"highlight_kilt": [
+		{
+			"type": "hyperscale",
+			"icon_state": "kilt"
+		}
+	],
+	"highlight_long":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long"
+		}
+	],
+	"highlight_long_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long"
+		}
+	],
+
+	"highlight_regaly":[
+		{
+			"type": "hyperscale",
+			"icon_state": "regaly"
+		}
+	],
+	"highlight_regaly_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "regaly_h"
+		}
+	],
+	"highlight_onelong":[
+		{
+			"type": "hyperscale",
+			"icon_state": "onelong"
+		}
+	],
+
+	"highlight_onelong_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "onelong"
+		}
+	]
+}

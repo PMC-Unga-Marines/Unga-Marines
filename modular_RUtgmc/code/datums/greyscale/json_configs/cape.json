@@ -1,0 +1,66 @@
+{
+	"cape_kama": [
+		{
+			"type": "hyperscale",
+			"icon_state": "kama"
+		}
+	],
+	"cape_kilt": [
+		{
+			"type": "hyperscale",
+			"icon_state": "kilt"
+		},
+		{
+			"type":"icon_state",
+			"icon_state":"kilt_no_color",
+			"blend_mode":"overlay"
+		}
+	],
+	"cape_kilt (alt)": [
+		{
+			"type": "hyperscale",
+			"icon_state": "kilt_alt"
+		},
+		{
+			"type":"icon_state",
+			"icon_state":"kilt_no_color",
+			"blend_mode":"overlay"
+		}
+	],
+	"cape_long": [
+		{
+			"type": "hyperscale",
+			"icon_state": "long"
+		}
+	],
+	"cape_long_h": [
+		{
+			"type": "hyperscale",
+			"icon_state": "long_h"
+		}
+	],
+	"cape_regaly": [
+		{
+			"type": "hyperscale",
+			"icon_state": "regaly"
+		}
+	],
+	"cape_regaly_h": [
+		{
+			"type": "hyperscale",
+			"icon_state": "regaly_h"
+		}
+	],
+	"cape_onelong": [
+		{
+			"type": "hyperscale",
+			"icon_state": "onelong"
+		}
+	],
+	"cape_onelong_h": [
+		{
+			"type": "hyperscale",
+			"icon_state": "onelong_h"
+		}
+	]
+}
