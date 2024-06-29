@@ -252,7 +252,7 @@
 		new_proj.fire_at(target, shooter, source, range, speed, new_angle, TRUE, loc_override = origin_override)
 
 ///A variant of Fire_bonus_projectiles without fixed scatter and no link between gun and bonus_projectile accuracy
-/datum/ammo/proc/fire_directionalburst(obj/projectile/main_proj, mob/living/shooter, atom/source, projectile_amount, range, speed, angle, target, loc_override)
+/datum/ammo/proc/fire_directionalburst(obj/projectile/main_proj, mob/living/shooter, atom/source, projectile_amount, angle, target, loc_override)
 	var/effect_icon = ""
 	var/proj_type = /obj/projectile
 	if(istype(main_proj, /obj/projectile/hitscan))
@@ -277,7 +277,7 @@
 			new_angle += 360
 		if(new_angle > 360)
 			new_angle -= 360
-		new_proj.fire_at(target, shooter, loc_override ? loc_override : main_proj.loc, range, speed, new_angle, TRUE)
+		new_proj.fire_at(target, shooter, loc_override ? loc_override : main_proj.loc, null, null, new_angle, TRUE)
 
 /datum/ammo/proc/drop_flame(turf/target_turf)
 	if(!istype(target_turf))

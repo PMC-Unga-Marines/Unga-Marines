@@ -66,15 +66,19 @@
 /datum/ammo/rocket/ltb
 	name = "cannon round"
 	icon_state = "ltb"
-	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	accurate_range = 15
 	max_range = 40
 	penetration = 50
 	damage = 80
 	hud_state = "bigshell_he"
+	barricade_clear_distance = 4
 
 /datum/ammo/rocket/ltb/drop_nade(turf/target_turf)
 	cell_explosion(target_turf, 320, 70)
+
+/datum/ammo/rocket/ltb/heavy/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 450, 90)
 
 /datum/ammo/bullet/tank_apfds
 	name = "8.8cm APFDS round"
@@ -247,8 +251,8 @@
 
 /datum/ammo/rocket/recoilless/heat/mech/on_hit_obj(obj/target_object, obj/projectile/proj)
 	drop_nade(get_turf(target_object))
-	if(ismecha(target_object))
-		proj.damage *= 3 //this is specifically designed to hurt mechs
+	if(isvehicle(target_object) || ishitbox(target_object))
+		proj.damage *= 3 //this is specifically designed to hurt vehicles
 
 /datum/ammo/rocket/recoilless/heat/mech/drop_nade(turf/target_turf)
 	cell_explosion(target_turf, 50, 45)
@@ -376,8 +380,8 @@
 
 /datum/ammo/rocket/som/heat/on_hit_obj(obj/target_object, obj/projectile/proj)
 	drop_nade(get_turf(target_object))
-	if(ismecha(target_object))
-		proj.damage *= 3 //this is specifically designed to hurt mechs
+	if(isvehicle(target_object) || ishitbox(target_object))
+		proj.damage *= 3 //this is specifically designed to hurt vehicles
 
 /datum/ammo/rocket/som/heat/drop_nade(turf/target_turf)
 	cell_explosion(target_turf, 50, 45)
@@ -493,22 +497,22 @@
 	staggerstun(target_mob, proj, slowdown = 0.2, knockback = 1)
 	drop_nade(det_turf)
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, target_mob), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_mob), loc_override = det_turf)
 
 /datum/ammo/rocket/atgun_shell/beehive/on_hit_obj(obj/target_obj, obj/projectile/proj)
 	var/turf/det_turf = target_obj.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_obj, proj) : target_obj
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, target_obj), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_obj), loc_override = det_turf)
 
 /datum/ammo/rocket/atgun_shell/beehive/on_hit_turf(turf/target_turf, obj/projectile/proj)
 	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, target_turf), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 /datum/ammo/rocket/atgun_shell/beehive/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, get_turf(proj)), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 /datum/ammo/rocket/atgun_shell/beehive/incend
 	name = "napalm shell"
@@ -568,38 +572,46 @@
 	hud_state_empty = "rocket_empty"
 	ammo_behavior_flags = AMMO_SNIPER
 	armor_type = BULLET
-	damage_falloff = 1
+	damage_falloff = 2
 	shell_speed = 3
 	accuracy = 10
 	accurate_range = 20
 	max_range = 40
-	damage = 180
-	penetration = 20
+	damage = 300
+	penetration = 40
 	sundering = 10
 	bullet_color = LIGHT_COLOR_TUNGSTEN
+	barricade_clear_distance = 4
 
-/datum/ammo/rocket/coilgun/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 200, 50)
+/datum/ammo/rocket/coilgun/drop_nade(turf/T)
+	explosion(T, 0, 3, 5)
 
 /datum/ammo/rocket/coilgun/holder //only used for tankside effect checks
 	ammo_behavior_flags = AMMO_ENERGY
 
 /datum/ammo/rocket/coilgun/low
-	damage_falloff = 2
 	shell_speed = 2
-	damage = 90
-	penetration = 10
+	damage = 150
+	penetration = 25
 	sundering = 5
 
-/datum/ammo/rocket/coilgun/low/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 100, 40)
+/datum/ammo/rocket/coilgun/low/drop_nade(turf/T)
+	explosion(T, 0, 2, 3, 4)
 
 /datum/ammo/rocket/coilgun/high
 	damage_falloff = 0
-	shell_speed = 5
-	damage = 300
-	penetration = 40
+	shell_speed = 4
+	damage = 450
+	penetration = 70
 	sundering = 20
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_PASS_THROUGH_MOB
 
 /datum/ammo/rocket/coilgun/high/drop_nade(turf/target_turf)
 	cell_explosion(target_turf, 350, 75)
+
+/datum/ammo/rocket/coilgun/high/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(ishuman(target_mob) && prob(50))
+		target_mob.gib()
+		proj.proj_max_range -= 5
+		return
+	proj.proj_max_range = 0

@@ -110,22 +110,22 @@
 	var/turf/det_turf = get_turf(target_mob)
 	staggerstun(target_mob, proj, slowdown = 0.5, knockback = 1)
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_mob), loc_override = det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_mob), loc_override = det_turf)
 
 /datum/ammo/tx54/on_hit_obj(obj/target_obj, obj/projectile/proj)
 	var/turf/det_turf = target_obj.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_obj, proj) : target_obj
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_obj), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_obj), loc_override = det_turf)
 
 /datum/ammo/tx54/on_hit_turf(turf/target_turf, obj/projectile/proj)
 	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_turf), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 /datum/ammo/tx54/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.starting_turf, get_turf(proj)), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 /datum/ammo/tx54/incendiary
 	name = "20mm incendiary grenade"
@@ -198,6 +198,7 @@
 	accuracy_var_low = 5
 	accuracy_var_high = 5
 	max_range = 4
+	shell_speed = 3
 	damage = 20
 	penetration = 20
 	damage_falloff = 0
@@ -287,6 +288,33 @@
 	chemical_payload.set_up(0, target_turf, reagent_list, RAZOR_FOAM)
 	chemical_payload.start()
 
+/datum/ammo/tx54/tank_cannister
+	name = "cannister"
+	icon_state = "cannister_shot"
+	damage = 30
+	penetration = 0
+	ammo_behavior_flags = AMMO_SNIPER
+	damage_falloff = 0.5
+	max_range = 3
+	projectile_greyscale_colors = "#4f0303"
+	bonus_projectiles_type = /datum/ammo/bullet/tx54_spread/tank_cannister
+	bonus_projectiles_scatter = 6
+	bonus_projectile_quantity = 12
+
+/datum/ammo/bullet/tx54_spread/tank_cannister
+	name = "cannister shot"
+	icon_state = "flechette"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
+	max_range = 7
+	damage = 50
+	penetration = 15
+	sundering = 2
+	damage_falloff = 1
+	shrapnel_chance = 15
+
+/datum/ammo/bullet/tx54_spread/tank_cannister/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, max_range = 4, stagger = 2 SECONDS, slowdown = 0.2)
+
 //10-gauge Micro rail shells - aka micronades
 /datum/ammo/bullet/micro_rail
 	hud_state_empty = "grenade_empty_flash"
@@ -299,10 +327,6 @@
 	bonus_projectiles_scatter = 12
 	///How many bonus projectiles to generate. New var so it doesn't trigger on firing
 	var/bonus_projectile_quantity = 5
-	///Max range for the bonus projectiles
-	var/bonus_projectile_range = 7
-	///projectile speed for the bonus projectiles
-	var/bonus_projectile_speed = 3
 
 /datum/ammo/bullet/micro_rail/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
@@ -310,7 +334,7 @@
 	var/datum/effect_system/smoke_spread/smoke = new
 	smoke.set_up(0, det_turf, 1)
 	smoke.start()
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(proj.firer, det_turf), det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 //piercing scatter shot
 /datum/ammo/bullet/micro_rail/airburst
@@ -325,7 +349,6 @@
 	handful_icon_state = "micro_grenade_incendiary"
 	hud_state = "grenade_fire"
 	bonus_projectiles_type = /datum/ammo/bullet/micro_rail_spread/incendiary
-	bonus_projectile_range = 6
 
 //cluster grenade. Bomblets explode in a rough cone pattern
 /datum/ammo/bullet/micro_rail/cluster
@@ -334,8 +357,6 @@
 	hud_state = "grenade_he"
 	bonus_projectiles_type = /datum/ammo/micro_rail_cluster
 	bonus_projectile_quantity = 7
-	bonus_projectile_range = 6
-	bonus_projectile_speed = 2
 
 //creates a literal smokescreen
 /datum/ammo/bullet/micro_rail/smoke_burst
@@ -344,15 +365,12 @@
 	hud_state = "grenade_smoke"
 	bonus_projectiles_type = /datum/ammo/smoke_burst
 	bonus_projectiles_scatter = 20
-	bonus_projectile_range = 6
-	bonus_projectile_speed = 2
 
 /datum/ammo/bullet/micro_rail/smoke_burst/tank
 	max_range = 3
 	bonus_projectiles_type = /datum/ammo/smoke_burst/tank
 	bonus_projectile_quantity = 5
 	bonus_projectiles_scatter = 30
-	bonus_projectile_range = 7
 
 //submunitions for micro grenades
 /datum/ammo/bullet/micro_rail_spread
@@ -366,6 +384,8 @@
 	penetration = 20
 	sundering = 3
 	damage_falloff = 1
+	max_range = 7
+	shell_speed = 3
 
 /datum/ammo/bullet/micro_rail_spread/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.5)
@@ -490,6 +510,7 @@
 	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 /datum/ammo/smoke_burst/tank
+	max_range = 7
 	smokeradius = 2
 
 /*
