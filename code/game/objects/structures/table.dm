@@ -379,6 +379,46 @@
 /*
 * Reinforced tables
 */
+
+/obj/structure/table/wood/gambling/urban
+	icon = 'icons/obj/smooth_objects/urban_table_gambling.dmi'
+	icon_state = "urban_table_gambling-0"
+	base_icon_state = "urban_table_gambling"
+	parts = /obj/item/frame/table/gambling
+
+/obj/structure/table/wood/gambling/urban/black
+	icon = 'icons/obj/smooth_objects/urban_table_gambling_black.dmi'
+	icon_state = "urban_table_gambling_black-0"
+	base_icon_state = "urban_table_gambling_black"
+	parts = /obj/item/frame/table/gambling
+
+/obj/structure/table/black
+	name = "black metal table"
+	desc = "A sleek black metallic surface resting on four legs. Useful to put stuff on. Can be flipped in emergencies to act as cover."
+	icon = 'icons/obj/smooth_objects/black_table.dmi'
+	icon_state = "black_table-0"
+	base_icon_state = "black_table"
+	table_prefix = "black"
+	parts = /obj/item/frame/table
+
+/obj/structure/table/urban/shiny_black
+	name = "shiny black metal table"
+	desc = "A shiny black metallic surface resting on four legs, looks like it belongs in a boardroom. Useful to put stuff on. Can be flipped in emergencies to act as cover."
+	icon = 'icons/obj/smooth_objects/urban_table_black.dmi'
+	icon_state = "urban_table_black-0"
+	base_icon_state = "urban_table_black"
+	table_prefix = "urban_table_black"
+	parts = /obj/item/frame/table
+
+/obj/structure/table/urban/shiny_brown
+	name = "shiny brown metal table"
+	desc = "A shiny brown metallic surface resting on four legs, looks like it belongs in a boardroom. Useful to put stuff on. Can be flipped in emergencies to act as cover."
+	icon = 'icons/obj/smooth_objects/urban_table_brown.dmi'
+	icon_state = "urban_table_brown-0"
+	base_icon_state = "urban_table_brown"
+	table_prefix = "urban_table_brown"
+	parts = /obj/item/frame/table
+
 /obj/structure/table/reinforced
 	name = "reinforced table"
 	desc = "A square metal surface resting on four legs. This one has side panels, making it useful as a desk, but impossible to flip."
@@ -459,6 +499,80 @@
 
 /obj/structure/table/mainship/nometal
 	parts = /obj/item/frame/table/mainship/nometal
+	dropmetal = FALSE
+
+/*
+* Racks
+*/
+/obj/structure/rack
+	name = "rack"
+	desc = "A bunch of metal shelves stacked on top of eachother. Excellent for storage purposes, less so as cover."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "rack"
+	density = TRUE
+	layer = TABLE_LAYER
+	anchored = TRUE
+	coverage = 20
+	climbable = TRUE
+	var/dropmetal = TRUE   //if true drop metal when destroyed; mostly used when we need large amounts of racks without marines hoarding the metal
+	max_integrity = 40
+	resistance_flags = XENO_DAMAGEABLE
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
+	var/parts = /obj/item/frame/rack
+
+/obj/structure/rack/Initialize(mapload)
+	. = ..()
+	var/static/list/connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
+		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override),
+		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
+	)
+	AddElement(/datum/element/connect_loc, connections)
+
+/obj/structure/rack/MouseDrop_T(obj/item/I, mob/user)
+	if (!istype(I) || user.get_active_held_item() != I)
+		return ..()
+	user.drop_held_item()
+	if(I.loc != loc)
+		step(I, get_dir(I, src))
+
+/obj/structure/rack/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(.)
+		return
+
+	if(iswrench(I))
+		deconstruct(TRUE)
+		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+		return
+
+	if(user.a_intent != INTENT_HARM)
+		return user.transferItemToLoc(I, loc)
+
+
+/obj/structure/rack/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
+	SIGNAL_HANDLER
+	if(!istype(O,/mob/living/carbon/xenomorph/ravager))
+		return
+	var/mob/living/carbon/xenomorph/M = O
+	if(!M.stat) //No dead xenos jumpin on the bed~
+		visible_message(span_danger("[O] plows straight through [src]!"))
+		deconstruct(FALSE)
+
+/obj/structure/rack/deconstruct(disassembled = TRUE)
+	if(disassembled && parts && dropmetal)
+		new parts(loc)
+	else if(dropmetal)
+		new /obj/item/stack/sheet/metal(loc)
+	density = FALSE
+	return ..()
+
+/obj/structure/rack/nometal
+	dropmetal = FALSE
+
+/obj/structure/rack/wood
+	color = "#8B7B5B"
 	dropmetal = FALSE
 
 #undef TABLE_STATUS_WEAKENED

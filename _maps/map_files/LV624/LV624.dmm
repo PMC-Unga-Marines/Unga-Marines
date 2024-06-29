@@ -13125,7 +13125,9 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "mNI" = (
-/obj/structure/curtain/temple,
+/obj/structure/curtain/temple{
+	dir = 4
+	},
 /turf/open/floor/bcircuit/off,
 /area/lv624/lazarus/sandtemple)
 "mNU" = (
@@ -21392,7 +21394,9 @@
 	},
 /area/lv624/lazarus/comms)
 "vSk" = (
-/obj/structure/curtain/temple,
+/obj/structure/curtain/temple{
+	dir = 4
+	},
 /turf/open/floor/prison/redfloor,
 /area/lv624/lazarus/sandtemple)
 "vSQ" = (

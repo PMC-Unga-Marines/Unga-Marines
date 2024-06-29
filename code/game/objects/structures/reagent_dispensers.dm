@@ -245,6 +245,11 @@
 	flame_radius(round(reagents.total_volume * 0.005), loc, 46, 40, 31, 30, colour = FLAME_COLOR_LIME)
 	qdel(src)
 
+/obj/structure/reagent_dispensers/fueltank/spacefuel
+	name = "spacecraft fuel-mix tank"
+	desc = "A fuel tank mix with fuel designed for various spacecraft, very combustible.";
+	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi';
+
 /obj/structure/reagent_dispensers/water_cooler
 	name = "water cooler"
 	desc = "A machine that dispenses water to drink."
@@ -256,6 +261,9 @@
 	tank_volume = 500
 	list_reagents = list(/datum/reagent/water = 500)
 	coverage = 20
+
+/obj/structure/reagent_dispensers/water_cooler/nondense
+	density = FALSE
 
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"

@@ -99,4 +99,8 @@ endmap
 
 map bluemoon
 	maxplayers 40
+
+map lv759
+	minplayers 65
+
 endmap

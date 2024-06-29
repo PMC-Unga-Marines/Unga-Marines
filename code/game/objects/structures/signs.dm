@@ -8,12 +8,21 @@
 	var/directional = TRUE
 	///The icon sign will change on Initialize.
 	var/base_icon = 'icons/obj/decals.dmi'
+	var/directional = TRUE //if true init to a given x/y offset on a wall, if not leave floating in space. used for multiple signs on a wall to prevent them all from moving to the same offset and overlapping/becoming unreadable
+	/// The clean version of the sprite, which we replace in initialize when the sign loads in game
+	var/base_icon = 'icons/obj/decals.dmi'
+	///if true try to automatically find the nearest wall and put ourselves on it
+	var/autoplace = TRUE
 
 /obj/structure/sign/Initialize(mapload)
 	. = ..()
 	if(base_icon)
 		icon = base_icon
 	if(!directional) //if not directional do not initialize to a x or y offset
+		return
+	icon = base_icon
+	if(autoplace)
+		place_poster()
 		return
 	switch(dir)
 		if(NORTH)
@@ -24,6 +33,48 @@
 			pixel_x = 30
 		if(WEST)
 			pixel_x = -30
+
+//automatically adjust place and offset to make sure sign isn't floating in the middle of nowhere
+/obj/structure/sign/proc/place_poster()
+	if(isclosedturf(get_step(loc, dir)))
+		switch(dir)
+			if(NORTH)
+				pixel_y = 32
+			if(SOUTH)
+				pixel_y = -32
+			if(EAST)
+				pixel_x = 30
+			if(WEST)
+				pixel_x = -30
+		return
+	if(isclosedturf(get_turf(loc)))
+		return
+	for(var/i in CARDINAL_ALL_DIRS)
+		if(!isclosedturf(get_step(loc, i)))
+			continue
+		else
+			switch(i)
+				if(NORTH)
+					pixel_y = 32
+				if(NORTHEAST)
+					pixel_y = 32
+					pixel_x = 30
+				if(NORTHWEST)
+					pixel_y = 32
+					pixel_x = -30
+				if(SOUTH)
+					pixel_y = -32
+				if(SOUTHWEST)
+					pixel_y = -32
+					pixel_x = -30
+				if(SOUTHEAST)
+					pixel_y = -32
+					pixel_x = 30
+				if(EAST)
+					pixel_x = 30
+				if(WEST)
+					pixel_x = -30
+			return
 
 /obj/structure/sign/ex_act(severity)
 	if(severity >= EXPLODE_WEAK)
