@@ -19,7 +19,7 @@
 	/// pixel x shift to give to the buckled mob
 	var/buckling_x = 0
 	/// Pixel y shift to give to the buckled mob.
-	var/buckling_y = 0
+	var/buckling_y = 3
 	var/obj/structure/closet/bodybag/buckled_bodybag
 	/// Whether you can buckle bodybags to this bed
 	var/accepts_bodybag = FALSE
@@ -211,7 +211,7 @@
 	anchored = FALSE
 	buckle_flags = CAN_BUCKLE
 	drag_delay = 0 //Pulling something on wheels is easy
-	buckling_y = 6
+	buckling_y = 9
 	foldabletype = /obj/item/roller
 	accepts_bodybag = TRUE
 	base_bed_icon = "roller"
