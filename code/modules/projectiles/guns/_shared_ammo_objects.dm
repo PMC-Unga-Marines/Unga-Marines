@@ -155,10 +155,12 @@
 	burn_ticks = 12
 
 ///Effects applied to a mob that crosses a burning turf
-/obj/fire/flamer/on_cross(datum/source, mob/living/crosser, oldloc, oldlocs)
-	. = ..()
-	if(istype(crosser) || isobj(crosser))
-		crosser.fire_act(burn_level)
+/obj/fire/flamer/on_cross(datum/source, atom/movable/crosser, oldloc, oldlocs)
+	if(!isliving(crosser) || isobj(crosser))
+		return
+	if(HAS_TRAIT(crosser, TRAIT_TANK_DESANT))
+		return
+	crosser.fire_act(burn_level)
 
 /obj/fire/flamer/affect_mob(mob/living/carbon/affected)
 	. = ..()
