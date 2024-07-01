@@ -1,36 +1,32 @@
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull request process. -->
+## `Основные изменения`
 
-## About The Pull Request
+<!-- Опишите свой пулл реквест и обязательно опишите ВСЕ изменения -->
 
-<!-- Describe The Pull Request. Please be sure every change is documented or this can delay review and even discourage maintainers from merging your PR! -->
+## `Как это улучшит игру`
 
-## Why It's Good For The Game AAAAAAAAA
+<!-- Ты должен быть способен объяснить ПОЧЕМУ это сделает нашу игру лучше, при этом твоё объяснение должно КАК МИНИМУМ быть логичным, желательно с использованием иной точки зрения, если дело касается баланса и/или игровых механик. -->
 
-<!-- Argue for the merits of your changes and how they benefit the game, especially if they are controversial and/or far reaching. If you can't actually explain WHY what you are doing will improve the game, then it probably isn't good for the game in the first place. -->
+## `Ченджлог`
 
-## Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely observed by players or admins you should add a changelog. If your change does NOT meet this description, remove this section. Be sure to properly mark your PRs to prevent unnecessary GBP loss. You can read up on GBP and it's effects on PRs in the tgstation guides for contributors. Please note that maintainers freely reserve the right to remove and add tags should they deem it appropriate. You can attempt to finagle the system all you want, but it's best to shoot for clear communication right off the bat. -->
-
+<!-- Данная форма позволяет игрокам наблюдать историю изменений прямо в игре и должна содержать тезисную информацию о том, как этот ПР полияет на игрока, нежели его общее содержание. -->
+```
 :cl:
-add: Added new mechanics or gameplay changes
-add: Added more things
-del: Removed old things
-qol: made something easier to use
-balance: rebalanced something
-fix: fixed a few things
-soundadd: added a new sound thingy
-sounddel: removed an old sound thingy
-imageadd: added some icons and images
-imagedel: deleted some icons and images
-spellcheck: fixed a few typos
-code: changed some code
-refactor: refactored some code
-config: changed some config setting
-admin: messed with admin stuff
-server: something server ops should know
+add: Добавил новые механики или изменил геймплей.
+add: Добавил больше вещей.
+del: Удалил старые вещи.
+qol: Сделал что-то более простым в использовании.
+balance: Изменил баланс некоторых вещей.
+fix: Исправил некоторые вещи.
+soundadd: Добавил пару крутых звуков.
+sounddel: Удалил пару старых звуков.
+imageadd: Добавил новые спрайты или изменил старые.
+imagedel: Удалил некоторые спрайты.
+spellcheck: Исправил несколько опечаток.
+code: Изменил некую составляющую кода.
+refactor: Переделал код в лучшую сторону.
+config: Изменил настройки конфига.
+admin: Что-то изменил в механиках для админов.
+server: Что-то, в чем должны разбираться владельцы сервера.
 /:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put your name to the right of the first :cl: if you want to overwrite your GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the icon ingame) and delete the unneeded ones. Despite some of the tags, changelogs should generally represent how a player might be affected by the changes rather than a summary of the PR's contents. -->
+```
+<!-- Оба :cl:'а необходимы для того, чтобы вебхук работал и ваши изменения были видны в игре. Вы можете использовать сразу несколько одинаковых префиксов и спокойно удалять ненужные. Если вы ходите изменить никнейм, который будет показан с изменениями в игре - напишите его правее первого :cl:, в ином случае будет использован никнейм c GitHub. -->
