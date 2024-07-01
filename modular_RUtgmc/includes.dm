@@ -4,7 +4,6 @@
 #include "code\datums\actions\ability_actions.dm"
 #include "code\datums\actions\observer_action.dm"
 #include "code\datums\actions\xeno_action.dm"
-#include "code\datums\actions\actions\action.dm"
 #include "code\datums\autocells\auto_cell.dm"
 #include "code\datums\autocells\explosion.dm"
 #include "code\datums\autocells\vomitwave.dm"
