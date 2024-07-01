@@ -1,16 +1,16 @@
 /atom/movable/screen/alien/nightvision
-	icon = 'modular_RUtgmc/icons/mob/screen/alien_better.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 
 /atom/movable/screen/alien/queen_locator
-	icon = 'modular_RUtgmc/icons/mob/screen/alien_better.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 
 /atom/movable/screen/alien/plasmadisplay
 	name = "plasma stored"
-	icon = 'modular_RUtgmc/icons/mob/screen/alien_better.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 	icon_state = "power_display_20"
 
 /atom/movable/screen/alien/evolvehud
-	icon = 'modular_RUtgmc/icons/mob/screen/alien_better.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 	name = "Evolve Status"
 	desc = "Click for evolve panel."
 	icon_state = "evolve_empty"
@@ -24,7 +24,7 @@
 	X.Evolve()
 
 /atom/movable/screen/alien/sunderhud
-	icon = 'modular_RUtgmc/icons/mob/screen/alien_better.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 	icon_state = "sunder0"
 	screen_loc = ui_sunderhud
 
