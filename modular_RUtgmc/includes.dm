@@ -1,4 +1,3 @@
-#include "code\controllers\configuration\entries\general.dm"
 #include "code\controllers\subsystem\cellauto.dm"
 #include "code\controllers\subsystem\job.dm"
 #include "code\controllers\subsystem\predships.dm"
@@ -392,7 +391,6 @@
 #include "code\modules\vehicles\mecha\mecha_defense.dm"
 #include "code\modules\vehicles\powerloader.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
-#include "code\controllers\configuration\entries.dm"
 #include "code\controllers\subsystem\dbcore.dm"
 #include "code\game\objects\items\weapons\weapons.dm"
 #include "code\modules\client\preferences.dm"
