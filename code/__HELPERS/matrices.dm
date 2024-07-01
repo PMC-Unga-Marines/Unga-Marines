@@ -192,6 +192,7 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 
 
 
+
 //Returns a matrix multiplication of A with B
 /proc/color_matrix_multiply(list/A, list/B)
 	if(!istype(A) || !istype(B))
