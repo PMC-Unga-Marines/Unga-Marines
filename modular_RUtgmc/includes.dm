@@ -377,7 +377,6 @@
 #include "code\modules\projectiles\guns\shotguns.dm"
 #include "code\modules\projectiles\guns\smgs.dm"
 #include "code\modules\projectiles\guns\specialist.dm"
-#include "code\__HELPERS\matrices.dm"
 #include "code\_onclick\hud\defines.dm"
 #include "code\_onclick\hud\yautja.dm"
 #include "code\datums\elements\yautja_tracked_item.dm"
