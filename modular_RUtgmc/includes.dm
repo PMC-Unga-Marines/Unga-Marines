@@ -1,4 +1,3 @@
-#include "code\controllers\subsystem\job.dm"
 #include "code\controllers\subsystem\predships.dm"
 #include "code\controllers\subsystem\minimaps.dm"
 #include "code\controllers\subsystem\points.dm"
