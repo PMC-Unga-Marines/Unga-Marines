@@ -1,4 +1,3 @@
-#include "code\controllers\subsystem\predships.dm"
 #include "code\datums\namepool.dm"
 #include "code\datums\shuttles.dm"
 #include "code\datums\skills.dm"
