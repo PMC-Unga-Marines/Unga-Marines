@@ -1,4 +1,3 @@
-#include "code\__HELPERS\text.dm"
 #include "code\__HELPERS\unsorted.dm"
 #include "code\_globalvars\lists\flavor_misc.dm"
 #include "code\_globalvars\lists\mapping.dm"
