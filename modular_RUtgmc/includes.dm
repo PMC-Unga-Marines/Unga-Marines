@@ -1,4 +1,3 @@
-#include "code\_globalvars\lists\mobs.dm"
 #include "code\_globalvars\lists\objects.dm"
 #include "code\_onclick\xeno.dm"
 #include "code\_onclick\hud\hud.dm"
