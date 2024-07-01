@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 
 		GLOB.hive_ui_caste_index[type_path] = length(.) //Starts from 0.
 
-		var/icon/xeno_minimap = icon('modular_RUtgmc/icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon)) ///RUTGMC edit, icon redirect to module
+		var/icon/xeno_minimap = icon('icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon)) ///RUTGMC edit, icon redirect to module
 		var/tier = initial(caste.tier)
 		if(tier == XENO_TIER_MINION)
 			continue

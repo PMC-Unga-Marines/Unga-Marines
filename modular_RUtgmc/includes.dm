@@ -1,5 +1,4 @@
 #include "code\controllers\subsystem\predships.dm"
-#include "code\controllers\subsystem\minimaps.dm"
 #include "code\controllers\subsystem\points.dm"
 #include "code\datums\namepool.dm"
 #include "code\datums\shuttles.dm"
