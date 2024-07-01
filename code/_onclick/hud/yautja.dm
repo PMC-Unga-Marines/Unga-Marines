@@ -2,7 +2,7 @@
 	. = ..()
 
 	pred_power_icon = new /atom/movable/screen()
-	pred_power_icon.icon = 'modular_RUtgmc/icons/mob/screen/yautja.dmi'
+	pred_power_icon.icon = 'icons/mob/screen/yautja.dmi'
 	pred_power_icon.icon_state = "powerbar10"
 	pred_power_icon.name = "bracer power stored"
 	pred_power_icon.screen_loc = ui_predator_power
