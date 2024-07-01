@@ -1,6 +1,5 @@
 #include "code\_onclick\xeno.dm"
 #include "code\_onclick\hud\hud.dm"
-#include "code\_onclick\hud\xeno\xeno.dm"
 #include "code\controllers\configuration\entries\general.dm"
 #include "code\controllers\subsystem\cellauto.dm"
 #include "code\controllers\subsystem\job.dm"
