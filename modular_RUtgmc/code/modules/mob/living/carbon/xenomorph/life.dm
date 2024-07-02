@@ -43,9 +43,9 @@
 				amount = round(evolution_stored * 100 / xeno_caste.evolution_threshold, 5)
 				hud_used.alien_evolve_display.icon_state = "evolve[amount]"
 				if(!hive.check_ruler() && !isxenolarva(src))
-					hud_used.alien_evolve_display.overlays += image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "evolve_cant")
+					hud_used.alien_evolve_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "evolve_cant")
 				else
-					hud_used.alien_evolve_display.overlays -= image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "evolve_cant")
+					hud_used.alien_evolve_display.overlays -= image('icons/mob/screen/alien_better.dmi', icon_state = "evolve_cant")
 			else
 				hud_used.alien_evolve_display.icon_state = "evolve_empty"
 		else
@@ -59,15 +59,15 @@
 			hud_used.alien_sunder_display.icon_state = "sunder[amount]"
 			switch(amount)
 				if(80 to 100)
-					hud_used.alien_sunder_display.overlays += image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn0")
+					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn0")
 				if(60 to 80)
-					hud_used.alien_sunder_display.overlays += image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn1")
+					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn1")
 				if(40 to 60)
-					hud_used.alien_sunder_display.overlays += image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn2")
+					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn2")
 				if(20 to 40)
-					hud_used.alien_sunder_display.overlays += image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn3")
+					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn3")
 				if(0 to 20)
-					hud_used.alien_sunder_display.overlays += image('modular_RUtgmc/icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn4")
+					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn4")
 		else
 			hud_used.alien_sunder_display.icon_state = "sunder0"
 

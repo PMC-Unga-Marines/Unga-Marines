@@ -57,7 +57,7 @@
 	knock_down_reduction = 4
 	stun_reduction = 4
 
-	icobase = 'modular_RUtgmc/icons/mob/hunter/r_predator.dmi'
+	icobase = 'icons/mob/hunter/r_predator.dmi'
 
 /datum/species/yautja/handle_death(mob/living/carbon/human/H, gibbed)
 	if(gibbed)
@@ -188,25 +188,25 @@ var/global/image/hud_icon_hunter_thralled
 	holder.overlays.Cut()
 	if(hunter_data.hunted)
 		if(!hud_icon_hunter_hunted)
-			hud_icon_hunter_hunted = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_hunted")
+			hud_icon_hunter_hunted = image('icons/mob/screen/yautja.dmi', src, "hunter_hunted")
 		holder.overlays += hud_icon_hunter_hunted
 
 	if(hunter_data.dishonored)
 		if(!hud_icon_hunter_dishonored)
-			hud_icon_hunter_dishonored = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
+			hud_icon_hunter_dishonored = image('icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
 		holder.overlays += hud_icon_hunter_dishonored
 	else if(hunter_data.honored)
 		if(!hud_icon_hunter_honored)
-			hud_icon_hunter_honored = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_honored")
+			hud_icon_hunter_honored = image('icons/mob/screen/yautja.dmi', src, "hunter_honored")
 		holder.overlays += hud_icon_hunter_honored
 
 	if(hunter_data.thralled)
 		if(!hud_icon_hunter_thralled)
-			hud_icon_hunter_thralled = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_thralled")
+			hud_icon_hunter_thralled = image('icons/mob/screen/yautja.dmi', src, "hunter_thralled")
 		holder.overlays += hud_icon_hunter_thralled
 	else if(hunter_data.gear)
 		if(!hud_icon_hunter_gear)
-			hud_icon_hunter_gear = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_gear")
+			hud_icon_hunter_gear = image('icons/mob/screen/yautja.dmi', src, "hunter_gear")
 		holder.overlays += hud_icon_hunter_gear
 
 	hud_list[HUNTER_HUD] = holder
@@ -221,16 +221,16 @@ var/global/image/hud_icon_hunter_thralled
 	holder.pixel_y = 20
 	if(hunter_data.hunted)
 		if(!hud_icon_hunter_hunted)
-			hud_icon_hunter_hunted = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_hunted")
+			hud_icon_hunter_hunted = image('icons/mob/screen/yautja.dmi', src, "hunter_hunted")
 		holder.overlays += hud_icon_hunter_hunted
 
 	if(hunter_data.dishonored)
 		if(!hud_icon_hunter_dishonored)
-			hud_icon_hunter_dishonored = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
+			hud_icon_hunter_dishonored = image('icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
 		holder.overlays += hud_icon_hunter_dishonored
 	else if(hunter_data.honored)
 		if(!hud_icon_hunter_honored)
-			hud_icon_hunter_honored = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_honored")
+			hud_icon_hunter_honored = image('icons/mob/screen/yautja.dmi', src, "hunter_honored")
 		holder.overlays += hud_icon_hunter_honored
 
 	hud_list[HUNTER_HUD] = holder

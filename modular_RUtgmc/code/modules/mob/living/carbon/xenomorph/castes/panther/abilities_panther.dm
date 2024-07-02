@@ -497,10 +497,10 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.panther_toxin_type_list (or wait while offtgmc reworks the defiler code and then copy it )
 	var/static/list/panther_toxin_images_list = list(
-			PANTHER_HEMODILE = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_HEMODILE),
-			PANTHER_TRANSVITOX = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_TRANSVITOX),
-			PANTHER_OZELOMELYN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_OZELOMELYN),
-			PANTHER_SANGUINAL = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_SANGUINAL),
+			PANTHER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = PANTHER_HEMODILE),
+			PANTHER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = PANTHER_TRANSVITOX),
+			PANTHER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = PANTHER_OZELOMELYN),
+			PANTHER_SANGUINAL = image('icons/Xeno/actions.dmi', icon_state = PANTHER_SANGUINAL),
 			)
 	var/toxin_choice = show_radial_menu(owner, owner, panther_toxin_images_list, radius = 48)
 	if(!toxin_choice)
