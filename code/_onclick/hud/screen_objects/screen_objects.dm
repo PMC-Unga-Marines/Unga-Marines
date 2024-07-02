@@ -395,8 +395,11 @@
 	icon = 'icons/mob/screen/health.dmi'
 
 /atom/movable/screen/healths/alien
-	icon = 'icons/mob/screen/alien.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 	screen_loc = ui_alien_health
+
+/atom/movable/screen/healths/alien/larva
+	screen_loc = ui_alien_health_larva // it's in the position of plasma hud, as larva has no plasma hud as such
 
 /atom/movable/screen/stamina_hud
 	icon = 'icons/mob/screen/health.dmi'

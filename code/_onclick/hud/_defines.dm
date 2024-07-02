@@ -61,12 +61,6 @@
 #define ui_ammo3 "EAST-1:28,CENTER+3:29"
 #define ui_ammo4 "EAST-1:28,CENTER+4:31"
 
-/* RUTGMC DELETION
-#define ui_alien_nightvision "EAST-1:28,5:13"
-#define ui_alien_health "EAST-1:28,6:13"
-#define ui_queen_locator "EAST-1:28,7:13"
-#define ui_alienplasmadisplay "EAST-1:28,8:13"
-*/
 #define ui_alien_nightvision "EAST-1:28,6:13"
 #define ui_alien_health "EAST-1:12,8:13"
 #define ui_alien_health_larva "EAST-1:28,8:13"
@@ -74,6 +68,9 @@
 #define ui_alienplasmadisplay "EAST-1:45,8:13"
 #define ui_evolvehud "EAST-1:28,6:13"
 #define ui_sunderhud "EAST-1:28,10:13"
+
+//Upper-middle right (damage indicators)
+#define ui_predator_power "EAST-1:28,CENTER:17"
 
 //Pop-up inventory
 #define ui_shoes "WEST+1:8,1:5"
@@ -102,3 +99,26 @@
 #define ui_ai_bioscan "SOUTH:6,WEST+6"
 #define ui_ai_multicam "SOUTH:6,WEST+17"
 #define ui_ai_add_multicam "SOUTH:6,WEST+18"
+
+// Какого хрена атомы лежат в дефайнах?!
+// TODO: Уберите предовские атомы в другой И ПОДХОДЯЩИЙ файл, плиз.
+/*
+			| | |
+			| | |
+			v v v
+*/
+/atom/movable/screen/fullscreen/machine/pred
+	alpha = 140
+
+/atom/movable/screen/fullscreen/machine/pred/meson
+	icon_state = "pred_meson"
+	icon = 'modular_RUtgmc/icons/mob/screen/full.dmi'
+
+/atom/movable/screen/fullscreen/machine/pred/night
+	icon_state = "robothalf"
+
+/datum/hud/var/atom/movable/screen/pred_power_icon
+
+/datum/hud/Destroy()
+	pred_power_icon = null
+	return ..()

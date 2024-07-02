@@ -293,6 +293,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	var/affected
 	var/last_insert_id
 
+	var/no_auto_delete = FALSE
 	var/list/item  //list of data values populated by NextRow()
 
 /datum/db_query/New(connection, sql, arguments)

@@ -1,6 +1,8 @@
 GLOBAL_LIST_EMPTY(cable_list)					    //Index for all cables, so that powernets don't have to look through the entire world all the time
 GLOBAL_LIST_INIT(ammo_list, init_ammo_list())						//List of all ammo types. Used by guns to tell the projectile how to act.
 
+GLOBAL_LIST_EMPTY(xeno_egg_hugger)
+
 /proc/init_ammo_list()
 	. = list()
 	// Our ammo stuff is initialized here.

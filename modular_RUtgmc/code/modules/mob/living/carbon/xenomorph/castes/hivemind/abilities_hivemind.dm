@@ -1,11 +1,11 @@
 //List of Hivemind resin structure images
 GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
-		RESIN_WALL = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = RESIN_WALL),
-		STICKY_RESIN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = STICKY_RESIN),
-		RESIN_DOOR = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = RESIN_DOOR),
-		ALIEN_NEST = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = ALIEN_NEST),
-		GROWTH_WALL = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = GROWTH_WALL),
-		GROWTH_DOOR = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = GROWTH_DOOR)
+		RESIN_WALL = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL),
+		STICKY_RESIN = image('icons/Xeno/actions.dmi', icon_state = STICKY_RESIN),
+		RESIN_DOOR = image('icons/Xeno/actions.dmi', icon_state = RESIN_DOOR),
+		ALIEN_NEST = image('icons/Xeno/actions.dmi', icon_state = ALIEN_NEST),
+		GROWTH_WALL = image('icons/Xeno/actions.dmi', icon_state = GROWTH_WALL),
+		GROWTH_DOOR = image('icons/Xeno/actions.dmi', icon_state = GROWTH_DOOR)
 		))
 
 /datum/action/ability/xeno_action/sow/hivemind

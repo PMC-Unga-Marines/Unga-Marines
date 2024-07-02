@@ -63,7 +63,7 @@
 		marker_flags = MINIMAP_FLAG_MARINE
 	//RUTGMC EDIT CHANGE BEGIN - ORBITAL_BEACON
 	//SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "supply")) RUTGMC  EDIT - ORIGINAL
-	SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, beacon_mini_icon, ABOVE_FLOAT_LAYER))
+	SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, beacon_mini_icon, ABOVE_FLOAT_LAYER))
 	//RUTGMC EDIT CHANGE END
 	update_icon()
 	return TRUE

@@ -1,5 +1,5 @@
 /atom/movable/screen/alien
-	icon = 'icons/mob/screen/alien.dmi'
+	icon = 'icons/mob/screen/alien_better.dmi'
 
 /atom/movable/screen/alien/Click()
 	if(!isxeno(usr))
@@ -42,8 +42,25 @@
 
 /atom/movable/screen/alien/plasmadisplay
 	name = "plasma stored"
-	icon_state = "power_display2"
+	icon_state = "power_display_20"
 	screen_loc = ui_alienplasmadisplay
+
+/atom/movable/screen/alien/evolvehud
+	name = "Evolve Status"
+	desc = "Click for evolve panel."
+	icon_state = "evolve_empty"
+	screen_loc = ui_evolvehud
+
+/atom/movable/screen/alien/evolvehud/Click()
+	. = ..()
+	if(!.)
+		return
+	var/mob/living/carbon/xenomorph/X = usr
+	X.Evolve()
+
+/atom/movable/screen/alien/sunderhud
+	icon_state = "sunder0"
+	screen_loc = ui_sunderhud
 
 /datum/hud/alien/New(mob/living/carbon/xenomorph/owner, ui_style, ui_color, ui_alpha = 230)
 	..()
@@ -122,6 +139,14 @@
 	locate_leader = new /atom/movable/screen/alien/queen_locator()
 	locate_leader.alpha = ui_alpha
 	infodisplay += locate_leader
+
+	alien_evolve_display = new /atom/movable/screen/alien/evolvehud()
+	alien_evolve_display.alpha = ui_alpha
+	infodisplay += alien_evolve_display
+
+	alien_sunder_display = new /atom/movable/screen/alien/sunderhud()
+	alien_sunder_display.alpha = ui_alpha
+	infodisplay += alien_sunder_display
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = 'icons/mob/screen/alien.dmi'

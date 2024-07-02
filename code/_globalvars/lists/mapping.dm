@@ -13,6 +13,9 @@ GLOBAL_LIST_EMPTY(start_landmarks_list)			//list of all spawn points created
 GLOBAL_LIST_EMPTY(corpse_landmarks_list)		//list of all corpse spawner
 GLOBAL_LIST_EMPTY(valhalla_button_spawn_landmark) //list of the landmarks used to spawn mobs for the valhalla buttons
 
+GLOBAL_LIST_EMPTY(start_squad_landmarks_list)	//list of all squad roundstart spawn points created
+GLOBAL_LIST_EMPTY(latejoin_squad_landmarks_list)	//list of all squad latejoin spawn points created
+
 GLOBAL_LIST_EMPTY(spawns_by_job)			//2d array of /datum/job => list(turfs)
 
 GLOBAL_LIST_EMPTY(landmarks_round_start)		//landmarks that require action at round start
