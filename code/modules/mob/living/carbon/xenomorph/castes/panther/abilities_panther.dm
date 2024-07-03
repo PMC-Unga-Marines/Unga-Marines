@@ -52,7 +52,7 @@
 		to_chat(human_target, span_xenowarning("We are hit by \the [xeno_owner]'s tail sweep!"))
 		playsound(human_target,'sound/weapons/alien_tail_attack.ogg', 50, 1)
 
-	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS)
+	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/datum, remove_filter), "defender_tail_sweep"), 0.5 SECONDS)
 	succeed_activate()
 	add_cooldown()
 
@@ -376,7 +376,7 @@
 	span_xenodanger("We effortlessly dodge the [proj.name]!"))
 
 	xeno_owner.add_filter("runner_evasion", 2, gauss_blur_filter(5))
-	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/atom, remove_filter), "runner_evasion"), 0.5 SECONDS)
+	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/datum, remove_filter), "runner_evasion"), 0.5 SECONDS)
 	xeno_owner.do_jitter_animation(4000)
 
 	var/turf/our_turf = get_turf(xeno_owner) //location of after image SFX

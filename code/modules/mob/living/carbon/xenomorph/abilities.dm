@@ -587,7 +587,7 @@
 
 	target.beam(xeno_owner,"drain_life", time = 1 SECONDS, maxdistance = 10) //visual SFX
 	target.add_filter("transfer_plasma_outline", 3, outline_filter(1, COLOR_STRONG_MAGENTA))
-	addtimer(CALLBACK(target, TYPE_PROC_REF(/atom, remove_filter), "transfer_plasma_outline"), 1 SECONDS) //Failsafe blur removal
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/datum, remove_filter), "transfer_plasma_outline"), 1 SECONDS) //Failsafe blur removal
 
 	var/amount = plasma_transfer_amount
 	if(xeno_owner.plasma_stored < plasma_transfer_amount)
