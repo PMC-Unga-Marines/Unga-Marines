@@ -1,8 +1,6 @@
 #include "code\datums\namepool.dm"
 #include "code\datums\shuttles.dm"
 #include "code\datums\skills.dm"
-#include "code\datums\gamemodes\distress.dm"
-#include "code\datums\gamemodes\nuclear_war.dm"
 #include "code\datums\greyscale\greyscale_configs.dm"
 #include "code\datums\jobs\squads.dm"
 #include "code\datums\jobs\job\clown.dm"

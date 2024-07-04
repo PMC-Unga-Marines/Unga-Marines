@@ -1,2 +1,0 @@
-/datum/game_mode/infestation/nuclear_war
-	quickbuild_points_flags = MODE_GENERAL_QUICKBUILD_POINTS
