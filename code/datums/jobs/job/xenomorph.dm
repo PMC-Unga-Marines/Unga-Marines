@@ -61,7 +61,7 @@
 	supervisors = "Queen mother"
 	selection_color = "#8972AA"
 	display_order = JOB_DISPLAY_ORDER_XENO_QUEEN
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_INTERMEDIATE
 	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_NOHEADSET|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_HIDE_CURRENT_POSITIONS|JOB_FLAG_LOUDER_TTS
 	jobworth = list(/datum/job/survivor/rambo = SURVIVOR_POINTS_REGULAR)
 	html_description = {"
@@ -86,3 +86,6 @@
 /datum/job/xenomorph/queen/handle_special_preview(client/parent)
 	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Larva", dir = SOUTH))
 	return TRUE
+
+/datum/job/xenomorph/facehugger
+	job_flags = JOB_FLAG_NOHEADSET|JOB_FLAG_OVERRIDELATEJOINSPAWN

@@ -32,6 +32,8 @@
 	///Faction of that squad
 	var/faction = FACTION_TERRAGOV
 
+	var/list/squad_orbital_beacons = list()
+
 
 /datum/squad/alpha
 	name = "Alpha"
@@ -141,13 +143,6 @@
 )
 
 /datum/squad/New(set_color, set_name)
-	if(set_color)
-		color = set_color
-	if(set_name)
-		name = set_name
-
-	..()
-
 	tracking_id = SSdirection.init_squad(name, squad_leader)
 
 	for(var/state in GLOB.playable_squad_icons)
@@ -158,6 +153,7 @@
 
 		var/icon_state = lowertext(name) + "_" + state
 		GLOB.minimap_icons[icon_state] = icon2base64(top)
+
 
 /datum/squad/Destroy(force, ...)
 	for(var/mob/living/carbon/human/squaddie AS in marines_list)
