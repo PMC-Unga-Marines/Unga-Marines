@@ -521,6 +521,7 @@
 #include "code\datums\jobs\access.dm"
 #include "code\datums\jobs\squads.dm"
 #include "code\datums\jobs\job\clf.dm"
+#include "code\datums\jobs\job\clown.dm"
 #include "code\datums\jobs\job\deathsquad.dm"
 #include "code\datums\jobs\job\fallen.dm"
 #include "code\datums\jobs\job\freelancers.dm"

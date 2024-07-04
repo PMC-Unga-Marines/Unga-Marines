@@ -2,8 +2,6 @@
 #include "code\datums\shuttles.dm"
 #include "code\datums\skills.dm"
 #include "code\datums\jobs\squads.dm"
-#include "code\datums\jobs\job\clown.dm"
-#include "code\datums\jobs\job\job_exp.dm"
 #include "code\datums\jobs\job\marines.dm"
 #include "code\datums\jobs\job\militarypolice.dm"
 #include "code\datums\jobs\job\necoarc.dm"
