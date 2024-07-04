@@ -457,6 +457,7 @@
 #include "code\datums\emergency_calls\freelancers.dm"
 #include "code\datums\emergency_calls\icc.dm"
 #include "code\datums\emergency_calls\imperium.dm"
+#include "code\datums\emergency_calls\necoarc.dm"
 #include "code\datums\emergency_calls\pizza.dm"
 #include "code\datums\emergency_calls\pmc.dm"
 #include "code\datums\emergency_calls\sectoid.dm"
