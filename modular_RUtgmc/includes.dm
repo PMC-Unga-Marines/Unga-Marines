@@ -1,8 +1,6 @@
 #include "code\datums\namepool.dm"
 #include "code\datums\shuttles.dm"
 #include "code\datums\skills.dm"
-#include "code\datums\components\attachment_handler.dm"
-#include "code\datums\components\overlay_lighting.dm"
 #include "code\datums\elements\shrapnel_removal.dm"
 #include "code\datums\emergency_calls\necoarc.dm"
 #include "code\datums\gamemodes\_game_mode.dm"
