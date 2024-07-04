@@ -1,7 +1,6 @@
 #include "code\datums\namepool.dm"
 #include "code\datums\shuttles.dm"
 #include "code\datums\skills.dm"
-#include "code\datums\gamemodes\_game_mode.dm"
 #include "code\datums\gamemodes\crash.dm"
 #include "code\datums\gamemodes\distress.dm"
 #include "code\datums\gamemodes\nuclear_war.dm"
