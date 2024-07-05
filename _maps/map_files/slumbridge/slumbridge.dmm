@@ -20841,7 +20841,9 @@
 /turf/open/floor,
 /area/slumbridge/inside/hydrotreatment)
 "poq" = (
-/obj/structure/prop/vehicle/truck/destructible,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/platebot,
 /area/slumbridge/inside/houses/car)
 "ppi" = (
@@ -27985,7 +27987,9 @@
 /turf/open/floor,
 /area/slumbridge/inside/engi/central)
 "uCt" = (
-/obj/structure/prop/vehicle/truck/destructible,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/mainship,
 /area/slumbridge/inside/houses/car)
 "uCw" = (
@@ -28804,7 +28808,9 @@
 /turf/open/floor/asteroidfloor,
 /area/slumbridge/outside/northwest/nearlz)
 "vjm" = (
-/obj/structure/prop/vehicle/truck/truckcargo/destructible,
+/obj/structure/prop/vehicle/truck/truckcargo/destructible{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/platebot,
 /area/slumbridge/inside/houses/car)

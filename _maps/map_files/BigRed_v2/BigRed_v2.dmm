@@ -8594,7 +8594,9 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/marshal_office)
 "ewN" = (
-/obj/structure/prop/vehicle/truck,
+/obj/structure/prop/vehicle/truck{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
 "eyt" = (
@@ -15282,7 +15284,9 @@
 /turf/open/floor/tile/lightred/full,
 /area/bigredv2/outside/cargo)
 "teP" = (
-/obj/structure/prop/vehicle/truck/truckcargo,
+/obj/structure/prop/vehicle/truck/truckcargo{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
 "tfi" = (

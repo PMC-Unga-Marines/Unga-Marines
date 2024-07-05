@@ -9697,7 +9697,9 @@
 	},
 /area/magmoor/command/office/main)
 "gLM" = (
-/obj/structure/prop/vehicle/van,
+/obj/structure/prop/vehicle/van{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete/lines,
 /area/magmoor/compound/southeast)
 "gLV" = (
@@ -16137,7 +16139,9 @@
 /turf/open/floor/mainship/black,
 /area/magmoor/landing)
 "lEa" = (
-/obj/structure/prop/vehicle/truck/truckcargo,
+/obj/structure/prop/vehicle/truck/truckcargo{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 1
 	},
@@ -22502,7 +22506,9 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/security/arrivals/east)
 "qfw" = (
-/obj/structure/prop/vehicle/truck/truckcargo,
+/obj/structure/prop/vehicle/truck/truckcargo{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/civilian/jani)
 "qfD" = (
