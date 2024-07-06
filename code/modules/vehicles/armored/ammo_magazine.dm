@@ -133,8 +133,8 @@
 	name = "coilgun projectiles"
 	desc = "A set of extremely dense kinetic penetrator rounds for a tank mounted coilgun."
 	caliber = CALIBER_84MM
-	icon_state = "tank_coilgun"
-	w_class = WEIGHT_CLASS_GIGANTIC
+	icon_state = "coilgun"
+	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/rocket/coilgun/holder //this doesn't strictly matter since its overridden
-	max_rounds = 4
-	loading_sound = 'sound/vehicles/weapons/ltb_reload.ogg'
+	max_rounds = 1
+	loading_sound = 'sound/vehicles/weapons/coilgun_cycle.ogg'
