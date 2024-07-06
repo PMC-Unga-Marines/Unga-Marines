@@ -41,7 +41,7 @@ export const Cargo = (props, context) => {
     : null;
 
   return (
-    <Window width={900} height={700}>
+    <Window width={1100} height={700}>
       <Flex height="650px" align="stretch">
         <Flex.Item width="280px">
           <Menu />
@@ -312,18 +312,21 @@ const Packs = (props, context) => {
   const { act, data } = useBackend(context);
   const { packs } = props;
 
-  return packs.map((pack) => <Pack pack={pack} key={pack} />);
+  return Object.keys(packs).map((pack) => (
+    <Pack pack={pack} key={pack} amount={packs[pack]} />
+  ));
 };
 
 const Pack = (props, context) => {
   const { act, data } = useBackend(context);
-  const { pack } = props;
+  const { pack, amount } = props;
   const { supplypackscontents } = data;
   const { name, cost, contains } = supplypackscontents[pack];
+
   return !!contains && contains.constructor === Object ? (
     <Collapsible
       color="gray"
-      title={<PackName cost={cost} name={name} pl={0} />}>
+      title={<PackName cost={cost} name={name} pl={0} amount={amount} />}>
       <Table>
         <PackContents contains={contains} />
       </Table>
@@ -334,12 +337,13 @@ const Pack = (props, context) => {
 };
 
 const PackName = (props, context) => {
-  const { cost, name, pl } = props;
+  const { cost, name, pl, amount } = props;
 
   return (
     <Box inline pl={pl}>
-      <Box textAlign="right" inline width="65px">
-        {cost} points
+      <Box textAlign="right" inline width="140px">
+        {amount ? amount + 'x' : ''}
+        {cost} points {amount ? '(' + amount * cost + ')' : ''}
       </Box>
       <Box width="15px" inline />
       <Box inline>{name}</Box>
