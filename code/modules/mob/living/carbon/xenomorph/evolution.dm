@@ -128,10 +128,11 @@
 		if(new_xeno)
 			qdel(new_xeno)
 		return
-
 	while(new_xeno.upgrade_possible())
-		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
-
+		if(!new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)) //Upgrade tier wasn't set properly, let's avoid looping forever
+			qdel(new_xeno)
+			stack_trace("[src] tried to evolve and upgrade, but the castes upgrade tier wasn't valid.")
+			return
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_EVOLVED, new_xeno)
 
@@ -199,17 +200,12 @@
 				SSmonitor.stats.primo_T4--
 
 	while(new_xeno.upgrade_possible())
-		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
-
-	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
-	selector?.set_selected_zone(zone_selected, new_xeno)
-	qdel(src)
-	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
+		if(!new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)) //This return shouldn't be possible to trigger, unless you varedit upgrade right on the tick the xeno evos
+			return
 
 	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 
 ///Check if the xeno is currently able to evolve
-/mob/living/carbon/xenomorph/proc/generic_evolution_checks()
 
 	if(HAS_TRAIT(src, TRAIT_BANISHED))
 		balloon_alert(src, span_warning("You are banished and cannot reach the hivemind."))
