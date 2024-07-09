@@ -349,6 +349,7 @@
 #include "code\datums\embedding_behavior.dm"
 #include "code\datums\emotes.dm"
 #include "code\datums\fire_support.dm"
+#include "code\datums\flaying.dm"
 #include "code\datums\fluff_emails.dm"
 #include "code\datums\holocall.dm"
 #include "code\datums\http.dm"

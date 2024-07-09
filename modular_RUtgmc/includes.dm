@@ -1,7 +1,3 @@
-#include "code\datums\namepool.dm"
-#include "code\datums\shuttles.dm"
-#include "code\datums\skills.dm"
-#include "code\datums\flaying.dm"
 #include "code\game\atoms.dm"
 #include "code\game\atoms_movable.dm"
 #include "code\game\buckling.dm"
