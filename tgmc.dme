@@ -573,6 +573,7 @@
 #include "code\datums\loadout\item_representation\uniform_representation.dm"
 #include "code\datums\looping_sounds\_looping_sound.dm"
 #include "code\datums\looping_sounds\machinery_sounds.dm"
+#include "code\datums\looping_sounds\miscellaneous.dm"
 #include "code\datums\looping_sounds\weather_sounds.dm"
 #include "code\datums\looping_sounds\xeno_sounds.dm"
 #include "code\datums\status_effects\debuffs.dm"
