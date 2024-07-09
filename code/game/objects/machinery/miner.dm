@@ -64,6 +64,12 @@
 	init_marker()
 	start_processing()
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(disable_on_hijack))
+	if(mineral_value >= PLATINUM_CRATE_SELL_AMOUNT)
+		GLOB.miners_platinum += src
+		GLOB.miner_platinum_locs += loc
+	else
+		GLOB.miners_phorone += src
+		GLOB.miner_phorone_locs += loc
 
 /**
  * This proc is called during Initialize() and should be used to initially setup the minimap marker of a functional miner.

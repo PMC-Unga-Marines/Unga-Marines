@@ -279,6 +279,7 @@
 #define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol))
 #define issensorcapturegamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol/sensor_capture))
 #define iscampaigngamemode(O) (istype(O, /datum/game_mode/hvh/campaign))
+#define ispointsdefencegamemode(O) (istype(O, /datum/game_mode/infestation/distress/points_defence))
 
 #define isxenoresearcharea(A) (istype(A, /area/mainship/medical/medical_science))
 

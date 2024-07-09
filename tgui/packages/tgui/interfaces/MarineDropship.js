@@ -118,6 +118,18 @@ const NormalOperation = (props, context) => {
           ))}
         </LabeledList>
       </Section>
+      {data.show_hunt ? <Section title="Hunt">
+        <Button
+          disabled={!data.can_hunt}
+          onClick={() => act('hunt')}>
+          Hunt
+        </Button>
+        <Button
+          disabled={!data.can_hunt}
+          onClick={() => act('minor')}>
+          Minor
+        </Button>
+      </Section> : null}
     </>
   );
 };

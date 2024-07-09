@@ -110,6 +110,10 @@
 /obj/docking_port/stationary/marine_dropship/lz2/prison
 	name = "LZ2: Civ Residence Hangar"
 
+/obj/docking_port/stationary/marine_dropship/lz_den
+	name = "Landing Zone Xeno Den"
+	id = "lz_xeno_den"
+
 /obj/docking_port/stationary/marine_dropship/hangar/one
 	name = "Shipside 'Alamo' Hangar Pad"
 	id = SHUTTLE_ALAMO
@@ -549,6 +553,14 @@
 		WARNING("[src] could not find shuttle [shuttleId] from SSshuttle")
 		return
 
+	var/show_hunt = FALSE
+	var/can_hunt = FALSE
+	if(ispointsdefencegamemode(SSticker.mode))
+		show_hunt = TRUE
+		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+		if(mode.can_hunt())
+			can_hunt = TRUE
+
 	. = list()
 	.["on_flyby"] = shuttle.mode == SHUTTLE_CALL
 	.["dest_select"] = !(shuttle.mode == SHUTTLE_CALL || shuttle.mode == SHUTTLE_IDLE)
@@ -556,6 +568,8 @@
 	.["ship_status"] = shuttle.getStatusText()
 	.["automatic_cycle_on"] = shuttle.automatic_cycle_on
 	.["time_between_cycle"] = shuttle.time_between_cycle
+	.["can_hunt"] = can_hunt
+	.["show_hunt"] = show_hunt
 
 	var/locked = 0
 	var/reardoor = 0
@@ -647,6 +661,15 @@
 				deltimer(M.cycle_timer)
 		if("cycle_time_change")
 			M.time_between_cycle = params["cycle_time_change"]
+		if("hunt")
+			var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+			if(mode.can_hunt())
+				possible_destinations += ";lz_xeno_den"
+				mode.start_hunt()
+		if("minor")
+			var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+			if(mode.can_hunt())
+				mode.round_stage = INFESTATION_MARINE_MINOR
 
 /* RUTGMC DELETION
 /obj/machinery/computer/shuttle/marine_dropship/Topic(href, href_list)
