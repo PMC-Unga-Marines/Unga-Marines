@@ -76,7 +76,6 @@
 #include "code\game\objects\structures\rocks.dm"
 #include "code\game\objects\structures\signs.dm"
 #include "code\game\objects\structures\tables_racks.dm"
-#include "code\game\objects\structures\teleporter.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
