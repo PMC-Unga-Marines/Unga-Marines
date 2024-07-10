@@ -47,6 +47,8 @@
 	///What faction secured that miner
 	var/faction = FACTION_TERRAGOV
 
+	var/obj/machinery/camera/miner/camera
+
 /obj/machinery/miner/damaged	//mapping and all that shebang
 	miner_status = MINER_DESTROYED
 	icon_state = "mining_drill_error"
@@ -64,6 +66,7 @@
 	init_marker()
 	start_processing()
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(disable_on_hijack))
+	camera = new /obj/machinery/camera/miner(src)
 
 /**
  * This proc is called during Initialize() and should be used to initially setup the minimap marker of a functional miner.
@@ -335,13 +338,13 @@
 			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[X.ckey]
 			personal_statistics.miner_sabotages_performed++
 
-/* RUTGMC DELETION
 /obj/machinery/miner/proc/set_miner_status()
 	var/health_percent = round((miner_integrity / max_miner_integrity) * 100)
 	switch(health_percent)
 		if(-INFINITY to 0)
 			miner_status = MINER_DESTROYED
 			stored_mineral = 0
+			camera.toggle_cam(null, FALSE)
 		if(1 to 50)
 			stored_mineral = 0
 			miner_status = MINER_MEDIUM_DAMAGE
@@ -354,8 +357,17 @@
 			var/marker_icon = "miner_[mineral_value >= PLATINUM_CRATE_SELL_AMOUNT ? "platinum" : "phoron"]_on"
 			SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon))
 			miner_status = MINER_RUNNING
+			if(!camera.status)
+				camera.toggle_cam(null, FALSE)
 	update_icon()
-*/
+
+/obj/machinery/miner/Destroy()
+	qdel(camera)
+	camera = null
+	return ..()
+
+/obj/machinery/miner/attack_ai(mob/user)
+	return attack_hand(user)
 
 ///Called via global signal to prevent perpetual mining
 /obj/machinery/miner/proc/disable_on_hijack()
