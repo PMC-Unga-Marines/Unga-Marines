@@ -39,6 +39,10 @@
 	singular_name = "alien hide piece"
 	icon_state = "sheet-xeno"
 
+/obj/item/stack/sheet/animalhide/xeno/kinghide
+	name = "king hide"
+	desc = "The hide of an irregular strain, it is tattered and rotting."
+	color = "#f7897c"
 
 //don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
 /obj/item/stack/sheet/xenochitin
