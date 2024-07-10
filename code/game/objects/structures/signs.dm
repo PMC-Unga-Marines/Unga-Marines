@@ -22,9 +22,8 @@
 			pixel_x = -30
 
 /obj/structure/sign/ex_act(severity)
-	if(severity == EXPLODE_WEAK)
-		return
-	qdel(src)
+	if(severity >= EXPLODE_WEAK)
+		qdel(src)
 
 /obj/structure/sign/attackby(obj/item/I, mob/user, params)	//deconstruction
 	. = ..()
@@ -545,6 +544,10 @@
 	name = "\improper TerraGov poster"
 	desc = "The symbol of the Terran Goverment."
 	icon_state = "prop1"
+
+/obj/structure/sign/prop1/Initialize(mapload)
+	. = ..()
+	icon = 'modular_RUtgmc/icons/obj/decals.dmi'
 
 /obj/structure/sign/prop2
 	name = "\improper TGMC poster"
