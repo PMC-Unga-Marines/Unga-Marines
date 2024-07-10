@@ -1,8 +1,0 @@
-/turf/open/floor/ex_act(severity)
-	if(hull_floor)
-		return ..()
-	if(prob(severity / 2))
-		make_plating()
-	else if(severity >= EXPLODE_WEAK)
-		break_tile()
-	return ..()
