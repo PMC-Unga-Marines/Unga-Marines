@@ -62,7 +62,6 @@
 #include "code\game\objects\structures\dropship_ammo.dm"
 #include "code\game\objects\structures\fence.dm"
 #include "code\game\objects\structures\flora.dm"
-#include "code\game\objects\structures\inflatable.dm"
 #include "code\game\objects\structures\misc.dm"
 #include "code\game\objects\structures\orbital_cannon.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
