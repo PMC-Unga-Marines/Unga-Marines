@@ -105,7 +105,6 @@
 #include "code\game\objects\explosives\grenades\grenade.dm"
 #include "code\game\turfs\walls\resin.dm"
 #include "code\game\turfs\walls\wall_types.dm"
-#include "code\game\turfs\walls\walls.dm"
 #include "code\modules\admin\admin_verbs.dm"
 #include "code\modules\admin\fun_verbs.dm"
 #include "code\modules\emotes\emote_panel.dm"
