@@ -3,7 +3,7 @@
 /turf/closed/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
-	icon = 'icons/turf/walls/regular_wall.dmi'
+	icon = 'modular_RUtgmc/icons/turf/walls/regular_wall.dmi'
 	icon_state = "metal-0"
 	baseturfs = /turf/open/floor/plating
 	opacity = TRUE

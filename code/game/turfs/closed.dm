@@ -880,7 +880,7 @@
 	icon_state = "corner2"
 
 /turf/closed/shuttle/escapeshuttle
-	icon = 'icons/turf/walls/sulaco.dmi'
+	icon = 'modular_RUtgmc/icons/turf/walls/sulaco.dmi'
 	icon_state = "sulaco-0"
 	base_icon_state = "sulaco"
 	smoothing_flags = SMOOTH_BITMASK
