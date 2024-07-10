@@ -157,18 +157,18 @@
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if(prob(50))
-				if(buildstacktype && dropmetal)
-					new buildstacktype (loc, buildstackamount)
-				qdel(src)
-		if(EXPLODE_LIGHT)
+		if(0 to EXPLODE_LIGHT)
 			if(prob(5))
 				if(buildstacktype && dropmetal)
 					new buildstacktype (loc, buildstackamount)
 				qdel(src)
+		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
+			if(prob(50))
+				if(buildstacktype && dropmetal)
+					new buildstacktype (loc, buildstackamount)
+				qdel(src)
+		if(EXPLODE_HEAVY to INFINITY)
+			qdel(src)
 
 /obj/structure/bed/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -199,6 +199,12 @@
 	name = "fancy bed"
 	desc = "For prime comfort."
 
+/obj/structure/bed/pred
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "bed"
+
+/obj/structure/bed/pred/alt
+	icon_state = "abed"
 
 /*
 * Roller beds
@@ -518,6 +524,14 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	///Who is currently holding onto the medevac roller?
 	var/mob/holder
 
+/obj/item/roller/medevac/unique_action(mob/user)
+	. = ..()
+	deploy_roller(user, user.loc)
+	var/obj/structure/bed/medevac_stretcher/stretcher = locate(/obj/structure/bed/medevac_stretcher) in user.loc
+	stretcher.activate_medevac_teleport(user)
+	stretcher.buckle_mob(user)
+	return TRUE
+
 /obj/item/roller/medevac/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	holder = null
@@ -585,6 +599,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	desc = "A specialized teleportation beacon that links with a medvac stretcher; provides the target destination for the stretcher's displacement field. WARNING: Must be in a powered area to function."
 	icon = 'icons/Marine/marine-navigation.dmi'
 	icon_state = "med_beacon0"
+	w_class = WEIGHT_CLASS_SMALL
 	var/planted = FALSE
 	var/locked = FALSE
 	var/list/obj/item/roller/medevac/linked_beds = list()
