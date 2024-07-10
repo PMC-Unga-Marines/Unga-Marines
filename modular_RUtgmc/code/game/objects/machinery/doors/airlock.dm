@@ -5,13 +5,13 @@
 		if(SSmonitor.gamestate != SHIPSIDE)
 			msg_admin_ff("[ADMIN_TPMONTY(proj.firer)] shot [src] with [proj] in [ADMIN_VERBOSEJMP(src)].")
 
-/obj/structure/machinery/door/airlock/ex_act(severity, direction)
+/obj/machinery/door/airlock/ex_act(severity, direction)
 	take_damage(severity * density ? EXPLOSION_DAMAGE_MULTIPLIER_DOOR : EXPLOSION_DAMAGE_MULTIPLIER_DOOR_OPEN, BRUTE, BOMB, attack_dir = direction)
 
-/obj/structure/machinery/door/airlock/on_explosion_destruction(severity, direction)
+/obj/machinery/door/airlock/on_explosion_destruction(severity, direction)
 	create_shrapnel(get_turf(src), rand(2, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 
-/obj/structure/machinery/door/airlock/get_explosion_resistance()
+/obj/machinery/door/airlock/get_explosion_resistance()
 	if(density)
 		if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 			return EXPLOSION_MAX_POWER
