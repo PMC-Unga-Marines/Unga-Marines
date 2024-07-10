@@ -1,5 +1,0 @@
-/obj/structure/razorwire/ex_act(severity)
-	take_damage(severity / 2, BRUTE, BOMB)
-	if(severity >= EXPLODE_LIGHT)
-		visible_message(span_danger("[src] is blown apart!"))
-	update_icon()
