@@ -82,10 +82,6 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 
 	return FALSE
 
-/obj/item/stack/sheet/mineral/sandstone/runed/Initialize(mapload)
-	. = ..()
-	recipes = GLOB.runedsandstone_recipes
-
 GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	new/datum/stack_recipe("brazier frame", /obj/structure/prop/brazier/frame, req_amount = 5, time = 3 SECONDS, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE, skill_req = SKILL_CONSTRUCTION_MASTER), \
 	new/datum/stack_recipe("torch frame", /obj/item/frame/torch_frame, req_amount = 3, time = 2 SECONDS, skill_req = SKILL_CONSTRUCTION_MASTER), \

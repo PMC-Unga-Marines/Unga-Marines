@@ -93,6 +93,14 @@ GLOBAL_LIST_INIT(iron_recipes, list ( \
 	. = ..()
 	recipes = GLOB.sandstone_recipes
 
+/obj/item/stack/sheet/mineral/sandstone/runed
+	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
+	icon_state = "sheet-runedsandstone"
+
+/obj/item/stack/sheet/mineral/sandstone/runed/Initialize(mapload)
+	. = ..()
+	recipes = GLOB.runedsandstone_recipes
+
 /obj/item/stack/sheet/mineral/diamond
 	name = "diamond"
 	desc = "Diamond is a specific arrangement of carbon created under extreme pressure and heat. Valued for its look and properties, despite artificial manufacturing possibilities."
