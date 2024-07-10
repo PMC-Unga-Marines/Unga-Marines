@@ -72,7 +72,6 @@
 #include "code\game\objects\structures\orbital_cannon.dm"
 #include "code\game\objects\structures\prop.dm"
 #include "code\game\objects\structures\razorwire.dm"
-#include "code\game\objects\structures\reagent_dispensers.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
