@@ -10,7 +10,6 @@
 #include "code\game\objects\shrapnel.dm"
 #include "code\game\objects\structures.dm"
 #include "code\game\objects\effects\aliens.dm"
-#include "code\game\objects\effects\misc.dm"
 #include "code\game\objects\effects\overlays.dm"
 #include "code\game\objects\effects\weeds.dm"
 #include "code\game\objects\effects\landmarks\landmarks.dm"
