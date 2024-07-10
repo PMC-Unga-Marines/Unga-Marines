@@ -65,7 +65,6 @@
 #include "code\game\objects\structures\girders.dm"
 #include "code\game\objects\structures\inflatable.dm"
 #include "code\game\objects\structures\ladders.dm"
-#include "code\game\objects\structures\lattice.dm"
 #include "code\game\objects\structures\misc.dm"
 #include "code\game\objects\structures\orbital_cannon.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
