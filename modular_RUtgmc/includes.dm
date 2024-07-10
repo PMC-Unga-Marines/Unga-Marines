@@ -103,7 +103,6 @@
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
 #include "code\game\objects\explosives\grenades\grenade.dm"
-#include "code\game\turfs\closed.dm"
 #include "code\game\turfs\floor_types.dm"
 #include "code\game\turfs\floor.dm"
 #include "code\game\turfs\liquid_turfs.dm"
