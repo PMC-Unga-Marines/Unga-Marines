@@ -52,7 +52,6 @@
 #include "code\game\objects\machinery\OpTable.dm"
 #include "code\game\objects\machinery\sleeper.dm"
 #include "code\game\objects\machinery\spaceheater.dm"
-#include "code\game\objects\machinery\squad_manager.dm"
 #include "code\game\objects\machinery\iv_drip.dm"
 #include "code\game\objects\machinery\bots\roomba.dm"
 #include "code\game\objects\machinery\camera\camera.dm"
