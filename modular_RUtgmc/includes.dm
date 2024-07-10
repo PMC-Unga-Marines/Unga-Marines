@@ -68,7 +68,6 @@
 #include "code\game\objects\structures\lattice.dm"
 #include "code\game\objects\structures\mineral_doors.dm"
 #include "code\game\objects\structures\misc.dm"
-#include "code\game\objects\structures\morgue.dm"
 #include "code\game\objects\structures\orbital_cannon.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
