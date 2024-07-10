@@ -111,7 +111,7 @@
 
 
 /obj/structure/window_frame/mainship
-	icon = 'icons/obj/smooth_objects/ship_window_frame.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/ship_window_frame.dmi'
 	icon_state = "ship_window_frame-0"
 	basestate = "ship_window_frame"
 	base_icon_state = "ship_window_frame"
@@ -124,20 +124,20 @@
 	window_type = /obj/structure/window/framed/mainship/white
 
 /obj/structure/window_frame/mainship/gray
-	icon = 'icons/obj/smooth_objects/gray_window_frame.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/ship_gray_window_frame.dmi'
 	icon_state = "gray_window_frame-0"
 	basestate = "gray_window_frame"
 	base_icon_state = "gray_window_frame"
 	window_type = /obj/structure/window/framed/mainship/gray
 
 /obj/structure/window_frame/colony
-	icon = 'icons/obj/smooth_objects/col_window_frame.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/col_window_frame.dmi'
 	icon_state = "col_window_frame-0"
 	base_icon_state = "col_window_frame"
 	basestate = "col_window_frame"
 
 /obj/structure/window_frame/colony/reinforced
-	icon = 'icons/obj/smooth_objects/col_rwindow_frame.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/col_rwindow_frame.dmi'
 	icon_state = "col_rwindow_frame-0"
 	basestate = "col_rwindow_frame"
 	base_icon_state = "col_rwindow_frame"
