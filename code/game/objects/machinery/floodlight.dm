@@ -7,6 +7,8 @@
 	coverage = 25
 	light_system = STATIC_LIGHT
 	light_power = SQRTWO
+	max_integrity = 250
+	resistance_flags = XENO_DAMAGEABLE
 	///The brightness of the floodlight
 	var/brightness_on = 8
 
