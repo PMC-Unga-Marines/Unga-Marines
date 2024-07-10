@@ -78,7 +78,6 @@
 #include "code\game\objects\structures\tables_racks.dm"
 #include "code\game\objects\structures\teleporter.dm"
 #include "code\game\objects\structures\window_frame.dm"
-#include "code\game\objects\structures\window.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
