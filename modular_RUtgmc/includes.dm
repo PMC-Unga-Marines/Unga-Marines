@@ -1,4 +1,3 @@
-#include "code\game\atoms.dm"
 #include "code\game\data_huds.dm"
 #include "code\game\objects\explosion_recursive.dm"
 #include "code\game\objects\explosion.dm"
