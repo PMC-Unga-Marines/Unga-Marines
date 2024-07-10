@@ -1,8 +1,8 @@
 /obj/item/weapon/combat_knife
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon = 'icons/obj/items/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
 
 /obj/item/weapon/combat_knife/Initialize(mapload)
@@ -22,11 +22,11 @@
 /obj/item/weapon/claymore/mercsword/machete
 	force = 90
 	penetration = 15
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon = 'icons/obj/items/weapons.dmi'
 	item_icons = list(
 		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 		slot_belt_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
 	)
 	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
@@ -73,10 +73,10 @@
 /obj/item/weapon/claymore/mercsword/officersword/sabre
 	name = "\improper ceremonial officer sabre"
 	desc = "Gold plated, smoked dark wood handle, your name on it, what else do you need?"
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon = 'icons/obj/items/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
 	icon_state = "saber"
 	item_state = "saber"
@@ -93,7 +93,7 @@
 /obj/item/weapon/claymore/tomahawk
 	name = "Tomahawk H23"
 	desc = "A specialist tactical weapon, ancient and beloved by many. Issued to TGMC by CAU."
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "tomahawk_tactic"
 	item_state = "tomahawk_tactic"
 	item_icons = list(

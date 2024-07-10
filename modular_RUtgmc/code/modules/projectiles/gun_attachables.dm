@@ -104,10 +104,10 @@
 	icon_state = "tes"
 
 /obj/item/attachable/bayonetknife
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon = 'icons/obj/items/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
 
 /obj/item/attachable/bayonetknife/Initialize(mapload)

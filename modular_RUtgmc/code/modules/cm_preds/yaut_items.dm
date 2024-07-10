@@ -1212,7 +1212,7 @@
 
 /obj/item/weapon/claymore/mercsword/machete/arnold
 	anchored = TRUE
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "arnold-machete"
 	desc = "Won by an Elder during their youthful hunting days. None are allowed to touch it."
 	name = "\improper Dutch's Machete"
