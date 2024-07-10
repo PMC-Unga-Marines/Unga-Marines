@@ -13,7 +13,6 @@
 #include "code\game\objects\effects\misc.dm"
 #include "code\game\objects\effects\overlays.dm"
 #include "code\game\objects\effects\weeds.dm"
-#include "code\game\objects\effects\effect_system\smoke.dm"
 #include "code\game\objects\effects\landmarks\landmarks.dm"
 #include "code\game\objects\effects\landmarks\marine_spawns.dm"
 #include "code\game\objects\effects\temporery_visuals\explosions.dm"
