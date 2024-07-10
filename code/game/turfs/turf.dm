@@ -57,6 +57,8 @@
 	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
 	var/list/fixed_underlay = null
 
+	var/list/datum/automata_cell/autocells
+
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
 	if(flags_atom & INITIALIZED)
@@ -203,6 +205,15 @@
 			break
 		our_explosion.on_turf_entered(arrived) //RUTGMC ADDITION END
 	..()
+
+/turf/proc/get_cell(type)
+	for(var/datum/automata_cell/our_cell in autocells)
+		if(istype(our_cell, type))
+			return our_cell
+	return null
+
+/turf/ex_act()
+	return
 
 /turf/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
