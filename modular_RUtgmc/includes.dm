@@ -1,5 +1,4 @@
 #include "code\game\atoms.dm"
-#include "code\game\atoms_movable.dm"
 #include "code\game\buckling.dm"
 #include "code\game\data_huds.dm"
 #include "code\game\objects\explosion_recursive.dm"
