@@ -8,7 +8,7 @@
 	var/mob/living/carbon/human/attached = null
 	var/mode = 1 // 1 is injecting, 0 is taking blood.
 	var/obj/item/reagent_containers/beaker = null
-	var/datum/beam/current_beam //RUTGMC ADDON
+	var/datum/beam/current_beam
 
 /obj/machinery/iv_drip/update_icon()
 	/* СМ КОСТЫЛЬ
@@ -41,6 +41,12 @@
 
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			overlays += filling
+
+/obj/machinery/iv_drip/proc/update_beam()
+	if(current_beam && !attached)
+		QDEL_NULL(current_beam)
+	else if(!current_beam && attached && !QDELETED(src))
+		current_beam = beam(attached, "iv_tube", 'modular_RUtgmc/icons/effects/beam.dmi')
 
 /obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
 	..()
@@ -185,3 +191,8 @@
 		. += span_notice("No chemicals are attached.")
 
 	. += span_notice("[attached ? attached : "No one"] is attached.")
+
+/obj/machinery/iv_drip/Destroy()
+	attached = null
+	update_beam()
+	. = ..()
