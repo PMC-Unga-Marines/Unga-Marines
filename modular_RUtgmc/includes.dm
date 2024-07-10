@@ -11,7 +11,6 @@
 #include "code\game\objects\items\bodybag.dm"
 #include "code\game\objects\items\cards_ids.dm"
 #include "code\game\objects\items\defibrillator.dm"
-#include "code\game\objects\items\items.dm"
 #include "code\game\objects\items\misc.dm"
 #include "code\game\objects\items\portable_vendor.dm"
 #include "code\game\objects\items\scanners.dm"
