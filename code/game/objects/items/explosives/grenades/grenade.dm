@@ -22,13 +22,15 @@
 	var/det_time = 4 SECONDS
 	///Does it make a danger overlay for humans? Can synths use it?
 	var/dangerous = TRUE
-	var/arm_sound = 'sound/weapons/armbomb.ogg'
+	var/arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout.ogg'
 	var/hud_state = "grenade_he"
 	var/hud_state_empty = "grenade_empty"
 	///Light impact range when exploding
 	var/light_impact_range = 4
 	///Weak impact range when exploding
 	var/weak_impact_range = 0
+	var/G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit.ogg'
+	var/G_throw_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_throw.ogg'
 
 
 /obj/item/explosive/grenade/Initialize(mapload)
@@ -108,6 +110,12 @@
 ///Adjusts det time, used for grenade launchers
 /obj/item/explosive/grenade/proc/launched_det_time()
 	det_time = min(10, det_time)
+
+/obj/item/explosive/grenade/throw_at()
+	. = ..()
+	playsound(thrower, G_throw_sound, 25, 1, 6)
+	sleep(0.3 SECONDS)
+	playsound(loc, G_hit_sound, 20, 1, 9)
 
 ////RAD GRENADE - TOTALLY RAD MAN
 

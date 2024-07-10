@@ -94,7 +94,6 @@
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
-#include "code\game\objects\explosives\grenades\grenade.dm"
 #include "code\modules\admin\admin_verbs.dm"
 #include "code\modules\admin\fun_verbs.dm"
 #include "code\modules\emotes\emote_panel.dm"
