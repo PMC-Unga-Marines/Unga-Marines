@@ -45,7 +45,6 @@
 #include "code\game\objects\items\weapons\harvester.dm"
 #include "code\game\objects\machinery\adv_med.dm"
 #include "code\game\objects\machinery\autodoc.dm"
-#include "code\game\objects\machinery\deployable.dm"
 #include "code\game\objects\machinery\bots\roomba.dm"
 #include "code\game\objects\machinery\camera\camera.dm"
 #include "code\game\objects\machinery\cloning\cloning.dm"
