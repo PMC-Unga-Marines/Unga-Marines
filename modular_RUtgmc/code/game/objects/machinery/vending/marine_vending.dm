@@ -1,5 +1,5 @@
 /obj/machinery/vending
-	vend_delay = 10
+	vend_delay = 2
 /obj/machinery/vending/armor_supply
 	products = list(
 		"Xenonauten" = list(
