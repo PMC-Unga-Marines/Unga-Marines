@@ -58,7 +58,6 @@
 #include "code\game\objects\machinery\vending\vending.dm"
 #include "code\game\objects\structures\barricade.dm"
 #include "code\game\objects\structures\bookcase.dm"
-#include "code\game\objects\structures\droppod.dm"
 #include "code\game\objects\structures\dropship_ammo.dm"
 #include "code\game\objects\structures\misc.dm"
 #include "code\game\objects\structures\orbital_cannon.dm"
