@@ -54,7 +54,6 @@
 #include "code\game\objects\machinery\squad_supply\supply_beacon.dm"
 #include "code\game\objects\machinery\vending\marine_vending.dm"
 #include "code\game\objects\machinery\vending\new_marine_vendors.dm"
-#include "code\game\objects\machinery\vending\vending_types.dm"
 #include "code\game\objects\structures\barricade.dm"
 #include "code\game\objects\structures\dropship_ammo.dm"
 #include "code\game\objects\structures\misc.dm"
