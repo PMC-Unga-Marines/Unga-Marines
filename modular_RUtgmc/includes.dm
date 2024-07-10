@@ -107,7 +107,6 @@
 #include "code\game\turfs\floor_types.dm"
 #include "code\game\turfs\floor.dm"
 #include "code\game\turfs\liquid_turfs.dm"
-#include "code\game\turfs\snow.dm"
 #include "code\game\turfs\walls\resin.dm"
 #include "code\game\turfs\walls\wall_types.dm"
 #include "code\game\turfs\walls\walls.dm"
