@@ -340,16 +340,39 @@
 /obj/structure/ob_ammo/warhead/proc/warhead_impact()
 	return
 
+/obj/structure/ob_ammo/warhead/proc/impact_message(turf/target, impact_time = 10 SECONDS)
+	var/relative_dir
+	for(var/mob/living/our_mob in range(30, target))
+		if(get_turf(our_mob) == target)
+			relative_dir = 0
+		else
+			relative_dir = get_dir(our_mob, target)
+		our_mob.show_message(span_highdanger("The sky erupts into flames <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_VISIBLE,
+			span_highdanger("You hear a very loud sound coming from above to the <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_AUDIBLE)
+
+	sleep(impact_time / 3)
+	for(var/mob/living/our_mob in range(25, target))
+		if(get_turf(our_mob) == target)
+			relative_dir = 0
+		else
+			relative_dir = get_dir(our_mob, target)
+		our_mob.show_message(span_highdanger("The sky roars louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_VISIBLE,
+			span_highdanger("The sound becomes louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_AUDIBLE)
+
+	sleep(impact_time / 3)
+	for(var/mob/living/our_mob in range(15, target))
+		our_mob.show_message(span_highdanger("OH GOD THE SKY WILL EXPLODE!!!"), EMOTE_VISIBLE,
+			span_highdanger("YOU SHOULDN'T BE HERE!"), EMOTE_AUDIBLE)
+
 /obj/structure/ob_ammo/warhead/explosive
 	name = "\improper HE orbital warhead"
 	warhead_kind = "explosive"
 	icon_state = "ob_warhead_1"
+	var/explosion_power = 1425
+	var/explosion_falloff = 90
 
-/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/explosive/warhead_impact(turf/target, inaccuracy_amt = 0)
-	. = ..()
-	explosion(target, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 0, 15 - inaccuracy_amt)
-*/
+	cell_explosion(target, explosion_power, explosion_falloff + (inaccuracy_amt * 10)) // inaccuracy adds up fallof in result range decreases
 
 
 
@@ -357,51 +380,54 @@
 	name = "\improper Incendiary orbital warhead"
 	warhead_kind = "incendiary"
 	icon_state = "ob_warhead_2"
+	var/flame_range_num
+	var/flame_intensity = 36
+	var/flame_duration = 40
+	var/flame_colour = "blue"
+	var/smoke_radius = 17
+	var/smoke_duration = 20
 
 
-/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/incendiary/warhead_impact(turf/target, inaccuracy_amt = 0)
-	. = ..()
-	var/range_num = max(15 - inaccuracy_amt, 12)
-	flame_radius(range_num, target,	burn_intensity = 36, burn_duration = 40, colour = "blue")
+	flame_range_num = max(15 - inaccuracy_amt, 12)
+	flame_radius(flame_range_num, target, flame_intensity, flame_duration, colour = flame_colour)
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
-	warcrime.set_up(17, target, 20)
+	warcrime.set_up(smoke_radius, target, smoke_duration)
 	warcrime.start()
-*/
 
 /obj/structure/ob_ammo/warhead/cluster
 	name = "\improper Cluster orbital warhead"
 	warhead_kind = "cluster"
 	icon_state = "ob_warhead_3"
+		var/cluster_amount = 25
+	var/cluster_power = 240
+	var/cluster_falloff = 40
+	var/cluster_range
 
-/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/cluster/warhead_impact(turf/target, inaccuracy_amt = 0)
 	set waitfor = FALSE
-	. = ..()
-	var/range_num = max(9 - inaccuracy_amt, 6)
+	cluster_range = max(9 - inaccuracy_amt, 6)
 	var/list/turf_list = list()
-	for(var/turf/T in range(range_num, target))
+	for(var/turf/T in range(cluster_range, target))
 		turf_list += T
-	var/total_amt = max(25 - inaccuracy_amt, 20)
-	for(var/i = 1 to total_amt)
+	var/clusters_to_shoot = max(cluster_amount - inaccuracy_amt, cluster_amount - 5)
+	for(var/i = 1 to clusters_to_shoot)
 		var/turf/U = pick_n_take(turf_list)
-		explosion(U, 1, 4, 6, 0, 6, throw_range = 0, adminlog = FALSE) //rocket barrage
+		cell_explosion(U, cluster_power, cluster_falloff, adminlog = FALSE) //rocket barrage
 		sleep(0.1 SECONDS)
-*/
 
 /obj/structure/ob_ammo/warhead/plasmaloss
 	name = "\improper Plasma draining orbital warhead"
 	warhead_kind = "plasma"
 	icon_state = "ob_warhead_4"
+	var/smoke_radius = 25
+	var/smoke_duration = 3 SECONDS
 
 
-/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/plasmaloss/warhead_impact(turf/target, inaccuracy_amt = 0)
-	. = ..()
 	var/datum/effect_system/smoke_spread/plasmaloss/smoke = new
-	smoke.set_up(25, target, 3 SECONDS)//Vape nation
+	smoke.set_up(smoke_radius, target, smoke_duration)//Vape nation
 	smoke.start()
-*/
 
 /obj/structure/ob_ammo/ob_fuel
 	name = "solid fuel"
