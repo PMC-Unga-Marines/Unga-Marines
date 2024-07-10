@@ -181,3 +181,5 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define ENGINEER_TOTAL_BUY_POINTS 75
 /// How many points the field commander can spend
 #define COMMANDER_TOTAL_BUY_POINTS 45
+/// How many points the synthetic can spend
+#define SYNTH_TOTAL_BUY_POINTS 50
