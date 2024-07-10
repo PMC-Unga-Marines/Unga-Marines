@@ -41,7 +41,6 @@
 #include "code\game\objects\items\tools\soldering_tool.dm"
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
-#include "code\game\objects\machinery\camera\camera.dm"
 #include "code\game\objects\machinery\cloning\cloning.dm"
 #include "code\game\objects\machinery\computer\computer.dm"
 #include "code\game\objects\machinery\doors\airlock.dm"
