@@ -1,5 +1,4 @@
 
-#include "code\game\objects\explosion_recursive.dm"
 #include "code\game\objects\items.dm"
 #include "code\game\objects\effects\aliens.dm"
 #include "code\game\objects\effects\overlays.dm"
