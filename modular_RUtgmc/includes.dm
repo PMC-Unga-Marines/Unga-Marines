@@ -50,7 +50,6 @@
 #include "code\game\objects\machinery\miner.dm"
 #include "code\game\objects\machinery\mortar.dm"
 #include "code\game\objects\machinery\OpTable.dm"
-#include "code\game\objects\machinery\sleeper.dm"
 #include "code\game\objects\machinery\iv_drip.dm"
 #include "code\game\objects\machinery\bots\roomba.dm"
 #include "code\game\objects\machinery\camera\camera.dm"
