@@ -1421,7 +1421,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return FALSE
 
 ///Colors the item or selects variants.
-/obj/item/color_item(obj/item/facepaint/paint, mob/living/carbon/human/user)
+/obj/item/proc/color_item(obj/item/facepaint/paint, mob/living/carbon/human/user)
 
 	if(paint.uses < 1)
 		balloon_alert(user, "\the [paint] is out of color!")
