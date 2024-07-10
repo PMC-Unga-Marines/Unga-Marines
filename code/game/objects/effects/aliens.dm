@@ -35,6 +35,7 @@
 /obj/effect/xenomorph/spray
 	name = "splatter"
 	desc = "It burns! It burns like hygiene!"
+	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
 	icon_state = "acid2"
 	density = FALSE
 	opacity = FALSE
@@ -57,6 +58,7 @@
 	RegisterSignal(xeno_owner, COMSIG_QDELETING, PROC_REF(clean_mob_owner))
 	RegisterSignal(loc, COMSIG_ATOM_ENTERED, PROC_REF(atom_enter_turf))
 	TIMER_COOLDOWN_START(src, COOLDOWN_PARALYSE_ACID, 5)
+	animate(src, duration, alpha = 20)
 
 /obj/effect/xenomorph/spray/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -115,6 +117,12 @@
 
 		var/atom/A = H
 		SEND_SIGNAL(A, COMSIG_ATOM_ACIDSPRAY_ACT, src, acid_damage, slow_amt)
+
+/obj/effect/xenomorph/spray/strong
+	icon_state = "acid2-strong"
+
+/obj/effect/xenomorph/spray/weak
+	icon_state = "acid2-weak"
 
 //Medium-strength acid
 /obj/effect/xenomorph/acid
