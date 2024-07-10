@@ -301,5 +301,4 @@
 #include "code\modules\atmospherics\machinery\components\unary_devices\thermomachine.dm"
 #include "code\modules\atmospherics\machinery\portable\canister.dm"
 #include "code\modules\reagents\machinery\reagentgrinder.dm"
-#include "code\game\objects\machinery\kitchen\gibber.dm"
 #include "code\modules\mob\living\carbon\human\update_icons.dm"
