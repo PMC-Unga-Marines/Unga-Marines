@@ -5,7 +5,7 @@
 /obj/alien
 	name = "alien thing"
 	desc = "theres something alien about this"
-	icon = 'icons/Xeno/Effects.dmi'
+	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
 	hit_sound = "alien_resin_break"
 	anchored = TRUE
 	max_integrity = 1
@@ -38,15 +38,7 @@
 	take_damage(burnlevel * 2, BURN, FIRE)
 
 /obj/alien/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage((rand(140, 300)), BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage((rand(50, 100)), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(rand(25, 50), BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/alien/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
@@ -116,21 +108,22 @@
 
 	victim.next_move_slowdown += slow_amt
 
-/* RUTGMC DELETION
 /obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM) //Clear it out on hit; no need to double tap.
-		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active && refundable)
-			SSresinshaping.quickbuild_points_by_hive[X.hivenumber]++
-		X.do_attack_animation(src, ATTACK_EFFECT_CLAW) //SFX
-		playsound(src, "alien_resin_break", 25) //SFX
+	if(X.a_intent != INTENT_DISARM)
+		return FALSE
+
+	if(X.a_intent == INTENT_DISARM)
+		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X) && refundable)
+			SSresinshaping.decrement_build_counter(X)
+		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+		playsound(src, "alien_resin_break", 25)
 		deconstruct(TRUE)
 		return
 
 	return ..()
-*/
 
 // Praetorian Sticky Resin spit uses this.
 /obj/alien/resin/sticky/thin
@@ -145,7 +138,7 @@
 //Resin Doors
 /obj/structure/mineral_door/resin
 	name = RESIN_DOOR
-	icon = 'icons/obj/smooth_objects/resin-door.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
 	icon_state = "resin-door-1"
 	base_icon_state = "resin-door"
 	layer = RESIN_STRUCTURE_LAYER
@@ -166,6 +159,9 @@
 	var/close_delay = 10 SECONDS
 	///The timer that tracks the delay above
 	var/closetimer
+
+/obj/structure/mineral_door/resin/get_explosion_resistance()
+	return density ? obj_integrity : 0
 
 /obj/structure/mineral_door/resin/smooth_icon()
 	. = ..()
@@ -191,17 +187,15 @@
 	try_toggle_state(M)
 	return TRUE
 
-/* RUTGMC DELETION
-//clicking on resin doors attacks them, or opens them without harm intent
 /obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	var/turf/cur_loc = X.loc
 	if(!istype(cur_loc))
-		return FALSE //Some basic logic here
-	if(X.a_intent != INTENT_HARM)
+		return FALSE
+	if(X.a_intent != INTENT_DISARM)
 		try_toggle_state(X)
 		return TRUE
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
-		SSresinshaping.quickbuild_points_by_hive[X.hivenumber]++
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
+		SSresinshaping.decrement_build_counter(X)
 		qdel(src)
 		return TRUE
 
@@ -210,21 +204,12 @@
 	if(do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
 		src.balloon_alert(X, "Destroyed")
 		qdel(src)
-*/
 
 /obj/structure/mineral_door/resin/flamer_fire_act(burnlevel)
 	take_damage(burnlevel * 2, BURN, FIRE)
 
 /obj/structure/mineral_door/resin/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel()
-		if(EXPLODE_HEAVY)
-			qdel()
-		if(EXPLODE_LIGHT)
-			take_damage((rand(50, 60)), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(30, BRUTE, BOMB)
+	take_damage(severity / 2, BRUTE, BOMB)
 
 /turf/closed/wall/resin/fire_act()
 	take_damage(50, BURN, FIRE)
@@ -361,3 +346,47 @@
 		return
 	X.visible_message(span_notice("[X] is splattered with jelly!"))
 	INVOKE_ASYNC(src, PROC_REF(activate_jelly), X)
+
+/obj/alien/resin/resin_growth
+	name = GROWTH_WALL
+	desc = "Some sort of resin growth. Looks incredibly fragile"
+	icon_state = "growth_wall"
+	density = FALSE
+	opacity = FALSE
+	max_integrity = 5
+	layer = RESIN_STRUCTURE_LAYER
+	hit_sound = "alien_resin_move"
+	var/growth_time = 300 SECONDS
+	var/structure = "wall"
+
+/obj/alien/resin/resin_growth/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(on_growth)), growth_time, TIMER_DELETE_ME)
+	var/static/list/connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(trample_plant)
+	)
+	AddElement(/datum/element/connect_loc, connections)
+
+/obj/alien/resin/resin_growth/proc/trample_plant(datum/source, atom/movable/O, oldloc, oldlocs)
+	SIGNAL_HANDLER
+	if(!ismob(O) || isxeno(O))
+		return
+	playsound(src, "alien_resin_break", 25)
+	deconstruct(TRUE)
+
+/obj/alien/resin/resin_growth/proc/on_growth()
+	playsound(src, "alien_resin_build", 25)
+	var/turf/T = get_turf(src)
+	switch(structure)
+		if("wall")
+			var/list/baseturfs = islist(T.baseturfs) ? T.baseturfs : list(T.baseturfs)
+			baseturfs |= T.type
+			T.ChangeTurf(/turf/closed/wall/resin/regenerating, baseturfs)
+		if("door")
+			new /obj/structure/mineral_door/resin(T)
+	deconstruct(TRUE)
+
+/obj/alien/resin/resin_growth/door
+	name = GROWTH_DOOR
+	structure = "door"
+	icon_state = "growth_door"
