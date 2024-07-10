@@ -1,5 +1,3 @@
-
-#include "code\game\objects\items.dm"
 #include "code\game\objects\effects\aliens.dm"
 #include "code\game\objects\effects\overlays.dm"
 #include "code\game\objects\effects\weeds.dm"

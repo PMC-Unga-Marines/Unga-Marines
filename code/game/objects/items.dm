@@ -144,6 +144,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	///Current variant selected.
 	var/current_variant
 
+	///Current hair concealing option selected.
+	var/current_hair_concealment
+
 
 
 
@@ -173,6 +176,19 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 	if(current_variant)
 		update_icon()
+
+/obj/item/ex_act(severity, explosion_direction)
+	explosion_throw(severity, explosion_direction)
+
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return
+
+	if(!prob(severity / 3))
+		return
+
+	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
+	visible_message(span_danger("<u>\The [src] [msg]</u>"))
+	deconstruct(FALSE)
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -1405,7 +1421,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return FALSE
 
 ///Colors the item or selects variants.
-/obj/item/proc/color_item(obj/item/facepaint/paint, mob/user)
+/obj/item/color_item(obj/item/facepaint/paint, mob/living/carbon/human/user)
 
 	if(paint.uses < 1)
 		balloon_alert(user, "\the [paint] is out of color!")
@@ -1418,17 +1434,25 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		selection_list += PRESET_COLORS
 	if(colorable_allowed & ICON_STATE_VARIANTS_ALLOWED && (length(icon_state_variants)>1))
 		selection_list += VARIANTS
+	if(colorable_allowed & HAIR_CONCEALING_CHANGE_ALLOWED)
+		selection_list += HAIR_CONCEALING_CHANGE
 
 	var/selection
 	if(length(selection_list) == 1)
 		selection = selection_list[1]
 	else
-		selection = tgui_input_list(user, "Choose a color setting", name, selection_list)
+		selection = tgui_input_list(user, "Choose a setting", name, selection_list)
 
 	var/new_color
+	var/hair_concealing_variants = list(
+		HAIR_NO_CONCEALING,
+		TOP_HAIR_CONCEALING,
+		HAIR_PARTIALLY_CONCEALING,
+		HAIR_FULL_CONCEALING,
+	)
 	switch(selection)
 		if(VARIANTS)
-			var/variant = tgui_input_list(user, "Choose a color.", "Color", icon_state_variants)
+			var/variant = tgui_input_list(user, "Choose a variant", "Variant", icon_state_variants)
 
 			if(!variant)
 				return
@@ -1442,8 +1466,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			SEND_SIGNAL(src, COMSIG_ITEM_VARIANT_CHANGE, user, variant)
 			return
 		if(PRESET_COLORS)
-			var/color_selection
-			color_selection = tgui_input_list(user, "Pick a color", "Pick color", colorable_colors)
+			var/color_selection = tgui_input_list(user, "Pick a color", "Pick color", colorable_colors)
 			if(!color_selection)
 				return
 			if(islist(colorable_colors[color_selection]))
@@ -1457,12 +1480,32 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if(COLOR_WHEEL)
 			new_color = input(user, "Pick a color", "Pick color") as null|color
 
+		if(HAIR_CONCEALING_CHANGE)
+			var/concealment_variant = tgui_input_list(user, "Choose how much hair you want to conceal?", "Hair Concealment", hair_concealing_variants)
+			if(!concealment_variant || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+				return
+
+			current_hair_concealment = concealment_variant
+			switch_hair_concealment_flags(user)
+
 	if(!new_color || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		return
 
 	set_greyscale_colors(new_color)
 	update_icon()
 	update_greyscale()
+
+/obj/item/proc/switch_hair_concealment_flags(mob/living/carbon/human/user)
+	switch(current_hair_concealment)
+		if(HAIR_NO_CONCEALING) // if you apply it to something that has different inv hide flags it will break it, so just don't i guess?
+			flags_inv_hide = HIDEEARS
+		if(TOP_HAIR_CONCEALING)
+			flags_inv_hide = HIDEEARS|HIDETOPHAIR
+		if(HAIR_PARTIALLY_CONCEALING)
+			flags_inv_hide = HIDEEARS|HIDE_EXCESS_HAIR
+		if(HAIR_FULL_CONCEALING)
+			flags_inv_hide = HIDEEARS|HIDEALLHAIR
+	user.update_hair()
 
 ///Is called when the item is alternate attacked by paint. Handles coloring any secondary colors that are registered to COMSIG_ITEM_SECONDARY_COLOR
 /obj/item/proc/alternate_color_item(obj/item/facepaint/paint, mob/user)

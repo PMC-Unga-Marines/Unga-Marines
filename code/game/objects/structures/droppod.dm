@@ -247,6 +247,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	addtimer(CALLBACK(src, PROC_REF(finish_drop), user), DROPPOD_TRANSIT_TIME)
 	forceMove(pick(reserved_area.reserved_turfs))
 	new /area/arrival(loc)	//adds a safezone so we dont suffocate on the way down, cleaned up with reserved turfs
+	var/turf/target = locate(target_x, target_y, 2)
 	var/obj/effect/overlay/blinking_laser/marine/pod_warning/laserpod = new /obj/effect/overlay/blinking_laser/marine/pod_warning(target)
 	laserpod.dir = target
 	QDEL_IN(laserpod, DROPPOD_TRANSIT_TIME + 1)
