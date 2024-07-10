@@ -298,7 +298,6 @@
 #include "code\game\objects\items\card_ids.dm"
 #include "code\game\objects\structures\crates_lockers\secure\freezer.dm"
 #include "code\game\objects\machinery\computer\crew.dm"
-#include "code\game\objects\structures\bedsheet_bin.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\chairs.dm"
 #include "code\modules\mining\money_bag.dm"
 #include "code\modules\atmospherics\machinery\components\unary_devices\thermomachine.dm"
