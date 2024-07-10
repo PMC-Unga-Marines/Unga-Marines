@@ -399,7 +399,7 @@
 	name = "\improper Cluster orbital warhead"
 	warhead_kind = "cluster"
 	icon_state = "ob_warhead_3"
-		var/cluster_amount = 25
+	var/cluster_amount = 25
 	var/cluster_power = 240
 	var/cluster_falloff = 40
 	var/cluster_range

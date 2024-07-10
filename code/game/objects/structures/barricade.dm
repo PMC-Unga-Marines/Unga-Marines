@@ -987,10 +987,6 @@
 	update_icon()
 */
 
-#undef BARRICADE_PLASTEEL_LOOSE
-#undef BARRICADE_PLASTEEL_ANCHORED
-#undef BARRICADE_PLASTEEL_FIRM
-
 /*----------------------*/
 // SANDBAGS
 /*----------------------*/

@@ -459,15 +459,6 @@
 	cell_explosion(impact, 250, 90) //first explosion is small to trick xenos into thinking its a minirocket.
 	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
 
-/obj/structure/ship_ammo/cas/rocket/fatty/delayed_detonation(turf/impact)
-	var/list/impact_coords = list(list(-3,3),list(0,4),list(3,3),list(-4,0),list(4,0),list(-3,-3),list(0,-4), list(3,-3))
-	for(var/i = 1 to 8)
-		var/list/coords = impact_coords[i]
-		var/turf/detonation_target = locate(impact.x+coords[1],impact.y+coords[2],impact.z)
-		detonation_target.ceiling_debris_check(2)
-		cell_explosion(detonation_target, 250, 90, adminlog = FALSE)
-	qdel(src)
-
 /**
  * proc/delayed_detonation(turf/impact)
  *
@@ -477,11 +468,11 @@
 
 /obj/structure/ship_ammo/cas/rocket/fatty/proc/delayed_detonation(turf/impact)
 	var/list/impact_coords = list(list(-3,3),list(0,4),list(3,3),list(-4,0),list(4,0),list(-3,-3),list(0,-4), list(3,-3))
-	for(var/i=1 to 8)
+	for(var/i = 1 to 8)
 		var/list/coords = impact_coords[i]
 		var/turf/detonation_target = locate(impact.x+coords[1],impact.y+coords[2],impact.z)
 		detonation_target.ceiling_debris_check(2)
-		explosion(detonation_target, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE)
+		cell_explosion(detonation_target, 250, 90, adminlog = FALSE)
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/napalm
