@@ -39,16 +39,8 @@
 			break
 
 /obj/machinery/optable/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if (prob(50))
-				qdel(src)
-
-
-
-
+	if(prob(severity / 3))
+		qdel(src)
 
 /obj/machinery/optable/examine(mob/user)
 	. = ..()
@@ -233,3 +225,7 @@
 		return 0
 
 	return 1
+
+/obj/machinery/optable/yautja
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "table2-idle"
