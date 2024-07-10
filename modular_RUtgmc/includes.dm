@@ -5,7 +5,6 @@
 #include "code\game\objects\machinery.dm"
 #include "code\game\objects\obj_defense.dm"
 #include "code\game\objects\shrapnel.dm"
-#include "code\game\objects\structures.dm"
 #include "code\game\objects\effects\aliens.dm"
 #include "code\game\objects\effects\overlays.dm"
 #include "code\game\objects\effects\weeds.dm"
