@@ -515,7 +515,7 @@
 	return TRUE
 
 /turf/closed/wall/resin/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/space/is_weedable()
 	return FALSE
