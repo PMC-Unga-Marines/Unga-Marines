@@ -162,20 +162,12 @@
 	description = ""
 	keybind_signal = COMSIG_KB_MOB_DROPITEM_DOWN
 
-/* RUTGMC DELETION
 /datum/keybinding/mob/drop_item/down(client/user)
 	. = ..()
 	if(.)
 		return
-	var/mob/M = user.mob
-	var/obj/item/I = M.get_active_held_item()
-	if(!I)
-		to_chat(user, span_warning("You have nothing to drop in your hand!"))
-	else
-		user.mob.dropItemToGround(I)
+	user.mob.drop_item_v()
 	return TRUE
-*/
-
 
 /datum/keybinding/mob/examine
 	hotkey_keys = list("Shift")

@@ -4,6 +4,7 @@
 	silo_scaling = 1.5
 	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD
 	flags_xeno_abilities = ABILITY_NUCLEARWAR
+	quickbuild_points_flags = MODE_GENERAL_QUICKBUILD_POINTS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,

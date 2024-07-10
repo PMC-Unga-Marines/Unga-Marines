@@ -391,6 +391,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	powerloader = SKILL_POWERLOADER_MASTER
 	firearms = SKILL_FIREARMS_TRAINED
 	smartgun = SKILL_SMART_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 
 /datum/skills/fo
@@ -403,6 +404,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	police = SKILL_POLICE_MP
 	powerloader = SKILL_POWERLOADER_TRAINED
 	cqc = SKILL_CQC_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
+	smartgun = SKILL_SMART_TRAINED
 
 /datum/skills/so
 	name = STAFF_OFFICER
@@ -411,6 +414,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_AMATEUR
 	police = SKILL_POLICE_MP
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /datum/skills/pilot
 	name = PILOT_OFFICER
@@ -466,6 +470,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_METAL
 	police = SKILL_POLICE_MP
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /datum/skills/sl
 	name = SQUAD_LEADER
@@ -475,6 +480,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	leadership = SKILL_LEAD_EXPERT
 	medical = SKILL_MEDICAL_NOVICE
 	surgery = SKILL_SURGERY_AMATEUR
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /datum/skills/sl/clf
 	name = "CLF leader"
@@ -570,6 +576,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	rifles = SKILL_RIFLES_TRAINED
 	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /datum/skills/commando/medic
 	name = "Commando Medic"
@@ -595,6 +602,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	rifles = SKILL_RIFLES_TRAINED
 	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /datum/skills/admiral
 	name = "Admiral"
@@ -604,6 +612,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	surgery = SKILL_SURGERY_AMATEUR
 	police = SKILL_POLICE_FLASH
 	powerloader = SKILL_POWERLOADER_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /datum/skills/spatial_agent
 	name = "Spatial Agent"
@@ -625,6 +634,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	police = SKILL_POLICE_MP
 	powerloader = SKILL_POWERLOADER_MASTER
 	large_vehicle = SKILL_LARGE_VEHICLE_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 /* Deathsquad */
 /datum/skills/deathsquad
@@ -690,6 +700,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 	smartgun = SKILL_SMART_USE // can use smartgun
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 	// higher SL skills
 	engineer = SKILL_ENGINEER_ENGI
@@ -716,6 +727,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	smgs = SKILL_SMGS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 	smartgun = SKILL_SMART_TRAINED
+	swordplay = SKILL_SWORDPLAY_TRAINED
 
 	//endurance = 0 - does nothing
 	engineer = SKILL_ENGINEER_PLASTEEL
@@ -764,3 +776,18 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	name = "Skeleton"
 	cqc = SKILL_CQC_TRAINED
 	melee_weapons = SKILL_MELEE_TRAINED
+
+/datum/skills/yautja/warrior
+	name = "Yautja Warrior"
+
+	engineer = SKILL_ENGINEER_ENGI
+	construction = SKILL_CONSTRUCTION_MASTER
+	firearms = SKILL_FIREARMS_TRAINED
+	medical = SKILL_MEDICAL_MASTER
+	cqc = SKILL_CQC_MASTER
+	surgery = SKILL_SURGERY_EXPERT
+	melee_weapons = SKILL_MELEE_SUPER
+	pistols = SKILL_PISTOLS_TRAINED
+	rifles = SKILL_RIFLES_TRAINED
+	police = SKILL_POLICE_MP
+	swordplay = SKILL_SWORDPLAY_TRAINED
