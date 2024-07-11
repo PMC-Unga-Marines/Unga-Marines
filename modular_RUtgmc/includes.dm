@@ -132,7 +132,6 @@
 #include "code\modules\projectiles\guns\shotguns.dm"
 #include "code\modules\projectiles\guns\smgs.dm"
 #include "code\modules\projectiles\guns\specialist.dm"
-#include "code\modules\surgery\surgery_tools.dm"
 #include "code\modules\projectiles\magazines\magazines.dm"
 #include "code\modules\projectiles\magazines\misc.dm"
 #include "code\modules\projectiles\magazines\specialist.dm"
