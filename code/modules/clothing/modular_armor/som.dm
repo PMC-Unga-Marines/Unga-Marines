@@ -7,8 +7,8 @@
 	icon = 'icons/mob/modular/som_armor.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/modular/som_armor.dmi',
-		slot_l_hand_str = 'icons/mob/inhands/clothing/suits_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/clothing/suits_right.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	icon_state = "som_medium"
 	item_state = "som_medium"
@@ -160,8 +160,8 @@
 	icon = 'icons/mob/modular/som_helmets.dmi'
 	item_icons = list(
 		slot_head_str = 'icons/mob/modular/som_helmets.dmi',
-		slot_l_hand_str = 'icons/mob/inhands/clothing/hats_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/clothing/hats_right.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	icon_state = "som_helmet"
 	item_state = "som_helmet"
