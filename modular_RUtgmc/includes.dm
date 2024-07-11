@@ -8,7 +8,6 @@
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
 #include "code\modules\emotes\emote_panel.dm"
-#include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\night.dm"
 #include "code\modules\clothing\gloves\marine_gloves.dm"
 #include "code\modules\clothing\head\collectable.dm"
