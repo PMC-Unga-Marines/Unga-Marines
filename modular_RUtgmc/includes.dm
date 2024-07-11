@@ -210,7 +210,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\beetle\beetle.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
-#include "code\game\objects\items\reagent_containers\autoinjectors.dm"
 #include "code\modules\atmospherics\machinery\components\unary_devices\thermomachine.dm"
 #include "code\modules\atmospherics\machinery\portable\canister.dm"
 #include "code\modules\reagents\machinery\reagentgrinder.dm"
