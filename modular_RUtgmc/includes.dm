@@ -7,8 +7,6 @@
 #include "code\game\objects\items\storage\holsters.dm"
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
-#include "code\modules\clothing\suits\suits.dm"
-#include "code\modules\clothing\under\marine_uniform.dm"
 #include "code\modules\mob\living\living_defense.dm"
 #include "code\modules\mob\living\living_verbs.dm"
 #include "code\modules\mob\living\say.dm"
