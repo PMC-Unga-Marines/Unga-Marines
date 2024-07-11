@@ -9,7 +9,6 @@
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
 #include "code\modules\emotes\emote_panel.dm"
-#include "code\modules\ai\presets\xeno_presets.dm"
 #include "code\modules\atmospherics\machinery\atmosmachinery.dm"
 #include "code\modules\atmospherics\machinery\datum_pipeline.dm"
 #include "code\modules\atmospherics\machinery\components\unary_devices\vent_pump.dm"
