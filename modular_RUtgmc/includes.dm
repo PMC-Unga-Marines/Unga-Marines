@@ -1,5 +1,4 @@
 #include "code\game\objects\items\robot\robot_parts.dm"
-#include "code\game\objects\items\stacks\sheets\sheet_types.dm"
 #include "code\game\objects\items\storage\pouch.dm"
 #include "code\game\objects\items\storage\backpack.dm"
 #include "code\game\objects\items\storage\belt.dm"
