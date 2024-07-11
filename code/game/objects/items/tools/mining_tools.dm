@@ -154,7 +154,7 @@
 		to_chat(user, span_warning("The plasma cutter has inadequate charge remaining! Give the internal battery time to recharge, or attack a living creature! <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
 
 /obj/item/tool/pickaxe/plasmacutter/proc/start_cut(mob/user, name = "", atom/source, charge_amount = PLASMACUTTER_BASE_COST, custom_string, no_string, SFX = TRUE)
-	if(!(cell.charge >= charge_amount) || !powered) //Check power
+	if(!(cell.charge >= charge_amount) || !powered)
 		fizzle_message(user)
 		return FALSE
 	eyecheck(user)
@@ -166,7 +166,6 @@
 		spark_system.attach(source)
 		spark_system.start(source)
 	if(!no_string)
-		balloon_alert(user, "Cutting...")
 		if(custom_string)
 			to_chat(user, span_notice(custom_string))
 		else
@@ -181,12 +180,11 @@
 	spark_system.set_up(5, 0, source)
 	spark_system.attach(source)
 	spark_system.start(source)
-	use_charge(user, charge_amount, FALSE)
-	balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
+	use_charge(user, charge_amount, TRUE)
 	if(custom_string)
 		to_chat(user, span_notice(custom_string))
 	else
-		balloon_alert(user, "Cuts apart")
+		to_chat(user, span_notice("You cut \the [source] apart."))
 
 /obj/item/tool/pickaxe/plasmacutter/proc/debris(location, metal = 0, rods = 0, wood = 0, wires = 0, shards = 0, plasteel = 0)
 	if(metal)
@@ -206,7 +204,7 @@
 
 /obj/item/tool/pickaxe/plasmacutter/proc/use_charge(mob/user, amount = PLASMACUTTER_BASE_COST, mention_charge = TRUE)
 	cell.charge -= min(cell.charge, amount)
-	if(mention_charge)
+	if(mention_charge && amount > 0)
 		balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
 	update_plasmacutter()
 
