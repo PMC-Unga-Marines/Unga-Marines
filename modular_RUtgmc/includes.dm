@@ -15,7 +15,6 @@
 #include "code\modules\clothing\modular_armor\som.dm"
 #include "code\modules\clothing\modular_armor\style_line.dm"
 #include "code\modules\clothing\modular_armor\xenonauten.dm"
-#include "code\modules\clothing\modular_armor\attachments\modules.dm"
 #include "code\modules\clothing\modular_armor\attachments\storage.dm"
 #include "code\modules\clothing\modular_armor\attachments\uniform.dm"
 #include "code\modules\clothing\shoes\marine_shoes.dm"
