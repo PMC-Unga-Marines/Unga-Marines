@@ -38,7 +38,7 @@
 	attack_speed = 5
 	sharp = IS_SHARP_ITEM_ACCURATE
 	resistance_flags = UNACIDABLE
-	hitsound = 'modular_RUtgmc/sound/weapons/rapierhit.ogg'
+	hitsound = 'sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
 	w_class = WEIGHT_CLASS_BULKY
 

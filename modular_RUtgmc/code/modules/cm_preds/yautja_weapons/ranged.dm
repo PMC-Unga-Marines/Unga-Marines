@@ -24,7 +24,7 @@
 	rounds_per_shot = 30
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
 	fire_delay = 5
-	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasmacaster_fire.ogg'
+	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
 	message_to_user = "will now fire low power stun bolts"
 	radial_icon_state = "plasma_weak"
 	muzzle_flash_color = COLOR_MAGENTA
@@ -33,7 +33,7 @@
 	rounds_per_shot = 100
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt/stun
 	fire_delay = 15
-	fire_sound = 'modular_RUtgmc/sound/weapons/pred_lasercannon.ogg'
+	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire high power stun bolts"
 	radial_icon_state = "plasma_strong"
 	muzzle_flash_color = COLOR_MAGENTA
@@ -42,7 +42,7 @@
 	rounds_per_shot = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere/stun
 	fire_delay = 100
-	fire_sound = 'modular_RUtgmc/sound/weapons/pulse.ogg'
+	fire_sound = 'sound/weapons/pulse.ogg'
 	message_to_user = "will now fire plasma immobilizers"
 	radial_icon_state = "laser_sniper_overcharge"
 	muzzle_flash_color = COLOR_MAGENTA
@@ -51,7 +51,7 @@
 	rounds_per_shot = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt
 	fire_delay = 10
-	fire_sound = 'modular_RUtgmc/sound/weapons/pred_lasercannon.ogg'
+	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire plasma bolts"
 	radial_icon_state = "laser_disabler"
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
@@ -60,7 +60,7 @@
 	rounds_per_shot = 1200
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere
 	fire_delay = 100
-	fire_sound = 'modular_RUtgmc/sound/weapons/pulse.ogg'
+	fire_sound = 'sound/weapons/pulse.ogg'
 	message_to_user = "will now fire plasma spheres"
 	radial_icon_state = "laser_swarm"
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
@@ -197,7 +197,7 @@
 	icon_state = "plasmarifle"
 	item_state = "plasmarifle"
 	resistance_flags = UNACIDABLE
-	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasma_shot.ogg'
+	fire_sound = 'sound/weapons/pred_plasma_shot.ogg'
 	ammo_datum_type = /datum/ammo/energy/yautja/rifle/bolt
 	zoomdevicename = "scope"
 	flags_equip_slot = ITEM_SLOT_BACK
@@ -267,7 +267,7 @@
 	item_state = "plasmapistol"
 
 	resistance_flags = UNACIDABLE
-	fire_sound = 'modular_RUtgmc/sound/weapons/pulse3.ogg'
+	fire_sound = 'sound/weapons/pulse3.ogg'
 	flags_equip_slot = ITEM_SLOT_BELT
 	ammo_datum_type = /datum/ammo/energy/yautja/pistol
 	w_class = WEIGHT_CLASS_BULKY
@@ -338,7 +338,7 @@
 		slot_back_str = "plasma_wear_off",
 		slot_s_store_str = "plasma_wear_off"
 	)
-	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasmacaster_fire.ogg'
+	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
 	muzzle_flash_color = COLOR_VIOLET
 	w_class = WEIGHT_CLASS_GIGANTIC
@@ -433,7 +433,7 @@
 		. += span_orange(msg)
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/dropped(mob/living/carbon/human/M)
-	playsound(M, 'modular_RUtgmc/sound/weapons/pred_plasmacaster_off.ogg', 15, 1)
+	playsound(M, 'sound/weapons/pred_plasmacaster_off.ogg', 15, 1)
 	to_chat(M, span_notice("You deactivate your plasma caster."))
 	if(laser_target)
 		laser_off(M)

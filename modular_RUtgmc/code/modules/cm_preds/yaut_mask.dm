@@ -138,7 +138,7 @@
 		for(var/listed_hud in mask_huds)
 			var/datum/atom_hud/H = GLOB.huds[listed_hud]
 			H.remove_hud_from(user)
-		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
+		playsound(src, 'sound/items/air_release.ogg', 15, 1)
 		for(var/datum/action/action in actions_to_add)
 			action.remove_action(user)
 		var/obj/item/G = user.glasses
@@ -163,7 +163,7 @@
 		for(var/listed_hud in mask_huds)
 			var/datum/atom_hud/H = GLOB.huds[listed_hud]
 			H.remove_hud_from(user)
-		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
+		playsound(src, 'sound/items/air_release.ogg', 15, 1)
 		for(var/datum/action/action in actions_to_add)
 			action.remove_action(user)
 		var/obj/item/G = user.glasses

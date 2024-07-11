@@ -72,7 +72,7 @@
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper
 	desc = "The T-ES, a Terra Experimental standard issue laser sniper rifle, it has an integrated charge selector for normal, heat, and overcharge settings. Uses standard Terra Experimental (abbreviated as TE) power cells. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts."
-	windup_sound = 'modular_RUtgmc/sound/weapons/guns/fire/Laser Sniper Overcharge Charge.ogg'
+	windup_sound = 'sound/weapons/guns/fire/Laser Sniper Overcharge Charge.ogg'
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "tes"
 	item_state = "tes"
@@ -153,7 +153,7 @@
 	fire_delay = 3 SECONDS
 	windup_delay = 1.5 SECONDS
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/sniper_overcharge
-	fire_sound = 'modular_RUtgmc/sound/weapons/guns/fire/Laser Sniper Overcharge Fire.ogg'
+	fire_sound = 'sound/weapons/guns/fire/Laser Sniper Overcharge Fire.ogg'
 	message_to_user = "You set the sniper rifle's charge mode to overcharge."
 	fire_mode = GUN_FIREMODE_SEMIAUTO
 	icon_state = "tes"

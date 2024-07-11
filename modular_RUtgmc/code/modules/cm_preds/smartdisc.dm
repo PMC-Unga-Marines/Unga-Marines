@@ -22,8 +22,8 @@
 	throw_speed = 1
 
 	G_hit_sound = null
-	G_throw_sound = 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg'
-	hitsound = 'modular_RUtgmc/sound/effects/smartdisk_hit.ogg'
+	G_throw_sound = 'sound/effects/smartdisk_throw.ogg'
+	hitsound = 'sound/effects/smartdisk_hit.ogg'
 
 	var/mob/living/simple_animal/hostile/smartdisc/spawned_item
 
@@ -33,16 +33,16 @@
 		if(length(bracer.discs) < bracer.max_disc_cap)
 			if(src in bracer.discs)
 				to_chat(user, span_warning("You unlink [bracer] and [src]."))
-				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 				bracer.discs -= src
 			else
 				bracer.discs += src
 				to_chat(user, span_warning("You link [src] to [bracer]."))
-				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 		else
 			if(src in bracer.discs)
 				to_chat(user, span_warning("You unlink [bracer] and [src]."))
-				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 				bracer.discs -= src
 			else
 				to_chat(user, span_warning("Your limit is [bracer.max_disc_cap], unlink before disc, to add another one."))
@@ -65,7 +65,7 @@
 	sleep(1 SECONDS)
 	throw_at(usr, 12, 1, usr)
 	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 1 SECONDS)
-	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
+	playsound(src, 'sound/effects/smartdisk_throw.ogg', 25)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/clear_boomerang()
 	active = FALSE
@@ -174,7 +174,7 @@
 	melee_damage = 25
 	harm_intent_damage = 10
 	attacktext = "slices"
-	attack_sound = 'modular_RUtgmc/sound/effects/smartdisk_hit.ogg'
+	attack_sound = 'sound/effects/smartdisk_hit.ogg'
 
 
 	faction = FACTION_YAUTJA

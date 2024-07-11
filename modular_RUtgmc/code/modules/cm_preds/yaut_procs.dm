@@ -5,7 +5,7 @@
 		for(var/obj/item/clothing/gloves/yautja/hunter/G in Y.contents)
 			to_chat(Y, span_yautjabold("[icon2html(G)] \The <b>[G]</b> beeps: [msg]"))
 			if(G.notification_sound)
-				playsound(Y.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+				playsound(Y.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 
 /mob/living/carbon/human/proc/message_thrall(msg)
 	if(!hunter_data.thrall)
@@ -16,7 +16,7 @@
 	for(var/obj/item/clothing/gloves/yautja/hunter/G in T.contents)
 		to_chat(T, span_yautjabold("[icon2html(G)] \The <b>[G]</b> beeps: [msg]"))
 		if(G.notification_sound)
-			playsound(T.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+			playsound(T.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 
 //Update the power display thing. This is called in Life()
 /mob/living/carbon/human/proc/update_power_display(perc)

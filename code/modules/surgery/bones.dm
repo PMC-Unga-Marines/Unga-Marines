@@ -24,9 +24,9 @@
 	max_duration = BONEGEL_REPAIR_MAX_DURATION
 	bone_step = 0
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle1.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/bandage.ogg'
-	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+	preop_sound = 'sound/misc/surgery/clothingrustle1.ogg'
+	success_sound = 'sound/misc/surgery/bandage.ogg'
+	failure_sound = 'sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/bone/glue_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts applying medication to the damaged bones in [target]'s [affected.display_name] with \the [tool].") , \
@@ -58,7 +58,7 @@
 	max_duration = BONESETTER_MAX_DURATION
 	bone_step = 1
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/hemostat1.ogg'
+	preop_sound = 'sound/misc/surgery/hemostat1.ogg'
 	success_sound = 'sound/effects/bone_break6.ogg'
 	failure_sound = 'sound/effects/bone_break1.ogg'
 

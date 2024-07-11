@@ -94,7 +94,7 @@
 	light_impact_range = 2
 	weak_impact_range = 3
 	icon_state_mini = "grenade_sticky"
-	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
 	G_hit_sound = null
 	power = 90
 	falloff = 40
@@ -333,8 +333,8 @@
 	hud_state = "grenade_smoke"
 	dangerous = FALSE
 	icon_state_mini = "grenade_blue"
-	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
 	/// smoke type created when the grenade is primed
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
 	///radius this smoke grenade will encompass
@@ -438,8 +438,8 @@
 	item_state = "grenade_phos"
 	det_time = 2 SECONDS
 	hud_state = "grenade_hide"
-	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
 	var/datum/effect_system/smoke_spread/phosphorus/smoke
 	icon_state_mini = "grenade_cyan"
 

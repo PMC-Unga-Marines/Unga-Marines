@@ -50,7 +50,7 @@
 		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
 			caster.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			caster.set_throwing(FALSE) //Reset throwing manually.
-			playsound(caster, 'modular_RUtgmc/sound/machines/bonk.ogg', 50, FALSE)
+			playsound(caster, 'sound/machines/bonk.ogg', 50, FALSE)
 			return
 
 	caster.forceMove(get_turf(living_target))

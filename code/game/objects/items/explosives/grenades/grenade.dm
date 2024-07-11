@@ -22,15 +22,15 @@
 	var/det_time = 4 SECONDS
 	///Does it make a danger overlay for humans? Can synths use it?
 	var/dangerous = TRUE
-	var/arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout.ogg'
+	var/arm_sound = 'sound/weapons/grenade/grenade_pinout.ogg'
 	var/hud_state = "grenade_he"
 	var/hud_state_empty = "grenade_empty"
 	///Light impact range when exploding
 	var/light_impact_range = 4
 	///Weak impact range when exploding
 	var/weak_impact_range = 0
-	var/G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit.ogg'
-	var/G_throw_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_throw.ogg'
+	var/G_hit_sound = 'sound/weapons/grenade/grenade_hit.ogg'
+	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
 	/// Power of the explosion
 	var/power = 105
 	/// Falloff of our explosion, aka distance, by the formula of power / falloff

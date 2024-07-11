@@ -688,7 +688,7 @@
 		COOLDOWN_START(bracer, bracer_recharge, bracer.charge_cooldown)
 		to_chat(grabber, span_yautjabold("[icon2html(bracer)] \The <b>[bracer]</b> beep: Power siphon complete. Charge at [bracer.charge]/[bracer.charge_max]."))
 		if(bracer.notification_sound)
-			playsound(bracer.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+			playsound(bracer.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 		charging = APC_CHARGING
 		set_broken() // Breaks the APC
 

@@ -21,8 +21,8 @@
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY
 
-	paincries = list("neuter" = 'modular_RUtgmc/sound/voice/necoarc/NecoVIBIVII!!.ogg')
-	death_sound = 'modular_RUtgmc/sound/voice/necoarc/Necojooooonoooooooo.ogg'
+	paincries = list("neuter" = 'sound/voice/necoarc/NecoVIBIVII!!.ogg')
+	death_sound = 'sound/voice/necoarc/Necojooooonoooooooo.ogg'
 
 	blood_color = "#00FF00"
 	flesh_color = "#C0C0C0"

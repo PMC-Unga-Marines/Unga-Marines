@@ -1273,7 +1273,7 @@
 				balloon_alert(living_carbon, "Wire slices into us")
 				living_carbon.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
 				living_carbon.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
-				playsound(living_carbon, 'modular_RUtgmc/sound/machines/bonk.ogg', 75, FALSE)
+				playsound(living_carbon, 'sound/machines/bonk.ogg', 75, FALSE)
 	..()
 
 /obj/structure/barricade/metal/handrail

@@ -121,12 +121,12 @@
 
 		to_chat(user, span_yautjabold("[icon2html(src)] \The <b>[src]</b> beeps: Your bracer is now linked to your thrall."))
 		if(notification_sound)
-			playsound(loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+			playsound(loc, 'sound/items/pred_bracer.ogg', 75, 1)
 
 		to_chat(T, span_warning("\The [thrall_gloves] locks around your wrist with a sharp click."))
 		to_chat(T, span_yautjabold("[icon2html(thrall_gloves)] \The <b>[thrall_gloves]</b> beeps: Your master has linked their bracer to yours."))
 		if(thrall_gloves.notification_sound)
-			playsound(thrall_gloves.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+			playsound(thrall_gloves.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 
 // Message thrall or master
 /obj/item/clothing/gloves/yautja/verb/bracer_message()
@@ -171,9 +171,9 @@
 	to_chat(messenger, span_yautjabold("\The <b>[src]</b> beeps: You have sent '[message]' to your [receiver_title]."))
 
 	if(notification_sound)
-		playsound(loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+		playsound(loc, 'sound/items/pred_bracer.ogg', 75, 1)
 	if(receiver_gloves.notification_sound)
-		playsound(receiver_gloves.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+		playsound(receiver_gloves.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 
 	log_game("HUNTER: [key_name(messenger)] has sent [key_name(receiver)] the message '[message]' via bracer")
 

@@ -185,7 +185,7 @@
 	if(do_after(xeno, activation_delay, NONE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		xeno.visible_message(span_xenohighdanger("[xeno] rips open the guts of [carbon]!"), span_xenohighdanger("You rip open the guts of [carbon]!"))
 		carbon.spawn_gibs()
-		playsound(get_turf(carbon), 'modular_RUtgmc/sound/effects/gibbed.ogg', 75, 1)
+		playsound(get_turf(carbon), 'sound/effects/gibbed.ogg', 75, 1)
 		carbon.apply_effect(0.5, WEAKEN)
 		carbon.apply_damage(base_damage + damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
@@ -196,7 +196,7 @@
 				xeno.setDir(turn(xeno.dir, 90))
 		xeno.do_attack_animation(carbon, ATTACK_EFFECT_BITE)
 
-	playsound(xeno, 'modular_RUtgmc/sound/voice/predalien_growl.ogg', 75, 0)
+	playsound(xeno, 'sound/voice/predalien_growl.ogg', 75, 0)
 
 	xeno.anchored = FALSE
 	xeno.SetImmobilized(0)

@@ -37,7 +37,7 @@
 			continue
 		affected_xeno.apply_status_effect(/datum/status_effect/plasma_surge, affected_xeno.xeno_caste.plasma_max / 3, bonus_regen, duration)
 
-	playsound(X.loc, 'modular_RUtgmc/sound/voice/alien_plasma_screech.ogg', 75, 0)
+	playsound(X.loc, 'sound/voice/alien_plasma_screech.ogg', 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
@@ -70,7 +70,7 @@
 	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(X, screech_range))
 		affected_xeno.apply_status_effect(/datum/status_effect/frenzy_screech, buff_duration, buff_damage_modifier)
 
-	playsound(X.loc, 'modular_RUtgmc/sound/voice/alien_frenzy_screech.ogg', 75, 0)
+	playsound(X.loc, 'sound/voice/alien_frenzy_screech.ogg', 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()

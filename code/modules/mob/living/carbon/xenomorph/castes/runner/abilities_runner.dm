@@ -308,7 +308,7 @@
 	if(isyautja(victim))
 		victim.emote("laugh")
 		X.Paralyze(75)
-		playsound(X,'modular_RUtgmc/sound/effects/hit_kick.ogg', 35, FALSE)
+		playsound(X,'sound/effects/hit_kick.ogg', 35, FALSE)
 		victim.balloon_alert(owner, "Snatch failed, we got caught!")
 		to_chat(X, span_xenodanger("[victim] counterattacks during our snatch attemp!"))
 		to_chat(victim, span_danger("[X] tried to steal our equipment, but failed!"))

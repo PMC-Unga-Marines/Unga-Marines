@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/smg
-	wield_sound =    'modular_RUtgmc/sound/weapons/guns/smgs/Deploy_Wave_SMGS.ogg'
-	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
+	wield_sound =    'sound/weapons/guns/smgs/Deploy_Wave_SMGS.ogg'
+	silenced_sound = 'sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
 
 //-------------------------------------------------------
 // War is hell. Not glorious.
@@ -10,22 +10,22 @@
 	item_state = "t90"
 	greyscale_config = null
 	colorable_allowed = NONE
-	fire_sound =     'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
-	unload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_clipout.ogg'
-	reload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_clipin.ogg'
-	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_boltpull.ogg'
-	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
+	fire_sound =     'sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
+	unload_sound =   'sound/weapons/guns/smgs/SMG-90/SMG90_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/smgs/SMG-90/SMG90_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/smgs/SMG-90/SMG90_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 		)
 
 /obj/item/weapon/gun/smg/standard_machinepistol
-	fire_sound =     'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19.ogg'
-	unload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_clipout.ogg'
-	reload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_clipin.ogg'
-	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_boltpull.ogg'
-	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_SIL.ogg'
+	fire_sound =     'sound/weapons/guns/smgs/MP-19/MP19.ogg'
+	unload_sound =   'sound/weapons/guns/smgs/MP-19/MP19_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/smgs/MP-19/MP19_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/smgs/MP-19/MP19_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/smgs/MP-19/MP19_SIL.ogg'
 
 ///////////////////////////////////////////////////////////////////////
 ////////////// Vector, based on KRISS Vector 45ACP. ///////////////////

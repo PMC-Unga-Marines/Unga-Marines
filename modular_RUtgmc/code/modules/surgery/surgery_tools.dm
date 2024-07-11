@@ -86,7 +86,7 @@
 			to_chat(user, span_warning("There's already a capsule inside the healing gun!"))
 			return
 		user.visible_message(span_warning("[user] loads \the [src] with \a [O]."), span_warning("You load \the [src] with \a [O]."))
-		playsound(loc, 'modular_RUtgmc/sound/items/air_release.ogg',25)
+		playsound(loc, 'sound/items/air_release.ogg',25)
 		loaded = TRUE
 		update_icon()
 		qdel(O)

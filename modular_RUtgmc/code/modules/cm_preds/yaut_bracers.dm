@@ -255,8 +255,8 @@
 			if(get_dist(disc, src) <= 10)
 				if(isturf(disc.loc))
 					disc.boomerang(caller)
-					playsound(disc, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
-	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_return.ogg', 30)
+					playsound(disc, 'sound/effects/smartdisk_throw.ogg', 25)
+	playsound(src, 'sound/effects/smartdisk_return.ogg', 30)
 	return TRUE
 
 /obj/item/clothing/gloves/yautja/proc/translate_internal(mob/living/carbon/human/caller, forced = FALSE)
@@ -451,7 +451,7 @@
 		caller.put_in_active_hand(caster)
 		caster_deployed = TRUE
 		to_chat(caller, span_notice("You activate your plasma caster. It is in [caster.mode] mode."))
-		playsound(src, 'modular_RUtgmc/sound/weapons/pred_plasmacaster_on.ogg', 15, TRUE)
+		playsound(src, 'sound/weapons/pred_plasmacaster_on.ogg', 15, TRUE)
 
 /obj/item/clothing/gloves/yautja/proc/cloaker_internal(mob/living/caller, forced = FALSE)
 	. = check_random_function(caller, forced)
@@ -502,7 +502,7 @@
 		ADD_TRAIT(M, TRAIT_LIGHT_STEP, TRAIT_LIGHT_STEP)
 		log_game("[key_name_admin(usr)] has enabled their cloaking device.")
 		M.visible_message(span_warning("[M] vanishes into thin air!"), span_notice("You are now invisible to normal detection."))
-		playsound(M.loc,'modular_RUtgmc/sound/effects/pred_cloakon.ogg', 30)
+		playsound(M.loc,'sound/effects/pred_cloakon.ogg', 30)
 		animate(M, alpha = new_alpha, time = 1.5 SECONDS, easing = SINE_EASING|EASE_OUT)
 
 		var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
@@ -616,9 +616,9 @@
 	exploding = TRUE
 	var/turf/T = get_turf(src)
 	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && (is_ground_level(T.z) || SSticker.mode.flags_round_type & MODE_SHIPSIDE_SD))
-		playsound(src, 'modular_RUtgmc/sound/voice/pred_deathlaugh.ogg', 100, 0, 17)
+		playsound(src, 'sound/voice/pred_deathlaugh.ogg', 100, 0, 17)
 
-	playsound(src, 'modular_RUtgmc/sound/effects/pred_countdown.ogg', 100, 0, 17)
+	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17)
 	message_admins(font_size_xl("<a href='?_src_=holder;[HrefToken(TRUE)];admincancelpredsd=1;bracer=[REF(src)];victim=[REF(victim)]'>CLICK TO CANCEL THIS PRED SD</a>"))
 
 	our_socialistic_do_after(victim, rand(72, 80))
@@ -1133,7 +1133,7 @@
 	REMOVE_TRAIT(user, TRAIT_LIGHT_STEP, TRAIT_LIGHT_STEP)
 	log_game("[key_name_admin(usr)] has disabled their cloaking device.")
 	user.visible_message(span_warning("[user] shimmers into existence!"), span_warning("Your cloaking device deactivates."))
-	playsound(user.loc, 'modular_RUtgmc/sound/effects/pred_cloakoff.ogg', 35)
+	playsound(user.loc, 'sound/effects/pred_cloakoff.ogg', 35)
 	user.alpha = initial(user.alpha)
 	if(true_cloak)
 		user.invisibility = initial(user.invisibility)
@@ -1173,7 +1173,7 @@
 		return FALSE
 	tracked_item.RemoveElement(/datum/element/yautja_tracked_item)
 	to_chat(caller, span_notice("You remove \the <b>[tracked_item]</b> from the tracking system."))
-	playsound(caller.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+	playsound(caller.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 	return TRUE
 
 
@@ -1201,7 +1201,7 @@
 		return FALSE
 	untracked_item.AddElement(/datum/element/yautja_tracked_item)
 	to_chat(caller, span_notice("You add \the <b>[untracked_item]</b> to the tracking system."))
-	playsound(caller.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+	playsound(caller.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 	return TRUE
 
 /obj/item/clothing/gloves/yautja/hunter/verb/bracername()
@@ -1302,7 +1302,7 @@
 			to_chat(wearer, span_warning("The bracer beeps pleasantly, releasing it's grip on your forearm."))
 		else
 			to_chat(wearer, span_warning("With an angry blare the bracer releases your forearm."))
-		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
+		playsound(src, 'sound/items/air_release.ogg', 15, 1)
 		return TRUE
 
 	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)

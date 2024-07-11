@@ -75,8 +75,8 @@
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
 /obj/item/storage/holster/blade/officer
-	draw_sound = 'modular_RUtgmc/sound/items/unsheath.ogg'
-	sheathe_sound = 'modular_RUtgmc/sound/items/sheath.ogg'
+	draw_sound = 'sound/items/unsheath.ogg'
+	sheathe_sound = 'sound/items/sheath.ogg'
 	worn_layer = CAPE_LAYER
 	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword)
 	can_hold = list(/obj/item/weapon/claymore/mercsword/officersword)
@@ -141,8 +141,8 @@
 	)
 
 /obj/item/storage/holster/blade //new sounds
-	draw_sound = 'modular_RUtgmc/sound/weapons/melee/knife_out.ogg'
-	sheathe_sound = 'modular_RUtgmc/sound/weapons/melee/knife_in.ogg'
+	draw_sound = 'sound/weapons/melee/knife_out.ogg'
+	sheathe_sound = 'sound/weapons/melee/knife_in.ogg'
 
 /obj/item/storage/holster/blade/machete
 	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'

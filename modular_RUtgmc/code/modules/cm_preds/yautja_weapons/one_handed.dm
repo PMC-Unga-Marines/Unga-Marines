@@ -56,7 +56,7 @@
 	edge = TRUE
 	attack_verb = list("whipped", "slashed","sliced","diced","shredded")
 	attack_speed = 0.8 SECONDS
-	hitsound = 'modular_RUtgmc/sound/weapons/chain_whip.ogg'
+	hitsound = 'sound/weapons/chain_whip.ogg'
 
 
 /obj/item/weapon/yautja/chain/attack(mob/target, mob/living/user)
@@ -165,7 +165,7 @@
 
 		user.visible_message(span_highdanger("[user] slices open the guts of [target]!"), span_highdanger("You slice open the guts of [target]!"))
 		target.spawn_gibs()
-		playsound(get_turf(target), 'modular_RUtgmc/sound/effects/gibbed.ogg', 30, 1)
+		playsound(get_turf(target), 'sound/effects/gibbed.ogg', 30, 1)
 		target.apply_effect(1, WEAKEN)
 		target.apply_damage(force * 3, BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 65)
 
@@ -225,14 +225,14 @@
 		if(bracer.combistick)
 			if(src == bracer.combistick)
 				to_chat(user, span_warning("You unlink [bracer] and [src]."))
-				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 				bracer.combistick = null
 			else
 				to_chat(user, span_warning("Before that you need unlink your [bracer] that before linked."))
 		else
 			bracer.combistick = src
 			to_chat(user, span_warning("You link [src] to [bracer]."))
-			playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+			playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
 		bracer.owner.update_action_buttons()
 	..()
 
@@ -305,7 +305,7 @@
 		user.visible_message(span_info("With a flick of their wrist, [user] extends [src]."),\
 		span_notice("You extend [src]."),\
 		"You hear blades extending.")
-		playsound(src,'modular_RUtgmc/sound/items/combistick_open.ogg', 50, TRUE, 3)
+		playsound(src,'sound/items/combistick_open.ogg', 50, TRUE, 3)
 		icon_state = initial(icon_state)
 		flags_equip_slot = initial(flags_equip_slot)
 		flags_item |= TWOHANDED
@@ -322,7 +322,7 @@
 	else
 		unwield(user)
 		to_chat(user, span_notice("You collapse [src] for storage."))
-		playsound(src, 'modular_RUtgmc/sound/items/combistick_close.ogg', 50, TRUE, 3)
+		playsound(src, 'sound/items/combistick_close.ogg', 50, TRUE, 3)
 		icon_state = initial(icon_state) + "_f"
 		flags_equip_slot = ITEM_SLOT_BACK
 		flags_item &= ~TWOHANDED
@@ -369,7 +369,7 @@
 /obj/item/weapon/yautja/combistick/attack_hand(mob/user) //Prevents marines from instantly picking it up via pickup macros.
 	if(!human_adapted && !HAS_TRAIT(user, TRAIT_SUPER_STRONG))
 		user.visible_message(span_danger("[user] starts to untangle the chain on \the [src]..."), span_notice("You start to untangle the chain on \the [src]..."))
-		playsound(loc, 'modular_RUtgmc/sound/items/chain_fumble.ogg', 25)
+		playsound(loc, 'sound/items/chain_fumble.ogg', 25)
 		if(do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, PROGRESS_BRASS))
 			..()
 	else ..()
