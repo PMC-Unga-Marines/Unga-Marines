@@ -415,7 +415,7 @@
 /obj/structure/showcase/yautja
 	name = "Radar Console"
 	desc = "A console equipped with a radar used by the Hunters to detect gear and good hunting grounds."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "terminal"
 
 /obj/structure/showcase/yautja/alt

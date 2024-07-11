@@ -60,7 +60,7 @@
 	list_reagents = list(/datum/reagent/water = 1000)
 
 /obj/structure/reagent_dispensers/watertank/pred
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "watertank"
 
 /obj/structure/reagent_dispensers/fueltank
@@ -77,7 +77,7 @@
 	var/exploding = FALSE
 
 /obj/structure/reagent_dispensers/fueltank/pred
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "weldtank"
 
 /obj/structure/reagent_dispensers/fueltank/Destroy()

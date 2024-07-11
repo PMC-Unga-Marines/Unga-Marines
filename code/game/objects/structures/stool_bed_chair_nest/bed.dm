@@ -200,7 +200,7 @@
 	desc = "For prime comfort."
 
 /obj/structure/bed/pred
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "bed"
 
 /obj/structure/bed/pred/alt

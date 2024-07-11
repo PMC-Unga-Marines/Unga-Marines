@@ -489,7 +489,7 @@
 		balloon_alert(src, "You struggle to get your bearings")
 
 /obj/structure/closet/pred
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "closed"
 
 #undef CLOSET_INSERT_END

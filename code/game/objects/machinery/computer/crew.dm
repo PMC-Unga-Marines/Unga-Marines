@@ -135,7 +135,7 @@
 	UnregisterSignal(under, COMSIG_QDELETING)
 
 /obj/machinery/computer/crew/pred
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "crew"
 
 #undef DISPLAY_ON_SHIP

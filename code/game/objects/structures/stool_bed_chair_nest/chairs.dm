@@ -152,7 +152,7 @@
 	color = rgb(167,164,153)
 
 /obj/structure/bed/chair/comfy/black/pred
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "comfychair"
 
 /obj/structure/bed/chair/comfy/lime
