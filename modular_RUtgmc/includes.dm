@@ -8,7 +8,6 @@
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
 #include "code\modules\emotes\emote_panel.dm"
-#include "code\modules\atmospherics\machinery\datum_pipeline.dm"
 #include "code\modules\buildmode\submodes\boom.dm"
 #include "code\modules\client\preferences_gear.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
