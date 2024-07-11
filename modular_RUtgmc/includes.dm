@@ -1,5 +1,4 @@
 #include "code\game\objects\items\reagent_containers\glass\bottle.dm"
-#include "code\game\objects\items\reagent_containers\hypospray.dm"
 #include "code\game\objects\items\robot\robot_parts.dm"
 #include "code\game\objects\items\stacks\sheets\sheet_types.dm"
 #include "code\game\objects\items\storage\pouch.dm"
@@ -207,7 +206,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\beetle\beetle.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
-#include "code\game\objects\items\reagent_containers\autoinjectors.dm"
 #include "code\modules\atmospherics\machinery\components\unary_devices\thermomachine.dm"
 #include "code\modules\atmospherics\machinery\portable\canister.dm"
 #include "code\modules\reagents\machinery\reagentgrinder.dm"
