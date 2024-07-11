@@ -112,7 +112,7 @@
 
 /atom/movable/screen/fullscreen/machine/pred/meson
 	icon_state = "pred_meson"
-	icon = 'modular_RUtgmc/icons/mob/screen/full.dmi'
+	icon = 'icons/mob/screen/full.dmi'
 
 /atom/movable/screen/fullscreen/machine/pred/night
 	icon_state = "robothalf"

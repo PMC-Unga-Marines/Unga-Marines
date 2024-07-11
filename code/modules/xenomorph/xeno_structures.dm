@@ -483,7 +483,7 @@ TUNNEL
 /obj/structure/xeno/acidwell
 	name = "acid well"
 	desc = "An acid well. It stores acid to put out fires."
-	icon = 'modular_RUtgmc/icons/Xeno/acid_pool.dmi'
+	icon = 'icons/Xeno/acid_pool.dmi'
 	plane = FLOOR_PLANE
 	icon_state = "well"
 	density = FALSE
@@ -749,7 +749,7 @@ TUNNEL
 
 /obj/structure/xeno/silo
 	name = "Resin silo"
-	icon = 'modular_RUtgmc/icons/Xeno/resin_silo.dmi'
+	icon = 'icons/Xeno/resin_silo.dmi'
 	icon_state = "weed_silo"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	bound_width = 96
@@ -1241,7 +1241,7 @@ TUNNEL
 /obj/structure/xeno/pherotower
 	name = "Pheromone tower"
 	desc = "A resin formation that looks like a small pillar. A faint, weird smell can be perceived from it."
-	icon = 'modular_RUtgmc/icons/Xeno/1x1building.dmi'
+	icon = 'icons/Xeno/1x1building.dmi'
 	icon_state = "recoverytower"
 	bound_width = 32
 	bound_height = 32
@@ -1306,7 +1306,7 @@ TUNNEL
 	return
 
 /obj/structure/xeno/spawner
-	icon = 'modular_RUtgmc/icons/Xeno/2x2building.dmi.dmi'
+	icon = 'icons/Xeno/2x2building.dmi.dmi'
 	bound_width = 64
 	bound_height = 64
 	plane = FLOOR_PLANE
@@ -1422,7 +1422,7 @@ TUNNEL
 /obj/structure/xeno/plant
 	name = "Xeno Plant"
 	max_integrity = 5
-	icon = 'modular_RUtgmc/icons/Xeno/plants.dmi'
+	icon = 'icons/Xeno/plants.dmi'
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
 	///The plant's icon once it's fully grown
 	var/mature_icon_state
@@ -1684,7 +1684,7 @@ TUNNEL
 	max_integrity = 400
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	icon = 'modular_RUtgmc/icons/Xeno/nest.dmi'
+	icon = 'icons/Xeno/nest.dmi'
 	icon_state = "reinforced_nest"
 	layer = 2.5
 

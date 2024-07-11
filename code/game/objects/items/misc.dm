@@ -127,7 +127,7 @@
 /obj/item/toy/plush/pig
 	name = "pig toy"
 	desc = "Captain Dementy! Bring the pigs! Marines demand pigs!."
-	icon = 'modular_RUtgmc/icons/obj/items/toy.dmi'
+	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "pig"
 	item_state = "pig"
 	attack_verb = list("oinks", "grunts")
@@ -146,7 +146,7 @@
 /obj/structure/bed/namaz
 	name = "Prayer rug"
 	desc = "Very halal prayer rug."
-	icon = 'modular_RUtgmc/icons/obj/items/priest.dmi'
+	icon = 'icons/obj/items/priest.dmi'
 	icon_state = "namaz"
 	buckle_flags = CAN_BUCKLE|BUCKLE_PREVENTS_PULL
 	buckle_lying = 0
@@ -159,7 +159,7 @@
 /obj/item/namaz
 	name = "Prayer rug"
 	desc = "Very halal prayer rug."
-	icon = 'modular_RUtgmc/icons/obj/items/priest.dmi'
+	icon = 'icons/obj/items/priest.dmi'
 	icon_state = "rolled_namaz"
 	w_class = WEIGHT_CLASS_SMALL
 	var/rollertype = /obj/structure/bed/namaz
@@ -183,7 +183,7 @@
 
 /obj/item/storage/bible/koran
 	name = "Koran"
-	icon = 'modular_RUtgmc/icons/obj/items/priest.dmi'
+	icon = 'icons/obj/items/priest.dmi'
 	icon_state = "Koran"
 	actions_types = list(/datum/action/item_action)
 	max_w_class = 3

@@ -2,7 +2,7 @@
 	caste_base_type = /mob/living/carbon/xenomorph/panther
 	name = "Panther"
 	desc = "What you have done with this cute little rouny?"
-	icon = 'modular_RUtgmc/icons/Xeno/castes/panther.dmi'
+	icon = 'icons/Xeno/castes/panther.dmi'
 	icon_state = "Panther Walking" //Panther sprites by Drawsstuff (CC BY-NC-SA 3.0)
 	health = 50
 	maxHealth = 100
@@ -40,7 +40,7 @@
 /obj/item/reagent_containers/food/drinks/pantherheart
 	name = "Panther heart"
 	desc = "This is Panther heart... Wait, what?"
-	icon = 'modular_RUtgmc/icons/obj/items/drinks.dmi'
+	icon = 'icons/obj/items/drinks.dmi'
 	icon_state = "pantherheart"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 0

@@ -35,7 +35,7 @@
 	colorable_allowed = NONE
 
 /obj/item/attachable/foldable/t35stock
-	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
+	icon = 'icons/Marine/attachments_64.dmi'
 	greyscale_config = null
 	colorable_allowed = NONE
 
@@ -45,7 +45,7 @@
 	flags_attach_features = ATTACH_REMOVABLE
 	wield_delay_mod = 0.2 SECONDS
 	delay_mod = -0.4 SECONDS
-	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
+	icon = 'icons/Marine/attachments_64.dmi'
 	icon_state = "stock"
 	size_mod = 1
 	accuracy_mod = 0.15
@@ -62,7 +62,7 @@
 	desc = "Cool barrel for cool revolver"
 	slot = ATTACHMENT_SLOT_MUZZLE
 	delay_mod = -0.4 SECONDS
-	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
+	icon = 'icons/Marine/attachments_64.dmi'
 	icon_state = "barrel"
 	attach_shell_speed_mod = 1
 	accuracy_mod = 0.15
@@ -79,7 +79,7 @@
 	desc = "Cool compensator for cool revolver"
 	slot = ATTACHMENT_SLOT_MUZZLE
 	delay_mod = -0.2 SECONDS
-	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
+	icon = 'icons/Marine/attachments_64.dmi'
 	icon_state = "shortbarrel"
 	scatter_mod = -2
 	recoil_mod = -0.5
@@ -92,7 +92,7 @@
 
 /obj/item/attachable/lace/t500
 	name = "R-500 lace"
-	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
+	icon = 'icons/Marine/attachments_64.dmi'
 	slot = ATTACHMENT_SLOT_STOCK
 	pixel_shift_x = 0
 	pixel_shift_y = 0
@@ -100,7 +100,7 @@
 /obj/item/attachable/scope/unremovable/laser_sniper_scope
 	name = "Terra Experimental laser sniper rifle rail scope"
 	desc = "A marine standard mounted zoom sight scope made for the Terra Experimental laser sniper rifle otherwise known as TE-S abbreviated, allows zoom by activating the attachment. Use F12 if your HUD doesn't come back."
-	icon = 'modular_RUtgmc/icons/Marine/marine-weapons.dmi'
+	icon = 'icons/Marine/marine-weapons.dmi'
 	icon_state = "tes"
 
 /obj/item/attachable/bayonetknife

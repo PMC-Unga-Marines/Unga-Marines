@@ -125,7 +125,7 @@
 
 /obj/item/shard/shrapnel
 	name = "shrapnel"
-	icon = 'modular_RUtgmc/icons/obj/items/shards.dmi'
+	icon = 'icons/obj/items/shards.dmi'
 	icon_state = "shrapnel"
 	desc = "A bunch of tiny bits of shattered metal."
 	source_sheet_type = null

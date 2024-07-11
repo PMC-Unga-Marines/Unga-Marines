@@ -1,5 +1,5 @@
 /obj/item/limb
-	icon = 'modular_RUtgmc/icons/mob/human_races/r_human.dmi'
+	icon = 'icons/mob/human_races/r_human.dmi'
 ///Predators can flay limbs to eventually turn them into bones for their armor
 	var/flayed = FALSE
 	///What bone would be in this limb?

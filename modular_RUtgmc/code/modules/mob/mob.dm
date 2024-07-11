@@ -19,7 +19,7 @@
 /obj/effect/temp_visual/block //color is white by default, set to whatever is needed
 	name = "blocking glow"
 	icon_state = "block"
-	icon = 'modular_RUtgmc/icons/effects/effects.dmi'
+	icon = 'icons/effects/effects.dmi'
 	duration = 6.7
 
 /obj/effect/temp_visual/block/Initialize(mapload, set_color)

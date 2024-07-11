@@ -1,10 +1,10 @@
 /obj/item/clothing/shoes/marine/ru
 	name = "ru boots"
 	desc = "ru boots."
-	icon = 'modular_RUtgmc/icons/obj/clothing/shoes/marine_shoes.dmi'
+	icon = 'icons/obj/clothing/shoes/marine_shoes.dmi'
 	icon_state = ""
 	item_icons = list(
-		slot_shoes_str = 'modular_RUtgmc/icons/mob/clothing/feet.dmi')
+		slot_shoes_str = 'icons/mob/clothing/feet.dmi')
 
 /obj/item/clothing/shoes/marine/ru/headskin
 	name = "marine veteran combat boots"

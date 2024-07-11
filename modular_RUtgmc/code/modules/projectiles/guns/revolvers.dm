@@ -18,15 +18,15 @@
 /obj/item/weapon/gun/revolver/standard_revolver/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
-	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
 	greyscale_config = null
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
 	fire_animation = "coltrifle_fire"
 	fire_sound = 'sound/weapons/guns/fire/mateba.ogg'
@@ -74,11 +74,11 @@
 /obj/item/weapon/gun/revolver/t500
 	name = "\improper R-500 BF revolver"
 	desc = "The R-500 BF revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
-	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "t500"
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 		)
 	item_state = "t500"
 	caliber =  CALIBER_500 //codex

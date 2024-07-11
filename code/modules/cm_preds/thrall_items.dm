@@ -51,7 +51,7 @@
 	name = "alien box"
 	desc = "A strange, runed box."
 	color = "#68423b"
-	icon = 'modular_RUtgmc/icons/obj/structures/closet.dmi'
+	icon = 'icons/obj/structures/closet.dmi'
 	icon_state = "pred_coffin"
 	foldable = FALSE
 

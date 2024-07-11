@@ -32,10 +32,10 @@ GLOBAL_LIST_INIT(pheromone_images_list, list(
 
 //List of plant images
 GLOBAL_LIST_INIT(plant_images_list, list(
-		HEAL_PLANT = image('modular_RUtgmc/icons/Xeno/plants.dmi', icon_state = "heal_fruit"),
-		ARMOR_PLANT = image('modular_RUtgmc/icons/Xeno/plants.dmi', icon_state = "armor_fruit"),
-		PLASMA_PLANT = image('modular_RUtgmc/icons/Xeno/plants.dmi', icon_state = "plasma_fruit"),
-		STEALTH_PLANT = image('modular_RUtgmc/icons/Xeno/plants.dmi', icon_state = "stealth_plant")
+		HEAL_PLANT = image('icons/Xeno/plants.dmi', icon_state = "heal_fruit"),
+		ARMOR_PLANT = image('icons/Xeno/plants.dmi', icon_state = "armor_fruit"),
+		PLASMA_PLANT = image('icons/Xeno/plants.dmi', icon_state = "plasma_fruit"),
+		STEALTH_PLANT = image('icons/Xeno/plants.dmi', icon_state = "stealth_plant")
 		))
 
 //List of resin structure images

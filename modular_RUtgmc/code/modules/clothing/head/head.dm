@@ -6,9 +6,9 @@
 /obj/item/clothing/head/squad_headband
 	name = "\improper Squad headband"
 	desc = "Headband made from ultra-thin special cloth. Cloth thickness provides more than just a stylish fluttering of headband. You can tie around headband onto a helmet. This squad version of a headband has secret unique features created by the cloth coloring component. "
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 	icon_state = ""
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = -0.1
@@ -42,9 +42,9 @@
 	name = "\improper squad beret"
 	icon_state = ""
 	desc = "Military beret with TGMC marine squad insignia."
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/tgmcberet/squad/alpha
 	name = "\improper Alpha Squad beret"
@@ -100,32 +100,32 @@
 	name = "\improper Marines Commando beret"
 	desc = "Dark Green beret with an old TGMC insignia on it."
 	icon_state = "marcommandoberet"
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/tgmcberet/vdv
 	name = "\improper Airborne beret"
 	desc = "Blue badged beret that smells like ethanol and fountain water for some reason."
 	icon_state = "russobluecamohat"
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/tgmcberet/medical
 	name = "\improper Medical beret"
 	desc = "A white beret with a green cross finely threaded into it. It has that sterile smell about it."
 	icon_state = "medberet"
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/tgmcberet/hijab
 	name = "\improper Black hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 	icon_state = "hijab_black"
 	flags_inv_hide = HIDEEARS|HIDETOPHAIR
 
@@ -169,9 +169,9 @@
 /obj/item/clothing/head/hachimaki
 	name = "\improper Ancient pilot headband and scarf kit"
 	desc = "Ancient pilot kit of scarf that protects neck from cold wind and headband that protects face from sweat"
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/head_0.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/head_0.dmi')
 	icon_state = "Banzai"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	w_class = WEIGHT_CLASS_SMALL
@@ -202,9 +202,9 @@
 	name = "\improper Alpha squad black beret"
 	icon_state = "alpha_black_beret"
 	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Alpha Squad."
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/tgmcberet/squad/black/bravo
 	name = "\improper Bravo squad black beret"
@@ -223,22 +223,22 @@
 
 /obj/item/clothing/head/beret/marine
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/beret/sec/warden
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/beret/sec
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/beret/eng
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 
 /obj/item/clothing/head/beret/marine/captain
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 
 /obj/item/clothing/head/beret/marine/captain/black
 	icon_state = "black_captain"
@@ -246,14 +246,14 @@
 /obj/item/clothing/head/beret/marine/staff
 	name = "staff officer's beret"
 	desc = "A beret with the silver insignia emblazoned on it. Wearer may suffer being heavily misunderstood by marines."
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	icon_state = "so_beret"
 
 //Peaked caps
 /obj/item/clothing/head/highcap
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 	icon_state = "cap_black"
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
 	flags_inventory = BLOCKSHARPOBJ

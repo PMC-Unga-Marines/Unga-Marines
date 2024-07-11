@@ -81,7 +81,7 @@
 /obj/alien/egg/gas
 	desc = "It looks like a suspiciously weird egg"
 	name = "gas egg"
-	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
+	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "egg_gas"
 
 /obj/alien/egg/gas/update_icon_state()

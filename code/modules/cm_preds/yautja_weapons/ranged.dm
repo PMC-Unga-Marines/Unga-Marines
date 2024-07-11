@@ -14,7 +14,7 @@
 	///What message it sends to the user when you switch to this mode.
 	var/message_to_user = ""
 	///Which icon file the radial menu will use.
-	var/radial_icon = 'modular_RUtgmc/icons/mob/radial.dmi'
+	var/radial_icon = 'icons/mob/radial.dmi'
 	///The icon state the radial menu will use.
 	var/radial_icon_state = "laser"
 	///The muzzleflash color of the weapon we use.
@@ -361,8 +361,8 @@
 	var/strength = "low power stun bolts"//what it's shooting
 
 	var/static/list/modes = list(
-	PRED_MODE_STUN = image(icon = 'modular_RUtgmc/icons/mob/radial.dmi', icon_state = "pred_mode_stun"),
-	PRED_MODE_LETHAL = image(icon = 'modular_RUtgmc/icons/mob/radial.dmi', icon_state = "pred_mode_lethal"))
+	PRED_MODE_STUN = image(icon = 'icons/mob/radial.dmi', icon_state = "pred_mode_stun"),
+	PRED_MODE_LETHAL = image(icon = 'icons/mob/radial.dmi', icon_state = "pred_mode_lethal"))
 	var/list/mode_by_mode_list = list(
 		"stun" = list("low power stun bolts", "high power stun bolts", "plasma immobilizers"),
 		"lethal" = list("plasma bolts", "plasma spheres")

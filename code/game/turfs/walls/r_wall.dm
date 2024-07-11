@@ -1,7 +1,7 @@
 /turf/closed/wall/r_wall
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to seperate rooms."
-	icon = 'modular_RUtgmc/icons/turf/walls/rwall.dmi'
+	icon = 'icons/turf/walls/rwall.dmi'
 	icon_state = "wall-reinforced"
 	base_icon_state = "rwall"
 	opacity = TRUE
@@ -42,7 +42,7 @@
 	return
 
 /turf/closed/wall/r_wall/unmeltable/regular //looks like a regular wall, behaves like an invincible wall
-	icon = 'modular_RUtgmc/icons/turf/walls/regular_wall.dmi'
+	icon = 'icons/turf/walls/regular_wall.dmi'
 	icon_state = "metal-0"
 	walltype = "metal"
 	base_icon_state = "metal"

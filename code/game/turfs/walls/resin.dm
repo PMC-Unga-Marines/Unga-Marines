@@ -6,7 +6,7 @@
 /turf/closed/wall/resin
 	name = RESIN_WALL
 	desc = "Weird slime solidified into a wall."
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-wall.dmi'
+	icon = 'icons/obj/smooth_objects/resin-wall.dmi'
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"

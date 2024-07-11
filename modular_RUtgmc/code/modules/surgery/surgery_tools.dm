@@ -1,22 +1,22 @@
 /obj/item/tool/surgery/retractor/predatorretractor
 	name = "opener"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_retractor"
 
 /obj/item/tool/surgery/hemostat/predatorhemostat
 	name = "pincher"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_hemostat"
 
 /obj/item/tool/surgery/cautery/predatorcautery
 	name = "cauterizer"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_cautery"
 	flags_item = ITEM_PREDATOR
 
 /obj/item/tool/surgery/surgicaldrill/predatorsurgicaldrill
 	name = "bone drill"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_drill"
 
 /obj/item/tool/surgery/scalpel/predatorscalpel
@@ -26,24 +26,24 @@
 
 /obj/item/tool/surgery/circular_saw/predatorbonesaw
 	name = "bone saw"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bonesaw"
 	flags_item = ITEM_PREDATOR
 	force = 20
 
 /obj/item/tool/surgery/bonegel/predatorbonegel
 	name = "gel gun"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bone-gel"
 
 /obj/item/tool/surgery/FixOVein/predatorFixOVein
 	name = "vein fixer"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_fixovein"
 
 /obj/item/tool/surgery/bonesetter/predatorbonesetter
 	name = "bone placer"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bonesetter"
 
 /*
@@ -53,7 +53,7 @@
 /obj/item/tool/surgery/stabilizer_gel
 	name = "stabilizer gel vial"
 	desc = "Used for stabilizing wounds for treatment."
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "stabilizer_gel"
 	force = 0
 	throwforce = 1
@@ -63,7 +63,7 @@
 /obj/item/tool/surgery/healing_gun
 	name = "healing gun"
 	desc = "Used for mending stabilized wounds."
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "healing_gun"
 	force = 0
 	throwforce = 1
@@ -96,7 +96,7 @@
 /obj/item/tool/surgery/healing_gel
 	name = "healing gel capsule"
 	desc = "Used for reloading the healing gun."
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "healing_gel"
 	force = 0
 	throwforce = 1
@@ -106,7 +106,7 @@
 /obj/item/tool/surgery/wound_clamp
 	name = "wound clamp"
 	desc = "Used for clamping wounds after treatment."
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
+	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "wound_clamp"
 	force = 0
 	throwforce = 1

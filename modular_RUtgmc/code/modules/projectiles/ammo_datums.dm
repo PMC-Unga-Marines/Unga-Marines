@@ -43,7 +43,7 @@
 /datum/ammo/bullet/revolver/t500
 	name = ".500 Nigro Express revolver bullet"
 	icon_state = "nigro"
-	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo.dmi'
 	handful_amount = 5
 	damage = 100
 	penetration = 40
@@ -55,7 +55,7 @@
 /datum/ammo/bullet/revolver/t500/qk
 	name = ".500 'Queen Killer' revolver bullet"
 	icon_state = "nigro_qk"
-	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo.dmi'
 	handful_amount = 5
 	damage = 100
 	penetration = 40
@@ -489,7 +489,7 @@
 /datum/ammo/bullet/shrapnel
 	name = "shrapnel"
 	icon_state = "buckshot_shrapnel"
-	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
+	icon = 'icons/obj/items/projectiles.dmi'
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy = 15

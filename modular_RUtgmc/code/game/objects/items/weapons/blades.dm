@@ -24,10 +24,10 @@
 	penetration = 15
 	icon = 'icons/obj/items/weapons.dmi'
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
-		slot_belt_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
+		slot_belt_str = 'icons/mob/suit_slot.dmi'
 	)
 	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 
@@ -97,9 +97,9 @@
 	icon_state = "tomahawk_tactic"
 	item_state = "tomahawk_tactic"
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32

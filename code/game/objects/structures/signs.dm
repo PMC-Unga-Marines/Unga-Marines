@@ -547,7 +547,7 @@
 
 /obj/structure/sign/prop1/Initialize(mapload)
 	. = ..()
-	icon = 'modular_RUtgmc/icons/obj/decals.dmi'
+	icon = 'icons/obj/decals.dmi'
 
 /obj/structure/sign/prop2
 	name = "\improper TGMC poster"

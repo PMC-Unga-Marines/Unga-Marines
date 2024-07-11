@@ -150,7 +150,7 @@
 /obj/vehicle/unmanned/droid/ripley
 	name = "XN-27-C cargo droid"
 	desc = "A cargo droid, rigged with experimental technology to allow AI control. The claw is not standard and cannot grasp warheads."
-	icon = 'modular_RUtgmc/icons/obj/powerloader.dmi'
+	icon = 'icons/obj/powerloader.dmi'
 	icon_state = "ai_powerloader"
 	move_delay = 7
 	max_integrity = 550

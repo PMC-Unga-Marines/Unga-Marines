@@ -2,7 +2,7 @@
 	caste_base_type = /mob/living/carbon/xenomorph/predalien
 	name = "Abomination" //snowflake name
 	desc = "A strange looking creature with fleshy strands on its head. It appears like a mixture of armor and flesh, smooth, but well carapaced."
-	icon = 'modular_RUtgmc/icons/Xeno/castes/predalien_praetorian.dmi'
+	icon = 'icons/Xeno/castes/predalien_praetorian.dmi'
 	icon_state = "Predalien Walking"
 	wall_smash = TRUE
 	pixel_x = -16

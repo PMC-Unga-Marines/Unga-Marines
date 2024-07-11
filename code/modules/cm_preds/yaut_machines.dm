@@ -119,7 +119,7 @@
 //YAUTJA SHIP - CURRENTLY USES STRATA DOORS
 /obj/machinery/door/airlock/yautja
 	name = "\improper Airlock"
-	icon = 'modular_RUtgmc/icons/obj/doors/strata_doors.dmi'
+	icon = 'icons/obj/doors/strata_doors.dmi'
 	openspeed = 5
 	req_access = null
 	req_one_access = null
@@ -138,7 +138,7 @@
 
 /obj/machinery/door/airlock/sandstone/runed
 	name = "\improper Runed Sandstone Airlock"
-	icon = 'modular_RUtgmc/icons/obj/doors/doorrunedsand.dmi'
+	icon = 'icons/obj/doors/doorrunedsand.dmi'
 	mineral = "runed sandstone"
 	openspeed = 4 SECONDS
 	resistance_flags = RESIST_ALL
@@ -156,7 +156,7 @@
 /obj/structure/closet/coffin/predator
 	name = "strange coffin"
 	desc = "It's a burial receptacle for the dearly departed. Seems to have weird markings on the side..?"
-	icon = 'modular_RUtgmc/icons/obj/structures/closet.dmi'
+	icon = 'icons/obj/structures/closet.dmi'
 	icon_state = "pred_coffin"
 	icon_closed = "pred_coffin"
 	icon_opened = "pred_coffin_open"

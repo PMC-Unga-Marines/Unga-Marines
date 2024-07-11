@@ -189,7 +189,7 @@
 /obj/item/snowball
 	name = "snowball"
 	desc = "Get ready for a snowball fight!"
-	icon = 'modular_RUtgmc/icons/obj/items/toy.dmi'
+	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "snowball"
 
 /obj/item/snowball/throw_impact(atom/target, speed = 1)

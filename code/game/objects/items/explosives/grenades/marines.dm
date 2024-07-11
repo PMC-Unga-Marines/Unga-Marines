@@ -191,7 +191,7 @@
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus
 	name = "\improper M45 Phosphorus trailblazer grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. But with phosphorus. It is set to detonate in 5 seconds."
-	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"

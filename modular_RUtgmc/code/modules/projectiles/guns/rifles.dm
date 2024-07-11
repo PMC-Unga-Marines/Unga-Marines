@@ -9,14 +9,14 @@
 /obj/item/weapon/gun/rifle/T25
 	name = "\improper T-25 smartrifle"
 	desc = "The T-25 is the TGMC's current standard IFF-capable rifle. It's known for its ability to lay down quick fire support very well. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
-	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "T25"
 	item_state = "T25"
 	item_icons = list(
-		slot_l_hand_str =  'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str =  'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_back_str =    'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_l_hand_str =  'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str =  'icons/mob/items_righthand_1.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_back_str =    'icons/mob/clothing/back.dmi',
 	)
 	caliber = CALIBER_10x26_CASELESS //codex
 	max_shells = 80 //codex
@@ -222,8 +222,8 @@
 	cocked_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_boltpull.ogg'
 	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t42stock,

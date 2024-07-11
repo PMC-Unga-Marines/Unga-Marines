@@ -35,7 +35,7 @@
 /obj/effect/xenomorph/spray
 	name = "splatter"
 	desc = "It burns! It burns like hygiene!"
-	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
+	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "acid2"
 	density = FALSE
 	opacity = FALSE

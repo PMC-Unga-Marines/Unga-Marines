@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/gas/ru
-	icon = 'modular_RUtgmc/icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/clothing/masks.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/clothing/mask.dmi')
+		slot_wear_mask_str = 'icons/mob/clothing/mask.dmi')
 	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/ru/separatist

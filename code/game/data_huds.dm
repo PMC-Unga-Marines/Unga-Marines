@@ -209,20 +209,20 @@
 	var/static/image/transvitox_image = image('icons/mob/hud.dmi', icon_state = "transvitox")
 	var/static/image/sanguinal_image = image('icons/mob/hud.dmi', icon_state = "sanguinal")
 	var/static/image/ozelomelyn_image = image('icons/mob/hud.dmi', icon_state = "ozelomelyn")
-	var/static/image/intoxicated_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "intoxicated")
-	var/static/image/intoxicated_amount_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "intoxicated_amount0")
-	var/static/image/neurotox_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "neurotoxin_high")
+	var/static/image/intoxicated_image = image('icons/mob/hud.dmi', icon_state = "intoxicated")
+	var/static/image/intoxicated_amount_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_amount0")
+	var/static/image/neurotox_high_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin_high")
 	var/static/image/hemodile_high_image = image('icons/mob/hud.dmi', icon_state = "hemodile_high")
 	var/static/image/transvitox_high_image = image('icons/mob/hud.dmi', icon_state = "transvitox_high")
 	var/static/image/hunter_silence_image = image('icons/mob/hud.dmi', icon_state = "silence_debuff")
 	var/static/image/sanguinal_high_image = image('icons/mob/hud.dmi', icon_state = "sanguinal_high")
-	var/static/image/intoxicated_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "intoxicated_high")
-	var/static/image/hive_target_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "hive_target")
-	var/static/image/medicalnanites_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites")
-	var/static/image/medicalnanites_medium_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_medium")
-	var/static/image/medicalnanites_low_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_low")
-	var/static/image/jellyjuice_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "jellyjuice")
-	var/static/image/russianred_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "russian_red")
+	var/static/image/intoxicated_high_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_high")
+	var/static/image/hive_target_image = image('icons/mob/hud.dmi', icon_state = "hive_target")
+	var/static/image/medicalnanites_high_image = image('icons/mob/hud.dmi', icon_state = "nanites")
+	var/static/image/medicalnanites_medium_image = image('icons/mob/hud.dmi', icon_state = "nanites_medium")
+	var/static/image/medicalnanites_low_image = image('icons/mob/hud.dmi', icon_state = "nanites_low")
+	var/static/image/jellyjuice_image = image('icons/mob/hud.dmi', icon_state = "jellyjuice")
+	var/static/image/russianred_image = image('icons/mob/hud.dmi', icon_state = "russian_red")
 
 	xeno_reagent.overlays.Cut()
 	xeno_reagent.icon_state = ""
@@ -610,7 +610,7 @@
 		return
 	for(var/aura_type in GLOB.pheromone_images_list)
 		if(emitted_auras.Find(aura_type))
-			holder.overlays += image('modular_RUtgmc/icons/mob/hud.dmi', src, "hudaura[aura_type]") //RUTGMC EDIT .dmi
+			holder.overlays += image('icons/mob/hud.dmi', src, "hudaura[aura_type]") //RUTGMC EDIT .dmi
 
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]
@@ -621,7 +621,7 @@
 			if(hive.living_xeno_queen.observed_xeno == src)
 				holder.icon_state = "queen_overwatch"
 			if(queen_chosen_lead)
-				var/image/I = image('modular_RUtgmc/icons/mob/hud.dmi',src, "hudxenoleader") //RUTGMC EDIT .dmi
+				var/image/I = image('icons/mob/hud.dmi',src, "hudxenoleader") //RUTGMC EDIT .dmi
 				holder.overlays += I
 	hud_list[QUEEN_OVERWATCH_HUD] = holder
 
@@ -722,7 +722,7 @@
 			holder.overlays += IMG2
 
 	else if(job.job_flags & JOB_FLAG_PROVIDES_SQUAD_HUD)
-		holder.overlays += image('modular_RUtgmc/icons/mob/hud.dmi', src, "hudmarine [job.comm_title]") ///RUTGMC edit, icon redirect to module
+		holder.overlays += image('icons/mob/hud.dmi', src, "hudmarine [job.comm_title]") ///RUTGMC edit, icon redirect to module
 
 	hud_list[hud_type] = holder
 

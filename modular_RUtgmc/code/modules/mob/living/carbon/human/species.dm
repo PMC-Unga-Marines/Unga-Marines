@@ -1,19 +1,19 @@
 /datum/species
-	icobase = 'modular_RUtgmc/icons/mob/human_races/r_human.dmi'
+	icobase = 'icons/mob/human_races/r_human.dmi'
 
 /datum/species/early_synthetic
-	icobase = 'modular_RUtgmc/icons/mob/human_races/r_synthetic.dmi'
+	icobase = 'icons/mob/human_races/r_synthetic.dmi'
 
 /datum/species/human/vatborn
-	icobase = 'modular_RUtgmc/icons/mob/human_races/r_vatborn.dmi'
+	icobase = 'icons/mob/human_races/r_vatborn.dmi'
 
 /datum/species/human/vatgrown
-	icobase = 'modular_RUtgmc/icons/mob/human_races/r_vatgrown.dmi'
+	icobase = 'icons/mob/human_races/r_vatgrown.dmi'
 
 /datum/species/necoarc
 	name = "Neco Arc"
 	name_plural = "Neco Arc"
-	icobase = 'modular_RUtgmc/icons/mob/human_races/r_NecoArc.dmi'
+	icobase = 'icons/mob/human_races/r_NecoArc.dmi'
 	default_language_holder = /datum/language_holder/sectoid
 	eyes = "blank_eyes"
 	speech_verb_override = "transmits"

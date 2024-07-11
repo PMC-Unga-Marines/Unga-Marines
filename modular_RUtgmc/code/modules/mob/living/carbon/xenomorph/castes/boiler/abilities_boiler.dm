@@ -70,7 +70,7 @@
 /datum/action/ability/xeno_action/create_boiler_bomb
 	name = "Create bomb"
 	action_icon_state = "toggle_bomb0" //to be changed
-	action_icon = 'modular_RUtgmc/icons/Xeno/actions_boiler_glob.dmi'
+	action_icon = 'icons/Xeno/actions_boiler_glob.dmi'
 	desc = "Creates a Boiler Bombard of the type currently selected."
 	ability_cost = 200
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING

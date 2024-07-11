@@ -64,7 +64,7 @@
 	upgrade = XENO_UPGRADE_INVALID
 
 /mob/living/carbon/xenomorph/larva/predalien
-	icon = 'modular_RUtgmc/icons/Xeno/castes/predalien_larva.dmi'
+	icon = 'icons/Xeno/castes/predalien_larva.dmi'
 	icon_state = "Predalien Larva"
 	base_icon_state = "Predalien Larva"
 	caste_base_type = /mob/living/carbon/xenomorph/larva/predalien

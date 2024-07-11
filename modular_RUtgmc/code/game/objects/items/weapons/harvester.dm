@@ -2,20 +2,20 @@
 
 //Vali Sword
 /obj/item/weapon/claymore/harvester
-	icon = 'modular_RUtgmc/icons/obj/items/vali.dmi'
+	icon = 'icons/obj/items/vali.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/vali_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/vali_right.dmi',
 	)
 
 //Vali rapier
 /obj/item/weapon/claymore/mercsword/officersword/valirapier
 	name = "\improper HP-C Harvester rapier"
 	desc = "Extremely expensive looking blade, with a golden handle and engravings, unexpectedly effective in combat, despite its ceremonial looks, compacted with a vali module."
-	icon = 'modular_RUtgmc/icons/obj/items/vali.dmi'
+	icon = 'icons/obj/items/vali.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/vali_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/vali_right.dmi',
 	)
 	icon_state = "rapier"
 	item_state = "rapier"
@@ -32,11 +32,11 @@
 /obj/item/weapon/twohanded/spear/tactical/harvester
 	name = "\improper HP-S Harvester spear"
 	desc = "TerraGov Marine Corps' experimental High Point-Singularity 'Harvester' spear. An advanced weapon that trades sheer force for the ability to apply a variety of debilitating effects when loaded with certain reagents. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
-	icon = 'modular_RUtgmc/icons/obj/items/vali.dmi'
+	icon = 'icons/obj/items/vali.dmi'
 	icon_state = "vali_spear"
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/vali_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/vali_right.dmi',
 	)
 	item_state = "vali_spear"
 	force = 32
@@ -54,13 +54,13 @@
 /obj/item/weapon/twohanded/glaive/halberd/harvester
 	name = "\improper VAL-HAL-A halberd harvester"
 	desc = "TerraGov Marine Corps' cutting-edge 'Harvester' halberd, with experimental plasma regulator. An advanced weapon that combines sheer force with the ability to apply a variety of debilitating effects when loaded with certain reagents, but should be used with both hands. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
-	icon = 'modular_RUtgmc/icons/obj/items/vali.dmi'
+	icon = 'icons/obj/items/vali.dmi'
 	icon_state = "VAL-HAL-A"
 	item_state = "VAL-HAL-A"
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/vali_right.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/vali_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/vali_right.dmi',
 	)
 	force = 40
 	force_wielded = 95 //Reminder: putting trama inside deals 60% additional damage

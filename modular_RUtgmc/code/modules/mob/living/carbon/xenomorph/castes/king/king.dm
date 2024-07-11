@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/king
-	icon = 'modular_RUtgmc/icons/Xeno/castes/king.dmi'
+	icon = 'icons/Xeno/castes/king.dmi'
 	footstep_type = FOOTSTEP_XENO_STOMPY
 
 /mob/living/carbon/xenomorph/king/generate_name()

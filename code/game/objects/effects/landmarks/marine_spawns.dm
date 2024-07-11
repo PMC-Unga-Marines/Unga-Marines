@@ -146,7 +146,7 @@
 	job = /datum/job/som/command/staffofficer
 
 /obj/effect/landmark/start/squad
-	icon = 'modular_RUtgmc/icons/mob/landmarks.dmi'
+	icon = 'icons/mob/landmarks.dmi'
 	var/title
 	var/squad
 

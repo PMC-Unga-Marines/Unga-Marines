@@ -21,9 +21,9 @@
 
 /obj/item/clothing/head/helmet/marine/robot/advanced
 	flags_item_map_variant = NONE
-	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/marine_helmets.dmi'
+	icon = 'icons/obj/clothing/headwear/marine_helmets.dmi'
 	item_icons = list(
-		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/robot_helmets.dmi',
+		slot_head_str = 'icons/mob/clothing/headwear/robot_helmets.dmi',
 	)
 	species_exception = list(/datum/species/robot)
 
@@ -35,9 +35,9 @@
 
 /obj/item/clothing/suit/storage/marine/robot/advanced
 	flags_item_map_variant = NONE
-	icon = 'modular_RUtgmc/icons/obj/clothing/suits/marine_armor.dmi'
+	icon = 'icons/obj/clothing/suits/marine_armor.dmi'
 	item_icons = list(
-		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/clothing/suits/robot_armor.dmi',
+		slot_wear_suit_str = 'icons/mob/clothing/suits/robot_armor.dmi',
 	)
 	species_exception = list(/datum/species/robot)
 

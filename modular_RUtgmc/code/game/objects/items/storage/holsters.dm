@@ -1,10 +1,10 @@
 ///RL SADAR bag
 /obj/item/storage/holster/backholster/rlsadar
 	name = "TGMC RL-152 bag"
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 4 40mm shells, in addition to a SADAR launcher."
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi'
+		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_sadar"
 	item_state = "marine_sadar"
@@ -31,10 +31,10 @@
 ///RL Quad bag
 /obj/item/storage/holster/backholster/rlquad
 	name = "TGMC RL-57 bag"
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher."
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi'
+		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_quad"
 	item_state = "marine_quad"
@@ -89,10 +89,10 @@
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
 	desc = "An exquisite ceremonial sheath for an even more expensive rapier."
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_belt_str = 'modular_RUtgmc/icons/mob/belt.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_belt_str = 'icons/mob/belt.dmi',
 	)
 	icon_state = "rapier_holster"
 	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword/valirapier)
@@ -106,10 +106,10 @@
 /obj/item/storage/holster/blade/officer/sabre
 	name = "\improper officer sabre sheath"
 	desc = "An exquisite ceremonial sheath of a high ranking command personel."
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_belt_str = 'modular_RUtgmc/icons/mob/belt.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_belt_str = 'icons/mob/belt.dmi',
 	)
 	icon_state = "saber_holster"
 	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword/sabre)
@@ -121,10 +121,10 @@
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
 /obj/item/storage/holster/belt
-	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/clothing/belts.dmi'
 	item_icons = list(
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_belt_str = 'icons/mob/clothing/belt.dmi',
 	)
 	storage_slots = 9
 	max_storage_space = 19
@@ -145,7 +145,7 @@
 	sheathe_sound = 'sound/weapons/melee/knife_in.ogg'
 
 /obj/item/storage/holster/blade/machete
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 
 /obj/item/storage/holster/blade/machete/full_harvester
 	icon = 'icons/obj/items/storage/storage.dmi'
@@ -155,13 +155,13 @@
 /obj/item/storage/holster/blade/tomahawk
 	name = "\improper Tactical H23 Tomahawk scabbard"
 	desc = "A large leather scabbard used to carry a H23 tomahawk. It can be strapped to the back, waist or armor."
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_holster"
 	item_state = "tomahawk_holster"
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
-		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+		slot_belt_str = 'icons/mob/clothing/belt.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi'
 	)
 	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(

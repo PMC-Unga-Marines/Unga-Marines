@@ -29,7 +29,7 @@
 /obj/machinery/autodoc
 	name = "\improper autodoc medical system"
 	desc = "A fancy machine developed to be capable of operating on people with minimal human intervention. However, the interface is rather complex and most of it would only be useful to trained medical personnel."
-	icon = 'modular_RUtgmc/icons/obj/machines/cryogenics.dmi'
+	icon = 'icons/obj/machines/cryogenics.dmi'
 	icon_state = "autodoc_open"
 	density = TRUE
 	anchored = TRUE

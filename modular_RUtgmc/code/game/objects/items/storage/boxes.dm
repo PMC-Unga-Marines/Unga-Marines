@@ -1,7 +1,7 @@
 /obj/item/storage/box/t500case
 	name = "\improper R-500 special case"
 	desc = "High-tech case made by BMSS for delivery their special weapons. Label on this case says: 'This is the greatest handgun ever made. Five bullets. More than enough to kill anything that moves'."
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "t500case"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_w_class = 1
@@ -31,7 +31,7 @@
 	new /obj/item/weapon/gun/revolver/t500(src)
 
 /obj/item/storage/box/visual
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage_boxes.dmi'
+	icon = 'icons/obj/items/storage/storage_boxes.dmi'
 
 /obj/item/storage/box/visual/attack_hand(mob/living/user)
 	if(loc == user)
@@ -55,11 +55,11 @@
 	if(!deployed)
 		icon_state = "[initial(icon_state)]"
 		if(closed_overlay)
-			. += image('modular_RUtgmc/icons/obj/items/storage/storage_boxes.dmi', icon_state = closed_overlay)
+			. += image('icons/obj/items/storage/storage_boxes.dmi', icon_state = closed_overlay)
 		return
 
 	if(open_overlay)
-		. += image('modular_RUtgmc/icons/obj/items/storage/storage_boxes.dmi', icon_state = open_overlay)
+		. += image('icons/obj/items/storage/storage_boxes.dmi', icon_state = open_overlay)
 
 	if(variety > max_overlays)
 		return
@@ -85,7 +85,7 @@
 			var/imagepixel_y = overlay_pixel_y + min(amt_vertical - WRAP(current_iteration - 1, 0, amt_vertical) - 1, total_overlays - current_iteration) * shift_y
 			var/obj/item/relateditem = obj_typepath
 
-			. += image('modular_RUtgmc/icons/obj/items/items_mini.dmi', icon_state = initial(relateditem.icon_state_mini), pixel_x = imagepixel_x, pixel_y = imagepixel_y)
+			. += image('icons/obj/items/items_mini.dmi', icon_state = initial(relateditem.icon_state_mini), pixel_x = imagepixel_x, pixel_y = imagepixel_y)
 			current_iteration++
 
 /obj/item/storage/box/visual/grenade/trailblazer/phosphorus

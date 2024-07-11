@@ -2,7 +2,7 @@
 	caste_base_type = /mob/living/carbon/xenomorph/chimera
 	name = "Chimera"
 	desc = "A slim, deadly alien creature. It has two additional arms with mantis blades."
-	icon = 'modular_RUtgmc/icons/Xeno/castes/chimera.dmi'
+	icon = 'icons/Xeno/castes/chimera.dmi'
 	icon_state = "Chimera Walking"
 	health = 400
 	maxHealth = 400

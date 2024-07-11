@@ -1281,4 +1281,4 @@
 	icon_state = "handrail_strata"
 	name = "handrail"
 	barricade_type = "handrail"
-	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
+	icon = 'icons/Marine/barricades.dmi'

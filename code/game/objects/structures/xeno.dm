@@ -5,7 +5,7 @@
 /obj/alien
 	name = "alien thing"
 	desc = "theres something alien about this"
-	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
+	icon = 'icons/Xeno/Effects.dmi'
 	hit_sound = "alien_resin_break"
 	anchored = TRUE
 	max_integrity = 1
@@ -138,7 +138,7 @@
 //Resin Doors
 /obj/structure/mineral_door/resin
 	name = RESIN_DOOR
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
+	icon = 'icons/obj/smooth_objects/resin-door.dmi'
 	icon_state = "resin-door-1"
 	base_icon_state = "resin-door"
 	layer = RESIN_STRUCTURE_LAYER

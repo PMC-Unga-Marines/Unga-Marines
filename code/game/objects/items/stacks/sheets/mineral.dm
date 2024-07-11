@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	recipes = GLOB.sandstone_recipes
 
 /obj/item/stack/sheet/mineral/sandstone/runed
-	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
+	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "sheet-runedsandstone"
 
 /obj/item/stack/sheet/mineral/sandstone/runed/Initialize(mapload)

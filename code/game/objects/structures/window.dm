@@ -453,7 +453,7 @@
 /obj/structure/window/framed/mainship
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/ship_window.dmi'
+	icon = 'icons/obj/smooth_objects/ship_window.dmi'
 	icon_state = "window-reinforced"
 	basestate = "ship_window"
 	base_icon_state = "ship_window"
@@ -529,7 +529,7 @@
 	)
 
 /obj/structure/window/framed/mainship/gray
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/ship_gray_window.dmi'
+	icon = 'icons/obj/smooth_objects/ship_gray_window.dmi'
 	icon_state = "ship_gray_window-0"
 	basestate = "ship_gray_window"
 	base_icon_state = "ship_gray_window"
@@ -570,14 +570,14 @@
 
 /obj/structure/window/framed/colony
 	name = "window"
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/col_window.dmi'
+	icon = 'icons/obj/smooth_objects/col_window.dmi'
 	icon_state = "col_window-0"
 	base_icon_state = "col_window"
 	window_frame = /obj/structure/window_frame/colony
 
 /obj/structure/window/framed/colony/reinforced
 	name = "reinforced window"
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/col_rwindow.dmi'
+	icon = 'icons/obj/smooth_objects/col_rwindow.dmi'
 	icon_state = "window-reinforced"
 	base_icon_state = "col_rwindow"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
@@ -723,7 +723,7 @@
 /obj/structure/window/framed/colony/reinforced/hull/pred
 	basestate = "pred_window"
 	icon_state = "pred_window-0"
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
+	icon = 'icons/obj/smooth_objects/pred_window.dmi'
 	base_icon_state = "pred_window"
 
 /obj/structure/window/phoronreinforced/pred

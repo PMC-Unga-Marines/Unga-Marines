@@ -1774,7 +1774,7 @@ RU TGMC EDIT*/
 /obj/machinery/vending/medical_uniform_supply
 	name = "\improper Medical Clothing Vendor"
 	desc = "A special medical vendor designed to supply you with various blood absorbing clothing!"
-	icon = 'modular_RUtgmc/icons/obj/machines/vending.dmi'
+	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "medidrobe"
 	icon_vend = "medidrobe-vend"
 	icon_deny = "medidrobe-deny"

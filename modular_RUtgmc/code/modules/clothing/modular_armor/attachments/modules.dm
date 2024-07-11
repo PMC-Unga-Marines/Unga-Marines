@@ -12,7 +12,7 @@
 /obj/item/armor_module/module/motion_detector
 	name = "Tactical sensor helmet module"
 	desc = "Help you to detect the xeno in the darkness."
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_head_scanner"
 	item_state = "mod_head_scanner_a"
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
@@ -130,7 +130,7 @@
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 
 /obj/item/armor_module/module/fire_proof_helmet
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mod_fire_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
@@ -146,7 +146,7 @@
 */
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet //gas protection
 	desc = "Designed for mounting on a modular helmet. Provides great resistance to xeno gas clouds"
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
 	slowdown = 0
@@ -164,7 +164,7 @@
 	slowdown = 0
 
 /obj/item/armor_module/module/tyr_head
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
 
 /obj/item/armor_module/module/eshield
@@ -172,15 +172,15 @@
 	damaged_shield_cooldown = 15 SECONDS
 
 /obj/item/armor_module/module/artemis
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_xn")
 
 /obj/item/armor_module/module/binoculars
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two
 	var/eye_protection_mod = 1
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
@@ -195,36 +195,36 @@
 	return ..()
 
 /obj/item/armor_module/module/hod_head
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/welding
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/welding/superior
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/antenna
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/fire_proof/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/module/tyr_extra_armor/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/mimir_environment_protection/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/valkyrie_autodoc/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 /obj/item/armor_module/storage/engineering/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/storage/general/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/storage/medical/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/module/antenna/activate(mob/living/user)
 	. = ..()

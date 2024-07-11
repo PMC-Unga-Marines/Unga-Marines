@@ -11,7 +11,7 @@
 /obj/alien/weeds
 	name = "weeds"
 	desc = "A layer of oozy slime, it feels slick, but not as slick for you to slip."
-	icon = 'modular_RUtgmc/icons/Xeno/weeds.dmi'
+	icon = 'icons/Xeno/weeds.dmi'
 	icon_state = "base"
 	anchored = TRUE
 	density = FALSE
@@ -187,7 +187,7 @@
 /obj/alien/weeds/weedwall
 	layer = RESIN_STRUCTURE_LAYER
 	plane = GAME_PLANE
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/weedwall.dmi'
+	icon = 'icons/obj/smooth_objects/weedwall.dmi'
 	icon_state = "weedwall"
 
 /obj/alien/weeds/weedwall/update_icon_state()
@@ -197,9 +197,9 @@
 	else
 		icon_state = W.smoothing_junction ? "weedwall-[W.smoothing_junction]" : initial(icon_state)
 	if(color_variant == STICKY_COLOR)
-		icon = 'modular_RUtgmc/icons/obj/smooth_objects/weedwallsticky.dmi'
+		icon = 'icons/obj/smooth_objects/weedwallsticky.dmi'
 	else if(color_variant == RESTING_COLOR)
-		icon = 'modular_RUtgmc/icons/obj/smooth_objects/weedwallrest.dmi'
+		icon = 'icons/obj/smooth_objects/weedwallrest.dmi'
 
 // =================
 // windowed weed wall
@@ -212,9 +212,9 @@
 	var/obj/structure/window/framed/F = locate() in loc
 	icon_state = F?.smoothing_junction ? "weedwall-[F.smoothing_junction]" : initial(icon_state)
 	if(color_variant == STICKY_COLOR)
-		icon = 'modular_RUtgmc/icons/obj/smooth_objects/weedwallsticky.dmi'
+		icon = 'icons/obj/smooth_objects/weedwallsticky.dmi'
 	if(color_variant == RESTING_COLOR)
-		icon = 'modular_RUtgmc/icons/obj/smooth_objects/weedwallrest.dmi'
+		icon = 'icons/obj/smooth_objects/weedwallrest.dmi'
 
 /obj/alien/weeds/weedwall/window/MouseDrop_T(atom/dropping, mob/user)
 	var/obj/structure/window = locate(window_type) in loc

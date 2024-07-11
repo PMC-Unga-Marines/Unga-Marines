@@ -2,7 +2,7 @@
 /turf/closed/wall/mainship
 	name = "hull"
 	desc = "A huge chunk of metal used to seperate rooms and make up the ship."
-	icon = 'modular_RUtgmc/icons/turf/walls/testwall.dmi'
+	icon = 'icons/turf/walls/testwall.dmi'
 	icon_state = "testwall-0"
 	walltype = "testwall"
 
@@ -64,7 +64,7 @@
 
 /turf/closed/wall/mainship/gray
 	walltype = "gwall"
-	icon = 'modular_RUtgmc/icons/turf/walls/gwall.dmi'
+	icon = 'icons/turf/walls/gwall.dmi'
 	base_icon_state = "gwall"
 	icon_state = "gwall-0"
 
@@ -184,7 +184,7 @@
 /turf/closed/wall/sulaco
 	name = "hull"
 	desc = "A huge chunk of metal used to separate rooms on spaceships from the cold void of space."
-	icon = 'modular_RUtgmc/icons/turf/walls/sulaco.dmi'
+	icon = 'icons/turf/walls/sulaco.dmi'
 	icon_state = "sulaco-0"
 	base_icon_state = "sulaco"
 	color = "#616161"
@@ -265,7 +265,7 @@
 
 /turf/closed/wall/indestructible/splashscreen
 	name = "Space Station 13"
-	icon = 'modular_RUtgmc/icons/misc/title.dmi'
+	icon = 'icons/misc/title.dmi'
 	icon_state = "title_painting1"
 //	icon_state = "title_holiday"
 	layer = FLY_LAYER
@@ -483,7 +483,7 @@
 /turf/closed/wall/huntership
 	name = "hunter wall"
 	desc = "Nigh indestructible walls that make up the hull of a hunter ship."
-	icon = 'modular_RUtgmc/icons/turf/walls/hunter.dmi'
+	icon = 'icons/turf/walls/hunter.dmi'
 	icon_state = "hunter-0"//DMI specific name
 	walltype = "hunter"
 	base_icon_state = "hunter"

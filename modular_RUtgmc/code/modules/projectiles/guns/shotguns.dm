@@ -27,14 +27,14 @@
 	desc = "The SH-46, is a semi-automatic, 12 Gauge, gas piston-operated shotgun, released for TGMC by CAU."
 	force = 20 //Has a stock already
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "shq6"
 	item_state = "shq6"
 	item_icons = list(
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 		)
 	fire_sound = 		'sound/weapons/guns/shotgun/SH-46/SH46.ogg'
 	hand_reload_sound = 'sound/weapons/guns/shotgun/SH-46/SH46_shell.ogg'

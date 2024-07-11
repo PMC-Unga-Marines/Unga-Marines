@@ -9,7 +9,7 @@
 /obj/structure/bed/nest
 	name = ALIEN_NEST
 	desc = "It's a gruesome pile of thick, sticky resin shaped like a nest."
-	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
+	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "nest"
 	hit_sound = "alien_resin_break"
 	buckling_y = 6

@@ -80,7 +80,7 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/start/latejoin_squad
-	icon = 'modular_RUtgmc/icons/mob/landmarks.dmi'
+	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "marine_spawn_late"
 	var/squad
 

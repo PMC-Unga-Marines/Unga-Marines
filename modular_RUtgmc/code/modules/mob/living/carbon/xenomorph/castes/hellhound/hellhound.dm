@@ -40,7 +40,7 @@
 	caste_base_type = /mob/living/carbon/xenomorph/hellhound
 	name = "Hellhound"
 	desc = "A disgusting beast from hell, it has four menacing spikes growing from its head."
-	icon = 'modular_RUtgmc/icons/Xeno/castes/hellhound.dmi'
+	icon = 'icons/Xeno/castes/hellhound.dmi'
 	icon_state = "Hellhound Walking"
 	health = 290
 	maxHealth = 290

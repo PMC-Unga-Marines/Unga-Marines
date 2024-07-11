@@ -73,16 +73,16 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper
 	desc = "The T-ES, a Terra Experimental standard issue laser sniper rifle, it has an integrated charge selector for normal, heat, and overcharge settings. Uses standard Terra Experimental (abbreviated as TE) power cells. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts."
 	windup_sound = 'sound/weapons/guns/fire/Laser Sniper Overcharge Charge.ogg'
-	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "tes"
 	item_state = "tes"
 	greyscale_config = null
 	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -158,7 +158,7 @@
 	fire_mode = GUN_FIREMODE_SEMIAUTO
 	icon_state = "tes"
 	radial_icon_state = "laser_sniper_overcharge"
-	radial_icon = 'modular_RUtgmc/icons/mob/radial.dmi'
+	radial_icon = 'icons/mob/radial.dmi'
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/xray
 	fire_delay = 0.4 SECONDS
@@ -192,7 +192,7 @@
 	desc = "A Terra Experimental underbarrel laser system. Has multiple firemodes for tactical flexibility. Uses standard Terra Experimental (abbreviated as TE) power cells."
 	reload_sound = 'sound/weapons/guns/interact/standard_laser_rifle_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/Laser Rifle Standard.ogg'
-	icon = 'modular_RUtgmc/icons/Marine/marine-weapons.dmi'
+	icon = 'icons/Marine/marine-weapons.dmi'
 	icon_state = "p_beam"
 	max_shots = 4
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket

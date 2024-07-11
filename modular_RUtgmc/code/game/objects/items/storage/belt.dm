@@ -1,7 +1,7 @@
 /obj/item/storage/holster/belt/revolver/t500
 	name = "\improper BM500 pattern BF revolver holster rig"
 	desc = "The BM500 is the special modular belt for R-500 BF revolver."
-	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "t500_holster"
 	max_storage_space = 17
 	bypass_w_limit = list(
@@ -16,7 +16,7 @@
 /obj/item/storage/belt/mortar_belt
 	name = "TA-10 mortar belt"
 	desc = "A belt that holds a TA-10 50mm Mortar, rangefinder and a lot of ammo for it."
-	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "kneemortar_holster"
 	item_state = "m4a3_holster"
 	use_sound = null

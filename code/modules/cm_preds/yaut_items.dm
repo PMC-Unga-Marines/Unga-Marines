@@ -900,7 +900,7 @@
 /obj/item/card/id/bracer_chip
 	name = "bracer ID chip"
 	desc = "A complex cypher chip embedded within a set of clan bracers."
-	icon = 'modular_RUtgmc/icons/obj/items/radio.dmi'
+	icon = 'icons/obj/items/radio.dmi'
 	icon_state = "upp_key"
 	access = list(ACCESS_YAUTJA_SECURE)
 	w_class = WEIGHT_CLASS_TINY
@@ -931,7 +931,7 @@
 /obj/item/storage/medicomp
 	name = "medicomp"
 	desc = "A complex kit of alien tools and medicines."
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "medicomp"
 	use_sound = "toolbox"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1006,8 +1006,8 @@
 	name = "How did you get this?"
 	desc = "A bone from a human."
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_SEPERATE_MOB_OVERLAY|ATTACH_NO_HANDS
-	icon = 'modular_RUtgmc/icons/obj/items/skeleton.dmi'
-	attach_icon = 'modular_RUtgmc/icons/obj/items/skeleton.dmi'
+	icon = 'icons/obj/items/skeleton.dmi'
+	attach_icon = 'icons/obj/items/skeleton.dmi'
 	mob_overlay_icon = 'icons/mob/hunter/pred_gear.dmi'
 
 	slot = ACCESSORY_SLOT_ARMOR_M
