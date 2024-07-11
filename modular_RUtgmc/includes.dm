@@ -188,7 +188,6 @@
 #include "code\modules\vehicles\mecha\mecha_defense.dm"
 #include "code\modules\vehicles\powerloader.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
-#include "code\modules\client\preferences.dm"
 #include "code\modules\projectiles\mounted.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\beetle\beetle.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
