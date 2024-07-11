@@ -13,6 +13,7 @@
 	flags_heat_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+	colorable_allowed = HAIR_CONCEALING_CHANGE_ALLOWED
 	siemens_coefficient = 0.7
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_armor_features = ARMOR_NO_DECAP
