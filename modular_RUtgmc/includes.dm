@@ -7,7 +7,6 @@
 #include "code\game\objects\items\storage\holsters.dm"
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
-#include "code\modules\clothing\modular_armor\combat_robot.dm"
 #include "code\modules\clothing\modular_armor\jaeger.dm"
 #include "code\modules\clothing\modular_armor\mark_one.dm"
 #include "code\modules\clothing\modular_armor\modular.dm"
