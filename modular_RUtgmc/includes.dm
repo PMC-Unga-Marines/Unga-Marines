@@ -7,7 +7,6 @@
 #include "code\game\objects\items\storage\holsters.dm"
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
-#include "code\modules\clothing\head\misc.dm"
 #include "code\modules\clothing\head\soft_caps.dm"
 #include "code\modules\clothing\masks\gasmask.dm"
 #include "code\modules\clothing\masks\miscellaneous.dm"
