@@ -144,7 +144,6 @@
 #include "code\modules\power\terminal.dm"
 #include "code\modules\projectiles\ammo_datums.dm"
 #include "code\modules\projectiles\gun_attachables.dm"
-#include "code\modules\clothing\glasses\meson.dm"
 #include "code\modules\clothing\glasses\thermal.dm"
 #include "code\modules\language\hellhound.dm"
 #include "code\modules\mob\hologram.dm"

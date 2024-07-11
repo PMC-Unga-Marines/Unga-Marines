@@ -66,13 +66,13 @@
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
 
 /obj/item/weapon/gun/energy/yautja
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = null
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi',
-		slot_s_store_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
+		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
+		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
+		slot_s_store_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
 	rounds_per_shot = 1
@@ -130,7 +130,7 @@
 /obj/item/weapon/gun/energy/yautja/spike
 	name = "spike launcher"
 	desc = "A compact Yautja device in the shape of a crescent. It can rapidly fire damaging spikes and automatically recharges."
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "spikelauncher"
 	item_state = "spikelauncher"
 	resistance_flags = UNACIDABLE
@@ -474,22 +474,22 @@
 	return FALSE
 
 /mob/living/carbon/human/apply_pred_laser()
-	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -PRED_LASER_LAYER)
+	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -PRED_LASER_LAYER)
 	apply_overlay(PRED_LASER_LAYER)
 	spawn(2 SECONDS)
 		if(overlays_standing[PRED_LASER_LAYER])
 			remove_overlay(PRED_LASER_LAYER)
-			overlays_standing[PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -PRED_LASER_LAYER)
+			overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -PRED_LASER_LAYER)
 			apply_overlay(PRED_LASER_LAYER)
 	return TRUE
 
 /mob/living/carbon/xenomorph/apply_pred_laser()
-	overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -X_PRED_LASER_LAYER)
+	overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -X_PRED_LASER_LAYER)
 	apply_overlay(X_PRED_LASER_LAYER)
 	spawn(2 SECONDS)
 		if(overlays_standing[X_PRED_LASER_LAYER])
 			remove_overlay(X_PRED_LASER_LAYER)
-			overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -X_PRED_LASER_LAYER)
+			overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -X_PRED_LASER_LAYER)
 			apply_overlay(X_PRED_LASER_LAYER)
 	return TRUE
 

@@ -340,7 +340,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/yautja
 	name = "unusual crystal"
 	desc = "A strange glowing crystal with a spike at one end."
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "crystal"
 	item_state = ""
 	amount_per_transfer_from_this = REAGENTS_OVERDOSE

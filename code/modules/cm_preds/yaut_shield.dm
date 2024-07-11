@@ -1,12 +1,12 @@
 /obj/item/weapon/shield/riot/yautja
 	name = "clan shield"
 	desc = "A large tribal shield made of a strange metal alloy. The face of the shield bears three skulls, two human, one alien."
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "shield"
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi',
-		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
+		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
+		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	item_state = "shield"
 	flags_item = ITEM_PREDATOR
