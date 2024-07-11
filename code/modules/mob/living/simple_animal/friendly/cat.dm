@@ -144,6 +144,7 @@
 	flags_armor_features = ARMOR_NO_DECAP
 	soft_armor = list(MELEE = 25, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 10, BIO = 5, FIRE = 50, ACID = 50)
 	var/mob/living/simple_animal/cat/cat
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/cat/Destroy()
 	if(cat)
