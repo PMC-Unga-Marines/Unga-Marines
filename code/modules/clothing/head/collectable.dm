@@ -4,6 +4,7 @@
 /obj/item/clothing/head/collectable
 	name = "collectable hat"
 	desc = "A rare collectable hat."
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/collectable/petehat
 	name = "ultra rare hat"
