@@ -1,7 +1,7 @@
 /obj/machinery/cic_maptable/yautja
 	name = "hunter globe"
 	desc = "A globe designed by the hunters to show them the location of prey across the hunting grounds."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "globe"
 
 	minimap_flag = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
@@ -9,7 +9,7 @@
 /obj/machinery/prop/yautja/bubbler
 	name = "yautja cauldron"
 	desc = "A large, black machine emitting an ominous hum with an attached pot of boiling fluid. Bits of what appears to be leftover lard and balls of hair can be seen floating inside of it."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "vat"
 	density = TRUE
 
@@ -50,20 +50,20 @@
 /obj/machinery/microwave/yautja
 	name = "alien microwave"
 	desc = "Dark alloy sinister machine that heats up cold food."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 
 /obj/machinery/processor/yautja
 	name = "food grinder"
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 
 /obj/machinery/grill/yautja
 	name = "alien grill"
 	desc = "For grilling the most delicious prey."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 
 /obj/machinery/vending/dinnerware/yautja
 	name = "dinnerplate dispenser"
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	products = list(
 		/obj/item/tool/kitchen/tray = 8,
 		/obj/item/tool/kitchen/utensil/fork = 6,
@@ -80,7 +80,7 @@
 /obj/machinery/vending/engivend/yautja
 	name = "yautja autolathe"
 	desc = "Weird alien industrial fabricator."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "autolathe"
 	icon_vend = "autholate_n"
 	products = list(
@@ -103,18 +103,18 @@
 	)
 
 /obj/machinery/griddle/yautja
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 
 /obj/machinery/chem_master/yautja
 	name = "chemical distributor"
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 
 /obj/structure/xenoautopsy/tank/hugger/yautja
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 	broken_state = /obj/structure/xenoautopsy/tank/escaped/yautja
 
 /obj/structure/xenoautopsy/tank/escaped/yautja
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon = 'icons/obj/machines/yautja_machines.dmi'
 
 //YAUTJA SHIP - CURRENTLY USES STRATA DOORS
 /obj/machinery/door/airlock/yautja
