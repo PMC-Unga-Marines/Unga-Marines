@@ -114,7 +114,6 @@
 #include "code\modules\mob\new_player\preferences_setup.dm"
 #include "code\modules\mob\new_player\yautja_hair.dm"
 #include "code\modules\projectiles\gun_helpers.dm"
-#include "code\modules\surgery\mcomp_tendwounds.dm"
 #include "code\modules\mob\living\carbon\human\emote-yautja.dm"
 #include "code\modules\mob\living\carbon\human\yautja.dm"
 #include "code\modules\projectiles\projectile.dm"
