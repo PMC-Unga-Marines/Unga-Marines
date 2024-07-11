@@ -11,8 +11,6 @@
 #include "code\modules\emotes\emote_panel.dm"
 #include "code\modules\atmospherics\machinery\atmosmachinery.dm"
 #include "code\modules\atmospherics\machinery\datum_pipeline.dm"
-#include "code\modules\atmospherics\machinery\components\unary_devices\vent_pump.dm"
-#include "code\modules\atmospherics\machinery\components\unary_devices\vent_scrubber.dm"
 #include "code\modules\buildmode\submodes\boom.dm"
 #include "code\modules\client\preferences_gear.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
