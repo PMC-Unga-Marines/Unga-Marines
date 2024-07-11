@@ -1,7 +1,7 @@
 
 /obj/vehicle/ridden/powerloader
 	name = "\improper RPL-Y Cargo Loader"
-	icon = 'icons/obj/powerloader.dmi'
+	icon = 'modular_RUtgmc/icons/obj/powerloader.dmi'
 	desc = "The RPL-Y Cargo Loader is a commercial mechanized exoskeleton used for lifting heavy materials and objects. An old but trusted design used in warehouses, constructions and military ships everywhere."
 	icon_state = "powerloader_open"
 	layer = POWERLOADER_LAYER //so the top appears above windows and wall mounts
@@ -189,7 +189,7 @@
 /obj/structure/powerloader_wreckage
 	name = "\improper RPL-Y Cargo Loader wreckage"
 	desc = "Remains of some unfortunate Cargo Loader. Completely unrepairable."
-	icon = 'icons/obj/powerloader.dmi'
+	icon = 'modular_RUtgmc/icons/obj/powerloader.dmi'
 	icon_state = "wreck"
 	density = TRUE
 	anchored = FALSE
