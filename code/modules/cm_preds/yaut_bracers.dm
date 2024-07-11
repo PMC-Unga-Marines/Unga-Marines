@@ -2,10 +2,10 @@
 	name = "ancient alien bracers"
 	desc = "A pair of strange, alien bracers."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "bracer"
 	item_icons = list(
-		slot_gloves_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
+		slot_gloves_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
 	siemens_coefficient = 0
@@ -900,8 +900,8 @@
 	if(sure != "Begin the Hunt")
 		return
 
-	var/list/melee = list(YAUTJA_GEAR_GLAIVE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_WHIP = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "whip"),YAUTJA_GEAR_SWORD = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "clansword"),YAUTJA_GEAR_SCYTHE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_STICK = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "combistick"), YAUTJA_GEAR_SCIMS = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "scim"))
-	var/list/other = list(YAUTJA_GEAR_LAUNCHER = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "spikelauncher"), YAUTJA_GEAR_PISTOL = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "plasmapistol"), YAUTJA_GEAR_DISC = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "disc"), YAUTJA_GEAR_FULL_ARMOR = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "fullarmor_ebony"), YAUTJA_GEAR_SHIELD = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "shield"), YAUTJA_GEAR_DRONE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "falcon_drone"))
+	var/list/melee = list(YAUTJA_GEAR_GLAIVE = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_WHIP = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "whip"),YAUTJA_GEAR_SWORD = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "clansword"),YAUTJA_GEAR_SCYTHE = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_STICK = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "combistick"), YAUTJA_GEAR_SCIMS = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "scim"))
+	var/list/other = list(YAUTJA_GEAR_LAUNCHER = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "spikelauncher"), YAUTJA_GEAR_PISTOL = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "plasmapistol"), YAUTJA_GEAR_DISC = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "disc"), YAUTJA_GEAR_FULL_ARMOR = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "fullarmor_ebony"), YAUTJA_GEAR_SHIELD = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "shield"), YAUTJA_GEAR_DRONE = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "falcon_drone"))
 	var/list/restricted = list(YAUTJA_GEAR_LAUNCHER, YAUTJA_GEAR_PISTOL, YAUTJA_GEAR_FULL_ARMOR, YAUTJA_GEAR_SHIELD, YAUTJA_GEAR_DRONE) //Can only select them once each.
 
 	var/list/secondaries = list()
@@ -910,11 +910,11 @@
 	var/main_weapon = show_radial_menu(wearer, wearer, melee)
 
 	if(main_weapon == YAUTJA_GEAR_SCYTHE)
-		var/list/scythe_variants = list(YAUTJA_GEAR_SCYTHE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_SCYTHE_ALT = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe_alt"))
+		var/list/scythe_variants = list(YAUTJA_GEAR_SCYTHE = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_SCYTHE_ALT = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe_alt"))
 		main_weapon = show_radial_menu(wearer, wearer, scythe_variants)
 
 	if(main_weapon == YAUTJA_GEAR_GLAIVE)
-		var/list/glaive_variants = list(YAUTJA_GEAR_GLAIVE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_GLAIVE_ALT = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive_alt"))
+		var/list/glaive_variants = list(YAUTJA_GEAR_GLAIVE = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_GLAIVE_ALT = image(icon = 'icons/obj/hunter/pred_gear.dmi', icon_state = "glaive_alt"))
 		main_weapon = show_radial_menu(wearer, wearer, glaive_variants)
 
 	if(!main_weapon)

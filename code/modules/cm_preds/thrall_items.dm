@@ -2,11 +2,11 @@
 	name = "alien armor"
 	desc = "Armor made from scraps of cloth and a strange alloy. It feels cold with an alien weight. It has been adapted to carry both human and alien melee weaponry."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
+	icon = 'icons/obj/hunter/thrall_gear.dmi'
 	icon_state = "chest1_cloth"
 	item_state = "chest1_cloth"
 	item_icons = list(
-		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/hunter/thrall_gear.dmi'
+		slot_wear_suit_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
 	thrall = TRUE
 
@@ -27,10 +27,10 @@
 	name = "alien greaves"
 	desc = "Greaves made from scraps of cloth and a strange alloy. They feel cold with an alien weight. They have been adapted for compatibility with human equipment."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
+	icon = 'icons/obj/hunter/thrall_gear.dmi'
 	icon_state = "greaves1_cloth"
 	item_icons = list(
-		slot_shoes_str = 'modular_RUtgmc/icons/mob/hunter/thrall_gear.dmi'
+		slot_shoes_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
 	thrall = TRUE
 

@@ -280,7 +280,7 @@ REAGENT SCANNER
 
 /obj/item/healthanalyzer/alien
 	name = "\improper YMX scanner"
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "scanner"
 	item_state = "analyzer"
 	desc = "An alien design hand-held body scanner able to distinguish vital signs of the subject. The front panel is able to provide the basic readout of the subject's status."

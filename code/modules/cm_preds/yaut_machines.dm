@@ -164,7 +164,7 @@
 /obj/structure/bed/chair/hunter
 	name = "hunter chair"
 	desc = "An exquisitely crafted chair for a large humanoid hunter."
-	icon = 'modular_RUtgmc/icons/obj/hunter/chair.dmi'
+	icon = 'icons/obj/hunter/chair.dmi'
 	icon_state = "chair"
 	color = rgb(255,255,255)
 	buildstacktype = null

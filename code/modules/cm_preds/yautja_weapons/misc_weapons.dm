@@ -5,11 +5,11 @@
 	name = "large harpoon"
 	desc = "A huge metal spike with a hook at the end. It's carved with mysterious alien writing."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "spike"
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
+		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
 	item_state = "harpoon"
 
@@ -26,12 +26,12 @@
 	name = "\proper wrist blades"
 	desc = "A pair of huge, serrated blades extending out from metal gauntlets."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wrist"
 	item_state = "wristblade"
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
+		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
 
 	w_class = WEIGHT_CLASS_GIGANTIC

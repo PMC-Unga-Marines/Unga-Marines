@@ -1,5 +1,5 @@
 /datum/sprite_accessory/yautja_hair
-	icon = 'modular_RUtgmc/icons/mob/hunter/yaut_hair.dmi'
+	icon = 'icons/mob/hunter/yaut_hair.dmi'
 	species_allowed = list("Yautja")
 	do_colouration = FALSE
 

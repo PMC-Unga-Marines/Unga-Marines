@@ -4,11 +4,11 @@
 	deliveryamt = 1
 	desc = "A strange piece of alien technology. It has many jagged, whirring blades and bizarre writing."
 	flags_item = ITEM_PREDATOR
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
+		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
+		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
 	icon_state = "disc"
 	item_state = "pred_disc"
@@ -153,7 +153,7 @@
 /mob/living/simple_animal/hostile/smartdisc
 	name = "smart-disc"
 	desc = "A furious, whirling array of blades and alien technology."
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "disc_active"
 	icon_living = "disc_active"
 	icon_dead = "disc"

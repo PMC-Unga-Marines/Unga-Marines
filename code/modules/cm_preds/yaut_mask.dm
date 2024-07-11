@@ -8,9 +8,9 @@
 	name = "alien mask"
 	desc = "A beautifully designed metallic face mask, both ornate and functional."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
+		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
 	item_state = "helmet"
@@ -177,9 +177,9 @@
 	desc = "A simplistic metallic face mask with advanced capabilities."
 	icon_state = "thrall_mask"
 	item_state = "thrall_mask"
-	icon = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
+	icon = 'icons/obj/hunter/thrall_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/hunter/thrall_gear.dmi'
+		slot_wear_mask_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
 	item_state_slots = list(slot_wear_mask_str = "thrall_mask")
 	thrall = TRUE
@@ -241,9 +241,9 @@
 	name = "alien stone mask"
 	desc = "A beautifully designed face mask, ornate but non-functional and made entirely of stone."
 
-	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon = 'icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
+		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
 
