@@ -27,15 +27,7 @@
 	return ..()
 
 /obj/structure/xeno/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(210, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(140, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(70, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(35, BRUTE, BOMB)
+	take_damage(severity * 0.8, BRUTE, BOMB)
 
 /obj/structure/xeno/attack_hand(mob/living/user)
 	balloon_alert(user, "You only scrape at it")
@@ -47,12 +39,14 @@
 /obj/structure/xeno/fire_act()
 	take_damage(10, BURN, FIRE)
 
-/* RUTGMC DELETION, moved to modular
 /// Destroy the xeno structure when the weed it was on is destroyed
 /obj/structure/xeno/proc/weed_removed()
 	SIGNAL_HANDLER
-	obj_destruction(damage_flag = MELEE)
-*/
+	var/obj/alien/weeds/found_weed = locate(/obj/alien/weeds) in loc
+	if(found_weed.obj_integrity <= 0)
+		obj_destruction(damage_flag = MELEE)
+	else
+		obj_destruction()
 
 /obj/structure/xeno/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!(HAS_TRAIT(X, TRAIT_VALHALLA_XENO) && X.a_intent == INTENT_HARM && (tgui_alert(X, "Are you sure you want to tear down [src]?", "Tear down [src]?", list("Yes","No"))) == "Yes"))
@@ -94,15 +88,7 @@
 	AddElement(/datum/element/connect_loc, listen_connections)
 
 /obj/structure/xeno/trap/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(400, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(200, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(100, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(50, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/structure/xeno/trap/update_icon_state()
 	switch(trap_type)
@@ -283,6 +269,26 @@
 	hugger = FH
 	set_trap_type(TRAP_HUGGER)
 	balloon_alert(user, "Inserted facehugger")
+
+//Sentient facehugger can get in the trap
+/obj/structure/xeno/trap/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
+	. = ..()
+	if(tgui_alert(F, "Do you want to get into the trap?", "Get inside the trap", list("Yes", "No")) != "Yes")
+		return
+
+	if(trap_type)
+		F.balloon_alert(F, "The trap is occupied")
+		return
+
+	var/obj/item/clothing/mask/facehugger/FH = new(src)
+	FH.go_idle(TRUE)
+	hugger = FH
+	set_trap_type(TRAP_HUGGER)
+
+	F.visible_message(span_xenowarning("[F] slides back into [src]."),span_xenonotice("You slides back into [src]."))
+	F.ghostize()
+	F.death(deathmessage = "get inside the trap", silent = TRUE)
+	qdel(F)
 
 /*
 TUNNEL
@@ -470,11 +476,15 @@ TUNNEL
 	holder.icon_state = "hudtraitor"
 	hud_list[XENO_TACTICAL_HUD] = holder
 
+/obj/structure/xeno/tunnel/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
+	attack_alien(F)
+
 //Resin Water Well
 /obj/structure/xeno/acidwell
 	name = "acid well"
 	desc = "An acid well. It stores acid to put out fires."
-	icon = 'icons/Xeno/acid_pool.dmi'
+	icon = 'modular_RUtgmc/icons/Xeno/acid_pool.dmi'
+	plane = FLOOR_PLANE
 	icon_state = "well"
 	density = FALSE
 	opacity = FALSE
@@ -555,7 +565,7 @@ TUNNEL
 	acid_well_fire_interaction()
 
 ///Handles fire based interactions with the acid well. Depletes 1 charge if there are any to extinguish all fires in the turf while producing acid smoke.
-/obj/structure/xeno/acidwell/proc/acid_well_fire_interaction()
+/obj/structure/xeno/acidwell/acid_well_fire_interaction()
 	if(!charges)
 		take_damage(50, BURN, FIRE)
 		return
@@ -563,7 +573,7 @@ TUNNEL
 	charges--
 	update_icon()
 	var/turf/T = get_turf(src)
-	var/datum/effect_system/smoke_spread/xeno/acid/acid_smoke = new(T) //spawn acid smoke when charges are actually used
+	var/datum/effect_system/smoke_spread/xeno/acid/extuingishing/acid_smoke = new(T) //spawn acid smoke when charges are actually used
 	acid_smoke.set_up(0, src) //acid smoke in the immediate vicinity
 	acid_smoke.start()
 
@@ -639,7 +649,9 @@ TUNNEL
 			break
 		if(sticky_bomb.stuck_to == stepper)
 			sticky_bomb.clean_refs()
-			sticky_bomb.forceMove(loc)
+			sticky_bomb.forceMove(loc) // i'm not sure if this is even needed, but just to prevent possible bugs
+			visible_message(span_danger("[src] sizzles as [sticky_bomb] melts down in the acid."))
+			qdel(sticky_bomb)
 			charges_used ++
 
 	if(stepper.on_fire && (charges_used < charges))
@@ -659,7 +671,7 @@ TUNNEL
 	if(!charges_used)
 		return
 
-	var/datum/effect_system/smoke_spread/xeno/acid/acid_smoke
+	var/datum/effect_system/smoke_spread/xeno/acid/extuingishing/acid_smoke
 	acid_smoke = new(get_turf(stepper)) //spawn acid smoke when charges are actually used
 	acid_smoke.set_up(0, src) //acid smoke in the immediate vicinity
 	acid_smoke.start()
@@ -737,7 +749,7 @@ TUNNEL
 
 /obj/structure/xeno/silo
 	name = "Resin silo"
-	icon = 'icons/Xeno/resin_silo.dmi'
+	icon = 'modular_RUtgmc/icons/Xeno/resin_silo.dmi'
 	icon_state = "weed_silo"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	bound_width = 96
@@ -745,6 +757,7 @@ TUNNEL
 	max_integrity = 1000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE
+	plane = FLOOR_PLANE
 	///How many larva points one silo produce in one minute
 	var/larva_spawn_rate = 0.5
 	var/turf/center_turf
@@ -791,9 +804,12 @@ TUNNEL
 		var/obj/structure/xeno/tunnel/newt = new(tunnel_turf, hivenumber)
 		newt.tunnel_desc = "[AREACOORD_NO_Z(newt)]"
 		newt.name += " [name]"
+	if(GLOB.hive_datums[hivenumber])
+		SSticker.mode.update_silo_death_timer(GLOB.hive_datums[hivenumber])
 
 /obj/structure/xeno/silo/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(GLOB.hive_datums[hivenumber])
+		INVOKE_NEXT_TICK(SSticker.mode, TYPE_PROC_REF(/datum/game_mode, update_silo_death_timer), GLOB.hive_datums[hivenumber]) // checks all silos next tick after this one is gone
 		UnregisterSignal(GLOB.hive_datums[hivenumber], list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK))
 		GLOB.hive_datums[hivenumber].xeno_message("A resin silo has been destroyed at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE,src.loc, 'sound/voice/alien_help2.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
 		notify_ghosts("\ A resin silo has been destroyed at [AREACOORD_NO_Z(src)]!", source = get_turf(src), action = NOTIFY_JUMP)
@@ -890,6 +906,9 @@ TUNNEL
 	SSminimaps.remove_marker(src)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
 
+/obj/structure/xeno/silo/crash
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | INDESTRUCTIBLE
+
 /obj/structure/xeno/xeno_turret
 	icon = 'icons/Xeno/acidturret.dmi'
 	icon_state = XENO_TURRET_ACID_ICONSTATE
@@ -947,14 +966,15 @@ TUNNEL
 	SIGNAL_HANDLER
 	qdel(src)
 
-/* RUTGMC DELETION, remade in modular
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
-	if(damage_amount) //Spawn the gas only if we actually get destroyed by damage
-		var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
-		smoke.set_up(1, get_turf(src))
-		smoke.start()
+	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
+		on_destruction()
 	return ..()
-*/
+
+/obj/structure/xeno/xeno_turret/proc/on_destruction()
+	var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
+	smoke.set_up(1, get_turf(src))
+	smoke.start()
 
 /obj/structure/xeno/xeno_turret/Destroy()
 	GLOB.xeno_resin_turrets_by_hive[hivenumber] -= src
@@ -1146,6 +1166,12 @@ TUNNEL
 	ammo = /datum/ammo/xeno/sticky/turret
 	firerate = 5
 
+/obj/structure/xeno/xeno_turret/sticky/on_destruction()
+	for(var/i = 1 to 20) // maybe a bit laggy
+		var/obj/projectile/new_proj = new(src)
+		new_proj.generate_bullet(ammo)
+		new_proj.fire_at(null, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
+
 /obj/structure/xeno/xeno_turret/hugger_turret
 	name = "hugger turret"
 	icon_state = "hugger_turret"
@@ -1155,6 +1181,12 @@ TUNNEL
 	light_initial_color = LIGHT_COLOR_BROWN
 	ammo = /datum/ammo/xeno/hugger
 	firerate = 5 SECONDS
+
+/obj/structure/xeno/xeno_turret/hugger_turret/on_destruction()
+	for(var/i = 1 to 5)
+		var/obj/projectile/new_proj = new(src)
+		new_proj.generate_bullet(ammo)
+		new_proj.fire_at(null, src, range = rand(1, 3), angle = rand(1, 360), recursivity = TRUE)
 
 /obj/structure/xeno/evotower
 	name = "evolution tower"
@@ -1173,21 +1205,14 @@ TUNNEL
 	. = ..()
 	GLOB.hive_datums[hivenumber].evotowers += src
 	set_light(2, 2, LIGHT_COLOR_GREEN)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "tower"))
 
 /obj/structure/xeno/evotower/Destroy()
 	GLOB.hive_datums[hivenumber].evotowers -= src
 	return ..()
 
 /obj/structure/xeno/evotower/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(700, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(300, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(100, BRUTE, BOMB)
+	take_damage(severity * 2.5, BRUTE, BOMB)
 
 /obj/structure/xeno/psychictower
 	name = "Psychic Relay"
@@ -1204,26 +1229,19 @@ TUNNEL
 	. = ..()
 	GLOB.hive_datums[hivenumber].psychictowers += src
 	set_light(2, 2, LIGHT_COLOR_GREEN)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "tower"))
 
 /obj/structure/xeno/psychictower/Destroy()
 	GLOB.hive_datums[hivenumber].psychictowers -= src
 	return ..()
 
 /obj/structure/xeno/psychictower/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(700, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(300, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(100, BRUTE, BOMB)
+	take_damage(severity * 2.5, BRUTE, BOMB)
 
 /obj/structure/xeno/pherotower
 	name = "Pheromone tower"
 	desc = "A resin formation that looks like a small pillar. A faint, weird smell can be perceived from it."
-	icon = 'icons/Xeno/1x1building.dmi'
+	icon = 'modular_RUtgmc/icons/Xeno/1x1building.dmi'
 	icon_state = "recoverytower"
 	bound_width = 32
 	bound_height = 32
@@ -1248,15 +1266,7 @@ TUNNEL
 	update_icon()
 
 /obj/structure/xeno/pherotower/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(700, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(300, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(100, BRUTE, BOMB)
+	take_damage(severity * 2.5, BRUTE, BOMB)
 
 /obj/structure/xeno/pherotower/Destroy()
 	GLOB.hive_datums[hivenumber].pherotowers -= src
@@ -1287,13 +1297,22 @@ TUNNEL
 			icon_state = "frenzytower"
 			set_light(2, 2, LIGHT_COLOR_RED)
 
+/obj/structure/xeno/pherotower/crash
+	name = "Recovery tower"
+	resistance_flags = RESIST_ALL
+	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
+
+/obj/structure/xeno/pherotower/crash/attack_alien(isrightclick = FALSE)
+	return
+
 /obj/structure/xeno/spawner
+	icon = 'modular_RUtgmc/icons/Xeno/2x2building.dmi.dmi'
+	bound_width = 64
+	bound_height = 64
+	plane = FLOOR_PLANE
 	name = "spawner"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
-	icon = 'icons/Xeno/3x3building.dmi'
 	icon_state = "spawner"
-	bound_width = 96
-	bound_height = 96
 	max_integrity = 500
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
@@ -1309,6 +1328,7 @@ TUNNEL
 	SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, CALLBACK(src, PROC_REF(on_spawn)))
 	SSspawning.spawnerdata[src].required_increment = max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 	SSspawning.spawnerdata[src].max_allowed_mobs = max(2, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count)
+	set_light(2, 2, LIGHT_COLOR_GREEN)
 	for(var/turfs in RANGE_TURFS(XENO_SILO_DETECTION_RANGE, src))
 		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(spawner_proxy_alert))
 	update_minimap_icon()
@@ -1402,7 +1422,7 @@ TUNNEL
 /obj/structure/xeno/plant
 	name = "Xeno Plant"
 	max_integrity = 5
-	icon = 'icons/Xeno/plants.dmi'
+	icon = 'modular_RUtgmc/icons/Xeno/plants.dmi'
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
 	///The plant's icon once it's fully grown
 	var/mature_icon_state
@@ -1414,6 +1434,7 @@ TUNNEL
 /obj/structure/xeno/plant/Initialize(mapload, _hivenumber)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_mature)), maturation_time)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "[mature_icon_state]"))
 
 /obj/structure/xeno/plant/can_interact(mob/user)
 	. = ..()
@@ -1654,3 +1675,70 @@ TUNNEL
 		X.alpha = initial(X.alpha)
 		balloon_alert(X, "Effect wears off")
 		to_chat(X, span_xenowarning("The effect of [src] wears off!"))
+
+/obj/structure/xeno/thick_nest
+	name = "thick resin nest"
+	desc = "A very thick nest, oozing with a thick sticky substance."
+	pixel_x = -8
+	pixel_y = -8
+	max_integrity = 400
+	mouse_opacity = MOUSE_OPACITY_ICON
+
+	icon = 'modular_RUtgmc/icons/Xeno/nest.dmi'
+	icon_state = "reinforced_nest"
+	layer = 2.5
+
+	var/obj/structure/bed/nest/structure/pred_nest
+
+/obj/structure/xeno/thick_nest/examine(mob/user)
+	. = ..()
+	if((isxeno(user) || isobserver(user)) && hivenumber)
+		. += "Used to secure formidable hosts."
+
+/obj/structure/xeno/thick_nest/Initialize(mapload, new_hivenumber)
+	. = ..()
+	if(new_hivenumber)
+		hivenumber = new_hivenumber
+
+	var/datum/hive_status/hive_ref = GLOB.hive_datums[hivenumber]
+	if(hive_ref)
+		hive_ref.thick_nests += src
+
+	pred_nest = new /obj/structure/bed/nest/structure(loc, hive_ref, src) // Nest cannot be destroyed unless the structure itself is destroyed
+
+
+/obj/structure/xeno/thick_nest/Destroy()
+	. = ..()
+
+	if(hivenumber)
+		GLOB.hive_datums[hivenumber].thick_nests -= src
+
+	pred_nest?.linked_structure = null
+	QDEL_NULL(pred_nest)
+
+/obj/structure/bed/nest
+	var/force_nest = FALSE
+
+/obj/structure/bed/nest/structure
+	name = "thick alien nest"
+	desc = "A very thick nest, oozing with a thick sticky substance."
+	force_nest = TRUE
+	var/obj/structure/xeno/thick_nest/linked_structure
+
+/obj/structure/bed/nest/structure/Initialize(mapload, hive, obj/structure/xeno/thick_nest/to_link)
+	. = ..()
+	if(to_link)
+		linked_structure = to_link
+		max_integrity = linked_structure.max_integrity
+
+/obj/structure/bed/nest/structure/Destroy()
+	. = ..()
+	if(linked_structure)
+		linked_structure.pred_nest = null
+		QDEL_NULL(linked_structure)
+
+/obj/structure/bed/nest/structure/attack_hand(mob/user)
+	if(!isxeno(user))
+		to_chat(user, span_notice("The sticky resin is too strong for you to do anything to this nest"))
+		return FALSE
+	. = ..()
