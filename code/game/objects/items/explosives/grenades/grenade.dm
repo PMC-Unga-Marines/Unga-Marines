@@ -31,6 +31,10 @@
 	var/weak_impact_range = 0
 	var/G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit.ogg'
 	var/G_throw_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_throw.ogg'
+	/// Power of the explosion
+	var/power = 105
+	/// Falloff of our explosion, aka distance, by the formula of power / falloff
+	var/falloff = 30
 
 
 /obj/item/explosive/grenade/Initialize(mapload)
@@ -94,7 +98,7 @@
 
 
 /obj/item/explosive/grenade/proc/prime()
-	explosion(loc, light_impact_range = src.light_impact_range, weak_impact_range = src.weak_impact_range)
+	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
 /obj/item/explosive/grenade/flamer_fire_act(burnlevel)
@@ -109,7 +113,7 @@
 
 ///Adjusts det time, used for grenade launchers
 /obj/item/explosive/grenade/proc/launched_det_time()
-	det_time = min(10, det_time)
+	det_time = min(12, det_time)
 
 /obj/item/explosive/grenade/throw_at()
 	. = ..()
