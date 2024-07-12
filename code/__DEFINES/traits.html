@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>code&#x2F;__DEFINES&#x2F;traits.dm - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="code/__DEFINES/traits.html#define">Define Details</a></header>
+<main>
+<h1>code/__DEFINES/traits.dm 
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm"/></a></h1>
+
+<table class="summary" cellspacing="0">
+        <tr><th><a href="code/__DEFINES/traits.html#define/STATUS_EFFECT_TRAIT">STATUS_EFFECT_TRAIT</a></th><td>A trait given by any status effect</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_STATUS_EFFECT">TRAIT_STATUS_EFFECT</a></th><td>A trait given by a specific status effect (not sure why we need both but whatever!)</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/REAGENT_TRAIT">REAGENT_TRAIT</a></th><td>Trait from a reagent of the given name</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/VEHICLE_TRAIT">VEHICLE_TRAIT</a></th><td>inherited from riding vehicles</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_SILENT_FOOTSTEPS">TRAIT_SILENT_FOOTSTEPS</a></th><td>Makes no footsteps at all</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_LIGHT_STEP">TRAIT_LIGHT_STEP</a></th><td>quieter footsteps</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_HEAVY_STEP">TRAIT_HEAVY_STEP</a></th><td>noisier footsteps</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_MAPSPAWNED">TRAIT_MAPSPAWNED</a></th><td>indicates this mob was spawned by a corpse spawner</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_HANDS_BLOCKED">TRAIT_HANDS_BLOCKED</a></th><td>Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_NON_FLAMMABLE">TRAIT_NON_FLAMMABLE</a></th><td>Prevent mob from being ignited due to IgniteMob()</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_CANT_RIDE">TRAIT_CANT_RIDE</a></th><td>Prevents mob from riding mobs when buckled onto something</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_IGNORE_SUFFOCATION">TRAIT_IGNORE_SUFFOCATION</a></th><td>Prevents humans from gaining oxyloss in their handle_breath()</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_UI_BLOCKED">TRAIT_UI_BLOCKED</a></th><td>Inability to access UI hud elements.</td></tr>
+        <tr><th><a href="code/__DEFINES/traits.html#define/TRAIT_PRESERVE_UI_WITHOUT_CLIENT">TRAIT_PRESERVE_UI_WITHOUT_CLIENT</a></th><td>This mob should never close UI even if it doesn't have a client</td></tr></table><h2 id="define">Define Details</h2>
+<h3 id="define/REAGENT_TRAIT"><aside class="declaration">#define </aside>REAGENT_TRAIT
+            <aside>(reagent)</aside>
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L129">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 129"/></a>
+    </h3>
+    <p>Trait from a reagent of the given name</p><h3 id="define/STATUS_EFFECT_TRAIT"><aside class="declaration">#define </aside>STATUS_EFFECT_TRAIT
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L124">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 124"/></a>
+    </h3>
+    <p>A trait given by any status effect</p><h3 id="define/TRAIT_CANT_RIDE"><aside class="declaration">#define </aside>TRAIT_CANT_RIDE
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L203">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 203"/></a>
+    </h3>
+    <p>Prevents mob from riding mobs when buckled onto something</p><h3 id="define/TRAIT_HANDS_BLOCKED"><aside class="declaration">#define </aside>TRAIT_HANDS_BLOCKED
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L163">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 163"/></a>
+    </h3>
+    <p>Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).</p><h3 id="define/TRAIT_HEAVY_STEP"><aside class="declaration">#define </aside>TRAIT_HEAVY_STEP
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L158">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 158"/></a>
+    </h3>
+    <p>noisier footsteps</p><h3 id="define/TRAIT_IGNORE_SUFFOCATION"><aside class="declaration">#define </aside>TRAIT_IGNORE_SUFFOCATION
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L205">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 205"/></a>
+    </h3>
+    <p>Prevents humans from gaining oxyloss in their handle_breath()</p><h3 id="define/TRAIT_LIGHT_STEP"><aside class="declaration">#define </aside>TRAIT_LIGHT_STEP
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L156">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 156"/></a>
+    </h3>
+    <p>quieter footsteps</p><h3 id="define/TRAIT_MAPSPAWNED"><aside class="declaration">#define </aside>TRAIT_MAPSPAWNED
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L160">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 160"/></a>
+    </h3>
+    <p>indicates this mob was spawned by a corpse spawner</p><h3 id="define/TRAIT_NON_FLAMMABLE"><aside class="declaration">#define </aside>TRAIT_NON_FLAMMABLE
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L201">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 201"/></a>
+    </h3>
+    <p>Prevent mob from being ignited due to IgniteMob()</p><h3 id="define/TRAIT_PRESERVE_UI_WITHOUT_CLIENT"><aside class="declaration">#define </aside>TRAIT_PRESERVE_UI_WITHOUT_CLIENT
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L230">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 230"/></a>
+    </h3>
+    <p>This mob should never close UI even if it doesn't have a client</p><h3 id="define/TRAIT_SILENT_FOOTSTEPS"><aside class="declaration">#define </aside>TRAIT_SILENT_FOOTSTEPS
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L154">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 154"/></a>
+    </h3>
+    <p>Makes no footsteps at all</p><h3 id="define/TRAIT_STATUS_EFFECT"><aside class="declaration">#define </aside>TRAIT_STATUS_EFFECT
+            <aside>(effect_id)</aside>
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L126">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 126"/></a>
+    </h3>
+    <p>A trait given by a specific status effect (not sure why we need both but whatever!)</p><h3 id="define/TRAIT_UI_BLOCKED"><aside class="declaration">#define </aside>TRAIT_UI_BLOCKED
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L228">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 228"/></a>
+    </h3>
+    <p>Inability to access UI hud elements.</p><h3 id="define/VEHICLE_TRAIT"><aside class="declaration">#define </aside>VEHICLE_TRAIT
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/traits.dm#L131">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;traits.dm 131"/></a>
+    </h3>
+    <p>inherited from riding vehicles</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/54347bc356725e7b5aee5a093b3279a753079385">54347bc</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>

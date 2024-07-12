@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;xeno&#x2F;seismic_fracture - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/action/ability/activable/xeno/seismic_fracture.html#proc">Proc Details</a></header>
+<main>
+<h1>seismic_fracture <aside>/<a href="datum.html">datum</a>/<a href="datum/action.html">action</a>/<a href="datum/action/ability.html">ability</a>/<a href="datum/action/ability/activable.html">activable</a>/<a href="datum/action/ability/activable/xeno.html">xeno</a>/<a href="datum/action/ability/activable/xeno/seismic_fracture.html">seismic_fracture</a></aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/modular_RUtgmc/code/modules/mob/living/carbon/xenomorph/castes/behemoth/abilities_behemoth.dm#L14">
+        <img src="git.png" width="16" height="16" title="modular_RUtgmc&#x2F;code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;behemoth&#x2F;abilities_behemoth.dm 14"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/action/ability/activable/xeno/seismic_fracture.html#proc/do_ability">do_ability</a></th><td>Handles the warnings, calling the following procs, as well as any alterations caused by Primal Wrath.
+This has to be cut off from use_ability() to optimize code, due to an interaction with Earth Pillars.
+Earth Pillars caught in the range of Seismic Fracture reflect the attack by calling this proc again.</td></tr>
+            <tr><th><a href="datum/action/ability/activable/xeno/seismic_fracture.html#proc/do_attack">do_attack</a></th><td>Checks for any atoms caught in the attack's range, and applies several effects based on the atom's type.</td></tr>
+            <tr><th><a href="datum/action/ability/activable/xeno/seismic_fracture.html#proc/do_attack_extra">do_attack_extra</a></th><td>Handles the additional attacks caused by Primal Wrath. These are done iteratively rather than instantly, with a delay inbetween.</td></tr>
+            <tr><th><a href="datum/action/ability/activable/xeno/seismic_fracture.html#proc/living_landing">living_landing</a></th><td>Living mobs that were previously caught in the attack's radius are subject to a landing effect. Their invincibility is removed, and they receive a reduced amount of damage.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/do_ability"><aside class="declaration">proc </aside>do_ability<aside>(/<a href="turf.html">turf</a>/target_turf, wind_up, enhanced, earth_pillar) 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/modular_RUtgmc/code/modules/mob/living/carbon/xenomorph/castes/behemoth/abilities_behemoth.dm#L55">
+        <img src="git.png" width="16" height="16" title="modular_RUtgmc&#x2F;code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;behemoth&#x2F;abilities_behemoth.dm 55"/></a></aside>
+        </h3>
+        <p>Handles the warnings, calling the following procs, as well as any alterations caused by Primal Wrath.
+This has to be cut off from use_ability() to optimize code, due to an interaction with Earth Pillars.
+Earth Pillars caught in the range of Seismic Fracture reflect the attack by calling this proc again.</p>
+<ul>
+<li>target_turf: The targeted turf.</li>
+<li>wind_up: The wind-up duration before the ability happens.</li>
+<li>enhanced: Whether this is enhanced by Primal Wrath or not.</li>
+<li>earth_riser: If this proc was called by an Earth Pillar, its attack radius is reduced.</li>
+</ul><h3 id="proc/do_attack"><aside class="declaration">proc </aside>do_attack<aside>(/list/turf/turfs_to_attack, enhanced, instant) 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/modular_RUtgmc/code/modules/mob/living/carbon/xenomorph/castes/behemoth/abilities_behemoth.dm#L91">
+        <img src="git.png" width="16" height="16" title="modular_RUtgmc&#x2F;code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;behemoth&#x2F;abilities_behemoth.dm 91"/></a></aside>
+        </h3>
+        <p>Checks for any atoms caught in the attack's range, and applies several effects based on the atom's type.</p>
+<ul>
+<li>turfs_to_attack: The turfs affected by this proc.</li>
+<li>enhanced: Whether this is enhanced or not.</li>
+<li>instant: Whether this is done instantly or not.</li>
+</ul><h3 id="proc/do_attack_extra"><aside class="declaration">proc </aside>do_attack_extra<aside>(/<a href="turf.html">turf</a>/origin_turf, /list/turf/extra_turfs, /list/turf/excepted_turfs, enhanced, range, iteration) 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/modular_RUtgmc/code/modules/mob/living/carbon/xenomorph/castes/behemoth/abilities_behemoth.dm#L156">
+        <img src="git.png" width="16" height="16" title="modular_RUtgmc&#x2F;code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;behemoth&#x2F;abilities_behemoth.dm 156"/></a></aside>
+        </h3>
+        <p>Handles the additional attacks caused by Primal Wrath. These are done iteratively rather than instantly, with a delay inbetween.</p>
+<ul>
+<li>origin_turf: The starting turf.</li>
+<li>extra_turfs: Any additional turfs that should be handled.</li>
+<li>excepted_turfs: Turfs that should be excepted from this proc.</li>
+<li>enhanced: Whether this is enhanced by Primal Wrath or not.</li>
+<li>range: The range to cover.</li>
+<li>iteration: The current iteration.</li>
+</ul><h3 id="proc/living_landing"><aside class="declaration">proc </aside>living_landing<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/affected_living) 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/modular_RUtgmc/code/modules/mob/living/carbon/xenomorph/castes/behemoth/abilities_behemoth.dm#L139">
+        <img src="git.png" width="16" height="16" title="modular_RUtgmc&#x2F;code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;behemoth&#x2F;abilities_behemoth.dm 139"/></a></aside>
+        </h3>
+        <p>Living mobs that were previously caught in the attack's radius are subject to a landing effect. Their invincibility is removed, and they receive a reduced amount of damage.</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/54347bc356725e7b5aee5a093b3279a753079385">54347bc</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
