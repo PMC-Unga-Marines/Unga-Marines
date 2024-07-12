@@ -648,6 +648,26 @@ Note that amputating the affected organ does in fact remove the infection from t
 			DISMEMBERMENT
 ****************************************************/
 
+//Recursive setting of all child organs to amputated
+/datum/limb/proc/setAmputatedTree()
+	for(var/c in children)
+		var/datum/limb/O = c
+		O.add_limb_flags(LIMB_AMPUTATED)
+		O.setAmputatedTree()
+
+/mob/living/carbon/human/proc/remove_random_limb(delete_limb = 0)
+	var/list/limbs_to_remove = list()
+	for(var/datum/limb/E in limbs)
+		if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
+			continue
+		limbs_to_remove += E
+	if(length(limbs_to_remove))
+		var/datum/limb/L = pick(limbs_to_remove)
+		var/limb_name = L.display_name
+		L.droplimb(0,delete_limb)
+		return limb_name
+	return null
+
 //Handles dismemberment
 /datum/limb/proc/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
 	if(limb_status & LIMB_DESTROYED)

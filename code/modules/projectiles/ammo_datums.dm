@@ -2354,7 +2354,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 50
 
 /datum/ammo/rocket/recoilless/drop_nade(turf/T)
-	cell_explosion(T, 150, 75)ы
+	cell_explosion(T, 150, 75)
 
 /datum/ammo/rocket/recoilless/heat
 	name = "HEAT shell"
