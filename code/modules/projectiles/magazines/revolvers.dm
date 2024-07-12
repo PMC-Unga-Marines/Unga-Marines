@@ -108,7 +108,7 @@
 	icon_state_mini = "mag_revolver_bronze_purple"
 
 /obj/item/ammo_magazine/revolver/standard_magnum
-	name = "\improper R-76 speed loader (12.7mm)"
+	name = "\improper R-76 speed loader (12x7mm)"
 	desc = "A revolver speed loader for the R-76 Magnum, mind your shoulder, will stun most moderately sized targets on impact."
 	default_ammo = /datum/ammo/bullet/revolver/t76
 	max_rounds = 5
