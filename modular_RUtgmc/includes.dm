@@ -21,7 +21,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoprocs.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoupgrade.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\carrier\abilities_carrier.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\carrier\carrier.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\carrier\castedatum_carrier.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\crusher\abilities_crusher.dm"
