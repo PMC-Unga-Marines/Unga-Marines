@@ -1361,7 +1361,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage = 40
 	max_range = 40
 	penetration = 30
-	sundering = 5
+	sundering = 3
 	shell_speed = 4
 	damage_falloff = 0.5
 	accurate_range = 25
@@ -1377,6 +1377,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	penetration = 25
 	sundering = 5
 	shell_speed = 4
+	accurate_range = 12
+	max_range = 12
 
 /datum/ammo/bullet/spottingrifle/highimpact
 	name = "smart high-impact spotting bullet"
@@ -1385,7 +1387,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 0.5
 
 /datum/ammo/bullet/spottingrifle/highimpact/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1, slowdown = 1, max_range = 12)
+	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 1, max_range = 12)
 
 /datum/ammo/bullet/spottingrifle/heavyrubber
 	name = "smart heavy-rubber spotting bullet"
@@ -1394,18 +1396,44 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 0.5
 
 /datum/ammo/bullet/spottingrifle/heavyrubber/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 1, slowdown = 1, max_range = 12)
+	staggerstun(M, P, slowdown = 3, max_range = 12)
 
 /datum/ammo/bullet/spottingrifle/plasmaloss
 	name = "smart tanglefoot spotting bullet"
 	hud_state = "spotrifle_plasmaloss"
 	damage = 10
 	sundering = 0.5
+	var/datum/effect_system/smoke_spread/smoke_system
 
 /datum/ammo/bullet/spottingrifle/plasmaloss/on_hit_mob(mob/living/victim, obj/projectile/proj)
 	if(isxeno(victim))
 		var/mob/living/carbon/xenomorph/X = victim
 		X.use_plasma(20 + 0.2 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit) // This is draining 20%+20 flat per hit.
+	var/datum/effect_system/smoke_spread/plasmaloss/S = new
+	S.set_up(0, victim, 3)
+	S.start()
+
+/datum/ammo/bullet/spottingrifle/plasmaloss/on_hit_obj(obj/O, obj/projectile/P)
+	var/turf/T = get_turf(O)
+	drop_tg_smoke(T.density ? P.loc : T)
+
+/datum/ammo/bullet/spottingrifle/plasmaloss/on_hit_turf(turf/T, obj/projectile/P)
+	drop_tg_smoke(T.density ? P.loc : T)
+
+/datum/ammo/bullet/spottingrifle/plasmaloss/do_at_max_range(turf/T, obj/projectile/P)
+	drop_tg_smoke(T.density ? P.loc : T)
+
+/datum/ammo/bullet/spottingrifle/plasmaloss/set_smoke()
+	smoke_system = new /datum/effect_system/smoke_spread/plasmaloss()
+
+/datum/ammo/bullet/spottingrifle/plasmaloss/proc/drop_tg_smoke(turf/T)
+	if(T.density)
+		return
+
+	set_smoke()
+	smoke_system.set_up(0, T, 3)
+	smoke_system.start()
+	smoke_system = null
 
 /datum/ammo/bullet/spottingrifle/tungsten
 	name = "smart tungsten spotting bullet"
@@ -1414,7 +1442,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 0.5
 
 /datum/ammo/bullet/spottingrifle/tungsten/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, knockback = 3, max_range = 12)
+	staggerstun(M, P, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
 
 /datum/ammo/bullet/spottingrifle/flak
 	name = "smart flak spotting bullet"
