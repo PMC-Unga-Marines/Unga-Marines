@@ -21,7 +21,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoprocs.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoupgrade.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\crusher\castedatum_crusher.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\crusher\crusher.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defender\abilities_defender.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defender\castedatum_defender.dm"
