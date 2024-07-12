@@ -136,7 +136,6 @@
 #include "code\modules\reagents\reactions\medical.dm"
 #include "code\modules\reagents\reagents\medical.dm"
 #include "code\modules\reqs\supplypacks.dm"
-#include "code\modules\shuttle\marine_dropship.dm"
 #include "code\modules\projectiles\mounted.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\beetle\beetle.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
