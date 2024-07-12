@@ -318,11 +318,13 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	if(istype(wear_mask, /obj/item/clothing/mask/muzzle))
 		return FALSE
 
+	if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
+		return FALSE
+
 	if(!IsVocal())
 		return FALSE
 
 	return TRUE
-
 
 /mob/living/proc/get_key(message)
 	var/prefix = message[1]
