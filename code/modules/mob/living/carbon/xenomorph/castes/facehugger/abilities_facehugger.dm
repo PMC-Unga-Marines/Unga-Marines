@@ -3,6 +3,9 @@
 #define HUGGER_POUNCE_PARALYZE_DURATION 1 SECONDS
 #define HUGGER_POUNCE_STANDBY_DURATION 1 SECONDS
 #define HUGGER_POUNCE_WINDUP_DURATION 1 SECONDS
+#define HUGGER_POUNCE_SPEED 2
+#define HUGGER_POUNCE_SHIELD_STUN_DURATION 6 SECONDS
+
 
 // ***************************************
 // *********** Hug
@@ -20,6 +23,7 @@
 	use_state_flags = ABILITY_USE_BUCKLED
 	///Where do we start the leap from
 	var/start_turf
+
 
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
 /datum/action/ability/activable/xeno/pounce_hugger/proc/pounce_complete()
@@ -48,7 +52,7 @@
 	if(ishuman(living_target) && (angle_to_dir(Get_Angle(caster.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
 		var/mob/living/carbon/human/human_target = living_target
 		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
-			caster.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
+			caster.Paralyze(HUGGER_POUNCE_SHIELD_STUN_DURATION)
 			caster.set_throwing(FALSE) //Reset throwing manually.
 			playsound(caster, 'sound/machines/bonk.ogg', 50, FALSE)
 			return
@@ -110,7 +114,7 @@
 	start_turf = get_turf(caster)
 	if(ishuman(target) && get_turf(target) == start_turf)
 		mob_hit(caster, target)
-	caster.throw_at(target, HUGGER_POUNCE_RANGE, XENO_POUNCE_SPEED, caster)
+	caster.throw_at(target, HUGGER_POUNCE_RANGE, HUGGER_POUNCE_SPEED, caster)
 
 	return TRUE
 
