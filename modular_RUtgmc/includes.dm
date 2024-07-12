@@ -9,7 +9,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\facehuggers.dm"
 #include "code\modules\mob\living\carbon\xenomorph\hive_datum.dm"
 #include "code\modules\mob\living\carbon\xenomorph\life.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\hivemind\castedatum_hivemind.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\hivemind\hivemind.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\hunter\abilities_hunter.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\hunter\castedatum_hunter.dm"
