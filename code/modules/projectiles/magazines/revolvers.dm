@@ -12,6 +12,26 @@
 	w_class = WEIGHT_CLASS_SMALL
 	max_rounds = 6
 
+/obj/item/ammo_magazine/revolver/rifle
+	name = "\improper M1855 speed loader (.44LS)"
+	desc = "A speed loader for the M1855, with special design to make it possible to speedload a rifle. Longer version of .44 Magnum, with uranium-neodimium core."
+	icon = 'icons/obj/items/ammo.dmi'
+	icon_state = "44LS"
+	default_ammo = /datum/ammo/bullet/revolver/rifle
+	caliber = CALIBER_44LS
+	max_rounds = 8
+
+/obj/item/ammo_magazine/revolver/t500
+	name = "\improper R-500 speed loader (.500)"
+	icon = 'icons/obj/items/ammo.dmi'
+	icon_state = "t500"
+	desc = "A R-500 BF revolver speed loader."
+	default_ammo = /datum/ammo/bullet/revolver/t500
+	flags_equip_slot = NONE
+	caliber = CALIBER_500
+	w_class = WEIGHT_CLASS_SMALL
+	max_rounds = 5
+
 /obj/item/ammo_magazine/revolver/marksman
 	name = "\improper R-44 marksman speed loader (.44)"
 	default_ammo = /datum/ammo/bullet/revolver/marksman
