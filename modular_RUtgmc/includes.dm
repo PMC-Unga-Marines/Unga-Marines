@@ -3,7 +3,6 @@
 #include "code\modules\mob\living\say.dm"
 #include "code\modules\mob\living\status_procs.dm"
 #include "code\modules\mob\living\carbon\carbon_defense.dm"
-#include "code\modules\mob\living\carbon\human\human_species.dm"
 #include "code\modules\mob\living\carbon\human\human.dm"
 #include "code\modules\mob\living\carbon\human\species.dm"
 #include "code\modules\mob\living\carbon\human\zombie.dm"
