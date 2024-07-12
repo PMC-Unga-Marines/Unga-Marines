@@ -393,6 +393,7 @@
 	owner.balloon_alert(owner, "Evasion ended")
 	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
 
+#define PANTHER_EVASION_RUN_DELAY 0.5 SECONDS // If the time since the Runner last moved is equal to or greater than this, its Evasion ends.
 
 /datum/action/ability/xeno_action/evasive_maneuvers/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to take evasive action again."))
@@ -413,7 +414,7 @@
 	if(!evade_active) //If evasion is not active we don't dodge
 		return NONE
 
-	if((xenomorph_owner.last_move_time < (world.time - RUNNER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
+	if((xenomorph_owner.last_move_time < (world.time - PANTHER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
 		return NONE
 
 	evasion_dodge_sfx(proj)
@@ -428,7 +429,7 @@
 	if(!evade_active) //If evasion is not active we don't dodge
 		return FALSE
 
-	if((R.last_move_time < (world.time - RUNNER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
+	if((R.last_move_time < (world.time - PANTHER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
 		return FALSE
 
 	if(R.issamexenohive(proj.firer)) //We automatically dodge allied projectiles at no cost, and no benefit to our evasion stacks

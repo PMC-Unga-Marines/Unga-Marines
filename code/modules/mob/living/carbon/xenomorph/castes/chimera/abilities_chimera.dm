@@ -248,6 +248,8 @@
 /datum/action/ability/xeno_action/phantom/ai_should_use(target)
 	return FALSE
 
+#define CHIMERA_POUNCE_SPEED 2
+
 /datum/action/ability/activable/xeno/pounce/abduction
 	name = "Abduction"
 	action_icon_state = "abduction"
@@ -283,9 +285,9 @@
 	if(!do_after(xeno_owner, 0.5 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_DANGER))
 		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 		return
-	xeno_owner.throw_at(initial_turf, pounce_range, XENO_POUNCE_SPEED, xeno_owner)
+	xeno_owner.throw_at(initial_turf, pounce_range, CHIMERA_POUNCE_SPEED, xeno_owner)
 	if(target)
-		target.throw_at(initial_turf, pounce_range, XENO_POUNCE_SPEED, xeno_owner)
+		target.throw_at(initial_turf, pounce_range, CHIMERA_POUNCE_SPEED, xeno_owner)
 		target.add_slowdown(slowdown_amount)
 		target.adjust_stagger(stagger_duration)
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
