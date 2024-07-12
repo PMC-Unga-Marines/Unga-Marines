@@ -78,6 +78,5 @@
 #include "code\modules\mob\mob.dm"
 #include "code\modules\mob\mob_transformation_simple.dm"
 #include "code\modules\mob\new_player\preferences_setup.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\beetle\beetle.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
