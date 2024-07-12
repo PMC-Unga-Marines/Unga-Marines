@@ -3,7 +3,6 @@
 #include "code\modules\mob\living\say.dm"
 #include "code\modules\mob\living\status_procs.dm"
 #include "code\modules\mob\living\carbon\carbon_defense.dm"
-#include "code\modules\mob\living\carbon\human\zombie.dm"
 #include "code\modules\mob\living\carbon\xenomorph\update_icons.dm"
 #include "code\modules\mob\living\carbon\xenomorph\abilities.dm"
 #include "code\modules\mob\living\carbon\xenomorph\attack_alien.dm"
