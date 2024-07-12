@@ -188,7 +188,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/silo
 
-/* RUTGMC DELETION, SILO SCALING
 /datum/hive_upgrade/building/silo/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
 	if(!.)
@@ -208,7 +207,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			if(get_dist(silo, buyer) < 15)
 				to_chat(buyer, span_xenowarning("Another silo is too close!"))
 				return FALSE
-*/
+
+	if(length(GLOB.xeno_resin_silos_by_hive[buyer.hivenumber]) >= 2)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("Hive cannot support more than 2 active silos!"))
+		return FALSE
 /* RU TGMC EDIT
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
@@ -251,7 +254,7 @@ RU TGMC EDIT */
 	name = "Acid turret"
 	desc = "Places a acid spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog and on a weeded area."
 	icon = "acidturret"
-	psypoint_cost = XENO_TURRET_PRICE
+	psypoint_cost = 80
 	flags_gamemode = ABILITY_NUCLEARWAR
 	///How long to build one turret
 	var/build_time = 10 SECONDS
@@ -314,7 +317,7 @@ RU TGMC EDIT */
 	category = "Xenos"
 
 /datum/hive_upgrade/primordial
-	category = "Xenos"
+	category = "Primordial"
 	flags_upgrade = UPGRADE_FLAG_ONETIME|UPGRADE_FLAG_MESSAGE_HIVE
 
 /datum/hive_upgrade/primordial/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
@@ -328,19 +331,19 @@ RU TGMC EDIT */
 /datum/hive_upgrade/primordial/tier_four
 	name = PRIMORDIAL_TIER_FOUR
 	desc = "Unlocks the primordial for the last tier"
-	psypoint_cost = 600
+	psypoint_cost = 800
 	icon = "primoqueen"
 
 /datum/hive_upgrade/primordial/tier_three
 	name = PRIMORDIAL_TIER_THREE
 	desc = "Unlocks the primordial for the third tier"
-	psypoint_cost = 600
+	psypoint_cost = 1000
 	icon = "primorav"
 
 /datum/hive_upgrade/primordial/tier_two
 	name = PRIMORDIAL_TIER_TWO
 	desc = "Unlocks the primordial for the second tier"
-	psypoint_cost = 600
+	psypoint_cost = 800
 	icon = "primowarrior"
 
 /datum/hive_upgrade/primordial/tier_one
@@ -348,3 +351,56 @@ RU TGMC EDIT */
 	desc = "Unlocks the primordial for the first tier"
 	psypoint_cost = 600
 	icon = "primosent"
+
+/datum/hive_upgrade/defence/oblivion
+    name = "Oblivion"
+    desc = "Destroy the bodies beneath you "
+    icon = "smartminions"
+    psypoint_cost = 1000
+    flags_gamemode = ABILITY_NUCLEARWAR
+
+/datum/hive_upgrade/defence/oblivion/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(!.)
+		return
+	var/turf/T = get_turf(buyer)
+	var/mob/living/carbon/human/H = locate() in T
+	var/mob/living/carbon/human/species/synthetic = locate() in T
+	if(!H || H.stat != DEAD || synthetic)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("You cannot destroy nothing or alive"))
+		return FALSE
+
+	return TRUE
+
+/datum/hive_upgrade/defence/oblivion/on_buy(mob/living/carbon/xenomorph/buyer)
+
+	if(!can_buy(buyer, FALSE))
+		return FALSE
+
+	var/turf/T = get_turf(buyer)
+	var/mob/living/carbon/human/H = locate() in T
+	xeno_message("[buyer] sent [H] into oblivion!", "xenoannounce", 5, buyer.hivenumber)
+	to_chat(buyer, span_xenowarning("WE HAVE SENT THE [H] INTO OBLIVION"))
+	H.gib()
+
+	log_game("[buyer] sent [H] into oblivion, spending [psypoint_cost] psy points in the process")
+
+
+	return ..()
+
+/datum/hive_upgrade/building/nest
+	name = "Thick nest"
+	desc = "A very thick nest, oozing with a thick sticky substance."
+	psypoint_cost = 0
+	icon = "nest"
+	building_type = /obj/structure/xeno/thick_nest
+	building_loc = 0 //This results in spawning the structure under the user.
+	building_time = 5 SECONDS
+
+/datum/hive_upgrade/building/nest/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.thick_nests) >= buyer.hive.max_thick_nests)
+		to_chat(buyer, span_xenowarning("You cannot build any more thick nests!"))
+		return FALSE
+	return .
