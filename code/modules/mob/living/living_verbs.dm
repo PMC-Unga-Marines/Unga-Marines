@@ -4,14 +4,9 @@
 
 	do_resist()
 
-//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\modules\mob\living\living_verbs.dm
-/*
 /mob/living/proc/lay_down()
 	set name = "Rest"
 	set category = "IC"
-
-	if(incapacitated(TRUE))
-		return
 
 	if(!resting)
 		if(is_ventcrawling)
@@ -24,11 +19,7 @@
 		get_up()
 
 /mob/living/proc/get_up()
-	if(!incapacitated(TRUE))
-		set_resting(FALSE, FALSE)
-	else
-		to_chat(src, span_notice("You fail to get up."))
-*/ // RUTGMC EDIT END
+	set_resting(FALSE, FALSE)
 
 /mob/living/proc/set_resting(rest, silent = TRUE)
 	if(status_flags & INCORPOREAL)
