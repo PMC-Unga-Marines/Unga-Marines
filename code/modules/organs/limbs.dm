@@ -648,28 +648,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 			DISMEMBERMENT
 ****************************************************/
 
-//Recursive setting of all child organs to amputated
-/datum/limb/proc/setAmputatedTree()
-	for(var/c in children)
-		var/datum/limb/O = c
-		O.add_limb_flags(LIMB_AMPUTATED)
-		O.setAmputatedTree()
-
-/mob/living/carbon/human/proc/remove_random_limb(delete_limb = 0)
-	var/list/limbs_to_remove = list()
-	for(var/datum/limb/E in limbs)
-		if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
-			continue
-		limbs_to_remove += E
-	if(length(limbs_to_remove))
-		var/datum/limb/L = pick(limbs_to_remove)
-		var/limb_name = L.display_name
-		L.droplimb(0,delete_limb)
-		return limb_name
-	return null
-
 //Handles dismemberment
-/datum/limb/proc/droplimb(amputation, delete_limb = FALSE)
+/datum/limb/proc/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
 	if(limb_status & LIMB_DESTROYED)
 		return FALSE
 
@@ -696,7 +676,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	// If any organs are attached to this, destroy them
 	for(var/c in children)
 		var/datum/limb/appendage = c
-		appendage.droplimb(amputation, delete_limb)
+		appendage.droplimb(amputation, delete_limb, silent)
 
 	//Clear out any internal and external wounds, damage the parent limb
 	QDEL_LIST(wounds)
@@ -765,7 +745,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(delete_limb)
 		QDEL_NULL(organ)
-	else
+	else if(!silent)
 		owner.visible_message(span_warning("[owner.name]'s [display_name] flies off in an arc!"),
 		span_highdanger("<b>Your [display_name] goes flying off!</b>"),
 		span_warning("You hear a terrible sound of ripping tendons and flesh!"), 3)
@@ -784,13 +764,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.death()
 	return TRUE
 
-/* RUTGMC DELETION
-/datum/limb/hand/l_hand/droplimb(amputation, delete_limb = FALSE)
+/datum/limb/hand/l_hand/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
 	. = ..()
 	if(!.)
 		return
 	owner.update_inv_gloves()
-*/
 
 
 /****************************************************
@@ -1168,11 +1146,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	face_surgery_stage = 0
 
 
-/* RUTGMC DELETION
-/datum/limb/head/droplimb(amputation, delete_limb = FALSE)
+/datum/limb/head/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
 	. = ..()
 	if(!.)
 		return
 	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
 		owner.set_undefibbable()
-*/
