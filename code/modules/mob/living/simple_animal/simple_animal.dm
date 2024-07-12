@@ -224,17 +224,11 @@
 /mob/living/simple_animal/ex_act(severity)
 	flash_act()
 
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			gib()
-			return
-		if(EXPLODE_HEAVY)
-			adjustBruteLoss(60)
-		if(EXPLODE_LIGHT)
-			adjustBruteLoss(30)
-		if(EXPLODE_WEAK)
-			adjustBruteLoss(15)
+	if(severity >= EXPLOSION_THRESHOLD_GIB)
+		gib()
+		return
 
+	adjustBruteLoss(severity / 3)
 	UPDATEHEALTH(src)
 
 
