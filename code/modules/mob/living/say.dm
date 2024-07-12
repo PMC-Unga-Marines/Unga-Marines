@@ -305,6 +305,8 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), I, speech_bubble_recipients, 30)
 
+	playsound(loc, talk_sound, 25, 1)
+
 /mob/living/GetVoice()
 	return name
 
