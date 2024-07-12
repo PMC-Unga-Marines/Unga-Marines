@@ -8,7 +8,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\evolution.dm"
 #include "code\modules\mob\living\carbon\xenomorph\facehuggers.dm"
 #include "code\modules\mob\living\carbon\xenomorph\hive_datum.dm"
-#include "code\modules\mob\living\carbon\xenomorph\hive_upgrades.dm"
 #include "code\modules\mob\living\carbon\xenomorph\life.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\abilities_defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\castedatum_defiler.dm"
