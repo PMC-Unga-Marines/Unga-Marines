@@ -30,7 +30,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\castedatum_defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\drone\drone.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\drone\castedatum_drone.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\gorger\abilities_gorger.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\gorger\castedatum_gorger.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\hivelord\abilities_hivelord.dm"
