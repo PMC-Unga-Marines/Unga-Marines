@@ -106,6 +106,11 @@
 			dirt_amt = 0
 			update_icon()
 
+/obj/item/tool/shovel/melee_attack_chain(mob/user, atom/target, params, rightclick)
+	if(target == user && !user.do_self_harm)
+		return
+	return ..()
+
 /obj/item/tool/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."

@@ -19,15 +19,21 @@
 
 /mob/living/carbon/human/get_export_value()
 	switch(job.job_category)
+		if(JOB_CAT_CIVILIAN)
+			. = 10
 		if(JOB_CAT_ENGINEERING, JOB_CAT_MEDICAL, JOB_CAT_REQUISITIONS)
-			. = 200
+			. = 150
 		if(JOB_CAT_MARINE)
-			. = 300
+			. = 100
 		if(JOB_CAT_SILICON)
 			. = 800
 		if(JOB_CAT_COMMAND)
 			. = 1000
+
 	return
+
+/mob/living/carbon/human/species/yautja/get_export_value()
+	return 3000
 
 /mob/living/carbon/xenomorph/get_export_value()
 	switch(tier)
@@ -52,21 +58,22 @@
 /obj/item/reagent_containers/food/snacks/req_pizza/get_export_value()
 	return 10
 
-//RUTGMC  EDIT REMOVAL BEGIN - ALLY_SALE - (Moved to modular_RUtgmc\code\modules\requisitions\supply_export.dm)
-/*
-/// Return TRUE if the relation between the two factions are bad enough that a bounty is on the human_to_sell head
 /proc/can_sell_human_body(mob/living/carbon/human/human_to_sell, seller_faction)
 	var/to_sell_alignement = GLOB.faction_to_alignement[human_to_sell.faction]
 	switch(to_sell_alignement)
-		if(ALIGNEMENT_NEUTRAL) //No one hates neutral
-			return FALSE
-		if(ALIGNEMENT_HOSTILE) // Can always sell an hostile unless you are of the same faction
+		if(ALIGNEMENT_NEUTRAL)
 			if(seller_faction == human_to_sell.faction)
-				return FALSE
+				return TRUE
+			return TRUE
+		if(ALIGNEMENT_HOSTILE)
+			if(seller_faction == human_to_sell.faction)
+				return TRUE
 			return TRUE
 		if(ALIGNEMENT_FRIENDLY)
-			if(GLOB.faction_to_alignement[seller_faction] == ALIGNEMENT_FRIENDLY)
-				return FALSE
+			if(seller_faction == human_to_sell.faction)
+				return TRUE
 			return TRUE
-*/
-//RUTGMC  EDIT REMOVAL END
+
+/mob/living/carbon/human/species/robot/supply_export(faction_selling)
+	SSpoints.supply_points[faction_selling] += 45
+	return new /datum/export_report(45, name, faction_selling)

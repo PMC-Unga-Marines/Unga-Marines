@@ -8,6 +8,7 @@
 	var/flipped = 0
 	siemens_coefficient = 0.9
 	flags_armor_protection = NONE
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/soft/dropped()
 	icon_state = "[cap_color]soft"

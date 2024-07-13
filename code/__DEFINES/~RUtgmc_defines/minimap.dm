@@ -1,1 +1,0 @@
-#define MINIMAP_FLAG_YAUTJA (1<<5)

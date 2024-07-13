@@ -29,7 +29,7 @@
 	///For light sources that can be turned on and off.
 	var/overlay_lighting_flags = NONE
 
-	/* RUTGMC DELETION START
+
 	///Cache of the possible light overlays, according to size.
 	var/static/list/light_overlays = list(
 		"32" = 'icons/effects/light_overlays/light_32.dmi',
@@ -43,8 +43,25 @@
 		"288" = 'icons/effects/light_overlays/light_288.dmi',
 		"320" = 'icons/effects/light_overlays/light_320.dmi',
 		"352" = 'icons/effects/light_overlays/light_352.dmi',
+		"384" = 'icons/effects/light_overlays/light_384.dmi',
+		"416" = 'icons/effects/light_overlays/light_416.dmi',
+		"448" = 'icons/effects/light_overlays/light_448.dmi',
+		"480" = 'icons/effects/light_overlays/light_480.dmi',
+		"512" = 'icons/effects/light_overlays/light_512.dmi',
+		"544" = 'icons/effects/light_overlays/light_544.dmi',
+		"576" = 'icons/effects/light_overlays/light_576.dmi',
+		"608" = 'icons/effects/light_overlays/light_608.dmi',
+		"640" = 'icons/effects/light_overlays/light_640.dmi',
+		"672" = 'icons/effects/light_overlays/light_672.dmi',
+		"704" = 'icons/effects/light_overlays/light_704.dmi',
+		"736" = 'icons/effects/light_overlays/light_736.dmi',
+		"768" = 'icons/effects/light_overlays/light_768.dmi',
+		"800" = 'icons/effects/light_overlays/light_800.dmi',
+		"832" = 'icons/effects/light_overlays/light_832.dmi',
+		"864" = 'icons/effects/light_overlays/light_864.dmi',
+		"896" = 'icons/effects/light_overlays/light_896.dmi',
+		"928" = 'icons/effects/light_overlays/light_928.dmi',
 		)
-	RUTGMC DELETION END */
 
 	///Overlay effect to cut into the darkness and provide light.
 	var/image/visible_mask
@@ -218,15 +235,13 @@
 	make_luminosity_update()
 
 
-	/* RUTGMC DELETION START
-///Changes the range which the light reaches. 0 means no light, 6 is the maximum value.
 /datum/component/overlay_lighting/proc/set_range(atom/source, new_range)
 	SIGNAL_HANDLER
 	if(range == new_range)
 		return
 	if(range == 0)
 		turn_off()
-	range = clamp(CEILING(new_range, 0.5), 1, 6)
+	range = clamp(CEILING(new_range, 0.5), 1, 15)
 	var/pixel_bounds = ((range - 1) * 64) + 32
 	lumcount_range = CEILING(range, 1)
 	if(current_holder && overlay_lighting_flags & LIGHTING_ON)
@@ -243,7 +258,7 @@
 		current_holder.underlays += visible_mask
 	if(overlay_lighting_flags & LIGHTING_ON)
 		make_luminosity_update()
-	RUTGMC DELETION END */
+
 
 ///Changes the intensity/brightness of the light by altering the visual object's alpha.
 /datum/component/overlay_lighting/proc/set_power(atom/source, new_power)

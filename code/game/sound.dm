@@ -281,9 +281,9 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/voice/alien_talk.ogg','sound/voice/alien_talk2.ogg','sound/voice/alien_talk3.ogg')
 //RUTGMC edit start - custom talk sounds
 		if("larva_talk")
-			S = pick('modular_RUtgmc/sound/voice/larva_talk1.ogg','modular_RUtgmc/sound/voice/larva_talk2.ogg','modular_RUtgmc/sound/voice/larva_talk3.ogg', 'modular_RUtgmc/sound/voice/larva_talk4.ogg')
+			S = pick('sound/voice/larva_talk1.ogg','sound/voice/larva_talk2.ogg','sound/voice/larva_talk3.ogg', 'sound/voice/larva_talk4.ogg')
 		if("predalien_talk")
-			S = pick('modular_RUtgmc/sound/voice/predalien_click1.ogg','modular_RUtgmc/sound/voice/predalien_click2.ogg','modular_RUtgmc/sound/voice/predalien_click3.ogg')
+			S = pick('sound/voice/predalien_click1.ogg','sound/voice/predalien_click2.ogg','sound/voice/predalien_click3.ogg')
 //RUTGMC edit end
 		if("alien_growl")
 			S = pick('sound/voice/alien_growl1.ogg','sound/voice/alien_growl2.ogg','sound/voice/alien_growl3.ogg','sound/voice/alien_growl4.ogg')
@@ -361,20 +361,20 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 //RUTGMC EDIT
 		//yautja race
 		if("pred_scream")
-			S = pick('modular_RUtgmc/sound/voice/pred_roar1.ogg','modular_RUtgmc/sound/voice/pred_roar2.ogg','modular_RUtgmc/sound/voice/pred_roar3.ogg','modular_RUtgmc/sound/voice/pred_roar4.ogg','modular_RUtgmc/sound/voice/pred_roar5.ogg')
+			S = pick('sound/voice/pred_roar1.ogg','sound/voice/pred_roar2.ogg','sound/voice/pred_roar3.ogg','sound/voice/pred_roar4.ogg','sound/voice/pred_roar5.ogg')
 		if("pred_pain")
-			S = pick('modular_RUtgmc/sound/voice/pred_pain1.ogg','modular_RUtgmc/sound/voice/pred_pain2.ogg','modular_RUtgmc/sound/voice/pred_pain3.ogg','modular_RUtgmc/sound/voice/pred_pain4.ogg','modular_RUtgmc/sound/voice/pred_pain5.ogg')
+			S = pick('sound/voice/pred_pain1.ogg','sound/voice/pred_pain2.ogg','sound/voice/pred_pain3.ogg','sound/voice/pred_pain4.ogg','sound/voice/pred_pain5.ogg')
 		if("pred_hugged")
-			S = pick('modular_RUtgmc/sound/voice/pred_facehugged.ogg')
+			S = pick('sound/voice/pred_facehugged.ogg')
 		if("pred_preburst")
-			S = pick('modular_RUtgmc/sound/voice/pred_pain_rare1.ogg')
+			S = pick('sound/voice/pred_pain_rare1.ogg')
 		if("pred_warcry")
-			S = pick('modular_RUtgmc/sound/voice/pred_warcry.ogg')
+			S = pick('sound/voice/pred_warcry.ogg')
 
 		//pred items
 		if("clan_sword_hit")
-			S = pick('modular_RUtgmc/sound/weapons/clan_sword_hit_1.ogg', 'modular_RUtgmc/sound/weapons/clan_sword_hit_2.ogg')
+			S = pick('sound/weapons/clan_sword_hit_1.ogg', 'sound/weapons/clan_sword_hit_2.ogg')
 		if("chain_swing")
-			S = pick('modular_RUtgmc/sound/items/chain_swing1.ogg', 'modular_RUtgmc/sound/items/chain_swing2.ogg', 'modular_RUtgmc/sound/items/chain_swing3.ogg')
+			S = pick('sound/items/chain_swing1.ogg', 'sound/items/chain_swing2.ogg', 'sound/items/chain_swing3.ogg')
 //RUTGMC EDIT
 	return S

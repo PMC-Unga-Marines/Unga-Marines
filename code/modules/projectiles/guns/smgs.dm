@@ -26,6 +26,9 @@
 	akimbo_additional_delay = 0.2
 	movement_acc_penalty_mult = 3
 
+	wield_sound =    'sound/weapons/guns/smgs/Deploy_Wave_SMGS.ogg'
+	silenced_sound = 'sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
+
 //-------------------------------------------------------
 // MP-19 Machinepistol. It fits here more.
 
@@ -34,7 +37,11 @@
 	desc = "The MP-19 is the TerraGov Marine Corps standard-issue machine pistol. It's known for it's low recoil and scatter when used one handed. It's usually carried by specialized troops who do not have the space to carry a much larger gun like medics and engineers. It uses 10x20mm caseless rounds."
 	icon_state = "t19"
 	item_state = "t19"
-	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mp19.ogg'
+	fire_sound =     'sound/weapons/guns/smgs/MP-19/MP19.ogg'
+	unload_sound =   'sound/weapons/guns/smgs/MP-19/MP19_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/smgs/MP-19/MP19_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/smgs/MP-19/MP19_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/smgs/MP-19/MP19_SIL.ogg'
 	caliber = CALIBER_10X20_CASELESS //codex
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	max_shells = 30 //codex
@@ -99,9 +106,17 @@
 /obj/item/weapon/gun/smg/standard_smg
 	name = "\improper SMG-90 submachinegun"
 	desc = "The SMG-90 is the TerraGov Marine Corps standard issue SMG. Its known for it's compact size and ease of use inside the field. It's usually carried by troops who want a lightweight firearm to rush with. It uses 10x20mm caseless rounds."
-	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_smg90.ogg'
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	fire_sound =     'sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
+	unload_sound =   'sound/weapons/guns/smgs/SMG-90/SMG90_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/smgs/SMG-90/SMG90_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/smgs/SMG-90/SMG90_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
+	icon_state = "t90"
+	item_state = "t90"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 	caliber = CALIBER_10X20_CASELESS //codex
 	max_shells = 50 //codex
 	flags_equip_slot = ITEM_SLOT_BACK
@@ -110,8 +125,8 @@
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/standard_smg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/standard_smg)
-	greyscale_config = /datum/greyscale_config/gun/t90
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t90,
 		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t90,
@@ -664,3 +679,74 @@
 
 /obj/item/weapon/gun/smg/icc_pdw/standard
 	starting_attachment_types = list(/obj/item/attachable/stock/icc_pdw, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
+
+///////////////////////////////////////////////////////////////////////
+////////////// Vector, based on KRISS Vector 45ACP. ///////////////////
+///////////////////////////////////////////////////////////////////////
+
+/obj/item/weapon/gun/smg/vector
+	name = "\improper Vector storm submachinegun"
+	desc = "The Vector is the TerraGov Marine Corps depelopment to increase assault capability of marines. Lightweight and simple to use. It features delayed blowback system, heavily reducing recoil even with its high ROF. A highly-customizable platform, it is reliable and versatile. Ideal weapon for quick assaults. Uses extended .45 ACP HP magazines"
+	fire_sound = 'sound/weapons/guns/fire/tp23.ogg'
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "v45"
+	item_state = "v45"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+	)
+	caliber = CALIBER_45ACP //codex
+	max_shells = 25 //codex
+	flags_equip_slot = ITEM_SLOT_BACK
+	force = 20
+	type_of_casings = null
+	default_ammo_type = /obj/item/ammo_magazine/smg/vector
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/smg/vector
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+	)
+
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16, "rail_x" = 22, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 10)
+	actions_types = list(/datum/action/item_action/aim_mode)
+
+	fire_delay = 0.1 SECONDS
+	damage_mult = 1
+	recoil = -5  // Recoil blowback system
+	recoil_unwielded = -2
+	wield_delay = 0.3 SECONDS
+
+	akimbo_additional_delay = 0.5
+	aim_fire_delay = 0.1 SECONDS
+	aim_speed_modifier = 0 //no slowdown
+	aim_slowdown = 0
+
+	accuracy_mult = 1
+	accuracy_mult_unwielded = 0.75 //moving or akimbo yield lower acc
+	scatter = -2
+	scatter_unwielded = 6 // Not exactly small weapon, and recoil blowback is only for vertical recoil
+
+	movement_acc_penalty_mult = 0.1
+	upper_akimbo_accuracy = 5
+	lower_akimbo_accuracy = 5

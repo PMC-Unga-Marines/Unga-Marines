@@ -74,6 +74,9 @@ GLOBAL_PROTECT(exp_specialmap)
 	///string; typepath for the icon that this job will show on the minimap
 	var/minimap_icon
 
+	///Gear preset name used for council snowflakes ;)
+	var/list/datum/outfit/gear_preset_whitelist = list()
+
 /datum/job/New()
 	if(outfit)
 		if(!ispath(outfit, /datum/outfit))
@@ -81,6 +84,11 @@ GLOBAL_PROTECT(exp_specialmap)
 		else
 			outfit = new outfit //Can be improved to reference a singleton.
 
+/datum/job/proc/get_whitelist_status(list/roles_whitelist, client/player)
+	if(!roles_whitelist)
+		return FALSE
+
+	return WHITELIST_NORMAL
 
 /datum/job/proc/after_spawn(mob/living/L, mob/M, latejoin = FALSE) //do actions on L but send messages to M as the key may not have been transferred_yet
 	if(isnull(L))

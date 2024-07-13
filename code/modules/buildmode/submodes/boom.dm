@@ -1,13 +1,8 @@
 /datum/buildmode_mode/boom
 	key = "boom"
-
-/* RUTGMC REMOVAL
-	var/devastation = 0
-	var/heavy = 0
-	var/light = 0
-	var/flash = 0
-	var/throw_input = 0
-*/
+	var/power_choice
+	var/falloff_choice
+	var/falloff_shape_choice
 
 
 /datum/buildmode_mode/boom/show_help(client/c)
@@ -16,22 +11,24 @@
 	to_chat(c, span_notice("NOTE: Using the \"Config/Launch Supplypod\" verb allows you to do this in an IC way (ie making a cruise missile come down from the sky and explode wherever you click!)"))
 	to_chat(c, span_notice("***********************************************************"))
 
-
-/* RUTGMC REMOVAL
-/datum/buildmode_mode/boom/change_settings(client/c)
-	devastation = input(c, "Range of total devastation.", "Input") as num|null
-	heavy = input(c, "Range of heavy impact.", "Input") as num|null
-	light = input(c, "Range of light impact.", "Input") as num|null
-	flash = input(c, "Range of flash.", "Input") as num|null
-	throw_input = input(c, "Range of throw.", "Input") as num|null
-
+/datum/buildmode_mode/boom/change_settings(client/client)
+	power_choice = tgui_input_number(client, "Explosion Power", "Choose explosion power", 250, 5000, 1)
+	if(isnull(power_choice))
+		return
+	falloff_choice = tgui_input_number(client, "Explosion Falloff", "Choose explosion falloff", 50, 5000, 1)
+	if(isnull(falloff_choice))
+		return
+	switch(tgui_alert(client, "Falloff Shape", "Choose falloff shape", list("Linear", "Exponential"), 0))
+		if("Linear")
+			falloff_shape_choice = EXPLOSION_FALLOFF_SHAPE_LINEAR
+		if("Exponential")
+			falloff_shape_choice = EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL
 
 /datum/buildmode_mode/boom/handle_click(client/c, params, obj/object)
 	var/list/pa = params2list(params)
 	var/left_click = pa.Find("left")
 
 	if(left_click)
-		explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE)
+		cell_explosion(object, power_choice, falloff_choice, falloff_shape_choice, silent = TRUE)
 		to_chat(c, span_notice("Success."))
-		log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]")
-*/
+		log_admin("Build Mode: [key_name(c)] caused an explosion (power = [power_choice], falloff = [falloff_choice], falloff_shape = [falloff_shape_choice] at [AREACOORD(object)]")

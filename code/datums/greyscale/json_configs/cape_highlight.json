@@ -1,11 +1,4 @@
 {
-	"highlight_none":[
-		{
-			"type": "icon_state",
-			"icon_state": "empty",
-			"blend_mode": "overlay"
-		}
-	],
 	"highlight_kama":[
 		{
 			"type": "hyperscale",
@@ -18,166 +11,42 @@
 			"icon_state": "kilt"
 		}
 	],
-	"highlight_scarf":[
+	"highlight_long":[
 		{
 			"type": "hyperscale",
-			"icon_state": "scarf"
+			"icon_state": "long"
 		}
 	],
-	"highlight_scarf_h":[
+	"highlight_long_h":[
 		{
 			"type": "hyperscale",
-			"icon_state": "scarf_h"
+			"icon_state": "long"
 		}
 	],
-	"highlight_normal":[
+
+	"highlight_regaly":[
 		{
 			"type": "hyperscale",
-			"icon_state": "normal"
+			"icon_state": "regaly"
 		}
 	],
-	"highlight_normal_h":[
+	"highlight_regaly_h":[
 		{
 			"type": "hyperscale",
-			"icon_state": "normal_h"
+			"icon_state": "regaly_h"
 		}
 	],
-	"highlight_normal (alt)":[
+	"highlight_onelong":[
 		{
 			"type": "hyperscale",
-			"icon_state": "normal_alt"
+			"icon_state": "onelong"
 		}
 	],
-	"highlight_normal (alt)_h":[
+
+	"highlight_onelong_h":[
 		{
 			"type": "hyperscale",
-			"icon_state": "normal_alt_h"
-		}
-	],
-	"highlight_short":[
-		{
-			"type": "hyperscale",
-			"icon_state": "short"
-		}
-	],
-	"highlight_short_h":[
-		{
-			"type": "hyperscale",
-			"icon_state": "short_h"
-		}
-	],
-	"highlight_shredded":[
-		{
-			"type": "hyperscale",
-			"icon_state": "shredded"
-		}
-	],
-	"highlight_shredded_h":[
-		{
-			"type": "hyperscale",
-			"icon_state": "shredded_h"
-		}
-	],
-	"highlight_half":[
-		{
-			"type": "hyperscale",
-			"icon_state": "half"
-		}
-	],
-	"highlight_half_h":[
-		{
-			"type": "hyperscale",
-			"icon_state": "half_h"
-		}
-	],
-	"highlight_full":[
-		{
-			"type": "hyperscale",
-			"icon_state": "full"
-		}
-	],
-	"highlight_full_h":[
-		{
-			"type": "hyperscale",
-			"icon_state": "full_h"
-		}
-	],
-	"highlight_back":[
-		{
-			"type": "hyperscale",
-			"icon_state": "back"
-		}
-	],
-	"highlight_cover":[
-		{
-			"type": "hyperscale",
-			"icon_state": "cover"
-		}
-	],
-	"highlight_cover (alt)":[
-		{
-			"type": "hyperscale",
-			"icon_state": "cover_2"
-		}
-	],
-	"highlight_overlord":[
-		{
-			"type": "hyperscale",
-			"icon_state": "overlord"
-		}
-	],
-	"highlight_overlord (alt)":[
-		{
-			"type": "hyperscale",
-			"icon_state": "overlord_2"
-		}
-	],
-	"highlight_overlord (alt 2)":[
-		{
-			"type": "hyperscale",
-			"icon_state": "overlord_3"
-		}
-	],
-	"highlight_shoal":[
-		{
-			"type": "hyperscale",
-			"icon_state": "shoal"
-		}
-	],
-	"highlight_shoal (alt)":[
-		{
-			"type": "hyperscale",
-			"icon_state": "shoal_2"
-		}
-	],
-	"highlight_shoal (back)":[
-		{
-			"type": "hyperscale",
-			"icon_state": "shoal_back"
-		}
-	],
-	"highlight_star":[
-		{
-			"type": "hyperscale",
-			"icon_state": "star"
-		}
-	],
-	"highlight_rapier left":[
-		{
-			"type": "hyperscale",
-			"icon_state": "rapier_left"
-		}
-	],
-	"highlight_rapier right":[
-		{
-			"type": "hyperscale",
-			"icon_state": "rapier_right"
-		}
-	],
-	"highlight_jacket":[
-		{
-			"type": "hyperscale",
-			"icon_state": "jacket"
+			"icon_state": "onelong"
 		}
 	]
 }

@@ -26,6 +26,7 @@
 #define XENO_FIRE_HUD "xeno_fire_hud" // displays how many fire stacks a xeno has
 #define XENO_BLESSING_HUD "xeno_blessing_hud" //indicates what blessings the xeno has
 #define XENO_EVASION_HUD "xeno_extra_hud" // displays anything extra or additional such as runner's evasion duration
+#define XENO_BANISHED_HUD "xeno_banished_hud" // indicates that the xeno is banished
 
 #define ADD_HUD_TO_COOLDOWN 20 //cooldown for being shown the images for any particular data hud
 
@@ -51,6 +52,8 @@
 #define DATA_HUD_SQUAD_SOM 14
 #define DATA_HUD_XENO_DEBUFF 15
 #define DATA_HUD_XENO_HEART 16
+#define DATA_HUD_HUNTER 17
+#define DATA_HUD_HUNTER_CLAN 18
 
 
 // Notification action types
@@ -61,3 +64,11 @@
 
 // AI notify action types
 #define NOTIFY_AI_ALERT "aijump"
+
+#define HUNTER_HUD "hunter_hud" //displays various statuses on mobs for Hunters to identify targets
+#define HUNTER_CLAN "hunter_clan_hud" //displays a colored icon to represent ingame Hunter Clans
+#define HUNTER_HEALTH_HUD "hunter_health_hud" //displays a predator health
+
+
+
+#define XENO_PRIMO_HUD "xeno_primo_hud" //indicates primo upgrade hud

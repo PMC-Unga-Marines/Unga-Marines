@@ -15,9 +15,9 @@
 	min_duration = FIXVEIN_MIN_DURATION
 	max_duration = FIXVEIN_MAX_DURATION
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle1.ogg'
-	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+	preop_sound = 'sound/misc/surgery/organ1.ogg'
+	success_sound = 'sound/misc/surgery/clothingrustle1.ogg'
+	failure_sound = 'sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(affected.surgery_open_stage >= 2)

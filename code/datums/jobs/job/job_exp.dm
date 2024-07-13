@@ -78,8 +78,7 @@ GLOBAL_PROTECT(exp_to_update)
 		else
 			exp_data[category] = 0
 	for(var/category in GLOB.exp_specialmap)
-		//if(category == EXP_TYPE_SPECIAL) // ORIGINAL
-		if(category == EXP_TYPE_XENO) // RUTGMC ADDITION
+		if(category == EXP_TYPE_XENO)
 			if(GLOB.exp_specialmap[category])
 				for(var/innercat in GLOB.exp_specialmap[category])
 					if(play_records[innercat])
@@ -147,15 +146,16 @@ GLOBAL_PROTECT(exp_to_update)
 	return pure_numeric ? exp_living : get_exp_format(exp_living)
 
 
-/* RUTGMC DELETION
 /proc/get_exp_format(expnum)
 	if(expnum > 60)
-		return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
+		if(round(expnum % 60) > 0)
+			return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
+		else
+			return num2text(round(expnum / 60)) + "h"
 	else if(expnum > 0)
 		return num2text(expnum) + "m"
 	else
 		return "0h"
-*/
 
 
 /proc/update_exp(mins, ann = FALSE)
@@ -265,3 +265,18 @@ GLOBAL_PROTECT(exp_to_update)
 		return FALSE
 	var/my_exp = C.prefs.exp[ROLE_XENOMORPH]
 	return my_exp < XP_REQ_UNSEASONED
+
+/client/proc/facehugger_exp_update(stat = 0)
+	if(!CONFIG_GET(flag/use_exp_tracking))
+		return -1
+	if(!SSdbcore.Connect())
+		return -1
+	if(!isnum(stat) || !stat)
+		return -1
+
+	LAZYINITLIST(GLOB.exp_to_update)
+	GLOB.exp_to_update.Add(list(list(
+			"job" = EXP_TYPE_FACEHUGGER_STAT,
+			"ckey" = ckey,
+			"minutes" = stat)))
+	prefs.exp[EXP_TYPE_FACEHUGGER_STAT] += stat

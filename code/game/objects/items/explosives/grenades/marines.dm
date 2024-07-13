@@ -28,6 +28,12 @@
 	hud_state = "grenade_frag"
 	icon_state_mini = "grenade_red_white"
 	light_impact_range = 5
+	power = 125
+	falloff = 40
+
+/obj/item/explosive/grenade/pmc/prime()
+	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	return ..()
 
 /obj/item/explosive/grenade/m15
 	name = "\improper M15 fragmentation grenade"
@@ -37,6 +43,12 @@
 	hud_state = "grenade_frag"
 	icon_state_mini = "grenade_yellow"
 	light_impact_range = 5
+	power = 125
+	falloff = 40
+
+/obj/item/explosive/grenade/m15/prime()
+	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	return ..()
 
 /obj/item/explosive/grenade/stick
 	name = "\improper Webley Mk15 stick grenade"
@@ -70,6 +82,8 @@
 	item_state = "alien_grenade"
 	hud_state = "grenade_frag"
 	light_impact_range = 6
+	power = 150
+	falloff = 25
 
 /obj/item/explosive/grenade/sticky
 	name = "\improper M40 adhesive charge grenade"
@@ -79,6 +93,11 @@
 	det_time = 5 SECONDS
 	light_impact_range = 2
 	weak_impact_range = 3
+	icon_state_mini = "grenade_sticky"
+	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = null
+	power = 90
+	falloff = 40
 	///Current atom this grenade is attached to, used to remove the overlay.
 	var/atom/stuck_to
 	///Current image overlay applied to stuck_to, used to remove the overlay after detonation.
@@ -138,6 +157,12 @@
 	item_state = "grenade_sticky_fire"
 	det_time = 5 SECONDS
 	self_sticky = TRUE
+	icon_state_mini = "grenade_trailblazer"
+	var/fire_level = 25
+	var/burn_level = 25
+	var/fire_color = "red"
+	var/our_fire_stacks = 0
+	var/our_fire_damage = 0
 
 /obj/item/explosive/grenade/sticky/trailblazer/prime()
 	flame_radius(0.5, get_turf(src))
@@ -146,24 +171,46 @@
 		clean_refs()
 	qdel(src)
 
-/* RUTGMC DELETION
 /obj/item/explosive/grenade/sticky/trailblazer/stuck_to(atom/hit_atom)
 	. = ..()
 	RegisterSignal(stuck_to, COMSIG_MOVABLE_MOVED, PROC_REF(make_fire))
 	var/turf/T = get_turf(src)
-	T.ignite(25, 25)
+	T.ignite(fire_level, burn_level, fire_color, our_fire_stacks, our_fire_damage)
 
 ///causes fire tiles underneath target when stuck_to
 /obj/item/explosive/grenade/sticky/trailblazer/proc/make_fire(datum/source, old_loc, movement_dir, forced, old_locs)
 	SIGNAL_HANDLER
 	var/turf/T = get_turf(src)
-	T.ignite(25, 25)
-*/
+	T.ignite(fire_level, burn_level, fire_color, our_fire_stacks, our_fire_damage)
 
 /obj/item/explosive/grenade/sticky/trailblazer/clean_refs()
 	stuck_to.cut_overlay(saved_overlay)
 	UnregisterSignal(stuck_to, COMSIG_MOVABLE_MOVED)
 	return ..()
+
+/obj/item/explosive/grenade/sticky/trailblazer/phosphorus
+	name = "\improper M45 Phosphorus trailblazer grenade"
+	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. But with phosphorus. It is set to detonate in 5 seconds."
+	icon = 'icons/obj/items/grenade.dmi'
+	icon_state = "grenade_sticky_phosphorus"
+	item_state = "grenade_sticky_phosphorus"
+	icon_state_mini = "grenade_trailblazer_phosphorus"
+	fire_level = 45
+	burn_level = 45
+	fire_color = "blue"
+
+/obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
+	user?.record_war_crime()
+
+/obj/item/explosive/grenade/sticky/trailblazer/phosphorus/prime()
+	flame_radius(0.5, get_turf(src), colour = "blue")
+	playsound(loc, "incendiary_explosion", 35)
+	if(stuck_to)
+		clean_refs()
+	qdel(src)
 
 /obj/item/explosive/grenade/sticky/cloaker
 	name = "\improper M45 Cloaker grenade"
@@ -273,6 +320,8 @@
 	det_time = 2 SECONDS
 	light_impact_range = 2
 	weak_impact_range = 4
+	power = 80
+	falloff = 20
 
 
 /obj/item/explosive/grenade/smokebomb
@@ -284,12 +333,15 @@
 	hud_state = "grenade_smoke"
 	dangerous = FALSE
 	icon_state_mini = "grenade_blue"
+	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
 	/// smoke type created when the grenade is primed
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
 	///radius this smoke grenade will encompass
 	var/smokeradius = 7
 	///The duration of the smoke
 	var/smoke_duration = 11
+
 
 /obj/item/explosive/grenade/smokebomb/prime()
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
@@ -368,7 +420,7 @@
 	item_state = "grenade_pgas"
 	hud_state = "grenade_drain"
 	det_time = 6 SECONDS
-	icon_state_mini = "grenade_blue"
+	icon_state_mini = "grenade_purple"
 	dangerous = TRUE
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
 
@@ -386,6 +438,8 @@
 	item_state = "grenade_phos"
 	det_time = 2 SECONDS
 	hud_state = "grenade_hide"
+	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
 	var/datum/effect_system/smoke_spread/phosphorus/smoke
 	icon_state_mini = "grenade_cyan"
 
@@ -428,16 +482,17 @@
 	dangerous = TRUE
 	icon_state_mini = "grenade_blue_white"
 	light_impact_range = 3
+	power = 80
+	falloff = 30
 
-/* RUTGMC REMOVAL
 /obj/item/explosive/grenade/impact/throw_impact(atom/hit_atom, speed)
 	. = ..()
 	if(!.)
 		return
 	if(launched && active && !istype(hit_atom, /turf/open)) //Only contact det if active, we actually hit something, and we're fired from a grenade launcher.
-		explosion(loc, light_impact_range = 1, flash_range = 2)
+		cell_explosion(loc, 50, 25)
 		qdel(src)
-*/
+
 
 
 /obj/item/explosive/grenade/flare
@@ -454,8 +509,10 @@
 	light_range = 6
 	light_color = LIGHT_COLOR_FLARE
 	var/fuel = 0
-	var/lower_fuel_limit = 800
-	var/upper_fuel_limit = 1000
+	var/lower_fuel_limit = 450
+	var/upper_fuel_limit = 750
+	G_hit_sound = null
+	G_throw_sound = null
 
 /obj/item/explosive/grenade/flare/dissolvability(acid_strength)
 	return 2

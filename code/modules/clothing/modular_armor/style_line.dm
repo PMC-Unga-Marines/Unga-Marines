@@ -116,7 +116,7 @@
 	icon_state = "beret_inhand"
 	item_state = "beret"
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/stylehat_badge)
-
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/classic_beret
 	name = "TGMC beret (classic)"
@@ -124,25 +124,29 @@
 	icon_state = "classic_beret_inhand"
 	item_state = "classic_beret"
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/stylehat_badge/classic)
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/boonie
 	name = "TGMC boonie"
 	desc = "A boonie hat used by the TGMC, purpose made for operations in enviroments with a lot of sun, or dense vegetation."
 	icon_state = "boonie_inhand"
 	item_state = "boonie"
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/cap
 	name = "TGMC cap"
 	desc = "A common patrol cap used by the TGMC, stylish and comes in many colors. Mostly useful to keep the sun and officers away."
 	icon_state = "cap_inhand"
 	item_state = "cap"
-
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/slouchhat
 	name = "TGMC slouch hat"
 	desc = "A slouch hat, makes you feel down under, doesn't it? Has 'PROPERTY OF THE TGMC' markings under the hat."
 	icon_state = "slouch_inhand"
 	item_state = "slouch"
+	species_exception = list(/datum/species/robot)
+
 
 /obj/item/clothing/head/modular/style/ushanka
 	name = "TGMC ushanka"
@@ -150,33 +154,35 @@
 	icon_state = "ushanka_inhand"
 	item_state = "ushanka"
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/stylehat_badge/ushanka)
-
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/campaignhat
 	name = "TGMC campaign hat"
 	desc = "A campaign hat, you can feel the menacing aura that this hat erodes just by looking at it."
 	icon_state = "campaign_inhand"
 	item_state = "campaign"
-
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/beanie
 	name = "TGMC beanie"
 	desc = "A beanie, just looking at it makes you feel like an 'Oussama', or in better terms- A modern phenomenon of people suddenly needing to bench once they put on a beanie."
 	icon_state = "beanie_inhand"
 	item_state = "beanie"
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/headband
 	name = "TGMC headband"
 	desc = "A headband. Will keep the sweat off your eyes and also keep you looking cool."
 	icon_state = "headband_inhand"
 	item_state = "headband"
-
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/modular/style/bandana
 	name = "TGMC bandana"
 	desc = "A bandana that goes on your head. Has TGMC markings on the back tie, and it seems that the knot will never come undone somehow."
 	icon_state = "headbandana_inhand"
 	item_state = "headbandana"
+	species_exception = list(/datum/species/robot)
 
 // style masks
 /obj/item/clothing/mask/gas/modular/skimask

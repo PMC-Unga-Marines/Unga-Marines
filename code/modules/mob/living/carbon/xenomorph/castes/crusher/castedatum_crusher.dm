@@ -16,6 +16,9 @@
 	// *** Speed *** //
 	speed = -0.1
 
+	// *** Sunder *** //
+	sunder_recover = 2
+
 	// *** Plasma *** //
 	plasma_max = 400
 	plasma_gain = 30
@@ -49,7 +52,10 @@
 		/datum/action/ability/activable/xeno/stomp,
 		/datum/action/ability/xeno_action/ready_charge,
 		/datum/action/ability/activable/xeno/cresttoss,
+		/datum/action/ability/activable/xeno/cresttoss/behind,
+		/datum/action/ability/xeno_action/regenerate_skin/crusher,
 	)
+
 
 /datum/xeno_caste/crusher/on_caste_applied(mob/xenomorph)
 	. = ..()
@@ -77,5 +83,7 @@
 		/datum/action/ability/activable/xeno/stomp,
 		/datum/action/ability/xeno_action/ready_charge,
 		/datum/action/ability/activable/xeno/cresttoss,
+		/datum/action/ability/activable/xeno/cresttoss/behind,
 		/datum/action/ability/activable/xeno/advance,
+		/datum/action/ability/xeno_action/regenerate_skin/crusher,
 	)

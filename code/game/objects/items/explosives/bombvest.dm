@@ -6,6 +6,7 @@
 	slowdown = 0
 	flags_item_map_variant = NONE
 	flags_armor_features = NONE
+	species_exception = list(/datum/species/robot)
 	///Warcry to yell upon detonation
 	var/bomb_message
 	///List of warcries that are not allowed.
@@ -46,7 +47,7 @@
 		return
 	if(bomb_message)
 		activator.say("[bomb_message]!!")
-	if(!do_after(user, 2 SECONDS, IGNORE_USER_LOC_CHANGE, src, BUSY_ICON_DANGER))
+	if(!do_after(user, 0.5 SECONDS, IGNORE_USER_LOC_CHANGE, src, BUSY_ICON_DANGER))
 		return FALSE
 	var/turf/target = get_turf(loc)
 	if(bomb_message) //Checks for a non null bomb message.
@@ -57,12 +58,8 @@
 		log_game("[activator] has detonated an explosive vest with no warcry at [AREACOORD(target)]")
 
 	activator.record_tactical_unalive()
-
-	for(var/datum/limb/appendage AS in activator.limbs) //Oops we blew all our limbs off
-		if(istype(appendage, /datum/limb/chest) || istype(appendage, /datum/limb/groin) || istype(appendage, /datum/limb/head))
-			continue
-		appendage.droplimb()
 	explosion(target, 2, 2, 6, 7, 5, 5)
+	activator.ex_act(500)
 	qdel(src)
 
 /obj/item/clothing/suit/storage/marine/boomvest/attack_hand_alternate(mob/living/user)

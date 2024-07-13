@@ -24,8 +24,8 @@
 	max_duration = SAW_OPEN_ENCASED_MAX_DURATION
 	open_case_step = 2
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/saw.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+	preop_sound = 'sound/misc/surgery/saw.ogg'
+	success_sound = 'sound/misc/surgery/organ1.ogg'
 	failure_sound = 'sound/effects/bone_break6.ogg'
 
 /datum/surgery_step/open_encased/saw/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
@@ -62,9 +62,9 @@
 	max_duration = RETRACT_OPEN_ENCASED_MAX_DURATION
 	open_case_step = 2.5
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/retractor1.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/retractor2.ogg'
-	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+	preop_sound = 'sound/misc/surgery/retractor1.ogg'
+	success_sound = 'sound/misc/surgery/retractor2.ogg'
+	failure_sound = 'sound/misc/surgery/organ1.ogg'
 
 /datum/surgery_step/open_encased/retract/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts to force open the [affected.encased] in [target]'s [affected.display_name] with \the [tool]."), \
@@ -105,9 +105,9 @@
 	max_duration = RETRACT_CLOSE_ENCASED_MAX_DURATION
 	open_case_step = 3
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/retractor1.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/retractor2.ogg'
-	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+	preop_sound = 'sound/misc/surgery/retractor1.ogg'
+	success_sound = 'sound/misc/surgery/retractor2.ogg'
+	failure_sound = 'sound/misc/surgery/organ1.ogg'
 
 /datum/surgery_step/open_encased/close/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts bending [target]'s [affected.encased] back into place with \the [tool]."), \
@@ -142,9 +142,9 @@
 	max_duration = BONEGEL_CLOSE_ENCASED_MAX_DURATION
 	open_case_step = 2.5
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle1.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/bandage.ogg'
-	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+	preop_sound = 'sound/misc/surgery/clothingrustle1.ogg'
+	success_sound = 'sound/misc/surgery/bandage.ogg'
+	failure_sound = 'sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/open_encased/mend/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts applying \the [tool] to [target]'s [affected.encased]."), \
@@ -175,9 +175,9 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel1.ogg'
-	success_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel2.ogg'
-	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+	preop_sound = 'sound/misc/surgery/scalpel1.ogg'
+	success_sound = 'sound/misc/surgery/scalpel2.ogg'
+	failure_sound = 'sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/fat_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(target_zone != BODY_ZONE_CHEST) //Ungas only store fat in their chest cavity, it's science fact

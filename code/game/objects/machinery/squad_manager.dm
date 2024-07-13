@@ -5,7 +5,7 @@
 	desc = "A console for squad management. Allows squad leaders to manage their squad."
 	screen_overlay = "rdcomp"
 	light_color = LIGHT_COLOR_PINK
-	interaction_flags = INTERACT_OBJ_UI
+	interaction_flags = NONE
 
 /obj/machinery/computer/squad_manager/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

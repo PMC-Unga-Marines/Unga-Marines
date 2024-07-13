@@ -18,7 +18,7 @@
 	item_state_worn = TRUE
 	item_icons = list(slot_wear_suit_str = 'icons/mob/modular/modular_armor.dmi')
 
-	flags_atom = CONDUCT
+	flags_atom = CONDUCT|DIRLOCK
 	flags_armor_protection = CHEST|GROIN|ARMS|LEGS|FEET|HANDS
 	flags_item = SYNTH_RESTRICTED|IMPEDE_JETPACK
 	/// What is allowed to be equipped in suit storage
@@ -293,6 +293,7 @@
 	greyscale_config = /datum/greyscale_config/armor_mk1
 	greyscale_colors = ARMOR_PALETTE_DESERT
 
+	flags_atom = PREVENT_CONTENTS_EXPLOSION|DIRLOCK
 	flags_armor_protection = HEAD
 	flags_armor_features = ARMOR_NO_DECAP
 	flags_inventory = BLOCKSHARPOBJ
@@ -331,7 +332,7 @@
 
 
 	colorable_colors = ARMOR_PALETTES_LIST
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
 
 	///Pixel offset on the X axis for how the helmet sits on the mob without a visor.
 	var/visorless_offset_x = 0

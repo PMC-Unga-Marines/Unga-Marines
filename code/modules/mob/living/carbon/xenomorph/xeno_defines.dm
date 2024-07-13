@@ -266,7 +266,7 @@ RU TGMC EDIT */
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	see_infrared = TRUE
 	hud_type = /datum/hud/alien
-	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, XENO_PRIMO_HUD, HUNTER_HUD)
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
@@ -406,5 +406,8 @@ RU TGMC EDIT */
 
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
+
+	var/interference = 0 // Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
+	var/talk_sound = "alien_talk"  // sound when talking
 
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)

@@ -1403,3 +1403,12 @@
 			popup.set_content(R.fields["last_scan_result"])
 			popup.open(FALSE)
 		break
+
+/obj/machinery/autodoc/yautja
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "autodoc_open"
+	resistance_flags = INDESTRUCTIBLE
+
+/obj/machinery/computer/autodoc_console/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "sleeperconsole"

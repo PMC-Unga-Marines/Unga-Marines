@@ -47,6 +47,9 @@ GLOBAL_LIST_EMPTY_TYPED(operation_namepool, /datum/operation_namepool)
 /datum/namepool/sectoid/get_random_name()
 	return "Sectoid [rand(1,9)]X[ascii2text(rand(65, 87))]" //65 to 87 is (uppercase) A to W
 
+/datum/namepool/necoarc/get_random_name()
+	return "Neco Arc [rand(1,9)]X[ascii2text(rand(65, 87))]" //65 to 87 is (uppercase) A to W
+
 /datum/namepool/vatborn/
 	firstname_male_pool = "names/first_male"
 	firstname_female_pool = "names/first_female"

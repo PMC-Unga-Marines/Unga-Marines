@@ -159,8 +159,6 @@
 	. = ..()
 	user.client?.prefs.save_loadout_list(loadouts_data, CURRENT_LOADOUT_VERSION)
 
-/* RUTGMC DELETION, CAPES
-///Recursive function to update attachment lists.
 /datum/loadout_manager/proc/update_attachments(list/datum/item_representation/armor_module/attachments, version)
 	for(var/datum/item_representation/armor_module/module AS in attachments)
 		if(version < 13)
@@ -177,7 +175,7 @@
 			attachments.Add(new_module)
 		if(version < 14)
 			if(ispath(module.item_type, /obj/item/armor_module/armor/cape))
-				module.variant = NORMAL
+				module.variant = CAPE_LONG
 				if(module.item_type == /obj/item/armor_module/armor/cape/kama)
 					module.variant = CAPE_KAMA
 				else if(module.item_type != /obj/item/armor_module/armor/cape)
@@ -185,15 +183,6 @@
 					new_cape.item_type = /obj/item/armor_module/armor/cape
 					new_cape.attachments = module.attachments
 					new_cape.colors = module.colors
-					switch(module.item_type)
-						if(/obj/item/armor_module/armor/cape/half)
-							new_cape.variant = CAPE_HALF
-						if(/obj/item/armor_module/armor/cape/scarf)
-							new_cape.variant = CAPE_SCARF
-						if(/obj/item/armor_module/armor/cape/short)
-							new_cape.variant = CAPE_SHORT
-						if(/obj/item/armor_module/armor/cape/short/classic)
-							new_cape.variant = CAPE_SHORT_OLD
 					attachments.Remove(module)
 					attachments.Add(new_cape)
 			if(ispath(module.item_type, /obj/item/armor_module/armor/cape_highlight))
@@ -206,11 +195,6 @@
 					new_highlight.attachments = module.attachments
 					new_highlight.colors = module.colors
 					new_highlight.variant = CAPE_HIGHLIGHT_NONE
-					switch(module.item_type)
-						if(/obj/item/armor_module/armor/cape_highlight/half)
-							new_highlight.variant = CAPE_HALF
-						if(/obj/item/armor_module/armor/cape_highlight/scarf)
-							new_highlight.variant = CAPE_SCARF
 					attachments.Remove(module)
 					attachments.Add(new_highlight)
 			if(ispath(module.item_type, /obj/item/armor_module/armor/visor/marine/eva/skull))
@@ -222,7 +206,6 @@
 				new_glyph.item_type = /obj/item/armor_module/armor/visor_glyph/old
 				module.attachments.Add(new_glyph)
 		update_attachments(module.attachments, version)
-*/
 
 ///Modifies a legacy loadout to make it valid for the current loadout version
 /datum/loadout_manager/proc/legacy_version_fix(datum/loadout/loadout, loadout_name, loadout_job, datum/tgui/ui)
