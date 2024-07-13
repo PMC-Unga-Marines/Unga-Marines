@@ -97,6 +97,7 @@
 #include "code\__DEFINES\particles.dm"
 #include "code\__DEFINES\pipe_construction.dm"
 #include "code\__DEFINES\power.dm"
+#include "code\__DEFINES\predators.dm"
 #include "code\__DEFINES\preferences.dm"
 #include "code\__DEFINES\procpath.dm"
 #include "code\__DEFINES\progress_display.dm"

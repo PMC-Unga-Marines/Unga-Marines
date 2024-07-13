@@ -20,7 +20,6 @@
 #include "traits.dm"
 #include "xeno.dm"
 #include "dsc\signals.dm"
-#include "predators.dm"
 #include "equipment.dm"
 #include "minimap.dm"
 #include "span.dm"
