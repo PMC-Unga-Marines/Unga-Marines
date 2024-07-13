@@ -5,9 +5,9 @@
 /datum/action/ability/activable/xeno/nightfall
 	name = "Nightfall"
 	action_icon_state = "nightfall"
-	desc = "Shut down all electrical lights nearby for 10 seconds."
+	desc = "Shut down electrical lights for 10 seconds and extinguish flares in nearby range."
 	cooldown_duration = 45 SECONDS
-	ability_cost = 100
+	ability_cost = 150
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_NIGHTFALL,
 	)
@@ -28,7 +28,10 @@
 		if(isnull(light.loc) || (owner.loc.z != light.loc.z) || (get_dist(owner, light) >= range))
 			continue
 		light.turn_light(null, FALSE, duration, TRUE, TRUE, TRUE)
-
+	for(var/obj/item/explosive/grenade/flare/flare in range(range, owner))
+		if(!flare.active)
+			continue
+		flare.turn_off()
 
 // ***************************************
 // *********** Petrify
