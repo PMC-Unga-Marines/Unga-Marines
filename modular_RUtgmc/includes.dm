@@ -1,6 +1,5 @@
 #include "code\modules\mob\living\carbon\xenomorph\charge_crush.dm"
 #include "code\modules\mob\living\carbon\xenomorph\damage_procs.dm"
-#include "code\modules\mob\living\carbon\xenomorph\death.dm"
 #include "code\modules\mob\living\carbon\xenomorph\egg.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\hunter\abilities_hunter.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\hunter\castedatum_hunter.dm"
