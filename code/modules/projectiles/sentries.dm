@@ -145,6 +145,11 @@
 	density = TRUE
 	set_on(TRUE)
 
+/obj/machinery/deployable/mounted/sentry/attack_ghost(mob/dead/observer/user)
+	. = ..()
+	ui_interact(user)
+	update_static_data(user)
+
 /obj/machinery/deployable/mounted/sentry/reload(mob/user, ammo_magazine)
 	if(!match_iff(user)) //You can't pull the ammo out of hostile turrets
 		to_chat(user, span_notice("Access denied."))

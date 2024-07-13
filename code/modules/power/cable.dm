@@ -50,6 +50,14 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		var/turf/T = loc
 		T.levelupdate()
 
+/obj/structure/cable/ex_act(severity, direction)
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return
+
+	if(prob(severity / 3))
+		qdel(src)
+	else
+		take_damage(severity, BRUTE, BOMB)
 
 ///Set the linked indicator bitflags
 /obj/structure/cable/proc/Connect_cable(clear_before_updating = FALSE)

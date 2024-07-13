@@ -129,3 +129,8 @@
 	/// We also need to clear this var/do other cleanup in client/Destroy, since that happens before logout
 	/// HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 	var/client/canon_client
+
+	///Slowdown from readying shields
+	var/shield_slowdown = 0
+	///Color matrices to be applied to the client window. Assoc. list.
+	var/list/client_color_matrices

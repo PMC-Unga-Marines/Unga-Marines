@@ -80,6 +80,11 @@
 		L += M.rating
 	min_temperature = max(T0C - (initial(min_temperature) + L * 15), TCMB) //73.15K with T1 stock parts
 
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "freezer"
+	resistance_flags = INDESTRUCTIBLE
+
 /obj/machinery/atmospherics/components/unary/thermomachine/heater
 	name = "heater"
 	icon_state = "heater"

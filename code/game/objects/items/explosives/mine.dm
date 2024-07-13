@@ -30,6 +30,8 @@ Stepping directly on the mine will also blow it up
 	/// Tripwire holds reference to the tripwire obj that is used to trigger an explosion
 	var/obj/effect/mine_tripwire/tripwire
 
+	var/tripwire_triggered = FALSE
+
 /obj/item/explosive/mine/Initialize(mapload)
 	. = ..()
 	var/static/list/connections = list(
@@ -180,7 +182,8 @@ Stepping directly on the mine will also blow it up
 	if(triggered)
 		return
 	triggered = TRUE
-	explosion(tripwire ? tripwire.loc : loc, light_impact_range = 3)
+	create_shrapnel(tripwire_triggered ? tripwire.loc : loc, 8, dir, shrapnel_type = /datum/ammo/bullet/shrapnel/metal, on_hit_coefficient = 45)
+	cell_explosion(tripwire_triggered ? tripwire.loc : loc, 50, 20)
 	QDEL_NULL(tripwire)
 	qdel(src)
 
@@ -204,7 +207,6 @@ Stepping directly on the mine will also blow it up
 	linked_mine = null
 	return ..()
 
-/* RUTGMC DELETION
 /// When crossed the tripwire triggers the linked mine
 /obj/effect/mine_tripwire/proc/on_cross(datum/source, atom/movable/AM, oldloc, oldlocs)
 	SIGNAL_HANDLER
@@ -223,8 +225,8 @@ Stepping directly on the mine will also blow it up
 
 	if(!isliving(AM) && !(isvehicle(AM)))
 		return
+	linked_mine.tripwire_triggered = TRUE
 	linked_mine.trip_mine(AM)
-*/
 
 /// PMC specific mine, with IFF for PMC units
 /obj/item/explosive/mine/pmc

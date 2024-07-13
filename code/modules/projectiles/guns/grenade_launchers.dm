@@ -116,7 +116,7 @@ The Grenade Launchers
 	fire_animation = "t70_fire"
 	flags_equip_slot = ITEM_SLOT_BACK
 	max_shells = 6 //codex
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/underbarrel_grenadelauncher.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/underbarrel_grenadelauncher.ogg'
 	aim_slowdown = 1.2
@@ -128,7 +128,7 @@ The Grenade Launchers
 	)
 	starting_attachment_types = list(/obj/item/attachable/stock/t70stock)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 11, "stock_y" = 12)
-	fire_delay = 1.2 SECONDS
+	fire_delay = 1.3 SECONDS
 	max_chamber_items = 5
 
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded
@@ -139,8 +139,8 @@ The Grenade Launchers
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/Marine/marine-weapons.dmi'
 	icon_state = "grenade"
-	max_shells = 2 //codex
-	max_chamber_items = 1
+	max_shells = 1 //codex
+	max_chamber_items = 0
 	fire_delay = 1 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/underbarrel_grenadelauncher.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
@@ -180,6 +180,9 @@ The Grenade Launchers
 
 	wield_delay_mod = 0.2 SECONDS
 
+/obj/item/weapon/gun/grenade_launcher/underslung/elite
+	default_ammo_type = /obj/item/explosive/grenade/impact
+
 /obj/item/weapon/gun/grenade_launcher/underslung/invisible
 	flags_attach_features = NONE
 
@@ -206,15 +209,46 @@ The Grenade Launchers
 	item_state = "m81"
 	max_shells = 1 //codex
 	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
-	wield_delay = 0.2 SECONDS
+	wield_delay = 0.8 SECONDS
 	aim_slowdown = 1
-	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_STABLE_FIRING_ONLY
 	attachable_allowed = list()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1.05 SECONDS
 	max_chamber_items = 0
 	max_range = 10
 
+///This performs a tactical reload with src using new_magazine to load the gun.
+/obj/item/weapon/gun/grenade_launcher/single_shot/tactical_reload(obj/item/new_magazine, mob/living/carbon/human/user)
+	if(!istype(user) || user.incapacitated(TRUE) || user.do_actions)
+		return
+	if(!(new_magazine.type in allowed_ammo_types))
+		if(active_attachable)
+			active_attachable.tactical_reload(new_magazine, user)
+			return
+		to_chat(user, span_warning("[new_magazine] cannot fit into [src]!"))
+		return
+	if(src != user.r_hand && src != user.l_hand && (!master_gun || (master_gun != user.r_hand && master_gun != user.l_hand)))
+		to_chat(user, span_warning("[src] must be in your hand to do that."))
+		return
+	//no tactical reload for the untrained.
+	if(user.skills.getRating(SKILL_FIREARMS) < SKILL_FIREARMS_DEFAULT)
+		to_chat(user, span_warning("You don't know how to do tactical reloads."))
+		return
+	to_chat(user, span_notice("You start a tactical reload."))
+	var/tac_reload_time = max(0.25 SECONDS, 0.75 SECONDS - user.skills.getRating(SKILL_FIREARMS) * 5)
+	if(length(chamber_items))
+		if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
+			return
+		unload(user)
+	if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
+		return
+	if(istype(new_magazine.loc, /obj/item/storage))
+		var/obj/item/storage/S = new_magazine.loc
+		S.remove_from_storage(new_magazine, get_turf(user), user)
+	if(!CHECK_BITFIELD(get_flags_magazine_features(new_magazine), MAGAZINE_WORN))
+		user.put_in_any_hand_if_possible(new_magazine)
+	reload(new_magazine, user)
 
 /obj/item/weapon/gun/grenade_launcher/single_shot/riot
 	name = "\improper GL-81 riot grenade launcher"
@@ -234,6 +268,7 @@ The Grenade Launchers
 	flags_gun_features = NONE
 	gun_skill_category = SKILL_PISTOLS
 	fire_delay = 0.5 SECONDS
+	wield_delay = 0.4 SECONDS
 	default_ammo_type = /obj/item/explosive/grenade/flare
 	allowed_ammo_types = list(/obj/item/explosive/grenade/flare, /obj/item/explosive/grenade/flare/cas)
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/flaregun)

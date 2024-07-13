@@ -500,7 +500,9 @@ RU TGMC EDIT */
 				cardinals -= direction
 		dir_to_proj = pick(cardinals)
 
-	var/perpendicular_angle = Get_Angle(hit_atom, get_step(hit_atom, dir_to_proj))
+	var/perpendicular_angle = 0
+	if(dir_to_proj != 0)
+		perpendicular_angle = Get_Angle(hit_atom, get_step(hit_atom, dir_to_proj))
 	var/new_angle = (perpendicular_angle + (perpendicular_angle - Get_Angle(old_throw_source, src) - 180) + rand(-10, 10))
 
 	if(new_angle < -360)

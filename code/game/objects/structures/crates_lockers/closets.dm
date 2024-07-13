@@ -58,8 +58,16 @@
 	var/close_sound = 'sound/machines/click.ogg'
 	/// The delay between stuns getting out of the closet causes
 	var/closet_stun_delay = 2 SECONDS
+	//var to prevent welding stasis bags and tarps
+	var/can_be_welded = TRUE
+	//the amount of material you drop
+	var/drop_material_amount = 1
 
-
+/obj/structure/closet/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB)
+	if(!locked || prob(severity / 3))
+		break_open()
+		contents_explosion(severity)
 
 /obj/structure/closet/Initialize(mapload, ...)
 	. = ..()
@@ -77,11 +85,11 @@
 
 	take_contents()
 
-/* RUTGMC DELETION, CLOSET FIXES
 /obj/structure/closet/deconstruct(disassembled = TRUE)
+	if(ispath(drop_material) && drop_material_amount)
+		new drop_material(loc, drop_material_amount)
 	dump_contents()
 	return ..()
-*/
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
@@ -248,6 +256,8 @@
 		return
 
 /obj/structure/closet/welder_act(mob/living/user, obj/item/tool/weldingtool/welder)
+	if(!can_be_welded)
+		return FALSE
 	if(!welder.isOn())
 		return FALSE
 
@@ -255,10 +265,8 @@
 		if(!welder.use_tool(src, user, 2 SECONDS, 1, 50))
 			balloon_alert(user, "Need more welding fuel")
 			return TRUE
-		if(drop_material)
-			new drop_material(drop_location())
 		balloon_alert_to_viewers("\The [src] is cut apart by [user]!")
-		qdel(src)
+		deconstruct()
 		return TRUE
 
 	if(!welder.use_tool(src, user, 2 SECONDS, 1, 50))
@@ -479,6 +487,10 @@
 	if(!lying_angle && IsStun())
 		balloon_alert_to_viewers("Gets out of [origin]", ignored_mobs = src)
 		balloon_alert(src, "You struggle to get your bearings")
+
+/obj/structure/closet/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "closed"
 
 #undef CLOSET_INSERT_END
 #undef CLOSET_INSERT_FAIL

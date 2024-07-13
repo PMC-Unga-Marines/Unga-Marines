@@ -10,6 +10,8 @@
 	gib_anim = "gibbed-a-small-corpse"
 	gib_flick = "gibbed-a-small"
 
+	deevolves_to = /mob/living/carbon/xenomorph/larva
+
 	// *** Melee Attacks *** //
 	melee_damage = 16
 
@@ -17,8 +19,8 @@
 	speed = -0.9
 
 	// *** Plasma *** //
-	plasma_max = 600
-	plasma_gain = 20
+	plasma_max = 650
+	plasma_gain = 21
 
 	// *** Health *** //
 	max_health = 300
@@ -31,7 +33,7 @@
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //

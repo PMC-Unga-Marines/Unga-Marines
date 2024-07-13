@@ -101,12 +101,7 @@
 	return b_o
 
 /obj/machinery/chem_dispenser/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(INFINITY)
-		if(EXPLODE_HEAVY)
-			if (prob(50))
-				take_damage(INFINITY)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/machinery/chem_dispenser/AltClick(mob/user)
 	. = ..()
@@ -134,10 +129,6 @@
 		dispensable_reagents -= emagged_reagents
 
 /obj/machinery/chem_dispenser/ui_interact(mob/user, datum/tgui/ui)
-	if(needs_medical_training && ishuman(usr) && user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED)
-		balloon_alert(user, "You don't know how to use this")
-		return
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ChemDispenser", name)
@@ -545,3 +536,15 @@
 
 /obj/machinery/chem_dispenser/beer/nopower
 	use_power = NO_POWER_USE
+
+/obj/machinery/chem_dispenser/beer/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "booze_dispenser"
+
+/obj/machinery/chem_dispenser/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "dispenser"
+
+/obj/machinery/chem_dispenser/soda/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "soda_dispenser"

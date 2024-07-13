@@ -292,7 +292,8 @@
 	name = "Inject Gas"
 	action_icon_state = "inject_egg"
 	desc = "Inject an egg with toxins, killing the larva, but filling it full with gas ready to explode."
-	ability_cost = 100
+	ability_cost = 80
+	keybind_flags = null
 	cooldown_duration = 5 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
@@ -482,12 +483,24 @@
 	if(!target?.can_sting()) //We only care about targets that we can actually sting
 		return
 
-	var/mob/living/carbon/xenomorph/X = owner
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/mob/living/carbon/carbon_target = target
 
-	carbon_target.reagents.add_reagent(reagent_slash_reagent, DEFILER_REAGENT_SLASH_INJECT_AMOUNT)
-	playsound(carbon_target, 'sound/effects/spray3.ogg', 15, TRUE)
-	X.visible_message(carbon_target, span_danger("[carbon_target] is pricked by [X]'s spines!"))
+	if(xeno_owner.selected_reagent == /datum/reagent/toxin/acid)
+		if(HAS_TRAIT(carbon_target, TRAIT_INTOXICATION_IMMUNE))
+			carbon_target.balloon_alert(xeno_owner, "Immune to Intoxication")
+			return
+
+		playsound(carbon_target, 'sound/effects/spray3.ogg', 20, TRUE)
+		if(carbon_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
+			var/datum/status_effect/stacking/intoxicated/debuff = carbon_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
+			debuff.add_stacks(SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
+		else
+			carbon_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
+	else
+		carbon_target.reagents.add_reagent(reagent_slash_reagent, DEFILER_REAGENT_SLASH_INJECT_AMOUNT)
+		playsound(carbon_target, 'sound/effects/spray3.ogg', 15, TRUE)
+		xeno_owner.visible_message(carbon_target, span_danger("[carbon_target] is pricked by [xeno_owner]'s spines!"))
 
 	GLOB.round_statistics.defiler_reagent_slashes++ //Statistics
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_reagent_slashes")
@@ -495,7 +508,7 @@
 	reagent_slash_count-- //Decrement the reagent slash count
 
 	if(!reagent_slash_count) //Deactivate if we have no reagent slashes remaining
-		reagent_slash_deactivate(X)
+		reagent_slash_deactivate(xeno_owner)
 
 
 /datum/action/ability/xeno_action/reagent_slash/on_cooldown_finish()
@@ -619,3 +632,37 @@
 #undef DEFILER_HEMODILE
 #undef DEFILER_TRANSVITOX
 #undef DEFILER_OZELOMELYN
+
+///Called when we slash while reagent slash is active
+/datum/action/ability/xeno_action/reagent_slash/reagent_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(xeno_owner.selected_reagent == /datum/reagent/toxin/acid)
+
+		if(!target?.can_sting()) //We only care about targets that we can actually sting
+			return
+
+		var/mob/living/carbon/xeno_target = target
+
+		if(HAS_TRAIT(xeno_target, TRAIT_INTOXICATION_IMMUNE))
+			xeno_target.balloon_alert(xeno_owner, "Immune to Intoxication")
+			return
+
+		playsound(xeno_target, 'sound/effects/spray3.ogg', 20, TRUE)
+		if(xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
+			var/datum/status_effect/stacking/intoxicated/debuff = xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
+			debuff.add_stacks(SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
+		else
+			xeno_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
+
+		GLOB.round_statistics.defiler_reagent_slashes++ //Statistics
+		SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_reagent_slashes")
+
+		reagent_slash_count-- //Decrement the toxic slash count
+
+		if(!reagent_slash_count) //Deactivate if we have no reagent slashes remaining
+			reagent_slash_deactivate(xeno_owner)
+
+		return
+
+	return ..()
+

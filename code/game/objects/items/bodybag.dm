@@ -64,6 +64,7 @@
 	anchored = FALSE
 	drag_delay = 2 //slightly easier than to drag the body directly.
 	obj_flags = CAN_BE_HIT | PROJ_IGNORE_DENSITY
+	can_be_welded = FALSE
 	var/foldedbag_path = /obj/item/bodybag
 	var/obj/item/bodybag/foldedbag_instance = null
 	var/obj/structure/bed/roller/roller_buckled //the roller bed this bodybag is attached to.
@@ -231,10 +232,9 @@
 		balloon_alert(bodybag_occupant, "The explosion blows you out")
 		bodybag_occupant.ex_act(severity)
 		open()
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			visible_message(span_danger("The shockwave blows [src] apart!"))
-			qdel(src) //blown apart
+	if(severity <= EXPLODE_HEAVY)
+		visible_message(span_danger("The shockwave blows [src] apart!"))
+		qdel(src) //blown apart
 
 /obj/structure/closet/bodybag/proc/acidspray_act(datum/source, obj/effect/xenomorph/spray/acid_puddle)
 	if(!opened && bodybag_occupant)

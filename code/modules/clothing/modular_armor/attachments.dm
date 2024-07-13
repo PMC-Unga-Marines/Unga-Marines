@@ -169,6 +169,10 @@
 	. = ..()
 	parent?.update_icon()
 
+/obj/item/armor_module/armor/proc/extra_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	examine_list += span_notice("<b>Right click</b> the [parent] with <b>facepaint</b> to color [src].")
+
 ///Sends a list of available colored attachments to be colored when the parent is right clicked with paint.
 /obj/item/armor_module/armor/proc/handle_color(datum/source, mob/user, list/obj/item/secondaries)
 	SIGNAL_HANDLER

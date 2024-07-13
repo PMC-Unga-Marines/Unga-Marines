@@ -61,29 +61,13 @@
 /obj/machinery/computer/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-			return
-		if(EXPLODE_HEAVY)
-			if (prob(25))
-				qdel(src)
-				return
-			if (prob(50))
-				for(var/x in verbs)
-					verbs -= x
-				set_broken()
-		if(EXPLODE_LIGHT)
-			if (prob(25))
-				for(var/x in verbs)
-					verbs -= x
-				set_broken()
-		if(EXPLODE_WEAK)
-			if (prob(15))
-				for(var/x in verbs)
-					verbs -= x
-				set_broken()
-
+	if(severity >= EXPLODE_MEDIUM && prob(severity / 3))
+		qdel(src)
+		return
+	if(prob(severity / 3))
+		for(var/x in verbs)
+			verbs -= x
+		set_broken()
 
 /obj/machinery/computer/bullet_act(obj/projectile/Proj)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))

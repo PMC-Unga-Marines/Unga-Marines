@@ -34,6 +34,9 @@
 #define CAPE_KILT_ALT "cape_kilt_alt"
 #define SOM_BLACK "SOM_black"
 #define CAPE_HIGHLIGHT_NORMAL_ALT "normal_alt"
+#define CAPE_LONG "cape_long"
+#define CAPE_REGALY "cape_regaly"
+#define CAPE_ONELONG "cape_onelong"
 
 #define CAPE_HIGHLIGHT_NONE "cape_highlight_none"
 #define LEATHER_JACKET_WEBBING "leather_jacket_webbing"
@@ -47,49 +50,18 @@
 #define MARK_THREE_WEBBING "mark_three_webbing"
 #define MARK_ONE_WEBBING "mark_one_webbing"
 
-/* RUTGMC REDEFINITION
-///saved loadout key = icon_state, AGAIN DO NOT EDIT THE KEYS IT WILL BREAK LOADOUTS
 GLOBAL_LIST_INIT(loadout_variant_keys, list(
-	NORMAL = "normal",
-	CAPE_SCARF_ROUND = "scarf round",
-	CAPE_SCARF_TIED = "scarf tied",
-	CAPE_SCARF = "scarf",
-	CAPE_STRIPED = "striped",
-	CAPE_GEIST = "geist",
-	CAPE_GHILLE = "ghille",
-	CAPE_GHILLE_L = "ghille (left)",
-	CAPE_GHILLE_R = "ghille (right)",
-	CAPE_GHILLE_ALT = "ghille (alt)",
-	CAPE_DRIFTER = "drifter",
-	CAPE_SHORT = "short",
-	CAPE_SHORT_OLD = "short (old)",
-	CAPE_SHREDDED = "shredded",
-	CAPE_HALF = "half",
-	CAPE_FULL = "full",
-	CAPE_BACK = "back",
-	CAPE_COVER = "cover",
-	CAPE_COVER_ALT = "cover (alt)",
-	CAPE_OVERLORD = "overlord",
-	CAPE_OVERLORD_ALT = "overlord (alt 1)",
-	CAPE_OVERLORD_ALT_2 = "overlord (alt 2)",
-	CAPE_SHOAL = "shoal",
-	CAPE_SHOAL_BACK = "shoal (back)",
-	CAPE_SHOAL_ALT = "shoal (alt)",
-	CAPE_STAR = "star",
-	CAPE_RAPIER_R = "rapier (right)",
-	CAPE_RAPIER_L = "rapier (left)",
-	CAPE_JACKET = "jacket",
 	CAPE_KAMA = "kama",
 	CAPE_KILT = "kilt",
 	CAPE_KILT_ALT = "kilt (alt)",
+	CAPE_LONG = "long",
+	CAPE_REGALY = "regaly",
+	CAPE_ONELONG = "onelong",
 	CAPE_HIGHLIGHT_NONE = "none",
-	LEATHER_JACKET_WEBBING = "webbing",
-	SOM_BLACK = "black",
+	NORMAL = "normal", // just so it doesn't cause runtimes even when don't use it
 	CAPE_HIGHLIGHT_NORMAL_ALT = "normal (alt)",
 	MARK_FIVE_WEBBING = "webbing",
 	MARK_THREE_WEBBING = "webbing",
 	MARK_ONE_WEBBING = "webbing",
-	FOUR_EYE_FACEPLATE = "Four Eye",
-	FOUR_EYE_FACEPLATE_VISOR = "Four Eye",
+	SOM_BLACK = "black",
 ))
-*/

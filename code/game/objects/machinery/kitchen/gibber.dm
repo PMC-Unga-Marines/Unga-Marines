@@ -188,3 +188,7 @@
 
 /obj/machinery/gibber/nopower
 	use_power = NO_POWER_USE
+
+/obj/machinery/gibber/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "grinder"

@@ -12,19 +12,8 @@
 		icon_state = "[initial(icon_state)]_[rand(1, icon_variants)]"
 
 /obj/structure/flora/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if(prob(70))
-				qdel(src)
-		if(EXPLODE_LIGHT)
-			if(prob(50))
-				qdel(src)
-		if(EXPLODE_WEAK)
-			if(prob(10))
-				qdel(src)
-
+	if(prob(severity / 4))
+		qdel(src)
 
 /obj/structure/flora/flamer_fire_act(burnlevel)
 	take_damage(burnlevel, BURN, FIRE)
@@ -57,17 +46,8 @@
 	AddComponent(/datum/component/largetransparency)
 
 /obj/structure/flora/tree/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(rand(140, 300), BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(50, 100), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(rand(25, 50), BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 	START_PROCESSING(SSobj, src)
-
 
 /obj/structure/flora/tree/deconstruct(disassembled = TRUE)
 	density = FALSE

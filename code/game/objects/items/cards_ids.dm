@@ -126,6 +126,12 @@
 		var/mob/living/L = loc
 		L.name = L.get_visible_name()
 
+/obj/item/card/id/proc/set_user_data(mob/living/carbon/human/human_user)
+	if(!istype(human_user))
+		return
+
+	registered_name = human_user.real_name
+	blood_type = human_user.blood_type
 
 /obj/item/card/id/verb/read()
 	set name = "Read ID Card"
@@ -147,6 +153,10 @@
 	desc = "A golden card which shows power and might."
 	icon_state = "gold"
 	item_state = "gold_id"
+
+	marine_points = list(
+		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
+	)
 
 /obj/item/card/id/syndicate
 	name = "agent card"
@@ -313,6 +323,7 @@
 		CAT_LEDSUP = DEFAULT_TOTAL_BUY_POINTS,
 		CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
 		CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
+		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS, //necessary to correctly show max points
 	)
 
 /obj/item/card/id/dogtag/som

@@ -27,7 +27,7 @@
 	icon_state = "turret"
 
 	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
-	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
+	reload_sound = 'sound/weapons/guns/machineguns/HMG-08/HMG-08_jam.ogg'
 
 	default_ammo_type = /obj/item/ammo_magazine/tl102
 
@@ -58,7 +58,7 @@
 		/obj/item/ammo_magazine/tl102,
 	)
 
-	deploy_time = 5 SECONDS
+	deploy_time = 3 SECONDS
 	undeploy_time = 3 SECONDS
 	deployable_item = /obj/machinery/deployable/mounted
 
@@ -258,7 +258,7 @@
 	fire_sound = 'sound/weapons/guns/fire/Laser Rifle Standard.ogg'
 	message_to_user = "You set the heavy laser to burst fire mode."
 	fire_mode = GUN_FIREMODE_AUTOBURST
-	icon_state = GUN_ICONSTATE_LOADED
+	icon_state = "heavylaser"
 	description = "Fires a rapid pulse laser, dealing mediocre damage and shattering armor, but suffers from increased scatter and poorer falloff."
 
 /datum/lasrifle/heavy_laser/ricochet
@@ -268,7 +268,7 @@
 	fire_sound = 'sound/weapons/guns/fire/laser3.ogg'
 	message_to_user = "You set the heavy laser to ricochet mode."
 	fire_mode = GUN_FIREMODE_SEMIAUTO
-	icon_state = GUN_ICONSTATE_LOADED
+	icon_state = "heavylaser"
 	radial_icon_state = "laser_ricochet"
 	description = "Fires an experiment laser pulse capable of bouncing off many wall surfaces. The laser increases in potency when bouncing, before collapsing entirely after exceeding its threshold."
 
@@ -357,7 +357,7 @@
 	icon_state = "mg08"
 
 	fire_sound = 'sound/weapons/guns/fire/mg08.ogg'
-	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
+	reload_sound = 'sound/weapons/guns/machineguns/HMG-08/HMG-08_jam.ogg'
 	caliber = CALIBER_10X28
 
 	default_ammo_type = /obj/item/ammo_magazine/heavymachinegun
@@ -384,7 +384,7 @@
 
 	deploy_time = 8 SECONDS
 	undeploy_time = 3 SECONDS
-	deployable_item = /obj/machinery/deployable/mounted/moveable
+	deployable_item = /obj/machinery/deployable/mounted/moveable/fast
 
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
@@ -410,17 +410,22 @@
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg27.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg27_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
+	unload_sound =   'sound/weapons/guns/machineguns/MG-27/MG27_boxout.ogg'
+	reload_sound =   'sound/weapons/guns/machineguns/MG-27/MG27_boxin.ogg'
+	cocked_sound = 	 'sound/weapons/guns/machineguns/MG-27/MG27_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/machineguns/MG-27/MG27_SIL.ogg'
+	wield_sound = 	 'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/standard_mmg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_mmg)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lasersight,
+		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,

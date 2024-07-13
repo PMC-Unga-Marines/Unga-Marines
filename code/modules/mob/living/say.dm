@@ -301,7 +301,7 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	for(var/mob/M in listening)
 		if(M.client)
 			speech_bubble_recipients.Add(M.client)
-	var/image/I = image('modular_RUtgmc/icons/mob/effects/talk.dmi', src, "[bubble_type][say_test(message_raw)]", FLY_LAYER) //RUTGMC edit - icon change
+	var/image/I = image('icons/mob/effects/talk.dmi', src, "[bubble_type][say_test(message_raw)]", FLY_LAYER) //RUTGMC edit - icon change
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), I, speech_bubble_recipients, 30)
 
@@ -318,11 +318,13 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	if(istype(wear_mask, /obj/item/clothing/mask/muzzle))
 		return FALSE
 
+	if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
+		return FALSE
+
 	if(!IsVocal())
 		return FALSE
 
 	return TRUE
-
 
 /mob/living/proc/get_key(message)
 	var/prefix = message[1]

@@ -26,16 +26,17 @@
 	// *** Evolution *** //
 	evolution_threshold = 100
 	// upgrade_threshold = TIER_ONE_THRESHOLD // RUTGMC DELETION
-/* RU TGMC EDIT
+
 	evolves_to = list(
 		/mob/living/carbon/xenomorph/warrior,
 		/mob/living/carbon/xenomorph/bull,
-		/mob/living/carbon/xenomorph/puppeteer,
 	)
-RU TGMC EDIT*/
+
+	deevolves_to = /mob/living/carbon/xenomorph/larva
+
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 
 	// *** Defense *** //

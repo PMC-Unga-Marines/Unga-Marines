@@ -22,13 +22,19 @@
 	var/det_time = 4 SECONDS
 	///Does it make a danger overlay for humans? Can synths use it?
 	var/dangerous = TRUE
-	var/arm_sound = 'sound/weapons/armbomb.ogg'
+	var/arm_sound = 'sound/weapons/grenade/grenade_pinout.ogg'
 	var/hud_state = "grenade_he"
 	var/hud_state_empty = "grenade_empty"
 	///Light impact range when exploding
 	var/light_impact_range = 4
 	///Weak impact range when exploding
 	var/weak_impact_range = 0
+	var/G_hit_sound = 'sound/weapons/grenade/grenade_hit.ogg'
+	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
+	/// Power of the explosion
+	var/power = 105
+	/// Falloff of our explosion, aka distance, by the formula of power / falloff
+	var/falloff = 30
 
 
 /obj/item/explosive/grenade/Initialize(mapload)
@@ -92,7 +98,7 @@
 
 
 /obj/item/explosive/grenade/proc/prime()
-	explosion(loc, light_impact_range = src.light_impact_range, weak_impact_range = src.weak_impact_range)
+	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
 /obj/item/explosive/grenade/flamer_fire_act(burnlevel)
@@ -107,7 +113,13 @@
 
 ///Adjusts det time, used for grenade launchers
 /obj/item/explosive/grenade/proc/launched_det_time()
-	det_time = min(10, det_time)
+	det_time = min(12, det_time)
+
+/obj/item/explosive/grenade/throw_at()
+	. = ..()
+	playsound(thrower, G_throw_sound, 25, 1, 6)
+	sleep(0.3 SECONDS)
+	playsound(loc, G_hit_sound, 20, 1, 9)
 
 ////RAD GRENADE - TOTALLY RAD MAN
 

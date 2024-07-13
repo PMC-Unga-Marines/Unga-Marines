@@ -9,7 +9,7 @@
 	wound_type = "behemoth"
 
 	// *** Melee Attacks *** //
-	melee_damage = 23
+	melee_damage = 26
 
 	// *** Speed *** //
 	speed = -0.5
@@ -20,7 +20,7 @@
 	plasma_gain = 20
 
 	// *** Health *** //
-	max_health = 650
+	max_health = 750
 
 	// *** Evolution *** //
 	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
@@ -44,10 +44,9 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/xeno_action/ready_charge/behemoth_roll,
 		/datum/action/ability/activable/xeno/landslide,
 		/datum/action/ability/activable/xeno/earth_riser,
-//		/datum/action/ability/xeno_action/seismic_fracture,
+		/datum/action/ability/activable/xeno/seismic_fracture,
 	)
 
 /datum/xeno_caste/behemoth/normal
@@ -59,16 +58,15 @@
 	upgrade = XENO_UPGRADE_PRIMO
 
 	// *** Wrath *** //
-	wrath_max = 650
+	wrath_max = 750
 
 	// *** Abilities *** ///
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/xeno_action/ready_charge/behemoth_roll,
 		/datum/action/ability/activable/xeno/landslide,
 		/datum/action/ability/activable/xeno/earth_riser,
-//		/datum/action/ability/xeno_action/seismic_fracture,
+		/datum/action/ability/activable/xeno/seismic_fracture,
 		/datum/action/ability/xeno_action/primal_wrath,
 	)

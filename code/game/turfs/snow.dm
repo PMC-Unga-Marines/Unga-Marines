@@ -140,23 +140,11 @@
 					overlays += I
 
 
-/* RUTGMC DELETION
-//Explosion act
 /turf/open/floor/plating/ground/snow/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			if(slayer)
-				slayer = 0
-		if(EXPLODE_HEAVY)
-			if(slayer && prob(60))
-				slayer = max(slayer - 2, 0)
-		if(EXPLODE_LIGHT)
-			if(slayer && prob(20))
-				slayer = max(slayer - 1, 0)
-
+	if(slayer && prob(severity / 5))
+		slayer = rand(0, 3)
 	update_icon(TRUE, FALSE)
 	return ..()
-*/
 
 //Fire act; fire now melts snow as it should; fire beats ice
 /turf/open/floor/plating/ground/snow/flamer_fire_act(burnlevel)
@@ -182,6 +170,32 @@
 	slayer = max(0, slayer - 1) //Melt a layer
 	update_icon(TRUE, FALSE)
 
+/turf/open/floor/plating/ground/snow/attack_hand(mob/living/carbon/human/user)
+	. = ..()
+	if(!istype(user)) //Nonhumans don't have the balls to fight in the snow
+		return
+	if(src.slayer == 0)
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/obj/item/snowball/SB = new(get_turf(user))
+	user.put_in_hands(SB)
+	if(src.slayer > 0)
+		if(prob(50))
+			src.slayer -= 1
+			update_icon(TRUE, FALSE)
+	user.balloon_alert(user, "You scoop up some snow and make a snowball!")
+
+//SNOW BALL
+/obj/item/snowball
+	name = "snowball"
+	desc = "Get ready for a snowball fight!"
+	icon = 'icons/obj/items/toy.dmi'
+	icon_state = "snowball"
+
+/obj/item/snowball/throw_impact(atom/target, speed = 1)
+	new /obj/item/stack/snow(loc, 1)
+	playsound(target, 'sound/weapons/tap.ogg', 20, TRUE)
+	qdel(src)
 
 //SNOW LAYERS-----------------------------------//
 /turf/open/floor/plating/ground/snow/layer0

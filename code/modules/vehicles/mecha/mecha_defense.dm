@@ -85,15 +85,7 @@
 		contents_explosion(severity)
 	if(QDELETED(src))
 		return
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(rand(1200, 1800), BRUTE, BOMB, 0)
-		if(EXPLODE_HEAVY)
-			take_damage(rand(400, 600), BRUTE, BOMB, 0)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(150, 300), BRUTE, BOMB, 0)
-		if(EXPLODE_WEAK)
-			take_damage(rand(50, 100), BRUTE, BOMB, 0)
+	take_damage(severity * rand(1, 2), BRUTE, BOMB, 0)
 
 /* RUTGMC DELETION, moved to modular
 /obj/vehicle/sealed/mecha/contents_explosion(severity)

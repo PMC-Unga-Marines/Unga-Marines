@@ -26,23 +26,14 @@
 	. = ..()
 	update_icon()
 
-/* RUTGMC DELETION
 /turf/open/floor/ex_act(severity)
 	if(hull_floor)
 		return ..()
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			make_plating()
-		if(EXPLODE_HEAVY)
-			if(prob(80))
-				make_plating()
-			else
-				break_tile()
-		if(EXPLODE_LIGHT)
-			if(prob(50))
-				break_tile()
+	if(prob(severity / 2))
+		make_plating()
+	else if(severity >= EXPLODE_WEAK)
+		break_tile()
 	return ..()
-*/
 
 /turf/open/floor/fire_act(exposed_temperature, exposed_volume)
 	if(hull_floor)
