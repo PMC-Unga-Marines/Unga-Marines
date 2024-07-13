@@ -50,6 +50,8 @@
 #define COOLDOWN_RAVAGER_FLAMER_ACT "cooldown_ravager_flamer_act"
 #define COOLDOWN_DROPPOD_TARGETTING "cooldown_droppod_targetting"
 #define COOLDOWN_TRY_TTS "cooldown_try_tts"
+#define COOLDOWN_EVACUATION "evacuation"
+#define COOLDOWN_SENTIENT_HUGGER "sentient_hugger"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"
