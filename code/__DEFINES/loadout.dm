@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/neuraline = list(CAT_MEDSUP, "Injector (Neuraline)", 14, "cyan"),
 	/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "yellow"),
 	/obj/item/advanced_defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 4, "yellow"),
-		/obj/item/advanced_defibrillator = list(CAT_SYNTH, "advanced emergency defibrillator", 4, "yellow"),
+	/obj/item/advanced_defibrillator = list(CAT_FCSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
 ))
@@ -265,7 +265,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/storage/box/crate/minisentry = list(CAT_FCSUP, "ST-580 point defense sentry kit", 15, "yellow"),
 	/obj/item/healthanalyzer/gloves = list(CAT_FCSUP, "Health scanner gloves", 2, "yellow"),
 	/obj/item/advanced_defibrillator/gloves = list(CAT_FCSUP, "Advanced medical gloves", 4, "yellow"),
-		/obj/item/advanced_defibrillator = list(CAT_SYNTH, "advanced emergency defibrillator", 4, "yellow"),
+	/obj/item/advanced_defibrillator = list(CAT_FCSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/storage/pouch/medical_injectors/medic = list(CAT_FCSUP, "Advanced Injector Pouch", 16, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon = list(CAT_FCSUP, "Injector (Peridaxon Plus)", 4, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = list(CAT_FCSUP, "Injector (Dexalin Plus)", 1, "cyan"),
