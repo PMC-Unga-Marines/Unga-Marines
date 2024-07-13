@@ -18,5 +18,3 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\warlock\castedatum_warlock.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\warrior\abilities_warrior.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\warrior\castedatum_warrior.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
