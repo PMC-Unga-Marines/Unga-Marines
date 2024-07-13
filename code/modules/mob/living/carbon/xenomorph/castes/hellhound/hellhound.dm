@@ -100,3 +100,6 @@
 	GLOB.hellhound_list -= src
 	GLOB.alive_xeno_list -= src
 	return ..()
+
+/datum/action/ability/activable/xeno/pounce/hellhound
+	cooldown_duration = 5 SECONDS
