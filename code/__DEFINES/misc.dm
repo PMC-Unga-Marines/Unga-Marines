@@ -144,3 +144,10 @@ GLOBAL_VAR_INIT(global_unique_id, 1)
 
 // shorter way to write as anything
 #define AS as anything
+
+// What kind of function to use for Explosions falling off.
+#define EXPLOSION_FALLOFF_SHAPE_LINEAR 1
+#define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL 2
+#define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF 3
+
+#define EXPLOSION_MAX_POWER 5000
