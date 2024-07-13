@@ -1,5 +1,4 @@
 #include "code\modules\mob\living\carbon\xenomorph\charge_crush.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\queen\castedatum_queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\queen\queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\ravager\ravager.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\runner\runner.dm"
