@@ -22,12 +22,7 @@
 
 	//DESTROYING SECOND
 	if(obj_integrity <= 0)
-		if(damage_flag == BOMB)
-			on_explosion_destruction(damage_amount, attack_dir)
 		obj_destruction(damage_amount, damage_type, damage_flag)
-
-/obj/proc/on_explosion_destruction(severity, direction)
-	return
 
 ///Increase obj_integrity and record it to the repairer's stats
 /obj/proc/repair_damage(repair_amount, mob/user)
@@ -54,13 +49,23 @@
 			playsound(loc, 'sound/items/welder.ogg', 50, 1)
 
 
-/obj/ex_act(severity, direction)
+/* RUTGMC DELETION
+/obj/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
 	. = ..() //contents explosion
 	if(QDELETED(src))
 		return
-	take_damage(severity, BRUTE, BOMB, FALSE, direction)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			take_damage(INFINITY, BRUTE, BOMB, 0)
+		if(EXPLODE_HEAVY)
+			take_damage(rand(100, 250), BRUTE, BOMB, 0)
+		if(EXPLODE_LIGHT)
+			take_damage(rand(10, 90), BRUTE, BOMB, 0)
+		if(EXPLODE_WEAK)
+			take_damage(rand(5, 45), BRUTE, BOMB, 0)
+*/
 
 
 /obj/hitby(atom/movable/AM, speed = 5)

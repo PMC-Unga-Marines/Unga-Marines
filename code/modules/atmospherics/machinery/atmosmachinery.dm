@@ -24,7 +24,6 @@
 	var/pipe_color
 	var/piping_layer = PIPING_LAYER_DEFAULT
 	var/pipe_flags = NONE
-	var/covered_by_shuttle = FALSE
 
 	var/global/list/iconsetids = list()
 	var/global/list/pipeimages = list()
@@ -40,13 +39,6 @@
 
 	///Whether we get pipenet vision while inside or just see normally.
 	var/can_see_pipes = TRUE
-
-/obj/machinery/atmospherics/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
-
-/obj/machinery/atmospherics/proc/shuttle_crush()
-	covered_by_shuttle = TRUE
 
 /obj/machinery/atmospherics/examine(mob/user)
 	. = ..()
@@ -257,58 +249,65 @@
 
 
 /obj/machinery/atmospherics/proc/climb_out(mob/living/user, turf/T)
-	if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTCRAWL))
-		return FALSE
-	var/vent_crawl_exit_time = 2 SECONDS
-	TIMER_COOLDOWN_START(user, COOLDOWN_VENTCRAWL, vent_crawl_exit_time)
-
-	if(T.density || covered_by_shuttle)
+	if(T.density)
 		to_chat(user, span_notice("You cannot climb out, the exit is blocked!"))
 		return
-
+	if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTCRAWL))
+		return FALSE
 	var/silent_crawl = FALSE
+	var/vent_crawl_exit_time = 2 SECONDS
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/X = user
 		silent_crawl = X.xeno_caste.silent_vent_crawl
 		vent_crawl_exit_time = X.xeno_caste.vent_exit_speed
+	TIMER_COOLDOWN_START(user, COOLDOWN_VENTCRAWL, vent_crawl_exit_time)
 	if(!silent_crawl) //Xenos with silent crawl can silently enter/exit/move through vents.
 		visible_message(span_warning("You hear something squeezing through the ducts."))
-	to_chat(user, span_notice("You begin to climb out of the ventilation system."))
-	if(!do_after(user, vent_crawl_exit_time, IGNORE_HELD_ITEM, user.loc))
+	to_chat(user, span_notice("You begin to climb out of [src]"))
+	if(!do_after(user, vent_crawl_exit_time, IGNORE_HELD_ITEM, src))
 		return FALSE
 	user.remove_ventcrawl()
 	user.forceMove(T)
-	user.visible_message(span_warning("[user] climbs out of the ventilation ducts."), \
-	span_notice("You climb out of the ventilation ducts."))
+	user.visible_message(span_warning("[user] climbs out of [src].</span>"), \
+	span_notice("You climb out of [src].</span>"))
 	if(!silent_crawl)
 		playsound(src, get_sfx("alien_ventpass"), 35, TRUE)
 
+
+/* RUTGMC DELETION
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
 	direction &= initialize_directions
-	if(!direction || !(direction in GLOB.cardinals))
-		if(is_type_in_typecache(src, GLOB.ventcrawl_machinery) && can_crawl_through()) // If we try to move somewhere besides existing pipes while in the vent, we try to leave
-			climb_out(user, loc)
+	if(!direction || !(direction in GLOB.cardinals)) //cant go this way.
 		return
 
 	var/obj/machinery/atmospherics/target_move = findConnecting(direction, user.ventcrawl_layer)
-	if(!target_move)
-		if(direction & initialize_directions)
-			climb_out(user, loc)
-		return
+	if(target_move)
+		if(target_move.can_crawl_through())
+			if(is_type_in_typecache(target_move, GLOB.ventcrawl_machinery))
+				climb_out(user, target_move.loc)
+			else
 
-	user.forceMove(target_move)
-	user.update_pipe_vision()
-	user.client.eye = target_move  //Byond only updates the eye every tick, This smooths out the movement
+				// Check for impassable types
+				var/obj/effect/forcefield/fog/impassable = locate() in get_turf(target_move)
+				if(impassable)
+					return
 
-	var/silent_crawl = FALSE //Some creatures can move through the vents silently
-	if(isxeno(user))
-		var/mob/living/carbon/xenomorph/our_xenomorph = user
-		silent_crawl = our_xenomorph.xeno_caste.silent_vent_crawl
-	if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTSOUND) || silent_crawl)
-		return
-	TIMER_COOLDOWN_START(user, COOLDOWN_VENTSOUND, 3 SECONDS)
-	playsound(src, pick('sound/effects/alien_ventcrawl1.ogg','sound/effects/alien_ventcrawl2.ogg'), 50, TRUE, -3)
+				user.forceMove(target_move)
+				user.update_pipe_vision()
+				user.client.eye = target_move  //Byond only updates the eye every tick, This smooths out the movement
+				var/silent_crawl = FALSE //Some creatures can move through the vents silently
+				if(isxeno(user))
+					var/mob/living/carbon/xenomorph/X = user
+					silent_crawl = X.xeno_caste.silent_vent_crawl
+				if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTSOUND) || silent_crawl)
+					return
+				TIMER_COOLDOWN_START(user, COOLDOWN_VENTSOUND, 3 SECONDS)
+				playsound(src, pick('sound/effects/alien_ventcrawl1.ogg','sound/effects/alien_ventcrawl2.ogg'), 50, TRUE, -3)
+	else if((direction & initialize_directions) || is_type_in_typecache(src, GLOB.ventcrawl_machinery) && can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
+		climb_out(user, src.loc)
 
+	//PLACEHOLDER COMMENT FOR ME TO READD THE 1 (?) DS DELAY THAT WAS IMPLEMENTED WITH A... TIMER?
+*/
 
 
 /obj/machinery/atmospherics/proc/can_crawl_through()

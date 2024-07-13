@@ -75,28 +75,36 @@
 
 
 /turf/closed/wall/resin/ex_act(severity)
-	take_damage(severity * RESIN_EXPLOSIVE_MULTIPLIER, BRUTE, BOMB)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			take_damage(600, BRUTE, BOMB) // Heavy and devastate instakill walls.
+		if(EXPLODE_HEAVY)
+			take_damage(rand(400), BRUTE, BOMB)
+		if(EXPLODE_LIGHT)
+			take_damage(rand(75, 100), BRUTE, BOMB)
+		if(EXPLODE_WEAK)
+			take_damage(rand(30, 50), BRUTE, BOMB)
 
+/* RUTGMC DELETION
 /turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return
-	if(X.a_intent != INTENT_DISARM)
-		return
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
-		SSresinshaping.decrement_build_counter(X)
-		take_damage(max_integrity)
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
+		SSresinshaping.quickbuild_points_by_hive[X.hivenumber]++
+		take_damage(max_integrity) // Ensure its destroyed
 		return
 	X.visible_message(span_xenonotice("\The [X] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
 	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_GENERIC))
 		return
-	if(!istype(src))
+	if(!istype(src)) // Prevent jumping to other turfs if do_after completes with the wall already gone
 		return
 	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	X.visible_message(span_xenonotice("\The [X] tears down \the [src]!"), \
 	span_xenonotice("We tear down \the [src]."))
 	playsound(src, "alien_resin_break", 25)
-	take_damage(max_integrity)
+	take_damage(max_integrity) // Ensure its destroyed
+*/
 
 /turf/closed/wall/resin/attack_hand(mob/living/user)
 	to_chat(user, span_warning("You scrape ineffectively at \the [src]."))

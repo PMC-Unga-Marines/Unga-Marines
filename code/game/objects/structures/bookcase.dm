@@ -48,13 +48,23 @@
 			update_icon()
 
 /obj/structure/bookcase/ex_act(severity)
-	if(prob(severity / 3))
-		for(var/obj/item/book/our_book in contents)
-			if(prob(severity / 2))
-				qdel(our_book)
-			else
-				our_book.forceMove(get_turf(src))
-		qdel(src)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			for(var/obj/item/book/b in contents)
+				qdel(b)
+			qdel(src)
+		if(EXPLODE_HEAVY)
+			for(var/obj/item/book/b in contents)
+				if(prob(50))
+					b.forceMove(get_turf(src))
+				else
+					qdel(b)
+			qdel(src)
+		if(EXPLODE_LIGHT)
+			if (prob(50))
+				for(var/obj/item/book/b in contents)
+					b.forceMove(get_turf(src))
+				qdel(src)
 
 
 /obj/structure/bookcase/update_icon()

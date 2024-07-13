@@ -159,12 +159,20 @@
 	flash_act()
 	if(stat == DEAD)
 		return
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			adjustBruteLoss(100)
+			adjustFireLoss(100)
+			if(!anchored)
+				gib()
+		if(EXPLODE_HEAVY)
+			adjustBruteLoss(60)
+			adjustFireLoss(60)
+		if(EXPLODE_LIGHT)
+			adjustBruteLoss(30)
+		if(EXPLODE_WEAK)
+			adjustBruteLoss(15)
 
-	if(severity >= EXPLODE_HEAVY && !anchored)
-		gib()
-		return
-
-	adjustBruteLoss(severity)
 	UPDATEHEALTH(src)
 
 

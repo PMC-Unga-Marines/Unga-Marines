@@ -388,7 +388,3 @@
 
 /obj/machinery/reagentgrinder/nopower/valhalla
 	resistance_flags = INDESTRUCTIBLE
-
-/obj/machinery/reagentgrinder/yautja
-	icon = 'icons/obj/machines/yautja_machines.dmi'
-	icon_state = "grinder"

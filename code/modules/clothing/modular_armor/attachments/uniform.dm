@@ -124,10 +124,6 @@
 	icon_state = "holster"
 	storage = /obj/item/storage/internal/holster
 
-/obj/item/armor_module/storage/uniform/holster/Initialize(mapload, ...)
-	. = ..()
-	AddComponent(/datum/component/tac_reload_storage)
-
 /obj/item/armor_module/storage/uniform/holster/freelancer/Initialize(mapload)
 	. = ..()
 	new /obj/item/ammo_magazine/pistol/g22(storage)

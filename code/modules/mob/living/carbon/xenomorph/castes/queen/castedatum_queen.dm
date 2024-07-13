@@ -21,9 +21,7 @@
 	plasma_gain = 70
 
 	// *** Health *** //
-	max_health = 600
-
-	sunder_recover = 1.5
+	max_health = 500
 
 	// *** Evolution *** //
 	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
@@ -38,7 +36,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 65, BOMB = 80, BIO = 60, FIRE = 60, ACID = 60)
+	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 65, BOMB = 30, BIO = 60, FIRE = 60, ACID = 60)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1.1 SECONDS
@@ -63,12 +61,9 @@
 		/datum/action/ability/xeno_action/lay_egg,
 		/datum/action/ability/xeno_action/call_of_the_burrowed,
 		/datum/action/ability/activable/xeno/screech,
-		/datum/action/ability/activable/xeno/plasma_screech,
-		/datum/action/ability/activable/xeno/frenzy_screech,
 		/datum/action/ability/xeno_action/bulwark,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure/queen_give_heal,
 		/datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn,
 		/datum/action/ability/xeno_action/pheromones,
@@ -80,10 +75,10 @@
 		/datum/action/ability/xeno_action/set_xeno_lead,
 		/datum/action/ability/activable/xeno/queen_give_plasma,
 		/datum/action/ability/xeno_action/hive_message,
-		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/activable/xeno/command_minions,
 	)
+
 
 /datum/xeno_caste/queen/young
 	upgrade = XENO_UPGRADE_NORMAL
@@ -105,12 +100,9 @@
 		/datum/action/ability/xeno_action/lay_egg,
 		/datum/action/ability/xeno_action/call_of_the_burrowed,
 		/datum/action/ability/activable/xeno/screech,
-		/datum/action/ability/activable/xeno/plasma_screech,
-		/datum/action/ability/activable/xeno/frenzy_screech,
 		/datum/action/ability/xeno_action/bulwark,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure/queen_give_heal,
 		/datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn,
 		/datum/action/ability/xeno_action/pheromones,
@@ -123,7 +115,6 @@
 		/datum/action/ability/activable/xeno/queen_give_plasma,
 		/datum/action/ability/xeno_action/sow,
 		/datum/action/ability/xeno_action/hive_message,
-		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/activable/xeno/command_minions,
 		/datum/action/ability/xeno_action/ready_charge/queen_charge,

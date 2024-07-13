@@ -45,9 +45,6 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	var/obj/machinery/cloning/vats/linked_machine
 	var/obj/item/radio/headset/mainship/mcom/radio //God forgive me
 
-/obj/machinery/computer/cloning_console/vats/attack_ai(mob/living/user)
-	return attack_hand(user)
-
 /obj/machinery/computer/cloning_console/vats/Initialize(mapload)
 	. = ..()
 	radio = new(src)
@@ -118,14 +115,6 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	beaker = new /obj/item/reagent_containers/glass/beaker/biomass
 	update_icon()
 
-/obj/machinery/cloning/vats/attack_ghost(mob/dead/observer/user)
-	. = ..()
-	if(!occupant)
-		return FALSE
-	if(tgui_alert(user, "Do you want to become a clone?", "Become a clone", list("Yes", "No")) != "Yes")
-		return FALSE
-	occupant.take_over(user)
-	return TRUE
 
 /obj/machinery/cloning/vats/Destroy()
 	if(timerid)

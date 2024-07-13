@@ -9,9 +9,6 @@
 	Unboxers must be refilled with refill kits and clicked with an empty hand to be turned on but all other machines just need to be anchored to work.
 	Machines will always output in the direction they are facing and input from the opposite direction.<br>
 	<br>
-	While pizza factories can be used to increase the supply of marines' personal cargo points, keep in mind that this will only work with pizza and nothing else.
-	Also remember that if marines don't get their goods in time before Normandy leaves, they might just lynch you.<br>
-	<br>
 	RECIPES:<br>
 	WP GRENADE:<br>
 	UNBOXER -> CUTTER -> HEATER -> FORMER<br>
@@ -74,4 +71,3 @@
 	UNBOXER -> CUTTER -> HEATER -> ATOMIC RECONSTRUCTOR-> FORMER<br>
 	<br>
 	"}
-

@@ -4,7 +4,7 @@
 	desc = "An Alien Drone"
 	icon = 'icons/Xeno/castes/drone.dmi'
 	icon_state = "Drone Walking"
-	bubble_icon = "alien"
+	bubble_icon = "alienleft"
 	health = 120
 	maxHealth = 120
 	plasma_stored = 350

@@ -19,8 +19,8 @@
 
 	// *** Plasma *** //
 	plasma_max = 400
-	plasma_gain = 5
-	plasma_regen_limit = 0.1
+	plasma_gain = 0
+	plasma_regen_limit = 0
 	plasma_icon_state = "fury"
 
 	// *** Health *** //
@@ -33,7 +33,7 @@
 
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER
 	caste_traits = null
 
 	// *** Defense *** //
@@ -44,8 +44,8 @@
 
 	// *** Gorger Abilities *** //
 	overheal_max = 275
-	drain_plasma_gain = 75
-	carnage_plasma_gain = 150
+	drain_plasma_gain = 40
+	carnage_plasma_gain = 40
 	feast_plasma_drain = 20
 
 	actions = list(

@@ -341,10 +341,14 @@
 	playsound(src.loc, 'sound/weapons/ring.ogg', 200, FALSE)
 	boom = TRUE
 	if(det_mode == TRUE) //If we're on demolition mode, big boom.
-		cell_explosion(plant_target, 315, 55)
+		explosion(plant_target, 3, 5, 6, 0, 6)
 	else //if we're not, focused boom.
-		cell_explosion(plant_target, 450, 200, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL)
-	plant_target.plastique_act()
+		explosion(plant_target, 2, 2, 3, 0, 3, throw_range = FALSE)
+	if(plant_target)
+		if(isobj(plant_target))
+			plant_target = null
+			if(!istype(plant_target,/obj/vehicle/multitile/root/cm_armored))
+				qdel(plant_target)
 	qdel(src)
 
 

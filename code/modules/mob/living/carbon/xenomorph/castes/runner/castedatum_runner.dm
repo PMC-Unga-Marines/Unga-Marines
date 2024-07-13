@@ -11,8 +11,6 @@
 	gib_anim = "gibbed-a-corpse-runner"
 	gib_flick = "gibbed-a-runner"
 
-	deevolves_to = /mob/living/carbon/xenomorph/larva
-
 	// *** Melee Attacks *** //
 	melee_damage = 21
 	attack_delay = 6
@@ -30,12 +28,13 @@
 	// *** Evolution *** //
 	evolution_threshold = 100
 	//upgrade_threshold = TIER_ONE_THRESHOLD // RUTGMC DELETION
-
+/* RU TGMC EDIT
 	evolves_to = list(
 		/mob/living/carbon/xenomorph/hunter,
 		/mob/living/carbon/xenomorph/bull,
-		/mob/living/carbon/xenomorph/panther,
+		/mob/living/carbon/xenomorph/wraith,
 	)
+RU TGMC EDIT */
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER

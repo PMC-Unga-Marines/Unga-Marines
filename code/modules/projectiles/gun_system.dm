@@ -112,8 +112,6 @@
 	var/empty_sound = 'sound/weapons/guns/misc/empty_alarm.ogg'
 	///Sound played for reloading.
 	var/reload_sound = null
-	///Silenced sound
-	var/silenced_sound
 	///Sound for reloading by handfuls
 	var/hand_reload_sound
 
@@ -271,8 +269,6 @@
 	var/wield_penalty = 0.2 SECONDS
 	///Storing value for above
 	var/wield_time = 0
-
-	var/wield_sound
 
 
 	///how much energy is consumed per shot.
@@ -647,6 +643,7 @@
 		return
 	to_chat(user, "[dat.Join(" ")]")
 
+/* MOVED TO MODULE
 /obj/item/weapon/gun/wield(mob/user)
 	if(CHECK_BITFIELD(flags_gun_features, GUN_DEPLOYED_FIRE_ONLY))
 		to_chat(user, span_notice("[src] cannot be fired by hand and must be deployed."))
@@ -670,11 +667,10 @@
 		else
 			wdelay += wield_penalty
 	wield_time = world.time + wdelay
-	playsound(loc, wield_sound, 20, 1)
 	do_wield(user, wdelay)
 	if(HAS_TRAIT(src, TRAIT_GUN_AUTO_AIM_MODE))
 		toggle_aim_mode(user)
-
+*/
 
 /obj/item/weapon/gun/unwield(mob/user)
 	. = ..()

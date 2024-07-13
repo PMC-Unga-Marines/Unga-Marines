@@ -158,8 +158,6 @@
 #define TRAIT_HEAVY_STEP "heavy_step"
 ///indicates this mob was spawned by a corpse spawner
 #define TRAIT_MAPSPAWNED "mapspawned"
-///banish
-#define TRAIT_BANISHED "banished"
 
 /// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
 #define TRAIT_HANDS_BLOCKED "handsblocked"
@@ -240,10 +238,3 @@
 
 //added to AIs firing railguns
 #define TRAIT_IS_FIRING_RAILGUN "firing_railgun"
-
-/// Knowledge of Yautja technology
-#define TRAIT_YAUTJA_TECH "t_yautja_tech"
-/// Absolutely RIPPED. Can do misc. heavyweight stuff others can't. (Yautja, Synths)
-#define TRAIT_SUPER_STRONG "t_super_strong"
-/// Foreign biology. Basic medHUDs won't show the mob. (Yautja, Zombies)
-#define TRAIT_FOREIGN_BIO "t_foreign_bio"

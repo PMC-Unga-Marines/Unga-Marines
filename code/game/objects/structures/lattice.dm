@@ -34,8 +34,10 @@
 	return ..()
 
 /obj/structure/lattice/ex_act(severity)
-	if(severity >= EXPLODE_HEAVY)
-		qdel(src)
+	switch(severity)
+		if(EXPLODE_DEVASTATE, EXPLODE_HEAVY)
+			qdel(src)
+
 
 /obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
 

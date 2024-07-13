@@ -154,7 +154,6 @@
 		target_human.Immobilize(GORGER_DRAIN_DELAY)
 		if(!do_after(owner_xeno, GORGER_DRAIN_DELAY, IGNORE_HELD_ITEM, target_human))
 			break
-		target_human.blood_volume = max(target_human.blood_volume - 15, 0)
 		DO_DRAIN_ACTION(owner_xeno, target_human)
 
 	REMOVE_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
@@ -184,7 +183,8 @@
 	///Used to keep track of the target's previous health for extra_health_check()
 	var/target_health
 
-/datum/action/ability/activable/xeno/transfusion/can_use_ability(atom/target, silent = FALSE, override_flags) //it is set up to only return true on specific xeno or human targets
+//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\gorger\abilities_gorger.dm
+/*/datum/action/ability/activable/xeno/transfusion/can_use_ability(atom/target, silent = FALSE, override_flags) //it is set up to only return true on specific xeno or human targets
 	. = ..()
 	if(!.)
 		return
@@ -198,7 +198,7 @@
 
 	if(owner.do_actions)
 		return FALSE
-	if(!line_of_sight(owner, target_xeno, 3) || get_dist(owner, target_xeno) > 3)
+	if(!line_of_sight(owner, target_xeno, 2) || get_dist(owner, target_xeno) > 2)
 		if(!silent)
 			to_chat(owner, span_notice("It is beyond our reach, we must be close and our way must be clear."))
 		return FALSE
@@ -207,9 +207,10 @@
 			to_chat(owner, span_notice("We can only help living sisters."))
 		return FALSE
 	target_health = target_xeno.health
-	if(!do_after(owner, 1 SECONDS, IGNORE_LOC_CHANGE, target_xeno, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(extra_health_check), target_xeno)))
+	if(!do_after(owner, 1 SECONDS, IGNORE_TARGET_LOC_CHANGE, target_xeno, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(extra_health_check), target_xeno)))
 		return FALSE
-	return TRUE
+	return TRUE */
+//RUTGMC EDIT END
 
 ///An extra check for the do_mob in can_use_ability. If the target isn't immobile and has lost health, the ability is cancelled. The ability is also cancelled if the target is knocked into crit DURING the do_mob.
 /datum/action/ability/activable/xeno/transfusion/proc/extra_health_check(mob/living/target)
@@ -288,8 +289,8 @@
 /datum/action/ability/activable/xeno/psychic_link
 	name = "Psychic Link"
 	action_icon_state = "psychic_link"
-	desc = "Link to a xenomorph and take some damage in their place."
-	cooldown_duration = 15 SECONDS
+	desc = "Link to a xenomorph and take some damage in their place. Unrest to cancel."
+	cooldown_duration = 50 SECONDS
 	ability_cost = 0
 	target_flags = ABILITY_MOB_TARGET
 	keybinding_signals = list(
@@ -344,10 +345,6 @@
 	link_cleanup()
 	if(HAS_TRAIT(owner, TRAIT_PSY_LINKED) || HAS_TRAIT(target, TRAIT_PSY_LINKED))
 		return fail_activate()
-	if(HAS_TRAIT(owner, TRAIT_PSY_LINKED))
-		to_chat(owner, span_notice("Cancelled link to [target]."))
-		cancel_psychic_link()
-		return
 
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	var/psychic_link = owner_xeno.apply_status_effect(STATUS_EFFECT_XENO_PSYCHIC_LINK, -1, target, GORGER_PSYCHIC_LINK_RANGE, GORGER_PSYCHIC_LINK_REDIRECT, owner_xeno.maxHealth * GORGER_PSYCHIC_LINK_MIN_HEALTH, TRUE)
@@ -423,7 +420,7 @@
 	name = "Feast"
 	action_icon_state = "feast"
 	desc = "Enter a state of rejuvenation. During this time you use a small amount of blood and heal. You can cancel this early."
-	cooldown_duration = 30 SECONDS
+	cooldown_duration = 180 SECONDS
 	ability_cost = 0
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FEAST,

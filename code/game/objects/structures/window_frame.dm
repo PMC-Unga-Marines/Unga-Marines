@@ -124,7 +124,7 @@
 	window_type = /obj/structure/window/framed/mainship/white
 
 /obj/structure/window_frame/mainship/gray
-	icon = 'icons/obj/smooth_objects/ship_gray_window_frame.dmi'
+	icon = 'icons/obj/smooth_objects/gray_window_frame.dmi'
 	icon_state = "gray_window_frame-0"
 	basestate = "gray_window_frame"
 	base_icon_state = "gray_window_frame"

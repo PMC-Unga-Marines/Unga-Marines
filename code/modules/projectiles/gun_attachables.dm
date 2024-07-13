@@ -344,19 +344,18 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 
 /obj/item/attachable/suppressor
 	name = "suppressor"
-	desc = "A small tube with exhaust ports to expel noise and gas.\nDoes not completely silence a weapon, but does make it much quieter and a little more accurate and stable."
+	desc = "A small tube with exhaust ports to expel noise and gas.\nDoes not completely silence a weapon, but does make it much quieter and a little more accurate and stable at the cost of bullet speed."
 	icon_state = "suppressor"
 	slot = ATTACHMENT_SLOT_MUZZLE
 	silence_mod = TRUE
 	pixel_shift_y = 16
-	attach_shell_speed_mod = 0.5
-	accuracy_mod = 0
-	recoil_mod = 0
+	attach_shell_speed_mod = -1
+	accuracy_mod = 0.1
+	recoil_mod = -2
 	scatter_mod = -2
-	size_mod = 1
-	recoil_unwielded_mod = 0
-	scatter_unwielded_mod = 0
-	damage_falloff_mod = 0
+	recoil_unwielded_mod = -3
+	scatter_unwielded_mod = -2
+	damage_falloff_mod = 0.1
 
 /obj/item/attachable/suppressor/unremovable
 	flags_attach_features = NONE
@@ -406,7 +405,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 /obj/item/attachable/bayonetknife
 	name = "M-22 bayonet"
 	desc = "A sharp knife that is the standard issue combat knife of the TerraGov Marine Corps can be attached to a variety of weapons at will or used as a standard knife."
-	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "bayonetknife"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
@@ -433,12 +431,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 /obj/item/attachable/bayonetknife/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/scalping)
-	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 12 SECONDS, 10)
-
-/obj/item/attachable/melee_attack_chain(mob/user, atom/target, params, rightclick)
-	if(target == user && !user.do_self_harm)
-		return
-	return ..()
 
 /obj/item/attachable/bayonetknife/som
 	name = "\improper S20 SOM bayonet"
@@ -578,40 +570,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
 	flags_attach_features = NONE
-
-/obj/item/attachable/t500barrel
-	name = "R-500 extended barrel"
-	desc = "Cool barrel for cool revolver"
-	slot = ATTACHMENT_SLOT_MUZZLE
-	delay_mod = -0.4 SECONDS
-	icon = 'icons/Marine/attachments_64.dmi'
-	icon_state = "barrel"
-	attach_shell_speed_mod = 1
-	accuracy_mod = 0.15
-	accuracy_unwielded_mod = 0.1
-	scatter_mod = -3
-	scatter_unwielded_mod = 3
-	recoil_unwielded_mod = 1
-	size_mod = 1
-	pixel_shift_x = 0
-	pixel_shift_y = 0
-
-/obj/item/attachable/t500barrelshort
-	name = "R-500 compensator"
-	desc = "Cool compensator for cool revolver"
-	slot = ATTACHMENT_SLOT_MUZZLE
-	delay_mod = -0.2 SECONDS
-	icon = 'icons/Marine/attachments_64.dmi'
-	icon_state = "shortbarrel"
-	scatter_mod = -2
-	recoil_mod = -0.5
-	scatter_unwielded_mod = -5
-	recoil_unwielded_mod = -1
-	accuracy_unwielded_mod = 0.15
-	size_mod = 0.5
-	pixel_shift_x = 0
-	pixel_shift_y = 0
-
 
 ///////////// Rail attachments ////////////////////////
 
@@ -928,8 +886,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 
 /obj/item/attachable/scope/unremovable/laser_sniper_scope
 	name = "Terra Experimental laser sniper rifle rail scope"
-	desc = "A marine standard mounted zoom sight scope made for the Terra Experimental laser sniper rifle otherwise known as TE-S abbreviated, allows zoom by activating the attachment. Use F12 if your HUD doesn't come back."
-	icon = 'icons/Marine/marine-weapons.dmi'
+	desc = "A marine standard mounted zoom sight scope made for the Terra Experimental laser sniper rifle otherwise known as TE-S abbreviated, allows zoom by activating the attachment."
 	icon_state = "tes"
 
 /obj/item/attachable/scope/mini
@@ -1046,8 +1003,8 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	name = "SG-29 stock"
 	desc = "A standard machinegun stock."
 	icon_state = "sg29stock"
-	greyscale_config = null
-	colorable_allowed = NONE
+	greyscale_config = /datum/greyscale_config/gun_attachment
+	colorable_allowed = PRESET_COLORS_ALLOWED
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
@@ -1076,8 +1033,8 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	name = "\improper SR-127 stock"
 	desc = "A irremovable SR-127 sniper rifle stock."
 	icon_state = "tl127stock"
-	greyscale_config = null
-	colorable_allowed = NONE
+	greyscale_config = /datum/greyscale_config/gun_attachment
+	colorable_allowed = PRESET_COLORS_ALLOWED
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
@@ -1141,8 +1098,8 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	name = "MG-60 stock"
 	desc = "A irremovable MG-60 general purpose machinegun stock."
 	icon_state = "t60stock"
-	greyscale_config = null
-	colorable_allowed = NONE
+	greyscale_config = /datum/greyscale_config/gun_attachment
+	colorable_allowed = PRESET_COLORS_ALLOWED
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
@@ -1216,33 +1173,14 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	pixel_shift_x = 30
 	pixel_shift_y = 14
 
-/obj/item/attachable/stock/t500stock
-	name = "R-500 stock"
-	desc = "Cool stock for cool revolver."
-	flags_attach_features = ATTACH_REMOVABLE
-	wield_delay_mod = 0.2 SECONDS
-	delay_mod = -0.4 SECONDS
-	icon = 'icons/Marine/attachments_64.dmi'
-	icon_state = "stock"
-	size_mod = 1
-	accuracy_mod = 0.15
-	recoil_mod = -1
-	recoil_unwielded_mod = 1
-	scatter_mod = -2
-	scatter_unwielded_mod = 5
-	melee_mod = 10
-	pixel_shift_x = 0
-	pixel_shift_y = 0
-
-
 //Underbarrel
 
 /obj/item/attachable/verticalgrip
 	name = "vertical grip"
 	desc = "A custom-built improved foregrip for better accuracy, moderately faster aimed movement speed, less recoil, and less scatter when wielded especially during burst fire. \nHowever, it also increases weapon size, slightly increases wield delay and makes unwielded fire more cumbersome."
 	icon_state = "verticalgrip"
-	greyscale_config = null
-	colorable_allowed = NONE
+	greyscale_config = /datum/greyscale_config/gun_attachment
+	colorable_allowed = PRESET_COLORS_ALLOWED
 	wield_delay_mod = 0.2 SECONDS
 	size_mod = 1
 	slot = ATTACHMENT_SLOT_UNDER
@@ -1304,14 +1242,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	slot = ATTACHMENT_SLOT_MUZZLE //so you cannot have this and RC at once aka balance
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
-
-/obj/item/attachable/lace/t500
-	name = "R-500 lace"
-	icon = 'icons/Marine/attachments_64.dmi'
-	slot = ATTACHMENT_SLOT_STOCK
-	pixel_shift_x = 0
-	pixel_shift_y = 0
-
 
 /obj/item/attachable/lace/activate(mob/living/user, turn_off)
 	if(lace_deployed)
@@ -1496,8 +1426,8 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	desc = "A non-standard heavy stock for the SH-35 shotgun. Less quick and more cumbersome than the standard issue stakeout, but reduces recoil and improves accuracy. Allegedly makes a pretty good club in a fight too."
 	icon = 'icons/Marine/attachments_64.dmi'
 	icon_state = "t35stock"
-	greyscale_config = null
-	colorable_allowed = NONE
+	greyscale_config = /datum/greyscale_config/gun_attachment_64
+	colorable_allowed = PRESET_COLORS_ALLOWED
 	flags_attach_features = ATTACH_ACTIVATION
 	wield_delay_mod = 0.2 SECONDS
 	accuracy_mod = 0.15

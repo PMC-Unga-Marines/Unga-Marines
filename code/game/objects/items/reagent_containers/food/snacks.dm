@@ -1258,24 +1258,11 @@
 /obj/item/reagent_containers/food/snacks/meat/human
 	desc = "A slab of meat. Looks kinda like pork..."
 
-//Почему тут 2 мяса?
-
 /obj/item/reagent_containers/food/snacks/meat/xeno
 	icon_state = "xenomeat"
 	filling_color = "#43DE18"
 	tastes = list("meat" = 1, "acid" = 1)
 	bitesize = 6
-
-/obj/item/reagent_containers/food/snacks/meat/xenomeat
-	name = "meat"
-	desc = "A slab of acrid smelling meat."
-	icon_state = "xenomeat"
-	filling_color = "#43DE18"
-
-/obj/item/reagent_containers/food/snacks/meat/xenomeat/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/toxin/acid, 3)
-	src.bitesize = 6
 
 /obj/item/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat

@@ -202,25 +202,15 @@
 	name = "sidearm pouch"
 	desc = "It can contain a pistol or revolver. Useful for emergencies."
 	icon_state = "pistol"
-	storage_slots = 3
-	max_storage_space = 10
 	sprite_slots = 1
-	max_w_class = WEIGHT_CLASS_BULKY
-	storage_type_limits = list(/obj/item/weapon/gun = 1)
+	max_w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(
 		/obj/item/weapon/gun/pistol,
-		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
-		/obj/item/cell/lasgun/lasrifle,
 	)
-	draw_mode = 0
-
-/obj/item/storage/pouch/pistol/Initialize(mapload, ...)
-	. = ..()
-	AddComponent(/datum/component/tac_reload_storage)
+	draw_mode = 1
 
 /obj/item/storage/pouch/pistol/vp70/Initialize(mapload)
 	. = ..()

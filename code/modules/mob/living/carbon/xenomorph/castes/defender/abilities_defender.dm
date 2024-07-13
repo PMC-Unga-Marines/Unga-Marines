@@ -310,7 +310,6 @@
 			to_chat(X, span_xenowarning("We tuck ourselves into a defensive stance."))
 		X.soft_armor = X.soft_armor.modifyAllRatings(last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = last_fortify_bonus) //double bomb bonus for explosion immunity
-		owner.drop_all_held_items() // drop items (hugger/jelly)
 	else
 		if(!silent)
 			to_chat(X, span_xenowarning("We resume our normal stance."))
@@ -331,7 +330,7 @@
 	action_icon_state = "regenerate_skin"
 	desc = "Regenerate your hard exoskeleton skin, restoring some health and removing all sunder."
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED|ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY|ABILITY_KEYBIND_USE_ABILITY
-	ability_cost = 80
+	ability_cost = 160
 	cooldown_duration = 1 MINUTES
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(

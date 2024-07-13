@@ -13,11 +13,21 @@
 	return FALSE
 
 
-/obj/structure/ex_act(severity, direction)
+/obj/structure/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
-	take_damage(severity, BRUTE, BOMB, attack_dir = direction)
-
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel(src)
+			return
+		if(EXPLODE_HEAVY)
+			if(prob(50))
+				qdel(src)
+				return
+		if(EXPLODE_LIGHT)
+			return
+		if(EXPLODE_WEAK)
+			return
 
 /obj/structure/Initialize(mapload)
 	. = ..()

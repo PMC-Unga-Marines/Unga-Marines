@@ -688,7 +688,7 @@
 		COOLDOWN_START(bracer, bracer_recharge, bracer.charge_cooldown)
 		to_chat(grabber, span_yautjabold("[icon2html(bracer)] \The <b>[bracer]</b> beep: Power siphon complete. Charge at [bracer.charge]/[bracer.charge_max]."))
 		if(bracer.notification_sound)
-			playsound(bracer.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+			playsound(bracer.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 		charging = APC_CHARGING
 		set_broken() // Breaks the APC
 
@@ -1059,11 +1059,31 @@
 
 
 /obj/machinery/power/apc/ex_act(severity)
-	if(severity >= EXPLODE_HEAVY)
-		qdel(src)
-	else if(prob(severity / 2))
-		set_broken()
-		cell.ex_act(severity)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			cell?.ex_act(1) //More lags woohoo
+			qdel(src)
+			return
+		if(EXPLODE_HEAVY)
+			if(prob(50))
+				return
+			set_broken()
+			if(!cell || prob(50))
+				return
+		if(EXPLODE_LIGHT)
+			if(prob(75))
+				return
+			set_broken()
+			if(!cell || prob(75))
+				return
+		if(EXPLODE_WEAK)
+			if(prob(80))
+				return
+			set_broken()
+			if(!cell || prob(85))
+				return
+
+	cell.ex_act(severity)
 
 
 /obj/machinery/power/apc/proc/set_broken()

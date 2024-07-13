@@ -41,7 +41,7 @@
 	desc = "Designed for mounting on modular armor. This module has advanced medical systems that inject tricordrazine and tramadol based on the user's needs, as well as automatically securing the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. Will definitely impact mobility."
 	icon_state = "mod_autodoc"
 	item_state = "mod_autodoc_a"
-	slowdown = 0
+	slowdown = 0.3
 	slot = ATTACHMENT_SLOT_MODULE
 	var/static/list/supported_limbs = list(CHEST, GROIN, ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT, LEG_LEFT, LEG_RIGHT, FOOT_LEFT, FOOT_RIGHT)
 
@@ -75,8 +75,7 @@
 	desc = "Designed for mounting on modular armor. Providing a near immunity to being bathed in flames, and amazing flame retardant qualities, this is every pyromaniac's first stop to survival. Will impact mobility."
 	icon_state = "mod_fire"
 	item_state = "mod_fire_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
-	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 35, ACID = 0)
 	slowdown = 0.4
 	slot = ATTACHMENT_SLOT_MODULE
 
@@ -103,9 +102,7 @@
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_fire_head"
 	item_state = "mod_fire_head_a"
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mod_fire_head_xn")
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
-	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 35, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /**
@@ -118,8 +115,8 @@
 	icon_state = "mod_armor"
 	item_state = "mod_armor_a"
 	attachment_layer = COLLAR_LAYER
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 10)
-	slowdown = 0
+	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 15)
+	slowdown = 0.3
 	slot = ATTACHMENT_SLOT_MODULE
 
 /obj/item/armor_module/module/tyr_extra_armor/mark1
@@ -145,7 +142,6 @@
 	name = "Tyr Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
 	icon_state = "tyr_head"
 	item_state = "tyr_head_a"
 	soft_armor = list(MELEE = 15, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
@@ -208,13 +204,11 @@
 	//soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet
-	name = "Mimir Environmental Helmet System"
-	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds"
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	name = "Mark 2 Mimir Environmental Helmet System"
+	desc = "Designed for mounting on a modular helmet. This newer model provides great resistance to acid, biological, and even radiological attacks. Pairing this with a Mimir suit module and mask will make the user impervious to xeno gas clouds."
 	icon_state = "mimir_head"
 	item_state = "mimir_head_a"
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 40, FIRE = 0, ACID = 30)
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
@@ -288,7 +282,7 @@
 	icon_state = "mod_eshield"
 	item_state = "mod_eshield_a"
 	slot = ATTACHMENT_SLOT_MODULE
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = -10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
 
 	///Current shield Health
 	var/shield_health = 0
@@ -309,7 +303,7 @@
 	///Current shield color
 	var/current_color
 	///Delay it takes to start recharging again after the shield has been damaged.
-	var/damaged_shield_cooldown = 15 SECONDS
+	var/damaged_shield_cooldown = 10 SECONDS
 	///Holds id for a timer which triggers recharge start. Null if not currently delayed.
 	var/recharge_timer
 
@@ -454,22 +448,22 @@
 	name = "\improper Light Armor Equalizer"
 	icon_state = "style_light"
 	item_state = "style_light_a"
-	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
-	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
 	item_state = "style_medium_a"
-	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	item_state = "style_heavy_a"
-	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 
 /**
  *   Helmet Modules
@@ -587,25 +581,15 @@
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars."
 	icon_state = "artemis_head"
 	item_state = "artemis_head_mk2_a"
-	var/eye_protection_mod = 1
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	parent.eye_protection += eye_protection_mod
 	parent.AddComponent(/datum/component/blur_protection)
-
-/obj/item/armor_module/module/binoculars/artemis_mark_two/on_detach(obj/item/detaching_from, mob/user)
-	parent.eye_protection -= eye_protection_mod
-	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
-	blur_p?.RemoveComponent()
-	return ..()
 
 /obj/item/armor_module/module/artemis
 	name = "\improper Mark 1 Freyr Helmet Module"
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_xn")
 	icon_state = "artemis_head"
 	item_state = "artemis_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
@@ -648,12 +632,6 @@
 	beacon_datum = new /datum/supply_beacon(user.name, user.loc, user.faction, 4 MINUTES)
 	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
 	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)
-
-/obj/item/armor_module/module/antenna/proc/update_beacon_location()
-	if(beacon_datum)
-		beacon_datum.drop_location = get_turf(src)
-		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
 
 /// Signal handler to nullify beacon datum
 /obj/item/armor_module/module/antenna/proc/clean_beacon_datum()
@@ -753,119 +731,3 @@
 /obj/item/armor_module/module/night_vision/Destroy()
 	QDEL_NULL(attached_goggles)
 	return ..()
-
-/obj/item/armor_module/module/motion_detector
-	name = "Tactical sensor helmet module"
-	desc = "Help you to detect the xeno in the darkness."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "mod_head_scanner"
-	item_state = "mod_head_scanner_a"
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	prefered_slot = SLOT_HEAD
-
-	/// Who's using this item
-	var/mob/living/carbon/human/operator
-	///The range of this motion detector
-	var/range = 16
-	//таймер для работы модуля
-	var/motion_timer = null
-	//время через которое будет срабатывать модуль
-	var/scan_time = 2 SECONDS
-	///The list of all the blips
-	var/list/obj/effect/blip/blips_list = list()
-
-/obj/item/armor_module/module/motion_detector/Destroy()
-	stop_and_clean()
-	return ..()
-
-/obj/item/armor_module/module/motion_detector/on_attach(obj/item/attaching_to, mob/user)
-	. = ..()
-	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(stop_and_clean))
-
-/obj/item/armor_module/module/motion_detector/on_detach(obj/item/detaching_from, mob/user)
-	UnregisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(stop_and_clean))
-	stop_and_clean()
-	return ..()
-
-//убираем графическую хуйню и останавливает сканирование.
-/obj/item/armor_module/module/motion_detector/proc/stop_and_clean()
-	SIGNAL_HANDLER
-
-	active = FALSE
-	clean_blips()
-	operator = null
-	if(motion_timer)
-		deltimer(motion_timer)
-		motion_timer = null
-
-//вкл-выкл модуль
-/obj/item/armor_module/module/motion_detector/activate(mob/living/user)
-	active = !active
-	to_chat(user, span_notice("You toggle \the [src] [active ? "enabling" : "disabling"] it."))
-	if(active)
-		operator = user
-		if(!motion_timer)
-			motion_timer = addtimer(CALLBACK(src, PROC_REF(do_scan)), scan_time, TIMER_LOOP|TIMER_STOPPABLE)
-	else
-		stop_and_clean()
-
-/obj/item/armor_module/module/motion_detector/proc/do_scan()
-	if(!operator?.client || operator?.stat != CONSCIOUS)
-		stop_and_clean()
-		return
-	var/hostile_detected = FALSE
-	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
-		if(nearby_human == operator)
-			continue
-		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
-			continue
-		if(!hostile_detected && (!operator.wear_id || !nearby_human.wear_id || nearby_human.wear_id.iff_signal != operator.wear_id.iff_signal))
-			hostile_detected = TRUE
-		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
-	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
-		if(!hostile_detected)
-			hostile_detected = TRUE
-		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
-	if(hostile_detected)
-		playsound(loc, 'sound/items/tick.ogg', 100, 0, 1)
-	addtimer(CALLBACK(src, PROC_REF(clean_blips)), scan_time / 2)
-
-///Clean all blips from operator screen
-/obj/item/armor_module/module/motion_detector/proc/clean_blips()
-	if(!operator)//We already cleaned
-		return
-	for(var/obj/effect/blip/blip AS in blips_list)
-		blip.remove_blip(operator)
-	blips_list.Cut()
-
-///Prepare the blip to be print on the operator screen
-/obj/item/armor_module/module/motion_detector/proc/prepare_blip(mob/target, status)
-	if(!operator || !operator.client)
-		return
-	if(!target)
-		return
-
-	var/list/actualview = getviewsize(operator.client.view)
-	var/viewX = actualview[1]
-	var/viewY = actualview[2]
-	var/turf/center_view = get_view_center(operator)
-	var/screen_pos_y = target.y - center_view.y + round(viewY * 0.5) + 1
-	var/dir
-	if(screen_pos_y < 1)
-		dir = SOUTH
-		screen_pos_y = 1
-	else if (screen_pos_y > viewY)
-		dir = NORTH
-		screen_pos_y = viewY
-	var/screen_pos_x = target.x - center_view.x + round(viewX * 0.5) + 1
-	if(screen_pos_x < 1)
-		dir = (dir ? dir == SOUTH ? SOUTHWEST : NORTHWEST : WEST)
-		screen_pos_x = 1
-	else if (screen_pos_x > viewX)
-		dir = (dir ? dir == SOUTH ? SOUTHEAST : NORTHEAST : EAST)
-		screen_pos_x = viewX
-	if(dir)
-		blips_list += new /obj/effect/blip/edge_blip(null, status, operator, screen_pos_x, screen_pos_y, dir)
-		return
-	blips_list += new /obj/effect/blip/close_blip(get_turf(target), status, operator)

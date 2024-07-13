@@ -7,9 +7,11 @@
 	flags_item = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 
+/* RUTGMC REMOVAL
 /obj/item/tweezers/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/shrapnel_removal, 6 SECONDS)
+	AddElement(/datum/element/shrapnel_removal, 10 SECONDS)
+*/
 
 /obj/item/tweezers_advanced
 	name = "\improper ESR-12"

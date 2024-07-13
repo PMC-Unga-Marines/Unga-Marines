@@ -12,8 +12,12 @@
 	layer = ABOVE_TURF_LAYER
 
 /obj/structure/rock/ex_act(severity)
-	if(prob(severity / 3))
-		qdel(src)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel(src)
+		if(EXPLODE_HEAVY)
+			if(prob(30))
+				qdel(src)
 
 /obj/structure/rock/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_ROCK, -10, 5, 1)

@@ -19,7 +19,7 @@
 	plasma_gain = 80
 
 	// *** Health *** //
-	max_health = 460
+	max_health = 360
 
 	// *** Evolution *** //
 	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
@@ -27,17 +27,16 @@
 	deevolves_to = /mob/living/carbon/xenomorph/spitter
 
 	// *** Flags *** //
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
 	caste_traits = null
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 50, ACID = 40)
-
+/* RU TGMC EDIT
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
-	spit_types = list(/datum/ammo/xeno/acid/heavy/passthrough)
-	acid_spray_duration = 6 SECONDS
-	acid_spray_damage = 8
+	spit_types = list(/datum/ammo/xeno/toxin/heavy, /datum/ammo/xeno/acid/heavy)
+RU TGMC EDIT */
 	acid_spray_duration = 10 SECONDS
 	acid_spray_range = 5
 	acid_spray_damage = 16
@@ -58,8 +57,7 @@
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/spray_acid/line/short,
-		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
+		/datum/action/ability/activable/xeno/spray_acid/cone,
 		/datum/action/ability/activable/xeno/charge/dash,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
@@ -83,8 +81,6 @@
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/spray_acid/line/short,
-		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
 		/datum/action/ability/activable/xeno/charge/dash,
 		/datum/action/ability/xeno_action/pheromones,

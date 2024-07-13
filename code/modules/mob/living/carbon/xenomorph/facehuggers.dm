@@ -26,7 +26,6 @@
 	throw_range = 1
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
-	pass_flags = PASS_XENO
 
 	///Whether the hugger is dead, active or inactive
 	var/stat = CONSCIOUS
@@ -51,7 +50,7 @@
 	///The timer to go active
 	var/activetimer
 	///Time to become active after impacting on a direct thrown hit
-	var/impact_time = 1.25 SECONDS
+	var/impact_time = 1.5 SECONDS
 	///Time to become active again
 	var/activate_time = 2 SECONDS
 	///Time to recover after jumping
@@ -80,7 +79,6 @@
 		COMSIG_ATOM_EXITED = PROC_REF(on_exited),
 	)
 	AddElement(/datum/element/connect_loc, connections)
-	AddComponent(/datum/component/clothing_tint, TINT_BLIND)
 
 ///Registers the source of our facehugger for the purpose of anti-shuffle mechanics
 /obj/item/clothing/mask/facehugger/proc/facehugger_register_source(mob/living/carbon/xenomorph/S)
@@ -134,8 +132,6 @@
 /obj/item/clothing/mask/facehugger/attack_hand(mob/living/user)
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/X = user
-		if(X.agility || X.fortify)
-			return FALSE
 		if(X.xeno_caste.can_flags & CASTE_CAN_HOLD_FACEHUGGERS)
 			deltimer(jumptimer)
 			deltimer(activetimer)
@@ -475,7 +471,7 @@
 // ATTACHING AND IMPREGNATION
 //////////////////////////////
 //RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\facehuggers.dm
-/obj/item/clothing/mask/facehugger/proc/Attach(mob/living/carbon/M, can_catch = TRUE)
+/*/obj/item/clothing/mask/facehugger/proc/Attach(mob/living/carbon/M)
 
 	set_throwing(FALSE)
 	leaping = FALSE
@@ -495,7 +491,7 @@
 		X.dropItemToGround(src)
 		X.update_icons()
 
-	if(M.in_throw_mode && M.dir != dir && !M.incapacitated() && !M.get_active_held_item() && can_catch)
+	if(M.in_throw_mode && M.dir != dir && !M.incapacitated() && !M.get_active_held_item())
 		var/catch_chance = 50
 		if(M.dir == REVERSE_DIR(dir))
 			catch_chance += 20
@@ -552,6 +548,7 @@
 
 	M.equip_to_slot(src, SLOT_WEAR_MASK)
 	return TRUE
+*/ //RUTGMC EDIT END
 
 /obj/item/clothing/mask/facehugger/equipped(mob/living/user, slot)
 	. = ..()
@@ -574,8 +571,6 @@
 	attached = TRUE
 	go_idle(FALSE, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(Impregnate), user), IMPREGNATION_TIME)
-	if(isxenofacehugger(source))
-		ADD_TRAIT(source, TRAIT_HANDS_BLOCKED, REF(src))
 
 /obj/item/clothing/mask/facehugger/proc/Impregnate(mob/living/carbon/target)
 	ADD_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
@@ -611,9 +606,6 @@
 		else //Huggered but not impregnated, deal damage.
 			target.visible_message(span_danger("[src] frantically claws at [target]'s face before falling down!"),span_danger("[src] frantically claws at your face before falling down! Auugh!"))
 			target.apply_damage(15, BRUTE, BODY_ZONE_HEAD, updating_health = TRUE)
-	//If hugger sentient, then we drop player's hugger
-	if(isxenofacehugger(source) && as_planned)
-		dropped(target)
 
 
 /obj/item/clothing/mask/facehugger/proc/kill_hugger(melt_timer = 1 MINUTES)
@@ -636,8 +628,6 @@
 	addtimer(CALLBACK(src, PROC_REF(melt_away)), melt_timer)
 
 /obj/item/clothing/mask/facehugger/proc/reset_attach_status(forcedrop = TRUE)
-	if(isxenofacehugger(source))
-		return
 	REMOVE_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
 	attached = FALSE
 	if(isliving(loc) && forcedrop) //Make it fall off the person so we can update their icons. Won't update if they're in containers thou
@@ -682,17 +672,6 @@
 	go_idle()
 	if(isxeno(user)) //Set the source mob
 		facehugger_register_source(user)
-	if(isxenofacehugger(source))
-		var/mob/living/M = user
-		REMOVE_TRAIT(source, TRAIT_HANDS_BLOCKED, REF(src))
-		source.forceMove(get_turf(M))
-		if(source in M.client_mobs_in_contents)
-			M.client_mobs_in_contents -= source
-		if(sterile || M.status_flags & XENO_HOST)
-			if(source?.client && isnormalhive(source.hive))
-				source.client.facehugger_exp_update(4)
-			source.death()
-		qdel(src)
 
 
 /////////////////////////////
@@ -732,10 +711,10 @@
 	name = "neuro hugger"
 	desc = "This strange creature has a single prominent sharp proboscis."
 	color = COLOR_DARK_ORANGE
-	impact_time = 0.5 SECONDS
-	activate_time = 1 SECONDS
-	jump_cooldown = 1 SECONDS
-	proximity_time = 0.25 SECONDS
+	impact_time = 1 SECONDS
+	activate_time = 1.5 SECONDS
+	jump_cooldown = 1.5 SECONDS
+	proximity_time = 0.5 SECONDS
 
 /obj/item/clothing/mask/facehugger/combat/neuro/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -756,10 +735,10 @@
 	name = "acid hugger"
 	desc = "This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	color = COLOR_GREEN
-	impact_time = 0.5 SECONDS
-	activate_time = 1 SECONDS
-	jump_cooldown = 1 SECONDS
-	proximity_time = 0.25 SECONDS
+	impact_time = 1 SECONDS
+	activate_time = 1.5 SECONDS
+	jump_cooldown = 1.5 SECONDS
+	proximity_time = 0.5 SECONDS
 
 /obj/item/clothing/mask/facehugger/combat/acid/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -786,10 +765,10 @@
 	name = "resin hugger"
 	desc = "This truly bizzare, bloated creature drips with purple, viscous resin."
 	color = COLOR_STRONG_VIOLET
-	impact_time = 0.5 SECONDS
-	activate_time = 1 SECONDS
-	jump_cooldown = 1 SECONDS
-	proximity_time = 0.25 SECONDS
+	impact_time = 1 SECONDS
+	activate_time = 1.5 SECONDS
+	jump_cooldown = 1.5 SECONDS
+	proximity_time = 0.5 SECONDS
 
 /obj/item/clothing/mask/facehugger/combat/resin/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))

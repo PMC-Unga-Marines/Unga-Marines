@@ -114,14 +114,13 @@
 
 /obj/item/radio/intercom/dropship
 	name = "\improper Alamo dropship intercom"
-	canhear_range = 2
+	canhear_range = 7
 	frequency = FREQ_DROPSHIP_1
 
 /obj/item/radio/intercom/dropship/normandy
 	name = "\improper Normandy dropship intercom"
 	frequency = FREQ_DROPSHIP_2
-	canhear_range = 7
 
 /obj/item/radio/intercom/dropship/triumph
 	name = "\improper Triumph dropship intercom"
-	frequency = FREQ_DROPSHIP_1
+	frequency = FREQ_DROPSHIP_2

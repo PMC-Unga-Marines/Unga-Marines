@@ -120,19 +120,20 @@ SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM
 GLOBAL_LIST_INIT(jobs_xenos, list(ROLE_XENOMORPH, ROLE_XENO_QUEEN))
 GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine), TRUE))
 
+/* RUTGMC DELETION, moved to modular
 //Playtime tracking system, see jobs_exp.dm
 #define EXP_TYPE_LIVING "Living"
-#define EXP_TYPE_REGULAR_ALL "Any TGMC"
+#define EXP_TYPE_REGULAR_ALL "Any"
 #define EXP_TYPE_COMMAND "Command"
 #define EXP_TYPE_ENGINEERING "Engineering"
 #define EXP_TYPE_MEDICAL "Medical"
 #define EXP_TYPE_MARINES "Marines"
 #define EXP_TYPE_REQUISITIONS "Requisitions"
 #define EXP_TYPE_SILICON "Silicon"
-#define EXP_TYPE_XENO "Xenomorph"
+#define EXP_TYPE_SPECIAL "Special"
 #define EXP_TYPE_GHOST "Ghost"
 #define EXP_TYPE_ADMIN "Admin"
-#define EXP_TYPE_FACEHUGGER_STAT "Facehugger_Stat"
+*/
 
 // hypersleep bay flags
 #define CRYO_MED "Medical"
@@ -180,5 +181,3 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define ENGINEER_TOTAL_BUY_POINTS 75
 /// How many points the field commander can spend
 #define COMMANDER_TOTAL_BUY_POINTS 45
-/// How many points the synthetic can spend
-#define SYNTH_TOTAL_BUY_POINTS 50

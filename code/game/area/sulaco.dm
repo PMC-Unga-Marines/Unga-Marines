@@ -308,35 +308,35 @@
 	return TRUE
 
 /area/shuttle/drop1/sulaco
-	name = "Dropship Normandy"
+	name = "Dropship Alamo"
 	icon_state = "shuttlered"
 
 /area/shuttle/drop1/LV624
-	name = "Dropship Normandy"
+	name = "Dropship Alamo"
 	icon_state = "shuttle"
 
 /area/shuttle/drop1/Haunted
-	name = "Dropship Normandy"
+	name = "Dropship Alamo"
 	icon_state = "shuttle"
 
 /area/shuttle/drop1/prison
-	name = "Dropship Normandy"
+	name = "Dropship Alamo"
 	icon_state = "shuttle"
 
 /area/shuttle/drop1/BigRed
-	name = "Dropship Normandy"
+	name = "Dropship Alamo"
 	icon_state = "shuttle"
 
 /area/shuttle/drop1/ice_colony
-	name = "Dropship Normandy"
+	name = "Dropship Alamo"
 	icon_state = "shuttle"
 
 /area/shuttle/drop1/transit
-	name = "Dropship Normandy Transit"
+	name = "Dropship Alamo Transit"
 	icon_state = "shuttle2"
 
 /area/shuttle/drop1/lz1
-	name = "Normandy Landing Zone"
+	name = "Alamo Landing Zone"
 	icon_state = "away1"
 	flags_area = NONE
 

@@ -143,18 +143,6 @@
 
 		M.show_message(msg, EMOTE_VISIBLE, blind_message, EMOTE_AUDIBLE)
 
-// Shows three different messages depending on who does it to who and how does it look like to outsiders
-// message_mob: "You do something to X!"
-// message_affected: "Y does something to you!"
-// message_viewer: "X does something to Y!"
-// pred shitcode
-/mob/proc/affected_message(mob/affected, message_mob, message_affected, message_viewer)
-	src.show_message(message_mob, EMOTE_VISIBLE)
-	if(src != affected)
-		affected.show_message(message_affected, EMOTE_VISIBLE)
-	for(var/mob/V in viewers(7, src))
-		if(V != src && V != affected)
-			V.show_message(message_viewer, EMOTE_VISIBLE)
 
 ///Returns the client runechat visible messages preference according to the message type.
 /atom/proc/rc_vc_msg_prefs_check(mob/target, visible_message_flags = NONE)

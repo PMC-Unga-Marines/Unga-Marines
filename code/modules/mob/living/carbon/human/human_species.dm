@@ -67,6 +67,3 @@
 
 /mob/living/carbon/human/species/robot/bravada
 	race = "Sterling Combat Robot"
-
-/mob/living/carbon/human/species/necoarc
-	race = "Neco Arc"

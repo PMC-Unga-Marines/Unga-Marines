@@ -391,7 +391,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	icon_state = "minigun"
 	item_state = "minigun"
 	fire_animation = "minigun_fire"
-	max_shells = 600 //codex
+	max_shells = 500 //codex
 	caliber = CALIBER_762X51 //codex
 	load_method = MAGAZINE //codex
 	fire_sound = 'sound/weapons/guns/fire/minigun.ogg'
@@ -413,7 +413,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 12
 
-	fire_delay = 0.10 SECONDS
+	fire_delay = 0.15 SECONDS
 	windup_delay = 0.4 SECONDS
 	windup_sound = 'sound/weapons/guns/fire/tank_minigun_start.ogg'
 	scatter = 5
@@ -448,7 +448,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	icon_state = "minigun_sg"
 	item_state = "minigun_sg"
 	fire_animation = "minigun_sg_fire"
-	max_shells = 2000 //codex
+	max_shells = 1000 //codex
 	caliber = CALIBER_10x26_CASELESS //codex
 	allowed_ammo_types = list(/obj/item/ammo_magazine/minigun_powerpack/smartgun)
 	wield_delay = 1.5 SECONDS

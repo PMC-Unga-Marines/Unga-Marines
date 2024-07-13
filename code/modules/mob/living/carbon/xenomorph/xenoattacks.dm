@@ -75,6 +75,7 @@
 
 	if(src == X)
 		return TRUE
+	
 	if(isxenolarva(X)) //Larvas can't eat people
 		X.visible_message(span_danger("[X] nudges its head against \the [src]."), \
 		span_danger("We nudge our head against \the [src]."))
@@ -95,23 +96,6 @@
 			X.visible_message(span_notice("\The [X] caresses \the [src] with its scythe-like arm."), \
 			span_notice("We caress \the [src] with our scythe-like arm."), null, 5)
 
-		if(INTENT_DISARM)
-			X.do_attack_animation(src, ATTACK_EFFECT_DISARM)
-			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-			if(!issamexenohive(X))
-				return FALSE
-
-			if(X.tier != XENO_TIER_FOUR && !X.queen_chosen_lead)
-				return FALSE
-
-			if((isxenoqueen(src) || queen_chosen_lead) && !isxenoqueen(X))
-				return FALSE
-
-			X.visible_message("\The [X] shoves \the [src] out of her way!", \
-				span_warning("You shove \the [src] out of your way!"), null, 5)
-			apply_effect(1 SECONDS, WEAKEN)
-			return TRUE
-
 		if(INTENT_GRAB)
 			if(anchored)
 				return FALSE
@@ -121,12 +105,14 @@
 			span_warning("We grab \the [src]!"), null, 5)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
-		if(INTENT_HARM)//Can't slash other xenos for now. SORRY  // You can now! --spookydonut
-			if(issamexenohive(X) && !HAS_TRAIT(src, TRAIT_BANISHED))
+		if(INTENT_HARM, INTENT_DISARM)//Can't slash other xenos for now. SORRY  // You can now! --spookydonut
+			if(issamexenohive(X))
 				X.do_attack_animation(src)
 				X.visible_message(span_warning("\The [X] nibbles \the [src]."), \
 				span_warning("We nibble \the [src]."), null, 5)
 				return TRUE
+			// Not at the base of the proc otherwise we can just nibble for free slashing effects
+			SEND_SIGNAL(X, COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH, src, damage_amount, X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier)
 			// copypasted from attack_alien.dm
 			//From this point, we are certain a full attack will go out. Calculate damage and modifiers
 			var/damage = X.xeno_caste.melee_damage

@@ -16,9 +16,6 @@
 	. = ..()
 	add_debris_element()
 
-/turf/closed/get_explosion_resistance()
-	return EXPLOSION_MAX_POWER
-
 /turf/closed/hitby(atom/movable/AM, speed = 5)
 	AM.stop_throw()
 	AM.turf_collision(src, speed)
@@ -188,8 +185,9 @@
 
 	//Not yet
 /turf/closed/gm/ex_act(severity)
-	if(severity >= EXPLODE_DEVASTATE)
-		ChangeTurf(/turf/open/ground/grass)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			ChangeTurf(/turf/open/ground/grass)
 
 /turf/closed/gm/dense
 	name = "dense jungle wall"
@@ -487,7 +485,7 @@
 	icon = 'icons/turf/dropship.dmi'
 	icon_state = "1"
 	plane = GAME_PLANE
-	resistance_flags = NONE
+	resistance_flags = RESIST_ALL|PLASMACUTTER_IMMUNE
 
 /turf/closed/shuttle/dropship1/transparent
 	opacity = FALSE
@@ -680,7 +678,6 @@
 	icon = 'icons/turf/dropship2.dmi'
 	icon_state = "1"
 	plane = GAME_PLANE
-	resistance_flags = RESIST_ALL|PLASMACUTTER_IMMUNE
 
 /turf/closed/shuttle/dropship2/transparent
 	opacity = FALSE
@@ -704,7 +701,6 @@
 
 /turf/closed/shuttle/dropship2/panel
 	icon_state = "shuttle_interior_panel"
-	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/engineone
 	icon_state = "shuttle_interior_backengine"
@@ -756,8 +752,6 @@
 
 /turf/closed/shuttle/dropship2/interiorwindow
 	icon_state = "shuttle_interior_inwards"
-	allow_pass_flags = PASS_GLASS
-	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/singlewindow
 	icon_state = "shuttle_single_window"
@@ -812,19 +806,15 @@
 
 /turf/closed/shuttle/dropship2/glassthree
 	icon_state = "shuttle_glass3"
-	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/glassfour
 	icon_state = "shuttle_glass4"
-	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/glassfive
 	icon_state = "shuttle_glass5"
-	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/glasssix
 	icon_state = "shuttle_glass6"
-	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/rearcorner/tadpole
 	icon_state = "shuttle_rearcorner"

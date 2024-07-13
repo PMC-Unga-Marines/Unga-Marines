@@ -119,8 +119,6 @@
 	///The acid currently on this atom
 	var/obj/effect/xenomorph/acid/current_acid = null
 
-	var/status_flags = CANSTUN|CANKNOCKDOWN|CANKNOCKOUT|CANPUSH|CANUNCONSCIOUS|CANCONFUSE	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)
-
 	///Cooldown for telling someone they're buckled
 	COOLDOWN_DECLARE(buckle_message_cooldown)
 
@@ -434,10 +432,12 @@ directive is properly returned.
  *
  * Default behaviour is to call [contents_explosion][/atom/proc/contents_explosion] and send the [COMSIG_ATOM_EX_ACT] signal
  */
-/atom/proc/ex_act(severity, explosion_direction)
+/* RUTGMC DELETION
+/atom/proc/ex_act(severity, epicenter_dist, impact_range)
 	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
-		contents_explosion(severity, explosion_direction)
-
+		contents_explosion(severity, epicenter_dist, impact_range)
+	SEND_SIGNAL(src, COMSIG_ATOM_EX_ACT, severity, epicenter_dist, impact_range)
+*/
 
 /atom/proc/fire_act()
 	return
@@ -456,9 +456,12 @@ directive is properly returned.
 /atom/proc/prevent_content_explosion()
 	return FALSE
 
-/atom/proc/contents_explosion(severity, explosion_direction)
-	for(var/atom/A in contents)
-		A.ex_act(severity, explosion_direction)
+
+/* RUTGMC DELETION
+/atom/proc/contents_explosion(severity)
+	return //For handling the effects of explosions on contents that would not normally be effected
+*/
+
 
 ///Fire effects from a burning turf. Burn level is the base fire damage being received.
 /atom/proc/flamer_fire_act(burnlevel)
@@ -887,8 +890,6 @@ directive is properly returned.
 	hud_list = new
 	for(var/hud in hud_possible) //Providing huds.
 		var/image/new_hud = image('icons/mob/hud.dmi', src, "")
-		if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
-			new_hud = image('icons/mob/hud_yautja.dmi', src, "")
 		new_hud.appearance_flags = KEEP_APART
 		hud_list[hud] = new_hud
 

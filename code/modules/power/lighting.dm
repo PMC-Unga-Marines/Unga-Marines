@@ -510,10 +510,20 @@
 // destroy the whole light fixture or just shatter it
 
 /obj/machinery/light/ex_act(severity)
-	if(severity >= EXPLODE_HEAVY)
-		qdel(src)
-	else if(prob(severity / 2))
-		broken()
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel(src)
+			return
+		if(EXPLODE_HEAVY)
+			if (prob(75))
+				broken()
+		if(EXPLODE_LIGHT)
+			if (prob(50))
+				broken()
+		if(EXPLODE_WEAK)
+			if (prob(25))
+				broken()
+
 
 //timed process
 //use power
@@ -714,7 +724,7 @@
 	set_light(0)
 
 /obj/machinery/landinglight/alamo
-	id = SHUTTLE_NORMANDY //bruh
+	id = SHUTTLE_ALAMO
 
 /obj/machinery/landinglight/lz1
 	id = "lz1"

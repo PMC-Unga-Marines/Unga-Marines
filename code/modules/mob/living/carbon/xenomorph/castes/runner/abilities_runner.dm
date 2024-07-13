@@ -19,11 +19,6 @@
 	/// Savage's cooldown.
 	COOLDOWN_DECLARE(savage_cooldown)
 
-/datum/action/ability/activable/xeno/pounce/runner/process()
-	if(!owner)
-		return PROCESS_KILL
-	return ..()
-
 /datum/action/ability/activable/xeno/pounce/runner/give_action(mob/living/L)
 	. = ..()
 	var/mutable_appearance/savage_maptext = mutable_appearance(icon = null, icon_state = null, layer = ACTION_LAYER_MAPTEXT)
@@ -260,7 +255,7 @@
 	action_icon_state = "snatch"
 	desc = "Take an item equipped by your target in your mouth, and carry it away."
 	ability_cost = 75
-	cooldown_duration = 35 SECONDS
+	cooldown_duration = 60 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SNATCH,
 	)
@@ -306,19 +301,19 @@
 /datum/action/ability/activable/xeno/snatch/use_ability(atom/A)
 	succeed_activate()
 	var/mob/living/carbon/xenomorph/X = owner
+	if(!do_after(owner, 0.5 SECONDS, IGNORE_HELD_ITEM, A, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = X.health))))
+		return FALSE
 	var/mob/living/carbon/human/victim = A
-
+//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(isyautja(victim))
 		victim.emote("laugh")
 		X.Paralyze(75)
-		playsound(X,'sound/effects/hit_kick.ogg', 35, FALSE)
+		playsound(X,'modular_RUtgmc/sound/effects/hit_kick.ogg', 35, FALSE)
 		victim.balloon_alert(owner, "Snatch failed, we got caught!")
 		to_chat(X, span_xenodanger("[victim] counterattacks during our snatch attemp!"))
 		to_chat(victim, span_danger("[X] tried to steal our equipment, but failed!"))
 		return FALSE
-
-	if(!do_after(owner, 0.5 SECONDS, IGNORE_HELD_ITEM, A, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = X.health))))
-		return FALSE
+//RUTGMC EDIT ADDITION END
 	stolen_item = victim.get_active_held_item()
 	if(!stolen_item)
 		stolen_item = victim.get_inactive_held_item()
@@ -338,7 +333,6 @@
 	RegisterSignal(owner, COMSIG_ATOM_DIR_CHANGE, PROC_REF(owner_turned))
 	owner.add_movespeed_modifier(MOVESPEED_ID_SNATCH, TRUE, 0, NONE, TRUE, 2)
 	owner_turned(null, null, owner.dir)
-	succeed_activate()
 	add_cooldown()
 
 ///Signal handler to update the item overlay when the owner is changing dir
@@ -373,11 +367,6 @@
 /datum/action/ability/activable/xeno/snatch/proc/drop_item()
 	if(!stolen_item)
 		return
-
-	stolen_item.drag_windup = 0 SECONDS
-	owner.start_pulling(stolen_item, suppress_message = FALSE)
-	stolen_item.drag_windup = 1.5 SECONDS
-
 	owner.remove_movespeed_modifier(MOVESPEED_ID_SNATCH)
 	stolen_item.forceMove(get_turf(owner))
 	stolen_item = null

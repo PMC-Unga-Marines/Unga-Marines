@@ -155,21 +155,22 @@
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
 	switch(playtime_mins)
-		if(0 to 300)
+		if(0 to 600)
+			rank_name = "Hatchling"
+		if(601 to 1500) //10 hours
 			rank_name = "Young"
-		if(301 to 1500)
+		if(1501 to 4200) //25 hours
 			rank_name = "Mature"
-		if(1501 to 4200)
+		if(4201 to 10500) //70 hours
 			rank_name = "Elder"
-		if(4201 to 9000)
+		if(10501 to INFINITY) //175 hours
 			rank_name = "Ancient"
-		if(9001 to INFINITY)
-			rank_name = "Prime"
 		else
-			rank_name = "Young"
+			rank_name = "Hatchling"
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
 	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name] ([nicknumber])"
 
+	//Update linked data so they show up properly
 	real_name = name
 	if(mind)
 		mind.name = name
@@ -183,21 +184,24 @@
 		if(XENO_UPGRADE_PRIMO)
 			return 1
 
+/* MOVED TO MODULE
+///Returns the playtime as a number, used for rank icons
 /mob/living/carbon/xenomorph/proc/playtime_as_number()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	switch(playtime_mins)
-		if(0 to 300)
+		if(0 to 600)
 			return 0
-		if(301 to 1500)
+		if(601 to 1500)
 			return 1
 		if(1501 to 4200)
 			return 2
-		if(4201 to 9000)
+		if(4201 to 10500)
 			return 3
-		if(9001 to INFINITY)
+		if(10501 to INFINITY)
 			return 4
 		else
 			return 0
+*/
 
 /mob/living/carbon/xenomorph/proc/upgrade_next()
 	switch(upgrade)
@@ -288,6 +292,7 @@
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
 	return FALSE
 
+/* RUTGMC DELETION, DRAG SLOWDOWN FIX
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
 		return FALSE //We are already occupied with something.
@@ -304,12 +309,13 @@
 		return FALSE //to stop xeno from pulling marines on roller beds.
 	if(ishuman(L))
 		if(L.stat == DEAD) //Can't drag dead human bodies.
-			to_chat(usr, span_xenowarning("This looks gross, better not touch it."))
+			to_chat(usr,span_xenowarning("This looks gross, better not touch it."))
 			return FALSE
-		if(L != pulling)
-			pull_speed += XENO_DEADHUMAN_DRAG_SLOWDOWN
+		pull_speed += XENO_DEADHUMAN_DRAG_SLOWDOWN
+	do_attack_animation(L, ATTACK_EFFECT_GRAB)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_GRAB)
 	return ..()
+*/
 
 /mob/living/carbon/xenomorph/stop_pulling()
 	if(ishuman(pulling))
@@ -415,13 +421,6 @@
 	handle_weeds_on_movement()
 	return ..()
 
-/mob/living/carbon/xenomorph/Move(NewLoc, direct)
-	. = ..()
-	if(!.)
-		return
-	if(interactee)// moving stops any kind of interaction
-		unset_interaction()
-
 /mob/living/carbon/xenomorph/CanAllowThrough(atom/movable/mover, turf/target)
 	if(mover.pass_flags & PASS_XENO) // RUTGMC ADDITION
 		return TRUE
@@ -492,7 +491,3 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 		height *= gravity * 0.5
 
 	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
-
-/mob/living/carbon/xenomorph/send_speech(message_raw, message_range = 7, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
-	. = ..()
-	playsound(loc, talk_sound, 25, 1)

@@ -66,25 +66,20 @@
 
 	process_growth()
 
-
-/obj/item/alien_embryo/proc/process_growth()
-	if(CHECK_BITFIELD(affected_mob.restrained_flags, RESTRAINED_XENO_NEST)) //Hosts who are nested in resin nests provide an ideal setting, larva grows faster.
-		counter += 1 + max(0, (0.03 * affected_mob.health)) //Up to +300% faster, depending on the health of the host.
+//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\embryo.dm
+/*/obj/item/alien_embryo/proc/process_growth()
 
 	if(stage <= 4)
-		counter += 4 //Free burst time in ~5 min.
+		counter += 2.5 //Free burst time in ~7/8 min.
 
 	if(affected_mob.reagents.get_reagent_amount(/datum/reagent/consumable/larvajelly))
 		counter += 10 //Accelerates larval growth massively. Voluntarily drinking larval jelly while infected is straight-up suicide. Larva hits Stage 5 in exactly ONE minute.
 
 	if(affected_mob.reagents.get_reagent_amount(/datum/reagent/medicine/larvaway))
-		counter -= 3 //Halves larval growth progress, for some tradeoffs. Larval toxin purges this
-
-	if(affected_mob.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin))
-		counter -= 1
+		counter -= 1 //Halves larval growth progress, for some tradeoffs. Larval toxin purges this
 
 	if(boost_timer)
-		counter += 2.5 //Doubles larval growth progress. Burst time in ~3 min.
+		counter += 2.5 //Doubles larval growth progress. Burst time in ~4 min.
 		adjust_boost_timer(-1)
 
 	if(stage < 5 && counter >= 120)
@@ -125,6 +120,8 @@
 			if(!larva_autoburst_countdown)
 				var/mob/living/carbon/xenomorph/larva/L = locate() in affected_mob
 				L?.initiate_burst(affected_mob)
+*/ //RUTGMC EDIT END
+
 
 //We look for a candidate. If found, we spawn the candidate as a larva.
 //Order of priority is bursted individual (if xeno is enabled), then random candidate, and then it's up for grabs and spawns braindead.
@@ -184,15 +181,6 @@
 
 	addtimer(CALLBACK(src, PROC_REF(burst), victim), 3 SECONDS)
 
-	var/nestburst_message = pick("You feel hive's psychic power getting stronger, after host [victim.name] gave birth on a nest!", "You feel hive's psychic power getting stronger, after breeding host [victim.name] on a nest!")
-	if(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST))
-		if(victim.job == null)
-			SSpoints.add_psy_points(hivenumber, 10)
-		else if(victim.job.type == /datum/job/survivor/rambo)
-			SSpoints.add_psy_points(hivenumber, 50)
-		else
-			SSpoints.add_psy_points(hivenumber, 200)
-		xeno_message(nestburst_message, "xenoannounce", 5, hivenumber)
 
 /mob/living/carbon/xenomorph/larva/proc/burst(mob/living/carbon/victim)
 	if(QDELETED(victim))

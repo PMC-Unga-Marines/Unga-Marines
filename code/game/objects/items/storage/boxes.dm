@@ -548,13 +548,15 @@
 	pixel_x = 0 //Big sprite so lets not shift it around.
 	pixel_y = 0
 
+/* RUTGMC DELETION
 /obj/item/storage/box/visual/attack_hand(mob/living/user)
 	if(loc == user)
 		open(user) //Always show content when holding box
 		return
 
 	if(!deployed)
-		return ..()
+		user.put_in_hands(src)
+		return
 
 	else if(deployed)
 		draw_mode = variety == 1? TRUE: FALSE //If only one type of item in box, then quickdraw it.
@@ -563,6 +565,7 @@
 			I.attack_hand(user)
 			return
 		open(user)
+*/
 
 /obj/item/storage/box/visual/MouseDrop(atom/over_object)
 	if(!deployed)
@@ -599,6 +602,7 @@
 
 	icon_state = "[initial(icon_state)]_open"
 
+/* RUTGMC DELETION
 /obj/item/storage/box/visual/update_overlays()
 	. = ..()
 
@@ -606,37 +610,42 @@
 		icon_state = "[initial(icon_state)]"
 		if(closed_overlay)
 			. += image('icons/obj/items/storage/storage_boxes.dmi', icon_state = closed_overlay)
-		return
+		return // We early return here since we don't draw the insides when it's closed.
 
 	if(open_overlay)
 		. += image('icons/obj/items/storage/storage_boxes.dmi', icon_state = open_overlay)
 
-	if(variety > max_overlays)
+	if(variety > max_overlays) // Too many items inside so lets make it cluttered
 		return
 
+	//Determine the amount of overlays to draw
 	var/total_overlays = 0
 	for(var/object in contents_weight)
 		total_overlays += 1 + FLOOR(contents_weight[object] / overlay_w_class, 1)
 
+	//In case 6 overlays are for a LMG and then someone adds 7 unique tiny items into the mix
 	var/overlay_overflow = max(0, total_overlays - max_overlays)
 
+	//The Xth overlay being drawed.
 	var/current_iteration = 1
 
-	for(var/obj_typepath in contents_weight)
-		var/overlays_to_draw = 1 + FLOOR(contents_weight[obj_typepath] / overlay_w_class, 1)
-		if(overlay_overflow)
+	for(var/obj_typepath in contents_weight) //Max [total_overlays] items in contents_weight since otherwise the icon_state would be "mixed"
+		var/overlays_to_draw = 1 + FLOOR(contents_weight[obj_typepath] / overlay_w_class, 1) //Always draw at least 1 icon per unique item and add additional icons if it takes a lot of weight inside.
+		if(overlay_overflow)//This makes sure no matter the configuration, every item will get at least 1 spot in the mix.
 			var/adjustment = min(overlay_overflow, overlays_to_draw - 1)
 			overlay_overflow -= adjustment
 			overlays_to_draw -= adjustment
 			total_overlays -= adjustment
 
-		for(var/i = 1 to overlays_to_draw)
-			var/imagepixel_x = overlay_pixel_x + FLOOR((current_iteration / amt_vertical) - 0.01, 1) * shift_x
-			var/imagepixel_y = overlay_pixel_y + min(amt_vertical - WRAP(current_iteration - 1, 0, amt_vertical) - 1, total_overlays - current_iteration) * shift_y
+		for(var/i = 1 to overlays_to_draw) //Same item type, but now we actually draw them since we know how many to draw
+			var/imagepixel_x = overlay_pixel_x + FLOOR((current_iteration / amt_vertical) - 0.01, 1) * shift_x //Shift to the right only after all vertical spaces are occupied.
+			var/imagepixel_y = overlay_pixel_y + min(amt_vertical - WRAP(current_iteration - 1, 0, amt_vertical) - 1, total_overlays - current_iteration) * shift_y //Vertical shifting that draws the top overlays first if applicable
+			//Getting the mini icon_state to display
 			var/obj/item/relateditem = obj_typepath
 
 			. += image('icons/obj/items/items_mini.dmi', icon_state = initial(relateditem.icon_state_mini), pixel_x = imagepixel_x, pixel_y = imagepixel_y)
 			current_iteration++
+*/
 
 // --MAG BOXES--
 /obj/item/storage/box/visual/magazine
@@ -1129,12 +1138,6 @@
 	spawn_type = /obj/item/explosive/grenade/sticky/trailblazer
 	closed_overlay = "grenade_box_overlay_M45"
 
-/obj/item/storage/box/visual/grenade/trailblazer/phosphorus
-	name = "\improper M45 Phosphorus trailblazer grenade box"
-	desc = "A secure box holding 25 M45 Phosphorus trailblazer grenades. Warning: VERY flammable!!!"
-	spawn_type = /obj/item/explosive/grenade/sticky/trailblazer/phosphorus
-	closed_overlay = "grenade_box_overlay_M45_phosphorus"
-
 /obj/item/storage/box/visual/grenade/sticky
 	name = "\improper M40 adhesive charge grenade box"
 	desc = "A secure box holding 25 M40 adhesive charge grenades. Highly explosive and sticky."
@@ -1209,38 +1212,6 @@
 	spawn_number = 25
 	spawn_type = /obj/item/explosive/grenade/training
 	closed_overlay = "grenade_box_overlay_training"
-
-/obj/item/storage/box/t500case
-	name = "\improper R-500 special case"
-	desc = "High-tech case made by BMSS for delivery their special weapons. Label on this case says: 'This is the greatest handgun ever made. Five bullets. More than enough to kill anything that moves'."
-	icon = 'icons/obj/items/storage/storage.dmi'
-	icon_state = "t500case"
-	w_class = WEIGHT_CLASS_NORMAL
-	max_w_class = 1
-	storage_slots = 5
-	max_storage_space = 1
-	can_hold = list(
-		/obj/item/attachable/stock/t500stock,
-		/obj/item/attachable/lace/t500,
-		/obj/item/attachable/t500barrelshort,
-		/obj/item/attachable/t500barrel,
-		/obj/item/weapon/gun/revolver/t500,
-	)
-	bypass_w_limit = list(
-		/obj/item/attachable/stock/t500stock,
-		/obj/item/attachable/lace/t500,
-		/obj/item/attachable/t500barrelshort,
-		/obj/item/attachable/t500barrel,
-		/obj/item/weapon/gun/revolver/t500,
-	)
-
-/obj/item/storage/box/t500case/Initialize()
-	. = ..()
-	new /obj/item/attachable/stock/t500stock(src)
-	new /obj/item/attachable/lace/t500(src)
-	new /obj/item/attachable/t500barrelshort(src)
-	new /obj/item/attachable/t500barrel(src)
-	new /obj/item/weapon/gun/revolver/t500(src)
 
 #undef BOX_OVERLAY_SHIFT_X
 #undef BOX_OVERLAY_SHIFT_Y

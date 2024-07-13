@@ -77,12 +77,6 @@ LINEN BINS
 /obj/item/bedsheet/brown
 	icon_state = "sheetbrown"
 
-/obj/item/bedsheet/pred
-	name = "Hunter Nav Console"
-	desc = "A console used by the Hunters for navigation purposes."
-	icon = 'icons/obj/machines/yautja_machines.dmi'
-	icon_state = "cameras"
-
 
 
 

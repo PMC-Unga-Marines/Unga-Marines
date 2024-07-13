@@ -460,11 +460,6 @@ RU TGMC EDIT */
 ///Xeno is currently performing a leap/dash attack
 #define XENO_LEAPING (1<<0)
 
-#define HIVE_CAN_COLLAPSE_FROM_SILO (1<<1)
-
-#define XENO_WEAK_ACID_PUDDLE_DAMAGE 8 //Weak acid damage dealt by acid puddles
-#define XENO_HIGH_ACID_PUDDLE_DAMAGE 20 //Strong acid damage dealt by acid puddles
-
 #define XENO_DEFAULT_VENT_ENTER_TIME 4.5 SECONDS //Standard time for a xeno to enter a vent.
 #define XENO_DEFAULT_VENT_EXIT_TIME 2 SECONDS //Standard time for a xeno to exit a vent.
 #define XENO_DEFAULT_ACID_PUDDLE_DAMAGE 14 //Standard damage dealt by acid puddles
@@ -651,8 +646,6 @@ RU TGMC EDIT */
 #define RESIN_OTHER_TIME 1 SECONDS //Time it takes to apply resin jelly to other xenos
 
 //Boiler defines
-#define BOILER_GAS_DELAY 0.5 SECONDS
-#define BOILER_DUMP_SPEED -1.5
 #define BOILER_LUMINOSITY_BASE 0
 #define BOILER_LUMINOSITY_BASE_COLOR LIGHT_COLOR_GREEN
 #define BOILER_LUMINOSITY_AMMO 0.5 //don't set this to 0. How much each 'piece' of ammo in reserve glows by.
@@ -660,12 +653,6 @@ RU TGMC EDIT */
 #define BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR LIGHT_COLOR_GREEN
 #define BOILER_BOMBARD_COOLDOWN_REDUCTION 1.5 //Amount of seconds each glob stored reduces bombard cooldown by
 #define	BOILER_LUMINOSITY_THRESHOLD 2 //Amount of ammo needed to start glowing
-
-//Panther defines
-#define PANTHER_EVASION_COOLDOWN 2.5 SECONDS // how close a nearby human has to be in order to be targeted
-#define PANTHER_EVASION_PLASMADRAIN 3
-#define PANTHER_EVASION_LOW_PLASMADRAIN 1.5
-#define PANTHER_TEARING_TAIL_REAGENT_AMOUNT 5
 
 //Hivelord defines
 #define HIVELORD_TUNNEL_DISMANTLE_TIME 3 SECONDS
@@ -862,8 +849,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define BOILER_WATER_SLOWDOWN 0
 ///Slowdown for warlocks moving through liquid
 #define WARLOCK_WATER_SLOWDOWN 0
-///Slowdown for favehuggers moving through liquid
-#define FACEHUGGER_WATER_SLOWDOWN 1.6
 
 
 //Species defines
@@ -872,13 +857,3 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define SPECIES_HUMAN "species_human"
 ///Combat robot species
 #define SPECIES_COMBAT_ROBOT "species_combat_robot"
-
-#define IS_YAUTJA (1<<6)
-
-#define MOTH_WINGS_LAYER 28
-#define MUTATIONS_LAYER 27
-#define DAMAGE_LAYER 26
-#define FLAY_LAYER 25
-#define PRED_LASER_LAYER 1.9
-#define LASER_LAYER 1.8
-#define TOTAL_LAYERS 30

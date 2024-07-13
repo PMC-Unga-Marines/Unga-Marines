@@ -67,10 +67,18 @@
 		isUV = 0
 
 /obj/machinery/suit_storage_unit/ex_act(severity)
-	if(prob(severity / 3))
-		if(prob(50))
-			dump_everything()
-		qdel(src)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			if(prob(50))
+				dump_everything() //So suits dont survive all the time
+			qdel(src)
+
+		if(EXPLODE_HEAVY)
+			if(prob(50))
+				dump_everything()
+				qdel(src)
+
+
 
 /obj/machinery/suit_storage_unit/interact(mob/user)
 	. = ..()

@@ -105,8 +105,6 @@
 	flags_inv_hide = HIDEFACE|HIDEALLHAIR
 	flags_armor_protection = FACE
 	w_class = WEIGHT_CLASS_SMALL
-	item_icons = list(
-		slot_wear_mask_str = 'icons/mob/clothing/mask.dmi')
 
 /obj/item/clothing/mask/balaclava/tactical
 	name = "green balaclava"
@@ -139,17 +137,3 @@
 	desc = "Worn by robust fighters who are willing to do anything to win."
 	icon_state = "luchar"
 	item_state = "luchar"
-
-/obj/item/clothing/mask/balaclava/blueskull
-	name = "Blue skull balaclava"
-	desc = "Totally not a ripoff from a famous shooter"
-	icon_state = "blue_skull_balaclava"
-	item_state = "balaclava"
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/clothing/mask/balaclava/blackskull
-	name = "Black skull balaclava"
-	desc = "Totally not a ripoff from a famous shooter"
-	icon_state = "black_skull_balaclava"
-	item_state = "balaclava"
-	w_class = WEIGHT_CLASS_SMALL

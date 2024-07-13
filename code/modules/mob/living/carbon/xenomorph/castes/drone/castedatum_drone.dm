@@ -38,8 +38,6 @@
 		/mob/living/carbon/xenomorph/hivemind,
 	)
 
-	deevolves_to = /mob/living/carbon/xenomorph/larva
-
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER
 	can_hold_eggs = CAN_HOLD_TWO_HANDS

@@ -225,13 +225,20 @@
 
 //Stealth handling
 
+/* RUTGMC DELETION
 /mob/living/carbon/xenomorph/proc/update_progression()
+	// Upgrade is increased based on marine to xeno population taking stored_larva as a modifier.
+	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
+	upgrade_stored += 1 + (stored_larva/6) + hive.get_evolution_boost() //Do this regardless of whether we can upgrade so age accrues at primo
 	if(!upgrade_possible())
+		return
+	if(upgrade_stored < xeno_caste.upgrade_threshold)
 		return
 	if(incapacitated())
 		return
-	//instant upgrade
 	upgrade_xeno(upgrade_next())
+*/
 
 /mob/living/carbon/xenomorph/proc/update_evolving()
 	if(evolution_stored >= xeno_caste.evolution_threshold || !(xeno_caste.caste_flags & CASTE_EVOLUTION_ALLOWED) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO))

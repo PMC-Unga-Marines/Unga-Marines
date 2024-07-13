@@ -109,9 +109,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 // ***************************************
 /datum/action/ability/xeno_action/place_trap
 	name = "Place trap"
-	desc = "Place a hole on weeds that can be filled with a hugger, liquid acid, acid or neurotoxin gas. Activates when a marine steps on it."
-	action_icon_state = "small_trap"
-	ability_cost = 200
+	action_icon_state = "place_trap"
+	desc = "Place a hole on weeds that can be filled with a hugger or acid. Activates when a marine steps on it."
+	ability_cost = 400
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLACE_TRAP,
 	)
@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	name = "Spawn Facehugger"
 	action_icon_state = "spawn_hugger"
 	desc = "Spawn a facehugger that is stored on your body."
-	ability_cost = 100
+	ability_cost = 200
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SPAWN_HUGGER,
@@ -185,31 +185,6 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.huggers_created++
-
-// ***************************************
-// *********** Set Hugger Reserve
-// ***************************************
-// Set hugger reserve
-/datum/action/ability/xeno_action/set_hugger_reserve
-	name = "Set Hugger Reserve"
-	action_icon_state = "hugger_set"
-	desc = "Set the number of huggers you want to preserve from the observers' possession."
-	use_state_flags = ABILITY_USE_LYING
-
-/datum/action/ability/xeno_action/set_hugger_reserve/give_action(mob/living/L)
-	. = ..()
-	var/mob/living/carbon/xenomorph/carrier/caster = owner
-	caster.huggers_reserved = caster.xeno_caste.huggers_max
-
-/datum/action/ability/xeno_action/set_hugger_reserve/action_activate()
-	var/mob/living/carbon/xenomorph/carrier/caster = owner
-	var/number = tgui_input_number(usr, "How many facehuggers would you like to keep safe from Observers wanting to join as facehuggers?", "How many to reserve?", caster.huggers_reserved, caster.xeno_caste.huggers_max)
-	if(!isnull(number))
-		caster.huggers_reserved = number
-	to_chat(caster, span_notice("You reserved [caster.huggers_reserved] facehuggers for yourself."))
-	caster.balloon_alert(caster, "Reserved [caster.huggers_reserved] facehuggers")
-
-	return succeed_activate()
 
 // ***************************************
 // *********** Drop all hugger, panic button

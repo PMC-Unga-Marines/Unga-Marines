@@ -200,10 +200,12 @@ All ShuttleMove procs go here
 	. = ..()
 	parent_cameranet.addCamera(src)
 
+/* RUTGMC DELETION
 /obj/machinery/atmospherics/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	if(pipe_vision_img)
 		pipe_vision_img.loc = loc
+	var/missing_nodes = FALSE
 	for(var/i in 1 to device_type)
 		if(nodes[i])
 			var/obj/machinery/atmospherics/node = nodes[i]
@@ -212,16 +214,24 @@ All ShuttleMove procs go here
 				if(node in get_step(src, D))
 					connected = TRUE
 					break
+
 			if(!connected)
 				nullifyNode(i)
 
-	atmosinit()
-	for(var/obj/machinery/atmospherics/A in pipeline_expansion())
-		A.atmosinit()
-		if(A.returnPipenet())
-			A.addMember(src)
-	build_network()
-	covered_by_shuttle = FALSE
+		if(!nodes[i])
+			missing_nodes = TRUE
+
+	if(missing_nodes)
+		atmosinit()
+		for(var/obj/machinery/atmospherics/A in pipeline_expansion())
+			A.atmosinit()
+			if(A.returnPipenet())
+				A.addMember(src)
+		build_network()
+	else
+		// atmosinit() calls update_icon(), so we don't need to call it
+		update_icon()
+*/
 
 /obj/machinery/atmospherics/pipe/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()

@@ -134,7 +134,6 @@
 	name = "final boss roomba"
 	desc = "You weep in terror at the sight of this perfect feat of engineering. It sucks up both items and dead creatures alike."
 	resistance_flags = RESIST_ALL
-	allow_claymore = TRUE
 
 /obj/machinery/bot/roomba/valhalla/eord/suck_items()
 	for(var/obj/item/sucker in loc)

@@ -88,8 +88,6 @@ REAGENT SCANNER
 	///Distance the current_user can be away from the patient and still get health data.
 	var/track_distance = 3
 
-	var/alien = FALSE
-
 /obj/item/healthanalyzer/attack(mob/living/carbon/M, mob/living/user)
 	. = ..()
 	analyze_vitals(M, user)
@@ -277,14 +275,6 @@ REAGENT SCANNER
 			data["ssd"] = "SSD detected." // SSD
 
 	return data
-
-/obj/item/healthanalyzer/alien
-	name = "\improper YMX scanner"
-	icon = 'icons/obj/hunter/pred_gear.dmi'
-	icon_state = "scanner"
-	item_state = "analyzer"
-	desc = "An alien design hand-held body scanner able to distinguish vital signs of the subject. The front panel is able to provide the basic readout of the subject's status."
-	alien = TRUE
 
 /obj/item/healthanalyzer/integrated
 	name = "\improper HF2 integrated health analyzer"

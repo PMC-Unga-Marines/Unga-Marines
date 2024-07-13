@@ -13,8 +13,6 @@
 	icon_state = "disposal"
 	anchored = TRUE
 	density = TRUE
-	resistance_flags = XENO_DAMAGEABLE
-	max_integrity = 150
 	active_power_usage = 3500 //The pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
@@ -291,8 +289,15 @@
 
 //Pipe affected by explosion
 /obj/machinery/disposal/ex_act(severity)
-	if(prob(severity / 4))
-		qdel(src)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel(src)
+		if(EXPLODE_HEAVY)
+			if(prob(60))
+				qdel(src)
+		if(EXPLODE_LIGHT)
+			if(prob(25))
+				qdel(src)
 
 //Update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
@@ -686,9 +691,13 @@
 
 //Pipe affected by explosion
 /obj/structure/disposalpipe/ex_act(severity)
-	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-		return
-	take_damage(severity / 15, BRUTE, BOMB)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel(src)
+		if(EXPLODE_HEAVY)
+			take_damage(rand(5, 15), BRUTE, BOMB)
+		if(EXPLODE_LIGHT)
+			take_damage(rand(0, 15), BRUTE, BOMB)
 
 //Attack by item. Weldingtool: unfasten and convert to obj/disposalconstruct
 /obj/structure/disposalpipe/attackby(obj/item/I, mob/user, params)

@@ -399,8 +399,8 @@
 	flags_magazine = MAGAZINE_WORN
 	w_class = WEIGHT_CLASS_HUGE
 	default_ammo = /datum/ammo/bullet/minigun
-	current_rounds = 600
-	max_rounds = 600
+	current_rounds = 500
+	max_rounds = 500
 	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
 
 /obj/item/ammo_magazine/minigun_powerpack/snow
@@ -421,8 +421,8 @@
 	icon_state = "powerpacksg"
 	flags_magazine = MAGAZINE_WORN|MAGAZINE_REFILLABLE
 	default_ammo = /datum/ammo/bullet/smart_minigun
-	current_rounds = 2000
-	max_rounds = 2000
+	current_rounds = 1000
+	max_rounds = 1000
 	caliber = CALIBER_10x26_CASELESS
 	flags_item_map_variant = null
 

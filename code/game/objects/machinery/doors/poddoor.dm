@@ -275,9 +275,6 @@
 	var/area/ourarea = get_area(src)
 	DISABLE_BITFIELD(ourarea.flags_area, DISALLOW_WEEDING)
 
-/obj/machinery/door/poddoor/timed_late/containment/landing_zone/get_explosion_resistance()
-	return density ? 5000 : 0
-
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone
 	id = "landing_zone"
 	smoothing_groups = null

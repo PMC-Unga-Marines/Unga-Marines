@@ -66,7 +66,6 @@
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
 	update_wounds()
-	handle_regular_hud_updates()
 
 /mob/living/carbon/xenomorph/hivemind/handle_living_health_updates()
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
@@ -322,13 +321,9 @@
 	max_integrity = 600
 	icon = 'icons/Xeno/1x1building.dmi'
 	icon_state = "hivemind_core"
-
-	plane = FLOOR_PLANE
 	xeno_structure_flags = CRITICAL_STRUCTURE|DEPART_DESTRUCTION_IMMUNE
-
 	///The cooldown of the alert hivemind gets when a hostile is near it's core
 	COOLDOWN_DECLARE(hivemind_proxy_alert_cooldown)
-
 	///The weakref to the parent hivemind mob that we're attached to
 	var/datum/weakref/parent
 

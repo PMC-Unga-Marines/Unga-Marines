@@ -260,6 +260,7 @@
 		else
 			return NONE
 
+/* RUTGMC DELETION
 // Charge is divided into two acts: before and after the crushed thing taking damage, as that can cause it to be deleted.
 /datum/action/ability/xeno_action/ready_charge/proc/do_crush(datum/source, atom/crushed)
 	SIGNAL_HANDLER
@@ -321,11 +322,10 @@
 
 	if(isturf(crushed))
 		var/turf/crushed_turf = crushed
-		if(iswallturf(crushed_turf))
-			var/turf/closed/wall/crushed_wall = crushed_turf
-			crushed_wall.take_damage(precrush, BRUTE, MELEE)
-		else
-			crushed_turf.ex_act(precrush * rand(50, 100))
+		switch(precrush)
+			if(1 to 3)
+				crushed_turf.ex_act(precrush)
+
 		if(QDELETED(crushed_turf))
 			charger.visible_message(span_danger("[charger] plows straight through [preserved_name]!"),
 			span_xenowarning("We plow straight through [preserved_name]!"))
@@ -335,6 +335,7 @@
 		span_xenowarning("We ram into [crushed_turf] and skid to a halt!"))
 		do_stop_momentum(FALSE)
 		return COMPONENT_MOVABLE_PREBUMP_STOPPED
+*/
 
 
 /datum/action/ability/xeno_action/ready_charge/bull_charge
@@ -394,12 +395,6 @@
 /atom/proc/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	return //If this happens it will error.
 
-/turf/closed/wall/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
-	if((resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE)) || charger.is_charging < CHARGE_ON)
-		charge_datum.do_stop_momentum()
-		return PRECRUSH_STOPPED
-	. = (CHARGE_SPEED(charge_datum) * 400)
-	charge_datum.speed_down(1)
 
 /obj/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	if((resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE)) || charger.is_charging < CHARGE_ON)

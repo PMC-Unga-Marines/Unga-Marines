@@ -187,8 +187,13 @@
 		malfunction()
 
 /obj/item/portable_vendor/ex_act(severity)
-	if(prob(severity / 4))
-		qdel(src)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel(src)
+			return
+		if(EXPLODE_HEAVY)
+			if(prob(50))
+				qdel(src)
 
 
 /obj/item/portable_vendor/corporate
