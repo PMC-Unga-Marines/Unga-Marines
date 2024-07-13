@@ -377,7 +377,7 @@
 	return
 
 
-	/obj/item/defibrillator/advanced
+/obj/item/defibrillator/advanced
 	name = "advanced emergency defibrillator"
 	desc = "A handheld advanced emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
 	icon = 'icons/obj/items/defibrillator.dmi'
