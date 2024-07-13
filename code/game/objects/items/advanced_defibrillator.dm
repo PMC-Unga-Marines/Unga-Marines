@@ -1,8 +1,8 @@
-/obj/item/defibrillator
-	name = "emergency defibrillator"
-	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
+/obj/item/advanced_defibrillator
+	name = "advanced emergency defibrillator"
+	desc = "A handheld advanced emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
 	icon = 'icons/obj/items/defibrillator.dmi'
-	icon_state = "defib_full"
+	icon_state = "civ_defib_full"
 	item_state = "defib"
 	flags_atom = CONDUCT
 	flags_item = NOBLUDGEON
@@ -15,18 +15,18 @@
 	///wether readying is needed
 	var/ready_needed = TRUE
 	var/damage_threshold = 8 //This is the maximum non-oxy damage the defibrillator will heal to get a patient above -100, in all categories
-	var/charge_cost = 66 //How much energy is used.
+	var/charge_cost = 100 //How much energy is used.
 	var/obj/item/cell/dcell = null
 	var/datum/effect_system/spark_spread/sparks
 	var/defib_cooldown = 0 //Cooldown for toggling the defib
 
 
-/obj/item/defibrillator/suicide_act(mob/user)
+/obj/item/advanced_defibrillator/suicide_act(mob/user)
 	user.visible_message(span_danger("[user] is putting the live paddles on [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide."))
 	return (FIRELOSS)
 
 
-/obj/item/defibrillator/Initialize(mapload)
+/obj/item/advanced_defibrillator/Initialize(mapload)
 	. = ..()
 	sparks = new
 	sparks.set_up(5, 0, src)
@@ -35,7 +35,7 @@
 	update_icon()
 
 
-/obj/item/defibrillator/Destroy()
+/obj/item/advanced_defibrillator/Destroy()
 	QDEL_NULL(sparks)
 	if(dcell)
 		UnregisterSignal(dcell, COMSIG_QDELETING)
@@ -43,8 +43,8 @@
 	return ..()
 
 
-/obj/item/defibrillator/update_icon_state()
-	icon_state = "defib"
+/obj/item/advanced_defibrillator/update_icon_state()
+	icon_state = "civ_defib"
 	if(ready)
 		icon_state += "_out"
 	if(dcell?.charge)
@@ -59,7 +59,7 @@
 		icon_state += "_empty"
 
 
-/obj/item/defibrillator/examine(mob/user)
+/obj/item/advanced_defibrillator/examine(mob/user)
 	. = ..()
 	. += maybe_message_recharge_hint()
 
@@ -68,7 +68,7 @@
  * Message user with a hint to recharge defibrillator
  * and how to do it if the battery is low.
 */
-/obj/item/defibrillator/proc/maybe_message_recharge_hint(mob/living/carbon/human/user)
+/obj/item/advanced_defibrillator/proc/maybe_message_recharge_hint(mob/living/carbon/human/user)
 	if(!dcell)
 		return
 
@@ -83,7 +83,7 @@
 	return span_notice("[message] You can click-drag defibrillator on corpsman backpack to recharge it.")
 
 
-/obj/item/defibrillator/attack_self(mob/living/carbon/human/user)
+/obj/item/advanced_defibrillator/attack_self(mob/living/carbon/human/user)
 	if(!ready_needed)
 		return
 	if(!istype(user))
@@ -112,7 +112,7 @@
 
 
 ///Wrapper to guarantee powercells are properly nulled and avoid hard deletes.
-/obj/item/defibrillator/proc/set_dcell(obj/item/cell/new_cell)
+/obj/item/advanced_defibrillator/proc/set_dcell(obj/item/cell/new_cell)
 	if(dcell)
 		UnregisterSignal(dcell, COMSIG_QDELETING)
 	dcell = new_cell
@@ -121,7 +121,7 @@
 
 
 ///Called by the deletion of the referenced powercell.
-/obj/item/defibrillator/proc/on_cell_deletion(obj/item/cell/source, force)
+/obj/item/advanced_defibrillator/proc/on_cell_deletion(obj/item/cell/source, force)
 	SIGNAL_HANDLER
 	stack_trace("Powercell deleted while powering the defib, this isn't supposed to happen normally.")
 	set_dcell(null)
@@ -148,11 +148,11 @@
 
 	return TRUE
 
-/obj/item/defibrillator/attack(mob/living/carbon/human/H, mob/living/carbon/human/user)
+/obj/item/advanced_defibrillator/attack(mob/living/carbon/human/H, mob/living/carbon/human/user)
 	defibrillate(H,user)
 
 ///Split proc that actually does the defibrillation. Separated to be used more easily by medical gloves
-/obj/item/defibrillator/proc/defibrillate(mob/living/carbon/human/H, mob/living/carbon/human/user)
+/obj/item/advanced_defibrillator/proc/defibrillate(mob/living/carbon/human/H, mob/living/carbon/human/user)
 	if(user.do_actions) //Currently deffibing
 		return
 
@@ -229,14 +229,6 @@
 	span_notice("You shock [H] with the paddles."))
 	H.visible_message(span_danger("[H]'s body convulses a bit."))
 	defib_cooldown = world.time + 10 //1 second cooldown before you can shock again
-
-	if(H.wear_suit && H.wear_suit.flags_atom & CONDUCT)
-		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Defibrillation failed: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
-		return
-
-	var/datum/internal_organ/heart/heart = H.internal_organs_by_name["heart"]
-	if(!issynth(H) && !isrobot(H) && heart && prob(90))
-		heart.take_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
 
 	if(HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) || H.suiciding)
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient's brain has decayed too much. No remedy possible."))
@@ -324,8 +316,47 @@
 
 	notify_ghosts("<b>[user]</b> has brought <b>[H.name]</b> back to life!", source = H, action = NOTIFY_ORBIT)
 
-/obj/item/defibrillator/civi
-	name = "emergency defibrillator"
-	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead. Appears to be a civillian model."
-	icon_state = "civ_defib_full"
-	item_state = "defib"
+
+/obj/item/advanced_defibrillator/gloves
+	name = "advanced medical combat gloves"
+	desc = "Advanced medical gloves, these include small electrodes to defibrilate a patiant. No more bulky units!"
+	icon_state = "defib_gloves"
+	item_state = "defib_gloves"
+	ready = TRUE
+	ready_needed = FALSE
+	flags_equip_slot = ITEM_SLOT_GLOVES
+	w_class = WEIGHT_CLASS_SMALL
+	icon = 'icons/obj/clothing/gloves.dmi'
+	item_state_worn = TRUE
+	siemens_coefficient = 0.50
+	blood_sprite_state = "bloodyhands"
+	flags_armor_protection = HANDS
+	flags_equip_slot = ITEM_SLOT_GLOVES
+	attack_verb = "zaps"
+	soft_armor = list(MELEE = 25, BULLET = 15, LASER = 10, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 15)
+	flags_cold_protection = HANDS
+	flags_heat_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/advanced_defibrillator/gloves/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(user.gloves == src)
+		RegisterSignal(user, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
+	else
+		UnregisterSignal(user, COMSIG_HUMAN_MELEE_UNARMED_ATTACK)
+
+/obj/item/advanced_defibrillator/gloves/unequipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	UnregisterSignal(user, COMSIG_HUMAN_MELEE_UNARMED_ATTACK) //Unregisters in the case of getting delimbed
+
+//when you are wearing these gloves, this will call the normal attack code to begin defibing the target
+/obj/item/advanced_defibrillator/gloves/proc/on_unarmed_attack(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(user.a_intent != INTENT_HELP)
+		return
+	if(istype(user) && istype(target))
+		defibrillate(target, user)
+
+/obj/item/advanced_defibrillator/gloves/update_icon_state()
+	return
+
