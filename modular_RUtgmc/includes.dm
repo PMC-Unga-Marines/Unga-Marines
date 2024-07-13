@@ -1,8 +1,4 @@
 #include "code\modules\mob\living\carbon\xenomorph\charge_crush.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\king\castedatum_king.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\king\king.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\larva\larva.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\praetorian\abilities_praetorian.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\praetorian\castedatum_praetorian.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\praetorian\praetorian.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\queen\abilities_queen.dm"
