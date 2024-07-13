@@ -87,6 +87,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/ravager/primordial,
 	/mob/living/carbon/xenomorph/praetorian,
 	/mob/living/carbon/xenomorph/praetorian/primordial,
+	/mob/living/carbon/xenomorph/predalien,
 	/mob/living/carbon/xenomorph/boiler,
 	/mob/living/carbon/xenomorph/boiler/primordial,
 	/mob/living/carbon/xenomorph/defiler,
@@ -105,7 +106,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,
 	/mob/living/carbon/xenomorph/facehugger,
-	))
+))
 
 GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/king,
