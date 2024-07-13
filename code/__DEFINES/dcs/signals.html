@@ -14,7 +14,7 @@
  &mdash; <a href="code/__DEFINES/dcs/signals.html#define">Define Details</a></header>
 <main>
 <h1>code/__DEFINES/dcs/signals.dm 
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm"/></a></h1>
 
 <table class="summary" cellspacing="0">
@@ -118,408 +118,448 @@ only on INTENT_HARM, INTENT_DISARM, IF it does damaage</td></tr>
         <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_UI_ACT">COMSIG_UI_ACT</a></th><td>from datum ui_act (usr, action)</td></tr>
         <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_REEQUIP_FAILURE">COMSIG_REEQUIP_FAILURE</a></th><td>From reequip components</td></tr>
         <tr><th><a href="code/__DEFINES/dcs/signals.html#define/SPATIAL_GRID_CELL_ENTERED">SPATIAL_GRID_CELL_ENTERED</a></th><td>Called from base of /datum/controller/subsystem/spatial_grid/proc/enter_cell: (/atom/movable)</td></tr>
-        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/SPATIAL_GRID_CELL_EXITED">SPATIAL_GRID_CELL_EXITED</a></th><td>Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)</td></tr></table><h2 id="define">Define Details</h2>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/SPATIAL_GRID_CELL_EXITED">SPATIAL_GRID_CELL_EXITED</a></th><td>Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_XENOABILITY_TEARING_TAIL">COMSIG_XENOABILITY_TEARING_TAIL</a></th><td>Xeno signals</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_XENOABILITY_ROAR">COMSIG_XENOABILITY_ROAR</a></th><td>Predalien signals</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_PRED_MARK_HUNT">COMSIG_PRED_MARK_HUNT</a></th><td>Pred signals</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_GLOB_PREDATOR_ROUND_TOGGLED">COMSIG_GLOB_PREDATOR_ROUND_TOGGLED</a></th><td>From /datum/admins/proc/force_predator_round()</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_MOB_RECALCULATE_CLIENT_COLOR">COMSIG_MOB_RECALCULATE_CLIENT_COLOR</a></th><td>From /mob/living/verb/resist()</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_HUMAN_EXTINGUISH">COMSIG_HUMAN_EXTINGUISH</a></th><td>From /mob/living/carbon/human/ExtinguishMob()</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_HUMAN_FLAY_ATTEMPT">COMSIG_HUMAN_FLAY_ATTEMPT</a></th><td>From /datum/flaying_datum</td></tr>
+        <tr><th><a href="code/__DEFINES/dcs/signals.html#define/COMSIG_HUMAN_DEATH_STAGE_CHANGE">COMSIG_HUMAN_DEATH_STAGE_CHANGE</a></th><td>mob/living signals</td></tr></table><h2 id="define">Define Details</h2>
 <h3 id="define/COMPONENT_CANCEL_EQUIPMENT_CLICK"><aside class="declaration">#define </aside>COMPONENT_CANCEL_EQUIPMENT_CLICK
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1014">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1014">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1014"/></a>
     </h3>
     <p>Prevents click from happening.</p><h3 id="define/COMPONENT_CANCEL_MELEE_CLICK"><aside class="declaration">#define </aside>COMPONENT_CANCEL_MELEE_CLICK
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1010">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1010">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1010"/></a>
     </h3>
     <p>Prevents click from happening.</p><h3 id="define/COMSIG_ACTION_TRIGGER"><aside class="declaration">#define </aside>COMSIG_ACTION_TRIGGER
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1020">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1020">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1020"/></a>
     </h3>
     <p>Non-Signal Component Related Defines</p><h3 id="define/COMSIG_ADMIN_HELP_MADE_INACTIVE"><aside class="declaration">#define </aside>COMSIG_ADMIN_HELP_MADE_INACTIVE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L154">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L154">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 154"/></a>
     </h3>
     <p>Admin helps
 From /datum/admin_help/RemoveActive().
 Fired when an adminhelp is made inactive either due to closing or resolving.</p><h3 id="define/COMSIG_ADMIN_HELP_REPLIED"><aside class="declaration">#define </aside>COMSIG_ADMIN_HELP_REPLIED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L157">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L157">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 157"/></a>
     </h3>
     <p>Called when the player replies. From /client/proc/cmd_admin_pm().</p><h3 id="define/COMSIG_ATOM_BUMPED"><aside class="declaration">#define </aside>COMSIG_ATOM_BUMPED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L215">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L215">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 215"/></a>
     </h3>
     <p>from base of atom/Bumped(): (/atom/movable)</p><h3 id="define/COMSIG_ATOM_GET_EXAMINE_NAME"><aside class="declaration">#define </aside>COMSIG_ATOM_GET_EXAMINE_NAME
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L227">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L227">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 227"/></a>
     </h3>
     <p>from base of atom/get_examine_name(): (/mob, list/overrides)</p><h3 id="define/COMSIG_ATOM_GET_MECHANICS_INFO"><aside class="declaration">#define </aside>COMSIG_ATOM_GET_MECHANICS_INFO
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L234">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L234">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 234"/></a>
     </h3>
     <p>from base of atom/get_mechanics_info(): (/mob)</p><h3 id="define/COMSIG_ATOM_SET_LIGHT_COLOR"><aside class="declaration">#define </aside>COMSIG_ATOM_SET_LIGHT_COLOR
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L258">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L258">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 258"/></a>
     </h3>
     <p>Called right before the atom changes the value of light_color to a different one, from base atom/set_light_color(): (new_color)</p><h3 id="define/COMSIG_ATOM_SET_LIGHT_FLAGS"><aside class="declaration">#define </aside>COMSIG_ATOM_SET_LIGHT_FLAGS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L262">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L262">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 262"/></a>
     </h3>
     <p>Called right before the atom changes the value of light_flags to a different one, from base atom/set_light_flags(): (new_value)</p><h3 id="define/COMSIG_ATOM_SET_LIGHT_ON"><aside class="declaration">#define </aside>COMSIG_ATOM_SET_LIGHT_ON
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L260">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L260">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 260"/></a>
     </h3>
     <p>Called right before the atom changes the value of light_on to a different one, from base atom/set_light_on(): (new_value)</p><h3 id="define/COMSIG_ATOM_SET_LIGHT_POWER"><aside class="declaration">#define </aside>COMSIG_ATOM_SET_LIGHT_POWER
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L256">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L256">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 256"/></a>
     </h3>
     <p>Called right before the atom changes the value of light_power to a different one, from base atom/set_light_power(): (new_power)</p><h3 id="define/COMSIG_ATOM_SET_LIGHT_RANGE"><aside class="declaration">#define </aside>COMSIG_ATOM_SET_LIGHT_RANGE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L254">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L254">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 254"/></a>
     </h3>
     <p>Called right before the atom changes the value of light_range to a different one, from base atom/set_light_range(): (new_range)</p><h3 id="define/COMSIG_ATOM_SET_OPACITY"><aside class="declaration">#define </aside>COMSIG_ATOM_SET_OPACITY
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L251">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L251">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 251"/></a>
     </h3>
     <p>from base of atom/set_opacity(): (new_opacity)</p><h3 id="define/COMSIG_CAMPAIGN_ASSET_ACTIVATION"><aside class="declaration">#define </aside>COMSIG_CAMPAIGN_ASSET_ACTIVATION
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L105">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L105">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 105"/></a>
     </h3>
     <p>Campaign asset activation successful</p><h3 id="define/COMSIG_CAMPAIGN_DISABLER_ACTIVATION"><aside class="declaration">#define </aside>COMSIG_CAMPAIGN_DISABLER_ACTIVATION
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L107">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L107">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 107"/></a>
     </h3>
     <p>Campaign asset disabler activated</p><h3 id="define/COMSIG_CLIENT_GET_LARVA_QUEUE_POSITION"><aside class="declaration">#define </aside>COMSIG_CLIENT_GET_LARVA_QUEUE_POSITION
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L202">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L202">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 202"/></a>
     </h3>
     <p>from /datum/component/larva_queue</p><h3 id="define/COMSIG_CLIENT_MOB_LOGIN"><aside class="declaration">#define </aside>COMSIG_CLIENT_MOB_LOGIN
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L200">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L200">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 200"/></a>
     </h3>
     <p>Called on the client that just logged into a mob</p><h3 id="define/COMSIG_CLIENT_MOB_LOGOUT"><aside class="declaration">#define </aside>COMSIG_CLIENT_MOB_LOGOUT
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L201">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L201">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 201"/></a>
     </h3>
     <p>Called on the client that just logged out from the mob: (/mob)</p><h3 id="define/COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION"><aside class="declaration">#define </aside>COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L203">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L203">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 203"/></a>
     </h3>
     <p>from /datum/component/larva_queue</p><h3 id="define/COMSIG_CLIENT_VERB_ADDED"><aside class="declaration">#define </aside>COMSIG_CLIENT_VERB_ADDED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L195">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L195">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 195"/></a>
     </h3>
     <p>Called after one or more verbs are added: (list of verbs added)</p><h3 id="define/COMSIG_CLIENT_VERB_REMOVED"><aside class="declaration">#define </aside>COMSIG_CLIENT_VERB_REMOVED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L197">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L197">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 197"/></a>
     </h3>
     <p>Called after one or more verbs are removed: (list of verbs added)</p><h3 id="define/COMSIG_COMPONENT_ADDED"><aside class="declaration">#define </aside>COMSIG_COMPONENT_ADDED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L113">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L113">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 113"/></a>
     </h3>
     <p>when a component is added to a datum: (/datum/component)</p><h3 id="define/COMSIG_COMPONENT_REMOVING"><aside class="declaration">#define </aside>COMSIG_COMPONENT_REMOVING
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L115">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L115">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 115"/></a>
     </h3>
     <p>before a component is removed from a datum because of RemoveComponent: (/datum/component)</p><h3 id="define/COMSIG_ELEMENT_ATTACH"><aside class="declaration">#define </aside>COMSIG_ELEMENT_ATTACH
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L124">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L124">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 124"/></a>
     </h3>
     <p>fires on the target datum when an element is attached to it (/datum/element)</p><h3 id="define/COMSIG_ELEMENT_DETACH"><aside class="declaration">#define </aside>COMSIG_ELEMENT_DETACH
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L126">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L126">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 126"/></a>
     </h3>
     <p>fires on the target datum when an element is attached to it  (/datum/element)</p><h3 id="define/COMSIG_ELEMENT_JUMP_STARTED"><aside class="declaration">#define </aside>COMSIG_ELEMENT_JUMP_STARTED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L138">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L138">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 138"/></a>
     </h3>
     <p>from /datum/element/jump when a jump has started and ended</p><h3 id="define/COMSIG_FIND_FOOTSTEP_SOUND"><aside class="declaration">#define </aside>COMSIG_FIND_FOOTSTEP_SOUND
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L135">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L135">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 135"/></a>
     </h3>
     <p>from turf/open/get_footstep_override(), to find an override footstep sound</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAPTURED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAPTURED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L88">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L88">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 88"/></a>
     </h3>
     <p>Sent when a campaign capture objective has been captured</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAP_STARTED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAP_STARTED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L92">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L92">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 92"/></a>
     </h3>
     <p>Sent when a campaign capture objective has started the capture process</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_DECAPTURED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_DECAPTURED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L90">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L90">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 90"/></a>
     </h3>
     <p>Sent when a campaign capture objective has been decaptured</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_DISABLE_DROPPODS"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_DISABLE_DROPPODS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L96">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L96">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 96"/></a>
     </h3>
     <p>Disables droppod use during campaign</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_DROPBLOCKER_DISABLED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_DROPBLOCKER_DISABLED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L100">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L100">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 100"/></a>
     </h3>
     <p>Removes droppod restrictions from a mission</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L94">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L94">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 94"/></a>
     </h3>
     <p>Enables droppod use during campaign</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_MISSION_ENDED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_MISSION_ENDED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L84">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L84">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 84"/></a>
     </h3>
     <p>Sent when a campaign mission ends</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_MISSION_LOADED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_MISSION_LOADED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L80">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L80">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 80"/></a>
     </h3>
     <p>Sent when a new campaign mission is loaded</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_MISSION_STARTED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_MISSION_STARTED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L82">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L82">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 82"/></a>
     </h3>
     <p>Sent when a campaign mission is started</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_CODE"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_CODE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L102">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L102">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 102"/></a>
     </h3>
     <p>Override code for NT base rescue mission</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_OBJECTIVE_DESTROYED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_OBJECTIVE_DESTROYED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L86">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L86">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 86"/></a>
     </h3>
     <p>Sent when a campaign objective has been destroyed</p><h3 id="define/COMSIG_GLOB_CAMPAIGN_TELEBLOCKER_DISABLED"><aside class="declaration">#define </aside>COMSIG_GLOB_CAMPAIGN_TELEBLOCKER_DISABLED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L98">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L98">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 98"/></a>
     </h3>
     <p>Removes teleporter restrictions from a mission</p><h3 id="define/COMSIG_GLOB_CLONE_PRODUCED"><aside class="declaration">#define </aside>COMSIG_GLOB_CLONE_PRODUCED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L70">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L70">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 70"/></a>
     </h3>
     <p>called after a clone is produced and leaves his vat</p><h3 id="define/COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED"><aside class="declaration">#define </aside>COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L54">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L54">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 54"/></a>
     </h3>
     <p>Sent when the xenos lock the dropship controls</p><h3 id="define/COMSIG_GLOB_DROPSHIP_HIJACKED"><aside class="declaration">#define </aside>COMSIG_GLOB_DROPSHIP_HIJACKED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L48">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L48">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 48"/></a>
     </h3>
     <p>Sent when xenos launch a hijacked dropship</p><h3 id="define/COMSIG_GLOB_DROPSHIP_TRANSIT"><aside class="declaration">#define </aside>COMSIG_GLOB_DROPSHIP_TRANSIT
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L46">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L46">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 46"/></a>
     </h3>
     <p>Sent when a marine dropship enters transit level</p><h3 id="define/COMSIG_GLOB_EXPANDED_WORLD_BOUNDS"><aside class="declaration">#define </aside>COMSIG_GLOB_EXPANDED_WORLD_BOUNDS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L67">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L67">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 67"/></a>
     </h3>
     <p>sent after world.maxx and/or world.maxy are expanded: (has_exapnded_world_maxx, has_expanded_world_maxy)</p><h3 id="define/COMSIG_GLOB_EXPLOSION"><aside class="declaration">#define </aside>COMSIG_GLOB_EXPLOSION
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L33">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L33">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 33"/></a>
     </h3>
     <p>called after an explosion happened : (epicenter, devastation_range, heavy_impact_range, light_impact_range, weak_impact_range, took, orig_dev_range, orig_heavy_range, orig_light_range)</p><h3 id="define/COMSIG_GLOB_FLOODLIGHT_SWITCH"><aside class="declaration">#define </aside>COMSIG_GLOB_FLOODLIGHT_SWITCH
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L52">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L52">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 52"/></a>
     </h3>
     <p>Sent when the floodlight switch is powered</p><h3 id="define/COMSIG_GLOB_HOLOPAD_AI_CALLED"><aside class="declaration">#define </aside>COMSIG_GLOB_HOLOPAD_AI_CALLED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L73">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L73">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 73"/></a>
     </h3>
     <p>called when an AI is requested by a holopad</p><h3 id="define/COMSIG_GLOB_LIGHT_OFF"><aside class="declaration">#define </aside>COMSIG_GLOB_LIGHT_OFF
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L50">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L50">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 50"/></a>
     </h3>
     <p>Sent when nightfall is casted</p><h3 id="define/COMSIG_GLOB_MACHINERY_ANCHORED_CHANGE"><aside class="declaration">#define </aside>COMSIG_GLOB_MACHINERY_ANCHORED_CHANGE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L30">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L30">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 30"/></a>
     </h3>
     <p>from /obj/machinery/setAnchored(): (machine, anchoredstate)</p><h3 id="define/COMSIG_GLOB_MINI_DROPSHIP_DESTROYED"><aside class="declaration">#define </aside>COMSIG_GLOB_MINI_DROPSHIP_DESTROYED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L56">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L56">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 56"/></a>
     </h3>
     <p>Sent when the xenos destroy the tadpole controls</p><h3 id="define/COMSIG_GLOB_NEW_Z"><aside class="declaration">#define </aside>COMSIG_GLOB_NEW_Z
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L10">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L10">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 10"/></a>
     </h3>
     <p>from base of datum/controller/subsystem/mapping/proc/add_new_zlevel(): (list/args)</p><h3 id="define/COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_SOM"><aside class="declaration">#define </aside>COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_SOM
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L78">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L78">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 78"/></a>
     </h3>
     <p>Opens the SOM shipside shutters on campaign</p><h3 id="define/COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC"><aside class="declaration">#define </aside>COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L76">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L76">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 76"/></a>
     </h3>
-    <p>Opens the TGMC shipside shutters on campaign</p><h3 id="define/COMSIG_GRILL_COMPLETED"><aside class="declaration">#define </aside>COMSIG_GRILL_COMPLETED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L482">
+    <p>Opens the TGMC shipside shutters on campaign</p><h3 id="define/COMSIG_GLOB_PREDATOR_ROUND_TOGGLED"><aside class="declaration">#define </aside>COMSIG_GLOB_PREDATOR_ROUND_TOGGLED
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1106">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1106"/></a>
+    </h3>
+    <p>From /datum/admins/proc/force_predator_round()</p><h3 id="define/COMSIG_GRILL_COMPLETED"><aside class="declaration">#define </aside>COMSIG_GRILL_COMPLETED
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L482">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 482"/></a>
     </h3>
     <p>Called when an object is turned into another item through grilling ontop of a griddle</p><h3 id="define/COMSIG_HUMAN_APPLY_OVERLAY"><aside class="declaration">#define </aside>COMSIG_HUMAN_APPLY_OVERLAY
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L571">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L571">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 571"/></a>
     </h3>
-    <p>from [/mob/living/carbon/human/proc/apply_overlay]: (cache_index, list/overlays_to_apply)</p><h3 id="define/COMSIG_HUMAN_REMOVE_OVERLAY"><aside class="declaration">#define </aside>COMSIG_HUMAN_REMOVE_OVERLAY
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L573">
+    <p>from [/mob/living/carbon/human/proc/apply_overlay]: (cache_index, list/overlays_to_apply)</p><h3 id="define/COMSIG_HUMAN_DEATH_STAGE_CHANGE"><aside class="declaration">#define </aside>COMSIG_HUMAN_DEATH_STAGE_CHANGE
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1142">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1142"/></a>
+    </h3>
+    <p>mob/living signals</p><h3 id="define/COMSIG_HUMAN_EXTINGUISH"><aside class="declaration">#define </aside>COMSIG_HUMAN_EXTINGUISH
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1132">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1132"/></a>
+    </h3>
+    <p>From /mob/living/carbon/human/ExtinguishMob()</p><h3 id="define/COMSIG_HUMAN_FLAY_ATTEMPT"><aside class="declaration">#define </aside>COMSIG_HUMAN_FLAY_ATTEMPT
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1135">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1135"/></a>
+    </h3>
+    <p>From /datum/flaying_datum</p><h3 id="define/COMSIG_HUMAN_REMOVE_OVERLAY"><aside class="declaration">#define </aside>COMSIG_HUMAN_REMOVE_OVERLAY
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L573">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 573"/></a>
     </h3>
     <p>from [/mob/living/carbon/human/proc/remove_overlay]: (cache_index, list/overlays_to_remove)</p><h3 id="define/COMSIG_ITEM_GRILLED"><aside class="declaration">#define </aside>COMSIG_ITEM_GRILLED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L479">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L479">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 479"/></a>
     </h3>
     <p>Called when an object is grilled ontop of a griddle</p><h3 id="define/COMSIG_LIVING_POST_FULLY_HEAL"><aside class="declaration">#define </aside>COMSIG_LIVING_POST_FULLY_HEAL
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L549">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L549">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 549"/></a>
     </h3>
     <p>from end of fully_heal(): (admin_revive)</p><h3 id="define/COMSIG_LIVING_SET_LYING_ANGLE"><aside class="declaration">#define </aside>COMSIG_LIVING_SET_LYING_ANGLE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L526">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L526">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 526"/></a>
     </h3>
     <p>from /mob/living/proc/set_lying_angle</p><h3 id="define/COMSIG_LIVING_TREAT_MESSAGE"><aside class="declaration">#define </aside>COMSIG_LIVING_TREAT_MESSAGE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L530">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L530">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 530"/></a>
     </h3>
     <p>From mob/living/treat_message(): (list/message_args)</p><h3 id="define/COMSIG_LIVING_WEEDS_ADJACENT_REMOVED"><aside class="declaration">#define </aside>COMSIG_LIVING_WEEDS_ADJACENT_REMOVED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L556">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L556">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 556"/></a>
     </h3>
     <p>from obj/alien/weeds/Destroy()</p><h3 id="define/COMSIG_LIVING_WEEDS_AT_LOC_CREATED"><aside class="declaration">#define </aside>COMSIG_LIVING_WEEDS_AT_LOC_CREATED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L555">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L555">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 555"/></a>
     </h3>
     <p>from obj/alien/weeds/Initialize()</p><h3 id="define/COMSIG_MACHINERY_POWERED"><aside class="declaration">#define </aside>COMSIG_MACHINERY_POWERED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L323">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L323">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 323"/></a>
     </h3>
     <p>from /obj/machinery/proc/powered: ()</p><h3 id="define/COMSIG_MACHINERY_USE_POWER"><aside class="declaration">#define </aside>COMSIG_MACHINERY_USE_POWER
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L325">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L325">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 325"/></a>
     </h3>
     <p>from /obj/machinery/proc/use_power: (amount, chan, list/power_sources)</p><h3 id="define/COMSIG_MECHA_ACTION_TRIGGER"><aside class="declaration">#define </aside>COMSIG_MECHA_ACTION_TRIGGER
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1005">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1005">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1005"/></a>
     </h3>
     <p>sent from mecha action buttons to the mecha they're linked to</p><h3 id="define/COMSIG_MECHA_EQUIPMENT_CLICK"><aside class="declaration">#define </aside>COMSIG_MECHA_EQUIPMENT_CLICK
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1012">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1012">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1012"/></a>
     </h3>
     <p>sent from clicking while you have equipment selected.</p><h3 id="define/COMSIG_MECHA_MELEE_CLICK"><aside class="declaration">#define </aside>COMSIG_MECHA_MELEE_CLICK
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1008">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1008">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1008"/></a>
     </h3>
     <p>sent from clicking while you have no equipment selected. Sent before cooldown and adjacency checks, so you can use this for infinite range things if you want.</p><h3 id="define/COMSIG_MOB_EXAMINATE"><aside class="declaration">#define </aside>COMSIG_MOB_EXAMINATE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L468">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L468">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 468"/></a>
     </h3>
     <p>from base of /mob/verb/examinate(): (atom/target)</p><h3 id="define/COMSIG_MOB_GET_STATUS_TAB_ITEMS"><aside class="declaration">#define </aside>COMSIG_MOB_GET_STATUS_TAB_ITEMS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L510">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L510">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 510"/></a>
     </h3>
-    <p>from mob/get_status_tab_items(): (list/items)</p><h3 id="define/COMSIG_MOUSEDROPPED_ONTO"><aside class="declaration">#define </aside>COMSIG_MOUSEDROPPED_ONTO
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L455">
+    <p>from mob/get_status_tab_items(): (list/items)</p><h3 id="define/COMSIG_MOB_RECALCULATE_CLIENT_COLOR"><aside class="declaration">#define </aside>COMSIG_MOB_RECALCULATE_CLIENT_COLOR
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1129">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1129"/></a>
+    </h3>
+    <p>From /mob/living/verb/resist()</p><h3 id="define/COMSIG_MOUSEDROPPED_ONTO"><aside class="declaration">#define </aside>COMSIG_MOUSEDROPPED_ONTO
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L455">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 455"/></a>
     </h3>
     <p>from base of atom/MouseDrop_T: (/atom/from, /mob/user)</p><h3 id="define/COMSIG_MOUSEDROP_ONTO"><aside class="declaration">#define </aside>COMSIG_MOUSEDROP_ONTO
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L453">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L453">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 453"/></a>
     </h3>
     <p>from base of atom/MouseDrop(): (/atom/over, /mob/user)</p><h3 id="define/COMSIG_MOVABLE_CROSS"><aside class="declaration">#define </aside>COMSIG_MOVABLE_CROSS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L271">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L271">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 271"/></a>
     </h3>
     <p>from base of atom/movable/Cross(): (/atom/movable)</p><h3 id="define/COMSIG_MOVABLE_LOCATION_CHANGE"><aside class="declaration">#define </aside>COMSIG_MOVABLE_LOCATION_CHANGE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L273">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L273">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 273"/></a>
     </h3>
     <p>from base of atom/movable/update_loc(): (/atom/oldloc)</p><h3 id="define/COMSIG_MOVABLE_PREBUCKLE"><aside class="declaration">#define </aside>COMSIG_MOVABLE_PREBUCKLE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L278">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L278">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 278"/></a>
     </h3>
     <p>from /atom/movable/proc/buckle_mob(): (mob/living/M, force, check_loc, buckle_mob_flags)</p><h3 id="define/COMSIG_MOVABLE_SHUTTLE_CRUSH"><aside class="declaration">#define </aside>COMSIG_MOVABLE_SHUTTLE_CRUSH
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L302">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L302">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 302"/></a>
     </h3>
     <p>sent before a thing is crushed by a shuttle</p><h3 id="define/COMSIG_OBJ_HIDE"><aside class="declaration">#define </aside>COMSIG_OBJ_HIDE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L319">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L319">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 319"/></a>
     </h3>
     <p>from base of /turf/proc/levelupdate(). (intact) true to hide and false to unhide</p><h3 id="define/COMSIG_PORTGEN_POWER_TOGGLE"><aside class="declaration">#define </aside>COMSIG_PORTGEN_POWER_TOGGLE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L328">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L328">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 328"/></a>
     </h3>
     <p>from /obj/machinery/power/port_gen/proc/TogglePower: ()</p><h3 id="define/COMSIG_PORTGEN_PROCESS"><aside class="declaration">#define </aside>COMSIG_PORTGEN_PROCESS
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L329">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L329">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 329"/></a>
     </h3>
-    <p>from /obj/machinery/power/port_gen/process: ()</p><h3 id="define/COMSIG_PREQDELETED"><aside class="declaration">#define </aside>COMSIG_PREQDELETED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L117">
+    <p>from /obj/machinery/power/port_gen/process: ()</p><h3 id="define/COMSIG_PRED_MARK_HUNT"><aside class="declaration">#define </aside>COMSIG_PRED_MARK_HUNT
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1090">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1090"/></a>
+    </h3>
+    <p>Pred signals</p><h3 id="define/COMSIG_PREQDELETED"><aside class="declaration">#define </aside>COMSIG_PREQDELETED
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L117">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 117"/></a>
     </h3>
     <p>before a datum's Destroy() is called: (force), returning a nonzero value will cancel the qdel operation</p><h3 id="define/COMSIG_QDELETING"><aside class="declaration">#define </aside>COMSIG_QDELETING
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L119">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L119">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 119"/></a>
     </h3>
     <p>just before a datum's Destroy() is called: (force), at this point none of the other components chose to interrupt qdel and Destroy will be called</p><h3 id="define/COMSIG_REEQUIP_FAILURE"><aside class="declaration">#define </aside>COMSIG_REEQUIP_FAILURE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1048">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1048">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1048"/></a>
     </h3>
     <p>From reequip components</p><h3 id="define/COMSIG_RIDDEN_DRIVER_MOVE"><aside class="declaration">#define </aside>COMSIG_RIDDEN_DRIVER_MOVE
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L284">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L284">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 284"/></a>
     </h3>
     <p>from /obj/vehicle/proc/driver_move, caught by the riding component to check and execute the driver trying to drive the vehicle</p><h3 id="define/COMSIG_SONG_END"><aside class="declaration">#define </aside>COMSIG_SONG_END
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1000">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1000">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1000"/></a>
     </h3>
     <p>sent to the instrument when a song stops playing</p><h3 id="define/COMSIG_SONG_START"><aside class="declaration">#define </aside>COMSIG_SONG_START
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L998">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L998">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 998"/></a>
     </h3>
     <p>sent to the instrument when a song starts playing</p><h3 id="define/COMSIG_TOPIC"><aside class="declaration">#define </aside>COMSIG_TOPIC
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L121">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L121">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 121"/></a>
     </h3>
     <p>generic topic handler (usr, href_list)</p><h3 id="define/COMSIG_UI_ACT"><aside class="declaration">#define </aside>COMSIG_UI_ACT
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1045">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1045">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1045"/></a>
     </h3>
     <p>from datum ui_act (usr, action)</p><h3 id="define/COMSIG_UNMANNED_TURRET_UPDATED"><aside class="declaration">#define </aside>COMSIG_UNMANNED_TURRET_UPDATED
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L331">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L331">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 331"/></a>
     </h3>
-    <p>from /obj/vehicle/unmanned/attackby: (newtype)</p><h3 id="define/COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH"><aside class="declaration">#define </aside>COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L628">
+    <p>from /obj/vehicle/unmanned/attackby: (newtype)</p><h3 id="define/COMSIG_XENOABILITY_ROAR"><aside class="declaration">#define </aside>COMSIG_XENOABILITY_ROAR
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1085">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1085"/></a>
+    </h3>
+    <p>Predalien signals</p><h3 id="define/COMSIG_XENOABILITY_TEARING_TAIL"><aside class="declaration">#define </aside>COMSIG_XENOABILITY_TEARING_TAIL
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1071">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1071"/></a>
+    </h3>
+    <p>Xeno signals</p><h3 id="define/COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH"><aside class="declaration">#define </aside>COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L628">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 628"/></a>
     </h3>
     <p>from /mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 only on INTENT_HARM, INTENT_DISARM, IF it does damaage</p><h3 id="define/COMSIG_XENOMORPH_ATTACK_LIVING"><aside class="declaration">#define </aside>COMSIG_XENOMORPH_ATTACK_LIVING
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L624">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L624">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 624"/></a>
     </h3>
     <p>from /mob/living/proc/attack_alien_harm(mob/living/carbon/xenomorph/X, dam_bonus, set_location, random_location, no_head, no_crit, force_intent)</p><h3 id="define/COMSIG_XENOMORPH_POSTATTACK_LIVING"><aside class="declaration">#define </aside>COMSIG_XENOMORPH_POSTATTACK_LIVING
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L631">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L631">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 631"/></a>
     </h3>
     <p>after attacking, accounts for armor</p><h3 id="define/COMSIG_XENO_IFF_CHECK"><aside class="declaration">#define </aside>COMSIG_XENO_IFF_CHECK
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L946">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L946">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 946"/></a>
     </h3>
     <p>Signal used by certain IFF checking things to see if a xeno carries an IFF tag of the faction.</p><h3 id="define/COMSIG_XENO_LIVING_THROW_HIT"><aside class="declaration">#define </aside>COMSIG_XENO_LIVING_THROW_HIT
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L656">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L656">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 656"/></a>
     </h3>
     <p>from [/mob/living/carbon/xenomorph/throw_impact]: (mob/living/target)</p><h3 id="define/COMSIG_XENO_OBJ_THROW_HIT"><aside class="declaration">#define </aside>COMSIG_XENO_OBJ_THROW_HIT
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L655">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L655">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 655"/></a>
     </h3>
     <p>from [/mob/living/carbon/xenomorph/throw_impact]: (obj/target, speed)</p><h3 id="define/COMSIG_XENO_PROJECTILE_HIT"><aside class="declaration">#define </aside>COMSIG_XENO_PROJECTILE_HIT
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L658">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L658">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 658"/></a>
     </h3>
     <p>from [/mob/living/carbon/xenomorph/projectile_hit] called when a projectile hits a xeno but before confirmation of a hit (can miss due to inaccuracy/evasion)</p><h3 id="define/SPATIAL_GRID_CELL_ENTERED"><aside class="declaration">#define </aside>SPATIAL_GRID_CELL_ENTERED
             <aside>(contents_type)</aside>
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1053">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1053">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1053"/></a>
     </h3>
     <p>Called from base of /datum/controller/subsystem/spatial_grid/proc/enter_cell: (/atom/movable)</p><h3 id="define/SPATIAL_GRID_CELL_EXITED"><aside class="declaration">#define </aside>SPATIAL_GRID_CELL_EXITED
             <aside>(contents_type)</aside>
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L1055">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L1055">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 1055"/></a>
     </h3>
     <p>Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)</p><h3 id="define/TREAT_MESSAGE_ARG"><aside class="declaration">#define </aside>TREAT_MESSAGE_ARG
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/54347bc356725e7b5aee5a093b3279a753079385/code/__DEFINES/dcs/signals.dm#L532">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/361aca63a395f90351d9754d2f9bdc53bfc77be3/code/__DEFINES/dcs/signals.dm#L532">
         <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;dcs&#x2F;signals.dm 532"/></a>
     </h3>
     <p>The index of message_args that corresponds to the actual message</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/54347bc356725e7b5aee5a093b3279a753079385">54347bc</a>
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/361aca63a395f90351d9754d2f9bdc53bfc77be3">361aca6</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
