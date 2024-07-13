@@ -3,6 +3,7 @@
 #define MINIMAP_FLAG_MARINE (1<<1)
 #define MINIMAP_FLAG_MARINE_SOM (1<<2)
 #define MINIMAP_FLAG_EXCAVATION_ZONE (1<<3)
+#define MINIMAP_FLAG_YAUTJA (1<<5)
 #define MINIMAP_FLAG_ALL (1<<6) - 1 //RU TGMC EDIT
 
 GLOBAL_LIST_INIT(faction_to_minimap_flag, list(
