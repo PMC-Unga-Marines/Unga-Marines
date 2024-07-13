@@ -60,10 +60,11 @@
 #define SHIELD_PURE_BLOCKING (1<<1) //Only runs a percentage chance to block, and doesn't interact in other ways.
 #define SHIELD_PARENT_INTEGRITY (1<<2) //Transfers damage to parent's integrity.
 
-/* RUTGMC REMOVAL - Explosions update
-#define EXPLODE_NONE 0
-#define EXPLODE_DEVASTATE 1
-#define EXPLODE_HEAVY 2
-#define EXPLODE_LIGHT 3
-#define EXPLODE_WEAK 4
-RU TGMC REMOVAL END */
+#define EXPLODE_DEVASTATE 300
+#define EXPLODE_HEAVY 200
+#define EXPLODE_MEDIUM 150
+#define EXPLODE_LIGHT 100
+#define EXPLODE_WEAK 50
+
+#define EMBED_LIMB_DAMAGE 5 //Damage to deal to victim's limbs.
+
