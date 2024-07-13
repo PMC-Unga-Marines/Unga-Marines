@@ -1,5 +1,4 @@
 #include "code\modules\mob\living\carbon\xenomorph\charge_crush.dm"
-#include "code\modules\mob\living\carbon\xenomorph\damage_procs.dm"
 #include "code\modules\mob\living\carbon\xenomorph\egg.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\king\abilities_king.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\king\castedatum_king.dm"
