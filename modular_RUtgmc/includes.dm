@@ -1,6 +1,5 @@
 #include "code\modules\mob\living\carbon\xenomorph\charge_crush.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\runner\runner.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\runner\abilities_runner.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\runner\castedatum_runner.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\sentinel\castedatum_sentinel.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\shrike\abilities_shrike.dm"
