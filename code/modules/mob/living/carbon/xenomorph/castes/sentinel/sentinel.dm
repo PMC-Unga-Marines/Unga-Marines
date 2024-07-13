@@ -13,6 +13,7 @@
 	tier = XENO_TIER_ONE
 	upgrade = XENO_UPGRADE_NORMAL
 	pull_speed = -2
+	bubble_icon = "alien"
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
