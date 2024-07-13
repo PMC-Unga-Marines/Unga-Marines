@@ -9,14 +9,14 @@
 	wound_type = "warrior" //used to match appropriate wound overlays
 
 	// *** Melee Attacks *** //
-	melee_damage = 22
+	melee_damage = 23
 
 	// *** Speed *** //
 	speed = -0.5
 
 	// *** Plasma *** //
-	plasma_max = 100
-	plasma_gain = 10
+	plasma_max = 200
+	plasma_gain = 20
 
 	// *** Health *** //
 	max_health = 350
@@ -25,12 +25,12 @@
 	evolution_threshold = 225
 	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
-	evolves_to = list(/mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/warlock)
+	evolves_to = list(/mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/warlock, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/chimera)
 	deevolves_to = /mob/living/carbon/xenomorph/defender
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 
 	// *** Defense *** //
@@ -43,11 +43,13 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/xeno_action/empower,
 		/datum/action/ability/xeno_action/toggle_agility,
 		/datum/action/ability/activable/xeno/warrior/lunge,
 		/datum/action/ability/activable/xeno/warrior/fling,
 		/datum/action/ability/activable/xeno/warrior/grapple_toss,
 		/datum/action/ability/activable/xeno/warrior/punch,
+		/datum/action/ability/activable/xeno/warrior/punch/jab,
 	)
 
 /datum/xeno_caste/warrior/normal
@@ -69,5 +71,6 @@
 		/datum/action/ability/activable/xeno/warrior/fling,
 		/datum/action/ability/activable/xeno/warrior/grapple_toss,
 		/datum/action/ability/activable/xeno/warrior/punch,
+		/datum/action/ability/activable/xeno/warrior/punch/jab,
 		/datum/action/ability/activable/xeno/warrior/punch/flurry,
 	)
