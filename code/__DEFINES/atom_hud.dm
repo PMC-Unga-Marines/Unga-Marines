@@ -52,6 +52,8 @@
 #define DATA_HUD_SQUAD_SOM 14
 #define DATA_HUD_XENO_DEBUFF 15
 #define DATA_HUD_XENO_HEART 16
+#define DATA_HUD_HUNTER 17
+#define DATA_HUD_HUNTER_CLAN 18
 
 
 // Notification action types
@@ -67,7 +69,6 @@
 #define HUNTER_CLAN "hunter_clan_hud" //displays a colored icon to represent ingame Hunter Clans
 #define HUNTER_HEALTH_HUD "hunter_health_hud" //displays a predator health
 
-#define DATA_HUD_HUNTER 17
-#define DATA_HUD_HUNTER_CLAN 18
+
 
 #define XENO_PRIMO_HUD "xeno_primo_hud" //indicates primo upgrade hud
