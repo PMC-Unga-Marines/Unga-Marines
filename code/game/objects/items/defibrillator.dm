@@ -382,5 +382,5 @@
 	desc = "A handheld advanced emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
 	icon = 'icons/obj/items/defibrillator.dmi'
 	icon_state = "civ_defib_full"
-	var/advanced = TRUE
-	var/charge_cost = 100 //How much energy is used.
+	advanced = TRUE
+	charge_cost = 100 //How much energy is used.
