@@ -91,6 +91,7 @@
 	. = ..()
 	if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) && prob(30)) // throwing objects from the air is not always a good idea
 		visible_message(span_danger("[src] falls out of the sky and mangles into the uselessness by the impact!"))
+		playsound(src, 'sound/effects/metal_crash.ogg', 35, 1)
 		deconstruct(FALSE)
 
 /obj/structure/closet/handle_airdrop(turf/target_turf) // good idea but no
@@ -106,6 +107,7 @@
 		return
 	if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) && w_class < WEIGHT_CLASS_NORMAL) //tiny and small items will be lost, good riddance
 		visible_message(span_danger("[src] falls out of the sky and mangles into the uselessness by the impact!"))
+		playsound(src, 'sound/effects/metal_crash.ogg', 35, 1)
 		deconstruct(FALSE)
 		return
 	if(locate(/mob/living) in target_turf)
@@ -113,6 +115,7 @@
 		throw_impact(victim, 20)
 		return
 	explosion_throw(200) // give it a bit of a kick
+	playsound(loc, 'sound/weapons/smash.ogg', 35, 1)
 
 /mob/living/handle_airdrop(turf/target_turf)
 	. = ..()
