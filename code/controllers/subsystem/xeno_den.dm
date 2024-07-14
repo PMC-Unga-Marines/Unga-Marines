@@ -13,5 +13,6 @@ SUBSYSTEM_DEF(Xenoden)
 
 //Может карту можно как то по другому подгружать и не загружать когда не нужно
 /datum/controller/subsystem/Xenoden/Initialize(timeofday)
-	xenoden_z_level = load_new_z_level(XENO_DEN_LEVEL_PATH, "Xenoden", TRUE, list(ZTRAIT_GROUND = TRUE, ZTRAIT_XENO = TRUE)) // надеюсь ZTRAIT_GROUND будет работать корректно, в противном случает сделать новый трейт
+	if(SSticker.mode?.flags_round_type & MODE_XENO_DEN)
+		xenoden_z_level = load_new_z_level(XENO_DEN_LEVEL_PATH, "Xenoden", TRUE, list(ZTRAIT_GROUND = TRUE, ZTRAIT_XENO = TRUE)) // надеюсь ZTRAIT_GROUND будет работать корректно, в противном случает сделать новый трейт
 

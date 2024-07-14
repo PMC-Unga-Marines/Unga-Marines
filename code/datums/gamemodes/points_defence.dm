@@ -24,7 +24,10 @@
 
 	var/points_to_win = 5000
 
-	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD
+	var/allow_hijack = FALSE
+	var/can_hunt = FALSE
+
+	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_TELETOWER|MODE_XENO_DEN
 
 /datum/game_mode/infestation/distress/points_defence/post_setup()
 	. = ..()
@@ -79,6 +82,12 @@
 		var/turf/T = pick(GLOB.miner_platinum_locs)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.miner_platinum_locs -= T
+
+	//comms
+	for(var/i in 1 to phorone_sensors)
+		var/turf/T = pick(GLOB.miner_phorone_locs)
+		new /obj/machinery/telecomms/relay/preset/tower(T)
+		GLOB.miner_phorone_locs -= T
 
 /datum/game_mode/infestation/distress/points_defence/check_finished()
 	if(round_finished)
@@ -184,9 +193,22 @@
 	//prohibit generation before the shutters open
 	if(!SSsilo.can_fire)
 		return
+
 	//Victory point
 	marine_victory_point += sensors_activated * (points_check_interval / 10)
+	if(marine_victory_point >= points_to_win && !can_hunt)
+		can_hunt = TRUE
+		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
+			if(human.faction == FACTION_TERRAGOV)
+				human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
+
 	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10)
+	if(xeno_victory_point >= points_to_win && !allow_hijack)
+		allow_hijack = TRUE
+		for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
+			xeno.playsound_local(xeno, "sound/voice/alien_hiss1.ogg", 10, 1)
+			xeno.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>HIVEMIND</u></span><br>" + "We have enough strength. Hijack a bird freely", /atom/movable/screen/text/screen_text/picture/potrait/queen_mother)
 
 /datum/game_mode/infestation/distress/points_defence/siloless_hive_collapse()
 	return
@@ -222,3 +244,6 @@
 	if(marine_victory_point >= points_to_win && round_stage != INFESTATION_MARINE_DEN_RUSH)
 		return TRUE
 	return FALSE
+
+/datum/game_mode/infestation/distress/points_defence/proc/allow_hijack()
+	return allow_hijack

@@ -25,7 +25,6 @@
 	var/datum/space_level/S = new z_type(new_z, name, traits)
 	z_list += S
 	calculate_z_level_gravity(new_z)
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, S)
 	return S
 
 /datum/controller/subsystem/mapping/proc/get_level(z)

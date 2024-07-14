@@ -107,6 +107,9 @@
 
 #define FREQ_COMMON 1437
 
+#define GROUND_FREQS list(FREQ_ALPHA, FREQ_BRAVO, FREQ_CHARLIE, FREQ_DELTA, FREQ_ECHO)
+#define TOWER_FREQS list(FREQ_CAS, FREQ_ENGINEERING, FREQ_MEDICAL, FREQ_REQUISITIONS, FREQ_AI, FREQ_COMMAND, FREQ_COMMON)
+
 #define MIN_FREQ 1441 // ------------------------------------------------------
 // Only the 1441 to 1489 range is freely available for general conversation.
 // This represents 1/8th of the available spectrum.

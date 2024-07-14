@@ -67,6 +67,11 @@
 	id = "Telecomms Relay"
 	autolinkers = list("relay")
 
+/obj/machinery/telecomms/relay/preset/telecomms/Initialize(mapload)
+	. = ..()
+	if(!(SSticker.mode?.flags_round_type & MODE_TELETOWER))
+		freq_listening = GROUND_FREQS //for a tcoms on the ground
+
 //proper cicbackup relay
 /obj/machinery/telecomms/relay/preset/telecomms/cicbackup
 	on = 0
@@ -78,4 +83,4 @@
 	invisibility = INVISIBILITY_MAXIMUM
 
 /obj/machinery/telecomms/relay/preset/telecomms/onboard/nondense
-	density = FALSE 
+	density = FALSE

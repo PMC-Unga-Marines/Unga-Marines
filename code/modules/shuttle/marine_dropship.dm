@@ -445,6 +445,9 @@
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
 		to_chat(user, span_warning("The bird's mind is currently active. We need to wait until it's more vulnerable..."))
 		return FALSE
+	var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+	if(mode.can_hijack())
+		return TRUE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
@@ -705,8 +708,8 @@
 			if(H.z != X.z)
 				continue
 			groundside_humans++
-
-		if(groundside_humans > 5)
+		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+		if(groundside_humans > 5 || mode.can_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 		switch(M.mode)
@@ -726,10 +729,9 @@
 		do_hijack(M, CT, X)
 
 	if(href_list["abduct"])
-//RUTGMC EDIT ADDITION BEGIN - Preds
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
-		if(living_player_list[1] > 5)
-//RUTGMC EDIT ADDITION END
+		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+		if(living_player_list[1] > 5 || mode.can_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 

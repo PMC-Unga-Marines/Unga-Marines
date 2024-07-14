@@ -2881,7 +2881,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "Sf" = (
 /obj/effect/turf_decal/symbol/apocrune,
-/obj/structure/xeno/silo/core,
+/obj/structure/xeno/core,
 /turf/open/floor/cult,
 /area/lawankaoutpost/caves/southwest)
 "Sg" = (
