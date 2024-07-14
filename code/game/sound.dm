@@ -188,6 +188,8 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg')
 		if("punch")
 			S = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
+		if("bone_break")
+			S = pick('sound/effects/bone_break1.ogg','sound/effects/bone_break2.ogg','sound/effects/bone_break3.ogg','sound/effects/bone_break4.ogg','sound/effects/bone_break5.ogg','sound/effects/bone_break6.ogg','sound/effects/bone_break7.ogg')
 		if("clownstep")
 			S = pick('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg')
 		if("swing_hit")
@@ -279,12 +281,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/effects/alien_resin_move1.ogg','sound/effects/alien_resin_move2.ogg')
 		if("alien_talk")
 			S = pick('sound/voice/alien_talk.ogg','sound/voice/alien_talk2.ogg','sound/voice/alien_talk3.ogg')
-//RUTGMC edit start - custom talk sounds
 		if("larva_talk")
 			S = pick('sound/voice/larva_talk1.ogg','sound/voice/larva_talk2.ogg','sound/voice/larva_talk3.ogg', 'sound/voice/larva_talk4.ogg')
 		if("predalien_talk")
 			S = pick('sound/voice/predalien_click1.ogg','sound/voice/predalien_click2.ogg','sound/voice/predalien_click3.ogg')
-//RUTGMC edit end
 		if("alien_growl")
 			S = pick('sound/voice/alien_growl1.ogg','sound/voice/alien_growl2.ogg','sound/voice/alien_growl3.ogg','sound/voice/alien_growl4.ogg')
 		if("alien_hiss")
@@ -358,7 +358,6 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if("robot_warcry")
 			S = pick('sound/voice/robot/robot_warcry1.ogg', 'sound/voice/robot/robot_warcry2.ogg', 'sound/voice/robot/robot_warcry3.ogg')
 
-//RUTGMC EDIT
 		//yautja race
 		if("pred_scream")
 			S = pick('sound/voice/pred_roar1.ogg','sound/voice/pred_roar2.ogg','sound/voice/pred_roar3.ogg','sound/voice/pred_roar4.ogg','sound/voice/pred_roar5.ogg')
@@ -376,5 +375,4 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/weapons/clan_sword_hit_1.ogg', 'sound/weapons/clan_sword_hit_2.ogg')
 		if("chain_swing")
 			S = pick('sound/items/chain_swing1.ogg', 'sound/items/chain_swing2.ogg', 'sound/items/chain_swing3.ogg')
-//RUTGMC EDIT
 	return S
