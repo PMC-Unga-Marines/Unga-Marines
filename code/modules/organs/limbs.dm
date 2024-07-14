@@ -421,11 +421,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 		germ_level = 0
 		return
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(isyautja(owner))
 		germ_level = 0
 		return
-//RUTGMC EDIT ADDITION END
 
 	if(owner.bodytemperature >= 170 && !HAS_TRAIT(owner, TRAIT_STASIS))	//cryo stops germs from moving and doing their bad stuffs
 		//** Syncing germ levels with external wounds
