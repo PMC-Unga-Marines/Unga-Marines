@@ -857,7 +857,7 @@
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/clothing/mask/gas/tactical,
-//		/obj/item/armor_module/module/mimir_environment_protection/mark1, RU TGMC EDIT
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
 	)
 
 /obj/effect/vendor_bundle/vali
@@ -867,14 +867,12 @@
 		/obj/item/storage/holster/blade/machete/full_harvester,
 		/obj/item/paper/chemsystem,
 	)
-/* RU TGMC EDIT
 /obj/effect/vendor_bundle/tyr
 	desc = "A set of specialized gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/tyr_head,
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,
 	)
-RU TGMC EDIT */
 /obj/effect/vendor_bundle/robot/essentials
 	gear_to_spawn = list(
 		/obj/item/clothing/under/marine/robotic,
