@@ -352,7 +352,7 @@
 	flags_heat_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
-	var/advanced = TRUE
+	advanced = TRUE
 
 
 /obj/item/defibrillator/gloves/equipped(mob/living/carbon/human/user, slot)
