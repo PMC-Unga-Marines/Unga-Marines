@@ -491,15 +491,15 @@
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/clothing_tint, TINT_5, active)
-	if(active) // RUTGMC ADDITION START
-		parent.eye_protection += eye_protection_mod // reset to the users base eye // RUTGMC ADDITION END
+	if(active)
+		parent.eye_protection += eye_protection_mod // reset to the users base eye
 
 /obj/item/armor_module/module/welding/on_detach(obj/item/detaching_from, mob/user)
 	parent.GetComponent(/datum/component/clothing_tint)
 	var/datum/component/clothing_tint/tints = parent?.GetComponent(/datum/component/clothing_tint)
 	tints.RemoveComponent()
-	if(active) // RUTGMC ADDITION START
-		parent.eye_protection -= eye_protection_mod // reset to the users base eye // RUTGMC ADDITION END
+	if(active)
+		parent.eye_protection -= eye_protection_mod // reset to the users base eye
 	return ..()
 
 /obj/item/armor_module/module/welding/activate(mob/living/user)
@@ -763,7 +763,6 @@
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
-
 	/// Who's using this item
 	var/mob/living/carbon/human/operator
 	///The range of this motion detector
@@ -824,9 +823,13 @@
 			hostile_detected = TRUE
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
+		if(HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN))
+			continue
 		if(!hostile_detected)
 			hostile_detected = TRUE
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
+	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(operator, range))
+		prepare_blip(nearby_illusion, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 1)
 	addtimer(CALLBACK(src, PROC_REF(clean_blips)), scan_time / 2)
