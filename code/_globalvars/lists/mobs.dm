@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/shrike,
 	/mob/living/carbon/xenomorph/larva,
 	/mob/living/carbon/xenomorph/drone,
-	))
+))
 
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)
 GLOBAL_LIST_EMPTY_TYPED(yautja_mob_list, /mob/living/carbon/human/species/yautja)
@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 
 		GLOB.hive_ui_caste_index[type_path] = length(.) //Starts from 0.
 
-		var/icon/xeno_minimap = icon('icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon)) ///RUTGMC edit, icon redirect to module
+		var/icon/xeno_minimap = icon('icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon))
 		var/tier = initial(caste.tier)
 		if(tier == XENO_TIER_MINION)
 			continue
@@ -168,8 +168,6 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 			"can_transfer_plasma" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_GIVEN_PLASMA),
 			"evolution_max" = initial(caste.evolution_threshold)
 		))
-
-
 
 /proc/update_config_movespeed_type_lookup(update_mobs = TRUE)
 	var/list/mob_types = list()
