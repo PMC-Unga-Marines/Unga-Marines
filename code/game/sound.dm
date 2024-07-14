@@ -188,6 +188,8 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg')
 		if("punch")
 			S = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
+		if("bone_break")
+			S = pick('sound/effects/bone_break1.ogg','sound/effects/bone_break2.ogg','sound/effects/bone_break3.ogg','sound/effects/bone_break4.ogg','sound/effects/bone_break5.ogg','sound/effects/bone_break6.ogg','sound/effects/bone_break7.ogg')
 		if("clownstep")
 			S = pick('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg')
 		if("swing_hit")
