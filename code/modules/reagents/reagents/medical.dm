@@ -57,7 +57,7 @@
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.125
 	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium)
-	purge_rate = 3
+	purge_rate = 5
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 
@@ -94,18 +94,18 @@
 	overdose_threshold = REAGENTS_OVERDOSE*2
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL*2
 
-/* RUTGMC - MOVED TO MODULE
+
 /datum/reagent/medicine/paracetamol/on_mob_life(mob/living/L, metabolism)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
-	L.heal_overall_damage(0.2*effect_str, 0.2*effect_str)
-	L.adjustToxLoss(-0.1*effect_str)
+	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
+	L.adjustToxLoss(-1.5*effect_str)
 	L.adjustStaminaLoss(-effect_str)
 	L.adjustDrowsyness(-0.5 SECONDS)
 	L.AdjustUnconscious(-1 SECONDS)
 	L.AdjustStun(-1 SECONDS)
 	L.AdjustParalyzed(-1 SECONDS)
 	return ..()
-*/
+
 
 /datum/reagent/medicine/paracetamol/overdose_process(mob/living/L, metabolism)
 	L.hallucination = max(L.hallucination, 2)
@@ -306,21 +306,19 @@
 	name = "Dexalin"
 	description = "Dexalin is used in the treatment of oxygen deprivation."
 	color = COLOR_REAGENT_DEXALIN
-	custom_metabolism = REAGENTS_METABOLISM * 2.5
-	overdose_threshold = REAGENTS_OVERDOSE * 0.5 // 15
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.6 // 30
-	purge_list = list(/datum/reagent/medicine/synaptizine)
-	purge_rate = 1
+	overdose_threshold = REAGENTS_OVERDOSE
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	scannable = TRUE
 
 /datum/reagent/medicine/dexalin/on_mob_life(mob/living/L,metabolism)
 	L.adjustOxyLoss(-3*effect_str)
-	L.adjustStaminaLoss(-2*effect_str)
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
+/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/dexalin/overdose_process(mob/living/L, metabolism)
-	L.apply_damage(2 * effect_str, BURN)
+	L.apply_damage(effect_str, TOX)
+*/
 
 /datum/reagent/medicine/dexalin/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 0, 2*effect_str)
@@ -337,15 +335,6 @@
 	L.adjustOxyLoss(-L.getOxyLoss())
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
-
-/datum/reagent/medicine/dexalinplus/on_mob_add(mob/living/L, metabolism)
-	if(TIMER_COOLDOWN_CHECK(L, name))
-		return
-	L.adjustStaminaLoss(-100*effect_str)
-	to_chat(L, span_userdanger("You feel a complete lack of fatigue, so relaxing!"))
-
-/datum/reagent/medicine/dexalinplus/on_mob_delete(mob/living/L, metabolism)
-	TIMER_COOLDOWN_START(L, name, 180 SECONDS)
 
 /datum/reagent/medicine/dexalinplus/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(effect_str, TOX)
@@ -462,7 +451,7 @@
 	overdose_threshold = REAGENTS_OVERDOSE/5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
 	scannable = TRUE
-	custom_metabolism = REAGENTS_METABOLISM * 1.5
+	custom_metabolism = REAGENTS_METABOLISM * 0.5
 	purge_list = list(/datum/reagent/toxin/mindbreaker)
 	purge_rate = 5
 
@@ -489,63 +478,16 @@
 			L.adjustStaminaLoss(15*effect_str)
 	return ..()
 
+/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/synaptizine/overdose_process(mob/living/L, metabolism)
-	L.apply_damage(2 * effect_str, TOX)
+	L.apply_damage(effect_str, TOX)
 
 /datum/reagent/medicine/synaptizine/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(2 * effect_str, 2 * effect_str, 3 * effect_str)
+	L.apply_damages(effect_str, effect_str, effect_str)
+*/
 
 /datum/reagent/medicine/synaptizine/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("The room spins as you start to come down off your stimulants!"))
-	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
-
-///ADRENALINE, basically old synaptizine with buffs?
-/datum/reagent/medicine/adrenaline
-	name = "Adrenaline"
-	description = "Gotta go fast!"
-	color = "#f14a17"
-	overdose_threshold = REAGENTS_OVERDOSE/5
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
-	scannable = TRUE
-	custom_metabolism = REAGENTS_METABOLISM * 0.5
-	purge_rate = 5
-
-/datum/reagent/medicine/adrenaline/on_mob_add(mob/living/carbon/human/L, metabolism)
-	if(TIMER_COOLDOWN_CHECK(L, name))
-		return
-	L.adjustStaminaLoss(-30 * effect_str)
-	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
-
-	if(L.health < L.health_threshold_crit && volume >= 3)
-		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
-		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
-		L.jitter(5)
-
-/datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
-	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
-	L.adjustDrowsyness(-0.5 SECONDS)
-	L.AdjustUnconscious(-2 SECONDS)
-	L.AdjustStun(-2 SECONDS)
-	L.AdjustParalyzed(-2 SECONDS)
-	L.adjustToxLoss(0.8 * effect_str)
-	L.hallucination = max(0, L.hallucination - 10)
-	switch(current_cycle)
-		if(1 to 10)
-			L.adjustStaminaLoss(-7.5 * effect_str)
-		if(11 to 40)
-			L.adjustStaminaLoss((current_cycle*0.75 - 14)*effect_str)
-		if(41 to INFINITY)
-			L.adjustStaminaLoss(15 * effect_str)
-	return ..()
-
-/datum/reagent/medicine/adrenaline/overdose_process(mob/living/L, metabolism)
-	L.apply_damage(effect_str, TOX)
-
-/datum/reagent/medicine/adrenaline/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, effect_str, effect_str)
-
-/datum/reagent/medicine/adrenaline/on_mob_delete(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("The room spins as your adrenaline starts to wear off!"))
 	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
 
 /datum/reagent/medicine/neuraline //injected by neurostimulator implant and medic-only injector
@@ -1105,8 +1047,6 @@
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	scannable = TRUE
-	purge_list = list(/datum/reagent/medicine/xenojelly)
-	purge_rate = 5
 
 /datum/reagent/medicine/spaceacillin/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(effect_str, TOX)
@@ -1144,8 +1084,6 @@
 	custom_metabolism = REAGENTS_METABOLISM * 0.5
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
-	purge_list = list(/datum/reagent/medicine/xenojelly)
-	purge_rate = 5
 	scannable = TRUE
 
 /datum/reagent/medicine/larvaway/on_mob_life(mob/living/L, metabolism)
@@ -1359,6 +1297,18 @@
 	scannable = TRUE
 	taste_description = "metal, followed by mild burning"
 	overdose_threshold = REAGENTS_OVERDOSE * 1.2 //slight buffer to keep you safe
+	purge_list = list(
+		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/tramadol,
+		/datum/reagent/medicine/oxycodone,
+		/datum/reagent/medicine/tricordrazine,
+		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicine/russian_red,
+		/datum/reagent/consumable/doctor_delight,
+	)
+	purge_rate = 5
+var/mob/living/carbon/human/host
 
 /datum/reagent/medicine/research/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
@@ -1406,9 +1356,6 @@
 /datum/reagent/medicine/research/medicalnanites/overdose_process(mob/living/L, metabolism)
 	L.adjustToxLoss(effect_str) //softcap VS injecting massive amounts of medical nanites for the healing factor with no downsides. Still doable if you're clever about it.
 	holder.remove_reagent(/datum/reagent/medicine/research/medicalnanites, 0.25)
-
-/datum/reagent/medicine/research/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustCloneLoss(1) //YUM!
 
 /datum/reagent/medicine/research/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
