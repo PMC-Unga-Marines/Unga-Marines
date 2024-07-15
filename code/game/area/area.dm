@@ -32,8 +32,6 @@
 	var/poweralm = TRUE
 	var/lightswitch = TRUE
 
-	var/gas_type = GAS_TYPE_AIR
-	var/pressure = ONE_ATMOSPHERE
 	var/temperature = T20C
 
 	var/parallax_movedir = 0
@@ -302,20 +300,3 @@
 			used_light += amount
 		if(ENVIRON)
 			used_environ += amount
-
-
-
-/area/return_air()
-	return list(gas_type, temperature, pressure)
-
-
-/area/return_pressure()
-	return pressure
-
-
-/area/return_temperature()
-	return temperature
-
-
-/area/return_gas()
-	return gas_type
