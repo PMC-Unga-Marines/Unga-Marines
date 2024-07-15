@@ -1297,8 +1297,18 @@
 	scannable = TRUE
 	taste_description = "metal, followed by mild burning"
 	overdose_threshold = REAGENTS_OVERDOSE * 1.2 //slight buffer to keep you safe
-	var/mob/living/carbon/human/host
-
+	purge_list = list(
+		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/tramadol,
+		/datum/reagent/medicine/oxycodone,
+		/datum/reagent/medicine/tricordrazine,
+		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicine/russian_red,
+		/datum/reagent/consumable/doctor_delight,
+	)
+	purge_rate = 5
+var/mob/living/carbon/human/host
 
 /datum/reagent/medicine/research/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
@@ -1337,7 +1347,7 @@
 			if(prob(80))
 				for(var/datum/limb/limb_to_fix AS in host.limbs)
 					if(limb_to_fix.limb_status & (LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED))
-						if(!(prob(5) || limb_to_fix.brute_dam > limb_to_fix.min_broken_damage))
+						if(!(prob(80) || limb_to_fix.brute_dam > limb_to_fix.min_broken_damage))
 							continue
 						limb_to_fix.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
 						limb_to_fix.add_limb_flags(LIMB_REPAIRED)
