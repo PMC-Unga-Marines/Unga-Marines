@@ -97,6 +97,7 @@
 	var/hand_tag = "l"
 
 /atom/movable/screen/inventory/hand/update_icon(active = FALSE)
+	. = ..()
 	cut_overlays()
 	if(active)
 		add_overlay("hand_active")
@@ -170,7 +171,7 @@
 	if(!hud?.mymob)
 		return
 
-	switch(user.m_intent)
+	switch(hud.mymob.m_intent)
 		if(MOVE_INTENT_RUN)
 			icon_state = "running"
 		if(MOVE_INTENT_WALK)
@@ -195,7 +196,7 @@
 	. = ..()
 	if(!isliving(hud?.mymob))
 		return
-	var/mob/living/L = mymob
+	var/mob/living/L = hud?.mymob
 	icon_state = "act_rest[L.resting ? "0" : ""]"
 
 /atom/movable/screen/pull
@@ -215,7 +216,7 @@
 	. = ..()
 	if(!hud?.mymob)
 		return
-	if(user.pulling)
+	if(hud.mymob.pulling)
 		icon_state = "pull"
 	else
 		icon_state = "pull0"
@@ -379,10 +380,9 @@
 		update_icon(user)
 	return TRUE
 
-/atom/movable/screen/zone_sel/update_icon(mob/user)
-	cut_overlays()
-	add_overlay(mutable_appearance('icons/mob/screen/zone_sel.dmi', "[z_prefix][selecting]"))
-	user.zone_selected = selecting
+/atom/movable/screen/zone_sel/update_overlays()
+	. = ..()
+	. += mutable_appearance('icons/mob/screen/zone_sel.dmi', "[z_prefix][selecting]")
 
 /atom/movable/screen/zone_sel/alien
 	icon = 'icons/mob/screen/alien.dmi'

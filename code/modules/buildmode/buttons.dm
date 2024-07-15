@@ -61,6 +61,7 @@
 
 
 /atom/movable/screen/buildmode/bdir/update_icon()
+	. = ..()
 	dir = bd.build_dir
 
 

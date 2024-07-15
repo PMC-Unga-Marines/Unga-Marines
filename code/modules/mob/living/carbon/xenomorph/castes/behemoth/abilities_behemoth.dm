@@ -1376,11 +1376,6 @@ RU TGMC EDIT */
 	UnregisterSignal(xeno_owner, COMSIG_QDELETING)
 	xeno_owner = null
 
-/// Calls update_icon_state().
-/obj/structure/earth_pillar/proc/call_update_icon_state()
-	SIGNAL_HANDLER
-	update_icon_state()
-
 /// Deletes the pillar and creates a projectile on the same tile, to be fired at the target atom.
 /obj/structure/earth_pillar/proc/throw_pillar(atom/target_atom, landslide)
 	if(!isxeno(usr) || !in_range(src, usr) || target_atom == src || warning_flashes < initial(warning_flashes))

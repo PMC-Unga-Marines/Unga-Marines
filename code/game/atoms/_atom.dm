@@ -874,7 +874,7 @@ directive is properly returned.
 			else
 				var/image/I = image('icons/mob/hud.dmi', src, "")
 				if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
-					new_hud = image('icons/mob/hud_yautja.dmi', src, "")
+					I = image('icons/mob/hud_yautja.dmi', src, "")
 				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
 				hud_list[hud] = I
 
