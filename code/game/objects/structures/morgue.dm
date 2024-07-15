@@ -33,19 +33,11 @@
 			icon_state = "[morgue_type]1"
 
 /obj/structure/morgue/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_HEAVY)
-			if(prob(50))
-				return
-		if(EXPLODE_LIGHT)
-			if(prob(95))
-				return
-		if(EXPLODE_WEAK)
-			return
-	for(var/atom/movable/A in src)
-		A.forceMove(loc)
-		ex_act(severity)
-	qdel(src)
+	if(prob(severity / 4))
+		for(var/atom/movable/A in src)
+			A.forceMove(loc)
+			ex_act(severity)
+		qdel(src)
 
 /obj/structure/morgue/attack_hand(mob/living/user)
 	. = ..()

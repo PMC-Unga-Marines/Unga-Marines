@@ -134,6 +134,10 @@
 	tracked -= under
 	UnregisterSignal(under, COMSIG_QDELETING)
 
+/obj/machinery/computer/crew/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "crew"
+
 #undef DISPLAY_ON_SHIP
 #undef DISPLAY_PLANETSIDE
 #undef DISPLAY_IN_TRANSIT

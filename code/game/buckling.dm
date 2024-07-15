@@ -5,7 +5,7 @@
 	else if(isgrabitem(dropping))
 		var/obj/item/grab/grab_item = dropping
 		if(isliving(grab_item.grabbed_thing))
-		
+
 			. = grab_item.grabbed_thing
 	if(. && user_buckle_mob(., user))
 		return TRUE
@@ -170,9 +170,7 @@
 		return FALSE
 	return TRUE
 
-/* //RUTGMC EDIT - Moved to modular_RUtgmc\code\game\buckling.dm
 /mob/living/carbon/xenomorph/user_can_buckle(mob/living/buckling_mob)
-	if(buckling_mob.stat)
+	if(buckling_mob.stat == DEAD)
 		return FALSE
 	return ..()
-*/

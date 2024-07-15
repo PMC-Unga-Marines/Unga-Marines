@@ -13,8 +13,8 @@
 	drag_delay = 6
 	mob_size = MOB_SIZE_BIG
 	max_buckled_mobs = 2
-	pixel_x = -28.5
-	old_x = -28.5
+	pixel_x = -16
+	old_x = -16
 	footstep_type = FOOTSTEP_XENO_HEAVY
 
 

@@ -6,7 +6,7 @@
 	allowed_species = list("Synthetic", "Early Synthetic", "Combat Robot")
 	var/reattach_step
 
-	preop_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+	preop_sound = 'sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/head/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(!affected)

@@ -104,7 +104,6 @@ RU TGMC EDIT */
 	SStgui.close_user_uis(src) //Force close all UIs upon evolution.
 	finish_evolve(new_mob_type)
 
-/* RUTGMC DELETION
 ///Actually changes the xenomorph to another caste
 /mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type)
 	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src))
@@ -115,9 +114,10 @@ RU TGMC EDIT */
 		if(new_xeno)
 			qdel(new_xeno)
 		return
-	new_xeno.upgrade_stored = upgrade_stored
-	while(new_xeno.upgrade_stored >= new_xeno.xeno_caste?.upgrade_threshold && new_xeno.upgrade_possible())
+
+	while(new_xeno.upgrade_possible())
 		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
+
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_EVOLVED, new_xeno)
 
@@ -133,6 +133,12 @@ RU TGMC EDIT */
 	new_xeno.nicknumber = nicknumber
 	new_xeno.hivenumber = hivenumber
 	new_xeno.transfer_to_hive(hivenumber)
+	new_xeno.life_kills_total = life_kills_total
+	if(new_xeno.hunter_data)
+		new_xeno.hunter_data.clean_data()
+		qdel(new_xeno.hunter_data)
+		new_xeno.hunter_data = hunter_data
+		hunter_data = null
 	transfer_observers_to(new_xeno)
 
 	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
@@ -178,19 +184,23 @@ RU TGMC EDIT */
 			if(XENO_TIER_FOUR)
 				SSmonitor.stats.primo_T4--
 
-	new_xeno.upgrade_stored = max(upgrade_stored, new_xeno.upgrade_stored)
-	while(new_xeno.upgrade_possible() && new_xeno.upgrade_stored >= new_xeno.xeno_caste.upgrade_threshold)
+	while(new_xeno.upgrade_possible())
 		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
+
 	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
 	selector?.set_selected_zone(zone_selected, new_xeno)
 	qdel(src)
 	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
 
 	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
-*/
 
 ///Check if the xeno is currently able to evolve
 /mob/living/carbon/xenomorph/proc/generic_evolution_checks()
+
+	if(HAS_TRAIT(src, TRAIT_BANISHED))
+		balloon_alert(src, span_warning("You are banished and cannot reach the hivemind."))
+		return FALSE
+
 	if(do_actions)
 		balloon_alert(src, "We're busy!")
 		return FALSE
@@ -245,6 +255,16 @@ RU TGMC EDIT */
 
 ///Check if the xeno can currently evolve into a specific caste
 /mob/living/carbon/xenomorph/proc/caste_evolution_checks(new_mob_type, castepick, regression = FALSE)
+
+	for(var/forbid_info in hive.hive_forbiden_castes)
+		if(forbid_info["type_path"] == new_mob_type && forbid_info["is_forbid"])
+			var/confirm = tgui_alert(src, "Queen Mother doesnt want this caste in the Hive. Are you sure you want to evolve? Forbidden caste is limited to 1 per Hive.", "Confirm.", list("Yes", "No"), timeout = 15 SECONDS)
+			if(confirm != "Yes")
+				return FALSE
+			if(length(hive.xenos_by_typepath[new_mob_type]) >= 1)
+				to_chat(src, span_xenodanger("Forbidden caste is limited to 1 per Hive!"))
+				return FALSE
+
 	if(!regression && !(new_mob_type in xeno_caste.evolves_to))
 		balloon_alert(src, "We can't evolve to that caste from our current one")
 		return FALSE

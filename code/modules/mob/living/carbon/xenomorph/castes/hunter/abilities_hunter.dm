@@ -1,4 +1,5 @@
-/* RU TGMC EDIT
+#define DISGUISE_SLOWDOWN 2
+
 // ***************************************
 // *********** Stealth
 // ***************************************
@@ -16,7 +17,7 @@
 	var/can_sneak_attack = FALSE
 	var/stealth_alpha_multiplier = 1
 
-/datum/action/ability/xeno_action/stealth/remove_action(mob/living/L)
+/datum/action/ability/xeno_action/stealth/remove_action()
 	if(stealth)
 		cancel_stealth()
 	return ..()
@@ -27,12 +28,12 @@
 		return FALSE
 	var/mob/living/carbon/xenomorph/stealthy_beno = owner
 	if(stealthy_beno.on_fire)
-		to_chat(stealthy_beno, "<span class='warning'>We're too busy being on fire to enter Stealth!</span>")
+		owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
 		return FALSE
 	return TRUE
 
 /datum/action/ability/xeno_action/stealth/on_cooldown_finish()
-	to_chat(owner, "<span class='xenodanger'><b>We're ready to use Stealth again.</b></span>")
+	owner.balloon_alert(owner, "Stealth ready.")
 	playsound(owner, "sound/effects/xeno_newlarva.ogg", 25, 0, 1)
 	return ..()
 
@@ -41,25 +42,24 @@
 		cancel_stealth()
 		return TRUE
 	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))   // stops stealth and disguise from stacking
-		owner.balloon_alert(owner, "already in a form of stealth!")
+		owner.balloon_alert(owner, "Already in a form of stealth!")
 		return
 	succeed_activate()
-	to_chat(owner, "<span class='xenodanger'>We vanish into the shadows...</span>")
+	owner.balloon_alert(owner, "We vanish into the shadows.")
 	last_stealth = world.time
 	stealth = TRUE
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(handle_stealth))
 	RegisterSignal(owner, COMSIG_XENOMORPH_POUNCE_END, PROC_REF(sneak_attack_pounce))
-	RegisterSignal(owner, COMSIG_XENO_LIVING_THROW_HIT, PROC_REF(mob_hit))
-	RegisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(sneak_attack_slash))
-	RegisterSignal(owner, COMSIG_XENOMORPH_DISARM_HUMAN, PROC_REF(sneak_attack_slash))
+	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
+	RegisterSignals(owner, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_DISARM_HUMAN), PROC_REF(sneak_attack_slash))
 	RegisterSignal(owner, COMSIG_XENOMORPH_ZONE_SELECT, PROC_REF(sneak_attack_zone))
 	RegisterSignal(owner, COMSIG_XENOMORPH_PLASMA_REGEN, PROC_REF(plasma_regen))
 
 	// TODO: attack_alien() overrides are a mess and need a lot of work to make them require parentcalling
 	RegisterSignals(owner, list(
 		COMSIG_XENOMORPH_GRAB,
-		COMSIG_XENOMORPH_THROW_HIT,
+		COMSIG_XENOMORPH_LEAP_BUMP,
 		COMSIG_LIVING_IGNITED,
 		COMSIG_LIVING_ADD_VENTCRAWL), PROC_REF(cancel_stealth))
 
@@ -78,7 +78,7 @@
 /datum/action/ability/xeno_action/stealth/proc/cancel_stealth() //This happens if we take damage, attack, pounce, toggle stealth off, and do other such exciting stealth breaking activities.
 	SIGNAL_HANDLER
 	add_cooldown()
-	to_chat(owner, "<span class='xenodanger'>We emerge from the shadows.</span>")
+	owner.balloon_alert(owner, "We emerge from the shadows.")
 
 	UnregisterSignal(owner, list(
 		COMSIG_MOVABLE_MOVED,
@@ -100,7 +100,7 @@
 	stealth = FALSE
 	can_sneak_attack = FALSE
 	REMOVE_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
-	owner.alpha = 255 //no transparency/translucency
+	animate(owner, 1 SECONDS, alpha = 255) //no transparency/translucency
 
 ///Signal wrapper to verify that an object is damageable before breaking stealth
 /datum/action/ability/xeno_action/stealth/proc/on_obj_attack(datum/source, obj/attacked)
@@ -112,7 +112,7 @@
 	if(!stealth || can_sneak_attack)
 		return
 	can_sneak_attack = TRUE
-	to_chat(owner, span_xenodanger("We're ready to use Sneak Attack while stealthed."))
+	owner.balloon_alert(owner, "Sneak Attack ready.")
 	playsound(owner, "sound/effects/xeno_newlarva.ogg", 25, 0, 1)
 
 /datum/action/ability/xeno_action/stealth/process()
@@ -125,23 +125,30 @@
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	//Initial stealth
 	if(last_stealth > world.time - HUNTER_STEALTH_INITIAL_DELAY) //We don't start out at max invisibility
-		owner.alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier
+		animate(owner, 1.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
 		return
 	//Stationary stealth
 	else if(owner.last_move_intent < world.time - HUNTER_STEALTH_STEALTH_DELAY) //If we're standing still for 4 seconds we become almost completely invisible
-		owner.alpha = HUNTER_STEALTH_STILL_ALPHA * stealth_alpha_multiplier
+		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_STILL_ALPHA * stealth_alpha_multiplier)
 	//Walking stealth
 	else if(owner.m_intent == MOVE_INTENT_WALK)
-		xenoowner.use_plasma(HUNTER_STEALTH_WALK_PLASMADRAIN)
-		owner.alpha = HUNTER_STEALTH_WALK_ALPHA * stealth_alpha_multiplier
+		handle_plasma_usage(xenoowner, HUNTER_STEALTH_WALK_PLASMADRAIN)
+		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_WALK_ALPHA * stealth_alpha_multiplier)
 	//Running stealth
 	else
-		xenoowner.use_plasma(HUNTER_STEALTH_RUN_PLASMADRAIN)
-		owner.alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier
+		handle_plasma_usage(xenoowner, HUNTER_STEALTH_RUN_PLASMADRAIN)
+		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
 	//If we have 0 plasma after expending stealth's upkeep plasma, end stealth.
 	if(!xenoowner.plasma_stored)
 		to_chat(xenoowner, span_xenodanger("We lack sufficient plasma to remain camouflaged."))
 		cancel_stealth()
+
+/datum/action/ability/xeno_action/stealth/proc/handle_plasma_usage(mob/user, amount)
+	var/mob/living/carbon/xenomorph/xeno = user
+	if(ispath(xeno.loc_weeds_type, /obj/alien/weeds))
+		return
+	else
+		xeno.use_plasma(amount)
 
 /// Callback listening for a xeno using the pounce ability
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_pounce()
@@ -155,34 +162,33 @@
 	cancel_stealth()
 
 /// Callback for when a mob gets hit as part of a pounce
-/datum/action/ability/xeno_action/stealth/proc/mob_hit(datum/source, mob/living/M)
+/datum/action/ability/xeno_action/stealth/proc/mob_hit(datum/source, mob/living/living_target)
 	SIGNAL_HANDLER
-	if(M.stat || isxeno(M))
+	if(living_target.stat || isxeno(living_target))
 		return
-	if(can_sneak_attack)
-		M.adjust_stagger(3 SECONDS)
-		M.add_slowdown(1)
-		to_chat(owner, span_xenodanger("Pouncing from the shadows, we stagger our victim."))
+	if(!can_sneak_attack)
+		return
+	living_target.adjust_stagger(3 SECONDS)
+	living_target.add_slowdown(1)
+
+	var/mob/living/carbon/xenomorph/xeno = owner
+	living_target.attack_alien_harm(xeno, xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier)
+	to_chat(owner, span_xenodanger("Pouncing from the shadows, we stagger our victim."))
 
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
 	if(!can_sneak_attack)
 		return
 
-	var/staggerslow_stacks = 2
-	var/flavour
-	if(owner.m_intent == MOVE_INTENT_RUN && ( owner.last_move_intent > (world.time - HUNTER_SNEAK_ATTACK_RUN_DELAY) ) ) //Allows us to slash while running... but only if we've been stationary for awhile
-		flavour = "vicious"
-	else
-		armor_mod += HUNTER_SNEAK_SLASH_ARMOR_PEN
-		staggerslow_stacks *= 2
-		flavour = "deadly"
+	var/mob/living/carbon/xenomorph/xeno = owner
+	damage = xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier
 
-	owner.visible_message(span_danger("\The [owner] strikes [target] with [flavour] precision!"), \
-	span_danger("We strike [target] with [flavour] precision!"))
-	target.adjust_stagger(staggerslow_stacks SECONDS)
-	target.add_slowdown(staggerslow_stacks)
+	owner.visible_message(span_danger("\The [owner] strikes [target] with vicious precision!"), \
+	span_danger("We strike [target] with vicious precision!"))
+	target.adjust_stagger(2 SECONDS)
+	target.add_slowdown(1)
 	target.ParalyzeNoChain(1 SECONDS)
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, , penetration = 15) // additional damage
 
 	cancel_stealth()
 
@@ -209,6 +215,7 @@
 	name = "Disguise"
 	action_icon_state = "xenohide"
 	desc = "Disguise yourself as the enemy. Uses plasma to move. Select your disguise with Hunter's Mark."
+	cooldown_duration = 15 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_DISGUISE,
 	)
@@ -225,14 +232,17 @@
 		owner.balloon_alert(owner, "already in a form of stealth!")
 		return
 	if(!mark.marked_target)
-		to_chat(owner, span_warning("We have no target to disguise into!"))
+		owner.balloon_alert(owner, "We have no target to disguise into!")
 		return
-	if(ishuman(mark.marked_target))
-		to_chat(owner, "You cannot turn into a human!")
+	if(!isliving(mark.marked_target))
+		owner.balloon_alert(owner, "You cannot turn into this object!")
+		return
+	if(!do_after(xenoowner, 1.5 SECONDS, IGNORE_LOC_CHANGE, xenoowner, BUSY_ICON_HOSTILE))
 		return
 	old_appearance = xenoowner.appearance
 	ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
 	xenoowner.update_wounds()
+	xenoowner.add_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE, 0, NONE, TRUE, DISGUISE_SLOWDOWN)
 	return ..()
 
 /datum/action/ability/xeno_action/stealth/disguise/cancel_stealth()
@@ -241,6 +251,7 @@
 	REMOVE_TRAIT(owner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	xenoowner.update_wounds()
+	xenoowner.remove_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE)
 
 /datum/action/ability/xeno_action/stealth/disguise/handle_stealth()
 	var/mob/living/carbon/xenomorph/xenoowner = owner
@@ -256,7 +267,20 @@
 	if(!xenoowner.plasma_stored)
 		to_chat(xenoowner, span_xenodanger("We lack sufficient plasma to remain disguised."))
 		cancel_stealth()
-RU TGMC EDIT */
+
+/datum/action/ability/xeno_action/stealth/disguise/sneak_attack_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
+	if(!can_sneak_attack)
+		return
+
+	var/mob/living/carbon/xenomorph/xeno = owner
+	damage = xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier
+
+	owner.visible_message(span_danger("\The [owner] strikes [target] with deadly precision!"), \
+	span_danger("We strike [target] with deadly precision!"))
+	target.ParalyzeNoChain(1 SECONDS)
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, penetration = 25) // additional damage
+
+	cancel_stealth()
 
 // ***************************************
 // *********** Hunter's Pounce
@@ -296,8 +320,7 @@ RU TGMC EDIT */
 	if(owner.layer != MOB_LAYER)
 		owner.layer = MOB_LAYER
 		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
-		//hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border // ORIGINAL
-		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // RUTGMC EDIT
+		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
 	if(owner.buckled)
 		owner.buckled.unbuckle_mob(owner)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
@@ -334,7 +357,7 @@ RU TGMC EDIT */
 		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
 			xeno_owner.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			xeno_owner.set_throwing(FALSE)
-			playsound(xeno_owner, 'modular_RUtgmc/sound/machines/bonk.ogg', 50, FALSE) // RUTGMC ADDITION
+			playsound(xeno_owner, 'sound/machines/bonk.ogg', 50, FALSE)
 			return
 	trigger_pounce_effect(living_target)
 	pounce_complete()
@@ -353,7 +376,7 @@ RU TGMC EDIT */
 	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_XENO_OBJ_THROW_HIT, COMSIG_XENOMORPH_LEAP_BUMP, COMSIG_MOVABLE_POST_THROW))
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE_END)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.set_throwing(FALSE) // RUTGMC ADDITION, for whatever modular fuckery, without this pounce doesn't stop
+	xeno_owner.set_throwing(FALSE)
 	xeno_owner.xeno_flags &= ~XENO_LEAPING
 
 /datum/action/ability/activable/xeno/pounce/proc/reset_pass_flags()
@@ -400,7 +423,7 @@ RU TGMC EDIT */
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_MARK,
 	)
-	cooldown_duration = 60 SECONDS
+	cooldown_duration = 10 SECONDS
 	///the target marked
 	var/atom/movable/marked_target
 
@@ -603,6 +626,7 @@ RU TGMC EDIT */
 		to_chat(X, span_xenowarning("We have no illusions to swap with!"))
 		return
 
+	owner.drop_all_held_items()
 	X.playsound_local(X, 'sound/effects/swap.ogg', 10, 0, 1)
 	var/turf/current_turf = get_turf(X)
 
@@ -692,3 +716,5 @@ RU TGMC EDIT */
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
 	cooldown_duration = initial(cooldown_duration) //Reset the cooldown timer to its initial state in the event of a whiffed Silence.
 	return ..()
+
+#undef DISGUISE_SLOWDOWN

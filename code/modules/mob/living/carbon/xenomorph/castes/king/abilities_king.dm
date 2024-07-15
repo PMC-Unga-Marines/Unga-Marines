@@ -5,9 +5,9 @@
 /datum/action/ability/activable/xeno/nightfall
 	name = "Nightfall"
 	action_icon_state = "nightfall"
-	desc = "Shut down all electrical lights nearby for 10 seconds."
+	desc = "Shut down electrical lights for 10 seconds and extinguish flares in nearby range."
 	cooldown_duration = 45 SECONDS
-	ability_cost = 100
+	ability_cost = 150
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_NIGHTFALL,
 	)
@@ -28,7 +28,10 @@
 		if(isnull(light.loc) || (owner.loc.z != light.loc.z) || (get_dist(owner, light) >= range))
 			continue
 		light.turn_light(null, FALSE, duration, TRUE, TRUE, TRUE)
-
+	for(var/obj/item/explosive/grenade/flare/flare in range(range, owner))
+		if(!flare.active)
+			continue
+		flare.turn_off()
 
 // ***************************************
 // *********** Petrify
@@ -47,7 +50,6 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PETRIFY,
 	)
 
-/* TGMC Delete Begin
 /datum/action/ability/xeno_action/petrify/action_activate()
 	var/obj/effect/overlay/eye/eye = new
 	owner.vis_contents += eye
@@ -74,6 +76,7 @@
 		human.status_flags |= GODMODE
 		ADD_TRAIT(human, TRAIT_HANDS_BLOCKED, REF(src))
 		human.move_resist = MOVE_FORCE_OVERPOWERING
+		human.unset_interaction()
 		human.add_atom_colour(COLOR_GRAY, TEMPORARY_COLOUR_PRIORITY)
 		human.log_message("has been petrified by [owner] for [PETRIFY_DURATION] ticks", LOG_ATTACK, color="pink")
 
@@ -99,7 +102,6 @@
 	addtimer(CALLBACK(src, PROC_REF(end_effects), humans), PETRIFY_DURATION)
 	add_cooldown()
 	succeed_activate()
-	TGMC DELETE END*/
 
 ///cleans up when the charge up is finished or interrupted
 /datum/action/ability/xeno_action/petrify/proc/finish_charging()
@@ -164,8 +166,9 @@
 
 /datum/action/ability/activable/xeno/off_guard/use_ability(atom/target)
 	var/mob/living/carbon/human/human_target = target
-	human_target.apply_status_effect(STATUS_EFFECT_GUN_SKILL_SCATTER_DEBUFF, 100)
-	human_target.apply_status_effect(STATUS_EFFECT_CONFUSED, 40)
+	human_target.apply_status_effect(STATUS_EFFECT_GUN_SKILL_ACCURACY_DEBUFF, 8 SECONDS)
+	human_target.apply_status_effect(STATUS_EFFECT_GUN_SKILL_SCATTER_DEBUFF, 8 SECONDS)
+	human_target.apply_status_effect(/datum/status_effect/incapacitating/offguard_slowdown, 8 SECONDS)
 	human_target.log_message("has been off-guarded by [owner]", LOG_ATTACK, color="pink")
 	human_target.balloon_alert_to_viewers("confused")
 	playsound(human_target, 'sound/effects/off_guard_ability.ogg', 50)

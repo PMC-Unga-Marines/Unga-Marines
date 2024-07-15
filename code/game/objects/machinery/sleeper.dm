@@ -24,12 +24,8 @@
 	updateUsrDialog()
 
 /obj/machinery/computer/sleep_console/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if (prob(50))
-				qdel(src)
+	if(prob(severity / 3))
+		qdel(src)
 
 ///Set the connected var
 /obj/machinery/computer/sleep_console/proc/set_connected(obj/future_connected)
@@ -124,6 +120,10 @@
 		connected.eject()
 
 	updateUsrDialog()
+
+/obj/machinery/computer/sleep_console/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "sleeperconsole"
 
 /////////////////////////////////////////
 // THE SLEEPER ITSELF
@@ -311,16 +311,8 @@
 /obj/machinery/sleeper/ex_act(severity)
 	if(filtering)
 		toggle_filter()
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if(prob(50))
-				qdel(src)
-		if(EXPLODE_LIGHT)
-			if(prob(25))
-				qdel(src)
-
+	if(prob(severity / 3))
+		qdel(src)
 
 /obj/machinery/sleeper/emp_act(severity)
 	if(filtering)

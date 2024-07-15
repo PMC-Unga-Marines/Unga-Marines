@@ -1,4 +1,3 @@
-
 /*
 /turf
 
@@ -21,16 +20,12 @@
 		/shuttle - shuttle walls are separated from real walls because they're magic, and don't smoothes with walls.
 
 		/ice_rock - ice_rock is one type of non-wall closed turf
-
 */
-
-
 
 /turf
 	icon = 'icons/turf/floors.dmi'
 	var/intact_tile = 1 //used by floors to distinguish floor with/without a floortile(e.g. plating).
 	var/can_bloody = TRUE //Can blood spawn on this turf?
-
 	// baseturfs can be either a list or a single turf type.
 	// In class definition like here it should always be a single type.
 	// A list will be created in initialization that figures out the baseturf's baseturf etc.
@@ -38,14 +33,11 @@
 	// This shouldn't be modified directly, use the helper procs.
 	var/list/baseturfs = /turf/baseturf_bottom
 	luminosity = 1
-
 	var/changing_turf = FALSE
-
 	/// %-reduction-based armor.
 	var/datum/armor/soft_armor
 	/// Flat-damage-reduction-based armor.
 	var/datum/armor/hard_armor
-
 	///Lumcount added by sources other than lighting datum objects, such as the overlay lighting component.
 	var/dynamic_lumcount = 0
 	///List of light sources affecting this turf.
@@ -53,9 +45,9 @@
 	var/directional_opacity = NONE
 	///Lazylist of movable atoms providing opacity sources.
 	var/list/atom/movable/opacity_sources
-
 	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
 	var/list/fixed_underlay = null
+	var/list/datum/automata_cell/autocells
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
@@ -65,16 +57,12 @@
 
 	// by default, vis_contents is inherited from the turf that was here before
 	vis_contents.Cut()
-
 	assemble_baseturfs()
-
 	levelupdate()
-
 	visibilityChanged()
 
 	for(var/atom/movable/AM in src)
 		Entered(AM)
-
 
 	if(light_power && light_range)
 		update_light()
@@ -114,7 +102,6 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	return INITIALIZE_HINT_NORMAL
-
 
 /turf/Destroy(force)
 	if(!changing_turf)
@@ -188,8 +175,6 @@
 		return mover.Bump(firstbump)
 	return TRUE
 
-
-
 /turf/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(ismob(arrived))
 		var/mob/M = arrived
@@ -198,11 +183,20 @@
 
 		if(!isspaceturf(src))
 			M.inertia_dir = 0
-	for(var/datum/automata_cell/explosion/our_explosion in autocells) //RUTGMC ADDITION START - Let explosions know that the atom entered
+	for(var/datum/automata_cell/explosion/our_explosion in autocells) //Let explosions know that the atom entered
 		if(!istype(arrived))
 			break
-		our_explosion.on_turf_entered(arrived) //RUTGMC ADDITION END
+		our_explosion.on_turf_entered(arrived)
 	..()
+
+/turf/proc/get_cell(type)
+	for(var/datum/automata_cell/our_cell in autocells)
+		if(istype(our_cell, type))
+			return our_cell
+	return null
+
+/turf/ex_act()
+	return
 
 /turf/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
@@ -221,7 +215,6 @@
 	for(var/obj/O in src)
 		if(O.flags_atom & INITIALIZED)
 			SEND_SIGNAL(O, COMSIG_OBJ_HIDE, intact_tile)
-
 
 // Creates a new turf
 // new_baseturfs can be either a single type or list of types, formated the same as baseturfs. see turf.dm
@@ -366,9 +359,6 @@
 	src.ChangeTurf(/turf/open/space)
 	new /obj/structure/lattice( locate(src.x, src.y, src.z) )
 
-
-
-
 /turf/proc/AdjacentTurfs()
 	var/L[] = new()
 	for(var/turf/t in oview(src,1))
@@ -385,15 +375,12 @@
 				L.Add(t)
 	return L
 
-
-
 /turf/proc/Distance(turf/t)
 	if(get_dist(src,t) == 1)
 		var/cost = (src.x - t.x) * (src.x - t.x) + (src.y - t.y) * (src.y - t.y)
 		return cost
 	else
 		return get_dist(src,t)
-
 
 //  This Distance proc assumes that only cardinal movement is
 //  possible. It results in more efficient (CPU-wise) pathing
@@ -402,7 +389,6 @@
 	if(!src || !T)
 		return FALSE
 	return abs(x - T.x) + abs(y - T.y)
-
 
 //Blood stuff------------
 /turf/proc/AddTracks(typepath,bloodDNA,comingdir,goingdir,bloodcolor="#A10808")
@@ -420,7 +406,6 @@
 /turf/proc/can_lay_cable()
 	return can_have_cabling() & !intact_tile
 
-
 /turf/proc/ceiling_debris_check(size = 1)
 	return
 
@@ -437,7 +422,7 @@
 
 	switch(A.ceiling)
 		if(CEILING_GLASS)
-			playsound(src, "sound/effects/glassbr1.ogg", 60, 1)
+			playsound(src, 'sound/effects/glassbr1.ogg', 60, 1)
 			spawn(8)
 				if(amount >1)
 					visible_message(span_boldnotice("Shards of glass rain down from above!"))
@@ -445,27 +430,24 @@
 					new /obj/item/shard(pick(turfs))
 					new /obj/item/shard(pick(turfs))
 		if(CEILING_METAL, CEILING_OBSTRUCTED)
-			/* ORIGINAL
-			playsound(src, "sound/effects/metal_crash.ogg", 60, 1)
-			*/
-			playsound(src, "sound/effects/metal_crash.ogg", 30, 1) //RUTGMC EDIT
+			playsound(src, 'sound/effects/metal_crash.ogg', 30, 1)
 			spawn(8)
 				if(amount >1)
 					visible_message(span_boldnotice("Pieces of metal crash down from above!"))
 				for(var/i=1, i<=amount, i++)
 					new /obj/item/stack/sheet/metal(pick(turfs))
 		if(CEILING_UNDERGROUND, CEILING_DEEP_UNDERGROUND)
-			playsound(src, "sound/effects/meteorimpact.ogg", 60, 1)
+			playsound(src, 'sound/effects/meteorimpact.ogg', 60, 1)
 			spawn(8)
 				if(amount >1)
 					visible_message(span_boldnotice("Chunks of rock crash down from above!"))
-				for(var/i=1, i<=amount, i++)
+				for(var/i = 1, i <= amount, i++)
 					new /obj/item/ore(pick(turfs))
 					new /obj/item/ore(pick(turfs))
 		if(CEILING_UNDERGROUND_METAL, CEILING_DEEP_UNDERGROUND_METAL)
-			playsound(src, "sound/effects/metal_crash.ogg", 60, 1)
+			playsound(src, 'sound/effects/metal_crash.ogg', 60, 1)
 			spawn(8)
-				for(var/i=1, i<=amount, i++)
+				for(var/i = 1, i <= amount, i++)
 					new /obj/item/stack/sheet/metal(pick(turfs))
 					new /obj/item/ore(pick(turfs))
 
@@ -489,7 +471,6 @@
 		if(CEILING_DEEP_UNDERGROUND_METAL)
 			return "It is deep underground. The ceiling above is metal."
 
-
 /turf/proc/wet_floor()
 	return
 
@@ -504,7 +485,7 @@
 	return TRUE
 
 /turf/closed/wall/resin/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/space/is_weedable()
 	return FALSE
@@ -520,7 +501,6 @@
 
 /turf/open/ground/coast/is_weedable()
 	return FALSE
-
 
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable/is_weedable()
 	return TRUE
@@ -638,10 +618,6 @@
 
 /turf/open/lavaland/basalt/can_dig_xeno_tunnel()
 	return TRUE
-
-
-
-
 
 //what dirt type you can dig from this turf if any.
 /turf/proc/get_dirt_type()
@@ -883,44 +859,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			else
 				vis_contents -= net.vis_contents_opaque
 
-
 /turf/AllowDrop()
 	return TRUE
-
-
-/* RUTGMC REMOVAL
-/turf/contents_explosion(severity)
-	for(var/thing in contents)
-		var/atom/movable/thing_in_turf = thing
-		if(thing_in_turf.resistance_flags & INDESTRUCTIBLE)
-			continue
-		switch(severity)
-			if(EXPLODE_DEVASTATE)
-				SSexplosions.highMovAtom[thing_in_turf] += list(src)
-				if(thing_in_turf.flags_atom & PREVENT_CONTENTS_EXPLOSION)
-					continue
-				for(var/a in thing_in_turf.contents)
-					SSexplosions.highMovAtom[a] += list(src)
-			if(EXPLODE_HEAVY)
-				SSexplosions.medMovAtom[thing_in_turf] += list(src)
-				if(thing_in_turf.flags_atom & PREVENT_CONTENTS_EXPLOSION)
-					continue
-				for(var/a in thing_in_turf.contents)
-					SSexplosions.medMovAtom[a] += list(src)
-			if(EXPLODE_LIGHT)
-				SSexplosions.lowMovAtom[thing_in_turf] += list(src)
-				if(thing_in_turf.flags_atom & PREVENT_CONTENTS_EXPLOSION)
-					continue
-				for(var/a in thing_in_turf.contents)
-					SSexplosions.lowMovAtom[a] += list(src)
-			if(EXPLODE_WEAK)
-				SSexplosions.weakMovAtom[thing_in_turf] += list(src)
-				if(thing_in_turf.flags_atom & PREVENT_CONTENTS_EXPLOSION)
-					continue
-				for(var/a in thing_in_turf.contents)
-					SSexplosions.weakMovAtom[a] += list(src)
-*/
-
 
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list("x", "y", "z")

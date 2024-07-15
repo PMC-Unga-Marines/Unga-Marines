@@ -3,6 +3,8 @@
 /obj/item/weapon/gun/rifle
 	reload_sound = 'sound/weapons/guns/interact/rifle_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/cocked.ogg'
+	silenced_sound = 'sound/weapons/guns/rifles/AR-12/AR12_SIL.ogg'
+	wield_sound =    'sound/weapons/guns/rifles/Deploy_Wave_RIFLES.ogg'
 	flags_equip_slot = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
@@ -28,25 +30,29 @@
 /obj/item/weapon/gun/rifle/standard_carbine
 	name = "\improper AR-18 Kauser carbine"
 	desc = "The Keckler and Hoch AR-18 carbine is one of the standard rifles used by the TerraGov Marine Corps. It's commonly used by people who prefer greater mobility in combat, like scouts and other light infantry. Uses 10x24mm caseless ammunition."
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "t18"
+	item_state = "t18"
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_ar18.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/t18_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/t18_reload.ogg'
+	unload_sound =   'sound/weapons/guns/rifles/AR-18/AR18_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/rifles/AR-18/AR18_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/rifles/AR-18/AR18_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/rifles/AR-11/AR11_SIL.ogg'
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
-	greyscale_config = /datum/greyscale_config/gun
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t18,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t18,
-		slot_back_str = /datum/greyscale_config/worn_gun/t18,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t18,
-	)
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/standard_carbine,
+		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+		)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t18stock,
 		/obj/item/attachable/reddot,
@@ -119,26 +125,30 @@
 /obj/item/weapon/gun/rifle/standard_assaultrifle
 	name = "\improper AR-12 K&H assault rifle"
 	desc = "The Keckler and Hoch AR-12 assault rifle used to be the TerraGov Marine Corps standard issue rifle before the AR-18 carbine replaced it. It is, however, still used widely despite that. The gun itself is very good at being used in most situations however it suffers in engagements at close quarters and is relatively hard to shoulder than some others. It uses 10x24mm caseless ammunition."
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "t12"
+	item_state = "t12"
 	fire_sound = "gun_ar12"
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/t18_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/t18_reload.ogg'
+	unload_sound =   'sound/weapons/guns/rifles/AR-12/AR12_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/rifles/AR-12/AR12_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/rifles/AR-12/AR12_boltpull.ogg'
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 50 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle)
-	greyscale_config = /datum/greyscale_config/gun/gun64
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand,
-		slot_back_str = /datum/greyscale_config/worn_gun,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit,
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+	)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
 	)
 	attachable_allowed = list(
+		/obj/item/attachable/stock/t12stock,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
@@ -167,14 +177,17 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	attachable_offset = list("muzzle_x" = 46, "muzzle_y" = 17,"rail_x" = 16, "rail_y" = 23, "under_x" = 33, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 17,"rail_x" = 0, "rail_y" = 23, "under_x" = 17, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
+
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
@@ -189,13 +202,13 @@
 	placed_overlay_iconstate = "t12"
 
 /obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman
-	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 /obj/item/weapon/gun/rifle/standard_assaultrifle/engineer
-	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
 
 /obj/item/weapon/gun/rifle/standard_assaultrifle/medic
-	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 //-------------------------------------------------------
 //DMR-37 DMR
@@ -204,15 +217,13 @@
 	name = "\improper DMR-37 SCA designated marksman rifle"
 	desc = "The San Cristo Arms DMR-37 is the TerraGov Marine Corps designated marksman rifle. It is rather well-known for it's very consistent target placement at longer than usual range, it however lacks a burst fire mode or an automatic mode. It is mostly used by people who prefer to do more careful shooting than most. Uses 10x27mm caseless caliber."
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
-	greyscale_config = /datum/greyscale_config/gun/gun64/t37
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	icon_state = "t37"
+	item_state = "t37"
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t37,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t37,
-		slot_back_str = /datum/greyscale_config/worn_gun/t37,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t37,
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -221,8 +232,11 @@
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_dmr37.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_dmr37_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
+	unload_sound =  'sound/weapons/guns/dmr/DMR-37/DMR37_clipout.ogg'
+	reload_sound =  'sound/weapons/guns/dmr/DMR-37/DMR37_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/dmr/DMR-37/DMR37_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/dmr/DMR-37/DMR37_SIL.ogg'
+	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_10x27_CASELESS //codex
 	aim_slowdown = 0.75
 	wield_delay = 0.8 SECONDS
@@ -299,15 +313,21 @@
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_br64.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_br64_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
+	unload_sound =   'sound/weapons/guns/dmr/BR-64/BR64_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/dmr/BR-64/BR64_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/dmr/BR-64/BR64_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/dmr/BR-64/BR64_SIL.ogg'
+	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_10x265_CASELESS //codex
 	aim_slowdown = 0.55
 	wield_delay = 0.7 SECONDS
 	force = 20
 	max_shells = 36 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_br
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_br)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/standard_br,
+		/obj/item/ammo_magazine/rifle/standard_br/ap,
+	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t64stock,
 		/obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle,
@@ -455,13 +475,14 @@
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/grenade_launcher/underslung/elite,
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 	)
 
 	attachable_offset = list("muzzle_x" = 44, "muzzle_y" = 19,"rail_x" = 15, "rail_y" = 21, "under_x" = 25, "under_y" = 16, "stock_x" = 18, "stock_y" = 15)
-	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung)
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung/elite)
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 
@@ -875,13 +896,11 @@
 	name = "\improper MG-42 Kauser light machine gun"
 	desc = "The Kauser MG-42 is the TGMC's current standard non-IFF-capable LMG. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. It uses 10x24mm ammunition."
 
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "t42"
+	item_state = "t42"
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t42,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t42,
-		slot_back_str = /datum/greyscale_config/worn_gun/t42,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t42,
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -893,13 +912,16 @@
 	wield_delay = 1 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg42.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_boltpull.ogg'
+	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
+	unload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipout.ogg'
+	reload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipin.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/standard_lmg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_lmg)
-	greyscale_config = /datum/greyscale_config/gun/gun64/t42
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	attachable_allowed = list(
+		/obj/item/attachable/stock/t42stock,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/flashlight,
@@ -925,6 +947,7 @@
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -934,6 +957,8 @@
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
+
+	starting_attachment_types = list(/obj/item/attachable/stock/t42stock)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
@@ -951,16 +976,14 @@
 	name = "\improper MG-60 Raummetall general purpose machine gun"
 	desc = "The Raummetall MG-60 general purpose machinegun is the TGMC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 10x26mm boxes."
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "t60"
+	item_state = "t60"
 	fire_animation = "loaded_fire"
-	greyscale_config = /datum/greyscale_config/gun/gun64/t60
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t60,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t60,
-		slot_back_str = /datum/greyscale_config/worn_gun/t60,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t60,
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -973,11 +996,14 @@
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg60.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg60_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
+	unload_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boxout.ogg'
+	reload_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boxin.ogg'
+	cocked_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boltpull.ogg'
+	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/standard_gpmg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_gpmg)
 	attachable_allowed = list(
+		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,
@@ -1205,21 +1231,22 @@
 /obj/item/weapon/gun/rifle/standard_autoshotgun
 	name = "\improper Zauer SH-15 automatic shotgun"
 	desc = "The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines."
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
-	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sh15.ogg'
+	icon_state = "tx15"
+	item_state = "tx15"
+	fire_sound =   'sound/weapons/guns/shotgun/SH-15/SH15.ogg'
+	unload_sound = 'sound/weapons/guns/shotgun/SH-15/SH15_clipout.ogg'
+	reload_sound = 'sound/weapons/guns/shotgun/SH-15/SH15_clipin.ogg'
+	cocked_sound = 'sound/weapons/guns/shotgun/SH-15/SH15_boltpull.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/shotgun_empty.ogg'
 	caliber = CALIBER_16G //codex
 	max_shells = 12 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_slug
-	greyscale_config = /datum/greyscale_config/gun/tx15
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/tx15,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/tx15,
-		slot_back_str = /datum/greyscale_config/worn_gun/tx15,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/tx15,
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/tx15_slug,
@@ -1275,8 +1302,8 @@
 /obj/item/weapon/gun/rifle/standard_smartmachinegun
 	name = "\improper SG-29 Raummetall-KT smart machine gun"
 	desc = "The Raummetall-KT SG-29 is the TGMC's current standard IFF-capable medium machine gun. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "sg29"
+	item_state = "sg29"
 	caliber = CALIBER_10x26_CASELESS //codex
 	max_shells = 300 //codex
 	force = 30
@@ -1286,13 +1313,11 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
-	greyscale_config = /datum/greyscale_config/gun/sg29
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/sg29,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/sg29,
-		slot_back_str = /datum/greyscale_config/worn_gun/sg29,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/sg29,
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	default_ammo_type = /obj/item/ammo_magazine/standard_smartmachinegun
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_smartmachinegun)
@@ -1347,7 +1372,7 @@
 	item_state = "sg62"
 	caliber = CALIBER_10x27_CASELESS //codex
 	max_shells = 40 //codex
-	aim_slowdown = 0.85
+	aim_slowdown = 0.55
 	wield_delay = 0.65 SECONDS
 	fire_sound =  'sound/weapons/guns/fire/t62.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
@@ -1374,7 +1399,7 @@
 	attachable_offset = list("muzzle_x" = 12, "muzzle_y" = 22, "rail_x" = 15, "rail_y" = 22, "under_x" = 28, "under_y" = 16, "stock_x" = 12, "stock_y" = 14)
 	starting_attachment_types = list(/obj/item/weapon/gun/rifle/standard_spottingrifle, /obj/item/attachable/stock/strstock)
 
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.4 SECONDS
 	burst_amount = 0
 	accuracy_mult_unwielded = 0.4
 	accuracy_mult = 1.1
@@ -1413,7 +1438,8 @@
 	flags_gun_features = GUN_IS_ATTACHMENT|GUN_WIELDED_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
 	flags_attach_features = NONE
 	fire_delay = 1 SECONDS
-	accuracy_mult = 1.25
+	accuracy_mult = 1.5
+	scatter = -5
 	pixel_shift_x = 18
 	pixel_shift_y = 16
 
@@ -1473,25 +1499,26 @@
 	name = "\improper SR-127 Bauer bolt action rifle"
 	desc = "The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines."
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
-	greyscale_config = /datum/greyscale_config/gun/gun64/shotgun/tl127
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	icon_state = "tl127"
+	item_state = "tl127"
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/tl127,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/tl127,
-		slot_back_str = /datum/greyscale_config/worn_gun/tl127,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/tl127,
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
 
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sr127.ogg'
-	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sr127_low.ogg'
+	fire_sound =     'sound/weapons/guns/sniper/SR-127/SR127.ogg'
+	fire_rattle = null
 	cocked_sound = 'sound/weapons/guns/interact/tl-127_bolt.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
+	unload_sound =   'sound/weapons/guns/sniper/SR-127/SR127_clipout.ogg'
+	reload_sound =   'sound/weapons/guns/sniper/SR-127/SR127_clipin.ogg'
+	cocked_sound =   'sound/weapons/guns/sniper/SR-127/SR127_boltpull.ogg'
+	silenced_sound = 'sound/weapons/guns/sniper/SR-127/SR127_SIL.ogg'
+	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_86X70 //codex
 	max_shells = 10 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/chamberedrifle
@@ -1515,7 +1542,7 @@
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS|AMMO_RECIEVER_AUTO_EJECT
 
-	cock_animation = GUN_ICONSTATE_PUMP
+	cock_animation = "tl127_cock"
 	cocked_message = "You rack the bolt!"
 
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
@@ -1550,8 +1577,8 @@
 /obj/item/weapon/gun/rifle/standard_autosniper
 	name = "\improper SR-81 Kauser-KT automatic sniper rifle"
 	desc = "The Kauser-KT SR-81 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 8.6x70mm caseless with specialized pressures for IFF fire."
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "t81"
+	item_state = "t81"
 	fire_sound = 'sound/weapons/guns/fire/sniper.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
@@ -1560,15 +1587,14 @@
 	max_shells = 20 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/autosniper
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/autosniper)
-	greyscale_config = /datum/greyscale_config/gun/gun64/t81
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t81,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t81,
-		slot_back_str = /datum/greyscale_config/worn_gun/t81,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t81,
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	attachable_allowed = list(
+		/obj/item/attachable/autosniperbarrel,
 		/obj/item/attachable/scope/nightvision,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/suppressor,
@@ -1582,6 +1608,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 48, "muzzle_y" = 18,"rail_x" = 23, "rail_y" = 23, "under_x" = 38, "under_y" = 16, "stock_x" = 9, "stock_y" = 12)
 	starting_attachment_types = list(
+		/obj/item/attachable/autosniperbarrel,
 		/obj/item/attachable/scope/nightvision,
 	)
 
@@ -1603,24 +1630,23 @@
 /obj/item/weapon/gun/rifle/tx11
 	name = "\improper AR-11 K&H combat rifle"
 	desc = "The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition."
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "tx11"
+	item_state = "tx11"
 	caliber = CALIBER_492X34_CASELESS //codex
 	max_shells = 70 //codex
 	wield_delay = 0.65 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_ar11.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
+	unload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipout.ogg'
+	reload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipin.ogg'
+	cocked_sound = 'sound/weapons/guns/rifles/AR-11/AR11_boltpull.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx11
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/tx11)
-	greyscale_config = /datum/greyscale_config/gun/tx11
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/tx11,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/tx11,
-		slot_back_str = /datum/greyscale_config/worn_gun/tx11,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/tx11,
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -1674,28 +1700,31 @@
 	name = "\improper AR-21 Kauser skirmish rifle"
 	desc = "The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers."
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = GUN_ICONSTATE_LOADED
-	item_state = GUN_ICONSTATE_LOADED
+	icon_state = "t21"
+	item_state = "t21"
 	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t21,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t21,
-		slot_back_str = /datum/greyscale_config/worn_gun/t21,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t21,
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
-
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_ar21.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/t21_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/t21_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/t21_reload.ogg'
+	unload_sound = 'sound/weapons/guns/rifles/AR-21/AR21_clipout.ogg'
+	reload_sound = 'sound/weapons/guns/rifles/AR-21/AR21_clipin.ogg'
+	cocked_sound = 'sound/weapons/guns/rifles/AR-21/AR21_boltpull.ogg'
 	caliber = CALIBER_10X25_CASELESS //codex
 	max_shells = 30 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_skirmishrifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle)
-	greyscale_config = /datum/greyscale_config/gun/gun64/t21
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	greyscale_config = null
+	colorable_allowed = NONE
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
+		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap,
+	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
@@ -1936,7 +1965,10 @@
 	max_shells = 36 //codex
 	wield_delay = 1 SECONDS
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/standard_carbine,
+		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,
 		/obj/item/weapon/gun/rifle/tx54/mini,
@@ -2615,3 +2647,60 @@
 	icon_state = "l88_export"
 	item_state = "l88_export"
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_assaultcarbine/export
+
+///////////////////////////////////////////////////////////////////////
+////////////////////////  T25, old version .///////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+/obj/item/weapon/gun/rifle/T25
+	name = "\improper T-25 smartrifle"
+	desc = "The T-25 is the TGMC's current standard IFF-capable rifle. It's known for its ability to lay down quick fire support very well. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "T25"
+	item_state = "T25"
+	item_icons = list(
+		slot_l_hand_str =  'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str =  'icons/mob/items_righthand_1.dmi',
+		slot_s_store_str = 'icons/mob/suit_slot.dmi',
+		slot_back_str =    'icons/mob/clothing/back.dmi',
+	)
+	caliber = CALIBER_10x26_CASELESS //codex
+	max_shells = 80 //codex
+	force = 20
+	aim_slowdown = 0.5
+	wield_delay = 0.9 SECONDS
+	fire_sound = "gun_smartgun"
+	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
+	unload_sound =   'sound/weapons/guns/interact/T42_unload.ogg'
+	reload_sound =   'sound/weapons/guns/interact/T42_reload.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/T25
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/T25, /obj/item/ammo_magazine/rifle/T25/extended)
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/compensator,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/attachable/motiondetector,
+	)
+
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_IFF
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
+	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
+	attachable_offset = list("muzzle_x" = 42, "muzzle_y" = 17,"rail_x" = 15, "rail_y" = 21, "under_x" = 24, "under_y" = 14, "stock_x" = 12, "stock_y" = 13)
+
+	fire_delay = 0.2 SECONDS
+	burst_amount = 0
+	accuracy_mult_unwielded = 0.5
+	accuracy_mult = 1.2
+	scatter = -5
+	scatter_unwielded = 60

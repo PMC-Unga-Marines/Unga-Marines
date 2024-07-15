@@ -50,6 +50,65 @@
 	if(!owner.incapacitated())
 		mothers += owner //Adding them to the list.
 
+// ***************************************
+// *********** Psychic Grab
+// ***************************************
+/datum/action/ability/activable/xeno/psychic_grab
+	name = "Psychic Grab"
+	action_icon_state = "grab"
+	desc = "Attracts the target to the owner of the ability."
+	cooldown_duration = 12 SECONDS
+	ability_cost = 100
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PSYCHIC_GRAB,
+	)
+	target_flags = ABILITY_MOB_TARGET
+
+
+/datum/action/ability/activable/xeno/psychic_grab/on_cooldown_finish()
+	to_chat(owner, span_notice("We gather enough mental strength to grab something again."))
+	return ..()
+
+
+/datum/action/ability/activable/xeno/psychic_grab/can_use_ability(atom/target, silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(QDELETED(target))
+		return FALSE
+	if(!isitem(target) && !ishuman(target) && !isdroid(target))	//only items, droids, and mobs can be flung.
+		return FALSE
+	var/max_dist = 5
+	if(!line_of_sight(owner, target, max_dist))
+		if(!silent)
+			to_chat(owner, span_warning("We must get closer to grab, our mind cannot reach this far."))
+		return FALSE
+	if(ishuman(target))
+		var/mob/living/carbon/human/victim = target
+		if(isnestedhost(victim))
+			return FALSE
+		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
+			return FALSE
+
+
+/datum/action/ability/activable/xeno/psychic_grab/use_ability(atom/target)
+	var/mob/living/victim = target
+
+	owner.visible_message(span_xenowarning("A strange and violent psychic aura is suddenly emitted from \the [owner]!"), \
+	span_xenowarning("We are rapidly attracting [victim] with the power of our mind!"))
+	victim.visible_message(span_xenowarning("[victim] is rapidly attracting away by an unseen force!"), \
+	span_xenowarning("You are rapidly attracting to the side by an unseen force!"))
+	playsound(owner,'sound/effects/magic.ogg', 75, 1)
+	playsound(victim,'sound/weapons/alien_claw_block.ogg', 75, 1)
+	succeed_activate()
+	add_cooldown()
+	if(ishuman(victim))
+		victim.apply_effects(0.4, 0.1) 	// The fling stuns you enough to remove your gun, otherwise the marine effectively isn't stunned for long.
+		shake_camera(victim, 2, 1)
+
+	var/grab_distance = (isitem(victim)) ? 5 : 4 //Objects get flung further away.
+
+	victim.throw_at(owner, grab_distance, 1, owner, TRUE)
 
 // ***************************************
 // *********** Psychic Fling
@@ -141,7 +200,7 @@ RU TGMC EDIT */
 	name = "Unrelenting Force"
 	action_icon_state = "screech"
 	desc = "Unleashes our raw psychic power, pushing aside anyone who stands in our path."
-	cooldown_duration = 50 SECONDS
+	cooldown_duration = 20 SECONDS
 	ability_cost = 300
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
 	keybinding_signals = list(
@@ -154,7 +213,6 @@ RU TGMC EDIT */
 	to_chat(owner, span_notice("Our mind is ready to unleash another blast of force."))
 	return ..()
 
-/* RU TGMC EDIT //moved to modular
 /datum/action/ability/activable/xeno/unrelenting_force/use_ability(atom/target)
 	succeed_activate()
 	add_cooldown()
@@ -203,18 +261,6 @@ RU TGMC EDIT */
 
 	playsound(owner,'sound/effects/bamf.ogg', 75, TRUE)
 	playsound(owner, "alien_roar", 50)
-
-			//Held facehuggers get killed for balance reasons
-	if(istype(owner.r_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.r_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
-
-	if(istype(owner.l_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.l_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
-RU TGMC EDIT */ //moved to modular
 
 // ***************************************
 // *********** Psychic Cure
@@ -310,7 +356,7 @@ RU TGMC EDIT */ //moved to modular
 	name = "Place acid well"
 	action_icon_state = "place_trap"
 	desc = "Place an acid well that can put out fires."
-	ability_cost = 400
+	ability_cost = 200
 	cooldown_duration = 2 MINUTES
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLACE_ACID_WELL,

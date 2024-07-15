@@ -125,19 +125,8 @@
 /obj/machinery/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if(!prob(50))
-				return
-			qdel(src)
-		if(EXPLODE_LIGHT)
-			if(!prob(25))
-				return
-			qdel(src)
-		if(EXPLODE_WEAK)
-			return
+	if(prob(severity / 3))
+		deconstruct(FALSE)
 
 
 /obj/machinery/proc/power_change()

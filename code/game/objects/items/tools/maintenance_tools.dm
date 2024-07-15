@@ -117,17 +117,20 @@
 	var/weld_tick = 0	//Used to slowly deplete the fuel when the tool is left on.
 	var/status = TRUE //When welder is secured on unsecured
 
+	var/datum/looping_sound/weldingtool/soundloop
+
 
 /obj/item/tool/weldingtool/Initialize(mapload)
 	. = ..()
 	create_reagents(max_fuel, null, list(/datum/reagent/fuel = max_fuel))
+	soundloop = new(list(src), active)
 
 
 /obj/item/tool/weldingtool/Destroy()
 	if(welding)
 		STOP_PROCESSING(SSobj, src)
+	QDEL_NULL(soundloop)
 	return ..()
-
 
 /obj/item/tool/weldingtool/examine(mob/user)
 	. += ..()
@@ -248,15 +251,13 @@
 		return 0
 	return 1
 
-/* RUTGMC EDIT | MOVED TO MODULE
-//Toggles the welder off and on
 /obj/item/tool/weldingtool/proc/toggle(message = 0)
 	var/mob/M
 	if(ismob(loc))
 		M = loc
 	if(!welding)
 		if(get_fuel() > 0)
-			playsound(loc, 'sound/items/weldingtool_on.ogg', 25)
+			soundloop.start()
 			welding = 1
 			if(M)
 				balloon_alert(M, "Turns on")
@@ -273,7 +274,7 @@
 				balloon_alert(M, "Out of fuel")
 			return
 	else
-		playsound(loc, 'sound/items/weldingtool_off.ogg', 25)
+		soundloop.stop()
 		force = 3
 		damtype = BRUTE
 		icon_state = "welder"
@@ -291,7 +292,6 @@
 				M.update_inv_l_hand()
 		set_light(0)
 		STOP_PROCESSING(SSobj, src)
-*/
 
 /obj/item/tool/weldingtool/proc/flamethrower_screwdriver(obj/item/I, mob/user)
 	if(welding)

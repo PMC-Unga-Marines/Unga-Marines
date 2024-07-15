@@ -1,4 +1,0 @@
-#define B18_DAMAGE_MIN 20
-#define B18_DAMAGE_MAX 300
-#define B18_PAIN_MIN 20
-#define B18_PAIN_MAX 300

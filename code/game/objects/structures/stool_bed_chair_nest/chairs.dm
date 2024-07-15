@@ -151,6 +151,10 @@
 /obj/structure/bed/chair/comfy/black
 	color = rgb(167,164,153)
 
+/obj/structure/bed/chair/comfy/black/pred
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "comfychair"
+
 /obj/structure/bed/chair/comfy/lime
 	color = rgb(255,251,0)
 

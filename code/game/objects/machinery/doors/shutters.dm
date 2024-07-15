@@ -130,6 +130,9 @@
 	id = "sd_lockdown"
 	resistance_flags = RESIST_ALL
 
+/obj/machinery/door/poddoor/shutters/mainship/selfdestruct/get_explosion_resistance()
+	return density ? 5000 : 0
+
 /obj/machinery/door/poddoor/shutters/mainship/open/hangar
 	name = "\improper Hangar Shutters"
 	id = "hangar_shutters"
