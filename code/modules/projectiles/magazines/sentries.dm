@@ -46,3 +46,20 @@
 	icon_state = "shotgunsentry"
 	max_rounds = 100
 	default_ammo = /datum/ammo/bullet/turret/buckshot
+
+// Flamer Sentry
+
+/obj/item/ammo_magazine/flamer_tank/large/sentry
+	name = "JJ-8 fuel tank"
+	desc = "A large fuel tank of ultra thick napthal, a sticky combustable liquid chemical, for use in the SFT-FLAMER sentry gun."
+	icon = 'icons/Marine/sentry.dmi'
+	icon_state = "sentry_flamer_mag"
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 150
+	current_rounds = 150
+	reload_delay = 3 SECONDS
+
+	default_ammo = /datum/ammo/flamethrower/turret
+
+/obj/item/ammo_magazine/flamer_tank/large/afterattack(obj/target, mob/user , flag)
+	return ..()

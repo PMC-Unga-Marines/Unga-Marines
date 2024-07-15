@@ -4366,6 +4366,10 @@ RU TGMC EDIT*/
 	burnlevel = 46
 	bullet_color = COLOR_NAVY
 
+/datum/ammo/flamethrower/turret
+	max_range = 8
+	damage = 50
+
 /datum/ammo/water
 	name = "water"
 	icon_state = "pulse1"

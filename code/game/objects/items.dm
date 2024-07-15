@@ -132,7 +132,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 	var/active = FALSE
 
-
+	///If TRUE you cant deploy item next to another deployable in 5x5 tile radius.
+	var/near_lock
 
 	//Coloring vars
 	///Some defines to determine if the item is allowed to be recolored.

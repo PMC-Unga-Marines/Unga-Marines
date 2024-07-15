@@ -363,7 +363,7 @@
 	point_cost = 500
 	var/deployment_cooldown
 	var/obj/machinery/deployable/mounted/sentry/deployed_turret
-	var/sentry_type = /obj/item/weapon/gun/sentry/big_sentry/dropship
+	var/sentry_type = /obj/item/weapon/gun/sentry/basic/dropship
 
 /obj/structure/dropship_equipment/shuttle/sentry_holder/Initialize(mapload)
 	. = ..()

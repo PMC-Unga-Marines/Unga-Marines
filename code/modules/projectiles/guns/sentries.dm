@@ -31,6 +31,79 @@
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
 
+	near_lock = TRUE
+
+
+
+// *******************************
+// ********* UPGRADE KIT *********
+// *******************************
+
+/obj/item/weapon/gun/sentry/basic/proc/get_upgrade_list()
+	. += list("Sniper Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sentry_sniper_deployed"),
+			"Shotgun Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sentry_shotgun_deployed"),
+			"Mini Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "minisentry_deployed"),
+			"Flamer Upgrade"  = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sentry_flamer_deployed"),
+	)
+
+/obj/item/weapon/gun/sentry/basic/proc/upgrade_string_to_type(upgrade_string)
+	switch(upgrade_string)
+		if("Sniper Upgrade")
+			return /obj/item/weapon/gun/sentry/sniper
+		if("Shotgun Upgrade")
+			return /obj/item/weapon/gun/sentry/shotgun
+		if("Mini Upgrade")
+			return /obj/item/weapon/gun/sentry/mini
+		if("Flamer Upgrade")
+			return /obj/item/weapon/gun/sentry/flamer
+
+/obj/item/sentry_upgrade_kit
+	name = "Набор улучшения TUR-1"
+	desc = "Набор инструментов, используемый для улучшения базовой модели турелей. При использовании возврату не подлежит."
+
+	icon = 'icons/Marine/sentry.dmi'
+	icon_state = "upgradekit"
+
+/obj/item/sentry_upgrade_kit/afterattack(atom/target, mob/user, proximity_flag, click_parameters, proximity)
+	if(!ishuman(user))
+		return ..()
+
+	if(!istype(target, /obj/item/weapon/gun/sentry/basic))
+		return ..()
+
+	var/obj/item/weapon/gun/sentry/basic/sentry = target
+	var/mob/living/carbon/human/human = user
+
+	var/list/upgrade_list = sentry.get_upgrade_list()
+	if(!length(upgrade_list))
+		return
+
+	var/chosen_upgrade = show_radial_menu(user, target, upgrade_list, require_near = TRUE)
+	if(QDELETED(sentry) || !upgrade_list[chosen_upgrade])
+		return
+
+	if((user.get_active_held_item()) != src)
+		to_chat(user, span_warning("You must be holding [src] to upgrade [sentry]!"))
+		return
+
+	var/type_to_change_to = sentry.upgrade_string_to_type(chosen_upgrade)
+	if(!type_to_change_to)
+		return
+
+	human.dropItemToGround(sentry)
+	qdel(sentry)
+
+	sentry = new type_to_change_to()
+	human.put_in_any_hand_if_possible(sentry)
+
+	if(sentry.loc != human)
+		sentry.forceMove(human.loc)
+
+	human.drop_held_item(src)
+	qdel(src)
+
+
+
 /obj/item/storage/box/crate/sentry
 	name = "\improper ST-571 sentry crate"
 	desc = "A large case containing all you need to set up an automated sentry."
@@ -50,10 +123,10 @@
 
 /obj/item/storage/box/crate/sentry/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/sentry/big_sentry(src)
+	new /obj/item/weapon/gun/sentry/basic(src)
 	new /obj/item/ammo_magazine/sentry(src)
 
-/obj/item/weapon/gun/sentry/big_sentry
+/obj/item/weapon/gun/sentry/basic
 	name = "\improper ST-571 sentry gun"
 	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a M30 autocannon and a 500-round drum magazine."
 	icon_state = "sentry"
@@ -191,16 +264,16 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope/predeployed
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 
-/obj/item/weapon/gun/sentry/big_sentry/premade
+/obj/item/weapon/gun/sentry/basic/premade
 	sentry_iff_signal = TGMC_LOYALIST_IFF
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE
 
-/obj/item/weapon/gun/sentry/big_sentry/premade/radial
+/obj/item/weapon/gun/sentry/basic/premade/radial
 	turret_range = 9
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 
-/obj/item/weapon/gun/sentry/big_sentry/dropship
+/obj/item/weapon/gun/sentry/basic/dropship
 	ammo_datum_type = /datum/ammo/bullet/turret/gauss
 	sentry_iff_signal = TGMC_LOYALIST_IFF
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
@@ -208,7 +281,7 @@
 	turret_flags = TURRET_HAS_CAMERA|TURRET_IMMOBILE
 	density = FALSE
 
-/obj/item/weapon/gun/sentry/big_sentry/fob_sentry
+/obj/item/weapon/gun/sentry/basic/fob_sentry
 	max_integrity = INFINITY //Good luck killing it
 	fire_delay = 0.2 SECONDS
 	ammo_datum_type = /datum/ammo/bullet/turret/gauss
@@ -297,7 +370,7 @@
 
 // Sniper Sentry
 
-/obj/item/weapon/gun/sentry/sniper_sentry
+/obj/item/weapon/gun/sentry/sniper
 	name = "\improper SRT-574 sentry gun"
 	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy caliber AM-5 antimaterial rifle and a 75-round drum magazine."
 	icon_state = "snipersentry"
@@ -320,31 +393,10 @@
 		/obj/item/attachable/scope/unremovable,
 	)
 
-/obj/item/storage/box/crate/sentry_sniper
-	name = "\improper SST-574 sentry crate"
-	desc = "A large case containing all you need to set up an automated sentry."
-	icon_state = "sentry_case"
-	w_class = WEIGHT_CLASS_HUGE
-	max_w_class = WEIGHT_CLASS_HUGE
-	storage_slots = 6
-	max_storage_space = 16
-	can_hold = list(
-		/obj/item/weapon/gun/sentry/sniper_sentry,
-		/obj/item/ammo_magazine/sentry/sniper,
-	)
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/sentry/sniper_sentry,
-		/obj/item/ammo_magazine/sentry/sniper,
-	)
-
-/obj/item/storage/box/crate/sentry_sniper/Initialize(mapload)
-	. = ..()
-	new /obj/item/weapon/gun/sentry/sniper_sentry(src)
-	new /obj/item/ammo_magazine/sentry/sniper(src)
 
 // Shotgun Sentry
 
-/obj/item/weapon/gun/sentry/shotgun_sentry
+/obj/item/weapon/gun/sentry/shotgun
 	name = "\improper SHT-573 sentry gun"
 	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy caliber SM-10 shotgun and a 100-round drum magazine."
 	icon_state = "shotgunsentry"
@@ -367,24 +419,30 @@
 		/obj/item/attachable/scope/unremovable/tl102,
 	)
 
-/obj/item/storage/box/crate/sentry_shotgun
-	name = "\improper SHT-573 sentry crate"
-	desc = "A large case containing all you need to set up an automated sentry."
-	icon_state = "sentry_case"
-	w_class = WEIGHT_CLASS_HUGE
-	max_w_class = WEIGHT_CLASS_HUGE
-	storage_slots = 6
-	max_storage_space = 16
-	can_hold = list(
-		/obj/item/weapon/gun/sentry/shotgun_sentry,
-		/obj/item/ammo_magazine/sentry/shotgun,
-	)
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/sentry/shotgun_sentry,
-		/obj/item/ammo_magazine/sentry/shotgun,
-	)
 
-/obj/item/storage/box/crate/sentry_shotgun/Initialize(mapload)
-	. = ..()
-	new /obj/item/weapon/gun/sentry/shotgun_sentry(src)
-	new /obj/item/ammo_magazine/sentry/shotgun(src)
+// Flamer Sentry
+
+/obj/item/weapon/gun/sentry/flamer
+	name = "\improper SFT-FLAMER sentry gun"
+	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a long flamer nozzle. WARNING, NO IFF"
+	icon = 'icons/Marine/sentry.dmi'
+	icon_state = "sentry_flamer"
+
+	fire_sound = 'sound/weapons/guns/fire/flamethrower3.ogg'
+
+	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS
+	turret_range = 8
+	deploy_time = 5 SECONDS
+	max_shells = 100
+	fire_delay = 3.5 SECONDS
+
+	burst_amount = 3
+	extra_delay = 10 SECONDS
+
+	scatter = 1
+
+	ammo_datum_type = /datum/ammo/flamethrower/turret
+	default_ammo_type = /obj/item/ammo_magazine/flamer_tank/large/sentry
+	allowed_ammo_types = list(/obj/item/ammo_magazine/flamer_tank/large/sentry)
+
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)

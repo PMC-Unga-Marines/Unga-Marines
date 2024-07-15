@@ -170,45 +170,7 @@ WEAPONS
 	group = "Weapons"
 	containertype = /obj/structure/closet/crate/weapon
 
-/datum/supply_packs/weapons/sentry
-	name = "ST-571 Base Defense Sentry"
-	contains = list(/obj/item/storage/box/crate/sentry)
-	cost = 400
-
-/datum/supply_packs/weapons/sentry_ammo
-	name = "ST-571 sentry ammunition"
-	contains = list(/obj/item/ammo_magazine/sentry)
-	cost = 100
-
-/datum/supply_packs/weapons/minisentry
-	name = "ST-580 Portable Sentry"
-	contains = list(/obj/item/storage/box/crate/minisentry)
-	cost = 400
-
-/datum/supply_packs/weapons/minisentry_ammo
-	name = "ST-580 point defense sentry ammo"
-	contains = list(/obj/item/ammo_magazine/minisentry)
-	cost = 100
-
-/datum/supply_packs/weapons/sentry_shotgun
-	name = "SHT-573 Shotgun Sentry"
-	contains = list(/obj/item/storage/box/crate/sentry_shotgun)
-	cost = 400
-
-/datum/supply_packs/weapons/sentry_shotgun_ammo
-	name = "SHT-573 shotgun sentry ammunition"
-	contains = list(/obj/item/ammo_magazine/sentry/shotgun)
-	cost = 100
-
-/datum/supply_packs/weapons/sentry_sniper
-	name = "SST-574 Sniper Sentry"
-	contains = list(/obj/item/storage/box/crate/sentry_sniper)
-	cost = 600
-
-/datum/supply_packs/weapons/sentry_sniper_ammo
-	name = "SST-571 sniper sentry ammunition"
-	contains = list(/obj/item/ammo_magazine/sentry/sniper)
-	cost = 100
+//Sentries here
 
 /datum/supply_packs/weapons/buildasentry
 	name = "Build-A-Sentry Attachment System"
