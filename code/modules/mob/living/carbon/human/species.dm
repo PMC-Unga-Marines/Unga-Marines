@@ -51,10 +51,6 @@
 	var/death_sound
 	var/death_message = "seizes up and falls limp, their eyes dead and lifeless..."
 
-	var/breath_type = "oxygen"   // Non-oxygen gas breathed, if any.
-	var/poison_type = "phoron"   // Poisonous air.
-	var/exhale_type = "carbon_dioxide"      // Exhaled gas type.
-
 	/// new maxHealth [/mob/living/carbon/human/var/maxHealth] of the human mob once species is applied
 	var/total_health = 100
 	var/max_stamina = 50
