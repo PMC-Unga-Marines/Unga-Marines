@@ -16,7 +16,6 @@
 	max_integrity = 200
 	var/list/move_sounds = list('sound/mecha/powerloader_step.ogg', 'sound/mecha/powerloader_step2.ogg')
 	var/list/change_dir_sounds = list('sound/mecha/powerloader_turn.ogg', 'sound/mecha/powerloader_turn2.ogg')
-	var/panel_open = FALSE
 	var/light_range_on = 4
 
 /obj/vehicle/ridden/powerloader/Initialize(mapload)
@@ -41,12 +40,6 @@
 	if(attached_clamp.linked_powerloader != src)
 		return
 	return user_unbuckle_mob(user, user) //clicking the powerloader with its own clamp unbuckles the pilot.
-
-/obj/vehicle/ridden/powerloader/screwdriver_act(mob/living/user, obj/item/I)
-	. = ..()
-	to_chat(user, span_notice("You screw the panel [panel_open ? "closed" : "open"]."))
-	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-	panel_open = !panel_open
 
 /obj/vehicle/ridden/powerloader/user_unbuckle_mob(mob/living/buckled_mob, mob/user, silent)
 	if(!LAZYLEN(buckled_mobs) || buckled_mob.buckled != src)
