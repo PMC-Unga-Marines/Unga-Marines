@@ -94,14 +94,18 @@
 	overdose_threshold = REAGENTS_OVERDOSE*2
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL*2
 
-/* RUTGMC - MOVED TO MODULE
+
 /datum/reagent/medicine/paracetamol/on_mob_life(mob/living/L, metabolism)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
-	L.heal_overall_damage(0.2*effect_str, 0.2*effect_str)
-	L.adjustToxLoss(-0.1*effect_str)
+	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
+	L.adjustToxLoss(-1.5*effect_str)
 	L.adjustStaminaLoss(-effect_str)
+	L.adjustDrowsyness(-0.5 SECONDS)
+	L.AdjustUnconscious(-1 SECONDS)
+	L.AdjustStun(-1 SECONDS)
+	L.AdjustParalyzed(-1 SECONDS)
 	return ..()
-*/
+
 
 /datum/reagent/medicine/paracetamol/overdose_process(mob/living/L, metabolism)
 	L.hallucination = max(L.hallucination, 2)
@@ -226,8 +230,8 @@
 	description = "Kelotane is a drug used to treat burns."
 	color = COLOR_REAGENT_KELOTANE
 	scannable = TRUE
-	purge_list = list(/datum/reagent/medicine/ryetalyn)
-	purge_rate = 1
+	purge_list = list(/datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/research/medicalnanites)
+	purge_rate = 1.5
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 
@@ -621,7 +625,11 @@
 
 /datum/reagent/medicine/alkysine/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_VERY_LIGHT
-	L.adjustBrainLoss(-1.5*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/brain/B = H.internal_organs_by_name["brain"]
+		if(B.damage < 30)
+			L.adjustBrainLoss(-1.5*effect_str)
 	L.adjust_ear_damage(-2 * effect_str, -2 * effect_str)
 	return ..()
 
@@ -646,7 +654,7 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/eyes/E = H.internal_organs_by_name["eyes"]
-		if(E)
+		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
 	return ..()
 
@@ -688,8 +696,8 @@
 	name = "Bicaridine"
 	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
 	color = COLOR_REAGENT_BICARIDINE
-	purge_list = list(/datum/reagent/medicine/ryetalyn)
-	purge_rate = 1
+	purge_list = list(/datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/research/medicalnanites)
+	purge_rate = 1.5
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	scannable = TRUE
@@ -1289,6 +1297,8 @@
 	scannable = TRUE
 	taste_description = "metal, followed by mild burning"
 	overdose_threshold = REAGENTS_OVERDOSE * 1.2 //slight buffer to keep you safe
+	var/mob/living/carbon/human/host
+
 
 /datum/reagent/medicine/research/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
@@ -1308,24 +1318,30 @@
 			if(volume < 30) //smol injection will self-replicate up to 30u using 240u of blood.
 				L.reagents.add_reagent(/datum/reagent/medicine/research/medicalnanites, 0.15)
 				L.blood_volume -= 2
+				L.adjust_slowdown(0.1)
 
 			if(volume < 35) //allows 10 ticks of healing for 20 points of free heal to lower scratch damage bloodloss amounts.
 				L.reagents.add_reagent(/datum/reagent/medicine/research/medicalnanites, 0.1)
 
 			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
-				L.heal_overall_damage(2*effect_str, 0)
-				L.adjustToxLoss(0.1*effect_str)
+				L.heal_overall_damage(1.9*effect_str, 0)
 				holder.remove_reagent(/datum/reagent/medicine/research/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your cuts and bruises begin to scab over rapidly!"))
 
 			if (volume > 5 && L.getFireLoss(organic_only = TRUE))
-				L.heal_overall_damage(0, 2*effect_str)
-				L.adjustToxLoss(0.1*effect_str)
+				L.heal_overall_damage(0, 1.9*effect_str)
 				holder.remove_reagent(/datum/reagent/medicine/research/medicalnanites, 0.5)
-				if(prob(40))
-					to_chat(L, span_notice("Your burns begin to slough off, revealing healthy tissue!"))
-	return ..()
+				if(prob(40))					to_chat(L, span_notice("Your burns begin to slough off, revealing healthy tissue!"))
+
+			if(prob(80))
+				for(var/datum/limb/limb_to_fix AS in host.limbs)
+					if(limb_to_fix.limb_status & (LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED))
+						if(!(prob(5) || limb_to_fix.brute_dam > limb_to_fix.min_broken_damage))
+							continue
+						limb_to_fix.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+						limb_to_fix.add_limb_flags(LIMB_REPAIRED)
+						break
 
 /datum/reagent/medicine/research/medicalnanites/overdose_process(mob/living/L, metabolism)
 	L.adjustToxLoss(effect_str) //softcap VS injecting massive amounts of medical nanites for the healing factor with no downsides. Still doable if you're clever about it.
