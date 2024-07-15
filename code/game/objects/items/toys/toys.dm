@@ -505,6 +505,18 @@
 	worn_icon_state = "rounyplush"
 	attack_verb = list("slashes", "bites", "pounces")
 
+/obj/item/toy/plush/witch
+	name = "witch plushie"
+	desc = "A plushie depicting an adorable witch. It likes to steal books."
+	icon_state = "marisa"
+	worn_icon_state = "marisa"
+
+/obj/item/toy/plush/fairy
+	name = "fairy plushie"
+	desc = "A plushie depicting an adorable fairy. It's cold to the touch."
+	icon_state = "cirno"
+	worn_icon_state = "cirno"
+
 /obj/item/toy/plush/gnome
 	name = "gnome"
 	desc = "A mythological creature that guarded Terra's garden. You wonder why it is here."
