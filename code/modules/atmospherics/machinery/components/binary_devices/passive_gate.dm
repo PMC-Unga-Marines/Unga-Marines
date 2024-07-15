@@ -10,7 +10,6 @@ Passive gate is similar to the regular pump except:
 	desc = "A one-way air valve that does not require power."
 	can_unwrench = FALSE
 	shift_underlay_only = FALSE
-	var/id = null
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "passivegate"
 

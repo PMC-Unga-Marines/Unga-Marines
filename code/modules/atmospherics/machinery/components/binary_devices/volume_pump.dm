@@ -18,7 +18,6 @@
 	shift_underlay_only = FALSE
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "volumepump"
-	var/id = null
 
 /obj/machinery/atmospherics/components/binary/volume_pump/update_icon_nopipes()
 	icon_state = on && is_operational() ? "volpump_on" : "volpump_off"

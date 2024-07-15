@@ -16,7 +16,6 @@
 	icon_state = "pump_map-2"
 	can_unwrench = FALSE
 	shift_underlay_only = FALSE
-	var/id = null
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "pump"
 
