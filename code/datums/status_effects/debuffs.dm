@@ -443,6 +443,7 @@
 
 /datum/status_effect/spacefreeze
 	id = "spacefreeze"
+	alert_type = /atom/movable/screen/alert/status_effect/spacefreeze
 
 /datum/status_effect/spacefreeze/on_creation(mob/living/new_owner)
 	. = ..()
@@ -450,6 +451,10 @@
 
 /datum/status_effect/spacefreeze/tick()
 	owner.adjustFireLoss(40)
+
+/atom/movable/screen/alert/status_effect/spacefreeze
+	name = "Spacefreeze"
+	desc = "The space is freezing you to death!"
 
 /datum/status_effect/spacefreeze/light
 	id = "spacefreeze_light"
