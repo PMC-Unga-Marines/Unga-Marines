@@ -353,7 +353,7 @@
 
 /obj/effect/spawner/random/misc/delta
 	name = "Random delta spawner"
-	icon = 'modular_RUtgmc/icons/effects/random/misc.dmi'
+	icon = 'icons/effects/random/misc.dmi'
 	icon_state = "random_koran"
 	spawn_loot_chance = 75
 	loot = list(
