@@ -79,8 +79,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 
 
 //todo rename S to sound_to_use
-/mob/proc/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, channel = 0, sound/S, distance_multiplier = 1)
-	if(!client)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, channel = 0, sound/S, distance_multiplier = 1, mob/sound_reciever)
+	if(!sound_reciever)
+		sound_reciever = src
+	if(!sound_reciever.client)
 		return FALSE
 
 	if(!S)
@@ -115,10 +117,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 	if(!is_global)
 		S.environment = SOUND_ENVIRONMENT_ROOM
 
-	SEND_SOUND(src, S)
+	SEND_SOUND(sound_reciever, S)
 
 
-/mob/living/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, channel = 0, sound/S, distance_multiplier = 1)
+/mob/living/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, channel = 0, sound/S, distance_multiplier = 1, mob/sound_reciever)
 	if(ear_deaf > 0)
 		return FALSE
 	return ..()
