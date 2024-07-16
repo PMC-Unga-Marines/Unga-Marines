@@ -63,7 +63,7 @@
 		/datum/action/ability/activable/xeno/bombard,
 		/datum/action/ability/xeno_action/toggle_long_range,
 		/datum/action/ability/activable/xeno/spray_acid/line/boiler,
-		/datum/action/ability/xeno_action/dump_acid,
+		/datum/action/ability/activable/xeno/acid_shroud,
 		/datum/action/ability/xeno_action/place_trap,
 	)
 
@@ -90,6 +90,6 @@
 		/datum/action/ability/xeno_action/toggle_long_range,
 		/datum/action/ability/xeno_action/toggle_bomb,
 		/datum/action/ability/activable/xeno/spray_acid/line/boiler,
-		/datum/action/ability/xeno_action/dump_acid,
+		/datum/action/ability/activable/xeno/acid_shroud,
 		/datum/action/ability/xeno_action/place_trap,
 	)

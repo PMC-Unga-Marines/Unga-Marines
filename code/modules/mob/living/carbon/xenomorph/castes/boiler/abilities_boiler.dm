@@ -147,81 +147,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	color = "#9dcf30"
 
 // ***************************************
-// *********** Dump acid
-// ***************************************
-
-/datum/action/ability/xeno_action/dump_acid
-	name = "Dump Acid"
-	desc = "You dump your acid to escape, creating clouds of deadly acid mist behind you, while becoming faster for a short period of time. Unroots you if you are rooted."
-	action_icon_state = "dump_acid"
-	action_icon = 'icons/Xeno/actions/boiler.dmi'
-	ability_cost = 150
-	cooldown_duration = 180 SECONDS
-	keybind_flags = ABILITY_KEYBIND_USE_ABILITY |ABILITY_IGNORE_SELECTED_ABILITY
-	use_state_flags = ABILITY_USE_STAGGERED
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_DUMP_ACID,
-	)
-	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
-	var/obj/effect/abstract/particle_holder/particle_holder
-
-/datum/action/ability/xeno_action/dump_acid/action_activate()
-	toggle_particles(TRUE)
-
-	add_cooldown()
-	succeed_activate()
-
-	xeno_owner.visible_message(span_xenodanger("[xeno_owner] emits an acid!"),
-	span_xenodanger("You dump your acid, disabling your offensive abilities to escape!"))
-	dispense_gas()
-
-	var/datum/action/ability/activable/xeno/spray_acid = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/boiler]
-	if(spray_acid)
-		spray_acid.add_cooldown()
-
-/datum/action/ability/xeno_action/dump_acid/fail_activate()
-	toggle_particles(FALSE)
-	return ..()
-
-/datum/action/ability/xeno_action/dump_acid/proc/dispense_gas(time_left = 6)
-	if(time_left <= 0)
-		toggle_particles(FALSE)
-		owner.remove_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP)
-		return
-
-	var/smoke_range = 1
-	var/datum/effect_system/smoke_spread/xeno/gas
-	gas = new /datum/effect_system/smoke_spread/xeno/acid/light
-
-	owner.add_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP, TRUE, 0, NONE, TRUE, BOILER_DUMP_SPEED)
-	if(xeno_owner.has_status_effect(STATUS_EFFECT_STUN) || xeno_owner.has_status_effect(STATUS_EFFECT_PARALYZED))
-		to_chat(xeno_owner, span_xenohighdanger("We try to emit acid but are disabled!"))
-		owner.remove_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP)
-		toggle_particles(FALSE)
-		return
-	var/turf/T = get_turf(xeno_owner)
-	playsound(T, 'sound/effects/smoke.ogg', 25)
-	if(time_left > 1)
-		gas.set_up(smoke_range, T)
-	else //last emission is larger
-		gas.set_up(CEILING(smoke_range*1.3,1), T)
-
-	gas.start()
-	T.visible_message(span_danger("Acidic mist emits from the hulking xenomorph!"))
-
-	addtimer(CALLBACK(src, PROC_REF(dispense_gas), time_left - 1), BOILER_GAS_DELAY)
-
-// Toggles particles on or off, depending on the defined var. эта хуйня нужна
-/datum/action/ability/xeno_action/dump_acid/proc/toggle_particles(activate)
-	if(!activate)
-		QDEL_NULL(particle_holder)
-		return
-
-	particle_holder = new(owner, /particles/xeno_smoke/acid_light)
-	particle_holder.pixel_x = 16
-	particle_holder.pixel_y = 16
-
-// ***************************************
 // *********** Gas cloud bombs
 // ***************************************
 /datum/action/ability/activable/xeno/bombard
@@ -351,5 +276,32 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 // ***************************************
 // *********** Acid spray
 // ***************************************
+
 /datum/action/ability/activable/xeno/spray_acid/line/boiler
 	cooldown_duration = 9 SECONDS
+
+/datum/action/ability/activable/xeno/acid_shroud
+	name = "Acid Shroud"
+	action_icon_state = "acid_shroud"
+	action_icon = 'icons/Xeno/actions/boiler.dmi'
+	desc = "Creates a smokescreen below yourself, at the cost of a longer cooldown for firing your Bombard."
+	ability_cost = 200
+	cooldown_duration = 30 SECONDS
+	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ACID_SHROUD,
+	)
+
+/datum/action/ability/activable/xeno/acid_shroud/action_activate(datum/effect_system/smoke_spread/emitted_gas)
+	var/added_bombard_delay = xeno_owner.xeno_caste.bomb_delay + 8.5 SECONDS - (xeno_owner.corrosive_ammo * BOILER_BOMBARD_COOLDOWN_REDUCTION SECONDS) //The cooldown of Bombard that is added when this ability is used. It is the calculation of Bombard cooldown + 10 seconds.
+	emitted_gas = new /datum/effect_system/smoke_spread/xeno/acid(xeno_owner)
+	emitted_gas.set_up(4, get_turf(xeno_owner))
+	emitted_gas.start()
+	succeed_activate()
+	add_cooldown()
+	var/datum/action/ability/activable/xeno/bombard/bombard_action = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/bombard]
+	if(bombard_action?.cooldown_timer) //You need to clear a cooldown to add another, so that is done here.
+		deltimer(bombard_action.cooldown_timer)
+		bombard_action.cooldown_timer = null
+		bombard_action.countdown.stop()
+	bombard_action?.add_cooldown(added_bombard_delay)
