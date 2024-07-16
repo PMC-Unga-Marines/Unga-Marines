@@ -113,9 +113,6 @@
 			else
 				hud_used.nutrition_icon.icon_state = "nutrition4"
 
-	if(hud_used.pressure_icon)
-		hud_used.pressure_icon.icon_state = "pressure[pressure_alert]"
-
 	if(hud_used.toxin_icon)
 		if(hal_screwyhud == 4)
 			hud_used.toxin_icon.icon_state = "tox1"
