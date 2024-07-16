@@ -373,4 +373,3 @@
 
 /obj/item/defibrillator/gloves/update_icon_state()
 	return
-

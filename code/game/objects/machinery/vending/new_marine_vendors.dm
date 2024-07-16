@@ -909,7 +909,7 @@
 /obj/effect/vendor_bundle/tyr/two
 	desc = "A set of advanced gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
-		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2
 		/obj/item/armor_module/module/tyr_extra_armor,
 	)
 
