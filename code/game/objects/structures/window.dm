@@ -67,17 +67,14 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-
 /obj/structure/window/LateInitialize()
 	. = ..()
 	update_nearby_icons()
-
 
 /obj/structure/window/Destroy()
 	density = FALSE
 	update_nearby_icons()
 	return ..()
-
 
 /obj/structure/window/ex_act(severity)
 	switch(severity)
@@ -105,7 +102,6 @@
 		. = TRUE
 	if(thrown_mob)
 		thrown_mob.take_overall_damage(speed * 5, BRUTE, MELEE, !., FALSE, TRUE, 0, 4) //done here for dramatic effect, and to make the damage sharp if we broke the window
-
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point
@@ -207,7 +203,6 @@
 		playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 		to_chat(user, (state ? span_notice("You have pried the window into the frame.") : span_notice("You have pried the window out of the frame.")))
 
-
 /obj/structure/window/deconstruct(disassembled = TRUE)
 	if(disassembled)
 		if(reinf)
@@ -221,7 +216,6 @@
 		if(reinf)
 			new /obj/item/stack/rods(loc)
 	return ..()
-
 
 /obj/structure/window/verb/rotate()
 	set name = "Rotate Window Counter-Clockwise"
@@ -237,8 +231,6 @@
 		return FALSE
 
 	setDir(turn(dir, 90))
-
-
 
 /obj/structure/window/verb/revrotate()
 	set name = "Rotate Window Clockwise"
@@ -440,15 +432,12 @@
 /obj/structure/window/framed/update_icon()
 	QUEUE_SMOOTH(src)
 
-
-
 /obj/structure/window/framed/deconstruct(disassembled = TRUE, leave_frame = TRUE)
 	if(window_frame && leave_frame)
 		var/obj/structure/window_frame/WF = new window_frame(loc, TRUE)
 		WF.icon_state = "[WF.basestate][junction]_frame"
 		WF.setDir(dir)
 	return ..()
-
 
 /obj/structure/window/framed/mainship
 	name = "reinforced window"
@@ -466,6 +455,7 @@
 	icon = 'icons/obj/smooth_objects/alt_ship_window.dmi'
 	icon_state = "alt_ship_window-0"
 	base_icon_state = "alt_ship_window"
+	window_frame = /obj/structure/window_frame/mainship/alt
 
 /obj/structure/window/framed/mainship/canterbury //So we can wallsmooth properly.
 
@@ -511,7 +501,6 @@
 		SMOOTH_GROUP_CANTERBURY,
 	)
 
-
 /obj/structure/window/framed/mainship/requisitions
 	name = "kevlar-weave infused bulletproof window"
 	desc = "A borosilicate glass window infused with kevlar fibres and mounted within a special shock-absorbing frame, this is gonna be seriously hard to break through."
@@ -524,7 +513,6 @@
 	icon_state = "white_rwindow-0"
 	base_icon_state = "white_rwindow"
 	window_frame = /obj/structure/window_frame/mainship/white
-
 
 /obj/structure/window/framed/mainship/white/canterbury //So we can wallsmooth properly.
 	smoothing_groups = list(SMOOTH_GROUP_CANTERBURY)
@@ -610,8 +598,6 @@
 	max_integrity = 1000000 //Failsafe, shouldn't matter
 	icon_state = "window-invincible"
 
-
-
 //Chigusa windows
 
 /obj/structure/window/framed/chigusa
@@ -624,8 +610,6 @@
 	max_integrity = 100
 	reinf = TRUE
 	window_frame = /obj/structure/window_frame/chigusa
-
-
 
 /obj/structure/window/framed/wood
 	name = "window"
@@ -647,7 +631,6 @@
 	window_frame = /obj/structure/window_frame/wood
 
 //Prison windows
-
 
 /obj/structure/window/framed/prison
 	name = "window"
