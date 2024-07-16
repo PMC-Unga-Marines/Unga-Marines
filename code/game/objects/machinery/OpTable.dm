@@ -3,6 +3,7 @@
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
+	base_icon_state = "table2"
 	density = TRUE
 	coverage = 10
 	layer = TABLE_LAYER
@@ -17,7 +18,6 @@
 	buckle_flags = CAN_BUCKLE
 	buckle_lying = 90
 	var/obj/item/tank/anesthetic/anes_tank
-
 	var/obj/machinery/computer/operating/computer = null
 
 /obj/machinery/optable/Initialize(mapload)
@@ -29,7 +29,6 @@
 	AddElement(/datum/element/connect_loc, connections)
 
 	return INITIALIZE_HINT_LATELOAD
-
 
 /obj/machinery/optable/LateInitialize()
 	for(dir in list(NORTH, EAST, SOUTH, WEST))
@@ -58,7 +57,6 @@
 		to_chat(user, span_notice("You remove \the [anes_tank] from \the [src]."))
 		playsound(loc, 'sound/effects/air_release.ogg', 25, 1)
 		anes_tank = null
-
 
 /obj/machinery/optable/user_buckle_mob(mob/living/buckling_mob, mob/user, check_loc = TRUE, silent)
 	if(!ishuman(buckling_mob))
@@ -110,7 +108,6 @@
 	if(!silent)
 		buckled_mob.visible_message(span_notice("[user] turns off the anesthetic and removes the mask from [buckled_mob]."))
 
-
 /obj/machinery/optable/post_unbuckle_mob(mob/living/buckled_mob)
 	if(!ishuman(buckled_mob)) // sanity check
 		return
@@ -142,11 +139,11 @@
 		var/mob/living/carbon/human/M = locate(/mob/living/carbon/human, loc)
 		if(M.lying_angle)
 			victim = M
-			icon_state = M.handle_pulse() ? "table2-active" : "table2-idle"
+			icon_state = M.handle_pulse() ? base_icon_state + "-active" : base_icon_state + "-idle"
 			return 1
 	victim = null
 	stop_processing()
-	icon_state = "table2-idle"
+	icon_state = base_icon_state + "-idle"
 	return 0
 
 /obj/machinery/optable/process()
@@ -164,9 +161,9 @@
 		var/mob/living/carbon/human/H = C
 		victim = H
 		start_processing()
-		icon_state = H.handle_pulse() ? "table2-active" : "table2-idle"
+		icon_state = H.handle_pulse() ? base_icon_state + "-active" : base_icon_state + "-idle"
 	else
-		icon_state = "table2-idle"
+		icon_state = base_icon_state + "-idle"
 
 /obj/machinery/optable/verb/climb_on()
 	set name = "Climb On Table"
@@ -228,4 +225,7 @@
 
 /obj/machinery/optable/yautja
 	icon = 'icons/obj/machines/yautja_machines.dmi'
-	icon_state = "table2-idle"
+
+/obj/machinery/optable/alt
+	icon_state "alt_table2-idle"
+	base_icon_state = "alt_table"
