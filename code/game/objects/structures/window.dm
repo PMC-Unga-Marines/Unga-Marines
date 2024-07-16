@@ -462,6 +462,11 @@
 	dir = 5
 	window_frame = /obj/structure/window_frame/mainship
 
+/obj/structure/window/framed/mainship/alt
+	icon = 'icons/obj/smooth_objects/alt_ship_window.dmi'
+	icon_state = "alt_ship_window-0"
+	base_icon_state = "alt_ship_window"
+
 /obj/structure/window/framed/mainship/canterbury //So we can wallsmooth properly.
 
 /obj/structure/window/framed/mainship/escapeshuttle
@@ -559,6 +564,11 @@
 	deconstructable = FALSE
 	resistance_flags = RESIST_ALL
 	icon_state = "window-invincible"
+
+/obj/structure/window/framed/mainship/gray/toughened/hull/alt
+	icon = 'icons/obj/smooth_objects/alt_ship_rwindow.dmi'
+	icon_state = "alt_ship_rwindow-0"
+	base_icon_state = "alt_ship_rwindow"
 
 /obj/structure/window/framed/mainship/white/toughened/hull
 	name = "hull window"
