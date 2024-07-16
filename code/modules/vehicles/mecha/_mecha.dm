@@ -413,7 +413,7 @@
 		for(var/occupante in occupants)
 			. += "You can see [occupante] inside."
 
-//processing internal damagww, alert updates, lights power use.
+//processing internal damage, alert updates, lights power use.
 /obj/vehicle/sealed/mecha/process(delta_time)
 	if(internal_damage)
 		if(internal_damage & MECHA_INT_FIRE)
