@@ -40,7 +40,6 @@
 	var/atom/movable/screen/throw_icon
 	var/atom/movable/screen/rest_icon
 	var/atom/movable/screen/oxygen_icon
-	var/atom/movable/screen/toxin_icon
 	var/atom/movable/screen/healths
 	var/atom/movable/screen/stamina_hud/staminas
 	var/atom/movable/screen/fire_icon
@@ -118,7 +117,6 @@
 	pull_icon = null
 	throw_icon = null
 	oxygen_icon = null
-	toxin_icon = null
 	healths = null
 	staminas = null
 	fire_icon = null

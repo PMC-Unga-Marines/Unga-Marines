@@ -17,8 +17,6 @@
 			return
 		if(hud_used.nutrition_icon)
 			hud_used.nutrition_icon.icon_state = "nutrition1"
-		if(hud_used.toxin_icon)
-			hud_used.toxin_icon.icon_state = "tox0"
 		if(hud_used.oxygen_icon)
 			hud_used.oxygen_icon.icon_state = "oxy0"
 		if(hud_used.fire_icon)
@@ -113,11 +111,6 @@
 			else
 				hud_used.nutrition_icon.icon_state = "nutrition4"
 
-	if(hud_used.toxin_icon)
-		if(hal_screwyhud == 4)
-			hud_used.toxin_icon.icon_state = "tox1"
-		else
-			hud_used.toxin_icon.icon_state = "tox0"
 	if(hud_used.oxygen_icon)
 		if(hal_screwyhud == 3 || oxygen_alert)
 			hud_used.oxygen_icon.icon_state = "oxy1"

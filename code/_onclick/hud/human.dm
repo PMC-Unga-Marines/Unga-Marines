@@ -146,12 +146,6 @@
 		oxygen_icon = new /atom/movable/screen/oxygen()
 		infodisplay += oxygen_icon
 
-		toxin_icon = new /atom/movable/screen()
-		toxin_icon.icon_state = "tox0"
-		toxin_icon.name = "toxin"
-		toxin_icon.screen_loc = ui_toxin
-		infodisplay += toxin_icon
-
 		fire_icon = new /atom/movable/screen/fire()
 		infodisplay += fire_icon
 
