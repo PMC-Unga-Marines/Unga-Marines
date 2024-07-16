@@ -51,7 +51,6 @@
 		return
 	go_out()
 
-
 /obj/machinery/bodyscanner/verb/eject()
 	set src in oview(1)
 	set category = "Object"
@@ -205,7 +204,6 @@
 
 	return TRUE
 
-
 /obj/machinery/computer/body_scanconsole/interact(mob/user)
 	. = ..()
 	if(.)
@@ -221,7 +219,6 @@
 	var/datum/browser/popup = new(user, "scanconsole", "<div align='center'>Body Scanner Console</div>", 430, 600)
 	popup.set_content(dat)
 	popup.open(FALSE)
-
 
 /obj/machinery/bodyscanner/examine(mob/living/user)
 	. = ..()
@@ -240,7 +237,6 @@
 			. += span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>It contains [occupant]: Scan from [R.fields["last_scan_time"]].</a>")
 		break
 
-
 ///Wrapper to guarantee connected bodyscanner references are properly nulled and avoid hard deletes.
 /obj/machinery/computer/body_scanconsole/proc/set_connected(obj/machinery/bodyscanner/new_connected)
 	if(connected)
@@ -248,7 +244,6 @@
 	connected = new_connected
 	if(connected)
 		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(on_bodyscanner_deletion))
-
 
 ///Called by the deletion of the connected bodyscanner.
 /obj/machinery/computer/body_scanconsole/proc/on_bodyscanner_deletion(obj/machinery/bodyscanner/source, force)
@@ -259,3 +254,10 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "sleeperconsole"
 	base_icon_state = "sleeperconsole"
+
+/obj/machinery/bodyscanner/alt
+	icon_state = "alt_body_scanner"
+
+/obj/machinery/computer/body_scanconsole/alt
+	icon_state = "alt_body_scannerconsole"
+	screen_overlay = "alt_body_scannerconsole_emissive"
