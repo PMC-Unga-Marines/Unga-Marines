@@ -139,11 +139,11 @@
 		var/mob/living/carbon/human/M = locate(/mob/living/carbon/human, loc)
 		if(M.lying_angle)
 			victim = M
-			icon_state = M.handle_pulse() ? base_icon_state + "-active" : base_icon_state + "-idle"
+			icon_state = M.handle_pulse() ? "[base_icon_state]-active" : "[base_icon_state]-idle"
 			return 1
 	victim = null
 	stop_processing()
-	icon_state = base_icon_state + "-idle"
+	icon_state = "[base_icon_state]-idle"
 	return 0
 
 /obj/machinery/optable/process()
@@ -161,9 +161,9 @@
 		var/mob/living/carbon/human/H = C
 		victim = H
 		start_processing()
-		icon_state = H.handle_pulse() ? base_icon_state + "-active" : base_icon_state + "-idle"
+		icon_state = H.handle_pulse() ? "[base_icon_state]-active" : "[base_icon_state]-idle"
 	else
-		icon_state = base_icon_state + "-idle"
+		icon_state = "[base_icon_state]-idle"
 
 /obj/machinery/optable/verb/climb_on()
 	set name = "Climb On Table"
