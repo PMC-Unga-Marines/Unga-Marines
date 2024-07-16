@@ -162,9 +162,9 @@
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_ff_head"
 	item_state = "mod_ff_head_a"
-	soft_armor = list(MELEE = 15, BULLET = 60, LASER = 60, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 15)
+	soft_armor = list(MELEE = 10, BULLET = 60, LASER = 60, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	slowdown = 1.0
+	slowdown = 0.6
 
 /**
  * Environment protection module
@@ -249,7 +249,7 @@
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_ff"
 	item_state = "mod_ff_a"
-	soft_armor = list(MELEE = 15, BULLET = 60, LASER = 60, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 15)
+	soft_armor = list(MELEE = 10, BULLET = 60, LASER = 60, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
 	slowdown = 1.0
 	slot = ATTACHMENT_SLOT_MODULE
 
