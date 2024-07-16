@@ -3,53 +3,41 @@
 	desc = "It's used to monitor rooms."
 	icon = 'icons/obj/machines/monitors.dmi'
 	icon_state = "camera_icon"
+	base_icon_state = "camera"
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = WALL_OBJ_LAYER
 	anchored = TRUE
 	light_power = 0
-
 	var/datum/cameranet/parent_cameranet
 	var/list/network = list("marinemainship")
 	var/c_tag = null
 	var/status = TRUE
 	var/area/myarea = null
-
 	var/view_range = 7
 	var/short_range = 2
-
 	var/in_use_lights = FALSE
-	var/internal_light = TRUE //Whether it can light up when an AI views it
-
+	///Whether it can light up when an AI views it
+	var/internal_light = TRUE
 
 /obj/machinery/camera/Initialize(mapload, newDir)
 	. = ..()
-	icon_state = "camera"
+	icon_state = base_icon_state
 
 	if(newDir)
 		setDir(newDir)
 
-	switch(dir)
-		if(NORTH)
-			pixel_y = -16
-		if(SOUTH)
-			pixel_y = 16
-		if(EAST)
-			pixel_x = -16
-		if(WEST)
-			pixel_x = 16
+	set_offsets()
 
 	for(var/i in network)
 		network -= i
 		network += lowertext(i)
 
-
 	if(SOM_CAMERA_NETWORK in network)
 		parent_cameranet = GLOB.som_cameranet
 	else
 		parent_cameranet = GLOB.cameranet
-
 
 	parent_cameranet.cameras += src
 	parent_cameranet.addCamera(src)
@@ -60,21 +48,27 @@
 
 	update_icon()
 
+/obj/machinery/camera/proc/set_offsets()
+	switch(dir)
+		if(NORTH)
+			pixel_y = -16
+		if(SOUTH)
+			pixel_y = 16
+		if(EAST)
+			pixel_x = -16
+		if(WEST)
+			pixel_x = 16
 
 /obj/machinery/camera/Destroy()
 	if(can_use())
 		toggle_cam(null, 0) //kick anyone viewing out and remove from the camera chunks
-
 	parent_cameranet.cameras -= src
 	if(isarea(myarea))
 		LAZYREMOVE(myarea.cameras, src)
-
 	return ..()
-
 
 /obj/machinery/camera/examine(mob/user)
 	. = ..()
-
 	if(!status)
 		. += span_info("It's currently deactivated.")
 		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN) && powered())
@@ -84,12 +78,9 @@
 		if(!status && powered())
 			. += span_info("It can reactivated with a <b>screwdriver</b>.")
 
-
 /obj/machinery/camera/proc/setViewRange(num = 7)
 	view_range = num
-
 	parent_cameranet.updateVisibility(src, 0)
-
 
 /obj/machinery/camera/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -116,7 +107,6 @@
 				to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
 				O << browse("<html><meta charset='UTF-8'><HEAD><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>", "window=[itemname]")
 
-
 /obj/machinery/camera/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(.)
@@ -127,7 +117,6 @@
 	update_icon()
 	return TRUE
 
-
 /obj/machinery/camera/wirecutter_act(mob/living/user, obj/item/I)
 	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		return FALSE
@@ -137,7 +126,6 @@
 	update_icon()
 	return TRUE
 
-
 /obj/machinery/camera/multitool_act(mob/living/user, obj/item/I)
 	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		return FALSE
@@ -145,7 +133,6 @@
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
 	to_chat(user, span_notice("You [(view_range == initial(view_range)) ? "restore" : "mess up"] the camera's focus."))
 	return TRUE
-
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)
 	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
@@ -162,7 +149,6 @@
 		deconstruct(TRUE)
 
 	return TRUE
-
 
 /obj/machinery/camera/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
@@ -190,7 +176,6 @@
 
 	deactivate()
 	visible_message(span_danger("\The [src]'s wires snap apart in a rain of sparks!"))
-
 
 /obj/machinery/camera/proc/deactivate(mob/user)
 	status = FALSE
@@ -261,7 +246,6 @@
 			O.reset_perspective(null)
 			to_chat(O, "The screen bursts into static.")
 
-
 /obj/machinery/camera/proc/can_use()
 	if(!status)
 		return FALSE
@@ -269,24 +253,8 @@
 		return FALSE
 	return TRUE
 
-
 /obj/machinery/camera/proc/can_see()
 	return get_hear(view_range, get_turf(src))
-
-
-//Return a working camera that can see a given mob
-//or null if none
-/proc/seen_by_camera(mob/M)
-	for(var/obj/machinery/camera/C in oview(4, M))
-		if(C.can_use())	// check if camera disabled
-			return C
-
-
-/proc/near_range_camera(mob/M)
-	for(var/obj/machinery/camera/C in range(4, M))
-		if(C.can_use())	// check if camera disabled
-			return C
-
 
 /obj/machinery/camera/proc/Togglelight(on = FALSE)
 	for(var/mob/living/silicon/ai/A in GLOB.ai_list)
@@ -298,11 +266,9 @@
 	else
 		set_light(initial(light_range), initial(light_power))
 
-
 /obj/machinery/camera/get_remote_view_fullscreens(mob/user)
 	if(view_range == short_range) //unfocused
 		user.overlay_fullscreen("remote_view", /atom/movable/screen/fullscreen/impaired, 2)
-
 
 /obj/machinery/camera/update_remote_sight(mob/living/user)
 	user.see_invisible = SEE_INVISIBLE_LIVING //can't see ghosts through cameras
@@ -338,7 +304,6 @@
 //cameras installed inside the dropships, accessible via both cockpit monitor and ship camera computers
 /obj/machinery/camera/autoname/mainship/dropship_one
 	network = list("marinemainship", "dropship1")
-
 
 /obj/machinery/camera/autoname/mainship/dropship_two
 	network = list("marinemainship", "dropship2")
@@ -382,7 +347,6 @@
 		var/area/A = get_area(src)
 		c_tag = "[beacon_name] ([A.name])"
 
-
 //used by the landing camera dropship equipment. Do not place them right under where the dropship lands.
 //Should place them near each corner of your LZs.
 /obj/machinery/camera/autoname/lz_camera
@@ -398,10 +362,8 @@
 /obj/machinery/camera/autoname/lz_camera/emp_act(severity)
 	return
 
-
 /obj/machinery/camera/autoname/lz_camera/ex_act()
 	return
-
 
 /obj/machinery/camera/autoname/lz_camera/update_icon()
 	return
@@ -417,6 +379,25 @@
 
 /obj/machinery/camera/autoname/thunderdome/hidden/update_icon()
 	icon_state = "nothing"
+
+/obj/machinery/camera/autoname/alt
+	icon_state = "alt_camera_icon"
+	base_icon_state = "alt_camera"
+
+/obj/machinery/camera/autoname/alt/set_offsets()
+	switch(dir)
+		if(NORTH)
+			pixel_y = 0
+			pixel_x = -10
+		if(SOUTH)
+			pixel_y = 18
+			pixel_x = 10
+		if(EAST)
+			pixel_x = -9
+			pixel_y = -5
+		if(WEST)
+			pixel_x = 9
+			pixel_y = -5
 
 /obj/machinery/camera/miner
 	name = "miner camera"
