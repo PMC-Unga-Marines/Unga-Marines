@@ -638,7 +638,7 @@
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "apE" = (
-/obj/structure/largecrate/random/barrel/alt,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "apJ" = (
@@ -1210,7 +1210,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "aCb" = (
-/obj/structure/largecrate/random/case/small/alt/b,
+/obj/structure/largecrate/random/case/small/mini,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "aCc" = (
@@ -3015,7 +3015,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/shipboard/ex_firing_range)
@@ -3097,7 +3097,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/squads/bravo)
 "bMa" = (
-/obj/structure/largecrate/random/case/alt/double,
+/obj/structure/largecrate/random/case/double,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -9974,9 +9974,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/barrel/alt/white{
-	pixel_y = 3
-	},
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "fJQ" = (
@@ -9990,10 +9988,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/barrel/alt/yellow{
-	pixel_x = -2;
-	pixel_y = -3
-	},
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "fKa" = (
@@ -10010,9 +10005,7 @@
 "fLj" = (
 /obj/machinery/camera/alt/autoname,
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/barrel/alt/yellow{
-	pixel_x = -3
-	},
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "fLD" = (
@@ -10089,7 +10082,7 @@
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "fMU" = (
-/obj/structure/largecrate/random/barrel/alt/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "fMV" = (
@@ -10312,7 +10305,7 @@
 /area/mainship/living/basketball)
 "fUj" = (
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/barrel/alt/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "fUu" = (
@@ -10721,9 +10714,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/barrel/alt{
-	pixel_y = 3
-	},
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "gmK" = (
@@ -10803,7 +10794,7 @@
 /area/mainship/engineering/engine_core)
 "gpR" = (
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/case/small/alt{
+/obj/structure/largecrate/random/case/small{
 	pixel_x = 4
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -11139,9 +11130,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/largecrate/random/barrel/alt/white{
-	pixel_y = 4
-	},
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/hangar)
 "gDa" = (
@@ -11969,7 +11958,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/largecrate/random/barrel/alt/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "hja" = (
@@ -12181,7 +12170,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/bow_hallway)
 "hpC" = (
-/obj/structure/largecrate/random/barrel/alt,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "hpI" = (
@@ -13786,7 +13775,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "ivi" = (
@@ -14105,7 +14094,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "iGn" = (
@@ -14662,7 +14651,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/squads/charlie)
 "iUO" = (
-/obj/structure/largecrate/random/case/alt,
+/obj/structure/largecrate/random/case,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "iVp" = (
@@ -16017,7 +16006,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/command/cic)
 "jNv" = (
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "jNN" = (
@@ -17364,7 +17353,7 @@
 /turf/open/floor/mainship/floor/metal/rubber,
 /area/mainship/medical/operating_room_two)
 "kBq" = (
-/obj/structure/largecrate/random/case/alt,
+/obj/structure/largecrate/random/case,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "kBx" = (
@@ -17586,7 +17575,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "kHJ" = (
@@ -17892,7 +17881,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "kOA" = (
-/obj/structure/largecrate/random/barrel/alt/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/shipboard/ex_firing_range)
 "kOO" = (
@@ -18276,7 +18265,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/shipboard/ex_firing_range)
 "lag" = (
@@ -22132,7 +22121,7 @@
 	},
 /area/mainship/medical/upper_medical)
 "neA" = (
-/obj/structure/largecrate/random/barrel/alt/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "neZ" = (
@@ -22557,7 +22546,7 @@
 /area/mainship/command/self_destruct)
 "nqR" = (
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/largecrate/random/barrel/alt/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "nrw" = (
@@ -24992,7 +24981,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/engineering/engine_core)
 "oOf" = (
-/obj/structure/largecrate/random/case/alt/double,
+/obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/shipboard/weapon_room)
 "oOz" = (
@@ -25065,7 +25054,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/structure/largecrate/random/case/alt,
+/obj/structure/largecrate/random/case,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/shipboard/weapon_room)
 "oRo" = (
@@ -26883,7 +26872,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/largecrate/random/barrel/alt/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "pSA" = (
@@ -26988,7 +26977,7 @@
 /area/mainship/engineering/engine_core)
 "pWd" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/largecrate/random/case/alt,
+/obj/structure/largecrate/random/case,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "pWm" = (
@@ -29476,7 +29465,7 @@
 	},
 /area/mainship/squads/charlie)
 "rzs" = (
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -31568,7 +31557,7 @@
 /obj/machinery/door_control/mainship/mech{
 	dir = 1
 	},
-/obj/structure/largecrate/random/case/alt/double,
+/obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "sMh" = (
@@ -32365,7 +32354,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/bow_hallway)
 "tms" = (
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "tmC" = (
@@ -33939,7 +33928,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/squads/alpha)
 "uou" = (
-/obj/structure/largecrate/random/case/alt{
+/obj/structure/largecrate/random/case{
 	pixel_y = 5;
 	pixel_x = 4
 	},
@@ -36518,7 +36507,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/living/grunt_rnr)
 "vVt" = (
-/obj/structure/largecrate/random/barrel/alt/red,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/red/alt,
 /area/mainship/squads/alpha)
@@ -39018,7 +39007,7 @@
 /area/mainship/hallways/hangar)
 "xzq" = (
 /obj/machinery/light/mainship,
-/obj/structure/largecrate/random/case/small/alt,
+/obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "xzv" = (
@@ -39665,7 +39654,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "xRW" = (
-/obj/structure/largecrate/random/case/small/alt/b,
+/obj/structure/largecrate/random/case/small/mini,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "xSe" = (
