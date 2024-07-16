@@ -92,6 +92,10 @@
 /obj/machinery/door/poddoor/shutters/opened/wy
 	id = "wyoffice"
 
+/obj/machinery/door/poddoor/shutters/opened/corporate
+	name = "\improper Privacy Shutters"
+	id = "cl_shutters"
+
 /obj/machinery/door/poddoor/shutters/mainship
 	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'
 	icon_state = "shutter1"
