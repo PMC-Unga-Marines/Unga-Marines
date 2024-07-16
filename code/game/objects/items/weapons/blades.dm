@@ -202,7 +202,11 @@
 		living_user.throw_item(get_turf_on_clickcatcher(object, living_user, params))
 		return
 
-
+/obj/item/weapon/claymore/tomahawk/classic
+	name = "Tomahawk H17"
+	desc = "A specialist tactical weapon, very ancient and beloved by many. Issued to Delta by CAU."
+	icon_state = "tomahawk_classic"
+	item_state = "tomahawk_classic"
 
 //FC's sword.
 
