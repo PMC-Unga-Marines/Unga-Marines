@@ -123,8 +123,6 @@
 
 /obj/machinery/computer/sleep_console/pred
 	icon = 'icons/obj/machines/yautja_machines.dmi'
-	icon_state = "sleeperconsole"
-
 /////////////////////////////////////////
 // THE SLEEPER ITSELF
 /////////////////////////////////////////
@@ -462,3 +460,10 @@
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)
+
+/obj/machinery/sleeper/alt
+	icon_state = "alt_sleeper"
+
+/obj/machinery/computer/sleep_console/alt
+	icon_state = "alt_sleeperconsole"
+	screen_overlay = "alt_sleeperconsole_emissive"
