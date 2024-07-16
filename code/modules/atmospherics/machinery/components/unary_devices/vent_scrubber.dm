@@ -2,10 +2,10 @@
 #define SCRUBBING 1
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber
-	icon_state = "scrub_map-2"
-
 	name = "air scrubber"
 	desc = "Has a valve and pump attached to it."
+	icon_state = "scrub_map-2"
+	base_icon_state = "scrub"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 60
@@ -46,18 +46,18 @@
 		add_overlay(cap)
 
 	if(welded)
-		icon_state = "scrub_welded"
+		icon_state = "[base_icon_state]_welded"
 		return
 
 	if(!nodes[1] || !on || !is_operational())
-		icon_state = "scrub_off"
+		icon_state = "[base_icon_state]_off"
 		return
 
 	if(scrubbing & SCRUBBING)
 		if(widenet)
 			icon_state = "scrub_wide"
 		else
-			icon_state = "scrub_on"
+			icon_state = "[base_icon_state]_on"
 	else //scrubbing == SIPHONING
 		icon_state = "scrub_purge"
 
@@ -151,7 +151,6 @@
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
 
-
 /obj/machinery/atmospherics/components/unary/vent_scrubber/AltClick(mob/user)
 	if(!isliving(user))
 		return
@@ -161,7 +160,6 @@
 		return
 	var/mob/living/living_user = user
 	living_user.handle_ventcrawl(src)
-
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on
 	on = TRUE
@@ -174,6 +172,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/Destroy()
 	. = ..()
 	GLOB.atmospumps -= src
+
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt
+	icon = 'icons/obj/atmospherics/components/unary_devices.dmi'
+	icon_state = "alt_scrub_map_on-2"
+	base_icon_state = "alt_scrub"
+	piping_layer = 3
 
 #undef SIPHONING
 #undef SCRUBBING
