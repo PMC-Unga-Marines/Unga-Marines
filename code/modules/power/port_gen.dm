@@ -30,7 +30,7 @@
 	record_generator_sabotages(user)
 	return TRUE
 
-/obj/machinery/power/port_gen/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/power/port_gen/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	. = ..()
 	if(!.)
 		return FALSE

@@ -1840,7 +1840,7 @@
 	muzzle_flash.applied = FALSE
 
 //For letting xenos turn off the flashlights on any guns left lying around.
-/obj/item/weapon/gun/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
+/obj/item/weapon/gun/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
 	if(!HAS_TRAIT(src, TRAIT_GUN_FLASHLIGHT_ON))
 		return
 	for(var/attachment_slot in attachments_by_slot)

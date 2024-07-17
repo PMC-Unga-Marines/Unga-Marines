@@ -37,7 +37,7 @@
 	update_action_button_icons()
 	update_icon()
 
-/obj/item/clothing/head/hardhat/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
+/obj/item/clothing/head/hardhat/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
 	if(turn_light(X, FALSE) != CHECKS_PASSED)
 		return
 	playsound(loc, "alien_claw_metal", 25, 1)

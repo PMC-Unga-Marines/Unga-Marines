@@ -197,7 +197,7 @@
 			return TRUE
 
 
-/mob/living/simple_animal/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/mob/living/simple_animal/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	. = ..()
 	if(!.)
 		return

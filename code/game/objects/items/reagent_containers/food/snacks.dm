@@ -4,13 +4,13 @@
 	desc = "yummy"
 	icon = 'icons/obj/items/food/food.dmi'
 	icon_state = null
+	center_of_mass = list("x"=15, "y"=15)
 	var/bitesize = 1
 	var/bitecount = 0
 	var/trash = null
 	var/slice_path
 	var/slices_num
 	var/package = FALSE
-	center_of_mass = list("x"=15, "y"=15)
 	var/list/tastes // for example list("crisps" = 2, "salt" = 1)
 
 /obj/item/reagent_containers/food/snacks/create_reagents(max_vol, new_flags, list/init_reagents, data)
@@ -47,10 +47,10 @@
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
-/obj/item/reagant_containers/food/snacks/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/item/reagant_containers/food/snacks/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(!CONFIG_GET(flag/fun_allowed))
 		return FALSE
-	attack_hand(X)
+	attack_hand(xeno_attacker)
 
 /obj/item/reagent_containers/food/snacks/attack(mob/M, mob/user, def_zone)
 	if(!reagents.total_volume)						//Shouldn't be needed but it checks to see if it has anything left in it.
@@ -97,11 +97,8 @@
 				return
 
 			var/rgt_list_text = get_reagent_list_text()
-
 			log_combat(user, M, "fed", src, "Reagents: [rgt_list_text]")
-
 			balloon_alert_to_viewers("forces [M] to eat")
-
 
 		if(reagents)								//Handle ingestion of the reagent.
 			playsound(M.loc,'sound/items/eatfood.ogg', 15, 1)
@@ -170,7 +167,6 @@
 		if(reagents.total_volume <= 0)
 			qdel(src)
 
-
 /obj/item/reagent_containers/food/snacks/sliceable/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
@@ -200,7 +196,6 @@
 	qdel(src)
 	return TRUE
 
-
 /obj/item/reagent_containers/food/snacks/Destroy()
 	for(var/i in contents)
 		var/atom/movable/AM = i
@@ -229,22 +224,8 @@
 			//N.emote("nibbles away at the [src]")
 			N.health = min(N.health + 1, N.maxHealth)
 
-////////////////////////////////////////////////////////////////////////////////
-/// FOOD END
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
 //////////////////////////////////////////////////
-////////////////////////////////////////////Snacks
+///////////////////Snacks/////////////////////////
 //////////////////////////////////////////////////
 //Items in the "Snacks" subcategory are food items that people actually eat. The key points are that they are created
 //	already filled with reagents and are destroyed when empty. Additionally, they make a "munching" noise when eaten.
@@ -272,7 +253,6 @@
 ///obj/item/reagent_containers/food/snacks/burger/xeno/Initialize(mapload)		//Absolute pathing for procs, please.
 //	 . = ..()															//Calls the parent proc, don't forget to add this.
 
-
 /obj/item/reagent_containers/food/snacks/honeycomb
 	name = "honeycomb"
 	icon_state = "honeycomb"
@@ -296,7 +276,6 @@
 	trash = /obj/item/trash/candy
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 3, /datum/reagent/medicine/tricordrazine = 1, /datum/reagent/iron = 5) //Honk
 	bitesize = 2
-
 
 /obj/item/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
@@ -423,9 +402,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("chalky wheat" = 1)
 
-
 /obj/item/reagent_containers/food/snacks/organ
-
 	name = "organ"
 	desc = "It's good for you."
 	icon = 'icons/obj/items/organs.dmi'
@@ -433,11 +410,9 @@
 	filling_color = "#E00D34"
 	bitesize = 3
 
-
 /obj/item/reagent_containers/food/snacks/organ/Initialize(mapload)
 	list_reagents = list(/datum/reagent/consumable/nutriment = rand(3,5), /datum/reagent/toxin = rand(1,3))
 	return ..()
-
 
 /obj/item/reagent_containers/food/snacks/worm
 	name = "worm"
@@ -693,12 +668,11 @@
 	icon_state = "popcorn"
 	icon = 'icons/obj/items/food/packaged.dmi'
 	trash = /obj/item/trash/popcorn
-	var/unpopped = 0
 	filling_color = "#FFFAD4"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	bitesize = 0.1  //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
 	tastes = list("popcorn" = 3, "butter" = 1)
-
+	var/unpopped = 0
 
 /obj/item/reagent_containers/food/snacks/popcorn/Initialize(mapload)
 	. = ..()
@@ -709,7 +683,6 @@
 		to_chat(usr, span_warning("You bite down on an un-popped kernel!"))
 		unpopped = max(0, unpopped-1)
 	return ..()
-
 
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve Beef Jerky"
@@ -842,9 +815,9 @@
 	icon_state = "monkeycube"
 	bitesize = 12
 	filling_color = "#ADAC7F"
-	var/monkey_type = /mob/living/carbon/human/species/monkey
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10)
 	tastes = list("the jungle" = 1, "bananas" = 1)
+	var/monkey_type = /mob/living/carbon/human/species/monkey
 
 /obj/item/reagent_containers/food/snacks/monkeycube/examine(mob/user)
 	. = ..()
@@ -902,12 +875,10 @@
 		new monkey_type(T)
 	qdel(src)
 
-
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
 	desc = "Still wrapped in some paper."
 	icon_state = "monkeycubewrap"
 	package = TRUE
-
 
 /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 	name = "farwa cube"
@@ -917,7 +888,6 @@
 	name = "farwa cube"
 	monkey_type = /mob/living/carbon/human/species/monkey/farwa
 
-
 /obj/item/reagent_containers/food/snacks/monkeycube/stokcube
 	name = "stok cube"
 	monkey_type = /mob/living/carbon/human/species/monkey/stok
@@ -925,7 +895,6 @@
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
 	name = "stok cube"
 	monkey_type = /mob/living/carbon/human/species/monkey/stok
-
 
 /obj/item/reagent_containers/food/snacks/monkeycube/neaeracube
 	name = "neaera cube"
@@ -1303,7 +1272,6 @@
 		balloon_alert(user, "cuts and rolls strips into balls")
 		qdel(src)
 
-
 /obj/item/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
 	desc = "A tasty meat slice."
@@ -1312,7 +1280,6 @@
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("meat" = 1)
-
 
 /obj/item/reagent_containers/food/snacks/rawmeatball
 	name = "raw meatball"
@@ -1342,7 +1309,6 @@
 	icon_state = "flatbread"
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
-
 
 /obj/item/reagent_containers/food/snacks/rawsticks
 	name = "raw potato sticks"
@@ -1399,7 +1365,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sodiumchloride = 0.5)
 	var/variation = null
 
-
 /obj/item/reagent_containers/food/snacks/upp/Initialize(mapload)
 	if(!variation)
 		variation = pick("fish","rice")
@@ -1409,7 +1374,6 @@
 			tastes = list("dried [pick("carp", "shark", "tuna", "fish")]" = 1, "[pick("potatoes", "borsch", "borshch", "bortsch", "hardtack")]" = 1)
 		if("rice")
 			tastes = list("[pick("rice", "rye", "starch")]" = 1, "[pick("sawdust", "beans", "chicken")]" = 1)
-
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/upp/attack_self(mob/user as mob)
@@ -1445,7 +1409,6 @@
 	//no taste, default to "something indescribable"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 
-
 /obj/item/reagent_containers/food/snacks/kepler_crisps
 	name = "Kepler Crisps"
 	desc = "'They're disturbingly good!' Now with 0% trans fat."
@@ -1471,7 +1434,6 @@
 		new wrapper (user.loc)
 		icon_state = "[initial(icon_state)]-o"
 		package = FALSE
-
 
 /obj/item/reagent_containers/food/snacks/wrapped/booniebars
 	name = "Boonie Bars"
@@ -1542,7 +1504,7 @@
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/packaged_meal/attack_self(mob/user as mob)
-	if (package)
+	if(package)
 		balloon_alert(user, "opens package")
 		playsound(loc,'sound/effects/pageturn2.ogg', 15, 1)
 		name = "\improper" + flavor
@@ -1567,7 +1529,6 @@
 		if("spiced apples", "chocolate brownie", "sugar cookie", "choco bar", "crayon")
 			icon_state = "dessert"
 			list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/sugar = 1)
-
 
 /obj/item/reagent_containers/food/snacks/lollipop
 	name = "lollipop"

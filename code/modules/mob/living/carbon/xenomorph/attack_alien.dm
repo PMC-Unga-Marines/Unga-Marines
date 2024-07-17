@@ -211,7 +211,7 @@
 		return FALSE
 
 //Every other type of nonhuman mob //MARKER OVERRIDE
-/mob/living/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return FALSE
 
@@ -240,7 +240,7 @@
 	M.visible_message(span_danger("[M] nudges its head against [src]."), \
 	span_danger("We nudge our head against [src]."), null, 5)
 
-/mob/living/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/mob/living/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(F.status_flags & INCORPOREAL)
 		return FALSE
 	switch(F.a_intent)

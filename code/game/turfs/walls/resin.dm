@@ -77,7 +77,7 @@
 /turf/closed/wall/resin/ex_act(severity)
 	take_damage(severity * RESIN_EXPLOSIVE_MULTIPLIER, BRUTE, BOMB)
 
-/turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return
 	if(X.a_intent != INTENT_DISARM)

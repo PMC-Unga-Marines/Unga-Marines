@@ -118,7 +118,7 @@
 		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
-/obj/machinery/atmospherics/components/unary/vent_pump/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/machinery/atmospherics/components/unary/vent_pump/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(F.status_flags & INCORPOREAL)
 		return
 	if(!welded || !(do_after(F, 3 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE)))
@@ -143,7 +143,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/can_crawl_through()
 	return !welded
 
-/obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return
 	if(!welded || !(do_after(X, 2 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE)))

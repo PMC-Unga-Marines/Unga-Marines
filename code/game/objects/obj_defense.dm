@@ -1,4 +1,4 @@
-/obj/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0)
+/obj/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, attack_dir, armour_penetration = 0)
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
 	if(!damage_amount)
@@ -53,7 +53,6 @@
 		if(BURN)
 			playsound(loc, 'sound/items/welder.ogg', 50, 1)
 
-
 /obj/ex_act(severity, direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
@@ -61,7 +60,6 @@
 	if(QDELETED(src))
 		return
 	take_damage(severity, BRUTE, BOMB, FALSE, direction)
-
 
 /obj/hitby(atom/movable/AM, speed = 5)
 	. = ..()
@@ -78,7 +76,6 @@
 		tforce = I.throwforce
 	take_damage(tforce, BRUTE, MELEE, 1, get_dir(src, AM))
 
-
 /obj/bullet_act(obj/projectile/P)
 	if(istype(P.ammo, /datum/ammo/xeno) && !(resistance_flags & XENO_DAMAGEABLE))
 		return
@@ -89,12 +86,10 @@
 	visible_message(span_warning("\the [src] is damaged by \the [P]!"), visible_message_flags = COMBAT_MESSAGE)
 	take_damage(P.damage, P.ammo.damage_type, P.ammo.armor_type, 0, REVERSE_DIR(P.dir), P.ammo.penetration)
 
-
-/obj/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0) //used by attack_alien, attack_animal, and attack_slime
+/obj/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0) //used by attack_alien, attack_animal, and attack_slime
 	user.do_attack_animation(src, ATTACK_EFFECT_SMASH)
 	user.changeNext_move(CLICK_CD_MELEE)
 	return take_damage(damage_amount, damage_type, damage_flag, effects, get_dir(src, user), armor_penetration)
-
 
 /obj/attack_animal(mob/living/simple_animal/M)
 	if(!M.melee_damage && !M.obj_damage)
@@ -109,29 +104,27 @@
 		if(. && !play_soundeffect)
 			playsound(loc, 'sound/effects/meteorimpact.ogg', 100, 1)
 
-
-/obj/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	// SHOULD_CALL_PARENT(TRUE) // TODO: fix this
-	if(X.status_flags & INCORPOREAL) //Ghosts can't attack machines
+	if(xeno_attacker.status_flags & INCORPOREAL) //Ghosts can't attack machines
 		return FALSE
-	SEND_SIGNAL(X, COMSIG_XENOMORPH_ATTACK_OBJ, src)
-	if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, X) & COMPONENT_NO_ATTACK_ALIEN)
+	SEND_SIGNAL(xeno_attacker, COMSIG_XENOMORPH_ATTACK_OBJ, src)
+	if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, xeno_attacker) & COMPONENT_NO_ATTACK_ALIEN)
 		return FALSE
 	if(!(resistance_flags & XENO_DAMAGEABLE))
-		to_chat(X, span_warning("We stare at \the [src] cluelessly."))
+		to_chat(xeno_attacker, span_warning("We stare at \the [src] cluelessly."))
 		return FALSE
 	if(effects)
-		X.visible_message(span_danger("[X] has slashed [src]!"),
+		xeno_attacker.visible_message(span_danger("[xeno_attacker] has slashed [src]!"),
 		span_danger("We slash [src]!"))
-		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		playsound(loc, "alien_claw_metal", 25)
-	attack_generic(X, damage_amount, damage_type, damage_flag, effects, armor_penetration)
+	attack_generic(xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration)
 	return TRUE
 
-/obj/attack_larva(mob/living/carbon/xenomorph/larva/L)
-	L.visible_message(span_danger("[L] nudges its head against [src]."), \
+/obj/attack_larva(mob/living/carbon/xenomorph/larva/larva_attacker)
+	larva_attacker.visible_message(span_danger("[larva_attacker] nudges its head against [src]."), \
 	span_danger("You nudge your head against [src]."))
-
 
 ///the obj is deconstructed into pieces, whether through careful disassembly or when destroyed.
 /obj/proc/deconstruct(disassembled = TRUE)
@@ -139,11 +132,9 @@
 	SEND_SIGNAL(src, COMSIG_OBJ_DECONSTRUCT, disassembled)
 	qdel(src)
 
-
 ///called after the obj takes damage and integrity is below integrity_failure level
 /obj/proc/obj_break(damage_flag)
 	return
-
 
 ///what happens when the obj's integrity reaches zero.
 /obj/proc/obj_destruction(damage_amount, damage_type, damage_flag)
@@ -151,7 +142,6 @@
 	if(destroy_sound)
 		playsound(loc, destroy_sound, 35, 1)
 	deconstruct(FALSE)
-
 
 ///changes max_integrity while retaining current health percentage, returns TRUE if the obj got broken.
 /obj/proc/modify_max_integrity(new_max, can_break = TRUE, damage_type = BRUTE, new_failure_integrity = null)

@@ -62,7 +62,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 			to_chat(user, span_notice("It has a note attached which reads, \"[examtext]\""))
 	return
 
-/obj/structure/bigDelivery/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/structure/bigDelivery/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	attack_hand(X)
 
 /obj/structure/bigDelivery/attackby(obj/item/I, mob/user, params)

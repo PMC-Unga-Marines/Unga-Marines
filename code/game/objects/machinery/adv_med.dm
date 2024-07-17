@@ -1,6 +1,4 @@
 // Pretty much everything here is stolen from the dna scanner FYI
-
-
 /obj/machinery/bodyscanner
 	name = "Body Scanner"
 	icon = 'icons/obj/machines/cryogenics.dmi'
@@ -50,7 +48,6 @@
 	if(user.incapacitated(TRUE))
 		return
 	go_out()
-
 
 /obj/machinery/bodyscanner/verb/eject()
 	set src in oview(1)
@@ -107,7 +104,6 @@
 		return
 	go_out()
 
-
 /obj/machinery/bodyscanner/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
@@ -149,15 +145,15 @@
 	for(var/obj/O in src)
 		O.forceMove(loc)
 
-/obj/machinery/bodyscanner/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/bodyscanner/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
-		to_chat(X, span_xenowarning("There is nothing of interest in there."))
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
-	if(X.status_flags & INCORPOREAL || X.do_actions)
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
-	visible_message(span_warning("[X] begins to pry the [src]'s cover!"), 3)
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
-	if(!do_after(X, 2 SECONDS))
+	if(!do_after(xeno_attacker, 2 SECONDS))
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
@@ -205,7 +201,6 @@
 
 	return TRUE
 
-
 /obj/machinery/computer/body_scanconsole/interact(mob/user)
 	. = ..()
 	if(.)
@@ -221,7 +216,6 @@
 	var/datum/browser/popup = new(user, "scanconsole", "<div align='center'>Body Scanner Console</div>", 430, 600)
 	popup.set_content(dat)
 	popup.open(FALSE)
-
 
 /obj/machinery/bodyscanner/examine(mob/living/user)
 	. = ..()
@@ -240,7 +234,6 @@
 			. += span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>It contains [occupant]: Scan from [R.fields["last_scan_time"]].</a>")
 		break
 
-
 ///Wrapper to guarantee connected bodyscanner references are properly nulled and avoid hard deletes.
 /obj/machinery/computer/body_scanconsole/proc/set_connected(obj/machinery/bodyscanner/new_connected)
 	if(connected)
@@ -248,7 +241,6 @@
 	connected = new_connected
 	if(connected)
 		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(on_bodyscanner_deletion))
-
 
 ///Called by the deletion of the connected bodyscanner.
 /obj/machinery/computer/body_scanconsole/proc/on_bodyscanner_deletion(obj/machinery/bodyscanner/source, force)

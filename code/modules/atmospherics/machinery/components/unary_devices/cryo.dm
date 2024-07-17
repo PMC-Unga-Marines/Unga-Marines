@@ -440,7 +440,7 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell/can_crawl_through()
 	return // can't ventcrawl in or out of cryo.
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
 		to_chat(X, span_xenowarning("There is nothing of interest in there."))
 		return
