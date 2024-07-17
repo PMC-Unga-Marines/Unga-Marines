@@ -2276,7 +2276,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "rocket_wp"
 	hud_state = "rocket_fire"
 	flags_ammo_behavior = AMMO_ROCKET|AMMO_INCENDIARY|AMMO_EXPLOSIVE|AMMO_SUNDERING
-	armor_type = "fire"
+	armor_type = FIRE
 	damage_type = BURN
 	accuracy_var_low = 7
 	accurate_range = 15
@@ -4290,7 +4290,7 @@ RU TGMC EDIT*/
 	hud_state_empty = "flame_empty"
 	damage_type = BURN
 	flags_ammo_behavior = AMMO_INCENDIARY|AMMO_FLAME|AMMO_EXPLOSIVE
-	armor_type = "fire"
+	armor_type = FIRE
 	max_range = 7
 	damage = 31
 	damage_falloff = 0
