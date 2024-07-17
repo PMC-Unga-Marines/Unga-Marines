@@ -38,3 +38,4 @@
 #define BUSY_ICON_DANGER /image/progdisplay/danger
 #define BUSY_ICON_BAR /image/progdisplay/bar
 #define BUSY_ICON_UNSKILLED /image/progdisplay/unskilled
+#define BUSY_ICON_ENERGY /image/progdisplay/energy

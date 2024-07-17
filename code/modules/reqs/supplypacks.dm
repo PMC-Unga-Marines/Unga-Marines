@@ -170,7 +170,50 @@ WEAPONS
 	group = "Weapons"
 	containertype = /obj/structure/closet/crate/weapon
 
-//Sentries here
+/datum/supply_packs/weapons/sentry
+	name = "Турель TUR-B \"Базис\""
+	contains = list(
+		/obj/item/weapon/gun/sentry/basic,
+	)
+	cost = 200
+
+/datum/supply_packs/weapons/sentry_upgrade
+	name = "Набор улучшения TUR-B"
+	contains = list(
+		/obj/item/sentry_upgrade_kit,
+	)
+	cost = 150
+
+/datum/supply_packs/weapons/sentry/ammo
+	name = "Магазин для TUR-B \"Базис\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry,
+	)
+	cost = 50
+
+/datum/supply_packs/weapons/sentry/ammo/mini
+	name = "Магазин для TUR-M \"Гном\""
+	contains = list(
+		/obj/item/ammo_magazine/minisentry,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/sniper
+	name = "Магазин для TUR-SN \"Оса\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry/sniper,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/shotgun
+	name = "Магазин для TUR-SH \"Бык\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry/shotgun,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/flamer
+	name = "Бак для TUR-F \"Феникс\""
+	contains = list(
+		/obj/item/ammo_magazine/flamer_tank/large/sentry,
+	)
 
 /datum/supply_packs/weapons/buildasentry
 	name = "Build-A-Sentry Attachment System"

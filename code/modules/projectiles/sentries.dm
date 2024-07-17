@@ -15,6 +15,8 @@
 	var/list/atom/potential_targets = list()
 	///Time of last alert
 	var/last_alert = 0
+	///Time of last fire
+	var/last_fire = 0
 	///Time of last damage alert
 	var/last_damage_alert = 0
 	///Radio so that the sentry can scream for help
@@ -26,12 +28,15 @@
 	///For minimap icon change if sentry is firing
 	var/firing
 
+	var/datum/looping_sound/sentry_scan/soundloop
+
 //------------------------------------------------------------------
 //Setup and Deletion
 
 /obj/machinery/deployable/mounted/sentry/Initialize(mapload, _internal_item, deployer)
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()
+	soundloop = new(list(src))
 
 	iff_signal = gun?.sentry_iff_signal ? gun.sentry_iff_signal : initial(iff_signal)
 	if(deployer)
@@ -86,6 +91,7 @@
 	QDEL_NULL(radio)
 	QDEL_NULL(camera)
 	QDEL_NULL(spark_system)
+	QDEL_NULL(soundloop)
 	STOP_PROCESSING(SSobj, src)
 	if(get_internal_item())
 		var/obj/item/internal_sentry = get_internal_item()
@@ -105,7 +111,7 @@
 
 /obj/machinery/deployable/mounted/sentry/AltClick(mob/user)
 	if(!match_iff(user))
-		to_chat(user, span_notice("Access denied."))
+		to_chat(user, span_notice("Доступ запрещён."))
 		return
 	return ..()
 
@@ -114,26 +120,26 @@
 
 /obj/machinery/deployable/mounted/sentry/on_set_interaction(mob/user)
 	. = ..()
-	to_chat(user, span_notice("You disable the [src]'s automatic to operate it manually."))
+	to_chat(user, span_notice("Вы отключили ИИ у [src] для ручного управления."))
 	set_on(FALSE)
 
 /obj/machinery/deployable/mounted/sentry/on_unset_interaction(mob/user)
 	. = ..()
-	to_chat(user, span_notice("You stop using the [src] and its automatic functions re-activate"))
+	to_chat(user, span_notice("Вы перестали использовать [src], автоматика ИИ возобновлает работу."))
 	set_on(TRUE)
 
 /obj/machinery/deployable/mounted/sentry/attack_hand(mob/living/user)
 	. = ..()
 	if(!. || !CHECK_BITFIELD(machine_stat, KNOCKED_DOWN))
 		return
-	user.visible_message(span_notice("[user] begins to set [src] upright."),
-		span_notice("You begin to set [src] upright.</span>"))
+	user.visible_message(span_notice("[user] начинает поднимать [src]."),
+		span_notice("Вы начинаете поднимать [src].</span>"))
 
 	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 
-	user.visible_message(span_notice("[user] sets [src] upright."),
-		span_notice("You set [src] upright."))
+	user.visible_message(span_notice("[user] поднял [src] на место."),
+		span_notice("Вы подняли [src] на место."))
 
 	DISABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
 	density = TRUE
@@ -146,14 +152,14 @@
 
 /obj/machinery/deployable/mounted/sentry/reload(mob/user, ammo_magazine)
 	if(!match_iff(user)) //You can't pull the ammo out of hostile turrets
-		to_chat(user, span_notice("Access denied."))
+		to_chat(user, span_notice("Доступ запрещён."))
 		return
 	. = ..()
 	update_static_data(user)
 
 /obj/machinery/deployable/mounted/sentry/interact(mob/user, manual_mode = FALSE)
 	if(!match_iff(user)) //You can't mess with hostile turrets
-		to_chat(user, span_notice("Access denied."))
+		to_chat(user, span_notice("Доступ запрещён."))
 		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(manual_mode)
@@ -163,7 +169,7 @@
 		return TRUE
 
 	if(CHECK_BITFIELD(gun?.turret_flags, TURRET_IMMOBILE))
-		to_chat(user, span_warning("[src]'s panel is completely locked, you can't do anything."))
+		to_chat(user, span_warning("Панель управления [src] заблокирована."))
 		return TRUE
 
 	ui_interact(user)
@@ -217,9 +223,9 @@
 		if("safety")
 			TOGGLE_BITFIELD(gun.turret_flags, TURRET_SAFETY)
 			var/safe = CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY)
-			user.visible_message(span_warning("[user] [safe ? "" : "de"]activates [src]'s safety lock."),
-				span_warning("You [safe ? "" : "de"]activate [src]'s safety lock.</span>"))
-			visible_message(span_warning("A red light on [src] blinks brightly!"))
+			user.visible_message(span_warning("[user] [safe ? "включ" : "отключ"]ил предокранитель у [src]."),
+				span_warning("Вы [safe ? "включ" : "отключ"]или предокранитель у [src]</span>"))
+			visible_message(span_warning("Красный светодиод у [src] ярко мигает!"))
 			update_static_data(user)
 			. = TRUE
 
@@ -241,9 +247,9 @@
 		if("toggle_alert")
 			TOGGLE_BITFIELD(gun.turret_flags, TURRET_ALERTS)
 			var/alert = CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS)
-			user.visible_message(span_notice("[user] [alert ? "" : "de"]activates [src]'s alert notifications."),
-				span_notice("You [alert ? "" : "de"]activate [src]'s alert notifications."))
-			say("Alert notification system [alert ? "initiated" : "deactivated"]")
+			user.visible_message(span_notice("[user] [alert ? "включ" : "отключ"]ил систему оповещений у [src]."),
+				span_notice("Вы [alert ? "включ" : "отключ"]или систему опопвещений у [src]."))
+			say("Система оповещений [alert ? "включена" : "отключена"]")
 			update_static_data(user)
 			. = TRUE
 
@@ -253,9 +259,9 @@
 				range = gun.turret_range
 			else
 				range = gun.turret_range - 2
-			var/rad_msg = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ? "activate" : "deactivate"
-			user.visible_message(span_notice("[user] [rad_msg]s [src]'s radial mode."), span_notice("You [rad_msg] [src]'s radial mode."))
-			say("Radial mode [rad_msg]d.")
+			var/rad_msg = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ? "включ" : "отключ"
+			user.visible_message(span_notice("[user] [rad_msg]ил  радиальный режим у [src]."), span_notice("Вы [rad_msg]или радиальный режим у [src]."))
+			say("Радиальный режим [rad_msg]ён.")
 			update_static_data(user)
 			. = TRUE
 
@@ -265,9 +271,10 @@
 /obj/machinery/deployable/mounted/sentry/proc/set_on(new_state)
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(!new_state)
-		visible_message(span_notice("The [name] powers down and goes silent."))
+		visible_message(span_notice("[name] выключается и утихает."))
 		DISABLE_BITFIELD(gun.turret_flags, TURRET_ON)
 		gun?.set_target(null)
+		soundloop.stop()
 		set_light(0)
 		update_icon()
 		STOP_PROCESSING(SSobj, src)
@@ -276,7 +283,8 @@
 		return
 
 	ENABLE_BITFIELD(gun?.turret_flags, TURRET_ON)
-	visible_message(span_notice("The [name] powers up with a warm hum."))
+	soundloop.start()
+	visible_message(span_notice("[name] включается и начинает жужжать."))
 	set_light_range(initial(light_power))
 	set_light_color(initial(light_color))
 	set_light(SENTRY_LIGHT_POWER,SENTRY_LIGHT_POWER)
@@ -293,8 +301,9 @@
 	internal_gun.stop_fire() //Comrade sentry has been sent to the gulags. He served the revolution well.
 	firing = FALSE
 	update_minimap_icon()
-	visible_message(span_highdanger("The [name] is knocked over!"))
+	visible_message(span_highdanger("[name] был опрокинут!"))
 	sentry_alert(SENTRY_ALERT_FALLEN)
+	playsound(loc, 'sound/items/turrets/turret_breakdown.ogg', 50, FALSE)
 	ENABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
 	density = FALSE
 	set_on(FALSE)
@@ -305,8 +314,10 @@
 		return
 	if(prob(10))
 		spark_system.start()
-	if(damage_amount >= knockdown_threshold && damage_type != STAMINA) //Knockdown is certain if we deal this much in one hit; no more RNG nonsense, the fucking thing is bolted.
-		knock_down()
+	if((damage_amount >= knockdown_threshold && damage_type != STAMINA) || (obj_integrity <= max_integrity * 0.25))
+		knock_down() //Knocks if - 150 dmg at once or <25% health.
+	if(world.time >= (last_damage_alert + 10 SECONDS))
+		playsound(loc, 'sound/items/turrets/turret_lowammo.ogg', 50, FALSE)
 
 	. = ..()
 	if(!internal_item)
@@ -335,10 +346,10 @@
 			notice = "<b>ALERT! [src] detected Hostile/Unknown: [mob.name] at: [AREACOORD_NO_Z(src)].</b>"
 			last_alert = world.time
 		if(SENTRY_ALERT_AMMO)
-			if(world.time < (last_damage_alert + SENTRY_ALERT_DELAY))
+			if(world.time < (last_alert + SENTRY_ALERT_DELAY))
 				return
 			notice = "<b>ALERT! [src]'s ammo depleted at: [AREACOORD_NO_Z(src)].</b>"
-			last_damage_alert = world.time
+			last_alert = world.time
 		if(SENTRY_ALERT_FALLEN)
 			notice = "<b>ALERT! [src] has been knocked over at: [AREACOORD_NO_Z(src)].</b>"
 		if(SENTRY_ALERT_DAMAGE)
@@ -349,7 +360,6 @@
 		if(SENTRY_ALERT_DESTROYED)
 			notice = "<b>ALERT! [src] at: [AREACOORD_NO_Z(src)] has been destroyed!</b>"
 
-	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
 	radio.talk_into(src, "[notice]", FREQ_COMMON)
 
 /obj/machinery/deployable/mounted/sentry/process()
@@ -360,7 +370,6 @@
 		firing = FALSE
 		update_minimap_icon()
 		return
-	playsound(loc, 'sound/items/detector.ogg', 25, FALSE)
 
 	sentry_start_fire()
 
@@ -412,6 +421,7 @@
 	var/atom/target = get_target()
 	sentry_alert(SENTRY_ALERT_HOSTILE, target)
 	update_icon()
+	soundloop.start()
 	if(!target)
 		gun.stop_fire()
 		firing = FALSE
@@ -424,13 +434,20 @@
 	if(!gun.rounds)
 		sentry_alert(SENTRY_ALERT_AMMO)
 		return
+
+	if(world.time >= (last_fire + 20 SECONDS))
+		playsound(loc, 'sound/items/turrets/turret_fire.ogg', 50, TRUE, 20)
+		sleep(5) //yes, its sleeping a bit before fire
+
 	if(CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL))
 		setDir(get_cardinal_dir(src, target))
 	if(HAS_TRAIT(gun, TRAIT_GUN_BURST_FIRING))
 		gun.set_target(target)
 		return
+	soundloop.stop()
 	gun.start_fire(src, target, bypass_checks = TRUE)
 	firing = TRUE
+	last_fire = world.time
 	update_minimap_icon()
 
 ///Checks the path to the target for obstructions. Returns TRUE if the path is clear, FALSE if not.
@@ -489,7 +506,7 @@
 
 /obj/machinery/deployable/mounted/sentry/disassemble(mob/user)
 	if(!match_iff(user)) //You can't steal other faction's turrets
-		to_chat(user, span_notice("Access denied."))
+		to_chat(user, span_notice("Доступ запрещён."))
 		return
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()

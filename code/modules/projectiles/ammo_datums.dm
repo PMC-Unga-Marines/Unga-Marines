@@ -1469,7 +1469,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state_empty = "rifle_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_SENTRY
 	accurate_range = 10
-	damage = 25
+	damage = 20
 	penetration = 20
 	damage_falloff = 0.25
 
@@ -1483,18 +1483,19 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/bullet/turret/mini
 	name = "small caliber autocannon bullet"
-	damage = 20
-	penetration = 20
+	damage = 12
+	penetration = 10
+	damage_falloff = 0.5
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SENTRY
 
 
 /datum/ammo/bullet/turret/sniper
 	name = "antimaterial bullet"
 	bullet_color = COLOR_SOFT_RED
-	accurate_range = 21
-	damage = 80
+	accurate_range = 14
+	damage = 75
 	penetration = 50
-	sundering = 5
+	damage_falloff = 0
 
 /datum/ammo/bullet/turret/buckshot
 	name = "turret buckshot shell"
@@ -1505,7 +1506,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	bonus_projectiles_scatter = 5
 	max_range = 10
 	damage = 20
-	penetration = 40
+	penetration = 20
 	damage_falloff = 1
 
 /datum/ammo/bullet/turret/buckshot/on_hit_mob(mob/M,obj/projectile/P)

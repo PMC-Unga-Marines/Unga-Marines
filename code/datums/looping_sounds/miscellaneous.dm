@@ -7,3 +7,9 @@
 	end_volume = 30
 	end_sound = 'sound/items/weldingtool/RepairTool_Stop.ogg'
 	volume = 18
+
+/datum/looping_sound/sentry_scan
+	mid_sounds = list('sound/items/turrets/turret_scan.ogg')
+	mid_length = 3 SECONDS
+	volume = 30
+	range = 10

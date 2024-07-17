@@ -642,7 +642,6 @@
 	new /obj/item/storage/box/crate/sentry(src)
 	new /obj/item/storage/box/crate/sentry(src)
 	new /obj/item/storage/box/crate/sentry(src)
-	new /obj/item/storage/box/crate/minisentry(src)
 
 // Legendaries
 

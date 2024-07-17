@@ -1,18 +1,20 @@
 /obj/item/ammo_magazine/sentry
-	name = "\improper M30 box magazine (10x28mm Caseless)"
-	desc = "A drum of 50 10x28mm caseless rounds for the ST-571 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted."
+	name = "\improper Магазин TUR-B (10x28мм)"
+	desc = "Коробчатый магазин на 200 безгильзовых патронов 10х28 мм для турели \"Базис\". Вставьте в порт турели в случае отстутсвия боеприпасов."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon_state = "sentry"
+	icon = 'icons/Marine/sentry.dmi'
+	icon_state = "sentry_mag"
 	flags_magazine = NONE //can't be refilled or emptied by hand
 	caliber = CALIBER_10X28
-	max_rounds = 500
+	max_rounds = 200
 	default_ammo = /datum/ammo/bullet/turret
 
 /obj/item/ammo_magazine/minisentry
-	name = "\improper M30 box magazine (10x20mm Caseless)"
-	desc = "A box of 100 10x20mm caseless rounds for the ST-580 point defense sentry. Just feed it into the sentry gun's ammo port when its ammo is depleted."
+	name = "\improper Магазин TUR-M (10x20мм)"
+	desc = "Коробчатый магазин на 300 безгильзовых патронов 10х20 мм для турели \"Гном\". Вставьте в порт турели в случае отстутсвия боеприпасов."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon_state = "ua580"
+	icon = 'icons/Marine/sentry.dmi'
+	icon_state = "minisentry_mag"
 	flags_magazine = NONE //can't be refilled or emptied by hand
 	caliber = CALIBER_10X20
 	max_rounds = 300
@@ -33,30 +35,30 @@
 // Sniper Sentry
 
 /obj/item/ammo_magazine/sentry/sniper
-	name = "\improper AM-5 box magazine (10x28mm Caseless)"
-	desc = "A drum of 50 10x28mm caseless rounds for the SST-574 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted."
-	icon_state = "snipersentry"
-	max_rounds = 75
+	name = "\improper Магазин TUR-SN (9x39мм)"
+	desc = "Коробчатый магазин на 50 безгильзовых патронов 9х39 мм для турели \"Оса\". Вставьте в порт турели в случае отстутсвия боеприпасов."
+	icon_state = "sentry_sniper_mag"
+	max_rounds = 50
 	default_ammo = /datum/ammo/bullet/turret/sniper
 
 /obj/item/ammo_magazine/sentry/shotgun
-	name = "\improper SM-10 box magazine (12G Caseless)"
-	desc = "A drum of 200 specialized telescopic 12G rounds for the SST-573 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted."
+	name = "\improper Магазин TUR-SH (12G)"
+	desc = "Коробчатый магазин на 75 специализированных патронов 12 калибра для турели \"Бык\". Вставьте в порт турели в случае отстутсвия боеприпасов."
 	caliber = CALIBER_12G
-	icon_state = "shotgunsentry"
-	max_rounds = 100
+	icon_state = "sentry_shotgun_mag"
+	max_rounds = 75
 	default_ammo = /datum/ammo/bullet/turret/buckshot
 
 // Flamer Sentry
 
 /obj/item/ammo_magazine/flamer_tank/large/sentry
-	name = "JJ-8 fuel tank"
-	desc = "A large fuel tank of ultra thick napthal, a sticky combustable liquid chemical, for use in the SFT-FLAMER sentry gun."
+	name = "\improper Малый бак TUR-F (Горючее)"
+	desc = "Малый бак на 5 литров горючего для турели \"Феникс\". Вставьте в порт турели в случае отстутсвия горючего."
 	icon = 'icons/Marine/sentry.dmi'
 	icon_state = "sentry_flamer_mag"
 	w_class = WEIGHT_CLASS_NORMAL
-	max_rounds = 150
-	current_rounds = 150
+	max_rounds = 75
+	current_rounds = 75
 	reload_delay = 3 SECONDS
 
 	default_ammo = /datum/ammo/flamethrower/turret

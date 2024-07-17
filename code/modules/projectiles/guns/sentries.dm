@@ -40,10 +40,10 @@
 // *******************************
 
 /obj/item/weapon/gun/sentry/basic/proc/get_upgrade_list()
-	. += list("Sniper Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sentry_sniper_deployed"),
-			"Shotgun Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sentry_shotgun_deployed"),
-			"Mini Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "minisentry_deployed"),
-			"Flamer Upgrade"  = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sentry_flamer_deployed"),
+	. += list("Sniper Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sniper_icon"),
+			"Shotgun Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "shotgun_icon"),
+			"Mini Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "mini_icon"),
+			"Flamer Upgrade"  = image(icon = 'icons/Marine/sentry.dmi', icon_state = "flamer_icon"),
 	)
 
 /obj/item/weapon/gun/sentry/basic/proc/upgrade_string_to_type(upgrade_string)
@@ -58,7 +58,7 @@
 			return /obj/item/weapon/gun/sentry/flamer
 
 /obj/item/sentry_upgrade_kit
-	name = "Набор улучшения TUR-1"
+	name = "Набор улучшения TUR-B"
 	desc = "Набор инструментов, используемый для улучшения базовой модели турелей. При использовании возврату не подлежит."
 
 	icon = 'icons/Marine/sentry.dmi'
@@ -88,6 +88,12 @@
 
 	var/type_to_change_to = sentry.upgrade_string_to_type(chosen_upgrade)
 	if(!type_to_change_to)
+		return
+
+	playsound(user, 'sound/misc/electronics_1.ogg', 50)
+	icon_state = "upgradekit_open"
+	if(!do_after(user, 7.7 SECONDS, NONE, src, BUSY_ICON_ENERGY, prog_bar = null))
+		icon_state = initial(icon_state)
 		return
 
 	human.dropItemToGround(sentry)
@@ -127,8 +133,8 @@
 	new /obj/item/ammo_magazine/sentry(src)
 
 /obj/item/weapon/gun/sentry/basic
-	name = "\improper ST-571 sentry gun"
-	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a M30 autocannon and a 500-round drum magazine."
+	name = "\improper Турель TUR-B \"Базис\""
+	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "sentry"
 
 	turret_range = 8
@@ -150,8 +156,8 @@
 	)
 
 /obj/item/weapon/gun/sentry/pod_sentry
-	name = "\improper ST-583 sentry gun"
-	desc = "A fully automatic turret with AI targeting capabilities, designed specifically for deploying inside a paired drop pod shell. Armed with a M30 autocannon and a 500-round drum magazine. Designed to sweeping a landing area to support orbital assaults."
+	name = "\improper Турель TUR-B \"Базис\""
+	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "podsentry"
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	flags_item = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
@@ -170,7 +176,7 @@
 
 //thrown SOM sentry
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope
-	name = "\improper COPE sentry"
+	name = "\improper Турель COPE"
 	desc = "The Centurion Omnidirectional Point-defense Energy sentry is a man portable, automated weapon system utilised by the SOM. It is activated in hand then thrown into place before it deploys, where it's ground hugging profile makes it a difficult target to accurately hit. Equipped with a compact volkite weapon system, and a recharging battery to allow for prolonged use, but can take normal volkite cells in a pinch."
 	icon_state = "cope"
 	icon = 'icons/Marine/sentry.dmi'
@@ -291,27 +297,12 @@
 	default_ammo_type = /obj/item/ammo_magazine/sentry/fob_sentry
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry/fob_sentry)
 
-/obj/item/storage/box/crate/minisentry
-	name = "\improper ST-580 point defense sentry crate"
-	desc = "A large case containing all you need to set up an ST-580 point defense sentry."
-	icon_state = "sentry_mini_case"
-	w_class = WEIGHT_CLASS_HUGE
-	storage_slots = 6
-	can_hold = list(
-		/obj/item/weapon/gun/sentry/mini,
-		/obj/item/ammo_magazine/minisentry,
-	)
-
-/obj/item/storage/box/crate/minisentry/Initialize(mapload, ...)
-	. = ..()
-	new /obj/item/weapon/gun/sentry/mini(src)
-	new /obj/item/ammo_magazine/minisentry(src)
-	new /obj/item/ammo_magazine/minisentry(src)
-
 /obj/item/weapon/gun/sentry/mini
-	name = "\improper ST-580 point defense sentry"
-	desc = "A deployable, automated turret with AI targeting capabilities. This is a lightweight portable model meant for rapid deployment and point defense. Armed with an light, high velocity machine gun and a 300-round drum magazine."
+	name = "\improper Турель TUR-M \"Гном\""
+	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация с уменьшением габаритов и калибра, крайне лёгок в установке."
 	icon_state = "minisentry"
+
+	fire_sound = '\sound/items/turrets/turret_smg.ogg'
 
 	max_shells = 300
 	knockdown_threshold = 80
@@ -320,11 +311,11 @@
 	default_ammo_type = /obj/item/ammo_magazine/minisentry
 	allowed_ammo_types = list(/obj/item/ammo_magazine/minisentry)
 
-	fire_delay = 0.2 SECONDS
-	burst_delay = 0.2 SECONDS
+	fire_delay = 0.15 SECONDS
+	burst_delay = 0.1 SECONDS
 	burst_amount = 3
-	extra_delay = 0.3 SECONDS
-	scatter = 3
+	extra_delay = 0.5 SECONDS
+	scatter = 4
 
 	deploy_time = 3 SECONDS
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
@@ -371,14 +362,19 @@
 // Sniper Sentry
 
 /obj/item/weapon/gun/sentry/sniper
-	name = "\improper SRT-574 sentry gun"
-	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy caliber AM-5 antimaterial rifle and a 75-round drum magazine."
-	icon_state = "snipersentry"
+	name = "\improper Турель TUR-SN \"Оса\""
+	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня большим калибром на дальние дистанции."
+	icon_state = "sentry_sniper"
 
-	turret_range = 21
+	fire_sound = '\sound/items/turrets/turret_sniper.ogg'
+
+	turret_range = 14
 	deploy_time = 10 SECONDS
 	max_shells = 75
 	fire_delay = 2 SECONDS
+
+	extra_delay = 6 SECONDS
+	burst_amount = 2
 
 	scatter = 0
 
@@ -397,14 +393,19 @@
 // Shotgun Sentry
 
 /obj/item/weapon/gun/sentry/shotgun
-	name = "\improper SHT-573 sentry gun"
-	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy caliber SM-10 shotgun and a 100-round drum magazine."
-	icon_state = "shotgunsentry"
+	name = "\improper Турель TUR-SH \"Бык\""
+	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения массивного огня на ближние дистанции."
+	icon_state = "sentry_shotgun"
 
-	turret_range = 8
+	fire_sound = '\sound/items/turrets/turret_shotgun.ogg'
+
+	turret_range = 5
 	deploy_time = 5 SECONDS
 	max_shells = 75
 	fire_delay = 1 SECONDS
+
+	extra_delay = 4 SECONDS
+	burst_amount = 2
 
 	scatter = 5
 
@@ -423,8 +424,8 @@
 // Flamer Sentry
 
 /obj/item/weapon/gun/sentry/flamer
-	name = "\improper SFT-FLAMER sentry gun"
-	desc = "A deployable, fully automatic turret with AI targeting capabilities. Armed with a long flamer nozzle. WARNING, NO IFF"
+	name = "\improper Турель TUR-F \"Феникс\""
+	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня подожёнными сгустками горючего."
 	icon = 'icons/Marine/sentry.dmi'
 	icon_state = "sentry_flamer"
 
@@ -434,7 +435,7 @@
 	turret_range = 8
 	deploy_time = 5 SECONDS
 	max_shells = 100
-	fire_delay = 3.5 SECONDS
+	fire_delay = 3 SECONDS
 
 	burst_amount = 3
 	extra_delay = 10 SECONDS
