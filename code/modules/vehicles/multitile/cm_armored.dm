@@ -437,7 +437,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		return
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		var/obj/vehicle/multitile/root/cm_armored/T = root
-		T.take_damage_type(30, "acid")
+		T.take_damage_type(30, ACID)
 
 //A bit icky, but basically if you're adjacent to the tank hitbox, you are then adjacent to the root object
 /obj/vehicle/multitile/root/cm_armored/Adjacent(atom/A)

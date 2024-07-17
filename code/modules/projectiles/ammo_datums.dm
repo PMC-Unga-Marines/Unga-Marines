@@ -60,7 +60,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///How far the bullet can travel before incurring a chance of hitting barricades; normally 1.
 	var/barricade_clear_distance = 1
 	///Does this have an override for the armor type the ammo should test? Bullet by default
-	var/armor_type = "bullet"
+	var/armor_type = BULLET
 	///How many stacks of sundering to apply to a mob on hit
 	var/sundering = 0
 	///how much damage airbursts do to mobs around the target, multiplier of the bullet's damage
@@ -1628,7 +1628,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	ping = null //no bounce off.
 	sound_bounce = "rocket_bounce"
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_SUNDERING
-	armor_type = "bomb"
+	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2
 	accurate_range = 12
@@ -2047,7 +2047,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	ping = null //no bounce off.
 	sound_bounce = "rocket_bounce"
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_IFF
-	armor_type = "bomb"
+	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2
 	accurate_range = 12
@@ -2148,7 +2148,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	ping = null //no bounce off.
 	sound_bounce = "rocket_bounce"
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_SUNDERING
-	armor_type = "bomb"
+	armor_type = BOMB
 	damage_falloff = 0
 	shell_speed = 2
 	accuracy = 40
@@ -2344,7 +2344,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "shell_he"
 	hud_state_empty = "shell_empty"
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_SUNDERING
-	armor_type = "bomb"
+	armor_type = BOMB
 	damage_falloff = 0
 	shell_speed = 2
 	accurate_range = 20
@@ -2816,7 +2816,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 	damage_type = BURN
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_SOUND_PITCH
-	armor_type = "energy"
+	armor_type = ENERGY
 	accuracy = 15 //lasers fly fairly straight
 	bullet_color = COLOR_LASER_RED
 	barricade_clear_distance = 2
@@ -2878,7 +2878,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "laser bolt"
 	icon_state = "laser"
 	hud_state = "laser"
-	armor_type = "laser"
+	armor_type = LASER
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_SUNDERING
 	shell_speed = 4
 	accurate_range = 15
@@ -3466,7 +3466,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "plasma bolt"
 	icon_state = "pulse2"
 	hud_state = "plasma"
-	armor_type = "laser"
+	armor_type = LASER
 	shell_speed = 4
 	accurate_range = 15
 	damage = 40
@@ -3528,7 +3528,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state_empty = "battery_empty_flash"
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_SUNDERING|AMMO_SOUND_PITCH
 	bullet_color = COLOR_TAN_ORANGE
-	armor_type = "energy"
+	armor_type = ENERGY
 	max_range = 14
 	accurate_range = 5 //for charger
 	shell_speed = 4
@@ -3587,7 +3587,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	flags_ammo_behavior = AMMO_XENO
 	var/added_spit_delay = 0 //used to make cooldown of the different spits vary.
 	var/spit_cost = 5
-	armor_type = "bio"
+	armor_type = BIO
 	shell_speed = 1
 	accuracy = 40
 	accurate_range = 15
@@ -3708,7 +3708,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	ping = null
 	flags_ammo_behavior = AMMO_SKIPS_ALIENS|AMMO_EXPLOSIVE|AMMO_XENO
 	damage_type = STAMINA
-	armor_type = "bio"
+	armor_type = BIO
 	spit_cost = 50
 	sound_hit = "alien_resin_build2"
 	sound_bounce = "alien_resin_build3"
@@ -3798,7 +3798,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	added_spit_delay = 5
 	spit_cost = 50
 	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE
-	armor_type = "acid"
+	armor_type = ACID
 	damage = 18
 	max_range = 8
 	bullet_color = COLOR_PALE_GREEN_GRAY
@@ -3932,7 +3932,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/select_text = "We will now fire neurotoxic gas. This is nonlethal."
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_EXPLOSIVE
 	var/danger_message = span_danger("A glob of acid lands with a splat and explodes into noxious fumes!")
-	armor_type = "bio"
+	armor_type = BIO
 	accuracy_var_high = 10
 	max_range = 30
 	damage = 50
@@ -4046,7 +4046,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_key = BOILER_GLOB_ACID
 	select_text = "We will now fire corrosive acid. This is lethal!"
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_EXPLOSIVE
-	armor_type = "acid"
+	armor_type = ACID
 	danger_message = span_danger("A glob of acid lands with a splat and explodes into corrosive bile!")
 	damage = 50
 	damage_type = BURN
@@ -4247,7 +4247,7 @@ RU TGMC EDIT*/
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 15
 	damage_type = STAMINA
-	armor_type = "bio"
+	armor_type = BIO
 	damage = 1
 	damage_falloff = 0
 	penetration = 0
@@ -4389,7 +4389,7 @@ RU TGMC EDIT*/
 	damage_type = BRUTE
 	var/nade_type = /obj/item/explosive/grenade
 	icon_state = "grenade"
-	armor_type = "bomb"
+	armor_type = BOMB
 	damage = 15
 	accuracy = 15
 	max_range = 10
