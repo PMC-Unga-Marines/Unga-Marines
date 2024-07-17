@@ -132,7 +132,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(heat)
 		return
 	heat = 1000
-	damtype = "burn"
+	damtype = BURN
 	icon_state = "match_lit"
 	set_light_on(TRUE)
 
