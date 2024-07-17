@@ -21,11 +21,6 @@
 	var/pump_direction = RELEASING
 
 	var/pressure_checks = EXT_BOUND
-	var/external_pressure_bound = ONE_ATMOSPHERE
-	var/internal_pressure_bound = 0
-	// EXT_BOUND: Do not pass external_pressure_bound
-	// INT_BOUND: Do not pass internal_pressure_bound
-	// NO_BOUND: Do not pass either
 
 	var/radio_filter_out
 	var/radio_filter_in
@@ -209,8 +204,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon
 	pump_direction = SIPHONING
 	pressure_checks = INT_BOUND
-	internal_pressure_bound = 4000
-	external_pressure_bound = 0
 
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on
 	on = TRUE

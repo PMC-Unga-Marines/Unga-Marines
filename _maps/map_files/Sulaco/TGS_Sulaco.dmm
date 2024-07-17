@@ -1567,10 +1567,7 @@
 /area/sulaco/engineering/atmos)
 "afZ" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "waste_in";
-	name = "Waste Tank Control";
-	output_tag = "waste_out";
-	sensors = list("waste_sensor"="Tank")
+	name = "Waste Tank Control"
 	},
 /turf/open/floor/prison/yellow{
 	dir = 4
@@ -1666,9 +1663,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Oxygen Supply Console";
-	output_tag = "oxyvent";
-	sensors = list("oxy_sensor"="Tank")
+	name = "Oxygen Supply Console"
 	},
 /turf/open/floor/prison/yellow{
 	dir = 1
@@ -1728,10 +1723,7 @@
 /area/sulaco/engineering/atmos)
 "aih" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "mix_in";
-	name = "Mixed Air Control";
-	output_tag = "mix_out";
-	sensors = list("mix_sensor"="Tank")
+	name = "Mixed Air Control"
 	},
 /obj/machinery/light/mainship{
 	dir = 1
@@ -1742,9 +1734,7 @@
 /area/sulaco/engineering/atmos)
 "aii" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Nitrogen Control Console";
-	output_tag = "nit_out";
-	sensors = list("nit_sensor"="Tank")
+	name = "Nitrogen Control Console"
 	},
 /turf/open/floor/prison/yellow{
 	dir = 1
@@ -4296,10 +4286,7 @@
 /area/sulaco/engineering/engine_monitoring)
 "awf" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "cooling_in";
-	name = "Core Cooling";
-	output_tag = "cooling_out";
-	sensors = list("core_sensor"="Tank")
+	name = "Core Cooling"
 	},
 /turf/open/floor/prison/darkyellow/corner,
 /area/sulaco/engineering/engine_monitoring)

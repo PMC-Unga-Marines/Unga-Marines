@@ -148,31 +148,6 @@ directive is properly returned.
 
 //===========================================================================
 
-
-
-//atmos procs
-
-//returns the atmos info relevant to the object (gas type, temperature, and pressure)
-/atom/proc/return_air()
-	if(loc)
-		return loc.return_air()
-	else
-		return null
-
-
-/atom/proc/return_pressure()
-	if(loc)
-		return loc.return_pressure()
-
-/atom/proc/return_temperature()
-	if(loc)
-		return loc.return_temperature()
-
-//returns the gas mix type
-/atom/proc/return_gas()
-	if(loc)
-		return loc.return_gas()
-
 ///returns if we can melt an object, but also the speed at which it happens. 1 just means we melt it. 0,5 means we need a higher strength acid. higher than 1 just makes it melt faster
 /atom/proc/dissolvability(acid_strength)
 	return 1

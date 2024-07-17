@@ -12,8 +12,6 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 	shift_underlay_only = FALSE
 	pipe_flags = PIPING_CARDINAL_AUTONORMALIZE
 
-	var/id = null
-
 	var/valve_type = "m" //lets us have a nice, clean, OOP update_icon_nopipes()
 
 	construction_type = /obj/item/pipe/binary

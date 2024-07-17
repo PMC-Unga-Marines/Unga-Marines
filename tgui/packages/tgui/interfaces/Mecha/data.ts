@@ -1,18 +1,10 @@
-import { BooleanLike } from 'common/react';
-
-export const KelvinZeroCelcius = 273.15;
-
 export const InternalDamageToDamagedDesc = {
   'MECHA_INT_FIRE': 'Internal fire detected',
-  'MECHA_INT_TEMP_CONTROL': 'Temperature control inactive',
-  'MECHA_INT_TANK_BREACH': 'Air tank breach detected',
   'MECHA_INT_CONTROL_LOST': 'Control module damaged',
 };
 
 export const InternalDamageToNormalDesc = {
   'MECHA_INT_FIRE': 'No internal fires detected',
-  'MECHA_INT_TEMP_CONTROL': 'Temperature control active',
-  'MECHA_INT_TANK_BREACH': 'Air tank intact',
   'MECHA_INT_CONTROL_LOST': 'Control module active',
 };
 
@@ -55,7 +47,6 @@ export type MaintData = {
   name: string;
   mecha_flags: number;
   mechflag_keys: string[];
-  internal_tank_valve: number;
   cell: string;
   scanning: string;
   capacitor: string;
@@ -71,15 +62,7 @@ export type OperatorData = {
   mecha_flags: number;
   internal_damage: number;
   internal_damage_keys: string[];
-  airtank_present: BooleanLike;
-  air_source: string;
   mechflag_keys: string[];
-  cabin_dangerous_highpressure: number;
-  airtank_pressure: number | null;
-  airtank_temp: number | null;
-  port_connected: boolean | null;
-  cabin_pressure: number;
-  cabin_temp: number;
   dna_lock: string | null;
   mech_electronics: MechElectronics;
   right_arm_weapon: MechWeapon | null;
