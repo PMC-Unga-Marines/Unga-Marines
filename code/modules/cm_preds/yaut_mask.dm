@@ -21,7 +21,7 @@
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	flags_armor_protection = HEAD|FACE|EYES
 	flags_cold_protection = HEAD
-	flags_inventory = COVEREYES|COVERMOUTH|NOPRESSUREDMAGE|BLOCKGASEFFECT|BLOCKSHARPOBJ
+	flags_inventory = COVEREYES|COVERMOUTH|BLOCKGASEFFECT|BLOCKSHARPOBJ
 	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
 	eye_protection = 2
 	flags_item = ITEM_PREDATOR

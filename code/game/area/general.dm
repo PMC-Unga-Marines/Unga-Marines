@@ -9,7 +9,6 @@
 	power_environ = 0
 	ambience = list('sound/ambience/ambispace.ogg')
 	temperature = TCMB
-	pressure = 0
 	flags_area = NO_DROPPOD
 	///What type of debuff do we apply when someone enters this area?
 	var/debuff_type = /datum/status_effect/spacefreeze

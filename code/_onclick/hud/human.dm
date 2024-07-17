@@ -146,12 +146,6 @@
 		oxygen_icon = new /atom/movable/screen/oxygen()
 		infodisplay += oxygen_icon
 
-		toxin_icon = new /atom/movable/screen()
-		toxin_icon.icon_state = "tox0"
-		toxin_icon.name = "toxin"
-		toxin_icon.screen_loc = ui_toxin
-		infodisplay += toxin_icon
-
 		fire_icon = new /atom/movable/screen/fire()
 		infodisplay += fire_icon
 
@@ -161,17 +155,9 @@
 		staminas = new
 		infodisplay += staminas
 
-	if(hud_data.has_pressure)
-		pressure_icon = new /atom/movable/screen()
-		pressure_icon.icon_state = "pressure0"
-		pressure_icon.name = "pressure"
-		pressure_icon.screen_loc = ui_pressure
-		infodisplay += pressure_icon
-
 	if(hud_data.has_bodytemp)
 		bodytemp_icon = new /atom/movable/screen/bodytemp()
 		infodisplay += bodytemp_icon
-
 
 	if(hud_data.has_nutrition)
 		nutrition_icon = new /atom/movable/screen()
