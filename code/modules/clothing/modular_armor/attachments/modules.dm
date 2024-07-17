@@ -157,6 +157,8 @@
 /obj/item/armor_module/module/tyr_head/mark2
 	name = "Tyr 2 Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
+	icon_state = "tyr_head"
+	item_state = "tyr_head_a"
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
 
 /obj/item/armor_module/module/hod_head
