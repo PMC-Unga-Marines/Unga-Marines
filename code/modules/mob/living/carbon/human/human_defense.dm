@@ -113,14 +113,12 @@ Contains most of the procs that are called when a mob is attacked by something
 		return FALSE
 	var/hit_area = affecting.display_name
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if((user != src) && check_pred_shields(I.force, "the [I.name]", backside_attack = dir == get_dir(get_turf(user), get_turf(src))))
 		return FALSE
-//RUTGMC EDIT ADDITION END
 
 	var/damage = I.force + round(I.force * MELEE_SKILL_DAM_BUFF * user.skills.getRating(SKILL_MELEE_WEAPONS))
 	if(user != src)
-		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, MELEE)
 		if(!damage)
 			log_combat(user, src, "attacked", I, "(FAILED: shield blocked) (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)])")
 			return TRUE

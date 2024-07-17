@@ -242,7 +242,7 @@
 	return ..()
 
 
-/mob/living/simple_animal/proc/attack_threshold_check(damage, damagetype = BRUTE, armorcheck = "melee")
+/mob/living/simple_animal/proc/attack_threshold_check(damage, damagetype = BRUTE, armorcheck = MELEE)
 	var/temp_damage = damage
 	if(!damage_coeff[damagetype])
 		temp_damage = 0

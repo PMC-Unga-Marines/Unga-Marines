@@ -23,7 +23,7 @@
 /// Destroy the alien effect when the weed it was on is destroyed
 /obj/alien/proc/weed_removed()
 	SIGNAL_HANDLER
-	obj_destruction(damage_flag = "melee")
+	obj_destruction(damage_flag = MELEE)
 
 /obj/alien/attackby(obj/item/I, mob/user, params)
 	. = ..()

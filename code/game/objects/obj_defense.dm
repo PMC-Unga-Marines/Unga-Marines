@@ -103,9 +103,9 @@
 	else
 		var/play_soundeffect = 1
 		if(M.obj_damage)
-			. = attack_generic(M, M.obj_damage, M.melee_damage_type, "melee", play_soundeffect, M.armour_penetration)
+			. = attack_generic(M, M.obj_damage, M.melee_damage_type, MELEE, play_soundeffect, M.armour_penetration)
 		else
-			. = attack_generic(M, M.melee_damage, M.melee_damage_type, "melee", play_soundeffect, M.armour_penetration)
+			. = attack_generic(M, M.melee_damage, M.melee_damage_type, MELEE, play_soundeffect, M.armour_penetration)
 		if(. && !play_soundeffect)
 			playsound(loc, 'sound/effects/meteorimpact.ogg', 100, 1)
 
