@@ -1,4 +1,7 @@
 /**
+ * TODO: не забыть создать подходящее описание на русском языке для измененных модулей. Англ версия не соответствует действительности.
+ *
+ *
  ** Modules
  *	These include the helmet and regular armor modules. Basically these are the subtypes of any armor 'system'.
  */
