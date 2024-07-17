@@ -104,6 +104,7 @@
 	L.AdjustUnconscious(-1 SECONDS)
 	L.AdjustStun(-1 SECONDS)
 	L.AdjustParalyzed(-1 SECONDS)
+	L.add_movespeed_modifier(MOVESPEED_ID_MOB_PARACETAMOL_SPEED, TRUE, 0, NONE, TRUE, 100)
 	return ..()
 
 
@@ -114,6 +115,9 @@
 
 /datum/reagent/medicine/paracetamol/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damage(3*effect_str, TOX)
+
+/datum/reagent/medicine/paracetamol/on_mob_delete(mob/living/L, metabolism)
+	L.remove_movespeed_modifier(MOVESPEED_ID_MOB_PARACETAMOL_SPEED)
 
 /datum/reagent/medicine/tramadol
 	name = "Tramadol"
@@ -230,7 +234,7 @@
 	description = "Kelotane is a drug used to treat burns."
 	color = COLOR_REAGENT_KELOTANE
 	scannable = TRUE
-	purge_list = list(/datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/research/medicalnanites)
+	purge_list = list(/datum/reagent/medicine/ryetalyn,)
 	purge_rate = 1.5
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
@@ -1305,7 +1309,6 @@
 		/datum/reagent/medicine/tricordrazine,
 		/datum/reagent/medicine/paracetamol,
 		/datum/reagent/medicine/russian_red,
-		/datum/reagent/consumable/doctor_delight,
 	)
 	purge_rate = 5
 var/mob/living/carbon/human/host
