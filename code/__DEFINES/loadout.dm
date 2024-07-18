@@ -57,8 +57,13 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 #define SANDBAG_PRICE_IN_GEAR_VENDOR 3
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
-	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),  //placeholder
-	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"), //placeholder
+	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),
+	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
+	/obj/item/fulton_extraction_pack = list(CAT_LEDSUP, "Fulton Extraction Pack", 5, "orange"),
+	/obj/item/explosive/grenade = list(CAT_FCSUP, "M40 HEDP grenade", 2, "orange3"),
+	/obj/item/explosive/grenade/sticky = list(CAT_FCSUP, "M40 adhesive charge grenade", 2, "orange3"),
+	/obj/item/explosive/grenade/incendiary = list(CAT_FCSUP, "M40 HIDP incendiary grenade", 1, "orange3"),
+	/obj/item/explosive/grenade/m15 = list(CAT_FCSUP, "M15 fragmentation grenade", 3, "orange3"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
