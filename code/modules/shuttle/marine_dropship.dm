@@ -1,4 +1,3 @@
-// marine dropships
 /obj/docking_port/stationary/marine_dropship
 	name = "dropship landing zone"
 	id = "dropship"
@@ -304,10 +303,8 @@
 			playsound(loc,'sound/effects/alert.ogg', 50)
 			addtimer(CALLBACK(src, PROC_REF(request_to), S), 15 SECONDS)
 
-
 /obj/docking_port/mobile/marine_dropship/proc/do_start_hijack_timer(hijack_time = LOCKDOWN_TIME)
 	addtimer(CALLBACK(src, PROC_REF(reset_hijack)), hijack_time)
-
 
 /obj/docking_port/mobile/marine_dropship/proc/request_to(obj/docking_port/stationary/S)
 	set_idle()
@@ -325,7 +322,6 @@
 		if(light.linked_port == destination)
 			light.turn_on()
 
-
 /obj/docking_port/mobile/marine_dropship/getStatusText()
 	if(hijack_state == HIJACK_STATE_CALLED_DOWN)
 		return "Control integrity compromised"
@@ -333,13 +329,11 @@
 		return "Remote control compromised"
 	return ..() + (timeleft(cycle_timer) ? (" Automatic cycle : [round(timeleft(cycle_timer) / 10 + 20, 1)] seconds before departure towards [previous.name]") : "")
 
-
 /obj/docking_port/mobile/marine_dropship/can_move_topic(mob/user)
 	if(hijack_state != HIJACK_STATE_NORMAL)
 		to_chat(user, span_warning("Control integrity compromised!"))
 		return FALSE
 	return ..()
-
 
 /mob/living/carbon/xenomorph/proc/hijack()
 	set category = "Alien"
@@ -486,12 +480,12 @@
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
 	possible_destinations = "lz1;lz2;normandy"
 
-/obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(!(X.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT))
+/obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(!(xeno_attacker.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT))
 		return
 	#ifndef TESTING
 	if(SSticker.round_start_time + SHUTTLE_HIJACK_LOCK > world.time)
-		to_chat(X, span_xenowarning("It's too early to do this!"))
+		to_chat(xeno_attacker, span_xenowarning("It's too early to do this!"))
 		return
 	#endif
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
@@ -502,16 +496,15 @@
 		M.unlock_all()
 		M.silicon_lock_airlocks(TRUE)
 		if(M.hijack_state != HIJACK_STATE_CALLED_DOWN)
-			to_chat(X, span_xenowarning("We corrupt the bird's controls, unlocking the doors[(M.mode != SHUTTLE_IGNITING) ? "and preventing it from flying." : ", but we are unable to prevent it from flying as it is already taking off!"]"))
+			to_chat(xeno_attacker, span_xenowarning("We corrupt the bird's controls, unlocking the doors[(M.mode != SHUTTLE_IGNITING) ? "and preventing it from flying." : ", but we are unable to prevent it from flying as it is already taking off!"]"))
 			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED, src)
 			if(M.mode != SHUTTLE_IGNITING)
 				M.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
 				M.do_start_hijack_timer()
 
-	var/datum/browser/popup = new(X, "computer", M ? M.name : "shuttle", 300, 200)
+	var/datum/browser/popup = new(xeno_attacker, "computer", M ? M.name : "shuttle", 300, 200)
 	popup.set_content("<center>[dat]</center>")
 	popup.open()
-
 
 /obj/machinery/computer/shuttle/marine_dropship/can_interact(mob/user)
 	. = ..()
@@ -520,6 +513,7 @@
 		var/mob/living/carbon/xenomorph/X = user
 		if(!(X.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT))
 			return FALSE
+
 
 	else if(!allowed(user))
 		return FALSE
@@ -703,10 +697,8 @@
 		do_hijack(M, CT, X)
 
 	if(href_list["abduct"])
-//RUTGMC EDIT ADDITION BEGIN - Preds
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 		if(living_player_list[1] > 5)
-//RUTGMC EDIT ADDITION END
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 
@@ -742,7 +734,6 @@
 		else
 			to_chat(user, span_warning("ERROR. This shouldn't happen, please report it."))
 			CRASH("moveShuttleToDock() returned a non-zero-nor-one value.")
-
 
 /obj/machinery/computer/shuttle/marine_dropship/one
 	name = "\improper 'Normandy' flight controls"
@@ -886,7 +877,6 @@
 /obj/structure/dropship_piece/one/weapon/rightright
 	icon_state = "brown_weapon_rr"
 
-
 /obj/structure/dropship_piece/one/wing
 	opacity = FALSE
 
@@ -902,7 +892,6 @@
 /obj/structure/dropship_piece/one/wing/right/bottom
 	icon_state = "brown_wing_rb"
 
-
 /obj/structure/dropship_piece/one/corner/middleleft
 	icon_state = "brown_middle_lc"
 
@@ -914,7 +903,6 @@
 
 /obj/structure/dropship_piece/one/corner/rearright
 	icon_state = "brown_rear_rc"
-
 
 /obj/structure/dropship_piece/one/engine
 	opacity = FALSE
@@ -962,8 +950,6 @@
 	icon_state = "brown_rearwing_rrrb"
 	opacity = FALSE
 	allow_pass_flags = PASSABLE
-
-
 
 /obj/structure/dropship_piece/two
 	name = "\improper Normandy"
@@ -1055,7 +1041,6 @@
 /obj/structure/dropship_piece/two/cockpit/right
 	icon_state = "blue_cockpit_fr"
 
-
 /obj/structure/dropship_piece/two/weapon
 	opacity = FALSE
 
@@ -1071,7 +1056,6 @@
 /obj/structure/dropship_piece/two/weapon/rightright
 	icon_state = "blue_weapon_rr"
 
-
 /obj/structure/dropship_piece/two/wing
 	opacity = FALSE
 
@@ -1086,7 +1070,6 @@
 
 /obj/structure/dropship_piece/two/wing/right/bottom
 	icon_state = "blue_wing_rb"
-
 
 /obj/structure/dropship_piece/two/corner/middleleft
 	icon_state = "blue_middle_lc"
@@ -1106,7 +1089,6 @@
 /obj/structure/dropship_piece/two/corner/frontright
 	icon_state = "blue_front_rc"
 
-
 /obj/structure/dropship_piece/two/engine
 	opacity = FALSE
 
@@ -1121,7 +1103,6 @@
 
 /obj/structure/dropship_piece/two/engine/rightbottom
 	icon_state = "blue_engine_rb"
-
 
 /obj/structure/dropship_piece/two/rearwing/lefttop
 	icon_state = "blue_rearwing_lt"
@@ -1151,7 +1132,6 @@
 	icon_state = "blue_rearwing_rrrb"
 	opacity = FALSE
 
-
 /obj/structure/dropship_piece/three
 	name = "\improper Triumph"
 
@@ -1172,7 +1152,6 @@
 /obj/structure/dropship_piece/three/cockpit/right
 	icon_state = "brown_cockpit_fr"
 
-
 /obj/structure/dropship_piece/three/weapon
 	opacity = FALSE
 
@@ -1187,7 +1166,6 @@
 
 /obj/structure/dropship_piece/three/weapon/rightright
 	icon_state = "brown_weapon_rr"
-
 
 /obj/structure/dropship_piece/three/wing
 	opacity = FALSE
@@ -1204,7 +1182,6 @@
 /obj/structure/dropship_piece/three/wing/right/bottom
 	icon_state = "brown_wing_rb"
 
-
 /obj/structure/dropship_piece/three/corner/middleleft
 	icon_state = "brown_middle_lc"
 
@@ -1216,7 +1193,6 @@
 
 /obj/structure/dropship_piece/three/corner/rearright
 	icon_state = "brown_rear_rc"
-
 
 /obj/structure/dropship_piece/three/engine
 	opacity = FALSE
@@ -1232,7 +1208,6 @@
 
 /obj/structure/dropship_piece/three/engine/rightbottom
 	icon_state = "brown_engine_rb"
-
 
 /obj/structure/dropship_piece/three/rearwing/lefttop
 	icon_state = "brown_rearwing_lt"
@@ -1262,7 +1237,6 @@
 	icon_state = "brown_rearwing_rrrb"
 	opacity = FALSE
 
-
 //Dropship control console
 
 /obj/machinery/computer/shuttle/shuttle_control
@@ -1273,16 +1247,13 @@
 	///Able to auto-relink to any shuttle with at least one of the flags in common if shuttleId is invalid.
 	var/compatible_control_flags = NONE
 
-
 /obj/machinery/computer/shuttle/shuttle_control/Initialize(mapload)
 	. = ..()
 	GLOB.shuttle_controls_list += src
 
-
 /obj/machinery/computer/shuttle/shuttle_control/Destroy()
 	GLOB.shuttle_controls_list -= src
 	return ..()
-
 
 /obj/machinery/computer/shuttle/shuttle_control/ui_interact(mob/user, datum/tgui/ui)
 	if(!(SSshuttle.getShuttle(shuttleId)))
@@ -1421,8 +1392,6 @@
 	say("Relinked Dropship Control Console to: '[shuttleName]'")
 	return TRUE //Did relink
 
-
-
 /obj/machinery/computer/shuttle/shuttle_control/dropship
 	name = "\improper 'Normandy' dropship console"
 	desc = "The remote controls for the 'Normandy' Dropship. Named after a department in France, noteworthy for the famous naval invasion of Normandy on the 6th of June 1944, a bloody but decisive victory in World War II and the campaign for the Liberation of France."
@@ -1434,7 +1403,6 @@
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
 	compatible_control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
-
 
 /obj/machinery/computer/shuttle/shuttle_control/dropship/two
 	name = "\improper 'Alamo' dropship console"
@@ -1464,7 +1432,6 @@
 	var/datum/browser/popup = new(user, "computer", M ? M.name : "shuttle", 300, 200)
 	popup.set_content("<center>[dat]</center>")
 	popup.open()
-
 
 /obj/machinery/computer/shuttle/shuttle_control/canterbury/Topic(href, href_list)
 	// Since we want to avoid the standard move topic, we are just gonna override everything.

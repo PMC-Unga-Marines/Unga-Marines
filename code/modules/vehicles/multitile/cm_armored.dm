@@ -1,4 +1,3 @@
-
 //NOT bitflags, just global constant values
 #define HDPT_PRIMARY "primary"
 #define HDPT_SECDGUN "secondary"
@@ -20,21 +19,15 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	desc = "Get inside to operate the vehicle."
 	hitbox_type = /obj/vehicle/multitile/hitbox/cm_armored //Used for emergencies and respawning hitboxes
 
-	//What slots the vehicle can have
+	///What slots the vehicle can have
 	var/list/hardpoints = list(HDPT_ARMOR, HDPT_TREADS, HDPT_SECDGUN, HDPT_SUPPORT, HDPT_PRIMARY)
-
-	//The next world.time when the tank can move
+	///The next world.time when the tank can move
 	var/next_move = 0
-
-	//Below are vars that can be affected by hardpoints, generally used as ratios or decisecond timers
-
+	///Below are vars that can be affected by hardpoints, generally used as ratios or decisecond timers
 	move_delay = 30 //default 3 seconds per tile
-
 	var/active_hp
-
 	var/list/dmg_distribs = list()
-
-	//Changes cooldowns and accuracies
+	///Changes cooldowns and accuracies
 	var/list/misc_ratios = list(
 		"move" = 1.0,
 		"prim_acc" = 1.0,
@@ -43,8 +36,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		"prim_cool" = 1.0,
 		"secd_cool" = 1.0,
 		"supp_cool" = 1.0)
-
-	//Changes how much damage the tank takes
+	///Changes how much damage the tank takes
 	var/list/dmg_multipliers = list(
 		"all" = 1.0, //for when you want to make it invincible
 		"acid" = 1.0,
@@ -53,14 +45,12 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		"explosive" = 1.0,
 		"blunt" = 1.0,
 		"abstract" = 1.0) //abstract for when you just want to hurt it
-
-	//Decisecond cooldowns for the slots
+	///Decisecond cooldowns for the slots
 	var/list/internal_cooldowns = list(
 		"primary" = 300,
 		"secondary" = 200,
 		"support" = 150)
-
-	//Percentage accuracies for slot
+	///Percentage accuracies for slot
 	var/list/accuracies = list(
 		"primary" = 0.97,
 		"secondary" = 0.67,
@@ -70,12 +60,10 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 
-
 /obj/vehicle/multitile/root/cm_armored/Initialize(mapload)
 	. = ..()
 	GLOB.tank_list += src
 	set_light(0.01)
-
 
 /obj/vehicle/multitile/root/cm_armored/Destroy()
 	for(var/i in linked_objs)
@@ -189,7 +177,6 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 	to_chat(usr, span_notice("You reload the [slot] module."))
 
-
 /obj/vehicle/multitile/root/cm_armored/proc/get_activatable_hardpoints()
 	var/list/slots = list()
 	for(var/slot in hardpoints)
@@ -201,8 +188,6 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		slots += slot
 
 	return slots
-
-
 
 //Special armored vic healthcheck that mainly updates the hardpoint states
 /obj/vehicle/multitile/root/cm_armored/proc/healthcheck()
@@ -277,7 +262,6 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	A.tank_collision(src, facing, T, temp)
 	if(isliving(A))
 		log_attack("[get_driver()] drove over [A] with [root]")
-
 
 /obj/vehicle/multitile/hitbox/cm_armored/proc/get_driver()
 	return "Someone"
@@ -428,8 +412,8 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 /obj/vehicle/multitile/hitbox/cm_armored/attackby(obj/item/I, mob/user, params)
 	return root.attackby(I, user, params)
 
-/obj/vehicle/multitile/hitbox/cm_armored/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	return root.attack_alien(X, damage_amount)
+/obj/vehicle/multitile/hitbox/cm_armored/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	return root.attack_alien(xeno_attacker, damage_amount)
 
 /obj/vehicle/multitile/hitbox/cm_armored/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
@@ -477,7 +461,6 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 	return ..()
 
-
 //severity 1.0 explosions never really happen so we're gonna follow everyone else's example
 /obj/vehicle/multitile/root/cm_armored/ex_act(severity)
 
@@ -523,14 +506,12 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		handle_player_entrance(user)
 		return
 
-
 /obj/vehicle/multitile/root/cm_armored/Entered(atom/movable/A)
 	if(istype(A, /obj) && !istype(A, /obj/item/ammo_magazine/tank) && !istype(A, /obj/item/hardpoint))
 		A.forceMove(loc)
 		return
 
 	return ..()
-
 
 //Redistributes damage ratios based off of what things are attached (no armor means the armor doesn't mitigate any damage)
 /obj/vehicle/multitile/root/cm_armored/proc/update_damage_distribs()
@@ -571,7 +552,6 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		. = ..()
 		if(!(O.flags_item & NOBLUDGEON))
 			take_damage_type(O.force * 0.05, "blunt", user) //Melee weapons from people do very little damage
-
 
 /obj/vehicle/multitile/root/cm_armored/proc/handle_hardpoint_repair(obj/item/O, mob/user)
 
@@ -802,8 +782,6 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	hardpoints[old.slot] = null
 	update_damage_distribs()
 	update_icon()
-
-
 
 /obj/vehicle/multitile/root/cm_armored/contents_explosion(severity)
 	return
