@@ -253,6 +253,19 @@
 	keybind_signal = COMSIG_XENOABILITY_ACID_SHROUD
 	hotkey_keys = list("Q")
 
+/datum/keybinding/xeno/acid_shroud_select
+	name = "select_acid_shroud"
+	full_name = "Boiler: Select Acid Shroud"
+	description = "Create a smokescreen for a getaway."
+	keybind_signal = COMSIG_XENOABILITY_ACID_SHROUD_SELECT
+
+/datum/keybinding/xeno/plow_charge
+	name = "plow_charge"
+	full_name = "Bull: Plow Charge"
+	description = "A charge that plows through the victims."
+	keybind_signal = COMSIG_XENOABILITY_BULLCHARGE
+	hotkey_keys = list("Q")
+
 /datum/keybinding/xeno/acid_charge
 	name = "acid_charge"
 	full_name = "Bull: Acid charge"

@@ -288,13 +288,14 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	ability_cost = 200
 	cooldown_duration = 30 SECONDS
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ACID_SHROUD,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_ACID_SHROUD_SELECT,
 	)
 
-/datum/action/ability/activable/xeno/acid_shroud/action_activate(datum/effect_system/smoke_spread/emitted_gas)
-	var/added_bombard_delay = xeno_owner.xeno_caste.bomb_delay + 8.5 SECONDS - (xeno_owner.corrosive_ammo * BOILER_BOMBARD_COOLDOWN_REDUCTION SECONDS) //The cooldown of Bombard that is added when this ability is used. It is the calculation of Bombard cooldown + 10 seconds.
-	emitted_gas = new /datum/effect_system/smoke_spread/xeno/acid(xeno_owner)
+/datum/action/ability/activable/xeno/acid_shroud/use_ability(atom/A)
+	var/datum/effect_system/smoke_spread/emitted_gas = new /datum/effect_system/smoke_spread/xeno/acid(xeno_owner)
 	emitted_gas.set_up(4, get_turf(xeno_owner))
 	emitted_gas.start()
 	succeed_activate()
@@ -304,4 +305,4 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		deltimer(bombard_action.cooldown_timer)
 		bombard_action.cooldown_timer = null
 		bombard_action.countdown.stop()
-	bombard_action?.add_cooldown(added_bombard_delay)
+	bombard_action?.add_cooldown(xeno_owner.xeno_caste.bomb_delay + 8.5 SECONDS - (xeno_owner.corrosive_ammo * BOILER_BOMBARD_COOLDOWN_REDUCTION SECONDS)) //The cooldown of Bombard that is added when this ability is used. It is the calculation of Bombard cooldown + 10 seconds.
