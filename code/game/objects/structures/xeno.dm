@@ -1,7 +1,3 @@
-
-/*
-* effect/alien
-*/
 /obj/alien
 	name = "alien thing"
 	desc = "theres something alien about this"
@@ -57,11 +53,9 @@
 	max_integrity = 200
 	resistance_flags = XENO_DAMAGEABLE
 
-
 /obj/alien/resin/attack_hand(mob/living/user)
 	balloon_alert(user, "You only scrape at it")
 	return TRUE
-
 
 /obj/alien/resin/sticky
 	name = STICKY_RESIN
@@ -108,17 +102,17 @@
 
 	victim.next_move_slowdown += slow_amt
 
-/obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent != INTENT_DISARM)
+	if(xeno_attacker.a_intent != INTENT_DISARM)
 		return FALSE
 
-	if(X.a_intent == INTENT_DISARM)
-		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X) && refundable)
-			SSresinshaping.decrement_build_counter(X)
-		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	if(xeno_attacker.a_intent == INTENT_DISARM)
+		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker) && refundable)
+			SSresinshaping.decrement_build_counter(xeno_attacker)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		playsound(src, "alien_resin_break", 25)
 		deconstruct(TRUE)
 		return
@@ -154,7 +148,6 @@
 	trigger_sound = "alien_resin_move"
 	hit_sound = "alien_resin_move"
 	destroy_sound = "alien_resin_move"
-
 	///The delay before the door closes automatically after being open
 	var/close_delay = 10 SECONDS
 	///The timer that tracks the delay above
@@ -187,22 +180,22 @@
 	try_toggle_state(M)
 	return TRUE
 
-/obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	var/turf/cur_loc = X.loc
+/obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	var/turf/cur_loc = xeno_attacker.loc
 	if(!istype(cur_loc))
 		return FALSE
-	if(X.a_intent != INTENT_DISARM)
-		try_toggle_state(X)
+	if(xeno_attacker.a_intent != INTENT_DISARM)
+		try_toggle_state(xeno_attacker)
 		return TRUE
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
-		SSresinshaping.decrement_build_counter(X)
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
+		SSresinshaping.decrement_build_counter(xeno_attacker)
 		qdel(src)
 		return TRUE
 
-	src.balloon_alert(X, "Destroying...")
+	src.balloon_alert(xeno_attacker, "Destroying...")
 	playsound(src, "alien_resin_break", 25)
-	if(do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
-		src.balloon_alert(X, "Destroyed")
+	if(do_after(xeno_attacker, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
+		src.balloon_alert(xeno_attacker, "Destroyed")
 		qdel(src)
 
 /obj/structure/mineral_door/resin/flamer_fire_act(burnlevel)
@@ -246,7 +239,6 @@
 			INVOKE_NEXT_TICK(R, PROC_REF(check_resin_support))
 	return ..()
 
-
 //do we still have something next to us to support us?
 /obj/structure/mineral_door/resin/proc/check_resin_support()
 	var/turf/T
@@ -275,20 +267,20 @@
 	///Holder to ensure only one user per resin jelly.
 	var/current_user
 
-/obj/item/resin_jelly/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/item/resin_jelly/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.xeno_caste.can_flags & CASTE_CAN_HOLD_JELLY)
-		return attack_hand(X)
-	if(X.do_actions || !isnull(current_user))
+	if(xeno_attacker.xeno_caste.can_flags & CASTE_CAN_HOLD_JELLY)
+		return attack_hand(xeno_attacker)
+	if(xeno_attacker.do_actions || !isnull(current_user))
 		return
-	current_user = X
-	X.balloon_alert(X, "Applying...")
-	if(!do_after(X, RESIN_SELF_TIME, NONE, X, BUSY_ICON_MEDICAL))
+	current_user = xeno_attacker
+	xeno_attacker.balloon_alert(xeno_attacker, "Applying...")
+	if(!do_after(xeno_attacker, RESIN_SELF_TIME, NONE, xeno_attacker, BUSY_ICON_MEDICAL))
 		current_user = null
 		return
-	activate_jelly(X)
+	activate_jelly(xeno_attacker)
 
 /obj/item/resin_jelly/attack_self(mob/living/carbon/xenomorph/user)
 	//Activates if the item itself is clicked in hand.
@@ -341,11 +333,11 @@
 	UnregisterSignal(source, COMSIG_MOVABLE_IMPACT)
 	if(!isxeno(hit_atom))
 		return
-	var/mob/living/carbon/xenomorph/X = hit_atom
-	if(X.xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
+	var/mob/living/carbon/xenomorph/xenomorph_target = hit_atom
+	if(xenomorph_target.xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 		return
-	X.visible_message(span_notice("[X] is splattered with jelly!"))
-	INVOKE_ASYNC(src, PROC_REF(activate_jelly), X)
+	xenomorph_target.visible_message(span_notice("[xenomorph_target] is splattered with jelly!"))
+	INVOKE_ASYNC(src, PROC_REF(activate_jelly), xenomorph_target)
 
 /obj/alien/resin/resin_growth
 	name = GROWTH_WALL

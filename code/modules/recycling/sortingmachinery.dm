@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 	return
 
 /obj/structure/bigDelivery/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
-	attack_hand(X)
+	attack_hand(xeno_attacker)
 
 /obj/structure/bigDelivery/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -115,7 +115,6 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				user.visible_message("\The [user] labels \the [src] with \a [I], scribbling down: \"[examtext]\"",\
 				span_notice("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
-
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
@@ -223,14 +222,12 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				span_notice("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 
-
 /obj/item/packageWrap
 	name = "package wrapper"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/amount = 25
-
 
 /obj/item/packageWrap/afterattack(obj/target, mob/user, proximity)
 	if(!proximity) return
@@ -247,7 +244,6 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 		return
 
 	log_combat(user, target, "used", src)
-
 
 	if (istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
 		var/obj/item/O = target
@@ -314,7 +310,6 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 	..()
 	if(get_dist(src, user) < 2)
 		to_chat(user, span_notice("There are [amount] units of package wrap left!"))
-
 
 /obj/item/destTagger
 	name = "destination tagger"

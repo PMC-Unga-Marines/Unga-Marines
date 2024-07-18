@@ -24,9 +24,7 @@
 	playsound(loc, 'sound/weapons/alien_claw_block.ogg', 25, TRUE) //Feedback
 	return FALSE
 
-
 /mob/living/proc/attack_alien_disarm(mob/living/carbon/xenomorph/X, dam_bonus)
-
 	SEND_SIGNAL(src, COMSIG_LIVING_MELEE_ALIEN_DISARMED, X)
 	X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
 	playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, TRUE)
@@ -152,14 +150,12 @@
 	spark_system.start(src)
 	playsound(loc, "alien_claw_metal", 25, TRUE)
 
-
 /mob/living/carbon/xenomorph/attack_alien_harm(mob/living/carbon/xenomorph/X, dam_bonus, set_location = FALSE, random_location = FALSE, no_head = FALSE, no_crit = FALSE, force_intent = null)
 	if(issamexenohive(X))
 		X.visible_message(span_warning("\The [X] nibbles [src]."),
 		span_warning("We nibble [src]."), null, 5)
 		return FALSE
 	return ..()
-
 
 /mob/living/carbon/human/attack_alien_harm(mob/living/carbon/xenomorph/X, dam_bonus, set_location = FALSE, random_location = FALSE, no_head = FALSE, no_crit = FALSE, force_intent = null)
 
@@ -186,14 +182,11 @@
 			to_chat(X, span_warning("[src] is dead, why would we want to touch it?"))
 		return FALSE
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(isyautja(src) && check_pred_shields(X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier + dam_bonus, backside_attack = dir == get_dir(get_turf(X), get_turf(src)), xenomorph = TRUE))
 		return FALSE
-//RUTGMC EDIT ADDITION END
 
 	SEND_SIGNAL(X, COMSIG_XENOMORPH_ATTACK_HUMAN, src)
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(wear_mask && X.zone_selected == "head" && istype(wear_mask, /obj/item/clothing/mask/gas/yautja) && prob(5))
 		playsound(loc, "alien_claw_metal", 25, 1)
 		X.visible_message(span_danger("The [X] smashes off [src]'s [wear_mask.name]!"), \
@@ -204,36 +197,35 @@
 		else
 			emote("scream")
 		return TRUE
-//RUTGMC EDIT ADDITION END
 
 	. = ..()
 	if(!.)
 		return FALSE
 
 //Every other type of nonhuman mob //MARKER OVERRIDE
-/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if (X.fortify || X.behemoth_charging)
+	if (xeno_attacker.fortify || xeno_attacker.behemoth_charging)
 		return FALSE
 
-	SEND_SIGNAL(X, COMSIG_XENOMORPH_ATTACK_LIVING, src, damage_amount, X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier)
+	SEND_SIGNAL(xeno_attacker, COMSIG_XENOMORPH_ATTACK_LIVING, src, damage_amount, xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier)
 
-	switch(X.a_intent)
+	switch(xeno_attacker.a_intent)
 		if(INTENT_HELP)
 			if(on_fire)
-				X.visible_message(span_danger("[X] stares at [src]."), span_notice("We stare at the roasting [src], toasty."), null, 5)
+				xeno_attacker.visible_message(span_danger("[xeno_attacker] stares at [src]."), span_notice("We stare at the roasting [src], toasty."), null, 5)
 				return FALSE
-			X.visible_message(span_notice("\The [X] caresses [src] with its scythe-like arm."), \
+			xeno_attacker.visible_message(span_notice("\The [xeno_attacker] caresses [src] with its scythe-like arm."), \
 			span_notice("We caress [src] with our scythe-like arm."), null, 5)
 			return FALSE
 
 		if(INTENT_GRAB)
-			return attack_alien_grab(X)
+			return attack_alien_grab(xeno_attacker)
 
 		if(INTENT_HARM, INTENT_DISARM)
-			return attack_alien_harm(X)
+			return attack_alien_harm(xeno_attacker)
 	return FALSE
 
 /mob/living/attack_larva(mob/living/carbon/xenomorph/larva/M)

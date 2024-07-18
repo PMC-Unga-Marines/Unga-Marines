@@ -125,18 +125,6 @@
 			to_chat(owner_xeno, span_xenowarning("No need, we feel sated for now..."))
 		return FALSE
 
-#define DO_DRAIN_ACTION(owner_xeno, target_human) \
-	owner_xeno.do_attack_animation(target_human, ATTACK_EFFECT_REDSTAB);\
-	owner_xeno.visible_message(target_human, span_danger("[owner_xeno] stabs its tail into [target_human]!"));\
-	playsound(target_human, "alien_claw_flesh", 25, TRUE);\
-	target_human.emote("scream");\
-	target_human.apply_damage(damage = 4, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD, blocked = 0, sharp = TRUE, edge = FALSE, updating_health = TRUE);\
-\
-	var/drain_healing = GORGER_DRAIN_HEAL;\
-	HEAL_XENO_DAMAGE(owner_xeno, drain_healing, TRUE);\
-	adjustOverheal(owner_xeno, drain_healing);\
-	owner_xeno.gain_plasma(owner_xeno.xeno_caste.drain_plasma_gain)
-
 /datum/action/ability/activable/xeno/drain/use_ability(mob/living/carbon/human/target_human)
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	if(target_human.stat == DEAD)
@@ -155,13 +143,20 @@
 		if(!do_after(owner_xeno, GORGER_DRAIN_DELAY, IGNORE_HELD_ITEM, target_human))
 			break
 		target_human.blood_volume = max(target_human.blood_volume - 15, 0)
-		DO_DRAIN_ACTION(owner_xeno, target_human)
+
+		owner_xeno.do_attack_animation(target_human, ATTACK_EFFECT_REDSTAB)
+		owner_xeno.visible_message(target_human, span_danger("[owner_xeno] stabs its tail into [target_human]!"))
+		playsound(target_human, "alien_claw_flesh", 25, TRUE)
+		target_human.emote("scream")
+		target_human.apply_damage(damage = 4, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD, blocked = 0, sharp = TRUE, edge = FALSE, updating_health = TRUE)
+
+		HEAL_XENO_DAMAGE(owner_xeno, GORGER_DRAIN_HEAL, TRUE)
+		adjustOverheal(owner_xeno, GORGER_DRAIN_HEAL)
+		owner_xeno.gain_plasma(owner_xeno.xeno_caste.drain_plasma_gain)
 
 	REMOVE_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
 	target_human.blur_eyes(1)
 	add_cooldown()
-
-#undef DO_DRAIN_ACTION
 
 /datum/action/ability/activable/xeno/drain/ai_should_use(atom/target)
 	return can_use_ability(target, TRUE)

@@ -34,7 +34,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	record_generator_sabotages(X)
+	record_generator_sabotages(xeno_attacker)
 	return TRUE
 
 /obj/machinery/power/port_gen/should_have_node()

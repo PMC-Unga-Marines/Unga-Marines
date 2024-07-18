@@ -27,7 +27,6 @@
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
 	pass_flags = PASS_XENO
-
 	///Whether the hugger is dead, active or inactive
 	var/stat = CONSCIOUS
 	///"Freezes" the hugger in for example, eggs
@@ -62,7 +61,6 @@
 	var/about_to_jump = FALSE
 	///Time to become active after moving into the facehugger's space.
 	var/proximity_time = 0.75 SECONDS
-
 
 /obj/item/clothing/mask/facehugger/Initialize(mapload, input_hivenumber, input_source)
 	. = ..()
@@ -115,20 +113,19 @@
 	else
 		icon_state = "[initial(icon_state)]"
 
-
 //Deal with picking up facehuggers. "attack_alien" is the universal 'xenos click something while unarmed' proc.
-/obj/item/clothing/mask/facehugger/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/item/clothing/mask/facehugger/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
 
-	if(!issamexenohive(X) && stat != DEAD)
-		X.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-		X.visible_message("<span class='xenowarning'>[X] crushes \the [src]",
-			"<span class='xenowarning'>We crush \the [src]")
+	if(!issamexenohive(xeno_attacker) && stat != DEAD)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+		xeno_attacker.visible_message(span_xenowarning("[xeno_attacker] crushes \the [src]"),
+			span_xenowarning("We crush \the [src]"))
 		kill_hugger()
 		return
 	else
-		attack_hand(X)
+		attack_hand(xeno_attacker)
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/clothing/mask/facehugger/attack_hand(mob/living/user)
@@ -474,7 +471,6 @@
 /////////////////////////////
 // ATTACHING AND IMPREGNATION
 //////////////////////////////
-//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\facehuggers.dm
 /obj/item/clothing/mask/facehugger/proc/Attach(mob/living/carbon/M, can_catch = TRUE)
 
 	set_throwing(FALSE)
@@ -559,13 +555,11 @@
 		reset_attach_status(FALSE)
 		return
 	if(ishuman(user))
-//RUTGMC EDIT ADDITION BEGIN - Preds
 		var/hugsound
 		if(isyautja(user))
 			hugsound = get_sfx("pred_hugged")
 		else
 			hugsound = user.gender == FEMALE ? get_sfx("female_hugged") : get_sfx("male_hugged")
-//RUTGMC EDIT ADDITION END
 		playsound(loc, hugsound, 25, 0)
 	if(!sterile && !issynth(user))
 		var/stamina_dmg = user.maxHealth + user.max_stamina
@@ -589,14 +583,12 @@
 			if(source?.client)
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 				personal_statistics.impregnations++
-//RUTGMC EDIT ADDITION BEGIN - Preds
 			if(isyautja(target))
 				var/datum/hive_status/hive = GLOB.hive_datums[embryo.hivenumber]
 				if(!istype(hive))
 					return
 				hive.max_thick_nests++
 				xeno_message("The hive senses that a headhunter has been infected! The thick resin nest is now available in the mother's blessing!", hivenumber = hive.hivenumber)
-//RUTGMC EDIT ADDITION END
 			sterile = TRUE
 		kill_hugger()
 	else
@@ -614,7 +606,6 @@
 	//If hugger sentient, then we drop player's hugger
 	if(isxenofacehugger(source) && as_planned)
 		dropped(target)
-
 
 /obj/item/clothing/mask/facehugger/proc/kill_hugger(melt_timer = 1 MINUTES)
 	reset_attach_status()
@@ -694,7 +685,6 @@
 			source.death()
 		qdel(src)
 
-
 /////////////////////////////
 // SUBTYPES
 /////////////////////////////
@@ -706,7 +696,6 @@
 	. = ..()
 	update_icon()
 
-
 /obj/item/clothing/mask/facehugger/dead
 	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?"
 	name = "????"
@@ -717,7 +706,6 @@
 	. = ..()
 	update_icon()
 
-
 /obj/item/clothing/mask/facehugger/larval
 	name = "larval hugger"
 
@@ -726,7 +714,6 @@
 	sterile = TRUE
 	combat_hugger = TRUE
 	flags_equip_slot = NONE
-
 
 /obj/item/clothing/mask/facehugger/combat/neuro
 	name = "neuro hugger"
@@ -773,14 +760,12 @@
 		if(!locate(/obj/effect/xenomorph/spray) in acid_tile.contents)
 			new /obj/effect/xenomorph/spray(acid_tile, 6 SECONDS, 16)
 
-
 	var/datum/effect_system/smoke_spread/xeno/acid/light/A = new(get_turf(src)) //Spawn acid smoke
 	A.set_up(1,src)
 	A.start()
 	kill_hugger(0.5 SECONDS)
 
 	return TRUE
-
 
 /obj/item/clothing/mask/facehugger/combat/resin
 	name = "resin hugger"
@@ -813,7 +798,6 @@
 	kill_hugger(0.5 SECONDS)
 
 	return TRUE
-
 
 /obj/item/clothing/mask/facehugger/combat/slash
 	name = "clawed hugger"
@@ -850,7 +834,6 @@
 		var/mob/living/carbon/xenomorph/X = M
 		if(hivenumber == X.hive.hivenumber) //No friendly fire
 			return FALSE
-
 	return TRUE
 
 #undef FACEHUGGER_DEATH
