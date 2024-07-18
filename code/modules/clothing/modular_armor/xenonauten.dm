@@ -154,6 +154,7 @@
 	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 40, BIO = 40, FIRE = 10, ACID = 45)
 	attachments_allowed = list(
 		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/hod_head,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
@@ -199,6 +200,7 @@
 	starting_attachments = list(/obj/item/armor_module/armor/visor/marine/xenonaut, /obj/item/armor_module/storage/helmet)
 	attachments_allowed = list(
 		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/hod_head,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
