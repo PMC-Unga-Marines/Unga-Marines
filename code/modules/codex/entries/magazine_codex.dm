@@ -43,7 +43,7 @@
 		traits += "Armor penetration: [default_ammo.penetration]<br>"
 
 	if(default_ammo.additional_xeno_penetration)
-		traits += "Xenomorph additional armor penetration: [ammo.penetration]<br>"
+		traits += "Xenomorph additional armor penetration: [default_ammo.penetration]<br>"
 
 	if(default_ammo.sundering)
 		traits += "Sundering amount: [default_ammo.sundering]<br>"
