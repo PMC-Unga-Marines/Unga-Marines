@@ -150,8 +150,9 @@
 		target_human.emote("scream")
 		target_human.apply_damage(damage = 4, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD, blocked = 0, sharp = TRUE, edge = FALSE, updating_health = TRUE)
 
-		HEAL_XENO_DAMAGE(owner_xeno, GORGER_DRAIN_HEAL, TRUE)
-		adjustOverheal(owner_xeno, GORGER_DRAIN_HEAL)
+		var/drain_heal = GORGER_DRAIN_HEAL
+		HEAL_XENO_DAMAGE(owner_xeno, drain_heal, TRUE) // this define shitcoded proc errors if we have a define inside of a define
+		adjustOverheal(owner_xeno, drain_heal)
 		owner_xeno.gain_plasma(owner_xeno.xeno_caste.drain_plasma_gain)
 
 	REMOVE_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
