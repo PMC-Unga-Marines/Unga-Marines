@@ -30,7 +30,6 @@
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/flashlight,/obj/item/weapon/gun, /obj/item/ammo_magazine, /obj/item/weapon/baton,/obj/item/restraints/handcuffs)
 	slowdown = 1.5
 	soft_armor = list(MELEE = 40, BULLET = 50, LASER = 50, ENERGY = 25, BOMB = 50, BIO = 100, FIRE = 25, ACID = 25)
-	flags_inventory = NOPRESSUREDMAGE
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	flags_cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -41,7 +40,7 @@
 	name = "Santa's hat"
 	desc = "Ho ho ho. Merrry X-mas!"
 	icon_state = "santahat"
-	flags_inventory = NOPRESSUREDMAGE|BLOCKSHARPOBJ
+	flags_inventory = BLOCKSHARPOBJ
 	flags_inv_hide = HIDEEYES
 	flags_armor_protection = HEAD
 

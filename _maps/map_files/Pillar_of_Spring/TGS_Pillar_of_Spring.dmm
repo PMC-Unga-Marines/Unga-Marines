@@ -11793,10 +11793,7 @@
 /area/mainship/command/self_destruct)
 "oYv" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	frequency = 1443;
-	name = "Lower Nitrogen Control Console";
-	output_tag = "nit_lower_out";
-	sensors = list("nit_sensor"="Tank")
+	name = "Lower Nitrogen Control Console"
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
@@ -14821,10 +14818,7 @@
 /area/mainship/medical/chemistry)
 "sGA" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	frequency = 1443;
-	name = "Lower Oxygen Supply Console";
-	output_tag = "oxygen_lower_out";
-	sensors = list("oxy_sensor"="Tank")
+	name = "Lower Oxygen Supply Console"
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
@@ -15132,11 +15126,7 @@
 /area/mainship/living/grunt_rnr)
 "tfK" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	frequency = 1443;
-	input_tag = "mix_lower_in";
-	name = "Lower Mixed Air Control";
-	output_tag = "mix_lower_out";
-	sensors = list("mix_sensor"="Tank")
+	name = "Lower Mixed Air Control"
 	},
 /obj/machinery/light/mainship{
 	dir = 1
@@ -18223,11 +18213,7 @@
 /area/mainship/hallways/stern_hallway)
 "wUx" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	frequency = 1443;
-	input_tag = "waste_lower_in";
-	name = "Lower Deck Waste Tank Control";
-	output_tag = "waste_lower_out";
-	sensors = list("waste_sensor"="Tank")
+	name = "Lower Deck Waste Tank Control"
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 1

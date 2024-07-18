@@ -221,22 +221,6 @@
 	if(prob(30))
 		age++
 
-	var/turf/T = loc
-	if(!loc)
-		return
-
-	var/pressure = T.return_pressure()
-	var/temperature = T.return_temperature()
-
-	if(pressure < seed.lowkpa_tolerance || pressure > seed.highkpa_tolerance)
-		die()
-		return
-
-	if(abs(temperature - seed.ideal_heat) > seed.heat_tolerance)
-		die()
-		return
-
-
 /obj/effect/plantsegment/flamer_fire_act(burnlevel)
 	qdel(src)
 

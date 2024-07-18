@@ -1,17 +1,10 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction
-	icon = 'icons/obj/atmospherics/pipes/he-junction.dmi'
-	icon_state = "pipe11-2"
-
 	name = "junction"
 	desc = "A one meter junction that connects regular and heat-exchanging pipe."
-
-	minimum_temperature_difference = 300
-	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
-
+	icon = 'icons/obj/atmospherics/pipes/he-junction.dmi'
+	icon_state = "pipe11-2"
 	dir = SOUTH
-
 	device_type = BINARY
-
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "junction"
 

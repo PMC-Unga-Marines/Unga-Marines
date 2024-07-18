@@ -757,7 +757,6 @@
 #define COMSIG_KB_SELFHARM "keybind_selfharm"
 
 // mecha keybinds
-#define COMSIG_MECHABILITY_TOGGLE_INTERNALS "mechability_toggle_internals"
 #define COMSIG_MECHABILITY_TOGGLE_STRAFE "mechability_toggle_strafe"
 #define COMSIG_MECHABILITY_VIEW_STATS "mechability_view_stats"
 #define COMSIG_MECHABILITY_SMOKE "mechability_smoke"

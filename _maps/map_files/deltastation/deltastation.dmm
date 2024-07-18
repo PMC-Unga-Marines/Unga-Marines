@@ -95001,7 +95001,7 @@
 /turf/closed/wall,
 /area/deltastation/maintenance/port)
 "tpg" = (
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
+/obj/machinery/atmospherics/components/trinary/mixer/airmix{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -102328,7 +102328,7 @@
 /area/deltastation/cargo/sorting)
 "uMn" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse,
+/obj/machinery/atmospherics/components/trinary/mixer/airmix,
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor/iron,
 /area/deltastation/engineering/atmos)
