@@ -21,6 +21,7 @@
 #define CAT_SGSUP "SMARTGUNNER SUPPLIES"
 #define CAT_FCSUP "COMMANDER SUPPLIES"
 #define CAT_SYNTH "SYNTHETIC SUPPLIES"
+#define CAT_MARINE "MARINE SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
 // Synth Special Categories
@@ -53,10 +54,12 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 
 #define METAL_PRICE_IN_GEAR_VENDOR 2
 #define PLASTEEL_PRICE_IN_GEAR_VENDOR 4
-//#define SANDBAG_PRICE_IN_GEAR_VENDOR 5 //ORIGINAL
-#define SANDBAG_PRICE_IN_GEAR_VENDOR 3 //RUTGMC EDIT
+#define SANDBAG_PRICE_IN_GEAR_VENDOR 3
 
-GLOBAL_LIST_INIT(marine_gear_listed_products, list())
+GLOBAL_LIST_INIT(marine_gear_listed_products, list(
+	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),  //placeholder
+	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"), //placeholder
+))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/effect/vendor_bundle/engi = list(CAT_ESS, "Essential Engineer Set", 0, "white"),
