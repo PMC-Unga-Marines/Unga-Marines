@@ -905,7 +905,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			damage *= STAGGER_DAMAGE_MULTIPLIER //Since we hate RNG, stagger reduces damage by a % instead of reducing accuracy; consider it a 'glancing' hit due to being disoriented.
 	var/original_damage = damage
 
-	damage = modify_by_armor(damage, proj.armor_type, isxeno(src) ? proj.penetration + proj.additional_xeno_penetration : proj.penetration, proj.def_zone)// RUTGMC EDIT
+	damage = modify_by_armor(damage, proj.armor_type, isxeno(src) ? proj.penetration + proj.additional_xeno_penetration : proj.penetration, proj.def_zone)
 	if(damage == original_damage)
 		feedback_flags |= BULLET_FEEDBACK_PEN
 	else if(!damage)
@@ -917,7 +917,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(IgniteMob())
 			feedback_flags |= (BULLET_FEEDBACK_FIRE)
 
-	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING) // RUTGMC EDIT
+	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING)
 		adjust_sunder(proj.sundering) // RUTGMC EDIT
 
 	if(stat != DEAD && ismob(proj.firer))
