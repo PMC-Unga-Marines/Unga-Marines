@@ -505,11 +505,15 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			var/list/shopping_cart = get_shopping_cart(ui.user)
 			shopping_cart.Cut()
 			. = TRUE
-		// RUTGMC EDIT BEGIN
 		if("buypersonal")
 			SSpoints.buy_using_psp(ui.user)
 			. = TRUE
-		// RUTGMC EDIT END
+		if("delivery")
+			var/datum/supply_order/O = SSpoints.shoppinglist[faction]["[params["id"]]"]
+			if(!O)
+				return
+			SSpoints.fast_delivery(O, ui.user)
+			. = TRUE
 
 /datum/supply_ui/requests
 	tgui_name = "CargoRequest"

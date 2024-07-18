@@ -265,24 +265,30 @@ const OrderList = (props, context) => {
             level={2}
             title={'Order #' + id}
             buttons={
-              !readOnly && (
-                <>
-                  {(!authed_by || selectedMenu === 'Denied Requests') && (
+              <>
+                {!readOnly &&
+                  (!authed_by || selectedMenu === 'Denied Requests') && (
                     <Button
                       onClick={() => act('approve', { id: id })}
                       icon="check"
                       content="Approve"
                     />
                   )}
-                  {!authed_by && (
-                    <Button
-                      onClick={() => act('deny', { id: id })}
-                      icon="times"
-                      content="Deny"
-                    />
-                  )}
-                </>
-              )
+                  {!readOnly && !authed_by && (
+                  <Button
+                    onClick={() => act('deny', { id: id })}
+                    icon="times"
+                    content="Deny"
+                  />
+                )}
+                {selectedMenu === 'Awaiting Delivery' && (
+                  <Button
+                    onClick={() => act('delivery', { id: id })}
+                    icon="luggage-cart"
+                    content="Delivery"
+                  />
+                )}
+              </>
             }>
             <LabeledList>
               <LabeledList.Item label="Requested by">

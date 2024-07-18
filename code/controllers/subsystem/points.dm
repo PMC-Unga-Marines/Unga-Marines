@@ -1,6 +1,8 @@
 // points per minute
 #define DROPSHIP_POINT_RATE 18 * (GLOB.current_orbit/3)
 #define SUPPLY_POINT_RATE 20 * (GLOB.current_orbit/3)
+// fast delivery defines
+#define FAST_DELIVERY_TAX 0.3 * (GLOB.current_orbit + 2/3)
 
 SUBSYSTEM_DEF(points)
 	name = "Points"
@@ -113,6 +115,98 @@ SUBSYSTEM_DEF(points)
 		LAZYADDASSOCSIMPLE(shoppinglist[user.faction], "[orders[i].id]", orders[i])
 	personal_supply_points[user.ckey] -= cost
 	ckey_shopping_cart.Cut()
+
+/datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/O, mob/living/user)
+	//select beacon
+	var/datum/supply_beacon/supply_beacon = GLOB.supply_beacon[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", GLOB.supply_beacon)]
+	if(!istype(supply_beacon))
+		to_chat(user, span_warning("No beacons"))
+		return
+
+	var/fast_delivery_cost = 0
+	for(var/i in O.pack)
+		var/datum/supply_packs/SP = i
+		fast_delivery_cost += SP.cost
+
+	fast_delivery_cost *= FAST_DELIVERY_TAX
+
+	//fast delivery is not free
+	if(fast_delivery_cost > supply_points[O.faction])
+		to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
+		return
+
+	supply_points[user.faction] -= fast_delivery_cost
+
+	//Same checks as for supply console
+	if(!supply_beacon)
+		to_chat(user, span_warning("There was an issue with that beacon. Check it's still active."))
+		return
+	if(!istype(supply_beacon.drop_location))
+		to_chat(user, span_warning("The [supply_beacon.name] was not detected on the ground."))
+		return
+	if(isspaceturf(supply_beacon.drop_location) || supply_beacon.drop_location.density)
+		to_chat(user, span_warning("The [supply_beacon.name]'s landing zone appears to be obstructed or out of bounds."))
+		return
+
+	//Just in case
+	if(!length_char(SSpoints.shoppinglist[O.faction]))
+		return
+
+	//Finally create the supply box
+
+	var/turf/TC = locate(supply_beacon.drop_location.x, supply_beacon.drop_location.y, supply_beacon.drop_location.z)
+
+	var/datum/supply_packs/firstpack = O.pack[1]
+
+	var/obj/structure/crate_type = firstpack.containertype || firstpack.contains[1]
+
+	var/obj/structure/A = new crate_type(TC)
+	if(firstpack.containertype)
+		A.name = "Order #[O.id] for [O.orderer]"
+
+	//supply manifest generation begin
+
+	var/obj/item/paper/manifest/slip = new /obj/item/paper/manifest(A)
+	slip.info = "<h3>Automatic Storage Retrieval Manifest</h3><hr><br>"
+	slip.info +="Order #[O.id]<br>"
+	slip.info +="[length_char(O.pack)] PACKAGES IN THIS SHIPMENT<br>"
+	slip.info +="CONTENTS:<br><ul>"
+	slip.update_icon()
+
+	var/list/contains = list()
+	//spawn the stuff, finish generating the manifest while you're at it
+	for(var/P in O.pack)
+		var/datum/supply_packs/SP = P
+		// yes i know
+		if(SP.access)
+			A.req_access = list()
+			A.req_access += text2num(SP.access)
+
+		if(SP.randomised_num_contained)
+			if(length_char(SP.contains))
+				for(var/j in 1 to SP.randomised_num_contained)
+					contains += pick(SP.contains)
+		else
+			contains += SP.contains
+
+	for(var/typepath in contains)
+		if(!typepath)
+			continue
+		if(!firstpack.containertype)
+			break
+		var/atom/B2 = new typepath(A)
+		slip.info += "<li>[B2.name]</li>" //add the item to the manifest
+
+	//manifest finalisation
+	slip.info += "</ul><br>"
+	slip.info += "CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>"
+
+	SSpoints.shoppinglist[O.faction] -= "[O.id]"
+	SSpoints.shopping_history += O
+
+	//effects
+	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
+	playsound(supply_beacon.drop_location,'sound/effects/phasein.ogg', 50, TRUE)
 
 ///Add amount of psy points to the selected hive only if the gamemode support psypoints
 /datum/controller/subsystem/points/proc/add_psy_points(hivenumber, amount)
