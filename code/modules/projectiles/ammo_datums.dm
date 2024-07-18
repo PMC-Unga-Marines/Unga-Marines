@@ -47,6 +47,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/damage_type = BRUTE
 	///How much armor it ignores before calculations take place
 	var/penetration = 0
+	///How much extra penetration applies to xeno
+	var/additional_xeno_penetration = 0
 	///The % chance it will imbed in a human
 	var/shrapnel_chance = 0
 	///How fast the projectile moves
