@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	var/list/hardpoints = list(HDPT_ARMOR, HDPT_TREADS, HDPT_SECDGUN, HDPT_SUPPORT, HDPT_PRIMARY)
 	///The next world.time when the tank can move
 	var/next_move = 0
-	///Below are vars that can be affected by hardpoints, generally used as ratios or decisecond timers
+	//Below are vars that can be affected by hardpoints, generally used as ratios or decisecond timers
 	move_delay = 30 //default 3 seconds per tile
 	var/active_hp
 	var/list/dmg_distribs = list()
