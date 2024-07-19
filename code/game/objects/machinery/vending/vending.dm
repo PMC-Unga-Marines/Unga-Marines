@@ -34,7 +34,6 @@
 	var/tab
 
 /datum/vending_product/New(name, atom/typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab)
-
 	product_path = typepath
 	amount = product_amount
 	price = product_price
@@ -63,7 +62,6 @@
 	coverage = 80
 	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	layer = BELOW_OBJ_LAYER
-
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 100
@@ -73,7 +71,6 @@
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
-
 	///Whether this vendor is active or not.
 	var/active = TRUE
 	///If the vendor is ready to vend.
@@ -86,7 +83,6 @@
 	var/isshared = FALSE
 	///The sound the vendor makes when it vends something
 	var/vending_sound
-
 	/*These are lists that are made null after they're used, their use is solely to fill the inventory of the vendor on Init.
 	They use the following pattern in case if it doenst pertain to a tab:
 	list(
@@ -117,21 +113,17 @@
 	var/list/premium = list()
 	/// Prices for each item, list(/type/path = price), items not in the list don't have a price.
 	var/list/prices = list()
-
 	/// String of slogans separated by semicolons, optional
 	var/product_slogans = ""
 	///String of small ad messages in the vending screen - random chance
 	var/product_ads = ""
-
 	//These are where the vendor holds their item info with /datum/vending_product
-
 	///list of /datum/vending_product's that are always available on the vendor
 	var/list/product_records = list()
 	///list of /datum/vending_product's that are available when vendor is hacked.
 	var/list/hidden_records = list()
 	///list of /datum/vending_product's that are available on the vendor when a coin is used.
 	var/list/coin_records = list()
-
 	var/list/slogan_list = list()
 	/// small ad messages in the vending screen - random chance of popping up whenever you open it
 	var/list/small_ads = list()
@@ -163,15 +155,11 @@
 	var/tipped_level = 0
 	///Stops the machine from being hacked to shoot inventory or allow all access
 	var/hacking_safety = FALSE
-
 	var/scan_id = TRUE
-
 	/// How much damage we can take before tipping over.
 	var/knockdown_threshold = 100
-
 	///Faction of the vendor. Can be null
 	var/faction
-
 
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
@@ -206,7 +194,6 @@
 	start_processing()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
-
 
 /obj/machinery/vending/LateInitialize()
 	. = ..()
@@ -285,38 +272,38 @@
 	for(var/season in seasonal_items)
 		products[seasonal_items[season]] += SSpersistence.season_items[season]
 
-/obj/machinery/vending/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/vending/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM)
-		X.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-		if(prob(X.xeno_caste.melee_damage))
+	if(xeno_attacker.a_intent == INTENT_HARM)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+		if(prob(xeno_attacker.xeno_caste.melee_damage))
 			playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
-			X.visible_message(span_danger("\The [X] smashes \the [src] beyond recognition!"), \
+			xeno_attacker.visible_message(span_danger("\The [xeno_attacker] smashes \the [src] beyond recognition!"), \
 			span_danger("We enter a frenzy and smash \the [src] apart!"), null, 5)
 			malfunction()
 			return TRUE
 		else
-			X.visible_message(span_danger("[X] slashes \the [src]!"), \
+			xeno_attacker.visible_message(span_danger("[xeno_attacker] slashes \the [src]!"), \
 			span_danger("We slash \the [src]!"), null, 5)
 			playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
 		return TRUE
 
 	if(tipped_level)
-		to_chat(X, span_warning("There's no reason to bother with that old piece of trash."))
+		to_chat(xeno_attacker, span_warning("There's no reason to bother with that old piece of trash."))
 		return FALSE
 
-	X.visible_message(span_warning("\The [X] begins to lean against \the [src]."), \
+	xeno_attacker.visible_message(span_warning("\The [xeno_attacker] begins to lean against \the [src]."), \
 	span_warning("You begin to lean against \the [src]."), null, 5)
 	tipped_level = 1
 	var/shove_time = 1 SECONDS
-	if(X.mob_size == MOB_SIZE_BIG)
+	if(xeno_attacker.mob_size == MOB_SIZE_BIG)
 		shove_time = 5 SECONDS
-	if(istype(X,/mob/living/carbon/xenomorph/crusher))
+	if(istype(xeno_attacker,/mob/living/carbon/xenomorph/crusher))
 		shove_time = 1.5 SECONDS
-	if(do_after(X, shove_time, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
-		X.visible_message(span_danger("\The [X] knocks \the [src] down!"), \
+	if(do_after(xeno_attacker, shove_time, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
+		xeno_attacker.visible_message(span_danger("\The [xeno_attacker] knocks \the [src] down!"), \
 		span_danger("You knock \the [src] down!"), null, 5)
 		tip_over()
 	else
@@ -625,7 +612,6 @@
 	else
 		return new R.product_path(get_turf(src))
 
-
 /obj/machinery/vending/MouseDrop_T(atom/movable/A, mob/user)
 	. = ..()
 	if(machine_stat & (BROKEN|NOPOWER))
@@ -799,7 +785,6 @@
 				flick(icon_vend, src)
 			playsound(loc, 'sound/machines/hydraulics_1.ogg', 25, 0, 1)
 
-
 /obj/machinery/vending/process()
 	if(machine_stat & (BROKEN|NOPOWER))
 		return
@@ -891,8 +876,7 @@
 	src.visible_message(span_warning("[src] launches [throw_item.name] at [target]!"))
 	. = TRUE
 
-
-/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0)
+/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, attack_dir, armour_penetration = 0)
 	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()

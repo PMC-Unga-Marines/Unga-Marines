@@ -94,7 +94,6 @@
 		qdel(hive_core)
 	return ..()
 
-
 /mob/living/carbon/xenomorph/hivemind/on_death()
 	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
 	if(!QDELETED(hive_core))
@@ -358,14 +357,14 @@
 
 //hivemind cores
 
-/obj/structure/xeno/hivemindcore/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(isxenoqueen(X))
-		var/choice = tgui_alert(X, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
+/obj/structure/xeno/hivemindcore/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(isxenoqueen(xeno_attacker))
+		var/choice = tgui_alert(xeno_attacker, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
 		if(choice == "Yes")
 			deconstruct(FALSE)
 			return
 
-	X.visible_message(span_danger("[X] nudges its head against [src]."), \
+	xeno_attacker.visible_message(span_danger("[xeno_attacker] nudges its head against [src]."), \
 	span_danger("You nudge your head against [src]."))
 
 /obj/structure/xeno/hivemindcore/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)

@@ -13,10 +13,8 @@
 	var/id = null
 	var/next_activate = 0
 
-
 /obj/machinery/button/indestructible
 	resistance_flags = RESIST_ALL
-
 
 /obj/machinery/button/Initialize(mapload, ndir = 0)
 	. = ..()
@@ -25,7 +23,6 @@
 	pixel_y = ( (dir & 3) ? (dir == 1 ? -24 : 24) : 0 )
 	update_icon()
 
-
 /obj/machinery/button/update_icon_state()
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
@@ -33,10 +30,8 @@
 	else
 		icon_state = initial(icon_state)
 
-
 /obj/machinery/button/attack_ai(mob/user)
 	return attack_hand(user)
-
 
 /obj/machinery/button/attack_hand(mob/living/user)
 	. = ..()
@@ -58,7 +53,6 @@
 
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, update_icon)), 1.5 SECONDS)
 
-
 /obj/machinery/button/proc/pulsed()
 	if(next_activate > world.time)
 		return FALSE
@@ -70,10 +64,8 @@
 	desc = "A door remote control switch."
 	var/specialfunctions = NONE
 
-
 /obj/machinery/button/door/indestructible
 	resistance_flags = RESIST_ALL
-
 
 /obj/machinery/button/door/pulsed()
 	. = ..()
@@ -92,7 +84,6 @@
 			continue
 		M.close()
 
-
 /obj/machinery/button/door/open_only
 	name = "open button"
 	desc = "Opens whatever it is linked to. Does not close. Careful on what you release."
@@ -109,7 +100,6 @@
 			pixel_x = -21
 		if(WEST)
 			pixel_x = 21
-
 
 /obj/machinery/button/door/open_only/landing_zone
 	name = "lockdown override"
@@ -155,7 +145,6 @@
 
 /obj/machinery/button/door/open_only/landing_zone/lz2
 	id = "landing_zone_2"
-
 
 /obj/machinery/driver_button
 	name = "mass driver button"
@@ -285,7 +274,7 @@
 	///The list of outfits we can equip on the humans we're spawning
 	var/outfit_list = list()
 
-/obj/machinery/button/valhalla/xeno_button/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/button/valhalla/xeno_button/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	var/list/job_outfits = list()
 	for(var/type in subtypesof(/datum/outfit/job))
 		if(istype(type, /datum/outfit))
@@ -303,7 +292,7 @@
 
 	QDEL_NULL(linked)
 	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
-		to_chat(X, span_warning("An error occured, yell at the coders."))
+		to_chat(xeno_attacker, span_warning("An error occured, yell at the coders."))
 		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
 	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
 	if(selected_outfit == "Naked" || !selected_outfit)
