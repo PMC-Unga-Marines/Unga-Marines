@@ -558,33 +558,6 @@
 	else
 		icon_state = "oxy0"
 
-/atom/movable/screen/toxin
-	name = "toxin"
-	icon_state = "tox0"
-	screen_loc = ui_toxin
-
-/atom/movable/screen/toxin/update_icon_state()
-	. = ..()
-	if(!ishuman(hud?.mymob))
-		return
-	var/mob/living/carbon/human/human_mymob = hud.mymob
-	if(human_mymob.hal_screwyhud == 4)
-		icon_state = "tox1"
-	else
-		icon_state = "tox0"
-
-/atom/movable/screen/pressure
-	name = "pressure"
-	icon_state = "pressure0"
-	screen_loc = ui_pressure
-
-/atom/movable/screen/pressure/update_icon_state()
-	. = ..()
-	if(!ishuman(hud?.mymob))
-		return
-	var/mob/living/carbon/human/human_mymob = hud.mymob
-	icon_state = "pressure[human_mymob.pressure_alert]"
-
 /atom/movable/screen/nutrition
 	name = "nutrition"
 	icon_state = "nutrition1"

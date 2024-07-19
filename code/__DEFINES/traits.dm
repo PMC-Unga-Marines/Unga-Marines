@@ -158,7 +158,7 @@
 #define TRAIT_HEAVY_STEP "heavy_step"
 ///indicates this mob was spawned by a corpse spawner
 #define TRAIT_MAPSPAWNED "mapspawned"
-
+///Banished from the hive by the ruler
 #define TRAIT_BANISHED "banished"
 ///Mindmelded with another mob
 #define TRAIT_MINDMELDED "mindmelded"

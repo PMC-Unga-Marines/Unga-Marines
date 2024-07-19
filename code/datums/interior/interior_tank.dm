@@ -29,46 +29,64 @@
 
 /turf/closed/interior/tank/one
 	icon_state = "tank_interior_1"
+
 /turf/closed/interior/tank/two
 	icon_state = "tank_interior_2"
+
 /turf/closed/interior/tank/three
 	icon_state = "tank_interior_3"
+
 /turf/closed/interior/tank/four
 	icon_state = "tank_interior_4"
+
 /turf/closed/interior/tank/five
 	icon_state = "tank_interior_5"
+
 /turf/closed/interior/tank/six
 	icon_state = "tank_interior_6"
+
 /turf/closed/interior/tank/twelve
 	icon_state = "tank_interior_12"
+
 /turf/closed/interior/tank/thirteen
 	icon_state = "tank_interior_13"
+
 /turf/closed/interior/tank/seventeen
 	icon_state = "tank_interior_17"
+
 /turf/closed/interior/tank/eighteen
 	icon_state = "tank_interior_18"
+
 /turf/closed/interior/tank/nineteen
 	icon_state = "tank_interior_19"
 	layer = ABOVE_ALL_MOB_LAYER
+
 /turf/closed/interior/tank/twenty
 	icon_state = "tank_interior_20"
 	layer = ABOVE_ALL_MOB_LAYER
+
 /turf/closed/interior/tank/twentyone
 	icon_state = "tank_interior_21"
 	layer = ABOVE_ALL_MOB_LAYER
+
 /turf/closed/interior/tank/twentythree
 	icon_state = "tank_interior_23"
+
 /turf/closed/interior/tank/twentyfour
 	icon_state = "tank_interior_24"
+
 /turf/closed/interior/tank/twentyfive
 	icon_state = "tank_interior_25"
 	layer = ABOVE_ALL_MOB_LAYER
+
 /turf/closed/interior/tank/twentysix
 	icon_state = "tank_interior_26"
 	layer = ABOVE_ALL_MOB_LAYER
+
 /turf/closed/interior/tank/twentyseven
 	icon_state = "tank_interior_27"
 	layer = ABOVE_ALL_MOB_LAYER
+
 /turf/closed/interior/tank/twentyeight
 	icon_state = "tank_interior_28"
 
@@ -119,18 +137,25 @@
 
 /turf/open/interior/tank/eight
 	icon_state = "tank_interior_8"
+
 /turf/open/interior/tank/nine
 	icon_state = "tank_interior_9"
+
 /turf/open/interior/tank/ten
 	icon_state = "tank_interior_10"
+
 /turf/open/interior/tank/eleven
 	icon_state = "tank_interior_11"
+
 /turf/open/interior/tank/fourteen
 	icon_state = "tank_interior_14"
+
 /turf/open/interior/tank/fifteen
 	icon_state = "tank_interior_15"
+
 /turf/open/interior/tank/sixteen
 	icon_state = "tank_interior_16"
+
 /turf/open/interior/tank/twentytwo
 	icon_state = "tank_interior_22"
 
