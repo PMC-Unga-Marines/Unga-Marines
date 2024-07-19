@@ -94,6 +94,12 @@
 		playsound(src, 'sound/effects/metal_crash.ogg', 35, 1)
 		deconstruct(FALSE)
 
+/obj/vehicle/sealed/armored/multitile/handle_airdrop(turf/target)
+	. = ..()
+	ex_act(2000) //Destroy it
+	cell_explosion(target, 300, 100)
+	flame_radius(6, target)
+
 /obj/structure/closet/handle_airdrop(turf/target_turf) // good idea but no
 	if(!opened)
 		break_open()
