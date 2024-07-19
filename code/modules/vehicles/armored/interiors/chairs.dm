@@ -1,11 +1,9 @@
-
 /obj/structure/bed/chair/loader_seat
 	name = "loader seat"
 	icon = 'icons/obj/armored/3x3/tank_interior.dmi'
 	icon_state = "vehicle_chair"
 	resistance_flags = RESIST_ALL
 	dir = EAST
-
 
 /obj/structure/bed/chair/vehicle_driver_seat
 	name = "driver seat"
@@ -47,7 +45,6 @@
 
 /obj/structure/bed/chair/vehicle_driver_seat/relaymove(mob/living/user, direct)
 	return owner.relaymove(arglist(args))
-
 
 /obj/structure/bed/chair/vehicle_gunner_seat
 	name = "gunner seat"
