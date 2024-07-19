@@ -21,6 +21,10 @@
 
 	var/alien = FALSE
 
+/obj/item/stack/medical/attack_self(mob/user)
+	. = ..()
+	attack(user, user)
+
 /obj/item/stack/medical/attack(mob/living/M, mob/living/user)
 	. = ..()
 	if(.)
