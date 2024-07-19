@@ -1,4 +1,3 @@
-
 /obj/structure/gun_breech
 	name = "gun breech"
 	desc = "A gun breech used for loading large caliber rounds into the main gun."
