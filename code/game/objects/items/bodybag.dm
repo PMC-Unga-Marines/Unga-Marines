@@ -165,8 +165,8 @@
 	moveToNullspace()
 
 
-/obj/structure/closet/bodybag/Move(NewLoc, direct)
-	if (roller_buckled && roller_buckled.loc != NewLoc) //not updating position
+/obj/structure/closet/bodybag/Move(atom/newloc, direction, glide_size_override)
+	if (roller_buckled && roller_buckled.loc != newloc) //not updating position
 		if (!roller_buckled.anchored)
 			return roller_buckled.Move(newloc, direction, glide_size)
 		else
@@ -426,11 +426,6 @@
 /obj/structure/closet/bodybag/tarp/proc/on_bodybag_occupant_death(mob/source, gibbing)
 	SIGNAL_HANDLER
 	open()
-
-
-/obj/structure/closet/bodybag/tarp/update_name()
-	return //Shouldn't be revealing who's inside.
-
 
 /obj/structure/closet/bodybag/tarp/MouseDrop(over_object, src_location, over_location)
 	. = ..()
