@@ -52,7 +52,6 @@
 	throw_at(T, 3, 2, veh, 1)
 	return take_overall_damage(., BRUTE, MELEE, FALSE, FALSE, TRUE, 0, 4)
 
-
 /mob/living/carbon/xenomorph/larva/vehicle_collision(obj/vehicle/sealed/armored/veh, facing, turf/T, turf/temp)
 	gib() //fuck you
 
