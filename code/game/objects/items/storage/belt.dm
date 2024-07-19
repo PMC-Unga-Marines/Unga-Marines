@@ -879,15 +879,13 @@
 	update_icon()
 
 /obj/item/storage/belt/shotgun/martini/attackby(obj/item/I, mob/user, params)
-	if(!istype(I, /obj/item/ammo_magazine))
-		update_icon()
-		return ..()
-
-	var/obj/item/ammo_magazine/new_mag = I
-	if(new_mag.caliber != CALIBER_557)
-		to_chat(user, span_notice("[src] can only be filled with .557/440 ball rifle rounds."))
-		return
-
+	if(istype(I, /obj/item/ammo_magazine))
+		var/obj/item/ammo_magazine/new_mag = I
+		if(new_mag.caliber != CALIBER_557)
+			to_chat(user, span_notice("[src] can only be filled with .557/440 ball rifle rounds."))
+			return
+	. = ..()
+	update_icon()
 
 /obj/item/storage/belt/shotgun/martini/attack_hand(mob/living/user)
 	if (loc != user)
