@@ -35,6 +35,9 @@
 		if(ammo.penetration)
 			entry.mechanics_text += "Armor penetration: [ammo.penetration]<br>"
 
+		if(ammo.additional_xeno_penetration)
+			entry.mechanics_text += "Xenomorph additional armor penetration: [ammo.penetration]<br>"
+
 		if(ammo.armor_type)
 			entry.mechanics_text += "Armor type: [ammo.armor_type]<br>"
 
