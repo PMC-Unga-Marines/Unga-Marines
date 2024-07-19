@@ -61,7 +61,6 @@
 		on_unequip()
 	return ..()
 
-
 /obj/item/tank_module/overdrive
 	name = "overdrive module"
 	desc = "A module that enhances the speed of armored combat vehicles by increasing fuel efficiency."
@@ -92,7 +91,6 @@
 /obj/item/tank_module/passenger/on_unequip(obj/vehicle/sealed/armored/vehicle, mob/living/user)
 	owner.max_occupants -= 4
 	return ..()
-
 
 /obj/item/tank_module/ability
 	name = "Ability Module"
