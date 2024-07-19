@@ -1,5 +1,4 @@
 //Also contains /obj/structure/closet/bodybag because I doubt anyone would think to look for bodybags in /object/structures
-
 /obj/item/bodybag
 	name = "body bag"
 	desc = "A folded bag designed for the storage and transportation of cadavers."
@@ -8,7 +7,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	var/unfoldedbag_path = /obj/structure/closet/bodybag
 	var/obj/structure/closet/bodybag/unfoldedbag_instance = null
-
 
 /obj/item/bodybag/Initialize(mapload, unfoldedbag)
 	. = ..()
@@ -23,10 +21,8 @@
 		QDEL_NULL(unfoldedbag_instance)
 	return ..()
 
-
 /obj/item/bodybag/attack_self(mob/user)
 	deploy_bodybag(user, user.loc)
-
 
 /obj/item/bodybag/afterattack(atom/target, mob/user, proximity)
 	if(!proximity || !isturf(target) || target.density)
@@ -37,7 +33,6 @@
 			return
 	deploy_bodybag(user, target)
 
-
 /obj/item/bodybag/proc/deploy_bodybag(mob/user, atom/location)
 	if(QDELETED(unfoldedbag_instance))
 		unfoldedbag_instance = new unfoldedbag_path(location, src)
@@ -46,7 +41,6 @@
 	unfoldedbag_instance.open(user)
 	user.temporarilyRemoveItemFromInventory(src)
 	moveToNullspace()
-
 
 /obj/structure/closet/bodybag
 	name = "body bag"
@@ -70,7 +64,6 @@
 	var/obj/structure/bed/roller/roller_buckled //the roller bed this bodybag is attached to.
 	var/mob/living/bodybag_occupant
 
-
 /obj/structure/closet/bodybag/Initialize(mapload, foldedbag)
 	. = ..()
 	foldedbag_instance = foldedbag
@@ -88,12 +81,10 @@
 	UnregisterSignal(src, COMSIG_ATOM_ACIDSPRAY_ACT, PROC_REF(acidspray_act))
 	return ..()
 
-
 /obj/structure/closet/bodybag/is_buckled()
 	if(roller_buckled)
 		return roller_buckled
 	return ..()
-
 
 /obj/structure/closet/bodybag/proc/update_name()
 	if(opened)
@@ -103,7 +94,6 @@
 			name = "[bag_name] ([bodybag_occupant.get_visible_name()])"
 		else
 			name = "[bag_name] (empty)"
-
 
 /obj/structure/closet/bodybag/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -128,7 +118,6 @@
 		name = "body bag"
 		overlays.Cut()
 
-
 /obj/structure/closet/bodybag/closet_special_handling(mob/living/mob_to_stuff) // overriding this
 	if(!ishuman(mob_to_stuff))
 		return FALSE //Only humans.
@@ -137,7 +126,6 @@
 	if(!HAS_TRAIT(mob_to_stuff, TRAIT_UNDEFIBBABLE) || issynth(mob_to_stuff))
 		return FALSE //We don't want to store those that can be revived.
 	return TRUE
-
 
 /obj/structure/closet/bodybag/close()
 	. = ..()
@@ -150,13 +138,11 @@
 		return TRUE
 	return FALSE
 
-
 /obj/structure/closet/bodybag/open()
 	. = ..()
 	if(bodybag_occupant)
 		bodybag_occupant = null
 	update_name()
-
 
 /obj/structure/closet/bodybag/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -172,7 +158,6 @@
 	usr.put_in_hands(foldedbag_instance)
 	moveToNullspace()
 
-
 /obj/structure/closet/bodybag/Move(NewLoc, direct)
 	if (roller_buckled && roller_buckled.loc != NewLoc) //not updating position
 		if (!roller_buckled.anchored)
@@ -182,12 +167,10 @@
 	else
 		return ..()
 
-
 /obj/structure/closet/bodybag/forceMove(atom/destination)
 	if(roller_buckled)
 		roller_buckled.unbuckle_bodybag()
 	return ..()
-
 
 /obj/structure/closet/bodybag/update_icon()
 	if(!opened)
@@ -198,16 +181,15 @@
 	else
 		icon_state = icon_opened
 
-
-/obj/structure/closet/bodybag/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/closet/bodybag/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 	if(opened)
 		return FALSE // stop xeno closing things
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	bodybag_occupant?.attack_alien(X)
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	bodybag_occupant?.attack_alien(xeno_attacker)
 	open()
-	X.visible_message(span_danger("\The [X] slashes \the [src] open!"), \
+	xeno_attacker.visible_message(span_danger("\The [xeno_attacker] slashes \the [src] open!"), \
 		span_danger("We slash \the [src] open!"), null, 5)
 	return TRUE
 
@@ -256,7 +238,6 @@
 		balloon_alert(bodybag_occupant, "smoke forces you out")
 		open() //Get out
 
-
 /obj/item/storage/box/bodybags
 	name = "body bags"
 	desc = "This box contains body bags."
@@ -264,7 +245,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	spawn_type = /obj/item/bodybag
 	spawn_number = 7
-
 
 /obj/item/bodybag/cryobag
 	name = "stasis bag"
@@ -274,14 +254,12 @@
 	unfoldedbag_path = /obj/structure/closet/bodybag/cryobag
 	var/used = FALSE
 
-
 /obj/structure/closet/bodybag/cryobag
 	name = "stasis bag"
 	bag_name = "stasis bag"
 	desc = "A reusable plastic bag designed to prevent additional damage to an occupant."
 	icon = 'icons/obj/cryobag.dmi'
 	foldedbag_path = /obj/item/bodybag/cryobag
-
 
 /obj/structure/closet/bodybag/cryobag/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/healthanalyzer))
@@ -295,7 +273,6 @@
 	J.attack(bodybag_occupant, user) // yes this is awful -spookydonut // TODO
 	return TRUE
 
-
 /obj/structure/closet/bodybag/cryobag/open()
 	if(bodybag_occupant)
 		REMOVE_TRAIT(bodybag_occupant, TRAIT_STASIS, STASIS_BAG_TRAIT)
@@ -303,12 +280,10 @@
 		bodybag_occupant.record_time_in_stasis()
 	return ..()
 
-
 /obj/structure/closet/bodybag/cryobag/closet_special_handling(mob/living/mob_to_stuff) // overriding this
 	if(!ishuman(mob_to_stuff))
 		return FALSE //Humans only.
 	return TRUE
-
 
 /obj/structure/closet/bodybag/cryobag/close()
 	. = ..()
@@ -322,7 +297,6 @@
 	if(!QDELETED(bodybag_occupant))
 		visible_message(span_notice("\The [src] rejects the corpse."))
 	open()
-
 
 /obj/structure/closet/bodybag/cryobag/examine(mob/living/user)
 	. = ..()
@@ -338,7 +312,6 @@
 		else
 			. += "<span class = 'deptradio'><a href='?src=[text_ref(src)];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a></span>"
 		break
-
 
 /obj/structure/closet/bodybag/cryobag/Topic(href, href_list)
 	. = ..()
@@ -359,13 +332,11 @@
 				popup.open(FALSE)
 			break
 
-
 /obj/item/trash/used_stasis_bag
 	name = "used stasis bag"
 	icon = 'icons/obj/cryobag.dmi'
 	icon_state = "bodybag_used"
 	desc = "It's been ripped open. You will need to find a machine capable of recycling it."
-
 
 //MARINE SNIPER TARPS
 
@@ -397,12 +368,10 @@
 	unfoldedbag_instance.close()
 	return TRUE
 
-
 /obj/item/bodybag/tarp/snow
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "snowtarp_folded"
 	unfoldedbag_path = /obj/structure/closet/bodybag/tarp/snow
-
 
 /obj/structure/closet/bodybag/tarp
 	name = "\improper V1 thermal-dampening tarp"
@@ -418,7 +387,6 @@
 	closet_stun_delay = 0.5 SECONDS //Short delay to prevent ambushes from being too degenerate.
 	var/serial_number //Randomized serial number used to stop point macros and such.
 
-
 /obj/structure/closet/bodybag/tarp/close()
 	. = ..()
 	if(!opened && bodybag_occupant)
@@ -427,7 +395,6 @@
 		animate(src, alpha = 13, time = 3 SECONDS) //Fade out gradually.
 		bodybag_occupant.alpha = 0
 		RegisterSignals(bodybag_occupant, list(COMSIG_MOB_DEATH, COMSIG_PREQDELETED), PROC_REF(on_bodybag_occupant_death))
-
 
 /obj/structure/closet/bodybag/tarp/open()
 	anchored = FALSE
@@ -440,7 +407,6 @@
 		bodybag_occupant.alpha = initial(bodybag_occupant.alpha)
 	return ..()
 
-
 /obj/structure/closet/bodybag/tarp/closet_special_handling(mob/living/mob_to_stuff) // overriding this
 	if(!ishuman(mob_to_stuff))
 		return FALSE //Humans only.
@@ -448,15 +414,12 @@
 		return FALSE
 	return TRUE
 
-
 /obj/structure/closet/bodybag/tarp/proc/on_bodybag_occupant_death(mob/source, gibbing)
 	SIGNAL_HANDLER
 	open()
 
-
 /obj/structure/closet/bodybag/tarp/update_name()
 	return //Shouldn't be revealing who's inside.
-
 
 /obj/structure/closet/bodybag/tarp/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -464,7 +427,6 @@
 	if(!folded_tarp.serial_number)
 		folded_tarp.serial_number = serial_number //Set the serial number
 		folded_tarp.name = "\improper [serial_number] [initial(folded_tarp.name)]" //Set the name with the serial number
-
 
 /obj/structure/closet/bodybag/tarp/snow
 	icon_state = "snowtarp_closed"

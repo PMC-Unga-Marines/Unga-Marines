@@ -2,7 +2,6 @@
 #define CLOSET_INSERT_FAIL 0
 #define CLOSET_INSERT_SUCCESS 1
 
-
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
@@ -79,7 +78,6 @@
 	PopulateContents()
 	update_icon()
 
-
 /obj/structure/closet/LateInitialize()
 	. = ..()
 
@@ -107,12 +105,10 @@
 	density = FALSE
 	opened = TRUE
 
-
 /obj/structure/closet/CanAllowThrough(atom/movable/mover, turf/target)
 	if(wall_mounted)
 		return TRUE
 	return ..()
-
 
 /obj/structure/closet/proc/can_open(mob/living/user)
 	if(welded || locked)
@@ -120,7 +116,6 @@
 			balloon_alert(user, "Won't budge")
 		return FALSE
 	return TRUE
-
 
 /obj/structure/closet/proc/can_close(mob/living/user)
 	for(var/obj/structure/closet/blocking_closet in loc)
@@ -135,7 +130,6 @@
 			return FALSE
 	return TRUE
 
-
 /obj/structure/closet/proc/dump_contents()
 	var/atom/drop_loc = drop_location()
 	for(var/thing in src)
@@ -149,14 +143,12 @@
 	mob_size_counter = 0
 	item_size_counter = 0
 
-
 /obj/structure/closet/proc/take_contents()
 	for(var/mapped_thing in drop_location())
 		if(mapped_thing == src)
 			continue
 		if(insert(mapped_thing) == CLOSET_INSERT_END) // limit reached
 			break
-
 
 /obj/structure/closet/proc/open(mob/living/user)
 	SIGNAL_HANDLER
@@ -171,7 +163,6 @@
 	playsound(loc, open_sound, 15, 1)
 	return TRUE
 
-
 /obj/structure/closet/proc/insert(atom/movable/thing_to_insert)
 	if(length(contents) >= storage_capacity)
 		return CLOSET_INSERT_END
@@ -179,7 +170,6 @@
 		return CLOSET_INSERT_FAIL
 	thing_to_insert.forceMove(src)
 	return CLOSET_INSERT_SUCCESS
-
 
 /obj/structure/closet/proc/close(mob/living/user)
 	if(!opened || !can_close(user))
@@ -190,7 +180,6 @@
 	density = TRUE
 	update_icon()
 	return TRUE
-
 
 /obj/structure/closet/proc/toggle(mob/living/user)
 	return opened ? close(user) : open(user)
@@ -223,11 +212,11 @@
 		dump_contents()
 		qdel(src)
 
-/obj/structure/closet/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/structure/closet/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	. = ..()
 	if(!.)
 		return
-	if(X.a_intent == INTENT_HARM && !opened && prob(70))
+	if(xeno_attacker.a_intent == INTENT_HARM && !opened && prob(70))
 		break_open()
 
 /obj/structure/closet/attackby(obj/item/I, mob/user, params)
@@ -277,7 +266,6 @@
 	balloon_alert_to_viewers("[src] has been [welded ? "welded shut" : "unwelded"]")
 	return TRUE
 
-
 /obj/structure/closet/wrench_act(mob/living/user, obj/item/tool/wrench/wrenchy_tool)
 	if(opened)
 		return FALSE
@@ -288,7 +276,6 @@
 	wrenchy_tool.play_tool_sound(src, 75)
 	balloon_alert_to_viewers("[user] [anchored ? "anchors" : "unanchors"] the [src]")
 	return TRUE
-
 
 /obj/structure/closet/relaymove(mob/user, direct)
 	if(!isturf(loc))
@@ -310,13 +297,11 @@
 			to_chat(M, "<FONT size=[max(0, 5 - get_dist(src, M))]>BANG, bang!</FONT>")
 		addtimer(VARSET_CALLBACK(src, lastbang, FALSE), 3 SECONDS)
 
-
 /obj/structure/closet/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 	return toggle(user)
-
 
 /obj/structure/closet/verb/verb_toggleopen()
 	set src in oview(1)
@@ -340,10 +325,8 @@
 	else
 		icon_state = icon_opened
 
-
 /obj/structure/closet/resisted_against(datum/source)
 	container_resist(source)
-
 
 /obj/structure/closet/proc/container_resist(mob/living/user)
 	if(opened)
@@ -369,13 +352,11 @@
 	balloon_alert_to_viewers("breaks out")
 	return bust_open()
 
-
 /obj/structure/closet/proc/bust_open()
 	welded = FALSE //applies to all lockers
 	locked = FALSE //applies to critter crates and secure lockers only
 	broken = TRUE //applies to secure lockers only
 	open()
-
 
 /obj/structure/closet/proc/break_open()
 	if(!opened)
@@ -386,11 +367,9 @@
 		welded = FALSE
 		update_icon()
 
-
 /obj/structure/closet/AltClick(mob/user)
 	. = ..()
 	return togglelock(user)
-
 
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
 	if(!CHECK_BITFIELD(closet_flags, CLOSET_IS_SECURE))
@@ -418,22 +397,18 @@
 	update_icon()
 	return TRUE
 
-
 /obj/structure/closet/contents_explosion(severity)
 	for(var/i in contents)
 		var/atom/movable/closet_contents = i
 		closet_contents.ex_act(severity)
 
-
 /obj/structure/closet/proc/closet_special_handling(mob/living/mob_to_stuff)
 	return TRUE //We are permisive by default.
-
 
 //Redefined procs for closets
 
 /atom/movable/proc/closet_insertion_allowed(obj/structure/closet/destination)
 	return FALSE
-
 
 /mob/living/closet_insertion_allowed(obj/structure/closet/destination)
 	if(anchored || buckled)
@@ -448,7 +423,6 @@
 	destination.RegisterSignal(destination, COMSIG_ATOM_EXITED, TYPE_PROC_REF(/obj/structure/closet, open))
 	return TRUE
 
-
 /obj/closet_insertion_allowed(obj/structure/closet/destination)
 	if(!CHECK_BITFIELD(destination.closet_flags, CLOSET_ALLOW_OBJS))
 		return FALSE
@@ -459,7 +433,6 @@
 	if(move_resist == INFINITY)
 		return FALSE
 	return TRUE
-
 
 /obj/item/closet_insertion_allowed(obj/structure/closet/destination)
 	if(anchored)
@@ -480,7 +453,6 @@
 
 /obj/structure/closet/closet_insertion_allowed(obj/structure/closet/destination)
 	return FALSE
-
 
 /mob/living/proc/on_closet_dump(obj/structure/closet/origin)
 	SetStun(origin.closet_stun_delay)//Action delay when going out of a closet

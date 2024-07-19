@@ -229,7 +229,7 @@
 		var/hit_area = affecting.display_name
 
 		var/mob/living/carbon/human/H = target
-		if((user != target) && !H.check_shields(COMBAT_TOUCH_ATTACK, 14, "melee"))
+		if((user != target) && !H.check_shields(COMBAT_TOUCH_ATTACK, 14, MELEE))
 			return
 
 		if (target != user && !prob(target.modify_by_armor(100, MELEE, penetration, target_zone)))

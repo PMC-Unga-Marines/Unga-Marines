@@ -50,7 +50,7 @@
 	return ..()
 
 ///If we're covering our widow, any clicks should be transferred to them
-/mob/living/carbon/xenomorph/spiderling/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/mob/living/carbon/xenomorph/spiderling/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!get_dist(src, spidermother) && isxeno(x))
 		spidermother.attack_alien(X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 		return

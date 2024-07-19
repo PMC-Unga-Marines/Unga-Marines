@@ -19,7 +19,6 @@
 	plane = FLOOR_PLANE
 	max_integrity = 25
 	ignore_weed_destruction = TRUE
-
 	var/obj/alien/weeds/node/parent_node
 	///The color variant of the sprite
 	var/color_variant = NORMAL_COLOR
@@ -152,10 +151,8 @@
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
 
-//RU TGMC EDIT
 	if(HAS_TRAIT(crosser, TRAIT_SUPER_STRONG))
 		return
-//RU TGMC EDIT
 
 	if(isxeno(crosser))
 		var/mob/living/carbon/xenomorph/X = crosser
@@ -172,9 +169,7 @@
 
 	if(victim.lying_angle)
 		return
-
 	victim.next_move_slowdown += WEED_SLOWDOWN
-
 
 /obj/alien/weeds/resting
 	name = "resting weeds"
@@ -234,11 +229,11 @@
 		return ..()
 	return window.attackby(I, user, params)
 
-/obj/alien/weeds/weedwall/window/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/alien/weeds/weedwall/window/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	var/obj/structure/window = locate(window_type) in loc
 	if(!window)
 		return ..()
-	return window.attack_alien(X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+	return window.attack_alien(xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 
 /obj/alien/weeds/weedwall/window/frame
 	window_type = /obj/structure/window_frame
@@ -330,10 +325,8 @@
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
 
-//RU TGMC EDIT
 	if(HAS_TRAIT(crosser, TRAIT_SUPER_STRONG))
 		return
-//RU TGMC EDIT
 
 	if(!ishuman(crosser))
 		return

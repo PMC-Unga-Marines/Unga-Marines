@@ -1,36 +1,25 @@
-
-
 /turf/closed/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
 	icon = 'icons/turf/walls/regular_wall.dmi'
 	icon_state = "metal-0"
+	base_icon_state = "metal"
 	baseturfs = /turf/open/floor/plating
 	opacity = TRUE
 	explosion_block = 2
-
 	walltype = "metal"
-
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
-
 	var/wall_integrity
 	var/max_integrity = 1000 //Wall will break down to girders if damage reaches this point
-
 	var/damage_overlay
 	var/global/damage_overlays[8]
-
 	var/current_bulletholes = 0
 	var/bullethole_increment = 1
 	var/bullethole_state = 0
 	var/image/bullethole_overlay
-	base_icon_state = "metal"
-
 	var/max_temperature = 1800 //K, walls will take damage if they're next to a fire hotter than this
-
 	var/d_state = 0 //Normal walls are now as difficult to remove as reinforced walls
-
 	var/obj/effect/acid_hole/acided_hole //the acid hole inside the wall
-
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(
 		SMOOTH_GROUP_CLOSED_TURFS,
@@ -58,7 +47,6 @@
 		if(M)
 			visible_message(span_warning("\The [M] is sealed inside the wall as it is built"))
 			qdel(M)
-
 
 /turf/closed/wall/ChangeTurf(newtype)
 	if(acided_hole)
@@ -91,8 +79,6 @@
 			if(istype(O, /obj/alien/weeds))
 				qdel(O)
 
-
-
 /turf/closed/wall/MouseDrop_T(mob/M, mob/user)
 	if(acided_hole)
 		if(M == user && isxeno(user))
@@ -100,17 +86,13 @@
 			return
 	..()
 
-
-/turf/closed/wall/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/turf/closed/wall/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
-	if(acided_hole && (X.mob_size == MOB_SIZE_BIG || X.xeno_caste.caste_flags & CASTE_IS_STRONG)) //Strong and/or big xenos can tear open acided walls
-		acided_hole.expand_hole(X)
+	if(acided_hole && (xeno_attacker.mob_size == MOB_SIZE_BIG || xeno_attacker.xeno_caste.caste_flags & CASTE_IS_STRONG)) //Strong and/or big xenos can tear open acided walls
+		acided_hole.expand_hole(xeno_attacker)
 	else
 		return ..()
-
-
-
 
 //Appearance
 /turf/closed/wall/examine(mob/user)
@@ -216,7 +198,7 @@
 		damage_overlays[i] = img
 
 ///Applies damage to the wall
-/turf/closed/wall/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", armour_penetration = 0)
+/turf/closed/wall/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, armour_penetration = 0)
 	if(resistance_flags & INDESTRUCTIBLE) //Hull is literally invincible
 		return
 
@@ -253,15 +235,12 @@
 	wall_integrity += repair_amount
 	update_icon()
 
-
 /turf/closed/wall/proc/make_girder(destroyed_girder = FALSE)
 	var/obj/structure/girder/G = new /obj/structure/girder(src)
 	G.update_icon()
 
 	if(destroyed_girder)
 		G.deconstruct(FALSE)
-
-
 
 // Devastated and Explode causes the wall to spawn a damaged girder
 // Walls no longer spawn a metal sheet when destroyed to reduce clutter and
@@ -275,9 +254,7 @@
 		make_girder(TRUE)
 	else
 		make_girder(FALSE)
-
 	ScrapeAway()
-
 
 /turf/closed/wall/ex_act(severity, explosion_direction)
 	if(resistance_flags & INDESTRUCTIBLE)
@@ -319,7 +296,6 @@
 				take_damage(rand(25, 75))
 				return
 
-
 /turf/closed/wall/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
@@ -327,11 +303,9 @@
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return
 
-//RUTGMC EDIT
 	else if(istype(I, /obj/item/frame/torch_frame))
 		var/obj/item/frame/torch_frame/AH = I
 		AH.try_build(src)
-//RUTGMC EDIT
 
 	else if(istype(I, /obj/item/frame/apc))
 		var/obj/item/frame/apc/AH = I

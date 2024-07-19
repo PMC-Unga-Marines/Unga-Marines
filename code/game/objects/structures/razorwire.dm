@@ -71,7 +71,6 @@
 	span_danger("You got entangled in the barbed wire! Resist to untangle yourself after [duration * 0.1] seconds since you were entangled!"), null, null, 5)
 	do_razorwire_tangle(entangled)
 
-
 /obj/structure/razorwire/proc/do_razorwire_tangle(mob/living/entangled)
 	ADD_TRAIT(entangled, TRAIT_IMMOBILE, type)
 	ENABLE_BITFIELD(entangled.restrained_flags, RESTRAINED_RAZORWIRE)
@@ -79,7 +78,6 @@
 	RegisterSignal(entangled, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against))
 	RegisterSignal(entangled, COMSIG_QDELETING, PROC_REF(do_razorwire_untangle))
 	RegisterSignal(entangled, COMSIG_MOVABLE_PULL_MOVED, PROC_REF(razorwire_untangle))
-
 
 /obj/structure/razorwire/resisted_against(datum/source)
 	var/mob/living/entangled = source
@@ -100,7 +98,6 @@
 	entangled.apply_damage(RAZORWIRE_BASE_DAMAGE * RAZORWIRE_MIN_DAMAGE_MULT_MED, BRUTE, def_zone, MELEE, TRUE, updating_health = TRUE) //Apply damage as we tear free
 	return TRUE
 
-
 ///This proc is used for signals, so if you plan on adding a second argument, or making it return a value, then change those RegisterSignal's referncing it first.
 /obj/structure/razorwire/proc/do_razorwire_untangle(mob/living/entangled)
 	SIGNAL_HANDLER
@@ -108,7 +105,6 @@
 	LAZYREMOVE(entangled_list, entangled)
 	DISABLE_BITFIELD(entangled.restrained_flags, RESTRAINED_RAZORWIRE)
 	REMOVE_TRAIT(entangled, TRAIT_IMMOBILE, type)
-
 
 /obj/structure/razorwire/proc/on_exited(datum/source, atom/movable/AM, direction)
 	if(!isliving(AM))
@@ -121,7 +117,6 @@
 	for(var/i in entangled_list)
 		do_razorwire_untangle(i)
 	return ..()
-
 
 /obj/structure/razorwire/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -184,11 +179,11 @@
 	deconstruct(TRUE)
 	return TRUE
 
-/obj/structure/razorwire/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/razorwire/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	X.apply_damage(RAZORWIRE_BASE_DAMAGE, blocked = MELEE, updating_health = TRUE) //About a third as damaging as actually entering
+	xeno_attacker.apply_damage(RAZORWIRE_BASE_DAMAGE, blocked = MELEE, updating_health = TRUE) //About a third as damaging as actually entering
 	update_icon()
 	return ..()
 
@@ -197,7 +192,6 @@
 	if(severity >= EXPLODE_LIGHT)
 		visible_message(span_danger("[src] is blown apart!"))
 	update_icon()
-
 
 /obj/structure/razorwire/CanAllowThrough(atom/movable/mover, turf/target)
 	if(mover.throwing && ismob(mover) && !(mover.pass_flags & PASS_DEFENSIVE_STRUCTURE))

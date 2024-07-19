@@ -1137,15 +1137,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /datum/limb/head/take_damage_limb(brute, burn, sharp, edge, blocked = 0, updating_health = FALSE, list/forbidden_limbs = list())
 	. = ..()
-	if (!disfigured)
-		if (brute_dam > 40)
-			if (prob(50))
+	if(!disfigured)
+		if(brute_dam > 40)
+			if(prob(50))
 				disfigure(BRUTE)
-		if (burn_dam > 40)
-			disfigure("burn")
+		if(burn_dam > 40)
+			disfigure(BURN)
 
 /datum/limb/head/proc/disfigure(type = BRUTE)
-	if (disfigured)
+	if(disfigured)
 		return
 	if(type == BRUTE)
 		owner.visible_message(span_warning(" You hear a sickening cracking sound coming from \the [owner]'s face."),	\

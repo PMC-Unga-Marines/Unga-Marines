@@ -23,7 +23,6 @@
 //May be opened to change power cell
 //Three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
-
 /obj/machinery/power/apc
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
@@ -144,7 +143,6 @@
 			cell.charge = start_charge * cell.maxcharge / 100.0 //Convert percentage to actual value
 			cell.update_icon()
 
-
 		make_terminal()
 
 		update() //areas should be lit on startup
@@ -176,12 +174,10 @@
 	if(cell)
 		RegisterSignal(cell, COMSIG_QDELETING, PROC_REF(on_cell_deletion))
 
-
 ///Called by the deletion of the referenced powercell.
 /obj/machinery/power/apc/proc/on_cell_deletion(obj/item/cell/source, force)
 	SIGNAL_HANDLER
 	set_cell(null)
-
 
 /obj/machinery/power/apc/proc/make_terminal()
 	//Create a terminal object at the same position as original turf loc
@@ -326,13 +322,13 @@
 /obj/machinery/power/apc/proc/queue_icon_update()
 	updating_icon = TRUE
 
-/obj/machinery/power/apc/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/power/apc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
 	if(effects)
-		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-		X.visible_message(span_danger("[X] slashes \the [src]!"), \
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+		xeno_attacker.visible_message(span_danger("[xeno_attacker] slashes \the [src]!"), \
 		span_danger("We slash \the [src]!"), null, 5)
 		playsound(loc, "alien_claw_metal", 25, 1)
 
@@ -347,8 +343,8 @@
 		wires.cut_all()
 		update_icon()
 		visible_message(span_danger("\The [src]'s wires snap apart in a rain of sparks!"), null, null, 5)
-		if(X.client)
-			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[X.ckey]
+		if(xeno_attacker.client)
+			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[xeno_attacker.ckey]
 			personal_statistics.apcs_slashed++
 	else
 		beenhit += 1
@@ -377,8 +373,8 @@
 			return
 
 		set_cell(I)
-		user.visible_message("<span class='notice'>[user] inserts [I] into [src]!",
-		"<span class='notice'>You insert [I] into [src]!")
+		user.visible_message(span_notice("[user] inserts [I] into [src]!"),
+		span_notice("You insert [I] into [src]!"))
 		chargecount = 0
 		update_icon()
 
@@ -524,7 +520,6 @@
 				return attack_hand(user)
 			balloon_alert_to_viewers("Hits [src] with [I]")
 
-
 /obj/machinery/power/apc/crowbar_act(mob/user, obj/item/I)
 	. = TRUE
 	if(opened)
@@ -565,7 +560,6 @@
 			opened = APC_COVER_OPENED
 			update_icon()
 			return
-
 
 /obj/machinery/power/apc/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -608,12 +602,10 @@
 		balloon_alert(user, "wires [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "exposed" : "unexposed"]")
 		update_icon()
 
-
 /obj/machinery/power/apc/wirecutter_act(mob/living/user, obj/item/I)
 	if(terminal && opened)
 		terminal.deconstruct(user)
 		return TRUE
-
 
 /obj/machinery/power/apc/welder_act(mob/living/user, obj/item/I)
 	if(!opened || has_electronics || terminal)
@@ -641,14 +633,12 @@
 	qdel(src)
 	return TRUE
 
-
 //Attack with hand - remove cell (if cover open) or interact with the APC
 /obj/machinery/power/apc/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(!ishuman(user))
 		return FALSE
 	var/mob/living/carbon/human/grabber = user
@@ -693,7 +683,6 @@
 		set_broken() // Breaks the APC
 
 		return TRUE
-//RUTGMC EDIT ADDITION END
 
 	if(opened && cell && !issilicon(user))
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_ENGI)
@@ -713,8 +702,6 @@
 		return
 
 	interact(user)
-
-
 
 /obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -769,7 +756,6 @@
 		)
 	)
 	return data
-
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell?.charge > 0)
@@ -836,7 +822,6 @@
 /obj/machinery/power/apc/proc/report()
 	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_equip+lastused_light+lastused_environ]) : [cell? cell.percent() : "N/C"] ([charging])"
 
-
 /obj/machinery/power/apc/proc/update()
 	if(operating && !shorted)
 		area.power_light = (lighting > 1)
@@ -847,7 +832,6 @@
 		area.power_equip = 0
 		area.power_environ = 0
 	area.power_change()
-
 
 /obj/machinery/power/apc/proc/reset(wire)
 	switch(wire)
@@ -871,19 +855,16 @@
 	else
 		return 0
 
-
 /obj/machinery/power/apc/add_load(amount)
 	if(terminal?.powernet)
 		return terminal.add_load(amount)
 	return 0
-
 
 /obj/machinery/power/apc/avail()
 	if(terminal)
 		return terminal.avail()
 	else
 		return 0
-
 
 /obj/machinery/power/apc/process()
 	if(updating_icon)
@@ -942,7 +923,6 @@
 				equipment = autoset(equipment, 0)
 				lighting = autoset(lighting, 0)
 				environ = autoset(environ, 0)
-
 
 		// set channels depending on how much charge we have left
 
@@ -1045,7 +1025,6 @@
 				return 1
 	return val
 
-
 /obj/machinery/power/apc/emp_act(severity)
 	if(cell)
 		cell.emp_act(severity)
@@ -1057,7 +1036,6 @@
 	addtimer(CALLBACK(src, PROC_REF(reset), APC_RESET_EMP), 60 SECONDS)
 	return ..()
 
-
 /obj/machinery/power/apc/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
@@ -1065,12 +1043,10 @@
 		set_broken()
 		cell.ex_act(severity)
 
-
 /obj/machinery/power/apc/proc/set_broken()
 	//Aesthetically much better!
 	visible_message(span_warning("[src]'s screen flickers with warnings briefly!"))
 	addtimer(CALLBACK(src, PROC_REF(do_break)), rand(2, 5))
-
 
 /obj/machinery/power/apc/proc/do_break()
 	visible_message(span_danger("[src]'s screen suddenly explodes in rain of sparks and small debris!"))
@@ -1078,7 +1054,6 @@
 	operating = FALSE
 	update_icon()
 	update()
-
 
 //Overload all the lights in this APC area
 /obj/machinery/power/apc/proc/overload_lighting()
@@ -1088,18 +1063,15 @@
 		cell.use(20)
 		INVOKE_ASYNC(src, PROC_REF(break_lights))
 
-
 /obj/machinery/power/apc/proc/break_lights()
 	for(var/obj/machinery/light/L in get_area(src))
 		L.broken()
 		stoplag()
 
-
 /obj/machinery/power/apc/disconnect_terminal()
 	if(terminal)
 		terminal.master = null
 		terminal = null
-
 
 /obj/machinery/power/apc/proc/toggle_breaker(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))
@@ -1109,7 +1081,6 @@
 	log_combat(user, src, "turned [operating ? "on" : "off"]")
 	update()
 	update_icon()
-
 
 //------Various APCs ------//
 

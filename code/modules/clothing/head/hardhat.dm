@@ -37,12 +37,12 @@
 	update_action_button_icons()
 	update_icon()
 
-/obj/item/clothing/head/hardhat/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
-	if(turn_light(X, FALSE) != CHECKS_PASSED)
+/obj/item/clothing/head/hardhat/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
+	if(turn_light(xeno_attacker, FALSE) != CHECKS_PASSED)
 		return
 	playsound(loc, "alien_claw_metal", 25, 1)
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	to_chat(X, span_warning("We disable the metal thing's lights.") )
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
 
 /obj/item/clothing/head/hardhat/update_icon()
 	. = ..()

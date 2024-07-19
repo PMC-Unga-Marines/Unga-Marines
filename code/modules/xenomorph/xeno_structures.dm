@@ -48,16 +48,15 @@
 	else
 		obj_destruction()
 
-/obj/structure/xeno/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
-	if(!(HAS_TRAIT(X, TRAIT_VALHALLA_XENO) && X.a_intent == INTENT_HARM && (tgui_alert(X, "Are you sure you want to tear down [src]?", "Tear down [src]?", list("Yes","No"))) == "Yes"))
+/obj/structure/xeno/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+	if(!(HAS_TRAIT(xeno_attacker, TRAIT_VALHALLA_XENO) && xeno_attacker.a_intent == INTENT_HARM && (tgui_alert(xeno_attacker, "Are you sure you want to tear down [src]?", "Tear down [src]?", list("Yes","No"))) == "Yes"))
 		return ..()
-	if(!do_after(X, 3 SECONDS, NONE, src))
+	if(!do_after(xeno_attacker, 3 SECONDS, NONE, src))
 		return
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	balloon_alert_to_viewers("\The [X] tears down \the [src]!", "We tear down \the [src].")
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	balloon_alert_to_viewers("\The [xeno_attacker] tears down \the [src]!", "We tear down \the [src].")
 	playsound(src, "alien_resin_break", 25)
 	take_damage(max_integrity) // Ensure its destroyed
-
 
 //Carrier trap
 /obj/structure/xeno/trap
@@ -179,18 +178,6 @@
 			drop_hugger()
 		if(TRAP_SMOKE_NEURO, TRAP_SMOKE_ACID)
 			smoke.start()
-//RUTGMC EDIT START
-/* //RUTGMC edit - sprite and stats changes
-		if(TRAP_ACID_WEAK)
-			for(var/turf/acided AS in RANGE_TURFS(1, src))
-				new /obj/effect/xenomorph/spray(acided, 7 SECONDS, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
-		if(TRAP_ACID_NORMAL)
-			for(var/turf/acided AS in RANGE_TURFS(1, src))
-				new /obj/effect/xenomorph/spray(acided, 10 SECONDS, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
-		if(TRAP_ACID_STRONG)
-			for(var/turf/acided AS in RANGE_TURFS(1, src))
-				new /obj/effect/xenomorph/spray(acided, 12 SECONDS, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
-*/
 		if(TRAP_ACID_WEAK)
 			for(var/turf/acided AS in RANGE_TURFS(1, src))
 				new /obj/effect/xenomorph/spray/weak(acided, 8 SECONDS, XENO_WEAK_ACID_PUDDLE_DAMAGE)
@@ -200,7 +187,6 @@
 		if(TRAP_ACID_STRONG)
 			for(var/turf/acided AS in RANGE_TURFS(1, src))
 				new /obj/effect/xenomorph/spray/strong(acided, 12 SECONDS, XENO_HIGH_ACID_PUDDLE_DAMAGE)
-//RUTGMC EDIT END
 	xeno_message("A [trap_type] trap at [AREACOORD_NO_Z(src)] has been triggered!", "xenoannounce", 5, hivenumber,  FALSE, get_turf(src), 'sound/voice/alien_talk2.ogg', FALSE, null, /atom/movable/screen/arrow/attack_order_arrow, COLOR_ORANGE, TRUE)
 	set_trap_type(null)
 
@@ -212,31 +198,31 @@
 	hugger = null
 	set_trap_type(null)
 
-/obj/structure/xeno/trap/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/xeno/trap/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM)
+	if(xeno_attacker.a_intent == INTENT_HARM)
 		return ..()
 	if(trap_type == TRAP_HUGGER)
-		if(!(X.xeno_caste.can_flags & CASTE_CAN_HOLD_FACEHUGGERS))
+		if(!(xeno_attacker.xeno_caste.can_flags & CASTE_CAN_HOLD_FACEHUGGERS))
 			return
 		if(!hugger)
-			balloon_alert(X, "It is empty")
+			balloon_alert(xeno_attacker, "It is empty")
 			return
-		X.put_in_active_hand(hugger)
+		xeno_attacker.put_in_active_hand(hugger)
 		hugger.go_active(TRUE)
 		hugger = null
 		set_trap_type(null)
-		balloon_alert(X, "Removed facehugger")
+		balloon_alert(xeno_attacker, "Removed facehugger")
 		return
-	var/datum/action/ability/activable/xeno/corrosive_acid/acid_action = locate(/datum/action/ability/activable/xeno/corrosive_acid) in X.actions
-	if(istype(X.ammo, /datum/ammo/xeno/boiler_gas))
-		var/datum/ammo/xeno/boiler_gas/boiler_glob = X.ammo
-		if(!boiler_glob.enhance_trap(src, X))
+	var/datum/action/ability/activable/xeno/corrosive_acid/acid_action = locate(/datum/action/ability/activable/xeno/corrosive_acid) in xeno_attacker.actions
+	if(istype(xeno_attacker.ammo, /datum/ammo/xeno/boiler_gas))
+		var/datum/ammo/xeno/boiler_gas/boiler_glob = xeno_attacker.ammo
+		if(!boiler_glob.enhance_trap(src, xeno_attacker))
 			return
 	else if(acid_action)
-		if(!do_after(X, 2 SECONDS, NONE, src))
+		if(!do_after(xeno_attacker, 2 SECONDS, NONE, src))
 			return
 		switch(acid_action.acid_type)
 			if(/obj/effect/xenomorph/acid/weak)
@@ -247,8 +233,8 @@
 				set_trap_type(TRAP_ACID_STRONG)
 	else
 		return // nothing happened!
-	playsound(X.loc, 'sound/effects/refill.ogg', 25, 1)
-	balloon_alert(X, "Filled with [trap_type]")
+	playsound(xeno_attacker.loc, 'sound/effects/refill.ogg', 25, 1)
+	balloon_alert(xeno_attacker, "Filled with [trap_type]")
 
 /obj/structure/xeno/trap/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -365,25 +351,25 @@ TUNNEL
 		return ..()
 	attack_alien(user)
 
-/obj/structure/xeno/tunnel/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(!istype(X) || X.stat || X.lying_angle || X.status_flags & INCORPOREAL)
+/obj/structure/xeno/tunnel/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(!istype(xeno_attacker) || xeno_attacker.stat || xeno_attacker.lying_angle || xeno_attacker.status_flags & INCORPOREAL)
 		return
 
-	if(X.a_intent == INTENT_HARM && X == creator)
-		balloon_alert(X, "Filling in tunnel...")
-		if(do_after(X, HIVELORD_TUNNEL_DISMANTLE_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
+	if(xeno_attacker.a_intent == INTENT_HARM && xeno_attacker == creator)
+		balloon_alert(xeno_attacker, "Filling in tunnel...")
+		if(do_after(xeno_attacker, HIVELORD_TUNNEL_DISMANTLE_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 			deconstruct(FALSE)
 		return
 
-	if(X.anchored)
-		balloon_alert(X, "Cannot enter while immobile")
+	if(xeno_attacker.anchored)
+		balloon_alert(xeno_attacker, "Cannot enter while immobile")
 		return FALSE
 
 	if(length(GLOB.xeno_tunnels_by_hive[hivenumber]) < 2)
-		balloon_alert(X, "No exit tunnel")
+		balloon_alert(xeno_attacker, "No exit tunnel")
 		return FALSE
 
-	pick_a_tunnel(X)
+	pick_a_tunnel(xeno_attacker)
 
 /obj/structure/xeno/tunnel/attack_larva(mob/living/carbon/xenomorph/larva/L) //So larvas can actually use tunnels
 	attack_alien(L)
@@ -585,46 +571,46 @@ TUNNEL
 		return ..()
 	attack_alien(user)
 
-/obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.a_intent == INTENT_HARM && (CHECK_BITFIELD(X.xeno_caste.caste_flags, CASTE_IS_BUILDER) || X == creator) ) //If we're a builder caste or the creator and we're on harm intent, deconstruct it.
-		balloon_alert(X, "Removing...")
-		if(!do_after(X, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
-			balloon_alert(X, "Stopped removing")
+/obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.a_intent == INTENT_HARM && (CHECK_BITFIELD(xeno_attacker.xeno_caste.caste_flags, CASTE_IS_BUILDER) || xeno_attacker == creator) ) //If we're a builder caste or the creator and we're on harm intent, deconstruct it.
+		balloon_alert(xeno_attacker, "Removing...")
+		if(!do_after(xeno_attacker, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
+			balloon_alert(xeno_attacker, "Stopped removing")
 			return
 		playsound(src, "alien_resin_break", 25)
-		deconstruct(TRUE, X)
+		deconstruct(TRUE, xeno_attacker)
 		return
 
 	if(charges >= 5)
-		balloon_alert(X, "Already full")
+		balloon_alert(xeno_attacker, "Already full")
 		return
 	if(charging)
-		balloon_alert(X, "Already being filled")
+		balloon_alert(xeno_attacker, "Already being filled")
 		return
 
-	if(X.plasma_stored < XENO_ACID_WELL_FILL_COST) //You need to have enough plasma to attempt to fill the well
-		balloon_alert(X, "Need [XENO_ACID_WELL_FILL_COST - X.plasma_stored] more plasma")
+	if(xeno_attacker.plasma_stored < XENO_ACID_WELL_FILL_COST) //You need to have enough plasma to attempt to fill the well
+		balloon_alert(xeno_attacker, "Need [XENO_ACID_WELL_FILL_COST - xeno_attacker.plasma_stored] more plasma")
 		return
 
 	charging = TRUE
 
-	balloon_alert(X, "Refilling...")
-	if(!do_after(X, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
+	balloon_alert(xeno_attacker, "Refilling...")
+	if(!do_after(xeno_attacker, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 		charging = FALSE
-		balloon_alert(X, "Aborted refilling")
+		balloon_alert(xeno_attacker, "Aborted refilling")
 		return
 
-	if(X.plasma_stored < XENO_ACID_WELL_FILL_COST)
+	if(xeno_attacker.plasma_stored < XENO_ACID_WELL_FILL_COST)
 		charging = FALSE
-		balloon_alert(X, "Need [XENO_ACID_WELL_FILL_COST - X.plasma_stored] more plasma")
+		balloon_alert(xeno_attacker, "Need [XENO_ACID_WELL_FILL_COST - xeno_attacker.plasma_stored] more plasma")
 		return
 
-	X.plasma_stored -= XENO_ACID_WELL_FILL_COST
+	xeno_attacker.plasma_stored -= XENO_ACID_WELL_FILL_COST
 	charges++
 	charging = FALSE
 	update_icon()
-	balloon_alert(X, "Now has [charges] / [XENO_ACID_WELL_MAX_CHARGES] charges")
-	to_chat(X,span_xenonotice("We add acid to [src]. It is currently has <b>[charges] / [XENO_ACID_WELL_MAX_CHARGES] charges</b>.") )
+	balloon_alert(xeno_attacker, "Now has [charges] / [XENO_ACID_WELL_MAX_CHARGES] charges")
+	to_chat(xeno_attacker,span_xenonotice("We add acid to [src]. It is currently has <b>[charges] / [XENO_ACID_WELL_MAX_CHARGES] charges</b>.") )
 
 /obj/structure/xeno/acidwell/proc/on_cross(datum/source, atom/movable/A, oldloc, oldlocs)
 	SIGNAL_HANDLER
@@ -727,21 +713,21 @@ TUNNEL
 	if(chargesleft >= maxcharges)
 		return PROCESS_KILL
 
-/obj/structure/xeno/resin_jelly_pod/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/xeno/resin_jelly_pod/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if((X.a_intent == INTENT_HARM && isxenohivelord(X)) || X.hivenumber != hivenumber)
-		balloon_alert(X, "Destroying...")
-		if(do_after(X, HIVELORD_TUNNEL_DISMANTLE_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
+	if((xeno_attacker.a_intent == INTENT_HARM && isxenohivelord(xeno_attacker)) || xeno_attacker.hivenumber != hivenumber)
+		balloon_alert(xeno_attacker, "Destroying...")
+		if(do_after(xeno_attacker, HIVELORD_TUNNEL_DISMANTLE_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 			deconstruct(FALSE)
 		return
 
 	if(!chargesleft)
-		balloon_alert(X, "No jelly remaining")
-		to_chat(X, span_xenonotice("We reach into \the [src], but only find dregs of resin. We should wait some more.") )
+		balloon_alert(xeno_attacker, "No jelly remaining")
+		to_chat(xeno_attacker, span_xenonotice("We reach into \the [src], but only find dregs of resin. We should wait some more.") )
 		return
-	balloon_alert(X, "Retrieved jelly")
+	balloon_alert(xeno_attacker, "Retrieved jelly")
 	new /obj/item/resin_jelly(loc)
 	chargesleft--
 	if(!(datum_flags & DF_ISPROCESSING) && (chargesleft < maxcharges))
@@ -1273,15 +1259,15 @@ TUNNEL
 	return ..()
 
 // Clicking on the tower brings up a radial menu that allows you to select the type of pheromone that this tower will emit.
-/obj/structure/xeno/pherotower/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	var/phero_choice = show_radial_menu(X, src, GLOB.pheromone_images_list, radius = 35, require_near = TRUE)
+/obj/structure/xeno/pherotower/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	var/phero_choice = show_radial_menu(xeno_attacker, src, GLOB.pheromone_images_list, radius = 35, require_near = TRUE)
 
 	if(!phero_choice)
 		return
 
 	QDEL_NULL(current_aura)
 	current_aura = SSaura.add_emitter(src, phero_choice, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
-	balloon_alert(X, "[phero_choice]")
+	balloon_alert(xeno_attacker, "[phero_choice]")
 	playsound(src, "alien_drool", 25)
 	update_icon()
 
@@ -1466,17 +1452,17 @@ TUNNEL
 		return ..()
 	return on_use(user)
 
-/obj/structure/xeno/plant/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if((X.status_flags & INCORPOREAL))
+/obj/structure/xeno/plant/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if((xeno_attacker.status_flags & INCORPOREAL))
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM && isxenodrone(X))
-		balloon_alert(X, "Uprooted the plant")
-		X.do_attack_animation(src)
+	if(xeno_attacker.a_intent == INTENT_HARM && isxenodrone(xeno_attacker))
+		balloon_alert(xeno_attacker, "Uprooted the plant")
+		xeno_attacker.do_attack_animation(src)
 		deconstruct(FALSE)
 		return FALSE
-	if(can_interact(X))
-		return on_use(X)
+	if(can_interact(xeno_attacker))
+		return on_use(xeno_attacker)
 	return TRUE
 
 /obj/structure/xeno/plant/heal_fruit
@@ -1586,7 +1572,6 @@ TUNNEL
 	to_chat(X, span_xenowarning("[src] Restores our plasma reserves, our organism is on overdrive!"))
 	playsound(user, "alien_drool", 25)
 	return ..()
-
 
 /obj/structure/xeno/plant/stealth_plant
 	name = "night shade"
