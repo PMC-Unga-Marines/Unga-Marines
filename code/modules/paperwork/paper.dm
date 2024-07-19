@@ -435,7 +435,6 @@ then, for every time you included a field, increment fields. */
 /obj/item/paper/crumpled/update_icon_state()
 	return
 
-
 /obj/item/paper/crumpled/bloody/
 	icon_state = "scrap_bloodied"
 
