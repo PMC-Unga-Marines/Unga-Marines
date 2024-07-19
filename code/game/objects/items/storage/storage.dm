@@ -182,7 +182,7 @@
 	if(!opened)
 		orient2hud()
 		opened = 1
-	if (user.s_active == src)
+	if(user.s_active == src)
 		close(user)
 		return TRUE
 	user.s_active?.close(user)
