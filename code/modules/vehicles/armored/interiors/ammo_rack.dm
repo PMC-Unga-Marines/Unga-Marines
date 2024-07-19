@@ -1,4 +1,3 @@
-
 /obj/structure/ammo_rack
 	icon = 'icons/obj/armored/3x3/tank_interior.dmi'
 	resistance_flags = RESIST_ALL
