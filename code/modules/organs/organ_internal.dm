@@ -147,8 +147,9 @@
 	. = ..()
 	if(!.)
 		return
-	owner.max_stamina_buffer += (old_organ_status - organ_status) * 25
-	owner.maxHealth += (old_organ_status - organ_status) * 20
+	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+		owner.max_stamina_buffer += (old_organ_status - organ_status) * 25
+		owner.maxHealth += (old_organ_status - organ_status) * 20
 
 /datum/internal_organ/heart/prosthetic //used by synthetic species
 	robotic = ORGAN_ROBOT
@@ -171,10 +172,10 @@
 	. = ..()
 	if(!.)
 		return
-	// For example, bruised lungs will reduce stamina regen by 40%, broken by 80%
-	owner.add_stamina_regen_modifier(name, organ_status * -0.40)
-	// Slowdown added when the heart is damaged
-	owner.add_movespeed_modifier(id = name, override = TRUE, multiplicative_slowdown = organ_status)
+	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+		owner.add_stamina_regen_modifier(name, organ_status * -0.40) // For example, bruised lungs will reduce stamina regen by 40%, broken by 80%
+		owner.add_movespeed_modifier(id = name, override = TRUE, multiplicative_slowdown = organ_status) // Slowdown added when the heart is damaged
+
 
 /datum/internal_organ/lungs/take_damage(amount, silent= FALSE)
 	owner.adjust_Losebreath(amount) //Hits of 1 damage or less won't do anything due to how losebreath works, but any stronger and we'll get the wind knocked out of us for a bit. Mostly just flavor.
@@ -230,7 +231,8 @@
 	. = ..()
 	if(!.)
 		return
-	filter_rate = initial(filter_rate) - organ_status
+	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+		filter_rate = initial(filter_rate) - organ_status
 
 /datum/internal_organ/liver/prosthetic
 	robotic = ORGAN_ROBOT
@@ -284,7 +286,8 @@
 	. = ..()
 	if(!.)
 		return
-	current_medicine_cap = initial(current_medicine_cap) - 2 * organ_status
+	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+		current_medicine_cap = initial(current_medicine_cap) - 2 * organ_status
 
 /datum/internal_organ/kidneys/process()
 	..()

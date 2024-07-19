@@ -973,7 +973,6 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/hypervene = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/alkysine = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/imidazoline = 20,
-			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 10,
 			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 10,
 		),

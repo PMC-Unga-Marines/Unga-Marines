@@ -173,7 +173,6 @@
 			/obj/item/storage/pill_bottle/spaceacillin = 6,
 			/obj/item/storage/pill_bottle/alkysine = 6,
 			/obj/item/storage/pill_bottle/imidazoline = 6,
-			/obj/item/storage/pill_bottle/quickclot = 6,
 			/obj/item/storage/pill_bottle/hypervene = 6,
 			/obj/item/storage/pill_bottle/russian_red = 6,
 		),
@@ -200,7 +199,6 @@
 			/obj/item/reagent_containers/glass/bottle/oxycodone = 6,
 			/obj/item/reagent_containers/glass/bottle/sleeptoxin = 6,
 			/obj/item/reagent_containers/glass/bottle/polyhexanide = 6,
-			/obj/item/reagent_containers/glass/bottle/medicalnanites = 12,
 		),
 		"Chemistry Equipment" = list(
 			/obj/item/reagent_containers/syringe = -1,
