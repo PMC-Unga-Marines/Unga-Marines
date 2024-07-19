@@ -25,7 +25,6 @@
 	max_rounds = 150
 	loading_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
 
-
 /obj/item/ammo_magazine/tank/flamer
 	name = "Flamer Magazine"
 	desc = "A secondary armament flamethrower magazine"
