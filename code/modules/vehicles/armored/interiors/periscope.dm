@@ -1,4 +1,3 @@
-
 /obj/structure/periscope
 	name = "tank periscope"
 	desc = "A periscope for viewing the outside of the vehicle. Resist or move to stop looking through it."
