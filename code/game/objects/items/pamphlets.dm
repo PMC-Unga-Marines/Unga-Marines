@@ -33,7 +33,6 @@
 	user.temporarilyRemoveItemFromInventory(src)
 	qdel(src)
 
-
 /obj/item/pamphlet/tank_loader
 	name = "loader's instruction manual"
 	desc = "A crude drawing depicting what you think is loading a tank gun. Is that crayon?"
