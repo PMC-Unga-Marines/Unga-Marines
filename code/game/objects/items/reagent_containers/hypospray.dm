@@ -501,7 +501,7 @@
 	desc = "A hypospray loaded with nanoblood. A chemical which rapidly restores blood at the cost of minor toxic damage."
 	amount_per_transfer_from_this = 5
 	list_reagents = list(
-		/datum/reagent/medicine/nanoblood = 120,
+		/datum/reagent/medicine/nanoblood = 60,
 	)
 	description_overlay = "Na"
 
