@@ -42,7 +42,7 @@
 	var/locked = FALSE
 	var/mob/living/carbon/human/occupant = null
 	var/list/surgery_todo_list = list() //a list of surgeries to do.
-//	var/surgery_t = 0 //Surgery timer in seconds.
+	///var/surgery_t = 0 //Surgery timer in seconds.
 	var/surgery = FALSE
 	var/surgery_mod = 1 //What multiple to increase the surgery timer? This is used for any non-WO maps or events that are done.
 	var/filtering = 0
@@ -64,12 +64,10 @@
 	var/stored_metal = 1000 // starts with 500 metal loaded
 	var/stored_metal_max = 2000
 
-
 /obj/machinery/autodoc/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
 	update_icon()
-
 
 /obj/machinery/autodoc/Destroy()
 	forceeject = TRUE
@@ -78,7 +76,6 @@
 		connected.connected = null
 		connected = null
 	return ..()
-
 
 /obj/machinery/autodoc/proc/shuttle_crush()
 	SIGNAL_HANDLER
@@ -105,6 +102,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/autodoc/update_icon_state()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "autodoc_off"
 	else if(surgery)
@@ -193,15 +191,15 @@
 	if(updating_health)
 		occupant.updatehealth()
 
-/obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
-		to_chat(X, span_xenowarning("There is nothing of interest in there."))
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
-	if(X.status_flags & INCORPOREAL || X.do_actions)
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
-	visible_message(span_warning("[X] begins to pry the [src]'s cover!"), 3)
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
-	if(!do_after(X, 2 SECONDS))
+	if(!do_after(xeno_attacker, 2 SECONDS))
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
@@ -227,7 +225,6 @@
 	A.limb_ref = limb_ref
 	A.organ_ref = organ_ref
 	return A
-
 
 /proc/generate_autodoc_surgery_list(mob/living/carbon/human/M)
 	if(!ishuman(M))
@@ -445,7 +442,6 @@
 								E.heal_organ_damage(E.damage)
 								E.eye_surgery_stage = 0
 
-
 			if(LIMB_SURGERY)
 				switch(S.surgery_procedure)
 					if(ADSURGERY_INTERNAL)
@@ -654,7 +650,6 @@
 	surgery = 0
 	go_out(AUTODOC_NOTICE_SUCCESS)
 
-
 /obj/machinery/autodoc/proc/open_incision(mob/living/carbon/human/target, datum/limb/L)
 	if(target && L && L.surgery_open_stage < 2)
 		sleep(INCISION_MANAGER_MAX_DURATION*surgery_mod)
@@ -804,7 +799,6 @@
 		return
 	surgery_op()
 
-
 /obj/machinery/autodoc/MouseDrop_T(mob/M, mob/user)
 	. = ..()
 	move_inside_wrapper(M, user)
@@ -898,7 +892,6 @@
 		C.open()
 		user.start_pulling(M)
 
-
 	if(!M)
 		return
 
@@ -941,7 +934,6 @@
 		say("Automatic mode engaged, initialising procedures.")
 		addtimer(CALLBACK(src, PROC_REF(auto_start)), 5 SECONDS)
 
-
 /////////////////////////////////////////////////////////////
 
 //Auto Doc console that links up to it.
@@ -972,7 +964,6 @@
 	radio = new(src)
 	blood_pack = new(src)
 
-
 /obj/machinery/computer/autodoc_console/Destroy()
 	QDEL_NULL(radio)
 	QDEL_NULL(blood_pack)
@@ -993,8 +984,6 @@
 		return FALSE
 
 	return TRUE
-
-
 
 /obj/machinery/computer/autodoc_console/interact(mob/user)
 	. = ..()
@@ -1184,7 +1173,6 @@
 	popup.set_content(dat)
 	popup.open()
 
-
 /obj/machinery/computer/autodoc_console/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -1275,7 +1263,6 @@
 			if(!needed)
 				N.fields["autodoc_manual"] += create_autodoc_surgery(null,LIMB_SURGERY,ADSURGERY_NECRO,1)
 
-
 		if(href_list["shrapnel"])
 			for(var/i in connected.occupant.limbs)
 				var/datum/limb/L = i
@@ -1349,7 +1336,6 @@
 		connected.eject()
 
 	updateUsrDialog()
-
 
 /obj/machinery/autodoc/event
 	event = 1

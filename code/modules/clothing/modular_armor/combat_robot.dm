@@ -219,7 +219,7 @@
 	name = "\improper Urodela upper armor plating"
 	desc = "Heavy armor plating designed for self mounting on the upper half of TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside.The top armor made from fireproof glass-like material. This is done in order not to reduce the effectiveness of the robot's tracking modules. The glass itself can withstand high temperatures and a short stay in lava."
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 80, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 100, ACID = 50)
-	hard_armor = list("fire" = 200)
+	hard_armor = list(FIRE = 200)
 
 	icon_state = "robo_helm_fire"
 	item_state = "robo_helm_fire"

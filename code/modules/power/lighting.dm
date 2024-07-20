@@ -1,8 +1,5 @@
 // The lighting system
-//
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
-
-
 // status values shared between lighting fixtures and items
 /obj/machinery/light_construct
 	name = "light fixture frame"
@@ -30,7 +27,6 @@
 			. += "It's wired."
 		if(3)
 			. += "The casing is closed."
-
 
 /obj/machinery/light_construct/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -108,7 +104,6 @@
 
 		newlight.setDir(dir)
 		qdel(src)
-
 
 /obj/machinery/light_construct/small
 	name = "small light fixture frame"
@@ -195,7 +190,6 @@
 	status = LIGHT_EMPTY
 	update(FALSE)
 
-
 /obj/machinery/light/small/built/Initialize(mapload)
 	. = ..()
 	status = LIGHT_EMPTY
@@ -236,7 +230,6 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-
 /obj/machinery/light/LateInitialize()
 	var/area/A = get_area(src)
 	turn_light(null, (A.lightswitch && A.power_light))
@@ -250,7 +243,8 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/light/update_icon()
+/obj/machinery/light/update_icon_state()
+	. = ..()
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			icon_state = "[base_state][light_on]"
@@ -310,8 +304,6 @@
 			. += "The [fitting] is burnt out."
 		if(LIGHT_BROKEN)
 			. += "The [fitting] has been smashed."
-
-
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
@@ -387,7 +379,6 @@
 			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(7, 10) * 0.1)
 
-
 // returns whether this light has power
 // true if area has power and lightswitch is on
 /obj/machinery/light/proc/has_power()
@@ -413,15 +404,14 @@
 /obj/machinery/light/attack_ai(mob/user)
 	flicker(1)
 
-
 //Xenos smashing lights
-/obj/machinery/light/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/light/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
 	if(status == 2) //Ignore if broken.
 		return FALSE
-	X.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-	X.visible_message(span_danger("\The [X] smashes [src]!"), \
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+	xeno_attacker.visible_message(span_danger("\The [xeno_attacker] smashes [src]!"), \
 	span_danger("We smash [src]!"), null, 5)
 	broken() //Smashola!
 
@@ -631,7 +621,6 @@
 			icon_state = "[base_state]-broken"
 			desc = "A broken [name]."
 
-
 /obj/item/light_bulb/Initialize(mapload)
 	. = ..()
 	switch(name)
@@ -640,7 +629,6 @@
 		if("light bulb")
 			brightness = rand(4,6)
 	update()
-
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode

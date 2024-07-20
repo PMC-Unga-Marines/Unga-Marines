@@ -52,18 +52,14 @@
 	armor_overlays = list("lamp") //Just one for now, can add more later.
 	update_icon()
 
-/obj/item/clothing/suit/storage/marine/update_icon(mob/user)
-	var/image/I
-	I = armor_overlays["lamp"]
-	overlays -= I
-	qdel(I)
+/obj/item/clothing/suit/storage/marine/update_overlays()
+	. = ..()
 	if(flags_armor_features & ARMOR_LAMP_OVERLAY)
-		I = image(icon, src, flags_armor_features & ARMOR_LAMP_ON? "lamp-on" : "lamp-off")
+		var/image/I = image(icon, src, flags_armor_features & ARMOR_LAMP_ON? "lamp-on" : "lamp-off")
 		armor_overlays["lamp"] = I
-		overlays += I
+		. += I
 	else
 		armor_overlays["lamp"] = null
-	user?.update_inv_wear_suit()
 
 /obj/item/clothing/suit/storage/marine/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)
 	if(inhands)
@@ -102,6 +98,24 @@
 	desc = "A somewhat sparsely armored but robust armored vest, still in use despite the rise of exoskeleton armor due to ease of use and manufacturing. While the suit is a bit more encumbering to wear with the mech pilot uniform, it offers the them a degree of protection that they otherwise do not enjoy outside their mech."
 	icon_state = "mech_pilot_suit"
 	item_state = "mech_pilot_suit"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 20, BOMB = 45, BIO = 30, FIRE = 25, ACID = 35)
+	flags_item_map_variant = NONE
+
+/obj/item/clothing/suit/storage/marine/assault_crewman
+	name = "\improper PAS-73 pattern tanker armor"
+	desc = "A somewhat sparsely armored but robust armored vest. Used by tankers, mostly to absorb bumps in the road as they drive over enemies."
+	icon_state = "assault_crewman_suit"
+	item_state = "assault_crewman_suit"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 20, BOMB = 45, BIO = 30, FIRE = 25, ACID = 35)
+	flags_item_map_variant = NONE
+
+/obj/item/clothing/suit/storage/marine/transport_crewman
+	name = "\improper PAS-74 pattern transport armor"
+	desc = "A somewhat sparsely armored but robust armored vest. Used by transport crewmen so that they can pretend that they may survice when their vehicle is overrun."
+	icon_state = "transport_crewman_suit"
+	item_state = "transport_crewman_suit"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 20, BOMB = 45, BIO = 30, FIRE = 25, ACID = 35)
 	flags_item_map_variant = NONE
@@ -382,18 +396,14 @@
 	armor_overlays = list("lamp")
 	update_icon()
 
-/obj/item/clothing/suit/storage/faction/update_icon(mob/user)
-	var/image/I
-	I = armor_overlays["lamp"]
-	overlays -= I
-	qdel(I)
+/obj/item/clothing/suit/storage/faction/update_overlays()
+	. = ..()
 	if(flags_armor_features & ARMOR_LAMP_OVERLAY)
-		I = image(icon, src, flags_armor_features & ARMOR_LAMP_ON? "lamp-on" : "lamp-off")
+		var/image/I = image(icon, src, flags_armor_features & ARMOR_LAMP_ON? "lamp-on" : "lamp-off")
 		armor_overlays["lamp"] = I
-		overlays += I
-	else armor_overlays["lamp"] = null
-	if(user) user.update_inv_wear_suit()
-
+		. += I
+	else
+		armor_overlays["lamp"] = null
 
 /obj/item/clothing/suit/storage/faction/attack_self(mob/user)
 	if(!isturf(user.loc))

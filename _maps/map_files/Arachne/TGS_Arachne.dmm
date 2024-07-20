@@ -5474,7 +5474,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/obj/effect/landmark/start/job/pilotofficer,
+/obj/effect/landmark/start/job/transportofficer,
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "eMo" = (
@@ -8540,9 +8540,7 @@
 /area/mainship/medical/lower_medical)
 "hot" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Oxygen Supply Console";
-	output_tag = "oxyvent";
-	sensors = list("oxy_sensor"="Tank")
+	name = "Oxygen Supply Console"
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/starboard_atmos)
@@ -20993,10 +20991,7 @@
 /area/mainship/squads/general)
 "rrK" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "mix_in";
-	name = "Mixed Air Control";
-	output_tag = "mix_out";
-	sensors = list("mix_sensor"="Tank")
+	name = "Mixed Air Control"
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/starboard_atmos)
@@ -26876,9 +26871,7 @@
 /area/mainship/command/corporateliaison)
 "wzb" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Nitrogen Control Console";
-	output_tag = "nit_out";
-	sensors = list("nit_sensor"="Tank")
+	name = "Nitrogen Control Console"
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/starboard_atmos)

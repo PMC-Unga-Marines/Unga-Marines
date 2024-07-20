@@ -61,7 +61,6 @@
 	if(speed)
 		update_simplemob_varspeed()
 
-
 /mob/living/simple_animal/Destroy()
 	GLOB.simple_animals[AIStatus] -= src
 
@@ -74,11 +73,9 @@
 
 	return ..()
 
-
 /mob/living/simple_animal/updatehealth()
 	. = ..()
 	health = clamp(health, 0, maxHealth)
-
 
 /mob/living/simple_animal/update_stat()
 	if(status_flags & GODMODE)
@@ -90,7 +87,6 @@
 			set_stat(CONSCIOUS)
 	med_hud_set_status()
 
-
 /mob/living/simple_animal/revive(admin_revive = FALSE)
 	. = ..()
 	icon = initial(icon)
@@ -98,30 +94,23 @@
 	density = initial(density)
 	set_resting(FALSE)
 
-
 /mob/living/simple_animal/blind_eyes()
 	return
-
 
 /mob/living/simple_animal/adjust_blindness()
 	return
 
-
 /mob/living/simple_animal/set_blindness()
 	return
-
 
 /mob/living/simple_animal/blur_eyes()
 	return
 
-
 /mob/living/simple_animal/adjust_blurriness()
 	return
 
-
 /mob/living/simple_animal/set_blurriness()
 	return
-
 
 /mob/living/simple_animal/death(gibbing, deathmessage, silent)
 	if(stat == DEAD)
@@ -130,7 +119,6 @@
 		emote("deathgasp")
 		silent = TRUE //No need to for the parent to deathmessage again.
 	return ..()
-
 
 /mob/living/simple_animal/on_death()
 	health = 0
@@ -143,23 +131,19 @@
 	if(del_on_death && !QDELETED(src))
 		qdel(src)
 
-
 /mob/living/simple_animal/gib_animation()
 	if(!icon_gib)
 		return
 	new /obj/effect/overlay/temp/gib_animation/animal(loc, 0, src, icon_gib)
 
-
 /mob/living/simple_animal/proc/set_varspeed(var_value)
 	speed = var_value
 	update_simplemob_varspeed()
-
 
 /mob/living/simple_animal/proc/update_simplemob_varspeed()
 	if(speed == 0)
 		remove_movespeed_modifier(MOVESPEED_ID_SIMPLEMOB_VARSPEED, TRUE)
 	add_movespeed_modifier(MOVESPEED_ID_SIMPLEMOB_VARSPEED, TRUE, 100, multiplicative_slowdown = speed, override = TRUE)
-
 
 /mob/living/simple_animal/update_transform()
 	var/matrix/ntransform = matrix(transform) //aka transform.Copy()
@@ -196,30 +180,27 @@
 			log_combat(user, src, "attacked")
 			return TRUE
 
-
-/mob/living/simple_animal/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/mob/living/simple_animal/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	. = ..()
 	if(!.)
 		return
-	if(X.a_intent == INTENT_DISARM)
+	if(xeno_attacker.a_intent == INTENT_DISARM)
 		playsound(loc, 'sound/weapons/pierce.ogg', 25, 1, -1)
-		visible_message(span_danger("[X] [response_disarm] [name]!"), \
-				span_userdanger("[X] [response_disarm] [name]!"))
-		log_combat(X, src, "disarmed")
+		visible_message(span_danger("[xeno_attacker] [response_disarm] [name]!"), \
+				span_userdanger("[xeno_attacker] [response_disarm] [name]!"))
+		log_combat(xeno_attacker, src, "disarmed")
 	else
 		var/damage = rand(15, 30)
-		visible_message(span_danger("[X] has slashed at [src]!"), \
-				span_userdanger("[X] has slashed at [src]!"))
+		visible_message(span_danger("[xeno_attacker] has slashed at [src]!"), \
+				span_userdanger("[xeno_attacker] has slashed at [src]!"))
 		playsound(loc, 'sound/weapons/slice.ogg', 25, 1, -1)
 		attack_threshold_check(damage)
-		log_combat(X, src, "attacked")
+		log_combat(xeno_attacker, src, "attacked")
 	return TRUE
-
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
 	. += "Health: [round((health / maxHealth) * 100)]%"
-
 
 /mob/living/simple_animal/ex_act(severity)
 	flash_act()
@@ -231,18 +212,15 @@
 	adjustBruteLoss(severity / 3)
 	UPDATEHEALTH(src)
 
-
 /mob/living/simple_animal/get_idcard(hand_first)
 	return access_card
-
 
 /mob/living/simple_animal/say_mod(input, message_mode, datum/language/language)
 	if(length(speak_emote))
 		verb_say = pick(speak_emote)
 	return ..()
 
-
-/mob/living/simple_animal/proc/attack_threshold_check(damage, damagetype = BRUTE, armorcheck = "melee")
+/mob/living/simple_animal/proc/attack_threshold_check(damage, damagetype = BRUTE, armorcheck = MELEE)
 	var/temp_damage = damage
 	if(!damage_coeff[damagetype])
 		temp_damage = 0
@@ -256,7 +234,6 @@
 		apply_damage(damage, damagetype, blocked = armorcheck)
 		UPDATEHEALTH(src)
 		return TRUE
-
 
 /mob/living/simple_animal/proc/toggle_ai(togglestatus)
 	if(!can_have_ai && (togglestatus != AI_OFF))
@@ -275,13 +252,11 @@
 		else
 			stack_trace("Something attempted to set simple animals AI to an invalid state: [togglestatus]")
 
-
 /mob/living/simple_animal/onTransitZ(old_z, new_z)
 	. = ..()
 	if(AIStatus == AI_Z_OFF)
 		SSidlenpcpool.idle_mobs_by_zlevel[old_z] -= src
 		toggle_ai(initial(AIStatus))
-
 
 /mob/living/simple_animal/proc/handle_automated_action()
 	set waitfor = FALSE
@@ -299,7 +274,6 @@
 						Move(get_step(src, anydir), anydir)
 						turns_since_move = 0
 			return TRUE
-
 
 /mob/living/simple_animal/proc/handle_automated_speech(override)
 	set waitfor = FALSE
@@ -336,7 +310,6 @@
 					else
 						emote("me", 2, pick(emote_hear))
 
-
 /mob/living/simple_animal/proc/CanAttack(atom/the_target)
 	if(see_invisible < the_target.invisibility)
 		return FALSE
@@ -350,11 +323,9 @@
 			return FALSE
 	return TRUE
 
-
 /mob/living/simple_animal/proc/consider_wakeup()
 	if(pulledby || shouldwakeup)
 		toggle_ai(AI_ON)
-
 
 /mob/living/simple_animal/proc/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	if(!forced && (status_flags & GODMODE))

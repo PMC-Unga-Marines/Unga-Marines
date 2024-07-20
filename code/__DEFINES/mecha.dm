@@ -1,8 +1,6 @@
 #define MECHA_INT_FIRE (1<<0)
-#define MECHA_INT_TEMP_CONTROL (1<<1)
-#define MECHA_INT_SHORT_CIRCUIT (1<<2)
-#define MECHA_INT_TANK_BREACH (1<<3)
-#define MECHA_INT_CONTROL_LOST (1<<4)
+#define MECHA_INT_SHORT_CIRCUIT (1<<1)
+#define MECHA_INT_CONTROL_LOST (1<<2)
 
 #define ADDING_ACCESS_POSSIBLE (1<<0)
 #define ADDING_MAINT_ACCESS_POSSIBLE (1<<1)
@@ -97,6 +95,8 @@
 ///degree of cone in front of which mech is allowed to fire at
 #define MECH_FIRE_CONE_ALLOWED 120
 
+///degree of cone in front of which armored vehicles are allowed to fire at
+#define ARMORED_FIRE_CONE_ALLOWED 110
 /**
  * greyscale mech shenanigans
  */

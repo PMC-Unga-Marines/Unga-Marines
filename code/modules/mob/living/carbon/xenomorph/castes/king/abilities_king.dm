@@ -5,9 +5,9 @@
 /datum/action/ability/activable/xeno/nightfall
 	name = "Nightfall"
 	action_icon_state = "nightfall"
-	desc = "Shut down all electrical lights nearby for 10 seconds."
+	desc = "Shut down electrical lights for 10 seconds and extinguish flares in nearby range."
 	cooldown_duration = 45 SECONDS
-	ability_cost = 100
+	ability_cost = 150
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_NIGHTFALL,
 	)
@@ -28,7 +28,10 @@
 		if(isnull(light.loc) || (owner.loc.z != light.loc.z) || (get_dist(owner, light) >= range))
 			continue
 		light.turn_light(null, FALSE, duration, TRUE, TRUE, TRUE)
-
+	for(var/obj/item/explosive/grenade/flare/flare in range(range, owner))
+		if(!flare.active)
+			continue
+		flare.turn_off()
 
 // ***************************************
 // *********** Petrify
@@ -260,9 +263,9 @@
 			shake_camera(carbon_victim, 3 * severity, 3 * severity)
 			carbon_victim.apply_effect(1 SECONDS, WEAKEN)
 			to_chat(carbon_victim, "You are smashed to the ground!")
-		else if(ismecha(victim))
-			var/obj/vehicle/sealed/mecha/mecha_victim = victim
-			mecha_victim.take_damage(SHATTERING_ROAR_DAMAGE * 5 * severity, BRUTE, MELEE)
+		else if(isvehicle(victim))
+			var/obj/vehicle/veh_victim = victim
+			veh_victim.take_damage(SHATTERING_ROAR_DAMAGE * 5 * severity, BRUTE, MELEE)
 		else if(istype(victim, /obj/structure/window))
 			var/obj/structure/window/window_victim = victim
 			if(window_victim.damageable)
@@ -296,7 +299,7 @@
 /datum/action/ability/xeno_action/zero_form_beam
 	name = "Zero-Form Energy Beam"
 	action_icon_state = "zero_form_beam"
-	desc = "After a windup, concentrates the hives energy into a forward-facing beam that pierces everything, but only hurts living beings."
+	desc = "After a windup, concentrates the hives energy into a forward-facing beam that pierces everything, hurting living beings and vehicles."
 	ability_cost = 25
 	cooldown_duration = 10 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -398,9 +401,12 @@
 				human_victim.take_overall_damage(15, BURN, updating_health = TRUE)
 				human_victim.flash_weak_pain()
 				animation_flash_color(human_victim)
-			else if(ismecha(victim))
-				var/obj/vehicle/sealed/mecha/mech_victim = victim
-				mech_victim.take_damage(75, BURN, ENERGY, armour_penetration = 60)
+			else if(isvehicle(victim) || ishitbox(victim))
+				var/obj/obj_victim = victim
+				var/damage_mult = 1
+				if(ismecha(obj_victim))
+					damage_mult = 5
+				obj_victim.take_damage(15 * damage_mult, BURN, ENERGY, armour_penetration = 60)
 	timer_ref = addtimer(CALLBACK(src, PROC_REF(execute_attack)), ZEROFORM_TICK_RATE, TIMER_STOPPABLE)
 
 ///ends and cleans up beam

@@ -1,0 +1,4 @@
+author: "homexp13"
+delete-after: True
+changes:
+  - qol: "Using medical items in-hand will now apply them to yourself"

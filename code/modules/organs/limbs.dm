@@ -421,11 +421,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 		germ_level = 0
 		return
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(isyautja(owner))
 		germ_level = 0
 		return
-//RUTGMC EDIT ADDITION END
 
 	if(owner.bodytemperature >= 170 && !HAS_TRAIT(owner, TRAIT_STASIS))	//cryo stops germs from moving and doing their bad stuffs
 		//** Syncing germ levels with external wounds
@@ -853,8 +851,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		span_warning("You hear a loud cracking sound coming from [owner]!"),
 		span_highdanger("Something feels like it shattered in your [display_name]!"),
 		"<span class='warning'>You hear a sickening crack!<span>")
-	var/soundeffect = pick('sound/effects/bone_break1.ogg','sound/effects/bone_break2.ogg','sound/effects/bone_break3.ogg','sound/effects/bone_break4.ogg','sound/effects/bone_break5.ogg','sound/effects/bone_break6.ogg','sound/effects/bone_break7.ogg')
-	playsound(owner,soundeffect, 45, 1)
+	playsound(owner, "bone_break", 45, 1)
 	if(owner.species && !(owner.species.species_flags & NO_PAIN))
 		owner.emote("scream")
 
@@ -1140,15 +1137,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /datum/limb/head/take_damage_limb(brute, burn, sharp, edge, blocked = 0, updating_health = FALSE, list/forbidden_limbs = list())
 	. = ..()
-	if (!disfigured)
-		if (brute_dam > 40)
-			if (prob(50))
+	if(!disfigured)
+		if(brute_dam > 40)
+			if(prob(50))
 				disfigure(BRUTE)
-		if (burn_dam > 40)
-			disfigure("burn")
+		if(burn_dam > 40)
+			disfigure(BURN)
 
 /datum/limb/head/proc/disfigure(type = BRUTE)
-	if (disfigured)
+	if(disfigured)
 		return
 	if(type == BRUTE)
 		owner.visible_message(span_warning(" You hear a sickening cracking sound coming from \the [owner]'s face."),	\

@@ -39,7 +39,6 @@
 	else
 		layer = OBJ_LAYER
 
-
 /obj/structure/bed/chair/post_buckle_mob(mob/buckling_mob)
 	. = ..()
 	if(isliving(buckling_mob)) //Properly update whether we're lying or not; no more people lying on chairs; ridiculous
@@ -55,7 +54,6 @@
 /obj/structure/bed/chair/setDir(newdir)
 	. = ..()
 	handle_rotation(newdir)
-
 
 /obj/structure/bed/chair/verb/rotate()
 	set name = "Rotate Chair"
@@ -78,7 +76,6 @@
 	name = "reinforced chair"
 	desc = "Some say that the TGMC shouldn't spent this much money on reinforced chairs, but the documents from briefing riots prove otherwise."
 	buildstackamount = 2
-
 
 /obj/structure/bed/chair/reinforced/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -116,7 +113,6 @@
 			new buildstacktype(loc, buildstackamount)
 		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 		qdel(src)
-
 
 /obj/structure/bed/chair/wood
 	buildstacktype = /obj/item/stack/sheet/wood
@@ -193,7 +189,6 @@
 	icon_state = "couch_vet1"
 
 //cm benches do not have corners
-
 
 /obj/structure/bed/chair/pew
 	name = "chapel pew"
@@ -284,11 +279,10 @@
 	var/is_animating = 0
 
 /obj/structure/bed/chair/dropship/passenger/CanAllowThrough(atom/movable/mover, turf/target, height = 0, air_group = 0)
-	if(chair_state == DROPSHIP_CHAIR_UNFOLDED && istype(mover, /obj/vehicle/multitile) && !is_animating)
+	if(chair_state == DROPSHIP_CHAIR_UNFOLDED && istype(mover, /obj/vehicle/sealed) && !is_animating)
 		visible_message(span_danger("[mover] slams into [src] and breaks it!"))
 		INVOKE_ASYNC(src, PROC_REF(fold_down), TRUE)
 		return FALSE
-
 	return ..()
 
 /obj/structure/bed/chair/dropship/passenger/Initialize(mapload)
@@ -296,18 +290,15 @@
 	chairbar = image("icons/obj/objects.dmi", "shuttle_bars")
 	chairbar.layer = ABOVE_MOB_LAYER
 
-
 /obj/structure/bed/chair/dropship/passenger/post_buckle_mob(mob/buckling_mob)
 	icon_state = "shuttle_chair_buckled"
 	overlays += chairbar
 	return ..()
 
-
 /obj/structure/bed/chair/dropship/passenger/post_unbuckle_mob(mob/buckled_mob)
 	icon_state = "shuttle_chair"
 	overlays -= chairbar
 	return ..()
-
 
 /obj/structure/bed/chair/dropship/passenger/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	if(chair_state != DROPSHIP_CHAIR_UNFOLDED)
@@ -341,12 +332,11 @@
 /obj/structure/bed/chair/dropship/passenger/rotate()
 	return // no
 
-
-/obj/structure/bed/chair/dropship/passenger/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/bed/chair/dropship/passenger/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 	if(chair_state != DROPSHIP_CHAIR_BROKEN)
-		X.visible_message(span_warning("[X] smashes \the [src], shearing the bolts!"),
+		xeno_attacker.visible_message(span_warning("[xeno_attacker] smashes \the [src], shearing the bolts!"),
 		span_warning("We smash \the [src], shearing the bolts!"))
 		fold_down(1)
 
@@ -399,7 +389,6 @@
 		user.visible_message(span_warning("[user] repairs \the [src]."),
 		span_warning("You repair \the [src]."))
 		chair_state = DROPSHIP_CHAIR_FOLDED
-
 
 /obj/structure/bed/chair/ob_chair
 	name = "seat"

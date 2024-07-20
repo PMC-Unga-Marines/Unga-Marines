@@ -37,14 +37,14 @@
 	update_action_button_icons()
 	update_icon()
 
-/obj/item/clothing/head/hardhat/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
-	if(turn_light(X, FALSE) != CHECKS_PASSED)
+/obj/item/clothing/head/hardhat/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
+	if(turn_light(xeno_attacker, FALSE) != CHECKS_PASSED)
 		return
 	playsound(loc, "alien_claw_metal", 25, 1)
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	to_chat(X, span_warning("We disable the metal thing's lights.") )
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
 
-/obj/item/clothing/head/hardhat/update_icon()
+/obj/item/clothing/head/hardhat/update_icon_state()
 	. = ..()
 	icon_state = "hardhat[light_on]_[hardhat_color]"
 	item_state = "hardhat[light_on]_[hardhat_color]"
@@ -57,14 +57,14 @@
 	icon_state = "hardhat0_red"
 	hardhat_color = "red"
 	name = "firefighter helmet"
-	flags_inventory = NOPRESSUREDMAGE|BLOCKSHARPOBJ
+	flags_inventory = BLOCKSHARPOBJ
 	flags_heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/white
 	icon_state = "hardhat0_white"
 	hardhat_color = "white"
-	flags_inventory = NOPRESSUREDMAGE|BLOCKSHARPOBJ
+	flags_inventory = BLOCKSHARPOBJ
 	flags_heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 

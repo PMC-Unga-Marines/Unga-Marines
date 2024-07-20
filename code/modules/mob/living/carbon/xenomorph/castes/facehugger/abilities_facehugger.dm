@@ -51,7 +51,7 @@
 
 	if(ishuman(living_target) && (angle_to_dir(Get_Angle(caster.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
 		var/mob/living/carbon/human/human_target = living_target
-		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
+		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, MELEE))
 			caster.Paralyze(HUGGER_POUNCE_SHIELD_STUN_DURATION)
 			caster.set_throwing(FALSE) //Reset throwing manually.
 			playsound(caster, 'sound/machines/bonk.ogg', 50, FALSE)
