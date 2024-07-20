@@ -43,6 +43,11 @@ SUBSYSTEM_DEF(points)
 	var/psp_limit = 600
 	///Var used to calculate points difference between updates
 	var/supply_points_old = 0
+	///Used to delay fast delivery and for animation
+	var/fast_delivery_is_active = TRUE
+	///Reference to the balloon vis obj effect
+	var/atom/movable/vis_obj/fulton_balloon/baloon
+	var/obj/effect/fulton_extraction_holder/holder_obj
 
 /datum/controller/subsystem/points/Recover()
 	ordernum = SSpoints.ordernum
@@ -123,6 +128,10 @@ SUBSYSTEM_DEF(points)
 		to_chat(user, span_warning("No beacons"))
 		return
 
+	if(!fast_delivery_is_active)
+		to_chat(user, span_warning("Fast delivery is not ready"))
+		return FALSE
+
 	var/fast_delivery_cost = 0
 	for(var/i in O.pack)
 		var/datum/supply_packs/SP = i
@@ -156,11 +165,18 @@ SUBSYSTEM_DEF(points)
 
 	var/turf/TC = locate(supply_beacon.drop_location.x, supply_beacon.drop_location.y, supply_beacon.drop_location.z)
 
+	//spawn crate and clear shoping list
+	delivery_to_turf(O, TC)
+
+	//effects
+	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
+
+/datum/controller/subsystem/points/proc/delivery_to_turf(datum/supply_order/O, turf/TC)
 	var/datum/supply_packs/firstpack = O.pack[1]
 
 	var/obj/structure/crate_type = firstpack.containertype || firstpack.contains[1]
 
-	var/obj/structure/A = new crate_type(TC)
+	var/obj/structure/A = new crate_type(null)
 	if(firstpack.containertype)
 		A.name = "Order #[O.id] for [O.orderer]"
 
@@ -204,16 +220,36 @@ SUBSYSTEM_DEF(points)
 	SSpoints.shoppinglist[O.faction] -= "[O.id]"
 	SSpoints.shopping_history += O
 
-	//effects
-	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
-	playsound(supply_beacon.drop_location,'sound/effects/phasein.ogg', 50, TRUE)
+	baloon = new()
+	holder_obj = new()
+
+	holder_obj.appearance = A.appearance
+	holder_obj.forceMove(TC)
+
+	baloon.icon_state = initial(baloon.icon_state)
+	holder_obj.vis_contents += baloon
+
+	addtimer(CALLBACK(src, PROC_REF(end_fast_delivery), A, TC), 1 SECONDS)
+
+	flick("fulton_expand", baloon)
+	baloon.icon_state = "fulton_balloon"
+
+	holder_obj.pixel_z = 360
+	animate(holder_obj, 1 SECONDS, pixel_z = 0)
+
+/datum/controller/subsystem/points/proc/end_fast_delivery(atom/movable/A, turf/TC)
+	A.forceMove(TC)
+	holder_obj.moveToNullspace()
+	holder_obj.pixel_z = initial(A.pixel_z)
+	holder_obj.vis_contents -= baloon
+	baloon.icon_state = initial(baloon.icon_state)
+	fast_delivery_is_active = TRUE
 
 ///Add amount of psy points to the selected hive only if the gamemode support psypoints
 /datum/controller/subsystem/points/proc/add_psy_points(hivenumber, amount)
 	if(!CHECK_BITFIELD(SSticker.mode.flags_round_type, MODE_PSY_POINTS))
 		return
 	xeno_points_by_hive[hivenumber] += amount
-
 
 /datum/controller/subsystem/points/proc/approve_request(datum/supply_order/O, mob/living/user)
 	var/cost = 0
