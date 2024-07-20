@@ -28,15 +28,11 @@
 	if(!possible_transfer_amounts)
 		verbs -= /obj/item/reagent_containers/verb/set_APTFT
 
-/obj/item/reagent_containers/attack_hand_alternate(mob/living/user)
+/obj/item/reagent_containers/attack_self(mob/living/user)
 	. = ..()
-	if(!possible_transfer_amounts)
-		return
-	var/result = tgui_input_list(user, "Amount per transfer from this:","[src]", possible_transfer_amounts)
-	if(result)
-		amount_per_transfer_from_this = result
+	afterattack(user, user) //If player uses the container, use it on themselves
 
-/obj/item/reagent_containers/interact(mob/user)
+/obj/item/reagent_containers/unique_action(mob/user, special_treatment)
 	. = ..()
 	if(.)
 		return
