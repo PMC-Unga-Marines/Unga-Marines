@@ -1403,8 +1403,8 @@ MEDICAL
 		/obj/item/storage/pouch/medical_injectors/medic,
 		/obj/item/storage/pouch/medical_injectors/medic,
 		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/stack/nanopaste,
 	)
@@ -1599,14 +1599,14 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
@@ -1694,7 +1694,7 @@ MEDICAL
 	notes = "contains injector quick+ and peri+."
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		)
 	cost = 30
 

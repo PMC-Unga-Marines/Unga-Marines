@@ -524,7 +524,7 @@
 	desc = "A specialized medical pouch that can only hold auto-injectors."
 	icon_state = "firstaid_injector"
 	sprite_slots = 5
-	storage_slots = 8
+	storage_slots = 14
 	max_storage_space = 14
 	can_hold = list(/obj/item/reagent_containers/hypospray/autoinjector)
 
@@ -534,8 +534,14 @@
 /obj/item/storage/pouch/medical_injectors/firstaid/Initialize(mapload)
 	. = ..()
 	new /obj/item/reagent_containers/hypospray/autoinjector/bicaridine (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/bicaridine (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/bicaridine (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/kelotane (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/kelotane (src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/kelotane (src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/tramadol (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/tramadol (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine (src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine (src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/dylovene (src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline(src)
@@ -547,11 +553,17 @@
 	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
-	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
-	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
 
 /obj/item/storage/pouch/medical_injectors/som
 	desc = "A specialized medical pouch that can only hold auto-injectors. This one looks to be made out of traditional SOM leather."
@@ -577,8 +589,8 @@
 	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
-	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
-	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
 
 /obj/item/storage/pouch/medical_injectors/icc
 	desc = "A specialized medical pouch that can only hold auto-injectors. This one looks to be made out of a synthetic tan fabric."
