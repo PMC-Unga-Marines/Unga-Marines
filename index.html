@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(464 modules,
-    768/7514 macros, 10.2%)</aside></h3>
+<aside>(470 modules,
+    851/7564 macros, 11.3%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -48,6 +48,7 @@ VREF_[DATA_TYPE]_[WHAT_IS_IT_USED_FOR]</li>
     <li><a href="code/__DEFINES/admin.html" title="code&#x2F;__DEFINES&#x2F;admin">admin</a></li>
     <li><a href="code/__DEFINES/ai.html" title="code&#x2F;__DEFINES&#x2F;ai">ai</a></li>
     <li><a href="code/__DEFINES/alerts.html" title="code&#x2F;__DEFINES&#x2F;alerts">alerts</a></li>
+    <li><a href="code/__DEFINES/apc_defines.html" title="code&#x2F;__DEFINES&#x2F;apc_defines">apc_defines</a></li>
     <li><a href="code/__DEFINES/area.html" title="code&#x2F;__DEFINES&#x2F;area">area</a></li>
     <li><a href="code/__DEFINES/calibers.html" title="code&#x2F;__DEFINES&#x2F;calibers">calibers</a></li>
     <li><a href="code/__DEFINES/callbacks.html" title="code&#x2F;__DEFINES&#x2F;callbacks">callbacks</a></li>
@@ -90,6 +91,7 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/__DEFINES/mobs.html" title="code&#x2F;__DEFINES&#x2F;mobs">mobs</a></li>
     <li><a href="code/__DEFINES/mode.html" title="code&#x2F;__DEFINES&#x2F;mode">mode</a></li>
     <li><a href="code/__DEFINES/monitor.html" title="code&#x2F;__DEFINES&#x2F;monitor">monitor</a></li>
+    <li><a href="code/__DEFINES/movement.html" title="code&#x2F;__DEFINES&#x2F;movement">movement</a></li>
     <li><a href="code/__DEFINES/objects.html" title="code&#x2F;__DEFINES&#x2F;objects">objects</a></li>
     <li><a href="code/__DEFINES/overlays.html" title="code&#x2F;__DEFINES&#x2F;overlays">overlays</a></li>
     <li><a href="code/__DEFINES/predators.html" title="code&#x2F;__DEFINES&#x2F;predators">predators</a></li>
@@ -604,7 +606,10 @@ Thanks to forum_account for saving the day, the library can be found
     </ul></li>
     </ul></li>
     <li><span class="no-substance">recycling&#x2F;</span><a href="code/modules/recycling/conveyor2.html" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2">conveyor2</a></li>
-    <li><span class="no-substance">reqs&#x2F;</span><a href="code/modules/reqs/supplypacks.html" title="code&#x2F;modules&#x2F;reqs&#x2F;supplypacks">supplypacks</a></li>
+    <li class="has-children"><span title="code&#x2F;modules&#x2F;reqs">reqs</span><ul class="index-tree">
+    <li><a href="code/modules/reqs/supply.html" title="code&#x2F;modules&#x2F;reqs&#x2F;supply">supply</a></li>
+    <li><a href="code/modules/reqs/supplypacks.html" title="code&#x2F;modules&#x2F;reqs&#x2F;supplypacks">supplypacks</a></li>
+    </ul></li>
     <li><span class="no-substance">shuttle&#x2F;</span><a href="code/modules/shuttle/marine_dropship.html" title="code&#x2F;modules&#x2F;shuttle&#x2F;marine_dropship">marine_dropship</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;surgery">surgery</span><ul class="index-tree">
     <li><a href="code/modules/surgery/generic.html" title="code&#x2F;modules&#x2F;surgery&#x2F;generic">generic</a></li>
@@ -692,6 +697,11 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/unit_tests/tgui_create_message.html" title="code&#x2F;modules&#x2F;unit_tests&#x2F;tgui_create_message">tgui_create_message</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;vehicles">vehicles</span><ul class="index-tree">
+    <li><a href="code/modules/vehicles/_hitbox.html" title="code&#x2F;modules&#x2F;vehicles&#x2F;_hitbox">_hitbox</a></li>
+    <li class="has-children"><span title="code&#x2F;modules&#x2F;vehicles&#x2F;armored">armored</span><ul class="index-tree">
+    <li><a href="code/modules/vehicles/armored/armored_actions.html" title="code&#x2F;modules&#x2F;vehicles&#x2F;armored&#x2F;armored_actions">armored_actions</a></li>
+    <li><a href="code/modules/vehicles/armored/armored_modules.html" title="code&#x2F;modules&#x2F;vehicles&#x2F;armored&#x2F;armored_modules">armored_modules</a></li>
+    </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;vehicles&#x2F;mecha">mecha</span><ul class="index-tree">
     <li><a href="code/modules/vehicles/mecha/_mecha.html" title="code&#x2F;modules&#x2F;vehicles&#x2F;mecha&#x2F;_mecha">_mecha</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;vehicles&#x2F;mecha&#x2F;combat">combat</span><ul class="index-tree">
@@ -729,7 +739,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1003 detailed/1285 documented/19752 total, 6.5%)</aside></h3>
+<aside>(1031 detailed/1314 documented/19880 total, 6.6%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -760,7 +770,10 @@ For this they have the following mechanics</li>
     <li><span class="no-substance" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;background">background</span> - A generic background object.
 It is also implicitly used to allocate a rectangle on the map, which will
 be used for auto-scaling the map.</li>
-    <li><a href="atom/movable/screen/buildmode.html" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;buildmode">buildmode</a></li>
+    <li class="has-children"><a href="atom/movable/screen/buildmode.html" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;buildmode">buildmode</a><ul class="index-tree">
+    <li><a href="atom/movable/screen/buildmode/bdir.html" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;buildmode&#x2F;bdir">bdir</a></li>
+    </ul></li>
+    <li><span class="no-substance">inventory&#x2F;</span><a href="atom/movable/screen/inventory/hand.html" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;inventory&#x2F;hand">hand</a></li>
     <li><span class="no-substance" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;map_view">map_view</span> - A screen object, which acts as a container for turfs and other things
 you want to show on the map, which you usually attach to &quot;vis_contents&quot;.</li>
     <li><a href="atom/movable/screen/mech_builder_view.html" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;mech_builder_view">mech_builder_view</a></li>
@@ -801,8 +814,11 @@ do not touch this unless you know what you are doing</li>
     <li><a href="atom/movable/screen/text/screen_timer.html" title="&#x2F;atom&#x2F;movable&#x2F;screen&#x2F;text&#x2F;screen_timer">screen_timer</a> - A screen object that shows the time left on a timer</li>
     </ul></li>
     </ul></li>
-    <li class="has-children"><span class="no-substance">vis_obj&#x2F;</span><span title="&#x2F;atom&#x2F;movable&#x2F;vis_obj&#x2F;xeno_wounds">xeno_wounds</span> - Used to display the xeno wounds without rapidly switching overlays<ul class="index-tree">
+    <li class="has-children"><span title="&#x2F;atom&#x2F;movable&#x2F;vis_obj">vis_obj</span><ul class="index-tree">
+    <li><a href="atom/movable/vis_obj/turret_overlay.html" title="&#x2F;atom&#x2F;movable&#x2F;vis_obj&#x2F;turret_overlay">turret_overlay</a></li>
+    <li class="has-children"><span title="&#x2F;atom&#x2F;movable&#x2F;vis_obj&#x2F;xeno_wounds">xeno_wounds</span> - Used to display the xeno wounds without rapidly switching overlays<ul class="index-tree">
     <li><a href="atom/movable/vis_obj/xeno_wounds/fire_overlay.html" title="&#x2F;atom&#x2F;movable&#x2F;vis_obj&#x2F;xeno_wounds&#x2F;fire_overlay">fire_overlay</a></li>
+    </ul></li>
     </ul></li>
     </ul></li>
     </ul></li>
@@ -915,10 +931,15 @@ do not touch this unless you know what you are doing</li>
     <li><a href="datum/action/set_agressivity.html" title="&#x2F;datum&#x2F;action&#x2F;set_agressivity">set_agressivity</a></li>
     <li><a href="datum/action/suit_autodoc.html" title="&#x2F;datum&#x2F;action&#x2F;suit_autodoc">suit_autodoc</a></li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;action&#x2F;vehicle">vehicle</span> - ACTION DATUMS<ul class="index-tree">
-    <li class="has-children"><span class="no-substance">sealed&#x2F;</span><a href="datum/action/vehicle/sealed/mecha.html" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;mecha">mecha</a><ul class="index-tree">
+    <li class="has-children"><span title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed">sealed</span><ul class="index-tree">
+    <li class="has-children"><a href="datum/action/vehicle/sealed/armored.html" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;armored">armored</a> - yes this is a blatant mech copypaste<ul class="index-tree">
+    <li><a href="datum/action/vehicle/sealed/armored/swap_seat.html" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;armored&#x2F;swap_seat">swap_seat</a></li>
+    </ul></li>
+    <li class="has-children"><a href="datum/action/vehicle/sealed/mecha.html" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;mecha">mecha</a><ul class="index-tree">
     <li><a href="datum/action/vehicle/sealed/mecha/ivanov_strike.html" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;mecha&#x2F;ivanov_strike">ivanov_strike</a></li>
     <li><a href="datum/action/vehicle/sealed/mecha/skyfall.html" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;mecha&#x2F;skyfall">skyfall</a> - Savannah Skyfall</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;action&#x2F;vehicle&#x2F;sealed&#x2F;mecha&#x2F;swap_seat">swap_seat</span> - swap seats, for two person mecha</li>
+    </ul></li>
     </ul></li>
     </ul></li>
     </ul></li>
@@ -1244,6 +1265,9 @@ the raw lists are to speed up the Fire() of the subsystem so we dont have to fil
     <li><a href="datum/instrument.html" title="&#x2F;datum&#x2F;instrument">Instrument Datums</a> - Instrument datums hold the data for any given instrument, as well as data on how to play it and what bounds there are to playing it.</li>
     <li><a href="datum/instrument_key.html" title="&#x2F;datum&#x2F;instrument_key">instrument_key</a> - Instrument key datums contain everything needed to know how to play a specific
 note of an instrument.*</li>
+    <li class="has-children"><a href="datum/interior.html" title="&#x2F;datum&#x2F;interior">interior</a><ul class="index-tree">
+    <li><a href="datum/interior/armored.html" title="&#x2F;datum&#x2F;interior&#x2F;armored">armored</a></li>
+    </ul></li>
     <li class="has-children"><a href="datum/internal_organ.html" title="&#x2F;datum&#x2F;internal_organ">internal_organ</a> - INTERNAL ORGANS<ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;internal_organ&#x2F;heart">heart</span> - INTERNAL ORGANS TYPES</li>
     <li><a href="datum/internal_organ/kidneys.html" title="&#x2F;datum&#x2F;internal_organ&#x2F;kidneys">kidneys</a></li>
@@ -1319,6 +1343,7 @@ Processed by the SSloopingsounds <a href="datum/controller/subsystem.html" title
     <li><span class="no-substance" title="&#x2F;datum&#x2F;map_preloader">map_preloader</span> - Preloader datum</li>
     <li><a href="datum/map_report.html" title="&#x2F;datum&#x2F;map_report">map_report</a> - An error report generated by [parsed_map/check_for_errors].</li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;map_template">map_template</span><ul class="index-tree">
+    <li><a href="datum/map_template/interior.html" title="&#x2F;datum&#x2F;map_template&#x2F;interior">interior</a></li>
     <li><a href="datum/map_template/modular.html" title="&#x2F;datum&#x2F;map_template&#x2F;modular">modular</a></li>
     <li><span class="no-substance">shuttle&#x2F;</span><a href="datum/map_template/shuttle/minidropship.html" title="&#x2F;datum&#x2F;map_template&#x2F;shuttle&#x2F;minidropship">minidropship</a></li>
     </ul></li>
@@ -1493,7 +1518,9 @@ Can detect if a given code stack has exited, used by the mc for stack overflow d
     <li><span class="no-substance" title="&#x2F;datum&#x2F;supply_packs&#x2F;vehicles">vehicles</span> - VEHICLES</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;supply_packs&#x2F;weapons">weapons</span> - WEAPONS</li>
     </ul></li>
-    <li><a href="datum/supply_ui.html" title="&#x2F;datum&#x2F;supply_ui">supply_ui</a></li>
+    <li class="has-children"><a href="datum/supply_ui.html" title="&#x2F;datum&#x2F;supply_ui">supply_ui</a><ul class="index-tree">
+    <li><a href="datum/supply_ui/vehicles.html" title="&#x2F;datum&#x2F;supply_ui&#x2F;vehicles">vehicles</a></li>
+    </ul></li>
     <li class="has-children"><a href="datum/surgery_step.html" title="&#x2F;datum&#x2F;surgery_step">surgery_step</a><ul class="index-tree">
     <li><span class="no-substance">generic&#x2F;</span><a href="datum/surgery_step/generic/repair.html" title="&#x2F;datum&#x2F;surgery_step&#x2F;generic&#x2F;repair">repair</a> - Sewing people closed. Not fast, but works on corpses.</li>
     </ul></li>
@@ -1547,6 +1574,7 @@ Base type doesn't have a list of weapons to spawn
 Base type that is missing a lot of stuff needed, let's just not
 Base type doesn't have any variations in it's variation list
 Base type with no disk type
+forcespawned abstract type for vehicles, will never spawn outside of it
 Tests that DCS' GetIdFromArguments works as expected with standard and odd cases</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;unit_test&#x2F;implanting">implanting</span> - Implants a human to make sure it effectively is inserted and deleted.</li>
     <li><a href="datum/unit_test/map_templates.html" title="&#x2F;datum&#x2F;unit_test&#x2F;map_templates">map_templates</a></li>
@@ -1675,6 +1703,7 @@ In landmarks.dm and not unit_test.dm so it is always active in the mapping tools
     <li class="has-children"><span title="&#x2F;obj&#x2F;effect&#x2F;overlay">overlay</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;effect&#x2F;overlay&#x2F;light_visible">light_visible</span> - Lighting overlay for the Light overlay component</li>
     <li><span class="no-substance">temp&#x2F;</span><a href="obj/effect/overlay/temp/laser_target.html" title="&#x2F;obj&#x2F;effect&#x2F;overlay&#x2F;temp&#x2F;laser_target">laser_target</a></li>
+    <li><a href="obj/effect/overlay/vis.html" title="&#x2F;obj&#x2F;effect&#x2F;overlay&#x2F;vis">vis</a></li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;effect&#x2F;particle_effect">particle_effect</span><ul class="index-tree">
     <li><a href="obj/effect/particle_effect/foam.html" title="&#x2F;obj&#x2F;effect&#x2F;particle_effect&#x2F;foam">foam</a></li>
@@ -1784,9 +1813,18 @@ random shotgun ammunition</li>
     <li class="has-children"><a href="obj/flamer_fire.html" title="&#x2F;obj&#x2F;flamer_fire">flamer_fire</a><ul class="index-tree">
     <li><a href="obj/flamer_fire/autospread.html" title="&#x2F;obj&#x2F;flamer_fire&#x2F;autospread">autospread</a></li>
     </ul></li>
+    <li class="has-children"><a href="obj/hitbox.html" title="&#x2F;obj&#x2F;hitbox">hitbox</a> - HITBOX
+The core of multitile. Acts as a relay for damage and stops people from walking onto the multitle sprite
+has changed bounds and as thus must always be forcemoved so it doesnt break everything
+I would use pixel movement but the maptick caused by it is way too high and a fake tile based movement might work? but I want this to at least pretend to be generic
+Thus we just use this relay. it's an obj so we can make sure all the damage procs that work on root also work on the hitbox<ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;hitbox&#x2F;medium">medium</span> - 2x2 hitbox version</li>
+    </ul></li>
     <li class="has-children"><a href="obj/item.html" title="&#x2F;obj&#x2F;item">item</a><ul class="index-tree">
     <li><a href="obj/item/alien_embryo.html" title="&#x2F;obj&#x2F;item&#x2F;alien_embryo">alien_embryo</a></li>
+    <li><a href="obj/item/ammo_casing.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_casing">ammo_casing</a></li>
     <li class="has-children"><a href="obj/item/ammo_magazine.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine">ammo_magazine</a><ul class="index-tree">
+    <li><a href="obj/item/ammo_magazine/tank.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tank">tank</a></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tl102">tl102</span> - Default ammo for the HSG-102.<ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tl102&#x2F;hsg_nest">hsg_nest</span> - This is the one that comes in the mapbound and dropship mounted version of the HSG-102, it has a stupid amount of ammo. Even more than the ammo counter can display.</li>
     </ul></li>
@@ -1823,6 +1861,7 @@ If allow_emissive is TRUE, Right clicking the Parent item will toggle the emissi
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;armor_module&#x2F;storage&#x2F;general">general</span> - General storage</li>
     </ul></li>
     </ul></li>
+    <li><a href="obj/item/armored_weapon.html" title="&#x2F;obj&#x2F;item&#x2F;armored_weapon">armored_weapon</a></li>
     <li class="has-children"><a href="obj/item/attachable.html" title="&#x2F;obj&#x2F;item&#x2F;attachable">attachable</a><ul class="index-tree">
     <li><a href="obj/item/attachable/buildasentry.html" title="&#x2F;obj&#x2F;item&#x2F;attachable&#x2F;buildasentry">buildasentry</a></li>
     <li class="has-children"><a href="obj/item/attachable/flamer_nozzle.html" title="&#x2F;obj&#x2F;item&#x2F;attachable&#x2F;flamer_nozzle">flamer_nozzle</a><ul class="index-tree">
@@ -2010,6 +2049,7 @@ All mech equippables are currently childs of this<ul class="index-tree">
     <li class="has-children"><a href="obj/item/radio/headset.html" title="&#x2F;obj&#x2F;item&#x2F;radio&#x2F;headset">headset</a><ul class="index-tree">
     <li><a href="obj/item/radio/headset/mainship.html" title="&#x2F;obj&#x2F;item&#x2F;radio&#x2F;headset&#x2F;mainship">mainship</a></li>
     </ul></li>
+    <li><a href="obj/item/radio/intercom.html" title="&#x2F;obj&#x2F;item&#x2F;radio&#x2F;intercom">intercom</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/item/reagent_containers.html" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers">reagent_containers</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;dropper">dropper</span> - Droppers.</li>
@@ -2095,6 +2135,10 @@ All other visuals that do not have a icon_state_mini defined are in var/assoc_ov
     <li><a href="obj/item/storage/reagent_tank.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;reagent_tank">reagent_tank</a></li>
     </ul></li>
     <li><a href="obj/item/supplytablet.html" title="&#x2F;obj&#x2F;item&#x2F;supplytablet">supplytablet</a></li>
+    <li class="has-children"><a href="obj/item/tank_module.html" title="&#x2F;obj&#x2F;item&#x2F;tank_module">tank_module</a> - TANK MODULES<ul class="index-tree">
+    <li><a href="obj/item/tank_module/ability.html" title="&#x2F;obj&#x2F;item&#x2F;tank_module&#x2F;ability">ability</a></li>
+    <li><a href="obj/item/tank_module/interior.html" title="&#x2F;obj&#x2F;item&#x2F;tank_module&#x2F;interior">interior</a></li>
+    </ul></li>
     <li><a href="obj/item/teleporter_kit.html" title="&#x2F;obj&#x2F;item&#x2F;teleporter_kit">teleporter_kit</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;tool">tool</span><ul class="index-tree">
     <li><span class="no-substance">crowbar&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;tool&#x2F;crowbar&#x2F;yautja">yautja</span> - TOOLS</li>
@@ -2298,6 +2342,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><a href="obj/machinery/space_heater.html" title="&#x2F;obj&#x2F;machinery&#x2F;space_heater">space_heater</a></li>
     <li><a href="obj/machinery/status_display.html" title="&#x2F;obj&#x2F;machinery&#x2F;status_display">status_display</a> - Status display which can show images and scrolling text.</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;suit_storage_unit">suit_storage_unit</span> - If you are adding more pictures, don't forget to complete the list in AI_verbs.dm</li>
+    <li><a href="obj/machinery/tank_part_fabricator.html" title="&#x2F;obj&#x2F;machinery&#x2F;tank_part_fabricator">tank_part_fabricator</a></li>
     <li class="has-children"><a href="obj/machinery/telecomms.html" title="&#x2F;obj&#x2F;machinery&#x2F;telecomms">telecomms</a><ul class="index-tree">
     <li><a href="obj/machinery/telecomms/relay.html" title="&#x2F;obj&#x2F;machinery&#x2F;telecomms&#x2F;relay">relay</a></li>
     </ul></li>
@@ -2312,6 +2357,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     </ul></li>
     <li><span class="no-substance">prop&#x2F;mainship&#x2F;prop&#x2F;</span><a href="obj/prop/mainship/prop/news_tv.html" title="&#x2F;obj&#x2F;prop&#x2F;mainship&#x2F;prop&#x2F;news_tv">news_tv</a></li>
     <li class="has-children"><a href="obj/structure.html" title="&#x2F;obj&#x2F;structure">structure</a><ul class="index-tree">
+    <li><a href="obj/structure/ammo_rack.html" title="&#x2F;obj&#x2F;structure&#x2F;ammo_rack">ammo_rack</a></li>
     <li class="has-children"><a href="obj/structure/barricade.html" title="&#x2F;obj&#x2F;structure&#x2F;barricade">barricade</a><ul class="index-tree">
     <li class="has-children"><a href="obj/structure/barricade/metal.html" title="&#x2F;obj&#x2F;structure&#x2F;barricade&#x2F;metal">metal</a><ul class="index-tree">
     <li><a href="obj/structure/barricade/metal/deployable.html" title="&#x2F;obj&#x2F;structure&#x2F;barricade&#x2F;metal&#x2F;deployable">deployable</a></li>
@@ -2319,7 +2365,12 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><a href="obj/structure/barricade/plasteel.html" title="&#x2F;obj&#x2F;structure&#x2F;barricade&#x2F;plasteel">plasteel</a></li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;structure&#x2F;bed">bed</span><ul class="index-tree">
-    <li><span class="no-substance">chair&#x2F;</span><a href="obj/structure/bed/chair/janicart.html" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;chair&#x2F;janicart">janicart</a> - old style janicart</li>
+    <li class="has-children"><span title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;chair">chair</span><ul class="index-tree">
+    <li><a href="obj/structure/bed/chair/driver_gunner_seat.html" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;chair&#x2F;driver_gunner_seat">driver_gunner_seat</a></li>
+    <li><a href="obj/structure/bed/chair/janicart.html" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;chair&#x2F;janicart">janicart</a> - old style janicart</li>
+    <li><a href="obj/structure/bed/chair/vehicle_driver_seat.html" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;chair&#x2F;vehicle_driver_seat">vehicle_driver_seat</a></li>
+    <li><a href="obj/structure/bed/chair/vehicle_gunner_seat.html" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;chair&#x2F;vehicle_gunner_seat">vehicle_gunner_seat</a></li>
+    </ul></li>
     <li><a href="obj/structure/bed/medevac_stretcher.html" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;medevac_stretcher">medevac_stretcher</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;bed&#x2F;nest">nest</span> - Alium nests. Essentially beds with an unbuckle delay that only aliums can buckle mobs to.</li>
     </ul></li>
@@ -2342,6 +2393,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><a href="obj/structure/caspart/minigun.html" title="&#x2F;obj&#x2F;structure&#x2F;caspart&#x2F;minigun">minigun</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/structure/closet.html" title="&#x2F;obj&#x2F;structure&#x2F;closet">closet</a><ul class="index-tree">
+    <li><a href="obj/structure/closet/bodybag.html" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;bodybag">bodybag</a></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;secure_closet">secure_closet</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;secure_closet&#x2F;military_police">military_police</span> - Military Police Gear</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;secure_closet&#x2F;miner">miner</span> - Miner Lockers</li>
@@ -2374,6 +2426,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><a href="obj/structure/earth_pillar.html" title="&#x2F;obj&#x2F;structure&#x2F;earth_pillar">earth_pillar</a></li>
     <li><a href="obj/structure/flora.html" title="&#x2F;obj&#x2F;structure&#x2F;flora">flora</a></li>
     <li><a href="obj/structure/grille.html" title="&#x2F;obj&#x2F;structure&#x2F;grille">grille</a></li>
+    <li><a href="obj/structure/gun_breech.html" title="&#x2F;obj&#x2F;structure&#x2F;gun_breech">gun_breech</a></li>
     <li class="has-children"><a href="obj/structure/inflatable.html" title="&#x2F;obj&#x2F;structure&#x2F;inflatable">inflatable</a><ul class="index-tree">
     <li><a href="obj/structure/inflatable/door.html" title="&#x2F;obj&#x2F;structure&#x2F;inflatable&#x2F;door">door</a></li>
     </ul></li>
@@ -2388,6 +2441,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><span class="no-substance">ob_ammo&#x2F;</span><a href="obj/structure/ob_ammo/warhead.html" title="&#x2F;obj&#x2F;structure&#x2F;ob_ammo&#x2F;warhead">warhead</a></li>
     <li><a href="obj/structure/orbital_cannon.html" title="&#x2F;obj&#x2F;structure&#x2F;orbital_cannon">orbital_cannon</a></li>
     <li><a href="obj/structure/patrol_point.html" title="&#x2F;obj&#x2F;structure&#x2F;patrol_point">patrol_point</a></li>
+    <li><a href="obj/structure/periscope.html" title="&#x2F;obj&#x2F;structure&#x2F;periscope">periscope</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;structure&#x2F;prop">prop</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;prop&#x2F;brokenvendor">brokenvendor</span> - BROKEN MARINE VENDOR PROPS</li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;structure&#x2F;prop&#x2F;mainship">mainship</span><ul class="index-tree">
@@ -2444,12 +2498,12 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><span class="no-substance">xenoautopsy&#x2F;</span><a href="obj/structure/xenoautopsy/tank.html" title="&#x2F;obj&#x2F;structure&#x2F;xenoautopsy&#x2F;tank">tank</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/vehicle.html" title="&#x2F;obj&#x2F;vehicle">vehicle</a><ul class="index-tree">
-    <li><span class="no-substance">multitile&#x2F;root&#x2F;</span><a href="obj/vehicle/multitile/root/cm_armored.html" title="&#x2F;obj&#x2F;vehicle&#x2F;multitile&#x2F;root&#x2F;cm_armored">cm_armored</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;vehicle&#x2F;ridden">ridden</span><ul class="index-tree">
     <li><a href="obj/vehicle/ridden/motorbike.html" title="&#x2F;obj&#x2F;vehicle&#x2F;ridden&#x2F;motorbike">motorbike</a></li>
     <li><a href="obj/vehicle/ridden/wheelchair.html" title="&#x2F;obj&#x2F;vehicle&#x2F;ridden&#x2F;wheelchair">wheelchair</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/vehicle/sealed.html" title="&#x2F;obj&#x2F;vehicle&#x2F;sealed">sealed</a><ul class="index-tree">
+    <li><a href="obj/vehicle/sealed/armored.html" title="&#x2F;obj&#x2F;vehicle&#x2F;sealed&#x2F;armored">armored</a></li>
     <li><a href="obj/vehicle/sealed/car.html" title="&#x2F;obj&#x2F;vehicle&#x2F;sealed&#x2F;car">car</a></li>
     <li class="has-children"><a href="obj/vehicle/sealed/mecha.html" title="&#x2F;obj&#x2F;vehicle&#x2F;sealed&#x2F;mecha">mecha</a> - WELCOME TO MECHA.DM, ENJOY YOUR STAY<ul class="index-tree">
     <li class="has-children"><span title="&#x2F;obj&#x2F;vehicle&#x2F;sealed&#x2F;mecha&#x2F;combat">combat</span><ul class="index-tree">
@@ -2477,6 +2531,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
 Default override for echo</li>
     <li class="has-children"><a href="turf.html" title="&#x2F;turf">turf</a><ul class="index-tree">
     <li class="has-children"><a href="turf/closed.html" title="&#x2F;turf&#x2F;closed">closed</a><ul class="index-tree">
+    <li><span class="no-substance">interior&#x2F;tank&#x2F;</span><a href="turf/closed/interior/tank/door.html" title="&#x2F;turf&#x2F;closed&#x2F;interior&#x2F;tank&#x2F;door">door</a></li>
     <li><a href="turf/closed/mineral.html" title="&#x2F;turf&#x2F;closed&#x2F;mineral">mineral</a></li>
     <li class="has-children"><a href="turf/closed/wall.html" title="&#x2F;turf&#x2F;closed&#x2F;wall">wall</a><ul class="index-tree">
     <li><a href="turf/closed/wall/mainship.html" title="&#x2F;turf&#x2F;closed&#x2F;wall&#x2F;mainship">mainship</a></li>
@@ -2488,7 +2543,9 @@ Default override for echo</li>
     <li class="has-children"><a href="turf/open/floor.html" title="&#x2F;turf&#x2F;open&#x2F;floor">floor</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;turf&#x2F;open&#x2F;floor&#x2F;mech_bay_recharge_floor">mech_bay_recharge_floor</span> - Mechbay /////////////////:</li>
     <li><span class="no-substance" title="&#x2F;turf&#x2F;open&#x2F;floor&#x2F;placeholderturf">placeholderturf</span> - grayscale floor for easy recoloring</li>
-    <li><span class="no-substance">plating&#x2F;</span><span class="no-substance" title="&#x2F;turf&#x2F;open&#x2F;floor&#x2F;plating&#x2F;ground">ground</span> - Planet</li>
+    <li class="has-children"><span class="no-substance">plating&#x2F;</span><span title="&#x2F;turf&#x2F;open&#x2F;floor&#x2F;plating&#x2F;ground">ground</span> - Planet<ul class="index-tree">
+    <li><a href="turf/open/floor/plating/ground/snow.html" title="&#x2F;turf&#x2F;open&#x2F;floor&#x2F;plating&#x2F;ground&#x2F;snow">snow</a></li>
+    </ul></li>
     </ul></li>
     <li><a href="turf/open/ground.html" title="&#x2F;turf&#x2F;open&#x2F;ground">ground</a></li>
     <li><a href="turf/open/liquid.html" title="&#x2F;turf&#x2F;open&#x2F;liquid">liquid</a></li>
@@ -2504,7 +2561,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/26e9a0ae90ecefbd69411ed83e929bdc3d476d32">26e9a0a</a>
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/9a6c589ee590e4b95a96d4ef9d184ee6ead6b7ce">9a6c589</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
