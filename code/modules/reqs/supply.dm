@@ -417,6 +417,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 				.["elevator_dir"] = "up"
 	else
 		.["elevator"] = "MISSING!"
+	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
 
 /datum/supply_ui/proc/get_shopping_cart(mob/user)
 	return SSpoints.shopping_cart
@@ -575,6 +576,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		.["shopping_list_items"] += SSpoints.request_shopping_cart[user.ckey][i]
 		.["shopping_list_cost"] += SP.cost * SSpoints.request_shopping_cart[user.ckey][SP.type]
 		.["shopping_list"][SP.type] = list("count" = SSpoints.request_shopping_cart[user.ckey][SP.type])
+	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
 
 /datum/supply_ui/requests/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

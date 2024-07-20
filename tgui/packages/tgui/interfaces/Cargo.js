@@ -286,6 +286,7 @@ const OrderList = (props, context) => {
                     onClick={() => act('delivery', { id: id })}
                     icon="luggage-cart"
                     content="Delivery"
+                    disabled={!data.beacon}
                   />
                 )}
               </>

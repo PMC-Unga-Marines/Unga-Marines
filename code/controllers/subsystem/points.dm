@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(points)
 	//select beacon
 	var/datum/supply_beacon/supply_beacon = GLOB.supply_beacon[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", GLOB.supply_beacon)]
 	if(!istype(supply_beacon))
-		to_chat(user, span_warning("No beacons"))
+		to_chat(user, span_warning("Beacon not selected"))
 		return
 
 	if(!fast_delivery_is_active)
