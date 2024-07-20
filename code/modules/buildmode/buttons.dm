@@ -38,7 +38,8 @@
 	return TRUE
 
 
-/atom/movable/screen/buildmode/mode/update_icon()
+/atom/movable/screen/buildmode/mode/update_icon_state()
+	. = ..()
 	icon_state = bd.mode.get_button_iconstate()
 
 
@@ -59,10 +60,9 @@
 	name = "Change Dir"
 
 
-/atom/movable/screen/buildmode/bdir/update_icon()
+///Updates the direction of the buildmode
+/atom/movable/screen/buildmode/bdir/proc/update_dir()
 	dir = bd.build_dir
-
-
 
 /atom/movable/screen/buildmode/bdir/Click()
 	bd.toggle_dirswitch()

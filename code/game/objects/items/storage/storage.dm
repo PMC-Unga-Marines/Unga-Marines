@@ -86,9 +86,6 @@
 	if(usr.lying_angle)
 		return
 
-	if(istype(usr.loc, /obj/vehicle/multitile/root/cm_armored)) // stops inventory actions in a mech/tank
-		return
-
 	if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 		open(usr)
 		return
@@ -302,9 +299,6 @@
 
 /atom/movable/screen/storage/Click(location, control, params)
 	if(usr.incapacitated(TRUE))
-		return
-
-	if(istype(usr.loc, /obj/vehicle/multitile/root/cm_armored)) // stops inventory actions in a mech/tank
 		return
 
 	var/list/PL = params2list(params)
@@ -668,7 +662,7 @@
 	if(!allow_drawing_method)
 		verbs -= /obj/item/storage/verb/toggle_draw_mode
 
-	boxes = new
+	boxes = new()
 	boxes.name = "storage"
 	boxes.master = src
 	boxes.icon_state = "block"
@@ -676,21 +670,21 @@
 	boxes.layer = HUD_LAYER
 	boxes.plane = HUD_PLANE
 
-	storage_start = new /atom/movable/screen/storage(  )
+	storage_start = new /atom/movable/screen/storage()
 	storage_start.name = "storage"
 	storage_start.master = src
 	storage_start.icon_state = "storage_start"
 	storage_start.screen_loc = "7,7 to 10,8"
 	storage_start.layer = HUD_LAYER
 	storage_start.plane = HUD_PLANE
-	storage_continue = new /atom/movable/screen/storage(  )
+	storage_continue = new /atom/movable/screen/storage()
 	storage_continue.name = "storage"
 	storage_continue.master = src
 	storage_continue.icon_state = "storage_continue"
 	storage_continue.screen_loc = "7,7 to 10,8"
 	storage_continue.layer = HUD_LAYER
 	storage_continue.plane = HUD_PLANE
-	storage_end = new /atom/movable/screen/storage(  )
+	storage_end = new /atom/movable/screen/storage()
 	storage_end.name = "storage"
 	storage_end.master = src
 	storage_end.icon_state = "storage_end"
@@ -698,20 +692,20 @@
 	storage_end.layer = HUD_LAYER
 	storage_end.plane = HUD_PLANE
 
-	stored_start = new /obj //we just need these to hold the icon
+	stored_start = new /obj() //we just need these to hold the icon
 	stored_start.icon_state = "stored_start"
 	stored_start.layer = HUD_LAYER
 	stored_start.plane = HUD_PLANE
-	stored_continue = new /obj
+	stored_continue = new /obj()
 	stored_continue.icon_state = "stored_continue"
 	stored_continue.layer = HUD_LAYER
 	stored_continue.plane = HUD_PLANE
-	stored_end = new /obj
+	stored_end = new /obj()
 	stored_end.icon_state = "stored_end"
 	stored_end.layer = HUD_LAYER
 	stored_end.plane = HUD_PLANE
 
-	closer = new
+	closer = new()
 	closer.master = src
 
 /obj/item/storage/Destroy()
@@ -876,6 +870,7 @@
 	return
 
 /obj/item/storage/update_icon_state()
+	. = ..()
 	if(!sprite_slots)
 		icon_state = initial(icon_state)
 		return

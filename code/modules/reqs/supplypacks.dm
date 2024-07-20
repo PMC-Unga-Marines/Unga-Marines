@@ -925,6 +925,21 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
 	cost = 450
 
+/datum/supply_packs/weapons/ltb_shells
+	name = "LTB tank shell"
+	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
+	cost = 10
+
+/datum/supply_packs/weapons/ltaap_rounds
+	name = "LTAAP tank magazine"
+	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
+	cost = 10
+
+/datum/supply_packs/weapons/cupola_rounds
+	name = "Cupola tank magazine"
+	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
+	cost = 10
+
 /*******************************************************************************
 EXPLOSIVES
 *******************************************************************************/

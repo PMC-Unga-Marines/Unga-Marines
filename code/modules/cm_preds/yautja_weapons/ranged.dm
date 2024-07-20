@@ -238,6 +238,7 @@
 		. += span_notice("This thing looks like an alien rifle of some kind. Strange.")
 
 /obj/item/weapon/gun/energy/yautja/plasmarifle/update_icon()
+	. = ..()
 	if(last_regen < rounds + max_rounds / 5 || last_regen > rounds || rounds > max_rounds / 1.05)
 		var/new_icon_state = rounds <= 15 ? null : icon_state + "[round(rounds/(max_rounds / 3), 1)]"
 		update_special_overlay(new_icon_state)

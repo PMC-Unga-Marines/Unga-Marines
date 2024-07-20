@@ -24,7 +24,8 @@
 	move_force = MOVE_FORCE_VERY_STRONG
 	move_resist = MOVE_FORCE_OVERPOWERING
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE|PORTAL_IMMUNE|PLASMACUTTER_IMMUNE
-	flags_atom = BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION
+	flags_atom = BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	max_integrity = 300
 	soft_armor = list(MELEE = 20, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 100, ACID = 100)
 	force = 5
@@ -184,7 +185,7 @@
 
 /obj/vehicle/sealed/mecha/Initialize(mapload)
 	. = ..()
-	ui_view = new(null, src)
+	ui_view = new(null, null, src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(play_stepsound))
 
 	spark_system.set_up(2, 0, src)

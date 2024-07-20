@@ -28,6 +28,7 @@
 	icon_state = "bunkbed"
 
 /obj/structure/bed/update_icon_state()
+	. = ..()
 	if(!base_bed_icon)
 		return
 	if(LAZYLEN(buckled_mobs) || buckled_bodybag)
@@ -60,6 +61,10 @@
 		var/mob/living/unbuckled_target = buckled_mob
 		if(HAS_TRAIT(unbuckled_target, TRAIT_FLOORED))
 			unbuckled_target.set_lying_angle(pick(90, 270))
+
+/obj/structure/bed/set_glide_size(target = 8)
+	. = ..()
+	buckled_bodybag?.set_glide_size(target)
 
 //Unsafe proc
 /obj/structure/bed/proc/buckle_bodybag(obj/structure/closet/bodybag/B, mob/user)
@@ -101,7 +106,7 @@
 
 /obj/structure/bed/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	. = ..()
-	if(!buckled_bodybag || buckled_bodybag.Move(loc, movement_dir))
+	if(!buckled_bodybag || buckled_bodybag.Move(loc, movement_dir, glide_size))
 		return TRUE
 	forceMove(buckled_bodybag.loc)
 	return FALSE
@@ -327,14 +332,14 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		linked_beacon.remove_stretcher(src)
 	return ..()
 
-/obj/structure/bed/medevac_stretcher/update_icon()
-	..()
-	overlays.Cut()
+/obj/structure/bed/medevac_stretcher/update_overlays()
+	. = ..()
+
 	if(stretcher_activated)
-		overlays += image("beacon_active_[density ? "up":"down"]")
+		. += image("beacon_active_[density ? "up":"down"]")
 
 	if(LAZYLEN(buckled_mobs) || buckled_bodybag)
-		overlays += image("icon_state"="stretcher_box","layer"=LYING_MOB_LAYER + 0.1)
+		. += image("icon_state"="stretcher_box","layer"=LYING_MOB_LAYER + 0.1)
 
 /obj/structure/bed/medevac_stretcher/verb/activate_medevac_displacer()
 	set name = "Activate Medevac Displacement Field"

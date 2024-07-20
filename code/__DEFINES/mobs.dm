@@ -4,6 +4,12 @@
 #define AI_VOX
 
 //Mob movement define
+
+///Speed mod for walk intent
+#define MOB_WALK_MOVE_MOD 4
+///Speed mod for run intent
+#define MOB_RUN_MOVE_MOD 3
+///Move mod for going diagonally
 #define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER 1.6
 
 
@@ -872,6 +878,15 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define SPECIES_HUMAN "species_human"
 ///Combat robot species
 #define SPECIES_COMBAT_ROBOT "species_combat_robot"
+
+///Nextmove delay after performing an interaction with a grab on something
+#define GRAB_SLAM_DELAY 0.7 SECONDS
+///Default damage for slamming a mob against an object
+#define BASE_OBJ_SLAM_DAMAGE 10
+///Default damage for slamming a mob against a wall
+#define BASE_WALL_SLAM_DAMAGE 15
+///Default damage for slamming a mob against another mob
+#define BASE_MOB_SLAM_DAMAGE 8
 
 #define IS_YAUTJA (1<<6)
 

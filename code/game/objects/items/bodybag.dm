@@ -63,6 +63,8 @@
 	var/obj/item/bodybag/foldedbag_instance = null
 	var/obj/structure/bed/roller/roller_buckled //the roller bed this bodybag is attached to.
 	var/mob/living/bodybag_occupant
+	///Should the name of the person inside be displayed?
+	var/display_name = TRUE
 
 /obj/structure/closet/bodybag/Initialize(mapload, foldedbag)
 	. = ..()
@@ -86,7 +88,11 @@
 		return roller_buckled
 	return ..()
 
-/obj/structure/closet/bodybag/proc/update_name()
+
+/obj/structure/closet/bodybag/update_name(updates)
+	. = ..()
+	if(!display_name)
+		return
 	if(opened)
 		name = bag_name
 	else
@@ -134,7 +140,7 @@
 		var/mob/living/carbon/human/new_guest = locate() in contents
 		if(new_guest)
 			bodybag_occupant = new_guest
-		update_name()
+		update_appearance()
 		return TRUE
 	return FALSE
 
@@ -142,7 +148,7 @@
 	. = ..()
 	if(bodybag_occupant)
 		bodybag_occupant = null
-	update_name()
+	update_appearance()
 
 /obj/structure/closet/bodybag/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -158,10 +164,11 @@
 	usr.put_in_hands(foldedbag_instance)
 	moveToNullspace()
 
-/obj/structure/closet/bodybag/Move(NewLoc, direct)
-	if (roller_buckled && roller_buckled.loc != NewLoc) //not updating position
+
+/obj/structure/closet/bodybag/Move(atom/newloc, direction, glide_size_override)
+	if (roller_buckled && roller_buckled.loc != newloc) //not updating position
 		if (!roller_buckled.anchored)
-			return roller_buckled.Move(NewLoc, direct)
+			return roller_buckled.Move(newloc, direction, glide_size)
 		else
 			return FALSE
 	else
@@ -172,7 +179,8 @@
 		roller_buckled.unbuckle_bodybag()
 	return ..()
 
-/obj/structure/closet/bodybag/update_icon()
+/obj/structure/closet/bodybag/update_icon_state()
+	. = ..()
 	if(!opened)
 		icon_state = icon_closed
 		for(var/mob/living/L in contents)
@@ -385,6 +393,7 @@
 	close_sound = 'sound/effects/vegetation_walk_2.ogg'
 	foldedbag_path = /obj/item/bodybag/tarp
 	closet_stun_delay = 0.5 SECONDS //Short delay to prevent ambushes from being too degenerate.
+	display_name = FALSE
 	var/serial_number //Randomized serial number used to stop point macros and such.
 
 /obj/structure/closet/bodybag/tarp/close()
@@ -417,9 +426,6 @@
 /obj/structure/closet/bodybag/tarp/proc/on_bodybag_occupant_death(mob/source, gibbing)
 	SIGNAL_HANDLER
 	open()
-
-/obj/structure/closet/bodybag/tarp/update_name()
-	return //Shouldn't be revealing who's inside.
 
 /obj/structure/closet/bodybag/tarp/MouseDrop(over_object, src_location, over_location)
 	. = ..()

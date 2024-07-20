@@ -9,6 +9,8 @@
 	anchored = FALSE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	obj_flags = CAN_BE_HIT
+	flags_atom = CRITICAL_ATOM
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_AIR
 	COOLDOWN_DECLARE(cooldown_vehicle_move)
@@ -20,6 +22,8 @@
 	var/max_drivers = 1
 	var/move_delay = 2
 	var/lastmove = 0
+	///multitile hitbox, set to a hitbox type to make this vehicle multitile.
+	var/obj/hitbox/hitbox
 	/**
 	  * If the driver needs a certain item in hand (or inserted, for vehicles) to drive this. For vehicles, this must be duplicated on their riding component subtype
 	  * [/datum/component/riding/var/keytype] variable because only a few specific checks are handled here with this var, and the majority of it is on the riding component
@@ -42,6 +46,8 @@
 
 /obj/vehicle/Initialize(mapload)
 	. = ..()
+	if(hitbox)
+		hitbox = new hitbox(loc, src)
 	occupants = list()
 	autogrant_actions_passenger = list()
 	autogrant_actions_controller = list()
@@ -91,6 +97,10 @@
 
 /obj/vehicle/proc/is_driver(mob/M)
 	return is_occupant(M) && occupants[M] & VEHICLE_CONTROL_DRIVE
+
+///Is the passed mob an equipment controller?
+/obj/vehicle/proc/is_equipment_controller(mob/M)
+	return is_occupant(M) && occupants[M] & VEHICLE_CONTROL_EQUIPMENT
 
 /obj/vehicle/proc/is_occupant(mob/M)
 	return !isnull(LAZYACCESS(occupants, M))
@@ -157,7 +167,7 @@
 /obj/vehicle/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	. = ..()
 	if(trailer)
-		trailer.Move(old_loc, movement_dir)
+		trailer.Move(old_loc, movement_dir, glide_size)
 
 
 //TGMC ADDED BELOW

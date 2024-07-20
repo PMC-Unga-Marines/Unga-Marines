@@ -52,6 +52,7 @@
 	return ..()
 
 /obj/structure/ladder/update_icon_state()
+	. = ..()
 	if(up && down)
 		icon_state = "ladder11"
 
