@@ -39,7 +39,7 @@
 /datum/squad/alpha
 	name = "Alpha"
 	id = ALPHA_SQUAD
-	color = "#e61919" // rgb(230,25,25)
+	color = COLOR_SQUAD_ALPHA
 	access = list(ACCESS_MARINE_ALPHA)
 	radio_freq = FREQ_ALPHA
 
@@ -47,7 +47,7 @@
 /datum/squad/bravo
 	name = "Bravo"
 	id = BRAVO_SQUAD
-	color = "#ffc32d" // rgb(255,195,45)
+	color = COLOR_SQUAD_BRAVO
 	access = list(ACCESS_MARINE_BRAVO)
 	radio_freq = FREQ_BRAVO
 
@@ -55,14 +55,14 @@
 /datum/squad/charlie
 	name = "Charlie"
 	id = CHARLIE_SQUAD
-	color = "#c864c8" // rgb(200,100,200)
+	color = COLOR_SQUAD_CHARLIE
 	access = list(ACCESS_MARINE_CHARLIE)
 	radio_freq = FREQ_CHARLIE
 
 /datum/squad/delta
 	name = "Delta"
 	id = DELTA_SQUAD
-	color = "#4148c8" // rgb(65,72,200)
+	color = COLOR_SQUAD_DELTA
 	access = list(ACCESS_MARINE_DELTA)
 	radio_freq = FREQ_DELTA
 
@@ -78,7 +78,6 @@
 		var/icon_state = lowertext(name) + "_" + state
 		GLOB.minimap_icons[icon_state] = icon2base64(top)
 
-
 /datum/squad/Destroy(force)
 	for(var/mob/living/carbon/human/squaddie AS in marines_list)
 		remove_from_squad(squaddie)
@@ -86,7 +85,6 @@
 	SSjob.active_squads[faction] -= src
 	SSjob.squads -= id
 	return ..()
-
 
 /datum/squad/proc/get_all_members()
 	return marines_list
