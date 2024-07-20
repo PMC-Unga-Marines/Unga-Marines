@@ -23,7 +23,7 @@
 	var/faction = FACTION_TERRAGOV
 	COOLDOWN_DECLARE(next_fire)
 	///Reference to the balloon vis obj effect
-	var/atom/movable/vis_obj/fulton_balloon/baloon
+	var/atom/movable/vis_obj/fulton_balloon/balloon
 	var/obj/effect/fulton_extraction_holder/holder_obj
 
 /obj/machinery/computer/supplydrop_console/Initialize(mapload)
@@ -178,7 +178,7 @@
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! No deployable object detected on the drop pad.")]")
 		return
 
-	baloon = new()
+	balloon = new()
 	holder_obj = new()
 
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
@@ -193,11 +193,11 @@
 
 	supply_pad.visible_message("[icon2html(supply_pad, viewers(src))] [span_boldnotice("Supply drop teleported! Another launch will be available in [launch_cooldown/10] seconds.")]")
 
-	baloon.icon_state = initial(baloon.icon_state)
-	holder_obj.vis_contents += baloon
+	balloon.icon_state = initial(balloon.icon_state)
+	holder_obj.vis_contents += balloon
 
-	flick("fulton_expand", baloon)
-	baloon.icon_state = "fulton_balloon"
+	flick("fulton_expand", balloon)
+	balloon.icon_state = "fulton_balloon"
 
 	holder_obj.pixel_z = 360
 	animate(holder_obj, 1 SECONDS, pixel_z = 0)
@@ -206,5 +206,5 @@
 	C.forceMove(TC)
 	holder_obj.moveToNullspace()
 	holder_obj.pixel_z = initial(C.pixel_z)
-	holder_obj.vis_contents -= baloon
-	baloon.icon_state = initial(baloon.icon_state)
+	holder_obj.vis_contents -= balloon
+	balloon.icon_state = initial(balloon.icon_state)

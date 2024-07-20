@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(points)
 	///Used to delay fast delivery and for animation
 	var/fast_delivery_is_active = TRUE
 	///Reference to the balloon vis obj effect
-	var/atom/movable/vis_obj/fulton_balloon/baloon
+	var/atom/movable/vis_obj/fulton_balloon/balloon
 	var/obj/effect/fulton_extraction_holder/holder_obj
 
 /datum/controller/subsystem/points/Recover()
@@ -204,19 +204,19 @@ SUBSYSTEM_DEF(points)
 	SSpoints.shoppinglist[O.faction] -= "[O.id]"
 	SSpoints.shopping_history += O
 
-	baloon = new()
+	balloon = new()
 	holder_obj = new()
 
 	holder_obj.appearance = A.appearance
 	holder_obj.forceMove(TC)
 
-	baloon.icon_state = initial(baloon.icon_state)
-	holder_obj.vis_contents += baloon
+	balloon.icon_state = initial(balloon.icon_state)
+	holder_obj.vis_contents += balloon
 
 	addtimer(CALLBACK(src, PROC_REF(end_fast_delivery), A, TC), 1 SECONDS)
 
-	flick("fulton_expand", baloon)
-	baloon.icon_state = "fulton_balloon"
+	flick("fulton_expand", balloon)
+	balloon.icon_state = "fulton_balloon"
 
 	holder_obj.pixel_z = 360
 	animate(holder_obj, 1 SECONDS, pixel_z = 0)
@@ -225,8 +225,8 @@ SUBSYSTEM_DEF(points)
 	A.forceMove(TC)
 	holder_obj.moveToNullspace()
 	holder_obj.pixel_z = initial(A.pixel_z)
-	holder_obj.vis_contents -= baloon
-	baloon.icon_state = initial(baloon.icon_state)
+	holder_obj.vis_contents -= balloon
+	balloon.icon_state = initial(balloon.icon_state)
 	fast_delivery_is_active = TRUE
 
 ///Add amount of psy points to the selected hive only if the gamemode support psypoints
