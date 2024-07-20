@@ -1,6 +1,6 @@
 //Items specific to yautja. Other people can use em, they're not restricted or anything.
 //They can't, however, activate any of the special functions.
-//Thrall subtypes are located in /code/modules/cm_preds/thrall_items.dm
+//Thrall subtypes are located in /code/modules/predator/thrall_items.dm
 
 /proc/add_to_missing_pred_gear(obj/item/W)
 	if(!is_centcom_level(W.z))
