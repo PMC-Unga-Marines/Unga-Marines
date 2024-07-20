@@ -415,7 +415,7 @@
 	handle_weeds_on_movement()
 	return ..()
 
-/mob/living/carbon/xenomorph/Move(NewLoc, direct)
+/mob/living/carbon/xenomorph/Move(NewLoc, direct, glide_size_override)
 	. = ..()
 	if(!.)
 		return
@@ -423,7 +423,7 @@
 		unset_interaction()
 
 /mob/living/carbon/xenomorph/CanAllowThrough(atom/movable/mover, turf/target)
-	if(mover.pass_flags & PASS_XENO) // RUTGMC ADDITION
+	if(mover.pass_flags & PASS_XENO)
 		return TRUE
 	if(mover.throwing && ismob(mover) && isxeno(mover.thrower)) //xenos can throw mobs past other xenos
 		return TRUE
