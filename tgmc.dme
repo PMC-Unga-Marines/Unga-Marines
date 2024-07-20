@@ -1860,7 +1860,6 @@
 #include "code\modules\power\apc\apc_attack.dm"
 #include "code\modules\power\apc\apc_tool_act.dm"
 #include "code\modules\power\singularity\emitter.dm"
-#include "code\modules\predator\_defines.dm"
 #include "code\modules\predator\falcon.dm"
 #include "code\modules\predator\huntdata.dm"
 #include "code\modules\predator\keybinds.dm"
