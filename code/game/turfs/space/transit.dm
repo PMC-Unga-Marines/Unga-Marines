@@ -102,7 +102,6 @@
 	ex_act(2000) //Destroy it
 	cell_explosion(target, 300, 100)
 	flame_radius(6, target)
-	dump_mobs()
 
 /obj/structure/closet/handle_airdrop(turf/target_turf) // good idea but no
 	if(!opened)
