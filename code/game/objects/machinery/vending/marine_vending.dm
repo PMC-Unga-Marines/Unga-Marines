@@ -228,7 +228,6 @@
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
 			/obj/item/deployable_floodlight = 5,
-			/obj/item/fulton_extraction_pack = 5,
 		),
 	)
 
@@ -1378,7 +1377,6 @@
 			/obj/item/storage/backpack/marine/standard/scav = -1,
 			/obj/item/tool/weldpack/marinestandard = -1,
 			/obj/item/storage/backpack/marine/satchel/tech = 2,
-			/obj/item/storage/backpack/marine/radiopack = 5,
 		),
 		"Instruments" = list(
 			/obj/item/instrument/violin = -1,

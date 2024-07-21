@@ -227,7 +227,7 @@
 
 /obj/machinery/marine_selector/clothes/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.marine_clothes_listed_products + GLOB.marine_gear_listed_products
+	listed_products = GLOB.marine_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/alpha
 	squad_tag = "Alpha"
@@ -430,6 +430,24 @@
 
 /obj/machinery/marine_selector/gear/medic/valhalla
 	vendor_role = /datum/job/fallen/marine/corpsman
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+/obj/machinery/marine_selector/gear/marine
+	name = "NEXUS Automated Marine Gear Rack"
+	desc = "An automated marine gear rack hooked up to a colossal storage unit."
+	icon_state = "marine"
+	icon_vend = "marine-vend"
+	icon_deny = "marine-deny"
+	vendor_role = /datum/job/terragov/squad/standard
+	req_access = list(ACCESS_MARINE_PREP)
+
+/obj/machinery/marine_selector/gear/marine/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.marine_gear_listed_products
+
+/obj/machinery/marine_selector/gear/marine/valhalla
+	vendor_role = /datum/job/fallen/marine
 	resistance_flags = INDESTRUCTIBLE
 	lock_flags = JOB_LOCK
 
