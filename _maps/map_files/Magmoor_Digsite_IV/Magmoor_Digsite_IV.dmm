@@ -3641,7 +3641,7 @@
 /turf/open/floor/tile/purple/taupepurple,
 /area/magmoor/civilian/jani)
 "cxq" = (
-/obj/structure/prop/vehicle/crane/cranecargo/destructible{
+/obj/structure/prop/vehicle/crane/cranecargo{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -33582,7 +33582,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/dorms)
 "xQQ" = (
-/obj/structure/prop/vehicle/truck/destructible{
+/obj/structure/prop/vehicle/truck{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete/lines,

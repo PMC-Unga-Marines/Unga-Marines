@@ -20437,6 +20437,12 @@
 	dir = 1
 	},
 /area/ice_colony/surface/hangar/beta)
+"fVJ" = (
+/obj/structure/prop/vehicle/crawler{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/ice_colony/exterior/surface/valley/southwest)
 "fVL" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/wall/r_wall,
@@ -21337,6 +21343,10 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/wood,
 /area/ice_colony/underground/crew/bball/garbledradio)
+"hmz" = (
+/obj/structure/prop/vehicle/crawler,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/ice_colony/exterior/surface/valley/southwest)
 "hpb" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -23218,6 +23228,12 @@
 	dir = 4
 	},
 /area/ice_colony/surface/dorms)
+"kdo" = (
+/obj/structure/prop/vehicle/crawler{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/ice_colony/exterior/surface/valley/southwest)
 "kea" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/ice,
@@ -27069,6 +27085,12 @@
 	dir = 8
 	},
 /area/ice_colony/surface/dorms)
+"ptc" = (
+/obj/structure/prop/vehicle/crawler{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/ice_colony/exterior/surface/valley/southwest)
 "pty" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
@@ -47407,7 +47429,7 @@ aLu
 vlr
 qxY
 vlr
-aLu
+ptc
 aLu
 jkQ
 xJX
@@ -47830,7 +47852,7 @@ vlr
 vlr
 vlr
 vlr
-vlr
+fVJ
 aLu
 stA
 jkQ
@@ -48464,7 +48486,7 @@ vlr
 aLu
 aLu
 jkQ
-jkQ
+kdo
 jkQ
 jkQ
 jkQ
@@ -49736,7 +49758,7 @@ vlr
 vlr
 aLu
 jkQ
-jkQ
+hmz
 jkQ
 nwA
 jkQ
@@ -49950,7 +49972,7 @@ aLu
 jkQ
 jkQ
 jkQ
-jkQ
+hmz
 jkQ
 xJX
 xJX
