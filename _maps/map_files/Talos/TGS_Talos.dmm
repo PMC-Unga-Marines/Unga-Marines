@@ -18889,10 +18889,7 @@
 /area/mainship/medical/upper_medical)
 "lsC" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "waste_in";
-	name = "Waste Tank Control";
-	output_tag = "waste_out";
-	sensors = list("waste_sensor"="Tank")
+	name = "Waste Tank Control"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 6
@@ -31041,9 +31038,7 @@
 /area/mainship/living/numbertwobunks)
 "svj" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Nitrogen Control Console";
-	output_tag = "nit_out";
-	sensors = list("nit_sensor"="Tank")
+	name = "Nitrogen Control Console"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -31836,10 +31831,7 @@
 /area/mainship/squads/alpha)
 "sVq" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "mix_in";
-	name = "Mixed Air Control";
-	output_tag = "mix_out";
-	sensors = list("mix_sensor"="Tank")
+	name = "Mixed Air Control"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -35198,9 +35190,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Oxygen Supply Console";
-	output_tag = "oxyvent";
-	sensors = list("oxy_sensor"="Tank")
+	name = "Oxygen Supply Console"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 5
