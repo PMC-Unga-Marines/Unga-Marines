@@ -373,7 +373,7 @@
 /datum/emote/living/carbon/human/laugh/get_sound(mob/living/user)
 //RUTGMC EDIT
 	if(isyautja(user))
-		return pick('sound/voice/pred_laugh1.ogg', 'sound/voice/pred_laugh2.ogg', 'sound/voice/pred_laugh3.ogg', 'sound/voice/pred_laugh4.ogg')
+		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 //RUTGMC EDIT
 	else if(user.gender == FEMALE)
 		return 'sound/voice/human_female_laugh_1.ogg'

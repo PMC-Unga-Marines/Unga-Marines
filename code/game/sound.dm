@@ -369,15 +369,15 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 
 		//yautja race
 		if("pred_scream")
-			S = pick('sound/voice/pred_roar1.ogg','sound/voice/pred_roar2.ogg','sound/voice/pred_roar3.ogg','sound/voice/pred_roar4.ogg','sound/voice/pred_roar5.ogg')
+			S = pick('sound/voice/predator/roar1.ogg','sound/voice/predator/roar2.ogg','sound/voice/predator/roar3.ogg','sound/voice/predator/roar4.ogg','sound/voice/predator/roar5.ogg')
 		if("pred_pain")
-			S = pick('sound/voice/pred_pain1.ogg','sound/voice/pred_pain2.ogg','sound/voice/pred_pain3.ogg','sound/voice/pred_pain4.ogg','sound/voice/pred_pain5.ogg')
+			S = pick('sound/voice/predator/pain1.ogg','sound/voice/predator/pain2.ogg','sound/voice/predator/pain3.ogg','sound/voice/predator/pain4.ogg','sound/voice/predator/pain5.ogg')
 		if("pred_hugged")
-			S = pick('sound/voice/pred_facehugged.ogg')
+			S = pick('sound/voice/predator/facehugged.ogg')
 		if("pred_preburst")
-			S = pick('sound/voice/pred_pain_rare1.ogg')
+			S = pick('sound/voice/predator/pain_rare1.ogg')
 		if("pred_warcry")
-			S = pick('sound/voice/pred_warcry.ogg')
+			S = pick('sound/voice/predator/warcry.ogg')
 
 		//pred items
 		if("clan_sword_hit")
