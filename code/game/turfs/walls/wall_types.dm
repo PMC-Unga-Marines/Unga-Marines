@@ -36,7 +36,7 @@
 
 
 /turf/closed/wall/mainship/alt
-	icon = 'icons/turf/walls/testwall.dmi'
+	icon = 'icons/turf/walls/talos.dmi'
 	icon_state = "testwall-0"
 	walltype = "testwall"
 
