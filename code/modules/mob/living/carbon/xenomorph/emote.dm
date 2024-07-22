@@ -15,7 +15,7 @@
 	key_third_person = "growls"
 	message = "growls!"
 	emote_type = EMOTE_AUDIBLE
-	predalien_sound = 'sound/voice/predalien_growl.ogg'
+	predalien_sound = 'sound/voice/alien/predalien/growl.ogg'
 	sound = 'sound/voice/alien_growl1.ogg'
 
 
@@ -39,7 +39,7 @@
 	key_third_person = "hisses"
 	message = "hisses!"
 	emote_type = EMOTE_AUDIBLE
-	predalien_sound = 'sound/voice/predalien_hiss.ogg'
+	predalien_sound = 'sound/voice/alien/predalien/hiss.ogg'
 	sound = 'sound/voice/alien_hiss1.ogg'
 
 
@@ -81,7 +81,7 @@
 	key_third_person = "roars"
 	message = "roars!"
 	emote_type = EMOTE_AUDIBLE
-	predalien_sound = 'sound/voice/predalien_roar.ogg'
+	predalien_sound = 'sound/voice/alien/predalien/roar.ogg'
 	sound = 'sound/voice/alien_roar1.ogg'
 
 

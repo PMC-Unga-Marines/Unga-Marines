@@ -19,7 +19,7 @@
 
 ///Triggers the effect of a successful pounce on the target.
 /datum/action/ability/activable/xeno/pounce/predalien/trigger_pounce_effect(mob/living/living_target)
-	playsound(get_turf(living_target), 'sound/voice/predalien_pounce.ogg', 25, TRUE)
+	playsound(get_turf(living_target), 'sound/voice/alien/predalien/pounce.ogg', 25, TRUE)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
@@ -40,7 +40,7 @@
 	cooldown_duration = 25 SECONDS
 	ability_cost = 50
 
-	var/predalien_roar = list("sound/voice/predalien_roar.ogg")
+	var/predalien_roar = list("sound/voice/alien/predalien/roar.ogg")
 	var/bonus_damage_scale = 2.5
 	var/bonus_speed_scale = 0.05
 
@@ -196,7 +196,7 @@
 				xeno.setDir(turn(xeno.dir, 90))
 		xeno.do_attack_animation(carbon, ATTACK_EFFECT_BITE)
 
-	playsound(xeno, 'sound/voice/predalien_growl.ogg', 75, 0)
+	playsound(xeno, 'sound/voice/alien/predalien/growl.ogg', 75, 0)
 
 	xeno.anchored = FALSE
 	xeno.SetImmobilized(0)
