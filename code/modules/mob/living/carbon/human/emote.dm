@@ -376,7 +376,7 @@
 		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 //RUTGMC EDIT
 	else if(user.gender == FEMALE)
-		return 'sound/voice/human_female_laugh_1.ogg'
+		return 'sound/voice/human/female/laugh_1.ogg'
 	else
 		return pick('sound/voice/human/male/laugh_1.ogg', 'sound/voice/human/male/laugh_2.ogg')
 
@@ -495,7 +495,7 @@
 		else
 			return 'sound/voice/human/male/medic2.ogg'
 	else
-		return 'sound/voice/human_female_medic.ogg'
+		return 'sound/voice/human/female/medic.ogg'
 
 
 /datum/emote/living/carbon/human/medic/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
@@ -590,7 +590,7 @@
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_sigh_1.ogg'
+		return 'sound/voice/human/female/sigh_1.ogg'
 	else
 		return 'sound/voice/human/male/sigh_1.ogg'
 
@@ -602,7 +602,7 @@
 		else
 			return 'sound/voice/robotic/male_giggle.ogg'
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_giggle_1.ogg'
+		return 'sound/voice/human/female/giggle_1.ogg'
 	else
 		return 'sound/voice/human/male/giggle_1.ogg'
 
@@ -611,7 +611,7 @@
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_yawn_1.ogg'
+		return 'sound/voice/human/female/yawn_1.ogg'
 	else
 		return 'sound/voice/human/male/yawn_1.ogg'
 
@@ -620,7 +620,7 @@
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_moan_1.ogg'
+		return 'sound/voice/human/female/moan_1.ogg'
 	else
 		return 'sound/voice/human/male/moan_1.ogg'
 
@@ -629,7 +629,7 @@
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_cry_1.ogg'
+		return 'sound/voice/human/female/cry_1.ogg'
 	else
 		return 'sound/voice/human/male/cry_1.ogg'
 
