@@ -55,5 +55,5 @@
 	stat = DEAD
 
 
-/obj/item/clothing/mask/facehugger/lamarr/update_icon()
+/obj/item/clothing/mask/facehugger/lamarr/update_icon_state()
 	return

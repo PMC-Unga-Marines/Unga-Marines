@@ -3,9 +3,6 @@
 	set background = 1
 	..()
 
-	//Handle temperature/pressure differences between body and environment
-	handle_environment()
-
 /mob/living/brain/blur_eyes()
 	return
 
@@ -14,31 +11,6 @@
 
 /mob/living/brain/set_blurriness()
 	return
-
-/mob/living/brain/proc/handle_environment()
-	if(!loc)
-		return
-
-	var/env_temperature = loc.return_temperature()
-
-	if((env_temperature > (T0C + 50)) || (env_temperature < (T0C + 10)))
-		handle_temperature_damage(HEAD, env_temperature)
-
-
-
-/mob/living/brain/proc/handle_temperature_damage(body_part, exposed_temperature)
-	if(status_flags & GODMODE)
-		return
-
-	if(exposed_temperature > bodytemperature)
-		var/discomfort = min( abs(exposed_temperature - bodytemperature)/100, 1.0)
-		adjustFireLoss(20.0*discomfort)
-
-	else
-		var/discomfort = min( abs(exposed_temperature - bodytemperature)/100, 1.0)
-		adjustFireLoss(5.0*discomfort)
-
-
 
 /mob/living/brain/handle_organs()
 	. = ..()

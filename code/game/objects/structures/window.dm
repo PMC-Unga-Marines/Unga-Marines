@@ -255,9 +255,8 @@
 			INVOKE_NEXT_TICK(W, TYPE_PROC_REF(/atom/movable, update_icon))
 
 //merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)
-/obj/structure/window/update_icon()
-	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
-	//this way it will only update full-tile ones
+/obj/structure/window/update_icon_state()
+	. = ..()
 	if(!src)
 		return
 	if(!is_full_window())
@@ -400,7 +399,7 @@
 	reinf = TRUE
 	flags_atom = NONE
 
-/obj/structure/window/shuttle/update_icon() //icon_state has to be set manually
+/obj/structure/window/shuttle/update_icon_state()
 	return
 
 //Framed windows
@@ -429,8 +428,8 @@
 /obj/structure/window/framed/update_nearby_icons()
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
-/obj/structure/window/framed/update_icon()
-	QUEUE_SMOOTH(src)
+/obj/structure/window/framed/update_icon_state()
+	QUEUE_SMOOTH(src) //we update icon state through the smoothing system exclusively
 
 /obj/structure/window/framed/deconstruct(disassembled = TRUE, leave_frame = TRUE)
 	if(window_frame && leave_frame)

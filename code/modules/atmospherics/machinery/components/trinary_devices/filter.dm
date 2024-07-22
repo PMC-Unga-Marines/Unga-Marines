@@ -1,21 +1,19 @@
 /obj/machinery/atmospherics/components/trinary/filter
-	icon_state = "filter_off"
-	density = FALSE
-
 	name = "gas filter"
 	desc = "Very useful for filtering gasses."
-
+	icon_state = "filter_off"
+	density = FALSE
 	can_unwrench = FALSE
-
-	var/target_pressure = ONE_ATMOSPHERE
 	var/filter_type = null
-
 	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "filter"
 
 
-/obj/machinery/atmospherics/components/trinary/filter/update_icon()
+/obj/machinery/atmospherics/components/trinary/filter/update_overlays()
+	. = ..()
+
 	cut_overlays()
+
 	for(var/direction in GLOB.cardinals)
 		if(!(direction & initialize_directions))
 			continue
@@ -27,7 +25,7 @@
 		else
 			cap = getpipeimage(icon, "cap", direction, piping_layer = piping_layer)
 
-		add_overlay(cap)
+		. += cap
 
 	return ..()
 

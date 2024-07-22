@@ -2,13 +2,6 @@
 	category = CATEGORY_MECHA
 	weight = WEIGHT_MOB
 
-/datum/keybinding/mecha/mech_toggle_internals
-	name = "mech_toggle_internals"
-	full_name = "Toggle Internals"
-	description = "Toggle the internal ventilation on your mecha"
-	keybind_signal = COMSIG_MECHABILITY_TOGGLE_INTERNALS
-	hotkey_keys = list("I")
-
 /datum/keybinding/mecha/mech_toggle_strafe
 	name = "mech_toggle_strafe"
 	full_name = "Toggle Strafe"

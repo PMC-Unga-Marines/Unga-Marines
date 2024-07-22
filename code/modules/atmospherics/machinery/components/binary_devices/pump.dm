@@ -10,21 +10,14 @@
 //     Higher quantities of this cause more air to be perfected later
 //     but overall network volume is also increased as this increases...
 
-/obj/machinery/atmospherics/components/binary/pump
-	icon_state = "pump_map-2"
+/obj/machinery/atmospherics/components/binary/pumpv
 	name = "gas pump"
 	desc = "A pump that moves gas by pressure."
-
+	icon_state = "pump_map-2"
 	can_unwrench = FALSE
 	shift_underlay_only = FALSE
-
-	var/target_pressure = ONE_ATMOSPHERE
-
-	var/id = null
-
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "pump"
-
 
 /obj/machinery/atmospherics/components/binary/pump/update_icon_nopipes()
 	icon_state = (on && is_operational()) ? "pump_on" : "pump_off"

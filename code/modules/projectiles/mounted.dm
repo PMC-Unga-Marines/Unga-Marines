@@ -4,7 +4,7 @@
 	anchored = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	density = TRUE
-	layer = TANK_BARREL_LAYER
+	layer = ABOVE_MOB_PROP_LAYER
 	use_power = FALSE
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 	allow_pass_flags = PASSABLE
@@ -18,7 +18,7 @@
 	var/has_anchored_sprite = FALSE
 
 ///generates the icon based on how much ammo it has.
-/obj/machinery/deployable/mounted/update_icon_state(mob/user)
+/obj/machinery/deployable/mounted/update_icon_state()
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(gun && (!length(gun.chamber_items) || !gun.chamber_items[gun.current_chamber_position]))
@@ -97,10 +97,10 @@
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(length(gun?.chamber_items))
 		gun.unload(user)
-		update_icon_state()
+		update_appearance()
 
 	gun?.reload(ammo_magazine, user)
-	update_icon_state()
+	update_appearance()
 
 	REMOVE_TRAIT(src, TRAIT_GUN_RELOADING, GUN_TRAIT)
 
@@ -243,7 +243,7 @@
 			return FALSE
 		operator.setDir(dir)
 		gun?.set_target(target)
-		update_icon_state()
+		update_appearance()
 		return TRUE
 	if(CHECK_BITFIELD(gun?.flags_item, DEPLOYED_NO_ROTATE))
 		to_chat(operator, "This one is anchored in place and cannot be rotated.")
@@ -275,7 +275,7 @@
 	setDir(angle)
 	user.set_interaction(src)
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-	operator.visible_message("[operator] rotates the [src].","You rotate the [src].")
+	operator.visible_message("[operator] rotates the [src].","You rotate [src].")
 	update_pixels(user, TRUE)
 
 	if(current_scope?.deployed_scope_rezoom)

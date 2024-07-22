@@ -6,7 +6,6 @@
 #define FIREDOOR_ALERT_HOT 1
 #define FIREDOOR_ALERT_COLD 2
 
-
 /obj/machinery/door/firedoor
 	name = "\improper Emergency Shutter"
 	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
@@ -24,7 +23,6 @@
 	use_power = TRUE
 	idle_power_usage = 5
 	active_power_usage = 360
-
 	var/blocked = FALSE
 	var/lockdown = FALSE // When the door has detected a problem, it locks.
 	var/pdiff_alert = FALSE
@@ -34,7 +32,6 @@
 	var/list/areas_added
 	var/list/users_to_open = new
 	var/next_process_time = 0
-
 	var/list/tile_info[4]
 	var/list/dir_alerts[4] // 4 dirs, bitflags
 
@@ -66,7 +63,6 @@
 	for(var/area/A in areas_added)
 		LAZYREMOVE(A.all_fire_doors, src)
 	return ..()
-
 
 /obj/machinery/door/firedoor/examine(mob/user) // todo remove the shitty o vars
 	. = ..()
@@ -117,32 +113,32 @@
 		return ..()
 	return FALSE
 
-/obj/machinery/door/firedoor/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/door/firedoor/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	var/turf/cur_loc = X.loc
+	var/turf/cur_loc = xeno_attacker.loc
 	if(blocked)
-		to_chat(X, span_warning("\The [src] is welded shut."))
+		to_chat(xeno_attacker, span_warning("\The [src] is welded shut."))
 		return FALSE
 	if(!istype(cur_loc))
 		return FALSE //Some basic logic here
 	if(!density)
-		to_chat(X, span_warning("\The [src] is already open!"))
+		to_chat(xeno_attacker, span_warning("\The [src] is already open!"))
 		return FALSE
 
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
-	X.visible_message(span_warning("\The [X] digs into \the [src] and begins to pry it open."), \
+	xeno_attacker.visible_message(span_warning("\The [xeno_attacker] digs into \the [src] and begins to pry it open."), \
 	span_warning("We dig into \the [src] and begin to pry it open."), null, 5)
 
-	if(do_after(X, 30, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
+	if(do_after(xeno_attacker, 30, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 		if(blocked)
-			to_chat(X, span_warning("\The [src] is welded shut."))
+			to_chat(xeno_attacker, span_warning("\The [src] is welded shut."))
 			return FALSE
 		if(density) //Make sure it's still closed
 			spawn(0)
 				open(1)
-				X.visible_message(span_danger("\The [X] pries \the [src] open."), \
+				xeno_attacker.visible_message(span_danger("\The [xeno_attacker] pries \the [src] open."), \
 				span_danger("We pry \the [src] open."), null, 5)
 
 /obj/machinery/door/firedoor/attack_hand(mob/living/user)
@@ -250,10 +246,8 @@
 		else
 			close()
 
-
 /obj/machinery/door/firedoor/try_to_activate_door(mob/user)
 	return
-
 
 /obj/machinery/door/firedoor/proc/latetoggle()
 	if(operating || !nextstate)
@@ -288,24 +282,29 @@
 	playsound(loc, 'sound/machines/emergency_shutter.ogg', 25)
 
 
-/obj/machinery/door/firedoor/update_icon()
-	overlays.Cut()
+/obj/machinery/door/firedoor/update_icon_state()
+	. = ..()
 	if(density)
 		icon_state = "door_closed"
+	else
+		icon_state = "door_open"
+
+/obj/machinery/door/firedoor/update_overlays()
+	. = ..()
+	if(density)
 		if(blocked)
-			overlays += "welded"
+			. += "welded"
 		if(pdiff_alert)
-			overlays += "palert"
+			. += "palert"
 		if(dir_alerts)
 			for(var/d=1;d<=4;d++)
 				var/cdir = GLOB.cardinals[d]
 				for(var/i=1;i<=length(ALERT_STATES);i++)
 					if(dir_alerts[d] & (1<<(i-1)))
-						overlays += new/icon(icon,"alert_[ALERT_STATES[i]]", dir=cdir)
+						. += new/icon(icon,"alert_[ALERT_STATES[i]]", dir=cdir)
 	else
-		icon_state = "door_open"
 		if(blocked)
-			overlays += "welded_open"
+			. += "welded_open"
 
 
 /obj/machinery/door/firedoor/mainship
@@ -315,11 +314,9 @@
 	icon_state = "door_open"
 	openspeed = 4
 
-
 /obj/machinery/door/firedoor/multi_tile
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
-
 
 /obj/machinery/door/firedoor/border_only
 	icon = 'icons/obj/doors/edge_Doorfire.dmi'

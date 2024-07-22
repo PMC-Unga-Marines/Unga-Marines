@@ -12,36 +12,44 @@
 	var/obj/item/reagent_containers/beaker = null
 	var/datum/beam/current_beam
 
-/obj/machinery/iv_drip/update_icon()
-	/* СМ КОСТЫЛЬ
+/obj/machinery/iv_drip/update_icon_state()
+	. = ..()
 	if(attached)
-		icon_state = base_icon_state + "_hooked"
+		icon_state = "[base_icon_state]_hooked"
 	else
 		icon_state = base_icon_state
-	*/
 
-	//У нас нет системы которая позволила бы изменить pixel x/y вары у начальной и конечной точек beam'а
-	//Поэтому оставляю 1 айкон стейт, чтобы не выглядело всё слишком плохо
+/obj/machinery/iv_drip/update_overlays()
+	. = ..()
 
-	overlays = null
+	if(!beaker)
+		return
 
-	if(beaker)
-		var/datum/reagents/reagents = beaker.reagents
-		if(reagents.total_volume)
-			var/image/filling = image('icons/obj/iv_drip.dmi', src)
+	var/datum/reagents/reagents = beaker.reagents
+	if(!reagents?.total_volume)
+		return
 
-			var/percent = round((reagents.total_volume / beaker.volume) * 100)
-			switch(percent)
-				if(0 to 9)		filling.icon_state = "[base_icon_state]_reagent0"
-				if(10 to 24) 	filling.icon_state = "[base_icon_state]_reagent10"
-				if(25 to 49)	filling.icon_state = "[base_icon_state]_reagent25"
-				if(50 to 74)	filling.icon_state = "[base_icon_state]_reagent50"
-				if(75 to 79)	filling.icon_state = "[base_icon_state]_reagent75"
-				if(80 to 90)	filling.icon_state = "[base_icon_state]_reagent80"
-				if(91 to INFINITY)	filling.icon_state = "[base_icon_state]_reagent100"
+	var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
 
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			overlays += filling
+	var/percent = round((reagents.total_volume / beaker.volume) * 100)
+	switch(percent)
+		if(0 to 9)
+			filling.icon_state = "[base_icon_state]_reagent0"
+		if(10 to 24)
+			filling.icon_state = "[base_icon_state]_reagent10"
+		if(25 to 49)
+			filling.icon_state = "[base_icon_state]_reagent25"
+		if(50 to 74)
+			filling.icon_state = "[base_icon_state]_reagent50"
+		if(75 to 79)
+			filling.icon_state = "[base_icon_state]_reagent75"
+		if(80 to 90)
+			filling.icon_state = "[base_icon_state]_reagent80"
+		if(91 to INFINITY)
+			filling.icon_state = "[base_icon_state]_reagent100"
+
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	. += filling
 
 /obj/machinery/iv_drip/proc/update_beam()
 	if(current_beam && !attached)

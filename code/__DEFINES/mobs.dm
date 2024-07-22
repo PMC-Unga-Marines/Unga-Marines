@@ -4,6 +4,12 @@
 #define AI_VOX
 
 //Mob movement define
+
+///Speed mod for walk intent
+#define MOB_WALK_MOVE_MOD 4
+///Speed mod for run intent
+#define MOB_RUN_MOVE_MOD 3
+///Move mod for going diagonally
 #define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER 1.6
 
 
@@ -357,6 +363,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define IS_MOTH (1<<3)
 #define IS_SECTOID (1<<4)
 #define IS_MONKEY (1<<5)
+#define IS_YAUTJA (1<<6)
 //=================================================
 
 //AFK status
@@ -865,7 +872,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 ///Slowdown for favehuggers moving through liquid
 #define FACEHUGGER_WATER_SLOWDOWN 1.6
 
-
 //Species defines
 
 ///Human species or those that functional behave like them. Default species
@@ -873,7 +879,14 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 ///Combat robot species
 #define SPECIES_COMBAT_ROBOT "species_combat_robot"
 
-#define IS_YAUTJA (1<<6)
+///Nextmove delay after performing an interaction with a grab on something
+#define GRAB_SLAM_DELAY 0.7 SECONDS
+///Default damage for slamming a mob against an object
+#define BASE_OBJ_SLAM_DAMAGE 10
+///Default damage for slamming a mob against a wall
+#define BASE_WALL_SLAM_DAMAGE 15
+///Default damage for slamming a mob against another mob
+#define BASE_MOB_SLAM_DAMAGE 8
 
 #define MOTH_WINGS_LAYER 28
 #define MUTATIONS_LAYER 27
@@ -882,3 +895,28 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define PRED_LASER_LAYER 1.9
 #define LASER_LAYER 1.8
 #define TOTAL_LAYERS 30
+
+// Yautja defines
+
+//Gear select defines
+#define YAUTJA_GEAR_GLAIVE "The Lumbering Glaive"
+#define YAUTJA_GEAR_WHIP "The Rending Chain-Whip"
+#define YAUTJA_GEAR_SWORD "The Piercing Hunting Sword"
+#define YAUTJA_GEAR_SCYTHE "The Cleaving War-Scythe"
+#define YAUTJA_GEAR_STICK "The Adaptive Combi-Stick"
+#define YAUTJA_GEAR_SPEAR "The Nimble Spear"
+#define YAUTJA_GEAR_SCIMS "The Fearsome Scimitars"
+#define YAUTJA_GEAR_LAUNCHER "The Fleeting Spike Launcher"
+#define YAUTJA_GEAR_PISTOL "The Swift Plasma Pistol"
+#define YAUTJA_GEAR_DISC "The Purifying Smart-Disc"
+#define YAUTJA_GEAR_FULL_ARMOR "The Formidable Plate Armor"
+#define YAUTJA_GEAR_SHIELD "The Steadfast Shield"
+#define YAUTJA_GEAR_DRONE "The Agile Drone"
+
+#define YAUTJA_GEAR_GLAIVE_ALT "The Imposing Glaive"
+#define YAUTJA_GEAR_SCYTHE_ALT "The Ripping War-Scythe"
+
+#define YAUTJA_THRALL_GEAR_MACHETE "The Swift Machete"
+#define YAUTJA_THRALL_GEAR_RAPIER "The Dancing Rapier"
+#define YAUTJA_THRALL_GEAR_CLAYMORE "The Broad Claymore"
+#define YAUTJA_THRALL_GEAR_FIREAXE "The Purposeful Fireaxe"

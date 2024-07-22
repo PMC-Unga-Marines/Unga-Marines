@@ -116,16 +116,6 @@
 	name = "Circuit board (Injector Control)"
 	build_path = /obj/machinery/computer/general_air_control/fuel_injection
 
-/obj/item/circuitboard/computer/air_management/construct(obj/machinery/computer/general_air_control/C)
-	if (..(C))
-		C.frequency = frequency
-
-/obj/item/circuitboard/computer/air_management/decon(obj/machinery/computer/general_air_control/C)
-	if (..(C))
-		frequency = C.frequency
-
-
-
 /obj/item/circuitboard/computer/atmos_alert
 	name = "Circuit board (Atmospheric Alert)"
 	build_path = /obj/machinery/computer/atmos_alert

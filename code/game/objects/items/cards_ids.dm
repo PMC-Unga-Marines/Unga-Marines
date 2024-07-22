@@ -258,9 +258,13 @@
 	icon_state = "dogtag"
 	item_state = "dogtag"
 	iff_signal = TGMC_LOYALIST_IFF
+	marine_points = list(
+		CAT_MARINE = DEFAULT_TOTAL_BUY_POINTS,
+	)
 	var/dogtag_taken = FALSE
 
 /obj/item/card/id/dogtag/update_icon_state()
+	. = ..()
 	if(dogtag_taken)
 		icon_state = initial(icon_state) + "_taken"
 		return
@@ -318,6 +322,7 @@
 
 /obj/item/card/id/dogtag/full
 	marine_points = list(
+		CAT_MARINE = DEFAULT_TOTAL_BUY_POINTS,
 		CAT_SGSUP = DEFAULT_TOTAL_BUY_POINTS,
 		CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS,
 		CAT_LEDSUP = DEFAULT_TOTAL_BUY_POINTS,

@@ -12,12 +12,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	allow_pass_flags = PASS_LOW_STRUCTURE
 	flags_atom = PREVENT_CONTENTS_EXPLOSION
 	resistance_flags = PROJECTILE_IMMUNE
-
 	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	///The iconstate that the items use for blood on blood.dmi when drawn on the mob.
 	var/blood_sprite_state
-
-
 	var/item_state = null //if you don't want to use icon_state for onmob inhand/belt/back/ear/suitstorage/glove sprite.
 						//e.g. most headsets have different icon_state but they all use the same sprite when shown on the mob's ears.
 						//also useful for items with many icon_state values when you don't want to make an inhand sprite for each value.
@@ -28,30 +25,23 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	///Byond tick delay between right click alternate attacks
 	var/attack_speed_alternate = 11
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
-
 	var/sharp = FALSE		// whether this item cuts
 	var/edge = FALSE		// whether this item is more likely to dismember
 	var/pry_capable = FALSE //whether this item can be used to pry things open.
 	var/heat = 0 //whether this item is a source of heat, and how hot it is (in Kelvin).
-
 	var/hitsound = null
 	var/w_class = WEIGHT_CLASS_NORMAL
 	var/flags_item = NONE	//flags for item stuff that isn't clothing/equipping specific.
 	var/flags_equip_slot = NONE		//This is used to determine on which slots an item can fit.
-
 	//Since any item can now be a piece of clothing, this has to be put here so all items share it.
 	var/flags_inventory = NONE //This flag is used for various clothing/equipment item stuff
 	var/flags_inv_hide = NONE //This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
-
 	var/obj/item/master = null
-
 	var/flags_armor_protection = NONE //see setup.dm for appropriate bit flags
 	var/flags_heat_protection = NONE //flags which determine which body parts are protected from heat. Use the HEAD, CHEST, GROIN, etc. flags. See setup.dm
 	var/flags_cold_protection = NONE //flags which determine which body parts are protected from cold. Use the HEAD, CHEST, GROIN, etc. flags. See setup.dm
-
 	var/max_heat_protection_temperature //Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by flags_heat_protection flags
 	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by flags_cold_protection flags
-
 	///list of /datum/action's that this item has.
 	var/list/actions
 	///list of paths of action datums to give to the item on Initialize().
@@ -61,10 +51,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
 	var/breakouttime = 0
-
 	///list() of species types, if a species cannot put items in a certain slot, but species type is in list, it will be able to wear that item
 	var/list/species_exception = null
-
 	var/list/allowed = null //suit storage stuff.
 	///name used for message when binoculars/scope is used
 	var/zoomdevicename = null
@@ -76,10 +64,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/zoom_viewsize = 5 //RU TGMC EDIT
 	///if you can move with the zoom on, only works if zoom_view_size is 7 otherwise CRASH() is called due to maptick performance reasons.
 	var/zoom_allow_movement = FALSE
-
 	var/datum/embedding_behavior/embedding
 	var/mob/living/embedded_into
-
 	///How long it takes to equip this item yoursef
 	var/equip_delay_self = 0 SECONDS
 	/// How long it takes to unequip this item yourself
@@ -88,14 +74,10 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/equip_delay_other = 2 SECONDS
 	///How long an item takes to remove from another person
 	var/strip_delay = 4 SECONDS
-
 	var/reach = 1
-
 	/// Species-specific sprites, concept stolen from Paradise//vg/. Ex: sprite_sheets = list("Combat Robot" = 'icons/mob/species/robot/backpack.dmi') If index term exists and icon_override is not set, this sprite sheet will be used.
 	var/list/sprite_sheets = null
-
 	//** These specify item/icon overrides for _slots_
-
 	///>Lazylist< that overrides the default item_state for particular slots.
 	var/list/item_state_slots
 	///>LazyList< Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
@@ -122,18 +104,12 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/inhand_x_offset = 0
 	///Worn inhand overlay will be shifted by this along y axis
 	var/inhand_y_offset = 0
-
 	var/flags_item_map_variant = NONE
-
 	//TOOL RELATED VARS
 	var/tool_behaviour = FALSE
 	var/toolspeed = 1
 	var/usesound = null
-
 	var/active = FALSE
-
-
-
 	//Coloring vars
 	///Some defines to determine if the item is allowed to be recolored.
 	var/colorable_allowed = NONE
@@ -143,12 +119,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/list/icon_state_variants = list()
 	///Current variant selected.
 	var/current_variant
-
 	///Current hair concealing option selected.
 	var/current_hair_concealment
-
-
-
 
 /obj/item/Initialize(mapload)
 
@@ -202,10 +174,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	GLOB.cryoed_item_list -= src
 	return ..()
 
-
 /obj/item/proc/update_item_state(mob/user)
 	item_state = "[initial(icon_state)][flags_item & WIELDED ? "_w" : ""]"
-
 
 //user: The mob that is suiciding
 //damagetype: The type of damage the item will inflict on the user
@@ -216,7 +186,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 //Output a creative message and then return the damagetype done
 /obj/item/proc/suicide_act(mob/user)
 	return
-
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
@@ -252,7 +221,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 		return
 	return interact(user)
 
-
 /obj/item/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -282,7 +250,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(!user.put_in_active_hand(src))
 		user.dropItemToGround(src)
 		dropped(user)
-
 
 /obj/item/update_icon_state()
 	. = ..()
@@ -331,7 +298,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	else if(S.can_be_inserted(src))
 		S.handle_item_insertion(src, FALSE, user)
 
-
 /obj/item/attackby_alternate(obj/item/I, mob/user, params)
 	. = ..()
 	if(.)
@@ -339,7 +305,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(!istype(I, /obj/item/facepaint))
 		return
 	alternate_color_item(I, user)
-
 
 /obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language)
 	return ITALICS | REDUCE_RANGE
@@ -397,11 +362,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
 	return
 
-
 ///called when this item is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
 /obj/item/proc/on_enter_storage(obj/item/storage/S as obj)
 	return
-
 
 ///called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder as mob)
@@ -440,7 +403,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 		if(slowdown)
 			human_user.add_movespeed_modifier(type, TRUE, 0, (flags_item & IMPEDE_JETPACK) ? SLOWDOWN_IMPEDE_JETPACK : NONE, TRUE, slowdown)
 
-
 ///Called when an item is removed from an equipment slot. The loc should still be in the unequipper.
 /obj/item/proc/unequipped(mob/unequipper, slot)
 	SHOULD_CALL_PARENT(TRUE)
@@ -460,7 +422,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 			human_unequipper.remove_limb_armor(src)
 		if(slowdown)
 			human_unequipper.remove_movespeed_modifier(type)
-
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)
@@ -710,7 +671,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 		if(MAP_ARMOR_STYLE_JUNGLE)
 			if(flags_item_map_variant & ITEM_JUNGLE_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
-					greyscale_colors = ARMOR_PALETTE_BLACK //RUTGMC edit - black instead of default drab
+					greyscale_colors = ARMOR_PALETTE_BLACK
 				else if(colorable_allowed & ICON_STATE_VARIANTS_ALLOWED)
 					current_variant = JUNGLE_VARIANT
 				else
@@ -1006,20 +967,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				if(-1)
 					to_chat(user, span_danger("Your eyes itch and burn severely."))
 
-
-
-
-
 //This proc is here to prevent Xenomorphs from picking up objects (default attack_hand behaviour)
 //Note that this is overriden by every proc concerning a child of obj unless inherited
-/obj/item/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
+/obj/item/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
 	return FALSE
-
 
 /obj/item/proc/update_action_button_icons()
 	for(var/datum/action/A AS in actions)
 		A.update_button_icon()
-
 
 /obj/item/proc/extinguish(atom/target, mob/user)
 	if (reagents.total_volume < 1)

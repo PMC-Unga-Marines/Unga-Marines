@@ -98,6 +98,7 @@
 	set_armor_datum()
 	AddElement(/datum/element/gesture)
 	AddElement(/datum/element/keybinding_update)
+	AddElement(/datum/element/directional_attack)
 
 /mob/living/Destroy()
 	for(var/datum/status_effect/effect AS in status_effects)
@@ -122,13 +123,6 @@
 	. = ..()
 	hard_armor = null
 	soft_armor = null
-
-
-//This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
-//affects them once clothing is factored in. ~Errorage
-/mob/living/proc/calculate_affecting_pressure(pressure)
-	return
-
 
 /mob/proc/get_contents()
 	return
@@ -208,17 +202,17 @@
 	return (health <= get_crit_threshold() && stat == UNCONSCIOUS)
 
 
-/mob/living/Move(atom/newloc, direct)
+/mob/living/Move(atom/newloc, direction, glide_size_override)
 	if(buckled)
 		if(buckled.loc != newloc) //not updating position
 			if(!buckled.anchored)
-				return buckled.Move(newloc, direct)
+				return buckled.Move(newloc, direction, glide_size)
 			else
 				return FALSE
 	else if(lying_angle)
-		if(direct & EAST)
+		if(direction & EAST)
 			set_lying_angle(90)
-		else if(direct & WEST)
+		else if(direction & WEST)
 			set_lying_angle(270)
 
 	. = ..()
@@ -878,12 +872,8 @@ below 100 is not dizzy
 	hand = !hand
 	SEND_SIGNAL(src, COMSIG_CARBON_SWAPPED_HANDS)
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
-		hud_used.l_hand_hud_object.update_icon(hand)
-		hud_used.r_hand_hud_object.update_icon(!hand)
-		if(hand)	//This being 1 means the left hand is in use
-			hud_used.l_hand_hud_object.add_overlay("hand_active")
-		else
-			hud_used.r_hand_hud_object.add_overlay("hand_active")
+		hud_used.l_hand_hud_object.update_icon()
+		hud_used.r_hand_hud_object.update_icon()
 	return
 
 ///Swap to the hand clicked on the hud
@@ -946,7 +936,7 @@ below 100 is not dizzy
 		get_up()
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
-/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE)
+/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity

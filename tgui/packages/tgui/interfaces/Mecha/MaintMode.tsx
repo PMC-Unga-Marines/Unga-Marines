@@ -111,18 +111,6 @@ const MaintEnabled = (props, context) => {
           onClick={() => setPanel(MECHA_MAINT_PANELS.stockparts)}
         />
       </Stack.Item>
-      <Stack.Item>
-        <Button
-          fluid
-          bold
-          content={'Set cabin pressure'}
-          textAlign="center"
-          fontSize="200%"
-          lineHeight={1.25}
-          className="Mecha__Button"
-          onClick={() => act('set_pressure')}
-        />
-      </Stack.Item>
     </>
   );
 };

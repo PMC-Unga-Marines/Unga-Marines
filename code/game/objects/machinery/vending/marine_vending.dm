@@ -228,7 +228,6 @@
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
 			/obj/item/deployable_floodlight = 5,
-			/obj/item/fulton_extraction_pack = 5,
 		),
 	)
 
@@ -880,7 +879,8 @@
 	. = ..()
 	update_icon()
 
-/obj/machinery/vending/lasgun/update_icon()
+/obj/machinery/vending/lasgun/update_icon_state()
+	. = ..()
 	if(machine_max_charge)
 		switch(machine_current_charge / max(1,machine_max_charge))
 			if(0.7 to 1)
@@ -1377,7 +1377,6 @@
 			/obj/item/storage/backpack/marine/standard/scav = -1,
 			/obj/item/tool/weldpack/marinestandard = -1,
 			/obj/item/storage/backpack/marine/satchel/tech = 2,
-			/obj/item/storage/backpack/marine/radiopack = 5,
 		),
 		"Instruments" = list(
 			/obj/item/instrument/violin = -1,
@@ -1555,6 +1554,14 @@ RU TGMC EDIT*/
 			/obj/item/implanter/cloak = -1,
 			/obj/item/implanter/chem/blood = -1,
 			/obj/item/implanter/blade = -1,
+		),
+		"Assault Vehicle" = list(
+			/obj/item/armored_weapon = -1,
+			/obj/item/armored_weapon/ltaap = -1,
+			/obj/item/armored_weapon/secondary_weapon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
+			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
+			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
 		),
 	)
 
