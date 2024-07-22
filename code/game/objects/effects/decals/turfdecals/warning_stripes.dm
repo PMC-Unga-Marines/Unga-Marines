@@ -86,7 +86,7 @@
 	smoothing_groups = list(SMOOTH_GROUP_DECAL_WARNING_STRIPE)
 	canSmoothWith = list(SMOOTH_GROUP_DECAL_WARNING_STRIPE)
 
-/obj/effect/turf_decal/warning_stripes
+/obj/effect/turf_decal/warning_stripes/line
 	icon_state = "warning_line"
 
 /obj/effect/turf_decal/warning_stripes/corner

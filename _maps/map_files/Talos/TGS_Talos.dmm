@@ -1916,7 +1916,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/starboard_emb)
 "bdH" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/caution/stand_clear{
@@ -6243,7 +6243,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
 "dAr" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 4
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -13804,7 +13804,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "iwq" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 6
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -20802,7 +20802,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "mto" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 8
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -23295,7 +23295,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/squads/req)
 "nON" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/caution/stand_clear{
@@ -25775,7 +25775,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "pol" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 5
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -25984,7 +25984,7 @@
 /turf/closed/wall/mainship/alt,
 /area/mainship/hull/upper_hull)
 "ptQ" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 9
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -38011,7 +38011,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/living/starboard_emb)
 "wUA" = (
-/obj/effect/turf_decal/warning_stripes/rus{
+/obj/effect/turf_decal/warning_stripes/line{
 	dir = 10
 	},
 /turf/open/floor/plating/mainship/reinforced,
