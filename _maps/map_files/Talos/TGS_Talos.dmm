@@ -11,7 +11,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/mainship/hallways/hangar/droppod)
 "aaO" = (
-/obj/structure/sign/alt/safety/security{
+/obj/structure/sign/semiotic/security{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -288,7 +288,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 10
 	},
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -318,7 +318,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -364,7 +364,7 @@
 "ajm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/cryo{
+/obj/structure/sign/semiotic/cryo{
 	pixel_y = -32;
 	pixel_x = 8
 	},
@@ -388,7 +388,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/squads/alpha)
 "akD" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -520,7 +520,7 @@
 /obj/vehicle/ridden/motorbike{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/storage{
+/obj/structure/sign/semiotic/storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -602,7 +602,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -632,7 +632,7 @@
 	dir = 4
 	},
 /obj/machinery/vending/snack,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -810,7 +810,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -888,7 +888,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/aft_hallway)
 "avO" = (
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -930,7 +930,7 @@
 "awo" = (
 /obj/structure/bookcase/manuals,
 /obj/item/book/manual/ripley_build_and_repair,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -1171,7 +1171,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/storage{
+/obj/structure/sign/semiotic/storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -1274,7 +1274,7 @@
 "aDg" = (
 /obj/structure/drop_pod_launcher,
 /obj/structure/droppod,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -1313,7 +1313,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 5
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -1338,14 +1338,14 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/bow_hallway)
 "aEs" = (
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24;
 	pixel_x = 15
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
 	},
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -1366,7 +1366,7 @@
 /area/mainship/hallways/hangar)
 "aEC" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -1407,7 +1407,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/squads/bravo)
 "aGa" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -1586,7 +1586,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "aNb" = (
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/emerald/alt{
@@ -1603,7 +1603,7 @@
 /area/mainship/hallways/hangar)
 "aNi" = (
 /obj/machinery/suit_storage_unit,
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -1620,7 +1620,7 @@
 /turf/open/floor/mainship/emerald/alt,
 /area/mainship/squads/charlie)
 "aPN" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -1653,7 +1653,7 @@
 /area/mainship/hull/upper_hull)
 "aQS" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -1794,7 +1794,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -1811,7 +1811,7 @@
 /area/mainship/engineering/engine_core)
 "aYU" = (
 /obj/machinery/vending/cola,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -1909,7 +1909,7 @@
 "bdu" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/obj/structure/sign/alt/safety/bathwomens{
+/obj/structure/sign/semiotic/bathwomens{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -2142,7 +2142,7 @@
 	dir = 1
 	},
 /obj/machinery/suit_storage_unit/carbon_unit,
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -2295,7 +2295,7 @@
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "bps" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -2402,7 +2402,7 @@
 /area/mainship/engineering/port_atmos)
 "bsK" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -2468,7 +2468,7 @@
 /area/mainship/hallways/starboard_umbilical)
 "btP" = (
 /obj/machinery/computer/supplycomp,
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -2509,7 +2509,7 @@
 /area/mainship/living/port_emb)
 "buA" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -2517,11 +2517,11 @@
 /area/mainship/medical/surgery_hallway)
 "buL" = (
 /obj/effect/spawner/random/misc/plant,
-/obj/structure/sign/alt/safety/synth_storage{
+/obj/structure/sign/semiotic/synth_storage{
 	pixel_x = -17;
 	pixel_y = -8
 	},
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_x = -17;
 	pixel_y = 7
 	},
@@ -2614,7 +2614,7 @@
 /area/mainship/living/commandbunks)
 "bxw" = (
 /obj/machinery/computer/supplycomp,
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /obj/effect/turf_decal/woodsiding{
@@ -2652,7 +2652,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -2725,7 +2725,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -2863,7 +2863,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/squad/squadmarine/bravo,
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -2997,7 +2997,7 @@
 /area/mainship/hallways/hangar)
 "bIW" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -3237,7 +3237,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -3361,7 +3361,7 @@
 /turf/open/floor/carpet,
 /area/mainship/hull/upper_hull)
 "bSz" = (
-/obj/structure/sign/alt/safety/radio_rad{
+/obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -3591,7 +3591,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -3795,11 +3795,11 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/starboard_hallway)
 "ceH" = (
-/obj/structure/sign/alt/safety/north{
+/obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/landingzone{
+/obj/structure/sign/semiotic/landingzone{
 	pixel_x = -17;
 	pixel_y = -8
 	},
@@ -3918,11 +3918,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/east{
+/obj/structure/sign/semiotic/east{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -3968,7 +3968,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -3978,10 +3978,10 @@
 /obj/structure/bed/chair/comfy/charlie{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = -25
 	},
@@ -4170,7 +4170,7 @@
 /area/mainship/squads/delta)
 "coA" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -4204,7 +4204,7 @@
 	height = 2;
 	id = "techext3"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -4476,7 +4476,7 @@
 	pixel_x = 12
 	},
 /obj/effect/landmark/start/squad/squadmarine/charlie,
-/obj/structure/sign/alt/safety/bathwomens{
+/obj/structure/sign/semiotic/bathwomens{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -4561,7 +4561,7 @@
 "cCW" = (
 /obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -4613,7 +4613,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -4749,7 +4749,7 @@
 /area/mainship/living/pilotbunks)
 "cHi" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -4885,7 +4885,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = -17
 	},
 /turf/open/floor/wood,
@@ -5118,7 +5118,7 @@
 /obj/machinery/camera/alt/autoname{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -5379,10 +5379,10 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
 /obj/machinery/door/airlock/hatch,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = -25;
 	pixel_x = 15
 	},
@@ -5481,7 +5481,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -5831,7 +5831,7 @@
 	height = 1;
 	id = "techext2"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -5920,7 +5920,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/prison/whitepurple{
@@ -6186,7 +6186,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/green{
@@ -6310,11 +6310,11 @@
 /area/mainship/hallways/bow_hallway)
 "dCu" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = -25;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -6438,7 +6438,7 @@
 /area/mainship/squads/charlie)
 "dGD" = (
 /obj/structure/bed/chair,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -6635,7 +6635,7 @@
 /area/mainship/squads/delta)
 "dNd" = (
 /obj/structure/closet/emcloset,
-/obj/structure/sign/alt/safety/radio_rad{
+/obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -6799,7 +6799,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/living/starboard_emb)
 "dSu" = (
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -6812,10 +6812,10 @@
 /turf/open/floor/carpet,
 /area/mainship/command/corporateliaison)
 "dSI" = (
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -6858,7 +6858,7 @@
 /obj/machinery/door_control/ai/exterior{
 	pixel_x = -30
 	},
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -6933,7 +6933,7 @@
 	id = "tcomms"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -7032,7 +7032,7 @@
 /obj/machinery/computer/cryopod{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -7237,7 +7237,7 @@
 	pixel_y = -19;
 	pixel_x = -8
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/plating/plating_catwalk/alt,
@@ -7285,7 +7285,7 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/plating/plating_catwalk/alt,
@@ -7317,7 +7317,7 @@
 /area/mainship/squads/charlie)
 "eiI" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/elevator{
+/obj/structure/sign/semiotic/elevator{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -7700,7 +7700,7 @@
 /area/mainship/squads/charlie)
 "esY" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/radio_rad{
+/obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -7850,11 +7850,11 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/east{
+/obj/structure/sign/semiotic/east{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/blue/alt{
@@ -8121,7 +8121,7 @@
 	dir = 1
 	},
 /obj/machinery/telecomms/relay/preset/telecomms,
-/obj/structure/sign/alt/safety/radio_rad{
+/obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -8237,10 +8237,10 @@
 /area/mainship/living/numbertwobunks)
 "eJs" = (
 /obj/structure/bed/chair/comfy/alpha,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -8339,7 +8339,7 @@
 /area/mainship/command/corporateliaison)
 "eLL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -8496,7 +8496,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -8563,14 +8563,14 @@
 	pixel_y = -19;
 	pixel_x = -8
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/hangar)
 "eRE" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -8735,7 +8735,7 @@
 /area/mainship/hull/starboard_hull)
 "eVm" = (
 /obj/structure/largecrate/supply,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -8786,7 +8786,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 6
 	},
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = -17
 	},
 /turf/open/floor/plating,
@@ -8845,11 +8845,11 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -8952,7 +8952,7 @@
 /area/mainship/living/numbertwobunks)
 "fbu" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_x = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9240,7 +9240,7 @@
 /turf/open/floor/mainship/alt/orange,
 /area/mainship/hallways/port_hallway)
 "fjo" = (
-/obj/structure/sign/alt/safety/storage{
+/obj/structure/sign/semiotic/storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -9369,7 +9369,7 @@
 /area/mainship/hull/starboard_hull)
 "foj" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -9381,7 +9381,7 @@
 /area/mainship/hull/starboard_hull)
 "foF" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -9512,7 +9512,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/engineering/port_atmos)
 "fqN" = (
-/obj/structure/sign/alt/safety/cryo{
+/obj/structure/sign/semiotic/cryo{
 	pixel_x = 33
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
@@ -9621,7 +9621,7 @@
 	dir = 4
 	},
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -9655,7 +9655,7 @@
 /obj/machinery/computer/cryopod{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/red/alt/full,
@@ -9705,7 +9705,7 @@
 /area/mainship/hallways/aft_hallway)
 "fym" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -9781,7 +9781,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/squads/delta)
 "fAw" = (
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/alt/orange{
@@ -9880,7 +9880,7 @@
 /area/mainship/living/starboard_garden)
 "fEc" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -10075,7 +10075,7 @@
 	dir = 4;
 	pixel_y = -17
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -10152,7 +10152,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "fPk" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -10163,11 +10163,11 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/landingzone{
+/obj/structure/sign/semiotic/landingzone{
 	pixel_x = 15;
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -10233,7 +10233,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/hangar)
 "fSe" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -10258,11 +10258,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -10376,7 +10376,7 @@
 /area/mainship/hull/port_hull)
 "fVX" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -11017,7 +11017,7 @@
 /area/mainship/squads/bravo)
 "gyL" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_x = -17
 	},
 /turf/open/floor/wood,
@@ -11145,7 +11145,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "gDd" = (
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -11153,7 +11153,7 @@
 /area/mainship/command/cic)
 "gDE" = (
 /obj/machinery/marine_selector/clothes/synth,
-/obj/structure/sign/alt/safety/synth_storage{
+/obj/structure/sign/semiotic/synth_storage{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -11203,7 +11203,7 @@
 	dir = 8;
 	pixel_y = -18
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = 32
 	},
@@ -11396,7 +11396,7 @@
 /area/mainship/command/cic)
 "gLu" = (
 /obj/machinery/computer/prisoner,
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/red/alt/full,
@@ -11492,7 +11492,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -11618,7 +11618,7 @@
 	dir = 8
 	},
 /obj/machinery/suit_storage_unit,
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -11917,7 +11917,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -11992,7 +11992,7 @@
 /area/mainship/squads/delta)
 "hjI" = (
 /obj/machinery/camera/alt/autoname,
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -12048,7 +12048,7 @@
 /area/mainship/hallways/hangar)
 "hkB" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/red/alt/full,
@@ -12244,7 +12244,7 @@
 	},
 /area/mainship/medical/lounge)
 "hrl" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -12282,7 +12282,7 @@
 /area/mainship/squads/delta)
 "hud" = (
 /obj/structure/closet/firecloset,
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = -17
 	},
 /turf/open/floor/plating,
@@ -12374,7 +12374,7 @@
 /obj/structure/table/mainship,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 32
 	},
 /obj/item/roller,
@@ -12397,7 +12397,7 @@
 "hwV" = (
 /obj/structure/largecrate/supply/supplies/mre,
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -12439,7 +12439,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -12613,15 +12613,15 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = 39;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 31
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -12754,7 +12754,7 @@
 /area/mainship/hallways/starboard_hallway)
 "hIQ" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -12877,7 +12877,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -13053,7 +13053,7 @@
 "hWr" = (
 /obj/machinery/light/mainship,
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/elevator{
+/obj/structure/sign/semiotic/elevator{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -13201,7 +13201,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/aft_hallway)
 "iaI" = (
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_x = 32
 	},
 /obj/structure/rack,
@@ -13657,7 +13657,7 @@
 /area/mainship/hallways/hangar)
 "ipU" = (
 /obj/structure/largecrate/random/barrel/green,
-/obj/structure/sign/alt/safety/radio_rad{
+/obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -13854,7 +13854,7 @@
 	pixel_x = -24
 	},
 /obj/effect/landmark/start/latejoin_squad/alpha,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -14057,10 +14057,10 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/chem_lab{
+/obj/structure/sign/semiotic/chem_lab{
 	pixel_y = 32
 	},
-/obj/structure/sign/alt/safety/ref_chem_storage{
+/obj/structure/sign/semiotic/ref_chem_storage{
 	pixel_y = 32;
 	pixel_x = -14
 	},
@@ -14151,7 +14151,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_y = 32;
 	pixel_x = -18
 	},
@@ -14188,7 +14188,7 @@
 "iIk" = (
 /obj/machinery/vending/cola,
 /obj/machinery/camera/alt/autoname,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -14661,7 +14661,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/structure/sign/alt/safety/analysis_lab{
+/obj/structure/sign/semiotic/analysis_lab{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -14704,7 +14704,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -14820,7 +14820,7 @@
 /area/mainship/engineering/port_atmos)
 "jag" = (
 /obj/machinery/vending/snack,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -14946,7 +14946,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -15016,7 +15016,7 @@
 	pixel_y = -17
 	},
 /obj/effect/landmark/start/latejoin_squad/bravo,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -15117,7 +15117,7 @@
 /area/mainship/engineering/engine_core)
 "jiX" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -15230,7 +15230,7 @@
 	},
 /obj/structure/sign/greencross,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -15363,7 +15363,7 @@
 /area/mainship/shipboard/firing_range)
 "jrX" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -15389,11 +15389,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/north{
+/obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = 32
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = 32;
 	pixel_y = -8
 	},
@@ -15458,7 +15458,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/green{
@@ -15490,7 +15490,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/alt/autoname,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -15546,11 +15546,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/east{
+/obj/structure/sign/semiotic/east{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -15570,7 +15570,7 @@
 	pixel_x = -24
 	},
 /obj/structure/bed/chair/comfy/alpha,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -15636,7 +15636,7 @@
 	dir = 1
 	},
 /obj/structure/largecrate/random/barrel,
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = -17
 	},
 /turf/open/floor/plating,
@@ -15815,7 +15815,7 @@
 	},
 /obj/machinery/camera/alt/autoname,
 /obj/machinery/telecomms/relay/preset/telecomms,
-/obj/structure/sign/alt/safety/radio_rad{
+/obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -15998,7 +15998,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/aft_hallway)
 "jMS" = (
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -16260,7 +16260,7 @@
 /area/mainship/hull/upper_hull)
 "jUp" = (
 /obj/machinery/vending/cola,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -16343,7 +16343,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -16459,11 +16459,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/north{
+/obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_x = -17;
 	pixel_y = -8
 	},
@@ -16662,13 +16662,13 @@
 /obj/machinery/light/mainship/small{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "kgU" = (
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -16704,7 +16704,7 @@
 	pixel_y = 13
 	},
 /obj/effect/landmark/start/squad/squadmarine/delta,
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -16992,7 +16992,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -17041,7 +17041,7 @@
 "krt" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light/mainship,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -17177,7 +17177,7 @@
 /area/mainship/medical/upper_medical)
 "kvo" = (
 /obj/machinery/vending/cola,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = -17
 	},
 /turf/open/floor/wood,
@@ -17227,7 +17227,7 @@
 /area/mainship/hallways/bow_hallway)
 "kyK" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/prison/yellow{
@@ -17443,11 +17443,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/exhaust{
+/obj/structure/sign/semiotic/exhaust{
 	pixel_y = -21;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17;
 	pixel_y = -7
 	},
@@ -17555,7 +17555,7 @@
 /area/mainship/hallways/aft_hallway)
 "kHo" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -17615,7 +17615,7 @@
 /area/mainship/hallways/bow_hallway)
 "kIS" = (
 /obj/machinery/light/mainship,
-/obj/structure/sign/alt/safety/airtraffictower{
+/obj/structure/sign/semiotic/airtraffictower{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal/white{
@@ -17643,7 +17643,7 @@
 /obj/structure/bed/chair/comfy/delta{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/blue/alt/full,
@@ -17763,7 +17763,7 @@
 /area/mainship/living/commandbunks)
 "kLY" = (
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -17783,7 +17783,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/bow_hallway)
 "kMI" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -17819,7 +17819,7 @@
 	height = 1;
 	id = "techext4"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -18069,7 +18069,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 6
 	},
-/obj/structure/sign/alt/safety/outpatient{
+/obj/structure/sign/semiotic/outpatient{
 	pixel_x = 33
 	},
 /turf/open/floor/mainship/floor/metal/white{
@@ -18134,10 +18134,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = -25;
 	pixel_x = 15
 	},
@@ -18149,7 +18149,7 @@
 	id = "AICoreShutter"
 	},
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -18185,7 +18185,7 @@
 /area/mainship/squads/delta)
 "kYa" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -18253,7 +18253,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/alt/safety/galley{
+/obj/structure/sign/semiotic/galley{
 	pixel_y = 29;
 	pixel_x = 7
 	},
@@ -18593,10 +18593,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -18777,7 +18777,7 @@
 "lqi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -18831,7 +18831,7 @@
 	pixel_y = -18
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = 32
 	},
@@ -18857,7 +18857,7 @@
 "lrS" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -18901,7 +18901,7 @@
 /area/mainship/engineering/port_atmos)
 "lsJ" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -18976,7 +18976,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -19248,11 +19248,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/north{
+/obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = 32
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = 32;
 	pixel_y = -8
 	},
@@ -19323,11 +19323,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = -32;
 	pixel_y = 8
 	},
-/obj/structure/sign/alt/safety/flightcontrol{
+/obj/structure/sign/semiotic/flightcontrol{
 	pixel_y = 8;
 	pixel_x = -18
 	},
@@ -19453,7 +19453,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -19620,7 +19620,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -20109,10 +20109,10 @@
 /area/space)
 "lYm" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = -25;
 	pixel_x = 15
 	},
@@ -20351,7 +20351,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -20370,7 +20370,7 @@
 /area/mainship/living/basketball)
 "meW" = (
 /obj/effect/spawner/random/misc/plant,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -20407,7 +20407,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -20429,7 +20429,7 @@
 "mhw" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -20603,7 +20603,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -20934,7 +20934,7 @@
 	id = "cicext1"
 	},
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -20986,7 +20986,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -21070,11 +21070,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = -17;
 	pixel_y = -8
 	},
-/obj/structure/sign/alt/safety/north{
+/obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -21087,7 +21087,7 @@
 	pixel_y = -5
 	},
 /obj/structure/table/mainship,
-/obj/structure/sign/alt/safety/storage{
+/obj/structure/sign/semiotic/storage{
 	pixel_x = -17
 	},
 /turf/open/floor/wood,
@@ -21231,11 +21231,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_y = 24
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -21588,7 +21588,7 @@
 /area/mainship/living/commandbunks)
 "mOq" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -21773,7 +21773,7 @@
 /area/mainship/squads/req)
 "mUm" = (
 /obj/structure/closet/crate/supply,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -21868,7 +21868,7 @@
 /area/mainship/squads/alpha)
 "mVU" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /turf/open/floor/prison/marked,
@@ -22019,7 +22019,7 @@
 	dir = 1
 	},
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -22262,10 +22262,10 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -22726,7 +22726,7 @@
 	dir = 4;
 	pixel_y = -17
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -22818,7 +22818,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/bow_hallway)
 "nzo" = (
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -22946,7 +22946,7 @@
 /obj/machinery/computer/cryopod{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -23101,7 +23101,7 @@
 	pixel_y = -19;
 	pixel_x = -8
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -23159,7 +23159,7 @@
 "nLy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -23239,7 +23239,7 @@
 "nNA" = (
 /obj/effect/turf_decal/siding/metal,
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -23424,19 +23424,19 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/autodoc{
+/obj/structure/sign/semiotic/autodoc{
 	pixel_x = -32;
 	pixel_y = -8
 	},
-/obj/structure/sign/alt/safety/reception{
+/obj/structure/sign/semiotic/reception{
 	pixel_x = -17;
 	pixel_y = -8
 	},
-/obj/structure/sign/alt/safety/med_life_support{
+/obj/structure/sign/semiotic/med_life_support{
 	pixel_x = -32;
 	pixel_y = 7
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = -17;
 	pixel_y = 7
 	},
@@ -23858,7 +23858,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -24039,7 +24039,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/bow_hallway)
 "ojC" = (
-/obj/structure/sign/alt/safety/analysis_lab{
+/obj/structure/sign/semiotic/analysis_lab{
 	pixel_x = -17
 	},
 /turf/open/floor/prison/whitepurple{
@@ -24237,7 +24237,7 @@
 /area/mainship/command/self_destruct)
 "opa" = (
 /obj/machinery/computer/cryopod,
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -24255,10 +24255,10 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -24275,7 +24275,7 @@
 /obj/machinery/camera/alt/autoname{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
 /turf/open/floor/prison/marked,
@@ -24561,7 +24561,7 @@
 /obj/structure/bed/chair/wood{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -24573,7 +24573,7 @@
 	pixel_y = -18
 	},
 /obj/effect/landmark/start/latejoin_squad/bravo,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = 32
 	},
@@ -24693,7 +24693,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "oGf" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -24797,7 +24797,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -24820,7 +24820,7 @@
 "oKU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/suit_storage_unit,
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -24831,7 +24831,7 @@
 	dir = 2
 	},
 /obj/machinery/vending/cargo_supply,
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -24872,7 +24872,7 @@
 	pixel_x = -24
 	},
 /obj/structure/bed/chair/comfy/bravo,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -24919,7 +24919,7 @@
 	pixel_y = -18
 	},
 /obj/effect/spawner/random/misc/plant,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = 32
 	},
@@ -25000,7 +25000,7 @@
 "oON" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/surgical_tray/alt,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/prison/whitepurple/full,
@@ -25237,7 +25237,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/medical/medical_science)
 "oYj" = (
-/obj/structure/sign/alt/safety/bathmens{
+/obj/structure/sign/semiotic/bathmens{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -25274,7 +25274,7 @@
 /obj/item/radio/intercom/general{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -25293,7 +25293,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -25466,7 +25466,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/engineering/engineering_workshop)
 "peR" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/plating/alt,
@@ -25539,7 +25539,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/galley{
+/obj/structure/sign/semiotic/galley{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -25698,7 +25698,7 @@
 /area/mainship/hallways/aft_hallway)
 "plv" = (
 /obj/item/clothing/head/warning_cone,
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -25716,7 +25716,7 @@
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_x = 32
 	},
 /obj/structure/cable,
@@ -25839,7 +25839,7 @@
 /area/mainship/engineering/engineering_workshop)
 "ppP" = (
 /obj/machinery/vending/cola,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -25854,7 +25854,7 @@
 	dir = 8
 	},
 /obj/machinery/suit_storage_unit,
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = -17
 	},
 /turf/open/floor/plating,
@@ -25977,7 +25977,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/port_hallway)
 "ptr" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -8
 	},
@@ -26049,7 +26049,7 @@
 	dir = 4;
 	pixel_y = -17
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -26073,11 +26073,11 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/engineering/ce_room)
 "pvW" = (
-/obj/structure/sign/alt/safety/south{
+/obj/structure/sign/semiotic/south{
 	pixel_y = -8;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/landingzone{
+/obj/structure/sign/semiotic/landingzone{
 	pixel_x = -17;
 	pixel_y = 7
 	},
@@ -26262,7 +26262,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/latejoin_squad/alpha,
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -26290,7 +26290,7 @@
 	height = 1;
 	id = "techext3"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -26424,7 +26424,7 @@
 /area/mainship/hull/upper_hull)
 "pFV" = (
 /obj/machinery/light/mainship,
-/obj/structure/sign/alt/safety/conference_room{
+/obj/structure/sign/semiotic/conference_room{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -26584,7 +26584,7 @@
 /area/mainship/living/cafeteria)
 "pLD" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -26622,7 +26622,7 @@
 /area/mainship/shipboard/weapon_room)
 "pMR" = (
 /obj/machinery/vending/snack,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -26716,7 +26716,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/port_emb)
 "pOE" = (
-/obj/structure/sign/alt/safety/security{
+/obj/structure/sign/semiotic/security{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -26765,7 +26765,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "pPB" = (
-/obj/structure/sign/alt/safety/bathwomens{
+/obj/structure/sign/semiotic/bathwomens{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/lino,
@@ -26962,7 +26962,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -27132,7 +27132,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/cryo{
+/obj/structure/sign/semiotic/cryo{
 	pixel_y = 32;
 	pixel_x = 8
 	},
@@ -27294,7 +27294,7 @@
 /area/mainship/hull/upper_hull)
 "qfc" = (
 /obj/machinery/vending/cola,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = -17
 	},
 /turf/open/floor/wood,
@@ -27314,7 +27314,7 @@
 	},
 /obj/machinery/faxmachine/brig,
 /obj/structure/table/fancywoodentable,
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = -17
 	},
 /turf/open/floor/wood,
@@ -27331,7 +27331,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "qfC" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -27346,7 +27346,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "qfG" = (
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
 /obj/machinery/computer/camera_advanced/overwatch/req,
@@ -27378,7 +27378,7 @@
 	pixel_y = -20;
 	pixel_x = -24
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -27859,7 +27859,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -28070,7 +28070,7 @@
 /area/mainship/squads/delta)
 "qzQ" = (
 /obj/effect/turf_decal/siding/metal/corner,
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -28331,7 +28331,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "qKo" = (
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -28498,7 +28498,7 @@
 /area/mainship/squads/alpha)
 "qQY" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -28617,7 +28617,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -28671,10 +28671,10 @@
 /area/mainship/living/commandbunks)
 "qWT" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = 15;
 	pixel_y = -25
 	},
@@ -28702,7 +28702,7 @@
 "qXl" = (
 /obj/structure/closet/firecloset,
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -28790,7 +28790,7 @@
 	height = 1;
 	id = "techext5"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -28867,7 +28867,7 @@
 /obj/machinery/camera/alt/autoname{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/grass,
@@ -29034,7 +29034,7 @@
 /obj/machinery/camera/alt/autoname{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/grass,
@@ -29115,7 +29115,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -29228,10 +29228,10 @@
 /obj/machinery/door/airlock/hatch,
 /obj/effect/turf_decal/siding/metal,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = -25;
 	pixel_x = 15
 	},
@@ -29382,7 +29382,7 @@
 /area/mainship/squads/delta)
 "rwf" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -29419,7 +29419,7 @@
 	pixel_x = -24
 	},
 /obj/effect/landmark/start/latejoin_squad/charlie,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -29427,7 +29427,7 @@
 /area/mainship/squads/charlie)
 "rxB" = (
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -29446,7 +29446,7 @@
 /area/mainship/squads/charlie)
 "ryd" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -29604,7 +29604,7 @@
 /area/mainship/squads/bravo)
 "rCH" = (
 /obj/machinery/vending/boozeomat,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -29612,7 +29612,7 @@
 /area/mainship/living/grunt_rnr)
 "rDn" = (
 /obj/machinery/vending/cola,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 32
 	},
 /turf/open/floor/wood,
@@ -29640,7 +29640,7 @@
 /area/mainship/living/cryo_cells)
 "rEU" = (
 /obj/structure/filingcabinet,
-/obj/structure/sign/alt/safety/conference_room{
+/obj/structure/sign/semiotic/conference_room{
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/woodsiding{
@@ -29903,7 +29903,7 @@
 /area/mainship/living/basketball)
 "rKD" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -30149,7 +30149,7 @@
 /obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/rus/square,
 /obj/machinery/light/mainship,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -30304,10 +30304,10 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -30423,7 +30423,7 @@
 /area/mainship/medical/chemistry)
 "sdq" = (
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -30875,7 +30875,7 @@
 /area/mainship/hallways/hangar)
 "spJ" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -31017,7 +31017,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/blue/alt{
@@ -31025,7 +31025,7 @@
 	},
 /area/mainship/squads/delta)
 "suD" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = -17
 	},
 /turf/open/floor/plating/plating_catwalk/alt,
@@ -31302,7 +31302,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /obj/effect/spawner/random/misc/plant,
@@ -31327,7 +31327,7 @@
 /area/mainship/squads/req)
 "sEB" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -31454,7 +31454,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "sIq" = (
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/plating/alt,
@@ -31783,7 +31783,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -31901,7 +31901,7 @@
 	pixel_x = -30;
 	pixel_y = 1
 	},
-/obj/structure/sign/alt/safety/waterhazard{
+/obj/structure/sign/semiotic/waterhazard{
 	pixel_y = 18;
 	pixel_x = 32
 	},
@@ -32005,7 +32005,7 @@
 /obj/machinery/computer/cryopod{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/emerald/alt{
@@ -32205,7 +32205,7 @@
 /obj/machinery/computer/cryopod{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /obj/effect/turf_decal/woodsiding{
@@ -32269,7 +32269,7 @@
 /turf/closed/wall/mainship/alt,
 /area/mainship/squads/charlie)
 "tlh" = (
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/emerald/alt{
@@ -32632,7 +32632,7 @@
 "txi" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -32707,7 +32707,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/living/starboard_garden)
 "tzg" = (
-/obj/structure/sign/alt/safety/storage{
+/obj/structure/sign/semiotic/storage{
 	pixel_x = 32
 	},
 /turf/open/floor/plating/plating_catwalk/alt,
@@ -32719,7 +32719,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -32843,7 +32843,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
 	},
-/obj/structure/sign/alt/safety/biohazard{
+/obj/structure/sign/semiotic/biohazard{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/mono,
@@ -32963,7 +32963,7 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "tJA" = (
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -33127,10 +33127,10 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/delta)
 "tQp" = (
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = -25
 	},
@@ -33238,7 +33238,7 @@
 /area/mainship/medical/medical_science)
 "tUh" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -33313,7 +33313,7 @@
 	pixel_x = -8
 	},
 /obj/structure/table/black,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/blue/alt/full,
@@ -33326,11 +33326,11 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/alpha)
 "tWH" = (
-/obj/structure/sign/alt/safety/north{
+/obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/bridge{
+/obj/structure/sign/semiotic/bridge{
 	pixel_x = -17;
 	pixel_y = -8
 	},
@@ -33389,7 +33389,7 @@
 	pixel_x = -8
 	},
 /obj/structure/table/black,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/emerald/full,
@@ -33454,7 +33454,7 @@
 /area/mainship/hallways/bow_hallway)
 "ubY" = (
 /obj/machinery/vending/snack,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -33591,7 +33591,7 @@
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
 "ufS" = (
-/obj/structure/sign/alt/safety/restrictedarea{
+/obj/structure/sign/semiotic/restrictedarea{
 	pixel_x = 7;
 	pixel_y = 30
 	},
@@ -33626,7 +33626,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/fibre_optics{
+/obj/structure/sign/semiotic/fibre_optics{
 	pixel_x = -17;
 	pixel_y = -3
 	},
@@ -33687,7 +33687,7 @@
 /area/mainship/shipboard/brig_cells)
 "uhI" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_x = 32
 	},
 /turf/open/floor/wood,
@@ -33700,7 +33700,7 @@
 /area/mainship/medical/medical_science)
 "uim" = (
 /obj/structure/table/mainship,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -33872,7 +33872,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "umS" = (
-/obj/structure/sign/alt/safety/bathunisex{
+/obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 32
 	},
 /obj/structure/disposalpipe/segment/corner{
@@ -33967,7 +33967,7 @@
 /area/mainship/command/cic)
 "upJ" = (
 /obj/machinery/vending/snack,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -34077,7 +34077,7 @@
 /area/mainship/living/numbertwobunks)
 "utP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -34093,7 +34093,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -34206,7 +34206,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/landingzone{
+/obj/structure/sign/semiotic/landingzone{
 	pixel_x = 8;
 	pixel_y = 32
 	},
@@ -34240,7 +34240,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -34450,7 +34450,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/airtraffictower{
+/obj/structure/sign/semiotic/airtraffictower{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -34551,7 +34551,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -34600,7 +34600,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
 "uJV" = (
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/blue/alt{
@@ -34920,10 +34920,10 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -34956,7 +34956,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "uVO" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/red/alt{
@@ -35038,7 +35038,7 @@
 /turf/closed/wall/mainship/alt,
 /area/mainship/living/bridgebunks)
 "uZF" = (
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -35049,7 +35049,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_x = 32
 	},
 /turf/open/floor/carpet,
@@ -35113,7 +35113,7 @@
 /turf/open/floor/wood,
 /area/mainship/squads/alpha)
 "vcB" = (
-/obj/structure/sign/alt/safety/firingrange{
+/obj/structure/sign/semiotic/firingrange{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/red/alt{
@@ -35121,10 +35121,10 @@
 	},
 /area/mainship/hallways/port_hallway)
 "vcC" = (
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -35447,7 +35447,7 @@
 /area/mainship/hallways/aft_hallway)
 "vmY" = (
 /obj/machinery/vending/boozeomat,
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = 32
 	},
 /turf/open/floor/wood,
@@ -35624,7 +35624,7 @@
 /area/mainship/squads/delta)
 "vtN" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -35651,7 +35651,7 @@
 	height = 2;
 	id = "techext2"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -35771,20 +35771,20 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 10
 	},
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = -25;
 	pixel_x = 15
 	},
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/port_hallway)
 "vzd" = (
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
@@ -35797,7 +35797,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -35818,7 +35818,7 @@
 /obj/structure/bed/chair/comfy/charlie{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/emerald/alt/full,
@@ -35888,7 +35888,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/rus/fulltile,
-/obj/structure/sign/alt/safety/opens_up{
+/obj/structure/sign/semiotic/opens_up{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -36016,7 +36016,7 @@
 	pixel_y = -17
 	},
 /obj/structure/bed/chair/wood,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = -17
 	},
@@ -36378,7 +36378,7 @@
 /obj/machinery/power/apc/mainship,
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -36476,7 +36476,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/stairs{
+/obj/structure/sign/semiotic/stairs{
 	pixel_x = 33
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -36493,7 +36493,7 @@
 /obj/machinery/computer/cryopod{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/terminal{
+/obj/structure/sign/semiotic/terminal{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/red/alt{
@@ -36653,14 +36653,14 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/west{
+/obj/structure/sign/semiotic/west{
 	pixel_y = 31
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 15;
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/escapepod{
+/obj/structure/sign/semiotic/escapepod{
 	pixel_y = 39;
 	pixel_x = 15
 	},
@@ -36736,7 +36736,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -36823,7 +36823,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/stairs{
+/obj/structure/sign/semiotic/stairs{
 	pixel_x = 33
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -36874,7 +36874,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -36908,7 +36908,7 @@
 	pixel_x = -24
 	},
 /obj/effect/landmark/start/latejoin_squad/delta,
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -37025,7 +37025,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/metal,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -37092,7 +37092,7 @@
 	},
 /area/mainship/medical/medical_science)
 "wnN" = (
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
 /obj/effect/spawner/random/engineering/structure/tank,
@@ -37136,7 +37136,7 @@
 	pixel_y = -19;
 	pixel_x = -8
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -37206,7 +37206,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_x = -17
 	},
 /obj/effect/spawner/random/engineering/structure/tank,
@@ -37219,7 +37219,7 @@
 	height = 2;
 	id = "techext5"
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = -17
 	},
 /turf/open/floor/plating,
@@ -37264,10 +37264,10 @@
 /turf/open/floor/plating/alt,
 /area/mainship/hallways/hangar)
 "wtg" = (
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_y = -25
 	},
-/obj/structure/sign/alt/safety/distribution_pipes{
+/obj/structure/sign/semiotic/distribution_pipes{
 	pixel_y = -25;
 	pixel_x = 15
 	},
@@ -37531,7 +37531,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/mainship/floor/metal,
@@ -37540,18 +37540,18 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_y = 39;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/distribution_pipes{
+/obj/structure/sign/semiotic/distribution_pipes{
 	pixel_y = 24;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/electronics{
+/obj/structure/sign/semiotic/electronics{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/hvac{
+/obj/structure/sign/semiotic/hvac{
 	pixel_y = 39
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -37801,7 +37801,7 @@
 /area/mainship/shipboard/firing_range)
 "wNv" = (
 /obj/machinery/vending/snack,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_x = 32
 	},
 /turf/open/floor/wood,
@@ -38089,7 +38089,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_x = -17
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -38150,11 +38150,11 @@
 "wYJ" = (
 /obj/machinery/light/mainship,
 /obj/effect/ai_node,
-/obj/structure/sign/alt/safety/east{
+/obj/structure/sign/semiotic/east{
 	pixel_y = -25;
 	pixel_x = 15
 	},
-/obj/structure/sign/alt/safety/high_voltage{
+/obj/structure/sign/semiotic/high_voltage{
 	pixel_y = -25
 	},
 /turf/open/floor/mainship/alt/orange{
@@ -38245,7 +38245,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = -17
 	},
 /turf/open/floor/plating/alt,
@@ -38302,10 +38302,10 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/biolab{
+/obj/structure/sign/semiotic/biolab{
 	pixel_y = 24
 	},
-/obj/structure/sign/alt/safety/ref_bio_storage{
+/obj/structure/sign/semiotic/ref_bio_storage{
 	pixel_y = 24;
 	pixel_x = 15
 	},
@@ -38363,7 +38363,7 @@
 /area/mainship/squads/charlie)
 "xfy" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/sign/alt/safety/fire_haz{
+/obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 32
 	},
 /turf/open/floor/plating,
@@ -38442,7 +38442,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -38455,19 +38455,19 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/medical{
+/obj/structure/sign/semiotic/medical{
 	pixel_x = -17;
 	pixel_y = 7
 	},
-/obj/structure/sign/alt/safety/autodoc{
+/obj/structure/sign/semiotic/autodoc{
 	pixel_x = -32;
 	pixel_y = -8
 	},
-/obj/structure/sign/alt/safety/reception{
+/obj/structure/sign/semiotic/reception{
 	pixel_x = -17;
 	pixel_y = -8
 	},
-/obj/structure/sign/alt/safety/med_life_support{
+/obj/structure/sign/semiotic/med_life_support{
 	pixel_x = -32;
 	pixel_y = 7
 	},
@@ -38517,7 +38517,7 @@
 /area/mainship/command/self_destruct)
 "xjK" = (
 /obj/machinery/light/mainship/floor,
-/obj/structure/sign/alt/safety/bathmens{
+/obj/structure/sign/semiotic/bathmens{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -38556,7 +38556,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 6
 	},
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/mainship/floor/metal/full,
@@ -38584,7 +38584,7 @@
 "xmM" = (
 /obj/structure/drop_pod_launcher,
 /obj/structure/droppod,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -38704,11 +38704,11 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/ammunition{
+/obj/structure/sign/semiotic/ammunition{
 	pixel_y = 1;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/laser{
+/obj/structure/sign/semiotic/laser{
 	pixel_y = 15;
 	pixel_x = -17
 	},
@@ -38787,7 +38787,7 @@
 /area/mainship/hallways/aft_hallway)
 "xsE" = (
 /obj/machinery/vending/marineFood,
-/obj/structure/sign/alt/safety/food_storage{
+/obj/structure/sign/semiotic/food_storage{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -38795,7 +38795,7 @@
 /area/mainship/squads/alpha)
 "xsV" = (
 /obj/machinery/suit_storage_unit/carbon_unit,
-/obj/structure/sign/alt/safety/suit_storage{
+/obj/structure/sign/semiotic/suit_storage{
 	pixel_x = 8;
 	pixel_y = 24
 	},
@@ -38827,7 +38827,7 @@
 /area/mainship/hallways/hangar)
 "xtH" = (
 /obj/machinery/vending/armor_supply,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -38957,7 +38957,7 @@
 	dir = 8;
 	pixel_y = -18
 	},
-/obj/structure/sign/alt/safety/intercom{
+/obj/structure/sign/semiotic/intercom{
 	pixel_y = 7;
 	pixel_x = 32
 	},
@@ -38983,7 +38983,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/mainship/squads/req)
 "xzj" = (
-/obj/structure/sign/alt/safety/fridge{
+/obj/structure/sign/semiotic/fridge{
 	pixel_x = -17
 	},
 /obj/structure/closet/cabinet,
@@ -39083,11 +39083,11 @@
 /area/mainship/hallways/bow_hallway)
 "xBI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/alt/safety/south{
+/obj/structure/sign/semiotic/south{
 	pixel_y = -8;
 	pixel_x = -17
 	},
-/obj/structure/sign/alt/safety/elevator{
+/obj/structure/sign/semiotic/elevator{
 	pixel_x = -17;
 	pixel_y = 7
 	},
@@ -39148,7 +39148,7 @@
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/watertank,
-/obj/structure/sign/alt/safety/water{
+/obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
 	},
@@ -39554,7 +39554,7 @@
 /area/mainship/engineering/ce_room)
 "xOF" = (
 /obj/structure/table/mainship,
-/obj/structure/sign/alt/safety/maint{
+/obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
 /obj/machinery/camera/alt/autoname{
@@ -39716,7 +39716,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/port_hallway)
 "xVu" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -8
 	},
@@ -39865,7 +39865,7 @@
 /area/mainship/hull/upper_hull)
 "xZX" = (
 /obj/structure/cable,
-/obj/structure/sign/alt/safety/cryo{
+/obj/structure/sign/semiotic/cryo{
 	pixel_y = -32;
 	pixel_x = 8
 	},
@@ -39948,7 +39948,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/structure/sign/alt/safety/coffee{
+/obj/structure/sign/semiotic/coffee{
 	pixel_y = 24;
 	pixel_x = 8
 	},
@@ -40217,7 +40217,7 @@
 /turf/open/floor/carpet,
 /area/mainship/command/corporateliaison)
 "yhV" = (
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -25
 	},
@@ -40326,7 +40326,7 @@
 /obj/machinery/camera/alt/autoname{
 	dir = 8
 	},
-/obj/structure/sign/alt/safety/ladder{
+/obj/structure/sign/semiotic/safety/ladder{
 	pixel_x = 32
 	},
 /turf/open/floor/plating/alt,
