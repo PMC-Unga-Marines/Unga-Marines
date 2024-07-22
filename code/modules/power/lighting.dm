@@ -166,6 +166,20 @@
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light_bulb/bulb
 
+/obj/machinery/light/mainship/floor
+	name = "floor light fixture"
+	desc = "A small lighting fixture."
+	base_state = "floortube"
+	icon_state = "floortube1"
+	layer = 2.5
+	brightness = 6
+	plane = FLOOR_PLANE
+
+/obj/machinery/light/mainship/floor/LateInitialize()
+	. = ..()
+	pixel_x = 0
+	pixel_y = 0 // i hate how this is made and that it ignored map edits entirelly
+
 /obj/machinery/light/red
 	base_state = "tubered"
 	icon_state = "tubered1"
@@ -235,7 +249,6 @@
 			pixel_x = -10
 
 	return INITIALIZE_HINT_LATELOAD
-
 
 /obj/machinery/light/LateInitialize()
 	var/area/A = get_area(src)
