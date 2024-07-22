@@ -1,7 +1,7 @@
 /obj/machinery/camera
 	name = "security camera"
 	desc = "It's used to monitor rooms."
-	icon = 'icons/obj/machines/monitors.dmi'
+	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera_icon"
 	base_icon_state = "camera"
 	use_power = ACTIVE_POWER_USE
@@ -285,7 +285,7 @@
 	. = ..()
 	if(obj_integrity <= 0)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive")
+	. += emissive_appearance(icon, "[base_icon_state]_emissive")
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
 /obj/machinery/camera/autoname/Initialize(mapload)
@@ -383,6 +383,12 @@
 /obj/machinery/camera/autoname/alt
 	icon_state = "alt_camera_icon"
 	base_icon_state = "alt_camera"
+
+/obj/machinery/camera/autoname/alt/update_icon_state()
+	if(obj_integrity <= 0)
+		icon_state = "alt_camera_assembly"
+	else
+		icon_state = "alt_camera"
 
 /obj/machinery/camera/autoname/alt/set_offsets()
 	switch(dir)
