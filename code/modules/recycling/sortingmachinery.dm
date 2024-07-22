@@ -24,8 +24,8 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 	qdel(src)
 	return
 
-/obj/structure/bigDelivery/update_icon()
-	overlays = new()
+/obj/structure/bigDelivery/update_overlays()
+	. = ..()
 	if(nameset || examtext)
 		var/image/I = new/image('icons/obj/items/storage/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
@@ -38,7 +38,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				label_x = rand(-8, 6)
 			I.pixel_x = label_x
 			I.pixel_y = -3
-		overlays += I
+		. += I
 	if(src.sortTag)
 		var/image/I = new/image('icons/obj/items/storage/storage.dmi',"delivery_tag")
 		if(icon_state == "deliverycloset")
@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				tag_x = rand(-8, 6)
 			I.pixel_x = tag_x
 			I.pixel_y = -3
-		overlays += I
+		. += I
 
 /obj/structure/bigDelivery/examine(mob/user)
 	..()
@@ -62,8 +62,8 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 			to_chat(user, span_notice("It has a note attached which reads, \"[examtext]\""))
 	return
 
-/obj/structure/bigDelivery/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
-	attack_hand(X)
+/obj/structure/bigDelivery/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+	attack_hand(xeno_attacker)
 
 /obj/structure/bigDelivery/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -116,7 +116,6 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				span_notice("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 
-
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
 	name = "small parcel"
@@ -139,13 +138,13 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 	qdel(src)
 	return
 
-/obj/item/smallDelivery/update_icon()
-	overlays = new()
+/obj/item/smallDelivery/update_overlays()
+	. = ..()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
 		var/image/I = new/image('icons/obj/items/storage/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
-		overlays += I
+		. += I
 	if(src.sortTag)
 		var/image/I = new/image('icons/obj/items/storage/storage.dmi',"delivery_tag")
 		switch(icon_state)
@@ -162,7 +161,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				I.pixel_y = 3
 			if("deliverycrate5")
 				I.pixel_y = -3
-		overlays += I
+		. += I
 
 /obj/item/smallDelivery/examine(mob/user)
 	..()
@@ -223,14 +222,12 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 				span_notice("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 
-
 /obj/item/packageWrap
 	name = "package wrapper"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/amount = 25
-
 
 /obj/item/packageWrap/afterattack(obj/target, mob/user, proximity)
 	if(!proximity) return
@@ -247,7 +244,6 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 		return
 
 	log_combat(user, target, "used", src)
-
 
 	if (istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
 		var/obj/item/O = target
@@ -314,7 +310,6 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 	..()
 	if(get_dist(src, user) < 2)
 		to_chat(user, span_notice("There are [amount] units of package wrap left!"))
-
 
 /obj/item/destTagger
 	name = "destination tagger"

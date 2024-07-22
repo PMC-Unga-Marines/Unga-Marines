@@ -103,7 +103,6 @@
 	map_text_broadcast(attacking_faction, message_to_play, "[color] override broadcast", /atom/movable/screen/text/screen_text/picture/potrait/unknown)
 	map_text_broadcast(defending_faction, message_to_play, "[color] override broadcast", /atom/movable/screen/text/screen_text/picture/potrait/unknown)
 
-
 /obj/effect/landmark/campaign_structure/weapon_x
 	name = "weapon X spawner"
 	icon = 'icons/obj/structures/campaign/tall_structures.dmi'
@@ -140,13 +139,14 @@
 	return ..()
 
 /obj/structure/weapon_x_pod/update_icon_state()
+	. = ..()
 	if(occupant)
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]_open"
 
-/obj/structure/weapon_x_pod/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X != occupant)
+/obj/structure/weapon_x_pod/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker != occupant)
 		return
 	release_occupant()
 

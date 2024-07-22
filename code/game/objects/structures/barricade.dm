@@ -1,5 +1,3 @@
-// Snow, wood, sandbags, metal, plasteel
-
 /obj/structure/barricade
 	icon = 'icons/Marine/barricades.dmi'
 	climbable = TRUE
@@ -77,13 +75,13 @@
 /obj/structure/barricade/attack_animal(mob/user)
 	return attack_alien(user)
 
-/obj/structure/barricade/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/barricade/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
 	if(is_wired)
-		balloon_alert(X, "Wire slices into us")
-		X.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
+		balloon_alert(xeno_attacker, "Wire slices into us")
+		xeno_attacker.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
 
 	return ..()
 
@@ -109,7 +107,6 @@
 	B.use(1)
 	wire()
 
-
 /obj/structure/barricade/proc/wire()
 	can_wire = FALSE
 	is_wired = TRUE
@@ -134,7 +131,6 @@
 	climbable = TRUE
 	update_icon()
 	new /obj/item/stack/barbed_wire(loc)
-
 
 /obj/structure/barricade/deconstruct(disassembled = TRUE)
 	if(disassembled && is_wired)
@@ -216,14 +212,12 @@
 		else
 			. += image('icons/Marine/barricades.dmi', icon_state = "[barricade_type]_closed_wire")
 
-
 /obj/structure/barricade/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
 	if(!.)
 		return
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(base_acid_damage * S.strength, BURN, ACID)
-
 
 /obj/structure/barricade/verb/rotate()
 	set name = "Rotate Barricade Counter-Clockwise"
@@ -247,14 +241,12 @@
 
 	setDir(turn(dir, 270))
 
-
 /obj/structure/barricade/attack_hand_alternate(mob/living/user)
 	if(anchored)
 		balloon_alert(usr, "It's fastened to the floor")
 		return FALSE
 
 	setDir(turn(dir, 270))
-
 
 /*----------------------*/
 // SNOW
@@ -270,8 +262,6 @@
 	stack_amount = 5
 	destroyed_stack_amount = 0
 	can_wire = FALSE
-
-
 
 //Item Attack
 /obj/structure/barricade/snow/attackby(obj/item/I, mob/user, params)
@@ -384,7 +374,6 @@
 	repair_damage(max_integrity, user)
 	balloon_alert_to_viewers("Repaired")
 	update_icon()
-
 
 /*----------------------*/
 // METAL
@@ -699,23 +688,6 @@
 			update_icon()
 			return TRUE
 
-
-/*RUTGMC DELETION
-/obj/structure/barricade/metal/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(rand(400, 600), BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(rand(150, 350), BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(50, 100), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(rand(25, 50), BRUTE, BOMB)
-
-	update_icon()
-*/
-
-
 #undef BARRICADE_METAL_LOOSE
 #undef BARRICADE_METAL_ANCHORED
 #undef BARRICADE_METAL_FIRM
@@ -907,35 +879,6 @@
 			build_state = BARRICADE_PLASTEEL_ANCHORED
 			update_icon() //unanchored changes layer
 
-/* RUTGMC DELETION, moved to modular
-/obj/structure/barricade/plasteel/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(istype(I, /obj/item/stack/sheet/plasteel))
-		var/obj/item/stack/sheet/plasteel/plasteel_sheets = I
-		if(obj_integrity >= max_integrity * 0.3)
-			return
-
-		if(plasteel_sheets.get_amount() < 2)
-			balloon_alert(user, "You need at least 2 plasteel")
-			return
-
-		if(LAZYACCESS(user.do_actions, src))
-			return
-
-		balloon_alert_to_viewers("Repairing base...")
-
-		if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity * 0.3)
-			return
-
-		if(!plasteel_sheets.use(2))
-			return
-
-		repair_damage(max_integrity * 0.3, user)
-		balloon_alert_to_viewers("Base repaired")
-		update_icon()
-*/
-
 /obj/structure/barricade/plasteel/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -971,21 +914,6 @@
 		for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == closed)
 				. += image('icons/Marine/barricades.dmi', icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
-
-/*RUTGMC DELETION
-/obj/structure/barricade/plasteel/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(rand(450, 650), BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(rand(200, 400), BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(50, 150), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(rand(25, 75), BRUTE, BOMB)
-
-	update_icon()
-*/
 
 /*----------------------*/
 // SANDBAGS
@@ -1123,7 +1051,6 @@
 
 /obj/structure/barricade/metal/deployable/attempt_barricade_upgrade()
 	return //not upgradable
-
 
 /*----------------------*/
 // CONCRETE

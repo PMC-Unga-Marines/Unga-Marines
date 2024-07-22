@@ -11,24 +11,16 @@
 //     but overall network volume is also increased as this increases...
 
 /obj/machinery/atmospherics/components/binary/volume_pump
-	icon_state = "volpump_map-2"
 	name = "volumetric gas pump"
 	desc = "A pump that moves gas by volume."
-
+	icon_state = "volpump_map-2"
 	can_unwrench = FALSE
 	shift_underlay_only = FALSE
-
-	var/transfer_rate = MAX_TRANSFER_RATE
-
-	var/id = null
-
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "volumepump"
 
-
 /obj/machinery/atmospherics/components/binary/volume_pump/update_icon_nopipes()
 	icon_state = on && is_operational() ? "volpump_on" : "volpump_off"
-
 
 /obj/machinery/atmospherics/components/binary/volume_pump/can_unwrench(mob/user)
 	. = ..()

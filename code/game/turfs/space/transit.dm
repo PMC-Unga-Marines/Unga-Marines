@@ -39,7 +39,10 @@
 		return
 
 	if(!isspaceturf(old_loc))
-		var/turf/projected = get_ranged_target_turf(crosser.loc, dir, 10)
+		var/direction = dir
+		if(crosser.dir == REVERSE_DIR(dir)) // if mobs step in the reversed from transit turf direction, they will otherwise get smacked 2 times in a row.
+			direction = crosser.dir
+		var/turf/projected = get_ranged_target_turf(crosser.loc, direction, 10)
 		INVOKE_ASYNC(crosser, TYPE_PROC_REF(/atom/movable, throw_at), projected, 50, 2, null, TRUE, targetted_throw = TRUE)
 		addtimer(CALLBACK(src, PROC_REF(handle_crosser), crosser), 0.5 SECONDS)
 
@@ -69,7 +72,7 @@
 				continue
 
 		if(!istype(possible_turf) || is_blocked_turf(possible_turf) || isspaceturf(possible_turf))
-			continue // couldnt find one in 10 loops, check another area
+			continue // couldn't find one in 10 loops, check another area
 
 		// we found a good turf, lets drop em
 		crosser.handle_airdrop(possible_turf)
@@ -93,6 +96,12 @@
 		visible_message(span_danger("[src] falls out of the sky and mangles into the uselessness by the impact!"))
 		playsound(src, 'sound/effects/metal_crash.ogg', 35, 1)
 		deconstruct(FALSE)
+
+/obj/vehicle/sealed/armored/multitile/handle_airdrop(turf/target)
+	. = ..()
+	ex_act(2000) //Destroy it
+	cell_explosion(target, 300, 100)
+	flame_radius(6, target)
 
 /obj/structure/closet/handle_airdrop(turf/target_turf) // good idea but no
 	if(!opened)
@@ -145,9 +154,11 @@
 	transform = turn(matrix(), get_transit_angle(src))
 
 /turf/open/space/transit/update_icon_state()
+	. = ..()
 	icon_state = "speedspace_ns_[get_transit_state(src, available_icon_state_amounts)]"
 
 /turf/open/space/transit/atmos/update_icon_state()
+	. = ..()
 	icon_state = "Cloud_[get_transit_state(src, available_icon_state_amounts)]"
 
 /proc/get_transit_state(turf/T, available_icon_state_amounts)

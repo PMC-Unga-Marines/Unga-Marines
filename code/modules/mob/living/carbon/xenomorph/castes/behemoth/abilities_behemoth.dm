@@ -131,7 +131,7 @@
 #define LANDSLIDE_ENDING_COLLISION_DELAY 0.3 SECONDS
 #define LANDSLIDE_KNOCKDOWN_DURATION 1 SECONDS
 #define LANDSLIDE_DAMAGE_MULTIPLIER 1.2
-#define LANDSLIDE_DAMAGE_MECHA_MODIFIER 20
+#define LANDSLIDE_DAMAGE_VEHICLE_MODIFIER 20
 #define LANDSLIDE_OBJECT_INTEGRITY_THRESHOLD 150
 
 #define LANDSLIDE_ENDED_CANCELLED (1<<0)
@@ -392,9 +392,9 @@
 					var/obj/structure/earth_pillar/affected_pillar = affected_atom
 					affected_pillar.throw_pillar(get_ranged_target_turf(xeno_owner, xeno_owner.dir, 7), TRUE)
 					continue
-				if(ismecha(affected_atom))
-					var/obj/vehicle/sealed/mecha/affected_mecha = affected_atom
-					affected_mecha.take_damage(damage * LANDSLIDE_DAMAGE_MECHA_MODIFIER, MELEE)
+				if(isvehicle(affected_atom))
+					var/obj/vehicle/veh_victim = affected_atom
+					veh_victim.take_damage(damage * LANDSLIDE_DAMAGE_VEHICLE_MODIFIER, MELEE)
 					continue
 				var/obj/affected_object = affected_atom
 				if(!affected_object.density || affected_object.allow_pass_flags & PASS_MOB || affected_object.resistance_flags & INDESTRUCTIBLE)
@@ -454,9 +454,9 @@
 					var/obj/structure/earth_pillar/affected_pillar = affected_atom
 					affected_pillar.throw_pillar(get_ranged_target_turf(xeno_owner, xeno_owner.dir, 7), TRUE)
 					continue
-				if(ismecha(affected_atom))
-					var/obj/vehicle/sealed/mecha/affected_mecha = affected_atom
-					affected_mecha.take_damage(damage * LANDSLIDE_DAMAGE_MECHA_MODIFIER, MELEE)
+				if(isvehicle(affected_atom))
+					var/obj/vehicle/veh_victim = affected_atom
+					veh_victim.take_damage(damage * LANDSLIDE_DAMAGE_VEHICLE_MODIFIER, MELEE)
 					continue
 				var/obj/affected_object = affected_atom
 				if(!affected_object.density || affected_object.allow_pass_flags & PASS_MOB || affected_object.resistance_flags & INDESTRUCTIBLE)
@@ -1300,6 +1300,11 @@ RU TGMC EDIT */
 	xeno_owner = null
 	return ..()
 
+/// Calls update_appearance, this exists to discard the arguments we get from the signals.
+/obj/structure/earth_pillar/proc/call_update_icon_state()
+	SIGNAL_HANDLER
+	update_appearance()
+
 /obj/structure/earth_pillar/update_icon_state()
 	. = ..()
 	if(obj_integrity <= max_integrity * 0.25)
@@ -1371,11 +1376,6 @@ RU TGMC EDIT */
 	UnregisterSignal(xeno_owner, COMSIG_QDELETING)
 	xeno_owner = null
 
-/// Calls update_icon_state().
-/obj/structure/earth_pillar/proc/call_update_icon_state()
-	SIGNAL_HANDLER
-	update_icon_state()
-
 /// Deletes the pillar and creates a projectile on the same tile, to be fired at the target atom.
 /obj/structure/earth_pillar/proc/throw_pillar(atom/target_atom, landslide)
 	if(!isxeno(usr) || !in_range(src, usr) || target_atom == src || warning_flashes < initial(warning_flashes))
@@ -1429,6 +1429,8 @@ RU TGMC EDIT */
 	if(istype(hit_object, /obj/structure/reagent_dispensers/fueltank))
 		var/obj/structure/reagent_dispensers/fueltank/hit_tank = hit_object
 		hit_tank.explode()
+	if(ishitbox(hit_object) || ismecha(hit_object)) // These don't hit the vehicles, but rather their hitboxes, so isarmored will not work here
+		return on_hit_anything(get_turf(hit_object), proj)
 	return rock_broke(get_turf(hit_object), proj)
 
 /datum/ammo/xeno/earth_pillar/on_hit_mob(mob/hit_mob, obj/projectile/proj)
@@ -1467,7 +1469,7 @@ RU TGMC EDIT */
 // ***************************************
 // *********** Global Procs
 // ***************************************
-#define AREA_ATTACK_DAMAGE_MECHA_MODIFIER 10
+#define AREA_ATTACK_DAMAGE_VEHICLE_MODIFIER 0.4
 
 /**
  * Checks for any atoms caught in the attack's range, and applies several effects based on the atom's type.
@@ -1498,7 +1500,7 @@ RU TGMC EDIT */
 				shake_camera(affected_living, 1, 0.8)
 				affected_living.Paralyze(paralyze_duration)
 				affected_living.apply_damage(attack_damage, BRUTE, blocked = MELEE)
-			else if(isearthpillar(affected_atom) || ismecha(affected_atom) || istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
+			else if(isearthpillar(affected_atom) || isvehicle(affected_atom) || ishitbox(affected_atom) || istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
 				affected_atom.do_jitter_animation()
 				new /obj/effect/temp_visual/behemoth/landslide/hit(affected_atom.loc)
 				playsound(affected_atom.loc, get_sfx("behemoth_earth_pillar_hit"), 40)
@@ -1512,9 +1514,12 @@ RU TGMC EDIT */
 					do_warning(xeno_owner, spread_turfs, wind_up_duration)
 					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(behemoth_area_attack), xeno_owner, spread_turfs, enhanced), wind_up_duration)
 					continue
-				if(ismecha(affected_atom))
-					var/obj/vehicle/sealed/mecha/affected_mecha = affected_atom
-					affected_mecha.take_damage(attack_damage * AREA_ATTACK_DAMAGE_MECHA_MODIFIER, MELEE)
+				if(isvehicle(affected_atom) || ishitbox(affected_atom))
+					var/obj/vehicle/veh_victim = affected_atom
+					var/damage_add = 0
+					if(ismecha(veh_victim))
+						damage_add = 9.5
+					veh_victim.take_damage(attack_damage * (AREA_ATTACK_DAMAGE_VEHICLE_MODIFIER + damage_add), MELEE)
 					continue
 				if(istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
 					var/obj/structure/reagent_dispensers/fueltank/affected_tank = affected_atom

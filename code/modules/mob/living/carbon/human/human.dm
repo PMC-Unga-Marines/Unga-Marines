@@ -67,14 +67,9 @@
 	hud_set_order()
 	//and display them
 	add_to_all_mob_huds()
-/*
-	GLOB.huds[DATA_HUD_BASIC].add_hud_to(src)
-	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
-*/
-//RUTGMC EDIT ADDITION BEGIN - Preds
+
 	var/datum/atom_hud/hud_to_add = GLOB.huds[DATA_HUD_BASIC]
 	hud_to_add.add_hud_to(src)
-//RUTGMC EDIT ADDITION END
 
 /mob/living/carbon/human/register_init_signals()
 	. = ..()
@@ -101,11 +96,6 @@
 	var/eta_status = SSevacuation?.get_status_panel_eta()
 	if(eta_status)
 		. += "Evacuation in: [eta_status]"
-
-	if(internal)
-		. += "Internal Atmosphere Info [internal.name]"
-		. += "Tank Pressure [internal.pressure]"
-		. += "Distribution Pressure [internal.distribute_pressure]"
 
 	if(assigned_squad)
 		if(assigned_squad.primary_objective)

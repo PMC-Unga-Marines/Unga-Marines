@@ -1,10 +1,8 @@
 /obj/machinery/deployable/mounted/sentry
-
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
 	use_power = 0
 	req_one_access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_ENGPREP, ACCESS_MARINE_LEADER)
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
-
 	///Spark system for making sparks
 	var/datum/effect_system/spark_spread/spark_system
 	///Camera for viewing with cam consoles
@@ -13,18 +11,14 @@
 	var/range = 7
 	///Damage required to knock the sentry over and disable it
 	var/knockdown_threshold = 150
-
 	///List of targets that can be shot at
 	var/list/atom/potential_targets = list()
-
 	///Time of last alert
 	var/last_alert = 0
 	///Time of last damage alert
 	var/last_damage_alert = 0
-
 	///Radio so that the sentry can scream for help
 	var/obj/item/radio/radio
-
 	///Iff signal of the sentry. If the /gun has a set IFF then this will be the same as that. If not the sentry will get its IFF signal from the deployer
 	var/iff_signal = NONE
 	///List of terrains/structures/machines that the sentry ignores for targetting. (If a window is inside the list, the sentry will shot at targets even if the window breaks los) For accuracy, this is on a specific typepath base and not istype().
@@ -311,10 +305,7 @@
 		return
 	if(prob(10))
 		spark_system.start()
-	//RUTGMC EDIT CHANGE BEGIN
-	//if(damage_amount >= knockdown_threshold) // ORIGINAL
 	if(damage_amount >= knockdown_threshold && damage_type != STAMINA) //Knockdown is certain if we deal this much in one hit; no more RNG nonsense, the fucking thing is bolted.
-	//RUTGMC EDIT END
 		knock_down()
 
 	. = ..()
@@ -331,7 +322,7 @@
 	if(!internal_item)
 		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	if(!gun) // RUTGMC ADDITION
+	if(!gun)
 		return
 	if(!alert_code || !CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS) || !CHECK_BITFIELD(gun.turret_flags, TURRET_ON))
 		return
@@ -361,7 +352,6 @@
 	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
 	radio.talk_into(src, "[notice]", FREQ_COMMON)
 
-
 /obj/machinery/deployable/mounted/sentry/process()
 	update_icon()
 	if(!scan())
@@ -388,6 +378,8 @@
 		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So wraiths wont be shot at when in phase shift
 			continue
 		potential_targets += nearby_xeno
+	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(src, range))
+		potential_targets += nearby_illusion
 	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
 		if(!length(nearby_mech.occupants))
 			continue
@@ -536,7 +528,6 @@
 	if(internal_gun)
 		. += image('icons/Marine/sentry.dmi', src, internal_gun.placed_overlay_iconstate, dir = dir)
 
-
 //Throwable turret
 /obj/machinery/deployable/mounted/sentry/cope
 	density = FALSE
@@ -581,4 +572,4 @@
 	internal_item = null
 
 	QDEL_NULL(src)
-	attached_item.update_icon_state()
+	attached_item.update_appearance()

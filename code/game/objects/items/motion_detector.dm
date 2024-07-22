@@ -24,6 +24,7 @@
 	qdel(src)
 
 /obj/effect/blip/edge_blip/update_icon_state()
+	. = ..()
 	icon_state = "edge_blip_[identifier]"
 
 /obj/effect/blip/close_blip
@@ -99,6 +100,7 @@
 		action.update_button_icon()
 
 /obj/item/attachable/motiondetector/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state) + (isnull(operator) ? "" : "_on")
 
 /obj/item/attachable/motiondetector/equipped(mob/user, slot)
@@ -130,24 +132,18 @@
 		clean_operator()
 		return
 	hostile_detected = FALSE
-	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
+	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
-		/* RU TGMC EDIT
-		if(nearby_human.last_move_time + move_sensitivity < world.time)
-			continue
-		RU TGMC EDIT */
-//RU TGMC EDIT
 		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
 			continue
-//RUTGMC EDIT ADDITION END
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
-	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
-		/* RU TGMC EDIT
-		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
+	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
+		if(HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN))
 			continue
-		RU TGMC EDIT */
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
+	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(operator, range))
+		prepare_blip(nearby_illusion, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 7, 2)
 	addtimer(CALLBACK(src, PROC_REF(clean_blips)), 1 SECONDS)
@@ -164,7 +160,7 @@
 /obj/item/attachable/motiondetector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
 		return
-	if(!target) // RUTGMC ADDITION
+	if(!target)
 		return
 	if(status == MOTION_DETECTOR_HOSTILE)
 		hostile_detected = TRUE

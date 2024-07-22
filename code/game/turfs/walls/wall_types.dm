@@ -487,7 +487,7 @@
 	smoothing_groups = SMOOTH_GROUP_GENERAL_STRUCTURES
 	max_integrity = 9000//Strong, but only available to Hunters, can can still be blown up or melted by boilers.
 
-/turf/closed/wall/mineral/sandstone/runed/attack_alien(mob/living/carbon/xenomorph/user, damage_amount = user.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/turf/closed/wall/mineral/sandstone/runed/attack_alien(mob/living/carbon/xenomorph/user, damage_amount = user.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	visible_message("[user] scrapes uselessly against [src] with their claws.")
 	return
 

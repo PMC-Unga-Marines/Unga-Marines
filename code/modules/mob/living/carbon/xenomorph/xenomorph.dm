@@ -415,7 +415,7 @@
 	handle_weeds_on_movement()
 	return ..()
 
-/mob/living/carbon/xenomorph/Move(NewLoc, direct)
+/mob/living/carbon/xenomorph/Move(NewLoc, direct, glide_size_override)
 	. = ..()
 	if(!.)
 		return
@@ -423,7 +423,7 @@
 		unset_interaction()
 
 /mob/living/carbon/xenomorph/CanAllowThrough(atom/movable/mover, turf/target)
-	if(mover.pass_flags & PASS_XENO) // RUTGMC ADDITION
+	if(mover.pass_flags & PASS_XENO)
 		return TRUE
 	if(mover.throwing && ismob(mover) && isxeno(mover.thrower)) //xenos can throw mobs past other xenos
 		return TRUE
@@ -478,7 +478,7 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 		return
 	return ..()
 
-/mob/living/carbon/xenomorph/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE)
+/mob/living/carbon/xenomorph/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity
