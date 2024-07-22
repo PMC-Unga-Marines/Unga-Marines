@@ -92,7 +92,7 @@
 	succeed_activate()
 	add_cooldown()
 
-	playsound(X.loc, 'sound/voice/alien/queen_screech.ogg', 75, 0)
+	playsound(X.loc, 'sound/voice/alien/queen/screech.ogg', 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 	GLOB.round_statistics.queen_screech++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "queen_screech")
@@ -155,7 +155,7 @@
 			continue
 		affected_xeno.apply_status_effect(/datum/status_effect/plasma_surge, affected_xeno.xeno_caste.plasma_max / 3, bonus_regen, duration)
 
-	playsound(X.loc, 'sound/voice/alien/plasma_screech.ogg', 75, 0)
+	playsound(X.loc, 'sound/voice/alien/queen/screech_plasma.ogg', 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
@@ -188,7 +188,7 @@
 	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(X, screech_range))
 		affected_xeno.apply_status_effect(/datum/status_effect/frenzy_screech, buff_duration, buff_damage_modifier)
 
-	playsound(X.loc, 'sound/voice/alien/frenzy_screech.ogg', 75, 0)
+	playsound(X.loc, 'sound/voice/alien/queen/screech_frenzy.ogg', 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
