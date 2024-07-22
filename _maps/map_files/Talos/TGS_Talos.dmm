@@ -2,7 +2,7 @@
 "aaK" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/heavygun,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -119,7 +119,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "adk" = (
@@ -434,7 +434,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "amp" = (
@@ -480,7 +480,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -524,7 +524,7 @@
 	pixel_y = -25;
 	pixel_x = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/req)
 "aoh" = (
@@ -582,7 +582,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
@@ -598,7 +598,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
@@ -611,7 +611,7 @@
 "aoK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "aoM" = (
@@ -916,7 +916,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -1016,7 +1016,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "ayE" = (
@@ -1117,7 +1117,7 @@
 /area/mainship/medical/medical_science)
 "aAf" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "aAh" = (
@@ -1146,7 +1146,7 @@
 /area/mainship/hallways/hangar)
 "aAM" = (
 /obj/structure/ship_ammo/cas/rocket/widowmaker,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aAU" = (
@@ -1159,7 +1159,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -1473,7 +1473,7 @@
 	name = "\improper Extended Operations Bunks"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_emb)
 "aIf" = (
@@ -1525,7 +1525,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "aKq" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aKz" = (
@@ -1572,7 +1572,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -1722,7 +1722,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -1829,7 +1829,7 @@
 /area/mainship/hallways/starboard_hallway)
 "aZD" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
@@ -2071,7 +2071,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/pilotbunks)
 "bhQ" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/rocket/banshee,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -2170,12 +2170,12 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "bli" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
 	},
@@ -2281,7 +2281,7 @@
 /area/mainship/command/telecomms)
 "bot" = (
 /obj/structure/dropship_equipment/shuttle/flare_launcher,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "box" = (
@@ -2352,7 +2352,7 @@
 /obj/structure/rack,
 /obj/item/reagent_containers/jerrycan,
 /obj/structure/sign/prop1,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/req)
 "brc" = (
@@ -2547,7 +2547,7 @@
 /area/space)
 "bwm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/ce_room)
 "bwo" = (
@@ -2628,7 +2628,7 @@
 /area/mainship/hallways/bow_hallway)
 "bxK" = (
 /obj/structure/prop/mainship/halfbuilt_mech/vanguard,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "bxQ" = (
@@ -2747,7 +2747,7 @@
 /obj/machinery/door_control/mainship/mech{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "bBk" = (
@@ -3303,7 +3303,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/multi_tile/mainship/marine/bravo/sl,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
@@ -3487,7 +3487,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/poddoor/mainship/open{
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
@@ -3497,7 +3497,7 @@
 "bWB" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/ship_ammo/cas/minirocket,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "bWD" = (
@@ -3791,7 +3791,7 @@
 "ceC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "ceH" = (
@@ -3830,7 +3830,7 @@
 /obj/machinery/camera/autoname/alt{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "cfV" = (
@@ -4007,7 +4007,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -4020,7 +4020,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "cjP" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow,
+/obj/effect/turf_decal/warning_stripes/cargo/arrow,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "cjS" = (
@@ -4031,7 +4031,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -4292,7 +4292,7 @@
 /obj/structure/rack,
 /obj/item/storage/box/crate/sentry,
 /obj/item/storage/toolbox/mechanical,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/landinglight/lz2{
 	dir = 8
 	},
@@ -4504,7 +4504,7 @@
 	dir = 2
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_emb)
 "czV" = (
@@ -4542,7 +4542,7 @@
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "cBM" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/dropship_part_fabricator,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -4560,7 +4560,7 @@
 /area/mainship/engineering/port_atmos)
 "cCW" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
@@ -4731,7 +4731,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -4857,7 +4857,7 @@
 /area/mainship/squads/charlie)
 "cLd" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -4948,7 +4948,7 @@
 /obj/machinery/door/airlock/mainship/security/glass/office{
 	dir = 2
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig)
 "cOX" = (
@@ -5174,7 +5174,7 @@
 	},
 /area/mainship/living/starboard_garden)
 "cUt" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
@@ -5330,7 +5330,7 @@
 	height = 1;
 	id = "upext1"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -5377,7 +5377,7 @@
 /area/mainship/shipboard/brig_cells)
 "daz" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/hatch,
 /obj/structure/sign/semiotic/west{
 	pixel_y = -25
@@ -5398,7 +5398,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/sign/greencross,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/lounge)
 "dbB" = (
@@ -5468,7 +5468,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/hallways/bow_hallway)
 "ddy" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/rocket/widowmaker,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -5632,7 +5632,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "dil" = (
@@ -5817,7 +5817,7 @@
 /area/space)
 "dnQ" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -6051,7 +6051,7 @@
 /obj/machinery/camera/autoname/alt{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/rocket_pod,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -6391,7 +6391,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "dEx" = (
@@ -6416,7 +6416,7 @@
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "dFg" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -6485,7 +6485,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "dHD" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -6619,7 +6619,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/comdoor/free_access{
 	dir = 2
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/poddoor/mainship/open{
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
@@ -6828,7 +6828,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_emb)
 "dTj" = (
@@ -6947,7 +6947,7 @@
 /area/mainship/command/self_destruct)
 "dWv" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "dWL" = (
@@ -7496,7 +7496,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7575,7 +7575,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
@@ -7734,7 +7734,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/heavygun,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -8029,7 +8029,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "eDk" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
 	},
@@ -8061,7 +8061,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "eDY" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -8424,7 +8424,7 @@
 /obj/machinery/door/airlock/mainship/generic/bathroom/toilet{
 	dir = 2
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "eOj" = (
@@ -8457,7 +8457,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -8742,7 +8742,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "eVI" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "eVY" = (
@@ -8836,7 +8836,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "eYL" = (
@@ -9147,7 +9147,7 @@
 /area/mainship/living/numbertwobunks)
 "ffQ" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/camera/autoname/alt,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -9278,7 +9278,7 @@
 	id = "cicext2"
 	},
 /obj/effect/ai_node,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "fkn" = (
@@ -9363,7 +9363,7 @@
 	},
 /area/mainship/living/basketball)
 "fnQ" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -9443,7 +9443,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 8
@@ -9569,7 +9569,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fsn" = (
@@ -9973,21 +9973,21 @@
 /obj/structure/barricade/metal{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fJQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "fJS" = (
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -9999,12 +9999,12 @@
 /area/mainship/squads/charlie)
 "fKt" = (
 /obj/structure/closet/crate/supply,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fLj" = (
 /obj/machinery/camera/autoname/alt,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -10023,7 +10023,7 @@
 /obj/item/storage/box/lights/tubes,
 /obj/item/storage/box/lights/tubes,
 /obj/item/storage/toolbox/electrical,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fMe" = (
@@ -10122,7 +10122,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "fOu" = (
@@ -10130,7 +10130,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fON" = (
@@ -10148,7 +10148,7 @@
 /area/mainship/hallways/port_hallway)
 "fOS" = (
 /obj/structure/rack,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fPk" = (
@@ -10183,7 +10183,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "fPY" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 6
 	},
@@ -10197,7 +10197,7 @@
 /area/mainship/squads/bravo)
 "fQP" = (
 /obj/structure/closet/crate/radiation,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fRb" = (
@@ -10210,7 +10210,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/mainship/marine/bravo/medic,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -10304,7 +10304,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/living/basketball)
 "fUj" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -10340,7 +10340,7 @@
 /obj/machinery/door/airlock/mainship/generic/bathroom{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/metal,
@@ -10350,7 +10350,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fVt" = (
@@ -10506,7 +10506,7 @@
 /area/mainship/hallways/port_hallway)
 "gce" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -10584,7 +10584,7 @@
 /area/mainship/powered)
 "gjl" = (
 /obj/machinery/camera/autoname/alt,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "gjn" = (
@@ -10713,7 +10713,7 @@
 /obj/structure/barricade/metal{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -10752,7 +10752,7 @@
 /area/mainship/living/grunt_rnr)
 "gnC" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "gnS" = (
@@ -10777,7 +10777,7 @@
 /area/mainship/hallways/bow_hallway)
 "goK" = (
 /obj/item/clothing/head/warning_cone,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "gpd" = (
@@ -10793,7 +10793,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "gpR" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/largecrate/random/case/small{
 	pixel_x = 4
 	},
@@ -10812,12 +10812,12 @@
 	height = 1;
 	id = "upext2"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "gsp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "gsr" = (
@@ -10918,7 +10918,7 @@
 /area/mainship/hallways/bow_hallway)
 "guL" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
@@ -10954,7 +10954,7 @@
 /area/mainship/engineering/ce_room)
 "gwJ" = (
 /obj/machinery/pipedispenser,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "gwV" = (
@@ -11391,7 +11391,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "gLu" = (
@@ -11468,7 +11468,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "gNU" = (
@@ -11553,7 +11553,7 @@
 /area/mainship/living/basketball)
 "gQI" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "gQT" = (
@@ -11849,7 +11849,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "hcE" = (
@@ -11869,7 +11869,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
@@ -11938,12 +11938,12 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/ce_room)
 "hhG" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "hic" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "hin" = (
@@ -11957,7 +11957,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -11973,7 +11973,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "hjk" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/closet/crate/radiation,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -12219,7 +12219,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/metal,
@@ -12396,7 +12396,7 @@
 /area/mainship/squads/charlie)
 "hwV" = (
 /obj/structure/largecrate/supply/supplies/mre,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/water{
 	pixel_y = -25;
 	pixel_x = 8
@@ -12649,7 +12649,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "hFk" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/rocket/keeper,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -12703,7 +12703,7 @@
 /area/mainship/shipboard/brig)
 "hHr" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
 	},
@@ -12772,7 +12772,7 @@
 /area/mainship/powered)
 "hJi" = (
 /obj/machinery/portable_atmospherics/scrubber,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "hJk" = (
@@ -12892,8 +12892,8 @@
 /area/mainship/command/self_destruct)
 "hPs" = (
 /obj/machinery/vending/tool,
-/obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "hPK" = (
@@ -12944,7 +12944,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "hSW" = (
@@ -12981,7 +12981,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "hTp" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
 	},
@@ -13003,7 +13003,7 @@
 	height = 2;
 	id = "cicext3"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "hVO" = (
@@ -13301,7 +13301,7 @@
 /area/mainship/living/grunt_rnr)
 "idt" = (
 /obj/structure/dropship_equipment/shuttle/operatingtable,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "ieB" = (
@@ -13640,7 +13640,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
 "ipw" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -13800,7 +13800,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "iwq" = (
@@ -13872,7 +13872,7 @@
 /area/mainship/hallways/port_hallway)
 "iyk" = (
 /obj/structure/largecrate/supply/supplies/flares,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "iyM" = (
@@ -13897,7 +13897,7 @@
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "izV" = (
@@ -13908,7 +13908,7 @@
 /area/mainship/powered)
 "iAb" = (
 /obj/structure/dropship_equipment/electronics/spotlights,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "iAh" = (
@@ -13934,7 +13934,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "iBl" = (
@@ -14078,7 +14078,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/metal,
@@ -14459,7 +14459,7 @@
 	dir = 2
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "iPz" = (
@@ -14670,7 +14670,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
@@ -14872,7 +14872,7 @@
 /area/mainship/squads/bravo)
 "jbU" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "jcp" = (
@@ -14945,7 +14945,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
 	},
@@ -15057,7 +15057,7 @@
 /area/mainship/living/basketball)
 "jhk" = (
 /obj/structure/ship_ammo/cas/minirocket,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "jhz" = (
@@ -15208,7 +15208,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "jkU" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/barricade/metal{
 	dir = 4
 	},
@@ -15229,7 +15229,7 @@
 	id = "cicext3"
 	},
 /obj/structure/sign/greencross,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = -25
@@ -15605,7 +15605,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
 "jyp" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "jzu" = (
@@ -15786,13 +15786,13 @@
 /obj/machinery/camera/autoname/alt{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/table/black,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "jGR" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/lounge)
 "jGV" = (
@@ -16014,7 +16014,7 @@
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "jOe" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -16025,7 +16025,7 @@
 "jOf" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic/rnr,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/grunt_rnr)
 "jOw" = (
@@ -16110,7 +16110,7 @@
 	dir = 8
 	},
 /obj/structure/ship_ammo/cas/minirocket,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "jRy" = (
@@ -16169,7 +16169,7 @@
 	dir = 2;
 	req_access = list(40)
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "jSc" = (
@@ -16315,7 +16315,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -16458,7 +16458,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/north{
 	pixel_y = 7;
 	pixel_x = -17
@@ -16533,7 +16533,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "kcU" = (
@@ -16606,7 +16606,7 @@
 /area/mainship/medical/lounge)
 "kfv" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -16767,7 +16767,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/lounge)
 "kjn" = (
@@ -16802,7 +16802,7 @@
 "kkU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floodlight,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "kkX" = (
@@ -16814,7 +16814,7 @@
 /turf/open/floor/plating,
 /area/mainship/shipboard/firing_range)
 "klB" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "klF" = (
@@ -16923,14 +16923,14 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "knn" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /obj/machinery/camera/autoname/alt{
@@ -17382,7 +17382,7 @@
 /area/mainship/hallways/port_hallway)
 "kBI" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -17502,7 +17502,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
 	name = "\improper Firing Range"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "kFw" = (
@@ -17574,7 +17574,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -17740,7 +17740,7 @@
 	name = "\improper Extended Operations Bunks"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/port_emb)
 "kLk" = (
@@ -17762,7 +17762,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "kLY" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
@@ -17851,7 +17851,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
@@ -17946,7 +17946,7 @@
 /area/mainship/medical/chemistry)
 "kQC" = (
 /obj/machinery/floodlight,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "kQH" = (
@@ -18133,7 +18133,7 @@
 "kWO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
@@ -18148,7 +18148,7 @@
 	dir = 2;
 	id = "AICoreShutter"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
 	},
@@ -18456,7 +18456,7 @@
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/medical_science)
 "lhA" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/table/black,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
@@ -18592,7 +18592,7 @@
 "llq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/west{
 	pixel_y = 24
 	},
@@ -18808,7 +18808,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 1
 	},
 /obj/machinery/camera/autoname/alt{
@@ -19022,7 +19022,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -19141,7 +19141,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -19665,7 +19665,7 @@
 /obj/machinery/camera/autoname/alt{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "lIZ" = (
@@ -19685,7 +19685,7 @@
 	height = 2;
 	id = "upext3"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "lJO" = (
@@ -19697,7 +19697,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic/rnr,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/grunt_rnr)
 "lKi" = (
@@ -19716,7 +19716,7 @@
 /area/mainship/living/grunt_rnr)
 "lKK" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/grunt_rnr)
 "lKO" = (
@@ -19958,7 +19958,7 @@
 /area/mainship/engineering/engineering_workshop)
 "lRr" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -20089,7 +20089,7 @@
 	height = 1;
 	id = "cicext2"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/lounge)
 "lXA" = (
@@ -20344,7 +20344,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /obj/item/radio/intercom/general{
@@ -20402,7 +20402,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "mgh" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
 	pixel_y = -20;
 	pixel_x = -24
@@ -20428,7 +20428,7 @@
 /area/mainship/living/numbertwobunks)
 "mhw" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 32
 	},
@@ -20470,7 +20470,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/mainship/marine/bravo/engineer,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
@@ -20480,7 +20480,7 @@
 /area/mainship/squads/bravo)
 "mkU" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "mkV" = (
@@ -20748,7 +20748,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig)
 "msy" = (
@@ -20838,7 +20838,7 @@
 /area/mainship/squads/req)
 "muB" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "muF" = (
@@ -20933,7 +20933,7 @@
 	height = 1;
 	id = "cicext1"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
@@ -21253,7 +21253,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "mGD" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/prop1{
 	dir = 1
 	},
@@ -21382,7 +21382,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "mJX" = (
@@ -21751,7 +21751,7 @@
 /area/mainship/command/cic)
 "mTR" = (
 /obj/structure/dropship_equipment/shuttle/sentry_holder,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/landinglight/lz2{
 	dir = 8
 	},
@@ -21861,7 +21861,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/metal,
@@ -21899,7 +21899,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "mWG" = (
@@ -21995,12 +21995,12 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
 	name = "\improper Firing Range"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "mZz" = (
 /obj/machinery/power/port_gen/pacman,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "mZD" = (
@@ -22143,7 +22143,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /turf/open/floor/plating/mainship/striped{
@@ -22545,7 +22545,7 @@
 /turf/open/floor/prison/plate,
 /area/mainship/command/self_destruct)
 "nqR" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -22558,7 +22558,7 @@
 	dir = 1
 	},
 /obj/machinery/vending/uniform_supply,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "nrL" = (
@@ -22591,7 +22591,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
 	},
@@ -22638,7 +22638,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -22839,7 +22839,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "nzw" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/heavygun,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -23095,7 +23095,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "nJh" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
 	dir = 1;
 	pixel_y = -19;
@@ -23135,7 +23135,7 @@
 "nJN" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/port_hallway)
 "nKA" = (
@@ -23274,7 +23274,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "nOm" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/closet/crate/radiation,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -23555,7 +23555,7 @@
 /turf/open/floor/prison,
 /area/mainship/squads/req)
 "nTH" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/landmark/start/latejoin,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/cryo_cells)
@@ -23622,7 +23622,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "nVd" = (
@@ -23837,7 +23837,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "obR" = (
@@ -24290,7 +24290,7 @@
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
 "orG" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow,
+/obj/effect/turf_decal/warning_stripes/cargo/arrow,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "osA" = (
@@ -24385,8 +24385,8 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "ovD" = (
@@ -24718,7 +24718,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "oHM" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/rocket_pod,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -24763,7 +24763,7 @@
 /obj/structure/barricade/metal{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
@@ -24782,7 +24782,7 @@
 	},
 /area/mainship/medical/medical_science)
 "oJz" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "oJE" = (
@@ -25119,7 +25119,7 @@
 	dir = 2;
 	req_access = list(40)
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "oTu" = (
@@ -25197,7 +25197,7 @@
 	height = 2;
 	id = "cicext1"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "oXC" = (
@@ -25288,7 +25288,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hull/port_hull)
 "paw" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
 	pixel_y = -20;
 	pixel_x = -24
@@ -25325,7 +25325,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "paQ" = (
@@ -26231,7 +26231,7 @@
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "pzT" = (
@@ -26441,7 +26441,7 @@
 /obj/structure/rack,
 /obj/item/reagent_containers/jerrycan,
 /obj/item/reagent_containers/jerrycan,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "pGC" = (
@@ -26871,7 +26871,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -26897,7 +26897,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "pTc" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
@@ -27930,7 +27930,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "quT" = (
@@ -28716,7 +28716,7 @@
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "qXW" = (
@@ -28768,7 +28768,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "qZa" = (
@@ -28814,7 +28814,7 @@
 /area/mainship/hallways/hangar/droppod)
 "raV" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -28892,7 +28892,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "reU" = (
@@ -28943,7 +28943,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/cable,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/grunt_rnr)
@@ -29005,7 +29005,7 @@
 /obj/item/clothing/head/warning_cone,
 /obj/item/clothing/head/warning_cone,
 /obj/machinery/light/mainship/small,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/ce_room)
 "rht" = (
@@ -29227,7 +29227,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
 /obj/effect/turf_decal/siding/metal,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/west{
 	pixel_y = -25
 	},
@@ -29308,7 +29308,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -29522,7 +29522,7 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "rAX" = (
@@ -29533,7 +29533,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "rBc" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "rBl" = (
@@ -29594,12 +29594,12 @@
 /obj/machinery/firealarm{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "rCz" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "rCH" = (
@@ -29830,7 +29830,7 @@
 /area/mainship/squads/alpha)
 "rIW" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -29885,7 +29885,7 @@
 /area/mainship/squads/delta)
 "rJU" = (
 /obj/machinery/vending/armor_supply,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "rKg" = (
@@ -30077,7 +30077,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "rRO" = (
@@ -30147,7 +30147,7 @@
 /area/mainship/command/cic)
 "rUI" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
@@ -30476,7 +30476,7 @@
 	},
 /area/mainship/engineering/engine_core)
 "seA" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -30487,7 +30487,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
@@ -30838,7 +30838,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "spd" = (
@@ -31005,7 +31005,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /turf/closed/wall/mainship/alt,
@@ -31099,7 +31099,7 @@
 /area/mainship/squads/bravo)
 "syl" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -31228,7 +31228,7 @@
 /area/mainship/engineering/port_atmos)
 "sCP" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
 "sCS" = (
@@ -31599,7 +31599,7 @@
 /area/mainship/medical/medical_science)
 "sNb" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "sNc" = (
@@ -31717,7 +31717,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
 "sRd" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 5
 	},
@@ -32082,7 +32082,7 @@
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "tez" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -32096,7 +32096,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -32143,7 +32143,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
@@ -32528,12 +32528,12 @@
 /obj/machinery/line_nexter{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "trV" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "tsd" = (
@@ -32631,7 +32631,7 @@
 /area/mainship/squads/bravo)
 "txi" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
@@ -32815,7 +32815,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/table/black,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
@@ -32873,7 +32873,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "tGD" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/window{
 	dir = 1
 	},
@@ -33051,7 +33051,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/living/port_emb)
 "tOQ" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
@@ -33163,7 +33163,7 @@
 /area/mainship/squads/delta)
 "tRQ" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
 	},
@@ -33556,7 +33556,7 @@
 /area/mainship/hallways/port_hallway)
 "ueY" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "ufb" = (
@@ -33813,7 +33813,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
@@ -34044,7 +34044,7 @@
 	dir = 2;
 	id = "AICoreShutter"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/numbertwobunks)
 "usS" = (
@@ -34886,7 +34886,7 @@
 /area/mainship/command/self_destruct)
 "uTJ" = (
 /obj/effect/ai_node,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "uUt" = (
@@ -35254,7 +35254,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "veO" = (
@@ -35480,7 +35480,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "voa" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
@@ -35619,7 +35619,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "vtN" = (
@@ -35751,7 +35751,7 @@
 /turf/open/floor/mainship/emerald/full,
 /area/mainship/hallways/hangar)
 "vys" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
@@ -35825,12 +35825,12 @@
 /area/mainship/hallways/hangar)
 "vAw" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/heavygun,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "vAB" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
 	},
@@ -35887,7 +35887,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/opens_up{
 	pixel_x = 32
 	},
@@ -36350,7 +36350,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "vQO" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -36377,7 +36377,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/mainship,
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
@@ -36436,7 +36436,7 @@
 "vSM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "vTj" = (
@@ -36751,7 +36751,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/living/port_emb)
 "wct" = (
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
@@ -36898,7 +36898,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/mainship/marine/bravo/engineer,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -37130,7 +37130,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "wow" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
 	dir = 1;
 	pixel_y = -19;
@@ -37299,7 +37299,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
 "wuO" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 5
 	},
@@ -37311,7 +37311,7 @@
 "wuY" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light/small,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "wvP" = (
@@ -37521,7 +37521,7 @@
 /area/mainship/living/commandbunks)
 "wDC" = (
 /obj/structure/largecrate/supply/ammo/standard_ammo,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "wDE" = (
@@ -37686,7 +37686,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 8
 	},
@@ -37747,7 +37747,7 @@
 /area/mainship/squads/delta)
 "wLH" = (
 /obj/structure/dropship_equipment/shuttle/sentry_holder,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "wMd" = (
@@ -37769,7 +37769,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
@@ -37879,7 +37879,7 @@
 	dir = 4
 	},
 /obj/machinery/power/port_gen/pacman,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "wQz" = (
@@ -37934,7 +37934,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/shipboard/brig_cells)
 "wSm" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 6
 	},
@@ -37990,7 +37990,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "wUd" = (
@@ -38111,7 +38111,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "wXB" = (
@@ -38238,7 +38238,7 @@
 /obj/item/clothing/head/warning_cone,
 /obj/item/clothing/head/warning_cone,
 /obj/item/clothing/head/warning_cone,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "xak" = (
@@ -38549,7 +38549,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "xlk" = (
@@ -38914,14 +38914,14 @@
 	dir = 2;
 	req_access = list(40)
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "xxR" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/rus/square/arrow{
+/obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
@@ -39013,7 +39013,7 @@
 "xzv" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/light/small,
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "xzD" = (
@@ -39114,7 +39114,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
@@ -39181,7 +39181,7 @@
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "xEC" = (
@@ -39269,7 +39269,7 @@
 /area/mainship/squads/delta)
 "xHc" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
 	dir = 1
 	},
@@ -39537,7 +39537,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "xNR" = (
-/obj/effect/turf_decal/warning_stripes/rus/square,
+/obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/minirocket/illumination,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -39690,7 +39690,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "xTz" = (
@@ -39806,7 +39806,7 @@
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
 "xYs" = (
-/obj/effect/turf_decal/warning_stripes/rus/square/yellow,
+/obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "xYu" = (
@@ -39817,7 +39817,7 @@
 /area/mainship/squads/delta)
 "xYG" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/mainship/command/officer,
 /turf/open/floor/mainship/metal,
 /area/mainship/living/bridgebunks)
@@ -39841,7 +39841,7 @@
 	height = 2;
 	id = "upext1"
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "xZI" = (
@@ -39940,7 +39940,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "ybG" = (
@@ -39975,7 +39975,7 @@
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/rus/fulltile,
+/obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/airlock/mainship/marine/bravo/medic,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
