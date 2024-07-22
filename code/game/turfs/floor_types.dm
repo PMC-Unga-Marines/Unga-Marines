@@ -169,7 +169,6 @@
 /turf/open/floor/mainship/empty/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
 	return
 
-
 //Others
 /turf/open/floor/mainship/terragov
 	icon = 'icons/turf/mainship.dmi'
