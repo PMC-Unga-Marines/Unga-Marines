@@ -193,6 +193,6 @@
 	update_beam()
 	. = ..()
 
-/obj/machinery/iv_drip/alternative
+/obj/machinery/iv_drip/alt
 	icon_state = "alt"
 	base_icon_state = "alt"
