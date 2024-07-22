@@ -141,7 +141,6 @@
 	name = "Firefighter wreckage"
 	icon_state = "firefighter-broken"
 
-
 /obj/structure/mecha_wreckage/clarke
 	name = "\improper Clarke wreckage"
 	icon_state = "clarke-broken"
