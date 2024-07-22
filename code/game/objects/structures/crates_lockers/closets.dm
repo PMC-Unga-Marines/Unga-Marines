@@ -467,7 +467,6 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "closed"
 
-
 /obj/structure/closet/marine
 	name = "marine's locker"
 	icon = 'icons/obj/structures/closet.dmi'
