@@ -5699,7 +5699,7 @@
 	pixel_x = -27;
 	pixel_y = 2
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "dkX" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -9488,7 +9488,7 @@
 	dir = 6
 	},
 /obj/machinery/bioprinter/alt/stocked,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "fqI" = (
 /obj/machinery/light/mainship{
@@ -10671,7 +10671,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "glD" = (
 /obj/structure/bed,
@@ -10701,7 +10701,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 10
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "gme" = (
 /turf/closed/wall/mainship/white,
@@ -14496,7 +14496,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 9
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "iQn" = (
 /obj/structure/cable,
@@ -14598,7 +14598,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "iTa" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -14628,14 +14628,14 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "iTS" = (
 /obj/machinery/bioprinter/alt/stocked,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 5
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "iUH" = (
 /obj/structure/sink/bathroom{
@@ -14843,7 +14843,7 @@
 /area/mainship/engineering/engine_core)
 "jau" = (
 /obj/machinery/computer/body_scanconsole/alt,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/lounge)
 "jaW" = (
 /obj/structure/disposalpipe/segment,
@@ -16154,7 +16154,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "jSa" = (
 /obj/structure/disposalpipe/segment{
@@ -16196,7 +16196,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "jSR" = (
 /obj/effect/turf_decal/warning_stripes/box/arrow{
@@ -16386,7 +16386,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 10
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "jXD" = (
 /obj/machinery/firealarm{
@@ -16442,7 +16442,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/metal/medical,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "kaW" = (
 /obj/machinery/light/mainship,
@@ -16451,7 +16451,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/metal/medical,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "kbg" = (
 /obj/machinery/door/firedoor,
@@ -16489,7 +16489,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 6
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "kbR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
@@ -17304,7 +17304,7 @@
 	dir = 9
 	},
 /obj/machinery/holopad,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "kAO" = (
 /obj/structure/cable,
@@ -17334,7 +17334,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "kBn" = (
 /obj/machinery/light/mainship{
@@ -17350,7 +17350,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "kBq" = (
 /obj/structure/largecrate/random/case,
@@ -17371,7 +17371,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 5
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "kBE" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -17598,7 +17598,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "kIp" = (
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
@@ -18319,7 +18319,7 @@
 /obj/machinery/light/mainship,
 /obj/effect/turf_decal/tile/metal/medical,
 /obj/item/storage/surgical_tray/alt,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "lbT" = (
 /obj/machinery/bodyscanner/alt{
@@ -33834,7 +33834,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "umy" = (
 /obj/structure/disposalpipe/segment,
@@ -34545,7 +34545,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "uIK" = (
 /obj/effect/turf_decal/siding/metal{
@@ -35552,7 +35552,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
 	},
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
 "vsb" = (
 /obj/machinery/door/poddoor/shutters{
@@ -35602,7 +35602,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/metal/medical,
-/turf/open/floor/mainship/metal/rubber,
+/turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
 "vtx" = (
 /obj/machinery/door/airlock/mainship/maint{
