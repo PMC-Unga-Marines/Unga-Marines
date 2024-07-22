@@ -287,7 +287,7 @@ GLOBAL_LIST_INIT(wraith_banish_very_short_duration_list, typecacheof(list(
 		return
 
 	to_chat(owner,span_highdanger("Our banishment target [banishment_target.name] is about to return to reality at [AREACOORD_NO_Z(portal)]!"))
-	owner.playsound_local(owner, 'sound/voice/hiss4.ogg', 50, 0, 1)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
 
 ///Ends the effect of the Banish ability
 /datum/action/ability/activable/xeno/banish/proc/banish_deactivate()

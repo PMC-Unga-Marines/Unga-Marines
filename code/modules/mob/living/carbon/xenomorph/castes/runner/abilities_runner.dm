@@ -195,7 +195,7 @@
 	evasion_stacks = 0
 	evasion_duration = 0
 	owner.balloon_alert(owner, "Evasion ended")
-	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50)
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
 
@@ -329,7 +329,7 @@
 	if(!stolen_item)
 		victim.balloon_alert(owner, "Snatch failed, no item")
 		return fail_activate()
-	playsound(owner, 'sound/voice/alien_pounce2.ogg', 30)
+	playsound(owner, 'sound/voice/alien/pounce2.ogg', 30)
 	victim.dropItemToGround(stolen_item, TRUE)
 	stolen_item.forceMove(owner)
 	stolen_appearance = mutable_appearance(stolen_item.icon, stolen_item.icon_state)
@@ -382,6 +382,6 @@
 	stolen_item.forceMove(get_turf(owner))
 	stolen_item = null
 	owner.overlays -= stolen_appearance
-	playsound(owner, 'sound/voice/alien_pounce2.ogg', 30, frequency = -1)
+	playsound(owner, 'sound/voice/alien/pounce2.ogg', 30, frequency = -1)
 	UnregisterSignal(owner, COMSIG_ATOM_DIR_CHANGE)
 

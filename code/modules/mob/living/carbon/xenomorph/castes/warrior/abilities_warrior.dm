@@ -59,7 +59,7 @@
 
 /// Happens when Empower fades.
 /datum/action/ability/xeno_action/empower/proc/empower_fade()
-	owner.playsound_local(owner, 'sound/voice/hiss4.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 25, 0, 1)
 	clear_empower()
 
 

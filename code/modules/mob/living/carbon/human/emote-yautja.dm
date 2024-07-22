@@ -137,7 +137,7 @@
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/species/yautja/aliengrowl/get_sound(mob/living/user)
-	return pick('sound/voice/alien_growl1.ogg', 'sound/voice/alien_growl2.ogg')
+	return pick('sound/voice/alien/growl1.ogg', 'sound/voice/alien/growl2.ogg')
 
 /datum/emote/living/carbon/human/species/yautja/alienhelp
 	key = "alienhelp"
@@ -146,7 +146,7 @@
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/species/yautja/alienhelp/get_sound(mob/living/user)
-	return pick('sound/voice/alien_help1.ogg', 'sound/voice/alien_help2.ogg')
+	return pick('sound/voice/alien/help1.ogg', 'sound/voice/alien/help2.ogg')
 
 /datum/emote/living/carbon/human/species/yautja/comeonout
 	key = "comeonout"

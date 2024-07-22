@@ -391,7 +391,7 @@
 	evade_active = FALSE //Evasion is no longer active
 
 	owner.balloon_alert(owner, "Evasion ended")
-	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50)
 
 #define PANTHER_EVASION_RUN_DELAY 0.5 SECONDS // If the time since the Runner last moved is equal to or greater than this, its Evasion ends.
 
