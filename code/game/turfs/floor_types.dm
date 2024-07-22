@@ -1,9 +1,3 @@
-
-
-
-
-//Floors
-
 /turf/open/floor/mainship
 	icon = 'icons/turf/mainship.dmi'
 	icon_state = "default"
@@ -257,6 +251,25 @@
 /turf/open/floor/mainship/research/containment/corner4
 	icon_state = "containment_corner_4"
 
+// METAL
+
+/turf/open/floor/mainship/metal
+	icon_state = "dark"
+
+/turf/open/floor/mainship/metal/full
+	icon_state = "dark_full"
+
+/turf/open/floor/mainship/metal/steel
+	icon_state = "steel"
+
+/turf/open/floor/mainship/metal/steel/full
+	icon_state = "steel_full"
+
+/turf/open/floor/mainship/metal/lino
+	icon_state = "lino_grey_smooth"
+
+/turf/open/floor/mainship/metal/white
+	icon_state = "white"
 
 //Outerhull
 
@@ -277,10 +290,6 @@
 
 /turf/open/floor/mainship_hull/gray/dir
 	icon_state = "outerhull_gray_dir"
-
-
-
-//***********
 
 /turf/open/floor/marking/loadingarea
 	icon_state = "loadingarea"
@@ -313,12 +322,6 @@
 /turf/open/floor/asteroidfloor
 	icon_state = "asteroidfloor"
 	smoothing_groups = list(SMOOTH_GROUP_ASTEROID_WARNING)
-
-
-
-//////////////////////////////////////////////////////////////////////
-
-
 
 /turf/open/floor/freezer
 	icon_state = "freezerfloor"
@@ -465,7 +468,6 @@
 	burnable_tile = FALSE
 	floor_tile = null
 
-
 /turf/open/floor/engine/attackby(obj/item/I, mob/user, params)
 	if(iscrowbar(I)) // Prevent generation of infinite 'floor_tile' objs caused by the overridden make_plating() above never clearing the var
 		return
@@ -558,11 +560,9 @@
 	mediumxenofootstep = FOOTSTEP_GRASS
 	icon_variants = 4
 
-
 /turf/open/floor/grass/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
-
 
 /turf/open/floor/grass/LateInitialize()
 	for(var/direction in GLOB.cardinals)
@@ -885,6 +885,18 @@
 /turf/open/floor/podhatch/floor
 	icon_state = "podhatchfloor"
 
+/turf/open/floor/stairs/dark
+	icon_state = "darkstairs_alone"
+
+/turf/open/floor/stairs/dark/left
+	icon_state = "darkstairs_wide"
+
+/turf/open/floor/stairs/dark/right
+	icon_state = "darkstairs2_wide"
+
+/turf/open/floor/stairs/dark/middle
+	icon_state = "darkstairs_middle"
+
 /turf/open/floor/stairs/rampbottom
 	icon_state = "rampbottom"
 
@@ -929,6 +941,9 @@
 
 /turf/open/floor/carpet/side
 	icon_state = "carpetside"
+
+/turf/open/floor/carpet/rubber
+	icon_state = "carpet_rubber"
 
 // Start Prison tiles
 
@@ -1139,7 +1154,6 @@
 	color = "#363636"
 
 ////// Mechbay /////////////////:
-
 
 /turf/open/floor/mech_bay_recharge_floor
 	name = "Mech Bay Recharge Station"
