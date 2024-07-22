@@ -885,6 +885,7 @@
 	icon_state = "podhatchfloor"
 
 /turf/open/floor/stairs/dark
+	icon = 'icons/turf/mainship.dmi'
 	icon_state = "darkstairs_alone"
 
 /turf/open/floor/stairs/dark/left
