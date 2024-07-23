@@ -146,15 +146,6 @@
 	else if(density)
 		flick("door_deny", src)
 
-/obj/machinery/door/emp_act(severity)
-	. = ..()
-	if(prob(30 / severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
-		open()
-	if(prob(60 / severity))
-		if(secondsElectrified == 0)
-			secondsElectrified = -1
-			addtimer(VARSET_CALLBACK(src, secondsElectrified, 0), 30 SECONDS)
-
 /obj/machinery/door/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
