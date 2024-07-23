@@ -2229,10 +2229,11 @@
 
 	accuracy_mult = 1
 	accuracy_mult_unwielded = 0.55
-	scatter = 1
+	scatter = -2
 	scatter_unwielded = 15
 
 	burst_amount = 3
+	burst_scatter_mult = 4
 	burst_delay = 0.1 SECONDS
 	extra_delay = 0.1 SECONDS
 
