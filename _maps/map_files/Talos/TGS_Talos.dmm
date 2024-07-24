@@ -637,10 +637,6 @@
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
-"apE" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
 "apJ" = (
 /obj/machinery/vending/armor_supply,
 /turf/open/floor/mainship/red/full,
@@ -1936,10 +1932,6 @@
 /obj/item/tool/pen,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
-"beg" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
 "ben" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/mainship,
@@ -5692,9 +5684,8 @@
 	dir = 8
 	},
 /obj/structure/sink/bathroom{
-	dir = 4;
-	pixel_x = -27;
-	pixel_y = 2
+	dir = 8;
+	pixel_x = 11
 	},
 /turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_two)
@@ -10669,13 +10660,12 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
 "gll" = (
-/obj/structure/sink/bathroom{
-	dir = 4;
-	pixel_x = -27;
-	pixel_y = 2
-	},
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
+	},
+/obj/structure/sink/bathroom{
+	dir = 8;
+	pixel_x = 11
 	},
 /turf/open/floor/carpet/rubber,
 /area/mainship/medical/operating_room_one)
@@ -12181,10 +12171,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
-"hpC" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "hpI" = (
 /turf/open/floor/stairs/dark{
 	dir = 4
@@ -14278,10 +14264,6 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/lounge)
-"iKI" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "iKN" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -15632,10 +15614,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
-"jAa" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
 "jAc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
@@ -19963,10 +19941,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
-"lRA" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "lRD" = (
 /obj/item/book/manual/medical_diagnostics_manual,
 /obj/item/megaphone,
@@ -30024,10 +29998,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/living/numbertwobunks)
-"rQd" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "rQk" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -37628,10 +37598,6 @@
 /obj/structure/barricade/metal,
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
-"wHQ" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
 "wJC" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
@@ -38842,10 +38808,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
-"xwf" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/plating,
-/area/mainship/hull/upper_hull)
 "xwh" = (
 /obj/structure/bed/stool{
 	pixel_y = 8
@@ -56765,14 +56727,14 @@ lrM
 lwo
 tSK
 lhv
-wHQ
+ljL
 gYL
 dBs
 uwt
 cZa
 uwt
-beg
-wHQ
+ljL
+ljL
 aRv
 dnv
 dnv
@@ -57257,7 +57219,7 @@ dnv
 aRv
 rKD
 voS
-beg
+ljL
 cZa
 ygw
 mXK
@@ -57279,8 +57241,8 @@ jMa
 lxr
 jFj
 lhv
-beg
-beg
+ljL
+ljL
 dBs
 msZ
 dBb
@@ -60330,8 +60292,8 @@ dnv
 dnv
 aRv
 uwt
-wHQ
-wHQ
+ljL
+ljL
 qDj
 mZD
 cZa
@@ -60843,7 +60805,7 @@ ooO
 dnv
 dnv
 aRv
-beg
+ljL
 uwt
 uwt
 coA
@@ -63831,7 +63793,7 @@ vpS
 vis
 vis
 snt
-xwf
+udl
 plv
 igt
 iXc
@@ -64081,7 +64043,7 @@ xVX
 ckZ
 snt
 vis
-xwf
+udl
 xoI
 sjN
 sjN
@@ -64599,7 +64561,7 @@ sjN
 sjN
 sjN
 sjN
-xwf
+udl
 vis
 snt
 vis
@@ -65013,7 +64975,7 @@ pMG
 sKW
 apK
 oZP
-iKI
+mOH
 eDe
 xFv
 dnv
@@ -66042,7 +66004,7 @@ pVF
 wnT
 rmr
 wbu
-iKI
+mOH
 qwP
 qwP
 qwP
@@ -66503,9 +66465,9 @@ pKx
 jHF
 mZD
 qDj
-beg
+ljL
 uNN
-wHQ
+ljL
 pwq
 mZD
 bQg
@@ -66744,17 +66706,17 @@ ooO
 dnv
 dnv
 aRv
-wHQ
+ljL
 yaW
 uwt
 uwt
 uwt
 mZD
 uwt
-beg
-wHQ
+ljL
+ljL
 rkn
-wHQ
+ljL
 mZD
 uwt
 dBb
@@ -67068,7 +67030,7 @@ pdB
 pdB
 pdB
 wnT
-iKI
+mOH
 lKi
 qwP
 qwP
@@ -67843,7 +67805,7 @@ wtZ
 pCj
 qwP
 qwP
-iKI
+mOH
 wnT
 qwP
 eFJ
@@ -69828,7 +69790,7 @@ dnv
 dnv
 aRv
 qsJ
-wHQ
+ljL
 dOt
 onP
 oDX
@@ -71440,7 +71402,7 @@ pQT
 nbv
 qwP
 iOy
-iKI
+mOH
 wnT
 spJ
 eTc
@@ -78381,7 +78343,7 @@ jsH
 tkN
 pHO
 qwP
-rQd
+mOH
 eFJ
 xFv
 dnv
@@ -79330,7 +79292,7 @@ dnv
 dnv
 dnv
 aRv
-jAa
+ljL
 xAB
 uwt
 uwt
@@ -80774,7 +80736,7 @@ vis
 qDP
 xrP
 qDP
-xwf
+udl
 vvT
 vVR
 sjN
@@ -80790,7 +80752,7 @@ xrP
 ciP
 qDP
 vis
-xwf
+udl
 hDf
 tjk
 gcj
@@ -81030,7 +80992,7 @@ xdb
 vis
 xoG
 sjN
-xwf
+udl
 qDP
 vvT
 vVR
@@ -81299,7 +81261,7 @@ xoG
 sjN
 vvT
 vVR
-xwf
+udl
 pXm
 sjN
 sjN
@@ -81550,7 +81512,7 @@ vvT
 udt
 xrP
 xoG
-xwf
+udl
 xrP
 xrP
 xrP
@@ -81563,7 +81525,7 @@ xrP
 vis
 wkQ
 sjN
-xwf
+udl
 tjh
 sCb
 wUd
@@ -82066,7 +82028,7 @@ xrP
 sjN
 sjN
 sjN
-xwf
+udl
 vcW
 vvT
 vVR
@@ -82075,7 +82037,7 @@ kZp
 sjN
 fTt
 vis
-xwf
+udl
 vms
 sjN
 xoI
@@ -82313,8 +82275,8 @@ xdb
 xdb
 xdb
 vis
-xwf
-xwf
+udl
+udl
 xMx
 sjN
 vvT
@@ -82848,7 +82810,7 @@ dQS
 vis
 xrP
 qxY
-xwf
+udl
 mfm
 vZZ
 xfy
@@ -83699,7 +83661,7 @@ neu
 ooO
 dnv
 aRv
-jAa
+ljL
 pqW
 xhq
 aLe
@@ -84814,7 +84776,7 @@ rYV
 nIJ
 tkN
 iOy
-iKI
+mOH
 xFv
 neu
 neu
@@ -85252,7 +85214,7 @@ xjk
 xjk
 uwt
 kst
-apE
+ljL
 xjk
 iiD
 jPy
@@ -85580,7 +85542,7 @@ qwP
 qwP
 gPQ
 rgx
-hpC
+mOH
 qwP
 qwP
 fyp
@@ -86087,7 +86049,7 @@ eWU
 eWU
 eWU
 iOy
-hpC
+mOH
 xFv
 dnv
 dnv
@@ -86840,7 +86802,7 @@ nle
 pxN
 wnT
 oZP
-iKI
+mOH
 rmr
 qwP
 qwP
@@ -87881,7 +87843,7 @@ iOy
 eJU
 dMi
 dMi
-iKI
+mOH
 rgx
 qwP
 qwP
@@ -88359,8 +88321,8 @@ jCB
 hJi
 hJi
 opF
-wHQ
-wHQ
+ljL
+ljL
 xjk
 oSl
 uwt
@@ -88369,8 +88331,8 @@ cfV
 qsU
 jpC
 jNv
-lRA
-lRA
+mOH
+mOH
 vAQ
 tms
 sfH
@@ -88623,9 +88585,9 @@ pWN
 dTj
 fIL
 uwt
-beg
+ljL
 cIl
-beg
+ljL
 qwP
 mOH
 qwP
@@ -88891,7 +88853,7 @@ qwP
 xoC
 eRL
 nAc
-iKI
+mOH
 nbA
 wnT
 iJn
@@ -89666,7 +89628,7 @@ qwP
 pSR
 wnT
 iOy
-rQd
+mOH
 xFv
 dnv
 dnv
@@ -90690,8 +90652,8 @@ qwP
 qwP
 qwP
 qwP
-iKI
-rQd
+mOH
+mOH
 ffh
 ygJ
 heq
@@ -90933,11 +90895,11 @@ phY
 bWG
 ska
 uwt
-beg
+ljL
 uwt
 uwt
 uwt
-beg
+ljL
 uwt
 qwP
 qwP
@@ -90945,7 +90907,7 @@ qwP
 qwP
 qwP
 qwP
-iKI
+mOH
 vxd
 tJQ
 bXY
@@ -91191,9 +91153,9 @@ ska
 brE
 kBq
 fTF
-jAa
+ljL
 mqt
-wHQ
+ljL
 xAB
 qYm
 xbm
