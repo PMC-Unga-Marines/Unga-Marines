@@ -15,16 +15,14 @@
 	density = TRUE
 	max_integrity = 350
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, FIRE = 30, ACID = 30)
-	//This var is used to see if the machine is currently repairing or not.
-	var/repairing = FALSE
-	//This var is the reference used for the patient
-	var/mob/living/carbon/human/occupant
-
 	//It uses power
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 15
 	active_power_usage = 10000 // It rebuilds you from nothing...
-
+	//This var is used to see if the machine is currently repairing or not.
+	var/repairing = FALSE
+	//This var is the reference used for the patient
+	var/mob/living/carbon/human/occupant
 	//This var is in reference to the radio the cradle uses to speak to the craw.
 	var/obj/item/radio/headset/mainship/doc/radio
 
@@ -39,16 +37,9 @@
 	return ..()
 
 /obj/machinery/robotic_cradle/update_icon_state()
-	. = ..()
-	if(machine_stat & NOPOWER)
-		icon_state = "borgcharger0"
-		return
-	if(repairing)
+	if(occupant && !(machine_stat & NOPOWER))
 		icon_state = "borgcharger1"
-		return
-	if(occupant)
-		icon_state = "borgcharger1"
-		return
+		return ..()
 	icon_state = "borgcharger0"
 
 /obj/machinery/robotic_cradle/power_change()
@@ -72,7 +63,7 @@
 	if(!repairing)
 		return
 
-//This proc handles the actual repair once the timer is up, ejection of the healed robot and radio message of ejection.
+///This proc handles the actual repair once the timer is up, ejection of the healed robot and radio message of ejection.
 /obj/machinery/robotic_cradle/proc/repair_op()
 	if(QDELETED(occupant) || occupant.stat == DEAD)
 		if(!ishuman(occupant))
@@ -161,12 +152,12 @@
 	dropped.stop_pulling()
 	dropped.forceMove(src)
 	occupant = dropped
-	icon_state = "pod_0"
 	var/implants = list(/obj/item/implant/neurostim)
 	var/mob/living/carbon/human/H = occupant
 	var/doc_dat
 	med_scan(H, doc_dat, implants, TRUE)
 	start_processing()
+	update_icon()
 
 	say("Automatic mode engaged, initialising procedure.")
 	addtimer(CALLBACK(src, PROC_REF(auto_start)), 20 SECONDS)
@@ -181,9 +172,9 @@
 	say("Beginning repair procedure.")
 	repair_op()
 
-/obj/machinery/robotic_cradle/MouseDrop_T(mob/M, mob/user)
+/obj/machinery/robotic_cradle/MouseDrop_T(mob/dropping, mob/user)
 	. = ..()
-	move_inside_wrapper(M, user)
+	move_inside_wrapper(dropping, user)
 
 /obj/machinery/robotic_cradle/verb/move_inside()
 	set name = "Enter Cradle"
@@ -192,10 +183,10 @@
 
 	move_inside_wrapper(usr, usr)
 
-//This proc is called when someone has a robot grabbed either by hand or in a stasis bag. It is also lets docs/engineers use health analyzers on the cradle if they really want to.
 /obj/machinery/robotic_cradle/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
+	//This proc is called when someone has a robot grabbed either by hand or in a stasis bag. It is also lets docs/engineers use health analyzers on the cradle if they really want to.
 	if(!ishuman(user))
 		return //no
 
@@ -265,7 +256,7 @@
 
 	M.forceMove(src)
 	occupant = M
-	icon_state = "pod_1"
+	update_icon()
 	var/implants = list(/obj/item/implant/neurostim)
 	var/mob/living/carbon/human/H = occupant
 	med_scan(H, null, implants, TRUE)
@@ -281,17 +272,17 @@
 		return
 	do_eject()
 
-//This proc ejects whomever is inside the cradle, by force if needed depending if the cradle is destroyed or not.
+///This proc ejects whomever is inside the cradle, by force if needed depending if the cradle is destroyed or not.
 /obj/machinery/robotic_cradle/proc/do_eject(forceeject)
 	if(!occupant)
 		return
 	if(forceeject)
 		if(!repairing)
 			visible_message("\The [src] is destroyed, ejecting [occupant] and showering them in debris.")
-			occupant.take_limb_damage(rand(10,20),rand(10,20))
+			occupant.take_limb_damage(rand(10, 20),rand(10, 20))
 		else
 			visible_message("\The [src] malfunctions as it is destroyed mid-repair, ejecting [occupant] with unfinished repair wounds and showering them in debris.")
-			occupant.take_limb_damage(rand(30,50),rand(30,50))
+			occupant.take_limb_damage(rand(30, 50),rand(30, 50))
 		go_out(CRADLE_NOTICE_FORCE_EJECT)
 		return
 	if(isxeno(usr) && !repairing) // let xenos eject people hiding inside; a xeno ejecting someone during repair does so like someone untrained
@@ -312,10 +303,10 @@
 		if(!do_after(usr, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED) || !occupant)
 			return
 	if(repairing)
-		repairing = 0
+		repairing = FALSE
 		if(usr.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_ENGI) //Untrained people will fail to terminate the repair properly.
 			visible_message("\The [src] malfunctions as [usr] aborts the rapair in progress.")
-			occupant.take_limb_damage(rand(30,50),rand(30,50))
+			occupant.take_limb_damage(rand(30, 50),rand(30, 50))
 			log_game("[key_name(usr)] ejected [key_name(occupant)] from the cradle during repair causing damage.")
 			message_admins("[ADMIN_TPMONTY(usr)] ejected [ADMIN_TPMONTY(occupant)] from the cradle during repair causing damage.")
 			go_out(CRADLE_NOTICE_IDIOT_EJECT)
