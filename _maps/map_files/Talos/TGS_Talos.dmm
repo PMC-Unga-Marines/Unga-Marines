@@ -542,7 +542,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aoi" = (
-/turf/closed/wall/mainship/outer,
+/turf/closed/wall/mainship/outer/alt,
 /area/space)
 "aol" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -21196,7 +21196,7 @@
 /area/mainship/command/corporateliaison)
 "mFt" = (
 /obj/structure/cable,
-/turf/closed/wall/mainship/outer,
+/turf/closed/wall/mainship/outer/alt,
 /area/space)
 "mFO" = (
 /obj/effect/ai_node,
@@ -23378,7 +23378,6 @@
 /obj/structure/cable,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
-	name = "tele_ground1";
 	teleport_x = 180;
 	teleport_x_offset = 200;
 	teleport_y = 50;
@@ -28408,6 +28407,7 @@
 /area/mainship/squads/charlie)
 "qPx" = (
 /obj/effect/step_trigger/teleporter{
+	affect_ghosts = 1;
 	teleport_x = 132;
 	teleport_y = 38;
 	teleport_z = 3
@@ -29782,6 +29782,7 @@
 /area/mainship/medical/lower_medical)
 "rIP" = (
 /obj/effect/step_trigger/teleporter{
+	affect_ghosts = 1;
 	teleport_x = 132;
 	teleport_y = 37;
 	teleport_z = 3
@@ -30403,7 +30404,6 @@
 "sdu" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
-	name = "tele_ground1";
 	teleport_x = 180;
 	teleport_x_offset = 200;
 	teleport_y = 50;
@@ -37881,7 +37881,8 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "wRr" = (
-/obj/effect/step_trigger/teleporter{
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
 	teleport_x = 123;
 	teleport_y = 184;
 	teleport_z = 3
@@ -38321,6 +38322,7 @@
 /area/mainship/hull/upper_hull)
 "xfz" = (
 /obj/effect/step_trigger/teleporter{
+	affect_ghosts = 1;
 	teleport_x = 123;
 	teleport_y = 185;
 	teleport_z = 3
@@ -38702,7 +38704,6 @@
 "xse" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
-	name = "tele_ground1";
 	teleport_x = 180;
 	teleport_x_offset = 200;
 	teleport_y = 50;
@@ -38712,7 +38713,6 @@
 	},
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
-	name = "tele_ground1";
 	teleport_x = 180;
 	teleport_x_offset = 200;
 	teleport_y = 50;
@@ -82093,7 +82093,7 @@ neu
 neu
 neu
 neu
-xse
+sdu
 neu
 aoi
 aoi
@@ -82350,7 +82350,7 @@ neu
 neu
 neu
 neu
-xse
+sdu
 neu
 aoi
 aoi

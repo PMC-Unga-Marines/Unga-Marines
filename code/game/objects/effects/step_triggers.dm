@@ -2,10 +2,12 @@
 
 ///TODO ALL THIS SHIT IS SHITCODE. SHOULD BE ELEMENTS AT MINIMUM IF ITS EVEN USED. CONSIDER DELETING
 /obj/effect/step_trigger
-	var/affect_ghosts = 0
-	var/stopper = 1 // stops throwers //todo does nothing due to connectloc
 	invisibility = INVISIBILITY_MAXIMUM // nope cant see this shit
 	anchored = TRUE
+	/// will it teleport ghosts?
+	var/affect_ghosts = FALSE
+	/// stops throwers //todo does nothing due to connectloc
+	var/stopper = TRUE
 
 /obj/effect/step_trigger/Initialize(mapload)
 	. = ..()
@@ -24,8 +26,6 @@
 	if(isobserver(H) && !affect_ghosts)
 		return
 	INVOKE_ASYNC(src, PROC_REF(Trigger), H)
-
-
 
 /* Tosses things in a certain direction */
 
@@ -116,9 +116,7 @@
 		return
 
 	if(teleport_x && teleport_y && teleport_z)
-// RU TGMC EDIT
 		SEND_SIGNAL(A, COMSIG_ATOM_TELEPORT, src)
-// RU TGMC EDIT
 		switch(teleportation_type)
 			if(1)
 				sleep(animation_teleport_quick_out(A)) //Sleep for the duration of the animation.
@@ -128,14 +126,7 @@
 				sleep(animation_teleport_spooky_out(A))
 
 		if(A?.loc)
-/*
-			A.x = teleport_x
-			A.y = teleport_y
-			A.z = teleport_z
-*/
-// RUTGMC EDIT
 			A.forceMove(get_turf(locate(teleport_x, teleport_y, teleport_z)))
-//RUTGMC EDIT
 			switch(teleportation_type)
 				if(1)
 					animation_teleport_quick_in(A)
@@ -166,7 +157,6 @@
 	. = ..()
 	icon_state = ""
 
-//RUTGMC MESSY FIX
 /obj/effect/landmark/start/job/survivor/Initialize(mapload)
 	. = ..()
 	new /obj/effect/landmark/yautja_teleport(loc)
@@ -174,7 +164,6 @@
 /obj/effect/landmark/start/job/squadmarine/Initialize(mapload)
 	. = ..()
 	new /obj/effect/landmark/yautja_teleport(loc)
-//END OF MESSY FIX TO DELETE
 
 /* Predator Ship Teleporter - set in each individual gamemode */
 
