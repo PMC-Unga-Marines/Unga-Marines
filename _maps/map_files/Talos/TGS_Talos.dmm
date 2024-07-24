@@ -2493,9 +2493,9 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
 "buv" = (
-/obj/vehicle/multitile/root/cm_armored/tank{
+/obj/structure/prop/vehicle/tank/north/base{
 	pixel_x = -15;
-	pixel_y = -7
+	pixel_y = -5
 	},
 /turf/open/liquid/water/river/desertdam/clean/shallow_water_desert_coast/edge{
 	dir = 4
@@ -9527,9 +9527,15 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/aft_hallway)
 "frj" = (
-/obj/structure/largecrate/random/case/small,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
+/obj/machinery/landinglight/lz2{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown/warning{
+	dir = 8
+	},
+/obj/machinery/computer/dropship_picker,
+/turf/open/floor/mainship/metal,
+/area/mainship/hallways/hangar)
 "frk" = (
 /obj/structure/table/mainship,
 /obj/item/reagent_containers/food/condiment/saltshaker,
@@ -10081,10 +10087,6 @@
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
-"fMU" = (
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/mainship/metal,
-/area/mainship/hallways/hangar)
 "fMV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
@@ -10149,6 +10151,10 @@
 "fOS" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/sign/semiotic/fire_haz{
+	pixel_x = 8;
+	pixel_y = 24
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fPk" = (
@@ -10710,11 +10716,13 @@
 /turf/closed/wall/mainship/white,
 /area/mainship/hallways/aft_hallway)
 "gmt" = (
-/obj/structure/barricade/metal{
+/obj/machinery/landinglight/lz2{
 	dir = 8
 	},
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/effect/spawner/random/misc/structure/barrel,
+/obj/effect/turf_decal/trimline/brown/warning{
+	dir = 8
+	},
+/obj/item/clothing/head/warning_cone,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "gmK" = (
@@ -17514,13 +17522,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
-"kFO" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 4
-	},
-/obj/effect/spawner/random/weaponry/gun/rifles,
-/turf/open/floor/plating/mainship/reinforced,
-/area/mainship/hallways/hangar)
 "kFY" = (
 /obj/machinery/light/mainship/small{
 	dir = 4
@@ -18365,10 +18366,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/numbertwobunks)
-"ldf" = (
-/obj/structure/largecrate/random/case/small,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "ldn" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
@@ -22541,11 +22538,6 @@
 	},
 /turf/open/floor/prison/plate,
 /area/mainship/command/self_destruct)
-"nqR" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/effect/spawner/random/misc/structure/barrel,
-/turf/open/floor/mainship/metal,
-/area/mainship/hallways/hangar)
 "nrw" = (
 /obj/machinery/telecomms/bus/preset_three,
 /turf/open/floor/mainship/silver/full,
@@ -36368,10 +36360,6 @@
 /obj/machinery/power/apc/mainship,
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/sign/semiotic/fire_haz{
-	pixel_x = 8;
-	pixel_y = 24
-	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "vSo" = (
@@ -38231,15 +38219,6 @@
 /obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
-"xak" = (
-/obj/machinery/light/mainship/small{
-	dir = 8
-	},
-/obj/structure/sign/semiotic/maint{
-	pixel_x = -17
-	},
-/turf/open/floor/plating/mainship/reinforced,
-/area/mainship/hallways/hangar)
 "xan" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/tcomms,
@@ -38806,10 +38785,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/bravo)
-"xtl" = (
-/obj/structure/largecrate/random/case,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
 "xtp" = (
 /turf/open/floor/mainship/emerald{
 	dir = 6
@@ -61894,7 +61869,7 @@ dnv
 dnv
 dnv
 aRv
-frj
+jNv
 uwt
 msZ
 msZ
@@ -67048,7 +67023,7 @@ iwc
 iwc
 iwc
 fJo
-gmt
+fJo
 gCR
 iwc
 dSI
@@ -67296,8 +67271,8 @@ cKH
 xot
 xpo
 tbE
-xpo
-xak
+sIq
+dkn
 cgl
 dkn
 xpo
@@ -67819,7 +67794,7 @@ xpo
 xpo
 iwc
 fLj
-fMU
+neA
 spw
 aKq
 tip
@@ -68068,8 +68043,8 @@ xot
 cVJ
 xpo
 xpo
-vfT
 xpo
+vfT
 xpo
 xpo
 xpo
@@ -68376,7 +68351,7 @@ vyF
 puP
 qen
 pQT
-ldf
+tms
 qwP
 qwP
 sxP
@@ -68589,7 +68564,7 @@ xpo
 xpo
 eMt
 iwc
-nqR
+fUj
 grG
 chJ
 iAb
@@ -69097,8 +69072,8 @@ mTR
 cWW
 ctj
 dup
-cWW
-dup
+frj
+gmt
 dup
 dup
 aoh
@@ -69152,7 +69127,7 @@ bMP
 heq
 qwP
 wnT
-ldf
+tms
 paH
 avX
 xFv
@@ -70895,7 +70870,7 @@ ezm
 aAn
 ezm
 aAn
-kFO
+ezm
 aAn
 ehX
 etB
@@ -71208,7 +71183,7 @@ qwP
 iOy
 oMc
 wnT
-ldf
+tms
 qwP
 eFJ
 xFv
@@ -71717,7 +71692,7 @@ qyk
 fHw
 cBI
 pQT
-ldf
+tms
 qwP
 iOy
 wKR
@@ -72230,7 +72205,7 @@ lfr
 qQY
 qwP
 qwP
-ldf
+tms
 wnT
 wnT
 kPy
@@ -73256,7 +73231,7 @@ xFv
 xFv
 xFv
 xFv
-ldf
+tms
 qwP
 qwP
 qwP
@@ -75571,7 +75546,7 @@ qwP
 qwP
 qwP
 wnT
-ldf
+tms
 qwP
 lKi
 kQR
@@ -85094,7 +85069,7 @@ tkN
 tkN
 tkN
 iOy
-ldf
+tms
 xFv
 neu
 neu
@@ -86832,7 +86807,7 @@ elE
 jPy
 iiD
 uwt
-frj
+jNv
 opF
 xsV
 mMn
@@ -88391,17 +88366,17 @@ xAB
 cfV
 qsU
 jpC
-frj
+jNv
 lRA
 lRA
 vAQ
-ldf
+tms
 sfH
 fqS
 gWV
 qwP
 pSR
-ldf
+tms
 wnT
 foF
 aoM
@@ -88640,7 +88615,7 @@ mMn
 mMn
 opF
 ska
-frj
+jNv
 kbR
 pWN
 dTj
@@ -91209,10 +91184,10 @@ aRv
 xjk
 cZa
 mZD
-frj
+jNv
 ska
 brE
-xtl
+kBq
 fTF
 jAa
 mqt
@@ -91223,12 +91198,12 @@ xbm
 pSR
 wZt
 xrZ
-ldf
+tms
 vxd
 oSK
 vxd
-ldf
-ldf
+tms
+tms
 wnT
 pCj
 iOy
