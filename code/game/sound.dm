@@ -287,7 +287,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if("alien_resin_break")
 			S = pick('sound/effects/alien/resin_break1.ogg','sound/effects/alien/resin_break2.ogg')
 		if("alien_resin_move")
-			S = pick('sound/effects/footstep/alien/resin_move1.ogg','sound/effects/footstep/alien/resin_move2.ogg')
+			S = pick('sound/effects/alien/resin_move1.ogg', 'sound/effects/alien/resin_move2.ogg')
 		if("alien_talk")
 			S = pick('sound/voice/alien/talk.ogg','sound/voice/alien/talk2.ogg','sound/voice/alien/talk3.ogg')
 		if("larva_talk")
