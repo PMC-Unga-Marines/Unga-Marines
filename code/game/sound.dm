@@ -286,7 +286,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/effects/alien/resin_build1.ogg','sound/effects/alien/resin_build2.ogg','sound/effects/alien/resin_build3.ogg')
 		if("alien_resin_break")
 			S = pick('sound/effects/alien/resin_break1.ogg','sound/effects/alien/resin_break2.ogg')
-		if("alien_resin_move")
+		if("alien_resin_move") // be aware, this isn't a footstep, footsteps are located elsewhere
 			S = pick('sound/effects/alien/resin_move1.ogg', 'sound/effects/alien/resin_move2.ogg')
 		if("alien_talk")
 			S = pick('sound/voice/alien/talk.ogg','sound/voice/alien/talk2.ogg','sound/voice/alien/talk3.ogg')
