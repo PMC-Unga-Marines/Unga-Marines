@@ -1301,7 +1301,7 @@
 /area/mainship/squads/delta)
 "aDA" = (
 /obj/structure/rack,
-/obj/effect/spawner/random/medical/firstaid,
+/obj/effect/spawner/random/medical/firstaid/often,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "aDL" = (
@@ -13204,7 +13204,7 @@
 	},
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/medical/firstaid,
+/obj/effect/spawner/random/medical/firstaid/often,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "iaM" = (
@@ -27124,8 +27124,8 @@
 /area/mainship/squads/alpha)
 "qcG" = (
 /obj/structure/rack,
-/obj/effect/spawner/random/medical/firstaid,
-/obj/effect/spawner/random/medical/firstaid,
+/obj/effect/spawner/random/medical/firstaid/often,
+/obj/effect/spawner/random/medical/firstaid/often,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "qcL" = (
@@ -29457,6 +29457,7 @@
 /area/mainship/engineering/engine_core)
 "rAe" = (
 /obj/structure/closet/secure_closet/staff_officer,
+/obj/effect/spawner/random/weaponry/gun/sidearms,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "rAj" = (
@@ -31027,9 +31028,7 @@
 	},
 /area/mainship/hull/port_hull)
 "sxt" = (
-/obj/structure/closet/cabinet,
-/obj/item/weapon/gun/pistol/highpower,
-/obj/item/ammo_magazine/pistol/highpower,
+/obj/structure/filingcabinet,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "sxG" = (
@@ -33094,7 +33093,7 @@
 /area/mainship/hallways/port_hallway)
 "tQD" = (
 /obj/structure/rack,
-/obj/effect/spawner/random/medical/firstaid,
+/obj/effect/spawner/random/medical/firstaid/often,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "tQK" = (
@@ -77130,11 +77129,11 @@ wHG
 uZf
 lTG
 drH
-rAz
+sxt
 uZf
 lTG
 drH
-rAz
+sxt
 uZf
 qkj
 vMx
@@ -77387,11 +77386,11 @@ xMZ
 uZf
 ahQ
 rzM
-sxt
+rAz
 uZf
 ahQ
 rzM
-sxt
+rAz
 uZf
 xHt
 oHZ
@@ -79186,11 +79185,11 @@ kmJ
 uZf
 kdc
 rzM
-rAz
+sxt
 uZf
 kdc
 rzM
-rAz
+sxt
 uZf
 uJJ
 oAl
@@ -79443,11 +79442,11 @@ xMZ
 uZf
 ahQ
 rzM
-sxt
+rAz
 uZf
 ahQ
 rzM
-sxt
+rAz
 uZf
 xHt
 oHZ
