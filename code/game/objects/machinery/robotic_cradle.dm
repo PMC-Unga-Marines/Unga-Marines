@@ -120,7 +120,7 @@
 		return FALSE
 	var/mob/living/carbon/human/patient = target_mob
 	if(!(patient.species.species_flags & ROBOTIC_LIMBS))
-		visible_message(span_warning("[src] buzzes. Subject is biological, cannot repair"))
+		visible_message(span_warning("[src] buzzes. Subject is biological, cannot repair."))
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return FALSE
 	if(patient.abiotic())
@@ -138,7 +138,7 @@
 		operating_mob.visible_message(span_notice("[operating_mob] starts placing [patient] \the [src]."),
 		span_notice("You start placing [patient] into \the [src]."))
 
-	if(!do_after(patient, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_GENERIC))
+	if(!do_after(operating_mob, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_GENERIC))
 		return FALSE
 	if(occupant) //In case someone tried climbing in earlier than us, while the cradle was empty
 		to_chat(operating_mob, span_notice("[src] is already occupied!"))
