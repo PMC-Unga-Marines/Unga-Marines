@@ -307,7 +307,7 @@
 	if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTSOUND) || silent_crawl)
 		return
 	TIMER_COOLDOWN_START(user, COOLDOWN_VENTSOUND, 3 SECONDS)
-	playsound(src, pick('sound/effects/alien_ventcrawl1.ogg','sound/effects/alien_ventcrawl2.ogg'), 50, TRUE, -3)
+	playsound(src, pick('sound/effects/alien/ventcrawl1.ogg','sound/effects/alien/ventcrawl2.ogg'), 50, TRUE, -3)
 
 
 

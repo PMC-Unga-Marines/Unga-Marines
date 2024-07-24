@@ -772,5 +772,5 @@ RU TGMC EDIT*/
 /datum/action/ability/activable/xeno/warrior/punch/jab/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.balloon_alert(xeno_owner, "Jab ready")
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
