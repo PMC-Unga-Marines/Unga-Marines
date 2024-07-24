@@ -6276,6 +6276,9 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/command/self_destruct)
+"dBs" = (
+/turf/closed/wall/mainship/white,
+/area/mainship/hull/starboard_hull)
 "dBO" = (
 /obj/structure/largecrate/random/case/small,
 /obj/machinery/light/mainship{
@@ -10146,12 +10149,12 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
 "fOS" = (
-/obj/structure/rack,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = 8;
 	pixel_y = 24
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fPk" = (
@@ -11722,6 +11725,10 @@
 	},
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/engineering/port_atmos)
+"gYL" = (
+/obj/machinery/iv_drip/alt,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "gYO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -21459,12 +21466,10 @@
 /turf/open/floor/freezer,
 /area/mainship/squads/charlie)
 "mLK" = (
-/obj/machinery/computer/body_scanconsole/alt{
-	dir = 8
-	},
 /obj/machinery/firealarm{
 	dir = 1
 	},
+/obj/machinery/computer/body_scanconsole/alt,
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "mLS" = (
@@ -23301,6 +23306,15 @@
 /obj/effect/spawner/random/engineering/assemblies,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
+"nPc" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
+/obj/structure/cable,
+/obj/machinery/computer/body_scanconsole/alt,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "nPp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -27134,6 +27148,12 @@
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/red,
 /area/mainship/squads/alpha)
+"qcG" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/medical/firstaid,
+/obj/effect/spawner/random/medical/firstaid,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "qcL" = (
 /obj/effect/turf_decal/siding/metal/corner{
 	dir = 4
@@ -36340,8 +36360,8 @@
 "vSh" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/mainship,
-/obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/rack,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "vSo" = (
@@ -56488,9 +56508,9 @@ eHX
 hJk
 kGT
 lhv
-mZD
-mZD
-mZD
+dBs
+dBs
+dBs
 uwt
 yaW
 aRv
@@ -56746,8 +56766,8 @@ lwo
 tSK
 lhv
 wHQ
-uwt
-mZD
+gYL
+dBs
 uwt
 cZa
 uwt
@@ -57002,7 +57022,7 @@ atQ
 lwQ
 aKz
 lhv
-gNs
+qcG
 ukK
 vVC
 uwt
@@ -57261,7 +57281,7 @@ jFj
 lhv
 beg
 beg
-mZD
+dBs
 msZ
 dBb
 olQ
@@ -65985,7 +66005,7 @@ isf
 isf
 isf
 uFv
-vep
+uFv
 jGR
 dbl
 uFv
@@ -65995,7 +66015,7 @@ jlC
 uFv
 jGR
 kjm
-vep
+uFv
 uFv
 isf
 isf
@@ -66478,7 +66498,7 @@ olQ
 pKx
 olQ
 olQ
-olQ
+nPc
 pKx
 jHF
 mZD
