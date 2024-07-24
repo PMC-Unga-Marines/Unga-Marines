@@ -401,7 +401,7 @@
 					continue
 				hit_object(affected_object)
 	if(LinkBlocked(owner_turf, direct_turf))
-		playsound(direct_turf, 'sound/effects/behemoth/behemoth_stomp.ogg', 40, TRUE)
+		playsound(direct_turf, 'sound/effects/alien/behemoth/stomp.ogg', 40, TRUE)
 		xeno_owner.do_attack_animation(direct_turf)
 		addtimer(CALLBACK(src, PROC_REF(end_charge)), LANDSLIDE_ENDING_COLLISION_DELAY)
 		return
@@ -433,7 +433,7 @@
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	if(steps_to_take <= 0 || xeno_owner.wrath_stored < ability_cost)
 		if(LinkBlocked(owner_turf, direct_turf))
-			playsound(direct_turf, 'sound/effects/behemoth/behemoth_stomp.ogg', 40, TRUE)
+			playsound(direct_turf, 'sound/effects/alien/behemoth/stomp.ogg', 40, TRUE)
 			xeno_owner.do_attack_animation(direct_turf)
 		new /obj/effect/temp_visual/behemoth/crack/landslide(get_turf(owner), direction, pick(1, 2))
 		end_charge()
@@ -644,7 +644,7 @@
 	var/datum/action/ability/xeno_action/ready_charge/behemoth_roll/behemoth_roll_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/ready_charge/behemoth_roll]
 	if(behemoth_roll_action?.charge_ability_on)
 		behemoth_roll_action.charge_off()
-	playsound(target_turf, 'sound/effects/behemoth/behemoth_stomp.ogg', 30, TRUE)
+	playsound(target_turf, 'sound/effects/alien/behemoth/stomp.ogg', 30, TRUE)
 	new /obj/effect/temp_visual/behemoth/stomp/west(owner_turf, owner.dir)
 	new /obj/effect/temp_visual/behemoth/crack(owner_turf, owner.dir)
 	var/wind_up_duration = EARTH_RISER_WIND_UP
@@ -792,7 +792,7 @@ RU TGMC EDIT */
 	var/owner_turf = get_turf(xeno_owner)
 	new /obj/effect/temp_visual/behemoth/stomp/east(owner_turf, owner.dir)
 	new /obj/effect/temp_visual/behemoth/crack(owner_turf, owner.dir)
-	playsound(target_turf, 'sound/effects/behemoth/behemoth_stomp.ogg', 30, TRUE)
+	playsound(target_turf, 'sound/effects/alien/behemoth/stomp.ogg', 30, TRUE)
 	var/datum/action/ability/xeno_action/primal_wrath/primal_wrath_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/primal_wrath]
 	do_ability(target_turf, SEISMIC_FRACTURE_WIND_UP, primal_wrath_action?.ability_active? TRUE : FALSE)
 
@@ -1537,7 +1537,7 @@ RU TGMC EDIT */
 	var/warning_type = primal_wrath_action?.ability_active? /obj/effect/temp_visual/behemoth/warning/enhanced : /obj/effect/temp_visual/behemoth/warning
 	for(var/turf/target_turf AS in target_turfs)
 		new warning_type(target_turf, duration)
-		playsound(target_turf, 'sound/effects/behemoth/behemoth_rumble.ogg', 15, TRUE)
+		playsound(target_turf, 'sound/effects/alien/behemoth/rumble.ogg', 15, TRUE)
 		for(var/mob/living/target_living in target_turf)
 			if(xeno_owner.issamexenohive(target_living) || target_living.stat == DEAD || CHECK_BITFIELD(target_living.status_flags, INCORPOREAL|GODMODE))
 				continue
