@@ -3851,9 +3851,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
-"cgt" = (
-/turf/closed/wall/mainship/outer/alt,
-/area/mainship/shipboard/firing_range)
 "cgu" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -17475,9 +17472,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
-"kDY" = (
-/turf/closed/wall/mainship/outer/alt,
-/area/mainship/shipboard/ex_firing_range)
 "kEg" = (
 /obj/machinery/floor_warn_light/self_destruct,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -18402,9 +18396,6 @@
 /obj/item/namaz,
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
-"lfr" = (
-/turf/closed/wall/mainship/outer/alt,
-/area/mainship/squads/req)
 "lfB" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
@@ -22083,12 +22074,6 @@
 /obj/machinery/camera/autoname/alt,
 /turf/open/floor/carpet,
 /area/mainship/squads/delta)
-"ndQ" = (
-/obj/effect/turf_decal/woodsiding{
-	dir = 5
-	},
-/turf/closed/wall/mainship/alt,
-/area/mainship/living/commandbunks)
 "ndY" = (
 /obj/structure/bed/chair/wood{
 	dir = 8
@@ -28623,9 +28608,6 @@
 	dir = 8
 	},
 /area/mainship/medical/medical_science)
-"qVI" = (
-/turf/closed/wall/mainship/outer/alt,
-/area/mainship/engineering/port_atmos)
 "qVK" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/orange{
@@ -63020,11 +63002,11 @@ neu
 neu
 ooO
 abt
-abt
-abt
-abt
-abt
-abt
+xWR
+xWR
+xWR
+xWR
+xWR
 iDP
 xlz
 ctr
@@ -64752,10 +64734,10 @@ per
 ppC
 nsf
 pQo
-jFh
-jFh
-jFh
-jFh
+apK
+apK
+apK
+apK
 jFh
 dnv
 dnv
@@ -64845,7 +64827,7 @@ vis
 vis
 vis
 vis
-xVX
+vis
 vis
 vis
 vis
@@ -65009,7 +64991,7 @@ xgx
 qir
 pMG
 sKW
-jFh
+apK
 oZP
 iKI
 eDe
@@ -65266,7 +65248,7 @@ apK
 apK
 nBs
 pQZ
-jFh
+apK
 spJ
 eJU
 wnT
@@ -65523,7 +65505,7 @@ xqN
 oio
 iaX
 vmR
-xFv
+wnT
 qwP
 qwP
 qwP
@@ -66037,7 +66019,7 @@ lrp
 tLw
 tLw
 pVF
-xFv
+wnT
 rmr
 wbu
 iKI
@@ -68682,9 +68664,9 @@ qkI
 xzH
 dMM
 xOs
-pou
+xOs
 tTQ
-pou
+xOs
 xVF
 toB
 xVF
@@ -70078,9 +70060,9 @@ neu
 neu
 tYf
 ayE
-iwc
-iwc
-iwc
+ayE
+ayE
+ayE
 ayE
 iwc
 iwc
@@ -70236,15 +70218,15 @@ oLy
 adr
 sEq
 yjt
-pou
+xOs
 gQy
-pou
+xOs
 xGL
 tdL
 srP
 dDn
 uNE
-ndQ
+uNE
 uNE
 uNE
 wDe
@@ -71251,11 +71233,11 @@ xlL
 tdL
 xzH
 tQK
-xBV
-xBV
+tQK
+tQK
 gjj
-xBV
-xBV
+tQK
+tQK
 tQK
 yjt
 yjt
@@ -71272,7 +71254,7 @@ xOs
 meW
 cHM
 fdM
-pou
+xOs
 pgj
 pgj
 dDn
@@ -71529,7 +71511,7 @@ xOs
 xOs
 xOs
 xOs
-pou
+xOs
 pgj
 xTR
 pDb
@@ -71786,7 +71768,7 @@ xOs
 uNB
 fgN
 qpX
-pou
+xOs
 pgj
 pgj
 owA
@@ -72043,8 +72025,8 @@ xOs
 oqy
 qpX
 gsB
-pou
-pou
+xOs
+xOs
 pou
 kUr
 kUr
@@ -72201,7 +72183,7 @@ pQT
 pQT
 oiM
 pQT
-lfr
+pQT
 qQY
 qwP
 qwP
@@ -72715,7 +72697,7 @@ qwP
 qwP
 lKi
 qwP
-xFv
+wnT
 pHO
 qwP
 qwP
@@ -72968,7 +72950,7 @@ pdB
 tQD
 qwP
 xDh
-xFv
+wnT
 rgx
 huS
 iUO
@@ -73941,16 +73923,16 @@ aRv
 mZD
 obN
 iwc
-ayE
-ayE
+iwc
+iwc
 snK
-ayE
-ayE
-ayE
-ayE
-ayE
-ayE
-ayE
+iwc
+iwc
+iwc
+iwc
+iwc
+iwc
+iwc
 iwc
 iwc
 iwc
@@ -74198,7 +74180,7 @@ aRv
 hud
 cZa
 coA
-cgt
+abW
 cEO
 dVZ
 cVt
@@ -74455,10 +74437,10 @@ aRv
 vdx
 dBb
 jHF
-cgt
+abW
 oMU
 woW
-cgt
+abW
 imB
 vzT
 jFF
@@ -74712,7 +74694,7 @@ aRv
 wzp
 xjk
 yaW
-cgt
+abW
 upP
 tOf
 jNN
@@ -74969,7 +74951,7 @@ aRv
 wOK
 uwt
 cZa
-cgt
+abW
 caa
 lQL
 vGP
@@ -75226,7 +75208,7 @@ aRv
 mZD
 mZD
 cZa
-cgt
+abW
 jSR
 aze
 sKA
@@ -75483,7 +75465,7 @@ aRv
 xWV
 eqY
 rqC
-cgt
+abW
 yhy
 aze
 aze
@@ -75740,7 +75722,7 @@ aRv
 cZa
 rLf
 fIL
-cgt
+abW
 ihI
 jNN
 def
@@ -75997,15 +75979,15 @@ aRv
 yaW
 uwt
 mZD
-cgt
+abW
 kly
 kly
 kly
-cgt
+abW
 kly
 kly
 kly
-cgt
+abW
 kly
 kly
 kly
@@ -79639,7 +79621,7 @@ tCv
 teP
 teP
 qqB
-kDY
+uFR
 asR
 nzx
 iHE
@@ -80410,7 +80392,7 @@ rpu
 nMR
 rSo
 nKA
-kDY
+uFR
 rZU
 nzx
 nmQ
@@ -80667,7 +80649,7 @@ mrV
 gSL
 lpz
 nKA
-kDY
+uFR
 chK
 nzx
 xYJ
@@ -80924,7 +80906,7 @@ nKJ
 eQp
 eZi
 mES
-kDY
+uFR
 guL
 pKy
 guL
@@ -88081,12 +88063,12 @@ aRv
 aRv
 aRv
 xBV
-xBV
-xBV
+tQK
+tQK
 gjj
-xBV
-xBV
-xBV
+tQK
+tQK
+tQK
 pqW
 xjk
 rLf
@@ -88343,7 +88325,7 @@ uNK
 kmc
 uNK
 uNK
-xBV
+tQK
 pqW
 vky
 bXn
@@ -89895,9 +89877,9 @@ dpE
 mMn
 mMn
 hYF
-qVI
-qVI
-qVI
+opF
+opF
+opF
 opF
 vEt
 dyg
@@ -90152,7 +90134,7 @@ svj
 mMn
 mMn
 ilu
-aRv
+mZD
 vdx
 vDy
 qte
@@ -90409,7 +90391,7 @@ dpE
 vTV
 mMn
 bxY
-aRv
+mZD
 wzp
 cZa
 mZD
@@ -90666,7 +90648,7 @@ dpE
 mMn
 mMn
 jCB
-aRv
+mZD
 vdx
 rsL
 mZD
@@ -90923,7 +90905,7 @@ vdV
 qfu
 fTC
 lsC
-aRv
+mZD
 vOB
 cZa
 mZD
@@ -91175,12 +91157,12 @@ iiD
 orG
 fnQ
 uwt
-qVI
+opF
 opF
 rtY
 wvP
 lwi
-aRv
+mZD
 xjk
 cZa
 mZD
@@ -91437,7 +91419,7 @@ opF
 npR
 vjm
 vIB
-aRv
+mZD
 xRI
 rsL
 mZD
@@ -91694,7 +91676,7 @@ opF
 wXn
 gYI
 vjm
-aRv
+mZD
 gNs
 fgu
 eOV
@@ -91947,13 +91929,13 @@ nNw
 nNw
 kTK
 fdy
-qVI
-qVI
-qVI
-qVI
-aRv
-aRv
-aRv
+opF
+opF
+opF
+opF
+mZD
+mZD
+mZD
 qib
 aRv
 aRv
