@@ -317,7 +317,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if("behemoth_rolling")
 			S = 'sound/effects/alien/behemoth/roll.ogg'
 		if("behemoth_earth_pillar_hit")
-			S = pick('sound/effects/behemoth/earth_pillar_hit_1.ogg', 'sound/effects/behemoth/earth_pillar_hit_2.ogg', 'sound/effects/behemoth/earth_pillar_hit_3.ogg', 'sound/effects/behemoth/earth_pillar_hit_4.ogg', 'sound/effects/behemoth/earth_pillar_hit_5.ogg', 'sound/effects/behemoth/earth_pillar_hit_6.ogg')
+			S = pick('sound/effects/alien/behemoth/earth_pillar_hit_1.ogg', 'sound/effects/alien/behemoth/earth_pillar_hit_2.ogg', 'sound/effects/alien/behemoth/earth_pillar_hit_3.ogg', 'sound/effects/alien/behemoth/earth_pillar_hit_4.ogg', 'sound/effects/alien/behemoth/earth_pillar_hit_5.ogg', 'sound/effects/alien/behemoth/earth_pillar_hit_6.ogg')
 
 		// Human
 		if("male_scream")

@@ -58,7 +58,7 @@
 	. = ..()
 	if(isxenobehemoth(xeno_user))
 		xeno_user.do_attack_animation(src)
-		playsound(src, 'sound/effects/behemoth/earth_pillar_eating.ogg', 10, TRUE)
+		playsound(src, 'sound/effects/alien/behemoth/earth_pillar_eating.ogg', 10, TRUE)
 		xeno_user.visible_message(span_xenowarning("\The [xeno_user] eats away at the [src.name]!"), \
 		span_xenonotice(pick(
 			"We eat away at the stone. It tastes good, as expected of our primary diet.",
