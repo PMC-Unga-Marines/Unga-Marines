@@ -90,7 +90,7 @@
 	ability_cost = 80
 
 	var/freeze_duration = 1.5 SECONDS
-	var/smash_sounds = list('sound/effects/alien/footstep_charge1.ogg', 'sound/effects/alien/footstep_charge2.ogg', 'sound/effects/alien/footstep_charge3.ogg')
+	var/smash_sounds = list('sound/effects/footstep/alien/charge1.ogg', 'sound/effects/footstep/alien/charge2.ogg', 'sound/effects/footstep/alien/charge3.ogg')
 
 /datum/action/ability/activable/xeno/smash/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
