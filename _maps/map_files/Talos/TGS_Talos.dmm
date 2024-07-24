@@ -1446,7 +1446,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aHm" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
@@ -1937,7 +1937,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "beg" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "ben" = (
@@ -4630,7 +4630,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/squads/bravo)
 "cEs" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
@@ -6175,7 +6175,7 @@
 /turf/open/floor/mainship/emerald,
 /area/mainship/squads/charlie)
 "dyM" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "dyN" = (
@@ -6347,7 +6347,7 @@
 /area/mainship/command/self_destruct)
 "dDk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "dDn" = (
@@ -9858,7 +9858,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/chemistry)
 "fDi" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
@@ -10286,7 +10286,7 @@
 /area/mainship/living/port_emb)
 "fTt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "fTC" = (
@@ -13668,7 +13668,7 @@
 	},
 /area/mainship/hallways/hangar)
 "ipU" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
 	pixel_y = 24
@@ -14279,7 +14279,7 @@
 	},
 /area/mainship/medical/lounge)
 "iKI" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "iKN" = (
@@ -15633,7 +15633,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "jAa" = (
-/obj/structure/largecrate/random/barrel/red,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "jAc" = (
@@ -18556,7 +18556,7 @@
 /turf/open/floor/grass,
 /area/mainship/hallways/aft_hallway)
 "ljL" = (
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "ljT" = (
@@ -19919,7 +19919,7 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/aft_hallway)
 "lQL" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 10
 	},
@@ -19964,7 +19964,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "lRA" = (
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "lRD" = (
@@ -21585,7 +21585,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "mOH" = (
-/obj/structure/largecrate/random/barrel/red,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "mOV" = (
@@ -21893,7 +21893,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/ex_firing_range)
 "mWG" = (
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/cobweb{
 	dir = 8
 	},
@@ -22175,7 +22175,7 @@
 /area/mainship/hallways/aft_hallway)
 "ngb" = (
 /obj/effect/ai_node,
-/obj/structure/largecrate/random/barrel/red,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "ngm" = (
@@ -23225,7 +23225,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "nNG" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/light/mainship/small,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
@@ -24931,7 +24931,7 @@
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "oNg" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
 	},
@@ -26710,7 +26710,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "pOX" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engine_core)
 "pPb" = (
@@ -28320,7 +28320,7 @@
 /area/mainship/command/cic)
 "qKc" = (
 /obj/structure/cable,
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "qKo" = (
@@ -28726,7 +28726,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "qYp" = (
@@ -28800,7 +28800,7 @@
 /area/mainship/hull/port_hull)
 "raR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/prison/bright_clean,
 /area/mainship/hallways/hangar/droppod)
 "raV" = (
@@ -29777,7 +29777,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "rIm" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -30025,7 +30025,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/living/numbertwobunks)
 "rQd" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "rQk" = (
@@ -30974,7 +30974,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "ssW" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/camera/autoname/alt{
 	dir = 1
 	},
@@ -31592,7 +31592,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "sNc" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
@@ -32228,7 +32228,7 @@
 	},
 /area/mainship/medical/lounge)
 "tjh" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/light/mainship/small{
 	dir = 4
 	},
@@ -33392,7 +33392,7 @@
 /area/mainship/living/cafeteria)
 "tZm" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "tZo" = (
@@ -33490,7 +33490,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "udl" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "udt" = (
@@ -36666,7 +36666,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "waN" = (
@@ -37629,7 +37629,7 @@
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "wHQ" = (
-/obj/structure/largecrate/random/barrel/yellow,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "wJC" = (
@@ -38263,7 +38263,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "xbm" = (
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/machinery/camera/autoname/alt{
 	dir = 8
 	},
@@ -38843,7 +38843,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "xwf" = (
-/obj/structure/largecrate/random/barrel/green,
+/obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "xwh" = (
@@ -39026,7 +39026,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "xBd" = (
-/obj/structure/largecrate/random/barrel/white,
+/obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/metal/full,
