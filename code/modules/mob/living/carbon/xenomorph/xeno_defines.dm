@@ -186,7 +186,7 @@
 	///Cooldown multiplier of Blink when used on friendlies
 	var/blink_drag_friendly_multiplier = 0
 	///Base range of Blink
-	var/blink_range = -0
+	var/blink_range = 0
 
 	///the 'abilities' available to a caste.
 	var/list/actions

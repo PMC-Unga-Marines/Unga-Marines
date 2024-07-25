@@ -720,6 +720,11 @@ RU TGMC EDIT */
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
 
+// Chimera defines
+//Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
+#define CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS
+#define CHIMERA_TELEPORT_DEBUFF_SLOWDOWN_STACKS 3
+
 //misc
 
 #define STANDARD_SLOWDOWN_REGEN 0.3

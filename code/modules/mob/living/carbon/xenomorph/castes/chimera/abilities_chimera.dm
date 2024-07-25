@@ -43,7 +43,6 @@
 			to_chat(owner, span_xenowarning("We cannot blink here!"))
 		return FALSE
 
-
 	return TRUE
 
 ///Check for whether the target turf has dense objects inside
@@ -135,8 +134,8 @@
 			if(X.issamexenohive(ghost)) //No friendly fire
 				continue
 
-		living_target.adjust_stagger(2 SECONDS)
-		living_target.add_slowdown(3)
+		living_target.adjust_stagger(CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS)
+		living_target.add_slowdown(CHIMERA_TELEPORT_DEBUFF_SLOWDOWN_STACKS)
 		to_chat(living_target, span_warning("You feel nauseous as reality warps around you!"))
 
 /datum/action/ability/activable/xeno/blink/on_cooldown_finish()
