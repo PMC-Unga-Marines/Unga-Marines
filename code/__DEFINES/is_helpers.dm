@@ -111,8 +111,6 @@
 #define isxenodefiler(A) (istype(A, /mob/living/carbon/xenomorph/defiler))
 #define isxenobull(A) (istype(A, /mob/living/carbon/xenomorph/bull))
 #define isxenohivemind(A) (istype(A, /mob/living/carbon/xenomorph/hivemind))
-#define isxenowraith(A) (istype(A, /mob/living/carbon/xenomorph/wraith))
-//#define isxenowidow(A) (istype(A, /mob/living/carbon/xenomorph/widow)) //RUTGMC DELETION, WIDOW DELETION
 #define isxenowarlock(A) (istype(A, /mob/living/carbon/xenomorph/warlock))
 #define isxenoking(A) (istype(A, /mob/living/carbon/xenomorph/king))
 #define isxenobehemoth(A) (istype(A, /mob/living/carbon/xenomorph/behemoth))
