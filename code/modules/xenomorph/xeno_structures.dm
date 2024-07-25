@@ -289,7 +289,7 @@ TUNNEL
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
-	resistance_flags = UNACIDABLE|BANISH_IMMUNE
+	resistance_flags = UNACIDABLE
 	layer = RESIN_STRUCTURE_LAYER
 
 	max_integrity = 140
@@ -907,7 +907,7 @@ TUNNEL
 	max_integrity = 1500
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE |PORTAL_IMMUNE
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|HAS_OVERLAY
 	allow_pass_flags = PASS_AIR|PASS_THROW
 	///What kind of spit it uses

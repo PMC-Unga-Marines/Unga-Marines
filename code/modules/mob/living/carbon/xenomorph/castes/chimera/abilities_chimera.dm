@@ -61,7 +61,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/turf/T = X.loc
 	var/turf/temp_turf = X.loc
-	var/check_distance = min(X.xeno_caste.wraith_blink_range, get_dist(X,A))
+	var/check_distance = min(X.xeno_caste.blink_range, get_dist(X,A))
 	var/list/fully_legal_turfs = list()
 
 	for (var/x = 1 to check_distance)
@@ -86,11 +86,11 @@
 	if(pulled_target) //bring the pulled target with us if applicable but at the cost of sharply increasing the next cooldown
 
 		if(pulled_target.issamexenohive(X))
-			cooldown_mod = X.xeno_caste.wraith_blink_drag_friendly_multiplier
+			cooldown_mod = X.xeno_caste.blink_drag_friendly_multiplier
 		else
 			if(!do_after(owner, 0.5 SECONDS, NONE, owner, BUSY_ICON_HOSTILE)) //Grap-porting hostiles has a slight wind up
 				return fail_activate()
-			cooldown_mod = X.xeno_caste.wraith_blink_drag_nonfriendly_living_multiplier
+			cooldown_mod = X.xeno_caste.blink_drag_nonfriendly_living_multiplier
 			if(ishuman(pulled_target))
 				var/mob/living/carbon/human/H = pulled_target
 				if(H.stat == UNCONSCIOUS) //Apply critdrag damage as if they were quickly pulled the same distance
@@ -111,8 +111,8 @@
 	succeed_activate()
 	add_cooldown(cooldown_duration * cooldown_mod)
 
-	GLOB.round_statistics.wraith_blinks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "wraith_blinks") //Statistics
+	GLOB.round_statistics.chimera_blinks++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "chimera_blinks") //Statistics
 
 ///Called by many of the Wraith's teleportation effects
 /datum/action/ability/activable/xeno/proc/teleport_debuff_aoe(atom/movable/teleporter, silent = FALSE)
@@ -135,8 +135,8 @@
 			if(X.issamexenohive(ghost)) //No friendly fire
 				continue
 
-		living_target.adjust_stagger(WRAITH_TELEPORT_DEBUFF_STAGGER_STACKS)
-		living_target.add_slowdown(WRAITH_TELEPORT_DEBUFF_SLOWDOWN_STACKS)
+		living_target.adjust_stagger(2 SECONDS)
+		living_target.add_slowdown(3)
 		to_chat(living_target, span_warning("You feel nauseous as reality warps around you!"))
 
 /datum/action/ability/activable/xeno/blink/on_cooldown_finish()
