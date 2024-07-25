@@ -25,9 +25,6 @@
 	// *** Health *** //
 	max_health = 325
 
-	// *** Evolution *** //
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
-
 	deevolves_to = /mob/living/carbon/xenomorph/spitter
 
 	// *** Darksight *** ///
