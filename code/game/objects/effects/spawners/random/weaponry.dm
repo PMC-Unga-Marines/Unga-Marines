@@ -88,7 +88,7 @@
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/rifle/garand,
 		/obj/item/weapon/gun/rifle/mpi_km,
-		/obj/item/weapon/gun/rifle/m16
+		/obj/item/weapon/gun/rifle/m16,
 		/obj/item/weapon/gun/rifle/sniper/svd,
 		/obj/item/weapon/gun/rifle/m412,
 		/obj/item/weapon/gun/rifle/m41a,
