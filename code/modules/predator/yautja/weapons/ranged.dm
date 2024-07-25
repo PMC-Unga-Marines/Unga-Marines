@@ -461,20 +461,15 @@
 /atom/proc/can_apply_pred_laser()
 	return FALSE
 
-/mob/living/carbon/human/can_apply_pred_laser()
+/mob/living/carbon/can_apply_pred_laser()
 	if(!overlays_standing[PRED_LASER_LAYER])
-		return TRUE
-	return FALSE
-
-/mob/living/carbon/xenomorph/can_apply_pred_laser()
-	if(!overlays_standing[X_PRED_LASER_LAYER])
 		return TRUE
 	return FALSE
 
 /atom/proc/apply_pred_laser()
 	return FALSE
 
-/mob/living/carbon/human/apply_pred_laser()
+/mob/living/carbon/apply_pred_laser()
 	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -PRED_LASER_LAYER)
 	apply_overlay(PRED_LASER_LAYER)
 	spawn(2 SECONDS)
@@ -484,25 +479,11 @@
 			apply_overlay(PRED_LASER_LAYER)
 	return TRUE
 
-/mob/living/carbon/xenomorph/apply_pred_laser()
-	overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -X_PRED_LASER_LAYER)
-	apply_overlay(X_PRED_LASER_LAYER)
-	spawn(2 SECONDS)
-		if(overlays_standing[X_PRED_LASER_LAYER])
-			remove_overlay(X_PRED_LASER_LAYER)
-			overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -X_PRED_LASER_LAYER)
-			apply_overlay(X_PRED_LASER_LAYER)
-	return TRUE
-
 /atom/proc/remove_pred_laser()
 	return FALSE
 
-/mob/living/carbon/human/remove_pred_laser()
+/mob/living/carbon/remove_pred_laser()
 	remove_overlay(PRED_LASER_LAYER)
-	return TRUE
-
-/mob/living/carbon/xenomorph/remove_pred_laser()
-	remove_overlay(X_PRED_LASER_LAYER)
 	return TRUE
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/process()
