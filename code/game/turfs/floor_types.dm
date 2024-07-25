@@ -143,6 +143,9 @@
 /turf/open/floor/mainship/office
 	icon_state = "office_tile"
 
+/turf/open/floor/mainship/rubber
+	icon_state = "carpet_rubber"
+
 /turf/open/floor/mainship/ntlogo
 	icon_state = "nt1"
 
@@ -941,9 +944,6 @@
 
 /turf/open/floor/carpet/side
 	icon_state = "carpetside"
-
-/turf/open/floor/carpet/rubber
-	icon_state = "carpet_rubber"
 
 // Start Prison tiles
 
