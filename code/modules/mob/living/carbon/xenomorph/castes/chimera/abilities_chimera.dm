@@ -113,7 +113,7 @@
 	GLOB.round_statistics.chimera_blinks++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "chimera_blinks") //Statistics
 
-///Called by many of the Wraith's teleportation effects
+///Called by many of the Chimera's teleportation effects
 /datum/action/ability/activable/xeno/proc/teleport_debuff_aoe(atom/movable/teleporter, silent = FALSE)
 	var/mob/living/carbon/xenomorph/ghost = owner
 
