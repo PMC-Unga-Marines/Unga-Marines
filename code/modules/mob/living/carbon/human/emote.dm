@@ -373,12 +373,12 @@
 /datum/emote/living/carbon/human/laugh/get_sound(mob/living/user)
 //RUTGMC EDIT
 	if(isyautja(user))
-		return pick('sound/voice/pred_laugh1.ogg', 'sound/voice/pred_laugh2.ogg', 'sound/voice/pred_laugh3.ogg', 'sound/voice/pred_laugh4.ogg')
+		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 //RUTGMC EDIT
 	else if(user.gender == FEMALE)
-		return 'sound/voice/human_female_laugh_1.ogg'
+		return 'sound/voice/human/female/laugh_1.ogg'
 	else
-		return pick('sound/voice/human_male_laugh_1.ogg', 'sound/voice/human_male_laugh_2.ogg')
+		return pick('sound/voice/human/male/laugh_1.ogg', 'sound/voice/human/male/laugh_2.ogg')
 
 /datum/emote/living/carbon/human/warcry
 	key = "warcry"
@@ -491,11 +491,11 @@
 /datum/emote/living/carbon/human/medic/get_sound(mob/living/carbon/human/user)
 	if(user.gender == MALE)
 		if(prob(95))
-			return 'sound/voice/human_male_medic.ogg'
+			return 'sound/voice/human/male/medic.ogg'
 		else
-			return 'sound/voice/human_male_medic2.ogg'
+			return 'sound/voice/human/male/medic2.ogg'
 	else
-		return 'sound/voice/human_female_medic.ogg'
+		return 'sound/voice/human/female/medic.ogg'
 
 
 /datum/emote/living/carbon/human/medic/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
@@ -590,9 +590,9 @@
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_sigh_1.ogg'
+		return 'sound/voice/human/female/sigh_1.ogg'
 	else
-		return 'sound/voice/human_male_sigh_1.ogg'
+		return 'sound/voice/human/male/sigh_1.ogg'
 
 
 /datum/emote/living/carbon/human/giggle/get_sound(mob/living/user)
@@ -602,36 +602,36 @@
 		else
 			return 'sound/voice/robotic/male_giggle.ogg'
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_giggle_1.ogg'
+		return 'sound/voice/human/female/giggle_1.ogg'
 	else
-		return 'sound/voice/human_male_giggle_1.ogg'
+		return 'sound/voice/human/male/giggle_1.ogg'
 
 
 /datum/emote/living/carbon/human/yawn/get_sound(mob/living/user)
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_yawn_1.ogg'
+		return 'sound/voice/human/female/yawn_1.ogg'
 	else
-		return 'sound/voice/human_male_yawn_1.ogg'
+		return 'sound/voice/human/male/yawn_1.ogg'
 
 
 /datum/emote/living/carbon/human/moan/get_sound(mob/living/user)
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_moan_1.ogg'
+		return 'sound/voice/human/female/moan_1.ogg'
 	else
-		return 'sound/voice/human_male_moan_1.ogg'
+		return 'sound/voice/human/male/moan_1.ogg'
 
 
 /datum/emote/living/carbon/human/cry/get_sound(mob/living/user)
 	if(isrobot(user))
 		return
 	if(user.gender == FEMALE)
-		return 'sound/voice/human_female_cry_1.ogg'
+		return 'sound/voice/human/female/cry_1.ogg'
 	else
-		return 'sound/voice/human_male_cry_1.ogg'
+		return 'sound/voice/human/male/cry_1.ogg'
 
 /datum/emote/living/carbon/human/laugh/get_sound(mob/living/user)
 	if(isrobot(user))
@@ -661,7 +661,7 @@
 /datum/emote/living/carbon/human/whistle/get_sound(mob/living/user)
 	if(isrobot(user))
 		return
-	return 'sound/voice/sound_voice_human_whistle1.ogg'
+	return 'sound/voice/human/whistle1.ogg'
 
 /datum/emote/living/carbon/human/crack
 	key = "crack"

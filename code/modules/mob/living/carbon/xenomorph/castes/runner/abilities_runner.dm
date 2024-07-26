@@ -61,7 +61,7 @@
 	if(COOLDOWN_CHECK(src, savage_cooldown))
 		button.cut_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
 		owner.balloon_alert(owner, "Savage ready")
-		owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+		owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		return
 	button.cut_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
@@ -101,7 +101,7 @@
 /datum/action/ability/xeno_action/evasion/on_cooldown_finish()
 	. = ..()
 	owner.balloon_alert(owner, "Evasion ready")
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 
 /datum/action/ability/xeno_action/evasion/can_use_action(silent = FALSE, override_flags)
 	. = ..()
@@ -195,7 +195,7 @@
 	evasion_stacks = 0
 	evasion_duration = 0
 	owner.balloon_alert(owner, "Evasion ended")
-	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50)
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
 
@@ -245,7 +245,7 @@
 		if(auto_evasion && xeno_owner.plasma_stored >= ability_cost)
 			action_activate()
 	var/turf/current_turf = get_turf(xeno_owner) //location of after image SFX
-	playsound(current_turf, pick('sound/effects/throw.ogg','sound/effects/alien_tail_swipe1.ogg', 'sound/effects/alien_tail_swipe2.ogg'), 25, 1) //sound effects
+	playsound(current_turf, pick('sound/effects/throw.ogg','sound/effects/alien/tail_swipe1.ogg', 'sound/effects/alien/tail_swipe2.ogg'), 25, 1) //sound effects
 	var/obj/effect/temp_visual/xenomorph/afterimage/after_image
 	for(var/i=0 to 2) //number of after images
 		after_image = new /obj/effect/temp_visual/xenomorph/afterimage(current_turf, owner) //Create the after image.
@@ -329,7 +329,7 @@
 	if(!stolen_item)
 		victim.balloon_alert(owner, "Snatch failed, no item")
 		return fail_activate()
-	playsound(owner, 'sound/voice/alien_pounce2.ogg', 30)
+	playsound(owner, 'sound/voice/alien/pounce2.ogg', 30)
 	victim.dropItemToGround(stolen_item, TRUE)
 	stolen_item.forceMove(owner)
 	stolen_appearance = mutable_appearance(stolen_item.icon, stolen_item.icon_state)
@@ -382,6 +382,6 @@
 	stolen_item.forceMove(get_turf(owner))
 	stolen_item = null
 	owner.overlays -= stolen_appearance
-	playsound(owner, 'sound/voice/alien_pounce2.ogg', 30, frequency = -1)
+	playsound(owner, 'sound/voice/alien/pounce2.ogg', 30, frequency = -1)
 	UnregisterSignal(owner, COMSIG_ATOM_DIR_CHANGE)
 
