@@ -33,7 +33,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LONG_RANGE_SIGHT,
 	)
-	use_state_flags = ABILITY_USE_ROOTED
 
 /datum/action/ability/xeno_action/toggle_long_range/action_activate()
 	var/mob/living/carbon/xenomorph/boiler/X = owner
@@ -170,7 +169,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	ability_cost = 150
 	cooldown_duration = 180 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY |ABILITY_IGNORE_SELECTED_ABILITY
-	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_ROOTED
+	use_state_flags = ABILITY_USE_STAGGERED
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_DUMP_ACID,
 	)
@@ -383,4 +382,3 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 // ***************************************
 /datum/action/ability/activable/xeno/spray_acid/line/boiler
 	cooldown_duration = 9 SECONDS
-	use_state_flags = ABILITY_USE_ROOTED

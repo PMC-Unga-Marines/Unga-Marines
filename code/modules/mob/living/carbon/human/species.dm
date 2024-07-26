@@ -744,7 +744,7 @@
 	preferences = list("moth_wings" = "Wings")
 
 	screams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	paincries = list("neuter" = 'sound/voice/human_male_pain_3.ogg')
+	paincries = list("neuter" = 'sound/voice/human/male/pain_3.ogg')
 	goredcries = list("neuter" = 'sound/voice/moth_scream.ogg')
 	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
 	warcries = list("neuter" = 'sound/voice/moth_scream.ogg')

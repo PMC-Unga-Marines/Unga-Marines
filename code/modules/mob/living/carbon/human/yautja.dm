@@ -33,7 +33,7 @@
 	max_stamina = 250
 	blood_color = "#20d450"
 	flesh_color = "#907E4A"
-	speech_sounds = list('sound/voice/pred_click1.ogg', 'sound/voice/pred_click2.ogg')
+	speech_sounds = list('sound/voice/predator/click1.ogg', 'sound/voice/predator/click2.ogg')
 	speech_chance = 100
 	death_message = "clicks in agony and falls still, motionless and completely lifeless..."
 
@@ -254,7 +254,7 @@ var/global/image/hud_icon_hunter_thralled
 
 /mob/living/carbon/human/species/yautja/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
 	. = ..()
-	playsound(loc, pick('sound/voice/pred_click1.ogg', 'sound/voice/pred_click2.ogg'), 25, 1)
+	playsound(loc, pick('sound/voice/predator/click1.ogg', 'sound/voice/predator/click2.ogg'), 25, 1)
 
 /mob/living/carbon/human/species/yautja/get_idcard(hand_first = TRUE)
 	. = ..()
