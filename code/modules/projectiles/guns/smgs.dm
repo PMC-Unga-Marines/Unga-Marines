@@ -125,14 +125,6 @@
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/standard_smg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/standard_smg)
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t90,
-		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t90,
-		slot_back_str = /datum/greyscale_config/worn_gun/t90,
-		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t90,
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,

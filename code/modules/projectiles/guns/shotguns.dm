@@ -686,8 +686,6 @@ RU TGMC EDIT */
 	cocked_sound = 		'sound/weapons/guns/shotgun/SH-35/SH35_pump.ogg'
 	opened_sound = 		'sound/weapons/guns/shotgun/SH-35/SH35_pump.ogg'
 	max_chamber_items = 8
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
