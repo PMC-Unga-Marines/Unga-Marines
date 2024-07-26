@@ -86,22 +86,6 @@
 	adjust_nutrition(-40)
 	adjustToxLoss(-3)
 
-/**
- * Expel the reagents you just tried to ingest
- *
- * When you try to ingest reagents but you do not have a stomach
- * you will spew the reagents on the floor.
- *
- * Vars:
- * * bite: /atom the reagents to expel
- * * amount: int The amount of reagent
- */
-/mob/living/carbon/proc/expel_ingested(atom/bite, amount)
-	visible_message(span_danger("[src] throws up all over [p_them()]self!"), span_userdanger("You are unable to keep the [bite] down without a stomach!"))
-
-	var/obj/effect/decal/cleanable/vomit/spew = new(get_turf(src))
-	bite.reagents.trans_to(spew, amount)
-
 /mob/living/carbon/human/adjust_ear_damage(damage = 0, deaf = 0)
 	if(isspeciessynthetic(src))
 		return

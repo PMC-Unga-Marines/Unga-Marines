@@ -177,7 +177,7 @@ transfer_to_stomach = FALSE
 			if(belly.organ_status == ORGAN_BROKEN)
 				var/expel_amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
 				if(expel_amount > 0 )
-					eater.expel_ingested(my_atom, expel_amount)
+					eater.vomit()
 				return
 			R = belly.reagents
 			//target_atom = belly
