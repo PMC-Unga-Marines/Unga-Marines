@@ -35,12 +35,10 @@ SUBSYSTEM_DEF(points)
 /datum/controller/subsystem/points
 	///Assoc list of personal supply points
 	var/personal_supply_points = list()
-	///Personal supply points gain modifier
-	var/psp_multiplier = 0.075
 	///Personal supply points limit
 	var/psp_limit = 600
-	///Var used to calculate points difference between updates
-	var/supply_points_old = 0
+	///Personal supply points base gain per update
+	var/psp_base_gain = 5 //per minute
 	///Used to delay fast delivery and for animation
 	var/fast_delivery_is_active = TRUE
 	///Reference to the balloon vis obj effect
@@ -63,6 +61,8 @@ SUBSYSTEM_DEF(points)
 
 /datum/controller/subsystem/points/Initialize()
 	ordernum = rand(1, 9000)
+	balloon = new()
+	holder_obj = new()
 	return SS_INIT_SUCCESS
 
 /// Prepare the global supply pack list at the gamemode start
@@ -97,8 +97,7 @@ SUBSYSTEM_DEF(points)
 	for(var/key in supply_points)
 		for(var/mob/living/account in GLOB.alive_human_list_faction[key])
 			if(account.job.title in GLOB.jobs_marines)
-				personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + max(supply_points[key] - supply_points_old, 0) * psp_multiplier, psp_limit)
-		supply_points_old = supply_points[key]
+				personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + (psp_base_gain / (1 MINUTES / wait)), psp_limit)
 
 /datum/controller/subsystem/points/proc/buy_using_psp(mob/living/user)
 	var/cost = 0
@@ -119,7 +118,7 @@ SUBSYSTEM_DEF(points)
 	personal_supply_points[user.ckey] -= cost
 	ckey_shopping_cart.Cut()
 
-/datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/O, mob/living/user)
+/datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/SO, mob/living/user)
 	//select beacon
 	var/datum/supply_beacon/supply_beacon = GLOB.supply_beacon[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", GLOB.supply_beacon)]
 	if(!istype(supply_beacon))
@@ -142,7 +141,7 @@ SUBSYSTEM_DEF(points)
 		return
 
 	//Just in case
-	if(!length_char(SSpoints.shoppinglist[O.faction]))
+	if(!length_char(SSpoints.shoppinglist[SO.faction]))
 		return
 
 	//Finally create the supply box
@@ -150,32 +149,24 @@ SUBSYSTEM_DEF(points)
 	var/turf/TC = locate(supply_beacon.drop_location.x, supply_beacon.drop_location.y, supply_beacon.drop_location.z)
 
 	//spawn crate and clear shoping list
-	delivery_to_turf(O, TC)
+	delivery_to_turf(SO, TC)
 
 	//effects
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
+	playsound(supply_beacon.drop_location,'sound/effects/tadpolehovering.ogg', 30, TRUE)
 
-/datum/controller/subsystem/points/proc/delivery_to_turf(datum/supply_order/O, turf/TC)
-	var/datum/supply_packs/firstpack = O.pack[1]
+/datum/controller/subsystem/points/proc/delivery_to_turf(datum/supply_order/SO, turf/TC)
+	var/datum/supply_packs/firstpack = SO.pack[1]
 
 	var/obj/structure/crate_type = firstpack.containertype || firstpack.contains[1]
 
 	var/obj/structure/A = new crate_type(null)
 	if(firstpack.containertype)
-		A.name = "Order #[O.id] for [O.orderer]"
-
-	//supply manifest generation begin
-
-	var/obj/item/paper/manifest/slip = new /obj/item/paper/manifest(A)
-	slip.info = "<h3>Automatic Storage Retrieval Manifest</h3><hr><br>"
-	slip.info +="Order #[O.id]<br>"
-	slip.info +="[length_char(O.pack)] PACKAGES IN THIS SHIPMENT<br>"
-	slip.info +="CONTENTS:<br><ul>"
-	slip.update_icon()
+		A.name = "Order #[SO.id] for [SO.orderer]"
 
 	var/list/contains = list()
 	//spawn the stuff, finish generating the manifest while you're at it
-	for(var/P in O.pack)
+	for(var/P in SO.pack)
 		var/datum/supply_packs/SP = P
 		// yes i know
 		if(SP.access)
@@ -194,18 +185,12 @@ SUBSYSTEM_DEF(points)
 			continue
 		if(!firstpack.containertype)
 			break
-		var/atom/B2 = new typepath(A)
-		slip.info += "<li>[B2.name]</li>" //add the item to the manifest
+		new typepath(A)
 
-	//manifest finalisation
-	slip.info += "</ul><br>"
-	slip.info += "CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>"
+	SSpoints.shoppinglist[SO.faction] -= "[SO.id]"
+	SSpoints.shopping_history += SO
 
-	SSpoints.shoppinglist[O.faction] -= "[O.id]"
-	SSpoints.shopping_history += O
-
-	balloon = new()
-	holder_obj = new()
+	//animate delivery
 
 	holder_obj.appearance = A.appearance
 	holder_obj.forceMove(TC)
@@ -213,13 +198,13 @@ SUBSYSTEM_DEF(points)
 	balloon.icon_state = initial(balloon.icon_state)
 	holder_obj.vis_contents += balloon
 
-	addtimer(CALLBACK(src, PROC_REF(end_fast_delivery), A, TC), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(end_fast_delivery), A, TC), 3 SECONDS)
 
 	flick("fulton_expand", balloon)
 	balloon.icon_state = "fulton_balloon"
 
 	holder_obj.pixel_z = 360
-	animate(holder_obj, 1 SECONDS, pixel_z = 0)
+	animate(holder_obj, 3 SECONDS, pixel_z = 0)
 
 /datum/controller/subsystem/points/proc/end_fast_delivery(atom/movable/A, turf/TC)
 	A.forceMove(TC)

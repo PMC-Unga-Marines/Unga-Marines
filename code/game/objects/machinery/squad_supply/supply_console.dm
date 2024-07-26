@@ -182,14 +182,14 @@
 	holder_obj = new()
 
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
-	playsound(supply_beacon.drop_location,'sound/effects/phasein.ogg', 50, TRUE)
+	playsound(supply_beacon.drop_location,'sound/effects/tadpolehovering.ogg', 30, TRUE)
 	playsound(supply_pad.loc,'sound/effects/phasein.ogg', 50, TRUE)
 	for(var/obj/C in supplies)
 		var/turf/TC = locate(supply_beacon.drop_location.x + x_offset, supply_beacon.drop_location.y + y_offset, supply_beacon.drop_location.z)
 		C.moveToNullspace()
 		holder_obj.appearance = C.appearance
 		holder_obj.forceMove(TC)
-		addtimer(CALLBACK(src, PROC_REF(cleanup_delivery), C, TC), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(cleanup_delivery), C, TC), 3 SECONDS)
 
 	supply_pad.visible_message("[icon2html(supply_pad, viewers(src))] [span_boldnotice("Supply drop teleported! Another launch will be available in [launch_cooldown/10] seconds.")]")
 
@@ -200,7 +200,7 @@
 	balloon.icon_state = "fulton_balloon"
 
 	holder_obj.pixel_z = 360
-	animate(holder_obj, 1 SECONDS, pixel_z = 0)
+	animate(holder_obj, 3 SECONDS, pixel_z = 0)
 
 /obj/machinery/computer/supplydrop_console/proc/cleanup_delivery(atom/movable/C, turf/TC)
 	C.forceMove(TC)

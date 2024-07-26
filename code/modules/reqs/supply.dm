@@ -418,6 +418,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	else
 		.["elevator"] = "MISSING!"
 	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
+	.["user_real_name"] = user.real_name
 
 /datum/supply_ui/proc/get_shopping_cart(mob/user)
 	return SSpoints.shopping_cart
@@ -566,6 +567,17 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			packs += SP.type
 			cost += SP.cost
 		.["approvedrequests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+	.["awaiting_delivery"] = list()
+	.["awaiting_delivery_orders"] = 0
+	for(var/key in SSpoints.shoppinglist[faction])
+		//only own orders
+		if(user.real_name == SO.orderer)
+			var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
+			.["awaiting_delivery_orders"]++
+			var/list/packs = list()
+			for(var/datum/supply_packs/SP AS in SO.pack)
+				packs += SP.type
+			.["awaiting_delivery"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "packs" = packs, "authed_by" = SO.authorised_by))
 	if(!SSpoints.request_shopping_cart[user.ckey])
 		SSpoints.request_shopping_cart[user.ckey] = list()
 	.["shopping_list_cost"] = 0
@@ -577,6 +589,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		.["shopping_list_cost"] += SP.cost * SSpoints.request_shopping_cart[user.ckey][SP.type]
 		.["shopping_list"][SP.type] = list("count" = SSpoints.request_shopping_cart[user.ckey][SP.type])
 	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
+	.["user_real_name"] = user.real_name
 
 /datum/supply_ui/requests/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

@@ -141,34 +141,32 @@ const Menu = (props, context) => {
         Personal Points: <AnimatedNumber value={personalpoints} />
       </Section>
       Points: <AnimatedNumber value={currentpoints} />
+      <Divider />
+      <Flex>
+        <Flex.Item grow={1}>
+          <MenuButton
+            icon="luggage-cart"
+            menuname="Awaiting Delivery"
+            condition={!awaiting_delivery_orders}
+          />
+        </Flex.Item>
+        <Flex.Item>
+          <AnimatedNumber value={awaiting_delivery_orders} /> order
+          {awaiting_delivery_orders !== 1 && 's'}
+        </Flex.Item>
+      </Flex>
       {!readOnly && (
-        <>
-          <Divider />
-          <Flex>
-            <Flex.Item grow={1}>
-              <MenuButton
-                icon="luggage-cart"
-                menuname="Awaiting Delivery"
-                condition={!awaiting_delivery_orders}
-              />
-            </Flex.Item>
-            <Flex.Item>
-              <AnimatedNumber value={awaiting_delivery_orders} /> order
-              {awaiting_delivery_orders !== 1 && 's'}
-            </Flex.Item>
-          </Flex>
-          <Flex>
-            <Flex.Item grow={1}>
-              <Button
-                onClick={() => act('send')}
-                disabled={!elev_status}
-                icon={'angle-double-' + elevator_dir}>
-                {elevator_dir === 'up' ? 'Raise' : 'Lower'}
-              </Button>
-            </Flex.Item>
-            <Flex.Item>Elevator: {elevator}</Flex.Item>
-          </Flex>
-        </>
+        <Flex>
+          <Flex.Item grow={1}>
+            <Button
+              onClick={() => act('send')}
+              disabled={!elev_status}
+              icon={'angle-double-' + elevator_dir}>
+              {elevator_dir === 'up' ? 'Raise' : 'Lower'}
+            </Button>
+          </Flex.Item>
+          <Flex.Item>Elevator: {elevator}</Flex.Item>
+        </Flex>
       )}
       <Divider />
       <Flex>
@@ -244,7 +242,7 @@ const Menu = (props, context) => {
 const OrderList = (props, context) => {
   const { act, data } = useBackend(context);
 
-  const { type, buttons, readOnly } = props;
+  const { type, buttons, readOnly, delivery_acces} = props;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
     context,
@@ -286,7 +284,7 @@ const OrderList = (props, context) => {
                     onClick={() => act('delivery', { id: id })}
                     icon="luggage-cart"
                     content="Delivery"
-                    disabled={!data.beacon}
+                    disabled={!data.beacon && orderer === data.user_real_name || delivery_acces}
                   />
                 )}
               </>
