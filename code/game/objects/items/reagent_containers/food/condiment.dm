@@ -50,7 +50,7 @@
 			if(reagents.total_volume)
 				record_reagent_consumption(min(10, reagents.total_volume), reagents.reagent_list, user, M)
 				reagents.reaction(M, INGEST)
-				reagents.trans_to(M, 10)
+				reagents.trans_to(M, 10, transfer_to_stomach = TRUE)
 			playsound(M.loc,'sound/items/drink.ogg', 15, 1)
 			return 1
 	return 0
