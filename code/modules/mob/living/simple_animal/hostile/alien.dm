@@ -45,5 +45,5 @@
 	if(stat == DEAD)
 		return ..()
 	if(!gibbing && !silent)
-		playsound(src, 'sound/voice/alien_death.ogg', 50, TRUE)
+		playsound(src, 'sound/voice/alien/death.ogg', 50, TRUE)
 	return ..()

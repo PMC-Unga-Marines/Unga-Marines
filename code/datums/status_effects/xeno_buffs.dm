@@ -751,7 +751,7 @@
 	new /obj/effect/temp_visual/healing(get_turf(owner))
 
 	owner.balloon_alert(owner, "Regeneration is no longer accelerated")
-	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 25)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 25)
 
 	return ..()
 

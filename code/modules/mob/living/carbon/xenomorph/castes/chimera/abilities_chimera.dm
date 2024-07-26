@@ -141,7 +141,7 @@
 
 /datum/action/ability/activable/xeno/blink/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to blink again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 ///Return TRUE if we have a block, return FALSE otherwise
@@ -191,7 +191,7 @@
 
 /datum/action/ability/xeno_action/phantom/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to create a new phantom."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/phantom/action_activate()
@@ -268,7 +268,7 @@
 
 /datum/action/ability/activable/xeno/pounce/abduction/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to abduct another one."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce/abduction/use_ability(atom/A)
@@ -343,7 +343,7 @@
 
 /datum/action/ability/activable/xeno/body_swap/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to perform body swap again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/body_swap/use_ability(atom/A)
