@@ -64,7 +64,7 @@
 		if(reagents.total_volume)
 			record_reagent_consumption(reagents.total_volume, reagents.reagent_list, user, M)
 			reagents.reaction(M, INGEST)
-			reagents.trans_to(M, reagents.total_volume)
+			reagents.trans_to(M, reagents.total_volume, transfer_to_stomach = TRUE)
 			qdel(src)
 		else
 			qdel(src)
@@ -103,7 +103,7 @@
 		log_combat(user, target, "spiked", src, "Reagents: [rgt_list_text]")
 
 		reagents.trans_to(target, reagents.total_volume)
-		visible_message("<span class='warning'>[user] puts something in \the [target].", null, null, 2)
+		visible_message(span_warning("[user] puts something in \the [target]."), null, null, 2)
 
 		QDEL_IN(src, 5)
 

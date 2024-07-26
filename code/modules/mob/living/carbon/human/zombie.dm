@@ -18,7 +18,7 @@
 		"brain" = /datum/internal_organ/brain/zombie,
 		"appendix" = /datum/internal_organ/appendix,
 		"eyes" = /datum/internal_organ/eyes,
-		"stomach" = /datum/internal_organ/eyes,
+		"stomach" = /datum/internal_organ/stomach,
 	)
 	///Sounds made randomly by the zombie
 	var/list/sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/wail.ogg')

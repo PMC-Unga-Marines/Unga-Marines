@@ -171,7 +171,7 @@ transfer_to_stomach = FALSE
 	if(istype(target, /datum/reagents))
 		R = target
 	else
-		if(!transfer_to_stomach && ishuman(target))
+		if(transfer_to_stomach && ishuman(target))
 			var/mob/living/carbon/human/eater = target
 			var/datum/internal_organ/stomach/belly = eater.internal_organs_by_name["stomach"]
 			if(belly.organ_status == ORGAN_BROKEN)
