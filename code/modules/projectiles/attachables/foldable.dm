@@ -30,9 +30,6 @@
 				icon_state = variants_by_parent_type[selection]
 
 	update_icon()
-	if(!greyscale_config || !greyscale_colors)
-		return
-	RegisterSignal(master_gun, COMSIG_ITEM_SECONDARY_COLOR, PROC_REF(handle_color))
 
 /obj/item/attachable/foldable/on_detach(detaching_item, mob/user)
 	if(!isgun(detaching_item))
