@@ -242,7 +242,7 @@ const Menu = (props, context) => {
 const OrderList = (props, context) => {
   const { act, data } = useBackend(context);
 
-  const { type, buttons, readOnly, delivery_acces} = props;
+  const { type, buttons, readOnly} = props;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
     context,
@@ -284,7 +284,7 @@ const OrderList = (props, context) => {
                     onClick={() => act('delivery', { id: id })}
                     icon="luggage-cart"
                     content="Delivery"
-                    disabled={!data.beacon && orderer === data.user_real_name || delivery_acces}
+                    disabled={!data.beacon}
                   />
                 )}
               </>
