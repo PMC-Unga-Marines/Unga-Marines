@@ -76,9 +76,6 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/hivelord_healing_infusions = 0
 	var/spitter_acid_sprays = 0
 	var/spitter_scatter_spits = 0
-	var/wraith_phase_shifts = 0
-	var/wraith_blinks = 0
-	var/wraith_banishes = 0
 	var/bull_crush_hit = 0
 	var/bull_gore_hit = 0
 	var/bull_headbutt_hit = 0
@@ -98,3 +95,4 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/psy_lances = 0
 	var/psy_shields = 0
 	var/psy_shield_blasts = 0
+	var/chimera_blinks = 0

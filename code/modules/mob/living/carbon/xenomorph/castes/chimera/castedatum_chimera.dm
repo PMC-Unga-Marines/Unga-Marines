@@ -23,8 +23,6 @@
 	max_health = 350
 
 	// *** Evolution *** //
-	// upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
-
 	deevolves_to = /mob/living/carbon/xenomorph/panther
 
 	// *** Flags *** //
@@ -35,7 +33,9 @@
 	// *** Defense *** //
 	soft_armor = list(MELEE = 50, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 50, FIRE = 0, ACID = 50)
 
-	wraith_blink_range = 5
+	blink_drag_nonfriendly_living_multiplier = 20
+	blink_drag_friendly_multiplier = 4
+	blink_range = 5
 
 	minimap_icon = "chimera"
 

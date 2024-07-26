@@ -714,35 +714,16 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define SENTINEL_INTOXICATED_RESIST_REDUCTION 8 //Amount of stacks removed every time the Intoxicated debuff is Resisted against.
 #define SENTINEL_INTOXICATED_SANGUINAL_INCREASE 3 //Amount of debuff stacks applied for every tick of Sanguinal.
 
-//Wraith defines
-
-#define WRAITH_BLINK_DRAG_NONFRIENDLY_MULTIPLIER 20 //The amount we multiply the cooldown by when we teleport while dragging a non-friendly target
-#define WRAITH_BLINK_DRAG_FRIENDLY_MULTIPLIER 4 //The amount we multiply the cooldown by when we teleport while dragging a friendly target
-#define WRAITH_BLINK_RANGE 3
-
-#define WRAITH_BANISH_BASE_DURATION 10 SECONDS
-#define WRAITH_BANISH_NONFRIENDLY_LIVING_MULTIPLIER 0.5
-#define WRAITH_BANISH_VERY_SHORT_MULTIPLIER 0.3
-
-#define WRAITH_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS //Stagger and slow stacks applied to adjacent living hostiles before/after a teleport
-#define WRAITH_TELEPORT_DEBUFF_SLOWDOWN_STACKS 3 //Stagger and slow stacks applied to adjacent living hostiles before/after a teleport
-
 //Larva defines
 #define LARVA_VENT_CRAWL_TIME 1 SECONDS //Larva can crawl into vents fast
 
-/* RUTGMC DELETION, WIDOW DELETION
-//Widow Defines
-#define WIDOW_SPEED_BONUS 1 // How much faster widow moves while she has wall_speedup element
-#define WIDOW_WEB_HOOK_RANGE 10 // how far the web hook can reach
-#define WIDOW_WEB_HOOK_MIN_RANGE 3 // the minimum range that the hook must travel to use the ability
-#define WIDOW_WEB_HOOK_SPEED 3 // how fast widow yeets herself when using web hook
-
-//Spiderling defines
-#define TIME_TO_DISSOLVE 5 SECONDS
-#define SPIDERLING_RAGE_RANGE 10 // how close a nearby human has to be in order to be targeted
-*/
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
+
+// Chimera defines
+//Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
+#define CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS
+#define CHIMERA_TELEPORT_DEBUFF_SLOWDOWN_STACKS 3
 
 //misc
 
@@ -834,14 +815,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define IGNORE_SLOWDOWNS (1<<4)
 
 #define IGNORE_LOC_CHANGE (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE)
-
-/* RUTGMC DELETION
-#define TIER_ONE_THRESHOLD 420
-
-#define TIER_TWO_THRESHOLD 840
-
-#define TIER_THREE_THRESHOLD 1750
-*/
 
 // Pheromones and buff orders
 

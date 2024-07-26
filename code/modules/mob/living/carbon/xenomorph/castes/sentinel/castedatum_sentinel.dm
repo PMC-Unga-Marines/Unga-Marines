@@ -27,7 +27,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 100
-	//upgrade_threshold = TIER_ONE_THRESHOLD // RUTGMC DELETION
 
 	evolves_to = list(/mob/living/carbon/xenomorph/spitter)
 

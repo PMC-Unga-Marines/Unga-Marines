@@ -25,8 +25,6 @@
 	max_health = 350
 
 	// *** Evolution *** //
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
-
 	deevolves_to = /mob/living/carbon/xenomorph/hunter
 
 	// *** Flags *** //
