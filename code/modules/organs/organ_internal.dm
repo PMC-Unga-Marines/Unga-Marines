@@ -205,7 +205,7 @@
 	//High toxins levels are dangerous if you aren't actively treating them. 100 seconds to hit bruised from this alone
 	if(owner.getToxLoss() >= (80 - 20 * organ_status))
 		//Healthy liver suffers on its own
-		if (organ_status != ORGAN_BROKEN)
+		if(organ_status != ORGAN_BROKEN)
 			take_damage(0.2, TRUE)
 		//Damaged one shares the fun
 		else
@@ -322,7 +322,6 @@
 	robotic = ORGAN_ROBOT
 	removed_type = /obj/item/organ/kidneys
 
-
 /datum/internal_organ/brain
 	name = "brain"
 	parent_limb = "head"
@@ -388,3 +387,34 @@
 	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
 	///The reagents we are processing
 	var/datum/reagents/reagents = null
+
+/datum/internal_organ/stomach/process()
+	..()
+
+	var/mob/living/carbon/human/body = owner
+
+	// digest food, send all reagents that can be metabolized to the body
+	for(var/datum/reagent/bit AS in reagents?.reagent_list)
+		//Do not transfer over more then we have
+		var/amount_max = bit.volume
+
+		// Transfer the amount of reagents based on volume with a min amount of 1u
+		var/rate_minimum = max(bit.custom_metabolism, 0.25)
+		var/amount = min((round(metabolism_efficiency * amount_max, 0.05) + rate_minimum), amount_max)
+
+		if(amount <= 0)
+			continue
+
+		// transfer the reagents over to the body at the rate of the stomach metabolim
+		// this way the body is where all reagents that are processed and react
+		// the stomach manages how fast they are feed in a drip style
+		reagents.trans_to(body, amount)
+
+	//If the stomach is not damage exit out
+	if(damage < min_bruised_damage)
+		return
+
+	if(prob(0.0125 * damage) || damage > min_broken_damage && prob(0.05 * damage))
+		body.vomit()
+		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down all that food!"))
+		return
