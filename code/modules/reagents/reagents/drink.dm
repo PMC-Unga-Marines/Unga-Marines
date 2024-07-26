@@ -507,7 +507,7 @@
 	adj_dizzy = 6
 	taste_description = "your brains smashed out by a lemon wrapped around a gold brick"
 
-/datum/reagent/consumable/drink/gargle_blaster/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/consumable/drink/gargle_blaster/on_mob_life(mob/living/carbon/human/L, metabolism)
 	switch(current_cycle)
 		if(15 to 45)
 			L.adjust_timed_status_effect(2 SECONDS, /datum/status_effect/speech/slurring/drunk)

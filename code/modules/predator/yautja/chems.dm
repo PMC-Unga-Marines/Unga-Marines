@@ -17,7 +17,7 @@
 		to_chat(L, span_userdanger("Something feels off!"))
 		L.AdjustParalyzed(20)
 
-/datum/reagent/thwei/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/thwei/on_mob_life(mob/living/carbon/human/L, metabolism)
 	. = ..()
 	if(isyautja(L))
 		L.blood_volume += 3

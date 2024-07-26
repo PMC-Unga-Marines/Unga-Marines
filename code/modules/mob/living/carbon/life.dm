@@ -94,8 +94,6 @@
 	if(hallucination >= 20) // hallucinations require stacking before triggering
 		handle_hallucinations()
 
-
-
 	if(staminaloss > -max_stamina)
 		handle_staminaloss()
 
@@ -127,7 +125,9 @@
 		if(drunkenness >= 51)
 			if(prob(5))
 				AdjustConfused(10 SECONDS)
-				vomit()
+				if(ishuman(src))
+					var/mob/living/carbon/human/human = src
+					human.vomit()
 			if(dizziness < 600)
 				dizzy(12)
 

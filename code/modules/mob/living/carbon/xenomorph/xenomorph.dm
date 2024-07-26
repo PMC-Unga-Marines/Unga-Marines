@@ -366,9 +366,6 @@
 /mob/living/carbon/xenomorph/get_eye_protection()
 	return 2
 
-/mob/living/carbon/xenomorph/vomit()
-	return
-
 /mob/living/carbon/xenomorph/reagent_check(datum/reagent/R) //For the time being they can't metabolize chemicals.
 	return TRUE
 
