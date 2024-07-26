@@ -3,9 +3,9 @@
 	name = "default bullet"
 	icon_state = "bullet"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	sound_hit 	 = "ballistic_hit"
+	sound_hit = "ballistic_hit"
 	sound_armor = "ballistic_armor"
-	sound_miss	 = "ballistic_miss"
+	sound_miss = "ballistic_miss"
 	sound_bounce = "ballistic_bounce"
 	point_blank_range = 2
 	accurate_range_min = 0

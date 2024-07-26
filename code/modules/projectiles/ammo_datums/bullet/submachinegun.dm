@@ -66,5 +66,3 @@
 	if(!prob(living_victim.modify_by_armor(proj.damage, BIO, penetration, proj.def_zone)))
 		return
 	living_victim.apply_radiation(2, 2)
-
-
