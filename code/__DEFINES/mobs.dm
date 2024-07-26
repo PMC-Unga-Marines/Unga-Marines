@@ -407,13 +407,14 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HUMAN_MAX_PALENESS 30 //this is added to human skin tone to get value of pale_max variable
 
 
-// Human Overlay Indexes
-/* RU TGMC EDIT
-#define LASER_LAYER 29 //For sniper targeting laser
-#define MOTH_WINGS_LAYER 28
-#define MUTATIONS_LAYER 27
-#define DAMAGE_LAYER 26
-RU TGMC EDIT */
+// Overlay Indexes
+#define PRED_LASER_LAYER 32
+#define LASER_LAYER 31
+#define WOUND_LAYER 30
+#define MOTH_WINGS_LAYER 29
+#define MUTATIONS_LAYER 28
+#define DAMAGE_LAYER 27
+#define FLAY_LAYER 26
 #define UNIFORM_LAYER 25
 #define TAIL_LAYER 24 //bs12 specific. this hack is probably gonna come back to haunt me
 #define ID_LAYER 23
@@ -439,9 +440,9 @@ RU TGMC EDIT */
 #define OVERHEALTH_SHIELD_LAYER 3
 #define TARGETED_LAYER 2 //for target sprites when held at gun point, and holo cards.
 #define FIRE_LAYER 1 //If you're on fire
-/* RU TGMC EDIT
-#define TOTAL_LAYERS 29
-RU TGMC EDIT */
+
+#define TOTAL_LAYERS 32
+
 #define MOTH_WINGS_BEHIND_LAYER 1
 
 #define TOTAL_UNDERLAYS 1
@@ -486,7 +487,6 @@ RU TGMC EDIT */
 #define XENO_SLOWDOWN_REGEN 0.4
 
 #define XENO_DEADHUMAN_DRAG_SLOWDOWN 2
-//#define XENO_EXPLOSION_GIB_THRESHOLD 0.95 //if your effective bomb armour is less than 5, devestating explosions will gib xenos //RUTGMC REMOVAL - Explosions
 
 #define KING_SUMMON_TIMER_DURATION 5 MINUTES
 
@@ -595,7 +595,7 @@ RU TGMC EDIT */
 
 #define RAVAGER_ENDURE_DURATION				10 SECONDS
 #define RAVAGER_ENDURE_DURATION_WARNING		0.7
-#define RAVAGER_ENDURE_HP_LIMIT				-125 //RUTGMC EDIT
+#define RAVAGER_ENDURE_HP_LIMIT				-125
 
 #define RAVAGER_RAGE_DURATION							10 SECONDS
 #define RAVAGER_RAGE_WARNING							0.7
@@ -794,8 +794,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define GRAB_PIXEL_SHIFT_NECK 16
 
 #define HUMAN_CARRY_SLOWDOWN 0.35
-//#define HUMAN_EXPLOSION_GIB_THRESHOLD 0.1 //RUTGMC DELETION, explosions
-
 
 // =============================
 // Hallucinations - health hud screws for carbon mobs
@@ -860,14 +858,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define BASE_WALL_SLAM_DAMAGE 15
 ///Default damage for slamming a mob against another mob
 #define BASE_MOB_SLAM_DAMAGE 8
-
-#define MOTH_WINGS_LAYER 28
-#define MUTATIONS_LAYER 27
-#define DAMAGE_LAYER 26
-#define FLAY_LAYER 25
-#define PRED_LASER_LAYER 1.9
-#define LASER_LAYER 1.8
-#define TOTAL_LAYERS 30
 
 // Yautja defines
 
