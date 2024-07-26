@@ -107,8 +107,9 @@
 		"kidneys" = /datum/internal_organ/kidneys,
 		"brain" = /datum/internal_organ/brain,
 		"appendix" = /datum/internal_organ/appendix,
-		"eyes" = /datum/internal_organ/eyes
-		)
+		"eyes" = /datum/internal_organ/eyes,
+		"stomach" = /datum/internal_organ/eyes,
+	)
 
 	var/knock_down_reduction = 1 //how much the knocked_down effect is reduced per Life call.
 	var/stun_reduction = 1 //how much the stunned effect is reduced per Life call.

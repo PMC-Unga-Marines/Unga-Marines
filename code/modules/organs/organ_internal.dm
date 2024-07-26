@@ -1,9 +1,3 @@
-
-/****************************************************
-				INTERNAL ORGANS
-****************************************************/
-
-
 /datum/internal_organ
 	var/name = "organ"
 	var/mob/living/carbon/human/owner = null
@@ -85,6 +79,17 @@
 	damage = max(damage - amount, 0)
 	set_organ_status()
 
+/datum/internal_organ/proc/remove(mob/user)
+
+	if(!removed_type) return 0
+
+	var/obj/item/organ/removed_organ = new removed_type(get_turf(user), src)
+
+	if(istype(removed_organ))
+		organ_holder = removed_organ
+
+	return removed_organ
+
 /datum/internal_organ/proc/emp_act(severity)
 	switch(robotic)
 		if(0)
@@ -116,7 +121,6 @@
 	if(robotic_type)
 		robotic = ORGAN_ROBOT
 		removed_type = robotic_type
-
 
 /datum/internal_organ/proc/mechassist() //Used to add things like pacemakers, etc
 	robotic = ORGAN_ASSISTED
@@ -183,7 +187,6 @@
 /datum/internal_organ/lungs/prosthetic
 	robotic = ORGAN_ROBOT
 	removed_type = /obj/item/organ/lungs/prosthetic
-
 
 /datum/internal_organ/liver
 	name = "liver"
@@ -369,20 +372,19 @@
 	robotic = ORGAN_ROBOT
 	removed_type = /obj/item/organ/eyes/prosthetic
 
-
 /datum/internal_organ/appendix
 	name = "appendix"
 	parent_limb = "groin"
 	removed_type = /obj/item/organ/appendix
 	organ_id = ORGAN_APPENDIX
 
-/datum/internal_organ/proc/remove(mob/user)
-
-	if(!removed_type) return 0
-
-	var/obj/item/organ/removed_organ = new removed_type(get_turf(user), src)
-
-	if(istype(removed_organ))
-		organ_holder = removed_organ
-
-	return removed_organ
+/datum/internal_organ/stomach
+	name = "stomach"
+	removed_type = /obj/item/organ/stomach
+	organ_id = ORGAN_STOMACH
+	///This is a reagent user and needs more then the 10u from edible component
+	var/reagent_vol = 1000
+	///The rate that the stomach will transfer reagents to the body
+	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
+	///The reagents we are processing
+	var/datum/reagents/reagents = null

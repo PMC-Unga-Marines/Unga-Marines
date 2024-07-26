@@ -146,29 +146,42 @@
  * Transfer some stuff from this holder to a target object
  *
  * Arguments:
- * * obj/target - Target to attempt transfer to
+ * * atom/target - Target to attempt transfer to
  * * amount - amount of reagent volume to transfer
  * * multiplier - multiplies amount of each reagent by this number
  * * preserve_data - if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
  * * no_react - passed through to [/datum/reagents/proc/add_reagent]
- * * mob/transfered_by - used for logging
- * * remove_blacklisted - skips transferring of reagents with can_synth = FALSE
- * * method - passed through to [/datum/reagents/proc/react_single] and [/datum/reagent/proc/on_transfer]
- * * show_message - passed through to [/datum/reagents/proc/react_single]
- * * round_robin - if round_robin=TRUE, so transfer 5 from 15 water, 15 sugar and 15 plasma becomes 10, 15, 15 instead of 13.3333, 13.3333 13.3333. Good if you hate floating point errors
- */
-/datum/reagents/proc/trans_to(obj/target, amount = 1, multiplier=1, preserve_data=1, no_react = 0)//if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
+ * * transfer_to_stomach - does it goes to stomach like from pills and food?
+ *  */
+/datum/reagents/proc/trans_to(
+atom/target,
+amount = 1,
+multiplier = 1,
+preserve_data = TRUE,
+no_react = FALSE,
+transfer_to_stomach = FALSE
+)
 	var/list/cached_reagents = reagent_list
-	if (!target || !total_volume)
+	if(!target || !total_volume)
 		return
-	if (amount < 0)
+	if(amount < 0)
 		return
 
 	var/datum/reagents/R
 	if(istype(target, /datum/reagents))
 		R = target
 	else
-		if(!target.reagents)
+		if(!transfer_to_stomach && ishuman(target))
+			var/mob/living/carbon/human/eater = target
+			var/datum/internal_organ/stomach/belly = eater.internal_organs_by_name["stomach"]
+			if(belly.organ_status == ORGAN_BROKEN)
+				var/expel_amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
+				if(expel_amount > 0 )
+					eater.expel_ingested(my_atom, expel_amount)
+				return
+			R = belly.reagents
+			//target_atom = belly
+		else if(!target.reagents)
 			return
 		R = target.reagents
 	amount = min(min(amount, total_volume), R.maximum_volume-R.total_volume)

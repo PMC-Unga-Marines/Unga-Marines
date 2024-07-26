@@ -2,21 +2,25 @@
 	name = "organ"
 	desc = "It looks like it probably just plopped out."
 	icon = 'icons/obj/items/organs.dmi'
+	icon_state = "appendix"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/bodyparts_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/bodyparts_right.dmi',
 	)
-
-	icon_state = "appendix"
-
-	max_integrity = 100                              // Process() ticks before death.
-
-	var/fresh = 3                             // Squirts of blood left in it.
-	var/dead_icon                             // Icon used when the organ dies.
-	var/robotic                               // Is the limb prosthetic?
-	var/organ_tag                             // What slot does it go in?
-	var/organ_type = /datum/internal_organ    // Used to spawn the relevant organ data when produced via a machine or spawn().
-	var/datum/internal_organ/organ_data       // Stores info when removed.
+	// Process() ticks before death.
+	max_integrity = 100
+	/// Squirts of blood left in it.
+	var/fresh = 3
+	/// Icon used when the organ dies.
+	var/dead_icon
+	/// Is the limb prosthetic?
+	var/robotic
+	/// What slot does it go in?
+	var/organ_tag
+	/// Used to spawn the relevant organ data when produced via a machine or spawn().
+	var/organ_type = /datum/internal_organ
+	/// Stores info when removed.
+	var/datum/internal_organ/organ_data
 
 /obj/item/organ/attack_self(mob/user as mob)
 
@@ -34,7 +38,6 @@
 		organ_data = new organ_type()
 	if(!robotic)
 		START_PROCESSING(SSobj, src)
-
 
 /obj/item/organ/Destroy()
 	if(!robotic)
@@ -66,6 +69,43 @@
 	if(obj_integrity <= 0)
 		die()
 
+/obj/item/organ/proc/removed(mob/living/target,mob/living/user)
+
+	if(!target || !user)
+		return
+
+	if(organ_data.vital)
+		log_combat(user, target, "removed a vital organ ([src])", addition="(INTENT: [uppertext(user.a_intent)])")
+		target.death()
+
+/obj/item/organ/proc/replaced(mob/living/target)
+	return
+
+/obj/item/organ/proc/bitten(mob/user)
+
+	if(robotic)
+		return
+
+	to_chat(user, span_notice("You take an experimental bite out of \the [src]."))
+	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
+	if(B)
+		var/turf/TU = get_turf(src)
+		var/list/L = list()
+		if(B.data["blood_DNA"])
+			L = list(B.data["blood_DNA"] = B.data["blood_type"])
+		TU.add_blood(L, B.color)
+
+	user.temporarilyRemoveItemFromInventory(src)
+	var/obj/item/reagent_containers/food/snacks/organ/O = new(get_turf(src))
+	O.name = name
+	O.icon_state = dead_icon ? dead_icon : icon_state
+
+	// Pass over the blood.
+	reagents.trans_to(O, reagents.total_volume)
+
+	user.put_in_active_hand(O)
+	qdel(src)
+
 /obj/item/organ/proc/die()
 	name = "dead [initial(name)]"
 	if(dead_icon) icon_state = dead_icon
@@ -73,7 +113,6 @@
 	STOP_PROCESSING(SSobj, src)
 	//TODO: Grey out the icon state.
 	//TODO: Inject an organ with peridaxon to make it alive again.
-
 
 // Brain is defined in brain_item.dm.
 /obj/item/organ/heart
@@ -106,6 +145,36 @@
 	organ_type = /datum/internal_organ/eyes
 	var/eye_colour
 
+/obj/item/organ/eyes/removed(mob/living/target,mob/living/user)
+
+	if(!eye_colour)
+		eye_colour = list(0,0,0)
+
+	..() //Make sure target is set so we can steal their eye colour for later.
+	var/mob/living/carbon/human/H = target
+	if(istype(H))
+		eye_colour = list(
+			H.r_eyes ? H.r_eyes : 0,
+			H.g_eyes ? H.g_eyes : 0,
+			H.b_eyes ? H.b_eyes : 0
+			)
+
+		// Leave bloody red pits behind!
+		H.r_eyes = 128
+		H.g_eyes = 0
+		H.b_eyes = 0
+		H.update_body()
+
+/obj/item/organ/eyes/replaced(mob/living/target)
+
+	// Apply our eye colour to the target.
+	var/mob/living/carbon/human/H = target
+	if(istype(H) && eye_colour)
+		H.r_eyes = eye_colour[1]
+		H.g_eyes = eye_colour[2]
+		H.b_eyes = eye_colour[3]
+		H.update_body()
+
 /obj/item/organ/liver
 	name = "liver"
 	icon_state = "liver"
@@ -137,7 +206,6 @@
 	icon_state = "kidneys-prosthetic"
 	organ_type = /datum/internal_organ/kidneys/prosthetic
 
-
 /obj/item/organ/eyes/prosthetic
 	robotic = ORGAN_ROBOT
 	name = "visual prosthesis"
@@ -156,71 +224,8 @@
 	icon_state = "brain-prosthetic"
 	organ_type = /datum/internal_organ/brain/prosthetic
 
-
-/obj/item/organ/proc/removed(mob/living/target,mob/living/user)
-
-	if(!target || !user)
-		return
-
-	if(organ_data.vital)
-		log_combat(user, target, "removed a vital organ ([src])", addition="(INTENT: [uppertext(user.a_intent)])")
-		target.death()
-
-/obj/item/organ/eyes/removed(mob/living/target,mob/living/user)
-
-	if(!eye_colour)
-		eye_colour = list(0,0,0)
-
-	..() //Make sure target is set so we can steal their eye colour for later.
-	var/mob/living/carbon/human/H = target
-	if(istype(H))
-		eye_colour = list(
-			H.r_eyes ? H.r_eyes : 0,
-			H.g_eyes ? H.g_eyes : 0,
-			H.b_eyes ? H.b_eyes : 0
-			)
-
-		// Leave bloody red pits behind!
-		H.r_eyes = 128
-		H.g_eyes = 0
-		H.b_eyes = 0
-		H.update_body()
-
-/obj/item/organ/proc/replaced(mob/living/target)
-	return
-
-/obj/item/organ/eyes/replaced(mob/living/target)
-
-	// Apply our eye colour to the target.
-	var/mob/living/carbon/human/H = target
-	if(istype(H) && eye_colour)
-		H.r_eyes = eye_colour[1]
-		H.g_eyes = eye_colour[2]
-		H.b_eyes = eye_colour[3]
-		H.update_body()
-
-/obj/item/organ/proc/bitten(mob/user)
-
-	if(robotic)
-		return
-
-	to_chat(user, span_notice("You take an experimental bite out of \the [src]."))
-	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
-	if(B)
-		var/turf/TU = get_turf(src)
-		var/list/L = list()
-		if(B.data["blood_DNA"])
-			L = list(B.data["blood_DNA"] = B.data["blood_type"])
-		TU.add_blood(L, B.color)
-
-
-	user.temporarilyRemoveItemFromInventory(src)
-	var/obj/item/reagent_containers/food/snacks/organ/O = new(get_turf(src))
-	O.name = name
-	O.icon_state = dead_icon ? dead_icon : icon_state
-
-	// Pass over the blood.
-	reagents.trans_to(O, reagents.total_volume)
-
-	user.put_in_active_hand(O)
-	qdel(src)
+/obj/item/organ/stomach
+	name = "stomach"
+	icon_state = "stomach"
+	organ_tag = "stomach"
+	organ_type = /datum/internal_organ/stomach

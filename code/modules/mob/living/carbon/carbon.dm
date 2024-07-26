@@ -72,15 +72,14 @@
 		return
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_PUKE, 40 SECONDS) //5 seconds before the actual action plus 35 before the next one.
-	to_chat(src, "<spawn class='warning'>You feel like you are about to throw up!")
+	to_chat(src, span_warning("You feel like you are about to throw up!"))
 	addtimer(CALLBACK(src, PROC_REF(do_vomit)), 5 SECONDS)
-
 
 /mob/living/carbon/proc/do_vomit()
 	adjust_stagger(3 SECONDS)
 	add_slowdown(3)
 
-	visible_message("<spawn class='warning'>[src] throws up!","<spawn class='warning'>You throw up!", null, 5)
+	visible_message(span_warning("[src] throws up!"), span_warning("You throw up!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, TRUE, 7)
 
 	var/turf/location = loc
@@ -90,6 +89,21 @@
 	adjust_nutrition(-40)
 	adjustToxLoss(-3)
 
+/**
+ * Expel the reagents you just tried to ingest
+ *
+ * When you try to ingest reagents but you do not have a stomach
+ * you will spew the reagents on the floor.
+ *
+ * Vars:
+ * * bite: /atom the reagents to expel
+ * * amount: int The amount of reagent
+ */
+/mob/living/carbon/proc/expel_ingested(atom/bite, amount)
+	visible_message(span_danger("[src] throws up all over [p_them()]self!"), span_userdanger("You are unable to keep the [bite] down without a stomach!"))
+
+	var/obj/effect/decal/cleanable/vomit/spew = new(get_turf(src))
+	bite.reagents.trans_to(spew, amount)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/shaker)
 	if(health < get_crit_threshold())

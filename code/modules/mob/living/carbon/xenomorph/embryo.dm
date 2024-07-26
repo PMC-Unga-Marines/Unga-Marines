@@ -221,7 +221,7 @@
 		var/mob/living/carbon/human/H = victim
 		H.apply_damage(200, BRUTE, H.get_limb("chest"), updating_health = TRUE) //lethal armor ignoring brute damage
 		var/datum/internal_organ/O
-		for(var/i in list("heart", "lungs", "liver", "kidneys", "appendix")) //Bruise all torso internal organs
+		for(var/i in list("heart", "lungs", "liver", "kidneys", "appendix", "stomach")) //Bruise all torso internal organs
 			O = H.internal_organs_by_name[i]
 
 			if(!H.mind && !H.client) //If we have no client or mind, permadeath time; remove the organs. Mainly for the NPC colonist bodies

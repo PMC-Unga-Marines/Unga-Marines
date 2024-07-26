@@ -992,7 +992,7 @@
 	L.adjustBrainLoss(0.1*effect_str, TRUE)
 	if(prob(15) && ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/affected_organ = pick("heart","lungs","liver","kidneys")
+		var/affected_organ = pick("heart","lungs","liver","kidneys", "stomach")
 		var/datum/internal_organ/I = H.internal_organs_by_name[affected_organ]
 		I.take_damage(5.5*effect_str)
 

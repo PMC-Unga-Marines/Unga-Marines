@@ -443,7 +443,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	victim.apply_damage(stamina_dmg, STAMINA)
 
 	var/datum/internal_organ/O
-	for(var/i in list("heart", "lungs", "liver"))
+	for(var/i in list("heart", "lungs", "liver", "stomach"))
 		O = victim.internal_organs_by_name[i]
 		O.take_damage(debuff, TRUE)
 

@@ -1,7 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-/// Pills.
-////////////////////////////////////////////////////////////////////////////////
-
 /obj/item/reagent_containers/pill
 	name = "pill"
 	icon = 'icons/obj/items/chemistry.dmi'
@@ -39,7 +35,7 @@
 		if(reagents.total_volume)
 			record_reagent_consumption(reagents.total_volume, reagents.reagent_list, user)
 			reagents.reaction(M, INGEST)
-			reagents.trans_to(M, reagents.total_volume)
+			reagents.trans_to(M, reagents.total_volume, transfer_to_stomach = TRUE)
 
 		qdel(src)
 		return TRUE
