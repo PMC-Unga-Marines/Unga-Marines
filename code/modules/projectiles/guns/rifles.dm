@@ -43,8 +43,6 @@
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -137,8 +135,6 @@
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -219,8 +215,6 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "t37"
 	item_state = "t37"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -918,8 +912,6 @@
 	reload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipin.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/standard_lmg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_lmg)
-	greyscale_config = null
-	colorable_allowed = NONE
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t42stock,
 		/obj/item/attachable/reddot,
@@ -979,8 +971,6 @@
 	icon_state = "t60"
 	item_state = "t60"
 	fire_animation = "loaded_fire"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -1242,8 +1232,6 @@
 	max_shells = 12 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_slug
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1313,8 +1301,6 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1501,8 +1487,6 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "tl127"
 	item_state = "tl127"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -1587,8 +1571,6 @@
 	max_shells = 20 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/autosniper
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/autosniper)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1642,8 +1624,6 @@
 	cocked_sound = 'sound/weapons/guns/rifles/AR-11/AR11_boltpull.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx11
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/tx11)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1718,8 +1698,6 @@
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_skirmishrifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle)
-	greyscale_config = null
-	colorable_allowed = NONE
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,

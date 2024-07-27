@@ -68,8 +68,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/revolver/standard_revolver
 	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/standard_revolver)
 	force = 8
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -410,7 +408,6 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
-	greyscale_config = null
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
