@@ -93,11 +93,6 @@
  * Cooldown system based on an datum-level associative lazylist using timers.
 */
 
-//INDEXES
-#define COOLDOWN_BORG_SELF_REPAIR "borg_self_repair"
-#define COOLDOWN_EXPRESSPOD_CONSOLE "expresspod_console"
-
-
 //TIMER COOLDOWN MACROS
 
 #define COMSIG_CD_STOP(cd_index) "cooldown_[cd_index]"
