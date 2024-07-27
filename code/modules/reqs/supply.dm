@@ -570,8 +570,8 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	.["awaiting_delivery_orders"] = 0
 	for(var/key in SSpoints.shoppinglist[faction])
 		//only own orders
+		var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
 		if(user.real_name == SO.orderer)
-			var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
 			.["awaiting_delivery_orders"]++
 			var/list/packs = list()
 			for(var/datum/supply_packs/SP AS in SO.pack)
