@@ -89,6 +89,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 //Squad Combat Robot
 /datum/job/terragov/squad/combat_robot
 	title = SQUAD_ROBOT
+	job_category = JOB_CAT_SILICON
 	paygrade = "E1"
 	comm_title = "Rob"
 	access = list(ACCESS_MARINE_ROBO)
