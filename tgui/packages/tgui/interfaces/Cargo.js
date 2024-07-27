@@ -242,7 +242,7 @@ const Menu = (props, context) => {
 const OrderList = (props, context) => {
   const { act, data } = useBackend(context);
 
-  const { type, buttons, readOnly} = props;
+  const { type, buttons, readOnly } = props;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
     context,
