@@ -524,6 +524,9 @@
 	icobase = 'icons/mob/human_races/r_robot_bravada.dmi'
 	joinable_roundstart = FALSE
 
+/mob/living/carbon/human/species/robot/binarycheck(mob/H)
+	return TRUE
+
 /datum/species/synthetic
 	name = "Synthetic"
 	name_plural = "Synthetics"
@@ -576,7 +579,6 @@
 
 /mob/living/carbon/human/species/synthetic/binarycheck(mob/H)
 	return TRUE
-
 
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"
