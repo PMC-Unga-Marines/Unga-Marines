@@ -28,6 +28,8 @@
 
 /obj/machinery/computer/supplydrop_console/Initialize(mapload)
 	. = ..()
+	balloon = new()
+	holder_obj = new()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/supplydrop_console/LateInitialize()
@@ -177,9 +179,6 @@
 	if(!length(supplies))
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! No deployable object detected on the drop pad.")]")
 		return
-
-	balloon = new()
-	holder_obj = new()
 
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
 	playsound(supply_beacon.drop_location,'sound/effects/tadpolehovering.ogg', 30, TRUE)
