@@ -7083,7 +7083,7 @@
 /area/lv624/ground/caves/central4/garbledradio)
 "gmL" = (
 /obj/structure/table/mainship,
-/obj/item/restraints/handcuffs/cyborg,
+/obj/item/restraints/handcuffs,
 /obj/structure/window/reinforced{
 	dir = 4
 	},

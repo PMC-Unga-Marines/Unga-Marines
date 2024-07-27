@@ -1281,10 +1281,6 @@
 	icon_state = "ai_chamber"
 	ambience = list('sound/ambience/ambimalf.ogg')
 
-/area/turret_protected/ai_cyborg_station
-	name = "Abandoned Cyborg Station"
-	icon_state = "ai_cyborg"
-
 /area/turret_protected/aisat
 	name = "Abandoned AI Satellite"
 	icon_state = "ai"
