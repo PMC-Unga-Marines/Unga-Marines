@@ -221,7 +221,8 @@
 
 		if(/datum/reagent/medicine/kelotane)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
-			target.fire_act(10, FLAME_COLOR_RED)
+			target.adjust_fire_stacks(5)
+			target.IgniteMob()
 
 		if(/datum/reagent/medicine/tramadol)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
