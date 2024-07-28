@@ -209,7 +209,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 ///Explodes the headset if you put on an enemy's headset
 /obj/item/radio/headset/mainship/proc/safety_protocol(mob/living/carbon/human/user)
 	balloon_alert_to_viewers("Explodes")
-	playsound(user, 'sound/effects/explosion_micro1.ogg', 50, 1)
+	playsound(user, 'sound/effects/explosion/micro1.ogg', 50, 1)
 	user.ex_act(EXPLODE_LIGHT)
 	qdel(src)
 
@@ -316,15 +316,11 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable[stage]"))
 		return
 	if(wearer.assigned_squad)
-		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, lowertext(wearer.assigned_squad.name)+"_"+wearer.job.minimap_icon))
-		//почему это было в модульной папке?
-		/* //Выключил ибо у нас свой набор иконок который и так не грейскейл
 		var/image/underlay = image('icons/UI_icons/map_blips.dmi', null, "squad_underlay")
 		var/image/overlay = image('icons/UI_icons/map_blips.dmi', null, wearer.job.minimap_icon)
 		overlay.color = wearer.assigned_squad.color
 		underlay.overlays += overlay
 		SSminimaps.add_marker(wearer, marker_flags, underlay)
-		*/
 		return
 	SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, wearer.job.minimap_icon))
 

@@ -55,7 +55,7 @@ explosion resistance exactly as much as their health
 
 	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z [ADMIN_JMP(epicenter)])
 
-	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power ^ 2, 1))
+	playsound(epicenter, 'sound/effects/explosion/far0.ogg', 100, 1, round(power ^ 2, 1))
 	var/sound/explosion_sound = sound(get_sfx("explosion_large"))
 	switch(power)
 		if(0 to EXPLODE_LIGHT)

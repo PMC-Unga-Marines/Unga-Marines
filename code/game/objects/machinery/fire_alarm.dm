@@ -1,9 +1,3 @@
-
-
-
-/*
-FIRE ALARM
-*/
 /obj/machinery/firealarm
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
@@ -155,7 +149,6 @@ FIRE ALARM
 				playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 				qdel(src)
 
-
 /obj/machinery/firealarm/can_interact(mob/user)
 	. = ..()
 	if(!.)
@@ -165,7 +158,6 @@ FIRE ALARM
 		return FALSE
 
 	return TRUE
-
 
 /obj/machinery/firealarm/interact(mob/user)
 	. = ..()
@@ -192,7 +184,6 @@ FIRE ALARM
 	popup.set_content(dat)
 	popup.open()
 
-
 /obj/machinery/firealarm/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -215,7 +206,6 @@ FIRE ALARM
 
 	updateUsrDialog()
 
-
 /obj/machinery/firealarm/proc/reset()
 	if (!working)
 		return
@@ -229,5 +219,4 @@ FIRE ALARM
 	var/area/A = get_area(src)
 	A?.firealert()
 	update_icon()
-	//playsound(src.loc, 'sound/ambience/signal.ogg', 50, 0)
-
+	playsound(src.loc, 'sound/ambience/signal.ogg', 50, 0)

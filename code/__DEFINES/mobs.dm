@@ -4,6 +4,12 @@
 #define AI_VOX
 
 //Mob movement define
+
+///Speed mod for walk intent
+#define MOB_WALK_MOVE_MOD 4
+///Speed mod for run intent
+#define MOB_RUN_MOVE_MOD 3
+///Move mod for going diagonally
 #define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER 1.6
 
 
@@ -357,6 +363,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define IS_MOTH (1<<3)
 #define IS_SECTOID (1<<4)
 #define IS_MONKEY (1<<5)
+#define IS_YAUTJA (1<<6)
 //=================================================
 
 //AFK status
@@ -400,13 +407,14 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HUMAN_MAX_PALENESS 30 //this is added to human skin tone to get value of pale_max variable
 
 
-// Human Overlay Indexes
-/* RU TGMC EDIT
-#define LASER_LAYER 29 //For sniper targeting laser
-#define MOTH_WINGS_LAYER 28
-#define MUTATIONS_LAYER 27
-#define DAMAGE_LAYER 26
-RU TGMC EDIT */
+// Overlay Indexes
+#define PRED_LASER_LAYER 32
+#define LASER_LAYER 31
+#define WOUND_LAYER 30
+#define MOTH_WINGS_LAYER 29
+#define MUTATIONS_LAYER 28
+#define DAMAGE_LAYER 27
+#define FLAY_LAYER 26
 #define UNIFORM_LAYER 25
 #define TAIL_LAYER 24 //bs12 specific. this hack is probably gonna come back to haunt me
 #define ID_LAYER 23
@@ -432,9 +440,9 @@ RU TGMC EDIT */
 #define OVERHEALTH_SHIELD_LAYER 3
 #define TARGETED_LAYER 2 //for target sprites when held at gun point, and holo cards.
 #define FIRE_LAYER 1 //If you're on fire
-/* RU TGMC EDIT
-#define TOTAL_LAYERS 29
-RU TGMC EDIT */
+
+#define TOTAL_LAYERS 32
+
 #define MOTH_WINGS_BEHIND_LAYER 1
 
 #define TOTAL_UNDERLAYS 1
@@ -479,7 +487,6 @@ RU TGMC EDIT */
 #define XENO_SLOWDOWN_REGEN 0.4
 
 #define XENO_DEADHUMAN_DRAG_SLOWDOWN 2
-//#define XENO_EXPLOSION_GIB_THRESHOLD 0.95 //if your effective bomb armour is less than 5, devestating explosions will gib xenos //RUTGMC REMOVAL - Explosions
 
 #define KING_SUMMON_TIMER_DURATION 5 MINUTES
 
@@ -588,7 +595,7 @@ RU TGMC EDIT */
 
 #define RAVAGER_ENDURE_DURATION				10 SECONDS
 #define RAVAGER_ENDURE_DURATION_WARNING		0.7
-#define RAVAGER_ENDURE_HP_LIMIT				-125 //RUTGMC EDIT
+#define RAVAGER_ENDURE_HP_LIMIT				-125
 
 #define RAVAGER_RAGE_DURATION							10 SECONDS
 #define RAVAGER_RAGE_WARNING							0.7
@@ -707,35 +714,16 @@ RU TGMC EDIT */
 #define SENTINEL_INTOXICATED_RESIST_REDUCTION 8 //Amount of stacks removed every time the Intoxicated debuff is Resisted against.
 #define SENTINEL_INTOXICATED_SANGUINAL_INCREASE 3 //Amount of debuff stacks applied for every tick of Sanguinal.
 
-//Wraith defines
-
-#define WRAITH_BLINK_DRAG_NONFRIENDLY_MULTIPLIER 20 //The amount we multiply the cooldown by when we teleport while dragging a non-friendly target
-#define WRAITH_BLINK_DRAG_FRIENDLY_MULTIPLIER 4 //The amount we multiply the cooldown by when we teleport while dragging a friendly target
-#define WRAITH_BLINK_RANGE 3
-
-#define WRAITH_BANISH_BASE_DURATION 10 SECONDS
-#define WRAITH_BANISH_NONFRIENDLY_LIVING_MULTIPLIER 0.5
-#define WRAITH_BANISH_VERY_SHORT_MULTIPLIER 0.3
-
-#define WRAITH_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS //Stagger and slow stacks applied to adjacent living hostiles before/after a teleport
-#define WRAITH_TELEPORT_DEBUFF_SLOWDOWN_STACKS 3 //Stagger and slow stacks applied to adjacent living hostiles before/after a teleport
-
 //Larva defines
 #define LARVA_VENT_CRAWL_TIME 1 SECONDS //Larva can crawl into vents fast
 
-/* RUTGMC DELETION, WIDOW DELETION
-//Widow Defines
-#define WIDOW_SPEED_BONUS 1 // How much faster widow moves while she has wall_speedup element
-#define WIDOW_WEB_HOOK_RANGE 10 // how far the web hook can reach
-#define WIDOW_WEB_HOOK_MIN_RANGE 3 // the minimum range that the hook must travel to use the ability
-#define WIDOW_WEB_HOOK_SPEED 3 // how fast widow yeets herself when using web hook
-
-//Spiderling defines
-#define TIME_TO_DISSOLVE 5 SECONDS
-#define SPIDERLING_RAGE_RANGE 10 // how close a nearby human has to be in order to be targeted
-*/
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
+
+// Chimera defines
+//Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
+#define CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS
+#define CHIMERA_TELEPORT_DEBUFF_SLOWDOWN_STACKS 3
 
 //misc
 
@@ -806,8 +794,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define GRAB_PIXEL_SHIFT_NECK 16
 
 #define HUMAN_CARRY_SLOWDOWN 0.35
-//#define HUMAN_EXPLOSION_GIB_THRESHOLD 0.1 //RUTGMC DELETION, explosions
-
 
 // =============================
 // Hallucinations - health hud screws for carbon mobs
@@ -829,14 +815,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define IGNORE_SLOWDOWNS (1<<4)
 
 #define IGNORE_LOC_CHANGE (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE)
-
-/* RUTGMC DELETION
-#define TIER_ONE_THRESHOLD 420
-
-#define TIER_TWO_THRESHOLD 840
-
-#define TIER_THREE_THRESHOLD 1750
-*/
 
 // Pheromones and buff orders
 
@@ -865,7 +843,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 ///Slowdown for favehuggers moving through liquid
 #define FACEHUGGER_WATER_SLOWDOWN 1.6
 
-
 //Species defines
 
 ///Human species or those that functional behave like them. Default species
@@ -873,12 +850,36 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 ///Combat robot species
 #define SPECIES_COMBAT_ROBOT "species_combat_robot"
 
-#define IS_YAUTJA (1<<6)
+///Nextmove delay after performing an interaction with a grab on something
+#define GRAB_SLAM_DELAY 0.7 SECONDS
+///Default damage for slamming a mob against an object
+#define BASE_OBJ_SLAM_DAMAGE 10
+///Default damage for slamming a mob against a wall
+#define BASE_WALL_SLAM_DAMAGE 15
+///Default damage for slamming a mob against another mob
+#define BASE_MOB_SLAM_DAMAGE 8
 
-#define MOTH_WINGS_LAYER 28
-#define MUTATIONS_LAYER 27
-#define DAMAGE_LAYER 26
-#define FLAY_LAYER 25
-#define PRED_LASER_LAYER 1.9
-#define LASER_LAYER 1.8
-#define TOTAL_LAYERS 30
+// Yautja defines
+
+//Gear select defines
+#define YAUTJA_GEAR_GLAIVE "The Lumbering Glaive"
+#define YAUTJA_GEAR_WHIP "The Rending Chain-Whip"
+#define YAUTJA_GEAR_SWORD "The Piercing Hunting Sword"
+#define YAUTJA_GEAR_SCYTHE "The Cleaving War-Scythe"
+#define YAUTJA_GEAR_STICK "The Adaptive Combi-Stick"
+#define YAUTJA_GEAR_SPEAR "The Nimble Spear"
+#define YAUTJA_GEAR_SCIMS "The Fearsome Scimitars"
+#define YAUTJA_GEAR_LAUNCHER "The Fleeting Spike Launcher"
+#define YAUTJA_GEAR_PISTOL "The Swift Plasma Pistol"
+#define YAUTJA_GEAR_DISC "The Purifying Smart-Disc"
+#define YAUTJA_GEAR_FULL_ARMOR "The Formidable Plate Armor"
+#define YAUTJA_GEAR_SHIELD "The Steadfast Shield"
+#define YAUTJA_GEAR_DRONE "The Agile Drone"
+
+#define YAUTJA_GEAR_GLAIVE_ALT "The Imposing Glaive"
+#define YAUTJA_GEAR_SCYTHE_ALT "The Ripping War-Scythe"
+
+#define YAUTJA_THRALL_GEAR_MACHETE "The Swift Machete"
+#define YAUTJA_THRALL_GEAR_RAPIER "The Dancing Rapier"
+#define YAUTJA_THRALL_GEAR_CLAYMORE "The Broad Claymore"
+#define YAUTJA_THRALL_GEAR_FIREAXE "The Purposeful Fireaxe"

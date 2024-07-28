@@ -51,10 +51,6 @@
 	var/death_sound
 	var/death_message = "seizes up and falls limp, their eyes dead and lifeless..."
 
-	var/breath_type = "oxygen"   // Non-oxygen gas breathed, if any.
-	var/poison_type = "phoron"   // Poisonous air.
-	var/exhale_type = "carbon_dioxide"      // Exhaled gas type.
-
 	/// new maxHealth [/mob/living/carbon/human/var/maxHealth] of the human mob once species is applied
 	var/total_health = 100
 	var/max_stamina = 50
@@ -71,10 +67,6 @@
 	var/reagent_tag                 //Used for metabolizing reagents.
 
 	var/darksight = 2
-	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE   // Dangerously high pressure.
-	var/warning_high_pressure = WARNING_HIGH_PRESSURE // High pressure warning.
-	var/warning_low_pressure = WARNING_LOW_PRESSURE   // Low pressure warning.
-	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
 
 	var/brute_mod = null    // Physical damage reduction/malus.
 	var/burn_mod = null     // Burn damage reduction/malus.
@@ -752,7 +744,7 @@
 	preferences = list("moth_wings" = "Wings")
 
 	screams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	paincries = list("neuter" = 'sound/voice/human_male_pain_3.ogg')
+	paincries = list("neuter" = 'sound/voice/human/male/pain_3.ogg')
 	goredcries = list("neuter" = 'sound/voice/moth_scream.ogg')
 	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
 	warcries = list("neuter" = 'sound/voice/moth_scream.ogg')

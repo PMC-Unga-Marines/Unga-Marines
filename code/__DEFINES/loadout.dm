@@ -21,6 +21,7 @@
 #define CAT_SGSUP "SMARTGUNNER SUPPLIES"
 #define CAT_FCSUP "COMMANDER SUPPLIES"
 #define CAT_SYNTH "SYNTHETIC SUPPLIES"
+#define CAT_MARINE "MARINE SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
 // Synth Special Categories
@@ -53,10 +54,17 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 
 #define METAL_PRICE_IN_GEAR_VENDOR 2
 #define PLASTEEL_PRICE_IN_GEAR_VENDOR 4
-//#define SANDBAG_PRICE_IN_GEAR_VENDOR 5 //ORIGINAL
-#define SANDBAG_PRICE_IN_GEAR_VENDOR 3 //RUTGMC EDIT
+#define SANDBAG_PRICE_IN_GEAR_VENDOR 3
 
-GLOBAL_LIST_INIT(marine_gear_listed_products, list())
+GLOBAL_LIST_INIT(marine_gear_listed_products, list(
+	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),
+	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
+	/obj/item/fulton_extraction_pack = list(CAT_MARINE, "Fulton Extraction Pack", 5, "orange"),
+	/obj/item/explosive/grenade = list(CAT_MARINE, "M40 HEDP grenade", 2, "orange3"),
+	/obj/item/explosive/grenade/sticky = list(CAT_MARINE, "M40 adhesive charge grenade", 2, "orange3"),
+	/obj/item/explosive/grenade/incendiary = list(CAT_MARINE, "M40 HIDP incendiary grenade", 2, "orange3"),
+	/obj/item/explosive/grenade/m15 = list(CAT_MARINE, "M15 fragmentation grenade", 3, "orange3"),
+))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/effect/vendor_bundle/engi = list(CAT_ESS, "Essential Engineer Set", 0, "white"),
@@ -113,21 +121,22 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/storage/syringe_case/dermaline = list(CAT_MEDSUP, "syringe Case (120u Dermaline)", 14, "blue"),
 	/obj/item/storage/syringe_case/meraderm = list(CAT_MEDSUP, "syringe Case (120u Meraderm)", 14, "blue"),
 	/obj/item/storage/syringe_case/nanoblood = list(CAT_MEDSUP, "syringe Case (120u Nanoblood)", 4, "blue"),
-	/obj/item/reagent_containers/hypospray/advanced/meralyne = list(CAT_MEDSUP, "Hypospray (60u Meralyne)", 7, "cyan"),
-	/obj/item/reagent_containers/hypospray/advanced/dermaline = list(CAT_MEDSUP, "Hypospray (60u dermaline)", 7, "cyan"),
-	/obj/item/reagent_containers/hypospray/advanced/meraderm = list(CAT_MEDSUP, "Hypospray (60u Meraderm)", 7, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/meralyne = list(CAT_MEDSUP, "Hypospray (120u Meralyne)", 14, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/dermaline = list(CAT_MEDSUP, "Hypospray (120u Dermaline)", 14, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/meraderm = list(CAT_MEDSUP, "Hypospray (120u Meraderm)", 14, "cyan"),
 	/obj/item/reagent_containers/hypospray/advanced/nanoblood = list(CAT_MEDSUP, "Hypospray (60u Nanoblood)", 2, "cyan"),
-	/obj/item/reagent_containers/hypospray/advanced/quickclotplus = list(CAT_MEDSUP, "Hypospray (Quickclot Plus)", 4, "blue"),
-	/obj/item/reagent_containers/hypospray/advanced/peridaxonplus = list(CAT_MEDSUP, "Hypospray (Peridaxon Plus)", 7, "blue"),
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = list(CAT_MEDSUP, "Injector (Quickclot Plus)", 1, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = list(CAT_MEDSUP, "Injector (Peridaxon Plus)", 1, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/quickclot = list(CAT_MEDSUP, "Hypospray (Quickclot)", 4, "blue"),
+	// /obj/item/reagent_containers/hypospray/advanced/peridaxonplus = list(CAT_MEDSUP, "Hypospray (Peridaxon)", 7, "blue"),
+	/obj/item/reagent_containers/hypospray/autoinjector/quickclot = list(CAT_MEDSUP, "Injector (Quickclot)", 2, "cyan"),
+	// /obj/item/reagent_containers/hypospray/autoinjector/peridaxon = list(CAT_MEDSUP, "Injector (Peridaxon)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_MEDSUP, "Injector (Advanced)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_MEDSUP, "Injector (Synaptizine)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/neuraline = list(CAT_MEDSUP, "Injector (Neuraline)", 14, "cyan"),
 	/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "yellow"),
 	/obj/item/defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 4, "yellow"),
+	/obj/item/defibrillator/advanced = list(CAT_FCSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
-	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 16, "yellow"),
+	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
 ))
 
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
@@ -264,10 +273,11 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/storage/box/crate/minisentry = list(CAT_FCSUP, "ST-580 point defense sentry kit", 15, "yellow"),
 	/obj/item/healthanalyzer/gloves = list(CAT_FCSUP, "Health scanner gloves", 2, "yellow"),
 	/obj/item/defibrillator/gloves = list(CAT_FCSUP, "Advanced medical gloves", 4, "yellow"),
+	/obj/item/defibrillator/advanced = list(CAT_FCSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/storage/pouch/medical_injectors/medic = list(CAT_FCSUP, "Advanced Injector Pouch", 16, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = list(CAT_FCSUP, "Injector (Peridaxon Plus)", 4, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = list(CAT_FCSUP, "Injector (Dexalin Plus)", 1, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = list(CAT_FCSUP, "Injector (Quick-Clot Plus)", 4, "cyan"),
+	// /obj/item/reagent_containers/hypospray/autoinjector/peridaxon = list(CAT_FCSUP, "Injector (Peridaxon)", 4, "cyan"),
+	/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = list(CAT_FCSUP, "Injector (Dexalin)", 1, "cyan"),
+	/obj/item/reagent_containers/hypospray/autoinjector/quickclot = list(CAT_FCSUP, "Injector (Quick-Clot)", 4, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 2, "cyan"),
 	/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_FCSUP, "Combat Trauma Kit", 2, "cyan"),
@@ -324,8 +334,8 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/cell/rtg/small = list(CAT_SYNTH, "Recharger powercell", 2, "yellow"),
 	/obj/item/cell/rtg/large = list(CAT_SYNTH, "Large recharger powercell", 5, "yellow"),
 	//medic stuff
-	/obj/item/storage/pill_bottle/meralyne = list(CAT_SYNTH, "Meralyne pills", 16, "orange"),
-	/obj/item/storage/pill_bottle/dermaline = list(CAT_SYNTH, "Dermaline pills", 16, "orange"),
+	/obj/item/storage/pill_bottle/meralyne = list(CAT_SYNTH, "Meralyne pills", 14, "orange"),
+	/obj/item/storage/pill_bottle/dermaline = list(CAT_SYNTH, "Dermaline pills", 14, "orange"),
 	/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_SYNTH, "Combat Trauma Kit", 3, "orange"),
 	/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_SYNTH, "Combat Burn Kit", 3, "orange"),
 	/obj/item/reagent_containers/hypospray/advanced = list(CAT_SYNTH, "Hypospray", 1, "yellow"),
@@ -334,22 +344,23 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/storage/syringe_case/dermaline = list(CAT_SYNTH, "syringe Case (120u Dermaline)", 14, "blue"),
 	/obj/item/storage/syringe_case/meraderm = list(CAT_SYNTH, "syringe Case (120u Meraderm)", 14, "blue"),
 	/obj/item/storage/syringe_case/nanoblood = list(CAT_SYNTH, "syringe Case (120u Nanoblood)", 4, "blue"),
-	/obj/item/reagent_containers/hypospray/advanced/meralyne = list(CAT_SYNTH, "Hypospray (60u Meralyne)", 8, "cyan"), //half the units of the mera case half the price
-	/obj/item/reagent_containers/hypospray/advanced/dermaline = list(CAT_SYNTH, "Hypospray (60u dermaline)", 8, "cyan"), //half the units of the derm case half the price
-	/obj/item/reagent_containers/hypospray/advanced/meraderm = list(CAT_SYNTH, "Hypospray (60u Meraderm)", 8, "cyan"), //half the units of the meraderm case half the price
+	/obj/item/reagent_containers/hypospray/advanced/meralyne = list(CAT_SYNTH, "Hypospray (120u Meralyne)", 14, "cyan"), //half the units of the mera case half the price
+	/obj/item/reagent_containers/hypospray/advanced/dermaline = list(CAT_SYNTH, "Hypospray (120u dermaline)", 14, "cyan"), //half the units of the derm case half the price
+	/obj/item/reagent_containers/hypospray/advanced/meraderm = list(CAT_SYNTH, "Hypospray (120u Meraderm)", 14, "cyan"), //half the units of the meraderm case half the price
 	/obj/item/reagent_containers/hypospray/advanced/nanoblood = list(CAT_SYNTH, "Hypospray (60u Nanoblood)", 2, "cyan"), //bit more than half of the nanoblood case
-	/obj/item/reagent_containers/hypospray/advanced/quickclotplus = list(CAT_SYNTH, "Hypospray (Quickclot Plus)", 4, "blue"),
-	/obj/item/reagent_containers/hypospray/advanced/peridaxonplus = list(CAT_SYNTH, "Hypospray (Peridaxon Plus)", 7, "blue"),
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = list(CAT_SYNTH, "Injector (Quickclot Plus)", 1, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = list(CAT_SYNTH, "Injector (Peridaxon Plus)", 1, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/quickclot = list(CAT_SYNTH, "Hypospray (Quickclot)", 4, "blue"),
+	// /obj/item/reagent_containers/hypospray/advanced/peridaxonplus = list(CAT_SYNTH, "Hypospray (Peridaxon)", 7, "blue"),
+	/obj/item/reagent_containers/hypospray/autoinjector/quickclot = list(CAT_SYNTH, "Injector (Quickclot)", 2, "cyan"),
+	// /obj/item/reagent_containers/hypospray/autoinjector/peridaxon = list(CAT_SYNTH, "Injector (Peridaxon)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_SYNTH, "Injector (Advanced)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_SYNTH, "Injector (Synaptizine)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/neuraline = list(CAT_SYNTH, "Injector (Neuraline)", 7, "cyan"),
 	/obj/item/healthanalyzer/gloves = list(CAT_SYNTH, "Health scanner gloves", 2, "yellow"),
 	/obj/item/defibrillator/gloves = list(CAT_SYNTH, "Advanced medical gloves", 4, "yellow"),
+	/obj/item/defibrillator/advanced = list(CAT_SYNTH, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
 	/obj/item/tool/surgery/scalpel/manager = list(CAT_SYNTH, "Incision Management System", 6, "yellow"),
-	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 16, "yellow"),
+	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
 ))
 
 ///Assoc list linking the job title with their specific points vendor
@@ -473,9 +484,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0,"black"),
 		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
-/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
-RU TGMC EDIT */
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
@@ -551,9 +560,7 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
-/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
-RU TGMC EDIT */
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
@@ -607,9 +614,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
 		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
-/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
-RU TGMC EDIT */
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
@@ -668,9 +673,7 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
-/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
-RU TGMC EDIT */
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/clothing/mask/gas = list(CAT_MAS, "Transparent gas mask", 0,"black"),
@@ -734,8 +737,8 @@ GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
 		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
-/* RUTGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
+/* RUTGMC EDIT
 		/obj/effect/vendor_bundle/tyr/two = list(CAT_ARMMOD, "Mark 2 Tyr extra armor set", 0,"black"),
 		/obj/effect/vendor_bundle/mimir/two = list(CAT_ARMMOD, "Mark 2 Mimir Resistance set", 0,"black"),
 RU TGMC EDIT */

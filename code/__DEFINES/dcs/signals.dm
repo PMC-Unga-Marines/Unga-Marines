@@ -42,7 +42,6 @@
 #define COMSIG_GLOB_AI_MINION_RALLY "!ai_minion_rally"
 #define COMSIG_GLOB_HIVE_TARGET_DRAINED "!hive_target_drained"
 
-
 /// Sent when a marine dropship enters transit level
 #define COMSIG_GLOB_DROPSHIP_TRANSIT "!dropship_transit"
 ///Sent when xenos launch a hijacked dropship
@@ -157,14 +156,12 @@
 /// Called when the player replies. From /client/proc/cmd_admin_pm().
 #define COMSIG_ADMIN_HELP_REPLIED "admin_help_replied"
 
-
 // /area signals
 #define COMSIG_AREA_ENTERED "area_entered" 						//from base of area/Entered(): (atom/movable/M)
 #define COMSIG_AREA_EXITED "area_exited" 							//from base of area/Exited(): (atom/movable/M)
 
 #define COMSIG_ENTER_AREA "enter_area" 						//from base of area/Entered(): (/area)
 #define COMSIG_EXIT_AREA "exit_area" 							//from base of area/Exited(): (/area)
-
 
 #define COMSIG_CLICK "atom_click"								//from base of atom/Click(): (location, control, params, mob/user)
 #define COMSIG_CLICK_SHIFT "shift_click"						//from base of atom/ShiftClick(): (/mob)
@@ -183,7 +180,6 @@
 #define COMSIG_DBLCLICK_SHIFT "dblclick_shift"
 #define COMSIG_DBLCLICK_ALT "dblclick_alt"
 #define COMSIG_DBLCLICK_CTRL "dblclick_ctrl"
-
 
 // /client signals
 #define COMSIG_CLIENT_MOUSEDOWN "client_mousedown"			//from base of client/MouseDown(): (/client, object, location, control, params)
@@ -234,10 +230,32 @@
 ///from base of atom/get_mechanics_info(): (/mob)
 #define COMSIG_ATOM_GET_MECHANICS_INFO "atom_mechanics_info"
 	#define COMPONENT_MECHANICS_CHANGE (1<<0)
-#define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"				//from base of atom/update_icon(): ()
-	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE (1<<0)
-	#define COMSIG_ATOM_NO_UPDATE_OVERLAYS (1<<1)
-#define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"		//from base of atom/update_overlays(): (list/new_overlays)
+
+///from base of [/atom/proc/update_appearance]: (updates)
+#define COMSIG_ATOM_UPDATE_APPEARANCE "atom_update_appearance"
+	/// If returned from [COMSIG_ATOM_UPDATE_APPEARANCE] it prevents the atom from updating its name.
+	#define COMSIG_ATOM_NO_UPDATE_NAME UPDATE_NAME
+	/// If returned from [COMSIG_ATOM_UPDATE_APPEARANCE] it prevents the atom from updating its desc.
+	#define COMSIG_ATOM_NO_UPDATE_DESC UPDATE_DESC
+	/// If returned from [COMSIG_ATOM_UPDATE_APPEARANCE] it prevents the atom from updating its icon.
+	#define COMSIG_ATOM_NO_UPDATE_ICON UPDATE_ICON
+///from base of [/atom/proc/update_name]: (updates)
+#define COMSIG_ATOM_UPDATE_NAME "atom_update_name"
+///from base of [/atom/proc/update_desc]: (updates)
+#define COMSIG_ATOM_UPDATE_DESC "atom_update_desc"
+///from base of [/atom/update_icon]: ()
+#define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"
+	/// If returned from [COMSIG_ATOM_UPDATE_ICON] it prevents the atom from updating its icon state.
+	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE UPDATE_ICON_STATE
+	/// If returned from [COMSIG_ATOM_UPDATE_ICON] it prevents the atom from updating its overlays.
+	#define COMSIG_ATOM_NO_UPDATE_OVERLAYS UPDATE_OVERLAYS
+///from base of [atom/update_icon_state]: ()
+#define COMSIG_ATOM_UPDATE_ICON_STATE "atom_update_icon_state"
+///from base of [/atom/update_overlays]: (list/new_overlays)
+#define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"
+///from base of [/atom/update_icon]: (signalOut, did_anything)
+#define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
+
 #define COMSIG_ATOM_EX_ACT "atom_ex_act"						//from base of atom/ex_act(): (severity, target)
 #define COMSIG_ATOM_SET_LIGHT "atom_set_light"					//from base of atom/set_light(): (l_range, l_power, l_color)
 #define COMSIG_ATOM_BULLET_ACT "atom_bullet_act"				//from base of atom/bullet_act(): (/obj/projectile)
@@ -262,7 +280,6 @@
 ///Called right before the atom changes the value of light_flags to a different one, from base atom/set_light_flags(): (new_value)
 #define COMSIG_ATOM_SET_LIGHT_FLAGS "atom_set_light_flags"
 
-
 // /atom/movable signals
 #define COMSIG_MOVABLE_PRE_MOVE "movable_pre_move"				//from base of atom/movable/Move(): (/atom, new_loc, direction)
 	#define COMPONENT_MOVABLE_BLOCK_PRE_MOVE (1<<0)
@@ -281,6 +298,8 @@
 #define COMSIG_MOVABLE_BUCKLE "buckle"							//from base of atom/movable/buckle_mob(): (mob, force)
 	#define COMPONENT_MOVABLE_BUCKLE_STOPPED (1<<0)
 #define COMSIG_MOVABLE_UNBUCKLE "unbuckle"						//from base of atom/movable/unbuckle_mob(): (mob, force)
+///from /obj/vehicle/sealed/proc/driver_move
+#define COMSIG_VEHICLE_MOVE "vehicle_move"
 ///from /obj/vehicle/proc/driver_move, caught by the riding component to check and execute the driver trying to drive the vehicle
 #define COMSIG_RIDDEN_DRIVER_MOVE "driver_move"
 	#define COMPONENT_DRIVER_BLOCK_MOVE (1<<0)
@@ -405,7 +424,6 @@
 #define COMSIG_HELMET_MODULE_ATTACHING "helmet_module_attaching"
 #define COMSIG_HELMET_MODULE_DETACHED "helmet_module_detached"
 
-
 // /obj/item/weapon/gun signals
 #define COMSIG_GUN_FIRE "gun_fire"
 #define COMSIG_MOB_GUN_FIRE "mob_gun_fire"
@@ -428,6 +446,8 @@
 #define COMSIG_MECH_FIRE "mech_fire"
 #define COMSIG_MECH_STOP_FIRE "mech_stop_fire"
 
+#define COMSIG_ARMORED_FIRE "armored_fire"
+#define COMSIG_ARMORED_STOP_FIRE "armored_stop_fire"
 
 // /obj/item/clothing signals
 #define COMSIG_SHOES_STEP_ACTION "shoes_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()
@@ -624,7 +644,7 @@
 ///from /mob/living/proc/attack_alien_harm(mob/living/carbon/xenomorph/X, dam_bonus, set_location, random_location, no_head, no_crit, force_intent)
 #define COMSIG_XENOMORPH_ATTACK_LIVING "xenomorph_attack_living"
 	#define COMSIG_XENOMORPH_BONUS_APPLIED (1<<0)
-///from /mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+///from /mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 ///only on INTENT_HARM, INTENT_DISARM, IF it does damaage
 #define COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH "xenomorph_attack_xenomorph"
 
@@ -658,9 +678,6 @@
 	#define COMPONENT_KEEP_THROWING (1<<0)
 #define COMSIG_XENO_PROJECTILE_HIT "xeno_projectile_hit"			///from [/mob/living/carbon/xenomorph/projectile_hit] called when a projectile hits a xeno but before confirmation of a hit (can miss due to inaccuracy/evasion)
 	#define COMPONENT_PROJECTILE_DODGE (1<<0)
-
-#define COMSIG_XENOMORPH_WRAITH_RECALL "xenomorph_wraith_recall"
-	#define COMPONENT_BANISH_TARGETS_EXIST (1<<0)
 
 #define COMSIG_XENO_PSYCHIC_LINK_REMOVED "xeno_psychic_link_removed"
 
@@ -732,7 +749,6 @@
 #define COMSIG_KB_SELFHARM "keybind_selfharm"
 
 // mecha keybinds
-#define COMSIG_MECHABILITY_TOGGLE_INTERNALS "mechability_toggle_internals"
 #define COMSIG_MECHABILITY_TOGGLE_STRAFE "mechability_toggle_strafe"
 #define COMSIG_MECHABILITY_VIEW_STATS "mechability_view_stats"
 #define COMSIG_MECHABILITY_SMOKE "mechability_smoke"
@@ -900,36 +916,12 @@
 
 #define COMSIG_XENOABILITY_SCATTER_SPIT "xenoability_scatter_spit"
 
-/* RUTGMC DELETION, WIDOW DELETION
-#define COMSIG_XENOABILITY_WEB_SPIT "xenoability_web_spit"
-#define COMSIG_XENOABILITY_BURROW "xenoability_burrow"
-#define COMSIG_XENOABILITY_LEASH_BALL "xenoability_leash_ball"
-#define COMSIG_XENOABILITY_CREATE_SPIDERLING "xenoability_create_spiderling"
-#define COMSIG_XENOABILITY_CREATE_SPIDERLING_USING_CC "xenoability_create_spiderling_using_cc"
-#define COMSIG_XENOABILITY_ATTACH_SPIDERLINGS "xenoability_attach_spiderlings"
-#define COMSIG_XENOABILITY_CANNIBALISE_SPIDERLING "xenoability_cannibalise_spiderling"
-#define COMSIG_XENOABILITY_WEB_HOOK "xenoability_web_hook"
-#define COMSIG_XENOABILITY_SPIDERLING_MARK "xenoability_spiderling_mark"
-*/
-
 #define COMSIG_XENOABILITY_PSYCHIC_SHIELD "xenoability_psychic_shield"
 #define COMSIG_XENOABILITY_TRIGGER_PSYCHIC_SHIELD "xenoability_trigger_psychic_shield"
 #define COMSIG_XENOABILITY_PSYCHIC_BLAST "xenoability_psychic_blast"
 #define COMSIG_XENOABILITY_TOGGLE_WARLOCK_ZOOM "xenoability_toggle_warlock_zoom"
 #define COMSIG_XENOABILITY_PSYCHIC_CRUSH "xenoability_psychic_crush"
-/* RU TGMC EDIT
-#define COMSIG_XENOABILITY_TENDRILS "xenoability_tendrils"
-#define COMSIG_XENOABILITY_ORGANICBOMB "xenoability_puppeteerorganicbomb"
-#define COMSIG_XENOABILITY_PUPPET "xenoability_puppet"
-#define COMSIG_XENOABILITY_REFURBISHHUSK "xenoability_refurbishhusk"
-#define COMSIG_XENOABILITY_DREADFULPRESENCE "xenoability_dreadfulpresence"
-#define COMSIG_XENOABILITY_PINCUSHION "xenoability_pincushion"
-#define COMSIG_XENOABILITY_FLAY "xenoability_flay"
-#define COMSIG_XENOABILITY_SENDORDERS_RADIAL "xenoability_sendorders_radial"
-#define COMSIG_XENOABILITY_ATTACKORDER "xenoability_attackorder"
-#define COMSIG_XENOABILITY_RECALLORDER "xenoability_recallorder"
-#define COMSIG_XENOABILITY_BESTOWBLESSINGS "xenoability_giveblessings"
-RU TGMC EDIT */
+
 #define COMSIG_XENOABILITY_BANELING_EXPLODE "xenoability_baneling_explode"
 
 #define COMSIG_XENOABILITY_BEHEMOTH_ROLL "xenoability_behemoth_roll"
@@ -975,7 +967,7 @@ RU TGMC EDIT */
 #define COMSIG_KB_ATTACKORDER "keybind_attackorder"
 #define COMSIG_KB_DEFENDORDER "keybind_defendorder"
 #define COMSIG_KB_RETREATORDER "keybind_retreatorder"
-
+#define COMSIG_KB_VEHICLEHONK "keybind_vehiclehonk"
 
 // human modules signals for keybindings
 #define COMSIG_KB_VALI_CONFIGURE "keybinding_vali_configure"
@@ -1016,7 +1008,6 @@ RU TGMC EDIT */
 
 /*******Non-Signal Component Related Defines*******/
 
-
 // /datum/action signals
 #define COMSIG_ACTION_TRIGGER "action_trigger"                        //from base of datum/action/proc/Trigger(): (datum/action)
 	#define COMPONENT_ACTION_BLOCK_TRIGGER (1<<0)
@@ -1054,19 +1045,6 @@ RU TGMC EDIT */
 #define SPATIAL_GRID_CELL_ENTERED(contents_type) "spatial_grid_cell_entered_[contents_type]"
 ///Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
-
-/* RUTGMC DELETION, WIDOW DELETION
-// widow spiderling signals
-#define COMSIG_SPIDERLING_MARK "spiderling_mark"
-#define COMSIG_SPIDERLING_RETURN "spiderling_return"
-#define COMSIG_SPIDERLING_GUARD "spiderling_guard"
-#define COMSIG_SPIDERLING_UNGUARD "spiderling_unguard"
-*/
-/* RU TGMC EDIT
-//puppet
-#define COMSIG_PUPPET_CHANGE_ORDER "puppetchangeorder"
-#define COMSIG_PUPPET_CHANGE_ALL_ORDER "puppetglobalorder"
-RU TGMC EDIT */
 
 /// Xeno signals
 #define COMSIG_XENOABILITY_TEARING_TAIL "xenoability_tearing_tail"

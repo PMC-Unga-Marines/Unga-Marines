@@ -44,8 +44,7 @@
 	icon_state = "random_pickaxe"
 	loot = list(
 		/obj/item/tool/pickaxe = 600,
-		/obj/item/tool/pickaxe/drill = 100,
-		/obj/item/tool/pickaxe/borgdrill = 100,
+		/obj/item/tool/pickaxe/drill = 200,
 		/obj/item/tool/pickaxe/plasmacutter = 10, //10 in 800 chance of showing up
 	)
 

@@ -41,6 +41,7 @@
 		set_light(0)
 
 /obj/machinery/marine_selector/update_icon_state()
+	. = ..()
 	if(is_operational())
 		icon_state = initial(icon_state)
 	else
@@ -226,7 +227,7 @@
 
 /obj/machinery/marine_selector/clothes/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.marine_clothes_listed_products + GLOB.marine_gear_listed_products
+	listed_products = GLOB.marine_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/alpha
 	squad_tag = "Alpha"
@@ -429,6 +430,24 @@
 
 /obj/machinery/marine_selector/gear/medic/valhalla
 	vendor_role = /datum/job/fallen/marine/corpsman
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+/obj/machinery/marine_selector/gear/marine
+	name = "NEXUS Automated Marine Gear Rack"
+	desc = "An automated marine gear rack hooked up to a colossal storage unit."
+	icon_state = "marine"
+	icon_vend = "marine-vend"
+	icon_deny = "marine-deny"
+	vendor_role = /datum/job/terragov/squad/standard
+	req_access = list(ACCESS_MARINE_PREP)
+
+/obj/machinery/marine_selector/gear/marine/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.marine_gear_listed_products
+
+/obj/machinery/marine_selector/gear/marine/valhalla
+	vendor_role = /datum/job/fallen/marine
 	resistance_flags = INDESTRUCTIBLE
 	lock_flags = JOB_LOCK
 
@@ -857,7 +876,7 @@
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/clothing/mask/gas/tactical,
-//		/obj/item/armor_module/module/mimir_environment_protection/mark1, RU TGMC EDIT
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
 	)
 
 /obj/effect/vendor_bundle/vali
@@ -867,14 +886,12 @@
 		/obj/item/storage/holster/blade/machete/full_harvester,
 		/obj/item/paper/chemsystem,
 	)
-/* RU TGMC EDIT
 /obj/effect/vendor_bundle/tyr
 	desc = "A set of specialized gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/tyr_head,
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,
 	)
-RU TGMC EDIT */
 /obj/effect/vendor_bundle/robot/essentials
 	gear_to_spawn = list(
 		/obj/item/clothing/under/marine/robotic,
@@ -911,7 +928,7 @@ RU TGMC EDIT */
 /obj/effect/vendor_bundle/tyr/two
 	desc = "A set of advanced gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
-		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/tyr_extra_armor,
 	)
 

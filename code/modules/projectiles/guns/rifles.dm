@@ -43,8 +43,6 @@
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -90,7 +88,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	starting_attachment_types = list(/obj/item/attachable/stock/t18stock)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 5, "rail_y" = 19, "under_x" = 18, "under_y" = 14, "stock_x" = 0, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
@@ -137,8 +134,6 @@
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -183,7 +178,6 @@
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 17,"rail_x" = 0, "rail_y" = 23, "under_x" = 17, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
@@ -219,8 +213,6 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "t37"
 	item_state = "t37"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -811,7 +803,6 @@
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE)
 	attachable_offset = list("muzzle_x" = 47, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 29, "under_y" = 15, "stock_x" = 19, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.2 SECONDS
 	aim_speed_modifier = 2.5
 
@@ -918,8 +909,6 @@
 	reload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipin.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/standard_lmg
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_lmg)
-	greyscale_config = null
-	colorable_allowed = NONE
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t42stock,
 		/obj/item/attachable/reddot,
@@ -954,7 +943,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	gun_skill_category = SKILL_HEAVY_WEAPONS
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 17,"rail_x" = 4, "rail_y" = 20, "under_x" = 16, "under_y" = 14, "stock_x" = 0, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
@@ -979,8 +967,6 @@
 	icon_state = "t60"
 	item_state = "t60"
 	fire_animation = "loaded_fire"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -1026,7 +1012,6 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/t60stock)
 	gun_skill_category = SKILL_HEAVY_WEAPONS
 	attachable_offset = list("muzzle_x" = 42, "muzzle_y" = 21,"rail_x" = 6, "rail_y" = 23, "under_x" = 26, "under_y" = 15, "stock_x" = 8, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 5.3
 
@@ -1092,7 +1077,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	gun_skill_category = SKILL_HEAVY_WEAPONS
 	attachable_offset = list("muzzle_x" = 42, "muzzle_y" = 19,"rail_x" = 17, "rail_y" = 21, "under_x" = 31, "under_y" = 15, "stock_x" = 18, "stock_y" = 15)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2
 
@@ -1167,7 +1151,6 @@
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 34, "under_y" = 16, "stock_x" = 19, "stock_y" = 13)
 	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2
 
@@ -1242,8 +1225,6 @@
 	max_shells = 12 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_slug
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1313,8 +1294,6 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1501,8 +1480,6 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "tl127"
 	item_state = "tl127"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -1587,8 +1564,6 @@
 	max_shells = 20 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/autosniper
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/autosniper)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1642,8 +1617,6 @@
 	cocked_sound = 'sound/weapons/guns/rifles/AR-11/AR11_boltpull.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx11
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/tx11)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1667,7 +1640,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/scope/mini/tx11)
 	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 17,"rail_x" = 6, "rail_y" = 20, "under_x" = 20, "under_y" = 12, "stock_x" = 17, "stock_y" = 14)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 
 	fire_delay = 0.25 SECONDS
@@ -1718,8 +1690,6 @@
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_skirmishrifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle)
-	greyscale_config = null
-	colorable_allowed = NONE
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
@@ -1757,7 +1727,6 @@
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 46, "muzzle_y" = 16,"rail_x" = 18, "rail_y" = 19, "under_x" = 34, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2.5
 
@@ -1946,7 +1915,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/tx54
 	attach_delay = 3 SECONDS
 	detach_delay = 3 SECONDS
-	actions_types = list(/datum/action/item_action/aim_mode)
 	starting_attachment_types = list()
 
 //-------------------------------------------------------
@@ -2139,7 +2107,6 @@
 		/obj/item/weapon/gun/shotgun/micro_grenade,
 	)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 16,"rail_x" = 23, "rail_y" = 24, "under_x" = 33, "under_y" = 11, "stock_x" = -1, "stock_y" = 17)
-	actions_types = list(/datum/action/item_action/aim_mode)
 
 	wield_delay = 0.6 SECONDS
 
@@ -2314,7 +2281,6 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/som_mg_stock)
 	gun_skill_category = SKILL_HEAVY_WEAPONS
 	attachable_offset = list("muzzle_x" = 53, "muzzle_y" = 19,"rail_x" = 14, "rail_y" = 23, "under_x" = 41, "under_y" = 14, "stock_x" = -32, "stock_y" = 0)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.2 SECONDS
 	aim_slowdown = 1.2
 

@@ -60,7 +60,7 @@
 	ability_duration = addtimer(CALLBACK(src, PROC_REF(toxic_slash_deactivate), xeno_owner), SENTINEL_TOXIC_SLASH_DURATION, TIMER_STOPPABLE) //Initiate the timer and set the timer ID for reference
 	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(toxic_slash))
 	xeno_owner.balloon_alert(xeno_owner, "Toxic Slash active")
-	xeno_owner.playsound_local(xeno_owner, 'sound/voice/alien_drool2.ogg', 25)
+	xeno_owner.playsound_local(xeno_owner, 'sound/voice/alien/drool2.ogg', 25)
 	action_icon_state = "neuroclaws_on"
 	particle_holder = new(owner, /particles/toxic_slash)
 	particle_holder.pixel_x = 9
@@ -93,11 +93,11 @@
 	ability_duration = null
 	QDEL_NULL(particle_holder)
 	xeno_owner.balloon_alert(xeno_owner, "Toxic Slash over") //Let the user know
-	xeno_owner.playsound_local(xeno_owner, 'sound/voice/hiss5.ogg', 25)
+	xeno_owner.playsound_local(xeno_owner, 'sound/voice/alien/hiss8.ogg', 25)
 	action_icon_state = "neuroclaws_off"
 
 /datum/action/ability/xeno_action/toxic_slash/on_cooldown_finish()
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	owner.balloon_alert(owner, "Toxic Slash ready")
 	return ..()
 
@@ -168,7 +168,7 @@
 	HEAL_XENO_DAMAGE(xeno_owner, drain_potency, FALSE)
 	xeno_owner.gain_plasma(drain_potency * 3.5)
 	xeno_owner.do_attack_animation(xeno_target, ATTACK_EFFECT_DRAIN_STING)
-	playsound(owner.loc, 'sound/effects/alien_tail_swipe1.ogg', 30)
+	playsound(owner.loc, 'sound/effects/alien/tail_swipe1.ogg', 30)
 	xeno_owner.visible_message(message = span_xenowarning("\A [xeno_owner] stings [xeno_target]!"), self_message = span_xenowarning("We sting [xeno_target]!"))
 	debuff.stacks -= round(debuff.stacks * 0.7)
 	succeed_activate()
@@ -177,7 +177,7 @@
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "sentinel_drain_stings")
 
 /datum/action/ability/activable/xeno/drain_sting/on_cooldown_finish()
-	playsound(owner.loc, 'sound/voice/alien_drool1.ogg', 50, 1)
+	playsound(owner.loc, 'sound/voice/alien/drool1.ogg', 50, 1)
 	owner.balloon_alert(owner, "Drain Sting ready")
 	return ..()
 
@@ -220,7 +220,7 @@
 	smoke_duration = 4
 	dangerous = TRUE
 	smoketype = /datum/effect_system/smoke_spread/xeno/toxic
-	arm_sound = 'sound/voice/alien_yell_alt.ogg'
+	arm_sound = 'sound/voice/alien/yell_alt.ogg'
 	smokeradius = 3
 
 /obj/item/explosive/grenade/smokebomb/xeno/update_overlays()

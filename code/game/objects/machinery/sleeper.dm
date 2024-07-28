@@ -1,7 +1,3 @@
-/////////////////////////////////////////
-// SLEEPER CONSOLE
-/////////////////////////////////////////
-
 /obj/machinery/computer/sleep_console
 	name = "Sleeper Console"
 	icon = 'icons/obj/machines/cryogenics.dmi'
@@ -150,7 +146,6 @@
 	idle_power_usage = 15
 	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
 
-
 /obj/machinery/sleeper/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
@@ -249,8 +244,6 @@
 	if(filtering)
 		for(var/datum/reagent/x in occupant.reagents.reagent_list)
 			occupant.reagents.remove_reagent(x.type, 10)
-
-
 	updateUsrDialog()
 
 /obj/machinery/sleeper/update_icon()
@@ -261,6 +254,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/sleeper/update_icon_state()
+	. = ..()
 	if(occupant)
 		icon_state = "[initial(icon_state)]_occupied"
 	else
@@ -289,7 +283,6 @@
 	if(occupant)
 		to_chat(user, span_notice("The sleeper is already occupied!"))
 		return
-
 
 	if(!istype(I, /obj/item/grab))
 		return
@@ -364,7 +357,6 @@
 	connected.stop_processing()
 	update_icon()
 
-
 /obj/machinery/sleeper/proc/inject_chemical(mob/living/user as mob, chemical, amount)
 	if(occupant?.reagents)
 		if(occupant.reagents.get_reagent_amount(chemical) + amount <= 20)
@@ -372,7 +364,6 @@
 			to_chat(user, span_notice("Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in his/her bloodstream."))
 			return
 	to_chat(user, span_warning("There's no occupant in the sleeper or the subject has too many chemicals!"))
-
 
 /obj/machinery/sleeper/proc/check(mob/living/user)
 	if(occupant)
@@ -398,15 +389,15 @@
 	else
 		to_chat(user, span_notice("There is no one inside!"))
 
-/obj/machinery/sleeper/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/sleeper/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
-		to_chat(X, span_xenowarning("There is nothing of interest in there."))
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
-	if(X.status_flags & INCORPOREAL || X.do_actions)
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
-	visible_message(span_warning("[X] begins to pry the [src]'s cover!"), 3)
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
-	if(!do_after(X, 2 SECONDS))
+	if(!do_after(xeno_attacker, 2 SECONDS))
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
@@ -418,7 +409,6 @@
 
 	if(usr.stat != CONSCIOUS)
 		return
-
 	go_out()
 
 /obj/machinery/sleeper/relaymove(mob/user)

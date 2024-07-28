@@ -111,8 +111,6 @@
 #define isxenodefiler(A) (istype(A, /mob/living/carbon/xenomorph/defiler))
 #define isxenobull(A) (istype(A, /mob/living/carbon/xenomorph/bull))
 #define isxenohivemind(A) (istype(A, /mob/living/carbon/xenomorph/hivemind))
-#define isxenowraith(A) (istype(A, /mob/living/carbon/xenomorph/wraith))
-//#define isxenowidow(A) (istype(A, /mob/living/carbon/xenomorph/widow)) //RUTGMC DELETION, WIDOW DELETION
 #define isxenowarlock(A) (istype(A, /mob/living/carbon/xenomorph/warlock))
 #define isxenoking(A) (istype(A, /mob/living/carbon/xenomorph/king))
 #define isxenobehemoth(A) (istype(A, /mob/living/carbon/xenomorph/behemoth))
@@ -242,6 +240,10 @@
 #define isvehicle(A) (istype(A, /obj/vehicle))
 
 #define ismecha(A) (istype(A, /obj/vehicle/sealed/mecha))
+
+#define isarmoredvehicle(A) (istype(A, /obj/vehicle/sealed/armored))
+
+#define ishitbox(A) (istype(A, /obj/hitbox))
 
 #define isorgan(A) (istype(A, /datum/limb))
 

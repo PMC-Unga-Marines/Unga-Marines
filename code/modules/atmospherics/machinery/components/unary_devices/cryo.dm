@@ -14,30 +14,23 @@
 	light_range = 2
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_GREEN
-
 	var/autoeject = FALSE
 	var/release_notice = FALSE
-
 	var/temperature = 100
-
 	var/efficiency = 1
 	var/sleep_factor = 0.00125
 	var/unconscious_factor = 0.001
 	var/heat_capacity = 20000
 	var/conduction_coefficient = 0.3
-
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/reagent_transfer = 0
-
 	var/obj/item/radio/headset/mainship/doc/radio
-	var/idle_ticks_until_shutdown = 60 //Number of ticks permitted to elapse without a patient before the cryotube shuts itself off to save processing
-
+	///Number of ticks permitted to elapse without a patient before the cryotube shuts itself off to save processing
+	var/idle_ticks_until_shutdown = 60
 	var/running_anim = FALSE
-
 	var/escape_in_progress = FALSE
 	var/message_cooldown
 	var/breakout_time = 300
-
 	var/mob/living/carbon/occupant
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/Initialize(mapload)
@@ -120,6 +113,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/update_icon_state()
+	. = ..()
 	if(!on)
 		icon_state = "cell_off"
 	else
@@ -196,15 +190,12 @@
 		if(!idle_ticks_until_shutdown) //shut down after all ticks elapsed to conserve on processing
 			turn_off()
 			idle_ticks_until_shutdown = 60 //reset idle ticks
-
 	return TRUE
-
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/user)
 	if(message_cooldown <= world.time)
 		message_cooldown = world.time + 50
 		to_chat(user, span_warning("[src]'s door won't budge!"))
-
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/verb/move_eject()
 	set name = "Eject occupant"
@@ -240,9 +231,7 @@
 
 		beaker = I
 
-
 		var/reagentnames = ""
-
 		for(var/datum/reagent/R in beaker.reagents.reagent_list)
 			reagentnames += ", [R.name]"
 
@@ -440,18 +429,17 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell/can_crawl_through()
 	return // can't ventcrawl in or out of cryo.
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
-		to_chat(X, span_xenowarning("There is nothing of interest in there."))
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
-	if(X.status_flags & INCORPOREAL || X.do_actions)
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
-	visible_message(span_warning("[X] begins to pry the [src]'s cover!"), 3)
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
-	if(!do_after(X, 2 SECONDS))
+	if(!do_after(xeno_attacker, 2 SECONDS))
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
-
 
 #undef CRYOMOBS

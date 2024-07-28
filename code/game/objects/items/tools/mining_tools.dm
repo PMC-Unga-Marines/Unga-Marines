@@ -70,15 +70,6 @@
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
 
-/obj/item/tool/pickaxe/borgdrill
-	name = "cyborg mining drill"
-	icon_state = "diamonddrill"
-	item_state = "jackhammer"
-	digspeed = 15
-	desc = ""
-	drill_verb = "drilling"
-
-
 /obj/item/tool/pickaxe/plasmacutter
 	name = "plasma cutter"
 	desc = "A tool that cuts with deadly hot plasma. You could use it to cut limbs off of xenos! Or, you know, cut apart walls or mine through stone. Eye protection strongly recommended."
@@ -288,7 +279,8 @@
 		if(!ST.slayer)
 			return
 		ST.slayer = max(0 , ST.slayer - dirt_amt_per_dig)
-		ST.update_icon(1,0)
+		ST.update_appearance()
+		ST.update_sides()
 		cut_apart(user, target.name, target, 0, "You melt the snow with [src]. ") //costs nothing
 
 

@@ -123,7 +123,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	SSmobs.dead_players_by_zlevel[old_z] -= src
 	SSmobs.dead_players_by_zlevel[new_z] += src
 
-/mob/dead/observer/update_icon(new_form)
+///Changes our sprite
+/mob/dead/observer/proc/pick_form(new_form)
 	if(client) //We update our preferences in case they changed right before update_icon was called.
 		ghost_others = client.prefs.ghost_others
 
@@ -133,7 +134,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			ghostimage_default.icon_state = new_form + "_nodir" //if this icon has dirs, the default ghostimage must use its nodir version or clients with the preference set to default sprites only will see the dirs
 		else
 			ghostimage_default.icon_state = new_form
-
 
 /mob/dead/observer/Topic(href, href_list)
 	. = ..()
@@ -299,10 +299,11 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		GLOB.key_to_time_of_xeno_death[ghost.key] = world.time //If you ghost as a xeno that is not a minion, sets respawn timer
 
 
-/mob/dead/observer/Move(atom/newloc, direct)
+/mob/dead/observer/Move(atom/newloc, direct, glide_size_override = 32)
 	if(updatedir)
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
-
+	if(glide_size_override)
+		set_glide_size(glide_size_override)
 	if(newloc)
 		abstract_move(newloc)
 		update_parallax_contents()

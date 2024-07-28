@@ -29,6 +29,7 @@ GLOBAL_LIST_EMPTY(mob_living_list)				//all instances of /mob/living and subtype
 GLOBAL_LIST_EMPTY(alive_living_list)		//all alive /mob/living, including clientless.
 GLOBAL_LIST_EMPTY(offered_mob_list)				//all /mobs offered by admins
 GLOBAL_LIST_EMPTY(ai_list)
+GLOBAL_LIST_EMPTY(silicon_mobs) //all silicon mobs
 GLOBAL_LIST_INIT(simple_animals, list(list(),list(),list(),list())) // One for each AI_* status define
 GLOBAL_LIST_EMPTY(living_cameras)
 GLOBAL_LIST_EMPTY(aiEyes)
@@ -87,6 +88,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/ravager/primordial,
 	/mob/living/carbon/xenomorph/praetorian,
 	/mob/living/carbon/xenomorph/praetorian/primordial,
+	/mob/living/carbon/xenomorph/predalien,
 	/mob/living/carbon/xenomorph/boiler,
 	/mob/living/carbon/xenomorph/boiler/primordial,
 	/mob/living/carbon/xenomorph/defiler,
@@ -105,7 +107,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,
 	/mob/living/carbon/xenomorph/facehugger,
-	))
+))
 
 GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/king,
@@ -113,10 +115,12 @@ GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/shrike,
 	/mob/living/carbon/xenomorph/larva,
 	/mob/living/carbon/xenomorph/drone,
-	))
+))
 
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)
 GLOBAL_LIST_EMPTY_TYPED(yautja_mob_list, /mob/living/carbon/human/species/yautja)
+
+GLOBAL_LIST_EMPTY_TYPED(mob_illusions_list, /mob/illusion)
 
 GLOBAL_LIST_INIT(xeno_types_tier_one, list(/mob/living/carbon/xenomorph/runner, /mob/living/carbon/xenomorph/drone, /mob/living/carbon/xenomorph/sentinel, /mob/living/carbon/xenomorph/defender))
 GLOBAL_LIST_INIT(xeno_types_tier_two, list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/panther, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/spitter, /mob/living/carbon/xenomorph/hivelord, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/bull))
@@ -148,7 +152,7 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 
 		GLOB.hive_ui_caste_index[type_path] = length(.) //Starts from 0.
 
-		var/icon/xeno_minimap = icon('icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon)) ///RUTGMC edit, icon redirect to module
+		var/icon/xeno_minimap = icon('icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon))
 		var/tier = initial(caste.tier)
 		if(tier == XENO_TIER_MINION)
 			continue
@@ -165,8 +169,6 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 			"can_transfer_plasma" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_GIVEN_PLASMA),
 			"evolution_max" = initial(caste.evolution_threshold)
 		))
-
-
 
 /proc/update_config_movespeed_type_lookup(update_mobs = TRUE)
 	var/list/mob_types = list()

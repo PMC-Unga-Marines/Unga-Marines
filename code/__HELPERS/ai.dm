@@ -54,6 +54,16 @@
 			continue
 		. += nearby_mech
 
+///Returns a list of mobs/illusion via get_dist and same z level method, very cheap compared to range()
+/proc/cheap_get_illusions_near(atom/movable/source, distance)
+	. = list()
+	for(var/mob/illusion/nearby_illusion AS in GLOB.mob_illusions_list)
+		if(source.z != nearby_illusion.z)
+			continue
+		if(get_dist(source, nearby_illusion) > distance)
+			continue
+		. += nearby_illusion
+
 ///Returns the nearest target that has the right target flag
 /proc/get_nearest_target(atom/source, distance, target_flags, attacker_faction, attacker_hive)
 	if(!source)
@@ -62,8 +72,7 @@
 	var/shorter_distance = distance + 1
 	if(target_flags & TARGET_HUMAN)
 		for(var/mob/living/nearby_human AS in cheap_get_humans_near(source, distance))
-			//if(nearby_human.stat == DEAD || nearby_human.faction == attacker_faction || nearby_human.alpha <= SCOUT_CLOAK_RUN_ALPHA) //ORIGINAL
-			if(nearby_human.stat == DEAD || nearby_human.faction == attacker_faction || nearby_human.alpha <= SCOUT_CLOAK_RUN_ALPHA || isnestedhost(nearby_human)) //RUTGMC EDIT, no nest breaking minions
+			if(nearby_human.stat == DEAD || nearby_human.faction == attacker_faction || nearby_human.alpha <= SCOUT_CLOAK_RUN_ALPHA || isnestedhost(nearby_human))
 				continue
 			if(get_dist(source, nearby_human) < shorter_distance)
 				nearest_target = nearby_human
@@ -94,3 +103,22 @@
 				continue
 			nearest_target = nearby_vehicle
 	return nearest_target
+
+/**
+ * This proc attempts to get an instance of an atom type within distance, with center as the center.
+ * Arguments
+ * * center - The center of the search
+ * * type - The type of atom we're looking for
+ * * distance - The distance we should search
+ * * list_to_search - The list to look through for the type
+ */
+/proc/cheap_get_atom(atom/center, type, distance, list/list_to_search)
+	var/turf/turf_center = get_turf(center)
+	if(!turf_center)
+		return
+	for(var/atom/near AS in list_to_search)
+		if(!istype(near, type))
+			continue
+		if(get_dist(turf_center, near) > distance)
+			continue
+		return near

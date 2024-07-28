@@ -216,7 +216,7 @@
 	layer = ABOVE_MOB_LAYER
 
 /obj/structure/campaign_objective/destruction_objective/nt_pod/Destroy()
-	playsound(loc, 'sound/voice/predalien_death.ogg', 75, 0)
+	playsound(loc, 'sound/voice/alien/predalien/death.ogg', 75, 0)
 	return ..()
 
 //teleporter core
@@ -260,10 +260,10 @@
 	switch(status)
 		if(BLUESPACE_CORE_OK)
 			. += image(icon, icon_state = "top_overlay", layer = ABOVE_MOB_LAYER)
-			. += image(icon, icon_state = "bsd_c_s", layer = TANK_BARREL_LAYER)
+			. += image(icon, icon_state = "bsd_c_s", layer = ABOVE_MOB_PROP_LAYER)
 		if(BLUESPACE_CORE_UNSTABLE)
 			. += image(icon, icon_state = "top_overlay", layer = ABOVE_MOB_LAYER)
-			. += image(icon, icon_state = "bsd_c_u", layer = TANK_BARREL_LAYER)
+			. += image(icon, icon_state = "bsd_c_u", layer = ABOVE_MOB_PROP_LAYER)
 		if(BLUESPACE_CORE_BROKEN)
 			. += image(icon, icon_state = "top_overlay_broken", layer = ABOVE_MOB_LAYER)
 

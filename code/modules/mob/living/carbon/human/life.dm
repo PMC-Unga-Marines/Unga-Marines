@@ -3,7 +3,6 @@
 
 	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
 
-
 	//update the current life tick, can be used to e.g. only do something every 4 ticks
 	life_tick++
 

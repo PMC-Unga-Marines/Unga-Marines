@@ -6,10 +6,8 @@
 */
 
 /* DATA HUD DATUMS */
-
 /atom/proc/add_to_all_mob_huds()
 	return
-
 
 /mob/living/carbon/human/add_to_all_mob_huds()
 	for(var/h in GLOB.huds)
@@ -18,7 +16,6 @@
 		var/datum/atom_hud/hud = h
 		hud.add_to_hud(src)
 
-
 /mob/living/carbon/xenomorph/add_to_all_mob_huds()
 	for(var/h in GLOB.huds)
 		if(!istype(h, /datum/atom_hud/xeno))
@@ -26,10 +23,8 @@
 		var/datum/atom_hud/hud = h
 		hud.add_to_hud(src)
 
-
 /atom/proc/remove_from_all_mob_huds()
 	return
-
 
 /mob/living/carbon/human/remove_from_all_mob_huds()
 	for(var/h in GLOB.huds)
@@ -45,18 +40,14 @@
 		var/datum/atom_hud/hud = h
 		hud.remove_from_hud(src)
 
-
 /datum/atom_hud/simple //Naked-eye observable statuses.
 	hud_icons = list(STATUS_HUD_SIMPLE)
-
 
 /datum/atom_hud/medical
 	hud_icons = list(HEALTH_HUD, STATUS_HUD)
 
-
 //med hud used by silicons, only shows humans with a uniform with sensor mode activated.
 /datum/atom_hud/medical/basic
-
 
 /datum/atom_hud/medical/basic/proc/check_sensors(mob/living/carbon/human/H)
 	if(!istype(H))
@@ -68,11 +59,9 @@
 		return FALSE
 	return TRUE
 
-
 /datum/atom_hud/medical/basic/add_to_single_hud(mob/user, mob/target)
 	if(check_sensors(user))
 		return ..()
-
 
 /datum/atom_hud/medical/basic/proc/update_suit_sensors(mob/living/carbon/human/H)
 	if(check_sensors(H))
@@ -80,32 +69,25 @@
 	else
 		remove_from_hud(H)
 
-
 /mob/living/carbon/human/proc/update_suit_sensors()
 	var/datum/atom_hud/medical/basic/B = GLOB.huds[DATA_HUD_MEDICAL_BASIC]
 	B.update_suit_sensors(src)
 
-
 //med hud used by medical hud glasses
 /datum/atom_hud/medical/advanced
 
-
 //HUD used by the synth, separate typepath so it's not accidentally removed.
 /datum/atom_hud/medical/advanced/synthetic
-
 
 //medical hud used by ghosts
 /datum/atom_hud/medical/observer
 	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, XENO_BANISHED_HUD, HUNTER_CLAN, HUNTER_HUD, HUNTER_HEALTH_HUD)
 
-
 /datum/atom_hud/medical/pain
 	hud_icons = list(PAIN_HUD)
 
-
 /mob/proc/med_hud_set_health()
 	return
-
 
 /mob/living/carbon/xenomorph/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
@@ -120,83 +102,19 @@
 		amount = -1 //don't want the 'zero health' icon when we are crit
 	holder.icon_state = "xenohealth[amount]"
 
-
 /mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
-		holder.icon_state = "hudhealth-100"
+		holder.icon_state = "hudhealth98"
 		return
-
-	var/percentage = round(health * 100 / maxHealth)
-	switch(percentage)
-		if(100 to INFINITY)
-			holder.icon_state = "hudhealth100"
-		if(90 to 99)
-			holder.icon_state = "hudhealth90"
-		if(80 to 89)
-			holder.icon_state = "hudhealth80"
-		if(70 to 79)
-			holder.icon_state = "hudhealth70"
-		if(60 to 69)
-			holder.icon_state = "hudhealth60"
-		if(50 to 59)
-			holder.icon_state = "hudhealth50"
-		if(45 to 49)
-			holder.icon_state = "hudhealth45"
-		if(40 to 44)
-			holder.icon_state = "hudhealth40"
-		if(35 to 39)
-			holder.icon_state = "hudhealth35"
-		if(30 to 34)
-			holder.icon_state = "hudhealth30"
-		if(25 to 29)
-			holder.icon_state = "hudhealth25"
-		if(20 to 24)
-			holder.icon_state = "hudhealth20"
-		if(15 to 19)
-			holder.icon_state = "hudhealth15"
-		if(10 to 14)
-			holder.icon_state = "hudhealth10"
-		if(5 to 9)
-			holder.icon_state = "hudhealth5"
-		if(0 to 4)
-			holder.icon_state = "hudhealth0"
-		if(-4 to -1)
-			holder.icon_state = "hudhealth-5"
-		if(-9 to -5)
-			holder.icon_state = "hudhealth-10"
-		if(-19 to -10)
-			holder.icon_state = "hudhealth-20"
-		if(-29 to -20)
-			holder.icon_state = "hudhealth-30"
-		if(-39 to -30)
-			holder.icon_state = "hudhealth-40"
-		if(-49 to -40)
-			holder.icon_state = "hudhealth-50"
-		if(-59 to -50)
-			holder.icon_state = "hudhealth-60"
-		if(-69 to -60)
-			holder.icon_state = "hudhealth-70"
-		if(-79 to -70)
-			holder.icon_state = "hudhealth-80"
-		if(-89 to -80)
-			holder.icon_state = "hudhealth-90"
-		if(-94 to -90)
-			holder.icon_state = "hudhealth-95"
-		if(-99 to -95)
-			holder.icon_state = "hudhealth-99"
-		else
-			holder.icon_state = "hudhealth-100"
-
+	var/percentage = round(health * 100 / maxHealth, 7) // rounding to 7 because there are 14 pixel lines in the health hud
+	holder.icon_state = "hudhealth[percentage]"
 
 /mob/proc/med_hud_set_status() //called when mob stat changes, or get a virus/xeno host, etc
 	return
 
-
 /mob/living/carbon/xenomorph/med_hud_set_status()
-	hud_set_plasma()
 	hud_set_pheromone()
-
 
 /mob/living/carbon/human/med_hud_set_status()
 	var/image/status_hud = hud_list[STATUS_HUD] //Status for med-hud.
@@ -421,10 +339,8 @@
 #define PAIN_RATIO_PAIN_HUD 0.25
 #define STAMINA_RATIO_PAIN_HUD 0.25
 
-
 /mob/proc/med_pain_set_perceived_health()
 	return
-
 
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
@@ -433,7 +349,7 @@
 		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD)
-		holder.icon_state = "hudhealth-100"
+		holder.icon_state = "hudhealth98"
 		return TRUE
 
 	var/perceived_health = round(health * 100 / maxHealth)
@@ -442,67 +358,8 @@
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= STAMINA_RATIO_PAIN_HUD * staminaloss
 
-	switch(perceived_health)
-		if(100 to INFINITY)
-			holder.icon_state = "hudhealth100"
-		if(90 to 99)
-			holder.icon_state = "hudhealth90"
-		if(80 to 89)
-			holder.icon_state = "hudhealth80"
-		if(70 to 79)
-			holder.icon_state = "hudhealth70"
-		if(60 to 69)
-			holder.icon_state = "hudhealth60"
-		if(50 to 59)
-			holder.icon_state = "hudhealth50"
-		if(45 to 49)
-			holder.icon_state = "hudhealth45"
-		if(40 to 44)
-			holder.icon_state = "hudhealth40"
-		if(35 to 39)
-			holder.icon_state = "hudhealth35"
-		if(30 to 34)
-			holder.icon_state = "hudhealth30"
-		if(25 to 29)
-			holder.icon_state = "hudhealth25"
-		if(20 to 24)
-			holder.icon_state = "hudhealth20"
-		if(15 to 19)
-			holder.icon_state = "hudhealth15"
-		if(10 to 14)
-			holder.icon_state = "hudhealth10"
-		if(5 to 9)
-			holder.icon_state = "hudhealth5"
-		if(0 to 4)
-			holder.icon_state = "hudhealth0"
-		if(-4 to -1)
-			holder.icon_state = "hudhealth-5"
-		if(-9 to -5)
-			holder.icon_state = "hudhealth-10"
-		if(-19 to -10)
-			holder.icon_state = "hudhealth-20"
-		if(-29 to -20)
-			holder.icon_state = "hudhealth-30"
-		if(-39 to -30)
-			holder.icon_state = "hudhealth-40"
-		if(-49 to -40)
-			holder.icon_state = "hudhealth-50"
-		if(-59 to -50)
-			holder.icon_state = "hudhealth-60"
-		if(-69 to -60)
-			holder.icon_state = "hudhealth-70"
-		if(-79 to -70)
-			holder.icon_state = "hudhealth-80"
-		if(-89 to -80)
-			holder.icon_state = "hudhealth-90"
-		if(-94 to -90)
-			holder.icon_state = "hudhealth-95"
-		if(-99 to -95)
-			holder.icon_state = "hudhealth-99"
-
+	holder.icon_state = "hudhealth[clamp(round(perceived_health, 7), -98, 98)]" // rounding to 7 because there are 14 pixel lines in the health hud
 	return TRUE
-
-
 
 //infection status that appears on humans and monkeys, viewed by xenos only.
 /datum/atom_hud/xeno_infection
@@ -566,7 +423,6 @@
 		if(16 to INFINITY)
 			holder.icon_state = "firestack4"
 
-
 /mob/living/carbon/xenomorph/proc/hud_set_plasma()
 	if(!xeno_caste) // usually happens because hud ticks before New() finishes.
 		return
@@ -580,7 +436,6 @@
 	holder.overlays += xeno_caste.plasma_icon_state? "[xeno_caste.plasma_icon_state][plasma_amount]" : null
 	var/wrath_amount = xeno_caste.wrath_max? round(wrath_stored * 100 / xeno_caste.wrath_max, 10) : 0
 	holder.overlays += "wrath[wrath_amount]"
-
 
 /mob/living/carbon/xenomorph/proc/hud_set_pheromone()
 	var/image/holder = hud_list[PHEROMONE_HUD]
@@ -659,7 +514,6 @@
 /datum/atom_hud/security
 	hud_icons = list(WANTED_HUD)
 
-
 /mob/living/carbon/human/proc/sec_hud_set_security_status()
 	var/image/holder = hud_list[WANTED_HUD]
 	holder.icon_state = "hudblank"
@@ -681,7 +535,6 @@
 					holder.icon_state = "hudreleased"
 					break
 
-
 /datum/atom_hud/squad
 	hud_icons = list(SQUAD_HUD_TERRAGOV, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 
@@ -690,7 +543,6 @@
 
 /mob/proc/hud_set_job(faction = FACTION_TERRAGOV)
 	return
-
 
 /mob/living/carbon/human/hud_set_job(faction = FACTION_TERRAGOV)
 	var/hud_type
@@ -726,10 +578,8 @@
 
 	hud_list[hud_type] = holder
 
-
 /datum/atom_hud/order
 	hud_icons = list(ORDER_HUD)
-
 
 /mob/living/carbon/human/proc/hud_set_order()
 	var/image/holder = hud_list[ORDER_HUD]
@@ -744,7 +594,6 @@
 			tempname += "focus"
 		if(tempname)
 			holder.icon_state = "hud[tempname]"
-
 
 	hud_list[ORDER_HUD] = holder
 
@@ -841,7 +690,6 @@
 
 /datum/atom_hud/hunter_clan
 	hud_icons = list(HUNTER_CLAN)
-
 
 /datum/atom_hud/hunter_hud
 	hud_icons = list(HUNTER_HUD, HUNTER_HEALTH_HUD)

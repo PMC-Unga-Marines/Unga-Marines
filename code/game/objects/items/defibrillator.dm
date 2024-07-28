@@ -14,6 +14,7 @@
 	var/ready = FALSE
 	///wether readying is needed
 	var/ready_needed = TRUE
+	var/advanced = FALSE
 	var/damage_threshold = 8 //This is the maximum non-oxy damage the defibrillator will heal to get a patient above -100, in all categories
 	var/charge_cost = 66 //How much energy is used.
 	var/obj/item/cell/dcell = null
@@ -44,7 +45,7 @@
 
 
 /obj/item/defibrillator/update_icon_state()
-	icon_state = "defib"
+	icon_state = initial(icon_state)
 	if(ready)
 		icon_state += "_out"
 	if(dcell?.charge)
@@ -230,12 +231,12 @@
 	H.visible_message(span_danger("[H]'s body convulses a bit."))
 	defib_cooldown = world.time + 10 //1 second cooldown before you can shock again
 
-	if(H.wear_suit && H.wear_suit.flags_atom & CONDUCT)
+	if(H.wear_suit && advanced == FALSE && H.wear_suit.flags_atom & CONDUCT)
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Defibrillation failed: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
 		return
 
 	var/datum/internal_organ/heart/heart = H.internal_organs_by_name["heart"]
-	if(!issynth(H) && !isrobot(H) && heart && prob(25))
+	if(!issynth(H) && !isrobot(H) && heart && prob(90) && advanced == FALSE)
 		heart.take_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
 
 	if(HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) || H.suiciding)
@@ -330,7 +331,6 @@
 	icon_state = "civ_defib_full"
 	item_state = "defib"
 
-
 /obj/item/defibrillator/gloves
 	name = "advanced medical combat gloves"
 	desc = "Advanced medical gloves, these include small electrodes to defibrilate a patiant. No more bulky units!"
@@ -352,6 +352,8 @@
 	flags_heat_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	advanced = TRUE
+
 
 /obj/item/defibrillator/gloves/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -374,3 +376,11 @@
 /obj/item/defibrillator/gloves/update_icon_state()
 	return
 
+
+/obj/item/defibrillator/advanced
+	name = "advanced emergency defibrillator"
+	desc = "A handheld advanced emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
+	icon = 'icons/obj/items/defibrillator.dmi'
+	icon_state = "civ_defib_full"
+	advanced = TRUE
+	charge_cost = 100 //How much energy is used.

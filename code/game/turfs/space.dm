@@ -82,11 +82,15 @@
 		S.build(src)
 		S.use(1)
 
-
 /turf/open/space/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	if(isliving(arrived))
 		var/mob/living/spaceman = arrived
+		if(isxenohivemind(spaceman))
+			var/mob/living/carbon/xenomorph/hivemind/hivemind = spaceman
+			to_chat(hivemind, span_xenonotice("We returned to our core to avoid damaging ourselves."))
+			hivemind.return_to_core()
+			return
 		if(!spaceman.has_status_effect(debuff_type))
 			spaceman.apply_status_effect(debuff_type)
 

@@ -199,7 +199,7 @@
 	START_PROCESSING(SSobj, src)
 	if(!silent)
 		wearer.balloon_alert(wearer, "The automedical suite activates")
-		playsound(parent,'sound/voice/b18_activate.ogg', 15, 0, 1)
+		playsound(parent,'sound/voice/b18/activate.ogg', 15, 0, 1)
 
 
 /**

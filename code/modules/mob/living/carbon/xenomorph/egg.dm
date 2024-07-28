@@ -21,6 +21,7 @@
 	advance_maturity(maturity_stage)
 
 /obj/alien/egg/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state) + "[maturity_stage]"
 
 /obj/alien/egg/obj_break(damage_flag)
@@ -115,7 +116,7 @@
 	advance_maturity(stage_ready_to_burst + 1)
 	for(var/turf/turf_to_watch AS in filled_turfs(src, trigger_size, "circle", FALSE))
 		UnregisterSignal(turf_to_watch, COMSIG_ATOM_ENTERED)
-	playsound(loc, "sound/effects/alien_egg_move.ogg", 25)
+	playsound(loc, "sound/effects/alien/egg_move.ogg", 25)
 	flick("egg opening", src)
 
 	var/mob/living/carbon/xenomorph/facehugger/new_hugger = new(loc)
@@ -161,10 +162,10 @@
 		return
 	if(via_damage)
 		hugger_type = null
-		playsound(loc, "sound/effects/alien_egg_burst.ogg", 30)
+		playsound(loc, "sound/effects/alien/egg_burst.ogg", 30)
 		flick("egg exploding", src)
 		return
-	playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
+	playsound(src.loc, "sound/effects/alien/egg_move.ogg", 25)
 	flick("egg opening", src)
 	addtimer(CALLBACK(src, PROC_REF(spawn_hugger), loc), 1 SECONDS)
 
@@ -173,7 +174,7 @@
 	hugger_type = null
 	hugger.go_active()
 
-/obj/alien/egg/hugger/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/alien/egg/hugger/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(xenomorph.status_flags & INCORPOREAL)
 		return FALSE
 
@@ -276,11 +277,11 @@
 		return
 	var/spread = EGG_GAS_DEFAULT_SPREAD
 	if(via_damage) // More violent destruction, more gas.
-		playsound(loc, "sound/effects/alien_egg_burst.ogg", 30)
+		playsound(loc, "sound/effects/alien/egg_burst.ogg", 30)
 		flick("egg gas exploding", src)
 		spread = EGG_GAS_KILL_SPREAD
 	else
-		playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
+		playsound(src.loc, "sound/effects/alien/egg_move.ogg", 25)
 		flick("egg gas opening", src)
 	spread += gas_size_bonus
 
@@ -288,7 +289,7 @@
 	NS.set_up(spread, get_turf(src))
 	NS.start()
 
-/obj/alien/egg/gas/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/alien/egg/gas/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(maturity_stage > stage_ready_to_burst)
 		xenomorph.visible_message(span_xenonotice("\The [xenomorph] clears the hatched egg."), \
 		span_xenonotice("We clear the broken egg."))

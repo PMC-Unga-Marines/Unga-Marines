@@ -1,15 +1,3 @@
-/* Kitchen tools
-* Contains:
-*		Utensils
-*		Spoons
-*		Forks
-*		Knives
-*		Kitchen knives
-*		Butcher's cleaver
-*		Rolling Pins
-*		Trays
-*/
-
 /obj/item/tool/kitchen
 	icon = 'icons/obj/items/kitchen_tools.dmi'
 	item_icons = list(
@@ -60,10 +48,10 @@
 	else
 		..()
 
-/obj/item/tool/kitchen/utensil/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/item/tool/kitchen/utensil/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(!CONFIG_GET(flag/fun_allowed))
 		return FALSE
-	attack_hand(X)
+	attack_hand(xeno_attacker)
 
 /obj/item/tool/kitchen/utensil/fork
 	name = "fork"
@@ -232,14 +220,12 @@
 
 	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
 
-
 	if(!(user.zone_selected == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
 		if(prob(33))
 			src.add_mob_blood(H)
 			var/turf/location = H.loc
 			if (istype(location, /turf))
 				location.add_mob_blood(H)     ///Plik plik, the sound of blood
-
 
 		log_combat(user, M, "attacked", src)
 
@@ -256,9 +242,6 @@
 			playsound(M, 'sound/items/trayhit2.ogg', 25, 1)  //we applied the damage, we played the sound, we showed the appropriate messages. Time to return and stop the proc
 			visible_message(span_danger("[user] slams [M] with the tray!"))
 			return
-
-
-
 
 	if(ishuman(M) && ((H.head && (H.head.flags_inventory & COVEREYES) ) || (H.wear_mask && (H.wear_mask.flags_inventory & COVEREYES) ) || (H.glasses && (H.glasses.flags_inventory & COVEREYES) )))
 		to_chat(M, span_warning("You get slammed in the face with the tray, against your mask!"))
@@ -331,6 +314,7 @@
 =																			=
 ===============~~~~~================================~~~~~====================
 */
+
 /obj/item/tool/kitchen/tray/proc/calc_carry()
 	// calculate the weight of the items on the tray
 	var/val = 0 // value to return

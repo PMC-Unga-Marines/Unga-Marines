@@ -23,8 +23,9 @@
 	icon = 'icons/mecha/mecha.dmi'
 	move_force = MOVE_FORCE_VERY_STRONG
 	move_resist = MOVE_FORCE_OVERPOWERING
-	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE|PORTAL_IMMUNE|PLASMACUTTER_IMMUNE
-	flags_atom = BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION
+	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE|PLASMACUTTER_IMMUNE
+	flags_atom = BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	max_integrity = 300
 	soft_armor = list(MELEE = 20, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 100, ACID = 100)
 	force = 5
@@ -73,21 +74,9 @@
 	///Whether or not the mech destroys walls by running into it.
 	var/bumpsmash = FALSE
 
-	///////////ATMOS
-	///Whether we are currrently drawing from the internal tank
-	var/use_internal_tank = FALSE
-	///The setting of the valve on the internal tank
-	var/internal_tank_valve = ONE_ATMOSPHERE
-	///The internal air tank obj of the mech
-	var/obj/machinery/portable_atmospherics/canister/air/internal_tank
-	///The connected air port, if we have one
-	var/obj/machinery/atmospherics/components/unary/portables_connector/connected_port
-
 	///Special version of the radio, which is unsellable
 	var/obj/item/radio/mech/radio
 	var/list/trackers = list()
-
-	var/max_temperature = 25000
 
 	///Bitflags for internal damage
 	var/internal_damage = NONE
@@ -96,7 +85,7 @@
 	/// % chance for internal damage to occur
 	var/internal_damage_probability = 20
 	/// list of possibly dealt internal damage for this mech type
-	var/possible_int_damage = MECHA_INT_FIRE|MECHA_INT_TEMP_CONTROL|MECHA_INT_TANK_BREACH|MECHA_INT_CONTROL_LOST|MECHA_INT_SHORT_CIRCUIT
+	var/possible_int_damage = MECHA_INT_FIRE|MECHA_INT_CONTROL_LOST|MECHA_INT_SHORT_CIRCUIT
 	/// damage threshold above which we take component damage
 	var/component_damage_threshold = 10
 
@@ -196,9 +185,7 @@
 
 /obj/vehicle/sealed/mecha/Initialize(mapload)
 	. = ..()
-	ui_view = new(null, src)
-	if(enclosed)
-		internal_tank = new (src)
+	ui_view = new(null, null, src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(play_stepsound))
 
 	spark_system.set_up(2, 0, src)
@@ -256,7 +243,6 @@
 	QDEL_NULL(cell)
 	QDEL_NULL(scanmod)
 	QDEL_NULL(capacitor)
-	QDEL_NULL(internal_tank)
 	QDEL_NULL(spark_system)
 	QDEL_NULL(smoke_system)
 	QDEL_NULL(ui_view)
@@ -364,7 +350,6 @@
 
 /obj/vehicle/sealed/mecha/generate_actions()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_eject)
-	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_internals, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_lights, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_view_stats, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/strafe, VEHICLE_CONTROL_DRIVE)
@@ -429,7 +414,7 @@
 		for(var/occupante in occupants)
 			. += "You can see [occupante] inside."
 
-//processing internal damage, temperature, air regulation, alert updates, lights power use.
+//processing internal damage, alert updates, lights power use.
 /obj/vehicle/sealed/mecha/process(delta_time)
 	if(internal_damage)
 		if(internal_damage & MECHA_INT_FIRE)
