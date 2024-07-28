@@ -479,11 +479,11 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 
 	if(resting)
 		if(!COOLDOWN_CHECK(src, xeno_resting_cooldown))
-			balloon_alert(src, "Too soon to get up!")
+			balloon_alert(src, "Too soon!")
 			return
 
 	if(!COOLDOWN_CHECK(src, xeno_unresting_cooldown))
-		balloon_alert(src, "Too soon to rest again!")
+		balloon_alert(src, "Wait a bit!")
 		return
 	return ..()
 
