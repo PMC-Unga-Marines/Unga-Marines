@@ -57,7 +57,6 @@
 	target.updatehealth()
 	affected.update_wounds()
 
-
 /datum/surgery_step/eye/lift_eyes
 	allowed_tools = list(
 		/obj/item/tool/surgery/retractor = 100,
@@ -123,7 +122,6 @@
 	E.take_damage(5, 0)
 	target.apply_damage(10, BRUTE, affected, 0, TRUE, updating_health = TRUE)
 
-
 /datum/surgery_step/eye/cauterize
 	allowed_tools = list(
 		/obj/item/tool/surgery/cautery = 100,
@@ -151,7 +149,6 @@
 	E.damage = 0
 	E.eye_surgery_stage = 0
 	return ..()
-
 
 /datum/surgery_step/eye/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
