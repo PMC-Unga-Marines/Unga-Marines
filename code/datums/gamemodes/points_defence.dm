@@ -225,9 +225,7 @@
 	round_stage = INFESTATION_MARINE_DEN_RUSH
 
 /datum/game_mode/infestation/distress/points_defence/proc/can_hunt()
-	if(marine_victory_point >= points_to_win && round_stage != INFESTATION_MARINE_DEN_RUSH)
-		return TRUE
-	return FALSE
+	return can_hunt && round_stage != INFESTATION_MARINE_DEN_RUSH
 
 /datum/game_mode/infestation/distress/points_defence/proc/allow_hijack()
 	return allow_hijack

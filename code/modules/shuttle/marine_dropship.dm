@@ -446,7 +446,7 @@
 		to_chat(user, span_warning("The bird's mind is currently active. We need to wait until it's more vulnerable..."))
 		return FALSE
 	var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
-	if(mode.can_hijack())
+	if(mode.allow_hijack())
 		return TRUE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
@@ -709,7 +709,7 @@
 				continue
 			groundside_humans++
 		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
-		if(groundside_humans > 5 || mode.can_hijack())
+		if(groundside_humans > 5 || mode.allow_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 		switch(M.mode)
@@ -731,7 +731,7 @@
 	if(href_list["abduct"])
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
-		if(living_player_list[1] > 5 || mode.can_hijack())
+		if(living_player_list[1] > 5 || mode.allow_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 
