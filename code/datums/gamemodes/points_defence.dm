@@ -156,38 +156,22 @@
 		last_points_check = world.time
 
 /datum/game_mode/infestation/distress/points_defence/proc/add_larva_points()
-	//prohibit generation before the shutters open
-	if(!SSsilo.can_fire)
-		return
 
-	//we should not spawn larvas on shipside
-	if(SSmonitor.gamestate == SHIPSIDE)
-		return
-
-	var/current_larva_spawn_rate = 0
-
+	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	var/active_humans = length(GLOB.humans_by_zlevel["2"]) + length(GLOB.humans_by_zlevel["6"]) //we should not spawn larvas on shipside anyway
 	var/active_xenos = xeno_job.total_positions - xeno_job.current_positions //burrowed
 	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 		if(xeno.xeno_caste.caste_flags & CASTE_IS_A_MINION)
 			continue
-		active_xenos ++
-	current_larva_spawn_rate = (victory_condition_sensors_amount - sensors_activated) / victory_condition_sensors_amount
-	//We then are normalising with the number of alive marines, so the balance is roughly the same whether or not we are in high pop
-	current_larva_spawn_rate *= SILO_BASE_OUTPUT_PER_MARINE * active_humans
-	current_larva_spawn_rate *= sensors_larva_points_scaling
-	//We scale the rate based on the current ratio of humans to xenos
-	var/current_human_to_xeno_ratio = active_humans / active_xenos
-	var/optimal_human_to_xeno_ratio = xeno_job.job_points_needed / (LARVA_POINTS_REGULAR + 1) //  TODO это надо дополнительно отбалансить
-	current_larva_spawn_rate *= clamp(current_human_to_xeno_ratio / optimal_human_to_xeno_ratio , 0, 3) //  TODO это надо дополнительно отбалансить
-
-	GLOB.round_statistics.larva_from_towers += current_larva_spawn_rate / xeno_job.job_points_needed
-
-	xeno_job.add_job_points(current_larva_spawn_rate)
-
-	var/datum/hive_status/normal_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
-	normal_hive.update_tier_limits()
+		active_xenos++
+	var/larva_surplus = (get_total_joblarvaworth() - (active_xenos * xeno_job.job_points_needed )) / xeno_job.job_points_needed
+	if(!active_xenos)
+		xeno_job.add_job_positions(max(1, round(larva_surplus, 1)))
+		return
+	if(larva_surplus < 1)
+		return //Things are balanced, no burrowed needed
+	xeno_job.add_job_positions(round(larva_surplus, 1))
+	xeno_hive.update_tier_limits()
 
 /datum/game_mode/infestation/distress/points_defence/proc/add_victory_points()
 	//prohibit generation before the shutters open
