@@ -63,6 +63,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
+"n" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/transparent/dark_blue/full,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
 "q" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
@@ -106,6 +113,13 @@
 "z" = (
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
 /turf/open/floor/mainship/floor,
+/area/shuttle/minidropship)
+"A" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/transparent/dark_blue/full,
+/turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "C" = (
 /obj/machinery/light,
@@ -253,8 +267,8 @@ s
 l
 l
 F
-F
 X
+R
 "}
 (4,1,1) = {"
 t
@@ -264,8 +278,8 @@ J
 u
 q
 D
+n
 F
-R
 "}
 (5,1,1) = {"
 x
@@ -274,8 +288,8 @@ Z
 q
 v
 q
+q
 C
-F
 F
 "}
 (6,1,1) = {"
@@ -286,8 +300,8 @@ S
 e
 I
 j
+A
 F
-N
 "}
 (7,1,1) = {"
 P
@@ -297,6 +311,6 @@ a
 a
 a
 F
-F
 f
+N
 "}
