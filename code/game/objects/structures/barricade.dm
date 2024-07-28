@@ -88,10 +88,9 @@
 /obj/structure/barricade/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	for(var/obj/effect/xenomorph/acid/A in loc)
-		if(A.acid_t == src)
-			balloon_alert(user, "Can't, it's melting")
-			return
+	if(get_self_acid())
+		balloon_alert(user, "It's melting!")
+		return TRUE
 
 	if(!istype(I, /obj/item/stack/barbed_wire) || !can_wire)
 		return
@@ -101,6 +100,10 @@
 	balloon_alert_to_viewers("Setting up wire...")
 	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD) || !can_wire)
 		return
+
+	if(get_self_acid())
+		balloon_alert(user, "It's melting!")
+		return TRUE
 
 	playsound(loc, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
 
@@ -267,11 +270,6 @@
 /obj/structure/barricade/snow/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	for(var/obj/effect/xenomorph/acid/A in loc)
-		if(A.acid_t == src)
-			balloon_alert(user, "It's melting!")
-			return
-
 	//Removing the barricades
 	if(!istype(I, /obj/item/tool/shovel) || user.a_intent == INTENT_HARM)
 		return
@@ -291,13 +289,7 @@
 
 	if(ET.folded)
 		return
-	var/deconstructed = TRUE
-	for(var/obj/effect/xenomorph/acid/A in loc)
-		if(A.acid_t != src)
-			continue
-		deconstructed = FALSE
-		break
-	deconstruct(deconstructed)
+	deconstruct(!!get_self_acid())
 
 /*----------------------*/
 // GUARD RAIL
@@ -345,11 +337,6 @@
 /obj/structure/barricade/wooden/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	for(var/obj/effect/xenomorph/acid/A in loc)
-		if(A.acid_t == src)
-			balloon_alert(user, "It's melting!")
-			return
-
 	if(!istype(I, /obj/item/stack/sheet/wood))
 		return
 	var/obj/item/stack/sheet/wood/D = I
@@ -367,6 +354,10 @@
 
 	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity)
 		return
+
+	if(get_self_acid())
+		balloon_alert(user, "It's melting!")
+		return TRUE
 
 	if(!D.use(1))
 		return
@@ -460,6 +451,10 @@
 
 	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
 		return FALSE
+
+	if(get_self_acid())
+		balloon_alert(user, "It's melting!")
+		return TRUE
 
 	if(!material_sheets.use(2))
 		return FALSE
@@ -646,13 +641,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			var/deconstructed = TRUE
-			for(var/obj/effect/xenomorph/acid/A in loc)
-				if(A.acid_t != src)
-					continue
-				deconstructed = FALSE
-				break
-			deconstruct(deconstructed)
+			deconstruct(!!get_self_acid())
 			return TRUE
 		if(BARRICADE_METAL_FIRM)
 
@@ -825,13 +814,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			var/deconstructed = TRUE
-			for(var/obj/effect/xenomorph/acid/A in loc)
-				if(A.acid_t != src)
-					continue
-				deconstructed = FALSE
-				break
-			deconstruct(deconstructed)
+			deconstruct(!!get_self_acid())
 
 /obj/structure/barricade/plasteel/wrench_act(mob/living/user, obj/item/I)
 	if(!iswrench(I))
@@ -878,6 +861,40 @@
 			modify_max_integrity(initial(max_integrity))
 			build_state = BARRICADE_PLASTEEL_ANCHORED
 			update_icon() //unanchored changes layer
+
+/obj/structure/barricade/plasteel/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(.)
+		return
+
+	if(!istype(I, stack_type))
+		return
+	var/obj/item/stack/sheet/material_sheets = I
+	if(obj_integrity >= max_integrity * 0.3)
+		return
+
+	if(material_sheets.get_amount() < 2)
+		balloon_alert(user, "You need at least 2 [material_sheets.name] sheets")
+		return
+
+	if(LAZYACCESS(user.do_actions, src))
+		return
+
+	balloon_alert_to_viewers("Repairing base...")
+
+	if(!do_after(user, base_repairing_timer, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity * 0.3)
+		return
+
+	if(get_self_acid())
+		balloon_alert(user, "It's melting!")
+		return TRUE
+
+	if(!plasteel_sheets.use(2))
+		return
+
+	repair_damage(max_integrity * 0.3, user)
+	balloon_alert_to_viewers("Base repaired")
+	update_icon()
 
 /obj/structure/barricade/plasteel/attack_hand(mob/living/user)
 	. = ..()
@@ -944,11 +961,6 @@
 /obj/structure/barricade/sandbags/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	for(var/obj/effect/xenomorph/acid/A in loc)
-		if(A.acid_t == src)
-			balloon_alert(user, "it's melting!")
-			return
-
 	if(istype(I, /obj/item/tool/shovel) && user.a_intent != INTENT_HARM)
 		var/obj/item/tool/shovel/ET = I
 		if(ET.folded)
@@ -958,13 +970,7 @@
 			return TRUE
 		user.visible_message(span_notice("[user] disassembles [src]."),
 		span_notice("You disassemble [src]."))
-		var/deconstructed = TRUE
-		for(var/obj/effect/xenomorph/acid/A in loc)
-			if(A.acid_t != src)
-				continue
-			deconstructed = FALSE
-			break
-		deconstruct(deconstructed)
+		deconstruct(!!get_self_acid())
 		return TRUE
 
 	if(istype(I, /obj/item/stack/sandbags))
@@ -981,6 +987,10 @@
 			return
 
 		if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD) || obj_integrity >= max_integrity)
+			return
+
+		if(get_self_acid())
+			balloon_alert(user, "It's melting!")
 			return
 
 		if(!D.use(1))
@@ -1111,33 +1121,6 @@
 	if(. == BELOW_INTEGRITY_THRESHOLD)
 		balloon_alert(user, "Too damaged. Use metal sheets.")
 
-/obj/structure/barricade/plasteel/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(istype(I, stack_type))
-		var/obj/item/stack/sheet/material_sheets = I
-		if(obj_integrity >= max_integrity * 0.3)
-			return
-
-		if(material_sheets.get_amount() < 2)
-			balloon_alert(user, "You need at least 2 [material_sheets.name] sheets")
-			return
-
-		if(LAZYACCESS(user.do_actions, src))
-			return
-
-		balloon_alert_to_viewers("Repairing base...")
-
-		if(!do_after(user, base_repairing_timer, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity * 0.3)
-			return
-
-		if(!material_sheets.use(2))
-			return
-
-		repair_damage(max_integrity * 0.3, user)
-		balloon_alert_to_viewers("Base repaired")
-		update_icon()
-
 /obj/structure/barricade/plasteel/metal/crowbar_act(mob/living/user, obj/item/I)
 	if(!iscrowbar(I))
 		return
@@ -1175,13 +1158,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			var/deconstructed = TRUE
-			for(var/obj/effect/xenomorph/acid/A in loc)
-				if(A.acid_t != src)
-					continue
-				deconstructed = FALSE
-				break
-			deconstruct(deconstructed)
+			deconstruct(!!get_self_acid())
 
 /obj/structure/barricade/plasteel
 	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 30, BIO = 100, FIRE = 80, ACID = 55)
