@@ -122,3 +122,91 @@
 	icon_state = "compressor_inactive"
 	processiconstate = "compressor"
 	process_type = FACTORY_MACHINE_COMPRESSOR
+
+/obj/machinery/assembler
+	name = "Assembler"
+	desc = "You shouldnt be seeing this."
+	icon = 'icons/obj/factory/factory_machines.dmi'
+	icon_state = "heater_inactive"
+	density = TRUE
+	anchored = FALSE // start off unanchored so its easier to move
+	resistance_flags = XENO_DAMAGEABLE
+	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	interaction_flags = INTERACT_MACHINE_TGUI
+	///process type we will use to determine what step of the production process this machine will do
+	var/process_type = FACTORY_MACHINE_HEATER
+	///Time in ticks that this machine takes to process one item
+	var/cooldown_time = 1 SECONDS
+	///Curent item being processed
+	var/obj/item/factory_part/held_item
+	///Icon state displayed while something is being processed in the machine
+	var/processiconstate = "heater"
+	///Current craft datum
+	var/datum/assembly_craft/craft = null
+	COOLDOWN_DECLARE(process_cooldown)
+
+/obj/machinery/assembler/Initialize(mapload)
+	. = ..()
+	add_overlay(image(icon, "direction_arrow"))
+
+/obj/machinery/assembler/Destroy()
+	QDEL_NULL(held_item)
+	return ..()
+
+/obj/machinery/assembler/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	. += "It is currently facing [dir2text(dir)] and [anchored ? "" : "un"]secured."
+	. += "Processes one package every [cooldown_time*10] seconds."
+
+/obj/machinery/assembler/wrench_act(mob/living/user, obj/item/I)
+	anchored = !anchored
+	balloon_alert(user, "[anchored ? "" : "un"]anchored")
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+
+/obj/machinery/assembler/screwdriver_act(mob/living/user, obj/item/I)
+	setDir(turn(dir, 90))
+	balloon_alert(user, "Facing [dir2text(dir)]")
+
+/obj/machinery/assembler/Bumped(atom/movable/bumper)
+	. = ..()
+	if(!isitem(bumper))
+		return
+	if(!(bumper.dir & dir))//need to be bumping into the back
+		return
+	if(!anchored)
+		return
+	if(!isfactorypart(bumper))
+		bumper.forceMove(get_step(src, pick(GLOB.alldirs)))//just find a random tile and throw it there to stop it from clogging
+		return
+	if(!COOLDOWN_CHECK(src, process_cooldown))
+		return
+	bumper.forceMove(src)
+	held_item = bumper
+	COOLDOWN_START(src, process_cooldown, cooldown_time)
+	if(processiconstate && icon_state != processiconstate)//avoid resetting the animation
+		icon_state = processiconstate
+	addtimer(CALLBACK(src, PROC_REF(finish_process)), cooldown_time)
+
+///Once the timer for processing is over this resets the machine and spits out the new result
+/obj/machinery/assembler/proc/finish_process()
+	var/turf/target = get_step(src, dir)
+	held_item.forceMove(target)
+	if(held_item.next_machine == process_type)
+		held_item.advance_stage()
+	if(!locate(held_item.type) in get_step(src, REVERSE_DIR(dir)))
+		icon_state = initial(icon_state)
+
+	held_item = null
+
+/obj/machinery/assembler/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+
+	if(!ui)
+		ui = new(user, src, "Assembler", name)
+		ui.open()
+
+/obj/machinery/assembler/ui_static_data(mob/user)
+	. = list()
+	.["categories"] = GLOB.all_assembly_craft_groups
+	.["supplypacks"] = SSpoints.assembly_crafts_ui
+	.["supplypackscontents"] = SSpoints.assembly_crafts_contents

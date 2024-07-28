@@ -4,6 +4,7 @@
 //NOTE: Do NOT set the price of any crates below 7 points. Doing so allows infinite points.
 
 GLOBAL_LIST_INIT(all_supply_groups, list("Operations", "Weapons", "Explosives", "Armor", "Clothing", "Medical", "Engineering", "Supplies", "Imports", "Vehicles", "Factory"))
+GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explosives", "Armor", "Clothing", "Medical", "Engineering", "Supplies", "Imports", "Vehicles", "Factory"))
 
 /datum/supply_packs
 	var/name
@@ -23,6 +24,22 @@ GLOBAL_LIST_INIT(all_supply_groups, list("Operations", "Weapons", "Explosives", 
 		var/atom/movable/AM = i
 		new AM(location)
 
+/datum/assembly_craft
+	var/name
+	var/notes
+	var/list/input = list()
+	var/list/output = list()
+	var/craft_time = 1 SECONDS
+	var/group
+
+/datum/assembly_craft/operations
+	group = "Operations"
+
+/datum/assembly_craft/operations/fulton_extraction_pack
+	name = "Fulton extraction pack"
+	notes = "Fulton extraction pack craft"
+	input = list(/obj/item/stack/sheet/metal = 10)
+	output = list(/obj/item/fulton_extraction_pack = 1)
 
 /*******************************************************************************
 OPERATIONS
