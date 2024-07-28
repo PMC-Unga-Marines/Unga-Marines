@@ -472,11 +472,27 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 		return
 	update_icon()
 
-/mob/living/carbon/xenomorph/lay_down()
+/mob/living/carbon/xenomorph/toggle_resting()
 	var/datum/action/ability/xeno_action/xeno_resting/resting_action = actions_by_path[/datum/action/ability/xeno_action/xeno_resting]
 	if(!resting_action || !resting_action.can_use_action())
 		return
+
+	if(resting)
+		if(!COOLDOWN_CHECK(src, xeno_resting_cooldown))
+			balloon_alert(src, "Too soon to get up!")
+			return
+
+	if(!COOLDOWN_CHECK(src, xeno_unresting_cooldown))
+		balloon_alert(src, "Too soon to rest again!")
+		return
 	return ..()
+
+/mob/living/carbon/xenomorph/set_resting()
+	. = ..()
+	if(resting)
+		COOLDOWN_START(src, xeno_resting_cooldown, XENO_RESTING_COOLDOWN)
+	else
+		COOLDOWN_START(src, xeno_unresting_cooldown, XENO_UNRESTING_COOLDOWN)
 
 /mob/living/carbon/xenomorph/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
