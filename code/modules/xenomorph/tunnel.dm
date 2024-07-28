@@ -1,6 +1,6 @@
 /obj/structure/xeno/tunnel
 	name = "tunnel"
-	desc = "A tunnel entrance. Looks like it was dug by some kind of clawed beast."
+	desc = "A tunnel entrance. Looks like it was dug by some kind of clawed beast. Use right click to enter and exit the xenoden"
 	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "hole"
 
@@ -83,6 +83,10 @@
 		balloon_alert(xeno_attacker, "No exit tunnel")
 		return FALSE
 
+	if(isrightclick && SSticker.mode?.flags_round_type & MODE_XENO_DEN && (z == 6 || z == 2))
+		pick_a_tunnel(xeno_attacker, z == 6 ? 2 : 6) //hardcoded
+		return
+
 	pick_a_tunnel(xeno_attacker)
 
 /obj/structure/xeno/tunnel/attack_larva(mob/living/carbon/xenomorph/larva/L) //So larvas can actually use tunnels
@@ -116,16 +120,16 @@
 	user.forceMove(get_turf(targettunnel))
 
 ///Here we pick a tunnel to go to, then travel to that tunnel and peep out, confirming whether or not we want to emerge or go to another tunnel.
-/obj/structure/xeno/tunnel/proc/pick_a_tunnel(mob/living/carbon/xenomorph/M)
+/obj/structure/xeno/tunnel/proc/pick_a_tunnel(mob/living/carbon/xenomorph/M, z_level = z)
 	to_chat(M, span_notice("Select a tunnel to go to."))
 
-	var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(z, MINIMAP_FLAG_XENO)
+	var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(z_level, MINIMAP_FLAG_XENO)
 	M.client.screen += map
 	var/list/polled_coords = map.get_coords_from_click(M)
 	M.client.screen -= map
 	if(!polled_coords)
 		return
-	var/turf/clicked_turf = locate(polled_coords[1], polled_coords[2], z)
+	var/turf/clicked_turf = locate(polled_coords[1], polled_coords[2], z_level)
 
 	///We find the tunnel, looking within 10 tiles of where the user clicked, excluding src
 	var/obj/structure/xeno/tunnel/targettunnel = cheap_get_atom(clicked_turf, /obj/structure/xeno/tunnel, 10, GLOB.xeno_tunnels_by_hive[hivenumber] - src)
@@ -139,11 +143,6 @@
 		return
 	if(targettunnel == src)
 		balloon_alert(M, "We're already here")
-		if(M.loc == src) //If we're in the tunnel and cancelling out, spit us out.
-			M.forceMove(loc)
-		return
-	if(targettunnel.z != z)
-		balloon_alert(M, "Tunnel not connected")
 		if(M.loc == src) //If we're in the tunnel and cancelling out, spit us out.
 			M.forceMove(loc)
 		return
