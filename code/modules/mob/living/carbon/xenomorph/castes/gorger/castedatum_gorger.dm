@@ -27,8 +27,6 @@
 	max_health = 600
 
 	// *** Evolution *** //
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
-
 	deevolves_to = list(/mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/hivelord)
 
 	// *** Flags *** //

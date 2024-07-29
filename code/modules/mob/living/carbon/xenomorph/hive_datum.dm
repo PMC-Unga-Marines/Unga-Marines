@@ -180,10 +180,6 @@
 
 	.["user_evolution"] = isxeno(user) ? xeno_user.evolution_stored : 0
 
-	/* RUTGMC DELETION
-	.["user_maturity"] = isxeno(user) ? xeno_user.upgrade_stored : 0
-	.["user_next_mat_level"] = isxeno(user) && xeno_user.upgrade_possible() ? xeno_user.xeno_caste.upgrade_threshold : 0
-	*/
 	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
 
 	.["user_show_empty"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY : 0
@@ -1266,7 +1262,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	message_admins("[key_name(xeno_candidate)] has joined as [ADMIN_TPMONTY(new_xeno)].")
 
 	xeno_candidate.mob.mind.transfer_to(new_xeno, TRUE)
-	new_xeno.playsound_local(new_xeno, 'sound/effects/xeno_newlarva.ogg')
+	new_xeno.playsound_local(new_xeno, 'sound/effects/alien/newlarva.ogg')
 	to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva awakened from slumber!"))
 	if(!larva_already_reserved)
 		xeno_job.occupy_job_positions(1)
@@ -1519,10 +1515,7 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /mob/living/carbon/xenomorph/warrior/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
-/* RU TGMC EDIT
-/mob/living/carbon/xenomorph/wraith/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-RU TGMC EDIT */
+
 /mob/living/carbon/xenomorph/king/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
 
@@ -1597,10 +1590,7 @@ RU TGMC EDIT */
 
 /mob/living/carbon/xenomorph/warrior/Alpha
 	hivenumber = XENO_HIVE_ALPHA
-/* RU TGMC EDIT
-/mob/living/carbon/xenomorph/wraith/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-RU TGMC EDIT */
+
 /mob/living/carbon/xenomorph/king/Alpha
 	hivenumber = XENO_HIVE_ALPHA
 
@@ -1672,10 +1662,7 @@ RU TGMC EDIT */
 
 /mob/living/carbon/xenomorph/warrior/Beta
 	hivenumber = XENO_HIVE_BETA
-/* RU TGMC EDIT
-/mob/living/carbon/xenomorph/wraith/Beta
-	hivenumber = XENO_HIVE_BETA
-RU TGMC EDIT */
+
 /mob/living/carbon/xenomorph/king/Beta
 	hivenumber = XENO_HIVE_BETA
 
@@ -1747,10 +1734,7 @@ RU TGMC EDIT */
 
 /mob/living/carbon/xenomorph/warrior/Zeta
 	hivenumber = XENO_HIVE_ZETA
-/* RU TGMC EDIT
-/mob/living/carbon/xenomorph/wraith/Zeta
-	hivenumber = XENO_HIVE_ZETA
-RU TGMC EDIT */
+
 /mob/living/carbon/xenomorph/king/Zeta
 	hivenumber = XENO_HIVE_ZETA
 

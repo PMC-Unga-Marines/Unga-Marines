@@ -90,11 +90,6 @@
 			carbon_owner.balloon_alert(carbon_owner, "Cannot, busy")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_BURROWED) && HAS_TRAIT(carbon_owner, TRAIT_BURROWED))
-		if(!silent)
-			carbon_owner.balloon_alert(carbon_owner, "Cannot while burrowed")
-		return FALSE
-
 	if(!(flags_to_check & ABILITY_USE_CLOSEDTURF) && isclosedturf(get_turf(carbon_owner)))
 		if(!silent)
 			//Not converted to balloon alert as xeno.dm's balloon alert is simultaneously called and will overlap.

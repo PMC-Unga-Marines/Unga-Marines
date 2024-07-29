@@ -34,7 +34,7 @@
 
 /datum/action/ability/activable/xeno/charge/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our exoskeleton quivers as we get ready to use [name] again."))
-	playsound(owner, "sound/effects/xeno_newlarva.ogg", 50, 0, 1)
+	playsound(owner, "sound/effects/alien/newlarva.ogg", 50, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/charge/ai_should_start_consider()
@@ -105,7 +105,7 @@
 
 /datum/action/ability/activable/xeno/ravage/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to Ravage again."))
-	playsound(owner, "sound/effects/xeno_newlarva.ogg", 50, 0, 1)
+	playsound(owner, "sound/effects/alien/newlarva.ogg", 50, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/ravage/use_ability(atom/A)
@@ -209,7 +209,7 @@
 
 /datum/action/ability/xeno_action/endure/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We feel able to imbue ourselves with plasma to Endure once again!"))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/endure/action_activate()
@@ -246,7 +246,7 @@
 	if(QDELETED(owner))
 		return
 	to_chat(owner,span_highdanger("We feel the plasma draining from our veins... [initial(name)] will last for only [timeleft(endure_duration) * 0.1] more seconds!"))
-	owner.playsound_local(owner, 'sound/voice/hiss4.ogg', 50, 0, 1)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
 
 ///Turns off the Endure buff
 /datum/action/ability/xeno_action/endure/proc/endure_deactivate()
@@ -276,7 +276,7 @@
 	endure_warning_duration = initial(endure_warning_duration)
 
 	to_chat(owner,span_highdanger("The last of the plasma drains from our body... We can no longer endure beyond our normal limits!"))
-	owner.playsound_local(owner, 'sound/voice/hiss4.ogg', 50, 0, 1)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
 
 ///Warns us when our health is critically low and tells us exactly how much more punishment we can take
 /datum/action/ability/xeno_action/endure/proc/damage_taken(mob/living/carbon/xenomorph/X, damage_taken)
@@ -326,7 +326,7 @@
 
 /datum/action/ability/xeno_action/rage/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to enter our rage once again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/rage/can_use_action(atom/A, silent = FALSE, override_flags)
@@ -359,7 +359,7 @@
 
 
 	//Roar SFX; volume scales with rage
-	playsound(X.loc, 'sound/voice/alien_roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
+	playsound(X.loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
 
 	var/bonus_duration
 	if(rage_power >= RAVAGER_RAGE_SUPER_RAGE_THRESHOLD) //If we're super pissed it's time to get crazy
@@ -428,7 +428,7 @@ RU TGMC EDIT */
 	if(QDELETED(owner))
 		return
 	to_chat(owner,span_highdanger("Our rage begins to subside... [initial(name)] will only last for only [(RAVAGER_RAGE_DURATION + bonus_duration) * (1-RAVAGER_RAGE_WARNING) * 0.1] more seconds!"))
-	owner.playsound_local(owner, 'sound/voice/hiss4.ogg', 50, 0, 1)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
 
 ///Warns the user when his rage is about to end.
 /datum/action/ability/xeno_action/rage/proc/drain_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
@@ -482,7 +482,7 @@ RU TGMC EDIT */
 	//rage_sunder = 0 //RU TGMC EDIT
 	rage_power = 0
 	rage_plasma = 0
-	X.playsound_local(X, 'sound/voice/hiss5.ogg', 50) //Audio cue
+	X.playsound_local(X, 'sound/voice/alien/hiss8.ogg', 50) //Audio cue
 
 
 // ***************************************

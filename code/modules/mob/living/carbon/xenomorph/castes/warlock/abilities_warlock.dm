@@ -172,7 +172,7 @@
 			affected.throw_at(throwlocation, 4, 1, owner, TRUE)
 
 	playsound(owner,'sound/effects/bamf.ogg', 75, TRUE)
-	playsound(owner, 'sound/voice/alien_roar_warlock.ogg', 25)
+	playsound(owner, 'sound/voice/alien/roar_warlock.ogg', 25)
 
 	GLOB.round_statistics.psy_shield_blasts++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "psy_shield_blasts")
@@ -181,7 +181,7 @@
 /obj/effect/xeno/shield
 	icon = 'icons/Xeno/96x96.dmi'
 	icon_state = "shield"
-	resistance_flags = BANISH_IMMUNE|UNACIDABLE|PLASMACUTTER_IMMUNE
+	resistance_flags = UNACIDABLE|PLASMACUTTER_IMMUNE
 	max_integrity = 350
 	layer = ABOVE_MOB_LAYER
 	///Who created the shield

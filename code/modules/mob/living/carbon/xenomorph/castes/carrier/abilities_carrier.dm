@@ -99,7 +99,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		F.kill_hugger()
 		huggers++
 		if(message)
-			playsound(src, 'sound/voice/alien_drool2.ogg', 50, 0, 1)
+			playsound(src, 'sound/voice/alien/drool2.ogg', 50, 0, 1)
 			to_chat(src, span_notice("We salvage this young one's biomass to produce another. Now sheltering: [huggers] / [xeno_caste.huggers_max]."))
 	else if(message)
 		to_chat(src, span_warning("We can't carry any more facehuggers!"))
@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/spawn_hugger/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We can now spawn another young one."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/spawn_hugger/can_use_action(silent = FALSE, override_flags)
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	caster.huggers++
 	to_chat(caster, span_xenowarning("We spawn a young one via the miracle of asexual internal reproduction, adding it to our stores. Now sheltering: [caster.huggers] / [caster.xeno_caste.huggers_max]."))
-	playsound(caster, 'sound/voice/alien_drool2.ogg', 50, 0, 1)
+	playsound(caster, 'sound/voice/alien/drool2.ogg', 50, 0, 1)
 	succeed_activate()
 	add_cooldown()
 	if(owner.client)

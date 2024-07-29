@@ -223,6 +223,12 @@
 				. = "Jeri"
 		to_chat(prefs.parent, span_warning("You forgot to set your synthetic name in your preferences. Please do so next time."))
 
+/datum/species/robot/prefs_name(datum/preferences/prefs)
+	. = prefs.synthetic_name
+	if(!. || . == "Undefined") //In case they don't have a name set.
+		. = GLOB.namepool[namepool].get_random_name()
+		to_chat(prefs.parent, span_warning("You forgot to set your synthetic name in your preferences. Please do so next time."))
+
 /datum/species/proc/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	SHOULD_CALL_PARENT(TRUE) //remember to call base procs kids
 	for(var/slot_id in no_equip)
@@ -447,7 +453,7 @@
 	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", NEUTER = "robot_warcry")
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
-	joinable_roundstart = TRUE
+	joinable_roundstart = FALSE
 
 	inherent_actions = list(/datum/action/repair_self)
 
@@ -524,6 +530,9 @@
 	icobase = 'icons/mob/human_races/r_robot_bravada.dmi'
 	joinable_roundstart = FALSE
 
+/mob/living/carbon/human/species/robot/binarycheck(mob/H)
+	return TRUE
+
 /datum/species/synthetic
 	name = "Synthetic"
 	name_plural = "Synthetics"
@@ -576,7 +585,6 @@
 
 /mob/living/carbon/human/species/synthetic/binarycheck(mob/H)
 	return TRUE
-
 
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"
@@ -744,7 +752,7 @@
 	preferences = list("moth_wings" = "Wings")
 
 	screams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	paincries = list("neuter" = 'sound/voice/human_male_pain_3.ogg')
+	paincries = list("neuter" = 'sound/voice/human/male/pain_3.ogg')
 	goredcries = list("neuter" = 'sound/voice/moth_scream.ogg')
 	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
 	warcries = list("neuter" = 'sound/voice/moth_scream.ogg')

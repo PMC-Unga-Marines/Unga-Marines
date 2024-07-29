@@ -38,7 +38,7 @@
 	xenomorph_owner.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX
 	xenomorph_owner.spin(4, 1)
 	xenomorph_owner.enable_throw_parry(0.6 SECONDS)
-	playsound(xenomorph_owner,pick('sound/effects/alien_tail_swipe1.ogg','sound/effects/alien_tail_swipe2.ogg','sound/effects/alien_tail_swipe3.ogg'), 25, 1) //Sound effects
+	playsound(xenomorph_owner,pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
 
 	var/sweep_range = 1
 	var/list/L = orange(sweep_range, xenomorph_owner) // Not actually the fruit
@@ -69,7 +69,7 @@
 /datum/action/ability/xeno_action/tearingtail/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	to_chat(xenomorph_owner, span_notice("We gather enough strength to tear the skin again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 ///////////////////////////////////
@@ -93,7 +93,7 @@
 
 /datum/action/ability/activable/xeno/adrenalinejump/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We ready ourselves to jump again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/adrenalinejump/can_use_ability(atom/A, silent = FALSE, override_flags)
@@ -391,13 +391,13 @@
 	evade_active = FALSE //Evasion is no longer active
 
 	owner.balloon_alert(owner, "Evasion ended")
-	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50)
 
 #define PANTHER_EVASION_RUN_DELAY 0.5 SECONDS // If the time since the Runner last moved is equal to or greater than this, its Evasion ends.
 
 /datum/action/ability/xeno_action/evasive_maneuvers/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to take evasive action again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 
 	return ..()
 
@@ -455,7 +455,7 @@
 	xenomorph_owner.do_jitter_animation(4000)
 
 	var/turf/our_turf = get_turf(xenomorph_owner) //location of after image SFX
-	playsound(our_turf, pick('sound/effects/throw.ogg','sound/effects/alien_tail_swipe1.ogg', 'sound/effects/alien_tail_swipe2.ogg'), 25, 1) //sound effects
+	playsound(our_turf, pick('sound/effects/throw.ogg','sound/effects/alien/tail_swipe1.ogg', 'sound/effects/alien/tail_swipe2.ogg'), 25, 1) //sound effects
 	var/obj/effect/temp_visual/xenomorph/afterimage/our_afterimage
 	for(var/i = 0 to 2) //number of after images
 		our_afterimage = new /obj/effect/temp_visual/xenomorph/afterimage(our_turf, owner) //Create the after image.
