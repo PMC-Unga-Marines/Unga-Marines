@@ -267,7 +267,7 @@ SUBSYSTEM_DEF(minimaps)
 		for(var/datum/minimap_updator/updator AS in update_targets["[flag]"])
 			if(updator.ztarget == target_turf.z)
 				updator.raw_blips -= blip
-	blip.UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
+	blip?.UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
 	removal_cbs -= target
 
 /**
