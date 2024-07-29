@@ -147,7 +147,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+	if(!owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
 		owner.max_stamina_buffer += (old_organ_status - organ_status) * 25
 		owner.maxHealth += (old_organ_status - organ_status) * 20
 
@@ -172,7 +172,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+	if(!owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
 		owner.add_stamina_regen_modifier(name, organ_status * -0.40) // For example, bruised lungs will reduce stamina regen by 40%, broken by 80%
 		owner.add_movespeed_modifier(id = name, override = TRUE, multiplicative_slowdown = organ_status) // Slowdown added when the heart is damaged
 
@@ -231,7 +231,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+	if(!owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
 		filter_rate = initial(filter_rate) - organ_status
 
 /datum/internal_organ/liver/prosthetic
@@ -286,7 +286,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(!onwer.reagent.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
+	if(!owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.05)
 		current_medicine_cap = initial(current_medicine_cap) - 2 * organ_status
 
 /datum/internal_organ/kidneys/process()

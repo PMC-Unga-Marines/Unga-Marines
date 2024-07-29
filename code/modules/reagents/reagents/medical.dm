@@ -697,6 +697,7 @@
 		var/datum/internal_organ/brain/B = H.internal_organs_by_name["brain"]
 		if(B.damage < 30)
 			L.adjustBrainLoss(-1.5*effect_str)
+			L.adjustToxLoss(-1.5)
 	L.adjust_ear_damage(-2 * effect_str, -2 * effect_str)
 	return ..()
 
@@ -723,6 +724,7 @@
 		var/datum/internal_organ/eyes/E = H.internal_organs_by_name["eyes"]
 		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
+			L.adjustToxLoss(-1.5)
 	return ..()
 
 /datum/reagent/medicine/imidazoline/overdose_process(mob/living/L, metabolism)
@@ -754,7 +756,7 @@
 	L.apply_damage(2*effect_str, BRUTE)
 
 /datum/reagent/peridaxon/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(4*effect_str, BRUTE)
+	L.apply_damages(6*effect_str, BRUTE)
 
 /datum/reagent/medicine/peridaxon_plus
 	name = "Peridaxon Plus"
@@ -1463,6 +1465,7 @@
 /datum/reagent/medicine/research/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
 	L.remove_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED)
+
 
 /datum/reagent/medicine/research/stimulon
 	name = "Stimulon"
