@@ -27,8 +27,8 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 /datum/assembly_craft
 	var/name
 	var/notes
-	var/list/input = list()
-	var/list/output = list()
+	var/list/input
+	var/list/output
 	var/craft_time = 1 SECONDS
 	var/group
 

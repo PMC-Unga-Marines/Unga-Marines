@@ -143,7 +143,7 @@ const CategoryButton = (props, context) => {
       icon={icon}
       disabled={disabled}
       onClick={() =>
-        act('cart', {
+        act('select', {
           id: id,
           mode: mode,
         })

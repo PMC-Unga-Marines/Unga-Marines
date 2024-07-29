@@ -143,6 +143,7 @@
 	var/processiconstate = "heater"
 	///Current craft datum
 	var/datum/assembly_craft/craft = null
+
 	COOLDOWN_DECLARE(process_cooldown)
 
 /obj/machinery/assembler/Initialize(mapload)
@@ -210,3 +211,13 @@
 	.["categories"] = GLOB.all_assembly_craft_groups
 	.["supplypacks"] = SSpoints.assembly_crafts_ui
 	.["supplypackscontents"] = SSpoints.assembly_crafts_contents
+
+/datum/supply_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("select")
+			var/datum/assembly_craft/C = SSpoints.assembly_crafts[text2path(params["id"])]
+
+			. = TRUE
