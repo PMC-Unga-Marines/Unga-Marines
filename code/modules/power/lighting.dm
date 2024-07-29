@@ -504,15 +504,12 @@
 	desc = "A small lighting fixture."
 	base_state = "floortube"
 	icon_state = "floortube1"
-	layer = 2.5
 	brightness = 6
+	layer = BELOW_TABLE_LAYER
 	plane = FLOOR_PLANE
 
 /obj/machinery/light/floor/set_pixel_offset()
-	if(!isnull(pixel_x_offset))
-		pixel_x = pixel_x_offset
-	if(!isnull(pixel_y_offset))
-		pixel_y = pixel_y_offset
+	return
 
 /obj/machinery/light/red
 	base_state = "tubered"
