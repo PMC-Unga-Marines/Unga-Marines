@@ -102,25 +102,16 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 /atom/proc/apply_laser()
 	return FALSE
 
-/mob/living/carbon/human/apply_laser()
+/mob/living/carbon/apply_laser()
 	overlays_standing[LASER_LAYER] = image("icon" = 'icons/obj/items/projectiles.dmi',"icon_state" = "sniper_laser", "layer" =-LASER_LAYER)
 	apply_overlay(LASER_LAYER)
-	return TRUE
-
-/mob/living/carbon/xenomorph/apply_laser()
-	overlays_standing[X_LASER_LAYER] = image("icon" = 'icons/obj/items/projectiles.dmi',"icon_state" = "sniper_laser", "layer" =-X_LASER_LAYER)
-	apply_overlay(X_LASER_LAYER)
 	return TRUE
 
 /mob/living/carbon/proc/remove_laser()
 	return FALSE
 
-/mob/living/carbon/human/remove_laser()
+/mob/living/carbon/remove_laser()
 	remove_overlay(LASER_LAYER)
-	return TRUE
-
-/mob/living/carbon/xenomorph/remove_laser()
-	remove_overlay(X_LASER_LAYER)
 	return TRUE
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/unique_action(mob/user)
@@ -409,7 +400,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 10, "rail_y" = 21, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 12
 

@@ -26,7 +26,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 	deevolves_to = /mob/living/carbon/xenomorph/drone
 

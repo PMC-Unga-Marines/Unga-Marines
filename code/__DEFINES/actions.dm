@@ -13,14 +13,11 @@
 #define ABILITY_IGNORE_DEAD_TARGET (1 << 13) // bypass checks of a dead target
 #define ABILITY_IGNORE_SELECTED_ABILITY (1 << 14) // bypass the check of the selected ability
 #define ABILITY_DO_AFTER_ATTACK (1 << 15) //Let the xeno attack the object and perform the ability.
-#define ABILITY_USE_BURROWED (1 << 16) // ignore being burrowed
-#define ABILITY_USE_ROOTED (1 << 17) // ignore being currently rooted
 
 #define ABILITY_TURF_TARGET (1 << 0) // ability targets turfs
 #define ABILITY_MOB_TARGET (1 << 1) // ability targets mobs
 
 #define ABILITY_KEYBIND_USE_ABILITY (1 << 0) // immediately activate even if selectable
-
 
 #define ABILITY_CRASH (1<<0)
 #define ABILITY_NUCLEARWAR (1<<1)

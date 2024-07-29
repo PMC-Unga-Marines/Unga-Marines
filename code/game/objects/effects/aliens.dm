@@ -218,18 +218,3 @@
 			visible_message(span_xenowarning("\The [acid_t]\s structure is being melted by the acid!"))
 		if(6)
 			visible_message(span_xenowarning("\The [acid_t] is barely holding up against the acid!"))
-
-/obj/effect/xenomorph/warp_shadow
-	name = "warp shadow"
-	desc = "A strange rift in space and time. You probably shouldn't touch this."
-	icon = 'icons/Xeno/castes/wraith.dmi'
-	icon_state = "Wraith Walking"
-	color = COLOR_BLACK
-	alpha = 128 //Translucent
-	density = FALSE
-	opacity = FALSE
-	anchored = TRUE
-
-/obj/effect/xenomorph/warp_shadow/Initialize(mapload, target)
-	. = ..()
-	add_filter("wraith_warp_shadow", 4, list("type" = "blur", 5)) //Cool filter appear

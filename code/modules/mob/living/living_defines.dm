@@ -63,9 +63,8 @@
 	var/disabilities = NONE
 
 	var/restrained_flags = NONE
-
-	var/now_pushing
-
+	/// Will we bump into stuff right now?
+	var/now_pushing = FALSE
 
 	var/cameraFollow
 

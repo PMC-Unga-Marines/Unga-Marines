@@ -61,13 +61,9 @@ There are several things that need to be remembered:
 
 #define ITEM_STATE_IF_SET(I) I.item_state ? I.item_state : I.icon_state
 
-
 /mob/living/carbon/human
-	var/list/overlays_standing[TOTAL_LAYERS]
 	var/list/underlays_standing[TOTAL_UNDERLAYS]
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
-
-
 
 /mob/living/carbon/human/apply_overlay(cache_index)
 	var/list/to_add = list()
@@ -677,7 +673,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 /mob/living/carbon/human/update_burst()
 	remove_overlay(BURST_LAYER)
 	var/mutable_appearance/standing
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(chestburst == 1)
 		if(isyautja(src))
 			standing = mutable_appearance('icons/Xeno/Effects.dmi', "predburst_stand", -BURST_LAYER)
@@ -688,7 +683,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			standing = mutable_appearance('icons/Xeno/Effects.dmi', "predbursted_stand", -BURST_LAYER)
 		else
 			standing = mutable_appearance('icons/Xeno/Effects.dmi', "bursted_stand", -BURST_LAYER)
-//RUTGMC EDIT ADDITION END
 
 	overlays_standing[BURST_LAYER] = standing
 	apply_overlay(BURST_LAYER)

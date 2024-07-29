@@ -24,11 +24,9 @@
 	wall_smash = FALSE
 	stop_automated_movement_when_pulled = TRUE
 
-
 /mob/living/simple_animal/hostile/retaliate/goat/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/udder)
-
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
@@ -43,11 +41,9 @@
 		LoseTarget()
 		visible_message(span_notice("[src] calms down."))
 
-
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	. = ..()
 	visible_message(span_danger("[src] gets an evil-looking gleam in [p_their()] eye."))
-
 
 /mob/living/simple_animal/cow
 	name = "cow"
