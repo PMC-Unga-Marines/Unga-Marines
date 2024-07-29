@@ -17,7 +17,6 @@
 	speed = 0
 	maxHealth = 25
 	health = 25
-
 	harm_intent_damage = 8
 	obj_damage = 50
 	melee_damage = 15
@@ -25,12 +24,10 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	speak_emote = list("gnashes")
 
-
 /mob/living/simple_animal/hostile/carp/holocarp
 	icon_state = "holocarp"
 	icon_living = "holocarp"
 	del_on_death = TRUE
-
 
 /mob/living/simple_animal/hostile/carp/megacarp
 	icon = 'icons/mob/broadMobs.dmi'
@@ -44,12 +41,9 @@
 	health = 20
 	pixel_x = -16
 	mob_size = MOB_SIZE_BIG
-
 	obj_damage = 80
 	melee_damage = 20
-
 	var/regen_cooldown = 0
-
 
 /mob/living/simple_animal/hostile/carp/megacarp/Initialize(mapload)
 	. = ..()
@@ -58,13 +52,11 @@
 	maxHealth += rand(30, 60)
 	move_to_delay = rand(3, 7)
 
-
 /mob/living/simple_animal/hostile/carp/megacarp/Life()
 	. = ..()
 	if(regen_cooldown < world.time)
 		heal_overall_damage(4)
 		regen_cooldown = world.time + REGENERATION_DELAY
-
 
 /mob/living/simple_animal/hostile/carp/cayenne
 	name = "Cayenne"
@@ -73,5 +65,23 @@
 	speak_emote = list("squeaks")
 	AIStatus = AI_OFF
 
+/mob/living/simple_animal/hostile/carp/swine
+	name = "swine carp"
+	desc = "A genetic experiment made by NT RnD department."
+	icon =  'icons/mob/animal.dmi'
+	icon_state = "swinecarp"
+	icon_living = "swinecarp"
+	icon_dead = "swinecarp_dead"
+	icon_gib = "swinecarp_gib"
+	maxHealth = 100
+	health = 100
+	attack_sound = 'sound/items/khryu.ogg'
+	speak_emote = list("oinks")
+
+/mob/living/simple_animal/hostile/carp/swine/franko
+	name = "Franko"
+	desc = "A genetic experiment, resulted in a gluttonous monstrosity, but beloved by the marines."
+	gender = MALE
+	AIStatus = AI_OFF
 
 #undef REGENERATION_DELAY

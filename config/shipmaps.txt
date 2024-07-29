@@ -17,6 +17,9 @@ map debugdalus
 	voteweight 0
 endmap
 
+map talos
+endmap
+
 map theseus
 endmap
 

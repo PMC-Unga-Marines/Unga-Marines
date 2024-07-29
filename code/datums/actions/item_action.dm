@@ -117,12 +117,3 @@
 /datum/action/item_action/aim_mode/action_activate()
 	var/obj/item/weapon/gun/I = target
 	I.toggle_auto_aim_mode(owner)
-
-/datum/action/item_action/reddot_aim_mode
-	name = "Take Aim"
-	action_icon_state = "aim_mode"
-	action_type = ACTION_TOGGLE
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_KB_AIMMODE,
-	)
-	use_obj_appeareance = FALSE
