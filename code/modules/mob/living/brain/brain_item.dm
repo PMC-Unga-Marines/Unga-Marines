@@ -11,7 +11,7 @@
 	throw_range = 5
 	attack_verb = list("attacked", "slapped", "whacked")
 	organ_type = /datum/internal_organ/brain
-	organ_tag = "brain"
+	organ_tag = ORGAN_SLOT_BRAIN
 
 	var/mob/living/brain/brainmob = null
 
