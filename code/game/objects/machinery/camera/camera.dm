@@ -1,8 +1,9 @@
 /obj/machinery/camera
 	name = "security camera"
 	desc = "It's used to monitor rooms."
-	icon = 'icons/obj/machines/monitors.dmi'
+	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera_icon"
+	base_icon_state = "camera"
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 10
@@ -17,24 +18,17 @@
 	var/view_range = 7
 	var/short_range = 2
 	var/in_use_lights = FALSE
-	var/internal_light = TRUE //Whether it can light up when an AI views it
+	///Whether it can light up when an AI views it
+	var/internal_light = TRUE
 
 /obj/machinery/camera/Initialize(mapload, newDir)
 	. = ..()
-	icon_state = "camera"
+	icon_state = base_icon_state
 
 	if(newDir)
 		setDir(newDir)
 
-	switch(dir)
-		if(NORTH)
-			pixel_y = -16
-		if(SOUTH)
-			pixel_y = 16
-		if(EAST)
-			pixel_x = -16
-		if(WEST)
-			pixel_x = 16
+	set_offsets()
 
 	for(var/i in network)
 		network -= i
@@ -54,19 +48,27 @@
 
 	update_icon()
 
+/obj/machinery/camera/proc/set_offsets()
+	switch(dir)
+		if(NORTH)
+			pixel_y = -16
+		if(SOUTH)
+			pixel_y = 16
+		if(EAST)
+			pixel_x = -16
+		if(WEST)
+			pixel_x = 16
+
 /obj/machinery/camera/Destroy()
 	if(can_use())
 		toggle_cam(null, 0) //kick anyone viewing out and remove from the camera chunks
-
 	parent_cameranet.cameras -= src
 	if(isarea(myarea))
 		LAZYREMOVE(myarea.cameras, src)
-
 	return ..()
 
 /obj/machinery/camera/examine(mob/user)
 	. = ..()
-
 	if(!status)
 		. += span_info("It's currently deactivated.")
 		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN) && powered())
@@ -78,7 +80,6 @@
 
 /obj/machinery/camera/proc/setViewRange(num = 7)
 	view_range = num
-
 	parent_cameranet.updateVisibility(src, 0)
 
 /obj/machinery/camera/attackby(obj/item/I, mob/user, params)
@@ -255,18 +256,6 @@
 /obj/machinery/camera/proc/can_see()
 	return get_hear(view_range, get_turf(src))
 
-//Return a working camera that can see a given mob
-//or null if none
-/proc/seen_by_camera(mob/M)
-	for(var/obj/machinery/camera/C in oview(4, M))
-		if(C.can_use())	// check if camera disabled
-			return C
-
-/proc/near_range_camera(mob/M)
-	for(var/obj/machinery/camera/C in range(4, M))
-		if(C.can_use())	// check if camera disabled
-			return C
-
 /obj/machinery/camera/proc/Togglelight(on = FALSE)
 	for(var/mob/living/silicon/ai/A in GLOB.ai_list)
 		for(var/obj/machinery/camera/cam in A.lit_cameras)
@@ -296,7 +285,7 @@
 	. = ..()
 	if(obj_integrity <= 0)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive")
+	. += emissive_appearance(icon, "[base_icon_state]_emissive")
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
 /obj/machinery/camera/autoname/Initialize(mapload)
@@ -388,6 +377,31 @@
 /obj/machinery/camera/autoname/thunderdome/hidden/update_icon_state()
 	. = ..()
 	icon_state = "nothing"
+
+/obj/machinery/camera/autoname/alt
+	icon_state = "alt_camera_icon"
+	base_icon_state = "alt_camera"
+
+/obj/machinery/camera/autoname/alt/update_icon_state()
+	if(obj_integrity <= 0)
+		icon_state = "alt_camera_assembly"
+	else
+		icon_state = "alt_camera"
+
+/obj/machinery/camera/autoname/alt/set_offsets()
+	switch(dir)
+		if(NORTH)
+			pixel_y = 0
+			pixel_x = -10
+		if(SOUTH)
+			pixel_y = 18
+			pixel_x = 10
+		if(EAST)
+			pixel_x = -9
+			pixel_y = -5
+		if(WEST)
+			pixel_x = 9
+			pixel_y = -5
 
 /obj/machinery/camera/miner
 	name = "miner camera"

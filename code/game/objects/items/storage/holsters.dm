@@ -1019,3 +1019,15 @@
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/tomahawk(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
+
+/obj/item/storage/holster/blade/tomahawk/classic
+	name = "\improper Tactical H17 Tomahawk scabbard"
+	desc = "A large leather scabbard used to carry a H17 tomahawk. It can be strapped to the back, waist or armor."
+	icon = 'icons/obj/items/storage/storage.dmi'
+	icon_state = "tomahawk_classic_holster"
+	item_state = "tomahawk_classic_holster"
+
+/obj/item/storage/holster/blade/tomahawk/classic/full/Initialize(mapload)
+	. = ..()
+	var/obj/item/new_item = new /obj/item/weapon/claymore/tomahawk/classic(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)

@@ -127,7 +127,6 @@
 /obj/item/toy/plush/pig
 	name = "pig toy"
 	desc = "Captain Dementy! Bring the pigs! Marines demand pigs!."
-	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "pig"
 	item_state = "pig"
 	attack_verb = list("oinks", "grunts")

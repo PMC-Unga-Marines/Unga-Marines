@@ -130,6 +130,13 @@
 	desc = "Two small black storage cases."
 	icon_state = "case_small"
 
+/obj/structure/largecrate/random/case/small/mini
+	icon_state = "mini_case"
+
+/obj/structure/largecrate/random/case/small/mini/Initialize(mapload)
+	. = ..()
+	icon_state = pick("mini_case", "mini_case_b", "mini_case_c")
+
 /obj/structure/largecrate/random/barrel/deconstruct(disassembled = TRUE)
 	if(dropmetal)
 		new /obj/item/stack/sheet/metal/small_stack(src)
