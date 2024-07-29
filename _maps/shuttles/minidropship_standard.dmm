@@ -179,7 +179,8 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y_offset = 0
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /turf/open/floor/mainship/mono,
@@ -213,7 +214,8 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y_offset = 0
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /turf/open/floor/mainship/mono,
