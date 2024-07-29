@@ -106,31 +106,28 @@ const Pack = (props, context) => {
   const { act, data } = useBackend(context);
   const { pack } = props;
   const { supplypackscontents } = data;
-  const { name, cost, inputs, outputs } = supplypackscontents[pack];
+  const { name, inputs, outputs } = supplypackscontents[pack];
   return !!inputs && inputs.constructor === Object && !!outputs && outputs.constructor === Object ? (
     <Collapsible
       color="gray"
-      title={<PackName cost={cost} name={name} pl={0} />}>
+      title={<PackName name={name} pl={0} />}>
       <Table>
-        <PackContents contains={inputs} />
+        <InputContents input={inputs} />
       </Table>
       <Table>
-        <PackContents contains={outputs} />
+        <OutputContents output={outputs} />
       </Table>
     </Collapsible>
   ) : (
-    <PackName cost={cost} name={name} pl="22px" />
+    <PackName name={name} pl="22px" />
   );
 };
 
 const PackName = (props, context) => {
-  const { cost, name, pl } = props;
+  const { name, pl } = props;
 
   return (
     <Box inline pl={pl}>
-      <Box textAlign="right" inline width="65px">
-        {cost} points
-      </Box>
       <Box width="15px" inline />
       <Box inline>{name}</Box>
     </Box>
@@ -204,25 +201,11 @@ const Category = (props, context) => {
             {selectedPackCat.filter(filterSearch).map((entry) => {
               return (
                 <Table.Row key={entry.id}>
-                  <Table.Cell width="130px">
+                  <Table.Cell width="30px">
                     <CategoryButton
-                      icon="fast-backward"
+                      icon="sync"
                       id={entry}
-                      mode="removeall"
-                    />
-                    <CategoryButton
-                      icon="backward"
-                      id={entry}
-                      mode="removeone"
-                    />
-                    <Box width="25px" inline textAlign="center">
-                      {!!count && <AnimatedNumber value={count} />}
-                    </Box>
-                    <CategoryButton icon="forward" id={entry} mode="addone" />
-                    <CategoryButton
-                      icon="fast-forward"
-                      id={entry}
-                      mode="addall"
+                      mode="add"
                     />
                   </Table.Cell>
                   <Table.Cell>
@@ -238,13 +221,13 @@ const Category = (props, context) => {
   );
 };
 
-const PackContents = (props, context) => {
-  const { contains } = props;
+const InputContents = (props, context) => {
+  const { input } = props;
 
   return (
     <>
       <Table.Row>
-        <Table.Cell bold>Item Type</Table.Cell>
+        <Table.Cell bold>Input</Table.Cell>
         <Table.Cell bold>Quantity</Table.Cell>
       </Table.Row>
       {map((contententry) => (
@@ -252,7 +235,26 @@ const PackContents = (props, context) => {
           <Table.Cell width="70%">{contententry.name}</Table.Cell>
           <Table.Cell>x {contententry.count}</Table.Cell>
         </Table.Row>
-      ))(contains)}
+      ))(input)}
+    </>
+  );
+};
+
+const OutputContents = (props, context) => {
+  const { output } = props;
+
+  return (
+    <>
+      <Table.Row>
+        <Table.Cell bold>Output</Table.Cell>
+        <Table.Cell bold>Quantity</Table.Cell>
+      </Table.Row>
+      {map((contententry) => (
+        <Table.Row>
+          <Table.Cell width="70%">{contententry.name}</Table.Cell>
+          <Table.Cell>x {contententry.count}</Table.Cell>
+        </Table.Row>
+      ))(output)}
     </>
   );
 };
