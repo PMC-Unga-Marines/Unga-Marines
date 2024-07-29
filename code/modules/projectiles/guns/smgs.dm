@@ -128,6 +128,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -698,6 +699,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/verticalgrip,

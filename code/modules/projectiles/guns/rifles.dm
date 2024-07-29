@@ -54,6 +54,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t18stock,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/lasersight,
@@ -145,6 +146,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t12stock,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
@@ -778,6 +780,7 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/gyro,
@@ -912,6 +915,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t42stock,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
@@ -990,6 +994,7 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_gpmg)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,
@@ -1054,6 +1059,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/angledgrip,
@@ -1120,6 +1126,7 @@
 	wield_delay = 0.7 SECONDS
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
@@ -1623,6 +1630,7 @@
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/bayonet,
@@ -1697,6 +1705,7 @@
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
@@ -2081,6 +2090,7 @@
 	attachable_allowed = list(
 		/obj/item/weapon/gun/shotgun/micro_grenade,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
@@ -2260,6 +2270,7 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/som_mg)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,

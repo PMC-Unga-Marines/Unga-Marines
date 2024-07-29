@@ -118,7 +118,7 @@
 	var/obj/item/weapon/gun/I = target
 	I.toggle_auto_aim_mode(owner)
 
-/datum/action/item_action/reddot_aim_mode
+/datum/action/item_action/b7_aim_mode
 	name = "Take Aim"
 	action_icon_state = "aim_mode"
 	action_type = ACTION_TOGGLE
