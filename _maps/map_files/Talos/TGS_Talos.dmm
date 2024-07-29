@@ -4344,7 +4344,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -8418,7 +8418,7 @@
 /turf/open/floor/carpet,
 /area/mainship/command/corporateliaison)
 "eNx" = (
-/obj/machinery/light/mainship/floor,
+/obj/machinery/light/floor,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -15008,7 +15008,7 @@
 /turf/closed/wall/mainship/alt,
 /area/mainship/engineering/port_atmos)
 "jeh" = (
-/obj/machinery/light/mainship/floor,
+/obj/machinery/light/floor,
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
@@ -17291,7 +17291,7 @@
 	dir = 8;
 	id = "supply_elevator_railing"
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 8;
 	pixel_x = null
 	},
@@ -19341,7 +19341,7 @@
 	dir = 1;
 	id = "supply_elevator_railing"
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 1;
 	pixel_x = null
 	},
@@ -20994,7 +20994,7 @@
 	dir = 8
 	},
 /obj/structure/prop/mainship/hangar_stencil,
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -21677,7 +21677,7 @@
 	},
 /area/mainship/squads/alpha)
 "mPy" = (
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 1
 	},
 /turf/open/floor/mainship/blue,
@@ -23730,7 +23730,7 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -24122,7 +24122,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
@@ -24943,7 +24943,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "oMw" = (
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 1
 	},
 /turf/open/floor/mainship/emerald,
@@ -29465,7 +29465,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
@@ -30267,7 +30267,7 @@
 	dir = 2;
 	id = "supply_elevator_railing"
 	},
-/obj/machinery/light/mainship/floor,
+/obj/machinery/light/floor,
 /turf/open/floor/prison/yellow{
 	dir = 1
 	},
@@ -33420,7 +33420,7 @@
 /obj/machinery/door/poddoor/railing{
 	id = "supply_elevator_railing"
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 4;
 	pixel_x = null
 	},
@@ -36123,7 +36123,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 1;
 	pixel_y = 4
 	},
@@ -38584,7 +38584,7 @@
 /turf/open/floor/prison/marked,
 /area/mainship/command/self_destruct)
 "xjK" = (
-/obj/machinery/light/mainship/floor,
+/obj/machinery/light/floor,
 /obj/structure/sign/semiotic/bathmens{
 	pixel_y = 24;
 	pixel_x = 8
@@ -40135,7 +40135,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/light/mainship/floor{
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
