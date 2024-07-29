@@ -420,6 +420,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 				.["elevator_dir"] = "up"
 	else
 		.["elevator"] = "MISSING!"
+	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
 
 /datum/supply_ui/proc/get_shopping_cart(mob/user)
 	return SSpoints.shopping_cart
@@ -508,11 +509,15 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			var/list/shopping_cart = get_shopping_cart(ui.user)
 			shopping_cart.Cut()
 			. = TRUE
-		// RUTGMC EDIT BEGIN
 		if("buypersonal")
 			SSpoints.buy_using_psp(ui.user)
 			. = TRUE
-		// RUTGMC EDIT END
+		if("delivery")
+			var/datum/supply_order/O = SSpoints.shoppinglist[faction]["[params["id"]]"]
+			if(!O)
+				return
+			SSpoints.fast_delivery(O, ui.user)
+			. = TRUE
 
 /datum/supply_ui/requests
 	tgui_name = "CargoRequest"
@@ -564,6 +569,17 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			packs += SP.type
 			cost += SP.cost
 		.["approvedrequests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+	.["awaiting_delivery"] = list()
+	.["awaiting_delivery_orders"] = 0
+	for(var/key in SSpoints.shoppinglist[faction])
+		//only own orders
+		var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
+		if(user.real_name == SO.orderer)
+			.["awaiting_delivery_orders"]++
+			var/list/packs = list()
+			for(var/datum/supply_packs/SP AS in SO.pack)
+				packs += SP.type
+			.["awaiting_delivery"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "packs" = packs, "authed_by" = SO.authorised_by))
 	if(!SSpoints.request_shopping_cart[user.ckey])
 		SSpoints.request_shopping_cart[user.ckey] = list()
 	.["shopping_list_cost"] = 0
@@ -574,6 +590,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		.["shopping_list_items"] += SSpoints.request_shopping_cart[user.ckey][i]
 		.["shopping_list_cost"] += SP.cost * SSpoints.request_shopping_cart[user.ckey][SP.type]
 		.["shopping_list"][SP.type] = list("count" = SSpoints.request_shopping_cart[user.ckey][SP.type])
+	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
 
 /datum/supply_ui/requests/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

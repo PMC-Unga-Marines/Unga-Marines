@@ -791,6 +791,7 @@
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
 		/obj/item/tweezers,
 		/obj/item/tool/surgery/solderingtool,
+		/obj/item/supplytablet,
 	)
 
 /obj/effect/vendor_bundle/white_dress
