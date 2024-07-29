@@ -1873,6 +1873,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/foldable/bipod,
@@ -1950,6 +1951,7 @@
 		/obj/item/attachable/scope/optical,
 		/obj/item/weapon/gun/rifle/tx54/mini,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,

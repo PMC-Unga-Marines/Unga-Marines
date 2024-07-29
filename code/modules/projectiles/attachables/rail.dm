@@ -13,10 +13,7 @@
 	desc = "A B7 smart scope. Does not have a zoom feature, but allows you to take aim and fire through allies. \nNo drawbacks."
 	icon_state = "b7"
 	slot = ATTACHMENT_SLOT_RAIL
-	attachment_action_type = /datum/action/item_action/b7_aim_mode
-
-/obj/item/attachable/b7_scope/activate(mob/living/user, turn_off)
-	master_gun.toggle_auto_aim_mode(user)
+	add_aim_mode = TRUE
 
 /obj/item/attachable/m16sight
 	name = "M16 iron sights"
