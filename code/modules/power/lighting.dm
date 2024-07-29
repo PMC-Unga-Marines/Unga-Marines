@@ -499,6 +499,21 @@
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light_bulb/bulb
 
+/obj/machinery/light/floor
+	name = "floor light fixture"
+	desc = "A small lighting fixture."
+	base_state = "floortube"
+	icon_state = "floortube1"
+	layer = 2.5
+	brightness = 6
+	plane = FLOOR_PLANE
+
+/obj/machinery/light/floor/set_pixel_offset()
+	if(!isnull(pixel_x_offset))
+		pixel_x = pixel_x_offset
+	if(!isnull(pixel_y_offset))
+		pixel_y = pixel_y_offset
+
 /obj/machinery/light/red
 	base_state = "tubered"
 	icon_state = "tubered1"
