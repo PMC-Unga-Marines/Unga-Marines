@@ -925,6 +925,21 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
 	cost = 450
 
+/datum/supply_packs/weapons/ltb_shells
+	name = "LTB tank shell"
+	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
+	cost = 10
+
+/datum/supply_packs/weapons/ltaap_rounds
+	name = "LTAAP tank magazine"
+	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
+	cost = 10
+
+/datum/supply_packs/weapons/cupola_rounds
+	name = "Cupola tank magazine"
+	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
+	cost = 10
+
 /*******************************************************************************
 EXPLOSIVES
 *******************************************************************************/
@@ -1388,8 +1403,8 @@ MEDICAL
 		/obj/item/storage/pouch/medical_injectors/medic,
 		/obj/item/storage/pouch/medical_injectors/medic,
 		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/stack/nanopaste,
 	)
@@ -1576,22 +1591,22 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/advanced/meraderm,
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
@@ -1678,8 +1693,8 @@ MEDICAL
 	name = "QuickPeri+ kit"
 	notes = "contains injector quick+ and peri+."
 	contains = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
+		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		)
 	cost = 30
 

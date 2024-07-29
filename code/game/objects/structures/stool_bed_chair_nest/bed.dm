@@ -1,12 +1,3 @@
-/*
-* Contains:
-* 		Beds
-*		Roller beds
-*/
-
-/*
-* Beds
-*/
 /obj/structure/bed
 	name = "bed"
 	desc = "A mattress seated on a rectangular metallic frame. This is used to support a lying person in a comfortable manner, notably for regular sleep. Ancient technology, but still useful."
@@ -29,7 +20,6 @@
 	var/accepts_bodybag = FALSE //Whether you can buckle bodybags to this bed
 	var/base_bed_icon //Used by beds that change sprite when something is buckled to them
 
-
 /obj/structure/bed/nometal
 	dropmetal = FALSE
 
@@ -38,6 +28,7 @@
 	icon_state = "bunkbed"
 
 /obj/structure/bed/update_icon_state()
+	. = ..()
 	if(!base_bed_icon)
 		return
 	if(LAZYLEN(buckled_mobs) || buckled_bodybag)
@@ -49,7 +40,6 @@
 	if(buckled_bodybag)
 		unbuckle_bodybag()
 	return ..()
-
 
 /obj/structure/bed/post_buckle_mob(mob/buckling_mob)
 	. = ..()
@@ -72,6 +62,10 @@
 		if(HAS_TRAIT(unbuckled_target, TRAIT_FLOORED))
 			unbuckled_target.set_lying_angle(pick(90, 270))
 
+/obj/structure/bed/set_glide_size(target = 8)
+	. = ..()
+	buckled_bodybag?.set_glide_size(target)
+
 //Unsafe proc
 /obj/structure/bed/proc/buckle_bodybag(obj/structure/closet/bodybag/B, mob/user)
 	if(buckled_bodybag || buckled)
@@ -92,7 +86,6 @@
 	if(pulledby)
 		B.set_glide_size(pulledby.glide_size)
 
-
 /obj/structure/bed/proc/unbuckle_bodybag(mob/user)
 	if(!buckled_bodybag)
 		return
@@ -105,7 +98,6 @@
 	density = FALSE
 	update_icon()
 
-
 //Trying to buckle a mob
 /obj/structure/bed/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	if(buckled_bodybag)
@@ -114,7 +106,7 @@
 
 /obj/structure/bed/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	. = ..()
-	if(!buckled_bodybag || buckled_bodybag.Move(loc, movement_dir))
+	if(!buckled_bodybag || buckled_bodybag.Move(loc, movement_dir, glide_size))
 		return TRUE
 	forceMove(buckled_bodybag.loc)
 	return FALSE
@@ -222,7 +214,6 @@
 	accepts_bodybag = TRUE
 	base_bed_icon = "roller"
 
-
 /obj/item/roller
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
@@ -255,7 +246,6 @@
 		to_chat(user, span_notice("You pick up [src]."))
 		forceMove(RH)
 		RH.held = src
-
 
 /obj/item/roller/proc/deploy_roller(mob/user, atom/location)
 	var/obj/structure/bed/roller/R = new rollertype(location)
@@ -322,13 +312,13 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	. = ..()
 	radio = new(src)
 
-/obj/structure/bed/medevac_stretcher/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/structure/bed/medevac_stretcher/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 	if(buckled_bodybag)
 		unbuckle_bodybag()
 	for(var/m in buckled_mobs)
-		user_unbuckle_mob(m, X, TRUE)
+		user_unbuckle_mob(m, xeno_attacker, TRUE)
 
 /obj/structure/bed/medevac_stretcher/attack_ghost(mob/dead/observer/user)
 	. = ..()
@@ -342,15 +332,14 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		linked_beacon.remove_stretcher(src)
 	return ..()
 
-/obj/structure/bed/medevac_stretcher/update_icon()
-	..()
-	overlays.Cut()
+/obj/structure/bed/medevac_stretcher/update_overlays()
+	. = ..()
+
 	if(stretcher_activated)
-		overlays += image("beacon_active_[density ? "up":"down"]")
+		. += image("beacon_active_[density ? "up":"down"]")
 
 	if(LAZYLEN(buckled_mobs) || buckled_bodybag)
-		overlays += image("icon_state"="stretcher_box","layer"=LYING_MOB_LAYER + 0.1)
-
+		. += image("icon_state"="stretcher_box","layer"=LYING_MOB_LAYER + 0.1)
 
 /obj/structure/bed/medevac_stretcher/verb/activate_medevac_displacer()
 	set name = "Activate Medevac Displacement Field"
@@ -359,7 +348,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	set src in oview(1)
 
 	activate_medevac_teleport(usr)
-
 
 /obj/structure/bed/medevac_stretcher/attack_hand_alternate(mob/living/user)
 	activate_medevac_teleport(user)
@@ -419,7 +407,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	deltimer(teleport_timer)
 	playsound(loc,'sound/machines/buzz-two.ogg', 25, FALSE)
 	visible_message(span_warning("[src]'s safeties kick in, no longer detecting a buckled user."))
-
 
 /obj/structure/bed/medevac_stretcher/proc/medevac_teleport(mob/user)
 	UnregisterSignal(src, COMSIG_MOVABLE_UNBUCKLE)
@@ -489,7 +476,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		var/obj/item/healthanalyzer/J = I
 		J.attack(occupant, user)
 
-
 /obj/structure/bed/medevac_stretcher/proc/medvac_alert(mob/M)
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	radio.talk_into(src, "Patient [M] has been tele-vaced to medvac beacon at: [get_area(linked_beacon)]. Coordinates: (X: [linked_beacon.x], Y: [linked_beacon.y])", RADIO_CHANNEL_MEDICAL)
@@ -510,7 +496,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		details += "It contains [M].</br>"
 
 	. += span_notice("[details.Join(" ")]")
-
 
 /obj/item/roller/medevac
 	name = "medevac stretcher"
@@ -584,7 +569,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		return
 	var/mutable_appearance/desc = mutable_appearance('icons/misc/12x12.dmi')
 	desc.maptext = MAPTEXT("[display_timer_cooldown]s")
-
 	. += desc
 
 /obj/item/roller/medevac/attackby(obj/item/I, mob/user, params)
@@ -722,7 +706,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 			return
 
 		add_stretcher(I, user)
-
 
 /obj/item/medevac_beacon/proc/check_power()
 	var/area/A = loc?.loc

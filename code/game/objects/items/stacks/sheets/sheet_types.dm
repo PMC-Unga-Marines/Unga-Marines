@@ -93,8 +93,6 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 /obj/item/stack/sheet/metal/large_stack
 	amount = 50
 
-/obj/item/stack/sheet/metal/cyborg
-
 /obj/item/stack/sheet/metal/Initialize(mapload, amount)
 	. = ..()
 	recipes = GLOB.metal_recipes
@@ -223,13 +221,6 @@ GLOBAL_LIST_INIT(wood_radial_images, list(
 
 /obj/item/stack/sheet/wood/large_stack
 	amount = 50
-
-
-/obj/item/stack/sheet/wood/cyborg
-	name = "wooden plank"
-	desc = "One can only guess that this is a bunch of wood."
-	singular_name = "wood plank"
-	icon_state = "sheet-wood"
 
 /obj/item/stack/sheet/wood/Initialize(mapload, amount)
 	. = ..()

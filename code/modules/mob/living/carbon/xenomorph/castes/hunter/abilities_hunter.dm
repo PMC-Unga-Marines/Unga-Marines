@@ -34,7 +34,7 @@
 
 /datum/action/ability/xeno_action/stealth/on_cooldown_finish()
 	owner.balloon_alert(owner, "Stealth ready.")
-	playsound(owner, "sound/effects/xeno_newlarva.ogg", 25, 0, 1)
+	playsound(owner, "sound/effects/alien/newlarva.ogg", 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/stealth/action_activate()
@@ -113,7 +113,7 @@
 		return
 	can_sneak_attack = TRUE
 	owner.balloon_alert(owner, "Sneak Attack ready.")
-	playsound(owner, "sound/effects/xeno_newlarva.ogg", 25, 0, 1)
+	playsound(owner, "sound/effects/alien/newlarva.ogg", 25, 0, 1)
 
 /datum/action/ability/xeno_action/stealth/process()
 	if(!stealth)
@@ -306,7 +306,7 @@
 
 /datum/action/ability/activable/xeno/pounce/on_cooldown_finish()
 	owner.balloon_alert(owner, "Pounce ready")
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce/can_use_ability(atom/A, silent = FALSE, override_flags)
@@ -354,7 +354,7 @@
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	if(ishuman(living_target) && (angle_to_dir(Get_Angle(xeno_owner.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
 		var/mob/living/carbon/human/human_target = living_target
-		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
+		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, MELEE))
 			xeno_owner.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			xeno_owner.set_throwing(FALSE)
 			playsound(xeno_owner, 'sound/machines/bonk.ogg', 50, FALSE)
@@ -364,7 +364,7 @@
 
 ///Triggers the effect of a successful pounce on the target.
 /datum/action/ability/activable/xeno/pounce/proc/trigger_pounce_effect(mob/living/living_target)
-	playsound(get_turf(living_target), 'sound/voice/alien_pounce.ogg', 25, TRUE)
+	playsound(get_turf(living_target), 'sound/voice/alien/pounce.ogg', 25, TRUE)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
@@ -459,7 +459,7 @@
 
 /datum/action/ability/activable/xeno/hunter_mark/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We are able to impose our psychic mark again.</b>"))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 
@@ -713,7 +713,7 @@
 
 /datum/action/ability/activable/xeno/silence/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We refocus our psionic energies, allowing us to impose silence again.</b>") )
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	cooldown_duration = initial(cooldown_duration) //Reset the cooldown timer to its initial state in the event of a whiffed Silence.
 	return ..()
 

@@ -58,9 +58,6 @@
 	// *** Evolution *** //
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
-	///Threshold amount of upgrade points to next maturity
-	//var/upgrade_threshold = 0 // RUTGMC DELETION
-
 	///Type paths to the castes that this xenomorph can evolve to
 	var/list/evolves_to = list()
 	///Singular type path for the caste to deevolve to when forced to by the queen.
@@ -136,10 +133,6 @@
 	///delay between the throw hugger ability activation for carriers
 	var/hugger_delay = 0
 
-	// *** Widow Abilities *** //
-	///maximum amount of spiderlings a widow can carry at one time.
-	//var/max_spiderlings = 0 // RUTGMC DELETION, WIDOW DELETION
-
 	// *** Defender Abilities *** //
 	///modifying amount to the crest defense ability for defenders. Positive integers only.
 	var/crest_defense_armor = 0
@@ -147,11 +140,6 @@
 	var/fortify_armor = 0
 	///amount of slowdown to apply when the crest defense is active. trading defense for speed. Positive numbers makes it slower.
 	var/crest_defense_slowdown = 0
-/* RU TGMC EDIT
-	// *** Puppeteer Abilities *** //
-	var/flay_plasma_gain = 0
-	var/max_puppets = 0
-RU TGMC EDIT */
 	// *** Crusher Abilities *** //
 	///The damage the stomp causes, counts armor
 	var/stomp_damage = 0
@@ -172,19 +160,6 @@ RU TGMC EDIT */
 	///Amount of leaders allowed
 	var/queen_leader_limit = 0
 
-	// *** Wraith Abilities *** //
-	//Banish - Values for the Wraith's Banish ability
-	///Base duration of Banish before modifiers
-	var/wraith_banish_base_duration = WRAITH_BANISH_BASE_DURATION
-
-	//Blink - Values for the Wraith's Blink ability
-	///Cooldown multiplier of Blink when used on non-friendlies
-	var/wraith_blink_drag_nonfriendly_living_multiplier = WRAITH_BLINK_DRAG_NONFRIENDLY_MULTIPLIER
-	///Cooldown multiplier of Blink when used on friendlies
-	var/wraith_blink_drag_friendly_multiplier = WRAITH_BLINK_DRAG_FRIENDLY_MULTIPLIER
-	///Base range of Blink
-	var/wraith_blink_range = WRAITH_BLINK_RANGE
-
 	// *** Hunter Abilities ***
 	///Damage breakpoint to knock out of stealth
 	var/stealth_break_threshold = 0
@@ -204,6 +179,14 @@ RU TGMC EDIT */
 	// *** Behemoth Abilities ***
 	/// The maximum amount of Wrath that we can have stored at a time.
 	var/wrath_max = 0
+
+	// *** Chimera Abilities ***
+	///Cooldown multiplier of Blink when used on non-friendlies
+	var/blink_drag_nonfriendly_living_multiplier = 0
+	///Cooldown multiplier of Blink when used on friendlies
+	var/blink_drag_friendly_multiplier = 0
+	///Base range of Blink
+	var/blink_range = 0
 
 	///the 'abilities' available to a caste.
 	var/list/actions
@@ -263,7 +246,7 @@ RU TGMC EDIT */
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	sight = SEE_SELF|SEE_OBJS|SEE_TURFS|SEE_MOBS
-	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER|LONG_GLIDE
 	see_infrared = TRUE
 	hud_type = /datum/hud/alien
 	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, XENO_PRIMO_HUD, HUNTER_HUD)
@@ -283,7 +266,6 @@ RU TGMC EDIT */
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
-	var/list/overlays_standing[X_TOTAL_LAYERS]
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	var/datum/xeno_caste/xeno_caste

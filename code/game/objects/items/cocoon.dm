@@ -5,7 +5,7 @@
 	icon_state = "xeno_cocoon"
 	density = FALSE
 	layer = BELOW_OBJ_LAYER
-	hit_sound = 'sound/effects/alien_resin_break2.ogg'
+	hit_sound = 'sound/effects/alien/resin_break2.ogg'
 	max_integrity = 400
 	anchored = TRUE
 	obj_flags = CAN_BE_HIT
@@ -115,6 +115,7 @@
 	return ..()
 
 /obj/structure/cocoon/update_icon_state()
+	. = ..()
 	if(anchored)
 		icon_state = "xeno_cocoon"
 		return

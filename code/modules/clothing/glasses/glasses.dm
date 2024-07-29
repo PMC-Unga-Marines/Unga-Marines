@@ -107,7 +107,7 @@
 		qdel(src)
 		user.put_in_hands(P)
 
-		update_icon(user)
+		update_icon()
 
 
 /obj/item/clothing/glasses/monocle
@@ -142,7 +142,7 @@
 		qdel(src)
 		user.put_in_hands(P)
 
-		update_icon(user)
+		update_icon()
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "prescription glasses"
@@ -227,7 +227,7 @@
 			qdel(src)
 			user.put_in_hands(S)
 
-		update_icon(user)
+		update_icon()
 
 /obj/item/clothing/glasses/m42_goggles
 	name = "\improper M42 scout sight"
@@ -385,7 +385,7 @@
 		qdel(src)
 		user.put_in_hands(P)
 
-		update_icon(user)
+		update_icon()
 
 /obj/item/clothing/glasses/sunglasses/fake/prescription
 	name = "prescription sunglasses"

@@ -7,21 +7,16 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump
 	icon_state = "vent_map-2"
-
 	name = "air vent"
 	desc = "Has a valve and pump attached to it."
-
 	use_power = IDLE_POWER_USE
 	can_unwrench = FALSE
 	welded = FALSE
 	level = 1
 	layer = ATMOS_DEVICE_LAYER
 	flags_atom = SHUTTLE_IMMUNE
-
 	var/pump_direction = RELEASING
-
 	var/pressure_checks = EXT_BOUND
-
 	var/radio_filter_out
 	var/radio_filter_in
 
@@ -61,7 +56,6 @@
 		icon_state = "vent_out"
 	else // pump_direction == SIPHONING
 		icon_state = "vent_in"
-
 
 /obj/machinery/atmospherics/components/unary/vent_pump/weld_cut_act(mob/living/user, obj/item/W)
 	if(istype(W, /obj/item/tool/pickaxe/plasmacutter))
@@ -118,7 +112,7 @@
 		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
-/obj/machinery/atmospherics/components/unary/vent_pump/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/machinery/atmospherics/components/unary/vent_pump/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(F.status_flags & INCORPOREAL)
 		return
 	if(!welded || !(do_after(F, 3 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE)))
@@ -135,7 +129,6 @@
 	if(welded)
 		. += span_notice("It seems welded shut.")
 
-
 /obj/machinery/atmospherics/components/unary/vent_pump/power_change()
 	..()
 	update_icon_nopipes()
@@ -143,18 +136,17 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/can_crawl_through()
 	return !welded
 
-/obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
-	if(!welded || !(do_after(X, 2 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE)))
+	if(!welded || !(do_after(xeno_attacker, 2 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE)))
 		return
-	X.visible_message("[X] furiously claws at [src]!", "We manage to clear away the stuff blocking the vent", "You hear loud scraping noises.")
+	xeno_attacker.visible_message("[xeno_attacker] furiously claws at [src]!", "We manage to clear away the stuff blocking the vent", "You hear loud scraping noises.")
 	welded = FALSE
 	update_icon()
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
-
 
 /obj/machinery/atmospherics/components/unary/vent_pump/AltClick(mob/user)
 	if(!isliving(user))
@@ -165,7 +157,6 @@
 		return
 	var/mob/living/living_user = user
 	living_user.handle_ventcrawl(src)
-
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume
 	name = "large air vent"

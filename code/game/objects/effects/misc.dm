@@ -7,21 +7,16 @@
 	density = TRUE
 	anchored = FALSE
 
-
 /obj/effect/beam
 	name = "beam"
 	var/def_zone
 	allow_pass_flags = PASS_LOW_STRUCTURE
-
 
 /obj/effect/begin
 	name = "begin"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "begin"
 	anchored = TRUE
-
-
-
 
 /obj/effect/list_container
 	name = "list container"
@@ -90,19 +85,15 @@
 	GLOB.fog_blockers -= src
 	return ..()
 
-
 /obj/effect/forcefield/fog/attack_hand(mob/living/user)
 	to_chat(user, span_notice("You peer through the fog, but it's impossible to tell what's on the other side..."))
 	return TRUE
 
+/obj/effect/forcefield/fog/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	return attack_hand(xeno_attacker)
 
-/obj/effect/forcefield/fog/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	return attack_hand(X)
-
-
-/obj/effect/forcefield/fog/attack_animal(M)
-	return attack_hand(M)
-
+/obj/effect/forcefield/fog/attack_animal(animal_attacker)
+	return attack_hand(animal_attacker)
 
 /obj/effect/forcefield/fog/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -171,7 +162,6 @@
 	icon_state = "supplypod_selector"
 	layer = FLY_LAYER
 
-
 /obj/effect/dummy/lighting_obj
 	name = "lighting fx obj"
 	desc = "Tell a coder if you're seeing this."
@@ -193,16 +183,13 @@
 	if(_duration)
 		QDEL_IN(src, _duration)
 
-
 /obj/effect/dummy/lighting_obj/moblight
 	name = "mob lighting fx"
-
 
 /obj/effect/dummy/lighting_obj/moblight/Initialize(mapload, _color, _range, _power, _duration)
 	. = ..()
 	if(!ismob(loc))
 		return INITIALIZE_HINT_QDEL
-
 
 //Makes a tile fully lit no matter what
 /obj/effect/fullbright

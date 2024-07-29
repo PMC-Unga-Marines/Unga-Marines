@@ -1,15 +1,12 @@
-///////////////////////////////////
-////////  Mecha wreckage   ////////
-///////////////////////////////////
-
-
 /obj/structure/mecha_wreckage
 	name = "exosuit wreckage"
 	desc = "Remains of some unfortunate mecha. Completely irreparable, but perhaps something can be salvaged."
 	icon = 'icons/mecha/mecha.dmi'
+	hit_sound = 'sound/effects/metal_crash.ogg'
 	density = TRUE
 	anchored = FALSE
 	opacity = FALSE
+	resistance_flags = XENO_DAMAGEABLE
 	///list of welder-salvaged items that it can output
 	var/list/welder_salvage = list(/obj/item/stack/sheet/plasteel)
 	/// times we can salvage this mech
@@ -135,6 +132,14 @@
 /obj/structure/mecha_wreckage/ripley/mk2
 	name = "\improper Ripley MK-II wreckage"
 	icon_state = "ripleymkii-broken"
+
+/obj/structure/mecha_wreckage/ripley/lv624
+	name = "MkIV Powerloader Wreckage"
+	anchored = TRUE
+
+/obj/structure/mecha_wreckage/ripley/firefighter
+	name = "Firefighter wreckage"
+	icon_state = "firefighter-broken"
 
 /obj/structure/mecha_wreckage/clarke
 	name = "\improper Clarke wreckage"

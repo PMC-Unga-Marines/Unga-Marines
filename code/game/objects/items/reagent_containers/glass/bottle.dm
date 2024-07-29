@@ -34,8 +34,8 @@
 	if(!icon_state)
 		icon_state = "bottle-[rand(1, 5)]"
 
-/obj/item/reagent_containers/glass/bottle/update_icon()
-	overlays.Cut()
+/obj/item/reagent_containers/glass/bottle/update_overlays()
+	. = ..()
 
 	if(reagents?.total_volume && (icon_state == "bottle-1" || icon_state == "bottle-2" || icon_state == "bottle-3" || icon_state == "bottle-4")) //only for those who have reagentfillings icons
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
@@ -58,11 +58,11 @@
 				filling.icon_state = "[icon_state]-100"
 
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		overlays += filling
+		. += filling
 
 	if(!is_open_container())
 		var/image/lid = image(icon, src, "lid_bottle")
-		overlays += lid
+		. += lid
 
 /obj/item/reagent_containers/glass/bottle/empty //Because the parent has RNG icon_state
 	icon_state = "bottle-1" //Same one when you make a bottle in the chem master

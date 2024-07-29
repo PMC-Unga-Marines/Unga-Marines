@@ -41,6 +41,7 @@
 		set_light(0)
 
 /obj/machinery/marine_selector/update_icon_state()
+	. = ..()
 	if(is_operational())
 		icon_state = initial(icon_state)
 	else
@@ -226,7 +227,7 @@
 
 /obj/machinery/marine_selector/clothes/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.marine_clothes_listed_products + GLOB.marine_gear_listed_products
+	listed_products = GLOB.marine_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/alpha
 	squad_tag = "Alpha"
@@ -273,6 +274,38 @@
 
 /obj/machinery/marine_selector/clothes/engi/valhalla
 	vendor_role = /datum/job/fallen/marine/engineer
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+
+/obj/machinery/marine_selector/clothes/robo
+	name = "GHMME Automated Combat Robot Closet"
+	req_access = list(ACCESS_MARINE_ROBO)
+	vendor_role = /datum/job/terragov/squad/combat_robot
+	gives_webbing = FALSE
+
+/obj/machinery/marine_selector/clothes/robo/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.robot_clothes_listed_products
+
+/obj/machinery/marine_selector/clothes/robo/alpha
+	squad_tag = "Alpha"
+	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_ALPHA)
+
+/obj/machinery/marine_selector/clothes/robo/bravo
+	squad_tag = "Bravo"
+	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_BRAVO)
+
+/obj/machinery/marine_selector/clothes/robo/charlie
+	squad_tag = "Charlie"
+	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_CHARLIE)
+
+/obj/machinery/marine_selector/clothes/robo/delta
+	squad_tag = "Delta"
+	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/robo/valhalla
+	vendor_role = /datum/job/fallen/marine/combat_robot
 	resistance_flags = INDESTRUCTIBLE
 	lock_flags = JOB_LOCK
 
@@ -429,6 +462,42 @@
 
 /obj/machinery/marine_selector/gear/medic/valhalla
 	vendor_role = /datum/job/fallen/marine/corpsman
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+/obj/machinery/marine_selector/gear/marine
+	name = "NEXUS Automated Marine Gear Rack"
+	desc = "An automated marine gear rack hooked up to a colossal storage unit."
+	icon_state = "marine"
+	icon_vend = "marine-vend"
+	icon_deny = "marine-deny"
+	vendor_role = /datum/job/terragov/squad/standard
+	req_access = list(ACCESS_MARINE_PREP)
+
+/obj/machinery/marine_selector/gear/marine/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.marine_gear_listed_products
+
+/obj/machinery/marine_selector/gear/marine/valhalla
+	vendor_role = /datum/job/fallen/marine
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+/obj/machinery/marine_selector/gear/robo
+	name = "NEXUS Automated Combat Robot Gear Rack"
+	desc = "An automated combat robot rack hooked up to a colossal storage unit."
+	icon_state = "robo"
+	icon_vend = "robo-vend"
+	icon_deny = "robo-deny"
+	vendor_role = /datum/job/terragov/squad/combat_robot
+	req_access = list(ACCESS_MARINE_ROBO)
+
+/obj/machinery/marine_selector/gear/robo/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.robot_gear_listed_products
+
+/obj/machinery/marine_selector/gear/robo/valhalla
+	vendor_role = /datum/job/fallen/marine/combat_robot
 	resistance_flags = INDESTRUCTIBLE
 	lock_flags = JOB_LOCK
 
@@ -877,6 +946,7 @@
 		/obj/item/clothing/under/marine/robotic,
 		/obj/item/tool/weldingtool,
 		/obj/item/stack/cable_coil,
+		/obj/item/tool/surgery/solderingtool,
 	)
 
 /obj/effect/vendor_bundle/robot/light_armor

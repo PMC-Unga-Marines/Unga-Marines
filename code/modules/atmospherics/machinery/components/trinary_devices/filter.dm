@@ -8,8 +8,12 @@
 	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "filter"
 
-/obj/machinery/atmospherics/components/trinary/filter/update_icon()
+
+/obj/machinery/atmospherics/components/trinary/filter/update_overlays()
+	. = ..()
+
 	cut_overlays()
+
 	for(var/direction in GLOB.cardinals)
 		if(!(direction & initialize_directions))
 			continue
@@ -21,7 +25,7 @@
 		else
 			cap = getpipeimage(icon, "cap", direction, piping_layer = piping_layer)
 
-		add_overlay(cap)
+		. += cap
 
 	return ..()
 

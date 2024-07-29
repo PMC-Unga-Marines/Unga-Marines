@@ -1,8 +1,3 @@
-/**
- * Resin walls
- *
- * Used mostly be xenomorphs
- */
 /turf/closed/wall/resin
 	name = RESIN_WALL
 	desc = "Weird slime solidified into a wall."
@@ -25,15 +20,12 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-
 /turf/closed/wall/resin/flamer_fire_act(burnlevel)
 	take_damage(burnlevel * 1.25, BURN, FIRE)
-
 
 /turf/closed/wall/resin/proc/thicken()
 	ChangeTurf(/turf/closed/wall/resin/thick)
 	return TRUE
-
 
 /turf/closed/wall/resin/thick
 	name = "thick resin wall"
@@ -42,10 +34,8 @@
 	icon_state = "thickresin0"
 	walltype = "thickresin"
 
-
 /turf/closed/wall/resin/thick/thicken()
 	return FALSE
-
 
 /turf/closed/wall/resin/membrane
 	name = "resin membrane"
@@ -60,10 +50,8 @@
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
 	canSmoothWith = list(SMOOTH_GROUP_XENO_STRUCTURES)
 
-
 /turf/closed/wall/resin/membrane/thicken()
 	ChangeTurf(/turf/closed/wall/resin/membrane/thick)
-
 
 /turf/closed/wall/resin/membrane/thick
 	name = "thick resin membrane"
@@ -73,27 +61,26 @@
 	walltype = "thickmembrane"
 	alpha = 210
 
-
 /turf/closed/wall/resin/ex_act(severity)
 	take_damage(severity * RESIN_EXPLOSIVE_MULTIPLIER, BRUTE, BOMB)
 
-/turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
-	if(X.a_intent != INTENT_DISARM)
+	if(xeno_attacker.a_intent != INTENT_DISARM)
 		return
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
-		SSresinshaping.decrement_build_counter(X)
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
+		SSresinshaping.decrement_build_counter(xeno_attacker)
 		take_damage(max_integrity)
 		return
-	X.visible_message(span_xenonotice("\The [X] starts tearing down \the [src]!"), \
+	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_GENERIC))
+	if(!do_after(xeno_attacker, 1 SECONDS, NONE, xeno_attacker, BUSY_ICON_GENERIC))
 		return
 	if(!istype(src))
 		return
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	X.visible_message(span_xenonotice("\The [X] tears down \the [src]!"), \
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
 	span_xenonotice("We tear down \the [src]."))
 	playsound(src, "alien_resin_break", 25)
 	take_damage(max_integrity)
@@ -101,7 +88,6 @@
 /turf/closed/wall/resin/attack_hand(mob/living/user)
 	to_chat(user, span_warning("You scrape ineffectively at \the [src]."))
 	return TRUE
-
 
 /turf/closed/wall/resin/attackby(obj/item/I, mob/living/user, params)
 	if(I.flags_item & NOBLUDGEON || !isliving(user))
@@ -128,7 +114,6 @@
 /turf/closed/wall/resin/dismantle_wall(devastated = 0, explode = 0)
 	ScrapeAway()
 
-
 /turf/closed/wall/resin/ChangeTurf(newtype)
 	. = ..()
 	if(.)
@@ -145,7 +130,6 @@
  */
 /turf/closed/wall/resin/regenerating
 	max_integrity = 150
-
 	/// Total health possible for a wall after regenerating at max health
 	var/max_upgradable_health = 300
 	/// How much the walls integrity heals per tick (5 seconds)
@@ -190,7 +174,6 @@
 		return
 	addtimer(CALLBACK(src, PROC_REF(start_healing)), cooldown_on_taking_dmg)
 	existingtimer = TRUE
-
 
 /* Hivelord walls, they start off stronger */
 /turf/closed/wall/resin/regenerating/thick

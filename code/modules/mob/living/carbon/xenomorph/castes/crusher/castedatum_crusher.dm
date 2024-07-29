@@ -27,13 +27,11 @@
 	max_health = 400
 
 	// *** Evolution *** //
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
-
 	deevolves_to = /mob/living/carbon/xenomorph/bull
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
-	caste_traits = null
+	caste_traits = list(TRAIT_STOPS_TANK_COLLISION)
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 90, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 40, ACID = 100)

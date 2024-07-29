@@ -217,7 +217,7 @@
 		S.reagents?.reaction(src, TOUCH, S.fraction)
 	return protection
 
-/mob/living/proc/check_shields(attack_type, damage, damage_type = "melee", silent, penetration = 0)
+/mob/living/proc/check_shields(attack_type, damage, damage_type = MELEE, silent, penetration = 0)
 	if(!damage)
 		stack_trace("check_shields called without a damage value")
 		return 0
