@@ -699,7 +699,6 @@
 	icon_state = "yauttrap0"
 	desc = "A bizarre Yautja device used for trapping and killing prey."
 
-	resistance_flags = BANISH_IMMUNE
 	layer = LOWER_ITEM_LAYER
 
 	var/armed = 0

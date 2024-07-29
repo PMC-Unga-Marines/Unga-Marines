@@ -121,19 +121,14 @@
 	else
 		. += "Evolve Progress: [evolution_stored]/[xeno_caste.evolution_threshold]"
 
-	/* RUTGMC DELETION
-	if(upgrade_possible())
-		. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]"
-	else //Upgrade process finished or impossible
-		. += "Upgrade Progress: (FINISHED)"
-	*/
-
 	. += "Health: [health]/[maxHealth][overheal ? " + [overheal]": ""]" //Changes with balance scalar, can't just use the caste
 
 	if(xeno_caste.plasma_max > 0)
 		. += "Plasma: [plasma_stored]/[xeno_caste.plasma_max]"
 
 	. += "Sunder: [100-sunder]% armor left"
+
+	. += "Regeneration power: [max(regen_power * 100, 0)]%"
 
 	//Very weak <= 1.0, weak <= 2.0, no modifier 2-3, strong <= 3.5, very strong <= 4.5
 	var/msg_holder = ""
@@ -191,16 +186,25 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/xenomorph/proc/use_plasma(value)
+/mob/living/carbon/xenomorph/proc/set_plasma(value, update_plasma = TRUE)
+	plasma_stored = clamp(value, 0, xeno_caste.plasma_max)
+	if(!update_plasma)
+		return
+	hud_set_plasma()
+
+/mob/living/carbon/xenomorph/proc/use_plasma(value, update_plasma = TRUE)
 	plasma_stored = max(plasma_stored - value, 0)
 	update_action_button_icons()
+	if(!update_plasma)
+		return
+	hud_set_plasma()
 
-/mob/living/carbon/xenomorph/proc/gain_plasma(value)
+/mob/living/carbon/xenomorph/proc/gain_plasma(value, update_plasma = TRUE)
 	plasma_stored = min(plasma_stored + value, xeno_caste.plasma_max)
 	update_action_button_icons()
-
-
-
+	if(!update_plasma)
+		return
+	hud_set_plasma()
 
 //Strip all inherent xeno verbs from your caste. Used in evolution.
 /mob/living/carbon/xenomorph/proc/remove_inherent_verbs()
@@ -250,7 +254,7 @@
 
 	if(evolution_stored == xeno_caste.evolution_threshold)
 		to_chat(src, span_xenodanger("Our carapace crackles and our tendons strengthen. We are ready to evolve!"))
-		SEND_SOUND(src, sound('sound/effects/xeno_evolveready.ogg'))
+		SEND_SOUND(src, sound('sound/effects/alien/evolveready.ogg'))
 
 
 //This deals with "throwing" xenos -- ravagers, hunters, and runners in particular. Everyone else defaults to normal

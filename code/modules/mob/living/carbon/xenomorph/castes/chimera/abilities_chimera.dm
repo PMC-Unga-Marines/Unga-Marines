@@ -43,7 +43,6 @@
 			to_chat(owner, span_xenowarning("We cannot blink here!"))
 		return FALSE
 
-
 	return TRUE
 
 ///Check for whether the target turf has dense objects inside
@@ -61,7 +60,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/turf/T = X.loc
 	var/turf/temp_turf = X.loc
-	var/check_distance = min(X.xeno_caste.wraith_blink_range, get_dist(X,A))
+	var/check_distance = min(X.xeno_caste.blink_range, get_dist(X,A))
 	var/list/fully_legal_turfs = list()
 
 	for (var/x = 1 to check_distance)
@@ -86,11 +85,11 @@
 	if(pulled_target) //bring the pulled target with us if applicable but at the cost of sharply increasing the next cooldown
 
 		if(pulled_target.issamexenohive(X))
-			cooldown_mod = X.xeno_caste.wraith_blink_drag_friendly_multiplier
+			cooldown_mod = X.xeno_caste.blink_drag_friendly_multiplier
 		else
 			if(!do_after(owner, 0.5 SECONDS, NONE, owner, BUSY_ICON_HOSTILE)) //Grap-porting hostiles has a slight wind up
 				return fail_activate()
-			cooldown_mod = X.xeno_caste.wraith_blink_drag_nonfriendly_living_multiplier
+			cooldown_mod = X.xeno_caste.blink_drag_nonfriendly_living_multiplier
 			if(ishuman(pulled_target))
 				var/mob/living/carbon/human/H = pulled_target
 				if(H.stat == UNCONSCIOUS) //Apply critdrag damage as if they were quickly pulled the same distance
@@ -111,10 +110,10 @@
 	succeed_activate()
 	add_cooldown(cooldown_duration * cooldown_mod)
 
-	GLOB.round_statistics.wraith_blinks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "wraith_blinks") //Statistics
+	GLOB.round_statistics.chimera_blinks++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "chimera_blinks") //Statistics
 
-///Called by many of the Wraith's teleportation effects
+///Called by many of the Chimera's teleportation effects
 /datum/action/ability/activable/xeno/proc/teleport_debuff_aoe(atom/movable/teleporter, silent = FALSE)
 	var/mob/living/carbon/xenomorph/ghost = owner
 
@@ -135,13 +134,13 @@
 			if(X.issamexenohive(ghost)) //No friendly fire
 				continue
 
-		living_target.adjust_stagger(WRAITH_TELEPORT_DEBUFF_STAGGER_STACKS)
-		living_target.add_slowdown(WRAITH_TELEPORT_DEBUFF_SLOWDOWN_STACKS)
+		living_target.adjust_stagger(CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS)
+		living_target.add_slowdown(CHIMERA_TELEPORT_DEBUFF_SLOWDOWN_STACKS)
 		to_chat(living_target, span_warning("You feel nauseous as reality warps around you!"))
 
 /datum/action/ability/activable/xeno/blink/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to blink again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 ///Return TRUE if we have a block, return FALSE otherwise
@@ -191,7 +190,7 @@
 
 /datum/action/ability/xeno_action/phantom/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to create a new phantom."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/phantom/action_activate()
@@ -268,7 +267,7 @@
 
 /datum/action/ability/activable/xeno/pounce/abduction/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to abduct another one."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce/abduction/use_ability(atom/A)
@@ -343,7 +342,7 @@
 
 /datum/action/ability/activable/xeno/body_swap/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to perform body swap again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/body_swap/use_ability(atom/A)

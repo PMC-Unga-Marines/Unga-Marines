@@ -281,9 +281,7 @@
 		/obj/item/detpack,
 		/obj/item/circuitboard,
 		/obj/item/lightreplacer,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,
-		//RUTGMC EDIT ADDITION  END
 	)
 	cant_hold = list()
 
@@ -331,9 +329,7 @@
 		/obj/item/tweezers,
 		/obj/item/tweezers_advanced,
 		/obj/item/whistle,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,
-		//RUTGMC EDIT ADDITION  END
 	)
 
 /obj/item/armor_module/storage/medical/som

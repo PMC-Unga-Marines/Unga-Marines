@@ -116,7 +116,7 @@
 	advance_maturity(stage_ready_to_burst + 1)
 	for(var/turf/turf_to_watch AS in filled_turfs(src, trigger_size, "circle", FALSE))
 		UnregisterSignal(turf_to_watch, COMSIG_ATOM_ENTERED)
-	playsound(loc, "sound/effects/alien_egg_move.ogg", 25)
+	playsound(loc, "sound/effects/alien/egg_move.ogg", 25)
 	flick("egg opening", src)
 
 	var/mob/living/carbon/xenomorph/facehugger/new_hugger = new(loc)
@@ -162,10 +162,10 @@
 		return
 	if(via_damage)
 		hugger_type = null
-		playsound(loc, "sound/effects/alien_egg_burst.ogg", 30)
+		playsound(loc, "sound/effects/alien/egg_burst.ogg", 30)
 		flick("egg exploding", src)
 		return
-	playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
+	playsound(src.loc, "sound/effects/alien/egg_move.ogg", 25)
 	flick("egg opening", src)
 	addtimer(CALLBACK(src, PROC_REF(spawn_hugger), loc), 1 SECONDS)
 
@@ -277,11 +277,11 @@
 		return
 	var/spread = EGG_GAS_DEFAULT_SPREAD
 	if(via_damage) // More violent destruction, more gas.
-		playsound(loc, "sound/effects/alien_egg_burst.ogg", 30)
+		playsound(loc, "sound/effects/alien/egg_burst.ogg", 30)
 		flick("egg gas exploding", src)
 		spread = EGG_GAS_KILL_SPREAD
 	else
-		playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
+		playsound(src.loc, "sound/effects/alien/egg_move.ogg", 25)
 		flick("egg gas opening", src)
 	spread += gas_size_bonus
 

@@ -13,7 +13,6 @@
 	plasma_max = 1700
 	plasma_gain = 60
 	max_health = 375
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 	spit_types = list(/datum/ammo/energy/xeno/psy_blast)
 
 	deevolves_to = list(/mob/living/carbon/xenomorph/warrior)

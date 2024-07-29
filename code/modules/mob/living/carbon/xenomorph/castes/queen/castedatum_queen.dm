@@ -26,7 +26,6 @@
 	sunder_recover = 1.5
 
 	// *** Evolution *** //
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 	evolve_min_xenos = 8
 	maximum_active_caste = 1
 	death_evolution_delay = 5 MINUTES

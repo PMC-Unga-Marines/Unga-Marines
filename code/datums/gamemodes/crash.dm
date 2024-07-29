@@ -115,11 +115,6 @@
 		if(isxenolarva(i)) // Larva
 			var/mob/living/carbon/xenomorph/larva/X = i
 			X.evolution_stored = X.xeno_caste.evolution_threshold //Immediate roundstart evo for larva.
-		/* RUTGMC DELETION
-		else // Handles Shrike etc
-			var/mob/living/carbon/xenomorph/X = i
-			X.upgrade_stored = X.xeno_caste.upgrade_threshold
-		*/
 
 /datum/game_mode/infestation/crash/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))

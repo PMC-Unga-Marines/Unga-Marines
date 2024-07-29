@@ -114,7 +114,6 @@
 	return
 
 /mob/living/carbon/xenomorph/med_hud_set_status()
-	hud_set_plasma()
 	hud_set_pheromone()
 
 /mob/living/carbon/human/med_hud_set_status()

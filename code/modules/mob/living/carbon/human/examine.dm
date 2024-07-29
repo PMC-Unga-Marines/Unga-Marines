@@ -219,7 +219,7 @@
 	if(getBrainLoss() >= 60)
 		msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
 
-	if((!species.has_organ["brain"] || has_brain()) && stat != DEAD)
+	if((!species.has_organ[ORGAN_SLOT_BRAIN] || has_brain()) && stat != DEAD)
 		if(!key)
 			if(species.is_sentient)
 				msg += "[span_deadsay("[t_He] [t_is] fast asleep. It doesn't look like they are waking up anytime soon.")]\n"
@@ -488,13 +488,6 @@
 				msg += "<a href='?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
 
 	msg += "[flavor_text]<br>"
-/* RU TGMC EDIT PUPPETEER REMOVAL
-	if(HAS_TRAIT(src, TRAIT_HOLLOW))
-		if(isxeno(user))
-			msg += "<span style='font-weight: bold; color: purple;'>[t_He] [t_is] hollow. Useless.</span>\n"
-		else
-			msg += "[span_warning("<b>[t_He] [t_is] hollowed out!</b>")]\n"
-RU TGMC EDIT PUPPETEER REMOVAL */
 	if(isxeno(user))
 		if(species.species_flags & IS_SYNTHETIC)
 			msg += "[span_xenowarning("You sense [t_he] [t_is] not organic.")]\n"

@@ -610,7 +610,6 @@ RU TGMC EDIT */
 	)
 	attachable_offset = list ("muzzle_x" = 45, "muzzle_y" = 23,"rail_x" = 21, "rail_y" = 23, "under_x" = 19, "under_y" = 14, "stock_x" = 15, "stock_y" = 12)
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.3 SECONDS
 	aim_speed_modifier = 2
 
@@ -686,8 +685,6 @@ RU TGMC EDIT */
 	cocked_sound = 		'sound/weapons/guns/shotgun/SH-35/SH35_pump.ogg'
 	opened_sound = 		'sound/weapons/guns/shotgun/SH-35/SH35_pump.ogg'
 	max_chamber_items = 8
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',

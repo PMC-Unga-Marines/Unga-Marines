@@ -23,7 +23,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 	evolves_to = list(/mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/warlock, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/chimera)
 	deevolves_to = /mob/living/carbon/xenomorph/defender

@@ -1,4 +1,3 @@
-//ROCKS
 /obj/structure/rock
 	name = "rock"
 	desc = "A rock. You shouldn't see this one."
@@ -10,6 +9,7 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_TURF_LAYER
+	allow_pass_flags = PASSABLE|PASS_DEFENSIVE_STRUCTURE
 
 /obj/structure/rock/ex_act(severity)
 	if(prob(severity / 3))
