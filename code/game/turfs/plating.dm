@@ -121,6 +121,7 @@
 
 /turf/open/floor/plating/plating_catwalk/dark
 	icon_state = "plating_catwalk_dark"
+	base_icon_state = "catwalk_dark"
 
 /turf/open/floor/plating/plating_catwalk/light
 	icon_state = "plating_catwalk_light"

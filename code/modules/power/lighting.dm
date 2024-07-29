@@ -141,85 +141,14 @@
 	var/switchcount = 0
 	/// true if rigged to explode
 	var/rigged = FALSE
-
-/obj/machinery/light/mainship
-	base_state = "tube"
-
-/obj/machinery/light/mainship/Initialize(mapload)
-	. = ..()
-	GLOB.mainship_lights += src
-
-/obj/machinery/light/mainship/Destroy()
-	. = ..()
-	GLOB.mainship_lights -= src
-
-/obj/machinery/light/mainship/small
-	icon_state = "bulb1"
-	base_state = "bulb"
-	fitting = "bulb"
-	brightness = 4
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light_bulb/bulb
-
-/obj/machinery/light/mainship/floor
-	name = "floor light fixture"
-	desc = "A small lighting fixture."
-	base_state = "floortube"
-	icon_state = "floortube1"
-	layer = 2.5
-	brightness = 6
-	plane = FLOOR_PLANE
-
-/obj/machinery/light/mainship/floor/LateInitialize()
-	. = ..()
-	pixel_x = 0
-	pixel_y = 0 // i hate how this is made and that it ignored map edits entirelly
-
-/obj/machinery/light/red
-	base_state = "tubered"
-	icon_state = "tubered1"
-	light_color = LIGHT_COLOR_FLARE
-	brightness = 3
-	bulb_power = 0.5
-	bulb_colour = LIGHT_COLOR_FLARE
-
-// the smaller bulb light fixture
-
-/obj/machinery/light/small
-	icon_state = "bulb1"
-	base_state = "bulb"
-	fitting = "bulb"
-	brightness = 4
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light_bulb/bulb
-
-/obj/machinery/light/spot
-	name = "spotlight"
-	fitting = "large tube"
-	light_type = /obj/item/light_bulb/tube/large
-	brightness = 12
-
-/obj/machinery/light/built/Initialize(mapload)
-	. = ..()
-	status = LIGHT_EMPTY
-	update(FALSE)
-
-/obj/machinery/light/small/built/Initialize(mapload)
-	. = ..()
-	status = LIGHT_EMPTY
-	update(FALSE)
+	/// Used for mapping to set custom pixel_x
+	var/pixel_x_offset
+	/// Used for mapping to set custom pixel_y
+	var/pixel_y_offset
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload, ...)
-	switch(dir)
-		if(NORTH)
-			light_pixel_y = 15
-		if(SOUTH)
-			light_pixel_y = -15
-		if(WEST)
-			light_pixel_x = 15
-		if(EAST)
-			light_pixel_x = -15
+	set_light_offset()
 	. = ..()
 
 	GLOB.nightfall_toggleable_lights += src
@@ -233,14 +162,7 @@
 				broken(TRUE)
 
 	update(FALSE)
-
-	switch(dir)
-		if(NORTH)
-			pixel_y = 20
-		if(EAST)
-			pixel_x = 10
-		if(WEST)
-			pixel_x = -10
+	set_pixel_offset()
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -251,6 +173,31 @@
 /obj/machinery/light/Destroy()
 	GLOB.nightfall_toggleable_lights -= src
 	return ..()
+
+/obj/machinery/light/proc/set_pixel_offset()
+	switch(dir)
+		if(NORTH)
+			pixel_y = 20
+		if(EAST)
+			pixel_x = 10
+		if(WEST)
+			pixel_x = -10
+
+	if(!isnull(pixel_x_offset))
+		pixel_x = pixel_x_offset
+	if(!isnull(pixel_y_offset))
+		pixel_y = pixel_y_offset
+
+/obj/machinery/light/proc/set_light_offset()
+	switch(dir)
+		if(NORTH)
+			light_pixel_y = 15
+		if(SOUTH)
+			light_pixel_y = -15
+		if(WEST)
+			light_pixel_x = 15
+		if(EAST)
+			light_pixel_x = -15
 
 /obj/machinery/light/proc/is_broken()
 	if(status == LIGHT_BROKEN)
@@ -431,7 +378,6 @@
 
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
-
 /obj/machinery/light/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -488,7 +434,6 @@
 	update()
 
 // break the light and make sparks if was on
-
 /obj/machinery/light/proc/broken(skip_sound_and_sparks = 0)
 	if(status == LIGHT_EMPTY)
 		return
@@ -496,10 +441,6 @@
 	if(!skip_sound_and_sparks)
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 25, 1)
-//		if(on)
-//			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-//			s.set_up(3, 1, src)
-//			s.start()
 	status = LIGHT_BROKEN
 	update()
 
@@ -512,22 +453,11 @@
 
 // explosion effect
 // destroy the whole light fixture or just shatter it
-
 /obj/machinery/light/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
 	else if(prob(severity / 2))
 		broken()
-
-//timed process
-//use power
-#define LIGHTING_POWER_FACTOR 20		//20W per unit luminosity
-
-/*
-/obj/machinery/light/process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
-	if(on)
-		use_power(luminosity * LIGHTING_POWER_FACTOR, LIGHT)
-*/
 
 // called when area power state changes
 /obj/machinery/light/power_change()
@@ -549,6 +479,71 @@
 /obj/machinery/light/proc/delayed_explosion()
 	explosion(loc, 0, 1, 3, 0, 2)
 	qdel(src)
+
+/obj/machinery/light/mainship
+	base_state = "tube"
+
+/obj/machinery/light/mainship/Initialize(mapload)
+	. = ..()
+	GLOB.mainship_lights += src
+
+/obj/machinery/light/mainship/Destroy()
+	. = ..()
+	GLOB.mainship_lights -= src
+
+/obj/machinery/light/mainship/small
+	icon_state = "bulb1"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness = 4
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light_bulb/bulb
+
+/obj/machinery/light/floor
+	name = "floor light fixture"
+	desc = "A small lighting fixture."
+	base_state = "floortube"
+	icon_state = "floortube1"
+	brightness = 6
+	layer = BELOW_TABLE_LAYER
+	plane = FLOOR_PLANE
+
+/obj/machinery/light/floor/set_pixel_offset()
+	return
+
+/obj/machinery/light/red
+	base_state = "tubered"
+	icon_state = "tubered1"
+	light_color = LIGHT_COLOR_FLARE
+	brightness = 3
+	bulb_power = 0.5
+	bulb_colour = LIGHT_COLOR_FLARE
+
+// the smaller bulb light fixture
+
+/obj/machinery/light/small
+	icon_state = "bulb1"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness = 4
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light_bulb/bulb
+
+/obj/machinery/light/spot
+	name = "spotlight"
+	fitting = "large tube"
+	light_type = /obj/item/light_bulb/tube/large
+	brightness = 12
+
+/obj/machinery/light/built/Initialize(mapload)
+	. = ..()
+	status = LIGHT_EMPTY
+	update(FALSE)
+
+/obj/machinery/light/small/built/Initialize(mapload)
+	. = ..()
+	status = LIGHT_EMPTY
+	update(FALSE)
 
 // the light item
 // can be tube or bulb subtypes
@@ -689,7 +684,7 @@
 	desc = "A landing light, if it's flashing stay clear!"
 	anchored = TRUE
 	density = FALSE
-	layer = BELOW_TABLE_LAYER
+	layer = LOW_OBJ_LAYER
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 20

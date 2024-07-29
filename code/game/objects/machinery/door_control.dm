@@ -8,17 +8,19 @@
 	icon_state = "doorctrl0"
 	desc = "A remote control-switch for a door."
 	power_channel = ENVIRON
-	var/id = null
-	var/range = 10
-	var/normaldoorcontrol = CONTROL_POD_DOORS
-	var/desiredstate = 0 // Zero is closed, 1 is open.
-	var/specialfunctions = 1
-	var/directional = TRUE //if true we apply directional offsets, if not the door control is free floating
 	anchored = TRUE
-	var/pressed = FALSE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/range = 10
+	var/normaldoorcontrol = CONTROL_POD_DOORS
+	/// Zero is closed, 1 is open.
+	var/desiredstate = 0
+	var/specialfunctions = 1
+	/// if true we apply directional offsets, if not the door control is free floating
+	var/directional = TRUE
+	var/pressed = FALSE
 
 /obj/machinery/door_control/unmeltable
 	resistance_flags = RESIST_ALL
