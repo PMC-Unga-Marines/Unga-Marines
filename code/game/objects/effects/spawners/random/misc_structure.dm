@@ -349,7 +349,6 @@
 		/obj/structure/largecrate/random/barrel/red = 20,
 		/obj/structure/largecrate/random/barrel/white = 20,
 		/obj/structure/largecrate/random/barrel/yellow = 20,
-		/obj/structure/largecrate/random/barrel/red = 10,
 		/obj/structure/reagent_dispensers/fueltank/barrel = 1,
 	)
 

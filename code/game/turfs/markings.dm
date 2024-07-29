@@ -1,11 +1,11 @@
 /obj/effect/turf_decal/stripes/line
-	icon_state = "warningline"
+	icon_state = "warning_line"
 
 /obj/effect/turf_decal/stripes/end
 	icon_state = "warn_end"
 
 /obj/effect/turf_decal/stripes/corner
-	icon_state = "warninglinecorner"
+	icon_state = "warning_linecorner"
 
 /obj/effect/turf_decal/stripes/box
 	icon_state = "warn_box"
@@ -29,13 +29,13 @@
 	icon_state = "ast_warn_full"
 
 /obj/effect/turf_decal/stripes/white/line
-	icon_state = "warningline_white"
+	icon_state = "warning_line_white"
 
 /obj/effect/turf_decal/stripes/white/end
 	icon_state = "warn_end_white"
 
 /obj/effect/turf_decal/stripes/white/corner
-	icon_state = "warninglinecorner_white"
+	icon_state = "warning_linecorner_white"
 
 /obj/effect/turf_decal/stripes/white/box
 	icon_state = "warn_box_white"
@@ -44,13 +44,13 @@
 	icon_state = "warn_full_white"
 
 /obj/effect/turf_decal/stripes/red/line
-	icon_state = "warningline_red"
+	icon_state = "warning_line_red"
 
 /obj/effect/turf_decal/stripes/red/end
 	icon_state = "warn_end_red"
 
 /obj/effect/turf_decal/stripes/red/corner
-	icon_state = "warninglinecorner_red"
+	icon_state = "warning_linecorner_red"
 
 /obj/effect/turf_decal/stripes/red/box
 	icon_state = "warn_box_red"

@@ -154,11 +154,36 @@
 /obj/structure/bed/chair/comfy/lime
 	color = rgb(255,251,0)
 
+/obj/structure/bed/chair/comfy/alpha
+	name = "Alpha squad chair"
+	desc = "A simple chair permanently attached to the floor. Covered with a squeaky and way too hard faux-leather, unevenly painted in Alpha squad red. Only for the bravest and freshest USCM recruits."
+	icon_state = "comfychair_alpha"
+	icon = 'icons/obj/objects.dmi'
+
+/obj/structure/bed/chair/comfy/bravo
+	name = "Bravo squad chair"
+	desc = "A simple chair permanently attached to the floor. Covered with a squeaky and way too hard faux-leather, unevenly painted in Bravo squad brown. Certified fortified on all sides from enemy incursion."
+	icon_state = "comfychair_bravo"
+	icon = 'icons/obj/objects.dmi'
+
+/obj/structure/bed/chair/comfy/charlie
+	name = "Charlie squad chair"
+	desc = "A simple chair permanently attached to the floor. Covered with a squeaky and way too hard faux-leather, unevenly painted in Charlie squad purple. Feels out of place without a full breakfast to accompany it."
+	icon_state = "comfychair_charlie"
+	icon = 'icons/obj/objects.dmi'
+
+/obj/structure/bed/chair/comfy/delta
+	name = "Delta squad chair"
+	desc = "A simple chair permanently attached to the floor. Covered with a squeaky and way too hard faux-leather, unevenly painted in Delta squad blue. This chair is most likely to be the first to fight and first to die."
+	icon_state = "comfychair_delta"
+	icon = 'icons/obj/objects.dmi'
+
 /obj/structure/bed/chair/sofa
 	name = "comfy sofa"
 	desc = "It looks comfy."
 	icon_state = "sofamiddle"
 	resistance_flags = XENO_DAMAGEABLE
+
 /obj/structure/bed/chair/sofa/left
 	icon_state = "sofaend_left"
 

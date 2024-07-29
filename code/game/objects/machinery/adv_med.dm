@@ -252,3 +252,10 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "sleeperconsole"
 	base_icon_state = "sleeperconsole"
+
+/obj/machinery/bodyscanner/alt
+	icon_state = "alt_body_scanner"
+
+/obj/machinery/computer/body_scanconsole/alt
+	icon_state = "alt_body_scannerconsole"
+	screen_overlay = "alt_body_scannerconsole_emissive"

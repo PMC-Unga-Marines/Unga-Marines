@@ -177,6 +177,13 @@
 /obj/effect/spawner/random/engineering/metal/nooffset
 	spawn_random_offset = FALSE
 
+/obj/effect/spawner/random/engineering/metal/large_weighted
+	spawn_loot_chance = 100
+	loot = list(
+		/obj/item/stack/sheet/metal/medium_stack = 25,
+		/obj/item/stack/sheet/metal/large_stack = 75,
+	)
+
 /obj/effect/spawner/random/engineering/plasteel
 	name = "plasteel spawner"
 	icon_state = "random_plasteel"
@@ -186,6 +193,13 @@
 		/obj/item/stack/sheet/plasteel/small_stack = 35,
 		/obj/item/stack/sheet/plasteel/medium_stack = 10,
 		/obj/item/stack/sheet/plasteel/large_stack = 3,
+	)
+
+/obj/effect/spawner/random/engineering/plasteel/large_weighted
+	spawn_loot_chance = 100
+	loot = list(
+		/obj/item/stack/sheet/plasteel/medium_stack = 25,
+		/obj/item/stack/sheet/plasteel/large_stack = 75,
 	)
 
 /obj/effect/spawner/random/engineering/wood

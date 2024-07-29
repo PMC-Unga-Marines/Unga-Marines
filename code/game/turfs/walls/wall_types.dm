@@ -34,6 +34,10 @@
 
 //turf/closed/wall/mainship/update_icon()
 
+
+/turf/closed/wall/mainship/alt
+	icon = 'icons/turf/walls/talos.dmi'
+
 /turf/closed/wall/mainship/outer
 	name = "outer hull"
 	desc = "A huge chunk of metal used to seperate space from the ship"
@@ -42,6 +46,11 @@
 	resistance_flags = RESIST_ALL //Impossible to destroy or even damage. Used for outer walls that would breach into space, potentially some special walls
 	icon_state = "wall-invincible"
 	decorated_wall = FALSE
+
+/turf/closed/wall/mainship/outer/alt
+	icon = 'icons/turf/walls/talos.dmi'
+	icon_state = "testwall-0"
+	walltype = "testwall"
 
 /turf/closed/wall/mainship/outer/reinforced
 	name = "reinforced hull"

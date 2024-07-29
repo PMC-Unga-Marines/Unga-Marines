@@ -142,7 +142,7 @@
 	return null
 
 /mob/living/carbon/human/proc/has_working_organs()
-	var/datum/internal_organ/heart/heart = internal_organs_by_name["heart"]
+	var/datum/internal_organ/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
 
 	if(!heart || heart.organ_status == ORGAN_BROKEN || !has_brain())
 		return FALSE
@@ -235,7 +235,7 @@
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Defibrillation failed: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
 		return
 
-	var/datum/internal_organ/heart/heart = H.internal_organs_by_name["heart"]
+	var/datum/internal_organ/heart/heart = H.get_organ_slot(ORGAN_SLOT_HEART)
 	if(!issynth(H) && !isrobot(H) && heart && prob(90) && advanced == FALSE)
 		heart.take_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
 
