@@ -219,7 +219,7 @@
 	if(getBrainLoss() >= 60)
 		msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
 
-	if((!species.has_organ(ORGAN_SLOT_BRAIN) || has_brain()) && stat != DEAD)
+	if((!species.has_organ[ORGAN_SLOT_BRAIN] || has_brain()) && stat != DEAD)
 		if(!key)
 			if(species.is_sentient)
 				msg += "[span_deadsay("[t_He] [t_is] fast asleep. It doesn't look like they are waking up anytime soon.")]\n"
