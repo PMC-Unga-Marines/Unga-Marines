@@ -15922,7 +15922,6 @@
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen,
 /obj/item/toy/dice/d20,
-/obj/item/clothing/under/assistantformal,
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
 "vgF" = (

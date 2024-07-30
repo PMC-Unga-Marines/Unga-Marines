@@ -1,6 +1,4 @@
-
 /obj/item/clothing/under/gimmick
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	has_sensor = 0
 	displays_id = 0
 
@@ -141,8 +139,6 @@
 	name = "black glove"
 	desc = "Something to cover up that artificial hand... Who says heroes can't be self-conscious?"
 	icon_state = "skywalker_gloves"
-
-
 
 /obj/item/clothing/under/gimmick/rank/captain/suit
 	name = "captain's suit"

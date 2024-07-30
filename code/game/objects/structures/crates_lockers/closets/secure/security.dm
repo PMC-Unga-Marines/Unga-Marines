@@ -197,29 +197,6 @@
 	new /obj/item/clothing/head/soft/sec/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
 
-
-/obj/structure/closet/secure_closet/security/cargo/PopulateContents()
-	. = ..()
-	new /obj/item/clothing/tie/armband/cargo(src)
-
-
-/obj/structure/closet/secure_closet/security/engine/PopulateContents()
-	. = ..()
-	new /obj/item/clothing/tie/armband/engine(src)
-	new /obj/item/encryptionkey/engi(src)
-
-
-/obj/structure/closet/secure_closet/security/science/PopulateContents()
-	. = ..()
-	new /obj/item/clothing/tie/armband/science(src)
-
-
-/obj/structure/closet/secure_closet/security/med/PopulateContents()
-	. = ..()
-	new /obj/item/clothing/tie/armband/medgreen(src)
-	new /obj/item/encryptionkey/med(src)
-
-
 /obj/structure/closet/secure_closet/security_empty
 	name = "Security Officer's Locker"
 	req_access = list(ACCESS_MARINE_BRIG)
