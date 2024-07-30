@@ -1,5 +1,3 @@
-//MARINE GLOVES
-
 /obj/item/clothing/gloves/marine
 	name = "marine combat gloves"
 	desc = "Standard issue marine tactical gloves. It reads: 'knit by Marine Widows Association'."
