@@ -22,7 +22,6 @@
 
 	update_action_button_icons()
 
-
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	. = ..()
 	var/state = "disabled"

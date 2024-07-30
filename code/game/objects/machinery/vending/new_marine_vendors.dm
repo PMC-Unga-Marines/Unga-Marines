@@ -989,7 +989,7 @@
 		/obj/item/clothing/mask/gas/veteran,
 		/obj/item/clothing/under/marine/ru/veteran,
 		/obj/item/clothing/gloves/marine/veteran/marine,
-		/obj/item/clothing/shoes/marine/ru/headskin,
+		/obj/item/clothing/shoes/marine/headskin,
 	)
 
 /obj/effect/vendor_bundle/separatist_uniform
@@ -999,7 +999,7 @@
 		/obj/item/clothing/mask/gas/separatist,
 		/obj/item/clothing/under/marine/ru/separatist,
 		/obj/item/clothing/gloves/marine/separatist,
-		/obj/item/clothing/shoes/marine/ru/separatist,
+		/obj/item/clothing/shoes/marine/separatist,
 	)
 
 #undef DEFAULT_TOTAL_BUY_POINTS

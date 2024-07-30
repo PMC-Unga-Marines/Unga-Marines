@@ -1249,8 +1249,8 @@
 		"Shoes" = list(
 			/obj/item/clothing/shoes/marine/full = -1,
 			/obj/item/clothing/shoes/marine/brown/full = -1,
-			/obj/item/clothing/shoes/marine/ru/headskin = -1,
-			/obj/item/clothing/shoes/marine/ru/separatist = -1,
+			/obj/item/clothing/shoes/marine/headskin = -1,
+			/obj/item/clothing/shoes/marine/separatist = -1,
 			/obj/item/clothing/shoes/cowboy = -1,
 			/obj/item/clothing/shoes/white = -1,
 		),

@@ -1,17 +1,6 @@
 /obj/item/clothing/shoes/proc/step_action() //this was made to rewrite clown shoes squeaking
 	SEND_SIGNAL(src, COMSIG_SHOES_STEP_ACTION)
 
-
-/obj/item/clothing/shoes/syndigaloshes
-	desc = "A pair of brown shoes. They seem to have extra grip."
-	name = "brown shoes"
-	icon_state = "brown"
-	item_state = "brown"
-	permeability_coefficient = 0.05
-	flags_inventory = NOSLIPPING
-	var/list/clothing_choices = list()
-	siemens_coefficient = 0.8
-
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
 	icon_state = "mime"
@@ -42,20 +31,6 @@
 	soft_armor = list(MELEE = 80, BULLET = 60, LASER = 50, ENERGY = 25, BOMB = 50, BIO = 10, FIRE = 25, ACID = 25)
 	flags_inventory = NOSLIPPING
 	siemens_coefficient = 0.6
-
-	flags_cold_protection = FEET
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	flags_heat_protection = FEET
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
-
-/obj/item/clothing/shoes/space_ninja
-	name = "ninja shoes"
-	desc = "A pair of running shoes. Excellent for running and even better for smashing skulls."
-	icon_state = "s-ninja"
-	permeability_coefficient = 0.01
-	flags_inventory = NOSLIPPING
-	soft_armor = list(MELEE = 60, BULLET = 50, LASER = 30, ENERGY = 15, BOMB = 30, BIO = 30, FIRE = 15, ACID = 15)
-	siemens_coefficient = 0.2
 
 	flags_cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -114,11 +89,6 @@
 	flags_heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/shoes/cyborg
-	name = "cyborg boots"
-	desc = "Shoes for a cyborg costume"
-	icon_state = "boots"
-
 /obj/item/clothing/shoes/slippers
 	name = "bunny slippers"
 	desc = "Fluffy!"
@@ -145,7 +115,6 @@
 	flags_inventory = NOSLIPPING
 	slowdown = SHOES_SLOWDOWN+1
 
-
 /obj/item/clothing/shoes/snow
 	name = "snow boots"
 	desc = "When you feet are as cold as your heart"
@@ -162,5 +131,3 @@
 	icon_state = "tp_boots"
 	item_state = "tp_boots"
 	flags_inventory = NOSLIPPING
-
-
