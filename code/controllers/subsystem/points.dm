@@ -21,9 +21,6 @@ SUBSYSTEM_DEF(points)
 	var/list/supply_packs_ui = list()
 	var/list/supply_packs_contents = list()
 
-	var/list/assembly_crafts = list()
-	var/list/assembly_crafts_ui = list()
-	var/list/assembly_crafts_contents = list()
 	///Assoc list of item ready to be sent, categorised by faction
 	var/list/shoppinglist = list()
 	var/list/shopping_history = list()
@@ -86,36 +83,6 @@ SUBSYSTEM_DEF(points)
 			else
 				containsname[path]["count"]++
 		supply_packs_contents[pack] = list("name" = P.name, "container_name" = initial(P.containertype.name), "cost" = P.cost, "contains" = containsname)
-
-/// Prepare the global assembly_craft pack list at the gamemode start
-/datum/controller/subsystem/points/proc/prepare_assembly_crafts_list()
-	for(var/craft in subtypesof(/datum/assembly_craft))
-		var/datum/assembly_craft/C = craft
-		C = new craft()
-		if(!C.input)
-			continue
-		if(!C.output)
-			continue
-		assembly_crafts[craft] = C
-		LAZYADD(assembly_crafts_ui[C.group], craft)
-
-		var/list/inputs = list()
-		for(var/i in C.input)
-			var/atom/movable/path = i
-			var/count = C.input[i]
-			if(!path)
-				continue
-			inputs[path] = list("name" = initial(path.name), "count" = count)
-
-		var/list/outputs = list()
-		for(var/i in C.output)
-			var/atom/movable/path = i
-			var/count = C.input[i]
-			if(!path)
-				continue
-			outputs[path] = list("name" = initial(path.name), "count" = count)
-
-		assembly_crafts_contents[craft] = list("name" = C.name, "inputs" = inputs, "outputs" = outputs)
 
 /datum/controller/subsystem/points/fire(resumed = FALSE)
 	dropship_points += DROPSHIP_POINT_RATE / (1 MINUTES / wait)
