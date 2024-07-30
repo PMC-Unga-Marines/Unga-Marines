@@ -45,7 +45,7 @@
 
 
 /mob/living/verb/ghost()
-	set category = "OOC"
+	set category = "OOC.Ghost"
 	set name = "Ghost"
 
 	if(stat == DEAD)

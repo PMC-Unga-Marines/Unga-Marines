@@ -49,7 +49,7 @@
 
 /mob/verb/respawn()
 	set name = "Respawn"
-	set category = "OOC"
+	set category = "OOC.Ghost"
 
 	if(!GLOB.respawn_allowed && !check_rights(R_ADMIN, FALSE))
 		to_chat(usr, span_notice("Respawn is disabled."))
@@ -94,7 +94,7 @@
 /// This is only available to mobs once they join EORD.
 /mob/proc/eord_respawn()
 	set name = "EORD Respawn"
-	set category = "OOC"
+	set category = "OOC.Ghost"
 
 	var/mob/living/liver
 	if(isliving(usr))
