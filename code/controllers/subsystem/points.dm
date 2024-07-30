@@ -103,17 +103,17 @@ SUBSYSTEM_DEF(points)
 		for(var/i in C.input)
 			var/atom/movable/path = i
 			var/count = C.input[i]
-			if(!craft)
+			if(!path)
 				continue
-			inputs[craft] = list("name" = initial(path.name), "count" = count)
+			inputs[path] = list("name" = initial(path.name), "count" = count)
 
 		var/list/outputs = list()
 		for(var/i in C.output)
 			var/atom/movable/path = i
 			var/count = C.input[i]
-			if(!craft)
+			if(!path)
 				continue
-			outputs[craft] = list("name" = initial(path.name), "count" = count)
+			outputs[path] = list("name" = initial(path.name), "count" = count)
 
 		assembly_crafts_contents[craft] = list("name" = C.name, "inputs" = inputs, "outputs" = outputs)
 

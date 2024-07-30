@@ -157,6 +157,7 @@ const Category = (props, context) => {
 
   const {
     supplypackscontents,
+    assemblercraft,
   } = data;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
@@ -205,6 +206,7 @@ const Category = (props, context) => {
                     <CategoryButton
                       icon="sync"
                       id={entry}
+                      disabled={entry === assemblercraft}
                       mode="add"
                     />
                   </Table.Cell>
@@ -233,7 +235,7 @@ const InputContents = (props, context) => {
       {map((contententry) => (
         <Table.Row>
           <Table.Cell width="70%">{contententry.name}</Table.Cell>
-          <Table.Cell>x {contententry.count}</Table.Cell>
+          <Table.Cell>{contententry.count}</Table.Cell>
         </Table.Row>
       ))(input)}
     </>
@@ -252,7 +254,7 @@ const OutputContents = (props, context) => {
       {map((contententry) => (
         <Table.Row>
           <Table.Cell width="70%">{contententry.name}</Table.Cell>
-          <Table.Cell>x {contententry.count}</Table.Cell>
+          <Table.Cell>{contententry.count}</Table.Cell>
         </Table.Row>
       ))(output)}
     </>
