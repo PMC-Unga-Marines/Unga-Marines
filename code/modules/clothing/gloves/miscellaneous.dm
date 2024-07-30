@@ -219,6 +219,11 @@
 	. = ..()
 	flick("[icon_state]-punch", src)
 
+/obj/item/clothing/gloves/white
+	name = "white gloves"
+	desc = "These look pretty fancy."
+	icon_state = "white"
+
 /obj/item/clothing/gloves/techpriest
 	name = "Techpriest gloves"
 	desc = "Praise the Omnissiah!"
