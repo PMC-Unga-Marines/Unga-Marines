@@ -182,7 +182,7 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 			return
 		if(held_items[stack.merge_type] < craft.input[stack.merge_type])
 			var/ammount_to_transfer = min(stack.amount, craft.input[stack.merge_type] - held_items[stack.merge_type])
-			stack.amount -= ammount_to_transfer //zero check?
+			stack.amount -= ammount_to_transfer
 			held_items[stack.merge_type] += ammount_to_transfer
 			if(stack.amount <= 0)
 				qdel(bumper)
@@ -255,9 +255,13 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 	resistance_flags = XENO_DAMAGEABLE
 	flags_atom = PREVENT_CONTENTS_EXPLOSION
 	///Curent items being processed
-	var/item_to_fabricate = /obj/item/stack/sheet/metal
+	var/item_to_fabricate = /obj/item/stack/sheet/metal/large_stack
 	///Icon state displayed while something is being processed in the machine
 	var/processiconstate = "reconstructor"
+	//points generation
+	var/spawn_ticks = 24 //tick every 5 seconds
+	///Last time points balance was checked
+	var/ticks = 0
 
 /obj/machinery/fabricator/Initialize(mapload)
 	. = ..()
@@ -283,10 +287,13 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 	balloon_alert(user, "Facing [dir2text(dir)]")
 
 /obj/machinery/fabricator/process()
-	var/turf/target = get_step(src, dir)
-	new item_to_fabricate(target)
+	ticks++
+	if(ticks >= spawn_ticks)
+		var/turf/target = get_step(src, dir)
+		new item_to_fabricate(target)
+		ticks = 0
 
 /obj/machinery/fabricator/gunpowder
 	name = "Gunpowder fabricator"
 	desc = "Сreates gunpowder from... air. I think so"
-	item_to_fabricate = /obj/item/stack/gun_powder
+	item_to_fabricate = /obj/item/stack/gun_powder/large_stack

@@ -130,3 +130,6 @@
 	throw_speed = 5
 	throw_range = 1
 	max_amount = 25
+
+/obj/item/stack/gun_powder/large_stack
+	amount = 25
