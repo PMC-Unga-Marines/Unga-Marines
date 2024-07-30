@@ -51,7 +51,6 @@
 	species_exception = list(/datum/species/robot)
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
 
-
 /obj/item/clothing/head/tgmcberet
 	name = "\improper Dark gray beret"
 	desc = "A hat typically worn by the field-officers of the TGMC. Occasionally they find their way down the ranks into the hands of squad-leaders and decorated grunts."
@@ -119,7 +118,6 @@
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 5, FIRE = 50, ACID = 50)
 	flags_item_map_variant = NONE
 
-
 /obj/item/clothing/head/tgmccap
 	name = "\improper TGMC cap"
 	desc = "A casual cap occasionally worn by Squad-leaders and Combat-Engineers. While it has limited combat functionality, some prefer to wear it instead of the standard issue helmet."
@@ -134,7 +132,6 @@
 	var/flipped_cap = FALSE
 	var/base_cap_icon
 	flags_item_map_variant = (ITEM_ICE_VARIANT)
-
 
 /obj/item/clothing/head/tgmccap/verb/fliphat()
 	set name = "Flip hat"
@@ -155,7 +152,6 @@
 
 	update_clothing_icon()
 
-
 /obj/item/clothing/head/tgmccap/ro
 	name = "\improper TGMC officer cap"
 	desc = "A hat usually worn by officers in the TGMC. While it has limited combat functionality, some prefer to wear it instead of the standard issue helmet."
@@ -171,7 +167,6 @@
 	desc = "It's a fancy hat for a not-so-fancy military supply clerk."
 	icon_state = "cargocap"
 	flags_item_map_variant = null
-
 
 /obj/item/clothing/head/boonie
 	name = "Boonie Hat"
@@ -230,7 +225,6 @@
 	desc = "A replica of the headband of a legendary soldier. Sadly it doesn't offer infinite ammo. Yet."
 	icon_state = "headband_snake"
 
-
 /obj/item/clothing/head/headset
 	name = "\improper TGMC headset"
 	desc = "A headset typically found in use by radio-operators and officers. This one appears to be malfunctioning."
@@ -248,7 +242,6 @@
 	icon_state = "cmohat"
 	species_exception = list(/datum/species/robot)
 
-
 /*============================BERETS=================================*/
 //Berets have armor, so they have their own category. PMC caps are helmets, so they're in helmets.dm.
 
@@ -263,15 +256,6 @@
 	name = "captain's beret"
 	desc = "A beret with the captain insignia emblazoned on it. Wearer may suffer the heavy weight of responsibility upon his head and shoulders."
 	icon_state = "centcomcaptain"
-
-/obj/item/clothing/head/beret/marine/chiefofficer
-	name = "chief officer beret"
-	desc = "A beret with the lieutenant-commander insignia emblazoned on it. It emits a dark aura and may corrupt the soul."
-	icon_state = "hosberet"
-
-/obj/item/clothing/head/beret/marine/chiefofficer/sa
-	name = "spatial agent's beret"
-	desc = "A beret with the Spatial Agent insignia on it."
 
 /obj/item/clothing/head/beret/marine/techofficer
 	name = "technical officer beret"
@@ -310,7 +294,6 @@
 		item_state = "ushankadown"
 		to_chat(user, "You lower the ear flaps on the ushanka.")
 
-
 /obj/item/clothing/head/bearpelt
 	name = "bear pelt hat"
 	desc = "Fuzzy."
@@ -324,7 +307,6 @@
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	flags_inventory = BLOCKSHARPOBJ
 	flags_inv_hide = HIDEEARS|HIDETOPHAIR
-
 
 /obj/item/clothing/head/uppcap
 	name = "\improper armored USL cap"
@@ -409,19 +391,6 @@
 	flags_inventory = BLOCKSHARPOBJ
 	flags_inv_hide = HIDEEARS|HIDETOPHAIR
 	flags_armor_features = ARMOR_NO_DECAP
-
-/obj/item/clothing/head/admiral
-	name = "\improper armored admiral cap"
-	desc = "A sturdy admiral's cap. More protective than it seems. Please don't ditch this for a helmet like a punk."
-	icon_state = "admiral_helmet"
-	siemens_coefficient = 2
-	flags_armor_protection = HEAD
-	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 45, ENERGY = 55, BOMB = 55, BIO = 10, FIRE = 55, ACID = 55)
-	flags_cold_protection = HEAD
-	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
-	flags_inventory = BLOCKSHARPOBJ
-	flags_inv_hide = HIDEEARS
 
 /obj/item/clothing/head/commissar
 	name = "\improper commissar cap"
@@ -564,52 +533,6 @@
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
-
-/obj/item/clothing/head/tgmcberet/hijab
-	name = "\improper Black hijab"
-	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'icons/obj/clothing/headwear/hats.dmi'
-	item_icons = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
-	icon_state = "hijab_black"
-	flags_inv_hide = HIDEEARS|HIDETOPHAIR
-
-/obj/item/clothing/head/tgmcberet/hijab/grey
-	name = "\improper Grey hijab"
-	icon_state = "hijab_grey"
-
-/obj/item/clothing/head/tgmcberet/hijab/red
-	name = "\improper Red hijab"
-	icon_state = "hijab_red"
-
-/obj/item/clothing/head/tgmcberet/hijab/blue
-	name = "\improper Blue hijab"
-	icon_state = "hijab_blue"
-
-/obj/item/clothing/head/tgmcberet/hijab/brown
-	name = "\improper Brown hijab"
-	icon_state = "hijab_brown"
-
-/obj/item/clothing/head/tgmcberet/hijab/white
-	name = "\improper White hijab"
-	icon_state = "hijab_white"
-
-/obj/item/clothing/head/tgmcberet/hijab/turban
-	name = "\improper White turban"
-	desc = "A sturdy cloth, worn around the head."
-	icon_state = "turban_black"
-
-/obj/item/clothing/head/tgmcberet/hijab/turban/white
-	name = "\improper White turban"
-	icon_state = "turban_white"
-
-/obj/item/clothing/head/tgmcberet/hijab/turban/red
-	name = "\improper Red turban"
-	icon_state = "turban_red"
-
-/obj/item/clothing/head/tgmcberet/hijab/turban/blue
-	name = "\improper Blue turban"
-	icon_state = "turban_blue"
 
 /obj/item/clothing/head/hachimaki
 	name = "\improper Ancient pilot headband and scarf kit"

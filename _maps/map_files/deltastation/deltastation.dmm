@@ -42688,9 +42688,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/clothing/head/justice{
-	name = "justice helmet"
-	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/theater/abandoned)
@@ -119633,7 +119630,6 @@
 	},
 /obj/structure/table/woodentable,
 /obj/effect/spawner/random/misc/folder,
-/obj/item/clothing/head/collectable/police,
 /obj/effect/turf_decal/tile/transparent/red{
 	dir = 1
 	},

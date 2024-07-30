@@ -1700,7 +1700,6 @@
 /obj/item/clothing/gloves/captain,
 /obj/item/card/id/captains_spare,
 /obj/item/tool/stamp/captain,
-/obj/item/clothing/head/caphat,
 /obj/structure/closet/secure_closet/captain,
 /turf/open/floor/grimy,
 /area/centcom/valhalla)

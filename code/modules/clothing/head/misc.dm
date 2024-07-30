@@ -1,5 +1,3 @@
-
-
 /obj/item/clothing/head/centhat
 	name = "\improper CentCom. hat"
 	icon_state = "centcom"
@@ -34,13 +32,6 @@
 	flags_armor_protection = NONE
 	species_exception = list(/datum/species/robot)
 
-/obj/item/clothing/head/redcoat
-	name = "redcoat's hat"
-	icon_state = "redcoat"
-	desc = "<i>'I guess it's a redhead.'</i>"
-	flags_armor_protection = NONE
-	species_exception = list(/datum/species/robot)
-
 /obj/item/clothing/head/plaguedoctorhat
 	name = "plague doctor's hat"
 	desc = "These were once used by Plague doctors. They're pretty much useless."
@@ -48,15 +39,6 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	flags_armor_protection = NONE
-	species_exception = list(/datum/species/robot)
-
-/obj/item/clothing/head/hasturhood
-	name = "hastur's hood"
-	desc = "It's unspeakably stylish"
-	icon_state = "hasturhood"
-	flags_inventory = COVEREYES
-	flags_inv_hide = HIDEEARS|HIDEALLHAIR
-	flags_armor_protection = HEAD|FACE|EYES
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/nursehat
@@ -110,15 +92,6 @@
 	flags_armor_protection = HEAD|FACE|EYES
 	species_exception = list(/datum/species/robot)
 
-/obj/item/clothing/head/justice
-	name = "justice hat"
-	desc = "fight for what's righteous!"
-	icon_state = "justicered"
-	item_state = "justicered"
-	flags_inventory = COVERMOUTH|COVEREYES
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
-	species_exception = list(/datum/species/robot)
-
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's cap."
@@ -133,16 +106,6 @@
 	icon_state = "pirate"
 	item_state = "pirate"
 	flags_armor_protection = NONE
-	species_exception = list(/datum/species/robot)
-
-/obj/item/clothing/head/hgpiratecap
-	name = "pirate hat"
-	desc = "Yarr."
-	icon_state = "hgpiratecap"
-	item_state = "hgpiratecap"
-	flags_armor_protection = NONE
-	flags_item = SYNTH_RESTRICTED
-	soft_armor = list(MELEE = 50, BULLET = 80, LASER = 50, ENERGY = 10, BOMB = 50, BIO = 0, FIRE = 10, ACID = 10)
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/bandanna/brown
@@ -191,25 +154,11 @@
 	desc = "Soft felt makes this hat both comfortable and elegant."
 	species_exception = list(/datum/species/robot)
 
-/obj/item/clothing/head/boaterhat
-	name = "boater hat"
-	icon_state = "boater_hat"
-	item_state = "boater_hat"
-	desc = "The ultimate in summer fashion."
-	species_exception = list(/datum/species/robot)
-
 /obj/item/clothing/head/fedora
 	name = "\improper fedora"
 	icon_state = "fedora"
 	item_state = "fedora"
 	desc = "A sharp, stylish hat."
-	species_exception = list(/datum/species/robot)
-
-/obj/item/clothing/head/feathertrilby
-	name = "\improper feather trilby"
-	icon_state = "feather_trilby"
-	item_state = "feather_trilby"
-	desc = "A sharp, stylish hat with a feather."
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/fez
