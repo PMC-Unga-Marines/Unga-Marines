@@ -1695,7 +1695,6 @@
 /turf/open/floor/grimy,
 /area/centcom/valhalla)
 "cjO" = (
-/obj/item/clothing/suit/space/captain,
 /obj/item/clothing/under/gimmick/rank/captain/suit,
 /obj/item/clothing/gloves/captain,
 /obj/item/card/id/captains_spare,
