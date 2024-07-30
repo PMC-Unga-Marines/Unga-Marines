@@ -7677,10 +7677,6 @@
 /area/tdome/tdomeadmin)
 "keP" = (
 /obj/structure/table,
-/obj/item/clothing/suit/justice,
-/obj/item/clothing/head/helmet{
-	name = "justice helmet"
-	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -16510,7 +16506,6 @@
 /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-/obj/item/clothing/suit/bio_suit/cmo,
 /obj/item/clothing/head/cmo,
 /obj/item/clothing/suit/storage/labcoat/cmo,
 /obj/item/tool/stamp/cmo,
@@ -16776,13 +16771,9 @@
 "vXr" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/red,
-/obj/item/clothing/suit/wizrobe/psypurple,
-/obj/item/clothing/suit/wizrobe/magusred,
 /obj/item/clothing/suit/wizrobe/gentlecoat,
 /obj/item/clothing/suit/wizrobe,
-/obj/item/clothing/head/wizard/amp,
 /obj/item/clothing/head/wizard/cap,
-/obj/item/clothing/head/wizard/magus,
 /obj/item/clothing/head/wizard/marisa,
 /obj/item/clothing/head/wizard/red,
 /turf/open/floor/tile/vault{
