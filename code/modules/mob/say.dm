@@ -1,7 +1,7 @@
 ///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
 /mob/verb/say_verb(message as text)
 	set name = "Say"
-	set category = "IC"
+	set category = "IC.Chat"
 	set instant = TRUE
 
 	if(!message)
@@ -14,7 +14,7 @@
 
 /mob/verb/me_verb(message as text)
 	set name = "Me"
-	set category = "IC"
+	set category = "IC.Chat"
 	set instant = TRUE
 
 	if(!message)
@@ -27,7 +27,7 @@
 
 /mob/verb/whisper_verb(message as text)
 	set name = "Whisper"
-	set category = "IC"
+	set category = "IC.Chat"
 	set instant = TRUE
 
 	if(!message)

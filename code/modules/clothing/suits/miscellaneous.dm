@@ -214,7 +214,7 @@
 //Blue suit jacket toggle
 /obj/item/clothing/suit/suit/verb/toggle()
 	set name = "Toggle Jacket Buttons"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	if(!usr.canmove || usr.stat || usr.restrained())

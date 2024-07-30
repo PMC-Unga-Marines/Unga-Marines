@@ -63,7 +63,7 @@
 		. += "<a href=\"[CONFIG_GET(string/githuburl)]/pull/[tm.number]\">#[tm.number][details]</a><br>"
 
 /client/verb/showrevinfo()
-	set category = "OOC"
+	set category = "OOC.Fix"
 	set name = "Show Server Revision"
 	set desc = "Check the current server code revision"
 
