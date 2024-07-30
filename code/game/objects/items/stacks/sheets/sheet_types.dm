@@ -260,6 +260,8 @@ GLOBAL_LIST_INIT(wood_radial_images, list(
 	singular_name = "cloth roll"
 	icon_state = "sheet-cloth"
 
+/obj/item/stack/sheet/cloth/large_stack
+	amount = 50
 
 /*
 * Cardboard

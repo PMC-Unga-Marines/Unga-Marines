@@ -1786,6 +1786,11 @@ ENGINEERING
 	contains = list(/obj/item/stack/sheet/wood/large_stack)
 	cost = 100
 
+/datum/supply_packs/engineering/cloth50
+	name = "50 cloth sheets"
+	contains = list(/obj/item/stack/sheet/cloth/large_stack)
+	cost = 200
+
 /datum/supply_packs/engineering/plasmacutter
 	name = "plasma cutter"
 	contains = list(/obj/item/tool/pickaxe/plasmacutter/)
@@ -2434,120 +2439,6 @@ VEHICLES
 FACTORY
 *******************************************************************************/
 
-/datum/supply_packs/factory
-	group = "Factory"
-	containertype = /obj/structure/closet/crate
-
-/datum/supply_packs/factory/cutter
-	name = "Industrial cutter"
-	contains = list(/obj/machinery/factory/cutter)
-	cost = 50
-
-/datum/supply_packs/factory/heater
-	name = "Industrial heater"
-	contains = list(/obj/machinery/factory/heater)
-	cost = 50
-
-/datum/supply_packs/factory/flatter
-	name = "Industrial flatter"
-	contains = list(/obj/machinery/factory/flatter)
-	cost = 50
-
-/datum/supply_packs/factory/former
-	name = "Industrial former"
-	contains = list(/obj/machinery/factory/former)
-	cost = 50
-
-/datum/supply_packs/factory/reconstructor
-	name = "Industrial reconstructor"
-	contains = list(/obj/machinery/factory/reconstructor)
-	cost = 50
-
-/datum/supply_packs/factory/driller
-	name = "Industrial driller"
-	contains = list(/obj/machinery/factory/driller)
-	cost = 50
-
-/datum/supply_packs/factory/galvanizer
-	name = "Industrial galvanizer"
-	contains = list(/obj/machinery/factory/galvanizer)
-	cost = 50
-
-/datum/supply_packs/factory/compressor
-	name = "Industrial compressor"
-	contains = list(/obj/machinery/factory/compressor)
-	cost = 50
-
-/datum/supply_packs/factory/unboxer
-	name = "Industrial Unboxer"
-	contains = list(/obj/machinery/unboxer)
-	cost = 50
-
-/datum/supply_packs/factory/phosphosrefill
-	name = "Phosphorus-resistant plates refill"
-	contains = list(/obj/item/factory_refill/phosnade_refill)
-	cost = 900
-
-/datum/supply_packs/factory/bignaderefill
-	name = "Rounded M15 plates refill"
-	contains = list(/obj/item/factory_refill/bignade_refill)
-	cost = 500
-
-/datum/supply_packs/factory/sadar_refill_he
-	name = "SADAR HE missile assembly refill"
-	contains = list(/obj/item/factory_refill/sadar_he_refill)
-	cost = 500
-
-/datum/supply_packs/factory/sadar_refill_he_unguided
-	name = "SADAR HE unguided missile assembly refill"
-	contains = list(/obj/item/factory_refill/sadar_he_unguided_refill)
-	cost = 500
-
-/datum/supply_packs/factory/sadar_refill_ap
-	name = "SADAR AP missile assembly refill"
-	contains = list(/obj/item/factory_refill/sadar_ap_refill)
-	cost = 600
-
-/datum/supply_packs/factory/sadar_refill_wp
-	name = "SADAR WP missile assembly refill"
-	contains = list(/obj/item/factory_refill/sadar_wp_refill)
-	cost = 400
-
-/datum/supply_packs/factory/standard_recoilless_refill
-	name = "Recoilless standard missile assembly refill"
-	contains = list(/obj/item/factory_refill/normal_rr_missile_refill)
-	cost = 300
-
-/datum/supply_packs/factory/light_recoilless_refill
-	name = "Recoilless light missile assembly refill"
-	contains = list(/obj/item/factory_refill/light_rr_missile_refill)
-	cost = 300
-
-/datum/supply_packs/factory/heat_recoilless_refill
-	name = "Recoilless heat missile assembly refill"
-	contains = list(/obj/item/factory_refill/heat_rr_missile_refill)
-	cost = 300
-
-/datum/supply_packs/factory/smoke_recoilless_refill
-	name = "Recoilless smoke missile assembly refill"
-	contains = list(/obj/item/factory_refill/smoke_rr_missile_refill)
-	cost = 300
-
-/datum/supply_packs/factory/cloak_recoilless_refill
-	name = "Recoilless cloak missile assembly refill"
-	contains = list(/obj/item/factory_refill/cloak_rr_missile_refill)
-	cost = 300
-
-/datum/supply_packs/factory/tfoot_recoilless_refill
-	name = "Recoilless tfoot missile assembly refill"
-	contains = list(/obj/item/factory_refill/tfoot_rr_missile_refill)
-	cost = 300
-
-/datum/supply_packs/factory/pizzarefill
-	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
-	contains = list(/obj/item/factory_refill/pizza_refill)
-	cost = 290 //allows a one point profit if all pizzas are processed and sold back to ASRS
-
 /datum/supply_packs/factory/smartgun_minigun_box_refill
 	name = "SG-85 ammo bin parts refill"
 	contains = list(/obj/item/factory_refill/smartgunner_minigun_box_refill)
@@ -2643,32 +2534,7 @@ FACTORY
 	name = "Advanced medical pack assembly refill"
 	contains = list(/obj/item/factory_refill/med_advpack_refill)
 	cost = 500
-/* RU TGMC EDIT
-/datum/supply_packs/factory/module_valk_refill
-	name = "Valkyrie Automedical Armor System assembly refill"
-	contains = list(/obj/item/factory_refill/module_valk_refill)
-	cost = 600
 
-/datum/supply_packs/factory/module_mimir2_refill
-	name = "Mark 2 Mimir Environmental Resistance System assembly refill"
-	contains = list(/obj/item/factory_refill/module_mimir2_refill)
-	cost = 600
-
-/datum/supply_packs/factory/module_tyr2_refill
-	name = "Mark 2 Tyr Armor Reinforcement assembly refill"
-	contains = list(/obj/item/factory_refill/module_tyr2_refill)
-	cost = 600
-
-/datum/supply_packs/factory/module_hlin_refill
-	name = "Hlin Explosive Compensation Module assembly refill"
-	contains = list(/obj/item/factory_refill/module_hlin_refill)
-	cost = 600
-
-/datum/supply_packs/factory/module_surt_refill
-	name = "Surt Pyrotechnical Insulation System assembly refill"
-	contains = list(/obj/item/factory_refill/module_surt_refill)
-	cost = 600
-RU TGMC EDIT*/
 /datum/supply_packs/factory/mortar_shell_he_refill
 	name = "Mortar High Explosive shell assembly refill"
 	contains = list(/obj/item/factory_refill/mortar_shell_he_refill)

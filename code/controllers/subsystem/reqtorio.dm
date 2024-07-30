@@ -8,16 +8,16 @@ SUBSYSTEM_DEF(reqtorio)
 	var/list/assembly_crafts_ui = list()
 	var/list/assembly_crafts_contents = list()
 
-/datum/controller/subsystem/points/Recover()
+/datum/controller/subsystem/reqtorio/Recover()
 	assembly_crafts = SSreqtorio.assembly_crafts
 	assembly_crafts_ui = SSreqtorio.assembly_crafts_ui
 	assembly_crafts_contents = SSreqtorio.assembly_crafts_contents
 
-/datum/controller/subsystem/points/Initialize()
+/datum/controller/subsystem/reqtorio/Initialize()
 	return SS_INIT_SUCCESS
 
 /// Prepare the global assembly_craft pack list at the gamemode start
-/datum/controller/subsystem/points/proc/prepare_assembly_crafts_list()
+/datum/controller/subsystem/reqtorio/proc/prepare_assembly_crafts_list()
 	for(var/craft in subtypesof(/datum/assembly_craft))
 		var/datum/assembly_craft/C = craft
 		C = new craft()
