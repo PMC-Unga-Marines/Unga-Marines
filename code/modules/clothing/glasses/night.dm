@@ -1,6 +1,3 @@
-
-// nightvision goggles
-
 /obj/item/clothing/glasses/night
 	name = "night vision goggles"
 	desc = "You can totally see in the dark now!"
@@ -16,7 +13,6 @@
 	darkness_view = 7
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
-
 /obj/item/clothing/glasses/night/tx8
 	name = "\improper BR-8 battle sight"
 	desc = "A headset and night vision goggles system for the BR-8 Battle Rifle. Allows highlighted imaging of surroundings. Click it to toggle."
@@ -28,7 +24,6 @@
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
-
 /obj/item/clothing/glasses/night/m42_night_goggles
 	name = "\improper M42 scout sight"
 	desc = "A headset and night vision goggles system for the M42 Scout Rifle. Allows highlighted imaging of surroundings. Click it to toggle."
@@ -39,7 +34,6 @@
 	darkness_view = 24
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
-
 
 /obj/item/clothing/glasses/night/m42_night_goggles/upp
 	name = "\improper Type 9 elite goggles"

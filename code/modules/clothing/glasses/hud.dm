@@ -5,12 +5,10 @@
 	var/hud_type
 	var/mob/living/carbon/human/affected_user
 
-
 /obj/item/clothing/glasses/hud/Destroy()
 	if(affected_user)
 		deactivate_hud()
 	return ..()
-
 
 /obj/item/clothing/glasses/hud/equipped(mob/user, slot)
 	if(!ishuman(user))
@@ -22,12 +20,10 @@
 		deactivate_hud()
 	return ..()
 
-
 /obj/item/clothing/glasses/hud/dropped(mob/user)
 	if(affected_user)
 		deactivate_hud()
 	return ..()
-
 
 /obj/item/clothing/glasses/hud/activate(mob/user)
 	//Run the activation stuff BEFORE getting to the HUD de/activations
@@ -51,12 +47,10 @@
 	hud_datum.add_hud_to(user)
 	affected_user = user
 
-
 /obj/item/clothing/glasses/hud/proc/deactivate_hud()
 	var/datum/atom_hud/hud_datum = GLOB.huds[hud_type]
 	hud_datum.remove_hud_from(affected_user)
 	affected_user = null
-
 
 /obj/item/clothing/glasses/hud/health
 	name = "\improper HealthMate HUD"
@@ -169,16 +163,6 @@
 	flags_armor_protection = NONE
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)
-	var/global/list/jobs[0]
-
-/obj/item/clothing/glasses/hud/security/jensenshades
-	name = "augmented shades"
-	desc = "Polarized bioneural eyewear, designed to augment your vision."
-	icon_state = "jensenshades"
-	item_state = "jensenshades"
-	vision_flags = SEE_MOBS
-	toggleable = 0
-	actions_types = null
 
 /obj/item/clothing/glasses/hud/xenohud
 	name = "XenoMate HUD"
@@ -195,22 +179,6 @@
 	flags_armor_protection = NONE
 	toggleable = TRUE
 	hud_type = DATA_HUD_XENO_STATUS
-	actions_types = list(/datum/action/item_action/toggle)
-
-/obj/item/clothing/glasses/hud/painhud
-	name = "Pain HUD"
-	desc = "A heads-up display that scans human pain and perceived health."
-	icon_state = "securityhud"
-	deactive_state = "degoggles_sec"
-	species_exception = list(/datum/species/robot)
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	toggleable = TRUE
-	hud_type = DATA_HUD_MEDICAL_PAIN
 	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/hud/sa

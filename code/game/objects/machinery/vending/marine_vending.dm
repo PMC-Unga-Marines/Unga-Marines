@@ -1394,7 +1394,7 @@
 			/obj/item/clothing/glasses/sunglasses/fake/prescription = -1,
 			/obj/item/clothing/glasses/mgoggles = -1,
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
-			/obj/item/clothing/glasses/ru/orange = -1,
+			/obj/item/clothing/glasses/orange = -1,
 		),
 		"Clothes bundles" = list(
 			/obj/effect/vendor_bundle/white_dress = -1,
