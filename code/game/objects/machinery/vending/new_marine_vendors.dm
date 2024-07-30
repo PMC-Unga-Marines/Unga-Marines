@@ -986,7 +986,7 @@
 	name = "Full set of TGMC veteran uniform"
 	desc = "TerraGov Marine Corps Veteran Uniform Set. Modified mostly by hand, but still quite stylish."
 	gear_to_spawn = list(
-		/obj/item/clothing/mask/gas/ru/veteran,
+		/obj/item/clothing/mask/gas/veteran,
 		/obj/item/clothing/under/marine/ru/veteran,
 		/obj/item/clothing/gloves/marine/veteran/marine,
 		/obj/item/clothing/shoes/marine/ru/headskin,
@@ -996,7 +996,7 @@
 	name = "Full set of civilian militia uniform"
 	desc = "A set of civilian militia uniforms. Old, but still fashionable."
 	gear_to_spawn = list(
-		/obj/item/clothing/mask/gas/ru/separatist,
+		/obj/item/clothing/mask/gas/separatist,
 		/obj/item/clothing/under/marine/ru/separatist,
 		/obj/item/clothing/gloves/marine/separatist,
 		/obj/item/clothing/shoes/marine/ru/separatist,

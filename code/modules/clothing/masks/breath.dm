@@ -39,8 +39,6 @@
 	item_state = "medical"
 	permeability_coefficient = 0.01
 
-
-
 //REBREATHER
 
 /obj/item/clothing/mask/rebreather
