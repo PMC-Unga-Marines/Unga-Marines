@@ -59,7 +59,7 @@
 	///If a hostile was detected
 	var/hostile_detected = FALSE
 	///The time needed after the last move to not be detected by this motion detector
-	//var/move_sensitivity = 1 SECONDS RU TGMC EDIT
+	var/move_sensitivity = 1 SECONDS
 	///The range of this motion detector
 	var/range = 16
 	///The list of all the blips
@@ -135,11 +135,15 @@
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
+		if(nearby_human.last_move_time + move_sensitivity < world.time)
+			continue
 		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
 			continue
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
 		if(HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN))
+			continue
+		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
 			continue
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
 	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(operator, range))
@@ -160,7 +164,7 @@
 /obj/item/attachable/motiondetector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
 		return
-	if(!target)
+	if(!target) //если мы вызываем метод без target то где то в вышестоящем коде ошибка, но всё же лучше чем ничего
 		return
 	if(status == MOTION_DETECTOR_HOSTILE)
 		hostile_detected = TRUE
