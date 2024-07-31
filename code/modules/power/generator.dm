@@ -102,7 +102,7 @@
 
 
 /obj/machinery/power/generator/verb/rotate_clock()
-	set category = "Object"
+	set category = "Object.Rotate"
 	set name = "Rotate Generator (Clockwise)"
 	set src in view(1)
 
@@ -112,7 +112,7 @@
 	setDir(turn(src.dir, 90))
 
 /obj/machinery/power/generator/verb/rotate_anticlock()
-	set category = "Object"
+	set category = "Object.Rotate"
 	set name = "Rotate Generator (Counterclockwise)"
 	set src in view(1)
 

@@ -1,5 +1,5 @@
 /datum/admins/proc/restart()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Restart"
 	set desc = "Restarts the server after a short pause."
 
@@ -30,7 +30,7 @@
 
 
 /datum/admins/proc/shutdown_server()
-	set category = "Server"
+	set category = "Server.Server"
 	set name = "Shutdown Server"
 	set desc = "Shuts the server down."
 
@@ -140,7 +140,7 @@
 
 
 /datum/admins/proc/toggle_ooc()
-	set category = "Server"
+	set category = "Server.Chat"
 	set name = "Toggle OOC"
 	set desc = "Toggles OOC for non-admins."
 
@@ -159,7 +159,7 @@
 
 
 /datum/admins/proc/toggle_looc()
-	set category = "Server"
+	set category = "Server.Chat"
 	set name = "Toggle LOOC"
 	set desc = "Toggles LOOC for non-admins."
 
@@ -179,7 +179,7 @@
 
 
 /datum/admins/proc/toggle_deadchat()
-	set category = "Server"
+	set category = "Server.Chat"
 	set name = "Toggle Deadchat"
 	set desc = "Toggles deadchat for non-admins."
 
@@ -198,7 +198,7 @@
 
 
 /datum/admins/proc/toggle_deadooc()
-	set category = "Server"
+	set category = "Server.Chat"
 	set name = "Toggle Dead OOC"
 	set desc = "Toggle the ability for dead non-admins to use OOC chat."
 
@@ -217,7 +217,7 @@
 
 
 /datum/admins/proc/start()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Start Round"
 	set desc = "Starts the round early."
 
@@ -310,7 +310,7 @@
 
 
 /datum/admins/proc/end_round()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "End Round"
 	set desc = "Immediately ends the round, be very careful"
 
@@ -340,7 +340,7 @@
 
 
 /datum/admins/proc/delay_start()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Delay Round Start"
 
 	if(!check_rights(R_SERVER))
@@ -368,7 +368,7 @@
 
 
 /datum/admins/proc/delay_end()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Delay Round End"
 
 	if(!check_rights(R_SERVER))
@@ -437,7 +437,7 @@
 
 
 /datum/admins/proc/reload_admins()
-	set category = "Server"
+	set category = "Server.Server"
 	set name = "Reload Admins"
 	set desc = "Manually load all admins from the .txt"
 
@@ -451,7 +451,7 @@
 
 
 /datum/admins/proc/change_ground_map()
-	set category = "Server"
+	set category = "Server.Server"
 	set name = "Change Ground Map"
 
 	if(!check_rights(R_SERVER))
@@ -493,7 +493,7 @@
 
 
 /datum/admins/proc/change_ship_map()
-	set category = "Server"
+	set category = "Server.Server"
 	set name = "Change Ship Map"
 
 	if(!check_rights(R_SERVER))
@@ -535,7 +535,7 @@
 
 
 /datum/admins/proc/panic_bunker()
-	set category = "Server"
+	set category = "Server.Server"
 	set name = "Toggle Panic Bunker"
 
 	if(!check_rights(R_SERVER))
@@ -552,7 +552,7 @@
 
 
 /datum/admins/proc/mode_check()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Toggle Mode Check"
 
 	if(!check_rights(R_SERVER))
@@ -565,7 +565,7 @@
 
 /client/proc/toggle_cdn()
 	set name = "Toggle CDN"
-	set category = "Server"
+	set category = "Server.Server"
 	var/static/admin_disabled_cdn_transport = null
 	if (alert(usr, "Are you sure you want to toggle the CDN asset transport?", "Confirm", "Yes", "No") != "Yes")
 		return

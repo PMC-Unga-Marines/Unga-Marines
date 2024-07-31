@@ -135,12 +135,11 @@
 
 /obj/item/card/id/verb/read()
 	set name = "Read ID Card"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	to_chat(usr, "[icon2html(src, usr)] [name]: The current assignment on the card is [assignment].")
 	to_chat(usr, "The blood type on the card is [blood_type].")
-
 
 /obj/item/card/id/silver
 	name = "identification card"

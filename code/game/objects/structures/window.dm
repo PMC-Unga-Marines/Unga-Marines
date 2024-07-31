@@ -219,7 +219,7 @@
 
 /obj/structure/window/verb/rotate()
 	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object"
+	set category = "Object.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -234,7 +234,7 @@
 
 /obj/structure/window/verb/revrotate()
 	set name = "Rotate Window Clockwise"
-	set category = "Object"
+	set category = "Object.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
