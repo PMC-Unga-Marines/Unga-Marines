@@ -178,7 +178,7 @@ transfer_to_stomach = FALSE
 				var/expel_amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
 				if(expel_amount > 0 )
 					eater.vomit()
-					var/datum/limb/chest/torso = eater.get_limb(BODY_ZONE_CHEST) // eating with bruised stomach will get you infections
+					var/datum/limb/chest/torso = eater.get_limb(belly.parent_limb) // eating with bruised stomach will get you infections
 					torso.germ_level += expel_amount * 15 // 10 units are 150 germ level and etc.
 				return
 			R = belly.reagents
