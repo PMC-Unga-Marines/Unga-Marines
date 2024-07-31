@@ -241,8 +241,8 @@
 /obj/item/clothing/head/serviceushanka
 	name = "Service Ushanka"
 	desc = "The ushanka for your service uniform. For when you need to perform parade in subzero temperature."
-	icon_state = "ushanaka_service"
-	item_state = "ushanaka_service"
+	icon_state = "ushanka_service"
+	item_state = "ushanka_service"
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/techpriest
