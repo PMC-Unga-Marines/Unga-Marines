@@ -407,8 +407,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	icon_state = "debug"
 	attack_verb = list("thumps", "whomps", "bumps")
+	/// What was the last time we touch it?
 	var/last_hug_time
+	/// What sound should we play as squeak?
 	var/squeak_sound = 'sound/items/dollsqueak.ogg'
+	/// How loud is the squeak?
+	var/squeak_volume = 50
 
 /obj/item/toy/plush/attack_self(mob/user)
 	if(world.time > last_hug_time)
@@ -419,7 +423,7 @@
 
 /obj/item/toy/plush/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, squeak_sound, 50)
+	AddComponent(/datum/component/squeak, squeak_sound, squeak_volume)
 
 /obj/item/toy/plush/farwa
 	name = "Farwa plush doll"
@@ -516,6 +520,15 @@
 	desc = "A plushie depicting an adorable fairy. It's cold to the touch."
 	icon_state = "cirno"
 	worn_icon_state = "cirno"
+
+/obj/item/toy/plush/royalqueen
+	name = "royal queen plushie"
+	desc = "A plushie depicting a royal xenomorph queen. Smells faintly of stardust and baguettes, with a tag that has Wee! written on it."
+	icon_state = "queenplushie"
+	worn_icon_state = "queenplushie"
+	attack_verb = list("nuzzles", "bops", "pats")
+	squeak_sound = 'sound/items/wee.ogg'
+	squeak_volume = 20
 
 /obj/item/toy/plush/gnome
 	name = "gnome"
