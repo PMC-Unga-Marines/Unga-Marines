@@ -229,6 +229,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define ORGAN_SLOT_EYES "eyes"
 #define ORGAN_SLOT_HEART "heart"
 #define ORGAN_SLOT_LIVER "liver"
+#define ORGAN_SLOT_STOMACH "stomach"
 #define ORGAN_SLOT_LUNGS "lungs"
 #define ORGAN_SLOT_KIDNEYS "kidneys"
 
