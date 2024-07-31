@@ -53,7 +53,7 @@
 
 /obj/item/toy/deck/verb/draw_card()
 
-	set category = "Object"
+	set category = "Object.Cards"
 	set name = "Draw"
 	set desc = "Draw a card from a deck."
 	set src in view(1)
@@ -95,7 +95,7 @@
 
 /obj/item/toy/deck/verb/deal_card()
 
-	set category = "Object"
+	set category = "Object.Cards"
 	set name = "Deal"
 	set desc = "Deal a card from a deck."
 	set src in view(1)
@@ -195,7 +195,7 @@
 /// Takes a selected card, and puts it down, face-up, in front
 /obj/item/toy/handcard/verb/discard()
 
-	set category = "Object"
+	set category = "Object.Cards"
 	set name = "Discard"
 	set desc = "Place a card from your hand in front of you."
 
@@ -259,7 +259,7 @@
 		name = "hand of cards"
 	else
 		name = "a playing card"
-	
+
 /obj/item/toy/handcard/update_desc(updates)
 	. = ..()
 	if(length(cards) > 1)
@@ -372,9 +372,9 @@
 /obj/item/toy/deck/kotahi/update_icon_state()
 	. = ..()
 	switch(length(cards))
-		if(107 to 108) 
+		if(107 to 108)
 			icon_state = "deck"
-		if(37 to 106) 
+		if(37 to 106)
 			icon_state = "deck_open"
-		if(0 to 36) 
+		if(0 to 36)
 			icon_state = "deck_empty"

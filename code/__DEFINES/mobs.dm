@@ -10,7 +10,7 @@
 ///Speed mod for run intent
 #define MOB_RUN_MOVE_MOD 3
 ///Move mod for going diagonally
-#define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER 1.6
+#define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER (sqrt(2))
 
 
 //Pain or shock reduction for different reagents

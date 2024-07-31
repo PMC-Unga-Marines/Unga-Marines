@@ -762,7 +762,7 @@ below 100 is not dizzy
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object"
+	set category = "Object.Mob"
 
 	if(istype(AM) && Adjacent(AM))
 		start_pulling(AM)

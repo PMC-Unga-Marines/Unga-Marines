@@ -150,7 +150,7 @@
 
 
 /mob/living/proc/yank_out_object()
-	set category = "Object"
+	set category = "Object.Mob"
 	set name = "Yank out object"
 	set desc = "Remove an embedded item at the cost of bleeding and pain."
 	set src in view(1)

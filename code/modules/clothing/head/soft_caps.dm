@@ -16,7 +16,7 @@
 	..()
 
 /obj/item/clothing/head/soft/verb/flip()
-	set category = "Object"
+	set category = "Object.Clothing"
 	set name = "Flip cap"
 	set src in usr
 	if(!usr.incapacitated())

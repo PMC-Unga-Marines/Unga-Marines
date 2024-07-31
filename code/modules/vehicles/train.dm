@@ -60,7 +60,7 @@
 /obj/vehicle/train/verb/unlatch_v()
 	set name = "Unlatch"
 	set desc = "Unhitches this train from the one in front of it."
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
