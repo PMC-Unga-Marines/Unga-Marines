@@ -10,7 +10,7 @@
 ///Speed mod for run intent
 #define MOB_RUN_MOVE_MOD 3
 ///Move mod for going diagonally
-#define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER 1.6
+#define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER (sqrt(2))
 
 
 //Pain or shock reduction for different reagents
@@ -221,6 +221,16 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define ORGAN_EYES 6
 #define ORGAN_APPENDIX 7
 #define ORGAN_STOMACH 8
+
+//organ slots
+#define ORGAN_SLOT_APPENDIX "appendix"
+#define ORGAN_SLOT_BRAIN "brain"
+#define ORGAN_SLOT_EARS "ears"
+#define ORGAN_SLOT_EYES "eyes"
+#define ORGAN_SLOT_HEART "heart"
+#define ORGAN_SLOT_LIVER "liver"
+#define ORGAN_SLOT_LUNGS "lungs"
+#define ORGAN_SLOT_KIDNEYS "kidneys"
 
 #define ORGAN_HEALTHY 0
 #define ORGAN_BRUISED 1
@@ -509,6 +519,9 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define XENO_SILO_DETECTION_RANGE 10//How far silos can detect hostiles
 #define XENO_HIVEMIND_DETECTION_RANGE 10 //How far out (in tiles) can the hivemind detect hostiles
 #define XENO_HIVEMIND_DETECTION_COOLDOWN 1 MINUTES
+
+#define XENO_RESTING_COOLDOWN 2 SECONDS
+#define XENO_UNRESTING_COOLDOWN 1 SECONDS
 
 #define XENO_PARALYZE_NORMALIZATION_MULTIPLIER 5 //Multiplies an input to normalize xeno paralyze duration times.
 #define XENO_STUN_NORMALIZATION_MULTIPLIER 2 //Multiplies an input to normalize xeno stun duration times.

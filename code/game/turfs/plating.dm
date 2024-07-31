@@ -41,6 +41,9 @@
 /turf/open/floor/plating/mainship
 	icon = 'icons/turf/mainship.dmi'
 
+/turf/open/floor/plating/mainship/reinforced
+	icon_state = "reinforced"
+
 /turf/open/floor/plating/mainship/striped
 	icon_state = "plating_striped"
 
@@ -58,11 +61,9 @@
 	icon_state = "plating"
 	name = "ice colony plating"
 
-
 /turf/open/floor/plating/icefloor/New()
 	. = ..()
 	name = "plating"
-
 
 /turf/open/floor/plating/icefloor/warnplate
 	icon_state = "warnplate"
@@ -71,32 +72,31 @@
 	icon_state = "warnplatecorner"
 
 /turf/open/floor/plating/plating_catwalk
-	icon = 'icons/turf/mainship.dmi'
-	icon_state = "plating_catwalk"
-	var/base_state = "plating" //Post mapping
 	name = "catwalk"
 	desc = "Cats really don't like these things."
-	var/covered = TRUE
+	icon = 'icons/turf/mainship.dmi'
+	icon_state = "plating_catwalk"
+	base_icon_state = "catwalk"
 	shoefootstep = FOOTSTEP_CATWALK
 	barefootstep = FOOTSTEP_CATWALK
 	mediumxenofootstep = FOOTSTEP_CATWALK
-
+	/// Used for post-mapping.
+	var/base_state = "plating"
+	var/covered = TRUE
 
 /turf/open/floor/plating/plating_catwalk/Initialize(mapload)
 	. = ..()
 	icon_state = base_state
 	update_turf_overlay()
 
-
 /turf/open/floor/plating/plating_catwalk/proc/update_turf_overlay()
-	var/image/I = image(icon, src, "catwalk", CATWALK_LAYER)
+	var/image/I = image(icon, src, base_icon_state, CATWALK_LAYER)
 	I.plane = FLOOR_PLANE
 	if(covered)
 		overlays += I
 	else
 		overlays -= I
 		qdel(I)
-
 
 /turf/open/floor/plating/plating_catwalk/attackby(obj/item/I, mob/user)
 	. = ..()
@@ -116,18 +116,21 @@
 			return
 	return ..()
 
-
 /turf/open/floor/plating/plating_catwalk/prison
 	icon = 'icons/turf/prison.dmi'
 
+/turf/open/floor/plating/plating_catwalk/dark
+	icon_state = "plating_catwalk_dark"
+	base_icon_state = "catwalk_dark"
 
+/turf/open/floor/plating/plating_catwalk/light
+	icon_state = "plating_catwalk_light"
+	base_icon_state = "catwalk_light"
 
 /turf/open/floor/plating/ironsand/New()
 	. = ..()
 	name = "Iron Sand"
 	icon_state = "ironsand[rand(1,15)]"
-
-
 
 /turf/open/floor/plating/catwalk
 	icon = 'icons/turf/catwalks.dmi'
@@ -151,10 +154,8 @@
 /turf/open/floor/plating/platebot
 	icon_state = "platebot"
 
-
 /turf/open/floor/plating/platebotc
 	icon_state = "platebotc"
-
 
 /turf/open/floor/plating/asteroidwarning // used around lv's lz2
 	icon_state = "asteroidwarning"
@@ -165,10 +166,8 @@
 /turf/open/floor/plating/asteroidfloor
 	icon_state = "asteroidfloor"
 
-
 /turf/open/floor/plating/asteroidplating
 	icon_state = "asteroidplating"
-
 
 /turf/open/floor/plating/dmg1
 	icon_state = "platingdmg1"

@@ -20,13 +20,13 @@
 		dir = ndir
 	switch(dir)
 		if(NORTH)
-			pixel_y = -32
+			pixel_y = -48
 		if(SOUTH)
-			pixel_y = 32
+			pixel_y = 16
 		if(EAST)
-			pixel_x = -32
+			pixel_x = -48
 		if(WEST)
-			pixel_x = 32
+			pixel_x = 16
 
 /obj/structure/closet/walllocker/emerglocker //wall mounted emergency closet
 	name = "emergency locker"

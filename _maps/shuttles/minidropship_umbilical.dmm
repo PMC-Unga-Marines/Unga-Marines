@@ -63,6 +63,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
+"n" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/transparent/dark_blue/full,
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
 "q" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
@@ -87,9 +94,8 @@
 /turf/open/floor/mainship/floor,
 /area/shuttle/minidropship)
 "u" = (
-/obj/effect/turf_decal/tile/transparent/dark_blue/full,
 /obj/docking_port/mobile/marine_dropship/minidropship,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "v" = (
 /obj/effect/attach_point/crew_weapon/minidropship,
@@ -143,7 +149,8 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
-/turf/open/floor/plating/plating_catwalk,
+/obj/effect/turf_decal/tile/transparent/dark_blue/full,
+/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "J" = (
 /obj/structure/bed/chair/dropship/passenger{
@@ -253,8 +260,8 @@ s
 l
 l
 F
-F
 X
+R
 "}
 (4,1,1) = {"
 t
@@ -264,8 +271,8 @@ J
 u
 q
 D
+n
 F
-R
 "}
 (5,1,1) = {"
 x
@@ -274,8 +281,8 @@ Z
 q
 v
 q
+q
 C
-F
 F
 "}
 (6,1,1) = {"
@@ -286,8 +293,8 @@ S
 e
 I
 j
+I
 F
-N
 "}
 (7,1,1) = {"
 P
@@ -297,6 +304,6 @@ a
 a
 a
 F
-F
 f
+N
 "}

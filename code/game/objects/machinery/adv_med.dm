@@ -52,7 +52,7 @@
 
 /obj/machinery/bodyscanner/verb/eject()
 	set src in oview(1)
-	set category = "Object"
+	set category = "Object.Mob"
 	set name = "Eject Body Scanner"
 
 	if (usr.stat != CONSCIOUS)
@@ -80,7 +80,7 @@
 
 /obj/machinery/bodyscanner/verb/move_inside()
 	set src in oview(1)
-	set category = "Object"
+	set category = "Object.Mob"
 	set name = "Enter Body Scanner"
 
 	move_inside_wrapper(usr, usr)
@@ -252,3 +252,10 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "sleeperconsole"
 	base_icon_state = "sleeperconsole"
+
+/obj/machinery/bodyscanner/alt
+	icon_state = "alt_body_scanner"
+
+/obj/machinery/computer/body_scanconsole/alt
+	icon_state = "alt_body_scannerconsole"
+	screen_overlay = "alt_body_scannerconsole_emissive"

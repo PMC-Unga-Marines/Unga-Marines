@@ -8,7 +8,6 @@
 GLOBAL_LIST_INIT(hugger_type_list, list(
 		/obj/item/clothing/mask/facehugger/larval,
 		/obj/item/clothing/mask/facehugger/combat/slash,
-//		/obj/item/clothing/mask/facehugger/combat/neuro, RU TGMC EDIT
 		/obj/item/clothing/mask/facehugger/combat/acid,
 		/obj/item/clothing/mask/facehugger/combat/resin,
 		))
@@ -16,7 +15,6 @@ GLOBAL_LIST_INIT(hugger_type_list, list(
 GLOBAL_LIST_INIT(hugger_to_ammo, list(
 	/obj/item/clothing/mask/facehugger/larval = /datum/ammo/xeno/hugger,
 	/obj/item/clothing/mask/facehugger/combat/slash = /datum/ammo/xeno/hugger/slash,
-//	/obj/item/clothing/mask/facehugger/combat/neuro = /datum/ammo/xeno/hugger/neuro, RU TGMC EDIT
 	/obj/item/clothing/mask/facehugger/combat/acid = /datum/ammo/xeno/hugger/acid,
 	/obj/item/clothing/mask/facehugger/combat/resin = /datum/ammo/xeno/hugger/resin,
 ))
@@ -25,7 +23,6 @@ GLOBAL_LIST_INIT(hugger_to_ammo, list(
 GLOBAL_LIST_INIT(hugger_images_list,  list(
 		LARVAL_HUGGER = image('icons/Xeno/actions.dmi', icon_state = LARVAL_HUGGER),
 		CLAWED_HUGGER = image('icons/Xeno/actions.dmi', icon_state = CLAWED_HUGGER),
-//		NEURO_HUGGER = image('icons/Xeno/actions.dmi', icon_state = NEURO_HUGGER ), RU TGMC EDIT
 		ACID_HUGGER = image('icons/Xeno/actions.dmi', icon_state = ACID_HUGGER),
 		RESIN_HUGGER = image('icons/Xeno/actions.dmi', icon_state = RESIN_HUGGER),
 		))
@@ -443,8 +440,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	victim.apply_damage(stamina_dmg, STAMINA)
 
 	var/datum/internal_organ/O
-	for(var/i in list("heart", "lungs", "liver", "stomach"))
-		O = victim.internal_organs_by_name[i]
+	for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_STOMACH))
+		O = victim.get_organ_slot(i)
 		O.take_damage(debuff, TRUE)
 
 	young.adjust_boost_timer(20, 40)

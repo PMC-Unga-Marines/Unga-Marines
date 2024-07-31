@@ -6,9 +6,10 @@
 #define RELEASING 1
 
 /obj/machinery/atmospherics/components/unary/vent_pump
-	icon_state = "vent_map-2"
 	name = "air vent"
 	desc = "Has a valve and pump attached to it."
+	icon_state = "vent_map-2"
+	base_icon_state = "vent"
 	use_power = IDLE_POWER_USE
 	can_unwrench = FALSE
 	welded = FALSE
@@ -29,33 +30,33 @@
 		add_overlay(cap)
 
 	if(welded)
-		icon_state = "vent_welded"
+		icon_state = "[base_icon_state]_welded"
 		return
 
 	if(!nodes[1] || !on || !is_operational())
-		if(icon_state == "vent_welded")
-			icon_state = "vent_off"
+		if(icon_state == "[base_icon_state]_welded")
+			icon_state = "[base_icon_state]_off"
 			return
 
 		if(pump_direction & RELEASING)
-			icon_state = "vent_out-off"
+			icon_state = "[base_icon_state]_out-off"
 		else // pump_direction == SIPHONING
-			icon_state = "vent_in-off"
+			icon_state = "[base_icon_state]_in-off"
 		return
 
-	if(icon_state == ("vent_out-off" || "vent_in-off" || "vent_off"))
+	if(icon_state == ("[base_icon_state]_out-off" || "[base_icon_state]_in-off" || "[base_icon_state]_off"))
 		if(pump_direction & RELEASING)
-			icon_state = "vent_out"
-			flick("vent_out-starting", src)
+			icon_state = "[base_icon_state]_out"
+			flick("[base_icon_state]_out-starting", src)
 		else // pump_direction == SIPHONING
-			icon_state = "vent_in"
-			flick("vent_in-starting", src)
+			icon_state = "[base_icon_state]_in"
+			flick("[base_icon_state]_in-starting", src)
 		return
 
 	if(pump_direction & RELEASING)
-		icon_state = "vent_out"
+		icon_state = "[base_icon_state]_out"
 	else // pump_direction == SIPHONING
-		icon_state = "vent_in"
+		icon_state = "[base_icon_state]_in"
 
 /obj/machinery/atmospherics/components/unary/vent_pump/weld_cut_act(mob/living/user, obj/item/W)
 	if(istype(W, /obj/item/tool/pickaxe/plasmacutter))
@@ -187,6 +188,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1
 	piping_layer = 1
 	icon_state = "vent_map_on-1"
+
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt
+	icon_state = "alt_vent_map_on-1"
+	base_icon_state = "alt_vent"
 
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer3
 	piping_layer = 3

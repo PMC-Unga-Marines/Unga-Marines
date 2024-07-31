@@ -119,8 +119,6 @@
 
 /obj/machinery/computer/sleep_console/pred
 	icon = 'icons/obj/machines/yautja_machines.dmi'
-	icon_state = "sleeperconsole"
-
 /////////////////////////////////////////
 // THE SLEEPER ITSELF
 /////////////////////////////////////////
@@ -404,7 +402,7 @@
 
 /obj/machinery/sleeper/verb/eject()
 	set name = "Eject Sleeper"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	if(usr.stat != CONSCIOUS)
@@ -448,7 +446,14 @@
 
 /obj/machinery/sleeper/verb/move_inside()
 	set name = "Enter Sleeper"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)
+
+/obj/machinery/sleeper/alt
+	icon_state = "alt_sleeper"
+
+/obj/machinery/computer/sleep_console/alt
+	icon_state = "alt_sleeperconsole"
+	screen_overlay = "alt_sleeperconsole_emissive"

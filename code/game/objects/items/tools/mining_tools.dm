@@ -70,15 +70,6 @@
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
 
-/obj/item/tool/pickaxe/borgdrill
-	name = "cyborg mining drill"
-	icon_state = "diamonddrill"
-	item_state = "jackhammer"
-	digspeed = 15
-	desc = ""
-	drill_verb = "drilling"
-
-
 /obj/item/tool/pickaxe/plasmacutter
 	name = "plasma cutter"
 	desc = "A tool that cuts with deadly hot plasma. You could use it to cut limbs off of xenos! Or, you know, cut apart walls or mine through stone. Eye protection strongly recommended."

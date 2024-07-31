@@ -1532,7 +1532,7 @@
 	log_admin("[key_name_admin(src)] predator ship AI report: [input]")
 
 /datum/admins/proc/force_predator_round()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Toggle Predator Round"
 	set desc = "Force-toggle a predator round for the round type. Only works on maps that support Predator spawns."
 

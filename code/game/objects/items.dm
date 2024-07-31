@@ -189,7 +189,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	if(!isturf(loc) || usr.stat || usr.restrained())
@@ -785,7 +785,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
-	set category = "Object"
+	set category = "Object.Mob"
 	set name = "Pick up"
 
 	if(usr.incapacitated() || !Adjacent(usr))
@@ -810,7 +810,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
-	set category = "Object"
+	set category = "Object.Mob"
 
 	var/obj/item/I = get_active_held_item()
 	if(I && !(I.flags_item & ITEM_ABSTRACT))
@@ -942,7 +942,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return TRUE
 	var/safety = user.get_eye_protection()
 	var/mob/living/carbon/human/H = user
-	var/datum/internal_organ/eyes/E = H.internal_organs_by_name["eyes"]
+	var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 	switch(safety)
 		if(1)
 			E.take_damage(rand(1, 2), TRUE)

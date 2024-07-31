@@ -22,9 +22,7 @@
 		/obj/item/ammo_magazine/smg,
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/cell/lasgun,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,
-		//RUTGMC EDIT ADDITION  END
 	)
 	cant_hold = list(
 		/obj/item/stack/razorwire,

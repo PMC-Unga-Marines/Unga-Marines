@@ -118,7 +118,7 @@
 /obj/item/organ/heart
 	name = "heart"
 	icon_state = "heart-on"
-	organ_tag = "heart"
+	organ_tag = ORGAN_SLOT_HEART
 	fresh = 6 // Juicy.
 	dead_icon = "heart-off"
 	organ_type = /datum/internal_organ/heart
@@ -127,21 +127,21 @@
 	name = "lungs"
 	icon_state = "lungs"
 	gender = PLURAL
-	organ_tag = "lungs"
+	organ_tag = ORGAN_SLOT_LUNGS
 	organ_type = /datum/internal_organ/lungs
 
 /obj/item/organ/kidneys
 	name = "kidneys"
 	icon_state = "kidneys"
 	gender = PLURAL
-	organ_tag = "kidneys"
+	organ_tag = ORGAN_SLOT_KIDNEYS
 	organ_type = /datum/internal_organ/kidneys
 
 /obj/item/organ/eyes
 	name = "eyeballs"
 	icon_state = "eyes"
 	gender = PLURAL
-	organ_tag = "eyes"
+	organ_tag = ORGAN_SLOT_EYES
 	organ_type = /datum/internal_organ/eyes
 	var/eye_colour
 
@@ -178,14 +178,14 @@
 /obj/item/organ/liver
 	name = "liver"
 	icon_state = "liver"
-	organ_tag = "liver"
+	organ_tag = ORGAN_SLOT_LIVER
 	organ_type = /datum/internal_organ/liver
 
 /obj/item/organ/appendix
 	name = "appendix"
 	icon_state = "appendix"
 	organ_type = /datum/internal_organ/appendix
-	organ_tag = "appendix"
+	organ_tag = ORGAN_SLOT_APPENDIX
 
 //These are here so they can be printed out via the fabricator.
 /obj/item/organ/heart/prosthetic

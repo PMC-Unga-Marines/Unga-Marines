@@ -17,7 +17,6 @@
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/admin = FALSE
 
-
 /obj/item/alien_embryo/Initialize(mapload)
 	. = ..()
 	if(!isliving(loc))
@@ -221,12 +220,11 @@
 		var/mob/living/carbon/human/H = victim
 		H.apply_damage(200, BRUTE, H.get_limb("chest"), updating_health = TRUE) //lethal armor ignoring brute damage
 		var/datum/internal_organ/O
-		for(var/i in list("heart", "lungs", "liver", "kidneys", "appendix", "stomach")) //Bruise all torso internal organs
-			O = H.internal_organs_by_name[i]
+		for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_APPENDIX, ORGAN_SLOT_STOMACH)) //Bruise all torso internal organs
+			O = H.get_organ_slot(i)
 
 			if(!H.mind && !H.client) //If we have no client or mind, permadeath time; remove the organs. Mainly for the NPC colonist bodies
-				H.internal_organs_by_name -= i
-				H.internal_organs -= O
+				H.remove_organ_slot(O)
 			else
 				O.take_damage(O.min_bruised_damage, TRUE)
 

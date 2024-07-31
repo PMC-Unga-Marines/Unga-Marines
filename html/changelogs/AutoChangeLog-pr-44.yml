@@ -1,0 +1,4 @@
+author: "homexp13"
+delete-after: True
+changes:
+  - rscadd: "red dot gives aim mod"

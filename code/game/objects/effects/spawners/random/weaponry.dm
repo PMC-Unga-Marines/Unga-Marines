@@ -85,6 +85,15 @@
 		/obj/item/weapon/gun/rifle/standard_carbine,
 		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
+		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
+		/obj/item/weapon/gun/rifle/garand,
+		/obj/item/weapon/gun/rifle/mpi_km,
+		/obj/item/weapon/gun/rifle/m16,
+		/obj/item/weapon/gun/rifle/sniper/svd,
+		/obj/item/weapon/gun/rifle/m412,
+		/obj/item/weapon/gun/rifle/m41a,
+		/obj/item/weapon/gun/rifle/type71/seasonal,
+		/obj/item/weapon/gun/rifle/alf_machinecarbine,
 	)
 
 ///random sidearms
@@ -98,6 +107,18 @@
 		/obj/item/weapon/gun/revolver/cmb,
 		/obj/item/weapon/gun/pistol/vp70,
 		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/revolver/standard_magnum,
+		/obj/item/weapon/gun/shotgun/double/derringer,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/pistol/highpower,
+		/obj/item/weapon/gun/revolver/small,
+		/obj/item/weapon/gun/revolver/single_action/m44,
+		/obj/item/weapon/gun/revolver/judge,
+		/obj/item/weapon/gun/revolver/upp,
+		/obj/item/weapon/gun/pistol/g22,
+		/obj/item/weapon/gun/pistol/vp78,
+		/obj/item/weapon/gun/pistol/heavy,
+		/obj/item/weapon/gun/pistol/m1911,
 	)
 
 ///random melee weapons
@@ -115,6 +136,8 @@
 		/obj/item/tool/kitchen/knife,
 		/obj/item/tool/kitchen/knife/butcher,
 		/obj/item/weapon/twohanded/fireaxe,
+		/obj/item/weapon/twohanded/spear/tactical,
+		/obj/item/weapon/twohanded/spear/tactical/tacticool,
 	)
 
 /obj/effect/spawner/random/weaponry/shiv

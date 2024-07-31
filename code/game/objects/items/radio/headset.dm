@@ -368,7 +368,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/verb/configure_squadhud()
 	set name = "Configure Headset HUD"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	if(!can_interact(usr))
