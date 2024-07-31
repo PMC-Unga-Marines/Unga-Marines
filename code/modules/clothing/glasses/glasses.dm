@@ -12,7 +12,7 @@
 	flags_armor_protection = EYES
 	var/prescription = FALSE
 	var/toggleable = FALSE
-	var/deactive_state = "degoggles"
+	var/deactive_state = "deactived_goggles"
 	var/vision_flags = NONE
 	var/darkness_view = 2 //Base human is 2
 	var/invis_view = SEE_INVISIBLE_LIVING

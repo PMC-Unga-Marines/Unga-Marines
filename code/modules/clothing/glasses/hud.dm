@@ -56,7 +56,7 @@
 	name = "\improper HealthMate HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status. The projector can be attached to compatable eyewear."
 	icon_state = "healthhud"
-	deactive_state = "degoggles_med"
+	deactive_state = "deactived_goggles"
 	flags_armor_protection = NONE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
@@ -75,7 +75,7 @@
 	desc = "Standard issue TGMC goggles. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medgoggles"
 	item_state = "medgoggles"
-	deactive_state = "degoggles_medgoggles"
+	deactive_state = "deactived_mgoggles"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)
@@ -99,7 +99,7 @@
 	name = "\improper Medpatch HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status. For the disabled and/or edgy Corpsman."
 	icon_state = "medpatchhud"
-	deactive_state = "degoggles_medpatch"
+	deactive_state = "deactived_patch"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -116,7 +116,7 @@
 	desc = "Standard issue TGMC Regulation Prescription Glasses. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medglasses"
 	item_state = "medglasses"
-	deactive_state = "degoggles_medglasses"
+	deactive_state = "deactived__medglasses"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -134,7 +134,7 @@
 	desc = "A pair of designer sunglasses. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medsunglasses"
 	item_state = "medsunglasses"
-	deactive_state = "degoggles_medsunglasses"
+	deactive_state = "deactived_sunglasses"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -158,7 +158,7 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	icon_state = "securityhud"
-	deactive_state = "degoggles_sec"
+	deactive_state = "deactived_goggles"
 	toggleable = 1
 	flags_armor_protection = NONE
 	hud_type = DATA_HUD_SECURITY_ADVANCED
@@ -168,7 +168,7 @@
 	name = "XenoMate HUD"
 	desc = "A heads-up display that scans any nearby xenomorph's data."
 	icon_state = "securityhud"
-	deactive_state = "degoggles_sec"
+	deactive_state = "deactived_goggles"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
