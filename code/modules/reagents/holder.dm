@@ -173,11 +173,13 @@ transfer_to_stomach = FALSE
 	else
 		if(transfer_to_stomach && ishuman(target))
 			var/mob/living/carbon/human/eater = target
-			var/datum/internal_organ/stomach/belly = eater.internal_organs_by_name["stomach"]
-			if(belly.organ_status == ORGAN_BROKEN)
+			var/datum/internal_organ/stomach/belly = eater.get_organ_slot(ORGAN_SLOT_STOMACH)
+			if(belly.organ_status != ORGAN_HEALTHY && prob(belly.damage * 4))
 				var/expel_amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
 				if(expel_amount > 0 )
 					eater.vomit()
+					var/datum/limb/chest/torso = eater.get_limb(BODY_ZONE_CHEST) // eating with bruised stomach will get you infections
+					torso.germ_level += expel_amount * 15 // 10 units are 150 germ level and etc.
 				return
 			R = belly.reagents
 			//target_atom = belly
