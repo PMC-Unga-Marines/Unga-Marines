@@ -895,7 +895,8 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/head/hairflower = list(CAT_SHN, "Hairflower pin", 0, "black"),
 		/obj/item/clothing/head/fez = list(CAT_SHN, "Fez", 0, "black"),
 		/obj/item/clothing/head/chefhat = list(CAT_SHN, "Chef's hat", 0, "black"),
-		/obj/item/clothing/head/beaverhat = list(CAT_HEL, "Beaver hat", 0, "black"),
+		/obj/item/clothing/head/wizard/cap = list(CAT_SHN, "Gentleman's Cap", 0 , "black"),
+		/obj/item/clothing/head/beaverhat = list(CAT_SHN, "Beaver hat", 0, "black"),
 		/obj/item/clothing/mask/surgical = list(CAT_MAS, "Sterile mask", 0, "black"),
 		/obj/item/clothing/mask/rebreather = list(CAT_MAS, "Rebreather", 0, "black"),
 		/obj/item/clothing/mask/rebreather/scarf = list(CAT_MAS, "Heat absorbent coif", 0, "black"),
@@ -986,7 +987,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/lightreplacer = 1,
 		/obj/item/circuitboard/apc = 1,
 		/obj/item/clothing/under/marine/engineer = 1,
-		/obj/item/clothing/under/marine/ru/gorka_eng = 1, // TODO: delete clothe bundles and just put in more categories
+		/obj/item/clothing/under/marine/gorka_eng = 1, // TODO: delete clothe bundles and just put in more categories
 	),
 	SQUAD_CORPSMAN = list(
 		/obj/item/bodybag/cryobag = 1,
@@ -1000,7 +1001,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/clothing/glasses/hud/health = 1,
 		/obj/item/clothing/under/marine/corpsman = 1,
-		/obj/item/clothing/under/marine/ru/gorka_med = 1, // TODO: delete clothe bundles and just put in more categories
+		/obj/item/clothing/under/marine/gorka_med = 1, // TODO: delete clothe bundles and just put in more categories
 	),
 	SQUAD_SMARTGUNNER = list(
 		/obj/item/clothing/glasses/night/m56_goggles = 1,

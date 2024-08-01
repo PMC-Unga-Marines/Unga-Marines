@@ -48,12 +48,6 @@
 /obj/item/clothing/shoes/marine/brown/full
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
-/obj/item/clothing/shoes/marine/pyro
-	name = "flame-resistant combat boots"
-	desc = "Protects you from fire and even contains a pouch for your knife!"
-	icon_state = "marine_armored"
-	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
-
 /obj/item/clothing/shoes/marinechief
 	name = "chief officer shoes"
 	desc = "Only a small amount of monkeys, kittens, and orphans were killed in making this."
@@ -75,9 +69,7 @@
 	name = "spatial agent's shoes"
 	desc = "Shoes worn by a spatial agent."
 
-/obj/item/clothing/shoes/veteran
-
-/obj/item/clothing/shoes/veteran/pmc
+/obj/item/clothing/shoes/pmc
 	name = "polished shoes"
 	desc = "The height of fashion, but these look to be woven with protective fiber."
 	icon_state = "jackboots"
@@ -97,12 +89,7 @@
 	icon_state = "commando_boots"
 	item_state = "commando_boots"
 	permeability_coefficient = 0.01
-	flags_armor_protection = FEET
 	soft_armor = list(MELEE = 40, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 25)
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
-	flags_cold_protection = FEET
-	flags_heat_protection = FEET
 	siemens_coefficient = 0.2
 	resistance_flags = UNACIDABLE
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
@@ -114,7 +101,6 @@
 	desc = "A pair of boots issued to the Imperial Guard, just like anything else they use, they are mass produced."
 	//icon_state = ""
 	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 25)
-
 
 /obj/item/clothing/shoes/marine/som
 	name = "\improper S11 combat shoes"
@@ -169,22 +155,14 @@
 /obj/item/clothing/shoes/marine/icc/guard/knife
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
-/obj/item/clothing/shoes/marine/ru
-	name = "ru boots"
-	desc = "ru boots."
-	icon = 'icons/obj/clothing/shoes/marine_shoes.dmi'
-	icon_state = ""
-	item_icons = list(
-		slot_shoes_str = 'icons/mob/clothing/feet.dmi')
-
-/obj/item/clothing/shoes/marine/ru/headskin
+/obj/item/clothing/shoes/marine/headskin
 	name = "marine veteran combat boots"
 	desc = "Usual combat boots. There is nothing unusual about them. Nothing."
 	icon_state = "headskin"
 	item_state = "headskin"
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
-/obj/item/clothing/shoes/marine/ru/separatist
+/obj/item/clothing/shoes/marine/separatist
 	name = "Reinforced boots TS-28"
 	desc = "Well-robusted rubberized boots that protect against moisture, small fragments and impacts. The artisanal design of these shoes, of course, was canceled by production machines in order to provide for all employees as much as possible."
 	icon_state = "separatist"

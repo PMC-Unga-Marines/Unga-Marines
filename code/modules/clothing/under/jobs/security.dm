@@ -1,13 +1,3 @@
-/*
-* Contains:
-*		Security
-*		Detective
-*		Head of Security
-*/
-
-/*
-* Security
-*/
 /obj/item/clothing/under/rank/warden
 	name = "security suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
@@ -27,12 +17,6 @@
 	icon_state = "securityred"
 	item_state = "r_suit"
 	siemens_coefficient = 0.9
-
-/obj/item/clothing/under/rank/security/white
-	name = "white security jumpsuit"
-	desc = "A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood."
-	icon_state = "securitywhite"
-	item_state = "securitywhite"
 
 /obj/item/clothing/under/rank/dispatch
 	name = "dispatcher's uniform"
@@ -54,16 +38,6 @@
 	icon_state = "sec_corporate"
 	adjustment_variants = list()
 
-/obj/item/clothing/under/rank/warden/corp
-	icon_state = "warden_corporate"
-	adjustment_variants = list()
-
-/obj/item/clothing/under/tactical
-	name = "tactical jumpsuit"
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
-	icon_state = "swatunder"
-	siemens_coefficient = 0.9
-
 /*
 * Detective
 */
@@ -74,16 +48,6 @@
 	item_state = "det"
 	siemens_coefficient = 0.9
 	adjustment_variants = list()
-
-/obj/item/clothing/under/rank/det/black
-	icon_state = "detective2"
-	adjustment_variants = list()
-
-/obj/item/clothing/under/rank/det/slob
-	icon_state = "polsuit"
-	adjustment_variants = list(
-		"Down" = "_d",
-	)
 
 /obj/item/clothing/under/rank/det/grey
 	name = "noir suit"
@@ -101,12 +65,6 @@
 	icon_state = "hosred"
 	item_state = "r_suit"
 	siemens_coefficient = 0.8
-
-/obj/item/clothing/under/rank/head_of_security/white
-	name = "head of security's white jumpsuit"
-	desc = "There are old men, and there are bold men, but there are very few old, bold men."
-	icon_state = "hoswhite"
-	item_state = "hoswhite"
 
 /obj/item/clothing/under/rank/head_of_security/alt
 	name = "head of security's turtleneck"
@@ -126,34 +84,3 @@
 	item_state = "jensen"
 	siemens_coefficient = 0.6
 	adjustment_variants = list()
-
-/*
-*Blart Uniform
-*/
-/obj/item/clothing/under/rank/security/mallcop
-	name = "NT mall cop uniform"
-	desc = "The radio and badge are sewn on, what a crappy knock off. Secway not included."
-	icon_state = "mallcop"
-	item_state = "mallcop"
-
-/*
-* Navy uniforms
-*/
-
-/obj/item/clothing/under/rank/security/navyblue
-	name = "security officer's uniform"
-	desc = "The latest in fashionable security outfits."
-	icon_state = "officerblueclothes"
-	item_state = "officerblueclothes"
-
-/obj/item/clothing/under/rank/head_of_security/navyblue
-	desc = "The insignia on this uniform tells you that this uniform belongs to the Head of Security."
-	name = "head of security's uniform"
-	icon_state = "hosblueclothes"
-	item_state = "hosblueclothes"
-
-/obj/item/clothing/under/rank/warden/navyblue
-	desc = "The insignia on this uniform tells you that this uniform belongs to the Warden."
-	name = "warden's uniform"
-	icon_state = "wardenblueclothes"
-	item_state = "wardenblueclothes"

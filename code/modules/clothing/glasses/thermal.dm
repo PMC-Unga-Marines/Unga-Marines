@@ -1,6 +1,3 @@
-
-// thermal goggles
-
 /obj/item/clothing/glasses/thermal
 	name = "Optical Thermal Scanner"
 	desc = "Thermals in the shape of glasses."
@@ -23,49 +20,6 @@
 			spawn(100)
 				M.disabilities &= ~NEARSIGHTED
 	..()
-
-
-/obj/item/clothing/glasses/thermal/syndi	//These are now a traitor item, concealed as mesons.	-Pete
-	name = "Optical Meson Scanner"
-	desc = "Used for seeing walls, floors, and stuff through anything."
-	icon_state = "meson"
-	actions_types = list(/datum/action/item_action/toggle)
-
-
-/obj/item/clothing/glasses/thermal/monocle
-	name = "Thermoncle"
-	desc = "A monocle thermal."
-	icon_state = "thermoncle"
-	flags_atom = null //doesn't protect eyes because it's a monocle, duh
-	toggleable = 0
-	flags_armor_protection = NONE
-
-/obj/item/clothing/glasses/thermal/eyepatch
-	name = "Optical Thermal Eyepatch"
-	desc = "An eyepatch with built-in thermal optics"
-	icon_state = "eyepatch"
-	item_state = "eyepatch"
-	toggleable = 0
-	flags_armor_protection = NONE
-
-/obj/item/clothing/glasses/thermal/jensen
-	name = "Optical Thermal Implants"
-	desc = "A set of implantable lenses designed to augment your vision"
-	icon_state = "thermalimplants"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/inhands/items/containers_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/items/containers_right.dmi',
-	)
-	item_state = "syringe_kit"
-	toggleable = 0
-
-/obj/item/clothing/glasses/thermal/m64_thermal_goggles
-	name = "\improper M64 tracker sight"
-	desc = "A headset and thermal vision goggles system for the tracker specialization. Allows thermal imaging of living creatures. Click it to toggle."
-	icon = 'icons/obj/clothing/glasses.dmi'
-	icon_state = "m56_goggles"
-	deactive_state = "m56_goggles_0"
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/thermal/yautja
 	name = "bio-mask thermal"
