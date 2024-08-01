@@ -34,7 +34,7 @@
 	if(reagents.total_volume)
 		return
 
-	balloon_alert_to_viewers("eats \the [src]")
+	balloon_alert_to_viewers("eats \the [src]", ignored_mobs = M)
 
 	usr.dropItemToGround(src)	//so icons update :[
 
@@ -71,15 +71,15 @@
 			if(ishuman(H) && (H.species.species_flags & ROBOTIC_LIMBS))
 				balloon_alert(user, "can't eat food")
 				return
-			if (fullness <= 50)
+			if(fullness <= 50)
 				balloon_alert(user, "hungrily chews [src]")
-			if (fullness > 50 && fullness <= 150)
+			if(fullness > 50 && fullness <= 150)
 				balloon_alert(user, "hungrily eats [src]")
-			if (fullness > 150 && fullness <= 350)
+			if(fullness > 150 && fullness <= 350)
 				balloon_alert(user, "takes bite of [src]")
-			if (fullness > 350 && fullness <= 550)
+			if(fullness > 350 && fullness <= 550)
 				balloon_alert(user, "unwillingly chews [src]")
-			if (fullness > 550)
+			if(fullness > 550)
 				balloon_alert(user, "cannot eat more of [src]")
 				return FALSE
 		else
@@ -87,7 +87,7 @@
 			if(ishuman(H) && (H.species.species_flags & ROBOTIC_LIMBS))
 				balloon_alert(user, "can't eat food")
 				return
-			if (fullness <= 550)
+			if(fullness <= 550)
 				balloon_alert_to_viewers("tries to feed [M]")
 			else
 				balloon_alert_to_viewers("tries to feed [M] but can't")
