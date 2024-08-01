@@ -154,19 +154,19 @@
  * * transfer_to_stomach - does it goes to stomach like from pills and food?
  *  */
 /datum/reagents/proc/trans_to(
-atom/target,
-amount = 1,
-multiplier = 1,
-preserve_data = TRUE,
-no_react = FALSE,
-transfer_to_stomach = FALSE
+	atom/target,
+	amount = 1,
+	multiplier = 1,
+	preserve_data = TRUE,
+	no_react = FALSE,
+	transfer_to_stomach = FALSE
 )
-	var/list/cached_reagents = reagent_list
 	if(!target || !total_volume)
 		return
 	if(amount < 0)
 		return
 
+	var/list/cached_reagents = reagent_list
 	var/datum/reagents/R
 	if(istype(target, /datum/reagents))
 		R = target
@@ -182,14 +182,14 @@ transfer_to_stomach = FALSE
 					torso.germ_level += expel_amount * 15 // 10 units are 150 germ level and etc.
 				return
 			R = belly.reagents
-			//target_atom = belly
 		else if(!target.reagents)
 			return
-		R = target.reagents
-	amount = min(min(amount, total_volume), R.maximum_volume-R.total_volume)
+		else
+			R = target.reagents
+	amount = min(min(amount, total_volume), R.maximum_volume - R.total_volume)
 	var/part = amount / total_volume
 	var/trans_data = null
-	for(var/reagent in cached_reagents)
+	for(var/reagent AS in cached_reagents)
 		var/datum/reagent/T = reagent
 		var/transfer_amount = T.volume * part
 		if(preserve_data)
@@ -205,7 +205,7 @@ transfer_to_stomach = FALSE
 	return amount
 
 /// Copies the reagents to the target object
-/datum/reagents/proc/copy_to(obj/target, amount=1, multiplier=1, preserve_data=1)
+/datum/reagents/proc/copy_to(obj/target, amount = 1, multiplier = 1, preserve_data = 1)
 	var/list/cached_reagents = reagent_list
 	if(!target || !total_volume)
 		return
