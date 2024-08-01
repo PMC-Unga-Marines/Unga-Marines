@@ -1791,6 +1791,21 @@ ENGINEERING
 	contains = list(/obj/item/stack/sheet/cloth/large_stack)
 	cost = 200
 
+/datum/supply_packs/engineering/platinum50
+	name = "50 platinum sheets"
+	contains = list(/obj/item/stack/sheet/mineral/platinum/large_stack)
+	cost = 800 //USE JUNK
+
+/datum/supply_packs/engineering/junk50
+	name = "50 junk slabs"
+	contains = list(/obj/item/stack/sheet/mineral/junk/large_stack)
+	cost = 300
+
+/datum/supply_packs/engineering/silver50
+	name = "50 silver sheets"
+	contains = list(/obj/item/stack/sheet/mineral/silver/large_stack)
+	cost = 600
+
 /datum/supply_packs/engineering/plasmacutter
 	name = "plasma cutter"
 	contains = list(/obj/item/tool/pickaxe/plasmacutter/)
@@ -2439,57 +2454,6 @@ VEHICLES
 FACTORY
 *******************************************************************************/
 
-/datum/supply_packs/factory/smartgun_minigun_box_refill
-	name = "SG-85 ammo bin parts refill"
-	contains = list(/obj/item/factory_refill/smartgunner_minigun_box_refill)
-	cost = 250
-
-/datum/supply_packs/factory/smartgun_magazine_refill
-	name = "SG-29 ammo drum parts refill"
-	contains = list(/obj/item/factory_refill/smartgunner_machinegun_magazine_refill)
-	cost = 250
-
-
-/datum/supply_packs/factory/smartgun_targetrifle_refill
-	name = "SG-62 ammo magazine parts refill"
-	contains = list(/obj/item/factory_refill/smartgunner_targetrifle_magazine_refill)
-	cost = 250
-
-/datum/supply_packs/factory/autosniper_magazine_refill
-	name = "SR-81 IFF Auto Sniper magazine assembly refill"
-	contains = list(/obj/item/factory_refill/auto_sniper_magazine_refill)
-	cost = 400
-
-/datum/supply_packs/factory/scout_rifle_magazine_refill
-	name = "BR-8 scout rifle magazine assembly refill"
-	contains = list(/obj/item/factory_refill/scout_rifle_magazine_refill)
-	cost = 200
-
-/datum/supply_packs/factory/claymorerefill
-	name = "Claymore parts refill"
-	contains = list(/obj/item/factory_refill/claymore_refill)
-	cost = 300
-
-/datum/supply_packs/factory/mateba_speedloader_refill
-	name = "Mateba autorevolver speedloader assembly refill"
-	contains = list(/obj/item/factory_refill/mateba_speedloader_refill)
-	cost = 300
-
-/datum/supply_packs/factory/railgun_magazine_refill
-	name = "Railgun magazine assembly refill"
-	contains = list(/obj/item/factory_refill/railgun_magazine_refill)
-	cost = 200
-
-/datum/supply_packs/factory/minigun_powerpack_refill
-	name = "Minigun powerpack assembly refill"
-	contains = list(/obj/item/factory_refill/minigun_powerpack_refill)
-	cost = 250
-
-/datum/supply_packs/factory/razornade_refill
-	name = "Razornade assembly refill"
-	contains = list(/obj/item/factory_refill/razornade_refill)
-	cost = 500
-
 /datum/supply_packs/factory/amr_magazine_refill
 	name = "T-26 AMR magazine assembly refill"
 	contains = list(/obj/item/factory_refill/amr_magazine_refill)
@@ -2528,11 +2492,6 @@ FACTORY
 /datum/supply_packs/factory/swat_mask_refill
 	name = "SWAT mask assembly refill"
 	contains = list(/obj/item/factory_refill/swat_mask_refill)
-	cost = 500
-
-/datum/supply_packs/factory/med_advpack
-	name = "Advanced medical pack assembly refill"
-	contains = list(/obj/item/factory_refill/med_advpack_refill)
 	cost = 500
 
 /datum/supply_packs/factory/mortar_shell_he_refill
