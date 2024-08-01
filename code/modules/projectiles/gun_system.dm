@@ -1074,7 +1074,7 @@
 
 	switch(projectile_to_fire.ammo.damage_type)
 		if(STAMINA)
-			to_chat(user, "<span class = 'notice'>Ow...</span>")
+			to_chat(user, span_notice("Ow..."))
 			user.apply_damage(200, STAMINA)
 		else
 			user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)

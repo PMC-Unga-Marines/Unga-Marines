@@ -460,13 +460,13 @@
 		clear_vehicle()
 		return
 	if(!length(GLOB.unmanned_vehicles))
-		to_chat(ai, "<span class='warning'>No unmanned vehicles detected</span>")
+		to_chat(ai, span_warning("No unmanned vehicles detected"))
 		return
 	var/obj/vehicle/unmanned/new_vehicle = tgui_input_list(ai, "What vehicle do you want to control?","vehicle choice", GLOB.unmanned_vehicles)
 	if(!new_vehicle)
 		return
 	if(new_vehicle.controlled)
-		to_chat(ai, "<span class='warning'>Something is already controlling this vehicle</span>")
+		to_chat(ai, span_warning("Something is already controlling this vehicle"))
 		return
 	link_with_vehicle(new_vehicle)
 	ai.controlling = TRUE

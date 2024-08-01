@@ -161,17 +161,17 @@
 	if(target == user)
 		visible_message(span_notice("[user] starts climbing into the disposal."))
 	else
-		visible_message("<span class ='warning'>[user] starts stuffing [target] into the disposal.</span>")
+		visible_message(span_warning("[user] starts stuffing [target] into the disposal."))
 
 	if(!do_after(user, 4 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_HOSTILE))
 		return
 
 	if(target == user)
 		user.visible_message(span_notice("[user] climbs into [src]."),
-		"<span class ='notice'>You climb into [src].</span>")
+		span_notice("You climb into [src]."))
 	else
-		user.visible_message("<span class ='danger'>[user] stuffs [target] into [src]!</span>",
-		"<span class ='warning'>You stuff [target] into [src]!</span>")
+		user.visible_message(span_danger("[user] stuffs [target] into [src]!"),
+		span_warning("You stuff [target] into [src]!"))
 
 		log_combat(user, target, "placed", addition="into disposals")
 		message_admins("[ADMIN_TPMONTY(usr)] placed [ADMIN_TPMONTY(target)] in a disposals unit.")
