@@ -261,7 +261,7 @@
 		embedded.unembed_ourself()
 
 	// shut down various types of badness
-	setStaminaLoss(0)
+	setStaminaLoss(-50)
 	setToxLoss(0)
 	setOxyLoss(0)
 	setCloneLoss(0)
