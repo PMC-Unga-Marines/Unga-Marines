@@ -84,8 +84,8 @@
 
 		item_quants[strip_improper(I.name)]++
 
-		user.visible_message("<span class='notice'>[user] has added \the [I] to \the [src].", \
-							"<span class='notice'>You add \the [I] to \the [src].")
+		user.visible_message(span_notice("[user] has added \the [I] to \the [src]."), \
+							span_notice("You add \the [I] to \the [src]."))
 		updateUsrDialog()
 
 	else if(istype(I, /obj/item/storage/bag/plants))

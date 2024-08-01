@@ -47,7 +47,7 @@
 		return
 
 	if(safety)
-		to_chat(user, "<span class = 'warning'>The safety is on!</span>")
+		to_chat(user, span_warning("The safety is on!"))
 		return
 
 	Spray_at(A)
@@ -140,7 +140,7 @@
 
 /obj/item/reagent_containers/spray/pepper/attack_self(mob/user)
 	safety = !safety
-	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
+	to_chat(user, span_notice("You switch the safety [safety ? "on" : "off"]."))
 
 //water flower
 /obj/item/reagent_containers/spray/waterflower

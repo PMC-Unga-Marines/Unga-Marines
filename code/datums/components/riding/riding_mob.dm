@@ -266,7 +266,7 @@
 		carrying_crusher.unbuckle_mob(rider)
 		rider.Knockdown(1 SECONDS)
 		carrying_crusher.visible_message(span_danger("[rider] topples off of [carrying_crusher] as they both fall to the ground!"), \
-					span_warning("You fall to the ground, bringing [rider] with you!</span>", span_hear("You hear two consecutive thuds.")))
+					span_warning("You fall to the ground, bringing [rider] with you!"), span_hear("You hear two consecutive thuds."))
 		to_chat(rider, span_danger("[carrying_crusher] falls to the ground, bringing you with [carrying_crusher.p_them()]!"))
 
 //Override this to set your vehicle's various pixel offsets

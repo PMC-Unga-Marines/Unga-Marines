@@ -911,7 +911,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				return
 
 			if(F.marked && F.marked != usr.client.key)
-				to_chat(usr, "<span class='warning'>This fax has already been marked by [F.marked], please unmark it to be able to proceed.")
+				to_chat(usr, span_warning("This fax has already been marked by [F.marked], please unmark it to be able to proceed."))
 				return
 			else if(!F.marked)
 				F.marked = usr.client.key

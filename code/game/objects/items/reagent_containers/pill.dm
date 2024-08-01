@@ -59,7 +59,7 @@
 			return
 
 		user.dropItemToGround(src) //icon update
-		visible_message("<span class='warning'>[user] forces [M] to swallow [src].")
+		visible_message(span_warning("[user] forces [M] to swallow [src]."))
 
 		var/rgt_list_text = get_reagent_list_text()
 
@@ -107,7 +107,7 @@
 		log_combat(user, target, "spiked", src, "Reagents: [rgt_list_text]")
 
 		reagents.trans_to(target, reagents.total_volume)
-		visible_message("<span class='warning'>[user] puts something in \the [target].", null, null, 2)
+		visible_message(span_warning("[user] puts something in \the [target].", null, null, 2))
 
 		QDEL_IN(src, 5)
 
