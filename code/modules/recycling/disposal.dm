@@ -201,8 +201,8 @@
 		var/mob/living/L = user
 		L.Stun(4 SECONDS)
 	if(!user.lying_angle)
-		user.visible_message("<span class='warning'>[user] suddenly climbs out of [src]!",
-		"<span class='warning'>You climb out of [src] and get your bearings!")
+		user.visible_message(span_warning("[user] suddenly climbs out of [src]!"),
+		span_warning("You climb out of [src] and get your bearings!"))
 		update()
 
 
@@ -282,8 +282,8 @@
 		if(isliving(AM))
 			var/mob/M = AM
 			if(!M.lying_angle)
-				M.visible_message("<span class='warning'>[M] is suddenly pushed out of [src]!",
-				"<span class='warning'>You get pushed out of [src] and get your bearings!")
+				M.visible_message(span_warning("[M] is suddenly pushed out of [src]!"),
+				span_warning("You get pushed out of [src] and get your bearings!"))
 			if(isliving(M))
 				var/mob/living/L = M
 				L.Stun(4 SECONDS)

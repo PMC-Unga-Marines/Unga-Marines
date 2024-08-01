@@ -1651,20 +1651,20 @@
 		return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_WIELDED_FIRING_ONLY)) //If we're not holding the weapon with both hands when we should.
 		if(!master_gun && !CHECK_BITFIELD(flags_item, WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire this weapon!")
+			to_chat(user, span_warning("You need a more secure grip to fire this weapon!"))
 			return FALSE
 		if(master_gun && !CHECK_BITFIELD(master_gun.flags_item, WIELDED))
 			to_chat(user, span_warning("You need a more secure grip to fire [src]!"))
 			return FALSE
 	if(LAZYACCESS(user.do_actions, src))
-		to_chat(user, "<span class='warning'>You are doing something else currently.")
+		to_chat(user, span_warning("You are doing something else currently."))
 		return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_WIELDED_STABLE_FIRING_ONLY))//If we must wait to finish wielding before shooting.
 		if(!master_gun && !(flags_item & FULLY_WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire this weapon!")
+			to_chat(user, span_warning("You need a more secure grip to fire this weapon!"))
 			return FALSE
 		if(master_gun && !(master_gun.flags_item & FULLY_WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire [src]!")
+			to_chat(user, span_warning("You need a more secure grip to fire [src]!"))
 			return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_DEPLOYED_FIRE_ONLY) && !CHECK_BITFIELD(flags_item, IS_DEPLOYED))
 		to_chat(user, span_notice("You cannot fire [src] while it is not deployed."))
