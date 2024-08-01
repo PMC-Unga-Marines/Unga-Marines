@@ -81,9 +81,6 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	color = "#333333"
 	perunit = 3750
 
-/obj/item/stack/sheet/mineral/iron/large_stack
-	amount = 50
-
 /obj/item/stack/sheet/mineral/iron/Initialize(mapload)
 	. = ..()
 	recipes = GLOB.iron_recipes
@@ -117,6 +114,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-diamond"
 	perunit = 3750
 	sheettype = "diamond"
+	merge_type = /obj/item/stack/sheet/mineral/diamond
 
 /obj/item/stack/sheet/mineral/diamond/large_stack
 	amount = 50
@@ -132,6 +130,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-uranium"
 	perunit = 2000
 	sheettype = "uranium"
+	merge_type = /obj/item/stack/sheet/mineral/uranium
 
 /obj/item/stack/sheet/mineral/uranium/large_stack
 	amount = 50
@@ -163,6 +162,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	desc = "Plastic is a synthetic polymer, manufactured from organic and inorganic components into a malleable and light fabric. It can be used for a wide range of objects."
 	singular_name = "plastic sheet"
 	icon_state = "sheet-plastic"
+	merge_type = /obj/item/stack/sheet/mineral/plastic
 	perunit = 2000
 
 /obj/item/stack/sheet/mineral/plastic/large_stack
@@ -187,6 +187,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	perunit = 2000
 	sheettype = "gold"
 	number_of_extra_variants = 2
+	merge_type = /obj/item/stack/sheet/mineral/gold
 
 /obj/item/stack/sheet/mineral/gold/large_stack
 	amount = 50
@@ -202,6 +203,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-silver"
 	perunit = 2000
 	sheettype = "silver"
+	merge_type = /obj/item/stack/sheet/mineral/silver
 	number_of_extra_variants = 2
 
 /obj/item/stack/sheet/mineral/silver/large_stack
@@ -220,6 +222,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-platinum"
 	sheettype = "platinum"
 	perunit = 2000
+	merge_type = /obj/item/stack/sheet/mineral/platinum
 	number_of_extra_variants = 2
 
 /obj/item/stack/sheet/mineral/platinum/large_stack
@@ -252,7 +255,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	singular_name = "osmium ingot"
 	icon_state = "sheet-osmium"
 	sheettype = "osmium"
-	color = "#9999FF"
+	merge_type = /obj/item/stack/sheet/mineral/osmium
 	perunit = 2000
 
 /obj/item/stack/sheet/mineral/osmium/large_stack
@@ -264,7 +267,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	singular_name = "osmcopperium ingot"
 	icon_state = "sheet-copper"
 	sheettype = "copper"
-	color = "#f06f06"
+	merge_type = /obj/item/stack/sheet/mineral/copper
 	perunit = 2000
 
 /obj/item/stack/sheet/mineral/copper/large_stack
@@ -276,7 +279,7 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	singular_name = "junk slab"
 	icon_state = "compressed_junk"
 	sheettype = "junk"
-	color = "#232421"
+	merge_type = /obj/item/stack/sheet/mineral/junk
 	perunit = 2000
 
 /obj/item/stack/sheet/mineral/junk/large_stack

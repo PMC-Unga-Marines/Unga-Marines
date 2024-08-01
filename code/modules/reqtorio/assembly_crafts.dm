@@ -65,7 +65,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	name = "Сlearing junk in phoron and glass? Explosion transformation power!"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 4) // 20 points
-	output = list(/obj/item/stack/sheet/mineral/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
+	output = list(/obj/item/stack/sheet/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
 
 //one in one craft cuz junk is multi use resource
 /datum/assembly_craft/engineering/junk_phoron_iron
@@ -74,11 +74,11 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	input = list(/obj/item/stack/sheet/mineral/junk = 50) // 300 from cargo
 	output = list(/obj/item/stack/sheet/metal/large_stack = 1) //200 points so what?
 
-/datum/supply_packs/facengineeringtory/drop_pod
+/datum/assembly_craft/engineering/drop_pod
 	name = "Zeus orbital drop pod assembly refill"
 	craft_time = 20 SECONDS
-	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/mineral/glass = 3) // 40 + 6
-	output = list(/obj/item/factory_part/drop_pod = 1) //40 points
+	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass = 3) // 40 + 6
+	output = list(/obj/structure/drop_pod_launcher = 1) //40 points
 
 /*******************************************************************************
 CLOTHING
@@ -88,7 +88,7 @@ CLOTHING
 
 /datum/assembly_craft/clothing/swat_mask
 	name = "SWAT mask"
-	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/mineral/glass = 3) // 24 + 6 points
+	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/glass = 3) // 24 + 6 points
 	output = list(/obj/item/clothing/mask/gas/swat = 1) // 25 points from old factory
 
 
@@ -224,7 +224,7 @@ WEAPONS
 
 /datum/assembly_craft/weapons/railgun_magazine
 	name = "Railgun magazine"
-	input = list(/obj/item/stack/sheet/silver = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
+	input = list(/obj/item/stack/sheet/mineral/silver = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
 	output = list(/obj/item/ammo_magazine/railgun = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/minigun_powerpack
@@ -275,7 +275,7 @@ WEAPONS
 /datum/assembly_craft/weapons/mortar_shell_incen
 	name = "Mortar Incendiary shell"
 	input = list(/obj/item/stack/sheet/metal = 1, /obj/item/stack/gun_powder = 1) // 4 + 8 points
-	output = list(obj/item/mortal_shell/incendiary = 1) // 4 points from old factory
+	output = list(/obj/item/mortal_shell/incendiary = 1) // 4 points from old factory
 
 /datum/assembly_craft/weapons/mortar_shell_tfoot
 	name = "Mortar Tanglefoot Gas shell"

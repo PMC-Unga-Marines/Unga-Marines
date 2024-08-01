@@ -79,12 +79,25 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 
 ///Once the timer for processing is over this resets the machine and spits out the new result
 /obj/machinery/assembler/proc/finish_process()
-	var/turf/target = get_step(src, dir)
+	var/current_dir = dir
+	var/rotate = 90
+
+	switch(length(craft.output))
+		if(1)
+			current_dir = dir
+			rotate = 0
+		if(2)
+			current_dir = turn(dir, 90)
+			rotate = 180
+		if(3)
+			current_dir = turn(dir, 90)
+			rotate = -90
 
 	for(var/type in craft.output)
 		var/count = craft.output[type]
 		for(var/i in 1 to count)
-			new type(target)
+			new type(get_step(src, current_dir))
+		current_dir = turn(current_dir, rotate)
 
 	for(var/type in craft.input)
 		held_items[type] = 0
@@ -170,5 +183,14 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 
 /obj/machinery/fabricator/gunpowder
 	name = "Gunpowder fabricator"
-	desc = "Сreates gunpowder from... air. I think so"
+	desc = "Сreates gunpowder from... air. I think so, looks kinda dangerous"
 	item_to_fabricate = /obj/item/stack/gun_powder/large_stack
+
+/obj/machinery/fabricator/gunpowder/Destroy()
+	cell_explosion(loc, 300, 100)
+	return ..()
+
+/obj/machinery/fabricator/junk
+	name = "Junk fabricator"
+	desc = "Сreates junk from... air. even this is garbage, it can be useful"
+	item_to_fabricate = /obj/item/stack/sheet/mineral/junk/large_stack
