@@ -147,7 +147,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/neuraline = list(CAT_MEDSUP, "Injector (Neuraline)", 14, "cyan"),
 	/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "yellow"),
 	/obj/item/defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 4, "yellow"),
-	/obj/item/defibrillator/advanced = list(CAT_FCSUP, "advanced emergency defibrillator", 4, "yellow"),
+	/obj/item/defibrillator/advanced = list(CAT_MEDSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
 ))
