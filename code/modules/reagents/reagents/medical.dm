@@ -106,7 +106,7 @@
 	L.AdjustUnconscious(-1 SECONDS)
 	L.AdjustStun(-1 SECONDS)
 	L.AdjustParalyzed(-1 SECONDS)
-	L.add_movespeed_modifier(MOVESPEED_ID_MOB_PARACETAMOL_SPEED, TRUE, 0, NONE, TRUE, 100)
+	L.add_movespeed_modifier(MOVESPEED_ID_MOB_PARACETAMOL_SPEED, TRUE, 0, NONE, TRUE, -0.1)
 	return ..()
 
 
@@ -697,7 +697,7 @@
 		var/datum/internal_organ/brain/B = H.internal_organs_by_name["brain"]
 		if(B.damage < 30)
 			L.adjustBrainLoss(-1.5*effect_str)
-			L.adjustToxLoss(-1.5)
+			L.adjustToxLoss(-1.5 * effect_str)
 	L.adjust_ear_damage(-2 * effect_str, -2 * effect_str)
 	return ..()
 
@@ -724,7 +724,7 @@
 		var/datum/internal_organ/eyes/E = H.internal_organs_by_name["eyes"]
 		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
-			L.adjustToxLoss(-1.5)
+			L.adjustToxLoss(-1.5 * effect_str)
 	return ..()
 
 /datum/reagent/medicine/imidazoline/overdose_process(mob/living/L, metabolism)

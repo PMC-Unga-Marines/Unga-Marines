@@ -144,12 +144,6 @@ RU TGMC EDIT */
 	results = list(/datum/reagent/medicine/kelotane = 2)
 	required_reagents = list(/datum/reagent/silicon = 1, /datum/reagent/carbon = 1)
 
-/*/datum/chemical_reaction/peridaxon_plus
-	name = "Peridaxon Plus"
-	results = list(/datum/reagent/medicine/peridaxon_plus = 1)
-	required_reagents = list(/datum/reagent/medicine/hyronalin = 5, /datum/reagent/toxin/phoron = 5)
-*/
-
 /datum/chemical_reaction/quickclot
 	name = "Quick-Clot"
 	results = list(/datum/reagent/medicine/quickclot = 1)
