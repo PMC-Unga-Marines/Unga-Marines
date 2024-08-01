@@ -1055,7 +1055,7 @@
 
 	projectile_to_fire = get_ammo_object()
 
-	user.visible_message("<span class = 'warning'>[user] pulls the trigger!</span>")
+	user.visible_message(span_warning("[user] pulls the trigger!"))
 	var/actual_sound = (active_attachable?.fire_sound) ? active_attachable.fire_sound : fire_sound
 	var/sound_volume = (HAS_TRAIT(src, TRAIT_GUN_SILENCED) && !active_attachable) ? 25 : 60
 	playsound(user, actual_sound, sound_volume, 1)
