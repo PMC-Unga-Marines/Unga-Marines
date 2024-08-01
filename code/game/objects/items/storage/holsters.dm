@@ -370,16 +370,13 @@
 /obj/item/storage/holster/blade/machete
 	name = "\improper H5 pattern M2132 machete scabbard"
 	desc = "A large leather scabbard used to carry a M2132 machete. It can be strapped to the back, waist or armor."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "machete_holster"
 	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(
 		/obj/item/weapon/claymore/mercsword/machete,
-		/obj/item/weapon/claymore/harvester,
 	)
 	can_hold = list(
 		/obj/item/weapon/claymore/mercsword/machete,
-		/obj/item/weapon/claymore/harvester,
 	)
 
 /obj/item/storage/holster/blade/machete/full/Initialize(mapload)
@@ -387,11 +384,19 @@
 	var/obj/item/new_item = new /obj/item/weapon/claymore/mercsword/machete(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
-/obj/item/storage/holster/blade/machete/full_harvester
-	icon = 'icons/obj/items/storage/storage.dmi'
+/obj/item/storage/holster/blade/harvester
 	name = "H5 Pattern M2132 harvester scabbard"
+	desc = "A large leather scabbard used to carry a M2132 harvester blade. It can be strapped to the back, waist or armor."
+	icon_state = "harvester_holster"
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	holsterable_allowed = list(
+		/obj/item/weapon/claymore/harvester,
+	)
+	can_hold = list(
+		/obj/item/weapon/claymore/harvester,
+	)
 
-/obj/item/storage/holster/blade/machete/full_harvester/Initialize(mapload)
+/obj/item/storage/holster/blade/harvester/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/harvester(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
