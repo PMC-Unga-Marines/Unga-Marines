@@ -375,10 +375,10 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 	switch(action)
 		if("set_attrition_points")
 			if(!is_leadership_role(user))
-				to_chat(user, "<span class='warning'>Only leadership roles can do this.")
+				to_chat(user, span_warning("Only leadership roles can do this."))
 				return
 			if((current_mode.current_mission?.mission_state != MISSION_STATE_NEW) && (current_mode.current_mission?.mission_state != MISSION_STATE_LOADED))
-				to_chat(user, "<span class='warning'>Current mission already ongoing, unable to assign more personnel at this time.")
+				to_chat(user, span_warning("Current mission already ongoing, unable to assign more personnel at this time."))
 				return
 			total_attrition_points += active_attrition_points
 			active_attrition_points = 0 //reset, you can change your mind up until the mission starts
@@ -389,13 +389,13 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 			active_attrition_points = choice
 			for(var/mob/living/carbon/human/faction_member AS in GLOB.alive_human_list_faction[faction])
 				faction_member.playsound_local(null, 'sound/effects/CIC_order.ogg', 30, 1)
-				to_chat(faction_member, "<span class='warning'>[user] has assigned [choice] attrition points for the next mission.")
+				to_chat(faction_member, span_warning("[user] has assigned [choice] attrition points for the next mission."))
 			update_static_data_for_all_viewers()
 			return TRUE
 
 		if("set_next_mission")
 			if(user != faction_leader)
-				to_chat(user, "<span class='warning'>Only your faction's commander can do this.")
+				to_chat(user, span_warning("Only your faction's commander can do this."))
 				return
 			var/new_mission = text2path(params["new_mission"])
 			if(!new_mission)
@@ -404,10 +404,10 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 				return
 			var/datum/campaign_mission/choice = available_missions[new_mission]
 			if(current_mode.current_mission?.mission_state != MISSION_STATE_FINISHED)
-				to_chat(user, "<span class='warning'>Current mission still ongoing!")
+				to_chat(user, span_warning("Current mission still ongoing!"))
 				return
 			if(!(stats_flags & MISSION_SELECTION_ALLOWED))
-				to_chat(user, "<span class='warning'>The opposing side has the initiative, win a mission to regain it.")
+				to_chat(user, span_warning("The opposing side has the initiative, win a mission to regain it."))
 				return
 			current_mode.load_new_mission(choice)
 			available_missions -= new_mission
@@ -423,22 +423,22 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 			var/datum/campaign_asset/choice = faction_assets[selected_asset]
 			if(!is_leadership_role(user))
 				if(!(choice.asset_flags & ASSET_SL_AVAILABLE))
-					to_chat(user, "<span class='warning'>Only leadership roles can do this.")
+					to_chat(user, span_warning("Only leadership roles can do this."))
 					return
 				if(!(ismarineleaderjob(user.job) || issommarineleaderjob(user.job)))
-					to_chat(user, "<span class='warning'>Only squad leaders and above can do this.")
+					to_chat(user, span_warning("Only squad leaders and above can do this."))
 					return
 			if(!choice.attempt_activatation(user))
 				return
 			for(var/mob/living/carbon/human/faction_member AS in GLOB.alive_human_list_faction[faction])
 				faction_member.playsound_local(null, 'sound/effects/CIC_order.ogg', 30, 1)
 				faction_member.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "[choice.name] asset activated", faction_portrait)
-				to_chat(faction_member, "<span class='warning'>[user] has activated the [choice.name] campaign asset.")
+				to_chat(faction_member, span_warning("[user] has activated the [choice.name] campaign asset."))
 			return TRUE
 
 		if("purchase_reward")
 			if(!is_leadership_role(user))
-				to_chat(user, "<span class='warning'>Only leadership roles can do this.")
+				to_chat(user, span_warning("Only leadership roles can do this."))
 				return
 			var/datum/campaign_asset/selected_asset = text2path(params["selected_reward"])
 			if(!selected_asset)
@@ -446,12 +446,12 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 			if(!(selected_asset in purchasable_assets))
 				return
 			if(initial(selected_asset.cost) > total_attrition_points)
-				to_chat(user, "<span class='warning'>[initial(selected_asset.cost) - total_attrition_points] more attrition points required.")
+				to_chat(user, span_warning("[initial(selected_asset.cost) - total_attrition_points] more attrition points required."))
 				return
 			add_asset(selected_asset)
 			total_attrition_points -= initial(selected_asset.cost)
 			for(var/mob/living/carbon/human/faction_member AS in GLOB.alive_human_list_faction[faction])
 				faction_member.playsound_local(null, 'sound/effects/CIC_order.ogg', 30, 1)
-				to_chat(faction_member, "<span class='warning'>[user] has purchased the [initial(selected_asset.name)] campaign asset.")
+				to_chat(faction_member, span_warning("[user] has purchased the [initial(selected_asset.name)] campaign asset."))
 			update_static_data_for_all_viewers()
 			return TRUE

@@ -573,26 +573,25 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(!isnewplayer(NP))
 		return FALSE
 	if(!NP.IsJobAvailable(job, TRUE))
-		to_chat(usr, "<span class='warning'>Selected job is not available.<spawn>")
+		to_chat(usr, span_warning("Selected job is not available."))
 		return FALSE
 	if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished!<spawn>")
+		to_chat(usr, span_warning("The round is either not ready, or has already finished!"))
 		return FALSE
 	if(!GLOB.enter_allowed || (!GLOB.xeno_enter_allowed && istype(job, /datum/job/xenomorph)))
-		to_chat(usr, "<span class='warning'>Spawning currently disabled, please observe.<spawn>")
+		to_chat(usr, span_warning("Spawning currently disabled, please observe."))
 		return FALSE
 	if(!NP.client.prefs.random_name)
 		var/name_to_check = NP.client.prefs.real_name
 		if(job.job_flags & JOB_FLAG_SPECIALNAME)
 			name_to_check = job.get_special_name(NP.client)
 		if(CONFIG_GET(flag/prevent_dupe_names) && GLOB.real_names_joined.Find(name_to_check))
-			to_chat(usr, "<span class='warning'>Someone has already joined the round with this character name. Please pick another.<spawn>")
+			to_chat(usr, span_warning("Someone has already joined the round with this character name. Please pick another."))
 			return FALSE
 	if(!SSjob.AssignRole(NP, job, TRUE))
-		to_chat(usr, "<span class='warning'>Failed to assign selected role.<spawn>")
+		to_chat(usr, span_warning("Failed to assign selected role."))
 		return FALSE
 	return TRUE
-
 
 /datum/game_mode/proc/LateSpawn(mob/new_player/player)
 	player.close_spawn_windows()

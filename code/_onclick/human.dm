@@ -54,7 +54,7 @@
 
 	var/datum/limb/temp = get_limb(hand ? "l_hand" : "r_hand")
 	if(temp && !temp.is_usable())
-		to_chat(src, "<span class='notice'>You try to move your [temp.display_name], but cannot!")
+		to_chat(src, span_notice("You try to move your [temp.display_name], but cannot!"))
 		return
 
 	if(LAZYACCESS(modifiers, "right"))

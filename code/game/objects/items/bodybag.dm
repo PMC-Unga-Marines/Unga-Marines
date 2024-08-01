@@ -316,9 +316,9 @@
 		if(medical_record.fields["name"] != bodybag_occupant.real_name)
 			continue
 		if(!(medical_record.fields["last_scan_time"]))
-			. += "<span class = 'deptradio'>No scan report on record</span>"
+			. += span_deptradio("No scan report on record")
 		else
-			. += "<span class = 'deptradio'><a href='?src=[text_ref(src)];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a></span>"
+			. += span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a>")
 		break
 
 /obj/structure/closet/bodybag/cryobag/Topic(href, href_list)

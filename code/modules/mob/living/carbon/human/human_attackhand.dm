@@ -155,7 +155,7 @@ RU TGMC EDIT */
 						chance = !hand ? 40 : 20
 
 					if(prob(chance))
-						visible_message("<span class='danger'>[src]'s [W] goes off during struggle!", null, null, 5)
+						visible_message(span_danger("[src]'s [W] goes off during struggle!"), null, null, 5)
 						log_combat(H, src, "disarmed", "making their [W] go off")
 						var/list/turfs = list()
 						for(var/turf/T in view())

@@ -56,8 +56,8 @@
 	if(!kick_us_off)
 		return TRUE
 
-	rider.visible_message("<span class='warning'>[rider] falls off of [living_parent]!</span>", \
-					"<span class='warning'>You fall off of [living_parent]!</span>")
+	rider.visible_message(span_warning("[rider] falls off of [living_parent]!"), \
+					span_warning("You fall off of [living_parent]!"))
 	rider.Paralyze(1 SECONDS)
 	rider.Knockdown(4 SECONDS)
 	living_parent.unbuckle_mob(rider)
@@ -74,7 +74,7 @@
 	if(!keycheck(user))
 		if(ispath(keytype, /obj/item))
 			var/obj/item/key = keytype
-			to_chat(user, "<span class='warning'>You need a [initial(key.name)] to ride [movable_parent]!</span>")
+			to_chat(user, span_warning("You need a [initial(key.name)] to ride [movable_parent]!"))
 		return COMPONENT_DRIVER_BLOCK_MOVE
 	last_move_diagonal = ISDIAGONALDIR(direction)
 	var/new_delay = (last_move_diagonal ? DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER : 1) * vehicle_move_delay
@@ -96,12 +96,12 @@
 	rider.Move(targetm)
 	rider.Knockdown(3 SECONDS)
 	if(gentle)
-		rider.visible_message("<span class='warning'>[rider] is thrown clear of [movable_parent]!</span>", \
-		"<span class='warning'>You're thrown clear of [movable_parent]!</span>")
+		rider.visible_message(span_warning("[rider] is thrown clear of [movable_parent]!"), \
+		span_warning("You're thrown clear of [movable_parent]!"))
 		rider.throw_at(target, 8, 3, movable_parent)
 	else
-		rider.visible_message("<span class='warning'>[rider] is thrown violently from [movable_parent]!</span>", \
-		"<span class='warning'>You're thrown violently from [movable_parent]!</span>")
+		rider.visible_message(span_warning("[rider] is thrown violently from [movable_parent]!"), \
+		span_warning("You're thrown violently from [movable_parent]!"))
 		rider.throw_at(target, 14, 5, movable_parent)
 
 // ***************************************
@@ -153,9 +153,9 @@
 		human_parent.unbuckle_mob(rider)
 		rider.Paralyze(1 SECONDS)
 		rider.Knockdown(4 SECONDS)
-		human_parent.visible_message("<span class='danger'>[rider] topples off of [human_parent] as they both fall to the ground!</span>", \
-					"<span class='warning'>You fall to the ground, bringing [rider] with you!</span>", "<span class='hear'>You hear two consecutive thuds.</span>")
-		to_chat(rider, "<span class='danger'>[human_parent] falls to the ground, bringing you with [human_parent.p_them()]!</span>")
+		human_parent.visible_message(span_danger("[rider] topples off of [human_parent] as they both fall to the ground!"), \
+					span_warning("You fall to the ground, bringing [rider] with you!"), span_hear("You hear two consecutive thuds."))
+		to_chat(rider, span_danger("[human_parent] falls to the ground, bringing you with [human_parent.p_them()]!"))
 
 /datum/component/riding/creature/human/handle_vehicle_layer(dir)
 	var/atom/movable/AM = parent
@@ -189,8 +189,8 @@
 	AM.unbuckle_mob(dismounted_rider)
 	dismounted_rider.Paralyze(1 SECONDS)
 	dismounted_rider.Knockdown(4 SECONDS)
-	dismounted_rider.visible_message("<span class='warning'>[AM] pushes [dismounted_rider] off of [AM.p_them()]!</span>", \
-						"<span class='warning'>[AM] pushes you off of [AM.p_them()]!</span>")
+	dismounted_rider.visible_message(span_warning("[AM] pushes [dismounted_rider] off of [AM.p_them()]!"), \
+						span_warning("[AM] pushes you off of [AM.p_them()]!"))
 
 // ***************************************
 // *********** Simple Animals
@@ -265,9 +265,9 @@
 	for(var/mob/living/rider AS in carrying_crusher.buckled_mobs)
 		carrying_crusher.unbuckle_mob(rider)
 		rider.Knockdown(1 SECONDS)
-		carrying_crusher.visible_message("<span class='danger'>[rider] topples off of [carrying_crusher] as they both fall to the ground!</span>", \
-					"<span class='warning'>You fall to the ground, bringing [rider] with you!</span>", "<span class='hear'>You hear two consecutive thuds.</span>")
-		to_chat(rider, "<span class='danger'>[carrying_crusher] falls to the ground, bringing you with [carrying_crusher.p_them()]!</span>")
+		carrying_crusher.visible_message(span_danger("[rider] topples off of [carrying_crusher] as they both fall to the ground!"), \
+					span_warning("You fall to the ground, bringing [rider] with you!"), span_hear("You hear two consecutive thuds."))
+		to_chat(rider, span_danger("[carrying_crusher] falls to the ground, bringing you with [carrying_crusher.p_them()]!"))
 
 //Override this to set your vehicle's various pixel offsets
 /datum/component/riding/creature/crusher/get_offsets(pass_index, mob_type) // list(dir = x, y, layer)

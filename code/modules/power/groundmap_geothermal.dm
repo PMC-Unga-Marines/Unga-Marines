@@ -148,8 +148,8 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	else if(cur_tick > fail_check_ticks) //Went past with no fail, reset the timer
 		cur_tick = 0
 		return FALSE
-	if(rand(1,100) < fail_rate) //Oh snap, we failed! Shut it down!
-		if(rand(0,3) == 0)
+	if(rand(1, 100) < fail_rate) //Oh snap, we failed! Shut it down!
+		if(rand(0, 3) == 0)
 			visible_message("[icon2html(src, viewers(src))] <span class='notice'><b>[src]</b> beeps wildly and a fuse blows! Use wirecutters, then a wrench to repair it.")
 			buildstate = GEOTHERMAL_MEDIUM_DAMAGE
 			icon_state = "wire"
@@ -211,13 +211,13 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		return FALSE
 
 	if(buildstate == GEOTHERMAL_HEAVY_DAMAGE)
-		to_chat(usr, "<span class='info'>Use a blowtorch, then wirecutters, then a wrench to repair it.")
+		to_chat(usr, span_info("Use a blowtorch, then wirecutters, then a wrench to repair it."))
 		return FALSE
-	else if (buildstate == GEOTHERMAL_MEDIUM_DAMAGE)
-		to_chat(usr, "<span class='info'>Use a wirecutters, then wrench to repair it.")
+	else if(buildstate == GEOTHERMAL_MEDIUM_DAMAGE)
+		to_chat(usr, span_info("Use a wirecutters, then wrench to repair it."))
 		return FALSE
-	else if (buildstate == GEOTHERMAL_LIGHT_DAMAGE)
-		to_chat(usr, "<span class='info'>Use a wrench to repair it.")
+	else if(buildstate == GEOTHERMAL_LIGHT_DAMAGE)
+		to_chat(usr, span_info("Use a wrench to repair it."))
 		return FALSE
 	if(is_on)
 		visible_message("[icon2html(src, viewers(src))] <span class='warning'><b>[src]</b> beeps softly and the humming stops as [usr] shuts off the turbines.")

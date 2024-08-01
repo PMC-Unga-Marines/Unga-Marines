@@ -107,8 +107,8 @@
 			AdjustSleeping(-10 SECONDS)
 		if(!IsSleeping())
 			set_resting(FALSE)
-		shaker.visible_message("<span class='notice'>[shaker] shakes [src] trying to get [p_them()] up!",
-			"<span class='notice'>You shake [src] trying to get [p_them()] up!", null, 4)
+		shaker.visible_message(span_notice("[shaker] shakes [src] trying to get [p_them()] up!"),
+			span_notice("You shake [src] trying to get [p_them()] up!"), null, 4)
 
 		AdjustUnconscious(-6 SECONDS)
 		AdjustStun(-6 SECONDS)

@@ -112,12 +112,12 @@ Stepping directly on the mine will also blow it up
 	span_notice("You start disarming [src]."))
 
 	if(!do_after(user, 8 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
-		user.visible_message("<span class='warning'>[user] stops disarming [src].", \
-		"<span class='warning'>You stop disarming [src].")
+		user.visible_message(span_warning("[user] stops disarming [src]."), \
+		span_warning("You stop disarming [src]."))
 		return
 
-	user.visible_message("<span class='notice'>[user] finishes disarming [src].", \
-	"<span class='notice'>You finish disarming [src].")
+	user.visible_message(span_notice("[user] finishes disarming [src]."), \
+	span_notice("You finish disarming [src]."))
 	anchored = FALSE
 	armed = FALSE
 	update_icon()

@@ -145,8 +145,8 @@
 	if(stat == DEAD || (sterile && !combat_hugger))
 		return ..() // Dead or sterile (lamarr) can be picked.
 	else if(stat == CONSCIOUS && user.can_be_facehugged(src, provoked = TRUE)) // If you try to take a healthy one it will try to hug or attack you.
-		user.visible_message("<span class ='warning'>\The [src] skitters up [user]'s arm as [user.p_they()] try to grab it!", \
-		"<span class ='warning'>\The [src] skitters up your arm as you try to grab it!")
+		user.visible_message(span_warning("\The [src] skitters up [user]'s arm as [user.p_they()] try to grab it!"), \
+		span_warning("\The [src] skitters up your arm as you try to grab it!"))
 		if(!Attach(user))
 			go_idle()
 	return FALSE // Else you can't pick.
@@ -173,8 +173,8 @@
 	if(ishuman(user))
 		if(stat == DEAD)
 			return
-		user.visible_message("<span class ='warning'>[user] crushes \the [src] in [user.p_their()] hand!", \
-		"<span class ='warning'>You crushes \the [src] in your hand!")
+		user.visible_message(span_warning("[user] crushes \the [src] in [user.p_their()] hand!"), \
+		span_warning("You crushes \the [src] in your hand!"))
 		kill_hugger()
 
 /obj/item/clothing/mask/facehugger/examine(mob/user)
@@ -254,7 +254,7 @@
 
 	if(ishuman(loc)) //Having an angry xeno in your hand is a bad idea.
 		var/mob/living/carbon/human/holder = loc
-		holder.visible_message(span_warning("The facehugger [holder] is carrying leaps at [holder.p_them()]!") , "<span class ='danger'>The facehugger you're carrying leaps at you!</span>")
+		holder.visible_message(span_warning("The facehugger [holder] is carrying leaps at [holder.p_them()]!"), span_danger("The facehugger you're carrying leaps at you!"))
 		if(!Attach(holder))
 			go_idle()
 		return
@@ -501,7 +501,7 @@
 			catch_chance  -= 25
 
 		if(prob(catch_chance))
-			M.visible_message("<span class='notice'>[M] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!")
+			M.visible_message(span_notice("[M] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!"))
 			kill_hugger()
 			return TRUE
 
@@ -519,7 +519,7 @@
 				if(D.anti_hug > 0 || HAS_TRAIT(D, TRAIT_NODROP))
 					blocked = D
 					D.anti_hug = max(0, --D.anti_hug)
-					H.visible_message("<span class='danger'>[src] smashes against [H]'s [D.name], damaging it!")
+					H.visible_message(span_danger("[src] smashes against [H]'s [D.name], damaging it!"))
 					return FALSE
 				else
 					H.update_inv_head()

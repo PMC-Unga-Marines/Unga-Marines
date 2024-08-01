@@ -106,7 +106,7 @@
 
 			else //if not mob
 				if(!target.reagents.total_volume)
-					to_chat(user, "<span class='warning'>[target] is empty.")
+					to_chat(user, span_warning("[target] is empty."))
 					return
 
 				if(!target.is_drawable())
