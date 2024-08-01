@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 /datum/assembly_craft/engineering/plas_deconstruction
 	name = "Break plasteel sheets into iron and phoron"
 	input = list(/obj/item/stack/sheet/plasteel = 50) // Vice versa
-	output = list(/obj/item/stack/sheet/mineral/iron/large_stack = 1, /obj/item/stack/sheet/mineral/phoron/medium_stack = 1) //
+	output = list(/obj/item/stack/sheet/metal/large_stack = 1, /obj/item/stack/sheet/mineral/phoron/medium_stack = 1) //
 
 /datum/assembly_craft/engineering/osmium50_silver
 	name = "50 osmium sheets via silver"
@@ -66,6 +66,31 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 4) // 20 points
 	output = list(/obj/item/stack/sheet/mineral/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
+
+//one in one craft cuz junk is multi use resource
+/datum/assembly_craft/engineering/junk_phoron_iron
+	name = "Сlearing junk in iron"
+	craft_time = 15 SECONDS
+	input = list(/obj/item/stack/sheet/mineral/junk = 50) // 300 from cargo
+	output = list(/obj/item/stack/sheet/metal/large_stack = 1) //200 points so what?
+
+/datum/supply_packs/facengineeringtory/drop_pod
+	name = "Zeus orbital drop pod assembly refill"
+	craft_time = 20 SECONDS
+	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/mineral/glass = 3) // 40 + 6
+	output = list(/obj/item/factory_part/drop_pod = 1) //40 points
+
+/*******************************************************************************
+CLOTHING
+*******************************************************************************/
+/datum/assembly_craft/clothing
+	group = "Clothing"
+
+/datum/assembly_craft/clothing/swat_mask
+	name = "SWAT mask"
+	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/mineral/glass = 3) // 24 + 6 points
+	output = list(/obj/item/clothing/mask/gas/swat = 1) // 25 points from old factory
+
 
 /*******************************************************************************
 EXPLOSIVES
@@ -204,5 +229,75 @@ WEAPONS
 
 /datum/assembly_craft/weapons/minigun_powerpack
 	name = "Railgun magazine"
-	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 2) // 16 + 16 points
+	input = list(/obj/item/stack/sheet/plasteel = 2, /obj/item/stack/gun_powder = 2) // 16 + 16 points
 	output = list(/obj/item/ammo_magazine/minigun_powerpack = 1) // 25 points from old factory
+
+/datum/assembly_craft/weapons/howitzer_shell_he_refill
+	name = "T-26 AMR magazine"
+	input = list(/obj/item/stack/sheet/metal = 4, /obj/item/stack/gun_powder = 1) // 16 + 8 points
+	output = list(/obj/item/ammo_magazine/sniper = 1) // 20 points from old factory
+
+/datum/assembly_craft/weapons/amr_magazine_incend
+	name = "T-26 AMR incendiary magazine"
+	input = list(/obj/item/stack/sheet/metal = 4, /obj/item/stack/gun_powder = 1) // 16 + 8 points
+	output = list(/obj/item/ammo_magazine/sniper/incendiary = 1) // 20 points from old factory
+
+/datum/assembly_craft/weapons/amr_magazine_flak
+	name = "T-26 AMR flak magazine assembly refill"
+	input = list(/obj/item/stack/sheet/metal = 4, /obj/item/stack/gun_powder = 1) // 16 + 8 points
+	output = list(/obj/item/ammo_magazine/sniper/flak = 1) // 20 points from old factory
+
+/datum/assembly_craft/weapons/howitzer_shell_he
+	name = "Howitzer HE shell"
+	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 2) // 16 + 16 points
+	output = list(/obj/item/mortal_shell/howitzer/he = 1) // 26 points from old factory
+
+/datum/assembly_craft/weapons/howitzer_shell_incen_refill
+	name = "Howitzer HE shell"
+	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 2) // 16 + 16 points
+	output = list(/obj/item/mortal_shell/howitzer/incendiary = 1) // 26 points from old factory
+
+/datum/assembly_craft/weapons/howitzer_shell_wp_refill
+	name = "Howitzer HE shell"
+	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 3) // 16 + 24 points
+	output = list(/obj/item/mortal_shell/howitzer/white_phos = 1) // 33 points from old factory
+
+/datum/assembly_craft/weapons/howitzer_shell_tfoot_refill
+	name = "Howitzer HE shell"
+	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 3) // 16 + 24 points
+	output = list(/obj/item/mortal_shell/howitzer/plasmaloss = 1) // 33 points from old factory
+
+/datum/assembly_craft/weapons/mortar_shell_he
+	name = "Mortar High Explosive shell"
+	input = list(/obj/item/stack/sheet/metal = 1, /obj/item/stack/gun_powder = 1) // 4 + 8 points
+	output = list(/obj/item/mortal_shell/he = 1) // 4 points from old factory
+
+/datum/assembly_craft/weapons/mortar_shell_incen
+	name = "Mortar Incendiary shell"
+	input = list(/obj/item/stack/sheet/metal = 1, /obj/item/stack/gun_powder = 1) // 4 + 8 points
+	output = list(obj/item/mortal_shell/incendiary = 1) // 4 points from old factory
+
+/datum/assembly_craft/weapons/mortar_shell_tfoot
+	name = "Mortar Tanglefoot Gas shell"
+	input = list(/obj/item/stack/sheet/metal = 2, /obj/item/stack/gun_powder = 1) // 8 + 8 points
+	output = list(/obj/item/mortal_shell/plasmaloss = 1) // 6.6 points from old factory
+
+/datum/assembly_craft/weapons/mortar_shell_flare
+	name = "Mortar Flare shell"
+	input = list(/obj/item/stack/sheet/metal = 1, /obj/item/stack/gun_powder = 1) // 4 + 8 points
+	output = list(/obj/item/mortal_shell/flare = 1) // 4 points from old factory
+
+/datum/assembly_craft/weapons/mortar_shell_smoke
+	name = "Mortar Smoke shell"
+	input = list(/obj/item/stack/sheet/metal = 1, /obj/item/stack/gun_powder = 1) // 4 + 8 points
+	output = list(/obj/item/mortal_shell/smoke = 1) // 4 points from old factory
+
+/datum/assembly_craft/weapons/mlrs_rocket
+	name = "MLRS High Explosive rocket"
+	input = list(/obj/item/stack/sheet/plasteel = 4, /obj/item/stack/gun_powder = 4) // 32 + 32 points
+	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 40 points from old factory
+
+/datum/assembly_craft/weapons/mlrs_rocket
+	name = "RL-57 Thermobaric WP rocket array"
+	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/gun_powder = 3) // 24 + 24 points
+	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 33 points from old factory
