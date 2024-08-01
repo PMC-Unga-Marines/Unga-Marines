@@ -107,7 +107,6 @@ EXPLOSIVES
 //-------------------------------------------------------
 //nades
 
-
 /datum/assembly_craft/explosives/phosphos
 	name = "M40 HPDP grenade"
 	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/gun_powder = 3) // 40 + 24 points

@@ -1,5 +1,3 @@
-GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", "galvanizer", "driller", "compressor"))
-
 /obj/machinery/assembler
 	name = "Assembler"
 	desc = "You shouldnt be seeing this."
@@ -20,7 +18,7 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 
 /obj/machinery/assembler/Initialize(mapload)
 	. = ..()
-	processiconstate = pick(GLOB.assembler_icons)
+	processiconstate = pick(list("heater", "flatter", "cutter", "former", "galvanizer", "driller", "compressor"))
 	icon_state = processiconstate + "_inactive"
 	add_overlay(image(icon, "direction_arrow"))
 
