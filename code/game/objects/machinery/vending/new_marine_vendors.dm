@@ -932,7 +932,7 @@
 	desc = "A set of specialized gear for close-quarters combat and enhanced chemical effectiveness."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/chemsystem,
-		/obj/item/storage/holster/blade/machete/full_harvester,
+		/obj/item/storage/holster/blade/harvester/full,
 		/obj/item/paper/chemsystem,
 	)
 /obj/effect/vendor_bundle/tyr
