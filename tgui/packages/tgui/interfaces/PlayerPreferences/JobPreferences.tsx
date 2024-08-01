@@ -31,7 +31,6 @@ export const JobPreferences = (props, context) => {
     'Mech Pilot',
   ];
   const supportRoles = [
-    'Chief Ship Engineer',
     'Ship Technician',
     'Requisitions Officer',
     'Chief Medical Officer',

@@ -450,14 +450,6 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	powerloader = SKILL_POWERLOADER_PRO
 	large_vehicle = SKILL_LARGE_VEHICLE_EXPERIENCED
 
-/datum/skills/ce
-	name = CHIEF_SHIP_ENGINEER
-	engineer = SKILL_ENGINEER_MASTER
-	construction = SKILL_CONSTRUCTION_MASTER
-	leadership = SKILL_LEAD_EXPERT
-	police = SKILL_POLICE_MP
-	powerloader = SKILL_POWERLOADER_MASTER
-
 /datum/skills/ro
 	name = "Requisition Officer"
 	construction = SKILL_CONSTRUCTION_PLASTEEL

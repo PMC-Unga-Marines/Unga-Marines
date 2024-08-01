@@ -16829,7 +16829,6 @@
 /area/shuttle/distress/arrive_2)
 "kLb" = (
 /obj/structure/bed/chair/office/light,
-/obj/effect/landmark/start/job/chiefshipengineer,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/yellow/hidden{
 	dir = 6

@@ -16063,7 +16063,6 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/command/cic)
 "qmd" = (
-/obj/effect/landmark/start/job/chiefshipengineer,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/ce_room)
 "qml" = (
