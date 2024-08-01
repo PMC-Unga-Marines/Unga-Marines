@@ -31,6 +31,13 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 /obj/machinery/assembler/examine(mob/user, distance, infix, suffix)
 	. = ..()
 	. += "It is currently facing [dir2text(dir)] and [anchored ? "" : "un"]secured."
+	if(craft)
+		. += "Сurrent craft:"
+		. += craft.name
+		. += "Contains:"
+		for(var/type in craft.input)
+			var/atom/movable/path = type
+			. += "[initial(path.name)] - [held_items[type] ? held_items[type] : 0]"
 
 /obj/machinery/assembler/wrench_act(mob/living/user, obj/item/I)
 	anchored = !anchored
@@ -96,7 +103,8 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 	for(var/type in craft.output)
 		var/count = craft.output[type]
 		for(var/i in 1 to count)
-			new type(get_step(src, current_dir))
+			var/obj/obj = new type(src)
+			obj.forceMove(get_step(src, current_dir))
 		current_dir = turn(current_dir, rotate)
 
 	for(var/type in craft.input)
@@ -178,7 +186,8 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 	ticks++
 	if(ticks >= spawn_ticks)
 		var/turf/target = get_step(src, dir)
-		new item_to_fabricate(target)
+		var/obj/obj = new item_to_fabricate(src)
+		obj.forceMove(target)
 		ticks = 0
 
 /obj/machinery/fabricator/gunpowder
@@ -194,3 +203,61 @@ GLOBAL_LIST_INIT(assembler_icons, list("heater", "flatter", "cutter", "former", 
 	name = "Junk fabricator"
 	desc = "Сreates junk from... air. even this is garbage, it can be useful"
 	item_to_fabricate = /obj/item/stack/sheet/mineral/junk/large_stack
+
+/obj/machinery/splitter
+	name = "Splitter"
+	desc = "You shouldnt be seeing this."
+	icon = 'icons/obj/factory/factory_machines.dmi'
+	icon_state = "spitter_inactive"
+	density = TRUE
+	anchored = FALSE // start off unanchored so its easier to move
+	resistance_flags = XENO_DAMAGEABLE
+	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	///Icon state displayed while something is being processed in the machine
+	var/processiconstate = "spitter"
+	var/current_split_dir
+	var/rotate = 180
+
+/obj/machinery/splitter/Initialize(mapload)
+	. = ..()
+	current_split_dir = (turn(dir, 90))
+	add_overlay(image(icon, "direction_arrow"))
+
+/obj/machinery/splitter/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	. += "It is currently facing [dir2text(dir)] and [anchored ? "" : "un"]secured."
+
+/obj/machinery/splitter/wrench_act(mob/living/user, obj/item/I)
+	anchored = !anchored
+	icon_state = anchored ? processiconstate : initial(icon_state)
+	balloon_alert(user, "[anchored ? "" : "un"]anchored")
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+
+/obj/machinery/splitter/screwdriver_act(mob/living/user, obj/item/I)
+	setDir(turn(dir, 90))
+	current_split_dir = (turn(current_split_dir, 90))
+	balloon_alert(user, "Facing [dir2text(dir)]")
+
+/obj/machinery/splitter/Bumped(atom/movable/bumper)
+	. = ..()
+	if(!isitem(bumper))
+		return
+	if(!anchored)
+		return
+	if(isitemstack(bumper))
+		var/obj/item/stack/stack = bumper
+		if(stack.amount <= 1)
+			bumper.forceMove(get_step(src, current_split_dir))
+			current_split_dir = turn(current_split_dir, rotate)
+		else
+			var/first_stack_ammount = round(stack.amount / 2, 1)
+			var/second_stack_ammount = stack.amount - first_stack_ammount
+			var/obj/stack_1 = new stack.type(src, first_stack_ammount)
+			stack_1.forceMove(get_step(src, current_split_dir))
+			current_split_dir = turn(current_split_dir, rotate)
+			var/obj/stack_2 = new stack.type(src, second_stack_ammount)
+			stack_2.forceMove(get_step(src, current_split_dir))
+			qdel(bumper)
+	else
+		bumper.forceMove(get_step(src, current_split_dir))
+		current_split_dir = turn(current_split_dir, rotate)

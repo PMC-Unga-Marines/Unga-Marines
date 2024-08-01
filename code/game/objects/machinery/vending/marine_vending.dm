@@ -788,9 +788,10 @@
 			/obj/item/minerupgrade/overclock = 1,
 		),
 		"Reqtorio Basics" = list(
-			/obj/machinery/fabricator/gunpowder = 1,
-			/obj/machinery/fabricator/junk = 2,
+			/obj/machinery/fabricator/gunpowder = 2,
+			/obj/machinery/fabricator/junk = 1,
 			/obj/machinery/assembler = 10,
+			/obj/machinery/splitter = -1,
 			/obj/item/stack/conveyor/thirty = -1,
 			/obj/item/conveyor_switch_construct = -1,
 		),
