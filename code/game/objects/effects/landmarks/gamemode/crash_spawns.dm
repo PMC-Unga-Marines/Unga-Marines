@@ -25,17 +25,13 @@
 	icon_state = "PO"
 	job = /datum/job/terragov/command/pilot
 
-/obj/effect/landmark/start/job/crash/chiefshipengineer
-	icon_state = "CSE"
-	job = /datum/job/terragov/engineering/chief
-
 /obj/effect/landmark/start/job/crash/requisitionsofficer
 	icon_state = "RO"
 	job = /datum/job/terragov/requisitions/officer
 
 /obj/effect/landmark/start/job/crash/shiptech
 	icon_state = "ST"
-	job = /datum/job/terragov/engineering/tech
+	job = /datum/job/terragov/requisitions/tech
 
 /obj/effect/landmark/start/job/crash/cmo
 	icon_state = "CMO"

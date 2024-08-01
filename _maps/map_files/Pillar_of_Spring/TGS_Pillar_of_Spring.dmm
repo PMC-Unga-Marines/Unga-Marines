@@ -33,7 +33,6 @@
 /area/mainship/hallways/hangar)
 "acv" = (
 /obj/structure/bed/chair/wood/wings,
-/obj/effect/landmark/start/job/chiefshipengineer,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "acR" = (
@@ -15239,7 +15238,6 @@
 /area/mainship/hallways/hangar)
 "tnR" = (
 /obj/structure/bed/chair/office/dark,
-/obj/effect/landmark/start/job/chiefshipengineer,
 /obj/machinery/keycard_auth{
 	pixel_y = 25
 	},
