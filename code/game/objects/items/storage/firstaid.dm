@@ -482,6 +482,24 @@
 	greyscale_config = /datum/greyscale_config/pillbottleround
 	description_overlay = "Ti"
 
+/obj/item/storage/pill_bottle/imialky
+	name = "imialky pill bottle"
+	desc = "Contains pills used to fix brain, ear and eye damage"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/imialky
+	greyscale_colors = "#E467B3#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "IA"
+
+/obj/item/storage/pill_bottle/combatmix
+	name = "combatmix pill bottle"
+	desc = "Contains BKTT pills. Combat mix"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/combatmix
+	greyscale_colors = "#FF2600#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "Cm"
+
 /obj/item/storage/pill_bottle/happy
 	name = "happy pill bottle"
 	desc = "Contains highly illegal drugs. When you want to see the rainbow."

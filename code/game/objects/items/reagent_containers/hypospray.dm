@@ -500,6 +500,7 @@
 	name = "nanoblood hypospray"
 	desc = "A hypospray loaded with nanoblood. A chemical which rapidly restores blood at the cost of minor toxic damage."
 	amount_per_transfer_from_this = 5
+	volume = 60
 	list_reagents = list(
 		/datum/reagent/medicine/nanoblood = 60,
 	)
@@ -524,12 +525,21 @@
 	)
 	description_overlay = "Qk+"
 
+/obj/item/reagent_containers/hypospray/advanced/russian_red
+	name = "Russian Red hypospray"
+	desc = "A Russian Re loaded with Russian Red, a chemical that heal all damage rapidly at the cost of small amounts of unhealable damage."
+	amount_per_transfer_from_this = 10
+	list_reagents = list(
+		/datum/reagent/medicine/russian_red = 120,
+	)
+	description_overlay = "Rr"
+
 /obj/item/reagent_containers/hypospray/advanced/quickclot
 	name = "Quickclot hypospray"
 	desc = "A hypospray loaded with quick-clot, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"
-	amount_per_transfer_from_this = 5
+	amount_per_transfer_from_this = 10
 	list_reagents = list(
-		/datum/reagent/medicine/quickclotplus = 120,
+		/datum/reagent/medicine/quickclot = 120,
 	)
 	description_overlay = "Qk"
 
@@ -575,7 +585,7 @@
 
 /obj/item/reagent_containers/hypospray/advanced/big/combatmix
 	name = "big combat mix hypospray"
-	desc = "A hypospray loaded with combat mix. There's a tag that reads BKTT 40:40:20:20."
+	desc = "A hypospray loaded with combat mix. There's a tag that reads BKTT 80:80:40:40."
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
 		/datum/reagent/medicine/bicaridine = 80,

@@ -246,3 +246,18 @@
 	//pill_desc = "An ultrazine pill. A highly-potent, long-lasting combination CNS and muscle stimulant. Extremely addictive."
 	list_reagents = list(/datum/reagent/medicine/ultrazine = 5)
 	pill_id = 21
+
+/obj/item/reagent_containers/pill/imialky
+	pill_desc = "A imialky pill. Used to fix brain, ear and eye damage."
+	list_reagents = list(/datum/reagent/medicine/alkysine = 3.5, /datum/reagent/medicine/imidazoline = 11.5)
+	pill_id = 18
+
+/obj/item/reagent_containers/pill/combatmix
+	pill_desc = "A combat mix pill. There's a tag that reads BKTT."
+	list_reagents = list(
+		/datum/reagent/medicine/bicaridine = 5,
+		/datum/reagent/medicine/kelotane = 5,
+		/datum/reagent/medicine/tramadol = 2.5,
+		/datum/reagent/medicine/tricordrazine = 2.5,
+	)
+	pill_id = 21

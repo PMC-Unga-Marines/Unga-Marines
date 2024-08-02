@@ -309,7 +309,6 @@
 
 /datum/reagent/medicine/dexalin/on_mob_life(mob/living/L,metabolism)
 	L.adjustOxyLoss(-3*effect_str)
-	L.adjustStaminaLoss(-2*effect_str)
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
@@ -456,7 +455,7 @@
 	overdose_threshold = REAGENTS_OVERDOSE/5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
 	scannable = TRUE
-	custom_metabolism = REAGENTS_METABOLISM * 1.5
+	custom_metabolism = REAGENTS_METABOLISM * 0.5
 	purge_list = list(/datum/reagent/toxin/mindbreaker)
 	purge_rate = 5
 

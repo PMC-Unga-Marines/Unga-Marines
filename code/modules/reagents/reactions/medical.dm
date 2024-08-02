@@ -101,7 +101,6 @@ RU TGMC EDIT */
 	results = list(/datum/reagent/medicine/dylovene = 3)
 	required_reagents = list(/datum/reagent/silicon = 1, /datum/reagent/potassium = 1, /datum/reagent/nitrogen = 1)
 
-
 /datum/chemical_reaction/tramadol
 	name = "Tramadol"
 	results = list(/datum/reagent/medicine/tramadol = 3)
@@ -112,16 +111,11 @@ RU TGMC EDIT */
 	results = list(/datum/reagent/medicine/paracetamol = 3)
 	required_reagents = list(/datum/reagent/medicine/tramadol = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/water = 1)
 
-/datum/chemical_reaction/oxycodone
-	name = "Oxycodone"
-	results = list(/datum/reagent/medicine/oxycodone = 1)
-	required_reagents = list(/datum/reagent/consumable/ethanol = 1, /datum/reagent/medicine/tramadol = 1)
-	required_catalysts = list(/datum/reagent/toxin/phoron = 1)
 
 /datum/chemical_reaction/synaptizine
 	name = "Synaptizine"
 	results = list(/datum/reagent/medicine/synaptizine = 3)
-	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/lithium = 1, /datum/reagent/water = 1)
+	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/lithium = 1, /datum/reagent/water = 1, /datum/reagent/medicine/lemoline = 1)
 
 /datum/chemical_reaction/leporazine
 	name = "Leporazine"
@@ -151,8 +145,8 @@ RU TGMC EDIT */
 
 /datum/chemical_reaction/quickclot
 	name = "Quick-Clot"
-	results = list(/datum/reagent/medicine/quickclot = 1)
-	required_reagents = list(/datum/reagent/medicine/kelotane = 2, /datum/reagent/medicine/clonexadone = 2)
+	results = list(/datum/reagent/medicine/quickclot = 2)
+	required_reagents = list(/datum/reagent/medicine/kelotane = 2, /datum/reagent/medicine/clonexadone = 2, /datum/reagent/medicine/lemoline = 2)
 	required_catalysts = list(/datum/reagent/toxin/phoron = 5)
 
 /datum/chemical_reaction/quickclotplus
