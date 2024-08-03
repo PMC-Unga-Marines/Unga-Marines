@@ -952,6 +952,8 @@
 			/obj/item/storage/pill_bottle/dexalin = -1,
 			/obj/item/storage/pill_bottle/paracetamol = -1,
 			/obj/item/storage/pill_bottle/isotonic = -1,
+			/obj/item/storage/pill_bottle/sugar = -1,
+			/obj/item/storage/pill_bottle/doctor_delight = -1,
 			/obj/item/storage/pill_bottle = -1,
 		),
 		"Auto Injector" = list(
@@ -997,6 +999,8 @@
 			/obj/item/storage/pill_bottle/dexalin = -1,
 			/obj/item/storage/pill_bottle/paracetamol = -1,
 			/obj/item/storage/pill_bottle/isotonic = -1,
+			/obj/item/storage/pill_bottle/sugar = -1,
+			/obj/item/storage/pill_bottle/doctor_delight = -1,
 			/obj/item/storage/pill_bottle = -1,
 		),
 		"Auto Injector" = list(

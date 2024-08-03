@@ -261,3 +261,13 @@
 		/datum/reagent/medicine/tricordrazine = 2.5,
 	)
 	pill_id = 21
+
+/obj/item/reagent_containers/pill/doctor_delight
+	pill_desc = "A doctor's delight pill. Used to heal wounds slowly at cost of your hunger and stamina, can't be overdosed."
+	list_reagents = list(/datum/reagent/consumable/drink/doctor_delight = 15)
+	pill_id = 15
+
+/obj/item/reagent_containers/pill/sugar
+	pill_desc = "A sugar pill. Used to prevent hunger"
+	list_reagents = list(/datum/reagent/consumable/sugar = 15)
+	pill_id = 18

@@ -500,6 +500,24 @@
 	greyscale_config = /datum/greyscale_config/pillbottleround
 	description_overlay = "Cm"
 
+/obj/item/storage/pill_bottle/doctor_delight
+	name = "doctor's delight pill bottle"
+	desc = "Contains pills used to heal slowly."
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/doctor_delight
+	greyscale_colors = "#A3295C#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "Dd"
+
+/obj/item/storage/pill_bottle/sugar
+	name = "sugar pill bottle"
+	desc = "Contains pills used to prevent hunger, yum!"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/sugar
+	greyscale_colors = "#ECFC00#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "Su"
+
 /obj/item/storage/pill_bottle/happy
 	name = "happy pill bottle"
 	desc = "Contains highly illegal drugs. When you want to see the rainbow."
