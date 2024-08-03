@@ -269,7 +269,7 @@
 	desc = "A small bottle. Contains Doctor's Delight."
 	icon_state = "bottle3"
 	volume = 120
-	list_reagents = list(/datum/reagent/consumable/drink/doctor_delight = 120)
+	list_reagents = list(/datum/reagent/medicine/doctor_delight = 120)
 
 /obj/item/reagent_containers/glass/bottle/medicalnanites
 	name = "\improper Nanomachines bottle"

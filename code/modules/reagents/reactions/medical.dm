@@ -199,7 +199,7 @@ RU TGMC EDIT */
 /datum/chemical_reaction/somolent
 	name = "Somolent"
 	results = list(/datum/reagent/medicine/research/somolent = 4)
-	required_reagents = list(/datum/reagent/toxin/sleeptoxin = 1, /datum/reagent/medicine/tricordrazine = 1, /datum/reagent/consumable/drink/doctor_delight = 1, /datum/reagent/medicine/paracetamol = 1)
+	required_reagents = list(/datum/reagent/toxin/sleeptoxin = 1, /datum/reagent/medicine/tricordrazine = 1, /datum/reagent/medicine/doctor_delight = 1, /datum/reagent/medicine/paracetamol = 1)
 	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/medicalnanites

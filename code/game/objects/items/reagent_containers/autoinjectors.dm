@@ -318,6 +318,15 @@
 	list_reagents = list(/datum/reagent/medicalnanites = 1)
 	free_refills = FALSE
 
+/obj/item/reagent_containers/hypospray/autoinjector/sulfasalazine
+	name = "sulfasalazine autoinjector"
+	desc = "change me"
+	icon_state = "autoinjector-6"
+	amount_per_transfer_from_this = 1
+	volume = 1
+	list_reagents = list(/datum/reagent/medicine/sulfasalazine = 1)
+	free_refills = FALSE
+
 /obj/item/reagent_containers/hypospray/autoinjector/pain //made for debugging
 	name = "liquid pain autoinjector"
 	desc = "An auto-injector loaded with liquid pain. Ow."

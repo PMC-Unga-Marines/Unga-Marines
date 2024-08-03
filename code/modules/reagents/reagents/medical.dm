@@ -1443,7 +1443,7 @@
 
 			//cuz we purge painkillers
 			if(volume > 5)
-				L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
+				L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 
 			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
 				L.heal_overall_damage(1.9*effect_str, 0)
@@ -1479,7 +1479,6 @@
 /datum/reagent/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
 	L.remove_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED)
-
 
 /datum/reagent/medicine/research/stimulon
 	name = "Stimulon"
@@ -1521,10 +1520,9 @@
 	taste_description = "homely fruit"
 	var/nutriment_factor = - 1
 	custom_metabolism = REAGENTS_METABOLISM * 0.25 //Twice the rate of paracetamol
-	adj_dizzy = - 10
 	scannable = TRUE
 
-/datum/reagent/medicin/doctor_delight/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/medicine/doctor_delight/on_mob_life(mob/living/L, metabolism)
 	L.adjustBruteLoss(-0.5, 0)
 	L.adjustFireLoss(-0.5, 0)
 	L.adjustToxLoss(-0.5, 0)
@@ -1532,4 +1530,40 @@
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
 		C.adjust_nutrition(nutriment_factor*0.5*effect_str)
+	return ..()
+
+/datum/reagent/medicine/sulfasalazine
+	name = "sulfasalazine"
+	description = "change me"
+	color = COLOR_REAGENT_SULFASALAZINE
+	custom_metabolism = 0
+	scannable = TRUE
+	purge_rate = 5
+	var/absorbtion = 0
+	var/max_absorbtion = 10
+	var/max_reagent = 100
+
+/datum/reagent/medicine/sulfasalazine/on_mob_life(mob/living/L, metabolism)
+
+	if(absorbtion > 0 && volume < max_reagent)
+		L.reagents.add_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
+
+	if(absorbtion > 0)
+		absorbtion--
+
+	if (volume > 50 && L.getBruteLoss(organic_only = TRUE) && absorbtion <= 0)
+		L.heal_overall_damage(4*effect_str, 0)
+		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
+
+	if (volume > 50 && L.getFireLoss(organic_only = TRUE) && absorbtion <= 0)
+		L.heal_overall_damage(0, 4*effect_str)
+		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
+
+	for(var/datum/reagent/R in L.reagents.reagent_list)
+		//we dont purge themself
+		if(R.type != /datum/reagent/medicine/sulfasalazine)
+			var/purge = min(R.volume, purge_rate)
+			L.reagents.remove_reagent(R.type, purge)
+			absorbtion = min(absorbtion + purge, max_absorbtion)
+
 	return ..()
