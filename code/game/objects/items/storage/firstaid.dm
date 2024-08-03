@@ -470,8 +470,8 @@
 	icon_state = "pill_canistercomplete"
 	pill_type_to_fill = /obj/item/reagent_containers/pill/peridaxon
 	greyscale_config = /datum/greyscale_config/pillbottleround
-	greyscale_colors = "#C845DC#ffffff"
-	description_overlay = "Qk"
+	greyscale_colors = "#460750#ffffff"
+	description_overlay = "Pe"
 
 /obj/item/storage/pill_bottle/hypervene
 	name = "hypervene pill bottle"

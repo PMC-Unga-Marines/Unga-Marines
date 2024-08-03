@@ -511,7 +511,8 @@
 	desc = "A hypospray loaded with Peridaxon,  a chemical that removes the consequences from organs !DO NOT USE MORE THAN ONCE AT A TIME!"
 	amount_per_transfer_from_this = 5
 	list_reagents = list(
-		/datum/reagent/medicine/peridaxon = 60,)
+		/datum/reagent/medicine/peridaxon = 120,
+	)
 	description_overlay = "Pe"
 
 
@@ -530,7 +531,7 @@
 	desc = "A hypospray loaded with quick-clot, a a chemical designed to pause all bleeding. Renew doses as needed."
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
-		/datum/reagent/medicine/quickclot = 60,
+		/datum/reagent/medicine/quickclot = 120,
 	)
 	description_overlay = "Qk"
 
@@ -551,15 +552,6 @@
 		/datum/reagent/medicine/russian_red = 120,
 	)
 	description_overlay = "Rr"
-
-/obj/item/reagent_containers/hypospray/advanced/quickclot
-	name = "Quickclot hypospray"
-	desc = "A hypospray loaded with quick-clot, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"
-	amount_per_transfer_from_this = 10
-	list_reagents = list(
-		/datum/reagent/medicine/quickclot = 120,
-	)
-	description_overlay = "Qk"
 
 /obj/item/reagent_containers/hypospray/advanced/big
 	name = "big hypospray"
