@@ -308,7 +308,7 @@
 	var/medicine_cap = current_medicine_cap
 
 	if(SEND_SIGNAL(owner, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
-		additional_medicine += freyr_medicine_cap
+		medicine_cap += freyr_medicine_cap
 
 	current_medicine_count += new_medicines //We want to include medicines that were individually both added and removed this tick
 	var/overflow = current_medicine_count - medicine_cap //This catches any case where a reagent was added with volume below its metabolism
