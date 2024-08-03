@@ -757,6 +757,16 @@
 /datum/reagent/peridaxon/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(6*effect_str, BRUTE)
 
+/datum/reagent/medicine/research/stimulon/on_mob_add(mob/living/L, metabolism)
+	. = ..()
+	for(var/datum/internal_organ/I in H.internal_organs)
+		I.set_organ_status()
+
+/datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
+	for(var/datum/internal_organ/I in H.internal_organs)
+		I.set_organ_status()
+	return ..()
+
 /datum/reagent/medicine/peridaxon_plus
 	name = "Peridaxon Plus"
 	description = "Used to heal severely damaged internal organs in the field. Moderately toxic. Do not self-administer."
