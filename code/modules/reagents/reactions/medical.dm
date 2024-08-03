@@ -138,21 +138,11 @@ RU TGMC EDIT */
 	results = list(/datum/reagent/medicine/kelotane = 2)
 	required_reagents = list(/datum/reagent/silicon = 1, /datum/reagent/carbon = 1)
 
-/datum/chemical_reaction/peridaxon_plus
-	name = "Peridaxon Plus"
-	results = list(/datum/reagent/medicine/peridaxon_plus = 1)
-	required_reagents = list(/datum/reagent/medicine/hyronalin = 5, /datum/reagent/toxin/phoron = 5) //RU TGMC EDIT
-
 /datum/chemical_reaction/quickclot
 	name = "Quick-Clot"
 	results = list(/datum/reagent/medicine/quickclot = 2)
 	required_reagents = list(/datum/reagent/medicine/kelotane = 2, /datum/reagent/medicine/clonexadone = 2, /datum/reagent/medicine/lemoline = 2)
 	required_catalysts = list(/datum/reagent/toxin/phoron = 5)
-
-/datum/chemical_reaction/quickclotplus
-	name = "Quick-Clot Plus"
-	results = list(/datum/reagent/medicine/quickclotplus = 1)
-	required_reagents = list(/datum/reagent/medicine/quickclot = 2, /datum/reagent/medicine/lemoline = 2, /datum/reagent/iron = 2)
 
 /datum/chemical_reaction/hypervene //New purge chem.
 	name = "Hypervene"

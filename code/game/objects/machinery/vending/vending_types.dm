@@ -199,7 +199,6 @@
 			/obj/item/reagent_containers/glass/bottle/spaceacillin = 6,
 			/obj/item/reagent_containers/glass/bottle/sleeptoxin = 6,
 			/obj/item/reagent_containers/glass/bottle/polyhexanide = 6,
-			/obj/item/reagent_containers/glass/bottle/medicalnanites = 12,
 		),
 		"Chemistry Equipment" = list(
 			/obj/item/reagent_containers/syringe = -1,

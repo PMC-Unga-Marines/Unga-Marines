@@ -239,6 +239,16 @@
 	list_reagents = list(/datum/reagent/medicine/neuraline = 12)
 	description_overlay = "Ne"
 
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "Peridaxon autoinjector"
+	desc = "An auto-injector loaded with 3 doses of Peridaxon, a chemical that removes the consequences from organs !DO NOT USE MORE THAN ONCE AT A TIME!"
+	amount_per_transfer_from_this = 5
+	volume = 3
+	icon_state = "VioWhite"
+	list_reagents = list(/datum/reagent/medicine/peridaxon = 15)
+	description_overlay = "Pe"
+
+
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus
 	name = "peridaxon Plus autoinjector"
 	desc = "An auto-injector loaded with 3 doses of Peridaxon Plus, a chemical that heals organs while causing a buildup of toxins. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"

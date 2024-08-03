@@ -506,6 +506,15 @@
 	)
 	description_overlay = "Na"
 
+/obj/item/reagent_containers/hypospray/advanced/peridaxon
+	name = "Peridaxon hypospray"
+	desc = "A hypospray loaded with Peridaxon,  a chemical that removes the consequences from organs !DO NOT USE MORE THAN ONCE AT A TIME!"
+	amount_per_transfer_from_this = 5
+	list_reagents = list(
+		/datum/reagent/medicine/peridaxon = 60,)
+	description_overlay = "Pe"
+
+
 /obj/item/reagent_containers/hypospray/advanced/peridaxonplus
 	name = "Peridaxon+ hypospray"
 	desc = "A hypospray loaded with Peridaxon Plus, a chemical that heals organs while causing a buildup of toxins. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"
@@ -515,6 +524,15 @@
 		/datum/reagent/medicine/hyronalin = 80,
 	)
 	description_overlay = "Pe+"
+
+/obj/item/reagent_containers/hypospray/advanced/quickclot
+	name = "Quickclot hypospray"
+	desc = "A hypospray loaded with quick-clot, a a chemical designed to pause all bleeding. Renew doses as needed."
+	amount_per_transfer_from_this = 15
+	list_reagents = list(
+		/datum/reagent/medicine/quickclot = 60,
+	)
+	description_overlay = "Qk"
 
 /obj/item/reagent_containers/hypospray/advanced/quickclotplus
 	name = "Quickclot+ hypospray"
