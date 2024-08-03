@@ -101,7 +101,7 @@
 	for(var/type in craft.output)
 		var/count = craft.output[type]
 		for(var/i in 1 to count)
-			var/obj/obj = new type(src)
+			var/obj/obj = new type(loc)
 			obj.forceMove(get_step(src, current_dir))
 		current_dir = turn(current_dir, rotate)
 
@@ -184,7 +184,7 @@
 	ticks++
 	if(ticks >= spawn_ticks)
 		var/turf/target = get_step(src, dir)
-		var/obj/obj = new item_to_fabricate(src)
+		var/obj/obj = new item_to_fabricate(loc)
 		obj.forceMove(target)
 		ticks = 0
 
@@ -240,6 +240,8 @@
 	. = ..()
 	if(!isitem(bumper))
 		return
+	if(!(bumper.dir & dir))//need to be bumping into the back
+		return
 	if(!anchored)
 		return
 	if(isitemstack(bumper))
@@ -250,10 +252,10 @@
 		else
 			var/first_stack_ammount = round(stack.amount / 2, 1)
 			var/second_stack_ammount = stack.amount - first_stack_ammount
-			var/obj/stack_1 = new stack.type(src, first_stack_ammount)
+			var/obj/stack_1 = new stack.merge_type(loc, first_stack_ammount)
 			stack_1.forceMove(get_step(src, current_split_dir))
 			current_split_dir = turn(current_split_dir, rotate)
-			var/obj/stack_2 = new stack.type(src, second_stack_ammount)
+			var/obj/stack_2 = new stack.merge_type(loc, second_stack_ammount)
 			stack_2.forceMove(get_step(src, current_split_dir))
 			qdel(bumper)
 	else

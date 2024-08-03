@@ -1933,6 +1933,7 @@
 #include "code\modules\reqs\supplypacks.dm"
 #include "code\modules\reqtorio\assembly_crafts.dm"
 #include "code\modules\reqtorio\craft_components.dm"
+#include "code\modules\reqtorio\howtopaper.dm"
 #include "code\modules\reqtorio\machines.dm"
 #include "code\modules\requisitions\fulton.dm"
 #include "code\modules\requisitions\supply_export.dm"
