@@ -227,6 +227,11 @@
 	list_reagents = list(/datum/reagent/medicine/quickclot = 10)
 	pill_id = 20
 
+/obj/item/reagent_containers/pill/quickclot
+	pill_desc = "A quick-clot pill. Stabilizes internal bleeding temporarily."
+	list_reagents = list(/datum/reagent/medicine/peridaxon = 10)
+	pill_id = 20
+
 /obj/item/reagent_containers/pill/tricordrazine
 	pill_desc = "A tricordrazine pill. Broad spectrum medication that slowly heals all damage types."
 	list_reagents = list(/datum/reagent/medicine/tricordrazine = 15)

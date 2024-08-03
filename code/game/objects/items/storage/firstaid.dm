@@ -464,6 +464,15 @@
 	greyscale_colors = "#E07BAD#ffffff"
 	description_overlay = "Qk"
 
+/obj/item/storage/pill_bottle/peridaxon
+	name = "peridaxon pill bottle"
+	desc = "Contains pills that suppress internal organ damage."
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/peridaxon
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	greyscale_colors = "#C845DC#ffffff"
+	description_overlay = "Qk"
+
 /obj/item/storage/pill_bottle/hypervene
 	name = "hypervene pill bottle"
 	desc = "A purge medication used to treat overdoses and rapidly remove toxins. Causes pain and vomiting."
