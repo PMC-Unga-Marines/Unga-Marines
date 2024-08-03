@@ -256,6 +256,8 @@
 	var/current_medicine_count = 0
 	///How many drugs we can take before they overwhelm us. Decreases with damage
 	var/current_medicine_cap = 5
+	///How many drugs we can take before they overwhelm us. Decreases with damage
+	var/freyr_medicine_cap = 3
 	///Whether we were over cap the last time we checked.
 	var/old_overflow = FALSE
 	///Total medicines added since last tick
@@ -303,8 +305,13 @@
 	if(owner.bodytemperature <= 170) //No sense worrying about a chem cap if we're in cryo anyway. Still need to clear tick counts.
 		bypass = TRUE
 
+	var/medicine_cap = current_medicine_cap
+
+	if(SEND_SIGNAL(owner, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
+		additional_medicine += freyr_medicine_cap
+
 	current_medicine_count += new_medicines //We want to include medicines that were individually both added and removed this tick
-	var/overflow = current_medicine_count - current_medicine_cap //This catches any case where a reagent was added with volume below its metabolism
+	var/overflow = current_medicine_count - medicine_cap //This catches any case where a reagent was added with volume below its metabolism
 	current_medicine_count -= removed_medicines //Otherwise, you can microdose infinite chems without kidneys complaining
 
 	new_medicines = 0
@@ -327,7 +334,6 @@
 /datum/internal_organ/kidneys/prosthetic
 	robotic = ORGAN_ROBOT
 	removed_type = /obj/item/organ/kidneys
-
 
 /datum/internal_organ/brain
 	name = "brain"
