@@ -788,6 +788,7 @@
 			/obj/item/minerupgrade/overclock = 1,
 		),
 		"Reqtorio Basics" = list(
+			/obj/item/paper/factoryhowto = -1,
 			/obj/machinery/fabricator/gunpowder = 2,
 			/obj/machinery/fabricator/junk = 1,
 			/obj/machinery/assembler = 10,
