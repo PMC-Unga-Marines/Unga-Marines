@@ -153,7 +153,9 @@
 	///Icon state displayed while something is being processed in the machine
 	var/processiconstate = "reconstructor"
 	//points generation
-	var/spawn_ticks = 24 //tick every 5 seconds
+	var/spawn_ticks = 32 //tick every 5 seconds
+	//points generation
+	var/ground_spawn_ticks = 24 //tick every 5 seconds
 	///Last time points balance was checked
 	var/ticks = 0
 
@@ -164,6 +166,7 @@
 /obj/machinery/fabricator/examine(mob/user, distance, infix, suffix)
 	. = ..()
 	. += "It is currently facing [dir2text(dir)] and [anchored ? "" : "un"]secured."
+	. += "Works faster on the ground than on a ship"
 
 /obj/machinery/fabricator/wrench_act(mob/living/user, obj/item/I)
 	anchored = !anchored
@@ -182,7 +185,8 @@
 
 /obj/machinery/fabricator/process()
 	ticks++
-	if(ticks >= spawn_ticks)
+	var/ticks_to_spawn = is_ground_level(z) ? ground_spawn_ticks : spawn_ticks
+	if(ticks >= ticks_to_spawn)
 		var/turf/target = get_step(src, dir)
 		var/obj/obj = new item_to_fabricate(loc)
 		obj.forceMove(target)
