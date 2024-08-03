@@ -227,7 +227,7 @@
 	list_reagents = list(/datum/reagent/medicine/quickclot = 10)
 	pill_id = 20
 
-/obj/item/reagent_containers/pill/quickclot
+/obj/item/reagent_containers/pill/peridaxon
 	pill_desc = "A quick-clot pill. Stabilizes internal bleeding temporarily."
 	list_reagents = list(/datum/reagent/medicine/peridaxon = 10)
 	pill_id = 20
