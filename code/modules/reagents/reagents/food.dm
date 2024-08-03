@@ -84,6 +84,7 @@
 	taste_multi = 1.5 // stop sugar drowning out other flavours
 	nutriment_factor = 4 //still more than bars, but not to much
 	taste_description = "sweetness"
+	scannable = TRUE
 
 /datum/reagent/consumable/virus_food
 	name = "Virus Food"
