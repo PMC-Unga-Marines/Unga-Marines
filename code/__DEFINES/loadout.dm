@@ -357,8 +357,8 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	//medic stuff
 	/obj/item/storage/pill_bottle/meralyne = list(CAT_SYNTH, "Meralyne pills", 14, "orange"),
 	/obj/item/storage/pill_bottle/dermaline = list(CAT_SYNTH, "Dermaline pills", 14, "orange"),
-	/obj/item/storage/pill_bottle/russian_red = list(CAT_MEDSUP, "Red Russian pills", 12, "orange"),
-	/obj/item/storage/pill_bottle/quickclot = list(CAT_MEDSUP, "Quickclot pills", 6, "orange"),
+	/obj/item/storage/pill_bottle/russian_red = list(CAT_SYNTH, "Red Russian pills", 12, "orange"),
+	/obj/item/storage/pill_bottle/quickclot = list(CAT_SYNTH, "Quickclot pills", 6, "orange"),
 	/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_SYNTH, "Combat Trauma Kit", 3, "orange"),
 	/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_SYNTH, "Combat Burn Kit", 3, "orange"),
 	/obj/item/reagent_containers/hypospray/advanced = list(CAT_SYNTH, "Hypospray", 1, "yellow"),
@@ -371,15 +371,15 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/advanced/dermaline = list(CAT_SYNTH, "Hypospray (120u dermaline)", 14, "cyan"), //half the units of the derm case half the price
 	/obj/item/reagent_containers/hypospray/advanced/meraderm = list(CAT_SYNTH, "Hypospray (120u Meraderm)", 14, "cyan"), //half the units of the meraderm case half the price
 	/obj/item/reagent_containers/hypospray/advanced/nanoblood = list(CAT_SYNTH, "Hypospray (60u Nanoblood)", 2, "cyan"), //bit more than half of the nanoblood case
-	/obj/item/reagent_containers/hypospray/advanced/russian_red = list(CAT_MEDSUP, "Hypospray (120u Russian Red)", 8, "cyan"),
-	/obj/item/reagent_containers/hypospray/advanced/quickclot = list(CAT_MEDSUP, "Hypospray (120u Quickclot)", 4, "blue"),
-	/obj/item/reagent_containers/hypospray/advanced/oxycodone = list(CAT_MEDSUP, "Hypospray (120u Oxycodone)", 12, "blue"),
+	/obj/item/reagent_containers/hypospray/advanced/russian_red = list(CAT_SYNTH, "Hypospray (120u Russian Red)", 8, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/quickclot = list(CAT_SYNTH, "Hypospray (120u Quickclot)", 4, "blue"),
+	/obj/item/reagent_containers/hypospray/advanced/oxycodone = list(CAT_SYNTH, "Hypospray (120u Oxycodone)", 12, "blue"),
 	// /obj/item/reagent_containers/hypospray/advanced/peridaxonplus = list(CAT_SYNTH, "Hypospray (Peridaxon)", 7, "blue"),
 	/obj/item/reagent_containers/hypospray/autoinjector/quickclot = list(CAT_SYNTH, "Injector (Quickclot)", 2, "cyan"),
 	// /obj/item/reagent_containers/hypospray/autoinjector/peridaxon = list(CAT_SYNTH, "Injector (Peridaxon)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_SYNTH, "Injector (Advanced)", 3, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_SYNTH, "Injector (Synaptizine)", 2, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MEDSUP, "Injector (Oxycodone)", 2, "cyan"),
+	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_SYNTH, "Injector (Oxycodone)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/neuraline = list(CAT_SYNTH, "Injector (Neuraline)", 7, "cyan"),
 	/obj/item/healthanalyzer/gloves = list(CAT_SYNTH, "Health scanner gloves", 2, "yellow"),
 	/obj/item/defibrillator/gloves = list(CAT_SYNTH, "Advanced medical gloves", 4, "yellow"),
