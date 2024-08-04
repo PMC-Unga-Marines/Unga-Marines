@@ -125,11 +125,10 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 
 		if(effectOrgans && ishuman(L))
 			var/mob/living/carbon/human/H = L
-			for(var/datum/internal_organ/IO in H.internal_organs)
+			for(var/obj/item/organ/IO in H.internal_organs)
 				var/destination = get_edge_target_turf(T, pick(GLOB.alldirs))
-				var/obj/item/organ/O = IO.remove(H)
-				O.forceMove(T)
-				O.throw_at(destination, 2, 3)
+				IO.forceMove(T)
+				IO.throw_at(destination, 2, 3)
 				sleep(0.1 SECONDS)
 
 		if(effectGib)

@@ -15,8 +15,8 @@
 
 ///Return the most damaged internal_organ that isn't at 0, or null.
 /mob/living/carbon/proc/get_damaged_organ()
-	var/datum/internal_organ/chosen_organ
-	for(var/datum/internal_organ/test_organ AS in internal_organs)
+	var/obj/item/organ/chosen_organ
+	for(var/obj/item/organ/test_organ AS in internal_organs)
 		if(!test_organ.damage)
 			continue
 		if(!chosen_organ)

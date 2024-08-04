@@ -61,14 +61,13 @@ Contains most of the procs that are called when a mob is attacked by something
 
 /mob/living/carbon/human/emp_act(severity)
 	for(var/obj/O in src)
-		if(!O)	continue
+		if(!O)
+			continue
 		O.emp_act(severity)
 	for(var/datum/limb/O in limbs)
-		if(O.limb_status & LIMB_DESTROYED)	continue
+		if(O.limb_status & LIMB_DESTROYED)
+			continue
 		O.emp_act(severity)
-		for(var/datum/internal_organ/I in O.internal_organs)
-			if(I.robotic == 0)	continue
-			I.emp_act(severity)
 	..()
 
 /mob/living/carbon/human/has_smoke_protection()
@@ -92,7 +91,7 @@ Contains most of the procs that are called when a mob is attacked by something
 /mob/living/carbon/human/inhale_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING) && species.has_organ[ORGAN_SLOT_LUNGS])
-		var/datum/internal_organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
+		var/obj/item/organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
 		L?.take_damage(1, TRUE)
 
 
@@ -412,7 +411,6 @@ Contains most of the procs that are called when a mob is attacked by something
 	visible_message(span_notice("[user] ripped off [src]'s heart!"), span_notice("You ripped off [src]'s heart!"))
 	remove_organ_slot(ORGAN_SLOT_HEART)
 	var/obj/item/organ/heart/heart = new
-	heart.die()
 	user.put_in_hands(heart)
 	chestburst = 2
 	update_burst()

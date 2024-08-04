@@ -346,7 +346,7 @@
 			H.brainmob.mind.transfer_to(src)
 			qdel(H)
 
-	for(var/datum/internal_organ/I in internal_organs)
+	for(var/obj/item/organ/I in internal_organs)
 		I.heal_organ_damage(I.damage)
 
 	reagents.clear_reagents() //and clear all reagents in them

@@ -554,7 +554,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 			return TRUE
 		for(targethuman in defendedarea)
 			if(iszombie(targethuman)) //zombies count as hostile forces to everyone but zombies
-				for(var/datum/internal_organ/affectedorgan in targethuman.internal_organs)
+				for(var/obj/item/organ/affectedorgan in targethuman.internal_organs)
 					if(affectedorgan == targethuman.get_organ_slot(ORGAN_SLOT_HEART))
 						return FALSE
 			if(targethuman.stat == DEAD) //we don't care about dead humans

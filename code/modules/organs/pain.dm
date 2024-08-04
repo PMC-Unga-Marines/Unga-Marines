@@ -117,7 +117,7 @@
 
 	// Damage to internal organs hurts a lot.
 	var/datum/limb/parent
-	for(var/datum/internal_organ/I in internal_organs)
+	for(var/obj/item/organ/I in internal_organs)
 		parent = get_limb(I.parent_limb)
 		if(prob(2))
 			switch(I.damage)

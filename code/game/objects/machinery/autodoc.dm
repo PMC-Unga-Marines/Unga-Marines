@@ -212,7 +212,7 @@
 
 /datum/autodoc_surgery
 	var/datum/limb/limb_ref = null
-	var/datum/internal_organ/organ_ref = null
+	var/obj/item/organ/organ_ref = null
 	var/type_of_surgery = 0 // the above constants
 	var/surgery_procedure = "" // text of surgery
 	var/unneeded = 0
@@ -236,12 +236,9 @@
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_INTERNAL)
 
 			var/organdamagesurgery = 0
-			for(var/datum/internal_organ/I in L.internal_organs)
-				if(I.robotic == ORGAN_ASSISTED||I.robotic == ORGAN_ROBOT)
-					// we can't deal with these
-					continue
+			for(var/obj/item/organ/I in L.internal_organs)
 				if(I.damage > 0)
-					if(I.organ_id == ORGAN_EYES) // treat eye surgery differently
+					if(I.slot == ORGAN_SLOT_EYES) // treat eye surgery differently
 						continue
 					if(organdamagesurgery > 0)
 						continue // avoid duplicates
@@ -274,7 +271,7 @@
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_GERMS)
 			if(L.surgery_open_stage)
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_OPEN)
-	var/datum/internal_organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
 	if(I && (M.disabilities & NEARSIGHTED || M.disabilities & BLIND || I.damage > 0))
 		surgery_list += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_EYES,0,I)
 	if(M.getBruteLoss() > 0)
@@ -372,7 +369,7 @@
 							else
 								occupant.reagents.add_reagent(/datum/reagent/medicine/spaceacillin,inject_per_second)
 								amount -= inject_per_second
-								sleep(10*surgery_mod)
+								sleep(10 * surgery_mod)
 
 					if(ADSURGERY_DAMAGE)
 						say("Beginning organ restoration.")
@@ -386,15 +383,15 @@
 						if(S.limb_ref.body_part != GROIN)
 							open_encased(occupant, S.limb_ref)
 
-						if(!istype(S.organ_ref,/datum/internal_organ/brain))
+						if(!istype(S.organ_ref, /obj/item/organ/brain))
 							sleep(FIX_ORGAN_MAX_DURATION*surgery_mod)
 						else
 							if(S.organ_ref.damage > BONECHIPS_MAX_DAMAGE)
-								sleep(HEMOTOMA_MAX_DURATION*surgery_mod)
-							sleep(BONECHIPS_REMOVAL_MAX_DURATION*surgery_mod)
+								sleep(HEMOTOMA_MAX_DURATION * surgery_mod)
+							sleep(BONECHIPS_REMOVAL_MAX_DURATION * surgery_mod)
 						if(!surgery)
 							break
-						if(istype(S.organ_ref,/datum/internal_organ))
+						if(istype(S.organ_ref, /obj/item/organ))
 							S.organ_ref.heal_organ_damage(S.organ_ref.damage)
 						else
 							say("Organ is missing.")
@@ -411,8 +408,8 @@
 							say("Procedure has been deemed unnecessary.")
 							surgery_todo_list -= S
 							continue
-						if(istype(S.organ_ref,/datum/internal_organ/eyes))
-							var/datum/internal_organ/eyes/E = S.organ_ref
+						if(istype(S.organ_ref, /obj/item/organ/eyes))
+							var/obj/item/organ/eyes/E = S.organ_ref
 
 							if(E.eye_surgery_stage == 0)
 								sleep(EYE_CUT_MAX_DURATION)
@@ -1218,9 +1215,7 @@
 			for(var/i in connected.occupant.limbs)
 				var/datum/limb/L = i
 				for(var/x in L.internal_organs)
-					var/datum/internal_organ/I = x
-					if(I.robotic == ORGAN_ASSISTED || I.robotic == ORGAN_ROBOT)
-						continue
+					var/obj/item/organ/I = x
 					if(I.damage > 0)
 						N.fields["autodoc_manual"] += create_autodoc_surgery(L,ORGAN_SURGERY,ADSURGERY_DAMAGE,0,I)
 						needed++

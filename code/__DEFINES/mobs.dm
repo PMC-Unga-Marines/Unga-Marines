@@ -210,18 +210,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 ///////////////////INTERNAL ORGANS DEFINES///////////////////
 
-#define ORGAN_ASSISTED 1
-#define ORGAN_ROBOT 2
-
-#define ORGAN_HEART 1
-#define ORGAN_LUNGS 2
-#define ORGAN_LIVER 3
-#define ORGAN_KIDNEYS 4
-#define ORGAN_BRAIN 5
-#define ORGAN_EYES 6
-#define ORGAN_APPENDIX 7
-#define ORGAN_STOMACH 8
-
 //organ slots
 #define ORGAN_SLOT_APPENDIX "appendix"
 #define ORGAN_SLOT_BRAIN "brain"

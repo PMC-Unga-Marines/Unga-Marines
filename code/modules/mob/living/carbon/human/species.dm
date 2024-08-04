@@ -101,14 +101,14 @@
 	/// inherent species-specific actions
 	var/list/inherent_actions
 	var/list/has_organ = list(
-		ORGAN_SLOT_HEART = /datum/internal_organ/heart,
-		ORGAN_SLOT_LUNGS = /datum/internal_organ/lungs,
-		ORGAN_SLOT_LIVER = /datum/internal_organ/liver,
-		ORGAN_SLOT_STOMACH = /datum/internal_organ/stomach,
-		ORGAN_SLOT_KIDNEYS = /datum/internal_organ/kidneys,
-		ORGAN_SLOT_BRAIN = /datum/internal_organ/brain,
-		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
-		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
+		ORGAN_SLOT_HEART = /obj/item/organ/heart,
+		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
+		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
+		ORGAN_SLOT_KIDNEYS = /obj/item/organ/kidneys,
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
+		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes
 	)
 
 	var/knock_down_reduction = 1 //how much the knocked_down effect is reduced per Life call.
@@ -160,18 +160,18 @@
 	organless_human.limbs += new/datum/limb/foot/l_foot(new_l_leg, organless_human)
 	organless_human.limbs += new/datum/limb/foot/r_foot(new_r_leg, organless_human)
 
-	for(var/organ in has_organ)
-		var/organ_type = has_organ[organ]
+	for(var/obj/item/organ/organ in has_organ)
+		var/obj/item/organ/organ_type = has_organ[organ] // will it even do something?
 		organless_human.internal_organs_by_name[organ] = new organ_type(organless_human)
+		organ.owner = organless_human
+		var/datum/limb/limb = organless_human.get_limb(organ.parent_limb)
+		LAZYDISTINCTADD(limb.internal_organs, src)
 
 	if(species_flags & ROBOTIC_LIMBS)
 		for(var/datum/limb/robotic_limb AS in organless_human.limbs)
 			if(robotic_limb.limb_status & LIMB_DESTROYED)
 				continue
 			robotic_limb.add_limb_flags(LIMB_ROBOT)
-		for(var/datum/internal_organ/my_cold_heart in organless_human.internal_organs)
-			my_cold_heart.mechanize()
-
 
 /datum/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 	if(H.zone_selected == "head")

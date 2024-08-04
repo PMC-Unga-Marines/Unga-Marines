@@ -46,8 +46,8 @@
 			if("damaged organs")
 				humanspawned = new /mob/living/carbon/human(get_turf(src))
 				var/list/organs_to_hurt = list()
-				for(var/datum/internal_organ/I in humanspawned.internal_organs)
+				for(var/obj/item/organ/I in humanspawned.internal_organs)
 					organs_to_hurt += I
 				if(length(organs_to_hurt))
-					var/datum/internal_organ/O = pick(organs_to_hurt)
+					var/obj/item/organ/O = pick(organs_to_hurt)
 					O.take_damage(40)

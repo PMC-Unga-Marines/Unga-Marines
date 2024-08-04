@@ -259,7 +259,7 @@ REAGENT SCANNER
 		data["pulse"] = "[human_patient.get_pulse(GETPULSE_TOOL)] bpm"
 		data["implants"] = unknown_implants
 		var/damaged_organs = list()
-		for(var/datum/internal_organ/organ AS in human_patient.internal_organs)
+		for(var/obj/item/organ/organ AS in human_patient.internal_organs)
 			if(organ.organ_status == ORGAN_HEALTHY)
 				continue
 			var/current_organ = list(

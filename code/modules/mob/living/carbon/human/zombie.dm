@@ -11,14 +11,14 @@
 	slowdown = 0.5
 	default_language_holder = /datum/language_holder/zombie
 	has_organ = list(
-		ORGAN_SLOT_HEART = /datum/internal_organ/heart,
-		ORGAN_SLOT_LUNGS = /datum/internal_organ/lungs,
-		ORGAN_SLOT_LIVER = /datum/internal_organ/liver,
-		ORGAN_SLOT_STOMACH = /datum/internal_organ/stomach,
-		ORGAN_SLOT_KIDNEYS = /datum/internal_organ/kidneys,
-		ORGAN_SLOT_BRAIN = /datum/internal_organ/brain/zombie,
-		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
-		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
+		ORGAN_SLOT_HEART = /obj/item/organ/heart,
+		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
+		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
+		ORGAN_SLOT_KIDNEYS = /obj/item/organ/kidneys,
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
+		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes
 	)
 	///Sounds made randomly by the zombie
 	var/list/sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/wail.ogg')
@@ -80,7 +80,7 @@
 		H.heal_limbs(heal_rate)
 
 	for(var/organ_slot in has_organ)
-		var/datum/internal_organ/internal_organ = H.get_organ_slot(organ_slot)
+		var/obj/item/organ/internal_organ = H.get_organ_slot(organ_slot)
 		internal_organ?.heal_organ_damage(1)
 	H.updatehealth()
 

@@ -439,7 +439,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	victim.adjust_slowdown(debuff)
 	victim.apply_damage(stamina_dmg, STAMINA)
 
-	var/datum/internal_organ/O
+	var/obj/item/organ/O
 	for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_STOMACH))
 		O = victim.get_organ_slot(i)
 		O.take_damage(debuff, TRUE)
