@@ -176,6 +176,10 @@
 	///The rate that the stomach will transfer reagents to the body
 	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
 
+/obj/item/organ/stomach/New(mob/living/carbon/carbon_mob)
+	. = ..()
+	create_reagents(reagent_vol)
+
 /obj/item/organ/stomach/process()
 	var/mob/living/carbon/human/body = owner
 
