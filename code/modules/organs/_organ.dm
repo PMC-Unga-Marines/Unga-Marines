@@ -21,8 +21,8 @@
 	/// What slot does it go in?
 	var/slot
 
-/* Do something with this
-/datum/internal_organ/New(mob/living/carbon/carbon_mob)
+//This is used in the create_organs() which transfers human datums to organs
+/obj/item/organ/New(mob/living/carbon/carbon_mob)
 	..()
 	if(!istype(carbon_mob))
 		return
@@ -33,7 +33,6 @@
 	var/mob/living/carbon/human/human = carbon_mob
 	var/datum/limb/limb = human.get_limb(parent_limb)
 	LAZYDISTINCTADD(limb.internal_organs, src)
-*/
 
 /obj/item/organ/Destroy()
 	clean_owner()

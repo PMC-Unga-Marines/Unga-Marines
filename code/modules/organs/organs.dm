@@ -59,7 +59,7 @@
 	///Total medicines removed since last tick
 	var/removed_medicines = 0
 
-/obj/item/organ/kidneys/Initialize(mapload)
+/obj/item/organ/kidneys/New(mob/living/carbon/carbon_mob)
 	. = ..()
 	if(!owner)
 		return
