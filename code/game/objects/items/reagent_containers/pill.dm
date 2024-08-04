@@ -253,7 +253,7 @@
 	pill_id = 21
 
 /obj/item/reagent_containers/pill/imialky
-	pill_desc = "A imialky pill. Used to fix brain, ear and eye damage."
+	pill_desc = "An imialky pill. Used to fix brain, ear and eye damage."
 	list_reagents = list(/datum/reagent/medicine/alkysine = 3.5, /datum/reagent/medicine/imidazoline = 11.5)
 	pill_id = 18
 
