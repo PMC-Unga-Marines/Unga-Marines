@@ -160,12 +160,9 @@
 	organless_human.limbs += new/datum/limb/foot/l_foot(new_l_leg, organless_human)
 	organless_human.limbs += new/datum/limb/foot/r_foot(new_r_leg, organless_human)
 
-	for(var/obj/item/organ/organ in has_organ)
-		var/obj/item/organ/organ_type = has_organ[organ] // will it even do something?
+	for(var/obj/item/organ/organ AS in has_organ)
+		var/obj/item/organ/organ_type = has_organ[organ]
 		organless_human.internal_organs_by_name[organ] = new organ_type(organless_human)
-		organ.owner = organless_human
-		var/datum/limb/limb = organless_human.get_limb(organ.parent_limb)
-		LAZYDISTINCTADD(limb.internal_organs, src)
 
 	if(species_flags & ROBOTIC_LIMBS)
 		for(var/datum/limb/robotic_limb AS in organless_human.limbs)
