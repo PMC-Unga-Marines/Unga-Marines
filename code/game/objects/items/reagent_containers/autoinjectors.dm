@@ -248,7 +248,6 @@
 	list_reagents = list(/datum/reagent/medicine/peridaxon = 15)
 	description_overlay = "Pe"
 
-
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus
 	name = "peridaxon Plus autoinjector"
 	desc = "An auto-injector loaded with 3 doses of Peridaxon Plus, a chemical that heals organs while causing a buildup of toxins. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"

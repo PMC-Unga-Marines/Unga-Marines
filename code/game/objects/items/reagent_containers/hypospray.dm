@@ -515,7 +515,6 @@
 	)
 	description_overlay = "Pe"
 
-
 /obj/item/reagent_containers/hypospray/advanced/peridaxonplus
 	name = "Peridaxon+ hypospray"
 	desc = "A hypospray loaded with Peridaxon Plus, a chemical that heals organs while causing a buildup of toxins. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"

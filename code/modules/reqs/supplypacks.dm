@@ -1691,10 +1691,10 @@ MEDICAL
 
 /datum/supply_packs/medical/quick_peri_kit
 	name = "QuickPeri kit"
-	notes = "contains injector quick and peri."
+	notes = "contains quick-clot and peri injectors."
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		)
 	cost = 30
 

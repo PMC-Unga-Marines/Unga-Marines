@@ -720,7 +720,7 @@
 	L.adjust_blindness(-5)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/datum/internal_organ/eyes/E =H.get_organ_slot(ORGAN_SLOT_EYES)
+		var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
 			L.adjustToxLoss(-1.5 * effect_str)
