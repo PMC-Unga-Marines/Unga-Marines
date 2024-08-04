@@ -273,6 +273,6 @@
 	pill_id = 15
 
 /obj/item/reagent_containers/pill/sugar
-	pill_desc = "A sugar pill. Used to prevent hunger"
+	pill_desc = "A sugar pill. Used to prevent hunger."
 	list_reagents = list(/datum/reagent/consumable/sugar = 15)
 	pill_id = 18
