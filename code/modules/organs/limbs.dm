@@ -511,7 +511,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 		for(var/obj/item/organ/organ AS in internal_organs)
 			organ.get_damage(0.2, silent = TRUE) //1 point every 10 seconds, 100 seconds to bruise, five minutes to broken.
 
-
 ///Updating wounds. Handles natural damage healing from limb treatments and processes internal wounds
 /datum/limb/proc/update_wounds(limb_regen_penalty = 1)
 
