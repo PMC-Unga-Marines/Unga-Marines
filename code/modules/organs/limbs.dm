@@ -185,7 +185,7 @@
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/obj/item/organ/I = pick(internal_organs)
-		I.take_damage(brute / 2)
+		I.get_damage(brute / 2)
 		brute -= brute / 2
 RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)

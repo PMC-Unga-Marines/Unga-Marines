@@ -227,7 +227,7 @@
 
 	var/obj/item/organ/heart/heart = H.get_organ_slot(ORGAN_SLOT_HEART)
 	if(!issynth(H) && !isrobot(H) && heart && prob(90) && !advanced)
-		heart.take_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
+		heart.get_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
 
 	if(HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) || H.suiciding)
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient's brain has decayed too much. No remedy possible."))

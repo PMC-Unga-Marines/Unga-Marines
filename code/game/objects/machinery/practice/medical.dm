@@ -50,4 +50,4 @@
 					organs_to_hurt += I
 				if(length(organs_to_hurt))
 					var/obj/item/organ/O = pick(organs_to_hurt)
-					O.take_damage(40)
+					O.get_damage(40)

@@ -42,7 +42,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			var/mob/living/carbon/human/H = C
 			var/obj/item/organ/liver/O = H.get_organ_slot(ORGAN_SLOT_LIVER)
 			if (istype(O))
-				O.take_damage(((max(sqrt(volume) * (boozepwr ** ALCOHOL_EXPONENT) * O.alcohol_tolerance, 0)) * 0.002), TRUE)
+				O.get_damage(((max(sqrt(volume) * (boozepwr ** ALCOHOL_EXPONENT) * O.alcohol_tolerance, 0)) * 0.002), TRUE)
 
 	if(druggy != 0)
 		L.set_drugginess(druggy)
@@ -281,7 +281,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 					var/mob/living/carbon/human/H = L
 					var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 					if(istype(E))
-						E.take_damage(2)
+						E.get_damage(2)
 		if(200 to INFINITY)
 			L.set_timed_status_effect(5 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
 			L.adjustToxLoss(1)
@@ -296,7 +296,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 					if(H.species.species_flags ~! NO_PAIN)
 						to_chat(H, span_danger("You clutch for a moment as you feel a scorching pain covering your abdomen!"))
 						H.Stun(6 SECONDS)
-					E.take_damage(20)
+					E.get_damage(20)
 	return ..()
 
 /datum/reagent/consumable/ethanol/deadrum

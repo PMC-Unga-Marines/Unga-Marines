@@ -121,6 +121,6 @@
 
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I?.damage > 0)
-			I.take_damage(dam_amt,0)
+			I.get_damage(dam_amt,0)
 	target.updatehealth()
 	affected.update_wounds()

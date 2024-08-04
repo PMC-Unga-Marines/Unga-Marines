@@ -217,7 +217,7 @@
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
-			E.take_damage(1, TRUE)
+			E.get_damage(1, TRUE)
 		L.emote(pick("twitch", "blink_r", "shiver"))
 
 /datum/reagent/consumable/drink/coffee/overdose_crit_process(mob/living/L, metabolism)
@@ -230,7 +230,7 @@
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
-			E.take_damage(1, TRUE)
+			E.get_damage(1, TRUE)
 
 //nice one jpr~
 /datum/reagent/consumable/drink/coffee/atomiccoffee

@@ -92,7 +92,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING) && species.has_organ[ORGAN_SLOT_LUNGS])
 		var/obj/item/organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
-		L?.take_damage(1, TRUE)
+		L?.get_damage(1, TRUE)
 
 
 //Returns 1 if the attack hit, 0 if it missed.

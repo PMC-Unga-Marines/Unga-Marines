@@ -226,7 +226,7 @@
 			if(!H.mind && !H.client) //If we have no client or mind, permadeath time; remove the organs. Mainly for the NPC colonist bodies
 				H.remove_organ_slot(O)
 			else
-				O.take_damage(O.min_bruised_damage, TRUE)
+				O.get_damage(O.min_bruised_damage, TRUE)
 
 		var/datum/limb/chest = H.get_limb("chest")
 		new /datum/wound/internal_bleeding(15, chest) //Apply internal bleeding to chest

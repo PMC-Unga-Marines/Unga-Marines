@@ -42,7 +42,7 @@
 	if(ishuman(L)) //Critical overdose causes total blackout and heart damage. Too much stimulant
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
-		E.take_damage(0.5*effect_str, TRUE)
+		E.get_damage(0.5*effect_str, TRUE)
 	if(prob(10))
 		L.emote(pick("twitch","blink_r","shiver"))
 
@@ -165,7 +165,7 @@
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
-			E.take_damage(3*effect_str, TRUE)
+			E.get_damage(3*effect_str, TRUE)
 
 /datum/reagent/medicine/oxycodone/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("The room spins slightly as you start to come down off your painkillers!"))
@@ -403,7 +403,7 @@
 	var/mob/living/carbon/human/H = L
 	var/obj/item/organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 	if(E)
-		E.take_damage(0.5*effect_str, TRUE)
+		E.get_damage(0.5*effect_str, TRUE)
 
 /datum/reagent/medicine/dylovene/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 2*effect_str)
@@ -411,7 +411,7 @@
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 		if(E)
-			E.take_damage(1.5*effect_str, TRUE)
+			E.get_damage(1.5*effect_str, TRUE)
 
 /datum/reagent/medicine/adminordrazine //An OP chemical for admins
 	name = "Adminordrazine"
@@ -990,14 +990,14 @@
 		var/mob/living/carbon/human/H = L
 		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)
 		var/obj/item/organ/I = H.get_organ_slot(affected_organ)
-		I.take_damage(5.5 * effect_str)
+		I.get_damage(5.5 * effect_str)
 
 /datum/reagent/medicine/ultrazine/overdose_process(mob/living/L, metabolism)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
-			E.take_damage(0.5*effect_str, TRUE)
+			E.get_damage(0.5*effect_str, TRUE)
 	else
 		L.adjustToxLoss(0.5*effect_str)
 	if(prob(10))
@@ -1010,7 +1010,7 @@
 		var/mob/living/carbon/human/H = L
 		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
-			E.take_damage(1.5*effect_str, TRUE)
+			E.get_damage(1.5*effect_str, TRUE)
 
 /datum/reagent/medicine/cryoxadone
 	name = "Cryoxadone"

@@ -503,7 +503,7 @@
 	if(carbon_owner && prob(15))
 		var/obj/item/organ/organ = pick(carbon_owner.internal_organs)
 		if(organ)
-			organ.take_damage(5)
+			organ.get_damage(5)
 
 /atom/movable/screen/alert/status_effect/irradiated
 	name = "Irradiated"

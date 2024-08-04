@@ -41,7 +41,7 @@
 	if(species?.has_organ[ORGAN_SLOT_BRAIN])
 		var/obj/item/organ/brain/sponge = get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(sponge)
-			sponge.take_damage(amount, silent)
+			sponge.get_damage(amount, silent)
 			sponge.damage = clamp(sponge.damage, 0, MAX_BRAINLOSS)
 			brainloss = sponge.damage
 		else

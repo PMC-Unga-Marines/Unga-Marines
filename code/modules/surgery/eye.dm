@@ -53,7 +53,7 @@
 	span_warning("Your hand slips, slicing [target]'s eyes with \the [tool]!") )
 	target.balloon_alert_to_viewers("Slipped!")
 	affected.createwound(CUT, 10)
-	E.take_damage(5, 0)
+	E.get_damage(5, 0)
 	target.updatehealth()
 	affected.update_wounds()
 
@@ -86,7 +86,7 @@
 	user.visible_message(span_warning("[user]'s hand slips, damaging [target]'s eyes with \the [tool]!"),
 	span_warning("Your hand slips, damaging [target]'s eyes with \the [tool]!"))
 	target.balloon_alert_to_viewers("Slipped!")
-	eyes.take_damage(5, 0)
+	eyes.get_damage(5, 0)
 	target.apply_damage(10, BRUTE, affected, updating_health = TRUE)
 
 /datum/surgery_step/eye/mend_eyes
@@ -119,7 +119,7 @@
 	user.visible_message(span_warning("[user]'s hand slips, stabbing \the [tool] into [target]'s eye!"),
 	span_warning("Your hand slips, stabbing \the [tool] into [target]'s eye!"))
 	target.balloon_alert_to_viewers("Slipped!")
-	E.take_damage(5, 0)
+	E.get_damage(5, 0)
 	target.apply_damage(10, BRUTE, affected, 0, TRUE, updating_health = TRUE)
 
 /datum/surgery_step/eye/cauterize
@@ -155,5 +155,5 @@
 	user.visible_message(span_warning("[user]'s hand slips, searing [target]'s eyes with \the [tool]!"),
 	span_warning("Your hand slips, searing [target]'s eyes with \the [tool]!"))
 	target.balloon_alert_to_viewers("Slipped!")
-	E.take_damage(5, 0)
+	E.get_damage(5, 0)
 	target.apply_damage(5, BURN, affected, updating_health = TRUE)
