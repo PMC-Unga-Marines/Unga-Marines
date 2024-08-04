@@ -256,7 +256,7 @@
 	var/current_medicine_count = 0
 	///How many drugs we can take before they overwhelm us. Decreases with damage
 	var/current_medicine_cap = 5
-	///How many drugs we can take before they overwhelm us. Decreases with damage
+	///Additional medicine capacity given by the freyr module.
 	var/freyr_medicine_cap = 3
 	///Whether we were over cap the last time we checked.
 	var/old_overflow = FALSE
