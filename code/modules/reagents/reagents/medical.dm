@@ -1534,7 +1534,7 @@
 
 /datum/reagent/medicine/sulfasalazine
 	name = "sulfasalazine"
-	description = "sulfasalazine, an agent that restores itself at the expense of other reagents and purge them, but has a great healing effect"
+	description = "Sulfasalazine, a self-restoring agent that has great healing effects at the cost of purging all the other reagents."
 	color = COLOR_REAGENT_SULFASALAZINE
 	custom_metabolism = 0
 	scannable = TRUE
