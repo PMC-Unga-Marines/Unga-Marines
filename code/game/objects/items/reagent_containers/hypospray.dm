@@ -545,7 +545,7 @@
 
 /obj/item/reagent_containers/hypospray/advanced/russian_red
 	name = "Russian Red hypospray"
-	desc = "A Russian Re loaded with Russian Red, a chemical that heal all damage rapidly at the cost of small amounts of unhealable damage."
+	desc = "A hypospray loaded with Russian Red, a chemical that heals all damage rapidly at the cost of small amounts of unhealable damage."
 	amount_per_transfer_from_this = 10
 	list_reagents = list(
 		/datum/reagent/medicine/russian_red = 120,
