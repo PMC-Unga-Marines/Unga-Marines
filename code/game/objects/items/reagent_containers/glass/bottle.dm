@@ -180,7 +180,7 @@
 
 /obj/item/reagent_containers/glass/bottle/combatmix
 	name = "\improper Combat mix bottle"
-	desc = "A small bottle. There's a tag that reads BKTT 40:40:20:20."
+	desc = "A small bottle. There's a tag that reads BKTT 80:80:40:40."
 	icon_state = "bottle14"
 	volume = 240
 	list_reagents = list(
