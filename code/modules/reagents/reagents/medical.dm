@@ -693,7 +693,7 @@
 	L.reagent_shock_modifier += PAIN_REDUCTION_VERY_LIGHT
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/datum/internal_organ/brain/B = H.internal_organs_by_name["brain"]
+		var/datum/internal_organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(B.damage < 30)
 			L.adjustBrainLoss(-1.5*effect_str)
 			L.adjustToxLoss(-1.5 * effect_str)
