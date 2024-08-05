@@ -647,12 +647,16 @@
 
 /datum/action/ability/activable/xeno/corrosive_acid/use_ability(atom/A)
 	var/obj/effect/xenomorph/acid/current_acid_type = acid_type
-	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
-		current_acid_type = /obj/effect/xenomorph/acid/strong //if it is before shutters open, everyone gets strong acid
 	// Check if it's an acid object we're upgrading
 	if(istype(A, /obj/effect/xenomorph/acid))
 		var/obj/effect/xenomorph/acid/existing_acid = A
 		A = existing_acid.acid_t // Swap the target to the target of the acid
+
+
+	var/aciddelay = A.get_acid_delay()
+	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
+		current_acid_type = /obj/effect/xenomorph/acid/strong //if it is before shutters open, everyone gets strong acid
+		aciddelay = 0
 
 	if(!A.dissolvability(current_acid_type::acid_strength))
 		return fail_activate()
@@ -660,7 +664,7 @@
 	xeno_owner.face_atom(A)
 	to_chat(xeno_owner, span_xenowarning("We begin generating enough acid to melt through the [A]"))
 
-	if(!do_after(xeno_owner, A.get_acid_delay(), NONE, A, BUSY_ICON_HOSTILE))
+	if(!do_after(xeno_owner, aciddelay, NONE, A, BUSY_ICON_HOSTILE))
 		return fail_activate()
 
 	if(!can_use_ability(A, TRUE))
