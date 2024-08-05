@@ -143,7 +143,6 @@
 		return
 	return ..()
 
-
 /obj/item/weapon/heldglove/boxing
 	name = "boxing glove"
 	desc = "Because you really needed another excuse to punch your crewmates."
@@ -174,7 +173,6 @@
 /obj/item/weapon/heldglove/boxing/jab
 	icon_state = "boxing_j"
 	attack_verb = list("jabbed")
-
 
 /obj/item/clothing/gloves/heldgloves/boxing/green
 	icon_state = "boxinggreen"

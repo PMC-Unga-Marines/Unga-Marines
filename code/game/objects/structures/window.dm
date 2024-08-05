@@ -76,17 +76,6 @@
 	update_nearby_icons()
 	return ..()
 
-/obj/structure/window/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(rand(125, 250), BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(rand(75, 125), BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(25, 75), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(rand(15, 35), BRUTE, BOMB)
-
 /obj/structure/window/hitby(atom/movable/AM, speed = 5)
 	var/throw_damage = speed
 	var/mob/living/thrown_mob

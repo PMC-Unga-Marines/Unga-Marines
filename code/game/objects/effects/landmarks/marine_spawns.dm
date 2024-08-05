@@ -38,10 +38,6 @@
 	icon_state = "TO"
 	job = /datum/job/terragov/command/transportofficer
 
-/obj/effect/landmark/start/job/chiefshipengineer
-	icon_state = "CSE"
-	job = /datum/job/terragov/engineering/chief
-
 /obj/effect/landmark/start/job/requisitionsofficer
 	icon_state = "RO"
 	job = /datum/job/terragov/requisitions/officer
@@ -60,7 +56,7 @@
 
 /obj/effect/landmark/start/job/shiptech
 	icon_state = "SE"
-	job = /datum/job/terragov/engineering/tech
+	job = /datum/job/terragov/requisitions/tech
 
 /obj/effect/landmark/start/job/cmo
 	icon_state = "CMO"

@@ -732,7 +732,7 @@
 	desc = "An extremely moist snack cake that tastes just as good after being nuked."
 	filling_color = "#FF5D05"
 
-	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/drink/doctor_delight = 5)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/doctor_delight = 5)
 	trash = /obj/item/trash/syndi_cakes
 	bitesize = 3
 	tastes = list("sweetness" = 3, "cake" = 1)

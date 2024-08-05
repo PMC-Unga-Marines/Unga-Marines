@@ -98,6 +98,10 @@ REAGENT SCANNER
 	. = ..()
 	analyze_vitals(M, user, TRUE)
 
+/obj/item/healthanalyzer/attack_self(mob/user)
+	. = ..()
+	attack(user, user)
+
 ///Health scans a target. M is the thing being scanned, user is the person doing the scanning, show_patient will show the UI to the scanee when TRUE.
 /obj/item/healthanalyzer/proc/analyze_vitals(mob/living/carbon/M, mob/living/user, show_patient)
 	if(user.skills.getRating(SKILL_MEDICAL) < skill_threshold)
@@ -111,11 +115,9 @@ REAGENT SCANNER
 	if(isxeno(M))
 		balloon_alert(user, "Unknown entity")
 		return
-//RU TGMC EDIT
 	if(HAS_TRAIT(M, TRAIT_FOREIGN_BIO) && !alien)
 		balloon_alert(user, "Unknown biology")
 		return
-//RU TGMC EDIT
 	if(M.species.species_flags & NO_SCAN)
 		balloon_alert(user, "Not Organic")
 		return

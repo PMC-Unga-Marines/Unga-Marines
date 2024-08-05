@@ -30,7 +30,7 @@
 	M.adjust_fire_stacks(10)
 	reagents.remove_reagent(/datum/reagent/fuel, fuel_usage)
 	user.visible_message(span_notice("[user] splashes some fuel on [M]"), span_notice("You splash some fuel on [M]"), ignored_mob = M)
-	to_chat(M, "<span class='warning'>[user] drenches you in fuel from [src]!<span>")
+	to_chat(M, span_warning("[user] drenches you in fuel from [src]!"))
 	log_attack("[key_name(user)] has doused [M] in fuel in [AREACOORD(user)]")
 
 /obj/item/reagent_containers/jerrycan/afterattack(obj/O as obj, mob/user as mob, proximity)

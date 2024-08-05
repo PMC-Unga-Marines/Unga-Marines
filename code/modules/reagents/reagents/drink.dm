@@ -463,22 +463,6 @@
 	L.jitter(5)
 	return ..()
 
-/datum/reagent/consumable/drink/doctor_delight
-	name = "The Doctor's Delight"
-	description = "A gulp a day keeps the MediBot away. That's probably for the best."
-	color = "#FF8CFF" // rgb: 255, 140, 255
-	taste_description = "homely fruit"
-	nutriment_factor = - 1
-	custom_metabolism = REAGENTS_METABOLISM * 0.25 //Twice the rate of paracetamol
-	adj_dizzy = - 10
-
-/datum/reagent/consumable/drink/doctor_delight/on_mob_life(mob/living/L, metabolism)
-	L.adjustBruteLoss(-0.5, 0)
-	L.adjustFireLoss(-0.5, 0)
-	L.adjustToxLoss(-0.5, 0)
-	L.adjustOxyLoss(-0.5, 0)
-	return ..()
-
 /datum/reagent/consumable/drink/atomicbomb
 	name = "Atomic Bomb"
 	description = "Nuclear proliferation never tasted so good."

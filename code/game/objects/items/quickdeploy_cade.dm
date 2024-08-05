@@ -14,7 +14,7 @@
 /obj/item/quikdeploy/attack_self(mob/user)
 	balloon_alert_to_viewers("Starts to deploy barricade")
 	if(!do_after(usr, delay, NONE, src, BUSY_ICON_BUILD))
-		to_chat(user, "<span class='warning'>You decide against deploying something here.")
+		to_chat(user, span_warning("You decide against deploying something here."))
 		return
 	if(can_place(user)) //can_place() handles sending the error and success messages to the user
 		var/obj/O = new thing_to_deploy(get_turf(user))
@@ -24,7 +24,7 @@
 
 /obj/item/quikdeploy/proc/can_place(mob/user)
 	if(isnull(thing_to_deploy)) //Spaghetti or wrong type spawned
-		to_chat(user, "<span class='warning'>This thing doesn't actually really do anything! Complain to whoever gave you this")
+		to_chat(user, span_warning("This thing doesn't actually really do anything! Complain to whoever gave you this"))
 		return FALSE
 	return TRUE
 

@@ -708,7 +708,7 @@
 
 /obj/effect/vendor_bundle/gorka_medic
 	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/ru/gorka_med,
+		/obj/item/clothing/under/marine/gorka_med,
 		/obj/item/clothing/shoes/marine/full,
 		/obj/item/storage/box/MRE,
 	)
@@ -732,7 +732,7 @@
 
 /obj/effect/vendor_bundle/gorka_engineer
 	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/ru/gorka_eng,
+		/obj/item/clothing/under/marine/gorka_eng,
 		/obj/item/clothing/shoes/marine/full,
 		/obj/item/storage/box/MRE,
 	)
@@ -932,7 +932,7 @@
 	desc = "A set of specialized gear for close-quarters combat and enhanced chemical effectiveness."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/chemsystem,
-		/obj/item/storage/holster/blade/machete/full_harvester,
+		/obj/item/storage/holster/blade/harvester/full,
 		/obj/item/paper/chemsystem,
 	)
 /obj/effect/vendor_bundle/tyr
@@ -986,20 +986,20 @@
 	name = "Full set of TGMC veteran uniform"
 	desc = "TerraGov Marine Corps Veteran Uniform Set. Modified mostly by hand, but still quite stylish."
 	gear_to_spawn = list(
-		/obj/item/clothing/mask/gas/ru/veteran,
-		/obj/item/clothing/under/marine/ru/veteran,
+		/obj/item/clothing/mask/gas/veteran,
+		/obj/item/clothing/under/marine/veteran,
 		/obj/item/clothing/gloves/marine/veteran/marine,
-		/obj/item/clothing/shoes/marine/ru/headskin,
+		/obj/item/clothing/shoes/marine/headskin,
 	)
 
 /obj/effect/vendor_bundle/separatist_uniform
 	name = "Full set of civilian militia uniform"
 	desc = "A set of civilian militia uniforms. Old, but still fashionable."
 	gear_to_spawn = list(
-		/obj/item/clothing/mask/gas/ru/separatist,
-		/obj/item/clothing/under/marine/ru/separatist,
+		/obj/item/clothing/mask/gas/separatist,
+		/obj/item/clothing/under/marine/separatist,
 		/obj/item/clothing/gloves/marine/separatist,
-		/obj/item/clothing/shoes/marine/ru/separatist,
+		/obj/item/clothing/shoes/marine/separatist,
 	)
 
 #undef DEFAULT_TOTAL_BUY_POINTS

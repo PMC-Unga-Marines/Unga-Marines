@@ -1,5 +1,3 @@
-//All the harvester weapons go in here
-
 //Vali Sword
 /obj/item/weapon/claymore/harvester
 	name = "\improper HP-S Harvester blade"

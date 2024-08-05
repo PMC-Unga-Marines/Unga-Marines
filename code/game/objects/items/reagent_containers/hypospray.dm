@@ -500,10 +500,20 @@
 	name = "nanoblood hypospray"
 	desc = "A hypospray loaded with nanoblood. A chemical which rapidly restores blood at the cost of minor toxic damage."
 	amount_per_transfer_from_this = 5
+	volume = 60
 	list_reagents = list(
 		/datum/reagent/medicine/nanoblood = 60,
 	)
 	description_overlay = "Na"
+
+/obj/item/reagent_containers/hypospray/advanced/peridaxon
+	name = "Peridaxon hypospray"
+	desc = "A hypospray loaded with Peridaxon,  a chemical that removes the consequences from organs !DO NOT USE MORE THAN ONCE AT A TIME!"
+	amount_per_transfer_from_this = 5
+	list_reagents = list(
+		/datum/reagent/medicine/peridaxon = 120,
+	)
+	description_overlay = "Pe"
 
 /obj/item/reagent_containers/hypospray/advanced/peridaxonplus
 	name = "Peridaxon+ hypospray"
@@ -515,6 +525,15 @@
 	)
 	description_overlay = "Pe+"
 
+/obj/item/reagent_containers/hypospray/advanced/quickclot
+	name = "Quickclot hypospray"
+	desc = "A hypospray loaded with quick-clot, a a chemical designed to pause all bleeding. Renew doses as needed."
+	amount_per_transfer_from_this = 15
+	list_reagents = list(
+		/datum/reagent/medicine/quickclot = 120,
+	)
+	description_overlay = "Qk"
+
 /obj/item/reagent_containers/hypospray/advanced/quickclotplus
 	name = "Quickclot+ hypospray"
 	desc = "A hypospray loaded with quick-clot plus, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"
@@ -524,14 +543,14 @@
 	)
 	description_overlay = "Qk+"
 
-/obj/item/reagent_containers/hypospray/advanced/quickclot
-	name = "Quickclot hypospray"
-	desc = "A hypospray loaded with quick-clot, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"
-	amount_per_transfer_from_this = 5
+/obj/item/reagent_containers/hypospray/advanced/russian_red
+	name = "Russian Red hypospray"
+	desc = "A hypospray loaded with Russian Red, a chemical that heals all damage rapidly at the cost of small amounts of unhealable damage."
+	amount_per_transfer_from_this = 10
 	list_reagents = list(
-		/datum/reagent/medicine/quickclotplus = 120,
+		/datum/reagent/medicine/russian_red = 120,
 	)
-	description_overlay = "Qk"
+	description_overlay = "Rr"
 
 /obj/item/reagent_containers/hypospray/advanced/big
 	name = "big hypospray"
@@ -575,7 +594,7 @@
 
 /obj/item/reagent_containers/hypospray/advanced/big/combatmix
 	name = "big combat mix hypospray"
-	desc = "A hypospray loaded with combat mix. There's a tag that reads BKTT 40:40:20:20."
+	desc = "A hypospray loaded with combat mix. There's a tag that reads BKTT 80:80:40:40."
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
 		/datum/reagent/medicine/bicaridine = 80,
