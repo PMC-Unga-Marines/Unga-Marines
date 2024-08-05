@@ -20,6 +20,8 @@
 	var/organ_status = ORGAN_HEALTHY
 	/// What slot does it go in?
 	var/slot
+	/// Will peri affect this organ? Thus ignores eyes, ears and brain
+	var/peri_effect = FALSE
 
 //This is used in the create_organs() which transfers human datums to organs
 /obj/item/organ/New(mob/living/carbon/carbon_mob)
@@ -62,6 +64,11 @@
 
 /// Set the correct organ state
 /obj/item/organ/proc/set_organ_status()
+	if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.1 && peri_effect) //0.1 just in case
+		if(organ_status != ORGAN_HEALTHY)
+			organ_status = ORGAN_HEALTHY
+			return TRUE
+		return FALSE
 	if(damage > min_broken_damage)
 		if(organ_status != ORGAN_BROKEN)
 			organ_status = ORGAN_BROKEN

@@ -3,6 +3,7 @@
 	name = "heart"
 	icon_state = "heart-on"
 	slot = ORGAN_SLOT_HEART
+	peri_effect = TRUE
 
 /obj/item/organ/heart/process()
 	if(organ_status == ORGAN_BRUISED && prob(5))
@@ -23,6 +24,7 @@
 	icon_state = "lungs"
 	gender = PLURAL
 	slot = ORGAN_SLOT_LUNGS
+	peri_effect = TRUE
 
 /obj/item/organ/lungs/process()
 	if((organ_status == ORGAN_BRUISED && prob(5)) || (organ_status == ORGAN_BROKEN && prob(20)))
@@ -48,6 +50,7 @@
 	gender = PLURAL
 	slot = ORGAN_SLOT_KIDNEYS
 	parent_limb = BODY_ZONE_PRECISE_GROIN
+	peri_effect = TRUE
 	///Tracks the number of reagent/medicine datums we currently have
 	var/current_medicine_count = 0
 	///How many drugs we can take before they overwhelm us. Decreases with damage
@@ -122,6 +125,7 @@
 	name = "liver"
 	icon_state = "liver"
 	slot = ORGAN_SLOT_LIVER
+	peri_effect = TRUE
 	///lower value, higher resistance.
 	var/alcohol_tolerance = 0.005
 	///How fast we clean out toxins/toxloss. Adjusts based on organ damage.
@@ -166,11 +170,13 @@
 	icon_state = "appendix"
 	slot = ORGAN_SLOT_APPENDIX
 	parent_limb = BODY_ZONE_PRECISE_GROIN
+	peri_effect = TRUE
 
 /obj/item/organ/stomach
 	name = "stomach"
 	icon_state = "stomach"
 	slot = ORGAN_SLOT_STOMACH
+	peri_effect = TRUE
 	///This is a reagent user and needs more then the 10u from edible component
 	var/reagent_vol = 1000
 	///The rate that the stomach will transfer reagents to the body
