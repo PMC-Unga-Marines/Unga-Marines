@@ -227,6 +227,11 @@
 	list_reagents = list(/datum/reagent/medicine/quickclot = 10)
 	pill_id = 20
 
+/obj/item/reagent_containers/pill/peridaxon
+	pill_desc = "A quick-clot pill. Stabilizes internal bleeding temporarily."
+	list_reagents = list(/datum/reagent/medicine/peridaxon = 10)
+	pill_id = 20
+
 /obj/item/reagent_containers/pill/tricordrazine
 	pill_desc = "A tricordrazine pill. Broad spectrum medication that slowly heals all damage types."
 	list_reagents = list(/datum/reagent/medicine/tricordrazine = 15)
@@ -246,3 +251,28 @@
 	//pill_desc = "An ultrazine pill. A highly-potent, long-lasting combination CNS and muscle stimulant. Extremely addictive."
 	list_reagents = list(/datum/reagent/medicine/ultrazine = 5)
 	pill_id = 21
+
+/obj/item/reagent_containers/pill/imialky
+	pill_desc = "An imialky pill. Used to fix brain, ear and eye damage."
+	list_reagents = list(/datum/reagent/medicine/alkysine = 3.5, /datum/reagent/medicine/imidazoline = 11.5)
+	pill_id = 18
+
+/obj/item/reagent_containers/pill/combatmix
+	pill_desc = "A combat mix pill. There's a tag that reads BKTT."
+	list_reagents = list(
+		/datum/reagent/medicine/bicaridine = 5,
+		/datum/reagent/medicine/kelotane = 5,
+		/datum/reagent/medicine/tramadol = 2.5,
+		/datum/reagent/medicine/tricordrazine = 2.5,
+	)
+	pill_id = 21
+
+/obj/item/reagent_containers/pill/doctor_delight
+	pill_desc = "A doctor's delight pill. Used to heal wounds slowly at cost of your hunger and stamina, can't be overdosed."
+	list_reagents = list(/datum/reagent/medicine/doctor_delight = 15)
+	pill_id = 15
+
+/obj/item/reagent_containers/pill/sugar
+	pill_desc = "A sugar pill. Used to prevent hunger."
+	list_reagents = list(/datum/reagent/consumable/sugar = 15)
+	pill_id = 18

@@ -346,8 +346,8 @@
 	storage = /obj/item/storage/internal/modular/injector
 
 /obj/item/storage/internal/modular/injector
-	max_storage_space = 10
-	storage_slots = 10
+	max_storage_space = 14
+	storage_slots = 14
 	max_w_class = WEIGHT_CLASS_TINY
 	can_hold = list(
 		/obj/item/reagent_containers/syringe,

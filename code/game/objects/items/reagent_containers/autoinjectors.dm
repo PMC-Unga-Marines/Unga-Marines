@@ -239,6 +239,15 @@
 	list_reagents = list(/datum/reagent/medicine/neuraline = 12)
 	description_overlay = "Ne"
 
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "Peridaxon autoinjector"
+	desc = "An auto-injector loaded with 3 doses of Peridaxon, a chemical that removes the consequences from organs !DO NOT USE MORE THAN ONCE AT A TIME!"
+	amount_per_transfer_from_this = 5
+	volume = 3
+	icon_state = "VioWhite"
+	list_reagents = list(/datum/reagent/medicine/peridaxon = 15)
+	description_overlay = "Pe"
+
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus
 	name = "peridaxon Plus autoinjector"
 	desc = "An auto-injector loaded with 3 doses of Peridaxon Plus, a chemical that heals organs while causing a buildup of toxins. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!"
@@ -305,7 +314,16 @@
 	icon_state = "autoinjector-6"
 	amount_per_transfer_from_this = 1
 	volume = 1
-	list_reagents = list(/datum/reagent/medicine/research/medicalnanites = 1)
+	list_reagents = list(/datum/reagent/medicalnanites = 1)
+	free_refills = FALSE
+
+/obj/item/reagent_containers/hypospray/autoinjector/sulfasalazine
+	name = "sulfasalazine autoinjector"
+	desc = "An auto-injector loaded with sulfasalazine, an agent that restores itself at the expense of other reagents and purge them, but has a great healing effect"
+	icon_state = "autoinjector-6"
+	amount_per_transfer_from_this = 1
+	volume = 1
+	list_reagents = list(/datum/reagent/medicine/sulfasalazine = 1)
 	free_refills = FALSE
 
 /obj/item/reagent_containers/hypospray/autoinjector/pain //made for debugging

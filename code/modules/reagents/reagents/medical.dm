@@ -89,17 +89,26 @@
 	color = COLOR_REAGENT_PARACETAMOL
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.125
-	purge_list = list(/datum/reagent/medicine/kelotane, /datum/reagent/medicine/bicaridine)
-	purge_rate = 1
+	purge_list = list(
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/bicaridine,
+	)
+	purge_rate = 5
 	overdose_threshold = REAGENTS_OVERDOSE*2
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL*2
 
 /datum/reagent/medicine/paracetamol/on_mob_life(mob/living/L, metabolism)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
-	L.adjustToxLoss(-0.1*effect_str)
+	L.adjustToxLoss(-1.5*effect_str)
 	L.adjustStaminaLoss(-effect_str)
+	L.adjustDrowsyness(-0.5 SECONDS)
+	L.AdjustUnconscious(-1 SECONDS)
+	L.AdjustStun(-1 SECONDS)
+	L.AdjustParalyzed(-1 SECONDS)
+	L.add_movespeed_modifier(MOVESPEED_ID_MOB_PARACETAMOL_SPEED, TRUE, 0, NONE, TRUE, -0.1)
 	return ..()
+
 
 /datum/reagent/medicine/paracetamol/overdose_process(mob/living/L, metabolism)
 	L.hallucination = max(L.hallucination, 2)
@@ -108,6 +117,9 @@
 
 /datum/reagent/medicine/paracetamol/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damage(3*effect_str, TOX)
+
+/datum/reagent/medicine/paracetamol/on_mob_delete(mob/living/L, metabolism)
+	L.remove_movespeed_modifier(MOVESPEED_ID_MOB_PARACETAMOL_SPEED)
 
 /datum/reagent/medicine/tramadol
 	name = "Tramadol"
@@ -224,8 +236,11 @@
 	description = "Kelotane is a drug used to treat burns."
 	color = COLOR_REAGENT_KELOTANE
 	scannable = TRUE
-	purge_list = list(/datum/reagent/medicine/ryetalyn)
-	purge_rate = 1
+	purge_list = list(
+		/datum/reagent/medicine/ryetalyn,
+		/datum/reagent/medicine/paracetamol,
+	)
+	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 
@@ -309,7 +324,6 @@
 
 /datum/reagent/medicine/dexalin/on_mob_life(mob/living/L,metabolism)
 	L.adjustOxyLoss(-3*effect_str)
-	L.adjustStaminaLoss(-2*effect_str)
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
@@ -456,7 +470,7 @@
 	overdose_threshold = REAGENTS_OVERDOSE/5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
 	scannable = TRUE
-	custom_metabolism = REAGENTS_METABOLISM * 1.5
+	custom_metabolism = REAGENTS_METABOLISM * 0.5
 	purge_list = list(/datum/reagent/toxin/mindbreaker)
 	purge_rate = 5
 
@@ -677,7 +691,12 @@
 
 /datum/reagent/medicine/alkysine/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_VERY_LIGHT
-	L.adjustBrainLoss(-1.5*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(B.damage < 30)
+			L.adjustBrainLoss(-1.5*effect_str)
+			L.adjustToxLoss(-1.5 * effect_str)
 	L.adjust_ear_damage(-2 * effect_str, -2 * effect_str)
 	return ..()
 
@@ -702,8 +721,9 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
-		if(E)
+		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
+			L.adjustToxLoss(-1.5 * effect_str)
 	return ..()
 
 /datum/reagent/medicine/imidazoline/overdose_process(mob/living/L, metabolism)
@@ -711,6 +731,43 @@
 
 /datum/reagent/medicine/imidazoline/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, effect_str, 2*effect_str)
+
+/datum/reagent/medicine/peridaxon
+	name = "Peridaxon"
+	description = "Used to stabilize internal organs while waiting for surgery, and fixes organ damage at cryogenic temperatures. Medicate cautiously."
+	color = "#C845DC"
+	overdose_threshold = REAGENTS_OVERDOSE/2
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	custom_metabolism = REAGENTS_METABOLISM * 0.25
+	scannable = TRUE
+
+/datum/reagent/medicine/peridaxon/on_mob_life(mob/living/L, metabolism)
+	if(!ishuman(L))
+		return ..()
+	var/mob/living/carbon/human/H = L
+	for(var/datum/internal_organ/I in H.internal_organs)
+		if(I.damage)
+			if(L.bodytemperature > 169 && I.damage > 5)
+				continue
+			I.heal_organ_damage(3 * effect_str)
+	return ..()
+/datum/reagent/medicine/peridaxon/overdose_process(mob/living/L, metabolism)
+	L.apply_damage(2*effect_str, BRUTE)
+
+/datum/reagent/peridaxon/overdose_crit_process(mob/living/L, metabolism)
+	L.apply_damages(6*effect_str, BRUTE)
+
+/datum/reagent/medicine/research/stimulon/on_mob_add(mob/living/L, metabolism)
+	. = ..()
+	var/mob/living/carbon/human/H = L
+	for(var/datum/internal_organ/I in H.internal_organs)
+		I.set_organ_status()
+
+/datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
+	var/mob/living/carbon/human/H = L
+	for(var/datum/internal_organ/I in H.internal_organs)
+		I.set_organ_status()
+	return ..()
 
 /datum/reagent/medicine/peridaxon_plus
 	name = "Peridaxon Plus"
@@ -744,8 +801,11 @@
 	name = "Bicaridine"
 	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
 	color = COLOR_REAGENT_BICARIDINE
-	purge_list = list(/datum/reagent/medicine/ryetalyn)
-	purge_rate = 1
+	purge_list = list(
+		/datum/reagent/medicine/ryetalyn,
+		/datum/reagent/medicine/paracetamol,
+	)
+	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	scannable = TRUE
@@ -902,13 +962,13 @@
 	scannable = TRUE
 
 /datum/reagent/medicine/nanoblood/on_mob_life(mob/living/L, metabolism)
-	L.blood_volume += 2.4
+	L.blood_volume += 3.4
 	L.adjustToxLoss(effect_str)
 	L.adjustStaminaLoss(6*effect_str)
 	if(L.blood_volume < BLOOD_VOLUME_OKAY)
-		L.blood_volume += 2.4
+		L.blood_volume += 3.4
 	if(L.blood_volume < BLOOD_VOLUME_BAD)
-		L.blood_volume = (BLOOD_VOLUME_BAD+1)
+		L.blood_volume = (BLOOD_VOLUME_BAD+2)
 		L.reagents.add_reagent(/datum/reagent/toxin,25)
 		L.AdjustSleeping(10 SECONDS)
 	return ..()
@@ -1339,7 +1399,7 @@
 /datum/reagent/medicine/research/somolent/overdose_process(mob/living/L, metabolism)
 	holder.remove_reagent(/datum/reagent/medicine/research/somolent, 1)
 
-/datum/reagent/medicine/research/medicalnanites
+/datum/reagent/medicalnanites
 	name = "Medical nanites"
 	description = "These are a batch of construction nanites altered for in-vivo replication. They can heal wounds using the iron present in the bloodstream. Medical care is recommended during injection."
 	color = COLOR_REAGENT_MEDICALNANITES
@@ -1348,53 +1408,77 @@
 	taste_description = "metal, followed by mild burning"
 	overdose_threshold = REAGENTS_OVERDOSE * 1.2 //slight buffer to keep you safe
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 1.7
+	purge_rate = 5
+	purge_list = list(
+		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/tramadol,
+		/datum/reagent/medicine/tricordrazine,
+		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicine/oxycodone,
+	)
 
-/datum/reagent/medicine/research/medicalnanites/on_mob_add(mob/living/L, metabolism)
+/datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
 
-/datum/reagent/medicine/research/medicalnanites/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/medicalnanites/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)
 		if(1 to 75)
 			L.take_limb_damage(0.015*current_cycle*effect_str, 0.015*current_cycle*effect_str)
 			L.adjustToxLoss(1*effect_str)
 			L.adjustStaminaLoss((1.5)*effect_str)
-			L.reagents.add_reagent(/datum/reagent/medicine/research/medicalnanites, 0.40)
+			L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.4)
 			if(prob(5))
 				to_chat(L, span_notice("You feel intense itching!"))
 		if(76)
 			to_chat(L, span_warning("The pain rapidly subsides. Looks like they've adapted to you."))
+			L.add_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED, TRUE, 0, NONE, TRUE, 0.1)
 		if(77 to INFINITY)
 			if(volume < 30) //smol injection will self-replicate up to 30u using 240u of blood.
-				L.reagents.add_reagent(/datum/reagent/medicine/research/medicalnanites, 0.15)
+				L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.15)
 				L.blood_volume -= 2
 
 			if(volume < 35) //allows 10 ticks of healing for 20 points of free heal to lower scratch damage bloodloss amounts.
-				L.reagents.add_reagent(/datum/reagent/medicine/research/medicalnanites, 0.1)
+				L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.1)
+
+			//cuz we purge painkillers
+			if(volume > 5)
+				L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 
 			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
-				L.heal_overall_damage(2*effect_str, 0)
+				L.heal_overall_damage(1.9*effect_str, 0)
 				L.adjustToxLoss(0.1*effect_str)
-				holder.remove_reagent(/datum/reagent/medicine/research/medicalnanites, 0.5)
+				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your cuts and bruises begin to scab over rapidly!"))
 
 			if (volume > 5 && L.getFireLoss(organic_only = TRUE))
-				L.heal_overall_damage(0, 2*effect_str)
+				L.heal_overall_damage(0, 1.9*effect_str)
 				L.adjustToxLoss(0.1*effect_str)
-				holder.remove_reagent(/datum/reagent/medicine/research/medicalnanites, 0.5)
+				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your burns begin to slough off, revealing healthy tissue!"))
+			if(prob(5))
+				if(!ishuman(L))
+					return ..()
+				var/mob/living/carbon/human/H = L
+				var/datum/internal_organ/organ = H.get_damaged_organ()
+				if(!organ)
+					return ..()
+				L.adjustToxLoss(5*effect_str)
+				organ.heal_organ_damage(10 * effect_str)
 	return ..()
 
-/datum/reagent/medicine/research/medicalnanites/overdose_process(mob/living/L, metabolism)
+/datum/reagent/medicalnanites/overdose_process(mob/living/L, metabolism)
 	L.adjustToxLoss(effect_str) //softcap VS injecting massive amounts of medical nanites for the healing factor with no downsides. Still doable if you're clever about it.
-	holder.remove_reagent(/datum/reagent/medicine/research/medicalnanites, 0.25)
+	holder.remove_reagent(/datum/reagent/medicalnanites, 0.25)
 
-/datum/reagent/medicine/research/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
+/datum/reagent/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustCloneLoss(1) //YUM!
 
-/datum/reagent/medicine/research/medicalnanites/on_mob_delete(mob/living/L, metabolism)
+/datum/reagent/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
+	L.remove_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED)
 
 /datum/reagent/medicine/research/stimulon
 	name = "Stimulon"
@@ -1427,4 +1511,59 @@
 			to_chat(L, span_userdanger("You start to ache and cramp as your muscles wear out. You should probably remove this drug soon."))
 		if (21 to INFINITY)
 			L.jitter(5)
+	return ..()
+
+/datum/reagent/medicine/doctor_delight
+	name = "The Doctor's Delight"
+	description = "A gulp a day keeps the MediBot away. That's probably for the best."
+	color = "#FF8CFF" // rgb: 255, 140, 255
+	taste_description = "homely fruit"
+	var/nutriment_factor = - 1
+	custom_metabolism = REAGENTS_METABOLISM * 0.25 //Twice the rate of paracetamol
+	scannable = TRUE
+
+/datum/reagent/medicine/doctor_delight/on_mob_life(mob/living/L, metabolism)
+	L.adjustBruteLoss(-0.5, 0)
+	L.adjustFireLoss(-0.5, 0)
+	L.adjustToxLoss(-0.5, 0)
+	L.adjustOxyLoss(-0.5, 0)
+	if(iscarbon(L))
+		var/mob/living/carbon/C = L
+		C.adjust_nutrition(nutriment_factor*0.5*effect_str)
+	return ..()
+
+/datum/reagent/medicine/sulfasalazine
+	name = "sulfasalazine"
+	description = "Sulfasalazine, a self-restoring agent that has great healing effects at the cost of purging all the other reagents."
+	color = COLOR_REAGENT_SULFASALAZINE
+	custom_metabolism = 0
+	scannable = TRUE
+	purge_rate = 5
+	var/absorbtion = 0
+	var/max_absorbtion = 10
+	var/max_reagent = 100
+
+/datum/reagent/medicine/sulfasalazine/on_mob_life(mob/living/L, metabolism)
+
+	if(absorbtion > 0 && volume < max_reagent)
+		L.reagents.add_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
+
+	if(absorbtion > 0)
+		absorbtion--
+
+	if (volume > 50 && L.getBruteLoss(organic_only = TRUE) && absorbtion <= 0)
+		L.heal_overall_damage(4*effect_str, 0)
+		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
+
+	if (volume > 50 && L.getFireLoss(organic_only = TRUE) && absorbtion <= 0)
+		L.heal_overall_damage(0, 4*effect_str)
+		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
+
+	for(var/datum/reagent/R in L.reagents.reagent_list)
+		//we dont purge themself
+		if(R.type != /datum/reagent/medicine/sulfasalazine)
+			var/purge = min(R.volume, purge_rate)
+			L.reagents.remove_reagent(R.type, purge)
+			absorbtion = min(absorbtion + purge, max_absorbtion)
+
 	return ..()

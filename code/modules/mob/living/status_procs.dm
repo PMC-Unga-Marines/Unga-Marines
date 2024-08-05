@@ -488,13 +488,9 @@
 	var/datum/status_effect/incapacitating/confused/current_confused = IsConfused()
 	return current_confused ? current_confused.duration - world.time : 0
 
-//COMSIG_LIVING_UPDATE_PLANE_BLUR is used for the module
-
 ///Applies confused from current world time unless existing duration is higher
 /mob/living/proc/Confused(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
-		return
-	if(SEND_SIGNAL(src, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
 		return
 	if((!(status_flags & CANCONFUSE) || HAS_TRAIT(src, TRAIT_STUNIMMUNE)) && !ignore_canstun)
 		return
@@ -520,8 +516,6 @@
 		return
 	if(status_flags & GODMODE)
 		return
-	if(SEND_SIGNAL(src, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
-		return
 	if((!(status_flags & CANCONFUSE) || HAS_TRAIT(src, TRAIT_STUNIMMUNE)) && !ignore_canstun)
 		return
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_CONFUSED, amount, ignore_canstun) & COMPONENT_NO_STUN)
@@ -539,8 +533,6 @@
 ///Applies confused or adds to existing duration
 /mob/living/proc/AdjustConfused(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
-		return
-	if(SEND_SIGNAL(src, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
 		return
 	if((!(status_flags & CANCONFUSE) || HAS_TRAIT(src, TRAIT_STUNIMMUNE)) && !ignore_canstun)
 		return

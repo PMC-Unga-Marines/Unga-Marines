@@ -344,7 +344,7 @@
 	icon_state = "aesirsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#468C00"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/drink/doctor_delight = 8, /datum/reagent/medicine/tricordrazine = 8)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/medicine/doctor_delight = 8, /datum/reagent/medicine/tricordrazine = 8)
 	bitesize = 3
 	tastes = list("leaves" = 1)
 
