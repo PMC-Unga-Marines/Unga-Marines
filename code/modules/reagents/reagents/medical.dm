@@ -690,7 +690,7 @@
 	L.reagent_shock_modifier += PAIN_REDUCTION_VERY_LIGHT
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/datum/internal_organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(B.damage < 30)
 			L.adjustBrainLoss(-1.5*effect_str)
 			L.adjustToxLoss(-1.5 * effect_str)
@@ -742,7 +742,7 @@
 	if(!ishuman(L))
 		return ..()
 	var/mob/living/carbon/human/H = L
-	for(var/datum/internal_organ/I in H.internal_organs)
+	for(var/obj/item/organ/I in H.internal_organs)
 		if(I.damage)
 			if(L.bodytemperature > 169 && I.damage > 5)
 				continue
@@ -757,12 +757,12 @@
 /datum/reagent/medicine/research/stimulon/on_mob_add(mob/living/L, metabolism)
 	. = ..()
 	var/mob/living/carbon/human/H = L
-	for(var/datum/internal_organ/I in H.internal_organs)
+	for(var/obj/item/organ/I in H.internal_organs)
 		I.set_organ_status()
 
 /datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
 	var/mob/living/carbon/human/H = L
-	for(var/datum/internal_organ/I in H.internal_organs)
+	for(var/obj/item/organ/I in H.internal_organs)
 		I.set_organ_status()
 	return ..()
 
@@ -1458,7 +1458,7 @@
 				if(!ishuman(L))
 					return ..()
 				var/mob/living/carbon/human/H = L
-				var/datum/internal_organ/organ = H.get_damaged_organ()
+				var/obj/item/organ/organ = H.get_damaged_organ()
 				if(!organ)
 					return ..()
 				L.adjustToxLoss(5*effect_str)
