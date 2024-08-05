@@ -545,40 +545,17 @@
 	addtimer(CALLBACK(src, PROC_REF(reset), APC_RESET_EMP), 60 SECONDS)
 	return ..()
 
-
 /obj/machinery/power/apc/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			cell?.ex_act(1) //More lags woohoo
-			qdel(src)
-			return
-		if(EXPLODE_HEAVY)
-			if(prob(50))
-				return
-			set_broken()
-			if(!cell || prob(50))
-				return
-		if(EXPLODE_LIGHT)
-			if(prob(75))
-				return
-			set_broken()
-			if(!cell || prob(75))
-				return
-		if(EXPLODE_WEAK)
-			if(prob(80))
-				return
-			set_broken()
-			if(!cell || prob(85))
-				return
-
-	cell.ex_act(severity)
-
+	if(severity >= EXPLODE_HEAVY)
+		qdel(src)
+	else if(prob(severity / 2))
+		set_broken()
+		cell.ex_act(severity)
 
 /obj/machinery/power/apc/proc/set_broken()
 	//Aesthetically much better!
 	visible_message(span_warning("[src]'s screen flickers with warnings briefly!"))
 	addtimer(CALLBACK(src, PROC_REF(do_break)), rand(2, 5))
-
 
 /obj/machinery/power/apc/proc/do_break()
 	visible_message(span_danger("[src]'s screen suddenly explodes in rain of sparks and small debris!"))
@@ -586,7 +563,6 @@
 	operating = FALSE
 	update_icon()
 	update()
-
 
 //Overload all the lights in this APC area
 /obj/machinery/power/apc/proc/overload_lighting()

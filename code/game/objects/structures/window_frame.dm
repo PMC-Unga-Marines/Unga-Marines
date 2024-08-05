@@ -122,6 +122,7 @@
 	icon = 'icons/obj/smooth_objects/alt_ship_window_frame.dmi'
 	icon_state = "alt_ship_window_frame-0"
 	basestate = "alt_ship_window_frame"
+	base_icon_state = "alt_ship_window_frame"
 
 /obj/structure/window_frame/mainship/white
 	icon = 'icons/obj/smooth_objects/white_window_frame.dmi'
