@@ -1791,20 +1791,10 @@ ENGINEERING
 	contains = list(/obj/item/stack/sheet/cloth/large_stack)
 	cost = 200
 
-/datum/supply_packs/engineering/platinum50
-	name = "50 platinum sheets"
-	contains = list(/obj/item/stack/sheet/mineral/platinum/large_stack)
-	cost = 800 //USE JUNK
-
 /datum/supply_packs/engineering/junk50
 	name = "50 junk slabs"
 	contains = list(/obj/item/stack/sheet/mineral/junk/large_stack)
 	cost = 300
-
-/datum/supply_packs/engineering/silver50
-	name = "50 silver sheets"
-	contains = list(/obj/item/stack/sheet/mineral/silver/large_stack)
-	cost = 600
 
 /datum/supply_packs/engineering/plasmacutter
 	name = "plasma cutter"
