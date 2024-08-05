@@ -137,6 +137,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Whether we generate a xeno name to show in the chatbox and on the mob.
 	var/show_xeno_rank = TRUE
 
+	/// Preference for letting people make TGUI windows use more accessible (basically, default) themes, where needed/possible.
+	/// Example application: health analyzers using this to choose between default themes or the NtOS themes.
+	var/accessible_tgui_themes = FALSE
+
 	/// Chat on map
 	var/chat_on_map = TRUE
 	var/see_chat_non_mob = FALSE

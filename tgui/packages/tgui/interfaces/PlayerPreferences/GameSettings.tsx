@@ -5,6 +5,7 @@ import {
   LabeledList,
   Section,
   Stack,
+  Tooltip,
 } from '../../components';
 import {
   LoopingSelectionPreference,
@@ -68,6 +69,13 @@ export const GameSettings = (props) => {
                 leftLabel={'Muted'}
                 rightLabel={'Enabled'}
               />
+              <Tooltip content="Use more accessible TGUI themes/layouts wherever possible.">
+                <ToggleFieldPreference
+                  label="Accessible TGUI themes"
+                  value="accessible_tgui_themes"
+                  action="accessible_tgui_themes"
+                />
+              </Tooltip>
               <ToggleFieldPreference
                 label="Fullscreen mode"
                 value="fullscreen_mode"
