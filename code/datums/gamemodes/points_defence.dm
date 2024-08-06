@@ -21,8 +21,8 @@
 	var/sensors_larva_points_scaling = 2.4
 
 	//Victory point
-	var/marine_victory_point = 5000
-	var/xeno_victory_point = 5000
+	var/marine_victory_point = 0
+	var/xeno_victory_point = 0
 
 	//xeno have points round start, so
 	var/marine_victory_points_factor = 1.25
@@ -101,6 +101,11 @@
 		var/turf/T = pick(GLOB.miner_phorone_locs)
 		new /obj/machinery/telecomms/relay/preset/tower(T)
 		GLOB.miner_phorone_locs -= T
+
+	#ifdef TESTING
+	marine_victory_point = points_to_win
+	xeno_victory_point = points_to_win
+	#endif
 
 /datum/game_mode/infestation/distress/points_defence/check_finished()
 	if(round_finished)
