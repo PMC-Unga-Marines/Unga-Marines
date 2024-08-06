@@ -187,8 +187,7 @@ REAGENT SCANNER
 		chemicals_lists["[reagent.name]"] = list(
 			"name" = reagent.name,
 			"amount" = round(reagent.volume, 0.1),
-			"od" = reagent.overdosed,
-			"dangerous" = reagent.overdosed || istype(reagent, /datum/reagent/toxin)
+			"od" = reagent.overdosed
 		)
 	data["has_chemicals"] = length(patient.reagents.reagent_list)
 	data["chemicals_lists"] = chemicals_lists
@@ -200,9 +199,13 @@ REAGENT SCANNER
 		if(!reagent.scannable)
 			data["has_unknown_chemicals"] = TRUE
 			continue
+		var/reagent_overdosed = FALSE
+		if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
+			reagent_overdosed = TRUE
 		stomach_chemicals_lists["[reagent.name]"] = list(
 			"name" = reagent.name,
 			"amount" = round(reagent.volume, 0.1),
+			"od" = reagent_overdosed
 		)
 	data["stomach_chemicals_lists"] = stomach_chemicals_lists
 
