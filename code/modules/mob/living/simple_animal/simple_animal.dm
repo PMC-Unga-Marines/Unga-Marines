@@ -6,6 +6,8 @@
 	status_flags = CANPUSH
 	gender = PLURAL
 	buckle_flags = NONE
+	move_force = MOVE_FORCE_WEAK
+	move_resist = MOVE_FORCE_WEAK
 
 	//Icons
 	var/icon_living = ""

@@ -131,7 +131,7 @@
 	if(href_list["remove_antag"])
 		var/datum/antagonist/A = locate(href_list["remove_antag"]) in antag_datums
 		if(!istype(A))
-			to_chat(usr,"<span class='warning'>Invalid antagonist ref to be removed.</span>")
+			to_chat(usr, span_warning("Invalid antagonist ref to be removed."))
 			return
 		A.admin_remove(usr)
 

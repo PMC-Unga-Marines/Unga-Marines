@@ -49,8 +49,8 @@
 			return
 
 		set_cell(I)
-		user.visible_message("<span class='notice'>[user] inserts [I] into [src]!",
-		"<span class='notice'>You insert [I] into [src]!")
+		user.visible_message(span_notice("[user] inserts [I] into [src]!"),
+		span_notice("You insert [I] into [src]!"))
 		chargecount = 0
 		update_appearance()
 

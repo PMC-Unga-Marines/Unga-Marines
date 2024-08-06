@@ -16,7 +16,7 @@
 	..()
 
 /obj/item/clothing/head/soft/verb/flip()
-	set category = "Object"
+	set category = "Object.Clothing"
 	set name = "Flip cap"
 	set src in usr
 	if(!usr.incapacitated())
@@ -41,29 +41,11 @@
 	icon_state = "bluesoft"
 	cap_color = "blue"
 
-/obj/item/clothing/head/soft/green
-	name = "green cap"
-	desc = "It's a baseball hat in a tasteless green color."
-	icon_state = "greensoft"
-	cap_color = "green"
-
-/obj/item/clothing/head/soft/yellow
-	name = "yellow cap"
-	desc = "It's a baseball hat in a tasteless yellow color."
-	icon_state = "yellowsoft"
-	cap_color = "yellow"
-
 /obj/item/clothing/head/soft/grey
 	name = "grey cap"
 	desc = "It's a baseball hat in a tasteful grey color."
 	icon_state = "greysoft"
 	cap_color = "grey"
-
-/obj/item/clothing/head/soft/orange
-	name = "orange cap"
-	desc = "It's a baseball hat in a tasteless orange color."
-	icon_state = "orangesoft"
-	cap_color = "orange"
 
 /obj/item/clothing/head/soft/mime
 	name = "white cap"
@@ -77,12 +59,6 @@
 	icon_state = "purplesoft"
 	cap_color = "purple"
 
-/obj/item/clothing/head/soft/rainbow
-	name = "rainbow cap"
-	desc = "It's a baseball hat in a bright rainbow of colors."
-	icon_state = "rainbowsoft"
-	cap_color = "rainbow"
-
 /obj/item/clothing/head/soft/sec
 	name = "security cap"
 	desc = "It's baseball hat in tasteful red color."
@@ -94,40 +70,3 @@
 	desc = "It's baseball hat in corporate colors."
 	icon_state = "corpsoft"
 	cap_color = "corp"
-
-
-
-//marine cap
-
-/obj/item/clothing/head/soft/marine
-	name = "marine sergeant cap"
-	desc = "It's a soft cap made from advanced ballistic-resistant fibres. Fails to prevent lumps in the head."
-	icon_state = "greysoft"
-	cap_color = "grey"
-	soft_armor = list(MELEE = 35, BULLET = 35, LASER = 35, ENERGY = 15, BOMB = 10, BIO = 0, FIRE = 15, ACID = 15)
-	flags_inventory = BLOCKSHARPOBJ
-
-/obj/item/clothing/head/soft/marine/alpha
-	name = "alpha squad sergeant cap"
-	icon_state = "redsoft"
-	cap_color = "red"
-
-/obj/item/clothing/head/soft/marine/beta
-	name = "beta squad sergeant cap"
-	icon_state = "yellowsoft"
-	cap_color = "yellow"
-
-/obj/item/clothing/head/soft/marine/charlie
-	name = "charlie squad sergeant cap"
-	icon_state = "purplesoft"
-	cap_color = "purple"
-
-/obj/item/clothing/head/soft/marine/delta
-	name = "delta squad sergeant cap"
-	icon_state = "bluesoft"
-	cap_color = "blue"
-
-/obj/item/clothing/head/soft/marine/mp
-	name = "marine police sergeant cap"
-	icon_state = "greensoft"
-	cap_color = "green"

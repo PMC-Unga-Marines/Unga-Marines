@@ -7,12 +7,12 @@
 	return ..()
 
 /datum/buildmode_mode/loadout/show_help(client/c)
-	to_chat(c, "<span class='notice'>***********************************************************\n\
+	to_chat(c, span_notice("***********************************************************\n\
 		Right Mouse Button on buildmode button = Select loadout to equip.\n\
 		Left Mouse Button on mob/living/carbon/human = Equip the selected loadout.\n\
 		Right Mouse Button on mob/living/carbon/human = Copy thier loadout.\n\
 		Shift + Left Mouse Button Button on mob/living/carbon/human = Strip and delete current loadout.\n\
-		***********************************************************</span>")
+		***********************************************************"))
 
 /datum/buildmode_mode/loadout/Reset()
 	. = ..()

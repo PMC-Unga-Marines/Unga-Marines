@@ -190,6 +190,69 @@
 	loc.overlays += image(icon, icon_state, dir = src.dir)
 	return INITIALIZE_HINT_QDEL
 
+//METAL DECAL
+/obj/effect/turf_decal/siding/metal
+	icon_state = "borderfloor_black"
+
+/obj/effect/turf_decal/siding/metal/corner
+	icon_state = "borderfloorcorner_black"
+
+/obj/effect/turf_decal/siding/metal/corner2
+	icon_state = "borderfloorcorner2_black"
+
+/obj/effect/turf_decal/siding/metal/full
+	icon_state = "borderfloorfull_black"
+
+/obj/effect/turf_decal/siding/metal/floorcee
+	icon_state = "borderfloorcee_black"
+
+/obj/effect/turf_decal/siding/metal/flatcorner
+	icon_state = "corner_white"
+
+/obj/effect/turf_decal/siding/metal/flatcorner/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/turf_decal/siding/metal/flatcorner/full
+	icon_state = "corner_white_full"
+
+//WIDE METAL DECAL
+/obj/effect/turf_decal/siding/metal/flatcorner/wide
+	icon_state = "wide_corner"
+
+/obj/effect/turf_decal/siding/metal/flatcorner/wide/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/turf_decal/siding/metal/flatcorner/wide/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/turf_decal/tile/metal
+	icon_state = "edge"
+
+/obj/effect/turf_decal/tile/metal/corner
+	icon_state = "edge_corner"
+
+/obj/effect/turf_decal/tile/metal/medical
+	color = "#53876F"
+
+/obj/effect/turf_decal/tile/metal/corner/medical
+	color = "#53876F"
+
+//EMBLEM
+/obj/effect/turf_decal/siding/emblem
+	icon_state = "logo_central"
+
+/obj/effect/turf_decal/siding/emblem/second
+	icon_state = "logo_directional_south"
+
+/obj/effect/turf_decal/siding/emblem/third
+	icon_state = "logo_directional_north"
+
+/obj/effect/turf_decal/siding/emblem/fourth
+	icon_state = "logo_directional_east"
+
+/obj/effect/turf_decal/siding/emblem/fifth
+	icon_state = "logo_directional_west"
+
 /obj/effect/turf_decal/symbol/corsat
 	color = "#9c7f42"
 

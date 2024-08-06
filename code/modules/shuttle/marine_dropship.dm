@@ -850,6 +850,7 @@
 	resistance_flags = RESIST_ALL
 	opacity = TRUE
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
+	layer = BELOW_OBJ_LAYER
 
 /obj/structure/dropship_piece/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)

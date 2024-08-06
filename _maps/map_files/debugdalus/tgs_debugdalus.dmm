@@ -551,7 +551,6 @@
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
-/obj/effect/landmark/start/job/chiefshipengineer,
 /turf/open/floor/mainship,
 /area/mainship/engineering/engineering_workshop)
 "acz" = (

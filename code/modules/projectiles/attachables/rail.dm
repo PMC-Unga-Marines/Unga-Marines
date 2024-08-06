@@ -6,11 +6,14 @@
 	accuracy_mod = 0.15
 	accuracy_unwielded_mod = 0.1
 	aim_mode_delay_mod = -0.5
-	attachment_action_type = /datum/action/item_action/reddot_aim_mode
 	variants_by_parent_type = list(/obj/item/weapon/gun/rifle/som = "", /obj/item/weapon/gun/shotgun/som = "")
 
-/obj/item/attachable/reddot/activate(mob/living/user, turn_off)
-	master_gun.toggle_auto_aim_mode(user)
+/obj/item/attachable/b7_scope
+	name = "B7 smart scope"
+	desc = "A B7 smart scope. Does not have a zoom feature, but allows you to take aim and fire through allies. \nNo drawbacks."
+	icon_state = "b7"
+	slot = ATTACHMENT_SLOT_RAIL
+	add_aim_mode = TRUE
 
 /obj/item/attachable/m16sight
 	name = "M16 iron sights"

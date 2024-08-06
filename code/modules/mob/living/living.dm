@@ -359,17 +359,18 @@
 
 		if(!L.buckled && !L.anchored)
 			var/mob_swap_mode = NO_SWAP
-			//the puller can always swap with its victim if on grab intent
+			// the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
 				mob_swap_mode = SWAPPING
-			//restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
-			else if((L.restrained() || L.a_intent == INTENT_HELP) && (restrained() || a_intent == INTENT_HELP) && L.move_force < MOVE_FORCE_VERY_STRONG)
-				mob_swap_mode = SWAPPING
-			else if(get_xeno_hivenumber() == L.get_xeno_hivenumber() && (L.pass_flags & PASS_XENO || pass_flags & PASS_XENO))
-				mob_swap_mode = PHASING
-			else if((move_resist >= MOVE_FORCE_VERY_STRONG || move_resist > L.move_force) && a_intent == INTENT_HELP) //Larger mobs can shove aside smaller ones. Xenos can always shove xenos
-				mob_swap_mode = SWAPPING
-			///if we're moving diagonally, but the mob isn't on the diagonal destination turf we have no reason to shuffle/push them
+			// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
+			else if(a_intent == INTENT_HELP || restrained())
+				// xenos swap with xenos and almost whoever they want
+				if(isxeno(src) && (isxeno(L) || move_force > L.move_resist))
+					mob_swap_mode = SWAPPING
+				// if target isn't xeno and both are on help intents, but we don't want xenos to move petrified humans ,then we swap
+				else if(!isxeno(L) && move_force > L.move_resist && (L.a_intent == INTENT_HELP || L.restrained()))
+					mob_swap_mode = SWAPPING
+			/// if we're moving diagonally, but the mob isn't on the diagonal destination turf we have no reason to shuffle/push them
 			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
 				mob_swap_mode = PHASING
 			if(mob_swap_mode)
@@ -407,13 +408,15 @@
 
 	if(ismovableatom(A))
 		if(isxeno(src) && ishuman(A))
+			var/datum/action/bump_attack_toggle/bump_action = actions_by_path[/datum/action/bump_attack_toggle] // there should be a better way to do this
+			if(a_intent != INTENT_DISARM && !bump_action.attacking)
+				return
 			var/mob/living/carbon/human/H = A
-			if(!COOLDOWN_CHECK(H,  xeno_push_delay))
+			if(!COOLDOWN_CHECK(H, xeno_push_delay))
 				return
 			COOLDOWN_START(H, xeno_push_delay, XENO_HUMAN_PUSHED_DELAY)
 		if(PushAM(A))
 			return TURF_ENTER_ALREADY_MOVED
-
 
 //Called when we want to push an atom/movable
 /mob/living/proc/PushAM(atom/movable/AM, force = move_force)
@@ -759,7 +762,7 @@ below 100 is not dizzy
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object"
+	set category = "Object.Mob"
 
 	if(istype(AM) && Adjacent(AM))
 		start_pulling(AM)

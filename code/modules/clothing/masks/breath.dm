@@ -12,7 +12,7 @@
 	var/hanging = 0
 
 /obj/item/clothing/mask/breath/verb/toggle()
-	set category = "Object"
+	set category = "Object.Clothing"
 	set name = "Adjust mask"
 	set src in usr
 
@@ -38,8 +38,6 @@
 	icon_state = "medical"
 	item_state = "medical"
 	permeability_coefficient = 0.01
-
-
 
 //REBREATHER
 
@@ -78,7 +76,7 @@
 	permeability_coefficient = 0.01
 
 /obj/item/clothing/mask/bandanna/verb/toggle()
-	set category = "Object"
+	set category = "Object.Clothing"
 	set name = "Adjust bandanna"
 	set src in usr
 

@@ -34,69 +34,6 @@
 	flags_inv_hide = HIDEFACE
 	flags_armor_protection = NONE
 
-//scarves (fit in in mask slot)
-
-/obj/item/clothing/mask/bluescarf
-	name = "blue neck scarf"
-	desc = "A blue neck scarf."
-	icon_state = "blueneckscarf"
-	item_state = "blueneckscarf"
-	flags_inventory = COVERMOUTH
-	w_class = WEIGHT_CLASS_SMALL
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/redscarf
-	name = "red scarf"
-	desc = "A red and white checkered neck scarf."
-	icon_state = "redwhite_scarf"
-	item_state = "redwhite_scarf"
-	flags_inventory = COVERMOUTH
-	w_class = WEIGHT_CLASS_SMALL
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/greenscarf
-	name = "green scarf"
-	desc = "A green neck scarf."
-	icon_state = "green_scarf"
-	item_state = "green_scarf"
-	flags_inventory = COVERMOUTH
-	w_class = WEIGHT_CLASS_SMALL
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/ninjascarf
-	name = "ninja scarf"
-	desc = "A stealthy, dark scarf."
-	icon_state = "ninja_scarf"
-	item_state = "ninja_scarf"
-	flags_inventory = COVERMOUTH
-	w_class = WEIGHT_CLASS_SMALL
-	gas_transfer_coefficient = 0.90
-	siemens_coefficient = 0
-
-/obj/item/clothing/mask/pig
-	name = "pig mask"
-	desc = "A rubber pig mask."
-	icon_state = "pig"
-	item_state = "pig"
-	flags_inventory = COVERMOUTH|COVEREYES
-	flags_inv_hide = HIDEFACE|HIDEALLHAIR|HIDEEYES|HIDEEARS
-	w_class = WEIGHT_CLASS_SMALL
-	siemens_coefficient = 0.9
-	flags_armor_protection = HEAD|FACE|EYES
-
-/obj/item/clothing/mask/horsehead
-	name = "horse head mask"
-	desc = "A mask made of soft vinyl and latex, representing the head of a horse."
-	icon_state = "horsehead"
-	item_state = "horsehead"
-	flags_inventory = COVERMOUTH|COVEREYES
-	flags_inv_hide = HIDEFACE|HIDEALLHAIR|HIDEEYES|HIDEEARS
-	flags_armor_protection = HEAD|FACE|EYES
-	w_class = WEIGHT_CLASS_SMALL
-	var/voicechange = 0
-	siemens_coefficient = 0.9
-
-
 /obj/item/clothing/mask/balaclava
 	name = "balaclava"
 	desc = "LOADSAMONEY"
@@ -107,13 +44,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	item_icons = list(
 		slot_wear_mask_str = 'icons/mob/clothing/mask.dmi')
-
-/obj/item/clothing/mask/balaclava/tactical
-	name = "green balaclava"
-	desc = "Designed to both hide identities and keep your face comfy and warm."
-	icon_state = "swatclava"
-	item_state = "balaclava"
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/mask/luchador
 	name = "Luchador Mask"
@@ -139,17 +69,3 @@
 	desc = "Worn by robust fighters who are willing to do anything to win."
 	icon_state = "luchar"
 	item_state = "luchar"
-
-/obj/item/clothing/mask/balaclava/blueskull
-	name = "Blue skull balaclava"
-	desc = "Totally not a ripoff from a famous shooter"
-	icon_state = "blue_skull_balaclava"
-	item_state = "balaclava"
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/clothing/mask/balaclava/blackskull
-	name = "Black skull balaclava"
-	desc = "Totally not a ripoff from a famous shooter"
-	icon_state = "black_skull_balaclava"
-	item_state = "balaclava"
-	w_class = WEIGHT_CLASS_SMALL

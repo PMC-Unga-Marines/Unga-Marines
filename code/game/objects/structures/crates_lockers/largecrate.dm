@@ -8,11 +8,19 @@
 	var/dropmetal = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	interaction_flags = INTERACT_OBJ_DEFAULT|INTERACT_POWERLOADER_PICKUP_ALLOWED
+	allow_pass_flags = PASSABLE|PASS_WALKOVER|PASS_LOW_STRUCTURE
 	max_integrity = 40
 	soft_armor = list(MELEE = 0, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	hit_sound = 'sound/effects/woodhit.ogg'
 	var/spawn_type
 	var/spawn_amount
+
+/obj/structure/largecrate/Initialize(mapload)
+	. = ..()
+	var/static/list/connections = list(
+		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+	)
+	AddElement(/datum/element/connect_loc, connections)
 
 /obj/structure/largecrate/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
@@ -21,11 +29,9 @@
 	spawn_stuff()
 	return ..()
 
-
 /obj/structure/largecrate/examine(mob/user)
 	. = ..()
 	. += span_notice("You need a crowbar to pry this open!")
-
 
 /obj/structure/largecrate/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -36,7 +42,6 @@
 	deconstruct(TRUE)
 	return TRUE
 
-
 /obj/structure/largecrate/proc/spawn_stuff()
 	var/turf/T = get_turf(src)
 	if(spawn_type && spawn_amount)
@@ -44,7 +49,6 @@
 			new spawn_type(T)
 	for(var/obj/O in contents)
 		O.forceMove(loc)
-
 
 /obj/structure/largecrate/mule
 	icon_state = "mulecrate"
@@ -54,13 +58,11 @@
 	spawn_type = /mob/living/simple_animal/corgi/lisa
 	spawn_amount = 1
 
-
 /obj/structure/largecrate/cow
 	name = "cow crate"
 	icon_state = "lisacrate"
 	spawn_type = /mob/living/simple_animal/cow
 	spawn_amount = 1
-
 
 /obj/structure/largecrate/goat
 	name = "goat crate"
@@ -68,38 +70,34 @@
 	spawn_type = /mob/living/simple_animal/hostile/retaliate/goat
 	spawn_amount = 1
 
-
 /obj/structure/largecrate/chick
 	name = "chicken crate"
 	icon_state = "lisacrate"
 	spawn_type = /mob/living/simple_animal/chick
 	spawn_amount = 4
 
-
 ///////////CM largecrates ///////////////////////
-
-
 
 //Possibly the most generically named procs in history. congrats
 /obj/structure/largecrate/random
 	name = "supply crate"
 	var/num_things = 0
 	var/list/stuff = list(
-						/obj/item/cell/high,
-						/obj/item/storage/belt/utility/full,
-						/obj/item/tool/multitool,
-						/obj/item/tool/crowbar,
-						/obj/item/flashlight,
-						/obj/item/reagent_containers/food/snacks/donkpocket,
-						/obj/item/explosive/grenade/smokebomb,
-						/obj/item/circuitboard/airlock,
-						/obj/item/assembly/igniter,
-						/obj/item/tool/weldingtool,
-						/obj/item/tool/wirecutters,
-						/obj/item/tool/analyzer,
-						/obj/item/clothing/under/marine,
-						/obj/item/clothing/shoes/marine
-						)
+		/obj/item/cell/high,
+		/obj/item/storage/belt/utility/full,
+		/obj/item/tool/multitool,
+		/obj/item/tool/crowbar,
+		/obj/item/flashlight,
+		/obj/item/reagent_containers/food/snacks/donkpocket,
+		/obj/item/explosive/grenade/smokebomb,
+		/obj/item/circuitboard/airlock,
+		/obj/item/assembly/igniter,
+		/obj/item/tool/weldingtool,
+		/obj/item/tool/wirecutters,
+		/obj/item/tool/analyzer,
+		/obj/item/clothing/under/marine,
+		/obj/item/clothing/shoes/marine
+	)
 
 /obj/structure/largecrate/random/Initialize(mapload)
 	. = ..()
@@ -132,12 +130,17 @@
 	desc = "Two small black storage cases."
 	icon_state = "case_small"
 
+/obj/structure/largecrate/random/case/small/mini
+	icon_state = "mini_case"
+
+/obj/structure/largecrate/random/case/small/mini/Initialize(mapload)
+	. = ..()
+	icon_state = pick("mini_case", "mini_case_b", "mini_case_c")
 
 /obj/structure/largecrate/random/barrel/deconstruct(disassembled = TRUE)
 	if(dropmetal)
 		new /obj/item/stack/sheet/metal/small_stack(src)
 	return ..()
-
 
 /obj/structure/largecrate/random/barrel/welder_act(mob/living/user, obj/item/tool/weldingtool/welder)
 	if(!welder.isOn())
@@ -152,7 +155,6 @@
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 	deconstruct(TRUE)
 	return TRUE
-
 
 /obj/structure/largecrate/random/barrel/examine(mob/user)
 	. = ..()
@@ -199,12 +201,10 @@
 	icon_state = "secure_crate_strapped"
 	var/strapped = 1
 
-
 /obj/structure/largecrate/random/secure/crowbar_act(mob/living/user, obj/item/I)
 	if(strapped)
 		return FALSE
 	return ..()
-
 
 /obj/structure/largecrate/random/secure/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -217,7 +217,6 @@
 	strapped = FALSE
 	return TRUE
 
-
 /obj/structure/largecrate/random/secure/examine(mob/user)
 	. = ..()
 	. += span_notice("You need something sharp to cut off the straps.")
@@ -227,19 +226,19 @@
 	var/num_guns = 3
 	var/num_mags = 3
 	var/list/stuff = list(
-					/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/hp,
-					/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/ap,
-					/obj/item/weapon/gun/revolver/single_action/m44 = /obj/item/ammo_magazine/revolver/marksman,
-					/obj/item/weapon/gun/revolver/single_action/m44 = /obj/item/ammo_magazine/revolver/heavy,
-					/obj/item/weapon/gun/shotgun/pump/t35 = /obj/item/ammo_magazine/shotgun,
-					/obj/item/weapon/gun/shotgun/pump/t35 = /obj/item/ammo_magazine/shotgun/incendiary,
-					/obj/item/weapon/gun/shotgun/combat = /obj/item/ammo_magazine/shotgun,
-					/obj/item/weapon/gun/flamer/big_flamer = /obj/item/ammo_magazine/flamer_tank,
-					/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/incendiary,
-					/obj/item/weapon/gun/rifle/standard_assaultrifle = /obj/item/ammo_magazine/rifle/standard_assaultrifle,
-					/obj/item/weapon/gun/rifle/standard_lmg = /obj/item/ammo_magazine/standard_lmg,
-					/obj/item/weapon/gun/grenade_launcher/single_shot = /obj/item/explosive/grenade/phosphorus
-					)
+		/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/hp,
+		/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/ap,
+		/obj/item/weapon/gun/revolver/single_action/m44 = /obj/item/ammo_magazine/revolver/marksman,
+		/obj/item/weapon/gun/revolver/single_action/m44 = /obj/item/ammo_magazine/revolver/heavy,
+		/obj/item/weapon/gun/shotgun/pump/t35 = /obj/item/ammo_magazine/shotgun,
+		/obj/item/weapon/gun/shotgun/pump/t35 = /obj/item/ammo_magazine/shotgun/incendiary,
+		/obj/item/weapon/gun/shotgun/combat = /obj/item/ammo_magazine/shotgun,
+		/obj/item/weapon/gun/flamer/big_flamer = /obj/item/ammo_magazine/flamer_tank,
+		/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/incendiary,
+		/obj/item/weapon/gun/rifle/standard_assaultrifle = /obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/weapon/gun/rifle/standard_lmg = /obj/item/ammo_magazine/standard_lmg,
+		/obj/item/weapon/gun/grenade_launcher/single_shot = /obj/item/explosive/grenade/phosphorus
+	)
 
 /obj/structure/largecrate/guns/Initialize(mapload)
 	. = ..()

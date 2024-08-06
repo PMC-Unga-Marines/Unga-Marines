@@ -1,6 +1,3 @@
-/*********MARINES***********/
-
-
 /obj/item/clothing/under/marine
 	name = "\improper TGMC uniform"
 	desc = "A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented marine uniform. You suspect it's not as robust-proof as advertised."
@@ -18,16 +15,6 @@
 		"No Sleeves" = "_h",
 		"No Top" = "_r",
 	)
-
-/obj/item/clothing/under/marine/hyperscale
-	name = "\improper 8E Chameleon TGMC uniform"
-	desc = "A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented marine uniform BUT colorable with a facepaint! You suspect it's not as robust-proof as advertised."
-	icon_state = "hyperscale_marine_jumpsuit"
-	item_state = "hyperscale_marine_jumpsuit"
-	greyscale_colors = ARMOR_PALETTE_BLACK
-	greyscale_config = /datum/greyscale_config/marine_uniform
-	colorable_colors = ARMOR_PALETTES_LIST
-	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED|PRESET_COLORS_ALLOWED
 
 /obj/item/clothing/under/marine/black_vest
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
@@ -139,6 +126,7 @@
 	icon_state = "marine_striped"
 	item_state = "marine_striped"
 	adjustment_variants = list()
+
 /obj/item/clothing/under/marine/black_suit
 	name = "\improper marine black suit"
 	desc = "A easy fitting black suit, somehow exactly your size."
@@ -375,9 +363,7 @@
 	desc = "A blue suit with yellow accents. A work of tailoring hardly seen on combat fatigues. A mysterious crest emblazons it."
 	icon_state = "mercenary_engineer_uniform"
 
-
 ////// Civilians /////////
-
 
 /obj/item/clothing/under/pizza
 	name = "pizza delivery uniform"
@@ -431,11 +417,6 @@
 	desc = "A suit of stars and high-V gas. One that screams stellar fusion and re-entry burn. Earned by only the best of the best."
 	icon_state = "liaison_galaxy_red" // Thanks to Manezinho
 
-/obj/item/clothing/under/rank/chef/exec
-	name = "\improper Nanotrasen suit"
-	desc = "A formal white undersuit."
-	adjustment_variants = list()
-
 /obj/item/clothing/under/rank/synthetic
 	name = "\improper TGMC Support Uniform"
 	desc = "A simple uniform made for Synthetic crewmembers."
@@ -457,7 +438,6 @@
 
 /obj/item/clothing/under/som/webbing
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/brown_vest)
-
 
 /obj/item/clothing/under/som/medic
 	name = "\improper SOM medical uniform"
@@ -546,15 +526,6 @@
 /obj/item/clothing/under/marine/robotic/webbing
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
-/obj/item/clothing/under/marine/ru
-	name = "RUTGMC UNIFORM"
-	desc = "RUTGMC UNIFORM"
-	icon = 'icons/obj/clothing/uniforms/marine_uniforms.dmi'
-	icon_state = ""
-	item_icons = list(
-		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi')
-	adjustment_variants = list()
-
 /obj/item/clothing/under/marine/squad/neck/foreign
 	name = "\improper TGMC Foreign Legion turtleneck"
 	desc = "Tacticool looking, squad issued uniform. This one belongs to the Foreign Legion, smells like fast food."
@@ -564,25 +535,28 @@
 	item_icons = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi')
 
-/obj/item/clothing/under/marine/ru/slav
+/obj/item/clothing/under/marine/slav
 	name = "\improper Old slavic uniform"
 	desc = "This is some sports suit. Oh wait, this is slavic military uniform."
 	icon_state = "slav"
 	item_state = "slav"
+	adjustment_variants = list()
 
-/obj/item/clothing/under/marine/ru/gorka_eng
+/obj/item/clothing/under/marine/gorka_eng
 	name = "\improper Engineer Gorka"
 	desc = "Gorka. Engineer Gorka."
 	icon_state = "gorka_eng"
 	item_state = "gorka_eng"
+	adjustment_variants = list()
 
-/obj/item/clothing/under/marine/ru/gorka_med
+/obj/item/clothing/under/marine/gorka_med
 	name = "\improper Medic Gorka"
 	desc = "Gorka. Medic Gorka."
 	icon_state = "gorka_med"
 	item_state = "gorka_med"
+	adjustment_variants = list()
 
-/obj/item/clothing/under/marine/ru/camo
+/obj/item/clothing/under/marine/camo
 	name = "\improper Old camo uniform"
 	desc = "This is old man clothes for fishing, now you can die for TerraGov in this very stealth camo."
 	icon_state = "camo"
@@ -599,12 +573,14 @@
 	item_icons = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi')
 
-/obj/item/clothing/under/marine/ru/veteran
+/obj/item/clothing/under/marine/veteran
 	name = "\improper Veteran uniform"
 	desc = "A custom-made protective uniform for the Marine Corps with a long service life. It is reinforced with additional protective plates, Kevlar inserts, sewn metal mesh and impregnated with a refractory mixture. Anyway, that's what the tag on the leg says. Believe it or not, after all, if you've really served in the corps long enough, you know the answer."
 	icon_state = "veteran"
+	adjustment_variants = list()
 
-/obj/item/clothing/under/marine/ru/separatist
+/obj/item/clothing/under/marine/separatist
 	name = "\improper Combat uniform TU-32"
 	desc = "Protective, reinforced with Kevlar fiber with rubberized metal inserts, this 'separatist' combat kit has proven its reliability in many situations of unrest among the civilian population after the capture of the colonies of Terra. In memory of the victims of the militia, this set was delivered to the Marine Corps ship TerraGov."
 	icon_state = "separatist"
+	adjustment_variants = list()

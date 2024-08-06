@@ -52,7 +52,6 @@
 	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
 	flags_inv_hide = HIDEGLOVES|HIDEJUMPSUIT
 
-
 //Scientist's biosuit, white with a pink-ish hue
 /obj/item/clothing/head/bio_hood/scientist
 	icon_state = "bio_scientist"
@@ -61,16 +60,6 @@
 	icon_state = "bio_scientist"
 	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
 	flags_inv_hide = HIDEGLOVES|HIDEJUMPSUIT
-
-//CMO's biosuit, blue stripe
-/obj/item/clothing/suit/bio_suit/cmo
-	icon_state = "bio_cmo"
-	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
-	flags_inv_hide = HIDEGLOVES|HIDEJUMPSUIT
-
-/obj/item/clothing/head/bio_hood/cmo
-	icon_state = "bio_cmo"
-
 
 //Plague Dr mask can be found in clothing/masks/gasmask.dm
 /obj/item/clothing/suit/bio_suit/plaguedoctorsuit

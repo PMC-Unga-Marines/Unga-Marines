@@ -4,7 +4,8 @@
 
 	do_resist()
 
-/mob/living/proc/lay_down()
+///Handles trying to toggle resting state
+/mob/living/proc/toggle_resting()
 	set name = "Rest"
 	set category = "IC"
 
@@ -12,15 +13,17 @@
 		if(is_ventcrawling)
 			return FALSE
 		set_resting(TRUE, FALSE)
-	else if(do_actions)
-		to_chat(src, span_warning("You are still in the process of standing up."))
 		return
-	else if(do_after(src, 2 SECONDS, IGNORE_LOC_CHANGE|IGNORE_HELD_ITEM, src))
-		get_up()
+	if(do_actions)
+		balloon_alert(src, "Busy!")
+		return
+	get_up()
 
+///Handles getting up, doing a basic check before relaying it to the actual proc that does it
 /mob/living/proc/get_up()
 	set_resting(FALSE, FALSE)
 
+///Actually handles toggling the resting state
 /mob/living/proc/set_resting(rest, silent = TRUE)
 	if(status_flags & INCORPOREAL)
 		return
@@ -42,7 +45,7 @@
 
 
 /mob/living/verb/ghost()
-	set category = "OOC"
+	set category = "OOC.Ghost"
 	set name = "Ghost"
 
 	if(stat == DEAD)

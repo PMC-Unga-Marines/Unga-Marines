@@ -1,4 +1,3 @@
-
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms/uniforms.dmi'
 	item_icons = list(
@@ -47,21 +46,12 @@
 		/obj/item/clothing/tie/medal,
 		/obj/item/clothing/tie/medal/conduct,
 		/obj/item/clothing/tie/medal/bronze_heart,
-		/obj/item/clothing/tie/medal/nobel_science,
 		/obj/item/clothing/tie/medal/silver,
 		/obj/item/clothing/tie/medal/silver/valor,
-		/obj/item/clothing/tie/medal/silver/security,
 		/obj/item/clothing/tie/medal/gold,
 		/obj/item/clothing/tie/medal/gold/captain,
 		/obj/item/clothing/tie/medal/gold/heroism,
 		/obj/item/clothing/tie/medal/letter/commendation,
-		/obj/item/clothing/tie/armband,
-		/obj/item/clothing/tie/armband/cargo,
-		/obj/item/clothing/tie/armband/engine,
-		/obj/item/clothing/tie/armband/science,
-		/obj/item/clothing/tie/armband/hydro,
-		/obj/item/clothing/tie/armband/med,
-		/obj/item/clothing/tie/armband/medgreen,
 		/obj/item/clothing/tie/holobadge,
 		/obj/item/clothing/tie/holobadge/cord,
 	)
@@ -129,7 +119,6 @@
 		if("l_hand")
 			usr.dropItemToGround(src)
 			usr.put_in_l_hand(src)
-
 
 /obj/item/clothing/under/examine(mob/user)
 	. = ..()
@@ -200,14 +189,13 @@
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Toggle Suit Sensors"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 	set_sensors(usr)
 
-
 /obj/item/clothing/under/verb/rollsuit()
 	set name = "Roll Down Jumpsuit"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 	if(!isliving(usr))
 		return

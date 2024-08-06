@@ -254,6 +254,6 @@ GLOBAL_LIST_INIT(gear_datums, populate_gear_list())
 
 /datum/gear/orange_glasses
 	display_name = "Orange glasses"
-	path = /obj/item/clothing/glasses/ru/orange
+	path = /obj/item/clothing/glasses/orange
 	cost = 2
 	slot = SLOT_GLASSES

@@ -135,12 +135,11 @@
 
 /obj/item/card/id/verb/read()
 	set name = "Read ID Card"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	to_chat(usr, "[icon2html(src, usr)] [name]: The current assignment on the card is [assignment].")
 	to_chat(usr, "The blood type on the card is [blood_type].")
-
 
 /obj/item/card/id/silver
 	name = "identification card"
@@ -300,6 +299,11 @@
 		CAT_SGSUP = DEFAULT_TOTAL_BUY_POINTS,
 	)
 
+/obj/item/card/id/dogtag/robo
+	marine_points = list(
+		CAT_ROBO = DEFAULT_TOTAL_BUY_POINTS,
+	)
+
 /obj/item/card/id/dogtag/engineer
 	marine_points = list(
 		CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS,
@@ -328,7 +332,8 @@
 		CAT_LEDSUP = DEFAULT_TOTAL_BUY_POINTS,
 		CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
 		CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
-		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS, //necessary to correctly show max points
+		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
+		CAT_ROBO = DEFAULT_TOTAL_BUY_POINTS, //necessary to correctly show max points
 	)
 
 /obj/item/card/id/dogtag/som

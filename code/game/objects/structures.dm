@@ -34,7 +34,7 @@
 
 	set name = "Climb structure"
 	set desc = "Climbs onto a structure."
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	do_climb(usr)

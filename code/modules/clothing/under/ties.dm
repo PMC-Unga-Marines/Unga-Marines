@@ -56,7 +56,6 @@
 				return
 	return ..(M,user)
 
-
 //Medals
 /obj/item/clothing/tie/medal
 	name = "bronze medal"
@@ -79,10 +78,6 @@
 	desc = "A bronze heart-shaped medal awarded for sacrifice. It is often awarded posthumously or for severe injury in the line of duty."
 	icon_state = "bronze_heart"
 
-/obj/item/clothing/tie/medal/nobel_science
-	name = "nobel sciences award"
-	desc = "A bronze medal which represents significant contributions to the field of science or engineering."
-
 /obj/item/clothing/tie/medal/silver
 	name = "silver medal"
 	desc = "A silver medal."
@@ -91,10 +86,6 @@
 /obj/item/clothing/tie/medal/silver/valor
 	name = "medal of valor"
 	desc = "A silver medal awarded for acts of exceptional valor."
-
-/obj/item/clothing/tie/medal/silver/security
-	name = "robust security award"
-	desc = "An award for distinguished combat and sacrifice in defence of TGMC's interests. Often awarded to security staff."
 
 /obj/item/clothing/tie/medal/gold
 	name = "gold medal"
@@ -121,36 +112,6 @@
 	desc = "A fancy red armband!"
 	icon_state = "red"
 
-/obj/item/clothing/tie/armband/cargo
-	name = "cargo armband"
-	desc = "An armband, worn by the crew to display which department they're assigned to. This one is brown."
-	icon_state = "cargo"
-
-/obj/item/clothing/tie/armband/engine
-	name = "engineering armband"
-	desc = "An armband, worn by the crew to display which department they're assigned to. This one is orange with a reflective strip!"
-	icon_state = "engie"
-
-/obj/item/clothing/tie/armband/science
-	name = "science armband"
-	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
-	icon_state = "rnd"
-
-/obj/item/clothing/tie/armband/hydro
-	name = "hydroponics armband"
-	desc = "An armband, worn by the crew to display which department they're assigned to. This one is green and blue."
-	icon_state = "hydro"
-
-/obj/item/clothing/tie/armband/med
-	name = "medical armband"
-	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white."
-	icon_state = "med"
-
-/obj/item/clothing/tie/armband/medgreen
-	name = "EMT armband"
-	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and green."
-	icon_state = "medgreen"
-
 /*
 	Holobadges are worn on the belt or neck, and can be used to show that the holder is an authorized
 	Security agent - the user details can be imprinted on the badge with a Security-access ID card
@@ -162,7 +123,6 @@
 	desc = "This glowing blue badge marks the holder as THE LAW."
 	icon_state = "holobadge"
 	flags_equip_slot = ITEM_SLOT_BELT
-
 	var/stored_name = null
 
 /obj/item/clothing/tie/holobadge/cord
@@ -190,7 +150,6 @@
 		stored_name = id_card.registered_name
 		name = "holobadge ([stored_name])"
 		desc = "This glowing blue badge marks [stored_name] as THE LAW."
-
 
 /obj/item/clothing/tie/holobadge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))

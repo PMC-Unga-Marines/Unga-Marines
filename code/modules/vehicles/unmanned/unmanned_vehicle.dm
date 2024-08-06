@@ -144,7 +144,7 @@
 /obj/vehicle/unmanned/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(!turret_path)
-		to_chat(user,"<span class='warning'>There is nothing to remove from [src]!</span>")
+		to_chat(user,span_warning("There is nothing to remove from [src]!"))
 		return
 	user.visible_message(span_notice("[user] starts to remove [initial(turret_path.name)] from [src]"),	span_notice("You start to remove [initial(turret_path.name)] from [src]"))
 	if(!do_after(user, 3 SECONDS, NONE, src))

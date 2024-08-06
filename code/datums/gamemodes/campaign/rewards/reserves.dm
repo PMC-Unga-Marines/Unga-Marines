@@ -53,7 +53,7 @@
 		if(candidate.faction != faction.faction)
 			continue
 		mode.player_death_times -= candidate.key
-		to_chat(candidate, "<span class='warning'>Tactical reserves mobilised. You can now respawn immediately if possible.<spawn>")
+		to_chat(candidate, span_warning("Tactical reserves mobilised. You can now respawn immediately if possible."))
 		candidate.playsound_local(null, 'sound/ambience/votestart.ogg', 50)
 
 

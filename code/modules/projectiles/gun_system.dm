@@ -1055,7 +1055,7 @@
 
 	projectile_to_fire = get_ammo_object()
 
-	user.visible_message("<span class = 'warning'>[user] pulls the trigger!</span>")
+	user.visible_message(span_warning("[user] pulls the trigger!"))
 	var/actual_sound = (active_attachable?.fire_sound) ? active_attachable.fire_sound : fire_sound
 	var/sound_volume = (HAS_TRAIT(src, TRAIT_GUN_SILENCED) && !active_attachable) ? 25 : 60
 	playsound(user, actual_sound, sound_volume, 1)
@@ -1074,7 +1074,7 @@
 
 	switch(projectile_to_fire.ammo.damage_type)
 		if(STAMINA)
-			to_chat(user, "<span class = 'notice'>Ow...</span>")
+			to_chat(user, span_notice("Ow..."))
 			user.apply_damage(200, STAMINA)
 		else
 			user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
@@ -1651,20 +1651,20 @@
 		return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_WIELDED_FIRING_ONLY)) //If we're not holding the weapon with both hands when we should.
 		if(!master_gun && !CHECK_BITFIELD(flags_item, WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire this weapon!")
+			to_chat(user, span_warning("You need a more secure grip to fire this weapon!"))
 			return FALSE
 		if(master_gun && !CHECK_BITFIELD(master_gun.flags_item, WIELDED))
 			to_chat(user, span_warning("You need a more secure grip to fire [src]!"))
 			return FALSE
 	if(LAZYACCESS(user.do_actions, src))
-		to_chat(user, "<span class='warning'>You are doing something else currently.")
+		to_chat(user, span_warning("You are doing something else currently."))
 		return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_WIELDED_STABLE_FIRING_ONLY))//If we must wait to finish wielding before shooting.
 		if(!master_gun && !(flags_item & FULLY_WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire this weapon!")
+			to_chat(user, span_warning("You need a more secure grip to fire this weapon!"))
 			return FALSE
 		if(master_gun && !(master_gun.flags_item & FULLY_WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire [src]!")
+			to_chat(user, span_warning("You need a more secure grip to fire [src]!"))
 			return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_DEPLOYED_FIRE_ONLY) && !CHECK_BITFIELD(flags_item, IS_DEPLOYED))
 		to_chat(user, span_notice("You cannot fire [src] while it is not deployed."))

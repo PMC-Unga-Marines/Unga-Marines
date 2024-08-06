@@ -183,7 +183,7 @@
 
 	if(!issamexenohive(xenomorph))
 		xenomorph.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-		xenomorph.visible_message("<span class='xenowarning'>[xenomorph] crushes \the [src].","<span class='xenowarning'>We crush \the [src].")
+		xenomorph.visible_message(span_xenowarning("[xenomorph] crushes \the [src]."), span_xenowarning("We crush \the [src]."))
 		burst(FALSE)
 		return
 

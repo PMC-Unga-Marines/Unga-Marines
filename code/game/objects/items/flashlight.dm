@@ -203,3 +203,7 @@
 	desc = "A mining lantern."
 	light_range = 6			// luminosity when on
 	raillight_compatible = FALSE
+
+/obj/item/flashlight/lantern/turned_on
+	icon_state = "lantern-on"
+	light_on = TRUE

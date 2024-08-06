@@ -139,6 +139,16 @@
 		/obj/item/storage/firstaid/adv = 5,
 	)
 
+/obj/effect/spawner/random/medical/firstaid/often
+	spawn_loot_chance = 85
+	loot = list(
+		/obj/item/storage/firstaid/regular = 25,
+		/obj/item/storage/firstaid/fire = 15,
+		/obj/item/storage/firstaid/o2 = 10,
+		/obj/item/storage/firstaid/toxin = 10,
+		/obj/item/storage/firstaid/adv = 5,
+	)
+
 /obj/effect/spawner/random/medical/firstaid/alwaysspawns
 	spawn_loot_chance = 100
 

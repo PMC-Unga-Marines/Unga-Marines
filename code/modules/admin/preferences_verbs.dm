@@ -1,5 +1,5 @@
 /datum/admins/proc/pref_ff_attack_logs()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle FF Attack Log Messages"
 
 	if(!check_rights(R_ADMIN))
@@ -16,7 +16,7 @@
 
 
 /datum/admins/proc/pref_end_attack_logs()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle End-Of-Round Attack Log Messages"
 
 	if(!check_rights(R_ADMIN))
@@ -34,7 +34,7 @@
 
 /datum/admins/proc/pref_debug_logs()
 	set name = "Toggle Debug Log Messages"
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 
 	if(!check_rights(R_ADMIN))
 		return
@@ -66,7 +66,7 @@
 
 
 /datum/admins/proc/toggle_prayers()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Prayers"
 
 	usr.client.prefs.toggles_chat ^= CHAT_PRAYER
@@ -76,7 +76,7 @@
 
 
 /datum/admins/proc/toggle_adminhelp_sound()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Adminhelp Sound"
 
 	usr.client.prefs.toggles_sound ^= SOUND_ADMINHELP

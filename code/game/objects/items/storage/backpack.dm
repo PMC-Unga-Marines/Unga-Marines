@@ -329,12 +329,12 @@
 	if(amount > cell.charge)
 		playsound(src, 'sound/machines/buzz-two.ogg', 25, 1)
 		if(cell.charge)
-			warning = "<span class='warning'>[src]'s defibrillator recharge unit buzzes a warning, its battery only having enough power to partially recharge the defibrillator for [cell.charge] amount. "
+			warning = span_warning("[src]'s defibrillator recharge unit buzzes a warning, its battery only having enough power to partially recharge the defibrillator for [cell.charge] amount. ")
 		else
-			warning = "<span class='warning'>[src]'s defibrillator recharge unit buzzes a warning, as its battery is completely depleted of charge. "
+			warning = span_warning("[src]'s defibrillator recharge unit buzzes a warning, as its battery is completely depleted of charge. ")
 	else
 		playsound(src, 'sound/machines/ping.ogg', 25, 1)
-		warning = "<span class='notice'>[src]'s defibrillator recharge unit cheerfully pings as it successfully recharges the defibrillator. "
+		warning = span_notice("[src]'s defibrillator recharge unit cheerfully pings as it successfully recharges the defibrillator. ")
 	cell.charge -= min(cell.charge, amount)
 	if(mention_charge)
 		to_chat(user, span_notice("[warning]<b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
@@ -529,18 +529,18 @@
 	camouflage()
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/camouflage()
-	if (usr.incapacitated(TRUE))
+	if(usr.incapacitated(TRUE))
 		return
 
 	var/mob/living/carbon/human/M = usr
-	if (!istype(M))
+	if(!istype(M))
 		return
 
-	if (M.back != src)
-		to_chat(M, "<span class='warning'>You must be wearing the cloak to activate it!")
+	if(M.back != src)
+		to_chat(M, span_warning("You must be wearing the cloak to activate it!"))
 		return
 
-	if (camo_active)
+	if(camo_active)
 		camo_off(usr)
 		return
 
@@ -549,7 +549,7 @@
 		return FALSE
 
 	if (camo_cooldown_timer)
-		to_chat(M, "<span class='warning'>Your thermal cloak is still recalibrating! It will be ready in [(camo_cooldown_timer - world.time) * 0.1] seconds.")
+		to_chat(M, span_warning("Your thermal cloak is still recalibrating! It will be ready in [(camo_cooldown_timer - world.time) * 0.1] seconds."))
 		return
 
 	camo_active = TRUE
@@ -630,7 +630,7 @@
 	var/cooldown = round( (initial(camo_energy) - camo_energy) / SCOUT_CLOAK_INACTIVE_RECOVERY * 10) //Should be 20 seconds after a full depletion with inactive recovery at 5
 	if(cooldown)
 		camo_cooldown_timer = world.time + cooldown //recalibration and recharge time scales inversely with charge remaining
-		to_chat(user, "<span class='warning'>Your thermal cloak is recalibrating! It will be ready in [(camo_cooldown_timer - world.time) * 0.1] seconds.")
+		to_chat(user, span_warning("Your thermal cloak is recalibrating! It will be ready in [(camo_cooldown_timer - world.time) * 0.1] seconds."))
 		process_camo_cooldown(user, cooldown)
 
 	UnregisterSignal(user, list(

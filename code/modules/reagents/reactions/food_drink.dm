@@ -247,7 +247,7 @@
 
 /datum/chemical_reaction/doctor_delight
 	name = "The Doctor's Delight"
-	results = list(/datum/reagent/consumable/drink/doctor_delight = 5)
+	results = list(/datum/reagent/medicine/doctor_delight = 5)
 	required_reagents = list(/datum/reagent/consumable/drink/limejuice = 1, /datum/reagent/consumable/drink/tomatojuice = 1, /datum/reagent/consumable/drink/orangejuice = 1, /datum/reagent/consumable/drink/milk/cream = 1, /datum/reagent/medicine/tricordrazine = 1)
 
 /datum/chemical_reaction/irish_cream

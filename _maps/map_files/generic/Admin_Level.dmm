@@ -1695,12 +1695,10 @@
 /turf/open/floor/grimy,
 /area/centcom/valhalla)
 "cjO" = (
-/obj/item/clothing/suit/space/captain,
 /obj/item/clothing/under/gimmick/rank/captain/suit,
 /obj/item/clothing/gloves/captain,
 /obj/item/card/id/captains_spare,
 /obj/item/tool/stamp/captain,
-/obj/item/clothing/head/caphat,
 /obj/structure/closet/secure_closet/captain,
 /turf/open/floor/grimy,
 /area/centcom/valhalla)
@@ -7677,10 +7675,6 @@
 /area/tdome/tdomeadmin)
 "keP" = (
 /obj/structure/table,
-/obj/item/clothing/suit/justice,
-/obj/item/clothing/head/helmet{
-	name = "justice helmet"
-	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -13343,7 +13337,6 @@
 	},
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /obj/item/clothing/mask/balaclava,
-/obj/item/clothing/mask/balaclava/tactical,
 /obj/item/clothing/suit/chickensuit,
 /obj/item/clothing/head/chicken,
 /obj/item/clothing/head/pirate,
@@ -14752,7 +14745,7 @@
 /obj/item/clothing/mask/snorkel,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/suit/monkeysuit,
-/obj/item/clothing/mask/gas/voice/space_ninja,
+/obj/item/clothing/mask/gas/space_ninja,
 /obj/item/clothing/shoes/slippers_worn,
 /turf/open/floor/tile/dark2,
 /area/centcom/valhalla)
@@ -14764,8 +14757,6 @@
 /obj/structure/closet/wardrobe/black,
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /obj/item/clothing/head/cakehat,
-/obj/item/clothing/mask/horsehead,
-/obj/item/clothing/mask/pig,
 /obj/item/clothing/under/swimsuit/black,
 /obj/item/clothing/under/swimsuit/blue,
 /obj/item/clothing/under/swimsuit/green,
@@ -15931,7 +15922,6 @@
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen,
 /obj/item/toy/dice/d20,
-/obj/item/clothing/under/assistantformal,
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
 "vgF" = (
@@ -16510,7 +16500,6 @@
 /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-/obj/item/clothing/suit/bio_suit/cmo,
 /obj/item/clothing/head/cmo,
 /obj/item/clothing/suit/storage/labcoat/cmo,
 /obj/item/tool/stamp/cmo,
@@ -16776,13 +16765,9 @@
 "vXr" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/red,
-/obj/item/clothing/suit/wizrobe/psypurple,
-/obj/item/clothing/suit/wizrobe/magusred,
 /obj/item/clothing/suit/wizrobe/gentlecoat,
 /obj/item/clothing/suit/wizrobe,
-/obj/item/clothing/head/wizard/amp,
 /obj/item/clothing/head/wizard/cap,
-/obj/item/clothing/head/wizard/magus,
 /obj/item/clothing/head/wizard/marisa,
 /obj/item/clothing/head/wizard/red,
 /turf/open/floor/tile/vault{

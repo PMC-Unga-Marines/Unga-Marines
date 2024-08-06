@@ -1,6 +1,6 @@
 //The minimum for glide_size to be clamped to.
 //If you want more classic style "delay" movement while still retaining the smoothness improvements at higher framerates, set this to 8
-#define MIN_GLIDE_SIZE 3
+#define MIN_GLIDE_SIZE 1
 //The maximum for glide_size to be clamped to.
 //This shouldn't be higher than the icon size, and generally you shouldn't be changing this, but it's here just in case.
 #define MAX_GLIDE_SIZE 32
