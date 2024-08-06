@@ -11,8 +11,7 @@
 		/datum/job/terragov/command/staffofficer = 4,
 		/datum/job/terragov/command/pilot = 1,
 		/datum/job/terragov/command/transportofficer = 1,
-		/datum/job/terragov/engineering/chief = 1,
-		/datum/job/terragov/engineering/tech = 2,
+		/datum/job/terragov/requisitions/tech = 2,
 		/datum/job/terragov/requisitions/officer = 1,
 		/datum/job/terragov/medical/professor = 1,
 		/datum/job/terragov/medical/medicalofficer = 4,
@@ -28,6 +27,7 @@
 		/datum/job/terragov/squad/smartgunner = 1,
 		/datum/job/terragov/squad/leader = 1,
 		/datum/job/terragov/squad/standard = -1,
+		/datum/job/terragov/squad/combat_robot = -1,
 		/datum/job/xenomorph = FREE_XENO_AT_START,
 		/datum/job/xenomorph/queen = 1
 	)

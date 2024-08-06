@@ -133,7 +133,7 @@ GLOBAL_LIST_INIT(strippable_human_layout, list(
 	if(isnull(item))
 		return FALSE
 
-	to_chat(user, "<span class='notice'>You try to empty [source]'s [pocket_side] pocket.</span>")
+	to_chat(user, span_notice("You try to empty [source]'s [pocket_side] pocket."))
 
 	var/log_message = "[key_name(source)] is being pickpocketed of [item] by [key_name(user)] ([pocket_side])"
 	source.log_message(log_message, LOG_ATTACK, color="red")
@@ -149,7 +149,7 @@ GLOBAL_LIST_INIT(strippable_human_layout, list(
 
 /// Warns the pocket owner that their pocket is being fumbled with
 /datum/strippable_item/mob_item_slot/pocket/proc/warn_owner(atom/owner)
-	to_chat(owner, "<span class='warning'>You feel your [pocket_side] pocket being fumbled with!</span>")
+	to_chat(owner, span_warning("You feel your [pocket_side] pocket being fumbled with!"))
 
 /datum/strippable_item/mob_item_slot/pocket/left
 	key = STRIPPABLE_ITEM_LPOCKET

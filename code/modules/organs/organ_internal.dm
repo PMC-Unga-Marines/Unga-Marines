@@ -20,6 +20,7 @@
 	var/organ_id
 	/// State of the organ
 	var/organ_status = ORGAN_HEALTHY
+	var/peri_effect = FALSE
 
 /datum/internal_organ/process()
 		return 0
@@ -67,6 +68,11 @@
 
 /// Set the correct organ state
 /datum/internal_organ/proc/set_organ_status()
+	if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.1 && peri_effect) //0.1 just in case
+		if(organ_status != ORGAN_HEALTHY)
+			organ_status = ORGAN_HEALTHY
+			return TRUE
+		return FALSE
 	if(damage > min_broken_damage)
 		if(organ_status != ORGAN_BROKEN)
 			organ_status = ORGAN_BROKEN
@@ -133,6 +139,7 @@
 	removed_type = /obj/item/organ/heart
 	robotic_type = /obj/item/organ/heart/prosthetic
 	organ_id = ORGAN_HEART
+	peri_effect = TRUE
 
 /datum/internal_organ/heart/process()
 	. = ..()
@@ -160,6 +167,7 @@
 	removed_type = /obj/item/organ/lungs
 	robotic_type = /obj/item/organ/lungs/prosthetic
 	organ_id = ORGAN_LUNGS
+	peri_effect = TRUE
 
 /datum/internal_organ/lungs/process()
 	..()
@@ -171,10 +179,9 @@
 	. = ..()
 	if(!.)
 		return
-	// For example, bruised lungs will reduce stamina regen by 40%, broken by 80%
-	owner.add_stamina_regen_modifier(name, organ_status * -0.40)
-	// Slowdown added when the heart is damaged
-	owner.add_movespeed_modifier(id = name, override = TRUE, multiplicative_slowdown = organ_status)
+	owner.add_stamina_regen_modifier(name, organ_status * -0.40) // For example, bruised lungs will reduce stamina regen by 40%, broken by 80%
+	owner.add_movespeed_modifier(id = name, override = TRUE, multiplicative_slowdown = organ_status) // Slowdown added when the heart is damaged
+
 
 /datum/internal_organ/lungs/take_damage(amount, silent= FALSE)
 	owner.adjust_Losebreath(amount) //Hits of 1 damage or less won't do anything due to how losebreath works, but any stronger and we'll get the wind knocked out of us for a bit. Mostly just flavor.
@@ -191,6 +198,7 @@
 	removed_type = /obj/item/organ/liver
 	robotic_type = /obj/item/organ/liver/prosthetic
 	organ_id = ORGAN_LIVER
+	peri_effect = TRUE
 	///lower value, higher resistance.
 	var/alcohol_tolerance = 0.005
 	///How fast we clean out toxins/toxloss. Adjusts based on organ damage.
@@ -243,10 +251,13 @@
 	removed_type = /obj/item/organ/kidneys
 	robotic_type = /obj/item/organ/kidneys/prosthetic
 	organ_id = ORGAN_KIDNEYS
+	peri_effect = TRUE
 	///Tracks the number of reagent/medicine datums we currently have
 	var/current_medicine_count = 0
 	///How many drugs we can take before they overwhelm us. Decreases with damage
 	var/current_medicine_cap = 5
+	///Additional medicine capacity given by the freyr module.
+	var/freyr_medicine_cap = 3
 	///Whether we were over cap the last time we checked.
 	var/old_overflow = FALSE
 	///Total medicines added since last tick
@@ -294,8 +305,13 @@
 	if(owner.bodytemperature <= 170) //No sense worrying about a chem cap if we're in cryo anyway. Still need to clear tick counts.
 		bypass = TRUE
 
+	var/medicine_cap = current_medicine_cap
+
+	if(SEND_SIGNAL(owner, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
+		medicine_cap += freyr_medicine_cap
+
 	current_medicine_count += new_medicines //We want to include medicines that were individually both added and removed this tick
-	var/overflow = current_medicine_count - current_medicine_cap //This catches any case where a reagent was added with volume below its metabolism
+	var/overflow = current_medicine_count - medicine_cap //This catches any case where a reagent was added with volume below its metabolism
 	current_medicine_count -= removed_medicines //Otherwise, you can microdose infinite chems without kidneys complaining
 
 	new_medicines = 0
@@ -318,7 +334,6 @@
 /datum/internal_organ/kidneys/prosthetic
 	robotic = ORGAN_ROBOT
 	removed_type = /obj/item/organ/kidneys
-
 
 /datum/internal_organ/brain
 	name = "brain"

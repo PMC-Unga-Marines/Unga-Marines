@@ -139,7 +139,6 @@
 		/obj/structure/closet/secure_closet/hos = 50,
 		/obj/structure/closet/secure_closet/marshal = 50,
 		/obj/structure/closet/secure_closet/miner = 50,
-		/obj/structure/closet/secure_closet/security/cargo = 50,
 		/obj/structure/closet/secure_closet/scientist = 50,
 		/obj/structure/closet/secure_closet/engineering_electrical = 30,
 		/obj/structure/closet/secure_closet/CMO = 10,

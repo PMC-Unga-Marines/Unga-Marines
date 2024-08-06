@@ -157,10 +157,10 @@
 	if(!user && isliving(loc))
 		user = loc
 	if (laser)
-		to_chat(user, "<span class='warning'>You can't switch mode while targeting")
+		to_chat(user, span_warning("You can't switch mode while targeting"))
 		return
 	if(!changable)
-		to_chat(user, "These binoculars only have one mode.")
+		to_chat(user, span_warning("These binoculars only have one mode."))
 		return
 	mode += 1
 	if(mode > MODE_RANGE_FINDER)

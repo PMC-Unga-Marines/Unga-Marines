@@ -151,7 +151,7 @@
 		var/sanguinal_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_sanguinal)
 		var/ozelomelyn_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_ozelomelyn)
 		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/medicine/xenojelly)
-		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicine/research/medicalnanites)
+		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicalnanites)
 		var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
 
 		if(neurotox_amount > 10) //Blinking image for particularly high concentrations

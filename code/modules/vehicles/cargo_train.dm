@@ -124,7 +124,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/start_engine()
 	set name = "Start engine"
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -148,7 +148,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/stop_engine()
 	set name = "Stop engine"
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -164,7 +164,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/remove_key()
 	set name = "Remove key"
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))

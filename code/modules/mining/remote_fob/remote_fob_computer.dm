@@ -146,14 +146,14 @@
 			var/useamount = attacking_stack.amount
 			metal_remaining += useamount
 			attacking_stack.use(useamount)
-			to_chat(user, "<span class='notice'>Inserted [useamount] metal sheets.")
+			to_chat(user, span_notice("Inserted [useamount] metal sheets."))
 			flick("fobpc-insert", src)
 			return
 		if(istype(attacking_stack, /obj/item/stack/sheet/plasteel))
 			var/useamount = attacking_stack.amount
 			plasteel_remaining += useamount
 			attacking_stack.use(useamount)
-			to_chat(user, "<span class='notice'>Inserted [useamount] plasteel sheets.")
+			to_chat(user, span_notice("Inserted [useamount] plasteel sheets."))
 			flick("fobpc-insert", src)
 			return
 	return ..()

@@ -118,7 +118,7 @@
 
 /obj/machinery/photocopier/proc/do_insertion(obj/item/O, mob/user)
 	O.forceMove(src)
-	to_chat(user, "<span class ='notice'>You insert [O] into [src].</span>")
+	to_chat(user, span_notice("You insert [O] into [src]."))
 	flick("bigscanner1", src)
 	updateUsrDialog()
 

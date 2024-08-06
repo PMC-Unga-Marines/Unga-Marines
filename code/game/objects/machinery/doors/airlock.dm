@@ -324,7 +324,7 @@
 
 	if(istype(I, /obj/item/clothing/mask/cigarette) && isElectrified())
 		var/obj/item/clothing/mask/cigarette/L = I
-		L.light("<span class='notice'>[user] lights their [L] on an electrical arc from the [src]")
+		L.light(span_notice("[user] lights their [L] on an electrical arc from the [src]"))
 
 	else if(!issilicon(user) && isElectrified())
 		shock(user, 75)

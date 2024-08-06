@@ -1,0 +1,4 @@
+author: "PivoBomb"
+delete-after: True
+changes:
+  - imageadd: "Добавил новые спрайты или изменил старые."

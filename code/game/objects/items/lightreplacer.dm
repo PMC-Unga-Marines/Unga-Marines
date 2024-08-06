@@ -56,7 +56,7 @@
 	if(istype(I, /obj/item/stack/sheet/glass))
 		var/obj/item/stack/sheet/glass/G = I
 		if(uses >= max_uses)
-			to_chat(user, "<span class='warning'>[src] is full.")
+			to_chat(user, span_warning("[src] is full."))
 			return
 
 		if(!G.use(1))
@@ -73,7 +73,7 @@
 			return
 
 		if(uses >= max_uses)
-			to_chat(user, "<span class='warning'>[src] is full.")
+			to_chat(user, span_warning("[src] is full."))
 			return
 
 		AddUses(1)

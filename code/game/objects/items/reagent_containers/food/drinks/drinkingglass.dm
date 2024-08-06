@@ -202,7 +202,7 @@
 				name = "Beepsky Smash"
 				desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
 				center_of_mass = list("x"=18, "y"=10)
-			if(/datum/reagent/consumable/drink/doctor_delight)
+			if(/datum/reagent/medicine/doctor_delight)
 				icon_state = "doctorsdelightglass"
 				name = "Doctor's Delight"
 				desc = "A healthy mixture of juices, guaranteed to keep you healthy until the next toolboxing takes place."

@@ -1,6 +1,3 @@
-
-// nightvision goggles
-
 /obj/item/clothing/glasses/night
 	name = "night vision goggles"
 	desc = "You can totally see in the dark now!"
@@ -16,7 +13,6 @@
 	darkness_view = 7
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
-
 /obj/item/clothing/glasses/night/tx8
 	name = "\improper BR-8 battle sight"
 	desc = "A headset and night vision goggles system for the BR-8 Battle Rifle. Allows highlighted imaging of surroundings. Click it to toggle."
@@ -28,7 +24,6 @@
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
-
 /obj/item/clothing/glasses/night/m42_night_goggles
 	name = "\improper M42 scout sight"
 	desc = "A headset and night vision goggles system for the M42 Scout Rifle. Allows highlighted imaging of surroundings. Click it to toggle."
@@ -39,7 +34,6 @@
 	darkness_view = 24
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
-
 
 /obj/item/clothing/glasses/night/m42_night_goggles/upp
 	name = "\improper Type 9 elite goggles"
@@ -77,7 +71,7 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56sunglasses"
 	item_state = "m56sunglasses"
-	deactive_state = "degoggles_mesonsunglasses"
+	deactive_state = "deactived_sunglasses"
 	darkness_view = 5
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
@@ -89,7 +83,7 @@
 	desc = "Standard issue TGMC goggles. This pair has been fitted with an internal optical imaging scanner."
 	icon_state = "optgoggles"
 	item_state = "optgoggles"
-	deactive_state = "degoggles_optgoggles"
+	deactive_state = "deactived_mgoggles"
 	darkness_view = 2
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
@@ -113,7 +107,7 @@
 	name = "optical imager goggles"
 	desc = "Uses image scanning to increase visibility of even the most dimly lit surroundings except total darkness"
 	icon_state = "securityhud"
-	deactive_state = "degoggles_sec"
+	deactive_state = "deactived_goggles"
 	darkness_view = 2
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
@@ -123,7 +117,7 @@
 	desc = "A pair of designer sunglasses. This pair has been fitted with an internal optical imager scanner."
 	icon_state = "optsunglasses"
 	item_state = "optsunglasses"
-	deactive_state = "degoggles_optsunglasses"
+	deactive_state = "deactived_sunglasses"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list("Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	prescription = TRUE
@@ -132,7 +126,7 @@
 	name = "\improper Meson eyepatch"
 	desc = "An eyepatch fitted with the optical imager interface. For the disabled and/or edgy Marine."
 	icon_state = "optpatch"
-	deactive_state = "degoggles_medpatch"
+	deactive_state = "deactived_patch"
 	toggleable = TRUE
 
 /obj/item/clothing/glasses/night/yautja

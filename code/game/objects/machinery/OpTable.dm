@@ -167,7 +167,7 @@
 
 /obj/machinery/optable/verb/climb_on()
 	set name = "Climb On Table"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	if(usr.stat || !ishuman(usr) || usr.restrained() || !check_table(usr))

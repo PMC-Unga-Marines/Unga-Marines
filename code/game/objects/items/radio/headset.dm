@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 						avail_chans += "use [MODE_TOKEN_DEPARTMENT] for [lowertext(channels[i])]"
 				else
 					avail_chans += "use [GLOB.channel_tokens[channels[i]]] for [lowertext(channels[i])]"
-		. += "<span class='notice'>A small screen on the headset displays the following available frequencies:\n[english_list(avail_chans)]."
+		. += span_notice("A small screen on the headset displays the following available frequencies:\n[english_list(avail_chans)].")
 
 		if(command)
 			. += span_info("Alt-click to toggle the high-volume mode.")
@@ -368,7 +368,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/verb/configure_squadhud()
 	set name = "Configure Headset HUD"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	if(!can_interact(usr))

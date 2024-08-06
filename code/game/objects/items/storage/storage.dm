@@ -448,7 +448,7 @@
 	if(!alert_user)
 		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, src)
 
-	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [src]")
+	to_chat(user, span_notice("You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [src]"))
 	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, src))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE

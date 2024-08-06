@@ -790,11 +790,11 @@
 	var/client/C = GLOB.directory[player_key]
 	if(C)
 		build_ban_cache(C)
-		to_chat(C, "<span class='boldannounce'>[usr.client.key] has removed a ban from [role] for your key.")
+		to_chat(C, span_boldannounce("[usr.client.key] has removed a ban from [role] for your key."))
 	for(var/client/i in GLOB.clients - C)
 		if(i.address == player_ip || i.computer_id == player_cid)
 			build_ban_cache(i)
-			to_chat(i, "<span class='boldannounce'>[usr.client.key] has removed a ban from [role] for your IP or CID.")
+			to_chat(i, span_boldannounce("[usr.client.key] has removed a ban from [role] for your IP or CID."))
 	usr.client.holder.unban_panel(player_key, admin_key, player_ip, player_cid, page)
 
 

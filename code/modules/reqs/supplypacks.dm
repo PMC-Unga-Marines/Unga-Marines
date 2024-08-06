@@ -1583,7 +1583,7 @@ MEDICAL
 
 /datum/supply_packs/medical/combat_medicine
 	name = "Battleground medicine"
-	notes = "contains 4 hypospray with MD, many injectors peri+ and quick+, neuraline, nanopaste."
+	notes = "contains 4 hypospray with MD, many injectors peri and quick, neuraline, nanopaste."
 	contains = list(
 		/obj/item/reagent_containers/hypospray/advanced/meraderm,
 		/obj/item/reagent_containers/hypospray/advanced/meraderm,
@@ -1599,14 +1599,14 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
@@ -1689,20 +1689,38 @@ MEDICAL
 		)
 	cost = 30
 
-/datum/supply_packs/medical/quick_peri_plus_kit
-	name = "QuickPeri+ kit"
-	notes = "contains injector quick+ and peri+."
+/datum/supply_packs/medical/quick_peri_kit
+	name = "QuickPeri kit"
+	notes = "contains quick-clot and peri injectors."
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
-		//obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		)
 	cost = 30
 
-/datum/supply_packs/medical/russian_red_kit
+/datum/supply_packs/medical/russian_red_bottle
 	name = "Russian Red pill bottle"
 	notes = "contains one pill bottle red russian."
 	contains = list(/obj/item/storage/pill_bottle/russian_red)
+	cost = 250
+
+/datum/supply_packs/medical/russian_red_injector
+	name = "Russian Red autoinjector"
+	notes = "contains emergency autoinjector."
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/russian_red)
+	cost = 40
+
+/datum/supply_packs/medical/synaptizine_injector
+	name = "synaptizine auto injector"
+	notes = "contains synaptizine auto injector."
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/synaptizine)
 	cost = 30
+
+/datum/supply_packs/medical/oxycodone_injector
+	name = "Oxycodone auto injector"
+	notes = "contains oxycodone auto injector."
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/oxycodone)
+	cost = 20
 
 /datum/supply_packs/medical/neuraline_kit
 	name ="large neuraline kit"

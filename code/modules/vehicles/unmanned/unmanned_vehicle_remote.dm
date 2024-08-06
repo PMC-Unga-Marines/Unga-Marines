@@ -22,7 +22,7 @@
 		clear_vehicle()
 	vehicle = target
 	if(vehicle.controlled)
-		to_chat(user, "<span class='warning'>Something is already controlling this vehicle</span>")
+		to_chat(user, span_warning("Something is already controlling this vehicle"))
 		vehicle = null
 		return
 	vehicle.on_link(src)
