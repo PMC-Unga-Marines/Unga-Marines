@@ -95,11 +95,6 @@
 	current_medicine_cap = initial(current_medicine_cap) - 2 * organ_status
 
 /obj/item/organ/kidneys/process()
-	var/bypass = FALSE
-
-	if(owner.bodytemperature <= 170) //No sense worrying about a chem cap if we're in cryo anyway. Still need to clear tick counts.
-		bypass = TRUE
-
 	current_medicine_count += new_medicines //We want to include medicines that were individually both added and removed this tick
 	var/overflow = current_medicine_count - current_medicine_cap //This catches any case where a reagent was added with volume below its metabolism
 	current_medicine_count -= removed_medicines //Otherwise, you can microdose infinite chems without kidneys complaining
@@ -107,7 +102,8 @@
 	new_medicines = 0
 	removed_medicines = 0
 
-	if(overflow < 1 || bypass)
+	//No sense worrying about a chem cap if we're in cryo anyway. Still need to clear tick counts.
+	if(overflow < 1 || owner.bodytemperature <= 170)
 		if(old_overflow)
 			to_chat(owner, span_notice("You don't feel as overwhelmed by all the drugs any more."))
 			old_overflow = FALSE
