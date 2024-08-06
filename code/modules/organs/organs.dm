@@ -212,7 +212,7 @@
 
 	if(prob(0.0125 * damage) || damage > min_broken_damage && prob(0.05 * damage))
 		body.vomit()
-		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down all that food!"))
+		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down it's contents!"))
 		return
 
 /obj/item/organ/eyes
