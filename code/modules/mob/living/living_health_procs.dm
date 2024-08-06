@@ -324,7 +324,6 @@
 
 	return ..()
 
-
 /mob/living/carbon/human/revive(admin_revive = FALSE)
 	restore_all_organs()
 
@@ -359,7 +358,6 @@
 	update_body()
 	update_hair()
 	return ..()
-
 
 /mob/living/carbon/xenomorph/revive(admin_revive = FALSE)
 	set_plasma(xeno_caste.plasma_max)
