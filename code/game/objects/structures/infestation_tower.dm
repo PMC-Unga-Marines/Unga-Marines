@@ -29,7 +29,7 @@
 	///How many times we neeed to tick for a resource to be created, in this case this is 2* the specified amount
 	var/required_ticks = 50
 	///The amount of profit, less useful than phoron miners
-	var/points_income = 300
+	var/points_income = 500
 	///Applies the actual bonus points for the dropship for each sale, even much more than miners
 	var/dropship_bonus = 40
 

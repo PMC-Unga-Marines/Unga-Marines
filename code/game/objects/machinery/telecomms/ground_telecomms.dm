@@ -35,6 +35,7 @@
 	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon)) //RU TGMC edit
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon()
+	. = ..()
 	switch(tower_status)
 		if(TOWER_ON)
 			icon_state = "comm_tower"

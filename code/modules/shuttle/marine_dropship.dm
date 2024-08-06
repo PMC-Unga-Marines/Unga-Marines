@@ -696,14 +696,9 @@
 		if(!(X.hive.hive_flags & HIVE_CAN_HIJACK))
 			to_chat(X, span_warning("Our hive lacks the psychic prowess to hijack the bird."))
 			return
-		var/groundside_humans
-		for(var/N in GLOB.alive_human_list)
-			var/mob/H = N
-			if(H.z != X.z)
-				continue
-			groundside_humans++
+		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
 		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
-		if(groundside_humans > 5 || mode.allow_hijack())
+		if(living_player_list[1] > 5 || mode.allow_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 		switch(M.mode)
@@ -723,7 +718,7 @@
 		do_hijack(M, CT, X)
 
 	if(href_list["abduct"])
-		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
+		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
 		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
 		if(living_player_list[1] > 5 || mode.allow_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))

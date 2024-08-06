@@ -24,7 +24,14 @@
 	var/marine_victory_point = 5000
 	var/xeno_victory_point = 5000
 
+	//xeno have points round start, so
+	var/marine_victory_points_factor = 1.25
+	var/xeno_victory_points_factor = 0.9
+
 	var/points_to_win = 5000
+
+	var/firts_stage_xeno_factor = 0.8
+	var/second_stage_xeno_factor = 1.2
 
 	var/allow_hijack = FALSE
 	var/can_hunt = FALSE
@@ -170,7 +177,8 @@
 		if(xeno.xeno_caste.caste_flags & CASTE_IS_A_MINION)
 			continue
 		active_xenos++
-	var/larva_surplus = (get_total_joblarvaworth() - (active_xenos * xeno_job.job_points_needed )) / xeno_job.job_points_needed
+	var/estimated_joblarvaworth = get_total_joblarvaworth() * (round_stage != INFESTATION_MARINE_DEN_RUSH ? firts_stage_xeno_factor : second_stage_xeno_factor)
+	var/larva_surplus = (estimated_joblarvaworth - (active_xenos * xeno_job.job_points_needed )) / xeno_job.job_points_needed
 	if(!active_xenos)
 		xeno_job.add_job_positions(max(1, round(larva_surplus, 1)))
 		return
@@ -185,16 +193,16 @@
 		return
 
 	//Victory point
-	marine_victory_point += sensors_activated * (points_check_interval / 10)
-	if(marine_victory_point >= points_to_win && !can_hunt)
+	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor
+	if(marine_victory_point >= points_to_win && !can_hunt &&  !allow_hijack)
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 			if(human.faction == FACTION_TERRAGOV)
 				human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
 				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
 
-	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10)
-	if(xeno_victory_point >= points_to_win && !allow_hijack)
+	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor
+	if(xeno_victory_point >= points_to_win && !allow_hijack && !can_hunt)
 		allow_hijack = TRUE
 		for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 			xeno.playsound_local(xeno, "sound/voice/alien_hiss1.ogg", 10, 1)
@@ -221,13 +229,12 @@
 		else
 			items +="Victory points: [marine_victory_point]"
 
-			///Add gamemode related items to statpanel
 /datum/game_mode/infestation/distress/points_defence/proc/start_hunt()
 	//marine announce
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
 			human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
-			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
+			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "Xeno den has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
 	round_stage = INFESTATION_MARINE_DEN_RUSH
 
 /datum/game_mode/infestation/distress/points_defence/proc/can_hunt()
