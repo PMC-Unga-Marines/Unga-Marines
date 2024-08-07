@@ -859,7 +859,7 @@
 	var/datum/limb/E = H.get_limb("chest")
 	E.fracture()
 	for(var/datum/internal_organ/I in E.internal_organs)
-		I.get_damage(rand(I.min_bruised_damage, I.min_broken_damage+1))
+		I.take_damage(rand(I.min_bruised_damage, I.min_broken_damage+1))
 	if(!E.hidden && prob(60)) //set it snuggly
 		E.hidden = surprise
 		E.cavity = 0

@@ -25,13 +25,10 @@
 
 	var/health_deficiency = max(1 - (health / maxHealth) * 100, staminaloss)
 
-	//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(health_deficiency >= 50 && !(species?.species_flags & PARALYSE_RESISTANT))
-//RUTGMC EDIT ADDITION END
 		add_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN, TRUE, 0, NONE, TRUE, health_deficiency / 50)
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
-
 
 /mob/living/carbon/human/adjustBrainLoss(amount, silent = FALSE)
 
@@ -41,7 +38,7 @@
 	if(species?.has_organ[ORGAN_SLOT_BRAIN])
 		var/datum/internal_organ/brain/sponge = get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(sponge)
-			sponge.get_damage(amount, silent)
+			sponge.take_damage(amount, silent)
 			sponge.damage = clamp(sponge.damage, 0, MAX_BRAINLOSS)
 			brainloss = sponge.damage
 		else

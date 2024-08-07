@@ -50,4 +50,4 @@
 					organs_to_hurt += I
 				if(length(organs_to_hurt))
 					var/datum/internal_organ/O = pick(organs_to_hurt)
-					O.get_damage(40)
+					O.take_damage(40)

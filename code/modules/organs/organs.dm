@@ -36,7 +36,7 @@
 	owner.add_movespeed_modifier(name, override = TRUE, multiplicative_slowdown = organ_status)
 
 //Hits of 1 damage or less won't do anything due to how losebreath works, but any stronger and we'll get the wind knocked out of us for a bit. Mostly just flavor.
-/datum/internal_organ/lungs/get_damage(amount, silent = FALSE)
+/datum/internal_organ/lungs/take_damage(amount, silent = FALSE)
 	owner.adjust_Losebreath(amount)
 	return ..()
 
@@ -125,11 +125,11 @@
 	if(owner.getToxLoss() >= (80 - 20 * organ_status))
 		//Healthy liver suffers on its own
 		if(organ_status != ORGAN_BROKEN)
-			get_damage(0.2, TRUE)
+			take_damage(0.2, TRUE)
 		//Damaged one shares the fun
 		else
 			var/datum/internal_organ/O = pick(owner.internal_organs)
-			O?.get_damage(0.2, TRUE)
+			O?.take_damage(0.2, TRUE)
 
 	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxins.
 	if(!owner.drunkenness && owner.getToxLoss() <= 15 && organ_status == ORGAN_HEALTHY)

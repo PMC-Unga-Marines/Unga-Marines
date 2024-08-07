@@ -79,13 +79,11 @@
 			var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 			if(E && (E.damage > E.min_bruised_damage && prob(E.damage + 50)))
 				H.flash_act()
-				E.get_damage(rand(1, 5))
+				E.take_damage(rand(1, 5))
 		else
 			L.flash_act()
 
-
 		L.Paralyze(strength)
-
 
 /obj/machinery/flasher/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))
