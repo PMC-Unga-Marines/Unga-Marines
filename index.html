@@ -30,7 +30,7 @@ General Public License version 3.
 
 <h3 id="modules">Modules
 <aside>(468 modules,
-    856/7539 macros, 11.4%)</aside></h3>
+    856/7540 macros, 11.4%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -495,7 +495,6 @@ that is in the general direction relative to the parent.</li>
     </ul></li>
     <li><span class="no-substance">detectivework&#x2F;</span><a href="code/modules/detectivework/forensics.html" title="code&#x2F;modules&#x2F;detectivework&#x2F;forensics">forensics</a> - todo: is this entire file deprecated and should be removed?</li>
     <li><span class="no-substance">events&#x2F;</span><a href="code/modules/events/_events.html" title="code&#x2F;modules&#x2F;events&#x2F;_events">_events</a></li>
-    <li><span class="no-substance">factory&#x2F;</span><a href="code/modules/factory/parts.html" title="code&#x2F;modules&#x2F;factory&#x2F;parts">parts</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;instruments">instruments</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;modules&#x2F;instruments&#x2F;instrument_data">instrument_data</span><ul class="index-tree">
     <li><a href="code/modules/instruments/instrument_data/_instrument_data.html" title="code&#x2F;modules&#x2F;instruments&#x2F;instrument_data&#x2F;_instrument_data">_instrument_data</a></li>
@@ -609,6 +608,7 @@ Thanks to forum_account for saving the day, the library can be found
     <li><a href="code/modules/reqs/supply.html" title="code&#x2F;modules&#x2F;reqs&#x2F;supply">supply</a></li>
     <li><a href="code/modules/reqs/supplypacks.html" title="code&#x2F;modules&#x2F;reqs&#x2F;supplypacks">supplypacks</a></li>
     </ul></li>
+    <li><span class="no-substance">reqtorio&#x2F;</span><a href="code/modules/reqtorio/assembly_crafts.html" title="code&#x2F;modules&#x2F;reqtorio&#x2F;assembly_crafts">assembly_crafts</a></li>
     <li><span class="no-substance">shuttle&#x2F;</span><a href="code/modules/shuttle/marine_dropship.html" title="code&#x2F;modules&#x2F;shuttle&#x2F;marine_dropship">marine_dropship</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;surgery">surgery</span><ul class="index-tree">
     <li><a href="code/modules/surgery/generic.html" title="code&#x2F;modules&#x2F;surgery&#x2F;generic">generic</a></li>
@@ -736,7 +736,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1035 detailed/1311 documented/19695 total, 6.7%)</aside></h3>
+<aside>(1035 detailed/1314 documented/19626 total, 6.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -998,6 +998,11 @@ do not touch this unless you know what you are doing</li>
     </ul></li>
     </ul></li>
     <li><a href="datum/antagonist.html" title="&#x2F;datum&#x2F;antagonist">antagonist</a></li>
+    <li class="has-children"><span class="no-substance" title="&#x2F;datum&#x2F;assembly_craft">assembly_craft</span><ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;assembly_craft&#x2F;clothing">clothing</span> - CLOTHING</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;assembly_craft&#x2F;explosives">explosives</span> - EXPLOSIVES</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;assembly_craft&#x2F;weapons">weapons</span> - WEAPONS</li>
+    </ul></li>
     <li class="has-children"><a href="datum/asset.html" title="&#x2F;datum&#x2F;asset">asset</a><ul class="index-tree">
     <li><a href="datum/asset/json.html" title="&#x2F;datum&#x2F;asset&#x2F;json">json</a> - A subtype to generate a JSON file from a list</li>
     <li class="has-children"><a href="datum/asset/simple.html" title="&#x2F;datum&#x2F;asset&#x2F;simple">simple</a> - If you don't need anything complicated.<ul class="index-tree">
@@ -1152,6 +1157,7 @@ List of lighting objects queued for update.</li>
     <li><a href="datum/controller/subsystem/processing/dcs.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;processing&#x2F;dcs">dcs</a></li>
     <li><a href="datum/controller/subsystem/processing/instruments.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;processing&#x2F;instruments">instruments</a></li>
     </ul></li>
+    <li><a href="datum/controller/subsystem/reqtorio.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;reqtorio">reqtorio</a></li>
     <li><a href="datum/controller/subsystem/resinshaping.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;resinshaping">resinshaping</a></li>
     <li><a href="datum/controller/subsystem/shuttle.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;shuttle">shuttle</a></li>
     <li><a href="datum/controller/subsystem/silo.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;silo">silo</a></li>
@@ -1962,9 +1968,6 @@ If allow_emissive is TRUE, Right clicking the Parent item will toggle the emissi
     </ul></li>
     <li><a href="obj/item/explosive/plastique.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;plastique">plastique</a></li>
     </ul></li>
-    <li><a href="obj/item/factory_part.html" title="&#x2F;obj&#x2F;item&#x2F;factory_part">factory_part</a> - Base item used in factories, only changes icon and stage for the item then creates a new item when its done
-in order to set a recipe set recipe = GLOB.myrecipe in Initialize</li>
-    <li><a href="obj/item/factory_refill.html" title="&#x2F;obj&#x2F;item&#x2F;factory_refill">factory_refill</a></li>
     <li class="has-children"><a href="obj/item/flashlight.html" title="&#x2F;obj&#x2F;item&#x2F;flashlight">flashlight</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;combat">combat</span> - Marine Gear</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;lantern">lantern</span> - Lantern</li>
@@ -2195,6 +2198,7 @@ While perhaps reagents created by udder component COULD be managed in the mob, i
     <li><a href="obj/item/xeno_iff_tag.html" title="&#x2F;obj&#x2F;item&#x2F;xeno_iff_tag">xeno_iff_tag</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/machinery.html" title="&#x2F;obj&#x2F;machinery">machinery</a><ul class="index-tree">
+    <li><a href="obj/machinery/assembler.html" title="&#x2F;obj&#x2F;machinery&#x2F;assembler">assembler</a></li>
     <li class="has-children"><a href="obj/machinery/atmospherics.html" title="&#x2F;obj&#x2F;machinery&#x2F;atmospherics">atmospherics</a><ul class="index-tree">
     <li class="has-children"><span class="no-substance">components&#x2F;</span><span title="&#x2F;obj&#x2F;machinery&#x2F;atmospherics&#x2F;components&#x2F;unary">unary</span><ul class="index-tree">
     <li><a href="obj/machinery/atmospherics/components/unary/cryo_cell.html" title="&#x2F;obj&#x2F;machinery&#x2F;atmospherics&#x2F;components&#x2F;unary&#x2F;cryo_cell">cryo_cell</a></li>
@@ -2278,7 +2282,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     </ul></li>
     <li><a href="obj/machinery/door_control.html" title="&#x2F;obj&#x2F;machinery&#x2F;door_control">door_control</a></li>
     <li><a href="obj/machinery/dropship_part_fabricator.html" title="&#x2F;obj&#x2F;machinery&#x2F;dropship_part_fabricator">dropship_part_fabricator</a></li>
-    <li><a href="obj/machinery/factory.html" title="&#x2F;obj&#x2F;machinery&#x2F;factory">factory</a></li>
+    <li><a href="obj/machinery/fabricator.html" title="&#x2F;obj&#x2F;machinery&#x2F;fabricator">fabricator</a></li>
     <li class="has-children"><a href="obj/machinery/floodlight.html" title="&#x2F;obj&#x2F;machinery&#x2F;floodlight">floodlight</a><ul class="index-tree">
     <li><a href="obj/machinery/floodlight/colony.html" title="&#x2F;obj&#x2F;machinery&#x2F;floodlight&#x2F;colony">colony</a></li>
     </ul></li>
@@ -2330,13 +2334,13 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;smartfridge&#x2F;seeds">seeds</span> - Smartfridge types</li>
     </ul></li>
     <li><a href="obj/machinery/space_heater.html" title="&#x2F;obj&#x2F;machinery&#x2F;space_heater">space_heater</a></li>
+    <li><a href="obj/machinery/splitter.html" title="&#x2F;obj&#x2F;machinery&#x2F;splitter">splitter</a></li>
     <li><a href="obj/machinery/status_display.html" title="&#x2F;obj&#x2F;machinery&#x2F;status_display">status_display</a> - Status display which can show images and scrolling text.</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;suit_storage_unit">suit_storage_unit</span> - If you are adding more pictures, don't forget to complete the list in AI_verbs.dm</li>
     <li><a href="obj/machinery/tank_part_fabricator.html" title="&#x2F;obj&#x2F;machinery&#x2F;tank_part_fabricator">tank_part_fabricator</a></li>
     <li class="has-children"><a href="obj/machinery/telecomms.html" title="&#x2F;obj&#x2F;machinery&#x2F;telecomms">telecomms</a><ul class="index-tree">
     <li><a href="obj/machinery/telecomms/relay.html" title="&#x2F;obj&#x2F;machinery&#x2F;telecomms&#x2F;relay">relay</a></li>
     </ul></li>
-    <li><a href="obj/machinery/unboxer.html" title="&#x2F;obj&#x2F;machinery&#x2F;unboxer">unboxer</a></li>
     <li class="has-children"><a href="obj/machinery/vending.html" title="&#x2F;obj&#x2F;machinery&#x2F;vending">vending</a><ul class="index-tree">
     <li><a href="obj/machinery/vending/boozeomat.html" title="&#x2F;obj&#x2F;machinery&#x2F;vending&#x2F;boozeomat">boozeomat</a></li>
     </ul></li>
@@ -2553,7 +2557,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/7ca7f088212a5aa1a393ed2a9613c73912950f54">7ca7f08</a>
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/57f3b1e7feeb791647cbd58804e7dfaf8edde6bf">57f3b1e</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
