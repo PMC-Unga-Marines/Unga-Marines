@@ -58,6 +58,11 @@
 	if(!(species.species_flags & NO_BREATHE) || forced)
 		return ..()
 
+/mob/living/carbon/human/vomit()
+	if(isspeciessynthetic(src))
+		return //Machines don't throw up.
+	return ..()
+
 /mob/living/carbon/human/do_vomit()
 	. = ..()
 	var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
