@@ -125,9 +125,7 @@
 		if(drunkenness >= 51)
 			if(prob(5))
 				AdjustConfused(10 SECONDS)
-				if(ishuman(src))
-					var/mob/living/carbon/human/human = src
-					human.vomit()
+				vomit()
 			if(dizziness < 600)
 				dizzy(12)
 

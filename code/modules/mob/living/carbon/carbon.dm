@@ -65,9 +65,6 @@
 	return shock_damage
 
 /mob/living/carbon/proc/vomit()
-	if(isspeciessynthetic(src))
-		return //Machines don't throw up.
-
 	if(stat == DEAD) //Corpses don't puke
 		return
 
