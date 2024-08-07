@@ -38,7 +38,7 @@
 	var/list/datum/limb/children
 
 	///List of Internal organs of this body part
-	var/list/obj/item/organ/internal_organs
+	var/list/datum/internal_organ/internal_organs
 
 	/// Message that displays when you feel pain from this limb
 	var/damage_msg = span_warning("You feel an intense pain")

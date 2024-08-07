@@ -101,14 +101,14 @@
 	/// inherent species-specific actions
 	var/list/inherent_actions
 	var/list/has_organ = list(
-		ORGAN_SLOT_HEART = /obj/item/organ/heart,
-		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
-		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
-		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
-		ORGAN_SLOT_KIDNEYS = /obj/item/organ/kidneys,
-		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
-		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes
+		ORGAN_SLOT_HEART = /datum/internal_organ/heart,
+		ORGAN_SLOT_LUNGS = /datum/internal_organ/lungs,
+		ORGAN_SLOT_LIVER = /datum/internal_organ/liver,
+		ORGAN_SLOT_STOMACH = /datum/internal_organ/stomach,
+		ORGAN_SLOT_KIDNEYS = /datum/internal_organ/kidneys,
+		ORGAN_SLOT_BRAIN = /datum/internal_organ/brain,
+		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
+		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
 	)
 
 	var/knock_down_reduction = 1 //how much the knocked_down effect is reduced per Life call.

@@ -383,7 +383,7 @@
 						if(S.limb_ref.body_part != GROIN)
 							open_encased(occupant, S.limb_ref)
 
-						if(!istype(S.organ_ref, /obj/item/organ/brain))
+						if(!istype(S.organ_ref, /datum/internal_organ/brain))
 							sleep(FIX_ORGAN_MAX_DURATION*surgery_mod)
 						else
 							if(S.organ_ref.damage > BONECHIPS_MAX_DAMAGE)
@@ -391,7 +391,7 @@
 							sleep(BONECHIPS_REMOVAL_MAX_DURATION * surgery_mod)
 						if(!surgery)
 							break
-						if(istype(S.organ_ref, /obj/item/organ))
+						if(istype(S.organ_ref, /datum/internal_organ))
 							S.organ_ref.heal_organ_damage(S.organ_ref.damage)
 						else
 							say("Organ is missing.")
@@ -408,7 +408,7 @@
 							say("Procedure has been deemed unnecessary.")
 							surgery_todo_list -= S
 							continue
-						if(istype(S.organ_ref, /obj/item/organ/eyes))
+						if(istype(S.organ_ref, /datum/internal_organ/eyes))
 							var/datum/internal_organ/eyes/E = S.organ_ref
 
 							if(E.eye_surgery_stage == 0)
