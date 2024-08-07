@@ -187,7 +187,8 @@ REAGENT SCANNER
 		chemicals_lists["[reagent.name]"] = list(
 			"name" = reagent.name,
 			"amount" = round(reagent.volume, 0.1),
-			"od" = reagent.overdosed
+			"od" = reagent.overdosed,
+			"dangerous" = reagent.overdosed || istype(reagent, /datum/reagent/toxin)
 		)
 	data["has_chemicals"] = length(patient.reagents.reagent_list)
 	data["chemicals_lists"] = chemicals_lists

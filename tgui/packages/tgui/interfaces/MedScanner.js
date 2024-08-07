@@ -169,8 +169,8 @@ export const MedScanner = (props, context) => {
                 <LabeledList.Item key={chemical.name}>
                   <Box
                     inline
-                    color={chemical.od ? 'red' : 'white'}
-                    bold={chemical.od}>
+                    color={chemical.dangerous ? 'red' : 'white'}
+                    bold={chemical.dangerous}>
                     {chemical.amount + 'u ' + chemical.name}
                   </Box>
                   <Box inline width={'5px'} />
