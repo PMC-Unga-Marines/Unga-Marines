@@ -259,7 +259,10 @@ GLOBAL_LIST_INIT(wood_radial_images, list(
 	desc = "This roll of cloth is made from only the finest chemicals and bunny rabbits."
 	singular_name = "cloth roll"
 	icon_state = "sheet-cloth"
+	merge_type = /obj/item/stack/sheet/cloth
 
+/obj/item/stack/sheet/cloth/large_stack
+	amount = 50
 
 /*
 * Cardboard

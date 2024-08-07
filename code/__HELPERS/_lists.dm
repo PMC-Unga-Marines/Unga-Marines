@@ -146,6 +146,13 @@
 			return TRUE
 	return FALSE
 
+//Checks for specific type in a list
+/proc/type_in_list(var/type_to_chek, list/L)
+	for(var/type in L)
+		if(type_to_chek == type)
+			return TRUE
+	return FALSE
+
 /**
  * Removes any null entries from the list
  * Returns TRUE if the list had nulls, FALSE otherwise
