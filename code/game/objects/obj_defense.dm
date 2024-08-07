@@ -1,4 +1,4 @@
-/obj/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = null, effects = TRUE, attack_dir, armour_penetration = 0)
+/obj/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = null, effects = TRUE, attack_dir, armour_penetration = 0, blame_mob)
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
 	if(!damage_amount)
@@ -24,7 +24,7 @@
 	if(obj_integrity <= 0)
 		if(damage_flag == BOMB)
 			on_explosion_destruction(damage_amount, attack_dir)
-		obj_destruction(damage_amount, damage_type, damage_flag)
+		obj_destruction(damage_amount, damage_type, damage_flag, blame_mob)
 
 /obj/proc/on_explosion_destruction(severity, direction)
 	return
@@ -95,7 +95,7 @@
 		return
 	if(proj.damage > 30)
 		visible_message(span_warning("\the [src] is damaged by \the [proj]!"), visible_message_flags = COMBAT_MESSAGE)
-	take_damage(proj.damage, proj.ammo.damage_type, proj.ammo.armor_type, 0, REVERSE_DIR(proj.dir), proj.ammo.penetration)
+	take_damage(proj.damage, proj.ammo.damage_type, proj.ammo.armor_type, 0, REVERSE_DIR(proj.dir), proj.ammo.penetration, isliving(proj.firer) ? proj.firer : null)
 
 /obj/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0) //used by attack_alien, attack_animal, and attack_slime
 	user.do_attack_animation(src, ATTACK_EFFECT_SMASH)
@@ -138,7 +138,7 @@
 	span_danger("You nudge your head against [src]."))
 
 ///the obj is deconstructed into pieces, whether through careful disassembly or when destroyed.
-/obj/proc/deconstruct(disassembled = TRUE)
+/obj/proc/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_OBJ_DECONSTRUCT, disassembled)
 	qdel(src)
@@ -148,11 +148,11 @@
 	return
 
 ///what happens when the obj's integrity reaches zero.
-/obj/proc/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/proc/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	SHOULD_CALL_PARENT(TRUE)
 	if(destroy_sound)
 		playsound(loc, destroy_sound, 35, 1)
-	deconstruct(FALSE)
+	deconstruct(FALSE, blame_mob)
 
 ///changes max_integrity while retaining current health percentage, returns TRUE if the obj got broken.
 /obj/proc/modify_max_integrity(new_max, can_break = TRUE, damage_type = BRUTE, new_failure_integrity = null)

@@ -83,7 +83,7 @@
 
 	take_contents()
 
-/obj/structure/closet/deconstruct(disassembled = TRUE)
+/obj/structure/closet/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(ispath(drop_material) && drop_material_amount)
 		new drop_material(loc, drop_material_amount)
 	dump_contents()

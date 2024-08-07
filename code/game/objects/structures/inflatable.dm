@@ -45,7 +45,7 @@
 	///The popped variant of this type
 	var/popped_variant
 
-/obj/structure/inflatable/deconstruct(disassembled = TRUE)
+/obj/structure/inflatable/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(!deflated)
 		deflate(!disassembled)
 	return ..()

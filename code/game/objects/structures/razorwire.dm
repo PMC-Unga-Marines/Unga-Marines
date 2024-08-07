@@ -17,7 +17,7 @@
 	var/sheet_type = /obj/item/stack/barbed_wire
 	var/sheet_type2 = /obj/item/stack/rods
 
-/obj/structure/razorwire/deconstruct(disassembled = TRUE)
+/obj/structure/razorwire/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(obj_integrity > max_integrity * 0.5)
 		new sheet_type(loc)
 	else

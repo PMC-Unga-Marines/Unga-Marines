@@ -42,7 +42,7 @@
 	take_damage(severity, BRUTE, BOMB)
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/flora/tree/deconstruct(disassembled = TRUE)
+/obj/structure/flora/tree/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	density = FALSE
 	var/obj/structure/flora/stump/S = new(loc)
 	S.name = "[name] stump"

@@ -67,6 +67,8 @@
 
 		if(M.protection_aura)
 			painloss -= 20 * (1 + M.protection_aura) //-60 pain for SLs (2-1+1), -80 for Commanders (3-1+1)
+		if(M.flag_aura)
+			painloss -= M.flag_aura * 20
 
 	painloss += reagent_pain_modifier
 

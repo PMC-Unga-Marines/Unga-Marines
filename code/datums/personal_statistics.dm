@@ -267,8 +267,6 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	//Replace any instances of line breaks after horizontal rules to prevent unneeded empty spaces
 	return replacetext(jointext(stats, "<br>"), "<hr><br>", "<hr>")
 
-
-
 /* Not sure what folder to put a file of just record keeping procs, so just leaving them here
 The alternative is scattering them everywhere under their respective objects which is a bit messy */
 
