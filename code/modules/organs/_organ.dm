@@ -1,11 +1,5 @@
-/obj/item/organ
-	name = "organ"
-	desc = "It looks like it probably just plopped out."
-	icon = 'icons/obj/items/organs.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/inhands/items/bodyparts_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/items/bodyparts_right.dmi',
-	)
+/datum/internal_organ
+	var/name = "organ"
 	/// Reference to the mob owning the organs
 	var/mob/living/carbon/human/owner = null
 	/// Reference to the limb we're inside of
@@ -24,7 +18,7 @@
 	var/peri_effect = FALSE
 
 //This is used in the create_organs() which transfers human datums to organs
-/obj/item/organ/New(mob/living/carbon/carbon_mob)
+/datum/internal_organ/New(mob/living/carbon/carbon_mob)
 	..()
 	if(!istype(carbon_mob))
 		return
@@ -36,16 +30,16 @@
 	var/datum/limb/limb = human.get_limb(parent_limb)
 	LAZYDISTINCTADD(limb.internal_organs, src)
 
-/obj/item/organ/Destroy()
+/datum/internal_organ/Destroy()
 	clean_owner()
 	return ..()
 
 ///Signal handler to prevent hard del
-/obj/item/organ/proc/clean_owner()
+/datum/internal_organ/proc/clean_owner()
 	SIGNAL_HANDLER
 	owner = null
 
-/obj/item/organ/proc/get_damage(amount, silent = FALSE)
+/datum/internal_organ/proc/get_damage(amount, silent = FALSE)
 	if(SSticker.mode?.flags_round_type & MODE_NO_PERMANENT_WOUNDS)
 		return
 	if(amount <= 0)
@@ -58,12 +52,12 @@
 		owner.custom_pain("Something inside your [parent.display_name] hurts a lot.", 1)
 	set_organ_status()
 
-/obj/item/organ/proc/heal_organ_damage(amount)
+/datum/internal_organ/proc/heal_organ_damage(amount)
 	damage = max(damage - amount, 0)
 	set_organ_status()
 
 /// Set the correct organ state
-/obj/item/organ/proc/set_organ_status()
+/datum/internal_organ/proc/set_organ_status()
 	if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/peridaxon) >= 0.1 && peri_effect) //0.1 just in case
 		if(organ_status != ORGAN_HEALTHY)
 			organ_status = ORGAN_HEALTHY

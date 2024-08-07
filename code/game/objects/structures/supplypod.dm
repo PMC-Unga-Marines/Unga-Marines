@@ -37,7 +37,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	var/damage = 0
 	var/effectStun = FALSE
 	var/effectLimb = FALSE
-	var/effectOrgans = FALSE
 	var/effectGib = FALSE
 	var/effectStealth = FALSE
 	var/effectQuiet = FALSE
@@ -122,14 +121,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 				if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
 					continue
 				E.droplimb()
-
-		if(effectOrgans && ishuman(L))
-			var/mob/living/carbon/human/H = L
-			for(var/datum/internal_organ/IO in H.internal_organs)
-				var/destination = get_edge_target_turf(T, pick(GLOB.alldirs))
-				IO.forceMove(T)
-				IO.throw_at(destination, 2, 3)
-				sleep(0.1 SECONDS)
 
 		if(effectGib)
 			L.adjustBruteLoss(5000)

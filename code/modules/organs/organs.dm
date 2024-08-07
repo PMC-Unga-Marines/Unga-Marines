@@ -1,17 +1,15 @@
-// This is not set to vital because death immediately occurs in blood.dm if it is removed. Also, all damage effects are handled there.
-/obj/item/organ/heart
+/datum/internal_organ/heart
 	name = "heart"
-	icon_state = "heart-on"
 	slot = ORGAN_SLOT_HEART
 	peri_effect = TRUE
 
-/obj/item/organ/heart/process()
+/datum/internal_organ/heart/process()
 	if(organ_status == ORGAN_BRUISED && prob(5))
 		owner.emote("me", 1, "grabs at [owner.p_their()] chest!")
 	else if(organ_status == ORGAN_BROKEN && prob(20))
 		owner.emote("me", 1, "clutches [owner.p_their()] chest!")
 
-/obj/item/organ/heart/set_organ_status()
+/datum/internal_organ/heart/set_organ_status()
 	var/old_organ_status = organ_status
 	. = ..()
 	if(!.)
@@ -19,18 +17,16 @@
 	owner.max_stamina_buffer += (old_organ_status - organ_status) * 25
 	owner.maxHealth += (old_organ_status - organ_status) * 20
 
-/obj/item/organ/lungs
+/datum/internal_organ/lungs
 	name = "lungs"
-	icon_state = "lungs"
-	gender = PLURAL
 	slot = ORGAN_SLOT_LUNGS
 	peri_effect = TRUE
 
-/obj/item/organ/lungs/process()
+/datum/internal_organ/lungs/process()
 	if((organ_status == ORGAN_BRUISED && prob(5)) || (organ_status == ORGAN_BROKEN && prob(20)))
 		owner.emote("me", 1, "gasps for air!")
 
-/obj/item/organ/lungs/set_organ_status()
+/datum/internal_organ/lungs/set_organ_status()
 	. = ..()
 	if(!.)
 		return
@@ -40,14 +36,12 @@
 	owner.add_movespeed_modifier(name, override = TRUE, multiplicative_slowdown = organ_status)
 
 //Hits of 1 damage or less won't do anything due to how losebreath works, but any stronger and we'll get the wind knocked out of us for a bit. Mostly just flavor.
-/obj/item/organ/lungs/get_damage(amount, silent = FALSE)
+/datum/internal_organ/lungs/get_damage(amount, silent = FALSE)
 	owner.adjust_Losebreath(amount)
 	return ..()
 
-/obj/item/organ/kidneys
+/datum/internal_organ/kidneys
 	name = "kidneys"
-	icon_state = "kidneys"
-	gender = PLURAL
 	slot = ORGAN_SLOT_KIDNEYS
 	parent_limb = BODY_ZONE_PRECISE_GROIN
 	peri_effect = TRUE
@@ -62,39 +56,39 @@
 	///Total medicines removed since last tick
 	var/removed_medicines = 0
 
-/obj/item/organ/kidneys/New(mob/living/carbon/carbon_mob)
+/datum/internal_organ/kidneys/New(mob/living/carbon/carbon_mob)
 	. = ..()
 	if(!owner)
 		return
 	RegisterSignal(owner.reagents, COMSIG_NEW_REAGENT_ADD, PROC_REF(owner_added_reagent))
 	RegisterSignal(owner.reagents, COMSIG_REAGENT_DELETING, PROC_REF(owner_removed_reagent))
 
-/obj/item/organ/kidneys/clean_owner()
+/datum/internal_organ/kidneys/clean_owner()
 	if(owner?.reagents)
 		UnregisterSignal(owner.reagents, list(COMSIG_NEW_REAGENT_ADD, COMSIG_REAGENT_DELETING))
 	return ..()
 
 ///Signaled proc. Check if the added reagent was under reagent/medicine. If so, increment medicine counter and potentially notify owner.
-/obj/item/organ/kidneys/proc/owner_added_reagent(datum/source, reagent_type, amount)
+/datum/internal_organ/kidneys/proc/owner_added_reagent(datum/source, reagent_type, amount)
 	SIGNAL_HANDLER
 	if(!ispath(reagent_type, /datum/reagent/medicine))
 		return
 	new_medicines++
 
 ///Signaled proc. Check if the removed reagent was under reagent/medicine. If so, decrement medicine counter and potentially notify owner.
-/obj/item/organ/kidneys/proc/owner_removed_reagent(datum/source, reagent_type)
+/datum/internal_organ/kidneys/proc/owner_removed_reagent(datum/source, reagent_type)
 	SIGNAL_HANDLER
 	if(!ispath(reagent_type, /datum/reagent/medicine))
 		return
 	removed_medicines++
 
-/obj/item/organ/kidneys/set_organ_status()
+/datum/internal_organ/kidneys/set_organ_status()
 	. = ..()
 	if(!.)
 		return
 	current_medicine_cap = initial(current_medicine_cap) - 2 * organ_status
 
-/obj/item/organ/kidneys/process()
+/datum/internal_organ/kidneys/process()
 	current_medicine_count += new_medicines //We want to include medicines that were individually both added and removed this tick
 	var/overflow = current_medicine_count - current_medicine_cap //This catches any case where a reagent was added with volume below its metabolism
 	current_medicine_count -= removed_medicines //Otherwise, you can microdose infinite chems without kidneys complaining
@@ -117,9 +111,8 @@
 	if(prob(overflow * (organ_status + 1) * 10))
 		owner.Confused(2 SECONDS * (organ_status + 1))
 
-/obj/item/organ/liver
+/datum/internal_organ/liver
 	name = "liver"
-	icon_state = "liver"
 	slot = ORGAN_SLOT_LIVER
 	peri_effect = TRUE
 	///lower value, higher resistance.
@@ -127,7 +120,7 @@
 	///How fast we clean out toxins/toxloss. Adjusts based on organ damage.
 	var/filter_rate = 3
 
-/obj/item/organ/liver/process()
+/datum/internal_organ/liver/process()
 	//High toxins levels are dangerous if you aren't actively treating them. 100 seconds to hit bruised from this alone
 	if(owner.getToxLoss() >= (80 - 20 * organ_status))
 		//Healthy liver suffers on its own
@@ -155,34 +148,34 @@
 	if(prob(organ_status)) //Just under once every three minutes while bruised, twice as often while broken.
 		owner.vomit() //No stomach, so the liver can cause vomiting instead. Stagger and slowdown plus feedback that something's wrong.
 
-/obj/item/organ/liver/set_organ_status()
+/datum/internal_organ/liver/set_organ_status()
 	. = ..()
 	if(!.)
 		return
 	filter_rate = initial(filter_rate) - organ_status
 
-/obj/item/organ/appendix
+/datum/internal_organ/appendix
 	name = "appendix"
-	icon_state = "appendix"
 	slot = ORGAN_SLOT_APPENDIX
 	parent_limb = BODY_ZONE_PRECISE_GROIN
 	peri_effect = TRUE
 
-/obj/item/organ/stomach
+/datum/internal_organ/stomach
 	name = "stomach"
-	icon_state = "stomach"
 	slot = ORGAN_SLOT_STOMACH
 	peri_effect = TRUE
 	///This is a reagent user and needs more then the 10u from edible component
-	var/reagent_vol = 1000
+	//var/reagent_vol = 1000
 	///The rate that the stomach will transfer reagents to the body
 	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
+	/// Our reagents
+	var/datum/reagents/reagents = new /datum/reagents(1000)
 
-/obj/item/organ/stomach/New(mob/living/carbon/carbon_mob)
-	. = ..()
-	create_reagents(reagent_vol)
+///datum/internal_organ/stomach/New(mob/living/carbon/carbon_mob)
+//	. = ..()
+//	reagents.create_reagents(reagent_vol)
 
-/obj/item/organ/stomach/process()
+/datum/internal_organ/stomach/process()
 	var/mob/living/carbon/human/body = owner
 
 	// digest food, send all reagents that can be metabolized to the body
@@ -211,28 +204,25 @@
 		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down it's contents!"))
 		return
 
-/obj/item/organ/eyes
+/datum/internal_organ/eyes
 	name = "eyeballs"
-	icon_state = "eyes"
-	gender = PLURAL
 	slot = ORGAN_SLOT_EYES
 	parent_limb = BODY_ZONE_HEAD
 	///stores which stage of the eye surgery the eye is at
 	var/eye_surgery_stage = 0
 
-/obj/item/organ/eyes/process()
+/datum/internal_organ/eyes/process()
 	if(organ_status == ORGAN_BRUISED)
 		owner.set_blurriness(20)
 	if(organ_status == ORGAN_BROKEN)
 		owner.set_blindness(20)
 
-/obj/item/organ/brain
+/datum/internal_organ/brain
 	name = "brain"
-	icon_state = "brain2"
 	parent_limb = BODY_ZONE_HEAD
 	var/mob/living/brain/brainmob = null
 
-/obj/item/organ/brain/set_organ_status()
+/datum/internal_organ/brain/set_organ_status()
 	var/old_organ_status = organ_status
 	. = ..()
 	if(!.)
@@ -244,7 +234,7 @@
 		REMOVE_TRAIT(owner, TRAIT_DROOLING, BRAIN_TRAIT)
 
 // I'm not sure if this proc is even used
-/obj/item/organ/brain/proc/transfer_identity(mob/living/carbon/H)
+/datum/internal_organ/brain/proc/transfer_identity(mob/living/carbon/H)
 	name = "[H]'s brain"
 	brainmob = new(src)
 	brainmob.name = H.real_name
