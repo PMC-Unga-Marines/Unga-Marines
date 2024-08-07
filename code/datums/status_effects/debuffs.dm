@@ -473,19 +473,15 @@
 	alert_type = /atom/movable/screen/alert/status_effect/irradiated
 	///Some effects only apply to carbons
 	var/mob/living/carbon/carbon_owner
-	var/mob/living/carbon/human/human_owner
 
 /datum/status_effect/incapacitating/irradiated/on_creation(mob/living/new_owner, set_duration)
 	. = ..()
 	if(.)
 		if(iscarbon(owner))
 			carbon_owner = owner
-		if(ishuman(owner)) // I hate my life
-			human_owner = owner
 
 /datum/status_effect/incapacitating/irradiated/Destroy()
 	carbon_owner = null
-	human_owner = null
 	return ..()
 
 /datum/status_effect/incapacitating/irradiated/tick()
@@ -498,8 +494,8 @@
 		living_owner.adjustToxLoss(3)
 	if(prob(15))
 		living_owner.adjust_Losebreath(5)
-	if(human_owner && prob(15))
-		human_owner.vomit()
+	if(carbon_owner && prob(15))
+		carbon_owner.vomit()
 	if(carbon_owner && prob(15))
 		var/datum/internal_organ/organ = pick(carbon_owner.internal_organs)
 		if(organ)
