@@ -164,16 +164,10 @@
 	name = "stomach"
 	slot = ORGAN_SLOT_STOMACH
 	peri_effect = TRUE
-	///This is a reagent user and needs more then the 10u from edible component
-	//var/reagent_vol = 1000
 	///The rate that the stomach will transfer reagents to the body
 	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
 	/// Our reagents
 	var/datum/reagents/reagents = new /datum/reagents(1000)
-
-///datum/internal_organ/stomach/New(mob/living/carbon/carbon_mob)
-//	. = ..()
-//	reagents.create_reagents(reagent_vol)
 
 /datum/internal_organ/stomach/process()
 	var/mob/living/carbon/human/body = owner
