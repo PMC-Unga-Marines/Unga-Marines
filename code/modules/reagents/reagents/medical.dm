@@ -41,7 +41,7 @@
 	L.setDrowsyness(L.drowsyness, 20)
 	if(ishuman(L)) //Critical overdose causes total blackout and heart damage. Too much stimulant
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
+		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		E.get_damage(0.5*effect_str, TRUE)
 	if(prob(10))
 		L.emote(pick("twitch","blink_r","shiver"))
@@ -175,7 +175,7 @@
 	L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
+		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
 			E.get_damage(3*effect_str, TRUE)
 
@@ -415,7 +415,7 @@
 	if(!ishuman(L))
 		return
 	var/mob/living/carbon/human/H = L
-	var/obj/item/organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
+	var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 	if(E)
 		E.get_damage(0.5*effect_str, TRUE)
 
@@ -423,7 +423,7 @@
 	L.apply_damages(2*effect_str, 2*effect_str)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
+		var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 		if(E)
 			E.get_damage(1.5*effect_str, TRUE)
 
@@ -690,7 +690,7 @@
 	L.reagent_shock_modifier += PAIN_REDUCTION_VERY_LIGHT
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
+		var/datum/internal_organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(B.damage < 30)
 			L.adjustBrainLoss(-1.5*effect_str)
 			L.adjustToxLoss(-1.5 * effect_str)
@@ -717,7 +717,7 @@
 	L.adjust_blindness(-5)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
+		var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
 			L.adjustToxLoss(-1.5 * effect_str)
@@ -742,7 +742,7 @@
 	if(!ishuman(L))
 		return ..()
 	var/mob/living/carbon/human/H = L
-	for(var/obj/item/organ/I in H.internal_organs)
+	for(var/datum/internal_organ/I in H.internal_organs)
 		if(I.damage)
 			if(L.bodytemperature > 169 && I.damage > 5)
 				continue
@@ -757,12 +757,12 @@
 /datum/reagent/medicine/research/stimulon/on_mob_add(mob/living/L, metabolism)
 	. = ..()
 	var/mob/living/carbon/human/H = L
-	for(var/obj/item/organ/I in H.internal_organs)
+	for(var/datum/internal_organ/I in H.internal_organs)
 		I.set_organ_status()
 
 /datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
 	var/mob/living/carbon/human/H = L
-	for(var/obj/item/organ/I in H.internal_organs)
+	for(var/datum/internal_organ/I in H.internal_organs)
 		I.set_organ_status()
 	return ..()
 
@@ -781,7 +781,7 @@
 	if(!ishuman(L))
 		return ..()
 	var/mob/living/carbon/human/H = L
-	var/obj/item/organ/organ = H.get_damaged_organ()
+	var/datum/internal_organ/organ = H.get_damaged_organ()
 	if(!organ)
 		return ..()
 	organ.heal_organ_damage(3 * effect_str)
@@ -1049,13 +1049,13 @@
 	if(prob(15) && ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)
-		var/obj/item/organ/I = H.get_organ_slot(affected_organ)
+		var/datum/internal_organ/I = H.get_organ_slot(affected_organ)
 		I.get_damage(5.5 * effect_str)
 
 /datum/reagent/medicine/ultrazine/overdose_process(mob/living/L, metabolism)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
+		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
 			E.get_damage(0.5*effect_str, TRUE)
 	else
@@ -1068,7 +1068,7 @@
 		L.adjustToxLoss(1.5*effect_str)
 	else
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
+		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 		if(E)
 			E.get_damage(1.5*effect_str, TRUE)
 
@@ -1458,7 +1458,7 @@
 				if(!ishuman(L))
 					return ..()
 				var/mob/living/carbon/human/H = L
-				var/obj/item/organ/organ = H.get_damaged_organ()
+				var/datum/internal_organ/organ = H.get_damaged_organ()
 				if(!organ)
 					return ..()
 				L.adjustToxLoss(5*effect_str)

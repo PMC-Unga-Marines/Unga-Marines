@@ -160,8 +160,8 @@
 	organless_human.limbs += new/datum/limb/foot/l_foot(new_l_leg, organless_human)
 	organless_human.limbs += new/datum/limb/foot/r_foot(new_r_leg, organless_human)
 
-	for(var/obj/item/organ/organ AS in has_organ)
-		var/obj/item/organ/organ_type = has_organ[organ]
+	for(var/datum/internal_organ/organ AS in has_organ)
+		var/datum/internal_organ/organ_type = has_organ[organ]
 		organless_human.internal_organs_by_name[organ] = new organ_type(organless_human)
 
 	if(species_flags & ROBOTIC_LIMBS)

@@ -83,7 +83,7 @@
 	if(istype(location, /turf))
 		location.add_vomit_floor(src, 1)
 
-	var/obj/item/organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
 	for(var/datum/reagent/our_reagent in belly.reagents.reagent_list)
 		belly.reagents.remove_reagent(our_reagent.type, our_reagent.volume / rand(2, 5)) // vomit out some reagents from our stomach
 

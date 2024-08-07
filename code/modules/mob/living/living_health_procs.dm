@@ -345,11 +345,11 @@
 			H.brainmob.mind.transfer_to(src)
 			qdel(H)
 
-	for(var/obj/item/organ/I in internal_organs)
+	for(var/datum/internal_organ/I in internal_organs)
 		I.heal_organ_damage(I.damage)
 
 	reagents.clear_reagents() //and clear all reagents in them
-	var/obj/item/organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
 	belly.reagents.clear_reagents()
 	REMOVE_TRAIT(src, TRAIT_UNDEFIBBABLE, TRAIT_UNDEFIBBABLE)
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)

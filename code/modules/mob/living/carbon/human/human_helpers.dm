@@ -185,14 +185,14 @@
 
 /mob/living/carbon/human/has_brain()
 	if(get_organ_slot(ORGAN_SLOT_BRAIN))
-		var/obj/item/organ/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+		var/datum/internal_organ/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(brain && istype(brain))
 			return 1
 	return 0
 
 /mob/living/carbon/human/has_eyes()
 	if(get_organ_slot(ORGAN_SLOT_EYES))
-		var/obj/item/organ/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+		var/datum/internal_organ/eyes = get_organ_slot(ORGAN_SLOT_EYES)
 		if(eyes && istype(eyes))
 			return 1
 	return 0
@@ -250,6 +250,6 @@
 
 ///Removes organ by name
 /mob/living/carbon/human/proc/remove_organ_slot(string)
-	var/obj/item/organ/organ = get_organ_slot(string)
+	var/datum/internal_organ/organ = get_organ_slot(string)
 	internal_organs_by_name -= string
 	internal_organs -= organ

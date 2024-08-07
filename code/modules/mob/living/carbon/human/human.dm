@@ -654,7 +654,7 @@
 	if(!species.has_organ["eyes"])
 		return 2//No eyes, can't hurt them.
 
-	var/obj/item/organ/eyes/I = get_organ_slot(ORGAN_SLOT_EYES)
+	var/datum/internal_organ/eyes/I = get_organ_slot(ORGAN_SLOT_EYES)
 	if(!I)
 		return 2
 
@@ -692,11 +692,11 @@
 
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
-	var/obj/item/organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
+	var/datum/internal_organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
 	return L?.organ_status == ORGAN_BRUISED
 
 /mob/living/carbon/human/proc/rupture_lung()
-	var/obj/item/organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
+	var/datum/internal_organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
 
 	if(L?.organ_status == ORGAN_BRUISED)
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)

@@ -95,7 +95,7 @@
 /datum/surgery_step/mcomp_wounds/mtend_wounds/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	target.heal_overall_damage(65,65)
 
-	for(var/obj/item/organ/organ in target.internal_organs) //Fixes all organs
+	for(var/datum/internal_organ/organ in target.internal_organs) //Fixes all organs
 		organ.heal_organ_damage(100)
 
 	affected.surgery_open_stage = 0.75

@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 
 		if(effectOrgans && ishuman(L))
 			var/mob/living/carbon/human/H = L
-			for(var/obj/item/organ/IO in H.internal_organs)
+			for(var/datum/internal_organ/IO in H.internal_organs)
 				var/destination = get_edge_target_turf(T, pick(GLOB.alldirs))
 				IO.forceMove(T)
 				IO.throw_at(destination, 2, 3)

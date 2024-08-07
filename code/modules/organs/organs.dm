@@ -135,7 +135,7 @@
 			get_damage(0.2, TRUE)
 		//Damaged one shares the fun
 		else
-			var/obj/item/organ/O = pick(owner.internal_organs)
+			var/datum/internal_organ/O = pick(owner.internal_organs)
 			O?.get_damage(0.2, TRUE)
 
 	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxins.

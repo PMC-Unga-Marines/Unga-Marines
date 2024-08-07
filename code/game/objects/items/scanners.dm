@@ -192,7 +192,7 @@ REAGENT SCANNER
 	data["has_chemicals"] = length(patient.reagents.reagent_list)
 	data["chemicals_lists"] = chemicals_lists
 
-	var/obj/item/organ/stomach/belly = patient.get_organ_slot(ORGAN_SLOT_STOMACH) // should it be this way?
+	var/datum/internal_organ/stomach/belly = patient.get_organ_slot(ORGAN_SLOT_STOMACH) // should it be this way?
 	data["has_stomach_chemicals"] = length(belly.reagents.reagent_list)
 	var/list/stomach_chemicals_lists = list()
 	for(var/datum/reagent/reagent AS in belly.reagents.reagent_list)
@@ -278,7 +278,7 @@ REAGENT SCANNER
 		data["pulse"] = "[human_patient.get_pulse(GETPULSE_TOOL)] bpm"
 		data["implants"] = unknown_implants
 		var/damaged_organs = list()
-		for(var/obj/item/organ/organ AS in human_patient.internal_organs)
+		for(var/datum/internal_organ/organ AS in human_patient.internal_organs)
 			if(organ.organ_status == ORGAN_HEALTHY)
 				continue
 			var/current_organ = list(

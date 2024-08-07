@@ -212,7 +212,7 @@
 
 /datum/autodoc_surgery
 	var/datum/limb/limb_ref = null
-	var/obj/item/organ/organ_ref = null
+	var/datum/internal_organ/organ_ref = null
 	var/type_of_surgery = 0 // the above constants
 	var/surgery_procedure = "" // text of surgery
 	var/unneeded = 0
@@ -236,7 +236,7 @@
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_INTERNAL)
 
 			var/organdamagesurgery = 0
-			for(var/obj/item/organ/I in L.internal_organs)
+			for(var/datum/internal_organ/I in L.internal_organs)
 				if(I.damage > 0)
 					if(I.slot == ORGAN_SLOT_EYES) // treat eye surgery differently
 						continue
@@ -271,7 +271,7 @@
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_GERMS)
 			if(L.surgery_open_stage)
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_OPEN)
-	var/obj/item/organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
+	var/datum/internal_organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
 	if(I && (M.disabilities & NEARSIGHTED || M.disabilities & BLIND || I.damage > 0))
 		surgery_list += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_EYES,0,I)
 	if(M.getBruteLoss() > 0)
@@ -409,7 +409,7 @@
 							surgery_todo_list -= S
 							continue
 						if(istype(S.organ_ref, /obj/item/organ/eyes))
-							var/obj/item/organ/eyes/E = S.organ_ref
+							var/datum/internal_organ/eyes/E = S.organ_ref
 
 							if(E.eye_surgery_stage == 0)
 								sleep(EYE_CUT_MAX_DURATION)
@@ -1215,7 +1215,7 @@
 			for(var/i in connected.occupant.limbs)
 				var/datum/limb/L = i
 				for(var/x in L.internal_organs)
-					var/obj/item/organ/I = x
+					var/datum/internal_organ/I = x
 					if(I.damage > 0)
 						N.fields["autodoc_manual"] += create_autodoc_surgery(L,ORGAN_SURGERY,ADSURGERY_DAMAGE,0,I)
 						needed++

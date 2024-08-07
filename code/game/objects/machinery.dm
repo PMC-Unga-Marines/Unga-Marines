@@ -412,7 +412,7 @@
 			dat += "<td>[e.display_name]</td><td>-</td><td>-</td><td>Not Found</td>"
 		dat += "</tr>"
 
-	for(var/obj/item/organ/i in occ["internal_organs"])
+	for(var/datum/internal_organ/i in occ["internal_organs"])
 		dat += "<tr>"
 		dat += "<td>[i.name]</td><td>N/A</td><td>[i.damage]</td><td></td>"
 		dat += "</tr>"

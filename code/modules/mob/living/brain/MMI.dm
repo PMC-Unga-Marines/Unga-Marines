@@ -19,7 +19,7 @@
 /obj/item/mmi/attackby(obj/item/O, mob/user)
 	if(istype(O,/obj/item/organ/brain) && !brainmob) //Time to stick a brain in it --NEO
 
-		var/obj/item/organ/brain/B = O
+		var/datum/internal_organ/brain/B = O
 		if(B.obj_integrity <= 0)
 			to_chat(user, span_warning("That brain is well and truly dead."))
 			return
@@ -67,7 +67,7 @@
 		to_chat(user, span_warning("You upend the MMI, but the brain is clamped into place."))
 	else
 		to_chat(user, span_notice("You upend the MMI, spilling the brain onto the floor."))
-		var/obj/item/organ/brain/brain = new(user.loc)
+		var/datum/internal_organ/brain/brain = new(user.loc)
 		brainmob.container = null//Reset brainmob mmi var.
 		brainmob.loc = brain//Throw mob into brain.
 		GLOB.alive_living_list -= brainmob//Get outta here

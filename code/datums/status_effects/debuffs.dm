@@ -501,7 +501,7 @@
 	if(human_owner && prob(15))
 		human_owner.vomit()
 	if(carbon_owner && prob(15))
-		var/obj/item/organ/organ = pick(carbon_owner.internal_organs)
+		var/datum/internal_organ/organ = pick(carbon_owner.internal_organs)
 		if(organ)
 			organ.get_damage(5)
 

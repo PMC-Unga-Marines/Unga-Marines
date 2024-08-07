@@ -3,7 +3,7 @@
 	. = ..()
 
 	if(reagents && !CHECK_BITFIELD(species.species_flags, NO_CHEM_METABOLIZATION))
-		var/obj/item/organ/liver/L
+		var/datum/internal_organ/liver/L
 		if(species?.has_organ[ORGAN_SLOT_LIVER])
 			L = get_organ_slot(ORGAN_SLOT_LIVER)
 		var/overdosable = CHECK_BITFIELD(species.species_flags, NO_OVERDOSE) ? FALSE : TRUE
@@ -19,7 +19,7 @@
 
 	last_dam = getBruteLoss() + getFireLoss() + getToxLoss()
 
-	for(var/obj/item/organ/I in internal_organs)
+	for(var/datum/internal_organ/I in internal_organs)
 		I.process()
 
 	var/multi_limb_regen_penalty = 1 / (max(1, length(get_damaged_limbs(TRUE, TRUE))) ** 0.5) //Per-limb regen decreases with multiple damaged limbs, but slower than linear
@@ -38,7 +38,7 @@
 
 		if(!lying_angle && world.time - last_move_time < 15)
 			if(E.is_broken() && E.internal_organs && prob(15))
-				var/obj/item/organ/I = pick(E.internal_organs)
+				var/datum/internal_organ/I = pick(E.internal_organs)
 				custom_pain("You feel broken bones moving in your [E.display_name]!", 1)
 				I.get_damage(rand(3, 5))
 

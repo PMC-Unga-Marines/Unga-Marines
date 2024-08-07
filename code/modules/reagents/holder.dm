@@ -173,7 +173,7 @@
 	else
 		if(transfer_to_stomach && ishuman(target))
 			var/mob/living/carbon/human/eater = target
-			var/obj/item/organ/stomach/belly = eater.get_organ_slot(ORGAN_SLOT_STOMACH)
+			var/datum/internal_organ/stomach/belly = eater.get_organ_slot(ORGAN_SLOT_STOMACH)
 			if(belly.organ_status != ORGAN_HEALTHY && prob(belly.damage * 3))
 				var/expel_amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
 				if(expel_amount > 0 )

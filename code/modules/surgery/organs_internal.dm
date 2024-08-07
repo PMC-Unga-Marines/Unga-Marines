@@ -85,13 +85,13 @@
 	if(..())
 		if(affected.body_part == HEAD)//brain and eye damage is fixed by a separate surgery
 			return SURGERY_CANNOT_USE
-		for(var/obj/item/organ/I in affected.internal_organs)
+		for(var/datum/internal_organ/I in affected.internal_organs)
 			if(I.damage > 0)
 				return SURGERY_CAN_USE
 	return SURGERY_CANNOT_USE
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
-	for(var/obj/item/organ/I in affected.internal_organs)
+	for(var/datum/internal_organ/I in affected.internal_organs)
 		if(I?.damage > 0)
 			user.visible_message(span_notice("[user] starts treating damage to [target]'s [I.name] with the surgical membrane."), \
 			span_notice("You start treating damage to [target]'s [I.name] with the surgical membrane.") )
@@ -101,7 +101,7 @@
 	..()
 
 /datum/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
-	for(var/obj/item/organ/I in affected.internal_organs)
+	for(var/datum/internal_organ/I in affected.internal_organs)
 		if(I?.damage > 0)
 
 			user.visible_message(span_notice("[user] treats damage to [target]'s [I.name] with surgical membrane."), \
@@ -119,7 +119,7 @@
 	if(istype(tool, /obj/item/tool/surgery/surgical_membrane))
 		target.adjustToxLoss(5)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
+	for(var/datum/internal_organ/I in affected.internal_organs)
 		if(I?.damage > 0)
 			I.get_damage(dam_amt,0)
 	target.updatehealth()

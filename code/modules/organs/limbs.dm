@@ -184,7 +184,7 @@
 	//High brute damage or sharp objects may damage internal organs
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
-		var/obj/item/organ/I = pick(internal_organs)
+		var/datum/internal_organ/I = pick(internal_organs)
 		I.get_damage(brute / 2)
 		brute -= brute / 2
 RU TGMC EDIT */
@@ -316,7 +316,7 @@ RU TGMC EDIT */
 
 	// heal internal organs
 	for(var/o in internal_organs)
-		var/obj/item/organ/current_organ = o
+		var/datum/internal_organ/current_organ = o
 		current_organ.heal_organ_damage(current_organ.damage)
 
 	// remove embedded objects and drop them on the floor
@@ -508,7 +508,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			to_chat(owner, span_notice("You have a high fever!"))
 	//Not technically a germ effect, but derived from it
 	if(limb_status & LIMB_NECROTIZED)
-		for(var/obj/item/organ/organ AS in internal_organs)
+		for(var/datum/internal_organ/organ AS in internal_organs)
 			organ.get_damage(0.2, silent = TRUE) //1 point every 10 seconds, 100 seconds to bruise, five minutes to broken.
 
 ///Updating wounds. Handles natural damage healing from limb treatments and processes internal wounds
