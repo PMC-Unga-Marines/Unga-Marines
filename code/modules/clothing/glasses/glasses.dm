@@ -19,7 +19,7 @@
 	/// Flags for stuff like mesons and thermals
 	var/vision_flags = NONE
 	/// How far can we see in the darkness with this glasses on?
-	var/darkness_view = 2 //Base human is 2
+	var/darkness_view = 0
 	/// How bright the dark tiles will look to us with the glasses on?
 	var/lighting_alpha
 	// If TRUE we will change our layer for updating the on-mob sprite
