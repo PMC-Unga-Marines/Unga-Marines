@@ -15,7 +15,7 @@
 	// If TRUE we are able to toggle the glasses and spawn with toggle action
 	var/toggleable = FALSE
 	/// The deactivated icon_state of our goggles
-	var/deactive_state = "deactivated_goggles"
+	var/deactive_state = ""
 	/// Flags for stuff like mesons and thermals
 	var/vision_flags = NONE
 	/// How far can we see in the darkness with this glasses on?

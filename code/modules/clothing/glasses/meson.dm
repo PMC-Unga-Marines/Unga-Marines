@@ -3,7 +3,7 @@
 	desc = "Used to shield the user's eyes from harmful electromagnetic emissions, also used as general safety goggles. Not adequate as welding protection."
 	icon_state = "meson"
 	item_state = "meson"
-	deactive_state = "deactivated_goggles"
+	deactive_state = "deactivated_meson" // there are differences in mob sprite
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',

@@ -56,7 +56,7 @@
 	name = "\improper HealthMate HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status. The projector can be attached to compatable eyewear."
 	icon_state = "healthhud"
-	deactive_state = "deactivated_goggles"
+	deactive_state = "deactivated_med" // there are differences in mob sprite
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	species_exception = list(/datum/species/robot)
@@ -151,7 +151,7 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	icon_state = "securityhud"
-	deactive_state = "deactivated_goggles"
+	deactive_state = "deactivated_sec" // there are differences in mob sprite
 	toggleable = TRUE
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 
@@ -159,7 +159,7 @@
 	name = "XenoMate HUD"
 	desc = "A heads-up display that scans any nearby xenomorph's data."
 	icon_state = "securityhud"
-	deactive_state = "deactivated_goggles"
+	deactive_state = "deactivated_sec" // there are differences in mob sprite
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',

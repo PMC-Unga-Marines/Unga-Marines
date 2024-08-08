@@ -90,7 +90,7 @@
 	name = "optical imager goggles"
 	desc = "Uses image scanning to increase visibility of even the most dimly lit surroundings except total darkness"
 	icon_state = "securityhud"
-	deactive_state = "deactivated_goggles"
+	deactive_state = "deactivated_sec" // there are differences in mob sprite
 	darkness_view = 0
 	toggleable = TRUE
 
