@@ -42,8 +42,8 @@
 	icon_state = active ? initial(icon_state) : deactive_state
 
 /obj/item/clothing/glasses/update_clothing_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
+	if(ismob(loc))
+		var/mob/M = loc
 		M.update_inv_glasses()
 
 //Glasses can still be toggled if held in the hand if the player wishes to
@@ -144,11 +144,11 @@
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
 
-/obj/item/clothing/glasses/gglasses
+/obj/item/clothing/glasses/green
 	name = "green glasses"
 	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
-	icon_state = "gglasses"
-	item_state = "gglasses"
+	icon_state = "green"
+	item_state = "green"
 	flags_armor_protection = NONE
 
 /obj/item/clothing/glasses/mgoggles
