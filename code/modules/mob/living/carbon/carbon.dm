@@ -336,10 +336,7 @@
 		if((G.toggleable && G.active) || !G.toggleable)
 			sight |= G.vision_flags
 			see_in_dark = max(G.darkness_view, see_in_dark)
-			if(G.invis_override)
-				see_invisible = G.invis_override
-			else
-				see_invisible = min(G.invis_view, see_invisible)
+			see_invisible = min(SEE_INVISIBLE_LIVING, see_invisible)
 			if(!isnull(G.lighting_alpha))
 				lighting_alpha = min(lighting_alpha, G.lighting_alpha)
 			if(G.tint && !fullscreens["glasses"])

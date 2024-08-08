@@ -10,14 +10,19 @@
 	flags_inventory = COVEREYES
 	flags_equip_slot = ITEM_SLOT_EYES
 	flags_armor_protection = EYES
+	/// If TRUE it will help with near-sightness
 	var/prescription = FALSE
+	// If TRUE we are ab;e to toggle the glasses
 	var/toggleable = FALSE
+	/// The deactivated icon_state of our goggles
 	var/deactive_state = "deactived_goggles"
+	/// Flags for stuff like mesons and thermals
 	var/vision_flags = NONE
+	/// How far can we see in the darkness with this glasses on?
 	var/darkness_view = 2 //Base human is 2
-	var/invis_view = SEE_INVISIBLE_LIVING
-	var/invis_override = 0 //Override to allow glasses to set higher than normal see_invis
+	/// How bright the dark tiles will look to us with the glasses on?
 	var/lighting_alpha
+	// If TRUE we will change our layer for updating the on-mob sprite
 	var/goggles = FALSE
 	///Sound played on activate() when turning on
 	var/activation_sound = 'sound/items/googles_on.ogg'
