@@ -12,8 +12,7 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	actions_types = list(/datum/action/item_action/toggle)
-	toggleable = 1
-	darkness_view = 2
+	toggleable = TRUE
 	vision_flags = SEE_TURFS
 
 /obj/item/clothing/glasses/meson/enggoggles

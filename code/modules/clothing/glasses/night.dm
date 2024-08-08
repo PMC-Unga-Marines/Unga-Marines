@@ -84,7 +84,7 @@
 	icon_state = "optgoggles"
 	item_state = "optgoggles"
 	deactive_state = "deactived_mgoggles"
-	darkness_view = 2
+	darkness_view = 0
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 	species_exception = list(/datum/species/robot)
@@ -108,7 +108,7 @@
 	desc = "Uses image scanning to increase visibility of even the most dimly lit surroundings except total darkness"
 	icon_state = "securityhud"
 	deactive_state = "deactived_goggles"
-	darkness_view = 2
+	darkness_view = 0
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 

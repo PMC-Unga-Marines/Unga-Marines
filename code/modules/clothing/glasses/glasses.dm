@@ -577,7 +577,7 @@
 	desc = "A pair of orange glasses."
 	icon_state = "orange"
 	item_state = "orange"
-	deactive_state = "orange"
+	deactive_state = "deactivated_orange"
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/glasses/orange/attackby(obj/item/our_item, mob/user, params)
@@ -612,8 +612,7 @@
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "meson_orange"
 	item_state = "meson_orange"
-	deactive_state = "d_orange"
-	prescription = TRUE
+	deactive_state = "deactivated_orange"
 
 /obj/item/clothing/glasses/night/imager_goggles/orange_glasses
 	name = "Orange glasses"
@@ -623,9 +622,7 @@
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "optical_orange"
 	item_state = "optical_orange"
-	deactive_state = "d_orange"
-	prescription = TRUE
-
+	deactive_state = "deactivated_orange"
 /obj/item/clothing/glasses/hud/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal HealthMate HUD projector."
@@ -634,8 +631,7 @@
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "med_orange"
 	item_state = "med_orange"
-	deactive_state = "d_orange"
-	prescription = TRUE
+	deactive_state = "deactivated_orange"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)
