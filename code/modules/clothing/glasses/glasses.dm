@@ -222,7 +222,7 @@
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	vision_flags = SEE_TURFS
-	toggleable = 1
+	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 
 //welding goggles

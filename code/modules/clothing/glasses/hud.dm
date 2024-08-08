@@ -159,7 +159,7 @@
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	icon_state = "securityhud"
 	deactive_state = "deactived_goggles"
-	toggleable = 1
+	toggleable = TRUE
 	flags_armor_protection = NONE
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)

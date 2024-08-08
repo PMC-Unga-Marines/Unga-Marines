@@ -21,7 +21,6 @@
 	icon_state = "enggoggles"
 	item_state = "enggoggles"
 	deactive_state = "deactived_mgoggles"
-	flags_equip_slot = ITEM_SLOT_EYES
 	goggles_layer = TRUE
 
 /obj/item/clothing/glasses/meson/enggoggles/prescription
@@ -34,15 +33,6 @@
 	desc = "An eyepatch fitted with the meson scanner interface. For the disabled and/or edgy Engineer."
 	icon_state = "patchmeson"
 	deactive_state = "deactived_patch"
-	species_exception = list(/datum/species/robot)
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/meson/sunglasses
 	name = "\improper Meson sunglasses"
@@ -50,7 +40,6 @@
 	icon_state = "mesonsunglasses"
 	item_state = "mesonsunglasses"
 	deactive_state = "deactived_sunglasses"
-	prescription = TRUE
 
 /obj/item/clothing/glasses/meson/yautja
 	name = "bio-mask x-ray"
@@ -63,8 +52,6 @@
 	)
 	darkness_view = 12
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	vision_flags = SEE_TURFS
-	flags_inventory = COVEREYES
 	actions_types = null
 
 /obj/item/clothing/glasses/meson/yautja/Initialize()
