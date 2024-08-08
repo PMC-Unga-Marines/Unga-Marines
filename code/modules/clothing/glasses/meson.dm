@@ -23,7 +23,7 @@
 	item_state = "enggoggles"
 	deactive_state = "deactived_mgoggles"
 	flags_equip_slot = ITEM_SLOT_EYES
-	goggles = TRUE
+	goggles_layer = TRUE
 
 /obj/item/clothing/glasses/meson/enggoggles/prescription
 	name = "\improper Optical meson prescription ballistic goggles"

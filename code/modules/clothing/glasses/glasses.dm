@@ -22,8 +22,8 @@
 	var/darkness_view = 0
 	/// How bright the dark tiles will look to us with the glasses on?
 	var/lighting_alpha
-	// If TRUE we will change our layer for updating the on-mob sprite
-	var/goggles = FALSE
+	// If TRUE we will change our on-mob image layer to GOGGLES instead of GLASSES
+	var/goggles_layer = FALSE
 	///Sound played on activate() when turning on
 	var/activation_sound = 'sound/items/googles_on.ogg'
 	///Sound played on activate() when turning off
@@ -158,7 +158,7 @@
 	item_state = "mgoggles"
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	flags_equip_slot = ITEM_SLOT_EYES|ITEM_SLOT_MASK
-	goggles = TRUE
+	goggles_layer = TRUE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/glasses/mgoggles/attackby(obj/item/our_item, mob/user, params)
@@ -439,7 +439,7 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	vision_flags = SEE_TURFS
 	toggleable = TRUE
-	goggles = TRUE
+	goggles_layer = TRUE
 	active = FALSE
 	actions_types = list(/datum/action/item_action/toggle)
 	activation_sound = 'sound/effects/nightvision.ogg'

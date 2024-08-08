@@ -96,7 +96,7 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	flags_equip_slot = ITEM_SLOT_EYES
-	goggles = TRUE
+	goggles_layer = TRUE
 
 /obj/item/clothing/glasses/night/optgoggles/prescription
 	name = "\improper Optical imager prescription ballistic goggles"

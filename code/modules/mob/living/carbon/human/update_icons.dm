@@ -466,7 +466,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		client.screen += glasses
 
 	var/glasses_layer = GLASSES_LAYER
-	if(glasses.goggles)
+	if(glasses.goggles_layer)
 		glasses_layer = GOGGLES_LAYER
 
 	overlays_standing[glasses_layer] = glasses.make_worn_icon(species_type = species.name, slot_name = slot_glasses_str, default_icon = 'icons/mob/clothing/eyes.dmi', default_layer = glasses_layer)
