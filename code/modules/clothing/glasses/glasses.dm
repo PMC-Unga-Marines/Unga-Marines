@@ -149,7 +149,6 @@
 	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
 	icon_state = "green"
 	item_state = "green"
-	flags_armor_protection = NONE
 
 /obj/item/clothing/glasses/mgoggles
 	name = "marine ballistic goggles"

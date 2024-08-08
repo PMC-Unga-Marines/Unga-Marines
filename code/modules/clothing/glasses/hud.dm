@@ -1,7 +1,7 @@
 /obj/item/clothing/glasses/hud
 	name = "HUD"
 	desc = "A heads-up display that provides important info in (almost) real time."
-	flags_atom = null //doesn't protect eyes because it's a monocle, duh
+	flags_armor_protection = NONE //doesn't protect eyes because it's a monocle, duh
 	var/hud_type
 	var/mob/living/carbon/human/affected_user
 
@@ -57,7 +57,6 @@
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status. The projector can be attached to compatable eyewear."
 	icon_state = "healthhud"
 	deactive_state = "deactived_goggles"
-	flags_armor_protection = NONE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)
@@ -68,7 +67,6 @@
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	prescription = TRUE
 
 /obj/item/clothing/glasses/hud/medgoggles
 	name = "\improper HealthMate ballistic goggles"
@@ -160,7 +158,6 @@
 	icon_state = "securityhud"
 	deactive_state = "deactived_goggles"
 	toggleable = TRUE
-	flags_armor_protection = NONE
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -176,7 +173,6 @@
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	flags_armor_protection = NONE
 	toggleable = TRUE
 	hud_type = DATA_HUD_XENO_STATUS
 	actions_types = list(/datum/action/item_action/toggle)
