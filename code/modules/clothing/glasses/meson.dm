@@ -3,7 +3,7 @@
 	desc = "Used to shield the user's eyes from harmful electromagnetic emissions, also used as general safety goggles. Not adequate as welding protection."
 	icon_state = "meson"
 	item_state = "meson"
-	deactive_state = "deactived_goggles"
+	deactive_state = "deactivated_goggles"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -19,7 +19,7 @@
 	desc = "Standard issue TGMC goggles. This pair has been fitted with an internal optical meson scanner."
 	icon_state = "enggoggles"
 	item_state = "enggoggles"
-	deactive_state = "deactived_mgoggles"
+	deactive_state = "deactivated_mgoggles"
 	goggles_layer = TRUE
 
 /obj/item/clothing/glasses/meson/enggoggles/prescription
@@ -31,14 +31,14 @@
 	name = "\improper Meson eyepatch"
 	desc = "An eyepatch fitted with the meson scanner interface. For the disabled and/or edgy Engineer."
 	icon_state = "patchmeson"
-	deactive_state = "deactived_patch"
+	deactive_state = "deactivated_patch"
 
 /obj/item/clothing/glasses/meson/sunglasses
 	name = "\improper Meson sunglasses"
 	desc = "A pair of designer sunglasses. This pair has been fitted with an optical meson scanner."
 	icon_state = "mesonsunglasses"
 	item_state = "mesonsunglasses"
-	deactive_state = "deactived_sunglasses"
+	deactive_state = "deactivated_sunglasses"
 
 /obj/item/clothing/glasses/meson/yautja
 	name = "bio-mask x-ray"
