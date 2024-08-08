@@ -21,7 +21,6 @@
 	vision_flags = SEE_TURFS
 	darkness_view = 12
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/m42_night_goggles
 	name = "\improper M42 scout sight"
@@ -31,7 +30,6 @@
 	vision_flags = SEE_TURFS
 	darkness_view = 24
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/m42_night_goggles/upp
 	name = "\improper Type 9 elite goggles"
@@ -55,12 +53,10 @@
 /obj/item/clothing/glasses/night/m56_goggles
 	name = "\improper KTLD head mounted sight"
 	desc = "A headset and goggles system made to pair with any KTLD weapon, such as the SG type weapons. Has a low-res short range imager, allowing for view of terrain."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	darkness_view = 5
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 	vision_flags = SEE_TURFS
 
 /obj/item/clothing/glasses/night/sunglasses
@@ -71,7 +67,6 @@
 	deactive_state = "deactived_sunglasses"
 	darkness_view = 5
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 	vision_flags = SEE_TURFS
 	prescription = TRUE
 
@@ -83,7 +78,6 @@
 	deactive_state = "deactived_mgoggles"
 	darkness_view = 0
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	goggles_layer = TRUE
 
@@ -99,7 +93,6 @@
 	deactive_state = "deactived_goggles"
 	darkness_view = 0
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/imager_goggles/sunglasses
 	name = "\improper Optical imager sunglasses"
@@ -156,10 +149,8 @@
 	darkness_view = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	vision_flags = SEE_TURFS
-	toggleable = TRUE
 	goggles_layer = TRUE
 	active = FALSE
-	actions_types = list(/datum/action/item_action/toggle)
 	activation_sound = 'sound/effects/nightvision.ogg'
 	deactivation_sound = 'sound/machines/click.ogg'
 	///The battery inside

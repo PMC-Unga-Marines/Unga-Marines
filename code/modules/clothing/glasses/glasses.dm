@@ -12,7 +12,7 @@
 	flags_armor_protection = EYES
 	/// If TRUE it will help with near-sightness
 	var/prescription = FALSE
-	// If TRUE we are ab;e to toggle the glasses
+	// If TRUE we are able to toggle the glasses and spawn with toggle action
 	var/toggleable = FALSE
 	/// The deactivated icon_state of our goggles
 	var/deactive_state = "deactived_goggles"
@@ -32,6 +32,8 @@
 	var/tint
 
 /obj/item/clothing/glasses/Initialize(mapload)
+	if(toggleable)
+		actions_types = list(/datum/action/item_action/toggle)
 	. = ..()
 	if(active)	//For glasses that spawn active
 		active = FALSE
@@ -48,7 +50,7 @@
 
 //Glasses can still be toggled if held in the hand if the player wishes to
 /obj/item/clothing/glasses/attack_self(mob/user)
-	if(can_interact(user))
+	if(toggleable && can_interact(user))
 		activate(user)
 
 //Just call the activate() directly instead of needing to call attack_self()
@@ -222,7 +224,6 @@
 	deactive_state = "m56_goggles_0"
 	vision_flags = SEE_TURFS
 	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
 
 //welding goggles
 
@@ -231,9 +232,7 @@
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
 	icon_state = "welding-g"
 	item_state = "welding-g"
-	actions_types = list(/datum/action/item_action/toggle)
-	flags_inventory = COVEREYES
-	flags_inv_hide = HIDEEYES
+	toggleable = TRUE
 	eye_protection = 2
 	activation_sound = null
 	deactivation_sound = null
@@ -431,7 +430,6 @@
 	desc = "A pair of orange glasses."
 	icon_state = "orange"
 	item_state = "orange"
-	deactive_state = "deactivated_orange"
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/glasses/orange/attackby(obj/item/our_item, mob/user, params)
@@ -486,4 +484,3 @@
 	deactive_state = "deactivated_orange"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)

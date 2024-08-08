@@ -3,7 +3,6 @@
 	desc = "Thermals in the shape of glasses."
 	icon_state = "thermal"
 	item_state = "glasses"
-	toggleable = TRUE
 	vision_flags = SEE_MOBS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	eye_protection = -1
@@ -30,7 +29,6 @@
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-	toggleable = FALSE
 
 /obj/item/clothing/glasses/thermal/yautja/Initialize()
 	. = ..()

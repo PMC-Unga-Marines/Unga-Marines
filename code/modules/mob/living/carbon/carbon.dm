@@ -333,7 +333,7 @@
 
 	if(glasses)
 		var/obj/item/clothing/glasses/G = glasses
-		if((G.toggleable && G.active) || !G.toggleable)
+		if(G.active)
 			sight |= G.vision_flags
 			see_in_dark = max(G.darkness_view, see_in_dark)
 			see_invisible = min(SEE_INVISIBLE_LIVING, see_invisible)

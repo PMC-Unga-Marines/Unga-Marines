@@ -11,7 +11,6 @@
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	actions_types = list(/datum/action/item_action/toggle)
 	toggleable = TRUE
 	vision_flags = SEE_TURFS
 

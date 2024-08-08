@@ -59,7 +59,6 @@
 	deactive_state = "deactived_goggles"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -76,7 +75,6 @@
 	deactive_state = "deactived_mgoggles"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -107,7 +105,6 @@
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/hud/medglasses
 	name = "\improper HealthMate regulation prescription glasses"
@@ -125,7 +122,6 @@
 	prescription = TRUE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/hud/medsunglasses
 	name = "\improper HealthMate sunglasses"
@@ -143,7 +139,6 @@
 	prescription = TRUE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/hud/security
 	name = "\improper PatrolMate HUD"
@@ -159,7 +154,6 @@
 	deactive_state = "deactived_goggles"
 	toggleable = TRUE
 	hud_type = DATA_HUD_SECURITY_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/hud/xenohud
 	name = "XenoMate HUD"
@@ -175,7 +169,6 @@
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	toggleable = TRUE
 	hud_type = DATA_HUD_XENO_STATUS
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/hud/sa
 	name = "spatial agent's sunglasses"
