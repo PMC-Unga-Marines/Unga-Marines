@@ -462,7 +462,6 @@
 /obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an optical meson scanner."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "meson_orange"
@@ -472,16 +471,15 @@
 /obj/item/clothing/glasses/night/imager_goggles/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal optical imager scanner."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "optical_orange"
 	item_state = "optical_orange"
 	deactive_state = "deactivated_orange"
+
 /obj/item/clothing/glasses/hud/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal HealthMate HUD projector."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "med_orange"

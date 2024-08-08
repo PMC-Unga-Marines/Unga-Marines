@@ -55,7 +55,6 @@
 /obj/item/clothing/glasses/night/m56_goggles
 	name = "\improper KTLD head mounted sight"
 	desc = "A headset and goggles system made to pair with any KTLD weapon, such as the SG type weapons. Has a low-res short range imager, allowing for view of terrain."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	darkness_view = 5
@@ -66,7 +65,6 @@
 /obj/item/clothing/glasses/night/sunglasses
 	name = "\improper KTLD sunglasses"
 	desc = "A pair of designer sunglasses. This pair has been fitted with a KTLD head mounted sight."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56sunglasses"
 	item_state = "m56sunglasses"
 	deactive_state = "deactived_sunglasses"
