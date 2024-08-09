@@ -100,13 +100,13 @@
 	name = "Random surgical organ spawner"
 	icon_state = "random_organ"
 	loot = list(
-		/obj/item/prop/organ/brain,
-		/obj/item/prop/organ/heart,
-		/obj/item/prop/organ/lungs,
-		/obj/item/prop/organ/kidneys,
-		/obj/item/prop/organ/eyes,
-		/obj/item/prop/organ/liver,
-		/obj/item/prop/organ/appendix,
+		/obj/item/organ/brain,
+		/obj/item/organ/heart,
+		/obj/item/organ/lungs,
+		/obj/item/organ/kidneys,
+		/obj/item/organ/eyes,
+		/obj/item/organ/liver,
+		/obj/item/organ/appendix,
 	)
 
 /obj/effect/spawner/random/medical/medbottle

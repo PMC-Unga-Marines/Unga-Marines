@@ -646,18 +646,16 @@
 		return FALSE
 	return ..()
 
-
 ///get_eye_protection()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/get_eye_protection()
 	var/number = 0
 
-	if(!species.has_organ["eyes"]) return 2//No eyes, can't hurt them.
+	if(!species.has_organ["eyes"])
+		return 2//No eyes, can't hurt them.
 
 	var/datum/internal_organ/eyes/I = get_organ_slot(ORGAN_SLOT_EYES)
 	if(!I)
-		return 2
-	if(I.robotic == ORGAN_ROBOT)
 		return 2
 
 	if(istype(head, /obj/item/clothing))
@@ -669,7 +667,6 @@
 		number += glasses.eye_protection
 
 	return number
-
 
 /mob/living/carbon/human/abiotic(full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.flags_item & ITEM_ABSTRACT)) || (src.r_hand && !( src.r_hand.flags_item & ITEM_ABSTRACT)) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.wear_ear || src.gloves)))

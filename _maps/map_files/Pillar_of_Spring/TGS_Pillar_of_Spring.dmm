@@ -8543,7 +8543,7 @@
 /area/mainship/command/self_destruct)
 "lcA" = (
 /obj/machinery/optable,
-/obj/item/prop/organ/kidneys,
+/obj/item/organ/kidneys,
 /turf/open/floor/cult,
 /area/medical/morgue)
 "lcL" = (
@@ -9573,11 +9573,11 @@
 "mcR" = (
 /obj/structure/toilet,
 /obj/structure/closet/crate/freezer,
-/obj/item/prop/organ/kidneys,
-/obj/item/prop/organ/kidneys,
-/obj/item/prop/organ/kidneys,
-/obj/item/prop/organ/kidneys,
-/obj/item/prop/organ/kidneys,
+/obj/item/organ/kidneys,
+/obj/item/organ/kidneys,
+/obj/item/organ/kidneys,
+/obj/item/organ/kidneys,
+/obj/item/organ/kidneys,
 /turf/open/floor/mainship/floor,
 /area/mainship/medical/upper_medical)
 "mdp" = (

@@ -18,8 +18,10 @@ export const MedScanner = (props, context) => {
 
     revivable,
     has_chemicals,
+    has_stomach_chemicals,
     has_unknown_chemicals,
     chemicals_lists,
+    stomach_chemicals_lists,
 
     limb_data_lists,
     limbs_damaged,
@@ -37,6 +39,7 @@ export const MedScanner = (props, context) => {
     hugged,
   } = data;
   const chemicals = Object.values(chemicals_lists);
+  const stomach_chemicals = Object.values(stomach_chemicals_lists);
   const limb_data = Object.values(limb_data_lists);
   return (
     <Window width={500} height={500}>
@@ -134,13 +137,35 @@ export const MedScanner = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
+        {has_unknown_chemicals ? (
+          <NoticeBox warning>Unknown reagents detected.</NoticeBox>
+        ) : null}
         {has_chemicals ? (
           <Section title="Chemical Contents">
-            {has_unknown_chemicals ? (
-              <NoticeBox warning>Unknown reagents detected.</NoticeBox>
-            ) : null}
             <LabeledList>
               {chemicals.map((chemical) => (
+                <LabeledList.Item key={chemical.name}>
+                  <Box
+                    inline
+                    color={chemical.od ? 'red' : 'white'}
+                    bold={chemical.od}>
+                    {chemical.amount + 'u ' + chemical.name}
+                  </Box>
+                  <Box inline width={'5px'} />
+                  {chemical.od ? (
+                    <Box inline color={'red'} bold={1}>
+                      {'OD'}
+                    </Box>
+                  ) : null}
+                </LabeledList.Item>
+              ))}
+            </LabeledList>
+          </Section>
+        ) : null}
+        {has_stomach_chemicals ? (
+          <Section title="Stomach Contents">
+            <LabeledList>
+              {stomach_chemicals.map((chemical) => (
                 <LabeledList.Item key={chemical.name}>
                   <Box
                     inline

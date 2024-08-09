@@ -160,15 +160,6 @@ export const CentcomPodLauncher = (props, context) => {
                 `}
                 onClick={() => act('effectLimb')}
               />
-              <Button
-                content="Yeet Organs"
-                selected={data.effectOrgans}
-                tooltip={multiline`
-                  This will cause anyone caught under the pod to lose all
-                  their limbs and organs in a spectacular fashion.
-                `}
-                onClick={() => act('effectOrgans')}
-              />
             </LabeledList.Item>
             <LabeledList.Item label="Movement">
               <Button

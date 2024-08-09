@@ -82,7 +82,7 @@ REAGENT SCANNER
 	///Skill required to have the scanner auto refresh
 	var/upper_skill_threshold = SKILL_MEDICAL_NOVICE
 	///Current mob being tracked by the scanner
-	var/mob/living/carbon/patient
+	var/mob/living/carbon/human/patient
 	///Current user of the scanner
 	var/mob/living/carbon/current_user
 	///Distance the current_user can be away from the patient and still get health data.
@@ -192,6 +192,24 @@ REAGENT SCANNER
 		)
 	data["has_chemicals"] = length(patient.reagents.reagent_list)
 	data["chemicals_lists"] = chemicals_lists
+
+	var/datum/internal_organ/stomach/belly = patient.get_organ_slot(ORGAN_SLOT_STOMACH) // should it be this way?
+	data["has_stomach_chemicals"] = length(belly.reagents.reagent_list)
+	var/list/stomach_chemicals_lists = list()
+	for(var/datum/reagent/reagent AS in belly.reagents.reagent_list)
+		if(!reagent.scannable)
+			data["has_unknown_chemicals"] = TRUE
+			continue
+		var/reagent_overdosed = FALSE
+		if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
+			reagent_overdosed = TRUE
+		stomach_chemicals_lists["[reagent.name]"] = list(
+			"name" = reagent.name,
+			"amount" = round(reagent.volume, 0.1),
+			"od" = reagent_overdosed
+		)
+	data["stomach_chemicals_lists"] = stomach_chemicals_lists
+
 	data["species"] = patient.species.species_flags & ROBOTIC_LIMBS ? "robot" : "human"
 
 	var/list/limb_data_lists = list()

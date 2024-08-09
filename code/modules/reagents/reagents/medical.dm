@@ -1,6 +1,3 @@
-
-// All reagents related to medicine
-
 /datum/reagent/medicine
 	name = "Medicine"
 	taste_description = "bitterness"
@@ -1025,7 +1022,6 @@
 	if(prob(20))
 		L.hallucination += 15
 
-
 /datum/reagent/medicine/ultrazine/addiction_act_stage3(mob/living/L, metabolism)
 	if(prob(10))
 		to_chat(L, span_warning("[pick("You need more.", "It's hard to go on like this.", "You want more. You need more.", "Just take another hit. Now.", "One more.")]"))
@@ -1052,7 +1048,7 @@
 	L.adjustBrainLoss(0.1*effect_str, TRUE)
 	if(prob(15) && ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS)
+		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)
 		var/datum/internal_organ/I = H.get_organ_slot(affected_organ)
 		I.take_damage(5.5 * effect_str)
 
@@ -1254,19 +1250,19 @@
 	taste_description = "punishment"
 	taste_multi = 8
 
-/datum/reagent/hypervene/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/hypervene/on_mob_life(mob/living/carbon/human/L, metabolism)
 	L.reagent_shock_modifier -= PAIN_REDUCTION_HEAVY //Significant pain while metabolized.
 	if(prob(5)) //causes vomiting
 		L.vomit()
 	return ..()
 
-/datum/reagent/hypervene/overdose_process(mob/living/L, metabolism)
+/datum/reagent/hypervene/overdose_process(mob/living/carbon/human/L, metabolism)
 	L.apply_damages(effect_str, effect_str)
 	if(prob(10)) //heavy vomiting
 		L.vomit()
 	L.reagent_shock_modifier -= PAIN_REDUCTION_VERY_HEAVY * 1.25//Massive pain.
 
-/datum/reagent/hypervene/overdose_crit_process(mob/living/L, metabolism)
+/datum/reagent/hypervene/overdose_crit_process(mob/living/carbon/human/L, metabolism)
 	L.apply_damages(2*effect_str, 2*effect_str)
 	if(prob(50)) //violent vomiting
 		L.vomit()

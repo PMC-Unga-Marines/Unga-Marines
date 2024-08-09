@@ -64,7 +64,7 @@
 
 	return shock_damage
 
-/mob/living/carbon/vomit()
+/mob/living/carbon/proc/vomit()
 	if(stat == DEAD) //Corpses don't puke
 		return
 
@@ -72,24 +72,22 @@
 		return
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_PUKE, 40 SECONDS) //5 seconds before the actual action plus 35 before the next one.
-	to_chat(src, "<spawn class='warning'>You feel like you are about to throw up!")
+	to_chat(src, span_warning("You feel like you are about to throw up!"))
 	addtimer(CALLBACK(src, PROC_REF(do_vomit)), 5 SECONDS)
-
 
 /mob/living/carbon/proc/do_vomit()
 	adjust_stagger(3 SECONDS)
 	add_slowdown(3)
 
-	visible_message("<spawn class='warning'>[src] throws up!","<spawn class='warning'>You throw up!", null, 5)
+	visible_message(span_warning("[src] throws up!"), span_warning("You throw up!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, TRUE, 7)
 
 	var/turf/location = loc
-	if (istype(location, /turf))
+	if(istype(location, /turf))
 		location.add_vomit_floor(src, 1)
 
 	adjust_nutrition(-40)
 	adjustToxLoss(-3)
-
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/shaker)
 	if(health < get_crit_threshold())

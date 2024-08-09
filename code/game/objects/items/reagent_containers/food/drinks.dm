@@ -36,7 +36,7 @@
 			record_reagent_consumption(min(gulp_size, reagents.total_volume), reagents.reagent_list, user)
 			if(reagents.total_volume)
 				reagents.reaction(M, INGEST)
-				reagents.trans_to(M, gulp_size)
+				reagents.trans_to(M, gulp_size, transfer_to_stomach = TRUE)
 			playsound(M.loc,'sound/items/drink.ogg', 15, 1)
 			return TRUE
 		else
@@ -56,7 +56,7 @@
 
 			if(reagents.total_volume)
 				reagents.reaction(M, INGEST)
-				reagents.trans_to(M, gulp_size)
+				reagents.trans_to(M, gulp_size, transfer_to_stomach = TRUE)
 
 			playsound(M.loc,'sound/items/drink.ogg', 15, 1)
 			return TRUE
