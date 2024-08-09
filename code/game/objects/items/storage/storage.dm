@@ -846,11 +846,10 @@
 	. = ..()
 	if(.)
 		return
-	attempt_draw_object(user)
-
-/obj/item/storage/CtrlClick(mob/living/user)
-	. = ..()
-	attempt_draw_object(user, TRUE)
+	if(isturf(loc))
+		open(user)
+	else
+		attempt_draw_object(user)
 
 /**
  * Attempts to get the first possible object from this container
@@ -860,7 +859,7 @@
  * * start_from_left - If true we draw the leftmost object instead of the rightmost. FALSE by default.
  */
 /obj/item/storage/proc/attempt_draw_object(mob/living/user, start_from_left = FALSE)
-	if(!ishuman(user) || user.incapacitated() || isturf(loc))
+	if(!ishuman(user) || user.incapacitated())
 		return
 	if(!length(contents))
 		return balloon_alert(user, "Empty")
