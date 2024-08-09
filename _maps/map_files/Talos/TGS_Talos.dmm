@@ -7146,7 +7146,8 @@
 /area/space)
 "egq" = (
 /obj/structure/table/mainship,
-/obj/item/supplytablet,
+/obj/item/megaphone,
+/obj/item/whistle,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "egt" = (
@@ -9757,17 +9758,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/engineering_workshop)
-"fAM" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 8
-	},
-/obj/structure/barricade/metal,
-/turf/open/floor/prison/yellow,
-/area/mainship/squads/req)
 "fAQ" = (
 /obj/structure/barricade/metal,
 /obj/structure/barricade/metal{
@@ -11769,7 +11759,6 @@
 /obj/item/tool/hand_labeler,
 /obj/machinery/cell_charger,
 /obj/item/cell/hyper,
-/obj/item/clothing/glasses/welding,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
@@ -20791,6 +20780,9 @@
 "muB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "muF" = (
@@ -24652,15 +24644,14 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "oIO" = (
-/obj/machinery/line_nexter{
-	dir = 1;
-	pixel_y = 19
-	},
 /obj/structure/barricade/metal{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
+/obj/machinery/line_nexter{
+	dir = 1
+	},
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "oIT" = (
@@ -24679,6 +24670,9 @@
 /area/mainship/medical/medical_science)
 "oJz" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "oJE" = (
@@ -26641,17 +26635,15 @@
 /obj/item/clipboard,
 /obj/item/tool/hand_labeler,
 /obj/item/tool/pen,
-/obj/item/megaphone,
-/obj/item/whistle,
-/obj/item/eftpos{
-	eftpos_name = "Cargo Bay EFTPOS scanner"
-	},
 /obj/item/tool/stamp{
 	name = "Quartermaster's stamp"
 	},
 /obj/item/tool/stamp/denied,
-/obj/item/folder/black_random,
 /obj/effect/turf_decal/woodsiding,
+/obj/item/eftpos{
+	eftpos_name = "Cargo Bay EFTPOS scanner"
+	},
+/obj/item/folder/black_random,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "pPB" = (
@@ -35609,17 +35601,6 @@
 	dir = 8
 	},
 /area/space)
-"vwv" = (
-/obj/structure/barricade/metal,
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 8
-	},
-/turf/open/floor/prison/yellow,
-/area/mainship/squads/req)
 "vwZ" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
@@ -69814,7 +69795,7 @@ qoh
 qoh
 qoh
 kOO
-vwv
+nsi
 oJz
 nQj
 dFx
@@ -70071,7 +70052,7 @@ qoh
 qoh
 qoh
 lzD
-vwv
+nsi
 oJz
 nQj
 bRY
@@ -70328,7 +70309,7 @@ cEW
 qoh
 qoh
 kOO
-fAM
+nsi
 muB
 oKV
 hey
