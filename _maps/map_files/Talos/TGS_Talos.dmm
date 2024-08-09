@@ -4022,6 +4022,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
+"ckT" = (
+/obj/machinery/vending/cargo_supply,
+/obj/machinery/door/poddoor/shutters/mainship/req/ro{
+	dir = 2
+	},
+/turf/open/floor/prison/marked,
+/area/mainship/squads/req)
 "ckU" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
@@ -4495,15 +4502,6 @@
 /obj/machinery/camera/autoname/alt,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
-"cBD" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/turf/open/floor/plating,
-/area/mainship/squads/req)
 "cBI" = (
 /obj/structure/closet/crate/radiation,
 /turf/open/floor/prison/marked,
@@ -7151,10 +7149,10 @@
 /turf/open/floor/mainship/terragov/north,
 /area/space)
 "egq" = (
-/obj/structure/paper_bin,
 /obj/item/clipboard,
 /obj/item/tool/pen,
 /obj/structure/table/woodentable,
+/obj/structure/paper_bin,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "egt" = (
@@ -9589,6 +9587,14 @@
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
+"fua" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "fuC" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/dirt,
@@ -17941,6 +17947,15 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
+"kRi" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	dir = 1;
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "kRF" = (
 /obj/machinery/computer/navigation{
 	dir = 4
@@ -20955,11 +20970,17 @@
 "myC" = (
 /obj/effect/turf_decal/woodsiding,
 /obj/structure/table/woodentable,
-/obj/item/eftpos{
-	eftpos_name = "Cargo Bay EFTPOS scanner"
+/obj/item/folder/black_random{
+	pixel_y = 2
 	},
-/obj/item/tool/hand_labeler,
-/obj/item/folder/black_random,
+/obj/item/eftpos{
+	eftpos_name = "Cargo Bay EFTPOS scanner";
+	pixel_y = 1;
+	pixel_x = 4
+	},
+/obj/item/tool/hand_labeler{
+	pixel_x = -4
+	},
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "mze" = (
@@ -23279,7 +23300,16 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
 "nQj" = (
-/obj/machinery/vending/cargo_supply,
+/obj/structure/table/reinforced{
+	layer = 2.1
+	},
+/obj/machinery/door/firedoor/mainship,
+/obj/machinery/door/window/secure/req{
+	dir = 2
+	},
+/obj/machinery/door/window/right{
+	dir = 1
+	},
 /obj/machinery/door/poddoor/shutters/mainship/req/ro{
 	dir = 2
 	},
@@ -24670,20 +24700,10 @@
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "oJE" = (
-/obj/structure/table/reinforced{
-	layer = 2.1
+/obj/machinery/holopad,
+/turf/open/floor/prison/yellow{
+	dir = 4
 	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/door/window/secure/req{
-	dir = 2
-	},
-/obj/machinery/door/window/right{
-	dir = 1
-	},
-/obj/machinery/door/poddoor/shutters/mainship/req/ro{
-	dir = 2
-	},
-/turf/open/floor/prison/marked,
 /area/mainship/squads/req)
 "oJM" = (
 /obj/item/radio/intercom/general{
@@ -29234,6 +29254,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
+"rud" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 8
+	},
+/obj/machinery/holopad,
+/turf/open/floor/carpet,
+/area/mainship/squads/req)
 "rup" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -31339,9 +31366,12 @@
 "sHT" = (
 /obj/effect/turf_decal/woodsiding,
 /obj/machinery/light/mainship/small,
-/obj/item/tool/stamp/denied,
+/obj/item/tool/stamp/denied{
+	pixel_x = -3
+	},
 /obj/item/tool/stamp{
-	name = "Quartermaster's stamp"
+	name = "Quartermaster's stamp";
+	pixel_x = 3
 	},
 /obj/structure/table/woodentable,
 /turf/open/floor/carpet,
@@ -31595,14 +31625,6 @@
 /obj/structure/curtain/open/shower,
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/squads/alpha)
-"sQL" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/machinery/door/poddoor/shutters{
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/turf/open/floor/plating,
-/area/mainship/squads/req)
 "sQS" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -67747,9 +67769,9 @@ bCh
 izl
 rNK
 oxn
-cBD
+kRi
 mIt
-oxC
+rud
 egq
 pPm
 pQT
@@ -68519,7 +68541,7 @@ rNK
 izl
 nlI
 arD
-sQL
+fua
 pQT
 lWS
 jBI
@@ -69288,7 +69310,7 @@ oer
 oer
 oer
 oer
-oer
+oJE
 tXT
 oky
 rtB
@@ -69805,7 +69827,7 @@ qoh
 kOO
 nsi
 oJz
-oJE
+nQj
 dFx
 grR
 wvU
@@ -70062,7 +70084,7 @@ qoh
 lzD
 nsi
 oJz
-nQj
+ckT
 bRY
 lmN
 pys
