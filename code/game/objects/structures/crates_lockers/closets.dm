@@ -89,7 +89,7 @@
 	dump_contents()
 	return ..()
 
-//USE THIS TO FILL IT, NOT INITIALIZE OR NEW
+///USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
 	return
 
@@ -356,10 +356,6 @@
 		density = FALSE
 		welded = FALSE
 		update_icon()
-
-/obj/structure/closet/AltClick(mob/user)
-	. = ..()
-	return togglelock(user)
 
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
 	if(!CHECK_BITFIELD(closet_flags, CLOSET_IS_SECURE))
