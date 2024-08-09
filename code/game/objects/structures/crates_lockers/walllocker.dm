@@ -100,7 +100,6 @@
 	anchored = TRUE
 	mob_storage_capacity = 0
 	wall_mounted = TRUE
-	large = FALSE
 	storage_capacity = 20
 
 /obj/structure/closet/secure_closet/walllocker/Initialize(mapload, ndir)
@@ -158,7 +157,6 @@
 	anchored = TRUE
 	mob_storage_capacity = 0
 	wall_mounted = TRUE
-	large = FALSE
 	storage_capacity = 20
 
 /obj/structure/closet/secure_closet/personal/walllocker/Initialize(mapload, ndir)

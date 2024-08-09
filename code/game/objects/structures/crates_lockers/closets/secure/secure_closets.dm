@@ -7,20 +7,17 @@
 	locked = TRUE
 	broken = FALSE
 	closet_flags = CLOSET_IS_SECURE
-	var/large = 1
+	max_integrity = 100
 	icon_closed = "secure"
-	var/icon_locked = "secure1"
 	icon_opened = "secureopen"
+	var/icon_locked = "secure1"
 	var/icon_broken = "securebroken"
 	var/icon_off = "secureoff"
-	max_integrity = 100
-	var/slotlocked = 0
-
 
 /obj/structure/closet/secure_closet/close()
 	if(..())
 		if(broken)
-			icon_state = src.icon_off
+			icon_state = icon_off
 		return 1
 	else
 		return 0
@@ -30,8 +27,8 @@
 		O.emp_act(severity)
 	if(!broken)
 		if(prob(50/severity))
-			src.locked = !src.locked
-			src.update_icon()
+			locked = !locked
+			update_icon()
 		if(prob(20/severity) && !opened)
 			if(!locked)
 				open()
@@ -39,16 +36,6 @@
 				req_access = list()
 				req_access += pick(ALL_ACCESS)
 	return ..()
-
-
-/obj/structure/closet/secure_closet/verb/verb_togglelock()
-	set src in oview(1) // One square distance
-	set category = "Object"
-	set name = "Toggle Lock"
-
-	if(usr.incapacitated())
-		return
-	togglelock(usr)
 
 /obj/structure/closet/secure_closet/update_icon_state()
 	. = ..()
