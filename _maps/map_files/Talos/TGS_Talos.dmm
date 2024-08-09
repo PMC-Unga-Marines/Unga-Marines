@@ -1687,22 +1687,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
-"aTP" = (
-/obj/structure/table/reinforced{
-	layer = 2.1
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/door/window/secure/req{
-	dir = 2
-	},
-/obj/machinery/door/window/right{
-	dir = 1
-	},
-/obj/machinery/door/poddoor/shutters/mainship/req/ro{
-	dir = 2
-	},
-/turf/open/floor/prison/marked,
-/area/mainship/squads/req)
 "aUz" = (
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
@@ -3323,9 +3307,6 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
 "bRY" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/yellow{
 	dir = 1
@@ -4514,6 +4495,15 @@
 /obj/machinery/camera/autoname/alt,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
+"cBD" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	dir = 1;
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "cBI" = (
 /obj/structure/closet/crate/radiation,
 /turf/open/floor/prison/marked,
@@ -7161,15 +7151,10 @@
 /turf/open/floor/mainship/terragov/north,
 /area/space)
 "egq" = (
-/obj/structure/table/mainship,
 /obj/structure/paper_bin,
 /obj/item/clipboard,
-/obj/item/tool/hand_labeler,
 /obj/item/tool/pen,
-/obj/item/folder/black_random,
-/obj/item/eftpos{
-	eftpos_name = "Cargo Bay EFTPOS scanner"
-	},
+/obj/structure/table/woodentable,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "egt" = (
@@ -11134,12 +11119,10 @@
 /area/mainship/command/cic)
 "gEi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/prison/yellow,
 /area/mainship/squads/req)
 "gEA" = (
@@ -11772,18 +11755,13 @@
 	},
 /area/mainship/medical/lounge)
 "hbE" = (
-/obj/structure/table/mainship,
-/obj/item/folder/yellow,
-/obj/item/tool/pen{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/tool/hand_labeler,
-/obj/machinery/cell_charger,
-/obj/item/cell/hyper,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark,
 /turf/open/floor/prison/yellow{
 	dir = 8
 	},
@@ -17759,15 +17737,15 @@
 	pixel_x = 8;
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
-	dir = 4
+/obj/structure/table/mainship,
+/obj/item/cell/hyper,
+/obj/item/tool/hand_labeler,
+/obj/item/folder/yellow,
+/obj/item/tool/pen{
+	pixel_x = 4;
+	pixel_y = 4
 	},
-/obj/machinery/door_control/mainship/req{
-	dir = 4;
-	id = "qm_warehouse";
-	name = "RO Warehouse Shutters";
-	pixel_x = -25
-	},
+/obj/machinery/cell_charger,
 /turf/open/floor/prison/yellow{
 	dir = 10
 	},
@@ -20975,10 +20953,13 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "myC" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
 /obj/effect/turf_decal/woodsiding,
+/obj/structure/table/woodentable,
+/obj/item/eftpos{
+	eftpos_name = "Cargo Bay EFTPOS scanner"
+	},
+/obj/item/tool/hand_labeler,
+/obj/item/folder/black_random,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "mze" = (
@@ -20994,10 +20975,10 @@
 	},
 /area/mainship/hallways/starboard_umbilical)
 "mAw" = (
-/obj/structure/closet/secure_closet/req_officer,
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
 	},
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "mAx" = (
@@ -21292,7 +21273,6 @@
 	},
 /area/mainship/living/starboard_garden)
 "mIt" = (
-/obj/structure/closet/firecloset,
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},
@@ -22095,14 +22075,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
-"nfi" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/machinery/door/poddoor/shutters{
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/turf/open/floor/plating,
-/area/mainship/squads/req)
 "nfn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/toolcloset,
@@ -24698,11 +24670,20 @@
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "oJE" = (
-/obj/structure/closet/toolcloset,
-/obj/effect/turf_decal/woodsiding{
+/obj/structure/table/reinforced{
+	layer = 2.1
+	},
+/obj/machinery/door/firedoor/mainship,
+/obj/machinery/door/window/secure/req{
+	dir = 2
+	},
+/obj/machinery/door/window/right{
 	dir = 1
 	},
-/turf/open/floor/carpet,
+/obj/machinery/door/poddoor/shutters/mainship/req/ro{
+	dir = 2
+	},
+/turf/open/floor/prison/marked,
 /area/mainship/squads/req)
 "oJM" = (
 /obj/item/radio/intercom/general{
@@ -24716,6 +24697,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "oKl" = (
@@ -25151,8 +25133,10 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "oYC" = (
-/obj/structure/bed/chair/office/light,
 /obj/effect/landmark/start/job/requisitionsofficer,
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "oYN" = (
@@ -25566,6 +25550,11 @@
 "pjA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floor_warn_light/self_destruct,
+/obj/machinery/door_control/mainship/req{
+	id = "qm_warehouse";
+	name = "RO Warehouse Shutters";
+	pixel_y = 25
+	},
 /turf/open/floor/prison/yellow{
 	dir = 4
 	},
@@ -26648,10 +26637,10 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "pPm" = (
-/obj/structure/table/mainship,
 /obj/effect/turf_decal/woodsiding,
 /obj/item/storage/fancy/cigar,
 /obj/item/tool/lighter/zippo,
+/obj/structure/table/woodentable,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "pPB" = (
@@ -28439,9 +28428,11 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
+	dir = 4
 	},
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
@@ -28944,13 +28935,15 @@
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "rhC" = (
-/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/woodsiding{
 	dir = 9
 	},
 /obj/machinery/camera/autoname/alt{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/req_officer,
+/obj/item/whistle,
+/obj/item/megaphone,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "ril" = (
@@ -29289,6 +29282,9 @@
 "rwq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
+	},
+/obj/structure/bed/chair/office/light{
+	dir = 8
 	},
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
@@ -31341,15 +31337,13 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/engineering_workshop)
 "sHT" = (
-/obj/structure/table/mainship,
 /obj/effect/turf_decal/woodsiding,
 /obj/machinery/light/mainship/small,
 /obj/item/tool/stamp/denied,
 /obj/item/tool/stamp{
 	name = "Quartermaster's stamp"
 	},
-/obj/item/whistle,
-/obj/item/megaphone,
+/obj/structure/table/woodentable,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "sIq" = (
@@ -31601,6 +31595,14 @@
 /obj/structure/curtain/open/shower,
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/squads/alpha)
+"sQL" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "sQS" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -39935,15 +39937,6 @@
 	color = "#E2E0DC"
 	},
 /area/mainship/medical/surgery_hallway)
-"yeg" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/turf/open/floor/plating,
-/area/mainship/squads/req)
 "yem" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -67754,8 +67747,8 @@ bCh
 izl
 rNK
 oxn
-yeg
-oJE
+cBD
+mIt
 oxC
 egq
 pPm
@@ -68526,7 +68519,7 @@ rNK
 izl
 nlI
 arD
-nfi
+sQL
 pQT
 lWS
 jBI
@@ -69812,7 +69805,7 @@ qoh
 kOO
 nsi
 oJz
-aTP
+oJE
 dFx
 grR
 wvU
