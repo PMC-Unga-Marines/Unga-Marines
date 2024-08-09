@@ -230,8 +230,7 @@
 			return TRUE
 		return user.transferItemToLoc(I, drop_location())
 
-	var/obj/item/card/id/ID = user.get_idcard()
-	if(istype(ID))
+	if(user.get_idcard())
 		if(!togglelock(user, TRUE))
 			toggle(user)
 
@@ -379,7 +378,7 @@
 		return FALSE
 
 	locked = !locked
-	balloon_alert_to_viewers("[locked ? null : "un"]locked")
+	balloon_alert_to_viewers("[locked ? "" : "un"]locked")
 	update_icon()
 	return TRUE
 
