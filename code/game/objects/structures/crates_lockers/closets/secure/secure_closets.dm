@@ -26,10 +26,10 @@
 	for(var/obj/O in src)
 		O.emp_act(severity)
 	if(!broken)
-		if(prob(50/severity))
+		if(prob(50 / severity))
 			locked = !locked
 			update_icon()
-		if(prob(20/severity) && !opened)
+		if(prob(20 / severity) && !opened)
 			if(!locked)
 				open()
 			else
