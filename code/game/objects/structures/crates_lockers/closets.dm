@@ -300,7 +300,19 @@
 	. = ..()
 	if(.)
 		return
-	return toggle(user)
+	if(user.get_idcard() && locked)
+		togglelock(user, TRUE)
+	else
+		toggle(user)
+
+/obj/structure/closet/attack_hand_alternate(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(opened)
+		toggle(user)
+	else if(user.get_idcard())
+		togglelock(user, TRUE)
 
 /obj/structure/closet/update_icon_state()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	. = ..()
