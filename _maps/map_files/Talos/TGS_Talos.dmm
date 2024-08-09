@@ -2336,6 +2336,15 @@
 "brL" = (
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/cic)
+"bsk" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	dir = 1;
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "bsq" = (
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/grass,
@@ -6569,6 +6578,14 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
+"dMB" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "dMG" = (
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
@@ -7146,8 +7163,14 @@
 /area/space)
 "egq" = (
 /obj/structure/table/mainship,
-/obj/item/megaphone,
-/obj/item/whistle,
+/obj/structure/paper_bin,
+/obj/item/clipboard,
+/obj/item/tool/hand_labeler,
+/obj/item/tool/pen,
+/obj/item/folder/black_random,
+/obj/item/eftpos{
+	eftpos_name = "Cargo Bay EFTPOS scanner"
+	},
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "egt" = (
@@ -22561,16 +22584,6 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
-"nuh" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/mainship/squads/req)
 "nuC" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -23741,22 +23754,6 @@
 	dir = 8
 	},
 /area/mainship/squads/delta)
-"obT" = (
-/obj/structure/table/reinforced{
-	layer = 2.1
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/door/window/secure/req{
-	dir = 2
-	},
-/obj/machinery/door/window/right{
-	dir = 1
-	},
-/obj/machinery/door/poddoor/shutters/mainship/req/ro{
-	dir = 2
-	},
-/turf/open/floor/prison/marked,
-/area/mainship/squads/req)
 "obX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -26644,19 +26641,9 @@
 /area/mainship/hallways/bow_hallway)
 "pPm" = (
 /obj/structure/table/mainship,
-/obj/structure/paper_bin,
-/obj/item/clipboard,
-/obj/item/tool/hand_labeler,
-/obj/item/tool/pen,
-/obj/item/tool/stamp{
-	name = "Quartermaster's stamp"
-	},
-/obj/item/tool/stamp/denied,
 /obj/effect/turf_decal/woodsiding,
-/obj/item/eftpos{
-	eftpos_name = "Cargo Bay EFTPOS scanner"
-	},
-/obj/item/folder/black_random,
+/obj/item/storage/fancy/cigar,
+/obj/item/tool/lighter/zippo,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "pPB" = (
@@ -27014,15 +27001,6 @@
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/lounge)
-"qaX" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/turf/open/floor/plating,
-/area/mainship/squads/req)
 "qbk" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -30311,6 +30289,22 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
+"scc" = (
+/obj/structure/table/reinforced{
+	layer = 2.1
+	},
+/obj/machinery/door/firedoor/mainship,
+/obj/machinery/door/window/secure/req{
+	dir = 2
+	},
+/obj/machinery/door/window/right{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/shutters/mainship/req/ro{
+	dir = 2
+	},
+/turf/open/floor/prison/marked,
+/area/mainship/squads/req)
 "scd" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 9
@@ -30854,6 +30848,16 @@
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
+"srQ" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/mainship/squads/req)
 "ssf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -31356,10 +31360,14 @@
 /area/mainship/engineering/engineering_workshop)
 "sHT" = (
 /obj/structure/table/mainship,
-/obj/item/storage/fancy/cigar,
-/obj/item/tool/lighter/zippo,
 /obj/effect/turf_decal/woodsiding,
 /obj/machinery/light/mainship/small,
+/obj/item/tool/stamp/denied,
+/obj/item/tool/stamp{
+	name = "Quartermaster's stamp"
+	},
+/obj/item/whistle,
+/obj/item/megaphone,
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "sIq" = (
@@ -37159,14 +37167,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_garden)
-"wsG" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/machinery/door/poddoor/shutters{
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/turf/open/floor/plating,
-/area/mainship/squads/req)
 "wsM" = (
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -67762,7 +67762,7 @@ bCh
 izl
 rNK
 oxn
-qaX
+bsk
 oJE
 oxC
 egq
@@ -68534,7 +68534,7 @@ rNK
 izl
 nlI
 arD
-wsG
+dMB
 pQT
 lWS
 jBI
@@ -69045,7 +69045,7 @@ xWG
 xWG
 kqv
 xzh
-nuh
+srQ
 kfy
 nnn
 kfy
@@ -69820,7 +69820,7 @@ qoh
 kOO
 nsi
 oJz
-obT
+scc
 dFx
 grR
 wvU
