@@ -303,19 +303,6 @@
 		return
 	return toggle(user)
 
-/obj/structure/closet/verb/verb_toggleopen()
-	set src in oview(1)
-	set category = "Object"
-	set name = "Toggle Open"
-
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
-
-	if(ishuman(usr))
-		src.toggle(usr)
-	else
-		balloon_alert(usr, "Can't do this")
-
 /obj/structure/closet/update_icon_state()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	. = ..()
 	if(!opened)
