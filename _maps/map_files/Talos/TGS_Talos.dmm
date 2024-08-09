@@ -38886,7 +38886,7 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/tool/kitchen/rollingpin,
 /obj/item/reagent_containers/food/drinks/shaker,
-/obj/item/clothing/suit/ru/fartumasti,
+/obj/item/clothing/suit/chef/military,
 /obj/effect/spawner/random/food_or_drink/kitchenknife/butcherweighted,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
