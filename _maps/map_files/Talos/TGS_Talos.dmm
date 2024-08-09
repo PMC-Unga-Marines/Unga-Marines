@@ -12020,13 +12020,6 @@
 	},
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
-"hkJ" = (
-/obj/machinery/vending/cargo_supply,
-/obj/machinery/door/poddoor/shutters/mainship/req/ro{
-	dir = 2
-	},
-/turf/open/floor/prison/marked,
-/area/mainship/squads/req)
 "hkO" = (
 /obj/effect/turf_decal/siding/metal/corner{
 	dir = 1
@@ -17747,6 +17740,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
 	},
+/obj/machinery/door_control/mainship/req{
+	dir = 4;
+	id = "qm_warehouse";
+	name = "RO Warehouse Shutters";
+	pixel_x = -25
+	},
 /turf/open/floor/prison/yellow{
 	dir = 10
 	},
@@ -22562,6 +22561,16 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
+"nuh" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/mainship/squads/req)
 "nuC" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -23212,17 +23221,11 @@
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
 "nOT" = (
+/obj/machinery/door/airlock/multi_tile/mainship/marine/requisitions,
 /obj/machinery/door/poddoor/shutters{
 	dir = 1;
 	id = "qm_warehouse";
 	name = "Warehouse Shutters"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door_control/mainship/req{
-	dir = 4;
-	id = "qm_warehouse";
-	name = "RO Warehouse Shutters";
-	pixel_x = -25
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/squads/req)
@@ -23283,16 +23286,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
 "nQj" = (
-/obj/structure/table/reinforced{
-	layer = 2.1
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/door/window/secure/req{
-	dir = 2
-	},
-/obj/machinery/door/window/right{
-	dir = 1
-	},
+/obj/machinery/vending/cargo_supply,
 /obj/machinery/door/poddoor/shutters/mainship/req/ro{
 	dir = 2
 	},
@@ -23747,6 +23741,22 @@
 	dir = 8
 	},
 /area/mainship/squads/delta)
+"obT" = (
+/obj/structure/table/reinforced{
+	layer = 2.1
+	},
+/obj/machinery/door/firedoor/mainship,
+/obj/machinery/door/window/secure/req{
+	dir = 2
+	},
+/obj/machinery/door/window/right{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/shutters/mainship/req/ro{
+	dir = 2
+	},
+/turf/open/floor/prison/marked,
+/area/mainship/squads/req)
 "obX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -23866,7 +23876,7 @@
 /area/mainship/medical/upper_medical)
 "ohH" = (
 /obj/structure/table/mainship,
-/obj/item/pizzabox,
+/obj/item/pizzabox/random,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "oid" = (
@@ -27004,6 +27014,15 @@
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/lounge)
+"qaX" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	dir = 1;
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "qbk" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -29215,14 +29234,8 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "rtB" = (
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
-/obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/mainship/stripesquare,
+/turf/closed/wall/mainship/alt,
 /area/mainship/squads/req)
 "rtT" = (
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -35457,18 +35470,17 @@
 /turf/open/floor/mainship/rubber,
 /area/mainship/medical/operating_room_one)
 "vsb" = (
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "qm_warehouse";
-	name = "Warehouse Shutters"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters{
+	dir = 1;
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/squads/req)
 "vsc" = (
@@ -37147,6 +37159,14 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_garden)
+"wsG" = (
+/obj/structure/window/framed/mainship/alt,
+/obj/machinery/door/poddoor/shutters{
+	id = "qm_warehouse";
+	name = "Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "wsM" = (
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -67742,7 +67762,7 @@ bCh
 izl
 rNK
 oxn
-lWS
+qaX
 oJE
 oxC
 egq
@@ -68514,7 +68534,7 @@ rNK
 izl
 nlI
 arD
-lWS
+wsG
 pQT
 lWS
 jBI
@@ -69025,7 +69045,7 @@ xWG
 xWG
 kqv
 xzh
-kfy
+nuh
 kfy
 nnn
 kfy
@@ -69800,7 +69820,7 @@ qoh
 kOO
 nsi
 oJz
-nQj
+obT
 dFx
 grR
 wvU
@@ -70057,7 +70077,7 @@ qoh
 lzD
 nsi
 oJz
-hkJ
+nQj
 bRY
 lmN
 pys
@@ -71593,8 +71613,8 @@ vdI
 oKG
 xuf
 ohH
-ohH
 fiO
+ohH
 uHR
 fkn
 sPp
