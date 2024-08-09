@@ -1754,6 +1754,7 @@
 	name = "railing"
 	desc = "Basic railing meant to protect idiots like you from falling."
 	icon = 'icons/Marine/mainship_props.dmi'
+	density = FALSE
 	icon_state = "railing"
 
 /obj/structure/prop/mainship/railing/corner
