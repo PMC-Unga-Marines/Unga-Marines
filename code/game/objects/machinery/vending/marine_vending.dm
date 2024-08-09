@@ -865,8 +865,6 @@
 		/obj/item/cell/lasgun/lasrifle = 10, /obj/item/cell/lasgun/volkite/powerpack/marine = 2,
 	)
 
-	prices = list()
-
 /obj/machinery/vending/lasgun/Initialize(mapload)
 	. = ..()
 	update_icon()
@@ -1198,8 +1196,6 @@
 		),
 	)
 
-	prices = list()
-
 /obj/machinery/vending/armor_supply/valhalla
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
@@ -1406,8 +1402,6 @@
 			/obj/effect/vendor_bundle/veteran_uniform = -1,
 		)
 	)
-
-	prices = list()
 
 /obj/machinery/vending/uniform_supply/valhalla
 	resistance_flags = INDESTRUCTIBLE
