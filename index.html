@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(468 modules,
-    856/7541 macros, 11.4%)</aside></h3>
+<aside>(466 modules,
+    856/7533 macros, 11.4%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -536,7 +536,6 @@ Thanks to forum_account for saving the day, the library can be found
     </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;mob">mob</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;modules&#x2F;mob&#x2F;living">living</span><ul class="index-tree">
-    <li><span class="no-substance">brain&#x2F;</span><a href="code/modules/mob/living/brain/MMI.html" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;brain&#x2F;MMI">MMI</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon">carbon</span><ul class="index-tree">
     <li><a href="code/modules/mob/living/carbon/carbon_stripping.html" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;carbon_stripping">carbon_stripping</a></li>
     <li><span class="no-substance">human&#x2F;</span><a href="code/modules/mob/living/carbon/human/species.html" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;human&#x2F;species">species</a></li>
@@ -566,7 +565,6 @@ Thanks to forum_account for saving the day, the library can be found
     <li class="has-children"><span title="code&#x2F;modules&#x2F;organs">organs</span><ul class="index-tree">
     <li><a href="code/modules/organs/limb_objects.html" title="code&#x2F;modules&#x2F;organs&#x2F;limb_objects">limb_objects</a></li>
     <li><a href="code/modules/organs/limbs.html" title="code&#x2F;modules&#x2F;organs&#x2F;limbs">limbs</a></li>
-    <li><a href="code/modules/organs/organ_internal.html" title="code&#x2F;modules&#x2F;organs&#x2F;organ_internal">organ_internal</a></li>
     <li><a href="code/modules/organs/wound.html" title="code&#x2F;modules&#x2F;organs&#x2F;wound">wound</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;power">power</span><ul class="index-tree">
@@ -736,7 +734,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1036 detailed/1315 documented/19626 total, 6.7%)</aside></h3>
+<aside>(1038 detailed/1314 documented/19581 total, 6.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -1272,10 +1270,11 @@ note of an instrument.*</li>
     <li class="has-children"><a href="datum/interior.html" title="&#x2F;datum&#x2F;interior">interior</a><ul class="index-tree">
     <li><a href="datum/interior/armored.html" title="&#x2F;datum&#x2F;interior&#x2F;armored">armored</a></li>
     </ul></li>
-    <li class="has-children"><a href="datum/internal_organ.html" title="&#x2F;datum&#x2F;internal_organ">internal_organ</a> - INTERNAL ORGANS<ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;datum&#x2F;internal_organ&#x2F;heart">heart</span> - INTERNAL ORGANS TYPES</li>
+    <li class="has-children"><a href="datum/internal_organ.html" title="&#x2F;datum&#x2F;internal_organ">internal_organ</a><ul class="index-tree">
+    <li><a href="datum/internal_organ/eyes.html" title="&#x2F;datum&#x2F;internal_organ&#x2F;eyes">eyes</a></li>
     <li><a href="datum/internal_organ/kidneys.html" title="&#x2F;datum&#x2F;internal_organ&#x2F;kidneys">kidneys</a></li>
     <li><a href="datum/internal_organ/liver.html" title="&#x2F;datum&#x2F;internal_organ&#x2F;liver">liver</a></li>
+    <li><a href="datum/internal_organ/stomach.html" title="&#x2F;datum&#x2F;internal_organ&#x2F;stomach">stomach</a></li>
     </ul></li>
     <li class="has-children"><a href="datum/item_representation.html" title="&#x2F;datum&#x2F;item_representation">item_representation</a> - Light weight representation of an obj/item
 This allow us to manipulate and store a lot of item-like objects, without it costing a ton of memory or having to instantiate all items
@@ -2032,7 +2031,6 @@ All mech equippables are currently childs of this<ul class="index-tree">
     <li><a href="obj/item/minelayer.html" title="&#x2F;obj&#x2F;item&#x2F;minelayer">minelayer</a></li>
     <li><a href="obj/item/minerupgrade.html" title="&#x2F;obj&#x2F;item&#x2F;minerupgrade">minerupgrade</a></li>
     <li><a href="obj/item/minimap_tablet.html" title="&#x2F;obj&#x2F;item&#x2F;minimap_tablet">minimap_tablet</a></li>
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;mmi">mmi</span> - this code sucks dont use it</li>
     <li><a href="obj/item/mortal_shell.html" title="&#x2F;obj&#x2F;item&#x2F;mortal_shell">mortal_shell</a></li>
     <li><a href="obj/item/mortar_kit.html" title="&#x2F;obj&#x2F;item&#x2F;mortar_kit">mortar_kit</a></li>
     <li><a href="obj/item/pinpointer.html" title="&#x2F;obj&#x2F;item&#x2F;pinpointer">pinpointer</a></li>
@@ -2071,9 +2069,7 @@ spaghetti prototype used by all subtypes</li>
     <li><a href="obj/item/reagent_containers/hypospray/advanced.html" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;hypospray&#x2F;advanced">advanced</a></li>
     </ul></li>
     <li><a href="obj/item/reagent_containers/jerrycan.html" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;jerrycan">jerrycan</a></li>
-    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;pill">pill</span> - Pills.<ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;pill&#x2F;dylovene">dylovene</span> - Pills. END</li>
-    </ul></li>
+    <li><span class="no-substance">pill&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;pill&#x2F;dylovene">dylovene</span> - Pills. END</li>
     <li><span class="no-substance">syringe&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;reagent_containers&#x2F;syringe&#x2F;inaprovaline">inaprovaline</span> - Syringes. END</li>
     </ul></li>
     <li><a href="obj/item/research_product.html" title="&#x2F;obj&#x2F;item&#x2F;research_product">research_product</a> - Items designed to be products of research
@@ -2558,7 +2554,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/1297b9753154185f2939ac1d914b73af783c40e9">1297b97</a>
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/a3ab9ee833a053d0a9f3db38ebf9cb2d65c542c5">a3ab9ee</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
