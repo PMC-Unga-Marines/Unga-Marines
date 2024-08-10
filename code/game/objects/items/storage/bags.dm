@@ -17,7 +17,6 @@
 //  Generic non-item
 /obj/item/storage/bag
 	allow_quick_gather = 1
-	allow_quick_empty = 1
 	display_contents_with_number = 0 // UNStABLE AS FuCK, turn on when it stops crashing clients
 	use_to_pickup = 1
 	flags_equip_slot = ITEM_SLOT_BELT
@@ -114,11 +113,9 @@
 	icon_state = "sheetsnatcher"
 	name = "Sheet Snatcher"
 	desc = "A patented Nanotrasen storage system designed for any kind of mineral sheet."
-
-	var/capacity = 300; //the number of sheets it can carry.
 	w_class = WEIGHT_CLASS_NORMAL
-
-	allow_quick_empty = 1 // this function is superceded
+	///the number of sheets it can carry.
+	var/capacity = 300
 
 /obj/item/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/sheet) || istype(W,/obj/item/stack/sheet/mineral/sandstone) || istype(W,/obj/item/stack/sheet/wood))
