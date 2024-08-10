@@ -4027,6 +4027,9 @@
 /obj/machinery/door/poddoor/shutters/mainship/req/ro{
 	dir = 2
 	},
+/obj/structure/sign/semiotic/terminal{
+	pixel_x = 32
+	},
 /turf/open/floor/prison/marked,
 /area/mainship/squads/req)
 "ckU" = (
@@ -24740,12 +24743,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
-"oKV" = (
-/obj/structure/sign/semiotic/terminal{
-	pixel_x = 32
-	},
-/turf/closed/wall/mainship/alt,
-/area/mainship/squads/req)
 "oLf" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/clothing/hats,
@@ -70341,7 +70338,7 @@ qoh
 kOO
 nsi
 muB
-oKV
+pQT
 hey
 qfG
 dui
