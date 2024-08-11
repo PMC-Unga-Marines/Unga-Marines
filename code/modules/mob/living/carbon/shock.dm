@@ -88,7 +88,8 @@
 
 		//Internal organs hurt too
 		for(var/datum/internal_organ/O in M.internal_organs)
-			if(O.damage) 											traumatic_shock += O.damage * 1.5
+			if(O.damage)
+				traumatic_shock += O.damage * 1.5
 
 		if(M.protection_aura)
 			traumatic_shock -= 20 + M.protection_aura * 20 //-40 pain for SLs, -80 for Commanders

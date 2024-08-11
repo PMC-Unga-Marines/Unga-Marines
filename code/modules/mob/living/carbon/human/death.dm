@@ -9,12 +9,11 @@
 		// Only make the limb drop if it's not too damaged
 		if(prob(100 - E.get_damage()))
 			// Override the current limb status
-			//E.droplimb() // RUTGMC DELETION
 
-			E.droplimb(silent = TRUE) // RUTGMC ADDITION START
+			E.droplimb(silent = TRUE)
 	visible_message(span_warning("[name] explodes violently into a bloody mess!"),
 		span_highdanger("<b>You explode violently into a bloody mess!</b>"),
-		span_warning("You hear a terrible sound of breaking bones and ripping flesh!"), 3) // RUTGMC EDITION END
+		span_warning("You hear a terrible sound of breaking bones and ripping flesh!"), 3)
 
 	if(is_a_synth)
 		spawn_gibs()

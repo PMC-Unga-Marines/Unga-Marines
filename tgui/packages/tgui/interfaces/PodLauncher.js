@@ -59,7 +59,6 @@ export const Crew = (props, context) => {
         <Section title="Damage effects">
           <Button onClick={() => act('effectStun')}>Stun</Button>
           <Button onClick={() => act('effectLimb')}>Delimb</Button>
-          <Button onClick={() => act('effectOrgans')}>De-organ</Button>
         </Section>
         <Section title="Movement effects">
           <Button onClick={() => act('effectBluespace')}>Bluespace</Button>

@@ -83,9 +83,7 @@
 		else
 			L.flash_act()
 
-
 		L.Paralyze(strength)
-
 
 /obj/machinery/flasher/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))

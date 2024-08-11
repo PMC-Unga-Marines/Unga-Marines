@@ -76,15 +76,17 @@
 		tforce = I.throwforce
 	take_damage(tforce, BRUTE, MELEE, 1, get_dir(src, AM))
 
-/obj/bullet_act(obj/projectile/P)
-	if(istype(P.ammo, /datum/ammo/xeno) && !(resistance_flags & XENO_DAMAGEABLE))
+
+/obj/bullet_act(obj/projectile/proj)
+	if(istype(proj.ammo, /datum/ammo/xeno) && !(resistance_flags & XENO_DAMAGEABLE))
 		return
 	. = ..()
-	if(P.damage < 1)
+	if(proj.damage < 1)
 		return
-	playsound(loc, P.hitsound, 50, 1)
-	visible_message(span_warning("\the [src] is damaged by \the [P]!"), visible_message_flags = COMBAT_MESSAGE)
-	take_damage(P.damage, P.ammo.damage_type, P.ammo.armor_type, 0, REVERSE_DIR(P.dir), P.ammo.penetration)
+	playsound(loc, proj.hitsound, 50, 1)
+	if(proj.damage > 30)
+		visible_message(span_warning("\the [src] is damaged by \the [proj]!"), visible_message_flags = COMBAT_MESSAGE)
+	take_damage(proj.damage, proj.ammo.damage_type, proj.ammo.armor_type, 0, REVERSE_DIR(proj.dir), proj.ammo.penetration)
 
 /obj/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0) //used by attack_alien, attack_animal, and attack_slime
 	user.do_attack_animation(src, ATTACK_EFFECT_SMASH)

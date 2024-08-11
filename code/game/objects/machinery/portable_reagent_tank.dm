@@ -87,7 +87,7 @@
 		record_sippies(5, reagents.reagent_list, user)
 		playsound(user.loc,'sound/items/drink.ogg', 25, 2)
 		reagents.reaction(user, INGEST)
-		reagents.trans_to(user, 5)
+		reagents.trans_to(user, 5, transfer_to_stomach = TRUE)
 		return TRUE
 	balloon_alert(user, "It's empty!")
 

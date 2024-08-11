@@ -185,7 +185,7 @@
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
-		I.take_damage(brute / 2)
+		I.get_damage(brute / 2)
 		brute -= brute / 2
 RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
@@ -506,11 +506,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.adjustToxLoss(1)
 		if (prob(1))
 			to_chat(owner, span_notice("You have a high fever!"))
-//Not technically a germ effect, but derived from it
+	//Not technically a germ effect, but derived from it
 	if(limb_status & LIMB_NECROTIZED)
 		for(var/datum/internal_organ/organ AS in internal_organs)
 			organ.take_damage(0.2, silent = TRUE) //1 point every 10 seconds, 100 seconds to bruise, five minutes to broken.
-
 
 ///Updating wounds. Handles natural damage healing from limb treatments and processes internal wounds
 /datum/limb/proc/update_wounds(limb_regen_penalty = 1)

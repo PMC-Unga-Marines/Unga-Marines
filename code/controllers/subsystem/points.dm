@@ -20,6 +20,7 @@ SUBSYSTEM_DEF(points)
 	var/list/supply_packs = list()
 	var/list/supply_packs_ui = list()
 	var/list/supply_packs_contents = list()
+
 	///Assoc list of item ready to be sent, categorised by faction
 	var/list/shoppinglist = list()
 	var/list/shopping_history = list()

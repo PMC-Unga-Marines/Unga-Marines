@@ -1,4 +1,3 @@
-
 /obj/item/limb
 	icon = 'icons/mob/human_races/r_human.dmi'
 	item_icons = list(

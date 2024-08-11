@@ -14,8 +14,9 @@
 		ORGAN_SLOT_HEART = /datum/internal_organ/heart,
 		ORGAN_SLOT_LUNGS = /datum/internal_organ/lungs,
 		ORGAN_SLOT_LIVER = /datum/internal_organ/liver,
+		ORGAN_SLOT_STOMACH = /datum/internal_organ/stomach,
 		ORGAN_SLOT_KIDNEYS = /datum/internal_organ/kidneys,
-		ORGAN_SLOT_BRAIN = /datum/internal_organ/brain/zombie,
+		ORGAN_SLOT_BRAIN = /datum/internal_organ/brain,
 		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
 		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
 	)

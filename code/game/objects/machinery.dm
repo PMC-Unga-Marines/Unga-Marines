@@ -413,15 +413,8 @@
 		dat += "</tr>"
 
 	for(var/datum/internal_organ/i in occ["internal_organs"])
-
-		var/mech = ""
-		if(i.robotic == ORGAN_ASSISTED)
-			mech = "Assisted:<br>"
-		if(i.robotic == ORGAN_ROBOT)
-			mech = "Mechanical:<br>"
-
 		dat += "<tr>"
-		dat += "<td>[i.name]</td><td>N/A</td><td>[i.damage]</td><td>None:[mech]</td><td></td>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[i.damage]</td><td></td>"
 		dat += "</tr>"
 	dat += "</table>"
 

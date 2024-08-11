@@ -146,35 +146,50 @@
  * Transfer some stuff from this holder to a target object
  *
  * Arguments:
- * * obj/target - Target to attempt transfer to
+ * * atom/target - Target to attempt transfer to
  * * amount - amount of reagent volume to transfer
  * * multiplier - multiplies amount of each reagent by this number
  * * preserve_data - if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
  * * no_react - passed through to [/datum/reagents/proc/add_reagent]
- * * mob/transfered_by - used for logging
- * * remove_blacklisted - skips transferring of reagents with can_synth = FALSE
- * * method - passed through to [/datum/reagents/proc/react_single] and [/datum/reagent/proc/on_transfer]
- * * show_message - passed through to [/datum/reagents/proc/react_single]
- * * round_robin - if round_robin=TRUE, so transfer 5 from 15 water, 15 sugar and 15 plasma becomes 10, 15, 15 instead of 13.3333, 13.3333 13.3333. Good if you hate floating point errors
- */
-/datum/reagents/proc/trans_to(obj/target, amount = 1, multiplier=1, preserve_data=1, no_react = 0)//if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
-	var/list/cached_reagents = reagent_list
-	if (!target || !total_volume)
+ * * transfer_to_stomach - does it goes to stomach like from pills and food?
+ *  */
+/datum/reagents/proc/trans_to(
+	atom/target,
+	amount = 1,
+	multiplier = 1,
+	preserve_data = TRUE,
+	no_react = FALSE,
+	transfer_to_stomach = FALSE
+)
+	if(!target || !total_volume)
 		return
-	if (amount < 0)
+	if(amount < 0)
 		return
 
+	var/list/cached_reagents = reagent_list
 	var/datum/reagents/R
 	if(istype(target, /datum/reagents))
 		R = target
 	else
-		if(!target.reagents)
+		if(transfer_to_stomach && ishuman(target))
+			var/mob/living/carbon/human/eater = target
+			var/datum/internal_organ/stomach/belly = eater.get_organ_slot(ORGAN_SLOT_STOMACH)
+			if(belly.organ_status != ORGAN_HEALTHY && prob(belly.damage * 3))
+				var/expel_amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
+				if(expel_amount > 0 )
+					eater.vomit()
+					var/datum/limb/chest/torso = eater.get_limb(belly.parent_limb) // eating with bruised stomach will get you infections
+					torso.germ_level += expel_amount * 15 // 10 units are 150 germ level and etc.
+				return
+			R = belly.reagents
+		else if(!target.reagents)
 			return
-		R = target.reagents
-	amount = min(min(amount, total_volume), R.maximum_volume-R.total_volume)
+		else
+			R = target.reagents
+	amount = min(min(amount, total_volume), R.maximum_volume - R.total_volume)
 	var/part = amount / total_volume
 	var/trans_data = null
-	for(var/reagent in cached_reagents)
+	for(var/reagent AS in cached_reagents)
 		var/datum/reagent/T = reagent
 		var/transfer_amount = T.volume * part
 		if(preserve_data)
@@ -190,7 +205,7 @@
 	return amount
 
 /// Copies the reagents to the target object
-/datum/reagents/proc/copy_to(obj/target, amount=1, multiplier=1, preserve_data=1)
+/datum/reagents/proc/copy_to(obj/target, amount = 1, multiplier = 1, preserve_data = 1)
 	var/list/cached_reagents = reagent_list
 	if(!target || !total_volume)
 		return
