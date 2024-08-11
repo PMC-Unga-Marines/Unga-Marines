@@ -89,7 +89,7 @@
 	dump_contents()
 	return ..()
 
-//USE THIS TO FILL IT, NOT INITIALIZE OR NEW
+///USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
 	return
 
@@ -230,8 +230,7 @@
 			return TRUE
 		return user.transferItemToLoc(I, drop_location())
 
-	var/obj/item/card/id/ID = user.get_idcard()
-	if(istype(ID))
+	if(user.get_idcard())
 		if(!togglelock(user, TRUE))
 			toggle(user)
 
@@ -301,20 +300,19 @@
 	. = ..()
 	if(.)
 		return
-	return toggle(user)
-
-/obj/structure/closet/verb/verb_toggleopen()
-	set src in oview(1)
-	set category = "Object"
-	set name = "Toggle Open"
-
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
-
-	if(ishuman(usr))
-		src.toggle(usr)
+	if(user.get_idcard() && locked)
+		togglelock(user, TRUE)
 	else
-		balloon_alert(usr, "Can't do this")
+		toggle(user)
+
+/obj/structure/closet/attack_hand_alternate(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(opened)
+		toggle(user)
+	else if(user.get_idcard())
+		togglelock(user, TRUE)
 
 /obj/structure/closet/update_icon_state()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	. = ..()
@@ -370,10 +368,6 @@
 		welded = FALSE
 		update_icon()
 
-/obj/structure/closet/AltClick(mob/user)
-	. = ..()
-	return togglelock(user)
-
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
 	if(!CHECK_BITFIELD(closet_flags, CLOSET_IS_SECURE))
 		return FALSE
@@ -396,7 +390,7 @@
 		return FALSE
 
 	locked = !locked
-	balloon_alert_to_viewers("[locked ? null : "un"]locked")
+	balloon_alert_to_viewers("[locked ? "" : "un"]locked")
 	update_icon()
 	return TRUE
 
