@@ -464,13 +464,13 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(client &&  hud_used?.hud_shown && hud_used.inventory_shown)
 		glasses.screen_loc = ui_glasses
 		client.screen += glasses
-	if(glasses.goggles)
-		overlays_standing[GOGGLES_LAYER] = glasses.make_worn_icon(species_type = species.name, slot_name = slot_glasses_str, default_icon = 'icons/mob/clothing/eyes.dmi', default_layer = GOGGLES_LAYER)
-		apply_overlay(GOGGLES_LAYER)
 
-	else
-		overlays_standing[GLASSES_LAYER] = glasses.make_worn_icon(species_type = species.name, slot_name = slot_glasses_str, default_icon = 'icons/mob/clothing/eyes.dmi', default_layer = GLASSES_LAYER)
-		apply_overlay(GLASSES_LAYER)
+	var/glasses_layer = GLASSES_LAYER
+	if(glasses.goggles_layer)
+		glasses_layer = GOGGLES_LAYER
+
+	overlays_standing[glasses_layer] = glasses.make_worn_icon(species_type = species.name, slot_name = slot_glasses_str, default_icon = 'icons/mob/clothing/eyes.dmi', default_layer = glasses_layer)
+	apply_overlay(glasses_layer)
 
 /mob/living/carbon/human/update_inv_ears()
 	remove_overlay(EARS_LAYER)

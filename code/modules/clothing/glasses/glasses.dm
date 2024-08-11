@@ -10,15 +10,20 @@
 	flags_inventory = COVEREYES
 	flags_equip_slot = ITEM_SLOT_EYES
 	flags_armor_protection = EYES
+	/// If TRUE it will help with near-sightness
 	var/prescription = FALSE
+	// If TRUE we are able to toggle the glasses and spawn with toggle action
 	var/toggleable = FALSE
-	var/deactive_state = "deactived_goggles"
+	/// The deactivated icon_state of our goggles
+	var/deactive_state = ""
+	/// Flags for stuff like mesons and thermals
 	var/vision_flags = NONE
-	var/darkness_view = 2 //Base human is 2
-	var/invis_view = SEE_INVISIBLE_LIVING
-	var/invis_override = 0 //Override to allow glasses to set higher than normal see_invis
+	/// How far can we see in the darkness with this glasses on?
+	var/darkness_view = 0
+	/// How bright the dark tiles will look to us with the glasses on?
 	var/lighting_alpha
-	var/goggles = FALSE
+	// If TRUE we will change our on-mob image layer to GOGGLES instead of GLASSES
+	var/goggles_layer = FALSE
 	///Sound played on activate() when turning on
 	var/activation_sound = 'sound/items/googles_on.ogg'
 	///Sound played on activate() when turning off
@@ -27,6 +32,8 @@
 	var/tint
 
 /obj/item/clothing/glasses/Initialize(mapload)
+	if(toggleable)
+		actions_types = list(/datum/action/item_action/toggle)
 	. = ..()
 	if(active)	//For glasses that spawn active
 		active = FALSE
@@ -37,13 +44,13 @@
 	icon_state = active ? initial(icon_state) : deactive_state
 
 /obj/item/clothing/glasses/update_clothing_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
+	if(ismob(loc))
+		var/mob/M = loc
 		M.update_inv_glasses()
 
 //Glasses can still be toggled if held in the hand if the player wishes to
 /obj/item/clothing/glasses/attack_self(mob/user)
-	if(can_interact(user))
+	if(toggleable && can_interact(user))
 		activate(user)
 
 //Just call the activate() directly instead of needing to call attack_self()
@@ -139,12 +146,11 @@
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
 
-/obj/item/clothing/glasses/gglasses
+/obj/item/clothing/glasses/green
 	name = "green glasses"
 	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
-	icon_state = "gglasses"
-	item_state = "gglasses"
-	flags_armor_protection = NONE
+	icon_state = "green"
+	item_state = "green"
 
 /obj/item/clothing/glasses/mgoggles
 	name = "marine ballistic goggles"
@@ -153,7 +159,7 @@
 	item_state = "mgoggles"
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	flags_equip_slot = ITEM_SLOT_EYES|ITEM_SLOT_MASK
-	goggles = TRUE
+	goggles_layer = TRUE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/glasses/mgoggles/attackby(obj/item/our_item, mob/user, params)
@@ -217,8 +223,7 @@
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	vision_flags = SEE_TURFS
-	toggleable = 1
-	actions_types = list(/datum/action/item_action/toggle)
+	toggleable = TRUE
 
 //welding goggles
 
@@ -227,9 +232,7 @@
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
 	icon_state = "welding-g"
 	item_state = "welding-g"
-	actions_types = list(/datum/action/item_action/toggle)
-	flags_inventory = COVEREYES
-	flags_inv_hide = HIDEEYES
+	toggleable = TRUE
 	eye_protection = 2
 	activation_sound = null
 	deactivation_sound = null
@@ -422,157 +425,11 @@
 	icon_state = "aviator_yellow"
 	item_state = "aviator_yellow"
 
-/obj/item/clothing/glasses/night_vision
-	name = "\improper BE-47 night vision goggles"
-	desc = "Goggles for seeing clearer in low light conditions and maintaining sight of the surrounding environment."
-	icon_state = "night_vision"
-	deactive_state = "night_vision_off"
-	worn_layer = COLLAR_LAYER	//The sprites are designed to render over helmets
-	item_state_slots = list()
-	tint = COLOR_RED
-	darkness_view = 8
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
-	vision_flags = SEE_TURFS
-	toggleable = TRUE
-	goggles = TRUE
-	active = FALSE
-	actions_types = list(/datum/action/item_action/toggle)
-	activation_sound = 'sound/effects/nightvision.ogg'
-	deactivation_sound = 'sound/machines/click.ogg'
-	///The battery inside
-	var/obj/item/cell/night_vision_battery/battery
-	///How much energy this module needs when activated
-	var/active_energy_cost = 4	//Little over 4 minutes of use
-	///Looping sound to play
-	var/datum/looping_sound/active_sound = /datum/looping_sound/scan_pulse
-	///How loud the looping sound should be
-	var/looping_sound_volume = 25
-
-/obj/item/clothing/glasses/night_vision/Initialize(mapload)
-	. = ..()
-	//Start with a charged battery
-	battery = new /obj/item/cell/night_vision_battery(src)
-	active_sound = new active_sound()
-	active_sound.volume = looping_sound_volume
-	update_worn_state()
-
-/obj/item/clothing/glasses/night_vision/examine(mob/user)
-	. = ..()
-	. += span_notice("This model drains [active_energy_cost] energy when active.")
-	. += battery_status()
-	. += "To eject the battery, [span_bold("[user.get_inactive_held_item() == src ? "click" : "ALT-click"]")] [src] with an empty hand. To insert a battery, [span_bold("click")] [src] with a compatible cell."
-
-///Info regarding battery status; separate proc so that it can be displayed when examining the parent object
-/obj/item/clothing/glasses/night_vision/proc/battery_status()
-	if(battery)
-		return span_notice("Battery: [battery.charge]/[battery.maxcharge]")
-	return span_warning("No battery installed!")
-
-/obj/item/clothing/glasses/night_vision/attack_hand(mob/living/user)
-	if(user.get_inactive_held_item() == src && eject_battery(user))
-		return
-	return ..()
-
-/obj/item/clothing/glasses/night_vision/AltClick(mob/user)
-	if(!eject_battery(user))
-		return ..()
-
-/obj/item/clothing/glasses/night_vision/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	insert_battery(I, user)
-
-///Insert a battery, if checks pass
-/obj/item/clothing/glasses/night_vision/proc/insert_battery(obj/item/I, mob/user)
-	if(!istype(I, /obj/item/cell/night_vision_battery))
-		return
-
-	if(battery && (battery.charge > battery.maxcharge / 2))
-		balloon_alert(user, "Battery already installed")
-		return
-	//Hot swap!
-	eject_battery()
-
-	user.temporarilyRemoveItemFromInventory(I)
-	I.forceMove(src)
-	battery = I
-	return TRUE
-
-///Eject the internal battery, if there is one
-/obj/item/clothing/glasses/night_vision/proc/eject_battery(mob/user)
-	if(user?.get_active_held_item() || !battery)
-		return
-
-	if(user)
-		user.put_in_active_hand(battery)
-	else
-		battery.forceMove(get_turf(src))
-	battery = null
-
-	if(active)
-		activate(user)
-
-	return TRUE
-
-/obj/item/clothing/glasses/night_vision/activate(mob/user)
-	if(active)
-		STOP_PROCESSING(SSobj, src)
-		active_sound.stop(src)
-	else
-		if(!battery || battery.charge < active_energy_cost)
-			if(user)
-				balloon_alert(user, "No power")
-			return FALSE	//Don't activate
-		START_PROCESSING(SSobj, src)
-		active_sound.start(src)
-
-	update_worn_state(!active)	//The active var has not been toggled yet, so pass the opposite value
-	return ..()
-
-/obj/item/clothing/glasses/night_vision/process()
-	if(!battery?.use(active_energy_cost))
-		if(ismob(loc))	//If it's deactivated while being worn, pass on the reference to activate() so that the user's sight is updated
-			activate(loc)
-		else
-			activate()
-		return PROCESS_KILL
-
-///Simple proc to update the worn state of the glasses; will use the active value by default if no argument passed
-/obj/item/clothing/glasses/night_vision/proc/update_worn_state(state = active)
-	item_state_slots[slot_glasses_str] = initial(icon_state) + (state ? "" : "_off")
-
-/obj/item/clothing/glasses/night_vision/unequipped(mob/unequipper, slot)
-	. = ..()
-	if(active)
-		activate(unequipper)
-
-/obj/item/clothing/glasses/night_vision/Destroy()
-	QDEL_NULL(active_sound)
-	return ..()
-
-//So that the toggle button is only given when in the eyes slot
-/obj/item/clothing/glasses/night_vision/item_action_slot_check(mob/user, slot)
-	return CHECK_BITFIELD(slot, ITEM_SLOT_EYES)
-
-/obj/item/clothing/glasses/night_vision/mounted
-	name = "\improper BE-35 night vision goggles"
-	desc = "Goggles for seeing clearer in low light conditions. Must remain attached to a helmet."
-	icon_state = "night_vision_mounted"
-	tint = COLOR_BLUE
-	vision_flags = NONE
-	darkness_view = 9	//The standalone version cannot see the edges
-	active_energy_cost = 2	//A little over 7 minutes of use
-	looping_sound_volume = 50
-
-/obj/item/clothing/glasses/night_vision/mounted/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, NIGHT_VISION_GOGGLES_TRAIT)
-
 /obj/item/clothing/glasses/orange
 	name = "orange glasses"
 	desc = "A pair of orange glasses."
 	icon_state = "orange"
 	item_state = "orange"
-	deactive_state = "orange"
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/glasses/orange/attackby(obj/item/our_item, mob/user, params)
@@ -602,35 +459,28 @@
 /obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an optical meson scanner."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "meson_orange"
 	item_state = "meson_orange"
-	deactive_state = "d_orange"
-	prescription = TRUE
+	deactive_state = "deactivated_orange"
 
 /obj/item/clothing/glasses/night/imager_goggles/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal optical imager scanner."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "optical_orange"
 	item_state = "optical_orange"
-	deactive_state = "d_orange"
-	prescription = TRUE
+	deactive_state = "deactivated_orange"
 
 /obj/item/clothing/glasses/hud/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal HealthMate HUD projector."
-	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "med_orange"
 	item_state = "med_orange"
-	deactive_state = "d_orange"
-	prescription = TRUE
+	deactive_state = "deactivated_orange"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
-	actions_types = list(/datum/action/item_action/toggle)
