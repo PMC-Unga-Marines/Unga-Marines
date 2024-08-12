@@ -607,7 +607,6 @@
 	icon_state = "Field_Gen"
 	anchored = FALSE
 	density = TRUE
-	max_integrity = 500
 	//100% immune to lasers and energy projectiles since it absorbs their energy.
 	soft_armor = list(MELEE = 25, BULLET = 10, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 50, ACID = 70)
 	resistance_flags = RESIST_ALL
@@ -1753,6 +1752,8 @@
 	name = "railing"
 	desc = "Basic railing meant to protect idiots like you from falling."
 	icon = 'icons/Marine/mainship_props.dmi'
+	max_integrity = 50
+	resistance_flags = XENO_DAMAGEABLE
 	flags_atom = ON_BORDER
 	climbable = TRUE
 	climb_delay = 2 SECONDS
