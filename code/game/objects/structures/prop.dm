@@ -234,7 +234,6 @@
 	name = "GENERIC SHIP PROP"
 	desc = "THIS SHOULDN'T BE VISIBLE, AHELP 'ART-P02' IF SEEN IN ROUND WITH LOCATION"
 	density = TRUE
-	anchored = TRUE
 	coverage = 15
 
 /obj/machinery/prop/autolathe
@@ -1754,8 +1753,19 @@
 	name = "railing"
 	desc = "Basic railing meant to protect idiots like you from falling."
 	icon = 'icons/Marine/mainship_props.dmi'
-	density = FALSE
+	flags_atom = ON_BORDER
+	climbable = TRUE
+	climb_delay = 2 SECONDS
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
 	icon_state = "railing"
+
+/obj/structure/prop/mainship/railing/Initialize(mapload)
+	. = ..()
+	var/static/list/connections = list(
+		COMSIG_ATOM_EXIT = PROC_REF(on_try_exit),
+		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+	)
+	AddElement(/datum/element/connect_loc, connections)
 
 /obj/structure/prop/mainship/railing/corner
 	name = "railing"
