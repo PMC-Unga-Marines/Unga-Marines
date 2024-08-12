@@ -469,14 +469,14 @@
 		item.forceMove(src)
 	item.on_enter_storage(src)
 	if(user)
-		if (user.s_active != src)
+		if(user.s_active != src)
 			user.client?.screen -= item
 		if(!prevent_warning)
 			insertion_message(item, user)
 	orient2hud()
 	for(var/mob/M in can_see_content())
 		show_to(M)
-	if (storage_slots)
+	if(storage_slots)
 		item.mouse_opacity = 2 //not having to click the item's tiny sprite to take it out of the storage.
 	update_icon()
 	for(var/limited_type in storage_type_limits)
@@ -616,6 +616,18 @@
 	if(!length(contents))
 		return
 
+	if(istype(dest_object, /obj/item/storage))
+		var/obj/item/storage/our_storage = dest_object
+		for(var/obj/item/I in contents)
+			remove_from_storage(I, null, usr) // to avoid cursed storages we remove contents manually to nullspace
+			our_storage.handle_item_insertion(I, TRUE, usr)
+		our_storage.open(usr)
+		our_storage.update_icon()
+
+		to_chat(user, span_notice("You dump the contents of [src] into [dest_object]."))
+		playsound(loc, use_sound, 25, 1, 3)
+		return
+
 	to_chat(user, span_notice("You start dumping out the contents of [src] onto [dest_object]..."))
 	if(!do_after(user, 2 SECONDS, target = dest_object))
 		return
@@ -625,12 +637,8 @@
 	var/turf/T = get_turf(dest_object)
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T, usr)
-		I.pixel_x = rand(-12, 12)
-		I.pixel_y = rand(-12, 12)
-		if(istype(dest_object, /obj/item/storage))
-			var/obj/item/storage/our_storage = dest_object
-			our_storage.handle_item_insertion(I, TRUE, usr)
-			our_storage.open(usr)
+		I.pixel_x = rand(-8, 8)
+		I.pixel_y = rand(-8, 8)
 
 ///Delete everything that's inside the storage
 /obj/item/storage/proc/delete_contents()
