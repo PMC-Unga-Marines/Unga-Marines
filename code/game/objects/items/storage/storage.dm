@@ -606,7 +606,7 @@
 	else
 		to_chat(usr, "Clicking [src] with an empty hand now opens the pouch storage menu.")
 
-/obj/item/storage/proc/quick_empty(dest_object, mob/user)
+/obj/item/storage/proc/quick_empty(atom/dest_object, mob/user)
 	if(!user.CanReach(dest_object) || !user.CanReach(src))
 		return
 
@@ -619,6 +619,8 @@
 	if(istype(dest_object, /obj/item/storage))
 		var/obj/item/storage/our_storage = dest_object
 		for(var/obj/item/I in contents)
+			if(!can_be_inserted(I, FALSE))
+				continue
 			remove_from_storage(I, null, usr) // to avoid cursed storages we remove contents manually to nullspace
 			our_storage.handle_item_insertion(I, TRUE, usr)
 		our_storage.open(usr)
