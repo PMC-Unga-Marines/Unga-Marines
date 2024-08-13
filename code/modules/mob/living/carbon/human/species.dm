@@ -104,6 +104,7 @@
 		ORGAN_SLOT_HEART = /datum/internal_organ/heart,
 		ORGAN_SLOT_LUNGS = /datum/internal_organ/lungs,
 		ORGAN_SLOT_LIVER = /datum/internal_organ/liver,
+		ORGAN_SLOT_STOMACH = /datum/internal_organ/stomach,
 		ORGAN_SLOT_KIDNEYS = /datum/internal_organ/kidneys,
 		ORGAN_SLOT_BRAIN = /datum/internal_organ/brain,
 		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
@@ -159,8 +160,8 @@
 	organless_human.limbs += new/datum/limb/foot/l_foot(new_l_leg, organless_human)
 	organless_human.limbs += new/datum/limb/foot/r_foot(new_r_leg, organless_human)
 
-	for(var/organ in has_organ)
-		var/organ_type = has_organ[organ]
+	for(var/datum/internal_organ/organ AS in has_organ)
+		var/datum/internal_organ/organ_type = has_organ[organ]
 		organless_human.internal_organs_by_name[organ] = new organ_type(organless_human)
 
 	if(species_flags & ROBOTIC_LIMBS)
@@ -168,9 +169,6 @@
 			if(robotic_limb.limb_status & LIMB_DESTROYED)
 				continue
 			robotic_limb.add_limb_flags(LIMB_ROBOT)
-		for(var/datum/internal_organ/my_cold_heart in organless_human.internal_organs)
-			my_cold_heart.mechanize()
-
 
 /datum/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 	if(H.zone_selected == "head")

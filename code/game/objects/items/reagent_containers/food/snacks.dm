@@ -113,10 +113,10 @@
 					*/
 					//Why is bitesize used instead of an actual portion???
 					record_reagent_consumption(bitesize, reagents.reagent_list, user, M)
-					reagents.trans_to(M, bitesize)
+					reagents.trans_to(M, bitesize, transfer_to_stomach = TRUE)
 				else
 					record_reagent_consumption(reagents.total_volume, reagents.reagent_list, user, M)
-					reagents.trans_to(M, reagents.total_volume)
+					reagents.trans_to(M, reagents.total_volume, transfer_to_stomach = TRUE)
 				bitecount++
 				On_Consume(M)
 			return TRUE
@@ -858,12 +858,12 @@
 	var/mob/living/carbon/human/H = M
 	var/datum/limb/E = H.get_limb("chest")
 	E.fracture()
-	for (var/datum/internal_organ/I in E.internal_organs)
+	for(var/datum/internal_organ/I in E.internal_organs)
 		I.take_damage(rand(I.min_bruised_damage, I.min_broken_damage+1))
-	if (!E.hidden && prob(60)) //set it snuggly
+	if(!E.hidden && prob(60)) //set it snuggly
 		E.hidden = surprise
 		E.cavity = 0
-	else 		//someone is having a bad day
+	else //someone is having a bad day
 		E.createwound(CUT, 30)
 		surprise.embed_into(M, E)
 	qdel(src)
@@ -1555,7 +1555,7 @@
 /obj/item/reagent_containers/food/snacks/lollipop/proc/handle_reagents()
 	var/fraction = min(FOOD_METABOLISM/reagents.total_volume, 1)
 	reagents.reaction(owner, INGEST, fraction)
-	if(!reagents.trans_to(owner, FOOD_METABOLISM))
+	if(!reagents.trans_to(owner, FOOD_METABOLISM, transfer_to_stomach = TRUE))
 		reagents.remove_any(FOOD_METABOLISM)
 
 /obj/item/reagent_containers/food/snacks/lollipop/process()

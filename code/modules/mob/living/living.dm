@@ -619,11 +619,6 @@ below 100 is not dizzy
 		var/datum/action/A = X
 		A.update_button_icon()
 
-
-/mob/living/proc/vomit()
-	return
-
-
 /mob/living/proc/take_over(mob/M, bypass)
 	if(!M.mind)
 		to_chat(M, span_warning("You don't have a mind."))

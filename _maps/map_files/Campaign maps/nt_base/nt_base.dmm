@@ -21394,7 +21394,7 @@
 	pixel_x = -11
 	},
 /obj/effect/decal/cleanable/blood/gibs/body,
-/obj/item/prop/organ/heart,
+/obj/item/organ/heart,
 /turf/open/floor/tile/dark2{
 	dir = 8
 	},

@@ -217,9 +217,9 @@
 	var/max_scatter = 360
 	///Maximum scatter when wielded
 	var/max_scatter_unwielded = 360
-	///How much scatter decays every X seconds
+	///How much scatter decays every decisecond
 	var/scatter_decay = 0
-	///How much scatter decays every X seconds when wielded
+	///How much scatter decays every decisecond
 	var/scatter_decay_unwielded = 0
 	///How much scatter increases per shot
 	var/scatter_increase = 0
@@ -1282,7 +1282,8 @@
 		update_ammo_count()
 		update_icon()
 		to_chat(user, span_notice("You reload [src] with [new_mag]."))
-		RegisterSignal(new_mag, COMSIG_ITEM_REMOVED_INVENTORY, TYPE_PROC_REF(/obj/item/weapon/gun, drop_connected_mag))
+		RegisterSignal(new_mag, COMSIG_CELL_SELF_RECHARGE, PROC_REF(update_ammo_count))
+		RegisterSignal(new_mag, COMSIG_ITEM_REMOVED_INVENTORY, PROC_REF(drop_connected_mag))
 		return TRUE
 
 	var/list/obj/items_to_insert = list()
@@ -1391,6 +1392,7 @@
 				obj_in_chamber.forceMove(get_turf(src))
 		in_chamber = null
 		obj_in_chamber.update_icon()
+		UnregisterSignal(obj_in_chamber, list(COMSIG_CELL_SELF_RECHARGE))
 		get_ammo()
 		update_ammo_count()
 		update_icon()
@@ -1417,7 +1419,7 @@
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES) && CHECK_BITFIELD(get_flags_magazine_features(mag), MAGAZINE_REFUND_IN_CHAMBER) && !after_fire && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE))
 		QDEL_NULL(in_chamber)
 		adjust_current_rounds(mag, rounds_per_shot)
-	UnregisterSignal(mag, COMSIG_ITEM_REMOVED_INVENTORY)
+	UnregisterSignal(mag, list(COMSIG_CELL_SELF_RECHARGE, COMSIG_ITEM_REMOVED_INVENTORY))
 	mag.update_icon()
 	get_ammo()
 	update_ammo_count()

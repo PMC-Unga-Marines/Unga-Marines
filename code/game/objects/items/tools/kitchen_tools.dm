@@ -35,7 +35,7 @@
 
 	if (reagents.total_volume > 0)
 		reagents.reaction(M, INGEST)
-		reagents.trans_to(M, reagents.total_volume)
+		reagents.trans_to(M, reagents.total_volume, transfer_to_stomach = TRUE)
 		if(M == user)
 			visible_message(span_notice("[user] eats some [loaded] from \the [src]."))
 			M.reagents.add_reagent(/datum/reagent/consumable/nutriment, 1)
