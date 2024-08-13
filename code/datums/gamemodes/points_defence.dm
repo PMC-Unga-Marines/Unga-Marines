@@ -7,7 +7,7 @@
 
 	var/sensors_activated = 0
 
-	var/victory_condition_sensors_amount
+	var/boost_condition_sensors_amount
 	var/phorone_sensors
 	var/platinum_sensors
 
@@ -49,31 +49,31 @@
 	//the number of sensors is greater than necessary to win, so that the late game does not turn into a 1 point defense
 	switch(TGS_CLIENT_COUNT)
 		if(1 to 15) //i dunno who will play it
-			victory_condition_sensors_amount = 2
+			boost_condition_sensors_amount = 2
 			phorone_sensors = 1
 			platinum_sensors = 1
 		if(16 to 30)
-			victory_condition_sensors_amount = 2
+			boost_condition_sensors_amount = 2
 			phorone_sensors = 1
 			platinum_sensors = 2
 		if(31 to 40)
-			victory_condition_sensors_amount = 3
+			boost_condition_sensors_amount = 3
 			phorone_sensors = 2
 			platinum_sensors = 2
 		if(41 to 50)
-			victory_condition_sensors_amount = 3
+			boost_condition_sensors_amount = 3
 			phorone_sensors = 1
 			platinum_sensors = 3
 		if(51 to 75)
-			victory_condition_sensors_amount = 4
+			boost_condition_sensors_amount = 4
 			phorone_sensors = 2
 			platinum_sensors = 3
 		if(76 to 100)
-			victory_condition_sensors_amount = 4
+			boost_condition_sensors_amount = 4
 			phorone_sensors = 1
 			platinum_sensors = 4
 		else //madness
-			victory_condition_sensors_amount = 5
+			boost_condition_sensors_amount = 5
 			phorone_sensors = 3
 			platinum_sensors = 3
 
@@ -227,7 +227,7 @@
 		return
 
 	//Victory point
-	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors + platinum_sensors)
+	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors + platinum_sensors) * (sensors_activated >= victory_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
 	if(marine_victory_point >= points_to_win && !can_hunt &&  !allow_hijack)
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
