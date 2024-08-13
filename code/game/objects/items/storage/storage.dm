@@ -619,7 +619,7 @@
 	if(istype(dest_object, /obj/item/storage))
 		var/obj/item/storage/our_storage = dest_object
 		for(var/obj/item/I in contents)
-			if(!can_be_inserted(I, FALSE))
+			if(!our_storage.can_be_inserted(I, FALSE))
 				continue
 			remove_from_storage(I, null, usr) // to avoid cursed storages we remove contents manually to nullspace
 			our_storage.handle_item_insertion(I, TRUE, usr)
