@@ -83,9 +83,8 @@
 			phorone_sensors = 3
 			platinum_sensors = 3
 
-
 	// TODOD поменять на стационарные точки
-	//setip sensor towers
+	//setup sensor towers
 	for(var/i in 1 to phorone_sensors)
 		var/turf/T = pick(GLOB.miner_phorone_locs)
 		new /obj/structure/sensor_tower_infestation(T)
@@ -101,6 +100,10 @@
 		var/turf/T = pick(GLOB.miner_phorone_locs)
 		new /obj/machinery/telecomms/relay/preset/tower(T)
 		GLOB.miner_phorone_locs -= T
+
+	//xenoden landing zone
+	var/turf/marine_dropship_loc = pick(GLOB.xenoden_docking_ports_locs)
+	new /obj/docking_port/stationary/marine_dropship/lz_den(marine_dropship_loc)
 
 	#ifdef TESTING
 	marine_victory_point = points_to_win

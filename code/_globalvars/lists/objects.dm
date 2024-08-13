@@ -9,6 +9,8 @@ GLOBAL_LIST_EMPTY(miners_platinum)
 GLOBAL_LIST_EMPTY(miner_phorone_locs)
 GLOBAL_LIST_EMPTY(miner_platinum_locs)
 
+GLOBAL_LIST_EMPTY(xenoden_docking_ports_locs)
+
 /proc/init_ammo_list()
 	. = list()
 	// Our ammo stuff is initialized here.

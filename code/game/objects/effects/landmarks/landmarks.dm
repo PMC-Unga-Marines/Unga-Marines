@@ -598,6 +598,16 @@
 	GLOB.eord_roomba_spawns -= src
 	return ..()
 
+/obj/effect/landmark/xenoden_docking_port
+	name = "xenoden docking port"
+	icon = 'icons/Marine/marine-navigation.dmi'
+	icon_state = "pinonfar"
+
+/obj/effect/landmark/xenoden_docking_port/Initialize()
+	..()
+	GLOB.xenoden_docking_ports_locs += loc
+	return INITIALIZE_HINT_QDEL
+
 /// Marks the bottom left of the testing zone.
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
 /obj/effect/landmark/unit_test_bottom_left
