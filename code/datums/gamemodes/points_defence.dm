@@ -207,12 +207,18 @@
 		active_xenos++
 	var/estimated_joblarvaworth = get_total_joblarvaworth() * (round_stage != INFESTATION_MARINE_DEN_RUSH ? firts_stage_xeno_factor : second_stage_xeno_factor)
 	var/larva_surplus = (estimated_joblarvaworth - (active_xenos * xeno_job.job_points_needed )) / xeno_job.job_points_needed
+	var/real_larva_surplus
 	if(!active_xenos)
-		xeno_job.add_job_positions(max(1, round(larva_surplus, 1)))
+		real_larva_surplus = max(1, round(larva_surplus, 1))
+		xeno_job.add_job_positions(real_larva_surplus)
+		GLOB.round_statistics.larva_from_xeno_core += real_larva_surplus
+		xeno_hive.update_tier_limits()
 		return
 	if(larva_surplus < 1)
 		return //Things are balanced, no burrowed needed
-	xeno_job.add_job_positions(round(larva_surplus, 1))
+	real_larva_surplus = round(larva_surplus, 1)
+	xeno_job.add_job_positions(real_larva_surplus)
+	GLOB.round_statistics.larva_from_xeno_core += real_larva_surplus
 	xeno_hive.update_tier_limits()
 
 /datum/game_mode/infestation/distress/points_defence/proc/add_victory_points()
