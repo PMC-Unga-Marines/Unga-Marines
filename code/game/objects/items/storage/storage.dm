@@ -618,16 +618,29 @@
 
 	if(istype(dest_object, /obj/item/storage))
 		var/obj/item/storage/our_storage = dest_object
-		for(var/obj/item/I in contents)
-			if(!our_storage.can_be_inserted(I, FALSE))
+		for(var/obj/item/transfered_object in contents)
+			if(!our_storage.can_be_inserted(transfered_object, FALSE))
 				continue
-			remove_from_storage(I, null, usr) // to avoid cursed storages we remove contents manually to nullspace
-			our_storage.handle_item_insertion(I, TRUE, usr)
+			remove_from_storage(transfered_object, null, usr) // to avoid cursed storages we remove contents manually to nullspace
+			our_storage.handle_item_insertion(transfered_object, TRUE, usr)
 		our_storage.open(usr)
 		our_storage.update_icon()
 
 		to_chat(user, span_notice("You dump the contents of [src] into [dest_object]."))
 		playsound(loc, use_sound, 25, 1, 3)
+		return
+
+	var/turf/drop_turf = get_turf(dest_object)
+	if(drop_turf.density)
+		return
+
+	for(var/obj/blocking_object in drop_turf) // why is there no proper proc for checking density
+		if(blocking_object.allow_pass_flags & PASS_THROW)
+			continue
+		if(!blocking_object.density)
+			continue
+		if(blocking_object.flags_atom & ON_BORDER && blocking_object.dir != user.dir)
+			continue
 		return
 
 	to_chat(user, span_notice("You start dumping out the contents of [src] onto [dest_object]..."))
@@ -636,11 +649,10 @@
 
 	playsound(loc, use_sound, 35, 1, 3)
 	hide_from(usr)
-	var/turf/T = get_turf(dest_object)
-	for(var/obj/item/I in contents)
-		remove_from_storage(I, T, usr)
-		I.pixel_x = rand(-8, 8)
-		I.pixel_y = rand(-8, 8)
+	for(var/obj/item/dropped_object in contents)
+		remove_from_storage(dropped_object, drop_turf, usr)
+		dropped_object.pixel_x = rand(-8, 8)
+		dropped_object.pixel_y = rand(-8, 8)
 
 ///Delete everything that's inside the storage
 /obj/item/storage/proc/delete_contents()
