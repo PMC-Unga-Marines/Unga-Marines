@@ -99,6 +99,11 @@
 	var/turf/marine_dropship_loc = pick(GLOB.xenoden_docking_ports_locs)
 	new /obj/docking_port/stationary/marine_dropship/lz_den(marine_dropship_loc)
 
+	//core
+	var/turf/T = pick(GLOB.xenoden_cores_locs)
+	new /obj/structure/xeno/core(T)
+	GLOB.xenoden_cores_locs -= T
+
 	#ifdef TESTING
 	marine_victory_point = points_to_win
 	xeno_victory_point = points_to_win
@@ -195,7 +200,7 @@
 		return
 
 	//Victory point
-	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor
+	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors + platinum_sensors)
 	if(marine_victory_point >= points_to_win && !can_hunt &&  !allow_hijack)
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
@@ -203,7 +208,7 @@
 				human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
 				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
 
-	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor
+	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor/ (phorone_sensors + platinum_sensors)
 	if(xeno_victory_point >= points_to_win && !allow_hijack && !can_hunt)
 		allow_hijack = TRUE
 		for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])

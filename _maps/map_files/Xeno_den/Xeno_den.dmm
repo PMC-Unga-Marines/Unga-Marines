@@ -37,6 +37,10 @@
 	},
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
+"j" = (
+/obj/effect/landmark/xenoden_core,
+/turf/open/floor/plating/ground/ice,
+/area/deltastation/asteroidcaves)
 "l" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
@@ -69,7 +73,7 @@
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/deltastation/asteroidcaves)
 "t" = (
-/obj/effect/landmark/lz_xenoden_docking_port,
+/obj/effect/landmark/xenoden_docking_port,
 /turf/open/floor/plating/ground/ice,
 /area/deltastation/asteroidcaves)
 "u" = (
@@ -129,7 +133,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "N" = (
-/obj/effect/landmark/lz_xenoden_docking_port,
+/obj/effect/landmark/xenoden_docking_port,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "O" = (
@@ -158,6 +162,10 @@
 /obj/structure/xeno/xeno_turret,
 /turf/open/floor/plating/ground/ice,
 /area/deltastation/asteroidcaves)
+"V" = (
+/obj/effect/landmark/xenoden_core,
+/turf/open/floor/plating/ground/ice,
+/area/icy_caves/caves/south)
 "W" = (
 /turf/closed/mineral/smooth/bluefrostwall/indestructible,
 /area/icy_caves/caves/south)
@@ -882,7 +890,7 @@ o
 o
 o
 o
-o
+V
 P
 P
 W
@@ -6954,7 +6962,7 @@ h
 h
 h
 h
-h
+j
 h
 h
 h
@@ -14561,7 +14569,7 @@ o
 o
 o
 o
-o
+V
 o
 o
 o

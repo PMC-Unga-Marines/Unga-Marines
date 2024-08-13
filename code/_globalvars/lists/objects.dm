@@ -10,6 +10,7 @@ GLOBAL_LIST_EMPTY(miner_phorone_locs)
 GLOBAL_LIST_EMPTY(miner_platinum_locs)
 
 GLOBAL_LIST_EMPTY(xenoden_docking_ports_locs)
+GLOBAL_LIST_EMPTY(xenoden_cores_locs)
 
 /proc/init_ammo_list()
 	. = list()

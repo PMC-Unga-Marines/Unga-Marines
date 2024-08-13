@@ -1,11 +1,11 @@
 /obj/structure/xeno/core
 	name = "Xeno mind core"
-	icon = 'icons/Xeno/resin_silo.dmi' // поменять потом
+	icon = 'icons/Xeno/resin_silo.dmi'
 	icon_state = "weed_silo"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	bound_width = 96
 	bound_height = 96
-	max_integrity = 1000
+	max_integrity = 5000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE
 
@@ -32,8 +32,6 @@
 		var/atom/movable/AM = i
 		AM.forceMove(get_step(center_turf, pick(CARDINAL_ALL_DIRS)))
 	center_turf = null
-	var/datum/game_mode/infestation/mode = SSticker.mode //make sure mode is points defence
-	mode.round_stage = INFESTATION_MARIN_RUSH_MAJOR
 	STOP_PROCESSING(SSslowprocess, src)
 	return ..()
 
@@ -78,9 +76,20 @@
 
 /obj/structure/xeno/core/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(GLOB.hive_datums[hivenumber])
-		GLOB.hive_datums[hivenumber].xeno_message("A xeno core has been destroyed at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE,src.loc, 'sound/voice/alien/help2.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
-		notify_ghosts("\ A resin silo has been destroyed at [AREACOORD_NO_Z(src)]!", source = get_turf(src), action = NOTIFY_JUMP)
+		GLOB.hive_datums[hivenumber].xeno_message("A xeno core has been destroyed at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, src.loc, 'sound/voice/alien/help2.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
+		notify_ghosts("\ A xeno core has been destroyed at [AREACOORD_NO_Z(src)]!", source = get_turf(src), action = NOTIFY_JUMP)
 		playsound(loc,'sound/effects/alien/egg_burst.ogg', 75)
+
+	if(length(GLOB.xenoden_cores_locs))
+		var/turf/T = pick(GLOB.xenoden_cores_locs)
+		new /obj/structure/xeno/core(T)
+		GLOB.xenoden_cores_locs -= T
+		if(GLOB.hive_datums[hivenumber])
+			GLOB.hive_datums[hivenumber].xeno_message("A new xeno core has been appeared at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, T.loc, null, FALSE, null, /atom/movable/screen/arrow/silo_damaged_arrow)
+	else
+		var/datum/game_mode/infestation/mode = SSticker.mode //make sure mode is points defence
+		mode.round_stage = INFESTATION_MARIN_RUSH_MAJOR
+
 	return ..()
 
 /obj/structure/xeno/core/proc/damage_alert()

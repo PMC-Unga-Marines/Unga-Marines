@@ -603,9 +603,19 @@
 	icon = 'icons/Marine/marine-navigation.dmi'
 	icon_state = "pinonfar"
 
-/obj/effect/landmark/xenoden_docking_port/Initialize()
+/obj/effect/landmark/xenoden_docking_port/Initialize(mapload)
 	..()
 	GLOB.xenoden_docking_ports_locs += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/xenoden_core
+	name = "xenoden docking port"
+	icon = 'icons/Xeno/resin_silo.dmi'
+	icon_state = "weed_silo"
+
+/obj/effect/landmark/xenoden_core/Initialize(mapload)
+	..()
+	GLOB.xenoden_cores_locs += loc
 	return INITIALIZE_HINT_QDEL
 
 /// Marks the bottom left of the testing zone.
