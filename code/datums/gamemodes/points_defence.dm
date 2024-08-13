@@ -233,7 +233,8 @@
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 			if(human.faction == FACTION_TERRAGOV)
 				human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
-				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
+				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end. Extra points awarded in cargo", /atom/movable/screen/text/screen_text/picture/potrait)
+				SSpoints.supply_points[FACTION_TERRAGOV] += 150
 
 	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor/ (phorone_sensors + platinum_sensors)
 	if(xeno_victory_point >= points_to_win && !allow_hijack && !can_hunt)
@@ -268,7 +269,7 @@
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
 			human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
-			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "Xeno den has been added to the Normandy, take off and destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
+			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "Xeno den has been added to the Normandy destonation, destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
 	round_stage = INFESTATION_MARINE_DEN_RUSH
 
 /datum/game_mode/infestation/distress/points_defence/proc/can_hunt()
