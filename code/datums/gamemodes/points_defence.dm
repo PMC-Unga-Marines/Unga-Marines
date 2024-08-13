@@ -1,5 +1,3 @@
-#define XENO_DEN_LEVEL_PATH "_maps/map_files/Xeno_den/Xeno_den.dmm"
-
 /datum/game_mode/infestation/distress/points_defence
 	name = "Points Defence"
 	config_tag = "Points Defence"
@@ -37,10 +35,6 @@
 	var/can_hunt = FALSE
 
 	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_TELETOWER|MODE_XENO_DEN
-
-/datum/game_mode/infestation/distress/points_defence/pre_setup()
-	. = ..()
-	load_new_z_level(XENO_DEN_LEVEL_PATH, "Xenoden", TRUE, list(ZTRAIT_GROUND = TRUE, ZTRAIT_XENO = TRUE))
 
 /datum/game_mode/infestation/distress/points_defence/post_setup()
 	. = ..()
