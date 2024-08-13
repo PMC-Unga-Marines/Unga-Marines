@@ -146,14 +146,6 @@
 "Q" = (
 /turf/closed/mineral/smooth/bluefrostwall/indestructible,
 /area/icy_caves/caves/east)
-"R" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating/ground/ice,
-/area/deltastation/asteroidcaves)
 "S" = (
 /obj/structure/xeno/xeno_turret,
 /turf/open/floor/plating/ground/ice,
@@ -6367,7 +6359,7 @@ h
 h
 h
 h
-R
+h
 h
 s
 s
@@ -6487,7 +6479,7 @@ h
 h
 h
 h
-R
+h
 h
 s
 s
