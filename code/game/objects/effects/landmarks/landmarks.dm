@@ -618,6 +618,37 @@
 	GLOB.xenoden_cores_locs += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/sensor_tower_infestation_ground
+	name = "sensor ground tower infestation mark"
+	icon = 'icons/obj/structures/sensor.dmi'
+	icon_state = "sensor"
+
+/obj/effect/landmark/sensor_towers_infestation_ground/Initialize(mapload)
+	..()
+	GLOB.sensor_towers_infestation_ground += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/sensor_tower_infestation_caves
+	name = "sensor cave tower infestation mark"
+	icon = 'icons/obj/structures/sensor.dmi'
+	icon_state = "sensor"
+
+/obj/effect/landmark/sensor_tower_infestation_caves/Initialize(mapload)
+	..()
+	GLOB.sensor_towers_infestation_caves += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/tower_relay
+	name = "tower relay mark"
+	icon = 'icons/obj/structures/comm_tower2.dmi'
+	icon_state = "comm_tower"
+
+/obj/effect/landmark/tower_relay/Initialize(mapload)
+	..()
+	GLOB.tower_relay_locs += loc
+	return INITIALIZE_HINT_QDEL
+
+
 /// Marks the bottom left of the testing zone.
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
 /obj/effect/landmark/unit_test_bottom_left

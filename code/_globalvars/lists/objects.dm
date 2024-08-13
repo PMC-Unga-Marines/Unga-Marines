@@ -9,6 +9,11 @@ GLOBAL_LIST_EMPTY(miners_platinum)
 GLOBAL_LIST_EMPTY(miner_phorone_locs)
 GLOBAL_LIST_EMPTY(miner_platinum_locs)
 
+GLOBAL_LIST_EMPTY(sensor_towers_infestation_ground)
+GLOBAL_LIST_EMPTY(sensor_towers_infestation_caves)
+
+GLOBAL_LIST_EMPTY(tower_relay_locs)
+
 GLOBAL_LIST_EMPTY(xenoden_docking_ports_locs)
 GLOBAL_LIST_EMPTY(xenoden_cores_locs)
 

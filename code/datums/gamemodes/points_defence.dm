@@ -95,6 +95,27 @@
 		new /obj/machinery/telecomms/relay/preset/tower(T)
 		GLOB.miner_phorone_locs -= T
 
+	/* татарла мапит
+
+	// /obj/effect/landmark/sensor_tower_infestation_ground
+
+	for(var/i in 1 to sensor_towers_infestation_ground)
+		var/turf/T = pick(GLOB.sensor_towers_infestation_ground)
+		new /obj/structure/sensor_tower_infestation(T)
+		GLOB.sensor_towers_infestation_ground -= T
+
+	// /obj/effect/landmark/sensor_tower_infestation_caves
+
+	for(var/i in 1 to sensor_towers_infestation_caves)
+		var/turf/T = pick(GLOB.sensor_towers_infestation_caves)
+		new /obj/structure/sensor_tower_infestation(T)
+		GLOB.sensor_towers_infestation_caves -= T
+
+	// /obj/effect/landmark/tower_relay
+
+	new /obj/machinery/telecomms/relay/preset/tower(pick(GLOB.tower_relay_locs))
+	*/
+
 	//xenoden landing zone
 	var/turf/marine_dropship_loc = pick(GLOB.xenoden_docking_ports_locs)
 	new /obj/docking_port/stationary/marine_dropship/lz_den(marine_dropship_loc)
