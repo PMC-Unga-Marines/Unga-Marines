@@ -5919,7 +5919,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "dqV" = (
-/obj/structure/window/reinforced/extratoughened,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/living/numbertwobunks)
@@ -23095,12 +23094,6 @@
 	},
 /turf/open/floor/prison/marked,
 /area/mainship/squads/req)
-"nLU" = (
-/obj/structure/window/reinforced/extratoughened{
-	dir = 4
-	},
-/turf/open/floor/mainship/tcomms,
-/area/mainship/living/numbertwobunks)
 "nMi" = (
 /obj/effect/turf_decal/siding/metal/corner,
 /turf/open/floor/mainship/metal,
@@ -23962,6 +23955,16 @@
 "okm" = (
 /obj/effect/landmark/start/job/ai,
 /obj/machinery/floor_warn_light/self_destruct,
+/obj/structure/window/reinforced/extratoughened{
+	dir = 1
+	},
+/obj/structure/window/reinforced/extratoughened,
+/obj/structure/window/reinforced/extratoughened{
+	dir = 8
+	},
+/obj/structure/window/reinforced/extratoughened{
+	dir = 4
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/living/numbertwobunks)
 "oky" = (
@@ -24217,12 +24220,6 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/upper_medical)
-"osR" = (
-/obj/structure/window/reinforced/extratoughened{
-	dir = 8
-	},
-/turf/open/floor/mainship/tcomms,
-/area/mainship/living/numbertwobunks)
 "otu" = (
 /obj/machinery/firealarm{
 	dir = 8
@@ -24268,12 +24265,6 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/surgery_hallway)
-"ouy" = (
-/obj/structure/window/reinforced/extratoughened{
-	dir = 1
-	},
-/turf/open/floor/mainship/tcomms,
-/area/mainship/living/numbertwobunks)
 "ouH" = (
 /obj/machinery/vending/engivend,
 /obj/machinery/light/mainship{
@@ -73780,7 +73771,7 @@ xiO
 kWP
 qOp
 qOp
-nLU
+qOp
 qOp
 qOp
 xOs
@@ -74038,7 +74029,7 @@ usm
 qOp
 dqV
 okm
-ouy
+qOp
 pOe
 xOs
 uNB
@@ -74294,7 +74285,7 @@ xiO
 usm
 qOp
 qOp
-osR
+qOp
 qOp
 qOp
 xOs
