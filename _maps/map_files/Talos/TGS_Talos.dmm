@@ -15046,12 +15046,6 @@
 	dir = 10
 	},
 /area/space)
-"jid" = (
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = -25
-	},
-/turf/open/floor/plating/plating_catwalk/dark,
-/area/mainship/hallways/hangar)
 "jil" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -19602,10 +19596,6 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/prison,
 /area/mainship/squads/req)
-"lIM" = (
-/obj/item/radio/intercom/general,
-/turf/open/floor/plating/plating_catwalk/dark,
-/area/mainship/hallways/hangar)
 "lIS" = (
 /obj/structure/ladder{
 	height = 2;
@@ -22440,6 +22430,12 @@
 /obj/machinery/telecomms/server/presets/requisitions,
 /turf/open/floor/mainship/silver/full,
 /area/mainship/command/telecomms)
+"npi" = (
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = -25
+	},
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "npv" = (
 /obj/structure/table/black,
 /turf/open/floor/mainship/red/full,
@@ -22837,12 +22833,9 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/brig)
 "nCj" = (
-/obj/structure/largecrate/random/barrel,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
+/obj/item/radio/intercom/general,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "nCw" = (
 /obj/machinery/light/mainship/small{
 	dir = 1
@@ -25515,6 +25508,17 @@
 /obj/machinery/atmospherics/pipe/manifold4w/cyan/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
+"piP" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 5
+	},
+/obj/structure/cable,
+/obj/structure/largecrate/random/barrel,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "pja" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -71844,11 +71848,11 @@ pSr
 pSr
 ikp
 hXx
-jid
+npi
 qMe
 etc
 qMe
-lIM
+nCj
 hXx
 lLD
 lOm
@@ -71883,7 +71887,7 @@ pSR
 wnT
 gyt
 paH
-avX
+piP
 xFv
 dnv
 dnv
@@ -72396,7 +72400,7 @@ prI
 xIF
 eba
 naE
-nCj
+uOG
 aye
 gJe
 gJe
