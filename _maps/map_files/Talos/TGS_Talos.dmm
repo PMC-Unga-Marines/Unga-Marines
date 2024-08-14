@@ -2881,6 +2881,10 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
+"bGI" = (
+/obj/item/radio/intercom/general,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "bHF" = (
 /obj/item/clothing/head/warning_cone,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -7209,9 +7213,6 @@
 	pixel_y = -19;
 	pixel_x = -8
 	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = -25
-	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "ehP" = (
@@ -8525,9 +8526,6 @@
 	dir = 1;
 	pixel_y = -19;
 	pixel_x = -8
-	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = -25
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
@@ -16298,14 +16296,7 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
-	},
+/obj/item/radio/intercom/general,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "jWC" = (
@@ -16956,10 +16947,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "kqo" = (
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
@@ -20564,10 +20551,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
@@ -25480,6 +25463,12 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
+"phW" = (
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = -25
+	},
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "phY" = (
 /obj/structure/largecrate/random/barrel,
 /obj/machinery/light/mainship{
@@ -33529,6 +33518,9 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = -25
+	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "uge" = (
@@ -71852,11 +71844,11 @@ pSr
 pSr
 ikp
 hXx
-hXx
+phW
 qMe
 etc
 qMe
-kqo
+bGI
 hXx
 lLD
 lOm
