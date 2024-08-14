@@ -1215,6 +1215,11 @@
 /obj/effect/turf_decal/woodsiding,
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/effect/spawner/random/clothing/hats,
+/obj/item/clothing/tie/red,
+/obj/item/weapon/cane,
+/obj/item/storage/briefcase,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
 "aCk" = (
@@ -33963,15 +33968,10 @@
 /area/mainship/shipboard/ex_firing_range)
 "uty" = (
 /obj/structure/table/fancywoodentable,
-/obj/item/reagent_containers/food/drinks/flask/barflask,
-/obj/item/storage/briefcase,
 /obj/item/megaphone,
-/obj/item/clothing/tie/red,
-/obj/item/weapon/cane,
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
-/obj/effect/spawner/random/clothing/hats,
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
 "utP" = (
