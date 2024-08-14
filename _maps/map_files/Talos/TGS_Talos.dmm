@@ -2881,10 +2881,6 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
-"bGI" = (
-/obj/item/radio/intercom/general,
-/turf/open/floor/plating/plating_catwalk/dark,
-/area/mainship/hallways/hangar)
 "bHF" = (
 /obj/item/clothing/head/warning_cone,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -7563,17 +7559,13 @@
 /area/mainship/living/grunt_rnr)
 "eqR" = (
 /obj/structure/rack,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "eqT" = (
@@ -15054,6 +15046,12 @@
 	dir = 10
 	},
 /area/space)
+"jid" = (
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = -25
+	},
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "jil" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -16025,10 +16023,11 @@
 "jQj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /obj/structure/ob_ammo/ob_fuel,
 /obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
@@ -19603,6 +19602,10 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/prison,
 /area/mainship/squads/req)
+"lIM" = (
+/obj/item/radio/intercom/general,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "lIS" = (
 /obj/structure/ladder{
 	height = 2;
@@ -25463,12 +25466,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
-"phW" = (
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = -25
-	},
-/turf/open/floor/plating/plating_catwalk/dark,
-/area/mainship/hallways/hangar)
 "phY" = (
 /obj/structure/largecrate/random/barrel,
 /obj/machinery/light/mainship{
@@ -25656,10 +25653,13 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "pnQ" = (
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/structure/rack,
 /obj/machinery/light/mainship/small,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "pnY" = (
@@ -38294,12 +38294,12 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/bow_hallway)
 "xgx" = (
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/structure/rack,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "xhd" = (
@@ -71844,11 +71844,11 @@ pSr
 pSr
 ikp
 hXx
-phW
+jid
 qMe
 etc
 qMe
-bGI
+lIM
 hXx
 lLD
 lOm
