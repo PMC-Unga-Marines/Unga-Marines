@@ -41,9 +41,10 @@
 	handful_icon_state = "crude sniper bullet"
 	hud_state = "sniper_crude"
 	handful_amount = 5
-	damage = 75
+	damage = 70
 	penetration = 35
-	sundering = 15
+	sundering = 0
+	additional_xeno_penetration = 25
 
 /datum/ammo/bullet/sniper/martini
 	name = "crude heavy sniper bullet"
@@ -73,9 +74,9 @@
 	name = "high caliber rifle bullet"
 	hud_state = "sniper_heavy"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
-	damage = 80
+	damage = 70
 	penetration = 30
-	sundering = 7.5
+	additional_xeno_penetration = 20
 	damage_falloff = 0.25
 
 /datum/ammo/bullet/sniper/pfc/flak
@@ -84,6 +85,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 40
 	penetration = 10
+	additional_xeno_penetration = 0
 	sundering = 10
 	damage_falloff = 0.25
 
