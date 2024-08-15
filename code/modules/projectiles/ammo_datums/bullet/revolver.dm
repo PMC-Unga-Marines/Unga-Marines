@@ -4,9 +4,9 @@
 	hud_state_empty = "revolver_empty"
 	handful_amount = 7
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 45
+	damage = 40
 	penetration = 10
-	sundering = 3
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/revolver/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, stagger = 2 SECONDS, slowdown = 0.5, knockback = 1)
@@ -15,9 +15,9 @@
 	name = ".44 Long Special bullet"
 	hud_state = "revolver_impact"
 	handful_amount = 8
-	damage = 60
+	damage = 55
 	penetration = 30
-	sundering = 3
+	additional_xeno_penetration = 10
 	damage_falloff = 0
 	shell_speed = 3.5
 
@@ -28,7 +28,6 @@
 	handful_amount = 5
 	damage = 100
 	penetration = 40
-	sundering = 0.5
 
 /datum/ammo/bullet/revolver/t500/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 1)
@@ -40,7 +39,6 @@
 	handful_amount = 5
 	damage = 100
 	penetration = 40
-	sundering = 0
 
 /datum/ammo/bullet/revolver/t500/qk/on_hit_mob(mob/M,obj/projectile/P)
 	if(isxenoqueen(M))
@@ -53,9 +51,9 @@
 
 /datum/ammo/bullet/revolver/tp44
 	name = "standard revolver bullet"
-	damage = 40
+	damage = 35
 	penetration = 15
-	sundering = 1
+	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/revolver/tp44/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, knockback = 1)
@@ -75,8 +73,9 @@
 	damage_falloff = 0
 	accuracy = 15
 	accurate_range = 15
-	damage = 30
+	damage = 25
 	penetration = 10
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/revolver/judge
 	name = "oversized revolver bullet"
@@ -85,22 +84,23 @@
 	damage_falloff = 0
 	accuracy = 15
 	accurate_range = 15
-	damage = 70
+	damage = 60
 	penetration = 10
+	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/revolver/heavy
 	name = "heavy revolver bullet"
 	hud_state = "revolver_heavy"
-	damage = 50
+	damage = 42.5
 	penetration = 5
 	accuracy = -10
+	additional_xeno_penetration = 17.5
 
 /datum/ammo/bullet/revolver/t76
 	name = "magnum bullet"
 	handful_amount = 5
 	damage = 100
 	penetration = 40
-	sundering = 0.5
 
 /datum/ammo/bullet/revolver/t76/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, knockback = 1)
@@ -109,9 +109,9 @@
 	name = "high-impact revolver bullet"
 	hud_state = "revolver_impact"
 	handful_amount = 6
-	damage = 50
+	damage = 45
 	penetration = 20
-	sundering = 3
+	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/revolver/highimpact/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, slowdown = 1, knockback = 1)
