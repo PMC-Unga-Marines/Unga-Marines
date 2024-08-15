@@ -5,10 +5,10 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy_var_low = 7
 	accuracy_var_high = 7
-	damage = 20
+	damage = 17
 	accurate_range = 4
 	damage_falloff = 1
-	sundering = 0.5
+	additional_xeno_penetration = 10
 	penetration = 5
 
 /datum/ammo/bullet/smg/ap
@@ -16,7 +16,7 @@
 	hud_state = "smg_ap"
 	damage = 15
 	penetration = 30
-	sundering = 3
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/smg/acp
 	name = "submachinegun ACP bullet"
