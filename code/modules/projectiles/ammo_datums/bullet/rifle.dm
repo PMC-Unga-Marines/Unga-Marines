@@ -36,16 +36,16 @@
 	hud_state_empty = "smartgun_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 20
-	damage = 20
+	damage = 17.5
 	penetration = 10
-	sundering = 1.5
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/rifle/hv
 	name = "high-velocity rifle bullet"
 	hud_state = "hivelo"
 	damage = 20
 	penetration = 20
-	sundering = 1.25
+	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/rifle/heavy
 	name = "heavy rifle bullet"
@@ -80,7 +80,7 @@
 	hud_state = "sniper"
 	damage = 70
 	penetration = 20
-	sundering = 1.25
+	additional_xeno_penetration = 2.5
 
 /datum/ammo/bullet/rifle/repeater/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, max_range = 3, slowdown = 2, stagger = 1 SECONDS)
@@ -96,16 +96,16 @@
 /datum/ammo/bullet/rifle/machinegun
 	name = "machinegun bullet"
 	hud_state = "rifle_heavy"
-	damage = 25
+	damage = 20
 	penetration = 10
-	sundering = 0.75
+	additional_xeno_penetration = 12.5
 
 /datum/ammo/bullet/rifle/som_machinegun
 	name = "machinegun bullet"
 	hud_state = "rifle_heavy"
-	damage = 28
+	damage = 25
 	penetration = 12.5
-	sundering = 1
+	additional_xeno_penetration = 12.5
 
 /datum/ammo/bullet/rifle/som_machinegun/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, max_range = 20, slowdown = 0.5)
@@ -117,9 +117,9 @@
 	damage_falloff = 0
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 15
-	damage = 40
+	damage = 35
 	penetration = 20
-	sundering = 10
+	additional_xeno_penetration = 40
 	bullet_color = COLOR_SOFT_RED
 
 /datum/ammo/bullet/rifle/tx8/incendiary
@@ -128,7 +128,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_PASS_THROUGH_MOB
 	damage = 25
 	penetration = 20
-	sundering = 2.5
+	additional_xeno_penetration = 15
 	bullet_color = LIGHT_COLOR_FIRE
 
 /datum/ammo/bullet/rifle/tx8/impact
@@ -136,7 +136,7 @@
 	hud_state = "hivelo_impact"
 	damage = 30
 	penetration = 10
-	sundering = 12.5
+	additional_xeno_penetration = 45
 
 /datum/ammo/bullet/rifle/tx8/impact/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, max_range = 14, slowdown = 1, knockback = 1)
@@ -147,7 +147,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	damage = 30
 	penetration = 15
-	sundering = 1.75
+	additional_xeno_penetration = 12.5
 
 /datum/ammo/bullet/rifle/standard_dmr
 	name = "marksman bullet"
@@ -158,16 +158,16 @@
 	accurate_range = 25
 	accurate_range_min = 6
 	max_range = 40
-	damage = 65
+	damage = 60
 	penetration = 15
-	sundering = 2
+	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/rifle/garand
 	name = "heavy marksman bullet"
 	hud_state = "sniper"
-	damage = 75
+	damage = 70
 	penetration = 25
-	sundering = 1.25
+	additional_xeno_penetration = 5
 
 /datum/ammo/bullet/rifle/standard_br
 	name = "light marksman bullet"
@@ -175,21 +175,21 @@
 	hud_state_empty = "hivelo_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	penetration = 15
-	damage = 32.5
-	sundering = 1.25
+	damage = 30
+	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/rifle/standard_br/ap
 	name = "light marksman armor piercing bullet"
 	penetration = 25
-	damage = 27.5
-	sundering = 3.25
+	damage = 25
+	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/rifle/icc_confrontationrifle
 	name = "armor-piercing heavy rifle bullet"
 	hud_state = "rifle_ap"
 	damage = 50
 	penetration = 40
-	sundering = 3.5
+	additional_xeno_penetration = 12.5
 
 /datum/ammo/bullet/smarttargetrifle
 	name = "smart marksman bullet"
@@ -200,7 +200,7 @@
 	damage = 40
 	max_range = 40
 	penetration = 30
-	sundering = 3
+	additional_xeno_penetration = 12.5
 	shell_speed = 4
 	damage_falloff = 0.5
 	accurate_range = 25
