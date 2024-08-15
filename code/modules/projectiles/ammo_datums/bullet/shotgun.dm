@@ -10,9 +10,9 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	shell_speed = 3
 	max_range = 15
-	damage = 100
+	damage = 85
 	penetration = 20
-	sundering = 7.5
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/shotgun/slug/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
@@ -40,7 +40,6 @@
 	max_range = 10
 	damage = 100
 	penetration = 15
-	sundering = 0
 	bullet_color = COLOR_TAN_ORANGE
 
 /datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/M, obj/projectile/P)
@@ -58,15 +57,15 @@
 	accuracy_var_low = 8
 	accuracy_var_high = 8
 	max_range = 15
-	damage = 50
+	damage = 45
 	damage_falloff = 0.5
 	penetration = 15
-	sundering = 7
+	additional_xeno_penetration = 30
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread
 	name = "additional flechette"
-	damage = 40
-	sundering = 5
+	damage = 35
+	additional_xeno_penetration = 30
 
 /datum/ammo/bullet/shotgun/buckshot
 	name = "shotgun buckshot shell"
@@ -187,10 +186,11 @@
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 2
 	max_range = 15
-	damage = 17
+	damage = 16
 	damage_falloff = 0.25
 	penetration = 15
 	sundering = 1.5
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/shotgun/tx15_flechette/spread
 	name = "additional flechette"
@@ -204,7 +204,7 @@
 	max_range = 15
 	damage = 60
 	penetration = 30
-	sundering = 3.5
+	additional_xeno_penetration = 5
 
 /datum/ammo/bullet/shotgun/tx15_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 2, knockback = 1)
@@ -237,7 +237,7 @@
 	max_range = 30
 	damage = 50
 	penetration = 40
-	sundering = 3
+	additional_xeno_penetration = 2.5
 
 /datum/ammo/bullet/shotgun/mbx900_tracker
 	name = "light shotgun tracker round"
@@ -278,7 +278,6 @@
 	accurate_range = 4
 	max_range = 10
 	damage = 40
-	sundering = 2
 	damage_falloff = 4
 
 /datum/ammo/bullet/shotgun/buckshot/shq6/on_hit_mob(mob/M,obj/projectile/P)
@@ -291,9 +290,9 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	shell_speed = 3
 	max_range = 15
-	damage = 100
+	damage = 85
 	penetration = 30
-	sundering = 3
+	additional_xeno_penetration = 10
 	damage_falloff = 3
 
 /datum/ammo/bullet/shotgun/slug/shq6/on_hit_mob(mob/M,obj/projectile/P)
@@ -308,7 +307,6 @@
 	max_range = 15
 	damage = 70
 	penetration = 15
-	sundering = 1
 	bullet_color = COLOR_TAN_ORANGE
 
 /datum/ammo/bullet/shotgun/incendiary/shq6/on_hit_mob(mob/M, obj/projectile/P)
@@ -329,11 +327,9 @@
 	damage = 50
 	damage_falloff = 3
 	penetration = 40
-	sundering = 4
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread/shq6
 	name = "additional flechette"
 	damage = 40
 	penetration = 40
-	sundering = 2
 	damage_falloff = 3
