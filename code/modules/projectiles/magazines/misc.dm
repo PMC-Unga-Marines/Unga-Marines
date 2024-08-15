@@ -64,6 +64,7 @@
 	desc = "A box containing 125 rounds of 10x25mm caseless."
 	caliber = CALIBER_10X25_CASELESS
 	icon_state = "box_10x25mm"
+	ammo_band_icon = "box_10x25mm_band"
 	default_ammo = /datum/ammo/bullet/rifle/heavy
 	current_rounds = 125
 	max_rounds = 125
