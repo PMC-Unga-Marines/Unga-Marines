@@ -14,7 +14,7 @@
 	create_handful(user)
 
 /obj/item/ammo_magazine/packet/p10x24mm
-	name = "box of 10x24mm"
+	name = "box of 10x24mm FMJ"
 	desc = "A box containing 150 rounds of 10x24mm caseless."
 	caliber = CALIBER_10X24_CASELESS
 	icon_state = "box_10x24mm"
@@ -60,7 +60,7 @@
 	max_rounds = 100
 
 /obj/item/ammo_magazine/packet/p10x25mm
-	name = "box of 10x25mm"
+	name = "box of 10x25mm FMJ"
 	desc = "A box containing 125 rounds of 10x25mm caseless."
 	caliber = CALIBER_10X25_CASELESS
 	icon_state = "box_10x25mm"
@@ -172,7 +172,21 @@
 	name = "packet of 9mm AP"
 	desc = "A packet containing 70 rounds of 9mm armor-piercing."
 	icon_state = "box_9mmap"
+	ammo_band_icon = "box_9mmap_band"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/pistol/ap
+	w_class = WEIGHT_CLASS_SMALL
+	caliber = CALIBER_9X19
+	current_rounds = 70
+	max_rounds = 70
+
+/obj/item/ammo_magazine/packet/p9mmhp
+	name = "packet of 9mm HP"
+	desc = "A packet containing 70 rounds of 9mm hollow-point."
+	icon_state = "box_9mmap"
+	ammo_band_icon = "box_9mmap_band"
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	default_ammo = /datum/ammo/bullet/pistol/hp
 	w_class = WEIGHT_CLASS_SMALL
 	caliber = CALIBER_9X19
 	current_rounds = 70
@@ -278,37 +292,37 @@
 	used_casings = 5
 
 /obj/item/ammo_magazine/packet/p10x24mm/ap
-	name = "box of armor piercing 10x24mm"
+	name = "box of 10x24mm AP"
 	desc = "A box containing 150 armor piercing rounds of 10x24mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
 /obj/item/ammo_magazine/packet/p10x24mm/hp
-	name = "box of hollow-point 10x24mm"
+	name = "box of 10x24mm HP"
 	desc = "A box containing 150 hollow-point rounds of 10x24mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
 /obj/item/ammo_magazine/packet/p10x24mm/sabot
-	name = "box of APDS 10x24mm"
+	name = "box of 10x24mm APDS"
 	desc = "A box containing 150 APDS rounds of 10x24mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/sabot
 
 /obj/item/ammo_magazine/packet/p10x25mm/ap
-	name = "box of  armor piercing 10x25mm"
+	name = "box of 10x25mm AP"
 	desc = "A box containing 125 armor piercing rounds of 10x25mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
 
 /obj/item/ammo_magazine/packet/p10x25mm/hp
-	name = "box of hollow-point 10x25mm"
+	name = "box of 10x25mm HP"
 	desc = "A box containing 125 hollow-point rounds of 10x25mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
 
 /obj/item/ammo_magazine/packet/p10x25mm/sabot
-	name = "box of APDS 10x25mm"
+	name = "box of 10x25mm APDS"
 	desc = "A box containing 125 APDS rounds of 10x25mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot

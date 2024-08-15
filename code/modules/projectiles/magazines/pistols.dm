@@ -184,7 +184,19 @@
 	caliber = CALIBER_9X19
 	icon_state = "88m4"
 	icon_state_mini = "mag_pistol"
+	ammo_band_icon = "88m4_band"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 	max_rounds = 18
+
+/obj/item/ammo_magazine/pistol/vp70/hp
+	name = "\improper 88M4 HP magazine (9mm)"
+	default_ammo = /datum/ammo/bullet/pistol/hp
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+
+/obj/item/ammo_magazine/pistol/vp70/sabot
+	name = "\improper 88M4 APDS magazine (9mm)"
+	default_ammo = /datum/ammo/bullet/pistol/sabot
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
 
 //-------------------------------------------------------
 //VP78

@@ -798,6 +798,12 @@ WEAPONS
 	cost = 20 //40 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
+/datum/supply_packs/weapons/MK88_sabot
+	name = "MK88 APDS magazine"
+	contains = list(/datum/ammo/bullet/pistol/sabot)
+	cost = 9 //18 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/weapons/ammo_magazine/vector
 	name = "Vector drum magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector)

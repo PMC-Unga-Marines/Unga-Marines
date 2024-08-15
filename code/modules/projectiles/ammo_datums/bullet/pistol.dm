@@ -47,9 +47,24 @@
 /datum/ammo/bullet/pistol/ap
 	name = "armor-piercing pistol bullet"
 	hud_state = "pistol_ap"
-	damage = 20
+	damage = 15
 	penetration = 12.5
 	shrapnel_chance = 15
+	additional_xeno_penetration = 12.5
+
+/datum/ammo/bullet/pistol/hp
+	name = "hollow-point pistol bullet"
+	hud_state = "pistol_hollow"
+	damage = 37.5
+	penetration = 0
+	additional_xeno_penetration = -15
+
+/datum/ammo/bullet/pistol/sabot
+	name = "APDS pistol bullet"
+	hud_state = "pistol_ap"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
+	damage = 15
+	penetration = 5
 	sundering = 0.5
 
 /datum/ammo/bullet/pistol/heavy
