@@ -3,24 +3,24 @@
 	hud_state = "pistol"
 	hud_state_empty = "pistol_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 20
+	damage = 15
 	penetration = 5
 	accurate_range = 5
-	sundering = 1
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/pistol/tiny
 	name = "light pistol bullet"
 	hud_state = "pistol_light"
-	damage = 15
+	damage = 12
 	penetration = 5
-	sundering = 0.5
+	additional_xeno_penetration = 17.5
 
 /datum/ammo/bullet/pistol/tiny/ap
 	name = "light pistol bullet"
 	hud_state = "pistol_lightap"
-	damage = 22.5
+	damage = 20
 	penetration = 15 //So it can actually hurt something.
-	sundering = 0.5
+	additional_xeno_penetration = 7.5
 	damage_falloff = 1.5
 
 /datum/ammo/bullet/pistol/tranq
@@ -37,9 +37,10 @@
 /datum/ammo/bullet/pistol/hollow
 	name = "hollowpoint pistol bullet"
 	hud_state = "pistol_hollow"
+	damage = 12.5
 	accuracy = -10
 	shrapnel_chance = 45
-	sundering = 2
+	additional_xeno_penetration = 30
 
 /datum/ammo/bullet/pistol/hollow/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, stagger = 2 SECONDS, slowdown = 0.5, knockback = 1)
@@ -70,17 +71,17 @@
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
 	hud_state = "pistol_heavy"
-	damage = 30
+	damage = 25
 	penetration = 5
 	shrapnel_chance = 25
-	sundering = 2.15
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/pistol/superheavy
 	name = "high impact pistol bullet"
 	hud_state = "pistol_superheavy"
 	damage = 45
 	penetration = 15
-	sundering = 3
+	additional_xeno_penetration = 10
 	damage_falloff = 0.75
 
 /datum/ammo/bullet/pistol/superheavy/on_hit_mob(mob/M,obj/projectile/P)
@@ -105,10 +106,10 @@
 	name = "squash-head pistol bullet"
 	hud_state = "pistol_squash"
 	accuracy = 5
-	damage = 32
+	damage = 26
 	penetration = 10
 	shrapnel_chance = 25
-	sundering = 2
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/pistol/mankey
 	name = "live monkey"
