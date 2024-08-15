@@ -699,6 +699,7 @@
 		/obj/item/ammo_magazine/smg/vector/ap,
 		/obj/item/ammo_magazine/smg/vector/hp,
 		/obj/item/ammo_magazine/smg/vector/sabot,
+		/obj/item/ammo_magazine/smg/vector/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,

@@ -52,6 +52,7 @@
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
 		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
+		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
 		)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t18stock,
@@ -146,6 +147,7 @@
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t12stock,
@@ -1708,6 +1710,7 @@
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot,
+		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -1954,6 +1957,7 @@
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
 		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
+		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,

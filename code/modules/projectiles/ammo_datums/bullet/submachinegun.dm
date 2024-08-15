@@ -44,6 +44,16 @@
 	penetration = 20
 	additional_xeno_penetration = 20
 
+/datum/ammo/bullet/smg/acp/incendiary
+	name = "incendiary submachinegun ACP bullet"
+	hud_state = "smg_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	incendiary_strength = 1
+	damage_type = BURN
+	damage = 10
+	penetration = 0
+	additional_xeno_penetration = 0
+
 /datum/ammo/bullet/smg/acp/sabot
 	name = "APDS submachinegun ACP bullet"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF

@@ -21,6 +21,15 @@
 	penetration = 25
 	additional_xeno_penetration = 25
 
+/datum/ammo/bullet/rifle/incendiary
+	name = "incendiary rifle bullet"
+	hud_state = "rifle_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	incendiary_strength = 1
+	damage_type = BURN
+	damage = 15
+	penetration = 0
+
 /datum/ammo/bullet/rifle/sabot
 	name = "APDS rifle bullet"
 	hud_state = "rifle_ap"
@@ -66,6 +75,16 @@
 	damage = 25
 	penetration = 25
 	additional_xeno_penetration = 20
+
+/datum/ammo/bullet/rifle/heavy/incendiary
+	name = "incendiaryg heavy rifle bullet"
+	hud_state = "rifle_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	incendiary_strength = 1
+	damage_type = BURN
+	damage = 20
+	penetration = 0
+	additional_xeno_penetration = 0
 
 /datum/ammo/bullet/rifle/heavy/sabot
 	name = "APDS heavy rifle bullet"

@@ -172,7 +172,7 @@
 	name = "packet of 9mm AP"
 	desc = "A packet containing 70 rounds of 9mm armor-piercing."
 	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mmap_band"
+	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/pistol/ap
 	w_class = WEIGHT_CLASS_SMALL
@@ -184,9 +184,33 @@
 	name = "packet of 9mm HP"
 	desc = "A packet containing 70 rounds of 9mm hollow-point."
 	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mmap_band"
+	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/pistol/hp
+	w_class = WEIGHT_CLASS_SMALL
+	caliber = CALIBER_9X19
+	current_rounds = 70
+	max_rounds = 70
+
+/obj/item/ammo_magazine/packet/p9mmsabot
+	name = "packet of 9mm APDS"
+	desc = "A packet containing 70 rounds of 9mm APDS."
+	icon_state = "box_9mmap"
+	ammo_band_icon = "box_9mm_band"
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/pistol/sabot
+	w_class = WEIGHT_CLASS_SMALL
+	caliber = CALIBER_9X19
+	current_rounds = 70
+	max_rounds = 70
+
+/obj/item/ammo_magazine/packet/p9mmincendiary
+	name = "packet of 9mm APDS"
+	desc = "A packet containing 70 rounds of 9mm APDS."
+	icon_state = "box_9mmap"
+	ammo_band_icon = "box_9mmap_band"
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+	default_ammo = /datum/ammo/bullet/pistol/incendiary
 	w_class = WEIGHT_CLASS_SMALL
 	caliber = CALIBER_9X19
 	current_rounds = 70
@@ -297,6 +321,12 @@
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
+/obj/item/ammo_magazine/packet/p10x24mm/incendiary
+	name = "box of 10x24mm incendiary"
+	desc = "A box containing 150 incendiary rounds of 10x24mm caseless."
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+	default_ammo = /datum/ammo/bullet/rifle/incendiary
+
 /obj/item/ammo_magazine/packet/p10x24mm/hp
 	name = "box of 10x24mm HP"
 	desc = "A box containing 150 hollow-point rounds of 10x24mm caseless."
@@ -326,6 +356,12 @@
 	desc = "A box containing 125 APDS rounds of 10x25mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot
+
+/obj/item/ammo_magazine/packet/p10x25mm/incendiary
+	name = "box of 10x25mm incendiary"
+	desc = "A box containing 125 incendiary rounds of 10x25mm caseless."
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
 
 /obj/item/ammo_magazine/packet/p10x265mm/ap
 	desc = "A box containing 100 armor piercing rounds of 10x26.5mm caseless."

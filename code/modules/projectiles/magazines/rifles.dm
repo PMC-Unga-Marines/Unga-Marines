@@ -678,6 +678,12 @@
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
+/obj/item/ammo_magazine/rifle/standard_carbine/incendiary
+	name = "\improper AR-18 incendiary magazine (10x24mm)"
+	desc = "A 10mm incendiary carbine magazine."
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+	default_ammo = /datum/ammo/bullet/rifle/incendiary
+
 /obj/item/ammo_magazine/rifle/standard_carbine/hp
 	name = "\improper AR-18 HP magazine (10x24mm)"
 	desc = "A 10mm hollow-point  carbine magazine."
@@ -696,6 +702,12 @@
 	ammo_band_color = AMMO_BAND_COLOR_AP
 
 	default_ammo = /datum/ammo/bullet/rifle/ap
+
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary
+	name = "\improper AR-12 incendiary magazine (10x24mm)"
+	desc = "A 10mm incendiary assault rifle magazine."
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+	default_ammo = /datum/ammo/bullet/rifle/incendiary
 
 /obj/item/ammo_magazine/rifle/standard_assaultrifle/hp
 	name = "\improper AR-12 HP magazine (10x24mm)"
@@ -724,6 +736,12 @@
 	desc = "A magazine filled with 10x25mm armor piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
+
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary
+	name = "\improper AR-21 skirmish incendiary rifle magazine"
+	desc = "A magazine filled with 10x25mm incendiary  rifle rounds for the AR-21."
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
 
 /obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp
 	name = "\improper AR-21 skirmish HP rifle magazine"
