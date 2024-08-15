@@ -10,6 +10,7 @@
 	caliber = CALIBER_10X24_CASELESS
 	icon_state = "m412"
 	icon_state_mini = "mag_rifle"
+	ammo_band_icon = "t12_band"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 40
@@ -47,6 +48,7 @@
 	caliber = CALIBER_10X24_CASELESS
 	icon_state = "t18"
 	icon_state_mini = "mag_rifle_big"
+	ammo_band_icon = "t18_band"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 36
@@ -60,6 +62,7 @@
 	caliber = CALIBER_10X24_CASELESS
 	icon_state = "t12"
 	icon_state_mini = "mag_rifle_big"
+	ammo_band_icon = "t12_band"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 50
@@ -672,20 +675,39 @@
 /obj/item/ammo_magazine/rifle/standard_carbine/ap
 	name = "\improper AR-18 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing carbine magazine."
-	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "t18_ap"
-	//bonus_overlay = "t18_ap"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
-	max_rounds = 36
+
+/obj/item/ammo_magazine/rifle/standard_carbine/hp
+	name = "\improper AR-18 HP magazine (10x24mm)"
+	desc = "A 10mm hollow-point  carbine magazine."
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	default_ammo = /datum/ammo/bullet/rifle/hp
+
+/obj/item/ammo_magazine/rifle/standard_carbine/sabot
+	name = "\improper AR-18 APDS magazine (10x24mm)"
+	desc = "A 10mm APDS carbine magazine."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/rifle/sabot
 
 /obj/item/ammo_magazine/rifle/standard_assaultrifle/ap
 	name = "\improper AR-12 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing assault rifle magazine."
-	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "t12_ap"
-	//bonus_overlay = "t12_ap"
+	ammo_band_color = AMMO_BAND_COLOR_AP
+
 	default_ammo = /datum/ammo/bullet/rifle/ap
-	max_rounds = 50
+
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp
+	name = "\improper AR-12 HP magazine (10x24mm)"
+	desc = "A 10mm hollow-point assault rifle magazine."
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	default_ammo = /datum/ammo/bullet/rifle/hp
+
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot
+	name = "\improper AR-12 APDS magazine (10x24mm)"
+	desc = "A 10mm APDS assault rifle magazine."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/rifle/sabot
 
 /obj/item/ammo_magazine/rifle/standard_br/ap
 	name = "\improper BR-64 AP magazine (10x26.5mm)"

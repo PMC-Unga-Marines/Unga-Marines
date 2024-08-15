@@ -277,9 +277,21 @@
 
 /obj/item/ammo_magazine/packet/p10x24mm/ap
 	desc = "A box containing 150 armor piercing rounds of 10x24mm caseless."
-	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "box_10x24mm_ap"
+	ammo_band_color = AMMO_BAND_COLOR_AP
+	ammo_band_icon = "box_10x24mm_band"
 	default_ammo = /datum/ammo/bullet/rifle/ap
+
+/obj/item/ammo_magazine/packet/p10x24mm/hp
+	desc = "A box containing 150 hollow-point rounds of 10x24mm caseless."
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	ammo_band_icon = "box_10x24mm_band"
+	default_ammo = /datum/ammo/bullet/rifle/hp
+
+/obj/item/ammo_magazine/packet/p10x24mm/sabot
+	desc = "A box containing 150 APDS rounds of 10x24mm caseless."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	ammo_band_icon = "box_10x24mm_band"
+	default_ammo = /datum/ammo/bullet/rifle/sabot
 
 /obj/item/ammo_magazine/packet/p10x25mm/ap
 	desc = "A box containing 125 armor piercing rounds of 10x25mm caseless."

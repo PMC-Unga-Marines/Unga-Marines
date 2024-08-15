@@ -819,15 +819,15 @@ WEAPONS
 	cost = 25 //30 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t18_ap
-	name = "AR-18 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/ap)
+/datum/supply_packs/weapons/t18_sabot
+	name = "AR-18 APDS magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/sabot)
 	cost = 23 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t12_ap
-	name = "AR-12 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap)
+/datum/supply_packs/weapons/t12_sabot
+	name = "AR-12 APDS magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot)
 	cost = 29 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
@@ -843,9 +843,9 @@ WEAPONS
 	cost = 30 //60 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/box_10x24mm_ap
-	name = "10x24mm armor piercing ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/ap)
+/datum/supply_packs/weapons/box_10x24mm_sabot
+	name = "10x24mm APDS ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/sabot)
 	cost = 45 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 

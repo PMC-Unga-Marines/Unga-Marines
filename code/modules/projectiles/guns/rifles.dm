@@ -50,6 +50,8 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_carbine,
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
+		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
 		)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t18stock,
@@ -142,6 +144,8 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t12stock,
@@ -1946,6 +1950,8 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_carbine,
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
+		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,
