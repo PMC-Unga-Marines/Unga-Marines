@@ -2,7 +2,6 @@
 	name = "rifle bullet"
 	hud_state = "rifle"
 	hud_state_empty = "rifle_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
 	damage = 25
 	penetration = 5
@@ -53,13 +52,28 @@
 	hud_state = "rifle_heavy"
 	damage = 30
 	penetration = 10
-	sundering = 1.25
+	additional_xeno_penetration = 15
+
+/datum/ammo/bullet/rifle/heavy/hp
+	name = "hollow-point heavy rifle bullet"
+	hud_state = "rifle_heavy"
+	damage = 50
+	penetration = 0
+	additional_xeno_penetration = -15
 
 /datum/ammo/bullet/rifle/heavy/ap
-	name = "heavy rifle bullet"
+	name = "armor-piercing heavy rifle bullet"
 	damage = 25
 	penetration = 25
-	sundering = 3.5
+	additional_xeno_penetration = 20
+
+/datum/ammo/bullet/rifle/heavy/sabot
+	name = "APDS heavy rifle bullet"
+	hud_state = "rifle_heavy"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
+	damage = 20
+	penetration = 10
+	sundering = 1
 
 /datum/ammo/bullet/rifle/repeater
 	name = "heavy impact rifle bullet"

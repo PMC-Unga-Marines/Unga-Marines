@@ -18,6 +18,7 @@
 	desc = "A box containing 150 rounds of 10x24mm caseless."
 	caliber = CALIBER_10X24_CASELESS
 	icon_state = "box_10x24mm"
+	ammo_band_icon = "box_10x24mm_band"
 	default_ammo = /datum/ammo/bullet/rifle
 	current_rounds = 150
 	max_rounds = 150
@@ -276,28 +277,40 @@
 	used_casings = 5
 
 /obj/item/ammo_magazine/packet/p10x24mm/ap
+	name = "box of armor piercing 10x24mm"
 	desc = "A box containing 150 armor piercing rounds of 10x24mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_AP
-	ammo_band_icon = "box_10x24mm_band"
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
 /obj/item/ammo_magazine/packet/p10x24mm/hp
+	name = "box of hollow-point 10x24mm"
 	desc = "A box containing 150 hollow-point rounds of 10x24mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	ammo_band_icon = "box_10x24mm_band"
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
 /obj/item/ammo_magazine/packet/p10x24mm/sabot
+	name = "box of APDS 10x24mm"
 	desc = "A box containing 150 APDS rounds of 10x24mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	ammo_band_icon = "box_10x24mm_band"
 	default_ammo = /datum/ammo/bullet/rifle/sabot
 
 /obj/item/ammo_magazine/packet/p10x25mm/ap
+	name = "box of  armor piercing 10x25mm"
 	desc = "A box containing 125 armor piercing rounds of 10x25mm caseless."
-	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "box_10x25mm_ap"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
+
+/obj/item/ammo_magazine/packet/p10x25mm/hp
+	name = "box of hollow-point 10x25mm"
+	desc = "A box containing 125 hollow-point rounds of 10x25mm caseless."
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
+
+/obj/item/ammo_magazine/packet/p10x25mm/sabot
+	name = "box of APDS 10x25mm"
+	desc = "A box containing 125 APDS rounds of 10x25mm caseless."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot
 
 /obj/item/ammo_magazine/packet/p10x265mm/ap
 	desc = "A box containing 100 armor piercing rounds of 10x26.5mm caseless."

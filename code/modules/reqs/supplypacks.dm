@@ -870,9 +870,9 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)
 	cost = 60
 
-/datum/supply_packs/weapons/box_10x25mm_ap
-	name = "10x25mm armor piercing ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/ap)
+/datum/supply_packs/weapons/box_10x25mm_sabot
+	name = "10x25mm APDS ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/sabot)
 	cost = 50 //125 rounds
 	containertype = /obj/structure/closet/crate/ammo
 

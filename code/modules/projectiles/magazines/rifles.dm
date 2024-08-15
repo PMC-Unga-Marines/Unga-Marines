@@ -425,6 +425,7 @@
 	caliber = CALIBER_10X25_CASELESS
 	icon_state = "t21"
 	icon_state_mini = "mag_rifle"
+	ammo_band_icon = "t21_band"
 	default_ammo = /datum/ammo/bullet/rifle/heavy
 	max_rounds = 30
 
@@ -721,10 +722,20 @@
 /obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap
 	name = "\improper AR-21 skirmish AP rifle magazine"
 	desc = "A magazine filled with 10x25mm armor piercing rifle rounds for the AR-21."
-	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "t21_ap"
-	//bonus_overlay = "t21_ap"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
+
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp
+	name = "\improper AR-21 skirmish HP rifle magazine"
+	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
+
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot
+	name = "\improper AR-21 skirmish APDS rifle magazine"
+	desc = "A magazine filled with 10x25mm APDS rifle rounds for the AR-21."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot
 
 /obj/item/ammo_magazine/rifle/som/ap
 	name = "\improper V-31 AP magazine (10x24mm)"
