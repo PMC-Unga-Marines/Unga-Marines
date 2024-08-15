@@ -1215,6 +1215,11 @@
 /obj/effect/turf_decal/woodsiding,
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/effect/spawner/random/clothing/hats,
+/obj/item/clothing/tie/red,
+/obj/item/weapon/cane,
+/obj/item/storage/briefcase,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
 "aCk" = (
@@ -5919,7 +5924,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "dqV" = (
-/obj/structure/window/reinforced/extratoughened,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/living/numbertwobunks)
@@ -6365,7 +6369,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "dEx" = (
-/obj/structure/bed/chair/comfy,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -7209,9 +7212,6 @@
 	pixel_y = -19;
 	pixel_x = -8
 	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = -25
-	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "ehP" = (
@@ -7562,17 +7562,13 @@
 /area/mainship/living/grunt_rnr)
 "eqR" = (
 /obj/structure/rack,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "eqT" = (
@@ -8525,9 +8521,6 @@
 	dir = 1;
 	pixel_y = -19;
 	pixel_x = -8
-	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = -25
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
@@ -16027,10 +16020,11 @@
 "jQj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /obj/structure/ob_ammo/ob_fuel,
 /obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
@@ -16298,14 +16292,7 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
-	},
+/obj/item/radio/intercom/general,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "jWC" = (
@@ -16956,10 +16943,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "kqo" = (
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
@@ -20564,10 +20547,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
@@ -22454,6 +22433,12 @@
 /obj/machinery/telecomms/server/presets/requisitions,
 /turf/open/floor/mainship/silver/full,
 /area/mainship/command/telecomms)
+"npi" = (
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = -25
+	},
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "npv" = (
 /obj/structure/table/black,
 /turf/open/floor/mainship/red/full,
@@ -22851,12 +22836,9 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/brig)
 "nCj" = (
-/obj/structure/largecrate/random/barrel,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
+/obj/item/radio/intercom/general,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "nCw" = (
 /obj/machinery/light/mainship/small{
 	dir = 1
@@ -23116,12 +23098,6 @@
 	},
 /turf/open/floor/prison/marked,
 /area/mainship/squads/req)
-"nLU" = (
-/obj/structure/window/reinforced/extratoughened{
-	dir = 4
-	},
-/turf/open/floor/mainship/tcomms,
-/area/mainship/living/numbertwobunks)
 "nMi" = (
 /obj/effect/turf_decal/siding/metal/corner,
 /turf/open/floor/mainship/metal,
@@ -23983,6 +23959,16 @@
 "okm" = (
 /obj/effect/landmark/start/job/ai,
 /obj/machinery/floor_warn_light/self_destruct,
+/obj/structure/window/reinforced/extratoughened{
+	dir = 1
+	},
+/obj/structure/window/reinforced/extratoughened,
+/obj/structure/window/reinforced/extratoughened{
+	dir = 8
+	},
+/obj/structure/window/reinforced/extratoughened{
+	dir = 4
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/living/numbertwobunks)
 "oky" = (
@@ -24238,12 +24224,6 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/upper_medical)
-"osR" = (
-/obj/structure/window/reinforced/extratoughened{
-	dir = 8
-	},
-/turf/open/floor/mainship/tcomms,
-/area/mainship/living/numbertwobunks)
 "otu" = (
 /obj/machinery/firealarm{
 	dir = 8
@@ -24289,12 +24269,6 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/surgery_hallway)
-"ouy" = (
-/obj/structure/window/reinforced/extratoughened{
-	dir = 1
-	},
-/turf/open/floor/mainship/tcomms,
-/area/mainship/living/numbertwobunks)
 "ouH" = (
 /obj/machinery/vending/engivend,
 /obj/machinery/light/mainship{
@@ -25430,6 +25404,9 @@
 	dir = 6
 	},
 /obj/effect/ai_node,
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
 /turf/open/floor/wood,
 /area/mainship/living/numbertwobunks)
 "phm" = (
@@ -25529,6 +25506,17 @@
 /obj/machinery/atmospherics/pipe/manifold4w/cyan/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
+"piP" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 5
+	},
+/obj/structure/cable,
+/obj/structure/largecrate/random/barrel,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "pja" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -25667,10 +25655,13 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "pnQ" = (
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/structure/rack,
 /obj/machinery/light/mainship/small,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "pnY" = (
@@ -29043,12 +29034,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
-"rlC" = (
-/obj/structure/bed/chair/comfy{
-	dir = 8
-	},
-/turf/open/floor/carpet,
-/area/mainship/command/corporateliaison)
 "rmq" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt{
 	dir = 4
@@ -33529,6 +33514,9 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = -25
+	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "uge" = (
@@ -33980,15 +33968,10 @@
 /area/mainship/shipboard/ex_firing_range)
 "uty" = (
 /obj/structure/table/fancywoodentable,
-/obj/item/reagent_containers/food/drinks/flask/barflask,
-/obj/item/storage/briefcase,
 /obj/item/megaphone,
-/obj/item/clothing/tie/red,
-/obj/item/weapon/cane,
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
-/obj/effect/spawner/random/clothing/hats,
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
 "utP" = (
@@ -38302,12 +38285,12 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/bow_hallway)
 "xgx" = (
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
-/obj/structure/ob_ammo/ob_fuel,
 /obj/structure/rack,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
+/obj/structure/ob_ammo/ob_fuel,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "xhd" = (
@@ -70418,7 +70401,7 @@ yjt
 yjt
 dRT
 ppr
-rlC
+eid
 yhU
 oOC
 wby
@@ -71852,11 +71835,11 @@ pSr
 pSr
 ikp
 hXx
-hXx
+npi
 qMe
 etc
 qMe
-kqo
+nCj
 hXx
 lLD
 lOm
@@ -71891,7 +71874,7 @@ pSR
 wnT
 gyt
 paH
-avX
+piP
 xFv
 dnv
 dnv
@@ -72404,7 +72387,7 @@ prI
 xIF
 eba
 naE
-nCj
+uOG
 aye
 gJe
 gJe
@@ -73784,7 +73767,7 @@ xiO
 kWP
 qOp
 qOp
-nLU
+qOp
 qOp
 qOp
 xOs
@@ -74042,7 +74025,7 @@ usm
 qOp
 dqV
 okm
-ouy
+qOp
 pOe
 xOs
 uNB
@@ -74298,7 +74281,7 @@ xiO
 usm
 qOp
 qOp
-osR
+qOp
 qOp
 qOp
 xOs
