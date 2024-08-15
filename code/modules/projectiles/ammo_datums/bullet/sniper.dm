@@ -74,7 +74,7 @@
 	name = "high caliber rifle bullet"
 	hud_state = "sniper_heavy"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
-	damage =80
+	damage = 80
 	penetration = 30
 	sundering = 7.5
 	damage_falloff = 0.25
