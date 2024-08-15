@@ -97,9 +97,9 @@
 	hud_state_empty = "smartgun_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
-	damage = 20
+	damage = 18
 	penetration = 15
-	sundering = 2
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/smart_minigun
 	name = "smartminigun bullet"
@@ -110,5 +110,5 @@
 	accurate_range = 12
 	damage = 10
 	penetration = 25
-	sundering = 1
+	additional_xeno_penetration = 10
 	damage_falloff = 0.1

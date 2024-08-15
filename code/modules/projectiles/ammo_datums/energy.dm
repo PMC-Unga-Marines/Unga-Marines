@@ -175,9 +175,9 @@
 
 /datum/ammo/energy/lasgun/marine
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN
-	damage = 20
+	damage = 17
 	penetration = 10
-	sundering = 1.5
+	additional_xeno_penetration = 20
 	max_range = 30
 	hitscan_effect_icon = "beam"
 
@@ -195,7 +195,7 @@
 	bullet_color = COLOR_DISABLER_BLUE
 
 /datum/ammo/energy/lasgun/marine/carbine
-	sundering = 1
+	additional_xeno_penetration = 15
 	max_range = 18
 
 /datum/ammo/energy/lasgun/marine/overcharge
@@ -204,7 +204,7 @@
 	hud_state = "laser_sniper"
 	damage = 40
 	penetration = 20
-	sundering = 2
+	additional_xeno_penetration = 10
 	hitscan_effect_icon = "beam_heavy"
 
 /datum/ammo/energy/lasgun/marine/weakening
@@ -234,7 +234,7 @@
 	hud_state = "laser_sniper"
 	damage = 20
 	penetration = 20
-	sundering = 2
+	additional_xeno_penetration = 5
 	hitscan_effect_icon = "beam_grass"
 	bullet_color = LIGHT_COLOR_GREEN
 	///number of microwave stacks to apply when hitting mobvs
@@ -265,7 +265,7 @@
 	max_range = 8
 	damage = 35
 	penetration = 20
-	sundering = 1
+	additional_xeno_penetration = 5
 	hitscan_effect_icon = "pu_laser"
 	bullet_color = LIGHT_COLOR_PURPLE
 
@@ -301,9 +301,9 @@
 
 /datum/ammo/energy/lasgun/marine/autolaser
 	name = "machine laser bolt"
-	damage = 18
+	damage = 16
 	penetration = 15
-	sundering = 1
+	additional_xeno_penetration = 10
 
 /datum/ammo/energy/lasgun/marine/autolaser/burst
 	name = "burst machine laser bolt"
@@ -315,7 +315,7 @@
 	hud_state = "laser_efficiency"
 	damage = 50
 	penetration = 30
-	sundering = 3
+	additional_xeno_penetration = 2.5
 	hitscan_effect_icon = "beam_heavy"
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOB
 
@@ -333,7 +333,7 @@
 	hitscan_effect_icon = "beam_solar"
 	bullet_color = LIGHT_COLOR_YELLOW
 	///number of melting stacks to apply when hitting mobs
-	var/melt_stacks = 2
+	var/melt_stacks = 1
 
 /datum/ammo/energy/lasgun/marine/autolaser/melting/on_hit_mob(mob/M, obj/projectile/proj)
 	if(!isliving(M))
@@ -354,7 +354,7 @@
 	penetration = 30
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
-	sundering = 5
+	additional_xeno_penetration = 5
 	max_range = 40
 	damage_falloff = 0
 	hitscan_effect_icon = "beam_heavy"
@@ -367,7 +367,6 @@
 	penetration = 30
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN|AMMO_SNIPER
-	sundering = 1
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_RED_LIGHT
 
@@ -378,7 +377,6 @@
 	damage = 40
 	penetration = 30
 	accurate_range_min = 5
-	sundering = 10
 	hitscan_effect_icon = "pu_laser"
 	bullet_color = LIGHT_COLOR_PURPLE
 	///shatter effection duration when hitting mobs
@@ -392,7 +390,6 @@
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/energy/lasgun/marine/shatter/heavy_laser
-	sundering = 1
 	accurate_range_min = 0
 
 /datum/ammo/energy/lasgun/marine/ricochet
@@ -402,7 +399,6 @@
 	damage = 100
 	penetration = 30
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
-	sundering = 1
 	hitscan_effect_icon = "u_laser_beam"
 	bonus_projectiles_scatter = 0
 	bullet_color = COLOR_DISABLER_BLUE
@@ -431,9 +427,9 @@
 
 /datum/ammo/energy/lasgun/marine/pistol
 	name = "pistol laser bolt"
-	damage = 20
+	damage = 15
 	penetration = 5
-	sundering = 1
+	additional_xeno_penetration = 20
 	hitscan_effect_icon = "beam_particle"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -455,7 +451,6 @@
 	shell_speed = 2.5
 	penetration = 10
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
-	sundering = 0.5
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_LASER_RED
 
@@ -467,9 +462,9 @@
 	hud_state = "laser_xray"
 	icon_state = "u_laser"
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
-	damage = 25
+	damage = 20
 	penetration = 5
-	sundering = 1
+	additional_xeno_penetration = 15
 	max_range = 15
 	hitscan_effect_icon = "u_laser_beam"
 
@@ -485,9 +480,9 @@
 /datum/ammo/energy/lasgun/marine/heavy_laser
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_ENERGY|AMMO_HITSCAN|AMMO_INCENDIARY
 	hud_state = "laser_overcharge"
-	damage = 60
+	damage = 50
 	penetration = 10
-	sundering = 1
+	additional_xeno_penetration = 15
 	max_range = 30
 	hitscan_effect_icon = "beam_incen"
 
