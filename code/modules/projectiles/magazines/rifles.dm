@@ -10,7 +10,6 @@
 	caliber = CALIBER_10X24_CASELESS
 	icon_state = "m412"
 	icon_state_mini = "mag_rifle"
-	ammo_band_icon = "t12_band"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 40
