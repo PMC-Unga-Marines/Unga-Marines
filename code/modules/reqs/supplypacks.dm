@@ -792,6 +792,12 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/smg/vector)
 	cost = 200
 
+/datum/supply_packs/weapons/vector_sabot
+	name = "vector APDS magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot)
+	cost = 20 //40 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/weapons/ammo_magazine/vector
 	name = "Vector drum magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector)

@@ -695,7 +695,10 @@
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/vector
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/smg/vector
+		/obj/item/ammo_magazine/smg/vector,
+		/obj/item/ammo_magazine/smg/vector/ap,
+		/obj/item/ammo_magazine/smg/vector/hp,
+		/obj/item/ammo_magazine/smg/vector/sabot,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,

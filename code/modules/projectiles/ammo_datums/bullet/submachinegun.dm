@@ -28,9 +28,28 @@
 	damage = 20
 	accurate_range = 4
 	damage_falloff = 1
-	sundering = 0.4
 	penetration = 0
+	additional_xeno_penetration = 10
 	shrapnel_chance = 25
+
+/datum/ammo/bullet/smg/acp/hp
+	name = "hollow-point submachinegun ACP bullet"
+	damage = 40
+	penetration = 0
+	additional_xeno_penetration = -20
+
+/datum/ammo/bullet/smg/acp/ap
+	name = "armor-piercing submachinegun ACP bullet"
+	damage = 15
+	penetration = 20
+	additional_xeno_penetration = 20
+
+/datum/ammo/bullet/smg/acp/sabot
+	name = "APDS submachinegun ACP bullet"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
+	damage = 15
+	penetration = 5
+	sundering = 0.4
 
 /datum/ammo/bullet/smg/ap/hv
 	name = "high velocity armor-piercing submachinegun bullet"
