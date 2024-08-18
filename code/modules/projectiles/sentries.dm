@@ -142,7 +142,7 @@
 		span_notice("Вы поставили [src] на место."))
 
 	DISABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
-	density = TRUE
+	density = initial(density)
 	set_on(TRUE)
 
 /obj/machinery/deployable/mounted/sentry/attack_ghost(mob/dead/observer/user)
