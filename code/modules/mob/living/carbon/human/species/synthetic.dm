@@ -1,7 +1,6 @@
 /datum/species/synthetic
 	name = "Synthetic"
 
-	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
 	unarmed_type = /datum/unarmed_attack/punch
 
