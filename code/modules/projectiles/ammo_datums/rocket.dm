@@ -580,7 +580,7 @@
 	accurate_range = 20
 	max_range = 40
 	damage = 300
-	penetration = 40
+	penetration = 50
 	sundering = 10
 	bullet_color = LIGHT_COLOR_TUNGSTEN
 	barricade_clear_distance = 4
@@ -594,7 +594,7 @@
 /datum/ammo/rocket/coilgun/low
 	shell_speed = 2
 	damage = 150
-	penetration = 25
+	penetration = 40
 	sundering = 5
 
 /datum/ammo/rocket/coilgun/low/drop_nade(turf/target_turf)
