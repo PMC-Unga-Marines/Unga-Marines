@@ -122,12 +122,12 @@ const NormalOperation = (props, context) => {
         <Button
           disabled={!data.can_hunt}
           onClick={() => act('hunt')}>
-          Hunt
+          Start hunting
         </Button>
         <Button
           disabled={!data.can_hunt}
           onClick={() => act('minor')}>
-          Minor
+          Capture Ground
         </Button>
       </Section> : null}
     </>
