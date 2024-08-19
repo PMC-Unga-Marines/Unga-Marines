@@ -30,7 +30,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/proc/init_marker()
 	var/marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon)) //RU TGMC edit
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon))
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon()
 	. = ..()
