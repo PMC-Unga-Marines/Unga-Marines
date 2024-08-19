@@ -135,6 +135,7 @@
 	icon = 'icons/obj/smooth_objects/resin-door.dmi'
 	icon_state = "resin-door-1"
 	base_icon_state = "resin-door"
+	resistance_flags = NONE
 	layer = RESIN_STRUCTURE_LAYER
 	max_integrity = 100
 	smoothing_flags = SMOOTH_BITMASK
