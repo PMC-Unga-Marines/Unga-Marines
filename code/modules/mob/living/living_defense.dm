@@ -125,16 +125,6 @@
 		SEND_SIGNAL(src, COMSIG_LIVING_IGNITED, fire_stacks)
 		return TRUE
 
-///Puts out any fire on the mob
-/mob/living/proc/ExtinguishMob()
-	if(!on_fire)
-		return FALSE
-	on_fire = FALSE
-	adjust_bodytemperature(-80, 300)
-	fire_stacks = 0
-	update_fire()
-	UnregisterSignal(src, COMSIG_LIVING_DO_RESIST)
-
 ///Updates fire visuals
 /mob/living/proc/update_fire()
 	return
