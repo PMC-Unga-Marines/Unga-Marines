@@ -164,8 +164,6 @@
 
 	to_chat(user, span_notice("You refill [src] with [source]."))
 
-
-
 	var/amount_difference = clamp(min(transfer_amount, max_rounds - current_rounds), 0, source.current_rounds)
 	source.current_rounds -= amount_difference
 	current_rounds += amount_difference
