@@ -8,8 +8,8 @@
 	var/sensors_activated = 0
 
 	var/boost_condition_sensors_amount
-	var/phorone_sensors
-	var/platinum_sensors
+	var/phorone_sensors_amount
+	var/platinum_sensors_amount
 
 	//points generation
 	var/points_check_interval = 1 MINUTES
@@ -48,47 +48,47 @@
 	switch(TGS_CLIENT_COUNT)
 		if(1 to 15) //i dunno who will play it
 			boost_condition_sensors_amount = 2
-			phorone_sensors = 1
-			platinum_sensors = 1
+			phorone_sensors_amount = 1
+			platinum_sensors_amount = 1
 		if(16 to 30)
 			boost_condition_sensors_amount = 2
-			phorone_sensors = 1
-			platinum_sensors = 2
+			phorone_sensors_amount = 1
+			platinum_sensors_amount = 2
 		if(31 to 40)
 			boost_condition_sensors_amount = 3
-			phorone_sensors = 2
-			platinum_sensors = 2
+			phorone_sensors_amount = 2
+			platinum_sensors_amount = 2
 		if(41 to 50)
 			boost_condition_sensors_amount = 3
-			phorone_sensors = 1
-			platinum_sensors = 3
+			phorone_sensors_amount = 1
+			platinum_sensors_amount = 3
 		if(51 to 75)
 			boost_condition_sensors_amount = 4
-			phorone_sensors = 2
-			platinum_sensors = 3
+			phorone_sensors_amount = 2
+			platinum_sensors_amount = 3
 		if(76 to 100)
 			boost_condition_sensors_amount = 4
-			phorone_sensors = 1
-			platinum_sensors = 4
+			phorone_sensors_amount = 1
+			platinum_sensors_amount = 4
 		else //madness
 			boost_condition_sensors_amount = 5
-			phorone_sensors = 3
-			platinum_sensors = 3
+			phorone_sensors_amount = 3
+			platinum_sensors_amount = 3
 
 	// TODOD поменять на стационарные точки
 	//setup sensor towers
-	for(var/i in 1 to phorone_sensors)
+	for(var/i in 1 to phorone_sensors_amount)
 		var/turf/T = pick(GLOB.miner_phorone_locs)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.miner_phorone_locs -= T
 
-	for(var/i in 1 to platinum_sensors)
+	for(var/i in 1 to platinum_sensors_amount)
 		var/turf/T = pick(GLOB.miner_platinum_locs)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.miner_platinum_locs -= T
 
 	//comms
-	for(var/i in 1 to phorone_sensors)
+	for(var/i in 1 to phorone_sensors_amount)
 		var/turf/T = pick(GLOB.miner_phorone_locs)
 		new /obj/machinery/telecomms/relay/preset/tower(T)
 		GLOB.miner_phorone_locs -= T
@@ -225,7 +225,7 @@
 		return
 
 	//Victory point
-	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors + platinum_sensors) * (sensors_activated >= boost_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
+	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors_amount + platinum_sensors_amount) * (sensors_activated >= boost_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
 	if(marine_victory_point >= points_to_win && !can_hunt &&  !allow_hijack)
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
@@ -234,7 +234,7 @@
 				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end. Extra points awarded in cargo", /atom/movable/screen/text/screen_text/picture/potrait)
 				SSpoints.supply_points[FACTION_TERRAGOV] += 150
 
-	xeno_victory_point += ((phorone_sensors + platinum_sensors) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor/ (phorone_sensors + platinum_sensors)
+	xeno_victory_point += ((phorone_sensors_amount + platinum_sensors_amount) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor/ (phorone_sensors_amount + platinum_sensors_amount)
 	if(xeno_victory_point >= points_to_win && !allow_hijack && !can_hunt)
 		allow_hijack = TRUE
 		for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
