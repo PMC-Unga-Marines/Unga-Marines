@@ -89,7 +89,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/attack_hand(mob/living/user)
 	if(tower_status == TOWER_BROKEN)
-		to_chat(user, span_warning("[src] is damaged!"))
+		to_chat(user, span_warning("[src] is too damaged!"))
 		return
 
 	on = !on
