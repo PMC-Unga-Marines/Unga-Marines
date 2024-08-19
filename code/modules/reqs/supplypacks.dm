@@ -807,7 +807,7 @@ WEAPONS
 /datum/supply_packs/weapons/MK88_sabot
 	name = "MK88 APDS magazine"
 	contains = list(/datum/ammo/bullet/pistol/sabot)
-	cost = 9 //18 rounds
+	cost = 10 //18 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/ammo_magazine/vector
@@ -846,25 +846,25 @@ WEAPONS
 /datum/supply_packs/weapons/t18_sabot
 	name = "AR-18 APDS magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/sabot)
-	cost = 23 //36 rounds
+	cost = 25 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/t18_incendiary
 	name = "AR-18 incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/incendiary)
-	cost = 23 //36 rounds
+	cost = 25 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/t12_sabot
 	name = "AR-12 APDS magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot)
-	cost = 29 //50 rounds
+	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/t12_incendiary
 	name = "AR-12 incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary)
-	cost = 29 //50 rounds
+	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/br64_ap
