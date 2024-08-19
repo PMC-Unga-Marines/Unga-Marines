@@ -44,9 +44,9 @@
 
 /obj/machinery/telecomms/relay/preset/tower/welder_act(mob/living/user, obj/item/I)
 	. = ..()
-	var/obj/item/tool/weldingtool/weldingtool = I
 	if(tower_status != TOWER_BROKEN)
 		return
+	var/obj/item/tool/weldingtool/weldingtool = I
 	if(!weldingtool.remove_fuel(1, user))
 		to_chat(user, span_warning("You need more welding fuel to complete this task."))
 		return FALSE
