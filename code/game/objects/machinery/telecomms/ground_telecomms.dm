@@ -68,7 +68,7 @@
 		return FALSE
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 	tower_integrity = max_tower_integrity
-	set_towerr_status()
+	set_tower_status()
 	user.visible_message(span_notice("[user] welds [src]'s internal damage."),
 	span_notice("You weld [src]'s internal damage."))
 	cut_overlay(GLOB.welding_sparks)
@@ -101,7 +101,7 @@
 
 	GLOB.tower_relay = on
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TELETOWER)
-	set_towerr_status()
+	set_tower_status()
 
 /obj/machinery/telecomms/relay/preset/tower/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL) //Incorporeal xenos cannot attack physically.
@@ -120,9 +120,9 @@
 		span_danger("We slash \the [src]!"), null, 5)
 		playsound(loc, "alien_claw_metal", 25, TRUE)
 		tower_integrity -= 25
-		set_towerr_status()
+		set_tower_status()
 
-/obj/machinery/telecomms/relay/preset/tower/proc/set_towerr_status()
+/obj/machinery/telecomms/relay/preset/tower/proc/set_tower_status()
 	var/health_percent = round((tower_integrity / max_tower_integrity) * 100)
 	var/marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
 	switch(health_percent)
