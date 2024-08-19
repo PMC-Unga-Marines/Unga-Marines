@@ -16,12 +16,10 @@
 	freq_listening = TOWER_FREQS
 	resistance_flags = RESIST_ALL | DROPSHIP_IMMUNE
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
-
 	///Health for the miner we use because changing obj_integrity is apparently bad
 	var/tower_integrity = 0
 	///Max health of the miner
 	var/max_tower_integrity = 100
-
 	///Current status of the tower
 	var/tower_status = TOWER_BROKEN
 
