@@ -15,3 +15,5 @@ SUBSYSTEM_DEF(Xenoden)
 /datum/controller/subsystem/Xenoden/Initialize(timeofday)
 	xenoden_z_level = load_new_z_level(XENO_DEN_LEVEL_PATH, "Xenoden", TRUE, list(ZTRAIT_GROUND = TRUE, ZTRAIT_XENO = TRUE)) // надеюсь ZTRAIT_GROUND будет работать корректно, в противном случает сделать новый трейт
 	return SS_INIT_SUCCESS
+
+#undef XENO_DEN_LEVEL_PATH
