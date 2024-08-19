@@ -142,3 +142,7 @@
 //override
 /obj/machinery/telecomms/relay/preset/tower/update_power()
 	return
+
+#undef TOWER_ON
+#undef TOWER_OFF
+#undef TOWER_BROKEN
