@@ -87,7 +87,7 @@
 		if(TOWER_OFF)
 			. += span_info("It's off")
 		if(TOWER_BROKEN)
-			. += span_info("It's lightly damaged, and you can see internal workings.</span>\n<span class='info'>Use a blowtorch to repair it.")
+			. += span_info("It's lightly damaged, and you can see internal workings. Use a blowtorch to repair it.")
 
 /obj/machinery/telecomms/relay/preset/tower/attack_hand(mob/living/user)
 	if(tower_status == TOWER_BROKEN)
