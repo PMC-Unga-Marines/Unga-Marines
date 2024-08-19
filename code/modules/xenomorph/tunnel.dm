@@ -1,6 +1,6 @@
 /obj/structure/xeno/tunnel
 	name = "tunnel"
-	desc = "A tunnel entrance. Looks like it was dug by some kind of clawed beast. Use right click to enter and exit the xenoden"
+	desc = "A tunnel entrance. Looks like it was dug by some kind of clawed beast"
 	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "hole"
 
@@ -53,6 +53,8 @@
 	. = ..()
 	if(!isxeno(user) && !isobserver(user))
 		return
+	if(isxeno(user))
+		. += span_info("Use right click to enter and exit the xenoden")
 	if(tunnel_desc)
 		. += span_info("The Hivelord scent reads: \'[tunnel_desc]\'")
 
