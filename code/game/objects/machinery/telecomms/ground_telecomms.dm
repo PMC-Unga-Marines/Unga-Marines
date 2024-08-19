@@ -16,12 +16,10 @@
 	freq_listening = TOWER_FREQS
 	resistance_flags = RESIST_ALL | DROPSHIP_IMMUNE
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
-
 	///Health for the miner we use because changing obj_integrity is apparently bad
 	var/tower_integrity = 0
 	///Max health of the miner
 	var/max_tower_integrity = 100
-
 	///Current status of the tower
 	var/tower_status = TOWER_BROKEN
 
@@ -32,7 +30,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/proc/init_marker()
 	var/marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon)) //RU TGMC edit
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon))
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon()
 	. = ..()
