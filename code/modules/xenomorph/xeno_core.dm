@@ -124,4 +124,4 @@
 		if(60 to 80)
 			. += span_warning("It's slightly damaged, but still seems healthy.")
 		if(80 to 100)
-			. += span_info("It appears in good shape, pulsating healthily.")
+			. += span_info("It appears to be in a good shape, pulsating healthily.")
