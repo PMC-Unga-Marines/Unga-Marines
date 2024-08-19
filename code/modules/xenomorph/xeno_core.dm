@@ -8,10 +8,8 @@
 	max_integrity = 5000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE
-
 	///For minimap icon change if silo takes damage or nearby hostile
 	var/warning
-
 	var/turf/center_turf
 	COOLDOWN_DECLARE(damage_alert_cooldown)
 	COOLDOWN_DECLARE(proxy_alert_cooldown)
