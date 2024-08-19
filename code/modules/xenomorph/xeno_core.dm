@@ -118,7 +118,7 @@
 		if(0 to 20)
 			. += span_warning("It's barely holding, there's leaking oozes all around, and most eggs are broken. Yet it is not inert.")
 		if(20 to 40)
-			. += span_warning("It looks severely damaged, its movements slow.")
+			. += span_warning("It looks severely damaged, it's movements are slow.")
 		if(40 to 60)
 			. += span_warning("It's quite beat up, but it seems alive.")
 		if(60 to 80)
