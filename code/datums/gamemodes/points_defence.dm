@@ -40,10 +40,8 @@
 	. = ..()
 
 	//delete miners
-	for(var/atom/A AS in GLOB.miners_phorone)
-		qdel(A)
-	for(var/atom/A AS in GLOB.miners_platinum)
-		qdel(A)
+	QDEL_LIST(GLOB.miners_phorone)
+	QDEL_LIST(GLOB.miners_platinum)
 
 	//number of sensors
 	//the number of sensors is greater than necessary to win, so that the late game does not turn into a 1 point defense
