@@ -5,10 +5,15 @@
 
 	///The amount of sensor towers in sensor defence
 
+	///Amount of activated sensors, activated sensors captured by marines
 	var/sensors_activated = 0
 
+	///Amount of activated sensors from which marines receive a multiplier to the points
 	var/boost_condition_sensors_amount
+
+	///Total amount of ground side sensors
 	var/phorone_sensors_amount
+	///Total amount of cave sensors
 	var/platinum_sensors_amount
 
 	//points generation
@@ -22,13 +27,17 @@
 	var/marine_victory_point = 0
 	var/xeno_victory_point = 0
 
-	//xeno have points round start, so
+	///Xeno points multiplier
 	var/marine_victory_points_factor = 1.25
-	var/xeno_victory_points_factor = 0.9
+	///Xeno points multiplier
+	var/xeno_victory_points_factor = 0.9 //xeno have towers round start, so
 
+	///Amount of points to be scored
 	var/points_to_win = 5000
 
+	///Groud side xeno factor
 	var/firts_stage_xeno_factor = 0.8
+	///Den rush xeno factor
 	var/second_stage_xeno_factor = 1.2
 
 	var/allow_hijack = FALSE
