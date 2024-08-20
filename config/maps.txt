@@ -44,6 +44,9 @@ endmap
 map whiskey_outpost_v2
 endmap
 
+map last_stand
+endmap
+
 map oscar_outpost
 endmap
 
