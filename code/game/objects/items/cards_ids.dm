@@ -299,9 +299,9 @@
 		CAT_SGSUP = DEFAULT_TOTAL_BUY_POINTS,
 	)
 
-/obj/item/card/id/dogtag/robo
+/obj/item/card/id/dogtag/robot
 	marine_points = list(
-		CAT_ROBO = DEFAULT_TOTAL_BUY_POINTS,
+		CAT_ROBOT = DEFAULT_TOTAL_BUY_POINTS,
 	)
 
 /obj/item/card/id/dogtag/engineer
@@ -333,7 +333,7 @@
 		CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
 		CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
 		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
-		CAT_ROBO = DEFAULT_TOTAL_BUY_POINTS, //necessary to correctly show max points
+		CAT_ROBOT = DEFAULT_TOTAL_BUY_POINTS, //necessary to correctly show max points
 	)
 
 /obj/item/card/id/dogtag/som
