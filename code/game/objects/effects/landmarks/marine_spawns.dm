@@ -78,7 +78,7 @@
 	icon_state = "Synth"
 	job = /datum/job/terragov/silicon/synthetic
 
-/obj/effect/landmark/start/job/squadmarine
+/obj/effect/landmark/start/job/squadrobot
 	icon_state = "Robot"
 	job = /datum/job/terragov/squad/combat_robot
 
@@ -269,7 +269,7 @@
 	icon_state = "leader_spawn_delta"
 
 /obj/effect/landmark/start/squad/squadrobot
-	icon_state = "robot__spawn"
+	icon_state = "robot_spawn"
 	title = SQUAD_ROBOT
 
 /obj/effect/landmark/start/squad/squadrobot/alpha
