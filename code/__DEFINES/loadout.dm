@@ -22,7 +22,7 @@
 #define CAT_FCSUP "COMMANDER SUPPLIES"
 #define CAT_SYNTH "SYNTHETIC SUPPLIES"
 #define CAT_MARINE "MARINE SUPPLIES"
-#define CAT_ROBO "COMBAT ROBOT SUPPLIES"
+#define CAT_ROBOT "COMBAT ROBOT SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
 // Synth Special Categories
@@ -71,15 +71,15 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBO, "Terra Experimental laser rifle", 15, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBO, "Terra Experimental laser sniper rifle", 20, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBO, "Terra Experimental laser carbine", 15, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = list(CAT_ROBO, "Terra Experimental laser machine gun", 20, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBO, "Terra Experimental laser pistol", 10, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBO, "Terra Experimental tesla shock rifle", 25, "red"),
-	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBO, "Terra Experimental recharger battery", 4, "orange2"),
-	/obj/item/tool/handheld_charger = list(CAT_ROBO, "Hand-held cell charger", 5, "yellow"),
-	/obj/item/weapon/powerfist = list(CAT_ROBO, "Powerfist", 10, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBOT, "Terra Experimental laser rifle", 15, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBOT, "Terra Experimental laser sniper rifle", 20, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBOT, "Terra Experimental laser carbine", 15, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = list(CAT_ROBOT, "Terra Experimental laser machine gun", 20, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBOT, "Terra Experimental laser pistol", 10, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBOT, "Terra Experimental tesla shock rifle", 25, "red"),
+	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
+	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
+	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(

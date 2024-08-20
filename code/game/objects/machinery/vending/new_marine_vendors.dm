@@ -280,8 +280,8 @@
 
 /obj/machinery/marine_selector/clothes/robo
 	name = "GHMME Automated Combat Robot Closet"
-	req_access = list(ACCESS_MARINE_ROBO)
-	vendor_role = /datum/job/terragov/squad/combat_robot
+	req_access = list(ACCESS_MARINE_ROBOT)
+	vendor_role = /datum/job/terragov/squad/robot
 	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/robo/Initialize(mapload)
@@ -290,19 +290,19 @@
 
 /obj/machinery/marine_selector/clothes/robo/alpha
 	squad_tag = "Alpha"
-	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_ALPHA)
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_ALPHA)
 
 /obj/machinery/marine_selector/clothes/robo/bravo
 	squad_tag = "Bravo"
-	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_BRAVO)
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_BRAVO)
 
 /obj/machinery/marine_selector/clothes/robo/charlie
 	squad_tag = "Charlie"
-	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_CHARLIE)
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_CHARLIE)
 
 /obj/machinery/marine_selector/clothes/robo/delta
 	squad_tag = "Delta"
-	req_access = list(ACCESS_MARINE_ROBO, ACCESS_MARINE_DELTA)
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_DELTA)
 
 /obj/machinery/marine_selector/clothes/robo/valhalla
 	vendor_role = /datum/job/fallen/marine/combat_robot
@@ -489,8 +489,8 @@
 	icon_state = "robo"
 	icon_vend = "robo-vend"
 	icon_deny = "robo-deny"
-	vendor_role = /datum/job/terragov/squad/combat_robot
-	req_access = list(ACCESS_MARINE_ROBO)
+	vendor_role = /datum/job/terragov/squad/robot
+	req_access = list(ACCESS_MARINE_ROBOT)
 
 /obj/machinery/marine_selector/gear/robo/Initialize(mapload)
 	. = ..()

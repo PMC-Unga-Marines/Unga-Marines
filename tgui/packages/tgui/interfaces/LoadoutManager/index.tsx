@@ -87,6 +87,11 @@ const JobTabs = (props: LoadoutTabData) => {
               Squad Marine
             </Tabs.Tab>
             <Tabs.Tab
+              selected={job === 'Squad Robot'}
+              onClick={() => setJob('Squad Robot')}>
+              Squad Robot
+            </Tabs.Tab>
+            <Tabs.Tab
               selected={job === 'Squad Engineer'}
               onClick={() => setJob('Squad Engineer')}>
               Squad Engineer
