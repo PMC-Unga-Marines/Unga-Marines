@@ -77,6 +77,9 @@
 	icon_state = "SL"
 	job = /datum/job/terragov/squad/leader
 
+/obj/effect/landmark/start/job/crash/squadrobot
+	icon_state = "Robot"
+	job = /datum/job/terragov/squad/combat_robot
 
 // Latejoin markers
 /obj/effect/landmark/start/latejoin/crash
