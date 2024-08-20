@@ -281,7 +281,7 @@
 /obj/machinery/marine_selector/clothes/robo
 	name = "GHMME Automated Combat Robot Closet"
 	req_access = list(ACCESS_MARINE_ROBOT)
-	vendor_role = /datum/job/terragov/squad/combat_robot
+	vendor_role = /datum/job/terragov/squad/robot
 	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/robo/Initialize(mapload)
@@ -489,7 +489,7 @@
 	icon_state = "robo"
 	icon_vend = "robo-vend"
 	icon_deny = "robo-deny"
-	vendor_role = /datum/job/terragov/squad/combat_robot
+	vendor_role = /datum/job/terragov/squad/robot
 	req_access = list(ACCESS_MARINE_ROBOT)
 
 /obj/machinery/marine_selector/gear/robo/Initialize(mapload)

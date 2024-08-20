@@ -80,7 +80,7 @@
 
 /obj/effect/landmark/start/job/squadrobot
 	icon_state = "Robot"
-	job = /datum/job/terragov/squad/combat_robot
+	job = /datum/job/terragov/squad/robot
 
 /obj/effect/landmark/start/job/squadmarine
 	icon_state = "PFC"

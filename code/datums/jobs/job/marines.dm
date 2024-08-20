@@ -87,7 +87,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	id = /obj/item/card/id/dogtag
 
 //Squad Combat Robot
-/datum/job/terragov/squad/combat_robot
+/datum/job/terragov/squad/robot
 	title = SQUAD_ROBOT
 	job_category = JOB_CAT_MARINE
 	paygrade = "E1"
@@ -118,7 +118,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	"}
 	minimap_icon = "robo"
 
-/datum/job/terragov/squad/combat_robot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+/datum/job/terragov/squad/robot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
@@ -138,10 +138,10 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E8" //If you play way too much TGMC. 1000 hours.
 
-/datum/job/terragov/squad/combat_robot/get_special_name(client/preference_source)
+/datum/job/terragov/squad/robot/get_special_name(client/preference_source)
 	return preference_source.prefs.synthetic_name
 
-/datum/job/terragov/squad/combat_robot/return_spawn_type(datum/preferences/prefs)
+/datum/job/terragov/squad/robot/return_spawn_type(datum/preferences/prefs)
 	switch(prefs?.robot_type)
 		if("Hammerhead")
 			return /mob/living/carbon/human/species/robot/alpharii
@@ -153,14 +153,14 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 			return /mob/living/carbon/human/species/robot/bravada
 	return /mob/living/carbon/human/species/robot
 
-/datum/job/terragov/squad/combat_robot/radio_help_message(mob/M)
+/datum/job/terragov/squad/robot/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"\nYou are a rank-and-file marine of the TGMC, and that is your strength.
 What you lack alone, you gain standing shoulder to shoulder with the men and women of the TerraGov Marine Corps. Ooh-rah!"})
 
 /datum/outfit/job/marine/robot
 	name = SQUAD_ROBOT
-	jobtype = /datum/job/terragov/squad/combat_robot
+	jobtype = /datum/job/terragov/squad/robot
 	id = /obj/item/card/id/dogtag/robot
 
 //Squad Engineer
