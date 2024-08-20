@@ -3,7 +3,7 @@
 	hud_state = "sniper"
 	hud_state_empty = "sniper_empty"
 	damage_falloff = 0
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
 	accurate_range_min = 7
 	shell_speed = 4
 	accurate_range = 30
@@ -17,7 +17,7 @@
 	hud_state = "sniper_fire"
 	accuracy = 0
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER
 	accuracy_var_high = 7
 	max_range = 20
 	damage = 70
@@ -41,9 +41,10 @@
 	handful_icon_state = "crude sniper bullet"
 	hud_state = "sniper_crude"
 	handful_amount = 5
-	damage = 75
+	damage = 70
 	penetration = 35
-	sundering = 15
+	sundering = 0
+	additional_xeno_penetration = 25
 
 /datum/ammo/bullet/sniper/martini
 	name = "crude heavy sniper bullet"
@@ -63,7 +64,7 @@
 /datum/ammo/bullet/sniper/elite
 	name = "supersonic sniper bullet"
 	hud_state = "sniper_supersonic"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy = 20
 	damage = 100
 	penetration = 60
@@ -72,7 +73,7 @@
 /datum/ammo/bullet/sniper/pfc
 	name = "high caliber rifle bullet"
 	hud_state = "sniper_heavy"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_SNIPER
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 80
 	penetration = 30
 	sundering = 7.5
@@ -81,9 +82,10 @@
 /datum/ammo/bullet/sniper/pfc/flak
 	name = "high caliber flak rifle bullet"
 	hud_state = "sniper_heavy_flak"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_SNIPER
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 40
 	penetration = 10
+	additional_xeno_penetration = 0
 	sundering = 10
 	damage_falloff = 0.25
 
@@ -93,7 +95,7 @@
 /datum/ammo/bullet/sniper/auto
 	name = "high caliber rifle bullet"
 	hud_state = "sniper_auto"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_SNIPER
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 50
 	penetration = 30
 	sundering = 2
@@ -102,7 +104,7 @@
 /datum/ammo/bullet/sniper/clf_heavyrifle
 	name = "high velocity incendiary sniper bullet"
 	handful_icon_state = "ptrs"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER
 	hud_state = "sniper_fire"
 	accurate_range_min = 4
 	shell_speed = 5
