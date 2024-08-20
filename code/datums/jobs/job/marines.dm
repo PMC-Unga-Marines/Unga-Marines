@@ -94,7 +94,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	comm_title = "Rob"
 	access = list(ACCESS_MARINE_ROBOT)
 	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_DROPSHIP)
-	display_order = JOB_DISPLAY_ORDER_SQUAD_ROBO
+	display_order = JOB_DISPLAY_ORDER_SQUAD_ROBOT
 	outfit = /datum/outfit/job/marine/robot
 	total_positions = -1
 	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
