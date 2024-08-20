@@ -1548,7 +1548,7 @@
 /obj/machinery/camera/autoname/alt{
 	dir = 8
 	},
-/obj/effect/landmark/start/squad/squadmarine/alpha,
+/obj/effect/landmark/start/squad/squadrobot/alpha,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "aLD" = (
@@ -2835,11 +2835,11 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/effect/landmark/start/squad/squadmarine/bravo,
 /obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 8;
 	pixel_y = 24
 	},
+/obj/effect/landmark/start/squad/squadrobot/bravo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "bGt" = (
@@ -4253,6 +4253,22 @@
 	},
 /turf/open/floor/carpet,
 /area/mainship/squads/bravo)
+"csB" = (
+/obj/structure/bed,
+/obj/structure/bed{
+	pixel_y = 13;
+	layer = 3.5;
+	max_buckled_mobs = 13
+	},
+/obj/item/bedsheet/blue{
+	layer = 3.2
+	},
+/obj/item/bedsheet/blue{
+	pixel_y = 13
+	},
+/obj/effect/landmark/start/squad/squadrobot/delta,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/delta)
 "csG" = (
 /obj/machinery/marine_selector/clothes/engi,
 /turf/open/floor/mainship/metal,
@@ -4452,10 +4468,10 @@
 	dir = 1;
 	pixel_x = 12
 	},
-/obj/effect/landmark/start/squad/squadmarine/charlie,
 /obj/structure/sign/semiotic/bathwomens{
 	pixel_x = 32
 	},
+/obj/effect/landmark/start/squad/squadrobot/charlie,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "czD" = (
@@ -8044,6 +8060,22 @@
 	dir = 9
 	},
 /area/mainship/squads/bravo)
+"eEt" = (
+/obj/structure/bed,
+/obj/structure/bed{
+	pixel_y = 13;
+	layer = 3.5;
+	max_buckled_mobs = 13
+	},
+/obj/item/bedsheet/purple{
+	layer = 3.2
+	},
+/obj/item/bedsheet/purple{
+	pixel_y = 13
+	},
+/obj/effect/landmark/start/squad/squadrobot/charlie,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/charlie)
 "eFd" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 10
@@ -14787,6 +14819,22 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engine_core)
+"jap" = (
+/obj/structure/bed,
+/obj/structure/bed{
+	pixel_y = 13;
+	layer = 3.5;
+	max_buckled_mobs = 13
+	},
+/obj/item/bedsheet/red{
+	layer = 3.2
+	},
+/obj/item/bedsheet/red{
+	pixel_y = 13
+	},
+/obj/effect/landmark/start/squad/squadrobot/alpha,
+/turf/open/floor/mainship/metal/full,
+/area/mainship/squads/alpha)
 "jau" = (
 /obj/machinery/computer/body_scanconsole/alt,
 /turf/open/floor/mainship/rubber,
@@ -16653,11 +16701,11 @@
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
-/obj/effect/landmark/start/squad/squadmarine/delta,
 /obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 8;
 	pixel_y = -25
 	},
+/obj/effect/landmark/start/squad/squadrobot/delta,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "kiv" = (
@@ -19063,8 +19111,8 @@
 	pixel_y = 13
 	},
 /obj/machinery/light/mainship/small,
-/obj/effect/landmark/start/squad/squadmarine/delta,
 /obj/item/clothing/under/rank/prisoner,
+/obj/effect/landmark/start/squad/squadrobot/delta,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "lwi" = (
@@ -24430,6 +24478,22 @@
 	dir = 8
 	},
 /area/mainship/command/cic)
+"oBC" = (
+/obj/structure/bed,
+/obj/structure/bed{
+	pixel_y = 13;
+	layer = 3.5;
+	max_buckled_mobs = 13
+	},
+/obj/item/bedsheet/yellow{
+	layer = 3.2
+	},
+/obj/item/bedsheet/yellow{
+	pixel_y = 13
+	},
+/obj/effect/landmark/start/squad/squadrobot/bravo,
+/turf/open/floor/mainship/metal/full,
+/area/mainship/squads/bravo)
 "oBF" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -26160,10 +26224,10 @@
 /obj/machinery/light/mainship/small{
 	dir = 4
 	},
-/obj/effect/landmark/start/latejoin_squad/alpha,
 /obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 32
 	},
+/obj/effect/landmark/start/squad/squadrobot/alpha,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "pAu" = (
@@ -30436,6 +30500,23 @@
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
+"sfi" = (
+/obj/structure/bed,
+/obj/structure/bed{
+	pixel_y = 13;
+	layer = 3.5;
+	max_buckled_mobs = 13
+	},
+/obj/item/bedsheet/purple{
+	layer = 3.2
+	},
+/obj/item/bedsheet/purple{
+	pixel_y = 13
+	},
+/obj/machinery/light/mainship/small,
+/obj/effect/landmark/start/squad/squadrobot/charlie,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/charlie)
 "sfw" = (
 /obj/structure/table/mainship,
 /obj/machinery/cic_maptable,
@@ -31854,7 +31935,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light/mainship/small,
-/obj/effect/landmark/start/squad/squadmarine/bravo,
+/obj/effect/landmark/start/squad/squadrobot/bravo,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "sZd" = (
@@ -83363,7 +83444,7 @@ pqW
 xhq
 kUp
 xaF
-nnX
+jap
 eiT
 vOJ
 iws
@@ -83699,7 +83780,7 @@ nRu
 oMC
 aoA
 neZ
-aoA
+eEt
 tkN
 iJn
 qwP
@@ -83956,7 +84037,7 @@ vbD
 oMC
 cyW
 itS
-anQ
+sfi
 tkN
 iJn
 dMi
@@ -86207,7 +86288,7 @@ jPy
 mYr
 vOc
 fYw
-mYr
+oBC
 jPy
 eXA
 tTn
@@ -86764,7 +86845,7 @@ qwP
 iOy
 qwP
 eWU
-tQf
+csB
 rJB
 gXB
 khT
