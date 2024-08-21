@@ -38,6 +38,10 @@
 	penetration = 50
 	damage_falloff = 0
 
+/datum/ammo/flamethrower/turret
+	max_range = 8
+	damage = 50
+
 /datum/ammo/bullet/turret/buckshot
 	name = "turret buckshot shell"
 	icon_state = "buckshot"

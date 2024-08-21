@@ -97,6 +97,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "blue"),
 	/obj/item/tool/pickaxe/plasmacutter = list(CAT_ENGSUP, "Plasma cutter", 23, "blue"),
 	/obj/item/attachable/buildasentry = list(CAT_ENGSUP, "Build-A-Sentry Attachment", 30, "blue"),
+	/obj/item/sentry_upgrade_kit = list(CAT_ENGSUP, "Upgrade kit TUR-B", 25, "blue"),
 	/obj/item/deployable_floodlight = list(CAT_ENGSUP, "Deployable floodlight", 2, "blue"),
 	/obj/item/weapon/shield/riot/marine/deployable = list(CAT_ENGSUP, "TL-182 deployable shield", 3, "yellow"),
 	/obj/item/binoculars/tactical/range = list(CAT_ENGSUP, "Range Finder", 2, "yellow"),

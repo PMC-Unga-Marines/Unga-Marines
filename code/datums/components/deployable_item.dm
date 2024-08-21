@@ -82,7 +82,7 @@
 		if(user.do_actions)
 			user.balloon_alert(user, "Вы уже чем-то заняты!")
 			return
-		if(CHECK_BITFIELD(item_to_deploy?.near_lock, TRUE))
+		if(item_to_deploy.near_lock)
 			for(var/obj/machinery/deployable/def in urange(2, location))
 				if(def != src)
 					user.balloon_alert(user, "Слишком близко к [def]!")
