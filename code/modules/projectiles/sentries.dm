@@ -120,7 +120,7 @@
 
 /obj/machinery/deployable/mounted/sentry/on_set_interaction(mob/user)
 	. = ..()
-	to_chat(user, span_notice("Вы отключили ИИ у [src] для ручного управления."))
+	to_chat(user, span_notice("Вы отключили ИИ [src] для перехода на ручное управление."))
 	set_on(FALSE)
 
 /obj/machinery/deployable/mounted/sentry/on_unset_interaction(mob/user)
