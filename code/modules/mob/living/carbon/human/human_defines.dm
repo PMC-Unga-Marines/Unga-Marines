@@ -9,8 +9,8 @@
 	melee_damage = 5
 	m_intent = MOVE_INTENT_WALK
 	buckle_flags = CAN_BE_BUCKLED|CAN_BUCKLE
-	resistance_flags = XENO_DAMAGEABLE|PORTAL_IMMUNE
-	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
+	resistance_flags = XENO_DAMAGEABLE
+	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
 
 	hud_type = /datum/hud/human
 

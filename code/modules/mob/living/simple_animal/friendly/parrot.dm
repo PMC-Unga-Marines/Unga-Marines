@@ -6,9 +6,7 @@
 #define PARROT_RETURN (1<<5)	//Flying towards its perch
 #define PARROT_FLEE (1<<6)	//Flying away from its attacker
 
-GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
-	/datum/strippable_item/parrot_headset
-)))
+GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(/datum/strippable_item/parrot_headset)))
 
 /mob/living/simple_animal/parrot
 	name = "parrot"
@@ -71,7 +69,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 									/obj/machinery/recharge_station, /obj/machinery/smartfridge, /obj/machinery/suit_storage_unit)
 	var/obj/item/held_item = null
 
-
 /mob/living/simple_animal/parrot/Initialize(mapload)
 	. = ..()
 	if(!ears)
@@ -94,11 +91,9 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 	return ..()
 
-
 /mob/living/simple_animal/parrot/get_status_tab_items()
 	. = ..()
 	. += "Held Item: [held_item]"
-
 
 /mob/living/simple_animal/parrot/Hear(message, atom/movable/speaker, message_langs, raw_message, radio_freq, list/spans, message_mode)
 	. = ..()
@@ -109,7 +104,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			speech_buffer |= html_decode(raw_message)
 	if(speaker == src && !client) //If a parrot squawks in the woods and no one is around to hear it, does it make a sound? This code says yes!
 		return message
-
 
 /mob/living/simple_animal/parrot/radio(message, message_mode, list/spans, language) //literally copied from human/radio(), but there's no other way to do this. at least it's better than it used to be.
 	. = ..()
@@ -156,9 +150,8 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	if(stat != DEAD && user.a_intent == INTENT_HELP)
 		handle_automated_speech(1) //assured speak/emote
 
-/mob/living/simple_animal/parrot/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	return attack_hand(X)
-
+/mob/living/simple_animal/parrot/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	return attack_hand(xeno_attacker)
 
 /mob/living/simple_animal/parrot/attack_animal(mob/living/simple_animal/M)
 	. = ..() //goodbye immortal parrots
@@ -174,8 +167,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		parrot_state = PARROT_SWOOP | PARROT_ATTACK //Attack other animals regardless
 		icon_state = icon_living
 
-
-/mob/living/simple_animal/parrot/bullet_act(obj/projectile/Proj)
+/mob/living/simple_animal/parrot/bullet_act(obj/projectile/proj)
 	. = ..()
 	if(!stat && !client)
 		if(parrot_state == PARROT_PERCH)
@@ -187,7 +179,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		icon_state = icon_living
 		drop_held_item(0)
 
-
 /mob/living/simple_animal/parrot/Life()
 	. = ..()
 
@@ -198,15 +189,12 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		pixel_x = initial(pixel_x)
 		pixel_y = initial(pixel_y)
 
-
 /mob/living/simple_animal/parrot/handle_automated_speech()
 	. = ..()
 	if(length(speech_buffer) && prob(speech_shuffle_rate)) //shuffle out a phrase and add in a new one
 		if(length(speak))
 			speak -= pick(speak)
-
 		speak += pick(speech_buffer)
-
 
 /mob/living/simple_animal/parrot/handle_automated_movement()
 	if(!isturf(loc) || !canmove || buckled)
@@ -255,7 +243,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 						possible_phrase = copytext_char(possible_phrase, 3) //crop out the channel prefix
 					newspeak.Add(possible_phrase)
 			speak = newspeak
-
 
 	else if(parrot_state == PARROT_WANDER)
 		//Stop movement, we'll set it later
@@ -317,7 +304,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 		walk_to(src, parrot_interest, 1, parrot_speed)
 
-
 	else if(parrot_state == (PARROT_SWOOP|PARROT_RETURN))
 		walk(src, 0)
 		if(!parrot_perch || !isturf(parrot_perch.loc)) //Make sure the perch exists and somehow isnt inside of something else.
@@ -354,7 +340,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			melee_damage = parrot_damage_upper
 			a_intent = INTENT_HARM
 
-
 		if(!Adjacent(parrot_interest))
 			walk_to(src, parrot_interest, 1, parrot_speed)
 			return
@@ -380,7 +365,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		drop_held_item()
 		parrot_state = PARROT_WANDER
 
-
 /mob/living/simple_animal/parrot/proc/steal_from_ground()
 	for(var/obj/item/I in view(1, src))
 		//Make sure we're not already holding it and it's small enough
@@ -403,7 +387,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				return O
 	return null
 
-
 //This proc was made to save on doing two 'in view' loops seperatly
 /mob/living/simple_animal/parrot/proc/search_for_perch_and_item()
 	for(var/atom/movable/AM in view(src))
@@ -419,9 +402,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			var/obj/item/I = AM
 			if(I.w_class <= WEIGHT_CLASS_SMALL)
 				return I
-
 	return null
-
 
 /mob/living/simple_animal/parrot/Moved(oldLoc, dir)
 	. = ..()
@@ -431,7 +412,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		pixel_x = initial(pixel_x)
 		pixel_y = initial(pixel_y)
 
-
 /mob/living/simple_animal/parrot/Poly
 	name = "Poly"
 	desc = "Poly the Parrot. An expert on quantum cracker theory."
@@ -439,7 +419,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	speak_chance = 3
 	voice_filter = "rubberband=pitch=1.5"
 	var/memory_saved = FALSE
-
 
 /mob/living/simple_animal/parrot/Poly/Initialize(mapload)
 	ears = new /obj/item/radio/headset/mainship/st(src)
@@ -456,13 +435,11 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			voice_filter = "rubberband=pitch=1.5" // Use the filter to pitch up if we can't naturally pitch up.
 	return ..()
 
-
 /mob/living/simple_animal/parrot/Poly/Life()
 	if(!stat && SSticker.current_state == GAME_STATE_FINISHED && !memory_saved)
 		Write_Memory(FALSE)
 		memory_saved = TRUE
 	return ..()
-
 
 /mob/living/simple_animal/parrot/Poly/on_death()
 	if(!memory_saved)
@@ -474,7 +451,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		else
 			G.key = key
 	return ..()
-
 
 /mob/living/simple_animal/parrot/Poly/proc/Read_Memory()
 	if(fexists("data/npc_saves/Poly.sav")) //legacy compatability to convert old format to new
@@ -490,7 +466,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	if(!islist(speech_buffer))
 		speech_buffer = list()
 
-
 /mob/living/simple_animal/parrot/Poly/proc/Write_Memory(dead)
 	var/json_file = file("data/npc_saves/Poly.json")
 	var/list/file_data = list()
@@ -498,7 +473,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		file_data["phrases"] = speech_buffer
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(file_data))
-
 
 /mob/living/simple_animal/parrot/Poly/ghost
 	name = "The Ghost of Poly"
@@ -508,17 +482,14 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	status_flags = GODMODE
 	resistance_flags = RESIST_ALL
 
-
 /mob/living/simple_animal/parrot/Poly/ghost/Initialize(mapload)
 	memory_saved = TRUE
 	return ..()
-
 
 /mob/living/simple_animal/parrot/Poly/ghost/handle_automated_speech()
 	if(ismob(loc))
 		return
 	return ..()
-
 
 /mob/living/simple_animal/parrot/Poly/ghost/handle_automated_movement()
 	if(isliving(parrot_interest))
@@ -527,7 +498,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		else if(parrot_state == (PARROT_SWOOP | PARROT_ATTACK) && Adjacent(parrot_interest))
 			walk_to(src, parrot_interest, 0, parrot_speed)
 	return ..()
-
 
 /mob/living/simple_animal/parrot/clock_hawk
 	name = "clock hawk"
@@ -600,7 +570,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				parrot_source.available_channels.Add(RADIO_TOKEN_CHARLIE)
 			if(RADIO_CHANNEL_DELTA)
 				parrot_source.available_channels.Add(RADIO_TOKEN_DELTA)
-
 
 /datum/strippable_item/parrot_headset/start_unequip(atom/source, mob/user)
 	. = ..()

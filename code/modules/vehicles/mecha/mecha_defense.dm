@@ -68,12 +68,12 @@
 	user.visible_message(span_danger("[user] hits [src]. Nothing happens."), null, null, COMBAT_MESSAGE_RANGE)
 	log_message("Attack by hand/paw (no damage). Attacker - [user].", LOG_MECHA, color="red")
 
-/obj/vehicle/sealed/mecha/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit) //wrapper
-	log_message("Hit by projectile. Type: [hitting_projectile]([hitting_projectile.ammo.damage_type]).", LOG_MECHA, color="red")
+/obj/vehicle/sealed/mecha/bullet_act(obj/projectile/proj, def_zone, piercing_hit) //wrapper
+	log_message("Hit by projectile. Type: [proj]([proj.ammo.damage_type]).", LOG_MECHA, color="red")
 	// yes we *have* to run the armor calc proc here I love tg projectile code too
 	try_damage_component(
-		modify_by_armor(hitting_projectile.damage, hitting_projectile.ammo.armor_type, hitting_projectile.ammo.penetration, attack_dir = REVERSE_DIR(hitting_projectile.dir)),
-		hitting_projectile.def_zone,
+		modify_by_armor(proj.damage, proj.ammo.armor_type, proj.ammo.penetration, attack_dir = REVERSE_DIR(proj.dir)),
+		proj.def_zone,
 	)
 	return ..()
 
@@ -266,12 +266,8 @@
 		cell.charge = cell.maxcharge
 	if(internal_damage & MECHA_INT_FIRE)
 		clear_internal_damage(MECHA_INT_FIRE)
-	if(internal_damage & MECHA_INT_TEMP_CONTROL)
-		clear_internal_damage(MECHA_INT_TEMP_CONTROL)
 	if(internal_damage & MECHA_INT_SHORT_CIRCUIT)
 		clear_internal_damage(MECHA_INT_SHORT_CIRCUIT)
-	if(internal_damage & MECHA_INT_TANK_BREACH)
-		clear_internal_damage(MECHA_INT_TANK_BREACH)
 	if(internal_damage & MECHA_INT_CONTROL_LOST)
 		clear_internal_damage(MECHA_INT_CONTROL_LOST)
 

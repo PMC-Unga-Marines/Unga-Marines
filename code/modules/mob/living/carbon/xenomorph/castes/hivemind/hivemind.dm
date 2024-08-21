@@ -10,7 +10,7 @@
 	bubble_icon = "alienroyal"
 	icon = 'icons/Xeno/castes/hivemind.dmi'
 	status_flags = GODMODE | INCORPOREAL
-	resistance_flags = RESIST_ALL|BANISH_IMMUNE
+	resistance_flags = RESIST_ALL
 	pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_FIRE //to prevent hivemind eye to catch fire when crossing lava
 	density = FALSE
 
@@ -94,7 +94,6 @@
 		qdel(hive_core)
 	return ..()
 
-
 /mob/living/carbon/xenomorph/hivemind/on_death()
 	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
 	if(!QDELETED(hive_core))
@@ -120,7 +119,7 @@
 	setDir(SOUTH)
 	addtimer(CALLBACK(src, PROC_REF(do_change_form)), TIME_TO_TRANSFORM)
 
-/mob/living/carbon/xenomorph/hivemind/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE)
+/mob/living/carbon/xenomorph/hivemind/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	return //no jumping, bad hivemind
 
 ///Finish the form changing of the hivemind and give the needed stats
@@ -129,7 +128,6 @@
 	update_movespeed()
 	if(status_flags & INCORPOREAL)
 		status_flags = NONE
-		resistance_flags = BANISH_IMMUNE
 		pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
 		density = TRUE
 		hive.xenos_by_upgrade[upgrade] -= src
@@ -205,21 +203,21 @@
 	flick("Hivemind_[initial(loc_weeds_type.color_variant)]_materialisation", src)
 	setDir(SOUTH)
 
-/mob/living/carbon/xenomorph/hivemind/Move(NewLoc, Dir = 0)
+/mob/living/carbon/xenomorph/hivemind/Move(atom/newloc, direction, glide_size_override)
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
 	if(!(status_flags & INCORPOREAL))
 		return ..()
-	if(!check_weeds(NewLoc))
+	if(!check_weeds(newloc))
 		return FALSE
 
 	// FIXME: Port canpass refactor from tg
 	// Don't allow them over the timed_late doors
-	var/obj/machinery/door/poddoor/timed_late/door = locate() in NewLoc
-	if(door && !door.CanPass(src, NewLoc))
+	var/obj/machinery/door/poddoor/timed_late/door = locate() in newloc
+	if(door && !door.CanPass(src, newloc))
 		return FALSE
 
-	abstract_move(NewLoc)
+	abstract_move(newloc)
 
 /mob/living/carbon/xenomorph/hivemind/receive_hivemind_message(mob/living/carbon/xenomorph/speaker, message)
 	var/track = "<a href='?src=[REF(src)];hivemind_jump=[REF(speaker)]'>(F)</a>"
@@ -249,6 +247,7 @@
 
 /// handles hivemind updating with their respective weedtype
 /mob/living/carbon/xenomorph/hivemind/update_icon_state()
+	. = ..()
 	if(status_flags & INCORPOREAL)
 		icon_state = "hivemind_marker"
 		return
@@ -357,14 +356,14 @@
 
 //hivemind cores
 
-/obj/structure/xeno/hivemindcore/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(isxenoqueen(X))
-		var/choice = tgui_alert(X, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
+/obj/structure/xeno/hivemindcore/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(isxenoqueen(xeno_attacker))
+		var/choice = tgui_alert(xeno_attacker, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
 		if(choice == "Yes")
 			deconstruct(FALSE)
 			return
 
-	X.visible_message(span_danger("[X] nudges its head against [src]."), \
+	xeno_attacker.visible_message(span_danger("[xeno_attacker] nudges its head against [src]."), \
 	span_danger("You nudge your head against [src]."))
 
 /obj/structure/xeno/hivemindcore/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
@@ -404,7 +403,7 @@
 			return
 
 	to_chat(get_parent(), span_xenoannounce("Our [src.name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y])."))
-	SEND_SOUND(get_parent(), 'sound/voice/alien_help1.ogg')
+	SEND_SOUND(get_parent(), 'sound/voice/alien/help1.ogg')
 	COOLDOWN_START(src, hivemind_proxy_alert_cooldown, XENO_HIVEMIND_DETECTION_COOLDOWN) //set the cooldown.
 
 /// Getter for the parent of this hive core

@@ -1,5 +1,3 @@
-
-
 /obj/item/reagent_containers/food/drinks/drinkingglass
 	name = "glass"
 	desc = "Your standard drinking glass."
@@ -204,7 +202,7 @@
 				name = "Beepsky Smash"
 				desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
 				center_of_mass = list("x"=18, "y"=10)
-			if(/datum/reagent/consumable/drink/doctor_delight)
+			if(/datum/reagent/medicine/doctor_delight)
 				icon_state = "doctorsdelightglass"
 				name = "Doctor's Delight"
 				desc = "A healthy mixture of juices, guaranteed to keep you healthy until the next toolboxing takes place."
@@ -611,10 +609,10 @@
 		center_of_mass = list("x"=16, "y"=10)
 		return
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/item/reagent_containers/food/drinks/drinkingglass/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(!CONFIG_GET(flag/fun_allowed))
 		return FALSE
-	attack_hand(X)
+	attack_hand(xeno_attacker)
 
 // for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda

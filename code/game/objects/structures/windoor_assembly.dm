@@ -47,6 +47,7 @@
 	update_icon()
 
 /obj/structure/windoor_assembly/update_icon_state()
+	. = ..()
 	icon_state = "[facing]_[secure]windoor_assembly[state]"
 
 /obj/structure/windoor_assembly/attackby(obj/item/I, mob/user, params)
@@ -256,7 +257,7 @@
 //Rotates the windoor assembly clockwise
 /obj/structure/windoor_assembly/verb/revrotate()
 	set name = "Rotate Windoor Assembly"
-	set category = "Object"
+	set category = "Object.Rotate"
 	set src in oview(1)
 
 	if (src.anchored)
@@ -268,7 +269,7 @@
 //Flips the windoor assembly, determines whather the door opens to the left or the right
 /obj/structure/windoor_assembly/verb/flip()
 	set name = "Flip Windoor Assembly"
-	set category = "Object"
+	set category = "Object.Rotate"
 	set src in oview(1)
 
 	if(src.facing == "l")

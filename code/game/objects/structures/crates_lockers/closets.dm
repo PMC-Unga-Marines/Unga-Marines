@@ -2,7 +2,6 @@
 #define CLOSET_INSERT_FAIL 0
 #define CLOSET_INSERT_SUCCESS 1
 
-
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
@@ -79,7 +78,6 @@
 	PopulateContents()
 	update_icon()
 
-
 /obj/structure/closet/LateInitialize()
 	. = ..()
 
@@ -91,7 +89,7 @@
 	dump_contents()
 	return ..()
 
-//USE THIS TO FILL IT, NOT INITIALIZE OR NEW
+///USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
 	return
 
@@ -107,12 +105,10 @@
 	density = FALSE
 	opened = TRUE
 
-
 /obj/structure/closet/CanAllowThrough(atom/movable/mover, turf/target)
 	if(wall_mounted)
 		return TRUE
 	return ..()
-
 
 /obj/structure/closet/proc/can_open(mob/living/user)
 	if(welded || locked)
@@ -120,7 +116,6 @@
 			balloon_alert(user, "Won't budge")
 		return FALSE
 	return TRUE
-
 
 /obj/structure/closet/proc/can_close(mob/living/user)
 	for(var/obj/structure/closet/blocking_closet in loc)
@@ -135,7 +130,6 @@
 			return FALSE
 	return TRUE
 
-
 /obj/structure/closet/proc/dump_contents()
 	var/atom/drop_loc = drop_location()
 	for(var/thing in src)
@@ -149,14 +143,12 @@
 	mob_size_counter = 0
 	item_size_counter = 0
 
-
 /obj/structure/closet/proc/take_contents()
 	for(var/mapped_thing in drop_location())
 		if(mapped_thing == src)
 			continue
 		if(insert(mapped_thing) == CLOSET_INSERT_END) // limit reached
 			break
-
 
 /obj/structure/closet/proc/open(mob/living/user)
 	SIGNAL_HANDLER
@@ -171,7 +163,6 @@
 	playsound(loc, open_sound, 15, 1)
 	return TRUE
 
-
 /obj/structure/closet/proc/insert(atom/movable/thing_to_insert)
 	if(length(contents) >= storage_capacity)
 		return CLOSET_INSERT_END
@@ -179,7 +170,6 @@
 		return CLOSET_INSERT_FAIL
 	thing_to_insert.forceMove(src)
 	return CLOSET_INSERT_SUCCESS
-
 
 /obj/structure/closet/proc/close(mob/living/user)
 	if(!opened || !can_close(user))
@@ -190,7 +180,6 @@
 	density = TRUE
 	update_icon()
 	return TRUE
-
 
 /obj/structure/closet/proc/toggle(mob/living/user)
 	return opened ? close(user) : open(user)
@@ -223,11 +212,11 @@
 		dump_contents()
 		qdel(src)
 
-/obj/structure/closet/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/structure/closet/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	. = ..()
 	if(!.)
 		return
-	if(X.a_intent == INTENT_HARM && !opened && prob(70))
+	if(xeno_attacker.a_intent == INTENT_HARM && !opened && prob(70))
 		break_open()
 
 /obj/structure/closet/attackby(obj/item/I, mob/user, params)
@@ -241,8 +230,7 @@
 			return TRUE
 		return user.transferItemToLoc(I, drop_location())
 
-	var/obj/item/card/id/ID = user.get_idcard()
-	if(istype(ID))
+	if(user.get_idcard())
 		if(!togglelock(user, TRUE))
 			toggle(user)
 
@@ -277,7 +265,6 @@
 	balloon_alert_to_viewers("[src] has been [welded ? "welded shut" : "unwelded"]")
 	return TRUE
 
-
 /obj/structure/closet/wrench_act(mob/living/user, obj/item/tool/wrench/wrenchy_tool)
 	if(opened)
 		return FALSE
@@ -288,7 +275,6 @@
 	wrenchy_tool.play_tool_sound(src, 75)
 	balloon_alert_to_viewers("[user] [anchored ? "anchors" : "unanchors"] the [src]")
 	return TRUE
-
 
 /obj/structure/closet/relaymove(mob/user, direct)
 	if(!isturf(loc))
@@ -310,40 +296,38 @@
 			to_chat(M, "<FONT size=[max(0, 5 - get_dist(src, M))]>BANG, bang!</FONT>")
 		addtimer(VARSET_CALLBACK(src, lastbang, FALSE), 3 SECONDS)
 
-
 /obj/structure/closet/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	return toggle(user)
-
-
-/obj/structure/closet/verb/verb_toggleopen()
-	set src in oview(1)
-	set category = "Object"
-	set name = "Toggle Open"
-
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
-
-	if(ishuman(usr))
-		src.toggle(usr)
+	if(user.get_idcard() && locked)
+		togglelock(user, TRUE)
 	else
-		balloon_alert(usr, "Can't do this")
+		toggle(user)
 
-/obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
-	overlays.Cut()
+/obj/structure/closet/attack_hand_alternate(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(opened)
+		toggle(user)
+	else if(user.get_idcard())
+		togglelock(user, TRUE)
+
+/obj/structure/closet/update_icon_state()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+	. = ..()
 	if(!opened)
 		icon_state = icon_closed
-		if(welded)
-			overlays += image(icon, overlay_welded)
 	else
 		icon_state = icon_opened
 
+/obj/structure/closet/update_overlays()
+	. = ..()
+	if(!opened && welded)
+		. += image(icon, overlay_welded)
 
 /obj/structure/closet/resisted_against(datum/source)
 	container_resist(source)
-
 
 /obj/structure/closet/proc/container_resist(mob/living/user)
 	if(opened)
@@ -369,13 +353,11 @@
 	balloon_alert_to_viewers("breaks out")
 	return bust_open()
 
-
 /obj/structure/closet/proc/bust_open()
 	welded = FALSE //applies to all lockers
 	locked = FALSE //applies to critter crates and secure lockers only
 	broken = TRUE //applies to secure lockers only
 	open()
-
 
 /obj/structure/closet/proc/break_open()
 	if(!opened)
@@ -385,12 +367,6 @@
 		density = FALSE
 		welded = FALSE
 		update_icon()
-
-
-/obj/structure/closet/AltClick(mob/user)
-	. = ..()
-	return togglelock(user)
-
 
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
 	if(!CHECK_BITFIELD(closet_flags, CLOSET_IS_SECURE))
@@ -414,26 +390,22 @@
 		return FALSE
 
 	locked = !locked
-	balloon_alert_to_viewers("[locked ? null : "un"]locked")
+	balloon_alert_to_viewers("[locked ? "" : "un"]locked")
 	update_icon()
 	return TRUE
-
 
 /obj/structure/closet/contents_explosion(severity)
 	for(var/i in contents)
 		var/atom/movable/closet_contents = i
 		closet_contents.ex_act(severity)
 
-
 /obj/structure/closet/proc/closet_special_handling(mob/living/mob_to_stuff)
 	return TRUE //We are permisive by default.
-
 
 //Redefined procs for closets
 
 /atom/movable/proc/closet_insertion_allowed(obj/structure/closet/destination)
 	return FALSE
-
 
 /mob/living/closet_insertion_allowed(obj/structure/closet/destination)
 	if(anchored || buckled)
@@ -448,7 +420,6 @@
 	destination.RegisterSignal(destination, COMSIG_ATOM_EXITED, TYPE_PROC_REF(/obj/structure/closet, open))
 	return TRUE
 
-
 /obj/closet_insertion_allowed(obj/structure/closet/destination)
 	if(!CHECK_BITFIELD(destination.closet_flags, CLOSET_ALLOW_OBJS))
 		return FALSE
@@ -459,7 +430,6 @@
 	if(move_resist == INFINITY)
 		return FALSE
 	return TRUE
-
 
 /obj/item/closet_insertion_allowed(obj/structure/closet/destination)
 	if(anchored)
@@ -481,7 +451,6 @@
 /obj/structure/closet/closet_insertion_allowed(obj/structure/closet/destination)
 	return FALSE
 
-
 /mob/living/proc/on_closet_dump(obj/structure/closet/origin)
 	SetStun(origin.closet_stun_delay)//Action delay when going out of a closet
 	if(!lying_angle && IsStun())
@@ -491,6 +460,81 @@
 /obj/structure/closet/pred
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "closed"
+
+/obj/structure/closet/marine
+	name = "marine's locker"
+	icon = 'icons/obj/structures/closet.dmi'
+	icon_state = "marine_closed"
+	icon_closed = "marine_closed"
+	icon_opened = "marine_open"
+	var/squad // to which squad this closet belongs to
+
+/obj/structure/closet/marine/Initialize()
+	. = ..()
+	if(squad)
+		icon_state = "[squad]_closed"
+		icon_closed = "[squad]_closed"
+		icon_opened = "[squad]_open"
+
+/obj/structure/closet/marine/PopulateContents()
+	if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
+		new /obj/item/clothing/mask/rebreather/scarf(src)
+
+/obj/structure/closet/marine/alpha
+	name = "alpha equipment locker"
+	squad = "alpha"
+
+/obj/structure/closet/marine/alpha/PopulateContents()
+	. = ..()
+	new /obj/item/radio/headset/mainship/marine/alpha(src)
+	new /obj/item/clothing/head/tgmcberet/squad/alpha(src)
+	new /obj/item/clothing/head/tgmcberet/squad/alpha/black(src)
+	new /obj/item/clothing/mask/bandanna/alpha(src)
+	new /obj/item/clothing/head/squad_headband/alpha(src)
+	new /obj/item/clothing/under/marine/squad/neck/alpha(src)
+	new /obj/effect/spawner/random/misc/plushie/fiftyfifty(src)
+
+/obj/structure/closet/marine/bravo
+	name = "bravo equipment locker"
+	squad = "bravo"
+
+/obj/structure/closet/marine/bravo/PopulateContents()
+	. = ..()
+	new /obj/item/radio/headset/mainship/marine/bravo(src)
+	new /obj/item/clothing/head/tgmcberet/squad/bravo(src)
+	new /obj/item/clothing/head/tgmcberet/squad/bravo/black(src)
+	new /obj/item/clothing/mask/bandanna/bravo(src)
+	new /obj/item/clothing/head/squad_headband/bravo(src)
+	new /obj/item/clothing/under/marine/squad/neck/bravo(src)
+	new /obj/effect/spawner/random/misc/plushie/fiftyfifty(src)
+
+/obj/structure/closet/marine/charlie
+	name = "charlie equipment locker"
+	squad = "charlie"
+
+/obj/structure/closet/marine/charlie/PopulateContents()
+	. = ..()
+	new /obj/item/radio/headset/mainship/marine/charlie(src)
+	new /obj/item/clothing/head/tgmcberet/squad/charlie(src)
+	new /obj/item/clothing/head/tgmcberet/squad/charlie/black(src)
+	new /obj/item/clothing/mask/bandanna/charlie(src)
+	new /obj/item/clothing/head/squad_headband/charlie(src)
+	new /obj/item/clothing/under/marine/squad/neck/charile(src)
+	new /obj/effect/spawner/random/misc/prizemecha(src)
+
+/obj/structure/closet/marine/delta
+	name = "delta equipment locker"
+	squad = "delta"
+
+/obj/structure/closet/marine/delta/PopulateContents()
+	. = ..()
+	new /obj/item/radio/headset/mainship/marine/delta(src)
+	new /obj/item/clothing/head/tgmcberet/squad/delta(src)
+	new /obj/item/clothing/head/tgmcberet/squad/delta/black(src)
+	new /obj/item/clothing/mask/bandanna/delta(src)
+	new /obj/item/clothing/head/squad_headband/delta(src)
+	new /obj/item/clothing/under/marine/squad/neck/delta(src)
+	new /obj/effect/spawner/random/misc/delta(src)
 
 #undef CLOSET_INSERT_END
 #undef CLOSET_INSERT_FAIL

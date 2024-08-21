@@ -97,7 +97,6 @@
 	data["styleChoice"] = temp_pod.style
 	data["effectStun"] = temp_pod.effectStun
 	data["effectLimb"] = temp_pod.effectLimb
-	data["effectOrgans"] = temp_pod.effectOrgans
 	data["effectBluespace"] = temp_pod.bluespace
 	data["effectStealth"] = temp_pod.effectStealth
 	data["effectQuiet"] = temp_pod.effectQuiet
@@ -269,10 +268,6 @@
 
 		if("effectLimb")
 			temp_pod.effectLimb = !temp_pod.effectLimb
-			. = TRUE
-
-		if("effectOrgans")
-			temp_pod.effectOrgans = !temp_pod.effectOrgans
 			. = TRUE
 
 		if("effectBluespace")

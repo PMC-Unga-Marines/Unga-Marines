@@ -17,7 +17,6 @@
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/admin = FALSE
 
-
 /obj/item/alien_embryo/Initialize(mapload)
 	. = ..()
 	if(!isliving(loc))
@@ -162,7 +161,7 @@
 	if(picked)
 		picked.mind.transfer_to(new_xeno, TRUE)
 		to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva inside a host! Move to burst out of it!"))
-		new_xeno << sound('sound/effects/xeno_newlarva.ogg')
+		new_xeno << sound('sound/effects/alien/newlarva.ogg')
 
 	stage = 6
 
@@ -204,12 +203,12 @@
 
 	victim.update_burst()
 
-	if(istype(victim.loc, /obj/vehicle/multitile/root))
-		var/obj/vehicle/multitile/root/V = victim.loc
-		V.handle_player_exit(src)
+	if(istype(victim.loc, /obj/vehicle/sealed))
+		var/obj/vehicle/sealed/armored/veh = victim.loc
+		forceMove(veh.exit_location(src))
 	else
 		forceMove(get_turf(victim)) //moved to the turf directly so we don't get stuck inside a cryopod or another mob container.
-	playsound(src, pick('sound/voice/alien_chestburst.ogg','sound/voice/alien_chestburst2.ogg'), 25)
+	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 25)
 	GLOB.round_statistics.total_larva_burst++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_larva_burst")
 	var/obj/item/alien_embryo/AE = locate() in victim
@@ -221,19 +220,17 @@
 		var/mob/living/carbon/human/H = victim
 		H.apply_damage(200, BRUTE, H.get_limb("chest"), updating_health = TRUE) //lethal armor ignoring brute damage
 		var/datum/internal_organ/O
-		for(var/i in list("heart", "lungs", "liver", "kidneys", "appendix")) //Bruise all torso internal organs
-			O = H.internal_organs_by_name[i]
+		for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_APPENDIX, ORGAN_SLOT_STOMACH)) //Bruise all torso internal organs
+			O = H.get_organ_slot(i)
 
 			if(!H.mind && !H.client) //If we have no client or mind, permadeath time; remove the organs. Mainly for the NPC colonist bodies
-				H.internal_organs_by_name -= i
-				H.internal_organs -= O
+				H.remove_organ_slot(O)
 			else
 				O.take_damage(O.min_bruised_damage, TRUE)
 
 		var/datum/limb/chest = H.get_limb("chest")
 		new /datum/wound/internal_bleeding(15, chest) //Apply internal bleeding to chest
 		chest.fracture()
-
 
 	victim.chestburst = 2
 	victim.update_burst()

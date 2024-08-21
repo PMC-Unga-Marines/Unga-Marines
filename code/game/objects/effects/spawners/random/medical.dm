@@ -100,13 +100,13 @@
 	name = "Random surgical organ spawner"
 	icon_state = "random_organ"
 	loot = list(
-		/obj/item/prop/organ/brain,
-		/obj/item/prop/organ/heart,
-		/obj/item/prop/organ/lungs,
-		/obj/item/prop/organ/kidneys,
-		/obj/item/prop/organ/eyes,
-		/obj/item/prop/organ/liver,
-		/obj/item/prop/organ/appendix,
+		/obj/item/organ/brain,
+		/obj/item/organ/heart,
+		/obj/item/organ/lungs,
+		/obj/item/organ/kidneys,
+		/obj/item/organ/eyes,
+		/obj/item/organ/liver,
+		/obj/item/organ/appendix,
 	)
 
 /obj/effect/spawner/random/medical/medbottle
@@ -133,6 +133,16 @@
 	spawn_loot_chance = 35
 	loot = list(
 		/obj/item/storage/firstaid/regular = 30,
+		/obj/item/storage/firstaid/fire = 15,
+		/obj/item/storage/firstaid/o2 = 10,
+		/obj/item/storage/firstaid/toxin = 10,
+		/obj/item/storage/firstaid/adv = 5,
+	)
+
+/obj/effect/spawner/random/medical/firstaid/often
+	spawn_loot_chance = 85
+	loot = list(
+		/obj/item/storage/firstaid/regular = 25,
 		/obj/item/storage/firstaid/fire = 15,
 		/obj/item/storage/firstaid/o2 = 10,
 		/obj/item/storage/firstaid/toxin = 10,

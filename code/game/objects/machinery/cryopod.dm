@@ -1,4 +1,3 @@
-
 /obj/machinery/computer/cryopod
 	name = "hypersleep bay console"
 	desc = "A large console controlling the ship's hypersleep bay. Mainly used for recovery of items from long-term hypersleeping crew."
@@ -33,7 +32,6 @@
 	popup.set_content(dat)
 	popup.open()
 
-
 /obj/machinery/computer/cryopod/Topic(href, href_list)
 	. =..()
 	if(.)
@@ -56,7 +54,6 @@
 			dispense_item(I, usr, FALSE)
 
 	updateUsrDialog()
-
 
 /obj/machinery/computer/cryopod/proc/dispense_item(obj/item/I, mob/user, message = TRUE)
 	if(!istype(I) || QDELETED(I))
@@ -129,6 +126,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/cryopod/update_icon_state()
+	. = ..()
 	if(occupant)
 		icon_state = "[initial(icon_state)]_occupied"
 	else
@@ -240,7 +238,7 @@
 
 /obj/machinery/cryopod/verb/eject()
 	set name = "Eject Pod"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in view(0)
 
 	if(usr.incapacitated(TRUE) || usr.loc != src)
@@ -269,7 +267,7 @@
 
 /obj/machinery/cryopod/verb/move_inside()
 	set name = "Enter Pod"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)
@@ -313,15 +311,15 @@
 	occupant = null
 	update_icon()
 
-/obj/machinery/cryopod/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/cryopod/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
-		to_chat(X, span_xenowarning("There is nothing of interest in there."))
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
-	if(X.status_flags & INCORPOREAL || X.do_actions)
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
-	visible_message(span_warning("[X] begins to pry the [src]'s cover!"), 3)
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
-	if(!do_after(X, 2 SECONDS))
+	if(!do_after(xeno_attacker, 2 SECONDS))
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()

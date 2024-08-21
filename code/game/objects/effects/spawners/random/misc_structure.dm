@@ -139,7 +139,6 @@
 		/obj/structure/closet/secure_closet/hos = 50,
 		/obj/structure/closet/secure_closet/marshal = 50,
 		/obj/structure/closet/secure_closet/miner = 50,
-		/obj/structure/closet/secure_closet/security/cargo = 50,
 		/obj/structure/closet/secure_closet/scientist = 50,
 		/obj/structure/closet/secure_closet/engineering_electrical = 30,
 		/obj/structure/closet/secure_closet/CMO = 10,
@@ -349,7 +348,6 @@
 		/obj/structure/largecrate/random/barrel/red = 20,
 		/obj/structure/largecrate/random/barrel/white = 20,
 		/obj/structure/largecrate/random/barrel/yellow = 20,
-		/obj/structure/largecrate/random/barrel/red = 10,
 		/obj/structure/reagent_dispensers/fueltank/barrel = 1,
 	)
 

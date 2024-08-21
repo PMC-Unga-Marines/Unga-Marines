@@ -34,6 +34,10 @@
 
 //turf/closed/wall/mainship/update_icon()
 
+
+/turf/closed/wall/mainship/alt
+	icon = 'icons/turf/walls/talos.dmi'
+
 /turf/closed/wall/mainship/outer
 	name = "outer hull"
 	desc = "A huge chunk of metal used to seperate space from the ship"
@@ -42,6 +46,11 @@
 	resistance_flags = RESIST_ALL //Impossible to destroy or even damage. Used for outer walls that would breach into space, potentially some special walls
 	icon_state = "wall-invincible"
 	decorated_wall = FALSE
+
+/turf/closed/wall/mainship/outer/alt
+	icon = 'icons/turf/walls/talos.dmi'
+	icon_state = "testwall-0"
+	walltype = "testwall"
 
 /turf/closed/wall/mainship/outer/reinforced
 	name = "reinforced hull"
@@ -476,7 +485,7 @@
 	smoothing_groups = SMOOTH_GROUP_GENERAL_STRUCTURES
 	max_integrity = 9000//Strong, but only available to Hunters, can can still be blown up or melted by boilers.
 
-/turf/closed/wall/mineral/sandstone/runed/attack_alien(mob/living/carbon/xenomorph/user, damage_amount = user.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/turf/closed/wall/mineral/sandstone/runed/attack_alien(mob/living/carbon/xenomorph/user, damage_amount = user.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	visible_message("[user] scrapes uselessly against [src] with their claws.")
 	return
 

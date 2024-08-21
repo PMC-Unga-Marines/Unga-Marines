@@ -15,6 +15,7 @@
 #define MAP_DELTA_STATION "Delta Station"
 #define MAP_OSCAR_OUTPOST "Oscar Outpost"
 
+#define MAP_TALOS "Talos"
 #define MAP_PILLAR_OF_SPRING "Pillar of Spring"
 #define MAP_SULACO "Sulaco"
 #define MAP_THESEUS "Theseus"
@@ -38,7 +39,6 @@
 
 #define INVISIBILITY_ABSTRACT 101 //only used for abstract objects (e.g. spacevine_controller), things that are not really there.
 
-
 //Object specific defines
 #define CANDLE_LUM 3 //For how bright candles are
 
@@ -47,24 +47,11 @@
 #define SEC_LEVEL_RED 2
 #define SEC_LEVEL_DELTA 3
 
-
-//=================================================
-#define HOSTILE_STANCE_IDLE 1
-#define HOSTILE_STANCE_ALERT 2
-#define HOSTILE_STANCE_ATTACK 3
-#define HOSTILE_STANCE_ATTACKING 4
-#define HOSTILE_STANCE_TIRED 5
-//=================================================
-
-
 //=================================================
 //Game mode related defines.
 
 #define TRANSITIONEDGE 3 //Distance from edge to move to another z-level
 
-//Flags for zone sleeping
-#define ZONE_ACTIVE 1
-#define ZONE_SLEEPING 0
 #define GET_RANDOM_FREQ rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
 //ceiling types
@@ -77,7 +64,6 @@
 #define CEILING_DEEP_UNDERGROUND 6
 #define CEILING_DEEP_UNDERGROUND_METAL 6
 
-
 // Default font settings
 #define FONT_SIZE "5pt"
 #define FONT_COLOR "#09f"
@@ -89,20 +75,12 @@
 
 #define GAME_YEAR (text2num(time2text(world.realtime, "YYYY")) + 395)
 
-
 #define MAX_MESSAGE_LEN 1024
 #define MAX_PAPER_MESSAGE_LEN 3072
 #define MAX_BOOK_MESSAGE_LEN 9216
 #define MAX_NAME_LEN 26
 #define MAX_BROADCAST_LEN 512
 #define MAX_NAME_HYPO 3
-
-
-//for whether AI eyes see static, and whether it is mouse-opaque or not
-#define USE_STATIC_NONE 0
-#define USE_STATIC_TRANSPARENT 1
-#define USE_STATIC_OPAQUE 2
-
 
 #define CINEMATIC_DEFAULT 1
 #define CINEMATIC_SELFDESTRUCT 2

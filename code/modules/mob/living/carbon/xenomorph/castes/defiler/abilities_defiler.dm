@@ -73,7 +73,7 @@
 	)
 
 /datum/action/ability/activable/xeno/defile/on_cooldown_finish()
-	playsound(owner.loc, 'sound/voice/alien_drool1.ogg', 50, 1)
+	playsound(owner.loc, 'sound/voice/alien/drool1.ogg', 50, 1)
 	to_chat(owner, span_xenodanger("You feel your toxin accelerant glands refill. You can use Defile again."))
 	return ..()
 
@@ -110,7 +110,7 @@
 	X.face_atom(living_target)
 	X.do_attack_animation(living_target)
 	playsound(living_target, 'sound/effects/spray3.ogg', 15, TRUE)
-	playsound(living_target, pick('sound/voice/alien_drool1.ogg', 'sound/voice/alien_drool2.ogg'), 15, 1)
+	playsound(living_target, pick('sound/voice/alien/drool1.ogg', 'sound/voice/alien/drool2.ogg'), 15, 1)
 	to_chat(X, span_xenodanger("Our stinger successfully discharges accelerant into our victim."))
 	to_chat(living_target, span_danger("You feel horrible pain as something sharp forcibly pierces your thorax."))
 	living_target.apply_damage(50, STAMINA)
@@ -176,7 +176,7 @@
 	var/obj/effect/abstract/particle_holder/particle_holder
 
 /datum/action/ability/xeno_action/emit_neurogas/on_cooldown_finish()
-	playsound(owner.loc, 'sound/effects/xeno_newlarva.ogg', 50, 0)
+	playsound(owner.loc, 'sound/effects/alien/newlarva.ogg', 50, 0)
 	to_chat(owner, span_xenodanger("We feel our dorsal vents bristle with heated gas. We can emit Noxious Gas again."))
 	return ..()
 
@@ -301,7 +301,7 @@
 	)
 
 /datum/action/ability/activable/xeno/inject_egg_neurogas/on_cooldown_finish()
-	playsound(owner.loc, 'sound/effects/xeno_newlarva.ogg', 50, 0)
+	playsound(owner.loc, 'sound/effects/alien/newlarva.ogg', 50, 0)
 	to_chat(owner, span_xenodanger("We feel our stinger fill with toxins. We can inject an egg with gas again."))
 	return ..()
 
@@ -456,7 +456,7 @@
 	reagent_slash_reagent = X.selected_reagent
 
 	X.balloon_alert(X, "Reagent slash active") //Let the user know
-	X.playsound_local(X, 'sound/voice/alien_drool2.ogg', 25)
+	X.playsound_local(X, 'sound/voice/alien/drool2.ogg', 25)
 
 	toggle_particles(TRUE)
 	succeed_activate()
@@ -473,7 +473,7 @@
 	toggle_particles(FALSE)
 
 	X.balloon_alert(X, "Reagent slash over") //Let the user know
-	X.playsound_local(X, 'sound/voice/hiss5.ogg', 25)
+	X.playsound_local(X, 'sound/voice/alien/hiss8.ogg', 25)
 
 
 ///Called when we slash while reagent slash is active
@@ -513,7 +513,7 @@
 
 /datum/action/ability/xeno_action/reagent_slash/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to infuse our spines with toxins again."))
-	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 // Toggles particles on or off, depending on the defined var.

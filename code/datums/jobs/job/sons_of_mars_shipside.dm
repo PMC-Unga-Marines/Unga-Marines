@@ -370,88 +370,13 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_ENGINEERING
 
-
-//Chief Ship Engineer
-/datum/job/som/engineering/chief
-	title = SOM_CHIEF_ENGINEER
-	paygrade = "SOM_W2"
-	comm_title = "CE"
-	selection_color = "#ffeeaa"
-	total_positions = 1
-	access = list(ACCESS_MARINE_CE, ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_BRIDGE, ACCESS_CIVILIAN_ENGINEERING, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PREP)
-	minimal_access = list(ACCESS_MARINE_CE, ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_BRIDGE, ACCESS_CIVILIAN_ENGINEERING, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_PREP, ACCESS_MARINE_RO, ACCESS_MARINE_MEDBAY)
-	skills_type = /datum/skills/ce
-	display_order = JOB_DISPLAY_ORDER_CHIEF_ENGINEER
-	outfit = /datum/outfit/job/som/engineering/chief
-	exp_requirements = XP_REQ_EXPERIENCED
-	exp_type = EXP_TYPE_REGULAR_ALL
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD
-	html_description = {"
-		<b>Difficulty</b>: Hard<br /><br />
-		<b>You answer to the</b> acting Command Staff<br /><br />
-		<b>Unlock Requirement</b>: Starting Role<br /><br />
-		<b>Gamemode Availability</b>: Campaign<br /><br /><br />
-		<b>Duty</b>: Supervise the engineers and technicians on duty. Overview the ship’s engine. Teach what’s right and what’s wrong about engineering, cut corners and find places in any FOB that can easily be destroyed.
-	"}
-	minimap_icon = "cse"
-
-/datum/job/som/engineering/chief/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
-	. = ..()
-	if(!ishuman(new_mob))
-		return
-	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
-	if(!playtime_mins || playtime_mins < 1 )
-		return
-	switch(playtime_mins)
-		if(0 to 1500) // starting
-			new_human.wear_id.paygrade = "SOM_W2"
-		if(1501 to 6000) // 25 hrs
-			new_human.wear_id.paygrade = "SOM_W3"
-		if(6001 to 18000) // 100 hrs
-			new_human.wear_id.paygrade = "SOM_W4"
-		if(18001 to 30000) // 300 hrs
-			new_human.wear_id.paygrade = "SOM_W5"
-		if(30001 to INFINITY) // 500 hrs
-			new_human.wear_id.paygrade = "SOM_W6"
-
-/datum/job/som/engineering/chief/radio_help_message(mob/M)
-	. = ..()
-	to_chat(M, {"Your job is to maintain the ship's engine and keep everything running.
-If you have no idea how to set up the engine, or it's your first time, <b>mentorhelp</b> so that a mentor can assist you.
-You are also next in the chain of command, should the bridge crew fall in the line of duty."})
-
-
-/datum/outfit/job/som/engineering/chief
-	name = SOM_CHIEF_ENGINEER
-	jobtype = /datum/job/som/engineering/chief
-
-	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/ce
-	wear_suit = /obj/item/clothing/suit/storage/marine/officer/req
-	shoes = /obj/item/clothing/shoes/marine/full
-	glasses = /obj/item/clothing/glasses/welding/superior
-	gloves = /obj/item/clothing/gloves/insulated
-	head = /obj/item/clothing/head/beret/marine/techofficer
-	r_store = /obj/item/storage/pouch/construction
-	back = /obj/item/storage/backpack/marine/engineerpack
-
-/datum/outfit/job/som/engineering/chief/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sheet/plasteel/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/full, SLOT_IN_R_POUCH)
-
 //Ship Engineer
 /datum/job/som/engineering/tech
 	title = SOM_TECH
 	comm_title = "TECH"
 	paygrade = "SOM_E2"
 	total_positions = 5
-	supervisors = "the chief station engineer and the requisitions officer"
+	supervisors = "the requisitions officer"
 	access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_PREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CARGO, ACCESS_CIVILIAN_ENGINEERING)
 	minimal_access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_PREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_CARGO, ACCESS_CIVILIAN_ENGINEERING)
 	skills_type = /datum/skills/st

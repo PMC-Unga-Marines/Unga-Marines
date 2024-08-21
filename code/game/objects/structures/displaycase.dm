@@ -24,7 +24,8 @@
 */
 
 
-/obj/structure/displaycase/update_icon()
+/obj/structure/displaycase/update_icon_state()
+	. = ..()
 	if(destroyed)
 		icon_state = "glassboxb[occupied]"
 	else

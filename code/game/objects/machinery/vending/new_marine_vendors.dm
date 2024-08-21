@@ -41,6 +41,7 @@
 		set_light(0)
 
 /obj/machinery/marine_selector/update_icon_state()
+	. = ..()
 	if(is_operational())
 		icon_state = initial(icon_state)
 	else
@@ -226,7 +227,7 @@
 
 /obj/machinery/marine_selector/clothes/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.marine_clothes_listed_products + GLOB.marine_gear_listed_products
+	listed_products = GLOB.marine_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/alpha
 	squad_tag = "Alpha"
@@ -273,6 +274,38 @@
 
 /obj/machinery/marine_selector/clothes/engi/valhalla
 	vendor_role = /datum/job/fallen/marine/engineer
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+
+/obj/machinery/marine_selector/clothes/robo
+	name = "GHMME Automated Combat Robot Closet"
+	req_access = list(ACCESS_MARINE_ROBOT)
+	vendor_role = /datum/job/terragov/squad/robot
+	gives_webbing = FALSE
+
+/obj/machinery/marine_selector/clothes/robo/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.robot_clothes_listed_products
+
+/obj/machinery/marine_selector/clothes/robo/alpha
+	squad_tag = "Alpha"
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_ALPHA)
+
+/obj/machinery/marine_selector/clothes/robo/bravo
+	squad_tag = "Bravo"
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_BRAVO)
+
+/obj/machinery/marine_selector/clothes/robo/charlie
+	squad_tag = "Charlie"
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_CHARLIE)
+
+/obj/machinery/marine_selector/clothes/robo/delta
+	squad_tag = "Delta"
+	req_access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/robo/valhalla
+	vendor_role = /datum/job/fallen/marine/combat_robot
 	resistance_flags = INDESTRUCTIBLE
 	lock_flags = JOB_LOCK
 
@@ -429,6 +462,42 @@
 
 /obj/machinery/marine_selector/gear/medic/valhalla
 	vendor_role = /datum/job/fallen/marine/corpsman
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+/obj/machinery/marine_selector/gear/marine
+	name = "NEXUS Automated Marine Gear Rack"
+	desc = "An automated marine gear rack hooked up to a colossal storage unit."
+	icon_state = "marine"
+	icon_vend = "marine-vend"
+	icon_deny = "marine-deny"
+	vendor_role = /datum/job/terragov/squad/standard
+	req_access = list(ACCESS_MARINE_PREP)
+
+/obj/machinery/marine_selector/gear/marine/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.marine_gear_listed_products
+
+/obj/machinery/marine_selector/gear/marine/valhalla
+	vendor_role = /datum/job/fallen/marine
+	resistance_flags = INDESTRUCTIBLE
+	lock_flags = JOB_LOCK
+
+/obj/machinery/marine_selector/gear/robo
+	name = "NEXUS Automated Combat Robot Gear Rack"
+	desc = "An automated combat robot rack hooked up to a colossal storage unit."
+	icon_state = "robo"
+	icon_vend = "robo-vend"
+	icon_deny = "robo-deny"
+	vendor_role = /datum/job/terragov/squad/robot
+	req_access = list(ACCESS_MARINE_ROBOT)
+
+/obj/machinery/marine_selector/gear/robo/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.robot_gear_listed_products
+
+/obj/machinery/marine_selector/gear/robo/valhalla
+	vendor_role = /datum/job/fallen/marine/combat_robot
 	resistance_flags = INDESTRUCTIBLE
 	lock_flags = JOB_LOCK
 
@@ -639,7 +708,7 @@
 
 /obj/effect/vendor_bundle/gorka_medic
 	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/ru/gorka_med,
+		/obj/item/clothing/under/marine/gorka_med,
 		/obj/item/clothing/shoes/marine/full,
 		/obj/item/storage/box/MRE,
 	)
@@ -663,7 +732,7 @@
 
 /obj/effect/vendor_bundle/gorka_engineer
 	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/ru/gorka_eng,
+		/obj/item/clothing/under/marine/gorka_eng,
 		/obj/item/clothing/shoes/marine/full,
 		/obj/item/storage/box/MRE,
 	)
@@ -721,9 +790,8 @@
 		/obj/item/bodybag/cryobag,
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
 		/obj/item/tweezers,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,
-		//RUTGMC EDIT ADDITION  END
+		/obj/item/supplytablet,
 	)
 
 /obj/effect/vendor_bundle/white_dress
@@ -857,29 +925,28 @@
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/clothing/mask/gas/tactical,
-//		/obj/item/armor_module/module/mimir_environment_protection/mark1, RU TGMC EDIT
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
 	)
 
 /obj/effect/vendor_bundle/vali
 	desc = "A set of specialized gear for close-quarters combat and enhanced chemical effectiveness."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/chemsystem,
-		/obj/item/storage/holster/blade/machete/full_harvester,
+		/obj/item/storage/holster/blade/harvester/full,
 		/obj/item/paper/chemsystem,
 	)
-/* RU TGMC EDIT
 /obj/effect/vendor_bundle/tyr
 	desc = "A set of specialized gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/tyr_head,
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,
 	)
-RU TGMC EDIT */
 /obj/effect/vendor_bundle/robot/essentials
 	gear_to_spawn = list(
 		/obj/item/clothing/under/marine/robotic,
 		/obj/item/tool/weldingtool,
 		/obj/item/stack/cable_coil,
+		/obj/item/tool/surgery/solderingtool,
 	)
 
 /obj/effect/vendor_bundle/robot/light_armor
@@ -911,7 +978,7 @@ RU TGMC EDIT */
 /obj/effect/vendor_bundle/tyr/two
 	desc = "A set of advanced gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
-		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/tyr_extra_armor,
 	)
 
@@ -919,20 +986,20 @@ RU TGMC EDIT */
 	name = "Full set of TGMC veteran uniform"
 	desc = "TerraGov Marine Corps Veteran Uniform Set. Modified mostly by hand, but still quite stylish."
 	gear_to_spawn = list(
-		/obj/item/clothing/mask/gas/ru/veteran,
-		/obj/item/clothing/under/marine/ru/veteran,
+		/obj/item/clothing/mask/gas/veteran,
+		/obj/item/clothing/under/marine/veteran,
 		/obj/item/clothing/gloves/marine/veteran/marine,
-		/obj/item/clothing/shoes/marine/ru/headskin,
+		/obj/item/clothing/shoes/marine/headskin,
 	)
 
 /obj/effect/vendor_bundle/separatist_uniform
 	name = "Full set of civilian militia uniform"
 	desc = "A set of civilian militia uniforms. Old, but still fashionable."
 	gear_to_spawn = list(
-		/obj/item/clothing/mask/gas/ru/separatist,
-		/obj/item/clothing/under/marine/ru/separatist,
+		/obj/item/clothing/mask/gas/separatist,
+		/obj/item/clothing/under/marine/separatist,
 		/obj/item/clothing/gloves/marine/separatist,
-		/obj/item/clothing/shoes/marine/ru/separatist,
+		/obj/item/clothing/shoes/marine/separatist,
 	)
 
 #undef DEFAULT_TOTAL_BUY_POINTS

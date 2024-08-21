@@ -115,7 +115,7 @@
 	if(item_to_deploy?.reagents?.total_volume)
 		item_to_deploy.reagents.trans_to(deployed_machine, item_to_deploy.reagents.total_volume)
 
-	deployed_machine.update_icon_state()
+	deployed_machine.update_appearance()
 
 	if(user)
 		item_to_deploy.balloon_alert(user, "Установлено!")
@@ -172,4 +172,4 @@
 	deployed_machine.clear_internal_item()
 
 	QDEL_NULL(deployed_machine)
-	undeployed_item.update_icon_state()
+	undeployed_item.update_appearance()

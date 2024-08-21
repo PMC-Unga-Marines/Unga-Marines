@@ -107,6 +107,7 @@
 	name = "rear attach point"
 	base_category = DROPSHIP_CREW_WEAPON
 	density = FALSE
+	layer = BELOW_OBJ_LAYER
 
 /obj/effect/attach_point/crew_weapon/dropship1
 	ship_tag = SHUTTLE_ALAMO
@@ -506,6 +507,7 @@
 	update_icon()
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/update_icon_state()
+	. = ..()
 	if(ship_base)
 		icon_state = deployed_icon_state
 	else
@@ -713,7 +715,8 @@
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
 	ammo_type_used = CAS_30MM
 
-/obj/structure/dropship_equipment/cas/weapon/heavygun/update_icon()
+/obj/structure/dropship_equipment/cas/weapon/heavygun/update_icon_state()
+	. = ..()
 	if(ammo_equipped)
 		icon_state = "30mm_cannon_loaded[ammo_equipped.ammo_count?"1":"0"]"
 	else
@@ -744,7 +747,8 @@
 	ammo_equipped = null //nothing left to empty after firing
 	update_icon()
 
-/obj/structure/dropship_equipment/cas/weapon/rocket_pod/update_icon()
+/obj/structure/dropship_equipment/cas/weapon/rocket_pod/update_icon_state()
+	. = ..()
 	if(ammo_equipped?.ammo_count)
 		icon_state = "rocket_pod_loaded[ammo_equipped.ammo_id]"
 	else
@@ -764,7 +768,8 @@
 	point_cost = 450
 	ammo_type_used = CAS_MINI_ROCKET
 
-/obj/structure/dropship_equipment/cas/weapon/minirocket_pod/update_icon()
+/obj/structure/dropship_equipment/cas/weapon/minirocket_pod/update_icon_state()
+	. = ..()
 	if(ammo_equipped?.ammo_count)
 		icon_state = "minirocket_pod_loaded"
 	else
@@ -789,7 +794,8 @@
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
 	ammo_type_used = CAS_LASER_BATTERY
 
-/obj/structure/dropship_equipment/cas/weapon/laser_beam_gun/update_icon()
+/obj/structure/dropship_equipment/cas/weapon/laser_beam_gun/update_icon_state()
+	. = ..()
 	if(ammo_equipped?.ammo_count)
 		icon_state = "laser_beam_loaded"
 	else
@@ -810,7 +816,8 @@
 	equip_category = DROPSHIP_CREW_WEAPON //fits inside the central spot of the dropship
 	point_cost = 0
 
-/obj/structure/dropship_equipment/cas/weapon/launch_bay/update_icon()
+/obj/structure/dropship_equipment/cas/weapon/launch_bay/update_icon_state()
+	. = ..()
 	if(ammo_equipped?.ammo_count)
 		icon_state = "launch_bay_loaded"
 	else
@@ -857,3 +864,43 @@
 	deployed_table.layer = ABOVE_OBJ_LAYER + 0.01 //make sure its directly ABOVE the layer
 	deployed_table.loc = loc
 	icon_state = "table2-idle"
+
+/obj/structure/dropship_equipment/cas/weapon/bomblet_pod
+	name = "bomblet pod"
+	icon_state = "bomblet_pod"
+	desc = "A pnuematic thrower machine capable of up to 40 smaller bombs, generally  called 'bomblets'. Moving this will require some sort of lifter."
+	icon = 'icons/Marine/mainship_props64.dmi'
+	firing_sound = 'sound/weapons/gunship_rocketpod.ogg'
+	firing_delay = 0.5 SECONDS
+	point_cost = 450
+	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
+	ammo_type_used = CAS_BOMBLET
+
+/obj/structure/dropship_equipment/cas/weapon/bomblet_pod/update_icon_state()
+	. = ..()
+	if(ammo_equipped?.ammo_count)
+		icon_state = "bomblet_pod_loaded"
+	else if(ship_base)
+		icon_state = "bomblet_pod_installed"
+	else
+		icon_state = "bomblet_pod"
+
+/obj/structure/dropship_equipment/cas/weapon/bomb_pod
+	name = "bomb pod"
+	icon_state = "bomb_pod"
+	desc = "A bomb pod capable of launching several large bombs. Moving this will require some sort of lifter."
+	icon = 'icons/Marine/mainship_props64.dmi'
+	firing_sound = 'sound/weapons/gunship_rocketpod.ogg'
+	firing_delay = 2 SECONDS
+	point_cost = 450
+	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
+	ammo_type_used = CAS_BOMB
+
+/obj/structure/dropship_equipment/cas/weapon/bomb_pod/update_icon_state()
+	. = ..()
+	if(ammo_equipped?.ammo_count)
+		icon_state = "bomb_pod_loaded"
+	else if(ship_base)
+		icon_state = "bomb_pod_installed"
+	else
+		icon_state = "bomb_pod"

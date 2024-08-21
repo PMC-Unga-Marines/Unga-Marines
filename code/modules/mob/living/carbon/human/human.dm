@@ -1,5 +1,5 @@
 /mob/living/carbon/human/Initialize(mapload)
-	add_verb(src, /mob/living/proc/lay_down)
+	add_verb(src, /mob/living/proc/toggle_resting)
 	b_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
 	blood_type = b_type
 
@@ -67,14 +67,9 @@
 	hud_set_order()
 	//and display them
 	add_to_all_mob_huds()
-/*
-	GLOB.huds[DATA_HUD_BASIC].add_hud_to(src)
-	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
-*/
-//RUTGMC EDIT ADDITION BEGIN - Preds
+
 	var/datum/atom_hud/hud_to_add = GLOB.huds[DATA_HUD_BASIC]
 	hud_to_add.add_hud_to(src)
-//RUTGMC EDIT ADDITION END
 
 /mob/living/carbon/human/register_init_signals()
 	. = ..()
@@ -101,11 +96,6 @@
 	var/eta_status = SSevacuation?.get_status_panel_eta()
 	if(eta_status)
 		. += "Evacuation in: [eta_status]"
-
-	if(internal)
-		. += "Internal Atmosphere Info [internal.name]"
-		. += "Tank Pressure [internal.pressure]"
-		. += "Distribution Pressure [internal.distribute_pressure]"
 
 	if(assigned_squad)
 		if(assigned_squad.primary_objective)
@@ -656,18 +646,16 @@
 		return FALSE
 	return ..()
 
-
 ///get_eye_protection()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/get_eye_protection()
 	var/number = 0
 
-	if(!species.has_organ["eyes"]) return 2//No eyes, can't hurt them.
+	if(!species.has_organ["eyes"])
+		return 2//No eyes, can't hurt them.
 
-	var/datum/internal_organ/eyes/I = internal_organs_by_name["eyes"]
+	var/datum/internal_organ/eyes/I = get_organ_slot(ORGAN_SLOT_EYES)
 	if(!I)
-		return 2
-	if(I.robotic == ORGAN_ROBOT)
 		return 2
 
 	if(istype(head, /obj/item/clothing))
@@ -679,7 +667,6 @@
 		number += glasses.eye_protection
 
 	return number
-
 
 /mob/living/carbon/human/abiotic(full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.flags_item & ITEM_ABSTRACT)) || (src.r_hand && !( src.r_hand.flags_item & ITEM_ABSTRACT)) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.wear_ear || src.gloves)))
@@ -705,11 +692,11 @@
 
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
-	var/datum/internal_organ/lungs/L = internal_organs_by_name["lungs"]
+	var/datum/internal_organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
 	return L?.organ_status == ORGAN_BRUISED
 
 /mob/living/carbon/human/proc/rupture_lung()
-	var/datum/internal_organ/lungs/L = internal_organs_by_name["lungs"]
+	var/datum/internal_organ/lungs/L = get_organ_slot(ORGAN_SLOT_LUNGS)
 
 	if(L?.organ_status == ORGAN_BRUISED)
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
@@ -717,7 +704,7 @@
 
 
 /mob/living/carbon/human/verb/check_pulse()
-	set category = "Object"
+	set category = "Object.Mob"
 	set name = "Check pulse"
 	set desc = "Approximately count somebody's pulse. Requires you to stand still at least 6 seconds."
 	set src in view(1)
@@ -1107,8 +1094,12 @@
 		language_holder = new initial_language_holder(src)
 		return language_holder
 
-
 /mob/living/carbon/human/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(buckled)
+		return
+	return ..()
+
+/mob/living/carbon/human/get_up()
+	if(!do_after(src, 2 SECONDS, IGNORE_LOC_CHANGE|IGNORE_HELD_ITEM, src))
 		return
 	return ..()

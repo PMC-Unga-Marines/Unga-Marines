@@ -93,8 +93,10 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	flags_armor_protection = CHEST|GROIN|ARMS
-	allowed = list (/obj/item/tool/kitchen/knife,
-	/obj/item/tool/kitchen/knife/butcher)
+	allowed = list(
+		/obj/item/tool/kitchen/knife,
+		/obj/item/tool/kitchen/knife/butcher,
+	)
 
 /obj/item/clothing/suit/chef/classic
 	name = "A classic chef's apron."
@@ -103,6 +105,20 @@
 	item_state = "apronchef"
 	blood_overlay_type = "armor"
 	flags_armor_protection = NONE
+
+/obj/item/clothing/suit/chef/military
+	name = "Chef's military apron"
+	desc = "A pretty military apron. Looks like some emblem teared off from it."
+	icon_state = "fartumasti"
+	item_state = "fartumasti"
+	allowed = list(
+		/obj/item/weapon/gun,
+		/obj/item/storage/holster/blade,
+		/obj/item/weapon/claymore/harvester,
+		/obj/item/storage/belt/knifepouch,
+		/obj/item/weapon/twohanded,
+	)
+	soft_armor = list(MELEE = 20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 //Security
 /obj/item/clothing/suit/security
@@ -113,17 +129,6 @@
 	name = "formal jacket"
 	desc = "A formal military jacket. Not recommended for combat use."
 	icon_state = "officerbluejacket"
-
-/obj/item/clothing/suit/security/formal/tan
-	icon_state = "officertanjacket"
-
-/obj/item/clothing/suit/security/formal/officer
-	name = "officer's jacket"
-	desc = "An officer's formal jacket, makes you look authoritative."
-	icon_state = "wardenbluejacket"
-
-/obj/item/clothing/suit/security/formal/officer/tan
-	icon_state = "wardentanjacket"
 
 /obj/item/clothing/suit/security/formal/senior_officer
 	name = "senior officer's jacket"
@@ -243,35 +248,6 @@
 	blood_overlay_type = "coat"
 	flags_armor_protection = CHEST|ARMS
 
-//Internal Affairs
-/obj/item/clothing/suit/storage/internalaffairs
-	name = "Internal Affairs Jacket"
-	desc = "A smooth black jacket."
-	icon_state = "ia_jacket_open"
-	item_state = "ia_jacket"
-	blood_overlay_type = "coat"
-	flags_armor_protection = CHEST|ARMS
-
-/obj/item/clothing/suit/storage/internalaffairs/verb/toggle()
-	set name = "Toggle Coat Buttons"
-	set category = "Object"
-	set src in usr
-
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return FALSE
-
-	switch(icon_state)
-		if("ia_jacket_open")
-			src.icon_state = "ia_jacket"
-			to_chat(usr, "You button up the jacket.")
-		if("ia_jacket")
-			src.icon_state = "ia_jacket_open"
-			to_chat(usr, "You unbutton the jacket.")
-		else
-			to_chat(usr, "You attempt to button-up the velcro on your [src], before promptly realising that it won't work.")
-			return FALSE
-	update_clothing_icon()	//so our overlays update
-
 //Medical
 /obj/item/clothing/suit/storage/fr_jacket
 	name = "first responder jacket"
@@ -293,7 +269,7 @@
 
 /obj/item/clothing/suit/storage/fr_jacket/verb/toggle()
 	set name = "Toggle Jacket Buttons"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	if(!usr.canmove || usr.stat || usr.restrained())
@@ -320,7 +296,7 @@
 /obj/item/clothing/suit/storage/snow_suit
 	name = "snow suit"
 	desc = "A standard snow suit. It can protect the wearer from extreme cold."
-	icon_state = "snowsuit_alpha"
+	icon_state = "snowsuit"
 	flags_armor_protection = CHEST|GROIN|ARMS
 	flags_cold_protection = CHEST|GROIN|ARMS|LEGS
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)

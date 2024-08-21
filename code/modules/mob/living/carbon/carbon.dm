@@ -64,7 +64,7 @@
 
 	return shock_damage
 
-/mob/living/carbon/vomit()
+/mob/living/carbon/proc/vomit()
 	if(stat == DEAD) //Corpses don't puke
 		return
 
@@ -72,24 +72,22 @@
 		return
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_PUKE, 40 SECONDS) //5 seconds before the actual action plus 35 before the next one.
-	to_chat(src, "<spawn class='warning'>You feel like you are about to throw up!")
+	to_chat(src, span_warning("You feel like you are about to throw up!"))
 	addtimer(CALLBACK(src, PROC_REF(do_vomit)), 5 SECONDS)
-
 
 /mob/living/carbon/proc/do_vomit()
 	adjust_stagger(3 SECONDS)
 	add_slowdown(3)
 
-	visible_message("<spawn class='warning'>[src] throws up!","<spawn class='warning'>You throw up!", null, 5)
+	visible_message(span_warning("[src] throws up!"), span_warning("You throw up!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, TRUE, 7)
 
 	var/turf/location = loc
-	if (istype(location, /turf))
+	if(istype(location, /turf))
 		location.add_vomit_floor(src, 1)
 
 	adjust_nutrition(-40)
 	adjustToxLoss(-3)
-
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/shaker)
 	if(health < get_crit_threshold())
@@ -107,8 +105,8 @@
 			AdjustSleeping(-10 SECONDS)
 		if(!IsSleeping())
 			set_resting(FALSE)
-		shaker.visible_message("<span class='notice'>[shaker] shakes [src] trying to get [p_them()] up!",
-			"<span class='notice'>You shake [src] trying to get [p_them()] up!", null, 4)
+		shaker.visible_message(span_notice("[shaker] shakes [src] trying to get [p_them()] up!"),
+			span_notice("You shake [src] trying to get [p_them()] up!"), null, 4)
 
 		AdjustUnconscious(-6 SECONDS)
 		AdjustStun(-6 SECONDS)
@@ -333,13 +331,10 @@
 
 	if(glasses)
 		var/obj/item/clothing/glasses/G = glasses
-		if((G.toggleable && G.active) || !G.toggleable)
+		if(G.active)
 			sight |= G.vision_flags
 			see_in_dark = max(G.darkness_view, see_in_dark)
-			if(G.invis_override)
-				see_invisible = G.invis_override
-			else
-				see_invisible = min(G.invis_view, see_invisible)
+			see_invisible = min(SEE_INVISIBLE_LIVING, see_invisible)
 			if(!isnull(G.lighting_alpha))
 				lighting_alpha = min(lighting_alpha, G.lighting_alpha)
 			if(G.tint && !fullscreens["glasses"])

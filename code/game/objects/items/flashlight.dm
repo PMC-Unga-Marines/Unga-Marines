@@ -40,12 +40,12 @@
 	update_action_button_icons()
 	update_icon()
 
-/obj/item/flashlight/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
-	if(turn_light(X, FALSE) != CHECKS_PASSED)
+/obj/item/flashlight/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
+	if(turn_light(xeno_attacker, FALSE) != CHECKS_PASSED)
 		return
 	playsound(loc, "alien_claw_metal", 25, 1)
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	to_chat(X, span_warning("We disable the metal thing's lights.") )
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
 
 /obj/item/flashlight/update_icon_state()
 	. = ..()
@@ -83,13 +83,11 @@
 		to_chat(user, span_notice("Use a screwdriver on [F] to change it back."))
 		qdel(src) //Delete da old flashlight
 
-
 /obj/item/flashlight/attack(mob/living/M, mob/living/user)
 	if(light_on && user.zone_selected == BODY_ZONE_PRECISE_EYES)
 
 		if((user.getBrainLoss() >= 60) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
-
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
 		if(ishuman(M) && ((H.head && H.head.flags_inventory & COVEREYES) || (H.wear_mask && H.wear_mask.flags_inventory & COVEREYES) || (H.glasses && H.glasses.flags_inventory & COVEREYES)))
@@ -114,7 +112,6 @@
 				to_chat(user, span_notice("[C]'s pupils narrow."))
 	else
 		return ..()
-
 
 /obj/item/flashlight/pen
 	name = "penlight"
@@ -174,12 +171,12 @@
 	if(!usr.stat)
 		attack_self(usr)
 
-/obj/item/flashlight/lamp/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/item/flashlight/lamp/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
-	X.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_SMASH)
 	playsound(loc, 'sound/effects/metalhit.ogg', 20, TRUE)
-	X.visible_message(span_danger("\The [X] smashes [src]!"), \
+	xeno_attacker.visible_message(span_danger("\The [xeno_attacker] smashes [src]!"), \
 	span_danger("We smash [src]!"), null, 5)
 	deconstruct(FALSE)
 
@@ -195,7 +192,6 @@
 	light_on = TRUE //Bio-luminesence has one setting, on.
 	raillight_compatible = FALSE
 
-
 /obj/item/flashlight/slime/attack_self(mob/user)
 	return //Bio-luminescence does not toggle.
 
@@ -207,3 +203,7 @@
 	desc = "A mining lantern."
 	light_range = 6			// luminosity when on
 	raillight_compatible = FALSE
+
+/obj/item/flashlight/lantern/turned_on
+	icon_state = "lantern-on"
+	light_on = TRUE

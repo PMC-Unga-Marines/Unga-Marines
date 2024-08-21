@@ -1,5 +1,3 @@
-
-
 /obj/item/clothing/mask/gas
 	name = "Transparent gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
@@ -71,14 +69,6 @@
 	desc = "An armored balaclava designed to conceal both the identity of the operator and act as an air-filter. This particular suit looks like it belongs to a high-ranking officer."
 	icon_state = "officer_mask"
 
-/obj/item/clothing/mask/gas/wolves
-	name = "tactical balaclava"
-	desc = "A superior balaclava worn by the Steel Wolves."
-	icon_state = "wolf_mask"
-	anti_hug = 2
-	breathy = FALSE
-	voice_filter = null
-
 /obj/item/clothing/mask/gas/icc
 	name = "\improper Modelle/60 gas mask"
 	desc = "A gasmask worn by ICC personnel."
@@ -107,19 +97,11 @@
 	icon_state = "swat"
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/mask/gas/voice
-	name = "gas mask"
-	//desc = "A face-covering mask that can be connected to an air supply. It seems to house some odd electronics."
-	var/mode = 0// 0==Scouter|1==Night Vision|2==Thermal|3==Meson
-	var/vchange = 0//This didn't do anything before. It now checks if the mask has special functions/N
-
-
-/obj/item/clothing/mask/gas/voice/space_ninja
+/obj/item/clothing/mask/gas/space_ninja
 	name = "ninja mask"
 	desc = "A close-fitting mask that acts both as an air filter and a post-modern fashion statement."
 	icon_state = "s-ninja"
 	item_state = "s-ninja_mask"
-	vchange = 1
 	siemens_coefficient = 0.2
 
 /obj/item/clothing/mask/gas/clown_hat
@@ -163,12 +145,6 @@
 	breathy = FALSE
 	voice_filter = null
 
-/obj/item/clothing/mask/gas/death_commando
-	name = "Death Commando Mask"
-	icon_state = "death_commando_mask"
-	item_state = "death_commando_mask"
-	siemens_coefficient = 0.2
-
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
 	desc = "Beep boop"
@@ -181,35 +157,32 @@
 	desc = "Twoooo!"
 	icon_state = "owl"
 
-/obj/item/clothing/mask/gas/ru
-	icon = 'icons/obj/clothing/masks.dmi'
-	item_icons = list(
-		slot_wear_mask_str = 'icons/mob/clothing/mask.dmi')
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
-
-/obj/item/clothing/mask/gas/ru/separatist
+/obj/item/clothing/mask/gas/separatist
 	name = "Regular protective gasmask TM-58"
 	desc = "Originally a civilian model, reinforced in front with a sheet of metal. Not very convenient, but extremely reliable. She was once called the 'Face of the Resistance Units.'"
 	icon_state = "separatist"
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
-/obj/item/clothing/mask/gas/ru/veteran
+/obj/item/clothing/mask/gas/veteran
 	name = "Veteran breathing mask"
 	desc = "The reinforced camouflage cut of this mask protects the face well from both splinters and harmful gases. Beautiful handwork, soldier!"
 	icon_state = "veteran"
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
-/obj/item/clothing/mask/gas/ru/fullgas
+/obj/item/clothing/mask/gas/fullgas
 	name = "Ancient gas mask"
 	desc = "An ancient face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "fullgas"
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
-/obj/item/clothing/mask/gas/ru/sgmask
+/obj/item/clothing/mask/gas/sgmask
 	name = "Military grade gas mask"
 	desc = "A military grade gas mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "sgmask"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
-/obj/item/clothing/mask/gas/ru/redmask
+/obj/item/clothing/mask/gas/redmask
 	name = "Coifed gas mask"
 	desc = "A coifed gas mask, covering most of the user's head, that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "redmask"
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 

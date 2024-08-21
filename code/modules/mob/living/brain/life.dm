@@ -3,9 +3,6 @@
 	set background = 1
 	..()
 
-	//Handle temperature/pressure differences between body and environment
-	handle_environment()
-
 /mob/living/brain/blur_eyes()
 	return
 
@@ -14,31 +11,6 @@
 
 /mob/living/brain/set_blurriness()
 	return
-
-/mob/living/brain/proc/handle_environment()
-	if(!loc)
-		return
-
-	var/env_temperature = loc.return_temperature()
-
-	if((env_temperature > (T0C + 50)) || (env_temperature < (T0C + 10)))
-		handle_temperature_damage(HEAD, env_temperature)
-
-
-
-/mob/living/brain/proc/handle_temperature_damage(body_part, exposed_temperature)
-	if(status_flags & GODMODE)
-		return
-
-	if(exposed_temperature > bodytemperature)
-		var/discomfort = min( abs(exposed_temperature - bodytemperature)/100, 1.0)
-		adjustFireLoss(20.0*discomfort)
-
-	else
-		var/discomfort = min( abs(exposed_temperature - bodytemperature)/100, 1.0)
-		adjustFireLoss(5.0*discomfort)
-
-
 
 /mob/living/brain/handle_organs()
 	. = ..()
@@ -56,11 +28,8 @@
 			return 1
 
 		//Handling EMP effect in the Life(), it's made VERY simply, and has some additional effects handled elsewhere
-		if(emp_damage)			//This is pretty much a damage type only used by MMIs, dished out by the emp_act
-			if(!(container && istype(container, /obj/item/mmi)))
-				emp_damage = 0
-			else
-				emp_damage = round(emp_damage,1)//Let's have some nice numbers to work with
+		if(emp_damage)
+			emp_damage = round(emp_damage,1)//Let's have some nice numbers to work with
 			switch(emp_damage)
 				if(31 to INFINITY)
 					emp_damage = 30//Let's not overdo it
@@ -138,17 +107,3 @@
 		interactee?.check_eye(src)
 
 	return 1
-
-
-/*/mob/living/brain/emp_act(severity)
-	if(!(container && istype(container, /obj/item/mmi)))
-		return
-	else
-		switch(severity)
-			if(1)
-				emp_damage += rand(20,30)
-			if(2)
-				emp_damage += rand(10,20)
-			if(3)
-				emp_damage += rand(0,10)
-	..()*/

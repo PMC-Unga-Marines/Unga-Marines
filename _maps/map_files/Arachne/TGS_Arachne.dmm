@@ -745,6 +745,12 @@
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
+"aLm" = (
+/obj/structure/bed/bunkbed,
+/obj/machinery/light/mainship,
+/obj/effect/landmark/start/job/squadrobot,
+/turf/open/floor/mainship/black/full,
+/area/mainship/living/cryo_cells)
 "aLJ" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -5474,7 +5480,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/obj/effect/landmark/start/job/pilotofficer,
+/obj/effect/landmark/start/job/transportofficer,
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "eMo" = (
@@ -8540,9 +8546,7 @@
 /area/mainship/medical/lower_medical)
 "hot" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Oxygen Supply Console";
-	output_tag = "oxyvent";
-	sensors = list("oxy_sensor"="Tank")
+	name = "Oxygen Supply Console"
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/starboard_atmos)
@@ -14056,7 +14060,6 @@
 	dir = 1
 	},
 /obj/machinery/light/mainship,
-/obj/effect/landmark/start/job/chiefshipengineer,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/ce_room)
 "lGj" = (
@@ -14329,6 +14332,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar)
+"lRE" = (
+/obj/structure/bed/bunkbed,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/effect/landmark/start/job/squadrobot,
+/turf/open/floor/mainship/black/full,
+/area/mainship/living/cryo_cells)
 "lSo" = (
 /obj/machinery/firealarm{
 	dir = 8
@@ -20993,10 +21004,7 @@
 /area/mainship/squads/general)
 "rrK" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "mix_in";
-	name = "Mixed Air Control";
-	output_tag = "mix_out";
-	sensors = list("mix_sensor"="Tank")
+	name = "Mixed Air Control"
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/starboard_atmos)
@@ -22362,6 +22370,11 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/living/commandbunks)
+"suS" = (
+/obj/structure/bed/bunkbed,
+/obj/effect/landmark/start/job/squadrobot,
+/turf/open/floor/mainship/black/full,
+/area/mainship/living/cryo_cells)
 "svI" = (
 /obj/machinery/loadout_vendor,
 /turf/open/floor/mainship/sterile/purple,
@@ -26876,9 +26889,7 @@
 /area/mainship/command/corporateliaison)
 "wzb" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Nitrogen Control Console";
-	output_tag = "nit_out";
-	sensors = list("nit_sensor"="Tank")
+	name = "Nitrogen Control Console"
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/starboard_atmos)
@@ -40073,7 +40084,7 @@ jAF
 reO
 shl
 sAo
-reO
+suS
 jAF
 dNX
 udU
@@ -40165,14 +40176,14 @@ jAF
 aIE
 shl
 sAo
-pKs
+aLm
 jAF
 aiv
 uUI
 sAo
-pKs
+aLm
 jAF
-aIE
+lRE
 shl
 sAo
 pKs

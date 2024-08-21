@@ -26567,7 +26567,6 @@
 /area/deltastation/hallway/secondary/entry)
 "fqz" = (
 /obj/structure/closet/crate/secure/gear,
-/obj/item/clothing/under/acj,
 /obj/item/clothing/mask/bandanna/black,
 /turf/open/floor/prison/blackfloor,
 /area/deltastation/asteroidcaves/ship/two)
@@ -42688,9 +42687,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/clothing/head/justice{
-	name = "justice helmet"
-	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/theater/abandoned)
@@ -46789,15 +46785,6 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted{
 	dir = 1
 	},
-/obj/item/clothing/tie/armband/cargo,
-/obj/item/clothing/tie/armband/cargo{
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/item/clothing/tie/armband/cargo{
-	pixel_x = 4;
-	pixel_y = 4
-	},
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "jzl" = (
@@ -49638,7 +49625,6 @@
 /obj/effect/turf_decal/tile/transparent/green{
 	dir = 8
 	},
-/obj/item/clothing/tie/armband/hydro,
 /obj/effect/spawner/random/misc/prizemecha,
 /obj/structure/table/mainship,
 /obj/item/book/manual/evaguide,
@@ -76927,7 +76913,7 @@
 /area/deltastation/asteroidcaves/ship/two)
 "pIs" = (
 /obj/effect/spawner/random/misc/structure/securecloset/regular,
-/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate,
 /obj/item/clothing/gloves/combat,
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/mask/gas/syndicate,
@@ -95001,7 +94987,7 @@
 /turf/closed/wall,
 /area/deltastation/maintenance/port)
 "tpg" = (
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
+/obj/machinery/atmospherics/components/trinary/mixer/airmix{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -102328,7 +102314,7 @@
 /area/deltastation/cargo/sorting)
 "uMn" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse,
+/obj/machinery/atmospherics/components/trinary/mixer/airmix,
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor/iron,
 /area/deltastation/engineering/atmos)
@@ -119633,7 +119619,6 @@
 	},
 /obj/structure/table/woodentable,
 /obj/effect/spawner/random/misc/folder,
-/obj/item/clothing/head/collectable/police,
 /obj/effect/turf_decal/tile/transparent/red{
 	dir = 1
 	},

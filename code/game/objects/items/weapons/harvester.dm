@@ -1,5 +1,3 @@
-//All the harvester weapons go in here
-
 //Vali Sword
 /obj/item/weapon/claymore/harvester
 	name = "\improper HP-S Harvester blade"
@@ -75,7 +73,7 @@
 
 /obj/item/weapon/twohanded/glaive/harvester/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/harvester, 60, TRUE)
+	AddComponent(/datum/component/harvester, 60)
 
 /obj/item/weapon/twohanded/glaive/harvester/wield(mob/user)
 	. = ..()

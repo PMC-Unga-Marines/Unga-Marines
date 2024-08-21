@@ -36,7 +36,8 @@
 		fill_firstaid_kit()
 
 
-/obj/item/storage/firstaid/update_icon()
+/obj/item/storage/firstaid/update_icon_state()
+	. = ..()
 	if(!length(contents))
 		icon_state = icon_state += "_empty"
 	else
@@ -463,6 +464,15 @@
 	greyscale_colors = "#E07BAD#ffffff"
 	description_overlay = "Qk"
 
+/obj/item/storage/pill_bottle/peridaxon
+	name = "peridaxon pill bottle"
+	desc = "Contains pills that suppress internal organ damage."
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/peridaxon
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	greyscale_colors = "#460750#ffffff"
+	description_overlay = "Pe"
+
 /obj/item/storage/pill_bottle/hypervene
 	name = "hypervene pill bottle"
 	desc = "A purge medication used to treat overdoses and rapidly remove toxins. Causes pain and vomiting."
@@ -480,6 +490,42 @@
 	greyscale_colors = "#f8f8f8#ffffff"
 	greyscale_config = /datum/greyscale_config/pillbottleround
 	description_overlay = "Ti"
+
+/obj/item/storage/pill_bottle/imialky
+	name = "imialky pill bottle"
+	desc = "Contains pills used to fix brain, ear and eye damage"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/imialky
+	greyscale_colors = "#E467B3#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "IA"
+
+/obj/item/storage/pill_bottle/combatmix
+	name = "combatmix pill bottle"
+	desc = "Contains BKTT pills. Combat mix"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/combatmix
+	greyscale_colors = "#FF2600#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "Cm"
+
+/obj/item/storage/pill_bottle/doctor_delight
+	name = "doctor's delight pill bottle"
+	desc = "Contains pills used to heal slowly."
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/doctor_delight
+	greyscale_colors = "#A3295C#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "Dd"
+
+/obj/item/storage/pill_bottle/sugar
+	name = "sugar pill bottle"
+	desc = "Contains pills used to prevent hunger, yum!"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/sugar
+	greyscale_colors = "#ECFC00#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "Su"
 
 /obj/item/storage/pill_bottle/happy
 	name = "happy pill bottle"

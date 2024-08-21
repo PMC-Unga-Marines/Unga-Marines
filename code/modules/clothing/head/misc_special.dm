@@ -15,7 +15,6 @@
 	desc = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	icon_state = "welding"
 	item_state = "welding"
-	var/up = FALSE
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	flags_atom = CONDUCT
 	flags_inventory = COVEREYES|COVERMOUTH|BLOCKSHARPOBJ
@@ -26,6 +25,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	anti_hug = 2
 	eye_protection = 2
+	var/up = FALSE
 	var/hug_memory = 0 //Variable to hold the "memory" of how many anti-hugs remain.  Because people were abusing the fuck out of it.
 
 /obj/item/clothing/head/welding/Initialize(mapload)
@@ -36,7 +36,7 @@
 	toggle_item_state(user)
 
 /obj/item/clothing/head/welding/verb/verbtoggle()
-	set category = "Object"
+	set category = "Object.Clothing"
 	set name = "Adjust welding mask"
 	set src in usr
 
@@ -104,7 +104,7 @@
 	src.onfire = !( src.onfire )
 	if (src.onfire)
 		src.force = 3
-		src.damtype = "fire"
+		src.damtype = FIRE
 		src.icon_state = "cake1"
 		START_PROCESSING(SSobj, src)
 		return
@@ -113,11 +113,10 @@
 	damtype = BRUTE
 	icon_state = "cake0"
 
-
-
 /*
 * Pumpkin head
 */
+
 /obj/item/clothing/head/pumpkinhead
 	name = "carved pumpkin"
 	desc = "A jack o' lantern! Believed to ward off evil spirits."
@@ -128,4 +127,3 @@
 	flags_armor_protection = HEAD|EYES
 	w_class = WEIGHT_CLASS_NORMAL
 	anti_hug = 1
-

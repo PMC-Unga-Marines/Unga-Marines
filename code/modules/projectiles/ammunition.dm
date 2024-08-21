@@ -46,13 +46,20 @@
 	///How long ADS takes (time before firing)
 	var/wield_delay_mod = 0
 
+	/// If this and ammo_band_icon aren't null, run update_ammo_band(). Is the color of the band, such as green on AP.
+	var/ammo_band_color = null
+	/// If this and ammo_band_color aren't null, run update_ammo_band() Is the greyscale icon used for the ammo band.
+	var/ammo_band_icon = null
+
 /obj/item/ammo_magazine/Initialize(mapload, spawn_empty)
 	. = ..()
 	base_mag_icon = icon_state
 	current_rounds = spawn_empty ? 0 : max_rounds
 	update_icon()
+	update_ammo_band()
 
 /obj/item/ammo_magazine/update_icon_state()
+	. = ..()
 	if(CHECK_BITFIELD(flags_magazine, MAGAZINE_HANDFUL))
 		setDir(current_rounds + round(current_rounds/3))
 		return
@@ -60,6 +67,14 @@
 		icon_state = base_mag_icon + "_e"
 		return
 	icon_state = base_mag_icon
+
+/obj/item/ammo_magazine/proc/update_ammo_band()
+	overlays.Cut()
+	if(ammo_band_color)
+		var/image/ammo_band_image = image(icon, src, ammo_band_icon)
+		ammo_band_image.color = ammo_band_color
+		ammo_band_image.appearance_flags = RESET_COLOR|KEEP_APART
+		overlays += ammo_band_image
 
 /obj/item/ammo_magazine/examine(mob/user)
 	. = ..()
@@ -93,11 +108,15 @@
 		return
 
 	var/obj/item/ammo_magazine/mag = I
+	var/amount_to_transfer = mag.current_rounds
+
 	if(default_ammo != mag.default_ammo)
+		if(current_rounds == 0)
+			transfer_ammo(mag, user, amount_to_transfer, TRUE)
+			return
 		to_chat(user, span_notice("Those aren't the same rounds. Better not mix them up."))
 		return
 
-	var/amount_to_transfer = mag.current_rounds
 	transfer_ammo(mag, user, amount_to_transfer)
 
 
@@ -124,7 +143,7 @@
 	master_gun.wield_delay					-= wield_delay_mod
 
 //Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
-/obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1)
+/obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, is_new_ammo_type = FALSE)
 	if(current_rounds >= max_rounds) //Does the mag actually need reloading?
 		to_chat(user, span_notice("[src] is already full."))
 		return
@@ -148,6 +167,11 @@
 	var/amount_difference = clamp(min(transfer_amount, max_rounds - current_rounds), 0, source.current_rounds)
 	source.current_rounds -= amount_difference
 	current_rounds += amount_difference
+
+	if(is_new_ammo_type)
+		default_ammo = source.default_ammo
+		ammo_band_color = source.ammo_band_color
+		update_ammo_band()
 
 	if(source.current_rounds <= 0 && CHECK_BITFIELD(source.flags_magazine, MAGAZINE_HANDFUL)) //We want to delete it if it's a handful.
 		user?.temporarilyRemoveItemFromInventory(source)
@@ -313,10 +337,16 @@ Turn() or Shift() as there is virtually no overhead. ~N
 	pixel_y = rand(-2, 2)
 	icon_state = initial_icon_state += "[rand(1, number_of_states)]" //Set the icon to it.
 
-//This does most of the heavy lifting. It updates the icon and name if needed, then changes .dir to simulate new casings.
-/obj/item/ammo_casing/update_icon()
+//This does most of the heavy lifting. It updates the icon and name if needed
+
+/obj/item/ammo_casing/update_name(updates)
+	. = ..()
+	if(max_casings >= current_casings && current_casings == 2)
+		name += "s" //In case there is more than one.
+
+/obj/item/ammo_casing/update_icon_state()
+	. = ..()
 	if(max_casings >= current_casings)
-		if(current_casings == 2) name += "s" //In case there is more than one.
 		if(round((current_casings-1)/8) > current_icon)
 			current_icon++
 			icon_state += "_[current_icon]"
@@ -324,9 +354,24 @@ Turn() or Shift() as there is virtually no overhead. ~N
 		var/base_direction = current_casings - (current_icon * 8)
 		setDir(base_direction + round(base_direction)/3)
 		switch(current_casings)
-			if(3 to 5) w_class = WEIGHT_CLASS_SMALL //Slightly heavier.
-			if(9 to 10) w_class = WEIGHT_CLASS_NORMAL //Can't put it in your pockets and stuff.
+			if(3 to 5)
+				w_class = WEIGHT_CLASS_SMALL //Slightly heavier.
+			if(9 to 10)
+				w_class = WEIGHT_CLASS_NORMAL //Can't put it in your pockets and stuff.
 
+///changes .dir to simulate new casings, also sets the new w_class
+/obj/item/ammo_casing/proc/update_dir()
+	var/base_direction = current_casings - (current_icon * 8)
+	setDir(base_direction + round(base_direction)/3)
+	switch(current_casings)
+		if(3 to 5)
+			w_class = WEIGHT_CLASS_SMALL //Slightly heavier.
+		if(9 to 10)
+			w_class = WEIGHT_CLASS_NORMAL //Can't put it in your pockets and stuff.
+
+/obj/item/ammo_casing/update_icon()
+	update_dir()
+	return ..()
 
 //Making child objects so that locate() and istype() doesn't screw up.
 /obj/item/ammo_casing/bullet
@@ -360,6 +405,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 	var/caliber = CALIBER_10X24_CASELESS
 
 /obj/item/big_ammo_box/update_icon_state()
+	. = ..()
 	if(bullet_amount)
 		icon_state = base_icon_state
 		return
@@ -398,7 +444,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 			var/S = min(bullet_amount, AM.max_rounds - AM.current_rounds)
 			AM.current_rounds += S
 			bullet_amount -= S
-			AM.update_icon(S)
+			AM.update_icon()
 			update_icon()
 			if(AM.current_rounds == AM.max_rounds)
 				to_chat(user, span_notice("You refill [AM]."))
@@ -450,7 +496,8 @@ Turn() or Shift() as there is virtually no overhead. ~N
 	var/caliber = CALIBER_12G
 
 
-/obj/item/shotgunbox/update_icon()
+/obj/item/shotgunbox/update_icon_state()
+	. = ..()
 	if(!deployed)
 		icon_state = "[initial(icon_state)]"
 	else if(current_rounds > 0)
@@ -492,7 +539,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 		return
 
 	if(current_rounds < 1)
-		to_chat(user, "<span class='warning'>The [src] is empty.")
+		to_chat(user, ("The [src] is empty."))
 		return
 
 	var/obj/item/ammo_magazine/handful/H = new
@@ -523,7 +570,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 		return
 
 	if(current_rounds == max_rounds)
-		to_chat(user, "<span class='warning'>The [src] is already full.")
+		to_chat(user, span_warning("The [src] is already full."))
 		return
 
 	current_rounds = min(current_rounds + H.current_rounds, max_rounds)

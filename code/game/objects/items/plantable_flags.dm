@@ -17,25 +17,25 @@
 
 
 /obj/item/flag_base/attack_self(mob/user)
-	to_chat(user, "<span class='warning'>You start to deploy the flag between your feet...")
+	to_chat(user, span_warning("You start to deploy the flag between your feet..."))
 	if(!do_after(usr, 1 SECONDS, NONE, src, BUSY_ICON_BUILD))
-		to_chat(user, "<span class='warning'>You decide against deploying the flag here.")
+		to_chat(user, span_warning("You decide against deploying the flag here."))
 		return
 
 	playsound(loc, 'sound/effects/thud.ogg', 100)
 	user.dropItemToGround(src)
 	is_collapsed = FALSE
-	update_icon_state()
+	update_appearance()
 
 
 /obj/item/flag_base/attack_hand(mob/living/user)
 	if(!is_collapsed)
 		if(!do_after(usr, 1 SECONDS, NONE, src, BUSY_ICON_BUILD))
-			to_chat(user, "<span class='warning'>You decide against removing the flag here.")
+			to_chat(user, span_warning("You decide against removing the flag here."))
 			return
 		is_collapsed = TRUE
-		update_icon_state()
-	. = ..()
+		update_appearance()
+	return ..()
 
 
 /obj/item/flag_base/update_icon_state()

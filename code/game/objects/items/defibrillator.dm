@@ -2,7 +2,7 @@
 	name = "emergency defibrillator"
 	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
 	icon = 'icons/obj/items/defibrillator.dmi'
-	icon_state = "defib_full"
+	icon_state = "defib"
 	item_state = "defib"
 	flags_atom = CONDUCT
 	flags_item = NOBLUDGEON
@@ -10,21 +10,22 @@
 	force = 5
 	throwforce = 6
 	w_class = WEIGHT_CLASS_NORMAL
-
 	var/ready = FALSE
 	///wether readying is needed
 	var/ready_needed = TRUE
-	var/damage_threshold = 8 //This is the maximum non-oxy damage the defibrillator will heal to get a patient above -100, in all categories
-	var/charge_cost = 66 //How much energy is used.
+	var/advanced = FALSE
+	///This is the maximum non-oxy damage the defibrillator will heal to get a patient above -100, in all categories
+	var/damage_threshold = 8
+	/// How much energy is used
+	var/charge_cost = 66
 	var/obj/item/cell/dcell = null
 	var/datum/effect_system/spark_spread/sparks
-	var/defib_cooldown = 0 //Cooldown for toggling the defib
-
+	///Cooldown for toggling the defib
+	var/defib_cooldown = 0
 
 /obj/item/defibrillator/suicide_act(mob/user)
 	user.visible_message(span_danger("[user] is putting the live paddles on [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide."))
 	return (FIRELOSS)
-
 
 /obj/item/defibrillator/Initialize(mapload)
 	. = ..()
@@ -34,7 +35,6 @@
 	set_dcell(new /obj/item/cell())
 	update_icon()
 
-
 /obj/item/defibrillator/Destroy()
 	QDEL_NULL(sparks)
 	if(dcell)
@@ -42,9 +42,8 @@
 		QDEL_NULL(dcell)
 	return ..()
 
-
 /obj/item/defibrillator/update_icon_state()
-	icon_state = "defib"
+	icon_state = initial(icon_state)
 	if(ready)
 		icon_state += "_out"
 	if(dcell?.charge)
@@ -58,11 +57,9 @@
 	else
 		icon_state += "_empty"
 
-
 /obj/item/defibrillator/examine(mob/user)
 	. = ..()
 	. += maybe_message_recharge_hint()
-
 
 /**
  * Message user with a hint to recharge defibrillator
@@ -81,7 +78,6 @@
 	if(!message)
 		return
 	return span_notice("[message] You can click-drag defibrillator on corpsman backpack to recharge it.")
-
 
 /obj/item/defibrillator/attack_self(mob/living/carbon/human/user)
 	if(!ready_needed)
@@ -110,7 +106,6 @@
 		playsound(get_turf(src), 'sound/items/defib_safetyOff.ogg', 30, 0)
 	update_icon()
 
-
 ///Wrapper to guarantee powercells are properly nulled and avoid hard deletes.
 /obj/item/defibrillator/proc/set_dcell(obj/item/cell/new_cell)
 	if(dcell)
@@ -118,7 +113,6 @@
 	dcell = new_cell
 	if(dcell)
 		RegisterSignal(dcell, COMSIG_QDELETING, PROC_REF(on_cell_deletion))
-
 
 ///Called by the deletion of the referenced powercell.
 /obj/item/defibrillator/proc/on_cell_deletion(obj/item/cell/source, force)
@@ -141,7 +135,7 @@
 	return null
 
 /mob/living/carbon/human/proc/has_working_organs()
-	var/datum/internal_organ/heart/heart = internal_organs_by_name["heart"]
+	var/datum/internal_organ/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
 
 	if(!heart || heart.organ_status == ORGAN_BROKEN || !has_brain())
 		return FALSE
@@ -188,7 +182,7 @@
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Vital signs detected. Aborting."))
 		return
 
-	if((HAS_TRAIT(H, TRAIT_UNDEFIBBABLE ) && !issynth(H)) || H.suiciding) //synthetic species have no expiration date
+	if((HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) && !issynth(H)) || H.suiciding) //synthetic species have no expiration date
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient is braindead. No remedy possible."))
 		return
 
@@ -196,7 +190,7 @@
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient's organs are too damaged to sustain life. Deliver patient to a MD for surgical intervention."))
 		return
 
-	if((H.wear_suit && H.wear_suit.flags_atom & CONDUCT))
+	if((H.wear_suit && H.wear_suit.flags_atom & CONDUCT && !advanced))
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
 		return
 
@@ -221,21 +215,18 @@
 	sparks.start()
 	dcell.use(charge_cost)
 	update_icon()
-	/* ORIGINAL
-	playsound(get_turf(src), 'sound/items/defib_release.ogg', 25, 1)
-	*/
-	playsound(get_turf(src), 'sound/items/defib_release.ogg', 30, 0) //RUTGMC EDIT
+	playsound(get_turf(src), 'sound/items/defib_release.ogg', 30, 0)
 	user.visible_message(span_notice("[user] shocks [H] with the paddles."),
 	span_notice("You shock [H] with the paddles."))
 	H.visible_message(span_danger("[H]'s body convulses a bit."))
 	defib_cooldown = world.time + 10 //1 second cooldown before you can shock again
 
-	if(H.wear_suit && H.wear_suit.flags_atom & CONDUCT)
+	if(H.wear_suit && H.wear_suit.flags_atom & CONDUCT && !advanced)
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Defibrillation failed: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
 		return
 
-	var/datum/internal_organ/heart/heart = H.internal_organs_by_name["heart"]
-	if(!issynth(H) && !isrobot(H) && heart && prob(25))
+	var/datum/internal_organ/heart/heart = H.get_organ_slot(ORGAN_SLOT_HEART)
+	if(!issynth(H) && !isrobot(H) && heart && prob(90) && !advanced)
 		heart.take_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
 
 	if(HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) || H.suiciding)
@@ -309,7 +300,7 @@
 	H.handle_regular_hud_updates()
 	H.updatehealth() //One more time, so it doesn't show the target as dead on HUDs
 	H.dead_ticks = 0 //We reset the DNR time
-	H.initial_stage = 0 // RUTGMC ADDITION
+	H.initial_stage = 0
 	REMOVE_TRAIT(H, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	if(user.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
@@ -327,13 +318,12 @@
 /obj/item/defibrillator/civi
 	name = "emergency defibrillator"
 	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead. Appears to be a civillian model."
-	icon_state = "civ_defib_full"
+	icon_state = "civ_defib"
 	item_state = "defib"
-
 
 /obj/item/defibrillator/gloves
 	name = "advanced medical combat gloves"
-	desc = "Advanced medical gloves, these include small electrodes to defibrilate a patiant. No more bulky units!"
+	desc = "Advanced medical gloves, these include small electrodes to defibrilate a patiant. Ignores armor and doesn't deal any damage to the patient's heart!"
 	icon_state = "defib_gloves"
 	item_state = "defib_gloves"
 	ready = TRUE
@@ -352,6 +342,7 @@
 	flags_heat_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	advanced = TRUE
 
 /obj/item/defibrillator/gloves/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -374,3 +365,10 @@
 /obj/item/defibrillator/gloves/update_icon_state()
 	return
 
+/obj/item/defibrillator/advanced
+	name = "advanced emergency defibrillator"
+	desc = "A handheld advanced emergency defibrillator, used to restore fibrillating patients.  at the cost of increased charge consumption."
+	icon = 'icons/obj/items/defibrillator.dmi'
+	icon_state = "civ_defib"
+	charge_cost = 100
+	advanced = TRUE

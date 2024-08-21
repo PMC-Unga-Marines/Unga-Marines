@@ -1,8 +1,5 @@
 // The lighting system
-//
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
-
-
 // status values shared between lighting fixtures and items
 /obj/machinery/light_construct
 	name = "light fixture frame"
@@ -30,7 +27,6 @@
 			. += "It's wired."
 		if(3)
 			. += "The casing is closed."
-
 
 /obj/machinery/light_construct/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -109,7 +105,6 @@
 		newlight.setDir(dir)
 		qdel(src)
 
-
 /obj/machinery/light_construct/small
 	name = "small light fixture frame"
 	desc = "A small light fixture under construction."
@@ -146,72 +141,14 @@
 	var/switchcount = 0
 	/// true if rigged to explode
 	var/rigged = FALSE
-
-/obj/machinery/light/mainship
-	base_state = "tube"
-
-/obj/machinery/light/mainship/Initialize(mapload)
-	. = ..()
-	GLOB.mainship_lights += src
-
-/obj/machinery/light/mainship/Destroy()
-	. = ..()
-	GLOB.mainship_lights -= src
-
-/obj/machinery/light/mainship/small
-	icon_state = "bulb1"
-	base_state = "bulb"
-	fitting = "bulb"
-	brightness = 4
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light_bulb/bulb
-
-/obj/machinery/light/red
-	base_state = "tubered"
-	icon_state = "tubered1"
-	light_color = LIGHT_COLOR_FLARE
-	brightness = 3
-	bulb_power = 0.5
-	bulb_colour = LIGHT_COLOR_FLARE
-
-// the smaller bulb light fixture
-
-/obj/machinery/light/small
-	icon_state = "bulb1"
-	base_state = "bulb"
-	fitting = "bulb"
-	brightness = 4
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light_bulb/bulb
-
-/obj/machinery/light/spot
-	name = "spotlight"
-	fitting = "large tube"
-	light_type = /obj/item/light_bulb/tube/large
-	brightness = 12
-
-/obj/machinery/light/built/Initialize(mapload)
-	. = ..()
-	status = LIGHT_EMPTY
-	update(FALSE)
-
-
-/obj/machinery/light/small/built/Initialize(mapload)
-	. = ..()
-	status = LIGHT_EMPTY
-	update(FALSE)
+	/// Used for mapping to set custom pixel_x
+	var/pixel_x_offset
+	/// Used for mapping to set custom pixel_y
+	var/pixel_y_offset
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload, ...)
-	switch(dir)
-		if(NORTH)
-			light_pixel_y = 15
-		if(SOUTH)
-			light_pixel_y = -15
-		if(WEST)
-			light_pixel_x = 15
-		if(EAST)
-			light_pixel_x = -15
+	set_light_offset()
 	. = ..()
 
 	GLOB.nightfall_toggleable_lights += src
@@ -225,17 +162,9 @@
 				broken(TRUE)
 
 	update(FALSE)
-
-	switch(dir)
-		if(NORTH)
-			pixel_y = 20
-		if(EAST)
-			pixel_x = 10
-		if(WEST)
-			pixel_x = -10
+	set_pixel_offset()
 
 	return INITIALIZE_HINT_LATELOAD
-
 
 /obj/machinery/light/LateInitialize()
 	var/area/A = get_area(src)
@@ -245,12 +174,38 @@
 	GLOB.nightfall_toggleable_lights -= src
 	return ..()
 
+/obj/machinery/light/proc/set_pixel_offset()
+	switch(dir)
+		if(NORTH)
+			pixel_y = 20
+		if(EAST)
+			pixel_x = 10
+		if(WEST)
+			pixel_x = -10
+
+	if(!isnull(pixel_x_offset))
+		pixel_x = pixel_x_offset
+	if(!isnull(pixel_y_offset))
+		pixel_y = pixel_y_offset
+
+/obj/machinery/light/proc/set_light_offset()
+	switch(dir)
+		if(NORTH)
+			light_pixel_y = 15
+		if(SOUTH)
+			light_pixel_y = -15
+		if(WEST)
+			light_pixel_x = 15
+		if(EAST)
+			light_pixel_x = -15
+
 /obj/machinery/light/proc/is_broken()
 	if(status == LIGHT_BROKEN)
 		return TRUE
 	return FALSE
 
-/obj/machinery/light/update_icon()
+/obj/machinery/light/update_icon_state()
+	. = ..()
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			icon_state = "[base_state][light_on]"
@@ -310,8 +265,6 @@
 			. += "The [fitting] is burnt out."
 		if(LIGHT_BROKEN)
 			. += "The [fitting] has been smashed."
-
-
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
@@ -387,7 +340,6 @@
 			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(7, 10) * 0.1)
 
-
 // returns whether this light has power
 // true if area has power and lightswitch is on
 /obj/machinery/light/proc/has_power()
@@ -413,21 +365,19 @@
 /obj/machinery/light/attack_ai(mob/user)
 	flicker(1)
 
-
 //Xenos smashing lights
-/obj/machinery/light/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/light/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
 	if(status == 2) //Ignore if broken.
 		return FALSE
-	X.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-	X.visible_message(span_danger("\The [X] smashes [src]!"), \
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+	xeno_attacker.visible_message(span_danger("\The [xeno_attacker] smashes [src]!"), \
 	span_danger("We smash [src]!"), null, 5)
 	broken() //Smashola!
 
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
-
 /obj/machinery/light/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -484,7 +434,6 @@
 	update()
 
 // break the light and make sparks if was on
-
 /obj/machinery/light/proc/broken(skip_sound_and_sparks = 0)
 	if(status == LIGHT_EMPTY)
 		return
@@ -492,10 +441,6 @@
 	if(!skip_sound_and_sparks)
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 25, 1)
-//		if(on)
-//			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-//			s.set_up(3, 1, src)
-//			s.start()
 	status = LIGHT_BROKEN
 	update()
 
@@ -508,22 +453,11 @@
 
 // explosion effect
 // destroy the whole light fixture or just shatter it
-
 /obj/machinery/light/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
 	else if(prob(severity / 2))
 		broken()
-
-//timed process
-//use power
-#define LIGHTING_POWER_FACTOR 20		//20W per unit luminosity
-
-/*
-/obj/machinery/light/process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
-	if(on)
-		use_power(luminosity * LIGHTING_POWER_FACTOR, LIGHT)
-*/
 
 // called when area power state changes
 /obj/machinery/light/power_change()
@@ -545,6 +479,71 @@
 /obj/machinery/light/proc/delayed_explosion()
 	explosion(loc, 0, 1, 3, 0, 2)
 	qdel(src)
+
+/obj/machinery/light/mainship
+	base_state = "tube"
+
+/obj/machinery/light/mainship/Initialize(mapload)
+	. = ..()
+	GLOB.mainship_lights += src
+
+/obj/machinery/light/mainship/Destroy()
+	. = ..()
+	GLOB.mainship_lights -= src
+
+/obj/machinery/light/mainship/small
+	icon_state = "bulb1"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness = 4
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light_bulb/bulb
+
+/obj/machinery/light/floor
+	name = "floor light fixture"
+	desc = "A small lighting fixture."
+	base_state = "floortube"
+	icon_state = "floortube1"
+	brightness = 6
+	layer = BELOW_TABLE_LAYER
+	plane = FLOOR_PLANE
+
+/obj/machinery/light/floor/set_pixel_offset()
+	return
+
+/obj/machinery/light/red
+	base_state = "tubered"
+	icon_state = "tubered1"
+	light_color = LIGHT_COLOR_FLARE
+	brightness = 3
+	bulb_power = 0.5
+	bulb_colour = LIGHT_COLOR_FLARE
+
+// the smaller bulb light fixture
+
+/obj/machinery/light/small
+	icon_state = "bulb1"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness = 4
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light_bulb/bulb
+
+/obj/machinery/light/spot
+	name = "spotlight"
+	fitting = "large tube"
+	light_type = /obj/item/light_bulb/tube/large
+	brightness = 12
+
+/obj/machinery/light/built/Initialize(mapload)
+	. = ..()
+	status = LIGHT_EMPTY
+	update(FALSE)
+
+/obj/machinery/light/small/built/Initialize(mapload)
+	. = ..()
+	status = LIGHT_EMPTY
+	update(FALSE)
 
 // the light item
 // can be tube or bulb subtypes
@@ -631,7 +630,6 @@
 			icon_state = "[base_state]-broken"
 			desc = "A broken [name]."
 
-
 /obj/item/light_bulb/Initialize(mapload)
 	. = ..()
 	switch(name)
@@ -640,7 +638,6 @@
 		if("light bulb")
 			brightness = rand(4,6)
 	update()
-
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
@@ -687,7 +684,7 @@
 	desc = "A landing light, if it's flashing stay clear!"
 	anchored = TRUE
 	density = FALSE
-	layer = BELOW_TABLE_LAYER
+	layer = LOW_OBJ_LAYER
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 20

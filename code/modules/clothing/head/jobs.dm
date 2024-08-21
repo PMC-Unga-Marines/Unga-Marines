@@ -1,5 +1,3 @@
-
-//Bartender
 /obj/item/clothing/head/chefhat
 	name = "chef's hat"
 	desc = "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
@@ -7,16 +5,6 @@
 	item_state = "chefhat"
 	desc = "The commander in chef's head wear."
 	siemens_coefficient = 0.9
-	species_exception = list(/datum/species/robot)
-
-//Captain: This probably shouldn't be space-worthy
-/obj/item/clothing/head/caphat
-	name = "captain's hat"
-	icon_state = "captain"
-	desc = "It's good being the king."
-	item_state = "caphat"
-	siemens_coefficient = 0.9
-	anti_hug = 1
 	species_exception = list(/datum/species/robot)
 
 //Captain: This probably shouldn't be space-worthy
@@ -91,7 +79,6 @@
 	desc = "A stylish, if purple, beret."
 	icon_state = "purpleberet"
 
-
 //Medical
 /obj/item/clothing/head/surgery
 	name = "surgical cap"
@@ -111,8 +98,6 @@
 /obj/item/clothing/head/surgery/green
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
 	icon_state = "surgcap_green"
-
-
 
 //Detective
 

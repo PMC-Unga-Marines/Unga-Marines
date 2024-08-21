@@ -34,6 +34,7 @@
 
 
 /obj/machinery/flasher/update_icon_state()
+	. = ..()
 	if(!(machine_stat & NOPOWER))
 		icon_state = "[base_state]1"
 	else
@@ -75,16 +76,14 @@
 			var/mob/living/carbon/human/H = L
 			if(H.get_eye_protection() > 0)
 				continue
-			var/datum/internal_organ/eyes/E = H.internal_organs_by_name["eyes"]
+			var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 			if(E && (E.damage > E.min_bruised_damage && prob(E.damage + 50)))
 				H.flash_act()
 				E.take_damage(rand(1, 5))
 		else
 			L.flash_act()
 
-
 		L.Paralyze(strength)
-
 
 /obj/machinery/flasher/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))

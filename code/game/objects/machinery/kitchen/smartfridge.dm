@@ -41,8 +41,9 @@
 	if(src.shoot_inventory && prob(2))
 		src.throw_item()
 
-/obj/machinery/smartfridge/update_icon()
-	if( !(machine_stat & NOPOWER) )
+/obj/machinery/smartfridge/update_icon_state()
+	. = ..()
+	if(!(machine_stat & NOPOWER))
 		icon_state = icon_on
 	else
 		icon_state = icon_off
@@ -83,8 +84,8 @@
 
 		item_quants[strip_improper(I.name)]++
 
-		user.visible_message("<span class='notice'>[user] has added \the [I] to \the [src].", \
-							"<span class='notice'>You add \the [I] to \the [src].")
+		user.visible_message(span_notice("[user] has added \the [I] to \the [src]."), \
+							span_notice("You add \the [I] to \the [src]."))
 		updateUsrDialog()
 
 	else if(istype(I, /obj/item/storage/bag/plants))

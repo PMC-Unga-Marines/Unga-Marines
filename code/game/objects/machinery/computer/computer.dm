@@ -8,12 +8,8 @@
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 300
 	active_power_usage = 300
-	var/processing = 0
-	///How many times the computer can be smashed by a Xeno before it is disabled.
-	var/durability = 2
 	resistance_flags = UNACIDABLE
-	///they don't provide good cover
-	coverage = 15
+	coverage = 15 //they don't provide good cover
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
@@ -21,6 +17,9 @@
 	var/screen_overlay
 	///The destroyed computer sprite. Defaults based on the icon_state if not specified
 	var/broken_icon
+	var/processing = 0
+	///How many times the computer can be smashed by a Xeno before it is disabled.
+	var/durability = 2
 
 /obj/machinery/computer/Initialize(mapload)
 	. = ..()
@@ -57,7 +56,6 @@
 	if(prob(20/severity)) set_broken()
 	..()
 
-
 /obj/machinery/computer/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
@@ -69,12 +67,12 @@
 			verbs -= x
 		set_broken()
 
-/obj/machinery/computer/bullet_act(obj/projectile/Proj)
+/obj/machinery/computer/bullet_act(obj/projectile/proj)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-		visible_message("[Proj] ricochets off [src]!")
+		visible_message("[proj] ricochets off [src]!")
 		return 0
 	else
-		if(prob(round(Proj.ammo.damage /2)))
+		if(prob(round(proj.ammo.damage /2)))
 			set_broken()
 		..()
 		return 1
@@ -87,6 +85,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/computer/update_icon_state()
+	. = ..()
 	if(machine_stat & (BROKEN|DISABLED))
 		icon_state = "[initial(icon_state)]_broken"
 	else
@@ -192,7 +191,6 @@
 	else
 		return attack_hand(user)
 
-
 /obj/machinery/computer/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -201,25 +199,25 @@
 		pick(playsound(src, 'sound/machines/computer_typing1.ogg', 5, 1), playsound(src, 'sound/machines/computer_typing2.ogg', 5, 1), playsound(src, 'sound/machines/computer_typing3.ogg', 5, 1))
 
 ///So Xenos can smash computers out of the way without actually breaking them
-/obj/machinery/computer/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/computer/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		to_chat(X, span_xenowarning("We're unable to damage this!"))
+		to_chat(xeno_attacker, span_xenowarning("We're unable to damage this!"))
 		return
 
 	if(machine_stat & (BROKEN|DISABLED)) //If we're already broken or disabled, don't bother
-		to_chat(X, span_xenowarning("This peculiar thing is already broken!"))
+		to_chat(xeno_attacker, span_xenowarning("This peculiar thing is already broken!"))
 		return
 
 	if(durability <= 0)
 		set_disabled()
-		to_chat(X, span_xenowarning("We smash the annoying device, disabling it!"))
+		to_chat(xeno_attacker, span_xenowarning("We smash the annoying device, disabling it!"))
 	else
 		durability--
-		to_chat(X, span_xenowarning("We smash the annoying device!"))
+		to_chat(xeno_attacker, span_xenowarning("We smash the annoying device!"))
 
-	X.do_attack_animation(src, ATTACK_EFFECT_DISARM2) //SFX
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_DISARM2) //SFX
 	playsound(loc, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1) //SFX
 	Shake(duration = 0.5 SECONDS)

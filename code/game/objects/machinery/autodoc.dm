@@ -42,7 +42,7 @@
 	var/locked = FALSE
 	var/mob/living/carbon/human/occupant = null
 	var/list/surgery_todo_list = list() //a list of surgeries to do.
-//	var/surgery_t = 0 //Surgery timer in seconds.
+	///var/surgery_t = 0 //Surgery timer in seconds.
 	var/surgery = FALSE
 	var/surgery_mod = 1 //What multiple to increase the surgery timer? This is used for any non-WO maps or events that are done.
 	var/filtering = 0
@@ -64,12 +64,10 @@
 	var/stored_metal = 1000 // starts with 500 metal loaded
 	var/stored_metal_max = 2000
 
-
 /obj/machinery/autodoc/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
 	update_icon()
-
 
 /obj/machinery/autodoc/Destroy()
 	forceeject = TRUE
@@ -78,7 +76,6 @@
 		connected.connected = null
 		connected = null
 	return ..()
-
 
 /obj/machinery/autodoc/proc/shuttle_crush()
 	SIGNAL_HANDLER
@@ -105,6 +102,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/autodoc/update_icon_state()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "autodoc_off"
 	else if(surgery)
@@ -193,15 +191,15 @@
 	if(updating_health)
 		occupant.updatehealth()
 
-/obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+/obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
-		to_chat(X, span_xenowarning("There is nothing of interest in there."))
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
-	if(X.status_flags & INCORPOREAL || X.do_actions)
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
-	visible_message(span_warning("[X] begins to pry the [src]'s cover!"), 3)
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
-	if(!do_after(X, 2 SECONDS))
+	if(!do_after(xeno_attacker, 2 SECONDS))
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
@@ -228,7 +226,6 @@
 	A.organ_ref = organ_ref
 	return A
 
-
 /proc/generate_autodoc_surgery_list(mob/living/carbon/human/M)
 	if(!ishuman(M))
 		return list()
@@ -240,11 +237,8 @@
 
 			var/organdamagesurgery = 0
 			for(var/datum/internal_organ/I in L.internal_organs)
-				if(I.robotic == ORGAN_ASSISTED||I.robotic == ORGAN_ROBOT)
-					// we can't deal with these
-					continue
 				if(I.damage > 0)
-					if(I.organ_id == ORGAN_EYES) // treat eye surgery differently
+					if(I.slot == ORGAN_SLOT_EYES) // treat eye surgery differently
 						continue
 					if(organdamagesurgery > 0)
 						continue // avoid duplicates
@@ -277,7 +271,7 @@
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_GERMS)
 			if(L.surgery_open_stage)
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_OPEN)
-	var/datum/internal_organ/I = M.internal_organs_by_name["eyes"]
+	var/datum/internal_organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
 	if(I && (M.disabilities & NEARSIGHTED || M.disabilities & BLIND || I.damage > 0))
 		surgery_list += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_EYES,0,I)
 	if(M.getBruteLoss() > 0)
@@ -375,7 +369,7 @@
 							else
 								occupant.reagents.add_reagent(/datum/reagent/medicine/spaceacillin,inject_per_second)
 								amount -= inject_per_second
-								sleep(10*surgery_mod)
+								sleep(10 * surgery_mod)
 
 					if(ADSURGERY_DAMAGE)
 						say("Beginning organ restoration.")
@@ -389,15 +383,15 @@
 						if(S.limb_ref.body_part != GROIN)
 							open_encased(occupant, S.limb_ref)
 
-						if(!istype(S.organ_ref,/datum/internal_organ/brain))
+						if(!istype(S.organ_ref, /datum/internal_organ/brain))
 							sleep(FIX_ORGAN_MAX_DURATION*surgery_mod)
 						else
 							if(S.organ_ref.damage > BONECHIPS_MAX_DAMAGE)
-								sleep(HEMOTOMA_MAX_DURATION*surgery_mod)
-							sleep(BONECHIPS_REMOVAL_MAX_DURATION*surgery_mod)
+								sleep(HEMOTOMA_MAX_DURATION * surgery_mod)
+							sleep(BONECHIPS_REMOVAL_MAX_DURATION * surgery_mod)
 						if(!surgery)
 							break
-						if(istype(S.organ_ref,/datum/internal_organ))
+						if(istype(S.organ_ref, /datum/internal_organ))
 							S.organ_ref.heal_organ_damage(S.organ_ref.damage)
 						else
 							say("Organ is missing.")
@@ -414,7 +408,7 @@
 							say("Procedure has been deemed unnecessary.")
 							surgery_todo_list -= S
 							continue
-						if(istype(S.organ_ref,/datum/internal_organ/eyes))
+						if(istype(S.organ_ref, /datum/internal_organ/eyes))
 							var/datum/internal_organ/eyes/E = S.organ_ref
 
 							if(E.eye_surgery_stage == 0)
@@ -444,7 +438,6 @@
 								occupant.disabilities &= ~BLIND
 								E.heal_organ_damage(E.damage)
 								E.eye_surgery_stage = 0
-
 
 			if(LIMB_SURGERY)
 				switch(S.surgery_procedure)
@@ -654,7 +647,6 @@
 	surgery = 0
 	go_out(AUTODOC_NOTICE_SUCCESS)
 
-
 /obj/machinery/autodoc/proc/open_incision(mob/living/carbon/human/target, datum/limb/L)
 	if(target && L && L.surgery_open_stage < 2)
 		sleep(INCISION_MANAGER_MAX_DURATION*surgery_mod)
@@ -703,7 +695,7 @@
 
 /obj/machinery/autodoc/verb/eject()
 	set name = "Eject Med-Pod"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 	if(usr.incapacitated())
 		return // nooooooooooo
@@ -804,14 +796,13 @@
 		return
 	surgery_op()
 
-
 /obj/machinery/autodoc/MouseDrop_T(mob/M, mob/user)
 	. = ..()
 	move_inside_wrapper(M, user)
 
 /obj/machinery/autodoc/verb/move_inside()
 	set name = "Enter Med-Pod"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)
@@ -898,7 +889,6 @@
 		C.open()
 		user.start_pulling(M)
 
-
 	if(!M)
 		return
 
@@ -941,7 +931,6 @@
 		say("Automatic mode engaged, initialising procedures.")
 		addtimer(CALLBACK(src, PROC_REF(auto_start)), 5 SECONDS)
 
-
 /////////////////////////////////////////////////////////////
 
 //Auto Doc console that links up to it.
@@ -972,7 +961,6 @@
 	radio = new(src)
 	blood_pack = new(src)
 
-
 /obj/machinery/computer/autodoc_console/Destroy()
 	QDEL_NULL(radio)
 	QDEL_NULL(blood_pack)
@@ -993,8 +981,6 @@
 		return FALSE
 
 	return TRUE
-
-
 
 /obj/machinery/computer/autodoc_console/interact(mob/user)
 	. = ..()
@@ -1184,7 +1170,6 @@
 	popup.set_content(dat)
 	popup.open()
 
-
 /obj/machinery/computer/autodoc_console/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -1206,33 +1191,31 @@
 
 		var/needed = 0 // this is to stop someone just choosing everything
 		if(href_list["brute"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BRUTE)
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, EXTERNAL_SURGERY, ADSURGERY_BRUTE)
 
 		if(href_list["burn"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BURN)
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, EXTERNAL_SURGERY, ADSURGERY_BURN)
 
 		if(href_list["toxin"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_TOXIN)
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, EXTERNAL_SURGERY, ADSURGERY_TOXIN)
 
 		if(href_list["dialysis"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_DIALYSIS)
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, EXTERNAL_SURGERY, ADSURGERY_DIALYSIS)
 
 		if(href_list["blood"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BLOOD)
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, EXTERNAL_SURGERY, ADSURGERY_BLOOD)
 
 		if(href_list["organgerms"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_GERMS)
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, ORGAN_SURGERY, ADSURGERY_GERMS)
 
 		if(href_list["eyes"])
-			N.fields["autodoc_manual"] += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_EYES,0,connected.occupant.internal_organs_by_name["eyes"])
+			N.fields["autodoc_manual"] += create_autodoc_surgery(null, ORGAN_SURGERY, ADSURGERY_EYES, 0, connected.occupant.get_organ_slot(ORGAN_SLOT_EYES))
 
 		if(href_list["organdamage"])
 			for(var/i in connected.occupant.limbs)
 				var/datum/limb/L = i
 				for(var/x in L.internal_organs)
 					var/datum/internal_organ/I = x
-					if(I.robotic == ORGAN_ASSISTED || I.robotic == ORGAN_ROBOT)
-						continue
 					if(I.damage > 0)
 						N.fields["autodoc_manual"] += create_autodoc_surgery(L,ORGAN_SURGERY,ADSURGERY_DAMAGE,0,I)
 						needed++
@@ -1274,7 +1257,6 @@
 					needed++
 			if(!needed)
 				N.fields["autodoc_manual"] += create_autodoc_surgery(null,LIMB_SURGERY,ADSURGERY_NECRO,1)
-
 
 		if(href_list["shrapnel"])
 			for(var/i in connected.occupant.limbs)
@@ -1349,7 +1331,6 @@
 		connected.eject()
 
 	updateUsrDialog()
-
 
 /obj/machinery/autodoc/event
 	event = 1

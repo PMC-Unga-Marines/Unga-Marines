@@ -94,8 +94,6 @@
 	if(hallucination >= 20) // hallucinations require stacking before triggering
 		handle_hallucinations()
 
-
-
 	if(staminaloss > -max_stamina)
 		handle_staminaloss()
 

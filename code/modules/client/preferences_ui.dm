@@ -69,7 +69,6 @@
 			data["h_style"] = h_style
 			data["grad_style"] = grad_style
 			data["f_style"] = f_style
-//RUTGMC EDIT
 		if(PRED_CHARACTER_CUSTOMIZATION)
 			data["has_wl"] = GLOB.roles_whitelist[user.ckey] & WHITELIST_PREDATOR
 			data["legacy"] = GLOB.roles_whitelist[user.ckey] & WHITELIST_YAUTJA_LEGACY
@@ -152,6 +151,7 @@
 			data["radialstackspref"] = !!(toggles_gameplay & RADIAL_STACKS)
 			data["radiallasersgunpref"] = !!(toggles_gameplay & RADIAL_LASERGUNS)
 			data["autointeractdeployablespref"] = !!(toggles_gameplay & AUTO_INTERACT_DEPLOYABLES)
+			data["directional_attacks"] = !!(toggles_gameplay & DIRECTIONAL_ATTACKS)
 			data["scaling_method"] = scaling_method
 			data["pixel_size"] = pixel_size
 			data["parallax"] = parallax
@@ -926,7 +926,7 @@
 			emote.spoken_emote = !emote.spoken_emote
 
 		if("reset-keybindings")
-			key_bindings = GLOB.hotkey_keybinding_list_by_key
+			key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
 			current_client.set_macros()
 			save_keybinds()
 
@@ -973,6 +973,9 @@
 
 		if("autointeractdeployablespref")
 			toggles_gameplay ^= AUTO_INTERACT_DEPLOYABLES
+
+		if("directional_attacks")
+			toggles_gameplay ^= DIRECTIONAL_ATTACKS
 
 		if("pixel_size")
 			switch(pixel_size)

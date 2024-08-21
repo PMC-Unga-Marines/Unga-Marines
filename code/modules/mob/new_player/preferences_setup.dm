@@ -123,7 +123,6 @@
 	g_eyes = green
 	b_eyes = blue
 
-
 /datum/preferences/proc/update_preview_icon(job_override, dummy_type = DUMMY_HUMAN_SLOT_PREFERENCES)
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
@@ -154,8 +153,6 @@
 		previewJob.equip_dummy(mannequin, preference_source = parent)
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(dummy_type)
-
-
 
 /datum/preferences/proc/randomize_species_specific()
 	moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")

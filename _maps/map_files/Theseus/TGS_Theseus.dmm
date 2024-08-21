@@ -440,10 +440,7 @@
 /area/mainship/hull/starboard_hull)
 "abK" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "waste_lower_in";
-	name = "Lower Deck Waste Tank Control";
-	output_tag = "waste_lower_out";
-	sensors = list("waste_sensor"="Tank")
+	name = "Lower Deck Waste Tank Control"
 	},
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/starboard_hull)
@@ -716,9 +713,7 @@
 "acF" = (
 /obj/machinery/air_alarm,
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Lower Oxygen Supply Console";
-	output_tag = "oxygen_lower_out";
-	sensors = list("oxy_sensor"="Tank")
+	name = "Lower Oxygen Supply Console"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -732,9 +727,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
-	name = "Lower Nitrogen Control Console";
-	output_tag = "nit_lower_out";
-	sensors = list("nit_sensor"="Tank")
+	name = "Lower Nitrogen Control Console"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -754,10 +747,7 @@
 /area/mainship/hull/port_hull)
 "acJ" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "mix_lower_in";
-	name = "Lower Mixed Air Control";
-	output_tag = "mix_lower_out";
-	sensors = list("mix_sensor"="Tank")
+	name = "Lower Mixed Air Control"
 	},
 /turf/open/floor/mainship/orange{
 	dir = 5
@@ -10496,6 +10486,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
+"gXv" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/effect/landmark/start/job/transportofficer,
+/turf/open/floor/wood,
+/area/mainship/living/pilotbunks)
 "gXD" = (
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
@@ -16067,9 +16063,9 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/command/cic)
 "qmd" = (
-/obj/effect/landmark/start/job/chiefshipengineer,
-/turf/open/floor/mainship/floor,
-/area/mainship/engineering/ce_room)
+/obj/effect/landmark/start/job/crash/squadrobot,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/cryo_cells)
 "qml" = (
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/misc/paperbin,
@@ -20200,7 +20196,7 @@
 /area/mainship/hallways/hangar)
 "xxs" = (
 /obj/item/robot_parts/robot_suit,
-/obj/item/clothing/under/wedding/bride_white,
+/obj/item/clothing/under/wedding_bride,
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
 "xyg" = (
@@ -44361,7 +44357,7 @@ srL
 nKK
 lzj
 cZJ
-stM
+gXv
 lzj
 fZA
 aVk
@@ -68752,15 +68748,15 @@ bnI
 bpN
 bpN
 bnI
-bpN
-bpN
+qmd
+qmd
 bzu
 bpM
 vQr
 bpM
 bzu
-bpN
-bpN
+qmd
+qmd
 bnI
 bpN
 bpN
@@ -69009,15 +69005,15 @@ bnJ
 bpN
 bpN
 buM
-bpN
-bpN
+qmd
+qmd
 bnJ
 bpM
 bCh
 bpM
 bnJ
-bpN
-bpN
+qmd
+qmd
 buM
 bpN
 bpN
@@ -70314,7 +70310,7 @@ lCP
 aoP
 hBg
 pJk
-qmd
+pJk
 hCB
 aoP
 kjU

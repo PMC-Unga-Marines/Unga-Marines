@@ -185,7 +185,7 @@
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
-		I.take_damage(brute / 2)
+		I.get_damage(brute / 2)
 		brute -= brute / 2
 RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
@@ -506,11 +506,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.adjustToxLoss(1)
 		if (prob(1))
 			to_chat(owner, span_notice("You have a high fever!"))
-//Not technically a germ effect, but derived from it
+	//Not technically a germ effect, but derived from it
 	if(limb_status & LIMB_NECROTIZED)
 		for(var/datum/internal_organ/organ AS in internal_organs)
 			organ.take_damage(0.2, silent = TRUE) //1 point every 10 seconds, 100 seconds to bruise, five minutes to broken.
-
 
 ///Updating wounds. Handles natural damage healing from limb treatments and processes internal wounds
 /datum/limb/proc/update_wounds(limb_regen_penalty = 1)
@@ -850,7 +849,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	owner.visible_message(\
 		span_warning("You hear a loud cracking sound coming from [owner]!"),
 		span_highdanger("Something feels like it shattered in your [display_name]!"),
-		"<span class='warning'>You hear a sickening crack!<span>")
+		span_warning("You hear a sickening crack!"))
 	playsound(owner, "bone_break", 45, 1)
 	if(owner.species && !(owner.species.species_flags & NO_PAIN))
 		owner.emote("scream")
@@ -1137,15 +1136,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /datum/limb/head/take_damage_limb(brute, burn, sharp, edge, blocked = 0, updating_health = FALSE, list/forbidden_limbs = list())
 	. = ..()
-	if (!disfigured)
-		if (brute_dam > 40)
-			if (prob(50))
+	if(!disfigured)
+		if(brute_dam > 40)
+			if(prob(50))
 				disfigure(BRUTE)
-		if (burn_dam > 40)
-			disfigure("burn")
+		if(burn_dam > 40)
+			disfigure(BURN)
 
 /datum/limb/head/proc/disfigure(type = BRUTE)
-	if (disfigured)
+	if(disfigured)
 		return
 	if(type == BRUTE)
 		owner.visible_message(span_warning(" You hear a sickening cracking sound coming from \the [owner]'s face."),	\

@@ -426,8 +426,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/boiler, location, null, delmob)
 			if("crusher")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/crusher, location, null, delmob)
-			//if("widow") //RUTGMC DELETION, WIDOW DELETION
-				//newmob = M.change_mob_type(/mob/living/carbon/xenomorph/widow, location, null, delmob)
 			if("defiler")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/defiler, location, null, delmob)
 			if("gorger")
@@ -442,14 +440,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/queen, location, null, delmob)
 			if("king")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/king, location, null, delmob)
-			/* RU TGMC EDIT START
-			if("wraith")
-				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/wraith, location, null, delmob)
-			RU TGMC EDIT END */
-			/*RU TGMC EDIT
-			if("puppeteer")
-				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/puppeteer, location, null, delmob)
-			RU TGMC EDIT*/
 			if("behemoth")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/behemoth, location, null, delmob)
 			if("human")
@@ -476,7 +466,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/human/species/zombie, location, null, delmob, "Zombie")
 			if("ai")
 				newmob = M.change_mob_type(/mob/living/silicon/ai, location, null, delmob)
-			//RUTGNC EDIT BEGIN
 			if("facehugger")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
 			if("panther")
@@ -492,7 +481,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/predalien, location, null, delmob)
 			if("yautja")
 				newmob = M.change_mob_type(/mob/living/carbon/human/species/yautja, location, null, delmob)
-			//RUTGMC EDIT END
 
 		C.holder.show_player_panel(newmob)
 
@@ -923,7 +911,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				return
 
 			if(F.marked && F.marked != usr.client.key)
-				to_chat(usr, "<span class='warning'>This fax has already been marked by [F.marked], please unmark it to be able to proceed.")
+				to_chat(usr, span_warning("This fax has already been marked by [F.marked], please unmark it to be able to proceed."))
 				return
 			else if(!F.marked)
 				F.marked = usr.client.key
@@ -2106,11 +2094,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 					return
 
 				X.upgrade_xeno(change)
-				/* RUTGMC DELETION
-				if(change != XENO_UPGRADE_NORMAL)
-					var/datum/xeno_caste/previous_maturity = GLOB.xeno_caste_datums[X.caste_base_type][X.upgrade_prev()]
-					X.upgrade_stored = previous_maturity.upgrade_threshold
-				*/
 
 		DIRECT_OUTPUT(usr, browse(null, "window=xeno_panel_[old_keyname]"))
 		usr.client.holder.xeno_panel(X)

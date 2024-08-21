@@ -202,7 +202,11 @@
 		living_user.throw_item(get_turf_on_clickcatcher(object, living_user, params))
 		return
 
-
+/obj/item/weapon/claymore/tomahawk/classic
+	name = "Tomahawk H17"
+	desc = "A specialist tactical weapon, very ancient and beloved by many. Issued to Delta by CAU."
+	icon_state = "tomahawk_classic"
+	item_state = "tomahawk_classic"
 
 //FC's sword.
 
@@ -426,13 +430,9 @@
 	RegisterSignal(src, COMSIG_MOVABLE_POST_THROW, PROC_REF(post_throw))
 	AddComponent(/datum/component/automatedfire/autofire, throw_delay, _fire_mode = GUN_FIREMODE_AUTOMATIC, _callback_reset_fire = CALLBACK(src, PROC_REF(stop_fire)), _callback_fire = CALLBACK(src, PROC_REF(throw_knife)))
 
-/obj/item/stack/throwing_knife/update_icon()
+/obj/item/stack/throwing_knife/update_icon_state()
 	. = ..()
-	var/amount_to_show = amount > max_amount ? max_amount : amount
-	if(amount_to_show > 8)
-		setDir(8)
-		return
-	setDir(amount_to_show + round(amount_to_show / 3))
+	icon_state = "throwing_knife_[amount]"
 
 /obj/item/stack/throwing_knife/equipped(mob/user, slot)
 	. = ..()

@@ -41,7 +41,7 @@ export const Cargo = (props, context) => {
     : null;
 
   return (
-    <Window width={900} height={700}>
+    <Window width={1100} height={700}>
       <Flex height="650px" align="stretch">
         <Flex.Item width="280px">
           <Menu />
@@ -84,7 +84,9 @@ const Exports = (props, context) => {
         {export_history.map((exp) => (
           <Table.Row key={exp.id}>
             <Table.Cell>{exp.name}</Table.Cell>
-            <Table.Cell>{exp.points} points</Table.Cell>
+            <Table.Cell>
+              {exp.amount} x {exp.points} points ({exp.total})
+            </Table.Cell>
           </Table.Row>
         ))}
       </Table>
@@ -141,34 +143,32 @@ const Menu = (props, context) => {
         Personal Points: <AnimatedNumber value={personalpoints} />
       </Section>
       Points: <AnimatedNumber value={currentpoints} />
+      <Divider />
+      <Flex>
+        <Flex.Item grow={1}>
+          <MenuButton
+            icon="luggage-cart"
+            menuname="Awaiting Delivery"
+            condition={!awaiting_delivery_orders}
+          />
+        </Flex.Item>
+        <Flex.Item>
+          <AnimatedNumber value={awaiting_delivery_orders} /> order
+          {awaiting_delivery_orders !== 1 && 's'}
+        </Flex.Item>
+      </Flex>
       {!readOnly && (
-        <>
-          <Divider />
-          <Flex>
-            <Flex.Item grow={1}>
-              <MenuButton
-                icon="luggage-cart"
-                menuname="Awaiting Delivery"
-                condition={!awaiting_delivery_orders}
-              />
-            </Flex.Item>
-            <Flex.Item>
-              <AnimatedNumber value={awaiting_delivery_orders} /> order
-              {awaiting_delivery_orders !== 1 && 's'}
-            </Flex.Item>
-          </Flex>
-          <Flex>
-            <Flex.Item grow={1}>
-              <Button
-                onClick={() => act('send')}
-                disabled={!elev_status}
-                icon={'angle-double-' + elevator_dir}>
-                {elevator_dir === 'up' ? 'Raise' : 'Lower'}
-              </Button>
-            </Flex.Item>
-            <Flex.Item>Elevator: {elevator}</Flex.Item>
-          </Flex>
-        </>
+        <Flex>
+          <Flex.Item grow={1}>
+            <Button
+              onClick={() => act('send')}
+              disabled={!elev_status}
+              icon={'angle-double-' + elevator_dir}>
+              {elevator_dir === 'up' ? 'Raise' : 'Lower'}
+            </Button>
+          </Flex.Item>
+          <Flex.Item>Elevator: {elevator}</Flex.Item>
+        </Flex>
       )}
       <Divider />
       <Flex>
@@ -265,24 +265,31 @@ const OrderList = (props, context) => {
             level={2}
             title={'Order #' + id}
             buttons={
-              !readOnly && (
-                <>
-                  {(!authed_by || selectedMenu === 'Denied Requests') && (
+              <>
+                {!readOnly &&
+                  (!authed_by || selectedMenu === 'Denied Requests') && (
                     <Button
                       onClick={() => act('approve', { id: id })}
                       icon="check"
                       content="Approve"
                     />
                   )}
-                  {!authed_by && (
-                    <Button
-                      onClick={() => act('deny', { id: id })}
-                      icon="times"
-                      content="Deny"
-                    />
-                  )}
-                </>
-              )
+                  {!readOnly && !authed_by && (
+                  <Button
+                    onClick={() => act('deny', { id: id })}
+                    icon="times"
+                    content="Deny"
+                  />
+                )}
+                {selectedMenu === 'Awaiting Delivery' && (
+                  <Button
+                    onClick={() => act('delivery', { id: id })}
+                    icon="luggage-cart"
+                    content="Delivery"
+                    disabled={!data.beacon}
+                  />
+                )}
+              </>
             }>
             <LabeledList>
               <LabeledList.Item label="Requested by">
@@ -307,18 +314,21 @@ const Packs = (props, context) => {
   const { act, data } = useBackend(context);
   const { packs } = props;
 
-  return packs.map((pack) => <Pack pack={pack} key={pack} />);
+  return Object.keys(packs).map((pack) => (
+    <Pack pack={pack} key={pack} amount={packs[pack]} />
+  ));
 };
 
 const Pack = (props, context) => {
   const { act, data } = useBackend(context);
-  const { pack } = props;
+  const { pack, amount } = props;
   const { supplypackscontents } = data;
   const { name, cost, contains } = supplypackscontents[pack];
+
   return !!contains && contains.constructor === Object ? (
     <Collapsible
       color="gray"
-      title={<PackName cost={cost} name={name} pl={0} />}>
+      title={<PackName cost={cost} name={name} pl={0} amount={amount} />}>
       <Table>
         <PackContents contains={contains} />
       </Table>
@@ -329,12 +339,13 @@ const Pack = (props, context) => {
 };
 
 const PackName = (props, context) => {
-  const { cost, name, pl } = props;
+  const { cost, name, pl, amount } = props;
 
   return (
     <Box inline pl={pl}>
-      <Box textAlign="right" inline width="65px">
-        {cost} points
+      <Box textAlign="right" inline width="140px">
+        {amount ? amount + 'x' : ''}
+        {cost} points {amount ? '(' + amount * cost + ')' : ''}
       </Box>
       <Box width="15px" inline />
       <Box inline>{name}</Box>
@@ -578,7 +589,7 @@ export const CargoRequest = (props, context) => {
     : null;
 
   return (
-    <Window width={900} height={700}>
+    <Window width={1100} height={700}>
       <Flex height="650px" align="stretch">
         <Flex.Item width="280px">
           <Menu readOnly={1} />

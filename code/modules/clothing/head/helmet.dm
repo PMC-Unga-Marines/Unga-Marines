@@ -1,4 +1,3 @@
-
 /obj/item/clothing/head/helmet
 	name = "helmet"
 	desc = "Standard Security gear. Protects the head from impacts."
@@ -162,7 +161,16 @@
 	. = ..()
 	helmet_overlays = list("damage","band","item") //To make things simple.
 
-/obj/item/clothing/head/helmet/marine/update_icon()
+/obj/item/clothing/head/helmet/marine/on_pocket_insertion()
+	. = ..()
+	update_helmet_overlays()
+
+/obj/item/clothing/head/helmet/marine/on_pocket_removal()
+	. = ..()
+	update_helmet_overlays()
+
+///Updates the helmet_overlays list, inserting and removing images from it as necesarry
+/obj/item/clothing/head/helmet/marine/proc/update_helmet_overlays()
 	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
 		return
 	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
@@ -201,9 +209,11 @@
 	var/mutable_appearance/M
 	for(var/i in helmet_overlays)
 		M = helmet_overlays[i]
-		if(M)
-			M = mutable_appearance('icons/mob/modular/modular_helmet_storage.dmi',M.icon_state)
-			standing.overlays += M
+		if(!M)
+			continue
+
+		M = mutable_appearance('icons/mob/modular/modular_helmet_storage.dmi', M.icon_state)
+		standing.overlays += M
 
 /obj/item/clothing/head/helmet/marine/specialist
 	name = "\improper B18 helmet"
@@ -248,6 +258,18 @@
 	name = "\improper M12C pattern neurolink helmet"
 	icon_state = "mech_pilot_helmet"
 	desc = "A lightweight helmet with a small port in the back. Offers lower response times for TGMC mech pilots by integrating them directly into their mech suit's systems, though it certainly doesn't make them smarter."
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/helmet/marine/assault_crewman
+	name = "\improper M12B pattern tanker helmet"
+	icon_state = "assault_crewman_helmet"
+	desc = "A lightweight helmet. Offers the user protection from being hit in the hell by ejected shell casings, mostly."
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/helmet/marine/transport_crewman
+	name = "\improper M12A pattern transport helmet"
+	icon_state = "transport_crewman_helmet"
+	desc = "A lightweight helmet with a small port in the back. Offers decent protection against reckless driving."
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/helmet/marine/riot

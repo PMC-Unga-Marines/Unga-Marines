@@ -34,9 +34,9 @@
 	icon_state = "PO"
 	job = /datum/job/terragov/command/pilot
 
-/obj/effect/landmark/start/job/chiefshipengineer
-	icon_state = "CSE"
-	job = /datum/job/terragov/engineering/chief
+/obj/effect/landmark/start/job/transportofficer
+	icon_state = "TO"
+	job = /datum/job/terragov/command/transportofficer
 
 /obj/effect/landmark/start/job/requisitionsofficer
 	icon_state = "RO"
@@ -46,9 +46,17 @@
 	icon_state = "MP"
 	job = /datum/job/terragov/command/mech_pilot
 
+/obj/effect/landmark/start/job/assault_crewman
+	icon_state = "AC"
+	job = /datum/job/terragov/command/assault_crewman
+
+/obj/effect/landmark/start/job/transport_crewman
+	icon_state = "TC"
+	job = /datum/job/terragov/command/transport_crewman
+
 /obj/effect/landmark/start/job/shiptech
 	icon_state = "SE"
-	job = /datum/job/terragov/engineering/tech
+	job = /datum/job/terragov/requisitions/tech
 
 /obj/effect/landmark/start/job/cmo
 	icon_state = "CMO"
@@ -69,6 +77,10 @@
 /obj/effect/landmark/start/job/synthetic
 	icon_state = "Synth"
 	job = /datum/job/terragov/silicon/synthetic
+
+/obj/effect/landmark/start/job/squadrobot
+	icon_state = "Robot"
+	job = /datum/job/terragov/squad/robot
 
 /obj/effect/landmark/start/job/squadmarine
 	icon_state = "PFC"
@@ -255,3 +267,23 @@
 /obj/effect/landmark/start/squad/squadleader/delta
 	squad = DELTA_SQUAD
 	icon_state = "leader_spawn_delta"
+
+/obj/effect/landmark/start/squad/squadrobot
+	icon_state = "robot_spawn"
+	title = SQUAD_ROBOT
+
+/obj/effect/landmark/start/squad/squadrobot/alpha
+	squad = ALPHA_SQUAD
+	icon_state = "robot_spawn_alpha"
+
+/obj/effect/landmark/start/squad/squadrobot/bravo
+	squad = BRAVO_SQUAD
+	icon_state = "robot_spawn_bravo"
+
+/obj/effect/landmark/start/squad/squadrobot/charlie
+	squad = CHARLIE_SQUAD
+	icon_state = "robot_spawn_charlie"
+
+/obj/effect/landmark/start/squad/squadrobot/delta
+	squad = DELTA_SQUAD
+	icon_state = "robot_spawn_delta"

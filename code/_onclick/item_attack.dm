@@ -5,6 +5,9 @@
 		return melee_attack_chain_alternate(user, target, params)
 	if(tool_behaviour && tool_attack_chain(user, target))
 		return
+	if(user.lying_angle)
+		user.balloon_alert(user, "Can't while prone!")
+		return
 	// Return TRUE in attackby() to prevent afterattack() effects (when safely moving items for example)
 	var/resolved = target.attackby(src, user, params)
 	if(resolved || QDELETED(target) || QDELETED(src))
@@ -50,6 +53,10 @@
 	SIGNAL_HANDLER_DOES_SLEEP
 	add_fingerprint(user, "attackby", I)
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACKBY, I, user, params) & COMPONENT_NO_AFTERATTACK)
+		return TRUE
+	//not fully portet from tg
+	if(isgrabitem(I) && grab_interact(I, user))
+		user.changeNext_move(GRAB_SLAM_DELAY)
 		return TRUE
 	return FALSE
 

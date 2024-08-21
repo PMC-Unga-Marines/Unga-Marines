@@ -37,7 +37,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	var/damage = 0
 	var/effectStun = FALSE
 	var/effectLimb = FALSE
-	var/effectOrgans = FALSE
 	var/effectGib = FALSE
 	var/effectStealth = FALSE
 	var/effectQuiet = FALSE
@@ -76,15 +75,16 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	setStyle(style, TRUE)
 
 
-/obj/structure/closet/supplypod/update_icon()
-	cut_overlays()
+/obj/structure/closet/supplypod/update_overlays()
+	. = ..()
+
 	if(style == STYLE_SEETHROUGH || style == STYLE_INVISIBLE)
 		return
 
 	if(opened)
-		add_overlay("[icon_state]_open")
+		. += "[icon_state]_open"
 	else
-		add_overlay("[icon_state]_door")
+		. += "[icon_state]_door"
 
 
 /obj/structure/closet/supplypod/proc/setStyle(chosenStyle, duringInit = FALSE)
@@ -121,15 +121,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 				if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
 					continue
 				E.droplimb()
-
-		if(effectOrgans && ishuman(L))
-			var/mob/living/carbon/human/H = L
-			for(var/datum/internal_organ/IO in H.internal_organs)
-				var/destination = get_edge_target_turf(T, pick(GLOB.alldirs))
-				var/obj/item/organ/O = IO.remove(H)
-				O.forceMove(T)
-				O.throw_at(destination, 2, 3)
-				sleep(0.1 SECONDS)
 
 		if(effectGib)
 			L.adjustBruteLoss(5000)

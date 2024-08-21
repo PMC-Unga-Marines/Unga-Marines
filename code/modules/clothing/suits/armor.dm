@@ -1,4 +1,3 @@
-
 /obj/item/clothing/suit/armor
 	flags_inventory = BLOCKSHARPOBJ
 	flags_armor_protection = CHEST|GROIN
@@ -9,7 +8,6 @@
 	siemens_coefficient = 0.6
 	w_class = WEIGHT_CLASS_HUGE
 	allowed = list(/obj/item/weapon/gun)//Guns only.
-
 
 /obj/item/clothing/suit/armor/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	. = ..()
@@ -23,8 +21,6 @@
 	if(!H.w_uniform)
 		to_chat(H, span_warning("You need to be wearing somethng under this to be able to equip it."))
 		return FALSE
-
-
 
 //armored vest
 
@@ -115,24 +111,12 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/baton,/obj/item/restraints/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 1
 	soft_armor = list(MELEE = 50, BULLET = 60, LASER = 50, ENERGY = 25, BOMB = 50, BIO = 100, FIRE = 25, ACID = 25)
-	flags_inventory = BLOCKSHARPOBJ|NOPRESSUREDMAGE
+	flags_inventory = BLOCKSHARPOBJ
 	flags_item = SYNTH_RESTRICTED
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	flags_cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6
-
-
-/obj/item/clothing/suit/armor/swat/officer
-	name = "officer jacket"
-	desc = "An armored jacket used in special operations."
-	icon_state = "detective"
-	item_state = "det_suit"
-	blood_overlay_type = "coat"
-	flags_inventory = NONE
-	flags_inv_hide = NONE
-	flags_armor_protection = CHEST|ARMS
-
 
 /obj/item/clothing/suit/armor/det_suit
 	name = "armor"
@@ -149,13 +133,11 @@
 	desc = "A suit of armor used by workers in dangerous environments."
 	icon_state = "swatarmor"
 	item_state = "swatarmor"
-	var/obj/item/weapon/gun/holstered = null
 	flags_armor_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	flags_item = SYNTH_RESTRICTED
 	slowdown = 0
 	soft_armor = list(MELEE = 50, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 50, BIO = 40, FIRE = 50, ACID = 50)
 	siemens_coefficient = 0.7
-
 
 /obj/item/clothing/suit/armor/sectoid
 	name = "psionic field"
@@ -180,10 +162,7 @@
 	. = ..()
 	AddComponent(/datum/component/shield/overhealth)
 
-
 //All of the armor below is mostly unused
-
-
 /obj/item/clothing/suit/armor/centcom
 	name = "Cent. Com. armor"
 	desc = "A suit that protects against some damage."
@@ -196,18 +175,6 @@
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	flags_cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0
-
-/obj/item/clothing/suit/armor/heavy
-	name = "heavy armor"
-	desc = "A heavily armored suit that protects against moderate damage."
-	icon_state = "heavy"
-	item_state = "swat_suit"
-	w_class = WEIGHT_CLASS_BULKY//bulky item
-	gas_transfer_coefficient = 0.90
-	flags_armor_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	slowdown = 3
-	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/armor/tdome

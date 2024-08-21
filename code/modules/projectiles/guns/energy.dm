@@ -432,8 +432,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	turret_flags = TURRET_INACCURATE
 	ammo_level_icon = "te"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -537,16 +535,12 @@
 	fire_sound = 'sound/weapons/guns/fire/Laser Pistol Standard.ogg'
 	icon_state = "tep"
 	item_state = "tep"
-	greyscale_config = null
-	colorable_allowed = NONE
 	max_shots = 30 //codex stuff
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol
 	ammo_level_icon = null
 	rounds_per_shot = 20
 	gun_firemode = GUN_FIREMODE_SEMIAUTO
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
-	greyscale_config = /datum/greyscale_config/gun/pistol/tep
-	colorable_allowed = PRESET_COLORS_ALLOWED
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -632,8 +626,6 @@
 	gun_firemode = GUN_FIREMODE_SEMIAUTO
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 	ammo_level_icon = "te"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -769,8 +761,6 @@
 	ammo_level_icon = "te"
 	icon_overlay_x_offset = -1
 	icon_overlay_y_offset = -3
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -897,8 +887,6 @@
 	gun_firemode = GUN_FIREMODE_AUTOMATIC
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	ammo_level_icon = "te"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1104,12 +1092,12 @@
 	light_power = 0.1
 	light_color = LIGHT_COLOR_ORANGE
 
-/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/update_icon(mob/user)
+/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/update_icon()
 	. = ..()
 	if(rounds)
-		turn_light(user, TRUE)
+		turn_light(null, TRUE)
 	else
-		turn_light(user, FALSE)
+		turn_light(null, FALSE)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/turn_light(mob/user, toggle_on)
 	. = ..()
@@ -1327,7 +1315,7 @@
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
 
 /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_SUNDERING|AMMO_HITSCAN
+	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
 	incendiary_strength = 15
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_LASER_RED

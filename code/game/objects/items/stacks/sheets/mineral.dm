@@ -81,7 +81,6 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	color = "#333333"
 	perunit = 3750
 
-
 /obj/item/stack/sheet/mineral/iron/Initialize(mapload)
 	. = ..()
 	recipes = GLOB.iron_recipes
@@ -115,7 +114,10 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-diamond"
 	perunit = 3750
 	sheettype = "diamond"
+	merge_type = /obj/item/stack/sheet/mineral/diamond
 
+/obj/item/stack/sheet/mineral/diamond/large_stack
+	amount = 50
 
 /obj/item/stack/sheet/mineral/diamond/Initialize(mapload)
 	. = ..()
@@ -128,7 +130,10 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-uranium"
 	perunit = 2000
 	sheettype = "uranium"
+	merge_type = /obj/item/stack/sheet/mineral/uranium
 
+/obj/item/stack/sheet/mineral/uranium/large_stack
+	amount = 50
 
 /obj/item/stack/sheet/mineral/uranium/Initialize(mapload)
 	. = ..()
@@ -157,8 +162,11 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	desc = "Plastic is a synthetic polymer, manufactured from organic and inorganic components into a malleable and light fabric. It can be used for a wide range of objects."
 	singular_name = "plastic sheet"
 	icon_state = "sheet-plastic"
+	merge_type = /obj/item/stack/sheet/mineral/plastic
 	perunit = 2000
 
+/obj/item/stack/sheet/mineral/plastic/large_stack
+	amount = 50
 
 /obj/item/stack/sheet/mineral/plastic/Initialize(mapload)
 	. = ..()
@@ -179,7 +187,10 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	perunit = 2000
 	sheettype = "gold"
 	number_of_extra_variants = 2
+	merge_type = /obj/item/stack/sheet/mineral/gold
 
+/obj/item/stack/sheet/mineral/gold/large_stack
+	amount = 50
 
 /obj/item/stack/sheet/mineral/gold/Initialize(mapload)
 	. = ..()
@@ -192,8 +203,11 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-silver"
 	perunit = 2000
 	sheettype = "silver"
+	merge_type = /obj/item/stack/sheet/mineral/silver
 	number_of_extra_variants = 2
 
+/obj/item/stack/sheet/mineral/silver/large_stack
+	amount = 50
 
 /obj/item/stack/sheet/mineral/silver/Initialize(mapload)
 	. = ..()
@@ -208,8 +222,11 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	icon_state = "sheet-platinum"
 	sheettype = "platinum"
 	perunit = 2000
+	merge_type = /obj/item/stack/sheet/mineral/platinum
 	number_of_extra_variants = 2
 
+/obj/item/stack/sheet/mineral/platinum/large_stack
+	amount = 50
 
 //Extremely valuable to Research.
 /obj/item/stack/sheet/mineral/mhydrogen
@@ -236,7 +253,34 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	name = "osmium"
 	desc = "Osmium is a transition metal. The densest naturally-occuring element known to man, it is obviously known for its extreme hardness and durability and used as such."
 	singular_name = "osmium ingot"
-	icon_state = "sheet-silver"
+	icon_state = "sheet-osmium"
 	sheettype = "osmium"
-	color = "#9999FF"
+	merge_type = /obj/item/stack/sheet/mineral/osmium
 	perunit = 2000
+
+/obj/item/stack/sheet/mineral/osmium/large_stack
+	amount = 50
+
+/obj/item/stack/sheet/mineral/copper
+	name = "copper"
+	desc = "Сopper is metal used as a conductor of heat and electricity and as a constituent of various metal alloys"
+	singular_name = "osmcopperium ingot"
+	icon_state = "sheet-copper"
+	sheettype = "copper"
+	merge_type = /obj/item/stack/sheet/mineral/copper
+	perunit = 2000
+
+/obj/item/stack/sheet/mineral/copper/large_stack
+	amount = 50
+
+/obj/item/stack/sheet/mineral/junk
+	name = "junk"
+	desc = "bunch of different metal"
+	singular_name = "junk slab"
+	icon_state = "compressed_junk"
+	sheettype = "junk"
+	merge_type = /obj/item/stack/sheet/mineral/junk
+	perunit = 2000
+
+/obj/item/stack/sheet/mineral/junk/large_stack
+	amount = 50

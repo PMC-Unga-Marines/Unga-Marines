@@ -15,8 +15,8 @@
 	name = "\improper ESR-12"
 	desc = "The Energised Shrapnel Removal tool is designed to rapidly remove large quantities of shrapnel from a victim's body. Extremely painful."
 	icon = 'icons/obj/items/surgery_tools.dmi'
-	icon_state = "predator_bone-gel"
-	item_state = "predator_bone-gel"
+	icon_state = "tweezers_advanced"
+	item_state = "tweezers_advanced"
 	flags_item = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 

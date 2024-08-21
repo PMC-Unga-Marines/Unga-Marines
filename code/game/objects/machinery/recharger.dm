@@ -94,7 +94,7 @@
 		if(istype(charging, /obj/item/weapon/baton))
 			var/obj/item/weapon/baton/B = charging
 			if(B.bcell)
-				if(!B.bcell.fully_charged())
+				if(!B.bcell.is_fully_charged())
 					B.bcell.give(active_power_usage*GLOB.CELLRATE)
 					percent_charge_complete = B.bcell.percent()
 					update_icon()
@@ -108,7 +108,7 @@
 
 		if(istype(charging, /obj/item/defibrillator))
 			var/obj/item/defibrillator/D = charging
-			if(!D.dcell.fully_charged())
+			if(!D.dcell.is_fully_charged())
 				D.dcell.give(active_power_usage*GLOB.CELLRATE)
 				percent_charge_complete = D.dcell.percent()
 				update_icon()
@@ -119,7 +119,7 @@
 
 		if(istype(charging, /obj/item/cell))
 			var/obj/item/cell/C = charging
-			if(!C.fully_charged())
+			if(!C.is_fully_charged())
 				C.give(active_power_usage*GLOB.CELLRATE)
 				percent_charge_complete = C.percent()
 				update_icon()
@@ -140,29 +140,29 @@
 			B.bcell.charge = 0
 	..(severity)
 
-/obj/machinery/recharger/update_icon()
-	overlays = list()
+/obj/machinery/recharger/update_overlays()
+	. = ..()
 	if((machine_stat & (NOPOWER|BROKEN)))
 		return
-	else if(!charging)
-		overlays += "recharger-power"
+	if(!charging)
+		. += "recharger-power"
 		return
 
 	if(percent_charge_complete < 25)
-		overlays += "recharger-10"
+		. += "recharger-10"
 	else if(percent_charge_complete >= 25 && percent_charge_complete < 50)
-		overlays += "recharger-25"
+		. += "recharger-25"
 	else if(percent_charge_complete >= 50 && percent_charge_complete < 75)
-		overlays += "recharger-50"
+		. += "recharger-50"
 	else if(percent_charge_complete >= 75 && percent_charge_complete < 100)
-		overlays += "recharger-75"
+		. += "recharger-75"
 	else if(percent_charge_complete >= 100)
-		overlays += "recharger-100"
+		. += "recharger-100"
 
 	if(istype(charging, /obj/item/weapon/gun/energy/taser))
-		overlays += "recharger-taser"
+		. += "recharger-taser"
 	else if(istype(charging, /obj/item/weapon/baton))
-		overlays += "recharger-baton"
+		. += "recharger-baton"
 
 /obj/machinery/recharger/nopower
 	use_power = NO_POWER_USE

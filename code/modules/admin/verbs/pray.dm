@@ -1,5 +1,5 @@
 /client/verb/pray(msg as text)
-	set category = "IC"
+	set category = "IC.Chat"
 	set name = "Pray"
 
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)

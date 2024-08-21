@@ -67,6 +67,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/prop/computer/update_icon_state()
+	. = ..()
 	if(machine_stat & (BROKEN|DISABLED))
 		icon_state = "[initial(icon_state)]_broken"
 	else
@@ -233,7 +234,6 @@
 	name = "GENERIC SHIP PROP"
 	desc = "THIS SHOULDN'T BE VISIBLE, AHELP 'ART-P02' IF SEEN IN ROUND WITH LOCATION"
 	density = TRUE
-	anchored = TRUE
 	coverage = 15
 
 /obj/machinery/prop/autolathe
@@ -607,7 +607,6 @@
 	icon_state = "Field_Gen"
 	anchored = FALSE
 	density = TRUE
-	max_integrity = 500
 	//100% immune to lasers and energy projectiles since it absorbs their energy.
 	soft_armor = list(MELEE = 25, BULLET = 10, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 50, ACID = 70)
 	resistance_flags = RESIST_ALL
@@ -932,40 +931,6 @@
 	icon = 'icons/Marine/mainship_props.dmi'
 	icon_state = "hangarbox"
 
-/obj/item/prop/organ
-	name = "organ"
-	desc = "It looks like it probably just plopped out. It's too decayed to be reinserted in a patient."
-	icon = 'icons/obj/items/organs.dmi'
-	icon_state = "heart"
-
-/obj/item/prop/organ/heart
-	name = "heart"
-	icon_state = "heart-off"
-
-/obj/item/prop/organ/brain
-	name = "brain"
-	icon_state = "brain1"
-
-/obj/item/prop/organ/appendix
-	name = "appendix"
-	icon_state = "appendix"
-
-/obj/item/prop/organ/lungs
-	name = "lungs"
-	icon_state = "lungs"
-
-/obj/item/prop/organ/kidneys
-	name = "kidneys"
-	icon_state = "kidneys"
-
-/obj/item/prop/organ/eyes
-	name = "eyes"
-	icon_state = "eyes"
-
-/obj/item/prop/organ/liver
-	name = "liver"
-	icon_state = "liver"
-
 /obj/item/prop/aimodule
 	name = "AI module"
 	desc = "An AI Module for programming laws to an AI."
@@ -1086,7 +1051,7 @@
 
 ///BROKEN VEHICLE PROPS
 /obj/structure/prop/vehicle
-	layer = TANK_BARREL_LAYER
+	layer = ABOVE_MOB_PROP_LAYER
 /obj/structure/prop/vehicle/van
 	name = "van"
 	desc = "An old van, seems to be broken down."
@@ -1234,7 +1199,7 @@
 
 /obj/structure/prop/vehicle/tank/east/barrel
 	icon_state = "ltb_cannon_0"
-	layer = TANK_BARREL_LAYER
+	layer = ABOVE_MOB_PROP_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/prop/vehicle/tank/east/barrel/broken
@@ -1753,8 +1718,21 @@
 	name = "railing"
 	desc = "Basic railing meant to protect idiots like you from falling."
 	icon = 'icons/Marine/mainship_props.dmi'
-	density = FALSE
+	max_integrity = 50
+	resistance_flags = XENO_DAMAGEABLE
+	flags_atom = ON_BORDER
+	climbable = TRUE
+	climb_delay = 2 SECONDS
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
 	icon_state = "railing"
+
+/obj/structure/prop/mainship/railing/Initialize(mapload)
+	. = ..()
+	var/static/list/connections = list(
+		COMSIG_ATOM_EXIT = PROC_REF(on_try_exit),
+		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+	)
+	AddElement(/datum/element/connect_loc, connections)
 
 /obj/structure/prop/mainship/railing/corner
 	name = "railing"

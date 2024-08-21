@@ -35,13 +35,11 @@
 	var/atom/movable/screen/toggle_firemode
 	var/atom/movable/screen/unique_action
 
-	var/atom/movable/screen/zone_sel
+	var/atom/movable/screen/zone_sel/zone_sel
 	var/atom/movable/screen/pull_icon
 	var/atom/movable/screen/throw_icon
 	var/atom/movable/screen/rest_icon
 	var/atom/movable/screen/oxygen_icon
-	var/atom/movable/screen/pressure_icon
-	var/atom/movable/screen/toxin_icon
 	var/atom/movable/screen/healths
 	var/atom/movable/screen/stamina_hud/staminas
 	var/atom/movable/screen/fire_icon
@@ -119,8 +117,6 @@
 	pull_icon = null
 	throw_icon = null
 	oxygen_icon = null
-	pressure_icon = null
-	toxin_icon = null
 	healths = null
 	staminas = null
 	fire_icon = null
@@ -305,6 +301,6 @@
 
 	if(hud_used && client)
 		hud_used.show_hud()
-		to_chat(usr, "<span class ='info'>Switched HUD mode. Press F12 to toggle.</span>")
+		to_chat(usr, span_info("Switched HUD mode. Press F12 to toggle."))
 	else
-		to_chat(usr, "<span class ='warning'>This mob type does not use a HUD.</span>")
+		to_chat(usr, span_warning("This mob type does not use a HUD."))

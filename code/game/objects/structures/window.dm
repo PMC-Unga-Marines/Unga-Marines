@@ -67,28 +67,14 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-
 /obj/structure/window/LateInitialize()
 	. = ..()
 	update_nearby_icons()
-
 
 /obj/structure/window/Destroy()
 	density = FALSE
 	update_nearby_icons()
 	return ..()
-
-
-/obj/structure/window/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(rand(125, 250), BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(rand(75, 125), BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(25, 75), BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(rand(15, 35), BRUTE, BOMB)
 
 /obj/structure/window/hitby(atom/movable/AM, speed = 5)
 	var/throw_damage = speed
@@ -105,7 +91,6 @@
 		. = TRUE
 	if(thrown_mob)
 		thrown_mob.take_overall_damage(speed * 5, BRUTE, MELEE, !., FALSE, TRUE, 0, 4) //done here for dramatic effect, and to make the damage sharp if we broke the window
-
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point
@@ -207,7 +192,6 @@
 		playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 		to_chat(user, (state ? span_notice("You have pried the window into the frame.") : span_notice("You have pried the window out of the frame.")))
 
-
 /obj/structure/window/deconstruct(disassembled = TRUE)
 	if(disassembled)
 		if(reinf)
@@ -222,10 +206,9 @@
 			new /obj/item/stack/rods(loc)
 	return ..()
 
-
 /obj/structure/window/verb/rotate()
 	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object"
+	set category = "Object.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -238,11 +221,9 @@
 
 	setDir(turn(dir, 90))
 
-
-
 /obj/structure/window/verb/revrotate()
 	set name = "Rotate Window Clockwise"
-	set category = "Object"
+	set category = "Object.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -263,9 +244,8 @@
 			INVOKE_NEXT_TICK(W, TYPE_PROC_REF(/atom/movable, update_icon))
 
 //merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)
-/obj/structure/window/update_icon()
-	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
-	//this way it will only update full-tile ones
+/obj/structure/window/update_icon_state()
+	. = ..()
 	if(!src)
 		return
 	if(!is_full_window())
@@ -408,7 +388,7 @@
 	reinf = TRUE
 	flags_atom = NONE
 
-/obj/structure/window/shuttle/update_icon() //icon_state has to be set manually
+/obj/structure/window/shuttle/update_icon_state()
 	return
 
 //Framed windows
@@ -437,10 +417,8 @@
 /obj/structure/window/framed/update_nearby_icons()
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
-/obj/structure/window/framed/update_icon()
-	QUEUE_SMOOTH(src)
-
-
+/obj/structure/window/framed/update_icon_state()
+	QUEUE_SMOOTH(src) //we update icon state through the smoothing system exclusively
 
 /obj/structure/window/framed/deconstruct(disassembled = TRUE, leave_frame = TRUE)
 	if(window_frame && leave_frame)
@@ -449,18 +427,23 @@
 		WF.setDir(dir)
 	return ..()
 
-
 /obj/structure/window/framed/mainship
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth_objects/ship_window.dmi'
-	icon_state = "window-reinforced"
+	icon_state = "ship_window-0"
 	basestate = "ship_window"
 	base_icon_state = "ship_window"
 	max_integrity = 100 //Was 600
 	reinf = TRUE
 	dir = 5
 	window_frame = /obj/structure/window_frame/mainship
+
+/obj/structure/window/framed/mainship/alt
+	icon = 'icons/obj/smooth_objects/alt_ship_window.dmi'
+	icon_state = "alt_ship_window-0"
+	base_icon_state = "alt_ship_window"
+	window_frame = /obj/structure/window_frame/mainship/alt
 
 /obj/structure/window/framed/mainship/canterbury //So we can wallsmooth properly.
 
@@ -489,11 +472,10 @@
 /obj/structure/window/framed/mainship/hull
 	name = "hull window"
 	desc = "A glass window with a special rod matrice inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here."
-	//icon_state = "rwindow0_debug" //Uncomment to check hull in the map editor
+	icon_state = "ship_window_invincible"
 	damageable = FALSE
 	deconstructable = FALSE
 	resistance_flags = RESIST_ALL
-	icon_state = "window-invincible"
 	max_integrity = 1000000 //Failsafe, shouldn't matter
 
 /obj/structure/window/framed/mainship/hull/canterbury //So we can wallsmooth properly.
@@ -506,20 +488,17 @@
 		SMOOTH_GROUP_CANTERBURY,
 	)
 
-
 /obj/structure/window/framed/mainship/requisitions
 	name = "kevlar-weave infused bulletproof window"
 	desc = "A borosilicate glass window infused with kevlar fibres and mounted within a special shock-absorbing frame, this is gonna be seriously hard to break through."
 	max_integrity = 1000
 	deconstructable = FALSE
-	icon_state = "window-reinforced"
 
 /obj/structure/window/framed/mainship/white
 	icon = 'icons/obj/smooth_objects/wwindow.dmi'
 	icon_state = "white_rwindow-0"
 	base_icon_state = "white_rwindow"
 	window_frame = /obj/structure/window_frame/mainship/white
-
 
 /obj/structure/window/framed/mainship/white/canterbury //So we can wallsmooth properly.
 	smoothing_groups = list(SMOOTH_GROUP_CANTERBURY)
@@ -559,6 +538,11 @@
 	deconstructable = FALSE
 	resistance_flags = RESIST_ALL
 	icon_state = "window-invincible"
+
+/obj/structure/window/framed/mainship/gray/toughened/hull/alt
+	icon = 'icons/obj/smooth_objects/alt_ship_rwindow.dmi'
+	icon_state = "alt_ship_rwindow-0"
+	base_icon_state = "alt_ship_rwindow"
 
 /obj/structure/window/framed/mainship/white/toughened/hull
 	name = "hull window"
@@ -600,8 +584,6 @@
 	max_integrity = 1000000 //Failsafe, shouldn't matter
 	icon_state = "window-invincible"
 
-
-
 //Chigusa windows
 
 /obj/structure/window/framed/chigusa
@@ -614,8 +596,6 @@
 	max_integrity = 100
 	reinf = TRUE
 	window_frame = /obj/structure/window_frame/chigusa
-
-
 
 /obj/structure/window/framed/wood
 	name = "window"
@@ -637,7 +617,6 @@
 	window_frame = /obj/structure/window_frame/wood
 
 //Prison windows
-
 
 /obj/structure/window/framed/prison
 	name = "window"
@@ -663,7 +642,6 @@
 	desc = "A glass window with a special rod matrice inside a wall frame. This one has an automatic shutter system to prevent any atmospheric breach."
 	max_integrity = 200
 	//icon_state = "rwindow0_debug" //Uncomment to check hull in the map editor
-	resistance_flags = BANISH_IMMUNE
 	icon_state = "window-invincible"
 
 /obj/structure/window/framed/prison/reinforced/hull/Initialize(mapload)

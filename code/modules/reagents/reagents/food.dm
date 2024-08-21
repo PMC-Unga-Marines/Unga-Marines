@@ -82,8 +82,9 @@
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	color = "#FFFFFF" // rgb: 255, 255, 255
 	taste_multi = 1.5 // stop sugar drowning out other flavours
-	nutriment_factor = 10
+	nutriment_factor = 4 //still more than bars, but not to much
 	taste_description = "sweetness"
+	scannable = TRUE
 
 /datum/reagent/consumable/virus_food
 	name = "Virus Food"

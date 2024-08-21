@@ -25,21 +25,18 @@
 
 	var/health_deficiency = max(1 - (health / maxHealth) * 100, staminaloss)
 
-	//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(health_deficiency >= 50 && !(species?.species_flags & PARALYSE_RESISTANT))
-//RUTGMC EDIT ADDITION END
 		add_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN, TRUE, 0, NONE, TRUE, health_deficiency / 50)
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
-
 
 /mob/living/carbon/human/adjustBrainLoss(amount, silent = FALSE)
 
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 
-	if(species?.has_organ["brain"])
-		var/datum/internal_organ/brain/sponge = internal_organs_by_name["brain"]
+	if(species?.has_organ[ORGAN_SLOT_BRAIN])
+		var/datum/internal_organ/brain/sponge = get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(sponge)
 			sponge.take_damage(amount, silent)
 			sponge.damage = clamp(sponge.damage, 0, MAX_BRAINLOSS)
@@ -54,8 +51,8 @@
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 
-	if(species?.has_organ["brain"])
-		var/datum/internal_organ/brain/sponge = internal_organs_by_name["brain"]
+	if(species?.has_organ[ORGAN_SLOT_BRAIN])
+		var/datum/internal_organ/brain/sponge = get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(sponge)
 			sponge.damage = clamp(amount, 0, MAX_BRAINLOSS)
 			brainloss = sponge.damage
@@ -69,8 +66,8 @@
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 
-	if(species?.has_organ["brain"])
-		var/datum/internal_organ/brain/sponge = internal_organs_by_name["brain"]
+	if(species?.has_organ[ORGAN_SLOT_BRAIN])
+		var/datum/internal_organ/brain/sponge = get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(sponge) //Make sure they actually have a brain
 			brainloss = min(sponge.damage, MAX_BRAINLOSS)
 		else
@@ -314,7 +311,7 @@ This function restores all limbs.
 	//replace missing internal organs
 	for(var/organ_slot in species.has_organ)
 		var/internal_organ_type = species.has_organ[organ_slot]
-		if(!internal_organs_by_name[organ_slot])
+		if(!get_organ_slot(organ_slot))
 			var/datum/internal_organ/IO = new internal_organ_type(src)
 			internal_organs_by_name[organ_slot] = IO
 

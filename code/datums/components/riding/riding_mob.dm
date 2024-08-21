@@ -56,8 +56,8 @@
 	if(!kick_us_off)
 		return TRUE
 
-	rider.visible_message("<span class='warning'>[rider] falls off of [living_parent]!</span>", \
-					"<span class='warning'>You fall off of [living_parent]!</span>")
+	rider.visible_message(span_warning("[rider] falls off of [living_parent]!"), \
+					span_warning("You fall off of [living_parent]!"))
 	rider.Paralyze(1 SECONDS)
 	rider.Knockdown(4 SECONDS)
 	living_parent.unbuckle_mob(rider)
@@ -68,19 +68,20 @@
 		former_rider.log_message("is no longer riding [living_parent]", LOG_ATTACK, color="pink")
 	return ..()
 
-/datum/component/riding/creature/driver_move(atom/movable/movable_parent, mob/living/user, direction)
+/datum/component/riding/creature/driver_move(atom/movable/movable_parent, mob/living/user, direction, glide_size_override)
 	if(!COOLDOWN_CHECK(src, vehicle_move_cooldown))
 		return COMPONENT_DRIVER_BLOCK_MOVE
 	if(!keycheck(user))
 		if(ispath(keytype, /obj/item))
 			var/obj/item/key = keytype
-			to_chat(user, "<span class='warning'>You need a [initial(key.name)] to ride [movable_parent]!</span>")
+			to_chat(user, span_warning("You need a [initial(key.name)] to ride [movable_parent]!"))
 		return COMPONENT_DRIVER_BLOCK_MOVE
-	var/mob/living/living_parent = parent
-	var/turf/next = get_step(living_parent, direction)
-	step(living_parent, direction)
-	last_move_diagonal = ((direction & (direction - 1)) && (living_parent.loc == next))
-	COOLDOWN_START(src, vehicle_move_cooldown, (last_move_diagonal? 2 : 1) * vehicle_move_delay)
+	last_move_diagonal = ISDIAGONALDIR(direction)
+	var/new_delay = (last_move_diagonal ? DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER : 1) * vehicle_move_delay
+	glide_size_override = DELAY_TO_GLIDE_SIZE(new_delay)
+	. = ..()
+	step(movable_parent, direction)
+	COOLDOWN_START(src, vehicle_move_cooldown, new_delay)
 
 /// Yeets the rider off, used for animals and cyborgs, redefined for humans who shove their piggyback rider off
 /datum/component/riding/creature/proc/force_dismount(mob/living/rider, gentle = FALSE)
@@ -95,12 +96,12 @@
 	rider.Move(targetm)
 	rider.Knockdown(3 SECONDS)
 	if(gentle)
-		rider.visible_message("<span class='warning'>[rider] is thrown clear of [movable_parent]!</span>", \
-		"<span class='warning'>You're thrown clear of [movable_parent]!</span>")
+		rider.visible_message(span_warning("[rider] is thrown clear of [movable_parent]!"), \
+		span_warning("You're thrown clear of [movable_parent]!"))
 		rider.throw_at(target, 8, 3, movable_parent)
 	else
-		rider.visible_message("<span class='warning'>[rider] is thrown violently from [movable_parent]!</span>", \
-		"<span class='warning'>You're thrown violently from [movable_parent]!</span>")
+		rider.visible_message(span_warning("[rider] is thrown violently from [movable_parent]!"), \
+		span_warning("You're thrown violently from [movable_parent]!"))
 		rider.throw_at(target, 14, 5, movable_parent)
 
 // ***************************************
@@ -152,9 +153,9 @@
 		human_parent.unbuckle_mob(rider)
 		rider.Paralyze(1 SECONDS)
 		rider.Knockdown(4 SECONDS)
-		human_parent.visible_message("<span class='danger'>[rider] topples off of [human_parent] as they both fall to the ground!</span>", \
-					"<span class='warning'>You fall to the ground, bringing [rider] with you!</span>", "<span class='hear'>You hear two consecutive thuds.</span>")
-		to_chat(rider, "<span class='danger'>[human_parent] falls to the ground, bringing you with [human_parent.p_them()]!</span>")
+		human_parent.visible_message(span_danger("[rider] topples off of [human_parent] as they both fall to the ground!"), \
+					span_warning("You fall to the ground, bringing [rider] with you!"), span_hear("You hear two consecutive thuds."))
+		to_chat(rider, span_danger("[human_parent] falls to the ground, bringing you with [human_parent.p_them()]!"))
 
 /datum/component/riding/creature/human/handle_vehicle_layer(dir)
 	var/atom/movable/AM = parent
@@ -188,8 +189,8 @@
 	AM.unbuckle_mob(dismounted_rider)
 	dismounted_rider.Paralyze(1 SECONDS)
 	dismounted_rider.Knockdown(4 SECONDS)
-	dismounted_rider.visible_message("<span class='warning'>[AM] pushes [dismounted_rider] off of [AM.p_them()]!</span>", \
-						"<span class='warning'>[AM] pushes you off of [AM.p_them()]!</span>")
+	dismounted_rider.visible_message(span_warning("[AM] pushes [dismounted_rider] off of [AM.p_them()]!"), \
+						span_warning("[AM] pushes you off of [AM.p_them()]!"))
 
 // ***************************************
 // *********** Simple Animals
@@ -264,9 +265,9 @@
 	for(var/mob/living/rider AS in carrying_crusher.buckled_mobs)
 		carrying_crusher.unbuckle_mob(rider)
 		rider.Knockdown(1 SECONDS)
-		carrying_crusher.visible_message("<span class='danger'>[rider] topples off of [carrying_crusher] as they both fall to the ground!</span>", \
-					"<span class='warning'>You fall to the ground, bringing [rider] with you!</span>", "<span class='hear'>You hear two consecutive thuds.</span>")
-		to_chat(rider, "<span class='danger'>[carrying_crusher] falls to the ground, bringing you with [carrying_crusher.p_them()]!</span>")
+		carrying_crusher.visible_message(span_danger("[rider] topples off of [carrying_crusher] as they both fall to the ground!"), \
+					span_warning("You fall to the ground, bringing [rider] with you!"), span_hear("You hear two consecutive thuds."))
+		to_chat(rider, span_danger("[carrying_crusher] falls to the ground, bringing you with [carrying_crusher.p_them()]!"))
 
 //Override this to set your vehicle's various pixel offsets
 /datum/component/riding/creature/crusher/get_offsets(pass_index, mob_type) // list(dir = x, y, layer)
@@ -275,78 +276,3 @@
 		. = riding_offsets["[mob_type]"]
 	else if(riding_offsets["[RIDING_OFFSET_ALL]"])
 		. = riding_offsets["[RIDING_OFFSET_ALL]"]
-
-/* RUTGMC DELETION, WIDOW DELETION
-// ***************************************
-// *********** Widow
-// ***************************************
-/datum/component/riding/creature/widow
-	can_be_driven = FALSE
-
-/datum/component/riding/creature/widow/handle_specials()
-	. = ..()
-	var/mob/living/widow = parent
-	if(widow.stat == UNCONSCIOUS) //For spiderling guard
-		set_riding_offsets(1, list(TEXT_NORTH = list(0, 0), TEXT_SOUTH = list(0, 0), TEXT_EAST = list(0, 0), TEXT_WEST = list(0, 0)))
-		set_riding_offsets(2, list(TEXT_NORTH = list(16, 16), TEXT_SOUTH = list(16, 16), TEXT_EAST = list(16, 16), TEXT_WEST = list(16, 16)))
-		set_riding_offsets(3, list(TEXT_NORTH = list(-16, 16), TEXT_SOUTH = list(-16, 16), TEXT_EAST = list(-16, 16), TEXT_WEST = list(-16, 16)))
-		set_riding_offsets(4, list(TEXT_NORTH = list(16, 32), TEXT_SOUTH = list(16, -16), TEXT_EAST = list(16, -16), TEXT_WEST = list(16, -16)))
-		set_riding_offsets(5, list(TEXT_NORTH = list(0, -16), TEXT_SOUTH = list(-16, -16), TEXT_EAST = list(-16, -16), TEXT_WEST = list(-16, -16)))
-		set_vehicle_dir_layer(SOUTH, ABOVE_ALL_MOB_LAYER)
-		set_vehicle_dir_layer(NORTH, ABOVE_ALL_MOB_LAYER)
-		set_vehicle_dir_layer(EAST, ABOVE_ALL_MOB_LAYER)
-		set_vehicle_dir_layer(WEST, ABOVE_ALL_MOB_LAYER)
-		return
-	set_riding_offsets(1, list(TEXT_NORTH = list(-16, 9), TEXT_SOUTH = list(-16, 17), TEXT_EAST = list(-21, 7), TEXT_WEST = list(-6, 7)))
-	set_riding_offsets(2, list(TEXT_NORTH = list(16, 16), TEXT_SOUTH = list(16, 17), TEXT_EAST = list(21, 7), TEXT_WEST = list(6, 7)))
-	set_riding_offsets(3, list(TEXT_NORTH = list(8, 8), TEXT_SOUTH = list(-8, 21), TEXT_EAST = list(14, 11), TEXT_WEST = list(0, 2)))
-	set_riding_offsets(4, list(TEXT_NORTH = list(-8, 16), TEXT_SOUTH = list(-16, 13), TEXT_EAST = list(-21, 2), TEXT_WEST = list(6, 11)))
-	set_riding_offsets(5, list(TEXT_NORTH = list(8, 8), TEXT_SOUTH = list(8, 12), TEXT_EAST = list(21, 2), TEXT_WEST = list(-6, 11)))
-	set_vehicle_dir_layer(SOUTH, ABOVE_MOB_LAYER)
-	set_vehicle_dir_layer(NORTH, ABOVE_LYING_MOB_LAYER)
-	set_vehicle_dir_layer(EAST, ABOVE_LYING_MOB_LAYER)
-	set_vehicle_dir_layer(WEST, ABOVE_LYING_MOB_LAYER)
-
-/datum/component/riding/creature/widow/Initialize(mob/living/riding_mob, force = FALSE, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
-	. = ..()
-	riding_mob.density = FALSE
-
-// If we call parent here , we get registered for COMSIG_MOVABLE_BUMP, and when we do bump, there will be a bad index runtime
-/datum/component/riding/creature/widow/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(vehicle_turned))
-	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(vehicle_mob_unbuckle))
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(vehicle_moved))
-	RegisterSignals(parent, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_ATTACK_OBJ, COMSIG_XENOMORPH_ATTACK_HOSTILE_XENOMORPH), PROC_REF(check_widow_attack))
-
-/datum/component/riding/creature/widow/vehicle_mob_unbuckle(datum/source, mob/living/former_rider, force = FALSE)
-	unequip_buckle_inhands(parent)
-	former_rider.density = initial(former_rider.density)
-	REMOVE_TRAIT(former_rider, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
-	return ..()
-
-/// If the widow gets knocked over, force the riding rounys off and see if someone got hurt
-/datum/component/riding/creature/widow/proc/check_widow_attack(mob/living/carbon/xenomorph/widow/carrying_widow)
-	SIGNAL_HANDLER
-	for(var/mob/living/rider AS in carrying_widow.buckled_mobs)
-		carrying_widow.unbuckle_mob(rider)
-		REMOVE_TRAIT(rider, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
-
-// Spiderlings latch on to crit widows when guarding and cannot be kicked off..
-/datum/component/riding/creature/widow/ride_check(mob/living/rider)
-	var/mob/living/widow = parent
-	return widow.stat == UNCONSCIOUS
-
-//..nor can they be laid under widow..
-/datum/component/riding/creature/widow/handle_vehicle_layer(dir)
-	var/mob/living/widow = parent
-	if(widow.stat == UNCONSCIOUS)
-		return
-	return ..()
-
-//..and nor will they change direction.
-/datum/component/riding/creature/widow/handle_vehicle_offsets(dir)
-	var/mob/living/widow = parent
-	if(widow.stat == UNCONSCIOUS)
-		dir = SOUTH
-	return ..()
-*/

@@ -55,17 +55,6 @@
 	soft_armor = list(MELEE = 40, BULLET = 5, LASER = 20, ENERGY = 5, BOMB = 35, BIO = 100, FIRE = 5, ACID = 5)
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/t_scanner,/obj/item/tool/pickaxe, /obj/item/tool/rcd)
 
-//Chief Engineer's rig
-/obj/item/clothing/head/helmet/space/rig/engineering/chief
-	name = "advanced hardsuit helmet"
-	desc = "An advanced helmet designed for work in a hazardous, low pressure environment. Shines with a high polish."
-	icon_state = "rig-white"
-
-/obj/item/clothing/suit/space/rig/engineering/chief
-	icon_state = "rig-white"
-	name = "advanced hardsuit"
-	desc = "An advanced suit that protects against hazardous, low pressure environments. Shines with a high polish."
-
 //Mining rig
 /obj/item/clothing/head/helmet/space/rig/mining
 	name = "mining hardsuit helmet"
@@ -79,7 +68,6 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	soft_armor = list(MELEE = 50, BULLET = 5, LASER = 20, ENERGY = 5, BOMB = 55, BIO = 100, FIRE = 5, ACID = 5)
 
-
 //Syndicate rig
 /obj/item/clothing/head/helmet/space/rig/syndi
 	name = "blood-red hardsuit helmet"
@@ -87,7 +75,6 @@
 	icon_state = "rig-syndie"
 	soft_armor = list(MELEE = 60, BULLET = 50, LASER = 30, ENERGY = 15, BOMB = 35, BIO = 100, FIRE = 15, ACID = 15)
 	siemens_coefficient = 0.6
-
 
 /obj/item/clothing/suit/space/rig/syndi
 	icon_state = "rig-syndie"
@@ -98,7 +85,6 @@
 	soft_armor = list(MELEE = 60, BULLET = 50, LASER = 30, ENERGY = 15, BOMB = 35, BIO = 100, FIRE = 15, ACID = 15)
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/baton,/obj/item/weapon/energy/sword,/obj/item/restraints/handcuffs)
 	siemens_coefficient = 0.6
-
 
 //Wizard Rig
 /obj/item/clothing/head/helmet/space/rig/wizard
@@ -118,49 +104,3 @@
 	resistance_flags = UNACIDABLE
 	soft_armor = list(MELEE = 40, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 35, BIO = 100, FIRE = 20, ACID = 20)
 	siemens_coefficient = 0.7
-
-//Medical Rig
-/obj/item/clothing/head/helmet/space/rig/medical
-	name = "medical hardsuit helmet"
-	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has minor radiation shielding."
-	icon_state = "rig-medical"
-	soft_armor = list(MELEE = 30, BULLET = 5, LASER = 20, ENERGY = 5, BOMB = 25, BIO = 100, FIRE = 5, ACID = 5)
-
-/obj/item/clothing/suit/space/rig/medical
-	icon_state = "rig-medical"
-	name = "medical hardsuit"
-	desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
-	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/healthanalyzer,/obj/item/stack/medical)
-	soft_armor = list(MELEE = 30, BULLET = 5, LASER = 20, ENERGY = 5, BOMB = 25, BIO = 100, FIRE = 5, ACID = 5)
-
-	//Security
-/obj/item/clothing/head/helmet/space/rig/security
-	name = "security hardsuit helmet"
-	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
-	icon_state = "rig-sec"
-	soft_armor = list(MELEE = 60, BULLET = 10, LASER = 30, ENERGY = 5, BOMB = 45, BIO = 100, FIRE = 5, ACID = 5)
-	siemens_coefficient = 0.7
-
-/obj/item/clothing/suit/space/rig/security
-	icon_state = "rig-sec"
-	name = "security hardsuit"
-	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
-	soft_armor = list(MELEE = 60, BULLET = 10, LASER = 30, ENERGY = 5, BOMB = 45, BIO = 100, FIRE = 5, ACID = 5)
-	allowed = list(/obj/item/weapon/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/weapon/baton)
-	siemens_coefficient = 0.7
-
-
-//Atmospherics Rig (BS12)
-/obj/item/clothing/head/helmet/space/rig/atmos
-	desc = "A special helmet designed for work in a hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
-	name = "atmospherics hardsuit helmet"
-	icon_state = "rig-atmos"
-	soft_armor = list(MELEE = 40, BULLET = 5, LASER = 20, ENERGY = 5, BOMB = 35, BIO = 100, FIRE = 5, ACID = 5)
-	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
-
-/obj/item/clothing/suit/space/rig/atmos
-	desc = "A special suit that protects against hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
-	icon_state = "rig-atmos"
-	name = "atmos hardsuit"
-	soft_armor = list(MELEE = 40, BULLET = 5, LASER = 20, ENERGY = 5, BOMB = 35, BIO = 100, FIRE = 5, ACID = 5)
-	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE

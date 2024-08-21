@@ -734,10 +734,10 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
-/obj/effect/landmark/start/job/crash/squadmarine,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "qM" = (
@@ -1054,6 +1054,13 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"Tm" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1
+	},
+/obj/effect/landmark/start/job/crash/squadrobot,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "TE" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal,
@@ -1167,7 +1174,7 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
-/obj/effect/landmark/start/job/crash/squadmarine,
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Yn" = (
@@ -1370,7 +1377,7 @@ ab
 YN
 an
 ac
-su
+Tm
 ab
 ab
 ar
@@ -1601,7 +1608,7 @@ ab
 ms
 an
 ac
-su
+Tm
 ab
 oa
 mi

@@ -9,7 +9,6 @@
 	power_environ = 0
 	ambience = list('sound/ambience/ambispace.ogg')
 	temperature = TCMB
-	pressure = 0
 	flags_area = NO_DROPPOD
 	///What type of debuff do we apply when someone enters this area?
 	var/debuff_type = /datum/status_effect/spacefreeze
@@ -1281,10 +1280,6 @@
 	name = "Abandoned AI Chamber"
 	icon_state = "ai_chamber"
 	ambience = list('sound/ambience/ambimalf.ogg')
-
-/area/turret_protected/ai_cyborg_station
-	name = "Abandoned Cyborg Station"
-	icon_state = "ai_cyborg"
 
 /area/turret_protected/aisat
 	name = "Abandoned AI Satellite"

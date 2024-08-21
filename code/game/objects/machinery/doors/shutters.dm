@@ -55,7 +55,8 @@
 	operating = FALSE
 
 
-/obj/machinery/door/poddoor/shutters/update_icon()
+/obj/machinery/door/poddoor/shutters/update_icon_state()
+	. = ..()
 	if(operating)
 		return
 	icon_state = "shutter[density]"
@@ -91,6 +92,10 @@
 
 /obj/machinery/door/poddoor/shutters/opened/wy
 	id = "wyoffice"
+
+/obj/machinery/door/poddoor/shutters/opened/corporate
+	name = "\improper Privacy Shutters"
+	id = "cl_shutters"
 
 /obj/machinery/door/poddoor/shutters/mainship
 	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'

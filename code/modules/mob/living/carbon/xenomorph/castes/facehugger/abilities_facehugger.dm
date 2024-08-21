@@ -47,11 +47,11 @@
 	var/mob/living/carbon/xenomorph/facehugger/caster = owner
 
 	caster.visible_message(span_danger("[caster] leaps on [living_target]!"), span_xenodanger("We leap on [living_target]!"), null, 5)
-	playsound(caster.loc, 'sound/voice/alien_roar_larva3.ogg', 25, TRUE) //TODO: I NEED ACTUAL HUGGERS SOUND DAMMED
+	playsound(caster.loc, 'sound/voice/alien/larva/roar3.ogg', 25, TRUE) //TODO: I NEED ACTUAL HUGGERS SOUND DAMMED
 
 	if(ishuman(living_target) && (angle_to_dir(Get_Angle(caster.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
 		var/mob/living/carbon/human/human_target = living_target
-		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
+		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, MELEE))
 			caster.Paralyze(HUGGER_POUNCE_SHIELD_STUN_DURATION)
 			caster.set_throwing(FALSE) //Reset throwing manually.
 			playsound(caster, 'sound/machines/bonk.ogg', 50, FALSE)

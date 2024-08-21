@@ -192,11 +192,9 @@
 	var/windup_sound
 	///Used if a weapon need windup before firing
 	var/windup_checked = WEAPON_WINDUP_NOT_CHECKED
-
 /*
  *  STAT VARS
 */
-
 	///Multiplier. Increased and decreased through attachments. Multiplies the projectile's accuracy by this number.
 	var/accuracy_mult = 1
 	///Same as above, for damage.
@@ -219,9 +217,9 @@
 	var/max_scatter = 360
 	///Maximum scatter when wielded
 	var/max_scatter_unwielded = 360
-	///How much scatter decays every X seconds
+	///How much scatter decays every decisecond
 	var/scatter_decay = 0
-	///How much scatter decays every X seconds when wielded
+	///How much scatter decays every decisecond
 	var/scatter_decay_unwielded = 0
 	///How much scatter increases per shot
 	var/scatter_increase = 0
@@ -271,9 +269,7 @@
 	var/wield_penalty = 0.2 SECONDS
 	///Storing value for above
 	var/wield_time = 0
-
 	var/wield_sound
-
 
 	///how much energy is consumed per shot.
 	var/charge_cost = 0
@@ -295,21 +291,17 @@
 /*
  *  extra icon and item states or overlays
 */
-
 	///Whether the gun has ammo level overlays for its icon, mainly for eguns
 	var/ammo_level_icon
 	///Whether the icon_state overlay is offset in the x axis
 	var/icon_overlay_x_offset = 0
 	///Whether the icon_state overlay is offset in the Y axis
 	var/icon_overlay_y_offset = 0
-
 /*
  *
  *   ATTACHMENT VARS
  *
 */
-
-
 	///List of offsets to make attachment overlays not look wonky.
 	var/list/attachable_offset = null
 	///List of allowed attachments, IT MUST INCLUDE THE STARTING ATTACHMENT TYPES OR THEY WILL NOT ATTACH.
@@ -333,7 +325,6 @@
 /*
  * Gun as Attachment Vars
 */
-
 	///Gun reference if src is an attachment and is attached to a gun. This will be the gun that src is attached to.
 	var/obj/item/weapon/gun/master_gun
 	///Slot the gun fits into.
@@ -351,13 +342,11 @@
 	///How long ADS takes (time before firing)
 	var/wield_delay_mod = 0
 
-
 /*
  * Deployed and Sentry Vars
 */
 	///If the gun has a deployed item..
 	var/deployable_item = null
-
 	///If the gun is deployable, the time it takes for the weapon to deploy.
 	var/deploy_time = 0
 	///If the gun is deployable, the time it takes for the weapon to undeploy.
@@ -511,13 +500,12 @@
 	RegisterSignal(gun_user, COMSIG_KB_GUN_SAFETY, PROC_REF(toggle_gun_safety_keybind))
 	RegisterSignal(gun_user, COMSIG_KB_AUTOEJECT, PROC_REF(toggle_auto_eject_keybind))
 
-
 ///Null out gun user to prevent hard del
 /obj/item/weapon/gun/proc/clean_gun_user()
 	SIGNAL_HANDLER
 	set_gun_user(null)
 
-/obj/item/weapon/gun/update_icon(mob/user)
+/obj/item/weapon/gun/update_icon()
 	. = ..()
 
 	for(var/datum/action/action AS in actions)
@@ -548,7 +536,6 @@
 		return
 	var/mob/living/carbon/human/human = user
 	human.regenerate_icons()
-
 
 //manages the overlays for the gun - separate from attachment overlays
 /obj/item/weapon/gun/update_overlays()
@@ -675,7 +662,6 @@
 	if(HAS_TRAIT(src, TRAIT_GUN_AUTO_AIM_MODE))
 		toggle_aim_mode(user)
 
-
 /obj/item/weapon/gun/unwield(mob/user)
 	. = ..()
 	if(!.)
@@ -714,8 +700,14 @@
 	if(modifiers["right"])
 		modifiers -= "right"
 		params = list2params(modifiers)
-		active_attachable?.start_fire(source, object, location, control, params, bypass_checks)
-		return
+		if(gun_user.get_active_held_item() == src)
+			active_attachable?.start_fire(source, object, location, control, params, bypass_checks)
+			return
+		if(gun_user.get_inactive_held_item() != src)
+			return
+		if(gun_user.Adjacent(object))
+			return
+		bypass_checks = TRUE
 	if(gun_on_cooldown(gun_user))
 		return
 	if(!bypass_checks)
@@ -801,11 +793,6 @@
 	SIGNAL_HANDLER
 	set_target(get_turf_on_clickcatcher(over_object, gun_user, params))
 	gun_user?.face_atom(target)
-
-
-
-
-
 
 //----------------------------------------------------------
 		//									   \\
@@ -1068,7 +1055,7 @@
 
 	projectile_to_fire = get_ammo_object()
 
-	user.visible_message("<span class = 'warning'>[user] pulls the trigger!</span>")
+	user.visible_message(span_warning("[user] pulls the trigger!"))
 	var/actual_sound = (active_attachable?.fire_sound) ? active_attachable.fire_sound : fire_sound
 	var/sound_volume = (HAS_TRAIT(src, TRAIT_GUN_SILENCED) && !active_attachable) ? 25 : 60
 	playsound(user, actual_sound, sound_volume, 1)
@@ -1087,7 +1074,7 @@
 
 	switch(projectile_to_fire.ammo.damage_type)
 		if(STAMINA)
-			to_chat(user, "<span class = 'notice'>Ow...</span>")
+			to_chat(user, span_notice("Ow..."))
 			user.apply_damage(200, STAMINA)
 		else
 			user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
@@ -1118,7 +1105,6 @@
 				//							\\
 				//						   	\\
 //----------------------------------------------------------
-
 
 /**
  *  Performs the unique action. Can be overwritten.
@@ -1218,7 +1204,6 @@
 	update_ammo_count()
 	update_icon()
 
-
 /**
  *  Handles reloading. Called on attack_by
  *  Reload works in one of three ways, depending on the guns flags.
@@ -1297,9 +1282,9 @@
 		update_ammo_count()
 		update_icon()
 		to_chat(user, span_notice("You reload [src] with [new_mag]."))
-		RegisterSignal(new_mag, COMSIG_ITEM_REMOVED_INVENTORY, TYPE_PROC_REF(/obj/item/weapon/gun, drop_connected_mag))
+		RegisterSignal(new_mag, COMSIG_CELL_SELF_RECHARGE, PROC_REF(update_ammo_count))
+		RegisterSignal(new_mag, COMSIG_ITEM_REMOVED_INVENTORY, PROC_REF(drop_connected_mag))
 		return TRUE
-
 
 	var/list/obj/items_to_insert = list()
 	if(max_chamber_items)
@@ -1407,6 +1392,7 @@
 				obj_in_chamber.forceMove(get_turf(src))
 		in_chamber = null
 		obj_in_chamber.update_icon()
+		UnregisterSignal(obj_in_chamber, list(COMSIG_CELL_SELF_RECHARGE))
 		get_ammo()
 		update_ammo_count()
 		update_icon()
@@ -1433,7 +1419,7 @@
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES) && CHECK_BITFIELD(get_flags_magazine_features(mag), MAGAZINE_REFUND_IN_CHAMBER) && !after_fire && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE))
 		QDEL_NULL(in_chamber)
 		adjust_current_rounds(mag, rounds_per_shot)
-	UnregisterSignal(mag, COMSIG_ITEM_REMOVED_INVENTORY)
+	UnregisterSignal(mag, list(COMSIG_CELL_SELF_RECHARGE, COMSIG_ITEM_REMOVED_INVENTORY))
 	mag.update_icon()
 	get_ammo()
 	update_ammo_count()
@@ -1502,9 +1488,8 @@
 		num_of_casings--
 	if(num_of_casings)
 		casing.current_casings += num_of_casings
-		casing.update_icon()
+		casing.update_appearance()
 	playsound(current_turf, sound_to_play, 25, 1, 5)
-
 
 ///Gets a projectile to fire from the magazines ammo type.
 /obj/item/weapon/gun/proc/get_ammo_object()
@@ -1668,20 +1653,20 @@
 		return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_WIELDED_FIRING_ONLY)) //If we're not holding the weapon with both hands when we should.
 		if(!master_gun && !CHECK_BITFIELD(flags_item, WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire this weapon!")
+			to_chat(user, span_warning("You need a more secure grip to fire this weapon!"))
 			return FALSE
 		if(master_gun && !CHECK_BITFIELD(master_gun.flags_item, WIELDED))
 			to_chat(user, span_warning("You need a more secure grip to fire [src]!"))
 			return FALSE
 	if(LAZYACCESS(user.do_actions, src))
-		to_chat(user, "<span class='warning'>You are doing something else currently.")
+		to_chat(user, span_warning("You are doing something else currently."))
 		return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_WIELDED_STABLE_FIRING_ONLY))//If we must wait to finish wielding before shooting.
 		if(!master_gun && !(flags_item & FULLY_WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire this weapon!")
+			to_chat(user, span_warning("You need a more secure grip to fire this weapon!"))
 			return FALSE
 		if(master_gun && !(master_gun.flags_item & FULLY_WIELDED))
-			to_chat(user, "<span class='warning'>You need a more secure grip to fire [src]!")
+			to_chat(user, span_warning("You need a more secure grip to fire [src]!"))
 			return FALSE
 	if(CHECK_BITFIELD(flags_gun_features, GUN_DEPLOYED_FIRE_ONLY) && !CHECK_BITFIELD(flags_item, IS_DEPLOYED))
 		to_chat(user, span_notice("You cannot fire [src] while it is not deployed."))
@@ -1725,7 +1710,6 @@
 		playsound(user, fire_rattle, 60, FALSE)
 		return
 	playsound(user, fire_sound, 60, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
-
 
 /obj/item/weapon/gun/proc/apply_gun_modifiers(obj/projectile/projectile_to_fire, atom/target, firer)
 	projectile_to_fire.shot_from = src
@@ -1820,7 +1804,6 @@
 		if(recoil_tweak)
 			total_recoil -= recoil_tweak * 2
 
-
 	var/actual_angle = firing_angle + rand(-recoil_deviation, recoil_deviation) + 180
 	if(actual_angle > 360)
 		actual_angle -= 360
@@ -1840,7 +1823,7 @@
 	muzzle_flash.applied = FALSE
 
 //For letting xenos turn off the flashlights on any guns left lying around.
-/obj/item/weapon/gun/attack_alien(mob/living/carbon/xenomorph/X, isrightclick = FALSE)
+/obj/item/weapon/gun/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
 	if(!HAS_TRAIT(src, TRAIT_GUN_FLASHLIGHT_ON))
 		return
 	for(var/attachment_slot in attachments_by_slot)
@@ -1849,5 +1832,5 @@
 			continue
 		lit_flashlight.turn_light(null, FALSE)
 	playsound(loc, "alien_claw_metal", 25, 1)
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	to_chat(X, span_warning("We disable the metal thing's lights.") )
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )

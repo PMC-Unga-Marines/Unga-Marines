@@ -1213,11 +1213,11 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	for(var/obj/vehicle/multitile/root/cm_armored/CA AS in GLOB.tank_list)
-		CA.remove_all_players()
+	for(var/obj/vehicle/sealed/armored/armor AS in GLOB.tank_list)
+		armor.dump_mobs(TRUE)
 
-		log_admin("[key_name(usr)] forcibly removed all players from [CA].")
-		message_admins("[ADMIN_TPMONTY(usr)] forcibly removed all players from [CA].")
+		log_admin("[key_name(usr)] forcibly removed all players from [armor].")
+		message_admins("[ADMIN_TPMONTY(usr)] forcibly removed all players from [armor].")
 
 /// Admin verb to delete a squad completely
 /datum/admins/proc/delete_squad()
@@ -1532,7 +1532,7 @@
 	log_admin("[key_name_admin(src)] predator ship AI report: [input]")
 
 /datum/admins/proc/force_predator_round()
-	set category = "Server"
+	set category = "Server.Round"
 	set name = "Toggle Predator Round"
 	set desc = "Force-toggle a predator round for the round type. Only works on maps that support Predator spawns."
 

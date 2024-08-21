@@ -1,7 +1,3 @@
-//Alphabetical order of civilian jobs.
-
-/obj/item/clothing/under/rank
-
 /obj/item/clothing/under/rank/bartender
 	desc = "It looks like it could use some more flair."
 	name = "bartender's uniform"

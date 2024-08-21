@@ -1,46 +1,55 @@
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
 	icon = 'icons/obj/iv_drip.dmi'
+	icon_state = "original"
+	base_icon_state = "original"
 	anchored = FALSE
 	density = FALSE
 	drag_delay = 1
-
 	var/mob/living/carbon/human/attached = null
-	var/mode = 1 // 1 is injecting, 0 is taking blood.
+	/// 1 is injecting, 0 is taking blood.
+	var/mode = 1
 	var/obj/item/reagent_containers/beaker = null
 	var/datum/beam/current_beam
 
-/obj/machinery/iv_drip/update_icon()
-	/* СМ КОСТЫЛЬ
-	if(src.attached)
-		icon_state = "hooked"
+/obj/machinery/iv_drip/update_icon_state()
+	. = ..()
+	if(attached)
+		icon_state = "[base_icon_state]_hooked"
 	else
-		icon_state = ""
-	*/
+		icon_state = base_icon_state
 
-	icon_state = "" //КОСТЫЛЬ
-	//У нас нет системы которая позволила бы изменить pixel x/y вары у начальной и конечной точек beam'а
-	//Поэтому оставляю 1 айкон стейт, чтобы не выглядело всё слишком плохо
+/obj/machinery/iv_drip/update_overlays()
+	. = ..()
 
-	overlays = null
+	if(!beaker)
+		return
 
-	if(beaker)
-		var/datum/reagents/reagents = beaker.reagents
-		if(reagents.total_volume)
-			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
+	var/datum/reagents/reagents = beaker.reagents
+	if(!reagents?.total_volume)
+		return
 
-			var/percent = round((reagents.total_volume / beaker.volume) * 100)
-			switch(percent)
-				if(0 to 9)		filling.icon_state = "reagent0"
-				if(10 to 24) 	filling.icon_state = "reagent10"
-				if(25 to 49)	filling.icon_state = "reagent25"
-				if(50 to 74)	filling.icon_state = "reagent50"
-				if(75 to 79)	filling.icon_state = "reagent75"
-				if(80 to 90)	filling.icon_state = "reagent80"
-				if(91 to INFINITY)	filling.icon_state = "reagent100"
+	var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
 
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			overlays += filling
+	var/percent = round((reagents.total_volume / beaker.volume) * 100)
+	switch(percent)
+		if(0 to 9)
+			filling.icon_state = "[base_icon_state]_reagent0"
+		if(10 to 24)
+			filling.icon_state = "[base_icon_state]_reagent10"
+		if(25 to 49)
+			filling.icon_state = "[base_icon_state]_reagent25"
+		if(50 to 74)
+			filling.icon_state = "[base_icon_state]_reagent50"
+		if(75 to 79)
+			filling.icon_state = "[base_icon_state]_reagent75"
+		if(80 to 90)
+			filling.icon_state = "[base_icon_state]_reagent80"
+		if(91 to INFINITY)
+			filling.icon_state = "[base_icon_state]_reagent100"
+
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	. += filling
 
 /obj/machinery/iv_drip/proc/update_beam()
 	if(current_beam && !attached)
@@ -60,7 +69,7 @@
 			H.visible_message("[H] detaches \the [src] from \the [attached].", \
 			"You detach \the [src] from \the [attached].")
 			attached = null
-			update_beam() //RUTGMC ADDON
+			update_beam()
 			update_icon()
 			STOP_PROCESSING(SSobj, src)
 			return
@@ -69,10 +78,9 @@
 			H.visible_message("[H] attaches \the [src] to \the [over_object].", \
 			"You attach \the [src] to \the [over_object].")
 			attached = over_object
-			update_beam() //RUTGMC ADDON
+			update_beam()
 			update_icon()
 			START_PROCESSING(SSobj, src)
-
 
 /obj/machinery/iv_drip/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -97,8 +105,7 @@
 
 		to_chat(user, "You attach \the [I] to \the [src].")
 		update_icon()
-		update_beam() //RUTGMC ADDON
-
+		update_beam()
 
 /obj/machinery/iv_drip/process()
 	if(!attached)
@@ -108,7 +115,7 @@
 		visible_message("The needle is ripped out of [attached], doesn't that hurt?")
 		attached.apply_damage(3, BRUTE, pick("r_arm", "l_arm"))
 		attached = null
-		update_beam() //RUTGMC ADDON
+		update_beam()
 		update_icon()
 		STOP_PROCESSING(SSobj, src)
 		return
@@ -116,8 +123,7 @@
 	if(!beaker)
 		return
 
-	// Give blood
-	if(mode)
+	if(mode) // Give blood
 		if(beaker.volume > 0)
 			var/transfer_amount = REAGENTS_METABOLISM
 			if(istype(beaker, /obj/item/reagent_containers/blood))
@@ -126,8 +132,7 @@
 			attached.inject_blood(beaker, transfer_amount)
 			update_icon()
 
-	// Take blood
-	else
+	else // Take blood
 		var/amount = beaker.reagents.maximum_volume - beaker.reagents.total_volume
 		amount = min(amount, 4)
 		// If the beaker is full, ping
@@ -158,11 +163,10 @@
 	. = ..()
 	if(.)
 		return
-	if(src.beaker)
-		src.beaker.loc = get_turf(src)
-		src.beaker = null
+	if(beaker)
+		beaker.loc = get_turf(src)
+		beaker = null
 		update_icon()
-
 
 /obj/machinery/iv_drip/verb/toggle_mode()
 	set category = "Object"
@@ -196,3 +200,7 @@
 	attached = null
 	update_beam()
 	. = ..()
+
+/obj/machinery/iv_drip/alt
+	icon_state = "alt"
+	base_icon_state = "alt"

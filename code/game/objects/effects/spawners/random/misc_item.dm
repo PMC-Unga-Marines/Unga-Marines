@@ -127,6 +127,7 @@
 		/obj/item/toy/plush/therapy_orange,
 		/obj/item/toy/plush/therapy_red,
 		/obj/item/toy/plush/therapy_purple,
+		/obj/item/toy/plush/pig,
 	)
 
 /obj/effect/spawner/random/misc/plushie/fiftyfifty
@@ -146,8 +147,7 @@
 	icon_state = "random_gnome"
 	spawn_loot_chance = 15
 	loot = list(
-		/obj/item/toy/plush/gnome = 25,
-		/obj/item/toy/plush/gnome/living = 1,
+		/obj/item/toy/plush/gnome
 	)
 
 /obj/effect/spawner/random/misc/gnome/fiftyfifty
@@ -349,3 +349,16 @@
 	loot = list(
 		/obj/effect/decal/cleanable/blood,
 	)
+
+/obj/effect/spawner/random/misc/delta
+	name = "Random delta spawner"
+	icon = 'icons/effects/random/misc.dmi'
+	icon_state = "random_koran"
+	spawn_loot_chance = 75
+	loot = list(
+		/obj/item/storage/bible/koran,
+		/obj/item/namaz,
+		/obj/item/storage/holster/blade/tomahawk/classic/full,
+		/obj/item/toy/plush/pig,
+		/obj/item/reagent_containers/hypospray/autoinjector/hypervene,
+	) // feel free to write something in here, just not the OB bomb vest

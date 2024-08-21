@@ -1,7 +1,6 @@
 /* HUD DATUMS */
 GLOBAL_LIST_EMPTY(all_huds)
 
-
 //GLOBAL HUD LIST
 GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	DATA_HUD_BASIC = new /datum/atom_hud/simple,
@@ -20,12 +19,9 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	DATA_HUD_SQUAD_SOM = new /datum/atom_hud/squad_som,
 	DATA_HUD_XENO_DEBUFF = new /datum/atom_hud/xeno_debuff,
 	DATA_HUD_XENO_HEART = new /datum/atom_hud/xeno_heart,
-	//RU TGMC EDIT
 	DATA_HUD_HUNTER = new /datum/atom_hud/hunter_hud,
 	DATA_HUD_HUNTER_CLAN = new /datum/atom_hud/hunter_clan
-	//RU TGMC EDIT
 	))
-
 
 /datum/atom_hud
 	var/list/atom/hudatoms = list() //list of all atoms which display this hud
@@ -35,10 +31,8 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	var/list/next_time_allowed = list() //mobs associated with the next time this hud can be added to them
 	var/list/queued_to_see = list() //mobs that have triggered the cooldown and are queued to see the hud, but do not yet
 
-
 /datum/atom_hud/New()
 	GLOB.all_huds += src
-
 
 /datum/atom_hud/Destroy()
 	for(var/v in hudusers)
@@ -49,7 +43,6 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	GLOB.all_huds -= src
 	return ..()
 
-
 /datum/atom_hud/proc/remove_hud_from(mob/M)
 	if(!M || !hudusers[M])
 		return
@@ -59,7 +52,6 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 		return
 	for(var/atom/A AS in hudatoms)
 		remove_from_single_hud(M, A)
-
 
 /datum/atom_hud/proc/remove_from_hud(atom/A)
 	SIGNAL_HANDLER
@@ -72,13 +64,11 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	hudatoms -= A
 	return TRUE
 
-
 /datum/atom_hud/proc/remove_from_single_hud(mob/M, atom/A) //unsafe, no sanity apart from client
 	if(!M || !M.client || !A || !A.hud_list)
 		return
 	for(var/i in hud_icons)
 		M.client.images -= A.hud_list[i]
-
 
 /datum/atom_hud/proc/add_hud_to(mob/M)
 	if(!M || hudusers[M])
@@ -95,7 +85,6 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 		for(var/atom/A in hudatoms)
 			add_to_single_hud(M, A)
 
-
 /datum/atom_hud/proc/show_hud_images_after_cooldown(M)
 	if(queued_to_see[M])
 		queued_to_see -= M
@@ -103,7 +92,6 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 		for(var/h in hudatoms)
 			var/atom/hud_atom = h
 			add_to_single_hud(M, hud_atom)
-
 
 /datum/atom_hud/proc/add_to_hud(atom/A)
 	if(!A || (A in hudatoms))
@@ -117,7 +105,6 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 			add_to_single_hud(M, A)
 	return TRUE
 
-
 /datum/atom_hud/proc/add_to_single_hud(mob/M, atom/A) //unsafe, no sanity apart from client
 	if(!M || !M.client || !A)
 		return
@@ -125,14 +112,11 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 		if(A.hud_list[i])
 			M.client.images |= A.hud_list[i]
 
-
 /datum/atom_hud/proc/clean_mob_refs(datum/source, force)
 	SIGNAL_HANDLER
-
 	remove_hud_from(source)
 	remove_from_hud(source)
 	next_time_allowed -= source
-
 
 /mob/proc/reload_huds()
 	for(var/datum/atom_hud/hud in GLOB.all_huds)
@@ -140,14 +124,11 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 			for(var/atom/A in hud.hudatoms)
 				hud.add_to_single_hud(src, A)
 
-
 /mob/new_player/reload_huds()
 	return
 
-
 /mob/proc/add_click_catcher()
 	client.screen += client.void
-
 
 /mob/new_player/add_click_catcher()
 	return

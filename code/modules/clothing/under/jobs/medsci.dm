@@ -1,6 +1,3 @@
-/*
-* Science
-*/
 /obj/item/clothing/under/rank/research_director
 	desc = "It's a jumpsuit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
 	name = "research director's jumpsuit"
@@ -56,28 +53,6 @@
 	item_state = "w_suit"
 	permeability_coefficient = 0.50
 
-/obj/item/clothing/under/rank/nursesuit
-	desc = "It's a jumpsuit commonly worn by nursing staff in the medical department."
-	name = "nurse's suit"
-	icon_state = "nursesuit"
-	permeability_coefficient = 0.50
-	flags_armor_protection = CHEST|GROIN
-
-/obj/item/clothing/under/rank/nurse
-	desc = "A dress commonly worn by the nursing staff in the medical department."
-	name = "nurse's dress"
-	icon_state = "nurse"
-	permeability_coefficient = 0.50
-	flags_armor_protection = CHEST|GROIN
-	adjustment_variants = list()
-
-/obj/item/clothing/under/rank/orderly
-	desc = "A white suit to be worn by orderly people who love orderly things."
-	name = "orderly's uniform"
-	icon_state = "orderly"
-	permeability_coefficient = 0.50
-	adjustment_variants = list()
-
 /obj/item/clothing/under/rank/medical
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel."
 	name = "medical doctor's jumpsuit"
@@ -108,18 +83,3 @@
 	adjustment_variants = list(
 		"Half" = "_h",
 	)
-
-/obj/item/clothing/under/rank/psych
-	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
-	name = "psychiatrist's jumpsuit"
-	icon_state = "psych"
-	item_state = "w_suit"
-	adjustment_variants = list()
-
-
-/obj/item/clothing/under/rank/psych/turtleneck
-	desc = "A turqouise turtleneck and a pair of dark blue slacks, belonging to a psychologist."
-	name = "psychologist's turtleneck"
-	icon_state = "psychturtle"
-	item_state = "b_suit"
-	adjustment_variants = list()

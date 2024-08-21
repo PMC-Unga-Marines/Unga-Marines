@@ -98,6 +98,7 @@
 	set_armor_datum()
 	AddElement(/datum/element/gesture)
 	AddElement(/datum/element/keybinding_update)
+	AddElement(/datum/element/directional_attack)
 
 /mob/living/Destroy()
 	for(var/datum/status_effect/effect AS in status_effects)
@@ -122,13 +123,6 @@
 	. = ..()
 	hard_armor = null
 	soft_armor = null
-
-
-//This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
-//affects them once clothing is factored in. ~Errorage
-/mob/living/proc/calculate_affecting_pressure(pressure)
-	return
-
 
 /mob/proc/get_contents()
 	return
@@ -208,17 +202,17 @@
 	return (health <= get_crit_threshold() && stat == UNCONSCIOUS)
 
 
-/mob/living/Move(atom/newloc, direct)
+/mob/living/Move(atom/newloc, direction, glide_size_override)
 	if(buckled)
 		if(buckled.loc != newloc) //not updating position
 			if(!buckled.anchored)
-				return buckled.Move(newloc, direct)
+				return buckled.Move(newloc, direction, glide_size)
 			else
 				return FALSE
 	else if(lying_angle)
-		if(direct & EAST)
+		if(direction & EAST)
 			set_lying_angle(90)
-		else if(direct & WEST)
+		else if(direction & WEST)
 			set_lying_angle(270)
 
 	. = ..()
@@ -365,18 +359,21 @@
 
 		if(!L.buckled && !L.anchored)
 			var/mob_swap_mode = NO_SWAP
-			//the puller can always swap with its victim if on grab intent
+			// the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
 				mob_swap_mode = SWAPPING
-			//restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
-			else if((L.restrained() || L.a_intent == INTENT_HELP) && (restrained() || a_intent == INTENT_HELP) && L.move_force < MOVE_FORCE_VERY_STRONG)
-				mob_swap_mode = SWAPPING
-			else if(get_xeno_hivenumber() == L.get_xeno_hivenumber() && (L.pass_flags & PASS_XENO || pass_flags & PASS_XENO))
-				mob_swap_mode = PHASING
-			else if((move_resist >= MOVE_FORCE_VERY_STRONG || move_resist > L.move_force) && a_intent == INTENT_HELP) //Larger mobs can shove aside smaller ones. Xenos can always shove xenos
-				mob_swap_mode = SWAPPING
-			///if we're moving diagonally, but the mob isn't on the diagonal destination turf we have no reason to shuffle/push them
-			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
+			// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
+			else if(a_intent == INTENT_HELP || restrained())
+				// xenos swap with xenos and almost whoever they want
+				if(isxeno(src) && (isxeno(L) || move_force > L.move_resist))
+					mob_swap_mode = SWAPPING
+				// if target isn't xeno and both are on help intents, but we don't want xenos to move petrified humans ,then we swap
+				else if(!isxeno(L) && move_force > L.move_resist && (L.a_intent == INTENT_HELP || L.restrained()))
+					mob_swap_mode = SWAPPING
+			/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
+			 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us
+			*/
+			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && (L.faction == faction || L.move_resist <= move_force) && get_step(src, dir).Enter(src, loc))
 				mob_swap_mode = PHASING
 			if(mob_swap_mode)
 				//switch our position with L
@@ -413,13 +410,15 @@
 
 	if(ismovableatom(A))
 		if(isxeno(src) && ishuman(A))
+			var/datum/action/bump_attack_toggle/bump_action = actions_by_path[/datum/action/bump_attack_toggle] // there should be a better way to do this
+			if(a_intent != INTENT_DISARM && !bump_action.attacking)
+				return
 			var/mob/living/carbon/human/H = A
-			if(!COOLDOWN_CHECK(H,  xeno_push_delay))
+			if(!COOLDOWN_CHECK(H, xeno_push_delay))
 				return
 			COOLDOWN_START(H, xeno_push_delay, XENO_HUMAN_PUSHED_DELAY)
 		if(PushAM(A))
 			return TURF_ENTER_ALREADY_MOVED
-
 
 //Called when we want to push an atom/movable
 /mob/living/proc/PushAM(atom/movable/AM, force = move_force)
@@ -622,11 +621,6 @@ below 100 is not dizzy
 		var/datum/action/A = X
 		A.update_button_icon()
 
-
-/mob/living/proc/vomit()
-	return
-
-
 /mob/living/proc/take_over(mob/M, bypass)
 	if(!M.mind)
 		to_chat(M, span_warning("You don't have a mind."))
@@ -765,7 +759,7 @@ below 100 is not dizzy
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object"
+	set category = "Object.Mob"
 
 	if(istype(AM) && Adjacent(AM))
 		start_pulling(AM)
@@ -878,12 +872,8 @@ below 100 is not dizzy
 	hand = !hand
 	SEND_SIGNAL(src, COMSIG_CARBON_SWAPPED_HANDS)
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
-		hud_used.l_hand_hud_object.update_icon(hand)
-		hud_used.r_hand_hud_object.update_icon(!hand)
-		if(hand)	//This being 1 means the left hand is in use
-			hud_used.l_hand_hud_object.add_overlay("hand_active")
-		else
-			hud_used.r_hand_hud_object.add_overlay("hand_active")
+		hud_used.l_hand_hud_object.update_icon()
+		hud_used.r_hand_hud_object.update_icon()
 	return
 
 ///Swap to the hand clicked on the hud
@@ -946,7 +936,7 @@ below 100 is not dizzy
 		get_up()
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
-/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE)
+/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity

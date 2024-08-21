@@ -43,7 +43,7 @@
 	overlays += I
 	turn_off()	//so engine verbs are correctly set
 
-/obj/vehicle/train/cargo/engine/Move()
+/obj/vehicle/train/cargo/engine/Move(atom/newloc, direction, glide_size_override)
 	if(on && cell.charge < charge_use)
 		turn_off()
 
@@ -65,7 +65,8 @@
 		verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 
 
-/obj/vehicle/train/cargo/update_icon()
+/obj/vehicle/train/cargo/update_icon_state()
+	. = ..()
 	if(open)
 		icon_state = initial(icon_state) + "_open"
 	else
@@ -123,7 +124,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/start_engine()
 	set name = "Start engine"
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -147,7 +148,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/stop_engine()
 	set name = "Stop engine"
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -163,7 +164,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/remove_key()
 	set name = "Remove key"
-	set category = "Object"
+	set category = "Object.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))

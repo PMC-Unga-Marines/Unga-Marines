@@ -66,9 +66,9 @@
 	var/obj/item/storage/internal_bag = get_internal_item()
 	internal_bag?.open(user)
 
-/obj/machinery/deployable/reagent_tank/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
-	if(X.a_intent != INTENT_HARM)
-		return drink_from_nozzle(X, TRUE)
+/obj/machinery/deployable/reagent_tank/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
+	if(xeno_attacker.a_intent != INTENT_HARM)
+		return drink_from_nozzle(xeno_attacker, TRUE)
 	return ..()
 
 ///Process for drinking reagents directly from the dispenser's nozzle
@@ -87,7 +87,7 @@
 		record_sippies(5, reagents.reagent_list, user)
 		playsound(user.loc,'sound/items/drink.ogg', 25, 2)
 		reagents.reaction(user, INGEST)
-		reagents.trans_to(user, 5)
+		reagents.trans_to(user, 5, transfer_to_stomach = TRUE)
 		return TRUE
 	balloon_alert(user, "It's empty!")
 

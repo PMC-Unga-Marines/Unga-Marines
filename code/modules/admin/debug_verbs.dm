@@ -15,7 +15,7 @@
 	if(!ispath(/mob) && !ispath(/obj))
 		to_chat(usr,
 			type = MESSAGE_TYPE_DEBUG,
-			html = "<span class = 'warning'>Only works for types of /obj or /mob.</span>")
+			html = span_warning("Only works for types of /obj or /mob."))
 		return
 
 	var/hsbitem = input(usr, "Choose an object to delete.", "Delete:") as null|anything in typesof(chosen_deletion)

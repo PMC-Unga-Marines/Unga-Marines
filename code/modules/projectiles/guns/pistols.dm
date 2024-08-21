@@ -53,8 +53,6 @@
 	max_shells = 21 //codex
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_p14.ogg'
 	reload_sound = 'sound/weapons/guns/interact/tp14_reload.ogg'
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -88,8 +86,6 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/plasma_pistol)
 	type_of_casings = null
 	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 13, "rail_y" = 23, "under_x" = 19, "under_y" = 13, "stock_x" = 21, "stock_y" = 17)
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -187,8 +183,6 @@
 	unload_sound = 'sound/weapons/guns/interact/colt_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/colt_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/colt_cocked.ogg'
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -515,7 +509,12 @@
 	reload_sound = 'sound/weapons/guns/interact/vp70_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/vp70_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/pistol/vp70
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/vp70)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/pistol/vp70,
+		/obj/item/ammo_magazine/pistol/vp70/hp,
+		/obj/item/ammo_magazine/pistol/vp70/sabot,
+		/obj/item/ammo_magazine/pistol/vp70/incendiary,
+	)
 	force = 8
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,

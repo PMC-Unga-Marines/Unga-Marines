@@ -1,11 +1,4 @@
 /*
-* Contains:
-*		Lasertag
-*		Costume
-*		Misc
-*/
-
-/*
 * Lasertag
 */
 /obj/item/clothing/suit/bluetag
@@ -31,13 +24,13 @@
 /*
 * Costume
 */
+
 /obj/item/clothing/suit/pirate
 	name = "pirate coat"
 	desc = "Yarr."
 	icon_state = "pirate"
 	item_state = "pirate"
 	flags_armor_protection = CHEST|ARMS
-
 
 /obj/item/clothing/suit/hgpirate
 	name = "pirate captain coat"
@@ -48,29 +41,6 @@
 	flags_armor_protection = CHEST|GROIN|ARMS|LEGS
 	flags_item = SYNTH_RESTRICTED
 	soft_armor = list(MELEE = 60, BULLET = 90, LASER = 60, ENERGY = 20, BOMB = 25, BIO = 10, FIRE = 20, ACID = 20)
-
-
-/obj/item/clothing/suit/cyborg_suit
-	name = "cyborg suit"
-	desc = "Suit for a cyborg costume."
-	icon_state = "death"
-	item_state = "death"
-	flags_atom = CONDUCT
-	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-
-/obj/item/clothing/suit/johnny_coat
-	name = "johnny~~ coat"
-	desc = "Johnny~~"
-	icon_state = "johnny"
-	item_state = "johnny"
-
-/obj/item/clothing/suit/justice
-	name = "justice suit"
-	desc = "This pretty much looks ridiculous."
-	icon_state = "justice"
-	item_state = "justice"
-	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	flags_armor_protection = CHEST|GROIN|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/judgerobe
 	name = "judge's robe"
@@ -89,14 +59,12 @@
 	blood_overlay_type = "armor"
 	flags_armor_protection = CHEST|GROIN
 
-
 /obj/item/clothing/suit/apron/overalls
 	name = "coveralls"
 	desc = "A set of denim overalls."
 	icon_state = "overalls"
 	item_state = "overalls"
 	flags_armor_protection = CHEST|GROIN|LEGS
-
 
 /obj/item/clothing/suit/syndicatefake
 	name = "red space suit replica"
@@ -108,15 +76,6 @@
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	flags_armor_protection = CHEST|GROIN|ARMS|HANDS|LEGS|FEET
 
-/obj/item/clothing/suit/hastur
-	name = "Hastur's Robes"
-	desc = "Robes not meant to be worn by man"
-	icon_state = "hastur"
-	item_state = "hastur"
-	flags_armor_protection = CHEST|GROIN|LEGS|FEET|ARMS
-	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-
-
 /obj/item/clothing/suit/imperium_monk
 	name = "Imperium monk"
 	desc = "Have YOU killed a xenos today?"
@@ -124,7 +83,6 @@
 	item_state = "imperium_monk"
 	flags_armor_protection = HEAD|CHEST|GROIN|LEGS|FEET|ARMS
 	flags_inv_hide = HIDESHOES|HIDEJUMPSUIT
-
 
 /obj/item/clothing/suit/chickensuit
 	name = "Chicken Suit"
@@ -135,7 +93,6 @@
 	flags_inv_hide = HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 2
 
-
 /obj/item/clothing/suit/monkeysuit
 	name = "Monkey Suit"
 	desc = "A suit that looks like a primate"
@@ -145,7 +102,6 @@
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 2
 
-
 /obj/item/clothing/suit/holidaypriest
 	name = "Holiday Priest"
 	desc = "This is a nice holiday my son."
@@ -154,7 +110,6 @@
 	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
 	flags_inv_hide = HIDEJUMPSUIT
 
-
 /obj/item/clothing/suit/cardborg
 	name = "cardborg suit"
 	desc = "An ordinary cardboard box with holes cut in the sides."
@@ -162,7 +117,6 @@
 	item_state = "cardborg"
 	flags_armor_protection = CHEST|GROIN
 	flags_inv_hide = HIDEJUMPSUIT
-
 
 /obj/item/clothing/suit/white_dress_jacket
 	name = "White Dress Jacket"
@@ -177,7 +131,6 @@
 		/obj/item/weapon/twohanded,
 	)
 
-
 /obj/item/clothing/suit/straight_jacket
 	name = "straight jacket"
 	desc = "A suit that completely restrains the wearer."
@@ -185,7 +138,6 @@
 	item_state = "straight_jacket"
 	flags_armor_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-
 
 /obj/item/clothing/suit/straight_jacket/equipped(mob/living/carbon/user, slot)
 	if(slot == SLOT_WEAR_SUIT)
@@ -197,12 +149,10 @@
 		RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(on_removal))
 	return ..()
 
-
 /obj/item/clothing/suit/straight_jacket/proc/on_removal(datum/source, mob/living/user)
 	SIGNAL_HANDLER
 	DISABLE_BITFIELD(user.restrained_flags, RESTRAINED_STRAIGHTJACKET)
 	UnregisterSignal(src, COMSIG_ITEM_DROPPED)
-
 
 /obj/item/clothing/suit/ianshirt
 	name = "worn shirt"
@@ -214,7 +164,7 @@
 //Blue suit jacket toggle
 /obj/item/clothing/suit/suit/verb/toggle()
 	set name = "Toggle Jacket Buttons"
-	set category = "Object"
+	set category = "Object.Clothing"
 	set src in usr
 
 	if(!usr.canmove || usr.stat || usr.restrained())
@@ -250,26 +200,6 @@
 	item_state = "red_pyjamas"
 	flags_armor_protection = CHEST|GROIN|ARMS|LEGS
 
-//coats
-
-/obj/item/clothing/suit/leathercoat
-	name = "leather coat"
-	desc = "A long, thick black leather coat."
-	icon_state = "leathercoat"
-	item_state = "leathercoat"
-
-/obj/item/clothing/suit/browncoat
-	name = "brown leather coat"
-	desc = "A long, brown leather coat."
-	icon_state = "browncoat"
-	item_state = "browncoat"
-
-/obj/item/clothing/suit/neocoat
-	name = "black coat"
-	desc = "A flowing, black coat."
-	icon_state = "neocoat"
-	item_state = "neocoat"
-
 /obj/item/clothing/suit/xenos
 	name = "xenos suit"
 	desc = "A suit made out of chitinous alien hide."
@@ -278,8 +208,9 @@
 	flags_armor_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 2
+
 //swimsuit
-/obj/item/clothing/under/swimsuit/
+/obj/item/clothing/under/swimsuit
 	siemens_coefficient = 1
 	flags_armor_protection = NONE
 
@@ -312,21 +243,6 @@
 	desc = "An oldfashioned red swimsuit."
 	icon_state = "swim_red"
 	siemens_coefficient = 1
-
-/obj/item/clothing/suit/poncho
-	name = "poncho"
-	desc = "A simple, comfortable poncho."
-	icon_state = "classicponcho"
-
-/obj/item/clothing/suit/poncho/green
-	name = "green poncho"
-	desc = "Your classic, non-racist poncho. This one is green."
-	icon_state = "greenponcho"
-
-/obj/item/clothing/suit/poncho/red
-	name = "red poncho"
-	desc = "Your classic, non-racist poncho. This one is red."
-	icon_state = "redponcho"
 
 /obj/item/clothing/suit/bomber
 	name = "bomber jacket"
@@ -363,4 +279,3 @@
 	icon_state = "tp_bodyrobes"
 	item_state = "tp_bodyrobes"
 	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
-

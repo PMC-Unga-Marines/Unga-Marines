@@ -5,18 +5,6 @@
 
 /datum/job/fallen/return_spawn_type(datum/preferences/prefs)
 	switch(prefs?.species)
-		if("Combat Robot")
-			switch(prefs?.robot_type)
-				if("Basic")
-					return /mob/living/carbon/human/species/robot
-				if("Hammerhead")
-					return /mob/living/carbon/human/species/robot/alpharii
-				if("Chilvaris")
-					return /mob/living/carbon/human/species/robot/charlit
-				if("Ratcher")
-					return /mob/living/carbon/human/species/robot/deltad
-				if("Sterling")
-					return /mob/living/carbon/human/species/robot/bravada
 		if("Vatborn")
 			return /mob/living/carbon/human/species/vatborn
 		else
@@ -37,6 +25,27 @@
 	outfit = /datum/outfit/job/marine/standard
 
 /datum/job/fallen/marine/standard
+
+/datum/job/fallen/marine/combat_robot
+	title = SQUAD_ROBOT
+	access = list(ACCESS_MARINE_ROBOT)
+	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_DROPSHIP)
+	outfit = /datum/outfit/job/marine/robot
+
+/datum/job/fallen/marine/combat_robot/get_special_name(client/preference_source)
+	return preference_source.prefs.synthetic_name
+
+/datum/job/fallen/marine/combat_robot/return_spawn_type(datum/preferences/prefs)
+	switch(prefs?.robot_type)
+		if("Hammerhead")
+			return /mob/living/carbon/human/species/robot/alpharii
+		if("Chilvaris")
+			return /mob/living/carbon/human/species/robot/charlit
+		if("Ratcher")
+			return /mob/living/carbon/human/species/robot/deltad
+		if("Sterling")
+			return /mob/living/carbon/human/species/robot/bravada
+	return /mob/living/carbon/human/species/robot
 
 /datum/job/fallen/marine/engineer
 	title = ROLE_FALLEN(SQUAD_ENGINEER)
@@ -62,8 +71,8 @@
 /datum/job/fallen/marine/leader
 	title = ROLE_FALLEN(SQUAD_LEADER)
 	skills_type = /datum/skills/sl
-	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP)
-	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP)
+	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_TADPOLE)
+	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_TADPOLE)
 	outfit = /datum/outfit/job/marine/leader
 
 /datum/job/fallen/marine/mechpilot

@@ -34,14 +34,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/wax = 800
 
 /obj/item/tool/candle/update_icon_state()
-	var/i
-	if(wax>150)
-		i = 1
-	else if(wax>80)
-		i = 2
+	. = ..()
+	if(wax > 150)
+		icon_state = "candle[1][heat ? "_lit" : ""]"
+	else if(wax > 80)
+		icon_state = "candle[2][heat ? "_lit" : ""]"
 	else
-		i = 3
-	icon_state = "candle[i][heat ? "_lit" : ""]"
+		icon_state = "candle[3][heat ? "_lit" : ""]"
 
 /obj/item/tool/candle/Destroy()
 	if(heat)
@@ -52,7 +51,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(iswelder(W))
 		var/obj/item/tool/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a blowtorch
-			light("<span class ='notice'>[user] casually lights [src] with [W].</span>")
+			light(span_notice("[user] casually lights [src] with [W].</span>"))
 	else if(W.heat > 400)
 		light()
 	else
@@ -62,7 +61,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!heat)
 		heat = 1000
 		if(!flavor_text)
-			flavor_text = "<span class ='notice'>[usr] lights [src].</span>"
+			flavor_text = span_notice("[usr] lights [src].")
 		visible_message(flavor_text)
 		set_light_on(TRUE)
 		update_icon()
@@ -132,7 +131,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(heat)
 		return
 	heat = 1000
-	damtype = "burn"
+	damtype = BURN
 	icon_state = "match_lit"
 	set_light_on(TRUE)
 
@@ -614,10 +613,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		item_state = icon_off
 		if(!silent)
 			if(istype(src, /obj/item/tool/lighter/zippo) )
-				bearer.visible_message("<span class='rose'>You hear a quiet click, as [bearer] shuts off [src] without even looking at what they're doing.")
+				bearer.visible_message(span_rose(">You hear a quiet click, as [bearer] shuts off [src] without even looking at what they're doing."))
 				playsound(loc, 'sound/items/zippo_off.ogg', 15, 1)
 			else
-				bearer.visible_message("<span class='notice'>[bearer] quietly shuts off the [src].")
+				bearer.visible_message(span_notice("[bearer] quietly shuts off the [src]."))
 				playsound(loc, 'sound/items/lighter_off.ogg', 15, 1)
 		set_light_on(FALSE)
 		return TRUE

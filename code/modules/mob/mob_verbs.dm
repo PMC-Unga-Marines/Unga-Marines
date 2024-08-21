@@ -1,6 +1,6 @@
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "Object"
+	set category = "Object.Mob"
 	set src = usr
 
 	if(next_move > world.time)
@@ -49,7 +49,7 @@
 
 /mob/verb/respawn()
 	set name = "Respawn"
-	set category = "OOC"
+	set category = "OOC.Ghost"
 
 	if(!GLOB.respawn_allowed && !check_rights(R_ADMIN, FALSE))
 		to_chat(usr, span_notice("Respawn is disabled."))
@@ -94,7 +94,7 @@
 /// This is only available to mobs once they join EORD.
 /mob/proc/eord_respawn()
 	set name = "EORD Respawn"
-	set category = "OOC"
+	set category = "OOC.Ghost"
 
 	var/mob/living/liver
 	if(isliving(usr))
@@ -197,7 +197,7 @@
 
 /mob/verb/cancel_camera()
 	set name = "Cancel Camera View"
-	set category = "Object"
+	set category = "Object.Mob"
 	reset_perspective(null)
 	unset_interaction()
 	if(isliving(src))
@@ -238,7 +238,7 @@
 
 /mob/verb/point_to(atom/pointed_atom as mob|obj|turf in view())
 	set name = "Point To"
-	set category = "Object"
+	set category = "Object.Mob"
 
 	if(client && !(pointed_atom in view(client.view, src)))
 		return FALSE

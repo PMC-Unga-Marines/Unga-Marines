@@ -55,15 +55,13 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	return TRUE
 
 //We don't want to cut/update the power overlays every single proc. Just when it actually changes. This should save on CPU cycles. Efficiency!
-/obj/machinery/power/geothermal/update_icon()
+/obj/machinery/power/geothermal/update_icon_state()
 	. = ..()
-	//RUTGMC ADDITION BEGIN
 	SSminimaps.remove_marker(src)
 	if(!corrupted && !is_on)
 		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "generator_off"))
 	if(corrupted)
 		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "generator_corrupt"))
-	//RUTGMC ADDITION END
 	switch(buildstate)
 		if(GEOTHERMAL_NO_DAMAGE)
 			if(is_on)
@@ -89,6 +87,19 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 			desc = "A thermoelectric generator sitting atop a plasma-filled borehole. This one is damaged. Use wirecutters and then a wrench to repair it."
 		if(GEOTHERMAL_LIGHT_DAMAGE)
 			icon_state = "wrench"
+			desc = "A thermoelectric generator sitting atop a plasma-filled borehole. This one is lightly damaged. Use a wrench to repair it."
+
+/obj/machinery/power/geothermal/update_desc(updates)
+	. = ..()
+	switch(buildstate)
+		if(GEOTHERMAL_NO_DAMAGE)
+			if(!is_on)
+				desc = "A thermoelectric generator sitting atop a borehole dug deep in the planet's surface. It generates energy by boiling the plasma steam that rises from the well.\nIt is old technology and has a large failure rate, and must be repaired frequently.\nIt is currently turned off and silent."
+		if(GEOTHERMAL_HEAVY_DAMAGE)
+			desc = "A thermoelectric generator sitting atop a plasma-filled borehole. This one is heavily damaged. Use a blowtorch, wirecutters, and then a wrench to repair it."
+		if(GEOTHERMAL_MEDIUM_DAMAGE)
+			desc = "A thermoelectric generator sitting atop a plasma-filled borehole. This one is damaged. Use wirecutters and then a wrench to repair it."
+		if(GEOTHERMAL_LIGHT_DAMAGE)
 			desc = "A thermoelectric generator sitting atop a plasma-filled borehole. This one is lightly damaged. Use a wrench to repair it."
 
 /obj/machinery/power/geothermal/update_overlays()
@@ -137,8 +148,8 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	else if(cur_tick > fail_check_ticks) //Went past with no fail, reset the timer
 		cur_tick = 0
 		return FALSE
-	if(rand(1,100) < fail_rate) //Oh snap, we failed! Shut it down!
-		if(rand(0,3) == 0)
+	if(rand(1, 100) < fail_rate) //Oh snap, we failed! Shut it down!
+		if(rand(0, 3) == 0)
 			visible_message("[icon2html(src, viewers(src))] <span class='notice'><b>[src]</b> beeps wildly and a fuse blows! Use wirecutters, then a wrench to repair it.")
 			buildstate = GEOTHERMAL_MEDIUM_DAMAGE
 			icon_state = "wire"
@@ -158,33 +169,32 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		return TRUE
 	return FALSE //Nope, all fine
 
-/obj/machinery/power/geothermal/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/machinery/power/geothermal/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	. = ..()
 	if(corrupted) //you have no reason to interact with it if its already corrupted
 		return
-	if(CHECK_BITFIELD(X.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) && is_corruptible)
-		to_chat(X, span_notice("You start to corrupt [src]"))
-		if(!do_after(X, 10 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
+	if(CHECK_BITFIELD(xeno_attacker.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) && is_corruptible)
+		to_chat(xeno_attacker, span_notice("You start to corrupt [src]"))
+		if(!do_after(xeno_attacker, 10 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
 			return
-		corrupt(X.hivenumber)
-		to_chat(X, span_notice("You have corrupted [src]"))
-		record_generator_sabotages(X)
+		corrupt(xeno_attacker.hivenumber)
+		to_chat(xeno_attacker, span_notice("You have corrupted [src]"))
+		record_generator_sabotages(xeno_attacker)
 		return
 	if(buildstate)
 		return
-	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	play_attack_sound(1)
-	X.visible_message(span_danger("\The [X] slashes at \the [src], tearing at it's components!"),
+	xeno_attacker.visible_message(span_danger("\The [xeno_attacker] slashes at \the [src], tearing at it's components!"),
 		span_danger("We start slashing at \the [src], tearing at it's components!"))
 	fail_rate += 5 // 5% fail rate every attack
-	record_generator_sabotages(X)
+	record_generator_sabotages(xeno_attacker)
 
 /obj/machinery/power/geothermal/attack_hand(mob/living/carbon/user)
 	interact_hand(user)
 
 /obj/machinery/power/geothermal/attack_ai(mob/living/silicon/ai/user)
 	interact_hand(user)
-
 
 /obj/machinery/power/geothermal/proc/interact_hand(mob/living/user)
 	if(.)
@@ -201,13 +211,13 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		return FALSE
 
 	if(buildstate == GEOTHERMAL_HEAVY_DAMAGE)
-		to_chat(usr, "<span class='info'>Use a blowtorch, then wirecutters, then a wrench to repair it.")
+		to_chat(usr, span_info("Use a blowtorch, then wirecutters, then a wrench to repair it."))
 		return FALSE
-	else if (buildstate == GEOTHERMAL_MEDIUM_DAMAGE)
-		to_chat(usr, "<span class='info'>Use a wirecutters, then wrench to repair it.")
+	else if(buildstate == GEOTHERMAL_MEDIUM_DAMAGE)
+		to_chat(usr, span_info("Use a wirecutters, then wrench to repair it."))
 		return FALSE
-	else if (buildstate == GEOTHERMAL_LIGHT_DAMAGE)
-		to_chat(usr, "<span class='info'>Use a wrench to repair it.")
+	else if(buildstate == GEOTHERMAL_LIGHT_DAMAGE)
+		to_chat(usr, span_info("Use a wrench to repair it."))
 		return FALSE
 	if(is_on)
 		visible_message("[icon2html(src, viewers(src))] <span class='warning'><b>[src]</b> beeps softly and the humming stops as [usr] shuts off the turbines.")

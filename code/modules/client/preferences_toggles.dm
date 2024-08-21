@@ -1,5 +1,5 @@
 /client/verb/toggle_statistics()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Statistics"
 
 	prefs.toggles_chat ^= CHAT_STATISTICS
@@ -7,9 +7,8 @@
 
 	to_chat(src, span_notice("At the end of the round you will [(prefs.toggles_chat & CHAT_STATISTICS) ? "see all statistics" : "not see any statistics"]."))
 
-
 /client/verb/toggle_ghost_ears()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Ghost Ears"
 
 	prefs.toggles_chat ^= CHAT_GHOSTEARS
@@ -28,9 +27,8 @@
 
 	prefs.save_preferences()
 
-
 /client/verb/toggle_ghost_sight()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Ghost Sight"
 
 	prefs.toggles_chat ^= CHAT_GHOSTSIGHT
@@ -38,9 +36,8 @@
 
 	to_chat(src, span_notice("As a ghost, you will now [(prefs.toggles_chat & CHAT_GHOSTSIGHT) ? "see all emotes in the world" : "only see emotes from nearby mobs"]."))
 
-
 /client/verb/toggle_ghost_radio()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Ghost Radio"
 
 	prefs.toggles_chat ^= CHAT_GHOSTRADIO
@@ -48,9 +45,8 @@
 
 	to_chat(src, span_notice("As a ghost, you will now [(prefs.toggles_chat & CHAT_GHOSTRADIO) ? "hear all radio chat in the world" : "only hear from nearby speakers"]."))
 
-
 /client/proc/toggle_ghost_speaker()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Speakers"
 
 	prefs.toggles_chat ^= CHAT_RADIO
@@ -58,9 +54,8 @@
 
 	to_chat(usr, span_notice("You will [(prefs.toggles_chat & CHAT_RADIO) ? "now" : "no longer"] see radio chatter from radios or speakers."))
 
-
 /client/verb/toggle_ghost_hivemind()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Ghost Hivemind"
 
 	prefs.toggles_chat ^= CHAT_GHOSTHIVEMIND
@@ -68,9 +63,8 @@
 
 	to_chat(src, span_notice("As a ghost, you will [(prefs.toggles_chat & CHAT_GHOSTHIVEMIND) ? "now see chatter from the Xenomorph Hivemind" : "no longer see chatter from the Xenomorph Hivemind"]."))
 
-
 /client/verb/toggle_deadchat_self()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle  Deadchat"
 
 	prefs.toggles_chat ^= CHAT_DEAD
@@ -78,9 +72,8 @@
 
 	to_chat(src, span_notice("You will [(prefs.toggles_chat & CHAT_DEAD) ? "now" : "no longer"] see deadchat."))
 
-
 /client/verb/toggle_admin_music()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Admin Music"
 
 	prefs.toggles_sound ^= SOUND_MIDI
@@ -107,7 +100,7 @@
 	to_chat(src, span_notice("You will [(prefs.toggles_gameplay & RADIAL_STACKS) ? "now" : "no longer"] use the radial menu when interacting with material stacks."))
 
 /client/verb/toggle_lobby_music()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Lobby Music"
 
 	prefs.toggles_sound ^= SOUND_LOBBY
@@ -125,9 +118,8 @@
 			return
 		mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 
-
 /client/verb/toggle_ooc_self()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle  OOC"
 
 	prefs.toggles_chat ^= CHAT_OOC
@@ -135,9 +127,8 @@
 
 	to_chat(src, span_notice("You will [(prefs.toggles_chat & CHAT_OOC) ? "now" : "no longer"] see messages on the OOC channel."))
 
-
 /client/verb/toggle_looc_self()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle  LOOC"
 
 	prefs.toggles_chat ^= CHAT_LOOC
@@ -145,9 +136,8 @@
 
 	to_chat(src, span_notice("You will [(prefs.toggles_chat & CHAT_LOOC) ? "now" : "no longer"] see messages on the LOOC channel."))
 
-
 /client/verb/toggle_ambience()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Ambience"
 
 	prefs.toggles_sound ^= SOUND_AMBIENCE
@@ -159,7 +149,6 @@
 		to_chat(src, span_notice("You will no longer hear ambient sounds."))
 		mob.stop_sound_channel(CHANNEL_AMBIENT)
 	usr.client.update_ambience_pref()
-
 
 /client/verb/toggle_special(role in BE_SPECIAL_FLAGS)
 	set category = "Preferences"
@@ -179,7 +168,6 @@
 	set desc = "Allows you to access the Setup Character screen. Changes to your character won't take effect until next round, but other changes will."
 	prefs.ShowChoices(usr)
 
-
 GLOBAL_LIST_INIT(ghost_forms, list("Default" = GHOST_DEFAULT_FORM, "Ghost Ian 1" = "ghostian", "Ghost Ian 2" = "ghostian2", "Skeleton" = "skeleghost", "Red" = "ghost_red",\
 							"Black" = "ghost_black", "Blue" = "ghost_blue", "Yellow" = "ghost_yellow", "Green" = "ghost_green", "Pink" = "ghost_pink", \
 							"Cyan" = "ghost_cyan", "Dark Blue" = "ghost_dblue", "Dark Red" = "ghost_dred", "Dark Green" = "ghost_dgreen", \
@@ -187,12 +175,10 @@ GLOBAL_LIST_INIT(ghost_forms, list("Default" = GHOST_DEFAULT_FORM, "Ghost Ian 1"
 							"Purple" = "ghost_purpleswirl", "Funky" = "ghost_funkypurp", "Transparent Pink" = "ghost_pinksherbert", "Blaze it" = "ghost_blazeit",\
 							"Mellow" = "ghost_mellow", "Rainbow" = "ghost_rainbow", "Camo" = "ghost_camo", "Fire" = "ghost_fire", "Cat" = "catghost"))
 
-
 /client/proc/pick_form()
 	var/new_form = tgui_input_list(src, "Choose your ghostly form:", "Ghost Customization", GLOB.ghost_forms)
 	if(!new_form)
 		return
-
 
 	prefs.ghost_form = GLOB.ghost_forms[new_form]
 	prefs.save_preferences()
@@ -203,8 +189,7 @@ GLOBAL_LIST_INIT(ghost_forms, list("Default" = GHOST_DEFAULT_FORM, "Ghost Ian 1"
 		return
 
 	var/mob/dead/observer/O = mob
-	O.update_icon(GLOB.ghost_forms[new_form])
-
+	O.pick_form(GLOB.ghost_forms[new_form])
 
 GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE, GHOST_ORBIT_TRIANGLE, GHOST_ORBIT_SQUARE, GHOST_ORBIT_HEXAGON, GHOST_ORBIT_PENTAGON))
 
@@ -224,7 +209,6 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE, GHOST_ORBIT_TRIANGLE, GH
 	var/mob/dead/observer/O = mob
 	O.ghost_orbit = new_orbit
 
-
 GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DEFAULT_SPRITE, GHOST_OTHERS_THEIR_SETTING))
 
 /client/proc/pick_ghost_other_form()
@@ -243,12 +227,10 @@ GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DE
 	var/mob/dead/observer/O = mob
 	O.ghost_others = new_others
 
-
 /client/verb/pick_ghost_customization()
 	set category = "Preferences"
 	set name = "Ghost Customization"
 	set desc = "Customize your ghastly appearance."
-
 
 	switch(tgui_alert(src, "Which setting do you want to change?", "Ghost Customization", list("Ghost Form", "Ghost Orbit", "Ghosts of others")))
 		if("Ghost Form")
@@ -258,27 +240,24 @@ GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DE
 		if("Ghosts of others")
 			pick_ghost_other_form()
 
-
 /client/verb/toggle_deadchat_arrivalrattle()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Deadchat arrivalrattles"
 	set desc = "Announces when a player spawns for the first time."
 
 	TOGGLE_BITFIELD(prefs.toggles_deadchat, DISABLE_ARRIVALRATTLE)
 	to_chat(usr, span_notice("New spawn announcements have been [(prefs.toggles_deadchat & DISABLE_ARRIVALRATTLE) ? "disabled" : "enabled"]."))
 
-
 /client/verb/toggle_deadchat_deathrattle()
-	set category = "Preferences"
+	set category = "Preferences.Chat"
 	set name = "Toggle Deadchat deathrattles"
 	set desc = "Announces when a player dies."
 
 	TOGGLE_BITFIELD(prefs.toggles_deadchat, DISABLE_DEATHRATTLE)
 	to_chat(usr, span_notice("Death announcements have been [(prefs.toggles_deadchat & DISABLE_DEATHRATTLE) ? "disabled" : "enabled"]."))
 
-
 /client/verb/toggle_instrument_sound()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Instrument Sound"
 
 	usr.client.prefs.toggles_sound ^= SOUND_INSTRUMENTS_OFF
@@ -287,7 +266,7 @@ GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DE
 	to_chat(usr, span_notice("You will [(usr.client.prefs.toggles_sound & SOUND_INSTRUMENTS_OFF) ? "no longer" : "now"] hear instruments."))
 
 /client/verb/toggle_weather_sounds()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Weather Sound"
 
 	usr.client.prefs.toggles_sound ^= SOUND_WEATHER
@@ -296,7 +275,7 @@ GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DE
 	to_chat(usr, span_notice("You will [(usr.client.prefs.toggles_sound & SOUND_WEATHER) ? "no longer" : "now"] hear weather."))
 
 /client/verb/toggle_gas_mask_sound()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle Gas Mask sounds."
 
 	usr.client.prefs.toggles_sound ^= SOUND_GAS_MASK
@@ -304,9 +283,8 @@ GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DE
 
 	to_chat(usr, span_notice("You will [(usr.client.prefs.toggles_sound & SOUND_GAS_MASK) ? "no longer" : "now"] hear gas masks breathy noises."))
 
-
 /client/verb/toggle_round_end_sounds()
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set name = "Toggle round end sounds."
 
 	usr.client.prefs.toggles_sound ^= SOUND_NOENDOFROUND
