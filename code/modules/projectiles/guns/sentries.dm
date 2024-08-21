@@ -105,9 +105,6 @@
 
 	human.drop_held_item(src)
 	qdel(src)
-
-
-
 /obj/item/storage/box/crate/sentry
 	name = "\improper ST-571 sentry crate"
 	desc = "A large case containing all you need to set up an automated sentry."
