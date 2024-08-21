@@ -157,7 +157,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/spaceacillin
 	name = "spaceacillin autoinjector"
-	desc = "An auto-injector loaded with 3 doses of spaceacillin, an antibiotic medicine that helps combat infection and fight necrosis."
+	desc = "An auto-injector loaded with 9 doses of spaceacillin, an antibiotic medicine that helps combat infection and fight necrosis."
 	icon_state = "autoinjector-1"
 	amount_per_transfer_from_this = 5
 	list_reagents = list(/datum/reagent/medicine/spaceacillin = 45)
@@ -165,7 +165,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/alkysine
 	name = "alkysine autoinjector"
-	desc = "An auto-injector loaded with 3 doses of alkysine, long-living medicine for fixing brain and ear damage."
+	desc = "An auto-injector loaded with 9 doses of alkysine, long-living medicine for fixing brain and ear damage."
 	icon_state = "autoinjector-12"
 	amount_per_transfer_from_this = 5
 	list_reagents = list(/datum/reagent/medicine/alkysine = 45)
@@ -173,14 +173,15 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/imidazoline
 	name = "imidazoline autoinjector"
-	desc = "An auto-injector loaded with 3 doses of imidazoline, medicine for fixing eyesight."
+	desc = "An auto-injector loaded with 6 doses of imidazoline, medicine for fixing eyesight."
 	icon_state = "autoinjector-5"
+	amount_per_transfer_from_this = 7.5
 	list_reagents = list(/datum/reagent/medicine/imidazoline = 45)
 	description_overlay = "Im"
 
 /obj/item/reagent_containers/hypospray/autoinjector/hypervene
 	name = "hypervene autoinjector"
-	desc = "An auto-injector loaded with 3 uses of hypervene, an emergency medicine that rapidly purges chems. Causes pain and vomiting."
+	desc = "An auto-injector loaded with 15 uses of hypervene, an emergency medicine that rapidly purges chems. Causes pain and vomiting."
 	icon_state = "Toxic"
 	amount_per_transfer_from_this = 3
 	list_reagents = list(/datum/reagent/hypervene = 45)
