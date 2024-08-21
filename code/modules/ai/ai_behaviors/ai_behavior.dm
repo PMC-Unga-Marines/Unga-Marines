@@ -71,7 +71,6 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 		RegisterSignal(SSdcs, COMSIG_GLOB_AI_MINION_RALLY, PROC_REF(global_set_escorted_atom))
 	RegisterSignal(SSdcs, COMSIG_GLOB_AI_GOAL_SET, PROC_REF(set_goal_node))
 	set_goal_node(null, null, GLOB.goal_nodes[identifier])
-	RegisterSignal(goal_node, COMSIG_QDELETING, PROC_REF(clean_goal_node))
 	late_initialize()
 
 ///Set behaviour to base behavior

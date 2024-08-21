@@ -2,15 +2,11 @@
 	name = "Last Stand"
 	config_tag = "Last Stand"
 	flags_xeno_abilities = ABILITY_CRASH
+	flags_round_type = MODE_XENO_SPAWN_PROTECT
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
 		/datum/job/terragov/command/staffofficer = 4,
-		/datum/job/terragov/command/pilot = 1,
-		/datum/job/terragov/command/transportofficer = 1,
-		/datum/job/terragov/command/mech_pilot = 0,
-		/datum/job/terragov/command/assault_crewman = 2,
-		/datum/job/terragov/command/transport_crewman = 1,
 		/datum/job/terragov/requisitions/tech = 1,
 		/datum/job/terragov/requisitions/officer = 1,
 		/datum/job/terragov/medical/professor = 1,
@@ -18,7 +14,6 @@
 		/datum/job/terragov/medical/researcher = 2,
 		/datum/job/terragov/civilian/liaison = 1,
 		/datum/job/terragov/silicon/synthetic = 1,
-		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 8,
 		/datum/job/terragov/squad/corpsman = 8,
 		/datum/job/terragov/squad/smartgunner = 4,
@@ -28,7 +23,21 @@
 	)
 	xenorespawn_time = 1 MINUTES
 
-/datum/game_mode/extended/announce()
+	///time between waves
+	var/waves_check_interval = 1 MINUTES
+	///waves timer
+	var/last_waves_check
+
+	///the strength of the waves is ultimately multiplied by the number of people
+	var/waves_power = 1
+	///round start time
+	var/round_start_time
+	///time from the beginning of the round when the waves will not spawn
+	var/neutral_time = 5 MINUTES
+	///time from the beginning of the round when the waves will not spawn
+	var/list/waves_spawner = list()
+
+/datum/game_mode/last_stand/announce()
 	to_chat(world, "<b>The current game mode is - Last Stand!</b>")
 
 /datum/game_mode/last_stand/pre_setup()
@@ -58,12 +67,78 @@
 			continue
 		GLOB.latejoin_gateway -= loc
 
-/datum/game_mode/extended/check_finished()
-	if(!round_finished)
-		return FALSE
-	return TRUE
+	GLOB.start_squad_landmarks_list = null
 
-/datum/game_mode/extended/declare_completion()
+/datum/game_mode/last_stand/post_setup()
+	. = ..()
+
+	round_start_time = world.time
+
+	for(var/spawner in subtypesof(/datum/wave_spawner))
+		var/datum/wave_spawner/wave = spawner
+		wave = new spawner()
+		waves_spawner[spawner] = wave
+
+/datum/game_mode/last_stand/process()
+	. = ..()
+	if(world.time < round_start_time + neutral_time)
+		return
+	if(world.time > last_waves_check + waves_check_interval)
+		spawn_wave()
+		last_waves_check = world.time
+
+/datum/game_mode/last_stand/proc/spawn_wave()
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/points = living_player_list[1] * waves_power
+
+	var/wave_spawned = FALSE
+	var/wave_checks = 0
+	while(!wave_spawned)
+		var/datum/wave_spawner/wave = waves_spawner[pick(waves_spawner)]
+		if(wave_checks >= 100 || points <= 0)
+			WARNING("Game mode couldn't spawn wave")
+			break
+		if(wave.min_time > world.time - round_start_time)
+			wave_checks++
+			continue
+		if(wave.max_time != -1 && wave.max_time < world.time - round_start_time)
+			wave_checks++
+			continue
+		wave_spawned = wave.spawn_wave(points)
+
+	waves_power += 0.1
+
+/datum/game_mode/last_stand/check_finished()
+	if(round_finished)
+		return TRUE
+
+	if(world.time < (SSticker.round_start_time + 5 SECONDS))
+		return FALSE
+
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/num_humans = living_player_list[1]
+
+	if(!length(GLOB.last_stand_nukes))
+		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos destroyed the bombs, xeno major victory
+		round_finished = MODE_INFESTATION_X_MAJOR
+		return TRUE
+
+	if(!num_humans)
+		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped out ALL the marines, xeno major victory
+		round_finished = MODE_INFESTATION_X_MAJOR
+		return TRUE
+
+	return FALSE
+
+/datum/game_mode/last_stand/can_start(bypass_checks = FALSE)
+	. = ..()
+	if(!.)
+		return
+	if(!length(GLOB.ready_players) && !bypass_checks)
+		to_chat(world, "<b>Unable to start [name].</b> Nocandidate found.")
+		return FALSE
+
+/datum/game_mode/last_stand/declare_completion()
 	. = ..()
 	to_chat(world, span_round_header("|[round_finished]|"))
 	var/sound/S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
