@@ -42,7 +42,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/combat
 	name = "combat autoinjector"
-	desc = "An autoinjector loaded with 2 doses of healing and painkilling chemicals. Intended for use in active combat."
+	desc = "An autoinjector loaded with 3 doses of healing and painkilling chemicals. Intended for use in active combat."
 	icon_state = "RedGreen"
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
@@ -55,7 +55,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced
 	name = "advanced combat autoinjector"
-	desc = "An autoinjector loaded with 2 doses of advanced healing and painkilling chemicals. Intended for use in active combat."
+	desc = "An autoinjector loaded with 3 doses of advanced healing and painkilling chemicals. Intended for use in active combat."
 	icon_state = "Lilac"
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
@@ -140,7 +140,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "inaprovaline autoinjector"
-	desc = "An auto-injector loaded with 2 doses of inaprovaline, an emergency stabilization medicine for patients in critical condition."
+	desc = "An auto-injector loaded with 3 doses of inaprovaline, an emergency stabilization medicine for patients in critical condition."
 	icon_state = "autoinjector-9"
 	amount_per_transfer_from_this = 15
 	list_reagents = list(/datum/reagent/medicine/inaprovaline = 45)
@@ -243,7 +243,7 @@
 	name = "Peridaxon autoinjector"
 	desc = "An auto-injector loaded with 3 doses of Peridaxon, a chemical that removes the consequences from organs !DO NOT USE MORE THAN ONCE AT A TIME!"
 	amount_per_transfer_from_this = 5
-	volume = 3
+	volume = 15
 	icon_state = "VioWhite"
 	list_reagents = list(/datum/reagent/medicine/peridaxon = 15)
 	description_overlay = "Pe"
@@ -262,7 +262,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/russian_red
 	name = "emergency autoinjector"
-	desc = "An autoinjector loaded with a single use of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage."
+	desc = "An autoinjector loaded with 3 doses of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage."
 	icon_state = "Redwood"
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
@@ -282,7 +282,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/isotonic
 	name = "isotonic solution autoinjector"
-	desc = "An auto-injector loaded with 2 doses of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma."
+	desc = "An auto-injector loaded with 3 doses of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma."
 	icon_state = "autoinjector-8"
 	amount_per_transfer_from_this = 15
 	list_reagents = list(
@@ -348,7 +348,7 @@
 	icon_state = "Toxic"
 	amount_per_transfer_from_this = 30
 	volume = 30
-	list_reagents = list(/datum/reagent/toxin/mindbreaker = 50)
+	list_reagents = list(/datum/reagent/toxin/mindbreaker = 30)
 
 /obj/item/reagent_containers/hypospray/autoinjector/yautja
 	name = "unusual crystal"
