@@ -177,7 +177,7 @@ WEAPONS
 	cost = 200
 
 /datum/supply_packs/weapons/sentry_upgrade
-	name = "Набор улучшения TUR-B"
+	name = "Набор улучшения турели TUR-B"
 	contains = list(
 		/obj/item/sentry_upgrade_kit,
 	)
