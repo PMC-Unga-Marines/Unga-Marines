@@ -139,7 +139,7 @@
 		return
 
 	user.visible_message(span_notice("[user] поднял [src] на место."),
-		span_notice("Вы подняли [src] на место."))
+		span_notice("Вы поставили [src] на место."))
 
 	DISABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
 	density = TRUE
