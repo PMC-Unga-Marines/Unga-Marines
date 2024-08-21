@@ -36,7 +36,7 @@
 /obj/machinery/deployable/mounted/sentry/Initialize(mapload, _internal_item, deployer)
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	soundloop = new(list(src))
+	soundloop = new(list(src), active)
 
 	iff_signal = gun?.sentry_iff_signal ? gun.sentry_iff_signal : initial(iff_signal)
 	if(deployer)
@@ -120,12 +120,12 @@
 
 /obj/machinery/deployable/mounted/sentry/on_set_interaction(mob/user)
 	. = ..()
-	to_chat(user, span_notice("Вы отключили ИИ у [src] для ручного управления."))
+	to_chat(user, span_notice("Вы отключили ИИ [src] для перехода на ручное управление."))
 	set_on(FALSE)
 
 /obj/machinery/deployable/mounted/sentry/on_unset_interaction(mob/user)
 	. = ..()
-	to_chat(user, span_notice("Вы перестали использовать [src], автоматика ИИ возобновлает работу."))
+	to_chat(user, span_notice("Вы прекратили использовать [src], автоматика ИИ возобновляет работу."))
 	set_on(TRUE)
 
 /obj/machinery/deployable/mounted/sentry/attack_hand(mob/living/user)
@@ -139,7 +139,7 @@
 		return
 
 	user.visible_message(span_notice("[user] поднял [src] на место."),
-		span_notice("Вы подняли [src] на место."))
+		span_notice("Вы поставили [src] на место."))
 
 	DISABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
 	density = TRUE
@@ -224,8 +224,8 @@
 			TOGGLE_BITFIELD(gun.turret_flags, TURRET_SAFETY)
 			var/safe = CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY)
 			user.visible_message(span_warning("[user] [safe ? "включ" : "отключ"]ил предокранитель у [src]."),
-				span_warning("Вы [safe ? "включ" : "отключ"]или предокранитель у [src]</span>"))
-			visible_message(span_warning("Красный светодиод у [src] ярко мигает!"))
+				span_warning("Вы [safe ? "включ" : "отключ"]или предохранитель у [src]</span>"))
+			visible_message(span_warning("Красный светодиод на [src] ярко мигает!"))
 			update_static_data(user)
 			. = TRUE
 
@@ -248,7 +248,7 @@
 			TOGGLE_BITFIELD(gun.turret_flags, TURRET_ALERTS)
 			var/alert = CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS)
 			user.visible_message(span_notice("[user] [alert ? "включ" : "отключ"]ил систему оповещений у [src]."),
-				span_notice("Вы [alert ? "включ" : "отключ"]или систему опопвещений у [src]."))
+				span_notice("Вы [alert ? "включ" : "отключ"]или систему оповещений [src]."))
 			say("Система оповещений [alert ? "включена" : "отключена"]")
 			update_static_data(user)
 			. = TRUE
@@ -271,7 +271,7 @@
 /obj/machinery/deployable/mounted/sentry/proc/set_on(new_state)
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(!new_state)
-		visible_message(span_notice("[name] выключается и утихает."))
+		visible_message(span_notice("[name] выключается и затихает."))
 		DISABLE_BITFIELD(gun.turret_flags, TURRET_ON)
 		gun?.set_target(null)
 		soundloop.stop()
@@ -301,7 +301,7 @@
 	internal_gun.stop_fire() //Comrade sentry has been sent to the gulags. He served the revolution well.
 	firing = FALSE
 	update_minimap_icon()
-	visible_message(span_highdanger("[name] был опрокинут!"))
+	visible_message(span_highdanger("[name] была опрокинута!"))
 	sentry_alert(SENTRY_ALERT_FALLEN)
 	playsound(loc, 'sound/items/turrets/turret_breakdown.ogg', 50, FALSE)
 	ENABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
