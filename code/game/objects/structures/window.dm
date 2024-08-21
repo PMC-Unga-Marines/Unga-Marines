@@ -448,6 +448,11 @@
 /obj/structure/window/framed/mainship/canterbury //So we can wallsmooth properly.
 
 /obj/structure/window/framed/mainship/escapeshuttle
+	smoothing_groups = list(SMOOTH_GROUP_ESCAPESHUTTLE)
+	canSmoothWith = list(
+		SMOOTH_GROUP_ESCAPESHUTTLE,
+		SMOOTH_GROUP_WINDOW_FULLTILE,
+	)
 
 /obj/structure/window/framed/mainship/escapeshuttle/prison
 	resistance_flags = RESIST_ALL
