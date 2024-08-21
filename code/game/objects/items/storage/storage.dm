@@ -538,6 +538,11 @@
 /obj/item/storage/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
+	if(isxeno(user))
+		if(istype(I, /obj/item/clothing/mask/facehugger) && can_be_inserted(I))
+			return handle_item_insertion(I, FALSE, user)
+		return FALSE
+
 	if(length(refill_types))
 		for(var/typepath in refill_types)
 			if(istype(I, typepath))
