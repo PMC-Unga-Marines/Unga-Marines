@@ -184,7 +184,7 @@ WEAPONS
 	cost = 150
 
 /datum/supply_packs/weapons/sentry/ammo
-	name = "Магазин для TUR-B \"Базис\""
+	name = "Магазин для турели TUR-B \"Базис\""
 	contains = list(
 		/obj/item/ammo_magazine/sentry,
 	)
