@@ -45,7 +45,7 @@
 	desc = "A general purpose pouch used to carry small items."
 	icon_state = "small_drop"
 	draw_mode = 1
-	bypass_w_limit = list(/obj/item/ammo_magazine/packet, /obj/item/ammo_magazine/shotgun) // RU TGMC EDIT
+	bypass_w_limit = list(/obj/item/ammo_magazine/packet, /obj/item/ammo_magazine/shotgun)
 
 /obj/item/storage/pouch/general/medium
 	name = "medium general pouch"
@@ -562,8 +562,8 @@
 	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
-	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
-	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
 
 /obj/item/storage/pouch/medical_injectors/som
 	desc = "A specialized medical pouch that can only hold auto-injectors. This one looks to be made out of traditional SOM leather."
@@ -589,8 +589,8 @@
 	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/quickclot(src)
-	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
-	//new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon(src)
 
 /obj/item/storage/pouch/medical_injectors/icc
 	desc = "A specialized medical pouch that can only hold auto-injectors. This one looks to be made out of a synthetic tan fabric."
@@ -658,7 +658,6 @@
 
 /obj/item/storage/pouch/surgery/Initialize(mapload)
 	. = ..()
-	//new /obj/item/tool/surgery/scalpel/manager(src) RUTGMC REMOVAL
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
 	new /obj/item/tool/surgery/retractor(src)
@@ -842,7 +841,7 @@
 	desc = "A pouch specialized for holding shotgun ammo."
 	icon_state = "shotshells"
 	sprite_slots = 4
-	storage_slots = 7 //RUTGMC EDIT
+	storage_slots = 7
 	draw_mode = 0
 	can_hold = list(/obj/item/ammo_magazine/handful)
 
