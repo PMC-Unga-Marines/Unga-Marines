@@ -17,11 +17,6 @@
 	///The number of rolls on the table this box has
 	var/rolls = 1
 
-/* RUTGMC DELETION
-/obj/item/loot_box/ex_act()
-	qdel(src)
-*/
-
 /obj/item/loot_box/attack_self(mob/user)
 	var/obj/loot_pick
 	while(rolls)

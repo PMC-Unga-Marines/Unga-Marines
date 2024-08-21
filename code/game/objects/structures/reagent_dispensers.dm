@@ -46,7 +46,7 @@
 	create_reagents(tank_volume, AMOUNT_VISIBLE|DRAINABLE, list_reagents)
 
 /obj/structure/reagent_dispensers/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		new /obj/effect/particle_effect/water(loc)
 		qdel(src)
 

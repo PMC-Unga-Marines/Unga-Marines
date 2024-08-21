@@ -33,7 +33,7 @@
 	icon_state = "mulebot0"
 
 /obj/structure/showcase/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		qdel(src)
 
 /obj/structure/showcase/yaut
@@ -146,7 +146,7 @@
 	return ..()
 
 /obj/structure/xenoautopsy/tank/ex_act(severity)
-	take_damage(severity / 2, BRUTE, BOMB)
+	take_damage(severity * 0.5, BRUTE, BOMB)
 
 ///Releases whatever is inside the tank
 /obj/structure/xenoautopsy/tank/proc/release_occupant()
@@ -346,7 +346,7 @@
 	return ..()
 
 /obj/structure/plasticflaps/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		qdel(src)
 
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates

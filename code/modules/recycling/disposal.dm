@@ -291,7 +291,7 @@
 
 //Pipe affected by explosion
 /obj/machinery/disposal/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		qdel(src)
 
 //Update the icon & overlays to reflect mode & status
@@ -688,7 +688,7 @@
 /obj/structure/disposalpipe/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
-	take_damage(severity / 15, BRUTE, BOMB)
+	take_damage(severity * 0.3, BRUTE, BOMB)
 
 //Attack by item. Weldingtool: unfasten and convert to obj/disposalconstruct
 /obj/structure/disposalpipe/attackby(obj/item/I, mob/user, params)

@@ -64,7 +64,7 @@
 
 /obj/structure/closet/ex_act(severity)
 	take_damage(severity, BRUTE, BOMB)
-	if(!locked || prob(severity / 3))
+	if(!locked || prob(severity * 0.3))
 		break_open()
 		contents_explosion(severity)
 
@@ -183,28 +183,6 @@
 
 /obj/structure/closet/proc/toggle(mob/living/user)
 	return opened ? close(user) : open(user)
-
-/obj/structure/closet/ex_act(severity)
-	var/dmg
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			contents_explosion(severity)
-			dump_contents()
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			dmg = rand()
-			if(!locked || dmg > 0.1)
-				contents_explosion(severity)
-				break_open()
-				if(dmg > 0.5)
-					qdel(src)
-		if(EXPLODE_LIGHT)
-			dmg = rand()
-			if(!locked || dmg > 0.5)
-				contents_explosion(severity)
-				break_open()
-				if(dmg > 0.95)
-					qdel(src)
 
 /obj/structure/closet/attack_animal(mob/living/user)
 	if(user.wall_smash)

@@ -202,7 +202,7 @@
 	take_damage(burnlevel * 2, BURN, FIRE)
 
 /obj/structure/mineral_door/resin/ex_act(severity)
-	take_damage(severity / 2, BRUTE, BOMB)
+	take_damage(severity * 0.5, BRUTE, BOMB)
 
 /turf/closed/wall/resin/fire_act()
 	take_damage(50, BURN, FIRE)

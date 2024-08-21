@@ -2,18 +2,9 @@
 	icon = 'icons/turf/decals.dmi'
 	icon_state = "whitedecal"
 
-/* RUTGMC DELETION, TODO: repath it from effects so it can properly be exploded
 /obj/effect/turf_decal/tile/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if(prob(50))
-				qdel(src)
-		if(EXPLODE_LIGHT)
-			if(prob(25))
-				qdel(src)
-*/
+	if(prob(severity * 0.3))
+		qdel(src)
 
 /obj/effect/turf_decal/tile/full
 	icon_state = "floor_large"

@@ -33,7 +33,7 @@
 /obj/machinery/power/terminal/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		Destroy()
 
 /obj/machinery/power/terminal/should_have_node()
