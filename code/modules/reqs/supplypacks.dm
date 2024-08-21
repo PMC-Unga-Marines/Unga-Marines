@@ -191,25 +191,25 @@ WEAPONS
 	cost = 50
 
 /datum/supply_packs/weapons/sentry/ammo/mini
-	name = "Магазин для TUR-M \"Гном\""
+	name = "Магазин для турели TUR-M \"Гном\""
 	contains = list(
 		/obj/item/ammo_magazine/minisentry,
 	)
 
 /datum/supply_packs/weapons/sentry/ammo/sniper
-	name = "Магазин для TUR-SN \"Оса\""
+	name = "Магазин для турели TUR-SN \"Оса\""
 	contains = list(
 		/obj/item/ammo_magazine/sentry/sniper,
 	)
 
 /datum/supply_packs/weapons/sentry/ammo/shotgun
-	name = "Магазин для TUR-SH \"Бык\""
+	name = "Магазин для турели TUR-SH \"Бык\""
 	contains = list(
 		/obj/item/ammo_magazine/sentry/shotgun,
 	)
 
 /datum/supply_packs/weapons/sentry/ammo/flamer
-	name = "Бак для TUR-F \"Феникс\""
+	name = "Бак для турели TUR-F \"Феникс\""
 	contains = list(
 		/obj/item/ammo_magazine/flamer_tank/large/sentry,
 	)
