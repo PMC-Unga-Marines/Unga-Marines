@@ -27,7 +27,7 @@
 	var/list/ignored_terrains
 	///For minimap icon change if sentry is firing
 	var/firing
-
+	///Scan effect sound loop, when the turret is on
 	var/datum/looping_sound/sentry_scan/soundloop
 
 //------------------------------------------------------------------
