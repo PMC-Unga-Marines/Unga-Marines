@@ -301,7 +301,7 @@
 	internal_gun.stop_fire() //Comrade sentry has been sent to the gulags. He served the revolution well.
 	firing = FALSE
 	update_minimap_icon()
-	visible_message(span_highdanger("[name] был опрокинут!"))
+	visible_message(span_highdanger("[name] была опрокинута!"))
 	sentry_alert(SENTRY_ALERT_FALLEN)
 	playsound(loc, 'sound/items/turrets/turret_breakdown.ogg', 50, FALSE)
 	ENABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
