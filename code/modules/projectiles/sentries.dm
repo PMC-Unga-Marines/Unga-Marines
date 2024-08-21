@@ -248,7 +248,7 @@
 			TOGGLE_BITFIELD(gun.turret_flags, TURRET_ALERTS)
 			var/alert = CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS)
 			user.visible_message(span_notice("[user] [alert ? "включ" : "отключ"]ил систему оповещений у [src]."),
-				span_notice("Вы [alert ? "включ" : "отключ"]или систему опопвещений у [src]."))
+				span_notice("Вы [alert ? "включ" : "отключ"]или систему оповещений [src]."))
 			say("Система оповещений [alert ? "включена" : "отключена"]")
 			update_static_data(user)
 			. = TRUE
