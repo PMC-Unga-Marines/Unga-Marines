@@ -137,7 +137,7 @@
 	if(!.)
 		return
 	if(!length(GLOB.ready_players) && !bypass_checks)
-		to_chat(world, "<b>Unable to start [name].</b> Nocandidate found.")
+		to_chat(world, "<b>Unable to start [name].</b> No candidate found.")
 		return FALSE
 
 /datum/game_mode/last_stand/declare_completion()
