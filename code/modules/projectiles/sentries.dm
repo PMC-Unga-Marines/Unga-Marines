@@ -271,7 +271,7 @@
 /obj/machinery/deployable/mounted/sentry/proc/set_on(new_state)
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(!new_state)
-		visible_message(span_notice("[name] выключается и утихает."))
+		visible_message(span_notice("[name] выключается и затихает."))
 		DISABLE_BITFIELD(gun.turret_flags, TURRET_ON)
 		gun?.set_target(null)
 		soundloop.stop()
