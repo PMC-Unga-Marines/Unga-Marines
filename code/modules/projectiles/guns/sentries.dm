@@ -57,7 +57,7 @@
 
 /obj/item/sentry_upgrade_kit
 	name = "Набор улучшения TUR-B"
-	desc = "Набор инструментов, используемый для улучшения базовой модели турелей. При использовании возврату не подлежит."
+	desc = "Набор инструментов, используемый для улучшения базовой модели турелей."
 
 	icon = 'icons/Marine/sentry.dmi'
 	icon_state = "upgradekit"
@@ -90,7 +90,7 @@
 
 	playsound(user, 'sound/misc/electronics_1.ogg', 50)
 	icon_state = "upgradekit_open"
-	if(!do_after(user, 7.7 SECONDS, NONE, src, BUSY_ICON_ENERGY, prog_bar = null))
+	if(!do_after(user, 8 SECONDS, NONE, src, BUSY_ICON_ENERGY, prog_bar = null))
 		icon_state = initial(icon_state)
 		return
 
@@ -103,7 +103,7 @@
 	if(sentry.loc != human)
 		sentry.forceMove(human.loc)
 
-	human.drop_held_item(src)
+	human.drop_held_item()
 	qdel(src)
 
 

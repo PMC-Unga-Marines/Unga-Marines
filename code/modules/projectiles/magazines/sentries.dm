@@ -62,6 +62,3 @@
 	reload_delay = 3 SECONDS
 
 	default_ammo = /datum/ammo/flamethrower/turret
-
-/obj/item/ammo_magazine/flamer_tank/large/afterattack(obj/target, mob/user , flag)
-	return ..()
