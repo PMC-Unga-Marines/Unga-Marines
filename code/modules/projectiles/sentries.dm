@@ -36,7 +36,7 @@
 /obj/machinery/deployable/mounted/sentry/Initialize(mapload, _internal_item, deployer)
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	soundloop = new(list(src))
+	soundloop = new(list(src), active)
 
 	iff_signal = gun?.sentry_iff_signal ? gun.sentry_iff_signal : initial(iff_signal)
 	if(deployer)
