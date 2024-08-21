@@ -125,7 +125,7 @@
 
 /obj/machinery/deployable/mounted/sentry/on_unset_interaction(mob/user)
 	. = ..()
-	to_chat(user, span_notice("Вы перестали использовать [src], автоматика ИИ возобновлает работу."))
+	to_chat(user, span_notice("Вы прекратили использовать [src], автоматика ИИ возобновляет работу."))
 	set_on(TRUE)
 
 /obj/machinery/deployable/mounted/sentry/attack_hand(mob/living/user)
