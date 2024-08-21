@@ -152,7 +152,7 @@
 
 /obj/item/weapon/gun/sentry/pod_sentry
 	name = "\improper Турель TUR-B \"Базис\""
-	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
+	desc = "Развёртываемая автоматическая турель со встроенным ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "podsentry"
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	flags_item = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
