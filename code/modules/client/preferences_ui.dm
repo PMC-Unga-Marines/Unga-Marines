@@ -69,7 +69,6 @@
 			data["h_style"] = h_style
 			data["grad_style"] = grad_style
 			data["f_style"] = f_style
-//RUTGMC EDIT
 		if(PRED_CHARACTER_CUSTOMIZATION)
 			data["has_wl"] = GLOB.roles_whitelist[user.ckey] & WHITELIST_PREDATOR
 			data["legacy"] = GLOB.roles_whitelist[user.ckey] & WHITELIST_YAUTJA_LEGACY

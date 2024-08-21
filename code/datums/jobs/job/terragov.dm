@@ -15,21 +15,6 @@
 
 /datum/job/terragov/return_spawn_type(datum/preferences/prefs)
 	switch(prefs?.species)
-		if("Combat Robot")
-			if(!(SSticker.mode?.flags_round_type & MODE_HUMAN_ONLY))
-				switch(prefs?.robot_type)
-					if("Basic")
-						return /mob/living/carbon/human/species/robot
-					if("Hammerhead")
-						return /mob/living/carbon/human/species/robot/alpharii
-					if("Chilvaris")
-						return /mob/living/carbon/human/species/robot/charlit
-					if("Ratcher")
-						return /mob/living/carbon/human/species/robot/deltad
-					if("Sterling")
-						return /mob/living/carbon/human/species/robot/bravada
-			to_chat(prefs.parent, span_danger("Robot species joins are currently disabled, your species has been defaulted to Human"))
-			return /mob/living/carbon/human
 		if("Vatborn")
 			return /mob/living/carbon/human/species/vatborn
 		else

@@ -50,17 +50,16 @@
 #define AMMO_IGNORE_ARMOR (1<<9) //Projectile direct damage will ignore both hard and soft armor
 #define AMMO_IGNORE_RESIST (1<<10) //Unused.
 #define AMMO_BALLISTIC (1<<11) //Generates blood splatters on mob hit
-#define AMMO_SUNDERING (1<<12)
-#define AMMO_SPECIAL_PROCESS (1<<13)
-#define AMMO_SENTRY (1<<14) //Used to identify ammo from sentry guns and other automated sources
-#define AMMO_FLAME (1<<15) //Used to identify flamethrower projectiles and similar projectiles
-#define AMMO_IFF (1<<16) //Used to identify ammo that have intrinsec IFF properties
-#define AMMO_HITSCAN (1<<17) //If the projectile from this ammo is hitscan
-#define AMMO_LEAVE_TURF (1<<18) //If the projectile does something with on_leave_turf()
-#define AMMO_PASS_THROUGH_TURF (1<<19) //If the projectile passes through walls causing damage to them
-#define AMMO_PASS_THROUGH_MOVABLE (1<<20) //If the projectile passes through mobs and objects causing damage to them
-#define AMMO_PASS_THROUGH_MOB (1<<21) //If the projectile passes through mobs only causing damage to them
-#define AMMO_SOUND_PITCH (1<<22) //If the projectile ricochet and miss sound is pitched up
+#define AMMO_SPECIAL_PROCESS (1<<12)
+#define AMMO_SENTRY (1<<13) //Used to identify ammo from sentry guns and other automated sources
+#define AMMO_FLAME (1<<14) //Used to identify flamethrower projectiles and similar projectiles
+#define AMMO_IFF (1<<15) //Used to identify ammo that have intrinsec IFF properties
+#define AMMO_HITSCAN (1<<16) //If the projectile from this ammo is hitscan
+#define AMMO_LEAVE_TURF (1<<17) //If the projectile does something with on_leave_turf()
+#define AMMO_PASS_THROUGH_TURF (1<<18) //If the projectile passes through walls causing damage to them
+#define AMMO_PASS_THROUGH_MOVABLE (1<<19) //If the projectile passes through mobs and objects causing damage to them
+#define AMMO_PASS_THROUGH_MOB (1<<20) //If the projectile passes through mobs only causing damage to them
+#define AMMO_SOUND_PITCH (1<<21) //If the projectile ricochet and miss sound is pitched up
 
 //Gun defines for gun related thing. More in the projectile folder.
 //flags_gun_features

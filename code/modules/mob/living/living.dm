@@ -370,8 +370,10 @@
 				// if target isn't xeno and both are on help intents, but we don't want xenos to move petrified humans ,then we swap
 				else if(!isxeno(L) && move_force > L.move_resist && (L.a_intent == INTENT_HELP || L.restrained()))
 					mob_swap_mode = SWAPPING
-			/// if we're moving diagonally, but the mob isn't on the diagonal destination turf we have no reason to shuffle/push them
-			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
+			/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
+			 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us
+			*/
+			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && (L.faction == faction || L.move_resist <= move_force) && get_step(src, dir).Enter(src, loc))
 				mob_swap_mode = PHASING
 			if(mob_swap_mode)
 				//switch our position with L

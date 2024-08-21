@@ -627,10 +627,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 		thing_to_hit.do_projectile_hit(src)
 
-		/* RUTGMC DELETION START
-		if((ismob(thing_to_hit) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) || CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOVABLE))
-		RUTGMC DELETION END */
-		if(ismob(thing_to_hit) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB) || CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOVABLE) && !iscontainmentshutter(thing_to_hit)) // RUTGMC ADDITION
+		if(ismob(thing_to_hit) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB) || CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOVABLE) && !iscontainmentshutter(thing_to_hit))
 			hit_atoms += thing_to_hit
 			return FALSE
 
@@ -917,8 +914,8 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(IgniteMob())
 			feedback_flags |= (BULLET_FEEDBACK_FIRE)
 
-	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING)
-		adjust_sunder(proj.sundering) // RUTGMC EDIT
+	if(proj.sundering)
+		adjust_sunder(proj.sundering)
 
 	if(stat != DEAD && ismob(proj.firer))
 		record_projectile_damage(proj.firer, damage)	//Tally up whoever the shooter was
