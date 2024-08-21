@@ -225,7 +225,7 @@
 			var/safe = CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY)
 			user.visible_message(span_warning("[user] [safe ? "включ" : "отключ"]ил предокранитель у [src]."),
 				span_warning("Вы [safe ? "включ" : "отключ"]или предокранитель у [src]</span>"))
-			visible_message(span_warning("Красный светодиод у [src] ярко мигает!"))
+			visible_message(span_warning("Красный светодиод на [src] ярко мигает!"))
 			update_static_data(user)
 			. = TRUE
 
