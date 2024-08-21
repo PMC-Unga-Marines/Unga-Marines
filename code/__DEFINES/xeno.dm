@@ -148,28 +148,6 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/nymph/ai,
 ))
 
-GLOBAL_LIST_INIT(xeno_t1_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/runner/ai,
-	/mob/living/carbon/xenomorph/sentinel/ai,
-	/mob/living/carbon/xenomorph/defender/ai,
-	/mob/living/carbon/xenomorph/drone/ai,
-))
-
-GLOBAL_LIST_INIT(xeno_t2_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/hivelord/ai,
-	/mob/living/carbon/xenomorph/hunter/ai,
-	/mob/living/carbon/xenomorph/spitter/ai,
-	/mob/living/carbon/xenomorph/warrior/ai,
-))
-
-GLOBAL_LIST_INIT(xeno_t3_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/crusher/ai,
-	/mob/living/carbon/xenomorph/praetorian/ai,
-	/mob/living/carbon/xenomorph/ravager/ai,
-	/mob/living/carbon/xenomorph/boiler/ai,
-	/mob/living/carbon/xenomorph/chimera/ai,
-))
-
 ///Heals a xeno, respecting different types of damage
 #define HEAL_XENO_DAMAGE(xeno, amount, passive) do { \
 	var/fire_loss = xeno.getFireLoss(); \

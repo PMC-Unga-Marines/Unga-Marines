@@ -32,11 +32,9 @@
 
 	///the strength of the waves is ultimately multiplied by the number of people
 	var/waves_power = 1
-	///round start time
-	var/round_start_time
 	///time from the beginning of the round when the waves will not spawn
 	var/neutral_time = 5 MINUTES
-	///time from the beginning of the round when the waves will not spawn
+	///list of possible wave generators
 	var/list/waves_spawner = list()
 
 /datum/game_mode/last_stand/announce()
@@ -74,8 +72,6 @@
 /datum/game_mode/last_stand/post_setup()
 	. = ..()
 
-	round_start_time = world.time
-
 	for(var/spawner in subtypesof(/datum/wave_spawner))
 		var/datum/wave_spawner/wave = spawner
 		wave = new spawner()
@@ -83,7 +79,7 @@
 
 /datum/game_mode/last_stand/process()
 	. = ..()
-	if(world.time < round_start_time + neutral_time)
+	if(world.time < SSticker.round_start_time + neutral_time)
 		return
 	if(world.time > last_waves_check + waves_check_interval)
 		spawn_wave()
@@ -100,10 +96,10 @@
 		if(wave_checks >= 100 || points <= 0)
 			WARNING("Game mode couldn't spawn wave")
 			break
-		if(wave.min_time > world.time - round_start_time)
+		if(wave.min_time > world.time - SSticker.round_start_time)
 			wave_checks++
 			continue
-		if(wave.max_time != -1 && wave.max_time < world.time - round_start_time)
+		if(wave.max_time != -1 && wave.max_time < world.time - SSticker.round_start_time)
 			wave_checks++
 			continue
 		wave_spawned = wave.spawn_wave(points)
