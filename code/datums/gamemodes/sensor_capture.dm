@@ -5,7 +5,7 @@
 	config_tag = "Sensor Capture"
 	wave_timer_length = 2 MINUTES
 	max_game_time = 10 MINUTES
-	blacklist_ground_maps = list(MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS)
+	blacklist_ground_maps = list(MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_LAST_STAND)
 	game_timer_delay = 0
 	///The amount of activated sensor towers in sensor capture
 	var/sensors_activated = 0

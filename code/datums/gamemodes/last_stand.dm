@@ -23,6 +23,8 @@
 	)
 	xenorespawn_time = 1 MINUTES
 
+	whitelist_ground_maps = list(MAP_LAST_STAND)
+
 	///time between waves
 	var/waves_check_interval = 1 MINUTES
 	///waves timer
