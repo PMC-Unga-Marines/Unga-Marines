@@ -160,7 +160,7 @@
 	go_out()
 
 /obj/machinery/bodyscanner/ex_act(severity)
-	if(!prob(severity / 3))
+	if(!prob(severity * 0.3))
 		return
 
 	for(var/atom/movable/our_atom as mob|obj in src)
@@ -186,7 +186,7 @@
 	set_connected(locate(/obj/machinery/bodyscanner, get_step(src, REVERSE_DIR(dir))))
 
 /obj/machinery/computer/body_scanconsole/ex_act(severity)
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		qdel(src)
 
 /obj/machinery/computer/body_scanconsole/can_interact(mob/user)

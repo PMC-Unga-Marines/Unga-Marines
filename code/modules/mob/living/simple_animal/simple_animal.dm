@@ -211,7 +211,7 @@
 		gib()
 		return
 
-	adjustBruteLoss(severity / 3)
+	adjustBruteLoss(severity * 0.3)
 	UPDATEHEALTH(src)
 
 /mob/living/simple_animal/get_idcard(hand_first)

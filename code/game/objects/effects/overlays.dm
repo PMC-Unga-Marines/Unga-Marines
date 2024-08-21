@@ -228,9 +228,6 @@
 		linked_cam = null
 	return ..()
 
-/obj/effect/overlay/temp/laser_target/ex_act(severity) //immune to explosions
-	return
-
 /obj/effect/overlay/temp/laser_target/examine(user)
 	. = ..()
 	if(ishuman(user))
@@ -323,10 +320,6 @@
 		pixel_y = source_mob.pixel_y
 	icon_state = gib_icon
 
-/obj/effect/overlay/temp/gib_animation/ex_act(severity)
-	return
-
-
 /obj/effect/overlay/temp/gib_animation/animal
 	icon = 'icons/mob/animal.dmi'
 	effect_duration = 12
@@ -394,4 +387,4 @@
 	/// When detected to be unused it gets set to world.time, after a while it gets removed
 	var/unused = 0
 	/// Overlays which go unused for 2 minutes get cleaned up
-	var/cache_expiration = 2 MINUTES 
+	var/cache_expiration = 2 MINUTES

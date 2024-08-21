@@ -84,7 +84,6 @@
 	animate(src, 7 SECONDS, easing = CIRCULAR_EASING|EASE_IN, alpha = initial(alpha))
 	addtimer(VARSET_CALLBACK(src, opacity, initial(opacity)), 5 SECONDS)
 
-
 /obj/effect/particle_effect/smoke/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
 	SIGNAL_HANDLER
 	if(isliving(O))

@@ -47,12 +47,10 @@
 	update_icon()
 
 /obj/machinery/prop/computer/ex_act(severity)
-	if(severity >= EXPLODE_LIGHT && prob(severity /= 2))
-		if(prob(severity))
-			set_broken()
-		else
+	if(prob(severity * 0.3))
+		if(severity >= EXPLODE_MEDIUM)
 			qdel(src)
-	else if(prob(severity / 3))
+			return
 		set_broken()
 
 /obj/machinery/prop/computer/proc/set_broken()

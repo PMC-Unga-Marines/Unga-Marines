@@ -155,7 +155,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
 
-	if(!prob(severity / 3))
+	if(!prob(severity * 0.3))
 		return
 
 	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")

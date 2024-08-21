@@ -928,15 +928,8 @@
 /turf/open/floor/carpet/ex_act(severity)
 	if(hull_floor)
 		return ..()
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			make_plating()
-		if(EXPLODE_HEAVY)
-			if(prob(80))
-				make_plating()
-		if(EXPLODE_LIGHT)
-			if(prob(50))
-				make_plating()
+	if(prob(severity * 0.3))
+		make_plating()
 	return ..()
 
 /turf/open/floor/carpet/edge2

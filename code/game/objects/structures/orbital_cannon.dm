@@ -440,10 +440,6 @@
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-
-
-
-
 /obj/machinery/computer/orbital_cannon_console
 	name = "\improper Orbital Cannon Console"
 	desc = "The console controlling the orbital cannon loading systems."
@@ -461,10 +457,8 @@
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
-
 /obj/machinery/computer/orbital_cannon_console/ex_act()
 	return
-
 
 /obj/machinery/computer/orbital_cannon_console/interact(mob/user)
 	. = ..()

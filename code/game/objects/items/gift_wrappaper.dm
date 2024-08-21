@@ -51,13 +51,6 @@
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
 
-
-/* RUTGMC DELETION
-/obj/item/gift/ex_act()
-	qdel(src)
-*/
-
-
 /obj/item/gift/attack_self(mob/user)
 	var/gift_type = pick(gift_types)
 	var/obj/item/I = new gift_type
