@@ -24,7 +24,7 @@
 	max_health = 600
 
 	// *** Sunder *** //
-	sunder_multiplier = 0.8
+	sunder_multiplier = 0.7
 
 	// *** Evolution *** //
 	evolve_min_xenos = 8

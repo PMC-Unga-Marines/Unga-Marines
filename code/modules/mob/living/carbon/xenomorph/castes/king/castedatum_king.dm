@@ -22,6 +22,9 @@
 	// *** Health *** //
 	max_health = 650
 
+	// *** Sunder *** //
+	sunder_multiplier = 0.7
+
 	// *** Evolution *** //
 	maximum_active_caste = 1
 	evolve_min_xenos = 12

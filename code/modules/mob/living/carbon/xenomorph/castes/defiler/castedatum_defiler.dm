@@ -23,6 +23,9 @@
 	// *** Health *** //
 	max_health = 400
 
+	// *** Sunder *** //
+	sunder_multiplier = 0.8
+
 	// *** Evolution *** //
 	deevolves_to = /mob/living/carbon/xenomorph/carrier
 
