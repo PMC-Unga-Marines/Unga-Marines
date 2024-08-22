@@ -93,7 +93,6 @@
 			A.balloon_alert(X, "Cannot reach")
 		return FALSE
 
-
 /datum/action/ability/activable/xeno/defile/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	var/mob/living/carbon/living_target = A
@@ -229,10 +228,6 @@
 
 	if(!emitted_gas)
 		switch(defiler_owner.selected_reagent)
-/*
-			if(/datum/reagent/toxin/xeno_neurotoxin)
-				emitted_gas = new /datum/effect_system/smoke_spread/xeno/neuro/medium(defiler_owner)
-*/
 			if(/datum/reagent/toxin/xeno_hemodile)
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/hemodile(defiler_owner)
 			if(/datum/reagent/toxin/xeno_transvitox)
@@ -270,10 +265,6 @@
 		return
 
 	switch(X.selected_reagent)
-/*
-		if(/datum/reagent/toxin/xeno_neurotoxin)
-			particle_holder = new(owner, /particles/xeno_smoke/neurotoxin)
-*/
 		if(/datum/reagent/toxin/xeno_hemodile)
 			particle_holder = new(owner, /particles/xeno_smoke/hemodile)
 		if(/datum/reagent/toxin/xeno_transvitox)
@@ -338,10 +329,6 @@
 
 	var/obj/alien/egg/gas/newegg = new(A.loc, X.hivenumber)
 	switch(X.selected_reagent)
-/*
-		if(/datum/reagent/toxin/xeno_neurotoxin)
-			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/neuro/medium
-*/
 		if(/datum/reagent/toxin/xeno_ozelomelyn)
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/ozelomelyn
 		if(/datum/reagent/toxin/xeno_hemodile)
@@ -404,12 +391,11 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.defiler_toxin_type_list
 	var/static/list/defiler_toxin_images_list = list(
-//			DEFILER_NEUROTOXIN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN), //RUTGMC edit - icon change //NEURO REMOVAL
-			DEFILER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE), //RUTGMC edit - icon change
-			DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX), //RUTGMC edit - icon change
-			DEFILER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN), //RUTGMC edit - icon change
-			DEFILER_ACID = image('icons/Xeno/actions.dmi', icon_state = DEFILER_ACID), //RUTGMC edit - icon change
-			)
+		DEFILER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE),
+		DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX),
+		DEFILER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN),
+		DEFILER_ACID = image('icons/Xeno/actions.dmi', icon_state = DEFILER_ACID),
+	)
 	var/toxin_choice = show_radial_menu(owner, owner, defiler_toxin_images_list, radius = 48)
 	if(!toxin_choice)
 		return
@@ -475,7 +461,6 @@
 	X.balloon_alert(X, "Reagent slash over") //Let the user know
 	X.playsound_local(X, 'sound/voice/alien/hiss8.ogg', 25)
 
-
 ///Called when we slash while reagent slash is active
 /datum/action/ability/xeno_action/reagent_slash/proc/reagent_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
@@ -491,7 +476,6 @@
 			carbon_target.balloon_alert(xeno_owner, "Immune to Intoxication")
 			return
 
-		playsound(carbon_target, 'sound/effects/spray3.ogg', 20, TRUE)
 		if(carbon_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
 			var/datum/status_effect/stacking/intoxicated/debuff = carbon_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
 			debuff.add_stacks(SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
@@ -499,8 +483,8 @@
 			carbon_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
 	else
 		carbon_target.reagents.add_reagent(reagent_slash_reagent, DEFILER_REAGENT_SLASH_INJECT_AMOUNT)
-		playsound(carbon_target, 'sound/effects/spray3.ogg', 15, TRUE)
 		xeno_owner.visible_message(carbon_target, span_danger("[carbon_target] is pricked by [xeno_owner]'s spines!"))
+	playsound(carbon_target, 'sound/effects/spray3.ogg', 15, TRUE)
 
 	GLOB.round_statistics.defiler_reagent_slashes++ //Statistics
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_reagent_slashes")
@@ -509,7 +493,6 @@
 
 	if(!reagent_slash_count) //Deactivate if we have no reagent slashes remaining
 		reagent_slash_deactivate(xeno_owner)
-
 
 /datum/action/ability/xeno_action/reagent_slash/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to infuse our spines with toxins again."))
@@ -589,7 +572,6 @@
 			return FALSE
 		current = get_step_towards(current, target_turf)
 
-
 /datum/action/ability/activable/xeno/tentacle/use_ability(atom/movable/target)
 	var/atom/movable/tentacle_end/tentacle_end = new (get_turf(owner))
 	tentacle = owner.beam(tentacle_end,"curse0",'icons/effects/beam.dmi')
@@ -612,7 +594,7 @@
 	to_chat(owner, span_warning("We grab [target] with a tentacle!"))
 	target.balloon_alert_to_viewers("Grabbed!")
 	RegisterSignal(target, COMSIG_MOVABLE_POST_THROW, PROC_REF(delete_beam))
-	target.throw_at(owner, TENTACLE_ABILITY_RANGE, 1, owner, FALSE)
+	target.throw_at(get_step(owner, owner.dir), TENTACLE_ABILITY_RANGE, 1, owner, FALSE)
 	if(isliving(target))
 		var/mob/living/loser = target
 		loser.ImmobilizeNoChain(1 SECONDS) //RuTGMC Edit
@@ -632,37 +614,3 @@
 #undef DEFILER_HEMODILE
 #undef DEFILER_TRANSVITOX
 #undef DEFILER_OZELOMELYN
-
-///Called when we slash while reagent slash is active
-/datum/action/ability/xeno_action/reagent_slash/reagent_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	if(xeno_owner.selected_reagent == /datum/reagent/toxin/acid)
-
-		if(!target?.can_sting()) //We only care about targets that we can actually sting
-			return
-
-		var/mob/living/carbon/xeno_target = target
-
-		if(HAS_TRAIT(xeno_target, TRAIT_INTOXICATION_IMMUNE))
-			xeno_target.balloon_alert(xeno_owner, "Immune to Intoxication")
-			return
-
-		playsound(xeno_target, 'sound/effects/spray3.ogg', 20, TRUE)
-		if(xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
-			var/datum/status_effect/stacking/intoxicated/debuff = xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
-			debuff.add_stacks(SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
-		else
-			xeno_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, SENTINEL_TOXIC_SLASH_STACKS_PER + xeno_owner.xeno_caste.additional_stacks)
-
-		GLOB.round_statistics.defiler_reagent_slashes++ //Statistics
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_reagent_slashes")
-
-		reagent_slash_count-- //Decrement the toxic slash count
-
-		if(!reagent_slash_count) //Deactivate if we have no reagent slashes remaining
-			reagent_slash_deactivate(xeno_owner)
-
-		return
-
-	return ..()
-
