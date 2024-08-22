@@ -60,9 +60,6 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/effect/countdown/ex_act(severity) //immune to explosions
-	return
-
 /obj/effect/countdown/nuclearbomb
 	name = "nuclear bomb countdown"
 	color = "#81FF14"

@@ -1118,6 +1118,8 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	var/smart_count = 0
 	var/marine_text = ""
 	var/marine_count = 0
+	var/robot_text = ""
+	var/robot_count = 0
 	var/misc_text = ""
 	var/living_count = 0
 	var/conscious_text = ""
@@ -1197,6 +1199,9 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			if(SQUAD_MARINE)
 				marine_text += marine_infos
 				marine_count++
+			if(SQUAD_ROBOT)
+				robot_text += marine_infos
+				robot_count++
 			else
 				misc_text += marine_infos
 	if(current_squad.overwatch_officer)
@@ -1208,6 +1213,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	dat += "<b>Squad Smartgunners: [smart_count] Deployed</b><br>"
 	dat += "<b>Squad Corpsmen: [medic_count] Deployed | Squad Engineers: [engi_count] Deployed</b><br>"
 	dat += "<b>Squad Marines: [marine_count] Deployed</b><br>"
+	dat += "<b>Squad Robots: [robot_count] Deployed</b><br>"
 	dat += "<b>Total: [current_squad.get_total_members()] Deployed</b><br>"
 	dat += "<b>Marines alive: [living_count]</b><br><br>"
 	dat += "<table border='1' style='width:100%' align='center'><tr>"

@@ -12,7 +12,7 @@
 	allow_pass_flags = PASSABLE|PASS_DEFENSIVE_STRUCTURE
 
 /obj/structure/rock/ex_act(severity)
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		qdel(src)
 
 /obj/structure/rock/add_debris_element()

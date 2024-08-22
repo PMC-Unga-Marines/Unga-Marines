@@ -202,22 +202,6 @@
 	max_temperature = 28000 //K, walls will take damage if they're next to a fire hotter than this
 	walltype = "sulaco" //Changes all the sprites and icons.
 
-
-/* RUTGMC DELETION
-/turf/closed/wall/sulaco/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			ChangeTurf(/turf/open/floor/plating)
-		if(EXPLODE_HEAVY)
-			if(prob(75))
-				take_damage(rand(100, 250), BRUTE, BOMB)
-			else
-				dismantle_wall(1, 1)
-		if(EXPLODE_LIGHT)
-			take_damage(rand(0, 250), BRUTE, BOMB)
-*/
-
-
 /turf/closed/wall/sulaco/hull
 	name = "outer hull"
 	desc = "A reinforced outer hull, probably to prevent breaches"

@@ -78,6 +78,10 @@
 	icon_state = "Synth"
 	job = /datum/job/terragov/silicon/synthetic
 
+/obj/effect/landmark/start/job/squadrobot
+	icon_state = "Robot"
+	job = /datum/job/terragov/squad/robot
+
 /obj/effect/landmark/start/job/squadmarine
 	icon_state = "PFC"
 	job = /datum/job/terragov/squad/standard
@@ -263,3 +267,23 @@
 /obj/effect/landmark/start/squad/squadleader/delta
 	squad = DELTA_SQUAD
 	icon_state = "leader_spawn_delta"
+
+/obj/effect/landmark/start/squad/squadrobot
+	icon_state = "robot_spawn"
+	title = SQUAD_ROBOT
+
+/obj/effect/landmark/start/squad/squadrobot/alpha
+	squad = ALPHA_SQUAD
+	icon_state = "robot_spawn_alpha"
+
+/obj/effect/landmark/start/squad/squadrobot/bravo
+	squad = BRAVO_SQUAD
+	icon_state = "robot_spawn_bravo"
+
+/obj/effect/landmark/start/squad/squadrobot/charlie
+	squad = CHARLIE_SQUAD
+	icon_state = "robot_spawn_charlie"
+
+/obj/effect/landmark/start/squad/squadrobot/delta
+	squad = DELTA_SQUAD
+	icon_state = "robot_spawn_delta"

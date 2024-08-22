@@ -50,7 +50,6 @@
 	///The popped variant of this type
 	var/popped_variant
 
-
 /obj/structure/inflatable/deconstruct(disassembled = TRUE)
 	if(!deflated)
 		deflate(!disassembled)
@@ -59,7 +58,7 @@
 /obj/structure/inflatable/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
-	else if(prob(severity / 2))
+	else if(prob(severity * 0.5))
 		deflate(TRUE)
 
 /obj/structure/inflatable/attackby(obj/item/I, mob/user, params)

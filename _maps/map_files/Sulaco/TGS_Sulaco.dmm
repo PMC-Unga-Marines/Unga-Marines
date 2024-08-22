@@ -367,8 +367,8 @@
 /turf/closed/wall/mainship/gray/outer,
 /area/sulaco/cryosleep)
 "abr" = (
-/obj/effect/landmark/start/job/squadmarine,
 /obj/structure/sign/prop3,
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/prison/sterilewhite,
 /area/sulaco/cryosleep)
 "abs" = (
@@ -12917,6 +12917,10 @@
 	},
 /turf/open/floor/prison/darkyellow,
 /area/sulaco/disposal)
+"fPG" = (
+/obj/effect/landmark/start/job/crash/squadrobot,
+/turf/open/floor/prison/sterilewhite,
+/area/sulaco/cryosleep)
 "fRw" = (
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/tile/hydro,
@@ -15482,8 +15486,8 @@
 /turf/open/floor/prison,
 /area/sulaco/marine)
 "iXS" = (
-/obj/effect/landmark/start/job/squadmarine,
 /obj/machinery/vending/nanomed,
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/prison/sterilewhite,
 /area/sulaco/cryosleep)
 "iYq" = (
@@ -44667,7 +44671,7 @@ ogJ
 aiX
 aiX
 jWW
-iNW
+fPG
 aaH
 mVj
 anw
@@ -44924,7 +44928,7 @@ ogJ
 aiX
 aiX
 mmj
-iNW
+fPG
 aaH
 aaH
 aJy

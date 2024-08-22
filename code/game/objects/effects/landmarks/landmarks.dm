@@ -648,6 +648,15 @@
 	GLOB.tower_relay_locs += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/last_stand_waves
+	icon = 'icons/Xeno/castes/runner.dmi'
+	icon_state = "Runner Walking"
+	name = "last stand waves location"
+
+/obj/effect/landmark/last_stand_waves/Initialize(mapload)
+	. = ..()
+	GLOB.waves_spawner_loc = loc
+	return INITIALIZE_HINT_QDEL
 
 /// Marks the bottom left of the testing zone.
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.

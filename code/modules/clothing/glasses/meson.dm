@@ -3,7 +3,7 @@
 	desc = "Used to shield the user's eyes from harmful electromagnetic emissions, also used as general safety goggles. Not adequate as welding protection."
 	icon_state = "meson"
 	item_state = "meson"
-	deactive_state = "deactived_goggles"
+	deactive_state = "deactivated_meson" // there are differences in mob sprite
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
@@ -11,9 +11,7 @@
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	actions_types = list(/datum/action/item_action/toggle)
-	toggleable = 1
-	darkness_view = 2
+	toggleable = TRUE
 	vision_flags = SEE_TURFS
 
 /obj/item/clothing/glasses/meson/enggoggles
@@ -21,9 +19,8 @@
 	desc = "Standard issue TGMC goggles. This pair has been fitted with an internal optical meson scanner."
 	icon_state = "enggoggles"
 	item_state = "enggoggles"
-	deactive_state = "deactived_mgoggles"
-	flags_equip_slot = ITEM_SLOT_EYES
-	goggles = TRUE
+	deactive_state = "deactivated_mgoggles"
+	goggles_layer = TRUE
 
 /obj/item/clothing/glasses/meson/enggoggles/prescription
 	name = "\improper Optical meson prescription ballistic goggles"
@@ -34,24 +31,14 @@
 	name = "\improper Meson eyepatch"
 	desc = "An eyepatch fitted with the meson scanner interface. For the disabled and/or edgy Engineer."
 	icon_state = "patchmeson"
-	deactive_state = "deactived_patch"
-	species_exception = list(/datum/species/robot)
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	toggleable = TRUE
-	actions_types = list(/datum/action/item_action/toggle)
+	deactive_state = "deactivated_patch"
 
 /obj/item/clothing/glasses/meson/sunglasses
 	name = "\improper Meson sunglasses"
 	desc = "A pair of designer sunglasses. This pair has been fitted with an optical meson scanner."
 	icon_state = "mesonsunglasses"
 	item_state = "mesonsunglasses"
-	deactive_state = "deactived_sunglasses"
-	prescription = TRUE
+	deactive_state = "deactivated_sunglasses"
 
 /obj/item/clothing/glasses/meson/yautja
 	name = "bio-mask x-ray"
@@ -64,8 +51,6 @@
 	)
 	darkness_view = 12
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	vision_flags = SEE_TURFS
-	flags_inventory = COVEREYES
 	actions_types = null
 
 /obj/item/clothing/glasses/meson/yautja/Initialize()

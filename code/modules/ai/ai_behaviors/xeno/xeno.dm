@@ -109,7 +109,7 @@
 			return
 		if(isstructure(thing))
 			var/obj/structure/obstacle = thing
-			if(obstacle.resistance_flags & XENO_DAMAGEABLE && !istype(obstacle, /obj/structure/bed/nest)) //RUTGMC ADDITION, no nest breaking minions
+			if(obstacle.resistance_flags & XENO_DAMAGEABLE && !istype(obstacle, /obj/structure/bed/nest))
 				INVOKE_ASYNC(src, PROC_REF(attack_target), null, obstacle)
 				return COMSIG_OBSTACLE_DEALT_WITH
 		else if(istype(thing, /obj/machinery/door/airlock))
@@ -203,8 +203,8 @@
 			living_mob.do_resist()
 		return TRUE
 	SEND_SIGNAL(mob_parent, COMSIG_XENOABILITY_REST)
-	RegisterSignal(mob_parent, COMSIG_XENOMORPH_HEALTH_REGEN, PROC_REF(check_for_health))
-	RegisterSignal(mob_parent, COMSIG_XENOMORPH_PLASMA_REGEN, PROC_REF(check_for_plasma))
+	RegisterSignal(mob_parent, COMSIG_XENOMORPH_HEALTH_REGEN, PROC_REF(check_for_health), TRUE) //override is temporary solution
+	RegisterSignal(mob_parent, COMSIG_XENOMORPH_PLASMA_REGEN, PROC_REF(check_for_plasma), TRUE) //override is temporary solution
 	return TRUE
 
 ///Wait for the xeno to be full life and plasma to unrest

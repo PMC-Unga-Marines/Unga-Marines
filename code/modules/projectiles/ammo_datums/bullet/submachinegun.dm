@@ -2,13 +2,13 @@
 	name = "submachinegun bullet"
 	hud_state = "smg"
 	hud_state_empty = "smg_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy_var_low = 7
 	accuracy_var_high = 7
-	damage = 20
+	damage = 17
 	accurate_range = 4
 	damage_falloff = 1
-	sundering = 0.5
+	additional_xeno_penetration = 10
 	penetration = 5
 
 /datum/ammo/bullet/smg/ap
@@ -16,21 +16,50 @@
 	hud_state = "smg_ap"
 	damage = 15
 	penetration = 30
-	sundering = 3
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/smg/acp
 	name = "submachinegun ACP bullet"
 	hud_state = "smg"
 	hud_state_empty = "smg_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy_var_low = 7
 	accuracy_var_high = 7
 	damage = 20
 	accurate_range = 4
 	damage_falloff = 1
-	sundering = 0.4
 	penetration = 0
+	additional_xeno_penetration = 10
 	shrapnel_chance = 25
+
+/datum/ammo/bullet/smg/acp/hp
+	name = "hollow-point submachinegun ACP bullet"
+	damage = 40
+	penetration = 0
+	additional_xeno_penetration = -20
+
+/datum/ammo/bullet/smg/acp/ap
+	name = "armor-piercing submachinegun ACP bullet"
+	damage = 15
+	penetration = 20
+	additional_xeno_penetration = 20
+
+/datum/ammo/bullet/smg/acp/incendiary
+	name = "incendiary submachinegun ACP bullet"
+	hud_state = "smg_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	incendiary_strength = 1
+	damage_type = BURN
+	damage = 10
+	penetration = 0
+	additional_xeno_penetration = 0
+
+/datum/ammo/bullet/smg/acp/sabot
+	name = "APDS submachinegun ACP bullet"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
+	damage = 15
+	penetration = 5
+	sundering = 0.4
 
 /datum/ammo/bullet/smg/ap/hv
 	name = "high velocity armor-piercing submachinegun bullet"

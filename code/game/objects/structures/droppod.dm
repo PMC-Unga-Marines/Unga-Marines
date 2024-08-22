@@ -496,15 +496,6 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 			action.remove_action(occupant)
 	return ..()
 
-/* RUTGMC DELETION
-/obj/structure/droppod/nonmob/mech_pod/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(100, BRUTE, BOMB, 0)
-		if(EXPLODE_HEAVY)
-			take_damage(50, BRUTE, BOMB, 0)
-*/
-
 /obj/structure/droppod/nonmob/mech_pod/mech_shift_click(obj/vehicle/sealed/mecha/mecha_clicker, mob/living/user)
 	if(mecha_clicker == stored_object)
 		unload_package()

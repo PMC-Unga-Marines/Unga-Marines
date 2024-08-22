@@ -17,6 +17,10 @@ GLOBAL_LIST_EMPTY(tower_relay_locs)
 GLOBAL_LIST_EMPTY(xenoden_docking_ports_locs)
 GLOBAL_LIST_EMPTY(xenoden_cores_locs)
 
+GLOBAL_VAR(waves_spawner_loc)
+
+GLOBAL_LIST_EMPTY(last_stand_nukes)
+
 /proc/init_ammo_list()
 	. = list()
 	// Our ammo stuff is initialized here.

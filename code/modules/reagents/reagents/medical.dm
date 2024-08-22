@@ -34,17 +34,18 @@
 	return ..()
 
 /datum/reagent/medicine/inaprovaline/overdose_process(mob/living/L, metabolism)
-	L.jitter(5) //Overdose causes a spasm
-	L.Unconscious(40 SECONDS)
+	L.jitter(2) //Overdose causes a spasm
+	if(prob(15))
+		L.Unconscious(rand(5, 25))
 
 /datum/reagent/medicine/inaprovaline/overdose_crit_process(mob/living/L, metabolism)
 	L.setDrowsyness(L.drowsyness, 20)
 	if(ishuman(L)) //Critical overdose causes total blackout and heart damage. Too much stimulant
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
-		E.take_damage(0.5*effect_str, TRUE)
+		E.take_damage(0.5 * effect_str, TRUE)
 	if(prob(10))
-		L.emote(pick("twitch","blink_r","shiver"))
+		L.emote(pick("twitch", "blink_r", "shiver"))
 
 /datum/reagent/medicine/ryetalyn
 	name = "Ryetalyn"
@@ -1322,16 +1323,15 @@
 	for(var/datum/limb/limb_to_unfix AS in host.limbs)
 		if(limb_to_unfix.limb_status & (LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED | LIMB_DESTROYED | LIMB_AMPUTATED))
 			continue
-		limb_to_unfix.fracture()
+		if(prob(15))
+			limb_to_unfix.fracture()
 		break
-
 
 /datum/reagent/medicine/research
 	name = "Research precursor" //nothing with this subtype should be added to vendors
 	taste_description = "bitterness"
 	reagent_state = LIQUID
 	taste_description = "bitterness"
-
 
 /datum/reagent/medicine/research/quietus
 	name = "Quietus"

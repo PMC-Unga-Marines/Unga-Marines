@@ -14,6 +14,9 @@
 	var/effective_penetration = max(0, penetration - hard_armor_remaining)
 	hard_armor_remaining -= (penetration - effective_penetration)
 
+	if(penetration < 0) //hollow-point
+		effective_penetration = penetration
+
 	var/sunder_ratio = clamp(1 - ((sunder - hard_armor_remaining) * 0.01), 0, 1) //sunder is reduced by whatever remaining hardarmour there is
 
 	return clamp(damage_amount * (1 - ((get_soft_armor(armor_type, def_zone) * sunder_ratio - effective_penetration) * 0.01)), 0, damage_amount)
@@ -23,6 +26,9 @@
 		return
 
 	if(status_flags & (INCORPOREAL|GODMODE))
+		return
+
+	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_MOB_EX_ACT))
 		return
 
 	if(lying_angle)
@@ -51,6 +57,7 @@
 		adjust_stagger(powerfactor_value / 2)
 	else
 		adjust_slowdown(powerfactor_value / 3)
+	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave
 
 /mob/living/carbon/xenomorph/apply_damage(damage = 0, damagetype = BRUTE, def_zone, blocked = 0, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration)
 	if(status_flags & GODMODE)

@@ -46,11 +46,17 @@
 	///How long ADS takes (time before firing)
 	var/wield_delay_mod = 0
 
+	/// If this and ammo_band_icon aren't null, run update_ammo_band(). Is the color of the band, such as green on AP.
+	var/ammo_band_color = null
+	/// If this and ammo_band_color aren't null, run update_ammo_band() Is the greyscale icon used for the ammo band.
+	var/ammo_band_icon = null
+
 /obj/item/ammo_magazine/Initialize(mapload, spawn_empty)
 	. = ..()
 	base_mag_icon = icon_state
 	current_rounds = spawn_empty ? 0 : max_rounds
 	update_icon()
+	update_ammo_band()
 
 /obj/item/ammo_magazine/update_icon_state()
 	. = ..()
@@ -61,6 +67,14 @@
 		icon_state = base_mag_icon + "_e"
 		return
 	icon_state = base_mag_icon
+
+/obj/item/ammo_magazine/proc/update_ammo_band()
+	overlays.Cut()
+	if(ammo_band_color)
+		var/image/ammo_band_image = image(icon, src, ammo_band_icon)
+		ammo_band_image.color = ammo_band_color
+		ammo_band_image.appearance_flags = RESET_COLOR|KEEP_APART
+		overlays += ammo_band_image
 
 /obj/item/ammo_magazine/examine(mob/user)
 	. = ..()
@@ -94,11 +108,15 @@
 		return
 
 	var/obj/item/ammo_magazine/mag = I
+	var/amount_to_transfer = mag.current_rounds
+
 	if(default_ammo != mag.default_ammo)
+		if(current_rounds == 0)
+			transfer_ammo(mag, user, amount_to_transfer, TRUE)
+			return
 		to_chat(user, span_notice("Those aren't the same rounds. Better not mix them up."))
 		return
 
-	var/amount_to_transfer = mag.current_rounds
 	transfer_ammo(mag, user, amount_to_transfer)
 
 
@@ -125,7 +143,7 @@
 	master_gun.wield_delay					-= wield_delay_mod
 
 //Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
-/obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1)
+/obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, is_new_ammo_type = FALSE)
 	if(current_rounds >= max_rounds) //Does the mag actually need reloading?
 		to_chat(user, span_notice("[src] is already full."))
 		return
@@ -149,6 +167,11 @@
 	var/amount_difference = clamp(min(transfer_amount, max_rounds - current_rounds), 0, source.current_rounds)
 	source.current_rounds -= amount_difference
 	current_rounds += amount_difference
+
+	if(is_new_ammo_type)
+		default_ammo = source.default_ammo
+		ammo_band_color = source.ammo_band_color
+		update_ammo_band()
 
 	if(source.current_rounds <= 0 && CHECK_BITFIELD(source.flags_magazine, MAGAZINE_HANDFUL)) //We want to delete it if it's a handful.
 		user?.temporarilyRemoveItemFromInventory(source)

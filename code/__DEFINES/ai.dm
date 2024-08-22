@@ -46,6 +46,7 @@
 #define TARGET_HUMAN (1<<2)
 #define TARGET_XENO (1<<3)
 #define TARGET_UNMANNED_VEHICLE (1<<4)
+#define TARGET_NUKE (1<<5)
 
 #define MAX_NODE_RANGE 15
 #define PATHFINDER_MAX_TRIES 200

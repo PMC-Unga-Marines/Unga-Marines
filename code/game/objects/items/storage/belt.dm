@@ -60,9 +60,7 @@
 		/obj/item/tool/taperoll/engineering,
 		/obj/item/tool/extinguisher/mini,
 		/obj/item/tool/shovel/etool,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,
-		//RUTGMC EDIT ADDITION  END
 	)
 
 /obj/item/storage/belt/utility/full/Initialize(mapload)
@@ -126,11 +124,9 @@
 		/obj/item/storage/syringe_case,
 		/obj/item/reagent_containers/hypospray/autoinjector,
 		/obj/item/stack/medical,
-		//RUTGMC EDIT ADDITION  BEGIN
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/tweezers,
 		/obj/item/tweezers_advanced
-		//RUTGMC EDIT ADDITION  END
 	)
 
 /obj/item/storage/belt/lifesaver/full/Initialize(mapload)  //The belt, with all it's magic inside!
@@ -142,6 +138,7 @@
 	new /obj/item/storage/pill_bottle/dylovene(src)
 	new /obj/item/storage/pill_bottle/inaprovaline(src)
 	new /obj/item/storage/pill_bottle/isotonic(src)
+	new /obj/item/storage/pill_bottle/dexalin(src)
 	new /obj/item/storage/pill_bottle/spaceacillin(src)
 	new /obj/item/storage/pill_bottle/imialky(src)
 	new /obj/item/storage/pill_bottle/hypervene(src)
@@ -294,11 +291,9 @@
 		/obj/item/defibrillator,
 		/obj/item/roller,
 		/obj/item/tool/research,
-		//RUTGMC EDIT ADDITION  BEGIN
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/tweezers,
 		/obj/item/tweezers_advanced
-		//RUTGMC EDIT ADDITION  END
 	)
 
 /obj/item/storage/belt/rig/medical/Initialize(mapload)  //The belt, with all it's magic inside!
@@ -310,9 +305,9 @@
 	new /obj/item/storage/pill_bottle/dylovene(src)
 	new /obj/item/storage/pill_bottle/inaprovaline(src)
 	new /obj/item/storage/pill_bottle/isotonic(src)
+	new /obj/item/storage/pill_bottle/dexalin(src)
 	new /obj/item/storage/pill_bottle/spaceacillin(src)
-	new /obj/item/storage/pill_bottle/alkysine(src)
-	new /obj/item/storage/pill_bottle/imidazoline(src)
+	new /obj/item/storage/pill_bottle/imialky(src)
 	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/bodybag/cryobag(src)
 	new /obj/item/roller(src)

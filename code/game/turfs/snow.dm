@@ -145,7 +145,7 @@
 			D.update_appearance(ALL)
 
 /turf/open/floor/plating/ground/snow/ex_act(severity)
-	if(slayer && prob(severity / 5))
+	if(slayer && prob(severity * 0.2))
 		slayer = rand(0, 3)
 	update_appearance()
 	update_sides()

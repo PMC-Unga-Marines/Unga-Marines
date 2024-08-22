@@ -52,7 +52,6 @@
 	icon='icons/obj/structures/fence_ns.dmi'
 	icon_state = "fence-ns"
 
-
 /obj/structure/grille/ex_act(severity)
 	qdel(src)
 

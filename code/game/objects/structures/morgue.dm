@@ -34,7 +34,7 @@
 			icon_state = "[morgue_type]1"
 
 /obj/structure/morgue/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		for(var/atom/movable/A in src)
 			A.forceMove(loc)
 			ex_act(severity)

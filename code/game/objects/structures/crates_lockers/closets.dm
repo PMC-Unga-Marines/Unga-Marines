@@ -64,7 +64,7 @@
 
 /obj/structure/closet/ex_act(severity)
 	take_damage(severity, BRUTE, BOMB)
-	if(!locked || prob(severity / 3))
+	if(!locked || prob(severity * 0.3))
 		break_open()
 		contents_explosion(severity)
 
@@ -89,7 +89,7 @@
 	dump_contents()
 	return ..()
 
-//USE THIS TO FILL IT, NOT INITIALIZE OR NEW
+///USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
 	return
 
@@ -184,28 +184,6 @@
 /obj/structure/closet/proc/toggle(mob/living/user)
 	return opened ? close(user) : open(user)
 
-/obj/structure/closet/ex_act(severity)
-	var/dmg
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			contents_explosion(severity)
-			dump_contents()
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			dmg = rand()
-			if(!locked || dmg > 0.1)
-				contents_explosion(severity)
-				break_open()
-				if(dmg > 0.5)
-					qdel(src)
-		if(EXPLODE_LIGHT)
-			dmg = rand()
-			if(!locked || dmg > 0.5)
-				contents_explosion(severity)
-				break_open()
-				if(dmg > 0.95)
-					qdel(src)
-
 /obj/structure/closet/attack_animal(mob/living/user)
 	if(user.wall_smash)
 		balloon_alert_to_viewers("[user] destroys the [src]")
@@ -230,8 +208,7 @@
 			return TRUE
 		return user.transferItemToLoc(I, drop_location())
 
-	var/obj/item/card/id/ID = user.get_idcard()
-	if(istype(ID))
+	if(user.get_idcard())
 		if(!togglelock(user, TRUE))
 			toggle(user)
 
@@ -301,20 +278,19 @@
 	. = ..()
 	if(.)
 		return
-	return toggle(user)
-
-/obj/structure/closet/verb/verb_toggleopen()
-	set src in oview(1)
-	set category = "Object"
-	set name = "Toggle Open"
-
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
-
-	if(ishuman(usr))
-		src.toggle(usr)
+	if(user.get_idcard() && locked)
+		togglelock(user, TRUE)
 	else
-		balloon_alert(usr, "Can't do this")
+		toggle(user)
+
+/obj/structure/closet/attack_hand_alternate(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(opened)
+		toggle(user)
+	else if(user.get_idcard())
+		togglelock(user, TRUE)
 
 /obj/structure/closet/update_icon_state()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	. = ..()
@@ -370,10 +346,6 @@
 		welded = FALSE
 		update_icon()
 
-/obj/structure/closet/AltClick(mob/user)
-	. = ..()
-	return togglelock(user)
-
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
 	if(!CHECK_BITFIELD(closet_flags, CLOSET_IS_SECURE))
 		return FALSE
@@ -396,7 +368,7 @@
 		return FALSE
 
 	locked = !locked
-	balloon_alert_to_viewers("[locked ? null : "un"]locked")
+	balloon_alert_to_viewers("[locked ? "" : "un"]locked")
 	update_icon()
 	return TRUE
 
