@@ -106,10 +106,7 @@
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(xeno_attacker.a_intent != INTENT_DISARM)
-		return FALSE
-
-	if(xeno_attacker.a_intent == INTENT_DISARM)
+	if(xeno_attacker.a_intent == INTENT_HARM)
 		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker) && refundable)
 			SSresinshaping.decrement_build_counter(xeno_attacker)
 		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
@@ -184,7 +181,7 @@
 	var/turf/cur_loc = xeno_attacker.loc
 	if(!istype(cur_loc))
 		return FALSE
-	if(xeno_attacker.a_intent != INTENT_DISARM)
+	if(xeno_attacker.a_intent != INTENT_HARM)
 		try_toggle_state(xeno_attacker)
 		return TRUE
 	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
