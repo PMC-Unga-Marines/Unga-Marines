@@ -61,13 +61,15 @@
 		WARNING("disk_type is required to be set before init")
 		return INITIALIZE_HINT_QDEL
 
+	if(isexterminationgamemode(SSticker.mode))
+		use_power = NO_POWER_USE
+
 	GLOB.nuke_disk_generators += src
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(set_broken))
 
 /obj/machinery/computer/nuke_disk_generator/Destroy()
 	GLOB.nuke_disk_generators -= src
 	return ..()
-
 
 /obj/machinery/computer/nuke_disk_generator/process()
 	. = ..()
@@ -83,17 +85,36 @@
 	update_minimap_icon()
 	visible_message("<b>[src]</b> shuts down as it loses power. Any running programs will now exit")
 
-
 /obj/machinery/computer/nuke_disk_generator/attackby(obj/item/I, mob/living/user, params)
 	return attack_hand(user)
 
+/obj/machinery/computer/nuke_disk_generator/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL) //Incorporeal xenos cannot attack physically.
+		return
+	if(!(busy || current_timer))
+		return
+
+	if(xeno_attacker.do_actions)
+		return balloon_alert(xeno_attacker, "busy")
+	if(!do_after(xeno_attacker, 2 SECONDS, NONE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
+		return
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	xeno_attacker.visible_message(span_danger("[xeno_attacker] slashes \the [src]!"), \
+	span_danger("We slash \the [src]!"), null, 5)
+	playsound(loc, "alien_claw_metal", 25, TRUE)
+
+	seconds_elapsed = (segment_time/10) * completed_segments
+	running = FALSE
+	deltimer(current_timer)
+	current_timer = null
+	update_minimap_icon()
+	visible_message("<b>[src]</b> shuts down. Any running programs will now exit")
 
 /obj/machinery/computer/nuke_disk_generator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "NukeDiskGenerator")
 		ui.open()
-
 
 /obj/machinery/computer/nuke_disk_generator/ui_data(mob/user)
 	var/list/data = list()
@@ -126,7 +147,6 @@
 	data["segment_number"] = total_segments
 
 	return data
-
 
 /obj/machinery/computer/nuke_disk_generator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -179,6 +199,8 @@
 	if(completed_segments == total_segments)
 		visible_message(span_notice("[src] beeps as it ready to print."))
 		return
+
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DISK_PROGRESS, src)
 
 	visible_message(span_notice("[src] beeps as it's program requires attention."))
 

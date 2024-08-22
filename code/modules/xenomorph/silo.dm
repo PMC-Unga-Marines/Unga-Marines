@@ -7,7 +7,7 @@
 	bound_height = 96
 	max_integrity = 1000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
-	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE
+	xeno_structure_flags = IGNORE_WEED_REMOVAL
 	plane = FLOOR_PLANE
 	///How many larva points one silo produce in one minute
 	var/larva_spawn_rate = 0.5
