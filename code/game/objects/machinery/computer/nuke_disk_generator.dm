@@ -61,9 +61,6 @@
 		WARNING("disk_type is required to be set before init")
 		return INITIALIZE_HINT_QDEL
 
-	if(isexterminationgamemode(SSticker.mode))
-		use_power = NO_POWER_USE
-
 	GLOB.nuke_disk_generators += src
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(set_broken))
 
