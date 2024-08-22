@@ -31,7 +31,7 @@
 	caste_traits = list(TRAIT_STOPS_TANK_COLLISION)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 90, BULLET = 80, LASER = 08, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 40, ACID = 100)
+	soft_armor = list(MELEE = 90, BULLET = 80, LASER = 80, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 40, ACID = 100)
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.5
