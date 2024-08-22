@@ -16,9 +16,6 @@
 	// *** Speed *** //
 	speed = -0.1
 
-	// *** Sunder *** //
-	sunder_recover = 2
-
 	// *** Plasma *** //
 	plasma_max = 400
 	plasma_gain = 30
@@ -34,7 +31,7 @@
 	caste_traits = list(TRAIT_STOPS_TANK_COLLISION)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 90, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 40, ACID = 100)
+	soft_armor = list(MELEE = 90, BULLET = 80, LASER = 08, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 40, ACID = 100)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "crusher"
