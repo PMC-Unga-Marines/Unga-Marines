@@ -208,6 +208,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 				to_chat(buyer, span_xenowarning("Another silo is too close!"))
 				return FALSE
 
+	if(isexterminationgamemode(SSticker.mode) && length(GLOB.xeno_resin_silos_by_hive[buyer.hivenumber]) >= 1)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("Hive cannot support more than 1 active silos!"))
+		return FALSE
+
 	if(length(GLOB.xeno_resin_silos_by_hive[buyer.hivenumber]) >= 2)
 		if(!silent)
 			to_chat(buyer, span_xenowarning("Hive cannot support more than 2 active silos!"))
