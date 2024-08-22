@@ -38,10 +38,10 @@
 // *******************************
 
 /obj/item/weapon/gun/sentry/basic/proc/get_upgrade_list()
-	. += list("Sniper Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "sniper_icon"),
-			"Shotgun Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "shotgun_icon"),
-			"Mini Upgrade" = image(icon = 'icons/Marine/sentry.dmi', icon_state = "mini_icon"),
-			"Flamer Upgrade"  = image(icon = 'icons/Marine/sentry.dmi', icon_state = "flamer_icon"),
+	. += list("Sniper Upgrade" = image(icon = 'icons/mob/radial.dmi', icon_state = "sniper_icon"),
+			"Shotgun Upgrade" = image(icon = 'icons/mob/radial.dmi', icon_state = "shotgun_icon"),
+			"Mini Upgrade" = image(icon = 'icons/mob/radial.dmi', icon_state = "mini_icon"),
+			"Flamer Upgrade"  = image(icon = 'icons/mob/radial.dmi', icon_state = "flamer_icon"),
 	)
 
 /obj/item/weapon/gun/sentry/basic/proc/upgrade_string_to_type(upgrade_string)
