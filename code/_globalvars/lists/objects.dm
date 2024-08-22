@@ -3,6 +3,10 @@ GLOBAL_LIST_INIT(ammo_list, init_ammo_list())						//List of all ammo types. Use
 
 GLOBAL_LIST_EMPTY(xeno_egg_hugger)
 
+GLOBAL_VAR(waves_spawner_loc)
+
+GLOBAL_LIST_EMPTY(last_stand_nukes)
+
 /proc/init_ammo_list()
 	. = list()
 	// Our ammo stuff is initialized here.

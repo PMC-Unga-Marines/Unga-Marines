@@ -352,6 +352,38 @@
 	SSminimaps.remove_marker(src)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "nuke[timer_enabled ? "_on" : "_off"]", VERY_HIGH_FLOAT_LAYER))
 
+///Last Stand nuclear bomb
+/obj/structure/nuclearbomb
+	name = "nuclear fission explosive"
+	desc = "You probably shouldn't stick around to see if it's armed."
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "nuclearbomb0"
+	density = TRUE
+	anchored = TRUE
+	coverage = 20
+	flags_atom = CRITICAL_ATOM
+	max_integrity = 1000
+	resistance_flags = XENO_DAMAGEABLE|PROJECTILE_IMMUNE|UNACIDABLE
+	layer = BELOW_MOB_LAYER
+
+/obj/structure/nuclearbomb/Initialize(mapload)
+	. = ..()
+	GLOB.last_stand_nukes += src
+
+/obj/structure/nuclearbomb/attacked_by(obj/item/I, mob/living/user, def_zone)
+	return FALSE
+
+/obj/structure/nuclearbomb/ex_act(severity, direction)
+	return
+
+/obj/structure/nuclearbomb/obj_destruction(damage_amount, damage_type, damage_flag)
+	cell_explosion(loc, 1500, 30) //funny kaboom
+	return ..()
+
+/obj/structure/nuclearbomb/Destroy()
+	GLOB.last_stand_nukes -= src
+	return ..()
+
 #undef NUKE_STAGE_NONE
 #undef NUKE_STAGE_COVER_REMOVED
 #undef NUKE_STAGE_COVER_OPENED
