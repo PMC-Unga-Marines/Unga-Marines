@@ -397,7 +397,7 @@
 	icon_state = "marinepackt"
 	item_state = "marinepackt"
 	bypass_w_limit = list(
-		/obj/item/weapon/gun/sentry/big_sentry,
+		/obj/item/weapon/gun/sentry/basic,
 		/obj/item/weapon/gun/sentry/mini,
 		/obj/item/weapon/gun/tl102,
 		/obj/item/ammo_magazine/tl102,

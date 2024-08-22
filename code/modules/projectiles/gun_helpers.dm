@@ -26,7 +26,7 @@
 
 /obj/item/weapon/gun/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	if(user.get_inactive_held_item() != src || istype(I, /obj/item/attachable) || isgun(I))
+	if(user.get_inactive_held_item() != src || istype(I, /obj/item/attachable) || isgun(I) || istype(I, /obj/item/sentry_upgrade_kit))
 		return
 	reload(I, user)
 
