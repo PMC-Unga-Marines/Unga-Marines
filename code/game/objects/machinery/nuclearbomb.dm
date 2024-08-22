@@ -355,7 +355,7 @@
 ///Last Stand nuclear bomb
 /obj/structure/nuclearbomb
 	name = "nuclear fission explosive"
-	desc = "You probably shouldn't stick around to see if this is armed."
+	desc = "You probably shouldn't stick around to see if it's armed."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "nuclearbomb0"
 	density = TRUE
