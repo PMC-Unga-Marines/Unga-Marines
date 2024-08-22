@@ -19,7 +19,7 @@
 	COOLDOWN_DECLARE(silo_proxy_alert_cooldown)
 
 /obj/structure/xeno/silo/Initialize(mapload, _hivenumber)
-	if(isexterminationgamemode(SSticker.mode))
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_SILO_NO_LARVA))
 		xeno_structure_flags &= ~CRITICAL_STRUCTURE
 	. = ..()
 	center_turf = get_step(src, NORTHEAST)
