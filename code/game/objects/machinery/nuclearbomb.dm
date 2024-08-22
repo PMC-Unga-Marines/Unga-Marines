@@ -363,12 +363,18 @@
 	coverage = 20
 	flags_atom = CRITICAL_ATOM
 	max_integrity = 1000
-	resistance_flags = XENO_DAMAGEABLE|PROJECTILE_IMMUNE
+	resistance_flags = XENO_DAMAGEABLE|PROJECTILE_IMMUNE|UNACIDABLE
 	layer = BELOW_MOB_LAYER
 
 /obj/structure/nuclearbomb/Initialize(mapload)
 	. = ..()
 	GLOB.last_stand_nukes += src
+
+/obj/structure/nuclearbomb/attacked_by(obj/item/I, mob/living/user, def_zone)
+	return FALSE
+
+/obj/structure/nuclearbomb/ex_act(severity, direction)
+	return
 
 /obj/structure/nuclearbomb/obj_destruction(damage_amount, damage_type, damage_flag)
 	cell_explosion(loc, 500, 10) //funny kaboom
