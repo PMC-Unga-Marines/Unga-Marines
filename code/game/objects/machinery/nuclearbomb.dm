@@ -377,7 +377,7 @@
 	return
 
 /obj/structure/nuclearbomb/obj_destruction(damage_amount, damage_type, damage_flag)
-	cell_explosion(loc, 500, 10) //funny kaboom
+	cell_explosion(loc, 1500, 30) //funny kaboom
 	return ..()
 
 /obj/structure/nuclearbomb/Destroy()
