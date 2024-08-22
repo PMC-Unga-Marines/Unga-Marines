@@ -36,7 +36,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 20, BIO = 25, FIRE = 45, ACID = 20)
+	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 45, BOMB = 20, BIO = 25, FIRE = 45, ACID = 20)
 
 	// *** Pheromones *** //
 	aura_strength = 4.5 //The Shrike's aura is decent.

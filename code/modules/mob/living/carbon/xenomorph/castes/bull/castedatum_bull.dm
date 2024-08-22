@@ -21,6 +21,9 @@
 	// *** Health *** //
 	max_health = 325
 
+	// *** Sunder *** //
+	sunder_multiplier = 0.8
+
 	// *** Evolution *** //
 	evolution_threshold = 225
 
