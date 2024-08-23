@@ -13,13 +13,16 @@
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
-		),
+			/obj/item/ammo_magazine/smg/vector/ap = -1,
+			/obj/item/ammo_magazine/smg/vector/hp = -1,
+),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/standard_dmr = -1,
 			/obj/item/ammo_magazine/rifle/standard_dmr = -1,
@@ -74,6 +77,8 @@
 			/obj/item/ammo_magazine/pistol/standard_pocketpistol = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
+			/obj/item/ammo_magazine/pistol/vp70/ap = -1,
+			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -210,6 +215,8 @@
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = 10,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = 10,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 		),
@@ -225,6 +232,8 @@
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/ammo_magazine/smg/vector/ap = -1,
+			/obj/item/ammo_magazine/smg/vector/hp = -1,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/standard_dmr = -1,
@@ -282,6 +291,8 @@
 			/obj/item/ammo_magazine/pistol/standard_pocketpistol = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
+			/obj/item/ammo_magazine/pistol/vp70/ap = -1,
+			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -415,7 +426,8 @@
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
-			/obj/item/weapon/gun/rifle/tx55 = -1,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 		),
@@ -431,6 +443,8 @@
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/ammo_magazine/smg/vector/ap = -1,
+			/obj/item/ammo_magazine/smg/vector/hp = -1,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/standard_dmr = -1,
@@ -490,6 +504,8 @@
 			/obj/item/ammo_magazine/pistol/standard_pocketpistol = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
+			/obj/item/ammo_magazine/pistol/vp70/ap = -1,
+			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
