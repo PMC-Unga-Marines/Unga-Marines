@@ -1577,11 +1577,7 @@
 	scannable = TRUE
 
 /datum/reagent/histamine/on_mob_life(mob/living/L, metabolism)
-
-	//reagents
-	var/Ifex = L.reagents.get_reagent_amount(/datum/reagent/medicine/ifex)
-
-	if(!Ifex)
+	if(!L.reagents.get_reagent_amount(/datum/reagent/medicine/ifex))
 		holder.remove_reagent(/datum/reagent/histamine, 0.4)
 
 	L.apply_damage(0.5*effect_str, OXY)
