@@ -66,7 +66,6 @@
 			if(istype(xeno_caste, /datum/xeno_caste/shrike))
 				return list(/mob/living/carbon/xenomorph/queen, /mob/living/carbon/xenomorph/king)
 
-
 ///Handles the evolution or devolution of the xenomorph
 /mob/living/carbon/xenomorph/proc/do_evolve(caste_type, forced_caste_name, regression = FALSE)
 	if(!generic_evolution_checks())
