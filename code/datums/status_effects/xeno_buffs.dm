@@ -620,17 +620,24 @@
 
 /datum/status_effect/xeno_feast/tick()
 	. = ..()
-	var/mob/living/carbon/xenomorph/X = owner
-	if(!X)
-		return
-	var/heal_amount = X.maxHealth*0.08
-	for(var/mob/living/carbon/xenomorph/target_xeno AS in cheap_get_xenos_near(X, 4))
-		if(target_xeno == X)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+
+	if(xeno_owner.plasma_stored < plasma_drain)
+		to_chat(xeno_owner, span_notice("Our feast has come to an end..."))
+		xeno_owner.remove_status_effect(STATUS_EFFECT_XENO_FEAST)
+
+	var/heal_amount = xeno_owner.maxHealth * 0.08
+	HEAL_XENO_DAMAGE(xeno_owner, heal_amount, FALSE)
+	adjustOverheal(xeno_owner, heal_amount * 0.5)
+	xeno_owner.use_plasma(plasma_drain)
+
+	for(var/mob/living/carbon/xenomorph/target_xeno AS in cheap_get_xenos_near(xeno_owner, 4))
+		if(target_xeno == xeno_owner)
 			continue
-		if(target_xeno.faction != X.faction)
+		if(target_xeno.faction != xeno_owner.faction)
 			continue
 		HEAL_XENO_DAMAGE(target_xeno, heal_amount, FALSE)
-		adjustOverheal(target_xeno, heal_amount / 2)
+		adjustOverheal(target_xeno, heal_amount * 0.5)
 		new /obj/effect/temp_visual/healing(get_turf(target_xeno))
 
 
