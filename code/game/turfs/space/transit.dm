@@ -143,7 +143,7 @@
 	. = ..()
 	if(istype(wear_suit, /obj/item/clothing/suit/storage/marine/boomvest))
 		var/obj/item/clothing/suit/storage/marine/boomvest/vest = wear_suit
-		vest.boom(usr)
+		vest.boom(src)
 
 /turf/open/space/transit/Initialize(mapload)
 	. = ..()
