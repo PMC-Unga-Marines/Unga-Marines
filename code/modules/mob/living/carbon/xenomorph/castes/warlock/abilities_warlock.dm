@@ -622,5 +622,5 @@
 	else
 		if(!do_after(X, 0 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || X.is_zoomed)
 			return
-		X.zoom_in(0, 4.5)
+		X.zoom_in(0, 9)
 		..()
