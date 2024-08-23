@@ -30,11 +30,6 @@
 	// *** Evolution *** //
 	evolution_threshold = 100
 
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/hunter,
-		/mob/living/carbon/xenomorph/bull,
-		/mob/living/carbon/xenomorph/panther,
-	)
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER

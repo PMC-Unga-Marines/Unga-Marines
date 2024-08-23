@@ -25,10 +25,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 100
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/warrior,
-		/mob/living/carbon/xenomorph/bull,
-	)
 
 	deevolves_to = /mob/living/carbon/xenomorph/larva
 
