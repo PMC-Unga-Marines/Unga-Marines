@@ -980,6 +980,7 @@
 			/obj/item/storage/pill_bottle/kelotane = -1,
 			/obj/item/storage/pill_bottle/tramadol = -1,
 			/obj/item/storage/pill_bottle/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/ifex = -1,
 			/obj/item/storage/pill_bottle/combatmix = -1,
 			/obj/item/storage/pill_bottle/dylovene = -1,
 			/obj/item/storage/pill_bottle/dexalin = -1,
@@ -1028,6 +1029,7 @@
 			/obj/item/storage/pill_bottle/kelotane = -1,
 			/obj/item/storage/pill_bottle/tramadol = -1,
 			/obj/item/storage/pill_bottle/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/ifex = -1,
 			/obj/item/storage/pill_bottle/combatmix = -1,
 			/obj/item/storage/pill_bottle/dylovene = -1,
 			/obj/item/storage/pill_bottle/dexalin = -1,
@@ -1165,7 +1167,6 @@
 		"General" = list(
 			/obj/item/clothing/suit/modular = -1,
 			/obj/item/clothing/suit/modular/rownin = -1,
-			/obj/item/clothing/suit/modular/xenonauten/pilot = -1,
 			/obj/item/facepaint/green = -1,
 			/obj/item/facepaint/sniper = -1,
 			/obj/item/facepaint/black = -1,

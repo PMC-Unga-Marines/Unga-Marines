@@ -1537,7 +1537,7 @@
 	purge_rate = 5
 	var/absorbtion = 0
 	var/max_absorbtion = 10
-	var/max_reagent = 100
+	var/max_reagent = 50
 
 /datum/reagent/medicine/sulfasalazine/on_mob_life(mob/living/L, metabolism)
 
@@ -1547,11 +1547,11 @@
 	if(absorbtion > 0)
 		absorbtion--
 
-	if (volume > 50 && L.getBruteLoss(organic_only = TRUE) && absorbtion <= 0)
+	if (volume > 5 && L.getBruteLoss(organic_only = TRUE) && absorbtion <= 0)
 		L.heal_overall_damage(4*effect_str, 0)
 		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
 
-	if (volume > 50 && L.getFireLoss(organic_only = TRUE) && absorbtion <= 0)
+	if (volume > 5 && L.getFireLoss(organic_only = TRUE) && absorbtion <= 0)
 		L.heal_overall_damage(0, 4*effect_str)
 		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
 
@@ -1563,3 +1563,74 @@
 			absorbtion = min(absorbtion + purge, max_absorbtion)
 
 	return ..()
+
+/datum/reagent/histamine
+	name = "Histamine"
+	description = "Histamine is an organic nitrogenous compound involved in local immune responses communication"
+	color = COLOR_REAGENT_BICARIDINE
+	custom_metabolism = 0
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
+	purge_list = list(
+		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/tricordrazine,
+		/datum/reagent/medicine/paracetamol,
+	)
+	purge_rate = 5
+	scannable = TRUE
+
+/datum/reagent/histamine/on_mob_life(mob/living/L, metabolism)
+
+	//reagents
+	var/Ifex = L.reagents.get_reagent_amount(/datum/reagent/medicine/ifex)
+
+	if(!Ifex)
+		holder.remove_reagent(/datum/reagent/histamine, 0.4)
+
+	L.apply_damage(0.5*effect_str, OXY)
+
+	return ..()
+
+/datum/reagent/histamine/on_mob_add(mob/living/L, metabolism)
+	to_chat(L, span_userdanger("You feel your throat tightening!"))
+
+/datum/reagent/histamine/on_mob_delete(mob/living/L, metabolism)
+	to_chat(L, span_userdanger("You feel how it becomes easier for you to breathe"))
+
+/datum/reagent/histamine/overdose_process(mob/living/L, metabolism)
+	L.apply_damages(1*effect_str, 1*effect_str, 1*effect_str)
+
+/datum/reagent/histamine/overdose_crit_process(mob/living/L, metabolism)
+	L.apply_damages(0, 0, 6*effect_str)
+
+/datum/reagent/medicine/ifex
+	name = "Ifex"
+	description = "Ifosfamide is a cytostatic antitumor drug"
+	color = COLOR_REAGENT_BICARIDINE
+	custom_metabolism = REAGENTS_METABOLISM * 2
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
+	scannable = TRUE
+
+/datum/reagent/medicine/ifex/on_mob_life(mob/living/L, metabolism)
+
+	L.adjustOxyLoss(-0.5*effect_str)
+	L.adjustToxLoss(-0.5*effect_str)
+	L.heal_overall_damage(4*effect_str, 4*effect_str)
+
+	if(volume > 5)
+		L.reagent_pain_modifier -= PAIN_REDUCTION_MEDIUM
+	else
+		L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
+
+	L.reagents.add_reagent(/datum/reagent/histamine, 0.4)
+
+	purge(L)
+	current_cycle++
+
+/datum/reagent/medicine/ifex/overdose_process(mob/living/L, metabolism)
+	L.adjustToxLoss(2*effect_str)
+
+/datum/reagent/medicine/ifex/overdose_crit_process(mob/living/L, metabolism)
+	L.adjustToxLoss(4*effect_str)

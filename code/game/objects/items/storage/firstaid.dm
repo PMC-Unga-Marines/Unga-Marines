@@ -527,6 +527,15 @@
 	greyscale_config = /datum/greyscale_config/pillbottleround
 	description_overlay = "Su"
 
+/obj/item/storage/pill_bottle/ifex
+	name = "ifex pill bottle"
+	desc = "Contains pills of cytostatic antitumor emergency use drug."
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/ifex
+	greyscale_colors = "#9ACD32#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "If"
+
 /obj/item/storage/pill_bottle/happy
 	name = "happy pill bottle"
 	desc = "Contains highly illegal drugs. When you want to see the rainbow."
