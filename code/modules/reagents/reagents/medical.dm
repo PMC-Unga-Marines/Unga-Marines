@@ -1588,7 +1588,7 @@
 	to_chat(L, span_userdanger("You feel your throat tightening!"))
 
 /datum/reagent/histamine/on_mob_delete(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("You feel how it becomes easier for you to breathe"))
+	to_chat(L, span_userdanger("You feel how it becomes easier for you to breathe."))
 
 /datum/reagent/histamine/overdose_process(mob/living/L, metabolism)
 	L.apply_damages(1*effect_str, 1*effect_str, 1*effect_str)
