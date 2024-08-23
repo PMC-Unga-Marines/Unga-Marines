@@ -317,7 +317,6 @@
 	new /obj/item/clothing/head/powdered_wig (src)
 	new /obj/item/storage/briefcase(src)
 
-
 /obj/structure/closet/secure_closet/wall
 	name = "wall locker"
 	req_access = list(ACCESS_MARINE_BRIG)
@@ -328,10 +327,6 @@
 	icon_opened = "wall-lockeropen"
 	icon_broken = "wall-lockerbroken"
 	icon_off = "wall-lockeroff"
-
-	//too small to put a man in
-	large = FALSE
-
 
 /obj/structure/closet/secure_closet/wall/update_icon_state()
 	. = ..()

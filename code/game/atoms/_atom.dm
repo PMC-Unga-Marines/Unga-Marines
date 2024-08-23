@@ -394,16 +394,13 @@ directive is properly returned.
 	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
 		contents_explosion(severity, explosion_direction)
 
-
 /atom/proc/fire_act()
 	return
-
 
 /atom/proc/hitby(atom/movable/AM, speed = 5)
 	if(density)
 		AM.stop_throw()
 		return TRUE
-
 
 /atom/proc/GenerateTag()
 	return

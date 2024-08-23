@@ -279,6 +279,8 @@ SUBSYSTEM_DEF(vote)
 					else if(next_gamemode.blacklist_ground_maps) //can't blacklist and whitelist for the same map
 						if(VM.map_name in next_gamemode.blacklist_ground_maps)
 							continue
+					if(VM.map_name == SSmapping.configs[GROUND_MAP].map_name) // so the ground map changes guarantilly
+						continue
 					if(VM.config_max_users || VM.config_min_users)
 						var/players = length(GLOB.clients)
 						if(VM.config_max_users && players > VM.config_max_users)

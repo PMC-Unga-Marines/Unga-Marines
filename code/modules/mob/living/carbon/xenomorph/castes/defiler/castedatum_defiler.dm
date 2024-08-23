@@ -23,6 +23,9 @@
 	// *** Health *** //
 	max_health = 400
 
+	// *** Sunder *** //
+	sunder_multiplier = 0.8
+
 	// *** Evolution *** //
 	deevolves_to = /mob/living/carbon/xenomorph/carrier
 
@@ -33,7 +36,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 55, BULLET = 55, LASER = 55, ENERGY = 55, BOMB = 30, BIO = 40, FIRE = 50, ACID = 40)
+	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 55, BOMB = 30, BIO = 40, FIRE = 50, ACID = 40)
 	// *** Minimap Icon *** //
 	minimap_icon = "defiler"
 

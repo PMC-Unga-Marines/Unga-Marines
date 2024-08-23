@@ -110,6 +110,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/toolspeed = 1
 	var/usesound = null
 	var/active = FALSE
+	///If TRUE you cant deploy item next to another deployable in 5x5 tile radius.
+	var/near_lock = FALSE
 	//Coloring vars
 	///Some defines to determine if the item is allowed to be recolored.
 	var/colorable_allowed = NONE
@@ -155,7 +157,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
 
-	if(!prob(severity / 3))
+	if(!prob(severity * 0.3))
 		return
 
 	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")

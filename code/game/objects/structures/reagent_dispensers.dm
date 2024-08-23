@@ -46,7 +46,7 @@
 	create_reagents(tank_volume, AMOUNT_VISIBLE|DRAINABLE, list_reagents)
 
 /obj/structure/reagent_dispensers/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		new /obj/effect/particle_effect/water(loc)
 		qdel(src)
 
@@ -170,6 +170,7 @@
 	if(proj.damage > 10 && prob(60) && (proj.ammo.damage_type in list(BRUTE, BURN)))
 		log_attack("[key_name(proj.firer)] detonated a fuel tank with a projectile at [AREACOORD(src)].")
 		explode()
+		return
 	return ..()
 
 /obj/structure/reagent_dispensers/fueltank/ex_act()

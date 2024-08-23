@@ -103,11 +103,17 @@
 
 ///returns TRUE if we are permitted to evo to the next caste FALSE otherwise
 /mob/living/carbon/xenomorph/proc/upgrade_possible()
+	if(!(upgrade in GLOB.xenoupgradetiers))
+		stack_trace("Upgrade isn't in upgrade list, incorrect define provided")
+		return FALSE
 	if(HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
 		return FALSE
 	if(upgrade == XENO_UPGRADE_NORMAL)
 		return hive.purchases.upgrades_by_name[GLOB.tier_to_primo_upgrade[xeno_caste.tier]].times_bought
-	return (upgrade != XENO_UPGRADE_INVALID && upgrade != XENO_UPGRADE_PRIMO)
+	if(upgrade == XENO_UPGRADE_INVALID || upgrade == XENO_UPGRADE_PRIMO || upgrade == XENO_UPGRADE_BASETYPE)
+		return FALSE
+	stack_trace("Logic for handling this Upgrade tier wasn't written")
+	return FALSE
 
 //Adds stuff to your "Status" pane -- Specific castes can have their own, like carrier hugger count
 //Those are dealt with in their caste files.
@@ -129,6 +135,12 @@
 	. += "Sunder: [100-sunder]% armor left"
 
 	. += "Regeneration power: [max(regen_power * 100, 0)]%"
+
+	var/casteswap_value = ((GLOB.key_to_time_of_caste_swap[key] ? GLOB.key_to_time_of_caste_swap[key] : -INFINITY)  + 15 MINUTES - world.time) * 0.1
+	if(casteswap_value <= 0)
+		. += "Caste Swap Timer: READY"
+	else
+		. += "Caste Swap Timer: [(casteswap_value / 60) % 60]:[add_leading(num2text(casteswap_value % 60), 2, "0")]"
 
 	//Very weak <= 1.0, weak <= 2.0, no modifier 2-3, strong <= 3.5, very strong <= 4.5
 	var/msg_holder = ""
@@ -496,7 +508,8 @@
 	. = ..()
 	if(.)
 		return
-	sunder = clamp(sunder + adjustment, 0, xeno_caste.sunder_max)
+	sunder = clamp(sunder + (adjustment > 0 ? adjustment * xeno_caste.sunder_multiplier : adjustment), 0, xeno_caste.sunder_max)
+//Applying sunder is an adjustment value above 0, healing sunder is an adjustment value below 0. Use multiplier when taking sunder, not when healing.
 
 /mob/living/carbon/xenomorph/set_sunder(new_sunder)
 	. = ..()

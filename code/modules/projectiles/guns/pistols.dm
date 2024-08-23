@@ -509,7 +509,12 @@
 	reload_sound = 'sound/weapons/guns/interact/vp70_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/vp70_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/pistol/vp70
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/vp70)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/pistol/vp70,
+		/obj/item/ammo_magazine/pistol/vp70/hp,
+		/obj/item/ammo_magazine/pistol/vp70/sabot,
+		/obj/item/ammo_magazine/pistol/vp70/incendiary,
+	)
 	force = 8
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,

@@ -181,15 +181,14 @@
 	s.start()
 
 /obj/item/portable_vendor/emp_act(severity)
-	if (broken)
+	if(broken)
 		return
-	if (prob(40*severity))
+	if(prob(40 * severity))
 		malfunction()
 
 /obj/item/portable_vendor/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		qdel(src)
-
 
 /obj/item/portable_vendor/corporate
 	name = "\improper Nanotrasen Automated Storage Briefcase"

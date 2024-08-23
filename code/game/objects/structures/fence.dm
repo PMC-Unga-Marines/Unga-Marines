@@ -18,7 +18,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_FENCE)
 
 /obj/structure/fence/ex_act(severity)
-	take_damage(severity / 2, BRUTE, BOMB)
+	take_damage(severity * 0.5, BRUTE, BOMB)
 
 /obj/structure/fence/attackby(obj/item/I, mob/user, params)
 	. = ..()

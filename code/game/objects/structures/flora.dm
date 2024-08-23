@@ -12,7 +12,7 @@
 		icon_state = "[initial(icon_state)]_[rand(1, icon_variants)]"
 
 /obj/structure/flora/ex_act(severity)
-	if(prob(severity / 4))
+	if(prob(severity * 0.25))
 		qdel(src)
 
 /obj/structure/flora/flamer_fire_act(burnlevel)

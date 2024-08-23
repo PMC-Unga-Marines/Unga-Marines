@@ -166,10 +166,11 @@
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cell/ex_act(severity)
-	if(severity >= EXPLODE_WEAK && prob((severity / 2)))
-		qdel(src)
-	else if(prob(severity / 2))
-		corrupt()
+	if(prob(severity * 0.5))
+		if(severity >= EXPLODE_WEAK)
+			qdel(src)
+		else
+			corrupt()
 
 /obj/item/cell/suicide_act(mob/user)
 	user.visible_message(span_danger("[user] is licking the electrodes of the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."))

@@ -170,24 +170,49 @@ WEAPONS
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/weapons/sentry
-	name = "ST-571 Base Defense Sentry"
-	contains = list(/obj/item/storage/box/crate/sentry)
-	cost = 400
+	name = "Турель TUR-B \"Базис\""
+	contains = list(
+		/obj/item/weapon/gun/sentry/basic,
+	)
+	cost = 200
 
-/datum/supply_packs/weapons/sentry_ammo
-	name = "ST-571 sentry ammunition"
-	contains = list(/obj/item/ammo_magazine/sentry)
-	cost = 100
+/datum/supply_packs/weapons/sentry_upgrade
+	name = "Набор для улучшения турели TUR-B"
+	contains = list(
+		/obj/item/sentry_upgrade_kit,
+	)
+	cost = 150
 
-/datum/supply_packs/weapons/minisentry
-	name = "ST-580 Portable Sentry"
-	contains = list(/obj/item/storage/box/crate/minisentry)
-	cost = 400
+/datum/supply_packs/weapons/sentry/ammo
+	name = "Магазин для турели TUR-B \"Базис\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry,
+	)
+	cost = 50
 
-/datum/supply_packs/weapons/minisentry_ammo
-	name = "ST-580 point defense sentry ammo"
-	contains = list(/obj/item/ammo_magazine/minisentry)
-	cost = 100
+/datum/supply_packs/weapons/sentry/ammo/mini
+	name = "Магазин для турели TUR-M \"Гном\""
+	contains = list(
+		/obj/item/ammo_magazine/minisentry,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/sniper
+	name = "Магазин для турели TUR-SN \"Оса\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry/sniper,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/shotgun
+	name = "Магазин для турели TUR-SH \"Бык\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry/shotgun,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/flamer
+	name = "Бак для турели TUR-F \"Феникс\""
+	contains = list(
+		/obj/item/ammo_magazine/flamer_tank/large/sentry,
+	)
 
 /datum/supply_packs/weapons/buildasentry
 	name = "Build-A-Sentry Attachment System"
@@ -792,6 +817,24 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/smg/vector)
 	cost = 200
 
+/datum/supply_packs/weapons/vector_sabot
+	name = "vector APDS magazine"
+	contains = list(/obj/item/ammo_magazine/smg/vector/sabot)
+	cost = 20 //40 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/vector_incendiary
+	name = "vector incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/smg/vector/incendiary)
+	cost = 20 //40 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/MK88_sabot
+	name = "MK88 APDS magazine"
+	contains = list(/datum/ammo/bullet/pistol/sabot)
+	cost = 10 //18 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/weapons/ammo_magazine/vector
 	name = "Vector drum magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector)
@@ -813,22 +856,40 @@ WEAPONS
 	cost = 350
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t21_ap
-	name = "AR-21 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap)
+/datum/supply_packs/weapons/t21_sabot
+	name = "AR-21 APDS magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot)
 	cost = 25 //30 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t18_ap
-	name = "AR-18 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/ap)
-	cost = 23 //36 rounds
+/datum/supply_packs/weapons/t21_incendiary
+	name = "AR-21 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary)
+	cost = 25 //30 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t12_ap
-	name = "AR-12 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap)
-	cost = 29 //50 rounds
+/datum/supply_packs/weapons/t18_sabot
+	name = "AR-18 APDS magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/sabot)
+	cost = 25 //36 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/t18_incendiary
+	name = "AR-18 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/incendiary)
+	cost = 25 //36 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/t12_sabot
+	name = "AR-12 APDS magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot)
+	cost = 30 //50 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/t12_incendiary
+	name = "AR-12 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary)
+	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/br64_ap
@@ -843,9 +904,15 @@ WEAPONS
 	cost = 30 //60 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/box_10x24mm_ap
-	name = "10x24mm armor piercing ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/ap)
+/datum/supply_packs/weapons/box_10x24mm_sabot
+	name = "10x24mm APDS ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/sabot)
+	cost = 45 //150 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/box_10x24mm_incendiary
+	name = "10x24mm incendiary ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/incendiary)
 	cost = 45 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
@@ -870,10 +937,28 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)
 	cost = 60
 
-/datum/supply_packs/weapons/box_10x25mm_ap
-	name = "10x25mm armor piercing ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/ap)
+/datum/supply_packs/weapons/box_10x25mm_sabot
+	name = "10x25mm APDS ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/sabot)
 	cost = 50 //125 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/box_10x25mm_incendiary
+	name = "10x25mm incendiary ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/incendiary)
+	cost = 50 //125 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/p9mm_sabot
+	name = "9mm APDS packet"
+	contains = list(/obj/item/ammo_magazine/packet/p9mmsabot)
+	cost = 30 //70 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/p9mm_incendiary
+	name = "9mm incendiary packet"
+	contains = list(/obj/item/ammo_magazine/packet/p9mmincendiary)
+	cost = 30 //70 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x265mm_ap

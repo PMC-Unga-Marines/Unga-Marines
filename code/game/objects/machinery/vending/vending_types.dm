@@ -136,19 +136,6 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = -1,
 		/obj/item/reagent_containers/food/drinks/cans/cola = -1,
 	)
-
-	prices = list(
-		/obj/item/reagent_containers/food/drinks/cans/souto = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/diet = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/cherry = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/cherry/diet = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/lime = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/lime/diet = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/grape = 5,
-		/obj/item/reagent_containers/food/drinks/cans/souto/grape/diet = 5,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 2,
-		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
-	)
 	idle_power_usage = 200
 
 /obj/machinery/vending/medical

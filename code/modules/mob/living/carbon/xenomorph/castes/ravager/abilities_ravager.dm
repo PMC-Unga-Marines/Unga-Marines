@@ -319,8 +319,6 @@
 	)
 	///Determines the power of Rage's many effects. Power scales inversely with the Ravager's HP; min 0.25 at 50% of Max HP, max 1 while in negative HP. 0.5 and above triggers especial effects.
 	var/rage_power
-	///Determines the Sunder to impose when Rage ends
-	//var/rage_sunder RU TGMC EDIT
 	///Determines the Plasma to remove when Rage ends
 	var/rage_plasma
 
@@ -345,38 +343,26 @@
 /datum/action/ability/xeno_action/rage/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 
-	rage_power = (1-(X.health/X.maxHealth)) * RAVAGER_RAGE_POWER_MULTIPLIER //Calculate the power of our rage; scales with difference between current and max HP
+	var/rage_threshold = X.maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
+	rage_power = max(0, (1 - ((X.health - RAVAGER_ENDURE_HP_LIMIT) / (X.maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold)))) //Calculate the power of our rage; scales with difference between current and max HP
 
-	if(X.health < 0) //If we're at less than 0 HP, it's time to max rage.
-		//rage_power = 0.5 //ORIGINAL
-		rage_power = 1 //RUTGMC EDIT CHANGE
-
-	var/rage_power_radius = CEILING(rage_power * 3, 1) //Define radius of the SFX //RUTGMC EDIT
+	var/rage_power_radius = CEILING(rage_power * 3, 1) //Define radius of the SFX
 
 	X.visible_message(span_danger("\The [X] becomes frenzied, bellowing with a shuddering roar!"), \
 	span_highdanger("We bellow as our fury overtakes us! RIP AND TEAR!"))
 	X.do_jitter_animation(1000)
 
-
 	//Roar SFX; volume scales with rage
 	playsound(X.loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
 
 	var/bonus_duration
-	if(rage_power >= RAVAGER_RAGE_SUPER_RAGE_THRESHOLD) //If we're super pissed it's time to get crazy
-		var/datum/action/ability/xeno_action/charge = X.actions_by_path[/datum/action/ability/activable/xeno/charge]
-		var/datum/action/ability/xeno_action/ravage = X.actions_by_path[/datum/action/ability/activable/xeno/ravage]
-		var/datum/action/ability/xeno_action/endure/endure_ability = X.actions_by_path[/datum/action/ability/xeno_action/endure]
 
-		if(endure_ability.endure_duration) //Check if Endure is active
-			endure_ability.endure_threshold = RAVAGER_ENDURE_HP_LIMIT * (1 + rage_power) //Endure crit threshold scales with Rage Power; min -100, max -150
+	var/datum/action/ability/xeno_action/endure/endure_ability = X.actions_by_path[/datum/action/ability/xeno_action/endure]
+	if(endure_ability.endure_duration) //Check if Endure is active
+		endure_ability.endure_threshold = RAVAGER_ENDURE_HP_LIMIT * (1 + rage_power) //Endure crit threshold scales with Rage Power; min -100, max -150
+	RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
 
-		if(charge)
-			charge.clear_cooldown() //Reset charge cooldown
-		if(ravage)
-			ravage.clear_cooldown() //Reset ravage cooldown
-		RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
-
-	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius / 2, X.loc))
+	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius * 0.5, X.loc))
 		affected_tiles.Shake(duration = 1 SECONDS) //SFX
 
 	for(var/mob/living/affected_mob in cheap_get_humans_near(X, rage_power_radius) + cheap_get_xenos_near(X, rage_power_radius)) //Roar that applies cool SFX
@@ -386,25 +372,10 @@
 		shake_camera(affected_mob, 1 SECONDS, 1)
 		affected_mob.Shake(duration = 1 SECONDS) //SFX
 
-		if(rage_power >= RAVAGER_RAGE_SUPER_RAGE_THRESHOLD) //If we're super pissed it's time to get crazy
-			var/atom/movable/screen/plane_master/floor/OT = affected_mob.hud_used.plane_masters["[FLOOR_PLANE]"]
-			var/atom/movable/screen/plane_master/game_world/GW = affected_mob.hud_used.plane_masters["[GAME_PLANE]"]
-
-			addtimer(CALLBACK(OT, TYPE_PROC_REF(/atom, remove_filter), "rage_outcry"), 1 SECONDS)
-			GW.add_filter("rage_outcry", 2, radial_blur_filter(0.07))
-			animate(GW.get_filter("rage_outcry"), size = 0.12, time = 5, loop = -1)
-			OT.add_filter("rage_outcry", 2, radial_blur_filter(0.07))
-			animate(OT.get_filter("rage_outcry"), size = 0.12, time = 5, loop = -1)
-			addtimer(CALLBACK(GW, TYPE_PROC_REF(/atom, remove_filter), "rage_outcry"), 1 SECONDS)
-
 	X.add_filter("ravager_rage_outline", 5, outline_filter(1.5, COLOR_RED)) //Set our cool aura; also confirmation we have the buff
 
 	rage_plasma = min(X.xeno_caste.plasma_max - X.plasma_stored, X.xeno_caste.plasma_max * rage_power) //Calculate the plasma to restore (and take away later)
 	X.plasma_stored += rage_plasma //Regain a % of our maximum plasma scaling with rage
-/* RU TGMC EDIT
-	rage_sunder = min(X.sunder, rage_power * 100) //Set our temporary Sunder recovery
-	X.adjust_sunder(-1 * rage_sunder) //Restores up to 50 Sunder temporarily.
-RU TGMC EDIT */
 	X.xeno_melee_damage_modifier += rage_power  //Set rage melee damage bonus
 
 	X.add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, X.xeno_caste.speed * 0.5 * rage_power) //Set rage speed bonus
@@ -438,7 +409,7 @@ RU TGMC EDIT */
 	var/burn_damage = rager.getFireLoss()
 	if(!brute_damage && !burn_damage) //If we have no healable damage, don't bother proceeding
 		return
-	var/health_recovery = clamp(rage_power, 0, 0.5)  * damage //Amount of health we leech per slash //RU TGMC EDIT
+	var/health_recovery = rage_power * damage //Amount of health we leech per slash //RU TGMC EDIT
 	var/health_modifier
 	if(brute_damage) //First heal Brute damage, then heal Burn damage with remainder
 		health_modifier = min(brute_damage, health_recovery)*-1 //Get the lower of our Brute Loss or the health we're leeching
@@ -450,7 +421,7 @@ RU TGMC EDIT */
 
 	var/datum/action/ability/xeno_action/endure/endure_ability = rager.actions_by_path[/datum/action/ability/xeno_action/endure]
 	if(endure_ability.endure_duration) //Check if Endure is active
-		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH)) //Increment Endure duration by 2 seconds per slash
+		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH * rage_power)) //Increment Endure duration by 2 seconds per slash at maximum rage
 		deltimer(endure_ability.endure_duration) //Reset timers
 		deltimer(endure_ability.endure_warning_duration)
 		endure_ability.endure_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_deactivate)), new_duration, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE) //Reset Endure timers if active
@@ -471,7 +442,6 @@ RU TGMC EDIT */
 
 	X.xeno_melee_damage_modifier = initial(X.xeno_melee_damage_modifier) //Reset rage melee damage bonus
 	X.remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE) //Reset speed
-	//X.adjust_sunder(rage_sunder) //Remove the temporary Sunder restoration //RU TGMC EDIT
 	X.use_plasma(rage_plasma) //Remove the temporary Plasma
 
 	REMOVE_TRAIT(X, TRAIT_STUNIMMUNE, RAGE_TRAIT)
@@ -479,7 +449,6 @@ RU TGMC EDIT */
 	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
 	UnregisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING)
 
-	//rage_sunder = 0 //RU TGMC EDIT
 	rage_power = 0
 	rage_plasma = 0
 	X.playsound_local(X, 'sound/voice/alien/hiss8.ogg', 50) //Audio cue

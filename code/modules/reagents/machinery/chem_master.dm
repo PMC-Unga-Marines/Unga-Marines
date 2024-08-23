@@ -39,28 +39,19 @@
 		/datum/greyscale_config/pillbottlebox,
 	)
 
-
 /obj/machinery/chem_master/Initialize(mapload)
 	. = ..()
 	var/datum/reagents/R = new/datum/reagents(240)
 	reagents = R
 	R.my_atom = WEAKREF(src)
 
-
 /obj/machinery/chem_master/Destroy()
 	QDEL_NULL(beaker)
 	QDEL_NULL(loaded_pill_bottle)
 	return ..()
 
-
 /obj/machinery/chem_master/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			qdel(src)
-		if(EXPLODE_HEAVY)
-			if (prob(50))
-				qdel(src)
-
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/machinery/chem_master/attackby(obj/item/I, mob/user, params)
 	. = ..()

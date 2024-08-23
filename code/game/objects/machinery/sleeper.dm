@@ -20,7 +20,7 @@
 	updateUsrDialog()
 
 /obj/machinery/computer/sleep_console/ex_act(severity)
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		qdel(src)
 
 ///Set the connected var
@@ -302,7 +302,7 @@
 /obj/machinery/sleeper/ex_act(severity)
 	if(filtering)
 		toggle_filter()
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		qdel(src)
 
 /obj/machinery/sleeper/emp_act(severity)

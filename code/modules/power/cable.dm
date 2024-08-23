@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
 
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		qdel(src)
 	else
 		take_damage(severity, BRUTE, BOMB)

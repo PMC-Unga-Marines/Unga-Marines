@@ -66,7 +66,7 @@
 			return
 
 		if(LinkBlocked(get_turf(user), location))
-			location.balloon_alert(user, "No room to deploy")
+			location.balloon_alert(user, "Нет места для установки.")
 			return
 		var/newdir = get_dir(user, location)
 		if(deploy_type.flags_atom & ON_BORDER)
@@ -77,12 +77,17 @@
 					continue
 				if(object.dir != newdir)
 					continue
-				location.balloon_alert(user, "No room to deploy")
+				location.balloon_alert(user, "Нет места для установки.")
 				return
 		if(user.do_actions)
-			user.balloon_alert(user, "You are already doing something!")
+			user.balloon_alert(user, "Вы уже чем-то заняты!")
 			return
-		user.balloon_alert(user, "You start deploying...")
+		if(item_to_deploy.near_lock)
+			for(var/obj/machinery/deployable/def in urange(2, location))
+				if(def != src)
+					user.balloon_alert(user, "Слишком близко к [def]!")
+					return
+		user.balloon_alert(user, "Вы начали установку...")
 		user.setDir(newdir) //Face towards deploy location for ease of deploy.
 		if(!do_after(user, deploy_time, NONE, item_to_deploy, BUSY_ICON_BUILD))
 			return
@@ -113,7 +118,7 @@
 	deployed_machine.update_appearance()
 
 	if(user)
-		item_to_deploy.balloon_alert(user, "Deployed!")
+		item_to_deploy.balloon_alert(user, "Установлено!")
 		user.transferItemToLoc(item_to_deploy, deployed_machine, TRUE)
 		if(user.client.prefs.toggles_gameplay & AUTO_INTERACT_DEPLOYABLES)
 			deployed_machine.interact(user)

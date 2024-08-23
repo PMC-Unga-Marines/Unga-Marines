@@ -21,16 +21,13 @@
 	// *** Health *** //
 	max_health = 325
 
+	// *** Sunder *** //
+	sunder_multiplier = 0.8
+
 	// *** Evolution *** //
 	evolution_threshold = 225
 
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/crusher,
-		/mob/living/carbon/xenomorph/behemoth,
-	)
-	deevolves_to = list(
-		/mob/living/carbon/xenomorph/runner,
-	)
+	deevolves_to = /mob/living/carbon/xenomorph/runner
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED

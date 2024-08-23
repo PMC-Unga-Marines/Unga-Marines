@@ -16063,8 +16063,9 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/command/cic)
 "qmd" = (
-/turf/open/floor/mainship/floor,
-/area/mainship/engineering/ce_room)
+/obj/effect/landmark/start/job/crash/squadrobot,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/cryo_cells)
 "qml" = (
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/misc/paperbin,
@@ -68747,15 +68748,15 @@ bnI
 bpN
 bpN
 bnI
-bpN
-bpN
+qmd
+qmd
 bzu
 bpM
 vQr
 bpM
 bzu
-bpN
-bpN
+qmd
+qmd
 bnI
 bpN
 bpN
@@ -69004,15 +69005,15 @@ bnJ
 bpN
 bpN
 buM
-bpN
-bpN
+qmd
+qmd
 bnJ
 bpM
 bCh
 bpM
 bnJ
-bpN
-bpN
+qmd
+qmd
 buM
 bpN
 bpN
@@ -70309,7 +70310,7 @@ lCP
 aoP
 hBg
 pJk
-qmd
+pJk
 hCB
 aoP
 kjU

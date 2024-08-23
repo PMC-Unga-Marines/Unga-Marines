@@ -11,7 +11,6 @@
 #define MAKE_VENDING_RECORD_DATA(record) list(\
 		"product_name" = record.product_name,\
 		"product_color" = record.display_color,\
-		"prod_price" = record.price,\
 		"prod_desc" = initial(record.product_path.desc),\
 		"ref" = REF(record),\
 		"tab" = record.tab,\
@@ -111,8 +110,6 @@
 	var/list/contraband = list()
 	/// Premium products that are only available when using a coin to pay for it.
 	var/list/premium = list()
-	/// Prices for each item, list(/type/path = price), items not in the list don't have a price.
-	var/list/prices = list()
 	/// String of slogans separated by semicolons, optional
 	var/product_slogans = ""
 	///String of small ad messages in the vending screen - random chance
@@ -147,10 +144,6 @@
 	var/shut_up = FALSE
 	///If the vending machine is hacked, makes the items on contraband list available.
 	var/extended_inventory = FALSE
-	/// 1 = requires PIN and checks accounts.  0 = You slide an ID, it vends, SPACE COMMUNISM!
-	var/check_accounts = 0
-	///Current cash card.
-	var/obj/item/spacecash/ewallet/ewallet
 	///How much tipped we are.
 	var/tipped_level = 0
 	///Stops the machine from being hacked to shoot inventory or allow all access
@@ -257,14 +250,14 @@
 				var/amount = productlist[entry][typepath]
 				if(isnull(amount))
 					amount = 1
-				var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, product_price = prices[typepath], category = category, tab = entry)
+				var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
 				recordlist += record
 			continue
 		//This item is not tab dependent
 		var/amount = productlist[entry]
 		if(isnull(amount))
 			amount = 1
-		var/datum/vending_product/record = new(typepath = entry, product_amount = amount, product_price = prices[entry], category = category)
+		var/datum/vending_product/record = new(typepath = entry, product_amount = amount, category = category)
 		recordlist += record
 
 ///Makes additional tabs/adds to the tabs based on the seasonal_items vendor specification
@@ -347,17 +340,6 @@
 
 		attack_hand(user)
 
-	else if(istype(I, /obj/item/card))
-		var/obj/item/card/C = I
-		scan_card(C)
-
-	else if(istype(I, /obj/item/spacecash/ewallet))
-		if(!user.transferItemToLoc(I, src))
-			return
-
-		ewallet = I
-		to_chat(user, span_notice("You insert the [I] into the [src]"))
-
 	else if(iswrench(I))
 		if(!wrenchable)
 			return
@@ -381,70 +363,18 @@
 		var/obj/item/to_stock = I
 		stock(to_stock, user)
 
-/obj/machinery/vending/proc/scan_card(obj/item/card/I)
-	if(!currently_vending)
-		return
-	if (istype(I, /obj/item/card/id))
-		var/obj/item/card/id/C = I
-		visible_message(span_info("[usr] swipes a card through [src]."))
-		var/datum/money_account/CH = get_account(C.associated_account_number)
-		if(CH) // Only proceed if card contains proper account number.
-			if(!CH.suspended)
-				if(CH.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
-					var/attempt_pin = tgui_input_number(usr, "Enter pin code", "Vendor transaction")
-					var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
-					transfer_and_vend(D)
-				else
-					//Just Vend it.
-					transfer_and_vend(CH)
-			else
-				to_chat(usr, "[icon2html(src, usr)][span_warning("Connected account has been suspended.")]")
-		else
-			to_chat(usr, "[icon2html(src, usr)][span_warning("Error: Unable to access your account. Please contact technical support if problem persists.")]")
-
-/obj/machinery/vending/proc/transfer_and_vend(datum/money_account/acc)
-	if(!acc)
-		to_chat(usr, "[icon2html(src, usr)][span_warning("Error: Unable to access your account. Please contact technical support if problem persists.")]")
-		return
-
-	var/transaction_amount = currently_vending.price
-	if(transaction_amount > acc.money)
-		to_chat(usr, "[icon2html(src, usr)][span_warning("You don't have that much money!")]")
-		return
-
-	//transfer the money
-	acc.money -= transaction_amount
-
-	//create entries in the two account transaction logs
-	var/datum/transaction/T = new()
-	T.purpose = "Purchase of [currently_vending.product_name]"
-	if(transaction_amount > 0)
-		T.amount = "([transaction_amount])"
-	else
-		T.amount = "[transaction_amount]"
-	T.source_terminal = src.name
-	T.date = GLOB.current_date_string
-	T.time = worldtime2text()
-	acc.transaction_log.Add(T)
-
-	// Vend the item
-	vend(currently_vending, usr)
-	currently_vending = null
-
 /obj/machinery/vending/can_interact(mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
 
 	if(tipped_level == 2)
-		user.visible_message(span_notice(" [user] begins to heave the vending machine back into place!"),span_notice(" You start heaving the vending machine back into place.."))
+		user.visible_message(span_notice("[user] begins to heave the vending machine back into place!"), span_notice("You start heaving the vending machine back into place.."))
 		if(!do_after(user, 80, IGNORE_HELD_ITEM, src, BUSY_ICON_FRIENDLY))
 			return FALSE
 
-		user.visible_message(span_notice(" [user] rights the [src]!"),span_notice(" You right the [src]!"))
+		user.visible_message(span_notice("[user] rights the [src]!"), span_notice("You right the [src]!"))
 		flip_back()
-		return TRUE
-
 	return TRUE
 
 /**
@@ -546,17 +476,6 @@
 
 		if("vacuum")
 			stock_vacuum(usr)
-			. = TRUE
-
-		if("cancel_buying")
-			currently_vending = null
-			. = TRUE
-
-		if("swipe")
-			if(!ishuman(usr))
-				return
-			var/mob/living/carbon/human/H = usr
-			scan_card(H.wear_id)
 			. = TRUE
 
 /obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user)

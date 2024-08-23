@@ -122,6 +122,9 @@
 	if(severity <= 0)
 		return
 
+	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_MOB_EX_ACT))
+		return
+
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
@@ -161,7 +164,7 @@
 	take_overall_damage(severity * 0.5, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
 	take_overall_damage(severity * 0.5, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
 	explosion_throw(severity, direction)
-
+	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave
 
 /mob/living/carbon/human/attack_animal(mob/living/M as mob)
 	if(M.melee_damage == 0)

@@ -38,7 +38,7 @@
 			break
 
 /obj/machinery/optable/ex_act(severity)
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		qdel(src)
 
 /obj/machinery/optable/examine(mob/user)

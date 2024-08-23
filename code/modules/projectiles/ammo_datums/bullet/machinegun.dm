@@ -1,7 +1,7 @@
 /datum/ammo/bullet/machinegun //Adding this for the MG Nests (~Art)
 	name = "machinegun bullet"
 	icon_state = "bullet" // Keeping it bog standard with the turret but allows it to be changed.
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	hud_state = "minigun"
 	hud_state_empty = "smartgun_empty"
 	accurate_range = 12
@@ -15,7 +15,7 @@
 	name = "minigun bullet"
 	hud_state = "minigun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	accurate_range = 5
@@ -37,7 +37,7 @@
 	name = "autocannon high-velocity bullet"
 	hud_state = "minigun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	accurate_range_min = 6
 	accuracy_var_low = 3
 	accuracy_var_high = 3
@@ -65,7 +65,7 @@
 /datum/ammo/bullet/auto_cannon/flak
 	name = "autocannon smart-detonating bullet"
 	hud_state = "sniper_flak"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_EXPLOSIVE
 	damage = 50
 	penetration = 30
 	sundering = 5
@@ -84,7 +84,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_IFF
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_IFF
 	accurate_range = 12
 	damage = 30
 	penetration = 10
@@ -95,20 +95,20 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
-	damage = 20
+	damage = 18
 	penetration = 15
-	sundering = 2
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/smart_minigun
 	name = "smartminigun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun_minigun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
 	damage = 10
 	penetration = 25
-	sundering = 1
+	additional_xeno_penetration = 10
 	damage_falloff = 0.1

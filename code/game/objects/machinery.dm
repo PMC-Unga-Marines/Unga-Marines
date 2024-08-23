@@ -100,18 +100,14 @@
 /obj/machinery/proc/on_deconstruction()
 	return
 
-
 /obj/machinery/proc/start_processing()
 	START_PROCESSING(SSmachines, src)
-
 
 /obj/machinery/proc/stop_processing()
 	STOP_PROCESSING(SSmachines, src)
 
-
 /obj/machinery/process() // If you dont use process or power why are you here
 	return PROCESS_KILL
-
 
 /obj/machinery/emp_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
@@ -121,13 +117,11 @@
 	new /obj/effect/overlay/temp/emp_sparks (loc)
 	return ..()
 
-
 /obj/machinery/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	if(prob(severity / 3))
+	if(prob(severity * 0.3))
 		deconstruct(FALSE)
-
 
 /obj/machinery/proc/power_change()
 	if(!powered(power_channel) && machine_current_charge <= 0)

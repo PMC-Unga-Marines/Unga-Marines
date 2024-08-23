@@ -129,9 +129,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 50
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/predalien,
-	)
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING
@@ -203,3 +200,9 @@
 			icon_state = "[base_icon_state] Stunned"
 	else
 		icon_state = "[base_icon_state]"
+
+/mob/living/carbon/xenomorph/larva/predalien/get_evolution_options()
+	. = list()
+	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP) || HAS_TRAIT(src, TRAIT_REGRESSING))
+		return
+	return list(/mob/living/carbon/xenomorph/predalien)

@@ -21,7 +21,9 @@
 
 	// *** Health *** //
 	max_health = 650
-	sunder_recover = 2
+
+	// *** Sunder *** //
+	sunder_multiplier = 0.7
 
 	// *** Evolution *** //
 	maximum_active_caste = 1
@@ -34,7 +36,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 65, BOMB = 100, BIO = 60, FIRE = 100, ACID = 60)
+	soft_armor = list(MELEE = 65, BULLET = 70, LASER = 70, ENERGY = 65, BOMB = 100, BIO = 60, FIRE = 100, ACID = 60)
 
 	// *** Pheromones *** //
 	aura_strength = 6

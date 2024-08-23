@@ -22,7 +22,7 @@
 #define CAT_FCSUP "COMMANDER SUPPLIES"
 #define CAT_SYNTH "SYNTHETIC SUPPLIES"
 #define CAT_MARINE "MARINE SUPPLIES"
-#define CAT_ROBO "COMBAT ROBOT SUPPLIES"
+#define CAT_ROBOT "COMBAT ROBOT SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
 // Synth Special Categories
@@ -71,15 +71,15 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBO, "Terra Experimental laser rifle", 15, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBO, "Terra Experimental laser sniper rifle", 20, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBO, "Terra Experimental laser carbine", 15, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = list(CAT_ROBO, "Terra Experimental laser machine gun", 20, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBO, "Terra Experimental laser pistol", 10, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBO, "Terra Experimental tesla shock rifle", 25, "red"),
-	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBO, "Terra Experimental recharger battery", 4, "orange2"),
-	/obj/item/tool/handheld_charger = list(CAT_ROBO, "Hand-held cell charger", 5, "yellow"),
-	/obj/item/weapon/powerfist = list(CAT_ROBO, "Powerfist", 10, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBOT, "Terra Experimental laser rifle", 15, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBOT, "Terra Experimental laser sniper rifle", 20, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBOT, "Terra Experimental laser carbine", 15, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = list(CAT_ROBOT, "Terra Experimental laser machine gun", 20, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBOT, "Terra Experimental laser pistol", 10, "red"),
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBOT, "Terra Experimental tesla shock rifle", 25, "red"),
+	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
+	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
+	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
@@ -93,11 +93,11 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/item/explosive/plastique = list(CAT_ENGSUP, "Plastique explosive", 2, "orange3"),
 	/obj/item/explosive/plastique/genghis_charge = list(CAT_ENGSUP, "EX-62 Genghis incendiary charge", 6, "orange3"),
 	/obj/item/detpack = list(CAT_ENGSUP, "Detonation pack", 2, "orange3"),
-	/obj/item/storage/box/crate/minisentry = list(CAT_ENGSUP, "ST-580 point defense sentry kit", 45, "blue"),
 	/obj/structure/closet/crate/uav_crate = list(CAT_ENGSUP, "Iguana Unmanned Vehicle", 50, "blue"),
 	/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "blue"),
 	/obj/item/tool/pickaxe/plasmacutter = list(CAT_ENGSUP, "Plasma cutter", 23, "blue"),
 	/obj/item/attachable/buildasentry = list(CAT_ENGSUP, "Build-A-Sentry Attachment", 30, "blue"),
+	/obj/item/sentry_upgrade_kit = list(CAT_ENGSUP, "Upgrade kit TUR-B", 25, "blue"),
 	/obj/item/deployable_floodlight = list(CAT_ENGSUP, "Deployable floodlight", 2, "blue"),
 	/obj/item/weapon/shield/riot/marine/deployable = list(CAT_ENGSUP, "TL-182 deployable shield", 3, "yellow"),
 	/obj/item/binoculars/tactical/range = list(CAT_ENGSUP, "Range Finder", 2, "yellow"),
@@ -292,7 +292,6 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/tool/pickaxe/plasmacutter = list(CAT_FCSUP, "Plasma cutter", 23, "yellow"),
 	/obj/item/clothing/glasses/welding/superior = list(CAT_FCSUP, "Superior welding goggles", 2, "yellow"),
 	/obj/item/armor_module/module/welding/superior = list(CAT_FCSUP, "Superior welding module", 2, "yellow"),
-	/obj/item/storage/box/crate/minisentry = list(CAT_FCSUP, "ST-580 point defense sentry kit", 15, "yellow"),
 	/obj/item/healthanalyzer/gloves = list(CAT_FCSUP, "Health scanner gloves", 2, "yellow"),
 	/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = list(CAT_FCSUP, "Injector (Dexalin)", 1, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 2, "cyan"),
@@ -340,7 +339,6 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/tool/weldingtool/hugetank = list(CAT_SYNTH, "High-capacity industrial blowtorch", 5, "orange"),
 	/obj/item/explosive/plastique = list(CAT_SYNTH, "Plastique explosive", 2, "orange3"),
 	/obj/item/explosive/plastique/genghis_charge = list(CAT_SYNTH, "EX-62 Genghis incendiary charge", 6, "orange3"),
-	/obj/item/storage/box/crate/minisentry = list(CAT_SYNTH, "ST-580 point defense sentry kit", 30, "blue"),
 	/obj/effect/teleporter_linker = list(CAT_SYNTH, "Teleporters", 15, "blue"),
 	/obj/item/tool/pickaxe/plasmacutter = list(CAT_SYNTH, "Plasma cutter", 15, "blue"),
 	/obj/item/attachable/buildasentry = list(CAT_SYNTH, "Build-A-Sentry Attachment", 30, "blue"),

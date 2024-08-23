@@ -338,7 +338,6 @@
 			new /obj/item/stack/sheet/metal(loc)
 	return ..()
 
-
 /obj/structure/girder/update_icon_state()
 	. = ..()
 	switch(girder_state)
@@ -355,23 +354,9 @@
 				return
 			icon = 'icons/obj/smooth_objects/girder.dmi'
 
-
-/obj/structure/girder/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			deconstruct(FALSE)
-		if(EXPLODE_HEAVY)
-			take_damage(200, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(25, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
-
-
 /obj/structure/girder/displaced
 	icon_state = "displaced"
 	anchored = FALSE
-
 
 /obj/structure/girder/reinforced
 	icon_state = "reinforced"

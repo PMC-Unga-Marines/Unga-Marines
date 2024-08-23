@@ -4,7 +4,6 @@
 // Do not remove this functionality without good reason, cough reagent_containers cough.
 // -Sayu
 
-
 /obj/item/storage
 	name = "storage"
 	icon = 'icons/obj/items/storage/storage.dmi'
@@ -52,8 +51,6 @@
 	var/use_to_pickup
 	///Set this to make the storage item group contents of the same type and display them as a number.
 	var/display_contents_with_number
-	///Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
-	var/allow_quick_empty
 	///Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/allow_quick_gather
 	///whether this object can change its drawing method (pouches)
@@ -61,7 +58,7 @@
 	///0 = will open the inventory if you click on the storage container, 1 = will draw from the inventory if you click on the storage container
 	var/draw_mode = 0
 	////0 = pick one at a time, 1 = pick all on tile
-	var/collection_mode = 1;
+	var/collection_mode = 1
 	///BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/foldable = null
 	///sound played when used. null for no sound.
@@ -79,7 +76,7 @@
 	///Flags for specifically storage items
 	var/flags_storage = NONE
 
-/obj/item/storage/MouseDrop(obj/over_object as obj)
+/obj/item/storage/MouseDrop(atom/over_object)
 	if(!ishuman(usr))
 		return
 
@@ -91,7 +88,8 @@
 		return
 
 	if(!istype(over_object, /atom/movable/screen))
-		return ..()
+		quick_empty(over_object, usr)
+		return
 
 	//Makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 	//There's got to be a better way of doing this.
@@ -113,7 +111,7 @@
 
 	var/list/L = list(  )
 
-	L += src.contents
+	L += contents
 
 	for(var/obj/item/storage/S in src)
 		L += S.return_inv()
@@ -149,21 +147,18 @@
 	user.s_active = src
 	content_watchers |= user
 
-
 /obj/item/storage/proc/hide_from(mob/user as mob)
-
 	if(!user.client)
 		return
-	user.client.screen -= src.boxes
+	user.client.screen -= boxes
 	user.client.screen -= storage_start
 	user.client.screen -= storage_continue
 	user.client.screen -= storage_end
-	user.client.screen -= src.closer
-	user.client.screen -= src.contents
+	user.client.screen -= closer
+	user.client.screen -= contents
 	if(user.s_active == src)
 		user.s_active = null
 	content_watchers -= user
-
 
 /obj/item/storage/proc/can_see_content()
 	var/list/lookers = list()
@@ -183,23 +178,21 @@
 		close(user)
 		return TRUE
 	user.s_active?.close(user)
-	if (use_sound && user.stat != DEAD)
-		playsound(src.loc, src.use_sound, 25, 1, 3)
+	if(use_sound && user.stat != DEAD)
+		playsound(loc, use_sound, 25, 1, 3)
 
 	show_to(user)
 	return TRUE
 
-
 /obj/item/storage/proc/close(mob/user)
 	hide_from(user)
-
 
 ///This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right. The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
 /obj/item/storage/proc/orient_objs(tx, ty, mx, my)
 	var/cx = tx
 	var/cy = ty
 	boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
-	for(var/obj/O in src.contents)
+	for(var/obj/O in contents)
 		O.screen_loc = "[cx],[cy]"
 		O.layer = ABOVE_HUD_LAYER
 		O.plane = ABOVE_HUD_PLANE
@@ -244,7 +237,6 @@
 		boxes.update_fullness(src)
 
 /obj/item/storage/proc/space_orient_objs(list/obj/item/display_contents)
-
 	///should be equal to default backpack capacity
 	var/baseline_max_storage_space = 21
 	///length of sprite for start and end of the box representing total storage space
@@ -286,18 +278,16 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.overlays += src.stored_start
-		storage_start.overlays += src.stored_continue
-		storage_start.overlays += src.stored_end
+		storage_start.overlays += stored_start
+		storage_start.overlays += stored_continue
+		storage_start.overlays += stored_end
 
-		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
+		O.screen_loc = "4:[round((startpoint+endpoint) / 2)+2],2:16"
 		O.maptext = ""
 		O.layer = ABOVE_HUD_LAYER
 		O.plane = ABOVE_HUD_PLANE
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
-
-
 
 /atom/movable/screen/storage/Click(location, control, params)
 	if(usr.incapacitated(TRUE))
@@ -344,9 +334,7 @@
 
 ///This proc determins the size of the inventory to be displayed. Please touch it only if you know what you're doing.
 /obj/item/storage/proc/orient2hud()
-
 	var/adjusted_contents = length(contents)
-
 	//Numbered contents display
 	var/list/datum/numbered_display/numbered_contents
 	if(display_contents_with_number)
@@ -364,11 +352,11 @@
 				numbered_contents.Add( new/datum/numbered_display(I) )
 
 	if(storage_slots == null)
-		src.space_orient_objs(numbered_contents)
+		space_orient_objs(numbered_contents)
 	else
 		var/row_num = 0
 		var/col_count = min(7,storage_slots) -1
-		if (adjusted_contents > 7)
+		if(adjusted_contents > 7)
 			row_num = round((adjusted_contents-1) / 7) // 7 is the maximum allowed width.
 		slot_orient_objs(row_num, col_count, numbered_contents)
 
@@ -481,14 +469,14 @@
 		item.forceMove(src)
 	item.on_enter_storage(src)
 	if(user)
-		if (user.s_active != src)
+		if(user.s_active != src)
 			user.client?.screen -= item
 		if(!prevent_warning)
 			insertion_message(item, user)
 	orient2hud()
 	for(var/mob/M in can_see_content())
 		show_to(M)
-	if (storage_slots)
+	if(storage_slots)
 		item.mouse_opacity = 2 //not having to click the item's tiny sprite to take it out of the storage.
 	update_icon()
 	for(var/limited_type in storage_type_limits)
@@ -550,6 +538,11 @@
 /obj/item/storage/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
+	if(isxeno(user))
+		if(istype(I, /obj/item/clothing/mask/facehugger) && can_be_inserted(I))
+			return handle_item_insertion(I, FALSE, user)
+		return FALSE
+
 	if(length(refill_types))
 		for(var/typepath in refill_types)
 			if(istype(I, typepath))
@@ -595,10 +588,8 @@
 	for(var/mob/M AS in content_watchers)
 		close(M)
 
-
 /obj/item/storage/attack_ghost(mob/user)
 	open(user)
-
 
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
@@ -611,8 +602,6 @@
 		if(0)
 			to_chat(usr, "[src] now picks up one item at a time.")
 
-
-
 /obj/item/storage/verb/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
 	set category = "Object"
@@ -622,17 +611,53 @@
 	else
 		to_chat(usr, "Clicking [src] with an empty hand now opens the pouch storage menu.")
 
-
-
-/obj/item/storage/proc/quick_empty()
-
-	if((!ishuman(usr) && loc != usr) || usr.restrained())
+/obj/item/storage/proc/quick_empty(atom/dest_object, mob/user)
+	if(!user.CanReach(dest_object) || !user.CanReach(src))
 		return
 
-	var/turf/T = get_turf(src)
+	if(user.restrained())
+		return
+
+	if(!length(contents))
+		return
+
+	if(istype(dest_object, /obj/item/storage))
+		var/obj/item/storage/our_storage = dest_object
+		for(var/obj/item/transfered_object in contents)
+			if(!our_storage.can_be_inserted(transfered_object, FALSE))
+				continue
+			remove_from_storage(transfered_object, null, usr) // to avoid cursed storages we remove contents manually to nullspace
+			our_storage.handle_item_insertion(transfered_object, TRUE, usr)
+		our_storage.open(usr)
+		our_storage.update_icon()
+
+		to_chat(user, span_notice("You dump the contents of [src] into [dest_object]."))
+		playsound(loc, use_sound, 25, 1, 3)
+		return
+
+	var/turf/drop_turf = get_turf(dest_object)
+	if(drop_turf.density)
+		return
+
+	for(var/obj/blocking_object in drop_turf) // why is there no proper proc for checking density
+		if(blocking_object.allow_pass_flags & PASS_THROW)
+			continue
+		if(!blocking_object.density)
+			continue
+		if(blocking_object.flags_atom & ON_BORDER && blocking_object.dir != user.dir)
+			continue
+		return
+
+	to_chat(user, span_notice("You start dumping out the contents of [src] onto [dest_object]..."))
+	if(!do_after(user, 2 SECONDS, target = dest_object))
+		return
+
+	playsound(loc, use_sound, 35, 1, 3)
 	hide_from(usr)
-	for(var/obj/item/I in contents)
-		remove_from_storage(I, T, usr)
+	for(var/obj/item/dropped_object in contents)
+		remove_from_storage(dropped_object, drop_turf, usr)
+		dropped_object.pixel_x = rand(-8, 8)
+		dropped_object.pixel_y = rand(-8, 8)
 
 ///Delete everything that's inside the storage
 /obj/item/storage/proc/delete_contents()
@@ -742,18 +767,11 @@
 
 ///BubbleWrap - A box can be folded up to make card
 /obj/item/storage/attack_self(mob/user)
-
-	//Clicking on itself will empty it, if it has the verb to do that.
-
-	if(allow_quick_empty)
-		quick_empty()
-		return
-
 	//Otherwise we'll try to fold it.
-	if ( length(contents) )
+	if(length(contents) )
 		return
 
-	if ( !ispath(foldable) )
+	if(!ispath(foldable) )
 		return
 
 	// Close any open UI windows first
@@ -771,14 +789,14 @@
 	var/depth = 0
 	var/atom/cur_atom = src
 
-	while (cur_atom && !(cur_atom in container.contents))
-		if (isarea(cur_atom))
+	while(cur_atom && !(cur_atom in container.contents))
+		if(isarea(cur_atom))
 			return -1
-		if (istype(cur_atom.loc, /obj/item/storage))
+		if(istype(cur_atom.loc, /obj/item/storage))
 			depth++
 		cur_atom = cur_atom.loc
 
-	if (!cur_atom)
+	if(!cur_atom)
 		return -1	//inside something with a null loc.
 
 	return depth
@@ -789,22 +807,20 @@
 	var/atom/cur_atom = src
 
 	while (cur_atom && !isturf(cur_atom))
-		if (isarea(cur_atom))
+		if(isarea(cur_atom))
 			return -1
-		if (istype(cur_atom.loc, /obj/item/storage))
+		if(istype(cur_atom.loc, /obj/item/storage))
 			depth++
 		cur_atom = cur_atom.loc
 
-	if (!cur_atom)
+	if(!cur_atom)
 		return -1	//inside something with a null loc.
 
 	return depth
 
-
 /obj/item/storage/handle_atom_del(atom/movable/AM)
 	if(istype(AM, /obj/item))
 		remove_from_storage(AM)
-
 
 /obj/item/storage/max_stack_merging(obj/item/stack/S)
 	if(is_type_in_typecache(S, bypass_w_limit))
@@ -817,7 +833,6 @@
 		stack_trace("[src] tried to max_stack_merging([S]) with [max_w_class] max_w_class and [weight_diff] weight_diff, resulting in [max_amt] max_amt.")
 	return max_amt
 
-
 /obj/item/storage/recalculate_storage_space()
 	var/list/lookers = can_see_content()
 	if(!length(lookers))
@@ -827,30 +842,19 @@
 		var/mob/M = X //There is no need to typecast here, really, but for clarity.
 		show_to(M)
 
-
 /obj/item/storage/contents_explosion(severity)
 	for(var/i in contents)
 		var/atom/A = i
 		A.ex_act(severity)
 
-
-/obj/item/storage/AltClick(mob/user)
-	. = ..()
-	attempt_draw_object(user)
-
-/obj/item/storage/AltRightClick(mob/user)
-	if(Adjacent(user) && !isxeno(user))
-		open(user)
-
 /obj/item/storage/attack_hand_alternate(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	attempt_draw_object(user)
-
-/obj/item/storage/CtrlClick(mob/living/user)
-	. = ..()
-	attempt_draw_object(user, TRUE)
+	if(isturf(loc))
+		open(user)
+	else
+		attempt_draw_object(user)
 
 /**
  * Attempts to get the first possible object from this container
@@ -860,7 +864,7 @@
  * * start_from_left - If true we draw the leftmost object instead of the rightmost. FALSE by default.
  */
 /obj/item/storage/proc/attempt_draw_object(mob/living/user, start_from_left = FALSE)
-	if(!ishuman(user) || user.incapacitated() || isturf(loc))
+	if(!ishuman(user) || user.incapacitated())
 		return
 	if(!length(contents))
 		return balloon_alert(user, "Empty")
