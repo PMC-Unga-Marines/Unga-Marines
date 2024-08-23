@@ -1,3 +1,5 @@
+#define XENO_DEN_LEVEL_PATH "_maps/map_files/Xeno_den/Xeno_den.dmm"
+
 /datum/game_mode/infestation/distress/points_defence
 	name = "Points Defence"
 	config_tag = "Points Defence"
@@ -47,6 +49,9 @@
 
 /datum/game_mode/infestation/distress/points_defence/post_setup()
 	. = ..()
+
+	//xenoden setup may lag and long loading time
+	load_new_z_level(XENO_DEN_LEVEL_PATH, "Xenoden", TRUE, list(ZTRAIT_GROUND = TRUE, ZTRAIT_XENO = TRUE))
 
 	//delete miners
 	QDEL_LIST(GLOB.miners_phorone)
@@ -284,3 +289,5 @@
 
 /datum/game_mode/infestation/distress/points_defence/proc/allow_hijack()
 	return allow_hijack
+
+#undef XENO_DEN_LEVEL_PATH
