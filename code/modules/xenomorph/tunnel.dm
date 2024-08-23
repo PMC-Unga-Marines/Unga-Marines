@@ -1,6 +1,6 @@
 /obj/structure/xeno/tunnel
 	name = "tunnel"
-	desc = "A tunnel entrance. Looks like it was dug by some kind of clawed beast"
+	desc = "A tunnel entrance. Looks like it was dug by some kind of clawed beast."
 	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "hole"
 
