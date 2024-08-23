@@ -38,11 +38,11 @@
 			if(XENO_TIER_ZERO, XENO_TIER_FOUR)
 				return
 			if(XENO_TIER_ONE)
-				return GLOB.xeno_types_tier_one
+				return GLOB.xeno_types_tier_one - caste_base_type
 			if(XENO_TIER_TWO)
-				return GLOB.xeno_types_tier_two
+				return GLOB.xeno_types_tier_two - caste_base_type
 			if(XENO_TIER_THREE)
-				return GLOB.xeno_types_tier_three
+				return GLOB.xeno_types_tier_three - caste_base_type
 	if(HAS_TRAIT(src, TRAIT_REGRESSING))
 		switch(tier)
 			if(XENO_TIER_ZERO, XENO_TIER_FOUR)
