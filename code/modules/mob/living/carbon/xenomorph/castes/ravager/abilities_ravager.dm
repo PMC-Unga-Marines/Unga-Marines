@@ -344,7 +344,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 
 	var/rage_threshold = X.maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
-	rage_power = max(0, (1 - ((X.health - RAVAGER_ENDURE_HP_LIMIT) / (X.maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold))) * RAVAGER_RAGE_POWER_MULTIPLIER) //Calculate the power of our rage; scales with difference between current and max HP
+	rage_power = max(0, (1 - ((X.health - RAVAGER_ENDURE_HP_LIMIT) / (X.maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold)))) //Calculate the power of our rage; scales with difference between current and max HP
 
 	var/rage_power_radius = CEILING(rage_power * 3, 1) //Define radius of the SFX
 
