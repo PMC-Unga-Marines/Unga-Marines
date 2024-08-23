@@ -369,7 +369,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		to_chat(src, span_warning("Another consciousness is in your body...It is resisting you."))
 		return FALSE
 
-	client.view_size.set_default(get_screen_size(client.prefs.widescreenpref, client.prefs.screen_resolution))//Let's reset so people can't become allseeing gods
+	client.view_size.set_default(get_screen_size(client.prefs.widescreenpref))//Let's reset so people can't become allseeing gods
 	mind.transfer_to(old_mob, TRUE)
 	return TRUE
 
@@ -687,7 +687,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	pixel_y = 0
 	animate(src, pixel_y = 2, time = 10, loop = -1)
 
-
 /mob/dead/observer/verb/toggle_zoom()
 	set category = "Ghost"
 	set name = "Toggle Zoom"
@@ -695,11 +694,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	if(!client)
 		return
 
-	if(client.view_size.is_zooming())
+	if(client.view != CONFIG_GET(string/default_view))
 		client.view_size.reset_to_default()
 	else
-		client.view_size.set_view_radius_to(12) //RUT GMC EDIT
-
+		client.view_size.set_view_radius_to(12.5)
 
 /mob/dead/observer/verb/add_view_range(input as num)
 	set name = "Add View Range"

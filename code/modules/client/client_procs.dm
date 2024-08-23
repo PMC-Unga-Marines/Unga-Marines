@@ -357,7 +357,7 @@
 	if(!tooltips && prefs.tooltips)
 		tooltips = new /datum/tooltip(src)
 
-	view_size = new(src, get_screen_size(prefs.widescreenpref, prefs.screen_resolution)) //RU TGMC EDIT
+	view_size = new(src, get_screen_size(prefs.widescreenpref))
 	view_size.update_pixel_format()
 	view_size.update_zoom_mode()
 
@@ -882,14 +882,12 @@
 		CRASH("change_view called without argument.")
 	if(isnum(new_size))
 		CRASH("change_view called with a number argument. Use the string format instead.")
-/* RU TGMC EDIT
 	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
 		new_size = CONFIG_GET(string/default_view_square)
-RU TGMC EDIT */
 	view = new_size
 	apply_clickcatcher()
 	mob.reload_fullscreens()
-	if(prefs.auto_fit_viewport && (isnull(view_size) || !view_size.is_zooming()))
+	if(prefs.auto_fit_viewport)
 		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
 
 ///Change the fullscreen setting of the client
