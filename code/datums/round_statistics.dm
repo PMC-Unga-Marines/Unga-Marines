@@ -96,3 +96,5 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/psy_shields = 0
 	var/psy_shield_blasts = 0
 	var/chimera_blinks = 0
+	var/larva_from_xeno_core = 0
+	var/points_from_towers = 0

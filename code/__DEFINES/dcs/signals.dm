@@ -12,6 +12,7 @@
 #define COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND "!open_timed_shutters_xeno_hivemind"
 #define COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH "!open_timed_shutters_crash"
 #define COMSIG_GLOB_OPEN_SHUTTERS_EARLY "!open_shutters_early"
+#define COMSIG_GLOB_TELETOWER "!teletower"
 
 #define COMSIG_GLOB_TADPOLE_LAUNCHED "!tadpole_launched"
 #define COMSIG_GLOB_DROPPOD_LANDED "!pod_landed"
