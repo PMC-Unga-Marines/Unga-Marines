@@ -1598,7 +1598,7 @@
 
 /datum/reagent/medicine/ifosfamide
 	name = "ifosfamide"
-	description = "Ifosfamide is a cytostatic antitumor drug"
+	description = "Ifosfamide is a cytostatic antitumor drug."
 	color = COLOR_REAGENT_BICARIDINE
 	custom_metabolism = REAGENTS_METABOLISM * 2
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
