@@ -812,6 +812,21 @@
 	new /obj/item/encryptionkey/cas(src)
 	new /obj/item/hud_tablet/artillery(src)
 
+/obj/structure/closet/crate/mortar_ammo/mlrs_kit
+	name = "\improper Катюша kit"
+	desc = "Ящик с РСЗО Катюшка и запасом боеприпасов к ней. Играй, славянка!"
+
+/obj/structure/closet/crate/mortar_ammo/mlrs_kit/PopulateContents()
+	new /obj/item/mortar_kit/mlrs(src)
+	new /obj/item/storage/box/mlrs_rockets(src)
+	new /obj/item/storage/box/mlrs_rockets(src)
+	new /obj/item/encryptionkey/engi(src)
+	new /obj/item/encryptionkey/engi(src)
+	new /obj/item/binoculars/tactical/range(src)
+	new /obj/item/encryptionkey/cas(src)
+	new /obj/item/encryptionkey/cas(src)
+	new /obj/item/encryptionkey/cas(src)
+	new /obj/item/hud_tablet/artillery(src)
 
 /obj/structure/closet/crate/mortar_ammo/howitzer_kit
 	name = "\improper TA-100Y howitzer kit"
