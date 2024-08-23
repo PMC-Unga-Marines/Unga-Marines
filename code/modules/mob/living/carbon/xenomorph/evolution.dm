@@ -206,7 +206,7 @@
 	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 
 ///Check if the xeno is currently able to evolve
-
+/mob/living/carbon/xenomorph/proc/generic_evolution_checks()
 	if(HAS_TRAIT(src, TRAIT_BANISHED))
 		balloon_alert(src, span_warning("You are banished and cannot reach the hivemind."))
 		return FALSE
