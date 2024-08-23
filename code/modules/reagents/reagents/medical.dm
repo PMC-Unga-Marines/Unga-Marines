@@ -1607,9 +1607,9 @@
 
 /datum/reagent/medicine/ifosfamide/on_mob_life(mob/living/L, metabolism)
 
-	L.adjustOxyLoss(-0.5*effect_str)
-	L.adjustToxLoss(-0.5*effect_str)
-	L.heal_overall_damage(4*effect_str, 4*effect_str)
+	L.adjustOxyLoss(-0.5 * effect_str)
+	L.adjustToxLoss(-0.5 * effect_str)
+	L.heal_overall_damage(4 * effect_str, 4 * effect_str)
 
 	if(volume > 5)
 		L.reagent_pain_modifier -= PAIN_REDUCTION_MEDIUM
