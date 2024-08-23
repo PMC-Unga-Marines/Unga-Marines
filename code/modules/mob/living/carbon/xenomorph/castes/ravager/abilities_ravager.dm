@@ -421,7 +421,7 @@
 
 	var/datum/action/ability/xeno_action/endure/endure_ability = rager.actions_by_path[/datum/action/ability/xeno_action/endure]
 	if(endure_ability.endure_duration) //Check if Endure is active
-		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH * rage_power)) //Increment Endure duration by 2 seconds per slash
+		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH * rage_power)) //Increment Endure duration by 2 seconds per slash at maximum rage
 		deltimer(endure_ability.endure_duration) //Reset timers
 		deltimer(endure_ability.endure_warning_duration)
 		endure_ability.endure_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_deactivate)), new_duration, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE) //Reset Endure timers if active
