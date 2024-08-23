@@ -286,6 +286,7 @@
 #define iscampaigngamemode(O) (istype(O, /datum/game_mode/hvh/campaign))
 #define isexterminationgamemode(O) (istype(O, /datum/game_mode/infestation/distress/extermination))
 #define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))
+#define ispointsdefencegamemode(O) (istype(O, /datum/game_mode/infestation/distress/points_defence))
 
 #define isxenoresearcharea(A) (istype(A, /area/mainship/medical/medical_science))
 

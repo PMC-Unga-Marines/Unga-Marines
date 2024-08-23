@@ -30,18 +30,13 @@
 	// *** Evolution *** //
 	evolution_threshold = 100
 
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/hunter,
-		/mob/living/carbon/xenomorph/bull,
-		/mob/living/carbon/xenomorph/panther,
-	)
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 5, FIRE = 19, ACID = 5)
+	soft_armor = list(MELEE = 20, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 0, BIO = 5, FIRE = 15, ACID = 5)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "runner"

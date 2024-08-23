@@ -258,3 +258,5 @@
 /image/progdisplay/unskilled
 	icon_state = "busy_questionmark"
 
+/image/progdisplay/energy
+	icon_state = "busy_energy"

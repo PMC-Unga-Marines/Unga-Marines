@@ -109,6 +109,10 @@
 /obj/docking_port/stationary/marine_dropship/lz2/prison
 	name = "LZ2: Civ Residence Hangar"
 
+/obj/docking_port/stationary/marine_dropship/lz_den
+	name = "Landing Zone Xeno Den"
+	id = "lz_xeno_den"
+
 /obj/docking_port/stationary/marine_dropship/hangar/one
 	name = "Shipside 'Normandy' Hangar Pad"
 	id = SHUTTLE_NORMANDY
@@ -435,6 +439,9 @@
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
 		to_chat(user, span_warning("The bird's mind is currently active. We need to wait until it's more vulnerable..."))
 		return FALSE
+	var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+	if(mode.allow_hijack())
+		return TRUE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
@@ -533,6 +540,14 @@
 		WARNING("[src] could not find shuttle [shuttleId] from SSshuttle")
 		return
 
+	var/show_hunt = FALSE
+	var/can_hunt = FALSE
+	if(ispointsdefencegamemode(SSticker.mode))
+		show_hunt = TRUE
+		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+		if(mode.can_hunt())
+			can_hunt = TRUE
+
 	. = list()
 	.["on_flyby"] = shuttle.mode == SHUTTLE_CALL
 	.["dest_select"] = !(shuttle.mode == SHUTTLE_CALL || shuttle.mode == SHUTTLE_IDLE)
@@ -540,6 +555,8 @@
 	.["ship_status"] = shuttle.getStatusText()
 	.["automatic_cycle_on"] = shuttle.automatic_cycle_on
 	.["time_between_cycle"] = shuttle.time_between_cycle
+	.["can_hunt"] = can_hunt
+	.["show_hunt"] = show_hunt
 
 	var/locked = 0
 	var/reardoor = 0
@@ -631,6 +648,15 @@
 				deltimer(M.cycle_timer)
 		if("cycle_time_change")
 			M.time_between_cycle = params["cycle_time_change"]
+		if("hunt")
+			var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+			if(mode.can_hunt())
+				possible_destinations += ";lz_xeno_den"
+				mode.start_hunt()
+		if("minor")
+			var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+			if(mode.can_hunt())
+				mode.round_stage = INFESTATION_MARINE_MINOR
 
 /obj/machinery/computer/shuttle/marine_dropship/Topic(href, href_list)
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
@@ -670,14 +696,9 @@
 		if(!(X.hive.hive_flags & HIVE_CAN_HIJACK))
 			to_chat(X, span_warning("Our hive lacks the psychic prowess to hijack the bird."))
 			return
-		var/groundside_humans
-		for(var/N in GLOB.alive_human_list)
-			var/mob/H = N
-			if(H.z != X.z)
-				continue
-			groundside_humans++
-
-		if(groundside_humans > 5)
+		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
+		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+		if(living_player_list[1] > 5 || mode.allow_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 		switch(M.mode)
@@ -697,8 +718,9 @@
 		do_hijack(M, CT, X)
 
 	if(href_list["abduct"])
-		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
-		if(living_player_list[1] > 5)
+		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
+		var/datum/game_mode/infestation/distress/points_defence/mode = SSticker.mode
+		if(living_player_list[1] > 5 || mode.allow_hijack())
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 

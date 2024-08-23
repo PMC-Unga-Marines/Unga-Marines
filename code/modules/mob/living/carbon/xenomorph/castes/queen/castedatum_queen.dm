@@ -23,7 +23,8 @@
 	// *** Health *** //
 	max_health = 600
 
-	sunder_recover = 1.5
+	// *** Sunder *** //
+	sunder_multiplier = 0.7
 
 	// *** Evolution *** //
 	evolve_min_xenos = 8
@@ -37,7 +38,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 65, BOMB = 80, BIO = 60, FIRE = 60, ACID = 60)
+	soft_armor = list(MELEE = 65, BULLET = 70, LASER = 70, ENERGY = 65, BOMB = 80, BIO = 60, FIRE = 60, ACID = 60)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1.1 SECONDS

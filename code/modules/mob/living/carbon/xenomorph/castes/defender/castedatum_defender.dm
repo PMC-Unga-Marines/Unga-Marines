@@ -25,10 +25,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 100
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/warrior,
-		/mob/living/carbon/xenomorph/bull,
-	)
 
 	deevolves_to = /mob/living/carbon/xenomorph/larva
 
@@ -38,7 +34,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 20, BIO = 30, FIRE = 40, ACID = 30)
+	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 40, BOMB = 20, BIO = 30, FIRE = 40, ACID = 30)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "defender"

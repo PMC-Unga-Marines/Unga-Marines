@@ -102,6 +102,13 @@
 			if(!(get_dist(source, nearby_vehicle) < shorter_distance))
 				continue
 			nearest_target = nearby_vehicle
+	if(target_flags & TARGET_NUKE) //for last stand
+		for(var/atom/nearby_nuke AS in GLOB.last_stand_nukes)
+			if(source.z != nearby_nuke.z)
+				continue
+			if(!(get_dist(source, nearby_nuke) < shorter_distance))
+				continue
+			nearest_target = nearby_nuke
 	return nearest_target
 
 /**

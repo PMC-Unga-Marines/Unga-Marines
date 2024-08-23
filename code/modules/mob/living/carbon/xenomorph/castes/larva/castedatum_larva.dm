@@ -26,12 +26,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 50
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/drone,
-		/mob/living/carbon/xenomorph/runner,
-		/mob/living/carbon/xenomorph/sentinel,
-		/mob/living/carbon/xenomorph/defender,
-	)
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING

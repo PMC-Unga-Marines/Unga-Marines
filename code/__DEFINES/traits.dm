@@ -259,3 +259,6 @@
 #define TRAIT_SUPER_STRONG "t_super_strong"
 /// Foreign biology. Basic medHUDs won't show the mob. (Yautja, Zombies)
 #define TRAIT_FOREIGN_BIO "t_foreign_bio"
+//regress and caste swap UI
+#define TRAIT_CASTE_SWAP "caste_swap"
+#define TRAIT_REGRESSING "regressing"

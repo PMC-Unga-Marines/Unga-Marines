@@ -598,6 +598,66 @@
 	GLOB.eord_roomba_spawns -= src
 	return ..()
 
+/obj/effect/landmark/xenoden_docking_port
+	name = "xenoden docking port"
+	icon = 'icons/Marine/marine-navigation.dmi'
+	icon_state = "pinonfar"
+
+/obj/effect/landmark/xenoden_docking_port/Initialize(mapload)
+	..()
+	GLOB.xenoden_docking_ports_locs += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/xenoden_core
+	name = "xenoden docking port"
+	icon = 'icons/Xeno/resin_silo.dmi'
+	icon_state = "weed_silo"
+
+/obj/effect/landmark/xenoden_core/Initialize(mapload)
+	..()
+	GLOB.xenoden_cores_locs += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/sensor_tower_infestation_ground
+	name = "sensor ground tower infestation mark"
+	icon = 'icons/obj/structures/sensor.dmi'
+	icon_state = "sensor"
+
+/obj/effect/landmark/sensor_towers_infestation_ground/Initialize(mapload)
+	..()
+	GLOB.sensor_towers_infestation_ground += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/sensor_tower_infestation_caves
+	name = "sensor cave tower infestation mark"
+	icon = 'icons/obj/structures/sensor.dmi'
+	icon_state = "sensor"
+
+/obj/effect/landmark/sensor_tower_infestation_caves/Initialize(mapload)
+	..()
+	GLOB.sensor_towers_infestation_caves += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/tower_relay
+	name = "tower relay mark"
+	icon = 'icons/obj/structures/comm_tower2.dmi'
+	icon_state = "comm_tower"
+
+/obj/effect/landmark/tower_relay/Initialize(mapload)
+	..()
+	GLOB.tower_relay_locs += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/last_stand_waves
+	icon = 'icons/Xeno/castes/runner.dmi'
+	icon_state = "Runner Walking"
+	name = "last stand waves location"
+
+/obj/effect/landmark/last_stand_waves/Initialize(mapload)
+	. = ..()
+	GLOB.waves_spawner_loc = loc
+	return INITIALIZE_HINT_QDEL
+
 /// Marks the bottom left of the testing zone.
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
 /obj/effect/landmark/unit_test_bottom_left

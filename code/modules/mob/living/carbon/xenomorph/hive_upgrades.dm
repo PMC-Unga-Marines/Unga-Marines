@@ -193,6 +193,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!.)
 		return
 
+	if(SSticker.mode?.flags_round_type & MODE_XENO_DEN)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("You cannot build silo in this gamemode!"))
+		return FALSE
+
 	var/turf/buildloc = get_step(buyer, building_loc)
 	if(!buildloc)
 		return FALSE

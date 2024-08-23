@@ -170,24 +170,49 @@ WEAPONS
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/weapons/sentry
-	name = "ST-571 Base Defense Sentry"
-	contains = list(/obj/item/storage/box/crate/sentry)
-	cost = 400
+	name = "Турель TUR-B \"Базис\""
+	contains = list(
+		/obj/item/weapon/gun/sentry/basic,
+	)
+	cost = 200
 
-/datum/supply_packs/weapons/sentry_ammo
-	name = "ST-571 sentry ammunition"
-	contains = list(/obj/item/ammo_magazine/sentry)
-	cost = 100
+/datum/supply_packs/weapons/sentry_upgrade
+	name = "Набор для улучшения турели TUR-B"
+	contains = list(
+		/obj/item/sentry_upgrade_kit,
+	)
+	cost = 150
 
-/datum/supply_packs/weapons/minisentry
-	name = "ST-580 Portable Sentry"
-	contains = list(/obj/item/storage/box/crate/minisentry)
-	cost = 400
+/datum/supply_packs/weapons/sentry/ammo
+	name = "Магазин для турели TUR-B \"Базис\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry,
+	)
+	cost = 50
 
-/datum/supply_packs/weapons/minisentry_ammo
-	name = "ST-580 point defense sentry ammo"
-	contains = list(/obj/item/ammo_magazine/minisentry)
-	cost = 100
+/datum/supply_packs/weapons/sentry/ammo/mini
+	name = "Магазин для турели TUR-M \"Гном\""
+	contains = list(
+		/obj/item/ammo_magazine/minisentry,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/sniper
+	name = "Магазин для турели TUR-SN \"Оса\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry/sniper,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/shotgun
+	name = "Магазин для турели TUR-SH \"Бык\""
+	contains = list(
+		/obj/item/ammo_magazine/sentry/shotgun,
+	)
+
+/datum/supply_packs/weapons/sentry/ammo/flamer
+	name = "Бак для турели TUR-F \"Феникс\""
+	contains = list(
+		/obj/item/ammo_magazine/flamer_tank/large/sentry,
+	)
 
 /datum/supply_packs/weapons/buildasentry
 	name = "Build-A-Sentry Attachment System"

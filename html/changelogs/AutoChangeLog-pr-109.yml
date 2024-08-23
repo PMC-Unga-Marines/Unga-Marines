@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Фист горжера теперь работает как и должно."

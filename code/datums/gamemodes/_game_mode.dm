@@ -74,7 +74,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///If the gamemode has a whitelist of valid ground maps. Whitelist overrides the blacklist
 	var/list/whitelist_ground_maps
 	///If the gamemode has a blacklist of disallowed ground maps
-	var/list/blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS)
+	var/list/blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_LAST_STAND)
 	///if fun tads are enabled by default
 	var/enable_fun_tads = FALSE
 
@@ -465,6 +465,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.larva_from_psydrain] larvas came from psydrain."
 	if(GLOB.round_statistics.larva_from_silo)
 		parts += "[GLOB.round_statistics.larva_from_silo] larvas came from silos."
+	if(GLOB.round_statistics.larva_from_xeno_core)
+		parts += "[GLOB.round_statistics.larva_from_xeno_core] larvas came from infestation towers."
 	if(GLOB.round_statistics.larva_from_cocoon)
 		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
 	if(GLOB.round_statistics.larva_from_marine_spawning)
@@ -483,6 +485,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.psy_shield_blasts] number of times Warlocks detonated a Psychic Shield."
 	if(GLOB.round_statistics.points_from_mining)
 		parts += "[GLOB.round_statistics.points_from_mining] requisitions points gained from mining."
+	if(GLOB.round_statistics.points_from_towers)
+		parts += "[GLOB.round_statistics.points_from_towers] requisitions points gained from infestation towers."
 	if(GLOB.round_statistics.points_from_research)
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(length(GLOB.round_statistics.req_items_produced))

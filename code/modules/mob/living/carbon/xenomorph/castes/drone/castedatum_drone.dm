@@ -27,14 +27,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 100
-	evolves_to = list(
-		/mob/living/carbon/xenomorph/shrike,
-		/mob/living/carbon/xenomorph/queen,
-		/mob/living/carbon/xenomorph/king,
-		/mob/living/carbon/xenomorph/carrier,
-		/mob/living/carbon/xenomorph/hivelord,
-		/mob/living/carbon/xenomorph/hivemind,
-	)
 
 	deevolves_to = /mob/living/carbon/xenomorph/larva
 
@@ -45,7 +37,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 15, FIRE = 30, ACID = 15)
+	soft_armor = list(MELEE = 30, BULLET = 25, LASER = 25, ENERGY = 30, BOMB = 0, BIO = 15, FIRE = 30, ACID = 15)
 
 	// *** Pheromones *** //
 	aura_strength = 2 //Drone's aura is the weakest.
