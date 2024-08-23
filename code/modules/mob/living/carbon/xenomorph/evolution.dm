@@ -203,6 +203,10 @@
 		if(!new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)) //This return shouldn't be possible to trigger, unless you varedit upgrade right on the tick the xeno evos
 			return
 
+	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
+	selector?.set_selected_zone(zone_selected, new_xeno)
+	qdel(src)
+	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
 	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 
 ///Check if the xeno is currently able to evolve
