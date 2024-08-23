@@ -139,7 +139,7 @@
 	var/static/image/medicalnanites_high_image = image('icons/mob/hud.dmi', icon_state = "nanites")
 	var/static/image/medicalnanites_medium_image = image('icons/mob/hud.dmi', icon_state = "nanites_medium")
 	var/static/image/medicalnanites_low_image = image('icons/mob/hud.dmi', icon_state = "nanites_low")
-	var/static/image/ifex_image = image('icons/mob/hud.dmi', icon_state = "ifex")
+	var/static/image/ifosfamide_image = image('icons/mob/hud.dmi', icon_state = "ifosfamide")
 	var/static/image/jellyjuice_image = image('icons/mob/hud.dmi', icon_state = "jellyjuice")
 	var/static/image/russianred_image = image('icons/mob/hud.dmi', icon_state = "russian_red")
 
@@ -154,7 +154,7 @@
 		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/medicine/xenojelly)
 		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicalnanites)
 		var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
-		var/ifex_amount = reagents.get_reagent_amount(/datum/reagent/medicine/ifex)
+		var/ifosfamide_amount = reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide)
 
 		if(neurotox_amount > 10) //Blinking image for particularly high concentrations
 			xeno_reagent.overlays += neurotox_high_image
@@ -179,8 +179,8 @@
 		else if(sanguinal_amount > 0)
 			xeno_reagent.overlays += sanguinal_image
 
-		if(ifex_amount > 0)
-			xeno_reagent.overlays += ifex_image
+		if(ifosfamide_amount > 0)
+			xeno_reagent.overlays += ifosfamide_image
 
 		if(medicalnanites_amount > 25)
 			xeno_reagent.overlays += medicalnanites_high_image

@@ -273,7 +273,7 @@
 	list_reagents = list(/datum/reagent/consumable/sugar = 15)
 	pill_id = 18
 
-/obj/item/reagent_containers/pill/ifex
+/obj/item/reagent_containers/pill/ifosfamide
 	pill_desc = "An Ifosfamide pill. A cytostatic antitumor drug. Quickly heals wounds and burns, but releases histamine. Do not mix with BKTT and -fen drugs"
-	list_reagents = list(/datum/reagent/medicine/ifex = 15)
+	list_reagents = list(/datum/reagent/medicine/ifosfamide = 15)
 	pill_id = 11

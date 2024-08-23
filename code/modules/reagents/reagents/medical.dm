@@ -1577,7 +1577,7 @@
 	scannable = TRUE
 
 /datum/reagent/histamine/on_mob_life(mob/living/L, metabolism)
-	if(!L.reagents.get_reagent_amount(/datum/reagent/medicine/ifex))
+	if(!L.reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide))
 		holder.remove_reagent(/datum/reagent/histamine, 0.4)
 
 	L.apply_damage(0.5*effect_str, OXY)
@@ -1596,8 +1596,8 @@
 /datum/reagent/histamine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, 0, 6*effect_str)
 
-/datum/reagent/medicine/ifex
-	name = "Ifex"
+/datum/reagent/medicine/ifosfamide
+	name = "ifosfamide"
 	description = "Ifosfamide is a cytostatic antitumor drug"
 	color = COLOR_REAGENT_BICARIDINE
 	custom_metabolism = REAGENTS_METABOLISM * 2
@@ -1605,7 +1605,7 @@
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	scannable = TRUE
 
-/datum/reagent/medicine/ifex/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/medicine/ifosfamide/on_mob_life(mob/living/L, metabolism)
 
 	L.adjustOxyLoss(-0.5*effect_str)
 	L.adjustToxLoss(-0.5*effect_str)
@@ -1621,8 +1621,8 @@
 	purge(L)
 	current_cycle++
 
-/datum/reagent/medicine/ifex/overdose_process(mob/living/L, metabolism)
+/datum/reagent/medicine/ifosfamide/overdose_process(mob/living/L, metabolism)
 	L.adjustToxLoss(2*effect_str)
 
-/datum/reagent/medicine/ifex/overdose_crit_process(mob/living/L, metabolism)
+/datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
