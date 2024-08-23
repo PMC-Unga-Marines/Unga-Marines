@@ -54,7 +54,7 @@
 	if(!isxeno(user) && !isobserver(user))
 		return
 	if(isxeno(user))
-		. += span_info("Use right click to enter and exit the xenoden")
+		. += span_info("Use right click to enter or exit the xenoden.")
 	if(tunnel_desc)
 		. += span_info("The Hivelord scent reads: \'[tunnel_desc]\'")
 
