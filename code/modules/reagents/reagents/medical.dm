@@ -1591,10 +1591,10 @@
 	to_chat(L, span_userdanger("You feel how it becomes easier for you to breathe."))
 
 /datum/reagent/histamine/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(1*effect_str, 1*effect_str, 1*effect_str)
+	L.apply_damages(1 * effect_str, 1 * effect_str, 1 * effect_str)
 
 /datum/reagent/histamine/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(0, 0, 6*effect_str)
+	L.apply_damages(0, 0, 6 * effect_str)
 
 /datum/reagent/medicine/ifosfamide
 	name = "ifosfamide"
