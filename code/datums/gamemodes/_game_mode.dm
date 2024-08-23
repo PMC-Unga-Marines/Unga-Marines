@@ -64,6 +64,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/waiting_for_candidates = FALSE
 	/// Ponderation rate of silos output. 1 is normal, 2 is twice
 	var/silo_scaling = 1
+	/// Maximum number of silos existing at one moment
+	var/max_silo_ammount = 2
 
 	///If the gamemode has a whitelist of valid ship maps. Whitelist overrides the blacklist
 	var/list/whitelist_ship_maps
