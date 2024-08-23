@@ -27,7 +27,7 @@
 	max_health = 600
 
 	// *** Evolution *** //
-	deevolves_to = list(/mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/hivelord)
+	deevolves_to = /mob/living/carbon/xenomorph/hivelord
 
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
