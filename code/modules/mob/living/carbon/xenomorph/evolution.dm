@@ -46,10 +46,7 @@
 	if(HAS_TRAIT(src, TRAIT_REGRESSING))
 		switch(tier)
 			if(XENO_TIER_ZERO, XENO_TIER_FOUR)
-				if(isxenoshrike(src))
-					return GLOB.xeno_types_tier_one
-				else
-					return
+				return
 			if(XENO_TIER_ONE)
 				return list(/mob/living/carbon/xenomorph/larva)
 			if(XENO_TIER_TWO)
