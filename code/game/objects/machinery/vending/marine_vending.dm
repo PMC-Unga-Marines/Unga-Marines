@@ -165,6 +165,8 @@
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
+			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
 			/obj/item/ammo_magazine/packet/p10x265mm = -1,
@@ -214,8 +216,8 @@
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = 10,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = 10,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
+			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 		),
@@ -368,6 +370,7 @@
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mmap = -1,
+			/obj/item/ammo_magazine/packet/p9mmhp = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
