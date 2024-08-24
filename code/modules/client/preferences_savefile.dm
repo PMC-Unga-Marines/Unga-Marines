@@ -557,7 +557,7 @@
 	flavor_text = sanitize_text(flavor_text, initial(flavor_text))
 
 	if(!squad_robot_name)
-		squad_robot_name = "Omega-Toaster"
+		squad_robot_name = "Toaster"
 	if(!synthetic_name)
 		synthetic_name = "David"
 	if(!xeno_name)
