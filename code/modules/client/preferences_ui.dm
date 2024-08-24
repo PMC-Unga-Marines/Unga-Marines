@@ -271,7 +271,7 @@
 			var/newValue = params["newValue"]
 			newValue = reject_bad_name(newValue, TRUE)
 			if(!newValue)
-				tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+				tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 				return
 			real_name = newValue
 
@@ -289,7 +289,7 @@
 			var/newValue = params["newValue"]
 			newValue = reject_bad_name(newValue, TRUE)
 			if(!newValue)
-				tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+				tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 				return
 			synthetic_name = newValue
 
@@ -304,7 +304,7 @@
 			if(raw_name) // Check to ensure that the user entered text (rather than cancel.)
 				var/new_name = reject_bad_name(raw_name)
 				if(new_name) predator_name = new_name
-				else to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+				else to_chat(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .")
 
 		if("predator_gender")
 			predator_gender = predator_gender == MALE ? FEMALE : MALE
@@ -427,7 +427,7 @@
 			var/newValue = params["newValue"]
 			newValue = reject_bad_name(newValue, TRUE)
 			if(!newValue)
-				tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+				tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 				return
 			synthetic_name = newValue
 
@@ -444,7 +444,7 @@
 			else
 				newValue = reject_bad_name(newValue)
 				if(!newValue)
-					tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+					tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 					return
 				xeno_name = newValue
 
@@ -455,7 +455,7 @@
 			else
 				newValue = reject_bad_name(newValue, TRUE)
 				if(!newValue)
-					tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+					tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 					return
 				ai_name = newValue
 
