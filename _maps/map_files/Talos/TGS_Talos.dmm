@@ -13767,7 +13767,7 @@
 /area/mainship/hallways/aft_hallway)
 "isG" = (
 /obj/structure/sink/bathroom{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
@@ -21908,7 +21908,7 @@
 /area/mainship/hull/upper_hull)
 "mVy" = (
 /obj/structure/sink/bathroom{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/medical/medical_science)
@@ -30321,7 +30321,7 @@
 /area/mainship/command/telecomms)
 "rYV" = (
 /obj/structure/sink/bathroom{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/charlie)
