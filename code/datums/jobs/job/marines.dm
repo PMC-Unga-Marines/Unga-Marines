@@ -139,10 +139,10 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 			new_human.wear_id.paygrade = "E8" //If you play way too much TGMC. 1000 hours.
 
 /datum/job/terragov/squad/robot/get_special_name(client/preference_source)
-	return preference_source.prefs.synthetic_name
+	return preference_source.prefs.squad_robot_name
 
 /datum/job/terragov/squad/robot/return_spawn_type(datum/preferences/prefs)
-	switch(prefs?.robot_type)
+	switch(prefs?.squad_robot_type)
 		if("Hammerhead")
 			return /mob/living/carbon/human/species/robot/alpharii
 		if("Chilvaris")

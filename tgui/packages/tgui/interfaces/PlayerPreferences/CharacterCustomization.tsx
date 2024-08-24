@@ -62,6 +62,10 @@ export const CharacterCustomization = (props, context) => {
               />
               <TextFieldPreference label={'Xenomorph'} value={'xeno_name'} />
               <TextFieldPreference
+                label={'Squad Robot Name'}
+                value={'squad_robot_name'}
+              />
+              <TextFieldPreference
                 label={'Synthetic Name'}
                 value={'synthetic_name'}
               />

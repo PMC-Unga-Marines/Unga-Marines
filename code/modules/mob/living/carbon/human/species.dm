@@ -222,10 +222,10 @@
 		to_chat(prefs.parent, span_warning("You forgot to set your synthetic name in your preferences. Please do so next time."))
 
 /datum/species/robot/prefs_name(datum/preferences/prefs)
-	. = prefs.synthetic_name
+	. = prefs.squad_robot_name
 	if(!. || . == "Undefined") //In case they don't have a name set.
 		. = GLOB.namepool[namepool].get_random_name()
-		to_chat(prefs.parent, span_warning("You forgot to set your synthetic name in your preferences. Please do so next time."))
+		to_chat(prefs.parent, span_warning("You forgot to set your robot in your preferences. Please do so next time."))
 
 /datum/species/proc/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	SHOULD_CALL_PARENT(TRUE) //remember to call base procs kids
