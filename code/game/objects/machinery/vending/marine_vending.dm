@@ -292,7 +292,6 @@
 			/obj/item/ammo_magazine/pistol/standard_pocketpistol = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
-			/obj/item/ammo_magazine/pistol/vp70/ap = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
