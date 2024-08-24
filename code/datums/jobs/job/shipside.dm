@@ -19,11 +19,6 @@
 	minimal_access = ALL_MARINE_ACCESS
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
 	outfit = /datum/outfit/job/command/captain
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/command/captain,
-		/datum/outfit/job/command/captain/robot,
-	)
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_requirements = XP_REQ_EXPERT
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
@@ -83,7 +78,6 @@ Godspeed, captain! And remember, you are not above the law."})
 
 /datum/job/terragov/command/captain/campaign
 	outfit = /datum/outfit/job/command/captain/campaign
-	multiple_outfits = FALSE
 
 /datum/outfit/job/command/captain
 	name = CAPTAIN
@@ -117,11 +111,6 @@ Godspeed, captain! And remember, you are not above the law."})
 	minimal_access = ALL_MARINE_ACCESS
 	display_order = JOB_DISPLAY_ORDER_EXECUTIVE_OFFICER
 	outfit = /datum/outfit/job/command/fieldcommander
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/command/fieldcommander,
-		/datum/outfit/job/command/fieldcommander/robot,
-	)
 	exp_type = EXP_TYPE_MARINES
 	exp_requirements = XP_REQ_EXPERT
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
@@ -185,7 +174,6 @@ Make the TGMC proud!"})
 //Campaign version with specific loadout
 /datum/job/terragov/command/fieldcommander/campaign
 	outfit = /datum/outfit/job/command/fieldcommander/campaign
-	multiple_outfits = FALSE
 
 /datum/outfit/job/command/fieldcommander/campaign
 	name = FIELD_COMMANDER
@@ -242,11 +230,6 @@ Make the TGMC proud!"})
 	skills_type = /datum/skills/so
 	display_order = JOB_DISPLAY_ORDER_STAFF_OFFICER
 	outfit = /datum/outfit/job/command/staffofficer
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/command/staffofficer,
-		/datum/outfit/job/command/staffofficer/robot,
-	)
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_requirements = XP_REQ_EXPERIENCED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
@@ -297,7 +280,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 
 /datum/job/terragov/command/staffofficer/campaign
 	outfit = /datum/outfit/job/command/staffofficer/campaign
-	multiple_outfits = FALSE
 
 /datum/outfit/job/command/staffofficer
 	name = STAFF_OFFICER
@@ -987,11 +969,6 @@ A happy ship is a well-functioning ship."})
 	skills_type = /datum/skills/cmo
 	display_order = JOB_DISPLAY_ORDER_CHIEF_MEDICAL_OFFICER
 	outfit = /datum/outfit/job/medical/professor
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/medical/professor,
-		/datum/outfit/job/medical/professor/robot,
-	)
 	exp_type = EXP_TYPE_MEDICAL
 	exp_requirements = XP_REQ_INTERMEDIATE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD
@@ -1067,11 +1044,6 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	skills_type = /datum/skills/doctor
 	display_order = JOB_DISPLAY_ORDER_DOCTOR
 	outfit = /datum/outfit/job/medical/medicalofficer
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/medical/medicalofficer,
-		/datum/outfit/job/medical/medicalofficer/robot,
-	)
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_requirements = XP_REQ_INTERMEDIATE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
@@ -1147,11 +1119,6 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	skills_type = /datum/skills/researcher
 	display_order = JOB_DISPLAY_ORDER_MEDICAL_RESEARCHER
 	outfit = /datum/outfit/job/medical/researcher
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/medical/researcher,
-		/datum/outfit/job/medical/researcher/robot,
-	)
 	exp_type = EXP_TYPE_MEDICAL
 	exp_requirements = XP_REQ_INTERMEDIATE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
