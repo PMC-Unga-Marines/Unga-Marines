@@ -9,21 +9,20 @@ endmode
 
 mode Nuclear War
 	requiredplayers 2
+        minimumplayers 30
 endmode
 
-mode Extended
-	requiredplayers 0
-	votable 0
+more Points Defence
+        requiredplayers 2
+        minimumplayers 30
 endmode
 
-mode Combat Patrol
-	requiredplayers 2
+mode Last Stand
+        requiredplayers 2
+        maximumplayers 40
 endmode
 
-mode Sensor Capture
-	requiredplayers 2
-endmode
-
-mode Campaign
-	requiredplayers 2
-endmode
+mode Extermination
+        requiredplayers 2
+        minimumplayers 30
+enmode

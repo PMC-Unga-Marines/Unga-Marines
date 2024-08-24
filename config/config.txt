@@ -5,16 +5,16 @@ $include dbconfig.txt
 $include resources.txt
 
 ## Server name: This appears at the top of the screen in-game.
-SERVER_NAME Something
+SERVER_NAME RuTGMC Reborn
 
 ## Hosted by name for unix platforms.
-HOSTEDBY yournamehere
+HOSTEDBY PFC Unga Marines
 
 ## The title of the main window.
-TITLE Change Me
+TITLE TALOS BIG RED 24/7 ALL CHEMS NO WALLENING
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
-#HUB
+HUB
 
 ## Optional URL for faster resource downloading.
 #RESOURCE_URL url
@@ -62,14 +62,14 @@ PROTECT_LEGACY_RANKS
 #FORUMURL
 #WIKIURL
 #RULESURL
-#DISCORDURL
+DISCORDURL https://discord.gg/BEZvcmzT6r
 #DONATIONURL
 #GITHUBURL
 #BANAPPEALS
 
 ## Uncomment to enable global ban DB using the provided URL. The API should expect to receive a ckey at the end of the URL.
 ## More API details can be found here: https://centcom.melonmesa.com
-CENTCOM_BAN_DB https://centcom.melonmesa.com/ban/search
+#CENTCOM_BAN_DB https://centcom.melonmesa.com/ban/search
 
 
 ## Logging. Recommended you keep all of these on.

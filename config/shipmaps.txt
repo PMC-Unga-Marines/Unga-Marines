@@ -13,27 +13,32 @@ Format:
 endmap
 
 map debugdalus
-	default
-	voteweight 0
+	disabled
 endmap
 
 map talos
+        default
 endmap
 
 map theseus
+        disabled
 endmap
 
 map pillar_of_spring
+        disabled
 endmap
 
 map sulaco
+        disabled
 endmap
 
 map arachne
+        disabled
 endmap
 
 map combat_patrol_base
 endmap
 
 map iteron
+        disabled
 endmap
