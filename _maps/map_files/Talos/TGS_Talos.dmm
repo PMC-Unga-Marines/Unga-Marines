@@ -9184,7 +9184,7 @@
 /obj/structure/window{
 	dir = 4
 	},
-/obj/machinery/marine_selector/gear/robo,
+/obj/machinery/marine_selector/clothes/robo/delta,
 /turf/open/floor/mainship/blue,
 /area/mainship/squads/delta)
 "fgN" = (
@@ -11147,7 +11147,7 @@
 /obj/structure/window{
 	dir = 4
 	},
-/obj/machinery/marine_selector/gear/robo,
+/obj/machinery/marine_selector/clothes/robo/bravo,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -28475,7 +28475,7 @@
 /turf/open/floor/wood,
 /area/mainship/squads/bravo)
 "qNu" = (
-/obj/machinery/marine_selector/gear/robo,
+/obj/machinery/marine_selector/clothes/robo/alpha,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "qNx" = (
@@ -37790,7 +37790,7 @@
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "wHM" = (
-/obj/machinery/marine_selector/gear/robo,
+/obj/machinery/marine_selector/clothes/robo/charlie,
 /turf/open/floor/mainship/emerald,
 /area/mainship/squads/charlie)
 "wJC" = (
