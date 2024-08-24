@@ -228,4 +228,4 @@
 
 /obj/machinery/optable/alt
 	icon_state = "alt_table2-idle"
-	base_icon_state = "alt_table"
+	base_icon_state = "alt_table2"
