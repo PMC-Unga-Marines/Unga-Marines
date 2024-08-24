@@ -1066,9 +1066,12 @@
 /area/mainship/hallways/hangar)
 "azB" = (
 /obj/structure/table/fancywoodentable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
-	dir = 8
+/obj/item/radio/intercom/general,
+/obj/structure/sign/semiotic/intercom{
+	pixel_y = 24;
+	pixel_x = 15
 	},
+/obj/item/flashlight/lamp,
 /turf/open/floor/wood,
 /area/mainship/squads/delta)
 "azD" = (
@@ -9357,6 +9360,9 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
 /turf/open/floor/carpet,
 /area/mainship/squads/delta)
 "fmE" = (
@@ -11288,15 +11294,13 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "gEP" = (
-/obj/structure/table/fancywoodentable,
 /obj/item/radio/intercom/general{
 	dir = 8;
 	pixel_y = -18
 	},
-/obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = 32
-	},
+/obj/structure/table/fancywoodentable,
+/obj/item/clipboard,
+/obj/item/tool/pen,
 /turf/open/floor/wood,
 /area/mainship/squads/delta)
 "gFd" = (
@@ -14310,6 +14314,7 @@
 	dir = 1
 	},
 /obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/clothing/hats,
 /turf/open/floor/carpet,
 /area/mainship/squads/delta)
 "iHu" = (
@@ -21648,9 +21653,6 @@
 /area/mainship/medical/upper_medical)
 "mLl" = (
 /obj/effect/turf_decal/woodsiding,
-/obj/structure/bed/chair/comfy{
-	dir = 1
-	},
 /turf/open/floor/carpet,
 /area/mainship/squads/delta)
 "mLm" = (
@@ -22300,8 +22302,8 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},
-/obj/structure/table/fancywoodentable,
 /obj/machinery/camera/autoname/alt,
+/obj/structure/table/fancywoodentable,
 /turf/open/floor/carpet,
 /area/mainship/squads/delta)
 "ndY" = (
@@ -25943,11 +25945,8 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "pnn" = (
-/obj/structure/bed/chair/comfy{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 4
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
+	dir = 8
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/delta)
@@ -34504,7 +34503,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "uwo" = (
-/obj/machinery/loadout_vendor,
+/obj/machinery/marine_selector/gear/leader,
 /turf/open/floor/wood,
 /area/mainship/squads/delta)
 "uwt" = (
@@ -82169,9 +82168,9 @@ aZr
 nPp
 nmQ
 eWU
-lSn
-gEP
 azB
+gEP
+lSn
 iOn
 xqG
 aDy
