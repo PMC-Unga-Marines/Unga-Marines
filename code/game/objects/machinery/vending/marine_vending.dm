@@ -1178,7 +1178,7 @@
 			/obj/item/clothing/under/marine/striped = -1,
 			/obj/item/clothing/under/marine/slav = -1,
 			/obj/item/clothing/under/marine/camo = -1,
-			/obj/item/clothing/under/marine/veteran = -1,
+			/obj/item/clothing/under/marine/veteran/marine = -1,
 			/obj/item/clothing/under/marine/separatist = -1,
 			/obj/item/clothing/under/marine/jaeger = -1,
 			/obj/item/clothing/under/marine/squad/neck/delta = -1,

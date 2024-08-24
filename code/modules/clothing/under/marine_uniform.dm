@@ -529,11 +529,8 @@
 /obj/item/clothing/under/marine/squad/neck/foreign
 	name = "\improper TGMC Foreign Legion turtleneck"
 	desc = "Tacticool looking, squad issued uniform. This one belongs to the Foreign Legion, smells like fast food."
-	icon = 'icons/obj/clothing/uniforms/marine_uniforms.dmi'
 	icon_state = "foreign_merc"
 	item_state = "foreign_merc"
-	item_icons = list(
-		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi')
 
 /obj/item/clothing/under/marine/slav
 	name = "\improper Old slavic uniform"
@@ -568,15 +565,18 @@
 /obj/item/clothing/under/marine/whites/blacks
 	name = "\improper TGMC black dress uniform"
 	desc = "A standard-issue TerraGov Marine Corps black dress uniform. The starch in the fabric chafes a small amount but it pales in comparison to the pride you feel when you first put it on during graduation from boot camp. Doesn't seem to fit perfectly around the waist though."
-	icon = 'icons/obj/clothing/uniforms/marine_uniforms.dmi'
 	icon_state = "marine_blacks"
-	item_icons = list(
-		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi')
 
-/obj/item/clothing/under/marine/veteran
+/obj/item/clothing/under/marine/veteran/marine
 	name = "\improper Veteran uniform"
 	desc = "A custom-made protective uniform for the Marine Corps with a long service life. It is reinforced with additional protective plates, Kevlar inserts, sewn metal mesh and impregnated with a refractory mixture. Anyway, that's what the tag on the leg says. Believe it or not, after all, if you've really served in the corps long enough, you know the answer."
+	icon = 'icons/obj/clothing/uniforms/marine_uniforms.dmi'
 	icon_state = "veteran"
+	item_icons = list(
+		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi',
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+	)
 	adjustment_variants = list()
 
 /obj/item/clothing/under/marine/separatist
