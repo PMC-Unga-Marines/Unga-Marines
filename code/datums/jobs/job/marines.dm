@@ -79,7 +79,6 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	to_chat(M, {"\nYou are a rank-and-file marine of the TGMC, and that is your strength.
 What you lack alone, you gain standing shoulder to shoulder with the men and women of the TerraGov Marine Corps. Ooh-rah!"})
 
-
 /datum/outfit/job/marine/standard
 	name = SQUAD_MARINE
 	jobtype = /datum/job/terragov/squad/standard
@@ -89,7 +88,6 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 //Squad Combat Robot
 /datum/job/terragov/squad/robot
 	title = SQUAD_ROBOT
-	job_category = JOB_CAT_MARINE
 	paygrade = "E1"
 	comm_title = "Rob"
 	access = list(ACCESS_MARINE_ROBOT)
