@@ -195,6 +195,10 @@
 /obj/effect/turf_decal/tile/transparent/random/diagonal_centre,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
+"afR" = (
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/emerald,
+/area/mainship/squads/charlie)
 "afS" = (
 /obj/machinery/light/mainship/small{
 	dir = 1
@@ -5842,6 +5846,13 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
+"doR" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "dpc" = (
 /obj/structure/closet/crate/supply,
 /turf/open/floor/plating,
@@ -6790,6 +6801,13 @@
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/starboard_emb)
+"dSv" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "dSw" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
@@ -9162,6 +9180,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
+"fgE" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/blue,
+/area/mainship/squads/delta)
 "fgN" = (
 /obj/machinery/light/mainship/small{
 	dir = 8
@@ -11118,6 +11143,15 @@
 /obj/machinery/marine_selector/clothes/medic,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
+"gCP" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/squads/bravo)
 "gCR" = (
 /obj/structure/barricade/metal{
 	dir = 8
@@ -11276,6 +11310,10 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
+"gHr" = (
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "gHX" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
@@ -12712,6 +12750,15 @@
 /obj/structure/bed/chair,
 /turf/open/floor/wood,
 /area/mainship/hallways/aft_hallway)
+"hHV" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/squads/bravo)
 "hIa" = (
 /obj/effect/turf_decal/siding/dark/end,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -12794,6 +12841,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
+"hKi" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "hKu" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -13334,6 +13388,13 @@
 	},
 /turf/open/floor/mainship_hull,
 /area/mainship/command/cic)
+"igh" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/blue,
+/area/mainship/squads/delta)
 "igt" = (
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct{
 	dir = 1
@@ -14259,6 +14320,13 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/lounge)
+"iKo" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/blue,
+/area/mainship/squads/delta)
 "iKN" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -18396,6 +18464,13 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/chemistry)
+"ldH" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/emerald,
+/area/mainship/squads/charlie)
 "lew" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/engineering/cable,
@@ -21225,10 +21300,10 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
-/obj/effect/spawner/random/misc/plant,
 /obj/machinery/air_alarm{
 	dir = 8
 	},
+/obj/structure/lamarr,
 /turf/open/floor/carpet,
 /area/mainship/command/corporateliaison)
 "mFt" = (
@@ -23885,6 +23960,22 @@
 	},
 /turf/open/floor/stairs/dark/left,
 /area/mainship/hull/port_hull)
+"oeS" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/emerald,
+/area/mainship/squads/charlie)
+"ofo" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/squads/bravo)
 "ofG" = (
 /obj/effect/ai_node,
 /obj/machinery/camera/autoname/alt,
@@ -24277,6 +24368,13 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
+"osc" = (
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "osA" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
@@ -28376,6 +28474,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/mainship/squads/bravo)
+"qNu" = (
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "qNx" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -30710,6 +30812,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/living/cafeteria)
+"sks" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/blue,
+/area/mainship/squads/delta)
 "skF" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -33963,6 +34072,13 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
+"uoQ" = (
+/obj/machinery/marine_selector/gear/marine,
+/obj/structure/window{
+	dir = 8
+	},
+/turf/open/floor/mainship/emerald,
+/area/mainship/squads/charlie)
 "upc" = (
 /obj/structure/largecrate/supply,
 /obj/effect/decal/cleanable/dirt,
@@ -36264,6 +36380,13 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar/droppod)
+"vNS" = (
+/obj/machinery/marine_selector/gear/robo,
+/obj/structure/window{
+	dir = 4
+	},
+/turf/open/floor/mainship/emerald,
+/area/mainship/squads/charlie)
 "vOb" = (
 /obj/machinery/door/airlock/mainship/command/FCDRquarters{
 	dir = 8
@@ -36926,6 +37049,15 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
+"whJ" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/squads/bravo)
 "whL" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3,
@@ -37657,6 +37789,10 @@
 /obj/structure/barricade/metal,
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
+"wHM" = (
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/emerald,
+/area/mainship/squads/charlie)
 "wJC" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
@@ -78609,7 +78745,7 @@ aRv
 uwt
 iiD
 xhq
-bMC
+hKi
 cNf
 oiX
 qcr
@@ -78672,7 +78808,7 @@ tkN
 ryM
 gFw
 lAY
-slT
+oeS
 tkN
 rgx
 qwP
@@ -78866,7 +79002,7 @@ uwt
 uwt
 iiD
 xhq
-cqy
+qNu
 lDx
 uQy
 aIf
@@ -78875,7 +79011,7 @@ eyN
 sRd
 pTc
 xhq
-dnb
+ofo
 iBJ
 uda
 uUX
@@ -78920,7 +79056,7 @@ eWU
 xqG
 rGm
 wlu
-oDo
+iKo
 tkN
 eDY
 wSm
@@ -78929,7 +79065,7 @@ xCy
 uzQ
 dfA
 eiA
-jsH
+wHM
 tkN
 uni
 qwP
@@ -79123,7 +79259,7 @@ mcj
 mcj
 efd
 xhq
-bMC
+osc
 soT
 foZ
 xKQ
@@ -79132,7 +79268,7 @@ qvh
 dNU
 nJh
 xhq
-vbh
+gCP
 xZI
 vKg
 dcs
@@ -79177,7 +79313,7 @@ awb
 oEl
 pjn
 ccE
-kAV
+fgE
 tkN
 mgh
 xfr
@@ -79186,7 +79322,7 @@ kss
 lNt
 gFw
 pdq
-slT
+vNS
 tkN
 aCb
 pSR
@@ -79380,7 +79516,7 @@ xhq
 xhq
 xhq
 xhq
-cqy
+doR
 lDx
 mqq
 hlJ
@@ -79443,7 +79579,7 @@ dhK
 sEo
 cGP
 eiA
-jsH
+uoQ
 tkN
 tkN
 tkN
@@ -79637,7 +79773,7 @@ qQU
 jxP
 eay
 xhq
-bMC
+gHr
 soT
 srv
 qcr
@@ -79700,7 +79836,7 @@ tkN
 ryM
 wBM
 pdq
-slT
+afR
 tkN
 nCz
 hzg
@@ -79894,7 +80030,7 @@ kHX
 psm
 trV
 xhq
-cqy
+dSv
 lDx
 oiX
 xap
@@ -79903,7 +80039,7 @@ xhq
 xhq
 xhq
 xhq
-dnb
+ofo
 sXV
 sFX
 uUX
@@ -79948,7 +80084,7 @@ eWU
 xqG
 aDy
 knz
-oDo
+iKo
 tkN
 tkN
 tkN
@@ -79957,7 +80093,7 @@ tkN
 vYM
 gFw
 eiA
-jsH
+ldH
 tkN
 cLd
 ePH
@@ -80160,7 +80296,7 @@ ocr
 vkP
 lzs
 xhq
-vbh
+hHV
 xZI
 sFX
 jfJ
@@ -80205,7 +80341,7 @@ eWU
 lZo
 aDy
 ccE
-kAV
+igh
 tkN
 nvT
 ulr
@@ -80931,7 +81067,7 @@ ocr
 vkP
 cPL
 xhq
-dnb
+whJ
 sXV
 vKg
 onW
@@ -80976,7 +81112,7 @@ eOW
 hVO
 pjn
 knz
-oDo
+sks
 tkN
 cNg
 ulr
@@ -81188,7 +81324,7 @@ xhq
 xhq
 xhq
 xhq
-vbh
+hHV
 xZI
 vGV
 xiz
@@ -81233,7 +81369,7 @@ hSO
 enB
 ipe
 ccE
-kAV
+igh
 tkN
 tkN
 tkN
