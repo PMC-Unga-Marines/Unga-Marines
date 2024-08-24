@@ -1,0 +1,4 @@
+author: "Tatarla"
+delete-after: True
+changes:
+  - rscadd: "Добавил вендор ботов на Талос"
