@@ -88,7 +88,6 @@
 	access = ALL_MARINE_ACCESS
 	minimal_access = ALL_MARINE_ACCESS
 	outfit = /datum/outfit/job/command/fieldcommander
-	multiple_outfits = TRUE
 
 /datum/job/fallen/marine/synthetic
 	title = ROLE_FALLEN(SYNTHETIC)
