@@ -193,6 +193,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!.)
 		return
 
+	if(SSticker.mode?.flags_round_type & MODE_XENO_DEN)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("You cannot build silo in this gamemode!"))
+		return FALSE
+
 	var/turf/buildloc = get_step(buyer, building_loc)
 	if(!buildloc)
 		return FALSE
@@ -208,27 +213,12 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 				to_chat(buyer, span_xenowarning("Another silo is too close!"))
 				return FALSE
 
-	if(length(GLOB.xeno_resin_silos_by_hive[buyer.hivenumber]) >= 2)
+	var/max_silo = SSticker.mode.max_silo_ammount
+	if(length(GLOB.xeno_resin_silos_by_hive[buyer.hivenumber]) >= max_silo)
 		if(!silent)
-			to_chat(buyer, span_xenowarning("Hive cannot support more than 2 active silos!"))
+			to_chat(buyer, span_xenowarning("Hive cannot support more than [max_silo] active silos!"))
 		return FALSE
-/* RU TGMC EDIT
-/datum/hive_upgrade/building/evotower
-	name = "Evolution Tower"
-	desc = "Constructs a tower that increases the rate of evolution point and maturity point generation by 1.2 times per tower."
-	psypoint_cost = 300
-	icon = "evotower"
-	flags_upgrade = ABILITY_NUCLEARWAR
-	building_type = /obj/structure/xeno/evotower
 
-/datum/hive_upgrade/building/psychictower
-	name = "Psychic Relay"
-	desc = "Constructs a tower that increases the slots of higher tier Xenomorphs."
-	psypoint_cost = 300
-	icon = "maturitytower"
-	flags_upgrade = ABILITY_NUCLEARWAR
-	building_type = /obj/structure/xeno/psychictower
-RU TGMC EDIT */
 /datum/hive_upgrade/building/pherotower
 	name = "Pheromone Tower"
 	desc = "Constructs a tower that emanates a selectable type of pheromone."

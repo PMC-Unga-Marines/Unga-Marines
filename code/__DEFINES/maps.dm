@@ -24,6 +24,7 @@ require only minor tweaks.
 #define ZTRAIT_STATION "Station"
 #define ZTRAIT_RESERVED "Transit/Reserved"
 #define ZTRAIT_GROUND "Ground"
+#define ZTRAIT_XENO "XENO"
 #define ZTRAIT_MARINE_MAIN_SHIP "Marine Main Ship"
 #define ZTRAIT_DOUBLE_SHIPS "Double Marine Ship"
 #define ZTRAIT_AWAY "Away"

@@ -403,19 +403,13 @@ The default value assumes youtube-dl is in your system PATH
 	config_entry_value = "Sorry but the server is currently not accepting connections from never before seen players."
 
 /datum/config_entry/flag/check_randomizer
-//RU TGMC EDIT
-/datum/config_entry/string/default_view1
-	config_entry_value = WIDESCREEN1
 
-/datum/config_entry/string/default_view2
-	config_entry_value = WIDESCREEN2
-
-/datum/config_entry/string/default_view3
-	config_entry_value = WIDESCREEN3
+/datum/config_entry/string/default_view
+	config_entry_value = "15x15"
 
 /datum/config_entry/string/default_view_square
-	config_entry_value = SQUARESCREEN
-//RU TGMC EDIT
+	config_entry_value = "15x15"
+
 /*
 This maintains a list of ip addresses that are able to bypass topic filtering.
 */

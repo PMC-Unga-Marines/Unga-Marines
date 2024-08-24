@@ -3,6 +3,20 @@ GLOBAL_LIST_INIT(ammo_list, init_ammo_list())						//List of all ammo types. Use
 
 GLOBAL_LIST_EMPTY(xeno_egg_hugger)
 
+GLOBAL_LIST_EMPTY(miners_phorone)
+GLOBAL_LIST_EMPTY(miners_platinum)
+
+GLOBAL_LIST_EMPTY(miner_phorone_locs)
+GLOBAL_LIST_EMPTY(miner_platinum_locs)
+
+GLOBAL_LIST_EMPTY(sensor_towers_infestation_ground)
+GLOBAL_LIST_EMPTY(sensor_towers_infestation_caves)
+
+GLOBAL_LIST_EMPTY(tower_relay_locs)
+
+GLOBAL_LIST_EMPTY(xenoden_docking_ports_locs)
+GLOBAL_LIST_EMPTY(xenoden_cores_locs)
+
 GLOBAL_VAR(waves_spawner_loc)
 
 GLOBAL_LIST_EMPTY(last_stand_nukes)

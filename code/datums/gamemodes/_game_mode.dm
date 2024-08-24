@@ -64,6 +64,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/waiting_for_candidates = FALSE
 	/// Ponderation rate of silos output. 1 is normal, 2 is twice
 	var/silo_scaling = 1
+	/// Maximum number of silos existing at one moment
+	var/max_silo_ammount = 2
 
 	///If the gamemode has a whitelist of valid ship maps. Whitelist overrides the blacklist
 	var/list/whitelist_ship_maps
@@ -463,6 +465,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.larva_from_psydrain] larvas came from psydrain."
 	if(GLOB.round_statistics.larva_from_silo)
 		parts += "[GLOB.round_statistics.larva_from_silo] larvas came from silos."
+	if(GLOB.round_statistics.larva_from_xeno_core)
+		parts += "[GLOB.round_statistics.larva_from_xeno_core] larvas came from infestation towers."
 	if(GLOB.round_statistics.larva_from_cocoon)
 		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
 	if(GLOB.round_statistics.larva_from_marine_spawning)
@@ -481,6 +485,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.psy_shield_blasts] number of times Warlocks detonated a Psychic Shield."
 	if(GLOB.round_statistics.points_from_mining)
 		parts += "[GLOB.round_statistics.points_from_mining] requisitions points gained from mining."
+	if(GLOB.round_statistics.points_from_towers)
+		parts += "[GLOB.round_statistics.points_from_towers] requisitions points gained from infestation towers."
 	if(GLOB.round_statistics.points_from_research)
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(length(GLOB.round_statistics.req_items_produced))

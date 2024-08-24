@@ -329,15 +329,13 @@
 		return
 	zoom_xeno_in(xeno.observed_xeno ? FALSE : TRUE) //No need for feedback message if our eye is elsewhere.
 
-
 /datum/action/ability/xeno_action/toggle_queen_zoom/proc/zoom_xeno_in(message = TRUE)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	RegisterSignal(xeno, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	if(message)
 		xeno.visible_message(span_notice("[xeno] emits a broad and weak psychic aura."),
 		span_notice("We start focusing our psychic energy to expand the reach of our senses."), null, 5)
-	xeno.zoom_in(0, 4.5) //RU TGMC EDIT
-
+	xeno.zoom_in(0, 12)
 
 /datum/action/ability/xeno_action/toggle_queen_zoom/proc/zoom_xeno_out(message = TRUE)
 	var/mob/living/carbon/xenomorph/xeno = owner

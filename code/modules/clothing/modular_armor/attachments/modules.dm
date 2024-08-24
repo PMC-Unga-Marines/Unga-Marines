@@ -564,7 +564,7 @@
 	active = FALSE
 	flags_item = DOES_NOT_NEED_HANDS
 	zoom_tile_offset = 11
-	zoom_viewsize = 15 //RU TGMC EDIT
+	zoom_viewsize = 12
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD

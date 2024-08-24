@@ -19,6 +19,8 @@
 	COOLDOWN_DECLARE(silo_proxy_alert_cooldown)
 
 /obj/structure/xeno/silo/Initialize(mapload, _hivenumber)
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_SILO_NO_LARVA))
+		xeno_structure_flags &= ~CRITICAL_STRUCTURE
 	. = ..()
 	center_turf = get_step(src, NORTHEAST)
 	if(!istype(center_turf))
@@ -153,7 +155,7 @@
 ///Change minimap icon if silo is under attack or not
 /obj/structure/xeno/silo/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
 
 /obj/structure/xeno/silo/crash
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | INDESTRUCTIBLE
