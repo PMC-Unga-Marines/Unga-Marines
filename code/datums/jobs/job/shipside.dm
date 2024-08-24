@@ -101,16 +101,6 @@ Godspeed, captain! And remember, you are not above the law."})
 	head = null
 	back = FALSE
 
-/datum/outfit/job/command/captain/robot
-	species = SPECIES_COMBAT_ROBOT
-
-	w_uniform = /obj/item/clothing/under/marine/robotic
-	shoes = null
-	gloves = null
-	head = /obj/item/clothing/head/modular/robot
-	r_store = /obj/item/storage/pouch/general/large/command
-	l_store = /obj/item/hud_tablet/leadership
-
 /datum/outfit/job/command/captain/campaign
 	r_store = /obj/item/storage/pouch/general/large
 	l_store = /obj/item/binoculars/fire_support/campaign
@@ -188,18 +178,6 @@ Make the TGMC proud!"})
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine/officer
 	head = /obj/item/clothing/head/tgmcberet/fc
-	r_store = /obj/item/storage/pouch/general/large/command
-	l_store = /obj/item/hud_tablet/fieldcommand
-	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
-
-/datum/outfit/job/command/fieldcommander/robot
-	species = SPECIES_COMBAT_ROBOT
-
-	w_uniform = /obj/item/clothing/under/marine/robotic
-	wear_suit = /obj/item/clothing/suit/modular/robot
-	shoes = null
-	gloves = null
-	head = /obj/item/clothing/head/modular/robot
 	r_store = /obj/item/storage/pouch/general/large/command
 	l_store = /obj/item/hud_tablet/fieldcommand
 	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
@@ -334,18 +312,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	head = null
 	w_uniform = /obj/item/clothing/under/marine/whites/blacks
 	shoes = /obj/item/clothing/shoes/laceup
-
-
-
-/datum/outfit/job/command/staffofficer/robot
-	species = SPECIES_COMBAT_ROBOT
-
-	w_uniform = /obj/item/clothing/under/marine/robotic
-	shoes = null
-	gloves = null
-	head = /obj/item/clothing/head/modular/robot
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/binoculars/tactical
 
 /datum/outfit/job/command/staffofficer/campaign
 	l_store = /obj/item/binoculars/fire_support/campaign
@@ -1083,14 +1049,6 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	r_store = /obj/item/storage/pouch/surgery
 	l_store = /obj/item/storage/pouch/medkit/medic
 
-
-/datum/outfit/job/medical/professor/robot
-	species = SPECIES_COMBAT_ROBOT
-
-	w_uniform = /obj/item/clothing/under/marine/robotic
-	shoes = null
-	gloves = null
-
 /datum/outfit/job/medical/professor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
@@ -1170,15 +1128,6 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	head = /obj/item/clothing/head/surgery/purple
 	r_store = /obj/item/storage/pouch/surgery
 	l_store = /obj/item/storage/pouch/medkit/medic
-
-
-/datum/outfit/job/medical/medicalofficer/robot
-	species = SPECIES_COMBAT_ROBOT
-	jobtype = /datum/job/terragov/medical/medicalofficer
-
-	w_uniform = /obj/item/clothing/under/marine/robotic
-	shoes = null
-	gloves = null
 
 /datum/outfit/job/medical/medicalofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -1261,14 +1210,6 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	mask = /obj/item/clothing/mask/surgical
 	r_store = /obj/item/storage/pouch/surgery
 	l_store = /obj/item/storage/pouch/medkit/medic
-
-
-/datum/outfit/job/medical/researcher/robot
-	species = SPECIES_COMBAT_ROBOT
-
-	w_uniform = /obj/item/clothing/under/marine/robotic
-	shoes = null
-	gloves = null
 
 /datum/outfit/job/medical/researcher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
