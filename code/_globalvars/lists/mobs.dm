@@ -155,6 +155,7 @@ GLOBAL_LIST_INIT(xeno_types_tier_four, list(
 	/mob/living/carbon/xenomorph/shrike,
 	/mob/living/carbon/xenomorph/queen,
 	/mob/living/carbon/xenomorph/king,
+	/mob/living/carbon/xenomorph/hivemind,
 ))
 
 GLOBAL_LIST_INIT_TYPED(hive_datums, /datum/hive_status, init_hive_datum_list()) // init by make_datum_references_lists()

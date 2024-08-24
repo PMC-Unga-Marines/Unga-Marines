@@ -45,6 +45,9 @@
 	RegisterSignal(src, COMSIG_XENOMORPH_HIVEMIND_CHANGE_FORM, PROC_REF(change_form))
 	update_action_buttons()
 
+/mob/living/carbon/xenomorph/hivemind/get_evolution_options()
+	return
+
 /mob/living/carbon/xenomorph/hivemind/upgrade_possible()
 	return FALSE
 
