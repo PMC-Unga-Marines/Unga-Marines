@@ -17722,7 +17722,7 @@
 /area/mainship/hallways/hangar)
 "kJo" = (
 /obj/machinery/conveyor_switch{
-	id = "garbage2"
+	id = "garbage"
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
