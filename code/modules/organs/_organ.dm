@@ -25,12 +25,13 @@
 
 	carbon_mob.internal_organs |= src
 	owner = carbon_mob
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(clean_owner))
 
+	if(!ishuman(carbon_mob))
+		return
 	var/mob/living/carbon/human/human = carbon_mob
 	var/datum/limb/limb = human.get_limb(parent_limb)
 	LAZYDISTINCTADD(limb.internal_organs, src)
-
-	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(clean_owner))
 
 /datum/internal_organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
