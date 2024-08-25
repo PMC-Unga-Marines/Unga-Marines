@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 		/obj/structure/bed/nest,
 		/obj/alien/resin/resin_growth,
 		/obj/alien/resin/resin_growth/door,
-		)
+	)
 
 /datum/action/ability/activable/xeno/secrete_resin/hivemind/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner

@@ -1761,7 +1761,7 @@ MEDICAL
 		/obj/item/storage/pill_bottle/hypervene,
 		/obj/item/storage/pill_bottle/dylovene,
 		/obj/item/storage/pill_bottle/tricordrazine,
-		)
+	)
 	cost = 20
 
 /datum/supply_packs/medical/imialky_kit
@@ -1770,7 +1770,7 @@ MEDICAL
 	contains = list(
 		/obj/item/storage/pill_bottle/imidazoline,
 		/obj/item/storage/pill_bottle/alkysine,
-		)
+	)
 	cost = 30
 
 /datum/supply_packs/medical/quick_peri_kit
@@ -1779,7 +1779,7 @@ MEDICAL
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		)
+	)
 	cost = 30
 
 /datum/supply_packs/medical/russian_red_bottle
@@ -1815,7 +1815,7 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
-		)
+	)
 	cost = 250
 
 /datum/supply_packs/medical/neuraline_kit_injector
@@ -1832,7 +1832,7 @@ MEDICAL
 		/obj/item/storage/pill_bottle/kelotane,
 		/obj/item/storage/pill_bottle/tricordrazine,
 		/obj/item/storage/pill_bottle/tramadol,
-		)
+	)
 	cost = 20
 
 /datum/supply_packs/medical/medicine_defibrillator
