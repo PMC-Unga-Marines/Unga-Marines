@@ -14,8 +14,15 @@
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+			/obj/item/ammo_magazine/rifle/standard_carbine,
+			/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+			/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/weapon/gun/rifle/famas
+			/obj/item/ammo_magazine/rifle/famas
+			/obj/item/weapon/gun/rifle/type71
+			/obj/item/ammo_magazine/rifle/type71
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -218,8 +225,15 @@
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+			/obj/item/ammo_magazine/rifle/standard_carbine,
+			/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+			/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/weapon/gun/rifle/famas
+			/obj/item/ammo_magazine/rifle/famas
+			/obj/item/weapon/gun/rifle/type71
+			/obj/item/ammo_magazine/rifle/type71
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -429,8 +443,15 @@
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+			/obj/item/ammo_magazine/rifle/standard_carbine,
+			/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+			/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/weapon/gun/rifle/famas = -1,
+			/obj/item/ammo_magazine/rifle/famas = -1,
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
