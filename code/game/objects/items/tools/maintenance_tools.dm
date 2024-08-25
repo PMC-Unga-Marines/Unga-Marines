@@ -456,8 +456,7 @@
 	name = "handheld charger"
 	desc = "A hand-held, lightweight cell charger. It isn't going to give you tons of power, but it can help in a pinch."
 	icon = 'icons/obj/items/tools.dmi'
-	icon_state = "handheldcharger_black_empty"
-	item_state = "handheldcharger_black_empty"
+	icon_state = "handheldcharger_black"
 	w_class = WEIGHT_CLASS_SMALL
 	flags_atom = CONDUCT
 	force = 6
