@@ -42487,7 +42487,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
 	},
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security,
 /obj/effect/turf_decal/tile/transparent/red/anticorner/contrasted{
 	dir = 4
 	},
@@ -49499,7 +49499,7 @@
 /area/deltastation/service/kitchen)
 "kdN" = (
 /obj/structure/cable,
-/obj/structure/closet/secure_closet/security/engine,
+/obj/structure/closet/secure_closet/security,
 /obj/structure/prop/camera,
 /obj/item/radio/intercom,
 /obj/machinery/power/apc/drained,
@@ -77164,7 +77164,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/transparent/red/fourcorners,
 /obj/effect/turf_decal/warning_stripes/box/empty,
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security,
 /turf/open/floor/iron,
 /area/deltastation/security/checkpoint/medical/medsci)
 "pKo" = (
@@ -98859,7 +98859,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/transparent/red/fourcorners,
 /obj/effect/turf_decal/warning_stripes/box/empty,
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security,
 /turf/open/floor/iron,
 /area/deltastation/security/checkpoint/medical/medsci)
 "udQ" = (
