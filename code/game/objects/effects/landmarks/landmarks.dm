@@ -201,7 +201,17 @@
 	icon_state = "resinpod"
 
 /obj/effect/landmark/resin_jelly_pod/Initialize(mapload)
-	GLOB.xeno_tunnel_spawn_turfs += loc
+	GLOB.xeno_jelly_pod_turfs += loc
+	..()
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/xeno_turret
+	name = "xeno turret landmark"
+	icon = 'icons/Xeno/acidturret.dmi'
+	icon_state = XENO_TURRET_ACID_ICONSTATE
+
+/obj/effect/landmark/xeno_turret/Initialize(mapload)
+	GLOB.xeno_turret_turfs += loc
 	..()
 	return INITIALIZE_HINT_QDEL
 
