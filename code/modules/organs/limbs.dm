@@ -96,6 +96,7 @@
 	children = null
 	soft_armor = null
 	hard_armor = null
+	internal_organs = null
 	return ..()
 
 ///Signal handler to clean owner and prevent hardel

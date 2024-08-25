@@ -38,9 +38,6 @@
 ///Signal handler to prevent hard del
 /datum/internal_organ/proc/clean_owner()
 	SIGNAL_HANDLER
-	var/mob/living/carbon/human/human = owner
-	var/datum/limb/limb = human.get_limb(parent_limb)
-	limb.internal_organs = null
 	owner = null
 
 /datum/internal_organ/proc/take_damage(amount, silent = FALSE)
