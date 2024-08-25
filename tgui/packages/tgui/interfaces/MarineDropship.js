@@ -129,8 +129,7 @@ const NormalOperation = (props, context) => {
           onClick={() => act('minor')}>
           Capture Ground
         </Button>
-      </Section>
-      : null}
+      </Section> : null}
     </>
   );
 };

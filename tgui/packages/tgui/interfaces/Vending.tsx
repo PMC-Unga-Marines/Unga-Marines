@@ -8,6 +8,7 @@ type VendingData = {
   hidden_records: VendingRecord[];
   coin_records: VendingRecord[];
   tabs: string[];
+  stock: number;
   currently_vending: VendingRecord | null;
   extended: number;
   coin: string;
