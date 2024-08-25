@@ -367,8 +367,8 @@
 				// xenos swap with fellow xenos and almost whoever they want
 				if(isxeno(src) && (get_xeno_hivenumber() == L.get_xeno_hivenumber() || move_force > L.move_resist))
 					mob_swap_mode = SWAPPING
-				// if target isn't xeno and both are on help intents, and not petrified, then we swap
-				else if(!isxeno(L) && move_force > L.move_resist && (L.a_intent == INTENT_HELP || L.restrained()))
+				// if target isn't xeno, target isn't petrified, or we're not xeno, and both on help intents, then we swap
+				else if(!isxeno(L) && (move_force > L.move_resist || !isxeno(src)) && (L.a_intent == INTENT_HELP || L.restrained()))
 					mob_swap_mode = SWAPPING
 			/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
 			 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us
