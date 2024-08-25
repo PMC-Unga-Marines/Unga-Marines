@@ -30,11 +30,16 @@
 	var/datum/limb/limb = human.get_limb(parent_limb)
 	LAZYDISTINCTADD(limb.internal_organs, src)
 
+	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clean_owner))
+
 /datum/internal_organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	if(owner)
-		owner = null
 	return ..()
+
+///Signal handler to prevent hard del
+/datum/internal_organ/proc/clean_owner()
+	SIGNAL_HANDLER
+	owner = null
 
 /datum/internal_organ/proc/take_damage(amount, silent = FALSE)
 	if(SSticker.mode?.flags_round_type & MODE_NO_PERMANENT_WOUNDS)
