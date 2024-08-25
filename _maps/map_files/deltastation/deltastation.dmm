@@ -7075,7 +7075,6 @@
 /obj/structure/table/reinforced,
 /obj/item/tool/crowbar,
 /obj/item/tool/wrench,
-/obj/item/mmi,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/deltastation/ai_monitored/turret_protected/ai)
@@ -8711,9 +8710,6 @@
 /area/deltastation/maintenance/starboard/aft)
 "bND" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
 /obj/structure/sign/securearea,
 /obj/machinery/light,
 /turf/open/floor/iron,
@@ -75208,8 +75204,6 @@
 "psS" = (
 /obj/structure/table/reinforced,
 /obj/item/robot_parts/chest,
-/obj/item/mmi,
-/obj/item/mmi,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/extinguisher_cabinet,
 /obj/machinery/light{
@@ -94172,7 +94166,6 @@
 /area/deltastation/maintenance/port/fore)
 "tgL" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
 /obj/effect/spawner/random/engineering/assemblies,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -104551,7 +104544,6 @@
 	},
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/table,
-/obj/item/mmi,
 /turf/open/floor/iron/dark,
 /area/deltastation/science/circuits)
 "vjm" = (
