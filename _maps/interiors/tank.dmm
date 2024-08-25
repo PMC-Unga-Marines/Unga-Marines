@@ -82,6 +82,10 @@
 "I" = (
 /turf/closed/interior/tank/thirteen,
 /area/interior/tank)
+"J" = (
+/obj/machinery/telecomms/relay/preset/telecomms,
+/turf/open/space/basic,
+/area/interior/tank)
 "M" = (
 /turf/closed/interior/tank/twentysix,
 /area/interior/tank)
@@ -118,7 +122,7 @@ j
 b
 I
 z
-a
+J
 "}
 (2,1,1) = {"
 V
