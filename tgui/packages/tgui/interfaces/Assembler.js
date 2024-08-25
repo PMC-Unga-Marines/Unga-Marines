@@ -1,6 +1,6 @@
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Flex, Divider, Collapsible, AnimatedNumber, Box, Section, LabeledList, Icon, Input, Table, Stack } from '../components';
+import { Button, Flex, Divider, Collapsible, Box, Section, Icon, Input, Table, Stack } from '../components';
 import { Window } from '../layouts';
 import { map } from 'common/collections';
 
