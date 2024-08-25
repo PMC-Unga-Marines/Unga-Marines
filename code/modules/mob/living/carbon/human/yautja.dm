@@ -18,8 +18,8 @@
 		TRAIT_FOREIGN_BIO,
 	)
 	inherent_actions = list(
-	/datum/action/predator_action/mark_for_hunt,
-	/datum/action/predator_action/mark_panel,
+		/datum/action/predator_action/mark_for_hunt,
+		/datum/action/predator_action/mark_panel,
 	)
 
 	screams = list(MALE = "pred_scream", FEMALE = "pred_scream")

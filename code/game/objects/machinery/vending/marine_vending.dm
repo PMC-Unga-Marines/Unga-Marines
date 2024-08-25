@@ -551,7 +551,7 @@
 			/obj/structure/closet/crate/mortar_ammo/howitzer_kit = -1,
 			/obj/structure/largecrate/supply/weapons/standard_atgun = -1,
 			/obj/item/storage/box/crate/sentry = -1,
-            /obj/item/sentry_upgrade_kit = -1,
+			/obj/item/sentry_upgrade_kit = -1,
 			/obj/item/storage/box/tl102 = -1,
 			/obj/item/weapon/gun/heavymachinegun = -1,
 			/obj/item/ammo_magazine/heavymachinegun = -1,
