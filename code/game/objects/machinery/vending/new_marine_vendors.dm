@@ -988,7 +988,7 @@
 	desc = "TerraGov Marine Corps Veteran Uniform Set. Modified mostly by hand, but still quite stylish."
 	gear_to_spawn = list(
 		/obj/item/clothing/mask/gas/veteran,
-		/obj/item/clothing/under/marine/veteran,
+		/obj/item/clothing/under/marine/veteran/marine,
 		/obj/item/clothing/gloves/marine/veteran/marine,
 		/obj/item/clothing/shoes/marine/headskin,
 	)
