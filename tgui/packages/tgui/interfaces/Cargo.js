@@ -274,7 +274,7 @@ const OrderList = (props, context) => {
                       content="Approve"
                     />
                   )}
-                  {!readOnly && !authed_by && (
+                {!readOnly && !authed_by && (
                   <Button
                     onClick={() => act('deny', { id: id })}
                     icon="times"
