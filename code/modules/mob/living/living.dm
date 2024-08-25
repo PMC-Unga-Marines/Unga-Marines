@@ -357,9 +357,11 @@
 						to_chat(src, span_warning("[L] is restraining [P], you cannot push past."))
 					return
 
-		if(!L.buckled && !L.anchored)12356
+		if(!L.buckled && !L.anchored)
 			var/mob_swap_mode = NO_SWAP
 			// the puller can always swap with its victim if on grab intent
+			if(L.density)
+				return
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
 				mob_swap_mode = SWAPPING
 			// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
