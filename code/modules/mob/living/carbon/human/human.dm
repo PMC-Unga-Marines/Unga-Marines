@@ -88,6 +88,7 @@
 	LAZYREMOVE(GLOB.alive_human_list_faction[faction], src)
 	LAZYREMOVE(GLOB.humans_by_zlevel["[z]"], src)
 	GLOB.dead_human_list -= src
+	internal_organs_by_name = null
 	return ..()
 
 /mob/living/carbon/human/get_status_tab_items()

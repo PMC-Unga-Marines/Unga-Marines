@@ -31,6 +31,7 @@
 	LAZYDISTINCTADD(limb.internal_organs, src)
 
 /datum/internal_organ/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	clean_owner()
 	return ..()
 
