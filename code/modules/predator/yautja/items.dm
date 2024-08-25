@@ -254,9 +254,7 @@
 	anchored = TRUE
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
-	attachments_allowed = list(
-		/obj/item/armor_module/storage/boot/yautja_knife
-	)
+	attachments_allowed = list(/obj/item/armor_module/storage/boot/yautja_knife)
 	starting_attachments = list(/obj/item/armor_module/storage/boot/yautja_knife)
 
 /obj/item/armor_module/storage/boot/yautja_knife/Initialize(mapload)

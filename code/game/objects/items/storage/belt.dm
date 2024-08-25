@@ -126,7 +126,7 @@
 		/obj/item/stack/medical,
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/tweezers,
-		/obj/item/tweezers_advanced
+		/obj/item/tweezers_advanced,
 	)
 
 /obj/item/storage/belt/lifesaver/full/Initialize(mapload)  //The belt, with all it's magic inside!
@@ -293,7 +293,7 @@
 		/obj/item/tool/research,
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/tweezers,
-		/obj/item/tweezers_advanced
+		/obj/item/tweezers_advanced,
 	)
 
 /obj/item/storage/belt/rig/medical/Initialize(mapload)  //The belt, with all it's magic inside!
