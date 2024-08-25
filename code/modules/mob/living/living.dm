@@ -402,10 +402,10 @@
 
 /// Returns mob_swap_mode for Bump() with other mobs
 /mob/living/proc/return_mob_swap_mode(mob/living/target)
+	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc) && (target.faction == faction || target.move_resist <= move_force))
+		return PHASING
 	if(move_force > target.move_resist || target.a_intent == INTENT_HELP || target.restrained())
 		return SWAPPING
-	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
-		return PHASING
 	return NO_SWAP
 
 //Called when we want to push an atom/movable
