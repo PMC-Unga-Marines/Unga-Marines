@@ -54,7 +54,8 @@
 			data["xeno_name"] = xeno_name
 			data["synthetic_name"] = synthetic_name
 			data["synthetic_type"] = synthetic_type
-			data["robot_type"] = robot_type
+			data["squad_robot_name"] = squad_robot_name
+			data["squad_robot_type"] = squad_robot_type
 			data["random_name"] = random_name
 			data["ai_name"] = ai_name
 			data["age"] = age
@@ -93,7 +94,6 @@
 			data["pred_g_eyes"] = pred_g_eyes
 			data["pred_b_eyes"] = pred_b_eyes
 			data["yautja_status"] = yautja_status
-//RUTGMC EDIT
 		if(BACKGROUND_INFORMATION)
 			data["slot"] = default_slot
 			data["flavor_text"] = flavor_text
@@ -185,11 +185,9 @@
 		if(CHARACTER_CUSTOMIZATION)
 			update_preview_icon()
 			.["mapRef"] = "player_pref_map"
-//RUTGMC EDIT
 		if(PRED_CHARACTER_CUSTOMIZATION)
 			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_PRED_SLOT_PREFERENCES)
 			.["mapRef"] = "player_pref_map"
-//RUTGMC EDIT
 		if(GEAR_CUSTOMIZATION)
 			.["clothing"] = list(
 				"underwear" = list(
@@ -223,7 +221,7 @@
 					"description" = job.html_description,
 					"banned" = is_banned_from(user.ckey, rank),
 					"playtime_req" = job.required_playtime_remaining(user.client),
-					"exp_string" = "[get_exp_format(text2num(user.client.calc_exp_type(job.get_exp_req_type())))] / [get_exp_format(job.get_exp_req_amount())] as [job.get_exp_req_type()]", // RUTGMC ADDITION
+					"exp_string" = "[get_exp_format(text2num(user.client.calc_exp_type(job.get_exp_req_type())))] / [get_exp_format(job.get_exp_req_amount())] as [job.get_exp_req_type()]",
 					"account_age_req" = !job.player_old_enough(user.client),
 					"flags" = list(
 						"bold" = (job.job_flags & JOB_FLAG_BOLD_NAME_ON_SELECTION) ? TRUE : FALSE
@@ -273,7 +271,7 @@
 			var/newValue = params["newValue"]
 			newValue = reject_bad_name(newValue, TRUE)
 			if(!newValue)
-				tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+				tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 				return
 			real_name = newValue
 
@@ -291,7 +289,7 @@
 			var/newValue = params["newValue"]
 			newValue = reject_bad_name(newValue, TRUE)
 			if(!newValue)
-				tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+				tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 				return
 			synthetic_name = newValue
 
@@ -301,13 +299,12 @@
 				return
 			synthetic_type = choice
 
-		//RUTGMC EDIT ADDITION BEGIN - Preds
 		if("predator_name")
 			var/raw_name = input(user, "Choose your Predator's name:", "Character Preference")  as text|null
 			if(raw_name) // Check to ensure that the user entered text (rather than cancel.)
 				var/new_name = reject_bad_name(raw_name)
 				if(new_name) predator_name = new_name
-				else to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+				else to_chat(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .")
 
 		if("predator_gender")
 			predator_gender = predator_gender == MALE ? FEMALE : MALE
@@ -425,13 +422,20 @@
 				return
 
 			yautja_status = options[new_yautja_status]
-//RUTGMC EDIT ADDITION END
 
-		if("robot_type")
+		if("squad_robot_name")
+			var/newValue = params["newValue"]
+			newValue = reject_bad_name(newValue, TRUE)
+			if(!newValue)
+				tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
+				return
+			squad_robot_name = newValue
+
+		if("squad_robot_type")
 			var/choice = tgui_input_list(ui.user, "What model of robot do you want to play with?", "Robot model choice", ROBOT_TYPES)
 			if(!choice)
 				return
-			robot_type = choice
+			squad_robot_type = choice
 
 		if("xeno_name")
 			var/newValue = params["newValue"]
@@ -440,7 +444,7 @@
 			else
 				newValue = reject_bad_name(newValue)
 				if(!newValue)
-					tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+					tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 					return
 				xeno_name = newValue
 
@@ -451,7 +455,7 @@
 			else
 				newValue = reject_bad_name(newValue, TRUE)
 				if(!newValue)
-					tgui_alert(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+					tgui_alert(user, "Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .", "Invalid name", list("Ok"))
 					return
 				ai_name = newValue
 
@@ -1013,13 +1017,11 @@
 	save_preferences()
 	save_character()
 	save_keybinds()
-//RUTGMC EDIT
 	switch(tab_index)
 		if(CHARACTER_CUSTOMIZATION)
 			update_preview_icon()
 		if(PRED_CHARACTER_CUSTOMIZATION)
 			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_PRED_SLOT_PREFERENCES)
-//RUTGMC EDIT
 	ui_interact(user, ui)
 	SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
 	return TRUE

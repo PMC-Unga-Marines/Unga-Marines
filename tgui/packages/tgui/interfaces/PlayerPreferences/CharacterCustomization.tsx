@@ -62,6 +62,10 @@ export const CharacterCustomization = (props, context) => {
               />
               <TextFieldPreference label={'Xenomorph'} value={'xeno_name'} />
               <TextFieldPreference
+                label={'Squad Robot Name'}
+                value={'squad_robot_name'}
+              />
+              <TextFieldPreference
                 label={'Synthetic Name'}
                 value={'synthetic_name'}
               />
@@ -187,8 +191,8 @@ export const CharacterCustomization = (props, context) => {
               />
               <SelectFieldPreference
                 label={'Robot model'}
-                value={'robot_type'}
-                action={'robot_type'}
+                value={'squad_robot_type'}
+                action={'squad_robot_type'}
               />
               <SelectFieldPreference
                 label={'Citizenship'}

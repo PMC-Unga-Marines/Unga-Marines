@@ -33,10 +33,10 @@
 	outfit = /datum/outfit/job/marine/robot
 
 /datum/job/fallen/marine/combat_robot/get_special_name(client/preference_source)
-	return preference_source.prefs.synthetic_name
+	return preference_source.prefs.squad_robot_name
 
 /datum/job/fallen/marine/combat_robot/return_spawn_type(datum/preferences/prefs)
-	switch(prefs?.robot_type)
+	switch(prefs?.squad_robot_type)
 		if("Hammerhead")
 			return /mob/living/carbon/human/species/robot/alpharii
 		if("Chilvaris")
@@ -88,11 +88,6 @@
 	access = ALL_MARINE_ACCESS
 	minimal_access = ALL_MARINE_ACCESS
 	outfit = /datum/outfit/job/command/fieldcommander
-	multiple_outfits = TRUE
-	outfits = list(
-		/datum/outfit/job/command/fieldcommander,
-		/datum/outfit/job/command/fieldcommander/robot,
-	)
 
 /datum/job/fallen/marine/synthetic
 	title = ROLE_FALLEN(SYNTHETIC)
