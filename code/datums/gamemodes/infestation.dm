@@ -32,7 +32,7 @@
 		new_tunnel.tunnel_desc = "["[get_area_name(new_tunnel)]"] (X: [new_tunnel.x], Y: [new_tunnel.y])"
 	for(var/i in GLOB.xeno_jelly_pod_turfs)
 		new /obj/structure/xeno/resin_jelly_pod(i, XENO_HIVE_NORMAL)
-	for(var/i inn GLOB.xeno_turret_turfs)
+	for(var/i in GLOB.xeno_turret_turfs)
 		new /obj/structure/xeno/xeno_turret(i, XENO_HIVE_NORMAL)
 
 /datum/game_mode/infestation/process()
