@@ -30,7 +30,7 @@
 	var/datum/limb/limb = human.get_limb(parent_limb)
 	LAZYDISTINCTADD(limb.internal_organs, src)
 
-	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clean_owner))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(clean_owner))
 
 /datum/internal_organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
