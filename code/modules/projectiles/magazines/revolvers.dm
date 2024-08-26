@@ -32,6 +32,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	max_rounds = 5
 
+/obj/item/ammo_magazine/revolver/t500/slavs
+	name = "\improper R-500 speed loader (.500 'Slavs')"
+	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
+
 /obj/item/ammo_magazine/revolver/marksman
 	name = "\improper R-44 marksman speed loader (.44)"
 	default_ammo = /datum/ammo/bullet/revolver/marksman
