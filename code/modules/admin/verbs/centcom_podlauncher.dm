@@ -495,8 +495,8 @@
 /datum/centcom_podlauncher/proc/preLaunch() //Creates a list of acceptable items,
 	numTurfs = 0 //Counts the number of turfs that can be launched (remember, supplypods either launch all at once or one turf-worth of items at a time)
 	acceptableTurfs = list()
-	for (var/turf/T in orderedArea) //Go through the orderedArea list
-		if (typecache_filter_list_reverse(T.contents, length(ignored_atoms)) != 0) //if there is something in this turf that isnt in the blacklist, we consider this turf "acceptable" and add it to the acceptableTurfs list
+	for(var/turf/T in orderedArea) //Go through the orderedArea list
+		if(typecache_filter_list_reverse(T.contents, length(ignored_atoms)) != 0) //if there is something in this turf that isnt in the blacklist, we consider this turf "acceptable" and add it to the acceptableTurfs list
 			acceptableTurfs.Add(T) //Because orderedArea was an ordered linear list, acceptableTurfs will be as well.
 			numTurfs ++
 
