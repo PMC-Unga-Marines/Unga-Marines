@@ -1582,7 +1582,8 @@
 
 	L.apply_damage(0.5*effect_str, OXY)
 
-	return ..()
+	purge(L)
+	current_cycle++
 
 /datum/reagent/histamine/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel your throat tightening!"))
@@ -1618,8 +1619,7 @@
 
 	L.reagents.add_reagent(/datum/reagent/histamine, 0.4)
 
-	purge(L)
-	current_cycle++
+	return ..()
 
 /datum/reagent/medicine/ifosfamide/overdose_process(mob/living/L, metabolism)
 	L.adjustToxLoss(2*effect_str)
