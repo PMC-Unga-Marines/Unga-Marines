@@ -553,6 +553,10 @@
 		return FALSE
 	return handle_item_insertion(I, FALSE, user)
 
+/obj/item/storage/AltRightClick(mob/user)
+	if(Adjacent(user) && !isxeno(user))
+		open(user)
+
 ///Refills the storage from the refill_types item
 /obj/item/storage/proc/do_refill(obj/item/storage/refiller, mob/user)
 	if(!length(refiller.contents))
