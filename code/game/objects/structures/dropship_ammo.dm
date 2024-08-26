@@ -449,7 +449,7 @@
 	icon_state = "fatty"
 	travelling_time = 5 SECONDS
 	ammo_id = "f"
-	point_cost = 345
+	point_cost = 350
 	devastating_explosion_range = 3
 	heavy_explosion_range = 4
 	light_explosion_range = 8
