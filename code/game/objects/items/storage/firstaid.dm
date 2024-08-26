@@ -297,6 +297,29 @@
 			new pill_type_to_fill(src)
 	update_icon()
 
+/obj/item/storage/pill_bottle/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers/hypospray))
+		var/obj/item/reagent_containers/hypospray/hypospray = I
+		if(hypospray.reagents.total_volume >= hypospray.volume)
+			balloon_alert(user, "Hypospray is full.")
+			return FALSE //early returning if its full
+
+		if(!length(contents))
+			return FALSE//early returning if its empty
+		var/obj/item/pill = contents[1]
+
+		if((pill.reagents.total_volume + hypospray.reagents.total_volume) > hypospray.volume)
+			balloon_alert(user, "Can't hold that much.")
+			return FALSE// so it doesnt let people have hypos more filled than their volume
+		pill.reagents.trans_to(I, pill.reagents.total_volume)
+
+		to_chat(user, span_notice("You dissolve [pill] from [src] in [I]."))
+		remove_from_storage(pill, null, user)
+		qdel(pill)
+		return TRUE
+
+	return ..()
+
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
 	if(user.get_inactive_held_item())
 		user.balloon_alert(user, "Need an empty hand")
