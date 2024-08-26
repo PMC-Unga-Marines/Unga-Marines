@@ -52,14 +52,26 @@
 	hud_state = "sniper_crude"
 	handful_amount = 5
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 120
-	penetration = 40
+	damage = 100
+	penetration = 20
+	additional_xeno_penetration = 30
+	sundering = 0
 	accurate_range_min = 0
-	///shatter effection duration when hitting mobs
-	var/shatter_duration = 10 SECONDS
 
 /datum/ammo/bullet/sniper/martini/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 10)
+	staggerstun(M, P, weaken = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 12)
+
+/datum/ammo/bullet/sniper/martini/white
+	handful_icon_state = "crude heavy sniper bullet white"
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 8 SECONDS
+
+/datum/ammo/bullet/sniper/martini/white/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/sniper/elite
 	name = "supersonic sniper bullet"
