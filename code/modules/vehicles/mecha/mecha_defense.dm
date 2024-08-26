@@ -85,7 +85,7 @@
 		contents_explosion(severity)
 	if(QDELETED(src))
 		return
-	take_damage(severity * rand(1, 2), BRUTE, BOMB, 0)
+	take_damage(severity * 1.5, BRUTE, BOMB, 0)
 
 /obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
 	if(A in occupants) //todo does not work and in wrong file
