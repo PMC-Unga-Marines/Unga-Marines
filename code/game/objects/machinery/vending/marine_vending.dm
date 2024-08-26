@@ -19,10 +19,10 @@
 			/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
-			/obj/item/weapon/gun/rifle/famas
-			/obj/item/ammo_magazine/rifle/famas
-			/obj/item/weapon/gun/rifle/type71
-			/obj/item/ammo_magazine/rifle/type71
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71/ap = -1,
+			/obj/item/ammo_magazine/rifle/type71/hp = -1,
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -85,6 +85,8 @@
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
+			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
+			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -230,10 +232,10 @@
 			/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
-			/obj/item/weapon/gun/rifle/famas
-			/obj/item/ammo_magazine/rifle/famas
-			/obj/item/weapon/gun/rifle/type71
-			/obj/item/ammo_magazine/rifle/type71
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71/ap = -1,
+			/obj/item/ammo_magazine/rifle/type71/hp = -1,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -307,6 +309,8 @@
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
+			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
+			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -448,10 +452,10 @@
 			/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
-			/obj/item/weapon/gun/rifle/famas = -1,
-			/obj/item/ammo_magazine/rifle/famas = -1,
 			/obj/item/weapon/gun/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71/ap = -1,
+			/obj/item/ammo_magazine/rifle/type71/hp = -1,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -518,15 +522,17 @@
 			/obj/item/weapon/combat_knife/harvester = -1,
 		),
 		"Sidearm" = list(
-			/obj/item/weapon/gun/revolver/standard_revolver = -1,
+			/obj/item/weapon/gun/revolver/standard_revolver = 5,
 			/obj/item/ammo_magazine/revolver/standard_revolver = -1,
-			/obj/item/storage/box/t500case = -1,
+			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/weapon/gun/pistol/standard_pocketpistol = -1,
 			/obj/item/ammo_magazine/pistol/standard_pocketpistol = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
+			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
+			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,

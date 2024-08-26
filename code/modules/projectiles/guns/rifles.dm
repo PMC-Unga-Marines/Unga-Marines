@@ -1114,7 +1114,7 @@
 //USL TYPE 71 RIFLE
 
 /obj/item/weapon/gun/rifle/type71
-	name = "\improper Type 71 pulse rifle"
+	name = "\improper Type 71 'GROZA' pulse rifle"
 	desc = "The primary rifle of the USL pirates, the Type 71 is a reliable rifle chambered in 7.62x39mm, firing in three round bursts to conserve ammunition. A newer model for surpression roles to comply with overmatch doctrines is in progress and only issued to a limited number of privates in the USL."
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "type71"
@@ -1127,7 +1127,11 @@
 	reload_sound = 'sound/weapons/guns/interact/type71_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/type71_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/type71
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/type71)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/type71,
+		/obj/item/ammo_magazine/rifle/type71/ap,
+		/obj/item/ammo_magazine/rifle/type71/wp,
+	)
 	aim_slowdown = 0.6
 	wield_delay = 0.7 SECONDS
 	attachable_allowed = list(
