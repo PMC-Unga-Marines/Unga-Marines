@@ -12,6 +12,14 @@
 ///Move mod for going diagonally
 #define DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER (sqrt(2))
 
+//Mob swap modes, for mobs bumping other mobs
+
+///Mode for bumpint into the bumped mob
+#define NO_SWAP 0
+///Mode for swapping through the bumped mob
+#define SWAPPING 1
+///Mode for phasing through the bumped mob
+#define PHASING 2
 
 //Pain or shock reduction for different reagents
 #define PAIN_REDUCTION_VERY_LIGHT -5 //alkysine

@@ -75,3 +75,21 @@
 	if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
 		germ_level++
 	return ..()
+
+/mob/living/carbon/human/return_mob_swap_mode(mob/living/target)
+	if(isxeno(target))
+		return NO_SWAP
+	// the puller can always swap with its victim if on grab intent
+	if(target.pulledby == src && a_intent == INTENT_GRAB)
+		return SWAPPING
+	/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
+	 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us */
+	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc) && (target.faction == faction || target.move_resist <= move_force))
+		return PHASING
+	// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
+	else if(a_intent == INTENT_HELP || restrained())
+		if(move_force > target.move_resist)
+			return SWAPPING
+		else if(target.a_intent == INTENT_HELP || target.restrained())
+			return SWAPPING
+	return NO_SWAP
