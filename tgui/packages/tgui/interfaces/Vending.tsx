@@ -88,8 +88,8 @@ export const Vending = (props, context) => {
                       <Stack.Item
                         m={0.5}
                         grow={tabname.length}
-                        basis={'content'}>
-                        key={tabname}
+                        basis={'content'}
+                        key={tabname}>
                         <Tabs.Tab
                           selected={tabname === selectedTab}
                           onClick={() => setSelectedTab(tabname)}>

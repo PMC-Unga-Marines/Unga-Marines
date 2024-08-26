@@ -118,8 +118,8 @@ const NormalOperation = (props, context) => {
           ))}
         </LabeledList>
       </Section>
-      {data.show_hunt
-        ? <Section title="Hunt">
+      {data.show_hunt ? (
+        <Section title="Hunt">
           <Button
             disabled={!data.can_hunt}
             onClick={() => act('hunt')}>
@@ -131,8 +131,7 @@ const NormalOperation = (props, context) => {
             Capture Ground
           </Button>
         </Section>
-        : null
-      }
+      ): null}
     </>
   );
 };
