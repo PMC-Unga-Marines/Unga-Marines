@@ -1621,7 +1621,7 @@ MEDICAL
 	name = "tweezers"
 	notes = "contains a pair of tweezers."
 	contains = list(/obj/item/tweezers)
-	cost = 200  //shouldn't be easy to get
+	cost = 125
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -1637,7 +1637,7 @@ MEDICAL
 	name = "Advanced Tweezers"
 	notes = "contains advanced tweezers."
 	contains = list(/obj/item/tweezers_advanced)
-	cost = 120
+	cost = 250
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
