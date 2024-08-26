@@ -1,5 +1,0 @@
-author: "Tatarla"
-delete-after: True
-changes:
-  - rscadd: "Сквадрумы переработаны"
-  - bugfix: "Исправлено отсутствие связи в танке/апц"

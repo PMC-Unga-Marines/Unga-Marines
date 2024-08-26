@@ -1,6 +1,0 @@
-author: "homexp13"
-delete-after: True
-changes:
-  - rscadd: "ifex medicine"
-  - rscdel: "pilot armor from vendors"
-  - rscdel: "meraderm oxy purge"
