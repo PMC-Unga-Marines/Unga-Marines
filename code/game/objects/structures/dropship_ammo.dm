@@ -319,7 +319,6 @@
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/laser_beam_gun
 	ammo_name = "charge"
 	transferable_ammo = TRUE
-	ammo_used_per_firing = 50
 	warning_sound = 'sound/effects/nightvision.ogg'
 	point_cost = 150
 	///The length of the beam that will come out of when we fire do both ends xxxoxxx where o is where you click
