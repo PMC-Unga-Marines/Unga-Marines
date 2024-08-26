@@ -1564,7 +1564,7 @@
 	name = "Histamine"
 	description = "Histamine is an organic nitrogenous compound involved in local immune responses communication"
 	color = COLOR_REAGENT_BICARIDINE
-	custom_metabolism = 0
+	custom_metabolism = 0.4
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	purge_list = list(
@@ -1578,12 +1578,13 @@
 
 /datum/reagent/histamine/on_mob_life(mob/living/L, metabolism)
 	if(!L.reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide))
-		holder.remove_reagent(/datum/reagent/histamine, 0.4)
+		holder.remove_reagent(/datum/reagent/histamine, custom_metabolism * L.metabolism_efficiency)
 
 	L.apply_damage(0.5*effect_str, OXY)
 
 	purge(L)
 	current_cycle++
+	return TRUE
 
 /datum/reagent/histamine/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel your throat tightening!"))
