@@ -172,17 +172,17 @@
 	name = "crude heavy rifle bullet"
 	hud_state = "rifle_crude"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 50
-	penetration = 0
-	additional_xeno_penetration = -15
+	damage = 25
+	penetration = 35
+	additional_xeno_penetration = 27.5
 
 /datum/ammo/bullet/rifle/mpi_km/hp
 	name = "crude heavy rifle bullet"
 	hud_state = "rifle_crude"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 25
-	penetration = 35
-	additional_xeno_penetration = 27.5
+	damage = 50
+	penetration = 0
+	additional_xeno_penetration = -15
 
 /datum/ammo/bullet/rifle/standard_dmr
 	name = "marksman bullet"

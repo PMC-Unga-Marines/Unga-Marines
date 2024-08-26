@@ -267,12 +267,14 @@
 /obj/item/ammo_magazine/rifle/type71/ap
 	name = "\improper Type 71 magazine (7.62x39mm)"
 	desc = "A 7.62x39mm AP magazine that fits in the Type 71 rifle."
+	icon_state = "type_71_ap"
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km/ap
 
 /obj/item/ammo_magazine/rifle/type71/hp
 	name = "\improper Type 71 magazine (7.62x39mm)"
 	desc = "A 7.62x39mm HP magazine that fits in the Type 71 rifle."
+	icon_state = "type_71_hp"
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km/hp
 
