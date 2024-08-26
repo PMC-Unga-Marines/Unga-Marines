@@ -303,7 +303,7 @@
 	desc = "A system that deploys flares stronger than the inputted flares. Fits on the weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "flare_system"
 	dropship_equipment_flags = IS_INTERACTABLE
-	point_cost = 150
+	point_cost = 85
 	///cooldown for deployment
 	COOLDOWN_DECLARE(deploy_cooldown)
 	///amount of loaded flares
@@ -361,7 +361,7 @@
 	desc = "A box that deploys a sentry turret. Fits on the weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "sentry_system"
 	dropship_equipment_flags = IS_INTERACTABLE
-	point_cost = 500
+	point_cost = 350
 	var/deployment_cooldown
 	var/obj/machinery/deployable/mounted/sentry/deployed_turret
 	var/sentry_type = /obj/item/weapon/gun/sentry/basic/dropship
@@ -522,7 +522,7 @@
 	name = "machinegun deployment system"
 	desc = "A box that deploys a modified M56D crewserved machine gun. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "mg_system"
-	point_cost = 300
+	point_cost = 250
 	deployable_type = /obj/item/weapon/gun/tl102/hsg_nest
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/minigun
@@ -545,7 +545,7 @@
 	name = "mortar deployment system"
 	desc = "A box that deploys a TA-55DB mortar. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "mortar_system"
-	point_cost = 300
+	point_cost = 250
 	deployable_type = /obj/item/mortar_kit/double
 
 ////////////////////////////////// FUEL EQUIPMENT /////////////////////////////////
@@ -578,7 +578,7 @@
 	icon_state = "spotlights"
 	desc = "A set of highpowered spotlights to illuminate large areas. Fits on electronics attach points of dropships. Moving this will require a powerloader."
 	dropship_equipment_flags = IS_INTERACTABLE
-	point_cost = 300
+	point_cost = 125
 	var/spotlights_cooldown
 	var/brightness = 11
 
@@ -711,7 +711,7 @@
 	desc = "A dismounted GAU-21 'Rattler' 30mm rotary cannon. It seems to be missing its feed links and has exposed connection wires. Capable of firing 5200 rounds a minute, feared by many for its power. Earned the nickname 'Rattler' from the vibrations it would cause on dropships in its inital production run. Moving this will require some sort of lifter."
 	icon_state = "30mm_cannon"
 	firing_sound = 'sound/weapons/gunship_chaingun.ogg'
-	point_cost = 300
+	point_cost = 150
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
 	ammo_type_used = CAS_30MM
 
@@ -757,6 +757,32 @@
 		else
 			icon_state = "rocket_pod"
 
+/obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod
+	name = "unguided rocket pod"
+	icon_state = "unguided_rocket"
+	desc = "an unguided high-explosive rocket pod. Moving this will require some sort of lifter."
+	icon = 'icons/Marine/mainship_props64.dmi'
+	firing_sound = 'sound/weapons/unguided_rocket.ogg'
+	firing_delay = 2
+	point_cost = 450
+	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
+	ammo_type_used = CAS_UNGUIDED_ROCKET
+
+/obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod/update_icon_state()
+	. = ..()
+	if(ammo_equipped?.ammo_count)
+		icon_state = "unguided_rocket_pod_loaded"
+	else
+		if(ship_base)
+			icon_state = "unguided_rocket_pod_installed"
+		else
+			icon_state = "unguided_rocket"
+
+/obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod/deplete_ammo()
+	..()
+	if(ammo_equipped && !ammo_equipped.ammo_count)
+		ammo_equipped = null
+
 
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod
 	name = "minirocket pod"
@@ -790,7 +816,7 @@
 	icon = 'icons/Marine/mainship_props64.dmi'
 	firing_sound = 'sound/weapons/gunship_laser.ogg'
 	firing_delay = 50 //5 seconds
-	point_cost = 800
+	point_cost = 750
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
 	ammo_type_used = CAS_LASER_BATTERY
 
@@ -865,32 +891,14 @@
 	deployed_table.loc = loc
 	icon_state = "table2-idle"
 
-/obj/structure/dropship_equipment/cas/weapon/bomblet_pod
-	name = "bomblet pod"
-	icon_state = "bomblet_pod"
-	desc = "A pnuematic thrower machine capable of up to 40 smaller bombs, generally  called 'bomblets'. Moving this will require some sort of lifter."
-	icon = 'icons/Marine/mainship_props64.dmi'
-	firing_sound = 'sound/weapons/gunship_rocketpod.ogg'
-	firing_delay = 0.5 SECONDS
-	point_cost = 450
-	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
-	ammo_type_used = CAS_BOMBLET
-
-/obj/structure/dropship_equipment/cas/weapon/bomblet_pod/update_icon_state()
-	. = ..()
-	if(ammo_equipped?.ammo_count)
-		icon_state = "bomblet_pod_loaded"
-	else if(ship_base)
-		icon_state = "bomblet_pod_installed"
-	else
-		icon_state = "bomblet_pod"
+// bomb pod
 
 /obj/structure/dropship_equipment/cas/weapon/bomb_pod
 	name = "bomb pod"
 	icon_state = "bomb_pod"
 	desc = "A bomb pod capable of launching several large bombs. Moving this will require some sort of lifter."
 	icon = 'icons/Marine/mainship_props64.dmi'
-	firing_sound = 'sound/weapons/gunship_rocketpod.ogg'
+	firing_sound = 'sound/weapons/bombdrop_sound.ogg'
 	firing_delay = 2 SECONDS
 	point_cost = 450
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
