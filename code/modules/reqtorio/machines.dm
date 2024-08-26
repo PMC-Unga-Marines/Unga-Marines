@@ -30,7 +30,7 @@
 	. = ..()
 	. += "It is currently facing [dir2text(dir)] and [anchored ? "" : "un"]secured."
 	if(craft)
-		. += "Сurrent craft:"
+		. += "Current craft:"
 		. += craft.name
 		. += "Contains:"
 		for(var/type in craft.input)
@@ -144,7 +144,7 @@
 
 /obj/machinery/fabricator
 	name = "Metal fabricator"
-	desc = "Сreates metal from... air. I think so"
+	desc = "Creates metal from... air. I think so"
 	icon = 'icons/obj/factory/factory_machines.dmi'
 	icon_state = "reconstructor_inactive"
 	density = TRUE
@@ -197,7 +197,7 @@
 
 /obj/machinery/fabricator/gunpowder
 	name = "Gunpowder fabricator"
-	desc = "Сreates gunpowder from... air. I think so, looks kinda dangerous"
+	desc = "Creates gunpowder from... air. I think so, looks kinda dangerous"
 	item_to_fabricate = /obj/item/stack/gun_powder/large_stack
 
 /obj/machinery/fabricator/gunpowder/Destroy()
@@ -206,7 +206,7 @@
 
 /obj/machinery/fabricator/junk
 	name = "Junk fabricator"
-	desc = "Сreates junk from... air. even this is garbage, it can be useful"
+	desc = "Creates junk from... air. even this is garbage, it can be useful"
 	item_to_fabricate = /obj/item/stack/sheet/mineral/junk/large_stack
 
 /obj/machinery/splitter

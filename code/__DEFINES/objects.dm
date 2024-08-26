@@ -81,8 +81,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define SCOUT_CLOAK_ENERGY 100
 #define SCOUT_CLOAK_STEALTH_DELAY 30
 #define SCOUT_CLOAK_RUN_DRAIN 5
-//#define SCOUT_CLOAK_WALK_DRAIN 1
-#define SCOUT_CLOAK_WALK_DRAIN -1 //RUTGMС EDIT
+#define SCOUT_CLOAK_WALK_DRAIN -1
 #define SCOUT_CLOAK_ACTIVE_RECOVERY -5 //You only get this once every obj tick, so it'll be comparable to the inactive value
 #define SCOUT_CLOAK_INACTIVE_RECOVERY 5
 #define SCOUT_CLOAK_COOLDOWN 100

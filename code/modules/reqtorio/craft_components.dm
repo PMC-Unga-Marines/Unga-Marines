@@ -15,7 +15,7 @@
 
 /obj/item/stack/sheet/composite
 	name = "iron-copper composite"
-	desc = "Сomposite made of iron and copper plates"
+	desc = "Composite made of iron and copper plates"
 	singular_name = "composite sheet"
 	icon_state = "CuFe_composite"
 	item_state = "CuFe_composite"
