@@ -36,3 +36,9 @@
 	if(!.)
 		return
 	return (loc_override || (entering_mob.loc in enter_locations(entering_mob)))
+
+/obj/vehicle/sealed/armored/multitile/add_desant(mob/living/new_desant)
+	new_desant.pass_flags |= pass_flags
+
+/obj/vehicle/sealed/armored/multitile/remove_desant(mob/living/old_desant)
+	old_desant.pass_flags &= ~pass_flags
