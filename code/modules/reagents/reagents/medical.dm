@@ -750,16 +750,16 @@
 /datum/reagent/medicine/peridaxon/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(2*effect_str, BRUTE)
 
-/datum/reagent/peridaxon/overdose_crit_process(mob/living/L, metabolism)
+/datum/reagent/medicine/peridaxon/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(6*effect_str, BRUTE)
 
-/datum/reagent/medicine/research/stimulon/on_mob_add(mob/living/L, metabolism)
+/datum/reagent/medicine/peridaxon/on_mob_add(mob/living/L, metabolism)
 	. = ..()
 	var/mob/living/carbon/human/H = L
 	for(var/datum/internal_organ/I in H.internal_organs)
 		I.set_organ_status()
 
-/datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
+/datum/reagent/medicine/peridaxon/on_mob_delete(mob/living/L, metabolism)
 	var/mob/living/carbon/human/H = L
 	for(var/datum/internal_organ/I in H.internal_organs)
 		I.set_organ_status()
