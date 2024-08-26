@@ -133,6 +133,9 @@
 		return
 	switch(action)
 		if("select")
+			if(!COOLDOWN_CHECK(src, process_cooldown))
+				balloon_alert(usr, "assembly is still in progress")
+				return
 			craft = SSreqtorio.assembly_crafts[text2path(params["id"])]
 			held_items = list()
 			for(var/i in craft.input)
