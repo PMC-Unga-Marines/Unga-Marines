@@ -16205,23 +16205,6 @@
 	dir = 4
 	},
 /area/mainship/medical/medical_science)
-"jMv" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 8
-	},
-/turf/open/floor/plating/plating_catwalk/dark,
-/area/mainship/hallways/starboard_hallway)
 "jMw" = (
 /turf/open/floor/mainship/blue/corner{
 	dir = 8
@@ -28396,9 +28379,6 @@
 "qyq" = (
 /obj/machinery/door/airlock/mainship/generic/bathroom,
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
@@ -79319,7 +79299,7 @@ nTH
 nTH
 nEU
 pYj
-jMv
+uYQ
 fIZ
 eWU
 eWU

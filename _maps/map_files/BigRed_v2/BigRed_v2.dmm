@@ -7123,7 +7123,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "bAQ" = (
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "bAR" = (

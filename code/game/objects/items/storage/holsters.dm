@@ -880,10 +880,8 @@
 	storage_slots = 5
 	max_w_class = 5
 	access_delay = 0.5 SECONDS
-	holsterable_allowed = list(
-		/obj/item/weapon/gun/launcher/rocket/sadar
-	)
-	bypass_w_limit = /obj/item/weapon/gun/launcher/rocket/sadar
+	holsterable_allowed = list(/obj/item/weapon/gun/launcher/rocket/sadar)
+	bypass_w_limit = list(/obj/item/weapon/gun/launcher/rocket/sadar)
 	storage_type_limits = list()
 	can_hold = list(
 		/obj/item/weapon/gun/launcher/rocket/sadar,
@@ -910,10 +908,8 @@
 	storage_slots = 3
 	max_w_class = 5
 	access_delay = 0.5 SECONDS
-	holsterable_allowed = list(
-		/obj/item/weapon/gun/launcher/rocket/m57a4/t57
-	)
-	bypass_w_limit = /obj/item/weapon/gun/launcher/rocket/m57a4/t57
+	holsterable_allowed = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)
+	bypass_w_limit = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)
 	storage_type_limits = list()
 	can_hold = list(
 		/obj/item/weapon/gun/launcher/rocket/m57a4/t57,
@@ -1013,12 +1009,8 @@
 		slot_s_store_str = 'icons/mob/suit_slot.dmi'
 	)
 	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
-	holsterable_allowed = list(
-		/obj/item/weapon/claymore/tomahawk
-	)
-	can_hold = list(
-		/obj/item/weapon/claymore/tomahawk
-	)
+	holsterable_allowed = list(/obj/item/weapon/claymore/tomahawk)
+	can_hold = list(/obj/item/weapon/claymore/tomahawk)
 
 /obj/item/storage/holster/blade/tomahawk/full/Initialize(mapload)
 	. = ..()

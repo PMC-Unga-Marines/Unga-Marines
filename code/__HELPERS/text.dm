@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(en_key_to_ru_key, list(
 	"," = "б", "." = "ю",
 ))
 
-/proc/convert_ru_key_to_en_key(var/_key)
+/proc/convert_ru_key_to_en_key(_key)
 	var/new_key = lowertext(_key)
 	new_key = GLOB.ru_key_to_en_key[new_key]
 	if(!new_key)

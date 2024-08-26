@@ -7075,7 +7075,6 @@
 /obj/structure/table/reinforced,
 /obj/item/tool/crowbar,
 /obj/item/tool/wrench,
-/obj/item/mmi,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/deltastation/ai_monitored/turret_protected/ai)
@@ -8711,9 +8710,6 @@
 /area/deltastation/maintenance/starboard/aft)
 "bND" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
 /obj/structure/sign/securearea,
 /obj/machinery/light,
 /turf/open/floor/iron,
@@ -42491,7 +42487,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
 	},
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security,
 /obj/effect/turf_decal/tile/transparent/red/anticorner/contrasted{
 	dir = 4
 	},
@@ -49503,7 +49499,7 @@
 /area/deltastation/service/kitchen)
 "kdN" = (
 /obj/structure/cable,
-/obj/structure/closet/secure_closet/security/engine,
+/obj/structure/closet/secure_closet/security,
 /obj/structure/prop/camera,
 /obj/item/radio/intercom,
 /obj/machinery/power/apc/drained,
@@ -75208,8 +75204,6 @@
 "psS" = (
 /obj/structure/table/reinforced,
 /obj/item/robot_parts/chest,
-/obj/item/mmi,
-/obj/item/mmi,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/extinguisher_cabinet,
 /obj/machinery/light{
@@ -77170,7 +77164,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/transparent/red/fourcorners,
 /obj/effect/turf_decal/warning_stripes/box/empty,
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security,
 /turf/open/floor/iron,
 /area/deltastation/security/checkpoint/medical/medsci)
 "pKo" = (
@@ -94172,7 +94166,6 @@
 /area/deltastation/maintenance/port/fore)
 "tgL" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
 /obj/effect/spawner/random/engineering/assemblies,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -98866,7 +98859,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/transparent/red/fourcorners,
 /obj/effect/turf_decal/warning_stripes/box/empty,
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security,
 /turf/open/floor/iron,
 /area/deltastation/security/checkpoint/medical/medsci)
 "udQ" = (
@@ -104551,7 +104544,6 @@
 	},
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/table,
-/obj/item/mmi,
 /turf/open/floor/iron/dark,
 /area/deltastation/science/circuits)
 "vjm" = (

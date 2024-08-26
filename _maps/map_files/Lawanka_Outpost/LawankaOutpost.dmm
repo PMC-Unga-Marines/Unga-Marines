@@ -21214,7 +21214,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "rRp" = (
 /obj/structure/rack,
-/obj/item/organ/brain/xeno,
+/obj/item/organ/brain,
 /obj/machinery/light{
 	dir = 4
 	},

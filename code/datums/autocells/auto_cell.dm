@@ -23,7 +23,7 @@
 
 	in_turf = our_turf
 	LAZYADD(in_turf.autocells, src)
-	cellauto_cells += src
+	SScellauto.cellauto_cells += src
 	birth()
 
 /datum/automata_cell/Destroy()
@@ -31,7 +31,7 @@
 	if(!QDELETED(in_turf))
 		LAZYREMOVE(in_turf.autocells, src)
 		in_turf = null
-	cellauto_cells -= src
+	SScellauto.cellauto_cells -= src
 	death()
 
 // Called when the cell is created

@@ -343,11 +343,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "primosent"
 
 /datum/hive_upgrade/defence/oblivion
-    name = "Oblivion"
-    desc = "Destroy the bodies beneath you "
-    icon = "smartminions"
-    psypoint_cost = 1000
-    flags_gamemode = ABILITY_NUCLEARWAR
+	name = "Oblivion"
+	desc = "Destroy the bodies beneath you "
+	icon = "smartminions"
+	psypoint_cost = 1000
+	flags_gamemode = ABILITY_NUCLEARWAR
 
 /datum/hive_upgrade/defence/oblivion/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()

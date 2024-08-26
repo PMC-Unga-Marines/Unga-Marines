@@ -53,7 +53,7 @@
 		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
 		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
-		)
+	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t18stock,
 		/obj/item/attachable/reddot,
@@ -85,7 +85,7 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam, //RUTGMC EDIT
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES

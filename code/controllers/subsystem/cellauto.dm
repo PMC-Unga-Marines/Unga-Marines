@@ -1,11 +1,9 @@
-var/list/cellauto_cells = list()
-
 SUBSYSTEM_DEF(cellauto)
 	name = "Cellular Automata"
 	wait = 0.05 SECONDS
 	priority = FIRE_PRIORITY_CELLAUTO
 	flags = SS_NO_INIT
-
+	var/list/cellauto_cells = list()
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/cellauto/stat_entry(msg)

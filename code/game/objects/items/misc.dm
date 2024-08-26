@@ -191,7 +191,7 @@
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/explosive/grenade,
 		/obj/item/explosive/mine,
-    )
+	)
 
 /obj/item/storage/bible/koran/attack_self(mob/living/carbon/human/activator)
 	TIMER_COOLDOWN_START(activator, "KoranSpam", 5 SECONDS)
