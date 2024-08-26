@@ -152,16 +152,16 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 		update_icon()
 
 /obj/item/ex_act(severity, explosion_direction)
-	explosion_throw(severity, explosion_direction)
-
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
 
 	if(!prob(severity * 0.3))
+		explosion_throw(severity, explosion_direction)
 		return
 
-	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
-	visible_message(span_danger("<u>\The [src] [msg]</u>"))
+	if(prob(50)) // a bit less lags
+		var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
+		visible_message(span_danger("<u>\The [src] [msg]</u>"))
 	deconstruct(FALSE)
 
 /obj/item/Destroy()
