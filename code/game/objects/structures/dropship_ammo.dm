@@ -538,7 +538,7 @@
 //minirockets
 
 /obj/structure/ship_ammo/cas/minirocket
-	name = "MGA-112A 'Candies' "
+	name = "MGA-112A 'Candies'"
 	desc = "A pack of explosive mini rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket"
 	icon = 'icons/Marine/mainship_props.dmi'
