@@ -1152,7 +1152,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 	return TRUE
 
-/datum/hive_status/proc/unforbid_all_castes(var/is_admin = FALSE)
+/datum/hive_status/proc/unforbid_all_castes(is_admin = FALSE)
 	if(is_admin)
 		xeno_message("Queen Mother unforbid all castes!", "xenoannounce")
 	for(var/forbid_data in hive_forbiden_castes)

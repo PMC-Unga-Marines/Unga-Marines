@@ -60,26 +60,26 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	output = list(/obj/item/stack/sheet/mineral/osmium/large_stack = 1) // dont count
 
 /datum/assembly_craft/engineering/junk_platinum_convert
-	name = "Сlearing junk in various resources like copper and platinum"
+	name = "Clearing junk in various resources like copper and platinum"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 5) // 20 points
 	output = list(/obj/item/stack/sheet/mineral/copper = 4, /obj/item/stack/sheet/mineral/platinum = 1) //12 + 12
 
 /datum/assembly_craft/engineering/junk_silver_convert
-	name = "Сlearing junk in various resources like plasteel and silver"
+	name = "Clearing junk in various resources like plasteel and silver"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 4) // 20 points
 	output = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/sheet/mineral/silver = 1) //~ 8 + 8
 
 /datum/assembly_craft/engineering/junk_phoron_convert
-	name = "Сlearing junk in phoron and glass? Explosion transformation power!"
+	name = "Clearing junk in phoron and glass? Explosion transformation power!"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 4) // 20 points
 	output = list(/obj/item/stack/sheet/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
 
 //one in one craft cuz junk is multi use resource
 /datum/assembly_craft/engineering/junk_phoron_iron
-	name = "Сlearing junk in iron"
+	name = "Clearing junk in iron"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 50) // 300 from cargo
 	output = list(/obj/item/stack/sheet/metal/large_stack = 1) //200 points so what?

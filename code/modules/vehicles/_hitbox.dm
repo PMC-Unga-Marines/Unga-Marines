@@ -34,6 +34,7 @@
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_cross_hitbox),
 		COMSIG_TURF_JUMP_ENDED_HERE = PROC_REF(on_jump_landed),
+		COMSIG_TURF_THROW_ENDED_HERE = PROC_REF(on_stop_throw),
 		COMSIG_ATOM_EXITED = PROC_REF(on_exited),
 	)
 	AddElement(/datum/element/connect_loc, connections)
@@ -55,7 +56,7 @@
 /obj/hitbox/proc/owner_turned(datum/source, old_dir, new_dir)
 	SIGNAL_HANDLER
 	if(!new_dir || new_dir == old_dir)
-		return
+		return FALSE
 	for(var/mob/living/desant AS in tank_desants)
 		if(desant.loc == root.loc)
 			continue
@@ -70,15 +71,29 @@
 		desant.set_glide_size(32)
 		desant.forceMove(new_pos)
 
+	return FALSE
+
+///Adds a new desant
+/obj/hitbox/proc/add_desant(atom/movable/new_desant)
+	if(HAS_TRAIT(new_desant, TRAIT_TANK_DESANT))
+		return
+	ADD_TRAIT(new_desant, TRAIT_TANK_DESANT, VEHICLE_TRAIT)
+	LAZYSET(tank_desants, new_desant, new_desant.layer)
+	RegisterSignal(new_desant, COMSIG_QDELETING, PROC_REF(on_desant_del))
+	new_desant.layer = ABOVE_MOB_PLATFORM_LAYER
+	root.add_desant(new_desant)
+
 ///signal handler when someone jumping lands on us
 /obj/hitbox/proc/on_jump_landed(datum/source, atom/lander)
 	SIGNAL_HANDLER
-	if(HAS_TRAIT(lander, TRAIT_TANK_DESANT))
+	add_desant(lander)
+
+///signal handler when something thrown lands on us
+/obj/hitbox/proc/on_stop_throw(datum/source, atom/movable/thrown_movable)
+	SIGNAL_HANDLER
+	if(!isliving(thrown_movable)) //TODO: Make desants properly work for all AM's instead of mobs
 		return
-	ADD_TRAIT(lander, TRAIT_TANK_DESANT, VEHICLE_TRAIT)
-	LAZYSET(tank_desants, lander, lander.layer)
-	RegisterSignal(lander, COMSIG_QDELETING, PROC_REF(on_desant_del))
-	lander.layer = ABOVE_MOB_PLATFORM_LAYER
+	add_desant(thrown_movable)
 
 ///signal handler when we leave a turf under the hitbox
 /obj/hitbox/proc/on_exited(atom/source, atom/movable/AM, direction)
@@ -91,6 +106,7 @@
 	AM.layer = LAZYACCESS(tank_desants, AM)
 	LAZYREMOVE(tank_desants, AM)
 	UnregisterSignal(AM, COMSIG_QDELETING)
+	root.remove_desant(AM)
 
 ///cleanup riders on deletion
 /obj/hitbox/proc/on_desant_del(datum/source)
@@ -103,7 +119,7 @@
 	qdel(src, TRUE)
 
 ///when the owner moves, let's move with them!
-/obj/hitbox/proc/root_move(atom/movable/mover, atom/oldloc, direction)
+/obj/hitbox/proc/root_move(atom/movable/mover, atom/oldloc, direction, forced, list/turf/old_locs)
 	SIGNAL_HANDLER
 	//direction is null here, so we improvise
 	direction = get_dir(oldloc, mover)

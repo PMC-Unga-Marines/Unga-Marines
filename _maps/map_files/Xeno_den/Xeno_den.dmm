@@ -3,12 +3,12 @@
 /turf/closed/mineral/smooth/bluefrostwall/indestructible,
 /area/icy_caves/caves/northern)
 "b" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "c" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
@@ -46,12 +46,12 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
 "m" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "n" = (
 /obj/effect/landmark/weed_node,
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "o" = (
@@ -77,7 +77,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/deltastation/asteroidcaves)
 "u" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
@@ -103,7 +103,7 @@
 /turf/closed/mineral/smooth/bluefrostwall/indestructible,
 /area/icy_caves/caves/northern)
 "C" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
@@ -120,7 +120,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "H" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
 /area/deltastation/asteroidcaves)
@@ -147,11 +147,11 @@
 /turf/closed/mineral/smooth/bluefrostwall/indestructible,
 /area/icy_caves/caves/east)
 "S" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "T" = (
-/obj/structure/xeno/xeno_turret,
+/obj/effect/landmark/xeno_turret,
 /turf/open/floor/plating/ground/ice,
 /area/deltastation/asteroidcaves)
 "V" = (

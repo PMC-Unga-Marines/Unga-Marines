@@ -63,7 +63,7 @@
 	RegisterSignal(owner.reagents, COMSIG_NEW_REAGENT_ADD, PROC_REF(owner_added_reagent))
 	RegisterSignal(owner.reagents, COMSIG_REAGENT_DELETING, PROC_REF(owner_removed_reagent))
 
-/datum/internal_organ/kidneys/clean_owner()
+/datum/internal_organ/kidneys/Destroy()
 	if(owner?.reagents)
 		UnregisterSignal(owner.reagents, list(COMSIG_NEW_REAGENT_ADD, COMSIG_REAGENT_DELETING))
 	return ..()

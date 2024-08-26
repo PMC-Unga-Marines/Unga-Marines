@@ -8,15 +8,11 @@ type VendingData = {
   hidden_records: VendingRecord[];
   coin_records: VendingRecord[];
   tabs: string[];
-  stock: VendingStock;
+  stock: number;
   currently_vending: VendingRecord | null;
   extended: number;
   coin: string;
   ui_theme: string;
-};
-
-type VendingStock = {
-  [key: string]: number;
 };
 
 type VendingRecord = {
@@ -92,8 +88,7 @@ export const Vending = (props, context) => {
                       <Stack.Item
                         m={0.5}
                         grow={tabname.length}
-                        basis={'content'}
-                        key={tabname}>
+                        basis={'content'}>
                         <Tabs.Tab
                           selected={tabname === selectedTab}
                           onClick={() => setSelectedTab(tabname)}>

@@ -51,7 +51,7 @@
 		/obj/item/armor_module/limb/skeleton/head,
 		/obj/item/armor_module/limb/skeleton/head/spine,
 		/obj/item/armor_module/limb/skeleton/torso,
-		)
+	)
 
 	soft_armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 25, BIO = 20, FIRE = 20, ACID = 20)
 
@@ -254,9 +254,7 @@
 	anchored = TRUE
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
-	attachments_allowed = list(
-		/obj/item/armor_module/storage/boot/yautja_knife
-	)
+	attachments_allowed = list(/obj/item/armor_module/storage/boot/yautja_knife)
 	starting_attachments = list(/obj/item/armor_module/storage/boot/yautja_knife)
 
 /obj/item/armor_module/storage/boot/yautja_knife/Initialize(mapload)

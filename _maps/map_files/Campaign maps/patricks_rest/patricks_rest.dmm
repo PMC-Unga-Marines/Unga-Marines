@@ -9659,7 +9659,7 @@
 	},
 /area/patricks_rest/surface/building/residential_cent)
 "VK" = (
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security,
 /turf/open/floor/mainship/red{
 	dir = 6
 	},

@@ -39,6 +39,10 @@
 		if(hud_used.alien_evolve_display)
 			hud_used.alien_evolve_display.icon_state = "evolve0"
 
+	hud_set_plasma()
+	med_hud_set_health()
+	hud_update_primo()
+
 	update_icons()
 
 	death_cry()
