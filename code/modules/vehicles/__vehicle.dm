@@ -175,3 +175,11 @@
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(20 * S.strength, BURN, ACID)
+
+///Any special behavior when a desant is added
+/obj/vehicle/proc/add_desant(mob/living/new_desant)
+	return
+
+///Any special behavior when a desant is removed
+/obj/vehicle/proc/remove_desant(mob/living/old_desant)
+	return
