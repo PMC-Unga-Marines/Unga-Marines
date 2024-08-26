@@ -88,7 +88,8 @@ export const Vending = (props, context) => {
                       <Stack.Item
                         m={0.5}
                         grow={tabname.length}
-                        basis={'content'}>
+                        basis={'content'}
+                        key={tabname}>
                         <Tabs.Tab
                           selected={tabname === selectedTab}
                           onClick={() => setSelectedTab(tabname)}>
@@ -197,6 +198,7 @@ const Products = (props, context) => {
                 (showEmpty || !!stock[display_record.product_name]) && (
                   <ProductEntry
                     stock={stock[display_record.product_name]}
+                    key={display_record.product_name}
                     product_color={display_record.product_color}
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
@@ -231,6 +233,7 @@ const Hacked = (props, context) => {
             return (
               <ProductEntry
                 stock={stock[hidden_record.product_name]}
+                key={hidden_record.product_name}
                 product_color={hidden_record.product_color}
                 product_name={hidden_record.product_name}
                 prod_desc={hidden_record.prod_desc}
@@ -272,6 +275,7 @@ const Premium = (props, context) => {
               return (
                 <ProductEntry
                   stock={stock[coin_record.product_name]}
+                  key={coin_record.product_name}
                   product_color={coin_record.product_color}
                   product_name={coin_record.product_name}
                   prod_desc={coin_record.prod_desc}

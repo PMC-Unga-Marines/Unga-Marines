@@ -28,9 +28,7 @@ export const Assembler = (props, context) => {
     null
   );
 
-  const {
-    supplypacks,
-  } = data;
+  const { supplypacks } = data;
 
   const selectedPackCat = supplypacks[selectedMenu]
     ? supplypacks[selectedMenu]
@@ -79,9 +77,7 @@ const Menu = (props, context) => {
   const { act, data } = useBackend(context);
   const { readOnly } = props;
 
-  const {
-    categories,
-  } = data;
+  const { categories } = data;
 
   return (
     <Section height="100%" p="5px">
@@ -107,10 +103,11 @@ const Pack = (props, context) => {
   const { pack } = props;
   const { supplypackscontents } = data;
   const { name, inputs, outputs } = supplypackscontents[pack];
-  return !!inputs && inputs.constructor === Object && !!outputs && outputs.constructor === Object ? (
-    <Collapsible
-      color="gray"
-      title={<PackName name={name} pl={0} />}>
+  return !!inputs &&
+    inputs.constructor === Object &&
+    !!outputs &&
+    outputs.constructor === Object ? (
+    <Collapsible color="gray" title={<PackName name={name} pl={0} />}>
       <Table>
         <InputContents input={inputs} />
       </Table>
@@ -155,10 +152,7 @@ const CategoryButton = (props, context) => {
 const Category = (props, context) => {
   const { act, data } = useBackend(context);
 
-  const {
-    supplypackscontents,
-    assemblercraft,
-  } = data;
+  const { supplypackscontents, assemblercraft } = data;
 
   const [selectedMenu, setSelectedMenu] = useLocalState(
     context,
