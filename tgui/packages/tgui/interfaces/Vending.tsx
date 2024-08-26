@@ -89,6 +89,7 @@ export const Vending = (props, context) => {
                         m={0.5}
                         grow={tabname.length}
                         basis={'content'}>
+                        key={tabname}
                         <Tabs.Tab
                           selected={tabname === selectedTab}
                           onClick={() => setSelectedTab(tabname)}>
