@@ -504,7 +504,7 @@
 //unguided rockets
 
 /obj/structure/ship_ammo/cas/unguided_rocket
-	name = "RGA-13A 'Sting' "
+	name = "RGA-13A 'Sting'"
 	desc = "old unguided rockets found in the strategic warehouses of the UPP combat airfield. Moving this will require some sort of lifter."
 	icon_state = "unguided_rocket"
 	icon = 'icons/Marine/mainship_props.dmi'
