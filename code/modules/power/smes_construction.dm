@@ -148,11 +148,9 @@
 						visible_message("Magnetic containment stabilised.")
 						return
 					visible_message("DANGER! Magnetic containment field failure in 3 ... 2 ... 1 ...")
-					explosion(loc, 2, 3, 5, 0, 8)
+					cell_explosion(loc, 250, 50)
 					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
 					qdel(src)
-
-
 
 	// Gets powernet APCs and overloads lights or breaks the APC completely, depending on percentages.
 /obj/machinery/power/smes/buildable/proc/apcs_overload(failure_chance, overload_chance)

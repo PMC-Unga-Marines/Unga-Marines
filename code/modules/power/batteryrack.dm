@@ -148,7 +148,7 @@
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
 	. = ..()
-	if(machine_stat & BROKEN)	
+	if(machine_stat & BROKEN)
 		return
 
 	if(outputting)
@@ -170,44 +170,44 @@
 //(2.4M-3.6M] :7% ion_act from 115%. 1% of EMP from 130%. 1% of non-hull-breaching explosion at 150%.
 //(3.6M-INFI): 8% ion_act from 115%. 2% of EMP from 125%. 1% of Hull-breaching explosion from 140%.
 /obj/machinery/power/smes/batteryrack/makeshift/proc/overcharge_consequences()
-	switch (capacity)
-		if (0 to (1.2e6-1))
-			if (overcharge_percent >= 125)
-				if (prob(5))
+	switch(capacity)
+		if(0 to (1.2e6-1))
+			if(overcharge_percent >= 125)
+				if(prob(5))
 					ion_act()
-		if (1.2e6 to 2.4e6)
-			if (overcharge_percent >= 120)
-				if (prob(6))
-					ion_act()
-			else
-				return
-			if (overcharge_percent >= 140)
-				if (prob(1))
-					empulse(src.loc, 3, 8, 1)
-		if ((2.4e6+1) to 3.6e6)
-			if (overcharge_percent >= 115)
-				if (prob(7))
+		if(1.2e6 to 2.4e6)
+			if(overcharge_percent >= 120)
+				if(prob(6))
 					ion_act()
 			else
 				return
-			if (overcharge_percent >= 130)
-				if (prob(1))
+			if(overcharge_percent >= 140)
+				if(prob(1))
 					empulse(src.loc, 3, 8, 1)
-			if (overcharge_percent >= 150)
-				if (prob(1))
-					explosion(loc, 1, 2, 4, 0, 5)
+		if((2.4e6+1) to 3.6e6)
+			if(overcharge_percent >= 115)
+				if(prob(7))
+					ion_act()
+			else
+				return
+			if(overcharge_percent >= 130)
+				if(prob(1))
+					empulse(src.loc, 3, 8, 1)
+			if(overcharge_percent >= 150)
+				if(prob(1))
+					cell_explosion(loc, 160, 40)
 		if ((3.6e6+1) to INFINITY)
-			if (overcharge_percent >= 115)
-				if (prob(8))
+			if(overcharge_percent >= 115)
+				if(prob(8))
 					ion_act()
 			else
 				return
-			if (overcharge_percent >= 125)
-				if (prob(2))
+			if(overcharge_percent >= 125)
+				if(prob(2))
 					empulse(src.loc, 4, 10, 1)
-			if (overcharge_percent >= 140)
-				if (prob(1))
-					explosion(loc, 2, 4, 6, 0, 8)
+			if(overcharge_percent >= 140)
+				if(prob(1))
+					cell_explosion(loc, 300, 50)
 		else //how the hell was this proc called for negative charge
 			charge = 0
 

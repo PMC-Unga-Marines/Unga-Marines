@@ -208,7 +208,7 @@
 		activator.say("أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ")
 		TIMER_COOLDOWN_START(activator, "Koran", 10 MINUTES)
 		if(prob(10))
-			explosion(activator, 1, 1, 1, 1, 1)
+			cell_explosion(activator, 150, 150)
 		if(prob(80))
 			activator.heal_limb_damage(50, 50, TRUE)
 			activator.adjustCloneLoss(-10)

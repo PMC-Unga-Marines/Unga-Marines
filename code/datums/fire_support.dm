@@ -181,7 +181,7 @@
 	initiate_screen_message = "Rockets hot, incoming!"
 
 /datum/fire_support/rockets/do_impact(turf/target_turf)
-	explosion(target_turf, 0, 2, 4, 6, 2)
+	cell_explosion(target_turf, 150, 75)
 
 /datum/fire_support/rockets/unlimited
 	fire_support_type = FIRESUPPORT_TYPE_ROCKETS_UNLIMITED
@@ -201,7 +201,8 @@
 	uses = 2
 
 /datum/fire_support/incendiary_rockets/do_impact(turf/target_turf)
-	explosion(target_turf, weak_impact_range = 4, flame_range = 4, throw_range = 2)
+	cell_explosion(target_turf, 20, 5)
+	flame_radius(4, target_turf)
 
 /datum/fire_support/cruise_missile
 	name = "Cruise missile strike"
@@ -216,7 +217,7 @@
 	start_sound = null
 
 /datum/fire_support/cruise_missile/select_target(turf/target_turf)
-	explosion(target_turf, 4, 5, 6)
+	cell_explosion(target_turf, 420, 70)
 
 /datum/fire_support/cruise_missile/unlimited
 	fire_support_type = FIRESUPPORT_TYPE_CRUISE_MISSILE_UNLIMITED
@@ -312,7 +313,8 @@
 	playsound(strafelist[1], 'sound/weapons/guns/fire/volkite_4.ogg', 60, FALSE, 25, falloff = 3)
 	strafed = strafelist[1]
 	strafelist -= strafed
-	explosion(strafed, light_impact_range = 2, flame_range = 2, throw_range = 0)
+	cell_explosion(strafed, 30, 15)
+	flame_radius(2, strafed)
 	if(length(strafelist))
 		addtimer(CALLBACK(src, PROC_REF(strafe_turfs), strafelist), 0.2 SECONDS)
 
@@ -333,7 +335,7 @@
 	start_sound = 'sound/weapons/guns/misc/mortar_long_whistle.ogg'
 
 /datum/fire_support/mortar/do_impact(turf/target_turf)
-	explosion(target_turf, 0, 2, 3, 5, 2)
+	cell_explosion(target_turf, 120, 24)
 
 /datum/fire_support/mortar/som
 	fire_support_type = FIRESUPPORT_TYPE_HE_MORTAR_SOM
@@ -349,7 +351,8 @@
 	initiate_screen_message = "Coordinates confirmed, incendiary inbound!"
 
 /datum/fire_support/mortar/incendiary/do_impact(turf/target_turf)
-	explosion(target_turf, weak_impact_range = 4, flame_range = 5, throw_range = 0)
+	cell_explosion(target_turf, 20, 5)
+	flame_radius(5, target_turf)
 	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35)
 
 /datum/fire_support/mortar/incendiary/som
@@ -443,4 +446,4 @@
 		strength = victim.modify_by_armor(strength, BIO, 25)
 		victim.apply_radiation(strength, sound_level)
 
-	explosion(target_turf, 0, 1, 0, 4)
+	cell_explosion(target_turf, 45, 25)

@@ -148,7 +148,6 @@
 /obj/item/explosive/plastique/proc/detonate()
 	if(QDELETED(plant_target))
 		playsound(plant_target, 'sound/weapons/ring.ogg', 100, FALSE, 25)
-		explosion(plant_target, flash_range = 1) //todo: place as abuse of explosion
 		qdel(src)
 		return
 	cell_explosion(plant_target, 95, 45, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL)
