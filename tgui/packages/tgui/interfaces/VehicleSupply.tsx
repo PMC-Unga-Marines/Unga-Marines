@@ -65,27 +65,26 @@ export const VehicleSupply = (props, context) => {
                           content="Select"
                           selected={primary.isselected}
                         />
-                      }
-                    >
+                      }>
                       {!primary.isselected
                         ? null
                         : primaryammotypes?.map((ammotype) => (
-                            <Slider
-                              key={ammotype.name}
-                              animated
-                              unit={ammotype.name}
-                              minValue={0}
-                              maxValue={ammotype.max}
-                              stepPixelSize={20}
-                              onChange={(e, value) =>
-                                act('set_ammo_primary', {
-                                  type: ammotype.type,
-                                  new_value: value,
-                                })
-                              }
-                              value={ammotype.current}
-                            />
-                          ))}
+                          <Slider
+                            key={ammotype.name}
+                            animated
+                            unit={ammotype.name}
+                            minValue={0}
+                            maxValue={ammotype.max}
+                            stepPixelSize={20}
+                            onChange={(e, value) =>
+                              act('set_ammo_primary', {
+                                type: ammotype.type,
+                                new_value: value,
+                              })
+                            }
+                            value={ammotype.current}
+                          />
+                        ))}
                     </Collapsible>
                   ))}
                 </Section>
@@ -106,27 +105,26 @@ export const VehicleSupply = (props, context) => {
                           content="Select"
                           selected={secondary.isselected}
                         />
-                      }
-                    >
+                      }>
                       {!secondary.isselected
                         ? null
                         : secondarymmotypes?.map((ammotype) => (
-                            <Slider
-                              key={ammotype.name}
-                              animated
-                              unit={ammotype.name}
-                              minValue={0}
-                              maxValue={ammotype.max}
-                              stepPixelSize={20}
-                              onChange={(e, value) =>
-                                act('set_ammo_secondary', {
-                                  type: ammotype.type,
-                                  new_value: value,
-                                })
-                              }
-                              value={ammotype.current}
-                            />
-                          ))}
+                          <Slider
+                            key={ammotype.name}
+                            animated
+                            unit={ammotype.name}
+                            minValue={0}
+                            maxValue={ammotype.max}
+                            stepPixelSize={20}
+                            onChange={(e, value) =>
+                              act('set_ammo_secondary', {
+                                type: ammotype.type,
+                                new_value: value,
+                              })
+                            }
+                            value={ammotype.current}
+                          />
+                        ))}
                     </Collapsible>
                   ))}
                 </Section>
@@ -160,8 +158,7 @@ export const VehicleSupply = (props, context) => {
                     content="Select"
                     selected={veh.isselected}
                   />
-                }
-              >
+                }>
                 {veh.desc}
               </Section>
             ))}
@@ -181,8 +178,7 @@ export const VehicleSupply = (props, context) => {
                       content="Select"
                       selected={module.isselected}
                     />
-                  }
-                >
+                  }>
                   {module.desc}
                 </Section>
               ))}
@@ -201,8 +197,7 @@ export const VehicleSupply = (props, context) => {
                       content="Select"
                       selected={module.isselected}
                     />
-                  }
-                >
+                  }>
                   {module.desc}
                 </Section>
               ))}

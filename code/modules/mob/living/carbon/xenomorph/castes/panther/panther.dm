@@ -30,12 +30,12 @@
 	addtimer(CALLBACK(src, PROC_REF(adrenalin)), 1 SECONDS, TIMER_LOOP)
 
 /mob/living/carbon/xenomorph/panther/proc/adrenalin()
-    if(m_intent == MOVE_INTENT_RUN)
-        if(last_move_time + 1 SECONDS >= world.time)
-            gain_plasma(2)
-            return
-    if(plasma_stored >= 40)
-        use_plasma(3)
+	if(m_intent == MOVE_INTENT_RUN)
+		if(last_move_time + 1 SECONDS >= world.time)
+			gain_plasma(2)
+			return
+	if(plasma_stored >= 40)
+		use_plasma(3)
 
 /obj/item/reagent_containers/food/drinks/pantherheart
 	name = "Panther heart"

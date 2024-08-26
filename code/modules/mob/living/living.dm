@@ -331,10 +331,6 @@
 /mob/living/is_drawable(allowmobs = TRUE)
 	return (allowmobs && can_inject())
 
-#define NO_SWAP 0
-#define SWAPPING 1
-#define PHASING 2
-
 /mob/living/Bump(atom/A)
 	. = ..()
 	if(.) //We are thrown onto something.
@@ -358,23 +354,7 @@
 					return
 
 		if(!L.buckled && !L.anchored)
-			var/mob_swap_mode = NO_SWAP
-			// the puller can always swap with its victim if on grab intent
-			if(L.pulledby == src && a_intent == INTENT_GRAB)
-				mob_swap_mode = SWAPPING
-			// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
-			else if(a_intent == INTENT_HELP || restrained())
-				// xenos swap with xenos and almost whoever they want
-				if(isxeno(src) && (isxeno(L) || move_force > L.move_resist))
-					mob_swap_mode = SWAPPING
-				// if target isn't xeno and both are on help intents, but we don't want xenos to move petrified humans ,then we swap
-				else if(!isxeno(L) && move_force > L.move_resist && (L.a_intent == INTENT_HELP || L.restrained()))
-					mob_swap_mode = SWAPPING
-			/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
-			 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us
-			*/
-			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && (L.faction == faction || L.move_resist <= move_force) && get_step(src, dir).Enter(src, loc))
-				mob_swap_mode = PHASING
+			var/mob_swap_mode = return_mob_swap_mode(L)
 			if(mob_swap_mode)
 				//switch our position with L
 				if(loc && !loc.Adjacent(L.loc))
@@ -419,6 +399,14 @@
 			COOLDOWN_START(H, xeno_push_delay, XENO_HUMAN_PUSHED_DELAY)
 		if(PushAM(A))
 			return TURF_ENTER_ALREADY_MOVED
+
+/// Returns mob_swap_mode for Bump() with other mobs
+/mob/living/proc/return_mob_swap_mode(mob/living/target)
+	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc) && (target.faction == faction || target.move_resist <= move_force))
+		return PHASING
+	if(move_force > target.move_resist || target.a_intent == INTENT_HELP || target.restrained())
+		return SWAPPING
+	return NO_SWAP
 
 //Called when we want to push an atom/movable
 /mob/living/proc/PushAM(atom/movable/AM, force = move_force)

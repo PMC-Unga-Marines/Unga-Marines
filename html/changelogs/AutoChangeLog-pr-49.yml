@@ -1,5 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - qol: "Через камни теперь можно перепрыгнуть, через ящики теперь можно перелезть."
-  - code_imp: "Organ defines, get_organ_slot, remove_organ_slot"
