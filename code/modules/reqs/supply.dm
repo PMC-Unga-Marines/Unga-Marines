@@ -391,7 +391,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/lastexport = ""
 	for(var/datum/export_report/report AS in SSpoints.export_history)
 		if(report.faction != user.faction)
-			continuef
+			continue
 		if(report.points == 0)
 			continue
 		if(report.export_name == lastexport)
