@@ -750,16 +750,16 @@
 /datum/reagent/medicine/peridaxon/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(2*effect_str, BRUTE)
 
-/datum/reagent/peridaxon/overdose_crit_process(mob/living/L, metabolism)
+/datum/reagent/medicine/peridaxon/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(6*effect_str, BRUTE)
 
-/datum/reagent/medicine/research/stimulon/on_mob_add(mob/living/L, metabolism)
+/datum/reagent/medicine/peridaxon/on_mob_add(mob/living/L, metabolism)
 	. = ..()
 	var/mob/living/carbon/human/H = L
 	for(var/datum/internal_organ/I in H.internal_organs)
 		I.set_organ_status()
 
-/datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
+/datum/reagent/medicine/peridaxon/on_mob_delete(mob/living/L, metabolism)
 	var/mob/living/carbon/human/H = L
 	for(var/datum/internal_organ/I in H.internal_organs)
 		I.set_organ_status()
@@ -1564,7 +1564,7 @@
 	name = "Histamine"
 	description = "Histamine is an organic nitrogenous compound involved in local immune responses communication"
 	color = COLOR_REAGENT_BICARIDINE
-	custom_metabolism = 0
+	custom_metabolism = 0.4
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	purge_list = list(
@@ -1578,11 +1578,13 @@
 
 /datum/reagent/histamine/on_mob_life(mob/living/L, metabolism)
 	if(!L.reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide))
-		holder.remove_reagent(/datum/reagent/histamine, 0.4)
+		holder.remove_reagent(/datum/reagent/histamine, custom_metabolism * L.metabolism_efficiency)
 
 	L.apply_damage(0.5*effect_str, OXY)
 
-	return ..()
+	purge(L)
+	current_cycle++
+	return TRUE
 
 /datum/reagent/histamine/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel your throat tightening!"))
@@ -1618,8 +1620,7 @@
 
 	L.reagents.add_reagent(/datum/reagent/histamine, 0.4)
 
-	purge(L)
-	current_cycle++
+	return ..()
 
 /datum/reagent/medicine/ifosfamide/overdose_process(mob/living/L, metabolism)
 	L.adjustToxLoss(2*effect_str)

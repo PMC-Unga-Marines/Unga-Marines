@@ -304,6 +304,11 @@
 	icon_state = "boxt500_qk"
 	default_ammo = /datum/ammo/bullet/revolver/t500/qk
 
+/obj/item/ammo_magazine/packet/t500/slavs
+	name = "packet of .500 'Slavs'"
+	icon_state = "boxt500_sv"
+	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
+
 /obj/item/ammo_magazine/packet/standard_magnum
 	name = "packet of .12x7mm"
 	icon = 'icons/obj/items/ammo.dmi'

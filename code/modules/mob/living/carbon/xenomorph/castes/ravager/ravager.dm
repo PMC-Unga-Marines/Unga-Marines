@@ -68,7 +68,7 @@
 	var/burn_damage = getFireLoss()
 	if(!brute_damage && !burn_damage)
 		return
-	var/health_recovery = rage_power * damage
+	var/health_recovery = rage_power * RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH
 	var/health_modifier
 	if(brute_damage)
 		health_modifier = min(brute_damage, health_recovery)*-1

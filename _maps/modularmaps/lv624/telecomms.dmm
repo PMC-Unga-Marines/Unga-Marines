@@ -312,7 +312,6 @@
 /area/lv624/lazarus/comms)
 "U" = (
 /obj/structure/table,
-/obj/item/mmi/radio_enabled,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},

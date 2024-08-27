@@ -768,13 +768,6 @@ WEAPONS
 	cost = 120
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/magnum
-	name = "R-76 Magnum"
-	contains = list(/obj/item/weapon/gun/revolver/standard_magnum)
-	notes = "Ammo is contained within normal marine vendors."
-	cost = 75
-	available_against_xeno_only = TRUE
-
 /datum/supply_packs/weapons/standard_ammo
 	name = "Surplus Standard Ammo Crate"
 	notes = "Contains 22 ammo boxes of a wide variety which come prefilled. You lazy bum."
@@ -1621,7 +1614,7 @@ MEDICAL
 	name = "tweezers"
 	notes = "contains a pair of tweezers."
 	contains = list(/obj/item/tweezers)
-	cost = 200  //shouldn't be easy to get
+	cost = 125
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -1637,7 +1630,7 @@ MEDICAL
 	name = "Advanced Tweezers"
 	notes = "contains advanced tweezers."
 	contains = list(/obj/item/tweezers_advanced)
-	cost = 120
+	cost = 250
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -1761,7 +1754,7 @@ MEDICAL
 		/obj/item/storage/pill_bottle/hypervene,
 		/obj/item/storage/pill_bottle/dylovene,
 		/obj/item/storage/pill_bottle/tricordrazine,
-		)
+	)
 	cost = 20
 
 /datum/supply_packs/medical/imialky_kit
@@ -1770,7 +1763,7 @@ MEDICAL
 	contains = list(
 		/obj/item/storage/pill_bottle/imidazoline,
 		/obj/item/storage/pill_bottle/alkysine,
-		)
+	)
 	cost = 30
 
 /datum/supply_packs/medical/quick_peri_kit
@@ -1779,7 +1772,7 @@ MEDICAL
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
-		)
+	)
 	cost = 30
 
 /datum/supply_packs/medical/russian_red_bottle
@@ -1815,7 +1808,7 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
-		)
+	)
 	cost = 250
 
 /datum/supply_packs/medical/neuraline_kit_injector
@@ -1832,7 +1825,7 @@ MEDICAL
 		/obj/item/storage/pill_bottle/kelotane,
 		/obj/item/storage/pill_bottle/tricordrazine,
 		/obj/item/storage/pill_bottle/tramadol,
-		)
+	)
 	cost = 20
 
 /datum/supply_packs/medical/medicine_defibrillator

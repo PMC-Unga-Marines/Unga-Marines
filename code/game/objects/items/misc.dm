@@ -184,6 +184,7 @@
 	name = "Koran"
 	icon = 'icons/obj/items/priest.dmi'
 	icon_state = "Koran"
+	deity_name = "Allah"
 	actions_types = list(/datum/action/item_action)
 	max_w_class = 3
 	storage_slots = 1
@@ -191,7 +192,7 @@
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/explosive/grenade,
 		/obj/item/explosive/mine,
-    )
+	)
 
 /obj/item/storage/bible/koran/attack_self(mob/living/carbon/human/activator)
 	TIMER_COOLDOWN_START(activator, "KoranSpam", 5 SECONDS)

@@ -8,15 +8,11 @@ type VendingData = {
   hidden_records: VendingRecord[];
   coin_records: VendingRecord[];
   tabs: string[];
-  stock: VendingStock;
+  stock: number;
   currently_vending: VendingRecord | null;
   extended: number;
   coin: string;
   ui_theme: string;
-};
-
-type VendingStock = {
-  [key: string]: number;
 };
 
 type VendingRecord = {
@@ -202,6 +198,7 @@ const Products = (props, context) => {
                 (showEmpty || !!stock[display_record.product_name]) && (
                   <ProductEntry
                     stock={stock[display_record.product_name]}
+                    key={display_record.product_name}
                     product_color={display_record.product_color}
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
@@ -236,6 +233,7 @@ const Hacked = (props, context) => {
             return (
               <ProductEntry
                 stock={stock[hidden_record.product_name]}
+                key={hidden_record.product_name}
                 product_color={hidden_record.product_color}
                 product_name={hidden_record.product_name}
                 prod_desc={hidden_record.prod_desc}
@@ -277,6 +275,7 @@ const Premium = (props, context) => {
               return (
                 <ProductEntry
                   stock={stock[coin_record.product_name]}
+                  key={coin_record.product_name}
                   product_color={coin_record.product_color}
                   product_name={coin_record.product_name}
                   prod_desc={coin_record.prod_desc}

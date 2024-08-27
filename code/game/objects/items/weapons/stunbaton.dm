@@ -18,10 +18,6 @@
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/has_user_lock = TRUE //whether the baton prevents people without correct access from using it.
 
-/obj/item/weapon/baton/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is putting the live [name] in [user.p_their()] mouth! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (FIRELOSS)
-
 /obj/item/weapon/baton/Initialize(mapload)
 	. = ..()
 	bcell = new/obj/item/cell/high(src)
@@ -216,12 +212,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	var/charges = 12
 	var/status = 0
-
-
-/obj/item/weapon/stunprod/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is putting the live [src] in [user.p_their()] mouth! It looks like [p_theyre()] trying to commit suicide."))
-	return FIRELOSS
-
 
 /obj/item/weapon/stunprod/update_icon_state()
 	. = ..()

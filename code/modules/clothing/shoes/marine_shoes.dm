@@ -36,6 +36,7 @@
 	for(var/atom/item_in_pocket AS in armor_storage.storage.contents)
 		if(istype(item_in_pocket, /obj/item/weapon/combat_knife) || istype(item_in_pocket, /obj/item/attachable/bayonetknife) || istype(item_in_pocket, /obj/item/stack/throwing_knife))
 			icon_state += "-knife"
+			break
 
 /obj/item/clothing/shoes/marine/full
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)

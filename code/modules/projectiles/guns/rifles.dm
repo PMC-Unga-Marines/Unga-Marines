@@ -53,7 +53,7 @@
 		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
 		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
 		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
-		)
+	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t18stock,
 		/obj/item/attachable/reddot,
@@ -85,7 +85,7 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam, //RUTGMC EDIT
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -1114,7 +1114,7 @@
 //USL TYPE 71 RIFLE
 
 /obj/item/weapon/gun/rifle/type71
-	name = "\improper Type 71 pulse rifle"
+	name = "\improper Type 71 'GROZA' pulse rifle"
 	desc = "The primary rifle of the USL pirates, the Type 71 is a reliable rifle chambered in 7.62x39mm, firing in three round bursts to conserve ammunition. A newer model for surpression roles to comply with overmatch doctrines is in progress and only issued to a limited number of privates in the USL."
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "type71"
@@ -1127,7 +1127,11 @@
 	reload_sound = 'sound/weapons/guns/interact/type71_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/type71_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/type71
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/type71)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/type71,
+		/obj/item/ammo_magazine/rifle/type71/ap,
+		/obj/item/ammo_magazine/rifle/type71/hp,
+	)
 	aim_slowdown = 0.6
 	wield_delay = 0.7 SECONDS
 	attachable_allowed = list(
@@ -1951,13 +1955,13 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	wield_delay = 1 SECONDS
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
+	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_carbine,
-		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
-		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
-		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
-		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,

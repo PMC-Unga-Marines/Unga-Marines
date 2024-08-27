@@ -390,20 +390,21 @@
 	flags_attach_features = ATTACH_APPLY_ON_MOB
 
 /obj/item/storage/internal/shoes/boot_knife
-	max_storage_space = 3
-	storage_slots = 1
+	max_storage_space = 4
+	storage_slots = 2
+	max_w_class = WEIGHT_CLASS_TINY
 	draw_mode = TRUE
-	can_hold = list(
-//RUTGMC EDIT
+	bypass_w_limit  = list(
 		/obj/item/weapon/yautja/knife,
-//RUTGMC EDIT
 		/obj/item/weapon/combat_knife,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
-		/obj/item/weapon/gun/shotgun/double/derringer,
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/stack/throwing_knife,
 		/obj/item/storage/box/MRE,
+		/obj/item/reagent_containers/food/snacks,
+	)
+	cant_hold = list(
+		/obj/item/stack/sheet,
 	)
 
 /obj/item/armor_module/storage/boot/full/Initialize(mapload)

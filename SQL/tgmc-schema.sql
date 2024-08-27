@@ -134,7 +134,6 @@ CREATE TABLE IF NOT EXISTS `death` (
   `cloneloss` smallint(5) unsigned NOT NULL,
   `staminaloss` smallint(5) unsigned NOT NULL,
   `last_words` varchar(255) DEFAULT NULL,
-  `suicide` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

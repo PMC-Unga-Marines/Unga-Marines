@@ -40,10 +40,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("drilled")
 
-/obj/item/tool/surgery/surgicaldrill/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is pressing the [name] to [user.p_their()] [pick("temple","chest")] and activating it! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (BRUTELOSS)
-
 /obj/item/tool/surgery/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
@@ -57,12 +53,6 @@
 	throw_speed = 3
 	throw_range = 5
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-
-/obj/item/tool/surgery/scalpel/suicide_act(mob/user)
-	user.visible_message(pick(span_danger("[user] is slitting [user.p_their()] wrists with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] throat with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
-	return (BRUTELOSS)
 
 /*
 * Researchable Scalpels

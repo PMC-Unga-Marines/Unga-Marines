@@ -42,26 +42,6 @@
 	if(!in_range(A, user) || !user.Adjacent(A))
 		return FALSE
 
-	if(istype(A, /obj/item/storage/pill_bottle) && is_open_container()) //this should only run if its a pillbottle
-		var/obj/item/storage/pill_bottle/bottle = A
-		if(reagents.total_volume >= volume)
-			balloon_alert(user, "Hypospray is full.")
-			return  //early returning if its full
-
-		if(!length(bottle.contents))
-			return //early returning if its empty
-		var/obj/item/pill = bottle.contents[1]
-
-		if((pill.reagents.total_volume + reagents.total_volume) > volume)
-			balloon_alert(user, "Can't hold that much.")
-			return // so it doesnt let people have hypos more filled than their volume
-		pill.reagents.trans_to(src, pill.reagents.total_volume)
-
-		to_chat(user, span_notice("You dissolve [pill] from [bottle] in [src]."))
-		bottle.remove_from_storage(pill,null,user)
-		qdel(pill)
-		return
-
 	//For drawing reagents, will check if it's possible to draw, then draws.
 	if(inject_mode == HYPOSPRAY_INJECT_MODE_DRAW)
 		can_draw_reagent(A, user, FALSE)
@@ -71,7 +51,6 @@
 		balloon_alert(user, "Hypospray is Empty.")
 		return
 	if(!A.is_injectable() && !ismob(A))
-		A.balloon_alert(user, "Can't fill.")
 		return
 	if(skilllock && user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_NOVICE)
 		user.visible_message(span_notice("[user] fumbles around figuring out how to use the [src]."),

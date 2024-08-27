@@ -4366,7 +4366,6 @@
 /area/lv624/ground/jungle3)
 "djk" = (
 /obj/structure/table,
-/obj/item/mmi/radio_enabled,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},

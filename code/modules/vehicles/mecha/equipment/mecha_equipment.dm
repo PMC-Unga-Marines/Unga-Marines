@@ -164,6 +164,10 @@
 /obj/item/mecha_parts/mecha_equipment/proc/detach(atom/moveto)
 	moveto = moveto || get_turf(chassis)
 	forceMove(moveto)
+
+	if(!chassis)
+		return
+
 	LAZYREMOVE(chassis.flat_equipment, src)
 	var/to_unequip_slot = equipment_slot
 	if(equipment_slot == MECHA_WEAPON)
