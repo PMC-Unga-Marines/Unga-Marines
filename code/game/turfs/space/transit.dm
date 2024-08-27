@@ -132,7 +132,7 @@
 
 	var/drop_sound = pick('sound/effects/bang.ogg', 'sound/effects/meteorimpact.ogg')
 	var/mob/living/carbon/human/human = src
-	if(prob(1) || human?.species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))
+	if(prob(1) || human?.species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS) && prob(25))
 		drop_sound = 'sound/effects/lead_pipe_drop.ogg'
 
 	playsound(target_turf, drop_sound, 75, TRUE)
