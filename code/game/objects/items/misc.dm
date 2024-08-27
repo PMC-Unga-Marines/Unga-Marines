@@ -184,6 +184,7 @@
 	name = "Koran"
 	icon = 'icons/obj/items/priest.dmi'
 	icon_state = "Koran"
+	deity_name = "Allah"
 	actions_types = list(/datum/action/item_action)
 	max_w_class = 3
 	storage_slots = 1
