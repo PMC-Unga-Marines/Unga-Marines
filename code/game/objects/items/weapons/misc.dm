@@ -10,10 +10,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 
-/obj/item/weapon/chainofcommand/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is strangling [p_them()]self with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (OXYLOSS)
-
 /obj/item/weapon/cane
 	name = "cane"
 	desc = "A cane used by a true gentlemen. Or a clown."

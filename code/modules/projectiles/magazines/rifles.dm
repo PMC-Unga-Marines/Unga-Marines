@@ -261,8 +261,21 @@
 	caliber = CALIBER_762X39
 	icon_state = "type_71"
 	icon_state_mini = "mag_rifle_big"
+	ammo_band_icon = "type_71_band"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km
 	max_rounds = 42
+
+/obj/item/ammo_magazine/rifle/type71/ap
+	name = "\improper Type 71 AP magazine (7.62x39mm)"
+	desc = "A 7.62x39mm AP magazine that fits in the Type 71 rifle."
+	ammo_band_color = AMMO_BAND_COLOR_AP
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/ap
+
+/obj/item/ammo_magazine/rifle/type71/hp
+	name = "\improper Type 71 HP magazine (7.62x39mm)"
+	desc = "A 7.62x39mm HP magazine that fits in the Type 71 rifle."
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/hp
 
 //TX-16 AUTOMATIC SHOTGUN
 
@@ -700,7 +713,6 @@
 	name = "\improper AR-12 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_AP
-
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
 /obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary

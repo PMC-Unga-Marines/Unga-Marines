@@ -35,10 +35,6 @@
 	. = ..()
 	AddElement(/datum/element/scalping)
 
-/obj/item/weapon/claymore/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is falling on the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return(BRUTELOSS)
-
 /obj/item/weapon/claymore/mercsword
 	name = "combat sword"
 	desc = "A dusty sword commonly seen in historical museums. Where you got this is a mystery, for sure. Only a mercenary would be nuts enough to carry one of these. Sharpened to deal massive damage."
@@ -243,10 +239,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
-/obj/item/weapon/katana/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku."))
-	return(BRUTELOSS)
-
 //To do: replace the toys.
 /obj/item/weapon/katana/replica
 	name = "replica katana"
@@ -329,12 +321,6 @@
 	. = ..()
 	AddElement(/datum/element/scalping)
 	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 12 SECONDS, 10)
-
-/obj/item/weapon/combat_knife/suicide_act(mob/user)
-	user.visible_message(pick(span_danger("[user] is slitting [user.p_their()] wrists with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] throat with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
-	return (BRUTELOSS)
 
 /obj/item/weapon/combat_knife/upp
 	name = "\improper Type 30 survival knife"
@@ -554,10 +540,6 @@
 /obj/item/weapon/chainsword/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	playsound(loc, 'sound/weapons/chainsawhit.ogg', 100, 1)
 	return ..()
-
-/obj/item/weapon/chainsword/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is falling on the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return(BRUTELOSS)
 
 /obj/item/weapon/chainsword/civilian
 	name = "chainsaw"

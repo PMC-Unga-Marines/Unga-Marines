@@ -1,13 +1,6 @@
 /obj/item/weapon/energy
 	flags_atom = NOBLOODY
 
-/obj/item/weapon/energy/suicide_act(mob/user)
-	user.visible_message(pick(span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku."), \
-						span_danger("[user] is falling on the [name]! It looks like [user.p_theyre()] trying to commit suicide.")))
-	return (BRUTELOSS|FIRELOSS)
-
-
-
 /obj/item/weapon/energy/axe
 	name = "energy axe"
 	desc = "An energised battle axe."
@@ -21,10 +14,6 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
-
-/obj/item/weapon/energy/axe/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] swings the [name] towards [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/weapon/energy/axe/attack_self(mob/user)
 	active = !active

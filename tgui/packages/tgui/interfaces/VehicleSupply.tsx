@@ -65,8 +65,7 @@ export const VehicleSupply = (props, context) => {
                           content="Select"
                           selected={primary.isselected}
                         />
-                      }
-                    >
+                      }>
                       {!primary.isselected
                         ? null
                         : primaryammotypes?.map((ammotype) => (
@@ -106,8 +105,7 @@ export const VehicleSupply = (props, context) => {
                           content="Select"
                           selected={secondary.isselected}
                         />
-                      }
-                    >
+                      }>
                       {!secondary.isselected
                         ? null
                         : secondarymmotypes?.map((ammotype) => (
@@ -160,8 +158,7 @@ export const VehicleSupply = (props, context) => {
                     content="Select"
                     selected={veh.isselected}
                   />
-                }
-              >
+                }>
                 {veh.desc}
               </Section>
             ))}
@@ -181,8 +178,7 @@ export const VehicleSupply = (props, context) => {
                       content="Select"
                       selected={module.isselected}
                     />
-                  }
-                >
+                  }>
                   {module.desc}
                 </Section>
               ))}
@@ -201,8 +197,7 @@ export const VehicleSupply = (props, context) => {
                       content="Select"
                       selected={module.isselected}
                     />
-                  }
-                >
+                  }>
                   {module.desc}
                 </Section>
               ))}
