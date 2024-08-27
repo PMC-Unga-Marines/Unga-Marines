@@ -17996,6 +17996,9 @@
 "kLY" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/reagent_dispensers/fueltank,
+/obj/structure/sign/semiotic/fire_haz{
+	pixel_x = -17
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "kMs" = (
@@ -29069,10 +29072,10 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/reagent_dispensers/fueltank,
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "qXW" = (
@@ -33138,9 +33141,6 @@
 /area/mainship/squads/bravo)
 "txi" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/sign/semiotic/fire_haz{
-	pixel_x = -17
-	},
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
