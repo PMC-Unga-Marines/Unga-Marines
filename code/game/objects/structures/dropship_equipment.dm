@@ -779,10 +779,10 @@
 			icon_state = "unguided_rocket"
 
 /obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod/deplete_ammo()
-	..()
+	. = ..()
 	if(ammo_equipped && !ammo_equipped.ammo_count)
 		ammo_equipped = null
-
+	update_icon()
 
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod
 	name = "minirocket pod"
