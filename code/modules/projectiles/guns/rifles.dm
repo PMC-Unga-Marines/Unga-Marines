@@ -1957,9 +1957,9 @@
 	wield_delay = 1 SECONDS
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
 	)
