@@ -16,6 +16,7 @@
 	bubble_icon = "alienroyal"
 	var/rage_power
 	var/rage = FALSE
+	var/staggerstun_immune = FALSE
 	var/on_cooldown = FALSE
 
 /mob/living/carbon/xenomorph/ravager/Initialize(mapload)
@@ -46,10 +47,18 @@
 
 	if(!rage)
 		RegisterSignal(src, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
+		rage = TRUE
+
+	if(!staggerstun_immune && (health < maxHealth * RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD))
 		ADD_TRAIT(src, TRAIT_STUNIMMUNE, RAGE_TRAIT)
 		ADD_TRAIT(src, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
 		ADD_TRAIT(src, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
-		rage = TRUE
+		staggerstun_immune = TRUE
+	else if (health > maxHealth * RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD)
+		REMOVE_TRAIT(src, TRAIT_STUNIMMUNE, RAGE_TRAIT)
+		REMOVE_TRAIT(src, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
+		REMOVE_TRAIT(src, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
+		staggerstun_immune = FALSE
 
 	xeno_melee_damage_modifier = initial(xeno_melee_damage_modifier) + rage_power
 	add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, xeno_caste.speed * 0.5 * rage_power)
