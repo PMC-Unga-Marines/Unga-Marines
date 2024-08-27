@@ -129,7 +129,12 @@
 /mob/living/handle_airdrop(turf/target_turf)
 	. = ..()
 	remove_status_effect(/datum/status_effect/spacefreeze)
-	playsound(target_turf, pick('sound/effects/bang.ogg', 'sound/effects/meteorimpact.ogg'), 75, TRUE)
+
+	var/drop_sound = pick('sound/effects/bang.ogg', 'sound/effects/meteorimpact.ogg')
+	if(prob(1))
+		drop_sound = 'sound/effects/lead_pipe_drop.ogg'
+
+	playsound(target_turf, drop_sound, 75, TRUE)
 	playsound(target_turf, "bone_break", 75, TRUE)
 
 	Knockdown(10 SECONDS)
