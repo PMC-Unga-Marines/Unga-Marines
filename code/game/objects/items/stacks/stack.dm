@@ -224,13 +224,16 @@
 		return //It's a stack and has already been merged
 
 	if(isitem(object))
+		if(isitemstack(object))
+			var/obj/item/stack/merged_item = object
+			var/obj/item/stack/stacked_item = user.is_holding_item_of_type(merged_item.merge_type)
+			if(stacked_item && merged_item.merge(stacked_item))
+				return
 		user.put_in_hands(object)
 
-	//BubbleWrap - so newly formed boxes are empty
 	if(istype(object, /obj/item/storage))
 		for(var/obj/item/I in object)
 			qdel(I)
-	//BubbleWrap END
 
 	if(istype(object, /obj/structure))
 		user.record_structures_built()
