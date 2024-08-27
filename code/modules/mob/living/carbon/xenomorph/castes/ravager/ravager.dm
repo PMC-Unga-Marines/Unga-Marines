@@ -49,7 +49,7 @@
 		RegisterSignal(src, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
 		rage = TRUE
 
-	if(!staggerstun_immune && (health < maxHealth * RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD))
+	if(!staggerstun_immune && (health <= maxHealth * RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD))
 		ADD_TRAIT(src, TRAIT_STUNIMMUNE, RAGE_TRAIT)
 		ADD_TRAIT(src, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
 		ADD_TRAIT(src, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
