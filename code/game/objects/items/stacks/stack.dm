@@ -1,13 +1,3 @@
-/* Stack type objects!
-* Contains:
-* 		Stacks
-* 		Recipe datum
-* 		Recipe list datum
-*/
-
-/*
-* Stacks
-*/
 /obj/item/stack
 	icon = 'icons/obj/stack_objects.dmi'
 	gender = PLURAL
@@ -15,10 +5,12 @@
 	var/singular_name
 	var/stack_name = "stack"
 	var/amount = 1
-	var/max_amount = 50 //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
-	var/merge_type // This path and its children should merge with this stack, defaults to src.type
-	var/number_of_extra_variants = 0 //Determines whether the item should update it's sprites based on amount.
-
+	///Also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
+	var/max_amount = 50
+	///This path and its children should merge with this stack, defaults to src.type
+	var/merge_type
+	///Determines whether the item should update it's sprites based on amount.
+	var/number_of_extra_variants = 0
 
 /obj/item/stack/Initialize(mapload, new_amount)
 	. = ..()
@@ -36,7 +28,6 @@
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
-
 /obj/item/stack/proc/update_weight()
 	var/percent = round((amount * 100) / max_amount)
 	var/full_w_class = initial(w_class)
@@ -53,7 +44,6 @@
 	if(new_w_class != w_class)
 		w_class = new_w_class
 		loc?.recalculate_storage_space() //No need to do icon updates if there are no changes.
-
 
 /obj/item/stack/update_icon_state()
 	. = ..()
@@ -74,12 +64,10 @@
 	number.maptext = MAPTEXT(amount)
 	. += number
 
-
 /obj/item/stack/Destroy()
 	if(usr && usr.interactee == src)
 		usr << browse(null, "window=stack")
 	return ..()
-
 
 /obj/item/stack/examine(mob/user)
 	. = ..()
@@ -368,6 +356,10 @@
 /// Proc for special actions and radial menus on subtypes. Returning FALSE cancels the recipe menu for a stack.
 /obj/item/stack/proc/select_radial(mob/user)
 	return TRUE
+
+/obj/item/stack/dropped(mob/user)
+	add_to_stacks(user)
+	return ..()
 
 /*
 * Recipe datum
