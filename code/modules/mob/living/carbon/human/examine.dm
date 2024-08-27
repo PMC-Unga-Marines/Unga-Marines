@@ -194,9 +194,6 @@
 	if(holo_card_color)
 		msg += "[t_He] [t_has] a [holo_card_color] holo card on [t_his] chest.\n"
 
-	if(suiciding)
-		msg += "[span_warning("[t_He] appear[p_s()] to have commited suicide... there is no hope of recovery.")]\n"
-
 	if(stat)
 		msg += "[span_warning("[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.")]\n"
 		if(stat == DEAD || health < get_crit_threshold())
