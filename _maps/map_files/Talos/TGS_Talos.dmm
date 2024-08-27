@@ -3,7 +3,6 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/ship_ammo/cas/minirocket/illumination,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aaM" = (
@@ -1136,11 +1135,6 @@
 	dir = 4
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/mainship/hallways/hangar)
-"aAM" = (
-/obj/structure/ship_ammo/cas/rocket/widowmaker,
-/obj/effect/turf_decal/warning_stripes/cargo,
-/turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aAU" = (
 /obj/structure/window/framed/mainship/alt,
@@ -3502,8 +3496,8 @@
 /area/mainship/command/cic)
 "bWB" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/ship_ammo/cas/minirocket,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/dropship_equipment/cas/weapon/rocket_pod,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "bWD" = (
@@ -5180,7 +5174,7 @@
 /area/mainship/squads/charlie)
 "cTq" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/ship_ammo/cas/minirocket/smoke,
+/obj/structure/largecrate/guns/merc,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "cTs" = (
@@ -6090,7 +6084,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/dropship_equipment/cas/weapon/rocket_pod,
+/obj/structure/ship_ammo/cas/heavygun,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "dux" = (
@@ -7779,6 +7773,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/ship_ammo/cas/minirocket/smoke,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "euU" = (
@@ -15321,11 +15316,6 @@
 	dir = 8
 	},
 /area/mainship/living/basketball)
-"jhk" = (
-/obj/structure/ship_ammo/cas/minirocket,
-/obj/effect/turf_decal/warning_stripes/cargo,
-/turf/open/floor/mainship/metal,
-/area/mainship/hallways/hangar)
 "jhz" = (
 /obj/structure/closet/marine/charlie,
 /obj/machinery/light/mainship{
@@ -16360,11 +16350,8 @@
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "jRr" = (
-/obj/machinery/camera/autoname/alt{
-	dir = 8
-	},
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/ship_ammo/cas/unguided_rocket,
+/obj/structure/ship_ammo/cas/minirocket,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "jRy" = (
@@ -36388,6 +36375,7 @@
 "vAw" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/ship_ammo/cas/minirocket/illumination,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "vAB" = (
@@ -74134,22 +74122,22 @@ iwc
 gjl
 dFg
 etc
-jhk
+aKq
 bWB
 bhQ
 bhQ
 hFk
 hFk
 ddy
-aAM
-aKq
-oHM
+ddy
 nzw
 nzw
-aKq
+jRr
+jRr
+xNR
 vAw
 aaK
-xNR
+fUj
 iwc
 chD
 lZL
@@ -74391,21 +74379,21 @@ iwc
 aKq
 bkQ
 etc
-jRr
-bLx
+cfC
+oHM
 aKq
 wXz
 cfC
 aKq
 aKq
 aKq
-aKq
-duv
 frp
-nzw
-aKq
-euI
+duv
+bLx
+bLx
 eGB
+euI
+cTq
 cTq
 iwc
 nIv
