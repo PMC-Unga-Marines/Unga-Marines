@@ -128,36 +128,35 @@
 			t1 += "<a href='?src=[REF(src)];sublist=[i]'>[srl.title]</a>"
 
 		if(istype(E, /datum/stack_recipe))
-			var/datum/stack_recipe/R = E
-			var/max_multiplier = round(get_amount() / R.req_amount)
+			var/datum/stack_recipe/recipe = E
+			var/max_multiplier = round(get_amount() / recipe.req_amount)
 			var/title
 			var/can_build = TRUE
 			can_build = can_build && (max_multiplier > 0)
 
-			if(R.res_amount > 1)
-				title += "[R.res_amount]x [R.title]\s"
+			if(recipe.res_amount > 1)
+				title += "[recipe.res_amount]x [recipe.title]\s"
 			else
-				title += "[R.title]"
-			title += " ([R.req_amount] [singular_name]\s)"
+				title += "[recipe.title]"
+			title += " ([recipe.req_amount] [singular_name]\s)"
 			if(can_build)
 				t1 += "<A href='?src=[REF(src)];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  "
 			else
 				t1 += "[title]"
 				continue
-			if(R.max_res_amount > 1 && max_multiplier > 1)
-				max_multiplier = min(max_multiplier, round(R.max_res_amount/R.res_amount))
+			if(recipe.max_res_amount > 1 && max_multiplier > 1)
+				max_multiplier = min(max_multiplier, round(recipe.max_res_amount / recipe.res_amount))
 				t1 += " |"
 				var/list/multipliers = list(5,10,25)
 				for(var/n in multipliers)
 					if(max_multiplier >= n)
-						t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[n]'>[n*R.res_amount]x</A>"
+						t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[n]'>[n * recipe.res_amount]x</A>"
 				if(!(max_multiplier in multipliers))
-					t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
+					t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[max_multiplier]'>[max_multiplier * recipe.res_amount]x</A>"
 
 	var/datum/browser/popup = new(user, "stack", name, 400, 400)
 	popup.set_content(t1)
 	popup.open()
-
 
 /obj/item/stack/Topic(href, href_list)
 	. = ..()
@@ -174,55 +173,52 @@
 		if(href_list["sublist"])
 			var/datum/stack_recipe_list/srl = recipes_list[text2num(href_list["sublist"])]
 			recipes_list = srl.recipes
-		var/datum/stack_recipe/R = recipes_list[text2num(href_list["make"])]
+		var/datum/stack_recipe/recipe = recipes_list[text2num(href_list["make"])]
 		var/multiplier = text2num(href_list["multiplier"])
-		var/max_multiplier = round(max_amount / R.req_amount)
+		var/max_multiplier = round(max_amount / recipe.req_amount)
 		if(multiplier <= 0 || multiplier > max_multiplier) //href protection
-			log_admin_private("[key_name(usr)] attempted to create a ([src]) stack ([R]) recipe with multiplier [multiplier] at [AREACOORD(usr.loc)].")
-			message_admins("[ADMIN_TPMONTY(usr)] attempted to create a ([src]) stack ([R]) recipe with multiplier [multiplier]. Possible HREF exploit.")
+			log_admin_private("[key_name(usr)] attempted to create a ([src]) stack ([recipe]) recipe with multiplier [multiplier] at [AREACOORD(usr.loc)].")
+			message_admins("[ADMIN_TPMONTY(usr)] attempted to create a ([src]) stack ([recipe]) recipe with multiplier [multiplier]. Possible HREF exploit.")
 			return
 
-		create_object(usr, R, multiplier)
+		create_object(usr, recipe, multiplier)
 
-
-/// Creates multiplier amount of objects based off of stack recipe R. Most creation variables are changed through stack recipe datum's variables
-/obj/item/stack/proc/create_object(mob/user, datum/stack_recipe/R, multiplier)
+/// Creates multiplier amount of objects based off oт stack recipe. Most creation variables are changed through stack recipe datum's variables
+/obj/item/stack/proc/create_object(mob/user, datum/stack_recipe/recipe, multiplier)
 	if(user.get_active_held_item() != src)
 		return
 	if(!can_interact(user))
 		return TRUE
-	if(!building_checks(user, R, multiplier))
+	if(!building_checks(user, recipe, multiplier))
 		return
 	if(user.do_actions)
 		return
-	var/building_time = R.time
-	if(R.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) < R.skill_req)
-		//building_time += R.time * ( R.skill_req - user.skills.getRating(SKILL_CONSTRUCTION) ) * 0.5 // +50% time each skill point lacking.
-		building_time += R.time * ( R.skill_req - user.skills.getRating(SKILL_CONSTRUCTION) ) * 0.2 // RUTGMC EDIT CHANGE
-	if(R.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) > R.skill_req)
-		//building_time -= clamp(R.time * ( user.skills.getRating(SKILL_CONSTRUCTION) - R.skill_req ) * 0.40, 0 , 0.85 * building_time) // -40% time each extra skill point
-		building_time -= clamp(R.time * ( user.skills.getRating(SKILL_CONSTRUCTION) - R.skill_req ) * 0.20, 0 , 0.85 * building_time) // RUTGMC EDIT CHANGE
+	var/building_time = recipe.time
+	if(recipe.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) < recipe.skill_req)
+		building_time += recipe.time * ( recipe.skill_req - user.skills.getRating(SKILL_CONSTRUCTION) ) * 0.2
+	if(recipe.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) > recipe.skill_req)
+		building_time -= clamp(recipe.time * ( user.skills.getRating(SKILL_CONSTRUCTION) - recipe.skill_req ) * 0.20, 0 , 0.85 * building_time)
 	if(building_time)
-		balloon_alert_to_viewers("building [R.title]")
-		if(!do_after(user, building_time, NONE, src, (building_time > R.time ? BUSY_ICON_UNSKILLED : BUSY_ICON_BUILD)))
+		balloon_alert_to_viewers("building [recipe.title]")
+		if(!do_after(user, building_time, NONE, src, (building_time > recipe.time ? BUSY_ICON_UNSKILLED : BUSY_ICON_BUILD)))
 			return
-		if(!building_checks(user, R, multiplier))
+		if(!building_checks(user, recipe, multiplier))
 			return
 
 	var/obj/O
-	if(R.max_res_amount > 1) //Is it a stack?
-		O = new R.result_type(get_turf(user), R.res_amount * multiplier)
-	else if(ispath(R.result_type, /turf))
+	if(recipe.max_res_amount > 1) //Is it a stack?
+		O = new recipe.result_type(get_turf(user), recipe.res_amount * multiplier)
+	else if(ispath(recipe.result_type, /turf))
 		var/turf/T = get_turf(user)
 		if(!isturf(T))
 			return
-		T.PlaceOnTop(R.result_type)
+		T.PlaceOnTop(recipe.result_type)
 	else
-		O = new R.result_type(get_turf(user))
+		O = new recipe.result_type(get_turf(user))
 	if(O)
 		O.setDir(user.dir)
 		O.color = color
-	use(R.req_amount * multiplier)
+	use(recipe.req_amount * multiplier)
 
 	if(QDELETED(O))
 		return //It's a stack and has already been merged
@@ -239,31 +235,31 @@
 	if(istype(O, /obj/structure))
 		user.record_structures_built()
 
-/obj/item/stack/proc/building_checks(mob/user, datum/stack_recipe/R, multiplier)
-	if (get_amount() < R.req_amount*multiplier)
-		if (R.req_amount*multiplier>1)
-			to_chat(user, span_warning("You haven't got enough [src] to build \the [R.req_amount*multiplier] [R.title]\s!"))
+/obj/item/stack/proc/building_checks(mob/user, datum/stack_recipe/recipe, multiplier)
+	if(get_amount() < recipe.req_amount*multiplier)
+		if(recipe.req_amount*multiplier>1)
+			to_chat(user, span_warning("You haven't got enough [src] to build \the [recipe.req_amount*multiplier] [recipe.title]\s!"))
 		else
-			to_chat(user, span_warning("You haven't got enough [src] to build \the [R.title]!"))
+			to_chat(user, span_warning("You haven't got enough [src] to build \the [recipe.title]!"))
 		return FALSE
 	var/turf/T = get_turf(user)
 
-	switch(R.max_per_turf)
+	switch(recipe.max_per_turf)
 		if(STACK_RECIPE_ONE_PER_TILE)
-			if(locate(R.result_type) in T)
-				to_chat(user, span_warning("There is another [R.title] here!"))
+			if(locate(recipe.result_type) in T)
+				to_chat(user, span_warning("There is another [recipe.title] here!"))
 				return FALSE
 		if(STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE)
 			for(var/obj/thing in T)
-				if(!istype(thing, R.result_type))
+				if(!istype(thing, recipe.result_type))
 					continue
 				if(thing.dir != user.dir)
 					continue
-				to_chat(user, span_warning("You can't build \the [R.title] on top of another!"))
+				to_chat(user, span_warning("You can't build \the [recipe.title] on top of another!"))
 				return FALSE
-	if(R.on_floor)
+	if(recipe.on_floor)
 		if(!isfloorturf(T) && !isbasalt(T) && !islavacatwalk(T) && !isopengroundturf(T))
-			to_chat(user, span_warning("\The [R.title] must be constructed on the floor!"))
+			to_chat(user, span_warning("\The [recipe.title] must be constructed on the floor!"))
 			return FALSE
 		for(var/obj/AM in T)
 			if(istype(AM,/obj/structure/grille))
@@ -279,7 +275,7 @@
 						continue
 				else
 					continue
-			to_chat(user, span_warning("There is a [AM.name] right where you want to place \the [R.title], blocking the construction."))
+			to_chat(user, span_warning("There is a [AM.name] right where you want to place \the [recipe.title], blocking the construction."))
 			return FALSE
 	return TRUE
 
