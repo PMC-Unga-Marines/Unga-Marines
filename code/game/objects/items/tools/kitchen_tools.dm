@@ -87,12 +87,6 @@
 	sharp = IS_SHARP_ITEM_ACCURATE
 	edge = 1
 
-/obj/item/tool/kitchen/utensil/knife/suicide_act(mob/user)
-	user.visible_message(pick(span_danger("[user] is slitting [user.p_their()] wrists with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] throat with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
-	return (BRUTELOSS)
-
 /obj/item/tool/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob)
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 25, 1, 5)
 	return ..()
@@ -120,12 +114,6 @@
 	throw_speed = 3
 	throw_range = 6
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-
-/obj/item/tool/kitchen/knife/suicide_act(mob/user)
-	user.visible_message(pick(span_danger("[user] is slitting [user.p_their()] wrists with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] throat with the [name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-							span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
-	return (BRUTELOSS)
 
 /obj/item/tool/kitchen/knife/ritual
 	name = "ritual knife"
