@@ -88,8 +88,9 @@
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.125
 	purge_list = list(
-		/datum/reagent/medicine/kelotane,
 		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicalnanites
 	)
 	purge_rate = 5
 	overdose_threshold = REAGENTS_OVERDOSE*2
@@ -237,6 +238,8 @@
 	purge_list = list(
 		/datum/reagent/medicine/ryetalyn,
 		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicalnanites,
+		/datum/reagent/medicine/ifosfamide,
 	)
 	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
@@ -255,10 +258,10 @@
 	return ..()
 
 /datum/reagent/medicine/kelotane/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, 0, effect_str)
+	L.apply_damages(effect_str, TOX, effect_str)
 
 /datum/reagent/medicine/kelotane/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(2*effect_str, 0, 2*effect_str)
+	L.apply_damages(2*effect_str, TOX, 2*effect_str)
 
 /datum/reagent/medicine/dermaline
 	name = "Dermaline"
@@ -281,10 +284,10 @@
 	return ..()
 
 /datum/reagent/medicine/dermaline/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, 0, effect_str)
+	L.apply_damages(effect_str, TOX, effect_str)
 
 /datum/reagent/medicine/dermaline/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(3*effect_str, 0, 3*effect_str)
+	L.apply_damages(3*effect_str, TOX, 3*effect_str)
 
 /datum/reagent/medicine/saline_glucose
 	name = "Saline-Glucose"
@@ -800,6 +803,8 @@
 	purge_list = list(
 		/datum/reagent/medicine/ryetalyn,
 		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicalnanites,
+		/datum/reagent/medicine/ifosfamide,
 	)
 	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
@@ -817,7 +822,7 @@
 
 
 /datum/reagent/medicine/bicaridine/overdose_process(mob/living/L, metabolism)
-	L.apply_damage(effect_str, BURN)
+	L.apply_damage(effect_str, TOX)
 
 /datum/reagent/medicine/bicaridine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, 3*effect_str, 2*effect_str)
@@ -1408,6 +1413,7 @@
 		/datum/reagent/medicine/tricordrazine,
 		/datum/reagent/medicine/paracetamol,
 		/datum/reagent/medicine/oxycodone,
+		/datum/reagent/medicine/ifosfamide
 	)
 
 /datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
