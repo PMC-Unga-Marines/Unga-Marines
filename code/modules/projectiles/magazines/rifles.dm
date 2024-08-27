@@ -261,7 +261,7 @@
 	caliber = CALIBER_762X39
 	icon_state = "type_71"
 	icon_state_mini = "mag_rifle_big"
-	ammo_band_icon = = "type_71_band"
+	ammo_band_icon = "type_71_band"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km
 	max_rounds = 42
 
