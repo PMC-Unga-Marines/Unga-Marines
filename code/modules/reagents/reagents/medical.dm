@@ -54,7 +54,10 @@
 	color = COLOR_REAGENT_RYETALYN
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.125
-	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium)
+	purge_list = list(
+		/datum/reagent/toxin,
+		/datum/reagent/zombium
+	)
 	purge_rate = 3
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
@@ -90,7 +93,7 @@
 	purge_list = list(
 		/datum/reagent/medicine/bicaridine,
 		/datum/reagent/medicine/kelotane,
-		/datum/reagent/medicalnanites
+		/datum/reagent/medicalnanites,
 	)
 	purge_rate = 5
 	overdose_threshold = REAGENTS_OVERDOSE*2
@@ -1246,7 +1249,11 @@
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	custom_metabolism = REAGENTS_METABOLISM * 5
-	purge_list = list(/datum/reagent/medicine, /datum/reagent/toxin, /datum/reagent/zombium)
+	purge_list = list(
+		/datum/reagent/medicine,
+		/datum/reagent/toxin,
+		/datum/reagent/zombium,
+	)
 	purge_rate = 5
 	scannable = TRUE
 	taste_description = "punishment"
@@ -1413,7 +1420,7 @@
 		/datum/reagent/medicine/tricordrazine,
 		/datum/reagent/medicine/paracetamol,
 		/datum/reagent/medicine/oxycodone,
-		/datum/reagent/medicine/ifosfamide
+		/datum/reagent/medicine/ifosfamide,
 	)
 
 /datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
