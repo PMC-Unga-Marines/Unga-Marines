@@ -34,6 +34,7 @@
 
 /obj/item/ammo_magazine/revolver/t500/slavs
 	name = "\improper R-500 speed loader (.500 'Slavs')"
+	icon_state = "t500_sv"
 	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
 
 /obj/item/ammo_magazine/revolver/marksman
