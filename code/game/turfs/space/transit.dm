@@ -131,7 +131,8 @@
 	remove_status_effect(/datum/status_effect/spacefreeze)
 
 	var/drop_sound = pick('sound/effects/bang.ogg', 'sound/effects/meteorimpact.ogg')
-	if(prob(1))
+	var/mob/living/carbon/human/human = src
+	if(prob(1) || human?.species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))
 		drop_sound = 'sound/effects/lead_pipe_drop.ogg'
 
 	playsound(target_turf, drop_sound, 75, TRUE)
