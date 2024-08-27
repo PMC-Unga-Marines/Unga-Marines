@@ -470,7 +470,11 @@
 	caliber =  CALIBER_500 //codex
 	max_chamber_items = 5 //codex
 	default_ammo_type = /obj/item/ammo_magazine/revolver/t500
-	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/t500, /obj/item/ammo_magazine/revolver/t500/slavs, /datum/ammo/bullet/revolver/t500/qk)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/revolver/t500,
+		/obj/item/ammo_magazine/revolver/t500/slavs,
+		/datum/ammo/bullet/revolver/t500/qk
+	)
 	force = 20
 	actions_types = null
 	attachable_allowed = list(
