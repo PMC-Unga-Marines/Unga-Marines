@@ -134,10 +134,6 @@
 	var/instant = 0
 	var/colourName = "red" //for updateIcon purposes
 
-/obj/item/toy/crayon/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is jamming the [name] up [user.p_their()] nose and into [user.p_their()] brain. It looks like [user.p_theyre()] trying to commit suicide."))
-	return (BRUTELOSS|OXYLOSS)
-
 /*
 * Snap pops
 */
