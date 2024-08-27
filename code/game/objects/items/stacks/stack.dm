@@ -183,9 +183,9 @@
 		return
 	var/building_time = recipe.time
 	if(recipe.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) < recipe.skill_req)
-		building_time += recipe.time * ( recipe.skill_req - user.skills.getRating(SKILL_CONSTRUCTION) ) * 0.2
+		building_time += recipe.time * (recipe.skill_req - user.skills.getRating(SKILL_CONSTRUCTION)) * 0.5
 	if(recipe.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) > recipe.skill_req)
-		building_time -= clamp(recipe.time * ( user.skills.getRating(SKILL_CONSTRUCTION) - recipe.skill_req ) * 0.20, 0 , 0.85 * building_time)
+		building_time -= clamp(recipe.time * (user.skills.getRating(SKILL_CONSTRUCTION) - recipe.skill_req) * 0.40, 0 , 0.85 * building_time)
 	if(building_time)
 		balloon_alert_to_viewers("building [recipe.title]")
 		if(!do_after(user, building_time, NONE, src, (building_time > recipe.time ? BUSY_ICON_UNSKILLED : BUSY_ICON_BUILD)))
