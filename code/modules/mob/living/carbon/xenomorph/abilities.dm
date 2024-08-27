@@ -60,6 +60,10 @@
 	if(!T.check_alien_construction(owner, FALSE))
 		return fail_activate()
 
+	if(!T.check_disallow_alien_fortification(null, TRUE))
+		to_chat(owner, span_warning("The queen mother prohibits us from building here."))
+		return fail_activate()
+
 	if(locate(/obj/structure/xeno/trap) in T)
 		to_chat(owner, span_warning("There is a resin trap in the way!"))
 		return fail_activate()

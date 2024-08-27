@@ -138,6 +138,13 @@
 	slowdown = 0
 	soft_armor = list(MELEE = 50, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 50, BIO = 40, FIRE = 50, ACID = 50)
 	siemens_coefficient = 0.7
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_STORAGE,
+	)
+	attachments_allowed = list(
+		/obj/item/armor_module/storage/pocket,
+	)
+	starting_attachments = list(/obj/item/armor_module/storage/pocket)
 
 /obj/item/clothing/suit/armor/sectoid
 	name = "psionic field"
