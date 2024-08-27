@@ -205,34 +205,34 @@
 		if(!building_checks(user, recipe, multiplier))
 			return
 
-	var/obj/O
+	var/obj/object
 	if(recipe.max_res_amount > 1) //Is it a stack?
-		O = new recipe.result_type(get_turf(user), recipe.res_amount * multiplier)
+		object = new recipe.result_type(get_turf(user), recipe.res_amount * multiplier)
 	else if(ispath(recipe.result_type, /turf))
-		var/turf/T = get_turf(user)
-		if(!isturf(T))
+		var/turf/our_turf = get_turf(user)
+		if(!isturf(our_turf))
 			return
-		T.PlaceOnTop(recipe.result_type)
+		our_turf.PlaceOnTop(recipe.result_type)
 	else
-		O = new recipe.result_type(get_turf(user))
-	if(O)
-		O.setDir(user.dir)
-		O.color = color
+		object = new recipe.result_type(get_turf(user))
+	if(object)
+		object.setDir(user.dir)
+		object.color = color
 	use(recipe.req_amount * multiplier)
 
-	if(QDELETED(O))
+	if(QDELETED(object))
 		return //It's a stack and has already been merged
 
-	if(isitem(O))
-		user.put_in_hands(O)
+	if(isitem(object))
+		user.put_in_hands(object)
 
 	//BubbleWrap - so newly formed boxes are empty
-	if(istype(O, /obj/item/storage))
-		for(var/obj/item/I in O)
+	if(istype(object, /obj/item/storage))
+		for(var/obj/item/I in object)
 			qdel(I)
 	//BubbleWrap END
 
-	if(istype(O, /obj/structure))
+	if(istype(object, /obj/structure))
 		user.record_structures_built()
 
 /obj/item/stack/proc/building_checks(mob/user, datum/stack_recipe/recipe, multiplier)
