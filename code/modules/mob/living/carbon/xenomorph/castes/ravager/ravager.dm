@@ -25,6 +25,8 @@
 /mob/living/carbon/xenomorph/ravager/Life()
 	. = ..()
 	if(health > maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
+		if(!rage)
+			return
 		rage = FALSE
 		on_cooldown = FALSE
 		rage_power = 0
