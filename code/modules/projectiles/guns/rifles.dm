@@ -1130,7 +1130,7 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/type71,
 		/obj/item/ammo_magazine/rifle/type71/ap,
-		/obj/item/ammo_magazine/rifle/type71/wp,
+		/obj/item/ammo_magazine/rifle/type71/hp,
 	)
 	aim_slowdown = 0.6
 	wield_delay = 0.7 SECONDS
@@ -1955,13 +1955,13 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	wield_delay = 1 SECONDS
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
+	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_carbine,
-		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
-		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
-		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
-		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
+		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,
