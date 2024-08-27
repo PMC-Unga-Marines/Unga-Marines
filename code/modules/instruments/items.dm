@@ -30,10 +30,6 @@
 /obj/item/instrument/proc/should_stop_playing(mob/user)
 	return user.incapacitated() || !((loc == user) || (isturf(loc) && Adjacent(user)))		// sorry, no more TK playing.
 
-/obj/item/instrument/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] begins to play 'Gloomy Sunday'! It looks like [user.p_theyre()] trying to commit suicide!"))
-	return (BRUTELOSS)
-
 /datum/action/item_action/instrument
 	name = "Use Instrument"
 	desc = "Use the instrument specified"

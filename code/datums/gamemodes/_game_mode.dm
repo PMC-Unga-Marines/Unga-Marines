@@ -234,9 +234,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))
 				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Connected, Inactive</b>)<br>"
 			else if(L.stat)
-				if(L.suiciding)
-					msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Suicide</b>)<br>"
-				else if(L.stat == UNCONSCIOUS)
+				if(L.stat == UNCONSCIOUS)
 					msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dying)<br>"
 				else if(L.stat == DEAD)
 					msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dead)<br>"
@@ -246,10 +244,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 			continue
 		var/mob/living/L = D.mind.current
 		if(L.stat == DEAD)
-			if(L.suiciding)
-				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Suicide</b>)<br>"
-			else
-				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dead)<br>"
+			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dead)<br>"
 		else if(!D.can_reenter_corpse)
 			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Ghosted</b>)<br>"
 

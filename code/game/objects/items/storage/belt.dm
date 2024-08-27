@@ -1040,6 +1040,7 @@
 	can_hold = list(
 		/obj/item/weapon/gun/revolver/t500,
 		/obj/item/ammo_magazine/revolver/t500,
+		/obj/item/ammo_magazine/revolver/t500/slavs,
 		/obj/item/ammo_magazine/packet/t500,
 	)
 
