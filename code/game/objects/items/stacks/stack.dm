@@ -282,7 +282,6 @@
 			return FALSE
 	return TRUE
 
-
 /obj/item/stack/use(used)
 	if(used > amount) //If it's larger than what we have, no go.
 		return FALSE
@@ -293,13 +292,11 @@
 	update_weight()
 	return TRUE
 
-
 /obj/item/stack/proc/zero_amount()
 	if(amount < 1)
 		qdel(src)
 		return TRUE
 	return FALSE
-
 
 /obj/item/stack/proc/add(extra)
 	if(amount + extra > max_amount)
@@ -309,10 +306,8 @@
 	update_weight()
 	return TRUE
 
-
 /obj/item/stack/proc/get_amount()
 	return amount
-
 
 /obj/item/stack/proc/add_to_stacks(mob/user)
 	for(var/obj/item/stack/S in get_turf(user))
@@ -321,7 +316,6 @@
 		merge(S)
 		if(QDELETED(src))
 			return
-
 
 /obj/item/stack/proc/merge(obj/item/stack/S) //Merge src into S, as much as possible
 	if(QDELETED(S) || QDELETED(src) || S == src) //amusingly this can cause a stack to consume itself, let's not allow that.
@@ -332,19 +326,16 @@
 	use(transfer)
 	return transfer
 
-
 /obj/item/stack/proc/on_cross(datum/source, obj/item/stack/S, oldloc, oldlocs)
 	SIGNAL_HANDLER
 	if(istype(S, merge_type) && !S.throwing)
 		merge(S)
-
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/stack/attack_hand(mob/living/user)
 	if(user.get_inactive_held_item() == src)
 		return change_stack(user, 1)
 	return ..()
-
 
 /obj/item/stack/AltClick(mob/user)
 	if(isxeno(user))
@@ -358,7 +349,6 @@
 	change_stack(user, stackmaterial)
 	to_chat(user, span_notice("You take [stackmaterial] sheets out of the stack"))
 
-
 /obj/item/stack/proc/change_stack(mob/user, new_amount)
 	if(amount < 1 || amount < new_amount)
 		stack_trace("[src] tried to change_stack() by [new_amount] amount for [user] user, while having [amount] amount itself.")
@@ -366,7 +356,6 @@
 	var/obj/item/stack/S = new type(user, new_amount)
 	use(new_amount)
 	user.put_in_hands(S)
-
 
 /obj/item/stack/attackby(obj/item/I, mob/user)
 	if(istype(I, merge_type))
