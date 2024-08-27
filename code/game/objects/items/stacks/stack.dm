@@ -308,6 +308,8 @@
 /obj/item/stack/proc/merge(obj/item/stack/stackable) //Merge src into S, as much as possible
 	if(QDELETED(stackable) || QDELETED(src) || stackable == src) //amusingly this can cause a stack to consume itself, let's not allow that.
 		return
+	if(amount == max_amount) // don't do useless swapping
+		return
 	var/max_transfer = loc.max_stack_merging(stackable) //We don't want to bypass the max size the container allows.
 	var/transfer = min(get_amount(), (max_transfer ? max_transfer : stackable.max_amount) - stackable.amount)
 	stackable.add(transfer)
