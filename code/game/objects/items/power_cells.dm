@@ -172,10 +172,6 @@
 		else
 			corrupt()
 
-/obj/item/cell/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is licking the electrodes of the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (FIRELOSS)
-
 /obj/item/cell/use(amount) // use power from a cell
 	if(rigged && amount > 0)
 		explode()
