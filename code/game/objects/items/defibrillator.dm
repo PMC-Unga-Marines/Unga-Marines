@@ -23,10 +23,6 @@
 	///Cooldown for toggling the defib
 	var/defib_cooldown = 0
 
-/obj/item/defibrillator/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is putting the live paddles on [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (FIRELOSS)
-
 /obj/item/defibrillator/Initialize(mapload)
 	. = ..()
 	sparks = new
@@ -182,7 +178,7 @@
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Vital signs detected. Aborting."))
 		return
 
-	if((HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) && !issynth(H)) || H.suiciding) //synthetic species have no expiration date
+	if((HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) && !issynth(H))) //synthetic species have no expiration date
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient is braindead. No remedy possible."))
 		return
 
@@ -229,7 +225,7 @@
 	if(!issynth(H) && !isrobot(H) && heart && prob(90) && !advanced)
 		heart.take_damage(5) //Allow the defibrillator to possibly worsen heart damage. Still rare enough to just be the "clone damage" of the defib
 
-	if(HAS_TRAIT(H, TRAIT_UNDEFIBBABLE) || H.suiciding)
+	if(HAS_TRAIT(H, TRAIT_UNDEFIBBABLE))
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient's brain has decayed too much. No remedy possible."))
 		return
 

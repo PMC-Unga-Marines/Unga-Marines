@@ -38,12 +38,6 @@
 		"yellow" = "#ffa500"
 	)
 
-
-/obj/item/tool/screwdriver/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is stabbing the [name] into [user.p_their()] [pick("temple","heart")]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return(BRUTELOSS)
-
-
 /obj/item/tool/screwdriver/Initialize(mapload)
 	if(random_color)
 		set_greyscale_config(/datum/greyscale_config/screwdriver)

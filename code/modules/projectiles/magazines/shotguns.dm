@@ -82,6 +82,11 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state_mini = "martini"
 
+/obj/item/ammo_magazine/rifle/martini/white
+	name = "box of .557/440 white rifle rounds"
+	icon_state = ".557_white"
+	default_ammo = /datum/ammo/bullet/sniper/martini/white
+
 /obj/item/ammo_magazine/pistol/derringer
 	name = "box of .40 rimfire pistol rounds"
 	desc = "A box filled with pistol bullets."

@@ -1,5 +1,3 @@
-
-
 /obj/item/weapon/banhammer
 	desc = "A banhammer"
 	name = "banhammer"
@@ -10,10 +8,6 @@
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("banned")
-
-/obj/item/weapon/banhammer/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is hitting [p_them()]self with the [name]! It looks like [user.p_theyre()] trying to ban [p_them()]self from life."))
-	return (BRUTELOSS|FIRELOSS|TOXLOSS|OXYLOSS)
 
 /obj/item/weapon/nullrod
 	name = "null rod"
@@ -26,10 +20,6 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/weapon/nullrod/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is impaling [p_them()]self with the [name]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/weapon/harpoon
 	name = "harpoon"

@@ -17,10 +17,6 @@
 	var/source_sheet_type = /obj/item/stack/sheet/glass
 	var/shardsize = TRUE
 
-/obj/item/shard/suicide_act(mob/user)
-	user.visible_message(span_danger("[user] is slitting [user.p_their()] [pick("wrists", "throat")] with [src]! It looks like [user.p_theyre()] trying to commit suicide."))
-	return (BRUTELOSS)
-
 /obj/item/shard/attack(mob/living/carbon/M, mob/living/carbon/user)
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 25, 1, 6)
 	return ..()

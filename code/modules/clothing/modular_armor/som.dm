@@ -16,6 +16,7 @@
 
 	attachments_allowed = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/pluto,
 		/obj/item/armor_module/module/valkyrie_autodoc/som,
 		/obj/item/armor_module/module/fire_proof/som,
 		/obj/item/armor_module/module/tyr_extra_armor/som,
@@ -119,6 +120,7 @@
 	gas_transfer_coefficient = 0.5
 	attachments_allowed = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/pluto,
 		/obj/item/armor_module/module/valkyrie_autodoc/som,
 		/obj/item/armor_module/module/fire_proof/som,
 		/obj/item/armor_module/module/mimir_environment_protection/som,

@@ -192,12 +192,12 @@
 	icon_state = "30mm_crate"
 	desc = "A crate full of 30mm bullets used on the dropship heavy guns. Moving this will require some sort of lifter."
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/heavygun
-	travelling_time = 6 SECONDS
+	travelling_time = 4 SECONDS
 	ammo_count = 2000
 	max_ammo_count = 2000
 	transferable_ammo = TRUE
-	ammo_used_per_firing = 200
-	point_cost = 100
+	ammo_used_per_firing = 400
+	point_cost = 85
 	///Radius of the square that the bullets will strafe
 	var/bullet_spread_range = 2
 	///Width of the square we are attacking, so you can make rectangular attacks later
@@ -254,8 +254,8 @@
 	name = "high-velocity 30mm ammo crate"
 	icon_state = "30mm_crate_hv"
 	desc = "A crate full of 30mm high-velocity bullets used on the dropship heavy guns. Moving this will require some sort of lifter."
-	travelling_time = 3 SECONDS
-	point_cost = 225
+	travelling_time = 2 SECONDS
+	point_cost = 175
 
 //railgun
 /obj/structure/ship_ammo/railgun
@@ -296,17 +296,16 @@
 	icon_state = "laser_battery"
 	desc = "A high-capacity laser battery used to power laser beam weapons. Moving this will require some sort of lifter."
 	travelling_time = 1 SECONDS
-	ammo_count = 100
-	max_ammo_count = 100
-	ammo_used_per_firing = 40
+	ammo_count = 150
+	max_ammo_count = 150
+	ammo_used_per_firing = 50
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/laser_beam_gun
 	ammo_name = "charge"
 	transferable_ammo = TRUE
-	ammo_used_per_firing = 10
 	warning_sound = 'sound/effects/nightvision.ogg'
 	point_cost = 150
 	///The length of the beam that will come out of when we fire do both ends xxxoxxx where o is where you click
-	var/laze_radius = 4
+	var/laze_radius = 5
 	ammo_type = CAS_LASER_BATTERY
 	cas_effect = /obj/effect/overlay/blinking_laser/laser
 
@@ -370,12 +369,12 @@
 
 //this one is air-to-air only
 /obj/structure/ship_ammo/cas/rocket/widowmaker
-	name = "\improper AIM-224 'Widowmaker'"
-	desc = "The AIM-224 is the latest in air to air missile technology. Earning the nickname of 'Widowmaker' from various dropship pilots after improvements to its guidence warhead prevents it from being jammed leading to its high kill rate. Not well suited for ground bombardment, but its high velocity makes it reach its target quickly. Moving this will require some sort of lifter."
+	name = "\improper AGM-224 'Widowmaker'"
+	desc = "The AGM-224 is the latest in air to ground missile technology. Earning the nickname of 'Widowmaker' from various pilots after improvements allow it to land at incredibly high speeds, at the cost of explosive payload. Well suited for ground bombardment, its high velocity making it reach its target quickly. Moving this will require some sort of lifter."
 	icon_state = "single"
-	travelling_time = 3 SECONDS //not powerful, but reaches target fast
+	travelling_time = 2 SECONDS //very weak in damage, but quick to speed.
 	ammo_id = ""
-	point_cost = 225
+	point_cost = 195
 	explosion_power = 320
 	explosion_falloff = 80
 	prediction_type = CAS_AMMO_EXPLOSIVE
@@ -387,14 +386,15 @@
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/banshee
-	name = "\improper AGM-227 'Banshee'"
-	desc = "The AGM-227 missile is a mainstay of the overhauled dropship fleet against any mobile or armored ground targets. It's earned the nickname of 'Banshee' from the sudden wail that it emitts right before hitting a target. Useful to clear out large areas. Moving this will require some sort of lifter."
+	name = "\improper PGHM-227 'Banshee'"
+	desc = "The PGHM-227 missile is a mainstay of the fleet against any mobile or armored ground targets. It's earned the nickname of 'Banshee' from the sudden wail that it emitts right before hitting a target. Useful to clear out large areas. Moving this will require some sort of lifter."
 	icon_state = "banshee"
+	travelling_time = 4 SECONDS
 	ammo_id = "b"
 	point_cost = 225
 	explosion_power = 320
 	explosion_falloff = 100
-	fire_range = 7
+	fire_range = 8
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/banshee
 
@@ -405,14 +405,16 @@
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/keeper
-	name = "\improper GBU-67 'Keeper II'"
-	desc = "The GBU-67 'Keeper II' is the latest in a generation of laser guided weaponry that spans all the way back to the 20th century. Earning its nickname from a shortening of 'Peacekeeper' which comes from the program that developed its guidance system and the various uses of it during peacekeeping conflicts. Its payload is designed to devastate armored targets. Moving this will require some sort of lifter."
+	name = "\improper AGM-67 'Keeper II'"
+	desc = "The AGM-67 'Keeper II' is the latest in a generation of laser guided weaponry that spans all the way back to the 20th century. Earning its nickname from a contract that developed its guidance system and the various uses of it during peacekeeping conflicts. Its payload is designed to devastate armored targets. Moving this will require some sort of lifter."
 	icon_state = "keeper"
+	travelling_time = 4 SECONDS
 	ammo_id = "k"
-	point_cost = 300
-	explosion_power = 450
-	explosion_falloff = 120
+	point_cost = 250
+	explosion_power = 550
+	explosion_falloff = 145
 	prediction_type = CAS_AMMO_EXPLOSIVE
+	cas_effect = /obj/effect/overlay/blinking_laser/keeper
 
 /obj/structure/ship_ammo/cas/rocket/keeper/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
@@ -420,19 +422,20 @@
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/fatty
-	name = "\improper SM-17 'Fatty'"
-	desc = "The SM-17 'Fatty' is the most devestating rocket in TGMC arsenal, only second after its big cluster brother in Orbital Cannon. These rocket are also known for highest number of Friendly-on-Friendly incidents due to secondary cluster explosions as well as range of these explosions, TGMC recommends pilots to encourage usage of signal flares or laser for 'Fatty' support. Moving this will require some sort of lifter."
+	name = "\improper PHGM-17 'Fatty'"
+	desc = "The PHGM-17 'Fatty' is the most devestating rocket in TGMC arsenal, only second after its big cluster brother in Orbital Cannon. These rocket are also known for highest number of Friendly-on-Friendly incidents due to secondary cluster explosions as well as range of these explosions, TGMC recommends pilots to encourage usage of signal flares or laser for 'Fatty' support. Moving this will require some sort of lifter."
 	icon_state = "fatty"
+	travelling_time = 5 SECONDS
 	ammo_id = "f"
-	point_cost = 325
-	explosion_power = 250
-	explosion_falloff = 90
+	point_cost = 350
+	explosion_power = 450
+	explosion_falloff = 120
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
-	cell_explosion(impact, , explosion_power, explosion_falloff) //first explosion is small to trick xenos into thinking its a minirocket.
+	cell_explosion(impact, explosion_power, explosion_falloff) //first explosion is small to trick xenos into thinking its a minirocket.
 	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
 
 /**
@@ -452,14 +455,15 @@
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/napalm
-	name = "\improper XN-99 'Napalm'"
-	desc = "The XN-99 'Napalm' is an incendiary rocket used to turn specific targeted areas into giant balls of fire for a long time. Moving this will require some sort of lifter."
+	name = "\improper AGM-99 'Napalm'"
+	desc = "The AGM-99 'Napalm' is an incendiary rocket used to turn specific targeted areas into giant balls of fire for quite a long time, it has a smaller outer explosive payload than other AGMs, however. Moving this will require some sort of lifter."
 	icon_state = "napalm"
+	travelling_time = 6 SECONDS
 	ammo_id = "n"
-	point_cost = 250
+	point_cost = 285
 	explosion_power = 250
 	explosion_falloff = 90
-	fire_range = 5
+	fire_range = 8
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/incendiary
 
@@ -468,15 +472,48 @@
 	cell_explosion(impact, explosion_power, explosion_falloff)
 	flame_radius(fire_range, impact, 60, 30) //cooking for a long time
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
-	warcrime.set_up(fire_range + 1, impact, 7)
+	warcrime.set_up(fire_range + 1, impact, 8)
 	warcrime.start()
 	qdel(src)
+
+//unguided rockets
+
+/obj/structure/ship_ammo/cas/unguided_rocket
+	name = "RGA-13A 'Sting'"
+	desc = "Old unguided rockets found in the strategic warehouses of the UPP combat airfield. Moving this will require some sort of lifter."
+	icon_state = "unguided_rocket"
+	icon = 'icons/Marine/mainship_props.dmi'
+	equipment_type = /obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod
+	ammo_count = 12
+	max_ammo_count = 12
+	ammo_name = "unguided_rocket"
+	travelling_time = 3 SECONDS
+	transferable_ammo = TRUE
+	point_cost = 150
+	ammo_type = CAS_UNGUIDED_ROCKET
+	explosion_power = 100
+	explosion_falloff = 20
+	prediction_type = CAS_AMMO_EXPLOSIVE
+	cas_effect = /obj/effect/overlay/blinking_laser/minirocket
+
+/obj/structure/ship_ammo/cas/unguided_rocket/detonate_on(turf/impact, attackdir = NORTH)
+	impact.ceiling_debris_check(5)
+	cell_explosion(impact, explosion_power, explosion_falloff, adminlog = FALSE)
+	if(!ammo_count)
+		QDEL_IN(src, travelling_time)
+
+/obj/structure/ship_ammo/cas/unguided_rocket/show_loaded_desc(mob/user)
+		return "It's loaded with \a [src] containing [ammo_count] unguided rocket\s."
+
+/obj/structure/ship_ammo/cas/unguided_rocket/examine(mob/user)
+	. = ..()
+	. += "It has [ammo_count] unguided rocket\s."
 
 //minirockets
 
 /obj/structure/ship_ammo/cas/minirocket
-	name = "mini rocket stack"
-	desc = "A pack of explosive laser guided mini rockets. Moving this will require some sort of lifter."
+	name = "MGA-112A 'Candies'"
+	desc = "A pack of explosive mini rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket"
 	icon = 'icons/Marine/mainship_props.dmi'
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/minirocket_pod
@@ -485,15 +522,15 @@
 	ammo_name = "minirocket"
 	travelling_time = 2 SECONDS
 	transferable_ammo = TRUE
-	point_cost = 175
+	point_cost = 125
 	ammo_type = CAS_MINI_ROCKET
-	explosion_power = 120
-	explosion_falloff = 50
+	explosion_power = 180
+	explosion_falloff = 40
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/minirocket
 
 /obj/structure/ship_ammo/cas/minirocket/detonate_on(turf/impact, attackdir = NORTH)
-	impact.ceiling_debris_check(2)
+	impact.ceiling_debris_check(4)
 	cell_explosion(impact, explosion_power, explosion_falloff, adminlog = FALSE)//no messaging admin, that'd spam them.
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
@@ -506,12 +543,12 @@
 	. += "It has [ammo_count] minirocket\s."
 
 /obj/structure/ship_ammo/cas/minirocket/incendiary
-	name = "incendiary mini rocket stack"
-	desc = "A pack of laser guided incendiary mini rockets. Moving this will require some sort of lifter."
+	name = "MGA-110B incendiary"
+	desc = "A pack of incendiary mini rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_inc"
-	point_cost = 250
-	travelling_time = 4 SECONDS
-	fire_range = 3 //Fire range should be the same as the explosion range. Explosion should leave fire, not vice versa
+	point_cost = 175
+	travelling_time = 3 SECONDS
+	fire_range = 4 //Fire range should be the same as the explosion range. Explosion should leave fire, not vice versa
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/incendiary
 
@@ -520,11 +557,11 @@
 	flame_radius(fire_range, impact)
 
 /obj/structure/ship_ammo/cas/minirocket/smoke
-	name = "smoke mini rocket stack"
-	desc = "A pack of laser guided screening smoke mini rockets. Moving this will require some sort of lifter."
+	name = "MGA-108C smoke"
+	desc = "A pack of screening smoke mini rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_smoke"
-	point_cost = 75
-	travelling_time = 4 SECONDS
+	point_cost = 35
+	travelling_time = 2 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/smoke
 	explosion_power = 30
 	explosion_falloff = 15
@@ -533,15 +570,15 @@
 	impact.ceiling_debris_check(2)
 	cell_explosion(impact, explosion_power, explosion_falloff, adminlog = FALSE)//no messaging admin, that'd spam them.
 	var/datum/effect_system/smoke_spread/tactical/S = new
-	S.set_up(7, impact)// Large radius, but dissipates quickly
+	S.set_up(12, impact)// Large radius, but dissipates quickly
 	S.start()
 
 /obj/structure/ship_ammo/cas/minirocket/tangle
-	name = "Tanglefoot mini rocket stack"
-	desc = "A pack of laser guided mini rockets loaded with plasma-draining Tanglefoot gas. Moving this will require some sort of lifter."
+	name = "MGA-106D tangle"
+	desc = "A pack of mini rockets loaded with plasma-draining Tanglefoot gas. Moving this will require some sort of lifter."
 	icon_state = "minirocket_tfoot"
-	point_cost = 200
-	travelling_time = 4 SECONDS
+	point_cost = 125
+	travelling_time = 6 SECONDS
 	explosion_power = 30
 	explosion_falloff = 15
 	cas_effect = /obj/effect/overlay/blinking_laser/tfoot
@@ -550,15 +587,15 @@
 	impact.ceiling_debris_check(2)
 	cell_explosion(impact, explosion_power, explosion_falloff, adminlog = FALSE)//no messaging admin, that'd spam them.
 	var/datum/effect_system/smoke_spread/plasmaloss/S = new
-	S.set_up(9, impact, 9)// Between grenade and mortar
+	S.set_up(10, impact, 10)// Between grenade and mortar
 	S.start()
 
 /obj/structure/ship_ammo/cas/minirocket/illumination
-	name = "illumination rocket flare stack"
-	desc = "A pack of laser guided mini rockets, each loaded with a payload of white-star illuminant and a parachute, while extremely ineffective at damaging the enemy, it is very effective at lighting the battlefield so marines can damage the enemy. Moving this will require some sort of lifter."
+	name = "MGA-104I illuminant"
+	desc = "A pack of mini rockets, each loaded with a payload of white-star illuminant and a parachute, while extremely ineffective at damaging the enemy, it is very effective at lighting the battlefield so marines can damage the enemy. Moving this will require some sort of lifter."
 	icon_state = "minirocket_ilm"
-	point_cost = 50 // Not a real rocket, so its cheap
-	travelling_time = 4 SECONDS
+	point_cost = 25 // Not a real rocket, so its cheap
+	travelling_time = 2 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/flare
 	explosion_power = 0
 	explosion_falloff = 0
