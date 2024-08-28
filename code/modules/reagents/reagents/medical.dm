@@ -1412,11 +1412,11 @@
 
 /datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
+	L.add_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED, TRUE, 0, NONE, TRUE, 0.1)
 
 /datum/reagent/medicalnanites/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)
 		if(1 to 75)
-			L.take_limb_damage(0.015*current_cycle*effect_str, 0.015*current_cycle*effect_str)
 			L.adjustToxLoss(1*effect_str)
 			L.adjustStaminaLoss((1.5)*effect_str)
 			L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.4)
@@ -1424,7 +1424,6 @@
 				to_chat(L, span_notice("You feel intense itching!"))
 		if(76)
 			to_chat(L, span_warning("The pain rapidly subsides. Looks like they've adapted to you."))
-			L.add_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED, TRUE, 0, NONE, TRUE, 0.1)
 		if(77 to INFINITY)
 			if(volume < 30) //smol injection will self-replicate up to 30u using 240u of blood.
 				L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.15)
@@ -1450,15 +1449,33 @@
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your burns begin to slough off, revealing healthy tissue!"))
+
+			if(volume < 10)
+				return ..()
+
+			if(!ishuman(L))
+				return ..()
+			var/mob/living/carbon/human/human = L
+
 			if(prob(5))
-				if(!ishuman(L))
-					return ..()
-				var/mob/living/carbon/human/H = L
-				var/datum/internal_organ/organ = H.get_damaged_organ()
+				var/datum/internal_organ/organ = human.get_damaged_organ()
 				if(!organ)
 					return ..()
-				L.adjustToxLoss(5*effect_str)
+				L.adjustToxLoss(10*effect_str)
+				holder.remove_reagent(/datum/reagent/medicalnanites, 5)
 				organ.heal_organ_damage(10 * effect_str)
+				return ..()
+
+			if(prob(5))
+				for(var/datum/limb/limb_to_fix AS in human.limbs)
+					if(limb_to_fix.limb_status & (LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED))
+						if(limb_to_fix.brute_dam > limb_to_fix.min_broken_damage)
+							continue
+						limb_to_fix.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+						limb_to_fix.add_limb_flags(LIMB_REPAIRED)
+						holder.remove_reagent(/datum/reagent/medicalnanites, 5)
+						L.adjustToxLoss(15*effect_str)
+						break
 	return ..()
 
 /datum/reagent/medicalnanites/overdose_process(mob/living/L, metabolism)
