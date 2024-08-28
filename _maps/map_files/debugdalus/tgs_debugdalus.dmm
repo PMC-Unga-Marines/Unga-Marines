@@ -2150,9 +2150,6 @@
 /obj/structure/table/mainship,
 /obj/machinery/recharger,
 /obj/machinery/light,
-/obj/item/defibrillator,
-/obj/item/defibrillator,
-/obj/item/defibrillator,
 /obj/item/reagent_containers/glass/beaker/biomass,
 /turf/open/floor/mainship,
 /area/mainship/medical/lower_medical)
@@ -2581,11 +2578,6 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
-"kQa" = (
-/obj/machinery/light,
-/obj/structure/dropship_equipment/cas/weapon/bomb_pod,
-/turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
 "kVr" = (
 /obj/machinery/gear/vehicle,
 /turf/open/floor/mainship,
@@ -2913,10 +2905,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship,
 /area/mainship/engineering/engineering_workshop)
-"ttO" = (
-/obj/structure/dropship_equipment/cas/weapon/bomblet_pod,
-/turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
 "tQD" = (
 /obj/machinery/light,
 /turf/open/floor/mainship,
@@ -4268,7 +4256,7 @@ gUp
 dwY
 dwY
 dwY
-ttO
+dwY
 aji
 agd
 agt
@@ -4328,7 +4316,7 @@ afg
 dwY
 dwY
 dwY
-kQa
+ldZ
 aji
 aji
 aji
