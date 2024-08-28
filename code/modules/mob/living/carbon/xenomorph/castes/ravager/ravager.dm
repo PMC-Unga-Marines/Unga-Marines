@@ -64,6 +64,8 @@
 	add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, xeno_caste.speed * 0.5 * rage_power)
 
 	if((health < 0) && !on_cooldown)
+		playsound(loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
+		balloon_alert(src, "RIP AND TEAR")
 		plasma_stored += xeno_caste.plasma_max
 		var/datum/action/ability/xeno_action/charge = actions_by_path[/datum/action/ability/activable/xeno/charge]
 		var/datum/action/ability/xeno_action/ravage = actions_by_path[/datum/action/ability/activable/xeno/ravage]
