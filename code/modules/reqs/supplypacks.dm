@@ -1277,22 +1277,7 @@ ARMOR
 	contains = list(/obj/item/storage/belt/grenade/b17)
 	cost = 200
 	available_against_xeno_only = TRUE
-/* RU TGMC EDIT
-/datum/supply_packs/armor/modular/attachments/mixed
-	name = "Experimental mark 2 modules"
-	contains = list(
-		/obj/item/armor_module/module/valkyrie_autodoc,
-		/obj/item/armor_module/module/fire_proof,
-		/obj/item/armor_module/module/fire_proof_helmet,
-		/obj/item/armor_module/module/tyr_extra_armor,
-//		/obj/item/armor_module/module/mimir_environment_protection, RU TGMC EDIT
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
-		/obj/item/armor_module/module/better_shoulder_lamp,
-		/obj/item/armor_module/module/hlin_explosive_armor,
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
-	)
-	cost = 400
-RU TGMC EDIT */
+
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
 	name = "Valkyrie autodoc armor module"
 	contains = list(

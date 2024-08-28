@@ -353,7 +353,7 @@
 	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO))
 		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
-	if(stat == DEAD)
+	if(stat == DEAD || SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_STEALTH) & COMPONENT_HIDE_HEALTH)
 		holder.icon_state = "hudhealth98"
 		return TRUE
 

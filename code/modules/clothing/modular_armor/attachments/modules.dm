@@ -888,3 +888,24 @@
 		blips_list += new /obj/effect/blip/edge_blip(null, status, operator, screen_pos_x, screen_pos_y, dir)
 		return
 	blips_list += new /obj/effect/blip/close_blip(get_turf(target), status, operator)
+
+/**
+ * pluto
+ */
+/obj/item/armor_module/module/pluto
+	name = "\improper Pluto concealment module"
+	desc = "A special system that hides the smell and temperature from xenomorphs, hiding your condition"
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	icon_state = "mod_pluto"
+	item_state = "mod_pluto_a"
+	slowdown = 0.1
+	slot = ATTACHMENT_SLOT_MODULE
+
+/obj/item/armor_module/module/pluto/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.AddComponent(/datum/component/health_stealth)
+
+/obj/item/armor_module/module/pluto/on_detach(obj/item/detaching_from, mob/user)
+	var/datum/component/health_stealth/health_stealth = parent?.GetComponent(/datum/component/health_stealth)
+	health_stealth?.RemoveComponent()
+	return ..()
