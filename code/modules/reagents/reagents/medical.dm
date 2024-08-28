@@ -265,7 +265,10 @@
 
 /datum/reagent/medicine/kelotane/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 0, 2*effect_str)
-	lungs.take_damage(0.7)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/lung = H.get_organ_slot(ORGAN_SLOT_LUNGS)
+		lung.take_damage(0.7 * effect_str)
 
 /datum/reagent/medicine/dermaline
 	name = "Dermaline"
@@ -292,7 +295,10 @@
 
 /datum/reagent/medicine/dermaline/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(3*effect_str, 0, 3*effect_str)
-	lungs.take_damage(0.35)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/lung = H.get_organ_slot(ORGAN_SLOT_LUNGS)
+		lung.take_damage(0.35 * effect_str)
 
 /datum/reagent/medicine/saline_glucose
 	name = "Saline-Glucose"
@@ -831,7 +837,10 @@
 
 /datum/reagent/medicine/bicaridine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, 3*effect_str, 2*effect_str)
-	liver.take_damage(0.7)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/liver = H.get_organ_slot(ORGAN_SLOT_LIVER)
+		liver.take_damage(0.7 * effect_str)
 
 /datum/reagent/medicine/meralyne
 	name = "Meralyne"
@@ -856,7 +865,10 @@
 
 /datum/reagent/medicine/meralyne/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 6*effect_str, 4*effect_str)
-	lungs.take_damage(0.35)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/liver = H.get_organ_slot(ORGAN_SLOT_LIVER)
+		liver.take_damage(0.35 * effect_str)
 
 /datum/reagent/medicine/quickclot
 	name = "Quick Clot"
@@ -883,8 +895,11 @@
 
 /datum/reagent/medicine/quickclot/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, 2*effect_str, 2*effect_str)
-	eyes.take_damage(0.2)
-	brain.take_damage(0.2)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)
+		var/datum/internal_organ/Organrand = H.get_organ_slot(affected_organ)
+		Organrand.take_damage(1.0 * effect_str)
 
 
 /datum/reagent/medicine/quickclotplus
@@ -1486,7 +1501,10 @@
 
 /datum/reagent/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustCloneLoss(1) //YUM!
-	stomach.take_damage(0.7)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/stom = H.get_organ_slot(ORGAN_SLOT_STOMACH)
+		stom.take_damage(0.7 * effect_str)
 
 /datum/reagent/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
