@@ -74,6 +74,7 @@ Good luck, but do not expect to survive."})
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/norm
 	wear_suit = /obj/item/clothing/suit/armor/vest
+	ears = /obj/item/radio/headset/survivor
 
 
 //Scientist
@@ -91,6 +92,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/tox
+	ears = /obj/item/radio/headset/survivor
 
 
 //Doctor
@@ -108,6 +110,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/med
+	ears = /obj/item/radio/headset/survivor
 
 
 //Liaison
@@ -124,6 +127,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/bulletproof
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/norm
+	ears = /obj/item/radio/headset/survivor
 
 
 //Security Guard
@@ -141,6 +145,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/bulletproof
 	shoes = /obj/item/clothing/shoes/marine
 	back = /obj/item/storage/backpack/satchel/sec
+	ears = /obj/item/radio/headset/survivor
 
 
 //Civilian
@@ -157,6 +162,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/norm
+	ears = /obj/item/radio/headset/survivor
 
 
 //Chef
@@ -174,6 +180,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/norm
+	ears = /obj/item/radio/headset/survivor
 
 
 //Botanist
@@ -190,6 +197,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/hydroponics
+	ears = /obj/item/radio/headset/survivor
 
 
 //Atmospherics Technician
@@ -207,6 +215,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/eng
+	ears = /obj/item/radio/headset/survivor
 
 
 //Chaplain
@@ -223,6 +232,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/norm
+	ears = /obj/item/radio/headset/survivor
 
 
 //Miner
@@ -240,6 +250,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/norm
+	ears = /obj/item/radio/headset/survivor
 
 
 //Salesman
@@ -256,6 +267,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel
+	ears = /obj/item/radio/headset/survivor
 
 
 //Colonial Marshal
@@ -273,6 +285,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/storage/CMB
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel/sec
+	ears = /obj/item/radio/headset/survivor
 
 
 // Rambo Survivor
@@ -280,7 +293,7 @@ Good luck, but do not expect to survive."})
 	title = "Survivor"
 	skills_type = /datum/skills/civilian/survivor/master
 	outfit = /datum/outfit/job/survivor/rambo
-	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_NOHEADSET|JOB_FLAG_OVERRIDELATEJOINSPAWN
+	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_LATEJOINABLE
 
 /datum/outfit/job/survivor/rambo
 	name = "Survivor"
@@ -290,3 +303,4 @@ Good luck, but do not expect to survive."})
 	shoes = /obj/item/clothing/shoes/ruggedboot
 	back = /obj/item/storage/backpack/satchel/rugged
 	gloves = /obj/item/clothing/gloves/ruggedgloves
+	ears = /obj/item/radio/headset/survivor
