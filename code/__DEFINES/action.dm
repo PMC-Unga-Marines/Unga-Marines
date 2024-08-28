@@ -20,8 +20,6 @@
 // /datum/action/ability/xeno_action. Additional references
 /// A mutable appearance to add the "empowered" frame around the edges
 #define VREF_MUTABLE_EMPOWERED_FRAME "VREF_EMPOWERED_FRAME"
-/// A image to show the clock delay ticking.
-#define VREF_IMAGE_XENO_CLOCK "VREF_ACTION_CLOCK"
 /// A reference for the build counter of a xeno
 #define VREF_MUTABLE_BUILDING_COUNTER "VREF_BUILD_COUNTER"
 // extra reference for the amount of landslide charges we have

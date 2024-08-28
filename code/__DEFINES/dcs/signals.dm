@@ -1120,3 +1120,6 @@
 
 ///mob/living signals
 #define COMSIG_HUMAN_DEATH_STAGE_CHANGE "human_death_stage_change"
+
+#define COMSIG_LIVING_HEALTH_STEALTH "living_health_stealth"
+	#define COMPONENT_HIDE_HEALTH (1<<0)

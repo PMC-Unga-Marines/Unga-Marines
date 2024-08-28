@@ -29,7 +29,8 @@
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/robot = -1,
 		/datum/job/xenomorph = FREE_XENO_AT_START,
-		/datum/job/xenomorph/queen = 1
+		/datum/job/xenomorph/queen = 1,
+		/datum/job/survivor/rambo = 1,
 	)
 	job_points_needed_by_job_type = list(
 		/datum/job/terragov/squad/smartgunner = 20,

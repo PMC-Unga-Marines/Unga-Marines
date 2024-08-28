@@ -419,7 +419,6 @@
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	var/atom/target = get_target()
-	sentry_alert(SENTRY_ALERT_HOSTILE, target)
 	update_icon()
 	soundloop.start()
 	if(!target)
@@ -427,6 +426,7 @@
 		firing = FALSE
 		update_minimap_icon()
 		return
+	sentry_alert(SENTRY_ALERT_HOSTILE, target)
 	if(target != gun.target)
 		gun.stop_fire()
 		firing = FALSE

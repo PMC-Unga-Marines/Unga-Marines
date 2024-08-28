@@ -402,3 +402,8 @@
 /obj/item/radio/survivor
 	freqlock = TRUE
 	frequency = FREQ_CIV_GENERAL
+
+/obj/item/radio/headset/survivor
+	freqlock = TRUE
+	frequency = FREQ_CIV_GENERAL
+	subspace_transmission = FALSE

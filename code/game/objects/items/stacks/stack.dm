@@ -181,11 +181,11 @@
 		return
 	if(user.do_actions)
 		return
-	var/building_time = recipe.time
-	if(recipe.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) < recipe.skill_req)
-		building_time += recipe.time * (recipe.skill_req - user.skills.getRating(SKILL_CONSTRUCTION)) * 0.5
-	if(recipe.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) > recipe.skill_req)
-		building_time -= clamp(recipe.time * (user.skills.getRating(SKILL_CONSTRUCTION) - recipe.skill_req) * 0.40, 0 , 0.85 * building_time)
+	var/building_time = R.time
+	if(R.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) < R.skill_req)
+		building_time += R.time * ( R.skill_req - user.skills.getRating(SKILL_CONSTRUCTION) ) * 0.5 // +50% time each skill point lacking.
+	if(R.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) > R.skill_req)
+		building_time -= clamp(R.time * ( user.skills.getRating(SKILL_CONSTRUCTION) - R.skill_req ) * 0.40, 0 , 0.85 * building_time) // -40% time each extra skill point
 	if(building_time)
 		balloon_alert_to_viewers("building [recipe.title]")
 		if(!do_after(user, building_time, NONE, src, (building_time > recipe.time ? BUSY_ICON_UNSKILLED : BUSY_ICON_BUILD)))
