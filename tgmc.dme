@@ -408,6 +408,7 @@
 #include "code\datums\components\dripping.dm"
 #include "code\datums\components\grillable.dm"
 #include "code\datums\components\harvester.dm"
+#include "code\datums\components\health_stealth.dm"
 #include "code\datums\components\jump.dm"
 #include "code\datums\components\largeobjecttransparency.dm"
 #include "code\datums\components\larva_queue.dm"
