@@ -799,7 +799,7 @@
 		have_resin = FALSE
 	else
 		var/mob/living/victim = M
-		victim.apply_damage(80, STAMINA, BODY_ZONE_HEAD, BIO) //This should prevent sprinting
+		victim.apply_damage(80, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
 
 	leaping = FALSE
 	go_idle() //We're a bit slow on the recovery
