@@ -48,6 +48,26 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	reagent_transfer_amount = 4
 	bullet_color = COLOR_LIGHT_ORANGE
 
+/datum/ammo/xeno/tox_loss
+	name = "toxin spit"
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+	spit_cost = 50
+	added_spit_delay = 0
+	damage_type = STAMINA
+	accurate_range = 5
+	max_range = 10
+	accuracy_var_low = 3
+	accuracy_var_high = 3
+	damage = 15
+	stagger_stacks = 1 SECONDS
+	slowdown_stacks = 1.5
+	bullet_color = COLOR_LIGHT_ORANGE
+	var/toxin_damage = 10
+
+/datum/ammo/xeno/tox_loss/on_hit_mob(mob/living/carbon/carbon_victim, obj/projectile/proj)
+	carbon_victim.apply_damage(toxin_damage, TOX, proj.def_zone, armor_type, updating_health = TRUE)
+	return ..()
+
 ///Set up the list of reagents the spit transfers upon impact
 /datum/ammo/xeno/toxin/proc/set_reagents()
 	spit_reagents = list(/datum/reagent/toxin/xeno_neurotoxin = reagent_transfer_amount)
@@ -120,6 +140,13 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	reagent_transfer_amount = 18
 	smoke_range = 1
 
+/datum/ammo/xeno/tox_loss/heavy //Praetorian
+	name = "toxin splash"
+	added_spit_delay = 0
+	spit_cost = 180
+	damage = 30
+	toxin_damage = 20
+
 /datum/ammo/xeno/sticky
 	name = "sticky resin spit"
 	icon_state = "sticky"
@@ -130,7 +157,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	spit_cost = 50
 	sound_hit = "alien_resin_build2"
 	sound_bounce = "alien_resin_build3"
-	damage = 20 //minor; this is mostly just to provide confirmation of a hit
+	damage = 40
 	max_range = 40
 	bullet_color = COLOR_PURPLE
 	stagger_stacks = 2

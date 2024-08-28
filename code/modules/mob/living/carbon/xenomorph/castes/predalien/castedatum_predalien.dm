@@ -1,6 +1,7 @@
 /datum/xeno_caste/predalien
 	caste_name = "Predalien"
 	display_name = "Abomination"
+	upgrade_name = ""
 	caste_type_path = /mob/living/carbon/xenomorph/predalien
 	tier = XENO_TIER_FOUR
 	upgrade = XENO_UPGRADE_BASETYPE
