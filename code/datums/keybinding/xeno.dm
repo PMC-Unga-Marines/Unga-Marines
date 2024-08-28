@@ -742,13 +742,6 @@
 	keybind_signal = COMSIG_XENOABILITY_ENDURE
 	hotkey_keys = list("F")
 
-/datum/keybinding/xeno/ravager_rage
-	name = "ravager_rage"
-	full_name = "Ravager: Rage"
-	description = "While active, you will temporarily recover plasma and sunder and gain a bonus to speed and melee damage in proportion to the percentage of your missing health. At negative HP your ability cooldowns reset and your slash damage restores health."
-	keybind_signal = COMSIG_XENOABILITY_RAGE
-	hotkey_keys = list("Space")
-
 /datum/keybinding/xeno/ravager_vampirism
 	name = "togglevampirism"
 	full_name = "Ravager: Toggle vampirism"
