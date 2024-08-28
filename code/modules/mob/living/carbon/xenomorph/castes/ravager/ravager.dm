@@ -38,6 +38,8 @@
 		REMOVE_TRAIT(src, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
 		REMOVE_TRAIT(src, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
 		UnregisterSignal(src, COMSIG_XENOMORPH_ATTACK_LIVING)
+		playsound_local(src, 'sound/voice/alien/hiss8.ogg', 50)
+		balloon_alert(src, "We are rested enough")
 		return
 
 	var/rage_threshold = maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
@@ -63,7 +65,7 @@
 	xeno_melee_damage_modifier = initial(xeno_melee_damage_modifier) + rage_power
 	add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, xeno_caste.speed * 0.5 * rage_power)
 
-	if((health < 0) && !on_cooldown)
+	if((health < 0) && !on_cooldown && stat == CONSCIOUS)
 		playsound(loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
 		balloon_alert(src, "RIP AND TEAR")
 		plasma_stored += xeno_caste.plasma_max
