@@ -894,7 +894,7 @@
  */
 /obj/item/armor_module/module/pluto
 	name = "\improper Pluto concealment module"
-	desc = "A special system that hides the smell and temperature from xenomorphs, hiding your condition"
+	desc = "A special system that helps to conceal the smell and temperature from xenomorphs, hiding your condition from them. Also contains an integrated health analyzer."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_pluto"
 	item_state = "mod_pluto_a"
