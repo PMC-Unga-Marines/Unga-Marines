@@ -261,10 +261,11 @@
 	return ..()
 
 /datum/reagent/medicine/kelotane/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, TOX, effect_str)
+	L.apply_damage(effect_str, TOX)
 
 /datum/reagent/medicine/kelotane/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(2*effect_str, TOX, 2*effect_str)
+	L.apply_damages(2*effect_str, 0, 2*effect_str)
+	lungs.take_damage(0.7)
 
 /datum/reagent/medicine/dermaline
 	name = "Dermaline"
@@ -287,10 +288,11 @@
 	return ..()
 
 /datum/reagent/medicine/dermaline/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, TOX, effect_str)
+	L.apply_damages(effect_str, 0, effect_str)
 
 /datum/reagent/medicine/dermaline/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(3*effect_str, TOX, 3*effect_str)
+	L.apply_damages(3*effect_str, 0, 3*effect_str)
+	lungs.take_damage(0.35)
 
 /datum/reagent/medicine/saline_glucose
 	name = "Saline-Glucose"
@@ -829,6 +831,7 @@
 
 /datum/reagent/medicine/bicaridine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, 3*effect_str, 2*effect_str)
+	liver.take_damage(0.7)
 
 /datum/reagent/medicine/meralyne
 	name = "Meralyne"
@@ -853,6 +856,7 @@
 
 /datum/reagent/medicine/meralyne/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 6*effect_str, 4*effect_str)
+	lungs.take_damage(0.35)
 
 /datum/reagent/medicine/quickclot
 	name = "Quick Clot"
@@ -879,6 +883,8 @@
 
 /datum/reagent/medicine/quickclot/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, 2*effect_str, 2*effect_str)
+	eyes.take_damage(0.2)
+	brain.take_damage(0.2)
 
 
 /datum/reagent/medicine/quickclotplus
@@ -1480,6 +1486,7 @@
 
 /datum/reagent/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustCloneLoss(1) //YUM!
+	stomach.take_damage(0.7)
 
 /datum/reagent/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
