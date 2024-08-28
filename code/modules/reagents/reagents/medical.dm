@@ -899,7 +899,7 @@
 		var/mob/living/carbon/human/H = L
 		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)
 		var/datum/internal_organ/Organrand = H.get_organ_slot(affected_organ)
-		Organrand.take_damage(1.0 * effect_str)
+		Organrand.take_damage(1 * effect_str)
 
 
 /datum/reagent/medicine/quickclotplus
