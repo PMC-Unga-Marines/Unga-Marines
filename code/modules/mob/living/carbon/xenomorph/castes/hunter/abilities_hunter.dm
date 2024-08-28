@@ -59,7 +59,6 @@
 	// TODO: attack_alien() overrides are a mess and need a lot of work to make them require parentcalling
 	RegisterSignals(owner, list(
 		COMSIG_XENOMORPH_GRAB,
-		COMSIG_XENOMORPH_LEAP_BUMP,
 		COMSIG_LIVING_IGNITED,
 		COMSIG_LIVING_ADD_VENTCRAWL), PROC_REF(cancel_stealth))
 
@@ -83,6 +82,7 @@
 	UnregisterSignal(owner, list(
 		COMSIG_MOVABLE_MOVED,
 		COMSIG_XENOMORPH_POUNCE_END,
+		COMSIG_XENOMORPH_LEAP_BUMP,
 		COMSIG_XENO_LIVING_THROW_HIT,
 		COMSIG_XENOMORPH_ATTACK_LIVING,
 		COMSIG_XENOMORPH_DISARM_HUMAN,
@@ -168,12 +168,16 @@
 		return
 	if(!can_sneak_attack)
 		return
-	living_target.adjust_stagger(3 SECONDS)
-	living_target.add_slowdown(1)
 
 	var/mob/living/carbon/xenomorph/xeno = owner
-	living_target.attack_alien_harm(xeno, xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier)
+	var/damage = xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier
+
+	living_target.adjust_stagger(3 SECONDS)
+	living_target.add_slowdown(1)
+	living_target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, , penetration = HUNTER_SNEAK_SLASH_ARMOR_PEN) // additional damage
 	to_chat(owner, span_xenodanger("Pouncing from the shadows, we stagger our victim."))
+
+	cancel_stealth()
 
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
@@ -188,7 +192,7 @@
 	target.adjust_stagger(2 SECONDS)
 	target.add_slowdown(1)
 	target.ParalyzeNoChain(1 SECONDS)
-	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, , penetration = 15) // additional damage
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, , penetration = HUNTER_SNEAK_SLASH_ARMOR_PEN) // additional damage
 
 	cancel_stealth()
 
@@ -718,3 +722,13 @@
 	return ..()
 
 #undef DISGUISE_SLOWDOWN
+
+// ***************************************
+// *********** Crippling strike
+// ***************************************
+
+/datum/action/ability/xeno_action/crippling_strike/hunter
+	additional_damage = 1
+	heal_amount = 20
+	plasma_gain = 20
+	decay_time = 15 SECONDS
