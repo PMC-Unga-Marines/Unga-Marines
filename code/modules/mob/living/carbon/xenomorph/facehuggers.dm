@@ -776,6 +776,7 @@
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	var/have_resin = TRUE
 
 /obj/item/clothing/mask/facehugger/combat/resin/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -783,20 +784,25 @@
 
 	visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
 	playsound(loc, get_sfx("alien_resin_build"), 50, 1)
+	do_attack_animation(M)
 
-	for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
-		if(!locate(/obj/effect/xenomorph/spray) in sticky_tile.contents)
-			new /obj/alien/resin/sticky/thin(sticky_tile)
+	if(have_resin)
+		for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
+			if(!locate(/obj/effect/xenomorph/spray) in sticky_tile.contents)
+				new /obj/alien/resin/sticky/thin(sticky_tile)
+		for(var/mob/living/target in range(1, loc))
+			if(isxeno(target)) //Xenos aren't affected by sticky resin
+				continue
+			target.adjust_stagger(3 SECONDS)
+			target.add_slowdown(15)
+			target.apply_damage(100, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
+		have_resin = FALSE
+	else
+		var/mob/living/victim = M
+		victim.apply_damage(80, STAMINA, BODY_ZONE_HEAD, BIO) //This should prevent sprinting
 
-	for(var/mob/living/target in range(1, loc))
-		if(isxeno(target)) //Xenos aren't affected by sticky resin
-			continue
-
-		target.adjust_stagger(3 SECONDS)
-		target.add_slowdown(15)
-		target.apply_damage(100, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
-
-	kill_hugger(0.5 SECONDS)
+	leaping = FALSE
+	go_idle() //We're a bit slow on the recovery
 
 	return TRUE
 
