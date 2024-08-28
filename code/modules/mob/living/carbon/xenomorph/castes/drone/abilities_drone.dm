@@ -28,7 +28,7 @@
 	/// The target of an existing link, if applicable.
 	var/mob/living/carbon/xenomorph/linked_target
 	/// Time it takes for the attunement levels to increase.
-	var/attunement_cooldown = 60 SECONDS
+	var/attunement_cooldown = 10 SECONDS
 
 /datum/action/ability/activable/xeno/essence_link/can_use_ability(mob/living/carbon/xenomorph/target, silent = FALSE, override_flags)
 	var/mob/living/carbon/xenomorph/X = owner

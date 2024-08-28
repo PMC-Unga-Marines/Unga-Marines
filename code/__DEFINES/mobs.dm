@@ -705,8 +705,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define DRONE_BASE_SALVE_HEAL 50
 #define DRONE_ESSENCE_LINK_WINDUP 3 SECONDS
 #define DRONE_ESSENCE_LINK_RANGE 6 // How far apart the linked xenos can be, in tiles. Going past this deactivates the buff.
-#define DRONE_ESSENCE_LINK_REGEN 0.012 // Amount of health regen given as a percentage.
-#define DRONE_ESSENCE_LINK_SHARED_HEAL 0.1 // The effectiveness of heals when applied to the other linked xeno, as a percentage
+#define DRONE_ESSENCE_LINK_REGEN 0.033 // Amount of health regen given as a percentage.
+#define DRONE_ESSENCE_LINK_SHARED_HEAL 0.25 // The effectiveness of heals when applied to the other linked xeno, as a percentage
 
 //Defender defines
 #define DEFENDER_CHARGE_RANGE 4
