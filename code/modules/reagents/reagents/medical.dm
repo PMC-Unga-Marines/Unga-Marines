@@ -1461,7 +1461,7 @@
 				var/datum/internal_organ/organ = human.get_damaged_organ()
 				if(!organ)
 					return ..()
-				L.adjustToxLoss(10*effect_str)
+				L.adjustToxLoss(10 * effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 5)
 				organ.heal_organ_damage(10 * effect_str)
 				return ..()
