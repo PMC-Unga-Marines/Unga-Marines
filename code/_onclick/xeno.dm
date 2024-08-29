@@ -31,9 +31,9 @@
 							qdel(fire)
 					else
 						qdel(fire)
-			src.do_attack_animation(target_turf)
+			do_attack_animation(target_turf)
 			playsound(target_turf, 'sound/effects/alien/tail_swipe2.ogg', 45, 1) //SFX
-			src.visible_message(span_danger("\The [src] pats at the fire!"), \
+			visible_message(span_danger("\The [src] pats at the fire!"), \
 			span_danger("We pat the fire!"))
 			changeNext_move(CLICK_CD_MELEE)
 
