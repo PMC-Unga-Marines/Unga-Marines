@@ -381,7 +381,6 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/defibrillator/gloves = list(CAT_SYNTH, "Advanced medical gloves", 4, "yellow"),
 	/obj/item/defibrillator/advanced = list(CAT_SYNTH, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
-	/obj/item/tool/surgery/scalpel/manager = list(CAT_SYNTH, "Incision Management System", 6, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
 ))
 

@@ -104,7 +104,7 @@
 
 /obj/item/storage/internal/surgery_webbing/Initialize(mapload)
 	. = ..()
-	//new /obj/item/tool/surgery/scalpel/manager(src) RUTGMC REMOVAL
+	new /obj/item/tool/surgery/scalpel/manager(src)
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
 	new /obj/item/tool/surgery/retractor(src)
