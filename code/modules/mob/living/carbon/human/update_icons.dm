@@ -365,7 +365,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		overlays_standing[TARGETED_LAYER] = I
 	apply_overlay(TARGETED_LAYER)
 
-
 /* --------------------------------------- */
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
@@ -390,8 +389,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	update_burst()
 	UpdateDamageIcon()
 	update_transform()
-	update_headbite()
-
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
