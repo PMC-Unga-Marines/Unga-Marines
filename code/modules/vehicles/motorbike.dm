@@ -177,7 +177,7 @@
 	smoke.start()
 
 /obj/vehicle/ridden/motorbike/obj_destruction()
-	explosion(src, light_impact_range = 2, flash_range = 0)
+	cell_explosion(src, 50, 20)
 	return ..()
 
 /obj/vehicle/ridden/motorbike/Destroy()

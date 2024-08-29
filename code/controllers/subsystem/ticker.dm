@@ -127,7 +127,6 @@ SUBSYSTEM_DEF(ticker)
 				for(var/client/C AS in GLOB.clients)
 					C.mob?.update_sight() // To reveal ghosts
 
-
 /datum/controller/subsystem/ticker/proc/setup()
 	to_chat(world, span_boldnotice("<b>Enjoy the game!</b>"))
 	var/init_start = world.timeofday
@@ -196,7 +195,6 @@ SUBSYSTEM_DEF(ticker)
 		else
 			stack_trace("[S] [S.type] found in start landmarks list, which isn't a start landmark!")
 
-
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)
 	if(!HasRoundStarted())
@@ -212,21 +210,18 @@ SUBSYSTEM_DEF(ticker)
 	else
 		LAZYADD(round_end_events, cb)
 
-
 /datum/controller/subsystem/ticker/proc/station_explosion_detonation(atom/bomb)
 	if(bomb)	//BOOM
 		var/turf/epi = bomb.loc
 		qdel(bomb)
 		if(epi)
-			explosion(epi, 0, 256, 512, 0, silent = TRUE)
+			cell_explosion(epi, 3000, 10, silent = TRUE)
 
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
 
-
 /datum/controller/subsystem/ticker/proc/IsRoundInProgress()
 	return current_state == GAME_STATE_PLAYING
-
 
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state

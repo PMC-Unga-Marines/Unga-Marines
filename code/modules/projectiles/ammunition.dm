@@ -235,7 +235,7 @@
 /obj/item/ammo_magazine/flamer_fire_act(burnlevel)
 	if(!current_rounds)
 		return
-	explosion(loc, 0, 0, 0, 1, 1, throw_range = FALSE)
+	cell_explosion(loc, 5, 5)
 	qdel(src)
 
 //Helper proc, to allow us to see a percentage of how full the magazine is.
@@ -471,7 +471,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 /obj/item/big_ammo_box/flamer_fire_act(burnlevel)
 	if(!bullet_amount)
 		return
-	explosion(loc, 0, 0, 1, 0, 2, throw_range = FALSE) //blow it up.
+	cell_explosion(loc, 15, 15)
 	qdel(src)
 
 //Deployable shotgun ammo box

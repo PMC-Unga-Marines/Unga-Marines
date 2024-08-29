@@ -245,7 +245,7 @@ Stepping directly on the mine will also blow it up
 	if(triggered)
 		return
 	triggered = TRUE
-	explosion(tripwire ? tripwire.loc : loc, 2, 0, 0, 4)
+	cell_explosion(tripwire ? tripwire.loc : loc, 120, 30)
 	QDEL_NULL(tripwire)
 	qdel(src)
 

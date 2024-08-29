@@ -48,7 +48,8 @@
 	return TRUE
 
 /obj/vehicle/ridden/atv/obj_destruction()
-	explosion(src, devastation_range = -1, light_impact_range = 2, flame_range = 3, flash_range = 4)
+	cell_explosion(src, 80, 40)
+	flame_radius(3, src)
 	return ..()
 
 /obj/vehicle/ridden/atv/Destroy()

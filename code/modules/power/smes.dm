@@ -374,7 +374,7 @@
 			var/datum/effect_system/smoke_spread/smoke = new(src)
 			smoke.set_up(1, loc)
 			smoke.start()
-			explosion(loc, light_impact_range = 2, flash_range = 3)
+			cell_explosion(loc, 50, 25)
 			qdel(src)
 			return
 		if(prob(15)) //Power drain

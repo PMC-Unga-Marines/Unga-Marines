@@ -12,6 +12,15 @@
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
+//Override to ignore the message
+/obj/item/stack/rods/ex_act(severity, explosion_direction)
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return
+
+	if(!prob(severity * 0.3))
+		explosion_throw(severity, explosion_direction)
+		return
+	deconstruct(FALSE)
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
