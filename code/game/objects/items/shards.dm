@@ -1,5 +1,3 @@
-// Glass shards
-
 /obj/item/shard
 	name = "glass shard"
 	icon = 'icons/obj/items/shards.dmi'
@@ -23,6 +21,15 @@
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 25, 1, 6)
 	return ..()
 
+//Override to ignore the message
+/obj/item/shard/ex_act(severity, explosion_direction)
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return
+
+	if(!prob(severity * 0.3))
+		explosion_throw(severity, explosion_direction)
+		return
+	deconstruct(FALSE)
 
 /obj/item/shard/Initialize(mapload)
 	. = ..()

@@ -277,3 +277,13 @@
 	pill_desc = "An Ifosfamide pill. A cytostatic antitumor drug. Quickly heals wounds and burns, but releases histamine. Do not mix with BKT and paracetamol"
 	list_reagents = list(/datum/reagent/medicine/ifosfamide = 15)
 	pill_id = 11
+
+/obj/item/reagent_containers/pill/hyronalin
+	pill_desc = "A hyronalin pill"
+	list_reagents = list(/datum/reagent/medicine/hyronalin = 15)
+	pill_id = 17
+
+/obj/item/reagent_containers/pill/oxycodone
+	pill_desc = "An oxycodone pill. Best painkiller."
+	list_reagents = list(/datum/reagent/medicine/oxycodone = 15)
+	pill_id = 7

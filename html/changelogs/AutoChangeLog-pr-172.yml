@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Машинки в вальгалле теперь не появляются в меню контроля ИИ."

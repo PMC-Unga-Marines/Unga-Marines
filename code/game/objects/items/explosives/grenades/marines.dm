@@ -493,8 +493,6 @@
 		cell_explosion(loc, 50, 25)
 		qdel(src)
 
-
-
 /obj/item/explosive/grenade/flare
 	name = "\improper M40 FLDP grenade"
 	desc = "A TGMC standard issue flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand."

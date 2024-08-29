@@ -111,7 +111,7 @@
 	take_damage(damage, BRUTE, MELEE)
 	playsound(src, "alien_resin_break", 25)
 
-/turf/closed/wall/resin/dismantle_wall(devastated = 0, explode = 0)
+/turf/closed/wall/resin/dismantle_wall()
 	ScrapeAway()
 
 /turf/closed/wall/resin/ChangeTurf(newtype)

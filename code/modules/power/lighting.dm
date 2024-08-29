@@ -477,7 +477,7 @@
 	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), 0.5 SECONDS)
 
 /obj/machinery/light/proc/delayed_explosion()
-	explosion(loc, 0, 1, 3, 0, 2)
+	cell_explosion(loc, 70, 30)
 	qdel(src)
 
 /obj/machinery/light/mainship

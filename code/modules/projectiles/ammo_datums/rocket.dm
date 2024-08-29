@@ -19,7 +19,7 @@
 	barricade_clear_distance = 2
 
 /datum/ammo/rocket/drop_nade(turf/T)
-	explosion(T, 0, 4, 6, 0, 2)
+	cell_explosion(T, 200, 35)
 
 /datum/ammo/rocket/on_hit_mob(mob/M, obj/projectile/P)
 	drop_nade(get_turf(M))
@@ -63,7 +63,7 @@
 	sundering = 0
 
 /datum/ammo/rocket/ap/drop_nade(turf/T)
-	explosion(T, flash_range = 1)
+	cell_explosion(T, 50, 25)
 
 /datum/ammo/rocket/ltb
 	name = "cannon round"
@@ -216,7 +216,7 @@
 	sundering = 0
 
 /datum/ammo/rocket/recoilless/heat/drop_nade(turf/T)
-	explosion(T, flash_range = 1)
+	cell_explosion(T, 50, 25)
 
 /datum/ammo/rocket/recoilless/heat/mech //for anti mech use in HvH
 	name = "HEAM shell"
@@ -265,7 +265,7 @@
 	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
 	smoke.set_up(smokeradius, T, rand(5,9))
 	smoke.start()
-	explosion(T, flash_range = 1)
+	cell_explosion(T, 50, 25)
 
 /datum/ammo/rocket/recoilless/chemical/cloak
 	name = "low velocity chemical shell"
@@ -390,7 +390,7 @@
 		strength = victim.modify_by_armor(strength, BIO, 25)
 		victim.apply_radiation(strength, sound_level)
 
-	explosion(T, weak_impact_range = 4)
+	cell_explosion(T, 20, 5)
 
 /datum/ammo/rocket/atgun_shell
 	name = "high explosive ballistic cap shell"
@@ -421,7 +421,7 @@
 	sundering = 25
 
 /datum/ammo/rocket/atgun_shell/apcr/drop_nade(turf/T)
-	explosion(T, flash_range = 1)
+	cell_explosion(T, 50, 25)
 
 /datum/ammo/rocket/atgun_shell/apcr/on_hit_mob(mob/M, obj/projectile/P)
 	drop_nade(get_turf(M))
@@ -461,7 +461,7 @@
 	var/bonus_projectile_quantity = 10
 
 /datum/ammo/rocket/atgun_shell/beehive/drop_nade(turf/T)
-	explosion(T, flash_range = 1)
+	cell_explosion(T, 50, 25)
 
 /datum/ammo/rocket/atgun_shell/beehive/on_hit_mob(mob/M, obj/projectile/proj)
 	staggerstun(M, proj, slowdown = 0.2, knockback = 1)

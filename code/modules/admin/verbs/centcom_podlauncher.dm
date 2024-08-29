@@ -171,29 +171,31 @@
 
 		////////////////////////////POD EFFECTS//////////////////
 		if("explosionCustom") //Creates an explosion when the pod lands
-			if (explosionChoice == 1) //If already a custom explosion, set to default (no explosion)
+			if(explosionChoice == 1) //If already a custom explosion, set to default (no explosion)
 				explosionChoice = 0
-				temp_pod.explosionSize = list(0,0,0,0)
+				temp_pod.explosion_power = 0
+				temp_pod.explosion_falloff = 0
 				return
-			var/list/expNames = list("Devastation", "Heavy Damage", "Light Damage", "Flame") //Explosions have a range of different types of damage
-			var/list/boomInput = list()
-			for (var/i=1 to length(expNames)) //Gather input from the user for the value of each type of damage
-				boomInput.Add(usr, tgui_input_number("[expNames[i]] Range", "Enter the [expNames[i]] range of the explosion. WARNING: This ignores the bomb cap!", 0))
-				if (isnull(boomInput[i]))
-					return
-				if (!isnum(boomInput[i])) //If the user doesn't input a number, set that specific explosion value to zero
-					alert(usr, "That wasnt a number! Value set to default (zero) instead.")
-					boomInput = 0
+			var/input_severity = tgui_input_number(usr, "Explosion Severity:", "Drop Bomb", 500, EXPLOSION_MAX_POWER, 1)
+			if(isnull(input_severity))
+				return
+			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, EXPLOSION_MAX_POWER, 1)
+			if(isnull(input_falloff))
+				return
+
 			explosionChoice = 1
-			temp_pod.explosionSize = boomInput
+			temp_pod.explosion_power = input_severity
+			temp_pod.explosion_falloff = input_falloff
 			. = TRUE
 		if("explosionBus") //Creates a maxcap when the pod lands
-			if (explosionChoice == 2) //If already a maccap, set to default (no explosion)
+			if(explosionChoice == 2) //If already a maccap, set to default (no explosion)
 				explosionChoice = 0
-				temp_pod.explosionSize = list(0,0,0,0)
+				temp_pod.explosion_power = 0
+				temp_pod.explosion_falloff = 0
 				return
 			explosionChoice = 2
-			temp_pod.explosionSize = list(GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE,GLOB.MAX_EX_FLAME_RANGE) //Set explosion to max cap of server
+			temp_pod.explosion_power = 1500
+			temp_pod.explosion_falloff = 100
 			. = TRUE
 		if("damageCustom") //Deals damage to whoevers under the pod when it lands
 			if (damageChoice == 1) //If already doing custom damage, set back to default (no damage)
@@ -493,8 +495,8 @@
 /datum/centcom_podlauncher/proc/preLaunch() //Creates a list of acceptable items,
 	numTurfs = 0 //Counts the number of turfs that can be launched (remember, supplypods either launch all at once or one turf-worth of items at a time)
 	acceptableTurfs = list()
-	for (var/turf/T in orderedArea) //Go through the orderedArea list
-		if (typecache_filter_list_reverse(T.contents, length(ignored_atoms)) != 0) //if there is something in this turf that isnt in the blacklist, we consider this turf "acceptable" and add it to the acceptableTurfs list
+	for(var/turf/T in orderedArea) //Go through the orderedArea list
+		if(length(typecache_filter_list_reverse(T.contents, ignored_atoms)) != 0) //if there is something in this turf that isnt in the blacklist, we consider this turf "acceptable" and add it to the acceptableTurfs list
 			acceptableTurfs.Add(T) //Because orderedArea was an ordered linear list, acceptableTurfs will be as well.
 			numTurfs ++
 
@@ -565,11 +567,8 @@
 	var/delayString = temp_pod.landingDelay == initial(temp_pod.landingDelay) ? "" : " Delay=[temp_pod.landingDelay*0.1]s"
 	var/damageString = temp_pod.damage == 0 ? "" : " Dmg=[temp_pod.damage]"
 	var/explosionString = ""
-	var/explosion_sum = temp_pod.explosionSize[1] + temp_pod.explosionSize[2] + temp_pod.explosionSize[3] + temp_pod.explosionSize[4]
-	if (explosion_sum != 0)
-		explosionString = " Boom=|"
-		for (var/X in temp_pod.explosionSize)
-			explosionString += "[X]|"
+	if(temp_pod.explosion_power > 0 && temp_pod.explosion_falloff > 0)
+		explosionString = " Boom with power: [temp_pod.explosion_power] and falloff: [temp_pod.explosion_falloff]"
 
 	var/msg = "launched [podString] towards [whomString] [delayString][damageString][explosionString]"
 	message_admins("[key_name_admin(usr)] [msg] in [ADMIN_VERBOSEJMP(specificTarget)].")

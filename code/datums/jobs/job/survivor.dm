@@ -25,6 +25,7 @@
 	C.equip_to_slot_or_del(new A(C), SLOT_IN_BACKPACK)
 	C.equip_to_slot_or_del(new A(C), SLOT_IN_BACKPACK)
 	C.equip_to_slot_or_del(new A(C), SLOT_IN_BACKPACK)
+	C.equip_to_slot_or_del(new /obj/item/storage/ai2(C), SLOT_IN_BACKPACK)
 
 	C.equip_to_slot_or_del(new /obj/item/clothing/glasses/welding(C), SLOT_GLASSES)
 	C.equip_to_slot_or_del(new /obj/item/storage/pouch/tools/full(C), SLOT_R_STORE)
