@@ -368,7 +368,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 /* --------------------------------------- */
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
-	update_mutations(0)
 	update_inv_w_uniform()
 	update_inv_wear_id()
 	update_inv_gloves()
