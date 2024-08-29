@@ -642,8 +642,8 @@
 	)
 
 	if(is_open)
-		for (var/obj/item/W in contents)
-			if (types_and_overlays[W.type])
+		for(var/obj/item/W in contents)
+			if(types_and_overlays[W.type])
 				add_overlay(types_and_overlays[W.type])
 				types_and_overlays -= W.type
 
