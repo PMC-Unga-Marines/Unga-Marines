@@ -284,6 +284,6 @@
 	pill_id = 17
 
 /obj/item/reagent_containers/pill/oxycodone
-	pill_desc = "A oxycodone pill. Best painkiller."
+	pill_desc = "An oxycodone pill. Best painkiller."
 	list_reagents = list(/datum/reagent/medicine/oxycodone = 15)
 	pill_id = 7
