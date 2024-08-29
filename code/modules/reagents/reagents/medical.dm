@@ -1474,7 +1474,7 @@
 						limb_to_fix.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
 						limb_to_fix.add_limb_flags(LIMB_REPAIRED)
 						holder.remove_reagent(/datum/reagent/medicalnanites, 5)
-						L.adjustToxLoss(15*effect_str)
+						L.adjustToxLoss(15 * effect_str)
 						break
 	return ..()
 
