@@ -660,7 +660,7 @@
 	update_icon()
 
 /obj/item/storage/ai2/attackby(obj/item/I, mob/user, params)
-	..()
+	. = ..()
 	update_icon()
 
 /obj/item/storage/pill_bottle/penal
