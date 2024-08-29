@@ -45,8 +45,6 @@
 	hud_set_firestacks()
 
 /mob/living/carbon/xenomorph/regenerate_icons()
-	..()
-
 	update_inv_r_hand()
 	update_inv_l_hand()
 	update_icons()
