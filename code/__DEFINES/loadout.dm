@@ -71,6 +71,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
+	/obj/item/research_product/money/basic = list(CAT_MARINE, "credits - 50", 8, "white"),
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
@@ -83,6 +84,7 @@ GLOBAL_LIST_INIT(robot_gear_listed_products, list(
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
 	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
 	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
+	/obj/item/research_product/money/basic = list(CAT_ROBOT, "credits - 50", 8, "white"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
@@ -125,10 +127,12 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/item/mortal_shell/smoke = list(CAT_ENGSUP, "Smoke Mortar shell", 1, "orange2"),
 	/obj/item/mortal_shell/flare = list(CAT_ENGSUP, "Flare Mortar shell", 1, "orange2"),
 	/obj/item/ammo_magazine/flamer_tank/large = list(CAT_ENGSUP, "Flamethrower tank", 1, "orange2"),
+	/obj/item/research_product/money/basic = list(CAT_ENGSUP, "credits - 50", 8, "white"),
 ))
 
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/effect/vendor_bundle/medic = list(CAT_ESS, "Essential Medic Set", 0, "white"),
+	/obj/item/reagent_containers/glass/bottle/lemoline/doctor = list(CAT_MEDSUP, "Lemoline bottle", 14, "orange"),
 	/obj/item/storage/pill_bottle/meralyne = list(CAT_MEDSUP, "Meralyne pills", 14, "orange"),
 	/obj/item/storage/pill_bottle/dermaline = list(CAT_MEDSUP, "Dermaline pills", 14, "orange"),
 	/obj/item/storage/pill_bottle/russian_red = list(CAT_MEDSUP, "Red Russian pills", 12, "orange"),
@@ -162,6 +166,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/defibrillator/advanced = list(CAT_MEDSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
+	/obj/item/research_product/money/basic = list(CAT_MEDSUP, "credits - 50", 8, "white"),
 ))
 
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
@@ -217,6 +222,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/storage/firstaid/adv = list(CAT_LEDSUP, "Advanced firstaid kit", 1, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 2, "cyan"),
+	/obj/item/research_product/money/basic = list(CAT_LEDSUP, "credits - 50", 8, "white"),
 ))
 
 GLOBAL_LIST_INIT(commander_gear_listed_products, list(
@@ -299,6 +305,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 2, "cyan"),
 	/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_FCSUP, "Combat Trauma Kit", 2, "cyan"),
 	/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_FCSUP, "Combat Burn Kit", 2, "cyan"),
+	/obj/item/research_product/money/basic = list(CAT_FCSUP, "credits - 50", 8, "white"),
 ))
 
 //A way to give them everything at once that still works with loadouts would be nice, but barring that make sure that your point calculation is set up so they don't get more than what they're supposed to
@@ -323,6 +330,7 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss = list(CAT_SGSUP, "SG-153 Spotting Rifle Tanglefoot Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "orange2"),
+	/obj/item/research_product/money/basic = list(CAT_SGSUP, "credits - 50", 6, "white"),
 ))
 
 GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
@@ -350,6 +358,7 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/cell/rtg/small = list(CAT_SYNTH, "Recharger powercell", 2, "yellow"),
 	/obj/item/cell/rtg/large = list(CAT_SYNTH, "Large recharger powercell", 5, "yellow"),
 	//medic stuff
+	/obj/item/reagent_containers/glass/bottle/lemoline/doctor = list(CAT_SYNTH, "Lemoline bottle", 14, "orange"),
 	/obj/item/storage/pill_bottle/meralyne = list(CAT_SYNTH, "Meralyne pills", 14, "orange"),
 	/obj/item/storage/pill_bottle/dermaline = list(CAT_SYNTH, "Dermaline pills", 14, "orange"),
 	/obj/item/storage/pill_bottle/russian_red = list(CAT_SYNTH, "Red Russian pills", 12, "orange"),
@@ -383,6 +392,7 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
 	/obj/item/tool/surgery/scalpel/manager = list(CAT_SYNTH, "Incision Management System", 6, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
+	/obj/item/research_product/money/basic = list(CAT_SYNTH, "credits - 50", 8, "white"),
 ))
 
 ///Assoc list linking the job title with their specific points vendor
