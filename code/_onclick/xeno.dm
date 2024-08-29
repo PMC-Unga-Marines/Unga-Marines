@@ -10,7 +10,7 @@
 		return
 
 	//fire extinguishing
-	if(src.a_intent == INTENT_HELP)
+	if(a_intent == INTENT_HELP)
 		var/fire_level_to_extinguish = 5
 		var/turf/target_turf = A
 		for(var/obj/flamer_fire/fire in target_turf)
