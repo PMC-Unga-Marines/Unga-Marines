@@ -187,7 +187,7 @@
 
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris
 	name = "ambrosia vulgaris branch"
-	desc = "This is a plant containing various healing chemicals."
+	desc = "This is a mildy toxic plant containing various healing chemicals."
 	icon_state = "ambrosiavulgaris"
 	potency = 10
 	filling_color = "#125709"
@@ -195,7 +195,7 @@
 
 /obj/item/reagent_containers/food/snacks/grown/ambrosiadeus
 	name = "ambrosia deus branch"
-	desc = "Eating this makes you feel immortal!"
+	desc = "This plant both stimulates you, and puts you to sleep. Use with caution."
 	icon_state = "ambrosiadeus"
 	potency = 10
 	filling_color = "#229E11"

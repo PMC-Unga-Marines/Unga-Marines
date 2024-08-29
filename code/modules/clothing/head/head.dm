@@ -226,6 +226,14 @@
 	icon_state = "cmohat"
 	species_exception = list(/datum/species/robot)
 
+/obj/item/clothing/head/securitycap
+	name = "Security Cap"
+	desc = "A hat often worn by security officers, it is comfortable and lightly armored."
+	icon_state = "security_cap"
+	icon = 'icons/obj/clothing/hats.dmi'
+	soft_armor = list(MELEE = 15, BULLET = 25, LASER = 20, ENERGY = 20, BOMB = 5, BIO = 5, FIRE = 15, ACID = 5)
+	species_exception = list(/datum/species/robot)
+
 /*============================BERETS=================================*/
 //Berets have armor, so they have their own category. PMC caps are helmets, so they're in helmets.dm.
 
