@@ -1,4 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - bugfix: "ПНВ BE-35 and BE-47 теперь переключаемы."
