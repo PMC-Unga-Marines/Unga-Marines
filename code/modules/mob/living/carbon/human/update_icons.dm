@@ -268,12 +268,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
 
-	/*
-	//Skin colour. Not in cache because highly variable (and relatively benign).
-	if (species.species_flags & HAS_SKIN_COLOR)
-		stand_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
-	*/
-
 	if(has_head)
 		//Eyes
 		var/icon/eyes = new/icon('icons/mob/human_face.dmi', species.eyes)
@@ -422,7 +416,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	apply_overlay(ID_LAYER)
 
-
 /mob/living/carbon/human/update_inv_gloves()
 	remove_overlay(GLOVES_LAYER)
 	if(gloves)
@@ -450,7 +443,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	bloodsies.color = blood_color
 	overlays_standing[GLOVES_LAYER] = bloodsies
 	apply_overlay(GLOVES_LAYER)
-
 
 /mob/living/carbon/human/update_inv_glasses()
 	remove_overlay(GLASSES_LAYER)
@@ -512,8 +504,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	overlays_standing[SUIT_STORE_LAYER] = s_store.make_worn_icon(species_type = species.name, slot_name = slot_s_store_str, default_icon = 'icons/mob/suit_slot.dmi', default_layer = SUIT_STORE_LAYER)
 	apply_overlay(SUIT_STORE_LAYER)
 
-
-
 /mob/living/carbon/human/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 	if(!head)
@@ -541,7 +531,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	apply_overlay(BELT_LAYER)
 
-
 /mob/living/carbon/human/update_inv_wear_suit()
 	remove_overlay(SUIT_LAYER)
 	species?.update_inv_wear_suit(src)
@@ -566,7 +555,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			r_store.screen_loc = ui_storage2
 			client.screen += r_store
 
-
 /mob/living/carbon/human/update_inv_wear_mask()
 	remove_overlay(FACEMASK_LAYER)
 	if(!wear_mask)
@@ -583,7 +571,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	apply_overlay(FACEMASK_LAYER)
 
-
 /mob/living/carbon/human/update_inv_back()
 	remove_overlay(BACK_LAYER)
 	if(!back)
@@ -596,14 +583,12 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	apply_overlay(BACK_LAYER)
 
-
 /mob/living/carbon/human/update_inv_handcuffed()
 	remove_overlay(HANDCUFF_LAYER)
 	if(!handcuffed)
 		return
 	overlays_standing[HANDCUFF_LAYER] = handcuffed.make_worn_icon(species_type = species.name, slot_name = slot_handcuffed_str, default_icon = 'icons/mob/mob.dmi', default_layer = HANDCUFF_LAYER)
 	apply_overlay(HANDCUFF_LAYER)
-
 
 /mob/living/carbon/human/update_inv_r_hand()
 	remove_overlay(R_HAND_LAYER)
@@ -617,7 +602,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	apply_overlay(R_HAND_LAYER)
 
-
 /mob/living/carbon/human/update_inv_l_hand()
 	remove_overlay(L_HAND_LAYER)
 	if(!l_hand)
@@ -630,13 +614,8 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	overlays_standing[L_HAND_LAYER] = l_hand.make_worn_icon(species_type = species.name, inhands = TRUE, slot_name = slot_l_hand_str, default_icon = 'icons/mob/items_lefthand_1.dmi', default_layer = L_HAND_LAYER)
 	apply_overlay(L_HAND_LAYER)
 
-
-// Used mostly for creating head items
+/// Used mostly for creating head items
 /mob/living/carbon/human/proc/generate_head_icon()
-//gender no longer matters for the mouth, although there should probably be seperate base head icons.
-//	var/g = "m"
-//	if (gender == FEMALE)	g = "f"
-
 	//base icons
 	var/icon/face_lying = new /icon('icons/mob/human_face.dmi',"bald_l")
 
@@ -687,8 +666,10 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	remove_overlay(FIRE_LAYER)
 	if(on_fire)
 		switch(fire_stacks)
-			if(1 to 14)	overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', "Standing_weak", -FIRE_LAYER)
-			if(15 to 20) overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', "Standing_medium", -FIRE_LAYER)
+			if(1 to 14)
+				overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', "Standing_weak", -FIRE_LAYER)
+			if(15 to 20)
+				overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', "Standing_medium", -FIRE_LAYER)
 
 		apply_overlay(FIRE_LAYER)
 
