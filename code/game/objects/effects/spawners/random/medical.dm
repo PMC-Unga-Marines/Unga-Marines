@@ -59,7 +59,7 @@
 	name = "Random surgical instrument spawner"
 	icon_state = "random_surgical"
 	loot = list(
-		obj/item/tool/surgery/scalpel/manager,
+		/obj/item/tool/surgery/scalpel/manager,
 		/obj/item/tool/surgery/scalpel,
 		/obj/item/tool/surgery/hemostat,
 		/obj/item/tool/surgery/retractor,

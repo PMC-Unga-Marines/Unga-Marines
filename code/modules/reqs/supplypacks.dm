@@ -1627,6 +1627,13 @@ MEDICAL
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
+/datum/supply_packs/medical/deployable_optable
+	name = "Deployable operating table"
+	notes = "Contains an operating table that can be transported and deployed for medical procedures."
+	contains = list(/obj/item/deployable_optable)
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/surgery
+
 /datum/supply_packs/medical/advanced_medical_kits
 	name = "Advanced medical kits"
 	notes = "contains pair advanced medical kits from medical vendors."
