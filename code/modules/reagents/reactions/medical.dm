@@ -22,7 +22,7 @@
 
 /datum/chemical_reaction/dermalime
 	name = "Dermaline"
-	results = list(/datum/reagent/medicine/dermaline = 3)
+	results = list(/datum/reagent/medicine/dermaline = 4)
 	required_reagents = list(/datum/reagent/oxygen = 1, /datum/reagent/phosphorus = 1, /datum/reagent/medicine/kelotane = 1, /datum/reagent/medicine/lemoline = 1)
 
 /datum/chemical_reaction/dexalinplus
@@ -37,14 +37,9 @@
 
 /datum/chemical_reaction/meralyne
 	name = "Meralyne"
-	results = list(/datum/reagent/medicine/meralyne = 3)
+	results = list(/datum/reagent/medicine/meralyne = 4)
 	required_reagents = list(/datum/reagent/medicine/inaprovaline = 1, /datum/reagent/medicine/bicaridine = 1, /datum/reagent/iron = 1, /datum/reagent/medicine/lemoline = 1)
-/* RU TGMC EDIT
-/datum/chemical_reaction/ryetalyn
-	name = "Ryetalyn"
-	results = list(/datum/reagent/medicine/ryetalyn = 2)
-	required_reagents = list(/datum/reagent/medicine/arithrazine = 1, /datum/reagent/carbon = 1, /datum/reagent/medicine/lemoline = 1)
-RU TGMC EDIT */
+
 /datum/chemical_reaction/cryoxadone
 	name = "Cryoxadone"
 	results = list(/datum/reagent/medicine/cryoxadone = 3)
@@ -111,10 +106,9 @@ RU TGMC EDIT */
 	results = list(/datum/reagent/medicine/paracetamol = 3)
 	required_reagents = list(/datum/reagent/medicine/tramadol = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/water = 1)
 
-
 /datum/chemical_reaction/synaptizine
 	name = "Synaptizine"
-	results = list(/datum/reagent/medicine/synaptizine = 3)
+	results = list(/datum/reagent/medicine/synaptizine = 4)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/lithium = 1, /datum/reagent/water = 1, /datum/reagent/medicine/lemoline = 1)
 
 /datum/chemical_reaction/leporazine
