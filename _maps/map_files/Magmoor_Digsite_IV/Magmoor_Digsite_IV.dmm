@@ -90,6 +90,10 @@
 	dir = 4
 	},
 /area/magmoor/cargo/processing/south)
+"adu" = (
+/obj/effect/landmark/sensor_tower_infestation_caves,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/northwest)
 "adW" = (
 /obj/machinery/vending/coffee,
 /obj/effect/turf_decal/tile/blue{
@@ -835,6 +839,12 @@
 	dir = 8
 	},
 /area/magmoor/command/lobby)
+"aDb" = (
+/obj/effect/landmark/sensor_tower_infestation_ground,
+/turf/open/floor/mainship/orange{
+	dir = 4
+	},
+/area/magmoor/cargo/processing/south)
 "aDt" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 5
@@ -2871,6 +2881,10 @@
 /obj/structure/curtain/medical,
 /turf/open/floor/mainship/sterile/dark,
 /area/magmoor/medical/patient)
+"bZk" = (
+/obj/machinery/telecomms/relay/preset/tower,
+/turf/open/floor/tile/purple,
+/area/magmoor/civilian/dorms)
 "bZq" = (
 /obj/structure/bed/chair/office/light{
 	dir = 8
@@ -3096,6 +3110,10 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/cult,
+/area/magmoor/cave/north)
+"chE" = (
+/obj/effect/landmark/sensor_tower_infestation_caves,
+/turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
 "chG" = (
 /obj/machinery/power/apc/drained,
@@ -3927,6 +3945,10 @@
 "cOU" = (
 /turf/open/floor/mainship/tcomms,
 /area/magmoor/research/serverroom)
+"cPv" = (
+/obj/effect/landmark/tower_relay,
+/turf/open/floor/mainship/mono,
+/area/magmoor/engi/storage)
 "cPG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -7699,6 +7721,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
@@ -8910,6 +8933,7 @@
 /area/magmoor/cargo/storage/south)
 "gqe" = (
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/sensor_tower_infestation_caves,
 /turf/open/floor/bcircuit/off,
 /area/magmoor/research/serverroom)
 "gqk" = (
@@ -9705,6 +9729,7 @@
 /area/magmoor/cargo/storage/secure/south)
 "gUI" = (
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
@@ -10491,6 +10516,7 @@
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 10
 	},
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/plating/mainship,
 /area/magmoor/engi)
 "hEl" = (
@@ -13886,6 +13912,10 @@
 "kcd" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
+"kct" = (
+/obj/effect/landmark/tower_relay,
+/turf/open/floor/mainship/sterile/dark,
+/area/magmoor/medical/patient)
 "kcu" = (
 /turf/open/floor/mainship/cargo,
 /area/magmoor/cargo/storage/secure/south)
@@ -16554,6 +16584,10 @@
 	},
 /turf/open/floor/prison/kitchen,
 /area/magmoor/civilian/jani)
+"lZV" = (
+/obj/effect/landmark/sensor_tower_infestation_ground,
+/turf/open/floor/tile/dark2,
+/area/magmoor/civilian/mosque)
 "mad" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -17108,15 +17142,14 @@
 	},
 /area/magmoor/civilian/arrival/east)
 "mAx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/landmark/tower_relay,
+/turf/open/floor/mainship/orange{
 	dir = 4
 	},
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/magmoor/civilian/bar)
+/area/magmoor/cargo/processing/south)
 "mAB" = (
 /obj/structure/bed/chair/sofa/corner{
 	dir = 1
@@ -19322,6 +19355,11 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi)
+"omg" = (
+/obj/structure/cable,
+/obj/effect/landmark/sensor_tower_infestation_ground,
+/turf/open/floor/freezer,
+/area/magmoor/civilian/clean/toilet)
 "omO" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
@@ -21327,6 +21365,7 @@
 	dir = 5
 	},
 /obj/effect/ai_node,
+/obj/machinery/telecomms/relay/preset/tower,
 /turf/open/floor/mainship/floor,
 /area/magmoor/hydroponics/north)
 "pCV" = (
@@ -24019,6 +24058,10 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/magmoor/medical/lobby)
+"rEv" = (
+/obj/machinery/telecomms/relay/preset/tower,
+/turf/open/floor/mainship/mono,
+/area/magmoor/civilian/arrival/east)
 "rEw" = (
 /obj/machinery/mining/brace/active{
 	dir = 8
@@ -29572,6 +29615,10 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/mainship/mono,
 /area/magmoor/command/lobby/east)
+"vLS" = (
+/obj/effect/landmark/sensor_tower_infestation_ground,
+/turf/open/floor/wood,
+/area/magmoor/command/conference)
 "vLT" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
@@ -32180,6 +32227,10 @@
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
+"xwC" = (
+/obj/effect/landmark/sensor_tower_infestation_caves,
+/turf/open/floor/mainship/mono,
+/area/magmoor/mining)
 "xwP" = (
 /obj/structure/lattice,
 /obj/structure/barricade/guardrail,
@@ -38297,7 +38348,7 @@ efw
 efw
 lfn
 efw
-efw
+adu
 efw
 efw
 qdo
@@ -42222,7 +42273,7 @@ rxl
 rxl
 kcd
 kcd
-kcd
+chE
 kcd
 kcd
 rxl
@@ -45585,7 +45636,7 @@ tDP
 hrv
 rzV
 nfY
-hrv
+lZV
 kQi
 hrv
 fQx
@@ -45786,7 +45837,7 @@ ykC
 yhW
 tyz
 aUQ
-fMt
+vLS
 tpi
 jLI
 wAn
@@ -46680,7 +46731,7 @@ vEv
 rjj
 sze
 yay
-kaV
+xwC
 jxd
 kaV
 dzU
@@ -48407,7 +48458,7 @@ oAR
 ehQ
 mlP
 ehQ
-mAx
+cnO
 ehQ
 ehQ
 oMm
@@ -48640,7 +48691,7 @@ cAw
 ehQ
 fLe
 ehQ
-mAx
+cnO
 dIR
 ehQ
 wYc
@@ -48873,7 +48924,7 @@ vSf
 ehQ
 ehQ
 ehQ
-mAx
+cnO
 mlP
 ehQ
 mAI
@@ -49106,7 +49157,7 @@ aGz
 ehQ
 ehQ
 ehQ
-mAx
+cnO
 ehQ
 ehQ
 pNn
@@ -49339,7 +49390,7 @@ tjh
 mlP
 tct
 lfP
-mAx
+cnO
 ehQ
 ehQ
 cSj
@@ -49572,7 +49623,7 @@ lpK
 ehQ
 wEz
 bzj
-mAx
+cnO
 mlP
 ehQ
 nSi
@@ -50970,7 +51021,7 @@ qlY
 ehQ
 ehQ
 ehQ
-mAx
+cnO
 mlP
 hfz
 naO
@@ -51203,7 +51254,7 @@ lxq
 prR
 dIR
 ehQ
-mAx
+cnO
 ehQ
 hfz
 cZW
@@ -51436,7 +51487,7 @@ jdR
 mlP
 ehQ
 ehQ
-mAx
+cnO
 ehQ
 hfz
 jjQ
@@ -51669,7 +51720,7 @@ inQ
 rVY
 ehQ
 ehQ
-mAx
+cnO
 ehQ
 ehQ
 hfz
@@ -53952,7 +54003,7 @@ aqL
 wCV
 iOs
 xfa
-uAy
+mAx
 cAG
 gZy
 aqL
@@ -53965,7 +54016,7 @@ uSM
 uSM
 wUD
 tHh
-uSM
+aDb
 cAG
 aqL
 wcI
@@ -54916,7 +54967,7 @@ obe
 spB
 sMK
 bPV
-tHo
+omg
 fSK
 sMK
 riR
@@ -58206,7 +58257,7 @@ uJz
 gRT
 qnD
 foI
-foI
+bZk
 iqu
 scY
 kbL
@@ -60215,7 +60266,7 @@ mRx
 ars
 efU
 prK
-dla
+cPv
 fjV
 hMX
 vVm
@@ -61902,7 +61953,7 @@ mLy
 bRC
 aVv
 rfo
-cdr
+rEv
 oGm
 cdr
 qwj
@@ -65144,7 +65195,7 @@ mzi
 bYT
 xhU
 veg
-veg
+kct
 sQZ
 bYT
 ecy
