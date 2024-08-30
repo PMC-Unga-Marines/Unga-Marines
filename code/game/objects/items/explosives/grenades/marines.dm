@@ -164,7 +164,6 @@
 	var/fire_color = "red"
 	var/our_fire_stacks = 0
 	var/our_fire_damage = 0
-	overlay_type = "orange"
 
 /obj/item/explosive/grenade/sticky/trailblazer/prime()
 	flame_radius(0.5, get_turf(src))
@@ -328,7 +327,7 @@
 	weak_impact_range = 4
 	power = 80
 	falloff = 20
-	overlay_type = "green"
+	overlay_type = "yellow"
 
 /obj/item/explosive/grenade/smokebomb
 	name = "\improper M40 HSDP smoke grenade"
