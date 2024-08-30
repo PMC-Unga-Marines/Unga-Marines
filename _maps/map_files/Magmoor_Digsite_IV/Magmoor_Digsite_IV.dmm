@@ -91,7 +91,7 @@
 	},
 /area/magmoor/cargo/processing/south)
 "adu" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "adW" = (
@@ -840,7 +840,7 @@
 	},
 /area/magmoor/command/lobby)
 "aDb" = (
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
@@ -3112,7 +3112,7 @@
 /turf/open/floor/cult,
 /area/magmoor/cave/north)
 "chE" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
 "chG" = (
@@ -3946,7 +3946,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/magmoor/research/serverroom)
 "cPv" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi/storage)
 "cPG" = (
@@ -7721,7 +7721,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
@@ -8933,7 +8933,7 @@
 /area/magmoor/cargo/storage/south)
 "gqe" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/bcircuit/off,
 /area/magmoor/research/serverroom)
 "gqk" = (
@@ -9729,7 +9729,7 @@
 /area/magmoor/cargo/storage/secure/south)
 "gUI" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
@@ -10516,7 +10516,7 @@
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 10
 	},
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/mainship,
 /area/magmoor/engi)
 "hEl" = (
@@ -13913,7 +13913,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
 "kct" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/mainship/sterile/dark,
 /area/magmoor/medical/patient)
 "kcu" = (
@@ -16585,7 +16585,7 @@
 /turf/open/floor/prison/kitchen,
 /area/magmoor/civilian/jani)
 "lZV" = (
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark2,
 /area/magmoor/civilian/mosque)
 "mad" = (
@@ -17145,7 +17145,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
@@ -19357,7 +19357,7 @@
 /area/magmoor/engi)
 "omg" = (
 /obj/structure/cable,
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/freezer,
 /area/magmoor/civilian/clean/toilet)
 "omO" = (
@@ -29616,7 +29616,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/command/lobby/east)
 "vLS" = (
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/wood,
 /area/magmoor/command/conference)
 "vLT" = (
@@ -32228,7 +32228,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "xwC" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/mainship/mono,
 /area/magmoor/mining)
 "xwP" = (

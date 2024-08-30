@@ -728,7 +728,7 @@
 "avM" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/engine/cult{
 	dir = 2
 	},
@@ -1375,7 +1375,7 @@
 /turf/open/floor,
 /area/lv624/ground/sand8)
 "aKB" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle8)
 "aKG" = (
@@ -2172,7 +2172,7 @@
 /obj/machinery/floodlight,
 /obj/item/ammo_casing,
 /obj/effect/landmark/dropship_start_location,
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
 "bdK" = (
@@ -3221,7 +3221,7 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
 "bPO" = (
@@ -3883,7 +3883,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "cGE" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "cGS" = (
@@ -4389,7 +4389,7 @@
 /turf/open/liquid/water/river/autosmooth/deep,
 /area/lv624/ground/river2)
 "djT" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple)
 "dki" = (
@@ -4984,7 +4984,7 @@
 /turf/closed/wall,
 /area/lv624/ground/jungle9)
 "dQB" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "dQY" = (
@@ -5743,7 +5743,7 @@
 /turf/open/ground/grass,
 /area/lv624/lazarus/sleep_female)
 "eNJ" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "eOf" = (
@@ -8247,7 +8247,7 @@
 /area/lv624/ground/sand4)
 "hHK" = (
 /obj/structure/safe/floor/lvcolony,
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/grimy,
 /area/lv624/lazarus/captain)
 "hIe" = (
@@ -8892,7 +8892,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/toilet)
 "iqR" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/crashed_ship)
 "iqY" = (
@@ -9976,7 +9976,7 @@
 /area/lv624/lazarus/sandtemple)
 "jDK" = (
 /obj/structure/cable,
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},
@@ -12184,7 +12184,7 @@
 "mbx" = (
 /obj/effect/turf_decal/sandytile,
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "mbP" = (
@@ -12295,7 +12295,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "miX" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "miY" = (
@@ -14607,7 +14607,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
 /obj/effect/ai_node,
-/obj/effect/landmark/sensor_tower_infestation_ground,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/hydroponics/aux)
 "oXa" = (
@@ -16675,7 +16675,7 @@
 /area/lv624/ground/river1)
 "rqK" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
 "rqN" = (
@@ -17524,7 +17524,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4/garbledradio)
 "sfA" = (
-/obj/effect/landmark/tower_relay,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor,
 /area/lv624/ground/sand2)
 "sgf" = (
@@ -19009,7 +19009,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/internal_affairs)
 "tSa" = (
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3)
 "tSf" = (
@@ -22285,7 +22285,7 @@
 /area/lv624/ground/compound/n)
 "xmV" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/sensor_tower_infestation_caves,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/engine/cult{
 	dir = 2
 	},
