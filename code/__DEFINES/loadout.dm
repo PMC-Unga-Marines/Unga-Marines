@@ -71,6 +71,8 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
+	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
+	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
 	/obj/item/research_product/money/basic = list(CAT_MARINE, "50 credits coin", 8, "yellow2"),
 ))
 
