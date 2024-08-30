@@ -84,6 +84,7 @@
 	light_impact_range = 6
 	power = 150
 	falloff = 25
+	overlay_type = "yellow"
 
 /obj/item/explosive/grenade/sticky
 	name = "\improper M40 adhesive charge grenade"
@@ -163,6 +164,7 @@
 	var/fire_color = "red"
 	var/our_fire_stacks = 0
 	var/our_fire_damage = 0
+	overlay_type = "orange"
 
 /obj/item/explosive/grenade/sticky/trailblazer/prime()
 	flame_radius(0.5, get_turf(src))
@@ -198,6 +200,7 @@
 	fire_level = 45
 	burn_level = 45
 	fire_color = "blue"
+	overlay_type = "blue"
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
 	. = ..()
@@ -226,6 +229,7 @@
 	var/smokeradius = 1
 	///The duration of the smoke
 	var/smoke_duration = 8
+	overlay_type = "green"
 
 /obj/item/explosive/grenade/sticky/cloaker/prime()
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
@@ -260,6 +264,7 @@
 	det_time = 4 SECONDS
 	hud_state = "grenade_fire"
 	icon_state_mini = "grenade_orange"
+	overlay_type = "orange"
 
 /obj/item/explosive/grenade/incendiary/prime()
 	flame_radius(2, get_turf(src))
@@ -285,6 +290,7 @@
 	desc = "A reliable incendiary grenade utilised by SOM forces. Based off the S30 platform shared by most SOM grenades. Designed for hand or grenade launcher use."
 	icon_state = "grenade_fire_som"
 	item_state = "grenade_fire_som"
+	overlay_type = "orange"
 
 /obj/item/explosive/grenade/incendiary/molotov
 	name = "improvised firebomb"
@@ -322,7 +328,7 @@
 	weak_impact_range = 4
 	power = 80
 	falloff = 20
-
+	overlay_type = "green"
 
 /obj/item/explosive/grenade/smokebomb
 	name = "\improper M40 HSDP smoke grenade"
@@ -331,7 +337,7 @@
 	item_state = "grenade_smoke"
 	det_time = 2 SECONDS
 	hud_state = "grenade_smoke"
-	dangerous = FALSE
+	dangerous = TRUE
 	icon_state_mini = "grenade_blue"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
 	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
@@ -341,7 +347,7 @@
 	var/smokeradius = 7
 	///The duration of the smoke
 	var/smoke_duration = 11
-
+	overlay_type = "white"
 
 /obj/item/explosive/grenade/smokebomb/prime()
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
@@ -355,6 +361,7 @@
 	desc = "The S30-S is a small, but powerful smoke grenade. Based off the S30 platform shared by most SOM grenades. It is set to detonate in 2 seconds."
 	icon_state = "grenade_smoke_som"
 	item_state = "grenade_smoke_som"
+	overlay_type = "cyan"
 
 ///chemical grenades
 
@@ -369,6 +376,7 @@
 	dangerous = TRUE
 	smoketype = /datum/effect_system/smoke_spread/xeno/neuro/medium
 	smokeradius = 6
+	overlay_type = "orange"
 
 /obj/item/explosive/grenade/smokebomb/acid
 	name = "\improper M40-A Acid smoke grenade"
@@ -380,6 +388,7 @@
 	dangerous = TRUE
 	smoketype = /datum/effect_system/smoke_spread/xeno/acid
 	smokeradius = 5
+	overlay_type = "aqua"
 
 /obj/item/explosive/grenade/smokebomb/satrapine
 	name = "satrapine smoke grenade"
@@ -406,12 +415,14 @@
 	hud_state = "grenade_hide"
 	icon_state_mini = "grenade_green"
 	smoketype = /datum/effect_system/smoke_spread/tactical
+	overlay_type = "green"
 
 /obj/item/explosive/grenade/smokebomb/cloak/ags
 	name = "\improper AGLS-37 SCDP smoke grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	icon_state = "ags_cloak"
 	smokeradius = 4
+	overlay_type = "green"
 
 /obj/item/explosive/grenade/smokebomb/drain
 	name = "\improper M40-T smoke grenade"
@@ -421,8 +432,8 @@
 	hud_state = "grenade_drain"
 	det_time = 6 SECONDS
 	icon_state_mini = "grenade_purple"
-	dangerous = TRUE
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
+	overlay_type = "purple"
 
 /obj/item/explosive/grenade/smokebomb/drain/agls
 	name = "\improper AGLS-T smoke grenade"
@@ -430,6 +441,7 @@
 	icon_state = "ags_pgas"
 	det_time = 3 SECONDS
 	smokeradius = 4
+	overlay_type = "purple"
 
 /obj/item/explosive/grenade/phosphorus
 	name = "\improper M40 HPDP grenade"
@@ -484,6 +496,7 @@
 	light_impact_range = 3
 	power = 80
 	falloff = 30
+	overlay_type = "blue"
 
 /obj/item/explosive/grenade/impact/throw_impact(atom/hit_atom, speed)
 	. = ..()

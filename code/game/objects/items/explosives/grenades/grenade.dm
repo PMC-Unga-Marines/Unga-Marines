@@ -35,6 +35,7 @@
 	var/power = 105
 	/// Falloff of our explosion, aka distance, by the formula of power / falloff
 	var/falloff = 30
+	var/overlay_type = "red"
 
 
 /obj/item/explosive/grenade/Initialize(mapload)
@@ -93,8 +94,13 @@
 
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
-	if(active && dangerous)
-		. += new /obj/effect/overlay/danger
+	var/danger = "danger_"
+	if(overlay_type)
+		danger += overlay_type
+	else
+		danger += "0"
+	if(active)
+		. += image('icons/obj/items/grenade.dmi', icon_state = danger)
 
 
 /obj/item/explosive/grenade/proc/prime()
