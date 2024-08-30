@@ -108,7 +108,7 @@
 		GLOB.miner_phorone_locs -= T
 
 
-
+/*
 	// /obj/effect/landmark/sensor_tower_infestation_ground
 
 	for(var/i in 1 to sensor_towers_infestation_ground)
@@ -126,7 +126,7 @@
 	// /obj/effect/landmark/tower_relay
 
 	new /obj/machinery/telecomms/relay/preset/tower(pick(GLOB.tower_relay_locs))
-
+*/
 
 	//xenoden landing zone
 	var/turf/marine_dropship_loc = pick(GLOB.xenoden_docking_ports_locs)
