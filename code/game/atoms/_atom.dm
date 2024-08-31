@@ -954,4 +954,4 @@ directive is properly returned.
 ///What happens when with atom is melted by acid
 /atom/proc/do_acid_melt()
 	visible_message(span_xenodanger("[src] collapses under its own weight into a puddle of goop and undigested debris!"))
-	playsound(src, SFX_ACID_HIT, 25)
+	playsound(src, "acid_hit", 25)

@@ -889,7 +889,7 @@
 		balloon_alert(user, "It's melting!")
 		return TRUE
 
-	if(!plasteel_sheets.use(2))
+	if(!material_sheets.use(2))
 		return
 
 	repair_damage(max_integrity * 0.3, user)
