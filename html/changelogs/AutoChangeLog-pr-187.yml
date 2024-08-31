@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - rscadd: "Потерянные миньоны теперь следуют за другими ксеносами из хайва."
