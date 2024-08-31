@@ -90,11 +90,11 @@
 	var/health_recovery = rage_power * RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH
 	var/health_modifier
 	if(brute_damage)
-		health_modifier = min(brute_damage, health_recovery)*-1
+		health_modifier = -min(brute_damage, health_recovery)
 		adjustBruteLoss(health_modifier, TRUE)
 		health_recovery += health_modifier
 	if(burn_damage)
-		health_modifier = min(burn_damage, health_recovery)*-1
+		health_modifier = -min(burn_damage, health_recovery)
 		adjustFireLoss(health_modifier, TRUE)
 
 	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
