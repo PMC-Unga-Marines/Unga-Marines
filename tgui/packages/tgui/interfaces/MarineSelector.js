@@ -163,6 +163,11 @@ const ItemLine = (props, context) => {
               Tool
             </Box>
           )}
+          {prod_color === 'yellow2' && (
+            <Box inline mr="6px" ml="6px" color="yellow">
+              Money
+            </Box>
+          )}
           {prod_color === 'blue' && (
             <Box inline mr="6px" ml="6px" color="blue">
               Specialist

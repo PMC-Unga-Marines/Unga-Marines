@@ -40,9 +40,6 @@
 /mob/proc/update_inv_gloves()
 	return
 
-/mob/proc/update_mutations()
-	return
-
 /mob/proc/update_inv_wear_id()
 	return
 
@@ -65,7 +62,4 @@
 	return
 
 /mob/proc/update_burst()
-	return
-
-/mob/proc/update_headbite()
 	return

@@ -312,22 +312,22 @@
 	GLOB.round_statistics.points_from_research += export_points
 	return new /datum/export_report(export_points, name, faction_selling)
 
-/obj/item/research_product/money/examine(user)
-	. = ..()
-	. += span_notice("Rewards export points, as the name suggests.")
-
 /obj/item/research_product/money/basic
-	name = "credits - 50"
+	name = "50 credits coin"
+	desc = "A coin containing rare materials worth for 50 credits."
 	export_points = 50
 
 /obj/item/research_product/money/common
-	name = "credits - 150"
+	name = "150 credits coin"
+	desc = "A coin containing rare materials worth for 150 credits."
 	export_points = 150
 
 /obj/item/research_product/money/uncommon
-	name = "credits - 250"
+	name = "250 credits coin"
+	desc = "A coin containing rare materials worth for 250 credits."
 	export_points = 250
 
 /obj/item/research_product/money/rare
-	name = "credits - 800"
+	name = "800 credits coin"
+	desc = "A coin containing rare materials worth for 800 credits."
 	export_points = 800
