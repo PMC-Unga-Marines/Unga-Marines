@@ -114,7 +114,7 @@
 	if(stacks < 1 || !was_within_range || remaining_health >= link_target.maxHealth)
 		return
 	var/heal_amount = link_target.maxHealth * (DRONE_ESSENCE_LINK_REGEN * stacks)
-	var/ability_cost = heal_amount
+	var/ability_cost = heal_amount * 2
 	if(link_owner.plasma_stored < ability_cost)
 		if(!COOLDOWN_CHECK(src, plasma_warning))
 			return
