@@ -24,6 +24,10 @@
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 	RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
 
+/mob/living/carbon/xenomorph/ravager/Life()
+	. = ..()
+	update_rage()
+
 /mob/living/carbon/xenomorph/ravager/proc/update_rage()
 	if(health > maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 		if(!rage)
@@ -65,7 +69,7 @@
 	xeno_melee_damage_modifier = initial(xeno_melee_damage_modifier) + rage_power
 	add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, xeno_caste.speed * 0.5 * rage_power)
 
-	if((health < 0) && !on_cooldown && stat == CONSCIOUS)
+	if((health <= 0) && !on_cooldown && stat == CONSCIOUS)
 		playsound(loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
 		balloon_alert(src, "RIP AND TEAR")
 		plasma_stored += xeno_caste.plasma_max
@@ -87,11 +91,11 @@
 	var/health_modifier
 	if(brute_damage)
 		health_modifier = min(brute_damage, health_recovery)*-1
-		adjustBruteLoss(health_modifier)
+		adjustBruteLoss(health_modifier, TRUE)
 		health_recovery += health_modifier
 	if(burn_damage)
 		health_modifier = min(burn_damage, health_recovery)*-1
-		adjustFireLoss(health_modifier)
+		adjustFireLoss(health_modifier, TRUE)
 
 	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
 	if(endure_ability.endure_duration) //Check if Endure is active
