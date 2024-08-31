@@ -22,9 +22,9 @@
 /mob/living/carbon/xenomorph/ravager/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
+	RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
 
-/mob/living/carbon/xenomorph/ravager/Life()
-	. = ..()
+/mob/living/carbon/xenomorph/ravager/proc/update_rage()
 	if(health > maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 		if(!rage)
 			return
