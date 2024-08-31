@@ -16404,6 +16404,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/iron/white,
 /area/deltastation/science/research)
+"duD" = (
+/obj/structure/cable,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "duE" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "Ordnance Lab"
@@ -34857,6 +34864,9 @@
 /obj/effect/turf_decal/sandedge/corner2{
 	dir = 1
 	},
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/deltastation/external/landingzone)
 "gYw" = (
@@ -48541,6 +48551,12 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/deltastation/command/heads_quarters/captain/private)
+"jTi" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/deltastation/external/landingzone)
 "jTn" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -48649,6 +48665,9 @@
 /area/deltastation/asteroidcaves/ship)
 "jUb" = (
 /obj/effect/turf_decal/sandedge,
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/deltastation/external/landingzone)
 "jUe" = (
@@ -53186,6 +53205,12 @@
 	},
 /turf/open/floor/iron,
 /area/deltastation/maintenance/department/eva/abandoned)
+"kPW" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/deltastation/external/landingzone)
 "kQb" = (
 /turf/closed/wall/r_wall,
 /area/deltastation/maintenance/port/aft)
@@ -73612,6 +73637,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/sandedge,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/deltastation/external/landingzone)
 "pcp" = (
@@ -98856,12 +98884,11 @@
 /turf/open/floor/iron,
 /area/deltastation/service/hydroponics)
 "udx" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/transparent/red/fourcorners,
-/obj/effect/turf_decal/warning_stripes/box/empty,
-/obj/structure/closet/secure_closet/security,
-/turf/open/floor/iron,
-/area/deltastation/security/checkpoint/medical/medsci)
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/deltastation/external/landingzone)
 "udQ" = (
 /obj/item/radio/intercom{
 	dir = 1
@@ -100796,6 +100823,14 @@
 	},
 /turf/open/floor/iron,
 /area/deltastation/security/checkpoint/engineering)
+"uwS" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/icefloor/warnplate{
+	dir = 4
+	},
+/area/deltastation/external/landingzone)
 "uwU" = (
 /obj/effect/turf_decal/warning_stripes/box,
 /obj/effect/turf_decal/tile/transparent/neutral/half/contrasted{
@@ -104365,6 +104400,12 @@
 	},
 /turf/open/floor/iron,
 /area/deltastation/hallway/secondary/entry)
+"vhE" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/deltastation/external/landingzone)
 "vhK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -156758,7 +156799,7 @@ bwR
 kUa
 kYV
 pKj
-udx
+pKj
 kYV
 noE
 vDO
@@ -162464,7 +162505,7 @@ hSn
 iQD
 cSK
 cBB
-toH
+udx
 toH
 toH
 toH
@@ -166062,7 +166103,7 @@ hSn
 iQD
 cSK
 nVg
-toH
+udx
 toH
 toH
 xuo
@@ -166319,7 +166360,7 @@ hSn
 iQD
 cSK
 nVg
-toH
+jTi
 bPd
 xuo
 toH
@@ -166576,7 +166617,7 @@ hSn
 iQD
 cSK
 nVg
-njf
+uwS
 njf
 njf
 njf
@@ -166833,7 +166874,7 @@ vbE
 tCn
 qxv
 tNS
-bYh
+duD
 bYh
 bYh
 bYh
@@ -170174,7 +170215,7 @@ hSn
 iQD
 cSK
 sWq
-cSK
+vhE
 vNR
 njf
 njf
@@ -170431,7 +170472,7 @@ hSn
 iQD
 cSK
 sWq
-cSK
+kPW
 vNf
 xuY
 dfm
@@ -170688,7 +170729,7 @@ beI
 iQD
 cSK
 sWq
-cSK
+kPW
 ktj
 uJP
 xuY
@@ -170945,7 +170986,7 @@ hSn
 iQD
 cSK
 sWq
-cSK
+kPW
 uuC
 vNf
 xuY
