@@ -322,6 +322,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 ///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
+	flags_item |= IN_INVENTORY
 	SEND_SIGNAL(src, COMSIG_ITEM_ATTEMPT_PICK_UP, user)
 
 ///Called to return an item to equip using the quick equip hotkey. Base proc returns the item itself, overridden for storage behavior.
