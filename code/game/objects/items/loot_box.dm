@@ -254,8 +254,8 @@
 
 /obj/effect/supply_drop/standard_rifle/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman(loc)
-	new /obj/item/storage/belt/marine/t12(loc)
+	new /obj/item/weapon/gun/rifle/ar12/rifleman(loc)
+	new /obj/item/storage/belt/marine/ar12(loc)
 	new /obj/item/explosive/grenade(loc)
 	new /obj/item/explosive/grenade(loc)
 	return INITIALIZE_HINT_QDEL

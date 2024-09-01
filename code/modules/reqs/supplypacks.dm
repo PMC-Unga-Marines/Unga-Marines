@@ -873,15 +873,15 @@ WEAPONS
 	cost = 25 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t12_sabot
+/datum/supply_packs/weapons/ar12_sabot
 	name = "AR-12 APDS magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot)
+	contains = list(/obj/item/ammo_magazine/rifle/ar12/sabot)
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t12_incendiary
+/datum/supply_packs/weapons/ar12_incendiary
 	name = "AR-12 incendiary magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary)
+	contains = list(/obj/item/ammo_magazine/rifle/ar12/incendiary)
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 

@@ -123,7 +123,7 @@
 //-------------------------------------------------------
 //AR-12 Assault Rifle
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle
+/obj/item/weapon/gun/rifle/ar12
 	name = "\improper AR-12 K&H assault rifle"
 	desc = "The Keckler and Hoch AR-12 assault rifle used to be the TerraGov Marine Corps standard issue rifle before the AR-18 carbine replaced it. It is, however, still used widely despite that. The gun itself is very good at being used in most situations however it suffers in engagements at close quarters and is relatively hard to shoulder than some others. It uses 10x24mm caseless ammunition."
 	icon_state = "t12"
@@ -136,21 +136,21 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 50 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar12)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
+		/obj/item/ammo_magazine/rifle/ar12,
+		/obj/item/ammo_magazine/rifle/ar12/ap,
+		/obj/item/ammo_magazine/rifle/ar12/hp,
+		/obj/item/ammo_magazine/rifle/ar12/sabot,
+		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t12stock,
+		/obj/item/attachable/stock/ar12stock,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -189,7 +189,7 @@
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
@@ -203,14 +203,14 @@
 
 	placed_overlay_iconstate = "t12"
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/ar12/rifleman
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
+/obj/item/weapon/gun/rifle/ar12/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle/medic
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/ar12/medic
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 //-------------------------------------------------------
 //DMR-37 DMR
@@ -1955,13 +1955,13 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	wield_delay = 1 SECONDS
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
+		/obj/item/ammo_magazine/rifle/ar12,
+		/obj/item/ammo_magazine/rifle/ar12/ap,
+		/obj/item/ammo_magazine/rifle/ar12/hp,
+		/obj/item/ammo_magazine/rifle/ar12/sabot,
+		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,

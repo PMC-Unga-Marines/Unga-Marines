@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	. = list()
 	var/list/loadout_list = list(
 		/datum/outfit/quick/tgmc/marine/ar18,
-		/datum/outfit/quick/tgmc/marine/standard_assaultrifle,
+		/datum/outfit/quick/tgmc/marine/ar12,
 		/datum/outfit/quick/tgmc/marine/combat_rifle,
 		/datum/outfit/quick/tgmc/marine/standard_laserrifle,
 		/datum/outfit/quick/tgmc/marine/standard_battlerifle,
@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/tgmc/smartgunner/standard_sg,
 		/datum/outfit/quick/tgmc/smartgunner/minigun_sg,
 		/datum/outfit/quick/tgmc/smartgunner/target_rifle,
-		/datum/outfit/quick/tgmc/leader/standard_assaultrifle,
+		/datum/outfit/quick/tgmc/leader/ar12,
 		/datum/outfit/quick/tgmc/leader/ar18,
 		/datum/outfit/quick/tgmc/leader/combat_rifle,
 		/datum/outfit/quick/tgmc/leader/standard_battlerifle,

@@ -53,9 +53,9 @@
 	max_rounds = 36
 
 //-------------------------------------------------------
-//T12 Assault Rifle
+//AR12 Assault Rifle
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle
+/obj/item/ammo_magazine/rifle/ar12
 	name = "\improper AR-12 magazine (10x24mm)"
 	desc = "A 10mm assault rifle magazine."
 	caliber = CALIBER_10X24_CASELESS
@@ -709,25 +709,25 @@
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/sabot
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap
+/obj/item/ammo_magazine/rifle/ar12/ap
 	name = "\improper AR-12 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary
+/obj/item/ammo_magazine/rifle/ar12/incendiary
 	name = "\improper AR-12 incendiary magazine (10x24mm)"
 	desc = "A 10mm incendiary assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp
+/obj/item/ammo_magazine/rifle/ar12/hp
 	name = "\improper AR-12 HP magazine (10x24mm)"
 	desc = "A 10mm hollow-point assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot
+/obj/item/ammo_magazine/rifle/ar12/sabot
 	name = "\improper AR-12 APDS magazine (10x24mm)"
 	desc = "A 10mm APDS assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT

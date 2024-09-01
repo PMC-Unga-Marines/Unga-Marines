@@ -251,8 +251,8 @@
 	to them than the 9mm round. Eventually it was decided that the TP019 would be adopted as the second sidearm of the TGMC instead of fully \
 	replacing the R-44 which would later eventually be modernized."
 
-/datum/codex_entry/standard_assaultrifle
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_assaultrifle)
+/datum/codex_entry/ar12
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar12)
 	lore_text = "The Keckler and Hoch M-12 was created out of an order for a robust rifle using a caseless round, after the ergonomic and costly disaster of the 'Rifle of the future' Project. \
 	Ironically, the M-12 submitted by the very group that made the national disaster that the AR-11 (originally designated the M-11) ended up winning out all the tests. \
 	It was designed to be simple to use, disassemble and basically survive every condition, however due to reports of barrel melting from the high use of polymers. It ended up being heavier than its ilk to compensate.\

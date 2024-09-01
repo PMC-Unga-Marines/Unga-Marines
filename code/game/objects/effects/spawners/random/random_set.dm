@@ -32,10 +32,10 @@
 	icon_state = "random_rifle"
 
 	option_list = list(
-		list(/obj/item/weapon/gun/rifle/standard_assaultrifle,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		list(/obj/item/weapon/gun/rifle/ar12,
+			/obj/item/ammo_magazine/rifle/ar12,
+			/obj/item/ammo_magazine/rifle/ar12,
+			/obj/item/ammo_magazine/rifle/ar12,
 		),
 		list(/obj/item/weapon/gun/rifle/ar18,
 			/obj/item/ammo_magazine/rifle/ar18,
@@ -156,10 +156,10 @@
 	icon_state = "random_rifle"
 
 	option_list = list(
-		list(/obj/item/weapon/gun/rifle/standard_assaultrifle,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		list(/obj/item/weapon/gun/rifle/ar12,
+			/obj/item/ammo_magazine/rifle/ar12,
+			/obj/item/ammo_magazine/rifle/ar12,
+			/obj/item/ammo_magazine/rifle/ar12,
 		),
 		list(/obj/item/weapon/gun/rifle/ar18,
 			/obj/item/ammo_magazine/rifle/ar18,

@@ -10,7 +10,7 @@
 	name = "Random ballistic ammunition spawner"
 	icon_state = "random_rifle"
 	loot = list(
-		/obj/item/weapon/gun/rifle/standard_assaultrifle,
+		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
@@ -81,7 +81,7 @@
 	name = "Random rifle spawner"
 	icon_state = "random_rifle"
 	loot = list(
-		/obj/item/weapon/gun/rifle/standard_assaultrifle,
+		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
@@ -159,7 +159,7 @@
 	name = "Random ballistic ammunition spawner"
 	icon_state = "random_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/tx11,
@@ -210,7 +210,7 @@
 	name = "Random rifle ammunition spawner"
 	icon_state = "random_rifle_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/tx11,

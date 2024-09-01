@@ -96,12 +96,12 @@
 
 
 /obj/structure/closet/secure_closet/guncabinet/m41aMK1/PopulateContents()
-	new /obj/item/weapon/gun/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/weapon/gun/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
+	new /obj/item/weapon/gun/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/weapon/gun/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
 
 
 /obj/structure/closet/secure_closet/guncabinet/mp_armory

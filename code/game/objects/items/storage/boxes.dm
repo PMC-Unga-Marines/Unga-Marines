@@ -828,18 +828,18 @@
 
 // -Rifle-
 
-/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle
+/obj/item/storage/box/visual/magazine/compact/ar12
 	name = "AR-12 magazine box"
 	desc = "A box specifically designed to hold a large amount of AR-12 magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_ar12"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+		/obj/item/ammo_magazine/rifle/ar12,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full
+/obj/item/storage/box/visual/magazine/compact/ar12/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
+	spawn_type = /obj/item/ammo_magazine/rifle/ar12
 
 /obj/item/storage/box/visual/magazine/compact/ar18
 	name = "AR-18 magazine box"

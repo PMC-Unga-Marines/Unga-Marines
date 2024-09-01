@@ -363,7 +363,7 @@
 	icon_state = "weapon3"
 	weapon_list = list(
 		/obj/item/weapon/gun/rifle/ar18,
-		/obj/item/weapon/gun/rifle/standard_assaultrifle,
+		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/standard_dmr,
 		/obj/item/weapon/gun/rifle/standard_br,
 		/obj/item/weapon/gun/rifle/m412,

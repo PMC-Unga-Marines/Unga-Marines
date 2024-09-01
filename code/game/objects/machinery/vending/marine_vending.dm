@@ -10,10 +10,10 @@
 
 	products = list(
 		"Rifles" = list(
-			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+			/obj/item/weapon/gun/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -223,10 +223,10 @@
 /obj/machinery/vending/weapon/crash
 	products = list(
 		"Rifles" = list(
-			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+			/obj/item/weapon/gun/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -443,10 +443,10 @@
 	use_power = NO_POWER_USE
 	products = list(
 		"Rifles" = list(
-			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap = -1,
-			/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp = -1,
+			/obj/item/weapon/gun/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -798,7 +798,7 @@
 			/obj/item/storage/box/visual/magazine/compact/standard_pocketpistol/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/vp70/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full = -1,
-			/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full = -1,
+			/obj/item/storage/box/visual/magazine/compact/ar12/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/martini/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/ar11/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full = -1,
