@@ -17459,9 +17459,9 @@
 "vWG" = (
 /obj/structure/table/mainship/nometal,
 /obj/item/weapon/gun/revolver/r44,
-/obj/item/ammo_magazine/revolver/standard_revolver,
-/obj/item/ammo_magazine/revolver/standard_revolver,
-/obj/item/ammo_magazine/revolver/standard_revolver,
+/obj/item/ammo_magazine/revolver/r44,
+/obj/item/ammo_magazine/revolver/r44,
+/obj/item/ammo_magazine/revolver/r44,
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},

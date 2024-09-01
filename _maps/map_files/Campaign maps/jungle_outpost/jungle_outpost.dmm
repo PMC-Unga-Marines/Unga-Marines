@@ -9200,8 +9200,8 @@
 /area/campaign/jungle_outpost/ground/jungle/north)
 "NQ" = (
 /obj/structure/rack,
-/obj/item/weapon/gun/rifle/tx11,
-/obj/item/weapon/gun/rifle/tx11,
+/obj/item/weapon/gun/rifle/ar11,
+/obj/item/weapon/gun/rifle/ar11,
 /turf/open/floor/tile/red/redtaupe{
 	dir = 4
 	},
