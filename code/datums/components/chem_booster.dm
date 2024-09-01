@@ -378,26 +378,18 @@
 		return
 	if(resource_storage_current >= resource_storage_max)
 		return
-	//RUTGMC EDIT REMOVAL BEGIN - SWORDS
-	/*
-	update_resource(round(20*connected_weapon.attack_speed/11))
-	*/
-	//RUTGMC EDIT REMOVAL END
-
-	//RUTGMC EDIT ADDITION BEGIN - SWORDS
 	var/obj/item/vali_weapon = wearer.get_held_item()
 	if(vali_weapon.type == /obj/item/weapon/claymore/mercsword/officersword/valirapier)
 		update_resource(20)
 	else
-		update_resource(round(20*connected_weapon.attack_speed/11))
-	//RUTGMC EDIT ADDITION END
+		update_resource(round(20 * connected_weapon.attack_speed / 11))
 
 ///Adds or removes resource from the suit. Signal gets sent at every 25% of stored resource
 /datum/component/chem_booster/proc/update_resource(amount)
 	var/amount_added = min(resource_storage_max - resource_storage_current, amount)
 	resource_storage_current = max(resource_storage_current + amount_added, 0)
 	wearer.overlays -= resource_overlay
-	resource_overlay.alpha = resource_storage_current/resource_storage_max*255
+	resource_overlay.alpha = resource_storage_current / resource_storage_max * 255
 	wearer.overlays += resource_overlay
 
 ///Extracts resource from the suit to fill a beaker
