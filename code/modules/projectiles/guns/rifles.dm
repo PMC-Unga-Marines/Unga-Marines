@@ -2644,15 +2644,15 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_assaultcarbine/export
 
 ///////////////////////////////////////////////////////////////////////
-////////////////////////  T25, old version .///////////////////////////
+////////////////////////  t25, old version .///////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/gun/rifle/T25
+/obj/item/weapon/gun/rifle/t25
 	name = "\improper T-25 smartrifle"
 	desc = "The T-25 is the TGMC's current standard IFF-capable rifle. It's known for its ability to lay down quick fire support very well. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = "T25"
-	item_state = "T25"
+	icon_state = "t25"
+	item_state = "t25"
 	item_icons = list(
 		slot_l_hand_str =  'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str =  'icons/mob/items_righthand_1.dmi',
@@ -2668,8 +2668,8 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound =   'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound =   'sound/weapons/guns/interact/T42_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/T25
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/T25, /obj/item/ammo_magazine/rifle/T25/extended)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/t25
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/t25, /obj/item/ammo_magazine/rifle/t25/extended)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,

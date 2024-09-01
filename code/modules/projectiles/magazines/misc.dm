@@ -268,12 +268,12 @@
 	icon_state_mini = "44LSbox"
 	max_rounds = 40
 
-/obj/item/ammo_magazine/packet/T25_rifle
+/obj/item/ammo_magazine/packet/t25
 	name = "box of 10x26mm high-pressure"
 	desc = "A box containing 300 rounds of 10x26mm 'HP' caseless tuned for a smartgun."
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "box_t25"
-	default_ammo = /datum/ammo/bullet/rifle/T25
+	default_ammo = /datum/ammo/bullet/rifle/t25
 	caliber = CALIBER_10x26_CASELESS
 	current_rounds = 300
 	max_rounds = 300

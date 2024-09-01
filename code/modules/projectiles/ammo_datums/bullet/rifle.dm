@@ -38,7 +38,7 @@
 	penetration = 5
 	sundering = 0.5
 
-/datum/ammo/bullet/rifle/T25
+/datum/ammo/bullet/rifle/t25
 	name = "smartmachinegun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"

@@ -283,9 +283,9 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/ammo_magazine/m412l1_hpr = list(CAT_FCSUP, "PR-412L1 Heavy Pulse Rifle Ammo", 2, "orange2"),
 	/obj/item/weapon/gun/rifle/sg29 = list(CAT_FCSUP, "SG-29 Smart Machine Gun", 23, "red"),
 	/obj/item/ammo_magazine/sg29 = list(CAT_FCSUP, "SG-29 dmmo arum", 2, "orange2"),
-	/obj/item/weapon/gun/rifle/T25 = list(CAT_FCSUP, "T25 Smartrifle", 23, "red"),
-	/obj/item/ammo_magazine/rifle/T25 = list(CAT_FCSUP, "T25 smartrifle magazine", 2, "orange2"),
-	/obj/item/ammo_magazine/packet/T25_rifle = list(CAT_FCSUP, "T25 smartrifle ammo box", 3, "orange2"),
+	/obj/item/weapon/gun/rifle/t25 = list(CAT_FCSUP, "t25 Smartrifle", 23, "red"),
+	/obj/item/ammo_magazine/rifle/t25 = list(CAT_FCSUP, "t25 smartrifle magazine", 2, "orange2"),
+	/obj/item/ammo_magazine/packet/t25 = list(CAT_FCSUP, "t25 smartrifle ammo box", 3, "orange2"),
 	/obj/item/storage/holster/belt/mateba/full = list(CAT_FCSUP, "Mateba Autorevolver belt", 10, "red"),
 	/obj/item/ammo_magazine/revolver/mateba = list(CAT_FCSUP, "Mateba magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/packet/mateba = list(CAT_FCSUP, "Mateba packet", 3, "orange2"),
@@ -318,9 +318,9 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/weapon/gun/minigun/smart_minigun = list(CAT_SGSUP, "SG-85 Smart Handheld Gatling Gun", 27, "red"), //If a smartgunner buys a SG-85, then they should be able to buy only 1 powerpack and 2 ammo bins
 	/obj/item/ammo_magazine/minigun_powerpack/smartgun = list(CAT_SGSUP, "SG-85 Powerpack", 10, "orange2"),
 	/obj/item/ammo_magazine/packet/smart_minigun = list(CAT_SGSUP, "SG-85 Ammo Bin", 4, "orange2"),
-	/obj/item/weapon/gun/rifle/T25 = list(CAT_SGSUP, "T-25 Smartrifle", 26, "red"), //If smartganner buys a t25 , then they will have 2 mag and 3 ammo box
-	/obj/item/ammo_magazine/rifle/T25 =  list(CAT_SGSUP, "T-25 Smartrifle magazine", 2, "orange2"),
-	/obj/item/ammo_magazine/packet/T25_rifle = list(CAT_SGSUP, "T-25 Smartrifle ammo box", 5, "orange2"),
+	/obj/item/weapon/gun/rifle/t25 = list(CAT_SGSUP, "T-25 Smartrifle", 26, "red"), //If smartganner buys a t25 , then they will have 2 mag and 3 ammo box
+	/obj/item/ammo_magazine/rifle/t25 =  list(CAT_SGSUP, "T-25 Smartrifle magazine", 2, "orange2"),
+	/obj/item/ammo_magazine/packet/t25 = list(CAT_SGSUP, "T-25 Smartrifle ammo box", 5, "orange2"),
 	/obj/item/weapon/gun/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle", 25, "red"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
 	/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/packet/sg62_rifle = list(CAT_SGSUP, "SG-62 smart target rifle ammo box", 5, "orange2"),

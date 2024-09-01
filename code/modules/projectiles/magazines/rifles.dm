@@ -657,14 +657,14 @@
 //-------------------------------------------------------
 //
 
-/obj/item/ammo_magazine/rifle/T25
+/obj/item/ammo_magazine/rifle/t25
 	name = "\improper T-25 magazine (10x26mm)"
 	desc = "A 10mm assault rifle magazine."
 	caliber = CALIBER_10x26_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "T25"
+	icon_state = "t25"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/T25
+	default_ammo = /datum/ammo/bullet/rifle/t25
 	max_rounds = 80
 	icon_state_mini = "mag_rifle_big"
 
@@ -677,13 +677,13 @@
 	icon_state_mini = "mag_rifle_big_yellow"
 	//bonus_overlay = "t21_ext"
 
-/obj/item/ammo_magazine/rifle/T25/extended
+/obj/item/ammo_magazine/rifle/t25/extended
 	name = "\improper T-25 extended magazine (10x26mm)"
 	desc = "A 10mm extended assault rifle magazine."
-	icon_state = "T25_ext"
+	icon_state = "t25_ext"
 	max_rounds = 120
 	icon_state_mini = "mag_rifle_big_yellow"
-	//bonus_overlay = "T25_ext"
+	//bonus_overlay = "t25_ext"
 
 /obj/item/ammo_magazine/rifle/ar18/ap
 	name = "\improper AR-18 AP magazine (10x24mm)"

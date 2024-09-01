@@ -909,25 +909,25 @@ WEAPONS
 	cost = 45 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/rifle/T25
-	name = "T25 smartrifle"
-	contains = list(/obj/item/weapon/gun/rifle/T25)
+/datum/supply_packs/weapons/rifle/t25
+	name = "t25 smartrifle"
+	contains = list(/obj/item/weapon/gun/rifle/t25)
 	cost = 400
 
-/datum/supply_packs/weapons/ammo_magazine/rifle/T25
-	name = "T25 smartrifle magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/T25)
+/datum/supply_packs/weapons/ammo_magazine/rifle/t25
+	name = "t25 smartrifle magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/t25)
 	cost = 20
 
-/datum/supply_packs/weapons/T25_extended_mag
-	name = "T25 extended magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/T25/extended)
+/datum/supply_packs/weapons/t25_extended_mag
+	name = "t25 extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/t25/extended)
 	cost = 200
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/ammo_magazine/packet/T25_rifle
-	name = "T25 smartrifle ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)
+/datum/supply_packs/weapons/ammo_magazine/packet/t25_rifle
+	name = "t25 smartrifle ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/t25)
 	cost = 60
 
 /datum/supply_packs/weapons/box_10x25mm_sabot
