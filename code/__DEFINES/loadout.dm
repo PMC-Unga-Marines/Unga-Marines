@@ -1063,6 +1063,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
 		/obj/item/tweezers = 1,
 		/obj/item/tool/surgery/solderingtool = 1,
+		/obj/item/supplytablet = 1,
 	),
 ))
 
