@@ -20734,6 +20734,11 @@
 /obj/machinery/telecomms/bus/preset_two,
 /turf/open/floor/mainship/silver/full,
 /area/mainship/command/telecomms)
+"mku" = (
+/obj/structure/bed/bunkbed,
+/obj/effect/landmark/start/job/transportofficer,
+/turf/open/floor/wood,
+/area/mainship/living/pilotbunks)
 "mkw" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 5
@@ -26450,7 +26455,9 @@
 /area/mainship/hull/starboard_hull)
 "pxh" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/mainship/generic/mech_pilot/bunk,
+/obj/machinery/door/airlock/mainship/generic/pilot/bunk{
+	dir = 8
+	},
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "pxl" = (
@@ -67955,7 +67962,7 @@ abd
 bcq
 xot
 bcq
-abd
+mku
 xot
 clF
 cKH
