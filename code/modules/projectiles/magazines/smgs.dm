@@ -33,7 +33,7 @@
 //-------------------------------------------------------
 //MP-19 Machinepistol ammo
 
-/obj/item/ammo_magazine/smg/standard_machinepistol
+/obj/item/ammo_magazine/smg/mp19
 	name = "\improper MP-19 machinepistol magazine (10x20mm)"
 	desc = "A 10x20mm caseless machine pistol magazine."
 	caliber = CALIBER_10X20_CASELESS

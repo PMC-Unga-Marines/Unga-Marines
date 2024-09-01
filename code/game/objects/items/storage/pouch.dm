@@ -262,7 +262,7 @@
 	)
 
 /obj/item/storage/pouch/magazine/smgfull
-	fill_type = /obj/item/ammo_magazine/smg/standard_machinepistol
+	fill_type = /obj/item/ammo_magazine/smg/mp19
 	fill_number = 2
 
 /obj/item/storage/pouch/magazine/large
@@ -301,7 +301,7 @@
 	can_hold = list(
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/ammo_magazine/revolver,
-		/obj/item/ammo_magazine/smg/standard_machinepistol,
+		/obj/item/ammo_magazine/smg/mp19,
 		/obj/item/ammo_magazine/rifle/pepperball/pepperball_mini,
 	)
 

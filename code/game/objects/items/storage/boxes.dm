@@ -801,17 +801,17 @@
 	spawn_number = 40
 	spawn_type = /obj/item/ammo_magazine/smg/smg90
 
-/obj/item/storage/box/visual/magazine/compact/standard_machinepistol
+/obj/item/storage/box/visual/magazine/compact/mp19
 	name = "MP-19 magazine box"
 	desc = "A box specifically designed to hold a large amount of MP-19 magazines."
 	closed_overlay = "mag_box_small_overlay_mp19"
 	can_hold = list(
-		/obj/item/ammo_magazine/smg/standard_machinepistol,
+		/obj/item/ammo_magazine/smg/mp19,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_machinepistol/full
+/obj/item/storage/box/visual/magazine/compact/mp19/full
 	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/smg/standard_machinepistol
+	spawn_type = /obj/item/ammo_magazine/smg/mp19
 
 /obj/item/storage/box/visual/magazine/compact/pepperball
 	name = "Pepperball canister box"

@@ -1255,7 +1255,7 @@
 			/obj/item/storage/belt/sparepouch = -1,
 			/obj/item/storage/holster/belt/pistol/t457 = -1,
 			/obj/item/storage/holster/belt/revolver/t457 = -1,
-			/obj/item/storage/holster/t19 = -1,
+			/obj/item/storage/holster/mp19 = -1,
 			/obj/item/storage/holster/blade/tomahawk/full = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
 			/obj/item/storage/holster/blade/harvester/full = -1,

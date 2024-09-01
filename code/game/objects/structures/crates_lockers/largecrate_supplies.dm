@@ -215,7 +215,7 @@
 		/obj/item/storage/box/visual/magazine/compact/vp70/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/smg90/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_machinepistol/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/mp19/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/ar12/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/ar18/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/ar21/full = 1,

@@ -334,7 +334,7 @@
 		/obj/item/weapon/gun/revolver/mateba/notmarine,
 		/obj/item/weapon/gun/revolver/mateba/custom,
 		/obj/item/weapon/gun/revolver/standard_magnum,
-		/obj/item/weapon/gun/smg/standard_machinepistol,
+		/obj/item/weapon/gun/smg/mp19,
 		/obj/item/weapon/gun/smg/smg90,
 		/obj/item/weapon/gun/smg/m25,
 		/obj/item/weapon/gun/smg/mp7,

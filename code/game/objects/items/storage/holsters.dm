@@ -482,16 +482,16 @@
 	var/obj/item/new_item = new /obj/item/weapon/gun/smg/m25(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
-/obj/item/storage/holster/t19
+/obj/item/storage/holster/mp19
 	name = "\improper M276 pattern MP-19 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed for the MP-19 SMG, and features a larger frame to support the gun. Due to its unorthodox design, it isn't a very common sight, and is only specially issued."
 	icon_state = "t19_holster"
 	icon = 'icons/obj/clothing/belts.dmi'
 	flags_equip_slot = ITEM_SLOT_BELT
 	holsterable_allowed = list(
-		/obj/item/weapon/gun/smg/standard_machinepistol,
-		/obj/item/weapon/gun/smg/standard_machinepistol/compact,
-		/obj/item/weapon/gun/smg/standard_machinepistol/vgrip,
+		/obj/item/weapon/gun/smg/mp19,
+		/obj/item/weapon/gun/smg/mp19/compact,
+		/obj/item/weapon/gun/smg/mp19/vgrip,
 	)
 
 	storage_slots = 4
@@ -499,13 +499,13 @@
 	max_w_class = WEIGHT_CLASS_BULKY
 
 	can_hold = list(
-		/obj/item/weapon/gun/smg/standard_machinepistol,
-		/obj/item/ammo_magazine/smg/standard_machinepistol,
+		/obj/item/weapon/gun/smg/mp19,
+		/obj/item/ammo_magazine/smg/mp19,
 	)
 
-/obj/item/storage/holster/t19/full/Initialize(mapload)
+/obj/item/storage/holster/mp19/full/Initialize(mapload)
 	. = ..()
-	var/obj/item/new_item = new /obj/item/weapon/gun/smg/standard_machinepistol(src)
+	var/obj/item/new_item = new /obj/item/weapon/gun/smg/mp19(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
 /obj/item/storage/holster/flarepouch
