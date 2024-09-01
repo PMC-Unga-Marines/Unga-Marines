@@ -349,8 +349,9 @@
 		I.heal_organ_damage(I.damage)
 
 	reagents.clear_reagents() //and clear all reagents in them
-	var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
-	belly?.reagents.clear_reagents()
+	if(!(species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))) // change this to check src for stomach if ever decide to remove organs from something other than robots
+		var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
+		belly.reagents.clear_reagents()
 	REMOVE_TRAIT(src, TRAIT_UNDEFIBBABLE, TRAIT_UNDEFIBBABLE)
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	dead_ticks = 0
