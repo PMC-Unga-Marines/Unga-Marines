@@ -558,12 +558,12 @@
 
 /obj/item/storage/belt/marine/smartgun/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
 
 /obj/item/storage/belt/marine/target_rifle/Initialize(mapload)
 	. = ..()

@@ -159,7 +159,7 @@
 	uses = 1
 	cost = 4
 	equipment_to_spawn = list(
-		/obj/item/weapon/gun/rifle/standard_smartmachinegun/patrol,
+		/obj/item/weapon/gun/rifle/sg29/patrol,
 		/obj/item/storage/belt/marine/smartgun,
 		/obj/item/weapon/gun/minigun/smart_minigun/motion_detector,
 		/obj/item/ammo_magazine/minigun_powerpack/smartgun,

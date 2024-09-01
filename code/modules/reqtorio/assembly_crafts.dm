@@ -204,7 +204,7 @@ WEAPONS
 /datum/assembly_craft/weapons/smartgun_magazine
 	name = "SG-29 ammo drum"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
-	output = list(/obj/item/ammo_magazine/standard_smartmachinegun = 1) // 25 points from old factory
+	output = list(/obj/item/ammo_magazine/sg29 = 1) // 25 points from old factory
 
 /datum/assembly_craft/weapons/smartgun_targetrifle
 	name = "SG-62 ammo magazine"

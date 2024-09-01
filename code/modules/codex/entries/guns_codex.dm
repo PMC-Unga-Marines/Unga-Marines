@@ -306,8 +306,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Sniper was christened the 'GL-81'.\
 	Most would say that this rifle blends a feature of a normal rifle and sniper rifle, and has the ups and downs of both. Watch out in close quarters, and use the IFF and NVG features of the scope to your advantage..."
 
-/datum/codex_entry/standard_smartmachinegun
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_smartmachinegun)
+/datum/codex_entry/sg29
+	associated_paths = list(/obj/item/weapon/gun/rifle/sg29)
 	lore_text = "The Raummetall 'M-29' was made out of the heavy and unruly corpse of the 'M-28', an attempt to modernize and integrate a KTLD into the M-27 model machinegun. It ended in failure due to the overcomplexity of the system, and cost eventually made the project die.\
 	The 'M-29' is effectively a continuation in spirit of the previous project, focusing on simplifying the IFF computer systems. It only bears a outer resemblance to the M-27, outside of having the same basic systems.\
 	It has specialized systems to self-stabilize, and is made to be shoulder mounted and fired, as well as fired from lower positions, and uses its integral KTLD computer to self correct user errors, it however requires specialized training to use.\

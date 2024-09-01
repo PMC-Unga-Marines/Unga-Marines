@@ -666,7 +666,7 @@
 		/obj/item/ammo_magazine/standard_lmg,
 		/obj/item/ammo_magazine/standard_mmg,
 		/obj/item/ammo_magazine/heavymachinegun,
-		/obj/item/ammo_magazine/standard_smartmachinegun,
+		/obj/item/ammo_magazine/sg29,
 		/obj/item/ammo_magazine/som_mg,
 		/obj/item/cell/lasgun,
 	)

@@ -1297,7 +1297,7 @@
 //-------------------------------------------------------
 //SG-29 Smart Machine Gun (It's more of a rifle than the SG.)
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun
+/obj/item/weapon/gun/rifle/sg29
 	name = "\improper SG-29 Raummetall-KT smart machine gun"
 	desc = "The Raummetall-KT SG-29 is the TGMC's current standard IFF-capable medium machine gun. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
 	icon_state = "sg29"
@@ -1315,8 +1315,8 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
-	default_ammo_type = /obj/item/ammo_magazine/standard_smartmachinegun
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_smartmachinegun)
+	default_ammo_type = /obj/item/ammo_magazine/sg29
+	allowed_ammo_types = list(/obj/item/ammo_magazine/sg29)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
@@ -1348,13 +1348,13 @@
 
 	placed_overlay_iconstate = "smartgun"
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun/pmc
+/obj/item/weapon/gun/rifle/sg29/pmc
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel, /obj/item/attachable/motiondetector, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun/deathsquad
+/obj/item/weapon/gun/rifle/sg29/deathsquad
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun/patrol
+/obj/item/weapon/gun/rifle/sg29/patrol
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel, /obj/item/attachable/motiondetector, /obj/item/attachable/verticalgrip)
 
 //-------------------------------------------------------

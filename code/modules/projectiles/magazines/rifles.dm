@@ -302,14 +302,14 @@
 //-------------------------------------------------------
 //SMARTMACHINEGUN AMMUNITION
 
-/obj/item/ammo_magazine/standard_smartmachinegun
+/obj/item/ammo_magazine/sg29
 	name = "\improper SG-29 drum magazine"
 	desc = "A wide drum magazine carefully filled to capacity with 10x26mm specialized smart rounds."
 	caliber = CALIBER_10x26_CASELESS
 	icon_state = "sg29"
 	icon_state_mini = "mag_sg29"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/smartmachinegun
+	default_ammo = /datum/ammo/bullet/sg29
 	max_rounds = 250
 	reload_delay = 2.5 SECONDS
 

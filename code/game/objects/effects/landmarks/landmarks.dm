@@ -423,7 +423,7 @@
 		/obj/item/weapon/gun/rifle/icc_coilgun,
 		/obj/item/weapon/gun/rifle/sniper/svd,
 		/obj/item/weapon/gun/grenade_launcher/single_shot,
-		/obj/item/weapon/gun/rifle/standard_smartmachinegun,
+		/obj/item/weapon/gun/rifle/sg29,
 		/obj/item/weapon/gun/rifle/sectoid_rifle,
 		/obj/item/weapon/gun/rifle/tx8,
 		/obj/item/weapon/gun/shotgun/pump/bolt,

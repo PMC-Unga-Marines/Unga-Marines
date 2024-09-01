@@ -655,12 +655,12 @@ WEAPONS
 
 /datum/supply_packs/weapons/smartgun
 	name = "SG-29 smart machine gun"
-	contains = list(/obj/item/weapon/gun/rifle/standard_smartmachinegun)
+	contains = list(/obj/item/weapon/gun/rifle/sg29)
 	cost = 400
 
 /datum/supply_packs/weapons/smartgun_ammo
 	name = "SG-29 ammo drum"
-	contains = list(/obj/item/ammo_magazine/standard_smartmachinegun)
+	contains = list(/obj/item/ammo_magazine/sg29)
 	cost = 50
 
 /datum/supply_packs/weapons/smart_minigun
