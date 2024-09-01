@@ -211,15 +211,15 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
 	output = list(/obj/item/ammo_magazine/rifle/sg62 = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/autosniper_magazine
+/datum/assembly_craft/weapons/sr81_magazine
 	name = "SR-81 IFF Auto Sniper magazine"
 	input = list(/obj/item/stack/sheet/mineral/platinum = 1, /obj/item/stack/gun_powder = 2) // 12 + 16 points
-	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 13.3 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sr81 = 1) // 13.3 points from old factory
 
 /datum/assembly_craft/weapons/scout_rifle_magazine
 	name = "BR-8 scout rifle magazine"
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 16 points
-	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 10 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sr81 = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/mateba_speedloader
 	name = "Mateba autorevolver speedloader"

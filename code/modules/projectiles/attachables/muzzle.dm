@@ -148,7 +148,7 @@
 	accuracy_mod = 0.15
 	scatter_mod = -3
 
-/obj/item/attachable/autosniperbarrel
+/obj/item/attachable/sr81
 	name = "auto sniper barrel"
 	icon_state = "t81barrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."

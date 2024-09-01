@@ -1568,7 +1568,7 @@
 //-------------------------------------------------------
 //SR-81 Auto-Sniper
 
-/obj/item/weapon/gun/rifle/standard_autosniper
+/obj/item/weapon/gun/rifle/sr81
 	name = "\improper SR-81 Kauser-KT automatic sniper rifle"
 	desc = "The Kauser-KT SR-81 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 8.6x70mm caseless with specialized pressures for IFF fire."
 	icon_state = "t81"
@@ -1579,14 +1579,14 @@
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
 	caliber = CALIBER_86X70 //codex
 	max_shells = 20 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/autosniper
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/autosniper)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sr81
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/sr81)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/autosniperbarrel,
+		/obj/item/attachable/sr81,
 		/obj/item/attachable/scope/nightvision,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/suppressor,
@@ -1600,7 +1600,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 48, "muzzle_y" = 18,"rail_x" = 23, "rail_y" = 23, "under_x" = 38, "under_y" = 16, "stock_x" = 9, "stock_y" = 12)
 	starting_attachment_types = list(
-		/obj/item/attachable/autosniperbarrel,
+		/obj/item/attachable/sr81,
 		/obj/item/attachable/scope/nightvision,
 	)
 

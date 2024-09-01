@@ -434,7 +434,7 @@
 		/obj/item/weapon/gun/shotgun/zx76,
 		/obj/item/weapon/gun/flamer/big_flamer/marinestandard,
 		/obj/item/weapon/gun/flamer/som,
-		/obj/item/weapon/gun/rifle/standard_autosniper,
+		/obj/item/weapon/gun/rifle/sr81,
 		/obj/item/weapon/energy/axe,
 		/obj/item/weapon/gun/rifle/tx54,
 		/obj/item/weapon/gun/rifle/tx55,

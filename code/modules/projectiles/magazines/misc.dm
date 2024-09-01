@@ -106,7 +106,7 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/autosniper
+/obj/item/ammo_magazine/packet/sr81
 	name = "box of low-pressure 8.6x70mm"
 	desc = "A box containing 120 rounds of 8.6x70mm low velocity."
 	icon_state = "box_t81"

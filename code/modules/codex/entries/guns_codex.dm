@@ -296,8 +296,8 @@
 	However, some have been pulled out of long term storage, and recent spottings have shown modernizations such as removal of the side magazines, an overall more ergonomic shape with less brick-like features, and a larger magazine.\
 	Most would say that the unusually large magazine capacity, amazing burst fire capability allows for an interesting use of a support weapon. But its bulky and unusual shape leading a low amount of attachments can hamper it in combat."
 
-/datum/codex_entry/standard_autosniper
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_autosniper)
+/datum/codex_entry/sr81
+	associated_paths = list(/obj/item/weapon/gun/rifle/sr81)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The Sniper variant, known as the 'ALF-1' focused on creating a long range marksman rifle, focused on combining both mobility and rate of fire with good overall firepower.\
 	This particular version of the rifle is modernized with a KTLD gun computer and vision scope to allow for quick IFF in hectic engagements, and corrections for the user to stop FF, unlike older variants, it requires no specialized training to use.\

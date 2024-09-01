@@ -410,7 +410,7 @@
 
 //-------------------------------------------------------
 //Marine magazine automatic sniper, or the SR-81.
-/obj/item/ammo_magazine/rifle/autosniper
+/obj/item/ammo_magazine/rifle/sr81
 	name = "\improper SR-81 automatic sniper rifle magazine"
 	desc = "A box magazine filled with low pressure 8.6x70mm rifle rounds for the SR-81."
 	caliber = CALIBER_86X70

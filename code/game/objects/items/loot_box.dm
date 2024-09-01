@@ -50,7 +50,7 @@
 		/obj/item/weapon/gun/minigun,
 		/obj/item/weapon/gun/launcher/rocket/sadar,
 		/obj/item/weapon/gun/rifle/railgun,
-		/obj/item/weapon/gun/rifle/standard_autosniper,
+		/obj/item/weapon/gun/rifle/sr81,
 		/obj/item/weapon/gun/shotgun/zx76,
 		/obj/item/storage/belt/champion,
 	)
@@ -426,7 +426,7 @@
 		/obj/item/storage/box/crate/loot/recoilless_pack,
 	)
 	common_list = list(
-		/obj/item/storage/box/crate/loot/autosniper_pack,
+		/obj/item/storage/box/crate/loot/sr81_pack,
 		/obj/item/storage/box/crate/loot/thermobaric_pack,
 		/obj/item/storage/box/crate/loot/tesla_pack,
 		/obj/item/storage/box/crate/loot/tx54_pack,
@@ -463,21 +463,21 @@
 
 // Common
 
-/obj/item/storage/box/crate/loot/autosniper_pack/Initialize(mapload)
+/obj/item/storage/box/crate/loot/sr81_pack/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/standard_autosniper(src)
-	new /obj/item/weapon/gun/rifle/standard_autosniper(src)
-	new /obj/item/weapon/gun/rifle/standard_autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src) //180 total and common, fine considering 3 autos is really strong.
+	new /obj/item/weapon/gun/rifle/sr81(src)
+	new /obj/item/weapon/gun/rifle/sr81(src)
+	new /obj/item/weapon/gun/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src) //180 total and common, fine considering 3 autos is really strong.
 
 /obj/item/storage/box/crate/loot/thermobaric_pack/Initialize(mapload)
 	. = ..()

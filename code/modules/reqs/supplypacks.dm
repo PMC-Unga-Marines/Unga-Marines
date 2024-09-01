@@ -581,21 +581,21 @@ WEAPONS
 	cost = 100
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/autosniper
+/datum/supply_packs/weapons/sr81
 	name = "SR-81 IFF Auto Sniper kit"
-	contains = list(/obj/item/weapon/gun/rifle/standard_autosniper)
+	contains = list(/obj/item/weapon/gun/rifle/sr81)
 	cost = 500
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/autosniper_regular
+/datum/supply_packs/weapons/sr81_regular
 	name = "SR-81 IFF sniper magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/autosniper)
+	contains = list(/obj/item/ammo_magazine/rifle/sr81)
 	cost = 30
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/autosniper_packet
+/datum/supply_packs/weapons/sr81_packet
 	name = "SR-81 IFF sniper ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/autosniper)
+	contains = list(/obj/item/ammo_magazine/packet/sr81)
 	cost = 50
 	available_against_xeno_only = TRUE
 
