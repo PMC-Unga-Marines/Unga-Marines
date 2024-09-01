@@ -72,7 +72,7 @@
 	icon_state = "random_machinegun"
 	loot = list(
 		/obj/item/weapon/gun/rifle/standard_lmg,
-		/obj/item/weapon/gun/rifle/standard_gpmg,
+		/obj/item/weapon/gun/rifle/mg60,
 		/obj/item/weapon/gun/standard_mmg,
 	)
 
@@ -200,7 +200,7 @@
 	icon_state = "random_machinegun_ammo"
 	loot = list(
 		/obj/item/ammo_magazine/standard_lmg,
-		/obj/item/ammo_magazine/standard_gpmg,
+		/obj/item/ammo_magazine/mg60,
 		/obj/item/ammo_magazine/standard_mmg,
 		/obj/item/ammo_magazine/heavymachinegun,
 	)

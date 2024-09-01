@@ -228,7 +228,7 @@
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
-/obj/item/ammo_magazine/standard_gpmg
+/obj/item/ammo_magazine/mg60
 	name = "\improper MG-60 GPMG box magazine (10x26mm)"
 	desc = "A belt box for the MG-60 general purpose machinegun."
 	icon_state = "t60"

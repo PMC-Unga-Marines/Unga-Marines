@@ -374,7 +374,7 @@
 		/obj/item/weapon/gun/rifle/famas,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine,
 		/obj/item/weapon/gun/rifle/standard_lmg,
-		/obj/item/weapon/gun/rifle/standard_gpmg,
+		/obj/item/weapon/gun/rifle/mg60,
 		/obj/item/weapon/gun/rifle/m412l1_hpr,
 		/obj/item/weapon/gun/rifle/type71/flamer,
 		/obj/item/weapon/gun/rifle/type71,

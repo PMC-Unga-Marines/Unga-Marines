@@ -661,7 +661,7 @@
 		/obj/item/ammo_magazine/shotgun,
 		/obj/item/ammo_magazine/smg,
 		/obj/item/ammo_magazine/sniper,
-		/obj/item/ammo_magazine/standard_gpmg,
+		/obj/item/ammo_magazine/mg60,
 		/obj/item/ammo_magazine/hsg102,
 		/obj/item/ammo_magazine/standard_lmg,
 		/obj/item/ammo_magazine/standard_mmg,
@@ -1040,18 +1040,18 @@
 	spawn_number = 30
 	spawn_type = /obj/item/ammo_magazine/standard_lmg
 
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg
+/obj/item/storage/box/visual/magazine/compact/mg60
 	name = "MG-60 magazine box"
 	desc = "A box specifically designed to hold a large amount of MG-60 box magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_mg60"
 	can_hold = list(
-		/obj/item/ammo_magazine/standard_gpmg,
+		/obj/item/ammo_magazine/mg60,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full
+/obj/item/storage/box/visual/magazine/compact/mg60/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/standard_gpmg
+	spawn_type = /obj/item/ammo_magazine/mg60
 
 /obj/item/storage/box/visual/magazine/compact/standard_mmg
 	name = "MG-27 magazine box"

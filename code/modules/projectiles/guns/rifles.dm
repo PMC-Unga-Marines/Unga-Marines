@@ -970,7 +970,7 @@
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
-/obj/item/weapon/gun/rifle/standard_gpmg
+/obj/item/weapon/gun/rifle/mg60
 	name = "\improper MG-60 Raummetall general purpose machine gun"
 	desc = "The Raummetall MG-60 general purpose machinegun is the TGMC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 10x26mm boxes."
 	icon = 'icons/Marine/gun64.dmi'
@@ -996,8 +996,8 @@
 	reload_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boxin.ogg'
 	cocked_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boltpull.ogg'
 	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/standard_gpmg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_gpmg)
+	default_ammo_type = /obj/item/ammo_magazine/mg60
+	allowed_ammo_types = list(/obj/item/ammo_magazine/mg60)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
@@ -1040,7 +1040,7 @@
 /obj/item/weapon/gun/rifle/standard_lmg/autorifleman
 	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
 
-/obj/item/weapon/gun/rifle/standard_gpmg/machinegunner
+/obj/item/weapon/gun/rifle/mg60/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t60stock, /obj/item/attachable/foldable/bipod, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel)
 
 //-------------------------------------------------------

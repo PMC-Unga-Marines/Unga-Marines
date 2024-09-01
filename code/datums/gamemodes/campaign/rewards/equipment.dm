@@ -91,10 +91,10 @@
 		/obj/effect/supply_drop/ar18,
 		/obj/effect/supply_drop/standard_rifle,
 		/obj/effect/supply_drop/combat_rifle,
-		/obj/item/weapon/gun/rifle/standard_gpmg/machinegunner,
-		/obj/item/ammo_magazine/standard_gpmg,
-		/obj/item/ammo_magazine/standard_gpmg,
-		/obj/item/ammo_magazine/standard_gpmg,
+		/obj/item/weapon/gun/rifle/mg60/machinegunner,
+		/obj/item/ammo_magazine/mg60,
+		/obj/item/ammo_magazine/mg60,
+		/obj/item/ammo_magazine/mg60,
 	)
 
 /datum/campaign_asset/equipment/ballistic_som

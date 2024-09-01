@@ -53,8 +53,8 @@
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
 		"Machinegun" = list(
-			/obj/item/weapon/gun/rifle/standard_gpmg = -1,
-			/obj/item/ammo_magazine/standard_gpmg = -1,
+			/obj/item/weapon/gun/rifle/mg60 = -1,
+			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/standard_mmg = 5,
 			/obj/item/ammo_magazine/standard_mmg = -1,
 		),
@@ -276,8 +276,8 @@
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
 		"Machinegun" = list(
-			/obj/item/weapon/gun/rifle/standard_gpmg = -1,
-			/obj/item/ammo_magazine/standard_gpmg = -1,
+			/obj/item/weapon/gun/rifle/mg60 = -1,
+			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/standard_mmg = 5,
 			/obj/item/ammo_magazine/standard_mmg = -1,
 		),
@@ -498,8 +498,8 @@
 			/obj/item/storage/holster/belt/ts34/full = -1,
 		),
 		"Machinegun" = list(
-			/obj/item/weapon/gun/rifle/standard_gpmg = -1,
-			/obj/item/ammo_magazine/standard_gpmg = -1,
+			/obj/item/weapon/gun/rifle/mg60 = -1,
+			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/standard_mmg = -1,
 			/obj/item/ammo_magazine/standard_mmg = -1,
 		),
@@ -806,7 +806,7 @@
 			/obj/item/storage/box/visual/magazine/compact/sh15/slug/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/dmr37/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/sr127/full = -1,
-			/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full = -1,
+			/obj/item/storage/box/visual/magazine/compact/mg60/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/standard_mmg/full = -1,
 		),
 		"Mecha Ammo" = list(

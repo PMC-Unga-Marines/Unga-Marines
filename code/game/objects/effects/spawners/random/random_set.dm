@@ -224,10 +224,10 @@
 	icon_state = "random_machinegun"
 
 	option_list = list(
-		list(/obj/item/weapon/gun/rifle/standard_gpmg,
-			/obj/item/ammo_magazine/standard_gpmg,
-			/obj/item/ammo_magazine/standard_gpmg,
-			/obj/item/ammo_magazine/standard_gpmg,
+		list(/obj/item/weapon/gun/rifle/mg60,
+			/obj/item/ammo_magazine/mg60,
+			/obj/item/ammo_magazine/mg60,
+			/obj/item/ammo_magazine/mg60,
 		),
 		list(/obj/item/weapon/gun/standard_mmg,
 			/obj/item/ammo_magazine/standard_mmg,

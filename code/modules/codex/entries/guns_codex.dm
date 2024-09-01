@@ -314,8 +314,8 @@
 	The 'M-29' is effectively a incredibly accurate machinegun, it ended up being offered to the Marine Corps after the previous attempt to just modernize the older machineguns failed. It ended up being christened the 'MG-28' and entered service.\
 	Most would say that this machinegun makes you a walking turret, you'll be slow and unwieldy with no match when it comes to fire suppression on the move."
 
-/datum/codex_entry/standard_smartmmg
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_gpmg)
+/datum/codex_entry/mg60
+	associated_paths = list(/obj/item/weapon/gun/rifle/mg60)
 	lore_text = "The Raummetall 'M-60' was designed out of a bid for a cheap and available machinegun that could move to several roles, be it fire support, vehicle mounted or sentry duties.\
 	It is basically a General Purpose Machinegun (GPMG), meant to be used in about every scenario, usually not as well as a specialized gun, however it ended up being well known for its lightness and mobility within its class.\
 	Eventually, it won the bid due to its light weight, and low cost for mass production. Despite arguably being worse than most of the competition everywhere else outside of firerate. It was christened the 'MG-28' and entered service.\
