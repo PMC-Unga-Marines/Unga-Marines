@@ -88,7 +88,7 @@
 	uses = 1
 	cost = 2
 	equipment_to_spawn = list(
-		/obj/effect/supply_drop/standard_carbine,
+		/obj/effect/supply_drop/ar18,
 		/obj/effect/supply_drop/standard_rifle,
 		/obj/effect/supply_drop/combat_rifle,
 		/obj/item/weapon/gun/rifle/standard_gpmg/machinegunner,

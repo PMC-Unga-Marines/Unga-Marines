@@ -27,7 +27,7 @@
 //-------------------------------------------------------
 //AR-18 Carbine
 
-/obj/item/weapon/gun/rifle/standard_carbine
+/obj/item/weapon/gun/rifle/ar18
 	name = "\improper AR-18 Kauser carbine"
 	desc = "The Keckler and Hoch AR-18 carbine is one of the standard rifles used by the TerraGov Marine Corps. It's commonly used by people who prefer greater mobility in combat, like scouts and other light infantry. Uses 10x24mm caseless ammunition."
 	icon_state = "t18"
@@ -41,21 +41,21 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar18
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar18)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 		)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_carbine,
-		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
-		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
-		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
-		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
+		/obj/item/ammo_magazine/rifle/ar18,
+		/obj/item/ammo_magazine/rifle/ar18/ap,
+		/obj/item/ammo_magazine/rifle/ar18/hp,
+		/obj/item/ammo_magazine/rifle/ar18/sabot,
+		/obj/item/ammo_magazine/rifle/ar18/incendiary,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t18stock,
+		/obj/item/attachable/stock/ar18stock,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -90,7 +90,7 @@
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 5, "rail_y" = 19, "under_x" = 18, "under_y" = 14, "stock_x" = 0, "stock_y" = 13)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
@@ -105,20 +105,20 @@
 	damage_falloff_mult = 0.9
 	movement_acc_penalty_mult = 4
 
-/obj/item/weapon/gun/rifle/standard_carbine/pointman
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/attachable/lasersight, /obj/item/attachable/flashlight)
+/obj/item/weapon/gun/rifle/ar18/pointman
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/attachable/lasersight, /obj/item/attachable/flashlight)
 
-/obj/item/weapon/gun/rifle/standard_carbine/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
+/obj/item/weapon/gun/rifle/ar18/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
 
-/obj/item/weapon/gun/rifle/standard_carbine/scout
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel)
+/obj/item/weapon/gun/rifle/ar18/scout
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel)
 
-/obj/item/weapon/gun/rifle/standard_carbine/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar18/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/standard_carbine/plasma_pistol
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
+/obj/item/weapon/gun/rifle/ar18/plasma_pistol
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
 
 //-------------------------------------------------------
 //AR-12 Assault Rifle

@@ -39,9 +39,9 @@
 	bonus_overlay = "m412_ap"
 
 //-------------------------------------------------------
-//T18 Carbine
+//ar18 Carbine
 
-/obj/item/ammo_magazine/rifle/standard_carbine
+/obj/item/ammo_magazine/rifle/ar18
 	name = "\improper AR-18 magazine (10x24mm)"
 	desc = "A 10mm carbine magazine."
 	caliber = CALIBER_10X24_CASELESS
@@ -685,25 +685,25 @@
 	icon_state_mini = "mag_rifle_big_yellow"
 	//bonus_overlay = "T25_ext"
 
-/obj/item/ammo_magazine/rifle/standard_carbine/ap
+/obj/item/ammo_magazine/rifle/ar18/ap
 	name = "\improper AR-18 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
-/obj/item/ammo_magazine/rifle/standard_carbine/incendiary
+/obj/item/ammo_magazine/rifle/ar18/incendiary
 	name = "\improper AR-18 incendiary magazine (10x24mm)"
 	desc = "A 10mm incendiary carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_carbine/hp
+/obj/item/ammo_magazine/rifle/ar18/hp
 	name = "\improper AR-18 HP magazine (10x24mm)"
 	desc = "A 10mm hollow-point  carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/standard_carbine/sabot
+/obj/item/ammo_magazine/rifle/ar18/sabot
 	name = "\improper AR-18 APDS magazine (10x24mm)"
 	desc = "A 10mm APDS carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT

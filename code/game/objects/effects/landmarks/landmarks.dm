@@ -362,7 +362,7 @@
 	name = "Tier 3 Weapon Spawn"
 	icon_state = "weapon3"
 	weapon_list = list(
-		/obj/item/weapon/gun/rifle/standard_carbine,
+		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/standard_assaultrifle,
 		/obj/item/weapon/gun/rifle/standard_dmr,
 		/obj/item/weapon/gun/rifle/standard_br,

@@ -105,7 +105,7 @@
 		/obj/item/storage/pouch/firstaid/combat_patrol,
 		/obj/item/storage/pouch/medical_injectors/firstaid,
 		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/effect/supply_drop/standard_carbine,
+		/obj/effect/supply_drop/ar18,
 		/obj/effect/supply_drop/standard_rifle,
 		/obj/effect/supply_drop/combat_rifle,
 		/obj/effect/supply_drop/laser_rifle,
@@ -244,10 +244,10 @@
 	new /obj/item/stack/barbed_wire/full(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/standard_carbine/Initialize(mapload)
+/obj/effect/supply_drop/ar18/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/standard_carbine/scout(loc)
-	new /obj/item/storage/belt/marine/t18(loc)
+	new /obj/item/weapon/gun/rifle/ar18/scout(loc)
+	new /obj/item/storage/belt/marine/ar18(loc)
 	new /obj/item/explosive/grenade(loc)
 	new /obj/item/explosive/grenade(loc)
 	return INITIALIZE_HINT_QDEL

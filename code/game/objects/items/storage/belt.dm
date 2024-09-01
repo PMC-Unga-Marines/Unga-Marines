@@ -439,14 +439,14 @@
 		/obj/item/reagent_containers/food/snacks,
 	)
 
-/obj/item/storage/belt/marine/t18/Initialize(mapload)
+/obj/item/storage/belt/marine/ar18/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
 
 /obj/item/storage/belt/marine/t12/Initialize(mapload)
 	. = ..()
@@ -549,8 +549,8 @@
 
 /obj/item/storage/belt/marine/oicw/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
 	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
 	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
 	new /obj/item/ammo_magazine/rifle/tx54(src)

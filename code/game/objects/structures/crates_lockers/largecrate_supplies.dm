@@ -21,7 +21,7 @@
 /obj/effect/landmark/supplyspawner/weapons
 	name = "weapon supplies"
 	supply = list(
-		/obj/structure/largecrate/supply/weapons/standard_carbine = 2,
+		/obj/structure/largecrate/supply/weapons/ar18 = 2,
 		/obj/structure/largecrate/supply/weapons/shotgun = 2,
 		/obj/structure/largecrate/supply/weapons/standard_smg = 2,
 		/obj/structure/largecrate/supply/weapons/pistols = 2,
@@ -101,10 +101,10 @@
 	name = "weapons chest"
 	icon_state = "chest"
 
-/obj/structure/largecrate/supply/weapons/standard_carbine
+/obj/structure/largecrate/supply/weapons/ar18
 	name = "\improper AR-18 Carbine weapons chest (x10)"
 	desc = "A weapons chest containing ten AR-18 Carbines."
-	supplies = list(/obj/item/weapon/gun/rifle/standard_carbine = 10)
+	supplies = list(/obj/item/weapon/gun/rifle/ar18 = 10)
 
 /obj/structure/largecrate/supply/weapons/shotgun
 	name = "\improper SH-35 pump action shotgun weapons chest (x10)"
@@ -217,7 +217,7 @@
 		/obj/item/storage/box/visual/magazine/compact/standard_smg/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_machinepistol/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_carbine/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/ar18/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_skirmishrifle/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/ar11/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full = 1,

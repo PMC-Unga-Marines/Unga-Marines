@@ -187,7 +187,7 @@
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 
-/obj/item/attachable/stock/t18stock
+/obj/item/attachable/stock/ar18stock
 	name = "\improper AR-18 stock"
 	desc = "A specialized stock for the AR-18."
 	icon_state = "t18stock"

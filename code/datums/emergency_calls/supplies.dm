@@ -27,8 +27,8 @@
 							/obj/item/detpack, \
 							/obj/item/assembly/signaler \
 							), \
-						list(/obj/item/weapon/gun/rifle/standard_carbine, \
-							/obj/item/weapon/gun/rifle/standard_carbine, \
+						list(/obj/item/weapon/gun/rifle/ar18, \
+							/obj/item/weapon/gun/rifle/ar18, \
 							/obj/item/ammo_magazine/rifle/incendiary, \
 							/obj/item/ammo_magazine/rifle/incendiary, \
 							/obj/item/ammo_magazine/rifle/incendiary, \

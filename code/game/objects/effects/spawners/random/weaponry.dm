@@ -11,7 +11,7 @@
 	icon_state = "random_rifle"
 	loot = list(
 		/obj/item/weapon/gun/rifle/standard_assaultrifle,
-		/obj/item/weapon/gun/rifle/standard_carbine,
+		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
 		/obj/item/weapon/gun/smg/standard_smg,
@@ -82,7 +82,7 @@
 	icon_state = "random_rifle"
 	loot = list(
 		/obj/item/weapon/gun/rifle/standard_assaultrifle,
-		/obj/item/weapon/gun/rifle/standard_carbine,
+		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
@@ -160,7 +160,7 @@
 	icon_state = "random_ammo"
 	loot = list(
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_carbine,
+		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/tx11,
 		/obj/item/ammo_magazine/smg/standard_smg,
@@ -211,7 +211,7 @@
 	icon_state = "random_rifle_ammo"
 	loot = list(
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_carbine,
+		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/tx11,
 	)

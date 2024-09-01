@@ -259,8 +259,8 @@
 	After wining all the tests, it was accepted and christened the 'AR-12' in service. Aside from issues with barrel overheating, which later models fixed. It is known for reliability across the Marine Corps and the wider galaxy.\
 	Most would say the simple blend of a good magazine size, ergonomics and adaptablitty elevate this weapon above the rest."
 
-/datum/codex_entry/standard_carbine
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_carbine)
+/datum/codex_entry/ar18
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar18)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The Carbine variant, known as the 'ALF-51' focused on creating a small, compact package that could fire a rifle-sized round while still retaining good accuracy and shot placement.\
 	Originally, it was meant to fire in burst-fire only, future production variants turned to feature full-auto after it showed that in testing, it would improve troop morale and confidence in the versatility in the rifle.\
