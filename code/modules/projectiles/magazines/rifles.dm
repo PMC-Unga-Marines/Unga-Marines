@@ -215,7 +215,7 @@
 //-------------------------------------------------------
 //MG-42 Light Machine Gun
 
-/obj/item/ammo_magazine/standard_lmg
+/obj/item/ammo_magazine/mg42
 	name = "\improper MG-42 drum magazine (10x24mm)"
 	desc = "A drum magazine for the MG-42 light machine gun."
 	icon_state = "t42"

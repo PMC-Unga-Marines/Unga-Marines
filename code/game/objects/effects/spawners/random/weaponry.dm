@@ -71,7 +71,7 @@
 	name = "Random machinegun spawner"
 	icon_state = "random_machinegun"
 	loot = list(
-		/obj/item/weapon/gun/rifle/standard_lmg,
+		/obj/item/weapon/gun/rifle/mg42,
 		/obj/item/weapon/gun/rifle/mg60,
 		/obj/item/weapon/gun/mg27,
 	)
@@ -199,7 +199,7 @@
 	name = "Random machinegun ammunition spawner"
 	icon_state = "random_machinegun_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/standard_lmg,
+		/obj/item/ammo_magazine/mg42,
 		/obj/item/ammo_magazine/mg60,
 		/obj/item/ammo_magazine/mg27,
 		/obj/item/ammo_magazine/heavymachinegun,

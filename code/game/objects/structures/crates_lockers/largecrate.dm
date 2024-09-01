@@ -236,7 +236,7 @@
 		/obj/item/weapon/gun/flamer/big_flamer = /obj/item/ammo_magazine/flamer_tank,
 		/obj/item/weapon/gun/pistol/rt3 = /obj/item/ammo_magazine/pistol/incendiary,
 		/obj/item/weapon/gun/rifle/ar12 = /obj/item/ammo_magazine/rifle/ar12,
-		/obj/item/weapon/gun/rifle/standard_lmg = /obj/item/ammo_magazine/standard_lmg,
+		/obj/item/weapon/gun/rifle/mg42 = /obj/item/ammo_magazine/mg42,
 		/obj/item/weapon/gun/grenade_launcher/single_shot = /obj/item/explosive/grenade/phosphorus
 	)
 

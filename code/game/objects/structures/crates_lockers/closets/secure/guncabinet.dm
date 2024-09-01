@@ -63,11 +63,11 @@
 	new /obj/item/weapon/gun/smg/m25/elite(src)
 
 
-/obj/structure/closet/secure_closet/guncabinet/lmg/PopulateContents()
-	new /obj/item/weapon/gun/rifle/standard_lmg(src)
-	new /obj/item/ammo_magazine/standard_lmg(src)
-	new /obj/item/weapon/gun/rifle/standard_lmg(src)
-	new /obj/item/ammo_magazine/standard_lmg(src)
+/obj/structure/closet/secure_closet/guncabinet/mg42/PopulateContents()
+	new /obj/item/weapon/gun/rifle/mg42(src)
+	new /obj/item/ammo_magazine/mg42(src)
+	new /obj/item/weapon/gun/rifle/mg42(src)
+	new /obj/item/ammo_magazine/mg42(src)
 
 
 /obj/structure/closet/secure_closet/guncabinet/m57a4/PopulateContents()

@@ -129,7 +129,7 @@
 /obj/structure/largecrate/supply/weapons/hpr
 	name = "\improper MG-42 LMG weapons chest (x2)"
 	desc = "A weapons chest containing two MG-42 LMG."
-	supplies = list(/obj/item/weapon/gun/rifle/standard_lmg = 2)
+	supplies = list(/obj/item/weapon/gun/rifle/mg42 = 2)
 
 /obj/structure/largecrate/supply/weapons/sentries
 	name = "\improper ST-571 sentry chest (x2)"
@@ -226,7 +226,7 @@
 		/obj/item/storage/box/visual/magazine/compact/dmr37/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/br64/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/sr127/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_lmg/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/mg42/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/mg60/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/mg27/full = 1,
 	)

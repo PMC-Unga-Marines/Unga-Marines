@@ -419,7 +419,7 @@
 	},
 /area/whiskey_outpost)
 "bG" = (
-/obj/structure/closet/secure_closet/guncabinet/lmg,
+/obj/structure/closet/secure_closet/guncabinet/mg42,
 /turf/open/floor/prison/plate,
 /area/whiskey_outpost)
 "bH" = (

@@ -268,8 +268,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Carbine was christened the 'AR-18'.\
 	Most would say its particularly compact appreance and performance, combined with good burst-fire capablity are its edge in combat. Watch your ammo, though."
 
-/datum/codex_entry/standard_lmg
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_lmg)
+/datum/codex_entry/mg42
+	associated_paths = list(/obj/item/weapon/gun/rifle/mg42)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The Machinegun variant, known as the 'ALF-22' focused on creating a versatile package consisting of a light squad support weapon, with a focus on mobility and accurate fire over pure magazine size.\
 	It ended up with a drum magazine, elongated heavy barrel for sustained firing, its overall shape being of a common rifle generally assists it in being easy to pickup and use, and can mount more underbarrel attachments compared to its peers in its class.\

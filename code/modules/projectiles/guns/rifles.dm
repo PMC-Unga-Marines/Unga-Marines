@@ -892,7 +892,7 @@
 //-------------------------------------------------------
 //MG-42 Light Machine Gun
 
-/obj/item/weapon/gun/rifle/standard_lmg
+/obj/item/weapon/gun/rifle/mg42
 	name = "\improper MG-42 Kauser light machine gun"
 	desc = "The Kauser MG-42 is the TGMC's current standard non-IFF-capable LMG. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. It uses 10x24mm ammunition."
 
@@ -916,8 +916,8 @@
 	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	unload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipout.ogg'
 	reload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipin.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/standard_lmg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_lmg)
+	default_ammo_type = /obj/item/ammo_magazine/mg42
+	allowed_ammo_types = list(/obj/item/ammo_magazine/mg42)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t42stock,
 		/obj/item/attachable/reddot,
@@ -1037,7 +1037,7 @@
 
 	placed_overlay_iconstate = "lmg"
 
-/obj/item/weapon/gun/rifle/standard_lmg/autorifleman
+/obj/item/weapon/gun/rifle/mg42/autorifleman
 	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
 
 /obj/item/weapon/gun/rifle/mg60/machinegunner

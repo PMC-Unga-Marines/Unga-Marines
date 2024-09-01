@@ -663,7 +663,7 @@
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/ammo_magazine/mg60,
 		/obj/item/ammo_magazine/hsg102,
-		/obj/item/ammo_magazine/standard_lmg,
+		/obj/item/ammo_magazine/mg42,
 		/obj/item/ammo_magazine/mg27,
 		/obj/item/ammo_magazine/heavymachinegun,
 		/obj/item/ammo_magazine/sg29,
@@ -1027,18 +1027,18 @@
 
 // -Machinegun-
 
-/obj/item/storage/box/visual/magazine/compact/standard_lmg
+/obj/item/storage/box/visual/magazine/compact/mg42
 	name = "MG-42 drum magazine box"
 	desc = "A box specifically designed to hold a large amount of MG-42 drum magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_mg42"
 	can_hold = list(
-		/obj/item/ammo_magazine/standard_lmg,
+		/obj/item/ammo_magazine/mg42,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full
+/obj/item/storage/box/visual/magazine/compact/mg42/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/standard_lmg
+	spawn_type = /obj/item/ammo_magazine/mg42
 
 /obj/item/storage/box/visual/magazine/compact/mg60
 	name = "MG-60 magazine box"
