@@ -1097,7 +1097,7 @@
 	amt_horizontal = BOX_GRENADE_COLUMNS
 	amt_vertical = BOX_GRENADE_ROWS
 
-/obj/item/storage/box/visual/grenade/M15
+/obj/item/storage/box/visual/grenade/m15
 	name = "\improper M15 grenade box"
 	desc = "A secure box holding 25 M15 fragmentation grenades."
 	spawn_number = 25

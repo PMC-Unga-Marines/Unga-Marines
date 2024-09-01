@@ -1080,7 +1080,7 @@ EXPLOSIVES
 /datum/supply_packs/explosives/explosives_m15
 	name = "M15 fragmentation grenade box crate"
 	notes = "Contains 15 grenades"
-	contains = list(/obj/item/storage/box/visual/grenade/M15)
+	contains = list(/obj/item/storage/box/visual/grenade/m15)
 	cost = 350
 
 /datum/supply_packs/explosives/explosives_trailblazer

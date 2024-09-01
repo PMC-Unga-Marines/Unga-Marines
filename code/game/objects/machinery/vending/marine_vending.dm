@@ -779,7 +779,7 @@
 		"Grenade Boxes" = list(
 			/obj/item/storage/box/visual/grenade/frag = 1,
 			/obj/item/storage/box/visual/grenade/incendiary = 2,
-			/obj/item/storage/box/visual/grenade/M15 = 1,
+			/obj/item/storage/box/visual/grenade/m15 = 1,
 			/obj/item/storage/box/visual/grenade/cloak = 1,
 			/obj/item/storage/box/visual/grenade/sticky = 1,
 			/obj/item/storage/box/visual/grenade/trailblazer = 1,

@@ -79,7 +79,7 @@
 
 /obj/structure/closet/secure_closet/guncabinet/explosives/PopulateContents()
 	new /obj/item/storage/box/visual/grenade/incendiary(src)
-	new /obj/item/storage/box/visual/grenade/M15(src)
+	new /obj/item/storage/box/visual/grenade/m15(src)
 	new /obj/item/storage/box/visual/grenade/impact(src)
 	new /obj/item/storage/box/explosive_mines(src)
 

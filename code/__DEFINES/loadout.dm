@@ -248,7 +248,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/explosive/grenade/smokebomb = list(CAT_FCSUP, "M40 HSDP smokebomb grenade", 1, "orange3"),
 	/obj/item/storage/box/visual/grenade/incendiary = list(CAT_FCSUP, "M40 HIDP incendiary grenade box", 10, "blue"),
 	/obj/item/explosive/grenade/incendiary = list(CAT_FCSUP, "M40 HIDP incendiary grenade", 1, "orange3"),
-	/obj/item/storage/box/visual/grenade/M15 = list(CAT_FCSUP, "M15 fragmentation grenade box", 15, "blue"),
+	/obj/item/storage/box/visual/grenade/m15 = list(CAT_FCSUP, "M15 fragmentation grenade box", 15, "blue"),
 	/obj/item/explosive/grenade/m15 = list(CAT_FCSUP, "M15 fragmentation grenade", 2, "orange3"),
 	/obj/item/storage/box/visual/grenade/trailblazer = list(CAT_FCSUP, "M45 Trailblazer grenade box", 15, "blue"),
 	/obj/item/explosive/grenade/sticky/trailblazer = list(CAT_FCSUP, "M45 Trailblazer grenade", 2, "orange3"),
