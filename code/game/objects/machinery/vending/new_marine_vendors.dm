@@ -741,10 +741,6 @@
 /obj/effect/vendor_bundle/smartgunner_pistol
 	gear_to_spawn = list(
 		/obj/item/clothing/glasses/night/m56_goggles,
-		/obj/item/storage/holster/belt/pistol/smart_pistol,
-		/obj/item/weapon/gun/pistol/smart_pistol,
-		/obj/item/ammo_magazine/pistol/p14/smart_pistol,
-		/obj/item/ammo_magazine/pistol/p14/smart_pistol,
 	)
 
 /obj/effect/vendor_bundle/leader
@@ -752,9 +748,7 @@
 		/obj/item/explosive/plastique,
 		/obj/item/beacon/supply_beacon,
 		/obj/item/beacon/supply_beacon,
-		//RUTGMC EDIT ADDITION BEGIN - ORBITAL_BEACON
 		/obj/item/beacon/orbital_bombardment_beacon,
-		//RUTGMC EDIT ADDITION END
 		/obj/item/whistle,
 		/obj/item/compass,
 		/obj/item/binoculars/tactical,

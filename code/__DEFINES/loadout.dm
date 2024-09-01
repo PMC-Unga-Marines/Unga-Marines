@@ -1001,6 +1001,7 @@ GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	SQUAD_ENGINEER = list (
+		/obj/item/weapon/gun/sentry/basic = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1,
 		/obj/item/clothing/gloves/marine/insulated = 1,
@@ -1062,6 +1063,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
 		/obj/item/tweezers = 1,
 		/obj/item/tool/surgery/solderingtool = 1,
+		/obj/item/supplytablet = 1,
 	),
 ))
 
