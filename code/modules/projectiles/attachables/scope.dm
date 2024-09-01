@@ -70,7 +70,7 @@
 	scoped_accuracy_mod = SCOPE_RAIL_MINI
 	zoom_slowdown = 0.50
 
-/obj/item/attachable/scope/unremovable/tl127
+/obj/item/attachable/scope/unremovable/sr127
 	name = "T-45 rail scope"
 	icon_state = "tl127_scope"
 	aim_speed_mod = 0

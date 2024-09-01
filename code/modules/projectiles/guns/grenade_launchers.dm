@@ -186,7 +186,7 @@ The Grenade Launchers
 /obj/item/weapon/gun/grenade_launcher/underslung/invisible
 	flags_attach_features = NONE
 
-/obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle
+/obj/item/weapon/gun/grenade_launcher/underslung/br64
 	name = "\improper BR-64 underslung grenade launcher"
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher designed to fit the BR-64."
 	icon = 'icons/Marine/marine-weapons.dmi'

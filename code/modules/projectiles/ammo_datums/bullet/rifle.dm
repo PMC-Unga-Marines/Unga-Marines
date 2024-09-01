@@ -204,7 +204,7 @@
 	penetration = 25
 	additional_xeno_penetration = 5
 
-/datum/ammo/bullet/rifle/standard_br
+/datum/ammo/bullet/rifle/br64
 	name = "light marksman bullet"
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
@@ -213,7 +213,7 @@
 	damage = 30
 	additional_xeno_penetration = 10
 
-/datum/ammo/bullet/rifle/standard_br/ap
+/datum/ammo/bullet/rifle/br64/ap
 	name = "light marksman armor piercing bullet"
 	penetration = 25
 	damage = 25

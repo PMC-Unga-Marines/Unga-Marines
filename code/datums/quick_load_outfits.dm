@@ -209,14 +209,14 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 
-/datum/outfit/quick/tgmc/marine/standard_battlerifle
+/datum/outfit/quick/tgmc/marine/br64
 	name = "BR-64 Rifleman"
 	desc = "Heavier firepower for the discerning rifleman. Equipped with an BR-64 battle rifle with UGL, heavy armor, and plenty of grenades and ammunition. Higher damage and penetration, at the cost of a more bulky weapon."
 
-	suit_store = /obj/item/weapon/gun/rifle/standard_br/standard
-	belt = /obj/item/storage/belt/marine/standard_battlerifle
+	suit_store = /obj/item/weapon/gun/rifle/br64/standard
+	belt = /obj/item/storage/belt/marine/br64
 
-/datum/outfit/quick/tgmc/marine/standard_battlerifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/quick/tgmc/marine/br64/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x265mm, SLOT_IN_BACKPACK)
@@ -1021,14 +1021,14 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_ACCESSORY)
 
-/datum/outfit/quick/tgmc/leader/standard_battlerifle
+/datum/outfit/quick/tgmc/leader/br64
 	name = "BR-64 Patrol Leader"
 	desc = "Gives the orders. Equipped with an BR-64 battle rifle with UGL, plenty of grenades, as well as heavy armor with a 'valkyrie' autodoc module. The battle rifle offers improved damage and penetration compared to more common rifles, but still retains a grenade launcher that the AR-11 lacks."
 
-	suit_store = /obj/item/weapon/gun/rifle/standard_br/standard
-	belt = /obj/item/storage/belt/marine/standard_battlerifle
+	suit_store = /obj/item/weapon/gun/rifle/br64/standard
+	belt = /obj/item/storage/belt/marine/br64
 
-/datum/outfit/quick/tgmc/leader/standard_battlerifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/quick/tgmc/leader/br64/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x265mm, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x265mm, SLOT_IN_BACKPACK)

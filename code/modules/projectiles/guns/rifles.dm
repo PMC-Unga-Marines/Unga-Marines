@@ -296,7 +296,7 @@
 //-------------------------------------------------------
 //BR-64 BR
 
-/obj/item/weapon/gun/rifle/standard_br
+/obj/item/weapon/gun/rifle/br64
 	name = "\improper BR-64 SCA battle rifle"
 	desc = "The San Cristo Arms BR-64 is the TerraGov Marine Corps main battle rifle. It is known for its consistent ability to perform well at most ranges, and medium range stopping power with bursts. It is mostly used by people who prefer a bigger round than the average. Uses 10x26.5smm caseless caliber."
 	icon_state = "t64"
@@ -323,14 +323,14 @@
 	wield_delay = 0.7 SECONDS
 	force = 20
 	max_shells = 36 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_br
+	default_ammo_type = /obj/item/ammo_magazine/rifle/br64
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_br,
-		/obj/item/ammo_magazine/rifle/standard_br/ap,
+		/obj/item/ammo_magazine/rifle/br64,
+		/obj/item/ammo_magazine/rifle/br64/ap,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t64stock,
-		/obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle,
+		/obj/item/attachable/stock/br64stock,
+		/obj/item/weapon/gun/grenade_launcher/underslung/br64,
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -360,7 +360,7 @@
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/t64stock, /obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle, /obj/item/attachable/scope/mini)
+	starting_attachment_types = list(/obj/item/attachable/stock/br64stock, /obj/item/weapon/gun/grenade_launcher/underslung/br64, /obj/item/attachable/scope/mini)
 	attachable_offset = list("muzzle_x" = 44, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 23, "under_x" = 33, "under_y" = 13, "stock_x" = 11, "stock_y" = 14)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.2 SECONDS
@@ -373,8 +373,8 @@
 	accuracy_mult = 0.9
 	scatter = 0
 
-/obj/item/weapon/gun/rifle/standard_br/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/t64stock, /obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
+/obj/item/weapon/gun/rifle/br64/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/br64stock, /obj/item/weapon/gun/grenade_launcher/underslung/br64, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
 
 //-------------------------------------------------------
 //PR-412 Pulse Rifle
@@ -1491,7 +1491,7 @@
 //-------------------------------------------------------
 //SR-127 bolt action sniper rifle
 
-/obj/item/weapon/gun/rifle/chambered
+/obj/item/weapon/gun/rifle/sr127
 	name = "\improper SR-127 Bauer bolt action rifle"
 	desc = "The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1515,14 +1515,14 @@
 	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_86X70 //codex
 	max_shells = 10 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/chamberedrifle
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sr127
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/chamberedrifle,
-		/obj/item/ammo_magazine/rifle/chamberedrifle/flak,
+		/obj/item/ammo_magazine/rifle/sr127,
+		/obj/item/ammo_magazine/rifle/sr127/flak,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/tl127,
-		/obj/item/attachable/stock/tl127stock,
+		/obj/item/attachable/scope/unremovable/sr127,
+		/obj/item/attachable/stock/sr127stock,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/suppressor,
@@ -1545,8 +1545,8 @@
 	aim_fire_delay = 1 SECONDS
 
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/tl127,
-		/obj/item/attachable/stock/tl127stock,
+		/obj/item/attachable/scope/unremovable/sr127,
+		/obj/item/attachable/stock/sr127stock,
 	)
 
 	burst_amount = 0
@@ -1562,8 +1562,8 @@
 	cock_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/chambered/unscoped
-	starting_attachment_types = list(/obj/item/attachable/stock/tl127stock)
+/obj/item/weapon/gun/rifle/sr127/unscoped
+	starting_attachment_types = list(/obj/item/attachable/stock/sr127stock)
 
 //-------------------------------------------------------
 //SR-81 Auto-Sniper

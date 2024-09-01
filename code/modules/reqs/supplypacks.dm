@@ -777,7 +777,7 @@ WEAPONS
 
 /datum/supply_packs/weapons/pfcflak
 	name = "SR-127 Flak Magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/flak)
+	contains = list(/obj/item/ammo_magazine/rifle/sr127/flak)
 	cost = 50
 	available_against_xeno_only = TRUE
 
@@ -887,7 +887,7 @@ WEAPONS
 
 /datum/supply_packs/weapons/br64_ap
 	name = "BR-64 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_br/ap)
+	contains = list(/obj/item/ammo_magazine/rifle/br64/ap)
 	cost = 25 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 

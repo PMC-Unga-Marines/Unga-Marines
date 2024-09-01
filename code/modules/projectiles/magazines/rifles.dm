@@ -80,16 +80,16 @@
 	max_rounds = 20
 
 //-------------------------------------------------------
-//T64 BR
+//BR64
 
-/obj/item/ammo_magazine/rifle/standard_br
+/obj/item/ammo_magazine/rifle/br64
 	name = "\improper BR-64 magazine (10x26.5mm)"
 	desc = "A 10mm battle rifle magazine."
 	caliber = CALIBER_10x265_CASELESS
 	icon_state = "t64"
 	icon_state_mini = "mag_rifle_big"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/standard_br
+	default_ammo = /datum/ammo/bullet/rifle/br64
 	max_rounds = 36
 
 //-------------------------------------------------------
@@ -390,7 +390,7 @@
 
 //-------------------------------------------------------
 //Marine magazine sniper, or the SR-127.
-/obj/item/ammo_magazine/rifle/chamberedrifle
+/obj/item/ammo_magazine/rifle/sr127
 	name = "SR-127 bolt action rifle magazine"
 	desc = "A box magazine filled with 8.6x70mm rifle rounds for the SR-127."
 	caliber = CALIBER_86X70
@@ -400,7 +400,7 @@
 	max_rounds = 10
 	bonus_overlay = "tl127_mag"
 
-/obj/item/ammo_magazine/rifle/chamberedrifle/flak
+/obj/item/ammo_magazine/rifle/sr127/flak
 	name = "SR-127 bolt action rifle flak magazine"
 	desc = "A box magazine filled with 8.6x70mm rifle flak rounds for the SR-127."
 	icon_state = "tl127_flak"
@@ -733,14 +733,14 @@
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/sabot
 
-/obj/item/ammo_magazine/rifle/standard_br/ap
+/obj/item/ammo_magazine/rifle/br64/ap
 	name = "\improper BR-64 AP magazine (10x26.5mm)"
 	desc = "A 10mm armor piercing battle rifle magazine."
 	caliber = CALIBER_10x265_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "t64_ap"
 	//bonus_overlay = "t64_ap"
-	default_ammo = /datum/ammo/bullet/rifle/standard_br/ap
+	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 	icon_state_mini = "mag_rifle_big"
 
 /obj/item/ammo_magazine/rifle/ar21/ap

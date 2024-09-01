@@ -46,7 +46,7 @@
 	desc = "A box containing 100 rounds of 10x26.5mm caseless."
 	caliber = CALIBER_10x265_CASELESS
 	icon_state = "box_10x265mm"
-	default_ammo = /datum/ammo/bullet/rifle/standard_br
+	default_ammo = /datum/ammo/bullet/rifle/br64
 	current_rounds = 100
 	max_rounds = 100
 
@@ -372,7 +372,7 @@
 	desc = "A box containing 100 armor piercing rounds of 10x26.5mm caseless."
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "box_10x265mm_ap"
-	default_ammo = /datum/ammo/bullet/rifle/standard_br/ap
+	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 
 /obj/item/ammo_magazine/packet/p10x20mm/ap
 	desc = "A packet containing 125 rounds of 10x20mm caseless."

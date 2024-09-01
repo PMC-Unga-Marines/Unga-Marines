@@ -981,31 +981,31 @@
 	spawn_number = 30
 	spawn_type = /obj/item/ammo_magazine/rifle/dmr37
 
-/obj/item/storage/box/visual/magazine/compact/standard_br
+/obj/item/storage/box/visual/magazine/compact/br64
 	name = "BR-64 magazine box"
 	desc = "A box specifically designed to hold a large amount of BR-64 magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_br64"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/standard_br,
+		/obj/item/ammo_magazine/rifle/br64,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_br/full
+/obj/item/storage/box/visual/magazine/compact/br64/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/standard_br
+	spawn_type = /obj/item/ammo_magazine/rifle/br64
 
-/obj/item/storage/box/visual/magazine/compact/chamberedrifle
+/obj/item/storage/box/visual/magazine/compact/sr127
 	name = "SR-127 magazine box"
 	desc = "A box specifically designed to hold a large amount of SR-127 magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_sr127"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/chamberedrifle,
+		/obj/item/ammo_magazine/rifle/sr127,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/chamberedrifle/full
+/obj/item/storage/box/visual/magazine/compact/sr127/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/chamberedrifle
+	spawn_type = /obj/item/ammo_magazine/rifle/sr127
 
 /obj/item/storage/box/visual/magazine/compact/mosin
 	name = "mosin packet box"
