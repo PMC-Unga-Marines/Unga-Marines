@@ -665,7 +665,7 @@
 		/obj/item/ammo_magazine/hsg102,
 		/obj/item/ammo_magazine/mg42,
 		/obj/item/ammo_magazine/mg27,
-		/obj/item/ammo_magazine/heavymachinegun,
+		/obj/item/ammo_magazine/hmg08,
 		/obj/item/ammo_magazine/sg29,
 		/obj/item/ammo_magazine/som_mg,
 		/obj/item/cell/lasgun,
@@ -1067,18 +1067,18 @@
 	spawn_type = /obj/item/ammo_magazine/mg27
 
 
-/obj/item/storage/box/visual/magazine/compact/heavymachinegun
+/obj/item/storage/box/visual/magazine/compact/hmg08
 	name = "HMG-08 drum box"
 	desc = "A box specifically designed to hold a large amount of HMG-08 drum."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_mg08"
 	can_hold = list(
-		/obj/item/ammo_magazine/heavymachinegun,
+		/obj/item/ammo_magazine/hmg08,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/heavymachinegun/full
+/obj/item/storage/box/visual/magazine/compact/hmg08/full
 	spawn_number = 10
-	spawn_type = /obj/item/ammo_magazine/heavymachinegun
+	spawn_type = /obj/item/ammo_magazine/hmg08
 
 // --GRENADE BOXES--
 /obj/item/storage/box/visual/grenade

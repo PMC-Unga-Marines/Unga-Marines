@@ -126,9 +126,9 @@
 		"Heavy Weapons" = list(
 			/obj/item/storage/box/crate/sentry = 4,
 			/obj/item/storage/box/hsg102 = 1,
-			/obj/item/weapon/gun/heavymachinegun = 1,
-			/obj/item/ammo_magazine/heavymachinegun = 5,
-			/obj/item/ammo_magazine/heavymachinegun/small = 10,
+			/obj/item/weapon/gun/hmg108 = 1,
+			/obj/item/ammo_magazine/hmg08 = 5,
+			/obj/item/ammo_magazine/hmg08/small = 10,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
@@ -579,8 +579,8 @@
 			/obj/item/storage/box/crate/sentry = -1,
 			/obj/item/sentry_upgrade_kit = -1,
 			/obj/item/storage/box/hsg102 = -1,
-			/obj/item/weapon/gun/heavymachinegun = -1,
-			/obj/item/ammo_magazine/heavymachinegun = -1,
+			/obj/item/weapon/gun/hmg108 = -1,
+			/obj/item/ammo_magazine/hmg08 = -1,
 			/obj/item/storage/holster/backholster/rpg/full = -1,
 			/obj/item/ammo_magazine/rocket/recoilless = -1,
 			/obj/item/ammo_magazine/rocket/recoilless/light = -1,

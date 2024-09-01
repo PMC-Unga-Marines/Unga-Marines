@@ -16,7 +16,7 @@
 /obj/item/ammo_magazine/hsg102/hsg_nest
 	max_rounds = 500
 
-/obj/item/ammo_magazine/heavymachinegun
+/obj/item/ammo_magazine/hmg08
 	name = "HMG-08 drum magazine (10x30mm Caseless)"
 	desc = "A box of 500, 10x28mm caseless tungsten rounds for the HMG-08 mounted heavy machinegun. Is probably not going to fit in your backpack. Put it on your belt or back."
 	w_class = WEIGHT_CLASS_BULKY
@@ -30,7 +30,7 @@
 	default_ammo = /datum/ammo/bullet/machinegun
 	reload_delay = 10 SECONDS
 
-/obj/item/ammo_magazine/heavymachinegun/small
+/obj/item/ammo_magazine/hmg08/small
 	name = "HMG-08 box magazine (10x30mm Caseless)"
 	desc = "A box of 250 10x28mm caseless tungsten rounds for the HMG-08 mounted heavy machinegun."
 	w_class = WEIGHT_CLASS_NORMAL

@@ -77,7 +77,7 @@
 	wield_delay_mod = 0
 	desc = "A rail mounted zoom sight scope specialized for the SR-127 sniper rifle. Allows zoom by activating the attachment."
 
-/obj/item/attachable/scope/unremovable/heavymachinegun
+/obj/item/attachable/scope/unremovable/hmg08
 	name = "HMG-08 long range ironsights"
 	desc = "An unremovable set of long range ironsights for an HMG-08 machinegun."
 	icon_state = "sniperscope_invisible"

@@ -202,7 +202,7 @@
 		/obj/item/ammo_magazine/mg42,
 		/obj/item/ammo_magazine/mg60,
 		/obj/item/ammo_magazine/mg27,
-		/obj/item/ammo_magazine/heavymachinegun,
+		/obj/item/ammo_magazine/hmg08,
 	)
 
 ///random rifle ammunition

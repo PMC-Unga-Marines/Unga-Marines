@@ -640,17 +640,17 @@ WEAPONS
 
 /datum/supply_packs/weapons/hmg
 	name = "HMG-08 heavy machinegun"
-	contains = list(/obj/item/weapon/gun/heavymachinegun)
+	contains = list(/obj/item/weapon/gun/hmg108)
 	cost = 400
 
 /datum/supply_packs/weapons/hmg_ammo
 	name = "HMG-08 heavy machinegun ammo (500 rounds)"
-	contains = list(/obj/item/ammo_magazine/heavymachinegun)
+	contains = list(/obj/item/ammo_magazine/hmg08)
 	cost = 70
 
 /datum/supply_packs/weapons/hmg_ammo_small
 	name = "HMG-08 heavy machinegun ammo (250 rounds)"
-	contains = list(/obj/item/ammo_magazine/heavymachinegun/small)
+	contains = list(/obj/item/ammo_magazine/hmg08/small)
 	cost = 40
 
 /datum/supply_packs/weapons/smartgun
