@@ -525,7 +525,7 @@
 //-------------------------------------------------------
 //AT-36 Anti Tank Gun
 
-/obj/item/weapon/gun/standard_atgun
+/obj/item/weapon/gun/at36
 	name = "\improper AT-36 anti tank gun"
 	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the TGMC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
 	w_class = WEIGHT_CLASS_BULKY
@@ -536,13 +536,13 @@
 	max_shells = 1 //codex
 	fire_sound = 'sound/weapons/guns/fire/tat36.ogg'
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/standard_atgun
+	default_ammo_type = /obj/item/ammo_magazine/at36
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/standard_atgun,
-		/obj/item/ammo_magazine/standard_atgun/apcr,
-		/obj/item/ammo_magazine/standard_atgun/he,
-		/obj/item/ammo_magazine/standard_atgun/beehive,
-		/obj/item/ammo_magazine/standard_atgun/incend,
+		/obj/item/ammo_magazine/at36,
+		/obj/item/ammo_magazine/at36/apcr,
+		/obj/item/ammo_magazine/at36/he,
+		/obj/item/ammo_magazine/at36/beehive,
+		/obj/item/ammo_magazine/at36/incend,
 	)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 20,"rail_x" = 18, "rail_y" = 22, "under_x" = 28, "under_y" = 13, "stock_x" = 0, "stock_y" = 0)
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/standard_atgun)
@@ -580,14 +580,14 @@
 	storage_slots = 10
 	max_storage_space = 40
 	max_w_class = WEIGHT_CLASS_BULKY
-	can_hold = list(/obj/item/ammo_magazine/standard_atgun)
+	can_hold = list(/obj/item/ammo_magazine/at36)
 
 /obj/machinery/deployable/mounted/moveable/atgun/Initialize(mapload)
 	. = ..()
 	sponson = new sponson(src)
 
 /obj/machinery/deployable/mounted/moveable/atgun/attackby(obj/item/I, mob/user, params)
-	var/obj/item/weapon/gun/standard_atgun/internal_gun = get_internal_item()
+	var/obj/item/weapon/gun/at36/internal_gun = get_internal_item()
 	if(user.interactee == src && (I.type in internal_gun?.allowed_ammo_types))
 		balloon_alert(user, "Busy manning!")
 		return

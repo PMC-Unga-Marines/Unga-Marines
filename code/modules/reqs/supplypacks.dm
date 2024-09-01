@@ -294,51 +294,51 @@ WEAPONS
 
 /datum/supply_packs/weapons/antitankgun
 	name = "AT-36 Anti Tank Gun"
-	contains = list(/obj/item/weapon/gun/standard_atgun)
+	contains = list(/obj/item/weapon/gun/at36)
 	cost = 800
 
 /datum/supply_packs/weapons/antitankgunammo
 	name = "AT-36 AP-HE Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun,
-		/obj/item/ammo_magazine/standard_atgun,
-		/obj/item/ammo_magazine/standard_atgun,
+		/obj/item/ammo_magazine/at36,
+		/obj/item/ammo_magazine/at36,
+		/obj/item/ammo_magazine/at36,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/apcr
 	name = "AT-36 APCR Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/apcr,
-		/obj/item/ammo_magazine/standard_atgun/apcr,
-		/obj/item/ammo_magazine/standard_atgun/apcr,
+		/obj/item/ammo_magazine/at36/apcr,
+		/obj/item/ammo_magazine/at36/apcr,
+		/obj/item/ammo_magazine/at36/apcr,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/he
 	name = "AT-36 HE Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/he,
-		/obj/item/ammo_magazine/standard_atgun/he,
-		/obj/item/ammo_magazine/standard_atgun,
+		/obj/item/ammo_magazine/at36/he,
+		/obj/item/ammo_magazine/at36/he,
+		/obj/item/ammo_magazine/at36,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/beehive
 	name = "AT-36 Beehive Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/beehive,
-		/obj/item/ammo_magazine/standard_atgun/beehive,
-		/obj/item/ammo_magazine/standard_atgun/beehive,
+		/obj/item/ammo_magazine/at36/beehive,
+		/obj/item/ammo_magazine/at36/beehive,
+		/obj/item/ammo_magazine/at36/beehive,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/incendiary
 	name = "AT-36 Napalm Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/incend,
-		/obj/item/ammo_magazine/standard_atgun/incend,
-		/obj/item/ammo_magazine/standard_atgun/incend,
+		/obj/item/ammo_magazine/at36/incend,
+		/obj/item/ammo_magazine/at36/incend,
+		/obj/item/ammo_magazine/at36/incend,
 	)
 	cost = 20
 

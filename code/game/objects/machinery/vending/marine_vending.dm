@@ -575,7 +575,7 @@
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = -1,
 			/obj/structure/closet/crate/mortar_ammo/howitzer_kit = -1,
-			/obj/structure/largecrate/supply/weapons/standard_atgun = -1,
+			/obj/structure/largecrate/supply/weapons/at36 = -1,
 			/obj/item/storage/box/crate/sentry = -1,
 			/obj/item/sentry_upgrade_kit = -1,
 			/obj/item/storage/box/hsg102 = -1,

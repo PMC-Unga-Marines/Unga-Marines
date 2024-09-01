@@ -96,7 +96,7 @@
 	default_ammo = /datum/ammo/grenade_container/ags_grenade/tanglefoot
 
 
-/obj/item/ammo_magazine/standard_atgun
+/obj/item/ammo_magazine/at36
 	name = "AT-36 AP-HE shell (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns. Will penetrate walls and fortifications, before hitting a target and exploding, has less payload and punch than usual rounds."
 	w_class = WEIGHT_CLASS_BULKY
@@ -109,28 +109,28 @@
 	default_ammo = /datum/ammo/rocket/atgun_shell
 	reload_delay = 2 SECONDS
 
-/obj/item/ammo_magazine/standard_atgun/apcr
+/obj/item/ammo_magazine/at36/apcr
 	name = "AT-36 APCR shell (37mm Shell)"
 	desc = "A 37mm tungsten shell for light anti tank guns made to penetrate through just about everything, but it won't leave a big hole."
 	icon_state = "tat36_shell_apcr"
 	item_state = "tat36_apcr"
 	default_ammo = /datum/ammo/rocket/atgun_shell/apcr
 
-/obj/item/ammo_magazine/standard_atgun/he
+/obj/item/ammo_magazine/at36/he
 	name = "AT-36 HE (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to destroy fortifications, the high amount of payload gives it a slow speed. But it leaves quite a hole."
 	icon_state = "tat36_shell_he"
 	item_state = "tat36_he"
 	default_ammo = /datum/ammo/rocket/atgun_shell/he
 
-/obj/item/ammo_magazine/standard_atgun/beehive
+/obj/item/ammo_magazine/at36/beehive
 	name = "AT-36 Beehive (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to mince infantry, the light payload gives it moderate speed. Turns anyone into swiss cheese."
 	icon_state = "tat36_shell_beehive"
 	item_state = "tat36_beehive"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive
 
-/obj/item/ammo_magazine/standard_atgun/incend
+/obj/item/ammo_magazine/at36/incend
 	name = "AT-36 Napalm (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to set the battlefield ablaze, the light payload gives it a moderate speed. Will cook any target flambé."
 	icon_state = "tat36_shell_incend"
