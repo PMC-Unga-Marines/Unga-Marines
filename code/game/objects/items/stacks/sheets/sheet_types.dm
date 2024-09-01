@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 	new/datum/stack_recipe_list("machinegun boxes",list( \
 		new/datum/stack_recipe("MG-42 drum mag box", /obj/item/storage/box/visual/magazine/compact/standard_lmg), \
 		new/datum/stack_recipe("MG-60 mag box", /obj/item/storage/box/visual/magazine/compact/mg60), \
-		new/datum/stack_recipe("MG-27 mag box", /obj/item/storage/box/visual/magazine/compact/standard_mmg), \
+		new/datum/stack_recipe("MG-27 mag box", /obj/item/storage/box/visual/magazine/compact/mg27), \
 		new/datum/stack_recipe("HMG-08 drum box", /obj/item/storage/box/visual/magazine/compact/heavymachinegun), \
 		)) \
 	))

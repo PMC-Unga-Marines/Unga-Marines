@@ -73,7 +73,7 @@
 	loot = list(
 		/obj/item/weapon/gun/rifle/standard_lmg,
 		/obj/item/weapon/gun/rifle/mg60,
-		/obj/item/weapon/gun/standard_mmg,
+		/obj/item/weapon/gun/mg27,
 	)
 
 ///random rifles
@@ -201,7 +201,7 @@
 	loot = list(
 		/obj/item/ammo_magazine/standard_lmg,
 		/obj/item/ammo_magazine/mg60,
-		/obj/item/ammo_magazine/standard_mmg,
+		/obj/item/ammo_magazine/mg27,
 		/obj/item/ammo_magazine/heavymachinegun,
 	)
 

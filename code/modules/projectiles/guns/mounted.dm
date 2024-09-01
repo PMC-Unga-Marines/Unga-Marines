@@ -394,7 +394,7 @@
 //-------------------------------------------------------
 //MG-27 Medium Machine Gun
 
-/obj/item/weapon/gun/standard_mmg
+/obj/item/weapon/gun/mg27
 	name = "\improper MG-27 medium machinegun"
 	desc = "The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes."
 	flags_equip_slot = ITEM_SLOT_BACK
@@ -415,8 +415,8 @@
 	cocked_sound = 	 'sound/weapons/guns/machineguns/MG-27/MG27_boltpull.ogg'
 	silenced_sound = 'sound/weapons/guns/machineguns/MG-27/MG27_SIL.ogg'
 	wield_sound = 	 'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/standard_mmg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_mmg)
+	default_ammo_type = /obj/item/ammo_magazine/mg27
+	allowed_ammo_types = list(/obj/item/ammo_magazine/mg27)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/motiondetector,
@@ -430,11 +430,11 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/scope/mini,
-		/obj/item/attachable/scope/unremovable/mmg,
-		/obj/item/attachable/stock/t27,
+		/obj/item/attachable/scope/unremovable/mg27,
+		/obj/item/attachable/stock/mg27,
 	)
 
-	starting_attachment_types = list(/obj/item/attachable/stock/t27)
+	starting_attachment_types = list(/obj/item/attachable/stock/mg27)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 28, "under_y" = 13, "stock_x" = 0, "stock_y" = 0)
 
 	flags_item = IS_DEPLOYABLE|TWOHANDED
@@ -460,8 +460,8 @@
 	max_integrity = 200
 
 
-/obj/item/weapon/gun/standard_mmg/machinegunner
-	starting_attachment_types = list(/obj/item/attachable/stock/t27, /obj/item/attachable/scope/unremovable/mmg)
+/obj/item/weapon/gun/mg27/machinegunner
+	starting_attachment_types = list(/obj/item/attachable/stock/mg27, /obj/item/attachable/scope/unremovable/mg27)
 
 /obj/item/weapon/gun/clf_heavyrifle
 	name = "\improper PTR-41/1785 anti-mech gun"

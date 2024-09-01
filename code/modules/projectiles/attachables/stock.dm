@@ -21,7 +21,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/t27
+/obj/item/attachable/stock/mg27
 	name = "MG-27 Body"
 	desc = "A stock for a MG-27 MMG."
 	icon = 'icons/Marine/marine-mmg.dmi'

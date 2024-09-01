@@ -40,7 +40,7 @@
 	max_rounds = 250
 	reload_delay = 5 SECONDS
 
-/obj/item/ammo_magazine/standard_mmg
+/obj/item/ammo_magazine/mg27
 	name = "MG-27 box magazine (10x27m Caseless)"
 	desc = "A box of 150 10x27mm caseless rounds for the MG-27 medium machinegun."
 	w_class = WEIGHT_CLASS_NORMAL

@@ -228,7 +228,7 @@
 		/obj/item/storage/box/visual/magazine/compact/sr127/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_lmg/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/mg60/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_mmg/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/mg27/full = 1,
 	)
 
 

@@ -404,7 +404,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/standard,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/standard,
-		/obj/item/weapon/gun/standard_mmg,
+		/obj/item/weapon/gun/mg27,
 		/obj/item/weapon/gun/launcher/rocket/oneuse,
 	)
 

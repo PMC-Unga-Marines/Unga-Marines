@@ -55,8 +55,8 @@
 		"Machinegun" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
-			/obj/item/weapon/gun/standard_mmg = 5,
-			/obj/item/ammo_magazine/standard_mmg = -1,
+			/obj/item/weapon/gun/mg27 = 5,
+			/obj/item/ammo_magazine/mg27 = -1,
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
@@ -278,8 +278,8 @@
 		"Machinegun" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
-			/obj/item/weapon/gun/standard_mmg = 5,
-			/obj/item/ammo_magazine/standard_mmg = -1,
+			/obj/item/weapon/gun/mg27 = 5,
+			/obj/item/ammo_magazine/mg27 = -1,
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
@@ -500,8 +500,8 @@
 		"Machinegun" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
-			/obj/item/weapon/gun/standard_mmg = -1,
-			/obj/item/ammo_magazine/standard_mmg = -1,
+			/obj/item/weapon/gun/mg27 = -1,
+			/obj/item/ammo_magazine/mg27 = -1,
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
@@ -807,7 +807,7 @@
 			/obj/item/storage/box/visual/magazine/compact/dmr37/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/sr127/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/mg60/full = -1,
-			/obj/item/storage/box/visual/magazine/compact/standard_mmg/full = -1,
+			/obj/item/storage/box/visual/magazine/compact/mg27/full = -1,
 		),
 		"Mecha Ammo" = list(
 			/obj/item/mecha_ammo/vendable/pistol = -1,

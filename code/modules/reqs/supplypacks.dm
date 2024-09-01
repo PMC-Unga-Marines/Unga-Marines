@@ -633,9 +633,9 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/minigun_powerpack)
 	cost = 50
 
-/datum/supply_packs/weapons/mmg
+/datum/supply_packs/weapons/mg27
 	name = "MG-27 Medium Machinegun"
-	contains = list(/obj/item/weapon/gun/standard_mmg)
+	contains = list(/obj/item/weapon/gun/mg27)
 	cost = 100
 
 /datum/supply_packs/weapons/hmg

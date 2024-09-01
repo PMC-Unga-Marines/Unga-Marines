@@ -229,10 +229,10 @@
 			/obj/item/ammo_magazine/mg60,
 			/obj/item/ammo_magazine/mg60,
 		),
-		list(/obj/item/weapon/gun/standard_mmg,
-			/obj/item/ammo_magazine/standard_mmg,
-			/obj/item/ammo_magazine/standard_mmg,
-			/obj/item/ammo_magazine/standard_mmg,
+		list(/obj/item/weapon/gun/mg27,
+			/obj/item/ammo_magazine/mg27,
+			/obj/item/ammo_magazine/mg27,
+			/obj/item/ammo_magazine/mg27,
 		),
 	)
 

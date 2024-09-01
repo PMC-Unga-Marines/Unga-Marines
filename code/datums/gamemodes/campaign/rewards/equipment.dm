@@ -89,8 +89,8 @@
 	cost = 2
 	equipment_to_spawn = list(
 		/obj/effect/supply_drop/ar18,
-		/obj/effect/supply_drop/standard_rifle,
-		/obj/effect/supply_drop/combat_rifle,
+		/obj/effect/supply_drop/ar12,
+		/obj/effect/supply_drop/ar11,
 		/obj/item/weapon/gun/rifle/mg60/machinegunner,
 		/obj/item/ammo_magazine/mg60,
 		/obj/item/ammo_magazine/mg60,

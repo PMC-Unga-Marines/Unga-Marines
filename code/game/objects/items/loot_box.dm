@@ -97,7 +97,7 @@
 		/obj/effect/supply_drop/oicw,
 		/obj/item/storage/belt/lifesaver/quick,
 		/obj/item/storage/belt/rig/medical,
-		/obj/effect/supply_drop/mmg,
+		/obj/effect/supply_drop/mg27,
 	)
 	common_list = list(
 		/obj/effect/supply_drop/armor_upgrades,
@@ -106,8 +106,8 @@
 		/obj/item/storage/pouch/medical_injectors/firstaid,
 		/obj/item/storage/pouch/medical_injectors/medic,
 		/obj/effect/supply_drop/ar18,
-		/obj/effect/supply_drop/standard_rifle,
-		/obj/effect/supply_drop/combat_rifle,
+		/obj/effect/supply_drop/ar12,
+		/obj/effect/supply_drop/ar11,
 		/obj/effect/supply_drop/laser_rifle,
 		/obj/effect/supply_drop/standard_shotgun,
 	)
@@ -234,12 +234,12 @@
 	new /obj/item/weapon/shield/riot/marine(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/mmg/Initialize(mapload)
+/obj/effect/supply_drop/mg27/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/standard_mmg/machinegunner(loc)
-	new /obj/item/ammo_magazine/standard_mmg(loc)
-	new /obj/item/ammo_magazine/standard_mmg(loc)
-	new /obj/item/ammo_magazine/standard_mmg(loc)
+	new /obj/item/weapon/gun/mg27/machinegunner(loc)
+	new /obj/item/ammo_magazine/mg27(loc)
+	new /obj/item/ammo_magazine/mg27(loc)
+	new /obj/item/ammo_magazine/mg27(loc)
 	new /obj/item/stack/sandbags/large_stack(loc)
 	new /obj/item/stack/barbed_wire/full(loc)
 	return INITIALIZE_HINT_QDEL
@@ -252,7 +252,7 @@
 	new /obj/item/explosive/grenade(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/standard_rifle/Initialize(mapload)
+/obj/effect/supply_drop/ar12/Initialize(mapload)
 	. = ..()
 	new /obj/item/weapon/gun/rifle/ar12/rifleman(loc)
 	new /obj/item/storage/belt/marine/ar12(loc)
@@ -260,7 +260,7 @@
 	new /obj/item/explosive/grenade(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/combat_rifle/Initialize(mapload)
+/obj/effect/supply_drop/ar11/Initialize(mapload)
 	. = ..()
 	new /obj/item/weapon/gun/rifle/ar11/standard(loc)
 	new /obj/item/storage/belt/marine/combat_rifle(loc)

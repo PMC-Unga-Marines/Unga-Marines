@@ -84,7 +84,7 @@
 	zoom_viewsize = 0
 	zoom_tile_offset = 5
 
-/obj/item/attachable/scope/unremovable/mmg
+/obj/item/attachable/scope/unremovable/mg27
 	name = "MG-27 rail scope"
 	icon_state = "miniscope"
 	desc = "A small rail mounted zoom sight scope. Allows zoom by activating the attachment."
