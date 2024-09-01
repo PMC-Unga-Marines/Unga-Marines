@@ -300,7 +300,7 @@
 		/obj/item/weapon/gun/pistol/vp78,
 		/obj/item/weapon/gun/pistol/som,
 		/obj/item/weapon/gun/pistol/icc_dpistol,
-		/obj/item/weapon/gun/revolver/standard_revolver,
+		/obj/item/weapon/gun/revolver/r44,
 		/obj/item/weapon/gun/revolver/single_action/m44,
 		/obj/item/weapon/gun/revolver/upp,
 		/obj/item/weapon/gun/revolver/small,

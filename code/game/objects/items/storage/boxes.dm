@@ -726,17 +726,17 @@
 	spawn_number = 40
 	spawn_type = /obj/item/ammo_magazine/pistol/p23
 
-/obj/item/storage/box/visual/magazine/compact/standard_revolver
+/obj/item/storage/box/visual/magazine/compact/r44
 	name = "R-44 speedloader box"
 	desc = "A box specifically designed to hold a large amount of R-44 speedloaders."
 	closed_overlay = "mag_box_small_overlay_r44"
 	can_hold = list(
-		/obj/item/ammo_magazine/revolver/standard_revolver,
+		/obj/item/ammo_magazine/revolver/r44,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_revolver/full
+/obj/item/storage/box/visual/magazine/compact/r44/full
 	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/revolver/standard_revolver
+	spawn_type = /obj/item/ammo_magazine/revolver/r44
 
 /obj/item/storage/box/visual/magazine/compact/standard_pocketpistol
 	name = "P-17 magazine box"

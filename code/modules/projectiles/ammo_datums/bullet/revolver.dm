@@ -52,13 +52,13 @@
 		return
 	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 1)
 
-/datum/ammo/bullet/revolver/tp44
+/datum/ammo/bullet/revolver/r44
 	name = "standard revolver bullet"
 	damage = 35
 	penetration = 15
 	additional_xeno_penetration = 10
 
-/datum/ammo/bullet/revolver/tp44/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/r/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, knockback = 1)
 
 /datum/ammo/bullet/revolver/small

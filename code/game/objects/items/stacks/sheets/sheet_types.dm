@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 	new/datum/stack_recipe_list("pistol boxes",list( \
 		new/datum/stack_recipe("P-14 mag box", /obj/item/storage/box/visual/magazine/compact/p14), \
 		new/datum/stack_recipe("P-23 mag box", /obj/item/storage/box/visual/magazine/compact/p23), \
-		new/datum/stack_recipe("R-44 mag box", /obj/item/storage/box/visual/magazine/compact/standard_revolver), \
+		new/datum/stack_recipe("R-44 mag box", /obj/item/storage/box/visual/magazine/compact/r44), \
 		new/datum/stack_recipe("P-17 mag box", /obj/item/storage/box/visual/magazine/compact/standard_pocketpistol), \
 		new/datum/stack_recipe("88M4 mag box", /obj/item/storage/box/visual/magazine/compact/vp70), \
 		new/datum/stack_recipe("Derringer packet box", /obj/item/storage/box/visual/magazine/compact/derringer), \

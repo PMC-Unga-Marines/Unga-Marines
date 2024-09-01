@@ -230,8 +230,8 @@
 	officially adopted as a door breaching tool but was incredibly effective at close quarters and shipside combat because \
 	advancements in  ammunition allowed shotguns to punch through common ballistic armor, making it a popular option for close quarters situations."
 
-/datum/codex_entry/standard_revolver
-	associated_paths = list(/obj/item/weapon/gun/revolver/standard_revolver)
+/datum/codex_entry/r44
+	associated_paths = list(/obj/item/weapon/gun/revolver/r44)
 	lore_text = "The original RN-44 used to be the only standard issue sidearm of the TGMC. Though it was once going to \
 	be fully replaced by the MG-27 once that was adopted, it was eventually decided to be kept due to complaints from \
 	troops of the power and accuracy of the new 9mm pistol to the old .44 so it was decided to keep both handguns and \
