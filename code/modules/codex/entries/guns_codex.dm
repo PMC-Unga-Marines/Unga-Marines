@@ -240,8 +240,8 @@
 	a new sidearm that could be reliable on long voyages without much maintenance and the RN-44 eventually won out it's peers \
 	due to its good accuracy and ability to stay in good condition for long periods of time. Eventually ending up as the original R-44."
 
-/datum/codex_entry/standard_pistol
-	associated_paths = list(/obj/item/weapon/gun/pistol/standard_pistol)
+/datum/codex_entry/p14
+	associated_paths = list(/obj/item/weapon/gun/pistol/p14)
 	lore_text = "The RL-9's design was created to require as little maintenance for a Pistol in a long period of time in-order \
 	to compete during the new trials to be put up by the Marine Corps once they decided the R-44 Revolver was too cumbersome for normal use. <br><br>\
 	Eventually the RL-9 won the trials due to showing good use after passing the 300 round test in the final rounds of the trial with only a \

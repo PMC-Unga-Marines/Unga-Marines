@@ -705,12 +705,12 @@
 		/obj/item/ammo_magazine/pistol,
 	)
 
-/obj/item/storage/holster/belt/pistol/standard_pistol
+/obj/item/storage/holster/belt/pistol/t457
 	name = "\improper T457 pattern pistol holster rig"
 	desc = "The T457 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips."
 	icon_state = "tp14_holster"
 
-/obj/item/storage/holster/belt/revolver/standard_revolver
+/obj/item/storage/holster/belt/revolver/t457
 	name = "\improper T457 pattern revolver holster rig"
 	desc = "The T457 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips."
 	icon_state = "tp44_holster"
@@ -852,18 +852,18 @@
 	desc = "A holster belt, which holds SP-13 smartpistol and magazines for it."
 	can_hold = list(
 		/obj/item/weapon/gun/pistol/smart_pistol,
-		/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol,
+		/obj/item/ammo_magazine/pistol/p14/smart_pistol,
 	)
 
 /obj/item/storage/holster/belt/pistol/smart_pistol/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol(src)
+	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
+	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
+	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
+	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
+	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
+	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 ///RL SADAR bag

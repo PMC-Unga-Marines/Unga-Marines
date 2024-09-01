@@ -119,7 +119,7 @@
 /obj/structure/largecrate/supply/weapons/pistols
 	name = "sidearm weapons chest (x20)"
 	desc = "A weapons chest containing eight R-44 revolvers, and twelve P-14 service pistols."
-	supplies = list(/obj/item/weapon/gun/revolver/standard_revolver = 6, /obj/item/weapon/gun/pistol/standard_pistol = 12)
+	supplies = list(/obj/item/weapon/gun/revolver/standard_revolver = 6, /obj/item/weapon/gun/pistol/p14 = 12)
 
 /obj/structure/largecrate/supply/weapons/flamers
 	name = "\improper FL-240 incinerator weapons chest (x4)"
@@ -187,7 +187,7 @@
 /obj/structure/largecrate/supply/ammo/pistol
 	name = "sidearm ammunition case (x40)"
 	desc = "An ammunition case containing sixteen R-44 speedloaders, and twenty-four P-14 magazines."
-	supplies = list(/obj/item/ammo_magazine/revolver/standard_revolver = 16, /obj/item/ammo_magazine/pistol/standard_pistol = 24)
+	supplies = list(/obj/item/ammo_magazine/revolver/standard_revolver = 16, /obj/item/ammo_magazine/pistol/p14 = 24)
 
 /obj/structure/largecrate/supply/ammo/sentry
 	name = "\improper ST-571 ammunition drum case (x6)"
@@ -208,7 +208,7 @@
 		/obj/item/shotgunbox/buckshot = 1,
 		/obj/item/shotgunbox/flechette = 1,
 		/obj/item/shotgunbox/tracker = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_pistol/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/p14/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/p23/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_revolver/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_pocketpistol/full = 1,

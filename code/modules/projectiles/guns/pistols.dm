@@ -44,7 +44,7 @@
 //-------------------------------------------------------
 //P-14 PISTOL
 
-/obj/item/weapon/gun/pistol/standard_pistol
+/obj/item/weapon/gun/pistol/p14
 	name = "\improper P-14 pistol"
 	desc = "The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Capable of mounting a limited amount of attachments, and firing at a respectable rate of fire, often as fast as you can pull the trigger. Takes 21-round 9mm magazines."
 	icon_state = "tp14"
@@ -57,8 +57,8 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p14
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p14)
 
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 20,"rail_x" = 10, "rail_y" = 22, "under_x" = 25, "under_y" = 14, "stock_x" = 21, "stock_y" = 17)
 
@@ -759,8 +759,8 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	max_shells = 30 //codex
 	fire_sound = 'sound/weapons/guns/fire/tp14.ogg' //same bullets, same sound
 	reload_sound = 'sound/weapons/guns/interact/tp14_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p14/smart_pistol
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p14/smart_pistol)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,

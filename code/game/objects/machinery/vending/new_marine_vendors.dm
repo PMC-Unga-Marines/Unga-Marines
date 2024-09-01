@@ -743,8 +743,8 @@
 		/obj/item/clothing/glasses/night/m56_goggles,
 		/obj/item/storage/holster/belt/pistol/smart_pistol,
 		/obj/item/weapon/gun/pistol/smart_pistol,
-		/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol,
-		/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol,
+		/obj/item/ammo_magazine/pistol/p14/smart_pistol,
+		/obj/item/ammo_magazine/pistol/p14/smart_pistol,
 	)
 
 /obj/effect/vendor_bundle/leader

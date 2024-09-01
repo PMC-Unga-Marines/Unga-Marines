@@ -702,17 +702,17 @@
 
 // -Pistol-
 
-/obj/item/storage/box/visual/magazine/compact/standard_pistol
+/obj/item/storage/box/visual/magazine/compact/p14
 	name = "P-14 magazine box"
 	desc = "A box specifically designed to hold a large amount of P-14 magazines."
 	closed_overlay = "mag_box_small_overlay_p14"
 	can_hold = list(
-		/obj/item/ammo_magazine/pistol/standard_pistol,
+		/obj/item/ammo_magazine/pistol/p14,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_pistol/full
+/obj/item/storage/box/visual/magazine/compact/p14/full
 	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/pistol/standard_pistol
+	spawn_type = /obj/item/ammo_magazine/pistol/p14
 
 /obj/item/storage/box/visual/magazine/compact/p23
 	name = "P-23 magazine box"

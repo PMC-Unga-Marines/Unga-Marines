@@ -21,7 +21,7 @@
 		/obj/item/weapon/gun/rifle/sr127/unscoped,
 		/obj/item/weapon/gun/shotgun/pump/bolt/unscoped,
 		/obj/item/weapon/gun/shotgun/double/martini,
-		/obj/item/weapon/gun/pistol/standard_pistol,
+		/obj/item/weapon/gun/pistol/p14,
 		/obj/item/weapon/gun/pistol/p23,
 		/obj/item/weapon/gun/revolver/standard_revolver,
 		/obj/item/weapon/gun/pistol/standard_pocketpistol,
@@ -101,7 +101,7 @@
 	name = "Random sidearm spawner"
 	icon_state = "random_sidearm"
 	loot = list(
-		/obj/item/weapon/gun/pistol/standard_pistol,
+		/obj/item/weapon/gun/pistol/p14,
 		/obj/item/weapon/gun/pistol/p23,
 		/obj/item/weapon/gun/revolver/standard_revolver,
 		/obj/item/weapon/gun/revolver/cmb,
@@ -170,7 +170,7 @@
 		/obj/item/ammo_magazine/rifle/sr127,
 		/obj/item/ammo_magazine/rifle/bolt,
 		/obj/item/ammo_magazine/rifle/martini,
-		/obj/item/ammo_magazine/pistol/standard_pistol,
+		/obj/item/ammo_magazine/pistol/p14,
 		/obj/item/ammo_magazine/pistol/p23,
 		/obj/item/ammo_magazine/revolver/standard_revolver,
 		/obj/item/ammo_magazine/pistol/standard_pocketpistol,
@@ -221,7 +221,7 @@
 	name = "Random sidearm ammunition spawner"
 	icon_state = "random_sidearm_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/pistol/standard_pistol,
+		/obj/item/ammo_magazine/pistol/p14,
 		/obj/item/ammo_magazine/pistol/p23,
 		/obj/item/ammo_magazine/revolver/standard_revolver,
 		/obj/item/ammo_magazine/pistol/vp70,
