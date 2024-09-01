@@ -226,7 +226,7 @@
 	penetration = 40
 	additional_xeno_penetration = 12.5
 
-/datum/ammo/bullet/smarttargetrifle
+/datum/ammo/bullet/sg62
 	name = "smart marksman bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"

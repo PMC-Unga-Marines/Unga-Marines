@@ -1360,7 +1360,7 @@
 //-------------------------------------------------------
 //SG Target Rifle, has underbarreled spotting rifle that applies effects.
 
-/obj/item/weapon/gun/rifle/standard_smarttargetrifle
+/obj/item/weapon/gun/rifle/sg62
 	name = "\improper SG-62 Kauser-KT smart target rifle"
 	desc = "The Kauser-KT SG-62 is a IFF-capable rifle used by the TerraGov Marine Corps, coupled with a spotting rifle that is also IFF capable of applying various bullets with specialized ordnance, this is a gun with many answers to many situations... if you have the right ammo loaded. Requires special training and it cannot turn off IFF. It uses high velocity 10x27mm for the rifle and 12x66mm ammunition for the underslung rifle."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1374,8 +1374,8 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_smarttargetrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sg62
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/sg62)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
@@ -1405,7 +1405,7 @@
 
 	placed_overlay_iconstate = "smartgun"
 
-/obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion
+/obj/item/weapon/gun/rifle/sg62/motion
 	starting_attachment_types = list(/obj/item/weapon/gun/rifle/sg153, /obj/item/attachable/stock/strstock, /obj/item/attachable/motiondetector)
 
 /obj/item/weapon/gun/rifle/sg153

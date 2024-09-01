@@ -380,12 +380,12 @@
 	icon_state = "box_10x20mm_ap"
 	default_ammo = /datum/ammo/bullet/smg/ap
 
-/obj/item/ammo_magazine/packet/sg62_rifle
+/obj/item/ammo_magazine/packet/sg62
 	name = "box of 10x27mm"
 	desc = "A box containing 200 rounds of 10x27mm caseless."
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "box_sg62"
-	default_ammo = /datum/ammo/bullet/smarttargetrifle
+	default_ammo = /datum/ammo/bullet/sg62
 	caliber = CALIBER_10x27_CASELESS
 	current_rounds = 200
 	max_rounds = 200

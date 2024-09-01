@@ -201,15 +201,15 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
 	output = list(/obj/item/ammo_magazine/packet/smart_minigun = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/smartgun_magazine
+/datum/assembly_craft/weapons/sg29
 	name = "SG-29 ammo drum"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
 	output = list(/obj/item/ammo_magazine/sg29 = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/smartgun_targetrifle
+/datum/assembly_craft/weapons/sg62
 	name = "SG-62 ammo magazine"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
-	output = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = 1) // 25 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sg62 = 1) // 25 points from old factory
 
 /datum/assembly_craft/weapons/autosniper_magazine
 	name = "SR-81 IFF Auto Sniper magazine"

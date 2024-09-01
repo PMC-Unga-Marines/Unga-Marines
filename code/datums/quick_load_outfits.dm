@@ -884,14 +884,14 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/standard_machinepistol/compact(H), SLOT_IN_BELT)
 
-/datum/outfit/quick/tgmc/smartgunner/target_rifle
+/datum/outfit/quick/tgmc/smartgunner/sg62
 	name = "SG62 Smart Machinegunner"
 	desc = "Flexibility and precision. Equipped with an SG-62 smart target rifle and heavy armor upgraded with a 'Tyr' extra armor mdule. The integrated spotting rifle comes with a variety of flexible ammo types, which combined with high damage, penetration and IFF, makes for a dangerous support loadout."
 
-	belt = /obj/item/storage/belt/marine/target_rifle
-	suit_store = /obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion
+	belt = /obj/item/storage/belt/marine/sg62
+	suit_store = /obj/item/weapon/gun/rifle/sg62/motion
 
-/datum/outfit/quick/tgmc/smartgunner/target_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/quick/tgmc/smartgunner/sg62/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)

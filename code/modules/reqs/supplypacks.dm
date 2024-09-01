@@ -673,14 +673,14 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/packet/smart_minigun)
 	cost = 50
 
-/datum/supply_packs/weapons/smarttarget_rifle
+/datum/supply_packs/weapons/sg62
 	name = "SG-62 Smart Target Rifle"
-	contains = list(/obj/item/weapon/gun/rifle/standard_smarttargetrifle)
+	contains = list(/obj/item/weapon/gun/rifle/sg62)
 	cost = 400
 
-/datum/supply_packs/weapons/smarttarget_rifle_ammo
+/datum/supply_packs/weapons/sg62
 	name = "SG-62 smart target rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle)
+	contains = list(/obj/item/ammo_magazine/rifle/sg62)
 	cost = 35
 
 /datum/supply_packs/weapons/spotting_rifle_ammo
@@ -985,7 +985,7 @@ WEAPONS
 
 /datum/supply_packs/weapons/box_10x27mm
 	name = "SG-62 smart target rifle ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/sg62_rifle)
+	contains = list(/obj/item/ammo_magazine/packet/sg62)
 	cost = 50
 
 /datum/supply_packs/weapons/xray_gun

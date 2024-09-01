@@ -321,9 +321,9 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/weapon/gun/rifle/t25 = list(CAT_SGSUP, "T-25 Smartrifle", 26, "red"), //If smartganner buys a t25 , then they will have 2 mag and 3 ammo box
 	/obj/item/ammo_magazine/rifle/t25 =  list(CAT_SGSUP, "T-25 Smartrifle magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/packet/t25 = list(CAT_SGSUP, "T-25 Smartrifle ammo box", 5, "orange2"),
-	/obj/item/weapon/gun/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle", 25, "red"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
-	/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 3, "orange2"),
-	/obj/item/ammo_magazine/packet/sg62_rifle = list(CAT_SGSUP, "SG-62 smart target rifle ammo box", 5, "orange2"),
+	/obj/item/weapon/gun/rifle/sg62 = list(CAT_SGSUP, "SG-62 Target Rifle", 25, "red"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
+	/obj/item/ammo_magazine/rifle/sg62 = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 3, "orange2"),
+	/obj/item/ammo_magazine/packet/sg62 = list(CAT_SGSUP, "SG-62 smart target rifle ammo box", 5, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153 = list(CAT_SGSUP, "SG-153 Spotting Rifle Magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/highimpact = list(CAT_SGSUP, "SG-153 Spotting Rifle High Impact Magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/heavyrubber = list(CAT_SGSUP, "SG-153 Spotting Rifle Heavy Rubber Magazine", 2, "orange2"),

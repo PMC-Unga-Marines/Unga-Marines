@@ -565,14 +565,14 @@
 	new /obj/item/ammo_magazine/sg29(src)
 	new /obj/item/ammo_magazine/sg29(src)
 
-/obj/item/storage/belt/marine/target_rifle/Initialize(mapload)
+/obj/item/storage/belt/marine/sg62/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
 
 /obj/item/storage/belt/marine/upp
 	name = "\improper Type 41 pattern load rig"
