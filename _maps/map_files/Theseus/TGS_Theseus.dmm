@@ -16701,8 +16701,8 @@
 /area/mainship/command/cic)
 "rfB" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/mg42,
+/obj/item/weapon/gun/rifle/mg42,
 /obj/item/attachable/scope,
 /obj/item/attachable/extended_barrel,
 /obj/item/clothing/suit/armor/bulletproof,
