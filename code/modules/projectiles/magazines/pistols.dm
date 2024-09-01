@@ -154,7 +154,7 @@
 //-------------------------------------------------------
 //P-17.
 
-/obj/item/ammo_magazine/pistol/standard_pocketpistol
+/obj/item/ammo_magazine/pistol/p17
 	name = "\improper P-17 pocket pistol AP magazine (.380)"
 	desc = "A surprisingly small magazine used by the P-17 pistol holding .380 ACP bullets."
 	default_ammo = /datum/ammo/bullet/pistol/tiny/ap

@@ -433,7 +433,7 @@
 //-------------------------------------------------------
 //P-17 Pocket pistol. Based on a PMM.
 
-/obj/item/weapon/gun/pistol/standard_pocketpistol
+/obj/item/weapon/gun/pistol/p17
 	name = "\improper P-17 pocket pistol"
 	desc = "A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine."
 	icon_state = "tp17"
@@ -442,8 +442,8 @@
 	caliber = CALIBER_380ACP //codex
 	max_shells = 8 //codex
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_p17.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pocketpistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pocketpistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p17
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p17)
 	w_class = WEIGHT_CLASS_TINY
 	force = 5
 	attachable_allowed = list(

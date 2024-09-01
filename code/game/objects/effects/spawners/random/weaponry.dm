@@ -24,7 +24,7 @@
 		/obj/item/weapon/gun/pistol/p14,
 		/obj/item/weapon/gun/pistol/p23,
 		/obj/item/weapon/gun/revolver/r44,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/pistol/p17,
 		/obj/item/weapon/gun/pistol/vp70,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/double/derringer,
@@ -106,7 +106,7 @@
 		/obj/item/weapon/gun/revolver/r44,
 		/obj/item/weapon/gun/revolver/cmb,
 		/obj/item/weapon/gun/pistol/vp70,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/pistol/p17,
 		/obj/item/weapon/gun/revolver/standard_magnum,
 		/obj/item/weapon/gun/shotgun/double/derringer,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -173,7 +173,7 @@
 		/obj/item/ammo_magazine/pistol/p14,
 		/obj/item/ammo_magazine/pistol/p23,
 		/obj/item/ammo_magazine/revolver/r44,
-		/obj/item/ammo_magazine/pistol/standard_pocketpistol,
+		/obj/item/ammo_magazine/pistol/p17,
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/plasma_pistol,
 		/obj/item/ammo_magazine/pistol/derringer,
@@ -227,7 +227,7 @@
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/derringer,
 		/obj/item/ammo_magazine/revolver/cmb,
-		/obj/item/ammo_magazine/pistol/standard_pocketpistol,
+		/obj/item/ammo_magazine/pistol/p17,
 	)
 
 /obj/effect/spawner/random/weaponry/explosive/plastiqueexplosive

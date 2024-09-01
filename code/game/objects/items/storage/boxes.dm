@@ -738,17 +738,17 @@
 	spawn_number = 40
 	spawn_type = /obj/item/ammo_magazine/revolver/r44
 
-/obj/item/storage/box/visual/magazine/compact/standard_pocketpistol
+/obj/item/storage/box/visual/magazine/compact/p17
 	name = "P-17 magazine box"
 	desc = "A box specifically designed to hold a large amount of P-17 magazines."
 	closed_overlay = "mag_box_small_overlay_p17"
 	can_hold = list(
-		/obj/item/ammo_magazine/pistol/standard_pocketpistol,
+		/obj/item/ammo_magazine/pistol/p17,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_pocketpistol/full
+/obj/item/storage/box/visual/magazine/compact/p17/full
 	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/pistol/standard_pocketpistol
+	spawn_type = /obj/item/ammo_magazine/pistol/p17
 
 /obj/item/storage/box/visual/magazine/compact/vp70
 	name = "88M4 magazine box"

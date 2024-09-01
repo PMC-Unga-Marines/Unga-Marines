@@ -211,7 +211,7 @@
 		/obj/item/storage/box/visual/magazine/compact/p14/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/p23/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/r44/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_pocketpistol/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/p17/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/vp70/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_smg/full = 1,

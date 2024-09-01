@@ -285,7 +285,7 @@
 		/obj/item/weapon/gun/rifle/pepperball,
 		/obj/item/weapon/gun/grenade_launcher/single_shot/flare,
 		/obj/item/weapon/gun/pistol/p14,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/pistol/p17,
 		/obj/item/weapon/gun/pistol/rt3,
 		/obj/item/weapon/gun/pistol/m1911,
 		/obj/item/weapon/gun/pistol/p23,
