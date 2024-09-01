@@ -27,9 +27,9 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	var/deploy_time_lock = 15 MINUTES
 	///The respawn time for marines
-	var/respawn_time = 15 MINUTES
+	var/respawn_time = 15 SECONDS
 	//The respawn time for Xenomorphs
-	var/xenorespawn_time = 5 MINUTES
+	var/xenorespawn_time = 5 SECONDS
 	///How many points do you need to win in a point gamemode
 	var/win_points_needed = 0
 	///The points per faction, assoc list
@@ -1000,11 +1000,11 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		var/status_value = ((GLOB.key_to_time_of_xeno_death[source.key] ? GLOB.key_to_time_of_xeno_death[source.key] : -INFINITY)  + SSticker.mode?.xenorespawn_time - world.time) * 0.1 //If xeno_death is null, use -INFINITY
 		if(status_value <= 0)
 			items += "Xeno respawn timer: READY"
-			if(source.can_wait_in_larva_queue() && source.respawn_alert_xeno == TRUE)
+			if(!(source.client.prefs.toggles_sound & SOUND_RESPAWN_ALERT) && source.can_wait_in_larva_queue() && source.respawn_alert_xeno)
 				source.playsound_local(source, 'sound/ambience/votestart.ogg', 50)
 				source.respawn_alert_xeno = FALSE
 				ASYNC
-					if (tgui_alert(source, "Join larva queue?", "Respawn available.", list("Yes", "No"), 30 SECONDS) != "Yes")
+					if(tgui_alert(source, "Join larva queue?", "Respawn available.", list("Yes", "No"), 30 SECONDS) != "Yes")
 						return
 					var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 					HS.add_to_larva_candidate_queue(source.client)

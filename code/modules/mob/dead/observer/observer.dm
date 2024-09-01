@@ -345,11 +345,11 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		status_value = (GLOB.key_to_time_of_role_death[key] + SSticker.mode?.respawn_time - world.time) * 0.1
 		if(status_value <= 0)
 			. += "Respawn timer: READY"
-			if(respawn_alert_marine == TRUE)
+			if(!(src.client.prefs.toggles_sound & SOUND_RESPAWN_ALERT) && respawn_alert_marine)
 				playsound_local(src, 'sound/ambience/votestart.ogg', 50)
 				respawn_alert_marine = FALSE
 				ASYNC
-					if (tgui_alert(src, "Respawn?", "Respawn available.", list("Yes", "No"), 30 SECONDS) != "Yes")
+					if(tgui_alert(src, "Respawn?", "Respawn available.", list("Yes", "No"), 30 SECONDS) != "Yes")
 						return
 					SSticker.mode.player_respawn(src)
 		else

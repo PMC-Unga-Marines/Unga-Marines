@@ -301,3 +301,12 @@ GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DE
 	usr.client.prefs.save_preferences()
 	SStgui.update_user_uis(usr)
 	to_chat(src, span_interface("TGUI compatibility mode is now [usr.client.prefs.tgui_fancy ? "dis" : "en"]abled."))
+
+/client/verb/toggle_respawn_alerts()
+	set name = "Toggle Respawn Alerts"
+	set category = "Preferences.Sound"
+
+	usr.client.prefs.toggles_sound ^= SOUND_RESPAWN_ALERT
+	usr.client.prefs.save_preferences()
+
+	to_chat(usr, span_notice("You will [(usr.client.prefs.toggles_sound & SOUND_RESPAWN_ALERT) ? "no longer" : "now"] receive respawn alerts."))
