@@ -350,7 +350,7 @@
 
 	reagents.clear_reagents() //and clear all reagents in them
 	var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
-	belly.reagents.clear_reagents()
+	belly?.reagents.clear_reagents()
 	REMOVE_TRAIT(src, TRAIT_UNDEFIBBABLE, TRAIT_UNDEFIBBABLE)
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	dead_ticks = 0
