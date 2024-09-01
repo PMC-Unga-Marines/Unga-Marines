@@ -58,7 +58,7 @@
 	penetration = 15
 	additional_xeno_penetration = 10
 
-/datum/ammo/bullet/revolver/r/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/r44/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, knockback = 1)
 
 /datum/ammo/bullet/revolver/small
