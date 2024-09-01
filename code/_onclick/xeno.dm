@@ -11,26 +11,18 @@
 
 	//fire extinguishing
 	if(a_intent == INTENT_HELP)
-		var/fire_level_to_extinguish = 5
 		var/turf/target_turf = A
 		for(var/obj/flamer_fire/fire in target_turf)
-			if((fire.firelevel > fire_level_to_extinguish) && (fire.flame_color == "red")) //TODO: Make firetypes, colour types are terrible
+
+			var/fire_level_to_extinguish = 5
+			if(fire.flame_color == "green") //TODO: Make firetypes, colour types are terrible
+				fire_level_to_extinguish *= 2
+			if(fire.firelevel > fire_level_to_extinguish)
 				fire.firelevel -= fire_level_to_extinguish
 				fire.updateicon()
 			else
-				switch(fire.flame_color)
-					if("blue") //no change cause it has bigger firelvl.
-						if(fire.firelevel > fire_level_to_extinguish)
-							fire.firelevel -= fire_level_to_extinguish
-							fire.updateicon()
-					if("green") //extinguishes faster.
-						if(fire.firelevel > 2*fire_level_to_extinguish)
-							fire.firelevel -= 2*fire_level_to_extinguish
-							fire.updateicon()
-						else
-							qdel(fire)
-					else
-						qdel(fire)
+				qdel(fire)
+
 			do_attack_animation(target_turf)
 			playsound(target_turf, 'sound/effects/alien/tail_swipe2.ogg', 45, 1) //SFX
 			visible_message(span_danger("\The [src] pats at the fire!"), \
