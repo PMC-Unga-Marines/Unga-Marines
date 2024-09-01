@@ -126,7 +126,7 @@
 		"Heavy Weapons" = list(
 			/obj/item/storage/box/crate/sentry = 4,
 			/obj/item/storage/box/hsg102 = 1,
-			/obj/item/weapon/gun/hmg108 = 1,
+			/obj/item/weapon/gun/hmg08 = 1,
 			/obj/item/ammo_magazine/hmg08 = 5,
 			/obj/item/ammo_magazine/hmg08/small = 10,
 		),
@@ -579,7 +579,7 @@
 			/obj/item/storage/box/crate/sentry = -1,
 			/obj/item/sentry_upgrade_kit = -1,
 			/obj/item/storage/box/hsg102 = -1,
-			/obj/item/weapon/gun/hmg108 = -1,
+			/obj/item/weapon/gun/hmg08 = -1,
 			/obj/item/ammo_magazine/hmg08 = -1,
 			/obj/item/storage/holster/backholster/rpg/full = -1,
 			/obj/item/ammo_magazine/rocket/recoilless = -1,
