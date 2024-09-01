@@ -391,7 +391,7 @@
 		/obj/item/weapon/gun/pistol/auto9,
 		/obj/item/weapon/gun/rifle/chambered,
 		/obj/item/weapon/gun/rifle/tx11,
-		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+		/obj/item/weapon/gun/rifle/ar21,
 		/obj/item/weapon/gun/rifle/mkh,
 		/obj/item/weapon/gun/rifle/som,
 		/obj/item/weapon/gun/rifle/som_carbine,

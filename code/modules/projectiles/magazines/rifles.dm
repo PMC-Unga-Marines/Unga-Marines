@@ -432,7 +432,7 @@
 
 //-------------------------------------------------------
 //AR-21
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle
+/obj/item/ammo_magazine/rifle/ar21
 	name = "\improper AR-21 skirmish rifle magazine"
 	desc = "A magazine filled with 10x25mm rifle rounds for the AR-21."
 	caliber = CALIBER_10X25_CASELESS
@@ -668,7 +668,7 @@
 	max_rounds = 80
 	icon_state_mini = "mag_rifle_big"
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended
+/obj/item/ammo_magazine/rifle/ar21/extended
 	name = "\improper AR-21 extended skirmish rifle magazine"
 	desc = "A extended magazine filled with 10x25mm rifle rounds for the AR-21."
 	icon = 'icons/obj/items/ammo.dmi'
@@ -743,25 +743,25 @@
 	default_ammo = /datum/ammo/bullet/rifle/standard_br/ap
 	icon_state_mini = "mag_rifle_big"
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap
+/obj/item/ammo_magazine/rifle/ar21/ap
 	name = "\improper AR-21 skirmish AP rifle magazine"
 	desc = "A magazine filled with 10x25mm armor piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary
+/obj/item/ammo_magazine/rifle/ar21/incendiary
 	name = "\improper AR-21 skirmish incendiary rifle magazine"
 	desc = "A magazine filled with 10x25mm incendiary  rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp
+/obj/item/ammo_magazine/rifle/ar21/hp
 	name = "\improper AR-21 skirmish HP rifle magazine"
 	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot
+/obj/item/ammo_magazine/rifle/ar21/sabot
 	name = "\improper AR-21 skirmish APDS rifle magazine"
 	desc = "A magazine filled with 10x25mm APDS rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT

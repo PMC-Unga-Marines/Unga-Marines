@@ -12,7 +12,7 @@
 	loot = list(
 		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/ar18,
-		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+		/obj/item/weapon/gun/rifle/ar21,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
 		/obj/item/weapon/gun/smg/standard_smg,
 		/obj/item/weapon/gun/smg/standard_machinepistol,
@@ -83,7 +83,7 @@
 	loot = list(
 		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/ar18,
-		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+		/obj/item/weapon/gun/rifle/ar21,
 		/obj/item/weapon/gun/rifle/tx11/scopeless,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/rifle/garand,
@@ -161,7 +161,7 @@
 	loot = list(
 		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar18,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+		/obj/item/ammo_magazine/rifle/ar21,
 		/obj/item/ammo_magazine/rifle/tx11,
 		/obj/item/ammo_magazine/smg/standard_smg,
 		/obj/item/ammo_magazine/smg/standard_machinepistol,
@@ -212,7 +212,7 @@
 	loot = list(
 		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar18,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+		/obj/item/ammo_magazine/rifle/ar21,
 		/obj/item/ammo_magazine/rifle/tx11,
 	)
 

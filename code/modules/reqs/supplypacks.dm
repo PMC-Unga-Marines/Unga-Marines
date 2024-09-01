@@ -843,21 +843,21 @@ WEAPONS
 	contains = list(/obj/item/storage/box/t500case)
 	cost = 50
 
-/datum/supply_packs/weapons/t21_extended_mag
+/datum/supply_packs/weapons/ar21_extended_mag
 	name = "AR-21 extended magazines pack"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended)
+	contains = list(/obj/item/ammo_magazine/rifle/ar21/extended, /obj/item/ammo_magazine/rifle/ar21/extended, /obj/item/ammo_magazine/rifle/ar21/extended, /obj/item/ammo_magazine/rifle/ar21/extended, /obj/item/ammo_magazine/rifle/ar21/extended, /obj/item/ammo_magazine/rifle/ar21/extended,/obj/item/ammo_magazine/rifle/ar21/extended)
 	cost = 350
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t21_sabot
+/datum/supply_packs/weapons/ar21_sabot
 	name = "AR-21 APDS magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot)
+	contains = list(/obj/item/ammo_magazine/rifle/ar21/sabot)
 	cost = 25 //30 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t21_incendiary
+/datum/supply_packs/weapons/ar21_incendiary
 	name = "AR-21 incendiary magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary)
+	contains = list(/obj/item/ammo_magazine/rifle/ar21/incendiary)
 	cost = 25 //30 rounds
 	containertype = /obj/structure/closet/crate/ammo
 

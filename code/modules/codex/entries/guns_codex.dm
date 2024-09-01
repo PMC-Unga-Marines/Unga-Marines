@@ -277,8 +277,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Machinegun was christened the 'MG-42'.\
 	Most would say the large magazine capacity combined with ease of use and ability to lay down fire with good frontline potential is the main advantage of this weapon. You will still be one the slower people in your group, however."
 
-/datum/codex_entry/standard_skirmishrifle
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_skirmishrifle)
+/datum/codex_entry/ar21
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar21)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The 'Skirmish' Rifle variant, known as the 'ALF-6' focused on creating a fullpower rifle, light and with a good blend of mobility, firerate and firepower.\
 	The rifle ended up being the rifle to truly kick off the ALF series, becoming famous for being a great blend of firepower, mobility and ease of use, however the system was known for tearing rounds like it was nothing.\

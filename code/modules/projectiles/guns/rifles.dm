@@ -1686,7 +1686,7 @@
 //-------------------------------------------------------
 //AR-21 Assault Rifle
 
-/obj/item/weapon/gun/rifle/standard_skirmishrifle
+/obj/item/weapon/gun/rifle/ar21
 	name = "\improper AR-21 Kauser skirmish rifle"
 	desc = "The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1706,15 +1706,15 @@
 	caliber = CALIBER_10X25_CASELESS //codex
 	max_shells = 30 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_skirmishrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar21
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar21)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary,
+		/obj/item/ammo_magazine/rifle/ar21,
+		/obj/item/ammo_magazine/rifle/ar21/extended,
+		/obj/item/ammo_magazine/rifle/ar21/ap,
+		/obj/item/ammo_magazine/rifle/ar21/hp,
+		/obj/item/ammo_magazine/rifle/ar21/sabot,
+		/obj/item/ammo_magazine/rifle/ar21/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -1761,7 +1761,7 @@
 	aim_slowdown = 0.5
 	damage_falloff_mult = 0.5
 
-/obj/item/weapon/gun/rifle/standard_skirmishrifle/standard
+/obj/item/weapon/gun/rifle/ar21/standard
 	starting_attachment_types = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/extended_barrel,

@@ -854,18 +854,18 @@
 	spawn_number = 30
 	spawn_type = /obj/item/ammo_magazine/rifle/ar18
 
-/obj/item/storage/box/visual/magazine/compact/standard_skirmishrifle
+/obj/item/storage/box/visual/magazine/compact/ar21
 	name = "AR-21 magazine box"
 	desc = "A box specifically designed to hold a large amount of AR-21 magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_ar21"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+		/obj/item/ammo_magazine/rifle/ar21,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_skirmishrifle/full
+/obj/item/storage/box/visual/magazine/compact/ar21/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/standard_skirmishrifle
+	spawn_type = /obj/item/ammo_magazine/rifle/ar21
 
 /obj/item/storage/box/visual/magazine/compact/ar11
 	name = "AR-11 magazine box"
