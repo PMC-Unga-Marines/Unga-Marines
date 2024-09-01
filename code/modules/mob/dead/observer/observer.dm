@@ -345,8 +345,16 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		status_value = (GLOB.key_to_time_of_role_death[key] + SSticker.mode?.respawn_time - world.time) * 0.1
 		if(status_value <= 0)
 			. += "Respawn timer: READY"
+			if(respawn_alert_marine == TRUE)
+				playsound_local(src, 'sound/ambience/votestart.ogg', 50)
+				respawn_alert_marine = FALSE
+				ASYNC
+					if (tgui_alert(src, "Respawn?", "Respawn available.", list("Yes", "No"), 30 SECONDS) != "Yes")
+						return
+					SSticker.mode.player_respawn(src)
 		else
 			. += "Respawn timer: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
+			respawn_alert_marine = TRUE
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
