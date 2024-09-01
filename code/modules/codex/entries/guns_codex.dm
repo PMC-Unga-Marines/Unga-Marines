@@ -221,7 +221,7 @@
 	rare sight outside of specialized users. and the rising prevalence of shipside combat making it dangerous to fire inside those \
 	spaces makes it even used less. Not that it makes it any less dangerous on an open field."
 
-/datum/codex_entry/standard_shotgun
+/datum/codex_entry/t35
 	associated_paths = list(/obj/item/weapon/gun/shotgun/pump/t35)
 	lore_text = "The K23 itself was designed at first for military use as 12 gauge pump-action shotguns were starting to pick up steam \
 	again due to advancements in ammunition made them much more effective at breaking doors and simple masterkey shotguns were starting \
