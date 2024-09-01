@@ -722,6 +722,21 @@
 		/obj/item/ammo_magazine/revolver,
 	)
 
+/obj/item/storage/holster/belt/revolver/t500
+	name = "\improper BM500 pattern BF revolver holster rig"
+	desc = "The BM500 is the special modular belt for R-500 BF revolver."
+	icon = 'icons/obj/clothing/belts.dmi'
+	icon_state = "t500_holster"
+	bypass_w_limit = list(
+		/obj/item/weapon/gun/revolver/t500,
+	)
+	can_hold = list(
+		/obj/item/weapon/gun/revolver/t500,
+		/obj/item/ammo_magazine/revolver/t500,
+		/obj/item/ammo_magazine/revolver/t500/slavs,
+		/obj/item/ammo_magazine/packet/t500,
+	)
+
 /obj/item/storage/holster/belt/m44
 	name = "\improper M276 pattern M44 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is for the M44 magnum revolver, along with three pouches for speedloaders."
