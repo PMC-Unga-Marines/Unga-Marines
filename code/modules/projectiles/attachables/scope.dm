@@ -212,7 +212,7 @@
 	zoom_viewsize = 0
 	variants_by_parent_type = list(/obj/item/weapon/gun/rifle/som = "")
 
-/obj/item/attachable/scope/mini/tx11
+/obj/item/attachable/scope/mini/ar11
 	name = "AR-11 mini rail scope"
 	icon_state = "tx11scope"
 

@@ -873,12 +873,12 @@
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_ar11"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/tx11,
+		/obj/item/ammo_magazine/rifle/ar11,
 	)
 
 /obj/item/storage/box/visual/magazine/compact/ar11/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/tx11
+	spawn_type = /obj/item/ammo_magazine/rifle/ar11
 
 /obj/item/storage/box/visual/magazine/compact/martini
 	name = "Martini Henry ammo packet box"

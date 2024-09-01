@@ -191,7 +191,7 @@
 	name = "AR-11 Rifleman"
 	desc = "The old rifleman. Equipped with an AR-11 combat rifle with heavy armor, and plenty of grenades and ammunition. Has a large capacity with deadly damage output at all ranges, but lacks many attachment options of more modern weapons and somewhat more cumbersome to handle."
 
-	suit_store = /obj/item/weapon/gun/rifle/tx11/standard
+	suit_store = /obj/item/weapon/gun/rifle/ar11/standard
 	belt = /obj/item/storage/belt/marine/combat_rifle
 
 /datum/outfit/quick/tgmc/marine/combat_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -997,7 +997,7 @@
 	name = "AR-11 Patrol Leader"
 	desc = "Gives the orders. Equipped with an AR-11 combat rifle, plenty of grenades, as well as heavy armor with a 'valkyrie' autodoc module. You can provide excellent support to your squad thanks to your kit and order shouting talents, with excellent damage at all ranges."
 
-	suit_store = /obj/item/weapon/gun/rifle/tx11/standard
+	suit_store = /obj/item/weapon/gun/rifle/ar11/standard
 	belt = /obj/item/storage/belt/marine/combat_rifle
 
 /datum/outfit/quick/tgmc/leader/combat_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

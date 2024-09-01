@@ -1619,7 +1619,7 @@
 //-------------------------------------------------------
 //AR-11 Rifle, based on the gamer-11
 
-/obj/item/weapon/gun/rifle/tx11
+/obj/item/weapon/gun/rifle/ar11
 	name = "\improper AR-11 K&H combat rifle"
 	desc = "The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition."
 	icon_state = "tx11"
@@ -1632,8 +1632,8 @@
 	unload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipout.ogg'
 	reload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipin.ogg'
 	cocked_sound = 'sound/weapons/guns/rifles/AR-11/AR11_boltpull.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/tx11
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/tx11)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar11
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar11)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1647,8 +1647,8 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/scope/mini/tx11,
-		/obj/item/attachable/stock/tx11,
+		/obj/item/attachable/scope/mini/ar11,
+		/obj/item/attachable/stock/ar11,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/scope/marine,
@@ -1656,7 +1656,7 @@
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/scope/mini/tx11)
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/scope/mini/ar11)
 	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 17,"rail_x" = 6, "rail_y" = 20, "under_x" = 20, "under_y" = 12, "stock_x" = 17, "stock_y" = 14)
 	aim_fire_delay = 0.15 SECONDS
 
@@ -1671,17 +1671,17 @@
 	aim_slowdown = 0.45
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/tx11/scopeless
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11)
+/obj/item/weapon/gun/rifle/ar11/scopeless
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11)
 
-/obj/item/weapon/gun/rifle/tx11/freelancerone
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar11/freelancerone
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/tx11/freelancertwo
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/motiondetector, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar11/freelancertwo
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/motiondetector, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/tx11/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar11/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
 
 //-------------------------------------------------------
 //AR-21 Assault Rifle

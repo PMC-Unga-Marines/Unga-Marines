@@ -13,7 +13,7 @@
 		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/ar21,
-		/obj/item/weapon/gun/rifle/tx11/scopeless,
+		/obj/item/weapon/gun/rifle/ar11/scopeless,
 		/obj/item/weapon/gun/smg/standard_smg,
 		/obj/item/weapon/gun/smg/standard_machinepistol,
 		/obj/item/weapon/gun/rifle/standard_dmr,
@@ -84,7 +84,7 @@
 		/obj/item/weapon/gun/rifle/ar12,
 		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/ar21,
-		/obj/item/weapon/gun/rifle/tx11/scopeless,
+		/obj/item/weapon/gun/rifle/ar11/scopeless,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/rifle/garand,
 		/obj/item/weapon/gun/rifle/mpi_km,
@@ -162,7 +162,7 @@
 		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/ar21,
-		/obj/item/ammo_magazine/rifle/tx11,
+		/obj/item/ammo_magazine/rifle/ar11,
 		/obj/item/ammo_magazine/smg/standard_smg,
 		/obj/item/ammo_magazine/smg/standard_machinepistol,
 		/obj/item/ammo_magazine/rifle/standard_dmr,
@@ -213,7 +213,7 @@
 		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/ar21,
-		/obj/item/ammo_magazine/rifle/tx11,
+		/obj/item/ammo_magazine/rifle/ar11,
 	)
 
 ///random sidearm ammunition

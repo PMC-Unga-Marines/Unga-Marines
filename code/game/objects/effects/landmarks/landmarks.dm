@@ -390,7 +390,7 @@
 		/obj/item/weapon/gun/flamer/big_flamer,
 		/obj/item/weapon/gun/pistol/auto9,
 		/obj/item/weapon/gun/rifle/chambered,
-		/obj/item/weapon/gun/rifle/tx11,
+		/obj/item/weapon/gun/rifle/ar11,
 		/obj/item/weapon/gun/rifle/ar21,
 		/obj/item/weapon/gun/rifle/mkh,
 		/obj/item/weapon/gun/rifle/som,

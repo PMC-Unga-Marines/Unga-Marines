@@ -176,7 +176,7 @@
 	name = "PR-11 stock"
 	icon_state = "m41a"
 
-/obj/item/attachable/stock/tx11
+/obj/item/attachable/stock/ar11
 	name = "AR-11 stock"
 	icon_state = "tx11stock"
 

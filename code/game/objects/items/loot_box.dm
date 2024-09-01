@@ -262,7 +262,7 @@
 
 /obj/effect/supply_drop/combat_rifle/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/tx11/standard(loc)
+	new /obj/item/weapon/gun/rifle/ar11/standard(loc)
 	new /obj/item/storage/belt/marine/combat_rifle(loc)
 	return INITIALIZE_HINT_QDEL
 

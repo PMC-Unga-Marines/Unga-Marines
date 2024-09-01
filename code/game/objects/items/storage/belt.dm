@@ -513,12 +513,12 @@
 
 /obj/item/storage/belt/marine/combat_rifle/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
 
 /obj/item/storage/belt/marine/alf_machinecarbine/Initialize(mapload)
 	. = ..()

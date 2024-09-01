@@ -286,8 +286,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Rifle was christened the 'AR-21'.\
 	Most would say it earned its term of a 'Skirmish' rifle due to use in constant skirmishes by frontline troops, due to a low magazine size, but good overall mobility combined with firepower. Watch your magazine count and put the hurt downrange."
 
-/datum/codex_entry/standard_tx11
-	associated_paths = list(/obj/item/weapon/gun/rifle/tx11)
+/datum/codex_entry/ar11
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar11)
 	lore_text = "The Keckler and Hoch 'M-11' was created out of a infamous bid called the 'Rifle of the future' project, created out of a need to replace aging weapon stocks in the TerraGov arsenal. \
 	The M-11 was created to be the ultimate weapon, being able to lay down fire like an MG with a high capacity, amazing burst fire capability, specialized scope for long range damage, it was tested and destroyed the competition.\
 	It did amazing in field tests, and was effectively the best rifle overall. Most concerns were ergonomical, however it was pushed aside for a need of a new rifle, and money was already spent in making the entire thing, so getting a new competition would be too bothersome.\

@@ -420,10 +420,10 @@
 	max_rounds = 20
 
 //-------------------------------------------------------
-//G-11, AR-11
-/obj/item/ammo_magazine/rifle/tx11
+//AR-11
+/obj/item/ammo_magazine/rifle/ar11
 	name = "\improper AR-11 combat rifle magazine"
-	desc = "A magazine filled with 4.92×34mm rifle rounds for the AR-11."
+	desc = "A magazine filled with 4.92x34mm rifle rounds for the AR-11."
 	caliber = CALIBER_492X34_CASELESS
 	icon_state = "tx11"
 	icon_state_mini = "mag_tx11"
