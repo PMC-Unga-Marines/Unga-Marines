@@ -242,54 +242,54 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/heavy_minigun)
 	cost = 30
 
-/datum/supply_packs/weapons/autocannon_emplacement
+/datum/supply_packs/weapons/atr22
 	name = "ATR-22 Mounted Flak Cannon"
-	contains = list(/obj/item/weapon/gun/standard_auto_cannon)
+	contains = list(/obj/item/weapon/gun/atr22)
 	cost = 700
 
-/datum/supply_packs/weapons/ac_hv
+/datum/supply_packs/weapons/atr22_hv
 	name = "ATR-22 High-Velocity ammo"
-	contains = list(/obj/item/ammo_magazine/auto_cannon)
+	contains = list(/obj/item/ammo_magazine/atr22)
 	cost = 40
 
-/datum/supply_packs/weapons/ac_flak
+/datum/supply_packs/weapons/atr22_flak
 	name = "ATR-22 Smart-Detonating ammo"
-	contains = list(/obj/item/ammo_magazine/auto_cannon/flak)
+	contains = list(/obj/item/ammo_magazine/atr22/flak)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_emplacement
 	name = "AGLS-37 Mounted Automated Grenade Launcher"
-	contains = list(/obj/item/weapon/gun/standard_agls)
+	contains = list(/obj/item/weapon/gun/agls37)
 	cost = 700
 
 /datum/supply_packs/weapons/ags_highexplo
 	name = "AGLS-37 AGL High Explosive Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls)
+	contains = list(/obj/item/ammo_magazine/agls37)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_frag
 	name = "AGLS-37 AGL Fragmentation Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/fragmentation)
+	contains = list(/obj/item/ammo_magazine/agls37/fragmentation)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_incendiary
 	name = "AGLS-37 AGL White Phosphorous Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/incendiary)
+	contains = list(/obj/item/ammo_magazine/agls37/incendiary)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_flare
 	name = "AGLS-37 AGL Flare Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/flare)
+	contains = list(/obj/item/ammo_magazine/agls37/flare)
 	cost = 30
 
 /datum/supply_packs/weapons/ags_cloak
 	name = "AGLS-37 AGL Cloak Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/cloak)
+	contains = list(/obj/item/ammo_magazine/agls37/cloak)
 	cost = 30
 
 /datum/supply_packs/weapons/ags_tanglefoot
 	name = "AGLS-37 AGL Tanglefoot Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/tanglefoot)
+	contains = list(/obj/item/ammo_magazine/agls37/tanglefoot)
 	cost = 55
 
 /datum/supply_packs/weapons/antitankgun

@@ -95,7 +95,7 @@
 	zoom_tile_offset = 5
 	zoom_viewsize = 0
 
-/obj/item/attachable/scope/unremovable/standard_atgun
+/obj/item/attachable/scope/unremovable/at36
 	name = "AT-36 long range scope"
 	desc = "An unremovable set of long range scopes, very complex to properly range. Requires time to aim.."
 	icon_state = "sniperscope_invisible"
