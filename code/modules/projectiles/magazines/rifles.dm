@@ -277,25 +277,25 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km/hp
 
-//TX-16 AUTOMATIC SHOTGUN
+//sh-15 AUTOMATIC SHOTGUN
 
-/obj/item/ammo_magazine/rifle/tx15_flechette
+/obj/item/ammo_magazine/rifle/sh15_flechette
 	name = "\improper SH-15 flechette magazine (16 gauge)"
 	desc = "A magazine of 16 gauge flechette rounds, for the SH-15."
 	caliber = CALIBER_16G
 	icon_state = "tx15_flechette"
 	icon_state_mini = "mag_tx15_flechette"
-	default_ammo = /datum/ammo/bullet/shotgun/tx15_flechette
+	default_ammo = /datum/ammo/bullet/shotgun/sh15_flechette
 	max_rounds = 12
 	bonus_overlay = "tx15_flech"
 
-/obj/item/ammo_magazine/rifle/tx15_slug
+/obj/item/ammo_magazine/rifle/sh15_slug
 	name = "\improper SH-15 slug magazine (16 gauge)"
 	desc = "A magazine of 16 gauge slugs, for the SH-15."
 	caliber = CALIBER_16G
 	icon_state = "tx15_slug"
 	icon_state_mini = "mag_tx15_slug"
-	default_ammo = /datum/ammo/bullet/shotgun/tx15_slug
+	default_ammo = /datum/ammo/bullet/shotgun/sh15_slug
 	max_rounds = 12
 	bonus_overlay = "tx15_slug"
 

@@ -378,7 +378,7 @@
 		/obj/item/weapon/gun/rifle/m412l1_hpr,
 		/obj/item/weapon/gun/rifle/type71/flamer,
 		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/standard_autoshotgun,
+		/obj/item/weapon/gun/rifle/sh15,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle,
 		/obj/item/weapon/gun/shotgun/pump,
 		/obj/item/weapon/gun/shotgun/pump/t35,

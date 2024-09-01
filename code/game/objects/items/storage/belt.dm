@@ -531,12 +531,12 @@
 
 /obj/item/storage/belt/marine/auto_shotgun/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/tx15_slug(src)
-	new /obj/item/ammo_magazine/rifle/tx15_slug(src)
-	new /obj/item/ammo_magazine/rifle/tx15_slug(src)
-	new /obj/item/ammo_magazine/rifle/tx15_flechette(src)
-	new /obj/item/ammo_magazine/rifle/tx15_flechette(src)
-	new /obj/item/ammo_magazine/rifle/tx15_flechette(src)
+	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
+	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
+	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
 
 /obj/item/storage/belt/marine/te_cells/Initialize(mapload)
 	. = ..()

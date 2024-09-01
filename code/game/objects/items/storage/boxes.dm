@@ -899,8 +899,8 @@
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_sh15"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/tx15_flechette,
-		/obj/item/ammo_magazine/rifle/tx15_slug,
+		/obj/item/ammo_magazine/rifle/sh15_flechette,
+		/obj/item/ammo_magazine/rifle/sh15_slug,
 	)
 
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette
@@ -909,7 +909,7 @@
 
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/tx15_flechette
+	spawn_type = /obj/item/ammo_magazine/rifle/sh15_flechette
 
 /obj/item/storage/box/visual/magazine/compact/sh15/slug
 	name = "SH-15 slug magazine box"
@@ -917,7 +917,7 @@
 
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/tx15_slug
+	spawn_type = /obj/item/ammo_magazine/rifle/sh15_slug
 
 /obj/item/storage/box/visual/magazine/compact/sectoid_rifle
 	name = "Suspicious glowing box"

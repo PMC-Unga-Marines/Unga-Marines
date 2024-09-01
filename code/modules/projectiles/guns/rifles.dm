@@ -1228,7 +1228,7 @@
 //-------------------------------------------------------
 //SH-15 AUTOMATIC SHOTGUN
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun
+/obj/item/weapon/gun/rifle/sh15
 	name = "\improper Zauer SH-15 automatic shotgun"
 	desc = "The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines."
 	icon_state = "tx15"
@@ -1241,14 +1241,14 @@
 	caliber = CALIBER_16G //codex
 	max_shells = 12 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_slug
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sh15_slug
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/tx15_slug,
-		/obj/item/ammo_magazine/rifle/tx15_flechette,
+		/obj/item/ammo_magazine/rifle/sh15_slug,
+		/obj/item/ammo_magazine/rifle/sh15_flechette,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -1260,7 +1260,7 @@
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/stock/tx15,
+		/obj/item/attachable/stock/sh15,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/flashlight/under,
@@ -1275,7 +1275,7 @@
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15)
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 12, "rail_y" = 17, "under_x" = 20, "under_y" = 13, "stock_x" = 26, "stock_y" = 13)
 	gun_skill_category = SKILL_SHOTGUNS
 
@@ -1285,14 +1285,14 @@
 	scatter = -2
 	movement_acc_penalty_mult = 3
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/sh15/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15, /obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung)
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/sh15/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15, /obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun/plasma_pistol
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/pistol/plasma_pistol)
+/obj/item/weapon/gun/rifle/sh15/plasma_pistol
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/pistol/plasma_pistol)
 
 //-------------------------------------------------------
 //SG-29 Smart Machine Gun (It's more of a rifle than the SG.)

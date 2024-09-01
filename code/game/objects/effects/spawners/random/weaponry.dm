@@ -31,7 +31,7 @@
 		/obj/item/weapon/gun/rifle/pepperball,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/shotgun/double/marine,
-		/obj/item/weapon/gun/rifle/standard_autoshotgun,
+		/obj/item/weapon/gun/rifle/sh15,
 		/obj/item/weapon/gun/shotgun/combat/standardmarine,
 	)
 
@@ -45,7 +45,7 @@
 		/obj/item/weapon/gun/shotgun/pump/bolt/unscoped,
 		/obj/item/weapon/gun/shotgun/pump/cmb,
 		/obj/item/weapon/gun/shotgun/double/marine,
-		/obj/item/weapon/gun/rifle/standard_autoshotgun,
+		/obj/item/weapon/gun/rifle/sh15,
 		/obj/item/weapon/gun/shotgun/combat/standardmarine,
 		/obj/item/weapon/gun/shotgun/pump/t35,
 	)
@@ -179,7 +179,7 @@
 		/obj/item/ammo_magazine/pistol/derringer,
 		/obj/item/ammo_magazine/rifle/pepperball,
 		/obj/item/ammo_magazine/shotgun/flechette,
-		/obj/item/ammo_magazine/rifle/tx15_slug,
+		/obj/item/ammo_magazine/rifle/sh15_slug,
 	)
 
 ///for specific ranged weapon ammo spawners we don't spawn anything that marines couldn't get back on their ship

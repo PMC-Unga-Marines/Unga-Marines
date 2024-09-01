@@ -176,13 +176,13 @@
 /datum/ammo/bullet/shotgun/sx16_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 1, knockback = 1)
 
-/datum/ammo/bullet/shotgun/tx15_flechette
+/datum/ammo/bullet/shotgun/sh15_flechette
 	name = "shotgun flechette shell"
 	handful_icon_state = "shotgun flechette shell"
 	icon_state = "flechette"
 	hud_state = "shotgun_flechette"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	bonus_projectiles_type = /datum/ammo/bullet/shotgun/tx15_flechette/spread
+	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh15_flechette/spread
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 2
 	max_range = 15
@@ -192,10 +192,10 @@
 	sundering = 1.5
 	additional_xeno_penetration = 20
 
-/datum/ammo/bullet/shotgun/tx15_flechette/spread
+/datum/ammo/bullet/shotgun/sh15_flechette/spread
 	name = "additional flechette"
 
-/datum/ammo/bullet/shotgun/tx15_slug
+/datum/ammo/bullet/shotgun/sh15_slug
 	name = "shotgun slug"
 	handful_icon_state = "shotgun slug"
 	hud_state = "shotgun_slug"
@@ -206,7 +206,7 @@
 	penetration = 30
 	additional_xeno_penetration = 5
 
-/datum/ammo/bullet/shotgun/tx15_slug/on_hit_mob(mob/M, obj/projectile/P)
+/datum/ammo/bullet/shotgun/sh15_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 2, knockback = 1)
 
 /datum/ammo/bullet/shotgun/mbx900_buckshot

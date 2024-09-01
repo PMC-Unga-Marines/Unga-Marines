@@ -53,7 +53,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/tx15
+/obj/item/attachable/stock/sh15
 	name = "\improper SH-15 stock"
 	desc = "The standard stock for the SH-15. Cannot be removed."
 	icon_state = "tx15stock"
