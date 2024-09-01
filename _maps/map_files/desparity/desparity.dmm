@@ -3696,7 +3696,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
 "tp" = (
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -9903,12 +9903,12 @@
 /area/lv624/lazarus/fitness)
 "XS" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21,
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = -5;
 	pixel_y = -2
 	},
