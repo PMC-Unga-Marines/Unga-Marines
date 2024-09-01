@@ -26435,7 +26435,7 @@
 /area/mainship/hallways/port_hallway)
 "pwd" = (
 /obj/structure/table/mainship,
-/obj/item/ammo_magazine/rifle/chamberedrifle,
+/obj/item/ammo_magazine/rifle/sr127,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "pwq" = (
@@ -32243,7 +32243,7 @@
 /area/mainship/hull/starboard_hull)
 "sSg" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/chambered,
+/obj/item/weapon/gun/rifle/sr127,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "sSK" = (

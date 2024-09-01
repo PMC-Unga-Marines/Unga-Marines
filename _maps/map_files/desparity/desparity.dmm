@@ -9912,7 +9912,7 @@
 	pixel_x = -5;
 	pixel_y = -2
 	},
-/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+/obj/item/weapon/gun/rifle/ar21,
 /turf/open/floor/tile/red/redtaupe{
 	dir = 1
 	},
