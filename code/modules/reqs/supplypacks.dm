@@ -224,12 +224,12 @@ WEAPONS
 
 /datum/supply_packs/weapons/m56d_emplacement
 	name = "HSG-102 Mounted Heavy Smartgun"
-	contains = list(/obj/item/storage/box/tl102)
+	contains = list(/obj/item/storage/box/hsg102)
 	cost = 600
 
 /datum/supply_packs/weapons/m56d
 	name = "HSG-102 mounted heavy smartgun ammo"
-	contains = list(/obj/item/ammo_magazine/tl102)
+	contains = list(/obj/item/ammo_magazine/hsg102)
 	cost = 30
 
 /datum/supply_packs/weapons/minigun_emplacement
@@ -2505,7 +2505,7 @@ VEHICLES
 
 /datum/supply_packs/vehicles/hsg_ammo
 	name = "Mounted HSG ammo"
-	contains = list(/obj/item/ammo_magazine/tl102/hsg_nest)
+	contains = list(/obj/item/ammo_magazine/hsg102/hsg_nest)
 	cost = 100
 	containertype = /obj/structure/closet/crate/ammo
 

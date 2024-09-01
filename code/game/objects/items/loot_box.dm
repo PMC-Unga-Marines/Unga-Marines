@@ -413,7 +413,7 @@
 		/obj/item/storage/box/crate/loot/sadarclassic_pack,
 	)
 	rare_list = list(
-		/obj/item/storage/box/crate/loot/tl102_pack,
+		/obj/item/storage/box/crate/loot/hsg102_pack,
 		/obj/item/storage/box/crate/loot/mortar_pack,
 		/obj/structure/closet/crate/loot/howitzer_pack,
 		/obj/item/storage/box/crate/loot/sentry_pack,
@@ -612,10 +612,10 @@
 	new /obj/item/mortal_shell/howitzer/white_phos(src)
 	new /obj/item/mortal_shell/howitzer/white_phos(src)
 
-/obj/item/storage/box/crate/loot/tl102_pack/Initialize(mapload)
+/obj/item/storage/box/crate/loot/hsg102_pack/Initialize(mapload)
 	. = ..()
-	new /obj/item/storage/box/tl102(src)
-	new /obj/item/storage/box/tl102(src)
+	new /obj/item/storage/box/hsg102(src)
+	new /obj/item/storage/box/hsg102(src)
 
 /obj/item/storage/box/crate/loot/agl_pack/Initialize(mapload)
 	. = ..()
