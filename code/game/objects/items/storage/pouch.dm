@@ -277,7 +277,7 @@
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/t19full
-	fill_type = /obj/item/ammo_magazine/smg/standard_smg
+	fill_type = /obj/item/ammo_magazine/smg/smg90
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/som

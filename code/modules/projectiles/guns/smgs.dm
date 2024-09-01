@@ -103,7 +103,7 @@
 //-------------------------------------------------------
 // War is hell. Not glorious.
 
-/obj/item/weapon/gun/smg/standard_smg
+/obj/item/weapon/gun/smg/smg90
 	name = "\improper SMG-90 submachinegun"
 	desc = "The SMG-90 is the TerraGov Marine Corps standard issue SMG. Its known for it's compact size and ease of use inside the field. It's usually carried by troops who want a lightweight firearm to rush with. It uses 10x20mm caseless rounds."
 	fire_sound =     'sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
@@ -123,8 +123,8 @@
 	wield_delay = 0.5 SECONDS
 	force = 20
 	type_of_casings = null
-	default_ammo_type = /obj/item/ammo_magazine/smg/standard_smg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/standard_smg)
+	default_ammo_type = /obj/item/ammo_magazine/smg/smg90
+	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/smg90)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
@@ -159,13 +159,13 @@
 
 	placed_overlay_iconstate = "t90"
 
-/obj/item/weapon/gun/smg/standard_smg/breacher
+/obj/item/weapon/gun/smg/smg90/breacher
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
 
-/obj/item/weapon/gun/smg/standard_smg/nonstandard
+/obj/item/weapon/gun/smg/smg90/nonstandard
 	starting_attachment_types = list(/obj/item/attachable/reddot)
 
-/obj/item/weapon/gun/smg/standard_smg/tactical
+/obj/item/weapon/gun/smg/smg90/tactical
 	starting_attachment_types = list(/obj/item/attachable/compensator, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
 
 //-------------------------------------------------------

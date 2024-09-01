@@ -45,7 +45,7 @@
 //-------------------------------------------------------
 //SMG-90 SMG ammo
 
-/obj/item/ammo_magazine/smg/standard_smg
+/obj/item/ammo_magazine/smg/smg90
 	name = "\improper SMG-90 submachine gun magazine (10x20mm)"
 	desc = "A 10x20mm caseless submachine gun magazine."
 	caliber = CALIBER_10X20_CASELESS

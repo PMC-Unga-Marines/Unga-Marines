@@ -23,7 +23,7 @@
 	supply = list(
 		/obj/structure/largecrate/supply/weapons/ar18 = 2,
 		/obj/structure/largecrate/supply/weapons/shotgun = 2,
-		/obj/structure/largecrate/supply/weapons/standard_smg = 2,
+		/obj/structure/largecrate/supply/weapons/smg90 = 2,
 		/obj/structure/largecrate/supply/weapons/pistols = 2,
 		/obj/structure/largecrate/supply/weapons/flamers = 2,
 		/obj/structure/largecrate/supply/weapons/hpr = 2,
@@ -38,7 +38,7 @@
 		/obj/structure/largecrate/supply/ammo/m41a = 4,
 		/obj/structure/largecrate/supply/ammo/m41a_box = 4,
 		/obj/structure/largecrate/supply/ammo/shotgun = 4,
-		/obj/structure/largecrate/supply/ammo/standard_smg = 4,
+		/obj/structure/largecrate/supply/ammo/smg90 = 4,
 		/obj/structure/largecrate/supply/ammo/pistol = 4,
 	)
 
@@ -111,10 +111,10 @@
 	desc = "A weapons chest containing ten SH-35 pump shotguns."
 	supplies = list(/obj/item/weapon/gun/shotgun/pump/t35 = 10)
 
-/obj/structure/largecrate/supply/weapons/standard_smg
+/obj/structure/largecrate/supply/weapons/smg90
 	name = "\improper SMG-90 sub machinegun weapons chest (x8)"
 	desc = "A weapons chest containing eight SMG-90 submachine guns."
-	supplies = list(/obj/item/weapon/gun/smg/standard_smg = 8)
+	supplies = list(/obj/item/weapon/gun/smg/smg90 = 8)
 
 /obj/structure/largecrate/supply/weapons/pistols
 	name = "sidearm weapons chest (x20)"
@@ -179,10 +179,10 @@
 	desc = "An ammunition case containing eight boxes of slugs, eight boxes of buckshot, and eight boxes of flechette rounds."
 	supplies = list(/obj/item/ammo_magazine/shotgun = 8, /obj/item/ammo_magazine/shotgun/buckshot = 8, /obj/item/ammo_magazine/shotgun/flechette = 8)
 
-/obj/structure/largecrate/supply/ammo/standard_smg
+/obj/structure/largecrate/supply/ammo/smg90
 	name = "\improper SMG-90 magazine case (x16)"
 	desc = "An ammunition case containing sixteen SMG-90 magazines."
-	supplies = list(/obj/item/ammo_magazine/smg/standard_smg = 16)
+	supplies = list(/obj/item/ammo_magazine/smg/smg90 = 16)
 
 /obj/structure/largecrate/supply/ammo/pistol
 	name = "sidearm ammunition case (x40)"
@@ -214,7 +214,7 @@
 		/obj/item/storage/box/visual/magazine/compact/p17/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/vp70/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_smg/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/smg90/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_machinepistol/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/ar12/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/ar18/full = 1,

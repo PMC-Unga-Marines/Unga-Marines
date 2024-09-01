@@ -321,9 +321,8 @@
 	Eventually, it won the bid due to its light weight, and low cost for mass production. Despite arguably being worse than most of the competition everywhere else outside of firerate. It was christened the 'MG-28' and entered service.\
 	Most would say that this machinegun makes you a walking dispenser of lead, you'll be slow and unwieldy with no match when it come to emptying a rain of lead on foe... or friend."
 
-
-/datum/codex_entry/standard_smg
-	associated_paths = list(/obj/item/weapon/gun/smg/standard_smg)
+/datum/codex_entry/smg90
+	associated_paths = list(/obj/item/weapon/gun/smg/smg90)
 	lore_text = "The MD-65 is a rather compact gun, designed for use by specialized troops who don't have the space to carry a bigger \
 	firearm and don't want to be stuck with a handgun. <br><br>\
 	It's generally used inside it's belt holster or slung on your back as a secondary firearm for use in situations where you have a \

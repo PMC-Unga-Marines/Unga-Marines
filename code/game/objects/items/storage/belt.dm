@@ -477,12 +477,12 @@
 
 /obj/item/storage/belt/marine/t90/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
 
 /obj/item/storage/belt/marine/secondary/Initialize(mapload)
 	. = ..()

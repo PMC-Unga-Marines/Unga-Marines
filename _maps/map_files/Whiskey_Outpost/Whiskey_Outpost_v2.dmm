@@ -583,11 +583,11 @@
 /area/whiskey_outpost)
 "cK" = (
 /obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "cL" = (
@@ -817,7 +817,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
 "dQ" = (
-/obj/structure/largecrate/supply/ammo/standard_smg,
+/obj/structure/largecrate/supply/ammo/smg90,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "dS" = (
@@ -1448,7 +1448,7 @@
 	},
 /area/whiskey_outpost)
 "ha" = (
-/obj/structure/largecrate/supply/ammo/standard_smg,
+/obj/structure/largecrate/supply/ammo/smg90,
 /turf/open/floor/plating/warning{
 	dir = 5
 	},
@@ -3839,7 +3839,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/west)
 "tm" = (
-/obj/structure/largecrate/supply/ammo/standard_smg,
+/obj/structure/largecrate/supply/ammo/smg90,
 /obj/machinery/light,
 /turf/open/floor/plating,
 /area/whiskey_outpost)
@@ -4215,8 +4215,8 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
 /obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/standard_machinepistol/full,
@@ -4671,7 +4671,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "yo" = (
-/obj/structure/largecrate/supply/weapons/standard_smg,
+/obj/structure/largecrate/supply/weapons/smg90,
 /turf/open/floor/plating,
 /area/whiskey_outpost)
 "yr" = (
@@ -5699,7 +5699,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
 "FD" = (
-/obj/structure/largecrate/supply/weapons/standard_smg,
+/obj/structure/largecrate/supply/weapons/smg90,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "FE" = (

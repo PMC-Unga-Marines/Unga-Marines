@@ -8906,10 +8906,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_rnr)
 "erW" = (
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/weapon/gun/smg/standard_smg,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/weapon/gun/smg/smg90,
 /obj/structure/table/mainship/nometal,
 /turf/open/floor/mainship/red{
 	dir = 5
