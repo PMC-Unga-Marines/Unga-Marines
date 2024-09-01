@@ -288,7 +288,7 @@
 		/obj/item/weapon/gun/pistol/standard_pocketpistol,
 		/obj/item/weapon/gun/pistol/rt3,
 		/obj/item/weapon/gun/pistol/m1911,
-		/obj/item/weapon/gun/pistol/standard_heavypistol,
+		/obj/item/weapon/gun/pistol/p23,
 		/obj/item/weapon/gun/pistol/g22,
 		/obj/item/weapon/gun/pistol/heavy,
 		/obj/item/weapon/gun/pistol/heavy/gold,

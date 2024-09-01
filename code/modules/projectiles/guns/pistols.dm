@@ -172,7 +172,7 @@
 //-------------------------------------------------------
 // P-23 service pistol
 
-/obj/item/weapon/gun/pistol/standard_heavypistol
+/obj/item/weapon/gun/pistol/p23
 	name = "\improper P-23 service pistol"
 	desc = "A standard P-23 chambered in .45 ACP. Has a smaller magazine capacity, but packs a better punch. Has an irremovable laser sight. Uses .45 magazines."
 	icon_state = "tp23"
@@ -187,8 +187,8 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_heavypistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_heavypistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p23
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p23)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
@@ -211,13 +211,13 @@
 	recoil_unwielded = -2
 	lower_akimbo_accuracy = 2
 
-/obj/item/weapon/gun/pistol/standard_heavypistol/suppressed
+/obj/item/weapon/gun/pistol/p23/suppressed
 	starting_attachment_types = list(/obj/item/attachable/suppressor, /obj/item/attachable/flashlight) //Tacticool
 
-/obj/item/weapon/gun/pistol/standard_heavypistol/tacticool
+/obj/item/weapon/gun/pistol/p23/tacticool
 	starting_attachment_types = list(/obj/item/attachable/lace, /obj/item/attachable/flashlight) //Tacticool
 
-/obj/item/weapon/gun/pistol/standard_heavypistol/tactical
+/obj/item/weapon/gun/pistol/p23/tactical
 	starting_attachment_types = list(/obj/item/attachable/reddot)
 //-------------------------------------------------------
 //P-1911

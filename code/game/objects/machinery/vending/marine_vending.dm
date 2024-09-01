@@ -793,7 +793,7 @@
 			/obj/item/shotgunbox/flechette = -1,
 			/obj/item/shotgunbox/tracker = -1,
 			/obj/item/storage/box/visual/magazine/compact/standard_pistol/full = -1,
-			/obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full = -1,
+			/obj/item/storage/box/visual/magazine/compact/p23/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/standard_revolver/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/standard_pocketpistol/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/vp70/full = -1,

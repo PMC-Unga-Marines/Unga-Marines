@@ -78,7 +78,7 @@
 //-------------------------------------------------------
 //P-23
 
-/obj/item/ammo_magazine/pistol/standard_heavypistol
+/obj/item/ammo_magazine/pistol/p23
 	name = "\improper P-23 magazine (.45)"
 	default_ammo = /datum/ammo/bullet/pistol/heavy
 	caliber = CALIBER_45ACP
