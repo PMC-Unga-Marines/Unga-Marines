@@ -67,16 +67,16 @@
 	max_rounds = 50
 
 //-------------------------------------------------------
-//T37 DMR
+//DMR37
 
-/obj/item/ammo_magazine/rifle/standard_dmr
+/obj/item/ammo_magazine/rifle/dmr37
 	name = "\improper DMR-37 magazine (10x27mm)"
 	desc = "A 10mm DMR magazine."
 	caliber = CALIBER_10x27_CASELESS
 	icon_state = "t37"
 	icon_state_mini = "mag_rifle_big"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
 	max_rounds = 20
 
 //-------------------------------------------------------
@@ -595,7 +595,7 @@
 	icon_state = "l11"
 	icon_state_mini = "mag_rifle"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
 	max_rounds = 20
 
 //-------------------------------------------------------

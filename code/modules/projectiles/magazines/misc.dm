@@ -55,7 +55,7 @@
 	desc = "A box containing 100 rounds of 10x27mm caseless."
 	caliber = CALIBER_10x27_CASELESS
 	icon_state = "box_10x27mm"
-	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
 	current_rounds = 100
 	max_rounds = 100
 

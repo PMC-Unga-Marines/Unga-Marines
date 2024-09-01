@@ -968,18 +968,18 @@
 
 // -Marksmen-
 
-/obj/item/storage/box/visual/magazine/compact/standard_dmr
+/obj/item/storage/box/visual/magazine/compact/dmr37
 	name = "DMR-37 magazine box"
 	desc = "A box specifically designed to hold a large amount of DMR-37 magazines."
 	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_dmr37"
 	can_hold = list(
-		/obj/item/ammo_magazine/rifle/standard_dmr,
+		/obj/item/ammo_magazine/rifle/dmr37,
 	)
 
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full
+/obj/item/storage/box/visual/magazine/compact/dmr37/full
 	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/standard_dmr
+	spawn_type = /obj/item/ammo_magazine/rifle/dmr37
 
 /obj/item/storage/box/visual/magazine/compact/standard_br
 	name = "BR-64 magazine box"

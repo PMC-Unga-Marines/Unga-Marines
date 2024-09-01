@@ -215,7 +215,7 @@
 //-------------------------------------------------------
 //DMR-37 DMR
 
-/obj/item/weapon/gun/rifle/standard_dmr
+/obj/item/weapon/gun/rifle/dmr37
 	name = "\improper DMR-37 SCA designated marksman rifle"
 	desc = "The San Cristo Arms DMR-37 is the TerraGov Marine Corps designated marksman rifle. It is rather well-known for it's very consistent target placement at longer than usual range, it however lacks a burst fire mode or an automatic mode. It is mostly used by people who prefer to do more careful shooting than most. Uses 10x27mm caseless caliber."
 	icon = 'icons/Marine/gun64.dmi'
@@ -242,8 +242,8 @@
 	wield_delay = 0.8 SECONDS
 	force = 20
 	max_shells = 20 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_dmr
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_dmr)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/dmr37
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/dmr37)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
@@ -288,7 +288,7 @@
 	burst_amount = 1
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/standard_dmr/marksman
+/obj/item/weapon/gun/rifle/dmr37/marksman
 	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/angledgrip, /obj/item/attachable/extended_barrel)
 
 

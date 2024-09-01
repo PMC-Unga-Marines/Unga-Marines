@@ -223,7 +223,7 @@
 		/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/sh15/slug/full = 1,
-		/obj/item/storage/box/visual/magazine/compact/standard_dmr/full = 1,
+		/obj/item/storage/box/visual/magazine/compact/dmr37/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_br/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/chamberedrifle/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/standard_lmg/full = 1,

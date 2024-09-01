@@ -364,7 +364,7 @@
 	weapon_list = list(
 		/obj/item/weapon/gun/rifle/ar18,
 		/obj/item/weapon/gun/rifle/ar12,
-		/obj/item/weapon/gun/rifle/standard_dmr,
+		/obj/item/weapon/gun/rifle/dmr37,
 		/obj/item/weapon/gun/rifle/standard_br,
 		/obj/item/weapon/gun/rifle/m412,
 		/obj/item/weapon/gun/rifle/m41a,

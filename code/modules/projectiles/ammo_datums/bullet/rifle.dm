@@ -184,7 +184,7 @@
 	penetration = 0
 	additional_xeno_penetration = -15
 
-/datum/ammo/bullet/rifle/standard_dmr
+/datum/ammo/bullet/rifle/dmr37
 	name = "marksman bullet"
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
