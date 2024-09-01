@@ -685,32 +685,32 @@ WEAPONS
 
 /datum/supply_packs/weapons/spotting_rifle_ammo
 	name = "SG-153 spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153)
 	cost = 15
 
 /datum/supply_packs/weapons/spotting_rifle_ammo/highimpact
 	name = "SG-153 high impact spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/highimpact)
 
 /datum/supply_packs/weapons/spotting_rifle_ammo/heavyrubber
 	name = "SG-153 heavy rubber spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/heavyrubber)
 
 /datum/supply_packs/weapons/spotting_rifle_ammo/plasmaloss
 	name = "SG-153 tanglefoot spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/plasmaloss)
 
 /datum/supply_packs/weapons/spotting_rifle_ammo/tungsten
 	name = "SG-153 tungsten spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/tungsten)
 
 /datum/supply_packs/weapons/spotting_rifle_ammo/flak
 	name = "SG-153 flak spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/flak)
 
 /datum/supply_packs/weapons/spotting_rifle_ammo/incendiary
 	name = "SG-153 incendiary spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/incendiary)
 
 /datum/supply_packs/weapons/flamethrower
 	name = "FL-84 Flamethrower"

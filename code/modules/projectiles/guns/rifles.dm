@@ -1382,7 +1382,7 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
-		/obj/item/weapon/gun/rifle/standard_spottingrifle,
+		/obj/item/weapon/gun/rifle/sg153,
 		/obj/item/attachable/stock/strstock,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
@@ -1393,7 +1393,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
 	attachable_offset = list("muzzle_x" = 12, "muzzle_y" = 22, "rail_x" = 15, "rail_y" = 22, "under_x" = 28, "under_y" = 16, "stock_x" = 12, "stock_y" = 14)
-	starting_attachment_types = list(/obj/item/weapon/gun/rifle/standard_spottingrifle, /obj/item/attachable/stock/strstock)
+	starting_attachment_types = list(/obj/item/weapon/gun/rifle/sg153, /obj/item/attachable/stock/strstock)
 
 	fire_delay = 0.4 SECONDS
 	burst_amount = 0
@@ -1406,9 +1406,9 @@
 	placed_overlay_iconstate = "smartgun"
 
 /obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion
-	starting_attachment_types = list(/obj/item/weapon/gun/rifle/standard_spottingrifle, /obj/item/attachable/stock/strstock, /obj/item/attachable/motiondetector)
+	starting_attachment_types = list(/obj/item/weapon/gun/rifle/sg153, /obj/item/attachable/stock/strstock, /obj/item/attachable/motiondetector)
 
-/obj/item/weapon/gun/rifle/standard_spottingrifle
+/obj/item/weapon/gun/rifle/sg153
 	name = "SG-153 spotting rifle"
 	desc = "An underslung spotting rifle, generally found ontop of another gun."
 	icon_state = "sg153"
@@ -1417,15 +1417,15 @@
 	caliber = CALIBER_12x7
 	slot = ATTACHMENT_SLOT_UNDER
 	max_shells = 5
-	default_ammo_type =/obj/item/ammo_magazine/rifle/standard_spottingrifle
+	default_ammo_type =/obj/item/ammo_magazine/rifle/sg153
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak,
+		/obj/item/ammo_magazine/rifle/sg153,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/heavyrubber,
+		/obj/item/ammo_magazine/rifle/sg153/plasmaloss,
+		/obj/item/ammo_magazine/rifle/sg153/tungsten,
+		/obj/item/ammo_magazine/rifle/sg153/incendiary,
+		/obj/item/ammo_magazine/rifle/sg153/flak,
 	)
 	force = 5
 	attachable_allowed = list()

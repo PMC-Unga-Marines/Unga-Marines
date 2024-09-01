@@ -329,51 +329,51 @@
 //-------------------------------------------------------
 //SPOTTING RIFLE AMMUNITION
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle
+/obj/item/ammo_magazine/rifle/sg153
 	name = "\improper SG-153 magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm lethal smart rounds, these will do nothing other than pack a big punch."
 	caliber = CALIBER_12x7
 	icon_state = "sg153"
 	w_class = WEIGHT_CLASS_SMALL
-	default_ammo = /datum/ammo/bullet/spottingrifle
+	default_ammo = /datum/ammo/bullet/sg153
 	max_rounds = 5
 	icon_state_mini = "mag_sg29"
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact
+/obj/item/ammo_magazine/rifle/sg153/highimpact
 	name = "\improper SG-153 high impact magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm high impact smart rounds, these will likely stagger and slow anything they hit."
 	icon_state = "sg153_hi"
-	default_ammo = /datum/ammo/bullet/spottingrifle/highimpact
+	default_ammo = /datum/ammo/bullet/sg153/highimpact
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber
+/obj/item/ammo_magazine/rifle/sg153/heavyrubber
 	name = "\improper SG-153 heavy rubber magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm heavy rubber smart rounds, these will likely stun and displace anything they hit."
 	icon_state = "sg153_hr"
-	default_ammo = /datum/ammo/bullet/spottingrifle/heavyrubber
+	default_ammo = /datum/ammo/bullet/sg153/heavyrubber
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss
+/obj/item/ammo_magazine/rifle/sg153/plasmaloss
 	name = "\improper SG-153 tanglefoot magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm smart rounds tipped with 'Tanglefoot' poison, these rounds will drain the energy out of targets they hit."
 	icon_state = "sg153_hr"
-	default_ammo = /datum/ammo/bullet/spottingrifle/plasmaloss
+	default_ammo = /datum/ammo/bullet/sg153/plasmaloss
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten
+/obj/item/ammo_magazine/rifle/sg153/tungsten
 	name = "\improper SG-153 tungsten magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm tungsten smart rounds, these rounds will massively knock back any target it hits."
 	icon_state = "sg153_tg"
-	default_ammo = /datum/ammo/bullet/spottingrifle/tungsten
+	default_ammo = /datum/ammo/bullet/sg153/tungsten
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary
+/obj/item/ammo_magazine/rifle/sg153/incendiary
 	name = "\improper SG-153 incendiary magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm incendiary smart rounds, these rounds will set alight anything they hit."
 	icon_state = "sg153_ic"
-	default_ammo = /datum/ammo/bullet/spottingrifle/incendiary
+	default_ammo = /datum/ammo/bullet/sg153/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak
+/obj/item/ammo_magazine/rifle/sg153/flak
 	name = "\improper SG-153 flak magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm flak smart rounds, these rounds will airburst on contact with an organic target, causing damage in a small area near the target."
 	icon_state = "sg153_fl"
-	default_ammo = /datum/ammo/bullet/spottingrifle/flak
+	default_ammo = /datum/ammo/bullet/sg153/flak
 
 
 //-------------------------------------------------------

@@ -165,11 +165,11 @@
 		/obj/item/ammo_magazine/minigun_powerpack/smartgun,
 		/obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion,
 		/obj/item/storage/belt/marine/target_rifle,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/incendiary,
+		/obj/item/ammo_magazine/rifle/sg153/tungsten,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
 	)
 
 /datum/campaign_asset/equipment/shotguns_tgmc
