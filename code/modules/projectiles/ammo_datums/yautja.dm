@@ -3,7 +3,7 @@
 	shell_speed = 2
 	bullet_color = COLOR_STRONG_VIOLET
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_IGNORE_RESIST
+	flags_ammo_behavior = NONE
 
 	hud_state = "plasma"
 	hud_state_empty = "electrothermal_empty"
@@ -45,7 +45,7 @@
 
 	bullet_color = COLOR_VIOLET
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_RESIST
+	flags_ammo_behavior = AMMO_ENERGY
 	var/stun_time = 5 SECONDS
 
 /datum/ammo/energy/yautja/caster/stun/on_hit_mob(mob/M, obj/projectile/P)
@@ -68,7 +68,6 @@
 /datum/ammo/energy/yautja/caster/bolt
 	name = "plasma bolt"
 	icon_state = "pulse1"
-	flags_ammo_behavior = AMMO_IGNORE_RESIST
 	bullet_color = COLOR_BRIGHT_BLUE
 	shell_speed = 3
 	damage = 35
@@ -82,7 +81,7 @@
 	hud_state = "plasma_rifle"
 
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_RESIST
+	flags_ammo_behavior = AMMO_ENERGY
 
 /datum/ammo/energy/yautja/caster/bolt/stun/on_hit_mob(mob/M, obj/projectile/P)
 	var/mob/living/carbon/C = M
@@ -132,7 +131,7 @@
 	name = "plasma immobilizer"
 	bullet_color = COLOR_MAGENTA
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_RESIST
+	flags_ammo_behavior = AMMO_ENERGY
 	hud_state = "plasma_rifle_blast"
 	accurate_range = 20
 	max_range = 20
@@ -173,7 +172,6 @@
 	name = "plasma rifle bolt"
 	icon_state = "ion"
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_IGNORE_RESIST
 
 	hud_state = "plasma_rifle"
 
