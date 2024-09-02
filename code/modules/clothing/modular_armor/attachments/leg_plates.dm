@@ -11,7 +11,6 @@
 /obj/item/armor_module/armor/legs/marine
 	name = "\improper Jaeger Pattern Infantry leg plates"
 	desc = "Designed for use with the Jaeger Combat Exoskeleton. It provides protection and encumbrance when attached and is fairly easy to attach and remove from armor. Click on the armor frame to attach it. All leg plates have the same armor and slowdown, meaning that only changing the chestplate makes significant armor difference. This armor appears to be marked as a Infantry armor piece."
-	slowdown = 0.1
 
 /obj/item/armor_module/armor/legs/marine/skirmisher
 	name = "\improper Jaeger Pattern Skirmisher leg plates"
