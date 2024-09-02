@@ -12,7 +12,7 @@
 	name = "\improper Jaeger Pattern Medium Infantry chestplates"
 	desc = "Designed for use with the Jaeger Combat Exoskeleton. It provides moderate protection and encumbrance when attached and is fairly easy to attach and remove from armor. Click on the armor frame to attach it. This armor appears to be marked as a Infantry armor piece."
 	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 40, BIO = 40, FIRE = 10, ACID = 45)
-	slowdown = 0.3
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 
 /obj/item/armor_module/armor/chest/marine/skirmisher
