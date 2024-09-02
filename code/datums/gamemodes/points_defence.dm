@@ -128,7 +128,6 @@
 
 	#ifdef TESTING
 	marine_victory_point = points_to_win
-	xeno_victory_point = points_to_win
 	#endif
 
 /datum/game_mode/infestation/distress/points_defence/check_finished()
