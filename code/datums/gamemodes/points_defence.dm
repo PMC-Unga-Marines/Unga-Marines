@@ -137,8 +137,7 @@
 	new /obj/structure/xeno/core(T)
 	GLOB.xenoden_cores_locs -= T
 
-	var/offset = get_scaling_offset()
-	firts_stage_xeno_factor += offset
+	firts_stage_xeno_factor += get_scaling_offset()
 
 	#ifdef TESTING
 	marine_victory_point = points_to_win

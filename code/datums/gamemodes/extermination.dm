@@ -26,8 +26,7 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DIFFUSED, PROC_REF(on_nuclear_diffuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
 
-	var/offset = get_scaling_offset()
-	xeno_factor += offset
+	xeno_factor += get_scaling_offset()
 
 ///Receive notifications about disks generation progress
 /datum/game_mode/infestation/distress/extermination/proc/increase_xeno_factor(datum/source, obj/machinery/computer/nuke_disk_generator/generatingcomputer)
