@@ -94,13 +94,8 @@
 
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
-	var/danger = "danger_"
-	if(overlay_type)
-		danger += overlay_type
-	else
-		danger += "0"
-	if(active)
-		. += image('icons/obj/items/grenade.dmi', icon_state = danger)
+	if(active && overlay_type)
+		. += image('icons/obj/items/grenade.dmi', icon_state = "danger_[overlay_type]")
 
 
 /obj/item/explosive/grenade/proc/prime()
