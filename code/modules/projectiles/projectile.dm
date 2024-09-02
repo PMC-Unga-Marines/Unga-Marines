@@ -839,7 +839,6 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		var/angle = !isnull(proj.dir_angle) ? proj.dir_angle : round(Get_Angle(proj.starting_turf, src), 1)
 		new /obj/effect/temp_visual/dir_setting/bloodsplatter(loc, angle, get_blood_color())
 
-
 /mob/living/carbon/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	if(proj.flags_projectile_behavior & PROJECTILE_PRECISE_TARGET)
 		return proj.original_target == src ? TRUE : FALSE
@@ -896,8 +895,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		return
 
 	if(proj.flags_projectile_behavior & PROJECTILE_PRECISE_TARGET)
-		damage *= SNIPER_LASER_DAMAGE_MULTIPLIER
-		add_slowdown(SNIPER_LASER_SLOWDOWN_STACKS)
+		damage *= SNIPER_LASER_DAMAGE_MULTIPLIER // i love eord
 
 	//friendly fire reduces the damage of the projectile, so only applies the multiplier if a hit is confirmed
 	if(isliving(proj.firer))
