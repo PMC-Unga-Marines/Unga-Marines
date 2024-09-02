@@ -164,12 +164,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		return
 	laser_off(user)
 
-/obj/item/weapon/gun/rifle/sniper/antimaterial/on_unzoom(mob/user)
-	. = ..()
-	if(!targetmarker_primed && !laser_target)
-		return
-	laser_off(user)
-
 /obj/item/weapon/gun/rifle/sniper/antimaterial/proc/activate_laser_target(atom/target, mob/living/user)
 	laser_target = target
 	to_chat(user, span_danger("You focus your target marker on [target]!"))
