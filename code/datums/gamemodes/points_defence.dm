@@ -137,6 +137,9 @@
 	new /obj/structure/xeno/core(T)
 	GLOB.xenoden_cores_locs -= T
 
+	var/offset = get_scaling_offset()
+	firts_stage_xeno_factor += offset
+
 	#ifdef TESTING
 	marine_victory_point = points_to_win
 	xeno_victory_point = points_to_win
@@ -163,6 +166,7 @@
 	if(round_stage == INFESTATION_DROPSHIP_CAPTURED_XENOS)
 		message_admins("Round finished: [MODE_INFESTATION_X_MINOR]")
 		round_finished = MODE_INFESTATION_X_MINOR
+		adjust_scaling_offset(-0.01)
 		return TRUE
 
 	if(round_stage == INFESTATION_MARINE_MINOR)
@@ -173,6 +177,7 @@
 	if(round_stage == INFESTATION_MARIN_RUSH_MAJOR)
 		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]")
 		round_finished = MODE_INFESTATION_M_MAJOR
+		adjust_scaling_offset(0.01)
 		return TRUE
 
 	if(!num_humans)
@@ -182,6 +187,7 @@
 			return TRUE
 		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped out ALL the marines without hijacking, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
+		adjust_scaling_offset(-0.01)
 		return TRUE
 	if(!num_xenos)
 		if(round_stage == INFESTATION_MARINE_CRASHING)
@@ -190,6 +196,7 @@
 			return TRUE
 		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines win big
 		round_finished = MODE_INFESTATION_M_MAJOR
+		adjust_scaling_offset(0.01)
 		return TRUE
 	if(round_stage == INFESTATION_MARINE_CRASHING && !num_humans_ship)
 		if(SSevacuation.human_escaped > SSevacuation.initial_human_on_ship * 0.5)
@@ -198,6 +205,7 @@
 			return
 		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped our marines, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
+		adjust_scaling_offset(-0.01)
 		return TRUE
 	return FALSE
 

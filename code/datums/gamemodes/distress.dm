@@ -46,6 +46,9 @@
 		if(isxenolarva(xeno)) // Larva
 			xeno.evolution_stored = xeno.xeno_caste.evolution_threshold //Immediate roundstart evo for larva.
 
+	var/offset = get_scaling_offset()
+	silo_scaling += offset
+
 /datum/game_mode/infestation/distress/scale_roles(initial_players_assigned)
 	. = ..()
 	if(!.)

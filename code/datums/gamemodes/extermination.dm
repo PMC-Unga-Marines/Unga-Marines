@@ -14,7 +14,7 @@
 	///Multiplier for xenos, increases over time
 	var/xeno_factor = 1
 	///How much xeno_factor you get for progress on discs
-	var/xeno_factor_per_progress_on_disk = 0.1
+	var/xeno_factor_per_progress_on_disk = 0.05
 
 /datum/game_mode/infestation/distress/extermination/post_setup()
 	. = ..()
@@ -25,6 +25,9 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_EXPLODED, PROC_REF(on_nuclear_explosion))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DIFFUSED, PROC_REF(on_nuclear_diffuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
+
+	var/offset = get_scaling_offset()
+	xeno_factor += offset
 
 ///Receive notifications about disks generation progress
 /datum/game_mode/infestation/distress/extermination/proc/increase_xeno_factor(datum/source, obj/machinery/computer/nuke_disk_generator/generatingcomputer)
@@ -52,11 +55,13 @@
 	if(round_stage == INFESTATION_DROPSHIP_CAPTURED_XENOS)
 		message_admins("Round finished: [MODE_INFESTATION_X_MINOR]")
 		round_finished = MODE_INFESTATION_X_MINOR
+		adjust_scaling_offset(-0.01)
 		return TRUE
 
 	if(planet_nuked == INFESTATION_NUKE_COMPLETED)
 		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines managed to nuke the colony
 		round_finished = MODE_INFESTATION_M_MAJOR
+		adjust_scaling_offset(0.01)
 		return TRUE
 
 	if(!num_humans)
@@ -66,6 +71,7 @@
 			return TRUE
 		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped out ALL the marines without hijacking, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
+		adjust_scaling_offset(-0.01)
 		return TRUE
 	if(!num_xenos)
 		if(round_stage == INFESTATION_MARINE_CRASHING)
@@ -74,6 +80,7 @@
 			return TRUE
 		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines win big
 		round_finished = MODE_INFESTATION_M_MAJOR
+		adjust_scaling_offset(0.01)
 		return TRUE
 	if(round_stage == INFESTATION_MARINE_CRASHING && !num_humans_ship)
 		if(SSevacuation.human_escaped > SSevacuation.initial_human_on_ship * 0.5)
@@ -82,6 +89,7 @@
 			return
 		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped our marines, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
+		adjust_scaling_offset(-0.01)
 		return TRUE
 	return FALSE
 

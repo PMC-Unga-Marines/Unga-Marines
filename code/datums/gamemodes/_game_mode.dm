@@ -1112,3 +1112,18 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	new_predator.apply_assigned_role_to_spawn(job)
 	job.after_spawn(new_predator)
 	qdel(pred_candidate)
+
+/datum/game_mode/proc/get_scaling_offset()
+	var/json_file = file("data/scaling_offset/[config_tag].json")
+	if(!fexists(json_file))
+		return 0
+	return json_decode(file2text(json_file))
+
+/datum/game_mode/proc/save_scaling_offset(scaling = 0)
+	var/json_file = file("data/scaling_offset/[config_tag].json")
+	fdel(json_file)
+	WRITE_FILE(json_file, json_encode(scaling))
+
+/datum/game_mode/proc/adjust_scaling_offset(scaling = 0)
+	var/scaling_offset = get_scaling_offset() + scaling
+	save_scaling_offset(scaling_offset)
