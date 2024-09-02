@@ -9641,10 +9641,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
-"gkE" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/s)
 "gkY" = (
 /obj/machinery/light{
 	dir = 1
@@ -10674,10 +10670,6 @@
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating/dmg1,
 /area/bigredv2/outside/space_port)
-"iHk" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor,
-/area/bigredv2/outside/cargo)
 "iHP" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -16056,10 +16048,6 @@
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
-"uUs" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/e)
 "uUJ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/marking/asteroidwarning{
@@ -31428,7 +31416,7 @@ aaa
 aaa
 aaa
 aXK
-iHk
+nlp
 nlp
 tvg
 cLW
@@ -40587,7 +40575,7 @@ wMP
 wMP
 wMP
 wMP
-gkE
+wMP
 wMP
 wMP
 wMP
@@ -49001,7 +48989,7 @@ xHO
 qsc
 gga
 gga
-uUs
+gga
 gga
 gga
 gga

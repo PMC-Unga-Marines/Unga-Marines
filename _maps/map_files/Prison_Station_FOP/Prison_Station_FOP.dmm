@@ -41279,10 +41279,6 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
-"fTu" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/prison/canteen)
 "fUt" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -44187,10 +44183,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating,
 /area/prison/hangar/civilian)
-"niQ" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/prison/plate,
-/area/prison/cellblock/highsec/north/north)
 "niT" = (
 /turf/open/floor/prison,
 /area/prison/cellblock/vip)
@@ -45802,10 +45794,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/wood/broken,
 /area/prison/residential/south)
-"rgN" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/prison/bright_clean,
-/area/prison/laundry)
 "rhB" = (
 /obj/effect/landmark/sensor_tower,
 /obj/effect/landmark/sensor_towers_infestation_ground,
@@ -69882,7 +69870,7 @@ axK
 aor
 wmU
 aAe
-niQ
+aox
 aGb
 aCi
 mUo
@@ -78428,7 +78416,7 @@ bFh
 bMN
 bxS
 bOq
-rgN
+myF
 myF
 bSA
 bSp
@@ -95868,7 +95856,7 @@ aYu
 xAS
 dbh
 hNW
-fTu
+dbh
 bim
 dbh
 dbh

@@ -2881,10 +2881,6 @@
 /obj/structure/curtain/medical,
 /turf/open/floor/mainship/sterile/dark,
 /area/magmoor/medical/patient)
-"bZk" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/tile/purple,
-/area/magmoor/civilian/dorms)
 "bZq" = (
 /obj/structure/bed/chair/office/light{
 	dir = 8
@@ -21365,7 +21361,6 @@
 	dir = 5
 	},
 /obj/effect/ai_node,
-/obj/machinery/telecomms/relay/preset/tower,
 /turf/open/floor/mainship/floor,
 /area/magmoor/hydroponics/north)
 "pCV" = (
@@ -24058,10 +24053,6 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/magmoor/medical/lobby)
-"rEv" = (
-/obj/machinery/telecomms/relay/preset/tower,
-/turf/open/floor/mainship/mono,
-/area/magmoor/civilian/arrival/east)
 "rEw" = (
 /obj/machinery/mining/brace/active{
 	dir = 8
@@ -58257,7 +58248,7 @@ uJz
 gRT
 qnD
 foI
-bZk
+foI
 iqu
 scY
 kbL
@@ -61953,7 +61944,7 @@ mLy
 bRC
 aVv
 rfo
-rEv
+cdr
 oGm
 cdr
 qwj
