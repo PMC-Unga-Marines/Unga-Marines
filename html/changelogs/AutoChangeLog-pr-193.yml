@@ -1,6 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - imageadd: "Добавлена руни квина."
-  - imageadd: "Модифицирован руни равагер."
-  - imagedel: "Удалена кукла кукольника"
