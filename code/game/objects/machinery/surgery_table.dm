@@ -16,6 +16,8 @@
 	name = "Deployable Operating Table"
 	desc = "Used for advanced medical procedures in field."
 	use_power = NO_POWER_USE
+	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
+	max_integrity = 300
 	///Whether this item can be deployed or undeployed
 	var/flags_item = IS_DEPLOYABLE
 	///What it deploys into. typecast version of internal_item
