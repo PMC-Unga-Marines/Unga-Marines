@@ -1603,14 +1603,6 @@ MEDICAL
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
-/datum/supply_packs/medical/incision_management
-	name = "Incision Management System"
-	notes = "contains incision management system."
-	contains = list(/obj/item/tool/surgery/scalpel/manager)
-	cost = 100
-	containertype = /obj/structure/closet/crate/secure/surgery
-	access = ACCESS_MARINE_MEDBAY
-
 /datum/supply_packs/medical/tweezers_advanced
 	name = "Advanced Tweezers"
 	notes = "contains advanced tweezers."
@@ -1634,6 +1626,13 @@ MEDICAL
 	cost = 60
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/deployable_optable
+	name = "Deployable operating table"
+	notes = "Contains an operating table that can be transported and deployed for medical procedures."
+	contains = list(/obj/item/deployable_optable)
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/surgery
 
 /datum/supply_packs/medical/advanced_medical_kits
 	name = "Advanced medical kits"
