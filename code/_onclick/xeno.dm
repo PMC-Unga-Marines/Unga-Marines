@@ -28,6 +28,7 @@
 			visible_message(span_danger("\The [src] pats at the fire!"), \
 			span_danger("We pat the fire!"))
 			changeNext_move(CLICK_CD_MELEE)
+			return
 
 	var/atom/S = A.handle_barriers(src)
 	S.attack_alien(src, xeno_caste.melee_damage * xeno_melee_damage_modifier, isrightclick = islist(modifiers) ? modifiers["right"] : FALSE)
