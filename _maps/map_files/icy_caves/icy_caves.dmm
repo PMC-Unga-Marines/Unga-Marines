@@ -436,6 +436,14 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
+"ce" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/tile/dark/red2{
+	dir = 6
+	},
+/area/icy_caves/outpost/LZ2)
 "ch" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -559,6 +567,9 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 8
+	},
+/obj/structure/barricade/plasteel{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/red2{
@@ -918,6 +929,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
+"eL" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/icy_caves/outpost/LZ2)
 "eM" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison/red{
@@ -1099,6 +1116,12 @@
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
+"fK" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow,
+/area/icy_caves/outpost/LZ1)
 "fP" = (
 /obj/effect/landmark/patrol_point/som/som_13,
 /obj/machinery/landinglight/lz1{
@@ -1132,6 +1155,10 @@
 	},
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
+"go" = (
+/obj/structure/barricade/metal,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ2)
 "gr" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -1248,6 +1275,12 @@
 	},
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
+"hn" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/icy_caves/outpost/LZ1)
 "hq" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/ice,
@@ -1624,6 +1657,14 @@
 /obj/machinery/floodlight/landing,
 /obj/effect/turf_decal/warning_stripes,
 /turf/open/floor/mech_bay_recharge_floor,
+/area/icy_caves/outpost/LZ2)
+"jw" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/tile/dark/red2{
+	dir = 8
+	},
 /area/icy_caves/outpost/LZ2)
 "jy" = (
 /obj/structure/cable,
@@ -2280,6 +2321,7 @@
 /obj/machinery/light{
 	light_color = "#da2f1b"
 	},
+/obj/structure/barricade/metal,
 /turf/open/floor/tile/dark/yellow2,
 /area/icy_caves/outpost/LZ2)
 "nm" = (
@@ -2300,6 +2342,16 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/outpost/outside)
+"nq" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ1)
 "nr" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
@@ -3482,6 +3534,12 @@
 "sH" = (
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
+"sI" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/icy_caves/outpost/LZ1)
 "sK" = (
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
@@ -3529,6 +3587,12 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
+"ta" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/icy_caves/outpost/LZ1)
 "tb" = (
 /obj/structure/sink,
 /obj/machinery/light{
@@ -4846,6 +4910,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "zF" = (
+/obj/structure/barricade/plasteel,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 10
 	},
@@ -6059,6 +6124,12 @@
 	dir = 4
 	},
 /area/icy_caves/caves/alienstuff)
+"FE" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ1)
 "FG" = (
 /obj/machinery/light{
 	dir = 4
@@ -6640,6 +6711,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
+"Iq" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/icy_caves/outpost/LZ1)
 "Ir" = (
 /obj/machinery/light,
 /obj/structure/cable,
@@ -7004,6 +7081,9 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/office)
 "Kd" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
 /turf/open/floor/tile/dark/red2{
 	dir = 10
 	},
@@ -7047,6 +7127,9 @@
 	},
 /area/icy_caves/caves/weapon_vault)
 "Ko" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
 /turf/open/floor/tile/dark/red2{
 	dir = 6
 	},
@@ -9199,6 +9282,10 @@
 /obj/structure/xenoautopsy/tank,
 /turf/open/shuttle/dropship/seven,
 /area/icy_caves/caves/northwestmonorail)
+"VI" = (
+/obj/structure/barricade/plasteel,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ2)
 "VK" = (
 /obj/machinery/light{
 	dir = 8
@@ -9265,6 +9352,12 @@
 	},
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail/hallway)
+"VT" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/icy_caves/outpost/LZ2)
 "VX" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
@@ -12570,7 +12663,7 @@ pR
 SU
 XO
 TQ
-Uu
+Iq
 Vk
 uw
 zM
@@ -12726,7 +12819,7 @@ pR
 pR
 pR
 TQ
-Uu
+hn
 bU
 uw
 uw
@@ -12882,7 +12975,7 @@ XO
 XO
 XO
 TQ
-UE
+sI
 XW
 uw
 uw
@@ -13038,7 +13131,7 @@ pR
 XO
 XO
 TQ
-WD
+fK
 XW
 uw
 uw
@@ -13666,11 +13759,11 @@ ZI
 ZI
 ZI
 ZI
-Zm
-uw
-vi
-Zm
-Zm
+ta
+FE
+nq
+ta
+ta
 ZP
 ZP
 ZI
@@ -13683,8 +13776,8 @@ ZI
 ZP
 ZP
 ZI
-uw
-uw
+FE
+FE
 ZI
 ZP
 ZP
@@ -27837,10 +27930,10 @@ WA
 UW
 WA
 WA
-WA
+jw
 cG
-Ko
-WA
+ce
+jw
 Oy
 IT
 IT
@@ -28139,7 +28232,7 @@ XO
 Wu
 oP
 IZ
-wa
+eL
 wa
 wa
 nI
@@ -28468,7 +28561,7 @@ ZN
 IT
 IT
 IT
-IT
+go
 Wm
 oP
 wa
@@ -28607,7 +28700,7 @@ XO
 ZS
 oP
 IZ
-oP
+VT
 oP
 oP
 IT
@@ -28624,7 +28717,7 @@ ZN
 IT
 IT
 IT
-IT
+VI
 ka
 wa
 oP
@@ -28780,7 +28873,7 @@ ZN
 IT
 IT
 IT
-IT
+VI
 IT
 oP
 wa
@@ -28936,7 +29029,7 @@ ZN
 IT
 IT
 IT
-IT
+go
 Wm
 wa
 wa
@@ -29560,7 +29653,7 @@ IT
 IT
 IT
 IT
-IT
+go
 Wm
 wa
 oP
@@ -29716,7 +29809,7 @@ IT
 IT
 IT
 IT
-IT
+VI
 ka
 oP
 oP
