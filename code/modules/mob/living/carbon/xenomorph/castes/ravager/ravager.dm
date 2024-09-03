@@ -47,7 +47,7 @@
 		return
 
 	var/rage_threshold = maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
-	rage_power = max(0, (1 - ((health - RAVAGER_ENDURE_HP_LIMIT) / (maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold))))
+	rage_power = max(0, (1 - ((health - RAVAGER_ENDURE_HP_LIMIT) / (maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold))) * 2)
 
 	add_filter("ravager_rage_outline", 5, outline_filter(rage_power, COLOR_RED))
 
@@ -80,6 +80,9 @@
 		if(ravage)
 			ravage.clear_cooldown()
 		on_cooldown = TRUE
+
+		GLOB.round_statistics.ravager_rages++
+		SSblackbox.record_feedback("tally", "round_statistics", 1, "ravager_rages")
 
 /mob/living/carbon/xenomorph/ravager/proc/drain_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
