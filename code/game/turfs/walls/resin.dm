@@ -178,3 +178,43 @@
 /* Hivelord walls, they start off stronger */
 /turf/closed/wall/resin/regenerating/thick
 	max_integrity = 250
+
+/turf/closed/wall/resin/regenerating/bombproof
+	name = RESIN_WALL_BOMB
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to explosions."
+	icon = 'icons/obj/smooth_objects/resin-wall-bomb.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
+	max_upgradable_health = 200
+
+/turf/closed/wall/resin/regenerating/bulletproof
+	name = RESIN_WALL_BULLET
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to bullets and lasers."
+	icon = 'icons/obj/smooth_objects/resin-wall-bullet.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 0, BULLET = 100, LASER = 100, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	max_upgradable_health = 200
+
+/turf/closed/wall/resin/regenerating/fireproof
+	name = RESIN_WALL_FIRE
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to fire."
+	icon = 'icons/obj/smooth_objects/resin-wall-fire.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	max_upgradable_health = 200
+
+/turf/closed/wall/resin/regenerating/meleeproof
+	name = RESIN_WALL_MELEE
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to melee attacks."
+	icon = 'icons/obj/smooth_objects/resin-wall-melee.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 100, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	max_upgradable_health = 200
