@@ -4,6 +4,7 @@
 	name = "Points Defence"
 	config_tag = "Points Defence"
 	silo_scaling = 0 //do you really need a silo?
+	max_silo_ammount = 1
 
 	///The amount of sensor towers in sensor defence
 
@@ -22,17 +23,12 @@
 	var/points_check_interval = 1 MINUTES
 	///Last time points balance was checked
 	var/last_points_check
-	///Ponderation rate of sensors output
-	var/sensors_larva_points_scaling = 2.4
 
 	//Victory point
 	var/marine_victory_point = 0
-	var/xeno_victory_point = 0
 
 	///Xeno points multiplier
-	var/marine_victory_points_factor = 1.25
-	///Xeno points multiplier
-	var/xeno_victory_points_factor = 0.9 //xeno have towers round start, so
+	var/marine_victory_points_factor = 1
 
 	///Amount of points to be scored
 	var/points_to_win = 5000
@@ -42,10 +38,9 @@
 	///Den rush xeno factor
 	var/second_stage_xeno_factor = 1.2
 
-	var/allow_hijack = FALSE
 	var/can_hunt = FALSE
 
-	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_TELETOWER|MODE_XENO_DEN
+	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_XENO_DEN
 
 /datum/game_mode/infestation/distress/points_defence/post_setup()
 	. = ..()
@@ -91,20 +86,28 @@
 
 	// TODOD поменять на стационарные точки
 	//setup sensor towers
+	for(var/i in 1 to phorone_sensors_amount)
+		var/turf/T = pick(GLOB.miner_phorone_locs)
+		new /obj/structure/sensor_tower_infestation(T)
+		GLOB.miner_phorone_locs -= T
 
+	for(var/i in 1 to platinum_sensors_amount)
+		var/turf/T = pick(GLOB.miner_platinum_locs)
+		new /obj/structure/sensor_tower_infestation(T)
+		GLOB.miner_platinum_locs -= T
 
-
+	/* татарла мапит
 
 	// /obj/effect/landmark/sensor_tower_infestation_ground
 
-	for(var/i in 1 to platinum_sensors_amount)
+	for(var/i in 1 to sensor_towers_infestation_ground)
 		var/turf/T = pick(GLOB.sensor_towers_infestation_ground)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.sensor_towers_infestation_ground -= T
 
 	// /obj/effect/landmark/sensor_tower_infestation_caves
 
-	for(var/i in 1 to phorone_sensors_amount)
+	for(var/i in 1 to sensor_towers_infestation_caves)
 		var/turf/T = pick(GLOB.sensor_towers_infestation_caves)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.sensor_towers_infestation_caves -= T
@@ -112,7 +115,7 @@
 	// /obj/effect/landmark/tower_relay
 
 	new /obj/machinery/telecomms/relay/preset/tower(pick(GLOB.tower_relay_locs))
-
+	*/
 
 	//xenoden landing zone
 	var/turf/marine_dropship_loc = pick(GLOB.xenoden_docking_ports_locs)
@@ -125,7 +128,6 @@
 
 	#ifdef TESTING
 	marine_victory_point = points_to_win
-	xeno_victory_point = points_to_win
 	#endif
 
 /datum/game_mode/infestation/distress/points_defence/check_finished()
@@ -226,20 +228,13 @@
 
 	//Victory point
 	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors_amount + platinum_sensors_amount) * (sensors_activated >= boost_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
-	if(marine_victory_point >= points_to_win && !can_hunt &&  !allow_hijack)
+	if(marine_victory_point >= points_to_win && !can_hunt)
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 			if(human.faction == FACTION_TERRAGOV)
 				human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
 				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end. Extra points awarded in cargo", /atom/movable/screen/text/screen_text/picture/potrait)
 				SSpoints.supply_points[FACTION_TERRAGOV] += 150
-
-	xeno_victory_point += ((phorone_sensors_amount + platinum_sensors_amount) - sensors_activated) * (points_check_interval / 10) * xeno_victory_points_factor/ (phorone_sensors_amount + platinum_sensors_amount)
-	if(xeno_victory_point >= points_to_win && !allow_hijack && !can_hunt)
-		allow_hijack = TRUE
-		for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
-			xeno.playsound_local(xeno, "sound/voice/alien_hiss1.ogg", 10, 1)
-			xeno.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>HIVEMIND</u></span><br>" + "We have enough strength. Hijack a bird freely", /atom/movable/screen/text/screen_text/picture/potrait/queen_mother)
 
 /datum/game_mode/infestation/distress/points_defence/siloless_hive_collapse()
 	return
@@ -253,14 +248,8 @@
 ///Add gamemode related items to statpanel
 /datum/game_mode/infestation/distress/points_defence/get_status_tab_items(datum/dcs, mob/source, list/items)
 	. = ..()
-	if(isobserver(source))
+	if(isobserver(source) || !isxeno(source))
 		items +="Marine victory points: [marine_victory_point]"
-		items +="Xeno victory points: [xeno_victory_point]"
-	else
-		if(isxeno(source))
-			items +="Victory points: [xeno_victory_point]"
-		else
-			items +="Victory points: [marine_victory_point]"
 
 /datum/game_mode/infestation/distress/points_defence/proc/start_hunt()
 	//marine announce
@@ -272,8 +261,5 @@
 
 /datum/game_mode/infestation/distress/points_defence/proc/can_hunt()
 	return can_hunt && round_stage != INFESTATION_MARINE_DEN_RUSH
-
-/datum/game_mode/infestation/distress/points_defence/proc/allow_hijack()
-	return allow_hijack
 
 #undef XENO_DEN_LEVEL_PATH
