@@ -50,6 +50,9 @@
 	if(QDELETED(crosser))
 		return
 
+	if(isobj(crosser))
+		return qdel(crosser)
+
 	// you just jumped out of a dropship, have fun living on the way down!
 	var/list/ground_z_levels = SSmapping.levels_by_trait(ZTRAIT_GROUND)
 	if(!length(ground_z_levels))
