@@ -197,8 +197,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		wearer = user
 		squadhud = GLOB.huds[GLOB.faction_to_data_hud[faction]]
 		enable_squadhud()
-		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_HUMAN_DEATH_STAGE_CHANGE, COMSIG_MOVABLE_Z_CHANGED), PROC_REF(update_minimap_icon))
-		RegisterSignal(SSdcs, COMSIG_GLOB_TELETOWER, PROC_REF(update_minimap_icon))
+		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_HUMAN_DEATH_STAGE_CHANGE), PROC_REF(update_minimap_icon))
 	if(camera)
 		camera.c_tag = user.name
 		if(user.assigned_squad)
@@ -224,8 +223,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		camera.c_tag = "Unknown"
 		if(user.assigned_squad)
 			camera.network -= lowertext(user.assigned_squad.name)
-	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_HUMAN_DEATH_STAGE_CHANGE, COMSIG_MOVABLE_Z_CHANGED))
-	UnregisterSignal(SSdcs, COMSIG_GLOB_TELETOWER)
+	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_HUMAN_DEATH_STAGE_CHANGE))
 	return ..()
 
 /obj/item/radio/headset/mainship/Destroy()
@@ -279,8 +277,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(!wearer.job || !wearer.job.minimap_icon)
 		return
 	var/marker_flags = initial(minimap_type.marker_flags)
-	if(!SSmapping.level_has_any_trait(wearer.z, list(ZTRAIT_MARINE_MAIN_SHIP)) && (SSticker.mode?.flags_round_type & MODE_TELETOWER) && !GLOB.tower_relay)
-		marker_flags = MINIMAP_FLAG_UNIDENTIFIED
 	if(wearer.stat == DEAD)
 		if(HAS_TRAIT(wearer, TRAIT_UNDEFIBBABLE))
 			if(issynth(wearer))
