@@ -245,3 +245,6 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 
 ///Burn level applied by lava if it calls fire_act
 #define LAVA_BURN_LEVEL 60
+
+///Amount of fire stacks removed by extinguishers or similar effects
+#define EXTINGUISH_AMOUNT 20
