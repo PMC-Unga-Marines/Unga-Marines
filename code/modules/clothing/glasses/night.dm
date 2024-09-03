@@ -149,6 +149,7 @@
 	darkness_view = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	vision_flags = SEE_TURFS
+	toggleable = TRUE
 	goggles_layer = TRUE
 	active = FALSE
 	activation_sound = 'sound/effects/nightvision.ogg'

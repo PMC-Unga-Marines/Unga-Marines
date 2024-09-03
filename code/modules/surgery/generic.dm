@@ -313,11 +313,12 @@
 		/obj/item/stack/cable_coil = 75,
 		/obj/item/shard = 20,
 	)
+	surgery_skill_required = SKILL_SURGERY_TRAINED
 	open_step = 0
 	min_duration = SUTURE_MIN_DURATION
 	max_duration = SUTURE_MAX_DURATION
 	///Healing applied on step success, split between burn and brute
-	var/base_healing = 30
+	var/base_healing = 37.5
 
 	preop_sound = 'sound/misc/surgery/retractor1.ogg'
 	success_sound = 'sound/misc/surgery/retractor2.ogg'
@@ -342,7 +343,7 @@
 	user.visible_message(span_notice("[user] sews some of the wounds on [target]'s [affected.display_name] shut.") , \
 	span_notice("You finish suturing some of the wounds on [target]'s [affected.display_name].") )
 	target.balloon_alert_to_viewers("Success")
-	var/skilled_healing = base_healing * max(user.skills.getPercent(SKILL_SURGERY, SKILL_SURGERY_EXPERT), 0.1)
+	var/skilled_healing = base_healing * max(user.skills.getPercent(SKILL_SURGERY, SKILL_SURGERY_MASTER), 0.1)
 	var/burn_heal = min(skilled_healing, affected.burn_dam)
 	var/brute_heal = max(skilled_healing - burn_heal, 0)
 	affected.heal_limb_damage(brute_heal, burn_heal, updating_health = TRUE) //Corpses need their health updated manually since they don't do it themselves

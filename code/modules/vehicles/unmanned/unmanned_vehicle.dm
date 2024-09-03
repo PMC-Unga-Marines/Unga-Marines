@@ -57,7 +57,8 @@
 	name += " " + num2text(serial)
 	serial++
 	flash = new /atom/movable/vis_obj/effect/muzzle_flash(src)
-	GLOB.unmanned_vehicles += src
+	if(!is_centcom_level(loc.z))
+		GLOB.unmanned_vehicles += src
 	prepare_huds()
 	for(var/datum/atom_hud/squad/sentry_status_hud in GLOB.huds) //Add to the squad HUD
 		sentry_status_hud.add_to_hud(src)

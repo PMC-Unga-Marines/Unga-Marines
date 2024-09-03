@@ -60,6 +60,10 @@
 	if(!T.check_alien_construction(owner, FALSE))
 		return fail_activate()
 
+	if(!T.check_disallow_alien_fortification(null, TRUE))
+		to_chat(owner, span_warning("The queen mother prohibits us from weeding here."))
+		return fail_activate()
+
 	if(locate(/obj/structure/xeno/trap) in T)
 		to_chat(owner, span_warning("There is a resin trap in the way!"))
 		return fail_activate()
@@ -190,6 +194,10 @@
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
+		/turf/closed/wall/resin/regenerating/bombproof,
+		/turf/closed/wall/resin/regenerating/bulletproof,
+		/turf/closed/wall/resin/regenerating/fireproof,
+		/turf/closed/wall/resin/regenerating/meleeproof,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,

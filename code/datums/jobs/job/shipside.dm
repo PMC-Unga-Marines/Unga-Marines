@@ -423,8 +423,14 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 			new_human.wear_id.paygrade = "CWO"
 		if(3001 to 6000) // 50 hrs
 			new_human.wear_id.paygrade = "O1"
-		if(6001 to INFINITY) // 100 hrs
+		if(6001 to 9000) // 100 hrs
 			new_human.wear_id.paygrade = "O2"
+		if(9001 to 15000) // 150 hrs
+			new_human.wear_id.paygrade = "O3"
+		if(15001 to 18000) // 250 hrs
+			new_human.wear_id.paygrade = "O4"
+		if(18001 to INFINITY) // 300 hrs
+			new_human.wear_id.paygrade = "O4"
 
 /datum/job/terragov/command/pilot/radio_help_message(mob/M)
 	. = ..()
@@ -446,7 +452,7 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	head = /obj/item/clothing/head/helmet/marine/pilot
-	r_store = /obj/item/storage/pouch/general/large
+	r_store = /obj/item/clothing/glasses/night/imager_goggles
 	l_store = /obj/item/hud_tablet/pilot
 
 //Mech pilot
@@ -957,7 +963,6 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 /datum/outfit/job/medical/professor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/tool/surgery/scalpel/manager, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
 
 //Medical Officer

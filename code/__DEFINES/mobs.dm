@@ -579,13 +579,13 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HUNTER_STEALTH_COOLDOWN 50 //5 seconds
 #define HUNTER_STEALTH_WALK_PLASMADRAIN 2
 #define HUNTER_STEALTH_RUN_PLASMADRAIN 5
-#define HUNTER_STEALTH_STILL_ALPHA 25 //90% transparency
-#define HUNTER_STEALTH_WALK_ALPHA 38 //85% transparency
+#define HUNTER_STEALTH_STILL_ALPHA 12 //95% transparency
+#define HUNTER_STEALTH_WALK_ALPHA 25 //90% transparency
 #define HUNTER_STEALTH_RUN_ALPHA 128 //50% transparency
 #define HUNTER_STEALTH_STEALTH_DELAY 30 //3 seconds before 95% stealth
 #define HUNTER_STEALTH_INITIAL_DELAY 20 //2 seconds before we can increase stealth
 #define HUNTER_POUNCE_SNEAKATTACK_DELAY 30 //3 seconds before we can sneak attack
-#define HUNTER_SNEAK_SLASH_ARMOR_PEN 20 //bonus AP
+#define HUNTER_SNEAK_SLASH_ARMOR_PEN 15 //bonus AP
 #define HUNTER_SNEAK_ATTACK_RUN_DELAY 2 SECONDS
 #define HUNTER_PSYCHIC_TRACE_COOLDOWN 5 SECONDS //Cooldown of the Hunter's Psychic Trace, and duration of its arrow
 #define HUNTER_SILENCE_STAGGER_STACKS 1 //Silence imposes this many stagger stacks
@@ -610,9 +610,10 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 #define RAVAGER_RAGE_DURATION							10 SECONDS
 #define RAVAGER_RAGE_WARNING							0.7
-#define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.5 //The maximum % of HP we can have to trigger Rage
+#define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.75 //The maximum % of HP we can have to trigger Rage
+#define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD		0.5
 #define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
-#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			80 //Maximum amount of healing from slash during Rage
+#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			60 //Maximum amount of healing from slash during Rage
 
 //crusher defines
 #define CRUSHER_STOMP_LOWER_DMG 40

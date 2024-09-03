@@ -297,6 +297,14 @@
 	dir = 1
 	},
 /area/magmoor/landing/two)
+"akE" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/mainship/black{
+	dir = 4
+	},
+/area/magmoor/landing)
 "akM" = (
 /obj/item/ammo_casing,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
@@ -3296,15 +3304,13 @@
 /turf/open/floor/plating/mainship,
 /area/magmoor/engi/storage)
 "cnO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
+/obj/structure/barricade/plasteel{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
+/turf/open/floor/mainship/black{
+	dir = 8
 	},
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/magmoor/civilian/bar)
+/area/magmoor/landing/two)
 "cpe" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -4359,6 +4365,14 @@
 /obj/structure/cable,
 /turf/open/floor/tile/bar,
 /area/magmoor/civilian/clean)
+"deJ" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/mainship/black{
+	dir = 8
+	},
+/area/magmoor/landing)
 "deR" = (
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -5423,6 +5437,14 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/magmoor/mining/storage)
+"dOx" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/mainship/black{
+	dir = 1
+	},
+/area/magmoor/landing/two)
 "dPd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -7212,6 +7234,12 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/magmoor/cargo/processing/south)
+"fbh" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/magmoor/landing)
 "fbE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9292,6 +9320,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound)
+"gCl" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/mainship/black,
+/area/magmoor/landing)
 "gCD" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -9751,6 +9785,15 @@
 	dir = 4
 	},
 /area/magmoor/mining)
+"gXz" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/mainship/black{
+	dir = 1
+	},
+/area/magmoor/landing/two)
 "gXB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -17679,6 +17722,9 @@
 /area/magmoor/command/lobby/east)
 "mVe" = (
 /obj/effect/ai_node,
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
 /turf/open/floor/mainship/black{
 	dir = 4
 	},
@@ -20151,6 +20197,14 @@
 	},
 /turf/open/liquid/lava/autosmoothing,
 /area/magmoor/compound/south)
+"oNX" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/mainship/black{
+	dir = 1
+	},
+/area/magmoor/landing)
 "oOw" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 4
@@ -23119,6 +23173,12 @@
 	dir = 1
 	},
 /area/magmoor/compound/southwest)
+"qWp" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/magmoor/landing)
 "qWt" = (
 /turf/open/floor/mainship/red,
 /area/magmoor/security/arrivals/east)
@@ -25422,6 +25482,14 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/magmoor/mining/garage)
+"sHm" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/mainship/black{
+	dir = 4
+	},
+/area/magmoor/landing/two)
 "sHt" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -26830,6 +26898,9 @@
 /area/magmoor/research/containment)
 "tKU" = (
 /obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
 /turf/open/floor/mainship/black{
 	dir = 8
 	},
@@ -27762,6 +27833,12 @@
 	dir = 4
 	},
 /area/magmoor/civilian/clean)
+"uqu" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/magmoor/landing/two)
 "uqG" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
@@ -31697,6 +31774,12 @@
 	dir = 8
 	},
 /area/magmoor/cave/north)
+"xik" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/magmoor/landing/two)
 "xil" = (
 /obj/structure/disposalpipe/segment/corner,
 /turf/closed/wall/r_wall,
@@ -32790,6 +32873,12 @@
 /obj/structure/barricade/guardrail,
 /turf/open/lavaland/basalt/dirt/autosmoothing,
 /area/magmoor/compound)
+"xSl" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/mainship/black,
+/area/magmoor/landing/two)
 "xSv" = (
 /obj/item/packageWrap,
 /obj/item/tool/hand_labeler,
@@ -44250,7 +44339,7 @@ fNo
 bbq
 iHd
 xSV
-xSV
+akE
 xSV
 sWm
 dTv
@@ -44483,7 +44572,7 @@ fMN
 kvj
 mTT
 xxY
-nlP
+fbh
 nlP
 bss
 gAb
@@ -44949,7 +45038,7 @@ kkj
 kvj
 mTT
 xxY
-nlP
+fbh
 nlP
 bss
 hkL
@@ -45182,7 +45271,7 @@ fNo
 qBb
 rvB
 wCk
-rXL
+deJ
 rXL
 rpg
 dTv
@@ -47285,13 +47374,13 @@ bss
 nlP
 nlP
 nlP
-ydh
-qIT
-nlP
+oNX
+gCl
+qWp
 ohB
-nlP
-ydh
-qIT
+qWp
+oNX
+gCl
 nlP
 nlP
 bss
@@ -47941,7 +48030,7 @@ ohT
 woH
 ohT
 ohT
-cnO
+mAx
 khT
 ohT
 qxc
@@ -69382,15 +69471,15 @@ qGn
 qGn
 qGn
 qGn
-ogT
-akr
-qDg
-ogT
+xik
+gXz
+xSl
+xik
 qGK
-ogT
-hvH
-qDg
-ogT
+xik
+dOx
+xSl
+xik
 ogT
 ogT
 qGn
@@ -70989,7 +71078,7 @@ jCp
 jtY
 sih
 euZ
-ogT
+uqu
 ogT
 ogT
 hvH
@@ -71222,7 +71311,7 @@ kBs
 tmw
 rtZ
 qJU
-yjg
+cnO
 yjg
 yjg
 xkc
@@ -71455,7 +71544,7 @@ jCp
 cPP
 hzL
 did
-did
+sHm
 did
 did
 wHI
@@ -71688,7 +71777,7 @@ jCp
 jtY
 sih
 euZ
-ogT
+uqu
 ogT
 ogT
 hvH
@@ -72154,7 +72243,7 @@ jCp
 jtY
 sih
 euZ
-ogT
+uqu
 ogT
 ogT
 hvH
@@ -72387,7 +72476,7 @@ jCp
 tmw
 rtZ
 qJU
-yjg
+cnO
 yjg
 yjg
 idM
@@ -72620,7 +72709,7 @@ slF
 mYB
 hzL
 did
-did
+sHm
 did
 did
 rHw
@@ -72853,7 +72942,7 @@ kik
 ddv
 sih
 euZ
-ogT
+uqu
 ogT
 ogT
 hvH

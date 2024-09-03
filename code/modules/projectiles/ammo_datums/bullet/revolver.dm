@@ -23,22 +23,25 @@
 
 /datum/ammo/bullet/revolver/t500
 	name = ".500 Nigro Express revolver bullet"
-	icon_state = "nigro"
-	icon = 'icons/obj/items/ammo.dmi'
+	handful_icon_state = "nigro"
 	handful_amount = 5
 	damage = 100
 	penetration = 40
+	additional_xeno_penetration = 0
 
 /datum/ammo/bullet/revolver/t500/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 1)
+	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 2)
+
+/datum/ammo/bullet/revolver/t500/slavs
+	name = ".500 'Slavs' revolver bullet"
+	handful_icon_state = "nigro_sv"
+
+/datum/ammo/bullet/revolver/t500/slavs/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, weaken = 2 SECONDS, knockback = 1)
 
 /datum/ammo/bullet/revolver/t500/qk
 	name = ".500 'Queen Killer' revolver bullet"
-	icon_state = "nigro_qk"
-	icon = 'icons/obj/items/ammo.dmi'
-	handful_amount = 5
-	damage = 100
-	penetration = 40
+	handful_icon_state = "nigro_qk"
 
 /datum/ammo/bullet/revolver/t500/qk/on_hit_mob(mob/M,obj/projectile/P)
 	if(isxenoqueen(M))
@@ -101,6 +104,7 @@
 	handful_amount = 5
 	damage = 100
 	penetration = 40
+	additional_xeno_penetration = 0
 
 /datum/ammo/bullet/revolver/t76/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, knockback = 1)

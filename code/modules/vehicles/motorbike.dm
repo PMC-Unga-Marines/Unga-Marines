@@ -42,11 +42,15 @@
 
 /obj/vehicle/ridden/motorbike/post_buckle_mob(mob/living/M)
 	add_overlay(motorbike_cover)
+	if(!driver_amount())
+		DISABLE_BITFIELD(buckle_flags, BUCKLE_NEEDS_HAND)
 	return ..()
 
 /obj/vehicle/ridden/motorbike/post_unbuckle_mob(mob/living/M)
 	if(!LAZYLEN(buckled_mobs))
 		cut_overlay(motorbike_cover)
+	if(is_driver(M))
+		ENABLE_BITFIELD(buckle_flags, BUCKLE_NEEDS_HAND)
 	return ..()
 
 /obj/vehicle/ridden/motorbike/welder_act(mob/living/user, obj/item/I)
@@ -177,7 +181,7 @@
 	smoke.start()
 
 /obj/vehicle/ridden/motorbike/obj_destruction()
-	explosion(src, light_impact_range = 2, flash_range = 0)
+	cell_explosion(src, 50, 20)
 	return ..()
 
 /obj/vehicle/ridden/motorbike/Destroy()
@@ -186,7 +190,7 @@
 
 /obj/item/storage/internal/motorbike_pack
 	storage_slots = 4
-	max_w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 8
 
 

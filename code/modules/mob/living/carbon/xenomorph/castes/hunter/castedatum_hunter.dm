@@ -38,7 +38,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 55, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 20, FIRE = 30, ACID = 20)
+	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 20, FIRE = 30, ACID = 20)
 
 	// *** Stealth ***
 	stealth_break_threshold = 15
@@ -57,6 +57,7 @@
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
+		/datum/action/ability/xeno_action/crippling_strike/hunter,
 	)
 
 	// *** Vent Crawl Parameters *** //
@@ -84,6 +85,7 @@
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
+		/datum/action/ability/xeno_action/crippling_strike/hunter,
 	)
 
 

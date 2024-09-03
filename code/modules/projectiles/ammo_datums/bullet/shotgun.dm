@@ -111,7 +111,7 @@
 	penetration = 0
 
 /datum/ammo/bullet/shotgun/frag/drop_nade(turf/T)
-	explosion(T, weak_impact_range = 2)
+	cell_explosion(T, 15, 10)
 
 /datum/ammo/bullet/shotgun/frag/on_hit_mob(mob/M, obj/projectile/P)
 	drop_nade(get_turf(M))

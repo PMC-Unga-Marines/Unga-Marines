@@ -46,3 +46,11 @@ dmdoc/*
 tools/UnstandardnessTestForDM/UnstandardnessTestForDM/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs
 
 tools/hyperscale_converter/output/*
+config/shipmaps.txt
+config/motd.txt
+config/modes.txt
+config/maps.txt
+config/dbconfig.txt
+config/config.txt
+config/admins.txt
+config/admin_ranks.txt

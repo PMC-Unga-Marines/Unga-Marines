@@ -193,11 +193,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!.)
 		return
 
-	if(SSticker.mode?.flags_round_type & MODE_XENO_DEN)
-		if(!silent)
-			to_chat(buyer, span_xenowarning("You cannot build silo in this gamemode!"))
-		return FALSE
-
 	var/turf/buildloc = get_step(buyer, building_loc)
 	if(!buildloc)
 		return FALSE
@@ -346,7 +341,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	name = "Oblivion"
 	desc = "Destroy the bodies beneath you "
 	icon = "smartminions"
-	psypoint_cost = 1000
+	psypoint_cost = 500
 	flags_gamemode = ABILITY_NUCLEARWAR
 
 /datum/hive_upgrade/defence/oblivion/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)

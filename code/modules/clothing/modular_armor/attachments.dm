@@ -1,4 +1,3 @@
-
 /obj/item/armor_module
 	name = "armor module"
 	desc = "A dis-figured armor module, in its prime this would've been a key item in your modular armor... now its just trash."
@@ -10,7 +9,6 @@
 
 	///Reference to parent modular armor suit.
 	var/obj/item/clothing/parent
-
 	///Slot the attachment is able to occupy.
 	var/slot
 	///Icon sheet of the attachment overlays
@@ -184,11 +182,3 @@
 		if(!armor_piece.secondary_color)
 			continue
 		armor_piece.handle_color(source, user, secondaries)
-
-/* RUTGMC DELETION, CAPES
-///Relays the extra controls to the user when the parent is examined.
-/obj/item/armor_module/armor/proc/extra_examine(datum/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-	examine_list += "Right click the [parent] with paint to color [src]"
-*/
-

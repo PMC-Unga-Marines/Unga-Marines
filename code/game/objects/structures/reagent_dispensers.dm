@@ -182,12 +182,8 @@
 	if(exploding)
 		return
 	exploding = TRUE
-	if (reagents.total_volume > 500)
-		explosion(loc, light_impact_range = 4, flame_range = 4)
-	else if (reagents.total_volume > 100)
-		explosion(loc, light_impact_range = 3, flame_range = 3)
-	else
-		explosion(loc, light_impact_range = 2, flame_range = 2)
+	cell_explosion(loc, reagents.total_volume * 0.2, reagents.total_volume * 0.1)
+	flame_radius(round(reagents.total_volume * 0.005), loc)
 	qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(temperature, volume)
@@ -236,16 +232,8 @@
 		return
 	exploding = TRUE
 
-	if(reagents.total_volume > 500)
-		flame_radius(5, loc, 46, 40, 31, 30, colour = "blue")
-		explosion(loc, light_impact_range = 5)
-	else if(reagents.total_volume > 100)
-		flame_radius(4, loc, 46, 40, 31, 30, colour = "blue")
-		explosion(loc, light_impact_range = 4)
-	else
-		flame_radius(3, loc, 46, 40, 31, 30, colour = "blue")
-		explosion(loc, light_impact_range = 3)
-
+	cell_explosion(loc, reagents.total_volume * 0.4, reagents.total_volume * 0.2)
+	flame_radius(round(reagents.total_volume * 0.005), loc, 46, 40, 31, 30, colour = "blue")
 	qdel(src)
 
 /obj/structure/reagent_dispensers/water_cooler

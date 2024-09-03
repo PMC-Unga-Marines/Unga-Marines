@@ -1,4 +1,3 @@
-
 GLOBAL_LIST_INIT(pod_styles, list(\
 	list("supplypod", "supply pod", "A Nanotrasen supply drop pod.", STYLE_STANDARD),\
 	list("bluespacepod", "bluespace supply pod" , "A Nanotrasen Bluespace supply pod. Teleports back to CentCom after delivery.", STYLE_BLUESPACE),\
@@ -15,7 +14,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	list("gondolapod", "gondola", "The silent walker. This one seems to be part of a delivery agency.", STYLE_GONDOLA),\
 	list("", "", "", STYLE_SEETHROUGH)\
 ))
-
 
 /obj/structure/closet/supplypod
 	name = "supply pod"
@@ -52,28 +50,31 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	var/leavingSound
 	var/soundVolume = 80
 	var/bay
-	var/list/explosionSize = list(0, 0, 2, 3)
-
+	var/explosion_power = 45
+	var/explosion_falloff = 15
 
 /obj/structure/closet/supplypod/bluespacepod
 	style = STYLE_BLUESPACE
 	bluespace = TRUE
-	explosionSize = list(0, 0, 1, 2)
+	explosion_power = 25
+	explosion_falloff = 15
 	landingDelay = 15
-
 
 /obj/structure/closet/supplypod/centcompod
 	style = STYLE_CENTCOM
 	bluespace = TRUE
-	explosionSize = list(0, 0, 0, 0)
+	explosion_power = 0
+	explosion_falloff = 0
 	landingDelay = 20
 	resistance_flags = RESIST_ALL
-
 
 /obj/structure/closet/supplypod/Initialize(mapload)
 	. = ..()
 	setStyle(style, TRUE)
 
+/obj/structure/closet/supplypod/update_icon_state()
+	. = ..()
+	icon_state = GLOB.pod_styles[style][POD_ICON_STATE]
 
 /obj/structure/closet/supplypod/update_overlays()
 	. = ..()
@@ -86,30 +87,24 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	else
 		. += "[icon_state]_door"
 
-
 /obj/structure/closet/supplypod/proc/setStyle(chosenStyle, duringInit = FALSE)
 	if(!duringInit && style == chosenStyle)
 		setStyle(STYLE_CENTCOM)
 		return
 	style = chosenStyle
-	icon_state = GLOB.pod_styles[chosenStyle][POD_ICON_STATE]
 	if(!adminNamed)
 		name = GLOB.pod_styles[chosenStyle][POD_NAME]
 		desc = GLOB.pod_styles[chosenStyle][POD_DESC]
 	update_icon()
 
-
 /obj/structure/closet/supplypod/ex_act()
 	return
-
 
 /obj/structure/closet/supplypod/toggle(mob/living/user)
 	return
 
-
 /obj/structure/closet/supplypod/proc/preOpen()
 	var/turf/T = get_turf(src)
-	var/list/B = explosionSize
 
 	if(landingSound)
 		playsound(get_turf(src), landingSound, soundVolume, 0, 0)
@@ -130,9 +125,8 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 		L.adjustBruteLoss(damage)
 		UPDATEHEALTH(L)
 
-	var/explosion_sum = B[1] + B[2] + B[3] + B[4]
-	if(explosion_sum != 0)
-		explosion(get_turf(src), B[1], B[2], B[3], 0, B[4])
+	if(explosion_power > 0 && explosion_falloff > 0)
+		cell_explosion(get_turf(src), explosion_power, explosion_falloff)
 	else if(!effectQuiet)
 		playsound(src, "explosion", landingSound ? 15 : 80, 1)
 

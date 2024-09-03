@@ -213,13 +213,10 @@
  */
 /obj/item/cell/proc/explode()
 	var/turf/epicenter = get_turf(loc)
+	var/power = clamp(charge * 0.01, 10, 500)
+	var/range = power / rand(2, 5)
 
-	var/devastation_range = 0 //round(charge/11000)
-	var/heavy_impact_range = clamp(round(sqrt(charge) * 0.01), 0, 3)
-	var/light_impact_range = clamp(round(sqrt(charge) * 0.15), 0, 4)
-	var/flash_range = clamp(round(sqrt(charge) * 0.15), -1, 4)
-
-	explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, 0, flash_range)
+	cell_explosion(epicenter, power, range)
 
 	QDEL_IN(src, 1)
 

@@ -277,7 +277,7 @@
 	DISABLE_BITFIELD(ourarea.flags_area, DISALLOW_WEEDING)
 
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/get_explosion_resistance()
-	return density ? 5000 : 0
+	return density ? EXPLOSION_MAX_POWER : 0
 
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone
 	id = "landing_zone"

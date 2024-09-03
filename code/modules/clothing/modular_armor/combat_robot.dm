@@ -17,6 +17,7 @@
 
 	attachments_allowed = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/pluto,
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/tyr_extra_armor,
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,

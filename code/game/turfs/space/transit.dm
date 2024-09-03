@@ -75,7 +75,7 @@
 			continue // couldn't find one in 10 loops, check another area
 
 		// we found a good turf, lets drop em
-		crosser.handle_airdrop(possible_turf)
+		INVOKE_ASYNC(crosser, TYPE_PROC_REF(/atom/movable, handle_airdrop), possible_turf)
 		return
 	return qdel(crosser)
 
@@ -105,9 +105,9 @@
 
 /obj/structure/closet/handle_airdrop(turf/target_turf) // good idea but no
 	if(!opened)
-		break_open()
 		for(var/atom/movable/content in src)
-			content.handle_airdrop(target_turf)
+			INVOKE_ASYNC(content, TYPE_PROC_REF(/atom/movable, handle_airdrop), get_step(target_turf, rand(1, 8)))
+		break_open()
 	..()
 
 /obj/item/handle_airdrop(turf/target_turf)

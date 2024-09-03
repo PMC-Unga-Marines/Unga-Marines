@@ -46,7 +46,6 @@
 		/datum/action/ability/activable/xeno/charge,
 		/datum/action/ability/activable/xeno/ravage,
 		/datum/action/ability/xeno_action/endure,
-		/datum/action/ability/xeno_action/rage,
 	)
 
 /datum/xeno_caste/ravager/on_caste_applied(mob/xenomorph)
@@ -76,6 +75,5 @@
 		/datum/action/ability/activable/xeno/charge,
 		/datum/action/ability/activable/xeno/ravage,
 		/datum/action/ability/xeno_action/endure,
-		/datum/action/ability/xeno_action/rage,
 		/datum/action/ability/xeno_action/vampirism,
 	)

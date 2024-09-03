@@ -184,6 +184,7 @@
 	name = "Koran"
 	icon = 'icons/obj/items/priest.dmi'
 	icon_state = "Koran"
+	deity_name = "Allah"
 	actions_types = list(/datum/action/item_action)
 	max_w_class = 3
 	storage_slots = 1
@@ -208,7 +209,7 @@
 		activator.say("أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ")
 		TIMER_COOLDOWN_START(activator, "Koran", 10 MINUTES)
 		if(prob(10))
-			explosion(activator, 1, 1, 1, 1, 1)
+			cell_explosion(activator, 150, 150)
 		if(prob(80))
 			activator.heal_limb_damage(50, 50, TRUE)
 			activator.adjustCloneLoss(-10)

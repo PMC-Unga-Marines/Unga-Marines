@@ -54,7 +54,10 @@
 	color = COLOR_REAGENT_RYETALYN
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.125
-	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium)
+	purge_list = list(
+		/datum/reagent/toxin,
+		/datum/reagent/zombium,
+	)
 	purge_rate = 3
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
@@ -88,8 +91,8 @@
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.125
 	purge_list = list(
-		/datum/reagent/medicine/kelotane,
 		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
 	)
 	purge_rate = 5
 	overdose_threshold = REAGENTS_OVERDOSE*2
@@ -237,6 +240,7 @@
 	purge_list = list(
 		/datum/reagent/medicine/ryetalyn,
 		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicine/ifosfamide,
 	)
 	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
@@ -255,10 +259,14 @@
 	return ..()
 
 /datum/reagent/medicine/kelotane/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, 0, effect_str)
+	L.apply_damage(effect_str, TOX)
 
 /datum/reagent/medicine/kelotane/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 0, 2*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/lung = H.get_organ_slot(ORGAN_SLOT_LUNGS)
+		lung.take_damage(0.7 * effect_str)
 
 /datum/reagent/medicine/dermaline
 	name = "Dermaline"
@@ -285,6 +293,10 @@
 
 /datum/reagent/medicine/dermaline/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(3*effect_str, 0, 3*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/lung = H.get_organ_slot(ORGAN_SLOT_LUNGS)
+		lung.take_damage(0.35 * effect_str)
 
 /datum/reagent/medicine/saline_glucose
 	name = "Saline-Glucose"
@@ -800,6 +812,7 @@
 	purge_list = list(
 		/datum/reagent/medicine/ryetalyn,
 		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicine/ifosfamide,
 	)
 	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
@@ -817,10 +830,14 @@
 
 
 /datum/reagent/medicine/bicaridine/overdose_process(mob/living/L, metabolism)
-	L.apply_damage(effect_str, BURN)
+	L.apply_damage(effect_str, TOX)
 
 /datum/reagent/medicine/bicaridine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, 3*effect_str, 2*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/liver = H.get_organ_slot(ORGAN_SLOT_LIVER)
+		liver.take_damage(0.7 * effect_str)
 
 /datum/reagent/medicine/meralyne
 	name = "Meralyne"
@@ -845,6 +862,10 @@
 
 /datum/reagent/medicine/meralyne/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 6*effect_str, 4*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/liver = H.get_organ_slot(ORGAN_SLOT_LIVER)
+		liver.take_damage(0.35 * effect_str)
 
 /datum/reagent/medicine/quickclot
 	name = "Quick Clot"
@@ -871,6 +892,11 @@
 
 /datum/reagent/medicine/quickclot/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, 2*effect_str, 2*effect_str)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)
+		var/datum/internal_organ/Organrand = H.get_organ_slot(affected_organ)
+		Organrand.take_damage(1 * effect_str)
 
 
 /datum/reagent/medicine/quickclotplus
@@ -1241,7 +1267,11 @@
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	custom_metabolism = REAGENTS_METABOLISM * 5
-	purge_list = list(/datum/reagent/medicine, /datum/reagent/toxin, /datum/reagent/zombium)
+	purge_list = list(
+		/datum/reagent/medicine,
+		/datum/reagent/toxin,
+		/datum/reagent/zombium,
+	)
 	purge_rate = 5
 	scannable = TRUE
 	taste_description = "punishment"
@@ -1408,15 +1438,16 @@
 		/datum/reagent/medicine/tricordrazine,
 		/datum/reagent/medicine/paracetamol,
 		/datum/reagent/medicine/oxycodone,
+		/datum/reagent/medicine/ifosfamide,
 	)
 
 /datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
+	L.add_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED, TRUE, 0, NONE, TRUE, 0.1)
 
 /datum/reagent/medicalnanites/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)
 		if(1 to 75)
-			L.take_limb_damage(0.015*current_cycle*effect_str, 0.015*current_cycle*effect_str)
 			L.adjustToxLoss(1*effect_str)
 			L.adjustStaminaLoss((1.5)*effect_str)
 			L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.4)
@@ -1424,7 +1455,6 @@
 				to_chat(L, span_notice("You feel intense itching!"))
 		if(76)
 			to_chat(L, span_warning("The pain rapidly subsides. Looks like they've adapted to you."))
-			L.add_movespeed_modifier(MOVESPEED_ID_MOB_NANITES_SPEED, TRUE, 0, NONE, TRUE, 0.1)
 		if(77 to INFINITY)
 			if(volume < 30) //smol injection will self-replicate up to 30u using 240u of blood.
 				L.reagents.add_reagent(/datum/reagent/medicalnanites, 0.15)
@@ -1450,15 +1480,33 @@
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your burns begin to slough off, revealing healthy tissue!"))
+
+			if(volume < 10)
+				return ..()
+
+			if(!ishuman(L))
+				return ..()
+			var/mob/living/carbon/human/human = L
+
 			if(prob(5))
-				if(!ishuman(L))
-					return ..()
-				var/mob/living/carbon/human/H = L
-				var/datum/internal_organ/organ = H.get_damaged_organ()
+				var/datum/internal_organ/organ = human.get_damaged_organ()
 				if(!organ)
 					return ..()
-				L.adjustToxLoss(5*effect_str)
+				L.adjustToxLoss(10 * effect_str)
+				holder.remove_reagent(/datum/reagent/medicalnanites, 5)
 				organ.heal_organ_damage(10 * effect_str)
+				return ..()
+
+			if(prob(5))
+				for(var/datum/limb/limb_to_fix AS in human.limbs)
+					if(limb_to_fix.limb_status & (LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED))
+						if(limb_to_fix.brute_dam > limb_to_fix.min_broken_damage)
+							continue
+						limb_to_fix.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+						limb_to_fix.add_limb_flags(LIMB_REPAIRED)
+						holder.remove_reagent(/datum/reagent/medicalnanites, 5)
+						L.adjustToxLoss(15 * effect_str)
+						break
 	return ..()
 
 /datum/reagent/medicalnanites/overdose_process(mob/living/L, metabolism)
@@ -1467,6 +1515,10 @@
 
 /datum/reagent/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustCloneLoss(1) //YUM!
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/datum/internal_organ/stom = H.get_organ_slot(ORGAN_SLOT_STOMACH)
+		stom.take_damage(0.7 * effect_str)
 
 /datum/reagent/medicalnanites/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))

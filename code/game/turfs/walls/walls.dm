@@ -226,12 +226,10 @@
 // Devastated and Explode causes the wall to spawn a damaged girder
 // Walls no longer spawn a metal sheet when destroyed to reduce clutter and
 // improve visual readability.
-/turf/closed/wall/proc/dismantle_wall(devastated = 0, explode = 0)
+/turf/closed/wall/proc/dismantle_wall(devastated = FALSE, explode = FALSE)
 	if(resistance_flags & INDESTRUCTIBLE) //Hull is literally invincible
 		return
-	if(devastated)
-		make_girder(TRUE)
-	else if(explode)
+	if(devastated || explode)
 		make_girder(TRUE)
 	else
 		make_girder(FALSE)
