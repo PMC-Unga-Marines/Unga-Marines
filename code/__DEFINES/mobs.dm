@@ -894,3 +894,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define YAUTJA_THRALL_GEAR_RAPIER "The Dancing Rapier"
 #define YAUTJA_THRALL_GEAR_CLAYMORE "The Broad Claymore"
 #define YAUTJA_THRALL_GEAR_FIREAXE "The Purposeful Fireaxe"
+
+///Filter name for illusion impacts
+#define ILLUSION_HIT_FILTER "illusion_hit_filter"
