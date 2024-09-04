@@ -753,6 +753,7 @@
 			to_chat(user, span_warning("ERROR. This shouldn't happen, please report it."))
 			CRASH("moveShuttleToDock() returned a non-zero-nor-one value.")
 
+/obj/machinery/computer/shuttle/marine_dropship/one
 	name = "\improper 'Normandy' flight controls"
 	desc = "The flight controls for the 'Normandy' Dropship. Named after a department in France, noteworthy for the famous naval invasion of Normandy on the 6th of June 1944, a bloody but decisive victory in World War II and the campaign for the Liberation of France."
 	possible_destinations = "lz1;lz2;normandy"
