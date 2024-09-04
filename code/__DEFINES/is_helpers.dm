@@ -125,6 +125,8 @@ GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are
 
 #define isAI(A) (istype(A, /mob/living/silicon/ai))
 
+#define isAIeye(A) (istype(A, /mob/camera/aiEye))
+
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
 
