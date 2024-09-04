@@ -31,6 +31,7 @@
 #include "code\__DEFINES\apc_defines.dm"
 #include "code\__DEFINES\area.dm"
 #include "code\__DEFINES\atmospherics.dm"
+#include "code\__DEFINES\atom.dm"
 #include "code\__DEFINES\atom_hud.dm"
 #include "code\__DEFINES\attachments.dm"
 #include "code\__DEFINES\autofire.dm"
