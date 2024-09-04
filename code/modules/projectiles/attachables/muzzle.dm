@@ -32,7 +32,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
 	force = 20
-	throwforce = 10
+	throwforce = 5 // decreased so people don't throw it from tad
 	attach_delay = 10 //Bayonets attach/detach quickly.
 	detach_delay = 10
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")

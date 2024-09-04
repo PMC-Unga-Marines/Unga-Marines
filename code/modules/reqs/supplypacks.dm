@@ -838,6 +838,36 @@ WEAPONS
 	contains = list(/obj/item/weapon/twohanded/glaive/halberd/harvester)
 	cost = 600
 
+/datum/supply_packs/weapons/machete
+	name = "H5 pattern M2132 machete scabbard"
+	contains = list(/obj/item/storage/holster/blade/machete/full)
+	cost = 35
+
+/datum/supply_packs/weapons/vali_machete
+	name = "H5 Pattern M2132 harvester scabbard"
+	contains = list(/obj/item/storage/holster/blade/harvester/full)
+	cost = 25
+
+/datum/supply_packs/weapons/tomahawk
+	name = "Tactical H17 Tomahawk scabbard"
+	contains = list(/obj/item/storage/holster/blade/tomahawk/full)
+	cost = 35
+
+/datum/supply_packs/weapons/spear
+	name = "M-23 spear"
+	contains = list(/obj/item/weapon/twohanded/spear/tactical)
+	cost = 25
+
+/datum/supply_packs/weapons/vali_spear
+	name = "HP-S Harvester spear"
+	contains = list(/obj/item/weapon/twohanded/spear/tactical/harvester)
+	cost = 35
+
+/datum/supply_packs/weapons/vali_glaive
+	name = "HP-S Harvester claymore"
+	contains = list(/obj/item/weapon/twohanded/glaive/harvester)
+	cost = 45
+
 /datum/supply_packs/weapons/t500case
 	name = "R-500 bundle"
 	contains = list(/obj/item/storage/box/t500case)
