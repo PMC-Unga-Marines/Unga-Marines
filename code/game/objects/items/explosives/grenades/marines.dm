@@ -222,13 +222,13 @@
 	det_time = 5 SECONDS
 	light_impact_range = 1
 	self_sticky = TRUE
+	overlay_type = "green"
 	/// smoke type created when the grenade is primed
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/tactical
 	///radius this smoke grenade will encompass
 	var/smokeradius = 1
 	///The duration of the smoke
 	var/smoke_duration = 8
-	overlay_type = "green"
 
 /obj/item/explosive/grenade/sticky/cloaker/prime()
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
@@ -336,17 +336,17 @@
 	item_state = "grenade_smoke"
 	det_time = 2 SECONDS
 	hud_state = "grenade_smoke"
-	dangerous = TRUE
+	dangerous = FALSE
 	icon_state_mini = "grenade_blue"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
 	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
+	overlay_type = "white"
 	/// smoke type created when the grenade is primed
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
 	///radius this smoke grenade will encompass
 	var/smokeradius = 7
 	///The duration of the smoke
 	var/smoke_duration = 11
-	overlay_type = "white"
 
 /obj/item/explosive/grenade/smokebomb/prime()
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()

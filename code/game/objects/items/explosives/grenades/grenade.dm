@@ -95,7 +95,7 @@
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
 	if(active && overlay_type)
-		. += image('icons/obj/items/grenade.dmi', icon_state = "danger_[overlay_type]")
+		. += image('icons/effects/danger.dmi', icon_state = "danger_[overlay_type]")
 
 
 /obj/item/explosive/grenade/proc/prime()
