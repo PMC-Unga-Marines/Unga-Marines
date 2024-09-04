@@ -71,7 +71,7 @@
 		return
 	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
 		SSresinshaping.decrement_build_counter(xeno_attacker)
-		take_damage(max_integrity)
+		dismantle_wall()
 		return
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
@@ -83,7 +83,7 @@
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
 	span_xenonotice("We tear down \the [src]."))
 	playsound(src, "alien_resin_break", 25)
-	take_damage(max_integrity)
+	dismantle_wall()
 
 /turf/closed/wall/resin/attack_hand(mob/living/user)
 	to_chat(user, span_warning("You scrape ineffectively at \the [src]."))
