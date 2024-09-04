@@ -220,10 +220,6 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
-"agu" = (
-/obj/structure/bed/chair/comfy/black,
-/turf/open/floor/mainship/metal/full,
-/area/mainship/command/cic)
 "agA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 10
@@ -15585,7 +15581,6 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 10
 	},
-/obj/structure/bed/chair/comfy/black,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "jpC" = (
@@ -18839,12 +18834,6 @@
 	},
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
-"liz" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 1
-	},
-/turf/open/floor/mainship/metal/full,
-/area/mainship/command/cic)
 "liA" = (
 /turf/closed/wall/mainship/research/containment/wall/north,
 /area/mainship/medical/medical_science)
@@ -21025,9 +21014,6 @@
 /obj/effect/ai_node,
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
-	},
-/obj/structure/bed/chair/comfy/black{
-	dir = 1
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
@@ -35628,7 +35614,6 @@
 	},
 /area/mainship/medical/lounge)
 "uYB" = (
-/obj/effect/turf_decal/siding/metal/full,
 /obj/machinery/cic_maptable/drawable/big,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
@@ -61209,9 +61194,9 @@ cRU
 eAH
 gtP
 hUJ
-agu
-uYB
-liz
+tdl
+tdl
+tdl
 oGq
 qHj
 sfw
@@ -61467,7 +61452,7 @@ eMg
 bYk
 ibP
 jpl
-eME
+uYB
 msc
 oIT
 qHj
