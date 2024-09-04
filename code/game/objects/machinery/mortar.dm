@@ -819,7 +819,7 @@
 /obj/structure/closet/crate/mortar_ammo/mlrs_kit/PopulateContents()
 	new /obj/item/mortar_kit/mlrs(src)
 	new /obj/item/storage/box/mlrs_rockets(src)
-	new /obj/item/storage/box/mlrs_rockets(src)
+	new /obj/item/storage/box/mlrs_rockets_gas(src)
 	new /obj/item/encryptionkey/engi(src)
 	new /obj/item/encryptionkey/engi(src)
 	new /obj/item/binoculars/tactical/range(src)
