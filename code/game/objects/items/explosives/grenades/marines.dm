@@ -32,7 +32,7 @@
 	falloff = 40
 
 /obj/item/explosive/grenade/pmc/prime()
-	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	create_shrapnel(loc, 15, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
 	return ..()
 
 /obj/item/explosive/grenade/m15
@@ -47,7 +47,7 @@
 	falloff = 40
 
 /obj/item/explosive/grenade/m15/prime()
-	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	create_shrapnel(loc, 15, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
 	return ..()
 
 /obj/item/explosive/grenade/stick

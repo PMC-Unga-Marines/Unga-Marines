@@ -125,8 +125,6 @@
 	/// List of atoms already hit by that projectile. Will only matter for projectiles capable of passing through multiple atoms
 	var/list/atom/hit_atoms = list()
 
-	var/is_shrapnel = FALSE
-
 /obj/projectile/Initialize(mapload)
 	. = ..()
 	var/static/list/connections = list(
@@ -209,11 +207,10 @@
 		shot_from = source
 	loc = loc_override
 	if(!isturf(loc))
-		//forceMove(get_turf(src)) // RUTGMC DELETION
-		if(!is_shrapnel) // RUTGMC ADDITION START
+		if(!(flags_projectile_behavior & PROJECTILE_SHRAPNEL))
 			forceMove(get_turf(src))
 		else if(get_turf(source))
-			forceMove(get_turf(source)) //RUTGMC ADDITION END
+			forceMove(get_turf(source))
 
 	starting_turf = loc
 
