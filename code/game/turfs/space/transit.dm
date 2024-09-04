@@ -50,9 +50,6 @@
 	if(QDELETED(crosser))
 		return
 
-	if(isobj(crosser))
-		return qdel(crosser)
-
 	// you just jumped out of a dropship, have fun living on the way down!
 	var/list/ground_z_levels = SSmapping.levels_by_trait(ZTRAIT_GROUND)
 	if(!length(ground_z_levels))
@@ -95,7 +92,7 @@
 
 /obj/handle_airdrop(turf/target)
 	. = ..()
-	if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) && prob(30)) // throwing objects from the air is not always a good idea
+	if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE)) // throwing objects from the air is not always a good idea
 		visible_message(span_danger("[src] falls out of the sky and mangles into the uselessness by the impact!"))
 		playsound(src, 'sound/effects/metal_crash.ogg', 35, 1)
 		deconstruct(FALSE)
