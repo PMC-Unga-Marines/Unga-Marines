@@ -53,8 +53,8 @@
 /obj/item/explosive/grenade/stick
 	name = "\improper Webley Mk15 stick grenade"
 	desc = "A fragmentation grenade produced in the colonies, most commonly using old designs and schematics. It explodes 3 seconds after the pin has been pulled."
-	icon_state = "grenade_hefa"
-	item_state = "grenade_hefa"
+	icon_state = "grenade_stick"
+	item_state = "grenade_stick"
 	hud_state = "grenade_frag"
 	force = 10
 	w_class = WEIGHT_CLASS_SMALL
@@ -429,6 +429,7 @@
 	icon_state = "grenade_pgas"
 	item_state = "grenade_pgas"
 	hud_state = "grenade_drain"
+	dangerous = TRUE
 	det_time = 6 SECONDS
 	icon_state_mini = "grenade_purple"
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
