@@ -101,7 +101,7 @@
 	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
-/obj/item/explosive/grenade/flamer_fire_act(burnlevel)
+/obj/item/explosive/grenade/flamer_fire_act(burnlevel, flame_color)
 	activate()
 
 /obj/item/explosive/grenade/attack_hand(mob/living/user)

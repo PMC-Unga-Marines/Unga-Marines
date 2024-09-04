@@ -211,7 +211,7 @@
 
 	playsound(src, 'sound/effects/glob.ogg', 25, 1)
 
-/obj/structure/reagent_dispensers/fueltank/flamer_fire_act(burnlevel)
+/obj/structure/reagent_dispensers/fueltank/flamer_fire_act(burnlevel, flame_color)
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/barrel
@@ -226,6 +226,12 @@
 	icon_state = "xweldtank"
 	list_reagents = list(/datum/reagent/fuel/xfuel = 1000)
 
+/obj/structure/reagent_dispensers/fueltank/gfuel
+	name = "G-fueltank"
+	desc = "A tank filled with extremely dangerous plasma Fuel. There are numerous no smoking signs on every side of the tank."
+	icon_state = "gweldtank"
+	list_reagents = list(/datum/reagent/fuel/gfuel = 1000)
+
 /obj/structure/reagent_dispensers/fueltank/xfuel/explode()
 	log_bomber(usr, "triggered a fueltank explosion with", src)
 	if(exploding)
@@ -233,7 +239,7 @@
 	exploding = TRUE
 
 	cell_explosion(loc, reagents.total_volume * 0.4, reagents.total_volume * 0.2)
-	flame_radius(round(reagents.total_volume * 0.005), loc, 46, 40, 31, 30, colour = "blue")
+	flame_radius(round(reagents.total_volume * 0.005), loc, 46, 40, 31, 30, colour = "green")
 	qdel(src)
 
 /obj/structure/reagent_dispensers/water_cooler

@@ -87,7 +87,7 @@
 		ignite_fuel(I)
 		log_attack("[key_name(user)] ignites [src] in fuel in [AREACOORD(user)]")
 
-/obj/effect/decal/cleanable/liquid_fuel/flamer_fire_act(burnlevel)
+/obj/effect/decal/cleanable/liquid_fuel/flamer_fire_act(burnlevel, flame_color)
 	. = ..()
 	ignite_fuel()
 
@@ -129,3 +129,8 @@
 	fire_lvl = 25
 	burn_lvl = 25
 	f_color = "blue"
+
+/obj/effect/decal/cleanable/liquid_fuel/gfuel
+	fire_lvl = 12
+	burn_lvl = 9
+	f_color = "green"

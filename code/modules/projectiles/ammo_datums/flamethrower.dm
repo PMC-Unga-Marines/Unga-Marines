@@ -47,6 +47,15 @@
 	burnlevel = 46
 	bullet_color = COLOR_NAVY
 
+/datum/ammo/flamethrower/green
+	name = "green flame"
+	hud_state = "flame_green"
+	max_range = 8
+	fire_color = "green"
+	burntime = 12
+	burnlevel = 18
+	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
+
 /datum/ammo/water
 	name = "water"
 	icon_state = "pulse1"

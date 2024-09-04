@@ -80,6 +80,14 @@
 	icon_state_mini = "tank_blue"
 	dispenser_type = /obj/structure/reagent_dispensers/fueltank/xfuel
 
+/obj/item/ammo_magazine/flamer_tank/large/G
+	name = "large flamethrower tank (G)"
+	desc = "A large fuel tank of ultra thick plasma Fuel type G, a sticky combustable liquid chemical, for use in the FL-84 flamethrower. Handle with care."
+	icon_state = "flametank_large_green"
+	default_ammo = /datum/ammo/flamethrower/green
+	icon_state_mini = "tank_green"
+	dispenser_type = /obj/structure/reagent_dispensers/fueltank/gfuel
+
 /obj/item/ammo_magazine/flamer_tank/large/X/deathsquad
 	name = "Gargantuan flamethrower X-tank"
 	desc = "Using Bluespace technology, Nanotrasen has managed to fit in way more x-fuel than you would ever hope to need in a single lifetime into this specialized tank."

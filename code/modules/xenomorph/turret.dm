@@ -76,7 +76,7 @@
 /obj/structure/xeno/xeno_turret/ex_act(severity)
 	take_damage(severity * 5, BRUTE, BOMB)
 
-/obj/structure/xeno/xeno_turret/flamer_fire_act(burnlevel)
+/obj/structure/xeno/xeno_turret/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel * 2, BURN, FIRE)
 	ENABLE_BITFIELD(resistance_flags, ON_FIRE)
 
