@@ -203,6 +203,24 @@ export const GameSettings = (props, context) => {
                 rightValue={1}
                 rightLabel={'Disabled'}
               />
+              <ToggleFieldPreference
+                label="Show marine respawn alert message"
+                value="mute_marine_respawn_alert_message"
+                action="mute_marine_respawn_alert_message"
+                leftValue={0}
+                leftLabel={'Enabled'}
+                rightValue={1}
+                rightLabel={'Disabled'}
+              />
+              <ToggleFieldPreference
+                label="Show xeno respawn alert message"
+                value="mute_xeno_respawn_alert_message"
+                action="mute_xeno_respawn_alert_message"
+                leftValue={0}
+                leftLabel={'Enabled'}
+                rightValue={1}
+                rightLabel={'Disabled'}
+              />
             </LabeledList>
           </Section>
         </Stack.Item>

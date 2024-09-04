@@ -2901,9 +2901,6 @@
 /area/bigredv2/caves/lambda_lab)
 "aAR" = (
 /obj/machinery/vending/assist,
-/obj/structure/barricade/metal{
-	dir = 4
-	},
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -2924,6 +2921,13 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
+"aAZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/space_port/two)
 "aBa" = (
 /obj/machinery/light,
 /obj/structure/cable,
@@ -3083,9 +3087,6 @@
 /area/bigredv2/caves/lambda_lab)
 "aCu" = (
 /obj/effect/spawner/random/engineering/ore_box,
-/obj/structure/barricade/metal{
-	dir = 4
-	},
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 4
 	},
@@ -3181,13 +3182,11 @@
 /turf/open/floor/tile/purple/whitepurple,
 /area/bigredv2/caves/lambda_lab)
 "aDm" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/plasteel{
 	dir = 4
 	},
-/turf/open/floor/tile/purple/whitepurple{
-	dir = 6
-	},
-/area/bigredv2/caves/lambda_lab)
+/turf/open/floor/marking/asteroidwarning,
+/area/bigredv2/outside/space_port/two)
 "aDn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
@@ -5513,6 +5512,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
+"beo" = (
+/obj/structure/barricade/metal,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
+	},
+/area/bigredv2/outside/space_port)
 "bew" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
@@ -7629,6 +7634,10 @@
 /obj/structure/cable,
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
+"bIf" = (
+/obj/structure/barricade/metal,
+/turf/open/floor/plating/dmg2,
+/area/bigredv2/outside/space_port)
 "bIN" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/sandedge/corner{
@@ -7763,6 +7772,9 @@
 /area/bigredv2/outside/bar)
 "bXJ" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
 	},
@@ -8436,6 +8448,15 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
+"dyg" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/bigredv2/outside/space_port/two)
 "dym" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -8540,6 +8561,9 @@
 /area/bigredv2/outside/e)
 "dLO" = (
 /obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/space_port/two)
 "dNZ" = (
@@ -9102,6 +9126,7 @@
 /area/bigredv2/outside/space_port/two)
 "fbY" = (
 /obj/item/stack/rods,
+/obj/structure/barricade/plasteel,
 /turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/space_port)
 "fcq" = (
@@ -9338,6 +9363,17 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/e)
+"fAP" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/bigredv2/outside/space_port/two)
 "fAX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
@@ -9435,6 +9471,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
+"fOk" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/space_port)
 "fOz" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/marking/asteroidwarning{
@@ -10587,6 +10628,9 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/virology)
 "izi" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 6
 	},
@@ -11048,6 +11092,12 @@
 /obj/effect/turf_decal/sandedge,
 /turf/open/floor/freezer,
 /area/bigredv2/caves/lambda_lab)
+"jpC" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/space_port/two)
 "jpZ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
@@ -11847,6 +11897,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
+"liZ" = (
+/obj/structure/barricade/plasteel,
+/turf/open/floor/plating/dmg2,
+/area/bigredv2/outside/space_port)
 "ljD" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -12059,6 +12113,13 @@
 	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
+"lJJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/marking/asteroidwarning,
+/area/bigredv2/outside/space_port/two)
 "lJK" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -12383,6 +12444,9 @@
 "muG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
@@ -12578,6 +12642,12 @@
 /obj/machinery/computer/prisoner,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
+"mTw" = (
+/obj/structure/barricade/metal,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 4
+	},
+/area/bigredv2/outside/space_port)
 "mUT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -12601,6 +12671,9 @@
 /area/bigredv2/outside/sw)
 "mYd" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
@@ -13762,6 +13835,7 @@
 /area/bigredv2/outside/space_port)
 "pGK" = (
 /obj/item/stack/sheet/metal,
+/obj/structure/barricade/metal,
 /turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/space_port)
 "pGL" = (
@@ -13865,6 +13939,12 @@
 	},
 /turf/open/floor/freezer,
 /area/bigredv2/outside/marshal_office)
+"pTH" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv2/outside/space_port/two)
 "pUl" = (
 /turf/open/floor/tile/vault{
 	dir = 8
@@ -14855,6 +14935,12 @@
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/space_port)
+"sgk" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/dirt,
+/area/bigredv2/outside/space_port/two)
 "shc" = (
 /obj/effect/landmark/weed_node,
 /turf/closed/mineral/smooth/bigred,
@@ -15016,6 +15102,14 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
+"szu" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/bigredv2/outside/space_port/two)
 "sAX" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
@@ -15089,6 +15183,12 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
+"sKq" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/dirt,
+/area/bigredv2/outside/space_port/two)
 "sLE" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tool,
@@ -15815,6 +15915,15 @@
 	dir = 8
 	},
 /area/bigredv2/caves/southwest)
+"uue" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/bigredv2/outside/space_port/two)
 "uuU" = (
 /obj/structure/xenoautopsy/tank/alien,
 /obj/effect/turf_decal/warning_stripes,
@@ -25564,7 +25673,7 @@ aWk
 aWk
 paM
 jkb
-gzy
+szu
 uTn
 juw
 juw
@@ -25781,7 +25890,7 @@ txk
 aXA
 aXA
 cfN
-evZ
+dyg
 sSS
 sSS
 sSS
@@ -25998,7 +26107,7 @@ vUH
 qtf
 tFq
 rdD
-gzy
+szu
 juw
 juw
 cuO
@@ -26368,7 +26477,7 @@ iwK
 iwK
 iwK
 bTS
-djs
+beo
 heD
 lvn
 lvn
@@ -26585,7 +26694,7 @@ btA
 btA
 btA
 gSH
-bOC
+fOk
 ort
 iAI
 qYD
@@ -26660,19 +26769,19 @@ eKH
 nyy
 nyy
 muG
-cuO
+lJJ
 eKH
-eKH
-eKH
-eKH
-eKH
-eKH
+sgk
+sgk
+sgk
+sgk
+sgk
 eKH
 cfV
 dzw
 iet
 nyy
-evZ
+uue
 dLO
 uDs
 nyy
@@ -26802,7 +26911,7 @@ iwK
 iwK
 iwK
 iKH
-cTd
+mTw
 ygj
 aiy
 aiy
@@ -26866,13 +26975,13 @@ tPn
 dPf
 vUH
 rdD
-gzy
-juw
-uTn
-wzR
-eKH
-eKH
-eKH
+fAP
+jpC
+aAZ
+aDm
+sgk
+sgk
+sgk
 hsK
 hsK
 hsK
@@ -26892,15 +27001,15 @@ dxa
 hwc
 ycw
 dxa
-eKH
-eKH
-evZ
-wzR
-eKH
-eKH
-eKH
+sgk
+sgk
+uue
+aDm
+sKq
+sgk
+sgk
 izi
-inx
+pTH
 xpr
 bOR
 iOc
@@ -27887,7 +27996,7 @@ iwK
 iwK
 imS
 vYM
-geM
+liZ
 gOU
 yep
 ama
@@ -28104,7 +28213,7 @@ oPu
 iwK
 iwK
 imS
-geM
+liZ
 dOE
 mxa
 qLl
@@ -28538,7 +28647,7 @@ iwK
 iwK
 geM
 iGS
-geM
+bIf
 vhH
 mxa
 ama
@@ -57430,7 +57539,7 @@ adZ
 aAR
 amO
 aCu
-aDm
+aEp
 adZ
 gCQ
 gCQ

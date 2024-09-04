@@ -646,8 +646,8 @@
 	desc = "An eye catching white medical pouch capable of holding all your surgical tools."
 	icon_state = "surgery"
 	sprite_slots = 1
-	storage_slots = 12
-	max_storage_space = 24
+	storage_slots = 13
+	max_storage_space = 26
 	can_hold = list(
 		/obj/item/tool/surgery,
 		/obj/item/stack/nanopaste,
@@ -657,6 +657,7 @@
 
 /obj/item/storage/pouch/surgery/Initialize(mapload)
 	. = ..()
+	new	/obj/item/tool/surgery/scalpel/manager(src)
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
 	new /obj/item/tool/surgery/retractor(src)

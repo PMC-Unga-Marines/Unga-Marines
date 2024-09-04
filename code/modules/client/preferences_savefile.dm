@@ -175,6 +175,8 @@
 	READ_FILE(S["mute_self_combat_messages"], mute_self_combat_messages)
 	READ_FILE(S["mute_others_combat_messages"], mute_others_combat_messages)
 	READ_FILE(S["mute_xeno_health_alert_messages"], mute_xeno_health_alert_messages)
+	READ_FILE(S["mute_marine_respawn_alert_message"], mute_marine_respawn_alert_message)
+	READ_FILE(S["mute_xeno_respawn_alert_message"], mute_xeno_respawn_alert_message)
 
 	// Runechat options
 	READ_FILE(S["chat_on_map"], chat_on_map)
@@ -235,6 +237,8 @@
 	mute_self_combat_messages = sanitize_integer(mute_self_combat_messages, FALSE, TRUE, initial(mute_self_combat_messages))
 	mute_others_combat_messages = sanitize_integer(mute_others_combat_messages, FALSE, TRUE, initial(mute_others_combat_messages))
 	mute_xeno_health_alert_messages = sanitize_integer(mute_xeno_health_alert_messages, FALSE, TRUE, initial(mute_xeno_health_alert_messages))
+	mute_marine_respawn_alert_message = sanitize_integer(mute_marine_respawn_alert_message, FALSE, TRUE, initial(mute_marine_respawn_alert_message))
+	mute_xeno_respawn_alert_message = sanitize_integer(mute_xeno_respawn_alert_message, FALSE, TRUE, initial(mute_xeno_respawn_alert_message))
 
 	chat_on_map = sanitize_integer(chat_on_map, FALSE, TRUE, initial(chat_on_map))
 	max_chat_length = sanitize_integer(max_chat_length, 1, CHAT_MESSAGE_MAX_LENGTH, initial(max_chat_length))
@@ -301,6 +305,8 @@
 	mute_self_combat_messages = sanitize_integer(mute_self_combat_messages, FALSE, TRUE, initial(mute_self_combat_messages))
 	mute_others_combat_messages = sanitize_integer(mute_others_combat_messages, FALSE, TRUE, initial(mute_others_combat_messages))
 	mute_xeno_health_alert_messages = sanitize_integer(mute_xeno_health_alert_messages, FALSE, TRUE, initial(mute_xeno_health_alert_messages))
+	mute_marine_respawn_alert_message = sanitize_integer(mute_marine_respawn_alert_message, FALSE, TRUE, initial(mute_marine_respawn_alert_message))
+	mute_xeno_respawn_alert_message = sanitize_integer(mute_xeno_respawn_alert_message, FALSE, TRUE, initial(mute_xeno_respawn_alert_message))
 
 	// Runechat
 	chat_on_map = sanitize_integer(chat_on_map, FALSE, TRUE, initial(chat_on_map))
@@ -353,6 +359,8 @@
 	WRITE_FILE(S["mute_self_combat_messages"], mute_self_combat_messages)
 	WRITE_FILE(S["mute_others_combat_messages"], mute_others_combat_messages)
 	WRITE_FILE(S["mute_xeno_health_alert_messages"], mute_xeno_health_alert_messages)
+	WRITE_FILE(S["mute_marine_respawn_alert_message"], mute_marine_respawn_alert_message)
+	WRITE_FILE(S["mute_xeno_respawn_alert_message"], mute_xeno_respawn_alert_message)
 
 	// Runechat options
 	WRITE_FILE(S["chat_on_map"], chat_on_map)
