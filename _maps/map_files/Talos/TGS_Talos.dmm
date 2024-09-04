@@ -4388,7 +4388,6 @@
 /obj/machinery/firealarm{
 	dir = 8
 	},
-/obj/machinery/floor_warn_light/self_destruct,
 /turf/open/floor/prison/plate,
 /area/mainship/command/self_destruct)
 "cvb" = (
@@ -8441,6 +8440,10 @@
 /obj/machinery/light/mainship/small,
 /turf/open/floor/prison/plate,
 /area/mainship/command/self_destruct)
+"eME" = (
+/obj/structure/table/black,
+/turf/open/floor/mainship/metal/full,
+/area/mainship/command/cic)
 "eMV" = (
 /obj/machinery/landinglight/lz2{
 	dir = 1
@@ -15457,7 +15460,7 @@
 /obj/structure/table/black,
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
 /obj/effect/turf_decal/siding/metal/full,
-/turf/open/floor/mainship/black/full,
+/turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "jko" = (
 /obj/machinery/iv_drip/alt,
@@ -15610,6 +15613,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/medical/medical_science)
 "jqo" = (
+/obj/machinery/loadout_vendor,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/medical/surgery_hallway)
 "jrf" = (
@@ -16409,6 +16413,10 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
+"jRN" = (
+/obj/effect/landmark/start/job/transport_crewman,
+/turf/open/floor/wood,
+/area/mainship/living/pilotbunks)
 "jRQ" = (
 /obj/machinery/door/window,
 /obj/structure/cable,
@@ -18841,7 +18849,6 @@
 /turf/closed/wall/mainship/research/containment/wall/north,
 /area/mainship/medical/medical_science)
 "ljq" = (
-/obj/machinery/floor_warn_light/self_destruct,
 /obj/structure/rack,
 /obj/item/lightreplacer,
 /turf/open/floor/mainship/tcomms,
@@ -18978,7 +18985,7 @@
 "lnt" = (
 /obj/structure/table/black,
 /obj/effect/turf_decal/siding/metal/full,
-/turf/open/floor/mainship/metal,
+/turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "lnP" = (
 /obj/effect/turf_decal/woodsiding{
@@ -20983,7 +20990,7 @@
 /obj/structure/table/black,
 /obj/machinery/faxmachine/cic,
 /obj/effect/turf_decal/siding/metal/full,
-/turf/open/floor/mainship/black/full,
+/turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "mqt" = (
 /obj/machinery/light/mainship{
@@ -30397,10 +30404,6 @@
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
-"rLN" = (
-/obj/machinery/floor_warn_light/self_destruct,
-/turf/open/floor/mainship/tcomms,
-/area/mainship/command/self_destruct)
 "rLV" = (
 /obj/effect/turf_decal/arrows{
 	dir = 8;
@@ -35624,6 +35627,11 @@
 	color = "#E2E0DC"
 	},
 /area/mainship/medical/lounge)
+"uYB" = (
+/obj/effect/turf_decal/siding/metal/full,
+/obj/machinery/cic_maptable/drawable/big,
+/turf/open/floor/mainship/metal/full,
+/area/mainship/command/cic)
 "uYN" = (
 /obj/machinery/iv_drip/alt,
 /turf/open/floor/mainship/metal/white{
@@ -39320,7 +39328,6 @@
 /obj/structure/window{
 	dir = 8
 	},
-/obj/effect/landmark/start/job/transport_crewman,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/cafeteria)
 "xot" = (
@@ -60946,7 +60953,7 @@ bUV
 gjv
 hRK
 exm
-lnt
+eME
 vTO
 gDV
 qFq
@@ -61203,7 +61210,7 @@ eAH
 gtP
 hUJ
 agu
-lnt
+uYB
 liz
 oGq
 qHj
@@ -61460,7 +61467,7 @@ eMg
 bYk
 ibP
 jpl
-lnt
+eME
 msc
 oIT
 qHj
@@ -61749,11 +61756,11 @@ qxi
 eps
 qIV
 cOG
-rLN
+evq
 dli
 dCL
 dWr
-rLN
+evq
 evq
 wAd
 dNr
@@ -69296,7 +69303,7 @@ bhP
 gLv
 ofK
 qkx
-ppm
+jRN
 qGh
 xot
 cVJ
