@@ -2,32 +2,25 @@
 	name = "shrapnel"
 	icon_state = "buckshot_shrapnel"
 	icon = 'icons/obj/items/projectiles.dmi'
-	accurate_range_min = 5
-	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy = 15
-	accurate_range = 32
 	max_range = 8
 	damage = 25
-	damage_falloff = 8
-	penetration = 0
-	shell_speed = 3
+	damage_falloff = 5
 	shrapnel_chance = 15
 
 /datum/ammo/bullet/shrapnel/metal
 	name = "metal shrapnel"
 	icon_state = "shrapnelshot_bit"
-	shell_speed = 1.5
+	shell_speed = 2
 	damage = 30
 	shrapnel_chance = 25
 	accuracy = 40
-	penetration = 0
 
 /datum/ammo/bullet/shrapnel/light // weak shrapnel
 	name = "light shrapnel"
 	icon_state = "shrapnel_light"
 	damage = 10
-	penetration = 0
-	shell_speed = 2
+	shell_speed = 2.5
 	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/human
@@ -52,8 +45,7 @@
 	name = "spall"
 	icon_state = "shrapnel_light"
 	damage = 10
-	penetration = 0
-	shell_speed = 2
+	shell_speed = 2.5
 	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/glass
