@@ -15,7 +15,7 @@
 		for(var/obj/flamer_fire/fire in target_turf)
 
 			var/fire_level_to_extinguish = 5
-			if(fire.flame_color == "green") //TODO: Make firetypes, colour types are terrible
+			if(fire.flame_color == FLAME_COLOR_GREEN) //TODO: Make firetypes, colour types are terrible
 				fire_level_to_extinguish *= 2
 			if(fire.firelevel > fire_level_to_extinguish)
 				fire.firelevel -= fire_level_to_extinguish

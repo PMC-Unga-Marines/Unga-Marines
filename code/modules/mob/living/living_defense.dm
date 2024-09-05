@@ -150,7 +150,8 @@
 	if(pass_flags & PASS_FIRE) //Pass fire allow to cross fire without being ignited
 		return
 
-	if(flame_color == "green")
+	//TODO: Make firetypes, colour types are terrible
+	if(flame_color == FLAME_COLOR_LIME)
 		var/datum/status_effect/stacking/melting/debuff = has_status_effect(STATUS_EFFECT_MELTING)
 		if(debuff)
 			debuff.add_stacks(2)
