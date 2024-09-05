@@ -51,6 +51,7 @@
 		/obj/item/ammo_magazine/flamer_tank/large/G,
 		/obj/item/ammo_magazine/flamer_tank/backtank,
 		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/backtank/G,
 	)
 	light_range = 0.1
 	light_power = 0.1
