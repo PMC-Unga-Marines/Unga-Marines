@@ -117,10 +117,6 @@
 		/obj/item/reagent_containers/food/snacks/wrapped/berrybar = -1,
 	)
 
-/obj/machinery/vending/snack/alamo
-		product_slogans = "" //silent for no spam
-		wrenchable = FALSE
-
 /obj/machinery/vending/cola
 	name = "Souto Softdrinks"
 	desc = "A softdrink vendor provided by Souto Soda Company, Havana."
@@ -141,10 +137,6 @@
 		/obj/item/reagent_containers/food/drinks/cans/cola = -1,
 	)
 	idle_power_usage = 200
-
-/obj/machinery/vending/cola/alamo
-		product_slogans = "" //silent for no spam
-		wrenchable = FALSE
 
 /obj/machinery/vending/medical
 	name = "NanotrasenMed Plus"
