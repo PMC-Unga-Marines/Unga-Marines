@@ -190,7 +190,7 @@
 	sharp = IS_SHARP_ITEM_SIMPLE
 	name = "sharpened " + name
 	shovelspeed = 10
-	force = 60
+	force = 90
 	update_icon()
 
 /obj/item/tool/shovel/etool/examine(mob/user)
