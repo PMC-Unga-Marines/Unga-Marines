@@ -12,7 +12,7 @@
 	///Last time larva balance was checked
 	var/last_larva_check
 	///Multiplier for xenos, increases over time
-	var/xeno_factor = 1
+	var/xeno_factor = 0.6
 	///How much xeno_factor you get for progress on discs
 	var/xeno_factor_per_progress_on_disk = 0.05
 

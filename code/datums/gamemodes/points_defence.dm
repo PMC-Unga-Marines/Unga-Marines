@@ -38,9 +38,9 @@
 	var/points_to_win = 5000
 
 	///Groud side xeno factor
-	var/firts_stage_xeno_factor = 0.8
+	var/firts_stage_xeno_factor = 0.6
 	///Den rush xeno factor
-	var/second_stage_xeno_factor = 1.2
+	var/second_stage_xeno_factor = 1
 
 	var/allow_hijack = FALSE
 	var/can_hunt = FALSE
