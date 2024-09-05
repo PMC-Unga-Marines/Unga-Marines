@@ -45,13 +45,13 @@
 
 	if(isammomagazine(target))
 		var/obj/item/ammo_magazine/mag_to_reload = target
-		if(mag_to_reload.magazine_flags & MAGAZINE_WORN)
+		if(mag_to_reload.flags_magazine & MAGAZINE_WORN)
 			return
 		tactical_reload(target, user)
 
 	if(islascell(target))
 		var/obj/item/cell/lasgun/cell_to_reload = target
-		if(cell_to_reload.magazine_features_flags & MAGAZINE_WORN)
+		if(CHECK_BITFIELD(get_flags_magazine_features(cell_to_reload), MAGAZINE_WORN))
 			return
 		tactical_reload(target, user)
 
