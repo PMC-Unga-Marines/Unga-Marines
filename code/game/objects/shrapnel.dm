@@ -31,11 +31,11 @@
 	for(var/i = 0; i < shrapnel_number; i++) // this is done in such way so angle increases with each shrapnel fired
 		var/obj/projectile/our_shrapnel = new(epicenter)
 		our_shrapnel.generate_bullet(new shrapnel_type)
-		our_shrapnel.flags_projectile_behavior |= PROJECTILE_SHRAPNEL
 
 		if(epicenter_mob && prob(on_hit_coefficient))
-			our_shrapnel.fire_at(epicenter_mob, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, null)
+			our_shrapnel.fire_at(epicenter_mob, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, loc_override = epicenter)
 		else
 			var/angle = initial_angle + i * angle_increment + rand(-angle_randomization, angle_randomization)
 			var/atom/target = get_angle_target_turf(epicenter, angle, our_shrapnel.ammo.max_range)
-			our_shrapnel.fire_at(target, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, angle)
+			our_shrapnel.fire_at(target, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, angle, loc_override = epicenter)
+			//proj.fire_at(null, firer, source, range, speed, current_angle, loc_override=source)

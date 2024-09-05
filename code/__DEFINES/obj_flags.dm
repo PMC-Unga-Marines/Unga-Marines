@@ -28,5 +28,3 @@
 #define PROJECTILE_HIT (1<<1)
 ///This projectile will ignore non targetted mobs
 #define PROJECTILE_PRECISE_TARGET (1<<2)
-///This projectile will be forcemoved from "source" at fire_at
-#define PROJECTILE_SHRAPNEL (1<<3)

@@ -207,11 +207,7 @@
 		shot_from = source
 	loc = loc_override
 	if(!isturf(loc))
-		if(!(flags_projectile_behavior & PROJECTILE_SHRAPNEL))
-			forceMove(get_turf(src))
-		else if(get_turf(source))
-			forceMove(get_turf(source))
-
+		forceMove(get_turf(src))
 	starting_turf = loc
 
 	if(target)
