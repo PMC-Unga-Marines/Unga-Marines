@@ -361,6 +361,10 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/flamer_tank/mini,
 		/obj/item/ammo_magazine/flamer_tank/backtank,
+		/obj/item/ammo_magazine/flamer_tank/mini/X,
+		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/mini/G,
+		/obj/item/ammo_magazine/flamer_tank/backtank/G,
 	)
 	starting_attachment_types = list(/obj/item/attachable/flamer_nozzle/unremovable/invisible)
 	attachable_allowed = list(

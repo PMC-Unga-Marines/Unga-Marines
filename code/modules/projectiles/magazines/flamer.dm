@@ -80,12 +80,36 @@
 	icon_state_mini = "tank_blue"
 	dispenser_type = /obj/structure/reagent_dispensers/fueltank/xfuel
 
+/obj/item/ammo_magazine/flamer_tank/mini/X
+	name = "mini incinerator tank (X)"
+	desc = "A large fuel tank of ultra thick napthal Fuel type X, a sticky combustable liquid chemical that burns extremely hot, for use in the underail incinerator unit. Handle with care."
+	icon_state = "flametank_mini_blue"
+	default_ammo = /datum/ammo/flamethrower/blue
+	reload_delay = 0 SECONDS
+	w_class = WEIGHT_CLASS_SMALL
+	current_rounds = 25
+	max_rounds = 25
+	icon_state_mini = "tank_blue_mini"
+	dispenser_type = /obj/structure/reagent_dispensers/fueltank/xfuel
+
 /obj/item/ammo_magazine/flamer_tank/large/G
 	name = "large flamethrower tank (G)"
 	desc = "A large fuel tank of ultra thick plasma Fuel type G, a sticky combustable liquid chemical, for use in the FL-84 flamethrower. Handle with care."
 	icon_state = "flametank_large_green"
 	default_ammo = /datum/ammo/flamethrower/green
 	icon_state_mini = "tank_green"
+	dispenser_type = /obj/structure/reagent_dispensers/fueltank/gfuel
+
+/obj/item/ammo_magazine/flamer_tank/mini/G
+	name = "mini incinerator tank (G)"
+	desc = "A large fuel tank of ultra thick plasma Fuel type G, a sticky combustable liquid chemical that burns extremely hot, for use in the underail incinerator unit. Handle with care."
+	icon_state = "flametank_mini_green"
+	default_ammo = /datum/ammo/flamethrower/green
+	reload_delay = 0 SECONDS
+	w_class = WEIGHT_CLASS_SMALL
+	current_rounds = 25
+	max_rounds = 25
+	icon_state_mini = "tank_green_mini"
 	dispenser_type = /obj/structure/reagent_dispensers/fueltank/gfuel
 
 /obj/item/ammo_magazine/flamer_tank/large/X/deathsquad
@@ -116,6 +140,13 @@
 	icon_state = "x_flamethrower_tank"
 	default_ammo = /datum/ammo/flamethrower/blue
 	dispenser_type = /obj/structure/reagent_dispensers/fueltank/xfuel
+
+/obj/item/ammo_magazine/flamer_tank/backtank/G
+	name = "back fuel tank (G)"
+	desc = "A specialized fuel tank of plasma type G for use with the FL-84 flamethrower and FL-240 incinerator unit."
+	icon_state = "g_flamethrower_tank"
+	default_ammo = /datum/ammo/flamethrower/green
+	dispenser_type = /obj/structure/reagent_dispensers/fueltank/gfuel
 
 /obj/item/ammo_magazine/flamer_tank/water
 	name = "pressurized water tank"
