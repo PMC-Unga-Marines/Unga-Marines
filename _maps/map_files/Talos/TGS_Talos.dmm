@@ -4553,7 +4553,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_emb)
 "cAc" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -11935,7 +11935,7 @@
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/engineering/port_atmos)
 "gYL" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "gYO" = (
@@ -13103,7 +13103,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "hMY" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/camera/autoname/alt{
 	dir = 8
 	},
@@ -14420,7 +14420,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
@@ -14750,7 +14750,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "iPB" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding/alt{
 	dir = 4
 	},
@@ -14874,7 +14874,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "iSK" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/camera/autoname/alt,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
@@ -15459,7 +15459,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "jko" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
 	},
@@ -16910,7 +16910,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/shipboard/firing_range)
 "kfF" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -22101,7 +22101,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/command/cic)
 "mUC" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},
@@ -24511,7 +24511,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "onO" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},
@@ -26955,7 +26955,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/starboard_hallway)
 "pKL" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
@@ -32038,7 +32038,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
 "sKQ" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
@@ -32693,7 +32693,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "thX" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/power/apc/mainship,
 /obj/structure/cable,
 /turf/open/floor/mainship/metal/white{
@@ -34551,7 +34551,7 @@
 	},
 /area/mainship/squads/bravo)
 "uqd" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding,
 /turf/open/floor/carpet,
 /area/mainship/medical/surgery_hallway)
@@ -35618,7 +35618,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "uYN" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /turf/open/floor/mainship/metal/white{
 	color = "#53876F"
 	},
@@ -35865,7 +35865,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "veT" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/camera/autoname/alt{
 	dir = 1
 	},
@@ -36209,7 +36209,7 @@
 /turf/open/floor/plating/mainship,
 /area/mainship/shipboard/ex_firing_range)
 "vtu" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/machinery/camera/autoname/alt{
 	dir = 1
 	},
@@ -40006,7 +40006,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "xHR" = (
-/obj/machinery/iv_drip/alt,
+/obj/machinery/iv_drip,
 /obj/effect/turf_decal/woodsiding,
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
