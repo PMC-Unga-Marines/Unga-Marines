@@ -447,3 +447,11 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 
 /datum/config_entry/flag/save_spritesheets
 	default = FALSE
+
+// DISCORD ROLE STUFFS
+
+/datum/config_entry/string/discord_token
+
+/datum/config_entry/string/discord_guildid
+
+/datum/config_entry/string/discord_busty_roleid
