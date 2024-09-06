@@ -640,6 +640,8 @@
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
+			/obj/item/ammo_magazine/packet/p10x24mm/sabot = -1,
+			/obj/item/ammo_magazine/packet/p10x24mm/incendiary = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm/hp = -1,
