@@ -206,7 +206,8 @@ REAGENT SCANNER
 		stomach_chemicals_lists["[reagent.name]"] = list(
 			"name" = reagent.name,
 			"amount" = round(reagent.volume, 0.1),
-			"od" = reagent_overdosed
+			"od" = reagent_overdosed,
+			"dangerous" = reagent_overdosed || istype(reagent, /datum/reagent/toxin)
 		)
 	data["stomach_chemicals_lists"] = stomach_chemicals_lists
 
