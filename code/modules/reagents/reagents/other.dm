@@ -431,6 +431,12 @@
 	color = COLOR_MODERATE_BLUE
 	effect_type = /obj/effect/decal/cleanable/liquid_fuel/xfuel
 
+/datum/reagent/fuel/gfuel
+	name = "G-fuel"
+	description = "plasma fuel, for use in flamers for when you really want something nice and crispy"
+	color = LIGHT_COLOR_ELECTRIC_GREEN
+	effect_type = /obj/effect/decal/cleanable/liquid_fuel/gfuel
+
 /datum/reagent/space_cleaner
 	name = "Space cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"

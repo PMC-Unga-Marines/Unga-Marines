@@ -69,7 +69,7 @@
 		return FALSE
 	return TRUE
 
-/obj/alien/egg/flamer_fire_act(burnlevel)
+/obj/alien/egg/flamer_fire_act(burnlevel, flame_color)
 	burst(TRUE)
 
 /obj/alien/egg/fire_act()
