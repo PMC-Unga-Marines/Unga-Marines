@@ -1134,8 +1134,10 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/medical/medical_science)
 "aAf" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "aAh" = (
@@ -1829,9 +1831,11 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
 "aZD" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
+/obj/machinery/cryopod{
+	dir = 1
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "aZI" = (
@@ -1866,6 +1870,13 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
+"bbo" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/bravo)
 "bbQ" = (
 /obj/structure/disposalpipe/segment/corner,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -4402,6 +4413,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
+"cvm" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal/full,
+/area/mainship/squads/charlie)
 "cvN" = (
 /obj/structure/sign/directions/supply{
 	dir = 8;
@@ -4600,11 +4618,13 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "cCW" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = 24
+	},
+/obj/machinery/cryopod{
+	dir = 2
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
@@ -4901,10 +4921,12 @@
 	},
 /area/mainship/squads/charlie)
 "cLd" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 2
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -5858,10 +5880,12 @@
 /turf/open/floor/mainship_hull,
 /area/space)
 "dnQ" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 2
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -9245,9 +9269,11 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/numbertwobunks)
 "ffQ" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/camera/autoname/alt,
+/obj/machinery/cryopod{
+	dir = 2
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "fgn" = (
@@ -10634,10 +10660,12 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "gce" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 2
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
@@ -10882,8 +10910,10 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
 "gnC" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 1
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "gnS" = (
@@ -12936,10 +12966,12 @@
 	},
 /area/mainship/shipboard/brig)
 "hHr" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
+	},
+/obj/machinery/cryopod{
+	dir = 1
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
@@ -13909,6 +13941,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
+"ips" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/delta)
 "ipw" = (
 /obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor,
@@ -16890,7 +16929,9 @@
 	},
 /area/mainship/medical/lounge)
 "kfv" = (
-/obj/machinery/cryopod,
+/obj/machinery/cryopod{
+	dir = 1
+	},
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/metal/full,
@@ -17665,9 +17706,11 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "kBI" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
+/obj/machinery/cryopod{
+	dir = 1
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "kBS" = (
@@ -20728,6 +20771,13 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
+"mhy" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "miG" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 8
@@ -21203,6 +21253,13 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
+"mwx" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "mwI" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass,
@@ -26270,6 +26327,13 @@
 	dir = 4
 	},
 /area/mainship/living/starboard_garden)
+"prw" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/delta)
 "prI" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -29234,10 +29298,12 @@
 /turf/open/floor/prison/bright_clean,
 /area/mainship/hallways/hangar/droppod)
 "raV" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 2
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
@@ -30600,12 +30666,14 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "rUI" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship,
 /obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
 	pixel_y = -25
+	},
+/obj/machinery/cryopod{
+	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -31714,8 +31782,10 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "sCP" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 1
+	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
 "sCS" = (
@@ -33075,8 +33145,10 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
 "trV" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "tsd" = (
@@ -33712,10 +33784,12 @@
 /turf/open/floor/wood,
 /area/mainship/squads/delta)
 "tRQ" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
+	},
+/obj/machinery/cryopod{
+	dir = 8
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
@@ -80590,7 +80664,7 @@ xhq
 cCW
 kHX
 psm
-trV
+mhy
 xhq
 dSv
 lDx
@@ -80914,7 +80988,7 @@ gFw
 lAY
 bPN
 tkN
-sCP
+cvm
 ePH
 hPK
 sCP
@@ -81104,7 +81178,7 @@ xhq
 trV
 kHX
 psm
-trV
+mhy
 xhq
 cqy
 lDx
@@ -81171,7 +81245,7 @@ dfA
 eiA
 jsH
 tkN
-sCP
+cvm
 ePH
 hPK
 sCP
@@ -81428,7 +81502,7 @@ cGP
 pdq
 jsH
 tkN
-sCP
+cvm
 ePH
 hPK
 sCP
@@ -81618,7 +81692,7 @@ xhq
 trV
 kHX
 psm
-trV
+mhy
 xhq
 kCI
 cuJ
@@ -85213,11 +85287,11 @@ iSj
 akq
 jmx
 xhq
-trV
-trV
+mwx
+mwx
 xhq
-trV
-trV
+mwx
+mwx
 jPy
 pYn
 jPy
@@ -85487,7 +85561,7 @@ pjm
 fYw
 cQd
 jPy
-gnC
+bbo
 cTD
 muT
 gnC
@@ -85523,10 +85597,10 @@ wns
 kkq
 uIq
 eWU
-hic
+prw
 ngU
 jhM
-hic
+ips
 eWU
 nJt
 qNx
@@ -86001,7 +86075,7 @@ xth
 mex
 bLZ
 jPy
-gnC
+bbo
 cTD
 yhk
 gnC
@@ -86037,10 +86111,10 @@ hhz
 egA
 pQd
 eWU
-hic
+prw
 ngU
 dwX
-hic
+ips
 eWU
 dvE
 qzc
@@ -86551,10 +86625,10 @@ woF
 iEM
 oYN
 eWU
-hic
+prw
 ngU
 nvm
-hic
+ips
 eWU
 lEO
 vpB
