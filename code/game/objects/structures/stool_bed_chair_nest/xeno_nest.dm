@@ -137,7 +137,7 @@
 	if(LAZYLEN(buckled_mobs))
 		. += image("icon_state" = "nest_overlay", "layer" = LYING_MOB_LAYER + 0.1)
 
-/obj/structure/bed/nest/flamer_fire_act(burnlevel)
+/obj/structure/bed/nest/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel * 2, BURN, FIRE)
 
 /obj/structure/bed/nest/fire_act()

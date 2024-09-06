@@ -42087,6 +42087,7 @@
 /area/prison/cellblock/highsec/south/south)
 "hPH" = (
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/prison/sterilewhite,
 /area/prison/medbay)
 "hQE" = (
@@ -43217,6 +43218,10 @@
 	dir = 4
 	},
 /area/prison/cellblock/highsec/south/north)
+"kyf" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/prison/darkred/full,
+/area/prison/security/briefing)
 "kyN" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -45076,6 +45081,10 @@
 /obj/structure/flora/pottedplant/twentyone,
 /turf/open/floor/wood,
 /area/prison/residential/central)
+"puu" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/plating/platebot,
+/area/prison/pirate)
 "puF" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison,
@@ -45838,6 +45847,7 @@
 "raQ" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/prison/bright_clean/two,
 /area/prison/yard)
 "rbs" = (
@@ -45913,6 +45923,7 @@
 /area/prison/residential/south)
 "rhB" = (
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/prison,
 /area/prison/security/monitoring/highsec)
 "rhE" = (
@@ -46925,6 +46936,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/prison/bright_clean,
 /area/prison/yard)
+"tum" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/prison/plate,
+/area/prison/cellblock/lowsec/nw)
 "tuK" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
@@ -48207,6 +48222,7 @@
 /area/prison/monorail/west)
 "wHf" = (
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/mediumsec/south)
 "wHm" = (
@@ -71902,7 +71918,7 @@ cjx
 lZe
 lZe
 lED
-lED
+puu
 lZe
 cor
 cpa
@@ -78565,7 +78581,7 @@ bFh
 bMN
 bxS
 bOq
-bPt
+myF
 myF
 bSA
 bSp
@@ -81858,7 +81874,7 @@ aNT
 aPy
 aPC
 aPC
-aPC
+tum
 aMf
 aVD
 aVD
@@ -102487,7 +102503,7 @@ cka
 cka
 cje
 coj
-coU
+kyf
 cpL
 cje
 crh

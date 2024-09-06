@@ -30,7 +30,7 @@
 	if(obj_flags & CAN_BE_HIT)
 		return I.attack_obj(src, user)
 
-/obj/alien/flamer_fire_act(burnlevel)
+/obj/alien/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel * 2, BURN, FIRE)
 
 /obj/alien/ex_act(severity)
@@ -195,7 +195,7 @@
 		src.balloon_alert(xeno_attacker, "Destroyed")
 		qdel(src)
 
-/obj/structure/mineral_door/resin/flamer_fire_act(burnlevel)
+/obj/structure/mineral_door/resin/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel * 2, BURN, FIRE)
 
 /obj/structure/mineral_door/resin/ex_act(severity)

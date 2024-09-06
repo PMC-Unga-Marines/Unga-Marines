@@ -727,6 +727,11 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/flamer_tank/large/X)
 	cost = 300
 
+/datum/supply_packs/weapons/napalm_G
+	name = "FL-84 G fuel tank"
+	contains = list(/obj/item/ammo_magazine/flamer_tank/large/G)
+	cost = 75
+
 /datum/supply_packs/weapons/back_fuel_tank
 	name = "Standard back fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank)
@@ -737,10 +742,31 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank/X)
 	cost = 600
 
+/datum/supply_packs/weapons/mini_fuel_tank_x
+	name = "Type X back mini fuel tank"
+	contains = list(/obj/item/ammo_magazine/flamer_tank/mini/X)
+	cost = 20
+
+/datum/supply_packs/weapons/back_fuel_tank_g
+	name = "Type G fuel tank"
+	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank/G)
+	cost = 150
+
+/datum/supply_packs/weapons/mini_fuel_tank_g
+	name = "Type G  mini fuel tank"
+	contains = list(/obj/item/ammo_magazine/flamer_tank/mini/G)
+	cost = 5
+
 /datum/supply_packs/weapons/fueltank
 	name = "X-fuel tank"
 	contains = list(/obj/structure/reagent_dispensers/fueltank/xfuel)
 	cost = 600
+	containertype = null
+
+/datum/supply_packs/weapons/fueltank_g
+	name = "G-fuel tank"
+	contains = list(/obj/structure/reagent_dispensers/fueltank/gfuel)
+	cost = 150
 	containertype = null
 
 /datum/supply_packs/weapons/rpgoneuse

@@ -35,6 +35,7 @@
 	var/power = 105
 	/// Falloff of our explosion, aka distance, by the formula of power / falloff
 	var/falloff = 30
+	var/overlay_type = "red"
 
 
 /obj/item/explosive/grenade/Initialize(mapload)
@@ -93,15 +94,15 @@
 
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
-	if(active && dangerous)
-		. += new /obj/effect/overlay/danger
+	if(active && overlay_type)
+		. += image('icons/effects/danger.dmi', icon_state = "danger_[overlay_type]")
 
 
 /obj/item/explosive/grenade/proc/prime()
 	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
-/obj/item/explosive/grenade/flamer_fire_act(burnlevel)
+/obj/item/explosive/grenade/flamer_fire_act(burnlevel, flame_color)
 	activate()
 
 /obj/item/explosive/grenade/attack_hand(mob/living/user)

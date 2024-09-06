@@ -4,6 +4,7 @@
 	icon_state = "delivery"
 	item_state = "delivery"
 	dangerous = FALSE
+	overlay_type = "white"
 	///the parent to be copied
 	var/mob/living/current_user
 	///How long the illusory fakes last
