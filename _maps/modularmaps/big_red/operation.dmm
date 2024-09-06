@@ -529,8 +529,6 @@
 /turf/open/floor/tile/dark/red2,
 /area/bigredv2/outside/admin_building)
 "wc" = (
-/obj/structure/table,
-/obj/machinery/faxmachine,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},

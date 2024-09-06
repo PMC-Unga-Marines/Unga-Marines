@@ -565,6 +565,13 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"em" = (
+/obj/effect/landmark/start/squad/squadrobot/alpha,
+/obj/effect/landmark/start/squad/squadrobot/bravo,
+/obj/effect/landmark/start/squad/squadrobot/charlie,
+/obj/effect/landmark/start/squad/squadrobot/delta,
+/turf/open/floor/mainship,
+/area/shuttle/canterbury)
 "fL" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/glass/beaker/bluespace,
@@ -837,7 +844,10 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "wz" = (
-/obj/effect/landmark/start/latejoin/crash,
+/obj/effect/landmark/start/latejoin_squad/bravo,
+/obj/effect/landmark/start/latejoin_squad/alpha,
+/obj/effect/landmark/start/latejoin_squad/charlie,
+/obj/effect/landmark/start/latejoin_squad/delta,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "wB" = (
@@ -1721,7 +1731,7 @@ aT
 UO
 aX
 bg
-bA
+em
 bg
 ab
 ah

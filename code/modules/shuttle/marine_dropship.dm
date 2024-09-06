@@ -483,6 +483,7 @@
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
 	possible_destinations = "lz1;lz2;normandy"
+	opacity = FALSE
 
 /obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(!(xeno_attacker.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT))
@@ -756,7 +757,6 @@
 	name = "\improper 'Normandy' flight controls"
 	desc = "The flight controls for the 'Normandy' Dropship. Named after a department in France, noteworthy for the famous naval invasion of Normandy on the 6th of June 1944, a bloody but decisive victory in World War II and the campaign for the Liberation of France."
 	possible_destinations = "lz1;lz2;normandy"
-	opacity = FALSE
 
 /obj/machinery/computer/shuttle/marine_dropship/one/Initialize(mapload)
 	. = ..()
@@ -785,6 +785,12 @@
 
 /turf/open/shuttle/dropship/floor/alt
 	icon_state = "rasputin14"
+
+/turf/open/shuttle/dropship/floor/corners
+	icon_state = "rasputin16"
+
+/turf/open/shuttle/dropship/floor/out
+	icon_state = "rasputin17"
 
 /obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
 	. = ..()

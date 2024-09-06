@@ -140,7 +140,6 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/storage/pill_bottle/russian_red = list(CAT_MEDSUP, "Red Russian pills", 12, "orange"),
 	/obj/item/storage/pill_bottle/quickclot = list(CAT_MEDSUP, "Quickclot pills", 6, "orange"),
 	/obj/item/storage/pill_bottle/peridaxon = list(CAT_MEDSUP, "Peridaxon pills", 6, "orange"),
-	/obj/item/tool/surgery/solderingtool = list(CAT_MEDSUP, "Soldering tool", 2, "orange"),
 	/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_MEDSUP, "Combat Trauma Kit", 3, "orange"),
 	/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_MEDSUP, "Combat Burn Kit", 3, "orange"),
 	/obj/item/reagent_containers/hypospray/advanced = list(CAT_MEDSUP, "Hypospray", 1, "yellow"),
@@ -168,6 +167,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/defibrillator/advanced = list(CAT_MEDSUP, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
+	/obj/item/deployable_optable = list(CAT_MEDSUP, "Deployable Operating Table", 12, "yellow"),
 	/obj/item/research_product/money/basic = list(CAT_MEDSUP, "50 credits coin", 8, "yellow2"),
 ))
 
@@ -392,8 +392,8 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/defibrillator/gloves = list(CAT_SYNTH, "Advanced medical gloves", 4, "yellow"),
 	/obj/item/defibrillator/advanced = list(CAT_SYNTH, "advanced emergency defibrillator", 4, "yellow"),
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
-	/obj/item/tool/surgery/scalpel/manager = list(CAT_SYNTH, "Incision Management System", 6, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
+	/obj/item/deployable_optable = list(CAT_SYNTH, "Deployable Operating Table", 12, "yellow"),
 	/obj/item/research_product/money/basic = list(CAT_SYNTH, "50 credits coin", 8, "yellow2"),
 ))
 
@@ -1001,6 +1001,7 @@ GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	SQUAD_ENGINEER = list (
+		/obj/item/weapon/gun/sentry/basic = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1,
 		/obj/item/clothing/gloves/marine/insulated = 1,
@@ -1009,6 +1010,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/circuitboard/apc = 1,
 		/obj/item/clothing/under/marine/engineer = 1,
 		/obj/item/clothing/under/marine/gorka_eng = 1, // TODO: delete clothe bundles and just put in more categories
+		/obj/item/tool/surgery/solderingtool = 1,
 	),
 	SQUAD_CORPSMAN = list(
 		/obj/item/bodybag/cryobag = 1,
@@ -1023,6 +1025,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/clothing/glasses/hud/health = 1,
 		/obj/item/clothing/under/marine/corpsman = 1,
 		/obj/item/clothing/under/marine/gorka_med = 1, // TODO: delete clothe bundles and just put in more categories
+		/obj/item/tool/surgery/solderingtool = 1,
 	),
 	SQUAD_SMARTGUNNER = list(
 		/obj/item/clothing/glasses/night/m56_goggles = 1,
@@ -1062,6 +1065,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
 		/obj/item/tweezers = 1,
 		/obj/item/tool/surgery/solderingtool = 1,
+		/obj/item/supplytablet = 1,
 	),
 ))
 
