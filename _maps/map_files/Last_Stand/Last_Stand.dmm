@@ -1258,7 +1258,7 @@
 /obj/structure/barricade/sandbags{
 	dir = 1
 	},
-/obj/item/weapon/gun/tl102/hsg_nest{
+/obj/item/weapon/gun/hsg102/hsg_nest{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -2063,7 +2063,7 @@
 /obj/structure/barricade/sandbags{
 	pixel_y = -6
 	},
-/obj/item/weapon/gun/tl102/hsg_nest{
+/obj/item/weapon/gun/hsg102/hsg_nest{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -3343,7 +3343,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "vh" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/east)
 "vi" = (
@@ -3353,7 +3353,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "vq" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "vs" = (
@@ -3858,7 +3858,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
 "zG" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /obj/structure/platform,
 /turf/open/floor/plating/asteroidwarning,
 /area/whiskey_outpost)
@@ -4423,7 +4423,7 @@
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/east)
 "GG" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /obj/structure/platform,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost)
