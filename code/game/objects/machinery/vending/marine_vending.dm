@@ -165,7 +165,7 @@
 		"Boxes" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/ammo_magazine/packet/p9mm = -1,
-			/obj/item/ammo_magazine/packet/p9mmap = -1,
+			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
@@ -385,8 +385,8 @@
 		),
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
-			/obj/item/ammo_magazine/packet/p9mmap = -1,
-			/obj/item/ammo_magazine/packet/p9mmhp = -1,
+			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
@@ -471,6 +471,8 @@
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
+			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
+			/obj/item/ammo_magazine/smg/vector/sabot = -1,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/standard_dmr = -1,
@@ -623,8 +625,10 @@
 		),
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
-			/obj/item/ammo_magazine/packet/p9mmap = -1,
-			/obj/item/ammo_magazine/packet/p9mmhp = -1,
+			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
+			/obj/item/ammo_magazine/packet/p9mm/sabot = -1,
+			/obj/item/ammo_magazine/packet/p9mm/incendiary = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,

@@ -944,13 +944,13 @@ WEAPONS
 
 /datum/supply_packs/weapons/p9mm_sabot
 	name = "9mm APDS packet"
-	contains = list(/obj/item/ammo_magazine/packet/p9mmsabot)
+	contains = list(/obj/item/ammo_magazine/packet/p9mm/sabot)
 	cost = 30 //70 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/p9mm_incendiary
 	name = "9mm incendiary packet"
-	contains = list(/obj/item/ammo_magazine/packet/p9mmincendiary)
+	contains = list(/obj/item/ammo_magazine/packet/p9mm/incendiary)
 	cost = 30 //70 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
