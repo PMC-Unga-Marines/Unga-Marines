@@ -14,13 +14,11 @@
 		return INITIALIZE_HINT_QDEL
 	copy_appearance(copy_mob)
 	START_PROCESSING(SSprocessing, src)
-	GLOB.mob_illusions_list += src
 	QDEL_IN(src, life_time)
 
 /mob/illusion/Destroy()
 	original_mob = null
 	deltimer(timer_effect)
-	GLOB.mob_illusions_list -= src
 	return ..()
 
 /mob/illusion/examine(mob/user)
@@ -73,6 +71,11 @@
 		return INITIALIZE_HINT_QDEL
 	add_movespeed_modifier(MOVESPEED_ID_XENO_CASTE_SPEED, TRUE, 0, NONE, TRUE, MOB_RUN_MOVE_MOD + original_mob.xeno_caste.speed * pick(0.9, 1, 1.1, 1.2, 1.3)) // rand doesn't work here because it's decimals
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/illusion, escorted_atom)
+	GLOB.mob_illusions_list += src
+
+/mob/illusion/xeno/Destroy()
+	GLOB.mob_illusions_list -= src
+	return ..()
 
 /mob/illusion/xeno/copy_appearance(mob/copy_mob)
 	. = ..()
