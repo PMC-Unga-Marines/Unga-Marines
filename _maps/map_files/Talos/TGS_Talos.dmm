@@ -1870,13 +1870,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
-"bbo" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/squads/bravo)
 "bbQ" = (
 /obj/structure/disposalpipe/segment/corner,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -4413,13 +4406,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
-"cvm" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/open/floor/mainship/metal/full,
-/area/mainship/squads/charlie)
 "cvN" = (
 /obj/structure/sign/directions/supply{
 	dir = 8;
@@ -13941,13 +13927,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
-"ips" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/cryopod{
-	dir = 1
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/squads/delta)
 "ipw" = (
 /obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/firedoor,
@@ -20680,14 +20659,11 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 4
 	},
-/obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
-	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
 	},
+/obj/item/radio/intercom/general,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "meN" = (
@@ -20771,13 +20747,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
-"mhy" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/cryopod{
-	dir = 1
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/squads/alpha)
 "miG" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 8
@@ -21253,13 +21222,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
-"mwx" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/cryopod{
-	dir = 8
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/squads/alpha)
 "mwI" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass,
@@ -24966,6 +24928,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
+"oCA" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/bravo)
 "oCG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/warning_stripes/thin,
@@ -26327,13 +26296,6 @@
 	dir = 4
 	},
 /area/mainship/living/starboard_garden)
-"prw" = (
-/obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/squads/delta)
 "prI" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -26646,6 +26608,13 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
+"pzp" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal/full,
+/area/mainship/squads/charlie)
 "pzw" = (
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 1
@@ -28402,6 +28371,13 @@
 	dir = 8
 	},
 /area/mainship/squads/bravo)
+"qvy" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "qvY" = (
 /obj/structure/table/mainship,
 /obj/item/reagent_containers/glass/beaker/large,
@@ -28962,6 +28938,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
+"qQW" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/delta)
 "qQY" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/sign/semiotic/fire_haz{
@@ -33147,7 +33130,7 @@
 "trV" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/cryopod{
-	dir = 2
+	dir = 8
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
@@ -33474,6 +33457,13 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
+"tFQ" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/alpha)
 "tFV" = (
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/ce_room)
@@ -34886,10 +34876,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/structure/sign/semiotic/maint{
-	pixel_x = 8;
-	pixel_y = -25
-	},
 /turf/open/floor/mainship/emerald{
 	dir = 1
 	},
@@ -35768,6 +35754,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig)
+"vbQ" = (
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/delta)
 "vbV" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -80664,7 +80657,7 @@ xhq
 cCW
 kHX
 psm
-mhy
+qvy
 xhq
 dSv
 lDx
@@ -80988,7 +80981,7 @@ gFw
 lAY
 bPN
 tkN
-cvm
+pzp
 ePH
 hPK
 sCP
@@ -81175,10 +81168,10 @@ jAy
 lzH
 tVQ
 xhq
-trV
+tFQ
 kHX
 psm
-mhy
+qvy
 xhq
 cqy
 lDx
@@ -81245,7 +81238,7 @@ dfA
 eiA
 jsH
 tkN
-cvm
+pzp
 ePH
 hPK
 sCP
@@ -81502,7 +81495,7 @@ cGP
 pdq
 jsH
 tkN
-cvm
+pzp
 ePH
 hPK
 sCP
@@ -81689,10 +81682,10 @@ fcA
 sKF
 vFj
 xhq
-trV
+tFQ
 kHX
 psm
-mhy
+qvy
 xhq
 kCI
 cuJ
@@ -85287,11 +85280,11 @@ iSj
 akq
 jmx
 xhq
-mwx
-mwx
+trV
+trV
 xhq
-mwx
-mwx
+trV
+trV
 jPy
 pYn
 jPy
@@ -85561,7 +85554,7 @@ pjm
 fYw
 cQd
 jPy
-bbo
+oCA
 cTD
 muT
 gnC
@@ -85597,10 +85590,10 @@ wns
 kkq
 uIq
 eWU
-prw
+vbQ
 ngU
 jhM
-ips
+qQW
 eWU
 nJt
 qNx
@@ -86075,7 +86068,7 @@ xth
 mex
 bLZ
 jPy
-bbo
+oCA
 cTD
 yhk
 gnC
@@ -86111,10 +86104,10 @@ hhz
 egA
 pQd
 eWU
-prw
+vbQ
 ngU
 dwX
-ips
+qQW
 eWU
 dvE
 qzc
@@ -86625,10 +86618,10 @@ woF
 iEM
 oYN
 eWU
-prw
+vbQ
 ngU
 nvm
-ips
+qQW
 eWU
 lEO
 vpB
