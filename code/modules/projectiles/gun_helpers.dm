@@ -39,9 +39,21 @@
 
 //tactical reloads
 /obj/item/weapon/gun/afterattack(atom/target, mob/user, has_proximity, click_parameters)
-	if(istype(target, /obj/item/ammo_magazine) || istype(target, /obj/item/cell))
+	. = ..()
+	if(!has_proximity)
+		return
+
+	if(isammomagazine(target))
+		var/obj/item/ammo_magazine/mag_to_reload = target
+		if(mag_to_reload.flags_magazine & MAGAZINE_WORN)
+			return
 		tactical_reload(target, user)
-	return ..()
+
+	if(islascell(target))
+		var/obj/item/cell/lasgun/cell_to_reload = target
+		if(CHECK_BITFIELD(get_flags_magazine_features(cell_to_reload), MAGAZINE_WORN))
+			return
+		tactical_reload(target, user)
 
 /obj/item/weapon/gun/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	//Cannot equip wielded items or items burst firing.

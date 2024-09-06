@@ -143,6 +143,8 @@
 			data["see_rc_emotes"] = see_rc_emotes
 			data["mute_others_combat_messages"] = mute_others_combat_messages
 			data["mute_self_combat_messages"] = mute_self_combat_messages
+			data["mute_marine_respawn_alert_message"] = mute_marine_respawn_alert_message
+			data["mute_xeno_respawn_alert_message"] = mute_xeno_respawn_alert_message
 			data["show_typing"] = show_typing
 			data["tooltips"] = tooltips
 			data["widescreenpref"] = widescreenpref
@@ -812,6 +814,12 @@
 
 		if("mute_others_combat_messages")
 			mute_others_combat_messages = !mute_others_combat_messages
+
+		if("mute_marine_respawn_alert_message")
+			mute_marine_respawn_alert_message = !mute_marine_respawn_alert_message
+
+		if("mute_xeno_respawn_alert_message")
+			mute_xeno_respawn_alert_message = !mute_xeno_respawn_alert_message
 
 		if("change_quick_equip")
 			var/editing_slot = params["selection"]

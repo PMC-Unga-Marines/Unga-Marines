@@ -9,6 +9,27 @@
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
 
+	//fire extinguishing
+	if(a_intent == INTENT_HELP)
+		var/turf/target_turf = A
+		for(var/obj/flamer_fire/fire in target_turf)
+
+			var/fire_level_to_extinguish = 5
+			if(fire.flame_color == FLAME_COLOR_GREEN) //TODO: Make firetypes, colour types are terrible
+				fire_level_to_extinguish *= 2
+			if(fire.firelevel > fire_level_to_extinguish)
+				fire.firelevel -= fire_level_to_extinguish
+				fire.updateicon()
+			else
+				qdel(fire)
+
+			do_attack_animation(target_turf)
+			playsound(target_turf, 'sound/effects/alien/tail_swipe2.ogg', 45, 1) //SFX
+			visible_message(span_danger("\The [src] pats at the fire!"), \
+			span_danger("We pat the fire!"))
+			changeNext_move(CLICK_CD_MELEE)
+			return
+
 	var/atom/S = A.handle_barriers(src)
 	S.attack_alien(src, xeno_caste.melee_damage * xeno_melee_damage_modifier, isrightclick = islist(modifiers) ? modifiers["right"] : FALSE)
 	GLOB.round_statistics.xeno_unarmed_attacks++

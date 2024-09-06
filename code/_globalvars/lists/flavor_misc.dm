@@ -195,6 +195,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"medical",
 	"panther",
 	"pilot",
+	"transportofficer",
 	"praetorian",
 	"private",
 	"ravager",
@@ -216,6 +217,8 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"predator",
 	"thrall",
 	"hellhound",
+	"transport_crew",
+	"assault_crew",
 ))
 
 GLOBAL_LIST_EMPTY(human_ethnicities_list)

@@ -70,7 +70,7 @@
 	. += mutable_appearance(icon, "[charges]", alpha = src.alpha)
 	. += emissive_appearance(icon, "[charges]", alpha = src.alpha)
 
-/obj/structure/xeno/acidwell/flamer_fire_act(burnlevel) //Removes a charge of acid, but fire is extinguished
+/obj/structure/xeno/acidwell/flamer_fire_act(burnlevel, flame_color) //Removes a charge of acid, but fire is extinguished
 	acid_well_fire_interaction()
 
 /obj/structure/xeno/acidwell/fire_act() //Removes a charge of acid, but fire is extinguished

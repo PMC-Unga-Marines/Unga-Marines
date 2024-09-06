@@ -20,7 +20,7 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/turf/closed/wall/resin/flamer_fire_act(burnlevel)
+/turf/closed/wall/resin/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel * 1.25, BURN, FIRE)
 
 /turf/closed/wall/resin/proc/thicken()
@@ -71,7 +71,7 @@
 		return
 	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
 		SSresinshaping.decrement_build_counter(xeno_attacker)
-		take_damage(max_integrity)
+		dismantle_wall()
 		return
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
@@ -83,7 +83,7 @@
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
 	span_xenonotice("We tear down \the [src]."))
 	playsound(src, "alien_resin_break", 25)
-	take_damage(max_integrity)
+	dismantle_wall()
 
 /turf/closed/wall/resin/attack_hand(mob/living/user)
 	to_chat(user, span_warning("You scrape ineffectively at \the [src]."))
@@ -178,3 +178,43 @@
 /* Hivelord walls, they start off stronger */
 /turf/closed/wall/resin/regenerating/thick
 	max_integrity = 250
+
+/turf/closed/wall/resin/regenerating/bombproof
+	name = RESIN_WALL_BOMB
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to explosions."
+	icon = 'icons/obj/smooth_objects/resin-wall-bomb.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
+	max_upgradable_health = 200
+
+/turf/closed/wall/resin/regenerating/bulletproof
+	name = RESIN_WALL_BULLET
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to bullets and lasers."
+	icon = 'icons/obj/smooth_objects/resin-wall-bullet.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 0, BULLET = 100, LASER = 100, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	max_upgradable_health = 200
+
+/turf/closed/wall/resin/regenerating/fireproof
+	name = RESIN_WALL_FIRE
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to fire."
+	icon = 'icons/obj/smooth_objects/resin-wall-fire.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	max_upgradable_health = 200
+
+/turf/closed/wall/resin/regenerating/meleeproof
+	name = RESIN_WALL_MELEE
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to melee attacks."
+	icon = 'icons/obj/smooth_objects/resin-wall-melee.dmi'
+	icon_state = "resin-wall-0"
+	walltype = "resin-wall"
+	base_icon_state = "resin-wall"
+	soft_armor = list(MELEE = 100, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	max_upgradable_health = 200
