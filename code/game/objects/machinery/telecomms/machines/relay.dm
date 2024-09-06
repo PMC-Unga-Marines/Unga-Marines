@@ -19,13 +19,11 @@
 	var/broadcasting = 1
 	var/receiving = 1
 
-
 /obj/machinery/telecomms/relay/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
 	// Add our level and send it back
 	var/turf/T = get_turf(src)
 	if(can_send(signal) && T)
 		signal.levels |= T.z
-
 
 /// Checks to see if it can send/receive.
 /obj/machinery/telecomms/relay/proc/can(datum/signal/signal)
@@ -35,23 +33,19 @@
 		return FALSE
 	return TRUE
 
-
 /obj/machinery/telecomms/relay/proc/can_send(datum/signal/signal)
 	if(!can(signal))
 		return FALSE
 	return broadcasting
-
 
 /obj/machinery/telecomms/relay/proc/can_receive(datum/signal/signal)
 	if(!can(signal))
 		return FALSE
 	return receiving
 
-
 //Preset Relay
 /obj/machinery/telecomms/relay/preset
 	network = "tcommsat"
-
 
 /obj/machinery/telecomms/relay/Initialize(mapload)
 	. = ..()
@@ -62,15 +56,9 @@
 	id = "Station Relay"
 	autolinkers = list("s_relay")
 
-
 /obj/machinery/telecomms/relay/preset/telecomms
 	id = "Telecomms Relay"
 	autolinkers = list("relay")
-
-/obj/machinery/telecomms/relay/preset/telecomms/Initialize(mapload)
-	. = ..()
-	if(!(SSticker.mode?.flags_round_type & MODE_TELETOWER))
-		freq_listening = GROUND_FREQS //for a tcoms on the ground
 
 //proper cicbackup relay
 /obj/machinery/telecomms/relay/preset/telecomms/cicbackup
