@@ -212,7 +212,7 @@ All ShuttleMove procs go here
 				if(node in get_step(src, D))
 					connected = TRUE
 					break
-			if(!connected)
+			if(connected)
 				nullifyNode(i)
 
 	atmosinit()
