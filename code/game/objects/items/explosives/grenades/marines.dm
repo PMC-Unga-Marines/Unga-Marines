@@ -16,7 +16,7 @@
 	throw_range = initial(throw_range)
 
 
-/obj/item/explosive/grenade/training/flamer_fire_act(burnlevel)
+/obj/item/explosive/grenade/training/flamer_fire_act(burnlevel, flame_color)
 	return
 
 
@@ -271,7 +271,7 @@
 	qdel(src)
 
 
-/proc/flame_radius(radius = 1, turf/epicenter, burn_intensity = 25, burn_duration = 25, burn_damage = 25, fire_stacks = 15, int_var = 0.5, dur_var = 0.5, colour = "red") //~Art updated fire.
+/proc/flame_radius(radius = 1, turf/epicenter, burn_intensity = 25, burn_duration = 25, burn_damage = 25, fire_stacks = 15, int_var = 0.5, dur_var = 0.5, colour = FLAME_COLOR_RED ) //~Art updated fire.
 	if(!isturf(epicenter))
 		CRASH("flame_radius used without a valid turf parameter")
 	radius = clamp(radius, 1, 50) //Sanitize inputs
@@ -532,7 +532,7 @@
 	. = ..()
 	fuel = rand(lower_fuel_limit, upper_fuel_limit) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
 
-/obj/item/explosive/grenade/flare/flamer_fire_act(burnlevel)
+/obj/item/explosive/grenade/flare/flamer_fire_act(burnlevel, flame_color)
 	if(!fuel) //it's out of fuel, an empty shell.
 		return
 	if(!active)

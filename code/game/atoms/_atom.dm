@@ -397,7 +397,7 @@ directive is properly returned.
 		A.ex_act(severity, explosion_direction)
 
 ///Fire effects from a burning turf. Burn level is the base fire damage being received.
-/atom/proc/flamer_fire_act(burnlevel)
+/atom/proc/flamer_fire_act(burnlevel, flame_color = "red")
 	return
 
 
