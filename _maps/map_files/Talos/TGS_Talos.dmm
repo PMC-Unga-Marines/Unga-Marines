@@ -9597,7 +9597,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 6
 	},
-/obj/machinery/bioprinter/alt/stocked,
+/obj/machinery/bioprinter/stocked,
 /turf/open/floor/mainship/rubber,
 /area/mainship/medical/operating_room_two)
 "fqI" = (
@@ -14912,7 +14912,7 @@
 /turf/open/floor/mainship/rubber,
 /area/mainship/medical/operating_room_one)
 "iTS" = (
-/obj/machinery/bioprinter/alt/stocked,
+/obj/machinery/bioprinter/stocked,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 5
 	},
@@ -23930,7 +23930,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "nVw" = (
-/obj/machinery/optable/alt,
+/obj/machinery/optable,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /turf/open/floor/prison/whitepurple{
@@ -30973,7 +30973,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
 "seZ" = (
-/obj/machinery/optable/alt,
+/obj/machinery/optable,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /turf/open/floor/mainship/metal/white,
@@ -32391,7 +32391,7 @@
 	},
 /area/mainship/squads/bravo)
 "sWI" = (
-/obj/machinery/optable/alt,
+/obj/machinery/optable,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/medical/upper_medical)
 "sWL" = (
@@ -33155,7 +33155,7 @@
 	},
 /area/mainship/squads/req)
 "twI" = (
-/obj/machinery/optable/alt,
+/obj/machinery/optable,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /turf/open/floor/mainship/metal/white,
@@ -33720,7 +33720,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "tSK" = (
-/obj/machinery/bioprinter/alt/stocked,
+/obj/machinery/bioprinter/stocked,
 /turf/open/floor/prison/whitepurple/full,
 /area/mainship/medical/medical_science)
 "tTe" = (
