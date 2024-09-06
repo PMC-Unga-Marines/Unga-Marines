@@ -229,10 +229,14 @@
 
 	for(var/chem in chems)
 		var/datum/reagent/R = chem
+		var/stomach_reagents = 0
+		var/datum/internal_organ/stomach/belly = H.get_organ_slot(ORGAN_SLOT_STOMACH)
+		if(belly)
+			stomach_reagents = belly.reagents.get_reagent_amount(R)
 		var/amount_to_administer = clamp(\
-									initial(R.overdose_threshold) - H.reagents.get_reagent_amount(R),\
-									0,\
-									initial(R.overdose_threshold) * overdose_threshold_mod)
+			initial(R.overdose_threshold) - (H.reagents.get_reagent_amount(R) + stomach_reagents),\
+			0,\
+			initial(R.overdose_threshold) * overdose_threshold_mod)
 		if(amount_to_administer)
 			H.reagents.add_reagent(R, amount_to_administer)
 			drugs += " [initial(R.name)]: [amount_to_administer]U"
