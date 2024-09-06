@@ -262,17 +262,17 @@ WEAPONS
 	output = list(/obj/item/mortal_shell/howitzer/he = 1) // 26 points from old factory
 
 /datum/assembly_craft/weapons/howitzer_shell_incen_refill
-	name = "Howitzer HE shell"
+	name = "Howitzer Incendiary shell"
 	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 2) // 16 + 16 points
 	output = list(/obj/item/mortal_shell/howitzer/incendiary = 1) // 26 points from old factory
 
 /datum/assembly_craft/weapons/howitzer_shell_wp_refill
-	name = "Howitzer HE shell"
+	name = "Howitzer white phosporous 'spotting' shell"
 	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 3) // 16 + 24 points
 	output = list(/obj/item/mortal_shell/howitzer/white_phos = 1) // 33 points from old factory
 
 /datum/assembly_craft/weapons/howitzer_shell_tfoot_refill
-	name = "Howitzer HE shell"
+	name = "Howitzer 'Tanglefoot' shell"
 	input = list(/obj/item/stack/sheet/metal = 6, /obj/item/stack/gun_powder = 3) // 16 + 24 points
 	output = list(/obj/item/mortal_shell/howitzer/plasmaloss = 1) // 33 points from old factory
 
