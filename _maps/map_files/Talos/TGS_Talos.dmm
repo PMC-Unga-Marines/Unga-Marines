@@ -199,7 +199,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -547,7 +547,7 @@
 	dir = 8
 	},
 /obj/item/clothing/head/warning_cone,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/vehicle/ridden/powerloader,
@@ -990,7 +990,7 @@
 /area/mainship/hallways/bow_hallway)
 "axA" = (
 /obj/machinery/firealarm,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/command/cic)
 "axM" = (
@@ -1172,7 +1172,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "aBq" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
@@ -1561,7 +1561,7 @@
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/landmark/start/squad/squadrobot/alpha,
@@ -1845,7 +1845,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "aZP" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -1995,7 +1995,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -2092,7 +2092,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/prison/plate,
@@ -2112,7 +2112,7 @@
 /area/mainship/living/pilotbunks)
 "biJ" = (
 /obj/structure/bedsheetbin,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -2377,7 +2377,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/disposalpipe/trunk{
@@ -2669,7 +2669,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/living/basketball)
 "bze" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/emerald{
@@ -2701,7 +2701,7 @@
 /turf/open/floor/prison/whitepurple,
 /area/mainship/medical/medical_science)
 "bAd" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/white{
 	color = "#E2E0DC"
 	},
@@ -3343,7 +3343,7 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/medical/medical_science)
 "bRU" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/red{
 	dir = 5
 	},
@@ -3568,7 +3568,7 @@
 /area/mainship/hallways/aft_hallway)
 "bXF" = (
 /obj/structure/largecrate/random,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -3582,7 +3582,7 @@
 "bXY" = (
 /obj/machinery/light/mainship,
 /obj/structure/largecrate/guns/merc,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -3728,7 +3728,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "ccN" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
@@ -3850,7 +3850,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "cfC" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
@@ -3934,7 +3934,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "chK" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -3973,7 +3973,7 @@
 /obj/machinery/firealarm{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/prison/whitepurple{
@@ -3982,7 +3982,7 @@
 /area/mainship/medical/medical_science)
 "cik" = (
 /obj/machinery/light/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
@@ -4425,7 +4425,7 @@
 /area/mainship/engineering/engine_core)
 "cwP" = (
 /obj/machinery/vending/lasgun,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -4484,7 +4484,7 @@
 /obj/machinery/status_display{
 	pixel_x = 32
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -4561,7 +4561,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/prison/whitepurple{
 	dir = 1
 	},
@@ -4575,7 +4575,7 @@
 "cBB" = (
 /obj/structure/drop_pod_launcher,
 /obj/structure/droppod,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "cBI" = (
@@ -4742,7 +4742,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engine_core)
 "cGa" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -5165,7 +5165,7 @@
 /area/mainship/living/cafeteria)
 "cRQ" = (
 /obj/machinery/vending/marineFood,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/sign/semiotic/food_storage{
@@ -5181,7 +5181,7 @@
 	},
 /obj/machinery/computer/camera_advanced/overwatch/bravo,
 /obj/structure/table/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange/full,
@@ -5327,7 +5327,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "cXG" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -5588,7 +5588,7 @@
 	},
 /obj/machinery/computer/camera_advanced/overwatch/alpha,
 /obj/structure/table/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/red/full,
@@ -5809,7 +5809,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/bed/chair/comfy/alpha,
 /turf/open/floor/mainship/red/full,
 /area/mainship/hallways/hangar)
@@ -5831,7 +5831,7 @@
 /area/mainship/living/starboard_garden)
 "dml" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/orange/full,
@@ -5953,7 +5953,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
 "dqc" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/vending/weapon,
@@ -6090,7 +6090,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
@@ -6108,7 +6108,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "duY" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue{
@@ -6254,7 +6254,7 @@
 "dzB" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/blue{
 	dir = 5
 	},
@@ -6329,7 +6329,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "dCf" = (
@@ -6342,7 +6342,7 @@
 /turf/open/floor/grass,
 /area/mainship/hallways/aft_hallway)
 "dCs" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/machinery/light/mainship{
@@ -6523,7 +6523,7 @@
 "dHB" = (
 /obj/structure/drop_pod_launcher,
 /obj/structure/droppod,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -6637,7 +6637,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "dMg" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/orange,
@@ -7027,7 +7027,7 @@
 "dXx" = (
 /obj/structure/drop_pod_launcher,
 /obj/structure/droppod,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -7073,7 +7073,7 @@
 	},
 /area/space)
 "eac" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -7119,7 +7119,7 @@
 "ebT" = (
 /obj/machinery/computer/droppod_control,
 /obj/structure/table/mainship,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar/droppod)
 "ebZ" = (
@@ -7417,7 +7417,7 @@
 /area/mainship/squads/bravo)
 "ejU" = (
 /obj/machinery/marine_selector/gear/commander,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/numbertwobunks)
 "ejY" = (
@@ -7429,7 +7429,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -7475,7 +7475,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -7546,7 +7546,7 @@
 /area/mainship/squads/delta)
 "enF" = (
 /obj/machinery/floor_warn_light/self_destruct,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/emerald{
@@ -7746,7 +7746,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/brig)
 "esy" = (
@@ -7783,7 +7783,7 @@
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
 "euI" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/light/mainship{
@@ -8187,7 +8187,7 @@
 /area/mainship/hull/port_hull)
 "eGk" = (
 /obj/machinery/light/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/machinery/telecomms/relay/preset/telecomms,
@@ -8332,7 +8332,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -8440,7 +8440,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
 "eMB" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/machinery/light/mainship/small,
@@ -8612,7 +8612,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/warning_stripes/thin,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -8782,7 +8782,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -9004,7 +9004,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "fah" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/machinery/disposal,
@@ -9018,7 +9018,7 @@
 /area/mainship/living/numbertwobunks)
 "fap" = (
 /obj/structure/closet/marine/bravo,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "fat" = (
@@ -9148,7 +9148,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "fcO" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/telecomms/server/presets/common,
@@ -9256,7 +9256,7 @@
 /area/mainship/living/numbertwobunks)
 "ffQ" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/cryopod{
 	dir = 2
 	},
@@ -9581,7 +9581,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -9616,7 +9616,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/air_alarm,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -9706,7 +9706,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/red{
@@ -9714,7 +9714,7 @@
 	},
 /area/mainship/squads/alpha)
 "fsP" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -9765,7 +9765,7 @@
 /area/mainship/hull/port_hull)
 "fuL" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -9873,7 +9873,7 @@
 /turf/closed/wall/mainship/talos,
 /area/mainship/command/corporateliaison)
 "fyv" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -9931,7 +9931,7 @@
 /area/mainship/squads/delta)
 "fAm" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -10101,7 +10101,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/shipboard/ex_firing_range)
 "fIZ" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/machinery/light/mainship,
@@ -10146,7 +10146,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fLj" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/mainship/metal,
@@ -10438,7 +10438,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/port_atmos)
 "fTF" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/largecrate/supply,
@@ -10548,7 +10548,7 @@
 /area/mainship/squads/delta)
 "fWv" = (
 /obj/structure/table/mainship,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
@@ -10726,7 +10726,7 @@
 /turf/open/floor/plating,
 /area/mainship/powered)
 "gjl" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -10876,7 +10876,7 @@
 	id = "basketball";
 	pixel_y = 30
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
 "gmW" = (
@@ -10888,7 +10888,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
 "gnA" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/machinery/microwave,
@@ -10904,7 +10904,7 @@
 /area/mainship/squads/bravo)
 "gnS" = (
 /obj/structure/prop/mainship/hangar_stencil,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
 "gnV" = (
@@ -11131,7 +11131,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig_cells)
 "gwZ" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/grass,
@@ -11156,7 +11156,7 @@
 /obj/structure/bed/chair/wood/wings{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -11297,7 +11297,7 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/hallways/hangar)
 "gBI" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/table/mainship,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
@@ -11413,7 +11413,7 @@
 "gFf" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -11459,7 +11459,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/grass,
@@ -11892,7 +11892,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
 "gWn" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hull/starboard_hull)
 "gWF" = (
@@ -12217,7 +12217,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "hjI" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/sign/semiotic/ladder{
 	pixel_x = 8;
 	pixel_y = 24
@@ -12242,7 +12242,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "hjT" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "hjX" = (
@@ -12451,7 +12451,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "hqA" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/thin,
@@ -12695,7 +12695,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "hzg" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -12720,7 +12720,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "hzy" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/grass,
@@ -12802,7 +12802,7 @@
 /area/mainship/hallways/bow_hallway)
 "hCr" = (
 /obj/structure/bed/chair,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/commandbunks)
 "hCN" = (
@@ -12840,7 +12840,7 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/table/black,
 /turf/open/floor/mainship/red{
 	dir = 1
@@ -12931,7 +12931,7 @@
 /turf/closed/wall/mainship/research/containment/wall/corner,
 /area/mainship/medical/medical_science)
 "hHe" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -13122,7 +13122,7 @@
 /area/mainship/hallways/hangar)
 "hMY" = (
 /obj/machinery/iv_drip,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -13155,7 +13155,7 @@
 /area/mainship/command/corporateliaison)
 "hPn" = (
 /obj/effect/ai_node,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/prison/marked,
@@ -13264,7 +13264,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "hTX" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -13351,7 +13351,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/hallways/aft_hallway)
 "hWU" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -13786,7 +13786,7 @@
 /area/mainship/hallways/hangar)
 "ild" = (
 /obj/machinery/cryopod/right,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
@@ -13990,7 +13990,7 @@
 /area/mainship/hallways/hangar/droppod)
 "iqD" = (
 /obj/structure/rock/basalt,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "irn" = (
@@ -14004,7 +14004,7 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -14255,7 +14255,7 @@
 "iBH" = (
 /obj/structure/barricade/metal,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -14479,7 +14479,7 @@
 /area/mainship/engineering/engineering_workshop)
 "iIk" = (
 /obj/machinery/vending/cola,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/sign/semiotic/fridge{
 	pixel_x = 8;
 	pixel_y = 24
@@ -14489,7 +14489,7 @@
 "iIB" = (
 /obj/item/reagent_containers/glass/beaker/cryoxadone,
 /obj/structure/table/mainship,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
@@ -14570,7 +14570,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/machinery/firealarm{
@@ -14893,7 +14893,7 @@
 /area/mainship/squads/charlie)
 "iSK" = (
 /obj/machinery/iv_drip,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
@@ -15265,7 +15265,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "jdU" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/light/mainship/small{
@@ -15414,7 +15414,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -15523,7 +15523,7 @@
 /obj/structure/barricade/metal{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/prison/plate,
@@ -15697,7 +15697,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
 "jsn" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -15721,7 +15721,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/delta)
 "jsO" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -15800,7 +15800,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = 24;
 	pixel_x = 15
@@ -15822,7 +15822,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/green{
@@ -15984,7 +15984,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/white{
 	color = "#E2E0DC"
 	},
@@ -16069,7 +16069,7 @@
 /area/mainship/shipboard/firing_range)
 "jFR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "jGi" = (
@@ -16090,7 +16090,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/fulltile,
@@ -16115,7 +16115,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/telecomms/relay/preset/telecomms,
 /obj/structure/sign/semiotic/radio_rad{
 	pixel_x = 8;
@@ -16553,7 +16553,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "jTs" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/air_alarm,
 /obj/structure/morgue,
 /turf/open/floor/mainship/metal/full,
@@ -17047,7 +17047,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/orange,
@@ -17212,7 +17212,7 @@
 "kmQ" = (
 /obj/structure/table/fancywoodentable,
 /obj/item/flashlight/lamp,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -17241,7 +17241,7 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -17307,7 +17307,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/dark/end{
@@ -17514,7 +17514,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/shipboard/ex_firing_range)
 "kyp" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -17717,7 +17717,7 @@
 /area/mainship/living/cafeteria)
 "kCu" = (
 /obj/machinery/light/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/structure/bed/chair/comfy/delta{
@@ -17811,7 +17811,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "kFw" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -18138,7 +18138,7 @@
 /area/mainship/medical/upper_medical)
 "kNx" = (
 /obj/machinery/light/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/structure/bed/chair/comfy/charlie{
@@ -18164,7 +18164,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/thin,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -18250,7 +18250,7 @@
 /area/mainship/hallways/hangar)
 "kQH" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal/lino,
@@ -18871,7 +18871,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/grass,
 /area/mainship/hallways/aft_hallway)
 "ljL" = (
@@ -19132,7 +19132,7 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
@@ -19196,7 +19196,7 @@
 /obj/structure/morgue{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -19318,7 +19318,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/living/starboard_garden)
 "luN" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/largecrate/random,
@@ -19452,7 +19452,7 @@
 /area/mainship/squads/bravo)
 "lxo" = (
 /obj/structure/largecrate/guns/merc,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/tcomms,
@@ -19467,7 +19467,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
@@ -19566,7 +19566,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -19600,7 +19600,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hull/port_hull)
 "lzB" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/light/mainship{
@@ -19975,7 +19975,7 @@
 	},
 /obj/effect/ai_node,
 /obj/machinery/light/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/fulltile,
@@ -20152,7 +20152,7 @@
 /turf/open/floor/stairs/dark/right,
 /area/mainship/hull/port_hull)
 "lNt" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/emerald{
 	dir = 1
 	},
@@ -20251,7 +20251,7 @@
 /area/mainship/shipboard/firing_range)
 "lQR" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/grass,
@@ -20344,7 +20344,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -20435,7 +20435,7 @@
 /obj/machinery/computer/camera_advanced/overwatch/alpha{
 	name = "CMO Overwatch Console"
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -20548,7 +20548,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -20557,7 +20557,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -20627,7 +20627,7 @@
 /area/mainship/medical/surgery_hallway)
 "mek" = (
 /obj/structure/largecrate/random/barrel,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 6
 	},
@@ -21186,7 +21186,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "mvK" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/structure/disposalpipe/trunk{
@@ -21430,7 +21430,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "mCk" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/stairs/dark/left,
@@ -21561,7 +21561,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "mGo" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -21622,7 +21622,7 @@
 	},
 /area/mainship/squads/charlie)
 "mHf" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -21954,7 +21954,7 @@
 "mPf" = (
 /obj/structure/bed,
 /obj/item/bedsheet/hos,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig_cells)
 "mPu" = (
@@ -22000,7 +22000,7 @@
 /turf/open/floor/prison/whitepurple/full,
 /area/mainship/medical/medical_science)
 "mQD" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/lino,
@@ -22085,7 +22085,7 @@
 /obj/machinery/landinglight/lz2{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "mTZ" = (
@@ -22428,7 +22428,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/table/fancywoodentable,
 /turf/open/floor/carpet,
 /area/mainship/squads/delta)
@@ -22510,7 +22510,7 @@
 /area/mainship/medical/surgery_hallway)
 "nfN" = (
 /obj/machinery/firealarm,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/spawner/random/misc/plushie,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/living/numbertwobunks)
@@ -22591,7 +22591,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "niy" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -22668,7 +22668,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "nlE" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -22861,7 +22861,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/starboard_hallway)
 "nqE" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/prison/plate,
@@ -23247,7 +23247,7 @@
 	dir = 1
 	},
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -23274,7 +23274,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "nEa" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -23467,7 +23467,7 @@
 /obj/machinery/firealarm{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -23497,7 +23497,7 @@
 /area/mainship/medical/surgery_hallway)
 "nLT" = (
 /obj/structure/largecrate/guns/merc,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/prison/marked,
@@ -23676,7 +23676,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "nPQ" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -23762,7 +23762,7 @@
 /area/mainship/hallways/aft_hallway)
 "nQK" = (
 /obj/structure/largecrate/random,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -23853,7 +23853,7 @@
 	},
 /area/mainship/hull/port_hull)
 "nTn" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -23913,7 +23913,7 @@
 "nUD" = (
 /obj/structure/table/mainship,
 /obj/item/folder/black_random,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -24200,7 +24200,7 @@
 /turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/starboard_hull)
 "oed" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/steel/full,
@@ -24226,7 +24226,7 @@
 	invisibility = 100;
 	hit_sound = null
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/stairs/dark/left,
@@ -24251,7 +24251,7 @@
 /area/mainship/squads/delta)
 "ofG" = (
 /obj/effect/ai_node,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -24619,7 +24619,7 @@
 /obj/structure/rack,
 /obj/item/reagent_containers/jerrycan,
 /obj/item/tool/extinguisher,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/structure/sign/semiotic/fire_haz{
@@ -24757,7 +24757,7 @@
 /area/mainship/hallways/bow_hallway)
 "owJ" = (
 /obj/structure/largecrate/random/barrel,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "owK" = (
@@ -24778,7 +24778,7 @@
 /area/mainship/squads/req)
 "oxs" = (
 /obj/machinery/vending/MarineMed,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/stripesquare,
@@ -25090,7 +25090,7 @@
 /area/mainship/hallways/hangar)
 "oHP" = (
 /obj/machinery/air_alarm,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "oHY" = (
@@ -25108,7 +25108,7 @@
 /area/mainship/living/port_emb)
 "oIc" = (
 /obj/effect/turf_decal/siding/metal,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -25252,7 +25252,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
@@ -25340,7 +25340,7 @@
 	dir = 4;
 	pixel_y = 7
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/prison/red{
 	dir = 5
 	},
@@ -25384,7 +25384,7 @@
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "oOW" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -25413,8 +25413,8 @@
 /obj/structure/rack,
 /obj/structure/ob_ammo/warhead/incendiary,
 /obj/structure/ob_ammo/warhead/incendiary,
-/obj/machinery/camera/autoname/alt,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
+/obj/machinery/camera/autoname,
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "oRm" = (
@@ -25468,7 +25468,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/largecrate/supply,
@@ -25729,7 +25729,7 @@
 /area/mainship/living/starboard_garden)
 "pbj" = (
 /obj/structure/cable,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/power/fusion_engine/random,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
@@ -25926,7 +25926,7 @@
 	invisibility = 100;
 	hit_sound = null
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/stairs/dark/left{
@@ -26090,7 +26090,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -26120,7 +26120,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "pmM" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/watertank,
@@ -26319,7 +26319,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
@@ -26547,7 +26547,7 @@
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "pxK" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating/mainship/striped{
@@ -26834,7 +26834,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "pFK" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -26995,7 +26995,7 @@
 /turf/open/floor/carpet,
 /area/mainship/medical/surgery_hallway)
 "pKM" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/black/full,
 /area/mainship/command/cic)
@@ -27025,7 +27025,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/item/radio/intercom/general{
 	pixel_y = -20;
 	pixel_x = -24
@@ -27126,7 +27126,7 @@
 /area/mainship/living/pilotbunks)
 "pOe" = (
 /obj/machinery/computer3/server,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/tcomms,
@@ -27305,7 +27305,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "pTt" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -27384,7 +27384,7 @@
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "pWm" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -27425,7 +27425,7 @@
 /turf/open/floor/mainship/emerald,
 /area/mainship/hallways/starboard_umbilical)
 "pYj" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/ai_node,
 /obj/machinery/light/mainship{
 	dir = 1
@@ -27490,7 +27490,7 @@
 /turf/open/floor/prison,
 /area/mainship/shipboard/weapon_room)
 "pZG" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/black/full,
@@ -27600,7 +27600,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "qcU" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/barricade/metal,
@@ -27766,7 +27766,7 @@
 	pixel_x = 32
 	},
 /obj/machinery/computer/camera_advanced/overwatch/req,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/prison/yellow{
@@ -27910,7 +27910,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/bed/chair/wheelchair,
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
@@ -28029,7 +28029,7 @@
 /turf/open/floor/grass,
 /area/mainship/hallways/aft_hallway)
 "qnw" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/air_alarm,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -28221,7 +28221,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/prison/red,
@@ -28281,7 +28281,7 @@
 	dir = 8
 	},
 /obj/structure/largecrate/guns/merc,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -28384,7 +28384,7 @@
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/glass/beaker,
 /obj/item/reagent_containers/glass/beaker,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/item/facepaint/green,
@@ -28532,7 +28532,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -28933,7 +28933,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -29004,7 +29004,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/medical/upper_medical)
 "qSA" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/metal/medical,
@@ -29075,7 +29075,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "qVG" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/prison/whitepurple{
@@ -29141,7 +29141,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/grass,
 /area/mainship/hallways/aft_hallway)
 "qXl" = (
@@ -29157,7 +29157,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
@@ -29334,7 +29334,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hull/starboard_hull)
 "rem" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/sign/semiotic/maint{
@@ -29343,7 +29343,7 @@
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "ret" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/largecrate/random,
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
@@ -29405,7 +29405,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "rgE" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/computer/arcade,
@@ -29463,7 +29463,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/grass,
@@ -29509,7 +29509,7 @@
 /obj/machinery/door/poddoor/railing{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/sign/semiotic/maint{
@@ -29521,7 +29521,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 9
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/req_officer,
@@ -29683,7 +29683,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/carpet,
@@ -29763,7 +29763,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "rsW" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/emerald{
@@ -30180,7 +30180,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/green{
@@ -30304,7 +30304,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "rIJ" = (
@@ -30571,7 +30571,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/prison/plate,
@@ -30924,7 +30924,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "scZ" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/firealarm,
 /obj/machinery/vending/medical/shipside,
 /turf/open/floor/mainship/metal,
@@ -30969,7 +30969,7 @@
 /obj/structure/window{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
@@ -31081,7 +31081,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "sgw" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/red,
@@ -31241,7 +31241,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/metal/medical{
@@ -31425,7 +31425,7 @@
 /area/mainship/squads/bravo)
 "sqw" = (
 /obj/machinery/prop/autolathe,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/light/mainship{
@@ -31449,7 +31449,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig_cells)
 "sqO" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "srv" = (
@@ -31518,7 +31518,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "ssW" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/structure/largecrate/supply/explosives,
@@ -31904,7 +31904,7 @@
 	},
 /area/mainship/hallways/hangar)
 "sFl" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -32068,7 +32068,7 @@
 "sKh" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/camera_advanced/overwatch/delta,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue/full,
@@ -32125,7 +32125,7 @@
 /area/mainship/hallways/hangar)
 "sMp" = (
 /obj/machinery/light/mainship,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
@@ -32332,7 +32332,7 @@
 "sSK" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/camera_advanced/overwatch/charlie,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/emerald/full,
@@ -32410,7 +32410,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/port_atmos)
 "sVN" = (
@@ -32430,7 +32430,7 @@
 /obj/machinery/power/apc/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -32601,7 +32601,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -32632,7 +32632,7 @@
 /area/mainship/hallways/bow_hallway)
 "tei" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/emerald{
@@ -32741,7 +32741,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/machinery/power/fusion_engine/random,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
@@ -32987,7 +32987,7 @@
 	dir = 4
 	},
 /obj/item/tool/pen,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/woodsiding{
@@ -33151,7 +33151,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "tte" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -33380,7 +33380,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "tDc" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/largecrate/supply,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -33633,7 +33633,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -33682,7 +33682,7 @@
 /obj/structure/window{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
@@ -34145,7 +34145,7 @@
 	id = "Containment Cell 3";
 	pixel_y = 30
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/research/containment/floor2{
 	dir = 1
 	},
@@ -34394,7 +34394,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/prison/plate,
 /area/mainship/command/self_destruct)
 "ulr" = (
@@ -34558,7 +34558,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal{
@@ -34601,7 +34601,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "upP" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "upU" = (
@@ -34862,7 +34862,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "uzO" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -34977,7 +34977,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "uBB" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/bed/chair/wood/wings,
@@ -35373,7 +35373,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -35391,7 +35391,7 @@
 "uPM" = (
 /obj/structure/table/fancywoodentable,
 /obj/effect/turf_decal/woodsiding,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/carpet,
@@ -35502,7 +35502,7 @@
 /area/mainship/squads/delta)
 "uSB" = (
 /obj/effect/ai_node,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/stairs/dark/left{
@@ -35557,7 +35557,7 @@
 /area/mainship/squads/bravo)
 "uVm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -35933,7 +35933,7 @@
 /area/mainship/hull/upper_hull)
 "veT" = (
 /obj/machinery/iv_drip,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/white{
@@ -36097,7 +36097,7 @@
 	},
 /obj/structure/paper_bin,
 /obj/item/tool/pen,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/table/black,
 /turf/open/floor/mainship/floor,
 /area/mainship/shipboard/brig)
@@ -36277,7 +36277,7 @@
 /area/mainship/shipboard/ex_firing_range)
 "vtu" = (
 /obj/machinery/iv_drip,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/metal/medical,
@@ -36341,13 +36341,13 @@
 /turf/open/floor/mainship/orange/corner,
 /area/mainship/hallways/port_hallway)
 "vvq" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "vvs" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/machinery/light/mainship,
@@ -36510,7 +36510,7 @@
 	dir = 8
 	},
 /obj/structure/largecrate/guns/merc,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -36620,7 +36620,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "vEM" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/machinery/light/mainship{
@@ -36676,7 +36676,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engine_core)
 "vGa" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/orange{
@@ -37502,7 +37502,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "wed" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
 "wek" = (
@@ -37653,7 +37653,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar/droppod)
 "wjk" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -37852,7 +37852,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "woF" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/metal,
@@ -38103,7 +38103,7 @@
 	pixel_y = 30
 	},
 /obj/structure/closet/secure_closet/brig/cell/cell1,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/item/clothing/shoes/orange,
@@ -38185,7 +38185,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -38285,7 +38285,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
 "wDV" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
 "wEg" = (
@@ -38328,7 +38328,7 @@
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/effect/landmark/start/squad/squadcorpsman/alpha,
@@ -38446,7 +38446,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "wKO" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/metal/corner{
@@ -38638,7 +38638,7 @@
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/white{
@@ -38993,7 +38993,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/thin,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -39023,7 +39023,7 @@
 /area/mainship/hull/upper_hull)
 "xbm" = (
 /obj/effect/spawner/random/misc/structure/barrel,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -39057,7 +39057,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 10
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -39075,7 +39075,7 @@
 /area/mainship/hull/port_hull)
 "xfc" = (
 /obj/machinery/vending/cigarette,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/lino,
@@ -39143,7 +39143,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /obj/structure/barricade/sandbags,
@@ -39618,7 +39618,7 @@
 /area/mainship/living/starboard_garden)
 "xwt" = (
 /obj/structure/table/mainship,
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "xwJ" = (
@@ -40001,7 +40001,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "xGI" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/medical/upper_medical)
 "xGL" = (
@@ -40081,14 +40081,14 @@
 /turf/open/floor/carpet,
 /area/mainship/medical/surgery_hallway)
 "xIC" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "xIF" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /obj/item/tool/mop,
@@ -40165,7 +40165,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/red,
@@ -40260,7 +40260,7 @@
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "xMK" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/freezer,
@@ -40309,7 +40309,7 @@
 /obj/structure/sign/semiotic/maint{
 	pixel_x = 32
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
@@ -40342,7 +40342,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "xQK" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -40391,7 +40391,7 @@
 "xRG" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -40770,7 +40770,7 @@
 /area/mainship/shipboard/brig_cells)
 "ydr" = (
 /obj/machinery/light/mainship/small,
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/metal,
@@ -40967,7 +40967,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/numbertwobunks)
 "yhy" = (
-/obj/machinery/camera/autoname/alt,
+/obj/machinery/camera/autoname,
 /obj/structure/barricade/metal,
 /obj/structure/barricade/metal{
 	dir = 8
@@ -41002,7 +41002,7 @@
 /obj/structure/bed/chair/sofa{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open/floor/prison/yellow{
@@ -41102,7 +41102,7 @@
 	},
 /area/mainship/hallways/hangar)
 "ykN" = (
-/obj/machinery/camera/autoname/alt{
+/obj/machinery/camera/autoname{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/metal,
