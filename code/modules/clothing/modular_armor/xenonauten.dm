@@ -150,7 +150,6 @@
 /obj/item/clothing/head/modular/m10x
 	name = "\improper M10X pattern marine helmet"
 	desc = "A standard M10 Pattern Helmet with attach points. It reads on the label, 'The difference between an open-casket and closed-casket funeral. Wear on head for best results.'."
-
 	item_state_worn = TRUE
 	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 40, BIO = 40, FIRE = 10, ACID = 45)
 	attachments_allowed = list(

@@ -487,6 +487,8 @@ RU TGMC EDIT */
 		return
 	var/hit_successful
 	var/old_throw_source = throw_source
+	if(QDELETED(hit_atom))
+		return FALSE
 	hit_successful = hit_atom.hitby(src, speed)
 	if(hit_successful)
 		SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, speed)
@@ -497,6 +499,8 @@ RU TGMC EDIT */
 ///Bounces the AM off hit_atom
 /atom/movable/proc/throw_bounce(atom/hit_atom, turf/old_throw_source)
 	if(QDELETED(src))
+		return
+	if(QDELETED(hit_atom))
 		return
 	if(!isturf(loc))
 		return

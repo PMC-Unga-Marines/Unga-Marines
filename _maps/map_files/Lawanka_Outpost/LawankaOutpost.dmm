@@ -5282,6 +5282,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/operations_hall)
 "ezY" = (
@@ -8345,6 +8346,7 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/red/whitered/full,
 /area/lawankaoutpost/colony/medbay)
 "hah" = (
@@ -12184,6 +12186,7 @@
 /area/lawankaoutpost/outside/northeast)
 "kxE" = (
 /obj/effect/landmark/corpsespawner/miner/burst,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/cult,
 /area/lawankaoutpost/caves/southwest)
 "kxJ" = (
@@ -13336,6 +13339,11 @@
 /obj/structure/table/mainship,
 /turf/open/floor/grayscale/black,
 /area/lawankaoutpost/colony/operations_kitchen)
+"lry" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/tile/dark,
+/area/lawankaoutpost/caves/nanotrasen_lab)
 "lrJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -14593,6 +14601,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/blue/taupeblue{
 	dir = 4
 	},
@@ -18375,6 +18384,7 @@
 /area/lawankaoutpost/colony/medbay)
 "pwS" = (
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lawankaoutpost/outside/north)
 "pxb" = (
@@ -20530,6 +20540,10 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/north)
+"rlv" = (
+/obj/machinery/telecomms/relay/preset/tower,
+/turf/open/floor/tile/dark2,
+/area/lawankaoutpost/colony/cargo)
 "rly" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_resin_wall,
@@ -20998,6 +21012,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "rDp" = (
 /obj/effect/landmark/sensor_tower,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/green/greentaupe,
 /area/lawankaoutpost/colony/hydroponics)
 "rDK" = (
@@ -22768,6 +22783,7 @@
 "tdg" = (
 /obj/item/ammo_casing,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/telecomms/relay/preset/tower,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
 "tdr" = (
@@ -41014,7 +41030,7 @@ iUK
 tOX
 xxH
 wxf
-kvd
+lry
 soK
 sRR
 mbi
@@ -57960,7 +57976,7 @@ fxC
 hQh
 jzS
 esZ
-hdB
+rlv
 rST
 kvR
 yhc

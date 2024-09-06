@@ -347,7 +347,10 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bq" = (
-/obj/effect/landmark/start/latejoin/crash,
+/obj/effect/landmark/start/latejoin_squad/alpha,
+/obj/effect/landmark/start/latejoin_squad/bravo,
+/obj/effect/landmark/start/latejoin_squad/charlie,
+/obj/effect/landmark/start/latejoin_squad/delta,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "br" = (
@@ -614,6 +617,10 @@
 /area/shuttle/canterbury/medical)
 "cv" = (
 /obj/structure/cable,
+/obj/effect/landmark/start/squad/squadrobot/charlie,
+/obj/effect/landmark/start/squad/squadrobot/delta,
+/obj/effect/landmark/start/squad/squadrobot/bravo,
+/obj/effect/landmark/start/squad/squadrobot/alpha,
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
 "cw" = (
