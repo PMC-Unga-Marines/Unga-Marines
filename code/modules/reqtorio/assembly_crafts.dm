@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	name = "Zeus orbital drop pod assembly refill"
 	craft_time = 20 SECONDS
 	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass = 3) // 40 + 6
-	output = list(/obj/structure/drop_pod_launcher = 1) //40 points
+	output = list(/obj/structure/droppod = 1) //40 points
 
 /*******************************************************************************
 CLOTHING
@@ -217,7 +217,7 @@ WEAPONS
 	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 13.3 points from old factory
 
 /datum/assembly_craft/weapons/scout_rifle_magazine
-	name = "BR-8 scout rifle magazine"
+	name = "SR-81 automatic sniper rifle magazine"
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 16 points
 	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 10 points from old factory
 
@@ -237,7 +237,7 @@ WEAPONS
 	output = list(/obj/item/ammo_magazine/railgun = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/minigun_powerpack
-	name = "Railgun magazine"
+	name = "MG-100 Vindicator powerpack"
 	input = list(/obj/item/stack/sheet/plasteel = 2, /obj/item/stack/gun_powder = 2) // 16 + 16 points
 	output = list(/obj/item/ammo_magazine/minigun_powerpack = 1) // 25 points from old factory
 
@@ -307,6 +307,6 @@ WEAPONS
 	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 40 points from old factory
 
 /datum/assembly_craft/weapons/mlrs_rocket
-	name = "RL-57 Thermobaric WP rocket array"
+	name = "TA-40L rocket crate"
 	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/gun_powder = 3) // 24 + 24 points
 	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 33 points from old factory
