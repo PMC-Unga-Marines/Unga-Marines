@@ -26,7 +26,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "abt" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/command/cic)
 "abA" = (
 /obj/effect/turf_decal/woodsiding{
@@ -66,7 +66,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/bravo)
 "abW" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/firing_range)
 "acd" = (
 /obj/structure/bed,
@@ -108,7 +108,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "acR" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/living/starboard_emb)
 "adj" = (
 /obj/machinery/door/airlock/mainship/marine/delta/medic,
@@ -472,7 +472,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "amH" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/mainship/open{
 	id = "Brig Lockdown";
 	name = "\improper Brig Lockdown Podlocks"
@@ -529,7 +529,7 @@
 /area/mainship/squads/alpha)
 "aob" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/weapon_room)
 "aog" = (
 /obj/vehicle/ridden/motorbike{
@@ -558,7 +558,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "aoi" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/space)
 "aol" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -653,7 +653,7 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/command/cic)
 "apK" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/weapon_room)
 "apL" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -751,7 +751,7 @@
 /area/mainship/squads/alpha)
 "arl" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/bow_hallway)
 "arx" = (
 /obj/structure/bed,
@@ -775,7 +775,7 @@
 /area/mainship/squads/charlie)
 "arD" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/req)
 "arI" = (
 /obj/structure/cable,
@@ -964,7 +964,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "awz" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct{
 	dir = 1
 	},
@@ -1035,7 +1035,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "ayE" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/hangar)
 "ayK" = (
 /obj/machinery/door/airlock/mainship/maint{
@@ -1077,7 +1077,7 @@
 	id = null;
 	name = "\improper Hangar Launch Hatch"
 	},
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/hangar)
 "azB" = (
 /obj/structure/table/fancywoodentable,
@@ -1155,7 +1155,7 @@
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
 "aAU" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters/opened/corporate,
 /turf/open/floor/plating,
 /area/mainship/command/corporateliaison)
@@ -1442,7 +1442,7 @@
 /area/mainship/hallways/hangar)
 "aGT" = (
 /obj/effect/landmark/start/latejoin_squad,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "aHf" = (
 /obj/item/clothing/head/warning_cone,
@@ -1669,7 +1669,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "aRv" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/starboard_hull)
 "aSb" = (
 /obj/machinery/air_alarm{
@@ -1783,7 +1783,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/grunt_rnr)
 "aXM" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/living/grunt_rnr)
 "aYh" = (
@@ -2209,7 +2209,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/brig)
 "bmI" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/command/telecomms)
 "bmT" = (
@@ -2404,7 +2404,7 @@
 /area/mainship/engineering/ce_room)
 "btn" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/aft_hallway)
 "bto" = (
 /obj/structure/table/mainship,
@@ -3272,7 +3272,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/shipboard/ex_firing_range)
 "bQz" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/mainship/open{
 	dir = 2;
 	id = "Brig Lockdown";
@@ -3388,7 +3388,7 @@
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
 	},
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/command/cic)
 "bSK" = (
@@ -3468,7 +3468,7 @@
 /area/mainship/hallways/aft_hallway)
 "bUV" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/cic)
 "bUY" = (
 /obj/structure/cable,
@@ -3525,7 +3525,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4
 	},
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/port_hull)
 "bWG" = (
 /obj/structure/largecrate/supply/supplies/flares,
@@ -3828,7 +3828,7 @@
 /area/mainship/hallways/starboard_umbilical)
 "cfb" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/bravo)
 "cfk" = (
 /turf/open/floor/mainship/metal/full,
@@ -4270,7 +4270,7 @@
 /area/mainship/hull/upper_hull)
 "cqU" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/upper_hull)
 "crC" = (
 /obj/structure/table/fancywoodentable,
@@ -4882,7 +4882,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/hallways/aft_hallway)
 "cKE" = (
@@ -5121,7 +5121,7 @@
 /area/mainship/medical/operating_room_two)
 "cRi" = (
 /obj/machinery/door/poddoor/opened/bridge,
-/obj/structure/window/framed/mainship/gray/toughened/hull/alt,
+/obj/structure/window/framed/mainship/gray/toughened/hull/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/command/cic)
 "cRk" = (
@@ -6396,7 +6396,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "dDn" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/bow_hallway)
 "dDo" = (
 /obj/structure/disposalpipe/segment,
@@ -6477,7 +6477,7 @@
 	},
 /area/mainship/squads/req)
 "dGz" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/squads/charlie)
 "dGD" = (
@@ -7174,7 +7174,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/hallways/bow_hallway)
 "eeb" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/aft_hallway)
 "eer" = (
 /obj/structure/cable,
@@ -7393,7 +7393,7 @@
 /turf/open/floor/plating,
 /area/mainship/medical/medical_science)
 "eiT" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "ejj" = (
@@ -7618,7 +7618,7 @@
 "epa" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/starboard_hull)
 "epe" = (
 /obj/effect/turf_decal/siding/metal{
@@ -8208,7 +8208,7 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "eGE" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/living/cafeteria)
 "eGF" = (
@@ -8543,7 +8543,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "ePd" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/engineering_workshop)
 "ePw" = (
 /obj/structure/cable,
@@ -8662,7 +8662,7 @@
 /area/mainship/hull/port_hull)
 "eSg" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible,
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/engineering/port_atmos)
 "eSh" = (
@@ -8709,7 +8709,7 @@
 /area/mainship/shipboard/firing_range)
 "eTI" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/telecomms)
 "eUa" = (
 /obj/structure/bed,
@@ -8863,7 +8863,7 @@
 	},
 /area/mainship/living/starboard_garden)
 "eWU" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/delta)
 "eXA" = (
 /obj/structure/cable,
@@ -9028,7 +9028,7 @@
 "faK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/upper_hull)
 "fbo" = (
 /obj/machinery/disposal,
@@ -9159,7 +9159,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/commandbunks)
 "fdo" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -9225,7 +9225,7 @@
 /area/mainship/squads/alpha)
 "ffh" = (
 /obj/machinery/power/apc/mainship,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "ffi" = (
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
@@ -9642,7 +9642,7 @@
 /area/mainship/squads/bravo)
 "fqS" = (
 /obj/structure/disposalpipe/segment,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/space)
 "fqV" = (
 /obj/effect/ai_node,
@@ -9751,7 +9751,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "fua" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters{
 	id = "qm_warehouse";
 	name = "Warehouse Shutters"
@@ -9870,7 +9870,7 @@
 /area/mainship/hull/port_hull)
 "fyq" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/corporateliaison)
 "fyv" = (
 /obj/machinery/camera/autoname/alt{
@@ -10002,7 +10002,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "fDl" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/starboard_hallway)
 "fDs" = (
 /obj/structure/largecrate/random,
@@ -11162,7 +11162,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
 "gxK" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/living/basketball)
 "gxP" = (
 /obj/effect/turf_decal/siding/emblem/third{
@@ -11689,7 +11689,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "gNU" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/engineering/engine_core)
 "gNW" = (
@@ -12202,7 +12202,7 @@
 /area/mainship/hull/port_hull)
 "hjz" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/engineering_workshop)
 "hjD" = (
 /obj/structure/toilet/alternate{
@@ -12260,7 +12260,7 @@
 /area/space)
 "hkl" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/cafeteria)
 "hkr" = (
 /obj/structure/table/mainship,
@@ -12597,7 +12597,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "hwv" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -12674,7 +12674,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "hxS" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/mainship/open{
 	id = "cic_lockdown";
 	name = "\improper Combat Information Center Blast Door"
@@ -13634,7 +13634,7 @@
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct{
 	dir = 1
 	},
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/self_destruct)
 "igy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -13952,7 +13952,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "ipX" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "CIC Checkpoint Shutters";
@@ -14084,7 +14084,7 @@
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "iwc" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "iwk" = (
 /obj/machinery/light/mainship/small{
@@ -14329,7 +14329,7 @@
 	},
 /area/mainship/hallways/hangar)
 "iEM" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/ce_room)
 "iFp" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -14717,7 +14717,7 @@
 /area/mainship/engineering/ce_room)
 "iOn" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/delta)
 "iOy" = (
 /obj/structure/cable,
@@ -14808,7 +14808,7 @@
 /area/mainship/engineering/engine_core)
 "iQr" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "iRa" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -14837,7 +14837,7 @@
 /area/mainship/medical/medical_science)
 "iRf" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/pilotbunks)
 "iRm" = (
 /obj/machinery/vending/cola,
@@ -15020,7 +15020,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/aft_hallway)
 "iXo" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct,
 /turf/open/floor/plating,
 /area/mainship/command/self_destruct)
@@ -15191,7 +15191,7 @@
 /area/mainship/living/cafeteria)
 "jcD" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/brig)
 "jcF" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
@@ -15216,7 +15216,7 @@
 	},
 /area/mainship/squads/charlie)
 "jdk" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/cafeteria)
 "jdo" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt{
@@ -15281,7 +15281,7 @@
 /area/mainship/squads/charlie)
 "jdZ" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/port_atmos)
 "jeh" = (
 /obj/machinery/light/floor,
@@ -15290,7 +15290,7 @@
 	},
 /area/mainship/hallways/hangar)
 "jeC" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "CIC Checkpoint Shutters";
 	name = "\improper CIC Checkpoint Shutters"
@@ -16052,7 +16052,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
 "jFh" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/shipboard/weapon_room)
 "jFj" = (
 /obj/machinery/robotic_fabricator,
@@ -16358,7 +16358,7 @@
 	},
 /area/mainship/medical/upper_medical)
 "jPy" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/bravo)
 "jPz" = (
 /obj/structure/bed/chair/comfy/black{
@@ -16708,7 +16708,7 @@
 /area/mainship/hull/port_hull)
 "jZd" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/ex_firing_range)
 "kac" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
@@ -16804,7 +16804,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "kcb" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/living/starboard_garden)
 "kce" = (
@@ -16821,7 +16821,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/aft_hallway)
 "kcy" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/engineering/ce_room)
 "kcG" = (
@@ -17074,7 +17074,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/lounge)
 "kjn" = (
-/obj/structure/window/framed/mainship/gray/toughened/hull/alt,
+/obj/structure/window/framed/mainship/gray/toughened/hull/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/hull/starboard_hull)
 "kjK" = (
@@ -17115,10 +17115,10 @@
 "klg" = (
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct,
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/self_destruct)
 "kly" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/shipboard/firing_range)
 "klB" = (
@@ -17368,7 +17368,7 @@
 /area/mainship/engineering/ce_room)
 "kss" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "kst" = (
 /obj/structure/janitorialcart,
@@ -17521,7 +17521,7 @@
 /area/mainship/squads/bravo)
 "kyB" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/port_hallway)
 "kyH" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -17879,7 +17879,7 @@
 /area/mainship/hallways/starboard_hallway)
 "kHR" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/engine_core)
 "kHX" = (
 /obj/effect/landmark/start/latejoin_squad/alpha,
@@ -18285,7 +18285,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
 "kRi" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters{
 	dir = 1;
 	id = "qm_warehouse";
@@ -18357,7 +18357,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "kUr" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/bow_hallway)
 "kVc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -18431,7 +18431,7 @@
 /area/mainship/hallways/aft_hallway)
 "kWr" = (
 /obj/machinery/door/poddoor/opened/bridge,
-/obj/structure/window/framed/mainship/gray/toughened/hull/alt,
+/obj/structure/window/framed/mainship/gray/toughened/hull/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/living/basketball)
 "kWx" = (
@@ -18621,7 +18621,7 @@
 /area/mainship/shipboard/firing_range)
 "lbl" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/firing_range)
 "lbx" = (
 /obj/machinery/researchcomp,
@@ -19431,7 +19431,7 @@
 /obj/machinery/atmospherics/pipe/simple/general/hidden{
 	dir = 4
 	},
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/port_atmos)
 "lwo" = (
 /turf/open/floor/prison/whitepurple{
@@ -20002,8 +20002,8 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "lJO" = (
-/obj/structure/window/framed/mainship/alt,
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/command/cic)
 "lKc" = (
@@ -20129,7 +20129,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "lMI" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar/droppod)
 "lMY" = (
 /turf/open/floor/mainship/blue{
@@ -20390,7 +20390,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/shipboard/firing_range)
 "lWS" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/squads/req)
 "lXz" = (
@@ -20724,7 +20724,7 @@
 /area/mainship/squads/charlie)
 "mgn" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/numbertwobunks)
 "mgN" = (
 /obj/structure/disposalpipe/segment{
@@ -20769,7 +20769,7 @@
 /area/mainship/hallways/aft_hallway)
 "mjC" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/port_hull)
 "mkk" = (
 /obj/machinery/telecomms/bus/preset_two,
@@ -21545,7 +21545,7 @@
 /area/mainship/command/corporateliaison)
 "mFt" = (
 /obj/structure/cable,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/space)
 "mFO" = (
 /obj/effect/ai_node,
@@ -22347,7 +22347,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "mZD" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/starboard_hull)
 "naE" = (
 /obj/structure/largecrate/random/case/small,
@@ -22944,7 +22944,7 @@
 /obj/structure/noticeboard{
 	pixel_x = 15
 	},
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/cic)
 "nsu" = (
 /obj/structure/cable,
@@ -23291,7 +23291,7 @@
 /area/mainship/hallways/aft_hallway)
 "nEU" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/cryo_cells)
 "nEY" = (
 /obj/effect/turf_decal/siding/metal/corner,
@@ -23957,7 +23957,7 @@
 	},
 /area/mainship/medical/medical_science)
 "nVJ" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/living/cryo_cells)
 "nVN" = (
@@ -24178,7 +24178,7 @@
 /area/mainship/squads/req)
 "ocr" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/alpha)
 "ocA" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
@@ -24197,7 +24197,7 @@
 /area/mainship/squads/req)
 "odz" = (
 /obj/structure/cable,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/starboard_hull)
 "oed" = (
 /obj/machinery/camera/autoname/alt{
@@ -24505,7 +24505,7 @@
 /area/mainship/hallways/hangar)
 "omN" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/bow_hallway)
 "one" = (
 /obj/effect/decal/cleanable/dirt,
@@ -24612,7 +24612,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "opF" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/port_atmos)
 "opW" = (
 /obj/item/clothing/head/warning_cone,
@@ -25070,7 +25070,7 @@
 "oGS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "oHq" = (
 /obj/structure/disposalpipe/segment,
@@ -25187,7 +25187,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "oKl" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/starboard_garden)
 "oKF" = (
 /turf/open/floor/prison/rampbottom,
@@ -25280,7 +25280,7 @@
 /turf/open/floor/mainship/emerald,
 /area/mainship/hallways/hangar)
 "oMC" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "oMF" = (
@@ -25797,7 +25797,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "pdB" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/aft_hallway)
 "pdI" = (
 /obj/machinery/floor_warn_light/self_destruct,
@@ -25934,7 +25934,7 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "phA" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/living/basketball)
 "phD" = (
@@ -26071,7 +26071,7 @@
 /area/mainship/squads/req)
 "pkh" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/grunt_rnr)
 "pkA" = (
 /obj/structure/rack,
@@ -26196,7 +26196,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "pou" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/living/numbertwobunks)
 "ppm" = (
 /turf/open/floor/wood,
@@ -26242,7 +26242,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "ppL" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/engineering/engineering_workshop)
 "ppP" = (
@@ -26390,7 +26390,7 @@
 	pixel_y = -8
 	},
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/upper_hull)
 "ptQ" = (
 /obj/effect/turf_decal/warning_stripes/line{
@@ -26401,7 +26401,7 @@
 "ptW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/cafeteria)
 "pue" = (
 /obj/effect/turf_decal/woodsiding{
@@ -26974,7 +26974,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "pKy" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -27220,7 +27220,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/alpha)
 "pQT" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/req)
 "pQZ" = (
 /obj/machinery/door/airlock/mainship/engineering,
@@ -27700,7 +27700,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "qeu" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/brig)
 "qeA" = (
 /obj/structure/cable,
@@ -27862,7 +27862,7 @@
 /turf/open/floor/prison/marked,
 /area/mainship/shipboard/weapon_room)
 "qis" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/grunt_rnr)
 "qiE" = (
 /obj/structure/toilet/alternate,
@@ -28212,7 +28212,7 @@
 /area/mainship/shipboard/brig)
 "qrF" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/upper_hull)
 "qrX" = (
 /obj/machinery/air_alarm{
@@ -28333,7 +28333,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "qug" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "quv" = (
@@ -28407,7 +28407,7 @@
 	dir = 1
 	},
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/self_destruct)
 "qxs" = (
 /obj/structure/disposalpipe/segment{
@@ -28480,7 +28480,7 @@
 /area/mainship/squads/charlie)
 "qyK" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/commandbunks)
 "qzc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -28785,7 +28785,7 @@
 /area/mainship/shipboard/weapon_room)
 "qMe" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "qMM" = (
 /obj/structure/cable,
@@ -29412,7 +29412,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "rgL" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/port_emb)
 "rgR" = (
 /obj/machinery/door/firedoor,
@@ -29569,7 +29569,7 @@
 /area/mainship/engineering/engine_core)
 "rjW" = (
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/self_destruct)
 "rkn" = (
 /obj/structure/rack,
@@ -29807,7 +29807,7 @@
 /area/mainship/hull/starboard_hull)
 "rtB" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/req)
 "rtT" = (
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -29816,7 +29816,7 @@
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
 	},
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/engineering/port_atmos)
 "ruc" = (
@@ -30069,7 +30069,7 @@
 /area/mainship/squads/bravo)
 "rBQ" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/bridgebunks)
 "rBV" = (
 /obj/structure/cable,
@@ -30462,7 +30462,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/engineering/ce_room)
 "rMh" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/space)
 "rMu" = (
 /obj/structure/table/mainship,
@@ -31467,7 +31467,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "srx" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/brig_cells)
 "srJ" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -31543,7 +31543,7 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow{
 	dir = 8
 	},
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "sus" = (
 /obj/machinery/computer/cryopod{
@@ -31599,7 +31599,7 @@
 /area/mainship/hull/port_hull)
 "sxk" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar/droppod)
 "sxt" = (
 /obj/structure/filingcabinet,
@@ -32829,7 +32829,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/numbertwobunks)
 "tkN" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "tlh" = (
 /obj/structure/sign/semiotic/firingrange{
@@ -33308,7 +33308,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/medical/upper_medical)
 "tzu" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/cryo_cells)
 "tzN" = (
 /obj/effect/turf_decal/siding/metal{
@@ -33754,7 +33754,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "tQK" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/powered)
 "tQZ" = (
 /obj/item/flashlight/lamp,
@@ -34156,7 +34156,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "ueN" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /obj/machinery/door/poddoor/shutters/opened,
 /turf/open/floor/plating,
 /area/mainship/living/grunt_rnr)
@@ -34824,7 +34824,7 @@
 /area/mainship/living/commandbunks)
 "uyj" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/starboard_emb)
 "uyD" = (
 /obj/effect/decal/cleanable/cobweb{
@@ -35103,7 +35103,7 @@
 	},
 /area/mainship/shipboard/brig)
 "uFR" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/ex_firing_range)
 "uFW" = (
 /obj/machinery/marine_selector/gear/marine,
@@ -35315,7 +35315,7 @@
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
 "uNE" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/commandbunks)
 "uNK" = (
 /turf/open/floor/plating/mainship/reinforced,
@@ -35528,7 +35528,7 @@
 /area/mainship/hallways/hangar)
 "uUj" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/port_emb)
 "uUt" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -35617,7 +35617,7 @@
 /area/mainship/squads/delta)
 "uWz" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/port_hull)
 "uWL" = (
 /obj/effect/turf_decal/tile/transparent/dark_red/diagonal_centre,
@@ -35698,7 +35698,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
 "uZf" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/bridgebunks)
 "uZF" = (
 /obj/structure/sign/semiotic/fridge{
@@ -35810,7 +35810,7 @@
 /area/mainship/medical/lounge)
 "vcP" = (
 /obj/structure/cable,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/upper_hull)
 "vcW" = (
 /obj/structure/rack,
@@ -35897,7 +35897,7 @@
 /area/mainship/command/telecomms)
 "vet" = (
 /obj/machinery/door/poddoor/opened/bridge,
-/obj/structure/window/framed/mainship/gray/toughened/hull/alt,
+/obj/structure/window/framed/mainship/gray/toughened/hull/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/hull/upper_hull)
 "vex" = (
@@ -36018,7 +36018,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "vis" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/upper_hull)
 "viz" = (
 /obj/machinery/telecomms/processor/preset_three,
@@ -36072,7 +36072,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/upper_hull)
 "vlU" = (
 /obj/machinery/door/firedoor,
@@ -36565,7 +36565,7 @@
 /area/mainship/living/grunt_rnr)
 "vDw" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/command/cic)
 "vDy" = (
 /obj/effect/ai_node,
@@ -36633,7 +36633,7 @@
 /area/mainship/hallways/aft_hallway)
 "vEX" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/powered)
 "vFj" = (
 /obj/structure/sink/bathroom{
@@ -36786,7 +36786,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
 "vJB" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/engineering/engine_core)
 "vJY" = (
 /obj/structure/closet/emcloset,
@@ -37006,7 +37006,7 @@
 /area/mainship/hallways/hangar/droppod)
 "vPm" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/basketball)
 "vPE" = (
 /obj/structure/disposalpipe/segment,
@@ -37809,7 +37809,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "wnT" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/port_hull)
 "woo" = (
 /obj/structure/cable,
@@ -38039,7 +38039,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/port_atmos)
 "wvP" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating/platebotc,
 /area/mainship/engineering/port_atmos)
 "wvU" = (
@@ -38237,7 +38237,7 @@
 /turf/open/floor/carpet,
 /area/mainship/squads/charlie)
 "wDe" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/living/commandbunks)
 "wDC" = (
@@ -38739,7 +38739,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "wUp" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/starboard_hallway)
 "wUy" = (
 /obj/machinery/light/mainship{
@@ -39169,7 +39169,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/engineering/engineering_workshop)
 "xhq" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/alpha)
 "xhC" = (
 /obj/effect/turf_decal/siding/metal{
@@ -39383,7 +39383,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/cafeteria)
 "xot" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/pilotbunks)
 "xoC" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
@@ -39416,7 +39416,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/port_hallway)
 "xpB" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "xpE" = (
@@ -39515,7 +39515,7 @@
 "xsl" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/starboard_hull)
 "xsA" = (
 /obj/machinery/air_alarm{
@@ -39842,7 +39842,7 @@
 	},
 /area/mainship/hallways/port_hallway)
 "xBV" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/powered)
 "xCd" = (
 /obj/structure/table/mainship,
@@ -39950,7 +39950,7 @@
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/engineering/port_atmos)
 "xFv" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/port_hull)
 "xFx" = (
 /obj/structure/bed/chair/sofa/corner,
@@ -40294,7 +40294,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "xOs" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/numbertwobunks)
 "xOA" = (
 /obj/structure/disposalpipe/segment,
@@ -40330,7 +40330,7 @@
 /turf/closed/wall/mainship/white,
 /area/mainship/hallways/aft_hallway)
 "xPw" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/telecomms)
 "xQy" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -40465,7 +40465,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/bow_hallway)
 "xUv" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/basketball)
 "xVg" = (
 /obj/structure/closet/toolcloset,
@@ -40477,10 +40477,10 @@
 	pixel_y = -8
 	},
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hallways/port_hallway)
 "xVF" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/living/starboard_emb)
 "xVG" = (
 /obj/machinery/vending/uniform_supply,
@@ -40497,7 +40497,7 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "xVX" = (
-/turf/closed/wall/mainship/outer/alt,
+/turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/upper_hull)
 "xWl" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
@@ -40511,7 +40511,7 @@
 /area/mainship/hallways/bow_hallway)
 "xWx" = (
 /obj/effect/soundplayer,
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/hull/starboard_hull)
 "xWG" = (
 /obj/structure/disposalpipe/segment,
@@ -40523,7 +40523,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/mainship/squads/req)
 "xWR" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/cic)
 "xWV" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -40758,7 +40758,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "yde" = (
-/obj/structure/window/framed/mainship/alt,
+/obj/structure/window/framed/mainship/talos,
 /turf/open/floor/plating,
 /area/mainship/command/cic)
 "ydm" = (
@@ -41056,7 +41056,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
 "yjt" = (
-/turf/closed/wall/mainship/alt,
+/turf/closed/wall/mainship/talos,
 /area/mainship/command/corporateliaison)
 "yjz" = (
 /obj/structure/disposalpipe/segment{
