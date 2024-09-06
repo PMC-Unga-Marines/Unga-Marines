@@ -221,7 +221,7 @@
 	if(prob(30))
 		age++
 
-/obj/effect/plantsegment/flamer_fire_act(burnlevel)
+/obj/effect/plantsegment/flamer_fire_act(burnlevel, flame_color)
 	qdel(src)
 
 /obj/effect/plant_controller

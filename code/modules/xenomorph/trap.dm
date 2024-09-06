@@ -77,7 +77,7 @@
 		else
 			. += "It's empty."
 
-/obj/structure/xeno/trap/flamer_fire_act(burnlevel)
+/obj/structure/xeno/trap/flamer_fire_act(burnlevel, flame_color)
 	hugger?.kill_hugger()
 	trigger_trap()
 	set_trap_type(null)

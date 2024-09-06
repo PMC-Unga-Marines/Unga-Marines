@@ -34,7 +34,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 25, BULLET = 20, LASER = 20, ENERGY = 25, BOMB = 0, BIO = 25, FIRE = 25, ACID = 25)
+	soft_armor = list(MELEE = 25, BULLET = 20, LASER = 20, ENERGY = 25, BOMB = 0, BIO = 25, FIRE = 5, ACID = 25)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1.0 SECONDS
