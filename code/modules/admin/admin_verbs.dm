@@ -618,7 +618,7 @@
 
 /datum/admins/proc/jump()
 	set category = "Admin"
-	set name = "Jump"
+	set name = "Jump To"
 
 	if(!check_rights(R_ADMIN))
 		return
