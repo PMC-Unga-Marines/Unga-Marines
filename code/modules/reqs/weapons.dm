@@ -651,12 +651,6 @@
 	cost = 20 //40 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/MK88_sabot
-	name = "MK88 APDS magazine"
-	contains = list(/datum/ammo/bullet/pistol/sabot)
-	cost = 10 //18 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
 /datum/supply_packs/weapons/valihalberd
 	name = "VAL-HAL-A"
 	contains = list(/obj/item/weapon/twohanded/glaive/halberd/harvester)
