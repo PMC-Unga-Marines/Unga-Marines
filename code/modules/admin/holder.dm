@@ -371,6 +371,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 /world/proc/AVruntimes()
 	return list(
 	/datum/admins/proc/view_runtimes,
+	/datum/admins/proc/profiler,
 	)
 GLOBAL_LIST_INIT(admin_verbs_runtimes, world.AVruntimes())
 GLOBAL_PROTECT(admin_verbs_runtimes)
