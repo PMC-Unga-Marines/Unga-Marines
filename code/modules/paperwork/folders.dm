@@ -1,30 +1,40 @@
 /obj/item/folder
 	name = "folder"
 	desc = "A folder."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/items/civilian_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/civilian_right.dmi',
+	)
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "folder"
+	item_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
 	var/updateicon = 0//If they spawn with premade papers, update icon
 
 /obj/item/folder/blue
 	desc = "A blue folder."
 	icon_state = "folder_blue"
+	item_state = "folder_blue"
 
 /obj/item/folder/grape
 	desc = "A violet folder."
 	icon_state = "folder_grape"
+	item_state = "folder_grape"
 
 /obj/item/folder/red
 	desc = "A red folder."
 	icon_state = "folder_red"
+	item_state = "folder_red"
 
 /obj/item/folder/yellow
 	desc = "A yellow folder."
 	icon_state = "folder_yellow"
+	item_state = "folder_yellow"
 
 /obj/item/folder/white
 	desc = "A white folder."
 	icon_state = "folder_white"
+	item_state = "folder_white"
 
 /obj/item/folder/black
 	desc = "A black folder."

@@ -51,8 +51,11 @@
 	. = ..()
 	if(light_on)
 		icon_state = "[initial(icon_state)]-on"
+		item_state = "[initial(item_state)]_on"
+
 	else
 		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 
 /obj/item/flashlight/attack_self(mob/user)
@@ -200,10 +203,10 @@
 /obj/item/flashlight/lantern
 	name = "lantern"
 	icon_state = "lantern"
+	item_state = "lantern"
 	desc = "A mining lantern."
 	light_range = 6			// luminosity when on
 	raillight_compatible = FALSE
 
 /obj/item/flashlight/lantern/turned_on
-	icon_state = "lantern-on"
 	light_on = TRUE

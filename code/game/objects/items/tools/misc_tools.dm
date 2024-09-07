@@ -91,11 +91,13 @@
 /obj/item/tool/pen/blue
 	desc = "It's a normal blue ink pen."
 	icon_state = "pen_blue"
+	item_state = "pen_blue"
 	colour = "blue"
 
 /obj/item/tool/pen/red
 	desc = "It's a normal red ink pen."
 	icon_state = "pen_red"
+	item_state = "pen_red"
 	colour = "red"
 
 /obj/item/tool/pen/invisible
@@ -177,43 +179,55 @@
 
 /obj/item/tool/stamp/qm
 	name = "Quartermaster's Stamp"
+	icon_state = "stamp-cap"
+	item_state = "stamp-qm"
 
 /obj/item/tool/stamp/captain
 	name = "captain's rubber stamp"
 	icon_state = "stamp-cap"
+	item_state = "stamp-cap"
 
 /obj/item/tool/stamp/hop
 	name = "head of personnel's rubber stamp"
 	icon_state = "stamp-hop"
+	item_state = "stamp-hop"
 
 /obj/item/tool/stamp/hos
 	name = "head of security's rubber stamp"
 	icon_state = "stamp-hos"
+	item_state = "stamp-hos"
 
 /obj/item/tool/stamp/ce
 	name = "chief ship engineer's rubber stamp"
 	icon_state = "stamp-ce"
+	item_state = "stamp-ce"
 
 /obj/item/tool/stamp/rd
 	name = "research director's rubber stamp"
 	icon_state = "stamp-rd"
+	item_state = "stamp-rd"
 
 /obj/item/tool/stamp/cmo
 	name = "chief medical officer's rubber stamp"
 	icon_state = "stamp-cmo"
+	item_state = "stamp-cmo"
 
 /obj/item/tool/stamp/denied
 	name = "\improper DENIED rubber stamp"
 	icon_state = "stamp-deny"
+	item_state = "stamp-deny"
 
 /obj/item/tool/stamp/clown
 	name = "clown's rubber stamp"
 	icon_state = "stamp-clown"
+	item_state = "stamp-clown"
 
 /obj/item/tool/stamp/internalaffairs
 	name = "internal affairs rubber stamp"
 	icon_state = "stamp-intaff"
+	item_state = "stamp-intaff"
 
 /obj/item/tool/stamp/centcom
 	name = "centcom rubber stamp"
 	icon_state = "stamp-cent"
+	item_state = "stamp-cent"
