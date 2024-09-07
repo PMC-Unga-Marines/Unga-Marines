@@ -21,13 +21,12 @@
 	for(var/i in 1 to shrapnel_number)
 		var/obj/projectile/our_shrapnel = new(epicenter)
 		our_shrapnel.generate_bullet(new shrapnel_type)
-		our_shrapnel.is_shrapnel = TRUE
 
 		if(standing_mob && prob(on_hit_coefficient))
-			our_shrapnel.fire_at(standing_mob, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, null)
+			our_shrapnel.fire_at(standing_mob, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, null, loc_override = epicenter)
 		else if(lying_mob && prob(on_hit_coefficient))
-			our_shrapnel.fire_at(lying_mob, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, null)
+			our_shrapnel.fire_at(lying_mob, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, null, loc_override = epicenter)
 		else
 			var/angle = initial_angle + i * angle_increment + rand(-angle_randomization, angle_randomization)
 			var/atom/target = get_angle_target_turf(epicenter, angle, our_shrapnel.ammo.max_range)
-			our_shrapnel.fire_at(target, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, angle)
+			our_shrapnel.fire_at(target, null, epicenter, our_shrapnel.ammo.max_range, our_shrapnel.ammo.shell_speed, angle, loc_override = epicenter)
