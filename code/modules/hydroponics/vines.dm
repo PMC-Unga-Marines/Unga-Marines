@@ -135,7 +135,7 @@
 			if(seed.carnivorous == 2)
 				to_chat(victim, span_danger("\The [src] pierces your flesh greedily!"))
 
-				var/damage = rand(round(seed.potency/2),seed.potency)
+				var/damage = rand(round(seed.potency * 0.5),seed.potency)
 				if(!ishuman(victim))
 					victim.adjustBruteLoss(damage)
 					return
@@ -315,7 +315,7 @@
 		if(SV.energy < 2) //If tile isn't fully grown
 			var/chance
 			if(seed)
-				chance = limited_growth ? round(seed.potency/2,1) : seed.potency
+				chance = limited_growth ? round(seed.potency * 0.5, 1) : seed.potency
 			else
 				chance = 20
 

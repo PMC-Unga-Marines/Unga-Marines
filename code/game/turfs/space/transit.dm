@@ -164,7 +164,7 @@
 	icon_state = "Cloud_[get_transit_state(src, available_icon_state_amounts)]"
 
 /proc/get_transit_state(turf/T, available_icon_state_amounts)
-	var/p = round(available_icon_state_amounts / 2)
+	var/p = round(available_icon_state_amounts * 0.5)
 	. = 1
 	switch(T.dir)
 		if(NORTH)

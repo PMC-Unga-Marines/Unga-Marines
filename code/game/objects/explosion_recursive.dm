@@ -262,7 +262,7 @@ explosion resistance exactly as much as their health
 		direction = pick(GLOB.alldirs)
 	var/range = min(round(severity * 0.2, 1), 14)
 	if(!direction)
-		range = round(range / 2, 1)
+		range = round(range * 0.5, 1)
 
 	if(range < 1)
 		return

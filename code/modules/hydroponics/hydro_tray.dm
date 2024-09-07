@@ -375,7 +375,7 @@
 	// Updates the plant overlay.
 	if(!isnull(seed))
 
-		if(draw_warnings && health <= (seed.endurance / 2))
+		if(draw_warnings && health <= (seed.endurance * 0.5))
 			. += "over_lowhealth3"
 
 		if(dead)
@@ -629,7 +629,7 @@
 	else
 		if(seed && !dead)
 			to_chat(usr, "[src] has [span_notice(" [seed.display_name] \black planted.")]")
-			if(health <= (seed.endurance / 2))
+			if(health <= (seed.endurance * 0.5))
 				to_chat(usr, "The plant looks [span_warning(" unhealthy.")]")
 		else
 			to_chat(usr, "[src] is empty.")

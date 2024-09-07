@@ -166,7 +166,7 @@
 		else
 			camera_location = myturf
 			if(length(z_lock) && !(myturf.z in z_lock))
-				camera_location = locate(round(world.maxx / 2), round(world.maxy / 2), z_lock[1])
+				camera_location = locate(round(world.maxx * 0.5), round(world.maxy * 0.5), z_lock[1])
 
 		if(camera_location)
 			eyeobj.eye_initialized = TRUE

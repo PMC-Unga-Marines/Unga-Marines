@@ -124,8 +124,8 @@ SUBSYSTEM_DEF(minimaps)
 			else if(yval < smallest_y)
 				smallest_y = yval
 
-	minimaps_by_z["[level]"].x_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_x-smallest_x)/2, 1)
-	minimaps_by_z["[level]"].y_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_y-smallest_y)/2, 1)
+	minimaps_by_z["[level]"].x_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_x-smallest_x) * 0.5, 1)
+	minimaps_by_z["[level]"].y_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_y-smallest_y) * 0.5, 1)
 
 	icon_gen.Shift(EAST, minimaps_by_z["[level]"].x_offset)
 	icon_gen.Shift(NORTH, minimaps_by_z["[level]"].y_offset)
@@ -427,8 +427,8 @@ SUBSYSTEM_DEF(minimaps)
 	// we only care about absolute coords because the map is fixed to 1,1 so no client stuff
 	var/list/pixel_coords = params2screenpixel(modifiers["screen-loc"])
 	var/zlevel = SSminimaps.updators_by_datum[src].ztarget
-	var/x = (pixel_coords[1] - SSminimaps.minimaps_by_z["[zlevel]"].x_offset) / 2
-	var/y = (pixel_coords[2] - SSminimaps.minimaps_by_z["[zlevel]"].y_offset) / 2
+	var/x = (pixel_coords[1] - SSminimaps.minimaps_by_z["[zlevel]"].x_offset) * 0.5
+	var/y = (pixel_coords[2] - SSminimaps.minimaps_by_z["[zlevel]"].y_offset) * 0.5
 	var/c_x = clamp(CEILING(x, 1), 1, world.maxx)
 	var/c_y = clamp(CEILING(y, 1), 1, world.maxy)
 	choices_by_mob[source] = list(c_x, c_y)
@@ -688,8 +688,8 @@ SUBSYSTEM_DEF(minimaps)
 			else if(yval < smallest_y)
 				smallest_y = yval
 
-	minimaps_by_z["[zlevel]"].x_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_x-smallest_x)/2, 1)
-	minimaps_by_z["[zlevel]"].y_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_y-smallest_y)/2, 1)
+	minimaps_by_z["[zlevel]"].x_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_x-smallest_x) * 0.5, 1)
+	minimaps_by_z["[zlevel]"].y_offset = FLOOR((SCREEN_PIXEL_SIZE-largest_y-smallest_y) * 0.5, 1)
 
 	icon_gen.Shift(EAST, minimaps_by_z["[zlevel]"].x_offset)
 	icon_gen.Shift(NORTH, minimaps_by_z["[zlevel]"].y_offset)

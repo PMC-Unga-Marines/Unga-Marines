@@ -61,7 +61,7 @@
 
 /obj/structure/xeno/acidwell/update_icon()
 	. = ..()
-	set_light(charges , charges / 2, LIGHT_COLOR_GREEN)
+	set_light(charges , charges * 0.5, LIGHT_COLOR_GREEN)
 
 /obj/structure/xeno/acidwell/update_overlays()
 	. = ..()

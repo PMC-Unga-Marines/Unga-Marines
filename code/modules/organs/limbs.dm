@@ -185,8 +185,8 @@
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
-		I.get_damage(brute / 2)
-		brute -= brute / 2
+		I.get_damage(brute * 0.5)
+		brute -= brute * 0.5
 RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
 		if(!(owner.species && (owner.species.species_flags & NO_PAIN)))
@@ -624,18 +624,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(burn_dam ==0)
 		tburn =0
-	else if (burn_dam < (max_damage * 0.25 / 2))
+	else if (burn_dam < (max_damage * 0.25 * 0.5))
 		tburn = 1
-	else if (burn_dam < (max_damage * 0.75 / 2))
+	else if (burn_dam < (max_damage * 0.75 * 0.5))
 		tburn = 2
 	else
 		tburn = 3
 
 	if (brute_dam == 0)
 		tbrute = 0
-	else if (brute_dam < (max_damage * 0.25 / 2))
+	else if (brute_dam < (max_damage * 0.25 * 0.5))
 		tbrute = 1
-	else if (brute_dam < (max_damage * 0.75 / 2))
+	else if (brute_dam < (max_damage * 0.75 * 0.5))
 		tbrute = 2
 	else
 		tbrute = 3

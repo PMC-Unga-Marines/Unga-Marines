@@ -1196,8 +1196,8 @@ will handle it, but:
  *	blocked - whether the cone should take into consideration solid walls
  */
 /proc/generate_cone(atom/center, max_row_count = 10, starting_row = 1, cone_width = 60, cone_direction = 0, blocked = TRUE)
-	var/right_angle = cone_direction + cone_width/2
-	var/left_angle = cone_direction - cone_width/2
+	var/right_angle = cone_direction + cone_width * 0.5
+	var/left_angle = cone_direction - cone_width * 0.5
 
 	//These are needed because degrees need to be from 0 to 359 for the checks to function
 	if(right_angle >= 360)
@@ -1260,8 +1260,8 @@ will handle it, but:
  *	air_pass - whether to bypass non airtight atoms
  */
 /proc/generate_true_cone(atom/center, max_row_count = 10, starting_row = 1, cone_width = 60, cone_direction = 0, blocked = TRUE, bypass_window = FALSE, projectile = FALSE, bypass_xeno = FALSE, air_pass = FALSE)
-	var/right_angle = cone_direction + cone_width/2
-	var/left_angle = cone_direction - cone_width/2
+	var/right_angle = cone_direction + cone_width * 0.5
+	var/left_angle = cone_direction - cone_width * 0.5
 
 	//These are needed because degrees need to be from 0 to 359 for the checks to function
 	if(right_angle >= 360)

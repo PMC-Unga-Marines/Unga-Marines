@@ -279,13 +279,13 @@
 	//b = (w-u)/ 8
 	var/b = (translatedPoint2x - originx) / LIGHTING_SHADOW_TEX_SIZE
 	//c = (y+w)/2
-	var/c = (translatedPoint3x + translatedPoint2x) / 2
+	var/c = (translatedPoint3x + translatedPoint2x) * 0.5
 	//d = (z-v)/8
 	var/d = (translatedPoint3y - originy) / LIGHTING_SHADOW_TEX_SIZE
 	//e = (x-v)/8
 	var/e = (translatedPoint2y - originy) / LIGHTING_SHADOW_TEX_SIZE
 	//f = (z+x)/2
-	var/f = (translatedPoint3y + translatedPoint2y) / 2
+	var/f = (translatedPoint3y + translatedPoint2y) * 0.5
 	//Matrix time g
 	//a,b,d and e can be used to define the shape, C and F can be used for translation god matrices are so beautiful
 	//Completely random offset that I didnt derive, I just trialled and errored for about 4 hours until it randomly worked

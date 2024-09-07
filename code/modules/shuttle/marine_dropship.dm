@@ -63,8 +63,8 @@
 			cos = 0
 			sin = -1
 
-	var/updown = (round(width/2))*sin + (round(height/2))*cos
-	var/leftright = (round(width/2))*cos - (round(height/2))*sin
+	var/updown = (round(width * 0.5)) * sin + (round(height * 0.5)) * cos
+	var/leftright = (round(width * 0.5)) * cos - (round(height * 0.5)) * sin
 
 	var/turf/front = locate(C.x, C.y - updown, C.z)
 	var/turf/rear = locate(C.x, C.y + updown, C.z)

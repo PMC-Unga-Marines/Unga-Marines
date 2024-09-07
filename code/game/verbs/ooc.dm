@@ -529,7 +529,7 @@
 			delta = 100 * (desired_width - got_width) / split_width
 		else if ((delta > 0 && got_width > desired_width) || (delta < 0 && got_width < desired_width))
 			// if we overshot, halve the delta and reverse direction
-			delta = -delta/2
+			delta = -delta * 0.5
 
 		pct += delta
 		winset(src, "mainwindow.split", "splitter=[pct]")

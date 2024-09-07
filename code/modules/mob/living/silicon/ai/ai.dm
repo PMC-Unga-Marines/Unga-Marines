@@ -368,7 +368,7 @@
 		. += "System status: Nonfunctional"
 		return
 
-	. += "System integrity: [(health + 100) / 2]%"
+	. += "System integrity: [(health + 100) * 0.5]%"
 	. += ""
 	. += "- Operation information -"
 	. += "Current orbit: [GLOB.current_orbit]"

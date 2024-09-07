@@ -249,7 +249,7 @@
 			cooked.loc = src.loc
 			return
 	else
-		var/halftime = round(recipe.time/10/2)
+		var/halftime = round(recipe.time * 0.1 * 0.5)
 		if (!wzhzhzh(halftime))
 			abort()
 			return

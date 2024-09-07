@@ -275,7 +275,7 @@ var require_conversions = __commonJS({
       if (h < 0) {
         h += 360;
       }
-      const l = (min + max) / 2;
+      const l = (min + max) * 0.5;
       if (max === min) {
         s = 0;
       } else if (l <= 0.5) {
@@ -297,7 +297,7 @@ var require_conversions = __commonJS({
       const v = Math.max(r, g, b);
       const diff = v - Math.min(r, g, b);
       const diffc = function(c) {
-        return (v - c) / 6 / diff + 1 / 2;
+        return (v - c) / 6 / diff + 1 * 0.5;
       };
       if (diff === 0) {
         h = 0;
@@ -444,7 +444,7 @@ var require_conversions = __commonJS({
       l *= 2;
       s *= l <= 1 ? l : 2 - l;
       smin *= lmin <= 1 ? lmin : 2 - lmin;
-      const v = (l + s) / 2;
+      const v = (l + s) * 0.5;
       const sv = l === 0 ? 2 * smin / (lmin + smin) : 2 * s / (l + s);
       return [h, sv * 100, v * 100];
     };
@@ -614,7 +614,7 @@ var require_conversions = __commonJS({
       const b = lab[2];
       let h;
       const hr = Math.atan2(b, a);
-      h = hr * 360 / 2 / Math.PI;
+      h = hr * 360 * 0.5 / Math.PI;
       if (h < 0) {
         h += 360;
       }

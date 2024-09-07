@@ -142,7 +142,7 @@ list(0.393,0.349,0.272,0, 0.769,0.686,0.534,0, 0.189,0.168,0.131,0, 0,0,0,1, 0,0
 //Changes distance colors have from rgb(127,127,127) grey
 //1 is identity. 0 makes everything grey >1 blows out colors and greys
 /proc/color_matrix_contrast(value)
-	var/add = (1 - value) / 2
+	var/add = (1 - value) * 0.5
 	return list(value,0,0,0, 0,value,0,0, 0,0,value,0, 0,0,0,1, add,add,add,0)
 
 
