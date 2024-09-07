@@ -345,7 +345,7 @@
 		qdel(O)
 	src.reagents.clear_reagents()
 	ffuu.reagents.add_reagent(/datum/reagent/carbon, amount)
-	ffuu.reagents.add_reagent(/datum/reagent/toxin, amount/10)
+	ffuu.reagents.add_reagent(/datum/reagent/toxin, amount * 0.1)
 	return ffuu
 
 

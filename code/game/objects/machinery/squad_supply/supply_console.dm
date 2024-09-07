@@ -190,7 +190,7 @@
 		holder_obj.forceMove(TC)
 		addtimer(CALLBACK(src, PROC_REF(cleanup_delivery), C, TC), 3 SECONDS)
 
-	supply_pad.visible_message("[icon2html(supply_pad, viewers(src))] [span_boldnotice("Supply drop teleported! Another launch will be available in [launch_cooldown/10] seconds.")]")
+	supply_pad.visible_message("[icon2html(supply_pad, viewers(src))] [span_boldnotice("Supply drop teleported! Another launch will be available in [launch_cooldown * 0.1] seconds.")]")
 
 	balloon.icon_state = initial(balloon.icon_state)
 	holder_obj.vis_contents += balloon

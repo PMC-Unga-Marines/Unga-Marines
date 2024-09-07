@@ -216,7 +216,7 @@
 	// Toxin levels beyond the plant's tolerance cause damage, but
 	// toxins are sucked up each tick and slowly reduce over time.
 	if(toxins > 0)
-		var/toxin_uptake = max(1,round(toxins/10))
+		var/toxin_uptake = max(1,round(toxins * 0.1))
 		if(toxins > seed.toxins_tolerance)
 			health -= toxin_uptake
 		toxins -= toxin_uptake
