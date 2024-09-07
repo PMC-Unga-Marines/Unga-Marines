@@ -7,7 +7,7 @@
 		slot_l_hand_str = 'icons/mob/inhands/equipment/tools_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/tools_right.dmi',
 	)
-	item_state = "radio"
+	item_state = "megaphone"
 	w_class = WEIGHT_CLASS_SMALL
 	flags_atom = CONDUCT
 	var/spamcheck = 0
