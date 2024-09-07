@@ -597,7 +597,7 @@
 	target.throw_at(get_step(owner, owner.dir), TENTACLE_ABILITY_RANGE, 1, owner, FALSE)
 	if(isliving(target))
 		var/mob/living/loser = target
-		loser.ImmobilizeNoChain(1 SECONDS) //RuTGMC Edit
+		loser.apply_effect(2 SECONDS, WEAKEN)
 		loser.adjust_stagger(5 SECONDS)
 
 ///signal handler to delete tetacle after we are done draggging owner along
