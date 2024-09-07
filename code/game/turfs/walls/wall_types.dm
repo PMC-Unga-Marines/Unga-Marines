@@ -35,7 +35,7 @@
 //turf/closed/wall/mainship/update_icon()
 
 
-/turf/closed/wall/mainship/alt
+/turf/closed/wall/mainship/talos
 	icon = 'icons/turf/walls/talos.dmi'
 
 /turf/closed/wall/mainship/outer
@@ -47,7 +47,7 @@
 	icon_state = "wall-invincible"
 	decorated_wall = FALSE
 
-/turf/closed/wall/mainship/outer/alt
+/turf/closed/wall/mainship/outer/talos
 	icon = 'icons/turf/walls/talos.dmi'
 	icon_state = "testwall-0"
 	walltype = "testwall"

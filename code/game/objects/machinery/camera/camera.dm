@@ -51,13 +51,17 @@
 /obj/machinery/camera/proc/set_offsets()
 	switch(dir)
 		if(NORTH)
-			pixel_y = -16
+			pixel_y = 0
+			pixel_x = -10
 		if(SOUTH)
-			pixel_y = 16
+			pixel_y = 18
+			pixel_x = 10
 		if(EAST)
-			pixel_x = -16
+			pixel_x = -9
+			pixel_y = -5
 		if(WEST)
-			pixel_x = 16
+			pixel_x = 9
+			pixel_y = -5
 
 /obj/machinery/camera/Destroy()
 	if(can_use())
@@ -377,31 +381,6 @@
 /obj/machinery/camera/autoname/thunderdome/hidden/update_icon_state()
 	. = ..()
 	icon_state = "nothing"
-
-/obj/machinery/camera/autoname/alt
-	icon_state = "alt_camera_icon"
-	base_icon_state = "alt_camera"
-
-/obj/machinery/camera/autoname/alt/update_icon_state()
-	if(obj_integrity <= 0)
-		icon_state = "alt_camera_assembly"
-	else
-		icon_state = "alt_camera"
-
-/obj/machinery/camera/autoname/alt/set_offsets()
-	switch(dir)
-		if(NORTH)
-			pixel_y = 0
-			pixel_x = -10
-		if(SOUTH)
-			pixel_y = 18
-			pixel_x = 10
-		if(EAST)
-			pixel_x = -9
-			pixel_y = -5
-		if(WEST)
-			pixel_x = 9
-			pixel_y = -5
 
 /obj/machinery/camera/miner
 	name = "miner camera"
