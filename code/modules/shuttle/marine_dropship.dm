@@ -63,8 +63,8 @@
 			cos = 0
 			sin = -1
 
-	var/updown = (round(width/2))*sin + (round(height/2))*cos
-	var/leftright = (round(width/2))*cos - (round(height/2))*sin
+	var/updown = (round(width * 0.5)) * sin + (round(height * 0.5)) * cos
+	var/leftright = (round(width * 0.5)) * cos - (round(height * 0.5)) * sin
 
 	var/turf/front = locate(C.x, C.y - updown, C.z)
 	var/turf/rear = locate(C.x, C.y + updown, C.z)
@@ -331,7 +331,7 @@
 		return "Control integrity compromised"
 	else if(hijack_state == HIJACK_STATE_UNLOCKED)
 		return "Remote control compromised"
-	return ..() + (timeleft(cycle_timer) ? (" Automatic cycle : [round(timeleft(cycle_timer) / 10 + 20, 1)] seconds before departure towards [previous.name]") : "")
+	return ..() + (timeleft(cycle_timer) ? (" Automatic cycle : [round(timeleft(cycle_timer) * 0.1 + 20, 1)] seconds before departure towards [previous.name]") : "")
 
 /obj/docking_port/mobile/marine_dropship/can_move_topic(mob/user)
 	if(hijack_state != HIJACK_STATE_NORMAL)

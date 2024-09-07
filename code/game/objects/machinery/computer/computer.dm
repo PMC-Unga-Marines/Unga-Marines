@@ -72,7 +72,7 @@
 		visible_message("[proj] ricochets off [src]!")
 		return 0
 	else
-		if(prob(round(proj.ammo.damage /2)))
+		if(prob(round(proj.ammo.damage * 0.5)))
 			set_broken()
 		..()
 		return 1

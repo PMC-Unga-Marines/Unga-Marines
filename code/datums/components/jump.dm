@@ -78,12 +78,12 @@
 		var/spin_number = ROUND_UP(jump_duration * 0.1)
 		jumper.animation_spin(jump_duration / spin_number, spin_number, jumper.dir == WEST ? FALSE : TRUE)
 
-	animate(jumper, pixel_y = jumper.pixel_y + jump_height, layer = ABOVE_MOB_LAYER, time = jump_duration / 2, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-	animate(pixel_y = jumper.pixel_y - jump_height, time = jump_duration / 2, easing = CIRCULAR_EASING|EASE_IN)
+	animate(jumper, pixel_y = jumper.pixel_y + jump_height, layer = ABOVE_MOB_LAYER, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(pixel_y = jumper.pixel_y - jump_height, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_IN)
 
 	if(jump_flags & JUMP_SHADOW)
-		animate(shadow_filter, y = -jump_height, size = 4, time = jump_duration / 2, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-		animate(y = 0, size = 0.9, time = jump_duration / 2, easing = CIRCULAR_EASING|EASE_IN)
+		animate(shadow_filter, y = -jump_height, size = 4, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(y = 0, size = 0.9, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_IN)
 
 	addtimer(CALLBACK(src, PROC_REF(end_jump), jumper), jump_duration)
 

@@ -216,7 +216,7 @@
 	// Toxin levels beyond the plant's tolerance cause damage, but
 	// toxins are sucked up each tick and slowly reduce over time.
 	if(toxins > 0)
-		var/toxin_uptake = max(1,round(toxins/10))
+		var/toxin_uptake = max(1,round(toxins * 0.1))
 		if(toxins > seed.toxins_tolerance)
 			health -= toxin_uptake
 		toxins -= toxin_uptake
@@ -375,7 +375,7 @@
 	// Updates the plant overlay.
 	if(!isnull(seed))
 
-		if(draw_warnings && health <= (seed.endurance / 2))
+		if(draw_warnings && health <= (seed.endurance * 0.5))
 			. += "over_lowhealth3"
 
 		if(dead)
@@ -415,9 +415,9 @@
 	if(seed)
 		if(seed.biolum)
 			if(seed.biolum_colour)
-				set_light(round(seed.potency / 10), l_color = seed.biolum_colour)
+				set_light(round(seed.potency * 0.1), l_color = seed.biolum_colour)
 			else
-				set_light(round(seed.potency / 10))
+				set_light(round(seed.potency * 0.1))
 			return
 
 	set_light(0)
@@ -629,7 +629,7 @@
 	else
 		if(seed && !dead)
 			to_chat(usr, "[src] has [span_notice(" [seed.display_name] \black planted.")]")
-			if(health <= (seed.endurance / 2))
+			if(health <= (seed.endurance * 0.5))
 				to_chat(usr, "The plant looks [span_warning(" unhealthy.")]")
 		else
 			to_chat(usr, "[src] is empty.")

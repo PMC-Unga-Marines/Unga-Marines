@@ -318,8 +318,8 @@
 		addtimer(CALLBACK(src, PROC_REF(enhanced_do_charge), direction, charge_damage, LANDSLIDE_ENHANCED_STEP_DELAY, LANDSLIDE_RANGE), LANDSLIDE_ENHANCED_WIND_UP)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), xeno_owner, 'sound/effects/alien/behemoth/landslide_enhanced_charge.ogg', 30, TRUE), LANDSLIDE_ENHANCED_WIND_UP)
 		animate(xeno_owner, time = LANDSLIDE_ENHANCED_WIND_UP, flags = ANIMATION_END_NOW)
-		animate(pixel_y = xeno_owner.pixel_y + (LANDSLIDE_RANGE / 2), time = animation_time / 2, easing = CIRCULAR_EASING|EASE_OUT)
-		animate(pixel_y = initial(xeno_owner.pixel_y), time = animation_time / 2, easing = CIRCULAR_EASING|EASE_IN)
+		animate(pixel_y = xeno_owner.pixel_y + (LANDSLIDE_RANGE * 0.5), time = animation_time * 0.5, easing = CIRCULAR_EASING|EASE_OUT)
+		animate(pixel_y = initial(xeno_owner.pixel_y), time = animation_time * 0.5, easing = CIRCULAR_EASING|EASE_IN)
 		return
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/atom, balloon_alert), owner, "Use [name] again to cancel"), LANDSLIDE_WIND_UP)
 	add_cooldown(LANDSLIDE_WIND_UP)
@@ -865,8 +865,8 @@ RU TGMC EDIT */
 				if(instant)
 					continue
 				affected_living.layer = ABOVE_MOB_LAYER
-				animate(affected_living, pixel_y = affected_living.pixel_y + 40, time = SEISMIC_FRACTURE_PARALYZE_DURATION / 2, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_END_NOW)
-				animate(pixel_y = initial(affected_living.pixel_y), time = SEISMIC_FRACTURE_PARALYZE_DURATION / 2, easing = CIRCULAR_EASING|EASE_IN)
+				animate(affected_living, pixel_y = affected_living.pixel_y + 40, time = SEISMIC_FRACTURE_PARALYZE_DURATION * 0.5, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_END_NOW)
+				animate(pixel_y = initial(affected_living.pixel_y), time = SEISMIC_FRACTURE_PARALYZE_DURATION * 0.5, easing = CIRCULAR_EASING|EASE_IN)
 				addtimer(CALLBACK(src, PROC_REF(living_landing), affected_living), SEISMIC_FRACTURE_PARALYZE_DURATION)
 			else if(isearthpillar(affected_atom) || ismecha(affected_atom) || istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
 				affected_atom.do_jitter_animation()
@@ -892,7 +892,7 @@ RU TGMC EDIT */
 /datum/action/ability/activable/xeno/seismic_fracture/proc/living_landing(mob/living/affected_living)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	affected_living.layer = initial(affected_living.layer)
-	var/landing_damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) / 2
+	var/landing_damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * 0.5
 	affected_living.apply_damage(landing_damage, BRUTE, blocked = MELEE)
 	//playsound(affected_living.loc, 'sound/effects/alien/behemoth/seismic_fracture_landing.ogg', 10, TRUE)
 	new /obj/effect/temp_visual/behemoth/stomp(affected_living.loc)
@@ -1108,7 +1108,7 @@ RU TGMC EDIT */
 	if(!ability_active || source_action == src)
 		return
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored - (action_cost / 2), 0, xeno_owner.xeno_caste.wrath_max)
+	xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored - (action_cost * 0.5), 0, xeno_owner.xeno_caste.wrath_max)
 	return SUCCEED_ACTIVATE_CANCEL
 
 /**

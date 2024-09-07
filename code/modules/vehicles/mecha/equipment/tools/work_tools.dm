@@ -103,7 +103,7 @@
 		M.take_overall_damage(clamp_damage, BRUTE, MELEE, updating_health = TRUE)
 		if(!M) //get gibbed stoopid
 			return
-		M.adjustOxyLoss(round(clamp_damage/2))
+		M.adjustOxyLoss(round(clamp_damage * 0.5))
 		M.updatehealth()
 		target.visible_message(span_danger("[chassis] squeezes [target]!"), \
 							span_userdanger("[chassis] squeezes you!"),\

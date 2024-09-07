@@ -83,15 +83,15 @@
 	if(movement_acc_penalty_mult)
 		traits += "Movement unwielded penalty modifier: -[(movement_acc_penalty_mult * 0.15) * 100]%"
 	if(fire_delay)
-		traits += "Time between single-fire: [fire_delay / 10] seconds"
+		traits += "Time between single-fire: [fire_delay * 0.1] seconds"
 	if(wield_delay)
-		traits += "Wield delay: [wield_delay / 10] seconds"
+		traits += "Wield delay: [wield_delay * 0.1] seconds"
 	if(burst_amount > 1)
 		traits += "Shots fired on burst mode: [burst_amount]"
-		traits += "Time between burst-fire: [(min((burst_delay * 2), (fire_delay * 3))) / 10] seconds"
+		traits += "Time between burst-fire: [(min((burst_delay * 2), (fire_delay * 3))) * 0.1] seconds"
 	if(/datum/action/item_action/aim_mode in actions_types)
 		traits += "Can be aimed with to shoot past allies."
-		traits += "Time between aimed shots: [(fire_delay + aim_fire_delay) / 10] seconds"
+		traits += "Time between aimed shots: [(fire_delay + aim_fire_delay) * 0.1] seconds"
 
 	traits += "<br>"
 	var/list/entries = SScodex.retrieve_entries_for_string(general_codex_key)

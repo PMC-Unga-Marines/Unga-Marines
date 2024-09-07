@@ -147,7 +147,7 @@
 		"}
 	for(var/o in poll.options)
 		var/datum/poll_option/option = o
-		var/mid_val = round((option.max_val + option.min_val) / 2)
+		var/mid_val = round((option.max_val + option.min_val) * 0.5)
 		var/selected_rating = text2num(voted_ratings["[option.option_id]"])
 		output += "<label><br>[option.text]: <select name='[REF(option)]'"
 		if(length(voted_ratings) && !poll.allow_revoting)

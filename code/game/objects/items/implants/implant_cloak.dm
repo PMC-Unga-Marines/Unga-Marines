@@ -17,8 +17,8 @@
 	<b>Implant Details:</b><BR>
 	<b>Function:</b> Upon activation, this implant decreases the reflection rate of light in order to reduce user visibility.<BR>
 	<b>Current Implant status:</b>
-	Recharge time remaining: [S_TIMER_COOLDOWN_TIMELEFT(src, COOLDOWN_CLOAK_IMPLANT)/10] seconds
-	Active time remaining: [deactivation_timer ? "[timeleft(deactivation_timer)/10] seconds" :"Implant Inactive"]."}
+	Recharge time remaining: [S_TIMER_COOLDOWN_TIMELEFT(src, COOLDOWN_CLOAK_IMPLANT) * 0.1] seconds
+	Active time remaining: [deactivation_timer ? "[timeleft(deactivation_timer) * 0.1] seconds" :"Implant Inactive"]."}
 
 
 /obj/item/implant/cloak/activate(accidental = FALSE)

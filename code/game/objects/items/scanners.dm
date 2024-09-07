@@ -413,7 +413,7 @@ REAGENT SCANNER
 			to_chat(user, span_warning("[src]'s barometer function can't trace anything while the storm is [ongoing_weather.stage == MAIN_STAGE ? "already here!" : "winding down."]"))
 			return
 
-		to_chat(user, span_notice("The next [ongoing_weather] will hit in [(ongoing_weather.next_hit_time - world.time)/10] Seconds."))
+		to_chat(user, span_notice("The next [ongoing_weather] will hit in [(ongoing_weather.next_hit_time - world.time) * 0.1] Seconds."))
 		if(ongoing_weather.aesthetic)
 			to_chat(user, span_warning("[src]'s barometer function says that the next storm will breeze on by."))
 	else
@@ -422,7 +422,7 @@ REAGENT SCANNER
 		if(fixed < 0)
 			to_chat(user, span_warning("[src]'s barometer function was unable to trace any weather patterns."))
 		else
-			to_chat(user, span_warning("[src]'s barometer function says a storm will land in approximately [fixed/10] Seconds]."))
+			to_chat(user, span_warning("[src]'s barometer function says a storm will land in approximately [fixed * 0.1] Seconds]."))
 
 /obj/item/mass_spectrometer
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
@@ -518,7 +518,7 @@ REAGENT SCANNER
 		to_chat(user, span_notice("No chemical agents found in [O]"))
 		return
 	var/dat = ""
-	var/one_percent = O.reagents.total_volume / 100
+	var/one_percent = O.reagents.total_volume * 0.01
 	for (var/datum/reagent/R in O.reagents.reagent_list)
 		if(prob(reliability))
 			dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
