@@ -154,8 +154,7 @@
 	QDEL_NULL(mini)
 	QDEL_NULL(current_order)
 	QDEL_NULL(eyeobj)
-	for(var/a in actions)
-		var/datum/action/action_to_remove = a
+	for(var/datum/action/action_to_remove AS in actions)
 		action_to_remove.target = null
 	return ..()
 
