@@ -136,10 +136,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/mute_others_combat_messages = FALSE
 	///Whether to mute xeno health alerts from when other xenos are badly hurt.
 	var/mute_xeno_health_alert_messages = TRUE
-	///Whether to mute marine respawn alert when respawn timer runs out.
-	var/mute_marine_respawn_alert_message = FALSE
-	///Whether to mute xeno respawn alert when respawn timer runs out.
-	var/mute_xeno_respawn_alert_message = FALSE
 
 	///whether the user wants to hear tts
 	var/sound_tts = TTS_SOUND_ENABLED
