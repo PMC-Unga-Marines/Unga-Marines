@@ -393,7 +393,7 @@ GLOBAL_LIST_EMPTY(gene_tag_masks)   // Gene obfuscation for delicious trial and 
 					if(isnull(gene_chem[i])) gene_chem[i] = 0
 
 					if(chems[rid][i])
-						chems[rid][i] = max(1,round((gene_chem[i] + chems[rid][i])/2))
+						chems[rid][i] = max(1,round((gene_chem[i] + chems[rid][i]) * 0.5))
 					else
 						chems[rid][i] = gene_chem[i]
 

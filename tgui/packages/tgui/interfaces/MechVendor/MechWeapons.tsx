@@ -194,7 +194,7 @@ const EquipPanelContent = (props, context) => {
 const WeaponsTab = (props, context) => {
   const { act, data } = useBackend<MechVendData>(context);
   const { weapons } = data.all_equipment;
-  const midway = Math.ceil(weapons.length / 2);
+  const midway = Math.ceil(weapons.length * 0.5);
   const firstweapons = weapons.slice(0, midway);
   const secondweapons = weapons.slice(midway);
   return (

@@ -368,7 +368,7 @@
 		. += "System status: Nonfunctional"
 		return
 
-	. += "System integrity: [(health + 100) / 2]%"
+	. += "System integrity: [(health + 100) * 0.5]%"
 	. += ""
 	. += "- Operation information -"
 	. += "Current orbit: [GLOB.current_orbit]"
@@ -387,12 +387,12 @@
 	. += "Number of living marines: [SSticker.mode.count_humans_and_xenos()[1]]"
 
 	if(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
-		. += "Railgun status: Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds."
+		. += "Railgun status: Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time) * 0.1] seconds."
 	else
 		. += "Railgun status: Railgun is ready to fire."
 
 		if(last_ai_bioscan + COOLDOWN_AI_BIOSCAN > world.time)
-			. += "AI bioscan status: Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time)/10] seconds." //about 10 minutes
+			. += "AI bioscan status: Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time) * 0.1] seconds." //about 10 minutes
 		else
 			. += "AI bioscan status: Instruments are ready to scan the planet."
 

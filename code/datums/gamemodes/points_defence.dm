@@ -227,7 +227,7 @@
 		return
 
 	//Victory point
-	marine_victory_point += sensors_activated * (points_check_interval / 10) * marine_victory_points_factor / (phorone_sensors_amount + platinum_sensors_amount) * (sensors_activated >= boost_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
+	marine_victory_point += sensors_activated * (points_check_interval * 0.1) * marine_victory_points_factor / (phorone_sensors_amount + platinum_sensors_amount) * (sensors_activated >= boost_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
 	if(marine_victory_point >= points_to_win && !can_hunt)
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)

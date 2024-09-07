@@ -358,7 +358,7 @@
 		high_index = length(sorted_list)
 		while (low_index <= high_index)
 			// Figure out the midpoint, rounding up for fractions.  (BYOND rounds down, so add 1 if necessary.)
-			midway_calc = (low_index + high_index) / 2
+			midway_calc = (low_index + high_index) * 0.5
 			current_index = round(midway_calc)
 			if(midway_calc > current_index)
 				current_index++

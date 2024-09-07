@@ -252,8 +252,8 @@
 	color = COLOR_TOXIN_CHLORALHYDRATE
 	toxpwr = 0
 	custom_metabolism = REAGENTS_METABOLISM * 0.5
-	overdose_threshold = REAGENTS_OVERDOSE/2
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 
 /datum/reagent/toxin/chloralhydrate/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)

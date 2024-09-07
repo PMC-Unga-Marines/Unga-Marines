@@ -284,7 +284,7 @@
 	vis_contents -= flash
 
 /obj/vehicle/unmanned/flamer_fire_act(burnlevel, flame_color)
-	take_damage(burnlevel / 2, BURN, FIRE)
+	take_damage(burnlevel * 0.5, BURN, FIRE)
 
 /obj/vehicle/unmanned/fire_act()
 	take_damage(20, BURN, FIRE)

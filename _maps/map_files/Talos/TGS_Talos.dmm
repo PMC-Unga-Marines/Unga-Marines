@@ -3775,7 +3775,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
 	name = "\improper Pilot's Office";
 	dir = 2;
-	req_one_access = list(44,47)
+	req_one_access = list(44,47,49)
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/living/pilotbunks)

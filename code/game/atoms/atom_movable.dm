@@ -582,7 +582,7 @@ RU TGMC EDIT */
 	var/dist_since_sleep = 0
 
 	if(dist_x > dist_y)
-		var/error = dist_x/2 - dist_y
+		var/error = dist_x * 0.5 - dist_y
 		while(!gc_destroyed && target &&((((x < target.x && dx == EAST) || (x > target.x && dx == WEST)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
@@ -608,7 +608,7 @@ RU TGMC EDIT */
 					dist_since_sleep = 0
 					sleep(0.1 SECONDS)
 	else
-		var/error = dist_y/2 - dist_x
+		var/error = dist_y * 0.5 - dist_x
 		while(!gc_destroyed && target &&((((y < target.y && dy == NORTH) || (y > target.y && dy == SOUTH)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
