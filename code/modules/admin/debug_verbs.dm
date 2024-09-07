@@ -357,6 +357,9 @@
 	set category = "Debug"
 	set name = "Profiler"
 
+	if(!check_rights(R_DEBUG|R_RUNTIME))
+		return
+
 	winset(usr, null, "command=.profile")
 
 /datum/admins/proc/wipe_color_and_text(list/atom/wiping)
