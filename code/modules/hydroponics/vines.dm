@@ -163,9 +163,9 @@
 	// Update bioluminescence.
 	if(seed.biolum)
 		if(seed.biolum_colour)
-			set_light(1 + round(seed.potency / 10), l_color = seed.biolum_colour)
+			set_light(1 + round(seed.potency * 0.1), l_color = seed.biolum_colour)
 		else
-			set_light(1 + round(seed.potency / 10))
+			set_light(1 + round(seed.potency * 0.1))
 		return
 	else
 		set_light(0)

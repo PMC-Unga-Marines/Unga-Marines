@@ -61,7 +61,7 @@ const CryoContent = (props, context) => {
               </LabeledList.Item>
               {damageTypes.map((damageType) => (
                 <LabeledList.Item key={damageType.id} label={damageType.label}>
-                  <ProgressBar value={data.occupant[damageType.type] / 100}>
+                  <ProgressBar value={data.occupant[damageType.type] * 0.01}>
                     <AnimatedNumber value={data.occupant[damageType.type]} />
                   </ProgressBar>
                 </LabeledList.Item>

@@ -1313,7 +1313,7 @@
 		return fail_activate()
 	owner.visible_message(span_warning("[X] devours [victim]!"), \
 	span_warning("We devour [victim]!"), null, 5)
-	to_chat(owner, span_warning("We will eject the cocoon in [cocoon_production_time / 10] seconds! Do not move until it is done."))
+	to_chat(owner, span_warning("We will eject the cocoon in [cocoon_production_time * 0.1] seconds! Do not move until it is done."))
 	X.eaten_mob = victim
 	var/turf/starting_turf = get_turf(victim)
 	victim.forceMove(X)

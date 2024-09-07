@@ -518,7 +518,7 @@ REAGENT SCANNER
 		to_chat(user, span_notice("No chemical agents found in [O]"))
 		return
 	var/dat = ""
-	var/one_percent = O.reagents.total_volume / 100
+	var/one_percent = O.reagents.total_volume * 0.01
 	for (var/datum/reagent/R in O.reagents.reagent_list)
 		if(prob(reliability))
 			dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"

@@ -570,7 +570,7 @@
 
 
 /client/proc/pingfromtime(time)
-	return ((world.time + world.tick_lag * TICK_USAGE_REAL / 100) - time) * 100
+	return ((world.time + world.tick_lag * TICK_USAGE_REAL * 0.01) - time) * 100
 
 
 /client/verb/display_ping(time as num)
@@ -582,7 +582,7 @@
 /client/verb/ping()
 	set name = "Ping"
 	set category = "OOC.Fix"
-	winset(src, null, "command=.display_ping+[world.time + world.tick_lag * TICK_USAGE_REAL / 100]")
+	winset(src, null, "command=.display_ping+[world.time + world.tick_lag * TICK_USAGE_REAL * 0.01]")
 
 /client/verb/fix_stat_panel()
 	set name = "Fix Stat Panel"

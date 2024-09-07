@@ -367,7 +367,7 @@
 /datum/status_effect/plasmadrain/tick()
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	if(xenoowner.plasma_stored >= 0)
-		var/remove_plasma_amount = xenoowner.xeno_caste.plasma_max / 10
+		var/remove_plasma_amount = xenoowner.xeno_caste.plasma_max * 0.1
 		xenoowner.plasma_stored -= remove_plasma_amount
 		if(xenoowner.plasma_stored <= 0)
 			xenoowner.plasma_stored = 0
@@ -553,10 +553,10 @@
 		return
 	if(HAS_TRAIT(debuff_owner, TRAIT_INTOXICATION_RESISTANT) || (debuff_owner.get_soft_armor(BIO) > 65))
 		stack_decay = 2
-	var/debuff_damage = SENTINEL_INTOXICATED_BASE_DAMAGE + round(stacks / 10)
+	var/debuff_damage = SENTINEL_INTOXICATED_BASE_DAMAGE + round(stacks * 0.1)
 	debuff_owner.adjustFireLoss(debuff_damage)
 	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 4)
-	particle_holder.particles.spawning = 1 + round(stacks / 2)
+	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
 	if(stacks >= 20)
 		debuff_owner.adjust_slowdown(1)
 		debuff_owner.adjust_stagger(1 SECONDS)

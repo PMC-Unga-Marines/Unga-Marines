@@ -50,7 +50,7 @@ explosion resistance exactly as much as their health
 	if(!epicenter)
 		return
 
-	falloff = max(our_falloff, power / 100) //prevent explosions with a range larger than 100 tiles
+	falloff = max(our_falloff, power * 0.01) //prevent explosions with a range larger than 100 tiles
 	minimum_spread_power = -power * reflection_amplification_limit
 
 	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z [ADMIN_JMP(epicenter)])

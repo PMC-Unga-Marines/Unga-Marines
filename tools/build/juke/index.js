@@ -398,8 +398,8 @@ var require_conversions = __commonJS({
     };
     convert.hsl.rgb = function(hsl) {
       const h = hsl[0] / 360;
-      const s = hsl[1] / 100;
-      const l = hsl[2] / 100;
+      const s = hsl[1] * 0.01;
+      const l = hsl[2] * 0.01;
       let t2;
       let t3;
       let val;
@@ -437,8 +437,8 @@ var require_conversions = __commonJS({
     };
     convert.hsl.hsv = function(hsl) {
       const h = hsl[0];
-      let s = hsl[1] / 100;
-      let l = hsl[2] / 100;
+      let s = hsl[1] * 0.01;
+      let l = hsl[2] * 0.01;
       let smin = s;
       const lmin = Math.max(l, 0.01);
       l *= 2;
@@ -450,8 +450,8 @@ var require_conversions = __commonJS({
     };
     convert.hsv.rgb = function(hsv) {
       const h = hsv[0] / 60;
-      const s = hsv[1] / 100;
-      let v = hsv[2] / 100;
+      const s = hsv[1] * 0.01;
+      let v = hsv[2] * 0.01;
       const hi = Math.floor(h) % 6;
       const f = h - Math.floor(h);
       const p = 255 * v * (1 - s);
@@ -475,8 +475,8 @@ var require_conversions = __commonJS({
     };
     convert.hsv.hsl = function(hsv) {
       const h = hsv[0];
-      const s = hsv[1] / 100;
-      const v = hsv[2] / 100;
+      const s = hsv[1] * 0.01;
+      const v = hsv[2] * 0.01;
       const vmin = Math.max(v, 0.01);
       let sl;
       let l;
@@ -490,8 +490,8 @@ var require_conversions = __commonJS({
     };
     convert.hwb.rgb = function(hwb) {
       const h = hwb[0] / 360;
-      let wh = hwb[1] / 100;
-      let bl = hwb[2] / 100;
+      let wh = hwb[1] * 0.01;
+      let bl = hwb[2] * 0.01;
       const ratio = wh + bl;
       let f;
       if (ratio > 1) {
@@ -545,19 +545,19 @@ var require_conversions = __commonJS({
       return [r * 255, g * 255, b * 255];
     };
     convert.cmyk.rgb = function(cmyk) {
-      const c = cmyk[0] / 100;
-      const m = cmyk[1] / 100;
-      const y = cmyk[2] / 100;
-      const k = cmyk[3] / 100;
+      const c = cmyk[0] * 0.01;
+      const m = cmyk[1] * 0.01;
+      const y = cmyk[2] * 0.01;
+      const k = cmyk[3] * 0.01;
       const r = 1 - Math.min(1, c * (1 - k) + k);
       const g = 1 - Math.min(1, m * (1 - k) + k);
       const b = 1 - Math.min(1, y * (1 - k) + k);
       return [r * 255, g * 255, b * 255];
     };
     convert.xyz.rgb = function(xyz) {
-      const x = xyz[0] / 100;
-      const y = xyz[1] / 100;
-      const z = xyz[2] / 100;
+      const x = xyz[0] * 0.01;
+      const y = xyz[1] * 0.01;
+      const z = xyz[2] * 0.01;
       let r;
       let g;
       let b;
@@ -739,8 +739,8 @@ var require_conversions = __commonJS({
       return [hue * 360, chroma * 100, grayscale * 100];
     };
     convert.hsl.hcg = function(hsl) {
-      const s = hsl[1] / 100;
-      const l = hsl[2] / 100;
+      const s = hsl[1] * 0.01;
+      const l = hsl[2] * 0.01;
       const c = l < 0.5 ? 2 * s * l : 2 * s * (1 - l);
       let f = 0;
       if (c < 1) {
@@ -749,8 +749,8 @@ var require_conversions = __commonJS({
       return [hsl[0], c * 100, f * 100];
     };
     convert.hsv.hcg = function(hsv) {
-      const s = hsv[1] / 100;
-      const v = hsv[2] / 100;
+      const s = hsv[1] * 0.01;
+      const v = hsv[2] * 0.01;
       const c = s * v;
       let f = 0;
       if (c < 1) {
@@ -760,8 +760,8 @@ var require_conversions = __commonJS({
     };
     convert.hcg.rgb = function(hcg) {
       const h = hcg[0] / 360;
-      const c = hcg[1] / 100;
-      const g = hcg[2] / 100;
+      const c = hcg[1] * 0.01;
+      const g = hcg[2] * 0.01;
       if (c === 0) {
         return [g * 255, g * 255, g * 255];
       }
@@ -809,8 +809,8 @@ var require_conversions = __commonJS({
       ];
     };
     convert.hcg.hsv = function(hcg) {
-      const c = hcg[1] / 100;
-      const g = hcg[2] / 100;
+      const c = hcg[1] * 0.01;
+      const g = hcg[2] * 0.01;
       const v = c + g * (1 - c);
       let f = 0;
       if (v > 0) {
@@ -819,8 +819,8 @@ var require_conversions = __commonJS({
       return [hcg[0], f * 100, v * 100];
     };
     convert.hcg.hsl = function(hcg) {
-      const c = hcg[1] / 100;
-      const g = hcg[2] / 100;
+      const c = hcg[1] * 0.01;
+      const g = hcg[2] * 0.01;
       const l = g * (1 - c) + 0.5 * c;
       let s = 0;
       if (l > 0 && l < 0.5) {
@@ -831,14 +831,14 @@ var require_conversions = __commonJS({
       return [hcg[0], s * 100, l * 100];
     };
     convert.hcg.hwb = function(hcg) {
-      const c = hcg[1] / 100;
-      const g = hcg[2] / 100;
+      const c = hcg[1] * 0.01;
+      const g = hcg[2] * 0.01;
       const v = c + g * (1 - c);
       return [hcg[0], (v - c) * 100, (1 - v) * 100];
     };
     convert.hwb.hcg = function(hwb) {
-      const w = hwb[1] / 100;
-      const b = hwb[2] / 100;
+      const w = hwb[1] * 0.01;
+      const b = hwb[2] * 0.01;
       const v = 1 - b;
       const c = v - w;
       let g = 0;
@@ -854,7 +854,7 @@ var require_conversions = __commonJS({
       return [rgb[0] / 255 * 65535, rgb[1] / 255 * 65535, rgb[2] / 255 * 65535];
     };
     convert.gray.rgb = function(args) {
-      return [args[0] / 100 * 255, args[0] / 100 * 255, args[0] / 100 * 255];
+      return [args[0] * 0.01 * 255, args[0] * 0.01 * 255, args[0] * 0.01 * 255];
     };
     convert.gray.hsl = function(args) {
       return [0, 0, args[0]];
@@ -870,7 +870,7 @@ var require_conversions = __commonJS({
       return [gray[0], 0, 0];
     };
     convert.gray.hex = function(gray) {
-      const val = Math.round(gray[0] / 100 * 255) & 255;
+      const val = Math.round(gray[0] * 0.01 * 255) & 255;
       const integer = (val << 16) + (val << 8) + val;
       const string = integer.toString(16).toUpperCase();
       return "000000".substring(string.length) + string;

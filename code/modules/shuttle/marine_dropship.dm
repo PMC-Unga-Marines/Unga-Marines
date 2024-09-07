@@ -331,7 +331,7 @@
 		return "Control integrity compromised"
 	else if(hijack_state == HIJACK_STATE_UNLOCKED)
 		return "Remote control compromised"
-	return ..() + (timeleft(cycle_timer) ? (" Automatic cycle : [round(timeleft(cycle_timer) / 10 + 20, 1)] seconds before departure towards [previous.name]") : "")
+	return ..() + (timeleft(cycle_timer) ? (" Automatic cycle : [round(timeleft(cycle_timer) * 0.1 + 20, 1)] seconds before departure towards [previous.name]") : "")
 
 /obj/docking_port/mobile/marine_dropship/can_move_topic(mob/user)
 	if(hijack_state != HIJACK_STATE_NORMAL)

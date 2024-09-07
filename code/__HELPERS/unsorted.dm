@@ -2,7 +2,7 @@
 
 //Increases delay as the server gets more overloaded,
 //as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
-#define DELTA_CALC max(((max(TICK_USAGE, world.cpu) / 100) * max(Master.sleep_delta-1,1)), 1)
+#define DELTA_CALC max(((max(TICK_USAGE, world.cpu) * 0.01) * max(Master.sleep_delta-1,1)), 1)
 
 //returns the number of ticks slept
 /proc/stoplag(initial_delay)
@@ -259,7 +259,7 @@
 // Format frequency by moving the decimal.
 /proc/format_frequency(frequency)
 	frequency = text2num(frequency)
-	return "[round(frequency / 10)].[frequency % 10]"
+	return "[round(frequency * 0.1)].[frequency % 10]"
 
 
 //Opposite of format, returns as a number

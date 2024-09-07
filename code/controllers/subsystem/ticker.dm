@@ -77,7 +77,7 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C)
 			to_chat(world, span_round_body("Welcome to the pre-game lobby of [CONFIG_GET(string/server_name)]!"))
-			to_chat(world, span_role_body("Please, setup your character and select ready. Game will start in [round(time_left / 10) || CONFIG_GET(number/lobby_countdown)] seconds."))
+			to_chat(world, span_role_body("Please, setup your character and select ready. Game will start in [round(time_left * 0.1) || CONFIG_GET(number/lobby_countdown)] seconds."))
 			current_state = GAME_STATE_PREGAME
 			to_chat(world, SSpersistence.seasons_info_message())
 			fire()
@@ -169,7 +169,7 @@ SUBSYSTEM_DEF(ticker)
 
 	GLOB.datacore.manifest()
 
-	log_world("Game start took [(world.timeofday - init_start) / 10]s")
+	log_world("Game start took [(world.timeofday - init_start) * 0.1]s")
 	round_start_time = world.time
 	SSdbcore.SetRoundStart()
 
@@ -251,8 +251,8 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/GetTimeLeft()
 	if(isnull(SSticker.time_left))
-		return round(max(0, start_at - world.time) / 10)
-	return round(time_left / 10)
+		return round(max(0, start_at - world.time) * 0.1)
+	return round(time_left * 0.1)
 
 
 /datum/controller/subsystem/ticker/proc/SetTimeLeft(newtime)

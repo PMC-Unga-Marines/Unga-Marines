@@ -302,7 +302,7 @@
 	if(cooldown > world.time)
 		return
 	tiles_moved = ((cooldown + move_delay * 5) > world.time) ? 0 : tiles_moved
-	cooldown = world.time + move_delay * (1 - acceleration * tiles_moved / 10)
+	cooldown = world.time + move_delay * (1 - acceleration * tiles_moved * 0.1)
 	var/turf/T = get_turf(get_step(src, direct))
 	// check for dir change , if we changed then remove all acceleration
 	if(get_dir(src, T) != direction_moved)
