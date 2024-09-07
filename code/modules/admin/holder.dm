@@ -360,6 +360,7 @@ GLOBAL_PROTECT(admin_verbs_asay)
 	/datum/admins/proc/reestablish_db_connection,
 	/client/proc/reestablish_tts_connection,
 	/datum/admins/proc/view_runtimes,
+	/datum/admins/proc/profiler,
 	/client/proc/spawn_wave,
 	/client/proc/SDQL2_query,
 	/client/proc/toggle_cdn

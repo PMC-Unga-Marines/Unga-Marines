@@ -353,6 +353,12 @@
 		log_admin("[key_name(H)] became a spatial agent.")
 		message_admins("[ADMIN_TPMONTY(H)] became a spatial agent.")
 
+/datum/admins/proc/profiler()
+	set category = "Debug"
+	set name = "Profiler"
+
+	winset(usr, null, "command=.profile")
+
 /datum/admins/proc/wipe_color_and_text(list/atom/wiping)
 	for(var/i in wiping)
 		var/atom/atom_to_clean = i
