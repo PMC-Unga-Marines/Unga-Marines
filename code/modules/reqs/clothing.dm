@@ -30,12 +30,12 @@
 /datum/supply_packs/clothing/corpsman_satchel
 	name = "TGMC corpsman satchel"
 	contains = list(/obj/item/storage/backpack/marine/corpsman/satchel)
-	cost = 100
+	cost = 75
 
 /datum/supply_packs/clothing/corpsman_backpack
 	name = "TGMC corpsman backpack"
 	contains = list(/obj/item/storage/backpack/marine/corpsman)
-	cost = 150 // higher price because it has a better cell
+	cost = 125 // higher price because it has a better cell
 
 /datum/supply_packs/clothing/officer_outfits
 	name = "officer outfits"
