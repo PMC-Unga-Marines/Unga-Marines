@@ -917,3 +917,43 @@
 		X.remove_filter("overbonus_vis");
 
 	qdel(src)
+
+/datum/status_effect/upgrade_carapace
+	id = "upgrade_carapace"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_regeneration
+	id = "upgrade_regeneration"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_vampirism
+	id = "upgrade_vampirism"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_celerity
+	id = "upgrade_celerity"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_adrenaline
+	id = "upgrade_adrenaline"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_crush
+	id = "upgrade_crush"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_focus
+	id = "upgrade_focus"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/upgrade_toxin
+	id = "upgrade_toxin"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE

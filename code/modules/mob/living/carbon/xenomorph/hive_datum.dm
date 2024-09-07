@@ -21,6 +21,12 @@
 	var/list/obj/structure/xeno/psychictower/psychictowers = list()
 	///list of phero towers
 	var/list/obj/structure/xeno/pherotower/pherotowers = list()
+	///list of shell upgrade chambers
+	var/list/obj/structure/xeno/upgrade_chamber/shell/shell_chambers = list()
+	///list of spur upgrade chambers
+	var/list/obj/structure/xeno/upgrade_chamber/spur/spur_chambers = list()
+	///list of veil upgrade chambers
+	var/list/obj/structure/xeno/upgrade_chamber/veil/veil_chambers = list()
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
 	var/tier3_xeno_limit
@@ -141,6 +147,13 @@
 	// Pheromone towers
 	for(var/obj/structure/xeno/pherotower/tower AS in GLOB.hive_datums[hivenumber].pherotowers)
 		.["hive_structures"] += list(get_structure_packet(tower))
+	// Upgrade chambers
+	for(var/obj/structure/xeno/upgrade_chamber/shell/chamber AS in GLOB.hive_datums[hivenumber].shell_chambers)
+		.["hive_structures"] += list(get_structure_packet(chamber))
+	for(var/obj/structure/xeno/upgrade_chamber/spur/chamber AS in GLOB.hive_datums[hivenumber].spur_chambers)
+		.["hive_structures"] += list(get_structure_packet(chamber))
+	for(var/obj/structure/xeno/upgrade_chamber/veil/chamber AS in GLOB.hive_datums[hivenumber].veil_chambers)
+		.["hive_structures"] += list(get_structure_packet(chamber))
 	// Hivemind cores
 	for(var/obj/structure/xeno/hivemindcore/core AS in GLOB.hive_datums[hivenumber].hivemindcores)
 		.["hive_structures"] += list(get_structure_packet(core))
