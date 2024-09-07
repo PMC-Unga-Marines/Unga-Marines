@@ -152,6 +152,11 @@
 	UnregisterSignal(SSdcs, COMSIG_GLOB_CLONE_PRODUCED)
 	UnregisterSignal(SSdcs, COMSIG_GLOB_HOLOPAD_AI_CALLED)
 	QDEL_NULL(mini)
+	QDEL_NULL(current_order)
+	QDEL_NULL(eyeobj)
+	for(var/a in actions)
+		var/datum/action/action_to_remove = a
+		action_to_remove.target = null
 	return ..()
 
 ///Print order visual to all marines squad hud and give them an arrow to follow the waypoint
