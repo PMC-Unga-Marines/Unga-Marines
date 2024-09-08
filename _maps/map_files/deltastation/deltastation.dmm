@@ -6181,7 +6181,7 @@
 /turf/open/floor/plating,
 /area/deltastation/service/abandoned_gambling_den)
 "bnI" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/tool/shovel/spade,
 /turf/open/floor/plating,
@@ -23209,7 +23209,7 @@
 /turf/open/floor/asteroidfloor,
 /area/deltastation/external/landingzone)
 "eHG" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/deltastation/service/hydroponics/garden/abandoned)
@@ -31949,7 +31949,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/item/tool/shovel/spade,
 /turf/open/floor/iron,
 /area/deltastation/service/hydroponics/garden/abandoned)
@@ -39732,7 +39732,7 @@
 /area/deltastation/science/xenobiology)
 "hZO" = (
 /obj/machinery/light/small,
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/deltastation/service/hydroponics/garden/abandoned)
@@ -57223,7 +57223,7 @@
 /turf/open/floor/plating,
 /area/deltastation/service/library/abandoned)
 "lGL" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 4
@@ -60780,7 +60780,7 @@
 /turf/open/floor/iron/white,
 /area/deltastation/medical/paramedic)
 "mtn" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/air_alarm{
 	dir = 8
@@ -78421,7 +78421,7 @@
 /turf/open/floor/iron,
 /area/deltastation/commons/locker)
 "pYi" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/securearea{
 	pixel_x = -30
@@ -80043,7 +80043,7 @@
 /turf/open/floor/iron,
 /area/deltastation/hallway/secondary/entry)
 "qnt" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/deltastation/service/hydroponics/garden/abandoned)
@@ -80203,7 +80203,7 @@
 /turf/open/floor/iron/dark,
 /area/deltastation/security/warden)
 "qpl" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/air_alarm,
 /turf/open/floor/plating,
@@ -111993,7 +111993,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/department/electrical)
 "wFB" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/securearea{
 	dir = 8
@@ -114084,7 +114084,7 @@
 /turf/open/floor/iron/white,
 /area/deltastation/command/heads_quarters/cmo)
 "xce" = (
-/obj/machinery/hydroponics/soil,
+/obj/prop/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/camera{
 	dir = 8
