@@ -278,8 +278,10 @@
 	return
 
 /mob/living/carbon/xenomorph/Destroy()
-	if(mind) mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
-	if(is_zoomed) zoom_out()
+	if(mind)
+		mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
+	if(is_zoomed)
+		zoom_out()
 
 	GLOB.alive_xeno_list -= src
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
@@ -295,7 +297,6 @@
 	QDEL_NULL(wound_overlay)
 	QDEL_NULL(fire_overlay)
 	return ..()
-
 
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
 	return FALSE
