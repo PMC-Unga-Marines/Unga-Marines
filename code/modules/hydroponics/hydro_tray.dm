@@ -24,7 +24,6 @@
 	icon = 'icons/obj/machines/hydroponics.dmi'
 	icon_state = "soil"
 	density = FALSE
-	use_power = 0
 
 /obj/prop/hydroponics/slashable
 	resistance_flags = XENO_DAMAGEABLE
