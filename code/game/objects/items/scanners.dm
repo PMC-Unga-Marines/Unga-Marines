@@ -213,7 +213,6 @@ REAGENT SCANNER
 		data["stomach_chemicals_lists"] = stomach_chemicals_lists
 	else
 		data["has_stomach_chemicals"] = 0
-		data["has_unknown_chemicals"] = FALSE
 		data["stomach_chemicals_lists"] = NONE
 
 	data["species"] = patient.species.species_flags & ROBOTIC_LIMBS ? "robot" : "human"
