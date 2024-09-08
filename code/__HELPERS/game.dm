@@ -91,7 +91,7 @@
 
 /proc/remove_images_from_clients(image/I, list/show_to)
 	for(var/client/C AS in show_to)
-		C.images -= I
+		C?.images -= I
 
 
 /proc/flick_overlay(image/I, list/show_to, duration)
