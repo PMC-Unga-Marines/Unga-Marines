@@ -75,12 +75,12 @@
 
 ///Adds a new desant
 /obj/hitbox/proc/add_desant(atom/movable/new_desant)
+	new_desant.layer = ABOVE_MOB_PLATFORM_LAYER
 	if(HAS_TRAIT(new_desant, TRAIT_TANK_DESANT))
 		return
 	ADD_TRAIT(new_desant, TRAIT_TANK_DESANT, VEHICLE_TRAIT)
 	LAZYSET(tank_desants, new_desant, new_desant.layer)
 	RegisterSignal(new_desant, COMSIG_QDELETING, PROC_REF(on_desant_del))
-	new_desant.layer = ABOVE_MOB_PLATFORM_LAYER
 	root.add_desant(new_desant)
 
 ///signal handler when someone jumping lands on us
