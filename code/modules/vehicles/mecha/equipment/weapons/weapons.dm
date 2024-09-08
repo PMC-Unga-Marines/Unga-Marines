@@ -163,7 +163,7 @@
 	if(!action_checks(current_target, TRUE))
 		return NONE
 	var/dir_target_diff = get_between_angles(Get_Angle(chassis, current_target), dir2angle(chassis.dir))
-	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED / 2))
+	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED * 0.5))
 		return AUTOFIRE_CONTINUE
 
 	var/type_to_spawn = CHECK_BITFIELD(initial(ammotype.flags_ammo_behavior), AMMO_HITSCAN) ? /obj/projectile/hitscan : /obj/projectile
@@ -387,7 +387,7 @@
 	if(!action_checks(target))
 		return FALSE
 	var/dir_target_diff = get_between_angles(Get_Angle(chassis, target), dir2angle(chassis.dir))
-	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED / 2))
+	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED * 0.5))
 		return TRUE
 	var/obj/O = new ammotype(chassis.loc)
 	playsound(chassis, fire_sound, 50, TRUE)

@@ -1940,6 +1940,7 @@
 #include "code\modules\reqs\explosives.dm"
 #include "code\modules\reqs\factory.dm"
 #include "code\modules\reqs\imports.dm"
+#include "code\modules\reqs\medical.dm"
 #include "code\modules\reqs\operations.dm"
 #include "code\modules\reqs\supplies.dm"
 #include "code\modules\reqs\vehicles.dm"

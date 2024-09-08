@@ -14,6 +14,8 @@
 
 /obj/machinery/optable/deployable
 	name = "Deployable Operating Table"
+	icon_state = "table_deployable_idle"
+	base_icon_state = "table_deployable"
 	desc = "Used for advanced medical procedures in field."
 	use_power = NO_POWER_USE
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE

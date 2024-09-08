@@ -466,7 +466,7 @@
 
 	if(cloaked) //Turn it off.
 		if(cloak_timer > world.time)
-			to_chat(M, span_warning("Your cloaking device is busy! Time left: <B>[max(round((cloak_timer - world.time) / 10), 1)]</b> seconds."))
+			to_chat(M, span_warning("Your cloaking device is busy! Time left: <B>[max(round((cloak_timer - world.time) * 0.1), 1)]</b> seconds."))
 			return FALSE
 		decloak(caller)
 	else //Turn it on!
@@ -479,7 +479,7 @@
 			return FALSE
 
 		if(cloak_timer > world.time)
-			to_chat(M, span_warning("Your cloaking device is still recharging! Time left: <B>[max(round((cloak_timer - world.time) / 10), 1)]</b> seconds."))
+			to_chat(M, span_warning("Your cloaking device is still recharging! Time left: <B>[max(round((cloak_timer - world.time) * 0.1), 1)]</b> seconds."))
 			return FALSE
 
 		if(!drain_power(M, 50))
@@ -776,9 +776,9 @@
 	if(charge < charge_max)
 		var/charge_increase = charge_rate
 		if(is_ground_level(human_holder.z))
-			charge_increase = charge_rate / 4
+			charge_increase = charge_rate * 0.25
 		else if(is_mainship_level(human_holder.z))
-			charge_increase = charge_rate / 2
+			charge_increase = charge_rate * 0.5
 
 		charge = min(charge + charge_increase, charge_max)
 		var/perc_charge = (charge / charge_max * 100)

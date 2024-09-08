@@ -63,7 +63,7 @@ export const SupplyDropConsole = (_props, context) => {
                 average: [0.33, 0.67],
                 bad: [0.67, Infinity],
               }}>
-              {Math.ceil(timeLeft / 10)} sec(s)
+              {Math.ceil(timeLeft * 0.1)} sec(s)
             </ProgressBar>
           </Section>
           <Button
