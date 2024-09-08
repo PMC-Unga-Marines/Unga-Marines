@@ -19,35 +19,12 @@
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
-/obj/machinery/hydroponics/verb/close_lid()
-	set name = "Toggle Tray Lid"
-	set category = "Object"
-	set src in view(1)
-
-	if(!usr || usr.stat || usr.restrained())
-		return
-
-	closed_system = !closed_system
-	to_chat(usr, "You [closed_system ? "close" : "open"] the tray's lid.")
-	update_icon()
-
 /obj/machinery/hydroponics/soil
 	name = "soil"
 	icon = 'icons/obj/machines/hydroponics.dmi'
 	icon_state = "soil"
 	density = FALSE
 	use_power = 0
-
-/obj/machinery/hydroponics/soil/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(istype(I, /obj/item/tool/shovel))
-		to_chat(user, "You clear up [src]!")
-		qdel(src)
-
-/obj/machinery/hydroponics/soil/Initialize(mapload)
-	. = ..()
-	verbs -= /obj/machinery/hydroponics/verb/close_lid
 
 /obj/machinery/hydroponics/slashable
 	resistance_flags = XENO_DAMAGEABLE
