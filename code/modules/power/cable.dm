@@ -761,3 +761,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 
 /obj/structure/cable/multilayer/layer23
 	cable_layer = CABLE_LAYER_2 | CABLE_LAYER_3
+
+//Cable subtype for cases when you need to path it under cas
+/obj/structure/cable/shuttle_immune
+	flags_atom = SHUTTLE_IMMUNE
