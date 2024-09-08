@@ -2156,6 +2156,7 @@
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod,
+/obj/structure/dropship_equipment/cas/weapon/minirocket_pod,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "bli" = (
