@@ -413,7 +413,7 @@
 /obj/structure/xeno/hivemindcore/proc/get_parent()
 	return parent?.resolve()
 
-/mob/living/carbon/xenomorph/hivemind/setup_verbs()
+/mob/living/carbon/xenomorph/hivemind/add_inherent_verbs()
 	return
 
 /mob/living/carbon/xenomorph/hivemind/remove_inherent_verbs()
