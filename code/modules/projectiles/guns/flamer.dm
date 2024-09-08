@@ -48,8 +48,10 @@
 		/obj/item/ammo_magazine/flamer_tank,
 		/obj/item/ammo_magazine/flamer_tank/large,
 		/obj/item/ammo_magazine/flamer_tank/large/X,
+		/obj/item/ammo_magazine/flamer_tank/large/G,
 		/obj/item/ammo_magazine/flamer_tank/backtank,
 		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/backtank/G,
 	)
 	light_range = 0.1
 	light_power = 0.1
@@ -57,7 +59,7 @@
 	///Max range of the flamer in tiles.
 	var/flame_max_range = 6
 	///Max resin wall penetration in tiles.
-	var/flame_max_wall_pen = 3
+	var/flame_max_wall_pen = 2
 	///After how many total resin walls the flame wont proceed further
 	var/flame_max_wall_pen_wide = 9
 	///Travel speed of the flames in seconds.
@@ -360,6 +362,10 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/flamer_tank/mini,
 		/obj/item/ammo_magazine/flamer_tank/backtank,
+		/obj/item/ammo_magazine/flamer_tank/mini/X,
+		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/mini/G,
+		/obj/item/ammo_magazine/flamer_tank/backtank/G,
 	)
 	starting_attachment_types = list(/obj/item/attachable/flamer_nozzle/unremovable/invisible)
 	attachable_allowed = list(
@@ -505,7 +511,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	///Tracks how much "fire" there is. Basically the timer of how long the fire burns
 	var/firelevel = 12
 	///Tracks how HOT the fire is. This is basically the heat level of the fire and determines the temperature
-	var/burnlevel = 10
+	var/burnlevel = 20
 	///The color the flames and associated particles appear
 	var/flame_color = "red"
 
@@ -529,7 +535,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 ///Effects applied to a mob that crosses a burning turf
 /obj/flamer_fire/proc/on_cross(datum/source, mob/living/M, oldloc, oldlocs)
 	if(istype(M))
-		M.flamer_fire_act(burnlevel)
+		M.flamer_fire_act(burnlevel, flame_color)
 
 /obj/flamer_fire/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
@@ -562,7 +568,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 		return
 
 	for(var/mob/living/C in get_turf(src))
-		C.flamer_fire_act(fire_stacks)
+		C.flamer_fire_act(fire_stacks, flame_color)
 		C.take_overall_damage(fire_damage, BURN, FIRE, updating_health = TRUE)
 
 /obj/flamer_fire/proc/updateicon()
@@ -600,7 +606,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 		qdel(src)
 		return
 
-	T.flamer_fire_act(burnlevel)
+	T.flamer_fire_act(burnlevel, flame_color)
 
 	var/j = 0
 	for(var/i in T)
@@ -609,7 +615,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 		var/atom/A = i
 		if(QDELETED(A)) //The destruction by fire of one atom may destroy others in the same turf.
 			continue
-		A.flamer_fire_act(burnlevel)
+		A.flamer_fire_act(burnlevel, flame_color)
 
 	firelevel -= 2 //reduce the intensity by 2 per tick
 

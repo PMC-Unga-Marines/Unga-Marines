@@ -1,5 +1,5 @@
 /proc/GetExp(minutes as num)
-	var/exp = minutes - (world.realtime / 10) / 60
+	var/exp = minutes - (world.realtime * 0.1) / 60
 	if(exp <= 0)
 		return 0
 	else

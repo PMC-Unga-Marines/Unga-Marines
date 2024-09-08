@@ -2,7 +2,7 @@
 	name = "Operating Table"
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "table2-idle"
+	icon_state = "table2_idle"
 	base_icon_state = "table2"
 	density = TRUE
 	coverage = 10
@@ -13,10 +13,10 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 1
 	active_power_usage = 5
-	var/mob/living/carbon/human/victim = null
-	var/strapped = 0
 	buckle_flags = CAN_BUCKLE
 	buckle_lying = 90
+	var/mob/living/carbon/human/victim = null
+	var/strapped = 0
 	var/obj/item/tank/anesthetic/anes_tank
 	var/obj/machinery/computer/operating/computer = null
 
@@ -36,6 +36,13 @@
 		if(computer)
 			computer.table = src
 			break
+
+/obj/machinery/optable/update_overlays()
+	. = ..()
+	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
+		return
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/optable/ex_act(severity)
 	if(prob(severity * 0.3))
@@ -139,12 +146,14 @@
 		var/mob/living/carbon/human/M = locate(/mob/living/carbon/human, loc)
 		if(M.lying_angle)
 			victim = M
-			icon_state = M.handle_pulse() ? "[base_icon_state]-active" : "[base_icon_state]-idle"
-			return 1
+			icon_state = M.handle_pulse() ? "[base_icon_state]_active" : "[base_icon_state]_idle"
+			update_icon()
+			return TRUE
 	victim = null
 	stop_processing()
-	icon_state = "[base_icon_state]-idle"
-	return 0
+	icon_state = "[base_icon_state]_idle"
+	update_icon()
+	return FALSE
 
 /obj/machinery/optable/process()
 	check_victim()
@@ -161,9 +170,10 @@
 		var/mob/living/carbon/human/H = C
 		victim = H
 		start_processing()
-		icon_state = H.handle_pulse() ? "[base_icon_state]-active" : "[base_icon_state]-idle"
+		icon_state = H.handle_pulse() ? "[base_icon_state]_active" : "[base_icon_state]_idle"
 	else
-		icon_state = "[base_icon_state]-idle"
+		icon_state = "[base_icon_state]_idle"
+	update_icon()
 
 /obj/machinery/optable/verb/climb_on()
 	set name = "Climb On Table"
@@ -225,7 +235,3 @@
 
 /obj/machinery/optable/yautja
 	icon = 'icons/obj/machines/yautja_machines.dmi'
-
-/obj/machinery/optable/alt
-	icon_state = "alt_table2-idle"
-	base_icon_state = "alt_table2"

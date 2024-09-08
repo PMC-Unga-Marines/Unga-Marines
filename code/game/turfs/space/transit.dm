@@ -119,10 +119,6 @@
 		playsound(src, 'sound/effects/metal_crash.ogg', 35, 1)
 		deconstruct(FALSE)
 		return
-	if(locate(/mob/living) in target_turf)
-		var/mob/living/victim = locate(/mob/living) in target_turf
-		throw_impact(victim, 20)
-		return
 	explosion_throw(200) // give it a bit of a kick
 	playsound(loc, 'sound/weapons/smash.ogg', 35, 1)
 
@@ -168,7 +164,7 @@
 	icon_state = "Cloud_[get_transit_state(src, available_icon_state_amounts)]"
 
 /proc/get_transit_state(turf/T, available_icon_state_amounts)
-	var/p = round(available_icon_state_amounts / 2)
+	var/p = round(available_icon_state_amounts * 0.5)
 	. = 1
 	switch(T.dir)
 		if(NORTH)

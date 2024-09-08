@@ -38,7 +38,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 65, BULLET = 70, LASER = 70, ENERGY = 65, BOMB = 80, BIO = 60, FIRE = 60, ACID = 60)
+	soft_armor = list(MELEE = 65, BULLET = 70, LASER = 70, ENERGY = 65, BOMB = 80, BIO = 60, FIRE = 40, ACID = 60)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1.1 SECONDS

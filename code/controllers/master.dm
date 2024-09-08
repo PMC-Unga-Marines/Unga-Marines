@@ -249,9 +249,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			// Loop.
 			Master.StartProcessing(0)
 
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-
-
+	var/time = (REALTIMEOFDAY - start_timeofday) * 0.1
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 	to_chat(world, span_boldannounce("[msg]"))
@@ -297,7 +295,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 	// Capture end time
 	var/time = rustg_time_milliseconds(SS_INIT_TIMER_KEY)
-	var/seconds = round(time / 1000, 0.01)
+	var/seconds = round(time * 0.001, 0.01)
 
 	// Always update the blackbox tally regardless.
 	SSblackbox.record_feedback("tally", "subsystem_initialize", time, subsystem.name)
@@ -708,11 +706,11 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			if (queue_node_flags & SS_TICKER)
 				queue_node.next_fire = world.time + (world.tick_lag * queue_node.wait)
 			else if (queue_node_flags & SS_POST_FIRE_TIMING)
-				queue_node.next_fire = world.time + queue_node.wait + (world.tick_lag * (queue_node.tick_overrun/100))
+				queue_node.next_fire = world.time + queue_node.wait + (world.tick_lag * (queue_node.tick_overrun * 0.01))
 			else if (queue_node_flags & SS_KEEP_TIMING)
 				queue_node.next_fire += queue_node.wait
 			else
-				queue_node.next_fire = queue_node.queued_time + queue_node.wait + (world.tick_lag * (queue_node.tick_overrun/100))
+				queue_node.next_fire = queue_node.queued_time + queue_node.wait + (world.tick_lag * (queue_node.tick_overrun * 0.01))
 
 			queue_node.queued_time = 0
 

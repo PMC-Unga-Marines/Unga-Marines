@@ -15,7 +15,7 @@
 	if(prob(severity * 0.25))
 		qdel(src)
 
-/obj/structure/flora/flamer_fire_act(burnlevel)
+/obj/structure/flora/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel, BURN, FIRE)
 
 /obj/structure/flora/fire_act()
@@ -81,7 +81,7 @@
 
 	qdel(src)
 
-/obj/structure/flora/tree/flamer_fire_act(burnlevel)
+/obj/structure/flora/tree/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel/6, BURN, FIRE)
 
 

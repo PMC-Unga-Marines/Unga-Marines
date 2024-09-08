@@ -7,7 +7,7 @@
 		angle_increment = (shrapnel_spread * 2) / shrapnel_number
 	else
 		angle_increment = 360 / shrapnel_number
-	var/angle_randomization = angle_increment / 2
+	var/angle_randomization = angle_increment * 0.5
 
 	var/mob/living/carbon/standing_mob
 	var/mob/living/carbon/lying_mob
