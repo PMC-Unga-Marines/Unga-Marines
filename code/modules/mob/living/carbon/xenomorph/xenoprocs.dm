@@ -227,7 +227,7 @@
 /mob/living/carbon/xenomorph/proc/remove_inherent_verbs()
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			remove_verb(verbs, verb_path)
+			remove_verb(src, verb_path)
 
 //Adds or removes a delay to movement based on your caste. If speed = 0 then it shouldn't do much.
 //Runners are -2, -4 is BLINDLINGLY FAST, +2 is fat-level
