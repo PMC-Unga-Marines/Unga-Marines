@@ -2803,7 +2803,7 @@
 	},
 /area/mainship/squads/delta)
 "bDD" = (
-/obj/structure/prop/mainship/name_stencil/C,
+/obj/structure/prop/mainship/name_stencil/U,
 /turf/open/floor/mainship_hull,
 /area/space)
 "bDL" = (
@@ -6455,7 +6455,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "dFh" = (
-/obj/structure/prop/mainship/name_stencil/M,
+/obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull,
 /area/space)
 "dFx" = (
@@ -25185,10 +25185,6 @@
 /obj/effect/spawner/random/clothing/hats,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/starboard_hallway)
-"oLr" = (
-/obj/structure/prop/mainship/name_stencil/G,
-/turf/open/floor/mainship_hull,
-/area/space)
 "oLy" = (
 /obj/item/weapon/gun/pistol/vp70,
 /obj/item/ammo_magazine/pistol/vp70,
@@ -65931,7 +65927,7 @@ neu
 neu
 ooO
 dnv
-oLr
+dnv
 dnv
 dnv
 dnv
@@ -66019,7 +66015,7 @@ dnv
 dnv
 dnv
 dnv
-oLr
+dnv
 enG
 neu
 neu
@@ -66188,7 +66184,7 @@ neu
 neu
 ooO
 dnv
-dnv
+dFh
 dnv
 dnv
 dnv
@@ -66276,7 +66272,7 @@ dnv
 dnv
 dnv
 dnv
-dnv
+dFh
 enG
 neu
 neu
@@ -66445,7 +66441,7 @@ neu
 neu
 ooO
 dnv
-dFh
+dnv
 dnv
 dnv
 dnv
@@ -66533,7 +66529,7 @@ dnv
 dnv
 dnv
 dnv
-dFh
+dnv
 enG
 neu
 neu
@@ -66959,7 +66955,7 @@ neu
 neu
 ooO
 dnv
-bDD
+dFh
 dnv
 lXW
 dnv
@@ -67047,7 +67043,7 @@ dnv
 lXW
 dnv
 dnv
-bDD
+dFh
 enG
 neu
 neu
@@ -88199,7 +88195,7 @@ dnv
 dnv
 dnv
 dnv
-dnv
+bDD
 dnv
 dnv
 dnv
@@ -88713,7 +88709,7 @@ dnv
 dnv
 dnv
 dnv
-dnv
+dFh
 dnv
 dnv
 dnv
@@ -89227,7 +89223,7 @@ dnv
 dnv
 dnv
 dnv
-dnv
+dFh
 dnv
 dnv
 dnv
@@ -89321,7 +89317,7 @@ ooO
 dnv
 dnv
 dnv
-oLr
+dnv
 dnv
 dnv
 dnv
@@ -89403,7 +89399,7 @@ dnv
 dnv
 dnv
 dnv
-oLr
+dnv
 dnv
 dnv
 enG
@@ -89578,7 +89574,7 @@ ooO
 dnv
 dnv
 dnv
-dnv
+dFh
 dnv
 dnv
 dnv
@@ -89660,7 +89656,7 @@ dnv
 dnv
 dnv
 dnv
-dnv
+dFh
 dnv
 dnv
 enG
@@ -89835,7 +89831,7 @@ ooO
 dnv
 dnv
 dnv
-dFh
+dnv
 dnv
 dnv
 dnv
@@ -89917,7 +89913,7 @@ dnv
 dnv
 dnv
 dnv
-dFh
+dnv
 dnv
 dnv
 enG
@@ -90349,7 +90345,7 @@ ooO
 dnv
 dnv
 dnv
-bDD
+dFh
 dnv
 dnv
 dnv
@@ -90431,7 +90427,7 @@ ooO
 dnv
 dnv
 dnv
-bDD
+dFh
 dnv
 dnv
 enG

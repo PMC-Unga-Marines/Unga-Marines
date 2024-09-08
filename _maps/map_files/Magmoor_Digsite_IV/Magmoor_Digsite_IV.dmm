@@ -9982,7 +9982,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
 	},
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/magmoor/civilian/arrival)
 "hgJ" = (
 /obj/structure/table/woodentable,
@@ -10949,7 +10949,7 @@
 /turf/open/floor/plating,
 /area/magmoor/compound/north)
 "hWC" = (
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/magmoor/civilian/arrival/east)
 "hWD" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -11409,7 +11409,7 @@
 "ilS" = (
 /obj/structure/barricade/wooden,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/magmoor/civilian/arrival/east)
 "img" = (
 /obj/machinery/bodyscanner,
@@ -24269,7 +24269,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/magmoor/civilian/arrival)
 "rMh" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -28628,7 +28628,7 @@
 /area/magmoor/cargo/processing/south)
 "uSP" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/magmoor/civilian/arrival/east)
 "uTa" = (
 /turf/open/floor/mainship/emerald{
@@ -29389,7 +29389,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
 	},
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/magmoor/civilian/arrival)
 "vzw" = (
 /obj/structure/cable,

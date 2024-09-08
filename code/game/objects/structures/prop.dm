@@ -356,12 +356,8 @@
 /obj/structure/prop/mainship/name_stencil/U
 	icon_state = "UPP1"
 
-/obj/structure/prop/mainship/name_stencil/P1
+/obj/structure/prop/mainship/name_stencil/P
 	icon_state = "UPP2"
-
-/obj/structure/prop/mainship/name_stencil/P2
-	icon_state = "UPP2"
-
 
 /obj/structure/prop/mainship/name_stencil/Initialize(mapload)
 	. = ..()

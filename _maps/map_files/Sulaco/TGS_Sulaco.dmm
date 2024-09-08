@@ -18028,10 +18028,6 @@
 /obj/machinery/marine_selector/gear/commander,
 /turf/open/floor/wood,
 /area/sulaco/bridge/office)
-"mno" = (
-/obj/structure/prop/mainship/name_stencil/M,
-/turf/open/floor/mainship_hull/gray,
-/area/space)
 "mnu" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
@@ -19262,10 +19258,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/sulaco/cargo)
-"nTc" = (
-/obj/structure/prop/mainship/name_stencil/G,
-/turf/open/floor/mainship_hull/gray,
-/area/space)
 "nTZ" = (
 /obj/effect/ai_node,
 /turf/open/floor/prison/red/corner{
@@ -19585,7 +19577,7 @@
 	},
 /area/sulaco/hangar/droppod)
 "orU" = (
-/obj/structure/prop/mainship/name_stencil/C,
+/obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull/gray,
 /area/space)
 "oso" = (
@@ -73136,7 +73128,7 @@ mDu
 mDu
 mDu
 mDu
-nTc
+orU
 mDu
 mDu
 qDO
@@ -73907,7 +73899,7 @@ ipF
 mDu
 mDu
 mDu
-mno
+orU
 mDu
 mDu
 qDO
@@ -74678,7 +74670,7 @@ mDu
 mDu
 mDu
 mDu
-orU
+mDu
 mDu
 mDu
 qDO
