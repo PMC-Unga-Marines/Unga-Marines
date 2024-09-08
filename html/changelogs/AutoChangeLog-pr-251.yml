@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Лодауты с АР-55 теперь имеют подходящий вид патронов к ней."
