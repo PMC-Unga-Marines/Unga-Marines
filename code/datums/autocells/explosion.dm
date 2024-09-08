@@ -240,7 +240,7 @@ as having entered the turf.
 	if(!epicenter)
 		return
 
-	falloff = max(falloff, power / 100)
+	falloff = max(falloff, power * 0.01)
 	if(adminlog)
 		log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(epicenter)]!")
 		if(is_mainship_level(epicenter.z))
@@ -250,7 +250,7 @@ as having entered the turf.
 	// Stereo users will also hear the direction of the explosion!
 
 	// Calculate far explosion sound range. Only allow the sound effect for heavy/devastating explosions.
-	var/far_dist = power / 10
+	var/far_dist = power * 0.1
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = sound(get_sfx("explosion_large"))

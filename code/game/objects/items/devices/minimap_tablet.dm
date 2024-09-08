@@ -164,7 +164,7 @@ GLOBAL_PROTECT(roles_allowed_minimap_draw)
 		pixel_coords = list(pixel_coords[1]-MINIMAP_DRAW_OFFSET, pixel_coords[2]+MINIMAP_DRAW_OFFSET)
 		mona_lisa.DrawBox(color, pixel_coords[1], pixel_coords[2], ++pixel_coords[1], ++pixel_coords[2])
 		drawn_image.icon = mona_lisa
-		log_minimap_drawing("[key_name(source)] has made a dot at [pixel_coords[1]/2], [pixel_coords[2]/2]")
+		log_minimap_drawing("[key_name(source)] has made a dot at [pixel_coords[1] * 0.5], [pixel_coords[2] * 0.5]")
 		return COMSIG_MOB_CLICK_CANCELED
 	starting_coords = pixel_coords
 	RegisterSignal(source, COMSIG_MOB_MOUSEUP, PROC_REF(on_mouseup))
@@ -183,11 +183,11 @@ GLOBAL_PROTECT(roles_allowed_minimap_draw)
 /// proc for drawing a line from list(startx, starty) to list(endx, endy) on the screen. yes this is aa ripoff of [/proc/getline]
 /atom/movable/screen/minimap_tool/draw_tool/proc/draw_line(list/start_coords, list/end_coords, draw_color = color)
 	// converts these into the unscaled minimap version so we have to do less calculating
-	var/halved_offset = MINIMAP_DRAW_OFFSET/2
-	var/start_x = FLOOR(start_coords[1]/2, 1) - halved_offset
-	var/start_y = FLOOR(start_coords[2]/2, 1) + halved_offset
-	var/end_x = FLOOR(end_coords[1]/2, 1) - halved_offset
-	var/end_y = FLOOR(end_coords[2]/2, 1) + halved_offset
+	var/halved_offset = MINIMAP_DRAW_OFFSET * 0.5
+	var/start_x = FLOOR(start_coords[1] * 0.5, 1) - halved_offset
+	var/start_y = FLOOR(start_coords[2] * 0.5, 1) + halved_offset
+	var/end_x = FLOOR(end_coords[1] * 0.5, 1) - halved_offset
+	var/end_y = FLOOR(end_coords[2] * 0.5, 1) + halved_offset
 	var/icon/mona_lisa = icon(drawn_image.icon)
 
 	//special case 1, straight line
@@ -301,8 +301,8 @@ GLOBAL_PROTECT(roles_allowed_minimap_draw)
 	// want to also cancel the click if they click src and I cant be bothered to make it even more generic rn
 	var/list/modifiers = params2list(params)
 	var/list/pixel_coords = params2screenpixel(modifiers["screen-loc"])
-	var/x = (pixel_coords[1] - x_offset - MINIMAP_DRAW_OFFSET) / 2
-	var/y = (pixel_coords[2] - y_offset + MINIMAP_DRAW_OFFSET) / 2
+	var/x = (pixel_coords[1] - x_offset - MINIMAP_DRAW_OFFSET) * 0.5
+	var/y = (pixel_coords[2] - y_offset + MINIMAP_DRAW_OFFSET) * 0.5
 	var/c_x = clamp(CEILING(x, 1), 1, world.maxx)
 	var/c_y = clamp(CEILING(y, 1), 1, world.maxy)
 	var/turf/target = locate(c_x, c_y, zlevel)

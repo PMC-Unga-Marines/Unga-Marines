@@ -49,7 +49,7 @@ export class FitText extends Component<Props, State> {
     let end = this.props.maxFontSize;
 
     for (let _ = 0; _ < 10; _++) {
-      const middle = Math.round((start + end) / 2);
+      const middle = Math.round((start + end) * 0.5);
       element.style.fontSize = `${middle}px`;
 
       const difference = element.offsetWidth - maxWidth;
@@ -67,7 +67,7 @@ export class FitText extends Component<Props, State> {
     }
 
     this.setState({
-      fontSize: Math.round((start + end) / 2),
+      fontSize: Math.round((start + end) * 0.5),
     });
   }
 

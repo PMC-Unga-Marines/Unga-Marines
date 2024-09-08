@@ -529,7 +529,7 @@
 			delta = 100 * (desired_width - got_width) / split_width
 		else if ((delta > 0 && got_width > desired_width) || (delta < 0 && got_width < desired_width))
 			// if we overshot, halve the delta and reverse direction
-			delta = -delta/2
+			delta = -delta * 0.5
 
 		pct += delta
 		winset(src, "mainwindow.split", "splitter=[pct]")
@@ -570,7 +570,7 @@
 
 
 /client/proc/pingfromtime(time)
-	return ((world.time + world.tick_lag * TICK_USAGE_REAL / 100) - time) * 100
+	return ((world.time + world.tick_lag * TICK_USAGE_REAL * 0.01) - time) * 100
 
 
 /client/verb/display_ping(time as num)
@@ -582,7 +582,7 @@
 /client/verb/ping()
 	set name = "Ping"
 	set category = "OOC.Fix"
-	winset(src, null, "command=.display_ping+[world.time + world.tick_lag * TICK_USAGE_REAL / 100]")
+	winset(src, null, "command=.display_ping+[world.time + world.tick_lag * TICK_USAGE_REAL * 0.01]")
 
 /client/verb/fix_stat_panel()
 	set name = "Fix Stat Panel"

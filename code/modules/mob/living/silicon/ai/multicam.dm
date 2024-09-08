@@ -36,14 +36,14 @@
 	if((width > 0) && (height > 0))
 		var/matrix/M = matrix()
 		M.Scale(width + 0.5, height + 0.5)
-		M.Translate((width-1)/2 * world.icon_size, (height-1)/2 * world.icon_size)
+		M.Translate((width-1) * 0.5 * world.icon_size, (height-1) * 0.5 * world.icon_size)
 		highlighted_background.transform = M
 		standard_background.transform = M
 		add_overlay(highlighted ? highlighted_background : standard_background)
 
 
 /atom/movable/screen/movable/pic_in_pic/ai/set_view_size(width, height, do_refresh = TRUE)
-	aiEye.static_visibility_range = (round(max(width, height) / 2) + 1)
+	aiEye.static_visibility_range = (round(max(width, height) * 0.5) + 1)
 	if(ai)
 		ai.camera_visibility(aiEye)
 	return ..()

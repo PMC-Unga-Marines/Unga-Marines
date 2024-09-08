@@ -18,7 +18,7 @@
 	var/x_distance_sign = SIGN(x_distance) //Sign of x distance (+ or -)
 	var/y_distance_sign = SIGN(y_distance)
 
-	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance/2
+	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance * 0.5
 	var/y = abs_y_distance >> 1 //Bit-shifting makes me l33t.  It also makes get_line() unnessecarrily fast.
 	if(abs_x_distance >= abs_y_distance) //x distance is greater than y
 		for(var/distance_counter in 0 to (abs_x_distance - 1))//It'll take abs_x_distance steps to get there
@@ -74,7 +74,7 @@
 	var/x_distance_sign = SIGN(x_distance) //Sign of x distance (+ or -)
 	var/y_distance_sign = SIGN(y_distance)
 
-	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance/2
+	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance * 0.5
 	var/y = abs_y_distance >> 1 //Bit-shifting makes me l33t.  It also makes get_line() unnessecarrily fast.
 	var/turf/final_turf = get_turf(ending_atom) //The goal
 	var/turf/last_turf = get_turf(starting_atom)

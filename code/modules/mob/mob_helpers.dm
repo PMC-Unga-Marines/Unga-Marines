@@ -386,15 +386,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 			var/diff = 32 / higher_power
 			alert_overlay.transform = alert_overlay.transform.Scale(diff, diff)
 			if(higher_power > 48)
-				alert_overlay.pixel_y = -(iheight / 2) * diff
-				alert_overlay.pixel_x = -(iwidth / 2) * diff
-
+				alert_overlay.pixel_y = -(iheight * 0.5) * diff
+				alert_overlay.pixel_x = -(iwidth * 0.5) * diff
 
 	alert_overlay.layer = FLOAT_LAYER
 	alert_overlay.plane = FLOAT_PLANE
 
 	A.add_overlay(alert_overlay)
-
 
 /proc/notify_ghosts(message, ghost_sound = null, enter_link = null, enter_text = null, atom/source = null, mutable_appearance/alert_overlay = null, action = NOTIFY_JUMP, flashwindow = TRUE, ignore_mapload = TRUE, ignore_key, header = null, notify_volume = 100, extra_large = FALSE) //Easy notification of ghosts.
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR)	//don't notify for objects created during a map load
