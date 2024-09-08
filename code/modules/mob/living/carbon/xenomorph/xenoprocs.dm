@@ -218,17 +218,16 @@
 		return
 	hud_set_plasma()
 
-//Strip all inherent xeno verbs from your caste. Used in evolution.
-/mob/living/carbon/xenomorph/proc/remove_inherent_verbs()
-	if(inherent_verbs)
-		for(var/verb_path in inherent_verbs)
-			remove_verb(verbs, verb_path)
-
 //Add all your inherent caste verbs and procs. Used in evolution.
 /mob/living/carbon/xenomorph/proc/add_inherent_verbs()
 	if(inherent_verbs)
 		add_verb(src, inherent_verbs)
 
+//Strip all inherent xeno verbs from your caste. Used in evolution.
+/mob/living/carbon/xenomorph/proc/remove_inherent_verbs()
+	if(inherent_verbs)
+		for(var/verb_path in inherent_verbs)
+			remove_verb(verbs, verb_path)
 
 //Adds or removes a delay to movement based on your caste. If speed = 0 then it shouldn't do much.
 //Runners are -2, -4 is BLINDLINGLY FAST, +2 is fat-level
@@ -500,9 +499,6 @@
 
 /mob/living/carbon/xenomorph/proc/setup_verbs()
 	add_verb(src, /mob/living/proc/toggle_resting)
-
-/mob/living/carbon/xenomorph/hivemind/setup_verbs()
-	return
 
 /mob/living/carbon/xenomorph/adjust_sunder(adjustment)
 	. = ..()
