@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(mobs)
 					least = length(crates[i])
 					least_idx = i
 			if(least_idx != most_idx)
-				for(var/i in 1 to ((most-least)/2))
+				for(var/i in 1 to ((most-least) * 0.5))
 					var/mob/living/L = pick_n_take(crates[most_idx])
 					crates[WRAP(most_idx+1, 1, 5)] += L
 

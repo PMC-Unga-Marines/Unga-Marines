@@ -88,7 +88,7 @@
 	. = ..()
 	if(!(xeno_structure_flags & HAS_OVERLAY))
 		return
-	if(obj_integrity <= max_integrity / 2)
+	if(obj_integrity <= max_integrity * 0.5)
 		. += image('icons/Xeno/acidturret.dmi', src, "+turret_damage")
 	if(CHECK_BITFIELD(resistance_flags, ON_FIRE))
 		. += image('icons/Xeno/acidturret.dmi', src, "+turret_on_fire")

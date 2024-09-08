@@ -266,7 +266,7 @@
 
 /obj/structure/window/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 800)
-		take_damage(round(exposed_volume / 100), BURN, FIRE)
+		take_damage(round(exposed_volume * 0.01), BURN, FIRE)
 	return ..()
 
 /obj/structure/window/GetExplosionBlock(explosion_dir)
@@ -284,7 +284,7 @@
 
 /obj/structure/window/phoronbasic/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 32000)
-		take_damage(round(exposed_volume / 1000), BURN, FIRE)
+		take_damage(round(exposed_volume * 0.001), BURN, FIRE)
 	return ..()
 
 /obj/structure/window/phoronreinforced
@@ -439,11 +439,11 @@
 	dir = 5
 	window_frame = /obj/structure/window_frame/mainship
 
-/obj/structure/window/framed/mainship/alt
+/obj/structure/window/framed/mainship/talos
 	icon = 'icons/obj/smooth_objects/alt_ship_window.dmi'
 	icon_state = "alt_ship_window-0"
 	base_icon_state = "alt_ship_window"
-	window_frame = /obj/structure/window_frame/mainship/alt
+	window_frame = /obj/structure/window_frame/mainship/talos
 
 /obj/structure/window/framed/mainship/canterbury //So we can wallsmooth properly.
 
@@ -544,7 +544,7 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "window-invincible"
 
-/obj/structure/window/framed/mainship/gray/toughened/hull/alt
+/obj/structure/window/framed/mainship/gray/toughened/hull/talos
 	icon = 'icons/obj/smooth_objects/alt_ship_rwindow.dmi'
 	icon_state = "alt_ship_rwindow-0"
 	base_icon_state = "alt_ship_rwindow"

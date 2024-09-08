@@ -114,7 +114,7 @@ start	the index of the first element in the range that is	not already known to b
 		//[lo, left) elements <= pivot < [right, start) elements
 		//in other words, find where the pivot element should go using bisection search
 		while(left < right)
-			var/mid = (left + right) >> 1	//round((left+right)/2)
+			var/mid = (left + right) >> 1	//round((left+right) * 0.5)
 			if(call(cmp)(fetchElement(L, mid), pivot, sortkey) > 0)
 				right = mid
 			else

@@ -50,8 +50,8 @@
 	SSmachines.setup_template_powernets(cables)
 
 /datum/map_template/proc/load_new_z(minimap = TRUE, list/traits = list(ZTRAIT_AWAY = TRUE))
-	var/x = round((world.maxx - width)/2)
-	var/y = round((world.maxy - height)/2)
+	var/x = round((world.maxx - width) * 0.5)
+	var/y = round((world.maxy - height) * 0.5)
 
 	var/datum/space_level/level = SSmapping.add_new_zlevel(name, traits)
 	var/datum/parsed_map/parsed = load_map(file(mappath), x, y, level.z_value, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=TRUE)
@@ -76,7 +76,7 @@
 
 /datum/map_template/proc/load(turf/T, centered, delete)
 	if(centered)
-		T = locate(T.x - round(width/2) , T.y - round(height/2) , T.z)
+		T = locate(T.x - round(width * 0.5), T.y - round(height * 0.5), T.z)
 	if(!T)
 		return
 	if(T.x + width > world.maxx)
@@ -103,7 +103,7 @@
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
 	var/turf/placement = T
 	if(centered)
-		var/turf/corner = locate(placement.x - round(width/2), placement.y - round(height/2), placement.z)
+		var/turf/corner = locate(placement.x - round(width * 0.5), placement.y - round(height * 0.5), placement.z)
 		if(corner)
 			placement = corner
 	return block(placement, locate(placement.x+width-1, placement.y+height-1, placement.z))

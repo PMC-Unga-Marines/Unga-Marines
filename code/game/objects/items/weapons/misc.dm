@@ -117,7 +117,7 @@
 	playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
 	var/atom/throw_target = get_edge_target_turf(M, get_dir(src, get_step_away(M, src)))
 	var/throw_distance = setting * LERP(5, 3, M.mob_size / MOB_SIZE_BIG)
-	M.throw_at(throw_target, throw_distance, 0.5 + (setting / 2))
+	M.throw_at(throw_target, throw_distance, 0.5 + (setting * 0.5))
 	cell.charge -= powerused
 	return ..()
 

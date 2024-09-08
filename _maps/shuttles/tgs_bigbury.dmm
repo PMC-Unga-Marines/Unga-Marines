@@ -767,7 +767,9 @@
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "te" = (
-/obj/machinery/cryopod,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/mainship/floor,
 /area/shuttle/canterbury)
 "tP" = (

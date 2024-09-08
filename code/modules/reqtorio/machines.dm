@@ -257,7 +257,7 @@
 			bumper.forceMove(get_step(src, current_split_dir))
 			current_split_dir = turn(current_split_dir, rotate)
 		else
-			var/first_stack_ammount = round(stack.amount / 2, 1)
+			var/first_stack_ammount = round(stack.amount * 0.5, 1)
 			var/second_stack_ammount = stack.amount - first_stack_ammount
 			var/obj/stack_1 = new stack.merge_type(loc, first_stack_ammount)
 			stack_1.forceMove(get_step(src, current_split_dir))
