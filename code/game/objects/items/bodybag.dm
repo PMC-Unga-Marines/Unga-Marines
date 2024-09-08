@@ -211,10 +211,10 @@
 		balloon_alert(bodybag_occupant, "[proj] jolts you out of the bag")
 		open()
 
-/obj/structure/closet/bodybag/flamer_fire_act(burnlevel)
+/obj/structure/closet/bodybag/flamer_fire_act(burnlevel, flame_color)
 	if(!opened && bodybag_occupant)
 		balloon_alert(bodybag_occupant, "The fire forces you out")
-		bodybag_occupant.flamer_fire_act(burnlevel)
+		bodybag_occupant.flamer_fire_act(burnlevel, flame_color)
 		open()
 
 /obj/structure/closet/bodybag/ex_act(severity)

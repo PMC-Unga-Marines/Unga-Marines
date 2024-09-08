@@ -33,7 +33,7 @@
 	balloon_alert(user, "You only scrape at it")
 	return TRUE
 
-/obj/structure/xeno/flamer_fire_act(burnlevel)
+/obj/structure/xeno/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel / 3, BURN, FIRE)
 
 /obj/structure/xeno/fire_act()

@@ -95,7 +95,7 @@
 		return
 
 	if(iscrowbar(I))
-		if(charge >= (capacity / 100))
+		if(charge >= (capacity * 0.01))
 			to_chat(user, span_warning("Better let [src] discharge before dismantling it."))
 			return
 
@@ -114,7 +114,7 @@
 		qdel(src)
 
 	else if((istype(I, /obj/item/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(I, /obj/item/cell) && (cells_amount < 5)))
-		if(charge >= (capacity / 100))
+		if(charge >= (capacity * 0.01))
 			to_chat(user, span_warning("Better let [src] discharge before putting your hand inside it."))
 			return
 

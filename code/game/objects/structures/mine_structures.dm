@@ -16,7 +16,7 @@
 	coverage = 85
 	density = TRUE
 
-/obj/structure/mine_structure/wooden/flamer_fire_act(burnlevel)
+/obj/structure/mine_structure/wooden/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel, BURN, FIRE)
 
 /obj/structure/mine_structure/wooden/fire_act()

@@ -138,7 +138,7 @@
 	adjust_fire_stacks(rand(1,2))
 	IgniteMob()
 
-/mob/living/flamer_fire_act(burnlevel)
+/mob/living/flamer_fire_act(burnlevel, flame_color)
 	if(!burnlevel)
 		return
 	if(status_flags & (INCORPOREAL|GODMODE)) //Ignore incorporeal/invul targets
@@ -149,6 +149,14 @@
 
 	if(pass_flags & PASS_FIRE) //Pass fire allow to cross fire without being ignited
 		return
+
+	//TODO: Make firetypes, colour types are terrible
+	if(flame_color == FLAME_COLOR_LIME)
+		var/datum/status_effect/stacking/melting/debuff = has_status_effect(STATUS_EFFECT_MELTING)
+		if(debuff)
+			debuff.add_stacks(2)
+		else
+			apply_status_effect(STATUS_EFFECT_MELTING, 2)
 
 	take_overall_damage(rand(10, burnlevel), BURN, FIRE, updating_health = TRUE, max_limbs = 4)
 	to_chat(src, span_warning("You are burned!"))

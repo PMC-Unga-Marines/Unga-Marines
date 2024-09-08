@@ -231,7 +231,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Disconnected</b>)<br>"
 
 		else if(L.client)
-			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))
+			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME * 0.5))
 				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Connected, Inactive</b>)<br>"
 			else if(L.stat)
 				if(L.stat == UNCONSCIOUS)

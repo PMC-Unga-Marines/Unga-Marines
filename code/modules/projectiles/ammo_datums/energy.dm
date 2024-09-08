@@ -638,7 +638,7 @@
 	///Fire damage
 	var/burn_damage = 9
 	///Fire color
-	var/fire_color = "green"
+	var/fire_color = FLAME_COLOR_GREEN
 
 /datum/ammo/energy/plasma_pistol/proc/drop_fire(atom/target, obj/projectile/proj)
 	var/turf/target_turf = get_turf(target)

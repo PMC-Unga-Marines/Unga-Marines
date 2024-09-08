@@ -219,6 +219,8 @@
 
 #define iscell(I) (istype(I, /obj/item/cell))
 
+#define islascell(I) (istype(I, /obj/item/cell/lasgun))
+
 #define isfactorypart(I) (istype(I, /obj/item/factory_part))
 
 #define isfactoryrefill(I) (istype(I, /obj/item/factory_refill))

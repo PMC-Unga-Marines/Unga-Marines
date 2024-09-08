@@ -76,7 +76,7 @@
 /obj/structure/xeno/xeno_turret/ex_act(severity)
 	take_damage(severity * 5, BRUTE, BOMB)
 
-/obj/structure/xeno/xeno_turret/flamer_fire_act(burnlevel)
+/obj/structure/xeno/xeno_turret/flamer_fire_act(burnlevel, flame_color)
 	take_damage(burnlevel * 2, BURN, FIRE)
 	ENABLE_BITFIELD(resistance_flags, ON_FIRE)
 
@@ -88,7 +88,7 @@
 	. = ..()
 	if(!(xeno_structure_flags & HAS_OVERLAY))
 		return
-	if(obj_integrity <= max_integrity / 2)
+	if(obj_integrity <= max_integrity * 0.5)
 		. += image('icons/Xeno/acidturret.dmi', src, "+turret_damage")
 	if(CHECK_BITFIELD(resistance_flags, ON_FIRE))
 		. += image('icons/Xeno/acidturret.dmi', src, "+turret_on_fire")

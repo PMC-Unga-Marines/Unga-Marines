@@ -135,7 +135,7 @@
 			if(seed.carnivorous == 2)
 				to_chat(victim, span_danger("\The [src] pierces your flesh greedily!"))
 
-				var/damage = rand(round(seed.potency/2),seed.potency)
+				var/damage = rand(round(seed.potency * 0.5),seed.potency)
 				if(!ishuman(victim))
 					victim.adjustBruteLoss(damage)
 					return
@@ -163,9 +163,9 @@
 	// Update bioluminescence.
 	if(seed.biolum)
 		if(seed.biolum_colour)
-			set_light(1 + round(seed.potency / 10), l_color = seed.biolum_colour)
+			set_light(1 + round(seed.potency * 0.1), l_color = seed.biolum_colour)
 		else
-			set_light(1 + round(seed.potency / 10))
+			set_light(1 + round(seed.potency * 0.1))
 		return
 	else
 		set_light(0)
@@ -221,7 +221,7 @@
 	if(prob(30))
 		age++
 
-/obj/effect/plantsegment/flamer_fire_act(burnlevel)
+/obj/effect/plantsegment/flamer_fire_act(burnlevel, flame_color)
 	qdel(src)
 
 /obj/effect/plant_controller
@@ -315,7 +315,7 @@
 		if(SV.energy < 2) //If tile isn't fully grown
 			var/chance
 			if(seed)
-				chance = limited_growth ? round(seed.potency/2,1) : seed.potency
+				chance = limited_growth ? round(seed.potency * 0.5, 1) : seed.potency
 			else
 				chance = 20
 

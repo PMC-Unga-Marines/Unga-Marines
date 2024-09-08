@@ -219,6 +219,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"hellhound",
 	"transport_crew",
 	"assault_crew",
+	"predalien",
 ))
 
 GLOBAL_LIST_EMPTY(human_ethnicities_list)

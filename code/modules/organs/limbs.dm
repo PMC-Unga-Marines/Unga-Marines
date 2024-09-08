@@ -185,8 +185,8 @@
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
-		I.get_damage(brute / 2)
-		brute -= brute / 2
+		I.get_damage(brute * 0.5)
+		brute -= brute * 0.5
 RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
 		if(!(owner.species && (owner.species.species_flags & NO_PAIN)))
@@ -461,7 +461,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/fever_temperature = (owner.species.heat_level_1 - owner.species.body_temperature - 5)* min(germ_level/INFECTION_LEVEL_TWO, 1) + owner.species.body_temperature
 		//need to make sure we raise temperature fast enough to get around environmental cooling preventing us from reaching fever_temperature
 		owner.adjust_bodytemperature((fever_temperature - T20C)/BODYTEMP_COLD_DIVISOR + 1, 0, fever_temperature - owner.bodytemperature)
-		if(prob(round(germ_level/10)))
+		if(prob(round(germ_level * 0.1)))
 			if (spaceacillin < MIN_ANTIBIOTICS)
 				germ_level++
 				if (COOLDOWN_CHECK(src, next_infection_message) && (germ_level <= INFECTION_LEVEL_TWO) && !(limb_status & LIMB_NECROTIZED))
@@ -473,7 +473,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //LEVEL II
 	if(germ_level >= INFECTION_LEVEL_TWO && spaceacillin < 3)
 
-		if(prob(round(germ_level/10)))
+		if(prob(round(germ_level * 0.1)))
 			if (spaceacillin < MIN_ANTIBIOTICS)
 				germ_level++
 				if (COOLDOWN_CHECK(src, next_infection_message) && (germ_level <= INFECTION_LEVEL_THREE) && !(limb_status & LIMB_NECROTIZED))
@@ -624,18 +624,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(burn_dam ==0)
 		tburn =0
-	else if (burn_dam < (max_damage * 0.25 / 2))
+	else if (burn_dam < (max_damage * 0.25 * 0.5))
 		tburn = 1
-	else if (burn_dam < (max_damage * 0.75 / 2))
+	else if (burn_dam < (max_damage * 0.75 * 0.5))
 		tburn = 2
 	else
 		tburn = 3
 
 	if (brute_dam == 0)
 		tbrute = 0
-	else if (brute_dam < (max_damage * 0.25 / 2))
+	else if (brute_dam < (max_damage * 0.25 * 0.5))
 		tbrute = 1
-	else if (brute_dam < (max_damage * 0.75 / 2))
+	else if (brute_dam < (max_damage * 0.75 * 0.5))
 		tbrute = 2
 	else
 		tbrute = 3
@@ -678,7 +678,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		set_limb_flags(LIMB_DESTROYED)
 
-	if(owner.species.species_flags & ROBOTIC_LIMBS)
+	if(owner?.species?.species_flags & ROBOTIC_LIMBS)
 		limb_status |= LIMB_ROBOT
 
 	for(var/i in implants)
