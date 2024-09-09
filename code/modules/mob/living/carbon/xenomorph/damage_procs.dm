@@ -54,7 +54,7 @@
 
 	if(mob_size < MOB_SIZE_BIG)
 		adjust_slowdown(powerfactor_value / 3)
-		adjust_stagger(powerfactor_value / 2)
+		adjust_stagger(powerfactor_value * 0.5)
 	else
 		adjust_slowdown(powerfactor_value / 3)
 	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave

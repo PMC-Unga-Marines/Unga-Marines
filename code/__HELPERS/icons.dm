@@ -795,7 +795,7 @@ ColorTone(rgb, tone)
 				if(current_layer < 0)
 					if(current_layer <= -1000)
 						return flat
-					current_layer = process_set + A.layer + current_layer / 1000
+					current_layer = process_set + A.layer + current_layer * 0.001
 
 				for(var/p in 1 to length(layers))
 					var/image/cmp = layers[p]

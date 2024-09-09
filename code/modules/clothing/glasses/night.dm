@@ -201,7 +201,7 @@
 	if(!istype(I, /obj/item/cell/night_vision_battery))
 		return
 
-	if(battery && (battery.charge > battery.maxcharge / 2))
+	if(battery && (battery.charge > battery.maxcharge * 0.5))
 		balloon_alert(user, "Battery already installed")
 		return
 	//Hot swap!

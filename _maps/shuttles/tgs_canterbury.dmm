@@ -333,7 +333,9 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bn" = (
-/obj/machinery/cryopod,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bo" = (

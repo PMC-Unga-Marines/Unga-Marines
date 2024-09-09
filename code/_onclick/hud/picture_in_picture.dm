@@ -103,7 +103,7 @@
 	if((width > 0) && (height > 0))
 		var/matrix/M = matrix()
 		M.Scale(width + 0.5, height + 0.5)
-		M.Translate((width-1)/2 * world.icon_size, (height-1)/2 * world.icon_size)
+		M.Translate((width-1) * 0.5 * world.icon_size, (height-1) * 0.5 * world.icon_size)
 		standard_background.transform = M
 		add_overlay(standard_background)
 
@@ -141,7 +141,7 @@
 	var/turf/T = get_turf(center)
 	if(!T)
 		return list()
-	var/turf/lowerleft = locate(max(1, T.x - round(width/2)), max(1, T.y - round(height/2)), T.z)
+	var/turf/lowerleft = locate(max(1, T.x - round(width * 0.5)), max(1, T.y - round(height * 0.5)), T.z)
 	var/turf/upperright = locate(min(world.maxx, lowerleft.x + width - 1), min(world.maxy, lowerleft.y + height - 1), lowerleft.z)
 	return block(lowerleft, upperright)
 

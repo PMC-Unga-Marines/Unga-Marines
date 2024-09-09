@@ -104,7 +104,6 @@
 	/// List of atoms already hit by that projectile. Will only matter for projectiles capable of passing through multiple atoms
 	var/list/atom/hit_atoms = list()
 
-	var/is_shrapnel = FALSE
 
 /obj/projectile/Initialize(mapload)
 	. = ..()
@@ -188,12 +187,7 @@
 		shot_from = source
 	loc = loc_override
 	if(!isturf(loc))
-		//forceMove(get_turf(src)) // RUTGMC DELETION
-		if(!is_shrapnel) // RUTGMC ADDITION START
-			forceMove(get_turf(src))
-		else if(get_turf(source))
-			forceMove(get_turf(source)) //RUTGMC ADDITION END
-
+		forceMove(get_turf(src))
 	starting_turf = loc
 
 	if(target)
@@ -788,7 +782,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			if(target_human.mobility_aura)
 				evasion_bonus += max(5, (target_human.mobility_aura * 5)) //you get a bonus if you've got an active mobility order effecting you
 		evasion_bonus += (25 - (min(25, cached_multiplicative_slowdown * 5))) //The lower your slowdown, the better your chance to dodge, but it won't make you easier to hit if you have huge slowdown
-		evasion_bonus = (100 - evasion_bonus) / 100 //turn it into a multiplier
+		evasion_bonus = (100 - evasion_bonus) * 0.01 //turn it into a multiplier
 		BULLET_DEBUG("Moving (*[evasion_bonus]).")
 		hit_chance = round(hit_chance * evasion_bonus)
 

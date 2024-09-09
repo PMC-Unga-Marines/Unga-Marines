@@ -673,6 +673,7 @@
 	cant_hold = list(
 		/obj/item/ammo_magazine/flamer_tank/backtank,
 		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/backtank/G,
 	)
 
 /obj/item/storage/box/visual/magazine/compact

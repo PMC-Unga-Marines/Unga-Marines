@@ -469,7 +469,7 @@
 						sleep(BONEGEL_REPAIR_MAX_DURATION*surgery_mod)
 						sleep(BONESETTER_MAX_DURATION*surgery_mod)
 						if(S.limb_ref.brute_dam > 20)
-							sleep(((S.limb_ref.brute_dam - 20)/2)*surgery_mod)
+							sleep(((S.limb_ref.brute_dam - 20) * 0.5) * surgery_mod)
 							if(!surgery)
 								break
 							S.limb_ref.heal_limb_damage(S.limb_ref.brute_dam - 20)

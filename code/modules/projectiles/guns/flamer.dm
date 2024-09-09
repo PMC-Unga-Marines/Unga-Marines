@@ -314,6 +314,7 @@
 		/obj/item/ammo_magazine/flamer_tank/large/som,
 		/obj/item/ammo_magazine/flamer_tank/backtank,
 		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/backtank/G,
 	)
 
 /obj/item/weapon/gun/flamer/som/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)

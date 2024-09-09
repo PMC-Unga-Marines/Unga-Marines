@@ -1,5 +1,3 @@
-//These machines are mostly just here for debugging/spawning. Skeletons of the feature to come.
-
 /obj/machinery/bioprinter
 	name = "bio/synthetic printer"
 	desc = "It's a machine that can either grow replacement or manufacture synthetic organs."
@@ -24,8 +22,8 @@
 		"synthetic left arm (125 - Metal)" = list(/obj/item/robot_parts/l_arm,  0, LIMB_METAL_AMOUNT, LIMB_PRINTING_TIME),
 		"synthetic right arm (125 - Metal)" = list(/obj/item/robot_parts/r_arm,  0, LIMB_METAL_AMOUNT, LIMB_PRINTING_TIME),
 		"synthetic left leg (125 - Metal)" = list(/obj/item/robot_parts/l_leg,  0, LIMB_METAL_AMOUNT, LIMB_PRINTING_TIME),
-		"synthetic right leg (125 - Metal)" = list(/obj/item/robot_parts/r_leg,  0, LIMB_METAL_AMOUNT, LIMB_PRINTING_TIME)
-		)
+		"synthetic right leg (125 - Metal)" = list(/obj/item/robot_parts/r_leg,  0, LIMB_METAL_AMOUNT, LIMB_PRINTING_TIME),
+	)
 
 /obj/machinery/bioprinter/attack_hand(mob/living/user)
 	. = ..()
@@ -85,20 +83,20 @@
 /obj/machinery/bioprinter/update_icon_state()
 	. = ..()
 	if(machine_stat & NOPOWER)
-		icon_state = "[initial(icon_state)]_off"
+		icon_state = "bioprinter_off"
 		return
 	if(working)
-		icon_state = "[initial(icon_state)]_busy"
+		icon_state = "bioprinter_busy"
 	else
-		icon_state = "[initial(icon_state)]"
+		icon_state = "bioprinter"
+
+/obj/machinery/bioprinter/update_overlays()
+	. = ..()
+	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
+		return
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/bioprinter/stocked
-	stored_metal = 1000
-	stored_matter = 1000
-
-/obj/machinery/bioprinter/alt
-	icon_state = "alt_bioprinter"
-
-/obj/machinery/bioprinter/alt/stocked
 	stored_metal = 1000
 	stored_matter = 1000

@@ -48,7 +48,7 @@
 
 /obj/structure/cocoon/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
-	if(anchored && obj_integrity < max_integrity / 2)
+	if(anchored && obj_integrity < max_integrity * 0.5)
 		unanchor_from_nest()
 
 ///Allow the cocoon to be opened and dragged

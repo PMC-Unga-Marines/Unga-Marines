@@ -162,7 +162,7 @@
 
 ///Prepare the blip to be print on the operator screen
 /obj/item/attachable/motiondetector/proc/prepare_blip(mob/target, status)
-	if(!operator.client)
+	if(!operator || !operator.client)
 		return
 	if(!target) //если мы вызываем метод без target то где то в вышестоящем коде ошибка, но всё же лучше чем ничего
 		return
@@ -172,7 +172,7 @@
 	var/list/actualview = getviewsize(operator.client.view)
 	var/viewX = actualview[1]
 	var/viewY = actualview[2]
-	var/turf/center_view = get_view_center(operator)
+	var/turf/center_view = get_view_center(operator) ? get_view_center(operator) : get_turf(src)
 	var/screen_pos_y = target.y - center_view.y + round(viewY * 0.5) + 1
 	var/dir
 	if(screen_pos_y < 1)

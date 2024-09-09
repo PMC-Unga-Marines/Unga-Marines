@@ -251,7 +251,7 @@
     'opacity', {
       get: function() {
         var m = this.filter.match(opacityre);
-        return m ? (m[1] / 100).toString() : '';
+        return m ? (m[1] * 0.01).toString() : '';
       },
       set: function(value) {
         this.zoom = 1;
