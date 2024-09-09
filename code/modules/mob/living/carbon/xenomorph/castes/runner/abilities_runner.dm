@@ -136,7 +136,8 @@
 		COMSIG_LIVING_STATUS_UNCONSCIOUS,
 		COMSIG_LIVING_STATUS_SLEEP,
 		COMSIG_LIVING_STATUS_STAGGER,
-		COMSIG_LIVING_IGNITED), PROC_REF(evasion_debuff_check))
+		COMSIG_LIVING_IGNITED,
+		COMSIG_QDELETING), PROC_REF(evasion_debuff_check))
 	RegisterSignal(owner, COMSIG_XENO_PROJECTILE_HIT, PROC_REF(evasion_dodge))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(evasion_flamer_hit))
 	RegisterSignal(owner, COMSIG_LIVING_PRE_THROW_IMPACT, PROC_REF(evasion_throw_dodge))

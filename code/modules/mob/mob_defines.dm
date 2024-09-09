@@ -134,3 +134,10 @@
 	var/shield_slowdown = 0
 	///Color matrices to be applied to the client window. Assoc. list.
 	var/list/client_color_matrices
+
+	///Stores all information relating to Hunters for use with their HUD and other systems.
+	var/datum/huntdata/hunter_data
+	var/atom/last_damage_source = null
+	var/life_value = 1
+	var/default_honor_value = 1
+	var/life_kills_total = 0
