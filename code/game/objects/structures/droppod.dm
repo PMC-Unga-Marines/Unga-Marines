@@ -582,7 +582,6 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 
 /obj/structure/drop_pod_launcher/Destroy()
 	GLOB.droppod_bays -= src
-	QDEL_NULL(pod_type)
 	return ..()
 
 /obj/structure/drop_pod_launcher/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
