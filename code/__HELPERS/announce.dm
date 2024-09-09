@@ -3,7 +3,7 @@
 #define ANNOUNCEMENT_COMMAND 3
 
 
-/proc/priority_announce(message, title = "Announcement", type = ANNOUNCEMENT_REGULAR, sound = 'sound/misc/notice2.ogg', list/receivers = (GLOB.alive_human_list + GLOB.ai_list + GLOB.observer_list))
+/proc/priority_announce(message, title = "Оповещение", type = ANNOUNCEMENT_REGULAR, sound = 'sound/misc/notice2.ogg', list/receivers = (GLOB.alive_human_list + GLOB.ai_list + GLOB.observer_list))
 	if(!message)
 		return
 
@@ -14,12 +14,12 @@
 			announcement += "<meta charset='UTF-8'><br><h2 class='alert'>[html_encode(title)]</h2>"
 
 		if(ANNOUNCEMENT_PRIORITY)
-			announcement += "<meta charset='UTF-8'><h1 class='alert'>Priority Announcement</h1>"
-			if(title && title != "Announcement")
+			announcement += "<meta charset='UTF-8'><h1 class='alert'>Важное Оповещение</h1>"
+			if(title && title != "Оповещение")
 				announcement += "<meta charset='UTF-8'><br><h2 class='alert'>[html_encode(title)]</h2>"
 
 		if(ANNOUNCEMENT_COMMAND)
-			announcement += "<meta charset='UTF-8'><h1 class='alert'>Command Announcement</h1>"
+			announcement += "<meta charset='UTF-8'><h1 class='alert'>Оповещение</h1>"
 
 
 	announcement += "<meta charset='UTF-8'><br>[span_alert("[html_encode(message)]")]<br>"
@@ -33,7 +33,7 @@
 			SEND_SOUND(M, s)
 
 
-/proc/print_command_report(papermessage, papertitle = "paper", announcemessage = "A report has been downloaded and printed out at all communications consoles.", announcetitle = "Incoming Classified Message", announce = TRUE)
+/proc/print_command_report(papermessage, papertitle = "paper", announcemessage = "Отчет загружен и распечатан на всех консолях связи.", announcetitle = "Входящее сообщение", announce = TRUE)
 	if(announce)
 		priority_announce(announcemessage, announcetitle, sound = 'sound/AI/commandreport.ogg')
 
@@ -47,7 +47,7 @@
 		P.update_icon()
 
 
-/proc/minor_announce(message, title = "Attention:", alert, list/receivers = GLOB.alive_human_list)
+/proc/minor_announce(message, title = "Внимание:", alert, list/receivers = GLOB.alive_human_list)
 	if(!message)
 		return
 

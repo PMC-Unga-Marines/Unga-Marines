@@ -62,29 +62,29 @@
 
 	if(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV])
 		if(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV])
-			tgmc_survival_stat = "[GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV]] were revived, for a [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% revival rate and a [((GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV] + GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] - GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]) / GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]) * 100]% survival rate."
+			tgmc_survival_stat = "[GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV]] были возрождены, [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% шанса возрождения и [((GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV] + GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] - GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]) / GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]) * 100]% шанса выживания."
 		else
-			tgmc_survival_stat = "None were revived, for a [((GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV] - GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]) / GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]) * 100]% survival rate."
+			tgmc_survival_stat = "Ни один из них не был возрожден. [((GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV] - GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]) / GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]) * 100]% шанса выживания."
 	if(GLOB.round_statistics.total_human_deaths[FACTION_SOM])
 		if(GLOB.round_statistics.total_human_revives[FACTION_SOM])
-			som_survival_stat = "[GLOB.round_statistics.total_human_revives[FACTION_SOM]] were revived, for a [(GLOB.round_statistics.total_human_revives[FACTION_SOM] / max(GLOB.round_statistics.total_human_deaths[FACTION_SOM], 1)) * 100]% revival rate and a [((GLOB.round_statistics.total_humans_created[FACTION_SOM] + GLOB.round_statistics.total_human_revives[FACTION_SOM] - GLOB.round_statistics.total_human_deaths[FACTION_SOM]) / GLOB.round_statistics.total_humans_created[FACTION_SOM]) * 100]% survival rate."
+			som_survival_stat = "[GLOB.round_statistics.total_human_revives[FACTION_SOM]] были возрождены, [(GLOB.round_statistics.total_human_revives[FACTION_SOM] / max(GLOB.round_statistics.total_human_deaths[FACTION_SOM], 1)) * 100]% шанса возрождения и [((GLOB.round_statistics.total_humans_created[FACTION_SOM] + GLOB.round_statistics.total_human_revives[FACTION_SOM] - GLOB.round_statistics.total_human_deaths[FACTION_SOM]) / GLOB.round_statistics.total_humans_created[FACTION_SOM]) * 100]% шанса выживания."
 		else
-			som_survival_stat = "None were revived, for a [((GLOB.round_statistics.total_humans_created[FACTION_SOM] - GLOB.round_statistics.total_human_deaths[FACTION_SOM]) / GLOB.round_statistics.total_humans_created[FACTION_SOM]) * 100]% survival rate."
+			som_survival_stat = "Ни один из них не был возрожден. [((GLOB.round_statistics.total_humans_created[FACTION_SOM] - GLOB.round_statistics.total_human_deaths[FACTION_SOM]) / GLOB.round_statistics.total_humans_created[FACTION_SOM]) * 100]% шанса выживания."
 	if(GLOB.round_statistics.total_projectile_hits[FACTION_SOM] && GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV])
-		tgmc_accuracy_stat = ", for an accuracy of [(GLOB.round_statistics.total_projectile_hits[FACTION_SOM] / GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV]) * 100]%!."
+		tgmc_accuracy_stat = ", для точности [(GLOB.round_statistics.total_projectile_hits[FACTION_SOM] / GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV]) * 100]%!."
 	if(GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] && GLOB.round_statistics.total_projectiles_fired[FACTION_SOM])
-		som_accuracy_stat = ", for an accuracy of [(GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] / GLOB.round_statistics.total_projectiles_fired[FACTION_SOM]) * 100]%!."
+		som_accuracy_stat = ", для точности [(GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] / GLOB.round_statistics.total_projectiles_fired[FACTION_SOM]) * 100]%!."
 
-	var/list/dat = list({"[span_round_body("The end of round statistics are:")]<br>
-		<br>[GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]] TGMC personel deployed for the patrol, and [GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] ? GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] : "no"] TGMC personel were killed. [tgmc_survival_stat ? tgmc_survival_stat : ""]
-		<br>[GLOB.round_statistics.total_humans_created[FACTION_SOM]] SOM personel deployed for the patrol, and [GLOB.round_statistics.total_human_deaths[FACTION_SOM] ? GLOB.round_statistics.total_human_deaths[FACTION_SOM] : "no"] SOM personel were killed. [som_survival_stat ? som_survival_stat : ""]
-		<br>The TGMC fired [GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] : "no"] projectiles. [GLOB.round_statistics.total_projectile_hits[FACTION_SOM] ? GLOB.round_statistics.total_projectile_hits[FACTION_SOM] : "No"] projectiles managed to hit members of the SOM[tgmc_accuracy_stat ? tgmc_accuracy_stat : "."]
-		<br>The SOM fired [GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] ? GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] : "no"] projectiles. [GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] : "No"] projectiles managed to hit members of the TGMC[som_accuracy_stat ? som_accuracy_stat : "."]
+	var/list/dat = list({"[span_round_body("Статистика раунда::")]<br>
+		<br>[GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]] TGMC персонал, направленный для патрулирования, и [GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] ? GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] : "никого из них не было"] убито. [tgmc_survival_stat ? tgmc_survival_stat : ""]
+		<br>[GLOB.round_statistics.total_humans_created[FACTION_SOM]] SOM персонал, направленный для патрулирования, и [GLOB.round_statistics.total_human_deaths[FACTION_SOM] ? GLOB.round_statistics.total_human_deaths[FACTION_SOM] : "никого из них не было"] убито. [som_survival_stat ? som_survival_stat : ""]
+		<br>TGMC стрельнули [GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] : "НОЛЬ"] пулек. [GLOB.round_statistics.total_projectile_hits[FACTION_SOM] ? GLOB.round_statistics.total_projectile_hits[FACTION_SOM] : "НОЛЬ"] пуль было всажено в SOM[tgmc_accuracy_stat ? tgmc_accuracy_stat : "."]
+		<br>SOM стрельнули [GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] ? GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] : "НОЛЬ"] пулек. [GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] : "НОЛЬ"] пуль было всажено TGMC[som_accuracy_stat ? som_accuracy_stat : "."]
 		"})
 	if(GLOB.round_statistics.grenades_thrown)
-		dat += "[GLOB.round_statistics.grenades_thrown] grenades were detonated."
+		dat += "Было всего [GLOB.round_statistics.grenades_thrown] взрывов от гранат."
 	else
-		dat += "No grenades exploded."
+		dat += "Ниодна граната не пострадала за этот раунд."
 
 	var/output = jointext(dat, "<br>")
 	for(var/mob/player in GLOB.player_list)
@@ -151,30 +151,30 @@
 	var/num_som_delta = BIOSCAN_DELTA(num_som, delta)
 
 	//announcement for SOM
-	var/som_scan_name = "Long Range Tactical Bioscan Status"
-	var/som_scan_input = {"Bioscan complete.
+	var/som_scan_name = "Статус Тактического Биосканирования Дальнего Действия"
+	var/som_scan_input = {"Биосканирование завершено.
 
-Sensors indicate [num_tgmc_delta || "no"] unknown lifeform signature[num_tgmc_delta > 1 ? "s":""] present in the area of operations[tgmc_location ? ", including one at: [tgmc_location]":""]"}
+Датчики показывают [num_tgmc_delta || "отсуствие"] неизвестн[num_tgmc_delta == 1 ? "ых":"ую"] форм[num_tgmc_delta == 1 ? "":"ы"] жизни в районе операций[tgmc_location ? ", в том числе [tgmc_location]":""]"}
 
 	if(announce_som)
 		priority_announce(som_scan_input, som_scan_name, sound = 'sound/AI/bioscan.ogg', receivers = (som_list + GLOB.observer_list))
 
 	//announcement for TGMC
-	var/marine_scan_name = "Long Range Tactical Bioscan Status"
-	var/marine_scan_input = {"Bioscan complete.
+	var/marine_scan_name = "Статус Тактического Биосканирования Дальнего Действия"
+	var/marine_scan_input = {"Биосканирование завершено.
 
-Sensors indicate [num_som_delta || "no"] unknown lifeform signature[num_som_delta > 1 ? "s":""] present in the area of operations[som_location ? ", including one at: [som_location]":""]"}
+Датчики показывают [num_som_delta || "отсуствие"] неизвестн[num_som_delta == 1 ? "ых":"ую"] форм[num_som_delta == 1 ? "":"ы"] жизни в районе операций[som_location ? ", в том числе [som_location]":""]"}
 
 	if(announce_marines)
 		priority_announce(marine_scan_input, marine_scan_name, sound = 'sound/AI/bioscan.ogg', receivers = (tgmc_list + GLOB.observer_list))
 
-	log_game("Bioscan. [num_tgmc] active TGMC personnel[tgmc_location ? " Location: [tgmc_location]":""] and [num_som] active SOM personnel[som_location ? " Location: [som_location]":""]")
+	log_game("Биосканирование. [num_tgmc] активн[num_tgmc == 1 ? "ых":"ая"] TGMC едениц[num_tgmc == 1 ? "":"а"][tgmc_location ? " Место: [tgmc_location]":""] и [num_som] активн[num_som == 1 ? "ых":"ая"] SOM едениц[num_som == 1 ? "":"а"][som_location ? " Место: [som_location]":""]")
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i
-		to_chat(M, "<h2 class='alert'>Detailed Information</h2>")
-		to_chat(M, {"<span class='alert'>[num_som] SOM alive.
-[num_tgmc] Marine\s alive."})
+		to_chat(M, "<h2 class='alert'>Детальная информация</h2>")
+		to_chat(M, {"<span class='alert'>[num_som] живых SOM.
+[num_tgmc] живых Морпехов."})
 
 	message_admins("Bioscan - Marines: [num_tgmc] active TGMC personnel[tgmc_location ? " .Location:[tgmc_location]":""]")
 	message_admins("Bioscan - SOM: [num_som] active SOM personnel[som_location ? " .Location:[som_location]":""]")

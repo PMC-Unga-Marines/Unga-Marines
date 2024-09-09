@@ -23,12 +23,12 @@
 	addtimer(CALLBACK(src, PROC_REF(fix_comms)), comms_knockout_timer MINUTES)
 
 /datum/round_event/ion_storm/announce()
-	var/alert = pick( "Ionospheric anomalies detected. Temporary telecommunication failure imminent. Please contact you*%fj00)`5vc-BZZT",
-		"Ionospheric anomalies detected. Temporary telecommunication failu*3mga;b4;'1v¬-BZZZT",
-		"Ionospheric anomalies detected. Temporary telec#MCi46:5.;@63-BZZZZT",
-		"Ionospheric anomalies dete'fZ\\kg5_0-BZZZZZT",
-		"Ionospheri:%£ MCayj^j<.3-BZZZZZZT",
-		"#4nd%;f4y6,>£%-BZZZZZZZT",
+	var/alert = pick( "Обнаружена ионосферная аномалия. Сбой связи неизбежен. Пожалуйста, свяжитесь с ваши*%fj00)`5vc",
+		"Обнаружена ионосферная аномалия. Сбой связи неизб*3mga;b4;'1v¬",
+		"Обнаружена ионосферная аномалия. Сбой свя#MCi46:5.;@63",
+		"Обнаружена ионосферная аномал'fZ\\kg5_0",
+		"Обнаружена ионосфер:%£ MCayj^j<.3",
+		"#4nd%;f4y6,>£%",
 	)
 	priority_announce(alert)
 

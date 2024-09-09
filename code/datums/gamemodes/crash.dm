@@ -121,8 +121,8 @@
 
 /datum/game_mode/infestation/crash/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
-	priority_announce("Scheduled for landing in T-10 Minutes. Prepare for landing. Known hostiles near LZ. Detonation Protocol Active, planet disposable. Marines disposable.", type = ANNOUNCEMENT_PRIORITY)
-	playsound(shuttle, 'sound/machines/warning-buzzer.ogg', 75, 0, 30)
+	priority_announce("Планируется посадка через 10 минут. Приготовьтесь к посадке. На месте посадки вас ожидают противники. Найти диски для ядерной боеголовки. Найти ядерную боеголовку. Активировать протокол самоуничтожения. Уничтожить планету.", type = ANNOUNCEMENT_PRIORITY)
+	playsound(shuttle, 'sound/AI/crash_start.ogg', 75, 0, 30)
 
 
 /datum/game_mode/infestation/crash/process()

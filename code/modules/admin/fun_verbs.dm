@@ -149,7 +149,7 @@
 		if("Yes")
 			priority_announce(input, customname, sound = 'sound/AI/commandreport.ogg');
 		if("No")
-			priority_announce("New update available at all communication consoles.", type = ANNOUNCEMENT_COMMAND, sound = 'sound/AI/commandreport.ogg')
+			priority_announce("Новое объявление доступно на всех консолях связи.", type = ANNOUNCEMENT_COMMAND, sound = 'sound/AI/commandreport.ogg')
 		else
 			return
 

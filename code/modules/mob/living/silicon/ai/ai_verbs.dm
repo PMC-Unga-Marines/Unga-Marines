@@ -153,7 +153,7 @@
 		return
 
 	last_announcement = world.time
-	priority_announce(input, "[src] Announcement", sound = 'sound/AI/aireport.ogg')
+	priority_announce(input, "Оповещение от [src]", sound = 'sound/AI/aireport.ogg')
 
 
 /mob/living/silicon/ai/verb/ai_core_display()
@@ -320,6 +320,6 @@
 	log_game("[key_name(src)] has ghosted at [AREACOORD(src)].")
 	message_admins("[ADMIN_TPMONTY(src)] has ghosted.")
 
-	priority_announce("[src] has suffered an unexpected NTOS failure over its Logarithmic silicon backhaul functions and has been taken offline. An attempt to load a backup personality core will proceed shortly.", "AI NT-OS Critical Failure")
+	priority_announce("[src] был отключен. Ожидание загрузки новой личности...", "Сбой ИИ", sound = 'sound/AI/aileft.ogg')
 	ghostize(FALSE)
 	offer_mob()
