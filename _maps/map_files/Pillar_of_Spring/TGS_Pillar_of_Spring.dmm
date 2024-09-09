@@ -1064,7 +1064,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/mainship/command/corporateliaison)
 "bni" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -1179,7 +1179,7 @@
 	},
 /area/mainship/squads/req)
 "buS" = (
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/mainship/squads/general)
 "bvv" = (
 /obj/structure/cable,
@@ -1456,7 +1456,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/mainship/squads/general)
 "bNl" = (
 /obj/structure/bed/bunkbed,
@@ -1711,7 +1711,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "bYP" = (
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/mainship/squads/general)
 "bZE" = (
 /obj/structure/bed/fancy,
@@ -1881,7 +1881,7 @@
 /turf/open/floor/mainship/sterile/corner,
 /area/mainship/medical/lower_medical)
 "cpi" = (
-/obj/structure/prop/mainship/name_stencil/M,
+/obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull,
 /area/space)
 "cqy" = (
@@ -3931,7 +3931,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/mainship/squads/general)
 "eUN" = (
 /obj/machinery/light/mainship{
@@ -4208,7 +4208,7 @@
 "fol" = (
 /obj/effect/ai_node,
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/mainship/command/corporateliaison)
 "fom" = (
 /obj/machinery/cryopod/right,
@@ -4680,7 +4680,7 @@
 /turf/open/floor/mainship/cargo,
 /area/mainship/hallways/hangar)
 "fQp" = (
-/obj/structure/prop/mainship/name_stencil/C,
+/obj/structure/prop/mainship/name_stencil/U,
 /turf/open/floor/mainship_hull,
 /area/space)
 "fQO" = (
@@ -4964,9 +4964,16 @@
 /turf/open/floor/mainship/red/corner,
 /area/mainship/command/airoom)
 "glL" = (
-/obj/structure/bed/chair/wood/wings,
-/turf/open/floor/wood,
-/area/mainship/living/grunt_rnr)
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/vending/weapon,
+/obj/structure/window/reinforced,
+/turf/open/floor/mainship/wylogo/wy2,
+/area/mainship/squads/general)
 "glN" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
@@ -5295,7 +5302,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/mainship/squads/general)
 "gMu" = (
 /obj/machinery/light/mainship/small{
@@ -6576,7 +6583,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/mainship/squads/general)
 "ixk" = (
 /turf/open/floor/mainship/cargo/arrow{
@@ -6802,7 +6809,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
 "iKM" = (
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/mainship/command/corporateliaison)
 "iLf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -8223,7 +8230,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/mainship/squads/general)
 "kJX" = (
 /obj/structure/window/framed/mainship/hull,
@@ -8610,10 +8617,6 @@
 "leW" = (
 /turf/open/floor/mainship/purple/full,
 /area/mainship/hallways/boxingring)
-"lgF" = (
-/obj/structure/prop/mainship/name_stencil,
-/turf/open/floor/mainship_hull,
-/area/space)
 "lgL" = (
 /obj/machinery/marine_selector/clothes,
 /obj/structure/window/reinforced{
@@ -11604,7 +11607,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/mainship/squads/general)
 "oKe" = (
 /turf/open/floor/mainship/black,
@@ -11901,10 +11904,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/upper_engineering)
-"pde" = (
-/obj/structure/prop/mainship/name_stencil/G,
-/turf/open/floor/mainship_hull,
-/area/space)
 "pdj" = (
 /obj/machinery/loadout_vendor,
 /turf/open/floor/mainship/black{
@@ -15654,7 +15653,7 @@
 	},
 /area/mainship/living/numbertwobunks)
 "tJA" = (
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/mainship/squads/general)
 "tKd" = (
 /obj/structure/table/mainship/nometal,
@@ -45466,7 +45465,7 @@ poR
 jsE
 jsE
 jsE
-glL
+acv
 pMf
 dBm
 nHm
@@ -46238,7 +46237,7 @@ hUf
 hUf
 qvJ
 spJ
-glL
+acv
 lhZ
 dBm
 nHm
@@ -46495,7 +46494,7 @@ rPu
 jwA
 qvJ
 bLz
-glL
+acv
 cVd
 dST
 nHm
@@ -49379,7 +49378,7 @@ qFT
 esN
 nWT
 nWT
-lgF
+nWT
 nWT
 nWT
 aiT
@@ -49893,7 +49892,7 @@ wPV
 kUW
 nWT
 nWT
-nWT
+fQp
 nWT
 wSP
 qVo
@@ -50150,7 +50149,7 @@ wPV
 kUW
 nWT
 nWT
-pde
+nWT
 nWT
 wSP
 qVo
@@ -50664,7 +50663,7 @@ nkI
 esN
 nWT
 nWT
-nWT
+cpi
 nWT
 wSP
 qVo
@@ -50921,7 +50920,7 @@ oco
 esN
 nWT
 nWT
-cpi
+nWT
 nWT
 wSP
 qVo
@@ -51435,7 +51434,7 @@ pkN
 kUW
 nWT
 nWT
-nWT
+cpi
 nWT
 wSP
 qVo
@@ -51692,7 +51691,7 @@ wPV
 kUW
 nWT
 nWT
-fQp
+nWT
 nWT
 wSP
 qVo
@@ -55002,7 +55001,7 @@ hmH
 rUF
 dJU
 rHh
-cPg
+buS
 cPg
 kdF
 mqK
@@ -55259,7 +55258,7 @@ iFI
 rUF
 cPg
 wkZ
-cPg
+tJA
 vVG
 sSA
 mqK
@@ -55516,7 +55515,7 @@ cjl
 ekL
 mNM
 xWS
-cPg
+bYP
 xWS
 bAS
 mqK
@@ -56526,7 +56525,7 @@ tJA
 xLV
 eMz
 xYh
-kbg
+glL
 kId
 esQ
 eMz
