@@ -98,10 +98,6 @@
 	/// Current amount of Evasion stacks.
 	var/evasion_stacks = 0
 
-/datum/action/ability/activable/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
 /datum/action/ability/xeno_action/evasion/on_cooldown_finish()
 	. = ..()
 	owner.balloon_alert(owner, "Evasion ready")
@@ -148,6 +144,8 @@
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_evasions")
 
 /datum/action/ability/xeno_action/evasion/process()
+	if(!owner)
+		STOP_PROCESSING(SSprocessing, src)
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
 	if(evasion_duration <= 0)
