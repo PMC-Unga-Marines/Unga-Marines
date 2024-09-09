@@ -141,12 +141,10 @@
 	var/life_value = 1
 	var/default_honor_value = 1
 	var/life_kills_total = 0
-	/**
-	 * global
-	 *
-	 * Tracks open UIs for a user.
-	 */
+
+	///Tracks open UIs for a user.
 	var/list/tgui_open_uis = list()
+
 	///TODO GET RID OF ME
 	var/list/pain_stored = list()
 	var/last_pain_message = ""
