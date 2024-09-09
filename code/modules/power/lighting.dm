@@ -730,7 +730,7 @@
 	desc = "If this is on you should probably be running!"
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "rotating_alarm"
-	light_system = HYBRID_LIGHT
+	light_system = MOVABLE_LIGHT
 	light_color = LIGHT_COLOR_RED
 	light_mask_type = /atom/movable/lighting_mask/rotating_conical
 	light_power = 6
