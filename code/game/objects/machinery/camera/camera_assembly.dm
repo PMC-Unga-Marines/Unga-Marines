@@ -3,11 +3,10 @@
 #define STATE_WIRED 3
 #define STATE_FINISHED 4
 
-
 /obj/item/frame/camera
 	name = "camera assembly"
 	desc = "The basic construction for cameras."
-	icon = 'icons/obj/machines/monitors.dmi'
+	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "cameracase"
 
 /obj/item/frame/camera/proc/try_build(turf/wall, mob/user)
@@ -42,7 +41,7 @@
 /obj/structure/camera_assembly
 	name = "camera assembly"
 	desc = "The basic construction for cameras."
-	icon = 'icons/obj/machines/monitors.dmi'
+	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera_assembly"
 	max_integrity = 150
 	var/state = STATE_WRENCHED
