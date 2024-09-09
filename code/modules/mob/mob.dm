@@ -25,7 +25,7 @@
 	if(hunter_data)
 		hunter_data.clean_data()
 	if(last_damage_source)
-		QDEL_NULL(last_damage_source)
+		last_damage_source = null
 	return ..()
 
 /mob/Initialize(mapload)
