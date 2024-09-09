@@ -19,10 +19,10 @@
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	accurate_range = 5
-	damage = 25
+	damage = 37
 	penetration = 15
 	shrapnel_chance = 25
-	sundering = 2.5
+	sundering = 4
 
 /datum/ammo/bullet/minigun/ltaap
 	name = "chaingun bullet"
@@ -108,7 +108,7 @@
 	hud_state_empty = "smartgun_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
-	damage = 10
+	damage = 15
 	penetration = 25
 	additional_xeno_penetration = 10
 	damage_falloff = 0.1

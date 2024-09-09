@@ -195,6 +195,7 @@
 	bullet_color = COLOR_DISABLER_BLUE
 
 /datum/ammo/energy/lasgun/marine/carbine
+	damage = 25
 	additional_xeno_penetration = 15
 	max_range = 18
 
