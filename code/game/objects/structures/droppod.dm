@@ -375,6 +375,8 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 
 /obj/structure/droppod/nonmob/Destroy()
 	unload_package()
+	if(stored_object)
+		QDEL_NULL(stored_object)
 	return ..()
 
 /obj/structure/droppod/nonmob/update_icon_state()
@@ -580,6 +582,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 
 /obj/structure/drop_pod_launcher/Destroy()
 	GLOB.droppod_bays -= src
+	QDEL_NULL(pod_type)
 	return ..()
 
 /obj/structure/drop_pod_launcher/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
