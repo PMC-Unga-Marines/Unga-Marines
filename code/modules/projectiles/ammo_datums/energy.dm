@@ -77,7 +77,6 @@
 	max_range = 30
 	accuracy_var_low = 3
 	accuracy_var_high = 3
-	sundering = 0
 
 /datum/ammo/energy/lasgun/M43
 	icon_state = "laser2"
@@ -89,7 +88,6 @@
 	damage = 45
 	max_range = 40
 	penetration = 50
-	sundering = 0
 
 /datum/ammo/energy/lasgun/M43/heat
 	name = "microwave heat bolt"
@@ -98,7 +96,6 @@
 	damage = 14 //requires mod with -0.15 multiplier should math out to 10
 	penetration = 100 // It's a laser that burns the skin! The fire stacks go threw anyway.
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY
-	sundering = 0
 
 /datum/ammo/energy/lasgun/M43/blast
 	name = "wide range laser blast"
@@ -114,7 +111,6 @@
 	damage = 42
 	damage_falloff = 10
 	penetration = 0
-	sundering = 0
 
 /datum/ammo/energy/lasgun/M43/spread
 	name = "additional laser blast"
@@ -147,7 +143,6 @@
 	damage = 45 // this is gotta hurt...
 	max_range = 40
 	penetration = 100
-	sundering = 0
 	bullet_color = COLOR_PULSE_BLUE
 
 /datum/ammo/energy/lasgun/M43/practice
@@ -190,7 +185,6 @@
 	penetration = 60
 	accurate_range_min = 6
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
-	sundering = 0
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -213,7 +207,6 @@
 	hud_state = "laser_sniper"
 	damage = 30
 	penetration = 10
-	sundering = 0
 	damage_type = STAMINA
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
@@ -278,7 +271,6 @@
 	hud_state = "laser_sniper"
 	damage = 35
 	penetration = 10
-	sundering = 0
 	hitscan_effect_icon = "pu_laser"
 	bullet_color = LIGHT_COLOR_PURPLE
 
@@ -292,7 +284,6 @@
 	hud_state = "laser_sniper"
 	damage = 20
 	penetration = 10
-	sundering = 0
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -329,7 +320,6 @@
 	hud_state = "laser_efficiency"
 	damage = 15
 	penetration = 20
-	sundering = 0
 	hitscan_effect_icon = "beam_solar"
 	bullet_color = LIGHT_COLOR_YELLOW
 	///number of melting stacks to apply when hitting mobs
@@ -683,7 +673,6 @@
 	point_blank_range = 2
 	damage = 24
 	penetration = 10
-	sundering = 0
 	fire_burst_damage = 15
 
 	//inherited, could use some changes

@@ -189,7 +189,6 @@
 	damage = 19
 	damage_falloff = 0.25
 	penetration = 17
-	sundering = 0
 	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/shotgun/tx15_flechette/spread
