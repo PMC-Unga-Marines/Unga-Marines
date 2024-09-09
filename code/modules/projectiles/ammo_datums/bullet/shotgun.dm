@@ -186,10 +186,10 @@
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 2
 	max_range = 15
-	damage = 16
+	damage = 19
 	damage_falloff = 0.25
-	penetration = 15
-	sundering = 1.5
+	penetration = 17
+	sundering = 0
 	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/shotgun/tx15_flechette/spread
