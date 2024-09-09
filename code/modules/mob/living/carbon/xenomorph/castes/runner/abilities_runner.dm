@@ -146,6 +146,7 @@
 /datum/action/ability/xeno_action/evasion/process()
 	if(!owner)
 		STOP_PROCESSING(SSprocessing, src)
+		return
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
 	if(evasion_duration <= 0)
