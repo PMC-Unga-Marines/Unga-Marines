@@ -661,7 +661,9 @@
 	new /obj/item/weapon/gun/minigun(src)
 	new /obj/item/ammo_magazine/minigun_powerpack(src)
 	new /obj/item/ammo_magazine/minigun_powerpack(src)
+	new	/obj/item/armor_module/module/tyr_head/mark2(src)
 	new /obj/item/armor_module/module/tyr_extra_armor(src)
+	new	/obj/item/armor_module/module/tyr_head/mark2(src)
 	new /obj/item/armor_module/module/tyr_extra_armor(src)
 
 /obj/item/storage/box/crate/loot/sadarclassic_pack/Initialize(mapload)
