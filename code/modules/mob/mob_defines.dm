@@ -134,6 +134,3 @@
 	var/shield_slowdown = 0
 	///Color matrices to be applied to the client window. Assoc. list.
 	var/list/client_color_matrices
-
-	var/respawn_alert_marine = TRUE
-	var/respawn_alert_xeno = TRUE

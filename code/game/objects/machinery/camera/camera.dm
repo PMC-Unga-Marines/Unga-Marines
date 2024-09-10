@@ -208,9 +208,9 @@
 /obj/machinery/camera/update_icon_state()
 	. = ..()
 	if(obj_integrity <= 0)
-		icon_state = "camera_assembly"
+		icon_state = "[base_icon_state]_assembly"
 	else
-		icon_state = "camera"
+		icon_state = base_icon_state
 
 /obj/machinery/camera/proc/toggle_cam(mob/user, displaymessage = TRUE)
 	status = !status
@@ -324,6 +324,7 @@
 /obj/machinery/camera/laser_cam
 	name = "laser camera"
 	icon_state = ""
+	base_icon_state = ""
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	network = list("laser targets")
 	resistance_flags = RESIST_ALL
@@ -338,6 +339,7 @@
 /obj/machinery/camera/beacon_cam
 	name = "beacon camera"
 	icon_state = ""
+	base_icon_state = ""
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	network = list("supply beacons")
 	resistance_flags = RESIST_ALL
@@ -356,12 +358,9 @@
 /obj/machinery/camera/autoname/lz_camera
 	name = "landing zone camera"
 	icon_state = "editor_icon"
+	base_icon_state = ""
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	network = list("landing zones")
-
-/obj/machinery/camera/autoname/lz_camera/Initialize(mapload)
-	. = ..()
-	icon_state = "" //remove visibility on map load
 
 /obj/machinery/camera/autoname/lz_camera/emp_act(severity)
 	return
@@ -377,14 +376,12 @@
 
 //Special invisible cameras, to get even better angles without looking ugly
 /obj/machinery/camera/autoname/thunderdome/hidden
-
-/obj/machinery/camera/autoname/thunderdome/hidden/update_icon_state()
-	. = ..()
-	icon_state = "nothing"
+	base_icon_state = ""
 
 /obj/machinery/camera/miner
 	name = "miner camera"
 	desc = "It's used to monitor miners."
+	base_icon_state = ""
 	network = list("miner")
 	status = FALSE // by default miners are inactive
 	internal_light = FALSE
