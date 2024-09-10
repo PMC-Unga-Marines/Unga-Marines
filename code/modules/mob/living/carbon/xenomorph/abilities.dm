@@ -817,6 +817,8 @@
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!can_use_ability(object, TRUE, can_use_ability_flags))
 		return fail_activate()
+	if(QDELETED(object))
+		return
 	set_target(get_turf_on_clickcatcher(object, xeno, params))
 	if(!current_target)
 		return

@@ -457,6 +457,8 @@
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] || modifiers["ctrl"])
 		return
+	if(QDELETED(object))
+		return
 	set_target(get_turf_on_clickcatcher(object, living_user, params))
 	if(!current_target)
 		return
