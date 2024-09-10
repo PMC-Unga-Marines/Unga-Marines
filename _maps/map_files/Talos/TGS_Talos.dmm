@@ -4214,7 +4214,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "coG" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -20386,7 +20386,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/lounge)
 "lXA" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
@@ -26169,7 +26169,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "pou" = (
@@ -29308,7 +29308,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "rel" = (
@@ -31262,7 +31262,7 @@
 /turf/open/floor/mainship/emerald,
 /area/mainship/squads/charlie)
 "slY" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
@@ -32755,7 +32755,7 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/ex_firing_range)
 "tiL" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},

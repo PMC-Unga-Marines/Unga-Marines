@@ -11966,7 +11966,7 @@
 /turf/closed/wall/mainship/gray,
 /area/sulaco/hallway/lower_foreship)
 "eCK" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/hydro,
 /area/sulaco/hydro)
 "eCX" = (
@@ -19796,7 +19796,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/mainship/command/self_destruct)
 "oDV" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/atmospherics/pipe/simple/yellow/hidden{
 	dir = 4
 	},
@@ -19995,7 +19995,7 @@
 /obj/structure/sink/kitchen{
 	pixel_y = 30
 	},
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /obj/item/tool/minihoe,
 /obj/item/tool/plantspray/weeds,

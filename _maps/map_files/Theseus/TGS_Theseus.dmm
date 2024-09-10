@@ -3756,7 +3756,7 @@
 /turf/closed/wall/mainship,
 /area/mainship/hallways/hangar/droppod)
 "blw" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /obj/item/tool/minihoe,
 /obj/item/reagent_containers/glass/fertilizer/ez,
@@ -18054,7 +18054,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "tAA" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
 "tBz" = (

@@ -1081,7 +1081,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
 "aUM" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -5259,7 +5259,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/southeast)
 "eyU" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/green/full,
 /area/lawankaoutpost/colony/hydroponics)
@@ -9204,7 +9204,7 @@
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/colony/operations_hall)
 "hQL" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -10481,7 +10481,7 @@
 /turf/open/floor/tile/dark,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "iXc" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -11897,7 +11897,7 @@
 /turf/open/floor/plating,
 /area/shuttle/drop1/lz1)
 "kjK" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor,
 /area/lawankaoutpost/colony/hydroponics)
 "kku" = (
@@ -18890,7 +18890,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/northdorms)
 "pSu" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/full,
 /area/lawankaoutpost/colony/hydroponics)
 "pSy" = (
@@ -21488,7 +21488,7 @@
 	},
 /area/lawankaoutpost/colony/engineering)
 "sau" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light,
 /turf/open/floor,
 /area/lawankaoutpost/colony/hydroponics)
@@ -22898,7 +22898,7 @@
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "tiW" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -26609,7 +26609,7 @@
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/east)
 "wka" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},
