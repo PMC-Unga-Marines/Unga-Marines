@@ -169,7 +169,7 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/type71
+/obj/item/ammo_magazine/packet/rifle762X39
 	name = "box of 7.62X39"
 	icon_state = "box_7.62x39mm"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km
