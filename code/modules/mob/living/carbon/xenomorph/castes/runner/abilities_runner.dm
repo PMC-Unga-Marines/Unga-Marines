@@ -30,7 +30,7 @@
 	RegisterSignal(owner, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(object_hit))
 	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
-	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdel))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdel), TRUE)
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.xeno_flags |= XENO_LEAPING
