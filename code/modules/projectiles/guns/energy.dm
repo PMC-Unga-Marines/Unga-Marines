@@ -658,7 +658,7 @@
 	scatter = 1
 	scatter_unwielded = 10
 	fire_delay = 1.5 SECONDS
-	burst_delay = 0.15 SECONDS
+	burst_delay = 0.1 SECONDS
 	extra_delay = 0.15 SECONDS
 	autoburst_delay = 0.35 SECONDS
 	accuracy_mult = 1

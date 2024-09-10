@@ -19,10 +19,10 @@
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	accurate_range = 5
-	damage = 37
+	damage = 25
 	penetration = 15
 	shrapnel_chance = 25
-	sundering = 4
+	sundering = 2.5
 
 /datum/ammo/bullet/minigun/ltaap
 	name = "chaingun bullet"

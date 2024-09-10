@@ -403,7 +403,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 12
 
-	fire_delay = 0.15 SECONDS
+	fire_delay = 0.10 SECONDS
 	windup_delay = 0.4 SECONDS
 	windup_sound = 'sound/weapons/guns/fire/tank_minigun_start.ogg'
 	scatter = 5
