@@ -140,13 +140,11 @@
 	RegisterSignal(owner, COMSIG_XENO_PROJECTILE_HIT, PROC_REF(evasion_dodge))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(evasion_flamer_hit))
 	RegisterSignal(owner, COMSIG_LIVING_PRE_THROW_IMPACT, PROC_REF(evasion_throw_dodge))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(qdel_deactivate))
 	GLOB.round_statistics.runner_evasions++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_evasions")
 
 /datum/action/ability/xeno_action/evasion/process()
-	if(!owner)
-		STOP_PROCESSING(SSprocessing, src)
-		return
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
 	if(evasion_duration <= 0)
@@ -193,6 +191,7 @@
 		COMSIG_XENO_PROJECTILE_HIT,
 		COMSIG_LIVING_PRE_THROW_IMPACT,
 		COMSIG_ATOM_BULLET_ACT,
+		COMSIG_QDELETING,
 	))
 	evade_active = FALSE
 	evasion_stacks = 0
@@ -201,6 +200,13 @@
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50)
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
+
+///Deactivates processing on qdel of owner, because if we don't we enter a fucking infinite runtime loop
+/datum/action/ability/xeno_action/evasion/proc/qdel_deactivate(datum/source)
+	SIGNAL_HANDLER
+	if(!evade_active)
+		return
+	STOP_PROCESSING(SSprocessing, src)
 
 /// Determines whether or not a thrown projectile is dodged while the Evasion ability is active
 /datum/action/ability/xeno_action/evasion/proc/evasion_throw_dodge(datum/source, atom/movable/proj)
