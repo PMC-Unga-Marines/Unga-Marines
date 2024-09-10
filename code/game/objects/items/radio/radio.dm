@@ -294,8 +294,9 @@
 	var/area/A = get_area(src)
 	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.flags_area & ALWAYS_RADIO))
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
-			return
-		signal.data["compression"] += rand(20, 40)
+			signal.data["compression"] += rand(30, 60)
+		else
+			signal.data["compression"] += rand(15, 30)
 
 	// All non-independent radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
@@ -344,9 +345,6 @@
 	if(!(RADIO_NO_Z_LEVEL_RESTRICTION in levels))
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in levels))
-			return FALSE
-		var/area/A = get_area(src)
-		if(A?.ceiling >= CEILING_DEEP_UNDERGROUND)
 			return FALSE
 
 	// allow checks: are we listening on that frequency?
