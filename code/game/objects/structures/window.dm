@@ -91,6 +91,7 @@
 		. = TRUE
 	if(thrown_mob)
 		thrown_mob.take_overall_damage(speed * 5, BRUTE, MELEE, !., FALSE, TRUE, 0, 4) //done here for dramatic effect, and to make the damage sharp if we broke the window
+	return TRUE
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point

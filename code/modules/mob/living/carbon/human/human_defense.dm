@@ -280,10 +280,8 @@ Contains most of the procs that are called when a mob is attacked by something
 					log_combat(living_thrower, src, "thrown at", thrown_item, "(FAILED: shield blocked)")
 				return TRUE
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 		if((living_thrower != src) && check_pred_shields(throw_damage, "[thrown_item]", backside_attack = dir == get_dir(get_turf(AM), get_turf(src))))
 			return
-//RUTGMC EDIT ADDITION END
 
 		var/datum/limb/affecting = get_limb(zone)
 
