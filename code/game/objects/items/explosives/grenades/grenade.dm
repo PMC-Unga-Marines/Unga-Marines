@@ -119,11 +119,10 @@
 /obj/item/explosive/grenade/throw_at()
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-	sleep(0.3 SECONDS)
-	playsound(loc, G_hit_sound, 20, 1, 9)
+	if(G_hit_sound)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), loc, G_hit_sound, 20, 1, 9), 1 SECONDS)
 
 ////RAD GRENADE - TOTALLY RAD MAN
-
 /obj/item/explosive/grenade/rad
 	name = "\improper V-40 rad grenade"
 	desc = "Rad grenades release an extremely potent but short lived burst of radiation, debilitating organic life and frying electronics in a moderate radius. After the initial detonation, the radioactive effects linger for a time. Handle with extreme care."

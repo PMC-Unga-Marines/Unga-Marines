@@ -519,11 +519,11 @@
 	light_system = MOVABLE_LIGHT
 	light_range = 6
 	light_color = LIGHT_COLOR_FLARE
+	G_hit_sound = null
+	G_throw_sound = null
 	var/fuel = 0
 	var/lower_fuel_limit = 450
 	var/upper_fuel_limit = 750
-	G_hit_sound = null
-	G_throw_sound = null
 
 /obj/item/explosive/grenade/flare/dissolvability(acid_strength)
 	return 2
