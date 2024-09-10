@@ -19,10 +19,26 @@
 	/// Savage's cooldown.
 	COOLDOWN_DECLARE(savage_cooldown)
 
-/datum/action/ability/activable/xeno/pounce/runner/process()
-	if(!owner)
-		return PROCESS_KILL
-	return ..()
+/datum/action/ability/activable/xeno/pounce/runner/use_ability(atom/A)
+	if(owner.layer != MOB_LAYER)
+		owner.layer = MOB_LAYER
+		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
+		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
+	if(owner.buckled)
+		owner.buckled.unbuckle_mob(owner)
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
+	RegisterSignal(owner, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(object_hit))
+	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
+	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdel))
+	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	xeno_owner.xeno_flags |= XENO_LEAPING
+	xeno_owner.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
+	xeno_owner.throw_at(A, pounce_range, XENO_POUNCE_SPEED, xeno_owner)
+	addtimer(CALLBACK(src, PROC_REF(reset_pass_flags)), 0.6 SECONDS)
+	succeed_activate()
+	add_cooldown()
 
 /datum/action/ability/activable/xeno/pounce/runner/give_action(mob/living/L)
 	. = ..()
@@ -63,6 +79,7 @@
 		owner.balloon_alert(owner, "Savage ready")
 		owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 		STOP_PROCESSING(SSprocessing, src)
+		UnregisterSignal(COMSIG_QDELETING)
 		return
 	button.cut_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
 	var/mutable_appearance/cooldown = visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN]
@@ -70,6 +87,9 @@
 	visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN] = cooldown
 	button.add_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
 
+/datum/action/ability/activable/xeno/pounce/runner/proc/on_qdel()
+	SIGNAL_HANDLER
+	STOP_PROCESSING(SSprocessing, src)
 
 // ***************************************
 // *********** Evasion
