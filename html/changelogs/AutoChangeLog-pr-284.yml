@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Исправлены фантомные разгрузки при смене на надетой униформе."
