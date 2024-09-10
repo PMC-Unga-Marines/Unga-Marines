@@ -169,6 +169,7 @@
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
+			/obj/item/ammo_magazine/packet/type71 -1,
 			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/t500 = -1,
