@@ -161,22 +161,13 @@
 	max_rounds = 42
 
 /obj/item/ammo_magazine/packet/acp
-	name = "box of .45 ACP"
-	icon_state = "box_.45acp"
+	name = "packet of .45 ACP"
+	icon_state = "box_45acp"
 	default_ammo = /datum/ammo/bullet/pistol/heavy
 	w_class = WEIGHT_CLASS_SMALL
 	caliber = CALIBER_45ACP
-	current_rounds = 150
-	max_rounds = 150
-
-/obj/item/ammo_magazine/packet/type71
-	name = "box of 7.62X39"
-	icon_state = "box_7.62x39mm"
-	default_ammo = /datum/ammo/bullet/rifle/mpi_km
-	w_class = WEIGHT_CLASS_NORMAL
-	caliber = CALIBER_762X39
-	current_rounds = 150
-	max_rounds = 150
+	current_rounds = 50
+	max_rounds = 50
 
 /obj/item/ammo_magazine/packet/p9mm/ap
 	name = "packet of 9mm AP"
