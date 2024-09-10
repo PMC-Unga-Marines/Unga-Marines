@@ -296,7 +296,7 @@
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
 			signal.data["compression"] += rand(30, 60)
 		else
-			signal.data["compression"] += rand(15, 30)
+			signal.data["compression"] += rand(5, 10)
 
 	// All non-independent radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
