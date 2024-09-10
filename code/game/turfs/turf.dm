@@ -490,7 +490,7 @@
 	return FALSE
 
 /turf/open/ground/grass/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/floor/plating/ground/dirtgrassborder/is_weedable()
 	return FALSE
@@ -500,6 +500,9 @@
 
 /turf/open/ground/coast/is_weedable()
 	return FALSE
+
+/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/is_weedable()
+	return TRUE
 
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable/is_weedable()
 	return TRUE
