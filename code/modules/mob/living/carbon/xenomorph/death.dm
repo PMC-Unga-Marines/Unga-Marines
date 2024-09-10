@@ -14,6 +14,9 @@
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.dead_xeno_list += src
 
+	QDEL_NULL(current_aura)
+	QDEL_NULL(leader_current_aura)
+
 	hive?.on_xeno_death(src)
 	hive?.update_tier_limits() //Update our tier limits.
 

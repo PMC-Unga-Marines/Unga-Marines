@@ -286,8 +286,10 @@
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
 
-	QDEL_NULL(current_aura)
-	QDEL_NULL(leader_current_aura)
+	if(!isnull(current_aura))
+		QDEL_NULL(current_aura)
+	if(!isnull(leader_current_aura))
+		QDEL_NULL(leader_current_aura)
 
 	var/datum/hive_status/hive_placeholder = hive
 	remove_from_hive()
