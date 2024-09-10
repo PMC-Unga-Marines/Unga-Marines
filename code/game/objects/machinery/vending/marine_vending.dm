@@ -29,7 +29,7 @@
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
-),
+	),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/standard_dmr = -1,
 			/obj/item/ammo_magazine/rifle/standard_dmr = -1,
