@@ -1162,7 +1162,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "aWe" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/dark/green2,
 /area/slumbridge/inside/colony/hydro)
 "aWu" = (
@@ -4474,7 +4474,7 @@
 	},
 /area/slumbridge/outside/northwest)
 "doH" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light,
 /turf/open/floor/tile/dark/green2,
 /area/slumbridge/inside/colony/hydro)
@@ -12204,7 +12204,7 @@
 /turf/open/floor/tile/blue,
 /area/slumbridge/inside/houses/surgery)
 "jgw" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -30863,7 +30863,7 @@
 	},
 /area/slumbridge/inside/zeta/south)
 "wKy" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4

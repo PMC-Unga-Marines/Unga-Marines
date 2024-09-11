@@ -205,7 +205,7 @@
 		die()
 
 // Hotspots kill vines.
-/obj/effect/plantsegment/fire_act(null, temp, volume)
+/obj/effect/plantsegment/fire_act(burn_level)
 	qdel(src)
 
 /obj/effect/plantsegment/proc/die()
@@ -221,7 +221,7 @@
 	if(prob(30))
 		age++
 
-/obj/effect/plantsegment/flamer_fire_act(burnlevel, flame_color)
+/obj/effect/plantsegment/fire_act(burn_level, flame_color)
 	qdel(src)
 
 /obj/effect/plant_controller
