@@ -4,48 +4,33 @@
 /mob/living/carbon/proc/adjust_painloss(amount)
 	if(amount > 0 && (status_flags & GODMODE))
 		return FALSE
-	painloss = clamp(painloss + amount, -100, maxHealth * 2)
+	painloss = clamp(painloss + (amount - painloss) * PAIN_REACTIVITY, -100, maxHealth * 2)
 
 /mob/living/carbon/proc/set_painloss(amount)
+	if(HAS_TRAIT(src, TRAIT_PAIN_IMMUNE))
+		amount = 0
 	if(painloss == amount)
 		return FALSE
 	painloss = amount
+	SEND_SIGNAL(src, COMSIG_MOB_PAINLOSS_CHANGED, painloss)
+	adjust_pain_speed_mod(painloss)
 
-/mob/living/carbon/proc/get_shock_Stage()
-	return shock_stage
-
-/mob/living/carbon/proc/adjust_shock_stage(amount)
-	if(amount > 0 && (status_flags & GODMODE))
-		return FALSE
-	. = shock_stage
-	set_shock_stage(clamp(shock_stage + (amount - shock_stage) * PAIN_REACTIVITY, 0, maxHealth * 2))
-
-/mob/living/carbon/proc/set_shock_stage(amount)
-	if(HAS_TRAIT(src, TRAIT_PAIN_IMMUNE))
-		amount = 0
-	if(shock_stage == amount)
-		return FALSE
-	. = shock_stage
-	shock_stage = amount
-	SEND_SIGNAL(src, COMSIG_MOB_SHOCK_STAGE_CHANGED, shock_stage)
-	adjust_pain_speed_mod(.)
-
-/mob/living/carbon/proc/adjust_pain_speed_mod(old_shock_stage)
-	switch(shock_stage)
+/mob/living/carbon/proc/adjust_pain_speed_mod(old_painloss)
+	switch(painloss)
 		if(0 to 100)
-			if(old_shock_stage <= 100)
+			if(old_painloss <= 100)
 				return
 			remove_movespeed_modifier(MOVESPEED_ID_PAIN)
 		if(100 to 125)
-			if(old_shock_stage > 100 || old_shock_stage <= 125)
+			if(old_painloss > 100 || old_painloss <= 125)
 				return
 			add_movespeed_modifier(MOVESPEED_ID_PAIN, TRUE, 0, NONE, TRUE, 1)
 		if(125 to 150)
-			if(old_shock_stage > 125 || old_shock_stage <= 150)
+			if(old_painloss > 125 || old_painloss <= 150)
 				return
 			add_movespeed_modifier(MOVESPEED_ID_PAIN, TRUE, 0, NONE, TRUE, 2)
 		if(150 to INFINITY)
-			if(old_shock_stage > 150)
+			if(old_painloss > 150)
 				return
 			add_movespeed_modifier(MOVESPEED_ID_PAIN, TRUE, 0, NONE, TRUE, 3)
 

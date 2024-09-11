@@ -21,7 +21,6 @@
 
 	/// Levels of pain in your body caused by all the damage
 	var/painloss = 0
-	var/shock_stage = 0
 
 	///Causes breathing to fail and generate oxyloss instead of recover it, even outside crit.
 	var/losebreath = 0

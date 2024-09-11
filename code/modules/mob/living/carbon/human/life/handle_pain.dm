@@ -2,13 +2,13 @@
 /mob/living/carbon/human/handle_pain_levels()
 	. = ..()
 	if(status_flags & GODMODE || (species?.species_flags & NO_PAIN))
-		set_shock_stage(0)
+		set_painloss(0)
 		return //Godmode or some other pain reducers.
 
-	adjust_shock_stage(painloss)
+	adjust_painloss(painloss)
 
 	//This just adds up effects together at each step, with a few small exceptions. Preferable to copy and paste rather than have a billion if statements.
-	switch(shock_stage)
+	switch(painloss)
 		if(10 to 29)
 			if(prob(20))
 				to_chat(src, span_danger("[pick("You're in a bit of pain", "You ache a little", "You feel some physical discomfort")]."))
