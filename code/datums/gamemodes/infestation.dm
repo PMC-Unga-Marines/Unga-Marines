@@ -318,7 +318,7 @@
 	SIGNAL_HANDLER
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/area_name = get_area_name(nuke)
-	HS.xeno_message("По всему улью прокатилась волна ужаса... Они активировали ядерную бомбу[area_name ? " в [area_name]":""]!")
+	HS.xeno_message("Волна ужаса прокатывается по улью... Они активировали ядерную бомбу[area_name ? " в [area_name]":""]!")
 	HS.set_all_xeno_trackers(nuke)
 
 /datum/game_mode/infestation/proc/play_cinematic(z_level)

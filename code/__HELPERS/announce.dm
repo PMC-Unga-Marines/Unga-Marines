@@ -14,12 +14,12 @@
 			announcement += "<meta charset='UTF-8'><br><h2 class='alert'>[html_encode(title)]</h2>"
 
 		if(ANNOUNCEMENT_PRIORITY)
-			announcement += "<meta charset='UTF-8'><h1 class='alert'>Важное Оповещение</h1>"
+			announcement += "<meta charset='UTF-8'><h1 class='alert'>Приоритетное Оповещение</h1>"
 			if(title && title != "Оповещение")
 				announcement += "<meta charset='UTF-8'><br><h2 class='alert'>[html_encode(title)]</h2>"
 
 		if(ANNOUNCEMENT_COMMAND)
-			announcement += "<meta charset='UTF-8'><h1 class='alert'>Оповещение</h1>"
+			announcement += "<meta charset='UTF-8'><h1 class='alert'>Оповещение Экипажу</h1>"
 
 
 	announcement += "<meta charset='UTF-8'><br>[span_alert("[html_encode(message)]")]<br>"
@@ -33,7 +33,7 @@
 			SEND_SOUND(M, s)
 
 
-/proc/print_command_report(papermessage, papertitle = "paper", announcemessage = "Отчет загружен и распечатан на всех консолях связи.", announcetitle = "Входящее сообщение", announce = TRUE)
+/proc/print_command_report(papermessage, papertitle = "paper", announcemessage = "Отчет был загружен и распечатан на всех консолях связи.", announcetitle = "Входящее сообщение", announce = TRUE)
 	if(announce)
 		priority_announce(announcemessage, announcetitle, sound = 'sound/AI/commandreport.ogg')
 

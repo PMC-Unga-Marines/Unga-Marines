@@ -86,7 +86,7 @@ SUBSYSTEM_DEF(evacuation)
 	evac_time = world.time
 	evac_status = EVACUATION_STATUS_INITIATING
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EVACUATION_STARTED)
-	priority_announce("Аварийная эвакуация запущена. Пожалуйста, проследуйте к спасательным капсулам. Запуск капсул через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.", "Эвакуация", sound = 'sound/AI/evacuate.ogg')
+	priority_announce("Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам. Запуск капсул через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.", "Эвакуация", sound = 'sound/AI/evacuate.ogg')
 	xeno_message("По улью прокатывается волна адреналина. Эти слабые существа пытаются сбежать!")
 	pod_list = SSshuttle.escape_pods.Copy()
 	for(var/obj/docking_port/mobile/escape_pod/pod AS in pod_list)
@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(evacuation)
 	GLOB.enter_allowed = TRUE
 	evac_time = null
 	evac_status = EVACUATION_STATUS_STANDING_BY
-	priority_announce("Эвакуация отменена. Восстановление систем...", "Эвакуация", sound = 'sound/AI/evacuate_cancelled.ogg')
+	priority_announce("Эвакуация была отменена. Восстановление систем...", "Эвакуация", sound = 'sound/AI/evacuate_cancelled.ogg')
 	for(var/obj/docking_port/mobile/escape_pod/pod AS in pod_list)
 		pod.unprep_for_launch()
 	return TRUE
@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(evacuation)
 			. = "NOW"
 
 /datum/controller/subsystem/evacuation/proc/announce_evac_completion()
-	priority_announce("Эвакуация завершена. Оставшемуся экипажу требуется завершить миссию.", "Эвакуация Проведена", sound = 'sound/AI/evacuation_complete.ogg')
+	priority_announce("Эвакуация завершена. Оставшемуся экипажу требуется завершить миссию.", "Эвакуация Завершена", sound = 'sound/AI/evacuation_complete.ogg')
 	evac_status = EVACUATION_STATUS_COMPLETE
 
 
@@ -158,7 +158,7 @@ SUBSYSTEM_DEF(evacuation)
 			I.toggle(TRUE)
 	dest_master.toggle(TRUE)
 	dest_index = 1
-	priority_announce("Протокол самоуничтожения деактивирован. Перезапуск систем.", "Простокол Самоуничтожения", sound = 'sound/AI/selfdestruct_deactivated.ogg')
+	priority_announce("Протокол самоуничтожения деактивирован. Перезапуск систем.", "Протокол Самоуничтожения", sound = 'sound/AI/selfdestruct_deactivated.ogg')
 	if(evac_status == EVACUATION_STATUS_STANDING_BY)
 		GLOB.marine_main_ship.set_security_level(SEC_LEVEL_RED, TRUE)
 	for(var/obj/machinery/floor_warn_light/self_destruct/light AS in alarm_lights)

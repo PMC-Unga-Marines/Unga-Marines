@@ -430,14 +430,14 @@
 		if(D.mode != SHUTTLE_IGNITING)
 			D.set_hijack_state(HIJACK_STATE_UNLOCKED)
 			D.do_start_hijack_timer(GROUND_LOCKDOWN_TIME)
-			to_chat(user, span_warning("Мы не смогли помешать птице улететь, так как она уже взлетала."))
+			to_chat(user, span_warning("Мы не можем помешать птице улететь, так как она уже взлетает."))
 		D.silicon_lock_airlocks(TRUE)
 		to_chat(user, span_warning("Мы отменили блокировку шаттла!"))
 		playsound(user, "alien_roar", 50)
-		priority_announce("Протокол блокировки Нормандии скомпрометирован. Помехи блокируют удалённое управление.", "Шаттл Заблокирован", sound = 'sound/AI/dropship_block.ogg')
+		priority_announce("Протокол блокировки Нормандии скомпрометирован. Постороннее вмешательство блокирует попытки удалённого управления.", "Шаттл Заблокирован", sound = 'sound/AI/dropship_block.ogg')
 		return FALSE
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
-		to_chat(user, span_warning("Разум птицы активен. Нужно подождать, пока он станет более уязвимым..."))
+		to_chat(user, span_warning("Сознание птицы активно. Нужно подождать, пока он станет более уязвимым..."))
 		return FALSE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
@@ -737,8 +737,8 @@
 	crashing_dropship.crashing = TRUE
 	crashing_dropship.unlock_all()
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_HIJACKED)
-	priority_announce("Зафиксирован незапланированный вылет Нормандии из зоны боевых действий. Вероятна кража.", "Оповещение о Шаттле", sound = 'sound/AI/hijack.ogg')
-	to_chat(user, span_danger("[src] издаёт громкий звук! Мясистые знают, что вы можете получить к нему доступ!"))
+	priority_announce("Зафиксирован незапланированный вылет Нормандии из зоны боевых действий. Вероятен угон.", "Оповещение о Шаттле", sound = 'sound/AI/hijack.ogg')
+	to_chat(user, span_danger("A loud alarm erupts from [src]! The fleshy hosts must know that you can access it!"))
 	user.hive.on_shuttle_hijack(crashing_dropship)
 	playsound(src, 'sound/misc/queen_alarm.ogg')
 	crashing_dropship.silicon_lock_airlocks(TRUE)

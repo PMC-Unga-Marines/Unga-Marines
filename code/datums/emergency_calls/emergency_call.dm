@@ -36,7 +36,7 @@
 
 	var/list/total_calls = typesof(/datum/emergency_call)
 	if(!length(total_calls))
-		CRASH("Данные о бедствии не найдены.")
+		CRASH("No distress Datums found.")
 
 	for(var/x in total_calls)
 		var/datum/emergency_call/D = new x()
@@ -78,8 +78,8 @@
 
 	for(var/i in GLOB.observer_list)
 		var/mob/dead/observer/M = i
-		to_chat(M, "<br><font size='3'>[span_attack("Запущен сигнал бедствия. Используйте <B>Ghost > <a href='byond://?src=[REF(M)];join_ert=1'>Join Response Team</a></b> чтобы учавствовать в операции!")]</font><br>")
-		to_chat(M, "[span_attack("Вы не можете присоединиться, если вы были Призраком до появления этого сообщения.")]<br>")
+		to_chat(M, "<br><font size='3'>[span_attack("Сигнал бедствия был активирован. Используйте <B>Ghost > <a href='byond://?src=[REF(M)];join_ert=1'>Join Response Team</a></b> чтобы присоединиться!")]</font><br>")
+		to_chat(M, "[span_attack("Вы не можете присоединиться, если вы стали Призраком до появления этого сообщения.")]<br>")
 
 
 /datum/game_mode/proc/activate_distress(datum/emergency_call/chosen_call)
@@ -105,7 +105,7 @@
 		return
 
 	if(!istype(distress) || !SSticker.mode.waiting_for_candidates || distress.mob_max < 1)
-		to_chat(usr, span_warning("Пока что никто не пускал сигналов бедствия. Вы будете оповещены, если что-то появится."))
+		to_chat(usr, span_warning("Отсутствуют сигналы бедствия нуждающиеся в кандидатах. Вы будете оповещены, если что-то изменится."))
 		return
 
 	var/deathtime = world.time - GLOB.key_to_time_of_role_death[key]
@@ -187,7 +187,7 @@
 		candidates.Cut()
 
 		if(announce)
-			priority_announce("Ответа на сигнал бедствия не поступило. Повторите попытку позже.", "Сигнал Бедствия", sound = 'sound/AI/distressbeacon_none.ogg')
+			priority_announce("Ответа на сигнал бедствия не поступило. Системы запуска заняты перекалибровкой.", "Сигнал Бедствия", sound = 'sound/AI/distressbeacon_none.ogg')
 
 		SSticker.mode.picked_call = null
 		SSticker.mode.on_distress_cooldown = TRUE

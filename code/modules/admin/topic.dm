@@ -655,7 +655,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			return
 
 		SSticker.mode.distress_cancelled = TRUE
-		priority_announce("Сигнал бедствия заблокирован. Попытка решение проблемы...", "Сигнал Бедствия", sound = 'sound/AI/selfdestruct.ogg')
+		priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distressbeaconlocked.ogg')
 		log_admin("[key_name(usr)] has denied a distress beacon, requested by [key_name(M)]")
 		message_admins("[ADMIN_TPMONTY(usr)] has denied a distress beacon, requested by [ADMIN_TPMONTY(M)]")
 
