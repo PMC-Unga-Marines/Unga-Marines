@@ -127,7 +127,7 @@
 	GLOB.head_list += src
 
 /obj/item/limb/head/Destroy()
-	brainmob = null
+	QDEL_NULL(brainmob)
 	GLOB.head_list -= src
 	return ..()
 
