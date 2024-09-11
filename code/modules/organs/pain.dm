@@ -3,7 +3,6 @@
 	clear_fullscreen("pain")
 
 ///TODO MOVE ME OR EVEN BETTER GET RID OF ME
-/mob/var/list/pain_stored = list()
 /mob/var/last_pain_message = ""
 /mob/var/next_pain_time = 0
 

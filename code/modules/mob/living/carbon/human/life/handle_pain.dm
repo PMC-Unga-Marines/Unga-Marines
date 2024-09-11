@@ -1,12 +1,12 @@
 //Refer to life.dm for caller
 
-/mob/living/carbon/human/handle_shock()
+/mob/living/carbon/human/handle_pain()
 	. = ..()
 	if(status_flags & GODMODE || analgesic || (species?.species_flags & NO_PAIN))
-		setShock_Stage(0)
+		set_shock_stage(0)
 		return //Godmode or some other pain reducers. //Analgesic avoids all traumatic shock temporarily
 
-	adjustShock_Stage(traumatic_shock)
+	adjust_shock_stage(painloss)
 
 	//This just adds up effects together at each step, with a few small exceptions. Preferable to copy and paste rather than have a billion if statements.
 	switch(shock_stage)

@@ -128,7 +128,7 @@
 
 	var/perceived_health = health / maxHealth * 100
 	if(!(species.species_flags & NO_PAIN))
-		perceived_health -= traumatic_shock
+		perceived_health -= painloss
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= staminaloss
 

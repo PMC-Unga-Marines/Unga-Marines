@@ -313,8 +313,8 @@
 
 /mob/living/carbon/revive(admin_revive = FALSE)
 	set_nutrition(400)
-	setTraumatic_Shock(0)
-	setShock_Stage(0)
+	set_painloss(0)
+	set_shock_stage(0)
 	drunkenness = 0
 	disabilities = 0
 
