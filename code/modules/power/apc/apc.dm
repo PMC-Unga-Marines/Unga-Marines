@@ -154,7 +154,7 @@
 	area.power_change()
 
 	QDEL_NULL(cell)
-	QDELL_NULL(cell_type)
+	QDEL_NULL(cell_type)
 	QDEL_NULL(wires)
 	if(terminal)
 		disconnect_terminal()
