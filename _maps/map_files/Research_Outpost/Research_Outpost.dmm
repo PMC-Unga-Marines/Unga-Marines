@@ -2216,7 +2216,7 @@
 	},
 /area/outpost/yard/south)
 "ko" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -5754,7 +5754,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/central)
 "As" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/dark/purple2{
 	dir = 4
 	},
@@ -9120,7 +9120,7 @@
 /turf/open/floor/tile/dark/red2,
 /area/outpost/brig/armoury)
 "Qp" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/dark,
 /area/outpost/science/hydponics)
 "Qq" = (

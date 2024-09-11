@@ -78,6 +78,15 @@
 	name = "Tyr mark 2 armor module"
 	contains = list(
 		/obj/item/armor_module/module/tyr_extra_armor,
+		/obj/item/armor_module/module/tyr_head/mark2,
+	)
+	cost = 120
+
+/datum/supply_packs/armor/modular/attachments/mimir_extra_armor
+	name = "Mimir mark 2 armor module"
+	contains = list(
+		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
+		/obj/item/armor_module/module/mimir_environment_protection,
 	)
 	cost = 120
 
@@ -97,10 +106,6 @@
 	name = "Optical Imager Goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
-
-/datum/supply_packs/armor/modular/attachments/tyr_extra_armor
-	name = "Tyr armor module"
-	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
 	cost = 150

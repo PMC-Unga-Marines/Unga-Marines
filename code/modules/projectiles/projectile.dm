@@ -331,9 +331,12 @@
 	if(QDELETED(src))
 		return
 
-	if(!suppress_light && ammo.bullet_color)
-		set_light_color(ammo.bullet_color)
-		set_light_on(TRUE)
+	if(!suppress_light)
+		if(ammo.bullet_color)
+			set_light_color(ammo.bullet_color)
+			set_light_on(TRUE)
+	else
+		alpha = 64
 
 	START_PROCESSING(SSprojectiles, src) //If no hits on the first moves, enter the processing queue for next.
 
@@ -829,6 +832,12 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(wear_id?.iff_signal & proj.iff_signal)
 		proj.damage -= proj.damage*proj.damage_marine_falloff
 		return FALSE
+	//shooting from behind the shoulder
+	if(ismob(proj.firer))
+		var/mob/firer = proj.firer
+		if(firer.faction == faction && Adjacent(proj.firer))
+			proj.damage -= proj.damage*proj.damage_marine_falloff //no guns with marine falloff by the way
+			return FALSE
 	return ..()
 
 /mob/living/carbon/xenomorph/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
@@ -1222,15 +1231,15 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		return
 
 	var/damage
+	var/ammo_damage_type = proj.ammo.damage_type
 
-	switch(proj.ammo.damage_type)
+	switch(ammo_damage_type)
 		if(BRUTE, BURN)
-			damage = max(0, proj.damage - round(proj.distance_travelled * proj.damage_falloff))
-			damage = round(modify_by_armor(damage, proj.armor_type, proj.penetration), 1)
+			damage = round(max(0, proj.damage - round(proj.distance_travelled * proj.damage_falloff)), 1)
 		else
 			return FALSE
 
-	if(damage < 1)
+	if(damage <= 1)
 		return FALSE
 
 	if(proj.ammo.flags_ammo_behavior & AMMO_BALLISTIC)
@@ -1238,7 +1247,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 	if(damage >= 100)
 		visible_message(span_warning("[src] is damaged by [proj]!"), visible_message_flags = COMBAT_MESSAGE)
-	take_damage(damage, proj.ammo.damage_type, BULLET)
+	take_damage(damage, ammo_damage_type, BULLET, proj.penetration)
 	return TRUE
 
 

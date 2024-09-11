@@ -1280,7 +1280,7 @@
 	},
 /area/campaign/jungle_outpost/outpost/living)
 "fy" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/hydro,
 /area/campaign/jungle_outpost/outpost/living/hydro)
 "fz" = (
@@ -4223,7 +4223,7 @@
 /turf/open/floor/iron/smooth,
 /area/campaign/jungle_outpost/ground/jungle/south)
 "sc" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -5790,7 +5790,7 @@
 /turf/open/floor/freezer,
 /area/campaign/jungle_outpost/outpost/command/captain)
 "yP" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -8201,7 +8201,7 @@
 	},
 /area/campaign/jungle_outpost/ground/jungle)
 "Jp" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light,
 /turf/open/floor/tile/hydro,
 /area/campaign/jungle_outpost/outpost/living/hydro)
@@ -8785,7 +8785,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/campaign/jungle_outpost/ground/jungle/north_west)
 "LV" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 4
 	},
