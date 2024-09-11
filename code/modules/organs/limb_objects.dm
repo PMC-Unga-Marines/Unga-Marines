@@ -127,6 +127,7 @@
 	GLOB.head_list += src
 
 /obj/item/limb/head/Destroy()
+	brainmob = null
 	GLOB.head_list -= src
 	return ..()
 
