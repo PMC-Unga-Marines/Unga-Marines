@@ -206,15 +206,6 @@ All ShuttleMove procs go here
 		pipe_vision_img.loc = loc
 	var/missing_nodes = FALSE
 	for(var/i in 1 to device_type)
-		if(nodes[i])
-			var/obj/machinery/atmospherics/node = nodes[i]
-			var/connected = FALSE
-			for(var/dir in GLOB.cardinals)
-				if(node in get_step(src, dir))
-					connected = TRUE
-					break
-			if(connected)
-				nullifyNode(i)
 		if(!nodes[i])
 			missing_nodes = TRUE
 
