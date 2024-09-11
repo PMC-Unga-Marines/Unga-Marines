@@ -186,7 +186,6 @@
 	layer = PODDOOR_OPEN_LAYER
 	icon_state = "pdoor0"
 
-
 /obj/machinery/door/poddoor/mainship/ai
 	name = "\improper AI Core Shutters"
 	icon_state = "pdoor0"
@@ -212,6 +211,9 @@
 /obj/machinery/door/poddoor/mainship/open/cic
 	name = "\improper Combat Information Center Blast Door"
 	id = "cic_lockdown"
+
+/obj/machinery/door/poddoor/mainship/open/shuttle
+	smoothing_groups = list(SMOOTH_GROUP_CANTERBURY)
 
 /obj/machinery/door/poddoor/mainship/hangar
 	name = "\improper Hangar Lockdown"
