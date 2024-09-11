@@ -107,7 +107,6 @@
 	if(damaged_organ)
 		pain(damaged_organ.display_name, maxdam, 0)
 
-
 	// Damage to internal organs hurts a lot.
 	var/datum/limb/parent
 	for(var/datum/internal_organ/I in internal_organs)
