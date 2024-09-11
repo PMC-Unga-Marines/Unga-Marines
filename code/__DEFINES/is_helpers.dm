@@ -263,6 +263,10 @@
 
 #define isearthpillar(A) (istype(A, /obj/structure/earth_pillar))
 
+#define iscontainmentshutter(A) (istype(A, /obj/machinery/door/poddoor/timed_late/containment/landing_zone))
+
+#define isfire(A) (istype(A, /obj/fire))
+
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
 
@@ -321,6 +325,3 @@
 #define ispredalien(A) (istype(A, /mob/living/carbon/xenomorph/predalien))
 #define isxenopredalienlarva(A) (istype(A, /mob/living/carbon/xenomorph/larva/predalien))
 #define isxenohellhound(A) (istype(A, /mob/living/carbon/xenomorph/hellhound))
-
-//Objects
-#define iscontainmentshutter(A) (istype(A, /obj/machinery/door/poddoor/timed_late/containment/landing_zone))
