@@ -490,22 +490,16 @@
 	return FALSE
 
 /turf/open/ground/grass/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/floor/plating/ground/dirtgrassborder/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/liquid/water/is_weedable()
 	return FALSE
 
 /turf/open/ground/coast/is_weedable()
 	return FALSE
-
-/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable/is_weedable()
-	return TRUE
-
-/turf/open/ground/grass/weedable/is_weedable()
-	return TRUE
 
 /**
  * Checks for whether we can build advanced xeno structures here
