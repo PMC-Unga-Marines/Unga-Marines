@@ -4908,9 +4908,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/aft_hallway)
 "cKE" = (
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "cKH" = (
@@ -4948,9 +4946,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/starboard_emb)
 "cLL" = (
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/mainship/maint,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/opened/corporate,
 /turf/open/floor/plating,
@@ -7533,12 +7529,6 @@
 	dir = 4
 	},
 /area/mainship/squads/charlie)
-"ent" = (
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
-/turf/open/floor/plating,
-/area/mainship/hull/upper_hull)
 "enB" = (
 /obj/effect/turf_decal/warning_stripes/leader,
 /obj/effect/turf_decal/warning_stripes/box/small{
@@ -9076,9 +9066,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "fbP" = (
-/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay/free_access{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay/free_access,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
@@ -9925,10 +9913,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/bravo)
-"fzV" = (
-/obj/machinery/door/airlock/mainship/maint,
-/turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
 "fzW" = (
 /turf/open/floor/stairs/dark/right,
 /area/mainship/hallways/hangar)
@@ -11761,9 +11745,7 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "gQy" = (
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/mainship/maint,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
@@ -13292,9 +13274,8 @@
 /area/mainship/hallways/hangar)
 "hVX" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay/free_access{
-	dir = 2;
-	req_one_access = list(2,8,40)
+/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay{
+	dir = 2
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/medical/upper_medical)
@@ -15822,9 +15803,7 @@
 	},
 /area/mainship/living/basketball)
 "jwl" = (
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/mainship/maint,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
@@ -17886,10 +17865,9 @@
 /turf/open/floor/mainship/rubber,
 /area/mainship/medical/operating_room_two)
 "kIp" = (
-/obj/machinery/door/airlock/multi_tile/mainship/medidoor{
+/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay{
 	dir = 2;
-	name = "\improper Operating Theatre 2";
-	req_one_access = list(2,8,40)
+	name = "\improper Operating Theatre 2"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/stripesquare,
@@ -19243,10 +19221,9 @@
 /obj/machinery/holosign/surgery{
 	id = "or1sign"
 	},
-/obj/machinery/door/airlock/multi_tile/mainship/medidoor{
+/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay{
 	dir = 2;
-	name = "\improper Operating Theatre 1";
-	req_one_access = list(2,8,40)
+	name = "\improper Operating Theatre 1"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -27817,9 +27794,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "qic" = (
@@ -28522,9 +28497,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(2,8,40)
-	},
+/obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "qDj" = (
@@ -30885,9 +30858,8 @@
 /area/mainship/squads/req)
 "scm" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay/free_access{
-	dir = 2;
-	req_one_access = list(2,8,40)
+/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay{
+	dir = 2
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/medical/surgery_hallway)
@@ -31247,9 +31219,8 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/medical/surgery_hallway)
 "slS" = (
-/obj/machinery/door/airlock/multi_tile/mainship/medidoor{
-	dir = 2;
-	req_one_access = list(2,8,40)
+/obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay{
+	dir = 2
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/stripesquare,
@@ -56508,7 +56479,7 @@ mZD
 mZD
 mZD
 mZD
-fzV
+cKE
 aRv
 aRv
 aRv
@@ -77979,7 +77950,7 @@ xMw
 vis
 vis
 vis
-ent
+vpS
 vis
 vis
 xZW
