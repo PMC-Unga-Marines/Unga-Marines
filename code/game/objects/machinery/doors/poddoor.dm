@@ -212,8 +212,8 @@
 	name = "\improper Combat Information Center Blast Door"
 	id = "cic_lockdown"
 
-/obj/machinery/door/poddoor/mainship/open/shuttle
-	smoothing_groups = list(SMOOTH_GROUP_CANTERBURY)
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing
+	smoothing_groups = null
 
 /obj/machinery/door/poddoor/mainship/hangar
 	name = "\improper Hangar Lockdown"
