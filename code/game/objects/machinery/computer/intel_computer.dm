@@ -53,7 +53,7 @@
 		if(progress >= 50)
 			progress = 50
 		else
-			progress = 0
+			STOP_PROCESSING(SSmachines, src)
 		return
 	progress += progress_interval
 	if(progress <= 100)
