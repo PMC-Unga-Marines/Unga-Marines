@@ -60,7 +60,7 @@ Stepping directly on the mine will also blow it up
 	INVOKE_ASYNC(src, PROC_REF(trigger_explosion))
 
 /// Flamer fire will cause mines to trigger their explosion
-/obj/item/explosive/mine/flamer_fire_act(burnlevel, flame_color)
+/obj/item/explosive/mine/fire_act(burn_level, flame_color)
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(trigger_explosion))
 
@@ -249,5 +249,15 @@ Stepping directly on the mine will also blow it up
 	QDEL_NULL(tripwire)
 	qdel(src)
 
-/obj/item/explosive/mine/anti_tank/ex_act()
-	qdel(src)
+/obj/item/explosive/mine/anti_tank/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB, 0)
+	if(!prob(severity * 0.25))
+		return
+	if(QDELETED(src))
+		return
+	if(!armed)
+		return
+	INVOKE_ASYNC(src, PROC_REF(trigger_explosion))
+
+/obj/item/explosive/mine/anti_tank/fire_act(burn_level, flame_color)
+	return //its highly exploitable if fire detonates these

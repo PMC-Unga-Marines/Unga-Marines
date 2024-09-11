@@ -197,18 +197,6 @@
 		qdel(O)
 	else if(istype(O,/obj/effect/plantsegment))
 		if(prob(50)) qdel(O) //Kills kudzu too.
-	else if(istype(O,/obj/machinery/hydroponics))
-		var/obj/machinery/hydroponics/tray = O
-
-		if(tray.seed)
-			tray.health -= rand(30,50)
-			if(tray.pestlevel > 0)
-				tray.pestlevel -= 2
-			if(tray.weedlevel > 0)
-				tray.weedlevel -= 3
-			tray.toxins += 4
-			tray.check_level_sanity()
-			tray.update_icon()
 
 /datum/reagent/toxin/sleeptoxin
 	name = "Soporific"
