@@ -832,6 +832,12 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(wear_id?.iff_signal & proj.iff_signal)
 		proj.damage -= proj.damage*proj.damage_marine_falloff
 		return FALSE
+	//shooting from behind the shoulder
+	if(ismob(proj.firer))
+		var/mob/firer = proj.firer
+		if(firer.faction == faction && Adjacent(proj.firer))
+			proj.damage -= proj.damage*proj.damage_marine_falloff //no guns with marine falloff by the way
+			return FALSE
 	return ..()
 
 /mob/living/carbon/xenomorph/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
