@@ -1,10 +1,9 @@
 //Refer to life.dm for caller
-
-/mob/living/carbon/human/handle_pain()
+/mob/living/carbon/human/handle_pain_levels()
 	. = ..()
-	if(status_flags & GODMODE || analgesic || (species?.species_flags & NO_PAIN))
+	if(status_flags & GODMODE || (species?.species_flags & NO_PAIN))
 		set_shock_stage(0)
-		return //Godmode or some other pain reducers. //Analgesic avoids all traumatic shock temporarily
+		return //Godmode or some other pain reducers.
 
 	adjust_shock_stage(painloss)
 

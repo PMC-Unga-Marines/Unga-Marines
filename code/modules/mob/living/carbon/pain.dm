@@ -55,10 +55,6 @@
 		painloss = 0
 		return
 
-	if(analgesic)
-		painloss = 0
-		return
-
 	painloss = (0.75 * getOxyLoss()) + (0.75 * getToxLoss()) + (1.20 * getFireLoss()) + getBruteLoss() + getCloneLoss()
 	painloss += reagent_shock_modifier
 
