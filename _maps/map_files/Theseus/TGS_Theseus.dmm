@@ -3756,7 +3756,7 @@
 /turf/closed/wall/mainship,
 /area/mainship/hallways/hangar/droppod)
 "blw" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /obj/item/tool/minihoe,
 /obj/item/reagent_containers/glass/fertilizer/ez,
@@ -8927,10 +8927,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
-"etF" = (
-/obj/structure/prop/mainship/name_stencil/G,
-/turf/open/floor/mainship_hull,
-/area/space)
 "eus" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/firealarm{
@@ -9019,7 +9015,7 @@
 	},
 /area/mainship/medical/lower_medical)
 "eAS" = (
-/obj/structure/prop/mainship/name_stencil/M,
+/obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull,
 /area/space)
 "eBv" = (
@@ -9047,10 +9043,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/port_hull)
-"eFi" = (
-/obj/structure/prop/mainship/name_stencil/C,
-/turf/open/floor/mainship_hull,
-/area/space)
 "eFu" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -18062,7 +18054,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "tAA" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
 "tBz" = (
@@ -32766,7 +32758,7 @@ cjn
 wPV
 wPV
 wPV
-etF
+eAS
 fPA
 bYT
 eGg
@@ -32779,7 +32771,7 @@ eGg
 bYT
 qOi
 wPV
-etF
+eAS
 wPV
 wPV
 xbS
@@ -33794,7 +33786,7 @@ cjn
 wPV
 wPV
 wPV
-eFi
+wPV
 fPA
 bYT
 snR
@@ -33807,7 +33799,7 @@ vkC
 bYT
 qOi
 wPV
-eFi
+wPV
 wPV
 wPV
 xbS

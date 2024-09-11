@@ -1,0 +1,7 @@
+author: "Ghostkokos"
+delete-after: True
+changes:
+  - rscadd: "Добавил больше вещей."
+  - imageadd: "Добавил новые спрайты или изменил старые."
+  - imagedel: "Удалил некоторые спрайты."
+  - code_imp: "Изменил некую составляющую кода."

@@ -196,6 +196,9 @@
 	if(damage_flag)
 		damage_amount = modify_by_armor(damage_amount, damage_flag, armour_penetration)
 
+	if(!damage_amount)
+		return
+
 	wall_integrity = max(0, wall_integrity - damage_amount)
 
 	if(wall_integrity <= 0)

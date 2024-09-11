@@ -20,8 +20,8 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/turf/closed/wall/resin/flamer_fire_act(burnlevel, flame_color)
-	take_damage(burnlevel * 1.25, BURN, FIRE)
+/turf/closed/wall/resin/fire_act(burn_level, flame_color)
+	take_damage(burn_level * 1.25, BURN, FIRE)
 
 /turf/closed/wall/resin/proc/thicken()
 	ChangeTurf(/turf/closed/wall/resin/thick)
