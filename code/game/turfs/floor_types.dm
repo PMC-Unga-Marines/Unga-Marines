@@ -146,14 +146,14 @@
 /turf/open/floor/mainship/rubber
 	icon_state = "carpet_rubber"
 
-/turf/open/floor/mainship/ntlogo
-	icon_state = "nt1"
+/turf/open/floor/mainship/wylogo
+	icon_state = "wy1"
 
-/turf/open/floor/mainship/ntlogo/nt2
-	icon_state = "nt2"
+/turf/open/floor/mainship/wylogo/wy2
+	icon_state = "wy2"
 
-/turf/open/floor/mainship/ntlogo/nt3
-	icon_state = "nt3"
+/turf/open/floor/mainship/wylogo/wy3
+	icon_state = "wy3"
 
 //Cargo elevator
 /turf/open/floor/mainship/empty

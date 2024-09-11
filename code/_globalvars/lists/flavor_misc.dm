@@ -220,6 +220,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"transport_crew",
 	"assault_crew",
 	"predalien",
+	"robo"
 ))
 
 GLOBAL_LIST_EMPTY(human_ethnicities_list)
