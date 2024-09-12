@@ -25,9 +25,7 @@
 	if(!damage) //no damage
 		return 0
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	last_damage_source = usr
-//RUTGMC EDIT ADDITION END
 
 	switch(damagetype)
 		if(BRUTE)

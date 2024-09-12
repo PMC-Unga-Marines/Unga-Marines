@@ -194,22 +194,26 @@ REAGENT SCANNER
 	data["chemicals_lists"] = chemicals_lists
 
 	var/datum/internal_organ/stomach/belly = patient.get_organ_slot(ORGAN_SLOT_STOMACH) // should it be this way?
-	data["has_stomach_chemicals"] = length(belly.reagents.reagent_list)
-	var/list/stomach_chemicals_lists = list()
-	for(var/datum/reagent/reagent AS in belly.reagents.reagent_list)
-		if(!reagent.scannable)
-			data["has_unknown_chemicals"] = TRUE
-			continue
-		var/reagent_overdosed = FALSE
-		if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
-			reagent_overdosed = TRUE
-		stomach_chemicals_lists["[reagent.name]"] = list(
-			"name" = reagent.name,
-			"amount" = round(reagent.volume, 0.1),
-			"od" = reagent_overdosed,
-			"dangerous" = reagent_overdosed || istype(reagent, /datum/reagent/toxin)
-		)
-	data["stomach_chemicals_lists"] = stomach_chemicals_lists
+	if(belly)
+		data["has_stomach_chemicals"] = length(belly.reagents.reagent_list)
+		var/list/stomach_chemicals_lists = list()
+		for(var/datum/reagent/reagent AS in belly.reagents.reagent_list)
+			if(!reagent.scannable)
+				data["has_unknown_chemicals"] = TRUE
+				continue
+			var/reagent_overdosed = FALSE
+			if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
+				reagent_overdosed = TRUE
+			stomach_chemicals_lists["[reagent.name]"] = list(
+				"name" = reagent.name,
+				"amount" = round(reagent.volume, 0.1),
+				"od" = reagent_overdosed,
+				"dangerous" = reagent_overdosed || istype(reagent, /datum/reagent/toxin)
+			)
+		data["stomach_chemicals_lists"] = stomach_chemicals_lists
+	else
+		data["has_stomach_chemicals"] = 0
+		data["stomach_chemicals_lists"] = NONE
 
 	data["species"] = patient.species.species_flags & ROBOTIC_LIMBS ? "robot" : "human"
 

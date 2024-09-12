@@ -72,12 +72,11 @@
 	flags_ammo_behavior = AMMO_ENERGY
 	shell_speed = 4
 	accurate_range = 15
-	damage = 20
-	penetration = 10
+	damage = 24
+	penetration = 12
 	max_range = 30
 	accuracy_var_low = 3
 	accuracy_var_high = 3
-	sundering = 2.5
 
 /datum/ammo/energy/lasgun/M43
 	icon_state = "laser2"
@@ -86,19 +85,17 @@
 	name = "overcharged laser bolt"
 	icon_state = "overchargedlaser"
 	hud_state = "laser_sniper"
-	damage = 40
+	damage = 45
 	max_range = 40
 	penetration = 50
-	sundering = 5
 
 /datum/ammo/energy/lasgun/M43/heat
 	name = "microwave heat bolt"
 	icon_state = "microwavelaser"
 	hud_state = "laser_heat"
-	damage = 12 //requires mod with -0.15 multiplier should math out to 10
+	damage = 14 //requires mod with -0.15 multiplier should math out to 10
 	penetration = 100 // It's a laser that burns the skin! The fire stacks go threw anyway.
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY
-	sundering = 1
 
 /datum/ammo/energy/lasgun/M43/blast
 	name = "wide range laser blast"
@@ -114,7 +111,6 @@
 	damage = 42
 	damage_falloff = 10
 	penetration = 0
-	sundering = 5
 
 /datum/ammo/energy/lasgun/M43/spread
 	name = "additional laser blast"
@@ -147,7 +143,6 @@
 	damage = 45 // this is gotta hurt...
 	max_range = 40
 	penetration = 100
-	sundering = 100
 	bullet_color = COLOR_PULSE_BLUE
 
 /datum/ammo/energy/lasgun/M43/practice
@@ -186,11 +181,10 @@
 	icon_state = "overchargedlaser"
 	hud_state = "laser_sniper_overcharge"
 	shell_speed = 2.5
-	damage = 100
-	penetration = 80
+	damage = 90
+	penetration = 60
 	accurate_range_min = 6
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
-	sundering = 10
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -213,7 +207,6 @@
 	hud_state = "laser_sniper"
 	damage = 30
 	penetration = 10
-	sundering = 0
 	damage_type = STAMINA
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
@@ -278,7 +271,6 @@
 	hud_state = "laser_sniper"
 	damage = 35
 	penetration = 10
-	sundering = 0
 	hitscan_effect_icon = "pu_laser"
 	bullet_color = LIGHT_COLOR_PURPLE
 
@@ -292,7 +284,6 @@
 	hud_state = "laser_sniper"
 	damage = 20
 	penetration = 10
-	sundering = 0
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -329,7 +320,6 @@
 	hud_state = "laser_efficiency"
 	damage = 15
 	penetration = 20
-	sundering = 0
 	hitscan_effect_icon = "beam_solar"
 	bullet_color = LIGHT_COLOR_YELLOW
 	///number of melting stacks to apply when hitting mobs
@@ -681,9 +671,8 @@
 	accuracy_var_high = 5
 	accuracy = 5
 	point_blank_range = 2
-	damage = 20
+	damage = 24
 	penetration = 10
-	sundering = 2
 	fire_burst_damage = 15
 
 	//inherited, could use some changes

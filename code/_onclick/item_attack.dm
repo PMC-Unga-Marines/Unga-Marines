@@ -198,6 +198,9 @@
 	if(!force)
 		return FALSE
 
+	if(!M)
+		return FALSE
+
 	. = M.attacked_by(src, user)
 	if(. && hitsound)
 		playsound(loc, hitsound, 25, TRUE)
@@ -333,6 +336,9 @@
 		return FALSE
 
 	if(!force)
+		return FALSE	
+
+	if(!M)
 		return FALSE
 
 	. = M.attacked_by_alternate(src, user)

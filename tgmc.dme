@@ -1887,6 +1887,7 @@
 #include "code\modules\projectiles\attachables\scope.dm"
 #include "code\modules\projectiles\attachables\stock.dm"
 #include "code\modules\projectiles\attachables\underbarrel.dm"
+#include "code\modules\projectiles\guns\_shared_ammo_objects.dm"
 #include "code\modules\projectiles\guns\energy.dm"
 #include "code\modules\projectiles\guns\flamer.dm"
 #include "code\modules\projectiles\guns\grenade_launchers.dm"

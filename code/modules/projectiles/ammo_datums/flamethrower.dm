@@ -1,4 +1,3 @@
-
 /datum/ammo/flamethrower
 	name = "flame"
 	icon_state = "pulse0"
@@ -13,13 +12,13 @@
 	incendiary_strength = 30 //Firestacks cap at 20, but that's after armor.
 	bullet_color = LIGHT_COLOR_FIRE
 	var/fire_color = FLAME_COLOR_RED
-	var/burntime = 17
-	var/burnlevel = 31
+	var/burn_time = 17
+	var/burn_level = 31
 
 /datum/ammo/flamethrower/drop_flame(turf/T)
 	if(!istype(T))
 		return
-	T.ignite(burntime, burnlevel, fire_color)
+	T.ignite(burn_time, burn_level, fire_color)
 
 /datum/ammo/flamethrower/on_hit_mob(mob/M, obj/projectile/P)
 	drop_flame(get_turf(M))
@@ -43,8 +42,8 @@
 	hud_state = "flame_blue"
 	max_range = 7
 	fire_color = FLAME_COLOR_BLUE
-	burntime = 40
-	burnlevel = 46
+	burn_time = 40
+	burn_level = 46
 	bullet_color = COLOR_NAVY
 
 /datum/ammo/flamethrower/green
@@ -52,8 +51,8 @@
 	hud_state = "flame_green"
 	max_range = 8
 	fire_color = FLAME_COLOR_LIME
-	burntime = 12
-	burnlevel = 18
+	burn_time = 12
+	burn_level = 18
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 
 /datum/ammo/water
@@ -68,11 +67,13 @@
 	bullet_color = null
 
 /datum/ammo/water/proc/splash(turf/extinguished_turf, splash_direction)
-	var/obj/flamer_fire/current_fire = locate(/obj/flamer_fire) in extinguished_turf
-	if(current_fire)
-		qdel(current_fire)
-	for(var/mob/living/mob_caught in extinguished_turf)
-		mob_caught.ExtinguishMob()
+	for(var/atom/relevant_atom AS in extinguished_turf)
+		if(isfire(relevant_atom))
+			qdel(relevant_atom)
+			continue
+		if(isliving(relevant_atom))
+			var/mob/living/caught_mob = relevant_atom
+			caught_mob.ExtinguishMob()
 	new /obj/effect/temp_visual/dir_setting/water_splash(extinguished_turf, splash_direction)
 
 /datum/ammo/water/on_hit_mob(mob/M, obj/projectile/P)

@@ -72,7 +72,7 @@
 	if(!(bicardose && inaprovaline))	//bicaridine and inaprovaline stop internal wounds from harming the parent limb over time
 		parent_limb.createwound(CUT, 0.1)
 
-	if(!quickclot || !thwei) //Quickclot/thwei stops bleeding, magic!
+	if(!quickclot && !thwei) //Quickclot/thwei stops bleeding, magic!
 		parent_limb.owner.blood_volume = max(0, parent_limb.owner.blood_volume - damage/30)
 		if(prob(1))
 			parent_limb.owner.custom_pain("You feel a stabbing pain in your [parent_limb.display_name]!", 1)

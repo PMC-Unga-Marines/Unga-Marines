@@ -455,7 +455,7 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/orion_outpost/ground/outpostse)
 "ct" = (
 /obj/effect/landmark/start/job/survivor,
@@ -3225,7 +3225,7 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/orion_outpost/ground/outpostse)
 "qv" = (
 /obj/structure/cable,
@@ -6892,7 +6892,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/vehicledepot)
 "Jk" = (
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/orion_outpost/ground/outpostse)
 "Jl" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
