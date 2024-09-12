@@ -22,10 +22,10 @@
 		var/datum/action/action_to_remove = a
 		action_to_remove.remove_action(src)
 	set_focus(null)
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(hunter_data)
 		hunter_data.clean_data()
-//RUTGMC EDIT ADDITION END
+	if(last_damage_source)
+		last_damage_source = null
 	return ..()
 
 /mob/Initialize(mapload)

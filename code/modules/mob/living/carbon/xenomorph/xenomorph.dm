@@ -288,6 +288,11 @@
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
 
+	if(!isnull(current_aura))
+		QDEL_NULL(current_aura)
+	if(!isnull(leader_current_aura))
+		QDEL_NULL(leader_current_aura)
+
 	var/datum/hive_status/hive_placeholder = hive
 	remove_from_hive()
 	hive_placeholder.update_tier_limits() //Update our tier limits.
