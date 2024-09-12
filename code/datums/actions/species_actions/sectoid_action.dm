@@ -363,7 +363,7 @@
 	name = "Telekinesis"
 	action_icon_state = "telekinesis"
 	action_icon = 'icons/mob/psionic_icons.dmi'
-	desc = "We manipulate things from a distance."
+	desc = "We manipulate things from a distance. Depending on intent, we either fling or pull items."
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_MOB_TARGET
 	use_state_flags = ABILITY_TARGET_SELF
