@@ -6,15 +6,15 @@
 
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
-		to_chat(src, "<span class='warning'>This feature requires the SQL backend to be running.</span>")
+		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
 		return
 
 	if(!SSdiscord) // SS is still starting
-		to_chat(src, "<span class='notice'>The server is still starting up. Please wait before attempting to link your account!</span>")
+		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
 		return
 
 	if(!SSdiscord.enabled)
-		to_chat(src, "<span class='warning'>This feature requires the server is running on the TGS toolkit.</span>")
+		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
 
 	var/stored_id = SSdiscord.lookup_id(usr.ckey)
@@ -24,7 +24,7 @@
 			src << link("https://tgstation13.org/wiki/How_to_find_your_Discord_User_ID")
 		if(know_how == "Cancel Linking")
 			return
-		var/entered_id = input("Please enter your Discord ID (18-ish digits)", "Enter Discord ID", null, null) as text|null
+		var/entered_id = tgui_input_text("Please enter your Discord ID (18-ish digits)", "Enter Discord ID", null, null) as text|null
 		SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
 		alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
@@ -38,34 +38,34 @@
 			if(know_how == "Cancel Linking")
 				return
 
-			var/entered_id = input("Please enter your Discord ID (18-ish digits)", "Enter Discord ID", null, null) as text|null
+			var/entered_id = tgui_input_text("Please enter your Discord ID (18-ish digits)", "Enter Discord ID", null, null) as text|null
 			SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
 			alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
 // IF you have linked your account, this will trigger a verify of the user
 /client/verb/verify_in_discord()
-	set category = "OOC"
+	set category = "OOC.Discord"
 	set name = "Verify Discord Account"
 	set desc = "Verify or reverify your discord account against your linked ckey"
 
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
-		to_chat(src, "<span class='warning'>This feature requires the SQL backend to be running.</span>")
+		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
 		return
 
 	// ss is still starting
 	if(!SSdiscord)
-		to_chat(src, "<span class='notice'>The server is still starting up. Please wait before attempting to link your account!</span>")
+		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
 		return
 
 	// check that tgs is alive and well
 	if(!SSdiscord.enabled)
-		to_chat(src, "<span class='warning'>This feature requires the server is running on the TGS toolkit.</span>")
+		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
 
 	// check that this is not an IDIOT mistaking us for an attack vector
 	if(SSdiscord.reverify_cache[usr.ckey] == TRUE)
-		to_chat(src, "<span class='warning'>Thou can only do this once a round, if you're stuck seek help.</span>")
+		to_chat(src, span_warning("Thou can only do this once a round, if you're stuck seek help."))
 		return
 	SSdiscord.reverify_cache[usr.ckey] = TRUE
 
@@ -76,4 +76,4 @@
 		return
 
 	// honey its time for your role flattening
-	to_chat(usr, "<span class='notice'>Discord verified</span>")
+	to_chat(usr, span_notice("Discord verified"))
