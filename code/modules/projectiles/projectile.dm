@@ -40,9 +40,6 @@
 	light_power = 2
 	light_color = COLOR_VERY_SOFT_YELLOW
 
-	///greyscale support
-	greyscale_config
-	greyscale_colors
 	///Any special effects applied to this projectile
 	var/flags_projectile_behavior = NONE
 	///Hit impact sound
