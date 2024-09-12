@@ -339,8 +339,6 @@
 /datum/action/ability/activable/xeno/psychic_link/proc/apply_psychic_link(atom/target)
 	link_cleanup()
 	if(HAS_TRAIT(owner, TRAIT_PSY_LINKED) || HAS_TRAIT(target, TRAIT_PSY_LINKED))
-		return fail_activate()
-	if(HAS_TRAIT(owner, TRAIT_PSY_LINKED))
 		to_chat(owner, span_notice("Cancelled link to [target]."))
 		cancel_psychic_link()
 		return
