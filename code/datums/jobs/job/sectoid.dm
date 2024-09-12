@@ -44,7 +44,7 @@
 
 //Sectoid psionic
 /datum/job/sectoid/psionic
-	title = "Sectoid psionic"
+	title = "Sectoid Psionic"
 	outfit = /datum/outfit/job/sectoid/psionic
 
 /datum/outfit/job/sectoid/psionic
