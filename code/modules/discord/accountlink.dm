@@ -24,7 +24,7 @@
 			src << link("https://tgstation13.org/wiki/How_to_find_your_Discord_User_ID")
 		if(know_how == "Cancel Linking")
 			return
-		var/entered_id = tgui_input_text("Please enter your Discord ID (18-ish digits)", "Enter Discord ID", null, null)
+		var/entered_id = tgui_input_text(usr, "Please enter your Discord ID (18-ish digits)", "Enter Discord ID")
 		SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
 		alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
@@ -38,7 +38,7 @@
 			if(know_how == "Cancel Linking")
 				return
 
-			var/entered_id = tgui_input_text("Please enter your Discord ID (18-ish digits)", "Enter Discord ID", null, null)
+			var/entered_id = tgui_input_text(usr, "Please enter your Discord ID (18-ish digits)", "Enter Discord ID")
 			SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
 			alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
