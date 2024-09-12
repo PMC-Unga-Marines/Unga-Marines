@@ -119,7 +119,7 @@
 /obj/item/explosive/grenade/throw_at()
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-	if(G_hit_sound)
+	if(!isnull(G_hit_sound))
 		sleep(0.3 SECONDS)
 		playsound(loc, G_hit_sound, 20, 1, 9)
 
