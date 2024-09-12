@@ -61,6 +61,16 @@
 		return
 	take_damage(severity, BRUTE, BOMB, FALSE, direction)
 
+/obj/lava_act()
+	if(resistance_flags & INDESTRUCTIBLE)
+		return FALSE
+	if(!take_damage(50, BURN, FIRE))
+		return FALSE
+	if(QDELETED(src))
+		return FALSE
+	fire_act(LAVA_BURN_LEVEL)
+	return TRUE
+
 /obj/hitby(atom/movable/AM, speed = 5)
 	. = ..()
 	if(!.)

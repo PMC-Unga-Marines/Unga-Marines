@@ -15,11 +15,8 @@
 	det_time = initial(det_time) //these can be modified when fired by UGL
 	throw_range = initial(throw_range)
 
-
-/obj/item/explosive/grenade/training/flamer_fire_act(burnlevel, flame_color)
+/obj/item/explosive/grenade/training/fire_act(burn_level, flame_color)
 	return
-
-
 
 /obj/item/explosive/grenade/pmc
 	desc = "A fragmentation grenade produced for private security firms. It explodes 3 seconds after the pin has been pulled."
@@ -532,7 +529,7 @@
 	. = ..()
 	fuel = rand(lower_fuel_limit, upper_fuel_limit) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
 
-/obj/item/explosive/grenade/flare/flamer_fire_act(burnlevel, flame_color)
+/obj/item/explosive/grenade/flare/fire_act(burn_level, flame_color)
 	if(!fuel) //it's out of fuel, an empty shell.
 		return
 	if(!active)
