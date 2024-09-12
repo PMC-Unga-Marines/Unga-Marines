@@ -138,6 +138,7 @@ SUBSYSTEM_DEF(discord)
 		data = json_decode(res.body)
 	catch(var/exception/e)
 		to_chat(usr, span_warning("Discord JSON parsing FAILED: [e]: [res.body]"))
+		to_chat(usr, span_warning(url))
 		return
 
 	if(!data["roles"])
