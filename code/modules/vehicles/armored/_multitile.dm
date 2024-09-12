@@ -14,7 +14,7 @@
 	pixel_x = -56
 	pixel_y = -48
 	max_integrity = 900
-	soft_armor = list(MELEE = 50, BULLET = 100 , LASER = 90, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 50)
+	soft_armor = list(MELEE = 50, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 50)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/ability/zoom)
 	max_occupants = 4
@@ -24,6 +24,8 @@
 	easy_load_list = list(
 		/obj/item/ammo_magazine/tank,
 	)
+	///pass_flags given to desants, in addition to the vehicle's pass_flags
+	var/desant_pass_flags = PASS_FIRE|PASS_LOW_STRUCTURE
 
 /obj/vehicle/sealed/armored/multitile/enter_locations(atom/movable/entering_thing)
 	return list(get_step_away(get_step(src, REVERSE_DIR(dir)), src, 2))
@@ -38,7 +40,17 @@
 	return (loc_override || (entering_mob.loc in enter_locations(entering_mob)))
 
 /obj/vehicle/sealed/armored/multitile/add_desant(mob/living/new_desant)
-	new_desant.pass_flags |= pass_flags
+	new_desant.pass_flags |= (desant_pass_flags|pass_flags)
 
 /obj/vehicle/sealed/armored/multitile/remove_desant(mob/living/old_desant)
-	old_desant.pass_flags &= ~pass_flags
+	old_desant.pass_flags &= ~(desant_pass_flags|pass_flags)
+
+/obj/vehicle/sealed/armored/multitile/ex_act(severity)
+	if(QDELETED(src))
+		return
+	take_damage(severity, BRUTE, BOMB, 0)
+
+/obj/vehicle/sealed/armored/multitile/lava_act()
+	if(QDELETED(src))
+		return
+	take_damage(30, BURN, FIRE)

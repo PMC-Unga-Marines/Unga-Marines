@@ -128,7 +128,7 @@
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/central1)
 "aT" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 9
 	},
@@ -1231,7 +1231,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "gD" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -3070,7 +3070,7 @@
 /turf/open/liquid/water/river,
 /area/lv624/lazarus/spaceport)
 "qo" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe,
 /area/lv624/lazarus/hydroponics)
 "qp" = (
@@ -4259,7 +4259,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/lazarus/spaceport)
 "wf" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},
@@ -6680,7 +6680,7 @@
 /turf/closed/shuttle/dropship_regular/top_corner/alt,
 /area/lv624/ground/jungle9)
 "Ir" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 6
 	},
@@ -6996,7 +6996,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "JE" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 4
 	},

@@ -100,7 +100,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "acb" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/power/apc/drained{
 	dir = 8
 	},
@@ -1336,16 +1336,16 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "alV" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/grown/log,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/caves/lambda_lab)
 "alW" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/caves/lambda_lab)
 "alY" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1475,7 +1475,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/caves/lambda_lab)
 "amU" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 4
 	},
@@ -1856,7 +1856,7 @@
 /turf/open/floor/tile/green/whitegreencorner,
 /area/bigredv2/caves/lambda_lab)
 "apB" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 6
 	},
@@ -1952,7 +1952,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/caves/lambda_lab)
 "aqn" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/caves/lambda_lab)
 "aqo" = (
@@ -3074,7 +3074,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/hydroponics)
 "aCf" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/hydroponics)
 "aCh" = (
@@ -7949,7 +7949,7 @@
 /area/bigredv2/outside/nw)
 "cqL" = (
 /obj/structure/window/reinforced,
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
 "cqT" = (
@@ -10667,7 +10667,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "iCO" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/hydroponics)
@@ -14232,7 +14232,7 @@
 /area/bigredv2/outside/nw)
 "qFS" = (
 /obj/structure/window/reinforced,
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
@@ -14600,7 +14600,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
 "rrt" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
@@ -14887,7 +14887,7 @@
 	},
 /area/bigredv2/outside/space_port/two)
 "rVJ" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/green/whitegreenfull,
@@ -15085,7 +15085,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
 "sya" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
