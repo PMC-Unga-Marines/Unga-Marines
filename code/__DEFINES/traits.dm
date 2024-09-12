@@ -172,8 +172,6 @@
 ///is currently riding an armored vehicle
 #define TRAIT_TANK_DESANT "tank_desant"
 
-#define TRAIT_MINDMELDED "mindmelded"
-
 /// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
 #define TRAIT_HANDS_BLOCKED "handsblocked"
 #define TRAIT_STUNIMMUNE "stun_immunity"
