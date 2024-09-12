@@ -178,6 +178,13 @@
 		bullethole_overlay = image('icons/effects/bulletholes.dmi', src, "bhole_[bullethole_variation]_[current_bulletholes]")
 	. += bullethole_overlay
 
+/turf/closed/wall/do_acid_melt()
+	. = ..()
+	if(acided_hole)
+		ScrapeAway()
+		return
+	new /obj/effect/acid_hole(src)
+
 ///Applies damage to the wall
 /turf/closed/wall/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, armour_penetration = 0)
 	if(resistance_flags & INDESTRUCTIBLE) //Hull is literally invincible
@@ -188,6 +195,9 @@
 
 	if(damage_flag)
 		damage_amount = modify_by_armor(damage_amount, damage_flag, armour_penetration)
+
+	if(!damage_amount)
+		return
 
 	wall_integrity = max(0, wall_integrity - damage_amount)
 

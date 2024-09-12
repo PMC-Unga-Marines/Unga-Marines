@@ -133,7 +133,7 @@
 		//Is starting with a power cell installed, create it and set its charge level
 		if(cell_type)
 			set_cell(new cell_type(src))
-			cell.charge = start_charge * cell.maxcharge / 100.0 //Convert percentage to actual value
+			cell.charge = start_charge * cell.maxcharge * 0.01 //Convert percentage to actual value
 			cell.update_icon()
 
 

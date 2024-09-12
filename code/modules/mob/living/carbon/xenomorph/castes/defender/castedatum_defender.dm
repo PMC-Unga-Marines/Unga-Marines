@@ -34,7 +34,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 40, BOMB = 20, BIO = 30, FIRE = 40, ACID = 30)
+	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 40, BOMB = 20, BIO = 30, FIRE = 10, ACID = 30)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "defender"

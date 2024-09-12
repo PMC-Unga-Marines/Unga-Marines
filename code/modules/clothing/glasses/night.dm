@@ -154,6 +154,7 @@
 	active = FALSE
 	activation_sound = 'sound/effects/nightvision.ogg'
 	deactivation_sound = 'sound/machines/click.ogg'
+	species_exception = list(/datum/species/robot)
 	///The battery inside
 	var/obj/item/cell/night_vision_battery/battery
 	///How much energy this module needs when activated
@@ -201,7 +202,7 @@
 	if(!istype(I, /obj/item/cell/night_vision_battery))
 		return
 
-	if(battery && (battery.charge > battery.maxcharge / 2))
+	if(battery && (battery.charge > battery.maxcharge * 0.5))
 		balloon_alert(user, "Battery already installed")
 		return
 	//Hot swap!

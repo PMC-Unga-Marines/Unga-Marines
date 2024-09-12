@@ -87,7 +87,7 @@
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.weeds_planted++
 	add_cooldown()
-	return succeed_activate(SSmonitor.gamestate == SHUTTERS_CLOSED ? ability_cost/2 : ability_cost)
+	return succeed_activate(SSmonitor.gamestate == SHUTTERS_CLOSED ? ability_cost * 0.5 : ability_cost)
 
 /datum/action/ability/activable/xeno/plant_weeds/alternate_action_activate()
 	INVOKE_ASYNC(src, PROC_REF(choose_weed))
@@ -194,6 +194,10 @@
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
+		/turf/closed/wall/resin/regenerating/bombproof,
+		/turf/closed/wall/resin/regenerating/bulletproof,
+		/turf/closed/wall/resin/regenerating/fireproof,
+		/turf/closed/wall/resin/regenerating/meleeproof,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,
@@ -455,8 +459,8 @@
 		if(/obj/alien/resin/sticky)
 			ability_cost = initial(ability_cost) / 3
 	if(new_resin)
-		add_cooldown(SSmonitor.gamestate == SHUTTERS_CLOSED ? get_cooldown()/2 : get_cooldown())
-		succeed_activate(SSmonitor.gamestate == SHUTTERS_CLOSED ? ability_cost/2 : ability_cost)
+		add_cooldown(SSmonitor.gamestate == SHUTTERS_CLOSED ? get_cooldown() * 0.5 : get_cooldown())
+		succeed_activate(SSmonitor.gamestate == SHUTTERS_CLOSED ? ability_cost * 0.5 : ability_cost)
 	ability_cost = initial(ability_cost) //Reset the plasma cost
 	owner.record_structures_built()
 
@@ -638,14 +642,15 @@
 		if(!silent)
 			owner.balloon_alert(owner, "We can't melt [A]")
 		return FALSE
-	if(A.resistance_flags & UNACIDABLE || !A.dissolvability(initial(current_acid_type.acid_strength)))
-		if(!silent)
-			owner.balloon_alert(owner, "We cannot dissolve [A]")
-		return FALSE
-	if(!A.should_apply_acid(initial(acid_type.acid_strength)) || initial(current_acid_type.acid_strength) <= A.current_acid?.acid_strength)
-		if(!silent)
-			owner.balloon_alert(owner, "[A] is already subject to a more or equally powerful acid")
-		return FALSE
+	switch(A.should_apply_acid(current_acid_type::acid_strength))
+		if(ATOM_CANNOT_ACID)
+			if(!silent)
+				owner.balloon_alert(owner, "We cannot dissolve [A]")
+			return FALSE
+		if(ATOM_STRONGER_ACID)
+			if(!silent)
+				owner.balloon_alert(owner, "[A] is already subject to a more or equally powerful acid")
+			return FALSE
 
 /datum/action/ability/activable/xeno/corrosive_acid/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
@@ -657,7 +662,7 @@
 		var/obj/effect/xenomorph/acid/existing_acid = A
 		A = existing_acid.acid_t // Swap the target to the target of the acid
 
-	if(!A.dissolvability(initial(current_acid_type.acid_strength)))
+	if(!A.dissolvability(current_acid_type::acid_strength))
 		return fail_activate()
 
 	X.face_atom(A)
@@ -669,10 +674,7 @@
 	if(!can_use_ability(A, TRUE))
 		return fail_activate()
 
-	var/old_acid_ticks = A.current_acid?.ticks
-	QDEL_NULL(A.current_acid)
-	A.current_acid = new current_acid_type(get_turf(A), A, A.dissolvability(initial(current_acid_type.acid_strength)), old_acid_ticks)
-
+	new current_acid_type(get_turf(A), A, A.dissolvability(current_acid_type::acid_strength))
 	succeed_activate()
 
 	if(!isturf(A))
@@ -815,6 +817,8 @@
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!can_use_ability(object, TRUE, can_use_ability_flags))
 		return fail_activate()
+	if(QDELETED(object))
+		return
 	set_target(get_turf_on_clickcatcher(object, xeno, params))
 	if(!current_target)
 		return
@@ -1311,7 +1315,7 @@
 		return fail_activate()
 	owner.visible_message(span_warning("[X] devours [victim]!"), \
 	span_warning("We devour [victim]!"), null, 5)
-	to_chat(owner, span_warning("We will eject the cocoon in [cocoon_production_time / 10] seconds! Do not move until it is done."))
+	to_chat(owner, span_warning("We will eject the cocoon in [cocoon_production_time * 0.1] seconds! Do not move until it is done."))
 	X.eaten_mob = victim
 	var/turf/starting_turf = get_turf(victim)
 	victim.forceMove(X)

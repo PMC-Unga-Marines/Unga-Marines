@@ -117,14 +117,14 @@
 	playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
 	var/atom/throw_target = get_edge_target_turf(M, get_dir(src, get_step_away(M, src)))
 	var/throw_distance = setting * LERP(5, 3, M.mob_size / MOB_SIZE_BIG)
-	M.throw_at(throw_target, throw_distance, 0.5 + (setting / 2))
+	M.throw_at(throw_target, throw_distance, 0.5 + (setting * 0.5))
 	cell.charge -= powerused
 	return ..()
 
 /obj/item/weapon/powerfist/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/cell))
 		return ..()
-	if(!istype(I, /obj/item/cell/lasgun))
+	if(!islascell(I))
 		to_chat(user, span_warning("The powerfist only accepts lasgun cells!"))
 		return
 	if(I.w_class >= WEIGHT_CLASS_BULKY)

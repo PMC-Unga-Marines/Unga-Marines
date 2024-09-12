@@ -63,7 +63,7 @@
 			seconds_elapsed += 2
 		return
 
-	seconds_elapsed = (segment_time/10) * completed_segments
+	seconds_elapsed = (segment_time * 0.1) * completed_segments
 	running = FALSE
 	deltimer(current_timer)
 	current_timer = null

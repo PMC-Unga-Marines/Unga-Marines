@@ -117,7 +117,7 @@ SUBSYSTEM_DEF(tts)
 			continue
 
 		var/sound_volume = ((listening_mob == target)? 60 : 85) + volume_offset
-		sound_volume = sound_volume * (volume_to_play_at / 100)
+		sound_volume = sound_volume * (volume_to_play_at * 0.01)
 		var/datum/language_holder/holder = listening_mob.get_language_holder()
 		var/audio_to_use = (tts_pref == TTS_SOUND_BLIPS) ? audio_blips : audio
 		if(!holder.has_language(language))

@@ -114,7 +114,7 @@
 
 /obj/effect/countdown/action_cooldown/start()
 	if(!started)
-		START_PROCESSING(SSfastprocess, src)
+		START_PROCESSING(SSprocessing, src)
 		started = TRUE
 
 /obj/effect/countdown/action_cooldown/process()

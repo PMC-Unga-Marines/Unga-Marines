@@ -134,12 +134,23 @@
 	if(fire_stacks > 0)
 		adjust_fire_stacks(-1) //the fire is consumed slowly
 
-/mob/living/fire_act()
-	adjust_fire_stacks(rand(1,2))
-	IgniteMob()
+/mob/living/lava_act()
+	if(resistance_flags & INDESTRUCTIBLE)
+		return FALSE
+	if(stat == DEAD)
+		return FALSE
+	if(status_flags & GODMODE)
+		return TRUE //while godmode will stop the damage, we don't want the process to stop in case godmode is removed
 
-/mob/living/flamer_fire_act(burnlevel)
-	if(!burnlevel)
+	var/lava_damage = 20
+	take_overall_damage(max(modify_by_armor(lava_damage, FIRE), lava_damage * 0.3), BURN, updating_health = TRUE, max_limbs = 3) //snowflakey interaction to stop complete lava immunity
+	if(!CHECK_BITFIELD(pass_flags, PASS_FIRE))//Pass fire allow to cross lava without igniting
+		adjust_fire_stacks(20)
+		IgniteMob()
+	return TRUE
+
+/mob/living/fire_act(burn_level, flame_color)
+	if(!burn_level)
 		return
 	if(status_flags & (INCORPOREAL|GODMODE)) //Ignore incorporeal/invul targets
 		return
@@ -150,10 +161,18 @@
 	if(pass_flags & PASS_FIRE) //Pass fire allow to cross fire without being ignited
 		return
 
-	take_overall_damage(rand(10, burnlevel), BURN, FIRE, updating_health = TRUE, max_limbs = 4)
+	//TODO: Make firetypes, colour types are terrible
+	if(flame_color == FLAME_COLOR_LIME)
+		var/datum/status_effect/stacking/melting/debuff = has_status_effect(STATUS_EFFECT_MELTING)
+		if(debuff)
+			debuff.add_stacks(2)
+		else
+			apply_status_effect(STATUS_EFFECT_MELTING, 2)
+
+	take_overall_damage(rand(10, burn_level), BURN, FIRE, updating_health = TRUE, max_limbs = 4)
 	to_chat(src, span_warning("You are burned!"))
 
-	adjust_fire_stacks(burnlevel)
+	adjust_fire_stacks(burn_level)
 	IgniteMob()
 
 /mob/living/proc/resist_fire(datum/source)

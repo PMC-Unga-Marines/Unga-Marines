@@ -423,7 +423,7 @@
 			continue
 		slapped.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
 		addtimer(CALLBACK(slapped, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
-		var/damage = X.xeno_caste.melee_damage/2
+		var/damage = X.xeno_caste.melee_damage * 0.5
 		var/affecting = slapped.get_limb(ran_zone(null, 0))
 		if(!affecting)
 			affecting = slapped.get_limb("chest")

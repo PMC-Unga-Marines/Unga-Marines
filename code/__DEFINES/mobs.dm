@@ -613,7 +613,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.75 //The maximum % of HP we can have to trigger Rage
 #define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD		0.5
 #define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
-#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			60 //Maximum amount of healing from slash during Rage
+#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			100 //Maximum amount of healing from slash during Rage
 
 //crusher defines
 #define CRUSHER_STOMP_LOWER_DMG 40
@@ -894,3 +894,6 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define YAUTJA_THRALL_GEAR_RAPIER "The Dancing Rapier"
 #define YAUTJA_THRALL_GEAR_CLAYMORE "The Broad Claymore"
 #define YAUTJA_THRALL_GEAR_FIREAXE "The Purposeful Fireaxe"
+
+///Filter name for illusion impacts
+#define ILLUSION_HIT_FILTER "illusion_hit_filter"

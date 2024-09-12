@@ -137,6 +137,7 @@
 	desc = "A packet containing 70 rounds of 9mm."
 	caliber = CALIBER_9X19
 	icon_state = "box_9mm"
+	ammo_band_icon = "box_9mm_band"
 	current_rounds = 70
 	max_rounds = 70
 	w_class = WEIGHT_CLASS_SMALL
@@ -160,61 +161,46 @@
 	max_rounds = 42
 
 /obj/item/ammo_magazine/packet/acp
-	name = "packet of .45 ACP"
-	icon_state = "box_45acp"
+	name = "box of .45 ACP"
+	icon_state = "box_.45acp"
 	default_ammo = /datum/ammo/bullet/pistol/heavy
 	w_class = WEIGHT_CLASS_SMALL
 	caliber = CALIBER_45ACP
-	current_rounds = 50
-	max_rounds = 50
+	current_rounds = 150
+	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/p9mmap
+/obj/item/ammo_magazine/packet/rifle762X39
+	name = "box of 7.62X39"
+	icon_state = "box_7.62x39mm"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = CALIBER_762X39
+	current_rounds = 150
+	max_rounds = 150
+
+/obj/item/ammo_magazine/packet/p9mm/ap
 	name = "packet of 9mm AP"
 	desc = "A packet containing 70 rounds of 9mm armor-piercing."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/pistol/ap
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
-/obj/item/ammo_magazine/packet/p9mmhp
+/obj/item/ammo_magazine/packet/p9mm/hp
 	name = "packet of 9mm HP"
 	desc = "A packet containing 70 rounds of 9mm hollow-point."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/pistol/hp
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
-/obj/item/ammo_magazine/packet/p9mmsabot
+/obj/item/ammo_magazine/packet/p9mm/sabot
 	name = "packet of 9mm APDS"
 	desc = "A packet containing 70 rounds of 9mm APDS."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/pistol/sabot
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
-/obj/item/ammo_magazine/packet/p9mmincendiary
-	name = "packet of 9mm APDS"
-	desc = "A packet containing 70 rounds of 9mm APDS."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mmap_band"
+/obj/item/ammo_magazine/packet/p9mm/incendiary
+	name = "packet of 9mm incendiary"
+	desc = "A packet containing 70 rounds of 9mm incendiary."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/pistol/incendiary
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
 /obj/item/ammo_magazine/packet/p10x26mm
 	name = "packet of 10x26mm"

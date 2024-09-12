@@ -47,8 +47,8 @@
 		return
 	if(user.transferItemToLoc(I, src))
 		//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, "icon-x")) - 16, -(world.icon_size/2), world.icon_size/2)
-		I.pixel_y = clamp(text2num(LAZYACCESS(modifiers, "icon-y")) - 16, -(world.icon_size/2), world.icon_size/2)
+		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, "icon-x")) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
+		I.pixel_y = clamp(text2num(LAZYACCESS(modifiers, "icon-y")) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
 		to_chat(user, span_notice("You place [I] on [src]."))
 		AddToGrill(I, user)
 		update_icon()
@@ -111,7 +111,7 @@
 	for(var/obj/item/griddled_item AS in griddled_objects)
 		if(SEND_SIGNAL(griddled_item, COMSIG_ITEM_GRILLED, src, delta_time) & COMPONENT_HANDLED_GRILLING)
 			continue
-		griddled_item.fire_act(1000) //Hot hot hot!
+		griddled_item.fire_act(40)
 		if(prob(10))
 			visible_message(span_danger("[griddled_item] doesn't seem to be doing too great on the [src]!"))
 

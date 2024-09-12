@@ -1325,6 +1325,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/substation/smes)
+"akz" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/machinery/telecomms/relay/preset/tower,
+/turf/open/floor/tile/dark/brown2{
+	dir = 4
+	},
+/area/ice_colony/surface/hangar/alpha)
 "akC" = (
 /turf/closed/wall/r_wall,
 /area/ice_colony/surface/dorms/restroom_w)
@@ -1980,6 +1989,7 @@
 /turf/closed/wall,
 /area/ice_colony/surface/clinic/treatment)
 "aox" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -9606,6 +9616,7 @@
 	},
 /area/ice_colony/surface/excavation/storage)
 "bgl" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark/purple2{
 	dir = 1
 	},
@@ -14238,6 +14249,7 @@
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
@@ -17961,6 +17973,10 @@
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /turf/open/floor/plating,
 /area/ice_colony/underground/crew/library)
+"ckO" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/carpet,
+/area/ice_colony/underground/crew/leisure)
 "cmS" = (
 /obj/structure/filingcabinet/security,
 /obj/machinery/air_alarm{
@@ -18319,12 +18335,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/engineering)
-"cQo" = (
-/obj/structure/barricade/plasteel{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/snow/layer1,
-/area/ice_colony/exterior/surface/landing_pad2)
 "cQF" = (
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/research)
@@ -18364,12 +18374,6 @@
 	dir = 4
 	},
 /area/ice_colony/exterior/surface/landing_pad2)
-"cUr" = (
-/obj/structure/barricade/plasteel{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/exterior/surface/landing_pad)
 "cUB" = (
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/plating/ground/ice,
@@ -18465,6 +18469,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/ice_colony/exterior/surface/clearing/north)
+"cZI" = (
+/obj/machinery/telecomms/relay/preset/tower,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/north)
 "cZK" = (
@@ -18860,6 +18868,10 @@
 "dEc" = (
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/engineering)
+"dEe" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/shuttle/dropship/floor,
+/area/ice_colony/underground/responsehangar)
 "dEg" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -18902,14 +18914,9 @@
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /turf/open/floor/plating,
 /area/ice_colony/underground/crew/bball/garbledradio)
-"dIk" = (
-/obj/structure/barricade/plasteel{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/snow/layer0,
-/area/ice_colony/exterior/surface/landing_pad2)
 "dIn" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/command)
 "dIA" = (
@@ -19403,7 +19410,7 @@
 	},
 /area/ice_colony/underground/crew/chapel)
 "euQ" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/ground/grass,
 /area/ice_colony/surface/hydroponics/south)
 "euV" = (
@@ -19612,6 +19619,12 @@
 "ePo" = (
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves/open)
+"eRb" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/tile/darkgreen/darkgreen2{
+	dir = 1
+	},
+/area/ice_colony/surface/hydroponics/lobby)
 "eRB" = (
 /obj/structure/rack,
 /turf/open/floor/plating,
@@ -20032,12 +20045,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/north_west)
-"frn" = (
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/exterior/surface/landing_pad)
 "fry" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -20790,12 +20797,6 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/valley/northwest)
-"gAg" = (
-/obj/structure/barricade/plasteel{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/exterior/surface/landing_pad)
 "gAD" = (
 /obj/effect/spawner/random/misc/structure/filingcabinet/highspawn,
 /turf/open/floor/tile/dark/red2{
@@ -21207,13 +21208,6 @@
 	dir = 4
 	},
 /area/ice_colony/underground/medical/lobby/garbledradio)
-"hcG" = (
-/obj/structure/cable,
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/snow/layer0,
-/area/ice_colony/exterior/surface/landing_pad2)
 "hdi" = (
 /obj/effect/spawner/random/engineering/structure/atmospherics_portable/icecolony,
 /turf/open/floor/plating/icefloor/warnplate{
@@ -21627,6 +21621,10 @@
 	dir = 6
 	},
 /area/ice_colony/underground/command/center)
+"hIP" = (
+/obj/machinery/telecomms/relay/preset/tower,
+/turf/open/floor/tile/dark2,
+/area/ice_colony/surface/excavation)
 "hJF" = (
 /obj/structure/table/woodentable,
 /obj/effect/spawner/random/misc/folder,
@@ -21683,6 +21681,10 @@
 "hOW" = (
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/landing_pad2)
+"hPd" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/tile/dark/red2,
+/area/ice_colony/underground/security/interrogation)
 "hPw" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/open/floor/tile/red/whitered{
@@ -22081,12 +22083,6 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/tile/dark/brown2,
 /area/ice_colony/surface/hangar/alpha)
-"izR" = (
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/exterior/surface/landing_pad)
 "iBi" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -22222,12 +22218,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/substation/smes)
-"iJv" = (
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/snow/layer0,
-/area/ice_colony/exterior/surface/landing_pad2)
 "iKl" = (
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 1;
@@ -22491,6 +22481,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/engineering)
+"iZt" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/plating/icefloor/warnplate{
+	dir = 5
+	},
+/area/ice_colony/underground/hangar)
 "jag" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -22814,6 +22810,10 @@
 	},
 /turf/open/floor/wood,
 /area/ice_colony/underground/crew/bball/garbledradio)
+"jwv" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/plating/ground/ice,
+/area/ice_colony/exterior/underground/caves/open/garbledradio)
 "jwL" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tool,
@@ -24646,13 +24646,6 @@
 	dir = 4
 	},
 /area/ice_colony/surface/command)
-"lWE" = (
-/obj/structure/cable,
-/obj/structure/barricade/plasteel{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor,
-/area/ice_colony/exterior/surface/landing_pad)
 "lXB" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 4
@@ -25293,6 +25286,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/requesition/lobby)
+"mSh" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/plating,
+/area/ice_colony/surface/mining)
 "mSi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -25304,6 +25301,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/drip,
+/obj/effect/landmark/sensor_towers_infestation_ground,
 /turf/open/floor/wood,
 /area/ice_colony/surface/clinic/treatment)
 "mSR" = (
@@ -26095,6 +26093,15 @@
 /obj/effect/spawner/random/medical/firstaid,
 /turf/open/shuttle/dropship/floor,
 /area/ice_colony/underground/responsehangar)
+"nUT" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/tile/red/whitered{
+	dir = 1
+	},
+/area/ice_colony/underground/medical/treatment/garbledradio)
 "nVx" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/pickaxe,
@@ -27093,15 +27100,6 @@
 	dir = 8
 	},
 /area/ice_colony/surface/dorms)
-"ptm" = (
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/obj/structure/barricade/metal{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/exterior/surface/landing_pad)
 "pty" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
@@ -28914,12 +28912,6 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/ice_colony/exterior/surface/valley/northwest)
-"rQA" = (
-/obj/structure/barricade/metal{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/exterior/surface/landing_pad)
 "rQM" = (
 /obj/effect/spawner/random/misc/structure/flavorvending,
 /turf/open/floor/tile/dark/yellow2{
@@ -29865,12 +29857,6 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/south)
-"sXM" = (
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor,
-/area/ice_colony/exterior/surface/landing_pad)
 "sYf" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -30558,6 +30544,10 @@
 /obj/effect/turf_underlay/icefloor,
 /turf/closed/mineral/smooth/bluefrostwall,
 /area/ice_colony/exterior/underground/caves/open/garbledradio)
+"tRB" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/tile/dark2,
+/area/ice_colony/surface/engineering)
 "tRU" = (
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/landmark/weed_node,
@@ -31037,6 +31027,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/icefloor,
 /area/ice_colony/exterior/surface/landing_pad)
+"uEk" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/tile/dark/brown2{
+	dir = 4
+	},
+/area/ice_colony/surface/garage/one)
 "uEp" = (
 /obj/machinery/light{
 	dir = 8
@@ -31139,7 +31136,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/south_east)
 "uJB" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/ground/grass,
 /area/ice_colony/surface/hydroponics/north)
 "uJL" = (
@@ -31821,6 +31818,10 @@
 	dir = 1
 	},
 /area/ice_colony/underground/medical/lobby/garbledradio)
+"vCm" = (
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/plating/ground/ice,
+/area/ice_colony/exterior/underground/caves/open)
 "vCr" = (
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/south)
@@ -32186,6 +32187,15 @@
 	dir = 8
 	},
 /area/ice_colony/underground/requesition/sec_storage)
+"wgG" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/landmark/sensor_towers_infestation_ground,
+/turf/open/floor/plating/icefloor/warnplate{
+	dir = 8
+	},
+/area/ice_colony/underground/westroadtunnel)
 "wgU" = (
 /obj/effect/turf_decal/warning_stripes/linethick{
 	dir = 4
@@ -32379,15 +32389,6 @@
 	},
 /turf/open/floor/tile/dark/blue2,
 /area/ice_colony/surface/command)
-"wtb" = (
-/obj/machinery/floodlight/landing,
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 6
-	},
-/area/ice_colony/exterior/surface/landing_pad)
 "wth" = (
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/surface/valley/southeast)
@@ -33112,14 +33113,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/north)
-"xoH" = (
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 4
-	},
-/area/ice_colony/exterior/surface/landing_pad)
 "xpA" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer1,
@@ -33506,12 +33499,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/valley/southwest)
-"xGu" = (
-/obj/structure/barricade/plasteel{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor,
-/area/ice_colony/exterior/surface/landing_pad)
 "xGL" = (
 /obj/effect/landmark/patrol_point/som/som_22,
 /turf/open/floor/plating,
@@ -34015,15 +34002,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/dorms/lavatory)
-"ymi" = (
-/obj/machinery/floodlight/landing,
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 5
-	},
-/area/ice_colony/exterior/surface/landing_pad)
 
 (1,1,1) = {"
 aaa
@@ -40197,13 +40175,13 @@ adn
 aBi
 aji
 aBi
-iJv
-hcG
-dIk
-cQo
-dIk
-iJv
-iJv
+hOW
+uxH
+hOW
+hyh
+hOW
+hOW
+hOW
 poW
 oxN
 hKV
@@ -44891,7 +44869,7 @@ ati
 atM
 auo
 auD
-auZ
+eRb
 avE
 auD
 axi
@@ -45816,7 +45794,7 @@ atz
 bfa
 tlI
 bdX
-alg
+iZt
 alS
 alS
 alS
@@ -46278,7 +46256,7 @@ lrW
 lrW
 lrW
 lrW
-vXx
+nUT
 qAr
 soS
 tyg
@@ -49330,7 +49308,7 @@ nsF
 nsF
 nsF
 nsF
-nsF
+cZI
 nsF
 nsF
 xIL
@@ -49588,7 +49566,7 @@ bbT
 mfx
 bee
 bhH
-aMq
+wgG
 bko
 foD
 aYW
@@ -51609,7 +51587,7 @@ bMc
 uPy
 bqx
 rWm
-bOn
+ckO
 bNm
 bNS
 bOn
@@ -53665,7 +53643,7 @@ bcj
 bcL
 bcL
 bef
-bcL
+hIP
 bcL
 bhz
 bci
@@ -54351,7 +54329,7 @@ byy
 bDJ
 gQO
 bDN
-bFa
+hPd
 bFD
 gbf
 efV
@@ -62324,7 +62302,7 @@ cir
 aQx
 ror
 lri
-ror
+akz
 ror
 cMO
 ror
@@ -62714,7 +62692,7 @@ aAa
 aAU
 aAU
 aAU
-aAU
+uEk
 aAU
 aDs
 aDV
@@ -63724,7 +63702,7 @@ rgq
 aed
 aed
 afY
-vdr
+tRB
 agH
 ahf
 ahL
@@ -66415,7 +66393,7 @@ qbo
 omc
 qbo
 qbo
-qbo
+jwv
 qbo
 qbo
 qbo
@@ -68910,18 +68888,18 @@ wnH
 pJl
 luT
 aOj
-ymi
-xoH
-sXM
-lWE
-xGu
-xGu
-sXM
-sXM
-sXM
-xoH
-wtb
-izR
+aYI
+aYO
+aYC
+uEc
+aYC
+aYC
+aYC
+aYC
+aYC
+aYO
+bds
+bZR
 bZR
 uSg
 uSg
@@ -68994,7 +68972,7 @@ ePo
 oKP
 ePo
 ePo
-ePo
+vCm
 ePo
 ePo
 ePo
@@ -69329,7 +69307,7 @@ wth
 rVU
 aMt
 nlt
-rQA
+bZR
 bZR
 bZR
 bZR
@@ -69348,7 +69326,7 @@ bZR
 bZR
 bZR
 bZR
-bZR
+uSg
 uSg
 uSg
 xJX
@@ -69541,7 +69519,7 @@ wth
 wth
 aMt
 nlt
-rQA
+bZR
 bZR
 bZR
 bZR
@@ -69560,7 +69538,7 @@ bZR
 bZR
 bZR
 bZR
-bZR
+uSg
 uSg
 uSg
 xJX
@@ -69753,7 +69731,7 @@ wth
 wth
 nVH
 nlt
-cUr
+bZR
 iSS
 bZR
 bZR
@@ -69965,7 +69943,7 @@ wth
 wth
 aMt
 nlt
-cUr
+bZR
 bZR
 bZR
 bZR
@@ -69984,7 +69962,7 @@ bZR
 bZR
 bZR
 bZR
-uSg
+bZR
 uSg
 uSg
 uSg
@@ -70177,7 +70155,7 @@ wth
 wth
 aMt
 nlt
-rQA
+bZR
 bZR
 oAn
 oAn
@@ -70196,8 +70174,8 @@ bZR
 bZR
 bZR
 bZR
-uSg
-uSg
+bZR
+bZR
 uSg
 uSg
 uSg
@@ -70389,7 +70367,7 @@ wth
 sGc
 nLv
 nlt
-rQA
+bZR
 bZR
 bZR
 oAn
@@ -70623,7 +70601,7 @@ bZR
 bZR
 bZR
 bZR
-uSg
+bZR
 uSg
 xJX
 vdz
@@ -70835,7 +70813,7 @@ bZR
 bZR
 bZR
 bZR
-uSg
+bZR
 uSg
 xJX
 vdz
@@ -73777,7 +73755,7 @@ kea
 wth
 aMt
 nlt
-rQA
+bZR
 bZR
 kIu
 bRx
@@ -73989,7 +73967,7 @@ xnK
 xnK
 aMt
 nlt
-cUr
+bZR
 bZR
 bZR
 bZR
@@ -74173,7 +74151,7 @@ aGB
 aKn
 cXb
 bbr
-bgE
+dEe
 biP
 hXW
 tlK
@@ -74201,9 +74179,9 @@ mis
 xnK
 aMt
 nlt
-ptm
-gAg
-frn
+bZR
+bZR
+bZR
 bZR
 uSg
 bZR
@@ -74551,7 +74529,7 @@ kZK
 alz
 amK
 sXm
-amk
+mSh
 amk
 amk
 ruv

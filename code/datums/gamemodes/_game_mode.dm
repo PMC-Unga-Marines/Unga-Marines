@@ -231,7 +231,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Disconnected</b>)<br>"
 
 		else if(L.client)
-			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))
+			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME * 0.5))
 				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Connected, Inactive</b>)<br>"
 			else if(L.stat)
 				if(L.stat == UNCONSCIOUS)
@@ -1000,17 +1000,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		var/status_value = ((GLOB.key_to_time_of_xeno_death[source.key] ? GLOB.key_to_time_of_xeno_death[source.key] : -INFINITY)  + SSticker.mode?.xenorespawn_time - world.time) * 0.1 //If xeno_death is null, use -INFINITY
 		if(status_value <= 0)
 			items += "Xeno respawn timer: READY"
-			if(!source.client.prefs.mute_xeno_respawn_alert_message && source.can_wait_in_larva_queue() && source.respawn_alert_xeno)
-				source.playsound_local(source, 'sound/ambience/votestart.ogg', 50)
-				source.respawn_alert_xeno = FALSE
-				ASYNC
-					if(tgui_alert(source, "Join larva queue?", "Respawn available.", list("Yes", "No"), 30 SECONDS) != "Yes")
-						return
-					var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
-					HS.add_to_larva_candidate_queue(source.client)
 		else
 			items += "Xeno respawn timer: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
-			source.respawn_alert_xeno = TRUE
 
 /// called to check for updates that might require starting/stopping the siloless collapse timer
 /datum/game_mode/proc/update_silo_death_timer(datum/hive_status/silo_owner)

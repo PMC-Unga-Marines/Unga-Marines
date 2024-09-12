@@ -248,31 +248,29 @@
 	if(dropship_equipment_flags & IS_NOT_REMOVABLE)
 		to_chat(user, span_notice("You cannot remove [src]!"))
 		return
-	if(!current_acid)
-		playsound(loc, 'sound/machines/hydraulics_2.ogg', 40, 1)
-		var/duration_time = ship_base ? 70 : 10 //uninstalling equipment takes more time
-		if(!do_after(user, duration_time, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
-			return
-		if(attached_clamp.loaded || !LAZYLEN(attached_clamp.linked_powerloader?.buckled_mobs) || attached_clamp.linked_powerloader.buckled_mobs[1] != user)
-			return
-		forceMove(attached_clamp.linked_powerloader)
-		attached_clamp.loaded = src
-		SEND_SIGNAL(src, COMSIG_DROPSHIP_EQUIPMENT_UNEQUIPPED)
-		playsound(src, 'sound/machines/hydraulics_1.ogg', 40, 1)
-		attached_clamp.update_icon()
-		to_chat(user, span_notice("You've [ship_base ? "uninstalled" : "grabbed"] [attached_clamp.loaded] with [attached_clamp]."))
-		if(ship_base)
-			ship_base.installed_equipment = null
-			ship_base = null
-			if(linked_shuttle)
-				linked_shuttle.equipments -= src
-				linked_shuttle = null
-				if(linked_console?.selected_equipment == src)
-					linked_console.selected_equipment = null
-		update_equipment()
-		return //removed or uninstalled equipment
-	to_chat(user, span_notice("You cannot touch [src] with the [attached_clamp] due to the acid on [src]."))
-
+	if(get_self_acid())
+		to_chat(user, span_notice("You cannot touch [src] with the [attached_clamp] due to the acid on [src]."))
+	playsound(loc, 'sound/machines/hydraulics_2.ogg', 40, 1)
+	var/duration_time = ship_base ? 70 : 10 //uninstalling equipment takes more time
+	if(!do_after(user, duration_time, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
+		return
+	if(attached_clamp.loaded || !LAZYLEN(attached_clamp.linked_powerloader?.buckled_mobs) || attached_clamp.linked_powerloader.buckled_mobs[1] != user)
+		return
+	forceMove(attached_clamp.linked_powerloader)
+	attached_clamp.loaded = src
+	SEND_SIGNAL(src, COMSIG_DROPSHIP_EQUIPMENT_UNEQUIPPED)
+	playsound(src, 'sound/machines/hydraulics_1.ogg', 40, 1)
+	attached_clamp.update_icon()
+	to_chat(user, span_notice("You've [ship_base ? "uninstalled" : "grabbed"] [attached_clamp.loaded] with [attached_clamp]."))
+	if(ship_base)
+		ship_base.installed_equipment = null
+		ship_base = null
+		if(linked_shuttle)
+			linked_shuttle.equipments -= src
+			linked_shuttle = null
+			if(linked_console?.selected_equipment == src)
+				linked_console.selected_equipment = null
+	update_equipment()
 
 /obj/structure/dropship_equipment/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
@@ -852,9 +850,6 @@
 		else
 			icon_state = "launch_bay"
 
-
-
-
 //////////////// OTHER EQUIPMENT /////////////////
 
 /obj/structure/dropship_equipment/shuttle/operatingtable
@@ -862,7 +857,7 @@
 	desc = "Used for advanced medical procedures. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	equip_category = DROPSHIP_CREW_WEAPON
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "table2-idle"
+	icon_state = "table1"
 	point_cost = 100
 	var/obj/machinery/optable/deployed_table
 
@@ -889,7 +884,7 @@
 		return
 	deployed_table.layer = ABOVE_OBJ_LAYER + 0.01 //make sure its directly ABOVE the layer
 	deployed_table.loc = loc
-	icon_state = "table2-idle"
+	icon_state = "table1"
 
 // bomb pod
 

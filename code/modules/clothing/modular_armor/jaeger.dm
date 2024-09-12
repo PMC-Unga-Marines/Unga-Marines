@@ -4,7 +4,7 @@
 /obj/item/clothing/suit/modular/jaeger
 	name = "\improper Jaeger Infantry medium exoskeleton"
 	desc = "A Infantry-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 20, BIO = 40, FIRE = 10, ACID = 45)
 	icon_state = "chest"
 	item_state = "chest"
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
@@ -71,7 +71,7 @@
 /obj/item/clothing/suit/modular/jaeger/light
 	name = "\improper Jaeger Scout light exoskeleton"
 	desc = "A Scout-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
+	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 5, ACID = 35)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 	greyscale_config = /datum/greyscale_config/armor_mk2/scout
 
@@ -89,7 +89,7 @@
 /obj/item/clothing/suit/modular/jaeger/heavy
 	name = "\improper Jaeger Gungnir heavy exoskeleton"
 	desc = "A Gungnir-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 15, ACID = 55)
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	greyscale_config = /datum/greyscale_config/armor_mk2/gugnir
 
@@ -114,8 +114,7 @@
 	icon_state = "helmet"
 	item_state = "helmet"
 	icon_override = null
-	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
-
+	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 20, BIO = 40, FIRE = 10, ACID = 45)
 	greyscale_colors = ARMOR_PALETTE_DRAB
 	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
 	colorable_colors = ARMOR_PALETTES_LIST
@@ -124,6 +123,7 @@
 
 	attachments_allowed = list(
 		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/hod_head,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
@@ -135,6 +135,7 @@
 		/obj/item/armor_module/module/artemis,
 		/obj/item/armor_module/module/antenna,
 		/obj/item/armor_module/module/night_vision,
+		/obj/item/armor_module/module/motion_detector,
 		/obj/item/armor_module/storage/helmet,
 		/obj/item/armor_module/armor/badge,
 		/obj/item/armor_module/armor/visor/marine,
@@ -156,9 +157,6 @@
 		/obj/item/armor_module/armor/visor/marine/foureyevisor,
 		/obj/item/armor_module/armor/visor/marine/markonevisor,
 		/obj/item/armor_module/armor/secondary_color/helm,
-		//RUTGMC EDIT ADDITION  BEGIN - MOTION_DETECTOR
-		/obj/item/armor_module/module/motion_detector,
-		//RUTGMC EDIT ADDITION  END
 	)
 
 	starting_attachments = list(/obj/item/armor_module/armor/visor/marine, /obj/item/armor_module/storage/helmet)

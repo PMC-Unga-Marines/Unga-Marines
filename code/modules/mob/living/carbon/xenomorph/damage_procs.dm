@@ -1,9 +1,6 @@
-/mob/living/carbon/xenomorph/fire_act()
+/mob/living/carbon/xenomorph/fire_act(burn_level, flame_color)
 	if(status_flags & GODMODE)
 		return
-	return ..()
-
-/mob/living/carbon/xenomorph/flamer_fire_act(burnlevel)
 	if(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 		return
 	return ..()
@@ -54,7 +51,7 @@
 
 	if(mob_size < MOB_SIZE_BIG)
 		adjust_slowdown(powerfactor_value / 3)
-		adjust_stagger(powerfactor_value / 2)
+		adjust_stagger(powerfactor_value * 0.5)
 	else
 		adjust_slowdown(powerfactor_value / 3)
 	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave
@@ -86,9 +83,7 @@
 		if(BURN)
 			adjustFireLoss(damage)
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	last_damage_source = usr
-//RUTGMC EDIT ADDITION END
 
 	if(updating_health)
 		updatehealth()

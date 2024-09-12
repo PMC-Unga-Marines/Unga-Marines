@@ -219,6 +219,8 @@
 
 #define iscell(I) (istype(I, /obj/item/cell))
 
+#define islascell(I) (istype(I, /obj/item/cell/lasgun))
+
 #define isfactorypart(I) (istype(I, /obj/item/factory_part))
 
 #define isfactoryrefill(I) (istype(I, /obj/item/factory_refill))
@@ -260,6 +262,10 @@
 #define is_research_product(A) (istype(A, /obj/item/research_product)) //Checks if item is research item
 
 #define isearthpillar(A) (istype(A, /obj/structure/earth_pillar))
+
+#define iscontainmentshutter(A) (istype(A, /obj/machinery/door/poddoor/timed_late/containment/landing_zone))
+
+#define isfire(A) (istype(A, /obj/fire))
 
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
@@ -319,6 +325,3 @@
 #define ispredalien(A) (istype(A, /mob/living/carbon/xenomorph/predalien))
 #define isxenopredalienlarva(A) (istype(A, /mob/living/carbon/xenomorph/larva/predalien))
 #define isxenohellhound(A) (istype(A, /mob/living/carbon/xenomorph/hellhound))
-
-//Objects
-#define iscontainmentshutter(A) (istype(A, /obj/machinery/door/poddoor/timed_late/containment/landing_zone))

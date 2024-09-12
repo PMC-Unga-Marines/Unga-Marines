@@ -7,7 +7,7 @@
 	icon_state = "chest"
 	item_state = "chest"
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 55)
+	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 40, BIO = 40, FIRE = 10, ACID = 45)
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 	colorable_colors = ARMOR_PALETTES_LIST
@@ -51,14 +51,14 @@
 /obj/item/clothing/suit/modular/robot/light
 	name = "XR-1-L armor plating"
 	desc = "Light armor plating designed for self mounting on TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
-	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
+	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 30, BIO = 30, FIRE = 5, ACID = 35)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 	greyscale_config = /datum/greyscale_config/robot/light
 
 /obj/item/clothing/suit/modular/robot/heavy
 	name = "XR-1-H armor plating"
 	desc = "Heavy armor plating designed for self mounting on TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
-	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 15, ACID = 55)
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	greyscale_config = /datum/greyscale_config/robot/heavy
 
@@ -95,6 +95,7 @@
 
 	attachments_allowed = list(
 		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/hod_head,
 		/obj/item/armor_module/module/binoculars,
@@ -102,14 +103,12 @@
 		/obj/item/armor_module/module/artemis,
 		/obj/item/armor_module/module/antenna,
 		/obj/item/armor_module/module/night_vision,
+		/obj/item/armor_module/module/motion_detector,
 		/obj/item/armor_module/storage/helmet,
 		/obj/item/armor_module/armor/badge,
 		/obj/item/armor_module/armor/visor/marine/robot,
 		/obj/item/armor_module/armor/visor/marine/robot/light,
 		/obj/item/armor_module/armor/visor/marine/robot/heavy,
-		//RUTGMC EDIT ADDITION  BEGIN - MOTION_DETECTOR
-		/obj/item/armor_module/module/motion_detector,
-		//RUTGMC EDIT ADDITION  END
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot)
 	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT

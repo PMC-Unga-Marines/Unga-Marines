@@ -1,4 +1,3 @@
-
 /obj/vehicle/ridden/powerloader
 	name = "\improper RPL-Y Cargo Loader"
 	icon = 'icons/obj/powerloader.dmi'
@@ -8,7 +7,7 @@
 	anchored = TRUE
 	allow_pass_flags = NONE
 	move_delay = 8
-	light_system = HYBRID_LIGHT
+	light_system = MOVABLE_LIGHT
 	light_power = 8
 	light_range = 0
 	light_color = LIGHT_COLOR_ORANGE

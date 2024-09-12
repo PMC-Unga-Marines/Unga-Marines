@@ -67,6 +67,9 @@
 	if(isfloorturf(T))
 		. += T.ceiling_desc()
 
+/obj/alien/weeds/fire_act(burn_level, flame_color)
+	take_damage(burn_level * 3, BURN, FIRE)
+
 /obj/alien/weeds/proc/update_neighbours(turf/U)
 	if(!U)
 		U = loc

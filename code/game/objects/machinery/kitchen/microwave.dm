@@ -249,7 +249,7 @@
 			cooked.loc = src.loc
 			return
 	else
-		var/halftime = round(recipe.time/10/2)
+		var/halftime = round(recipe.time * 0.1 * 0.5)
 		if (!wzhzhzh(halftime))
 			abort()
 			return
@@ -345,7 +345,7 @@
 		qdel(O)
 	src.reagents.clear_reagents()
 	ffuu.reagents.add_reagent(/datum/reagent/carbon, amount)
-	ffuu.reagents.add_reagent(/datum/reagent/toxin, amount/10)
+	ffuu.reagents.add_reagent(/datum/reagent/toxin, amount * 0.1)
 	return ffuu
 
 

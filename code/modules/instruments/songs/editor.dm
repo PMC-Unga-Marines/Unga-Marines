@@ -17,7 +17,7 @@
 	switch(sustain_mode)
 		if(SUSTAIN_LINEAR)
 			smt = "Linear"
-			modetext = "<a href='?src=[REF(src)];setlinearfalloff=1'>Linear Sustain Duration</a>: [sustain_linear_duration / 10] seconds<br>"
+			modetext = "<a href='?src=[REF(src)];setlinearfalloff=1'>Linear Sustain Duration</a>: [sustain_linear_duration * 0.1] seconds<br>"
 		if(SUSTAIN_EXPONENTIAL)
 			smt = "Exponential"
 			modetext = "<a href='?src=[REF(src)];setexpfalloff=1'>Exponential Falloff Factor</a>: [sustain_exponential_dropoff]% per decisecond<br>"

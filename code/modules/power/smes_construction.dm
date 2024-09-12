@@ -185,7 +185,7 @@
 		return
 
 	// Charged above 1% and safeties are enabled.
-	if((charge > (capacity / 100)) && safeties_enabled && !ismultitool(I))
+	if((charge > (capacity * 0.01)) && safeties_enabled && !ismultitool(I))
 		to_chat(user, span_warning("Safety circuit of [src] is preventing modifications while it's charged!"))
 		return
 
