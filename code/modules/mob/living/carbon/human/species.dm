@@ -1035,6 +1035,7 @@
 	eyes = "blank_eyes"
 	speech_verb_override = "transmits"
 	count_human = TRUE
+	total_health = 80
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY
 
