@@ -403,61 +403,15 @@
 		return fail_activate()
 
 	QDEL_NULL(particle_holder)
-	playsound(owner, 'sound/effects/petrify_activate.ogg', 50)
 
 	var/list/outcome = target.psi_act(psi_strength, owner)
 	if(!outcome)
 		return fail_activate()
 
+	playsound(owner, 'sound/effects/petrify_activate.ogg', 50)
 	add_cooldown(outcome[1])
 	succeed_activate(outcome[2])
 	update_button_icon()
-
-
-/obj/machinery/door/psi_act(psi_power, mob/living/user)
-	if(density)
-		open(TRUE)
-	else
-		close(TRUE)
-	return list(0.1 SECONDS, 5)
-
-/obj/machinery/door/airlock/psi_act(psi_power, mob/living/user)
-	if(operating)
-		to_chat(user, span_warning("The airlock is already in motion."))
-		return
-	if(welded)
-		to_chat(user, span_warning("The airlock is welded shut."))
-		return
-	if(locked)
-		to_chat(user, span_warning("The airlock's bolts prevent it from being forced."))
-		return
-	if(psi_power < PSIONIC_INTERACTION_STRENGTH_STANDARD && hasPower())
-		to_chat(user, span_warning("The airlock's motors resist your efforts to force it."))
-		return
-
-	return ..()
-
-/obj/machinery/door/firedoor/psi_act(psi_power, mob/living/user)
-	if(operating)
-		to_chat(user, span_warning("The firelock is already in motion."))
-		return
-	if(blocked)
-		to_chat(user, span_warning("The firelock is welded shut."))
-		return
-
-	return ..()
-
-/obj/machinery/button/psi_act(psi_power, mob/living/user)
-	pulsed()
-	return list(0.1 SECONDS, 1)
-
-/obj/item/psi_act(psi_power, mob/living/user)
-	if(user.a_intent == INTENT_HELP)
-		throw_at(user, 4 + psi_power, psi_power, user, TRUE)
-	else
-		var/target = get_turf_in_angle(Get_Angle(user, src), src, 7)
-		throw_at(target, 4 + psi_power, psi_power, user, TRUE)
-	return list(3 SECONDS, 10)
 
 // ***************************************
 // *********** Reanimate
