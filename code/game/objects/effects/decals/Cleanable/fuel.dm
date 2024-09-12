@@ -14,7 +14,6 @@
 	var/burn_lvl = 15
 	var/f_color = FLAME_COLOR_RED
 
-
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, logs = TRUE, newDir)
 	. = ..()
 	var/static/list/connections = list(
@@ -27,7 +26,6 @@
 	if(newDir)
 		setDir(newDir)
 	return INITIALIZE_HINT_LATELOAD
-
 
 /obj/effect/decal/cleanable/liquid_fuel/LateInitialize()
 	. = ..()
@@ -87,7 +85,7 @@
 		ignite_fuel(I)
 		log_attack("[key_name(user)] ignites [src] in fuel in [AREACOORD(user)]")
 
-/obj/effect/decal/cleanable/liquid_fuel/flamer_fire_act(burnlevel, flame_color)
+/obj/effect/decal/cleanable/liquid_fuel/fire_act(burn_level, flame_color)
 	. = ..()
 	ignite_fuel()
 

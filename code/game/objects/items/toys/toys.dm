@@ -402,16 +402,18 @@
 	icon_state = "debug"
 	attack_verb = list("thumps", "whomps", "bumps")
 	var/last_hug_time
+	var/squeak_sound = 'sound/items/dollsqueak.ogg'
 
 /obj/item/toy/plush/attack_self(mob/user)
 	if(world.time > last_hug_time)
-		user.visible_message(span_notice("[user] hugs [src]! How cute! "), \
-							span_notice("You hug [src]. Dawwww... "))
-		last_hug_time = world.time + 50 //5 second cooldown
+		user.visible_message(span_notice("[user] hugs [src]! How cute!"), \
+			span_notice("You hug [src]. Dawwww..."))
+		last_hug_time = world.time + 5 SECONDS
+		playsound(src, squeak_sound, 50)
 
 /obj/item/toy/plush/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, 'sound/items/dollsqueak.ogg', 50)
+	AddComponent(/datum/component/squeak, squeak_sound, 50)
 
 /obj/item/toy/plush/farwa
 	name = "Farwa plush doll"
@@ -503,10 +505,22 @@
 	icon_state = "gnome"
 	item_state = "gnome"
 	attack_verb = list("kickes", "punches", "pounces")
+	squeak_sound = 'sound/items/gnome.ogg'
 
-/obj/item/toy/plush/gnome/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/squeak, 'sound/items/gnome.ogg', 50)
+/obj/item/toy/plush/pig
+	name = "pig toy"
+	desc = "Captain Dementy! Bring the pigs! Marines demand pigs!."
+	icon_state = "pig"
+	item_state = "pig"
+	attack_verb = list("oinks", "grunts")
+	squeak_sound = 'sound/items/khryu.ogg'
+
+/obj/item/toy/plush/pig/attack_self(mob/user)
+	if(world.time > last_hug_time)
+		user.visible_message(span_notice("[user] presses [src]! Oink!"), \
+			span_notice("You press [src]. Oink!")) // should be a way to decrease copypaste, but no idea how
+		last_hug_time = world.time + 5 SECONDS
+		playsound(src, squeak_sound, 50)
 
 /obj/item/toy/beach_ball/basketball
 	name = "basketball"
@@ -514,7 +528,6 @@
 	item_state = "basketball"
 	desc = "Here's your chance, do your dance at the Space Jam."
 	w_class = WEIGHT_CLASS_BULKY
-
 
 /obj/structure/hoop
 	name = "basketball hoop"

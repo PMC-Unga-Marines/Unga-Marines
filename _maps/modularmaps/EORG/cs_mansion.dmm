@@ -120,7 +120,6 @@
 /area/deathmatch)
 "gr" = (
 /obj/item/storage/belt/champion,
-/obj/effect/landmark/eord_roomba,
 /turf/open/floor/grime,
 /area/deathmatch)
 "gy" = (
@@ -132,10 +131,6 @@
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Civilian Housing"
 	},
-/turf/open/floor/wood,
-/area/deathmatch)
-"gV" = (
-/obj/effect/landmark/eord_roomba,
 /turf/open/floor/wood,
 /area/deathmatch)
 "hj" = (
@@ -370,11 +365,6 @@
 /obj/effect/landmark/weapon_spawn/tier1_weapon_spawn,
 /turf/open/floor/mainship/mono,
 /area/deathmatch)
-"sG" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/grime,
-/area/deathmatch)
 "sQ" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 8
@@ -492,11 +482,6 @@
 "wJ" = (
 /obj/effect/landmark/weapon_spawn/tier2_weapon_spawn,
 /turf/open/floor/grime,
-/area/deathmatch)
-"xb" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/grass,
 /area/deathmatch)
 "xc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -921,10 +906,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weapon_spawn/tier1_weapon_spawn,
 /turf/open/floor/grime,
-/area/deathmatch)
-"Oa" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/grass,
 /area/deathmatch)
 "Oh" = (
 /turf/open/floor/grime,
@@ -1582,7 +1563,7 @@ BK
 yM
 yM
 yM
-gV
+BK
 nP
 BK
 yM
@@ -1599,7 +1580,7 @@ Gl
 VE
 Gl
 BC
-Oa
+Gl
 Gl
 BC
 Gl
@@ -1614,7 +1595,7 @@ Gl
 uS
 BC
 Vz
-xb
+Vz
 Gl
 KR
 Gl
@@ -2319,7 +2300,7 @@ Gl
 Gl
 sR
 sR
-Oa
+Gl
 Vz
 sR
 sR
@@ -2382,7 +2363,7 @@ YZ
 Ds
 wz
 Gl
-Oa
+Gl
 Vz
 tG
 BC
@@ -3102,7 +3083,7 @@ sR
 sR
 Vz
 Gl
-Oa
+Gl
 Vz
 Gl
 oD
@@ -3117,7 +3098,7 @@ Gl
 Gl
 Oh
 Oh
-sG
+Ky
 Oh
 Oh
 Gl
@@ -3135,7 +3116,7 @@ Gl
 Gl
 Gl
 Gl
-Oa
+Gl
 SO
 Vz
 sR
