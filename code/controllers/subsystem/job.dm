@@ -345,13 +345,13 @@ SUBSYSTEM_DEF(job)
 				return
 		else
 			var/mob/living/carbon/human/h = M
-			if(h.assigned_squad && length_char(GLOB.latejoin_squad_landmarks_list))
-				SendToAtom(M, pick(GLOB.latejoin_squad_landmarks_list[h.assigned_squad.id]))
-				return
-			else
+			if(!ishuman(M) || !h.assigned_squad || !length_char(GLOB.latejoin_squad_landmarks_list))
 				if(length_char(GLOB.latejoin))
 					SendToAtom(M, pick(GLOB.latejoin))
 					return
+			else
+				SendToAtom(M, pick(GLOB.latejoin_squad_landmarks_list[h.assigned_squad.id]))
+				return
 	message_admins("Unable to send mob [M] to late join!")
 	CRASH("Unable to send mob [M] to late join!")
 

@@ -1,9 +1,6 @@
-/mob/living/carbon/xenomorph/fire_act()
+/mob/living/carbon/xenomorph/fire_act(burn_level, flame_color)
 	if(status_flags & GODMODE)
 		return
-	return ..()
-
-/mob/living/carbon/xenomorph/flamer_fire_act(burnlevel, flame_color)
 	if(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 		return
 	return ..()
@@ -86,9 +83,7 @@
 		if(BURN)
 			adjustFireLoss(damage)
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	last_damage_source = usr
-//RUTGMC EDIT ADDITION END
 
 	if(updating_health)
 		updatehealth()

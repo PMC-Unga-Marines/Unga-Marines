@@ -68,6 +68,7 @@
 		GLOB.latejoin_gateway -= loc
 
 	GLOB.start_squad_landmarks_list = null
+	GLOB.latejoin_squad_landmarks_list = null
 
 /datum/game_mode/last_stand/post_setup()
 	. = ..()

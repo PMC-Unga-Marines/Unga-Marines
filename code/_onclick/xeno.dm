@@ -12,14 +12,14 @@
 	//fire extinguishing
 	if(a_intent == INTENT_HELP)
 		var/turf/target_turf = A
-		for(var/obj/flamer_fire/fire in target_turf)
+		for(var/obj/fire/flamer/fire in target_turf)
 
-			var/fire_level_to_extinguish = 5
+			var/burn_ticks_to_extinguish = 5
 			if(fire.flame_color == FLAME_COLOR_GREEN) //TODO: Make firetypes, colour types are terrible
-				fire_level_to_extinguish *= 2
-			if(fire.firelevel > fire_level_to_extinguish)
-				fire.firelevel -= fire_level_to_extinguish
-				fire.updateicon()
+				burn_ticks_to_extinguish *= 2
+			if(fire.burn_ticks > burn_ticks_to_extinguish)
+				fire.burn_ticks -= burn_ticks_to_extinguish
+				fire.update_icon()
 			else
 				qdel(fire)
 

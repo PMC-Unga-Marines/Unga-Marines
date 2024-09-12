@@ -68,6 +68,8 @@
 		return
 	if(TIMER_COOLDOWN_CHECK(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
 		return
+	if(QDELETED(target))
+		return
 	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), projectile_delay)
 
 	set_target(get_turf_on_clickcatcher(target, source, list2params(modifiers)))
