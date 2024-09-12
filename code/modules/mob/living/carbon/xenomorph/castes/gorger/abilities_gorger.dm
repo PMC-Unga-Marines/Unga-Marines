@@ -339,8 +339,9 @@
 /datum/action/ability/activable/xeno/psychic_link/proc/apply_psychic_link(atom/target)
 	link_cleanup()
 	if(HAS_TRAIT(owner, TRAIT_PSY_LINKED) || HAS_TRAIT(target, TRAIT_PSY_LINKED))
-		to_chat(owner, span_notice("Cancelled link to [target]."))
-		cancel_psychic_link()
+		if(do_after(owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_FRIENDLY))
+			to_chat(owner, span_notice("Cancelled link to [target]."))
+			cancel_psychic_link()
 		return
 
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
