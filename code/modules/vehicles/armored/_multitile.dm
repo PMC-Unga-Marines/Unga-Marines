@@ -14,7 +14,7 @@
 	pixel_x = -56
 	pixel_y = -48
 	max_integrity = 900
-	soft_armor = list(MELEE = 50, BULLET = 80 , LASER = 80, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 50)
+	soft_armor = list(MELEE = 50, BULLET = 99 , LASER = 80, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 50)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/ability/zoom)
 	max_occupants = 4
