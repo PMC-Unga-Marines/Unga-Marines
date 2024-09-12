@@ -245,3 +245,12 @@ CACHE_ASSETS 0
 ## If this is uncommented TGS bot will send specific spam messages to discord or wherever
 #TGS_EVENT_APPROVAL_MESSAGING
 #TGS_ADMINLESS_MESSAGING
+
+## Discord TGS or other bot token.
+DISCORD_TOKEN YOUR_SECRET_TOKEN
+
+## Discord guild id.
+DISCORD_GUILDID 1235677154084126861
+
+## Discord boosty role id.
+DISCORD_BOOSTY_ROLEID 1244217039892250716

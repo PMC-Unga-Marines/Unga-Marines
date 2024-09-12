@@ -103,3 +103,48 @@ SUBSYSTEM_DEF(discord)
 	var/regex/num_only = regex("\[^0-9\]", "g")
 	return num_only.Replace(input, "")
 
+/datum/controller/subsystem/discord/proc/is_boosty(ckey)
+	// Safety checks
+	if(!CONFIG_GET(flag/sql_enabled))
+		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
+		return
+
+	// ss is still starting
+	if(!SSdiscord)
+		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
+		return
+
+	if(!SSdiscord.enabled)
+		to_chat(usr, span_warning("TGS is not enabled"))
+		return
+
+	var/discord_id = lookup_id(ckey)
+
+	if(!discord_id) // Account is not linked
+		to_chat(usr, "Link your discord account via the linkdiscord verb in the OOC tab first");
+		return
+
+	var/url = "https://discord.com/api/guilds/[CONFIG_GET(string/discord_guildid)]/members/[discord_id]"
+	// Make the request
+	var/datum/http_request/req = new()
+	req.prepare(RUSTG_HTTP_METHOD_GET, url, "", list("Authorization" = "Bot [CONFIG_GET(string/discord_token)]"))
+	req.begin_async()
+	UNTIL(req.is_complete())
+	var/datum/http_response/res = req.into_response()
+
+	var/list/data = list()
+
+	try
+		data = json_decode(res.body)
+	catch(var/exception/e)
+		to_chat(usr, span_warning("Discord JSON parsing FAILED: [e]: [res.body]"))
+		return
+
+	if(!data["roles"])
+		to_chat(usr, span_warning("Failed to check discord roles"));
+		return
+
+	if(CONFIG_GET(string/discord_boosty_roleid) in data["roles"])
+		return TRUE
+
+	return FALSE

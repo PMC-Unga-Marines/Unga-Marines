@@ -77,3 +77,30 @@
 
 	// honey its time for your role flattening
 	to_chat(usr, span_notice("Discord verified"))
+
+// IF you have linked your account, this will trigger a verify of the user
+/client/verb/boosty_roly()
+	set category = "OOC.Discord"
+	set name = "Check boosty"
+	set desc = "Checking if you have permission to bind to boosty"
+
+	// Safety checks
+	if(!CONFIG_GET(flag/sql_enabled))
+		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
+		return
+
+	// ss is still starting
+	if(!SSdiscord)
+		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
+		return
+
+	// check that tgs is alive and well
+	if(!SSdiscord.enabled)
+		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
+		return
+
+	if(SSdiscord.is_boosty(usr.ckey))
+		to_chat(usr, span_notice("Boosty discord role is verified"))
+		return
+
+	to_chat(usr, span_notice("You don't have a boosty permission"))

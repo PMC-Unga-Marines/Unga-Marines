@@ -452,6 +452,8 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 
 /datum/config_entry/string/discord_token
 
+//yes ID is a number but config is a string
+
 /datum/config_entry/string/discord_guildid
 
-/datum/config_entry/string/discord_busty_roleid
+/datum/config_entry/string/discord_boosty_roleid
