@@ -7,13 +7,13 @@
 	anchored = TRUE
 	density = TRUE
 	coverage = 25
+	use_power = IDLE_POWER_USE
+	idle_power_usage = 2
+	active_power_usage = 1000
 	var/operating = 0 //Is it on?
 	var/dirty = 0 // Does it need cleaning?
 	var/gibtime = 40 // Time from starting until meat appears
 	var/mob/living/occupant // Mob who has been put inside
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 2
-	active_power_usage = 1000
 
 
 /obj/machinery/gibber/Initialize(mapload)
@@ -90,7 +90,10 @@
 	set name = "Empty Gibber"
 	set src in oview(1)
 
-	if (usr.stat != 0)
+	if(operating)
+		return
+
+	if(usr.stat != 0)
 		return
 	go_out()
 
@@ -245,8 +248,14 @@
 	internal_beaker = null
 
 /obj/machinery/gibber/apc/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
-	if(HAS_TRAIT(grab.grabbed_thing, TRAIT_MAPSPAWNED))
+	if(!ishuman(grab.grabbed_thing))
+		return ..()
+	var/mob/living/carbon/human/victim = grab.grabbed_thing
+	if(HAS_TRAIT(victim, TRAIT_MAPSPAWNED))
 		balloon_alert(user, "bad meat")
+		return FALSE
+	if(!HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE) && user.faction == victim.faction)
+		balloon_alert(user, "target is still revivable!")
 		return FALSE
 	return ..()
 
