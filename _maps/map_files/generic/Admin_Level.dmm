@@ -568,7 +568,7 @@
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
 "aKc" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
@@ -1346,7 +1346,7 @@
 	},
 /area/centcom/valhalla)
 "bUK" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 9
 	},
@@ -1454,7 +1454,7 @@
 /turf/open/floor/freezer,
 /area/centcom/valhalla)
 "cbs" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/air_alarm,
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor/tile/dark/gray,
@@ -2150,7 +2150,6 @@
 "dfx" = (
 /obj/item/clothing/suit/space/rig,
 /obj/item/clothing/head/helmet/space/rig,
-/obj/machinery/bot/roomba/valhalla,
 /turf/open/floor/plating,
 /area/centcom/valhalla)
 "dgR" = (
@@ -2476,7 +2475,6 @@
 /obj/effect/turf_decal/warning_stripes/thick/corner{
 	dir = 1
 	},
-/obj/machinery/bot/roomba/valhalla,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "dFY" = (
@@ -3273,7 +3271,7 @@
 /turf/open/floor/plating,
 /area/centcom/valhalla)
 "eOJ" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 10
 	},
@@ -4570,7 +4568,6 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/machinery/bot/roomba/valhalla,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "gJX" = (
@@ -5364,7 +5361,7 @@
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
 "idh" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/firealarm{
 	dir = 1
 	},
@@ -5440,10 +5437,6 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/centcom/valhalla)
-"ior" = (
-/obj/machinery/bot/roomba/valhalla,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla/xenocave)
 "ioO" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/red,
@@ -5647,7 +5640,6 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/machinery/bot/roomba/valhalla,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "iAH" = (
@@ -6374,11 +6366,6 @@
 /turf/open/floor/tile/neutral{
 	dir = 1
 	},
-/area/centcom/valhalla)
-"jID" = (
-/obj/effect/landmark/start/job/fallen,
-/obj/machinery/bot/roomba/valhalla,
-/turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "jJz" = (
 /obj/structure/extinguisher_cabinet{
@@ -7264,7 +7251,7 @@
 /area/centcom/valhalla)
 "kWX" = (
 /obj/effect/turf_decal/warning_stripes/thick,
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "kYp" = (
@@ -7831,7 +7818,7 @@
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
 "lWa" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
@@ -14393,10 +14380,6 @@
 	},
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
-"vSy" = (
-/obj/machinery/bot/roomba/valhalla,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla)
 "vSS" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/radio/intercom{
@@ -15730,7 +15713,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
 "xtx" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 1
 	},
@@ -15765,7 +15748,7 @@
 /turf/open/floor/tile/neutral/full,
 /area/centcom/valhalla)
 "xzr" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/radio/intercom{
 	name = "Station Intercom"
 	},
@@ -20999,7 +20982,7 @@ aMq
 aMq
 eXk
 aMq
-vSy
+aMq
 bbR
 xUc
 gAO
@@ -22252,7 +22235,7 @@ llp
 khV
 nXQ
 iZc
-jID
+wqU
 jtL
 xzt
 nCB
@@ -23586,7 +23569,7 @@ oXf
 oXf
 oXf
 kOY
-ior
+oXf
 oXf
 oXf
 oXf
@@ -26196,7 +26179,7 @@ fog
 tqo
 hda
 oXf
-ior
+oXf
 oXf
 oXf
 pqO
@@ -26208,7 +26191,7 @@ oXf
 oXf
 oXf
 oXf
-ior
+oXf
 oXf
 oXf
 oXf
@@ -28554,7 +28537,7 @@ kOY
 oXf
 oXf
 oXf
-ior
+oXf
 kOY
 oXf
 kOY

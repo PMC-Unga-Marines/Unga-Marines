@@ -377,8 +377,16 @@ directive is properly returned.
 	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
 		contents_explosion(severity, explosion_direction)
 
-/atom/proc/fire_act()
+///Effects of fire
+/atom/proc/fire_act(burn_level)
 	return
+
+///Effects of lava. Return true where we want the lava to keep processing
+/atom/proc/lava_act()
+	if(resistance_flags & INDESTRUCTIBLE)
+		return FALSE
+	fire_act(LAVA_BURN_LEVEL)
+	return TRUE
 
 /atom/proc/hitby(atom/movable/AM, speed = 5)
 	if(density)
@@ -395,11 +403,6 @@ directive is properly returned.
 /atom/proc/contents_explosion(severity, explosion_direction)
 	for(var/atom/A in contents)
 		A.ex_act(severity, explosion_direction)
-
-///Fire effects from a burning turf. Burn level is the base fire damage being received.
-/atom/proc/flamer_fire_act(burnlevel, flame_color = "red")
-	return
-
 
 //This proc is called on the location of an atom when the atom is Destroy()'d
 /atom/proc/handle_atom_del(atom/A)
