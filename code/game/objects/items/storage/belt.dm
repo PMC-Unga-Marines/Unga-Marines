@@ -702,6 +702,14 @@
 		/obj/item/tool/crowbar,
 	)
 
+/obj/item/storage/belt/marine/sectoid/full/PopulateContents()
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/tool/crowbar/red(src)
+
 /obj/item/storage/belt/shotgun
 	name = "\improper shotgun shell load rig"
 	desc = "An ammunition belt designed to hold shotgun shells or individual bullets."

@@ -13,7 +13,6 @@
 	to_chat(H, "<B>You were sent to eliminate the local humans and to scout this sector of space for an abundance of resources. A distress signal from a primitive spacecraft has been picked up by our scanners.</B>")
 	to_chat(H, "<B>Your mission is simple: Destroy all humans, and any other race that poses a threat.</b>")
 
-
 /datum/emergency_call/sectoid/create_member(datum/mind/M)
 	. = ..()
 	if(!.)

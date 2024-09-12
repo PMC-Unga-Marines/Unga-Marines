@@ -11,7 +11,7 @@
 	jobtype = /datum/job/sectoid
 
 	id = /obj/item/card/id
-	belt = /obj/item/storage/belt/marine/sectoid
+	belt = /obj/item/storage/belt/marine/sectoid/full
 	head = /obj/item/clothing/head/helmet/sectoid
 	ears = /obj/item/radio/headset/distress/sectoid
 	w_uniform = /obj/item/clothing/under/sectoid
@@ -37,15 +37,6 @@
 
 	for(var/ability in abilities)
 		H.add_ability(ability)
-
-/datum/outfit/job/sectoid/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sectoid_rifle, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sectoid_rifle, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sectoid_rifle, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sectoid_rifle, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sectoid_rifle, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BELT)
 
 //Sectoid Grunt
 /datum/job/sectoid/grunt
