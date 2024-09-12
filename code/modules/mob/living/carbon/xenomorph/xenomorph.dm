@@ -5,7 +5,6 @@
 //This is so they can be easily transferred between them without copypasta
 
 /mob/living/carbon/xenomorph/Initialize(mapload)
-	setup_verbs()
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
@@ -278,13 +277,21 @@
 	return
 
 /mob/living/carbon/xenomorph/Destroy()
-	if(mind) mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
-	if(is_zoomed) zoom_out()
+	if(mind)
+		mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
+	if(is_zoomed)
+		zoom_out()
 
+	remove_inherent_verbs()
 	GLOB.alive_xeno_list -= src
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+
+	if(!isnull(current_aura))
+		QDEL_NULL(current_aura)
+	if(!isnull(leader_current_aura))
+		QDEL_NULL(leader_current_aura)
 
 	var/datum/hive_status/hive_placeholder = hive
 	remove_from_hive()
@@ -295,7 +302,6 @@
 	QDEL_NULL(wound_overlay)
 	QDEL_NULL(fire_overlay)
 	return ..()
-
 
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
 	if(!slip_xeno) //If our shoes are noslip just return immediately unless we don't care about the noslip

@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(cellauto)
 	name = "Cellular Automata"
-	wait = 0.05 SECONDS
+	wait = 1
 	priority = FIRE_PRIORITY_CELLAUTO
 	flags = SS_NO_INIT
 	var/list/cellauto_cells = list()

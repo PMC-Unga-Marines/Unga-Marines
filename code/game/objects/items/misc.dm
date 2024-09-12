@@ -124,24 +124,6 @@
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "modkit"
 
-/obj/item/toy/plush/pig
-	name = "pig toy"
-	desc = "Captain Dementy! Bring the pigs! Marines demand pigs!."
-	icon_state = "pig"
-	item_state = "pig"
-	attack_verb = list("oinks", "grunts")
-
-/obj/item/toy/plush/pig/attack_self(mob/user)
-	if(world.time > last_hug_time)
-		user.visible_message(span_notice("[user] presses [src]! Oink! "), \
-							span_notice("You press [src]. Oink! "))
-		last_hug_time = world.time + 50 //5 second cooldown
-		playsound(src, 'sound/items/khryu.ogg', 50)
-
-/obj/item/toy/plush/pig/Initialize()
-	. = ..()
-	AddComponent(/datum/component/squeak, 'sound/items/khryu.ogg', 50)
-
 /obj/structure/bed/namaz
 	name = "Prayer rug"
 	desc = "Very halal prayer rug."

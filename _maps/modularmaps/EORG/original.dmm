@@ -1007,10 +1007,6 @@
 "fI" = (
 /turf/open/floor/plating/asteroidfloor,
 /area/deathmatch)
-"gQ" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/ground/grass,
-/area/deathmatch)
 "hc" = (
 /obj/structure/dropship_piece/one/cockpit/left,
 /turf/open/liquid/water/river,
@@ -1093,10 +1089,6 @@
 /turf/open/ground/coast/corner{
 	dir = 1
 	},
-/area/deathmatch)
-"pv" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/liquid/water/river,
 /area/deathmatch)
 "py" = (
 /obj/machinery/door/window{
@@ -1313,10 +1305,6 @@
 	dir = 6
 	},
 /area/deathmatch)
-"TC" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/grime,
-/area/deathmatch)
 "TE" = (
 /obj/machinery/floodlight{
 	name = "Floodlight"
@@ -1337,12 +1325,6 @@
 "Vo" = (
 /obj/item/storage/belt/champion,
 /turf/open/floor/grime,
-/area/deathmatch)
-"Vq" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/ground/coast{
-	dir = 8
-	},
 /area/deathmatch)
 "VE" = (
 /turf/open/ground/coast{
@@ -1671,7 +1653,7 @@ xX
 xX
 tf
 Js
-pv
+Js
 Js
 aq
 am
@@ -1874,7 +1856,7 @@ fI
 eT
 UN
 eJ
-TC
+eJ
 Vo
 eJ
 eJ
@@ -2425,7 +2407,7 @@ Js
 Js
 Js
 Js
-pv
+Js
 Js
 Js
 Js
@@ -2486,7 +2468,7 @@ Js
 ap
 rW
 rW
-Vq
+rW
 bT
 Js
 Js
@@ -2740,7 +2722,7 @@ Js
 Js
 Js
 Js
-pv
+Js
 Js
 VE
 an
@@ -3301,7 +3283,7 @@ LP
 LP
 LP
 LP
-gQ
+LP
 LP
 LP
 LP
