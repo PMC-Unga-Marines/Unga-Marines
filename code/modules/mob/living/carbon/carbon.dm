@@ -246,7 +246,7 @@
 		return
 	. = ..()
 
-/mob/living/carbon/slip(slip_source_name, stun_time, paralyze_time, run_only, override_noslip, slide_steps)
+/mob/living/carbon/slip(slip_source_name, stun_time, paralyze_time, run_only, override_noslip, slide_steps, slip_xeno)
 	set waitfor = 0
 	if(buckled || (run_only && (m_intent != MOVE_INTENT_RUN)) || lying_angle)
 		return FALSE //can't slip while buckled, if the slip is run only and we're not running or while resting
