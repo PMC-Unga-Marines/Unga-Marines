@@ -303,8 +303,10 @@
 	QDEL_NULL(fire_overlay)
 	return ..()
 
-/mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
-	return FALSE
+/mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
+	if(!slip_xeno) //If our shoes are noslip just return immediately unless we don't care about the noslip
+		return FALSE
+	return ..()
 
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
