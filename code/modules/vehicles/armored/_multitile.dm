@@ -8,7 +8,7 @@
 	hitbox = /obj/hitbox
 	interior = /datum/interior/armored
 	minimap_icon_state = "tank"
-	required_entry_skill = SKILL_LARGE_VEHICLE_TRAINED
+	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
 	flags_atom = DIRLOCK|BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
 	flags_armored = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_HEADLIGHTS|ARMORED_PURCHASABLE_ASSAULT
 	pixel_x = -56
