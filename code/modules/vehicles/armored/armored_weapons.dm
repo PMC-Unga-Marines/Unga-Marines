@@ -68,6 +68,8 @@
 		return
 	if(TIMER_COOLDOWN_CHECK(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
 		return
+	if(QDELETED(target))
+		return
 	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), projectile_delay)
 
 	set_target(get_turf_on_clickcatcher(target, source, list2params(modifiers)))
@@ -105,11 +107,11 @@
 		return FALSE
 	if(chassis.primary_weapon == src)
 		var/dir_target_diff = get_between_angles(Get_Angle(chassis, current_target), dir2angle(chassis.turret_overlay.dir))
-		if(dir_target_diff > (ARMORED_FIRE_CONE_ALLOWED / 2))
+		if(dir_target_diff > (ARMORED_FIRE_CONE_ALLOWED * 0.5))
 			if(!chassis.swivel_turret(current_target))
 				return FALSE
 		dir_target_diff = get_between_angles(Get_Angle(chassis, current_target), dir2angle(chassis.turret_overlay.dir))
-		if(dir_target_diff > (ARMORED_FIRE_CONE_ALLOWED / 2))
+		if(dir_target_diff > (ARMORED_FIRE_CONE_ALLOWED * 0.5))
 			return FALSE
 	return TRUE
 
@@ -175,7 +177,7 @@
 /obj/item/armored_weapon/proc/fire()
 	if(chassis.primary_weapon == src)
 		var/dir_target_diff = get_between_angles(Get_Angle(chassis, current_target), dir2angle(chassis.turret_overlay.dir))
-		if(dir_target_diff > (ARMORED_FIRE_CONE_ALLOWED / 2))
+		if(dir_target_diff > (ARMORED_FIRE_CONE_ALLOWED * 0.5))
 			chassis.swivel_turret(current_target)
 			return AUTOFIRE_CONTINUE
 	else if(chassis.turret_overlay)

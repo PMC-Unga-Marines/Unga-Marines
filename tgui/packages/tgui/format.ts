@@ -149,7 +149,7 @@ export const formatTime = (
   val: number,
   formatType: 'short' | 'default' = 'default'
 ): string => {
-  const totalSeconds = Math.floor(val / 10);
+  const totalSeconds = Math.floor(val * 0.1);
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;

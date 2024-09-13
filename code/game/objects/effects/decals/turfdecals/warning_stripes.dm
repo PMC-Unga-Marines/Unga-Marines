@@ -27,6 +27,12 @@
 /obj/effect/turf_decal/warning_stripes/mech
 	icon_state = "mech"
 
+/obj/effect/turf_decal/warning_stripes/robot
+	icon_state = "robot"
+
+/obj/effect/turf_decal/warning_stripes/marine
+	icon_state = "marine"
+
 /obj/effect/turf_decal/warning_stripes/stripedsquare
 	icon_state = "stripe_square"
 

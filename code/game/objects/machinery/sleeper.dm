@@ -254,9 +254,9 @@
 /obj/machinery/sleeper/update_icon_state()
 	. = ..()
 	if(occupant)
-		icon_state = "[initial(icon_state)]_occupied"
+		icon_state = "sleeper_occupied"
 	else
-		icon_state = initial(icon_state)
+		icon_state = "sleeper"
 
 /obj/machinery/sleeper/update_overlays()
 	. = ..()
@@ -450,10 +450,3 @@
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)
-
-/obj/machinery/sleeper/alt
-	icon_state = "alt_sleeper"
-
-/obj/machinery/computer/sleep_console/alt
-	icon_state = "alt_sleeperconsole"
-	screen_overlay = "alt_sleeperconsole_emissive"

@@ -80,19 +80,17 @@
 
 	return picked
 
-
 /proc/convert_k2c(temp)
 	return ((temp - T0C))
-
 
 /// Removes an image from a client's `.images`. Useful as a callback.
 /proc/remove_image_from_client(image/image, client/remove_from)
 	remove_from?.images -= image
 
-/proc/remove_images_from_clients(image/I, list/show_to)
-	for(var/client/C AS in show_to)
-		C.images -= I
-
+///Removes an image from a list of client's images
+/proc/remove_images_from_clients(image/image, list/show_to)
+	for(var/client/client AS in show_to)
+		client?.images -= image
 
 /proc/flick_overlay(image/I, list/show_to, duration)
 	for(var/client/C AS in show_to)

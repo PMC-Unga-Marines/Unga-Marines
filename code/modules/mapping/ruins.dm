@@ -2,8 +2,8 @@
 	var/sanity = PLACEMENT_TRIES
 	while(sanity > 0)
 		sanity--
-		var/width_border = TRANSITIONEDGE + SPACERUIN_MAP_EDGE_PAD + round(width / 2)
-		var/height_border = TRANSITIONEDGE + SPACERUIN_MAP_EDGE_PAD + round(height / 2)
+		var/width_border = TRANSITIONEDGE + SPACERUIN_MAP_EDGE_PAD + round(width * 0.5)
+		var/height_border = TRANSITIONEDGE + SPACERUIN_MAP_EDGE_PAD + round(height * 0.5)
 		var/turf/central_turf = locate(rand(width_border, world.maxx - width_border), rand(height_border, world.maxy - height_border), z)
 		var/valid = TRUE
 

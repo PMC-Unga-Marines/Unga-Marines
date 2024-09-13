@@ -13,7 +13,7 @@
 
 	if(stat != DEAD && bodytemperature >= 170)	//Dead or cryosleep people do not pump the blood.
 		if(blood_volume > BLOOD_VOLUME_MAXIMUM) //Warning: contents under pressure.
-			var/spare_blood = blood_volume - ((BLOOD_VOLUME_MAXIMUM + BLOOD_VOLUME_NORMAL) / 2) //Knock you to the midpoint between max and normal to not spam.
+			var/spare_blood = blood_volume - ((BLOOD_VOLUME_MAXIMUM + BLOOD_VOLUME_NORMAL) * 0.5) //Knock you to the midpoint between max and normal to not spam.
 			//RUTGMC EDIT CHANGE BEGIN - BLOOD_FIX
 			//if(drip(spare_blood)) RUTGMC EDIT - ORIGINAL
 			if(spare_blood)

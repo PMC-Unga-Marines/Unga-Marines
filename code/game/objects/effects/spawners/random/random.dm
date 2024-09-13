@@ -80,7 +80,7 @@
 			spawned_loot.setDir(spawn_force_direction)
 
 		if(spawn_loot_split && loot_spawned)
-			spawned_loot.pixel_x = spawned_loot.pixel_y = ((!(loot_spawned%2)*loot_spawned/2)*-1)+((loot_spawned%2)*(loot_spawned+1)/2*1)
+			spawned_loot.pixel_x = spawned_loot.pixel_y = ((!(loot_spawned % 2) * loot_spawned * 0.5) * -1) + ((loot_spawned % 2)*(loot_spawned + 1) * 0.5 * 1)
 		else if(spawn_random_offset)
 			spawned_loot.pixel_x = rand(-16, 16)
 			spawned_loot.pixel_y = rand(-16, 16)

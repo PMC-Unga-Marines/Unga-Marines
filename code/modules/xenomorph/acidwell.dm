@@ -43,9 +43,9 @@
 		if(A)
 			to_chat(creator, span_xenoannounce("You sense your acid well at [A.name] has been destroyed!") )
 
-	if(damage_amount || damage_flag) //Spawn the gas only if we actually get destroyed by damage
+	if((damage_amount || damage_flag) && charges > 0) //Spawn the gas only if we actually get destroyed by damage
 		var/datum/effect_system/smoke_spread/xeno/acid/A = new(get_turf(src))
-		A.set_up(clamp(CEILING(charges*0.5, 1),0,3),src) //smoke scales with charges
+		A.set_up(clamp(CEILING(charges * 0.5, 1),0,3),src) //smoke scales with charges
 		A.start()
 	return ..()
 
@@ -61,7 +61,7 @@
 
 /obj/structure/xeno/acidwell/update_icon()
 	. = ..()
-	set_light(charges , charges / 2, LIGHT_COLOR_GREEN)
+	set_light(charges, charges * 0.5, LIGHT_COLOR_GREEN)
 
 /obj/structure/xeno/acidwell/update_overlays()
 	. = ..()
@@ -70,10 +70,7 @@
 	. += mutable_appearance(icon, "[charges]", alpha = src.alpha)
 	. += emissive_appearance(icon, "[charges]", alpha = src.alpha)
 
-/obj/structure/xeno/acidwell/flamer_fire_act(burnlevel, flame_color) //Removes a charge of acid, but fire is extinguished
-	acid_well_fire_interaction()
-
-/obj/structure/xeno/acidwell/fire_act() //Removes a charge of acid, but fire is extinguished
+/obj/structure/xeno/acidwell/fire_act(burn_level, flame_color)
 	acid_well_fire_interaction()
 
 ///Handles fire based interactions with the acid well. Depletes 1 charge if there are any to extinguish all fires in the turf while producing acid smoke.
@@ -89,7 +86,7 @@
 	acid_smoke.set_up(0, src) //acid smoke in the immediate vicinity
 	acid_smoke.start()
 
-	for(var/obj/flamer_fire/F in T) //Extinguish all flames in turf
+	for(var/obj/fire/flamer/F in T) //Extinguish all flames in turf
 		qdel(F)
 
 /obj/structure/xeno/acidwell/attackby(obj/item/I, mob/user, params)

@@ -5,13 +5,12 @@
 	slot = ATTACHMENT_SLOT_MUZZLE
 	silence_mod = TRUE
 	pixel_shift_y = 16
-	attach_shell_speed_mod = 0.5
-	accuracy_mod = 0
-	recoil_mod = 0
+	attach_shell_speed_mod = -1
+	accuracy_mod = 0.1
+	recoil_mod = -2
 	scatter_mod = -2
-	size_mod = 1
-	recoil_unwielded_mod = 0
-	scatter_unwielded_mod = 0
+	recoil_unwielded_mod = -3
+	scatter_unwielded_mod = -2
 	damage_falloff_mod = 0
 
 /obj/item/attachable/suppressor/unremovable

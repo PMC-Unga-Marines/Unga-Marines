@@ -64,8 +64,8 @@
 		if(!current_camera || !current_camera.can_use())
 			continue
 
-		var/turf/point = locate(src.x + (CHUNK_SIZE / 2), src.y + (CHUNK_SIZE / 2), src.z)
-		if(get_dist(point, current_camera) > CHUNK_SIZE + (CHUNK_SIZE / 2))
+		var/turf/point = locate(src.x + (CHUNK_SIZE * 0.5), src.y + (CHUNK_SIZE * 0.5), src.z)
+		if(get_dist(point, current_camera) > CHUNK_SIZE + (CHUNK_SIZE * 0.5))
 			continue
 
 		for(var/turf/vis_turf in current_camera.can_see())
@@ -100,11 +100,11 @@
 	src.z = z
 	parent_cameranet = cameranet ? cameranet : GLOB.cameranet
 
-	for(var/obj/machinery/camera/camera in urange(CHUNK_SIZE, locate(x + (CHUNK_SIZE / 2), y + (CHUNK_SIZE / 2), z)))
+	for(var/obj/machinery/camera/camera in urange(CHUNK_SIZE, locate(x + (CHUNK_SIZE * 0.5), y + (CHUNK_SIZE * 0.5), z)))
 		if(camera.can_use() && (parent_cameranet == camera.parent_cameranet))
 			cameras += camera
 
-	for(var/mob/living/silicon/sillycone in urange(CHUNK_SIZE, locate(x + (CHUNK_SIZE / 2), y + (CHUNK_SIZE / 2), z)))
+	for(var/mob/living/silicon/sillycone in urange(CHUNK_SIZE, locate(x + (CHUNK_SIZE * 0.5), y + (CHUNK_SIZE * 0.5), z)))
 		if(sillycone.builtInCamera?.can_use() && (parent_cameranet == sillycone.builtInCamera?.parent_cameranet))
 			cameras += sillycone.builtInCamera
 

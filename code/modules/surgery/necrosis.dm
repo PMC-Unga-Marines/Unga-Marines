@@ -86,7 +86,7 @@
 	span_notice("You apply \the [tool] to the severed tissue in [target]'s [affected.display_name], mending it."))
 	target.balloon_alert_to_viewers("Success")
 	affected.necro_surgery_stage = 0
-	affected.heal_limb_damage(affected.brute_dam / 2, updating_health = TRUE)
+	affected.heal_limb_damage(affected.brute_dam * 0.5, updating_health = TRUE)
 	affected.germ_level = max(0, affected.germ_level - 100) //Right at infection level 2 if it was previously above the cap
 	affected.remove_limb_flags(LIMB_NECROTIZED)
 	affected.bandage()

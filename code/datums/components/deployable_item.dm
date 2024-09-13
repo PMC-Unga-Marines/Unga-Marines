@@ -1,4 +1,3 @@
-
 /datum/component/deployable_item
 	///Time it takes for the parent to be deployed.
 	var/deploy_time = 0

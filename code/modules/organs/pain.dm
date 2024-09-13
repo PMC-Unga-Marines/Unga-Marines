@@ -2,11 +2,6 @@
 	overlay_fullscreen("pain", /atom/movable/screen/fullscreen/pain, 2)
 	clear_fullscreen("pain")
 
-///TODO MOVE ME OR EVEN BETTER GET RID OF ME
-/mob/var/list/pain_stored = list()
-/mob/var/last_pain_message = ""
-/mob/var/next_pain_time = 0
-
 // partname is the name of a body part
 // amount is a num from 1 to 100
 /mob/living/carbon/proc/pain(partname, amount, force, burning = FALSE)

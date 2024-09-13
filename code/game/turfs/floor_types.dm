@@ -146,14 +146,14 @@
 /turf/open/floor/mainship/rubber
 	icon_state = "carpet_rubber"
 
-/turf/open/floor/mainship/ntlogo
-	icon_state = "nt1"
+/turf/open/floor/mainship/wylogo
+	icon_state = "wy1"
 
-/turf/open/floor/mainship/ntlogo/nt2
-	icon_state = "nt2"
+/turf/open/floor/mainship/wylogo/wy2
+	icon_state = "wy2"
 
-/turf/open/floor/mainship/ntlogo/nt3
-	icon_state = "nt3"
+/turf/open/floor/mainship/wylogo/wy3
+	icon_state = "wy3"
 
 //Cargo elevator
 /turf/open/floor/mainship/empty
@@ -166,7 +166,7 @@
 /turf/open/floor/mainship/empty/is_weedable()
 	return FALSE
 
-/turf/open/floor/mainship/empty/fire_act(exposed_temperature, exposed_volume)
+/turf/open/floor/mainship/empty/fire_act(burn_level)
 	return
 
 /turf/open/floor/mainship/empty/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc

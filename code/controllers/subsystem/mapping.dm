@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(mapping)
 		in_transit[T] = T.get_docked()
 	var/go_ahead = world.time + wipe_safety_delay
 	if(length(in_transit))
-		message_admins("Shuttles in transit detected. Attempting to fast travel. Timeout is [wipe_safety_delay/10] seconds.")
+		message_admins("Shuttles in transit detected. Attempting to fast travel. Timeout is [wipe_safety_delay * 0.1] seconds.")
 	var/list/cleared = list()
 	for(var/i in in_transit)
 		INVOKE_ASYNC(src, PROC_REF(safety_clear_transit_dock), i, in_transit[i], cleared)
@@ -174,7 +174,7 @@ SUBSYSTEM_DEF(mapping)
 		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
 			errorList |= pm.original_path
 	if(!silent)
-		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
+		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time) * 0.1]s!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()

@@ -89,7 +89,7 @@
 
 	if(!multiplicator_buff_wanted)
 		return
-	GLOB.xeno_stat_multiplicator_buff = (multiplicator_buff_wanted / 100)
+	GLOB.xeno_stat_multiplicator_buff = (multiplicator_buff_wanted * 0.01)
 	SSmonitor.is_automatic_balance_on = FALSE
 	SSmonitor.apply_balance_changes()
 
@@ -618,7 +618,7 @@
 
 /datum/admins/proc/jump()
 	set category = "Admin"
-	set name = "Jump"
+	set name = "Jump To"
 
 	if(!check_rights(R_ADMIN))
 		return

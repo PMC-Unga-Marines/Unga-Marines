@@ -264,10 +264,9 @@
 		else
 			icon_state = "[basestate][junction]"
 
-/obj/structure/window/fire_act(exposed_temperature, exposed_volume)
-	if(exposed_temperature > T0C + 800)
-		take_damage(round(exposed_volume / 100), BURN, FIRE)
-	return ..()
+/obj/structure/window/fire_act(burn_level, flame_color)
+	if(burn_level > 25)
+		take_damage(burn_level, BURN, FIRE)
 
 /obj/structure/window/GetExplosionBlock(explosion_dir)
 	return (!explosion_dir || ISDIAGONALDIR(dir) || dir & explosion_dir || REVERSE_DIR(dir) & explosion_dir) ? real_explosion_block : 0
@@ -282,10 +281,9 @@
 	explosion_block = EXPLOSION_BLOCK_PROC
 	real_explosion_block = 2
 
-/obj/structure/window/phoronbasic/fire_act(exposed_temperature, exposed_volume)
-	if(exposed_temperature > T0C + 32000)
-		take_damage(round(exposed_volume / 1000), BURN, FIRE)
-	return ..()
+/obj/structure/window/phoronbasic/fire_act(burn_level, flame_color)
+	if(burn_level > 30)
+		take_damage(burn_level * 0.5, BURN, FIRE)
 
 /obj/structure/window/phoronreinforced
 	name = "reinforced phoron window"
@@ -298,7 +296,7 @@
 	explosion_block = EXPLOSION_BLOCK_PROC
 	real_explosion_block = 4
 
-/obj/structure/window/phoronreinforced/fire_act(exposed_temperature, exposed_volume)
+/obj/structure/window/phoronreinforced/fire_act(burn_level)
 	return
 
 /obj/structure/window/reinforced
@@ -439,11 +437,11 @@
 	dir = 5
 	window_frame = /obj/structure/window_frame/mainship
 
-/obj/structure/window/framed/mainship/alt
+/obj/structure/window/framed/mainship/talos
 	icon = 'icons/obj/smooth_objects/alt_ship_window.dmi'
 	icon_state = "alt_ship_window-0"
 	base_icon_state = "alt_ship_window"
-	window_frame = /obj/structure/window_frame/mainship/alt
+	window_frame = /obj/structure/window_frame/mainship/talos
 
 /obj/structure/window/framed/mainship/canterbury //So we can wallsmooth properly.
 
@@ -544,7 +542,7 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "window-invincible"
 
-/obj/structure/window/framed/mainship/gray/toughened/hull/alt
+/obj/structure/window/framed/mainship/gray/toughened/hull/talos
 	icon = 'icons/obj/smooth_objects/alt_ship_rwindow.dmi'
 	icon_state = "alt_ship_rwindow-0"
 	base_icon_state = "alt_ship_rwindow"

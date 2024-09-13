@@ -11,6 +11,8 @@
 	var/override_noslip = FALSE
 	/// How many steps we slide upon slip
 	var/slide_steps = 0
+	/// Can xenomorphs slip?
+	var/slip_xeno = FALSE
 	/// A proc callback to call on slip.
 	var/datum/callback/callback
 	/// If parent is an item, this is the person currently holding/wearing the parent (or the parent if no one is holding it)
@@ -30,13 +32,14 @@
 	/// The connect_loc_behalf component for the holder_connections list.
 	var/datum/weakref/holder_connect_loc_behalf
 
-/datum/component/slippery/Initialize(stun_time, paralyze_time, datum/callback/callback, run_only, override_noslip, slide_steps, slot_whitelist)
+/datum/component/slippery/Initialize(stun_time, paralyze_time, datum/callback/callback, run_only, override_noslip, slide_steps, slot_whitelist, slip_xeno)
 	src.stun_time = max(stun_time, 0)
 	src.paralyze_time = max(paralyze_time, 0)
 	src.callback = callback
 	src.run_only = run_only
 	src.override_noslip = override_noslip
 	src.slide_steps = slide_steps
+	src.slip_xeno = slip_xeno
 	if(slot_whitelist)
 		src.slot_whitelist = slot_whitelist
 
@@ -52,7 +55,7 @@
 	if(ismovable(parent))
 		AddComponent(/datum/component/connect_loc_behalf, parent, default_connections)
 
-/datum/component/slippery/InheritComponent(datum/component/slippery/component, i_am_original, stun_time, paralyze_time, datum/callback/callback, run_only, override_noslip, slide_steps, slot_whitelist)
+/datum/component/slippery/InheritComponent(datum/component/slippery/component, i_am_original, stun_time, paralyze_time, datum/callback/callback, run_only, override_noslip, slide_steps, slot_whitelist, slip_xeno)
 	if(component)
 		stun_time = component.stun_time
 		paralyze_time = component.paralyze_time
@@ -61,6 +64,7 @@
 		override_noslip = component.override_noslip
 		slide_steps = component.slide_steps
 		slot_whitelist = component.slot_whitelist
+		slip_xeno = component.slip_xeno
 
 	src.stun_time = max(stun_time, 0)
 	src.paralyze_time = max(paralyze_time, 0)
@@ -68,6 +72,7 @@
 	src.run_only = run_only
 	src.override_noslip = override_noslip
 	src.slide_steps = slide_steps
+	src.slip_xeno = slip_xeno
 	if(slot_whitelist)
 		src.slot_whitelist = slot_whitelist
 /*
@@ -82,7 +87,7 @@
 		return
 	var/mob/living/victim = arrived
 	var/atom/parent_source = parent
-	if(!(victim.pass_flags & HOVERING) && parent_source.can_slip() && victim.slip(parent, stun_time, paralyze_time, run_only, override_noslip, slide_steps) && callback)
+	if(!(victim.pass_flags & HOVERING) && parent_source.can_slip() && victim.slip(parent, stun_time, paralyze_time, run_only, override_noslip, slide_steps, slip_xeno) && callback)
 		callback.Invoke(victim)
 
 /*

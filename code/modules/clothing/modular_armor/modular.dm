@@ -315,6 +315,7 @@
 	)
 	attachments_allowed = list(
 		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
@@ -325,14 +326,10 @@
 		/obj/item/armor_module/module/artemis,
 		/obj/item/armor_module/module/antenna,
 		/obj/item/armor_module/module/night_vision,
+		/obj/item/armor_module/module/motion_detector,
 		/obj/item/armor_module/storage/helmet,
 		/obj/item/armor_module/armor/badge,
-		//RUTGMC EDIT ADDITION  BEGIN - MOTION_DETECTOR
-		/obj/item/armor_module/module/motion_detector,
-		//RUTGMC EDIT ADDITION  END
 	)
-
-
 
 	colorable_colors = ARMOR_PALETTES_LIST
 	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED

@@ -155,8 +155,8 @@
 		if(EAST)
 			cos = 0
 			sin = -1
-	var/_x = L[1] + (round(width/2))*cos - (round(height/2))*sin
-	var/_y = L[2] + (round(width/2))*sin + (round(height/2))*cos
+	var/_x = L[1] + (round(width * 0.5)) * cos - (round(height * 0.5)) * sin
+	var/_y = L[2] + (round(width * 0.5)) * sin + (round(height * 0.5)) * cos
 	return locate(_x, _y, z)
 
 //returns turfs within our projected rectangle in a specific order.
