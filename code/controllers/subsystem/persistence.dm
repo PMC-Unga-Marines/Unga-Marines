@@ -313,7 +313,7 @@ SUBSYSTEM_DEF(persistence)
 	name = "Default Heavy Weapons"
 	description = "The generic set of roundstart TGMC heavy weapons, TAT and RR."
 	item_list = list(
-		/obj/structure/largecrate/supply/weapons/standard_atgun = 1,
+		/obj/structure/largecrate/supply/weapons/at36 = 1,
 		/obj/item/storage/holster/backholster/rpg/full = 2,
 		/obj/item/ammo_magazine/rocket/recoilless = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/light = 4,
@@ -327,7 +327,7 @@ SUBSYSTEM_DEF(persistence)
 	name = "Fire and Forget Heavy Weapons"
 	description = "TAT, Thermobarics and Disposables for roundstart vendors."
 	item_list = list(
-		/obj/structure/largecrate/supply/weapons/standard_atgun = 1,
+		/obj/structure/largecrate/supply/weapons/at36 = 1,
 		/obj/item/weapon/gun/launcher/rocket/m57a4/t57/unloaded = 2,
 		/obj/item/ammo_magazine/rocket/m57a4 = 8,
 		/obj/structure/largecrate/supply/explosives/disposable = 1,

@@ -717,9 +717,9 @@
 /area/shuttle/big_ert)
 "cb" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
 /obj/item/weapon/gun/smg/m25/elite,
 /turf/open/floor/mainship/plate,
 /area/shuttle/big_ert)
@@ -836,8 +836,8 @@
 /area/shuttle/big_ert)
 "cp" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
 /obj/item/weapon/gun/smg/m25/elite,
 /turf/open/floor/mainship/plate,
 /area/shuttle/big_ert)

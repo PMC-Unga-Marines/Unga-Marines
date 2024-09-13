@@ -1,10 +1,10 @@
 /mob/living/brain
+	icon = 'icons/obj/items/organs.dmi'
+	icon_state = "brain1"
 	var/obj/item/container = null
 	var/timeofhostdeath = 0
 	var/emp_damage = 0//Handles a type of MMI damage
 	var/alert = null
-	icon = 'icons/obj/items/organs.dmi'
-	icon_state = "brain1"
 
 /mob/living/brain/Initialize(mapload)
 	. = ..()
@@ -18,6 +18,8 @@
 		if(stat != DEAD)
 			death()
 		ghostize()
+	if(!isnull(container))
+		container = null
 	return ..()
 
 /mob/living/brain/ghost()

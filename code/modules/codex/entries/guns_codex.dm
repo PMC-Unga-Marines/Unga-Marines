@@ -192,7 +192,7 @@
 	Eventually, the board of directors decided to give that reviving the M42 design was a worthwhile possibility. And thus the design was decided to be modernized and equipped with an IFF-capable scope, after that it was named as the M42A and submitted to go the trials.<br><br>\
 	Though high unit cost didn't allow it to be more widely adopted it was eventually decided that it would meet limited adoption for Marksmen and be designated the SR-26."
 
-/datum/codex_entry/battle_rifle
+/datum/codex_entry/tx8
 	associated_paths = list(/obj/item/weapon/gun/rifle/tx8)
 	lore_text = "The M45A was born from a commission order from the TGMC to the company which made the M42A and M56 smartgun systems. <br><br>\
 	The reason for this commission order resulted from complaints from light infantry and scout units about the poor accuracy of the new SR-26 \
@@ -221,7 +221,7 @@
 	rare sight outside of specialized users. and the rising prevalence of shipside combat making it dangerous to fire inside those \
 	spaces makes it even used less. Not that it makes it any less dangerous on an open field."
 
-/datum/codex_entry/standard_shotgun
+/datum/codex_entry/t35
 	associated_paths = list(/obj/item/weapon/gun/shotgun/pump/t35)
 	lore_text = "The K23 itself was designed at first for military use as 12 gauge pump-action shotguns were starting to pick up steam \
 	again due to advancements in ammunition made them much more effective at breaking doors and simple masterkey shotguns were starting \
@@ -230,8 +230,8 @@
 	officially adopted as a door breaching tool but was incredibly effective at close quarters and shipside combat because \
 	advancements in  ammunition allowed shotguns to punch through common ballistic armor, making it a popular option for close quarters situations."
 
-/datum/codex_entry/standard_revolver
-	associated_paths = list(/obj/item/weapon/gun/revolver/standard_revolver)
+/datum/codex_entry/r44
+	associated_paths = list(/obj/item/weapon/gun/revolver/r44)
 	lore_text = "The original RN-44 used to be the only standard issue sidearm of the TGMC. Though it was once going to \
 	be fully replaced by the MG-27 once that was adopted, it was eventually decided to be kept due to complaints from \
 	troops of the power and accuracy of the new 9mm pistol to the old .44 so it was decided to keep both handguns and \
@@ -240,8 +240,8 @@
 	a new sidearm that could be reliable on long voyages without much maintenance and the RN-44 eventually won out it's peers \
 	due to its good accuracy and ability to stay in good condition for long periods of time. Eventually ending up as the original R-44."
 
-/datum/codex_entry/standard_pistol
-	associated_paths = list(/obj/item/weapon/gun/pistol/standard_pistol)
+/datum/codex_entry/p14
+	associated_paths = list(/obj/item/weapon/gun/pistol/p14)
 	lore_text = "The RL-9's design was created to require as little maintenance for a Pistol in a long period of time in-order \
 	to compete during the new trials to be put up by the Marine Corps once they decided the R-44 Revolver was too cumbersome for normal use. <br><br>\
 	Eventually the RL-9 won the trials due to showing good use after passing the 300 round test in the final rounds of the trial with only a \
@@ -251,16 +251,16 @@
 	to them than the 9mm round. Eventually it was decided that the TP019 would be adopted as the second sidearm of the TGMC instead of fully \
 	replacing the R-44 which would later eventually be modernized."
 
-/datum/codex_entry/standard_assaultrifle
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_assaultrifle)
+/datum/codex_entry/ar12
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar12)
 	lore_text = "The Keckler and Hoch M-12 was created out of an order for a robust rifle using a caseless round, after the ergonomic and costly disaster of the 'Rifle of the future' Project. \
 	Ironically, the M-12 submitted by the very group that made the national disaster that the AR-11 (originally designated the M-11) ended up winning out all the tests. \
 	It was designed to be simple to use, disassemble and basically survive every condition, however due to reports of barrel melting from the high use of polymers. It ended up being heavier than its ilk to compensate.\
 	After wining all the tests, it was accepted and christened the 'AR-12' in service. Aside from issues with barrel overheating, which later models fixed. It is known for reliability across the Marine Corps and the wider galaxy.\
 	Most would say the simple blend of a good magazine size, ergonomics and adaptablitty elevate this weapon above the rest."
 
-/datum/codex_entry/standard_carbine
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_carbine)
+/datum/codex_entry/ar18
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar18)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The Carbine variant, known as the 'ALF-51' focused on creating a small, compact package that could fire a rifle-sized round while still retaining good accuracy and shot placement.\
 	Originally, it was meant to fire in burst-fire only, future production variants turned to feature full-auto after it showed that in testing, it would improve troop morale and confidence in the versatility in the rifle.\
@@ -268,8 +268,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Carbine was christened the 'AR-18'.\
 	Most would say its particularly compact appreance and performance, combined with good burst-fire capablity are its edge in combat. Watch your ammo, though."
 
-/datum/codex_entry/standard_lmg
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_lmg)
+/datum/codex_entry/mg42
+	associated_paths = list(/obj/item/weapon/gun/rifle/mg42)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The Machinegun variant, known as the 'ALF-22' focused on creating a versatile package consisting of a light squad support weapon, with a focus on mobility and accurate fire over pure magazine size.\
 	It ended up with a drum magazine, elongated heavy barrel for sustained firing, its overall shape being of a common rifle generally assists it in being easy to pickup and use, and can mount more underbarrel attachments compared to its peers in its class.\
@@ -277,8 +277,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Machinegun was christened the 'MG-42'.\
 	Most would say the large magazine capacity combined with ease of use and ability to lay down fire with good frontline potential is the main advantage of this weapon. You will still be one the slower people in your group, however."
 
-/datum/codex_entry/standard_skirmishrifle
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_skirmishrifle)
+/datum/codex_entry/ar21
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar21)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The 'Skirmish' Rifle variant, known as the 'ALF-6' focused on creating a fullpower rifle, light and with a good blend of mobility, firerate and firepower.\
 	The rifle ended up being the rifle to truly kick off the ALF series, becoming famous for being a great blend of firepower, mobility and ease of use, however the system was known for tearing rounds like it was nothing.\
@@ -286,8 +286,8 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Rifle was christened the 'AR-21'.\
 	Most would say it earned its term of a 'Skirmish' rifle due to use in constant skirmishes by frontline troops, due to a low magazine size, but good overall mobility combined with firepower. Watch your magazine count and put the hurt downrange."
 
-/datum/codex_entry/standard_tx11
-	associated_paths = list(/obj/item/weapon/gun/rifle/tx11)
+/datum/codex_entry/ar11
+	associated_paths = list(/obj/item/weapon/gun/rifle/ar11)
 	lore_text = "The Keckler and Hoch 'M-11' was created out of a infamous bid called the 'Rifle of the future' project, created out of a need to replace aging weapon stocks in the TerraGov arsenal. \
 	The M-11 was created to be the ultimate weapon, being able to lay down fire like an MG with a high capacity, amazing burst fire capability, specialized scope for long range damage, it was tested and destroyed the competition.\
 	It did amazing in field tests, and was effectively the best rifle overall. Most concerns were ergonomical, however it was pushed aside for a need of a new rifle, and money was already spent in making the entire thing, so getting a new competition would be too bothersome.\
@@ -296,8 +296,8 @@
 	However, some have been pulled out of long term storage, and recent spottings have shown modernizations such as removal of the side magazines, an overall more ergonomic shape with less brick-like features, and a larger magazine.\
 	Most would say that the unusually large magazine capacity, amazing burst fire capability allows for an interesting use of a support weapon. But its bulky and unusual shape leading a low amount of attachments can hamper it in combat."
 
-/datum/codex_entry/standard_autosniper
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_autosniper)
+/datum/codex_entry/sr81
+	associated_paths = list(/obj/item/weapon/gun/rifle/sr81)
 	lore_text = "The Kauser ALF series of firearms was born out of a desire to create a modular weapon design that could ergonomically use a similar manual of arms to appeal to simplify familiarity and attract large scale buyers.\
 	The Sniper variant, known as the 'ALF-1' focused on creating a long range marksman rifle, focused on combining both mobility and rate of fire with good overall firepower.\
 	This particular version of the rifle is modernized with a KTLD gun computer and vision scope to allow for quick IFF in hectic engagements, and corrections for the user to stop FF, unlike older variants, it requires no specialized training to use.\
@@ -306,24 +306,23 @@
 	Eventually, they ended up becoming standard issue and a formal contract was signed, the Sniper was christened the 'GL-81'.\
 	Most would say that this rifle blends a feature of a normal rifle and sniper rifle, and has the ups and downs of both. Watch out in close quarters, and use the IFF and NVG features of the scope to your advantage..."
 
-/datum/codex_entry/standard_smartmachinegun
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_smartmachinegun)
+/datum/codex_entry/sg29
+	associated_paths = list(/obj/item/weapon/gun/rifle/sg29)
 	lore_text = "The Raummetall 'M-29' was made out of the heavy and unruly corpse of the 'M-28', an attempt to modernize and integrate a KTLD into the M-27 model machinegun. It ended in failure due to the overcomplexity of the system, and cost eventually made the project die.\
 	The 'M-29' is effectively a continuation in spirit of the previous project, focusing on simplifying the IFF computer systems. It only bears a outer resemblance to the M-27, outside of having the same basic systems.\
 	It has specialized systems to self-stabilize, and is made to be shoulder mounted and fired, as well as fired from lower positions, and uses its integral KTLD computer to self correct user errors, it however requires specialized training to use.\
 	The 'M-29' is effectively a incredibly accurate machinegun, it ended up being offered to the Marine Corps after the previous attempt to just modernize the older machineguns failed. It ended up being christened the 'MG-28' and entered service.\
 	Most would say that this machinegun makes you a walking turret, you'll be slow and unwieldy with no match when it comes to fire suppression on the move."
 
-/datum/codex_entry/standard_smartmmg
-	associated_paths = list(/obj/item/weapon/gun/rifle/standard_gpmg)
+/datum/codex_entry/mg60
+	associated_paths = list(/obj/item/weapon/gun/rifle/mg60)
 	lore_text = "The Raummetall 'M-60' was designed out of a bid for a cheap and available machinegun that could move to several roles, be it fire support, vehicle mounted or sentry duties.\
 	It is basically a General Purpose Machinegun (GPMG), meant to be used in about every scenario, usually not as well as a specialized gun, however it ended up being well known for its lightness and mobility within its class.\
 	Eventually, it won the bid due to its light weight, and low cost for mass production. Despite arguably being worse than most of the competition everywhere else outside of firerate. It was christened the 'MG-28' and entered service.\
 	Most would say that this machinegun makes you a walking dispenser of lead, you'll be slow and unwieldy with no match when it come to emptying a rain of lead on foe... or friend."
 
-
-/datum/codex_entry/standard_smg
-	associated_paths = list(/obj/item/weapon/gun/smg/standard_smg)
+/datum/codex_entry/smg90
+	associated_paths = list(/obj/item/weapon/gun/smg/smg90)
 	lore_text = "The MD-65 is a rather compact gun, designed for use by specialized troops who don't have the space to carry a bigger \
 	firearm and don't want to be stuck with a handgun. <br><br>\
 	It's generally used inside it's belt holster or slung on your back as a secondary firearm for use in situations where you have a \

@@ -3901,7 +3901,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/engineering)
 "dou" = (
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
@@ -5477,7 +5477,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lawankaoutpost/outside/southeast)
 "eIR" = (
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 9
 	},
@@ -15173,7 +15173,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/cargo)
 "mVC" = (
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /obj/effect/ai_node,
 /turf/open/floor/tile/blue/taupebluecorner,
 /area/lawankaoutpost/colony/recdorms)
@@ -19474,7 +19474,7 @@
 /area/lawankaoutpost/colony/mining)
 "qrS" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
@@ -26630,7 +26630,7 @@
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/lawankaoutpost/colony/marshalls)
 "wkR" = (
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /turf/open/floor/tile/dark/red2,
 /area/lawankaoutpost/colony/marshalls)
 "wlr" = (

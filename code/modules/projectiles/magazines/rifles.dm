@@ -39,9 +39,9 @@
 	bonus_overlay = "m412_ap"
 
 //-------------------------------------------------------
-//T18 Carbine
+//ar18 Carbine
 
-/obj/item/ammo_magazine/rifle/standard_carbine
+/obj/item/ammo_magazine/rifle/ar18
 	name = "\improper AR-18 magazine (10x24mm)"
 	desc = "A 10mm carbine magazine."
 	caliber = CALIBER_10X24_CASELESS
@@ -53,9 +53,9 @@
 	max_rounds = 36
 
 //-------------------------------------------------------
-//T12 Assault Rifle
+//AR12 Assault Rifle
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle
+/obj/item/ammo_magazine/rifle/ar12
 	name = "\improper AR-12 magazine (10x24mm)"
 	desc = "A 10mm assault rifle magazine."
 	caliber = CALIBER_10X24_CASELESS
@@ -67,29 +67,29 @@
 	max_rounds = 50
 
 //-------------------------------------------------------
-//T37 DMR
+//DMR37
 
-/obj/item/ammo_magazine/rifle/standard_dmr
+/obj/item/ammo_magazine/rifle/dmr37
 	name = "\improper DMR-37 magazine (10x27mm)"
 	desc = "A 10mm DMR magazine."
 	caliber = CALIBER_10x27_CASELESS
 	icon_state = "t37"
 	icon_state_mini = "mag_rifle_big"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
 	max_rounds = 20
 
 //-------------------------------------------------------
-//T64 BR
+//BR64
 
-/obj/item/ammo_magazine/rifle/standard_br
+/obj/item/ammo_magazine/rifle/br64
 	name = "\improper BR-64 magazine (10x26.5mm)"
 	desc = "A 10mm battle rifle magazine."
 	caliber = CALIBER_10x265_CASELESS
 	icon_state = "t64"
 	icon_state_mini = "mag_rifle_big"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/standard_br
+	default_ammo = /datum/ammo/bullet/rifle/br64
 	max_rounds = 36
 
 //-------------------------------------------------------
@@ -215,7 +215,7 @@
 //-------------------------------------------------------
 //MG-42 Light Machine Gun
 
-/obj/item/ammo_magazine/standard_lmg
+/obj/item/ammo_magazine/mg42
 	name = "\improper MG-42 drum magazine (10x24mm)"
 	desc = "A drum magazine for the MG-42 light machine gun."
 	icon_state = "t42"
@@ -228,7 +228,7 @@
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
-/obj/item/ammo_magazine/standard_gpmg
+/obj/item/ammo_magazine/mg60
 	name = "\improper MG-60 GPMG box magazine (10x26mm)"
 	desc = "A belt box for the MG-60 general purpose machinegun."
 	icon_state = "t60"
@@ -277,103 +277,103 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km/hp
 
-//TX-16 AUTOMATIC SHOTGUN
+//sh-15 AUTOMATIC SHOTGUN
 
-/obj/item/ammo_magazine/rifle/tx15_flechette
+/obj/item/ammo_magazine/rifle/sh15_flechette
 	name = "\improper SH-15 flechette magazine (16 gauge)"
 	desc = "A magazine of 16 gauge flechette rounds, for the SH-15."
 	caliber = CALIBER_16G
 	icon_state = "tx15_flechette"
 	icon_state_mini = "mag_tx15_flechette"
-	default_ammo = /datum/ammo/bullet/shotgun/tx15_flechette
+	default_ammo = /datum/ammo/bullet/shotgun/sh15_flechette
 	max_rounds = 12
 	bonus_overlay = "tx15_flech"
 
-/obj/item/ammo_magazine/rifle/tx15_slug
+/obj/item/ammo_magazine/rifle/sh15_slug
 	name = "\improper SH-15 slug magazine (16 gauge)"
 	desc = "A magazine of 16 gauge slugs, for the SH-15."
 	caliber = CALIBER_16G
 	icon_state = "tx15_slug"
 	icon_state_mini = "mag_tx15_slug"
-	default_ammo = /datum/ammo/bullet/shotgun/tx15_slug
+	default_ammo = /datum/ammo/bullet/shotgun/sh15_slug
 	max_rounds = 12
 	bonus_overlay = "tx15_slug"
 
 //-------------------------------------------------------
 //SMARTMACHINEGUN AMMUNITION
 
-/obj/item/ammo_magazine/standard_smartmachinegun
+/obj/item/ammo_magazine/sg29
 	name = "\improper SG-29 drum magazine"
 	desc = "A wide drum magazine carefully filled to capacity with 10x26mm specialized smart rounds."
 	caliber = CALIBER_10x26_CASELESS
 	icon_state = "sg29"
 	icon_state_mini = "mag_sg29"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/smartmachinegun
+	default_ammo = /datum/ammo/bullet/sg29
 	max_rounds = 250
 	reload_delay = 2.5 SECONDS
 
 //-------------------------------------------------------
 //SMART TARGET RIFLE AMMUNITION
 
-/obj/item/ammo_magazine/rifle/standard_smarttargetrifle
+/obj/item/ammo_magazine/rifle/sg62
 	name = "\improper SG-62 magazine (10x27mm HV)"
 	desc = "A magazine filled with 10x27mm specialized smart rounds."
 	caliber = CALIBER_10x27_CASELESS
 	icon_state = "sg62"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/smarttargetrifle
+	default_ammo = /datum/ammo/bullet/sg62
 	max_rounds = 40
 	icon_state_mini = "mag_sg29"
 
 //-------------------------------------------------------
 //SPOTTING RIFLE AMMUNITION
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle
+/obj/item/ammo_magazine/rifle/sg153
 	name = "\improper SG-153 magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm lethal smart rounds, these will do nothing other than pack a big punch."
 	caliber = CALIBER_12x7
 	icon_state = "sg153"
 	w_class = WEIGHT_CLASS_SMALL
-	default_ammo = /datum/ammo/bullet/spottingrifle
+	default_ammo = /datum/ammo/bullet/sg153
 	max_rounds = 5
 	icon_state_mini = "mag_sg29"
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact
+/obj/item/ammo_magazine/rifle/sg153/highimpact
 	name = "\improper SG-153 high impact magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm high impact smart rounds, these will likely stagger and slow anything they hit."
 	icon_state = "sg153_hi"
-	default_ammo = /datum/ammo/bullet/spottingrifle/highimpact
+	default_ammo = /datum/ammo/bullet/sg153/highimpact
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber
+/obj/item/ammo_magazine/rifle/sg153/heavyrubber
 	name = "\improper SG-153 heavy rubber magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm heavy rubber smart rounds, these will likely stun and displace anything they hit."
 	icon_state = "sg153_hr"
-	default_ammo = /datum/ammo/bullet/spottingrifle/heavyrubber
+	default_ammo = /datum/ammo/bullet/sg153/heavyrubber
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss
+/obj/item/ammo_magazine/rifle/sg153/plasmaloss
 	name = "\improper SG-153 tanglefoot magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm smart rounds tipped with 'Tanglefoot' poison, these rounds will drain the energy out of targets they hit."
 	icon_state = "sg153_hr"
-	default_ammo = /datum/ammo/bullet/spottingrifle/plasmaloss
+	default_ammo = /datum/ammo/bullet/sg153/plasmaloss
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten
+/obj/item/ammo_magazine/rifle/sg153/tungsten
 	name = "\improper SG-153 tungsten magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm tungsten smart rounds, these rounds will massively knock back any target it hits."
 	icon_state = "sg153_tg"
-	default_ammo = /datum/ammo/bullet/spottingrifle/tungsten
+	default_ammo = /datum/ammo/bullet/sg153/tungsten
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary
+/obj/item/ammo_magazine/rifle/sg153/incendiary
 	name = "\improper SG-153 incendiary magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm incendiary smart rounds, these rounds will set alight anything they hit."
 	icon_state = "sg153_ic"
-	default_ammo = /datum/ammo/bullet/spottingrifle/incendiary
+	default_ammo = /datum/ammo/bullet/sg153/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak
+/obj/item/ammo_magazine/rifle/sg153/flak
 	name = "\improper SG-153 flak magazine (12x7mm)"
 	desc = "A magazine filled with 12x7mm flak smart rounds, these rounds will airburst on contact with an organic target, causing damage in a small area near the target."
 	icon_state = "sg153_fl"
-	default_ammo = /datum/ammo/bullet/spottingrifle/flak
+	default_ammo = /datum/ammo/bullet/sg153/flak
 
 
 //-------------------------------------------------------
@@ -390,7 +390,7 @@
 
 //-------------------------------------------------------
 //Marine magazine sniper, or the SR-127.
-/obj/item/ammo_magazine/rifle/chamberedrifle
+/obj/item/ammo_magazine/rifle/sr127
 	name = "SR-127 bolt action rifle magazine"
 	desc = "A box magazine filled with 8.6x70mm rifle rounds for the SR-127."
 	caliber = CALIBER_86X70
@@ -400,7 +400,7 @@
 	max_rounds = 10
 	bonus_overlay = "tl127_mag"
 
-/obj/item/ammo_magazine/rifle/chamberedrifle/flak
+/obj/item/ammo_magazine/rifle/sr127/flak
 	name = "SR-127 bolt action rifle flak magazine"
 	desc = "A box magazine filled with 8.6x70mm rifle flak rounds for the SR-127."
 	icon_state = "tl127_flak"
@@ -410,7 +410,7 @@
 
 //-------------------------------------------------------
 //Marine magazine automatic sniper, or the SR-81.
-/obj/item/ammo_magazine/rifle/autosniper
+/obj/item/ammo_magazine/rifle/sr81
 	name = "\improper SR-81 automatic sniper rifle magazine"
 	desc = "A box magazine filled with low pressure 8.6x70mm rifle rounds for the SR-81."
 	caliber = CALIBER_86X70
@@ -420,10 +420,10 @@
 	max_rounds = 20
 
 //-------------------------------------------------------
-//G-11, AR-11
-/obj/item/ammo_magazine/rifle/tx11
+//AR-11
+/obj/item/ammo_magazine/rifle/ar11
 	name = "\improper AR-11 combat rifle magazine"
-	desc = "A magazine filled with 4.92×34mm rifle rounds for the AR-11."
+	desc = "A magazine filled with 4.92x34mm rifle rounds for the AR-11."
 	caliber = CALIBER_492X34_CASELESS
 	icon_state = "tx11"
 	icon_state_mini = "mag_tx11"
@@ -432,7 +432,7 @@
 
 //-------------------------------------------------------
 //AR-21
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle
+/obj/item/ammo_magazine/rifle/ar21
 	name = "\improper AR-21 skirmish rifle magazine"
 	desc = "A magazine filled with 10x25mm rifle rounds for the AR-21."
 	caliber = CALIBER_10X25_CASELESS
@@ -595,7 +595,7 @@
 	icon_state = "l11"
 	icon_state_mini = "mag_rifle"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
 	max_rounds = 20
 
 //-------------------------------------------------------
@@ -657,18 +657,18 @@
 //-------------------------------------------------------
 //
 
-/obj/item/ammo_magazine/rifle/T25
+/obj/item/ammo_magazine/rifle/t25
 	name = "\improper T-25 magazine (10x26mm)"
 	desc = "A 10mm assault rifle magazine."
 	caliber = CALIBER_10x26_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
-	icon_state = "T25"
+	icon_state = "t25"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/T25
+	default_ammo = /datum/ammo/bullet/rifle/t25
 	max_rounds = 80
 	icon_state_mini = "mag_rifle_big"
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended
+/obj/item/ammo_magazine/rifle/ar21/extended
 	name = "\improper AR-21 extended skirmish rifle magazine"
 	desc = "A extended magazine filled with 10x25mm rifle rounds for the AR-21."
 	icon = 'icons/obj/items/ammo.dmi'
@@ -677,91 +677,91 @@
 	icon_state_mini = "mag_rifle_big_yellow"
 	//bonus_overlay = "t21_ext"
 
-/obj/item/ammo_magazine/rifle/T25/extended
+/obj/item/ammo_magazine/rifle/t25/extended
 	name = "\improper T-25 extended magazine (10x26mm)"
 	desc = "A 10mm extended assault rifle magazine."
-	icon_state = "T25_ext"
+	icon_state = "t25_ext"
 	max_rounds = 120
 	icon_state_mini = "mag_rifle_big_yellow"
-	//bonus_overlay = "T25_ext"
+	//bonus_overlay = "t25_ext"
 
-/obj/item/ammo_magazine/rifle/standard_carbine/ap
+/obj/item/ammo_magazine/rifle/ar18/ap
 	name = "\improper AR-18 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
-/obj/item/ammo_magazine/rifle/standard_carbine/incendiary
+/obj/item/ammo_magazine/rifle/ar18/incendiary
 	name = "\improper AR-18 incendiary magazine (10x24mm)"
 	desc = "A 10mm incendiary carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_carbine/hp
+/obj/item/ammo_magazine/rifle/ar18/hp
 	name = "\improper AR-18 HP magazine (10x24mm)"
 	desc = "A 10mm hollow-point  carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/standard_carbine/sabot
+/obj/item/ammo_magazine/rifle/ar18/sabot
 	name = "\improper AR-18 APDS magazine (10x24mm)"
 	desc = "A 10mm APDS carbine magazine."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/sabot
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap
+/obj/item/ammo_magazine/rifle/ar12/ap
 	name = "\improper AR-12 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary
+/obj/item/ammo_magazine/rifle/ar12/incendiary
 	name = "\improper AR-12 incendiary magazine (10x24mm)"
 	desc = "A 10mm incendiary assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp
+/obj/item/ammo_magazine/rifle/ar12/hp
 	name = "\improper AR-12 HP magazine (10x24mm)"
 	desc = "A 10mm hollow-point assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot
+/obj/item/ammo_magazine/rifle/ar12/sabot
 	name = "\improper AR-12 APDS magazine (10x24mm)"
 	desc = "A 10mm APDS assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/rifle/sabot
 
-/obj/item/ammo_magazine/rifle/standard_br/ap
+/obj/item/ammo_magazine/rifle/br64/ap
 	name = "\improper BR-64 AP magazine (10x26.5mm)"
 	desc = "A 10mm armor piercing battle rifle magazine."
 	caliber = CALIBER_10x265_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "t64_ap"
 	//bonus_overlay = "t64_ap"
-	default_ammo = /datum/ammo/bullet/rifle/standard_br/ap
+	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 	icon_state_mini = "mag_rifle_big"
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap
+/obj/item/ammo_magazine/rifle/ar21/ap
 	name = "\improper AR-21 skirmish AP rifle magazine"
 	desc = "A magazine filled with 10x25mm armor piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary
+/obj/item/ammo_magazine/rifle/ar21/incendiary
 	name = "\improper AR-21 skirmish incendiary rifle magazine"
 	desc = "A magazine filled with 10x25mm incendiary  rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp
+/obj/item/ammo_magazine/rifle/ar21/hp
 	name = "\improper AR-21 skirmish HP rifle magazine"
 	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
 
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot
+/obj/item/ammo_magazine/rifle/ar21/sabot
 	name = "\improper AR-21 skirmish APDS rifle magazine"
 	desc = "A magazine filled with 10x25mm APDS rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_SABOT

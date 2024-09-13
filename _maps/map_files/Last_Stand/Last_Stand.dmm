@@ -358,7 +358,7 @@
 	},
 /area/whiskey_outpost)
 "bG" = (
-/obj/structure/closet/secure_closet/guncabinet/lmg,
+/obj/structure/closet/secure_closet/guncabinet/mg42,
 /turf/open/floor/prison/plate,
 /area/whiskey_outpost)
 "bH" = (
@@ -492,11 +492,11 @@
 /area/whiskey_outpost)
 "cK" = (
 /obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "cL" = (
@@ -627,9 +627,9 @@
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "dr" = (
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
 /obj/structure/rack,
 /obj/machinery/light{
 	dir = 1
@@ -637,9 +637,9 @@
 /turf/open/floor/plating,
 /area/whiskey_outpost)
 "dt" = (
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/east)
@@ -718,7 +718,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
 "dQ" = (
-/obj/structure/largecrate/supply/ammo/standard_smg,
+/obj/structure/largecrate/supply/ammo/smg90,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "dS" = (
@@ -1258,7 +1258,7 @@
 /obj/structure/barricade/sandbags{
 	dir = 1
 	},
-/obj/item/weapon/gun/tl102/hsg_nest{
+/obj/item/weapon/gun/hsg102/hsg_nest{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -1506,9 +1506,9 @@
 /turf/open/floor/mainship/sterile/side,
 /area/whiskey_outpost)
 "iT" = (
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/west)
@@ -2063,7 +2063,7 @@
 /obj/structure/barricade/sandbags{
 	pixel_y = -6
 	},
-/obj/item/weapon/gun/tl102/hsg_nest{
+/obj/item/weapon/gun/hsg102/hsg_nest{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -3343,7 +3343,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "vh" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/east)
 "vi" = (
@@ -3353,7 +3353,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "vq" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "vs" = (
@@ -3381,11 +3381,11 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_smg/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
 /obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/standard_machinepistol/full,
+/obj/item/storage/box/visual/magazine/compact/mp19/full,
 /obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
 /obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
 /obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full,
@@ -3778,9 +3778,9 @@
 /area/whiskey_outpost/outside/east)
 "yO" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "yQ" = (
@@ -3858,7 +3858,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
 "zG" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /obj/structure/platform,
 /turf/open/floor/plating/asteroidwarning,
 /area/whiskey_outpost)
@@ -4377,7 +4377,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
 "FD" = (
-/obj/structure/largecrate/supply/weapons/standard_smg,
+/obj/structure/largecrate/supply/weapons/smg90,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "FE" = (
@@ -4423,7 +4423,7 @@
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/east)
 "GG" = (
-/obj/item/weapon/gun/tl102/hsg_nest,
+/obj/item/weapon/gun/hsg102/hsg_nest,
 /obj/structure/platform,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost)

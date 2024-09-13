@@ -273,7 +273,7 @@
 	nade_type = /obj/item/explosive/grenade/smokebomb
 	icon_state = "smoke_shell"
 
-/datum/ammo/grenade_container/ags_grenade
+/datum/ammo/grenade_container/agls37
 	name = "grenade shell"
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_IFF
 	icon_state = "grenade_projectile"
@@ -284,14 +284,14 @@
 	max_range = 21
 	nade_type = /obj/item/explosive/grenade/ags
 
-/datum/ammo/grenade_container/ags_grenade/flare
+/datum/ammo/grenade_container/agls37/flare
 	hud_state = "grenade_dummy"
 	nade_type = /obj/item/explosive/grenade/flare
 
-/datum/ammo/grenade_container/ags_grenade/cloak
+/datum/ammo/grenade_container/agls37/cloak
 	hud_state = "grenade_hide"
 	nade_type = /obj/item/explosive/grenade/smokebomb/cloak/ags
 
-/datum/ammo/grenade_container/ags_grenade/tanglefoot
+/datum/ammo/grenade_container/agls37/tanglefoot
 	hud_state = "grenade_drain"
 	nade_type = /obj/item/explosive/grenade/smokebomb/drain/agls
