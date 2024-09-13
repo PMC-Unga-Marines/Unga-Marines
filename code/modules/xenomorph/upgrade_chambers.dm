@@ -8,7 +8,7 @@
 	max_integrity = 500
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
-	var/upgrade_path
+	var/upgrade_chamber_flag
 
 /obj/structure/xeno/upgrade_chamber/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -18,6 +18,7 @@
 	name = "Shell"
 	desc = "Shell upgrade chamber"
 	icon_state = "hivemind_core"
+	upgrade_chamber_flag = UPGRADE_CHAMBER_SURVIVAL
 
 /obj/structure/xeno/upgrade_chamber/shell/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -31,6 +32,7 @@
 	name = "Spur"
 	desc = "Spur upgrade chamber"
 	icon_state = "hivemind_core"
+	upgrade_chamber_flag = UPGRADE_CHAMBER_ATTACK
 
 /obj/structure/xeno/upgrade_chamber/spur/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -44,6 +46,7 @@
 	name = "Veil"
 	desc = "Veil upgrade chamber"
 	icon_state = "hivemind_core"
+	upgrade_chamber_flag = UPGRADE_CHAMBER_UTILITY
 
 /obj/structure/xeno/upgrade_chamber/veil/Initialize(mapload, _hivenumber)
 	. = ..()

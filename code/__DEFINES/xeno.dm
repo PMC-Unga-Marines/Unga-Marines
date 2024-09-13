@@ -13,6 +13,10 @@
 #define XENO_TURRET_ACID_ICONSTATE "acid_turret"
 #define XENO_TURRET_STICKY_ICONSTATE "resin_turret"
 
+#define UPGRADE_CHAMBER_SURVIVAL "upgrade chamber survival"
+#define UPGRADE_CHAMBER_ATTACK "upgrade chamber attack"
+#define UPGRADE_CHAMBER_UTILITY "upgrade chamber utility"
+
 //Plant defines
 #define HEAL_PLANT "life fruit"
 #define ARMOR_PLANT "hard fruit"
