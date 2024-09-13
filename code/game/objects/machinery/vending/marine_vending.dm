@@ -33,7 +33,7 @@
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/shotgun/pump/bolt = -1,
 			/obj/item/ammo_magazine/rifle/boltclip = -1,
@@ -258,7 +258,7 @@
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/shotgun/pump/bolt = -1,
 			/obj/item/ammo_magazine/rifle/bolt = -1,
@@ -483,7 +483,7 @@
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/shotgun/pump/bolt = -1,
 			/obj/item/ammo_magazine/rifle/boltclip = -1,

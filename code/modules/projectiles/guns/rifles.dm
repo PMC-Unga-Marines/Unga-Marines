@@ -1491,7 +1491,8 @@
 //-------------------------------------------------------
 //SR-127 bolt action sniper rifle
 
-/obj/item/weapon/gun/rifle/sr127
+
+/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127 //its a subtype of antimaterial. A little complicated, but I don't want to copypast
 	name = "\improper SR-127 Bauer bolt action rifle"
 	desc = "The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1534,7 +1535,6 @@
 	)
 
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
-	reciever_flags = AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS|AMMO_RECIEVER_AUTO_EJECT
 
 	cock_animation = "tl127_cock"
 	cocked_message = "You rack the bolt!"
@@ -1562,7 +1562,8 @@
 	cock_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/sr127/unscoped
+
+/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127/unscoped
 	starting_attachment_types = list(/obj/item/attachable/stock/sr127stock)
 
 //-------------------------------------------------------
