@@ -1386,10 +1386,10 @@ And need a safe place to do the registration</li>
     </ul></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;leader">leader</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;leader&#x2F;three">three</span> - tx55</li>
-    <li><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;leader&#x2F;two">two</span> - tx11</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;leader&#x2F;two">two</span> - ar11</li>
     </ul></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;standard">standard</span><ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;standard&#x2F;three">three</span> - tx11</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;standard&#x2F;three">three</span> - ar11</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;outfit&#x2F;job&#x2F;freelancer&#x2F;standard&#x2F;two">two</span> - m16 ugl</li>
     </ul></li>
     </ul></li>
@@ -1830,10 +1830,10 @@ Thus we just use this relay. it's an obj so we can make sure all the damage proc
     <li><a href="obj/item/alien_embryo.html" title="&#x2F;obj&#x2F;item&#x2F;alien_embryo">alien_embryo</a></li>
     <li><a href="obj/item/ammo_casing.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_casing">ammo_casing</a></li>
     <li class="has-children"><a href="obj/item/ammo_magazine.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine">ammo_magazine</a><ul class="index-tree">
-    <li><a href="obj/item/ammo_magazine/tank.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tank">tank</a></li>
-    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tl102">tl102</span> - Default ammo for the HSG-102.<ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tl102&#x2F;hsg_nest">hsg_nest</span> - This is the one that comes in the mapbound and dropship mounted version of the HSG-102, it has a stupid amount of ammo. Even more than the ammo counter can display.</li>
+    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;hsg102">hsg102</span> - Default ammo for the HSG-102.<ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;hsg102&#x2F;hsg_nest">hsg_nest</span> - This is the one that comes in the mapbound and dropship mounted version of the HSG-102, it has a stupid amount of ammo. Even more than the ammo counter can display.</li>
     </ul></li>
+    <li><a href="obj/item/ammo_magazine/tank.html" title="&#x2F;obj&#x2F;item&#x2F;ammo_magazine&#x2F;tank">tank</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/item/armor_module.html" title="&#x2F;obj&#x2F;item&#x2F;armor_module">armor_module</a><ul class="index-tree">
     <li class="has-children"><a href="obj/item/armor_module/armor.html" title="&#x2F;obj&#x2F;item&#x2F;armor_module&#x2F;armor">armor</a> - These are the basic type for armor armor_modules. What seperates these from /armor_module is that these are designed to be recolored.
@@ -2104,7 +2104,7 @@ It isn't required for a product of research to be subtype of these</li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box">box</span><ul class="index-tree">
     <li><a href="obj/item/storage/box/MRE.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box&#x2F;MRE">MRE</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box&#x2F;explosive_mines">explosive_mines</span> - MARINES BOXES</li>
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box&#x2F;tl102">tl102</span> - box for storage of ammo and gun</li>
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box&#x2F;hsg102">hsg102</span> - box for storage of ammo and gun</li>
     <li><a href="obj/item/storage/box/visual.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box&#x2F;visual">fillable box</a> - Deployable box with fancy visuals of its contents
 Visual content defined in the icon_state_mini var in /obj/item
 All other visuals that do not have a icon_state_mini defined are in var/assoc_overlay</li>
@@ -2170,24 +2170,24 @@ While perhaps reagents created by udder component COULD be managed in the mob, i
     <li class="has-children"><a href="obj/item/weapon/gun/grenade_launcher.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;grenade_launcher">grenade_launcher</a><ul class="index-tree">
     <li><a href="obj/item/weapon/gun/grenade_launcher/single_shot.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;grenade_launcher&#x2F;single_shot">single_shot</a></li>
     </ul></li>
+    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;hsg102">hsg102</span> - HSG-102, now with full auto. It is not a superclass of deployed guns, however there are a few varients.<ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;hsg102&#x2F;death">death</span> - This is my meme version, the first version of the HSG-102 to have auto-fire, revel in its presence.</li>
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;hsg102&#x2F;hsg_nest">hsg_nest</span> - Unmovable ship mounted version.</li>
+    </ul></li>
     <li class="has-children"><span class="no-substance">launcher&#x2F;</span><a href="obj/item/weapon/gun/launcher/rocket.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;launcher&#x2F;rocket">rocket</a><ul class="index-tree">
     <li><a href="obj/item/weapon/gun/launcher/rocket/oneuse.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;launcher&#x2F;rocket&#x2F;oneuse">oneuse</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/item/weapon/gun/revolver.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;revolver">revolver</a><ul class="index-tree">
-    <li><span class="no-substance">standard_revolver&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;revolver&#x2F;standard_revolver&#x2F;coltrifle">coltrifle</span> - Ð¡oltrifle, based on Colt Model 1855 Revolving Rifle.</li>
+    <li><span class="no-substance">r44&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;revolver&#x2F;r44&#x2F;coltrifle">coltrifle</span> - Ð¡oltrifle, based on Colt Model 1855 Revolving Rifle.</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;revolver&#x2F;t500">t500</span> - t500 revolver</li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;rifle">rifle</span><ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;rifle&#x2F;T25">T25</span> - T25, old version .</li>
     <li><a href="obj/item/weapon/gun/rifle/garand.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;rifle&#x2F;garand">garand</a></li>
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;rifle&#x2F;t25">t25</span> - t25, old version .</li>
     <li><a href="obj/item/weapon/gun/rifle/tx54.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;rifle&#x2F;tx54">tx54</a></li>
     </ul></li>
     <li><span class="no-substance">smg&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;smg&#x2F;vector">vector</span> - Vector, based on KRISS Vector 45ACP.</li>
     <li><span class="no-substance">standard_minigun&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;standard_minigun&#x2F;nest">nest</span> - Unmovable ship mounted version.</li>
-    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;tl102">tl102</span> - HSG-102, now with full auto. It is not a superclass of deployed guns, however there are a few varients.<ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;tl102&#x2F;death">death</span> - This is my meme version, the first version of the HSG-102 to have auto-fire, revel in its presence.</li>
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;tl102&#x2F;hsg_nest">hsg_nest</span> - Unmovable ship mounted version.</li>
-    </ul></li>
     </ul></li>
     <li><a href="obj/item/weapon/powerfist.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;powerfist">powerfist</a></li>
     <li><span class="no-substance">shield&#x2F;riot&#x2F;marine&#x2F;</span><a href="obj/item/weapon/shield/riot/marine/deployable.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;shield&#x2F;riot&#x2F;marine&#x2F;deployable">deployable</a></li>
@@ -2575,7 +2575,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/676473d6bdc34c8f611b696a2c586fe30b5cad0e">676473d</a>
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/caf96ef2c6d6fde7cc28dd903dc4f9547f05fa62">caf96ef</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
