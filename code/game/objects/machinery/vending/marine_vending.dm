@@ -31,22 +31,12 @@
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 	),
 		"Marksman" = list(
-<<<<<<< SVDtovendor
-			/obj/item/weapon/gun/rifle/standard_dmr = -1,
-			/obj/item/ammo_magazine/rifle/standard_dmr = -1,
-			/obj/item/weapon/gun/rifle/chambered = -1,
-			/obj/item/ammo_magazine/rifle/chamberedrifle = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
-=======
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sr127 = -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
-			/obj/item/weapon/gun/shotgun/pump/bolt = -1,
-			/obj/item/ammo_magazine/rifle/boltclip = -1,
-			/obj/item/ammo_magazine/rifle/bolt = -1,
->>>>>>> master
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -265,23 +255,13 @@
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 		),
 		"Marksman" = list(
-<<<<<<< SVDtovendor
-			/obj/item/weapon/gun/rifle/standard_dmr = -1,
-			/obj/item/ammo_magazine/rifle/standard_dmr = -1,
-			/obj/item/weapon/gun/rifle/chambered = -1,
-			/obj/item/ammo_magazine/rifle/chamberedrifle = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
-			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
-=======
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sr127 = -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
-			/obj/item/weapon/gun/shotgun/pump/bolt = -1,
-			/obj/item/ammo_magazine/rifle/bolt = -1,
 			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
->>>>>>> master
 			/obj/item/ammo_magazine/revolver/rifle = -1,
 		),
 		"Shotgun" = list(
@@ -507,13 +487,9 @@
 			/obj/item/weapon/gun/shotgun/pump/bolt = -1,
 			/obj/item/ammo_magazine/rifle/boltclip = -1,
 			/obj/item/ammo_magazine/rifle/bolt = -1,
-<<<<<<< SVDtovendor
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
-			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
-=======
 			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
->>>>>>> master
 			/obj/item/ammo_magazine/revolver/rifle = -1,
 		),
 		"Shotgun" = list(
