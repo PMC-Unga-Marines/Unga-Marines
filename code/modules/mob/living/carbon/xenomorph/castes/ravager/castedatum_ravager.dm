@@ -75,5 +75,5 @@
 		/datum/action/ability/activable/xeno/charge,
 		/datum/action/ability/activable/xeno/ravage,
 		/datum/action/ability/xeno_action/endure,
-		/datum/action/ability/xeno_action/vampirism,
+		/datum/action/ability/xeno_action/immortality,
 	)

@@ -615,6 +615,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
 #define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			100 //Maximum amount of healing from slash during Rage
 
+#define RAVAGER_IMMORTALITY_DURATION					5 SECONDS
+
 //crusher defines
 #define CRUSHER_STOMP_LOWER_DMG 40
 #define CRUSHER_STOMP_UPPER_DMG 60
