@@ -393,7 +393,7 @@
 /datum/action/ability/xeno_action/immortality
 	name = "Immortality"
 	action_icon_state = "enhancement"
-	desc = "We are too angry to die"
+	desc = "We are too angry to die."
 	ability_cost = 666
 	cooldown_duration = 35 SECONDS
 	keybinding_signals = list(
@@ -402,7 +402,7 @@
 	use_state_flags = ABILITY_USE_STAGGERED
 
 /datum/action/ability/xeno_action/immortality/on_cooldown_finish()
-	to_chat(owner, span_xenodanger("We feel able to be immortal once again"))
+	to_chat(owner, span_xenodanger("We are able to become immortal once again."))
 	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
@@ -433,5 +433,5 @@
 
 	X.remove_filter("ravager_immortality_outline")
 
-	to_chat(owner,span_highdanger("We are now mortal again"))
+	to_chat(owner,span_highdanger("We are now mortal again."))
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)

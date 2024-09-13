@@ -751,9 +751,9 @@
 /datum/keybinding/xeno/ravager_immortality
 	name = "ravager_immortality"
 	full_name = "Ravager: Immortality"
-	description = "For the next few moments we will be immune to damage"
+	description = "For the next few moments we will be immune to damage."
 	keybind_signal = COMSIG_XENOABILITY_IMMORTALITY
-	hotkey_keys = list("Q")
+	hotkey_keys = list("X")
 
 /datum/keybinding/xeno/ravage
 	name = "ravage"
