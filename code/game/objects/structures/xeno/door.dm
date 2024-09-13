@@ -72,8 +72,9 @@
 	take_damage(severity * 0.5, BRUTE, BOMB)
 
 /obj/structure/mineral_door/resin/try_toggle_state(atom/user)
-	if(isxeno(user))
-		return ..()
+	if(!isxeno(user))
+		return
+	return ..()
 
 /obj/structure/mineral_door/resin/toggle_state()
 	. = ..()
