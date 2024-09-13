@@ -356,7 +356,7 @@
 			target.balloon_alert(owner, "Cannot reach")
 			to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
-	else if(!line_of_sight(owner, target))
+	else if(!line_of_sight(owner, target, heal_range))
 		if(!silent)
 			target.balloon_alert(owner, "Cannot heal, no line of sight")
 		return FALSE

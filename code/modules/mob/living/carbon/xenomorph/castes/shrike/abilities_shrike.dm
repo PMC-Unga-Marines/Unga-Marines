@@ -274,8 +274,8 @@ RU TGMC EDIT */
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PSYCHIC_CURE,
 	)
-	var/heal_range = SHRIKE_HEAL_RANGE
 	target_flags = ABILITY_MOB_TARGET
+	var/heal_range = SHRIKE_HEAL_RANGE
 
 
 /datum/action/ability/activable/xeno/psychic_cure/on_cooldown_finish()
@@ -299,13 +299,12 @@ RU TGMC EDIT */
 			to_chat(owner, span_warning("It's too late. This sister won't be coming back."))
 		return FALSE
 
-
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
 	if(dist > heal_range)
 		to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
-	else if(!line_of_sight(owner, target))
+	else if(!line_of_sight(owner, target, heal_range))
 		to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
 		return FALSE
 	return TRUE
