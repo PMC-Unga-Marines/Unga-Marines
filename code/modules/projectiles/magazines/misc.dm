@@ -196,7 +196,7 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/svd7.62x54mmR
+/obj/item/ammo_magazine/packet/svd762x54mmR
 	name = "box of 7.62X54"
 	icon_state = "box_7.62x54mm"
 	default_ammo = /datum/ammo/bullet/sniper/svd

@@ -186,7 +186,7 @@
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p492x34mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
-			/obj/item/ammo_magazine/packet/svd7.62x54mmR = -1,
+			/obj/item/ammo_magazine/packet/svd762x54mmR = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
