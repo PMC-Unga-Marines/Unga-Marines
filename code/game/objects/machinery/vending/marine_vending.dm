@@ -31,7 +31,6 @@
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 	),
 		"Marksman" = list(
-
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sr127 = -1,
@@ -256,7 +255,6 @@
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 		),
 		"Marksman" = list(
-
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sr127 = -1,
