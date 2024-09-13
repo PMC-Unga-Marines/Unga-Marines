@@ -1125,3 +1125,7 @@
 
 #define COMSIG_LIVING_HEALTH_STEALTH "living_health_stealth"
 	#define COMPONENT_HIDE_HEALTH (1<<0)
+
+#define COMSIG_UPGRADE_CHAMBER_SURVIVAL "upgrade_chamber_survival"
+#define COMSIG_UPGRADE_CHAMBER_ATTACK "upgrade_chamber_attack"
+#define COMSIG_UPGRADE_CHAMBER_UTILITY "upgrade_chamber_utility"
