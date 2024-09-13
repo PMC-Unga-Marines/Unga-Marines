@@ -85,7 +85,7 @@
 	handful_amount = 3
 	ping = null //no bounce off.
 	sound_bounce = "rocket_bounce"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
 	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2

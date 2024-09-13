@@ -56,7 +56,7 @@
 //-------------------------------------------------------
 //R-44 COMBAT REVOLVER
 
-/obj/item/weapon/gun/revolver/standard_revolver
+/obj/item/weapon/gun/revolver/r44
 	name = "\improper R-44 combat revolver"
 	desc = "The R-44 standard combat revolver, produced by Terran Armories. A sturdy and hard hitting firearm that loads .44 Magnum rounds. Holds 7 rounds in the cylinder. Due to an error in the cylinder rotation system the fire rate of the gun is much faster than intended, it ended up being billed as a feature of the system."
 	icon_state = "tp44"
@@ -64,8 +64,8 @@
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_r44.ogg'
 	caliber = CALIBER_44 //codex
 	max_chamber_items = 7 //codex
-	default_ammo_type = /obj/item/ammo_magazine/revolver/standard_revolver
-	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/standard_revolver)
+	default_ammo_type = /obj/item/ammo_magazine/revolver/r44
+	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/r44)
 	force = 8
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
@@ -93,7 +93,7 @@
 	scatter = -1
 	recoil_unwielded = 0.75
 
-/obj/item/weapon/gun/revolver/standard_revolver/Initialize(mapload, spawn_empty)
+/obj/item/weapon/gun/revolver/r44/Initialize(mapload, spawn_empty)
 	. = ..()
 	if(round(rand(1, 10), 1) != 1)
 		return
@@ -359,8 +359,8 @@
 	desc = "you should not be seeing this."
 	reload_sound = 'sound/weapons/guns/interact/revolver_cocked.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/revolver_cocked.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/revolver/standard_revolver
-	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/standard_revolver)
+	default_ammo_type = /obj/item/ammo_magazine/revolver/r44
+	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/r44)
 	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_ROTATES_CHAMBER|AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_TOGGLES_OPEN_EJECTS|AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS
 	cocked_message = "You prime the hammer."
 	cock_delay = 0
@@ -402,7 +402,7 @@
 //////// Сoltrifle, based on Colt Model 1855 Revolving Rifle. /////////
 ///////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/gun/revolver/standard_revolver/coltrifle
+/obj/item/weapon/gun/revolver/r44/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
 	icon = 'icons/Marine/gun64.dmi'
@@ -448,7 +448,7 @@
 	)
 	attachable_offset = list("muzzle_x" = 50, "muzzle_y" = 21,"rail_x" = 24, "rail_y" = 22)
 
-/obj/item/weapon/gun/revolver/standard_revolver/coltrifle/Initialize(mapload, spawn_empty)
+/obj/item/weapon/gun/revolver/r44/coltrifle/Initialize(mapload, spawn_empty)
 	. = ..()
 	base_gun_icon = "coltrifle"
 	update_icon()

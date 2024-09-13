@@ -7108,7 +7108,7 @@
 /obj/effect/turf_decal/tracks/wheels/bloody{
 	dir = 4
 	},
-/obj/item/weapon/gun/pistol/standard_pistol,
+/obj/item/weapon/gun/pistol/p14,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/tile/whiteyellow{
 	dir = 8
@@ -31457,7 +31457,7 @@
 "xgO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/gibspawner/human,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
+/obj/item/weapon/gun/pistol/p17,
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "xhq" = (

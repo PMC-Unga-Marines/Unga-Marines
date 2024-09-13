@@ -295,6 +295,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/datum/admins/proc/toggle_prayers,
 	/datum/admins/proc/check_fingerprints,
 	/datum/admins/proc/unforbid,
+	/client/proc/discord_id_manipulation,
 	/client/proc/cmd_admin_create_predator_report,
 	/client/proc/smite,
 	/client/proc/show_traitor_panel,

@@ -40,7 +40,7 @@
 /area/lv624/ground/caves/central2)
 "eF" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
 /turf/open/floor/wood,
 /area/lv624/ground/caves/central2)
 "eH" = (
