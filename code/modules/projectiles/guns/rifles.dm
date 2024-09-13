@@ -27,7 +27,7 @@
 //-------------------------------------------------------
 //AR-18 Carbine
 
-/obj/item/weapon/gun/rifle/standard_carbine
+/obj/item/weapon/gun/rifle/ar18
 	name = "\improper AR-18 Kauser carbine"
 	desc = "The Keckler and Hoch AR-18 carbine is one of the standard rifles used by the TerraGov Marine Corps. It's commonly used by people who prefer greater mobility in combat, like scouts and other light infantry. Uses 10x24mm caseless ammunition."
 	icon_state = "t18"
@@ -41,21 +41,21 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar18
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar18)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 		)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_carbine,
-		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
-		/obj/item/ammo_magazine/rifle/standard_carbine/hp,
-		/obj/item/ammo_magazine/rifle/standard_carbine/sabot,
-		/obj/item/ammo_magazine/rifle/standard_carbine/incendiary,
+		/obj/item/ammo_magazine/rifle/ar18,
+		/obj/item/ammo_magazine/rifle/ar18/ap,
+		/obj/item/ammo_magazine/rifle/ar18/hp,
+		/obj/item/ammo_magazine/rifle/ar18/sabot,
+		/obj/item/ammo_magazine/rifle/ar18/incendiary,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t18stock,
+		/obj/item/attachable/stock/ar18stock,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -90,7 +90,7 @@
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 5, "rail_y" = 19, "under_x" = 18, "under_y" = 14, "stock_x" = 0, "stock_y" = 13)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
@@ -105,25 +105,25 @@
 	damage_falloff_mult = 0.9
 	movement_acc_penalty_mult = 4
 
-/obj/item/weapon/gun/rifle/standard_carbine/pointman
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/attachable/lasersight, /obj/item/attachable/flashlight)
+/obj/item/weapon/gun/rifle/ar18/pointman
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/attachable/lasersight, /obj/item/attachable/flashlight)
 
-/obj/item/weapon/gun/rifle/standard_carbine/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
+/obj/item/weapon/gun/rifle/ar18/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
 
-/obj/item/weapon/gun/rifle/standard_carbine/scout
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel)
+/obj/item/weapon/gun/rifle/ar18/scout
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel)
 
-/obj/item/weapon/gun/rifle/standard_carbine/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar18/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/standard_carbine/plasma_pistol
-	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
+/obj/item/weapon/gun/rifle/ar18/plasma_pistol
+	starting_attachment_types = list(/obj/item/attachable/stock/ar18stock, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
 
 //-------------------------------------------------------
 //AR-12 Assault Rifle
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle
+/obj/item/weapon/gun/rifle/ar12
 	name = "\improper AR-12 K&H assault rifle"
 	desc = "The Keckler and Hoch AR-12 assault rifle used to be the TerraGov Marine Corps standard issue rifle before the AR-18 carbine replaced it. It is, however, still used widely despite that. The gun itself is very good at being used in most situations however it suffers in engagements at close quarters and is relatively hard to shoulder than some others. It uses 10x24mm caseless ammunition."
 	icon_state = "t12"
@@ -136,21 +136,21 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 50 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar12)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
+		/obj/item/ammo_magazine/rifle/ar12,
+		/obj/item/ammo_magazine/rifle/ar12/ap,
+		/obj/item/ammo_magazine/rifle/ar12/hp,
+		/obj/item/ammo_magazine/rifle/ar12/sabot,
+		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t12stock,
+		/obj/item/attachable/stock/ar12stock,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -189,7 +189,7 @@
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
@@ -203,19 +203,19 @@
 
 	placed_overlay_iconstate = "t12"
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/ar12/rifleman
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
+/obj/item/weapon/gun/rifle/ar12/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
 
-/obj/item/weapon/gun/rifle/standard_assaultrifle/medic
-	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/ar12/medic
+	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 //-------------------------------------------------------
 //DMR-37 DMR
 
-/obj/item/weapon/gun/rifle/standard_dmr
+/obj/item/weapon/gun/rifle/dmr37
 	name = "\improper DMR-37 SCA designated marksman rifle"
 	desc = "The San Cristo Arms DMR-37 is the TerraGov Marine Corps designated marksman rifle. It is rather well-known for it's very consistent target placement at longer than usual range, it however lacks a burst fire mode or an automatic mode. It is mostly used by people who prefer to do more careful shooting than most. Uses 10x27mm caseless caliber."
 	icon = 'icons/Marine/gun64.dmi'
@@ -242,8 +242,8 @@
 	wield_delay = 0.8 SECONDS
 	force = 20
 	max_shells = 20 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_dmr
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_dmr)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/dmr37
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/dmr37)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
@@ -288,7 +288,7 @@
 	burst_amount = 1
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/standard_dmr/marksman
+/obj/item/weapon/gun/rifle/dmr37/marksman
 	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/angledgrip, /obj/item/attachable/extended_barrel)
 
 
@@ -296,7 +296,7 @@
 //-------------------------------------------------------
 //BR-64 BR
 
-/obj/item/weapon/gun/rifle/standard_br
+/obj/item/weapon/gun/rifle/br64
 	name = "\improper BR-64 SCA battle rifle"
 	desc = "The San Cristo Arms BR-64 is the TerraGov Marine Corps main battle rifle. It is known for its consistent ability to perform well at most ranges, and medium range stopping power with bursts. It is mostly used by people who prefer a bigger round than the average. Uses 10x26.5smm caseless caliber."
 	icon_state = "t64"
@@ -323,14 +323,14 @@
 	wield_delay = 0.7 SECONDS
 	force = 20
 	max_shells = 36 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_br
+	default_ammo_type = /obj/item/ammo_magazine/rifle/br64
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_br,
-		/obj/item/ammo_magazine/rifle/standard_br/ap,
+		/obj/item/ammo_magazine/rifle/br64,
+		/obj/item/ammo_magazine/rifle/br64/ap,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t64stock,
-		/obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle,
+		/obj/item/attachable/stock/br64stock,
+		/obj/item/weapon/gun/grenade_launcher/underslung/br64,
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -360,7 +360,7 @@
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/t64stock, /obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle, /obj/item/attachable/scope/mini)
+	starting_attachment_types = list(/obj/item/attachable/stock/br64stock, /obj/item/weapon/gun/grenade_launcher/underslung/br64, /obj/item/attachable/scope/mini)
 	attachable_offset = list("muzzle_x" = 44, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 23, "under_x" = 33, "under_y" = 13, "stock_x" = 11, "stock_y" = 14)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.2 SECONDS
@@ -373,8 +373,8 @@
 	accuracy_mult = 0.9
 	scatter = 0
 
-/obj/item/weapon/gun/rifle/standard_br/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/t64stock, /obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
+/obj/item/weapon/gun/rifle/br64/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/br64stock, /obj/item/weapon/gun/grenade_launcher/underslung/br64, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
 
 //-------------------------------------------------------
 //PR-412 Pulse Rifle
@@ -892,7 +892,7 @@
 //-------------------------------------------------------
 //MG-42 Light Machine Gun
 
-/obj/item/weapon/gun/rifle/standard_lmg
+/obj/item/weapon/gun/rifle/mg42
 	name = "\improper MG-42 Kauser light machine gun"
 	desc = "The Kauser MG-42 is the TGMC's current standard non-IFF-capable LMG. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. It uses 10x24mm ammunition."
 
@@ -916,8 +916,8 @@
 	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	unload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipout.ogg'
 	reload_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_clipin.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/standard_lmg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_lmg)
+	default_ammo_type = /obj/item/ammo_magazine/mg42
+	allowed_ammo_types = list(/obj/item/ammo_magazine/mg42)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/t42stock,
 		/obj/item/attachable/reddot,
@@ -970,7 +970,7 @@
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
-/obj/item/weapon/gun/rifle/standard_gpmg
+/obj/item/weapon/gun/rifle/mg60
 	name = "\improper MG-60 Raummetall general purpose machine gun"
 	desc = "The Raummetall MG-60 general purpose machinegun is the TGMC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 10x26mm boxes."
 	icon = 'icons/Marine/gun64.dmi'
@@ -996,8 +996,8 @@
 	reload_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boxin.ogg'
 	cocked_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boltpull.ogg'
 	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/standard_gpmg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_gpmg)
+	default_ammo_type = /obj/item/ammo_magazine/mg60
+	allowed_ammo_types = list(/obj/item/ammo_magazine/mg60)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
@@ -1037,10 +1037,10 @@
 
 	placed_overlay_iconstate = "lmg"
 
-/obj/item/weapon/gun/rifle/standard_lmg/autorifleman
+/obj/item/weapon/gun/rifle/mg42/autorifleman
 	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
 
-/obj/item/weapon/gun/rifle/standard_gpmg/machinegunner
+/obj/item/weapon/gun/rifle/mg60/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t60stock, /obj/item/attachable/foldable/bipod, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel)
 
 //-------------------------------------------------------
@@ -1228,7 +1228,7 @@
 //-------------------------------------------------------
 //SH-15 AUTOMATIC SHOTGUN
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun
+/obj/item/weapon/gun/rifle/sh15
 	name = "\improper Zauer SH-15 automatic shotgun"
 	desc = "The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines."
 	icon_state = "tx15"
@@ -1241,14 +1241,14 @@
 	caliber = CALIBER_16G //codex
 	max_shells = 12 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_slug
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sh15_slug
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/tx15_slug,
-		/obj/item/ammo_magazine/rifle/tx15_flechette,
+		/obj/item/ammo_magazine/rifle/sh15_slug,
+		/obj/item/ammo_magazine/rifle/sh15_flechette,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -1260,7 +1260,7 @@
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/stock/tx15,
+		/obj/item/attachable/stock/sh15,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/flashlight/under,
@@ -1275,7 +1275,7 @@
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15)
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 12, "rail_y" = 17, "under_x" = 20, "under_y" = 13, "stock_x" = 26, "stock_y" = 13)
 	gun_skill_category = SKILL_SHOTGUNS
 
@@ -1285,19 +1285,19 @@
 	scatter = -2
 	movement_acc_penalty_mult = 3
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/sh15/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15, /obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung)
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+/obj/item/weapon/gun/rifle/sh15/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15, /obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
-/obj/item/weapon/gun/rifle/standard_autoshotgun/plasma_pistol
-	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/pistol/plasma_pistol)
+/obj/item/weapon/gun/rifle/sh15/plasma_pistol
+	starting_attachment_types = list(/obj/item/attachable/stock/sh15, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/pistol/plasma_pistol)
 
 //-------------------------------------------------------
 //SG-29 Smart Machine Gun (It's more of a rifle than the SG.)
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun
+/obj/item/weapon/gun/rifle/sg29
 	name = "\improper SG-29 Raummetall-KT smart machine gun"
 	desc = "The Raummetall-KT SG-29 is the TGMC's current standard IFF-capable medium machine gun. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
 	icon_state = "sg29"
@@ -1315,8 +1315,8 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
-	default_ammo_type = /obj/item/ammo_magazine/standard_smartmachinegun
-	allowed_ammo_types = list(/obj/item/ammo_magazine/standard_smartmachinegun)
+	default_ammo_type = /obj/item/ammo_magazine/sg29
+	allowed_ammo_types = list(/obj/item/ammo_magazine/sg29)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
@@ -1348,19 +1348,19 @@
 
 	placed_overlay_iconstate = "smartgun"
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun/pmc
+/obj/item/weapon/gun/rifle/sg29/pmc
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel, /obj/item/attachable/motiondetector, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun/deathsquad
+/obj/item/weapon/gun/rifle/sg29/deathsquad
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/standard_smartmachinegun/patrol
+/obj/item/weapon/gun/rifle/sg29/patrol
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel, /obj/item/attachable/motiondetector, /obj/item/attachable/verticalgrip)
 
 //-------------------------------------------------------
 //SG Target Rifle, has underbarreled spotting rifle that applies effects.
 
-/obj/item/weapon/gun/rifle/standard_smarttargetrifle
+/obj/item/weapon/gun/rifle/sg62
 	name = "\improper SG-62 Kauser-KT smart target rifle"
 	desc = "The Kauser-KT SG-62 is a IFF-capable rifle used by the TerraGov Marine Corps, coupled with a spotting rifle that is also IFF capable of applying various bullets with specialized ordnance, this is a gun with many answers to many situations... if you have the right ammo loaded. Requires special training and it cannot turn off IFF. It uses high velocity 10x27mm for the rifle and 12x66mm ammunition for the underslung rifle."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1374,15 +1374,15 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_smarttargetrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sg62
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/sg62)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
-		/obj/item/weapon/gun/rifle/standard_spottingrifle,
+		/obj/item/weapon/gun/rifle/sg153,
 		/obj/item/attachable/stock/strstock,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
@@ -1393,7 +1393,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
 	attachable_offset = list("muzzle_x" = 12, "muzzle_y" = 22, "rail_x" = 15, "rail_y" = 22, "under_x" = 28, "under_y" = 16, "stock_x" = 12, "stock_y" = 14)
-	starting_attachment_types = list(/obj/item/weapon/gun/rifle/standard_spottingrifle, /obj/item/attachable/stock/strstock)
+	starting_attachment_types = list(/obj/item/weapon/gun/rifle/sg153, /obj/item/attachable/stock/strstock)
 
 	fire_delay = 0.4 SECONDS
 	burst_amount = 0
@@ -1405,10 +1405,10 @@
 
 	placed_overlay_iconstate = "smartgun"
 
-/obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion
-	starting_attachment_types = list(/obj/item/weapon/gun/rifle/standard_spottingrifle, /obj/item/attachable/stock/strstock, /obj/item/attachable/motiondetector)
+/obj/item/weapon/gun/rifle/sg62/motion
+	starting_attachment_types = list(/obj/item/weapon/gun/rifle/sg153, /obj/item/attachable/stock/strstock, /obj/item/attachable/motiondetector)
 
-/obj/item/weapon/gun/rifle/standard_spottingrifle
+/obj/item/weapon/gun/rifle/sg153
 	name = "SG-153 spotting rifle"
 	desc = "An underslung spotting rifle, generally found ontop of another gun."
 	icon_state = "sg153"
@@ -1417,15 +1417,15 @@
 	caliber = CALIBER_12x7
 	slot = ATTACHMENT_SLOT_UNDER
 	max_shells = 5
-	default_ammo_type =/obj/item/ammo_magazine/rifle/standard_spottingrifle
+	default_ammo_type =/obj/item/ammo_magazine/rifle/sg153
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak,
+		/obj/item/ammo_magazine/rifle/sg153,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/heavyrubber,
+		/obj/item/ammo_magazine/rifle/sg153/plasmaloss,
+		/obj/item/ammo_magazine/rifle/sg153/tungsten,
+		/obj/item/ammo_magazine/rifle/sg153/incendiary,
+		/obj/item/ammo_magazine/rifle/sg153/flak,
 	)
 	force = 5
 	attachable_allowed = list()
@@ -1491,7 +1491,7 @@
 //-------------------------------------------------------
 //SR-127 bolt action sniper rifle
 
-/obj/item/weapon/gun/rifle/chambered
+/obj/item/weapon/gun/rifle/sr127
 	name = "\improper SR-127 Bauer bolt action rifle"
 	desc = "The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1515,14 +1515,14 @@
 	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_86X70 //codex
 	max_shells = 10 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/chamberedrifle
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sr127
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/chamberedrifle,
-		/obj/item/ammo_magazine/rifle/chamberedrifle/flak,
+		/obj/item/ammo_magazine/rifle/sr127,
+		/obj/item/ammo_magazine/rifle/sr127/flak,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/tl127,
-		/obj/item/attachable/stock/tl127stock,
+		/obj/item/attachable/scope/unremovable/sr127,
+		/obj/item/attachable/stock/sr127stock,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/suppressor,
@@ -1545,8 +1545,8 @@
 	aim_fire_delay = 1 SECONDS
 
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/tl127,
-		/obj/item/attachable/stock/tl127stock,
+		/obj/item/attachable/scope/unremovable/sr127,
+		/obj/item/attachable/stock/sr127stock,
 	)
 
 	burst_amount = 0
@@ -1562,13 +1562,13 @@
 	cock_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/chambered/unscoped
-	starting_attachment_types = list(/obj/item/attachable/stock/tl127stock)
+/obj/item/weapon/gun/rifle/sr127/unscoped
+	starting_attachment_types = list(/obj/item/attachable/stock/sr127stock)
 
 //-------------------------------------------------------
 //SR-81 Auto-Sniper
 
-/obj/item/weapon/gun/rifle/standard_autosniper
+/obj/item/weapon/gun/rifle/sr81
 	name = "\improper SR-81 Kauser-KT automatic sniper rifle"
 	desc = "The Kauser-KT SR-81 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 8.6x70mm caseless with specialized pressures for IFF fire."
 	icon_state = "t81"
@@ -1579,14 +1579,14 @@
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
 	caliber = CALIBER_86X70 //codex
 	max_shells = 20 //codex
-	default_ammo_type = /obj/item/ammo_magazine/rifle/autosniper
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/autosniper)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sr81
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/sr81)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/autosniperbarrel,
+		/obj/item/attachable/sr81,
 		/obj/item/attachable/scope/nightvision,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/suppressor,
@@ -1600,7 +1600,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 48, "muzzle_y" = 18,"rail_x" = 23, "rail_y" = 23, "under_x" = 38, "under_y" = 16, "stock_x" = 9, "stock_y" = 12)
 	starting_attachment_types = list(
-		/obj/item/attachable/autosniperbarrel,
+		/obj/item/attachable/sr81,
 		/obj/item/attachable/scope/nightvision,
 	)
 
@@ -1619,7 +1619,7 @@
 //-------------------------------------------------------
 //AR-11 Rifle, based on the gamer-11
 
-/obj/item/weapon/gun/rifle/tx11
+/obj/item/weapon/gun/rifle/ar11
 	name = "\improper AR-11 K&H combat rifle"
 	desc = "The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition."
 	icon_state = "tx11"
@@ -1632,8 +1632,8 @@
 	unload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipout.ogg'
 	reload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipin.ogg'
 	cocked_sound = 'sound/weapons/guns/rifles/AR-11/AR11_boltpull.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/tx11
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/tx11)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar11
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar11)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -1647,8 +1647,8 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/scope/mini/tx11,
-		/obj/item/attachable/stock/tx11,
+		/obj/item/attachable/scope/mini/ar11,
+		/obj/item/attachable/stock/ar11,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/scope/marine,
@@ -1656,7 +1656,7 @@
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/scope/mini/tx11)
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/scope/mini/ar11)
 	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 17,"rail_x" = 6, "rail_y" = 20, "under_x" = 20, "under_y" = 12, "stock_x" = 17, "stock_y" = 14)
 	aim_fire_delay = 0.15 SECONDS
 
@@ -1671,22 +1671,22 @@
 	aim_slowdown = 0.45
 	movement_acc_penalty_mult = 6
 
-/obj/item/weapon/gun/rifle/tx11/scopeless
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11)
+/obj/item/weapon/gun/rifle/ar11/scopeless
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11)
 
-/obj/item/weapon/gun/rifle/tx11/freelancerone
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar11/freelancerone
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/tx11/freelancertwo
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/motiondetector, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar11/freelancertwo
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/motiondetector, /obj/item/attachable/bayonet, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/rifle/tx11/standard
-	starting_attachment_types = list(/obj/item/attachable/stock/tx11, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/rifle/ar11/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/ar11, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
 
 //-------------------------------------------------------
 //AR-21 Assault Rifle
 
-/obj/item/weapon/gun/rifle/standard_skirmishrifle
+/obj/item/weapon/gun/rifle/ar21
 	name = "\improper AR-21 Kauser skirmish rifle"
 	desc = "The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1706,15 +1706,15 @@
 	caliber = CALIBER_10X25_CASELESS //codex
 	max_shells = 30 //codex
 	force = 20
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_skirmishrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar21
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar21)
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/hp,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/sabot,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary,
+		/obj/item/ammo_magazine/rifle/ar21,
+		/obj/item/ammo_magazine/rifle/ar21/extended,
+		/obj/item/ammo_magazine/rifle/ar21/ap,
+		/obj/item/ammo_magazine/rifle/ar21/hp,
+		/obj/item/ammo_magazine/rifle/ar21/sabot,
+		/obj/item/ammo_magazine/rifle/ar21/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -1761,7 +1761,7 @@
 	aim_slowdown = 0.5
 	damage_falloff_mult = 0.5
 
-/obj/item/weapon/gun/rifle/standard_skirmishrifle/standard
+/obj/item/weapon/gun/rifle/ar21/standard
 	starting_attachment_types = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/extended_barrel,
@@ -1955,13 +1955,13 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
 	wield_delay = 1 SECONDS
-	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_assaultrifle
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/hp,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot,
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary,
+		/obj/item/ammo_magazine/rifle/ar12,
+		/obj/item/ammo_magazine/rifle/ar12/ap,
+		/obj/item/ammo_magazine/rifle/ar12/hp,
+		/obj/item/ammo_magazine/rifle/ar12/sabot,
+		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,
@@ -2644,15 +2644,15 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_assaultcarbine/export
 
 ///////////////////////////////////////////////////////////////////////
-////////////////////////  T25, old version .///////////////////////////
+////////////////////////  t25, old version .///////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/gun/rifle/T25
+/obj/item/weapon/gun/rifle/t25
 	name = "\improper T-25 smartrifle"
 	desc = "The T-25 is the TGMC's current standard IFF-capable rifle. It's known for its ability to lay down quick fire support very well. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = "T25"
-	item_state = "T25"
+	icon_state = "t25"
+	item_state = "t25"
 	item_icons = list(
 		slot_l_hand_str =  'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str =  'icons/mob/items_righthand_1.dmi',
@@ -2668,8 +2668,8 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound =   'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound =   'sound/weapons/guns/interact/T42_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/T25
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/T25, /obj/item/ammo_magazine/rifle/T25/extended)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/t25
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/t25, /obj/item/ammo_magazine/rifle/t25/extended)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
