@@ -302,10 +302,12 @@ RU TGMC EDIT */
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
 	if(dist > heal_range)
-		to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
+		if(!silent)
+			to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
 	else if(!line_of_sight(owner, target, heal_range))
-		to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
+		if(!silent)
+			to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
 		return FALSE
 	return TRUE
 
