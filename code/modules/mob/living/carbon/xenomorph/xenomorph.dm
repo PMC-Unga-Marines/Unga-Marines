@@ -288,6 +288,11 @@
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
 
+	if(!isnull(current_aura))
+		QDEL_NULL(current_aura)
+	if(!isnull(leader_current_aura))
+		QDEL_NULL(leader_current_aura)
+
 	var/datum/hive_status/hive_placeholder = hive
 	remove_from_hive()
 	hive_placeholder.update_tier_limits() //Update our tier limits.
@@ -298,8 +303,10 @@
 	QDEL_NULL(fire_overlay)
 	return ..()
 
-/mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
-	return FALSE
+/mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
+	if(!slip_xeno) //If our shoes are noslip just return immediately unless we don't care about the noslip
+		return FALSE
+	return ..()
 
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
