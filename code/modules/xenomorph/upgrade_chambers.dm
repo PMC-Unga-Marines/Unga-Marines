@@ -8,6 +8,7 @@
 	max_integrity = 500
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
+	var/upgrade_path
 
 /obj/structure/xeno/upgrade_chamber/Initialize(mapload, _hivenumber)
 	. = ..()
