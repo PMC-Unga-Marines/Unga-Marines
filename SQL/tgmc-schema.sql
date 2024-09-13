@@ -191,7 +191,6 @@ CREATE TABLE IF NOT EXISTS `player` (
   `lastadminrank` varchar(32) NOT NULL DEFAULT 'Player',
   `accountjoindate` date DEFAULT NULL,
   `flags` smallint(5) unsigned NOT NULL DEFAULT 0,
-  `discord_id` BIGINT(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ckey`),
   KEY `idx_player_cid_ckey` (`computerid`,`ckey`),
   KEY `idx_player_ip_ckey` (`ip`,`ckey`)
