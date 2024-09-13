@@ -12,7 +12,7 @@
 	hud_state = "rifle"
 	damage = 45
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/rifle/ap
 	name = "armor-piercing rifle bullet"
@@ -68,7 +68,7 @@
 	hud_state = "rifle_heavy"
 	damage = 50
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/rifle/heavy/ap
 	name = "armor-piercing heavy rifle bullet"
@@ -182,7 +182,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	damage = 50
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/rifle/dmr37
 	name = "marksman bullet"

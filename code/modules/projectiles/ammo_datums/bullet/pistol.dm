@@ -58,7 +58,7 @@
 	hud_state = "pistol_hollow"
 	damage = 37.5
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/pistol/sabot
 	name = "APDS pistol bullet"
