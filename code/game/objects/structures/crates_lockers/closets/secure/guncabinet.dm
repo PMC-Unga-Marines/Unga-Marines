@@ -63,11 +63,11 @@
 	new /obj/item/weapon/gun/smg/m25/elite(src)
 
 
-/obj/structure/closet/secure_closet/guncabinet/lmg/PopulateContents()
-	new /obj/item/weapon/gun/rifle/standard_lmg(src)
-	new /obj/item/ammo_magazine/standard_lmg(src)
-	new /obj/item/weapon/gun/rifle/standard_lmg(src)
-	new /obj/item/ammo_magazine/standard_lmg(src)
+/obj/structure/closet/secure_closet/guncabinet/mg42/PopulateContents()
+	new /obj/item/weapon/gun/rifle/mg42(src)
+	new /obj/item/ammo_magazine/mg42(src)
+	new /obj/item/weapon/gun/rifle/mg42(src)
+	new /obj/item/ammo_magazine/mg42(src)
 
 
 /obj/structure/closet/secure_closet/guncabinet/m57a4/PopulateContents()
@@ -79,7 +79,7 @@
 
 /obj/structure/closet/secure_closet/guncabinet/explosives/PopulateContents()
 	new /obj/item/storage/box/visual/grenade/incendiary(src)
-	new /obj/item/storage/box/visual/grenade/M15(src)
+	new /obj/item/storage/box/visual/grenade/m15(src)
 	new /obj/item/storage/box/visual/grenade/impact(src)
 	new /obj/item/storage/box/explosive_mines(src)
 
@@ -96,12 +96,12 @@
 
 
 /obj/structure/closet/secure_closet/guncabinet/m41aMK1/PopulateContents()
-	new /obj/item/weapon/gun/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/weapon/gun/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
+	new /obj/item/weapon/gun/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/weapon/gun/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
 
 
 /obj/structure/closet/secure_closet/guncabinet/mp_armory

@@ -287,39 +287,39 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		)), \
 	null, \
 	new/datum/stack_recipe_list("pistol boxes",list( \
-		new/datum/stack_recipe("P-14 mag box", /obj/item/storage/box/visual/magazine/compact/standard_pistol), \
-		new/datum/stack_recipe("P-23 mag box", /obj/item/storage/box/visual/magazine/compact/standard_heavypistol), \
-		new/datum/stack_recipe("R-44 mag box", /obj/item/storage/box/visual/magazine/compact/standard_revolver), \
-		new/datum/stack_recipe("P-17 mag box", /obj/item/storage/box/visual/magazine/compact/standard_pocketpistol), \
+		new/datum/stack_recipe("P-14 mag box", /obj/item/storage/box/visual/magazine/compact/p14), \
+		new/datum/stack_recipe("P-23 mag box", /obj/item/storage/box/visual/magazine/compact/p23), \
+		new/datum/stack_recipe("R-44 mag box", /obj/item/storage/box/visual/magazine/compact/r44), \
+		new/datum/stack_recipe("P-17 mag box", /obj/item/storage/box/visual/magazine/compact/p17), \
 		new/datum/stack_recipe("88M4 mag box", /obj/item/storage/box/visual/magazine/compact/vp70), \
 		new/datum/stack_recipe("Derringer packet box", /obj/item/storage/box/visual/magazine/compact/derringer), \
 		new/datum/stack_recipe("PP-7 plasma cell box", /obj/item/storage/box/visual/magazine/compact/plasma_pistol), \
 		)), \
 	new/datum/stack_recipe_list("smg boxes",list( \
-		new/datum/stack_recipe("SMG-90 mag box", /obj/item/storage/box/visual/magazine/compact/standard_smg), \
-		new/datum/stack_recipe("MP-19 mag box", /obj/item/storage/box/visual/magazine/compact/standard_machinepistol), \
+		new/datum/stack_recipe("SMG-90 mag box", /obj/item/storage/box/visual/magazine/compact/smg90), \
+		new/datum/stack_recipe("MP-19 mag box", /obj/item/storage/box/visual/magazine/compact/mp19), \
 		new/datum/stack_recipe("Pepperball canister box", /obj/item/storage/box/visual/magazine/compact/pepperball), \
 		)), \
 	new/datum/stack_recipe_list("rifle boxes",list( \
-		new/datum/stack_recipe("AR-12 mag box", /obj/item/storage/box/visual/magazine/compact/standard_assaultrifle), \
-		new/datum/stack_recipe("AR-18 mag box", /obj/item/storage/box/visual/magazine/compact/standard_carbine), \
-		new/datum/stack_recipe("AR-21 mag box", /obj/item/storage/box/visual/magazine/compact/standard_skirmishrifle), \
+		new/datum/stack_recipe("AR-12 mag box", /obj/item/storage/box/visual/magazine/compact/ar12), \
+		new/datum/stack_recipe("AR-18 mag box", /obj/item/storage/box/visual/magazine/compact/ar18), \
+		new/datum/stack_recipe("AR-21 mag box", /obj/item/storage/box/visual/magazine/compact/ar21), \
 		new/datum/stack_recipe("AR-11 mag box", /obj/item/storage/box/visual/magazine/compact/ar11), \
 		new/datum/stack_recipe("Martini Henry packet box", /obj/item/storage/box/visual/magazine/compact/martini), \
 		new/datum/stack_recipe("TE cell box", /obj/item/storage/box/visual/magazine/compact/lasrifle/marine), \
 		new/datum/stack_recipe("SH-15 mag box", /obj/item/storage/box/visual/magazine/compact/sh15), \
 		)), \
 	new/datum/stack_recipe_list("marksmen rifle boxes",list( \
-		new/datum/stack_recipe("DMR-37 mag box", /obj/item/storage/box/visual/magazine/compact/standard_dmr), \
-		new/datum/stack_recipe("BR-64 mag box", /obj/item/storage/box/visual/magazine/compact/standard_br), \
-		new/datum/stack_recipe("SR-127 mag box", /obj/item/storage/box/visual/magazine/compact/chamberedrifle), \
+		new/datum/stack_recipe("DMR-37 mag box", /obj/item/storage/box/visual/magazine/compact/dmr37), \
+		new/datum/stack_recipe("BR-64 mag box", /obj/item/storage/box/visual/magazine/compact/br64), \
+		new/datum/stack_recipe("SR-127 mag box", /obj/item/storage/box/visual/magazine/compact/sr127), \
 		new/datum/stack_recipe("Mosin packet box", /obj/item/storage/box/visual/magazine/compact/mosin), \
 		)), \
 	new/datum/stack_recipe_list("machinegun boxes",list( \
-		new/datum/stack_recipe("MG-42 drum mag box", /obj/item/storage/box/visual/magazine/compact/standard_lmg), \
-		new/datum/stack_recipe("MG-60 mag box", /obj/item/storage/box/visual/magazine/compact/standard_gpmg), \
-		new/datum/stack_recipe("MG-27 mag box", /obj/item/storage/box/visual/magazine/compact/standard_mmg), \
-		new/datum/stack_recipe("HMG-08 drum box", /obj/item/storage/box/visual/magazine/compact/heavymachinegun), \
+		new/datum/stack_recipe("MG-42 drum mag box", /obj/item/storage/box/visual/magazine/compact/mg42), \
+		new/datum/stack_recipe("MG-60 mag box", /obj/item/storage/box/visual/magazine/compact/mg60), \
+		new/datum/stack_recipe("MG-27 mag box", /obj/item/storage/box/visual/magazine/compact/mg27), \
+		new/datum/stack_recipe("HMG-08 drum box", /obj/item/storage/box/visual/magazine/compact/hmg08), \
 		)) \
 	))
 
