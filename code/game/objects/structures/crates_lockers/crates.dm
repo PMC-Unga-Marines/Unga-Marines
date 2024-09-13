@@ -117,7 +117,7 @@
 	new /obj/structure/closet/crate/explosives(src)
 	new /obj/item/storage/box/visual/grenade/razorburn(src)
 	new /obj/item/storage/box/visual/grenade/razorburn(src)
-	new /obj/item/storage/box/visual/grenade/M15(src)
+	new /obj/item/storage/box/visual/grenade/m15(src)
 	new /obj/item/storage/box/visual/grenade/phosphorus(src)
 	new /obj/item/explosive/grenade/incendiary/molotov(src)
 	new /obj/item/explosive/grenade/incendiary/molotov(src)

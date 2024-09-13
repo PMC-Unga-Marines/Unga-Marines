@@ -10,28 +10,28 @@
 	name = "Random ballistic ammunition spawner"
 	icon_state = "random_rifle"
 	loot = list(
-		/obj/item/weapon/gun/rifle/standard_assaultrifle,
-		/obj/item/weapon/gun/rifle/standard_carbine,
-		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
-		/obj/item/weapon/gun/rifle/tx11/scopeless,
-		/obj/item/weapon/gun/smg/standard_smg,
-		/obj/item/weapon/gun/smg/standard_machinepistol,
-		/obj/item/weapon/gun/rifle/standard_dmr,
-		/obj/item/weapon/gun/rifle/standard_br,
-		/obj/item/weapon/gun/rifle/chambered/unscoped,
+		/obj/item/weapon/gun/rifle/ar12,
+		/obj/item/weapon/gun/rifle/ar18,
+		/obj/item/weapon/gun/rifle/ar21,
+		/obj/item/weapon/gun/rifle/ar11/scopeless,
+		/obj/item/weapon/gun/smg/smg90,
+		/obj/item/weapon/gun/smg/mp19,
+		/obj/item/weapon/gun/rifle/dmr37,
+		/obj/item/weapon/gun/rifle/br64,
+		/obj/item/weapon/gun/rifle/sr127/unscoped,
 		/obj/item/weapon/gun/shotgun/pump/bolt/unscoped,
 		/obj/item/weapon/gun/shotgun/double/martini,
-		/obj/item/weapon/gun/pistol/standard_pistol,
-		/obj/item/weapon/gun/pistol/standard_heavypistol,
-		/obj/item/weapon/gun/revolver/standard_revolver,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/pistol/p14,
+		/obj/item/weapon/gun/pistol/p23,
+		/obj/item/weapon/gun/revolver/r44,
+		/obj/item/weapon/gun/pistol/p17,
 		/obj/item/weapon/gun/pistol/vp70,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/double/derringer,
 		/obj/item/weapon/gun/rifle/pepperball,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/shotgun/double/marine,
-		/obj/item/weapon/gun/rifle/standard_autoshotgun,
+		/obj/item/weapon/gun/rifle/sh15,
 		/obj/item/weapon/gun/shotgun/combat/standardmarine,
 	)
 
@@ -45,7 +45,7 @@
 		/obj/item/weapon/gun/shotgun/pump/bolt/unscoped,
 		/obj/item/weapon/gun/shotgun/pump/cmb,
 		/obj/item/weapon/gun/shotgun/double/marine,
-		/obj/item/weapon/gun/rifle/standard_autoshotgun,
+		/obj/item/weapon/gun/rifle/sh15,
 		/obj/item/weapon/gun/shotgun/combat/standardmarine,
 		/obj/item/weapon/gun/shotgun/pump/t35,
 	)
@@ -71,9 +71,9 @@
 	name = "Random machinegun spawner"
 	icon_state = "random_machinegun"
 	loot = list(
-		/obj/item/weapon/gun/rifle/standard_lmg,
-		/obj/item/weapon/gun/rifle/standard_gpmg,
-		/obj/item/weapon/gun/standard_mmg,
+		/obj/item/weapon/gun/rifle/mg42,
+		/obj/item/weapon/gun/rifle/mg60,
+		/obj/item/weapon/gun/mg27,
 	)
 
 ///random rifles
@@ -81,10 +81,10 @@
 	name = "Random rifle spawner"
 	icon_state = "random_rifle"
 	loot = list(
-		/obj/item/weapon/gun/rifle/standard_assaultrifle,
-		/obj/item/weapon/gun/rifle/standard_carbine,
-		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
-		/obj/item/weapon/gun/rifle/tx11/scopeless,
+		/obj/item/weapon/gun/rifle/ar12,
+		/obj/item/weapon/gun/rifle/ar18,
+		/obj/item/weapon/gun/rifle/ar21,
+		/obj/item/weapon/gun/rifle/ar11/scopeless,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/rifle/garand,
 		/obj/item/weapon/gun/rifle/mpi_km,
@@ -101,12 +101,12 @@
 	name = "Random sidearm spawner"
 	icon_state = "random_sidearm"
 	loot = list(
-		/obj/item/weapon/gun/pistol/standard_pistol,
-		/obj/item/weapon/gun/pistol/standard_heavypistol,
-		/obj/item/weapon/gun/revolver/standard_revolver,
+		/obj/item/weapon/gun/pistol/p14,
+		/obj/item/weapon/gun/pistol/p23,
+		/obj/item/weapon/gun/revolver/r44,
 		/obj/item/weapon/gun/revolver/cmb,
 		/obj/item/weapon/gun/pistol/vp70,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/pistol/p17,
 		/obj/item/weapon/gun/revolver/standard_magnum,
 		/obj/item/weapon/gun/shotgun/double/derringer,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -159,27 +159,27 @@
 	name = "Random ballistic ammunition spawner"
 	icon_state = "random_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_carbine,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-		/obj/item/ammo_magazine/rifle/tx11,
-		/obj/item/ammo_magazine/smg/standard_smg,
-		/obj/item/ammo_magazine/smg/standard_machinepistol,
-		/obj/item/ammo_magazine/rifle/standard_dmr,
-		/obj/item/ammo_magazine/rifle/standard_br,
-		/obj/item/ammo_magazine/rifle/chamberedrifle,
+		/obj/item/ammo_magazine/rifle/ar12,
+		/obj/item/ammo_magazine/rifle/ar18,
+		/obj/item/ammo_magazine/rifle/ar21,
+		/obj/item/ammo_magazine/rifle/ar11,
+		/obj/item/ammo_magazine/smg/smg90,
+		/obj/item/ammo_magazine/smg/mp19,
+		/obj/item/ammo_magazine/rifle/dmr37,
+		/obj/item/ammo_magazine/rifle/br64,
+		/obj/item/ammo_magazine/rifle/sr127,
 		/obj/item/ammo_magazine/rifle/bolt,
 		/obj/item/ammo_magazine/rifle/martini,
-		/obj/item/ammo_magazine/pistol/standard_pistol,
-		/obj/item/ammo_magazine/pistol/standard_heavypistol,
-		/obj/item/ammo_magazine/revolver/standard_revolver,
-		/obj/item/ammo_magazine/pistol/standard_pocketpistol,
+		/obj/item/ammo_magazine/pistol/p14,
+		/obj/item/ammo_magazine/pistol/p23,
+		/obj/item/ammo_magazine/revolver/r44,
+		/obj/item/ammo_magazine/pistol/p17,
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/plasma_pistol,
 		/obj/item/ammo_magazine/pistol/derringer,
 		/obj/item/ammo_magazine/rifle/pepperball,
 		/obj/item/ammo_magazine/shotgun/flechette,
-		/obj/item/ammo_magazine/rifle/tx15_slug,
+		/obj/item/ammo_magazine/rifle/sh15_slug,
 	)
 
 ///for specific ranged weapon ammo spawners we don't spawn anything that marines couldn't get back on their ship
@@ -199,10 +199,10 @@
 	name = "Random machinegun ammunition spawner"
 	icon_state = "random_machinegun_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/standard_lmg,
-		/obj/item/ammo_magazine/standard_gpmg,
-		/obj/item/ammo_magazine/standard_mmg,
-		/obj/item/ammo_magazine/heavymachinegun,
+		/obj/item/ammo_magazine/mg42,
+		/obj/item/ammo_magazine/mg60,
+		/obj/item/ammo_magazine/mg27,
+		/obj/item/ammo_magazine/hmg08,
 	)
 
 ///random rifle ammunition
@@ -210,10 +210,10 @@
 	name = "Random rifle ammunition spawner"
 	icon_state = "random_rifle_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
-		/obj/item/ammo_magazine/rifle/standard_carbine,
-		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-		/obj/item/ammo_magazine/rifle/tx11,
+		/obj/item/ammo_magazine/rifle/ar12,
+		/obj/item/ammo_magazine/rifle/ar18,
+		/obj/item/ammo_magazine/rifle/ar21,
+		/obj/item/ammo_magazine/rifle/ar11,
 	)
 
 ///random sidearm ammunition
@@ -221,13 +221,13 @@
 	name = "Random sidearm ammunition spawner"
 	icon_state = "random_sidearm_ammo"
 	loot = list(
-		/obj/item/ammo_magazine/pistol/standard_pistol,
-		/obj/item/ammo_magazine/pistol/standard_heavypistol,
-		/obj/item/ammo_magazine/revolver/standard_revolver,
+		/obj/item/ammo_magazine/pistol/p14,
+		/obj/item/ammo_magazine/pistol/p23,
+		/obj/item/ammo_magazine/revolver/r44,
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/derringer,
 		/obj/item/ammo_magazine/revolver/cmb,
-		/obj/item/ammo_magazine/pistol/standard_pocketpistol,
+		/obj/item/ammo_magazine/pistol/p17,
 	)
 
 /obj/effect/spawner/random/weaponry/explosive/plastiqueexplosive

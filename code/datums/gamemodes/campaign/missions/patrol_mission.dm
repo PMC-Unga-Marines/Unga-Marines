@@ -40,7 +40,7 @@
 		/obj/effect/supply_drop/marine_sentry = 5,
 		/obj/effect/supply_drop/recoilless_rifle = 3,
 		/obj/effect/supply_drop/armor_upgrades = 5,
-		/obj/effect/supply_drop/mmg = 4,
+		/obj/effect/supply_drop/mg27 = 4,
 		/obj/effect/supply_drop/zx_shotgun = 3,
 		/obj/effect/supply_drop/minigun = 3,
 		/obj/effect/supply_drop/scout = 3,
@@ -50,7 +50,7 @@
 		/obj/effect/supply_drop/marine_sentry = 5,
 		/obj/effect/supply_drop/recoilless_rifle = 3,
 		/obj/effect/supply_drop/armor_upgrades = 5,
-		/obj/effect/supply_drop/mmg = 4,
+		/obj/effect/supply_drop/mg27 = 4,
 	)
 	minor_loss_reward_table = list(
 		/obj/effect/supply_drop/medical_basic = 7,
