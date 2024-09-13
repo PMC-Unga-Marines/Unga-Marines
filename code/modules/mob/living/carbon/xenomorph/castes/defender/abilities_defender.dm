@@ -36,12 +36,10 @@
 	var/sweep_range = 1
 	var/list/L = orange(sweep_range, X)		// Not actually the fruit
 
-		//RU TGMC GRENADE TURF THROW
 	for(var/obj/item/explosive/grenade/G in L)
 		G.knockback(X, 6, 2)
-		//RU TGMC GRENADE TURF THROW END
 
-	for (var/mob/living/carbon/human/H in L)
+	for(var/mob/living/carbon/human/H in L)
 		if(H.stat == DEAD)
 			continue
 		H.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
