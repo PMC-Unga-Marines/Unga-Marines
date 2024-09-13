@@ -36,7 +36,7 @@
 	name = "hollow-point submachinegun ACP bullet"
 	damage = 40
 	penetration = 0
-	additional_xeno_penetration = -20
+	additional_xeno_penetration = -15
 
 /datum/ammo/bullet/smg/acp/ap
 	name = "armor-piercing submachinegun ACP bullet"
