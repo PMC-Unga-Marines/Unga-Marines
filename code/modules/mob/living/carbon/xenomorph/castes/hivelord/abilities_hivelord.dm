@@ -340,14 +340,13 @@
 			target.balloon_alert(owner, "Cannot heal, dead")
 		return FALSE
 
-	if(!check_distance(target, silent))
+	if(!check_distance(patient, silent))
 		return FALSE
 
-	if(HAS_TRAIT(target, TRAIT_HEALING_INFUSION))
+	if(HAS_TRAIT(patient, TRAIT_HEALING_INFUSION))
 		if(!silent)
-			target.balloon_alert(owner, "Cannot heal, already infused")
+			patient.balloon_alert(owner, "Cannot heal, already infused")
 		return FALSE
-
 
 /datum/action/ability/activable/xeno/healing_infusion/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
@@ -361,7 +360,6 @@
 			target.balloon_alert(owner, "Cannot heal, no line of sight")
 		return FALSE
 	return TRUE
-
 
 /datum/action/ability/activable/xeno/healing_infusion/use_ability(atom/target)
 	if(owner.do_actions)

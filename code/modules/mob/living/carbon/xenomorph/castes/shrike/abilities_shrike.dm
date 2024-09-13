@@ -289,14 +289,14 @@ RU TGMC EDIT */
 		return FALSE
 	if(QDELETED(target))
 		return FALSE
-	if(!check_distance(target, silent))
-		return FALSE
 	if(!isxeno(target))
 		return FALSE
 	var/mob/living/carbon/xenomorph/patient = target
 	if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && patient.stat == DEAD)
 		if(!silent)
 			to_chat(owner, span_warning("It's too late. This sister won't be coming back."))
+		return FALSE
+	if(!check_distance(patient, silent))
 		return FALSE
 
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
@@ -311,11 +311,11 @@ RU TGMC EDIT */
 		return FALSE
 	return TRUE
 
-
 /datum/action/ability/activable/xeno/psychic_cure/use_ability(atom/target)
 	if(owner.do_actions)
 		return FALSE
 
+	owner.face_atom(target) //Face the target so we don't look stupid
 	if(!do_after(owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
 
