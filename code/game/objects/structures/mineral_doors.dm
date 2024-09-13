@@ -82,7 +82,6 @@
 	else
 		icon_state = "[base_icon_state][smoothing_flags ? "-[smoothing_junction]" : ""]"
 
-
 /obj/structure/mineral_door/attackby(obj/item/W, mob/living/user)
 	. = ..()
 	if(QDELETED(src))
