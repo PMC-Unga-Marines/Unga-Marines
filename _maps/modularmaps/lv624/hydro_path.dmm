@@ -29,8 +29,19 @@
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/main_hall)
+"gd" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirtgrassborder{
+	dir = 1
+	},
+/area/lv624/ground/jungle9)
 "hE" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner2,
+/area/lv624/ground/jungle7)
+"hH" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
 /area/lv624/ground/jungle7)
 "hI" = (
 /obj/effect/ai_node,
@@ -53,6 +64,13 @@
 "jL" = (
 /obj/structure/flora/jungle/planttop1,
 /turf/open/ground/grass,
+/area/lv624/ground/jungle9)
+"jX" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirtgrassborder/corner{
+	dir = 8
+	},
 /area/lv624/ground/jungle9)
 "kt" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -77,6 +95,10 @@
 	},
 /turf/closed/gm/dense,
 /area/lv624/ground/compound/ne)
+"me" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle9)
 "mC" = (
 /obj/structure/flora/jungle/vines,
 /obj/effect/ai_node,
@@ -134,6 +156,7 @@
 /area/lv624/ground/jungle7)
 "rd" = (
 /obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/landmark/weed_node,
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle7)
 "rp" = (
@@ -162,6 +185,7 @@
 "tI" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "tQ" = (
@@ -241,6 +265,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
+"AK" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirtgrassborder{
+	dir = 1
+	},
+/area/lv624/ground/jungle7)
 "AV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
@@ -288,6 +318,13 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass,
 /area/lv624/ground/compound/ne)
+"HE" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirtgrassborder{
+	dir = 8
+	},
+/area/lv624/ground/jungle7)
 "HV" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
@@ -321,6 +358,11 @@
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder/corner2,
 /area/lv624/ground/jungle9)
+"IZ" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle7)
 "Jv" = (
 /turf/closed/wall,
 /area/lv624/ground/jungle9)
@@ -452,6 +494,14 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
+"Vx" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/compound/ne)
+"VI" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle7)
 "VQ" = (
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 8
@@ -544,7 +594,7 @@ HZ
 Ss
 ls
 kt
-rv
+jX
 yC
 DF
 DF
@@ -630,13 +680,13 @@ HZ
 qj
 HZ
 Ss
-yC
+me
 DF
 DF
 yC
 se
 Vg
-yC
+me
 DF
 DF
 DF
@@ -645,7 +695,7 @@ yC
 (7,1,1) = {"
 Pw
 KW
-yb
+AK
 II
 Po
 HZ
@@ -677,13 +727,13 @@ Ss
 yC
 DF
 yC
-yC
+me
 yC
 jL
 rp
 wT
 lf
-Xa
+gd
 se
 "}
 (9,1,1) = {"
@@ -755,7 +805,7 @@ EK
 (12,1,1) = {"
 DF
 DF
-Vd
+hH
 II
 Po
 HZ
@@ -864,7 +914,7 @@ EK
 "}
 (17,1,1) = {"
 MK
-MK
+HE
 qD
 lF
 II
@@ -888,7 +938,7 @@ EN
 Vd
 Vd
 Vd
-bA
+VI
 bA
 bA
 ov
@@ -934,7 +984,7 @@ DF
 DF
 DF
 Vd
-uV
+IZ
 pc
 XC
 qD
@@ -946,7 +996,7 @@ IA
 GL
 QV
 xI
-wD
+Vx
 xI
 wD
 "}
