@@ -793,7 +793,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 /datum/controller/master/proc/UpdateTickRate()
 	if (!processing)
 		return
-	processing = clamp(1 + (round(SStime_track.time_dilation_avg_fast, 1) * 0.01), 1, 2)
+	processing = clamp(1 - (round(SStime_track.time_dilation_avg_fast * 0.01), 0.1) 1, 0)
 
 /datum/controller/master/proc/OnConfigLoad()
 	for (var/thing in subsystems)
