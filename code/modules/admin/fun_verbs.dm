@@ -402,9 +402,9 @@
 		if("Globally")
 			targets = GLOB.player_list
 		if("Xenos")
-			targets = GLOB.xeno_mob_list + GLOB.dead_mob_list
+			targets = GLOB.xeno_mob_list + GLOB.observer_list
 		if("Marines")
-			targets = GLOB.human_mob_list + GLOB.dead_mob_list
+			targets = GLOB.human_mob_list + GLOB.observer_list
 		if("Locally")
 			targets = viewers(usr.client.view, usr)
 		else
@@ -413,16 +413,14 @@
 	for(var/i in targets)
 		var/mob/M = i
 		var/client/C = M?.client
-		if(!C?.prefs)
+		if(!(C?.prefs.toggles_sound & SOUND_MIDI))
 			continue
-		if(C.prefs.toggles_sound & SOUND_MIDI)
-			C.tgui_panel?.play_music(web_sound_url, music_extra_data)
-			if(show)
-				to_chat(C, span_boldnotice("An admin played: <a href='[data["webpage_url"]]'>[title]</a>"))
+		C.tgui_panel?.play_music(web_sound_url, music_extra_data)
+		if(show)
+			to_chat(C, span_boldnotice("An admin played: <a href='[data["webpage_url"]]'>[title]</a>"))
 
 	log_admin("[key_name(usr)] played web sound: [web_sound_input] - [title] - [style]")
 	message_admins("[ADMIN_TPMONTY(usr)] played web sound: [web_sound_input] - [title] - [style]")
-
 
 /datum/admins/proc/sound_stop()
 	set category = "Admin.Fun"
@@ -438,7 +436,6 @@
 	log_admin("[key_name(usr)] stopped regular sounds.")
 	message_admins("[ADMIN_TPMONTY(usr)] stopped regular sounds.")
 
-
 /datum/admins/proc/music_stop()
 	set category = "Admin.Fun"
 	set name = "Stop Playing Music"
@@ -450,10 +447,8 @@
 		var/client/C = i
 		C?.tgui_panel?.stop_music()
 
-
 	log_admin("[key_name(usr)] stopped the currently playing music.")
 	message_admins("[ADMIN_TPMONTY(usr)] stopped the currently playing music.")
-
 
 /datum/admins/proc/announce()
 	set category = "Admin.Fun"
