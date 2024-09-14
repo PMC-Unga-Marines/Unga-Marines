@@ -339,12 +339,12 @@
 	if(!check_rights(R_SOUND))
 		return
 
-	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+	var/ytdl = CONFIG_GET(string/invoke_yt_dlp)
 	if(!ytdl)
-		to_chat(usr, span_warning("Youtube-dl was not configured, action unavailable."))
+		to_chat(usr, span_warning("yt-dlp was not configured, action unavailable."))
 		return
 
-	var/web_sound_input = tgui_input_text(usr, "Enter content URL (supported sites only)", "Play Internet Sound via youtube-dl", timeout = 0)
+	var/web_sound_input = tgui_input_text(usr, "Enter content URL (supported sites only)", "Play Internet Sound via yt-dlp", timeout = 0)
 	if(!istext(web_sound_input) || !length(web_sound_input))
 		return
 
@@ -352,7 +352,7 @@
 
 	if(findtext(web_sound_input, ":") && !findtext(web_sound_input, GLOB.is_http_protocol))
 		to_chat(usr, span_warning("Non-http(s) URIs are not allowed."))
-		to_chat(usr, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full url from the website."))
+		to_chat(usr, span_warning("For yt-dlp shortcuts like ytsearch: please use the appropriate full url from the website."))
 		return
 
 	var/web_sound_url = ""
@@ -366,14 +366,14 @@
 	var/stderr = output[SHELLEO_STDERR]
 
 	if(errorlevel)
-		to_chat(usr, span_warning("Youtube-dl URL retrieval FAILED: [stderr]"))
+		to_chat(usr, span_warning("yt-dlp URL retrieval FAILED: [stderr]"))
 		return
 
 	var/list/data = list()
 	try
 		data = json_decode(stdout)
 	catch(var/exception/e)
-		to_chat(usr, span_warning("Youtube-dl JSON parsing FAILED: [e]: [stdout]"))
+		to_chat(usr, span_warning("yt-dlp JSON parsing FAILED: [e]: [stdout]"))
 		return
 
 	if(data["url"])
