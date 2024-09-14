@@ -739,7 +739,6 @@
 	caliber = CALIBER_10x265_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "t64_ap"
-	bonus_overlay = "t64_ap"
 	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 	icon_state_mini = "mag_rifle_big"
 
