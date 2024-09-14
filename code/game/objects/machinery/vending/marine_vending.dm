@@ -111,6 +111,7 @@
 			/obj/item/storage/box/m94/cas = -1,
 		),
 		"Specialized" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
@@ -164,7 +165,6 @@
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
 		"Boxes" = list(
-			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
@@ -239,15 +239,6 @@
 			/obj/item/ammo_magazine/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71/ap = -1,
 			/obj/item/ammo_magazine/rifle/type71/hp = -1,
-		),
-		"Energy Weapons" = list(
-			/obj/item/cell/lasgun/lasrifle = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = 2,
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -331,6 +322,7 @@
 			/obj/item/storage/box/m94/cas = 50,
 		),
 		"Specialized" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = 40,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
