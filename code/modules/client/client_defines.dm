@@ -2,6 +2,9 @@
 	parent_type = /datum // black magic
 	preload_rsc = PRELOAD_RSC // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
 	view = WORLD_VIEW
+
+	show_popup_menus = TRUE // right click menu no longer shows up
+	control_freak = CONTROL_FREAK_MACROS
 	var/datum/tooltip/tooltips
 
 	//Admin related
@@ -17,7 +20,6 @@
 	//Preferences related
 	var/datum/preferences/prefs = null
 	var/inprefs = FALSE
-
 
 	//Mob related
 	var/list/keys_held = list() // A list of any keys held currently
@@ -137,6 +139,3 @@
 	/// The direction we WANT to move, based off our keybinds
 	/// Will be udpated to be the actual direction later on
 	var/intended_direction = NONE
-
-	show_popup_menus = TRUE // right click menu no longer shows up
-	control_freak = CONTROL_FREAK_MACROS
