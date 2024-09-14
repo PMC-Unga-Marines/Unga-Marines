@@ -110,6 +110,19 @@
 	var/parallax_layers_max = 4
 	var/parallax_animate_timer
 
+	var/datum/db_query/clan_info
+
+	///a timer id for returning the ahelp verb
+	var/adminhelptimerid = 0
+	///the current ticket the (usually) not-admin client is dealing with
+	var/datum/admin_help/current_ticket
+
+	/// Stat panel window declaration
+	var/datum/tgui_window/stat_panel
+
+	/** Assigned say modal of the client */
+	var/datum/tgui_say/tgui_say
+
 	/**
 	 * Assoc list with all the active maps - when a screen obj is added to
 	 * a map, it's put in here as well.

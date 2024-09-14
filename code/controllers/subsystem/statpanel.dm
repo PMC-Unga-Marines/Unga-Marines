@@ -235,9 +235,6 @@ SUBSYSTEM_DEF(statpanels)
 	else if(length(GLOB.sdql2_queries) && target.stat_tab == "SDQL2")
 		set_SDQL2_tab(target)
 
-/// Stat panel window declaration
-/client/var/datum/tgui_window/stat_panel
-
 /// Datum that holds and tracks info about a client's object window
 /// Really only exists because I want to be able to do logic with signals
 /// And need a safe place to do the registration
