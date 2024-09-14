@@ -1188,11 +1188,9 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	w_uniform = /obj/item/clothing/under/liaison_suit
 	shoes = /obj/item/clothing/shoes/laceup
 
-
 /datum/job/terragov/silicon
 	job_category = JOB_CAT_SILICON
 	selection_color = "#aaee55"
-
 
 //Synthetic
 /datum/job/terragov/silicon/synthetic
