@@ -93,7 +93,6 @@
 	weak_impact_range = 3
 	icon_state_mini = "grenade_sticky"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = null
 	power = 90
 	falloff = 40
 	///Current atom this grenade is attached to, used to remove the overlay.
@@ -336,7 +335,6 @@
 	dangerous = FALSE
 	icon_state_mini = "grenade_blue"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
 	overlay_type = "white"
 	/// smoke type created when the grenade is primed
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
@@ -448,7 +446,6 @@
 	det_time = 2 SECONDS
 	hud_state = "grenade_hide"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = 'sound/weapons/grenade/grenade_hit4.ogg'
 	var/datum/effect_system/smoke_spread/phosphorus/smoke
 	icon_state_mini = "grenade_cyan"
 
@@ -516,7 +513,6 @@
 	light_system = MOVABLE_LIGHT
 	light_range = 6
 	light_color = LIGHT_COLOR_FLARE
-	G_hit_sound = null
 	G_throw_sound = null
 	var/fuel = 0
 	var/lower_fuel_limit = 450
