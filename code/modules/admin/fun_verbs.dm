@@ -344,7 +344,7 @@
 		to_chat(usr, span_warning("yt-dlp was not configured, action unavailable."))
 		return
 
-	var/web_sound_input = tgui_input_text(usr, "Enter content URL (supported sites only)", "Play Internet Sound via yt-dlp", timeout = 0)
+	var/web_sound_input = input("Enter content URL (supported sites only)", "Play Internet Sound via yt-dlp") as text|null
 	if(!istext(web_sound_input) || !length(web_sound_input))
 		return
 
