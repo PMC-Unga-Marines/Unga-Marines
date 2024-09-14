@@ -169,23 +169,15 @@
 	current_rounds = 160
 	max_rounds = 160
 
-/obj/item/ammo_magazine/packet/acp_ap
+/obj/item/ammo_magazine/packet/acp/ap
 	name = "box of .45 ACP(AP)"
 	icon_state = "box_.45acp_ap"
 	default_ammo = /datum/ammo/bullet/smg/acp/ap
-	w_class = WEIGHT_CLASS_NORMAL
-	caliber = CALIBER_45ACP
-	current_rounds = 160
-	max_rounds = 160
 
-/obj/item/ammo_magazine/packet/acp_hp
+/obj/item/ammo_magazine/packet/acp/hp
 	name = "box of .45 ACP(HP)"
 	icon_state = "box_.45acp_hp"
 	default_ammo = /datum/ammo/bullet/smg/acp/hp
-	w_class = WEIGHT_CLASS_NORMAL
-	caliber = CALIBER_45ACP
-	current_rounds = 160
-	max_rounds = 160
 
 /obj/item/ammo_magazine/packet/rifle762X39
 	name = "box of 7.62X39"
