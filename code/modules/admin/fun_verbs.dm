@@ -302,7 +302,6 @@
 	to_chat(src, "<h1 class='alert'>Custom Information</h1>")
 	to_chat(src, span_alert("[GLOB.custom_info]"))
 
-
 /datum/admins/proc/sound_file(S as sound)
 	set category = "Admin.Fun"
 	set name = "Play Imported Sound"
@@ -315,8 +314,7 @@
 	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = CHANNEL_MIDI)
 	uploaded_sound.priority = 250
 
-
-	var/style = tgui_alert(usr, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local", "Cancel"))
+	var/style = tgui_alert(usr, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local"), timeout = 0)
 	switch(style)
 		if("Global")
 			for(var/i in GLOB.clients)
@@ -334,7 +332,6 @@
 	log_admin("[key_name(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 	message_admins("[ADMIN_TPMONTY(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 
-
 /datum/admins/proc/sound_web()
 	set category = "Admin.Fun"
 	set name = "Play Internet Sound"
@@ -347,7 +344,7 @@
 		to_chat(usr, span_warning("Youtube-dl was not configured, action unavailable."))
 		return
 
-	var/web_sound_input = input("Enter content URL (supported sites only)", "Play Internet Sound via youtube-dl") as text|null
+	var/web_sound_input = tgui_input_text(usr, "Enter content URL (supported sites only)", "Play Internet Sound via youtube-dl", timeout = 0)
 	if(!istext(web_sound_input) || !length(web_sound_input))
 		return
 
@@ -386,7 +383,7 @@
 		music_extra_data["end"] = data["end_time"]
 		music_extra_data["link"] = data["webpage_url"]
 		music_extra_data["title"] = data["title"]
-		switch(tgui_alert(usr, "Show the title of and link to this song to the players?\n[title]", "Play Internet Sound", list("Yes", "No", "Cancel")))
+		switch(tgui_alert(usr, "Show the title of and link to this song to the players?\n[title]", "Play Internet Sound", list("Yes", "No"), timeout = 0))
 			if("Yes")
 				show = TRUE
 			if("No")
