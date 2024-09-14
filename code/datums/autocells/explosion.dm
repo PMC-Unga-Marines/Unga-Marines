@@ -114,7 +114,7 @@
 
 	var/our_dir = reflected ? REVERSE_DIR(direction) : direction
 
-	if(our_dir in GLOB.cardinals)
+	if(our_dir in GLOB.diagonals)
 		propagation_dirs += list(our_dir, turn(our_dir, 45), turn(our_dir, -45))
 	else
 		propagation_dirs += our_dir
@@ -200,7 +200,7 @@
 			// Set the direction the explosion is traveling in
 			our_explosion.direction = our_dir
 			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
-			if(!direction && (our_dir in GLOB.diagonals))
+			if(our_dir in GLOB.diagonals)
 				our_explosion.delay = 1
 
 			setup_new_cell(our_explosion)
