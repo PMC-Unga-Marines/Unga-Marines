@@ -353,7 +353,7 @@
 	GLOB.key_to_time_of_role_death[our_parent.key] = world.time
 	GLOB.key_to_time_of_death[our_parent.key] = world.time
 	our_parent.ghostize()
-	if(!QDELETED(our_parent))
+	if(!QDELETED(our_parent) || (!QDESTROYING(our_parent)))
 		qdel(our_parent)
 	return ..()
 

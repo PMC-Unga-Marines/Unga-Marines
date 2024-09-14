@@ -287,6 +287,11 @@
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+	LAZYREMOVE(hive.xenos_by_zlevel["[z]"], src)
+
+	remove_from_all_mob_huds()
+	xeno_caste = null
+	ammo = null
 
 	if(!isnull(current_aura))
 		QDEL_NULL(current_aura)
