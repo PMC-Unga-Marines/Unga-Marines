@@ -544,6 +544,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		if (skip_ticks)
 			skip_ticks--
 		src.sleep_delta = MC_AVERAGE_FAST(src.sleep_delta, sleep_delta)
+		UpdateTickRate()
 
 // Force any verbs into overtime, to test how they perfrom under load
 // For local ONLY
@@ -774,7 +775,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	msg = "(TickRate:[Master.processing]) (Iteration:[Master.iteration]) (TickLimit: [round(Master.current_ticklimit, 0.1)])"
 	return msg
 
-
 /datum/controller/master/StartLoadingMap()
 	//disallow more than one map to load at once, multithreading it will just cause race conditions
 	while(map_loading)
@@ -790,15 +790,10 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		var/datum/controller/subsystem/SS = S
 		SS.StopLoadingMap()
 
-
 /datum/controller/master/proc/UpdateTickRate()
 	if (!processing)
 		return
-	var/client_count = length(GLOB.clients)
-	if (client_count < CONFIG_GET(number/mc_tick_rate/disable_high_pop_mc_mode_amount))
-		processing = CONFIG_GET(number/mc_tick_rate/base_mc_tick_rate)
-	else if (client_count > CONFIG_GET(number/mc_tick_rate/high_pop_mc_mode_amount))
-		processing = CONFIG_GET(number/mc_tick_rate/high_pop_mc_tick_rate)
+	processing = clamp(1 + (round(SStime_track.time_dilation_avg_fast, 1) * 0.01), 1, 2)
 
 /datum/controller/master/proc/OnConfigLoad()
 	for (var/thing in subsystems)
