@@ -28,8 +28,8 @@ SUBSYSTEM_DEF(processing)
 		else if(thing.process(wait*0.1) == PROCESS_KILL)
 			// fully stop so that a future START_PROCESSING will work
 			STOP_PROCESSING(src, thing)
-		if (MC_TICK_CHECK)
-			return
+		//if (MC_TICK_CHECK)
+		//	return
 
 /datum/proc/process()
 	set waitfor = 0
