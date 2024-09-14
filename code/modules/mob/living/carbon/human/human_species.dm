@@ -20,38 +20,8 @@
 /mob/living/carbon/human/species/synthetic
 	race = "Synthetic"
 
-/mob/living/carbon/human/species/synthetic/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
-	var/gravity = get_gravity()
-	if(gravity < 1) //low grav
-		duration *= 2.5 - gravity
-		cooldown *= 2 - gravity
-		height *= 2 - gravity
-		if(gravity <= 0.75)
-			flags_pass |= PASS_DEFENSIVE_STRUCTURE
-	else if(gravity > 1) //high grav
-		duration *= gravity * 0.5
-		cooldown *= gravity
-		height *= gravity * 0.5
-
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
-
 /mob/living/carbon/human/species/early_synthetic
 	race = "Early Synthetic"
-
-/mob/living/carbon/human/species/early_synthetic/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
-	var/gravity = get_gravity()
-	if(gravity < 1) //low grav
-		duration *= 2.5 - gravity
-		cooldown *= 2 - gravity
-		height *= 2 - gravity
-		if(gravity <= 0.75)
-			flags_pass |= PASS_DEFENSIVE_STRUCTURE
-	else if(gravity > 1) //high grav
-		duration *= gravity * 0.5
-		cooldown *= gravity
-		height *= gravity * 0.5
-
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
 
 /mob/living/carbon/human/species/moth
 	race = "Moth"
@@ -85,21 +55,6 @@
 /mob/living/carbon/human/species/robot
 	race = "Combat Robot"
 	bubble_icon = "robot"
-
-/mob/living/carbon/human/species/robot/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
-	var/gravity = get_gravity()
-	if(gravity < 1) //low grav
-		duration *= 2.5 - gravity
-		cooldown *= 2 - gravity
-		height *= 2 - gravity
-		if(gravity <= 0.75)
-			flags_pass |= PASS_DEFENSIVE_STRUCTURE
-	else if(gravity > 1) //high grav
-		duration *= gravity * 0.5
-		cooldown *= gravity
-		height *= gravity * 0.5
-
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
 
 /mob/living/carbon/human/species/robot/alpharii
 	race = "Hammerhead Combat Robot"
