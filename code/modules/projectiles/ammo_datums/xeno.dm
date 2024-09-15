@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	bullet_color = COLOR_LIME
- 	///used to make cooldown of the different spits vary.
+	///used to make cooldown of the different spits vary.
 	var/added_spit_delay = 0
 	var/spit_cost = 5
 	///List of reagents transferred upon spit impact if any
