@@ -370,8 +370,7 @@
 	update_icon()
 
 /obj/machinery/miner/Destroy()
-	qdel(camera)
-	camera = null
+	QDEL_NULL(camera)
 	if(mineral_value >= PLATINUM_CRATE_SELL_AMOUNT)
 		GLOB.miners_platinum -= src
 	else

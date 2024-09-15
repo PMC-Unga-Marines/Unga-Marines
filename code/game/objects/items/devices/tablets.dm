@@ -96,9 +96,10 @@
 	cam_background.del_on_map_removal = FALSE
 
 /obj/item/hud_tablet/Destroy()
-	qdel(cam_screen)
+	QDEL_NULL(active_camera)
+	QDEL_NULL(cam_screen)
 	QDEL_LIST(cam_plane_masters)
-	qdel(cam_background)
+	QDEL_NULL(cam_background)
 	return ..()
 
 /obj/item/hud_tablet/proc/get_available_cameras()
