@@ -252,7 +252,7 @@
 	current_rounds = 50
 	max_rounds = 50
 
-/obj/item/ammo_magazine/packet/pthreeightyacp
+/obj/item/ammo_magazine/packet/p380acp
 	name = "packet of .380 ACP"
 	desc = "A packet containing 210 rounds of .380 ACP."
 	caliber = CALIBER_380ACP

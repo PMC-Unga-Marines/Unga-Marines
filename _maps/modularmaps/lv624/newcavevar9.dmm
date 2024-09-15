@@ -75,6 +75,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"kB" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor,
+/area/lv624/ground/caves/central1)
 "kE" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -226,6 +230,10 @@
 "Cf" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/rock)
+"Cw" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central3)
 "Dn" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
@@ -480,7 +488,7 @@ QP
 QP
 fB
 fB
-fB
+Cw
 fB
 fB
 fB
@@ -877,7 +885,7 @@ QP
 QP
 QP
 fs
-fs
+kE
 PY
 PY
 fs
@@ -1056,7 +1064,7 @@ kE
 fs
 fs
 fs
-fs
+kE
 fs
 QP
 QP
@@ -2093,7 +2101,7 @@ fs
 fs
 fs
 fs
-fs
+kE
 "}
 (48,1,1) = {"
 QP
@@ -2472,7 +2480,7 @@ fs
 fs
 fs
 fs
-fs
+kE
 fs
 fs
 PY
@@ -2642,7 +2650,7 @@ fs
 fs
 fs
 fs
-fs
+kE
 fs
 fs
 fs
@@ -2854,7 +2862,7 @@ QP
 QP
 QP
 fs
-fs
+kE
 fs
 fs
 QP
@@ -3247,6 +3255,6 @@ Ww
 Xp
 ID
 ID
-ID
+kB
 ID
 "}
