@@ -117,7 +117,7 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 						SD.set_picture("redalert")
 			if(SEC_LEVEL_DELTA)
 				if(announce)
-					priority_announce("Контроль над ситуацией полностью потерян. Всему персоналу требуется сделать всё ради предотвращения распространения опасности на другие объекты." + CONFIG_GET(string/alert_delta), "Код Дельта")
+					priority_announce("Контроль над ситуацией полностью потерян. Всему персоналу требуется сделать всё ради предотвращения распространения опасности на другие объекты.", "Код Дельта")
 				security_level = SEC_LEVEL_DELTA
 				for(var/obj/machinery/door/poddoor/shutters/mainship/D in GLOB.machines)
 					if(D.id == "sd_lockdown")

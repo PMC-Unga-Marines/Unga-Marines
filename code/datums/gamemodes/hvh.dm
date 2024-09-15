@@ -154,7 +154,7 @@
 	var/som_scan_name = "Статус Тактического Биосканирования Дальнего Действия"
 	var/som_scan_input = {"Биосканирование завершено.
 
-Датчики показывают [num_tgmc_delta || "отсуствие"] неизвестн[num_tgmc_delta == 1 ? "ых":"ую"] форм[num_tgmc_delta == 1 ? "":"ы"] жизни в районе операций[tgmc_location ? ", в том числе [tgmc_location]":""]"}
+Датчики показывают [num_tgmc_delta || "отсуствие"] неизвестных форм жизни в районе операций[tgmc_location ? ", в том числе [tgmc_location]":""]"}
 
 	if(announce_som)
 		priority_announce(som_scan_input, som_scan_name, sound = 'sound/AI/bioscan.ogg', receivers = (som_list + GLOB.observer_list))
@@ -163,12 +163,12 @@
 	var/marine_scan_name = "Статус Тактического Биосканирования Дальнего Действия"
 	var/marine_scan_input = {"Биосканирование завершено.
 
-Датчики показывают [num_som_delta || "отсуствие"] неизвестн[num_som_delta == 1 ? "ых":"ую"] форм[num_som_delta == 1 ? "":"ы"] жизни в районе операций[som_location ? ", в том числе [som_location]":""]"}
+Датчики показывают [num_som_delta || "отсуствие"] неизвестных форм жизни в районе операций[som_location ? ", в том числе [som_location]":""]"}
 
 	if(announce_marines)
 		priority_announce(marine_scan_input, marine_scan_name, sound = 'sound/AI/bioscan.ogg', receivers = (tgmc_list + GLOB.observer_list))
 
-	log_game("Биосканирование. [num_tgmc] активн[num_tgmc == 1 ? "ых":"ая"] TGMC едениц[num_tgmc == 1 ? "":"а"][tgmc_location ? " Место: [tgmc_location]":""] и [num_som] активн[num_som == 1 ? "ых":"ая"] SOM едениц[num_som == 1 ? "":"а"][som_location ? " Место: [som_location]":""]")
+	log_game("Биосканирование. [num_tgmc] активных TGMC едениц[tgmc_location ? " Место: [tgmc_location]":""] и [num_som] активных SOM едениц[som_location ? " Место: [som_location]":""]")
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i

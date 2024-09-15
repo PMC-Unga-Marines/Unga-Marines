@@ -46,7 +46,7 @@
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) (show_locations && location ? ", в том числе один в [hostLocationP]":"")
+#define BIOSCAN_LOCATION(show_locations, location) (show_locations && location ? ", включая [hostLocationP]":"")
 
 #define AI_SCAN_DELAY 15 SECONDS
 
@@ -110,10 +110,10 @@
 			var/mob/M = i
 			SEND_SOUND(M, S)
 			to_chat(M, span_xenoannounce("Главная Королева проникает в ваш разум с расстояния в несколько миров."))
-			to_chat(M, span_xenoannounce("Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальн[numHostsShipr == 1 ? "ых":"ого"] носител[numHostsShipr == 1 ? "ей":"я"] в их металлическом улье[BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету "] на металлической птице."))
+			to_chat(M, span_xenoannounce("Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье[BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету "] на металлической птице."))
 
 	var/name = "[MAIN_AI_SYSTEM]: Статус Биосканирования"
-	var/input = {"Биосканирование завершено. Датчики показывают [numXenosShip || "отсуствие"] неизвестн[numXenosShip == 1 ? "ых":"ую"] форм[numXenosShip == 1 ? "":"ы"] жизни на корабле[BIOSCAN_LOCATION(show_locations, xenoLocationS)], [numXenosPlanetr ? "примерно [numXenosPlanetr]":"отсуствие"] сигнатур на земле[BIOSCAN_LOCATION(show_locations, xenoLocationP)] и [numXenosTransit || "отсуствие"] неизвестн[numXenosTransit == 1 ? "ых":"ую"] форм[numXenosTransit == 1 ? "":"ы"] жизни на шаттлах."}
+	var/input = {"Биосканирование завершено. Датчики показывают [numXenosShip || "отсуствие"] неизвестных форм жизни на корабле[BIOSCAN_LOCATION(show_locations, xenoLocationS)], [numXenosPlanetr ? "примерно [numXenosPlanetr]":"отсуствие"] сигнатур на земле[BIOSCAN_LOCATION(show_locations, xenoLocationP)] и [numXenosTransit || "отсуствие"] неизвестных форм жизни на шаттлах."}
 	var/ai_name = "[usr]: Статус Биосканирования"
 
 	if(ai_operator)
