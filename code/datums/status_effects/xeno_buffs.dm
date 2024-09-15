@@ -918,42 +918,263 @@
 
 	qdel(src)
 
+// ***************************************
+// *********** Upgrade Chambers Buffs - Survival
+// ***************************************
 /datum/status_effect/upgrade_carapace
 	id = "upgrade_carapace"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/armor_buff_per_chamber = 5
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_carapace/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
+	chamber_scaling = length(buff_owner.hive.shell_chambers)
+	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff_per_chamber * chamber_scaling)
+	return TRUE
+
+/datum/status_effect/upgrade_carapace/on_remove()
+	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
+	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff_per_chamber * chamber_scaling)
+	return ..()
+
+/datum/status_effect/upgrade_carapace/proc/update_buff()
+	SIGNAL_HANDLER
+	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff_per_chamber * chamber_scaling)
+	chamber_scaling = buff_owner.hive.shell_chambers
+	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff_per_chamber * chamber_scaling)
+
+// ***************************************
+// ***************************************
+// ***************************************
 /datum/status_effect/upgrade_regeneration
 	id = "upgrade_regeneration"
 	duration = -1
+	tick_interval = 5 SECONDS
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/regen_buff_per_chamber = 15
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_regeneration/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	chamber_scaling = length(buff_owner.hive.shell_chambers)
+	return TRUE
+
+/datum/status_effect/upgrade_regeneration/on_remove()
+	return ..()
+
+/datum/status_effect/upgrade_regeneration/tick()
+	chamber_scaling = length(buff_owner.hive.shell_chambers)
+	if(chamber_scaling > 0)
+		owner.heal_wounds(regen_buff_per_chamber * chamber_scaling, TRUE)
+	return ..()
+
+// ***************************************
+// ***************************************
+// ***************************************
 /datum/status_effect/upgrade_vampirism
 	id = "upgrade_vampirism"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/leech_buff_per_chamber = 0.05
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_vampirism/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
+	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
+	chamber_scaling = length(buff_owner.hive.shell_chambers)
+	return TRUE
+
+/datum/status_effect/upgrade_vampirism/on_remove()
+	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
+	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
+	return ..()
+
+/datum/status_effect/upgrade_vampirism/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = buff_owner.hive.shell_chambers
+
+/datum/status_effect/upgrade_vampirism/proc/on_slash(datum/source, mob/living/target)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	if(!ishuman(target))
+		return
+	buff_owner.adjustBruteLoss(-buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling)
+	buff_owner.adjustFireLoss(-buff_owner.fireloss * leech_buff_per_chamber * chamber_scaling)
+
+// ***************************************
+// *********** Upgrade Chambers Buffs - Attack
+// ***************************************
 /datum/status_effect/upgrade_celerity
 	id = "upgrade_celerity"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/speed_buff_per_chamber = 0.1
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_celerity/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
+	chamber_scaling = length(buff_owner.hive.spur_chambers)
+	add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
+	return TRUE
+
+/datum/status_effect/upgrade_celerity/on_remove()
+	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
+	remove_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF)
+	return ..()
+
+/datum/status_effect/upgrade_celerity/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = buff_owner.hive.spur_chambers
+	add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
+
+// ***************************************
+// ***************************************
+// ***************************************
 /datum/status_effect/upgrade_adrenaline
 	id = "upgrade_adrenaline"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	tick_interval = 5 SECONDS
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/plasma_regen_buff_per_chamber = 0.15
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_adrenaline/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	chamber_scaling = length(buff_owner.hive.spur_chambers)
+	return TRUE
+
+/datum/status_effect/upgrade_adrenaline/on_remove()
+	return ..()
+
+/datum/status_effect/upgrade_adrenaline/tick()
+	if(HAS_TRAIT(X,TRAIT_NOPLASMAREGEN))
+		return
+	buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05))
+
+// ***************************************
+// ***************************************
+// ***************************************
 /datum/status_effect/upgrade_crush
 	id = "upgrade_crush"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/penetration_buff_per_chamber = 15
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_crush/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
+	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_obj_attack))
+	chamber_scaling = length(buff_owner.hive.spur_chambers)
+	return TRUE
+
+/datum/status_effect/upgrade_crush/on_remove()
+	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
+	return ..()
+
+/datum/status_effect/upgrade_crush/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = buff_owner.hive.spur_chambers
+
+/datum/action/ability/xeno_action/stealth/proc/on_obj_attack(datum/source, obj/attacked)
+	SIGNAL_HANDLER
+	if(attacked.resistance_flags & XENO_DAMAGEABLE)
+		attecked.take_damage(buff_owner.xeno_caste.melee_damage, armor_penetration = (penetration_buff_per_chamber * chamber_scaling))
+
+// ***************************************
+// *********** Upgrade Chambers Buffs - Utility
+// ***************************************
 /datum/status_effect/upgrade_focus
 	id = "upgrade_focus"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/damage_buff_per_chamber = 0.1
+	var/chamber_scaling = 0
 
+/datum/status_effect/upgrade_focus/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
+	buff_owner.xeno_caste.attack_delay = round(buff_owner.xeno_caste.attack_delay * (1 - damage_buff_per_chamber) * chamber_scaling, 0.1)
+	buff_owner.xeno_caste.melee_damage = buff_owner.xeno_caste.melee_damage * (1 + damage_buff_per_chamber)
+	return TRUE
+
+/datum/status_effect/upgrade_focus/on_remove()
+	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY)
+	buff_owner.xeno_caste.attack_delay = initial(buff_owner.xeno_caste.attack_delay)
+	buff_owner.xeno_caste.melee_damage = initial(buff_owner.xeno_caste.melee_damage)
+	return ..()
+
+/datum/status_effect/upgrade_focus/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = buff_owner.hive.veil_chambers
+	buff_owner.xeno_caste.attack_delay = round(initial(buff_owner.xeno_caste.attack_delay) * (1 - damage_buff_per_chamber) * chamber_scaling, 0.1)
+	buff_owner.xeno_caste.melee_damage = initial(buff_owner.xeno_caste.melee_damage) * (1 + damage_buff_per_chamber)
+
+// ***************************************
+// ***************************************
+// ***************************************
 /datum/status_effect/upgrade_toxin
 	id = "upgrade_toxin"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/toxin_amount_per_chamber = 1
+	var/chamber_scaling = 0
+	var/injected_reagent = /datum/reagent/toxin/xeno_neurotoxin
+
+/datum/status_effect/upgrade_toxin/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
+	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
+	return TRUE
+
+/datum/status_effect/upgrade_toxin/on_remove()
+	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY)
+	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
+	return ..()
+
+/datum/status_effect/upgrade_toxin/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = buff_owner.hive.veil_chambers
+
+/datum/status_effect/upgrade_toxin/proc/on_slash(datum/source, mob/living/target)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	if(!ishuman(target))
+		return
+	if(!target?.can_sting())
+		return
+	var/mob/living/carbon/carbon_target = target
+	carbon_target.reagents.add_reagent(injected_reagent, toxin_amount_per_chamber * chamber_scaling)

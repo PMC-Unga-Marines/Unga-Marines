@@ -232,6 +232,30 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/spawner
 
+/datum/hive_upgrade/building/upgrade_chamber/shell
+	name = "Shell Upgrade Chamber"
+	desc = ""
+	psypoint_cost = 150
+	icon = "maturitytower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/upgrade_chamber/shell
+
+/datum/hive_upgrade/building/upgrade_chamber/spur
+	name = "SPur Upgrade Chamber"
+	desc = ""
+	psypoint_cost = 150
+	icon = "maturitytower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/upgrade_chamber/spur
+
+/datum/hive_upgrade/building/upgrade_chamber/veil
+	name = "Veil Upgrade Chamber"
+	desc = ""
+	psypoint_cost = 150
+	icon = "maturitytower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/upgrade_chamber/veil
+
 /datum/hive_upgrade/defence
 	category = "Defences"
 
