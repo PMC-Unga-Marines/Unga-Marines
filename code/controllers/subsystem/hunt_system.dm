@@ -18,7 +18,6 @@ SUBSYSTEM_DEF(hunting)
 		/datum/job/terragov/squad/corpsman,
 		/datum/job/som/squad/medic,
 		/datum/job/terragov/medical,
-		/datum/job/terragov/engineering
 	)
 	var/list/human_blacklist_type = list(
 		/datum/job/fallen,

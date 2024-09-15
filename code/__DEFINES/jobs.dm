@@ -132,6 +132,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define EXP_TYPE_MARINES "Marines"
 #define EXP_TYPE_REQUISITIONS "Requisitions"
 #define EXP_TYPE_SILICON "Silicon"
+#define EXP_TYPE_SYNTHETIC "Medical/Engineering" // this define is used to limit synthetic to those who played at least medical or engineering
 #define EXP_TYPE_XENO "Xenomorph"
 #define EXP_TYPE_GHOST "Ghost"
 #define EXP_TYPE_ADMIN "Admin"
@@ -147,6 +148,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define CRYO_DELTA "Delta Squad"
 
 // Those are in minutes, and we convert them to hours
+#define XP_REQ_NOVICE 300
 #define XP_REQ_UNSEASONED 600
 #define XP_REQ_INTERMEDIATE 1200
 #define XP_REQ_UPPER_INTERMEDIATE 1800

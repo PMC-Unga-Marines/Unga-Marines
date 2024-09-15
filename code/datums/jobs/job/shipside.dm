@@ -726,12 +726,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine
 
-/datum/job/terragov/engineering
-	job_category = JOB_CAT_ENGINEERING
-	selection_color = "#fff5cc"
-	supervisors = "the acting captain"
-	exp_type_department = EXP_TYPE_ENGINEERING
-
 //Ship Engineer
 /datum/job/terragov/requisitions/tech
 	title = SHIP_TECH
@@ -745,7 +739,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	display_order = JOB_DISPLAY_ORDER_SHIP_TECH
 	outfit = /datum/outfit/job/requisitions/tech
 	exp_type = EXP_TYPE_MARINES
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_NOVICE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -823,8 +817,8 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	skills_type = /datum/skills/ro
 	display_order = JOB_DISPLAY_ORDER_REQUISITIONS_OFFICER
 	outfit = /datum/outfit/job/requisitions/officer
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_type = EXP_TYPE_ENGINEERING
+	exp_requirements = XP_REQ_UNSEASONED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -1205,8 +1199,8 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	minimal_access = ALL_ACCESS
 	display_order = JOB_DISPLAY_ORDER_SYNTHETIC
 	outfit = /datum/outfit/job/civilian/synthetic
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_MASTER
+	exp_type = EXP_TYPE_SYNTHETIC
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	job_points_needed = 40
 	jobworth = list(
@@ -1272,7 +1266,6 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	to_chat(M, {"Your primary job is to support and assist all TGMC departments and personnel on-board.
 In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."})
 
-
 /datum/outfit/job/civilian/synthetic
 	name = SYNTHETIC
 	jobtype = /datum/job/terragov/silicon/synthetic
@@ -1286,7 +1279,6 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	r_store = /obj/item/storage/pouch/general/medium
 	l_store = /obj/item/storage/pouch/general/medium
 
-
 /datum/job/terragov/silicon/ai
 	title = SILICON_AI
 	job_category = JOB_CAT_SILICON
@@ -1297,7 +1289,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	supervisors = "your laws and the human crew"
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	display_order = JOB_DISPLAY_ORDER_AI
 	skills_type = /datum/skills/ai
 	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION
@@ -1316,10 +1308,8 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		<b>Duty</b>: Assist the crew whenever you’re needed, be the doorknob of the ship. Recon the areas for threats via cameras, report your findings to the crew at various communication channels. Follow your laws.
 	"}
 
-
 /datum/job/terragov/silicon/ai/get_special_name(client/preference_source)
 	return preference_source.prefs.ai_name
-
 
 /datum/job/terragov/silicon/ai/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/silicon/ai
@@ -1331,11 +1321,9 @@ However, your vision is limited through cameras from the ship or to marines grou
 Recon any threats and report findings at various communication channels.
 If you require any help, use <b>mentorhelp</b> to ask mentors about what you're supposed to do."})
 
-
 /datum/job/terragov/silicon/ai/announce(mob/living/announced_mob)
 	. = ..()
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), "[announced_mob] has been downloaded to an empty bluespace-networked AI core at [AREACOORD(announced_mob)]."))
-
 
 /datum/job/terragov/silicon/ai/config_check()
 	return CONFIG_GET(flag/allow_ai)
