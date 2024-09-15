@@ -59,7 +59,7 @@
 	name = "XR-1-H armor plating"
 	desc = "Heavy armor plating designed for self mounting on TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 15, ACID = 55)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 	greyscale_config = /datum/greyscale_config/robot/heavy
 
 /obj/item/clothing/suit/modular/robot/heavy/tyr
