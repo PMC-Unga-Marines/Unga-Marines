@@ -301,6 +301,8 @@
 	vis_contents -= fire_overlay
 	QDEL_NULL(wound_overlay)
 	QDEL_NULL(fire_overlay)
+	observed_xeno = null
+	eaten_mob = null
 	return ..()
 
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
