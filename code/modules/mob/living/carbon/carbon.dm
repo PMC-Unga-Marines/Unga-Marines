@@ -415,7 +415,7 @@
 		cost *= gravity
 		height *= gravity * 0.5
 
-	if(species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))
+	if(species?.species_flags & NO_STAMINA)
 		cost = 0
 
 	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
