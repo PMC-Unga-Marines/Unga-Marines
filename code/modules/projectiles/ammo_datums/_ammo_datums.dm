@@ -265,7 +265,7 @@
 
 		if(isgun(source))
 			var/obj/item/weapon/gun/gun = source
-			gun.apply_gun_modifiers(new_proj, target, shooter)
+			gun.apply_gun_modifiers(new_proj, target)
 
 		//Scatter here is how many degrees extra stuff deviate from the main projectile's firing angle. Fully randomised with no 45 degree cap like normal bullets
 		var/f = (i-1)
