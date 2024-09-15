@@ -675,7 +675,7 @@
 	icon_state = "t21_ext"
 	max_rounds = 50
 	icon_state_mini = "mag_rifle_big_yellow"
-	bonus_overlay = "t21_ext"
+	//bonus_overlay = "t21_ext"
 
 /obj/item/ammo_magazine/rifle/t25/extended
 	name = "\improper T-25 extended magazine (10x26mm)"
@@ -683,7 +683,7 @@
 	icon_state = "t25_ext"
 	max_rounds = 120
 	icon_state_mini = "mag_rifle_big_yellow"
-	bonus_overlay = "t25_ext"
+	//bonus_overlay = "t25_ext"
 
 /obj/item/ammo_magazine/rifle/ar18/ap
 	name = "\improper AR-18 AP magazine (10x24mm)"
@@ -739,6 +739,7 @@
 	caliber = CALIBER_10x265_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "t64_ap"
+	//bonus_overlay = "t64_ap"
 	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 	icon_state_mini = "mag_rifle_big"
 

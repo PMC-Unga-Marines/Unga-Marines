@@ -32,6 +32,14 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"ah" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral,
+/area/lv624/ground/caves/rock)
+"ai" = (
+/turf/closed/mineral,
+/area/lv624/ground/caves/rock)
 "aj" = (
 /obj/machinery/door/airlock/mainship/secure/locked/free_access{
 	dir = 4;
@@ -49,6 +57,13 @@
 /obj/item/stack/sheet/metal{
 	amount = 30
 	},
+/turf/open/floor/tile/vault{
+	dir = 8
+	},
+/area/lv624/ground/caves/central1)
+"al" = (
+/obj/structure/rack,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
@@ -74,6 +89,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"ap" = (
+/obj/effect/landmark/xeno_resin_door,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central1)
 "aq" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/rock)
@@ -83,6 +102,14 @@
 "as" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/central1)
+"at" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
+"au" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
 "av" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/pickaxe,
@@ -90,6 +117,11 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"aw" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
 "ax" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/gold{
@@ -116,6 +148,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"aA" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral,
+/area/lv624/ground/caves/rock)
 "aB" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_silo_spawn,
@@ -125,9 +161,19 @@
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "aD" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark,
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
+"aE" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
+"aF" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/xeno_resin_wall,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
 "aG" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirt,
@@ -144,9 +190,8 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "aK" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1)
+/turf/closed/mineral/indestructible,
+/area/lv624/ground/caves/rock)
 "aL" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
@@ -154,6 +199,11 @@
 "aM" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/rock)
+"aN" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central1)
 "aO" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
@@ -166,6 +216,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"aQ" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral,
+/area/lv624/ground/caves/rock)
 "aR" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/tritium{
@@ -203,9 +257,8 @@
 	},
 /area/lv624/ground/caves/central1)
 "aY" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
+/turf/closed/mineral,
+/area/lv624/ground/caves/central2)
 "aZ" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/dirt,
@@ -229,8 +282,50 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
+"jE" = (
+/obj/effect/landmark/xeno_resin_door,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central3)
+"mn" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central1)
+"mY" = (
+/obj/structure/rack,
+/obj/item/tool/shovel,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/tile/vault{
+	dir = 8
+	},
+/area/lv624/ground/caves/central1)
+"or" = (
+/obj/effect/landmark/xeno_resin_wall,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
 "tq" = (
 /turf/closed/mineral/smooth,
+/area/lv624/ground/caves/central2)
+"uy" = (
+/obj/effect/landmark/xeno_resin_wall,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central1)
+"xy" = (
+/obj/structure/rack,
+/obj/item/stack/sheet/mineral/iron{
+	amount = 5
+	},
+/obj/item/stack/sheet/mineral/platinum,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/tile/vault{
+	dir = 8
+	},
+/area/lv624/ground/caves/central1)
+"BS" = (
+/obj/effect/landmark/xeno_resin_door,
+/turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "NV" = (
 /obj/effect/ai_node,
@@ -243,8 +338,29 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"PN" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
+"PX" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/wall/r_wall,
+/area/lv624/ground/caves/rock)
+"Rp" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
 "VY" = (
 /obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central1)
+"YC" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central2)
+"YR" = (
+/obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "ZQ" = (
@@ -263,11 +379,11 @@ aC
 aC
 aC
 aC
-am
-am
-am
-am
-am
+jE
+jE
+jE
+jE
+jE
 aC
 aC
 aC
@@ -283,7 +399,7 @@ aC
 aa
 aa
 aa
-aY
+aa
 aa
 aa
 "}
@@ -335,9 +451,9 @@ aC
 aC
 NV
 af
-ad
+Rp
 af
-ad
+Rp
 af
 aC
 aC
@@ -369,12 +485,12 @@ af
 af
 af
 af
-ac
-ac
+or
+or
 af
 af
-ad
-ac
+Rp
+or
 aC
 aC
 aC
@@ -400,16 +516,16 @@ aC
 aC
 aC
 aC
-ad
-ac
-ac
+Rp
+or
+or
 NV
 af
 af
 af
 NV
 af
-ac
+or
 aC
 aC
 aC
@@ -436,15 +552,15 @@ aC
 aC
 af
 af
-ac
-ac
+or
+or
 af
-ad
+Rp
 af
-ac
+or
 af
 af
-ac
+or
 aC
 aC
 aC
@@ -469,7 +585,7 @@ aC
 aC
 aC
 aC
-ad
+Rp
 af
 af
 af
@@ -478,7 +594,7 @@ aG
 af
 af
 af
-ad
+Rp
 aC
 aC
 aC
@@ -505,13 +621,13 @@ aC
 aC
 af
 af
-ac
+or
 af
 af
 aH
 af
 af
-ad
+Rp
 af
 aC
 aC
@@ -539,14 +655,14 @@ aC
 aC
 aC
 af
-ac
-ac
-ac
+or
+or
+or
 af
 af
 af
-ac
-ac
+or
+or
 af
 aC
 aC
@@ -575,13 +691,13 @@ aC
 aC
 af
 af
-ac
+or
 af
-aT
+PN
 af
-ad
-ac
-ac
+Rp
+or
+or
 af
 aC
 aC
@@ -644,15 +760,15 @@ aC
 aC
 aC
 af
-ad
+Rp
 af
-ad
+Rp
 af
 aC
 aC
 af
 af
-ad
+Rp
 af
 aC
 aC
@@ -712,18 +828,18 @@ aC
 aC
 aC
 aC
-ac
-aZ
-aZ
-aZ
+or
+BS
+BS
+BS
 aC
 aC
 aC
 aC
 aC
-aZ
-aZ
-aZ
+BS
+BS
+BS
 aC
 aC
 aC
@@ -746,10 +862,10 @@ aC
 aC
 aC
 aC
-ac
-ac
+or
+or
 af
-ad
+Rp
 aC
 aC
 aC
@@ -781,7 +897,7 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
 NV
@@ -792,7 +908,7 @@ aC
 aC
 af
 af
-ad
+Rp
 af
 aC
 aC
@@ -816,7 +932,7 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 NV
 aC
@@ -851,7 +967,7 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
 aC
@@ -859,8 +975,8 @@ aC
 aC
 af
 af
-ac
-ad
+or
+Rp
 af
 af
 aC
@@ -886,7 +1002,7 @@ aM
 aC
 aC
 aC
-ac
+or
 af
 dJ
 af
@@ -894,7 +1010,7 @@ NV
 af
 af
 NV
-ac
+or
 af
 af
 aC
@@ -920,15 +1036,15 @@ aM
 (20,1,1) = {"
 aC
 aC
-ac
-ac
+or
+or
 af
 af
 af
-ad
+Rp
 af
 af
-ad
+Rp
 af
 af
 aC
@@ -955,14 +1071,14 @@ aM
 (21,1,1) = {"
 aC
 aC
-ac
+or
 af
 af
 aH
 af
 af
-ac
-ac
+or
+or
 af
 af
 aC
@@ -990,14 +1106,14 @@ aC
 (22,1,1) = {"
 aC
 tq
-ac
-ad
+or
+Rp
 af
-ad
+Rp
 af
 af
-ac
-ac
+or
+or
 af
 af
 aC
@@ -1024,12 +1140,12 @@ aC
 "}
 (23,1,1) = {"
 aC
-ac
-ac
+or
+or
 af
 af
 af
-ac
+or
 NV
 af
 af
@@ -1059,14 +1175,14 @@ aC
 "}
 (24,1,1) = {"
 aC
-ac
+or
 af
 af
 af
 af
-ac
+or
 af
-ad
+Rp
 af
 aC
 aC
@@ -1094,12 +1210,12 @@ aC
 "}
 (25,1,1) = {"
 aC
-ac
+or
 af
-ad
-ac
+Rp
+or
 af
-ac
+or
 af
 af
 af
@@ -1129,7 +1245,7 @@ aC
 "}
 (26,1,1) = {"
 aC
-ac
+or
 NV
 aG
 af
@@ -1164,13 +1280,13 @@ aC
 "}
 (27,1,1) = {"
 aC
-ac
+or
 af
 aG
-ad
+Rp
 af
 af
-ad
+Rp
 af
 aC
 aC
@@ -1199,14 +1315,14 @@ aC
 "}
 (28,1,1) = {"
 aC
-ac
+or
 af
 af
-ac
-ac
+or
+or
 af
 af
-ac
+or
 aC
 aC
 aC
@@ -1234,14 +1350,14 @@ aC
 "}
 (29,1,1) = {"
 aC
-ac
+or
 af
 af
-ac
-ac
+or
+or
 af
-ad
-ac
+Rp
+or
 aC
 aC
 aC
@@ -1269,14 +1385,14 @@ aC
 "}
 (30,1,1) = {"
 aC
-ac
-ad
+or
+Rp
 af
-ad
+Rp
 af
 af
 af
-ac
+or
 aC
 aC
 aC
@@ -1304,12 +1420,12 @@ aC
 "}
 (31,1,1) = {"
 aC
-ac
+or
 af
 af
-aT
+PN
 af
-ad
+Rp
 af
 af
 aC
@@ -1339,12 +1455,12 @@ aC
 "}
 (32,1,1) = {"
 aC
-ac
+or
 af
-ac
+or
 af
-ac
-ac
+or
+or
 af
 NV
 aC
@@ -1374,14 +1490,14 @@ aC
 "}
 (33,1,1) = {"
 aC
-ac
+or
 af
-ac
+or
 af
 af
 af
 NV
-ad
+Rp
 aC
 aC
 aC
@@ -1409,13 +1525,13 @@ aC
 "}
 (34,1,1) = {"
 aC
-ac
+or
 dJ
 af
 af
-ad
+Rp
 NV
-ac
+or
 af
 aC
 aC
@@ -1444,10 +1560,10 @@ aC
 "}
 (35,1,1) = {"
 aC
-ac
+or
 af
 af
-ac
+or
 af
 af
 af
@@ -1479,14 +1595,14 @@ aC
 "}
 (36,1,1) = {"
 aC
-ac
+or
 NV
 af
 dJ
 af
-ac
-ac
-ad
+or
+or
+Rp
 aC
 aC
 aC
@@ -1514,13 +1630,13 @@ aC
 "}
 (37,1,1) = {"
 aC
-ac
-ac
+or
+or
 af
 af
 af
-ac
-ac
+or
+or
 af
 af
 aC
@@ -1550,14 +1666,14 @@ aC
 (38,1,1) = {"
 aC
 aC
-ac
+or
 af
 af
 af
 af
 af
 af
-ad
+Rp
 aC
 aC
 aC
@@ -1585,12 +1701,12 @@ aC
 (39,1,1) = {"
 aC
 aC
-ac
+or
 af
-ad
+Rp
 aH
 af
-ad
+Rp
 aG
 af
 aC
@@ -1620,8 +1736,8 @@ aC
 (40,1,1) = {"
 aC
 aC
-ac
-ac
+or
+or
 NV
 af
 af
@@ -1656,14 +1772,14 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
-ac
-ac
+or
+or
 af
 af
-ad
+Rp
 aC
 aC
 aC
@@ -1691,13 +1807,13 @@ aC
 aC
 aC
 aC
-ac
-ad
+or
+Rp
 af
-ac
-ac
+or
+or
 af
-ac
+or
 af
 aC
 aC
@@ -1726,7 +1842,7 @@ aU
 aC
 aC
 aC
-ac
+or
 af
 af
 af
@@ -1754,21 +1870,21 @@ aC
 aC
 aC
 aC
-ac
-ay
+or
+aF
 "}
 (44,1,1) = {"
 aC
 aC
 aC
-ac
+or
 NV
 af
-ac
-ad
+or
+Rp
 af
 af
-ad
+Rp
 aC
 aC
 aC
@@ -1786,18 +1902,18 @@ aU
 aC
 aC
 aC
-ac
-ac
-ac
-ac
+or
+or
+or
+or
 ae
 "}
 (45,1,1) = {"
 aC
 aC
 aC
-ac
-ac
+or
+or
 NV
 af
 af
@@ -1820,25 +1936,25 @@ aC
 aU
 aC
 aC
-ac
-ac
-ad
+or
+or
+Rp
 af
 af
-aO
+aE
 "}
 (46,1,1) = {"
 aC
 aC
 aC
 aC
-ac
-ad
-ad
+or
+Rp
+Rp
 af
-ac
-ac
-ad
+or
+or
+Rp
 af
 aC
 aC
@@ -1855,11 +1971,11 @@ aC
 aU
 aC
 aC
-ac
+or
 af
 af
 af
-aB
+YC
 ae
 "}
 (47,1,1) = {"
@@ -1867,12 +1983,12 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
 af
-ac
-ac
+or
+or
 af
 af
 aC
@@ -1890,8 +2006,8 @@ aC
 aU
 aC
 aC
-ac
-ad
+or
+Rp
 af
 af
 af
@@ -1902,7 +2018,7 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
 af
@@ -1925,24 +2041,24 @@ aC
 aU
 aC
 aC
-ac
-ac
+or
+or
 af
 af
 af
-aO
+aE
 "}
 (49,1,1) = {"
 aC
 aC
 aC
 aC
-ac
+or
 NV
-ad
+Rp
 af
 af
-ad
+Rp
 af
 dJ
 af
@@ -1961,10 +2077,10 @@ aU
 aC
 aC
 aC
-ac
+or
 af
 af
-ad
+Rp
 ae
 "}
 (50,1,1) = {"
@@ -1974,12 +2090,12 @@ aC
 aC
 aC
 af
-ac
-ac
+or
+or
 af
 af
-ac
-ac
+or
+or
 NV
 aC
 aC
@@ -1996,8 +2112,8 @@ aU
 aC
 aC
 aC
-ac
-ac
+or
+or
 af
 af
 ae
@@ -2009,14 +2125,14 @@ aC
 aC
 aC
 af
-ac
-ac
+or
+or
 af
 af
-ac
-ac
+or
+or
 af
-ad
+Rp
 aC
 aC
 aC
@@ -2032,10 +2148,10 @@ aC
 aC
 aC
 aC
-ac
-ac
-ac
-ay
+or
+or
+or
+aF
 "}
 (52,1,1) = {"
 aC
@@ -2052,7 +2168,7 @@ af
 af
 af
 af
-ac
+or
 aC
 aC
 aC
@@ -2082,13 +2198,13 @@ NV
 af
 af
 af
-ad
+Rp
 af
 af
 dJ
 af
-ac
-ac
+or
+or
 aC
 aC
 aC
@@ -2113,17 +2229,17 @@ aC
 aC
 aC
 aC
-ac
-ad
+or
+Rp
 af
-ac
-ac
+or
+or
 af
 af
-ac
+or
 NV
 af
-ac
+or
 aC
 aC
 aC
@@ -2148,18 +2264,18 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
-ac
-ac
+or
+or
 af
 af
 af
 af
 af
-ac
-ac
+or
+or
 aC
 aC
 aC
@@ -2183,7 +2299,7 @@ aC
 aC
 aC
 aC
-ac
+or
 NV
 af
 af
@@ -2192,10 +2308,10 @@ af
 af
 af
 NV
-ad
+Rp
 NV
-ac
-ac
+or
+or
 aC
 aC
 aC
@@ -2218,19 +2334,19 @@ aC
 aC
 aC
 aC
-ac
+or
 af
-ad
+Rp
 af
 aH
 af
-ad
+Rp
 af
-ac
+or
 af
 af
 af
-ac
+or
 aC
 aC
 aC
@@ -2253,20 +2369,20 @@ aC
 aC
 aC
 aC
-ac
+or
 af
 af
 af
-ad
+Rp
 af
 af
-ac
-ac
-ac
+or
+or
+or
 af
 af
-ac
-ac
+or
+or
 aC
 aC
 aC
@@ -2296,10 +2412,10 @@ NV
 af
 af
 af
-ac
+or
 af
 af
-ad
+Rp
 af
 af
 aC
@@ -2324,19 +2440,19 @@ aC
 aC
 aC
 aC
-ad
+Rp
 af
-ac
-ac
+or
+or
 NV
-ad
+Rp
 af
 af
 af
 NV
 af
 af
-ad
+Rp
 NV
 aC
 aC
@@ -2361,16 +2477,16 @@ aC
 aC
 af
 af
-ac
-ac
+or
+or
 af
 af
 af
 af
-ad
+Rp
 af
-ac
-ac
+or
+or
 af
 af
 af
@@ -2398,16 +2514,16 @@ aC
 af
 af
 af
-aT
+PN
 af
-ac
+or
 af
 af
 af
-ac
-ac
+or
+or
 af
-ad
+Rp
 af
 af
 aC
@@ -2431,19 +2547,19 @@ aC
 aC
 aC
 af
-ad
+Rp
 af
 af
 af
-ac
+or
 af
 af
 af
-ad
+Rp
 af
 af
 af
-ad
+Rp
 af
 af
 aC
@@ -2468,20 +2584,20 @@ aC
 aC
 af
 af
-ad
+Rp
 af
 af
-ad
+Rp
 af
 af
 NV
 af
-ad
+Rp
 NV
 af
 aG
 NV
-ad
+Rp
 aC
 aC
 aC
@@ -2513,8 +2629,8 @@ aC
 aC
 af
 af
-ac
-ac
+or
+or
 af
 af
 af
@@ -2539,8 +2655,8 @@ aC
 aC
 af
 af
-ac
-ac
+or
+or
 af
 af
 aC
@@ -2550,10 +2666,10 @@ aC
 af
 af
 af
-ad
+Rp
 af
 af
-ac
+or
 aC
 aC
 aM
@@ -2572,10 +2688,10 @@ aC
 aC
 aC
 aC
-ad
+Rp
 af
-ac
-ac
+or
+or
 af
 af
 aC
@@ -2583,12 +2699,12 @@ aC
 aC
 aC
 af
-ad
+Rp
 af
 NV
-ad
+Rp
 af
-ac
+or
 aC
 aC
 aM
@@ -2620,8 +2736,8 @@ aC
 aC
 af
 NV
-ac
-ac
+or
+or
 af
 af
 aC
@@ -2646,7 +2762,7 @@ aC
 af
 af
 af
-ad
+Rp
 aC
 aC
 aC
@@ -2655,10 +2771,10 @@ aC
 aC
 af
 af
-ac
-ac
+or
+or
 af
-ad
+Rp
 aC
 aC
 aC
@@ -2679,8 +2795,8 @@ aC
 aC
 aC
 af
-ac
-ac
+or
+or
 NV
 aC
 aC
@@ -2725,7 +2841,7 @@ aC
 aC
 aC
 NV
-ad
+Rp
 af
 af
 dJ
@@ -2784,10 +2900,10 @@ aM
 aM
 aC
 ar
-aW
+mn
 ar
 ar
-aW
+mn
 aC
 aC
 aC
@@ -2829,18 +2945,18 @@ aC
 aC
 aC
 ar
-aW
+mn
 ar
 aC
 aC
 aC
 aC
 dl
-aL
-aX
-ao
+PX
+mY
+xy
 Pf
-aL
+PX
 "}
 (75,1,1) = {"
 aC
@@ -2854,10 +2970,10 @@ aC
 aC
 aC
 ar
-aW
+mn
 ar
 ar
-aW
+mn
 aC
 aC
 aC
@@ -2901,7 +3017,7 @@ ar
 ar
 ar
 ar
-aW
+mn
 aC
 aC
 aC
@@ -2925,16 +3041,16 @@ aM
 aC
 ar
 ar
-aS
-aS
+uy
+uy
 ar
 ar
 aC
-aJ
+YR
 ar
 ar
-aW
-aJ
+mn
+YR
 ar
 aC
 aC
@@ -2943,7 +3059,7 @@ aC
 bq
 aq
 ak
-aD
+aV
 ag
 as
 "}
@@ -2967,8 +3083,8 @@ ar
 ar
 ar
 ar
-aS
-aS
+uy
+uy
 ar
 aC
 aC
@@ -2996,14 +3112,14 @@ aC
 aC
 aC
 ar
-aW
-aJ
-aW
+mn
+YR
+mn
 ar
 eP
 ar
-aS
-aS
+uy
+uy
 ar
 aC
 aC
@@ -3037,7 +3153,7 @@ ar
 ar
 ar
 ar
-aW
+mn
 ar
 ar
 ZQ
@@ -3049,6 +3165,6 @@ bq
 aC
 aI
 aI
-aK
+aI
 aI
 "}

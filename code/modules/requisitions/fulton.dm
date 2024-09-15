@@ -141,13 +141,10 @@
 		balloon_alert(user, "Target still alive")
 		to_chat(user, span_warning("The extraction device buzzes, complaining. This one seems to be alive still."))
 		return TRUE
-	else if(!HAS_TRAIT(src, TRAIT_UNDEFIBBABLE) && user.faction == faction)
-		balloon_alert(user, "Target is still revivable!")
-		return FALSE
-
 	var/obj/item/fulton_extraction_pack/ext_pack = I
 	ext_pack.extract(src, user)
 	return TRUE
+
 
 /obj/structure/table/fulton_act(mob/living/user, obj/item/I)
 	if(!flipped)
@@ -155,11 +152,13 @@
 	balloon_alert(user, "Cannot extract")
 	return TRUE
 
+
 /obj/structure/closet/fulton_act(mob/living/user, obj/item/I)
 	if(opened)
 		return FALSE //Place it in.
 	balloon_alert(user, "Cannot extract")
 	return TRUE
+
 
 /obj/structure/closet/crate/fulton_act(mob/living/user, obj/item/I)
 	if(opened)

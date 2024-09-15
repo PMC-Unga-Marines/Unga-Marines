@@ -401,9 +401,6 @@
 // ***************************************
 // *********** Psychic Link
 // ***************************************
-/obj/effect/ebeam/psychic_link
-	name = "psychic link"
-
 /datum/status_effect/xeno_psychic_link
 	id = "xeno_psychic_link"
 	tick_interval = 2 SECONDS
@@ -417,8 +414,6 @@
 	var/minimum_health
 	///If the target xeno was within range
 	var/was_within_range = FALSE
-	/// The beam used to represent the link between linked xenos.
-	var/datum/beam/current_beam
 
 /datum/status_effect/xeno_psychic_link/on_creation(mob/living/new_owner, set_duration, mob/living/carbon/target_mob, link_range, redirect_mod, minimum_health, scaling = FALSE)
 	owner = new_owner
@@ -444,9 +439,11 @@
 
 /datum/status_effect/xeno_psychic_link/on_remove()
 	. = ..()
+	UnregisterSignal(target_mob, list(COMSIG_XENOMORPH_BRUTE_DAMAGE, COMSIG_XENOMORPH_BURN_DAMAGE))
 	REMOVE_TRAIT(target_mob, TRAIT_PSY_LINKED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_PSY_LINKED, TRAIT_STATUS_EFFECT(id))
-	link_toggle(FALSE)
+	owner.remove_filter(id)
+	target_mob.remove_filter(id)
 	to_chat(target_mob, span_xenonotice("[owner] has unlinked from you."))
 	SEND_SIGNAL(src, COMSIG_XENO_PSYCHIC_LINK_REMOVED)
 
@@ -472,20 +469,11 @@
 		RegisterSignal(target_mob, COMSIG_XENOMORPH_BRUTE_DAMAGE, PROC_REF(handle_brute_damage))
 		owner.add_filter(id, 2, outline_filter(2, PSYCHIC_LINK_COLOR))
 		target_mob.add_filter(id, 2, outline_filter(2, PSYCHIC_LINK_COLOR))
-		toggle_beam(TRUE)
 		return
 	UnregisterSignal(target_mob, COMSIG_XENOMORPH_BURN_DAMAGE)
 	UnregisterSignal(target_mob, COMSIG_XENOMORPH_BRUTE_DAMAGE)
 	owner.remove_filter(id)
 	target_mob.remove_filter(id)
-	toggle_beam(FALSE)
-
-/// Toggles the effect beam on or off.
-/datum/status_effect/xeno_psychic_link/proc/toggle_beam(toggle)
-	if(!toggle)
-		QDEL_NULL(current_beam)
-		return
-	current_beam = owner.beam(target_mob, icon_state= "blood_light", beam_type = /obj/effect/ebeam/psychic_link)
 
 ///Transfers mitigated burn damage
 /datum/status_effect/xeno_psychic_link/proc/handle_burn_damage(datum/source, amount, list/amount_mod)

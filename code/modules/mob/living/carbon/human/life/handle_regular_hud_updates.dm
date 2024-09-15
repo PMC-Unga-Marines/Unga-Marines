@@ -110,6 +110,10 @@
 		hud_used.healths.icon_state = "health0"
 		return
 
+	if(analgesic)
+		hud_used.healths.icon_state = "health_numb"
+		return
+
 	switch(hal_screwyhud)
 		if(1)
 			hud_used.healths.icon_state = "health6"
@@ -124,7 +128,7 @@
 
 	var/perceived_health = health / maxHealth * 100
 	if(!(species.species_flags & NO_PAIN))
-		perceived_health -= painloss
+		perceived_health -= traumatic_shock
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= staminaloss
 

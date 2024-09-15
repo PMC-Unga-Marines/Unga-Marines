@@ -198,7 +198,6 @@
 "qn" = (
 /obj/structure/cable,
 /obj/item/reagent_containers/hypospray,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "qz" = (
@@ -484,11 +483,6 @@
 /obj/item/clothing/glasses/hud/health,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
-"ZF" = (
-/obj/item/ammo_casing/bullet,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/white,
-/area/lv624/lazarus/medbay)
 
 (1,1,1) = {"
 YA
@@ -569,7 +563,7 @@ aa
 fr
 aa
 aa
-ZF
+OI
 aa
 jT
 Xw
@@ -621,7 +615,7 @@ fr
 Nv
 ih
 aa
-vC
+aa
 ux
 lT
 pd
@@ -647,7 +641,7 @@ Xw
 hI
 hI
 Hb
-vC
+aa
 aa
 MA
 Pg
@@ -671,7 +665,7 @@ bq
 lD
 aa
 aa
-vC
+aa
 aa
 Qn
 Xw

@@ -9,6 +9,8 @@
 		return
 	if(reagent_pain_modifier < 0)
 		return //any pain reduction
+	if(analgesic)
+		return
 
 	var/msg
 	if(amount > 10 && ishuman(src))
@@ -62,6 +64,8 @@
 		return
 	if(reagent_pain_modifier <= PAIN_REDUCTION_HEAVY)
 		return //anything as or more powerful than paracetamol
+	if(analgesic)
+		return
 
 	var/msg = span_danger("[message]")
 	if(flash_strength >= 1) msg = span_highdanger("[message]")
@@ -79,6 +83,8 @@
 		return
 	if(reagent_pain_modifier <= PAIN_REDUCTION_HEAVY)
 		return //anything as or more powerful than paracetamol
+	if(analgesic)
+		return
 
 	var/maxdam = 0
 	var/dam
@@ -102,6 +108,7 @@
 			maxdam = dam
 	if(damaged_organ)
 		pain(damaged_organ.display_name, maxdam, 0)
+
 
 	// Damage to internal organs hurts a lot.
 	var/datum/limb/parent

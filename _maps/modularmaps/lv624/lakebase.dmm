@@ -4,10 +4,6 @@
 	dir = 6
 	},
 /area/lv624/ground/caves/central2)
-"aK" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "co" = (
 /turf/open/floor,
 /area/lv624/ground/caves/central1)
@@ -19,10 +15,6 @@
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central1)
-"eY" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
 /area/lv624/ground/caves/central1)
 "gn" = (
 /turf/open/ground/coast{
@@ -360,7 +352,7 @@ Nw
 Nw
 Nw
 Nw
-aK
+Nw
 Nw
 "}
 (2,1,1) = {"
@@ -3124,7 +3116,7 @@ Hh
 Jo
 qG
 co
-eY
+co
 co
 co
 "}

@@ -1,14 +1,15 @@
 //Refer to life.dm for caller
-/mob/living/carbon/human/handle_pain_levels()
-	. = ..()
-	if(status_flags & GODMODE || (species?.species_flags & NO_PAIN))
-		set_painloss(0)
-		return //Godmode or some other pain reducers.
 
-	adjust_painloss(painloss)
+/mob/living/carbon/human/handle_shock()
+	. = ..()
+	if(status_flags & GODMODE || analgesic || (species?.species_flags & NO_PAIN))
+		setShock_Stage(0)
+		return //Godmode or some other pain reducers. //Analgesic avoids all traumatic shock temporarily
+
+	adjustShock_Stage(traumatic_shock)
 
 	//This just adds up effects together at each step, with a few small exceptions. Preferable to copy and paste rather than have a billion if statements.
-	switch(painloss)
+	switch(shock_stage)
 		if(10 to 29)
 			if(prob(20))
 				to_chat(src, span_danger("[pick("You're in a bit of pain", "You ache a little", "You feel some physical discomfort")]."))

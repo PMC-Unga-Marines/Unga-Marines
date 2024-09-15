@@ -71,7 +71,6 @@
 /area/lv624/ground/river3)
 "hB" = (
 /obj/structure/flora/ausbushes/palebush,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/river3)
 "iB" = (
@@ -138,11 +137,6 @@
 "qf" = (
 /turf/closed/wall/r_wall/chigusa,
 /area/lv624/lazarus/sandtemple)
-"qC" = (
-/obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/lazarus/sandtemple/garbledradio)
 "qU" = (
 /obj/structure/stairs/seamless{
 	dir = 4
@@ -227,10 +221,6 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand9)
-"wn" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/river3)
 "wv" = (
 /obj/structure/platform_decoration{
 	dir = 4
@@ -274,10 +264,6 @@
 "Am" = (
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/sand9)
-"Aq" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand3)
 "AA" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
@@ -498,12 +484,6 @@
 "Ri" = (
 /turf/open/ground/grass,
 /area/lv624/ground/sand9)
-"Rt" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirtgrassborder/corner{
-	dir = 4
-	},
-/area/lv624/ground/jungle8)
 "RZ" = (
 /turf/open/floor/plating/ground/dirt/typeone,
 /area/lv624/ground/sand9)
@@ -623,7 +603,7 @@ HW
 HW
 HW
 HW
-fi
+AP
 AP
 AP
 AP
@@ -667,7 +647,7 @@ um
 aw
 Pw
 sb
-Aq
+sb
 sb
 HW
 HW
@@ -688,7 +668,7 @@ YR
 YR
 "}
 (4,1,1) = {"
-uN
+aw
 aw
 iB
 sb
@@ -709,7 +689,7 @@ AP
 AP
 AP
 AP
-fi
+AP
 YR
 YR
 "}
@@ -727,7 +707,7 @@ HW
 HW
 AP
 AP
-fi
+AP
 AP
 AP
 AP
@@ -825,7 +805,7 @@ NK
 GT
 NK
 NK
-qC
+GT
 EE
 Fc
 Bi
@@ -866,7 +846,7 @@ AP
 bM
 pM
 Su
-wn
+dD
 YR
 "}
 (11,1,1) = {"
@@ -949,7 +929,7 @@ YR
 "}
 (14,1,1) = {"
 aw
-uN
+aw
 iB
 aw
 aw
@@ -1152,7 +1132,7 @@ YR
 YR
 YR
 zE
-Rt
+Vj
 yu
 "}
 (22,1,1) = {"

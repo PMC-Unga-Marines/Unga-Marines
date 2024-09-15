@@ -50,10 +50,6 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
-"pQ" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "qE" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -64,10 +60,6 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
-"tq" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1/garbledradio)
 "ty" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/gold{
@@ -247,7 +239,7 @@ AO
 EQ
 EQ
 EQ
-pQ
+EQ
 EQ
 EQ
 "}
@@ -2923,7 +2915,7 @@ Ka
 Ka
 AO
 AO
-aK
+hY
 hY
 hY
 hY
@@ -3005,7 +2997,7 @@ hY
 hY
 hY
 AV
-aK
+hY
 AO
 AO
 AO
@@ -3013,6 +3005,6 @@ KA
 AO
 co
 co
-tq
+co
 co
 "}

@@ -197,7 +197,7 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 					multipler += 0.25
 				if(-INFINITY to PAIN_REDUCTION_VERY_HEAVY)
 					multipler += 0.45
-			if(M.painloss > 100) //Being near to unconsious is good in this case
+			if(M.shock_stage > 100) //Being near to unconsious is good in this case
 				multipler += 0.25
 		if(issynth(user) || isyautja(user) || locate(/obj/machinery/optable/deployable) in M.loc)
 			multipler = 1

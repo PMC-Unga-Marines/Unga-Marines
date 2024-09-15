@@ -140,10 +140,6 @@
 "qf" = (
 /turf/closed/wall/r_wall/chigusa,
 /area/lv624/lazarus/sandtemple)
-"ri" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/river3)
 "rS" = (
 /obj/docking_port/stationary/crashmode,
 /obj/structure/stairs/seamless{
@@ -337,12 +333,6 @@
 	},
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
-"Gd" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirtgrassborder/corner{
-	dir = 4
-	},
-/area/lv624/ground/jungle8)
 "Gj" = (
 /obj/structure/stairs/seamless{
 	dir = 4
@@ -625,7 +615,6 @@
 /obj/effect/turf_decal/sandytile,
 /obj/effect/turf_decal/sandytile,
 /obj/effect/turf_decal/sandytile,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 
@@ -670,7 +659,7 @@ HW
 HW
 HW
 HW
-fi
+AP
 AP
 AP
 AP
@@ -698,11 +687,11 @@ HW
 HW
 AP
 AP
-AP
-AP
-AP
-AP
 fi
+AP
+AP
+AP
+AP
 AP
 YR
 YR
@@ -746,7 +735,7 @@ HW
 HW
 HW
 AP
-fi
+AP
 AP
 cT
 AP
@@ -986,7 +975,7 @@ YR
 dD
 dD
 dD
-ri
+dD
 kA
 YR
 YR
@@ -1172,7 +1161,7 @@ YR
 YR
 YR
 zE
-Gd
+Vj
 yu
 "}
 (22,1,1) = {"

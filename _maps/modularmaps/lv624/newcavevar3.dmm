@@ -94,10 +94,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
-"rt" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1/garbledradio)
 "vn" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/rock)
@@ -121,10 +117,6 @@
 /obj/effect/ai_node,
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/caves/central2)
-"Bg" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "Bx" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -286,7 +278,7 @@ GV
 aC
 aC
 aC
-Bg
+aC
 aC
 aC
 "}
@@ -1982,7 +1974,7 @@ Gw
 Gw
 Gw
 Gw
-FI
+Gw
 Gw
 hh
 qN
@@ -2231,7 +2223,7 @@ ZW
 Gw
 Gw
 eA
-FI
+Gw
 Sl
 AS
 Sl
@@ -3044,14 +3036,14 @@ BH
 BH
 BH
 it
-DG
+BH
 GV
 GV
 GV
 zK
 GV
 Dp
-rt
+Dp
 Dp
 Dp
 "}

@@ -87,11 +87,6 @@
 "iN" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3)
-"iT" = (
-/obj/item/ammo_casing/shell,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/wood/broken,
-/area/lv624/ground/caves/central2)
 "iV" = (
 /obj/structure/bed/alien,
 /turf/open/floor/wood,
@@ -166,15 +161,6 @@
 /turf/open/floor/carpet/side{
 	dir = 10
 	},
-/area/lv624/ground/caves/central2)
-"nq" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/wood,
-/area/lv624/ground/caves/central2)
-"nW" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/wood/broken,
 /area/lv624/ground/caves/central2)
 "op" = (
 /obj/effect/spawner/random/misc/trash,
@@ -260,10 +246,6 @@
 /obj/structure/barricade/sandbags,
 /turf/open/floor/wood,
 /area/lv624/ground/caves/central2)
-"tO" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "us" = (
 /obj/item/storage/firstaid/fire,
 /turf/open/floor/wood,
@@ -308,7 +290,6 @@
 /area/lv624/ground/caves/central2)
 "vN" = (
 /obj/effect/spawner/random/clothing/general,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/lv624/ground/caves/central2)
 "wL" = (
@@ -356,17 +337,6 @@
 "zK" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central2)
-"Bb" = (
-/obj/structure/barricade/sandbags{
-	dir = 1
-	},
-/obj/effect/landmark/weed_node,
-/turf/open/floor/wood,
-/area/lv624/ground/caves/central2)
-"Bh" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/wood,
 /area/lv624/ground/caves/central2)
 "BO" = (
 /obj/structure/barricade/sandbags{
@@ -539,10 +509,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/lv624/ground/caves/central2)
-"Pz" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1/garbledradio)
 "Qk" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/metal{
@@ -633,11 +599,6 @@
 	dir = 5
 	},
 /area/lv624/ground/caves/central2)
-"XI" = (
-/obj/item/ammo_casing/shell,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/wood,
-/area/lv624/ground/caves/central2)
 "Yt" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/central1/garbledradio)
@@ -680,7 +641,7 @@ vk
 iN
 iN
 iN
-tO
+iN
 iN
 iN
 "}
@@ -1377,7 +1338,7 @@ uV
 MN
 MN
 MN
-XI
+Gm
 MN
 uV
 vk
@@ -1409,7 +1370,7 @@ Yv
 Hy
 Yv
 uV
-Bh
+MN
 Gm
 MN
 MN
@@ -1515,7 +1476,7 @@ Yv
 Yv
 uV
 MN
-nq
+Kj
 Gm
 MN
 MN
@@ -1552,7 +1513,7 @@ uV
 MN
 IR
 MN
-Bh
+MN
 xm
 uV
 vk
@@ -1744,7 +1705,7 @@ vk
 uV
 eH
 MN
-Bh
+MN
 bS
 kK
 uV
@@ -1759,10 +1720,10 @@ Yv
 Hy
 Yv
 jn
-Bb
+DG
 MN
 MN
-Bh
+MN
 uV
 uV
 vk
@@ -1883,10 +1844,10 @@ vk
 vk
 uV
 qI
-nW
+NO
 MN
 eE
-Bh
+MN
 eE
 ti
 jn
@@ -2023,7 +1984,7 @@ vk
 uV
 Hl
 vb
-Bh
+MN
 MN
 bS
 MN
@@ -2061,7 +2022,7 @@ MN
 MN
 NO
 lu
-Bh
+MN
 Gm
 MN
 uV
@@ -2127,7 +2088,7 @@ vk
 vk
 uV
 MN
-nW
+NO
 xD
 xI
 qD
@@ -2237,7 +2198,7 @@ Kj
 fA
 MN
 MN
-iT
+eE
 MN
 uV
 Yv
@@ -2269,7 +2230,7 @@ uV
 MN
 NO
 MN
-nq
+Kj
 uy
 uy
 MN
@@ -2443,7 +2404,7 @@ vk
 vk
 uV
 jl
-Bh
+MN
 Qk
 uV
 vN
@@ -3438,7 +3399,7 @@ au
 ZQ
 au
 QO
-hh
+au
 vk
 vk
 vk
@@ -3446,6 +3407,6 @@ Tp
 vk
 In
 In
-Pz
+In
 In
 "}

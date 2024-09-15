@@ -527,7 +527,7 @@
 #define COMSIG_RANGED_ACCURACY_MOD_CHANGED "ranged_accuracy_mod_changed"
 #define COMSIG_RANGED_SCATTER_MOD_CHANGED "ranged_scatter_mod_changed"
 #define COMSIG_MOB_SKILLS_CHANGED "mob_skills_changed"
-#define COMSIG_MOB_PAINLOSS_CHANGED "mob_painloss_changed"
+#define COMSIG_MOB_SHOCK_STAGE_CHANGED "mob_shock_stage_changed"
 /// from mob/get_status_tab_items(): (list/items)
 #define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
 

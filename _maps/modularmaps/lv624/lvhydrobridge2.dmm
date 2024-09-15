@@ -25,13 +25,6 @@
 	},
 /turf/open/floor,
 /area/lv624/ground/river2)
-"h" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 4
-	},
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/river2)
 "i" = (
 /obj/structure/grille/smoothing,
 /turf/open/floor/plating,
@@ -194,7 +187,7 @@ b
 b
 b
 b
-h
+b
 b
 b
 b

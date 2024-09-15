@@ -34,13 +34,6 @@
 	dir = 8
 	},
 /area/lv624/ground/sand9)
-"cM" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 1
-	},
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/sand9)
 "cT" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -88,12 +81,6 @@
 /area/lv624/lazarus/sandtemple/garbledradio)
 "lD" = (
 /turf/open/ground/grass,
-/area/lv624/ground/jungle8)
-"oc" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirtgrassborder/corner{
-	dir = 4
-	},
 /area/lv624/ground/jungle8)
 "oo" = (
 /obj/structure/flora/ausbushes/palebush,
@@ -335,7 +322,6 @@
 /area/lv624/lazarus/sandtemple/garbledradio)
 "EJ" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "ES" = (
@@ -686,7 +672,7 @@ HW
 HW
 AP
 AP
-fi
+AP
 AP
 AP
 Hq
@@ -775,7 +761,7 @@ YR
 YR
 "}
 (5,1,1) = {"
-uN
+aw
 aw
 iB
 sb
@@ -901,7 +887,7 @@ ZP
 Bo
 Mb
 um
-fi
+AP
 YR
 "}
 (10,1,1) = {"
@@ -945,9 +931,9 @@ wH
 Gw
 Io
 VY
-fi
 AP
-cM
+AP
+Hq
 BP
 ZE
 SR
@@ -1213,7 +1199,7 @@ YR
 YR
 YR
 zE
-oc
+Vj
 yu
 "}
 (22,1,1) = {"

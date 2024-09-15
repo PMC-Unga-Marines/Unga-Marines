@@ -699,6 +699,12 @@
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
+/datum/supply_packs/weapons/br64_ap
+	name = "BR-64 armor piercing magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/br64/ap)
+	cost = 25 //36 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/weapons/smg25_ap
 	name = "SMG-25 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/smg/m25/ap)

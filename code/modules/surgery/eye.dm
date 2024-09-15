@@ -1,3 +1,8 @@
+//Procedures in this file: Eye mending surgery
+//////////////////////////////////////////////////////////////////
+//						EYE SURGERY							//
+//////////////////////////////////////////////////////////////////
+
 /datum/surgery_step/eye
 	priority = 2
 	can_infect = 1
@@ -5,16 +10,16 @@
 
 /datum/surgery_step/eye/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(!affected || (affected.limb_status & LIMB_DESTROYED))
-		return FALSE
+		return 0
 
 	if(target_zone != "eyes")
-		return FALSE
+		return 0
 
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	if(!our_eyes)
-		return FALSE
-	if(our_eyes.eye_surgery_stage == eye_step)
-		return TRUE
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
+	if(!E)
+		return 0
+	if(E.eye_surgery_stage == eye_step)
+		return 1
 
 /datum/surgery_step/eye/cut_open
 	allowed_tools = list(
@@ -31,24 +36,24 @@
 	user.visible_message(span_notice("[user] starts to separate the cornea on [target]'s eyes with \the [tool]."), \
 	span_notice("You start to separate the cornea on [target]'s eyes with \the [tool]."))
 	target.balloon_alert_to_viewers("Separating...")
-	return ..()
+	..()
 
 /datum/surgery_step/eye/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] has separated the cornea on [target]'s eyes with \the [tool].") , \
 	span_notice("You have separated the cornea on [target]'s eyes with \the [tool]."),)
 	target.balloon_alert_to_viewers("Success")
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.eye_surgery_stage = 1
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
+	E.eye_surgery_stage = 1
 	target.disabilities |= NEARSIGHTED // code\#define\mobs.dm
 	return ..()
 
 /datum/surgery_step/eye/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
 	user.visible_message(span_warning("[user]'s hand slips, slicing [target]'s eyes with \the [tool]!") , \
 	span_warning("Your hand slips, slicing [target]'s eyes with \the [tool]!") )
 	target.balloon_alert_to_viewers("Slipped!")
 	affected.createwound(CUT, 10)
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.take_damage(5, 0)
+	E.take_damage(5, 0)
 	target.updatehealth()
 	affected.update_wounds()
 
@@ -66,21 +71,21 @@
 	user.visible_message(span_notice("[user] starts lifting the cornea from [target]'s eyes with \the [tool]."), \
 	span_notice("You start lifting the cornea from [target]'s eyes with \the [tool]."))
 	target.balloon_alert_to_viewers("Lifting...")
-	return ..()
+	..()
 
 /datum/surgery_step/eye/lift_eyes/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] has lifted the cornea from [target]'s eyes with \the [tool].") , \
 	span_notice("You have lifted the cornea from [target]'s eyes with \the [tool].") )
 	target.balloon_alert_to_viewers("Success")
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.eye_surgery_stage = 2
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
+	E.eye_surgery_stage = 2
 	return ..()
 
 /datum/surgery_step/eye/lift_eyes/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
+	var/datum/internal_organ/eyes/eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
 	user.visible_message(span_warning("[user]'s hand slips, damaging [target]'s eyes with \the [tool]!"),
 	span_warning("Your hand slips, damaging [target]'s eyes with \the [tool]!"))
 	target.balloon_alert_to_viewers("Slipped!")
-	var/datum/internal_organ/eyes/eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
 	eyes.take_damage(5, 0)
 	target.apply_damage(10, BRUTE, affected, updating_health = TRUE)
 
@@ -99,22 +104,22 @@
 	user.visible_message(span_notice("[user] starts mending the nerves and lenses in [target]'s eyes with \the [tool]."), \
 	span_notice("You start mending the nerves and lenses in [target]'s eyes with the [tool]."))
 	target.balloon_alert_to_viewers("Mending...")
-	return ..()
+	..()
 
 /datum/surgery_step/eye/mend_eyes/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] mends the nerves and lenses in [target]'s with \the [tool].") ,	\
 	span_notice("You mend the nerves and lenses in [target]'s with \the [tool]."))
 	target.balloon_alert_to_viewers("Success")
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.eye_surgery_stage = 3
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
+	E.eye_surgery_stage = 3
 	return ..()
 
 /datum/surgery_step/eye/mend_eyes/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
 	user.visible_message(span_warning("[user]'s hand slips, stabbing \the [tool] into [target]'s eye!"),
 	span_warning("Your hand slips, stabbing \the [tool] into [target]'s eye!"))
 	target.balloon_alert_to_viewers("Slipped!")
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.take_damage(5, 0)
+	E.take_damage(5, 0)
 	target.apply_damage(10, BRUTE, affected, 0, TRUE, updating_health = TRUE)
 
 /datum/surgery_step/eye/cauterize
@@ -140,15 +145,15 @@
 	target.balloon_alert_to_viewers("Success")
 	target.disabilities &= ~NEARSIGHTED
 	target.disabilities &= ~BLIND
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.heal_organ_damage(200) // TODO: add max organ damage cap
-	our_eyes.eye_surgery_stage = 0
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
+	E.damage = 0
+	E.eye_surgery_stage = 0
 	return ..()
 
 /datum/surgery_step/eye/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
+	var/datum/internal_organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
 	user.visible_message(span_warning("[user]'s hand slips, searing [target]'s eyes with \the [tool]!"),
 	span_warning("Your hand slips, searing [target]'s eyes with \the [tool]!"))
 	target.balloon_alert_to_viewers("Slipped!")
-	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	our_eyes.take_damage(5, 0)
+	E.take_damage(5, 0)
 	target.apply_damage(5, BURN, affected, updating_health = TRUE)

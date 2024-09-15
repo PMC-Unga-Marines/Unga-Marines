@@ -3,11 +3,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
-"aN" = (
-/obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central1)
 "aP" = (
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
@@ -64,10 +59,6 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
-"na" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "oz" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/central1)
@@ -256,10 +247,6 @@
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/caves/central2)
-"XR" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1)
 "XU" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -296,7 +283,7 @@ Rv
 gy
 gy
 gy
-na
+gy
 gy
 gy
 "}
@@ -1873,7 +1860,7 @@ NP
 zA
 NP
 NP
-qE
+NP
 "}
 (47,1,1) = {"
 Rv
@@ -3045,23 +3032,23 @@ Rv
 Rv
 Rv
 HI
-aN
+XU
 HI
 HI
 HI
 HI
 HI
-aK
+HI
 HI
 et
-aK
+HI
 Rv
 Rv
 Rv
 uU
 Rv
 sG
-XR
+sG
 sG
 sG
 "}

@@ -496,7 +496,7 @@
 		var/catch_chance = 50
 		if(M.dir == REVERSE_DIR(dir))
 			catch_chance += 20
-		catch_chance -= M.painloss * 0.3
+		catch_chance -= M.shock_stage * 0.3
 		if(M.get_inactive_held_item())
 			catch_chance  -= 25
 

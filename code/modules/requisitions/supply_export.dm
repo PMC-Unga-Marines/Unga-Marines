@@ -18,8 +18,6 @@
 	return 0
 
 /mob/living/carbon/human/get_export_value()
-	if(!job)
-		return 0
 	switch(job.job_category)
 		if(JOB_CAT_CIVILIAN)
 			. = 10
@@ -31,7 +29,8 @@
 			. = 800
 		if(JOB_CAT_COMMAND)
 			. = 1000
-	return 0
+
+	return
 
 /mob/living/carbon/human/species/yautja/get_export_value()
 	return 3000

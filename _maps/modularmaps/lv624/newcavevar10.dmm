@@ -190,10 +190,6 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
-"hl" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "sb" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -236,10 +232,6 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
-"QR" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1)
 
 (1,1,1) = {"
 aT
@@ -271,7 +263,7 @@ aT
 aT
 aa
 aa
-hl
+aa
 aa
 aa
 aa
@@ -3020,7 +3012,7 @@ aT
 aT
 aT
 aT
-Ft
+aI
 aH
 aI
 aI
@@ -3037,7 +3029,7 @@ aT
 PA
 aT
 az
-QR
+az
 az
 az
 "}

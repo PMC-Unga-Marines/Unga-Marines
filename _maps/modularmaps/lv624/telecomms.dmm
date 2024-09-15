@@ -8,7 +8,6 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -84,7 +83,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -95,7 +93,6 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -129,7 +126,6 @@
 /area/lv624/lazarus/comms)
 "q" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -197,7 +193,6 @@
 /area/lv624/lazarus/comms)
 "A" = (
 /obj/effect/landmark/excavation_site_spawner,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -316,7 +311,7 @@
 	},
 /area/lv624/lazarus/comms)
 "U" = (
-/obj/effect/landmark/weed_node,
+/obj/structure/table,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -405,7 +400,7 @@ a
 (4,1,1) = {"
 a
 B
-c
+U
 x
 x
 J
@@ -413,7 +408,7 @@ x
 x
 x
 x
-U
+x
 x
 Q
 B
@@ -543,14 +538,14 @@ a
 B
 n
 x
-U
+x
 H
 x
 L
 x
 x
 x
-U
+x
 c
 B
 a

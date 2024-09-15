@@ -289,10 +289,6 @@
 /obj/item/tool/pen/red,
 /turf/open/floor/dark2,
 /area/lv624/ground/caves/central2)
-"xJ" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/central3)
 "yj" = (
 /turf/open/floor/tile/dark,
 /area/lv624/ground/caves/central1)
@@ -729,10 +725,6 @@
 /obj/machinery/photocopier,
 /turf/open/floor/dark2,
 /area/lv624/ground/caves/central2)
-"Yo" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/lv624/ground/caves/central1/garbledradio)
 "YB" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/tritium{
@@ -796,7 +788,7 @@ aa
 aa
 zB
 zB
-xJ
+zB
 zB
 zB
 zB
@@ -814,7 +806,7 @@ aa
 aa
 lx
 VH
-MN
+lx
 lx
 lx
 aa
@@ -2493,7 +2485,7 @@ Vc
 Vc
 Vc
 Vc
-WN
+Vc
 rS
 wD
 FT
@@ -3511,7 +3503,7 @@ aa
 aa
 XE
 OX
-yA
+XE
 XE
 XE
 yA
@@ -3555,14 +3547,14 @@ XE
 XE
 XE
 iV
-yA
+XE
 aa
 aa
 aa
 aI
 aa
 Ui
-Yo
+Ui
 Ui
 Ui
 "}

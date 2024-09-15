@@ -165,7 +165,7 @@
 	L.apply_damage(0.2*effect_str, TOX)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.set_painloss(min(C.painloss - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
+		C.setShock_Stage(min(C.shock_stage - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
 	return ..()
 
 /datum/reagent/medicine/oxycodone/overdose_process(mob/living/L, metabolism)
@@ -200,7 +200,7 @@
 	L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.set_painloss(min(C.painloss - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
+		C.setShock_Stage(min(C.shock_stage - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
 	return ..()
 
 /datum/reagent/medicine/hydrocodone/overdose_process(mob/living/L, metabolism)
@@ -603,7 +603,7 @@
 	L.adjustToxLoss(3.75*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.set_painloss(min(C.painloss - volume*effect_str, 150)) //will pull a target out of deep paincrit instantly, if he's in it
+		C.setShock_Stage(min(C.shock_stage - volume*effect_str, 150)) //will pull a target out of deep paincrit instantly, if he's in it
 	return ..()
 
 /datum/reagent/medicine/neuraline/overdose_process(mob/living/L, metabolism)
@@ -678,7 +678,7 @@
 	L.adjustCloneLoss(0.7*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.set_painloss(min(C.painloss - 5*effect_str, 150)) //removes a target from deep paincrit instantly
+		C.setShock_Stage(min(C.shock_stage - 5*effect_str, 150)) //removes a target from deep paincrit instantly
 	return ..()
 
 /datum/reagent/medicine/russian_red/overdose_process(mob/living/L, metabolism)

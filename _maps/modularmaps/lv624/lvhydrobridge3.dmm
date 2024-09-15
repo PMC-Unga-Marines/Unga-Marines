@@ -52,10 +52,6 @@
 /obj/effect/decal/cleanable/blood/gibs/xeno,
 /turf/open/floor,
 /area/lv624/ground/river2)
-"s" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/dmg1,
-/area/lv624/ground/river2)
 "t" = (
 /obj/structure/fence,
 /obj/structure/disposalpipe/segment{
@@ -235,7 +231,7 @@ k
 N
 n
 J
-s
+J
 n
 n
 n

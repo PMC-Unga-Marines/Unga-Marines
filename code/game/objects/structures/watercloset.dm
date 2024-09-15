@@ -90,7 +90,8 @@
 
 			user.visible_message(span_danger("[user] gives [C] a swirlie!"), span_notice("You give [C] a swirlie!"), "You hear a toilet flushing.")
 			log_combat(user, C, "given a swirlie")
-			C.adjustOxyLoss(5)
+			if(!C.internal)
+				C.adjustOxyLoss(5)
 			swirlie = null
 		else
 			user.visible_message(span_danger("[user] slams [C] into the [src]!"), span_notice("You slam [C] into the [src]!"))

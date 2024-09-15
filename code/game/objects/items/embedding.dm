@@ -217,7 +217,7 @@
 
 
 /mob/living/carbon/human/handle_yank_out_damage(obj/item/yanked, mob/living/carbon/human/user)
-	adjust_painloss(yanked.embedding.embedded_unsafe_removal_dmg_multiplier * yanked.embedding.embed_limb_damage)
+	adjustShock_Stage(yanked.embedding.embedded_unsafe_removal_dmg_multiplier * yanked.embedding.embed_limb_damage)
 	var/datum/limb/affected_limb = embedded_objects[yanked]
 	affected_limb.take_damage_limb(yanked.embedding.embedded_unsafe_removal_dmg_multiplier * yanked.embedding.embed_limb_damage, 0, FALSE, TRUE)
 	UPDATEHEALTH(src)
