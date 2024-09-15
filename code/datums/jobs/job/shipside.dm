@@ -738,8 +738,8 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	skills_type = /datum/skills/st
 	display_order = JOB_DISPLAY_ORDER_SHIP_TECH
 	outfit = /datum/outfit/job/requisitions/tech
-	exp_type = EXP_TYPE_MARINES
-	exp_requirements = XP_REQ_NOVICE
+	exp_type = null
+	exp_requirements = null
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -896,8 +896,8 @@ A happy ship is a well-functioning ship."})
 	skills_type = /datum/skills/cmo
 	display_order = JOB_DISPLAY_ORDER_CHIEF_MEDICAL_OFFICER
 	outfit = /datum/outfit/job/medical/professor
-	exp_type = EXP_TYPE_MEDICAL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_type = null
+	exp_requirements = null
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
