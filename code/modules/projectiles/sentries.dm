@@ -388,12 +388,21 @@
 	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(src, range))
 		potential_targets += nearby_illusion
 	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
-		if(!length(nearby_mech.occupants))
+		var/list/driver_list = nearby_mech.return_drivers()
+		if(!length(driver_list))
 			continue
-		var/mob/living/carbon/human/human_occupant = nearby_mech.occupants[1]
-		if(!istype(human_occupant) || (human_occupant.wear_id?.iff_signal & iff_signal))
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.wear_id?.iff_signal & iff_signal)
 			continue
 		potential_targets += nearby_mech
+	for(var/obj/vehicle/sealed/armored/nearby_tank AS in cheap_get_tanks_near(src, range))
+		var/list/driver_list = nearby_tank.return_drivers()
+		if(!length(driver_list))
+			continue
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.wear_id?.iff_signal & iff_signal)
+			continue
+		potential_targets += nearby_tank
 	return length(potential_targets)
 
 ///Checks the range and the path of the target currently being shot at to see if it is eligable for being shot at again. If not it will stop the firing.
@@ -417,14 +426,13 @@
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	var/atom/target = get_target()
-	update_icon()
-	soundloop.start()
 	if(!target)
 		gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
 		return
 	sentry_alert(SENTRY_ALERT_HOSTILE, target)
+	update_icon()
 	if(target != gun.target)
 		gun.stop_fire()
 		firing = FALSE
@@ -478,14 +486,19 @@
 			return FALSE
 
 		for(var/atom/movable/AM AS in T)
+			if(AM == target)
+				continue
 			if(AM.opacity)
 				return FALSE
 			if(!AM.density)
 				continue
 			if(ismob(AM))
 				continue
-			if(!(AM.allow_pass_flags & (gun.ammo_datum_type::flags_ammo_behavior & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE) && !(AM.type in ignored_terrains))) //todo:accurately populate ignored_terrains
-				return FALSE
+			if(AM.type in ignored_terrains) //todo:accurately populate ignored_terrains
+				continue
+			if(AM.allow_pass_flags & (gun.ammo_datum_type::flags_ammo_behavior  & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE))
+				continue
+			return FALSE
 
 	return TRUE
 
