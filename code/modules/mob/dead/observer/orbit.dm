@@ -8,6 +8,10 @@
 		qdel(src)
 	owner = new_owner
 
+/datum/orbit_menu/Destroy(force, ...)
+	owner = null
+	return ..()
+
 /datum/orbit_menu/ui_state(mob/user)
 	return GLOB.observer_state
 
@@ -57,12 +61,10 @@
 	var/list/som = list()
 	var/list/survivors = list()
 	var/list/xenos = list()
-//RUTGMC EDIT
 	var/list/yautja = list()
-//RUTGMC EDIT
 	var/list/dead = list()
 	var/list/ghosts = list()
-	var/list/valhalla = list() // RUTGMC ADDITION
+	var/list/valhalla = list()
 	var/list/misc = list()
 	var/list/npcs = list()
 
