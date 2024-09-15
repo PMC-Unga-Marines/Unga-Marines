@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Операция на мозгу и глазах теперь нормально обновляют статус органов."

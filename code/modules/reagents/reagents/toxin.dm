@@ -709,7 +709,7 @@
 			L.reagent_pain_modifier -= PAIN_REDUCTION_VERY_HEAVY
 			L.jitter(6)
 		if(31 to INFINITY)
-			L.reagent_pain_modifier -= PAIN_REDUCTION_VERY_HEAVY * 1.5 //bad times ahead
+			L.reagent_pain_modifier -= PAIN_REDUCTION_SUPER_HEAVY
 			L.jitter(8)
 
 	if(current_cycle > 21)

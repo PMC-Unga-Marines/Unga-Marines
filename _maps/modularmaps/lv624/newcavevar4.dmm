@@ -120,6 +120,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"Gc" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central3)
 "GO" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/tritium{
@@ -189,6 +193,10 @@
 "TN" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/rock)
+"Ut" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor,
+/area/lv624/ground/caves/central1/garbledradio)
 "UY" = (
 /turf/open/floor,
 /area/lv624/ground/caves/central1/garbledradio)
@@ -238,7 +246,7 @@ KW
 KW
 Nd
 Nd
-Nd
+Gc
 Nd
 Nd
 Nd
@@ -2997,14 +3005,14 @@ mI
 Iz
 mI
 fo
-mI
+Iz
 KW
 KW
 KW
 Za
 KW
 UY
-UY
+Ut
 UY
 UY
 "}
