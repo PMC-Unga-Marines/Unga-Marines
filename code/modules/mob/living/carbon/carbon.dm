@@ -6,7 +6,6 @@
 	if(afk_status == MOB_RECENTLY_DISCONNECTED)
 		set_afk_status(MOB_DISCONNECTED)
 	QDEL_NULL(back)
-	QDEL_NULL(internal)
 	QDEL_NULL(handcuffed)
 	. = ..()
 	species = null
