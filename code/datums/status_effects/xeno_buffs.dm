@@ -974,7 +974,7 @@
 /datum/status_effect/upgrade_regeneration/tick()
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
-		owner.heal_wounds(regen_buff_per_chamber * chamber_scaling, TRUE)
+		buff_owner.heal_wounds(regen_buff_per_chamber * chamber_scaling, TRUE)
 	return ..()
 
 // ***************************************
@@ -1032,18 +1032,18 @@
 	buff_owner = owner
 	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
 	chamber_scaling = length(buff_owner.hive.spur_chambers)
-	add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
+	buff_owner.add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
 	return TRUE
 
 /datum/status_effect/upgrade_celerity/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
-	remove_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF)
+	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF)
 	return ..()
 
 /datum/status_effect/upgrade_celerity/proc/update_buff()
 	SIGNAL_HANDLER
 	chamber_scaling = buff_owner.hive.spur_chambers
-	add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
+	buff_owner.add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
 
 // ***************************************
 // ***************************************
@@ -1068,7 +1068,7 @@
 	return ..()
 
 /datum/status_effect/upgrade_adrenaline/tick()
-	if(HAS_TRAIT(X,TRAIT_NOPLASMAREGEN))
+	if(HAS_TRAIT(buff_owner, TRAIT_NOPLASMAREGEN))
 		return
 	buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05))
 
@@ -1100,10 +1100,10 @@
 	SIGNAL_HANDLER
 	chamber_scaling = buff_owner.hive.spur_chambers
 
-/datum/action/ability/xeno_action/stealth/proc/on_obj_attack(datum/source, obj/attacked)
+/datum/status_effect/upgrade_crush/proc/on_obj_attack(datum/source, obj/attacked)
 	SIGNAL_HANDLER
 	if(attacked.resistance_flags & XENO_DAMAGEABLE)
-		attecked.take_damage(buff_owner.xeno_caste.melee_damage, armor_penetration = (penetration_buff_per_chamber * chamber_scaling))
+		attacked.take_damage(buff_owner.xeno_caste.melee_damage, armour_penetration = (penetration_buff_per_chamber * chamber_scaling))
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Utility
