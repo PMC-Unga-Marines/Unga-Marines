@@ -555,8 +555,10 @@
 		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/icc/mixed/PopulateContents()
-	for(var/i in 1 to 14)
-		new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_magazine/handful/heavy_buckshot(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_magazine/handful/barrikada(src)
 
 /obj/item/storage/belt/shotgun/martini
 	name = "martini henry ammo belt"
