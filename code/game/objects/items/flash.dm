@@ -137,7 +137,7 @@
 				if(M.flash_act())
 					M.Paralyze(20 SECONDS)
 					M.visible_message(span_disarm("[M] is blinded by the flash!"))
-	..()
+	return ..()
 
 /obj/item/flash/synthetic
 	name = "synthetic flash"
@@ -145,14 +145,14 @@
 	icon_state = "sflash"
 
 /obj/item/flash/synthetic/attack(mob/living/M as mob, mob/user as mob)
-	..()
+	. = ..()
 	if(!broken)
 		broken = 1
 		to_chat(user, span_warning("The bulb has burnt out!"))
 		icon_state = "flashburnt"
 
 /obj/item/flash/synthetic/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
-	..()
+	. = ..()
 	if(!broken)
 		broken = 1
 		to_chat(user, span_warning("The bulb has burnt out!"))

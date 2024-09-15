@@ -233,7 +233,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			wearer.SL_directional = null
 			if(wearer.assigned_squad)
 				SSdirection.stop_tracking(wearer.assigned_squad.tracking_id, wearer)
-		wearer = null
+	wearer = null
 	squadhud = null
 	headset_hud_on = FALSE
 	sl_direction = null

@@ -235,21 +235,18 @@
 	assignment = CAPTAIN
 	access = ALL_MARINE_ACCESS
 
-
 /obj/item/card/id/equipped(mob/living/carbon/human/H, slot)
 	if(istype(H))
 		H.update_inv_head() //updating marine helmet squad coloring
 		H.update_inv_wear_suit()
-	..()
+	return ..()
 
 /obj/item/card/id/dropped(mob/user)
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		H.update_inv_head() //Don't do a full update yet
 		H.update_inv_wear_suit()
-	..()
-
-
+	return ..()
 
 /obj/item/card/id/dogtag
 	name = "dog tag"
@@ -257,9 +254,7 @@
 	icon_state = "dogtag"
 	item_state = "dogtag"
 	iff_signal = TGMC_LOYALIST_IFF
-	marine_points = list(
-		CAT_MARINE = DEFAULT_TOTAL_BUY_POINTS,
-	)
+	marine_points = list(CAT_MARINE = DEFAULT_TOTAL_BUY_POINTS)
 	var/dogtag_taken = FALSE
 
 /obj/item/card/id/dogtag/update_icon_state()

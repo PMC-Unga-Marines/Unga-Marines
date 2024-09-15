@@ -197,5 +197,6 @@
 
 /obj/machinery/iv_drip/Destroy()
 	attached = null
+	beaker = null
 	update_beam()
 	. = ..()

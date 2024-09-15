@@ -72,6 +72,7 @@
 /obj/machinery/autodoc/Destroy()
 	forceeject = TRUE
 	INVOKE_ASYNC(src, PROC_REF(do_eject))
+	occupant = null
 	if(connected)
 		connected.connected = null
 		connected = null

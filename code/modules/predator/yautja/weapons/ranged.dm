@@ -333,8 +333,6 @@
 	name = "plasma caster"
 	desc = "A powerful, shoulder-mounted energy weapon."
 	icon_state = "plasma_ebony"
-	var/initial_icon_state = "plasma"
-	var/base_item_state = "plasma_wear"
 	item_state_slots = list(
 		slot_back_str = "plasma_wear_off",
 		slot_s_store_str = "plasma_wear_off"
@@ -355,11 +353,22 @@
 	scatter_unwielded = 4
 	damage_mult = 1
 
-	var/obj/item/clothing/gloves/yautja/hunter/source = null
 	charge_cost = 100 //How much energy is needed to fire.
+	mode_list = list(
+		"low power stun bolts" = /datum/yautja_energy_weapon_modes/stun_bolts,
+		"high power stun bolts" = /datum/yautja_energy_weapon_modes/stun_heavy_bolts,
+		"plasma immobilizers" = /datum/yautja_energy_weapon_modes/stun_spheres,
+		"plasma bolts" = /datum/yautja_energy_weapon_modes/lethal_bolts,
+		"plasma spheres" = /datum/yautja_energy_weapon_modes/lethal_spheres
+	)
+	var/initial_icon_state = "plasma"
+	var/base_item_state = "plasma_wear"
+	var/obj/item/clothing/gloves/yautja/hunter/source = null
 	var/last_time_targeted = 0
-	var/mode = "stun"//fire mode (stun/lethal)
-	var/strength = "low power stun bolts"//what it's shooting
+	///fire mode (stun/lethal)
+	var/mode = "stun"
+	///what it's shooting
+	var/strength = "low power stun bolts"
 
 	var/static/list/modes = list(
 	PRED_MODE_STUN = image(icon = 'icons/mob/radial.dmi', icon_state = "pred_mode_stun"),
@@ -368,14 +377,6 @@
 		"stun" = list("low power stun bolts", "high power stun bolts", "plasma immobilizers"),
 		"lethal" = list("plasma bolts", "plasma spheres")
 	)
-	mode_list = list(
-		"low power stun bolts" = /datum/yautja_energy_weapon_modes/stun_bolts,
-		"high power stun bolts" = /datum/yautja_energy_weapon_modes/stun_heavy_bolts,
-		"plasma immobilizers" = /datum/yautja_energy_weapon_modes/stun_spheres,
-		"plasma bolts" = /datum/yautja_energy_weapon_modes/lethal_bolts,
-		"plasma spheres" = /datum/yautja_energy_weapon_modes/lethal_spheres
-	)
-
 	var/mob/living/carbon/laser_target = null
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/Initialize(mapload, spawn_empty, caster_material = "ebony")
@@ -390,8 +391,9 @@
 	RegisterSignal(src, COMSIG_ITEM_MIDDLECLICKON, PROC_REF(target_action))
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/Destroy()
-	. = ..()
+	laser_off()
 	source = null
+	return ..()
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/get_display_ammo_count()
 	return round(source.charge / source.charge_max * 100, 1)

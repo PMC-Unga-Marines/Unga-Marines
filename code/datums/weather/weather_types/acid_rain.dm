@@ -56,7 +56,6 @@
 	L.clean_mob()
 	if(L.fire_stacks > -20)
 		L.fire_stacks = max(-20, L.fire_stacks - 1)
-// RU TGMC EDIT
 	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
@@ -65,7 +64,7 @@
 		if(gloves.cloaked)
 			gloves.decloak(L)
 			to_chat(L, span_highdanger("<i>Rain interferes with your cloaking device!</i>"))
-// RU TGMC EDIT
+
 /datum/weather/acid_rain/harmless
 	target_trait = ZTRAIT_RAIN
 
@@ -98,7 +97,6 @@
 			"As you move through the heavy rain, your clothes become completely waterlogged!",
 			)
 			to_chat(L, span_warning(wetmessage))
-// RU TGMC EDIT
 	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
@@ -107,4 +105,3 @@
 		if(gloves.cloaked)
 			gloves.decloak(L)
 			to_chat(L, span_highdanger("<i>Rain interferes with your cloaking device!</i>"))
-// RU TGMC EDIT

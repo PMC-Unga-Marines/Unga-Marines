@@ -133,6 +133,9 @@
 	///What this tank is replaced by when broken
 	var/obj/structure/broken_state = /obj/structure/xenoautopsy/tank/escaped
 
+/obj/structure/xenoautopsy/tank/Destroy()
+	QDEL_NULL(occupant)
+	return ..()
 
 /obj/structure/xenoautopsy/tank/deconstruct(disassembled = TRUE)
 	if(!broken_state)
@@ -174,6 +177,10 @@
 	desc = "There is something spider-like inside..."
 	occupant = /obj/item/clothing/mask/facehugger
 	var/mob/living/carbon/xenomorph/facehugger/mob_occupant =  /mob/living/carbon/xenomorph/facehugger/ai
+
+/obj/structure/xenoautopsy/tank/hugger/Destroy()
+	QDEL_NULL(mob_occupant)
+	return ..()
 
 /obj/structure/xenoautopsy/tank/hugger/release_occupant()
 	if(mob_occupant)

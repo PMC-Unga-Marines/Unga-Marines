@@ -513,6 +513,8 @@
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/Destroy()
 	camo_off()
+	wearer = null
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/dropped(mob/user)

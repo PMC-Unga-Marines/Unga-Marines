@@ -97,6 +97,9 @@
 	UnregisterSignal(link_target, list(COMSIG_MOB_DEATH, COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED))
 	REMOVE_TRAIT(link_owner, TRAIT_ESSENCE_LINKED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(link_target, TRAIT_ESSENCE_LINKED, TRAIT_STATUS_EFFECT(id))
+	link_owner = null
+	link_target = null
+	essence_link_action = null
 	return ..()
 
 /datum/status_effect/stacking/essence_link/tick()
@@ -221,6 +224,7 @@
 
 /datum/status_effect/salve_regen/on_remove()
 	buff_owner.balloon_alert(buff_owner, "Salve regeneration ended")
+	buff_owner = null
 	return ..()
 
 /datum/status_effect/salve_regen/tick()
@@ -291,6 +295,10 @@
 	UnregisterSignal(buffed_xeno, COMSIG_MOB_DEATH)
 	UnregisterSignal(buffing_xeno, COMSIG_MOB_DEATH)
 	toggle_buff(FALSE)
+	buffing_xeno = null
+	buffed_xeno = null
+	essence_link_action = null
+	enhancement_action = null
 	return ..()
 
 /datum/status_effect/drone_enhancement/tick()
@@ -445,6 +453,7 @@
 	owner.remove_filter(id)
 	target_mob.remove_filter(id)
 	to_chat(target_mob, span_xenonotice("[owner] has unlinked from you."))
+	target_mob = null
 	SEND_SIGNAL(src, COMSIG_XENO_PSYCHIC_LINK_REMOVED)
 
 ///Handles the link breaking due to dying
@@ -666,6 +675,7 @@
 
 /datum/status_effect/frenzy_screech/on_remove()
 	buff_owner.xeno_melee_damage_modifier -= modifier
+	buff_owner = null
 	owner.remove_filter("frenzy_screech_outline")
 	return ..()
 

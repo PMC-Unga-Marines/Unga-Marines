@@ -13,6 +13,10 @@
 	pixel_y = ( (dir & 3) ? (dir == 1 ? -24 : 24) : 0 )
 	update_icon()
 
+/obj/machinery/practice/medical/surgery/Destroy()
+	humanspawned = null
+	return ..()
+
 /obj/machinery/practice/medical/surgery/attack_hand(mob/living/user)
 	if(user.a_intent == INTENT_HARM)
 		to_chat(user, span_warning("You are unable to damage the button."))

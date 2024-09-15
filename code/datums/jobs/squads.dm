@@ -162,6 +162,8 @@
 	GLOB.custom_squad_radio_freqs -= "[radio_freq]"
 	SSjob.active_squads[faction] -= src
 	SSjob.squads -= id
+	squad_leader = null
+	overwatch_officer = null
 	return ..()
 
 

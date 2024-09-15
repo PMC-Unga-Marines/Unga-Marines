@@ -27,7 +27,6 @@
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
 	)
 	AddElement(/datum/element/connect_loc, connections)
-
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/optable/LateInitialize()
@@ -36,6 +35,12 @@
 		if(computer)
 			computer.table = src
 			break
+
+/obj/machinery/optable/Destroy()
+	victim = null
+	anes_tank =  null
+	computer = null
+	return ..()
 
 /obj/machinery/optable/update_overlays()
 	. = ..()

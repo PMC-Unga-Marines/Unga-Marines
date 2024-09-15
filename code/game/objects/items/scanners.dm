@@ -60,7 +60,6 @@ REAGENT SCANNER
 							O.invisibility = INVISIBILITY_MAXIMUM
 							O.alpha = 255
 
-
 /obj/item/healthanalyzer
 	name = "\improper HF2 health analyzer"
 	icon = 'icons/obj/device.dmi'
@@ -101,6 +100,11 @@ REAGENT SCANNER
 /obj/item/healthanalyzer/attack_self(mob/user)
 	. = ..()
 	attack(user, user)
+
+/obj/item/healthanalyzer/Destroy()
+	patient = null
+	current_user = null
+	return ..()
 
 ///Health scans a target. M is the thing being scanned, user is the person doing the scanning, show_patient will show the UI to the scanee when TRUE.
 /obj/item/healthanalyzer/proc/analyze_vitals(mob/living/carbon/M, mob/living/user, show_patient)

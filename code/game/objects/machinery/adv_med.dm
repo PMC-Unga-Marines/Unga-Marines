@@ -88,6 +88,7 @@
 /obj/machinery/bodyscanner/Destroy()
 	locked = FALSE
 	go_out()
+	occupant = null
 	return ..()
 
 /obj/machinery/bodyscanner/proc/go_out()

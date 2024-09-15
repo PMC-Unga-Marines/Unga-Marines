@@ -96,9 +96,6 @@
 			qdel(O)
 	return TRUE
 
-
-
-
 /obj/item/riding_offhand
 	name = "offhand"
 	icon = 'icons/obj/items/weapons.dmi'
@@ -125,6 +122,8 @@
 	if(selfdeleting)
 		if(rider in AM.buckled_mobs)
 			AM.unbuckle_mob(rider)
+	rider = null
+	parent = null
 	return ..()
 
 /obj/item/riding_offhand/on_thrown(mob/living/carbon/user, atom/target)

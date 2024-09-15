@@ -809,6 +809,7 @@
 	if(motion_timer)
 		deltimer(motion_timer)
 		motion_timer = null
+	operator = null
 
 //вкл-выкл модуль
 /obj/item/armor_module/module/motion_detector/activate(mob/living/user)

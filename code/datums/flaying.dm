@@ -13,6 +13,11 @@
 	victim = target
 	RegisterSignal(victim, COMSIG_HUMAN_FLAY_ATTEMPT, PROC_REF(begin_flaying))
 
+/datum/flaying_datum/Destroy(force, ...)
+	victim = null
+	current_flayer = null
+	return ..()
+
 ///Loops until interrupted or done.
 /datum/flaying_datum/proc/begin_flaying(mob/living/carbon/human/target, mob/living/carbon/human/user, obj/item/tool, ongoing_attempt)
 	SIGNAL_HANDLER
@@ -91,8 +96,6 @@
 			return
 
 	flay(target, user, tool)
-
-
 
 /datum/flaying_datum/proc/create_leftovers(mob/living/victim, has_meat, skin_amount)
 	if(has_meat)
