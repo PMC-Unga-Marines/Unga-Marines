@@ -134,7 +134,7 @@
 	var/obj/structure/broken_state = /obj/structure/xenoautopsy/tank/escaped
 
 /obj/structure/xenoautopsy/tank/Destroy()
-	QDEL_NULL(occupant)
+	occupant = null
 	return ..()
 
 /obj/structure/xenoautopsy/tank/deconstruct(disassembled = TRUE)
@@ -179,7 +179,7 @@
 	var/mob/living/carbon/xenomorph/facehugger/mob_occupant =  /mob/living/carbon/xenomorph/facehugger/ai
 
 /obj/structure/xenoautopsy/tank/hugger/Destroy()
-	QDEL_NULL(mob_occupant)
+	mob_occupant = null
 	return ..()
 
 /obj/structure/xenoautopsy/tank/hugger/release_occupant()
