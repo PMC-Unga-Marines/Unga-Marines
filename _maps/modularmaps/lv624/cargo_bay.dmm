@@ -83,6 +83,7 @@
 /area/lv624/lazarus/quartstorage/dome)
 "mS" = (
 /obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
 "mX" = (
@@ -99,6 +100,13 @@
 /obj/structure/rack,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
+/turf/open/floor/plating,
+/area/lv624/lazarus/quartstorage/dome)
+"oS" = (
+/obj/item/stack/sheet/wood{
+	amount = 50
+	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
 "pl" = (
@@ -151,6 +159,7 @@
 	dir = 6
 	},
 /obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
 "vP" = (
@@ -237,6 +246,13 @@
 	dir = 8
 	},
 /obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/quartstorage/dome)
+"CC" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
 "CF" = (
@@ -319,6 +335,10 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
+"KN" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/quartstorage/dome)
 "Lv" = (
 /obj/item/stack/sheet/wood{
 	amount = 50
@@ -362,6 +382,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
 "Ph" = (
@@ -489,7 +510,7 @@ gJ
 gJ
 gJ
 WN
-Nw
+KN
 Nw
 Nw
 WN
@@ -586,7 +607,7 @@ rz
 "}
 (8,1,1) = {"
 ze
-pF
+CC
 GS
 HT
 vP
@@ -595,7 +616,7 @@ YT
 PP
 oA
 Ne
-Lv
+oS
 rF
 IF
 pF

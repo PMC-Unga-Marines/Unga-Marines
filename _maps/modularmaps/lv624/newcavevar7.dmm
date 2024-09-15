@@ -10,6 +10,10 @@
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
+"bK" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor,
+/area/lv624/ground/caves/central1/garbledradio)
 "eb" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -211,6 +215,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"VG" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central3)
 "WN" = (
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/caves/central2)
@@ -249,7 +257,7 @@ bj
 Kx
 Kx
 Kx
-Kx
+VG
 Kx
 Kx
 "}
@@ -2962,7 +2970,7 @@ bj
 bj
 bj
 Ux
-Ux
+OZ
 Ux
 Ux
 Ux
@@ -3007,7 +3015,7 @@ Ux
 Ux
 OZ
 tz
-Ux
+OZ
 bj
 bj
 bj
@@ -3015,6 +3023,6 @@ Ka
 bj
 OY
 OY
-OY
+bK
 OY
 "}
