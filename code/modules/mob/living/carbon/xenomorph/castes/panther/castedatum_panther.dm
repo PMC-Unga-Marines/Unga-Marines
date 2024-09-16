@@ -77,5 +77,5 @@
 		/datum/action/ability/xeno_action/tearingtail,
 		/datum/action/ability/xeno_action/select_reagent/panther,
 		/datum/action/ability/xeno_action/adrenaline_rush,
-		/datum/action/ability/activable/xeno/snatch
+		/datum/action/ability/activable/xeno/snatch,
 	)
