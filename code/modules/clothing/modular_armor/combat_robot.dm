@@ -7,7 +7,7 @@
 	icon_state = "chest"
 	item_state = "chest"
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 40, BIO = 40, FIRE = 10, ACID = 45)
+	soft_armor = list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 20, BIO = 40, FIRE = 10, ACID = 45)
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 	colorable_colors = ARMOR_PALETTES_LIST
@@ -51,14 +51,14 @@
 /obj/item/clothing/suit/modular/robot/light
 	name = "XR-1-L armor plating"
 	desc = "Light armor plating designed for self mounting on TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
-	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 30, BIO = 30, FIRE = 5, ACID = 35)
+	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 5, ACID = 35)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 	greyscale_config = /datum/greyscale_config/robot/light
 
 /obj/item/clothing/suit/modular/robot/heavy
 	name = "XR-1-H armor plating"
 	desc = "Heavy armor plating designed for self mounting on TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
-	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 15, ACID = 55)
+	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 15, ACID = 55)
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	greyscale_config = /datum/greyscale_config/robot/heavy
 

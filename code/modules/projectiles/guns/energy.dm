@@ -247,7 +247,6 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "tx73"
 	item_state = "tx73"
-	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 50 //codex stuff
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine
 	rounds_per_shot = 12
