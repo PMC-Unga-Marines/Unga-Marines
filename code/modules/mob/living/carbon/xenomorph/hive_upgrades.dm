@@ -241,7 +241,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	building_type = /obj/structure/xeno/upgrade_chamber/shell
 
 /datum/hive_upgrade/building/upgrade_chamber/spur
-	name = "SPur Upgrade Chamber"
+	name = "Spur Upgrade Chamber"
 	desc = ""
 	psypoint_cost = 150
 	icon = "maturitytower"
