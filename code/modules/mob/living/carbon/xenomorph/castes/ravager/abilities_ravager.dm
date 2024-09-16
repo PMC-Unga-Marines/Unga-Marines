@@ -415,7 +415,7 @@
 
 	X.add_filter("ravager_immortality_outline", 4, outline_filter(0.5, COLOR_TRANSPARENT_SHADOW))
 
-	X.status_flags |= GODMODE
+	ENABLE_BITFIELD(X.status_flags, GODMODE)
 
 	addtimer(CALLBACK(src, PROC_REF(immortality_deactivate)), RAVAGER_IMMORTALITY_DURATION, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
 
@@ -427,7 +427,7 @@
 		return
 	var/mob/living/carbon/xenomorph/X = owner
 
-	X.status_flags &= ~GODMODE
+	DISABLE_BITFIELD(X.status_flags, GODMODE)
 
 	X.do_jitter_animation(500)
 
