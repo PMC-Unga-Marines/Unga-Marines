@@ -94,13 +94,13 @@
 	uses = 1
 	cost = 2
 	equipment_to_spawn = list(
-		/obj/effect/supply_drop/standard_carbine,
-		/obj/effect/supply_drop/standard_rifle,
-		/obj/effect/supply_drop/combat_rifle,
-		/obj/item/weapon/gun/rifle/standard_gpmg/machinegunner,
-		/obj/item/ammo_magazine/standard_gpmg,
-		/obj/item/ammo_magazine/standard_gpmg,
-		/obj/item/ammo_magazine/standard_gpmg,
+		/obj/effect/supply_drop/ar18,
+		/obj/effect/supply_drop/ar12,
+		/obj/effect/supply_drop/ar11,
+		/obj/item/weapon/gun/rifle/mg60/machinegunner,
+		/obj/item/ammo_magazine/mg60,
+		/obj/item/ammo_magazine/mg60,
+		/obj/item/ammo_magazine/mg60,
 	)
 
 /datum/campaign_asset/equipment/ballistic_som
@@ -167,17 +167,17 @@
 	uses = 1
 	cost = 4
 	equipment_to_spawn = list(
-		/obj/item/weapon/gun/rifle/standard_smartmachinegun/patrol,
+		/obj/item/weapon/gun/rifle/sg29/patrol,
 		/obj/item/storage/belt/marine/smartgun,
 		/obj/item/weapon/gun/minigun/smart_minigun/motion_detector,
 		/obj/item/ammo_magazine/minigun_powerpack/smartgun,
-		/obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion,
-		/obj/item/storage/belt/marine/target_rifle,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
-		/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact,
+		/obj/item/weapon/gun/rifle/sg62/motion,
+		/obj/item/storage/belt/marine/sg62,
+		/obj/item/ammo_magazine/rifle/sg153/incendiary,
+		/obj/item/ammo_magazine/rifle/sg153/tungsten,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact,
 	)
 
 /datum/campaign_asset/equipment/shotguns_tgmc

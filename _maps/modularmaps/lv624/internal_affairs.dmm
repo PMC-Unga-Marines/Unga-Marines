@@ -147,6 +147,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -164,6 +165,7 @@
 /area/lv624/lazarus/internal_affairs)
 "mT" = (
 /obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "no" = (
@@ -216,6 +218,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -376,6 +379,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -407,6 +411,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -523,6 +528,14 @@
 	},
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
+"Ux" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/blue/whiteblue{
+	dir = 1
+	},
+/area/lv624/lazarus/internal_affairs)
 "UW" = (
 /obj/item/clothing/glasses/regular/hipster,
 /obj/item/bedsheet/captain,
@@ -535,7 +548,12 @@
 	dir = 1
 	},
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
+/area/lv624/lazarus/internal_affairs)
+"Vi" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "Vq" = (
 /obj/machinery/light/small,
@@ -599,6 +617,7 @@
 	on = 1
 	},
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/internal_affairs)
 "XP" = (
@@ -748,7 +767,7 @@ Ge
 tF
 Ge
 Ge
-Ge
+Ux
 yr
 dG
 KD
@@ -805,7 +824,7 @@ xH
 Wx
 jv
 Dj
-CI
+Vi
 cf
 Vu
 Hq

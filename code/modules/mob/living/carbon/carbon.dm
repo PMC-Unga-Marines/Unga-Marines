@@ -6,7 +6,6 @@
 	if(afk_status == MOB_RECENTLY_DISCONNECTED)
 		set_afk_status(MOB_DISCONNECTED)
 	QDEL_NULL(back)
-	QDEL_NULL(internal)
 	QDEL_NULL(handcuffed)
 	. = ..()
 	species = null
@@ -246,7 +245,7 @@
 		return
 	. = ..()
 
-/mob/living/carbon/slip(slip_source_name, stun_time, paralyze_time, run_only, override_noslip, slide_steps)
+/mob/living/carbon/slip(slip_source_name, stun_time, paralyze_time, run_only, override_noslip, slide_steps, slip_xeno)
 	set waitfor = 0
 	if(buckled || (run_only && (m_intent != MOVE_INTENT_RUN)) || lying_angle)
 		return FALSE //can't slip while buckled, if the slip is run only and we're not running or while resting
@@ -398,3 +397,24 @@
 
 /mob/living/carbon/plastique_act()
 	ex_act(500)
+
+///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
+/mob/living/carbon/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+	var/gravity = get_gravity()
+	if(gravity < 1) //low grav
+		duration *= 2.5 - gravity
+		cooldown *= 2 - gravity
+		cost *= gravity * 0.5
+		height *= 2 - gravity
+		if(gravity <= 0.75)
+			flags_pass |= PASS_DEFENSIVE_STRUCTURE
+	else if(gravity > 1) //high grav
+		duration *= gravity * 0.5
+		cooldown *= gravity
+		cost *= gravity
+		height *= gravity * 0.5
+
+	if(species?.species_flags & NO_STAMINA)
+		cost = 0
+
+	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)

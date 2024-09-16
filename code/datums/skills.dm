@@ -78,8 +78,7 @@ engineer = 0, construction = 0, leadership = 0, medical = 0, surgery = 0, pilot 
 
 
 /datum/skills/New(cqc, melee_weapons,\
-firearms, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun,\
-swordplay,\
+firearms, pistols, shotguns, rifles, smgs, heavy_weapons, swordplay, smartgun,\
 engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, stamina)
 	if(!isnull(cqc))
 		src.cqc = cqc
