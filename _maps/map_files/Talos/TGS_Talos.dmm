@@ -33747,15 +33747,6 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
-"tTz" = (
-/obj/structure/bed/chair/comfy/charlie{
-	dir = 1
-	},
-/obj/structure/bed/chair/comfy/charlie{
-	dir = 1
-	},
-/turf/open/floor/mainship/emerald/full,
-/area/mainship/hallways/hangar)
 "tTI" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -74729,7 +74720,7 @@ mor
 hjJ
 qVS
 wfg
-tTz
+wfg
 cir
 qMe
 iwc

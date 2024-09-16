@@ -29,7 +29,6 @@
 	var/light_impact_range = 4
 	///Weak impact range when exploding
 	var/weak_impact_range = 0
-	var/G_hit_sound = 'sound/weapons/grenade/grenade_hit.ogg'
 	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
 	/// Power of the explosion
 	var/power = 105
@@ -119,9 +118,6 @@
 /obj/item/explosive/grenade/throw_at()
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-	if(!isnull(G_hit_sound))
-		sleep(0.3 SECONDS)
-		playsound(loc, G_hit_sound, 20, 1, 9)
 
 ////RAD GRENADE - TOTALLY RAD MAN
 /obj/item/explosive/grenade/rad

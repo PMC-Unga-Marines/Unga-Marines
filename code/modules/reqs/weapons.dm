@@ -521,27 +521,27 @@
 	contains = list(/obj/item/ammo_magazine/rifle/sg153)
 	cost = 15
 
-/datum/supply_packs/weapons/sg153/highimpact
+/datum/supply_packs/weapons/sg153_ammo/highimpact
 	name = "SG-153 high impact spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/highimpact)
 
-/datum/supply_packs/weapons/sg153/heavyrubber
+/datum/supply_packs/weapons/sg153_ammo/heavyrubber
 	name = "SG-153 heavy rubber spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/heavyrubber)
 
-/datum/supply_packs/weapons/sg153/plasmaloss
+/datum/supply_packs/weapons/sg153_ammo/plasmaloss
 	name = "SG-153 tanglefoot spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/plasmaloss)
 
-/datum/supply_packs/weapons/sg153/tungsten
+/datum/supply_packs/weapons/sg153_ammo/tungsten
 	name = "SG-153 tungsten spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/tungsten)
 
-/datum/supply_packs/weapons/sg153/flak
+/datum/supply_packs/weapons/sg153_ammo/flak
 	name = "SG-153 flak spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/flak)
 
-/datum/supply_packs/weapons/sg153/incendiary
+/datum/supply_packs/weapons/sg153_ammo/incendiary
 	name = "SG-153 incendiary spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/incendiary)
 
@@ -697,12 +697,6 @@
 	name = "AR-12 incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/ar12/incendiary)
 	cost = 30 //50 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/br64_ap
-	name = "BR-64 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/br64/ap)
-	cost = 25 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/smg25_ap

@@ -54,7 +54,6 @@ GLOBAL_PROTECT(exp_specialmap)
 	var/exp_requirements = 0
 	var/exp_type = ""
 	var/exp_type_department = ""
-	var/boosty_job = FALSE
 
 	var/datum/outfit/job/outfit
 	///whether the job has multiple outfits
@@ -254,7 +253,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!(job_flags & (JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE)))
 		CRASH("add_job_positions called for a non-joinable job")
 	if(total_positions == -1)
-		CRASH("add_job_positions called with [amount] amount for a job set to overflow")
+		return TRUE
 	var/previous_amount = total_positions
 	total_positions += amount
 	manage_job_lists(previous_amount)
