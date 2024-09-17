@@ -63,7 +63,7 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -87,7 +87,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "v" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	dir = 2;
 	id = "minidropship_podlock"
 	},
@@ -105,7 +105,7 @@
 /obj/structure/barricade/plasteel{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -127,7 +127,7 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -143,7 +143,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -175,7 +175,7 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/light{
@@ -186,7 +186,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "Q" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	dir = 2;
 	id = "minidropship_podlock"
 	},
@@ -210,7 +210,7 @@
 /obj/structure/barricade/plasteel{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/light{

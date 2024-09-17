@@ -99,6 +99,7 @@
 /area/lv624/lazarus/quartstorage/two)
 "mS" = (
 /obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/brown{
 	dir = 5
 	},
@@ -125,6 +126,7 @@
 /area/lv624/lazarus/quartstorage/two)
 "pl" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage/two)
 "pF" = (
@@ -238,6 +240,18 @@
 	dir = 8
 	},
 /area/lv624/lazarus/quartstorage/two)
+"CX" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/neutral,
+/area/lv624/lazarus/quartstorage/two)
+"Dp" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/neutral,
+/area/lv624/lazarus/quartstorage/two)
 "Dx" = (
 /turf/open/floor/tile/brown{
 	dir = 6
@@ -263,6 +277,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage/two)
 "HO" = (
@@ -415,6 +430,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
 	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage/two)
 "Vs" = (
@@ -531,13 +547,13 @@ Iu
 gJ
 CF
 RN
-RN
+CX
 RN
 YA
 RN
 RN
 Nb
-RN
+CX
 Ss
 IN
 gJ
@@ -657,7 +673,7 @@ Ct
 ju
 RN
 th
-RN
+CX
 Ih
 gJ
 Iu
@@ -670,7 +686,7 @@ eh
 RN
 LK
 PY
-Ct
+Dp
 yL
 RN
 RN

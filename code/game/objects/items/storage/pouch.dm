@@ -262,7 +262,7 @@
 	)
 
 /obj/item/storage/pouch/magazine/smgfull
-	fill_type = /obj/item/ammo_magazine/smg/standard_machinepistol
+	fill_type = /obj/item/ammo_magazine/smg/mp19
 	fill_number = 2
 
 /obj/item/storage/pouch/magazine/large
@@ -277,7 +277,7 @@
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/t19full
-	fill_type = /obj/item/ammo_magazine/smg/standard_smg
+	fill_type = /obj/item/ammo_magazine/smg/smg90
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/som
@@ -301,7 +301,7 @@
 	can_hold = list(
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/ammo_magazine/revolver,
-		/obj/item/ammo_magazine/smg/standard_machinepistol,
+		/obj/item/ammo_magazine/smg/mp19,
 		/obj/item/ammo_magazine/rifle/pepperball/pepperball_mini,
 	)
 
@@ -353,7 +353,7 @@
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/pmc_lmg
-	fill_type = /obj/item/ammo_magazine/standard_lmg
+	fill_type = /obj/item/ammo_magazine/mg42
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/pmc_sniper

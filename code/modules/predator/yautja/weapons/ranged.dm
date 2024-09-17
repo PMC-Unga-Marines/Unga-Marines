@@ -510,14 +510,6 @@
 			return
 		laser_on(A, gun_user)
 
-/obj/item/weapon/gun/energy/yautja/plasma_caster/proc/scan_turf_for_target(datum/source, turf/target_turf)
-	SIGNAL_HANDLER
-	if(QDELETED(laser_target) || !isturf(laser_target.loc))
-		return NONE
-	if(get_turf(laser_target) == target_turf)
-		return COMPONENT_PROJ_SCANTURF_TARGETFOUND
-	return COMPONENT_PROJ_SCANTURF_TURFCLEAR
-
 /obj/item/weapon/gun/energy/yautja/plasma_caster/proc/activate_laser_target(atom/target, mob/user)
 	if(laser_target)
 		laser_off(user)
@@ -525,7 +517,6 @@
 	laser_target = target
 	if(user)
 		to_chat(user, span_danger("You focus your target marker on [target]!"))
-	RegisterSignal(src, COMSIG_PROJ_SCANTURF, PROC_REF(scan_turf_for_target))
 	START_PROCESSING(SSobj, src)
 	accuracy_mult += 0.50 //We get a big accuracy bonus vs the lasered target
 
@@ -534,7 +525,6 @@
 	laser_target = null
 	if(user)
 		playsound(user, 'sound/machines/click.ogg', 25, 1)
-	UnregisterSignal(src, COMSIG_PROJ_SCANTURF)
 	STOP_PROCESSING(SSobj, src)
 	accuracy_mult -= 0.50 //We lose a big accuracy bonus vs the now unlasered target
 

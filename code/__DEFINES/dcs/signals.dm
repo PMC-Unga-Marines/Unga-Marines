@@ -462,11 +462,6 @@
 #define COMSIG_GRAB_SELF_ATTACK "grab_self_attack"				//from base of obj/item/grab/attack() if attacked is the same as attacker: (mob/living/user)
 	#define COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK (1<<0)
 
-// /obj/projectile signals
-#define COMSIG_PROJ_SCANTURF "proj_scanturf"
-	#define COMPONENT_PROJ_SCANTURF_TURFCLEAR (1<<0)
-	#define COMPONENT_PROJ_SCANTURF_TARGETFOUND (1<<1)
-
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbing)
 #define COMSIG_MOB_PRE_DEATH "mob_pre_death"
@@ -532,7 +527,7 @@
 #define COMSIG_RANGED_ACCURACY_MOD_CHANGED "ranged_accuracy_mod_changed"
 #define COMSIG_RANGED_SCATTER_MOD_CHANGED "ranged_scatter_mod_changed"
 #define COMSIG_MOB_SKILLS_CHANGED "mob_skills_changed"
-#define COMSIG_MOB_SHOCK_STAGE_CHANGED "mob_shock_stage_changed"
+#define COMSIG_MOB_PAINLOSS_CHANGED "mob_painloss_changed"
 /// from mob/get_status_tab_items(): (list/items)
 #define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
 
