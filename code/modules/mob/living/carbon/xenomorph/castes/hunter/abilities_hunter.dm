@@ -639,7 +639,6 @@
 // *********** Deathstroke
 // ***************************************
 
-#define DEATHSTROKE_CHANCE 20 // 20%
 #define DEATHSTROKE_MULTIPLIER 2.5 // 250%
 
 /datum/action/ability/xeno_action/deathstroke
@@ -650,6 +649,7 @@
 	keybind_flags = ABILITY_IGNORE_SELECTED_ABILITY
 
 	var/can_crit = TRUE
+	var/deathstroke_chance = 20 // 20%
 
 /datum/action/ability/xeno_action/deathstroke/give_action(mob/living/L)
 	. = ..()
@@ -671,12 +671,15 @@
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/critical_damage = xeno_owner.xeno_caste.melee_damage * DEATHSTROKE_MULTIPLIER
 	if(can_crit)
-		if(prob(DEATHSTROKE_CHANCE))
-			target.apply_damage(critical_damage, BRUTE, xeno_owner.zone_selected, MELEE) //standart attack damage + crit
+		if(prob(deathstroke_chance))
+			target.apply_damage(critical_damage, BRUTE, xeno_owner.zone_selected, MELEE)
 			xeno_owner.balloon_alert(xeno_owner, "Critical hit!")
 			can_crit = FALSE
+			deathstroke_chance = initial(deathstroke_chance)
 			succeed_activate()
 			add_cooldown()
+		else
+			deathstroke_chance += 10 //in case you're having bad luck
 
 /datum/action/ability/xeno_action/deathstroke/on_cooldown_finish()
 	. = ..()
