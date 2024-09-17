@@ -649,16 +649,16 @@
 	cooldown_duration = 3 SECONDS
 	keybind_flags = ABILITY_IGNORE_SELECTED_ABILITY
 
+	var/can_crit = TRUE
+
 /datum/action/ability/xeno_action/deathstroke/give_action(mob/living/L)
 	. = ..()
-	var/mob/living/carbon/xenomorph/xeno_owner = L
-	xeno_owner.can_crit = TRUE
+	can_crit = TRUE
 	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_critical_attack))
 
 /datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
 	. = ..()
-	var/mob/living/carbon/xenomorph/xeno_owner = L
-	xeno_owner.can_crit = FALSE
+	can_crit = FALSE
 	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
 
 /datum/action/ability/xeno_action/deathstroke/proc/on_critical_attack(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
@@ -670,18 +670,17 @@
 
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/critical_damage = xeno_owner.xeno_caste.melee_damage * DEATHSTROKE_MULTIPLIER
-	if(xeno_owner.can_crit)
+	if(can_crit)
 		if(prob(DEATHSTROKE_CHANCE))
 			target.apply_damage(critical_damage, BRUTE, xeno_owner.zone_selected, MELEE) //standart attack damage + crit
 			xeno_owner.balloon_alert(xeno_owner, "Critical hit!")
-			xeno_owner.can_crit = FALSE
+			can_crit = FALSE
 			succeed_activate()
 			add_cooldown()
 
 /datum/action/ability/xeno_action/deathstroke/on_cooldown_finish()
 	. = ..()
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.can_crit = TRUE
+	can_crit = TRUE
 
 /datum/action/ability/xeno_action/deathstroke/should_show()
 	return FALSE
