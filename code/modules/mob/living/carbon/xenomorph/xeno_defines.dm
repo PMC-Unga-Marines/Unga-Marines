@@ -375,6 +375,9 @@
 	// *** Bull vars *** //
 	var/bull_charging = FALSE
 
+	// *** Hunter vars *** //
+	var/can_crit = TRUE
+
 	//Notification spam controls
 	var/recent_notice = 0
 	var/notice_delay = 20 //2 second between notices

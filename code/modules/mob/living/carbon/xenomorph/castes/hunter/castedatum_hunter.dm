@@ -51,13 +51,12 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/silence,
 		/datum/action/ability/activable/xeno/pounce,
 		/datum/action/ability/xeno_action/stealth,
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
-		/datum/action/ability/xeno_action/crippling_strike/hunter,
+		/datum/action/ability/xeno_action/deathstroke,
 	)
 
 	// *** Vent Crawl Parameters *** //
@@ -78,14 +77,13 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/silence,
 		/datum/action/ability/activable/xeno/pounce,
 		/datum/action/ability/xeno_action/stealth,
-		/datum/action/ability/xeno_action/stealth/disguise,
+		/datum/action/ability/activable/xeno/hunter_blink,
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
-		/datum/action/ability/xeno_action/crippling_strike/hunter,
+		/datum/action/ability/xeno_action/deathstroke,
 	)
 
 
@@ -126,11 +124,11 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/silence,
 		/datum/action/ability/activable/xeno/pounce,
 		/datum/action/ability/xeno_action/stealth,
-		/datum/action/ability/xeno_action/stealth/disguise,
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
+		/datum/action/ability/activable/xeno/hunter_blink,
 	)
+

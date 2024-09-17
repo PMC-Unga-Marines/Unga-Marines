@@ -800,6 +800,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(proj.ammo.flags_ammo_behavior & AMMO_UNWIELDY)
 		hit_chance *= 0.5
 
+	if(isxenohunter(src))
+		hit_chance *= 0.3 //hunter's innate ability
+
 	hit_chance = max(5, hit_chance) //It's never impossible to hit
 
 	BULLET_DEBUG("Final accuracy is <b>[hit_chance]</b>")

@@ -850,7 +850,7 @@
 #define COMSIG_XENOABILITY_RECYCLE "xenoability_recycle"
 
 #define COMSIG_XENOABILITY_TOGGLE_STEALTH "xenoability_toggle_stealth"
-#define COMSIG_XENOABILITY_TOGGLE_DISGUISE "xenoability_toggle_disguise"
+#define COMSIG_XENOABILITY_HUNTER_BLINK "xenoability_hunter_blink"
 #define COMSIG_XENOABILITY_MIRAGE "xenoability_mirage"
 
 #define COMSIG_XENOABILITY_SCREECH "xenoability_screech"
