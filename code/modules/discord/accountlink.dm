@@ -43,8 +43,8 @@
 			alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
 // IF you have linked your account, this will trigger a verify of the user
-/client/verb/verify_in_discord()
-	set category = "OOC.Discord"
+/client/verb/check_discord()
+	set category = "OOC.Check discord id"
 	set name = "Verify Discord Account"
 	set desc = "Verify or reverify your discord account against your linked ckey"
 
@@ -63,12 +63,6 @@
 		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
 
-	// check that this is not an IDIOT mistaking us for an attack vector
-	if(SSdiscord.reverify_cache[usr.ckey] == TRUE)
-		to_chat(src, span_warning("Thou can only do this once a round, if you're stuck seek help."))
-		return
-	SSdiscord.reverify_cache[usr.ckey] = TRUE
-
 	// check that account is linked with discord
 	var/stored_id = SSdiscord.lookup_id(usr.ckey)
 	if(!stored_id) // Account is not linked
@@ -76,7 +70,7 @@
 		return
 
 	// honey its time for your role flattening
-	to_chat(usr, span_notice("Discord verified"))
+	to_chat(usr, span_notice("Discord - [stored_id] - verified"))
 
 // IF you have linked your account, this will trigger a verify of the user
 /client/verb/boosty_roly()
@@ -99,7 +93,7 @@
 		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
 
-	if(SSdiscord.is_boosty(usr.ckey))
+	if(SSdiscord.is_boosty(usr.ckey, FALSE))
 		to_chat(usr, span_notice("Boosty discord role is verified"))
 		return
 

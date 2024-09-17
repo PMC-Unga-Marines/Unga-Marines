@@ -32,8 +32,6 @@ SUBSYSTEM_DEF(discord)
 
 	/// List that holds accounts to link, used in conjunction with TGS
 	var/list/account_link_cache = list()
-	/// list of people who tried to reverify, so they can only do it once per round as a shitty slowdown
-	var/list/reverify_cache = list()
 	/// Is TGS enabled (If not we won't fire because otherwise this is useless)
 	var/enabled = 0
 
@@ -103,25 +101,29 @@ SUBSYSTEM_DEF(discord)
 	var/regex/num_only = regex("\[^0-9\]", "g")
 	return num_only.Replace(input, "")
 
-/datum/controller/subsystem/discord/proc/is_boosty(ckey)
+/datum/controller/subsystem/discord/proc/is_boosty(ckey, silent = TRUE)
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
-		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
+		if(!silent)
+			to_chat(src, span_warning("This feature requires the SQL backend to be running."))
 		return
 
 	// ss is still starting
 	if(!SSdiscord)
-		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
+		if(!silent)
+			to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
 		return
 
 	if(!SSdiscord.enabled)
-		to_chat(usr, span_warning("TGS is not enabled"))
+		if(!silent)
+			to_chat(usr, span_warning("TGS is not enabled"))
 		return
 
 	var/discord_id = lookup_id(ckey)
 
 	if(!discord_id) // Account is not linked
-		to_chat(usr, "Link your discord account via the linkdiscord verb in the OOC tab first");
+		if(!silent)
+			to_chat(usr, "Link your discord account via the linkdiscord verb in the OOC tab first");
 		return
 
 	var/url = "https://discord.com/api/guilds/[CONFIG_GET(string/discord_guildid)]/members/[discord_id]"
@@ -137,11 +139,13 @@ SUBSYSTEM_DEF(discord)
 	try
 		data = json_decode(res.body)
 	catch(var/exception/e)
-		to_chat(usr, span_warning("JSON parsing FAILED: [e]: [res.body]"))
+		if(!silent)
+			to_chat(usr, span_warning("JSON parsing FAILED: [e]: [res.body]"))
 		return
 
 	if(!data["roles"])
-		to_chat(usr, span_warning("Failed to check discord roles"));
+		if(!silent)
+			to_chat(usr, span_warning("Failed to check discord roles"));
 		return
 
 	if(CONFIG_GET(string/discord_boosty_roleid) in data["roles"])
