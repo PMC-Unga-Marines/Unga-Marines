@@ -953,7 +953,7 @@
 /datum/status_effect/hunt/proc/end_bonuses()
 	if(owner)
 		var/mob/living/carbon/xenomorph/X = owner
-		X.xeno_caste.attack_delay = CLICK_CD_MELEE
+		X.xeno_caste.attack_delay = initial(X.xeno_caste.attack_delay)
 
 		X.remove_filter("hunt");
 
