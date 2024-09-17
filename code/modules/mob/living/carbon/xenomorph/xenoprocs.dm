@@ -600,7 +600,7 @@
 	popup.set_content(dat)
 	popup.open()
 
-/mob/living/carbon/xenomorph/get_upgrades/Topic(href, href_list)
+/mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
 	if(.)
 		return
