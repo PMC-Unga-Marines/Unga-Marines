@@ -137,7 +137,6 @@
 		resistance += max(0, our_atom.get_explosion_resistance())
 
 	// Blow stuff up
-
 	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
 	for(var/atom/our_atom in in_turf)
 		if(iseffect(our_atom))
