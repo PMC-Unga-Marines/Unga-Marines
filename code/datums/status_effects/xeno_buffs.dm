@@ -944,7 +944,7 @@
 	. = ..()
 
 	var/mob/living/carbon/xenomorph/X = A
-	X.xeno_caste.attack_delay = 4
+	X.xeno_caste.attack_delay -= 3
 
 	X.add_filter("hunt", 1, outline_filter(1, "#2a0f527d"))
 
