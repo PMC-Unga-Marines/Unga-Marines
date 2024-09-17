@@ -238,6 +238,10 @@
 	succeed_activate()
 	add_cooldown()
 
+	var/datum/action/ability/activable/xeno/hunter_pounce = X.actions_by_path[/datum/action/ability/activable/xeno/pounce]
+	if(hunter_pounce)
+		hunter_pounce.add_cooldown(3 SECONDS)
+
 // ***************************************
 // *********** Hunter's Pounce
 // ***************************************
@@ -291,6 +295,9 @@
 	addtimer(CALLBACK(src, PROC_REF(reset_pass_flags)), 0.6 SECONDS)
 	succeed_activate()
 	add_cooldown()
+	var/datum/action/ability/activable/xeno/hunter_blink = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_blink]
+	if(hunter_blink)
+		hunter_blink.add_cooldown(3 SECONDS)
 
 /datum/action/ability/activable/xeno/pounce/proc/movement_fx()
 	SIGNAL_HANDLER
@@ -325,6 +332,7 @@
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.forceMove(get_turf(living_target))
 	living_target.Knockdown(XENO_POUNCE_STUN_DURATION)
+	xeno_owner.apply_status_effect(/datum/status_effect/hunt)
 
 /datum/action/ability/activable/xeno/pounce/proc/pounce_complete()
 	SIGNAL_HANDLER
