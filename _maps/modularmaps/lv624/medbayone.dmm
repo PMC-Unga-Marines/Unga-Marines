@@ -287,6 +287,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "yy" = (
+/obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
 /area/lv624/lazarus/medbay)
 "yD" = (
@@ -383,6 +384,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "GU" = (
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 4
 	},

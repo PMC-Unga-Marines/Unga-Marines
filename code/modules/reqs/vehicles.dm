@@ -99,7 +99,7 @@
 
 /datum/supply_packs/vehicles/hsg_ammo
 	name = "Mounted HSG ammo"
-	contains = list(/obj/item/ammo_magazine/tl102/hsg_nest)
+	contains = list(/obj/item/ammo_magazine/hsg102/hsg_nest)
 	cost = 100
 	containertype = /obj/structure/closet/crate/ammo
 
