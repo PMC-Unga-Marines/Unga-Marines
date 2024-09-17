@@ -577,3 +577,30 @@
 
 /mob/living/carbon/xenomorph/on_eord(turf/destination)
 	revive(TRUE)
+
+/mob/living/carbon/xenomorph/verb/upgrade_menu()
+	set name = "Upgrade Menu"
+	set desc = "See current Upgrade Chambers and get buffs for yourself"
+	set category = "Alien"
+
+	get_upgrades(src)
+
+/mob/living/carbon/xenomorph/proc/get_upgrades(mob/living/carbon/xenomorph/user)
+	var/dat = "<div align='center'>"
+
+	dat += "<hr>Active Upgrade Chambers:"
+	dat += "<br>Shell : [length(user?.hive?.shell_chambers)] | Spur : [length(user?.hive?.spur_chambers)] | Veil : [length(user?.hive?.veil_chambers)]"
+	dat += "<br>Biomass: [user?.biomass] / 100"
+
+	dat += "</div>"
+
+	dat += "<hr>"
+
+	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
+	popup.set_content(dat)
+	popup.open()
+
+/mob/living/carbon/xenomorph/get_upgrades/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
