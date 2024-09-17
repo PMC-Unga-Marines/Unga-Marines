@@ -16,7 +16,7 @@
 <h1>mobile <aside>/<a href="obj.html">obj</a>/<a href="obj/docking_port.html">docking_port</a>/<a href="obj/docking_port/mobile.html">mobile</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/shuttle.dm#L350">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/shuttle.dm#L350">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;shuttle.dm 350"/></a></h1>
 
 <table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
@@ -34,24 +34,24 @@ The bitflags can be found in __DEFINES/shuttles.dm</td></tr></table>
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/shuttle.dm#L396">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/shuttle.dm#L396">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;shuttle.dm 396"/></a></h3>
         <p>All shuttle_control computers that share at least one control flag is able to link to this shuttle</p><h3 id="var/shuttle_computer"><aside class="declaration">var </aside>shuttle_computer
             <aside>&ndash; /<a href="obj.html">obj</a>/<a href="obj/machinery.html">machinery</a>/<a href="obj/machinery/computer.html">computer</a>/<a href="obj/machinery/computer/camera_advanced.html">camera_advanced</a>/<a href="obj/machinery/computer/camera_advanced/shuttle_docker.html">shuttle_docker</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/shuttle.dm#L401">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/shuttle.dm#L401">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;shuttle.dm 401"/></a></h3>
         <p>Reference of the shuttle docker holding the mobile docking port</p><h2 id="proc">Proc Details</h2><h3 id="proc/beforeShuttleMove">beforeShuttleMove<aside>(/<a href="turf.html">turf</a>/newT, rotation, move_mode, /<a href="obj.html">obj</a>/<a href="obj/docking_port.html">docking_port</a>/<a href="obj/docking_port/mobile.html">mobile</a>/moving_dock) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/on_move.dm#L299">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/on_move.dm#L299">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;on_move.dm 299"/></a></aside>
         </h3>
         <p>Misc move procs</p><h3 id="proc/calculate_docking_port_information"><aside class="declaration">proc </aside>calculate_docking_port_information<aside>(/<a href="datum.html">datum</a>/map_template/shuttle/loading_from) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/shuttle.dm#L1004">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/shuttle.dm#L1004">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;shuttle.dm 1004"/></a></aside>
         </h3>
         <p>Calculated and populates the information used for docking and some internal vars.
@@ -62,19 +62,19 @@ This can also be used to calculate from shuttle_areas so that you can expand/shr
 </ul><h3 id="proc/initiate_docking"><aside class="declaration">proc </aside>initiate_docking<aside>(/<a href="obj.html">obj</a>/<a href="obj/docking_port.html">docking_port</a>/<a href="obj/docking_port/stationary.html">stationary</a>/new_dock, movement_direction, force) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/docking.dm#L2">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/docking.dm#L2">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;docking.dm 2"/></a></aside>
         </h3>
         <p>This is the main proc. It instantly moves our mobile port to stationary port <code>new_dock</code>.</p><h3 id="proc/linkup"><aside class="declaration">proc </aside>linkup<aside>(/<a href="datum.html">datum</a>/map_template/shuttle/template, /<a href="obj.html">obj</a>/<a href="obj/docking_port.html">docking_port</a>/<a href="obj/docking_port/stationary.html">stationary</a>/dock) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/shuttle.dm#L439">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/shuttle.dm#L439">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;shuttle.dm 439"/></a></aside>
         </h3>
         <p>Called after the shuttle is loaded from template</p><h3 id="proc/preflight_check"><aside class="declaration">proc </aside>preflight_check<aside>(/list/old_turfs, /list/new_turfs, /list/areas_to_move, rotation) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/436dcbbf2254b882df4f1522f5fdbaa08e980bcd/code/modules/shuttle/docking.dm#L113">
+            <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/blob/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8/code/modules/shuttle/docking.dm#L113">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;shuttle&#x2F;docking.dm 113"/></a></aside>
         </h3>
         <p>Both lists are associative with a turf:bitflag structure. (new_turfs bitflag space unused currently)
@@ -84,7 +84,7 @@ The bitflags can be found in __DEFINES/shuttles.dm</p>
 <p>Unhiding turfs if necessary</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/436dcbbf2254b882df4f1522f5fdbaa08e980bcd">436dcbb</a>
+    <a href="https://github.com/PMC-Unga-Marines/RuTGMC-Reborn/tree/7fedc36bfab4facc3f5fdb61c0a2e033044d65c8">7fedc36</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
