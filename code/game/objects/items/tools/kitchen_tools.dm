@@ -17,14 +17,24 @@
 	atom_flags = CONDUCT
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = 0
-	var/loaded      //Descriptive string for currently loaded food object.
+	/// Is there something on this utensil?
+	var/image/loaded
 
 /obj/item/tool/kitchen/utensil/Initialize(mapload)
 	. = ..()
-	if (prob(60))
-		src.pixel_y = rand(0, 4)
+	pixel_y = rand(0, 4)
 
 	create_reagents(5)
+
+/obj/item/tool/kitchen/utensil/Destroy()
+	QDEL_NULL(loaded)
+	return ..()
+
+/obj/item/tool/kitchen/utensil/update_overlays()
+	. = ..()
+	if(!loaded)
+		return
+	. += loaded
 
 /obj/item/tool/kitchen/utensil/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(!istype(M))
@@ -43,7 +53,8 @@
 			visible_message(span_notice("[user] feeds [M] some [loaded] from \the [src]"))
 			M.reagents.add_reagent(/datum/reagent/consumable/nutriment, 1)
 		playsound(M.loc,'sound/items/eatfood.ogg', 15, 1)
-		overlays.Cut()
+		QDEL_NULL(loaded)
+		update_appearance(UPDATE_OVERLAYS)
 		return
 	return ..()
 
@@ -64,7 +75,7 @@
 
 /obj/item/tool/kitchen/utensil/spoon
 	name = "spoon"
-	desc = "It's a spoon. You can see your own upside-down face in it."
+	desc = "It's a spoon. You can see your own upside-down face in the reflection."
 	icon_state = "spoon"
 	attack_verb = list("attacked", "poked")
 
@@ -136,10 +147,7 @@
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	sharp = IS_SHARP_ITEM_ACCURATE
 	edge = 1
-
-/obj/item/tool/kitchen/knife/butcher/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	playsound(loc, 'sound/weapons/bladeslice.ogg', 25, 1, 5)
-	return ..()
+	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /*
 * Rolling Pins

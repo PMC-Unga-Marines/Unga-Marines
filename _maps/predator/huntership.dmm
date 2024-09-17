@@ -1008,7 +1008,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "cY" = (
-/obj/item/tool/kitchen/tray{
+/obj/item/storage/kitchen_trayp{
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/blood,
@@ -2023,7 +2023,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/tool/kitchen/tray{
+/obj/item/storage/kitchen_trayp{
 	color = "#FFE55C";
 	pixel_y = 4
 	},
@@ -2318,7 +2318,7 @@
 	},
 /area/yautja)
 "KI" = (
-/obj/item/tool/kitchen/tray{
+/obj/item/storage/kitchen_trayp{
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood,
@@ -2680,7 +2680,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/tool/kitchen/tray,
+/obj/item/storage/kitchen_trayp,
 /obj/item/tool/kitchen/utensil/fork{
 	pixel_x = 10;
 	pixel_y = 3
