@@ -609,7 +609,7 @@
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
 
-	var/illusion_life_time = 2 SECONDS
+	var/illusion_life_time = 5 SECONDS
 
 /datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
 	. = ..()
