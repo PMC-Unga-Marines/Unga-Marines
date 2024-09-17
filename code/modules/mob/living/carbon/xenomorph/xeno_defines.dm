@@ -300,8 +300,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/datum/hive_status/hive
 	///Xeno mob specific flags
 	var/xeno_flags = NONE
-	///State tracking of hive status toggles
-	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
 	///Var for keeping the base icon of current skin, used for toggling to normal appearance from rouny skin, changeable with skin toggling
 	var/base_icon

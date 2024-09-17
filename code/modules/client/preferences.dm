@@ -178,6 +178,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///List of slot_draw_order
 	var/list/slot_draw_order_pref = list()
 
+	///State tracking of hive status toggles
+	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
+	
 	//Predator specific preferences.
 	var/predator_name = "Undefined"
 	var/predator_gender = MALE
