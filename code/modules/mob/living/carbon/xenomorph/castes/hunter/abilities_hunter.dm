@@ -200,7 +200,7 @@
 	desc = "We teleport to the chosen target and get a short attack bonus."
 	use_state_flags = ABILITY_MOB_TARGET
 	ability_cost = 50
-	cooldown_duration = 3 SECONDS
+	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_BLINK,
 	)
@@ -530,7 +530,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_MIRAGE,
 	)
-	cooldown_duration = 30 SECONDS
+	cooldown_duration = 15 SECONDS
 	///How long will the illusions live
 	var/illusion_life_time = 10 SECONDS
 	///How many illusions are created
@@ -553,7 +553,7 @@
 
 /datum/action/ability/xeno_action/mirage/action_activate()
 	succeed_activate()
-	if (!length(illusions))
+	if(!length(illusions))
 		spawn_illusions()
 	else
 		swap()
@@ -590,6 +590,44 @@
 	selected_illusion.forceMove(current_turf)
 
 // ***************************************
+// *********** One Hunter's Army
+// ***************************************
+#define ILUSSION_CHANCE 70
+
+/datum/action/ability/xeno_action/hunter_army
+	name = "One Hunter's Army"
+	desc = ""
+	ability_cost = 0
+	cooldown_duration = 0
+	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+
+	var/illusion_life_time = 2 SECONDS
+
+/datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
+	. = ..()
+	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
+
+/datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
+	. = ..()
+	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
+
+/datum/action/ability/xeno_action/hunter_army/proc/on_attack(datum/source, mob/living/target)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	if(!isliving(target))
+		return
+
+	var/target_turf = target.loc
+	target_turf = get_step_rand(target_turf)
+
+	if(prob(ILUSSION_CHANCE))
+		new /mob/illusion/xeno(target_turf, owner, owner, illusion_life_time)
+
+/datum/action/ability/xeno_action/hunter_army/should_show()
+	return FALSE
+
+// ***************************************
 // *********** Deathstroke
 // ***************************************
 
@@ -601,7 +639,7 @@
 	desc = ""
 	ability_cost = 0
 	cooldown_duration = 3 SECONDS
-	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
+	keybind_flags = ABILITY_IGNORE_SELECTED_ABILITY
 
 /datum/action/ability/xeno_action/deathstroke/give_action(mob/living/L)
 	. = ..()
