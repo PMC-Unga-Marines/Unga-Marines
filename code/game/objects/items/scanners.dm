@@ -227,12 +227,14 @@ REAGENT SCANNER
 		for(var/datum/limb/limb AS in human_patient.limbs)
 			var/infected = FALSE
 			var/necrotized = FALSE
+			var/internal_bleeding_limb = FALSE
 
 			if(!internal_bleeding)
 				for(var/datum/wound/wound in limb.wounds)
 					if(!istype(wound, /datum/wound/internal_bleeding))
 						continue
 					internal_bleeding = TRUE
+					internal_bleeding_limb = TRUE
 					break
 			if(limb.germ_level > INFECTION_LEVEL_ONE)
 				infection_message = "Infection detected in subject's [limb.display_name]. Antibiotics recommended."
@@ -264,6 +266,7 @@ REAGENT SCANNER
 				"bleeding" = CHECK_BITFIELD(limb.limb_status, LIMB_BLEEDING),
 				"open_incision" = limb.surgery_open_stage,
 				"necrotized" = necrotized,
+				"internal_bleeding_limb" = internal_bleeding_limb,
 				"infected" = infected,
 				"implant" = implant
 			)
