@@ -72,7 +72,6 @@
 #define ismarinefaction(H) (H.faction == "TerraGov")
 #define isterragovjob(J) (istype(J, /datum/job/terragov))
 #define ismedicaljob(J) (istype(J, /datum/job/terragov/medical))
-#define isengineeringjob(J) (istype(J, /datum/job/terragov/engineering))
 #define ismarinejob(J) (istype(J, /datum/job/terragov/squad))
 #define issommarinejob(J) (istype(J, /datum/job/som/squad))
 #define ismarinespecjob(J) (istype(J, /datum/job/terragov/squad/specialist))
