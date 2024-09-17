@@ -47,11 +47,10 @@
 
 /datum/action/ability/xeno_action/acid_charge/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
-	X.apply_damage(40, BRUTE, TRUE, updating_health = TRUE)
 	particle_holder = new(X, /particles/bull_selfslash)
 	particle_holder.pixel_y = 12
 	particle_holder.pixel_x = 18
@@ -105,7 +104,7 @@
 
 /datum/action/ability/xeno_action/headbutt/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
@@ -172,7 +171,7 @@
 
 /datum/action/ability/xeno_action/gore/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, 0.5 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
