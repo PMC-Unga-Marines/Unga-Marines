@@ -90,6 +90,23 @@
 			// Checks for can use done in overwatch action.
 			SEND_SIGNAL(src, COMSIG_XENOMORPH_WATCHXENO, target)
 
+	if(href_list["carapace_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_CARAPACE)
+	if(href_list["regeneration_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_REGENERATION)
+	if(href_list["vampirism_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_VAMPIRISM)
+	if(href_list["celerity_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_CELERITY)
+	if(href_list["adrenalin_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_ADRENALINE)
+	if(href_list["crush_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_CRUSH)
+	if(href_list["focus_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_FOCUS)
+	if(href_list["toxin_buy"])
+		apply_status_effect(STATUS_EFFECT_UPGRADE_TOXIN)
+
 ///Send a message to all xenos. Force forces the message whether or not the hivemind is intact. Target is an atom that is pointed out to the hive. Filter list is a list of xenos we don't message.
 /proc/xeno_message(message = null, span_class = "xenoannounce", size = 5, hivenumber = XENO_HIVE_NORMAL, force = FALSE, atom/target = null, sound = null, apply_preferences = FALSE, filter_list = null, arrow_type, arrow_color, report_distance = FALSE)
 	if(!message)
@@ -594,13 +611,22 @@
 
 	dat += "</div>"
 
-	dat += "<hr>"
+	dat += "<div align='center'>Avaliable upgrades:</div>"
+	if(length(user?.hive?.shell_chambers) > 0)
+		dat += "<div align='center'>SURVIVAL</div>"
+		dat += "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a>"
+		dat += "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a>"
+		dat += "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a>"
+	if(length(user?.hive?.spur_chambers) > 0)
+		dat += "<div align='center'>ATTACK</div>"
+		dat += "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a>"
+		dat += "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a>"
+		dat += "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a>"
+	if(length(user?.hive?.veil_chambers) > 0)
+		dat += "<div align='center'>UTILITY</div>"
+		dat += "<br><a href='?src=[text_ref(src)];focus_buy=1'>Focus</a>"
+		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a>"
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)
 	popup.open()
-
-/mob/living/carbon/xenomorph/Topic(href, href_list)
-	. = ..()
-	if(.)
-		return
