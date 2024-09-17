@@ -18,7 +18,8 @@
 	///to specify a non-zero amount of stack to drop when destroyed
 	var/destroyed_stack_amount = 0
 	var/base_acid_damage = 2
-	var/barricade_type = "barricade" //"metal", "plasteel", etc.
+	///"metal", "plasteel", etc.
+	var/barricade_type = "barricade"
 	///Whether this barricade has damaged states
 	var/can_change_dmg_state = TRUE
 	///Whether we can open/close this barrricade and thus go over it
@@ -143,7 +144,7 @@
 		if(!disassembled && destroyed_stack_amount)
 			stack_amt = destroyed_stack_amount
 		else
-			stack_amt = round(stack_amount * (obj_integrity/max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
+			stack_amt = round(stack_amount * (obj_integrity / max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
 
 		if(stack_amt)
 			new stack_type (loc, stack_amt)
@@ -1158,7 +1159,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
+			deconstruct(!get_self_acid())
 
 /obj/structure/barricade/plasteel
 	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 30, BIO = 100, FIRE = 80, ACID = 55)
