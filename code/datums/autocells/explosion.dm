@@ -137,7 +137,8 @@
 		resistance += max(0, our_atom.get_explosion_resistance())
 
 	// Blow stuff up
-	in_turf.ex_act(power, direction)
+
+	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
 	for(var/atom/our_atom in in_turf)
 		if(iseffect(our_atom))
 			continue
@@ -145,7 +146,7 @@
 			continue
 		if(our_atom.gc_destroyed)
 			continue
-		our_atom.ex_act(power, direction)
+		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += our_atom
 
 	var/reflected = FALSE
@@ -230,7 +231,7 @@ as having entered the turf.
 	if(our_atom.gc_destroyed)
 		return
 
-	our_atom.ex_act(power, null)
+	INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, null)
 
 // Spawns a cellular automaton of an explosion
 /proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, orig_range, direction, color, silent, adminlog = TRUE)
