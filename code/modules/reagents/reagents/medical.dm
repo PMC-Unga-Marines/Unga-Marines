@@ -1468,14 +1468,14 @@
 				L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 
 			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
-				L.heal_overall_damage(1.9*effect_str, 0)
+				L.heal_overall_damage(3 * effect_str, 0)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your cuts and bruises begin to scab over rapidly!"))
 
 			if (volume > 5 && L.getFireLoss(organic_only = TRUE))
-				L.heal_overall_damage(0, 1.9*effect_str)
+				L.heal_overall_damage(0, 3 * effect_str)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
