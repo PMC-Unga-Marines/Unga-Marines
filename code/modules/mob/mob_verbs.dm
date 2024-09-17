@@ -140,8 +140,7 @@
 	// List of HvH factions - these are handled differently, using the quick loadout outfits.
 	var/list/static/hvh_faction_list = list(/datum/job/som, /datum/job/terragov)
 	// List of rare factions, not common because they're funny in moderation / stronk.
-	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
-
+	var/list/static/rare_faction_list = list(/datum/job/necoarc, /datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
 
 	var/total_list = base_faction_list + hvh_faction_list
 

@@ -235,5 +235,12 @@
 	if(!density && !operating && !locked && !welded && autoclose)
 		close()
 
+/obj/machinery/door/psi_act(psi_power, mob/living/user)
+	if(density)
+		open(TRUE)
+	else
+		close(TRUE)
+	return list(0.1 SECONDS, 5)
+
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
