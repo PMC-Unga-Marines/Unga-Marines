@@ -2100,6 +2100,7 @@
 #include "code\modules\xenomorph\nest.dm"
 #include "code\modules\xenomorph\plant.dm"
 #include "code\modules\xenomorph\silo.dm"
+#include "code\modules\xenomorph\spawner.dm"
 #include "code\modules\xenomorph\trap.dm"
 #include "code\modules\xenomorph\tunnel.dm"
 #include "code\modules\xenomorph\turret.dm"
