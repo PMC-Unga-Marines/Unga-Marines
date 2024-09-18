@@ -626,16 +626,15 @@
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)
-	popup.open(FALSE)
+	popup.open()
 
 /mob/living/carbon/xenomorph/proc/remove_apply_upgrades(list/upgrades_to_remove, datum/status_effect/upgrade_to_apply)
 	if(biomass < XENO_UPGRADE_BIOMASS_COST)
 		to_chat(usr, span_warning("You dont have enough biomass!"))
 		return
-	biomass -= XENO_UPGRADE_BIOMASS_COST
+	if(!(upgrade_to_apply in status_effects))
+		biomass -= XENO_UPGRADE_BIOMASS_COST
 	for(var/datum/status_effect/S AS in upgrades_to_remove)
-		if(S in status_effects)
-			biomass += XENO_UPGRADE_BIOMASS_COST
 		remove_status_effect(S)
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)

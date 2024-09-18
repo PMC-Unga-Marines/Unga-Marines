@@ -945,21 +945,20 @@
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
-	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff_per_chamber * chamber_scaling)
 	return TRUE
 
 /datum/status_effect/upgrade_carapace/on_remove()
-	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff_per_chamber * chamber_scaling)
 	return ..()
 
-/datum/status_effect/upgrade_carapace/proc/update_buff(datum/source)
+/datum/status_effect/upgrade_carapace/proc/update_buff()
 	SIGNAL_HANDLER
-	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff_per_chamber * chamber_scaling)
-	chamber_scaling = buff_owner.hive.shell_chambers
-	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff_per_chamber * chamber_scaling)
+	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff_per_chamber * (length(buff_owner.hive.shell_chambers) - chamber_scaling))
+	chamber_scaling = length(buff_owner.hive.shell_chambers)
 
 // ***************************************
 // ***************************************
@@ -1004,19 +1003,19 @@
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
-	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	return TRUE
 
 /datum/status_effect/upgrade_vampirism/on_remove()
-	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
 
-/datum/status_effect/upgrade_vampirism/proc/update_buff(datum/source)
+/datum/status_effect/upgrade_vampirism/proc/update_buff()
 	SIGNAL_HANDLER
-	chamber_scaling = buff_owner.hive.shell_chambers
+	chamber_scaling = length(buff_owner.hive.shell_chambers)
 
 /datum/status_effect/upgrade_vampirism/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -1042,19 +1041,19 @@
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
-	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
 	chamber_scaling = length(buff_owner.hive.spur_chambers)
 	buff_owner.add_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
 	return TRUE
 
 /datum/status_effect/upgrade_celerity/on_remove()
-	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_ATTACK)
 	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF)
 	return ..()
 
-/datum/status_effect/upgrade_celerity/proc/update_buff(datum/source)
+/datum/status_effect/upgrade_celerity/proc/update_buff()
 	SIGNAL_HANDLER
-	chamber_scaling = buff_owner.hive.spur_chambers
+	chamber_scaling = length(buff_owner.hive.spur_chambers)
 	buff_owner.add_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
 
 // ***************************************
@@ -1082,7 +1081,9 @@
 /datum/status_effect/upgrade_adrenaline/tick()
 	if(HAS_TRAIT(buff_owner, TRAIT_NOPLASMAREGEN))
 		return
-	buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05))
+	chamber_scaling = length(buff_owner.hive.spur_chambers)
+	if(chamber_scaling > 0)
+		buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05))
 
 // ***************************************
 // ***************************************
@@ -1099,18 +1100,19 @@
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
-	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_obj_attack))
 	chamber_scaling = length(buff_owner.hive.spur_chambers)
 	return TRUE
 
 /datum/status_effect/upgrade_crush/on_remove()
-	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_ATTACK)
+	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_OBJ)
 	return ..()
 
-/datum/status_effect/upgrade_crush/proc/update_buff(datum/source)
+/datum/status_effect/upgrade_crush/proc/update_buff()
 	SIGNAL_HANDLER
-	chamber_scaling = buff_owner.hive.spur_chambers
+	chamber_scaling = length(buff_owner.hive.spur_chambers)
 
 /datum/status_effect/upgrade_crush/proc/on_obj_attack(datum/source, obj/attacked)
 	SIGNAL_HANDLER
@@ -1133,19 +1135,19 @@
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
-	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
 	return TRUE
 
 /datum/status_effect/upgrade_toxin/on_remove()
-	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY)
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY)
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
 
-/datum/status_effect/upgrade_toxin/proc/update_buff(datum/source)
+/datum/status_effect/upgrade_toxin/proc/update_buff()
 	SIGNAL_HANDLER
-	chamber_scaling = buff_owner.hive.veil_chambers
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
 
 /datum/status_effect/upgrade_toxin/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -1156,4 +1158,5 @@
 	if(!target?.can_sting())
 		return
 	var/mob/living/carbon/carbon_target = target
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
 	carbon_target.reagents.add_reagent(injected_reagent, toxin_amount_per_chamber * chamber_scaling)

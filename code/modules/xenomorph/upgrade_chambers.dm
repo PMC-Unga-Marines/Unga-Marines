@@ -21,10 +21,11 @@
 /obj/structure/xeno/upgrade_chamber/shell/Initialize(mapload, _hivenumber)
 	. = ..()
 	GLOB.hive_datums[hivenumber].shell_chambers += src
-	SEND_SIGNAL(src, COMSIG_UPGRADE_CHAMBER_SURVIVAL)
+	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_SURVIVAL)
 
 /obj/structure/xeno/upgrade_chamber/shell/Destroy()
 	GLOB.hive_datums[hivenumber].shell_chambers -= src
+	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_SURVIVAL)
 	return ..()
 
 /obj/structure/xeno/upgrade_chamber/spur
@@ -35,10 +36,11 @@
 /obj/structure/xeno/upgrade_chamber/spur/Initialize(mapload, _hivenumber)
 	. = ..()
 	GLOB.hive_datums[hivenumber].spur_chambers += src
-	SEND_SIGNAL(src, COMSIG_UPGRADE_CHAMBER_ATTACK)
+	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_ATTACK)
 
 /obj/structure/xeno/upgrade_chamber/spur/Destroy()
 	GLOB.hive_datums[hivenumber].spur_chambers -= src
+	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_ATTACK)
 	return ..()
 
 /obj/structure/xeno/upgrade_chamber/veil
@@ -49,8 +51,9 @@
 /obj/structure/xeno/upgrade_chamber/veil/Initialize(mapload, _hivenumber)
 	. = ..()
 	GLOB.hive_datums[hivenumber].veil_chambers += src
-	SEND_SIGNAL(src, COMSIG_UPGRADE_CHAMBER_UTILITY)
+	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_UTILITY)
 
 /obj/structure/xeno/upgrade_chamber/veil/Destroy()
 	GLOB.hive_datums[hivenumber].veil_chambers -= src
+	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_UTILITY)
 	return ..()
