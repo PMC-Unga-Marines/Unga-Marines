@@ -45,7 +45,6 @@
 #define STATUS_EFFECT_UPGRADE_CELERITY /datum/status_effect/upgrade_celerity
 #define STATUS_EFFECT_UPGRADE_ADRENALINE /datum/status_effect/upgrade_adrenaline
 #define STATUS_EFFECT_UPGRADE_CRUSH /datum/status_effect/upgrade_crush
-#define STATUS_EFFECT_UPGRADE_FOCUS /datum/status_effect/upgrade_focus
 #define STATUS_EFFECT_UPGRADE_TOXIN /datum/status_effect/upgrade_toxin
 
 /////////////

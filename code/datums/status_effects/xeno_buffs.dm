@@ -955,7 +955,7 @@
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff_per_chamber * chamber_scaling)
 	return ..()
 
-/datum/status_effect/upgrade_carapace/proc/update_buff()
+/datum/status_effect/upgrade_carapace/proc/update_buff(datum/source)
 	SIGNAL_HANDLER
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff_per_chamber * chamber_scaling)
 	chamber_scaling = buff_owner.hive.shell_chambers
@@ -1014,7 +1014,7 @@
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
 
-/datum/status_effect/upgrade_vampirism/proc/update_buff()
+/datum/status_effect/upgrade_vampirism/proc/update_buff(datum/source)
 	SIGNAL_HANDLER
 	chamber_scaling = buff_owner.hive.shell_chambers
 
@@ -1044,18 +1044,18 @@
 	buff_owner = owner
 	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK, PROC_REF(update_buff))
 	chamber_scaling = length(buff_owner.hive.spur_chambers)
-	buff_owner.add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
+	buff_owner.add_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
 	return TRUE
 
 /datum/status_effect/upgrade_celerity/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
-	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF)
+	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF)
 	return ..()
 
-/datum/status_effect/upgrade_celerity/proc/update_buff()
+/datum/status_effect/upgrade_celerity/proc/update_buff(datum/source)
 	SIGNAL_HANDLER
 	chamber_scaling = buff_owner.hive.spur_chambers
-	buff_owner.add_movespeed_modifier(MOVESPEED_ID_ADRENALINE_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
+	buff_owner.add_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF, TRUE, 0, NONE, TRUE, -speed_buff_per_chamber * chamber_scaling)
 
 // ***************************************
 // ***************************************
@@ -1108,7 +1108,7 @@
 	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_ATTACK)
 	return ..()
 
-/datum/status_effect/upgrade_crush/proc/update_buff()
+/datum/status_effect/upgrade_crush/proc/update_buff(datum/source)
 	SIGNAL_HANDLER
 	chamber_scaling = buff_owner.hive.spur_chambers
 
@@ -1119,39 +1119,6 @@
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Utility
-// ***************************************
-/datum/status_effect/upgrade_focus
-	id = "upgrade_focus"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/damage_buff_per_chamber = 0.1
-	var/chamber_scaling = 0
-
-/datum/status_effect/upgrade_focus/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	RegisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
-	chamber_scaling = length(buff_owner.hive.veil_chambers)
-	buff_owner.xeno_caste.attack_delay = round(buff_owner.xeno_caste.attack_delay * (1 - damage_buff_per_chamber) * chamber_scaling, 0.1)
-	buff_owner.xeno_caste.melee_damage = buff_owner.xeno_caste.melee_damage * (1 + damage_buff_per_chamber)
-	return TRUE
-
-/datum/status_effect/upgrade_focus/on_remove()
-	UnregisterSignal(buff_owner, COMSIG_UPGRADE_CHAMBER_UTILITY)
-	buff_owner.xeno_caste.attack_delay = initial(buff_owner.xeno_caste.attack_delay)
-	buff_owner.xeno_caste.melee_damage = initial(buff_owner.xeno_caste.melee_damage)
-	return ..()
-
-/datum/status_effect/upgrade_focus/proc/update_buff()
-	SIGNAL_HANDLER
-	chamber_scaling = buff_owner.hive.veil_chambers
-	buff_owner.xeno_caste.attack_delay = round(initial(buff_owner.xeno_caste.attack_delay) * (1 - damage_buff_per_chamber) * chamber_scaling, 0.1)
-	buff_owner.xeno_caste.melee_damage = initial(buff_owner.xeno_caste.melee_damage) * (1 + damage_buff_per_chamber)
-
-// ***************************************
-// ***************************************
 // ***************************************
 /datum/status_effect/upgrade_toxin
 	id = "upgrade_toxin"
@@ -1176,7 +1143,7 @@
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
 
-/datum/status_effect/upgrade_toxin/proc/update_buff()
+/datum/status_effect/upgrade_toxin/proc/update_buff(datum/source)
 	SIGNAL_HANDLER
 	chamber_scaling = buff_owner.hive.veil_chambers
 
