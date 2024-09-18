@@ -57,7 +57,7 @@
 /datum/action/ability/activable/xeno/plant_weeds/proc/plant_weeds(atom/A)
 	var/turf/T = get_turf(A)
 
-	if(!T.check_alien_construction(owner, FALSE))
+	if(!T.check_alien_construction(owner, FALSE, weed_type))
 		return fail_activate()
 
 	if(!T.check_disallow_alien_fortification(null, TRUE))
@@ -333,7 +333,7 @@
 		return
 
 	var/mob/living/carbon/xenomorph/X = owner
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
@@ -387,10 +387,10 @@
 /datum/action/ability/activable/xeno/secrete_resin/proc/build_resin(turf/T)
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.selected_resin == /obj/structure/bed/nest)
-		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
+		for(var/obj/structure/bed/nest/xeno_nest in range (2, T))
 			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
 			return
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
@@ -419,7 +419,7 @@
 		return fail_activate()
 	if(!do_after(X, get_wait(), NONE, T, BUSY_ICON_BUILD))
 		return fail_activate()
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
@@ -1046,7 +1046,7 @@
 	var/mob/living/carbon/xenomorph/xeno = owner
 	var/turf/current_turf = get_turf(owner)
 
-	if(!current_turf.check_alien_construction(owner))
+	if(!current_turf.check_alien_construction(owner, planned_building = /obj/alien/egg/hugger))
 		return fail_activate()
 
 	if(!xeno.loc_weeds_type)

@@ -274,8 +274,8 @@ RU TGMC EDIT */
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PSYCHIC_CURE,
 	)
-	var/heal_range = SHRIKE_HEAL_RANGE
 	target_flags = ABILITY_MOB_TARGET
+	var/heal_range = SHRIKE_HEAL_RANGE
 
 
 /datum/action/ability/activable/xeno/psychic_cure/on_cooldown_finish()
@@ -289,8 +289,6 @@ RU TGMC EDIT */
 		return FALSE
 	if(QDELETED(target))
 		return FALSE
-	if(!check_distance(target, silent))
-		return FALSE
 	if(!isxeno(target))
 		return FALSE
 	var/mob/living/carbon/xenomorph/patient = target
@@ -298,23 +296,26 @@ RU TGMC EDIT */
 		if(!silent)
 			to_chat(owner, span_warning("It's too late. This sister won't be coming back."))
 		return FALSE
-
+	if(!check_distance(patient, silent))
+		return FALSE
 
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
 	if(dist > heal_range)
-		to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
+		if(!silent)
+			to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
-	else if(!line_of_sight(owner, target))
-		to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
+	else if(!line_of_sight(owner, target, heal_range))
+		if(!silent)
+			to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
 		return FALSE
 	return TRUE
-
 
 /datum/action/ability/activable/xeno/psychic_cure/use_ability(atom/target)
 	if(owner.do_actions)
 		return FALSE
 
+	owner.face_atom(target) //Face the target so we don't look stupid
 	if(!do_after(owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
 
@@ -376,7 +377,7 @@ RU TGMC EDIT */
 			to_chat(owner, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/acidwell))
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))

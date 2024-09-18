@@ -94,6 +94,9 @@
 		quick_empty(over_object, usr)
 		return
 
+	if(HAS_TRAIT(src, TRAIT_NODROP))
+		return
+
 	//Makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 	//There's got to be a better way of doing this.
 	if(loc != usr || (loc && loc.loc == usr))

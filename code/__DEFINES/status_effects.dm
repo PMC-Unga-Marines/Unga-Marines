@@ -47,6 +47,9 @@
 #define STATUS_EFFECT_UPGRADE_CRUSH /datum/status_effect/upgrade_crush
 #define STATUS_EFFECT_UPGRADE_TOXIN /datum/status_effect/upgrade_toxin
 
+#define STATUS_EFFECT_MINDMEND /datum/status_effect/mindmeld
+
+#define STATUS_EFFECT_REKNIT_FORM /datum/status_effect/reknit_form
 /////////////
 // DEBUFFS //
 /////////////

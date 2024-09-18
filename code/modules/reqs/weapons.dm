@@ -420,7 +420,7 @@
 	cost = 500
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/sr81
+/datum/supply_packs/weapons/sr81_ammo
 	name = "SR-81 IFF sniper magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/sr81)
 	cost = 30

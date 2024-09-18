@@ -132,6 +132,12 @@ export const KeybindSettings = (props, context) => {
             {all_keybindings['YAUTJA']?.filter(filterSearch).map((kb) => (
               <KeybindingPreference key={kb.name} keybind={kb} />
             ))}
+            <LabeledList.Item>
+              <h3>Psionic</h3>
+            </LabeledList.Item>
+            {all_keybindings['PSIONIC']?.filter(filterSearch).map((kb) => (
+              <KeybindingPreference key={kb.name} keybind={kb} />
+            ))}
           </Section>
         </Stack.Item>
       </Stack>
