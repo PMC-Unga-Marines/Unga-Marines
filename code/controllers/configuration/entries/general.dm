@@ -23,6 +23,8 @@ Basics, the most important.
 
 /datum/config_entry/string/forumurl
 
+/datum/config_entry/string/donationurl
+
 /datum/config_entry/string/rulesurl
 
 /datum/config_entry/string/githuburl
