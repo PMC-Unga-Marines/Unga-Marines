@@ -208,10 +208,10 @@
 
 /obj/item/armor_module/storage/ammo_mag/freelancer_two/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/tx11(storage)
-	new /obj/item/ammo_magazine/rifle/tx11(storage)
-	new /obj/item/ammo_magazine/rifle/tx11(storage)
-	new /obj/item/ammo_magazine/rifle/tx11(storage)
+	new /obj/item/ammo_magazine/rifle/ar11(storage)
+	new /obj/item/ammo_magazine/rifle/ar11(storage)
+	new /obj/item/ammo_magazine/rifle/ar11(storage)
+	new /obj/item/ammo_magazine/rifle/ar11(storage)
 
 /obj/item/armor_module/storage/ammo_mag/freelancer_three/Initialize(mapload)
 	. = ..()

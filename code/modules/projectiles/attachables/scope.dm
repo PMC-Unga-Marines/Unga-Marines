@@ -70,21 +70,21 @@
 	scoped_accuracy_mod = SCOPE_RAIL_MINI
 	zoom_slowdown = 0.50
 
-/obj/item/attachable/scope/unremovable/tl127
+/obj/item/attachable/scope/unremovable/sr127
 	name = "T-45 rail scope"
 	icon_state = "tl127_scope"
 	aim_speed_mod = 0
 	wield_delay_mod = 0
 	desc = "A rail mounted zoom sight scope specialized for the SR-127 sniper rifle. Allows zoom by activating the attachment."
 
-/obj/item/attachable/scope/unremovable/heavymachinegun
+/obj/item/attachable/scope/unremovable/hmg08
 	name = "HMG-08 long range ironsights"
 	desc = "An unremovable set of long range ironsights for an HMG-08 machinegun."
 	icon_state = "sniperscope_invisible"
 	zoom_viewsize = 0
 	zoom_tile_offset = 5
 
-/obj/item/attachable/scope/unremovable/mmg
+/obj/item/attachable/scope/unremovable/mg27
 	name = "MG-27 rail scope"
 	icon_state = "miniscope"
 	desc = "A small rail mounted zoom sight scope. Allows zoom by activating the attachment."
@@ -95,23 +95,23 @@
 	zoom_tile_offset = 5
 	zoom_viewsize = 0
 
-/obj/item/attachable/scope/unremovable/standard_atgun
+/obj/item/attachable/scope/unremovable/at36
 	name = "AT-36 long range scope"
 	desc = "An unremovable set of long range scopes, very complex to properly range. Requires time to aim.."
 	icon_state = "sniperscope_invisible"
 	scope_delay = 2 SECONDS
 	zoom_tile_offset = 7
 
-/obj/item/attachable/scope/unremovable/tl102
+/obj/item/attachable/scope/unremovable/hsg102
 	name = "HSG-102 smart sight"
-	desc = "An unremovable smart sight built for use with the tl102, it does nearly all the aiming work for the gun's integrated IFF systems."
+	desc = "An unremovable smart sight built for use with the hsg102, it does nearly all the aiming work for the gun's integrated IFF systems."
 	icon_state = "sniperscope_invisible"
 	zoom_viewsize = 0
 	zoom_tile_offset = 5
 	deployed_scope_rezoom = TRUE
 
 //all mounted guns with a nest use this
-/obj/item/attachable/scope/unremovable/tl102/nest
+/obj/item/attachable/scope/unremovable/hsg102/nest
 	scope_delay = 2 SECONDS
 	zoom_tile_offset = 7
 	zoom_viewsize = 2
@@ -212,7 +212,7 @@
 	zoom_viewsize = 0
 	variants_by_parent_type = list(/obj/item/weapon/gun/rifle/som = "")
 
-/obj/item/attachable/scope/mini/tx11
+/obj/item/attachable/scope/mini/ar11
 	name = "AR-11 mini rail scope"
 	icon_state = "tx11scope"
 

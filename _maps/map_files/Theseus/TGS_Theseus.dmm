@@ -3756,7 +3756,7 @@
 /turf/closed/wall/mainship,
 /area/mainship/hallways/hangar/droppod)
 "blw" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /obj/item/tool/minihoe,
 /obj/item/reagent_containers/glass/fertilizer/ez,
@@ -8906,10 +8906,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_rnr)
 "erW" = (
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/weapon/gun/smg/standard_smg,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/weapon/gun/smg/smg90,
 /obj/structure/table/mainship/nometal,
 /turf/open/floor/mainship/red{
 	dir = 5
@@ -16693,8 +16693,8 @@
 /area/mainship/command/cic)
 "rfB" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/mg42,
+/obj/item/weapon/gun/rifle/mg42,
 /obj/item/attachable/scope,
 /obj/item/attachable/extended_barrel,
 /obj/item/clothing/suit/armor/bulletproof,
@@ -18054,7 +18054,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "tAA" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
 "tBz" = (

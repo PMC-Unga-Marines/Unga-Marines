@@ -22,6 +22,7 @@
 /area/lv624/lazarus/robotics)
 "cx" = (
 /obj/item/stool,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "cV" = (
@@ -228,6 +229,15 @@
 /obj/effect/spawner/random/machinery/machine_frame,
 /turf/open/floor/tile/vault,
 /area/lv624/lazarus/robotics)
+"Ao" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable,
+/obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/vault{
+	dir = 8
+	},
+/area/lv624/lazarus/robotics)
 "Cx" = (
 /obj/structure/computerframe,
 /turf/open/floor/plating/platebot,
@@ -269,14 +279,29 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/lazarus/robotics)
+"Ht" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/vault{
+	dir = 8
+	},
+/area/lv624/lazarus/robotics)
 "Id" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/warning,
 /area/lv624/lazarus/robotics)
 "Ix" = (
-/obj/structure/largecrate/random,
+/obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/platebot,
+/area/lv624/lazarus/robotics)
+"IM" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/vault{
+	dir = 8
+	},
 /area/lv624/lazarus/robotics)
 "IY" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
@@ -301,8 +326,7 @@
 /turf/open/floor/tile/vault,
 /area/lv624/lazarus/robotics)
 "NM" = (
-/obj/structure/largecrate,
-/obj/item/mecha_parts/part/gygax_armour,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "Ot" = (
@@ -338,6 +362,7 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
@@ -377,6 +402,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
@@ -442,8 +468,8 @@ uR
 Jv
 DP
 tz
-NM
-Ix
+jz
+tz
 Dy
 la
 "}
@@ -455,12 +481,12 @@ cx
 hh
 CR
 jg
-Uv
+IM
 jg
 CR
 hh
-hh
-Ix
+NM
+tz
 Dy
 la
 "}
@@ -519,7 +545,7 @@ Dy
 Gz
 uk
 oe
-jP
+Ht
 jP
 jP
 jP
@@ -528,7 +554,7 @@ jP
 jP
 jP
 jP
-oe
+Ao
 Id
 Gz
 "}
@@ -587,7 +613,7 @@ la
 la
 Dy
 vO
-JN
+Ix
 hh
 CR
 jg
@@ -596,7 +622,7 @@ PQ
 CR
 hh
 cx
-Ix
+tz
 Dy
 la
 "}
@@ -613,7 +639,7 @@ YK
 DP
 wh
 Di
-Ix
+tz
 Dy
 la
 "}

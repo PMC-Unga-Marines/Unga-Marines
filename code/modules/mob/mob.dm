@@ -22,10 +22,10 @@
 		var/datum/action/action_to_remove = a
 		action_to_remove.remove_action(src)
 	set_focus(null)
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(hunter_data)
 		hunter_data.clean_data()
-//RUTGMC EDIT ADDITION END
+	if(last_damage_source)
+		last_damage_source = null
 	return ..()
 
 /mob/Initialize(mapload)
@@ -547,7 +547,7 @@
 /mob/proc/get_idcard(hand_first)
 	return
 
-/mob/proc/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
+/mob/proc/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
 	return FALSE
 
 /mob/forceMove(atom/destination)

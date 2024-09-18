@@ -127,7 +127,5 @@
 	icon = 'icons/obj/smooth_objects/brokenfence.dmi'
 	return ..()
 
-/obj/structure/fence/fire_act(exposed_temperature, exposed_volume)
-	if(exposed_temperature > T0C + 800)
-		take_damage(round(exposed_volume * 0.01), BURN, FIRE)
-	return ..()
+/obj/structure/fence/fire_act(burn_level, flame_color)
+	take_damage(burn_level, BURN, FIRE)

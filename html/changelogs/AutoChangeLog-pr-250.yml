@@ -1,5 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - bugfix: "Камеры на ЛЗ теперь невидимы."
-  - bugfix: "Заготовки для камер теперь видимы."

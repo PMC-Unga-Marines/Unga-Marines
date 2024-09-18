@@ -55,7 +55,6 @@
 	force = 80
 	attack_speed = 5
 	sharp = IS_SHARP_ITEM_ACCURATE
-	resistance_flags = UNACIDABLE
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
 	w_class = WEIGHT_CLASS_BULKY
@@ -456,6 +455,8 @@
 		return
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] || modifiers["ctrl"])
+		return
+	if(QDELETED(object))
 		return
 	set_target(get_turf_on_clickcatcher(object, living_user, params))
 	if(!current_target)

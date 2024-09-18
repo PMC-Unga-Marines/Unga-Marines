@@ -9,6 +9,12 @@
 /obj/structure/sign/securearea,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand9)
+"cs" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirtgrassborder/corner{
+	dir = 4
+	},
+/area/lv624/ground/jungle8)
 "dv" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -377,6 +383,13 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple/garbledradio)
+"Vr" = (
+/obj/structure/flora/jungle/vines{
+	pixel_y = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/lazarus/sandtemple/garbledradio)
 "Wt" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand9)
@@ -430,7 +443,7 @@ Xx
 Xx
 Xx
 Wt
-Wt
+Gx
 Wt
 TX
 Wt
@@ -540,7 +553,7 @@ Wt
 Wt
 Wt
 Wt
-Wt
+Gx
 vZ
 qS
 Tp
@@ -557,7 +570,7 @@ Tt
 Dm
 Dm
 Wt
-Wt
+Gx
 Wt
 gQ
 Wt
@@ -617,7 +630,7 @@ Wt
 Wt
 Wt
 Wt
-Wt
+Gx
 Wt
 Wt
 qS
@@ -681,7 +694,7 @@ yt
 yt
 mz
 yt
-yt
+Kb
 KK
 Tt
 oJ
@@ -692,7 +705,7 @@ Wt
 Wt
 Wt
 Wt
-Wt
+Gx
 Tp
 Tp
 Tp
@@ -713,7 +726,7 @@ Tt
 KK
 yt
 Wt
-Wt
+Gx
 Wt
 Wt
 Wt
@@ -731,7 +744,7 @@ Tp
 yt
 yt
 oJ
-yt
+Kb
 yt
 yt
 mL
@@ -866,7 +879,7 @@ yt
 KK
 PZ
 yt
-KK
+Vr
 oJ
 Tp
 Tp
@@ -958,7 +971,7 @@ Tp
 Tp
 Tp
 Jt
-km
+cs
 lb
 "}
 (22,1,1) = {"

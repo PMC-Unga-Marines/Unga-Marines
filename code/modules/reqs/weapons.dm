@@ -57,12 +57,12 @@
 
 /datum/supply_packs/weapons/m56d_emplacement
 	name = "HSG-102 Mounted Heavy Smartgun"
-	contains = list(/obj/item/storage/box/tl102)
+	contains = list(/obj/item/storage/box/hsg102)
 	cost = 600
 
 /datum/supply_packs/weapons/m56d
 	name = "HSG-102 mounted heavy smartgun ammo"
-	contains = list(/obj/item/ammo_magazine/tl102)
+	contains = list(/obj/item/ammo_magazine/hsg102)
 	cost = 30
 
 /datum/supply_packs/weapons/minigun_emplacement
@@ -77,101 +77,101 @@
 
 /datum/supply_packs/weapons/autocannon_emplacement
 	name = "ATR-22 Mounted Flak Cannon"
-	contains = list(/obj/item/weapon/gun/standard_auto_cannon)
+	contains = list(/obj/item/weapon/gun/atr22)
 	cost = 700
 
 /datum/supply_packs/weapons/ac_hv
 	name = "ATR-22 High-Velocity ammo"
-	contains = list(/obj/item/ammo_magazine/auto_cannon)
+	contains = list(/obj/item/ammo_magazine/atr22)
 	cost = 40
 
 /datum/supply_packs/weapons/ac_flak
 	name = "ATR-22 Smart-Detonating ammo"
-	contains = list(/obj/item/ammo_magazine/auto_cannon/flak)
+	contains = list(/obj/item/ammo_magazine/atr22/flak)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_emplacement
 	name = "AGLS-37 Mounted Automated Grenade Launcher"
-	contains = list(/obj/item/weapon/gun/standard_agls)
+	contains = list(/obj/item/weapon/gun/agls37)
 	cost = 700
 
 /datum/supply_packs/weapons/ags_highexplo
 	name = "AGLS-37 AGL High Explosive Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls)
+	contains = list(/obj/item/ammo_magazine/agls37)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_frag
 	name = "AGLS-37 AGL Fragmentation Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/fragmentation)
+	contains = list(/obj/item/ammo_magazine/agls37/fragmentation)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_incendiary
 	name = "AGLS-37 AGL White Phosphorous Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/incendiary)
+	contains = list(/obj/item/ammo_magazine/agls37/incendiary)
 	cost = 40
 
 /datum/supply_packs/weapons/ags_flare
 	name = "AGLS-37 AGL Flare Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/flare)
+	contains = list(/obj/item/ammo_magazine/agls37/flare)
 	cost = 30
 
 /datum/supply_packs/weapons/ags_cloak
 	name = "AGLS-37 AGL Cloak Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/cloak)
+	contains = list(/obj/item/ammo_magazine/agls37/cloak)
 	cost = 30
 
 /datum/supply_packs/weapons/ags_tanglefoot
 	name = "AGLS-37 AGL Tanglefoot Grenades"
-	contains = list(/obj/item/ammo_magazine/standard_agls/tanglefoot)
+	contains = list(/obj/item/ammo_magazine/agls37/tanglefoot)
 	cost = 55
 
 /datum/supply_packs/weapons/antitankgun
 	name = "AT-36 Anti Tank Gun"
-	contains = list(/obj/item/weapon/gun/standard_atgun)
+	contains = list(/obj/item/weapon/gun/at36)
 	cost = 800
 
 /datum/supply_packs/weapons/antitankgunammo
 	name = "AT-36 AP-HE Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun,
-		/obj/item/ammo_magazine/standard_atgun,
-		/obj/item/ammo_magazine/standard_atgun,
+		/obj/item/ammo_magazine/at36,
+		/obj/item/ammo_magazine/at36,
+		/obj/item/ammo_magazine/at36,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/apcr
 	name = "AT-36 APCR Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/apcr,
-		/obj/item/ammo_magazine/standard_atgun/apcr,
-		/obj/item/ammo_magazine/standard_atgun/apcr,
+		/obj/item/ammo_magazine/at36/apcr,
+		/obj/item/ammo_magazine/at36/apcr,
+		/obj/item/ammo_magazine/at36/apcr,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/he
 	name = "AT-36 HE Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/he,
-		/obj/item/ammo_magazine/standard_atgun/he,
-		/obj/item/ammo_magazine/standard_atgun,
+		/obj/item/ammo_magazine/at36/he,
+		/obj/item/ammo_magazine/at36/he,
+		/obj/item/ammo_magazine/at36/he,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/beehive
 	name = "AT-36 Beehive Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/beehive,
-		/obj/item/ammo_magazine/standard_atgun/beehive,
-		/obj/item/ammo_magazine/standard_atgun/beehive,
+		/obj/item/ammo_magazine/at36/beehive,
+		/obj/item/ammo_magazine/at36/beehive,
+		/obj/item/ammo_magazine/at36/beehive,
 	)
 	cost = 20
 
 /datum/supply_packs/weapons/antitankgunammo/incendiary
 	name = "AT-36 Napalm Shell (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/standard_atgun/incend,
-		/obj/item/ammo_magazine/standard_atgun/incend,
-		/obj/item/ammo_magazine/standard_atgun/incend,
+		/obj/item/ammo_magazine/at36/incend,
+		/obj/item/ammo_magazine/at36/incend,
+		/obj/item/ammo_magazine/at36/incend,
 	)
 	cost = 20
 
@@ -414,21 +414,21 @@
 	cost = 100
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/autosniper
+/datum/supply_packs/weapons/sr81
 	name = "SR-81 IFF Auto Sniper kit"
-	contains = list(/obj/item/weapon/gun/rifle/standard_autosniper)
+	contains = list(/obj/item/weapon/gun/rifle/sr81)
 	cost = 500
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/autosniper_regular
+/datum/supply_packs/weapons/sr81_ammo
 	name = "SR-81 IFF sniper magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/autosniper)
+	contains = list(/obj/item/ammo_magazine/rifle/sr81)
 	cost = 30
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/autosniper_packet
+/datum/supply_packs/weapons/sr81_packet
 	name = "SR-81 IFF sniper ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/autosniper)
+	contains = list(/obj/item/ammo_magazine/packet/sr81)
 	cost = 50
 	available_against_xeno_only = TRUE
 
@@ -466,34 +466,34 @@
 	contains = list(/obj/item/ammo_magazine/minigun_powerpack)
 	cost = 50
 
-/datum/supply_packs/weapons/mmg
+/datum/supply_packs/weapons/mg27
 	name = "MG-27 Medium Machinegun"
-	contains = list(/obj/item/weapon/gun/standard_mmg)
+	contains = list(/obj/item/weapon/gun/mg27)
 	cost = 100
 
-/datum/supply_packs/weapons/hmg
+/datum/supply_packs/weapons/hmg08
 	name = "HMG-08 heavy machinegun"
-	contains = list(/obj/item/weapon/gun/heavymachinegun)
+	contains = list(/obj/item/weapon/gun/hmg08)
 	cost = 400
 
-/datum/supply_packs/weapons/hmg_ammo
+/datum/supply_packs/weapons/hmg08_ammo
 	name = "HMG-08 heavy machinegun ammo (500 rounds)"
-	contains = list(/obj/item/ammo_magazine/heavymachinegun)
+	contains = list(/obj/item/ammo_magazine/hmg08)
 	cost = 70
 
-/datum/supply_packs/weapons/hmg_ammo_small
+/datum/supply_packs/weapons/hmg08_ammo_small
 	name = "HMG-08 heavy machinegun ammo (250 rounds)"
-	contains = list(/obj/item/ammo_magazine/heavymachinegun/small)
+	contains = list(/obj/item/ammo_magazine/hmg08/small)
 	cost = 40
 
-/datum/supply_packs/weapons/smartgun
+/datum/supply_packs/weapons/sg29
 	name = "SG-29 smart machine gun"
-	contains = list(/obj/item/weapon/gun/rifle/standard_smartmachinegun)
+	contains = list(/obj/item/weapon/gun/rifle/sg29)
 	cost = 400
 
-/datum/supply_packs/weapons/smartgun_ammo
+/datum/supply_packs/weapons/sg29_ammo
 	name = "SG-29 ammo drum"
-	contains = list(/obj/item/ammo_magazine/standard_smartmachinegun)
+	contains = list(/obj/item/ammo_magazine/sg29)
 	cost = 50
 
 /datum/supply_packs/weapons/smart_minigun
@@ -506,44 +506,44 @@
 	contains = list(/obj/item/ammo_magazine/packet/smart_minigun)
 	cost = 50
 
-/datum/supply_packs/weapons/smarttarget_rifle
+/datum/supply_packs/weapons/sg62
 	name = "SG-62 Smart Target Rifle"
-	contains = list(/obj/item/weapon/gun/rifle/standard_smarttargetrifle)
+	contains = list(/obj/item/weapon/gun/rifle/sg62)
 	cost = 400
 
-/datum/supply_packs/weapons/smarttarget_rifle_ammo
+/datum/supply_packs/weapons/sg62_ammo
 	name = "SG-62 smart target rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle)
+	contains = list(/obj/item/ammo_magazine/rifle/sg62)
 	cost = 35
 
-/datum/supply_packs/weapons/spotting_rifle_ammo
+/datum/supply_packs/weapons/sg153_ammo
 	name = "SG-153 spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153)
 	cost = 15
 
-/datum/supply_packs/weapons/spotting_rifle_ammo/highimpact
+/datum/supply_packs/weapons/sg153_ammo/highimpact
 	name = "SG-153 high impact spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/highimpact)
 
-/datum/supply_packs/weapons/spotting_rifle_ammo/heavyrubber
+/datum/supply_packs/weapons/sg153_ammo/heavyrubber
 	name = "SG-153 heavy rubber spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/heavyrubber)
 
-/datum/supply_packs/weapons/spotting_rifle_ammo/plasmaloss
+/datum/supply_packs/weapons/sg153_ammo/plasmaloss
 	name = "SG-153 tanglefoot spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/plasmaloss)
 
-/datum/supply_packs/weapons/spotting_rifle_ammo/tungsten
+/datum/supply_packs/weapons/sg153_ammo/tungsten
 	name = "SG-153 tungsten spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/tungsten)
 
-/datum/supply_packs/weapons/spotting_rifle_ammo/flak
+/datum/supply_packs/weapons/sg153_ammo/flak
 	name = "SG-153 flak spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/flak)
 
-/datum/supply_packs/weapons/spotting_rifle_ammo/incendiary
+/datum/supply_packs/weapons/sg153_ammo/incendiary
 	name = "SG-153 incendiary spotting rifle ammo"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary)
+	contains = list(/obj/item/ammo_magazine/rifle/sg153/incendiary)
 
 /datum/supply_packs/weapons/flamethrower
 	name = "FL-84 Flamethrower"
@@ -634,9 +634,9 @@
 	containertype = null
 	cost = 200
 
-/datum/supply_packs/weapons/pfcflak
+/datum/supply_packs/weapons/sr127_flak
 	name = "SR-127 Flak Magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/flak)
+	contains = list(/obj/item/ammo_magazine/rifle/sr127/flak)
 	cost = 50
 	available_against_xeno_only = TRUE
 
@@ -662,7 +662,7 @@
 
 /datum/supply_packs/weapons/smart_pistol_ammo
 	name = "TX13 smartpistol ammo"
-	contains = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol)
+	contains = list(/obj/item/ammo_magazine/pistol/p14/smart_pistol)
 	cost = 10
 
 /datum/supply_packs/weapons/vector_sabot
@@ -687,22 +687,16 @@
 	contains = list(/obj/item/storage/box/t500case)
 	cost = 50
 
-/datum/supply_packs/weapons/t12_sabot
+/datum/supply_packs/weapons/ar12_sabot
 	name = "AR-12 APDS magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/sabot)
+	contains = list(/obj/item/ammo_magazine/rifle/ar12/sabot)
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/t12_incendiary
+/datum/supply_packs/weapons/ar12_incendiary
 	name = "AR-12 incendiary magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary)
+	contains = list(/obj/item/ammo_magazine/rifle/ar12/incendiary)
 	cost = 30 //50 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/br64_ap
-	name = "BR-64 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/standard_br/ap)
-	cost = 25 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/smg25_ap
@@ -723,25 +717,25 @@
 	cost = 45 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/rifle/T25
+/datum/supply_packs/weapons/rifle/t25
 	name = "T25 smartrifle"
-	contains = list(/obj/item/weapon/gun/rifle/T25)
+	contains = list(/obj/item/weapon/gun/rifle/t25)
 	cost = 400
 
-/datum/supply_packs/weapons/ammo_magazine/rifle/T25
+/datum/supply_packs/weapons/ammo_magazine/rifle/t25
 	name = "T25 smartrifle magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/T25)
+	contains = list(/obj/item/ammo_magazine/rifle/t25)
 	cost = 20
 
-/datum/supply_packs/weapons/T25_extended_mag
+/datum/supply_packs/weapons/t25_extended_mag
 	name = "T25 extended magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/T25/extended)
+	contains = list(/obj/item/ammo_magazine/rifle/t25/extended)
 	cost = 200
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/ammo_magazine/packet/T25_rifle
+/datum/supply_packs/weapons/ammo_magazine/packet/t25
 	name = "T25 smartrifle ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)
+	contains = list(/obj/item/ammo_magazine/packet/t25)
 	cost = 60
 
 /datum/supply_packs/weapons/box_10x25mm_sabot
@@ -799,7 +793,7 @@
 
 /datum/supply_packs/weapons/box_10x27mm
 	name = "SG-62 smart target rifle ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/sg62_rifle)
+	contains = list(/obj/item/ammo_magazine/packet/sg62)
 	cost = 50
 
 /datum/supply_packs/weapons/xray_gun

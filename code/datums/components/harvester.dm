@@ -117,7 +117,7 @@
 		user.balloon_alert(user, "incompatible reagent, check description")
 		return
 
-	if(loaded_reagents[reagent_to_load] > max_loadable_reagent_amount)
+	if(loaded_reagents[reagent_to_load] >= max_loadable_reagent_amount)
 		user.balloon_alert(user, "full")
 		return
 
@@ -223,7 +223,7 @@
 
 		if(/datum/reagent/medicine/kelotane)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
-			target.flamer_fire_act(10)
+			target.fire_act(10)
 
 		if(/datum/reagent/medicine/tramadol)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)

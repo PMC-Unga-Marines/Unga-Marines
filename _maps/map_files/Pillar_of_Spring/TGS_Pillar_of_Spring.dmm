@@ -503,7 +503,7 @@
 	},
 /obj/machinery/light/mainship/small,
 /obj/effect/landmark/corpsespawner/marine/regular,
-/obj/item/weapon/gun/pistol/standard_heavypistol/suppressed,
+/obj/item/weapon/gun/pistol/p23/suppressed,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mainship/floor,
 /area/crew_quarters/toilet)
@@ -2004,7 +2004,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "czH" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -2162,7 +2162,7 @@
 "cLD" = (
 /obj/effect/landmark/corpsespawner/engineer/regular,
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /obj/item/ammo_casing/bullet{
 	pixel_x = 5;
 	pixel_y = -8
@@ -2628,7 +2628,7 @@
 	pixel_y = -8
 	},
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "dla" = (
@@ -2925,7 +2925,7 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
 	},
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /obj/item/ammo_casing/bullet{
 	pixel_x = -7;
 	pixel_y = 4
@@ -4788,8 +4788,8 @@
 /obj/item/attachable/extended_barrel,
 /obj/item/attachable/extended_barrel,
 /obj/item/attachable/scope,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/mg42,
+/obj/item/weapon/gun/rifle/mg42,
 /obj/item/stack/sheet/metal/medium_stack,
 /obj/item/stack/sheet/metal/medium_stack{
 	pixel_x = 5;
@@ -6284,7 +6284,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar/droppod)
 "iaQ" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -7824,7 +7824,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "klu" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/corporateliaison)
@@ -11176,7 +11176,7 @@
 	},
 /area/mainship/engineering/engineering_workshop)
 "ohF" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
 "oiy" = (
@@ -13139,7 +13139,7 @@
 	},
 /obj/effect/landmark/corpsespawner/engineer/regular,
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/gun/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
 /obj/item/ammo_casing/bullet{
 	pixel_x = 5;
 	pixel_y = -8
@@ -13201,10 +13201,10 @@
 /area/mainship/squads/general)
 "qEu" = (
 /obj/structure/table/mainship/nometal,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/weapon/gun/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/weapon/gun/rifle/ar18,
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/firing_range)
 "qFh" = (
@@ -17457,10 +17457,10 @@
 /area/mainship/squads/general)
 "vWG" = (
 /obj/structure/table/mainship/nometal,
-/obj/item/weapon/gun/revolver/standard_revolver,
-/obj/item/ammo_magazine/revolver/standard_revolver,
-/obj/item/ammo_magazine/revolver/standard_revolver,
-/obj/item/ammo_magazine/revolver/standard_revolver,
+/obj/item/weapon/gun/revolver/r44,
+/obj/item/ammo_magazine/revolver/r44,
+/obj/item/ammo_magazine/revolver/r44,
+/obj/item/ammo_magazine/revolver/r44,
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},

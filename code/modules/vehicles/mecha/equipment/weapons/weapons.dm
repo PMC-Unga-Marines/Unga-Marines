@@ -65,6 +65,9 @@
 		return FALSE
 	. = ..()
 
+
+	if(QDELETED(target))
+		return
 	set_target(get_turf_on_clickcatcher(target, source, list2params(modifiers)))
 	if(!current_target)
 		return
