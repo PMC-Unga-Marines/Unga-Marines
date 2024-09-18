@@ -11050,7 +11050,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/sombase/east)
 "inY" = (
- /obj/item/storage/holster/belt/revolver/mateba,
+/obj/item/storage/holster/belt/revolver/mateba,
 /obj/item/clothing/mask/bandanna/skull,
 /obj/structure/closet/coffin,
 /obj/item/grown/sunflower,
