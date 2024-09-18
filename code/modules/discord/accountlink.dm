@@ -44,8 +44,8 @@
 
 // IF you have linked your account, this will trigger a verify of the user
 /client/verb/check_discord()
-	set category = "OOC.Check discord id"
-	set name = "Verify Discord Account"
+	set category = "OOC.Discord"
+	set name = "Check discord id"
 	set desc = "Verify or reverify your discord account against your linked ckey"
 
 	// Safety checks
