@@ -18,13 +18,19 @@
 
 	check_hive_status(src)
 
+/mob/living/carbon/xenomorph/verb/change_appearance()
+	set name = "Change appearance"
+	set desc = "Changes your appearance."
+	set category = "Alien"
+
+	change_skin()
+
 /mob/living/carbon/xenomorph/verb/tunnel_list()
 	set name = "Tunnel List"
 	set desc = "See all currently active tunnels."
 	set category = "Alien"
 
 	check_tunnel_list(src)
-
 
 /proc/check_tunnel_list(mob/user) //Creates a handy list of all xeno tunnels
 	var/dat = "<br>"
@@ -56,6 +62,24 @@
 	hive.interact(user)
 
 	return
+
+/mob/living/carbon/xenomorph/proc/change_skin()
+	if(!length(skins))
+		balloon_alert(src, "Your caste does not have the ability to change appearance")
+		return
+
+	if(!SSdiscord.is_boosty(ckey, FALSE))
+		to_chat(usr, span_notice("You need boosty verification to use this"))
+		return
+
+	var/selection
+	if(length(skins) == 1)
+		selection = skins[1]
+	else
+		selection = tgui_input_list(src, "Choose an setting appearance", "Choose an setting appearance", skins)
+
+	if(selection)
+		icon = skins[selection]
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()

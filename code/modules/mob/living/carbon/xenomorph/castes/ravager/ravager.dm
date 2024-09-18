@@ -14,6 +14,10 @@
 	pixel_x = -16
 	old_x = -16
 	bubble_icon = "alienroyal"
+	skins = list(
+		"bonehead" = 'icons/Xeno/castes/bonehead.dmi',
+		"baseline" = 'icons/Xeno/castes/ravager.dmi',
+	)
 	var/rage_power
 	var/rage = FALSE
 	var/staggerstun_immune = FALSE
