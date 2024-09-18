@@ -1,11 +1,11 @@
 //Update this whenever you need to take advantage of more recent byond features
 #define MIN_COMPILER_VERSION 515
-#define MIN_COMPILER_BUILD 1609
+#define MIN_COMPILER_BUILD 1636
 #ifndef SPACEMAN_DMM
 #if DM_VERSION < MIN_COMPILER_VERSION || DM_BUILD < MIN_COMPILER_BUILD
 //Don't forget to update this part
 #error Your version of BYOND is too out-of-date to compile this project. Go to https://secure.byond.com/download and update.
-#error You need version 515.1609 or higher
+#error You need version 515.1636 or higher
 #endif
 #endif
 
