@@ -639,3 +639,4 @@
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)
 	to_chat(usr, span_xenonotice("Upgrade applied."))
+	usr << browse(null, "window=["upgrademenu"]")
