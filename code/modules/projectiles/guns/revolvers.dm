@@ -81,7 +81,7 @@
 		to_chat(user, span_warning("You don't know how to do tactical reloads."))
 		return
 	to_chat(user, span_notice("You start a tactical reload."))
-	var/tac_reload_time = max(0.25 SECONDS, 0.75 SECONDS - user.skills.getRating(SKILL_FIREARMS) * 5)
+	var/tac_reload_time = max(0.25 SECONDS, 0.85 SECONDS - user.skills.getRating(SKILL_FIREARMS) * 5)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)) // if we are really closed
 		if(!do_after(user, tac_reload_time * 0.2, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 			return
