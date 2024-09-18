@@ -598,18 +598,17 @@
 	selected_illusion.forceMove(current_turf)
 
 // ***************************************
-// *********** One Hunter's Army
+// *********** One Hunter Army
 // ***************************************
 #define ILUSSION_CHANCE 70
+#define ILLUSION_LIFETIME 5 SECONDS
 
 /datum/action/ability/xeno_action/hunter_army
-	name = "One Hunter's Army"
+	name = "One Hunter Army"
 	desc = ""
 	ability_cost = 0
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
-
-	var/illusion_life_time = 5 SECONDS
 
 /datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
 	. = ..()
@@ -626,11 +625,10 @@
 	if(!isliving(target))
 		return
 
-	var/target_turf = target.loc
-	target_turf = get_step_rand(target_turf)
+	var/target_turf = get_step_rand(target.loc)
 
 	if(prob(ILUSSION_CHANCE))
-		new /mob/illusion/xeno(target_turf, owner, owner, illusion_life_time)
+		new /mob/illusion/xeno(target_turf, owner, owner, ILLUSION_LIFETIME)
 
 /datum/action/ability/xeno_action/hunter_army/should_show()
 	return FALSE
