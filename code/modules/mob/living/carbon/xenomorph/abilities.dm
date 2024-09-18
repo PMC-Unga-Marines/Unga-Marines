@@ -82,7 +82,7 @@
 	last_weeded_turf = T
 	playsound(T, "alien_resin_build", 25)
 	GLOB.round_statistics.weeds_planted++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "weeds_planted")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "weeds_planted")
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.weeds_planted++
@@ -969,7 +969,7 @@
 ///Adds ability tally to the end-round statistics.
 /datum/action/ability/activable/xeno/neurotox_sting/proc/track_stats()
 	GLOB.round_statistics.sentinel_neurotoxin_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "sentinel_neurotoxin_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "sentinel_neurotoxin_stings")
 
 //Ozelomelyn Sting
 /datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn
@@ -986,7 +986,7 @@
 ///Adds ability tally to the end-round statistics.
 /datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn/track_stats()
 	GLOB.round_statistics.ozelomelyn_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "ozelomelyn_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ozelomelyn_stings")
 
 // ***************************************
 // *********** Psychic Whisper
@@ -1096,7 +1096,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.xeno_rally_hive++ //statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_rally_hive")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_rally_hive")
 
 /datum/action/ability/xeno_action/rally_minion
 	name = "Rally Minions"

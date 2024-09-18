@@ -69,7 +69,7 @@
 	remove_typing_indicator()
 
 	GLOB.round_statistics.total_human_deaths[faction]++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_deaths[faction]")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_human_deaths[faction]")
 
 	GLOB.dead_human_list += src
 	GLOB.alive_human_list -= src

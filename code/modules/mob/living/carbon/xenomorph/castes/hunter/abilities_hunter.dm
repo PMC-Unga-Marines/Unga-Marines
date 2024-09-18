@@ -490,7 +490,7 @@
 	succeed_activate()
 
 	GLOB.round_statistics.hunter_marks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "hunter_marks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "hunter_marks")
 	add_cooldown()
 
 ///Nulls the target of our hunter's mark
@@ -713,7 +713,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.hunter_silence_targets += victim_count //Increment by victim count
-	SSblackbox.record_feedback("tally", "round_statistics", victim_count, "hunter_silence_targets") //Statistics
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", victim_count, "hunter_silence_targets") //Statistics
 
 /datum/action/ability/activable/xeno/silence/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We refocus our psionic energies, allowing us to impose silence again.</b>") )

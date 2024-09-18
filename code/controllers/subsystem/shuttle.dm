@@ -636,7 +636,7 @@ SUBSYSTEM_DEF(shuttle)
 					. = TRUE
 					message_admins("[key_name_admin(usr)] fast travelled [M]")
 					log_admin("[key_name(usr)] fast travelled [M]")
-					SSblackbox.record_feedback("text", "shuttle_manipulator", 1, "[M.name]")
+					SSblackbox.record_feedback(FEEDBACK_TEXT, "shuttle_manipulator", 1, "[M.name]")
 					break
 
 		if("preview")
@@ -656,7 +656,7 @@ SUBSYSTEM_DEF(shuttle)
 					user.forceMove(get_turf(mdp))
 					message_admins("[key_name_admin(usr)] loaded [mdp] with the shuttle manipulator.")
 					log_admin("[key_name(usr)] loaded [mdp] with the shuttle manipulator.</span>")
-					SSblackbox.record_feedback("text", "shuttle_manipulator", 1, "[mdp.name]")
+					SSblackbox.record_feedback(FEEDBACK_TEXT, "shuttle_manipulator", 1, "[mdp.name]")
 
 
 #undef SHUTTLE_SPAWN_BUFFER
