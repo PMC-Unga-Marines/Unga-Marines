@@ -364,11 +364,11 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	playsound(boiler_owner, 'sound/effects/blobattack.ogg', 25, 1)
 	if(istype(boiler_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
 		GLOB.round_statistics.boiler_acid_smokes++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "boiler_acid_smokes")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_acid_smokes")
 		boiler_owner.corrosive_ammo--
 	else
 		GLOB.round_statistics.boiler_neuro_smokes++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "boiler_neuro_smokes")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_neuro_smokes")
 		boiler_owner.neuro_ammo--
 
 	boiler_owner.update_boiler_glow()

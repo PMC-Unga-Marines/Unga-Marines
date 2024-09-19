@@ -142,9 +142,11 @@
 #define FIRE_PRIORITY_REQTORIO 91
 #define FIRE_PRIORITY_SILO 92
 #define FIRE_PRIORITY_PATHFINDING 95
+#define FIRE_PRIORITY_PROJECTILES 98
 #define FIRE_PRIORITY_MOBS 100
 #define FIRE_PRIORITY_ASSETS 105
 #define FIRE_PRIORITY_TGUI 110
+#define FIRE_PRIORITY_CELLAUTO 150
 #define FIRE_PRIORITY_TICKER 200
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
@@ -153,7 +155,6 @@
 #define FIRE_PRIORITY_TTS 425
 #define FIRE_PRIORITY_AUTOFIRE 450
 #define FIRE_PRIORITY_OVERLAYS 500
-#define FIRE_PRIORITY_CELLAUTO 666
 #define FIRE_PRIORITY_TIMER 700
 #define FIRE_PRIORITY_SPEECH_CONTROLLER 900
 #define FIRE_PRIORITY_INPUT 1000 // This must always always be the max highest priority. Player input must never be lost.
@@ -186,3 +187,10 @@
 
 /// The timer key used to know how long subsystem initialization takes
 #define SS_INIT_TIMER_KEY "ss_init"
+
+//Blackbox feedback defines
+#define FEEDBACK_TEXT "text"
+#define FEEDBACK_AMOUNT "amount"
+#define FEEDBACK_TALLY "tally"
+#define FEEDBACK_NESTED_TALLY "nested_tally"
+#define FEEDBACK_ASSOCIATIVE "associative"

@@ -41,7 +41,6 @@
 		if(80 to 100)
 			. += span_info("It appears in good shape, pulsating healthily.")
 
-
 /obj/structure/xeno/spawner/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
 	spawner_damage_alert()
@@ -95,16 +94,15 @@
 ///Change minimap icon if spawner is under attack or not
 /obj/structure/xeno/spawner/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "spawner[warning ? "_warn" : "_passive"]", , ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "spawner[warning ? "_warn" : "_passive"]", ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
 
-/obj/structure/xeno/spawner/proc/on_spawn(list/squad)
-	if(!isxeno(squad[length(squad)]))
-		CRASH("Xeno spawner somehow tried to spawn a non xeno (tried to spawn [squad[length(squad)]])")
-	var/mob/living/carbon/xenomorph/X = squad[length(squad)]
-	X.transfer_to_hive(hivenumber)
-	linked_minions = squad
-	if(hivenumber == XENO_HIVE_FALLEN) //snowflake so valhalla isnt filled with minions after you're done
-		RegisterSignal(src, COMSIG_QDELETING, PROC_REF(kill_linked_minions))
+/// Transfers the spawned minion to the silo's hivenumber.
+/obj/structure/xeno/spawner/proc/on_spawn(list/newly_spawned_things)
+	for(var/mob/living/carbon/xenomorph/spawned_minion AS in newly_spawned_things)
+		spawned_minion.transfer_to_hive(hivenumber)
+		linked_minions += spawned_minion
+		if(hivenumber == XENO_HIVE_FALLEN) //snowflake so valhalla isnt filled with minions after you're done
+			RegisterSignal(src, COMSIG_QDELETING, PROC_REF(kill_linked_minions))
 
 /obj/structure/xeno/spawner/proc/kill_linked_minions()
 	for(var/mob/living/carbon/xenomorph/linked in linked_minions)

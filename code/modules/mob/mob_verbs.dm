@@ -52,27 +52,27 @@
 	set category = "OOC.Ghost"
 
 	if(!GLOB.respawn_allowed && !check_rights(R_ADMIN, FALSE))
-		to_chat(src, span_notice("Respawn is disabled."))
+		to_chat(usr, span_notice("Respawn is disabled."))
 		return
 	if(stat != DEAD)
-		to_chat(src, span_boldnotice("You must be dead to use this!"))
+		to_chat(usr, span_boldnotice("You must be dead to use this!"))
 		return
 
-	if(DEATHTIME_CHECK(src))
-		if(check_other_rights(src.client, R_ADMIN, FALSE))
-			if(tgui_alert(src, "You wouldn't normally qualify for this respawn. Are you sure you want to bypass it with your admin powers?", "Bypass Respawn", list("Yes", "No"), 0) != "Yes")
-				DEATHTIME_MESSAGE(src)
+	if(DEATHTIME_CHECK(usr))
+		if(check_other_rights(usr.client, R_ADMIN, FALSE))
+			if(tgui_alert(usr, "You wouldn't normally qualify for this respawn. Are you sure you want to bypass it with your admin powers?", "Bypass Respawn", list("Yes", "No"), 0) != "Yes")
+				DEATHTIME_MESSAGE(usr)
 				return
-			var/admin_message = "[key_name(src)] used his admin power to bypass respawn before his timer was over"
+			var/admin_message = "[key_name(usr)] used his admin power to bypass respawn before his timer was over"
 			log_admin(admin_message)
 			message_admins(admin_message)
 		else
-			DEATHTIME_MESSAGE(src)
+			DEATHTIME_MESSAGE(usr)
 			return
 
-	to_chat(src, span_notice("You can respawn now, enjoy your new life!<br><b>Make sure to play a different character, and please roleplay correctly.</b>"))
+	to_chat(usr, span_notice("You can respawn now, enjoy your new life!<br><b>Make sure to play a different character, and please roleplay correctly.</b>"))
 	GLOB.round_statistics.total_human_respawns++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_respawns")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_human_respawns")
 
 
 	if(!client)
@@ -140,8 +140,7 @@
 	// List of HvH factions - these are handled differently, using the quick loadout outfits.
 	var/list/static/hvh_faction_list = list(/datum/job/som, /datum/job/terragov)
 	// List of rare factions, not common because they're funny in moderation / stronk.
-	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
-
+	var/list/static/rare_faction_list = list(/datum/job/necoarc, /datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
 
 	var/total_list = base_faction_list + hvh_faction_list
 

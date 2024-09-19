@@ -32,7 +32,7 @@
 //-------------------------------------------------------
 // MP-19 Machinepistol. It fits here more.
 
-/obj/item/weapon/gun/smg/standard_machinepistol
+/obj/item/weapon/gun/smg/mp19
 	name = "\improper MP-19 machinepistol"
 	desc = "The MP-19 is the TerraGov Marine Corps standard-issue machine pistol. It's known for it's low recoil and scatter when used one handed. It's usually carried by specialized troops who do not have the space to carry a much larger gun like medics and engineers. It uses 10x20mm caseless rounds."
 	icon_state = "t19"
@@ -47,15 +47,15 @@
 	max_shells = 30 //codex
 	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	type_of_casings = null
-	default_ammo_type = /obj/item/ammo_magazine/smg/standard_machinepistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/standard_machinepistol)
+	default_ammo_type = /obj/item/ammo_magazine/smg/mp19
+	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/mp19)
 
 	w_class = WEIGHT_CLASS_NORMAL
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
-		/obj/item/attachable/foldable/t19stock,
+		/obj/item/attachable/foldable/mp19stock,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,
@@ -67,7 +67,7 @@
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/motiondetector,
 	)
-	starting_attachment_types = list(/obj/item/attachable/foldable/t19stock)
+	starting_attachment_types = list(/obj/item/attachable/foldable/mp19stock)
 
 	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 19,"rail_x" = 9, "rail_y" = 21, "under_x" = 21, "under_y" = 15, "stock_x" = -4, "stock_y" = 16)
 
@@ -91,19 +91,19 @@
 	burst_accuracy_bonus = -0.3
 	burst_scatter_mult = 25
 
-/obj/item/weapon/gun/smg/standard_machinepistol/compact
-	starting_attachment_types = list(/obj/item/attachable/foldable/t19stock, /obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/smg/mp19/compact
+	starting_attachment_types = list(/obj/item/attachable/foldable/mp19stock, /obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
 
-/obj/item/weapon/gun/smg/standard_machinepistol/vgrip
-	starting_attachment_types = list(/obj/item/attachable/foldable/t19stock, /obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/verticalgrip)
+/obj/item/weapon/gun/smg/mp19/vgrip
+	starting_attachment_types = list(/obj/item/attachable/foldable/mp19stock, /obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/verticalgrip)
 
-/obj/item/weapon/gun/smg/standard_machinepistol/scanner
-	starting_attachment_types = list(/obj/item/attachable/foldable/t19stock, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
+/obj/item/weapon/gun/smg/mp19/scanner
+	starting_attachment_types = list(/obj/item/attachable/foldable/mp19stock, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
 
 //-------------------------------------------------------
 // War is hell. Not glorious.
 
-/obj/item/weapon/gun/smg/standard_smg
+/obj/item/weapon/gun/smg/smg90
 	name = "\improper SMG-90 submachinegun"
 	desc = "The SMG-90 is the TerraGov Marine Corps standard issue SMG. Its known for it's compact size and ease of use inside the field. It's usually carried by troops who want a lightweight firearm to rush with. It uses 10x20mm caseless rounds."
 	fire_sound =     'sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
@@ -123,8 +123,8 @@
 	wield_delay = 0.5 SECONDS
 	force = 20
 	type_of_casings = null
-	default_ammo_type = /obj/item/ammo_magazine/smg/standard_smg
-	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/standard_smg)
+	default_ammo_type = /obj/item/ammo_magazine/smg/smg90
+	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/smg90)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
@@ -159,13 +159,13 @@
 
 	placed_overlay_iconstate = "t90"
 
-/obj/item/weapon/gun/smg/standard_smg/breacher
+/obj/item/weapon/gun/smg/smg90/breacher
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
 
-/obj/item/weapon/gun/smg/standard_smg/nonstandard
+/obj/item/weapon/gun/smg/smg90/nonstandard
 	starting_attachment_types = list(/obj/item/attachable/reddot)
 
-/obj/item/weapon/gun/smg/standard_smg/tactical
+/obj/item/weapon/gun/smg/smg90/tactical
 	starting_attachment_types = list(/obj/item/attachable/compensator, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
 
 //-------------------------------------------------------
@@ -569,7 +569,7 @@
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
-		/obj/item/attachable/foldable/t19stock,
+		/obj/item/attachable/foldable/mp19stock,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,

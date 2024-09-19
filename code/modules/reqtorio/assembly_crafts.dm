@@ -201,30 +201,25 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
 	output = list(/obj/item/ammo_magazine/packet/smart_minigun = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/smartgun_magazine
+/datum/assembly_craft/weapons/sg29
 	name = "SG-29 ammo drum"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
-	output = list(/obj/item/ammo_magazine/standard_smartmachinegun = 1) // 25 points from old factory
+	output = list(/obj/item/ammo_magazine/sg29 = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/smartgun_targetrifle
+/datum/assembly_craft/weapons/sg62
 	name = "SG-62 ammo magazine"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
-	output = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = 1) // 25 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sg62 = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/autosniper_magazine
+/datum/assembly_craft/weapons/sr81_magazine
 	name = "SR-81 IFF Auto Sniper magazine"
 	input = list(/obj/item/stack/sheet/mineral/platinum = 1, /obj/item/stack/gun_powder = 2) // 12 + 16 points
-	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 13.3 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sr81 = 1) // 13.3 points from old factory
 
 /datum/assembly_craft/weapons/scout_rifle_magazine
 	name = "SR-81 automatic sniper rifle magazine"
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 16 points
-	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 10 points from old factory
-
-/datum/assembly_craft/weapons/mateba_speedloader
-	name = "Mateba autorevolver speedloader"
-	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
-	output = list(/obj/item/ammo_magazine/revolver/mateba = 1) // 10 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/tx8 = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/mateba_speedloader
 	name = "Mateba autorevolver speedloader"

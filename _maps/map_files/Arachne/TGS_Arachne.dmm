@@ -3888,7 +3888,7 @@
 /turf/open/floor/mainship/research,
 /area/mainship/medical/upper_medical)
 "drL" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -6097,10 +6097,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
-"fjN" = (
-/obj/structure/prop/mainship/name_stencil/M,
-/turf/open/floor/mainship_hull,
-/area/space)
 "fki" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
@@ -6134,7 +6130,7 @@
 /area/mainship/living/starboard_garden)
 "fkW" = (
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/mainship/ntlogo/nt2,
+/turf/open/floor/mainship/wylogo/wy2,
 /area/mainship/medical/upper_medical)
 "fld" = (
 /obj/structure/window/reinforced{
@@ -7881,7 +7877,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "gMi" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
@@ -8853,7 +8849,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/tankerbunks)
 "hBd" = (
-/obj/structure/prop/mainship/name_stencil/G,
+/obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull,
 /area/space)
 "hBs" = (
@@ -13580,7 +13576,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/general)
 "lqi" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /obj/machinery/holopad,
@@ -16907,7 +16903,7 @@
 /area/mainship/medical/chemistry)
 "nVh" = (
 /obj/structure/cable,
-/turf/open/floor/mainship/ntlogo,
+/turf/open/floor/mainship/wylogo,
 /area/mainship/medical/upper_medical)
 "nVu" = (
 /obj/structure/disposalpipe/segment,
@@ -17323,7 +17319,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/starboard_hallway)
 "ooG" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "ooP" = (
@@ -21071,7 +21067,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "rtW" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
@@ -23523,8 +23519,8 @@
 /obj/item/attachable/extended_barrel,
 /obj/item/attachable/extended_barrel,
 /obj/item/attachable/scope,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/mg42,
+/obj/item/weapon/gun/rifle/mg42,
 /obj/item/stack/sheet/metal/medium_stack,
 /obj/item/stack/sheet/metal/medium_stack{
 	pixel_x = 5;
@@ -24320,7 +24316,7 @@
 "ush" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/mainship/ntlogo/nt3,
+/turf/open/floor/mainship/wylogo/wy3,
 /area/mainship/medical/upper_medical)
 "usx" = (
 /obj/effect/decal/cleanable/blood/oil{
@@ -25730,10 +25726,10 @@
 /area/mainship/engineering/engineering_workshop)
 "vAA" = (
 /obj/structure/table/mainship/nometal,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/weapon/gun/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/weapon/gun/rifle/ar18,
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship/red{
 	dir = 1
@@ -25810,7 +25806,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar/droppod)
 "vED" = (
-/obj/structure/prop/mainship/name_stencil/T,
+/obj/structure/prop/mainship/name_stencil/U,
 /turf/open/floor/mainship_hull,
 /area/space)
 "vEN" = (
@@ -28382,10 +28378,6 @@
 	dir = 4
 	},
 /area/mainship/hallways/hangar)
-"xPl" = (
-/obj/structure/prop/mainship/name_stencil/C,
-/turf/open/floor/mainship_hull,
-/area/space)
 "xPo" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -36123,7 +36115,7 @@ vkb
 vkb
 vkb
 vkb
-vED
+vkb
 vkb
 vkb
 jUe
@@ -36225,7 +36217,7 @@ mUw
 mUw
 pOz
 vkb
-vkb
+vED
 vkb
 mPj
 kqS
@@ -36429,7 +36421,7 @@ yih
 oSy
 vkb
 vkb
-hBd
+vkb
 vkb
 mPj
 kqS
@@ -36531,7 +36523,7 @@ vgE
 oSy
 vkb
 vkb
-vkb
+hBd
 vkb
 lYK
 noK
@@ -36735,7 +36727,7 @@ bze
 oSy
 vkb
 vkb
-fjN
+vkb
 vkb
 mPj
 kqS
@@ -36837,7 +36829,7 @@ bze
 oSy
 vkb
 vkb
-vkb
+hBd
 vkb
 lYK
 noK
@@ -37041,7 +37033,7 @@ mUw
 mUw
 pOz
 vkb
-xPl
+vkb
 vkb
 lYK
 noK
@@ -42587,10 +42579,10 @@ vkb
 hBd
 vkb
 vkb
-fjN
+hBd
 vkb
 vkb
-xPl
+vkb
 vkb
 vkb
 vkb

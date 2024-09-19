@@ -61,6 +61,16 @@
 		return
 	take_damage(severity, BRUTE, BOMB, FALSE, direction)
 
+/obj/lava_act()
+	if(resistance_flags & INDESTRUCTIBLE)
+		return FALSE
+	if(!take_damage(50, BURN, FIRE))
+		return FALSE
+	if(QDELETED(src))
+		return FALSE
+	fire_act(LAVA_BURN_LEVEL)
+	return TRUE
+
 /obj/hitby(atom/movable/AM, speed = 5)
 	. = ..()
 	if(!.)
@@ -152,7 +162,7 @@
 
 	if(current_integrity != 0 && current_max != 0)
 		var/percentage = current_integrity / current_max
-		current_integrity = max(1, round(percentage * new_max))	//don't destroy it as a result
+		current_integrity = max(1, percentage * new_max)	//don't destroy it as a result
 		obj_integrity = current_integrity
 
 	max_integrity = new_max

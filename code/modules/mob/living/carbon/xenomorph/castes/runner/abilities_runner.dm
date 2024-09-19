@@ -19,11 +19,6 @@
 	/// Savage's cooldown.
 	COOLDOWN_DECLARE(savage_cooldown)
 
-/datum/action/ability/activable/xeno/pounce/runner/process()
-	if(!owner)
-		return PROCESS_KILL
-	return ..()
-
 /datum/action/ability/activable/xeno/pounce/runner/give_action(mob/living/L)
 	. = ..()
 	var/mutable_appearance/savage_maptext = mutable_appearance(icon = null, icon_state = null, layer = ACTION_LAYER_MAPTEXT)
@@ -54,8 +49,9 @@
 	xeno_owner.use_plasma(savage_cost)
 	COOLDOWN_START(src, savage_cooldown, RUNNER_SAVAGE_COOLDOWN)
 	START_PROCESSING(SSprocessing, src)
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdel))
 	GLOB.round_statistics.runner_savage_attacks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_savage_attacks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "runner_savage_attacks")
 
 /datum/action/ability/activable/xeno/pounce/runner/process()
 	if(COOLDOWN_CHECK(src, savage_cooldown))
@@ -63,6 +59,7 @@
 		owner.balloon_alert(owner, "Savage ready")
 		owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 		STOP_PROCESSING(SSprocessing, src)
+		UnregisterSignal(COMSIG_QDELETING)
 		return
 	button.cut_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
 	var/mutable_appearance/cooldown = visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN]
@@ -70,6 +67,9 @@
 	visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN] = cooldown
 	button.add_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
 
+/datum/action/ability/activable/xeno/pounce/runner/proc/on_qdel()
+	SIGNAL_HANDLER
+	STOP_PROCESSING(SSprocessing, src)
 
 // ***************************************
 // *********** Evasion
@@ -140,8 +140,9 @@
 	RegisterSignal(owner, COMSIG_XENO_PROJECTILE_HIT, PROC_REF(evasion_dodge))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(evasion_flamer_hit))
 	RegisterSignal(owner, COMSIG_LIVING_PRE_THROW_IMPACT, PROC_REF(evasion_throw_dodge))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(qdel_deactivate))
 	GLOB.round_statistics.runner_evasions++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_evasions")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "runner_evasions")
 
 /datum/action/ability/xeno_action/evasion/process()
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
@@ -189,8 +190,9 @@
 		COMSIG_LIVING_IGNITED,
 		COMSIG_XENO_PROJECTILE_HIT,
 		COMSIG_LIVING_PRE_THROW_IMPACT,
-		COMSIG_ATOM_BULLET_ACT
-		))
+		COMSIG_ATOM_BULLET_ACT,
+		COMSIG_QDELETING,
+	))
 	evade_active = FALSE
 	evasion_stacks = 0
 	evasion_duration = 0
@@ -198,6 +200,13 @@
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50)
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner
 	runner_owner.hud_set_evasion(evasion_duration)
+
+///Deactivates processing on qdel of owner, because if we don't we enter a fucking infinite runtime loop
+/datum/action/ability/xeno_action/evasion/proc/qdel_deactivate(datum/source)
+	SIGNAL_HANDLER
+	if(!evade_active)
+		return
+	STOP_PROCESSING(SSprocessing, src)
 
 /// Determines whether or not a thrown projectile is dodged while the Evasion ability is active
 /datum/action/ability/xeno_action/evasion/proc/evasion_throw_dodge(datum/source, atom/movable/proj)

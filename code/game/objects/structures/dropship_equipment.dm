@@ -521,7 +521,7 @@
 	desc = "A box that deploys a modified M56D crewserved machine gun. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "mg_system"
 	point_cost = 250
-	deployable_type = /obj/item/weapon/gun/tl102/hsg_nest
+	deployable_type = /obj/item/weapon/gun/hsg102/hsg_nest
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/minigun
 	name = "minigun deployment system"
@@ -886,8 +886,8 @@
 	deployed_table.loc = loc
 	icon_state = "table1"
 
+/* Uncomment when you will actually use it, instead of leaving as invisible piece of shit in fabricator
 // bomb pod
-
 /obj/structure/dropship_equipment/cas/weapon/bomb_pod
 	name = "bomb pod"
 	icon_state = "bomb_pod"
@@ -907,3 +907,4 @@
 		icon_state = "bomb_pod_installed"
 	else
 		icon_state = "bomb_pod"
+*/

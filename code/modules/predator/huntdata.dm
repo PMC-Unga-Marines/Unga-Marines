@@ -1,9 +1,3 @@
-/mob/var/datum/huntdata/hunter_data //Stores all information relating to Hunters for use with their HUD and other systems.
-/mob/var/atom/last_damage_source = null
-/mob/var/life_value = 1
-/mob/var/default_honor_value = 1
-/mob/var/life_kills_total = 0
-
 /datum/huntdata
 	var/mob/living/carbon/owner
 	var/name = "Hunter Data"

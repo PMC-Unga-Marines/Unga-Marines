@@ -10,10 +10,6 @@
 /obj/structure/cargo_container/green,
 /turf/open/floor/plating/ground/dirt,
 /area/deathmatch)
-"bq" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/plating/ground/dirt,
-/area/deathmatch)
 "ch" = (
 /obj/structure/cargo_container/horizontal,
 /turf/open/floor/industrial,
@@ -296,11 +292,6 @@
 "xn" = (
 /turf/open/floor/tile/dark,
 /area/deathmatch)
-"xQ" = (
-/obj/structure/desertdam/decals/loose_sand_overlay,
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/industrial,
-/area/deathmatch)
 "yN" = (
 /obj/structure/desertdam/decals/loose_sand_overlay,
 /turf/open/floor/industrial,
@@ -472,11 +463,6 @@
 "Nh" = (
 /obj/structure/desertdam/decals/loose_sand_overlay,
 /turf/open/floor/tile/dark,
-/area/deathmatch)
-"NA" = (
-/obj/effect/landmark/weapon_spawn/tier3_weapon_spawn,
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/plating/ground/dirt,
 /area/deathmatch)
 "Oi" = (
 /obj/effect/decal/cleanable/rune,
@@ -978,7 +964,7 @@ ez
 YD
 Ua
 Yj
-xQ
+yN
 Ua
 Ua
 FE
@@ -1061,7 +1047,7 @@ FE
 OP
 FE
 FE
-NA
+DV
 FE
 FE
 QP
@@ -1088,7 +1074,7 @@ mE
 mE
 FE
 BV
-bq
+FE
 FE
 FE
 FE
@@ -1699,7 +1685,7 @@ mE
 FE
 FE
 FE
-bq
+FE
 FE
 FE
 FE
@@ -2192,7 +2178,7 @@ FE
 FE
 FE
 FE
-bq
+FE
 FE
 YD
 ez
@@ -2556,7 +2542,7 @@ ZW
 FE
 FE
 FE
-bq
+FE
 FE
 Si
 FE

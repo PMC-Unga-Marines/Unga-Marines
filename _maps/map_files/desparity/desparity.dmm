@@ -128,7 +128,7 @@
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/central1)
 "aT" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 9
 	},
@@ -1231,7 +1231,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "gD" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2801,7 +2801,7 @@
 "oO" = (
 /obj/item/clothing/suit/armor/vest/warden,
 /obj/item/clothing/head/helmet/warden,
-/obj/structure/closet/secure_closet/guncabinet/lmg,
+/obj/structure/closet/secure_closet/guncabinet/mg42,
 /turf/open/floor/tile/lightred/full,
 /area/lv624/lazarus/security)
 "oP" = (
@@ -3070,7 +3070,7 @@
 /turf/open/liquid/water/river,
 /area/lv624/lazarus/spaceport)
 "qo" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe,
 /area/lv624/lazarus/hydroponics)
 "qp" = (
@@ -3696,7 +3696,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
 "tp" = (
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -4259,7 +4259,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/lazarus/spaceport)
 "wf" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},
@@ -6680,7 +6680,7 @@
 /turf/closed/shuttle/dropship_regular/top_corner/alt,
 /area/lv624/ground/jungle9)
 "Ir" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 6
 	},
@@ -6996,7 +6996,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "JE" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -9903,16 +9903,16 @@
 /area/lv624/lazarus/fitness)
 "XS" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21,
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = -5;
 	pixel_y = -2
 	},
-/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+/obj/item/weapon/gun/rifle/ar21,
 /turf/open/floor/tile/red/redtaupe{
 	dir = 1
 	},

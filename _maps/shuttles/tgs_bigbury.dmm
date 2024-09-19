@@ -141,10 +141,10 @@
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "aM" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/vending/weapon/crash,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "aN" = (
@@ -165,18 +165,12 @@
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "aO" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/marine_selector/clothes,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "aQ" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/marine_selector/clothes,
-/turf/open/floor/mainship/mono,
+/obj/machinery/vending/weapon/crash,
+/turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "aR" = (
 /obj/structure/table/reinforced,
@@ -194,17 +188,10 @@
 /turf/open/floor/mainship/tcomms,
 /area/shuttle/canterbury)
 "aT" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/vending/weapon/crash,
-/obj/structure/window/reinforced{
+/obj/machinery/vending/nanomed{
 	dir = 1
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "aU" = (
 /obj/machinery/bioprinter/stocked,
@@ -219,13 +206,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "aX" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/marine_selector/clothes,
+/obj/machinery/vending/armor_supply,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "aY" = (
@@ -233,25 +214,11 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "aZ" = (
-/obj/machinery/vending/weapon/crash,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
+/obj/structure/cable,
+/obj/machinery/air_alarm{
 	dir = 1
 	},
-/turf/open/floor/mainship,
-/area/shuttle/canterbury)
-"ba" = (
-/obj/effect/turf_decal/warning_stripes/box/threeside,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/plating/plating_catwalk,
 /area/shuttle/canterbury)
 "bc" = (
 /obj/structure/table/reinforced,
@@ -543,18 +510,15 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/landmark/start/latejoin/crash,
-/turf/open/floor/mainship,
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cF" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/vending/weapon/crash,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cR" = (
 /turf/open/floor/mainship/floor,
@@ -566,10 +530,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "em" = (
-/obj/effect/landmark/start/squad/squadrobot/alpha,
-/obj/effect/landmark/start/squad/squadrobot/bravo,
-/obj/effect/landmark/start/squad/squadrobot/charlie,
-/obj/effect/landmark/start/squad/squadrobot/delta,
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "fL" = (
@@ -696,13 +657,6 @@
 	dir = 1
 	},
 /area/shuttle/canterbury)
-"py" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/vending/weapon/crash,
-/turf/open/floor/mainship/mono,
-/area/shuttle/canterbury)
 "pT" = (
 /obj/effect/turf_decal/warning_stripes/box/arrow{
 	dir = 4
@@ -717,9 +671,6 @@
 /area/shuttle/canterbury)
 "qh" = (
 /obj/structure/rack,
-/obj/machinery/air_alarm{
-	dir = 8
-	},
 /obj/item/stack/sheet/metal/large_stack,
 /obj/item/stack/sheet/metal/large_stack,
 /obj/item/stack/sheet/plasteel/medium_stack,
@@ -727,11 +678,6 @@
 /obj/item/stack/razorwire/full,
 /obj/item/tool/shovel/etool,
 /obj/item/stack/barbed_wire/full,
-/obj/machinery/door_control{
-	id = "Interior_Emergency_umbilical";
-	name = "Emergency door-control";
-	pixel_y = 32
-	},
 /obj/item/storage/box/crate/sentry,
 /obj/item/storage/box/crate/sentry,
 /obj/item/storage/box/crate/sentry,
@@ -846,26 +792,16 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "wz" = (
-/obj/effect/landmark/start/latejoin_squad/bravo,
-/obj/effect/landmark/start/latejoin_squad/alpha,
-/obj/effect/landmark/start/latejoin_squad/charlie,
-/obj/effect/landmark/start/latejoin_squad/delta,
-/turf/open/floor/mainship,
-/area/shuttle/canterbury)
-"wB" = (
-/obj/machinery/door_control{
-	id = "Interior_Emergency_umbilical";
-	name = "Emergency door-control";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/plating_catwalk,
+/obj/machinery/marine_selector/gear/robo,
+/obj/machinery/light,
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "yp" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/armor_supply,
-/turf/open/floor/mainship,
+/obj/machinery/loadout_vendor/crash,
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "zc" = (
 /obj/structure/bed/chair/dropship/passenger{
@@ -893,10 +829,10 @@
 /area/shuttle/canterbury)
 "AS" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "BZ" = (
@@ -911,7 +847,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "DF" = (
-/obj/machinery/vending/armor_supply,
+/obj/effect/landmark/start/latejoin/crash,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "DI" = (
@@ -940,14 +876,8 @@
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "GE" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/marine_selector/clothes,
-/turf/open/floor/mainship/mono,
+/obj/machinery/loadout_vendor/crash,
+/turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "JM" = (
 /obj/machinery/marine_selector/gear/smartgun,
@@ -979,13 +909,6 @@
 	},
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/cargo,
-/area/shuttle/canterbury)
-"KD" = (
-/obj/machinery/marine_selector/clothes,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "Mj" = (
 /obj/machinery/mech_bay_recharge_port{
@@ -1028,9 +951,8 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Qg" = (
-/obj/machinery/vending/nanomed,
-/obj/effect/landmark/start/latejoin/crash,
-/turf/open/floor/mainship,
+/obj/machinery/marine_selector/clothes/robo,
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Rd" = (
 /obj/structure/bed/chair/dropship/passenger,
@@ -1130,14 +1052,8 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Wb" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/vending/weapon/crash,
-/turf/open/floor/mainship/mono,
+/obj/machinery/vending/nanomed,
+/turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "Wk" = (
 /obj/machinery/marine_selector/clothes/synth,
@@ -1154,6 +1070,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/warning_stripes,
+/obj/machinery/door_control{
+	id = "Interior_Emergency_umbilical";
+	name = "Emergency door-control";
+	pixel_y = 32
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Xb" = (
@@ -1202,12 +1123,19 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Zn" = (
+/obj/effect/turf_decal/warning_stripes,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/machinery/door_control{
 	id = "Interior_Emergency_umbilical";
 	name = "Emergency door-control";
 	pixel_y = 32
 	},
-/turf/closed/wall/mainship/outer/canterbury,
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 
 (1,1,1) = {"
@@ -1450,7 +1378,7 @@ MY
 bS
 al
 qh
-as
+aZ
 ab
 Wk
 an
@@ -1581,11 +1509,11 @@ bJ
 MY
 bQ
 al
-ac
-ba
 Zn
+ac
+ab
 Wl
-wB
+an
 ac
 FQ
 Fl
@@ -1659,16 +1587,16 @@ bt
 bx
 ul
 ab
-py
+bG
 UO
 aO
-DF
+Fl
 bA
 bA
 yp
-aZ
+bG
 UO
-KD
+aO
 ab
 ag
 "}
@@ -1693,14 +1621,14 @@ up
 ow
 ab
 cf
+DF
 bA
 bA
 bA
 bA
 bA
 bA
-bA
-bA
+DF
 wz
 ab
 ah
@@ -1726,15 +1654,15 @@ by
 ow
 ab
 Wb
-UO
-GE
+em
+bg
+aX
 bA
-aT
-UO
+bA
 aX
 bg
 em
-bg
+aT
 ab
 ah
 "}
@@ -1759,15 +1687,15 @@ tX
 ul
 ab
 Qg
+DF
 bA
 bA
 bA
 bA
 bA
 bA
-bA
-bA
-wz
+DF
+Qg
 ab
 ah
 "}
@@ -1791,16 +1719,16 @@ JM
 bz
 ow
 ab
-aM
+bG
 DI
-aQ
-bA
+aO
+GE
 cF
-DI
 aQ
+Fl
 aM
-DI
-aQ
+UO
+aO
 ab
 ai
 "}

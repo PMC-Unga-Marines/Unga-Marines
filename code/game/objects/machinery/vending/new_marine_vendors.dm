@@ -306,6 +306,10 @@
 	. = ..()
 	listed_products = GLOB.commander_clothes_listed_products
 
+/obj/machinery/marine_selector/clothes/commander/valhalla
+	vendor_role = /datum/job/fallen/marine/fieldcommander
+	resistance_flags = INDESTRUCTIBLE
+
 /obj/machinery/marine_selector/clothes/synth
 	name = "M57 Synthetic Equipment Vendor"
 	desc = "An automated synthetic equipment vendor hooked up to a modest storage unit."

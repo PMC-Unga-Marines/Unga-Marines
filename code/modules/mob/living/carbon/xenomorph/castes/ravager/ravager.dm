@@ -82,7 +82,7 @@
 		on_cooldown = TRUE
 
 		GLOB.round_statistics.ravager_rages++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "ravager_rages")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ravager_rages")
 
 /mob/living/carbon/xenomorph/ravager/proc/drain_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
@@ -112,8 +112,7 @@
 // ***************************************
 // *********** Mob overrides
 // ***************************************
-
-/mob/living/carbon/xenomorph/ravager/flamer_fire_act(burnlevel, flame_color)
+/mob/living/carbon/xenomorph/ravager/fire_act(burn_level, flame_color)
 	. = ..()
 	if(stat)
 		return

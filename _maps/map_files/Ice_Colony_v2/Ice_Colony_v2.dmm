@@ -12161,13 +12161,13 @@
 	},
 /area/ice_colony/underground/medical/storage)
 "bzn" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/tile/red/whitered{
 	dir = 1
 	},
 /area/ice_colony/underground/medical/storage)
 "bzo" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/tile/red/whitered{
 	dir = 5
 	},
@@ -19410,7 +19410,7 @@
 	},
 /area/ice_colony/underground/crew/chapel)
 "euQ" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/ground/grass,
 /area/ice_colony/surface/hydroponics/south)
 "euV" = (
@@ -31136,7 +31136,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/south_east)
 "uJB" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/ground/grass,
 /area/ice_colony/surface/hydroponics/north)
 "uJL" = (
