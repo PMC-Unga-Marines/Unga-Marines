@@ -102,6 +102,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.do_actions)
 		return FALSE
+	owner.face_atom(target) //Face the target so we don't look stupid
 	if(!do_after(X, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
 	X.visible_message(span_xenowarning("\the [X] vomits acid over [target], mending their wounds!"))

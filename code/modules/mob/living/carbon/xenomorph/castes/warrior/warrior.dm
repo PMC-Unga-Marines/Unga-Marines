@@ -56,7 +56,7 @@
 /// Puts the target on an upgraded grab and handles related effects.
 /mob/living/carbon/xenomorph/warrior/proc/neck_grab(mob/living/living_target)
 	GLOB.round_statistics.warrior_grabs++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_grabs")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_grabs")
 	setGrabState(GRAB_NECK)
 	living_target.resistance_flags |= RESTRAINED_NECKGRAB
 	RegisterSignal(living_target, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against))

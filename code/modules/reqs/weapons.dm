@@ -420,7 +420,7 @@
 	cost = 500
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/sr81
+/datum/supply_packs/weapons/sr81_ammo
 	name = "SR-81 IFF sniper magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/sr81)
 	cost = 30
@@ -521,27 +521,27 @@
 	contains = list(/obj/item/ammo_magazine/rifle/sg153)
 	cost = 15
 
-/datum/supply_packs/weapons/sg153/highimpact
+/datum/supply_packs/weapons/sg153_ammo/highimpact
 	name = "SG-153 high impact spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/highimpact)
 
-/datum/supply_packs/weapons/sg153/heavyrubber
+/datum/supply_packs/weapons/sg153_ammo/heavyrubber
 	name = "SG-153 heavy rubber spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/heavyrubber)
 
-/datum/supply_packs/weapons/sg153/plasmaloss
+/datum/supply_packs/weapons/sg153_ammo/plasmaloss
 	name = "SG-153 tanglefoot spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/plasmaloss)
 
-/datum/supply_packs/weapons/sg153/tungsten
+/datum/supply_packs/weapons/sg153_ammo/tungsten
 	name = "SG-153 tungsten spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/tungsten)
 
-/datum/supply_packs/weapons/sg153/flak
+/datum/supply_packs/weapons/sg153_ammo/flak
 	name = "SG-153 flak spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/flak)
 
-/datum/supply_packs/weapons/sg153/incendiary
+/datum/supply_packs/weapons/sg153_ammo/incendiary
 	name = "SG-153 incendiary spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153/incendiary)
 
@@ -610,7 +610,7 @@
 
 /datum/supply_packs/weapons/mateba
 	name = "Mateba Autorevolver belt"
-	contains = list(/obj/item/storage/holster/belt/mateba/full)
+	contains = list(/obj/item/storage/holster/belt/revolver/mateba/full)
 	notes = "Contains 6 speedloaders"
 	cost = 150
 	available_against_xeno_only = TRUE

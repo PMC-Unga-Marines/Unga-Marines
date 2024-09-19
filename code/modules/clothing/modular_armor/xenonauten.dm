@@ -86,7 +86,7 @@
 	name = "\improper Xenonauten-H pattern armored vest"
 	desc = "A XN-H vest, also known as Xenonauten, a set vest with modular attachments made to work in many enviroments. This one seems to be a heavy variant. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 15, ACID = 55)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 	greyscale_config = /datum/greyscale_config/xenonaut/heavy
 
 /obj/item/clothing/suit/modular/xenonauten/heavy/leader

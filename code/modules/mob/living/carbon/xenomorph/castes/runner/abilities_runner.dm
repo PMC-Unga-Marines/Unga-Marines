@@ -51,7 +51,7 @@
 	START_PROCESSING(SSprocessing, src)
 	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdel))
 	GLOB.round_statistics.runner_savage_attacks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_savage_attacks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "runner_savage_attacks")
 
 /datum/action/ability/activable/xeno/pounce/runner/process()
 	if(COOLDOWN_CHECK(src, savage_cooldown))
@@ -142,7 +142,7 @@
 	RegisterSignal(owner, COMSIG_LIVING_PRE_THROW_IMPACT, PROC_REF(evasion_throw_dodge))
 	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(qdel_deactivate))
 	GLOB.round_statistics.runner_evasions++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_evasions")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "runner_evasions")
 
 /datum/action/ability/xeno_action/evasion/process()
 	var/mob/living/carbon/xenomorph/runner/runner_owner = owner

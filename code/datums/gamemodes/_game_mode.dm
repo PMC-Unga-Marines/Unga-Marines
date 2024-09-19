@@ -29,7 +29,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///The respawn time for marines
 	var/respawn_time = 15 MINUTES
 	//The respawn time for Xenomorphs
-	var/xenorespawn_time = 5 MINUTES
+	var/xenorespawn_time = 3 MINUTES
 	///How many points do you need to win in a point gamemode
 	var/win_points_needed = 0
 	///The points per faction, assoc list
@@ -852,7 +852,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			for(var/datum/objective/O in A.objectives)
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
-		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
+		SSblackbox.record_feedback(FEEDBACK_ASSOCIATIVE, "antagonists", 1, antag_info)
 
 /proc/printobjectives(list/objectives)
 	if(!objectives || !length(objectives))

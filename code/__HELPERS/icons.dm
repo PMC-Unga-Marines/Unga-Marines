@@ -955,13 +955,15 @@ ColorTone(rgb, tone)
 /proc/generate_asset_name(file)
 	return "asset.[md5(fcopy_rsc(file))]"
 
-//Converts an icon to base64. Operates by putting the icon in the iconCache savefile,
-// exporting it as text, and then parsing the base64 from that.
-// (This relies on byond automatically storing icons in savefiles as base64)
+/**
+ * Converts an icon to base64. Operates by putting the icon in the iconCache savefile,
+ * exporting it as text, and then parsing the base64 from that.
+ * (This relies on byond automatically storing icons in savefiles as base64)
+ */
 /proc/icon2base64(icon/icon)
 	if(!isicon(icon))
 		return FALSE
-	var/savefile/dummySave = new("tmp/dummySave.sav")
+	var/savefile/dummySave = new
 	WRITE_FILE(dummySave["dummy"], icon)
 	var/iconData = dummySave.ExportText("dummy")
 	var/list/partial = splittext(iconData, "{")

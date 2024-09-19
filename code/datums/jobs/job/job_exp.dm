@@ -106,32 +106,7 @@ GLOBAL_PROTECT(exp_to_update)
 	for(var/mob_type AS in GLOB.xeno_caste_datums)
 		var/datum/xeno_caste/caste_type = GLOB.xeno_caste_datums[mob_type][XENO_UPGRADE_BASETYPE]
 		return_text += "<LI>[caste_type.caste_name] [get_exp_format(play_records[caste_type.caste_name])] while alive.</LI>"
-
-	if(CONFIG_GET(flag/use_exp_restrictions_admin_bypass) && check_other_rights(src, R_ADMIN, FALSE))
-		return_text += "<LI>Admin (all jobs auto-unlocked)</LI>"
-	return_text += "</UL>"
-	var/list/jobs_locked = list()
-	var/list/jobs_unlocked = list()
-	for(var/j in SSjob.joinable_occupations)
-		var/datum/job/job = j
-		if(job.exp_requirements && job.exp_type)
-			if(!job_is_xp_locked(job))
-				continue
-			else if(!job.required_playtime_remaining(mob.client))
-				jobs_unlocked += job.title
-			else
-				var/xp_req = job.get_exp_req_amount()
-				jobs_locked += "[job.title] [get_exp_format(text2num(calc_exp_type(job.get_exp_req_type())))] / [get_exp_format(xp_req)] as [job.get_exp_req_type()])"
-	if(length(jobs_unlocked))
-		return_text += "<BR><BR>Jobs Unlocked:<UL><LI>"
-		return_text += jobs_unlocked.Join("</LI><LI>")
-		return_text += "</LI></UL>"
-	if(length(jobs_locked))
-		return_text += "<BR><BR>Jobs Not Unlocked:<UL><LI>"
-		return_text += jobs_locked.Join("</LI><LI>")
-		return_text += "</LI></UL>"
 	return return_text
-
 
 /client/proc/get_exp(role)
 	var/list/play_records = prefs.exp

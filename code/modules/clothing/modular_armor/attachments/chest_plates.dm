@@ -36,7 +36,7 @@
 	name = "\improper Jaeger Pattern Heavy Assault chestplates"
 	desc = "Designed for use with the Jaeger Combat Exoskeleton. It provides high protection and encumbrance when attached and is fairly easy to attach and remove from armor. Click on the armor frame to attach it. This armor appears to be marked as a Assault armor piece."
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 15, ACID = 55)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 	greyscale_config = /datum/greyscale_config/armor_mk1
 
 /obj/item/armor_module/armor/chest/marine/eva
