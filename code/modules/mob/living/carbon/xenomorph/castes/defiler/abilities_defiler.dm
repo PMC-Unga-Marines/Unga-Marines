@@ -154,7 +154,7 @@
 			to_chat(living_target, span_highdanger("YOUR INSIDES FEEL LIKE THEY'RE ON FIRE!!"))
 
 	GLOB.round_statistics.defiler_defiler_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_defiler_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_defiler_stings")
 	succeed_activate()
 	return ..()
 
@@ -210,7 +210,7 @@
 
 	owner.record_war_crime()
 	GLOB.round_statistics.defiler_neurogas_uses++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_neurogas_uses")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_neurogas_uses")
 
 	X.visible_message(span_xenodanger("[X] emits a noxious gas!"), \
 	span_xenodanger("We emit noxious gas!"))
@@ -342,7 +342,7 @@
 
 	owner.record_war_crime()
 	GLOB.round_statistics.defiler_inject_egg_neurogas++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_inject_egg_neurogas")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_inject_egg_neurogas")
 
 // ***************************************
 // *********** Reagent selection
@@ -487,7 +487,7 @@
 	playsound(carbon_target, 'sound/effects/spray3.ogg', 15, TRUE)
 
 	GLOB.round_statistics.defiler_reagent_slashes++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_reagent_slashes")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_reagent_slashes")
 
 	reagent_slash_count-- //Decrement the reagent slash count
 

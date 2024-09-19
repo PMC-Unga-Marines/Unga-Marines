@@ -43,7 +43,7 @@
 
 	GLOB.xeno_mob_list += src
 	GLOB.round_statistics.total_xenos_created++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_xenos_created")
 
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
