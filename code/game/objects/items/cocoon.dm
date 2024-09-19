@@ -40,8 +40,7 @@
 		. += span_notice("There seems to be someone inside it. You think you can open it with a sharp object.")
 
 /obj/structure/cocoon/process()
-	var/psych_points_output = COCOON_PSY_POINTS_REWARD
-	SSpoints.add_psy_points(hivenumber, psych_points_output)
+	SSpoints.add_psy_points(hivenumber, COCOON_PSY_POINTS_REWARD)
 	//Gives marine cloneloss for a total of 30.
 	victim.adjustCloneLoss(0.5)
 
