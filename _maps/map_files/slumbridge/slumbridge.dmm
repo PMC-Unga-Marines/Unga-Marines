@@ -1162,7 +1162,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "aWe" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/dark/green2,
 /area/slumbridge/inside/colony/hydro)
 "aWu" = (
@@ -2785,7 +2785,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "caS" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/prison/sterilewhite,
 /area/slumbridge/inside/prison/outerringsouth)
 "cbt" = (
@@ -3089,7 +3089,7 @@
 /area/slumbridge/inside/houses/dorms)
 "cnf" = (
 /obj/machinery/light,
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/prison/sterilewhite,
 /area/slumbridge/inside/prison/outerringsouth)
 "cni" = (
@@ -4474,7 +4474,7 @@
 	},
 /area/slumbridge/outside/northwest)
 "doH" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light,
 /turf/open/floor/tile/dark/green2,
 /area/slumbridge/inside/colony/hydro)
@@ -7108,7 +7108,7 @@
 /obj/effect/turf_decal/tracks/wheels/bloody{
 	dir = 4
 	},
-/obj/item/weapon/gun/pistol/standard_pistol,
+/obj/item/weapon/gun/pistol/p14,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/tile/whiteyellow{
 	dir = 8
@@ -11050,7 +11050,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/sombase/east)
 "inY" = (
-/obj/item/storage/holster/belt/mateba,
+/obj/item/storage/holster/belt/revolver/mateba,
 /obj/item/clothing/mask/bandanna/skull,
 /obj/structure/closet/coffin,
 /obj/item/grown/sunflower,
@@ -12204,7 +12204,7 @@
 /turf/open/floor/tile/blue,
 /area/slumbridge/inside/houses/surgery)
 "jgw" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -30863,7 +30863,7 @@
 	},
 /area/slumbridge/inside/zeta/south)
 "wKy" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -31457,7 +31457,7 @@
 "xgO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/gibspawner/human,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
+/obj/item/weapon/gun/pistol/p17,
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "xhq" = (

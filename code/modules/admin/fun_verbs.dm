@@ -302,7 +302,6 @@
 	to_chat(src, "<h1 class='alert'>Custom Information</h1>")
 	to_chat(src, span_alert("[GLOB.custom_info]"))
 
-
 /datum/admins/proc/sound_file(S as sound)
 	set category = "Admin.Fun"
 	set name = "Play Imported Sound"
@@ -315,8 +314,7 @@
 	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = CHANNEL_MIDI)
 	uploaded_sound.priority = 250
 
-
-	var/style = tgui_alert(usr, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local", "Cancel"))
+	var/style = tgui_alert(usr, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local"), timeout = 0)
 	switch(style)
 		if("Global")
 			for(var/i in GLOB.clients)
@@ -334,7 +332,6 @@
 	log_admin("[key_name(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 	message_admins("[ADMIN_TPMONTY(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 
-
 /datum/admins/proc/sound_web()
 	set category = "Admin.Fun"
 	set name = "Play Internet Sound"
@@ -342,12 +339,12 @@
 	if(!check_rights(R_SOUND))
 		return
 
-	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+	var/ytdl = CONFIG_GET(string/invoke_yt_dlp)
 	if(!ytdl)
-		to_chat(usr, span_warning("Youtube-dl was not configured, action unavailable."))
+		to_chat(usr, span_warning("yt-dlp was not configured, action unavailable."))
 		return
 
-	var/web_sound_input = input("Enter content URL (supported sites only)", "Play Internet Sound via youtube-dl") as text|null
+	var/web_sound_input = input("Enter content URL (supported sites only)", "Play Internet Sound via yt-dlp") as text|null
 	if(!istext(web_sound_input) || !length(web_sound_input))
 		return
 
@@ -355,7 +352,7 @@
 
 	if(findtext(web_sound_input, ":") && !findtext(web_sound_input, GLOB.is_http_protocol))
 		to_chat(usr, span_warning("Non-http(s) URIs are not allowed."))
-		to_chat(usr, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full url from the website."))
+		to_chat(usr, span_warning("For yt-dlp shortcuts like ytsearch: please use the appropriate full url from the website."))
 		return
 
 	var/web_sound_url = ""
@@ -369,14 +366,14 @@
 	var/stderr = output[SHELLEO_STDERR]
 
 	if(errorlevel)
-		to_chat(usr, span_warning("Youtube-dl URL retrieval FAILED: [stderr]"))
+		to_chat(usr, span_warning("yt-dlp URL retrieval FAILED: [stderr]"))
 		return
 
 	var/list/data = list()
 	try
 		data = json_decode(stdout)
 	catch(var/exception/e)
-		to_chat(usr, span_warning("Youtube-dl JSON parsing FAILED: [e]: [stdout]"))
+		to_chat(usr, span_warning("yt-dlp JSON parsing FAILED: [e]: [stdout]"))
 		return
 
 	if(data["url"])
@@ -386,7 +383,7 @@
 		music_extra_data["end"] = data["end_time"]
 		music_extra_data["link"] = data["webpage_url"]
 		music_extra_data["title"] = data["title"]
-		switch(tgui_alert(usr, "Show the title of and link to this song to the players?\n[title]", "Play Internet Sound", list("Yes", "No", "Cancel")))
+		switch(tgui_alert(usr, "Show the title of and link to this song to the players?\n[title]", "Play Internet Sound", list("Yes", "No"), timeout = 0))
 			if("Yes")
 				show = TRUE
 			if("No")
@@ -403,11 +400,11 @@
 	var/style = tgui_input_list(usr, "Do you want to play this globally or to the xenos/marines?", null, list("Globally", "Xenos", "Marines", "Locally"))
 	switch(style)
 		if("Globally")
-			targets = GLOB.mob_list
+			targets = GLOB.player_list
 		if("Xenos")
-			targets = GLOB.xeno_mob_list + GLOB.dead_mob_list
+			targets = GLOB.xeno_mob_list + GLOB.observer_list
 		if("Marines")
-			targets = GLOB.human_mob_list + GLOB.dead_mob_list
+			targets = GLOB.human_mob_list + GLOB.observer_list
 		if("Locally")
 			targets = viewers(usr.client.view, usr)
 		else
@@ -416,16 +413,14 @@
 	for(var/i in targets)
 		var/mob/M = i
 		var/client/C = M?.client
-		if(!C?.prefs)
+		if(!(C?.prefs.toggles_sound & SOUND_MIDI))
 			continue
-		if(C.prefs.toggles_sound & SOUND_MIDI)
-			C.tgui_panel?.play_music(web_sound_url, music_extra_data)
-			if(show)
-				to_chat(C, span_boldnotice("An admin played: <a href='[data["webpage_url"]]'>[title]</a>"))
+		C.tgui_panel?.play_music(web_sound_url, music_extra_data)
+		if(show)
+			to_chat(C, span_boldnotice("An admin played: <a href='[data["webpage_url"]]'>[title]</a>"))
 
 	log_admin("[key_name(usr)] played web sound: [web_sound_input] - [title] - [style]")
 	message_admins("[ADMIN_TPMONTY(usr)] played web sound: [web_sound_input] - [title] - [style]")
-
 
 /datum/admins/proc/sound_stop()
 	set category = "Admin.Fun"
@@ -441,7 +436,6 @@
 	log_admin("[key_name(usr)] stopped regular sounds.")
 	message_admins("[ADMIN_TPMONTY(usr)] stopped regular sounds.")
 
-
 /datum/admins/proc/music_stop()
 	set category = "Admin.Fun"
 	set name = "Stop Playing Music"
@@ -453,10 +447,8 @@
 		var/client/C = i
 		C?.tgui_panel?.stop_music()
 
-
 	log_admin("[key_name(usr)] stopped the currently playing music.")
 	message_admins("[ADMIN_TPMONTY(usr)] stopped the currently playing music.")
-
 
 /datum/admins/proc/announce()
 	set category = "Admin.Fun"
@@ -1142,7 +1134,7 @@
 
 	message_admins("[key_name_admin(usr)] started weather of type [weather_type] on the z-level [z_level].")
 	log_admin("[key_name(usr)] started weather of type [weather_type] on the z-level [z_level].")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Run Weather")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Run Weather")
 
 ///client verb to set round end sound
 /client/proc/set_round_end_sound(S as sound)
@@ -1155,7 +1147,7 @@
 
 	log_admin("[key_name(src)] set the round end sound to [S]")
 	message_admins("[key_name_admin(src)] set the round end sound to [S]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set Round End Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Set Round End Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ///Adjusts gravity, modifying the jump component for all mobs
 /datum/admins/proc/adjust_gravity()

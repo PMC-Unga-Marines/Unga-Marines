@@ -2,7 +2,7 @@
 
 //Increases delay as the server gets more overloaded,
 //as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
-#define DELTA_CALC max(((max(TICK_USAGE, world.cpu) / 100) * max(Master.sleep_delta-1,1)), 1)
+#define DELTA_CALC max(((max(TICK_USAGE, world.cpu) * 0.01) * max(Master.sleep_delta-1,1)), 1)
 
 //returns the number of ticks slept
 /proc/stoplag(initial_delay)
@@ -259,7 +259,7 @@
 // Format frequency by moving the decimal.
 /proc/format_frequency(frequency)
 	frequency = text2num(frequency)
-	return "[round(frequency / 10)].[frequency % 10]"
+	return "[round(frequency * 0.1)].[frequency % 10]"
 
 
 //Opposite of format, returns as a number
@@ -1105,11 +1105,11 @@ will handle it, but:
 	for(var/client/C in show_to)
 		C.images += I
 	animate(I, transform = 0, alpha = 255, time = 0.5 SECONDS, easing = ELASTIC_EASING)
-	addtimer(CALLBACK(GLOBAL_PROC, TYPE_PROC_REF(/, fade_out), I), duration - 0.5 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(fade_out), I), duration - 0.5 SECONDS)
 
 /proc/fade_out(image/I, list/show_to)
 	animate(I, alpha = 0, time = 0.5 SECONDS, easing = EASE_IN)
-	addtimer(CALLBACK(GLOBAL_PROC, TYPE_PROC_REF(/, remove_images_from_clients), I, show_to), 0.5 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), I, show_to), 0.5 SECONDS)
 
 //takes an input_key, as text, and the list of keys already used, outputting a replacement key in the format of "[input_key] ([number_of_duplicates])" if it finds a duplicate
 //use this for lists of things that might have the same name, like mobs or objects, that you plan on giving to a player as input
@@ -1196,8 +1196,8 @@ will handle it, but:
  *	blocked - whether the cone should take into consideration solid walls
  */
 /proc/generate_cone(atom/center, max_row_count = 10, starting_row = 1, cone_width = 60, cone_direction = 0, blocked = TRUE)
-	var/right_angle = cone_direction + cone_width/2
-	var/left_angle = cone_direction - cone_width/2
+	var/right_angle = cone_direction + cone_width * 0.5
+	var/left_angle = cone_direction - cone_width * 0.5
 
 	//These are needed because degrees need to be from 0 to 359 for the checks to function
 	if(right_angle >= 360)
@@ -1260,8 +1260,8 @@ will handle it, but:
  *	air_pass - whether to bypass non airtight atoms
  */
 /proc/generate_true_cone(atom/center, max_row_count = 10, starting_row = 1, cone_width = 60, cone_direction = 0, blocked = TRUE, bypass_window = FALSE, projectile = FALSE, bypass_xeno = FALSE, air_pass = FALSE)
-	var/right_angle = cone_direction + cone_width/2
-	var/left_angle = cone_direction - cone_width/2
+	var/right_angle = cone_direction + cone_width * 0.5
+	var/left_angle = cone_direction - cone_width * 0.5
 
 	//These are needed because degrees need to be from 0 to 359 for the checks to function
 	if(right_angle >= 360)

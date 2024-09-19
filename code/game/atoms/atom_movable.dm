@@ -483,10 +483,12 @@ RU TGMC EDIT */
 
 ///called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, speed, bounce = TRUE)
-	if(!hit_atom) // RUTGMC ADDITION
-		return
+	if(!hit_atom)
+		return FALSE
 	var/hit_successful
 	var/old_throw_source = throw_source
+	if(QDELETED(hit_atom))
+		return FALSE
 	hit_successful = hit_atom.hitby(src, speed)
 	if(hit_successful)
 		SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, speed)
@@ -497,6 +499,8 @@ RU TGMC EDIT */
 ///Bounces the AM off hit_atom
 /atom/movable/proc/throw_bounce(atom/hit_atom, turf/old_throw_source)
 	if(QDELETED(src))
+		return
+	if(QDELETED(hit_atom))
 		return
 	if(!isturf(loc))
 		return
@@ -578,7 +582,7 @@ RU TGMC EDIT */
 	var/dist_since_sleep = 0
 
 	if(dist_x > dist_y)
-		var/error = dist_x/2 - dist_y
+		var/error = dist_x * 0.5 - dist_y
 		while(!gc_destroyed && target &&((((x < target.x && dx == EAST) || (x > target.x && dx == WEST)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
@@ -604,7 +608,7 @@ RU TGMC EDIT */
 					dist_since_sleep = 0
 					sleep(0.1 SECONDS)
 	else
-		var/error = dist_y/2 - dist_x
+		var/error = dist_y * 0.5 - dist_x
 		while(!gc_destroyed && target &&((((y < target.y && dy == NORTH) || (y > target.y && dy == SOUTH)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
@@ -864,7 +868,7 @@ RU TGMC EDIT */
 
 
 /atom/movable/proc/safe_throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, force = MOVE_FORCE_STRONG)
-	if((force < (move_resist * MOVE_FORCE_THROW_RATIO)) || (move_resist == INFINITY))
+	if(anchored || (force < (move_resist * MOVE_FORCE_THROW_RATIO)) || (move_resist == INFINITY))
 		return
 	return throw_at(target, range, speed, thrower, spin)
 
@@ -1203,5 +1207,5 @@ RU TGMC EDIT */
 	return
 
 //Throws AM away from something
-/atom/movable/proc/knockback(source, distance, speed, dir)
-	throw_at(get_ranged_target_turf(src, dir ? dir : get_dir(source, src), distance), distance, speed, source)
+/atom/movable/proc/knockback(source, distance, speed, dir, knockback_force = MOVE_FORCE_EXTREMELY_STRONG)
+	safe_throw_at(get_ranged_target_turf(src, dir ? dir : get_dir(source, src), distance), distance, speed, source, FALSE, knockback_force)

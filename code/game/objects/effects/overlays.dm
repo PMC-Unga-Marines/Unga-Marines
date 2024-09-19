@@ -224,8 +224,7 @@
 		source_binoc.laser = null
 		source_binoc = null
 	if(linked_cam)
-		qdel(linked_cam)
-		linked_cam = null
+		QDEL_NULL(linked_cam)
 	return ..()
 
 /obj/effect/overlay/temp/laser_target/examine(user)

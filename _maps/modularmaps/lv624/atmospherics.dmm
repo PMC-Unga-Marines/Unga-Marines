@@ -31,6 +31,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/engine,
 /area/lv624/lazarus/atmos)
 "cU" = (
@@ -187,6 +188,7 @@
 "qf" = (
 /obj/item/stool,
 /obj/effect/landmark/excavation_site_spawner,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "qq" = (
@@ -291,6 +293,7 @@
 /area/lv624/lazarus/atmos)
 "AF" = (
 /obj/effect/spawner/random/engineering/tool,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "Bl" = (
@@ -320,6 +323,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark/brown2{
 	dir = 10
 	},
@@ -361,6 +365,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "En" = (
@@ -424,6 +429,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/engine,
 /area/lv624/lazarus/atmos)
 "Ke" = (
@@ -476,6 +482,7 @@
 /area/lv624/lazarus/atmos)
 "Nt" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "NM" = (
@@ -532,6 +539,12 @@
 /turf/open/floor/tile/dark/brown2/corner{
 	dir = 8
 	},
+/area/lv624/lazarus/atmos)
+"Su" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -729,7 +742,7 @@ lX
 dr
 mZ
 Ke
-kc
+Su
 ut
 kc
 kc
@@ -737,7 +750,7 @@ Hy
 xV
 IT
 kc
-kc
+Su
 Ep
 TS
 dr

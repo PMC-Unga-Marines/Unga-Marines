@@ -95,7 +95,7 @@
 	playsound(X.loc, 'sound/voice/alien/queen/screech.ogg', 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 	GLOB.round_statistics.queen_screech++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "queen_screech")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "queen_screech")
 	X.create_shriekwave() //Adds the visual effect. Wom wom wom
 
 	var/list/nearby_living = list()
@@ -440,6 +440,7 @@
 /datum/action/ability/activable/xeno/psychic_cure/queen_give_heal/use_ability(atom/target)
 	if(owner.do_actions)
 		return FALSE
+	owner.face_atom(target) //Face the target so we don't look stupid
 	if(!do_after(owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
 	target.visible_message(span_xenowarning("\the [owner] vomits acid over [target], mending their wounds!"))
@@ -462,7 +463,7 @@
 	var/remainder = max(0, amount - getBruteLoss())
 	adjustBruteLoss(-amount)
 	adjustFireLoss(-remainder, updating_health = TRUE)
-	adjust_sunder(-amount/10)
+	adjust_sunder(-amount * 0.1)
 
 // ***************************************
 // *********** Queen plasma

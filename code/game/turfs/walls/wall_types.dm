@@ -35,7 +35,7 @@
 //turf/closed/wall/mainship/update_icon()
 
 
-/turf/closed/wall/mainship/alt
+/turf/closed/wall/mainship/talos
 	icon = 'icons/turf/walls/talos.dmi'
 
 /turf/closed/wall/mainship/outer
@@ -47,7 +47,7 @@
 	icon_state = "wall-invincible"
 	decorated_wall = FALSE
 
-/turf/closed/wall/mainship/outer/alt
+/turf/closed/wall/mainship/outer/talos
 	icon = 'icons/turf/walls/talos.dmi'
 	icon_state = "testwall-0"
 	walltype = "testwall"
@@ -216,9 +216,6 @@
 /turf/closed/wall/sulaco/unmeltable/ex_act(severity) //Should make it indestructable
 	return
 
-/turf/closed/wall/sulaco/unmeltable/fire_act(exposed_temperature, exposed_volume)
-	return
-
 /turf/closed/wall/sulaco/unmeltable/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
 	return
 
@@ -231,9 +228,6 @@
 	smoothing_flags = NONE
 
 /turf/closed/wall/indestructible/ex_act(severity)
-	return
-
-/turf/closed/wall/indestructible/fire_act(exposed_temperature, exposed_volume)
 	return
 
 /turf/closed/wall/indestructible/attackby(obj/item/I, mob/user, params)

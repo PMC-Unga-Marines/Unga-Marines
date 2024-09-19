@@ -541,7 +541,7 @@
 							continue
 						alpha = 10
 						skipped = TRUE
-					alphatext = "filter: alpha(opacity=[alpha]); opacity: [alpha/100];"
+					alphatext = "filter: alpha(opacity=[alpha]); opacity: [alpha * 0.01];"
 			var/list/data = list("<div style='margin:0px;[alphatext]'><p class='severity'>")
 			if(severity)
 				data += "<img src='[SSassets.transport.get_asset_url("[severity]_button.png")]' height='24' width='24'></img> "

@@ -273,7 +273,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 					dat += "<b>Current Rail Gun Status:</b> "
 					var/cooldown_left = (GLOB.marine_main_ship?.rail_gun?.last_firing + 600) - world.time // 60 seconds between shots
 					if(cooldown_left > 0)
-						dat += "Rail Gun on cooldown ([round(cooldown_left/10)] seconds)<br>"
+						dat += "Rail Gun on cooldown ([round(cooldown_left * 0.1)] seconds)<br>"
 					else if(!GLOB.marine_main_ship?.rail_gun?.rail_gun_ammo?.ammo_count)
 						dat += "<font color='red'>Ammo depleted.</font><br>"
 					else

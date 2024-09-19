@@ -320,31 +320,10 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVED_INVENTORY, user)
 
-// called just as an item is picked up (loc is not yet changed)
+///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
-	if(current_acid) //handle acid removal
-		if(!ishuman(user)) //gotta have limbs Morty
-			return
-		user.visible_message(span_danger("Corrosive substances seethe all over [user] as it retrieves the acid-soaked [src]!"),
-		span_danger("Corrosive substances burn and seethe all over you upon retrieving the acid-soaked [src]!"))
-		playsound(user, "acid_hit", 25)
-		var/mob/living/carbon/human/H = user
-		H.emote("pain")
-		var/raw_damage = current_acid.acid_damage * 0.25 //It's spread over 4 areas.
-		var/list/affected_limbs = list("l_hand", "r_hand", "l_arm", "r_arm")
-		var/limb_count = null
-		for(var/datum/limb/X in H.limbs)
-			if(limb_count > 4) //All target limbs affected
-				break
-			if(!affected_limbs.Find(X.name) )
-				continue
-			if(istype(X) && X.take_damage_limb(0, H.modify_by_armor(raw_damage * randfloat(0.75, 1.25), ACID, def_zone = X.name)))
-				H.UpdateDamageIcon()
-			limb_count++
-		UPDATEHEALTH(H)
-		QDEL_NULL(current_acid)
 	flags_item |= IN_INVENTORY
-	return
+	SEND_SIGNAL(src, COMSIG_ITEM_ATTEMPT_PICK_UP, user)
 
 ///Called to return an item to equip using the quick equip hotkey. Base proc returns the item itself, overridden for storage behavior.
 /obj/item/proc/do_quick_equip(mob/user)
@@ -1044,13 +1023,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 					if(!W.reagents)
 						break
 					W.reagents.reaction(atm)
-					if(istype(atm, /obj/flamer_fire))
-						var/obj/flamer_fire/FF = atm
-						if(FF.firelevel > 20)
-							FF.firelevel -= 20
-							FF.updateicon()
-						else
-							qdel(atm)
+					if(isfire(atm))
+						var/obj/fire/FF = atm
+						FF.set_fire(FF.burn_ticks - EXTINGUISH_AMOUNT)
 						continue
 					if(isliving(atm)) //For extinguishing mobs on fire
 						var/mob/living/M = atm
@@ -1472,3 +1447,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	update_icon()
 	update_greyscale()
 
+/obj/item/psi_act(psi_power, mob/living/user)
+	if(user.a_intent == INTENT_HELP)
+		throw_at(user, 4 + psi_power, psi_power, user, TRUE)
+	else
+		var/target = get_turf_in_angle(Get_Angle(user, src), src, 7)
+		throw_at(target, 4 + psi_power, psi_power, user, TRUE)
+	return list(3 SECONDS, 10)

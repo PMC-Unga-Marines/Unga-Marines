@@ -100,9 +100,11 @@
 			M.smokecloak_off()
 
 /obj/effect/particle_effect/smoke/proc/apply_smoke_effect(turf/T)
+	if(!T)
+		return
+
 	T.effect_smoke(src)
-	for(var/V in T)
-		var/atom/A = V
+	for(var/atom/A in T)
 		A.effect_smoke(src)
 
 /obj/effect/particle_effect/smoke/proc/pre_chem_effect(mob/living/carbon/C)

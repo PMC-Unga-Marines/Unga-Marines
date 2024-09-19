@@ -1385,7 +1385,7 @@ module.exports = (function() {
       }
 
       function getZ(u) {
-        return (u - ((size1 * size2) / 2)) / sqrt((size1 * size2 * (size1 + size2 + 1)) / 12);
+        return (u - ((size1 * size2) * 0.5)) / sqrt((size1 * size2 * (size1 + size2 + 1)) / 12);
       }
       // Reject the null hypothesis the two samples come from the
       // same population (i.e. have the same median) if...
@@ -1772,7 +1772,7 @@ module.exports = (function() {
       }
       // Resolve time span required to achieve a percent uncertainty of at most 1%.
       // For more information see http://spiff.rit.edu/classes/phys273/uncert/uncert.html.
-      options.minTime || (options.minTime = max(timer.res / 2 / 0.01, 0.05));
+      options.minTime || (options.minTime = max(timer.res * 0.5 / 0.01, 0.05));
       return clock.apply(null, arguments);
     }
 

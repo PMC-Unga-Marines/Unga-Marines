@@ -330,7 +330,7 @@
 	evade_active = TRUE //evasion is currently active
 
 	GLOB.round_statistics.runner_evasions++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_evasions") //Statistics
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "runner_evasions") //Statistics
 
 	handle_evasion()
 	START_PROCESSING(SSprocessing, src)

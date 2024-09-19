@@ -29,12 +29,12 @@
 	var/light_impact_range = 4
 	///Weak impact range when exploding
 	var/weak_impact_range = 0
-	var/G_hit_sound = 'sound/weapons/grenade/grenade_hit.ogg'
 	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
 	/// Power of the explosion
 	var/power = 105
 	/// Falloff of our explosion, aka distance, by the formula of power / falloff
 	var/falloff = 30
+	var/overlay_type = "red"
 
 
 /obj/item/explosive/grenade/Initialize(mapload)
@@ -82,26 +82,25 @@
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	//playsound(loc, arm_sound, 25, 1, 6) //ORIGINAL
-	playsound(loc, arm_sound, 30, 1, 6) //RUTGMC EDIT
+	playsound(loc, arm_sound, 30, 1, 6)
 	if(dangerous)
 		GLOB.round_statistics.grenades_thrown++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "grenades_thrown")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "grenades_thrown")
 		update_icon()
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
 	return TRUE
 
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
-	if(active && dangerous)
-		. += new /obj/effect/overlay/danger
+	if(active && overlay_type)
+		. += image('icons/effects/danger.dmi', icon_state = "danger_[overlay_type]")
 
 
 /obj/item/explosive/grenade/proc/prime()
 	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
-/obj/item/explosive/grenade/flamer_fire_act(burnlevel)
+/obj/item/explosive/grenade/fire_act(burn_level, flame_color)
 	activate()
 
 /obj/item/explosive/grenade/attack_hand(mob/living/user)
@@ -115,14 +114,11 @@
 /obj/item/explosive/grenade/proc/launched_det_time()
 	det_time = min(12, det_time)
 
-/obj/item/explosive/grenade/throw_at()
+/obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-	sleep(0.3 SECONDS)
-	playsound(loc, G_hit_sound, 20, 1, 9)
 
 ////RAD GRENADE - TOTALLY RAD MAN
-
 /obj/item/explosive/grenade/rad
 	name = "\improper V-40 rad grenade"
 	desc = "Rad grenades release an extremely potent but short lived burst of radiation, debilitating organic life and frying electronics in a moderate radius. After the initial detonation, the radioactive effects linger for a time. Handle with extreme care."

@@ -46,7 +46,7 @@
 	desc = "A box containing 100 rounds of 10x26.5mm caseless."
 	caliber = CALIBER_10x265_CASELESS
 	icon_state = "box_10x265mm"
-	default_ammo = /datum/ammo/bullet/rifle/standard_br
+	default_ammo = /datum/ammo/bullet/rifle/br64
 	current_rounds = 100
 	max_rounds = 100
 
@@ -55,7 +55,7 @@
 	desc = "A box containing 100 rounds of 10x27mm caseless."
 	caliber = CALIBER_10x27_CASELESS
 	icon_state = "box_10x27mm"
-	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
 	current_rounds = 100
 	max_rounds = 100
 
@@ -106,7 +106,7 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/autosniper
+/obj/item/ammo_magazine/packet/sr81
 	name = "box of low-pressure 8.6x70mm"
 	desc = "A box containing 120 rounds of 8.6x70mm low velocity."
 	icon_state = "box_t81"
@@ -119,7 +119,7 @@
 	name = "box of 16 Gauge shotgun slugs"
 	desc = "A box containing 16 Gauge slugs, they look like they'd fit in the SH-15."
 	icon_state = "box_16gslug"
-	default_ammo = /datum/ammo/bullet/shotgun/tx15_slug
+	default_ammo = /datum/ammo/bullet/shotgun/sh15_slug
 	caliber = CALIBER_16G
 	current_rounds = 60
 	max_rounds = 60
@@ -128,7 +128,7 @@
 	name = "box of 16 Gauge shotgun flechette shells"
 	desc = "A box containing 16 Gauge flechette shells, they look like they'd fit in the SH-15."
 	icon_state = "box_16gflech"
-	default_ammo = /datum/ammo/bullet/shotgun/tx15_flechette
+	default_ammo = /datum/ammo/bullet/shotgun/sh15_flechette
 
 // pistol packets
 
@@ -137,6 +137,7 @@
 	desc = "A packet containing 70 rounds of 9mm."
 	caliber = CALIBER_9X19
 	icon_state = "box_9mm"
+	ammo_band_icon = "box_9mm_band"
 	current_rounds = 70
 	max_rounds = 70
 	w_class = WEIGHT_CLASS_SMALL
@@ -145,7 +146,7 @@
 /obj/item/ammo_magazine/packet/magnum
 	name = "packet of .44 magnum"
 	icon_state = "box_44mag" //Maybe change this
-	default_ammo = /datum/ammo/bullet/revolver/tp44
+	default_ammo = /datum/ammo/bullet/revolver/r44
 	caliber = CALIBER_44
 	current_rounds = 49
 	max_rounds = 49
@@ -160,61 +161,65 @@
 	max_rounds = 42
 
 /obj/item/ammo_magazine/packet/acp
-	name = "packet of .45 ACP"
-	icon_state = "box_45acp"
-	default_ammo = /datum/ammo/bullet/pistol/heavy
-	w_class = WEIGHT_CLASS_SMALL
+	name = "box of .45 ACP"
+	icon_state = "box_.45acp"
+	default_ammo = /datum/ammo/bullet/smg/acp
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = CALIBER_45ACP
+	current_rounds = 160
+	max_rounds = 160
+
+/obj/item/ammo_magazine/packet/acp/ap
+	name = "box of .45 ACP(AP)"
+	icon_state = "box_.45acp_ap"
+	default_ammo = /datum/ammo/bullet/smg/acp/ap
+
+/obj/item/ammo_magazine/packet/acp/hp
+	name = "box of .45 ACP(HP)"
+	icon_state = "box_.45acp_hp"
+	default_ammo = /datum/ammo/bullet/smg/acp/hp
+
+/obj/item/ammo_magazine/packet/rifle762X39
+	name = "box of 7.62X39"
+	icon_state = "box_7.62x39mm"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = CALIBER_762X39
+	current_rounds = 150
+	max_rounds = 150
+
+/obj/item/ammo_magazine/packet/svd762x54mmR
+	name = "box of 7.62X54"
+	icon_state = "box_7.62x54mm"
+	default_ammo = /datum/ammo/bullet/sniper/svd
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = CALIBER_762X54
 	current_rounds = 50
 	max_rounds = 50
 
-/obj/item/ammo_magazine/packet/p9mmap
+/obj/item/ammo_magazine/packet/p9mm/ap
 	name = "packet of 9mm AP"
 	desc = "A packet containing 70 rounds of 9mm armor-piercing."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/pistol/ap
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
-/obj/item/ammo_magazine/packet/p9mmhp
+/obj/item/ammo_magazine/packet/p9mm/hp
 	name = "packet of 9mm HP"
 	desc = "A packet containing 70 rounds of 9mm hollow-point."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/pistol/hp
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
-/obj/item/ammo_magazine/packet/p9mmsabot
+/obj/item/ammo_magazine/packet/p9mm/sabot
 	name = "packet of 9mm APDS"
 	desc = "A packet containing 70 rounds of 9mm APDS."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mm_band"
 	ammo_band_color = AMMO_BAND_COLOR_SABOT
 	default_ammo = /datum/ammo/bullet/pistol/sabot
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
-/obj/item/ammo_magazine/packet/p9mmincendiary
-	name = "packet of 9mm APDS"
-	desc = "A packet containing 70 rounds of 9mm APDS."
-	icon_state = "box_9mmap"
-	ammo_band_icon = "box_9mmap_band"
+/obj/item/ammo_magazine/packet/p9mm/incendiary
+	name = "packet of 9mm incendiary"
+	desc = "A packet containing 70 rounds of 9mm incendiary."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/pistol/incendiary
-	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_9X19
-	current_rounds = 70
-	max_rounds = 70
 
 /obj/item/ammo_magazine/packet/p10x26mm
 	name = "packet of 10x26mm"
@@ -247,7 +252,7 @@
 	current_rounds = 50
 	max_rounds = 50
 
-/obj/item/ammo_magazine/packet/pthreeightyacp
+/obj/item/ammo_magazine/packet/p380acp
 	name = "packet of .380 ACP"
 	desc = "A packet containing 210 rounds of .380 ACP."
 	caliber = CALIBER_380ACP
@@ -268,12 +273,12 @@
 	icon_state_mini = "44LSbox"
 	max_rounds = 40
 
-/obj/item/ammo_magazine/packet/T25_rifle
+/obj/item/ammo_magazine/packet/t25
 	name = "box of 10x26mm high-pressure"
 	desc = "A box containing 300 rounds of 10x26mm 'HP' caseless tuned for a smartgun."
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "box_t25"
-	default_ammo = /datum/ammo/bullet/rifle/T25
+	default_ammo = /datum/ammo/bullet/rifle/t25
 	caliber = CALIBER_10x26_CASELESS
 	current_rounds = 300
 	max_rounds = 300
@@ -372,7 +377,7 @@
 	desc = "A box containing 100 armor piercing rounds of 10x26.5mm caseless."
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "box_10x265mm_ap"
-	default_ammo = /datum/ammo/bullet/rifle/standard_br/ap
+	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 
 /obj/item/ammo_magazine/packet/p10x20mm/ap
 	desc = "A packet containing 125 rounds of 10x20mm caseless."
@@ -380,12 +385,12 @@
 	icon_state = "box_10x20mm_ap"
 	default_ammo = /datum/ammo/bullet/smg/ap
 
-/obj/item/ammo_magazine/packet/sg62_rifle
+/obj/item/ammo_magazine/packet/sg62
 	name = "box of 10x27mm"
 	desc = "A box containing 200 rounds of 10x27mm caseless."
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "box_sg62"
-	default_ammo = /datum/ammo/bullet/smarttargetrifle
+	default_ammo = /datum/ammo/bullet/sg62
 	caliber = CALIBER_10x27_CASELESS
 	current_rounds = 200
 	max_rounds = 200

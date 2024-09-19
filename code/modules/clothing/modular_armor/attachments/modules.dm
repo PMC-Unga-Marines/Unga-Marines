@@ -21,6 +21,7 @@
 	icon_state = "pt_belt"
 	item_state = "pt_belt_a"
 	slot = ATTACHMENT_SLOT_BELT
+	flags_attach_features = ATTACH_NO_HANDS
 
 /**
  * Shoulder lamp strength module
@@ -348,10 +349,10 @@
 ///Called to give extra info on parent examine.
 /obj/item/armor_module/module/eshield/proc/parent_examine(datum/source, mob/examiner)
 	SIGNAL_HANDLER
-	to_chat(examiner, span_notice("Recharge Rate: [recharge_rate/2] health per second\nCurrent Shield Health: [shield_health]\nMaximum Shield Health: [max_shield_health]\n"))
+	to_chat(examiner, span_notice("Recharge Rate: [recharge_rate * 0.5] health per second\nCurrent Shield Health: [shield_health]\nMaximum Shield Health: [max_shield_health]\n"))
 	if(!recharge_timer)
 		return
-	to_chat(examiner, span_warning("Charging is delayed! It will start recharging again in [timeleft(recharge_timer) / 10] seconds!"))
+	to_chat(examiner, span_warning("Charging is delayed! It will start recharging again in [timeleft(recharge_timer) * 0.1] seconds!"))
 
 ///Handles starting the shield when the parent is equiped to the correct slot.
 /obj/item/armor_module/module/eshield/proc/handle_equip(datum/source, mob/equipper, slot)
@@ -479,7 +480,7 @@
 	icon_state = "style_heavy"
 	item_state = "style_heavy_a"
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 
 /**
  *   Helmet Modules
@@ -848,7 +849,7 @@
 		prepare_blip(nearby_illusion, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 1)
-	addtimer(CALLBACK(src, PROC_REF(clean_blips)), scan_time / 2)
+	addtimer(CALLBACK(src, PROC_REF(clean_blips)), scan_time * 0.5)
 
 ///Clean all blips from operator screen
 /obj/item/armor_module/module/motion_detector/proc/clean_blips()
@@ -868,7 +869,7 @@
 	var/list/actualview = getviewsize(operator.client.view)
 	var/viewX = actualview[1]
 	var/viewY = actualview[2]
-	var/turf/center_view = get_view_center(operator)
+	var/turf/center_view = get_view_center(operator) ? get_view_center(operator) : get_turf(src)
 	var/screen_pos_y = target.y - center_view.y + round(viewY * 0.5) + 1
 	var/dir
 	if(screen_pos_y < 1)

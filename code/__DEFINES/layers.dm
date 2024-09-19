@@ -128,7 +128,8 @@
 #define ABOVE_LYING_MOB_LAYER 3.9 //drone (not the xeno)
 
 //#define MOB_LAYER 4
-#define RIVER_OVERLAY_LAYER 4.01
+
+#define MOB_JUMP_LAYER 4.05
 
 #define ABOVE_MOB_LAYER 4.1
 
@@ -157,7 +158,7 @@
 #define MID_LANDMARK_LAYER 9.1
 #define HIGH_LANDMARK_LAYER 9.2
 
-#define LIGHTING_LAYER 10									//Drawing layer for lighting overlays
+#define LIGHTING_LAYER 10 //Drawing layer for lighting overlays
 #define AREAS_LAYER 10 //for areas, so they appear above everything else on map file.
 
 #define POINT_LAYER 12

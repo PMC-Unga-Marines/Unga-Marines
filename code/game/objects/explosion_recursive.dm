@@ -50,7 +50,7 @@ explosion resistance exactly as much as their health
 	if(!epicenter)
 		return
 
-	falloff = max(our_falloff, power / 100) //prevent explosions with a range larger than 100 tiles
+	falloff = max(our_falloff, power * 0.01) //prevent explosions with a range larger than 100 tiles
 	minimum_spread_power = -power * reflection_amplification_limit
 
 	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z [ADMIN_JMP(epicenter)])
@@ -262,7 +262,7 @@ explosion resistance exactly as much as their health
 		direction = pick(GLOB.alldirs)
 	var/range = min(round(severity * 0.2, 1), 14)
 	if(!direction)
-		range = round(range / 2, 1)
+		range = round(range * 0.5, 1)
 
 	if(range < 1)
 		return
@@ -277,7 +277,7 @@ explosion resistance exactly as much as their health
 		target = locate(target.x + round(scatter_x, 1), target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
-	throw_at(target, range, speed, null, TRUE)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE, targetted_throw = FALSE)
 
 /mob/proc/explosion_throw(severity, direction)
 	if(anchored || !isturf(loc))
@@ -314,4 +314,4 @@ explosion resistance exactly as much as their health
 		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
-	throw_at(target, range, speed, null, spin)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, spin, targetted_throw = FALSE)

@@ -1,6 +1,3 @@
-
-//external magazines
-
 /obj/item/ammo_magazine/revolver
 	name = "\improper R-44 magnum speed loader (.44)"
 	desc = "A revolver speed loader."
@@ -51,10 +48,10 @@
 	icon_state = "h_m44"
 	icon_state_mini = "mag_revolver_bronze_purple"
 
-/obj/item/ammo_magazine/revolver/standard_revolver
+/obj/item/ammo_magazine/revolver/r44
 	name = "\improper R-44 magnum speed loader (.44)"
 	desc = "A revolver speed loader."
-	default_ammo = /datum/ammo/bullet/revolver/tp44
+	default_ammo = /datum/ammo/bullet/revolver/r44
 	flags_equip_slot = NONE
 	caliber = CALIBER_44
 	icon_state = "tp44"

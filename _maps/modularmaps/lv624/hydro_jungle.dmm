@@ -38,6 +38,11 @@
 "da" = (
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/jungle9)
+"de" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle9)
 "dI" = (
 /turf/open/ground/grass,
 /area/lv624/ground/compound/ne)
@@ -171,6 +176,10 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
+"qf" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/compound/ne)
 "qj" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -189,6 +198,10 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
+"tS" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle7)
 "up" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/ground/grass,
@@ -261,11 +274,17 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/jungle/vines,
 /obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
 "yi" = (
 /obj/item/trash/chips,
 /turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/compound/ne)
+"za" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
 /area/lv624/ground/compound/ne)
 "zd" = (
 /turf/open/ground/grass,
@@ -313,6 +332,11 @@
 	dir = 4
 	},
 /area/lv624/ground/compound/ne)
+"Bw" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle9)
 "Bz" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/flora/jungle/vines,
@@ -351,6 +375,13 @@
 	dir = 4
 	},
 /area/lv624/ground/jungle9)
+"DT" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirtgrassborder{
+	dir = 8
+	},
+/area/lv624/ground/jungle7)
 "EC" = (
 /obj/structure/powerloader_wreckage,
 /turf/open/ground/grass,
@@ -436,6 +467,10 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
+"Lp" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle9)
 "Lr" = (
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 1
@@ -491,6 +526,11 @@
 	},
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
+"Ps" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle7)
 "PR" = (
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 4
@@ -506,6 +546,11 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/jungle9)
+"QH" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle7)
 "QV" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner2{
 	dir = 4
@@ -519,6 +564,11 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass,
 /area/lv624/ground/compound/ne)
+"SR" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
+/area/lv624/ground/compound/ne)
 "Ta" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 8
@@ -530,6 +580,11 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle9)
+"UK" = (
+/obj/structure/flora/jungle/vines/heavy,
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass,
 /area/lv624/ground/jungle9)
 "UP" = (
 /obj/structure/flora/jungle/vines,
@@ -564,6 +619,7 @@
 /turf/closed/wall,
 /area/lv624/ground/compound/ne)
 "VS" = (
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 4
 	},
@@ -623,6 +679,7 @@
 /area/lv624/ground/compound/ne)
 "ZF" = (
 /obj/structure/flora/jungle/vines,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 4
 	},
@@ -641,7 +698,7 @@ xw
 jf
 eM
 RS
-CR
+UK
 jf
 Xl
 jf
@@ -727,7 +784,7 @@ ly
 Mk
 GW
 jf
-RS
+Bw
 MK
 Wv
 Xl
@@ -742,7 +799,7 @@ Xl
 UQ
 PR
 XX
-Vq
+tS
 dI
 wy
 xt
@@ -776,7 +833,7 @@ Xl
 RS
 qe
 jf
-eM
+de
 jf
 RS
 eh
@@ -792,7 +849,7 @@ wy
 ly
 fN
 Lr
-jf
+Lp
 Xl
 jf
 RS
@@ -801,7 +858,7 @@ hq
 kF
 jf
 eM
-jf
+Lp
 RS
 "}
 (9,1,1) = {"
@@ -873,7 +930,7 @@ cV
 (12,1,1) = {"
 Xl
 Xl
-kC
+QH
 yd
 co
 Mk
@@ -919,7 +976,7 @@ XX
 Vq
 Vq
 Dq
-Xh
+SR
 dI
 MC
 up
@@ -951,7 +1008,7 @@ uH
 Zw
 LF
 dI
-bL
+za
 bL
 Sx
 dI
@@ -969,20 +1026,20 @@ xJ
 bL
 Xh
 bL
-dI
+qf
 jJ
 uH
 FO
 bL
 bL
 bL
-dI
+qf
 dI
 cV
 "}
 (17,1,1) = {"
 wR
-wR
+DT
 xR
 Vq
 Iy
@@ -1008,7 +1065,7 @@ kC
 kC
 Vq
 Vq
-in
+Ps
 UQ
 ep
 XX
@@ -1042,7 +1099,7 @@ vT
 eg
 Az
 bL
-bL
+za
 dI
 dI
 "}

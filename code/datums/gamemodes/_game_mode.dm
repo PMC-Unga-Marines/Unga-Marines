@@ -25,17 +25,17 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	var/distress_cancelled = FALSE
 
-	var/deploy_time_lock = 15 MINUTES
+	var/deploy_time_lock = 10 MINUTES
 	///The respawn time for marines
 	var/respawn_time = 15 MINUTES
 	//The respawn time for Xenomorphs
-	var/xenorespawn_time = 5 MINUTES
+	var/xenorespawn_time = 3 MINUTES
 	///How many points do you need to win in a point gamemode
 	var/win_points_needed = 0
 	///The points per faction, assoc list
 	var/list/points_per_faction
 	/// When are the shutters dropping
-	var/shutters_drop_time = 30 MINUTES
+	var/shutters_drop_time = 20 MINUTES
 	///Time before becoming a zombie when going undefibbable
 	var/zombie_transformation_time = 30 SECONDS
 	/** The time between two rounds of this gamemode. If it's zero, this mode i always votable.
@@ -231,7 +231,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Disconnected</b>)<br>"
 
 		else if(L.client)
-			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))
+			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME * 0.5))
 				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Connected, Inactive</b>)<br>"
 			else if(L.stat)
 				if(L.stat == UNCONSCIOUS)
@@ -852,7 +852,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			for(var/datum/objective/O in A.objectives)
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
-		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
+		SSblackbox.record_feedback(FEEDBACK_ASSOCIATIVE, "antagonists", 1, antag_info)
 
 /proc/printobjectives(list/objectives)
 	if(!objectives || !length(objectives))

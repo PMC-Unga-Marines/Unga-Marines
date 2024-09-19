@@ -129,7 +129,7 @@ All ShuttleMove procs go here
 		return
 	var/turf/target = get_edge_target_turf(src, move_dir)
 	var/range = throw_force * 10
-	range = CEILING(randfloat(range-(range*0.1), range+(range*0.1)), 10)/10
+	range = CEILING(randfloat(range-(range*0.1), range+(range*0.1)), 10) * 0.1
 	var/speed = range/5
 	safe_throw_at(target, range, speed, force = MOVE_FORCE_EXTREMELY_STRONG)
 
@@ -204,23 +204,21 @@ All ShuttleMove procs go here
 	. = ..()
 	if(pipe_vision_img)
 		pipe_vision_img.loc = loc
+	var/missing_nodes = FALSE
 	for(var/i in 1 to device_type)
-		if(nodes[i])
-			var/obj/machinery/atmospherics/node = nodes[i]
-			var/connected = FALSE
-			for(var/D in GLOB.cardinals)
-				if(node in get_step(src, D))
-					connected = TRUE
-					break
-			if(!connected)
-				nullifyNode(i)
+		if(!nodes[i])
+			missing_nodes = TRUE
 
-	atmosinit()
-	for(var/obj/machinery/atmospherics/A in pipeline_expansion())
-		A.atmosinit()
-		if(A.returnPipenet())
-			A.addMember(src)
-	build_network()
+	if(missing_nodes)
+		atmosinit()
+		for(var/obj/machinery/atmospherics/A in pipeline_expansion())
+			A.atmosinit()
+			if(A.returnPipenet())
+				A.addMember(src)
+		build_network()
+	else
+		// atmosinit() calls update_icon(), so we don't need to call it
+		update_icon()
 	covered_by_shuttle = FALSE
 
 /obj/machinery/atmospherics/pipe/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
@@ -230,8 +228,8 @@ All ShuttleMove procs go here
 
 /obj/machinery/power/terminal/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
-	var/turf/T = src.loc
-	if(level==1)
+	var/turf/T = loc
+	if(level == 1)
 		hide(T.intact_tile)
 
 /obj/machinery/atmospherics/components/unary/vent_pump/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)

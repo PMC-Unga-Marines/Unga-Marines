@@ -496,7 +496,7 @@
 		var/catch_chance = 50
 		if(M.dir == REVERSE_DIR(dir))
 			catch_chance += 20
-		catch_chance -= M.shock_stage * 0.3
+		catch_chance -= M.painloss * 0.3
 		if(M.get_inactive_held_item())
 			catch_chance  -= 25
 
@@ -580,7 +580,7 @@
 			var/obj/item/alien_embryo/embryo = new(target)
 			embryo.hivenumber = hivenumber
 			GLOB.round_statistics.now_pregnant++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant")
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "now_pregnant")
 			if(source?.client)
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 				personal_statistics.impregnations++
@@ -662,11 +662,7 @@
 	proj.ammo.on_hit_obj(src, proj)
 	return TRUE
 
-/obj/item/clothing/mask/facehugger/fire_act(exposed_temperature, exposed_volume)
-	if(exposed_temperature > 300)
-		kill_hugger()
-
-/obj/item/clothing/mask/facehugger/flamer_fire_act(burnlevel)
+/obj/item/clothing/mask/facehugger/fire_act(burn_level, flame_color)
 	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/dropped(mob/user)

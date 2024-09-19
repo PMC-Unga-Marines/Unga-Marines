@@ -51,7 +51,7 @@
 		return list()
 	var/client/C = GetViewerClient()
 	var/view = C ? getviewsize(C.view) : getviewsize(WORLD_VIEW)
-	var/turf/lowerleft = locate(max(1, x - (view[1] - 1)/2), max(1, y - (view[2] - 1)/2), z)
+	var/turf/lowerleft = locate(max(1, x - (view[1] - 1) * 0.5), max(1, y - (view[2] - 1) * 0.5), z)
 	var/turf/upperright = locate(min(world.maxx, lowerleft.x + (view[1] - 1)), min(world.maxy, lowerleft.y + (view[2] - 1)), lowerleft.z)
 	return block(lowerleft, upperright)
 
@@ -198,3 +198,8 @@
 
 /mob/camera/aiEye/proc/unregister_facedir_signals(mob/user)
 	UnregisterSignal(user, list(COMSIG_KB_MOB_FACENORTH_DOWN, COMSIG_KB_MOB_FACEEAST_DOWN, COMSIG_KB_MOB_FACESOUTH_DOWN, COMSIG_KB_MOB_FACEWEST_DOWN))
+
+/mob/camera/aiEye/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, sound/S, distance_multiplier, mob/sound_reciever)
+	if(istype(parent_cameranet) && !parent_cameranet.checkTurfVis(get_turf(src)))
+		return
+	return ..(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S, distance_multiplier, ai)

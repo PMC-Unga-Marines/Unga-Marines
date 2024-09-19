@@ -44,7 +44,7 @@
 /datum/reagent/water/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0) //Splashing people with water can help put them out!
 	. = ..()
 	if(method in list(TOUCH, VAPOR))
-		L.adjust_fire_stacks(-(volume / 10))
+		L.adjust_fire_stacks(-(volume * 0.1))
 		if(L.fire_stacks <= 0)
 			L.ExtinguishMob()
 
@@ -416,7 +416,7 @@
 /datum/reagent/fuel/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)//Splashing people with welding fuel to make them easy to ignite!
 	. = ..()
 	if(method in list(TOUCH, VAPOR))
-		L.adjust_fire_stacks(volume / 10)
+		L.adjust_fire_stacks(volume * 0.1)
 	return TRUE
 
 /datum/reagent/fuel/overdose_process(mob/living/L, metabolism)
@@ -430,6 +430,12 @@
 	description = "Type X fuel, for use in flamers for when you really want something nice and crispy"
 	color = COLOR_MODERATE_BLUE
 	effect_type = /obj/effect/decal/cleanable/liquid_fuel/xfuel
+
+/datum/reagent/fuel/gfuel
+	name = "G-fuel"
+	description = "plasma fuel, for use in flamers for when you really want something nice and crispy"
+	color = LIGHT_COLOR_ELECTRIC_GREEN
+	effect_type = /obj/effect/decal/cleanable/liquid_fuel/gfuel
 
 /datum/reagent/space_cleaner
 	name = "Space cleaner"
