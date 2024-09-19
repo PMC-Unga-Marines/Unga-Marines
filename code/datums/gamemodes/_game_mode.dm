@@ -852,7 +852,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			for(var/datum/objective/O in A.objectives)
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
-		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
+		SSblackbox.record_feedback(FEEDBACK_ASSOCIATIVE, "antagonists", 1, antag_info)
 
 /proc/printobjectives(list/objectives)
 	if(!objectives || !length(objectives))

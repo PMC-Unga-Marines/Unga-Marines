@@ -1134,7 +1134,7 @@
 
 	message_admins("[key_name_admin(usr)] started weather of type [weather_type] on the z-level [z_level].")
 	log_admin("[key_name(usr)] started weather of type [weather_type] on the z-level [z_level].")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Run Weather")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Run Weather")
 
 ///client verb to set round end sound
 /client/proc/set_round_end_sound(S as sound)
@@ -1147,7 +1147,7 @@
 
 	log_admin("[key_name(src)] set the round end sound to [S]")
 	message_admins("[key_name_admin(src)] set the round end sound to [S]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set Round End Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Set Round End Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ///Adjusts gravity, modifying the jump component for all mobs
 /datum/admins/proc/adjust_gravity()

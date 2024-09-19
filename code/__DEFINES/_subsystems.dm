@@ -187,3 +187,10 @@
 
 /// The timer key used to know how long subsystem initialization takes
 #define SS_INIT_TIMER_KEY "ss_init"
+
+//Blackbox feedback defines
+#define FEEDBACK_TEXT "text"
+#define FEEDBACK_AMOUNT "amount"
+#define FEEDBACK_TALLY "tally"
+#define FEEDBACK_NESTED_TALLY "nested_tally"
+#define FEEDBACK_ASSOCIATIVE "associative"

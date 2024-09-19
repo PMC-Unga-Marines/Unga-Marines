@@ -214,7 +214,7 @@
 			if(tgui_alert(usr,"Drop Items in Pockets? No will delete them.", "Robust quick dress shop", list("Yes", "No")) == "No")
 				delete_pocket = TRUE
 
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Select Equipment") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Select Equipment") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 	for(var/obj/item/item in human_target.get_equipped_items(include_pockets = delete_pocket))
 		qdel(item)
 
