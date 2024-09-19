@@ -405,7 +405,7 @@
 /obj/item/ammo_magazine/smg/m25,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "cD" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/trash/sosjerky,
@@ -1297,7 +1297,7 @@
 	name = "#3"
 	},
 /turf/closed/wall/r_wall,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "hm" = (
 /obj/structure/bed/chair/sofa,
 /turf/open/floor/carpet,
@@ -1904,7 +1904,7 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "kE" = (
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/grimy,
@@ -2157,7 +2157,7 @@
 /area/barren/engie/two)
 "mo" = (
 /turf/closed/wall,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "mq" = (
 /obj/item/tool/crowbar,
 /turf/open/lavaland/basalt{
@@ -3621,7 +3621,7 @@
 	name = "Secure Storage"
 	},
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "vd" = (
 /obj/machinery/door/airlock/colony/medical{
 	dir = 1
@@ -3830,7 +3830,7 @@
 /obj/item/weapon/gun/shotgun/double/marine,
 /obj/item/weapon/gun/shotgun/double/marine,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "wl" = (
 /turf/open/floor/plating/dmg3,
 /area/barren/cave/central)
@@ -4035,7 +4035,7 @@
 /obj/item/storage/belt/marine,
 /obj/item/storage/belt/marine,
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "xG" = (
 /obj/item/lightstick/red/anchored,
 /obj/structure/cable,
@@ -4121,7 +4121,7 @@
 /obj/item/robot_parts/robot_suit,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "yb" = (
 /obj/structure/cargo_container/horizontal{
 	dir = 1
@@ -4514,7 +4514,7 @@
 "Aw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Ay" = (
 /obj/machinery/light{
 	dir = 8
@@ -4620,7 +4620,7 @@
 /obj/item/ammo_magazine/shotgun/buckshot,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "AY" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 6
@@ -4704,7 +4704,7 @@
 /obj/item/weapon/gun/smg/m25,
 /obj/item/weapon/gun/smg/m25,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Bu" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -4971,7 +4971,7 @@
 "CM" = (
 /obj/structure/table/mainship,
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "CU" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
@@ -5167,7 +5167,7 @@
 /obj/item/assembly/signaler,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Eh" = (
 /obj/structure/filingcabinet,
 /turf/open/floor,
@@ -5397,7 +5397,7 @@
 /obj/structure/table/mainship,
 /obj/item/unmanned_vehicle_remote,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Fs" = (
 /obj/item/ore/iron,
 /turf/open/lavaland/basalt{
@@ -5775,7 +5775,7 @@
 /area/barren/security)
 "Hz" = (
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "HA" = (
 /obj/structure/barricade/metal,
 /obj/structure/lattice,
@@ -5926,7 +5926,7 @@
 "Iz" = (
 /obj/effect/landmark/nuke_spawn,
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "IB" = (
 /obj/structure/toilet{
 	dir = 1
@@ -6001,7 +6001,7 @@
 "IV" = (
 /obj/machinery/door/airlock/mainship/secure/open,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "IX" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave,
@@ -6009,7 +6009,7 @@
 /area/barren/civilian/cook)
 "IY" = (
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "IZ" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -6148,7 +6148,7 @@
 /obj/item/ammo_magazine/revolver/small,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "JE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
@@ -6624,7 +6624,7 @@
 "MA" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "MC" = (
 /obj/structure/girder,
 /turf/open/floor/plating,
@@ -6728,7 +6728,7 @@
 /obj/item/deployable_camera,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Nm" = (
 /obj/structure/barricade/guardrail{
 	dir = 8
@@ -6761,7 +6761,7 @@
 "Nq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Ns" = (
 /obj/structure/sign/examroom,
 /turf/closed/wall,
@@ -6899,7 +6899,7 @@
 /area/barren/security)
 "Op" = (
 /turf/closed/wall/r_wall,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Or" = (
 /turf/open/floor/wood/broken,
 /area/barren/civilian)
@@ -7473,7 +7473,7 @@
 "RW" = (
 /obj/structure/table/mainship,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "RY" = (
 /turf/open/floor,
 /area/barren/misc/eastarmory)
@@ -7719,7 +7719,7 @@
 /obj/item/weapon/gun/revolver/small,
 /obj/item/weapon/gun/revolver/small,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Tz" = (
 /obj/structure/table,
 /obj/item/toy/deck,
@@ -8242,7 +8242,7 @@
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /turf/open/floor/prison,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "WI" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
@@ -8346,7 +8346,7 @@
 "Xv" = (
 /obj/structure/rack,
 /turf/open/floor/prison/plate,
-/area/ai_monitored/storage/secure)
+/area/barren/security/nuke)
 "Xx" = (
 /obj/machinery/door/poddoor/mainship/indestructible{
 	id = "secure_blast4";

@@ -93,6 +93,7 @@
 /area/barren/medical/research
 	name = "Research Outpost"
 	icon_state = "lava_research"
+	ceiling = CEILING_DEEP_UNDERGROUND
 
 //"Engineer"
 /area/barren/engie
@@ -135,6 +136,7 @@
 /area/barren/security/nuke
 	name = "Emergency Nuclear Fission Facility"
 	icon_state = "lava_sec_nuke"
+	ceiling = CEILING_DEEP_UNDERGROUND
 
 //Civilian
 
@@ -162,9 +164,12 @@
 /area/barren/civilian/workdorm
 	name = "Worker Dormitory"
 	icon_state = "lava_work_dorm"
+	ceiling = CEILING_DEEP_UNDERGROUND
 	outside = FALSE
+	minimap_color = MINIMAP_AREA_CAVES
 
 //Misc Locations
+
 /area/lavaland/misc
 	minimap_color = MINIMAP_AREA_COLONY
 
