@@ -206,8 +206,6 @@
 	icon_state = "laser_target3"
 	effect_duration = 20
 
-
-
 //gib animation
 
 /obj/effect/overlay/temp/gib_animation
@@ -215,11 +213,11 @@
 	effect_duration = 14
 
 /obj/effect/overlay/temp/gib_animation/Initialize(mapload, effect_duration, mob/source_mob, gib_icon)
-	. = ..()
 	if(source_mob)
 		pixel_x = source_mob.pixel_x
 		pixel_y = source_mob.pixel_y
 	icon_state = gib_icon
+	return ..()
 
 /obj/effect/overlay/temp/gib_animation/animal
 	icon = 'icons/mob/animal.dmi'
@@ -231,8 +229,8 @@
 	effect_duration = 10
 
 /obj/effect/overlay/temp/gib_animation/xeno/Initialize(mapload, effect_duration, mob/source_mob, gib_icon, new_icon)
-	. = ..()
 	icon = new_icon
+	return ..()
 
 //dust animation
 
@@ -241,10 +239,10 @@
 	effect_duration = 12
 
 /obj/effect/overlay/temp/dust_animation/Initialize(mapload, effect_duration, mob/source_mob, gib_icon)
-	. = ..()
 	pixel_x = source_mob.pixel_x
 	pixel_y = source_mob.pixel_y
 	icon_state = gib_icon
+	return ..()
 
 ///Lighting overlay for the Light overlay component
 /obj/effect/overlay/light_visible
