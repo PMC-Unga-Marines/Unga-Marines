@@ -234,7 +234,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber/shell
 	name = "Shell Upgrade Chamber"
-	desc = ""
+	desc = "Constructs a chamber that allows xenos to buy survival upgrades"
 	psypoint_cost = 150
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
@@ -249,7 +249,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber/spur
 	name = "Spur Upgrade Chamber"
-	desc = ""
+	desc = "Constructs a chamber that allows xenos to buy attack upgrades"
 	psypoint_cost = 150
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
@@ -264,7 +264,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber/veil
 	name = "Veil Upgrade Chamber"
-	desc = ""
+	desc = "Constructs a chamber that allows xenos to buy utility upgrades"
 	psypoint_cost = 150
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
