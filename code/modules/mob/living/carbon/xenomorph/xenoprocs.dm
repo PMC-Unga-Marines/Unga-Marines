@@ -25,6 +25,13 @@
 
 	change_skin()
 
+/mob/living/carbon/xenomorph/verb/make_rouny()
+	set name = "Make rouny"
+	set desc = "Makes you funny beno."
+	set category = "Alien"
+
+	toggle_rouny()
+
 /mob/living/carbon/xenomorph/verb/tunnel_list()
 	set name = "Tunnel List"
 	set desc = "See all currently active tunnels."
@@ -63,12 +70,21 @@
 
 	return
 
+/mob/living/carbon/xenomorph/proc/toggle_rouny()
+
+	if(!SSdiscord.is_boosty(ckey))
+		to_chat(usr, span_notice("You need boosty verification to use this"))
+		return
+
+	is_a_rouny = !is_a_rouny
+	update_icons()
+
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
 		balloon_alert(src, "Your caste does not have the ability to change appearance")
 		return
 
-	if(!SSdiscord.is_boosty(ckey, FALSE))
+	if(!SSdiscord.is_boosty(ckey))
 		to_chat(usr, span_notice("You need boosty verification to use this"))
 		return
 
