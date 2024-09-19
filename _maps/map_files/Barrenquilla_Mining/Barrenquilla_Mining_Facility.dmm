@@ -6935,8 +6935,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/barren/cave/lz2)
-"Np" = (
-/turf/closed/brock)
 "Nq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/plate,
@@ -8389,12 +8387,6 @@
 	},
 /turf/open/floor/plating/asteroidfloor,
 /area/barren/cave/west)
-"Wb" = (
-/turf/closed/brock,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
-/area/barren/caves/rock)
 "We" = (
 /obj/structure/window/reinforced/toughened{
 	dir = 1
@@ -35618,9 +35610,9 @@ bU
 eu
 cm
 eg
-Np
-Np
-Np
+ZS
+ZS
+ZS
 fw
 fw
 fw
@@ -35875,11 +35867,11 @@ eu
 eu
 eu
 dD
-Np
-Np
-Np
-Np
-Np
+ZS
+ZS
+ZS
+ZS
+ZS
 Gz
 ne
 ZL
@@ -36132,10 +36124,10 @@ eu
 cm
 MK
 eg
-Np
-Np
-Np
-Np
+ZS
+ZS
+ZS
+ZS
 ZL
 ZL
 ZL
@@ -36389,10 +36381,10 @@ eu
 eu
 eu
 dD
-Np
-Np
-Np
-Np
+ZS
+ZS
+ZS
+ZS
 RH
 ZL
 Lm
@@ -36646,8 +36638,8 @@ eu
 eu
 cm
 ei
-Np
-Np
+ZS
+ZS
 ZL
 ZL
 ZL
@@ -36904,7 +36896,7 @@ eu
 eu
 eu
 ZL
-Np
+ZS
 fi
 Ko
 ZL
@@ -39537,7 +39529,7 @@ Zg
 Zg
 ZS
 ZS
-Wb
+ZS
 ZS
 ZS
 XB
@@ -48180,7 +48172,7 @@ OD
 OD
 OD
 OD
-Np
+ZS
 ZS
 ZS
 ZS
