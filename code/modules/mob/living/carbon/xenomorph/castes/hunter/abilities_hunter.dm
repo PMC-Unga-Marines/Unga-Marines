@@ -449,7 +449,7 @@
 	succeed_activate()
 
 	GLOB.round_statistics.hunter_marks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "hunter_marks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "hunter_marks")
 	add_cooldown()
 
 ///Nulls the target of our hunter's mark

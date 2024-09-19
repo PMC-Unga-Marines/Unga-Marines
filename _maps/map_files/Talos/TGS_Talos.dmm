@@ -10751,7 +10751,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "gjM" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/plating,
 /area/mainship/medical/medical_science)
 "gjV" = (
@@ -19772,7 +19772,7 @@
 /area/mainship/squads/req)
 "lFJ" = (
 /obj/machinery/light/mainship,
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /obj/effect/turf_decal/woodsiding{
@@ -20933,7 +20933,7 @@
 /turf/open/floor/carpet,
 /area/mainship/engineering/ce_room)
 "mpG" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -24065,7 +24065,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -27861,7 +27861,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/autoname,
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},

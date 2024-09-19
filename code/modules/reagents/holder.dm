@@ -446,7 +446,7 @@
 
 			for(var/P in selected_reaction.results)
 				multiplier = max(multiplier, 1) //This shouldn't happen...
-				SSblackbox.record_feedback("tally", "chemical_reaction", cached_results[P]*multiplier, P)
+				SSblackbox.record_feedback(FEEDBACK_TALLY, "chemical_reaction", cached_results[P]*multiplier, P)
 				add_reagent(P, cached_results[P]*multiplier, null, chem_temp)
 
 			var/list/seen = viewers(4, get_turf(cached_my_atom))

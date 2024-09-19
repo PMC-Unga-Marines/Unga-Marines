@@ -154,7 +154,7 @@
 /datum/action/ability/activable/xeno/psychic_fling/use_ability(atom/target)
 	var/mob/living/victim = target
 	GLOB.round_statistics.psychic_flings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_flings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psychic_flings")
 
 	owner.visible_message(span_xenowarning("A strange and violent psychic aura is suddenly emitted from \the [owner]!"), \
 	span_xenowarning("We violently fling [victim] with the power of our mind!"))
@@ -162,18 +162,7 @@
 	span_xenowarning("You are violently flung to the side by an unseen force!"))
 	playsound(owner,'sound/effects/magic.ogg', 75, 1)
 	playsound(victim,'sound/weapons/alien_claw_block.ogg', 75, 1)
-/* RU TGMC EDIT
-		//Held facehuggers get killed for balance reasons
-	if(istype(owner.r_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.r_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
 
-	if(istype(owner.l_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.l_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
-RU TGMC EDIT */
 	succeed_activate()
 	add_cooldown()
 	if(ishuman(victim))
@@ -274,8 +263,8 @@ RU TGMC EDIT */
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PSYCHIC_CURE,
 	)
-	var/heal_range = SHRIKE_HEAL_RANGE
 	target_flags = ABILITY_MOB_TARGET
+	var/heal_range = SHRIKE_HEAL_RANGE
 
 
 /datum/action/ability/activable/xeno/psychic_cure/on_cooldown_finish()
@@ -289,8 +278,6 @@ RU TGMC EDIT */
 		return FALSE
 	if(QDELETED(target))
 		return FALSE
-	if(!check_distance(target, silent))
-		return FALSE
 	if(!isxeno(target))
 		return FALSE
 	var/mob/living/carbon/xenomorph/patient = target
@@ -298,23 +285,26 @@ RU TGMC EDIT */
 		if(!silent)
 			to_chat(owner, span_warning("It's too late. This sister won't be coming back."))
 		return FALSE
-
+	if(!check_distance(patient, silent))
+		return FALSE
 
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
 	if(dist > heal_range)
-		to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
+		if(!silent)
+			to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
-	else if(!line_of_sight(owner, target))
-		to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
+	else if(!line_of_sight(owner, target, heal_range))
+		if(!silent)
+			to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
 		return FALSE
 	return TRUE
-
 
 /datum/action/ability/activable/xeno/psychic_cure/use_ability(atom/target)
 	if(owner.do_actions)
 		return FALSE
 
+	owner.face_atom(target) //Face the target so we don't look stupid
 	if(!do_after(owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
 
@@ -322,7 +312,7 @@ RU TGMC EDIT */
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.heals++
 	GLOB.round_statistics.psychic_cures++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_cures")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psychic_cures")
 	owner.visible_message(span_xenowarning("A strange psychic aura is suddenly emitted from \the [owner]!"), \
 	span_xenowarning("We cure [target] with the power of our mind!"))
 	target.visible_message(span_xenowarning("[target] suddenly shimmers in a chill light."), \
@@ -376,7 +366,7 @@ RU TGMC EDIT */
 			to_chat(owner, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/acidwell))
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))
@@ -391,7 +381,7 @@ RU TGMC EDIT */
 
 	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
 	GLOB.round_statistics.xeno_acid_wells++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_acid_wells")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_acid_wells")
 	owner.record_traps_created()
 
 

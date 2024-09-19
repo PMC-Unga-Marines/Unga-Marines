@@ -723,7 +723,7 @@
 	message_admins("[ADMIN_TPMONTY(devolver)] has deevolved [ADMIN_TPMONTY(target)]. Reason: [reason]")
 
 	GLOB.round_statistics.total_xenos_created-- //so an evolved xeno doesn't count as two.
-	SSblackbox.record_feedback("tally", "round_statistics", -1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", -1, "total_xenos_created")
 	qdel(target)
 
 /datum/hive_status/proc/attempt_abort(mob/living/carbon/xenomorph/user, mob/living/carbon/xenomorph/target)
@@ -1081,7 +1081,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	xeno_job.add_job_positions(1)
 	update_tier_limits()
 	GLOB.round_statistics.total_xenos_created-- // keep stats sane
-	SSblackbox.record_feedback("tally", "round_statistics", -1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", -1, "total_xenos_created")
 	qdel(L)
 
 // ***************************************
