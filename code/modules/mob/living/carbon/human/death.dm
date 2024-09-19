@@ -47,10 +47,10 @@
 
 
 /mob/living/carbon/human/death(gibbing, deathmessage, silent, special_death_message)
+	if(!species)
+		return ..()
 	if(stat == DEAD)
-//RUTGMC EDIT
 		species.handle_death(src, gibbing)
-//RUTGMC EDIT
 		return ..()
 	if(species.death_message)
 		deathmessage = species.death_message
@@ -69,7 +69,7 @@
 	remove_typing_indicator()
 
 	GLOB.round_statistics.total_human_deaths[faction]++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_deaths[faction]")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_human_deaths[faction]")
 
 	GLOB.dead_human_list += src
 	GLOB.alive_human_list -= src

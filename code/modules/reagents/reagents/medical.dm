@@ -165,7 +165,7 @@
 	L.apply_damage(0.2*effect_str, TOX)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
+		C.set_painloss(min(C.painloss - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
 	return ..()
 
 /datum/reagent/medicine/oxycodone/overdose_process(mob/living/L, metabolism)
@@ -200,7 +200,7 @@
 	L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
+		C.set_painloss(min(C.painloss - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
 	return ..()
 
 /datum/reagent/medicine/hydrocodone/overdose_process(mob/living/L, metabolism)
@@ -345,8 +345,8 @@
 	name = "Dexalin Plus"
 	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective."
 	color = COLOR_REAGENT_DEXALINPLUS
-	overdose_threshold = REAGENTS_OVERDOSE/2
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	scannable = TRUE
 
 /datum/reagent/medicine/dexalinplus/on_mob_life(mob/living/L,metabolism)
@@ -603,7 +603,7 @@
 	L.adjustToxLoss(3.75*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - volume*effect_str, 150)) //will pull a target out of deep paincrit instantly, if he's in it
+		C.set_painloss(min(C.painloss - volume*effect_str, 150)) //will pull a target out of deep paincrit instantly, if he's in it
 	return ..()
 
 /datum/reagent/medicine/neuraline/overdose_process(mob/living/L, metabolism)
@@ -636,8 +636,8 @@
 	description = "Arithrazine is a component medicine capable of healing minor amounts of toxin poisoning."
 	color = COLOR_REAGENT_ARITHRAZINE
 	custom_metabolism = REAGENTS_METABOLISM
-	overdose_threshold = REAGENTS_OVERDOSE/2
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	scannable = TRUE
 
 /datum/reagent/medicine/arithrazine/on_mob_life(mob/living/L)
@@ -657,8 +657,8 @@
 	description = "An emergency generic treatment with extreme side effects."
 	color = COLOR_REAGENT_RUSSIAN_RED
 	custom_metabolism = REAGENTS_METABOLISM * 5
-	overdose_threshold = REAGENTS_OVERDOSE/2   //so it makes the OD threshold effectively 15 so two pills is too much but one is fine
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2.5 //and this makes the Critical OD 20
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5   //so it makes the OD threshold effectively 15 so two pills is too much but one is fine
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL / 2.5 //and this makes the Critical OD 20
 	scannable = TRUE
 
 /datum/reagent/medicine/russian_red/on_mob_add(mob/living/L, metabolism)
@@ -678,7 +678,7 @@
 	L.adjustCloneLoss(0.7*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - 5*effect_str, 150)) //removes a target from deep paincrit instantly
+		C.set_painloss(min(C.painloss - 5*effect_str, 150)) //removes a target from deep paincrit instantly
 	return ..()
 
 /datum/reagent/medicine/russian_red/overdose_process(mob/living/L, metabolism)
@@ -744,8 +744,8 @@
 	name = "Peridaxon"
 	description = "Used to stabilize internal organs while waiting for surgery, and fixes organ damage at cryogenic temperatures. Medicate cautiously."
 	color = "#C845DC"
-	overdose_threshold = REAGENTS_OVERDOSE/2
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
 	scannable = TRUE
 
@@ -871,8 +871,8 @@
 	name = "Quick Clot"
 	description = "A chemical designed to quickly arrest all sorts of bleeding by encouraging coagulation. Can rectify internal bleeding at cryogenic temperatures."
 	color = COLOR_REAGENT_QUICKCLOT
-	overdose_threshold = REAGENTS_OVERDOSE/2 //Was 4, now 6 //Now 15
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5 //Was 4, now 6 //Now 15
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	scannable = TRUE //scannable now.  HUZZAH.
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
 
@@ -934,7 +934,7 @@
 	ticks_left--
 	if(!ticks_left)
 		to_chat(L, span_alert("The searing pain in your [target_IB.parent_limb.display_name] peaks, then slowly fades away entirely."))
-		target_IB.parent_limb.createwound(CUT, target_IB.damage / 2)
+		target_IB.parent_limb.createwound(CUT, target_IB.damage * 0.5)
 		UnregisterSignal(target_IB, COMSIG_QDELETING)
 		QDEL_NULL(target_IB)
 		L.adjustCloneLoss(5*effect_str)
@@ -1198,7 +1198,7 @@
 			L.adjustToxLoss(1.25*effect_str)
 			L.Sleeping(10 SECONDS)
 		if(51 to INFINITY)
-			L.adjustToxLoss((current_cycle/10-4.6)*effect_str) //why yes, the sleeping stops after it stops working. Yay screaming patients running off!
+			L.adjustToxLoss((current_cycle * 0.1 - 4.6)*effect_str) //why yes, the sleeping stops after it stops working. Yay screaming patients running off!
 	return ..()
 
 /datum/reagent/medicine/polyhexanide/overdose_crit_process(mob/living/L, metabolism)
@@ -1468,14 +1468,14 @@
 				L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 
 			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
-				L.heal_overall_damage(1.9*effect_str, 0)
+				L.heal_overall_damage(3 * effect_str, 0)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your cuts and bruises begin to scab over rapidly!"))
 
 			if (volume > 5 && L.getFireLoss(organic_only = TRUE))
-				L.heal_overall_damage(0, 1.9*effect_str)
+				L.heal_overall_damage(0, 3 * effect_str)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))

@@ -91,7 +91,7 @@
 				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE
 
 
-	add_avail(FUSION_ENGINE_MAX_POWER_GEN * (power_gen_percent / 100) ) //Nope, all good, just add the power
+	add_avail(FUSION_ENGINE_MAX_POWER_GEN * (power_gen_percent * 0.01) ) //Nope, all good, just add the power
 	fusion_cell.take(fuel_rate) //Consumes fuel
 	update_icon()
 

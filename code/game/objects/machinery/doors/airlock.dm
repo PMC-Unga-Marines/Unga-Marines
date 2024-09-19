@@ -280,7 +280,7 @@
 
 /obj/machinery/door/airlock/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	. = ..()
-	if(. && is_mainship_level(z) && !proj.is_shrapnel)
+	if(. && is_mainship_level(z) && proj.firer)
 		log_attack("[key_name(proj.firer)] shot [src] with [proj] at [AREACOORD(src)]")
 		if(SSmonitor.gamestate != SHIPSIDE)
 			msg_admin_ff("[ADMIN_TPMONTY(proj.firer)] shot [src] with [proj] in [ADMIN_VERBOSEJMP(src)].")
@@ -704,3 +704,19 @@
 
 /obj/machinery/door/airlock/proc/weld_checks()
 	return !operating && density
+
+/obj/machinery/door/airlock/psi_act(psi_power, mob/living/user)
+	if(operating)
+		to_chat(user, span_warning("The airlock is already in motion."))
+		return
+	if(welded)
+		to_chat(user, span_warning("The airlock is welded shut."))
+		return
+	if(locked)
+		to_chat(user, span_warning("The airlock's bolts prevent it from being forced."))
+		return
+	if(psi_power < PSIONIC_INTERACTION_STRENGTH_STANDARD && hasPower())
+		to_chat(user, span_warning("The airlock's motors resist your efforts to force it."))
+		return
+
+	return ..()

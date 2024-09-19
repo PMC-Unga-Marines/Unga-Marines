@@ -65,7 +65,7 @@
 /datum/ammo/bullet/auto_cannon/flak
 	name = "autocannon smart-detonating bullet"
 	hud_state = "sniper_flak"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_TARGET_TURF
 	damage = 50
 	penetration = 30
 	sundering = 5
@@ -90,7 +90,7 @@
 	penetration = 10
 	sundering = 1
 
-/datum/ammo/bullet/smartmachinegun
+/datum/ammo/bullet/sg29
 	name = "smartmachinegun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"

@@ -66,6 +66,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/mainship,
 /area/lv624/lazarus/crashed_ship/desparity)
+"az" = (
+/obj/structure/catwalk,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/liquid/water/river/autosmooth,
+/area/lv624/lazarus/spaceport)
 "aA" = (
 /obj/structure/table,
 /obj/effect/spawner/random/medical/beaker,
@@ -121,7 +128,7 @@
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/central1)
 "aT" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 9
 	},
@@ -1224,7 +1231,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "gD" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1996,6 +2003,13 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/fitness)
+"kE" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "kF" = (
 /obj/structure/table,
 /obj/effect/spawner/random/misc/paperbin{
@@ -2787,7 +2801,7 @@
 "oO" = (
 /obj/item/clothing/suit/armor/vest/warden,
 /obj/item/clothing/head/helmet/warden,
-/obj/structure/closet/secure_closet/guncabinet/lmg,
+/obj/structure/closet/secure_closet/guncabinet/mg42,
 /turf/open/floor/tile/lightred/full,
 /area/lv624/lazarus/security)
 "oP" = (
@@ -3056,7 +3070,7 @@
 /turf/open/liquid/water/river,
 /area/lv624/lazarus/spaceport)
 "qo" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe,
 /area/lv624/lazarus/hydroponics)
 "qp" = (
@@ -3253,6 +3267,16 @@
 /obj/effect/spawner/random/misc/shard,
 /turf/open/floor/plating,
 /area/lv624/lazarus/sleep_male)
+"rf" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport)
 "rg" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_resin_door,
@@ -3672,7 +3696,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
 "tp" = (
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -4113,6 +4137,12 @@
 "vw" = (
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/lazarus/spaceport)
+"vy" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport)
 "vA" = (
 /obj/structure/flora/jungle/vines,
 /obj/structure/cable,
@@ -4229,7 +4259,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/lazarus/spaceport)
 "wf" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},
@@ -4441,6 +4471,12 @@
 	},
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
+"xl" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "xo" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -4767,6 +4803,9 @@
 /area/lv624/lazarus/canteen)
 "yT" = (
 /obj/structure/flora/ausbushes/reedbush,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/spaceport)
 "yV" = (
@@ -5419,6 +5458,12 @@
 	dir = 9
 	},
 /area/lv624/lazarus/hydroponics)
+"BV" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv624/lazarus/spaceport)
 "BW" = (
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
@@ -5541,6 +5586,12 @@
 	dir = 8
 	},
 /area/lv624/lazarus/hydroponics)
+"CE" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "CF" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
@@ -5813,6 +5864,13 @@
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/spaceport)
+"Ec" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "Ed" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
@@ -5963,6 +6021,12 @@
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
+"ET" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "EW" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_resin_door,
@@ -6229,6 +6293,13 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
+"Gr" = (
+/obj/structure/catwalk,
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/liquid/water/river/autosmooth,
+/area/lv624/lazarus/spaceport)
 "Gs" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -6609,7 +6680,7 @@
 /turf/closed/shuttle/dropship_regular/top_corner/alt,
 /area/lv624/ground/jungle9)
 "Ir" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 6
 	},
@@ -6925,7 +6996,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "JE" = (
-/obj/machinery/hydroponics/slashable,
+/obj/prop/hydroponics/slashable,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -7800,6 +7871,13 @@
 	},
 /turf/open/floor/tile/blue/taupebluecorner,
 /area/lv624/lazarus/medbay)
+"NS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "NT" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -8395,6 +8473,9 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "Ra" = (
@@ -8430,6 +8511,12 @@
 /obj/structure/prop/mainship/hangar_stencil/two,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
+"Rg" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/wood/broken,
+/area/lv624/lazarus/spaceport)
 "Rh" = (
 /obj/structure/fence,
 /turf/open/floor/marking/warning{
@@ -8805,6 +8892,12 @@
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/river3)
+"SV" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/lv624/lazarus/spaceport)
 "SZ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/glass/bottle/lemoline{
@@ -9810,16 +9903,16 @@
 /area/lv624/lazarus/fitness)
 "XS" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
-/obj/item/ammo_magazine/rifle/standard_skirmishrifle{
+/obj/item/ammo_magazine/rifle/ar21,
+/obj/item/ammo_magazine/rifle/ar21{
 	pixel_x = -5;
 	pixel_y = -2
 	},
-/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+/obj/item/weapon/gun/rifle/ar21,
 /turf/open/floor/tile/red/redtaupe{
 	dir = 1
 	},
@@ -11332,7 +11425,7 @@ JY
 JY
 Zu
 Hh
-fn
+xl
 fn
 fn
 nq
@@ -11436,7 +11529,7 @@ wM
 wM
 Zu
 fQ
-fn
+CE
 fn
 fn
 nq
@@ -11540,7 +11633,7 @@ wM
 wM
 Zu
 fn
-fn
+CE
 fn
 fn
 nq
@@ -11644,7 +11737,7 @@ wM
 wM
 Zu
 Hh
-fn
+xl
 fn
 fn
 nq
@@ -11748,7 +11841,7 @@ wM
 wM
 Zu
 Hh
-fn
+xl
 fn
 fn
 nq
@@ -11852,7 +11945,7 @@ JY
 wM
 Zu
 fQ
-TV
+Ec
 TV
 fn
 nq
@@ -11956,7 +12049,7 @@ JY
 wM
 Zu
 fn
-TV
+Ec
 fn
 fn
 nq
@@ -12384,11 +12477,11 @@ GF
 GF
 YE
 tt
-Yn
-TV
+kE
+NS
 vn
 QZ
-fn
+ET
 vn
 vn
 fn
@@ -17798,8 +17891,8 @@ Om
 Xv
 tI
 qA
-rr
-jj
+rf
+vy
 qA
 MG
 qp
@@ -18501,7 +18594,7 @@ LI
 Ue
 LO
 iO
-xF
+Rg
 Xv
 xF
 WK
@@ -18605,7 +18698,7 @@ Ly
 Ue
 LO
 iO
-ud
+SV
 ud
 xF
 WK
@@ -18709,7 +18802,7 @@ UI
 Ue
 LO
 iO
-tI
+BV
 ud
 ud
 WK
@@ -18813,7 +18906,7 @@ UI
 Ue
 Of
 iO
-ud
+SV
 xF
 ud
 tI
@@ -18917,7 +19010,7 @@ UI
 fG
 Of
 iO
-xF
+Rg
 ud
 tI
 ud
@@ -19124,7 +19217,7 @@ Ya
 ME
 UI
 Of
-mq
+az
 mq
 uS
 tI
@@ -19228,7 +19321,7 @@ Ya
 UI
 UI
 qv
-mq
+Gr
 mq
 Rs
 tI
@@ -19332,7 +19425,7 @@ UI
 UI
 WX
 lg
-mq
+Gr
 mq
 mq
 jY
@@ -19436,7 +19529,7 @@ Gb
 WX
 WX
 Ld
-mq
+Gr
 mq
 mq
 Rs

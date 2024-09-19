@@ -59,6 +59,10 @@
 	next_activate = world.time + 3 SECONDS
 	return TRUE
 
+/obj/machinery/button/psi_act(psi_power, mob/living/user)
+	pulsed()
+	return list(0.1 SECONDS, 1)
+
 /obj/machinery/button/door
 	name = "door button"
 	desc = "A door remote control switch."

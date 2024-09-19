@@ -399,8 +399,8 @@
 	bypass_w_limit = list(
 		/obj/item/weapon/gun/sentry/basic,
 		/obj/item/weapon/gun/sentry/mini,
-		/obj/item/weapon/gun/tl102,
-		/obj/item/ammo_magazine/tl102,
+		/obj/item/weapon/gun/hsg102,
+		/obj/item/ammo_magazine/hsg102,
 		/obj/item/ammo_magazine/sentry,
 		/obj/item/ammo_magazine/minisentry,
 		/obj/item/mortal_shell,
@@ -440,7 +440,7 @@
 	item_state = "marinesatt"
 	bypass_w_limit = list(
 		/obj/item/weapon/gun/sentry/mini,
-		/obj/item/ammo_magazine/tl102,
+		/obj/item/ammo_magazine/hsg102,
 		/obj/item/ammo_magazine/sentry,
 		/obj/item/ammo_magazine/minisentry,
 		/obj/item/mortal_shell,

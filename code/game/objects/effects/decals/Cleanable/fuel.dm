@@ -12,8 +12,7 @@
 	var/fire_lvl = 15
 	///Used for the burn_lvl of the resulting fire
 	var/burn_lvl = 15
-	var/f_color = "red"
-
+	var/f_color = FLAME_COLOR_RED
 
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, logs = TRUE, newDir)
 	. = ..()
@@ -27,7 +26,6 @@
 	if(newDir)
 		setDir(newDir)
 	return INITIALIZE_HINT_LATELOAD
-
 
 /obj/effect/decal/cleanable/liquid_fuel/LateInitialize()
 	. = ..()
@@ -87,7 +85,7 @@
 		ignite_fuel(I)
 		log_attack("[key_name(user)] ignites [src] in fuel in [AREACOORD(user)]")
 
-/obj/effect/decal/cleanable/liquid_fuel/flamer_fire_act(burnlevel)
+/obj/effect/decal/cleanable/liquid_fuel/fire_act(burn_level, flame_color)
 	. = ..()
 	ignite_fuel()
 
@@ -128,4 +126,9 @@
 /obj/effect/decal/cleanable/liquid_fuel/xfuel
 	fire_lvl = 25
 	burn_lvl = 25
-	f_color = "blue"
+	f_color = FLAME_COLOR_BLUE
+
+/obj/effect/decal/cleanable/liquid_fuel/gfuel
+	fire_lvl = 12
+	burn_lvl = 9
+	f_color = FLAME_COLOR_LIME

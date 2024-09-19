@@ -33,7 +33,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.spitter_scatter_spits++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "spitter_scatter_spits")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "spitter_scatter_spits")
 
 /datum/action/ability/activable/xeno/scatter_spit/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our auxiliary sacks fill to bursting; we can use scatter spit again."))
@@ -64,7 +64,7 @@
 		return fail_activate()
 
 	GLOB.round_statistics.praetorian_acid_sprays++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "praetorian_acid_sprays")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "praetorian_acid_sprays")
 
 	succeed_activate()
 
@@ -248,7 +248,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	add_cooldown()
 
 	GLOB.round_statistics.spitter_acid_sprays++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "spitter_acid_sprays")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "spitter_acid_sprays")
 
 	var/datum/action/ability/activable/xeno/spray = X.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/cone]
 	if(spray)

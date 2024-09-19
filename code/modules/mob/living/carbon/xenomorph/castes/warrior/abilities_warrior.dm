@@ -87,7 +87,7 @@
 /datum/action/ability/xeno_action/toggle_agility/action_activate()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	GLOB.round_statistics.warrior_agility_toggles++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_agility_toggles")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_agility_toggles")
 	ability_active = !ability_active
 	set_toggle(ability_active ? TRUE : FALSE)
 	xeno_owner.update_icons()
@@ -241,7 +241,7 @@
 /datum/action/ability/activable/xeno/warrior/lunge/use_ability(atom/A)
 	. = ..()
 	GLOB.round_statistics.warrior_lunges++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_lunges")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_lunges")
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.add_filter("warrior_lunge", 2, gauss_blur_filter(3))
 	lunge_target = A
@@ -340,7 +340,7 @@
 /datum/action/ability/activable/xeno/warrior/fling/use_ability(atom/A)
 	. = ..()
 	GLOB.round_statistics.warrior_flings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_flings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_flings")
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/mob/living/living_target = A
 	xeno_owner.face_atom(living_target)
@@ -506,11 +506,6 @@
 			if(!silent)
 				owner.balloon_alert(owner, "Dead")
 			return FALSE
-/* RU TGMC EDIT
-	if(!A.Adjacent(owner))
-		if(!silent)
-			owner.balloon_alert(owner, "Not adjacent")
-RU TGMC EDIT*/
 	if(!line_of_sight(owner, A, range))
 		if(!silent)
 			owner.balloon_alert(owner, "Too far")
@@ -519,7 +514,7 @@ RU TGMC EDIT*/
 /datum/action/ability/activable/xeno/warrior/punch/use_ability(atom/A)
 	. = ..()
 	GLOB.round_statistics.warrior_punches++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_punches")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_punches")
 	do_ability(A)
 
 /// Does the ability. Exists because Punch is the parent of another ability, so this lets us separate functionality and avoid repeating a few lines of code.
@@ -725,16 +720,18 @@ RU TGMC EDIT*/
 
 /datum/action/ability/activable/xeno/warrior/punch/flurry/do_ability(atom/A)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	var/mob/living/living_target = A
 	var/jab_damage = round((xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * WARRIOR_JAB_DAMAGE_MULTIPLIER)
-	if(!living_target.punch_act(xeno_owner, jab_damage, FALSE))
+	if(!A.punch_act(xeno_owner, jab_damage, FALSE))
 		return fail_activate()
 	current_charges--
 	succeed_activate()
 	add_cooldown()
-	var/datum/action/ability/xeno_action/empower/empower_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/empower]
-	if(!empower_action?.check_empower(living_target))
+	if(!isliving(A))
 		return
+	var/datum/action/ability/xeno_action/empower/empower_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/empower]
+	if(!empower_action?.check_empower(A))
+		return
+	var/mob/living/living_target = A
 	living_target.adjust_blindness(WARRIOR_JAB_BLIND)
 	living_target.adjust_blurriness(WARRIOR_JAB_BLUR)
 	living_target.apply_status_effect(STATUS_EFFECT_CONFUSED, WARRIOR_JAB_CONFUSION_DURATION)
@@ -765,7 +762,7 @@ RU TGMC EDIT*/
 		target.apply_status_effect(STATUS_EFFECT_CONFUSED, 3 SECONDS)
 		target.Paralyze(0.5 SECONDS)
 	GLOB.round_statistics.warrior_punches++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_punches")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_punches")
 	succeed_activate()
 	add_cooldown()
 

@@ -197,8 +197,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		wearer = user
 		squadhud = GLOB.huds[GLOB.faction_to_data_hud[faction]]
 		enable_squadhud()
-		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_HUMAN_DEATH_STAGE_CHANGE, COMSIG_MOVABLE_Z_CHANGED), PROC_REF(update_minimap_icon))
-		RegisterSignal(SSdcs, COMSIG_GLOB_TELETOWER, PROC_REF(update_minimap_icon))
+		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_HUMAN_DEATH_STAGE_CHANGE), PROC_REF(update_minimap_icon))
 	if(camera)
 		camera.c_tag = user.name
 		if(user.assigned_squad)
@@ -210,7 +209,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/mainship/proc/safety_protocol(mob/living/carbon/human/user)
 	balloon_alert_to_viewers("Explodes")
 	playsound(user, 'sound/effects/explosion/micro1.ogg', 50, 1)
-	user.ex_act(EXPLODE_LIGHT)
+	if(user)
+		user.ex_act(EXPLODE_LIGHT)
 	qdel(src)
 
 /obj/item/radio/headset/mainship/dropped(mob/living/carbon/human/user)
@@ -224,8 +224,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		camera.c_tag = "Unknown"
 		if(user.assigned_squad)
 			camera.network -= lowertext(user.assigned_squad.name)
-	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_HUMAN_DEATH_STAGE_CHANGE, COMSIG_MOVABLE_Z_CHANGED))
-	UnregisterSignal(SSdcs, COMSIG_GLOB_TELETOWER)
+	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_HUMAN_DEATH_STAGE_CHANGE))
 	return ..()
 
 /obj/item/radio/headset/mainship/Destroy()
@@ -279,26 +278,24 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(!wearer.job || !wearer.job.minimap_icon)
 		return
 	var/marker_flags = initial(minimap_type.marker_flags)
-	if(!SSmapping.level_has_any_trait(wearer.z, list(ZTRAIT_MARINE_MAIN_SHIP)) && (SSticker.mode?.flags_round_type & MODE_TELETOWER) && !GLOB.tower_relay)
-		marker_flags = MINIMAP_FLAG_UNIDENTIFIED
 	if(wearer.stat == DEAD)
 		if(HAS_TRAIT(wearer, TRAIT_UNDEFIBBABLE))
 			if(issynth(wearer))
-				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_synt"))
+				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_synt", BELOW_FLOAT_LAYER))
 			else if(isrobot(wearer))
-				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_robo"))
+				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_robo", BELOW_FLOAT_LAYER))
 			else if(ishuman(wearer))
-				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
+				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", BELOW_FLOAT_LAYER))
 			return
 		if(!wearer.client)
 			var/mob/dead/observer/ghost = wearer.get_ghost()
 			if(!ghost?.can_reenter_corpse)
 				if(issynth(wearer))
-					SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_synt"))
+					SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_synt", BELOW_FLOAT_LAYER))
 				else if(isrobot(wearer))
-					SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_robo"))
+					SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable_robo", BELOW_FLOAT_LAYER))
 				else if(ishuman(wearer))
-					SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
+					SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", BELOW_FLOAT_LAYER))
 				return
 		if(issynth(wearer))
 			SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable_synt"))

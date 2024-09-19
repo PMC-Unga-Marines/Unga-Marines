@@ -142,11 +142,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidplating,
 /area/deathmatch)
-"cF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/plating/asteroidfloor,
-/area/deathmatch)
 "cQ" = (
 /obj/structure/cargo_container/hd{
 	dir = 4
@@ -164,7 +159,6 @@
 "dc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/sandytile,
-/obj/effect/landmark/eord_roomba,
 /turf/open/floor/plating/asteroidplating,
 /area/deathmatch)
 "dl" = (
@@ -1652,10 +1646,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor,
 /area/deathmatch)
-"Xp" = (
-/obj/effect/landmark/eord_roomba,
-/turf/open/floor/plating/asteroidfloor,
-/area/deathmatch)
 "Xz" = (
 /obj/effect/ai_node,
 /obj/effect/decal/cleanable/dirt,
@@ -2622,7 +2612,7 @@ OV
 tr
 sO
 fI
-Xp
+fI
 fI
 Da
 dG
@@ -2660,7 +2650,7 @@ tr
 tr
 tr
 iW
-Xp
+fI
 fI
 Bs
 dG
@@ -2737,7 +2727,7 @@ bN
 dG
 dG
 dG
-cF
+Bs
 Xz
 th
 pj

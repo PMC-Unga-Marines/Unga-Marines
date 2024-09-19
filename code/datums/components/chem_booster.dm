@@ -188,15 +188,15 @@
 		return
 	update_resource(-resource_drain_amount)
 
-	wearer.adjustToxLoss(-tox_heal*boost_amount)
-	wearer.heal_overall_damage(6*boost_amount*brute_heal_amp, 6*boost_amount*burn_heal_amp)
+	wearer.adjustToxLoss(-tox_heal * boost_amount)
+	wearer.heal_overall_damage(6 * boost_amount*brute_heal_amp, 6 * boost_amount * burn_heal_amp)
 	vali_necro_timer = world.time - processing_start
 	if(vali_necro_timer > 20 SECONDS)
 		return
 	if(connected_weapon)
-		wearer.adjustStaminaLoss(-7*stamina_regen_amp*((20 - (vali_necro_timer)/10)/20)) //stamina gain scales inversely with passed time, up to 20 seconds
+		wearer.adjustStaminaLoss(-7 * stamina_regen_amp * ((20 - (vali_necro_timer) * 0.1) * 0.05)) //stamina gain scales inversely with passed time, up to 20 seconds
 	if(vali_necro_timer > 10 SECONDS)
-		to_chat(wearer, span_bold("WARNING: You have [(200 - (vali_necro_timer))/10] seconds before necrotic tissue forms on your limbs."))
+		to_chat(wearer, span_bold("WARNING: You have [(200 - (vali_necro_timer)) * 0.1] seconds before necrotic tissue forms on your limbs."))
 	if(vali_necro_timer > 15 SECONDS)
 		wearer.overlay_fullscreen("degeneration", /atom/movable/screen/fullscreen/animated/infection, 1)
 		to_chat(wearer, span_highdanger("The process of necrosis begins to set in. Turn it off before it's too late!"))
@@ -241,7 +241,7 @@
 	SIGNAL_HANDLER
 	if(!boost_on)
 		if(!COOLDOWN_CHECK(src, chemboost_activation_cooldown))
-			wearer.balloon_alert(wearer, "You need to wait another [COOLDOWN_TIMELEFT(src, chemboost_activation_cooldown)/10] seconds")
+			wearer.balloon_alert(wearer, "You need to wait another [COOLDOWN_TIMELEFT(src, chemboost_activation_cooldown) * 0.10] seconds")
 			return
 		if(resource_storage_current < resource_drain_amount)
 			wearer.balloon_alert(wearer, "Insufficient green blood to begin operation")
@@ -255,7 +255,7 @@
 		STOP_PROCESSING(SSobj, src)
 		wearer.clear_fullscreen("degeneration")
 		vali_necro_timer = world.time - processing_start
-		var/necrotized_counter = FLOOR(min(vali_necro_timer, 20 SECONDS)/200 + (vali_necro_timer-20 SECONDS)/100, 1)
+		var/necrotized_counter = FLOOR(min(vali_necro_timer, 20 SECONDS) * 0.005 + (vali_necro_timer - 20 SECONDS) * 0.01, 1)
 		if(necrotized_counter >= 1)
 			for(var/datum/limb/limb_to_ruin AS in shuffle(wearer.limbs))
 				if(limb_to_ruin.limb_status & LIMB_NECROTIZED)
@@ -378,26 +378,18 @@
 		return
 	if(resource_storage_current >= resource_storage_max)
 		return
-	//RUTGMC EDIT REMOVAL BEGIN - SWORDS
-	/*
-	update_resource(round(20*connected_weapon.attack_speed/11))
-	*/
-	//RUTGMC EDIT REMOVAL END
-
-	//RUTGMC EDIT ADDITION BEGIN - SWORDS
 	var/obj/item/vali_weapon = wearer.get_held_item()
 	if(vali_weapon.type == /obj/item/weapon/claymore/mercsword/officersword/valirapier)
 		update_resource(20)
 	else
-		update_resource(round(20*connected_weapon.attack_speed/11))
-	//RUTGMC EDIT ADDITION END
+		update_resource(round(20 * connected_weapon.attack_speed / 11))
 
 ///Adds or removes resource from the suit. Signal gets sent at every 25% of stored resource
 /datum/component/chem_booster/proc/update_resource(amount)
 	var/amount_added = min(resource_storage_max - resource_storage_current, amount)
 	resource_storage_current = max(resource_storage_current + amount_added, 0)
 	wearer.overlays -= resource_overlay
-	resource_overlay.alpha = resource_storage_current/resource_storage_max*255
+	resource_overlay.alpha = resource_storage_current / resource_storage_max * 255
 	wearer.overlays += resource_overlay
 
 ///Extracts resource from the suit to fill a beaker

@@ -340,9 +340,7 @@ This function restores all limbs.
 	if(status_flags & (GODMODE))
 		return
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	last_damage_source = usr //where my cause_data??? no cause_data? https://media.discordapp.net/attachments/1059662710217908245/1128315728081211412/65939r.png?width=842&height=917
-//RUTGMC EDIT ADDITION END
 
 	return species.apply_damage(damage, damagetype, def_zone, blocked, sharp, edge, updating_health, penetration, src)
 

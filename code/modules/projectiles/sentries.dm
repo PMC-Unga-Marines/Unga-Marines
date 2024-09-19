@@ -330,8 +330,6 @@
 
 ///Sentry wants to scream for help.
 /obj/machinery/deployable/mounted/sentry/proc/sentry_alert(alert_code, mob/mob)
-	if(!internal_item)
-		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	if(!gun)
 		return
@@ -380,7 +378,7 @@
 	if(!gun)
 		return FALSE
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
-		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal) || HAS_TRAIT(nearby_human, TRAIT_TURRET_HIDDEN)) //RU TGMC EDIT
+		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal) || HAS_TRAIT(nearby_human, TRAIT_TURRET_HIDDEN))
 			continue
 		potential_targets += nearby_human
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))

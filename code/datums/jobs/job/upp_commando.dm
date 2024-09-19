@@ -131,7 +131,7 @@
 	jobtype = /datum/job/upp/commando/leader
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/holster/belt/korovin/tranq
+	belt = /obj/item/storage/holster/belt/pistol/korovin/tranq
 	ears = /obj/item/radio/headset/distress/usl
 	w_uniform = /obj/item/clothing/under/marine/veteran/UPP
 	shoes = /obj/item/clothing/shoes/marine

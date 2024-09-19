@@ -818,7 +818,7 @@
 	INVOKE_ASYNC(src, PROC_REF(resisted))
 
 /obj/item/hunting_trap/proc/resisted()
-	to_chat(trapped_mob, span_danger("You attempt to break out of your tether to [src]. (This will take around [resist_time/10] seconds and you need to stand still)"))
+	to_chat(trapped_mob, span_danger("You attempt to break out of your tether to [src]. (This will take around [resist_time * 0.1] seconds and you need to stand still)"))
 	if(!do_after(trapped_mob, resist_time, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		return
 	to_chat(trapped_mob, span_warning("You have broken out of your tether to [src]!"))

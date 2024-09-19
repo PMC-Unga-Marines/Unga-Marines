@@ -218,17 +218,18 @@
 		return
 	hud_set_plasma()
 
-//Strip all inherent xeno verbs from your caste. Used in evolution.
-/mob/living/carbon/xenomorph/proc/remove_inherent_verbs()
-	if(inherent_verbs)
-		for(var/verb_path in inherent_verbs)
-			remove_verb(verbs, verb_path)
-
 //Add all your inherent caste verbs and procs. Used in evolution.
 /mob/living/carbon/xenomorph/proc/add_inherent_verbs()
 	if(inherent_verbs)
 		add_verb(src, inherent_verbs)
+	add_verb(src, /mob/living/proc/toggle_resting)
 
+//Strip all inherent xeno verbs from your caste. Used in evolution.
+/mob/living/carbon/xenomorph/proc/remove_inherent_verbs()
+	if(inherent_verbs)
+		for(var/verb_path in inherent_verbs)
+			remove_verb(src, verb_path)
+	remove_verb(src, /mob/living/proc/toggle_resting)
 
 //Adds or removes a delay to movement based on your caste. If speed = 0 then it shouldn't do much.
 //Runners are -2, -4 is BLINDLINGLY FAST, +2 is fat-level
@@ -418,7 +419,7 @@
 
 	if(isxenopraetorian(X))
 		GLOB.round_statistics.praetorian_spray_direct_hits++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "praetorian_spray_direct_hits")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "praetorian_spray_direct_hits")
 
 	var/damage = X.xeno_caste.acid_spray_damage_on_hit
 	INVOKE_ASYNC(src, PROC_REF(apply_acid_spray_damage), damage)
@@ -435,7 +436,7 @@
 /mob/living/carbon/xenomorph/acid_spray_act(mob/living/carbon/xenomorph/X)
 	ExtinguishMob()
 
-/obj/flamer_fire/acid_spray_act(mob/living/carbon/xenomorph/X)
+/obj/fire/flamer/acid_spray_act(mob/living/carbon/xenomorph/X)
 	qdel(src)
 
 /obj/hitbox/acid_spray_act(mob/living/carbon/xenomorph/X)
@@ -497,12 +498,6 @@
 	if(stat != DEAD)
 		return TRUE
 	return FALSE
-
-/mob/living/carbon/xenomorph/proc/setup_verbs()
-	add_verb(src, /mob/living/proc/toggle_resting)
-
-/mob/living/carbon/xenomorph/hivemind/setup_verbs()
-	return
 
 /mob/living/carbon/xenomorph/adjust_sunder(adjustment)
 	. = ..()

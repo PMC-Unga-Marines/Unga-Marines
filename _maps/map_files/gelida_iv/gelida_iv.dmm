@@ -228,7 +228,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "agw" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -6386,6 +6386,12 @@
 "ekG" = (
 /turf/open/floor/carpet,
 /area/gelida/indoors/c_block/garage)
+"ekP" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_east_street)
 "elo" = (
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/mainship/black/full,
@@ -6450,7 +6456,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/bar)
 "eoS" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/effect/ai_node,
@@ -6837,7 +6843,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/cavestructuretwo)
 "ezN" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison/blue{
@@ -7213,7 +7219,7 @@
 /obj/structure/inflatable/wall{
 	dir = 8
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison,
@@ -7464,6 +7470,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/landing_zone_1)
+"eTK" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gelida/outdoors/colony_streets/south_west_street)
 "eTU" = (
 /obj/structure/cargo_container/hd_blue{
 	dir = 4
@@ -9246,6 +9258,12 @@
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/indoors/a_block/fitness)
+"glL" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gelida/landing_zone_2)
 "glN" = (
 /obj/effect/ai_node,
 /obj/effect/decal/cleanable/dirt,
@@ -10820,7 +10838,7 @@
 	},
 /area/gelida/outdoors/colony_streets/north_east_street)
 "hmw" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 1;
 	pixel_x = 16
@@ -12742,6 +12760,12 @@
 	},
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_west_street)
+"iCC" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_west_street)
 "iCR" = (
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating/ground/snow/layer1,
@@ -14092,7 +14116,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/gelida/outdoors/colony_streets/central_streets)
 "jBT" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison/darkpurple{
@@ -14740,7 +14764,7 @@
 /area/gelida/indoors/c_block/mining)
 "jVX" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/tx11,
+/obj/item/weapon/gun/rifle/ar11,
 /turf/open/floor/prison/blue/plate{
 	dir = 1
 	},
@@ -16503,6 +16527,13 @@
 /obj/effect/spawner/random/misc/structure/girder/highspawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
+"ljQ" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_west_street)
 "lkt" = (
 /obj/structure/stairs/seamless{
 	dir = 1
@@ -16548,6 +16579,12 @@
 	},
 /turf/closed/wall,
 /area/gelida/indoors/a_block/corpo)
+"llo" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gelida/landing_zone_2)
 "llH" = (
 /obj/structure/window/reinforced,
 /obj/structure/showcase/six,
@@ -16557,7 +16594,7 @@
 /turf/open/floor/podhatch/floor,
 /area/gelida/indoors/a_block/corpo)
 "llK" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -18618,6 +18655,12 @@
 /obj/structure/prop/mainship/gelida/smallwire,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/landing_zone_1)
+"mDc" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gelida/landing_zone_1)
 "mDh" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno/body,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -19374,7 +19417,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/gelida/outdoors/colony_streets/north_east_street)
 "ner" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/plating/platebotc,
 /area/gelida/indoors/b_block/bridge)
 "neF" = (
@@ -19620,6 +19663,13 @@
 	dir = 4
 	},
 /area/gelida/indoors/b_block/hydro)
+"nmp" = (
+/obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gelida/landing_zone_1)
 "nmU" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -20424,6 +20474,12 @@
 	dir = 1
 	},
 /area/gelida/indoors/a_block/admin)
+"nOh" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/landing_zone_1)
 "nOE" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal,
 /turf/open/floor/prison,
@@ -20877,6 +20933,12 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/corpo)
+"oco" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gelida/outdoors/rock)
 "ocv" = (
 /turf/open/floor/prison/darkpurple,
 /area/gelida/indoors/a_block/dorms)
@@ -21386,6 +21448,12 @@
 	},
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/indoors/b_block/bridge)
+"oye" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gelida/landing_zone_2)
 "oyj" = (
 /obj/structure/stairs/corner_seamless{
 	dir = 4
@@ -22002,11 +22070,11 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/weapon/gun/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/weapon/gun/rifle/ar11{
 	pixel_y = -6
 	},
 /turf/open/floor/prison,
@@ -22078,7 +22146,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/w_rockies)
 "oTO" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -22161,6 +22229,12 @@
 /obj/structure/cargo_container/gorg,
 /turf/open/floor/plating,
 /area/gelida/indoors/c_block/cargo)
+"oVL" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gelida/landing_zone_2)
 "oWc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -23687,6 +23761,12 @@
 /obj/structure/prop/mainship/gelida/rails,
 /turf/open/floor/mainship/black/full,
 /area/gelida/outdoors/rock)
+"pTV" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/landing_zone_1)
 "pTW" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -24364,7 +24444,7 @@
 /turf/open/floor/tile/dark2,
 /area/gelida/indoors/c_block/mining)
 "qtR" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison,
@@ -25330,7 +25410,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/security)
 "qZL" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
@@ -26263,7 +26343,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/fitness)
 "rCP" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/structure/window{
 	dir = 4
 	},
@@ -27057,6 +27137,15 @@
 /obj/structure/prop/mainship/gelida/rails,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
+"shH" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_west_street)
 "shI" = (
 /obj/item/clothing/mask/facehugger/dead{
 	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
@@ -27823,6 +27912,12 @@
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/c_block/mining)
+"sHp" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_east_street)
 "sHZ" = (
 /obj/structure/window/framed/colony,
 /obj/structure/platform{
@@ -28036,7 +28131,7 @@
 /obj/structure/inflatable/wall{
 	dir = 8
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -28439,12 +28534,12 @@
 /area/gelida/indoors/c_block/mining)
 "tbE" = (
 /obj/structure/table/mainship,
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0;
 	pixel_x = -3;
 	pixel_y = 5
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0;
 	pixel_x = 11;
 	pixel_y = -4
@@ -29459,7 +29554,7 @@
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/indoors/b_block/hydro)
 "tPp" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/plating/platebotc,
 /area/gelida/indoors/b_block/hydro)
 "tPt" = (
@@ -29518,7 +29613,7 @@
 /area/gelida/indoors/a_block/security)
 "tRN" = (
 /obj/structure/closet/crate/ammo,
-/obj/item/weapon/gun/rifle/tx11,
+/obj/item/weapon/gun/rifle/ar11,
 /turf/open/shuttle/dropship/floor,
 /area/gelida/landing_zone_forecon/UD6_Typhoon)
 "tRT" = (
@@ -30332,7 +30427,7 @@
 /obj/structure/inflatable/wall{
 	dir = 8
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -30457,7 +30552,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/medical)
 "uDG" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/landing_zone_2)
 "uDM" = (
@@ -31429,6 +31524,15 @@
 	dir = 1
 	},
 /area/gelida/outdoors/colony_streets/east_central_street)
+"vka" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_east_street)
 "vke" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal,
 /obj/structure/cable,
@@ -32103,7 +32207,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "vIT" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/structure/window{
 	dir = 8
 	},
@@ -32598,7 +32702,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
 "wbM" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0;
 	pixel_x = 9;
 	pixel_y = 3
@@ -33658,7 +33762,7 @@
 /turf/closed/wall,
 /area/gelida/indoors/a_block/hallway)
 "wQH" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -34935,6 +35039,12 @@
 /obj/structure/cargo_container,
 /turf/open/floor/plating/platebot,
 /area/gelida/indoors/c_block/cargo)
+"xNz" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/gelida/outdoors/colony_streets/south_west_street)
 "xNI" = (
 /obj/item/clothing/shoes/jackboots,
 /turf/open/floor/prison/darkbrown/full,
@@ -35062,7 +35172,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/windbreaker)
 "xQy" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/structure/cable,
@@ -35076,7 +35186,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/kitchen)
 "xQD" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/effect/landmark/weed_node,
@@ -41154,7 +41264,7 @@ ndb
 tqi
 tqi
 ilJ
-npE
+llo
 ngP
 npE
 wOd
@@ -41376,7 +41486,7 @@ tqF
 tqi
 tqi
 ilJ
-nAJ
+oco
 wDw
 npE
 npE
@@ -41598,7 +41708,7 @@ tqi
 tqi
 mMH
 ilJ
-tqF
+eTK
 npE
 npE
 wHB
@@ -41820,7 +41930,7 @@ tqi
 tqi
 tqi
 hkj
-wDw
+oye
 npE
 npE
 lBm
@@ -42042,7 +42152,7 @@ tqi
 tqi
 tqi
 hkj
-npE
+oVL
 wDw
 npE
 lBm
@@ -42264,7 +42374,7 @@ tqi
 tqi
 tqi
 hkj
-wDw
+glL
 wDw
 npE
 lBm
@@ -42486,7 +42596,7 @@ tqi
 tqF
 tqF
 hkj
-wDw
+glL
 npE
 npE
 lBm
@@ -42708,7 +42818,7 @@ tqi
 tqi
 tqF
 hkj
-wDw
+oye
 wDw
 npE
 lBm
@@ -42930,7 +43040,7 @@ tqi
 tqi
 tqF
 hkj
-npE
+llo
 npE
 npE
 cDU
@@ -43152,7 +43262,7 @@ tqi
 tqi
 tqi
 hkj
-npE
+llo
 npE
 wDw
 npE
@@ -43374,7 +43484,7 @@ tqF
 pwy
 tqi
 ilJ
-npE
+llo
 ngP
 npE
 wOd
@@ -45383,14 +45493,14 @@ ndb
 ngP
 ndb
 ngP
-tqi
-tqi
-tqi
-tqi
-vYQ
-tqi
-tqi
-tqi
+iCC
+shH
+xNz
+xNz
+ljQ
+xNz
+iCC
+iCC
 ngP
 ndb
 ngP
@@ -64253,11 +64363,11 @@ ndb
 ndb
 ndb
 ndb
-txG
-txG
-hcL
-txG
-txG
+mDc
+mDc
+nmp
+mDc
+mDc
 ndb
 ndb
 ndb
@@ -64915,7 +65025,7 @@ eWY
 eWY
 eWY
 mDs
-eWY
+sHp
 eWY
 eWY
 eWY
@@ -65137,7 +65247,7 @@ eWY
 eWY
 eWY
 mDs
-eWY
+ekP
 eWY
 eWY
 npE
@@ -65359,7 +65469,7 @@ eWY
 eWY
 eWY
 mDs
-eWY
+ekP
 eWY
 txG
 txG
@@ -65581,7 +65691,7 @@ eWY
 eWY
 eWY
 mDs
-eWY
+ekP
 txG
 txG
 xmm
@@ -65803,7 +65913,7 @@ eWY
 eWY
 eWY
 mDs
-eWY
+ekP
 txG
 txG
 txG
@@ -66025,7 +66135,7 @@ eWY
 eWY
 eWY
 mDs
-eWY
+vka
 txG
 txG
 txG
@@ -68689,7 +68799,7 @@ eWY
 eWY
 eWY
 ngv
-jDt
+pTV
 jDt
 txG
 txG
@@ -68911,7 +69021,7 @@ eWY
 eWY
 eWY
 ngv
-jDt
+nOh
 jDt
 txG
 xmm
@@ -69133,7 +69243,7 @@ eWY
 eWY
 eWY
 ngv
-jDt
+nOh
 txG
 xmm
 xmm
@@ -69355,7 +69465,7 @@ eWY
 eWY
 eWY
 ngv
-jDt
+nOh
 xmm
 jDt
 jDt
@@ -69577,7 +69687,7 @@ eWY
 eWY
 eWY
 ngv
-jDt
+nOh
 jDt
 fwH
 orn
@@ -69799,7 +69909,7 @@ eWY
 eWY
 eWY
 ngv
-jDt
+pTV
 fwH
 fbs
 uXB

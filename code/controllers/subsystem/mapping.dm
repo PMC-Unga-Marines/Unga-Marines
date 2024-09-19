@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(mapping)
 		in_transit[T] = T.get_docked()
 	var/go_ahead = world.time + wipe_safety_delay
 	if(length(in_transit))
-		message_admins("Shuttles in transit detected. Attempting to fast travel. Timeout is [wipe_safety_delay/10] seconds.")
+		message_admins("Shuttles in transit detected. Attempting to fast travel. Timeout is [wipe_safety_delay * 0.1] seconds.")
 	var/list/cleared = list()
 	for(var/i in in_transit)
 		INVOKE_ASYNC(src, PROC_REF(safety_clear_transit_dock), i, in_transit[i], cleared)
@@ -174,7 +174,7 @@ SUBSYSTEM_DEF(mapping)
 		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
 			errorList |= pm.original_path
 	if(!silent)
-		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
+		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time) * 0.1]s!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -203,8 +203,8 @@ SUBSYSTEM_DEF(mapping)
 		qdel(query_round_map_name)
 
 	// Also saving this as a feedback var as we don't have ship_name in the round table.
-	SSblackbox.record_feedback("text", "ground_map", 1, ground_map.map_name)
-	SSblackbox.record_feedback("text", "ship_map", 1, ship_map.map_name)
+	SSblackbox.record_feedback(FEEDBACK_TEXT, "ground_map", 1, ground_map.map_name)
+	SSblackbox.record_feedback(FEEDBACK_TEXT, "ship_map", 1, ship_map.map_name)
 
 	if(LAZYLEN(FailedZs))	//but seriously, unless the server's filesystem is messed up this will never happen
 		var/msg = "RED ALERT! The following map files failed to load: [FailedZs[1]]"

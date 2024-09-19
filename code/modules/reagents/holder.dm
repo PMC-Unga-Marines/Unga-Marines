@@ -78,7 +78,7 @@
 		//double round to keep it at a somewhat even spread relative to amount without getting funky numbers.
 		var/remove_amt = min(
 			amount - total_transfered,
-			round(amount / rand(2, initial_list_length), round(amount/10,0.01))
+			round(amount / rand(2, initial_list_length), round(amount * 0.1,0.01))
 		)
 		//min ensures we don't go over amount.
 		remove_reagent(R.type, remove_amt)
@@ -446,7 +446,7 @@
 
 			for(var/P in selected_reaction.results)
 				multiplier = max(multiplier, 1) //This shouldn't happen...
-				SSblackbox.record_feedback("tally", "chemical_reaction", cached_results[P]*multiplier, P)
+				SSblackbox.record_feedback(FEEDBACK_TALLY, "chemical_reaction", cached_results[P]*multiplier, P)
 				add_reagent(P, cached_results[P]*multiplier, null, chem_temp)
 
 			var/list/seen = viewers(4, get_turf(cached_my_atom))

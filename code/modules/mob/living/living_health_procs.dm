@@ -313,8 +313,8 @@
 
 /mob/living/carbon/revive(admin_revive = FALSE)
 	set_nutrition(400)
-	setTraumatic_Shock(0)
-	setShock_Stage(0)
+	set_painloss(0)
+	set_painloss(0)
 	drunkenness = 0
 	disabilities = 0
 
@@ -349,8 +349,9 @@
 		I.heal_organ_damage(I.damage)
 
 	reagents.clear_reagents() //and clear all reagents in them
-	var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
-	belly.reagents.clear_reagents()
+	if(!(species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))) // change this to check src for stomach if ever decide to remove organs from something other than robots
+		var/datum/internal_organ/stomach/belly = get_organ_slot(ORGAN_SLOT_STOMACH)
+		belly.reagents.clear_reagents()
 	REMOVE_TRAIT(src, TRAIT_UNDEFIBBABLE, TRAIT_UNDEFIBBABLE)
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	dead_ticks = 0
@@ -383,7 +384,8 @@
 	ADD_TRAIT(src, TRAIT_IS_RESURRECTING, REVIVE_TO_CRIT_TRAIT)
 	if(should_zombify && (istype(wear_ear, /obj/item/radio/headset/mainship)))
 		var/obj/item/radio/headset/mainship/radio = wear_ear
-		radio.safety_protocol(src)
+		if(istype(radio))
+			radio.safety_protocol(src)
 	addtimer(CALLBACK(src, PROC_REF(finish_revive_to_crit), should_offer_to_ghost, should_zombify), 10 SECONDS)
 
 ///Check if we have a mind, and finish the revive if we do
@@ -413,3 +415,4 @@
 	overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 	REMOVE_TRAIT(src, TRAIT_IS_RESURRECTING, REVIVE_TO_CRIT_TRAIT)
 	SSmobs.start_processing(src)
+

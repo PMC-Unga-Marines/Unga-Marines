@@ -120,7 +120,6 @@
 	DISABLE_BITFIELD(flags_atom, INITIALIZED)
 	soft_armor = null
 	hard_armor = null
-	QDEL_NULL(current_acid)
 	..()
 	return QDEL_HINT_IWILLGC
 
@@ -491,22 +490,16 @@
 	return FALSE
 
 /turf/open/ground/grass/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/floor/plating/ground/dirtgrassborder/is_weedable()
-	return FALSE
+	return TRUE
 
 /turf/open/liquid/water/is_weedable()
 	return FALSE
 
 /turf/open/ground/coast/is_weedable()
 	return FALSE
-
-/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable/is_weedable()
-	return TRUE
-
-/turf/open/ground/grass/weedable/is_weedable()
-	return TRUE
 
 /**
  * Checks for whether we can build advanced xeno structures here
@@ -554,6 +547,9 @@
 				if(P.chair_state != DROPSHIP_CHAIR_BROKEN)
 					has_obstacle = TRUE
 					break
+			if(istype(O, /obj/structure/bed/chair/dropship/doublewide))
+				has_obstacle = TRUE
+				break
 			else if(istype(O, /obj/structure/bed/nest)) //We don't care about other beds/chairs/whatever the fuck.
 				has_obstacle = TRUE
 				break

@@ -462,7 +462,7 @@
 		COMSIG_RANGED_ACCURACY_MOD_CHANGED,
 		COMSIG_RANGED_SCATTER_MOD_CHANGED,
 		COMSIG_MOB_SKILLS_CHANGED,
-		COMSIG_MOB_SHOCK_STAGE_CHANGED,
+		COMSIG_MOB_PAINLOSS_CHANGED,
 		COMSIG_HUMAN_MARKSMAN_AURA_CHANGED))
 		gun_user.client?.mouse_pointer_icon = initial(gun_user.client.mouse_pointer_icon)
 		SEND_SIGNAL(gun_user, COMSIG_GUN_USER_UNSET)
@@ -484,7 +484,7 @@
 	RegisterSignals(gun_user, list(COMSIG_RANGED_ACCURACY_MOD_CHANGED,
 		COMSIG_RANGED_SCATTER_MOD_CHANGED,
 		COMSIG_MOB_SKILLS_CHANGED,
-		COMSIG_MOB_SHOCK_STAGE_CHANGED,
+		COMSIG_MOB_PAINLOSS_CHANGED,
 		COMSIG_HUMAN_MARKSMAN_AURA_CHANGED), PROC_REF(setup_bullet_accuracy))
 	if(!CHECK_BITFIELD(flags_item, IS_DEPLOYED))
 		RegisterSignal(gun_user, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_fire))
@@ -492,7 +492,8 @@
 	else
 		RegisterSignal(gun_user, COMSIG_KB_UNIQUEACTION, PROC_REF(unique_action))
 	RegisterSignal(gun_user, COMSIG_QDELETING, PROC_REF(clean_gun_user))
-	RegisterSignals(gun_user, list(COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM, COMSIG_ITEM_UNZOOM), PROC_REF(stop_fire))
+	RegisterSignals(gun_user, list(COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM), PROC_REF(stop_fire))
+	RegisterSignal(gun_user, COMSIG_ITEM_UNZOOM, PROC_REF(on_unzoom))
 	RegisterSignal(gun_user, COMSIG_KB_RAILATTACHMENT, PROC_REF(activate_rail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNDERRAILATTACHMENT, PROC_REF(activate_underrail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNLOADGUN, PROC_REF(unload_gun))
@@ -561,7 +562,7 @@
 /obj/item/weapon/gun/update_item_state()
 	var/current_state = item_state
 	if(flags_gun_features & GUN_SHOWS_AMMO_REMAINING) //shows different ammo levels
-		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells), 1)) * 100, 25)
+		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells ? max_shells : 1), 1)) * 100, 25)
 		item_state = "[initial(icon_state)]_[remaining_rounds][flags_item & WIELDED ? "_w" : ""]"
 	else if(flags_gun_features & GUN_SHOWS_LOADED) //shows loaded or unloaded
 		item_state = "[initial(icon_state)]_[rounds ? 100 : 0][flags_item & WIELDED ? "_w" : ""]"
@@ -758,6 +759,11 @@
 	SIGNAL_HANDLER
 	active_attachable?.clean_target()
 	target = get_turf(target)
+
+///Handles unzoom behavior
+/obj/item/weapon/gun/proc/on_unzoom(mob/user)
+	SIGNAL_HANDLER
+	stop_fire()
 
 ///Reset variables used in firing and remove the gun from the autofire system
 /obj/item/weapon/gun/proc/stop_fire()
@@ -1147,62 +1153,70 @@
 		playsound(src, cocked_sound, 25, 1)
 		return
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)) //We want to open it.
-		DISABLE_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)
-		playsound(src, opened_sound, 25, 1)
-		if(shell_eject_animation)
-			flick("[shell_eject_animation]", src)
-		if(chamber_opened_message)
-			to_chat(user, span_notice(chamber_opened_message))
-		if(in_chamber)
-			if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES))
-				adjust_current_rounds(chamber_items[current_chamber_position], rounds_per_shot)  //If the gun uses mags, it will refund the current mag.
-				QDEL_NULL(in_chamber)
-			else
-				chamber_items.Insert(current_chamber_position, in_chamber) //Otherwise we insert in_chamber back into the chamber_items. We dont want in_chamber to be full when the gun is open.
-				in_chamber = null
-		if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN_EJECTS))
-			if(length(chamber_items))
-				if(!CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_HANDFULS))
-					for(var/obj/object_to_eject in chamber_items) //If the gun ejects on toggle, we wanna yeet the loaded items out.
-						if(user)
-							user.put_in_hands(object_to_eject)
-						else
-							object_to_eject.forceMove(get_turf(src))
-				else
-					var/obj/item/ammo_magazine/handful_to_fill = chamber_items[1]
-					var/list/obj/item/objects_to_eject = list(handful_to_fill)
-					for(var/obj/item/ammo_magazine/handful_to_eject in chamber_items)
-						if(handful_to_eject == handful_to_fill || !handful_to_eject)
-							continue
-						if(!handful_to_fill || handful_to_eject.default_ammo != handful_to_fill.default_ammo)
-							handful_to_fill = handful_to_eject
-							objects_to_eject += handful_to_fill
-							continue
-						handful_to_fill.transfer_ammo(handful_to_eject, user, handful_to_eject.current_rounds)
-						if(handful_to_fill.current_rounds < handful_to_fill.max_rounds)
-							continue
-						handful_to_fill = handful_to_eject
-						objects_to_eject += handful_to_fill
-					for(var/obj/object_to_eject in objects_to_eject)
-						if(user)
-							user.put_in_hands(object_to_eject)
-						else
-							object_to_eject.forceMove(get_turf(src))
-				chamber_items = list()
-				if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER)) //If the reciever cycles (like revolvers) we want to populate the chamber with null objects.
-					for(var/i = 0, i < max_chamber_items, i++)
-						chamber_items.Add(null)
-			for(var/i = 0, i < casings_to_eject, i++) //Eject casings equal to the rounds fired between the last opening.
-				make_casing(null, FALSE)
-			casings_to_eject = 0
+		unique_gun_open()
 	else
-		ENABLE_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)
-		playsound(src, cocked_sound, 25, 1)
-		if(chamber_closed_message)
-			to_chat(user, span_notice(chamber_closed_message))
-		cycle(user, FALSE)
+		unique_gun_close()
 	update_ammo_count()
 	update_icon()
+
+/obj/item/weapon/gun/proc/unique_gun_open(mob/user)
+	DISABLE_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)
+	playsound(src, opened_sound, 25, 1)
+	if(shell_eject_animation)
+		flick("[shell_eject_animation]", src)
+	if(chamber_opened_message)
+		to_chat(user, span_notice(chamber_opened_message))
+	if(in_chamber)
+		if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES))
+			adjust_current_rounds(chamber_items[current_chamber_position], rounds_per_shot)  //If the gun uses mags, it will refund the current mag.
+			QDEL_NULL(in_chamber)
+		else
+			chamber_items.Insert(current_chamber_position, in_chamber) //Otherwise we insert in_chamber back into the chamber_items. We dont want in_chamber to be full when the gun is open.
+			in_chamber = null
+
+	if(!CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN_EJECTS))
+		return
+	if(length(chamber_items))
+		if(!CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_HANDFULS))
+			for(var/obj/object_to_eject in chamber_items) //If the gun ejects on toggle, we wanna yeet the loaded items out.
+				if(user)
+					user.put_in_hands(object_to_eject)
+				else
+					object_to_eject.forceMove(get_turf(src))
+		else
+			var/obj/item/ammo_magazine/handful_to_fill = chamber_items[1]
+			var/list/obj/item/objects_to_eject = list(handful_to_fill)
+			for(var/obj/item/ammo_magazine/handful_to_eject in chamber_items)
+				if(handful_to_eject == handful_to_fill || !handful_to_eject)
+					continue
+				if(!handful_to_fill || handful_to_eject.default_ammo != handful_to_fill.default_ammo)
+					handful_to_fill = handful_to_eject
+					objects_to_eject += handful_to_fill
+					continue
+				handful_to_fill.transfer_ammo(handful_to_eject, user, handful_to_eject.current_rounds)
+				if(handful_to_fill.current_rounds < handful_to_fill.max_rounds)
+					continue
+				handful_to_fill = handful_to_eject
+				objects_to_eject += handful_to_fill
+			for(var/obj/object_to_eject in objects_to_eject)
+				if(user)
+					user.put_in_hands(object_to_eject)
+				else
+					object_to_eject.forceMove(get_turf(src))
+		chamber_items = list()
+		if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER)) //If the reciever cycles (like revolvers) we want to populate the chamber with null objects.
+			for(var/i = 0, i < max_chamber_items, i++)
+				chamber_items.Add(null)
+	for(var/i = 0, i < casings_to_eject, i++) //Eject casings equal to the rounds fired between the last opening.
+		make_casing(null, FALSE)
+	casings_to_eject = 0
+
+/obj/item/weapon/gun/proc/unique_gun_close(mob/user)
+	ENABLE_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)
+	playsound(src, cocked_sound, 25, 1)
+	if(chamber_closed_message)
+		to_chat(user, span_notice(chamber_closed_message))
+	cycle(user, FALSE)
 
 /**
  *  Handles reloading. Called on attack_by
@@ -1702,7 +1716,7 @@
 
 /obj/item/weapon/gun/proc/play_fire_sound(mob/user)
 	//Guns with low ammo have their firing sound
-	var/firing_sndfreq = CHECK_BITFIELD(flags_gun_features, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((rounds / (max_rounds ? max_rounds : max_shells)) > 0.25) ? FALSE : 55000
+	var/firing_sndfreq = CHECK_BITFIELD(flags_gun_features, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((rounds / (max_rounds ? max_rounds : max_shells ? max_shells : 1)) > 0.25) ? FALSE : 55000
 	if(HAS_TRAIT(src, TRAIT_GUN_SILENCED))
 		playsound(user, fire_sound, 25, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 		return
@@ -1780,7 +1794,7 @@
 
 		if(ishuman(gun_user))
 			var/mob/living/carbon/human/shooter_human = gun_user
-			gun_accuracy_mod -= round(min(20, (shooter_human.shock_stage * 0.2))) //Accuracy declines with pain, being reduced by 0.2% per point of pain.
+			gun_accuracy_mod -= round(min(20, (shooter_human.painloss * 0.2))) //Accuracy declines with pain, being reduced by 0.2% per point of pain.
 			if(shooter_human.marksman_aura)
 				gun_accuracy_mod += 10 + max(5, shooter_human.marksman_aura * 5) //Accuracy bonus from active focus order
 				add_aim_mode_fire_delay(AURA_HUMAN_FOCUS, initial(aim_fire_delay) * -0.5)

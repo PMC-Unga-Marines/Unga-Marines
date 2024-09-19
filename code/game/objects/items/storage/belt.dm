@@ -439,50 +439,50 @@
 		/obj/item/reagent_containers/food/snacks,
 	)
 
-/obj/item/storage/belt/marine/t18/Initialize(mapload)
+/obj/item/storage/belt/marine/ar18/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
 
-/obj/item/storage/belt/marine/t12/Initialize(mapload)
+/obj/item/storage/belt/marine/ar12/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_assaultrifle(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
 
-/obj/item/storage/belt/marine/standard_skirmishrifle/Initialize(mapload)
+/obj/item/storage/belt/marine/ar21/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_skirmishrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_skirmishrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_skirmishrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_skirmishrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_skirmishrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_skirmishrifle(src)
+	new /obj/item/ammo_magazine/rifle/ar21(src)
+	new /obj/item/ammo_magazine/rifle/ar21(src)
+	new /obj/item/ammo_magazine/rifle/ar21(src)
+	new /obj/item/ammo_magazine/rifle/ar21(src)
+	new /obj/item/ammo_magazine/rifle/ar21(src)
+	new /obj/item/ammo_magazine/rifle/ar21(src)
 
-/obj/item/storage/belt/marine/standard_battlerifle/Initialize(mapload)
+/obj/item/storage/belt/marine/br64/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_br(src)
-	new /obj/item/ammo_magazine/rifle/standard_br(src)
-	new /obj/item/ammo_magazine/rifle/standard_br(src)
-	new /obj/item/ammo_magazine/rifle/standard_br(src)
-	new /obj/item/ammo_magazine/rifle/standard_br(src)
-	new /obj/item/ammo_magazine/rifle/standard_br(src)
+	new /obj/item/ammo_magazine/rifle/br64(src)
+	new /obj/item/ammo_magazine/rifle/br64(src)
+	new /obj/item/ammo_magazine/rifle/br64(src)
+	new /obj/item/ammo_magazine/rifle/br64(src)
+	new /obj/item/ammo_magazine/rifle/br64(src)
+	new /obj/item/ammo_magazine/rifle/br64(src)
 
 /obj/item/storage/belt/marine/t90/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
-	new /obj/item/ammo_magazine/smg/standard_smg(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
+	new /obj/item/ammo_magazine/smg/smg90(src)
 
 /obj/item/storage/belt/marine/secondary/Initialize(mapload)
 	. = ..()
@@ -513,12 +513,12 @@
 
 /obj/item/storage/belt/marine/combat_rifle/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
-	new /obj/item/ammo_magazine/rifle/tx11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
 
 /obj/item/storage/belt/marine/alf_machinecarbine/Initialize(mapload)
 	. = ..()
@@ -531,12 +531,12 @@
 
 /obj/item/storage/belt/marine/auto_shotgun/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/tx15_slug(src)
-	new /obj/item/ammo_magazine/rifle/tx15_slug(src)
-	new /obj/item/ammo_magazine/rifle/tx15_slug(src)
-	new /obj/item/ammo_magazine/rifle/tx15_flechette(src)
-	new /obj/item/ammo_magazine/rifle/tx15_flechette(src)
-	new /obj/item/ammo_magazine/rifle/tx15_flechette(src)
+	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
+	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
+	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
 
 /obj/item/storage/belt/marine/te_cells/Initialize(mapload)
 	. = ..()
@@ -549,8 +549,8 @@
 
 /obj/item/storage/belt/marine/oicw/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
-	new /obj/item/ammo_magazine/rifle/standard_carbine(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
+	new /obj/item/ammo_magazine/rifle/ar12(src)
 	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
 	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
 	new /obj/item/ammo_magazine/rifle/tx54(src)
@@ -558,21 +558,21 @@
 
 /obj/item/storage/belt/marine/smartgun/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
-	new /obj/item/ammo_magazine/standard_smartmachinegun(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
+	new /obj/item/ammo_magazine/sg29(src)
 
-/obj/item/storage/belt/marine/target_rifle/Initialize(mapload)
+/obj/item/storage/belt/marine/sg62/Initialize(mapload)
 	. = ..()
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
-	new /obj/item/ammo_magazine/rifle/standard_smarttargetrifle(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
+	new /obj/item/ammo_magazine/rifle/sg62(src)
 
 /obj/item/storage/belt/marine/upp
 	name = "\improper Type 41 pattern load rig"
@@ -701,6 +701,14 @@
 		/obj/item/explosive/grenade,
 		/obj/item/tool/crowbar,
 	)
+
+/obj/item/storage/belt/marine/sectoid/full/PopulateContents()
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	new /obj/item/tool/crowbar/red(src)
 
 /obj/item/storage/belt/shotgun
 	name = "\improper shotgun shell load rig"
@@ -1027,22 +1035,6 @@
 	. = ..()
 	for(var/i in 1 to storage_slots)
 		new /obj/item/reagent_containers/food/snacks/protein_pack(src)
-
-/obj/item/storage/holster/belt/revolver/t500
-	name = "\improper BM500 pattern BF revolver holster rig"
-	desc = "The BM500 is the special modular belt for R-500 BF revolver."
-	icon = 'icons/obj/clothing/belts.dmi'
-	icon_state = "t500_holster"
-	max_storage_space = 17
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/revolver/t500,
-	)
-	can_hold = list(
-		/obj/item/weapon/gun/revolver/t500,
-		/obj/item/ammo_magazine/revolver/t500,
-		/obj/item/ammo_magazine/revolver/t500/slavs,
-		/obj/item/ammo_magazine/packet/t500,
-	)
 
 /obj/item/storage/belt/mortar_belt
 	name = "TA-10 mortar belt"

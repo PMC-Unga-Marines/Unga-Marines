@@ -9,7 +9,7 @@
 	item_state = "hypo"
 	icon_state = "hypo"
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(1, 3, 5, 10, 15, 20, 30)
+	possible_transfer_amounts = list(1, 3, 5, 10, 15, 20, 30, 60, 120)
 	volume = 120
 	init_reagent_flags = OPENCONTAINER
 	flags_equip_slot = ITEM_SLOT_BELT
@@ -538,6 +538,7 @@
 	icon_state = "hypomed"
 	core_name = "hypospray"
 	volume = 240
+	possible_transfer_amounts = list(1, 3, 5, 10, 15, 20, 30, 60, 120, 240)
 
 /obj/item/reagent_containers/hypospray/advanced/big/bicaridine
 	name = "big bicaridine hypospray"

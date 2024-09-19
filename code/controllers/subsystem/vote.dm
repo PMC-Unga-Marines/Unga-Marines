@@ -41,7 +41,7 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/fire()
 	if(!mode)
 		return
-	time_remaining = round((started_time + CONFIG_GET(number/vote_period) - world.time)/10)
+	time_remaining = round((started_time + CONFIG_GET(number/vote_period) - world.time) * 0.1)
 	if(time_remaining < 0)
 		result()
 		SStgui.close_uis(src)
@@ -353,7 +353,7 @@ SUBSYSTEM_DEF(vote)
 		var/vp = CONFIG_GET(number/vote_period)
 		SEND_SOUND(world, sound('sound/ambience/votestart.ogg', channel = CHANNEL_NOTIFY, volume = 50))
 		to_chat(world, "<br><font color='purple'><b>[text]</b><br>Type <b>vote</b> or click on vote action (top left) to place your votes.<br>You have [DisplayTimeText(vp)] to vote.</font>")
-		time_remaining = round(vp/10)
+		time_remaining = round(vp * 0.1)
 		vote_happening = TRUE
 		for(var/c in GLOB.clients)
 			var/client/C = c
@@ -492,6 +492,7 @@ SUBSYSTEM_DEF(vote)
 /datum/action/innate/vote/give_action(mob/M)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_REMOVE_VOTE_BUTTON, PROC_REF(remove_vote_action))
+	RegisterSignal(M, COMSIG_QDELETING, PROC_REF(remove_vote_action))
 
 /datum/action/innate/vote/proc/remove_vote_action(datum/source)
 	SIGNAL_HANDLER

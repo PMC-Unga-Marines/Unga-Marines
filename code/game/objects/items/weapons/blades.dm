@@ -55,7 +55,6 @@
 	force = 80
 	attack_speed = 5
 	sharp = IS_SHARP_ITEM_ACCURATE
-	resistance_flags = UNACIDABLE
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
 	w_class = WEIGHT_CLASS_BULKY
@@ -457,6 +456,8 @@
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] || modifiers["ctrl"])
 		return
+	if(QDELETED(object))
+		return
 	set_target(get_turf_on_clickcatcher(object, living_user, params))
 	if(!current_target)
 		return
@@ -466,9 +467,9 @@
 ///Throws a knife from the stack, or, if the stack is one, throws the stack.
 /obj/item/stack/throwing_knife/proc/throw_knife()
 	SIGNAL_HANDLER
-	if(living_user?.get_active_held_item() != src) // RUTGMC ADDITION, added "?"
+	if(living_user?.get_active_held_item() != src)
 		return
-	if(living_user?.Adjacent(current_target)) // RUTGMC ADDITION, added "?"
+	if(living_user?.Adjacent(current_target))
 		return AUTOFIRE_CONTINUE
 	var/thrown_thing = src
 	if(amount == 1)

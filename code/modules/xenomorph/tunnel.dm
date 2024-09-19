@@ -128,7 +128,7 @@
 	var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(z_level, MINIMAP_FLAG_XENO)
 	M.client.screen += map
 	var/list/polled_coords = map.get_coords_from_click(M)
-	M.client.screen -= map
+	M?.client?.screen -= map
 	if(!polled_coords)
 		return
 	var/turf/clicked_turf = locate(polled_coords[1], polled_coords[2], z_level)

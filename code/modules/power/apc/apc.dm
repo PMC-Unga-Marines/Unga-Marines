@@ -133,7 +133,7 @@
 		//Is starting with a power cell installed, create it and set its charge level
 		if(cell_type)
 			set_cell(new cell_type(src))
-			cell.charge = start_charge * cell.maxcharge / 100.0 //Convert percentage to actual value
+			cell.charge = start_charge * cell.maxcharge * 0.01 //Convert percentage to actual value
 			cell.update_icon()
 
 
@@ -154,6 +154,7 @@
 	area.power_change()
 
 	QDEL_NULL(cell)
+	cell_type = null
 	QDEL_NULL(wires)
 	if(terminal)
 		disconnect_terminal()
@@ -550,7 +551,8 @@
 		qdel(src)
 	else if(prob(severity * 0.5))
 		set_broken()
-		cell.ex_act(severity)
+		if(cell)
+			cell.ex_act(severity)
 
 /obj/machinery/power/apc/proc/set_broken()
 	//Aesthetically much better!

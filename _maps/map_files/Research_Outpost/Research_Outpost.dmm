@@ -157,6 +157,12 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark/blue2,
 /area/outpost/medbay/storage)
+"aR" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/marking/asteroidwarning,
+/area/outpost/lz1)
 "aS" = (
 /obj/structure/filingcabinet/security,
 /turf/open/floor/tile/dark/red2{
@@ -401,6 +407,14 @@
 	dir = 8
 	},
 /area/outpost/yard/south)
+"ci" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroidwarning{
+	dir = 1
+	},
+/area/outpost/lz2)
 "ck" = (
 /obj/structure/bed,
 /turf/open/floor/tile/dark/red2{
@@ -665,6 +679,14 @@
 	dir = 1
 	},
 /area/outpost/yard/east)
+"dE" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
+	},
+/area/outpost/lz1)
 "dF" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
@@ -843,6 +865,12 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
+"et" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/lz2)
 "eu" = (
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 8
@@ -912,6 +940,12 @@
 	},
 /turf/open/floor/tile/dark,
 /area/outpost/engineering)
+"eJ" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/lz2)
 "eK" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
@@ -1083,6 +1117,9 @@
 /area/outpost/brig/gear_room)
 "fw" = (
 /obj/structure/cable,
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
 /turf/open/floor/marking/asteroidwarning{
 	dir = 10
 	},
@@ -1248,6 +1285,12 @@
 	dir = 1
 	},
 /area/outpost/hallway/central)
+"gh" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/lz1)
 "gi" = (
 /obj/structure/table,
 /obj/item/tool/pen,
@@ -1889,6 +1932,14 @@
 	},
 /turf/open/floor/freezer,
 /area/outpost/dormitories)
+"je" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/outpost/lz1)
 "jf" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -2165,7 +2216,7 @@
 	},
 /area/outpost/yard/south)
 "ko" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -3650,6 +3701,14 @@
 	dir = 1
 	},
 /area/outpost/engineering/engine)
+"qY" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 8
+	},
+/area/outpost/lz2)
 "qZ" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -3842,6 +3901,12 @@
 "rM" = (
 /turf/closed/wall/r_wall,
 /area/outpost/science/rd_office)
+"rN" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroidwarning,
+/area/outpost/lz2)
 "rO" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 6
@@ -5347,6 +5412,12 @@
 	},
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/arrivals)
+"yN" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/lz1)
 "yO" = (
 /obj/effect/landmark/excavation_site_spawner,
 /obj/effect/ai_node,
@@ -5615,6 +5686,15 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/outpost/engineering/engine)
+"Ae" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/lz2)
 "Af" = (
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/caves/north_east)
@@ -5674,7 +5754,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/central)
 "As" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/dark/purple2{
 	dir = 4
 	},
@@ -6239,6 +6319,12 @@
 "Dk" = (
 /turf/closed/wall/r_wall,
 /area/outpost/lz2)
+"Dl" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/lz1)
 "Dp" = (
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/decal/cleanable/blood/writing,
@@ -6444,6 +6530,14 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/caves/south)
+"El" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/outpost/lz2)
 "Em" = (
 /obj/structure/table,
 /obj/item/radio,
@@ -7382,6 +7476,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/central)
+"IN" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/lz2)
 "IS" = (
 /obj/structure/table,
 /obj/effect/spawner/random/misc/paperbin,
@@ -8623,6 +8723,12 @@
 	dir = 4
 	},
 /area/outpost/engineering)
+"Ow" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/outpost/lz1)
 "Oy" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -8855,6 +8961,20 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark,
 /area/outpost/engineering)
+"PE" = (
+/obj/structure/barricade/plasteel{
+	dir = 1
+	},
+/turf/open/floor/marking/asteroidwarning{
+	dir = 4
+	},
+/area/outpost/lz1)
+"PF" = (
+/obj/structure/barricade/plasteel{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/lz2)
 "PJ" = (
 /obj/structure/table,
 /obj/machinery/light/small{
@@ -8927,6 +9047,13 @@
 	dir = 8
 	},
 /area/outpost/arrivals)
+"Qa" = (
+/obj/structure/cable,
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/lz1)
 "Qb" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 6
@@ -8993,7 +9120,7 @@
 /turf/open/floor/tile/dark/red2,
 /area/outpost/brig/armoury)
 "Qp" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/dark,
 /area/outpost/science/hydponics)
 "Qq" = (
@@ -9750,6 +9877,12 @@
 	dir = 1
 	},
 /area/outpost/hallway/central)
+"TP" = (
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/outpost/lz1)
 "TQ" = (
 /obj/structure/closet/secure_closet/security,
 /turf/open/floor/tile/dark/red2{
@@ -15795,7 +15928,7 @@ EB
 EB
 EB
 Xm
-Hc
+gh
 JP
 Hc
 Hc
@@ -15927,7 +16060,7 @@ Mp
 Mp
 Mp
 Km
-Vu
+dE
 Vu
 Vu
 Vu
@@ -16059,7 +16192,7 @@ Zl
 dP
 Zl
 RW
-Vj
+Dl
 Vj
 Vj
 Vj
@@ -16191,7 +16324,7 @@ wU
 wU
 wU
 jo
-sQ
+PE
 sQ
 sQ
 sQ
@@ -16323,7 +16456,7 @@ Jb
 Jb
 Jb
 Ez
-Hc
+gh
 Hc
 Hc
 Hc
@@ -17783,12 +17916,12 @@ yW
 yW
 yW
 yW
-dr
-yc
-Vj
-Vj
-xs
-RN
+Ow
+je
+yN
+yN
+Qa
+aR
 yW
 yW
 yW
@@ -17796,12 +17929,12 @@ yW
 yW
 yW
 yW
-dr
-dr
-dr
-dr
-dr
-dr
+Ow
+Ow
+TP
+TP
+Ow
+Ow
 yW
 yW
 yW
@@ -27934,11 +28067,11 @@ yW
 yW
 HR
 VY
-hY
-zI
-lz
+Ae
+El
+eJ
 fw
-hY
+et
 Pr
 Pr
 Pr
@@ -27951,11 +28084,11 @@ Pr
 Pr
 Pr
 Pr
-hY
-hY
-EC
-BM
-hY
+et
+PF
+ci
+rN
+et
 yW
 yW
 yW
@@ -28066,7 +28199,7 @@ yW
 yW
 HR
 VY
-hY
+IN
 zG
 lz
 ke
@@ -28198,7 +28331,7 @@ yW
 yW
 yW
 kR
-Sm
+qY
 Qk
 zI
 ke
