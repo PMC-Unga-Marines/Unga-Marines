@@ -551,7 +551,8 @@
 		qdel(src)
 	else if(prob(severity * 0.5))
 		set_broken()
-		cell.ex_act(severity)
+		if(cell)
+			cell.ex_act(severity)
 
 /obj/machinery/power/apc/proc/set_broken()
 	//Aesthetically much better!

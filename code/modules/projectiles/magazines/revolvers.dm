@@ -1,6 +1,3 @@
-
-//external magazines
-
 /obj/item/ammo_magazine/revolver
 	name = "\improper R-44 magnum speed loader (.44)"
 	desc = "A revolver speed loader."

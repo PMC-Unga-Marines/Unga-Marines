@@ -7,11 +7,11 @@ SUBSYSTEM_DEF(blackbox)
 	var/sealed = FALSE
 
 /datum/controller/subsystem/blackbox/Initialize()
-	record_feedback("amount", "random_seed", Master.random_seed)
-	record_feedback("amount", "dm_version", DM_VERSION)
-	record_feedback("amount", "dm_build", DM_BUILD)
-	record_feedback("amount", "byond_version", world.byond_version)
-	record_feedback("amount", "byond_build", world.byond_build)
+	record_feedback(FEEDBACK_AMOUNT, "random_seed", Master.random_seed)
+	record_feedback(FEEDBACK_AMOUNT, "dm_version", DM_VERSION)
+	record_feedback(FEEDBACK_AMOUNT, "dm_build", DM_BUILD)
+	record_feedback(FEEDBACK_AMOUNT, "byond_version", world.byond_version)
+	record_feedback(FEEDBACK_AMOUNT, "byond_build", world.byond_build)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/blackbox/Recover()
@@ -88,7 +88,6 @@ SUBSYSTEM_DEF(blackbox)
 
 	SSdbcore.MassInsert(format_table_name("feedback"), sqlrowlist, ignore_errors = TRUE, delayed = TRUE, special_columns = special_columns)
 
-
 /datum/controller/subsystem/blackbox/proc/Seal()
 	if(sealed)
 		return FALSE
@@ -97,13 +96,6 @@ SUBSYSTEM_DEF(blackbox)
 	log_game("Blackbox sealed[IsAdminAdvancedProcCall() ? " by [key_name(usr)]" : ""].")
 	sealed = TRUE
 	return TRUE
-
-
-#define FEEDBACK_TEXT "text"
-#define FEEDBACK_AMOUNT "amount"
-#define FEEDBACK_TALLY "tally"
-#define FEEDBACK_NESTED_TALLY "nested_tally"
-#define FEEDBACK_ASSOCIATIVE "associative"
 
 /datum/controller/subsystem/blackbox/proc/record_feedback(key_type, key, increment, data, overwrite, version = 1)
 	if(sealed || !key_type || !istext(key) || !isnum(increment || !data))

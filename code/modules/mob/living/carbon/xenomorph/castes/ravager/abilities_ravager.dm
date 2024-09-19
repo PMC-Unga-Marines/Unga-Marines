@@ -241,7 +241,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.ravager_endures++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "ravager_endures")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ravager_endures")
 
 ///Warns the player when Endure is about to end
 /datum/action/ability/xeno_action/endure/proc/endure_warning()

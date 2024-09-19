@@ -174,7 +174,7 @@
 	succeed_activate()
 	add_cooldown()
 	GLOB.round_statistics.sentinel_drain_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "sentinel_drain_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "sentinel_drain_stings")
 
 /datum/action/ability/activable/xeno/drain_sting/on_cooldown_finish()
 	playsound(owner.loc, 'sound/voice/alien/drool1.ogg', 50, 1)

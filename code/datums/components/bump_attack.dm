@@ -128,7 +128,7 @@
 	else //disables pushing if you have bump attacks on, so you don't accidentally misplace your enemy when switching to an item that can't bump attack
 		return COMPONENT_BUMP_RESOLVED
 	GLOB.round_statistics.human_bump_attacks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "human_bump_attacks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "human_bump_attacks")
 	TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, held_item ? held_item.attack_speed : CLICK_CD_MELEE)
 	return COMPONENT_BUMP_RESOLVED
 
@@ -139,6 +139,6 @@
 		return COMPONENT_BUMP_RESOLVED //We don't want to push people while on attack cooldown.
 	bumper.UnarmedAttack(target, TRUE)
 	GLOB.round_statistics.xeno_bump_attacks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_bump_attacks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_bump_attacks")
 	TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, bumper.xeno_caste.attack_delay)
 	return COMPONENT_BUMP_RESOLVED
