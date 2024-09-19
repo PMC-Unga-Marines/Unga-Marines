@@ -10,6 +10,7 @@
 
 	// *** Melee Attacks *** //
 	melee_damage = 23
+	attack_delay = 300
 
 	// *** Speed *** //
 	speed = -0.5
@@ -19,7 +20,7 @@
 	plasma_gain = 20
 
 	// *** Health *** //
-	max_health = 350
+	max_health = 250
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.8
