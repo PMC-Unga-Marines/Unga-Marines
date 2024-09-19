@@ -44,7 +44,7 @@
 	damage = 70
 	penetration = 35
 	sundering = 0
-	additional_xeno_penetration = 25
+	additional_xeno_penetration = 15
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 

@@ -60,7 +60,7 @@
 	damage = 45
 	damage_falloff = 0.5
 	penetration = 15
-	additional_xeno_penetration = 30
+	additional_xeno_penetration = 20
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 

@@ -1507,11 +1507,9 @@
 	inhand_y_dimension = 32
 	fire_sound =     'sound/weapons/guns/sniper/SR-127/SR127.ogg'
 	fire_rattle = null
-	cocked_sound = 'sound/weapons/guns/interact/tl-127_bolt.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	unload_sound =   'sound/weapons/guns/sniper/SR-127/SR127_clipout.ogg'
 	reload_sound =   'sound/weapons/guns/sniper/SR-127/SR127_clipin.ogg'
-	cocked_sound =   'sound/weapons/guns/sniper/SR-127/SR127_boltpull.ogg'
 	silenced_sound = 'sound/weapons/guns/sniper/SR-127/SR127_SIL.ogg'
 	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_86X70 //codex
