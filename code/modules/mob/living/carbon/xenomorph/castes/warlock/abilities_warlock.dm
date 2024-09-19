@@ -110,7 +110,7 @@
 	xeno_owner.move_resist = MOVE_FORCE_EXTREMELY_STRONG
 
 	GLOB.round_statistics.psy_shields++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psy_shields")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_shields")
 
 	active_shield = new(target_turf, owner)
 	if(!do_after(owner, 6 SECONDS, NONE, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
@@ -175,7 +175,7 @@
 	playsound(owner, 'sound/voice/alien/roar_warlock.ogg', 25)
 
 	GLOB.round_statistics.psy_shield_blasts++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psy_shield_blasts")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_shield_blasts")
 
 
 /obj/effect/xeno/shield
@@ -445,7 +445,7 @@
 			item.add_filter("crushblur", 1, radial_blur_filter(0.3))
 			filters_applied += item
 	GLOB.round_statistics.psy_crushes++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psy_crushes")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_crushes")
 
 ///Remove all filters of items in filters_applied
 /datum/action/ability/activable/xeno/psy_crush/proc/remove_all_filters()
@@ -570,10 +570,10 @@
 
 	if(istype(xeno_owner.ammo, /datum/ammo/energy/xeno/psy_blast))
 		GLOB.round_statistics.psy_blasts++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "psy_blasts")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_blasts")
 	else
 		GLOB.round_statistics.psy_lances++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "psy_lances")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_lances")
 
 	add_cooldown()
 	update_button_icon()

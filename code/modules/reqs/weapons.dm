@@ -420,7 +420,7 @@
 	cost = 500
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/sr81
+/datum/supply_packs/weapons/sr81_ammo
 	name = "SR-81 IFF sniper magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/sr81)
 	cost = 30
@@ -610,7 +610,7 @@
 
 /datum/supply_packs/weapons/mateba
 	name = "Mateba Autorevolver belt"
-	contains = list(/obj/item/storage/holster/belt/mateba/full)
+	contains = list(/obj/item/storage/holster/belt/revolver/mateba/full)
 	notes = "Contains 6 speedloaders"
 	cost = 150
 	available_against_xeno_only = TRUE

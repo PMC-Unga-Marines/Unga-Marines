@@ -12752,7 +12752,7 @@
 /turf/open/floor/carpet,
 /area/magmoor/command/conference)
 "jmq" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -17836,7 +17836,7 @@
 	},
 /area/magmoor/medical/treatment)
 "mXY" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/mainship/sterile/side{
 	dir = 6
 	},
@@ -31863,7 +31863,7 @@
 /turf/open/liquid/lava/autosmoothing,
 /area/magmoor/compound/south)
 "xkp" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/mainship/sterile/side,
 /area/magmoor/medical/lobby)
 "xku" = (

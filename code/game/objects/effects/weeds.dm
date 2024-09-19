@@ -29,7 +29,7 @@
 
 /obj/alien/weeds/deconstruct(disassembled = TRUE)
 	GLOB.round_statistics.weeds_destroyed++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "weeds_destroyed")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "weeds_destroyed")
 	return ..()
 
 /obj/alien/weeds/Initialize(mapload, obj/alien/weeds/node/node, swapped = FALSE)

@@ -111,7 +111,7 @@
 	add_cooldown(cooldown_duration * cooldown_mod)
 
 	GLOB.round_statistics.chimera_blinks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "chimera_blinks") //Statistics
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "chimera_blinks") //Statistics
 
 ///Called by many of the Chimera's teleportation effects
 /datum/action/ability/activable/xeno/proc/teleport_debuff_aoe(atom/movable/teleporter, silent = FALSE)

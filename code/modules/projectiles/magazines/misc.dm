@@ -163,7 +163,7 @@
 /obj/item/ammo_magazine/packet/acp
 	name = "box of .45 ACP"
 	icon_state = "box_.45acp"
-	default_ammo = /datum/ammo/bullet/pistol/heavy
+	default_ammo = /datum/ammo/bullet/smg/acp
 	w_class = WEIGHT_CLASS_NORMAL
 	caliber = CALIBER_45ACP
 	current_rounds = 160

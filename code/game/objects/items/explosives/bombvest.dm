@@ -78,12 +78,12 @@
 	var/soft_filter_result = CAN_BYPASS_FILTER(user) ? null : is_soft_ic_filtered_for_bombvests(new_bomb_message)
 	if(soft_filter_result)
 		if(tgui_alert(usr,"Your message contains \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[soft_filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to say it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
-			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
 			log_filter("Soft IC", new_bomb_message, filter_result)
 			return FALSE
 		message_admins("[ADMIN_LOOKUPFLW(usr)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Message: \"[new_bomb_message]\"")
 		log_admin_private("[key_name(usr)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Message: \"[new_bomb_message]\"")
-		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "passed_soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
 		log_filter("Soft IC (Passed)", new_bomb_message, filter_result)
 	bomb_message = new_bomb_message
 	to_chat(user, span_info("Warcry set to: \"[bomb_message]\"."))

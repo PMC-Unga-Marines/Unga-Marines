@@ -63,14 +63,8 @@
 	autoheal_cutoff = 0
 
 /datum/wound/internal_bleeding/process()
-
-	var/bicardose = parent_limb.owner.reagents.get_reagent_amount(/datum/reagent/medicine/bicaridine)
-	var/inaprovaline = parent_limb.owner.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline)
 	var/quickclot = parent_limb.owner.reagents.get_reagent_amount(/datum/reagent/medicine/quickclot)
 	var/thwei = parent_limb.owner.reagents.get_reagent_amount(/datum/reagent/thwei)
-
-	if(!(bicardose && inaprovaline))	//bicaridine and inaprovaline stop internal wounds from harming the parent limb over time
-		parent_limb.createwound(CUT, 0.1)
 
 	if(!quickclot && !thwei) //Quickclot/thwei stops bleeding, magic!
 		parent_limb.owner.blood_volume = max(0, parent_limb.owner.blood_volume - damage/30)

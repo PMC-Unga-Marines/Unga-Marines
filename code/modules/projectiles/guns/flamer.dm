@@ -195,6 +195,8 @@
 		turf_to_check = path_to_target[iteration - 1]
 	if(LinkBlocked(turf_to_check, path_to_target[iteration], bypass_xeno = TRUE, air_pass = TRUE)) //checks if it's actually possible to get to the next tile in the line
 		return
+	if(istype(turf_to_check, /turf/closed/wall/resin/regenerating/fireproof))
+		return
 	if(turf_to_check.density && istype(turf_to_check, /turf/closed/wall/resin))
 		walls_penetrated -= 1
 	//how many resin walls we've penetrated check

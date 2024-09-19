@@ -306,6 +306,15 @@
 		if(blocked)
 			. += "welded_open"
 
+/obj/machinery/door/firedoor/psi_act(psi_power, mob/living/user)
+	if(operating)
+		to_chat(user, span_warning("The firelock is already in motion."))
+		return
+	if(blocked)
+		to_chat(user, span_warning("The firelock is welded shut."))
+		return
+
+	return ..()
 
 /obj/machinery/door/firedoor/mainship
 	name = "\improper Emergency Shutter"

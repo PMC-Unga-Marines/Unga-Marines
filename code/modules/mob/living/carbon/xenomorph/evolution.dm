@@ -180,7 +180,7 @@
 	deadchat_broadcast(" has evolved into a <b>[new_xeno.xeno_caste.caste_name]</b> at <b>[get_area_name(T)]</b>.", "<b>[src]</b>", follow_target = new_xeno, turf_target = T)
 
 	GLOB.round_statistics.total_xenos_created-- //so an evolved xeno doesn't count as two.
-	SSblackbox.record_feedback("tally", "round_statistics", -1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", -1, "total_xenos_created")
 
 	if(queen_chosen_lead && (new_xeno.xeno_caste.can_flags & CASTE_CAN_BE_LEADER)) // xeno leader is removed by Destroy()
 		hive.add_leader(new_xeno)
