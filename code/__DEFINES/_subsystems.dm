@@ -143,10 +143,10 @@
 #define FIRE_PRIORITY_SILO 92
 #define FIRE_PRIORITY_PATHFINDING 95
 #define FIRE_PRIORITY_PROJECTILES 98
-#define FIRE_PRIORITY_CELLAUTO 99
 #define FIRE_PRIORITY_MOBS 100
 #define FIRE_PRIORITY_ASSETS 105
 #define FIRE_PRIORITY_TGUI 110
+#define FIRE_PRIORITY_CELLAUTO 150
 #define FIRE_PRIORITY_TICKER 200
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
@@ -187,3 +187,10 @@
 
 /// The timer key used to know how long subsystem initialization takes
 #define SS_INIT_TIMER_KEY "ss_init"
+
+//Blackbox feedback defines
+#define FEEDBACK_TEXT "text"
+#define FEEDBACK_AMOUNT "amount"
+#define FEEDBACK_TALLY "tally"
+#define FEEDBACK_NESTED_TALLY "nested_tally"
+#define FEEDBACK_ASSOCIATIVE "associative"

@@ -28,30 +28,78 @@
 	scatter_unwielded = 15
 	recoil = 0
 	recoil_unwielded = 1
-
 	placed_overlay_iconstate = "revolver"
-
 	///If the gun is able to play Russian Roulette
 	var/russian_roulette = FALSE //God help you if you do this.
 	///Whether the chamber can be spun for Russian Roulette. If False the chamber can be spun.
 	var/catchworking = TRUE
 
+/mob/living/carbon/human/verb/revolvertrick()
+	set category = "Weapons"
+	set name = "Do a revolver trick"
+	set desc = "Show off to all your friends!"
+
+	var/obj/item/weapon/gun/revolver/gun = get_active_firearm(usr)
+	if(!gun)
+		return
+	if(!istype(gun))
+		return
+	gun.revolvertrick()
 
 /obj/item/weapon/gun/revolver/verb/revolvertrick()
 	set category = "Weapons"
 	set name = "Do a revolver trick"
 	set desc = "Show off to all your friends!"
+
 	var/obj/item/weapon/gun/revolver/gun = get_active_firearm(usr)
 	if(!gun)
 		return
 	if(!istype(gun))
 		return
 	if(usr.do_actions)
+		src.balloon_alert(usr, "Busy!")
 		return
 	if(zoom)
 		to_chat(usr, span_warning("You cannot conceviably do that while looking down \the [src]'s scope!"))
 		return
 	do_trick(usr)
+
+/obj/item/weapon/gun/revolver/tactical_reload(obj/item/new_magazine, mob/living/carbon/human/user)
+	if(!istype(user) || user.incapacitated(TRUE) || user.do_actions)
+		return
+	if(!(new_magazine.type in allowed_ammo_types))
+		if(active_attachable)
+			active_attachable.tactical_reload(new_magazine, user)
+			return
+		to_chat(user, span_warning("[new_magazine] cannot fit into [src]!"))
+		return
+	if(src != user.r_hand && src != user.l_hand && (!master_gun || (master_gun != user.r_hand && master_gun != user.l_hand)))
+		to_chat(user, span_warning("[src] must be in your hand to do that."))
+		return
+	//no tactical reload for the untrained.
+	if(user.skills.getRating(SKILL_FIREARMS) < SKILL_FIREARMS_DEFAULT)
+		to_chat(user, span_warning("You don't know how to do tactical reloads."))
+		return
+	to_chat(user, span_notice("You start a tactical reload."))
+	var/tac_reload_time = max(0.25 SECONDS, 0.85 SECONDS - user.skills.getRating(SKILL_FIREARMS) * 5)
+	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)) // if we are really closed
+		if(!do_after(user, tac_reload_time * 0.2, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
+			return
+		unique_gun_open(user)
+		update_ammo_count()
+		update_icon()
+	if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
+		return
+	if(istype(new_magazine.loc, /obj/item/storage))
+		var/obj/item/storage/S = new_magazine.loc
+		S.remove_from_storage(new_magazine, get_turf(user), user)
+	user.put_in_any_hand_if_possible(new_magazine)
+	reload(new_magazine, user)
+	if(!do_after(user, tac_reload_time * 0.2, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
+		return
+	unique_gun_close(user)
+	update_ammo_count()
+	update_icon()
 
 //-------------------------------------------------------
 //R-44 COMBAT REVOLVER
@@ -364,8 +412,6 @@
 	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_ROTATES_CHAMBER|AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_TOGGLES_OPEN_EJECTS|AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS
 	cocked_message = "You prime the hammer."
 	cock_delay = 0
-
-
 
 //-------------------------------------------------------
 //R-44, based off the SAA.

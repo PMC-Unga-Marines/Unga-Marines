@@ -72,7 +72,7 @@
 
 	to_chat(usr, span_notice("You can respawn now, enjoy your new life!<br><b>Make sure to play a different character, and please roleplay correctly.</b>"))
 	GLOB.round_statistics.total_human_respawns++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_respawns")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_human_respawns")
 
 
 	if(!client)

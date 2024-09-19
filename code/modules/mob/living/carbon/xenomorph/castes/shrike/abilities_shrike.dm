@@ -154,7 +154,7 @@
 /datum/action/ability/activable/xeno/psychic_fling/use_ability(atom/target)
 	var/mob/living/victim = target
 	GLOB.round_statistics.psychic_flings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_flings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psychic_flings")
 
 	owner.visible_message(span_xenowarning("A strange and violent psychic aura is suddenly emitted from \the [owner]!"), \
 	span_xenowarning("We violently fling [victim] with the power of our mind!"))
@@ -162,18 +162,7 @@
 	span_xenowarning("You are violently flung to the side by an unseen force!"))
 	playsound(owner,'sound/effects/magic.ogg', 75, 1)
 	playsound(victim,'sound/weapons/alien_claw_block.ogg', 75, 1)
-/* RU TGMC EDIT
-		//Held facehuggers get killed for balance reasons
-	if(istype(owner.r_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.r_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
 
-	if(istype(owner.l_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.l_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
-RU TGMC EDIT */
 	succeed_activate()
 	add_cooldown()
 	if(ishuman(victim))
@@ -323,7 +312,7 @@ RU TGMC EDIT */
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.heals++
 	GLOB.round_statistics.psychic_cures++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_cures")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psychic_cures")
 	owner.visible_message(span_xenowarning("A strange psychic aura is suddenly emitted from \the [owner]!"), \
 	span_xenowarning("We cure [target] with the power of our mind!"))
 	target.visible_message(span_xenowarning("[target] suddenly shimmers in a chill light."), \
@@ -392,7 +381,7 @@ RU TGMC EDIT */
 
 	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
 	GLOB.round_statistics.xeno_acid_wells++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_acid_wells")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_acid_wells")
 	owner.record_traps_created()
 
 

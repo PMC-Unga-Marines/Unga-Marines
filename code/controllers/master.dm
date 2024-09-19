@@ -298,7 +298,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/seconds = round(time * 0.001, 0.01)
 
 	// Always update the blackbox tally regardless.
-	SSblackbox.record_feedback("tally", "subsystem_initialize", time, subsystem.name)
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "subsystem_initialize", time, subsystem.name)
 
 	// Gave invalid return value.
 	if(result && !(result in valid_results))
