@@ -114,7 +114,7 @@
 /obj/item/explosive/grenade/proc/launched_det_time()
 	det_time = min(12, det_time)
 
-/obj/item/explosive/grenade/throw_at()
+/obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
 
