@@ -50,6 +50,7 @@
 #include "code\__DEFINES\construction.dm"
 #include "code\__DEFINES\cooldowns.dm"
 #include "code\__DEFINES\coordinates.dm"
+#include "code\__DEFINES\discord.dm"
 #include "code\__DEFINES\do_afters.dm"
 #include "code\__DEFINES\dropship_equipment.dm"
 #include "code\__DEFINES\emote.dm"

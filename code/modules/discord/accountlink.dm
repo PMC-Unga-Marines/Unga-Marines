@@ -42,10 +42,9 @@
 			SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
 			alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
-// IF you have linked your account, this will trigger a verify of the user
 /client/verb/check_discord()
 	set category = "OOC.Discord"
-	set name = "Check discord id"
+	set name = "Check Discord ID"
 	set desc = "Verify or reverify your discord account against your linked ckey"
 
 	// Safety checks
@@ -72,10 +71,9 @@
 	// honey its time for your role flattening
 	to_chat(usr, span_notice("Discord - [stored_id] - verified"))
 
-// IF you have linked your account, this will trigger a verify of the user
 /client/verb/boosty_roly()
 	set category = "OOC.Discord"
-	set name = "Check boosty"
+	set name = "Check Boosty"
 	set desc = "Checking if you have permission to bind to boosty"
 
 	// Safety checks
@@ -92,9 +90,9 @@
 	if(!SSdiscord.enabled)
 		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
-
-	if(SSdiscord.is_boosty(usr.ckey, FALSE))
-		to_chat(usr, span_notice("Boosty discord role is verified"))
+	var/tier = SSdiscord.get_boosty_tier(usr.ckey, FALSE)
+	if(tier)
+		to_chat(usr, span_notice("Boosty discord role is verified. Your current tier is [tier]"))
 		return
 
 	to_chat(usr, span_notice("You don't have a boosty permission"))

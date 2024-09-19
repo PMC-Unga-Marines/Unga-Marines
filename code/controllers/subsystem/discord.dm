@@ -101,30 +101,30 @@ SUBSYSTEM_DEF(discord)
 	var/regex/num_only = regex("\[^0-9\]", "g")
 	return num_only.Replace(input, "")
 
-/datum/controller/subsystem/discord/proc/is_boosty(ckey, silent = TRUE)
+/datum/controller/subsystem/discord/proc/get_boosty_tier(ckey, silent = TRUE)
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
 		if(!silent)
 			to_chat(src, span_warning("This feature requires the SQL backend to be running."))
-		return
+		return BOOSTY_TIER_0
 
 	// ss is still starting
 	if(!SSdiscord)
 		if(!silent)
 			to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
-		return
+		return BOOSTY_TIER_0
 
 	if(!SSdiscord.enabled)
 		if(!silent)
 			to_chat(usr, span_warning("TGS is not enabled"))
-		return
+		return BOOSTY_TIER_0
 
 	var/discord_id = lookup_id(ckey)
 
 	if(!discord_id) // Account is not linked
 		if(!silent)
 			to_chat(usr, "Link your discord account via the linkdiscord verb in the OOC tab first");
-		return
+		return BOOSTY_TIER_0
 
 	var/url = "https://discord.com/api/guilds/[CONFIG_GET(string/discord_guildid)]/members/[discord_id]"
 	// Make the request
@@ -141,14 +141,20 @@ SUBSYSTEM_DEF(discord)
 	catch(var/exception/e)
 		if(!silent)
 			to_chat(usr, span_warning("JSON parsing FAILED: [e]: [res.body]"))
-		return
+		return BOOSTY_TIER_0
 
 	if(!data["roles"])
 		if(!silent)
 			to_chat(usr, span_warning("Failed to check discord roles"));
-		return
+		return BOOSTY_TIER_0
 
-	if(CONFIG_GET(string/discord_boosty_roleid) in data["roles"])
-		return TRUE
+	if(CONFIG_GET(string/discord_boosty_roleid_tier3) in data["roles"])
+		return BOOSTY_TIER_3
 
-	return FALSE
+	if(CONFIG_GET(string/discord_boosty_roleid_tier2) in data["roles"])
+		return BOOSTY_TIER_2
+
+	if(CONFIG_GET(string/discord_boosty_roleid_tier1) in data["roles"])
+		return BOOSTY_TIER_1
+
+	return BOOSTY_TIER_0
