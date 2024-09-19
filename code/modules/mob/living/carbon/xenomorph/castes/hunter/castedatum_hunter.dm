@@ -57,7 +57,7 @@
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
-		/datum/action/ability/xeno_action/deathstroke,
+		/datum/action/ability/xeno_action/crippling_strike/hunter,
 	)
 
 	// *** Vent Crawl Parameters *** //
@@ -85,7 +85,7 @@
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
-		/datum/action/ability/xeno_action/deathstroke,
+		/datum/action/ability/xeno_action/crippling_strike/hunter,
 	)
 
 
