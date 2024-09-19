@@ -64,8 +64,9 @@
 	transfer_turf(new_turf)
 
 /datum/automata_cell/explosion/death()
+	exploded_atoms = null
 	if(shockwave)
-		qdel(shockwave)
+		QDEL_NULL(shockwave)
 
 // Compare directions. If the other explosion is traveling in the same direction,
 // the explosion is amplified. If not, it's weakened
