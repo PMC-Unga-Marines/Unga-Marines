@@ -35,10 +35,10 @@
 	return ..()
 
 /obj/structure/xeno/acidwell/process()
-	charges++
-	update_icon()
 	if(charges >= XENO_ACID_WELL_MAX_CHARGES)
 		return PROCESS_KILL
+	charges++
+	update_icon()
 
 ///Signal handler for creator destruction to clear reference
 /obj/structure/xeno/acidwell/proc/clear_creator()
