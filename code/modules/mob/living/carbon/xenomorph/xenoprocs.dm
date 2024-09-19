@@ -72,7 +72,7 @@
 
 /mob/living/carbon/xenomorph/proc/toggle_rouny()
 
-	if(SSdiscord.get_boosty_tier(ckey) >= BOOSTY_TIER_2)
+	if(SSdiscord.get_boosty_tier(ckey) >= BOOSTY_TIER_3)
 		to_chat(usr, span_notice("You need a higher boosty tier to use this"))
 		return
 
