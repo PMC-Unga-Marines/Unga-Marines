@@ -239,6 +239,13 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/upgrade_chamber/shell
+	var/max_chambers = 3
+
+/datum/hive_upgrade/building/upgrade_chamber/shell/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.shell_chambers) >= max_chambers)
+		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active shell chambers!"))
+		return FALSE
 
 /datum/hive_upgrade/building/upgrade_chamber/spur
 	name = "Spur Upgrade Chamber"
@@ -247,6 +254,13 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/upgrade_chamber/spur
+	var/max_chambers = 3
+
+/datum/hive_upgrade/building/upgrade_chamber/spur/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.spur_chambers) >= max_chambers)
+		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active spur chambers!"))
+		return FALSE
 
 /datum/hive_upgrade/building/upgrade_chamber/veil
 	name = "Veil Upgrade Chamber"
@@ -255,6 +269,13 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/upgrade_chamber/veil
+	var/max_chambers = 3
+
+/datum/hive_upgrade/building/upgrade_chamber/veil/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.veil_chambers) >= max_chambers)
+		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active veil chambers!"))
+		return FALSE
 
 /datum/hive_upgrade/defence
 	category = "Defences"
