@@ -32,6 +32,8 @@ SUBSYSTEM_DEF(discord)
 
 	/// List that holds accounts to link, used in conjunction with TGS
 	var/list/account_link_cache = list()
+	/// list of people who tried to use Boosty styff, so we don't call the API every time
+	var/list/boosty_cache = list()
 	/// Is TGS enabled (If not we won't fire because otherwise this is useless)
 	var/enabled = 0
 
@@ -119,6 +121,10 @@ SUBSYSTEM_DEF(discord)
 			to_chat(usr, span_warning("TGS is not enabled"))
 		return BOOSTY_TIER_0
 
+	//use cache if possible
+	if(boosty_cache[ckey])
+		return boosty_cache[ckey]
+
 	var/discord_id = lookup_id(ckey)
 
 	if(!discord_id) // Account is not linked
@@ -148,13 +154,19 @@ SUBSYSTEM_DEF(discord)
 			to_chat(usr, span_warning("Failed to check discord roles"));
 		return BOOSTY_TIER_0
 
+	//save cache and return tier
+
 	if(CONFIG_GET(string/discord_boosty_roleid_tier_3) in data["roles"])
+		boosty_cache[ckey] = BOOSTY_TIER_3
 		return BOOSTY_TIER_3
 
 	if(CONFIG_GET(string/discord_boosty_roleid_tier_2) in data["roles"])
+		boosty_cache[ckey] = BOOSTY_TIER_2
 		return BOOSTY_TIER_2
 
 	if(CONFIG_GET(string/discord_boosty_roleid_tier_1) in data["roles"])
+		boosty_cache[ckey] = BOOSTY_TIER_1
 		return BOOSTY_TIER_1
 
+	boosty_cache[ckey] = BOOSTY_TIER_0
 	return BOOSTY_TIER_0
