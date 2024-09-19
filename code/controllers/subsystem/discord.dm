@@ -148,13 +148,13 @@ SUBSYSTEM_DEF(discord)
 			to_chat(usr, span_warning("Failed to check discord roles"));
 		return BOOSTY_TIER_0
 
-	if(CONFIG_GET(string/discord_boosty_roleid_tier3) in data["roles"])
+	if(CONFIG_GET(string/discord_boosty_roleid_tier_3) in data["roles"])
 		return BOOSTY_TIER_3
 
-	if(CONFIG_GET(string/discord_boosty_roleid_tier2) in data["roles"])
+	if(CONFIG_GET(string/discord_boosty_roleid_tier_2) in data["roles"])
 		return BOOSTY_TIER_2
 
-	if(CONFIG_GET(string/discord_boosty_roleid_tier1) in data["roles"])
+	if(CONFIG_GET(string/discord_boosty_roleid_tier_1) in data["roles"])
 		return BOOSTY_TIER_1
 
 	return BOOSTY_TIER_0

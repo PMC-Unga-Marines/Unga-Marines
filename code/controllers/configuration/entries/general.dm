@@ -458,8 +458,8 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 
 /datum/config_entry/string/discord_guildid
 
-/datum/config_entry/string/discord_boosty_roleid_tier1
+/datum/config_entry/string/discord_boosty_roleid_tier_1
 
-/datum/config_entry/string/discord_boosty_roleid_tier2
+/datum/config_entry/string/discord_boosty_roleid_tier_2
 
-/datum/config_entry/string/discord_boosty_roleid_tier3
+/datum/config_entry/string/discord_boosty_roleid_tier_3
