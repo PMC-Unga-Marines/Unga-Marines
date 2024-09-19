@@ -35,8 +35,6 @@ GLOBAL_DATUM_INIT(balance, /datum/balance, new())
 
 	record_feedback()
 
-
-
 /datum/balance/proc/lose_points(datum/dcs, mob/source)
 	SIGNAL_HANDLER
 	if(!isliving(source))
@@ -55,4 +53,4 @@ GLOBAL_DATUM_INIT(balance, /datum/balance, new())
 /datum/balance/proc/record_feedback()
 	var/list/data = deepCopyList(balance_values)
 	data["timestamp"] = world.time
-	SSblackbox.record_feedback("associative", "balance", 1, data)
+	SSblackbox.record_feedback(FEEDBACK_ASSOCIATIVE, "balance", 1, data)

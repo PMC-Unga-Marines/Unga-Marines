@@ -23,7 +23,7 @@
 			if(stat == CONSCIOUS && getToxLoss() >= 45 && nutrition > 20)
 				vomit()
 
-			handle_shock()
+			handle_pain_levels()
 
 			handle_pain()
 

@@ -8906,10 +8906,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_rnr)
 "erW" = (
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/ammo_magazine/smg/standard_smg,
-/obj/item/weapon/gun/smg/standard_smg,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/ammo_magazine/smg/smg90,
+/obj/item/weapon/gun/smg/smg90,
 /obj/structure/table/mainship/nometal,
 /turf/open/floor/mainship/red{
 	dir = 5
@@ -9795,7 +9795,7 @@
 /area/mainship/hallways/port_hallway)
 "fQp" = (
 /obj/machinery/firealarm,
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/mainship/sterile/side{
 	dir = 1
 	},
@@ -16693,8 +16693,8 @@
 /area/mainship/command/cic)
 "rfB" = (
 /obj/structure/rack,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/mg42,
+/obj/item/weapon/gun/rifle/mg42,
 /obj/item/attachable/scope,
 /obj/item/attachable/extended_barrel,
 /obj/item/clothing/suit/armor/bulletproof,
@@ -18994,7 +18994,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/officer_study)
 "vfD" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
 	},

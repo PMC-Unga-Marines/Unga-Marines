@@ -1,13 +1,7 @@
-/client/var/adminhelptimerid = 0	//a timer id for returning the ahelp verb
-/client/var/datum/admin_help/current_ticket	//the current ticket the (usually) not-admin client is dealing with
-
 //
 //TICKET MANAGER
 //
-
-
 GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
-
 
 /datum/admin_help_tickets
 	var/list/active_tickets = list()

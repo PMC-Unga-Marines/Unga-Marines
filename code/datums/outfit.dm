@@ -19,7 +19,6 @@
 	var/suit_store = null
 	var/r_hand = null
 	var/l_hand = null
-	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = null // In the list(path=count,otherpath=count) format
 	var/box // Internals box. Will be inserted at the start of backpack_contents
 	var/list/implants = null
@@ -98,11 +97,6 @@
 
 	post_equip(H, visualsOnly)
 
-	if(!visualsOnly)
-		if(internals_slot)
-			H.internal = H.get_item_by_slot(internals_slot)
-			H.update_action_buttons()
-
 	if(implants && implants.len)
 		for(var/implant_type in implants)
 			var/obj/item/implant/implanter = new implant_type(H)
@@ -133,7 +127,6 @@
 	.["suit_store"] = suit_store
 	.["r_hand"] = r_hand
 	.["l_hand"] = l_hand
-	.["internals_slot"] = internals_slot
 	.["backpack_contents"] = backpack_contents
 	.["box"] = box
 	.["implants"] = implants
@@ -159,7 +152,6 @@
 	suit_store = target.suit_store
 	r_hand = target.r_hand
 	l_hand = target.l_hand
-	internals_slot = target.internals_slot
 	backpack_contents = target.backpack_contents
 	box = target.box
 	implants = target.implants
@@ -195,7 +187,6 @@
 	suit_store = text2path(outfit_data["suit_store"])
 	r_hand = text2path(outfit_data["r_hand"])
 	l_hand = text2path(outfit_data["l_hand"])
-	internals_slot = outfit_data["internals_slot"]
 	var/list/backpack = outfit_data["backpack_contents"]
 	backpack_contents = list()
 	for(var/item in backpack)

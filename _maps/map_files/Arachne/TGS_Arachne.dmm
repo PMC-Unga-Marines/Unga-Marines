@@ -3888,7 +3888,7 @@
 /turf/open/floor/mainship/research,
 /area/mainship/medical/upper_medical)
 "drL" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -7877,7 +7877,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "gMi" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
@@ -13576,7 +13576,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/general)
 "lqi" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
 /obj/machinery/holopad,
@@ -23519,8 +23519,8 @@
 /obj/item/attachable/extended_barrel,
 /obj/item/attachable/extended_barrel,
 /obj/item/attachable/scope,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/mg42,
+/obj/item/weapon/gun/rifle/mg42,
 /obj/item/stack/sheet/metal/medium_stack,
 /obj/item/stack/sheet/metal/medium_stack{
 	pixel_x = 5;
@@ -25726,10 +25726,10 @@
 /area/mainship/engineering/engineering_workshop)
 "vAA" = (
 /obj/structure/table/mainship/nometal,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/item/weapon/gun/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/ammo_magazine/rifle/ar18,
+/obj/item/weapon/gun/rifle/ar18,
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship/red{
 	dir = 1

@@ -4,7 +4,7 @@
 	hud_state = "flame"
 	hud_state_empty = "flame_empty"
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_INCENDIARY|AMMO_FLAME|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_INCENDIARY|AMMO_FLAME|AMMO_TARGET_TURF
 	armor_type = FIRE
 	max_range = 7
 	damage = 31
@@ -63,7 +63,7 @@
 	damage = 0
 	shell_speed = 1
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_TARGET_TURF
 	bullet_color = null
 
 /datum/ammo/water/proc/splash(turf/extinguished_turf, splash_direction)

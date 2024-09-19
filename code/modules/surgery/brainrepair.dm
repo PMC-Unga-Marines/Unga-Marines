@@ -1,7 +1,3 @@
-//////////////////////////////////////////////////////////////////
-//				BRAIN DAMAGE FIXING								//
-//////////////////////////////////////////////////////////////////
-
 /datum/surgery_step/brain
 	var/dmg_min = 0
 	var/dmg_max
@@ -13,8 +9,6 @@
 	if(dmg_max && sponge.damage > dmg_max)
 		return SURGERY_CANNOT_USE
 	return SURGERY_CAN_USE
-
-
 
 /datum/surgery_step/brain/bone_chips
 	priority = 3
@@ -32,7 +26,7 @@
 	user.visible_message(span_notice("[user] starts taking bone chips out of [target]'s brain with \the [tool]."), \
 	span_notice("You start taking bone chips out of [target]'s brain with \the [tool]."))
 	target.balloon_alert_to_viewers("Clearing bone...")
-	..()
+	return ..()
 
 /datum/surgery_step/brain/bone_chips/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] takes out all the bone chips in [target]'s brain with \the [tool]."),	\
@@ -40,7 +34,7 @@
 	target.balloon_alert_to_viewers("Success")
 	var/datum/internal_organ/brain/sponge = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(sponge)
-		sponge.damage = 0
+		sponge.heal_organ_damage(BRAIN_DAMAGE_DEATH) // we heal the maximun amount, so this define should do it
 	return ..()
 
 /datum/surgery_step/brain/bone_chips/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
@@ -48,7 +42,6 @@
 	span_warning("Your hand slips, jabbing \the [tool] in [target]'s brain!"))
 	target.balloon_alert_to_viewers("Slipped!")
 	target.apply_damage(30, BRUTE, "head", 0, TRUE, updating_health = TRUE)
-
 
 /datum/surgery_step/brain/hematoma
 	priority = 3
@@ -61,12 +54,11 @@
 	max_duration = HEMOTOMA_MAX_DURATION
 	dmg_min = BONECHIPS_MAX_DAMAGE //below that, you use the hemostat
 
-
 /datum/surgery_step/brain/hematoma/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts mending hematoma in [target]'s brain with \the [tool]."), \
 	span_notice("You start mending hematoma in [target]'s brain with \the [tool]."))
 	target.balloon_alert_to_viewers("Mending...")
-	..()
+	return ..()
 
 /datum/surgery_step/brain/hematoma/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] mends hematoma in [target]'s brain with \the [tool]."),	\
@@ -74,7 +66,7 @@
 	target.balloon_alert_to_viewers("Success")
 	var/datum/internal_organ/brain/sponge = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(sponge)
-		sponge.damage = BONECHIPS_MAX_DAMAGE
+		sponge.heal_organ_damage(BONECHIPS_MAX_DAMAGE)
 	return ..()
 
 /datum/surgery_step/brain/hematoma/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)

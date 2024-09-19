@@ -228,7 +228,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "agw" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -6456,7 +6456,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/bar)
 "eoS" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/effect/ai_node,
@@ -6843,7 +6843,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/cavestructuretwo)
 "ezN" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison/blue{
@@ -7219,7 +7219,7 @@
 /obj/structure/inflatable/wall{
 	dir = 8
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison,
@@ -14116,7 +14116,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/gelida/outdoors/colony_streets/central_streets)
 "jBT" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison/darkpurple{
@@ -14764,7 +14764,7 @@
 /area/gelida/indoors/c_block/mining)
 "jVX" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/tx11,
+/obj/item/weapon/gun/rifle/ar11,
 /turf/open/floor/prison/blue/plate{
 	dir = 1
 	},
@@ -16594,7 +16594,7 @@
 /turf/open/floor/podhatch/floor,
 /area/gelida/indoors/a_block/corpo)
 "llK" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -22070,11 +22070,11 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/weapon/gun/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/ammo_magazine/rifle/ar11,
+/obj/item/weapon/gun/rifle/ar11{
 	pixel_y = -6
 	},
 /turf/open/floor/prison,
@@ -22146,7 +22146,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/w_rockies)
 "oTO" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -24444,7 +24444,7 @@
 /turf/open/floor/tile/dark2,
 /area/gelida/indoors/c_block/mining)
 "qtR" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/prison,
@@ -25410,7 +25410,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/security)
 "qZL" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
@@ -28131,7 +28131,7 @@
 /obj/structure/inflatable/wall{
 	dir = 8
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -28534,12 +28534,12 @@
 /area/gelida/indoors/c_block/mining)
 "tbE" = (
 /obj/structure/table/mainship,
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0;
 	pixel_x = -3;
 	pixel_y = 5
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0;
 	pixel_x = 11;
 	pixel_y = -4
@@ -29613,7 +29613,7 @@
 /area/gelida/indoors/a_block/security)
 "tRN" = (
 /obj/structure/closet/crate/ammo,
-/obj/item/weapon/gun/rifle/tx11,
+/obj/item/weapon/gun/rifle/ar11,
 /turf/open/shuttle/dropship/floor,
 /area/gelida/landing_zone_forecon/UD6_Typhoon)
 "tRT" = (
@@ -30427,7 +30427,7 @@
 /obj/structure/inflatable/wall{
 	dir = 8
 	},
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -32702,7 +32702,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
 "wbM" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0;
 	pixel_x = 9;
 	pixel_y = 3
@@ -33762,7 +33762,7 @@
 /turf/closed/wall,
 /area/gelida/indoors/a_block/hallway)
 "wQH" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -35172,7 +35172,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/windbreaker)
 "xQy" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/structure/cable,
@@ -35186,7 +35186,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/kitchen)
 "xQD" = (
-/obj/item/ammo_magazine/rifle/tx11{
+/obj/item/ammo_magazine/rifle/ar11{
 	current_rounds = 0
 	},
 /obj/effect/landmark/weed_node,

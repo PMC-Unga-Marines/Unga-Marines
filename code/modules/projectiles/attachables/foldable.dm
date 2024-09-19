@@ -90,7 +90,7 @@
 	scatter_unwielded_mod = 4
 	accuracy_unwielded_mod = -0.1
 
-/obj/item/attachable/foldable/t19stock
+/obj/item/attachable/foldable/mp19stock
 	name = "\improper MP-19 machinepistol stock"
 	desc = "A submachinegun stock distributed in small numbers to TGMC forces. Compatible with the MP-19, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl."
 	flags_attach_features = ATTACH_ACTIVATION

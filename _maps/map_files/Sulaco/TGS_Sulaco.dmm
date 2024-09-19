@@ -377,7 +377,7 @@
 /area/sulaco/briefing)
 "abt" = (
 /obj/machinery/light/mainship,
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /obj/structure/sign/prop1,
@@ -642,7 +642,7 @@
 	},
 /area/sulaco/medbay/storage)
 "act" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{
@@ -1123,7 +1123,7 @@
 	},
 /area/sulaco/medbay/surgery_one)
 "adR" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /turf/open/floor/prison/whitegreen/corner{
@@ -1594,9 +1594,9 @@
 /area/sulaco/medbay/cmo)
 "agA" = (
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/rifle/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
+/obj/item/ammo_magazine/mg42,
+/obj/item/ammo_magazine/mg42,
 /obj/item/weapon/gun/smg/m25,
 /obj/item/ammo_magazine/smg/m25,
 /obj/item/ammo_magazine/smg/m25,
@@ -2043,9 +2043,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname,
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/rifle/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
+/obj/item/ammo_magazine/mg42,
+/obj/item/ammo_magazine/mg42,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -14324,7 +14324,7 @@
 /obj/machinery/air_alarm{
 	dir = 4
 	},
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /turf/open/floor/prison/whitegreen/corner{
@@ -21955,7 +21955,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "rso" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/vehicle/ridden/wheelchair{
 	dir = 4
 	},
 /obj/machinery/vending/nanomed{
@@ -23047,9 +23047,9 @@
 "sJR" = (
 /obj/machinery/light/mainship,
 /obj/structure/rack,
-/obj/item/weapon/gun/rifle/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
+/obj/item/ammo_magazine/mg42,
+/obj/item/ammo_magazine/mg42,
 /turf/open/floor/prison/red{
 	dir = 6
 	},

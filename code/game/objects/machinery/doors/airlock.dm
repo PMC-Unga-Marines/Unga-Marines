@@ -704,3 +704,19 @@
 
 /obj/machinery/door/airlock/proc/weld_checks()
 	return !operating && density
+
+/obj/machinery/door/airlock/psi_act(psi_power, mob/living/user)
+	if(operating)
+		to_chat(user, span_warning("The airlock is already in motion."))
+		return
+	if(welded)
+		to_chat(user, span_warning("The airlock is welded shut."))
+		return
+	if(locked)
+		to_chat(user, span_warning("The airlock's bolts prevent it from being forced."))
+		return
+	if(psi_power < PSIONIC_INTERACTION_STRENGTH_STANDARD && hasPower())
+		to_chat(user, span_warning("The airlock's motors resist your efforts to force it."))
+		return
+
+	return ..()

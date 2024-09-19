@@ -38,6 +38,12 @@
 
 	minimap_icon = "clown"
 
+/datum/job/terragov/civilian/clown/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+	. = ..()
+
+	C.equip_to_slot_or_del(new /obj/item/tool/soap/clown, SLOT_IN_BACKPACK)
+	C.equip_to_slot_or_del(new /obj/item/tool/soap/clown, SLOT_IN_BACKPACK)
+	C.equip_to_slot_or_del(new /obj/item/tool/soap/clown, SLOT_IN_BACKPACK)
 
 /datum/job/terragov/civilian/clown/radio_help_message(mob/M)
 	. = ..()
