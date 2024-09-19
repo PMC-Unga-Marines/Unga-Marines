@@ -37,7 +37,6 @@
 /mob/living/carbon/human/dust_animation()
 	new /obj/effect/overlay/temp/dust_animation(loc, 0, src, "dust-h")
 
-
 /mob/living/carbon/human/death(gibbing, deathmessage, silent, special_death_message)
 	if(!species)
 		return ..()
