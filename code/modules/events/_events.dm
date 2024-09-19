@@ -56,7 +56,7 @@
 		if(!admin_approval("Event:[name]"))
 			triggering = FALSE
 			message_admins("An admin cancelled event [name].")
-			SSblackbox.record_feedback("tally", "event_admin_cancelled", 1, typepath)
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "event_admin_cancelled", 1, typepath)
 			return EVENT_CANCELLED
 		if(!triggering)
 			to_chat(usr, span_admin("You are too late to cancel that event"))
@@ -74,7 +74,7 @@
 	var/datum/round_event/E = new typepath()
 	E.current_players = get_active_player_count(alive_check = TRUE, afk_check = TRUE)
 	E.control = src
-	SSblackbox.record_feedback("tally", "event_ran", 1, "[E]")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "event_ran", 1, "[E]")
 	occurrences++
 
 	testing("[time2text(world.time, "hh:mm:ss")] [E.type]")

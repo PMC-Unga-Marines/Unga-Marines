@@ -260,17 +260,14 @@
 	switch(tally_type)
 		if(TALLY_MORTAR)
 			GLOB.round_statistics.mortar_shells_fired++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "mortar_shells_fired")
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "mortar_shells_fired")
 		if(TALLY_HOWITZER)
 			GLOB.round_statistics.howitzer_shells_fired++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "howitzer_shells_fired")
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "howitzer_shells_fired")
 		if(TALLY_ROCKET_ARTY)
 			GLOB.round_statistics.rocket_shells_fired++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "rocket_shells_fired")
-	/* ORIGINAL
-	playsound(loc, fire_sound, 50, 1)
-	*/
-	playsound(loc, fire_sound, 70, 0) //RUTGMC EDIT
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "rocket_shells_fired")
+	playsound(loc, fire_sound, 70, 0)
 	flick(icon_state + "_fire", src)
 	var/obj/projectile/shell = new /obj/projectile(loc)
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
