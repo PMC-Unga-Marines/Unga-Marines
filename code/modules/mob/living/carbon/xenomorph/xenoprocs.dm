@@ -612,17 +612,17 @@
 	dat += "<div align='center'><hr>Avaliable upgrades:</div>"
 	if(length(user?.hive?.shell_chambers) > 0)
 		dat += "<div align='center'>SURVIVAL</div>"
-		dat += "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a>"
-		dat += "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a>"
-		dat += "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a>"
+		dat += "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your armor."
+		dat += "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your health regeneration."
+		dat += "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Leech from your attacks."
 	if(length(user?.hive?.spur_chambers) > 0)
 		dat += "<div align='center'>ATTACK</div>"
-		dat += "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a>"
-		dat += "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a>"
-		dat += "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a>"
+		dat += "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your movement speed."
+		dat += "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your plasma regeneration."
+		dat += "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your damage to objects."
 	if(length(user?.hive?.veil_chambers) > 0)
 		dat += "<div align='center'>UTILITY</div>"
-		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a>"
+		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Inject toxin into your target."
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)
