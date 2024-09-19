@@ -1,13 +1,14 @@
-//This is the proc for gibbing a mob. Cannot gib ghosts.
-//added different sort of gibs and animations. N
+///This is the proc for gibbing a mob. Cannot gib ghosts.
 /mob/proc/gib()
 	gib_animation()
 	spawn_gibs()
 	death(TRUE)
 
+///Proc for playing the gib animation on the gib proc.
 /mob/proc/gib_animation()
 	return
 
+///Proc for spawning gore, blood and gibs on the gib proc
 /mob/proc/spawn_gibs()
 	hgibs(loc)
 
