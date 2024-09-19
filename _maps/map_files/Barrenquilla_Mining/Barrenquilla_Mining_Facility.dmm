@@ -422,7 +422,6 @@
 /area/barren/cave/central)
 "cJ" = (
 /obj/structure/cable,
-/obj/structure/cable,
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 4
 	},
@@ -801,11 +800,6 @@
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/marking/delivery,
 /area/barren/cave/lz1)
-"eM" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/civilian/cook)
 "eN" = (
 /obj/item/toy/gun,
 /turf/open/floor,
@@ -885,7 +879,7 @@
 /area/barren/cave/central)
 "fl" = (
 /obj/machinery/smartfridge/chemistry,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/barren/medical)
 "fn" = (
 /obj/structure/sign/poster,
@@ -1283,9 +1277,7 @@
 /area/barren/caves/southwest)
 "hg" = (
 /obj/structure/bed/chair/sofa/right,
-/turf/open/floor/carpet{
-	icon_state = "carpet6-0"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "hi" = (
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -1308,9 +1300,7 @@
 /area/ai_monitored/storage/secure)
 "hm" = (
 /obj/structure/bed/chair/sofa,
-/turf/open/floor/carpet{
-	icon_state = "carpet14-0"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "hn" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -1321,9 +1311,7 @@
 	dir = 1
 	},
 /obj/structure/bed/chair/sofa/left,
-/turf/open/floor/carpet{
-	icon_state = "carpet10-0"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "hs" = (
 /obj/machinery/power/apc/drained,
@@ -1362,7 +1350,7 @@
 /area/barren/cave/lz2)
 "hA" = (
 /obj/machinery/smartfridge/chemistry,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/barren/medical/research)
 "hB" = (
 /obj/structure/table,
@@ -1374,12 +1362,6 @@
 	baseturfs = /turf/open/lavaland/basalt
 	},
 /area/barren/cave/central)
-"hD" = (
-/obj/structure/cable,
-/turf/open/floor/carpet{
-	icon_state = "carpet11-4"
-	},
-/area/barren/cave/west)
 "hE" = (
 /obj/structure/fence,
 /turf/open/lavaland/basalt{
@@ -1450,9 +1432,7 @@
 "ib" = (
 /obj/structure/table,
 /obj/item/toy/deck,
-/turf/open/floor/carpet{
-	icon_state = "carpet5-1"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "ie" = (
 /obj/effect/landmark/weed_node,
@@ -1465,14 +1445,10 @@
 "ih" = (
 /obj/structure/table,
 /obj/item/toy/dice/d20,
-/turf/open/floor/carpet{
-	icon_state = "carpet13-0"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "ik" = (
-/turf/open/floor/carpet{
-	icon_state = "carpet9-4"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "il" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner2{
@@ -2022,9 +1998,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
 /area/barren/cave/lz1)
 "li" = (
 /obj/structure/sign/heat,
@@ -2082,9 +2056,7 @@
 "lI" = (
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/cobweb,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
 /area/barren/civilian/workdorm)
 "lJ" = (
 /obj/structure/fence,
@@ -2123,14 +2095,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/barren/cave/lz2)
-"lT" = (
-/obj/structure/bed/alien,
-/obj/item/bedsheet,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/civilian/workdorm)
 "lU" = (
 /obj/structure/barricade/guardrail{
 	dir = 8
@@ -2187,14 +2151,6 @@
 	baseturfs = /turf/open/lavaland/basalt
 	},
 /area/barren/caves/south)
-"ml" = (
-/obj/structure/bed/alien,
-/obj/item/bedsheet,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/barren/civilian/workdorm)
 "mn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -2208,12 +2164,6 @@
 	baseturfs = /turf/open/lavaland/basalt
 	},
 /area/barren/cave/north)
-"ms" = (
-/obj/structure/closet,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/barren/civilian)
 "mt" = (
 /obj/machinery/light{
 	dir = 8
@@ -2450,11 +2400,6 @@
 /obj/structure/cable,
 /turf/open/floor/freezer,
 /area/barren/medical/chemistry)
-"nN" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/civilian)
 "nO" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
@@ -2531,12 +2476,6 @@
 	baseturfs = /turf/open/lavaland/basalt
 	},
 /area/barren/cave/central)
-"op" = (
-/obj/structure/table/reinforced/prison,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/barren/security)
 "or" = (
 /obj/machinery/vending/cola,
 /obj/effect/decal/cleanable/dirt,
@@ -3130,9 +3069,7 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
+/turf/open/floor/wood,
 /area/barren/security)
 "rM" = (
 /obj/structure/fence,
@@ -4333,9 +4270,7 @@
 "zd" = (
 /obj/item/trash/cigbutt/cigarbutt,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "zf" = (
 /obj/structure/cable,
@@ -4362,9 +4297,7 @@
 "zl" = (
 /obj/structure/table/reinforced/prison,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
 /area/barren/security)
 "zm" = (
 /obj/structure/lattice,
@@ -5449,9 +5382,7 @@
 	},
 /area/barren/medical)
 "Fo" = (
-/obj/machinery/door/airlock/colony/medical{
-	name = "medicine storage"
-	},
+/obj/machinery/door/airlock/colony/medical,
 /obj/structure/cable,
 /turf/open/floor/tile/bar{
 	name = "medical"
@@ -5499,9 +5430,7 @@
 /area/barren/medical)
 "Fy" = (
 /obj/structure/cable,
-/turf/open/floor/carpet{
-	icon_state = "carpet15-4"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "FB" = (
 /obj/structure/table/woodentable,
@@ -5600,14 +5529,8 @@
 /area/barren/security)
 "Gb" = (
 /obj/machinery/smartfridge/drinks,
-/turf/closed/wall,
+/turf/open/floor/plating,
 /area/barren/civilian/cook)
-"Gc" = (
-/obj/structure/cable,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/cave/lz1)
 "Gd" = (
 /obj/structure/cable,
 /turf/open/floor,
@@ -5882,13 +5805,6 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/tile/red/redtaupe,
 /area/barren/security)
-"HK" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
-/area/barren/cave/central)
 "HL" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
@@ -6076,9 +5992,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
+/turf/open/floor/wood,
 /area/barren/cave/lz1)
 "IU" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -6274,11 +6188,6 @@
 /obj/effect/landmark/corpsespawner/miner,
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
-"JQ" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/security)
 "JR" = (
 /obj/structure/table/reinforced,
 /obj/machinery/power/apc,
@@ -6575,11 +6484,6 @@
 	dir = 8
 	},
 /area/barren/medical/chemistry)
-"LE" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor,
-/area/barren/civilian)
 "LJ" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
@@ -6799,9 +6703,7 @@
 /obj/machinery/power/apc/high{
 	dir = 4
 	},
-/turf/open/floor/carpet{
-	icon_state = "carpet7-0"
-	},
+/turf/open/floor/carpet,
 /area/barren/cave/west)
 "Nf" = (
 /obj/structure/cable,
@@ -7224,9 +7126,7 @@
 /area/barren/medical/chemistry)
 "PJ" = (
 /obj/effect/decal/cleanable/ash,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
 /area/barren/civilian/cook)
 "PK" = (
 /obj/effect/ai_node,
@@ -7682,11 +7582,6 @@
 	baseturfs = /turf/open/lavaland/basalt
 	},
 /area/barren/caves/southeast)
-"SC" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/bigredv2/outside/general_offices)
 "SD" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -7842,17 +7737,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark2,
 /area/barren/misc/refinery)
-"TE" = (
-/obj/structure/bed,
-/obj/item/bedsheet,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/civilian)
 "TF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/writing{
@@ -8070,14 +7954,6 @@
 	baseturfs = /turf/open/lavaland/basalt
 	},
 /area/barren/caves/southeast)
-"UX" = (
-/obj/effect/turf_decal/woodsiding{
-	dir = 1
-	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/barren/cave/lz1)
 "UY" = (
 /obj/structure/rack,
 /turf/open/floor/marking/delivery,
@@ -8116,11 +7992,6 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/barren/civilian)
-"Vn" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/barren/security)
 "Vp" = (
 /obj/structure/table/mainship,
 /turf/open/floor/wood,
@@ -8438,7 +8309,7 @@
 /area/barren/cave/lz2)
 "Xg" = (
 /obj/machinery/vending/boozeomat,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/barren/civilian/cook)
 "Xh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -8791,9 +8662,7 @@
 /obj/item/bedsheet,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
+/turf/open/floor/wood,
 /area/barren/civilian)
 "ZD" = (
 /obj/structure/cable,
@@ -21878,7 +21747,7 @@ gE
 zx
 RZ
 hq
-hD
+Fy
 ik
 kf
 ZN
@@ -22347,7 +22216,7 @@ Bi
 VY
 ue
 Xr
-JQ
+OU
 su
 Hv
 rD
@@ -22859,7 +22728,7 @@ ZS
 ZS
 Bi
 lQ
-op
+Sx
 Sx
 Sx
 su
@@ -23116,7 +22985,7 @@ fM
 ZS
 Bi
 lQ
-Vn
+OU
 Nh
 rL
 su
@@ -26483,7 +26352,7 @@ IL
 IM
 Dc
 XK
-SC
+PT
 RL
 RL
 IO
@@ -31604,7 +31473,7 @@ CJ
 Aj
 yw
 PB
-ms
+ja
 yw
 ZS
 ZS
@@ -32884,7 +32753,7 @@ Tb
 Aj
 Ww
 Aj
-eM
+Aj
 ZU
 nV
 yw
@@ -33163,7 +33032,7 @@ ZL
 ZL
 ZL
 ZL
-HK
+Rq
 Rq
 Rq
 Rq
@@ -34934,7 +34803,7 @@ gs
 bj
 nE
 Db
-nN
+PB
 yw
 eX
 eX
@@ -36732,7 +36601,7 @@ ZS
 ZS
 ZS
 yw
-TE
+um
 rX
 YM
 eX
@@ -38020,7 +37889,7 @@ qZ
 jz
 VH
 fo
-LE
+wA
 eX
 Dj
 eX
@@ -38534,13 +38403,13 @@ qZ
 qZ
 qm
 Kw
-LE
+wA
 wA
 wA
 fL
 wA
 wA
-LE
+wA
 Vm
 fO
 Zk
@@ -51129,7 +50998,7 @@ uq
 tT
 PC
 PC
-UX
+Cv
 NY
 oP
 MI
@@ -51646,7 +51515,7 @@ aJ
 Cv
 aQ
 NY
-Gc
+vT
 WI
 ag
 OD
@@ -52988,7 +52857,7 @@ fV
 Zi
 RC
 RC
-ml
+oO
 Cr
 ZS
 ZS
@@ -54014,7 +53883,7 @@ se
 Cc
 Mi
 CU
-lT
+oO
 wJ
 XZ
 Cr
@@ -54470,7 +54339,7 @@ Pw
 Pw
 Pw
 Pw
-UX
+Cv
 NY
 NY
 NY
