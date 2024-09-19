@@ -126,8 +126,8 @@
 					realIconSize = mapWidth / tilesShown,
 					resizeRatio = realIconSize / tooltip.tileSize,
 					//Calculate letterboxing offsets
-					leftOffset = (map.size.x - mapWidth) / 2,
-					topOffset = (map.size.y - mapHeight) / 2;
+					leftOffset = (map.size.x - mapWidth) * 0.5,
+					topOffset = (map.size.y - mapHeight) * 0.5;
 
 				//alert(realIconSize + ' | ' +tooltip.tileSize + ' | ' + resizeRatio); //DEBUG
 

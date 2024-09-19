@@ -87,10 +87,13 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 20
+	var/stun_time = 0.3 SECONDS
+	var/paralyze_time = 0.2 SECONDS
+	var/slip_xeno = FALSE
 
 /obj/item/tool/soap/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/slippery, 0.3 SECONDS, 0.2 SECONDS)
+	AddComponent(/datum/component/slippery, stun_time, paralyze_time, slip_xeno = slip_xeno)
 
 
 /obj/item/tool/soap/afterattack(atom/target, mob/user as mob, proximity)
@@ -130,3 +133,10 @@
 /obj/item/tool/soap/syndie
 	desc = "An untrustworthy bar of soap. Smells of fear."
 	icon_state = "soapsyndie"
+
+/obj/item/tool/soap/clown
+	desc = "A pink bar of soap. Smells of honk."
+	icon_state = "soapclown"
+	stun_time = 1.2 SECONDS
+	paralyze_time = 1 SECONDS
+	slip_xeno = TRUE

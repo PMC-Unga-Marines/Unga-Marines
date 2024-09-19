@@ -155,7 +155,7 @@
 	update_action_buttons()
 	handle_weeds_adjacent_removed()
 
-/mob/living/carbon/xenomorph/hivemind/flamer_fire_act(burnlevel)
+/mob/living/carbon/xenomorph/hivemind/fire_act(burn_level, flame_color)
 	return_to_core()
 	to_chat(src, span_xenonotice("We were on top of fire, we got moved to our core."))
 
@@ -164,7 +164,7 @@
 	if(isnull(T))
 		return FALSE
 	. = TRUE
-	if(locate(/obj/flamer_fire) in T)
+	if(locate(/obj/fire/flamer) in T)
 		return FALSE
 	for(var/obj/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
 		if(QDESTROYING(W))
@@ -307,7 +307,7 @@
 /mob/living/carbon/xenomorph/hivemind/update_progression()
 	return
 
-/obj/flamer_fire/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/fire/flamer/CanAllowThrough(atom/movable/mover, turf/target)
 	if(isxenohivemind(mover))
 		return FALSE
 	return ..()
@@ -412,3 +412,9 @@
 /// Getter for the parent of this hive core
 /obj/structure/xeno/hivemindcore/proc/get_parent()
 	return parent?.resolve()
+
+/mob/living/carbon/xenomorph/hivemind/add_inherent_verbs()
+	return
+
+/mob/living/carbon/xenomorph/hivemind/remove_inherent_verbs()
+	return

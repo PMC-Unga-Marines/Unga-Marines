@@ -117,8 +117,8 @@
 	basestate = "ship_window_frame"
 	base_icon_state = "ship_window_frame"
 
-/obj/structure/window_frame/mainship/alt
-	window_type = /obj/structure/window/framed/mainship/alt
+/obj/structure/window_frame/mainship/talos
+	window_type = /obj/structure/window/framed/mainship/talos
 	icon = 'icons/obj/smooth_objects/alt_ship_window_frame.dmi'
 	icon_state = "alt_ship_window_frame-0"
 	basestate = "alt_ship_window_frame"

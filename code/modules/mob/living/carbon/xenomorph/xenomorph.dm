@@ -5,10 +5,12 @@
 //This is so they can be easily transferred between them without copypasta
 
 /mob/living/carbon/xenomorph/Initialize(mapload)
-	setup_verbs()
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
+	else if(mob_size == MOB_SIZE_SMALL)
+		move_resist = MOVE_FORCE_WEAK
+		move_force = MOVE_FORCE_WEAK
 	light_pixel_x -= pixel_x
 	light_pixel_y -= pixel_y
 	. = ..()
@@ -278,13 +280,21 @@
 	return
 
 /mob/living/carbon/xenomorph/Destroy()
-	if(mind) mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
-	if(is_zoomed) zoom_out()
+	if(mind)
+		mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
+	if(is_zoomed)
+		zoom_out()
 
+	remove_inherent_verbs()
 	GLOB.alive_xeno_list -= src
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+
+	if(!isnull(current_aura))
+		QDEL_NULL(current_aura)
+	if(!isnull(leader_current_aura))
+		QDEL_NULL(leader_current_aura)
 
 	var/datum/hive_status/hive_placeholder = hive
 	remove_from_hive()
@@ -296,9 +306,10 @@
 	QDEL_NULL(fire_overlay)
 	return ..()
 
-
-/mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
-	return FALSE
+/mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
+	if(!slip_xeno) //If our shoes are noslip just return immediately unless we don't care about the noslip
+		return FALSE
+	return ..()
 
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
@@ -529,6 +540,8 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 	/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
 	 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us */
 	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc) && (target.faction == faction || target.move_resist <= move_force))
+		return PHASING
+	if(get_xeno_hivenumber() == target.get_xeno_hivenumber() && (target.pass_flags & PASS_XENO || pass_flags & PASS_XENO))
 		return PHASING
 	// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(a_intent == INTENT_HELP || restrained())

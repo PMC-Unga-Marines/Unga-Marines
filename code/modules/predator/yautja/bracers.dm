@@ -466,7 +466,7 @@
 
 	if(cloaked) //Turn it off.
 		if(cloak_timer > world.time)
-			to_chat(M, span_warning("Your cloaking device is busy! Time left: <B>[max(round((cloak_timer - world.time) / 10), 1)]</b> seconds."))
+			to_chat(M, span_warning("Your cloaking device is busy! Time left: <B>[max(round((cloak_timer - world.time) * 0.1), 1)]</b> seconds."))
 			return FALSE
 		decloak(caller)
 	else //Turn it on!
@@ -479,7 +479,7 @@
 			return FALSE
 
 		if(cloak_timer > world.time)
-			to_chat(M, span_warning("Your cloaking device is still recharging! Time left: <B>[max(round((cloak_timer - world.time) / 10), 1)]</b> seconds."))
+			to_chat(M, span_warning("Your cloaking device is still recharging! Time left: <B>[max(round((cloak_timer - world.time) * 0.1), 1)]</b> seconds."))
 			return FALSE
 
 		if(!drain_power(M, 50))
@@ -514,7 +514,7 @@
 //Any projectile can decloak a predator. It does defeat one free bullet though.
 /obj/item/clothing/gloves/yautja/proc/bullet_act_sim(mob/living/carbon/human/H, obj/projectile/proj)
 	var/ammo_flags = proj.ammo.flags_ammo_behavior
-	if(ammo_flags & (AMMO_ROCKET|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
+	if(ammo_flags & (AMMO_SNIPER|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
 		decloak(H) //Continue on to damage.
 	else if(prob(20))
 		decloak(H)
@@ -776,9 +776,9 @@
 	if(charge < charge_max)
 		var/charge_increase = charge_rate
 		if(is_ground_level(human_holder.z))
-			charge_increase = charge_rate / 4
+			charge_increase = charge_rate * 0.25
 		else if(is_mainship_level(human_holder.z))
-			charge_increase = charge_rate / 2
+			charge_increase = charge_rate * 0.5
 
 		charge = min(charge + charge_increase, charge_max)
 		var/perc_charge = (charge / charge_max * 100)

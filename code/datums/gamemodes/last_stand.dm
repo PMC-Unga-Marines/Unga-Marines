@@ -47,6 +47,8 @@
 		for(var/atom/loc in GLOB.spawns_by_job[job_type])
 			if(is_ground_level(loc.z))
 				continue
+			if(is_centcom_level(loc.z))
+				continue
 			GLOB.spawns_by_job[job_type] -= loc
 
 	for(var/latejoin in GLOB.latejoin)
@@ -68,6 +70,7 @@
 		GLOB.latejoin_gateway -= loc
 
 	GLOB.start_squad_landmarks_list = null
+	GLOB.latejoin_squad_landmarks_list = null
 
 /datum/game_mode/last_stand/post_setup()
 	. = ..()

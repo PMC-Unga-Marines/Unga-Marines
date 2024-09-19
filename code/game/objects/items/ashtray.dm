@@ -49,7 +49,7 @@
 		desc = empty_desc + " It's stuffed full."
 		return
 
-	if(length(contents) >= max_butts / 2)
+	if(length(contents) >= max_butts * 0.5)
 		desc = empty_desc + " It's half-filled."
 		return
 
@@ -61,7 +61,7 @@
 		icon_state = icon_full
 		return
 
-	if(length(contents) >= max_butts / 2)
+	if(length(contents) >= max_butts * 0.5)
 		icon_state = icon_half
 		return
 

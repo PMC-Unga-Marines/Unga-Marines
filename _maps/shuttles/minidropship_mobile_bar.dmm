@@ -40,7 +40,7 @@
 	},
 /area/shuttle/minidropship)
 "m" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -60,7 +60,7 @@
 /turf/template_noop,
 /area/shuttle/minidropship)
 "o" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -95,7 +95,7 @@
 /area/shuttle/minidropship)
 "v" = (
 /obj/machinery/light,
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -164,7 +164,7 @@
 	pixel_y = -14
 	},
 /obj/machinery/light,
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -201,7 +201,7 @@
 /turf/open/floor/carpet,
 /area/shuttle/minidropship)
 "G" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	dir = 2;
 	id = "minidropship_podlock"
 	},
@@ -231,7 +231,7 @@
 	},
 /area/shuttle/minidropship)
 "K" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	dir = 2;
 	id = "minidropship_podlock"
 	},
@@ -249,7 +249,7 @@
 /turf/open/floor/carpet,
 /area/shuttle/minidropship)
 "O" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	dir = 2;
 	id = "minidropship_podlock"
 	},
@@ -296,7 +296,7 @@
 /turf/open/floor/carpet,
 /area/shuttle/minidropship)
 "U" = (
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,

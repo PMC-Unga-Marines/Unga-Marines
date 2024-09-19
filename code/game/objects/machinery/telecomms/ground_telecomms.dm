@@ -29,9 +29,8 @@
 	GLOB.tower_relay = FALSE
 
 /obj/machinery/telecomms/relay/preset/tower/proc/init_marker()
-	var/marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon))
 
+	var/marker_icon = ""
 	switch(tower_status)
 		if(TOWER_ON)
 			marker_icon = "comm_tower_on"

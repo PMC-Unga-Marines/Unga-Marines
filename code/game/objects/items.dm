@@ -1023,13 +1023,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 					if(!W.reagents)
 						break
 					W.reagents.reaction(atm)
-					if(istype(atm, /obj/flamer_fire))
-						var/obj/flamer_fire/FF = atm
-						if(FF.firelevel > 20)
-							FF.firelevel -= 20
-							FF.updateicon()
-						else
-							qdel(atm)
+					if(isfire(atm))
+						var/obj/fire/FF = atm
+						FF.set_fire(FF.burn_ticks - EXTINGUISH_AMOUNT)
 						continue
 					if(isliving(atm)) //For extinguishing mobs on fire
 						var/mob/living/M = atm
@@ -1451,3 +1447,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	update_icon()
 	update_greyscale()
 
+/obj/item/psi_act(psi_power, mob/living/user)
+	if(user.a_intent == INTENT_HELP)
+		throw_at(user, 4 + psi_power, psi_power, user, TRUE)
+	else
+		var/target = get_turf_in_angle(Get_Angle(user, src), src, 7)
+		throw_at(target, 4 + psi_power, psi_power, user, TRUE)
+	return list(3 SECONDS, 10)

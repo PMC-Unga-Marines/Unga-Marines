@@ -1594,9 +1594,9 @@
 /area/sulaco/medbay/cmo)
 "agA" = (
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/rifle/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
+/obj/item/ammo_magazine/mg42,
+/obj/item/ammo_magazine/mg42,
 /obj/item/weapon/gun/smg/m25,
 /obj/item/ammo_magazine/smg/m25,
 /obj/item/ammo_magazine/smg/m25,
@@ -2043,9 +2043,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname,
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/rifle/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
+/obj/item/ammo_magazine/mg42,
+/obj/item/ammo_magazine/mg42,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -11966,7 +11966,7 @@
 /turf/closed/wall/mainship/gray,
 /area/sulaco/hallway/lower_foreship)
 "eCK" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /turf/open/floor/tile/hydro,
 /area/sulaco/hydro)
 "eCX" = (
@@ -18028,10 +18028,6 @@
 /obj/machinery/marine_selector/gear/commander,
 /turf/open/floor/wood,
 /area/sulaco/bridge/office)
-"mno" = (
-/obj/structure/prop/mainship/name_stencil/M,
-/turf/open/floor/mainship_hull/gray,
-/area/space)
 "mnu" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
@@ -19262,10 +19258,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/sulaco/cargo)
-"nTc" = (
-/obj/structure/prop/mainship/name_stencil/G,
-/turf/open/floor/mainship_hull/gray,
-/area/space)
 "nTZ" = (
 /obj/effect/ai_node,
 /turf/open/floor/prison/red/corner{
@@ -19585,7 +19577,7 @@
 	},
 /area/sulaco/hangar/droppod)
 "orU" = (
-/obj/structure/prop/mainship/name_stencil/C,
+/obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull/gray,
 /area/space)
 "oso" = (
@@ -19804,7 +19796,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/mainship/command/self_destruct)
 "oDV" = (
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/machinery/atmospherics/pipe/simple/yellow/hidden{
 	dir = 4
 	},
@@ -20003,7 +19995,7 @@
 /obj/structure/sink/kitchen{
 	pixel_y = 30
 	},
-/obj/machinery/hydroponics,
+/obj/prop/hydroponics,
 /obj/item/seeds/goldappleseed,
 /obj/item/tool/minihoe,
 /obj/item/tool/plantspray/weeds,
@@ -23055,9 +23047,9 @@
 "sJR" = (
 /obj/machinery/light/mainship,
 /obj/structure/rack,
-/obj/item/weapon/gun/rifle/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
-/obj/item/ammo_magazine/standard_lmg,
+/obj/item/weapon/gun/rifle/mg42,
+/obj/item/ammo_magazine/mg42,
+/obj/item/ammo_magazine/mg42,
 /turf/open/floor/prison/red{
 	dir = 6
 	},
@@ -73136,7 +73128,7 @@ mDu
 mDu
 mDu
 mDu
-nTc
+orU
 mDu
 mDu
 qDO
@@ -73907,7 +73899,7 @@ ipF
 mDu
 mDu
 mDu
-mno
+orU
 mDu
 mDu
 qDO
@@ -74678,7 +74670,7 @@ mDu
 mDu
 mDu
 mDu
-orU
+mDu
 mDu
 mDu
 qDO

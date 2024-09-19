@@ -73,6 +73,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
+"js" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central3)
 "jO" = (
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/ai_node,
@@ -168,6 +172,10 @@
 	dir = 8
 	},
 /area/lv624/ground/caves/central1)
+"vc" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor,
+/area/lv624/ground/caves/central1/garbledradio)
 "wf" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
@@ -386,7 +394,7 @@ ss
 ss
 th
 th
-th
+js
 th
 th
 th
@@ -2030,7 +2038,7 @@ gJ
 Xy
 gM
 gM
-gM
+iJ
 Xy
 ss
 ss
@@ -3145,7 +3153,7 @@ wf
 wf
 fJ
 OI
-wf
+wg
 ss
 ss
 ss
@@ -3153,6 +3161,6 @@ OS
 ss
 rC
 rC
-rC
+vc
 rC
 "}

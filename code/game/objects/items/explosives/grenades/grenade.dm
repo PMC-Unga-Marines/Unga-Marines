@@ -29,7 +29,6 @@
 	var/light_impact_range = 4
 	///Weak impact range when exploding
 	var/weak_impact_range = 0
-	var/G_hit_sound = 'sound/weapons/grenade/grenade_hit.ogg'
 	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
 	/// Power of the explosion
 	var/power = 105
@@ -102,7 +101,7 @@
 	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
-/obj/item/explosive/grenade/flamer_fire_act(burnlevel)
+/obj/item/explosive/grenade/fire_act(burn_level, flame_color)
 	activate()
 
 /obj/item/explosive/grenade/attack_hand(mob/living/user)
@@ -119,11 +118,8 @@
 /obj/item/explosive/grenade/throw_at()
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-	sleep(0.3 SECONDS)
-	playsound(loc, G_hit_sound, 20, 1, 9)
 
 ////RAD GRENADE - TOTALLY RAD MAN
-
 /obj/item/explosive/grenade/rad
 	name = "\improper V-40 rad grenade"
 	desc = "Rad grenades release an extremely potent but short lived burst of radiation, debilitating organic life and frying electronics in a moderate radius. After the initial detonation, the radioactive effects linger for a time. Handle with extreme care."

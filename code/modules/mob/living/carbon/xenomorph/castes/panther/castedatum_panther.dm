@@ -38,7 +38,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 20, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 0, BIO = 7, FIRE = 15, ACID = 5)
+	soft_armor = list(MELEE = 20, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 0, BIO = 7, FIRE = 0, ACID = 5)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "panther"

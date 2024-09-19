@@ -47,7 +47,7 @@
 	if(light_mod)
 		attach_strings += "Light increase: [light_mod] if turned on."
 	if(delay_mod)
-		attach_strings += "Delay between shots: [delay_mod / 10]"
+		attach_strings += "Delay between shots: [delay_mod * 0.1]"
 	if(burst_mod)
 		attach_strings += "Burst change: [burst_mod] shots."
 	if(size_mod)
@@ -55,7 +55,7 @@
 	if(melee_mod)
 		attach_strings += "Melee damage: [melee_mod]."
 	if(wield_delay_mod)
-		attach_strings += "Wield delay: [wield_delay_mod / 10] seconds."
+		attach_strings += "Wield delay: [wield_delay_mod * 0.1] seconds."
 	if(attach_shell_speed_mod)
 		attach_strings += "Bullet speed: [attach_shell_speed_mod * 100]%"
 	if(aim_mode_movement_mult)

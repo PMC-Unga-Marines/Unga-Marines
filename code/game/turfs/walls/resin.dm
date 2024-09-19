@@ -20,8 +20,8 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/turf/closed/wall/resin/flamer_fire_act(burnlevel)
-	take_damage(burnlevel * 1.25, BURN, FIRE)
+/turf/closed/wall/resin/fire_act(burn_level, flame_color)
+	take_damage(burn_level * 1.25, BURN, FIRE)
 
 /turf/closed/wall/resin/proc/thicken()
 	ChangeTurf(/turf/closed/wall/resin/thick)
@@ -196,7 +196,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 100, LASER = 100, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 150, LASER = 150, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/fireproof

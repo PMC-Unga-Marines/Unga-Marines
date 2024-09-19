@@ -97,7 +97,7 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	GLOB.current_test = null
 	GLOB.failed_any_test |= !test.succeeded
 
-	var/list/log_entry = list("[test.succeeded ? "PASS" : "FAIL"]: [test_path] [duration / 10]s")
+	var/list/log_entry = list("[test.succeeded ? "PASS" : "FAIL"]: [test_path] [duration * 0.1]s")
 	var/list/fail_reasons = test.fail_reasons
 
 	for(var/J in 1 to LAZYLEN(fail_reasons))

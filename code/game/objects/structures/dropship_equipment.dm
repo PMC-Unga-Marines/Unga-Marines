@@ -521,7 +521,7 @@
 	desc = "A box that deploys a modified M56D crewserved machine gun. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "mg_system"
 	point_cost = 250
-	deployable_type = /obj/item/weapon/gun/tl102/hsg_nest
+	deployable_type = /obj/item/weapon/gun/hsg102/hsg_nest
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/minigun
 	name = "minigun deployment system"
@@ -850,9 +850,6 @@
 		else
 			icon_state = "launch_bay"
 
-
-
-
 //////////////// OTHER EQUIPMENT /////////////////
 
 /obj/structure/dropship_equipment/shuttle/operatingtable
@@ -860,7 +857,7 @@
 	desc = "Used for advanced medical procedures. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	equip_category = DROPSHIP_CREW_WEAPON
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "table2-idle"
+	icon_state = "table1"
 	point_cost = 100
 	var/obj/machinery/optable/deployed_table
 
@@ -887,7 +884,7 @@
 		return
 	deployed_table.layer = ABOVE_OBJ_LAYER + 0.01 //make sure its directly ABOVE the layer
 	deployed_table.loc = loc
-	icon_state = "table2-idle"
+	icon_state = "table1"
 
 // bomb pod
 

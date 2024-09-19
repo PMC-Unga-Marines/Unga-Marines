@@ -1,14 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/machinery/cryopod/evacuation,
 /obj/machinery/light,
+/obj/machinery/cryopod/evacuation{
+	dir = 1
+	},
 /turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
 "c" = (
 /turf/open/space/basic,
 /area/shuttle/escape_pod)
 "d" = (
-/obj/machinery/cryopod/evacuation,
+/obj/machinery/cryopod/evacuation{
+	dir = 8
+	},
 /turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
 "e" = (
@@ -63,10 +67,18 @@
 /obj/docking_port/mobile/escape_pod/escape_shuttle,
 /turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
+"s" = (
+/obj/machinery/cryopod/evacuation{
+	dir = 2
+	},
+/turf/open/floor/plating/mainship,
+/area/shuttle/escape_pod)
 "t" = (
-/obj/machinery/cryopod/evacuation,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/cryopod/evacuation{
+	dir = 2
 	},
 /turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
@@ -78,6 +90,12 @@
 	dir = 1
 	},
 /turf/open/shuttle/escapepod/eleven,
+/area/shuttle/escape_pod)
+"Z" = (
+/obj/machinery/cryopod/evacuation{
+	dir = 1
+	},
+/turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
 
 (1,1,1) = {"
@@ -91,11 +109,11 @@ R
 "}
 (2,1,1) = {"
 R
-d
+s
 e
 j
 n
-d
+Z
 R
 "}
 (3,1,1) = {"
@@ -109,20 +127,20 @@ R
 "}
 (4,1,1) = {"
 R
-d
+s
 f
 k
 T
-d
+Z
 R
 "}
 (5,1,1) = {"
 R
-d
+s
 f
 k
 T
-d
+Z
 R
 "}
 (6,1,1) = {"
@@ -136,11 +154,11 @@ R
 "}
 (7,1,1) = {"
 R
-d
+s
 g
 l
 o
-d
+Z
 R
 "}
 (8,1,1) = {"

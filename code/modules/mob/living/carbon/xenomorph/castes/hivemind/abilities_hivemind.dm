@@ -142,17 +142,12 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	owner.client?.screen += shown_map
 	showing_map = TRUE
 	var/list/polled_coords = shown_map.get_coords_from_click(owner)
-
-	if(!polled_coords)
-		owner.client?.screen -= shown_map
-		shown_map.UnregisterSignal(owner, COMSIG_MOB_CLICKON)
-		showing_map = FALSE
-		return
-
 	owner.client?.screen -= shown_map
 	showing_map = FALSE
+	if(!polled_coords)
+		shown_map.UnregisterSignal(owner, COMSIG_MOB_CLICKON)
+		return
 	var/turf/turf_to_teleport_to = locate(polled_coords[1], polled_coords[2], owner.z)
-
 	if(!turf_to_teleport_to)
 		return
 
@@ -171,6 +166,10 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 /datum/action/ability/activable/xeno/secrete_resin/hivemind
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
+		/turf/closed/wall/resin/regenerating/bombproof,
+		/turf/closed/wall/resin/regenerating/bulletproof,
+		/turf/closed/wall/resin/regenerating/fireproof,
+		/turf/closed/wall/resin/regenerating/meleeproof,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,

@@ -194,21 +194,26 @@ REAGENT SCANNER
 	data["chemicals_lists"] = chemicals_lists
 
 	var/datum/internal_organ/stomach/belly = patient.get_organ_slot(ORGAN_SLOT_STOMACH) // should it be this way?
-	data["has_stomach_chemicals"] = length(belly.reagents.reagent_list)
-	var/list/stomach_chemicals_lists = list()
-	for(var/datum/reagent/reagent AS in belly.reagents.reagent_list)
-		if(!reagent.scannable)
-			data["has_unknown_chemicals"] = TRUE
-			continue
-		var/reagent_overdosed = FALSE
-		if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
-			reagent_overdosed = TRUE
-		stomach_chemicals_lists["[reagent.name]"] = list(
-			"name" = reagent.name,
-			"amount" = round(reagent.volume, 0.1),
-			"od" = reagent_overdosed
-		)
-	data["stomach_chemicals_lists"] = stomach_chemicals_lists
+	if(belly)
+		data["has_stomach_chemicals"] = length(belly.reagents.reagent_list)
+		var/list/stomach_chemicals_lists = list()
+		for(var/datum/reagent/reagent AS in belly.reagents.reagent_list)
+			if(!reagent.scannable)
+				data["has_unknown_chemicals"] = TRUE
+				continue
+			var/reagent_overdosed = FALSE
+			if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
+				reagent_overdosed = TRUE
+			stomach_chemicals_lists["[reagent.name]"] = list(
+				"name" = reagent.name,
+				"amount" = round(reagent.volume, 0.1),
+				"od" = reagent_overdosed,
+				"dangerous" = reagent_overdosed || istype(reagent, /datum/reagent/toxin)
+			)
+		data["stomach_chemicals_lists"] = stomach_chemicals_lists
+	else
+		data["has_stomach_chemicals"] = 0
+		data["stomach_chemicals_lists"] = NONE
 
 	data["species"] = patient.species.species_flags & ROBOTIC_LIMBS ? "robot" : "human"
 
@@ -222,12 +227,14 @@ REAGENT SCANNER
 		for(var/datum/limb/limb AS in human_patient.limbs)
 			var/infected = FALSE
 			var/necrotized = FALSE
+			var/internal_bleeding_limb = FALSE
 
 			if(!internal_bleeding)
 				for(var/datum/wound/wound in limb.wounds)
 					if(!istype(wound, /datum/wound/internal_bleeding))
 						continue
 					internal_bleeding = TRUE
+					internal_bleeding_limb = TRUE
 					break
 			if(limb.germ_level > INFECTION_LEVEL_ONE)
 				infection_message = "Infection detected in subject's [limb.display_name]. Antibiotics recommended."
@@ -259,6 +266,7 @@ REAGENT SCANNER
 				"bleeding" = CHECK_BITFIELD(limb.limb_status, LIMB_BLEEDING),
 				"open_incision" = limb.surgery_open_stage,
 				"necrotized" = necrotized,
+				"internal_bleeding_limb" = internal_bleeding_limb,
 				"infected" = infected,
 				"implant" = implant
 			)
@@ -289,12 +297,13 @@ REAGENT SCANNER
 			)
 			damaged_organs += list(current_organ)
 		data["damaged_organs"] = damaged_organs
-
+	var/ssd = null
 	if(patient.has_brain() && patient.stat != DEAD && ishuman(patient))
 		if(!patient.key)
-			data["ssd"] = "No soul detected." // they ghosted
+			ssd = "No soul detected." // they ghosted
 		else if(!patient.client)
-			data["ssd"] = "SSD detected." // SSD
+			ssd = "SSD detected." // SSD
+	data["ssd"] = ssd
 
 	return data
 
@@ -412,7 +421,7 @@ REAGENT SCANNER
 			to_chat(user, span_warning("[src]'s barometer function can't trace anything while the storm is [ongoing_weather.stage == MAIN_STAGE ? "already here!" : "winding down."]"))
 			return
 
-		to_chat(user, span_notice("The next [ongoing_weather] will hit in [(ongoing_weather.next_hit_time - world.time)/10] Seconds."))
+		to_chat(user, span_notice("The next [ongoing_weather] will hit in [(ongoing_weather.next_hit_time - world.time) * 0.1] Seconds."))
 		if(ongoing_weather.aesthetic)
 			to_chat(user, span_warning("[src]'s barometer function says that the next storm will breeze on by."))
 	else
@@ -421,7 +430,7 @@ REAGENT SCANNER
 		if(fixed < 0)
 			to_chat(user, span_warning("[src]'s barometer function was unable to trace any weather patterns."))
 		else
-			to_chat(user, span_warning("[src]'s barometer function says a storm will land in approximately [fixed/10] Seconds]."))
+			to_chat(user, span_warning("[src]'s barometer function says a storm will land in approximately [fixed * 0.1] Seconds]."))
 
 /obj/item/mass_spectrometer
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
@@ -517,7 +526,7 @@ REAGENT SCANNER
 		to_chat(user, span_notice("No chemical agents found in [O]"))
 		return
 	var/dat = ""
-	var/one_percent = O.reagents.total_volume / 100
+	var/one_percent = O.reagents.total_volume * 0.01
 	for (var/datum/reagent/R in O.reagents.reagent_list)
 		if(prob(reliability))
 			dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
