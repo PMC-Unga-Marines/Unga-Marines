@@ -1,4 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - bugfix: "Исправлено кол-во материала получаемого с разбора баррикад."
