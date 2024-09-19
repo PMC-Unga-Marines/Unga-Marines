@@ -1035,7 +1035,7 @@
 /datum/lasrifle/energy_rifle_mode/xray
 	rounds_per_shot = 15
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/xray
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.4 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/laser3.ogg'
 	message_to_user = "You set the xray rifle's charge mode to standard fire."
 	fire_mode = GUN_FIREMODE_AUTOMATIC

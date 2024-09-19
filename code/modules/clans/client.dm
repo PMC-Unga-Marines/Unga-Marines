@@ -1,6 +1,3 @@
-/client
-	var/datum/db_query/clan_info
-
 /client/proc/load_player_predator_info()
 	set waitfor = FALSE
 
