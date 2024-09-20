@@ -48,22 +48,19 @@
 		remove_wibbly_filters(implant_owner)
 		return
 	remove_wibbly_filters(implant_owner)
-	if(HAS_TRAIT(implant_owner, TRAIT_STEALTH))
-		to_chat(implant_owner, span_warning("WARNING. Implant activation failed; Error code 518: Subject already cloaked."))
-		return
-	ADD_TRAIT(implant_owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	playsound(implant_owner, 'sound/effects/pred_cloakon.ogg', 60, TRUE)
 	implant_owner.alpha = CLOAK_IMPLANT_ALPHA
+	ADD_TRAIT(implant_owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	deactivation_timer = addtimer(CALLBACK(src, PROC_REF(deactivate_cloak)), 12 SECONDS, TIMER_STOPPABLE)
 
 ///Deactivates the implant when someone turns it off or its forced off
 /obj/item/implant/cloak/proc/deactivate_cloak(datum/source)
 	SIGNAL_HANDLER
-	REMOVE_TRAIT(implant_owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	if(deactivation_timer)
 		deltimer(deactivation_timer)
 		deactivation_timer = null
 	playsound(implant_owner, 'sound/effects/pred_cloakoff.ogg', 60, TRUE)
 	to_chat(implant_owner, span_warning("[src] deactivates!"))
 	implant_owner.alpha = initial(implant_owner.alpha)
+	REMOVE_TRAIT(implant_owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	S_TIMER_COOLDOWN_START(src, COOLDOWN_CLOAK_IMPLANT, CLOAK_IMPLANT_COOLDOWN_TIME)
