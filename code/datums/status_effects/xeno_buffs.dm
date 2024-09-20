@@ -933,10 +933,16 @@
 // ***************************************
 // *********** Upgrade Chambers Buffs - Survival
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_carapace
+	name = "Carapace"
+	desc = "Armor increased."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_carapace
 	id = "upgrade_carapace"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_carapace
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/armor_buff_per_chamber = 5
 	var/chamber_scaling = 0
@@ -963,11 +969,17 @@
 // ***************************************
 // ***************************************
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_regeneration
+	name = "Regeneration"
+	desc = "Regeneration increased."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_regeneration
 	id = "upgrade_regeneration"
 	duration = -1
 	tick_interval = 5 SECONDS
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/regen_buff_per_chamber = 15
 	var/chamber_scaling = 0
@@ -991,10 +1003,16 @@
 // ***************************************
 // ***************************************
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_vampirism
+	name = "Vampirism"
+	desc = "Leech from attacks."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_vampirism
 	id = "upgrade_vampirism"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_vampirism
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/leech_buff_per_chamber = 0.05
 	var/chamber_scaling = 0
@@ -1029,10 +1047,16 @@
 // ***************************************
 // *********** Upgrade Chambers Buffs - Attack
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_celerity
+	name = "Celerity"
+	desc = "Run faster."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_celerity
 	id = "upgrade_celerity"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_celerity
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/speed_buff_per_chamber = 0.1
 	var/chamber_scaling = 0
@@ -1059,11 +1083,17 @@
 // ***************************************
 // ***************************************
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_adrenaline
+	name = "Adrenaline"
+	desc = "Regenerate plasma."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_adrenaline
 	id = "upgrade_adrenaline"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
 	tick_interval = 5 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_adrenaline
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/plasma_regen_buff_per_chamber = 0.15
 	var/chamber_scaling = 0
@@ -1088,10 +1118,16 @@
 // ***************************************
 // ***************************************
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_crush
+	name = "Crush"
+	desc = "Additional damage to objects."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_crush
 	id = "upgrade_crush"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_crush
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/penetration_buff_per_chamber = 15
 	var/chamber_scaling = 0
@@ -1122,10 +1158,16 @@
 // ***************************************
 // *********** Upgrade Chambers Buffs - Utility
 // ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_toxin
+	name = "Toxin"
+	desc = "Inject toxin on attack."
+	icon_state = "default"
+
 /datum/status_effect/upgrade_toxin
 	id = "upgrade_toxin"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_toxin
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/toxin_amount_per_chamber = 1
 	var/chamber_scaling = 0
