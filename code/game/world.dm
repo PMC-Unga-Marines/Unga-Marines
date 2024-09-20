@@ -376,8 +376,7 @@ GLOBAL_VAR(restart_counter)
 	new_status += "<br>Map: <b>[map_name]</b>"
 	new_status += "<br>Mode: <b>[SSticker.mode ? SSticker.mode.name : "Lobby"]</b>"
 	new_status += "<br>Round time: <b>[gameTimestamp("hh:mm")]</b>"
-	if(CONFIG_GET(number/extreme_popcap))
-		new_status += "<br>Current Player Limit: <b>[CONFIG_GET(number/extreme_popcap)]</b>"
+	new_status += "<br>Current Player Limit: <b>[popcap]</b>"
 
 	// Finally set the new status
 	status = new_status
