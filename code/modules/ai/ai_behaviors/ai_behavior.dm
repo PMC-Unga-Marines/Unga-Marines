@@ -59,11 +59,11 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 		LAZYDISTINCTADD(GLOB.ssd_living_mobs, mob_parent)
 
 /datum/ai_behavior/Destroy(force, ...)
-	. = ..()
 	current_node = null
 	escorted_atom = null
 	mob_parent = null
 	atom_to_walk_to = null
+	return ..()
 
 ///Register ai behaviours
 /datum/ai_behavior/proc/start_ai()
