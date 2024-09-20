@@ -665,12 +665,6 @@
 	contains = list(/obj/item/ammo_magazine/pistol/p14/smart_pistol)
 	cost = 10
 
-/datum/supply_packs/weapons/vector_sabot
-	name = "vector APDS magazine"
-	contains = list(/obj/item/ammo_magazine/smg/vector/sabot)
-	cost = 20 //40 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
 /datum/supply_packs/weapons/vector_incendiary
 	name = "vector incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector/incendiary)
@@ -748,12 +742,6 @@
 	name = "10x25mm incendiary ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/incendiary)
 	cost = 50 //125 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/p9mm_sabot
-	name = "9mm APDS packet"
-	contains = list(/obj/item/ammo_magazine/packet/p9mm/sabot)
-	cost = 30 //70 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/p9mm_incendiary
