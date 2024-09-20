@@ -23,5 +23,5 @@ SUBSYSTEM_DEF(cellauto)
 
 		our_cell.update_state()
 
-		if(MC_TICK_CHECK)
-			return
+		//if(MC_TICK_CHECK)
+		//	return
