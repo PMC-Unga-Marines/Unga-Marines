@@ -223,6 +223,7 @@
 	flags_inv_hide = HIDEALLHAIR|HIDEEARS
 	flags_item = SYNTH_RESTRICTED
 	resistance_flags = UNACIDABLE
+	eye_protection = 2
 	anti_hug = 6
 	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT|ITEM_ICE_PROTECTION)
 
@@ -236,6 +237,7 @@
 	resistance_flags = UNACIDABLE
 	flags_item = SYNTH_RESTRICTED
 	anti_hug = 4
+	eye_protection = 2
 	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT|ITEM_ICE_PROTECTION)
 
 /obj/item/clothing/head/helmet/marine/pilot
