@@ -542,7 +542,7 @@
 		camo_off(usr)
 		return
 
-	if(SEND_SIGNAL(M, COMSIG_MOB_ENABLE_STEALTH) & STEALTH_ALREADY_ACTIVE)
+	if(HAS_TRAIT(M, TRAIT_STEALTH))
 		to_chat(M, span_warning("You are already cloaked!"))
 		return FALSE
 
@@ -554,7 +554,6 @@
 	camo_last_stealth = world.time
 	wearer = M
 
-	RegisterSignal(wearer, COMSIG_MOB_ENABLE_STEALTH, PROC_REF(on_other_activate))
 	M.visible_message("[M] fades into thin air!", span_notice("You activate your cloak's camouflage."))
 	playsound(M.loc,'sound/effects/cloak_scout_on.ogg', 15, 1)
 
@@ -586,23 +585,17 @@
 
 	return TRUE
 
-
-/obj/item/storage/backpack/marine/satchel/scout_cloak/proc/on_other_activate()
-	SIGNAL_HANDLER
-	return STEALTH_ALREADY_ACTIVE
-
-
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/on_cloak()
 	if(wearer)
-		anim(wearer.loc,wearer,'icons/mob/mob.dmi',,"cloak",,wearer.dir)
+		anim(wearer.loc, wearer, 'icons/mob/mob.dmi', flick_anim = "cloak", direction = wearer.dir)
+		ADD_TRAIT(wearer, TRAIT_STEALTH, TRAIT_STEALTH)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/on_decloak()
 	if(wearer)
-		anim(wearer.loc,wearer,'icons/mob/mob.dmi',,"uncloak",,wearer.dir)
+		anim(wearer.loc,wearer, 'icons/mob/mob.dmi', flick_anim = "uncloak", direction = wearer.dir)
+		REMOVE_TRAIT(wearer, TRAIT_STEALTH, TRAIT_STEALTH)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/camo_off(mob/user)
-	if(wearer)
-		UnregisterSignal(wearer, COMSIG_MOB_ENABLE_STEALTH)
 	if(!user)
 		camo_active = FALSE
 		wearer = null
