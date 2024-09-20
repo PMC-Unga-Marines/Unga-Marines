@@ -223,7 +223,7 @@
 		COMSIG_XENO_LIVING_THROW_HIT,
 		COMSIG_XENOMORPH_DISARM_HUMAN), PROC_REF(uncloak))
 
-	ADD_TRAIT(X, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	ADD_TRAIT(X, TRAIT_STEALTH)
 
 /datum/action/ability/xeno_action/phantom/proc/uncloak()
 	SIGNAL_HANDLER
@@ -239,7 +239,7 @@
 		COMSIG_XENO_LIVING_THROW_HIT,
 		COMSIG_XENOMORPH_DISARM_HUMAN,))
 
-	REMOVE_TRAIT(X, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	REMOVE_TRAIT(X, TRAIT_STEALTH)
 
 /datum/action/ability/xeno_action/phantom/ai_should_start_consider()
 	return FALSE
