@@ -374,7 +374,6 @@ GLOBAL_VAR(restart_counter)
 	var/new_status = ""
 	new_status += "<b><a href='[discord_url ? discord_url : "#"]'>[server_name]</a></b>"
 	new_status += "<br>Map: <b>[map_name]</b>"
-	new_status += "<br>Ship: <b>[shipname]</b>"
 	new_status += "<br>Mode: <b>[SSticker.mode ? SSticker.mode.name : "Lobby"]</b>"
 	new_status += "<br>Round time: <b>[gameTimestamp("hh:mm")]</b>"
 	if(CONFIG_GET(number/extreme_popcap))
