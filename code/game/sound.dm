@@ -66,12 +66,12 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if(!M.client && !istype(M, /mob/camera/aiEye))
 			continue
 		var/turf/T = get_turf(M)
-		if(!T || T.z != turf_source.z || get_dist(M, turf_source) > sound_range)
+		if(!T || T.z != turf_source.z || get_dist_euclidean_square(M, turf_source) > sound_range**2)
 			continue
 		M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S, sound_reciever = M)
 
 	for(var/obj/vehicle/sealed/armored/armor AS in GLOB.tank_list)
-		if(!armor.interior || armor.z != turf_source.z || get_dist(armor, turf_source) > sound_range)
+		if(!armor.interior || armor.z != turf_source.z || get_dist_euclidean_square(armor, turf_source) > sound_range**2)
 			continue
 		for(var/mob/living/crew AS in armor.occupants)
 			//turf source is null on purpose because it will not work properly since crew is on a different z
