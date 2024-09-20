@@ -1,7 +1,3 @@
-/*
-* Backpack
-*/
-
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
@@ -45,14 +41,14 @@
 		mouse_opacity = 2 //so it's easier to click when properly equipped.
 		if(use_sound)
 			playsound(loc, use_sound, 15, 1, 6)
-	..()
+	return ..()
 
 /obj/item/storage/backpack/dropped(mob/user)
 	mouse_opacity = initial(mouse_opacity)
-	..()
+	return ..()
 
 /obj/item/storage/backpack/vendor_equip(mob/user)
-	..()
+	. = ..()
 	return user.equip_to_appropriate_slot(src)
 
 /*
@@ -67,13 +63,13 @@
 	max_storage_space = 28
 
 /obj/item/storage/backpack/holding/proc/failcheck(mob/user)
-	if (prob(reliability))
+	if(prob(reliability))
 		return TRUE //No failure
-	if (prob(reliability))
+	if(prob(reliability))
 		to_chat(user, span_warning("The Bluespace portal resists your attempt to add another item."))
 	else
 		to_chat(user, span_warning("The Bluespace generator malfunctions!"))
-		for (var/obj/O in src.contents) //it broke, delete what was in it
+		for(var/obj/O in src.contents) //it broke, delete what was in it
 			qdel(O)
 		crit_fail = 1
 		icon_state = "brokenpack"
@@ -167,10 +163,8 @@
 	max_storage_space = 15
 	access_delay = 0
 
-/obj/item/storage/backpack/satchel/withwallet/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/backpack/satchel/withwallet/PopulateContents()
 	new /obj/item/storage/wallet/random( src )
-
 
 /obj/item/storage/backpack/satchel/som
 	name = "mining satchel"
@@ -261,7 +255,6 @@
 	name = "emergency response team medical backpack"
 	desc = "A spacious backpack with lots of pockets, worn by medical members of a Emergency Response Team."
 	icon_state = "ert_medical"
-
 
 /*========================== MARINE BACKPACKS ================================
 ==========================================================================*/
@@ -390,7 +383,6 @@
 			update_icon()
 	return ..()
 
-
 /obj/item/storage/backpack/marine/tech
 	name = "\improper TGMC technician backpack"
 	desc = "The standard-issue backpack worn by TGMC technicians. Specially equipped to hold sentry gun and M56D emplacement parts."
@@ -421,7 +413,6 @@
 /obj/item/storage/backpack/marine/satchel/green
 	name = "\improper Green TGMC satchel"
 	icon_state = "marinesat_green"
-
 
 /obj/item/storage/backpack/marine/corpsman/satchel
 	name = "\improper TGMC corpsman satchel"
@@ -498,6 +489,7 @@
 	name = "\improper M68 Thermal Cloak"
 	desc = "The lightweight thermal dampeners and optical camouflage provided by this cloak are weaker than those found in standard TGMC ghillie suits. In exchange, the cloak can be worn over combat armor and offers the wearer high manueverability and adaptability to many environments. Serves as a satchel."
 	icon_state = "scout_cloak"
+	actions_types = list(/datum/action/item_action/toggle)
 	var/camo_active = 0
 	var/camo_active_timer = 0
 	var/camo_cooldown_timer = null
@@ -507,7 +499,6 @@
 	var/mob/living/carbon/human/wearer = null
 	var/shimmer_alpha = SCOUT_CLOAK_RUN_ALPHA
 	var/stealth_delay = null
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/Destroy()
 	camo_off()
@@ -579,21 +570,18 @@
 		COMSIG_MOB_ATTACHMENT_FIRED,
 		COMSIG_MOB_THROW,
 		COMSIG_MOB_ITEM_ATTACK), PROC_REF(action_taken))
-
+	ADD_TRAIT(M, TRAIT_STEALTH, TRAIT_STEALTH)
 	START_PROCESSING(SSprocessing, src)
 	wearer.cloaking = TRUE
-
 	return TRUE
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/on_cloak()
 	if(wearer)
 		anim(wearer.loc, wearer, 'icons/mob/mob.dmi', flick_anim = "cloak", direction = wearer.dir)
-		ADD_TRAIT(wearer, TRAIT_STEALTH, TRAIT_STEALTH)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/on_decloak()
 	if(wearer)
 		anim(wearer.loc,wearer, 'icons/mob/mob.dmi', flick_anim = "uncloak", direction = wearer.dir)
-		REMOVE_TRAIT(wearer, TRAIT_STEALTH, TRAIT_STEALTH)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/camo_off(mob/user)
 	if(!user)
@@ -606,7 +594,6 @@
 		return FALSE
 
 	camo_active = FALSE
-
 	user.visible_message(span_warning("[user.name] shimmers into existence!"), span_danger("Your cloak's camouflage has deactivated!"))
 	playsound(user.loc,'sound/effects/cloak_scout_off.ogg', 15, 1)
 	user.alpha = initial(user.alpha)
@@ -631,6 +618,7 @@
 		COMSIG_MOB_ATTACHMENT_FIRED,
 		COMSIG_MOB_THROW,
 		COMSIG_MOB_ITEM_ATTACK))
+	REMOVE_TRAIT(user, TRAIT_STEALTH, TRAIT_STEALTH)
 	STOP_PROCESSING(SSprocessing, src)
 	wearer.cloaking = FALSE
 
@@ -667,7 +655,6 @@
 	if(slot != SLOT_BACK)
 		return FALSE
 	return TRUE
-
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/attack_self(mob/user)
 	. = ..()
@@ -721,8 +708,7 @@
 	desc = "The M68-B thermal cloak is a variant custom-purposed for snipers, allowing for faster, superior, stationary concealment at the expense of mobile concealment. It is designed to be paired with the lightweight M3 recon battle armor. Serves as a satchel."
 	shimmer_alpha = SCOUT_CLOAK_RUN_ALPHA * 0.5 //Half the normal shimmer transparency.
 
-/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper/equippedsniper/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper/equippedsniper/PopulateContents()
 	new /obj/item/detpack(src)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper/process()
@@ -759,7 +745,6 @@
 	reagents = R
 	R.my_atom = WEAKREF(src)
 	R.add_reagent(/datum/reagent/fuel, max_fuel)
-
 
 /obj/item/storage/backpack/marine/engineerpack/attackby(obj/item/I, mob/user, params)
 	if(iswelder(I))
@@ -817,12 +802,11 @@
 	else if (istype(O, /obj/structure/reagent_dispensers/fueltank) && src.reagents.total_volume == max_fuel)
 		to_chat(user, span_notice("The pack is already full!"))
 		return
-	..()
+	return ..()
 
 /obj/item/storage/backpack/marine/engineerpack/examine(mob/user)
 	. = ..()
 	. += "[reagents.total_volume] units of fuel left!"
-
 
 /obj/item/storage/backpack/lightpack
 	name = "\improper lightweight combat pack"
@@ -844,7 +828,6 @@
 	icon_state = "marinepack"
 	storage_slots = null
 	max_storage_space = 30
-
 
 /obj/item/storage/backpack/lightpack/som
 	name = "mining rucksack"
