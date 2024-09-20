@@ -208,7 +208,7 @@
 /datum/action/ability/activable/xeno/hunter_blink/use_ability(atom/A)
 	. = ..()
 	if(!isliving(A))
-		owner.balloon_alert(owner, "We can only teleport to living beings!")
+		owner.balloon_alert(owner, "We can only teleport to other beings!")
 		return fail_activate()
 	if(get_dist(owner, A) > 7 || owner.z != A.z)
 		owner.balloon_alert(owner, "We are too far away!")
