@@ -172,6 +172,12 @@ SUBSYSTEM_DEF(vote)
 					addtimer(CALLBACK(src, PROC_REF(initiate_vote), "groundmap", null, TRUE), 5 SECONDS)
 					SSticker.Reboot("Restarting server when valid ground map selected", CONFIG_GET(number/vote_period) + 15 SECONDS)
 			return
+		if("balance")
+			switch(.)
+				if("Xeno is weak. Buff xeno")
+					SSticker.mode.adjust_scaling_offset(0.02)
+				if("Xeno is strong. nerf xeno")
+					SSticker.mode.adjust_scaling_offset(-0.02)
 		if("groundmap")
 			var/datum/map_config/VM = config.maplist[GROUND_MAP][.]
 			SSmapping.changemap(VM, GROUND_MAP)
@@ -260,6 +266,10 @@ SUBSYSTEM_DEF(vote)
 					if(players < mode.required_players)
 						continue
 					choices.Add(mode.config_tag)
+			if("balance")
+				choices.Add("Xeno is weak. Buff xeno",\
+				"Game is balanced. Leave as is",\
+				"Xeno is strong. nerf xeno")
 			if("groundmap")
 				multiple_vote = TRUE
 				if(!lower_admin && SSmapping.groundmap_voted)
@@ -378,6 +388,7 @@ SUBSYSTEM_DEF(vote)
 	initiate_vote("gamemode", null, TRUE, TRUE)
 	shipmap_timer_id = addtimer(CALLBACK(src, PROC_REF(initiate_vote), "shipmap", null, TRUE, TRUE), CONFIG_GET(number/vote_period) + 3 SECONDS, TIMER_STOPPABLE)
 	addtimer(CALLBACK(src, PROC_REF(initiate_vote), "groundmap", null, TRUE, TRUE), CONFIG_GET(number/vote_period) * 2 + 6 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(initiate_vote), "balance", null, TRUE, TRUE), CONFIG_GET(number/vote_period) * 3 + 9 SECONDS)
 
 /datum/controller/subsystem/vote/ui_state()
 	return GLOB.always_state

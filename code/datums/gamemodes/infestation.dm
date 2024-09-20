@@ -177,7 +177,6 @@
 	if(round_stage == INFESTATION_DROPSHIP_CAPTURED_XENOS)
 		message_admins("Round finished: [MODE_INFESTATION_X_MINOR]")
 		round_finished = MODE_INFESTATION_X_MINOR
-		adjust_scaling_offset(-0.01)
 		return TRUE
 
 	if(!num_humans)
@@ -187,7 +186,6 @@
 			return TRUE
 		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped out ALL the marines without hijacking, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
-		adjust_scaling_offset(-0.01)
 		return TRUE
 	if(!num_xenos)
 		if(round_stage == INFESTATION_MARINE_CRASHING)
@@ -196,7 +194,6 @@
 			return TRUE
 		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines win big
 		round_finished = MODE_INFESTATION_M_MAJOR
-		adjust_scaling_offset(0.01)
 		return TRUE
 	if(round_stage == INFESTATION_MARINE_CRASHING && !num_humans_ship)
 		if(SSevacuation.human_escaped > SSevacuation.initial_human_on_ship * 0.5)
@@ -205,7 +202,6 @@
 			return
 		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped our marines, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
-		adjust_scaling_offset(-0.01)
 		return TRUE
 	return FALSE
 
