@@ -3,25 +3,24 @@
 	hud_state = "pistol_superheavy"
 	damage = 45
 	penetration = 20
-	sundering = 1
+	sundering = 0
 
 /datum/ammo/bullet/pistol/mech/burst
 	name = "super-heavy pistol bullet"
 	damage = 35
 	penetration = 10
-	sundering = 0.5
 
 /datum/ammo/bullet/smg/mech
 	name = "super-heavy submachinegun bullet"
 	damage = 20
-	sundering = 0.25
+	sundering = 0
 	penetration = 10
 
 /datum/ammo/bullet/rifle/mech
 	name = "super-heavy rifle bullet"
 	damage = 25
 	penetration = 15
-	sundering = 0.5
+	sundering = 0
 	damage_falloff = 0.8
 
 /datum/ammo/bullet/rifle/mech/burst
@@ -66,7 +65,7 @@
 /datum/ammo/bullet/tx54_spread/mech
 	damage = 15
 	penetration = 10
-	sundering = 0.5
+	sundering = 0
 
 /datum/ammo/bullet/tx54_spread/mech/on_hit_mob(mob/M, obj/projectile/proj)
 	staggerstun(M, proj, max_range = 3, slowdown = 0.2)
@@ -75,13 +74,13 @@
 	name = "superheated laser bolt"
 	damage = 45
 	penetration = 20
-	sundering = 1
+	sundering = 0
 	damage_falloff = 0.5
 
 /datum/ammo/energy/lasgun/marine/mech/burst
 	damage = 30
 	penetration = 10
-	sundering = 0.75
+	sundering = 0
 	damage_falloff = 0.6
 
 /datum/ammo/energy/lasgun/marine/mech/smg
@@ -97,7 +96,7 @@
 	damage = 100
 	armor_type = MELEE
 	penetration = 25
-	sundering = 8
+	sundering = 0
 	damage_falloff = -12.5 //damage increases per turf crossed
 	max_range = 4
 	on_pierce_multiplier = 0.5
@@ -125,7 +124,7 @@
 	name = "vulcan bullet"
 	damage = 30
 	penetration = 10
-	sundering = 0.5
+	sundering = 0
 
 /datum/ammo/bullet/sniper/mech
 	name = "light anti-tank bullet"

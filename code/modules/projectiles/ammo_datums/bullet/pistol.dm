@@ -66,7 +66,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
 	damage = 15
 	penetration = 5
-	sundering = 0.5
+	sundering = 0
 
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
