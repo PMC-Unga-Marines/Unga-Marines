@@ -509,8 +509,6 @@
 	var/stealth_delay = null
 	actions_types = list(/datum/action/item_action/toggle)
 
-/obj/item/storage/backpack/marine/satchel/scout_cloak/scout
-
 /obj/item/storage/backpack/marine/satchel/scout_cloak/Destroy()
 	camo_off()
 	return ..()

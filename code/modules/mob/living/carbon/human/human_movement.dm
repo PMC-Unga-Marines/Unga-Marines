@@ -12,13 +12,13 @@
 /mob/living/carbon/human/proc/Process_Cloaking_Router(mob/living/carbon/human/user)
 	if(!user.cloaking)
 		return
-	if(istype(back, /obj/item/storage/backpack/marine/satchel/scout_cloak/scout) )
+	if(istype(back, /obj/item/storage/backpack/marine/satchel/scout_cloak) )
 		Process_Cloaking_Scout(user)
 	else if(istype(back, /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper) )
 		Process_Cloaking_Sniper(user)
 
 /mob/living/carbon/human/proc/Process_Cloaking_Scout(mob/living/carbon/human/user)
-	var/obj/item/storage/backpack/marine/satchel/scout_cloak/scout/S = back
+	var/obj/item/storage/backpack/marine/satchel/scout_cloak/S = back
 	if(!S.camo_active)
 		return
 	if(S.camo_last_shimmer > world.time - SCOUT_CLOAK_STEALTH_DELAY) //Shimmer after taking aggressive actions
