@@ -22,6 +22,7 @@
 	. = ..()
 	creator = _creator
 	RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(clear_creator))
+	START_PROCESSING(SSslowprocess, src)
 	update_icon()
 	var/static/list/connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
@@ -30,7 +31,14 @@
 
 /obj/structure/xeno/acidwell/Destroy()
 	creator = null
+	STOP_PROCESSING(SSslowprocess, src)
 	return ..()
+
+/obj/structure/xeno/acidwell/process()
+	if(charges >= XENO_ACID_WELL_MAX_CHARGES)
+		return PROCESS_KILL
+	charges++
+	update_icon()
 
 ///Signal handler for creator destruction to clear reference
 /obj/structure/xeno/acidwell/proc/clear_creator()
@@ -88,6 +96,8 @@
 
 	for(var/obj/fire/flamer/F in T) //Extinguish all flames in turf
 		qdel(F)
+	if(!(datum_flags & DF_ISPROCESSING) && (charges < XENO_ACID_WELL_MAX_CHARGES))
+		START_PROCESSING(SSslowprocess, src)
 
 /obj/structure/xeno/acidwell/attackby(obj/item/I, mob/user, params)
 	if(!isxeno(user))
@@ -104,7 +114,7 @@
 		deconstruct(TRUE, xeno_attacker)
 		return
 
-	if(charges >= 5)
+	if(charges >= XENO_ACID_WELL_MAX_CHARGES)
 		balloon_alert(xeno_attacker, "Already full")
 		return
 	if(charging)
@@ -186,4 +196,6 @@
 	acid_smoke.start()
 
 	charges -= charges_used
+	if(!(datum_flags & DF_ISPROCESSING) && (charges < XENO_ACID_WELL_MAX_CHARGES))
+		START_PROCESSING(SSslowprocess, src)
 	update_icon()
