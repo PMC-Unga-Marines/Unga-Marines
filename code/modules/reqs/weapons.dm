@@ -185,11 +185,6 @@
 	contains = list(/obj/item/ammo_magazine/heavy_isg/he)
 	cost = 100
 
-/datum/supply_packs/weapons/flak_sabot
-	name = "FK-88 APFDS Shell"
-	contains = list(/obj/item/ammo_magazine/heavy_isg/sabot)
-	cost = 120
-
 /datum/supply_packs/weapons/heayvlaser_emplacement
 	name = "Mounted Heavy Laser"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser/deployable)
@@ -681,12 +676,6 @@
 	contains = list(/obj/item/storage/box/t500case)
 	cost = 50
 
-/datum/supply_packs/weapons/ar12_sabot
-	name = "AR-12 APDS magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/ar12/sabot)
-	cost = 30 //50 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
 /datum/supply_packs/weapons/ar12_incendiary
 	name = "AR-12 incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/ar12/incendiary)
@@ -697,12 +686,6 @@
 	name = "SMG-25 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/smg/m25/ap)
 	cost = 30 //60 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/box_10x24mm_sabot
-	name = "10x24mm APDS ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/sabot)
-	cost = 45 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x24mm_incendiary
@@ -731,12 +714,6 @@
 	name = "T25 smartrifle ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/t25)
 	cost = 60
-
-/datum/supply_packs/weapons/box_10x25mm_sabot
-	name = "10x25mm APDS ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/sabot)
-	cost = 50 //125 rounds
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x25mm_incendiary
 	name = "10x25mm incendiary ammo box"
