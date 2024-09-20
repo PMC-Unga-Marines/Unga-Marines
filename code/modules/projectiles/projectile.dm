@@ -923,7 +923,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		adjust_sunder(proj.sundering)
 
 	if(stat != DEAD && proj.firer)
-		proj.firer.record_projectile_damage(damage, src)	//Tally up whoever the shooter was
+		proj.firer.record_projectile_damage(src, damage)	//Tally up whoever the shooter was
 
 	if(damage)
 		if(do_shrapnel_roll(proj, damage))
