@@ -24044,10 +24044,10 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/squads/delta)
 "nZw" = (
-/obj/vehicle/ridden/powerloader,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
+/obj/vehicle/unmanned/droid/ripley,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "nZT" = (
