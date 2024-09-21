@@ -7,7 +7,7 @@
 	name = "Toggle Stealth"
 	action_icon_state = "hunter_invisibility"
 	desc = "Become harder to see, almost invisible if you stand still, and ready a sneak attack. Uses plasma to move."
-	ability_cost = 80
+	ability_cost = 10
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_STEALTH,
 	)
@@ -54,6 +54,7 @@
 	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 	RegisterSignals(owner, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_DISARM_HUMAN), PROC_REF(sneak_attack_slash))
 	RegisterSignal(owner, COMSIG_XENOMORPH_ZONE_SELECT, PROC_REF(sneak_attack_zone))
+	RegisterSignal(owner, COMSIG_XENOMORPH_PLASMA_REGEN, PROC_REF(plasma_regen))
 
 	// TODO: attack_alien() overrides are a mess and need a lot of work to make them require parentcalling
 	RegisterSignals(owner, list(
@@ -71,7 +72,6 @@
 
 	handle_stealth()
 	addtimer(CALLBACK(src, PROC_REF(sneak_attack_cooldown)), HUNTER_POUNCE_SNEAKATTACK_DELAY) //Short delay before we can sneak attack.
-	addtimer(CALLBACK(src, PROC_REF(cancel_stealth)), HUNTER_STEALTH_DURATION)
 	START_PROCESSING(SSprocessing, src)
 
 /datum/action/ability/xeno_action/stealth/proc/cancel_stealth() //This happens if we take damage, attack, pounce, toggle stealth off, and do other such exciting stealth breaking activities.
@@ -94,6 +94,7 @@
 		SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT),
 		SIGNAL_ADDTRAIT(TRAIT_FLOORED),
 		COMSIG_XENOMORPH_ZONE_SELECT,
+		COMSIG_XENOMORPH_PLASMA_REGEN,
 		COMSIG_XENOMORPH_TAKING_DAMAGE,))
 
 	stealth = FALSE
@@ -131,14 +132,23 @@
 		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_STILL_ALPHA * stealth_alpha_multiplier)
 	//Walking stealth
 	else if(owner.m_intent == MOVE_INTENT_WALK)
+		handle_plasma_usage(xenoowner, HUNTER_STEALTH_WALK_PLASMADRAIN)
 		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_WALK_ALPHA * stealth_alpha_multiplier)
 	//Running stealth
 	else
+		handle_plasma_usage(xenoowner, HUNTER_STEALTH_RUN_PLASMADRAIN)
 		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
 	//If we have 0 plasma after expending stealth's upkeep plasma, end stealth.
 	if(!xenoowner.plasma_stored)
 		to_chat(xenoowner, span_xenodanger("We lack sufficient plasma to remain camouflaged."))
 		cancel_stealth()
+
+/datum/action/ability/xeno_action/stealth/proc/handle_plasma_usage(mob/user, amount)
+	var/mob/living/carbon/xenomorph/xeno = user
+	if(ispath(xeno.loc_weeds_type, /obj/alien/weeds))
+		return
+	else
+		xeno.use_plasma(amount)
 
 /// Callback listening for a xeno using the pounce ability
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_pounce()
@@ -174,13 +184,24 @@
 	if(!can_sneak_attack)
 		return
 
+	var/mob/living/carbon/xenomorph/xeno = owner
+	damage = xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier
+
 	owner.visible_message(span_danger("\The [owner] strikes [target] with vicious precision!"), \
 	span_danger("We strike [target] with vicious precision!"))
 	target.adjust_stagger(2 SECONDS)
 	target.add_slowdown(1)
 	target.ParalyzeNoChain(1 SECONDS)
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, , penetration = HUNTER_SNEAK_SLASH_ARMOR_PEN) // additional damage
 
 	cancel_stealth()
+
+/datum/action/ability/xeno_action/stealth/proc/plasma_regen(datum/source, list/plasma_mod)
+	SIGNAL_HANDLER
+	if(owner.last_move_intent < world.time - 20) //Stealth halves the rate of plasma recovery on weeds, and eliminates it entirely while moving
+		plasma_mod[1] *= 0.5
+	else
+		plasma_mod[1] = 0
 
 /datum/action/ability/xeno_action/stealth/proc/damage_taken(mob/living/carbon/xenomorph/X, damage_taken)
 	SIGNAL_HANDLER
@@ -197,8 +218,9 @@
 /datum/action/ability/activable/xeno/hunter_blink
 	name = "Hunter's Blink"
 	action_icon_state = "blink"
-	desc = "We teleport to the chosen target and get a short attack bonus."
-	use_state_flags = ABILITY_MOB_TARGET
+	desc = "Teleport to the selected target, gaining a short bonus to attack speed."
+	target_flags = ABILITY_MOB_TARGET
+	use_state_flags = ABILITY_USE_BUCKLED
 	ability_cost = 50
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
@@ -241,6 +263,16 @@
 	var/datum/action/ability/activable/xeno/hunter_pounce = X.actions_by_path[/datum/action/ability/activable/xeno/pounce]
 	if(hunter_pounce)
 		hunter_pounce.add_cooldown(3 SECONDS)
+
+/datum/action/ability/activable/xeno/hunter_blink/can_use_ability(atom/A, silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+
+/datum/action/ability/activable/xeno/hunter_blink/on_cooldown_finish()
+	owner.balloon_alert(owner, "Blink ready")
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
+	return ..()
 
 // ***************************************
 // *********** Hunter's Pounce

@@ -577,13 +577,14 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 //Hunter Defines
 #define HUNTER_STEALTH_COOLDOWN 50 //5 seconds
+#define HUNTER_STEALTH_WALK_PLASMADRAIN 2
+#define HUNTER_STEALTH_RUN_PLASMADRAIN 5
 #define HUNTER_STEALTH_STILL_ALPHA 12 //95% transparency
 #define HUNTER_STEALTH_WALK_ALPHA 25 //90% transparency
 #define HUNTER_STEALTH_RUN_ALPHA 128 //50% transparency
 #define HUNTER_STEALTH_STEALTH_DELAY 30 //3 seconds before 95% stealth
 #define HUNTER_STEALTH_INITIAL_DELAY 20 //2 seconds before we can increase stealth
-#define HUNTER_STEALTH_DURATION 15 SECONDS //stealth duration
-#define HUNTER_POUNCE_SNEAKATTACK_DELAY 10 //1 second before we can sneak attack
+#define HUNTER_POUNCE_SNEAKATTACK_DELAY 30 //3 second before we can sneak attack
 #define HUNTER_SNEAK_SLASH_ARMOR_PEN 15 //bonus AP
 #define HUNTER_SNEAK_ATTACK_RUN_DELAY 2 SECONDS
 #define HUNTER_PSYCHIC_TRACE_COOLDOWN 5 SECONDS //Cooldown of the Hunter's Psychic Trace, and duration of its arrow
