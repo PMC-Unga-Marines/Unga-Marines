@@ -31,13 +31,13 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 1
 	},
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "am" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "an" = (
 /obj/machinery/floodlight/landing,
@@ -249,7 +249,7 @@
 /area/barren/misc/genstorage)
 "bB" = (
 /obj/structure/sign/poster,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "bD" = (
 /obj/machinery/camera/autoname/lz_camera,
@@ -359,7 +359,7 @@
 /area/shuttle/drop1/lz1)
 "ci" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "cj" = (
 /obj/structure/table,
@@ -1574,7 +1574,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 1
 	},
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "iH" = (
 /obj/item/storage/firstaid,
@@ -2096,7 +2096,7 @@
 /area/barren/civilian/workdorm)
 "lJ" = (
 /obj/structure/fence,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/cave/west)
 "lK" = (
 /obj/structure/sign/nosmoking_2,
@@ -2994,7 +2994,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
 	},
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/cave/lz1)
 "rd" = (
 /obj/structure/barricade/wooden{
@@ -3513,7 +3513,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
 	},
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "ua" = (
 /obj/effect/decal/cleanable/blood,
@@ -4617,7 +4617,7 @@
 /area/barren/cave/central)
 "AH" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/southwest)
 "AK" = (
 /turf/closed/wall/r_wall,
@@ -5723,7 +5723,7 @@
 /area/bigredv2/outside/general_offices)
 "GK" = (
 /obj/structure/cable,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "GL" = (
 /obj/structure/bed/chair/comfy/black{
@@ -7537,7 +7537,7 @@
 /area/bigredv2/outside/general_offices)
 "RO" = (
 /obj/docking_port/stationary/crashmode,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "RP" = (
 /obj/structure/closet/crate/trashcart,
@@ -7777,7 +7777,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/cave/west)
 "Tm" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -8360,7 +8360,7 @@
 /area/barren/caves/south)
 "WS" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "WT" = (
 /obj/machinery/door/airlock/colony/medical,
@@ -8796,7 +8796,7 @@
 /turf/open/floor,
 /area/barren/misc/eastarmory)
 "ZK" = (
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/cave/central)
 "ZL" = (
 /turf/open/lavaland/basalt{
@@ -8831,7 +8831,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "ZS" = (
-/turf/closed/brock,
+/turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "ZT" = (
 /turf/open/floor/tile/blue/whitebluecorner{
@@ -39605,8 +39605,8 @@ ZL
 ZL
 ZL
 ZL
-ZL
-ZL
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -39863,8 +39863,8 @@ RH
 ZL
 ZL
 RH
-ZL
-ZL
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -40120,8 +40120,8 @@ ZL
 ZL
 ZL
 ZL
-ZL
-Lm
+Zg
+WF
 Zg
 Zg
 Zg
@@ -40377,9 +40377,9 @@ ZL
 ZL
 ZL
 ZL
-ZL
-ZL
-ZL
+Zg
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -40634,9 +40634,9 @@ ZL
 ZL
 ZL
 ZL
-RH
-ZL
-ZL
+Zb
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -40891,9 +40891,9 @@ RH
 ZL
 ZL
 ZL
-ZL
-Lm
-RH
+Zg
+WF
+Zb
 Zg
 Zg
 Zg
@@ -41148,9 +41148,9 @@ ZL
 ZL
 ZL
 ZL
-ZL
-ZL
-RH
+Zg
+Zg
+Zb
 Zg
 Zg
 Zg
@@ -41405,9 +41405,9 @@ ZL
 ZL
 RH
 ZL
-ZL
-ZL
-ZL
+Zg
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -41662,9 +41662,9 @@ ZL
 ZL
 ZL
 ZL
-ZL
-ZL
-ZL
+Zg
+Zg
+Zg
 Zg
 Zg
 ZS
@@ -41918,9 +41918,9 @@ ZS
 ZL
 ZL
 ZL
-ZL
-ZL
-ZL
+Zg
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -42175,9 +42175,9 @@ ZL
 ZL
 ZL
 ZL
-ZL
-RH
-ZL
+Zg
+Zb
+Zg
 Zg
 Zb
 Zg
@@ -42431,9 +42431,9 @@ ZL
 Lm
 RH
 ZL
-ZL
-ZL
-ZL
+Zg
+Zg
+Zg
 WF
 Zg
 Zg
@@ -42688,9 +42688,9 @@ ZL
 ZL
 ZL
 OK
-ZL
-ZL
-ZL
+Zg
+Zg
+Zg
 ZS
 ZS
 ZS
@@ -42945,8 +42945,8 @@ ZL
 ZL
 ZL
 ZL
-RH
-ZL
+Zb
+Zg
 ZS
 ZS
 ZS
@@ -52169,7 +52169,7 @@ Pv
 Pv
 Pv
 Pv
-LC
+Bz
 ZS
 ZS
 ZS
@@ -52426,7 +52426,7 @@ Pv
 kR
 Pv
 Pv
-Pv
+wj
 ZS
 ZS
 ZS
@@ -52683,8 +52683,8 @@ Pv
 LC
 Pv
 Pv
-Pv
-Pv
+wj
+wj
 ZS
 ZS
 ZS
@@ -52940,8 +52940,8 @@ ZS
 pX
 Pv
 Pv
-Pv
-pX
+wj
+Lo
 ZS
 ZS
 ZS
@@ -53196,9 +53196,9 @@ ZS
 ZS
 Pv
 Pv
-Pv
-LC
-Pv
+wj
+Bz
+wj
 ZS
 ZS
 ZS
@@ -53453,9 +53453,9 @@ ZS
 ZS
 LC
 Pv
-Pv
-Pv
-Pv
+wj
+wj
+wj
 ZS
 ZS
 ZS
@@ -53709,9 +53709,9 @@ ZS
 ZS
 ZS
 ZS
-Pv
-Pv
-Pv
+wj
+wj
+wj
 wj
 ZS
 ZS
