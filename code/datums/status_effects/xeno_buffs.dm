@@ -998,7 +998,7 @@
 /datum/status_effect/upgrade_regeneration/tick()
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
-		buff_owner.heal_wounds((regen_buff_per_chamber * chamber_scaling) + (buff_owner.xeno_caste.max_health * percent_buff_per_chamber * chamber_scaling), TRUE)
+		buff_owner.heal_wounds((regen_buff_per_chamber * chamber_scaling) + (buff_owner.xeno_caste.max_health * percent_buff_per_chamber * chamber_scaling), FALSE)
 	return ..()
 
 // ***************************************
