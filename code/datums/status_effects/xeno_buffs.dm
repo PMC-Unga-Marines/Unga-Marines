@@ -982,6 +982,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/regen_buff_per_chamber = 15
+	var/percent_buff_per_chamber = 0.1
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_regeneration/on_apply()
@@ -997,7 +998,7 @@
 /datum/status_effect/upgrade_regeneration/tick()
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
-		buff_owner.heal_wounds(regen_buff_per_chamber * chamber_scaling, TRUE)
+		buff_owner.heal_wounds((regen_buff_per_chamber * chamber_scaling) + (buff_owner.xeno_caste.max_health * percent_buff_per_chamber * chamber_scaling), TRUE)
 	return ..()
 
 // ***************************************
@@ -1096,6 +1097,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_adrenaline
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/plasma_regen_buff_per_chamber = 0.15
+	var/percent_buff_per_chamber = 0.1
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_adrenaline/on_apply()
@@ -1113,7 +1115,7 @@
 		return
 	chamber_scaling = length(buff_owner.hive.spur_chambers)
 	if(chamber_scaling > 0)
-		buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05))
+		buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05) + (buff_owner.xeno_caste.plasma_max * plasma_regen_buff_per_chamber * chamber_scaling))
 
 // ***************************************
 // ***************************************
