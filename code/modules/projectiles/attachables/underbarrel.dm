@@ -50,6 +50,7 @@
 	pixel_shift_y = 17
 	accuracy_mod = 0.1
 	accuracy_unwielded_mod = 0.15
+	add_aim_mode = TRUE
 
 /obj/item/attachable/lace
 	name = "pistol lace"
