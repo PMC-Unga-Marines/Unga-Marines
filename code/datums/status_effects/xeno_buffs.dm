@@ -981,8 +981,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/regen_buff_per_chamber = 15
-	var/percent_buff_per_chamber = 0.1
+	var/regen_buff_per_chamber = 1
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_regeneration/on_apply()
@@ -998,7 +997,7 @@
 /datum/status_effect/upgrade_regeneration/tick()
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
-		buff_owner.heal_wounds((regen_buff_per_chamber * chamber_scaling) + (buff_owner.xeno_caste.max_health * percent_buff_per_chamber * chamber_scaling), FALSE)
+		buff_owner.heal_wounds(regen_buff_per_chamber + chamber_scaling, FALSE)
 	return ..()
 
 // ***************************************
@@ -1097,7 +1096,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_adrenaline
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/plasma_regen_buff_per_chamber = 0.15
-	var/percent_buff_per_chamber = 0.1
+	var/percent_buff_per_chamber = 0.05
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_adrenaline/on_apply()
