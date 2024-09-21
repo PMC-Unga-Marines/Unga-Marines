@@ -104,6 +104,8 @@
 		remove_apply_upgrades(GLOB.xeno_attack_upgrades, STATUS_EFFECT_UPGRADE_CRUSH)
 	if(href_list["toxin_buy"])
 		remove_apply_upgrades(GLOB.xeno_utility_upgrades, STATUS_EFFECT_UPGRADE_TOXIN)
+	if(href_list["phero_buy"])
+		remove_apply_upgrades(GLOB.xeno_utility_upgrades, STATUS_EFFECT_UPGRADE_PHERO)
 
 ///Send a message to all xenos. Force forces the message whether or not the hivemind is intact. Target is an atom that is pointed out to the hive. Filter list is a list of xenos we don't message.
 /proc/xeno_message(message = null, span_class = "xenoannounce", size = 5, hivenumber = XENO_HIVE_NORMAL, force = FALSE, atom/target = null, sound = null, apply_preferences = FALSE, filter_list = null, arrow_type, arrow_color, report_distance = FALSE)
@@ -623,6 +625,7 @@
 	if(length(user?.hive?.veil_chambers) > 0)
 		dat += "<div align='center'>UTILITY</div>"
 		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Inject toxin into your target."
+		dat += "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Ability to emit pheromones."
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)

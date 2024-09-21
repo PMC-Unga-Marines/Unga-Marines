@@ -1202,3 +1202,52 @@
 	var/mob/living/carbon/carbon_target = target
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
 	carbon_target.reagents.add_reagent(injected_reagent, toxin_amount_per_chamber * chamber_scaling)
+
+// ***************************************
+// ***************************************
+// ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_pheromones
+	name = "Pheromones"
+	desc = "Allows to emit pheromones."
+	icon_state = "default"
+
+/atom/movable/screen/alert/status_effect/upgrade_pheromones/Click()
+	var/datum/status_effect/upgrade_pheromones/effect = attached_effect
+	var/phero_choice = show_radial_menu(effect.buff_owner, effect.buff_owner, GLOB.pheromone_images_list, radius = 35, require_near = TRUE)
+	if(!phero_choice)
+		return
+	QDEL_NULL(effect.current_aura)
+	effect.emitted_aura = phero_choice
+	effect.current_aura = SSaura.add_emitter(effect.buff_owner, phero_choice, 6 + effect.phero_power_per_chamber * effect.chamber_scaling * 2, 1 + effect.phero_power_per_chamber * effect.chamber_scaling, -1, FACTION_XENO, effect.buff_owner.hivenumber)
+
+/datum/status_effect/upgrade_pheromones
+	id = "upgrade_pheromones"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_pheromones
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/datum/aura_bearer/current_aura
+	var/phero_power_per_chamber = 0.5
+	var/chamber_scaling = 0
+	var/emitted_aura = AURA_XENO_RECOVERY
+
+/datum/status_effect/upgrade_pheromones/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
+	current_aura = SSaura.add_emitter(buff_owner, AURA_XENO_RECOVERY, 6 + phero_power_per_chamber * chamber_scaling * 2, 1 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
+	return TRUE
+
+/datum/status_effect/upgrade_pheromones/on_remove()
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY)
+	if(current_aura)
+		current_aura.stop_emitting()
+	return ..()
+
+/datum/status_effect/upgrade_pheromones/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
+	QDEL_NULL(current_aura)
+	current_aura = SSaura.add_emitter(buff_owner, emitted_aura, 6 + phero_power_per_chamber * chamber_scaling * 2, 1 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)

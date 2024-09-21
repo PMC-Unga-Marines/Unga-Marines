@@ -216,6 +216,7 @@ GLOBAL_LIST_INIT(xeno_attack_upgrades, list(
 
 GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 		/datum/status_effect/upgrade_toxin,
+		/datum/status_effect/upgrade_pheromones,
 		))
 
 #define	XENO_UPGRADE_BIOMASS_COST 25
