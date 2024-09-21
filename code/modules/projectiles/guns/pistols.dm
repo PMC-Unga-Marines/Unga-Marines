@@ -512,7 +512,6 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/vp70/hp,
-		/obj/item/ammo_magazine/pistol/vp70/sabot,
 		/obj/item/ammo_magazine/pistol/vp70/incendiary,
 	)
 	force = 8
