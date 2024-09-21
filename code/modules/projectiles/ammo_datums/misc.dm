@@ -196,7 +196,6 @@
 	max_range = 4
 	damage = 20
 	penetration = 20
-	sundering = 3
 	damage_falloff = 0
 
 /datum/ammo/bullet/tx54_spread/on_hit_mob(mob/M, obj/projectile/proj)
@@ -207,7 +206,6 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
 	damage = 15
 	penetration = 10
-	sundering = 1.5
 
 /datum/ammo/bullet/tx54_spread/incendiary/on_hit_mob(mob/M, obj/projectile/proj)
 	return
