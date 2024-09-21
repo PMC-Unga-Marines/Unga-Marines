@@ -10,7 +10,7 @@
 	var/can_heal = TRUE
 
 /datum/ai_behavior/xeno/New(loc, parent_to_assign, escorted_atom, can_heal = TRUE)
-	..()
+	. = ..()
 	refresh_abilities()
 	mob_parent.a_intent = INTENT_HARM //Killing time
 	src.can_heal = can_heal
