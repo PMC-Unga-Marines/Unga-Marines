@@ -219,4 +219,7 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 		/datum/status_effect/upgrade_pheromones,
 		))
 
-#define	XENO_UPGRADE_BIOMASS_COST 25
+#define	XENO_UPGRADE_BIOMASS_COST_T1 10
+#define	XENO_UPGRADE_BIOMASS_COST_T2 15
+#define	XENO_UPGRADE_BIOMASS_COST_T3 20
+#define	XENO_UPGRADE_BIOMASS_COST_T4 25

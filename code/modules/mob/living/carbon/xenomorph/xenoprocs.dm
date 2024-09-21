@@ -603,6 +603,18 @@
 	get_upgrades(src)
 
 /mob/living/carbon/xenomorph/proc/get_upgrades(mob/living/carbon/xenomorph/user)
+	var/upgrade_price
+	switch(xeno_caste.tier)
+		if(XENO_TIER_ONE)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T1
+		if(XENO_TIER_TWO)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
+		if(XENO_TIER_THREE)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
+		if(XENO_TIER_FOUR)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
+		else
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
 	var/dat = "<div align='center'>"
 
 	dat += "<hr>Active Upgrade Chambers:"
@@ -614,29 +626,41 @@
 	dat += "<div align='center'><hr>Avaliable upgrades:</div>"
 	if(length(user?.hive?.shell_chambers) > 0)
 		dat += "<div align='center'>SURVIVAL</div>"
-		dat += "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your armor."
-		dat += "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your health regeneration."
-		dat += "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Leech from your attacks."
+		dat += "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> | Cost: [upgrade_price] | Increase your armor."
+		dat += "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> | Cost: [upgrade_price] | Increase your health regeneration."
+		dat += "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> | Cost: [upgrade_price] | Leech from your attacks."
 	if(length(user?.hive?.spur_chambers) > 0)
 		dat += "<div align='center'>ATTACK</div>"
-		dat += "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your movement speed."
-		dat += "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your plasma regeneration."
-		dat += "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Increase your damage to objects."
+		dat += "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> | Cost: [upgrade_price] | Increase your movement speed."
+		dat += "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> | Cost: [upgrade_price] | Increase your plasma regeneration."
+		dat += "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> | Cost: [upgrade_price] | Increase your damage to objects."
 	if(length(user?.hive?.veil_chambers) > 0)
 		dat += "<div align='center'>UTILITY</div>"
-		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Inject toxin into your target."
-		dat += "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> | Cost: [XENO_UPGRADE_BIOMASS_COST] | Ability to emit pheromones."
+		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> | Cost: [upgrade_price] | Inject toxin into your target."
+		dat += "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> | Cost: [upgrade_price] | Ability to emit pheromones."
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)
 	popup.open()
 
 /mob/living/carbon/xenomorph/proc/remove_apply_upgrades(list/upgrades_to_remove, datum/status_effect/upgrade_to_apply)
-	if(biomass < XENO_UPGRADE_BIOMASS_COST)
+	var/upgrade_price
+	switch(xeno_caste.tier)
+		if(XENO_TIER_ONE)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T1
+		if(XENO_TIER_TWO)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
+		if(XENO_TIER_THREE)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
+		if(XENO_TIER_FOUR)
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
+		else
+			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
+	if(biomass < upgrade_price)
 		to_chat(usr, span_warning("You dont have enough biomass!"))
 		return
 	if(!(upgrade_to_apply in status_effects))
-		biomass -= XENO_UPGRADE_BIOMASS_COST
+		biomass -= upgrade_price
 	for(var/datum/status_effect/S AS in upgrades_to_remove)
 		remove_status_effect(S)
 	do_jitter_animation(500)
