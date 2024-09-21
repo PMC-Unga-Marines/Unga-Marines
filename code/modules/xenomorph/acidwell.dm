@@ -15,6 +15,10 @@
 	var/charges = 1
 	///If a xeno is charging this well
 	var/charging = FALSE
+	///5 * recharge_rate = 1 stage
+	var/recharge_rate = 5
+	///Countdown to the next time we generate acid
+	var/nextstage = 0
 	///What xeno created this well
 	var/mob/living/carbon/xenomorph/creator = null
 
@@ -37,6 +41,10 @@
 /obj/structure/xeno/acidwell/process()
 	if(charges >= XENO_ACID_WELL_MAX_CHARGES)
 		return PROCESS_KILL
+	if(nextstage <= recharge_rate)
+		nextstage++
+		return
+	nextstage = 0
 	charges++
 	update_icon()
 
