@@ -185,6 +185,11 @@
 	contains = list(/obj/item/ammo_magazine/heavy_isg/he)
 	cost = 100
 
+/datum/supply_packs/weapons/flak_sabot
+	name = "FK-88 APFDS Shell"
+	contains = list(/obj/item/ammo_magazine/heavy_isg/sabot)
+	cost = 120
+
 /datum/supply_packs/weapons/heayvlaser_emplacement
 	name = "Mounted Heavy Laser"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser/deployable)

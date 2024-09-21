@@ -310,6 +310,7 @@
 
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/heavy_isg/he,
+		/obj/item/ammo_magazine/heavy_isg/sabot,
 	)
 
 	deploy_time = 6 SECONDS
