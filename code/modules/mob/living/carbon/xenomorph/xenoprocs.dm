@@ -659,11 +659,15 @@
 	if(biomass < upgrade_price)
 		to_chat(usr, span_warning("You dont have enough biomass!"))
 		return
-	if(!(upgrade_to_apply in status_effects))
-		biomass -= upgrade_price
+	var/upgrade = locate(upgrade_to_apply) in status_effects
+	if(upgrade)
+		to_chat(usr, span_xenonotice("Existing upgrade chosen. No biomass spent."))
+		usr << browse(null, "window=["upgrademenu"]")
+		return
+	biomass -= upgrade_price
+	to_chat(usr, span_xenonotice("Upgrade applied."))
 	for(var/datum/status_effect/S AS in upgrades_to_remove)
 		remove_status_effect(S)
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)
-	to_chat(usr, span_xenonotice("Upgrade applied."))
 	usr << browse(null, "window=["upgrademenu"]")
