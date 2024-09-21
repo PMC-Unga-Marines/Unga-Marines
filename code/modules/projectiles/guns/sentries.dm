@@ -31,8 +31,6 @@
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
 
-	near_lock = TRUE
-
 // *******************************
 // ********* UPGRADE KIT *********
 // *******************************
