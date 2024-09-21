@@ -8,9 +8,7 @@
 /area/bigredv2/outside/general_offices)
 "ac" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "ad" = (
 /turf/closed/mineral/smooth/indestructible,
@@ -27,9 +25,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "aj" = (
 /turf/closed/wall/r_wall,
@@ -79,9 +75,7 @@
 "ax" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "ay" = (
 /obj/machinery/light{
@@ -108,7 +102,7 @@
 /obj/structure/barricade/guardrail{
 	dir = 8
 	},
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/north)
 "aC" = (
 /obj/structure/table/reinforced,
@@ -155,9 +149,7 @@
 "aT" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_tunnel_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "aU" = (
 /obj/structure/bed/chair/wood/normal{
@@ -182,9 +174,7 @@
 	dir = 8
 	},
 /obj/structure/closet/walllocker/hydrant/extinguisher,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "ba" = (
 /obj/effect/decal/cleanable/dirt,
@@ -208,9 +198,7 @@
 /area/shuttle/drop1/lz1)
 "bj" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "bl" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -259,9 +247,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "bw" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -322,15 +308,11 @@
 "bK" = (
 /obj/machinery/miner/damaged,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "bL" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "bM" = (
 /obj/structure/cable,
@@ -342,9 +324,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "bQ" = (
 /obj/machinery/vending/engivend,
@@ -367,9 +347,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "bX" = (
 /obj/structure/rack,
@@ -385,15 +363,11 @@
 /area/barren/misc/genstorage)
 "ca" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "cb" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "cd" = (
 /obj/structure/disposalpipe/trunk{
@@ -414,9 +388,7 @@
 /area/barren/medical)
 "cg" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "ch" = (
 /obj/effect/ai_node,
@@ -445,9 +417,7 @@
 /area/barren/misc/eastarmory)
 "cs" = (
 /obj/item/trash/cigbutt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "ct" = (
 /obj/effect/decal/remains/human,
@@ -461,9 +431,7 @@
 /obj/structure/barricade/guardrail{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "cx" = (
 /obj/structure/girder/reinforced,
@@ -523,9 +491,7 @@
 "cO" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "cP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -549,9 +515,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "cU" = (
 /obj/structure/cable,
@@ -574,15 +538,11 @@
 	dir = 4;
 	pixel_y = 7
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "da" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "db" = (
 /obj/machinery/light{
@@ -598,7 +558,7 @@
 /turf/open/floor/tile/dark2,
 /area/bigredv2/outside/general_offices)
 "de" = (
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/caves/southwest)
 "df" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -618,7 +578,7 @@
 /area/barren/medical/chemistry)
 "dh" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "dj" = (
 /obj/machinery/power/apc,
@@ -649,9 +609,7 @@
 /area/barren/engie/engine)
 "dt" = (
 /obj/item/tool/pickaxe,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "dw" = (
 /obj/structure/noticeboard,
@@ -660,15 +618,11 @@
 "dx" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "dy" = (
 /obj/item/ore/silver,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "dA" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -693,16 +647,12 @@
 /area/barren/medical)
 "dF" = (
 /obj/structure/ore_box,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "dG" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "dH" = (
 /obj/structure/window/framed/colony,
@@ -722,7 +672,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "dN" = (
 /obj/structure/rack,
@@ -765,15 +715,11 @@
 /area/barren/security)
 "dU" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "dV" = (
 /obj/item/ore/silver,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "dX" = (
 /obj/effect/decal/cleanable/blood/writing,
@@ -783,7 +729,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 8
 	},
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/north)
 "ea" = (
 /obj/structure/rack,
@@ -796,18 +742,14 @@
 "ed" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_resin_door,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "ee" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "eg" = (
 /obj/structure/disposalpipe/junction/yjunc{
@@ -824,9 +766,7 @@
 "ek" = (
 /obj/item/ore/iron,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "el" = (
 /obj/machinery/light,
@@ -858,9 +798,7 @@
 /area/barren/medical/chemistry)
 "er" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "eu" = (
 /turf/open/liquid/lava/autosmoothing,
@@ -877,9 +815,7 @@
 	dir = 4;
 	pixel_y = 7
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "ex" = (
 /obj/structure/cable,
@@ -910,9 +846,7 @@
 /area/barren)
 "eB" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "eC" = (
 /obj/structure/window/framed/colony,
@@ -938,9 +872,7 @@
 /area/barren/civilian)
 "eH" = (
 /obj/structure/ore_box,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "eI" = (
 /obj/structure/largecrate/random/case/small,
@@ -959,9 +891,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "eN" = (
 /obj/item/toy/gun,
@@ -996,9 +926,7 @@
 /area/barren/misc/refinery)
 "eT" = (
 /obj/item/ore/iron,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "eU" = (
 /obj/effect/decal/remains/human,
@@ -1042,9 +970,7 @@
 /area/barren/civilian)
 "fi" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "fl" = (
 /obj/machinery/smartfridge/chemistry,
@@ -1069,9 +995,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "fs" = (
 /obj/effect/turf_decal/woodsiding,
@@ -1083,9 +1007,7 @@
 /area/barren/security)
 "ft" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "fu" = (
 /obj/effect/decal/cleanable/blood/writing,
@@ -1102,9 +1024,7 @@
 /area/barren/engie/engine)
 "fx" = (
 /obj/structure/ore_box,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "fz" = (
 /obj/machinery/power/apc/drained,
@@ -1151,9 +1071,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
 /obj/item/clothing/head/hardhat/orange,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "fI" = (
 /obj/structure/cable,
@@ -1180,9 +1098,7 @@
 /turf/open/floor,
 /area/barren/civilian)
 "fM" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "fN" = (
 /obj/structure/largecrate/supply/supplies,
@@ -1240,9 +1156,7 @@
 "fZ" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/pmc,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "gb" = (
 /obj/structure/window/framed/colony,
@@ -1275,9 +1189,7 @@
 /area/barren/cave/lz1)
 "gg" = (
 /obj/effect/landmark/xeno_silo_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gh" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -1317,9 +1229,7 @@
 /area/barren/civilian)
 "gp" = (
 /obj/item/clothing/head/hardhat/orange,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "gq" = (
 /obj/structure/bookcase/manuals/engineering,
@@ -1328,14 +1238,10 @@
 "gr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "gs" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gt" = (
 /obj/structure/cable,
@@ -1352,15 +1258,11 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gy" = (
 /obj/machinery/miner/damaged,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "gz" = (
 /obj/structure/table/mainship,
@@ -1371,9 +1273,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gB" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
@@ -1408,9 +1308,7 @@
 "gH" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "gI" = (
 /obj/structure/flora/pottedplant,
@@ -1495,9 +1393,7 @@
 /area/barren/misc/ashshelter)
 "hc" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "he" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -1597,22 +1493,16 @@
 /area/barren/engie/engine)
 "hC" = (
 /obj/machinery/miner/damaged/platinum,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "hE" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "hF" = (
 /obj/effect/decal/remains/human,
 /obj/effect/landmark/xeno_resin_door,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "hH" = (
 /turf/open/floor/grimy,
@@ -1643,9 +1533,7 @@
 /area/barren/misc/genstorage)
 "hN" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "hO" = (
 /obj/machinery/light{
@@ -1676,6 +1564,7 @@
 	name = "\improper Engineering"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/barren/engie/engine)
 "hY" = (
@@ -1683,27 +1572,21 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "hZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "ia" = (
 /obj/structure/barricade/guardrail{
 	dir = 8
 	},
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "ib" = (
 /obj/structure/table,
@@ -1756,9 +1639,7 @@
 	id = "secure_blast5";
 	name = "Vault Access"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "ip" = (
 /obj/structure/bed/chair/wood/wings{
@@ -1778,9 +1659,7 @@
 "it" = (
 /obj/structure/fence,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "iu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1802,9 +1681,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "ix" = (
 /obj/structure/sign/poster,
@@ -1827,9 +1704,7 @@
 "iB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "iD" = (
 /obj/structure/table/reinforced,
@@ -1866,9 +1741,7 @@
 /area/barren/cave/lz2)
 "iL" = (
 /obj/machinery/miner/damaged,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "iM" = (
 /obj/structure/cable,
@@ -1876,15 +1749,11 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "iN" = (
 /obj/structure/powerloader_wreckage,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "iO" = (
 /obj/structure/cable,
@@ -1914,9 +1783,7 @@
 "iT" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "iU" = (
 /obj/effect/landmark/corpsespawner/pmc,
@@ -1946,7 +1813,7 @@
 /area/barren/civilian)
 "jc" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/caves/southeast)
 "jd" = (
 /obj/machinery/light{
@@ -1956,9 +1823,7 @@
 /area/barren/cave/central)
 "je" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "jg" = (
 /obj/structure/closet/secure_closet/engineering_personal,
@@ -1989,9 +1854,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "jr" = (
 /obj/structure/bed,
@@ -2018,17 +1881,13 @@
 /area/barren/cave/central)
 "jx" = (
 /obj/structure/barricade/metal,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "jy" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "jz" = (
 /obj/effect/landmark/weed_node,
@@ -2038,9 +1897,7 @@
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "jB" = (
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -2068,18 +1925,14 @@
 /area/barren/cave/central)
 "jG" = (
 /obj/item/clothing/head/warning_cone,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "jH" = (
 /turf/closed/wall,
 /area/barren/medical)
 "jI" = (
 /obj/effect/landmark/corpsespawner/pmc,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "jJ" = (
 /obj/effect/landmark/patrol_point{
@@ -2110,9 +1963,7 @@
 /area/barren/medical)
 "jN" = (
 /obj/item/assembly/mousetrap/armed,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "jO" = (
 /obj/machinery/vending/coffee,
@@ -2120,9 +1971,7 @@
 /area/barren/cave/lz1)
 "jP" = (
 /obj/item/tool/pickaxe,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "jQ" = (
 /turf/open/floor/tile/red/redtaupecorner{
@@ -2135,9 +1984,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "jS" = (
 /obj/structure/window/framed/colony,
@@ -2166,9 +2013,7 @@
 "kb" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "kc" = (
 /obj/structure/window/reinforced{
@@ -2188,9 +2033,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "kf" = (
 /obj/machinery/door/poddoor/mainship/indestructible{
@@ -2217,7 +2060,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "kn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2227,7 +2070,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
 	},
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/northeast)
 "kp" = (
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay,
@@ -2244,7 +2087,7 @@
 	dir = 4;
 	pixel_y = 7
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "ks" = (
 /obj/structure/closet/wardrobe/engineering_yellow,
@@ -2262,9 +2105,7 @@
 /obj/item/stack/sheet/wood{
 	amount = 50
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "kx" = (
 /obj/structure/cable,
@@ -2282,9 +2123,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "kC" = (
 /obj/structure/rack,
@@ -2300,7 +2139,7 @@
 /obj/structure/barricade/guardrail{
 	dir = 8
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "kG" = (
 /obj/structure/cable,
@@ -2308,15 +2147,11 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "kH" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "kK" = (
 /obj/structure/table,
@@ -2342,21 +2177,17 @@
 /area/barren/civilian)
 "kQ" = (
 /obj/structure/barricade/guardrail,
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/central)
 "kR" = (
 /obj/machinery/miner/damaged,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "kS" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "kT" = (
 /obj/structure/barricade/guardrail{
@@ -2407,18 +2238,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "lf" = (
 /obj/effect/landmark/patrol_point{
 	id = "TGMC_13";
 	name = "TGMC exit point 13"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "lh" = (
 /obj/effect/turf_decal/woodsiding{
@@ -2448,7 +2275,7 @@
 /area/barren/medical)
 "lt" = (
 /obj/structure/barricade/guardrail,
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/east)
 "lu" = (
 /obj/machinery/computer/intel_computer,
@@ -2461,9 +2288,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "lx" = (
 /obj/effect/turf_decal/warning_stripes/thin,
@@ -2477,9 +2302,7 @@
 /area/barren/security)
 "lz" = (
 /obj/structure/lattice,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "lF" = (
 /obj/effect/decal/cleanable/blood/writing,
@@ -2604,9 +2427,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "mm" = (
 /obj/effect/landmark/weed_node,
@@ -2614,9 +2435,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "mn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2630,15 +2449,11 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "mq" = (
 /obj/item/tool/crowbar,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "mt" = (
 /obj/machinery/light{
@@ -2675,9 +2490,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "mA" = (
 /obj/structure/rack,
@@ -2733,9 +2546,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "mP" = (
 /turf/open/floor/tile/dark,
@@ -2753,9 +2564,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "mT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -2800,9 +2609,7 @@
 /area/barren/civilian/workdorm)
 "ne" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "nf" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2837,9 +2644,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "nm" = (
 /obj/structure/cable,
@@ -2848,9 +2653,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "nn" = (
 /obj/machinery/vending/cola,
@@ -2878,9 +2681,7 @@
 /area/barren/misc/eastarmory)
 "nu" = (
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "nw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2913,16 +2714,14 @@
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "nC" = (
 /obj/structure/barricade/guardrail,
 /obj/structure/barricade/guardrail{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "nE" = (
 /obj/structure/window/framed/colony,
@@ -2940,9 +2739,7 @@
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "nK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -2974,7 +2771,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/west)
 "nV" = (
 /obj/structure/table,
@@ -2985,9 +2782,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "nZ" = (
 /obj/structure/flora/pottedplant/twentyone,
@@ -3006,9 +2801,7 @@
 /area/barren/security)
 "og" = (
 /obj/item/shard,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "oh" = (
 /obj/structure/closet/secure_closet/medical_doctor,
@@ -3039,9 +2832,7 @@
 /obj/effect/decal/remains/human,
 /obj/item/clothing/head/hardhat/orange,
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "or" = (
 /obj/machinery/vending/cola,
@@ -3075,15 +2866,11 @@
 /area/barren/civilian/botany)
 "oA" = (
 /obj/effect/landmark/xeno_resin_door,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "oC" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "oD" = (
 /obj/machinery/vending/cigarette/colony,
@@ -3101,9 +2888,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "oK" = (
 /obj/effect/decal/cleanable/blood/writing{
@@ -3120,9 +2905,7 @@
 "oM" = (
 /obj/item/tool/pickaxe,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "oO" = (
 /obj/structure/bed/alien,
@@ -3156,9 +2939,7 @@
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "oU" = (
 /obj/structure/filingcabinet,
@@ -3188,9 +2969,7 @@
 /area/barren/cave/lz1)
 "ph" = (
 /obj/machinery/miner/damaged/platinum,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "pj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3216,9 +2995,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "pq" = (
 /turf/open/floor/plating,
@@ -3228,9 +3005,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "pv" = (
 /obj/item/trash/chips,
@@ -3286,9 +3061,7 @@
 /area/barren/civilian/cook)
 "pF" = (
 /obj/structure/lattice,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "pG" = (
 /obj/structure/table/reinforced,
@@ -3338,15 +3111,11 @@
 /area/barren/civilian)
 "pW" = (
 /obj/effect/decal/cleanable/blood/writing,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "pX" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "pY" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -3373,7 +3142,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "qe" = (
 /obj/machinery/vending/dinnerware,
@@ -3414,16 +3183,12 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/lz2)
 "qk" = (
 /obj/item/lightstick/red/anchored,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "ql" = (
 /obj/structure/cable,
@@ -3437,9 +3202,7 @@
 /area/prison/laundry)
 "qn" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "qp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3465,9 +3228,7 @@
 /area/barren/medical)
 "qx" = (
 /obj/structure/barricade/guardrail,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "qy" = (
 /obj/machinery/light{
@@ -3520,9 +3281,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "qO" = (
 /obj/structure/filingcabinet,
@@ -3565,9 +3324,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "qW" = (
 /turf/open/floor/freezer,
@@ -3591,9 +3348,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "rb" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
@@ -3616,7 +3371,7 @@
 /turf/open/floor/mainship/black/full,
 /area/barren/security)
 "rf" = (
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/east)
 "ri" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3630,9 +3385,7 @@
 "rj" = (
 /obj/item/tool/pickaxe,
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "rm" = (
 /obj/structure/closet/secure_closet/medical1/colony,
@@ -3658,9 +3411,7 @@
 /area/barren/security)
 "rs" = (
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "rt" = (
 /obj/effect/landmark/weed_node,
@@ -3672,9 +3423,7 @@
 "ru" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "rv" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -3747,9 +3496,7 @@
 "rM" = (
 /obj/structure/fence,
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -3757,11 +3504,11 @@
 /area/barren/security)
 "rQ" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/east)
 "rR" = (
 /obj/structure/barricade/guardrail,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/east)
 "rS" = (
 /obj/structure/table/woodentable,
@@ -3879,9 +3626,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "sC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3918,15 +3663,11 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/job/survivor,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "sL" = (
 /obj/item/ore/iron,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "sM" = (
 /obj/effect/decal/cleanable/ash,
@@ -3944,9 +3685,7 @@
 	id = "TGMC_11";
 	name = "TGMC exit point 11"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "sP" = (
 /obj/effect/landmark/corpsespawner/doctor,
@@ -4112,9 +3851,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "tE" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
@@ -4130,15 +3867,11 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "tG" = (
 /obj/effect/decal/cleanable/blood/writing,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "tI" = (
 /obj/structure/table/mainship,
@@ -4183,15 +3916,11 @@
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "tW" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "tX" = (
 /obj/structure/largecrate/random/barrel,
@@ -4211,15 +3940,11 @@
 "ua" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "ub" = (
 /obj/item/tool/pickaxe,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "uc" = (
 /obj/structure/cable,
@@ -4242,15 +3967,11 @@
 /area/barren/security)
 "uf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "uh" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "ul" = (
 /obj/structure/bed,
@@ -4329,9 +4050,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "uF" = (
 /obj/effect/decal/cleanable/blood,
@@ -4358,7 +4077,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/caves/southeast)
 "uT" = (
 /obj/structure/cable,
@@ -4366,9 +4085,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "uU" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4411,9 +4128,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "vd" = (
 /obj/machinery/door/airlock/colony/medical{
@@ -4426,9 +4141,7 @@
 /area/barren/medical)
 "ve" = (
 /obj/structure/lattice,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "vf" = (
 /obj/item/trash/chips,
@@ -4482,17 +4195,13 @@
 /area/barren/civilian/botany)
 "vw" = (
 /obj/effect/landmark/xeno_silo_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "vy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "vA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4502,9 +4211,7 @@
 "vC" = (
 /obj/effect/landmark/corpsespawner/miner,
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "vE" = (
 /obj/effect/ai_node,
@@ -4536,7 +4243,7 @@
 /area/barren/civilian)
 "vL" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "vM" = (
 /obj/machinery/light,
@@ -4598,9 +4305,7 @@
 /area/bigredv2/outside/general_offices)
 "wb" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "wc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4628,9 +4333,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/barren/medical)
 "wj" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "wk" = (
 /obj/structure/rack,
@@ -4651,9 +4354,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "wo" = (
 /obj/structure/largecrate/random/case,
@@ -4676,9 +4377,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "wr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4840,7 +4539,7 @@
 /turf/open/liquid/lava/autosmoothing,
 /area/barren)
 "xl" = (
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/west)
 "xn" = (
 /obj/structure/window/reinforced/toughened{
@@ -4886,9 +4585,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "xF" = (
 /obj/structure/table/mainship,
@@ -4903,14 +4600,12 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "xI" = (
 /obj/structure/barricade/guardrail,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/east)
 "xK" = (
 /obj/effect/landmark/excavation_site_spawner,
@@ -4928,9 +4623,7 @@
 /area/barren/misc/eastarmory)
 "xN" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno/core,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "xO" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -4954,9 +4647,7 @@
 /area/barren)
 "xU" = (
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "xV" = (
 /obj/machinery/door/airlock/mainship/secure/free_access{
@@ -5031,9 +4722,7 @@
 /area/barren/security)
 "ym" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "yn" = (
 /obj/structure/cable,
@@ -5090,9 +4779,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "yC" = (
 /obj/structure/table,
@@ -5108,9 +4795,7 @@
 "yE" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "yH" = (
 /turf/closed/wall/r_wall,
@@ -5119,18 +4804,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "yJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "yL" = (
 /obj/structure/largecrate/random,
@@ -5203,9 +4884,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "zf" = (
 /obj/structure/cable,
@@ -5224,10 +4903,10 @@
 /obj/structure/barricade/guardrail{
 	dir = 1
 	},
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/central)
 "zj" = (
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/central)
 "zl" = (
 /obj/structure/table/reinforced/prison,
@@ -5237,9 +4916,7 @@
 "zm" = (
 /obj/structure/lattice,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "zn" = (
 /obj/item/clothing/head/warning_cone,
@@ -5261,9 +4938,7 @@
 "zr" = (
 /obj/item/tool/pickaxe,
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "zs" = (
 /obj/item/lightstick/red/anchored,
@@ -5271,18 +4946,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "zu" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "zw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5298,9 +4969,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "zB" = (
 /obj/item/storage/pill_bottle,
@@ -5373,9 +5042,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "zT" = (
 /obj/structure/flora/pottedplant,
@@ -5395,9 +5062,7 @@
 /area/barren/civilian/cook)
 "zY" = (
 /obj/structure/ore_box,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Aa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5406,9 +5071,7 @@
 "Ab" = (
 /obj/effect/landmark/xeno_silo_spawn,
 /obj/effect/landmark/start/job/xenomorph,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Ac" = (
 /obj/structure/table/reinforced,
@@ -5418,9 +5081,7 @@
 "Af" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Ag" = (
 /turf/open/floor/marking/delivery,
@@ -5489,15 +5150,11 @@
 /area/barren/cave/lz1)
 "Az" = (
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "AB" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "AC" = (
 /obj/structure/closet/secure_closet/engineering_personal,
@@ -5510,15 +5167,11 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "AE" = (
 /obj/item/tool/pickaxe,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "AF" = (
 /obj/structure/table/mainship,
@@ -5540,9 +5193,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "AK" = (
 /turf/closed/wall/r_wall,
@@ -5582,9 +5233,7 @@
 	id = "SOM_23";
 	name = "SOM exit point 23"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "AV" = (
 /obj/machinery/washing_machine,
@@ -5593,9 +5242,7 @@
 /area/prison/laundry)
 "AW" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "AX" = (
 /obj/structure/rack,
@@ -5608,18 +5255,14 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "AZ" = (
 /obj/effect/landmark/patrol_point{
 	id = "SOM_21";
 	name = "SOM exit point 21"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Ba" = (
 /turf/open/floor/plating/ground/dirt,
@@ -5630,18 +5273,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Bd" = (
 /obj/effect/landmark/patrol_point{
 	id = "TGMC_21";
 	name = "TGMC exit point 21"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Bf" = (
 /turf/open/floor/plating,
@@ -5675,9 +5314,7 @@
 "Bo" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Bp" = (
 /obj/effect/landmark/weed_node,
@@ -5720,15 +5357,11 @@
 "Bx" = (
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Bz" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "BA" = (
 /obj/structure/sign/chemistry2,
@@ -5764,9 +5397,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "BH" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
@@ -5784,15 +5415,11 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "BL" = (
 /obj/effect/decal/cleanable/blood/writing,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "BM" = (
 /obj/structure/closet/secure_closet/security,
@@ -5801,9 +5428,7 @@
 /area/barren/security)
 "BN" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "BO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5822,15 +5447,11 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "BS" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "BT" = (
 /obj/item/clothing/head/warning_cone,
@@ -5840,25 +5461,19 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "BU" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "BV" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "BW" = (
 /obj/structure/bed/chair/wood/wings,
@@ -5866,9 +5481,7 @@
 /area/barren/civilian/workdorm)
 "BX" = (
 /obj/machinery/miner/damaged,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "BY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5916,9 +5529,7 @@
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Ch" = (
 /obj/structure/cable,
@@ -5930,9 +5541,7 @@
 "Cj" = (
 /obj/item/tool/pickaxe,
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Cn" = (
 /obj/machinery/door/airlock/freezer,
@@ -5945,9 +5554,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Cq" = (
 /obj/machinery/floodlight/outpost,
@@ -5963,9 +5570,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Cv" = (
 /obj/effect/turf_decal/woodsiding{
@@ -6003,9 +5608,7 @@
 	id = "SOM_24";
 	name = "SOM exit point 24"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "CF" = (
 /obj/structure/cable,
@@ -6039,9 +5642,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "CR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6067,15 +5668,11 @@
 /area/barren/security)
 "CY" = (
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Da" = (
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "Db" = (
 /obj/structure/closet,
@@ -6135,9 +5732,7 @@
 /area/barren/civilian/botany)
 "Dq" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Dr" = (
 /obj/structure/bed/chair/wood/normal{
@@ -6150,9 +5745,7 @@
 "Dw" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "DB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6223,9 +5816,7 @@
 /area/barren/medical)
 "DW" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "DY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6233,9 +5824,7 @@
 /area/bigredv2/outside/general_offices)
 "DZ" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Ea" = (
 /obj/structure/table/reinforced,
@@ -6287,9 +5876,7 @@
 	id = "TGMC_24";
 	name = "TGMC exit point 24"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "En" = (
 /obj/structure/bed/chair/wood/normal{
@@ -6325,27 +5912,21 @@
 /area/barren/medical)
 "Et" = (
 /obj/effect/decal/remains/xeno,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Eu" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Ev" = (
 /obj/effect/landmark/patrol_point{
 	id = "TGMC_23";
 	name = "TGMC exit point 23"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Ew" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6380,9 +5961,7 @@
 "ED" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "EG" = (
 /obj/effect/decal/cleanable/blood/writing{
@@ -6410,9 +5989,7 @@
 	id = "TGMC_14";
 	name = "TGMC exit point 14"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "EM" = (
 /obj/structure/window/framed/colony/reinforced,
@@ -6440,9 +6017,7 @@
 /area/barren/security)
 "EV" = (
 /obj/item/trash/cigbutt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "EW" = (
 /obj/structure/table/reinforced,
@@ -6517,9 +6092,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Fo" = (
 /obj/machinery/door/airlock/colony/medical,
@@ -6540,9 +6113,7 @@
 /area/barren/security/nuke)
 "Fs" = (
 /obj/item/ore/iron,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Ft" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6599,7 +6170,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/lz2)
 "FF" = (
 /turf/open/floor/tile/blue/whiteblue{
@@ -6631,7 +6202,7 @@
 	},
 /area/barren/security)
 "FK" = (
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren)
 "FL" = (
 /turf/open/floor/tile/blue/whitebluecorner,
@@ -6736,9 +6307,7 @@
 /area/barren/medical)
 "Go" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "Gp" = (
 /obj/structure/barricade/guardrail{
@@ -6752,9 +6321,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Gr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6788,15 +6355,11 @@
 /area/barren/civilian/workdorm)
 "Gy" = (
 /obj/effect/decal/cleanable/ash,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Gz" = (
 /obj/item/lightstick/red/anchored,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "GC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -6805,17 +6368,13 @@
 /area/barren/engie/engine)
 "GD" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "GE" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "GH" = (
 /obj/structure/cable,
@@ -6843,9 +6402,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "GO" = (
 /turf/closed/wall,
@@ -6865,16 +6422,12 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "GU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/head/hardhat/orange,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "GW" = (
 /turf/closed/wall,
@@ -6925,9 +6478,7 @@
 "Hj" = (
 /obj/structure/lattice,
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Hk" = (
 /obj/structure/window_frame/colony/reinforced,
@@ -6950,9 +6501,7 @@
 /area/barren/cave/central)
 "Hn" = (
 /obj/structure/girder,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Ho" = (
 /obj/structure/table/mainship,
@@ -6996,9 +6545,7 @@
 "HA" = (
 /obj/structure/barricade/metal,
 /obj/structure/lattice,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "HB" = (
 /turf/closed/mineral/smooth/indestructible,
@@ -7007,9 +6554,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "HF" = (
 /obj/effect/landmark/weed_node,
@@ -7073,9 +6618,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Id" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -7084,7 +6627,7 @@
 /area/barren/engie/engine)
 "Ie" = (
 /obj/structure/barricade/guardrail,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "If" = (
 /obj/structure/table,
@@ -7144,7 +6687,7 @@
 	pixel_y = 7
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "Iu" = (
 /obj/structure/table/reinforced/prison,
@@ -7177,9 +6720,7 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "IB" = (
 /obj/structure/toilet{
@@ -7202,9 +6743,7 @@
 "IE" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "IG" = (
 /obj/structure/closet/crate/radiation,
@@ -7218,9 +6757,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "IK" = (
 /obj/structure/table/reinforced/prison,
@@ -7275,9 +6812,7 @@
 /area/barren/civilian/workdorm)
 "Ja" = (
 /obj/item/ore/phoron,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Jb" = (
 /obj/structure/table/mainship,
@@ -7293,9 +6828,7 @@
 "Jd" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Je" = (
 /obj/structure/table/reinforced/prison,
@@ -7342,9 +6875,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Jr" = (
 /obj/structure/mirror,
@@ -7362,28 +6893,20 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "Jv" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Jw" = (
 /obj/item/ore/iron,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Jx" = (
 /obj/effect/landmark/start/job/xenomorph,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Jy" = (
 /obj/structure/barricade/guardrail{
@@ -7438,9 +6961,7 @@
 	id = "SOM_22";
 	name = "SOM exit point 22"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "JI" = (
 /obj/structure/bookcase/manuals/research_and_development,
@@ -7451,9 +6972,7 @@
 /area/barren/misc/refinery)
 "JM" = (
 /obj/machinery/miner/damaged,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "JP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7489,17 +7008,13 @@
 /area/barren/medical/research)
 "JZ" = (
 /obj/structure/girder,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Ka" = (
 /obj/structure/bed/chair/pew{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Kc" = (
 /obj/structure/bed/chair/comfy/beige{
@@ -7521,7 +7036,7 @@
 /turf/open/floor/tile/dark2,
 /area/bigredv2/outside/general_offices)
 "Ke" = (
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/west)
 "Kf" = (
 /obj/effect/ai_node,
@@ -7531,25 +7046,19 @@
 /obj/effect/decal/remains/human,
 /obj/item/clothing/head/hardhat/orange,
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Ki" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Kk" = (
 /obj/effect/ai_node,
 /obj/structure/girder,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Kl" = (
 /obj/structure/closet/secure_closet/freezer/money,
@@ -7558,9 +7067,7 @@
 /area/barren/civilian/cook)
 "Ko" = (
 /obj/structure/ore_box,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Kp" = (
 /obj/structure/window/framed/colony/reinforced,
@@ -7574,9 +7081,7 @@
 /area/barren/engie/engine)
 "Ks" = (
 /obj/effect/xenomorph/acid,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Kw" = (
 /turf/closed/wall,
@@ -7585,9 +7090,7 @@
 /obj/structure/bed/chair/pew{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Kz" = (
 /obj/structure/table/reinforced,
@@ -7617,9 +7120,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "KF" = (
 /obj/structure/closet/secure_closet/atmos_personal,
@@ -7638,9 +7139,7 @@
 /obj/structure/barricade/guardrail{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "KK" = (
 /obj/machinery/door/airlock/mainship/generic,
@@ -7696,15 +7195,11 @@
 /area/barren/medical/research)
 "Lb" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Lc" = (
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Lf" = (
 /obj/machinery/conveyor{
@@ -7721,21 +7216,15 @@
 "Lh" = (
 /obj/effect/decal/cleanable/blood/writing,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Lj" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Lm" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Ln" = (
 /obj/structure/bed/chair/wood,
@@ -7743,9 +7232,7 @@
 /area/barren/cave/lz1)
 "Lo" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Lq" = (
 /obj/effect/landmark/weed_node,
@@ -7753,9 +7240,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Lt" = (
 /obj/structure/grille/broken,
@@ -7786,9 +7271,7 @@
 /area/barren/medical/research)
 "Lz" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "LA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7803,9 +7286,7 @@
 /area/barren/misc/refinery)
 "LC" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "LD" = (
 /obj/structure/table/reinforced,
@@ -7864,16 +7345,12 @@
 "LQ" = (
 /obj/item/assembly/mousetrap/armed,
 /obj/effect/landmark/xeno_resin_wall,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "LT" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "LW" = (
 /obj/structure/sign/poster,
@@ -7939,9 +7416,7 @@
 /area/barren/security)
 "Mo" = (
 /obj/docking_port/stationary/crashmode,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Mp" = (
 /obj/structure/fence,
@@ -7949,26 +7424,20 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Mt" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_tunnel_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Mw" = (
-/turf/open/lavaland/catwalk,
+/turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/central)
 "Mx" = (
 /obj/item/lightstick/red/anchored,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "My" = (
 /obj/machinery/power/apc,
@@ -7986,9 +7455,7 @@
 /area/barren/caves/south)
 "MF" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "MG" = (
 /obj/structure/cargo_container/horizontal{
@@ -8024,9 +7491,7 @@
 /area/barren/civilian/workdorm)
 "MR" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "MS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -8047,9 +7512,7 @@
 /area/barren/cave/central)
 "MV" = (
 /obj/effect/landmark/corpsespawner/miner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "MX" = (
 /obj/structure/cable,
@@ -8113,9 +7576,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Nk" = (
 /obj/structure/table/mainship,
@@ -8129,9 +7590,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "Nm" = (
 /obj/structure/barricade/guardrail{
@@ -8218,9 +7677,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "ND" = (
 /obj/structure/table/reinforced,
@@ -8245,7 +7702,7 @@
 /turf/open/floor/freezer,
 /area/barren/medical/research)
 "NJ" = (
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/northwest)
 "NN" = (
 /obj/effect/ai_node,
@@ -8291,7 +7748,7 @@
 /area/barren/medical)
 "NX" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/central)
 "NY" = (
 /turf/open/floor/wood,
@@ -8372,9 +7829,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "OA" = (
 /obj/structure/cable,
@@ -8390,9 +7845,7 @@
 /turf/open/floor/plating,
 /area/barren/cave/lz1)
 "OD" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northeast)
 "OI" = (
 /obj/effect/landmark/start/job/survivor,
@@ -8409,22 +7862,16 @@
 /area/barren/civilian)
 "OK" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "OL" = (
 /obj/structure/razorwire,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "OM" = (
 /obj/structure/fence,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "OP" = (
 /obj/structure/closet/secure_closet/engineering_personal,
@@ -8479,7 +7926,7 @@
 /turf/open/floor/wood,
 /area/barren/security)
 "Pd" = (
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/east)
 "Pf" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -8553,9 +8000,7 @@
 /turf/open/floor/wood,
 /area/barren/security)
 "Pv" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "Pw" = (
 /turf/open/floor,
@@ -8564,9 +8009,7 @@
 /obj/structure/barricade/guardrail{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "PA" = (
 /obj/structure/cable,
@@ -8582,9 +8025,7 @@
 /area/barren/cave/lz1)
 "PE" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "PH" = (
 /obj/structure/cable,
@@ -8604,9 +8045,7 @@
 "PK" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PL" = (
 /turf/closed/wall,
@@ -8617,9 +8056,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PN" = (
 /obj/machinery/computer/intel_computer,
@@ -8629,9 +8066,7 @@
 /obj/structure/barricade/guardrail{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PP" = (
 /obj/structure/closet/secure_closet/chemical/colony,
@@ -8643,18 +8078,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PT" = (
 /turf/open/floor/wood,
@@ -8675,18 +8106,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "Qb" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Qc" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -8730,9 +8157,7 @@
 "Qo" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_tunnel_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "Qp" = (
 /obj/structure/flora/pottedplant/twentyone,
@@ -8763,9 +8188,7 @@
 "Qw" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_tunnel_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Qx" = (
 /obj/effect/landmark/weed_node,
@@ -8777,21 +8200,17 @@
 /area/barren/medical/research)
 "QB" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "QC" = (
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/caves/southeast)
 "QD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "QF" = (
 /obj/structure/cable,
@@ -8828,9 +8247,7 @@
 "QM" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "QN" = (
 /turf/open/floor/plating,
@@ -8923,9 +8340,7 @@
 "Rl" = (
 /obj/item/tool/pickaxe,
 /obj/item/ore/phoron,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Rn" = (
 /obj/structure/cable,
@@ -8941,9 +8356,7 @@
 /area/barren/civilian)
 "Rq" = (
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Rr" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -8960,22 +8373,16 @@
 /area/barren/engie/engine)
 "Ru" = (
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Ry" = (
 /obj/structure/barricade/guardrail,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Rz" = (
 /obj/item/tool/pickaxe,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "RA" = (
 /turf/open/floor/plating,
@@ -8995,18 +8402,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "RF" = (
 /turf/open/floor/plating,
 /area/shuttle/drop2/lz2)
 "RH" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "RI" = (
 /obj/structure/cable,
@@ -9040,18 +8443,14 @@
 "RP" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/storage/bag/trash,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "RQ" = (
 /obj/effect/decal/remains/human,
 /obj/item/clothing/head/hardhat/orange,
 /obj/effect/decal/cleanable/blood,
 /obj/structure/fence,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "RS" = (
 /obj/structure/rack,
@@ -9115,9 +8514,7 @@
 /area/barren/civilian)
 "Si" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "Sk" = (
 /obj/machinery/portable_atmospherics/scrubber,
@@ -9142,38 +8539,28 @@
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Sp" = (
 /turf/open/floor/prison/bright_clean/two,
 /area/barren/security)
 "Sr" = (
 /obj/item/lightstick/red/anchored,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "St" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Su" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Sw" = (
 /obj/machinery/miner/damaged/platinum,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Sx" = (
 /obj/structure/table/reinforced/prison,
@@ -9181,9 +8568,7 @@
 /area/barren/security)
 "SA" = (
 /obj/effect/landmark/xeno_resin_wall,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "SD" = (
 /obj/structure/cable,
@@ -9214,9 +8599,7 @@
 /area/barren/medical/research)
 "SM" = (
 /obj/item/lightstick/red/anchored,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "SN" = (
 /obj/effect/decal/cleanable/blood/writing{
@@ -9227,17 +8610,13 @@
 "SO" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "SP" = (
 /obj/structure/bed/chair/pew{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "SQ" = (
 /turf/open/floor/marking,
@@ -9266,9 +8645,7 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "SY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9280,15 +8657,11 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Ta" = (
 /obj/structure/lattice,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Tb" = (
 /obj/machinery/light{
@@ -9344,9 +8717,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Tp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9368,9 +8739,7 @@
 "Tv" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_resin_wall,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Tx" = (
 /obj/structure/rack,
@@ -9393,9 +8762,7 @@
 /area/bigredv2/outside/general_offices)
 "TB" = (
 /obj/machinery/miner/damaged/platinum,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "TC" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -9423,9 +8790,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "TL" = (
 /obj/structure/bed/chair/office/light,
@@ -9462,16 +8827,12 @@
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "TV" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "TW" = (
 /obj/item/toy/plush,
@@ -9491,9 +8852,7 @@
 /area/barren/civilian/workdorm)
 "Ub" = (
 /obj/effect/landmark/start/job/xenomorph,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Ud" = (
 /turf/open/floor/tile/blue/whiteblue{
@@ -9516,9 +8875,7 @@
 /area/barren/medical)
 "Ui" = (
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "Uk" = (
 /obj/structure/cable,
@@ -9540,9 +8897,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Up" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9640,9 +8995,7 @@
 "UM" = (
 /obj/effect/landmark/start/job/xenomorph,
 /obj/effect/landmark/excavation_site_spawner,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "UN" = (
 /obj/structure/table/reinforced,
@@ -9662,9 +9015,7 @@
 /area/barren/security)
 "UW" = (
 /obj/effect/landmark/weapon_spawn/tier1_weapon_spawn,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "UY" = (
 /obj/structure/rack,
@@ -9683,9 +9034,7 @@
 "Vg" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/start/job/xenomorph,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Vi" = (
 /obj/structure/bed/chair/wood/wings,
@@ -9733,16 +9082,12 @@
 	id = "TGMC_12";
 	name = "TGMC exit point 12"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "Vy" = (
 /obj/structure/fence,
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Vz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9783,21 +9128,15 @@
 "VE" = (
 /obj/structure/lattice,
 /obj/effect/landmark/xeno_resin_wall,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "VF" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno/core,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "VG" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "VH" = (
 /obj/structure/cable,
@@ -9856,17 +9195,13 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "VX" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "VY" = (
 /obj/machinery/light_construct{
@@ -9877,9 +9212,7 @@
 /area/barren/security)
 "VZ" = (
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Wa" = (
 /obj/structure/cable,
@@ -9970,15 +9303,11 @@
 /area/barren/medical)
 "WD" = (
 /obj/structure/lattice,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "WF" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "WG" = (
 /obj/structure/window/framed/colony,
@@ -10008,9 +9337,7 @@
 /area/barren/cave/lz2)
 "WR" = (
 /obj/effect/decal/cleanable/blood/writing,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "WS" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -10045,9 +9372,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 1
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Xa" = (
 /obj/structure/closet/crate/hydroponics,
@@ -10058,18 +9383,14 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "Xd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "Xe" = (
 /obj/structure/window/framed/colony,
@@ -10102,9 +9423,7 @@
 /area/barren/civilian/workdorm)
 "Xj" = (
 /obj/effect/decal/remains/human,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Xm" = (
 /obj/structure/filingcabinet,
@@ -10135,9 +9454,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Xv" = (
 /obj/structure/rack,
@@ -10156,22 +9473,18 @@
 /area/barren/security)
 "XB" = (
 /obj/effect/landmark/xeno_resin_wall,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "XD" = (
 /obj/structure/cable,
-/turf/open/lavaland/basalt/glowing,
+/turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/caves/south)
 "XG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "XJ" = (
 /obj/structure/table/reinforced,
@@ -10242,9 +9555,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "Yh" = (
 /obj/structure/bed,
@@ -10269,9 +9580,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Yr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10302,18 +9611,14 @@
 /obj/structure/lattice,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Yz" = (
 /obj/effect/landmark/patrol_point{
 	id = "TGMC_22";
 	name = "TGMC exit point 22"
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "YA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10346,9 +9651,7 @@
 /turf/open/floor/mainship/black/full,
 /area/barren/security)
 "YI" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "YL" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -10374,9 +9677,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "YQ" = (
 /turf/open/floor/freezer,
@@ -10390,9 +9691,7 @@
 "YS" = (
 /obj/item/lightstick/red/anchored,
 /obj/structure/cable,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "YW" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -10412,9 +9711,7 @@
 /area/barren/medical/research)
 "Zb" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Zc" = (
 /turf/open/floor/plating/warning{
@@ -10439,9 +9736,7 @@
 /turf/open/liquid/lava/autosmoothing,
 /area/barren)
 "Zg" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Zh" = (
 /obj/structure/table/reinforced/prison,
@@ -10473,9 +9768,7 @@
 "Zl" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "Zn" = (
 /obj/item/trash/used_stasis_bag,
@@ -10508,9 +9801,7 @@
 "Zv" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/xeno_resin_door,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "Zw" = (
 /obj/structure/table/reinforced,
@@ -10545,9 +9836,7 @@
 "ZD" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "ZE" = (
 /obj/effect/landmark/patrol_point{
@@ -10579,9 +9868,7 @@
 /turf/closed/mineral/brock,
 /area/barren/cave/central)
 "ZL" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "ZM" = (
 /obj/structure/filingcabinet,
@@ -10592,9 +9879,7 @@
 /turf/open/floor/wood,
 /area/barren/security)
 "ZN" = (
-/turf/open/lavaland/basalt{
-	baseturfs = /turf/open/lavaland/basalt
-	},
+/turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "ZO" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
