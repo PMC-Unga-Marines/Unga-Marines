@@ -1096,8 +1096,8 @@
 	tick_interval = 5 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_adrenaline
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/plasma_regen_buff_per_chamber = 0.15
-	var/percent_buff_per_chamber = 0.05
+	var/plasma_regen_buff_per_chamber = 0.10
+	var/percent_buff_per_chamber = 0.01
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_adrenaline/on_apply()
