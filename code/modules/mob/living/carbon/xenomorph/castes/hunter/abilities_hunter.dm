@@ -364,7 +364,6 @@
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.forceMove(get_turf(living_target))
 	living_target.Knockdown(XENO_POUNCE_STUN_DURATION)
-	xeno_owner.apply_status_effect(/datum/status_effect/hunt)
 
 /datum/action/ability/activable/xeno/pounce/proc/pounce_complete()
 	SIGNAL_HANDLER
