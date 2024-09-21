@@ -43,10 +43,12 @@
 /area/barren/cave/lz1
 	name = "Landing Zone 1"
 	icon_state = "lava_lz1"
+	outside = FALSE
 
 /area/barren/cave/lz2
 	name = "Landing Zone 2"
 	icon_state = "lava_lz2"
+	outside = FALSE
 
 /area/barren/caves
 	name = "Unknown Area"
@@ -175,41 +177,35 @@
 
 /area/barren/misc
 	minimap_color = MINIMAP_AREA_COLONY
+	outside = FALSE
 
 /area/barren/misc/stationed
 	name = "Stationed Ship"
 	icon_state = "lava_misc_stationed"
-	outside = FALSE
 
 /area/barren/misc/outpost
 	name = "Abandoned Outpost"
 	icon_state = "lava_misc_outpost"
-	outside = FALSE
 
 /area/barren/misc/alienstorage
 	name = "Alien Storage"
 	icon_state = "lava_misc_alienstorage"
-	outside = FALSE
 
 /area/barren/misc/shack
 	name = "Shack"
 	icon_state = "lava_misc_shack"
-	outside = FALSE
 
 /area/barren/misc/genstorage
 	name = "General Storage"
 	icon_state =  "lava_misc_genstorage"
-	outside = FALSE
 
 /area/barren/misc/eastarmory
 	name = "Eastern Armory"
 	icon_state =  "lava_misc_armory1"
-	outside = FALSE
 
 /area/barren/misc/westarmory
 	name = "Western Armory"
 	icon_state =  "lava_misc_armory2"
-	outside = FALSE
 
 /area/barren/misc/refinery
 	name = "Ore Processing Facility"
@@ -223,10 +219,9 @@
 /area/barren/misc/clocknuke //This'll come into play later
 	name = "The Brass Gavel"
 	icon_state = "lava_clock_nuke"
-	outside = FALSE
 	requires_power = 0
 
 /area/barren/misc/ashshelter
 	name = "Ash Shelter"
 	icon_state = "lava_ash_shelter"
-	outside = FALSE
+

@@ -365,7 +365,7 @@
 /obj/structure/table,
 /obj/item/radio,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "cm" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 2
@@ -1107,18 +1107,18 @@
 /obj/item/toy/gun,
 /obj/item/toy/gun_ammo,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gm" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/item/clothing/suit/xenos,
 /obj/item/clothing/head/xenos,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gn" = (
 /obj/structure/bed,
 /obj/item/bedsheet,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "go" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/cobweb{
@@ -1197,7 +1197,7 @@
 "gE" = (
 /obj/machinery/door/airlock/mainship/generic,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gF" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -1215,19 +1215,19 @@
 /area/barren/civilian)
 "gJ" = (
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gM" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gN" = (
 /obj/structure/toilet{
 	dir = 4
 	},
 /turf/open/floor/tile,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gO" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
@@ -1248,7 +1248,7 @@
 	},
 /obj/machinery/washing_machine,
 /turf/open/floor/tile,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gU" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
@@ -1256,7 +1256,7 @@
 	locked = 1
 	},
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "gY" = (
 /obj/structure/rack,
 /obj/effect/landmark/weapon_spawn/tier1_weapon_spawn,
@@ -1280,7 +1280,7 @@
 "hb" = (
 /obj/machinery/computer/security/wooden_tv,
 /turf/closed/wall/r_wall,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "hc" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/lavaland/basalt{
@@ -1290,7 +1290,7 @@
 "hg" = (
 /obj/structure/bed/chair/sofa/right,
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "hi" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
@@ -1318,7 +1318,7 @@
 "hm" = (
 /obj/structure/bed/chair/sofa,
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "hn" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/open/floor/tile/dark,
@@ -1329,7 +1329,7 @@
 	},
 /obj/structure/bed/chair/sofa/left,
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "hs" = (
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
@@ -1340,7 +1340,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "hv" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -1406,7 +1406,7 @@
 "hJ" = (
 /obj/structure/cable,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "hK" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/open/floor/wood,
@@ -1458,7 +1458,7 @@
 /obj/structure/table,
 /obj/item/toy/deck,
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "ie" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -1471,10 +1471,10 @@
 /obj/structure/table,
 /obj/item/toy/dice/d20,
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "ik" = (
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "il" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner2{
 	dir = 8
@@ -1866,7 +1866,7 @@
 	desc = "That loosks like it doesn't open easily."
 	},
 /turf/open/floor/plating/asteroidfloor,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "ki" = (
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 8
@@ -2625,7 +2625,7 @@
 	name = "\improper Ash Shelter"
 	},
 /turf/open/floor/plating/asteroidfloor,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "oT" = (
 /obj/effect/ai_node,
 /obj/structure/closet/walllocker/hydrant/extinguisher{
@@ -2800,7 +2800,7 @@
 /obj/effect/landmark/corpsespawner/colonist/regular,
 /obj/structure/sink/bathroom,
 /turf/open/floor/tile,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "qa" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/prison/sterilewhite,
@@ -4410,7 +4410,7 @@
 "zx" = (
 /obj/structure/sign/poster,
 /turf/closed/wall/r_wall,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "zB" = (
 /obj/item/storage/pill_bottle,
 /turf/open/floor/tile/blue/whitebluecorner{
@@ -5493,7 +5493,7 @@
 "Fy" = (
 /obj/structure/cable,
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "FB" = (
 /obj/structure/table/woodentable,
 /obj/item/flashlight/lamp,
@@ -5582,7 +5582,7 @@
 /area/barren/security)
 "FW" = (
 /turf/open/floor/tile,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "FZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -5613,7 +5613,7 @@
 /obj/machinery/shower,
 /obj/effect/landmark/weapon_spawn/tier3_weapon_spawn,
 /turf/open/floor/plating/plating_catwalk,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "Gj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/bright_clean/two,
@@ -6781,7 +6781,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "Nf" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -7569,7 +7569,7 @@
 /area/barren/misc/eastarmory)
 "RZ" = (
 /turf/closed/wall/r_wall,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "Sb" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -7617,7 +7617,7 @@
 "Sk" = (
 /obj/machinery/portable_atmospherics/scrubber,
 /turf/open/floor/plating/mainship,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "Sl" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2
@@ -8246,7 +8246,7 @@
 	name = "\improper Ash Shelter"
 	},
 /turf/open/floor/plating/asteroidfloor,
-/area/barren/cave/west)
+/area/barren/misc/ashshelter)
 "We" = (
 /obj/structure/window/reinforced/toughened{
 	dir = 1
@@ -42661,7 +42661,7 @@ RH
 ZL
 ZL
 RH
-ZK
+ZS
 PQ
 ZL
 Ry
@@ -42916,9 +42916,9 @@ ZL
 Lm
 ZL
 ZL
-ZK
-ZK
-ZK
+ZS
+ZS
+ZS
 ax
 ZL
 ZL
@@ -43171,11 +43171,11 @@ Mw
 ZL
 ZL
 ZL
-ZK
-ZK
-ZK
-ZK
-ZK
+ZS
+ZS
+ZS
+ZS
+ZS
 Rq
 Gz
 ZL
@@ -43425,13 +43425,13 @@ Mw
 Mw
 Mw
 Mw
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 ZL
 Rq
 ZL
@@ -43682,13 +43682,13 @@ Mw
 Mw
 Mw
 Mw
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 ZL
 Rq
 ZL
@@ -43938,14 +43938,14 @@ Mw
 vL
 Mw
 Mw
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 ZL
 Rq
 ZL
@@ -44195,14 +44195,14 @@ Mw
 kr
 kr
 Mw
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
-ZK
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 ZL
 Rq
 zj
