@@ -15,6 +15,10 @@
 	var/charges = 1
 	///If a xeno is charging this well
 	var/charging = FALSE
+	///5 * recharge_rate = 1 stage
+	var/recharge_rate = 5
+	///Countdown to the next time we generate acid
+	var/nextstage = 0
 	///What xeno created this well
 	var/mob/living/carbon/xenomorph/creator = null
 
@@ -37,6 +41,10 @@
 /obj/structure/xeno/acidwell/process()
 	if(charges >= XENO_ACID_WELL_MAX_CHARGES)
 		return PROCESS_KILL
+	if(nextstage <= recharge_rate)
+		nextstage++
+		return
+	nextstage = 0
 	charges++
 	update_icon()
 
@@ -52,7 +60,7 @@
 			to_chat(creator, span_xenoannounce("You sense your acid well at [A.name] has been destroyed!") )
 
 	if((damage_amount || damage_flag) && charges > 0) //Spawn the gas only if we actually get destroyed by damage
-		var/datum/effect_system/smoke_spread/xeno/acid/A = new(get_turf(src))
+		var/datum/effect_system/smoke_spread/xeno/acid/extuingishing/A = new(get_turf(src))
 		A.set_up(clamp(CEILING(charges * 0.5, 1),0,3),src) //smoke scales with charges
 		A.start()
 	return ..()
