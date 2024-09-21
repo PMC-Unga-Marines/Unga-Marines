@@ -60,12 +60,24 @@
 	damage = 45
 	damage_falloff = 0.5
 	penetration = 15
-	additional_xeno_penetration = 30
+	additional_xeno_penetration = 20
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 8 SECONDS
+
+/datum/ammo/bullet/shotgun/flechette/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread
 	name = "additional flechette"
 	damage = 35
 	additional_xeno_penetration = 30
+
+/datum/ammo/bullet/shotgun/flechette/flechette_spread/on_hit_mob(mob/M, obj/projectile/proj)
+	return
 
 /datum/ammo/bullet/shotgun/buckshot
 	name = "shotgun buckshot shell"

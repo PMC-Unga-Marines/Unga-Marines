@@ -112,7 +112,7 @@
 	wound_type = "larva" //used to match appropriate wound overlays
 
 	gib_anim = "larva_gib_corpse"
-	gib_flick = "larva_gib"
+	gib_flick = "predalien_larva_gibbed"
 
 	// *** Melee Attacks *** //
 	melee_damage = 0
