@@ -63,12 +63,11 @@
 		sell_rest_of_essential_kit(loadout, user)
 
 /// If one item from essential kit was bought, we sell the rest and put in on the ground
-/datum/loadout_seller/proc/sell_rest_of_essential_kit(datum/loadout/loadout, mob/user)
-	var/list/job_specific_list = GLOB.loadout_role_essential_set[loadout.job]
+/datum/loadout_seller/proc/sell_rest_of_essential_kit(datum/loadout/loadout, mob/living/user)
+	var/list/job_specific_list = GLOB.loadout_role_essential_set[user.job]
 	for(var/key in job_specific_list)
 		var/item_already_sold = unique_items_list[key]
 		while(item_already_sold < job_specific_list[key])
 			var/obj/item/item = key
 			new item(user.loc)
 			item_already_sold++
-
