@@ -52,7 +52,7 @@
  * Else we sell everything back to vendors
  */
 /datum/loadout_seller/proc/try_to_equip_loadout(datum/loadout/loadout, mob/user)
-	prepare_to_equip_loadout(loadout, user) // TODO: Unshitcode this, so it actualy works based on internal logic
+	prepare_to_equip_loadout(loadout, user)
 	var/obj/item/card/id/id = user.get_idcard()
 	for(var/category in id.marine_buy_choices)
 		id.marine_buy_choices[category] = min(buying_choices_left[category], id.marine_buy_choices[category])
@@ -66,7 +66,7 @@
 /datum/loadout_seller/proc/sell_rest_of_essential_kit(datum/loadout/loadout, mob/living/user)
 	if(!user.job)
 		return
-	var/list/job_specific_list = GLOB.loadout_role_essential_set[user.job]
+	var/list/job_specific_list = GLOB.loadout_role_essential_set[user.job] // TODO: Unshitcode this, so it actualy works based on internal logic
 	for(var/key in job_specific_list)
 		var/item_already_sold = unique_items_list[key]
 		while(item_already_sold < job_specific_list[key])
