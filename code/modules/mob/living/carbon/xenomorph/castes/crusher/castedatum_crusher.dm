@@ -32,7 +32,7 @@
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 90, BULLET = 80, LASER = 80, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 10, ACID = 100)
-	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	hard_armor = list(MELEE = 0, BULLET = 13, LASER = 13, ENERGY = 13, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.5

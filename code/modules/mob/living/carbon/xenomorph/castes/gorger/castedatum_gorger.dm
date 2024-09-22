@@ -36,7 +36,6 @@
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 20, BULLET = 15, LASER = 15, ENERGY = 20, BOMB = 10, BIO = 20, FIRE = 10, ACID = 20)
-	hard_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "gorger"
