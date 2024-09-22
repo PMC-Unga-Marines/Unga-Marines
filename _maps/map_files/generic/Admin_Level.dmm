@@ -448,10 +448,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor,
 /area/tdome)
-"fPm" = (
-/obj/item/stack/cable_coil,
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
 "fWu" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla/exterior)
@@ -480,11 +476,6 @@
 "gzk" = (
 /obj/machinery/vending/tool/nopower/valhalla,
 /turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
-"gzS" = (
-/obj/machinery/marine_selector/clothes/valhalla,
-/obj/machinery/vending/weapon/valhalla,
-/turf/open/floor/plating,
 /area/centcom/valhalla)
 "gzY" = (
 /obj/effect/turf_decal/warning_stripes/synth,
@@ -1070,8 +1061,8 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
 "oYw" = (
-/obj/item/stack/cable_coil/five,
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/plating,
 /area/centcom/valhalla)
 "ped" = (
 /obj/structure/table,
@@ -1263,9 +1254,8 @@
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
 "rVD" = (
-/obj/effect/turf_decal/warning_stripes/robot,
-/obj/effect/turf_decal/loading_area,
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/plating,
 /area/centcom/valhalla)
 "rXh" = (
 /obj/structure/barricade/wooden,
@@ -1308,11 +1298,6 @@
 "sHO" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
-/area/centcom/valhalla)
-"sJF" = (
-/obj/effect/turf_decal/warning_stripes/marine,
-/obj/effect/turf_decal/loading_area,
-/turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "sWX" = (
 /obj/effect/turf_decal/warning_stripes/thick,
@@ -4805,7 +4790,7 @@ jYG
 xzt
 nKg
 jWH
-gzS
+wZg
 bCd
 nKg
 fvw
@@ -5223,7 +5208,7 @@ wZg
 fvw
 nKg
 fvw
-wZg
+rVD
 xzt
 xzt
 xzt
@@ -5361,7 +5346,7 @@ pqM
 xOF
 foh
 fvw
-pqM
+oYw
 gCD
 uOI
 rei
@@ -5913,7 +5898,7 @@ iZc
 iZc
 iZc
 iZc
-iZc
+xzt
 xzt
 xzt
 xzt
@@ -6050,9 +6035,9 @@ hdk
 iZc
 iZc
 wqU
-rVD
 iZc
 xzt
+xrI
 xrI
 xrI
 xrI
@@ -6189,8 +6174,8 @@ iZc
 tzf
 ndm
 iZc
-iZc
 xzt
+xrI
 xrI
 xrI
 xrI
@@ -6327,8 +6312,8 @@ tzf
 iVt
 wqU
 iZc
-iZc
 xzt
+xrI
 xrI
 xrI
 xrI
@@ -6465,8 +6450,8 @@ hYu
 iZc
 iZc
 tzf
-iZc
 xzt
+xrI
 xrI
 xrI
 xrI
@@ -6602,9 +6587,9 @@ knm
 cnE
 iZc
 tSq
-sJF
 iZc
 xzt
+xrI
 xrI
 xrI
 xrI
@@ -6740,8 +6725,8 @@ knm
 gzk
 iZc
 iZc
-oYw
 iZc
+xzt
 xzt
 xzt
 xzt
@@ -7566,7 +7551,7 @@ nCB
 nCB
 xzt
 kKa
-fPm
+iZc
 iZc
 iZc
 knm
