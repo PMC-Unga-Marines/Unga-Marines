@@ -52,7 +52,7 @@
  * Else we sell everything back to vendors
  */
 /datum/loadout_seller/proc/try_to_equip_loadout(datum/loadout/loadout, mob/user)
-	prepare_to_equip_loadout(loadout, user)
+	prepare_to_equip_loadout(loadout, user) // TODO: Unshitcode this, so it actualy works based on internal logic
 	var/obj/item/card/id/id = user.get_idcard()
 	for(var/category in id.marine_buy_choices)
 		id.marine_buy_choices[category] = min(buying_choices_left[category], id.marine_buy_choices[category])
