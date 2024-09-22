@@ -434,7 +434,6 @@
 	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/machinery/deployable/mounted/sentry/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
-	knock_down()
 	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/structure/razorwire/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
