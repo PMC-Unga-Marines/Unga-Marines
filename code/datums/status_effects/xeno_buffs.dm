@@ -1016,7 +1016,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_vampirism
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/leech_buff_per_chamber = 0.03
-	var/base_leech = 25
+	var/base_leech = 10
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_vampirism/on_apply()
@@ -1045,8 +1045,10 @@
 		return
 	if(!ishuman(target))
 		return
-	buff_owner.adjustBruteLoss(-buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling - base_leech, TRUE)
-	buff_owner.adjustFireLoss(-buff_owner.fireloss * leech_buff_per_chamber * chamber_scaling - base_leech, TRUE)
+	var/leech_amount = (base_leech * chamber_scaling) + (buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling)
+	buff_owner.adjustBruteLoss(-leech_amount)
+	buff_owner.adjustFireLoss(-leech_amount)
+	updatehealth()
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Attack
