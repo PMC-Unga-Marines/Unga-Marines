@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(monitor)
 	///If the game is currently before shutters drop, after, or shipside
 	var/gamestate = SHUTTERS_CLOSED
 	///If the automatic balance system is online
-	var/is_automatic_balance_on = TRUE
+	var/is_automatic_balance_on = FALSE
 	///Maximum record of how many players were concurrently playing this round
 	var/maximum_connected_players_count = 0
 
