@@ -203,7 +203,7 @@
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "pp_100"
 	maxcharge = 2400
-	var/icon_skin = "pp"
+	base_icon_state = "pp"
 
 /obj/item/cell/lasgun/volkite/powerpack/marine_back/Initialize(mapload, ...)
 	. = ..()
@@ -211,8 +211,8 @@
 
 /obj/item/cell/lasgun/volkite/powerpack/marine_back/update_icon_state()
 	. = ..()
-	icon_state = icon_skin
-	if(charge >= 0)
+	icon_state = base_icon_state
+	if(charge > 0)
 		switch(PERCENT(charge/maxcharge))
 			if(75 to INFINITY)
 				icon_state += "_100"
