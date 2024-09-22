@@ -1045,9 +1045,8 @@
 		return
 	if(!ishuman(target))
 		return
-	var/leech_amount = (base_leech * chamber_scaling) + (buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling)
-	buff_owner.adjustBruteLoss(-leech_amount)
-	buff_owner.adjustFireLoss(-leech_amount)
+	buff_owner.adjustBruteLoss((-base_leech * chamber_scaling) - (buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling))
+	buff_owner.adjustFireLoss((-base_leech * chamber_scaling) - (buff_owner.fireloss * leech_buff_per_chamber * chamber_scaling))
 	buff_owner.updatehealth()
 
 // ***************************************
