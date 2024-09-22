@@ -936,7 +936,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_carapace
 	name = "Carapace"
 	desc = "Armor increased."
-	icon_state = "default"
+	icon_state = "xenobuff_carapace"
 
 /datum/status_effect/upgrade_carapace
 	id = "upgrade_carapace"
@@ -972,7 +972,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	name = "Regeneration"
 	desc = "Regeneration increased."
-	icon_state = "default"
+	icon_state = "xenobuff_regeneration"
 
 /datum/status_effect/upgrade_regeneration
 	id = "upgrade_regeneration"
@@ -1007,7 +1007,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_vampirism
 	name = "Vampirism"
 	desc = "Leech from attacks."
-	icon_state = "default"
+	icon_state = "xenobuff_vampirism"
 
 /datum/status_effect/upgrade_vampirism
 	id = "upgrade_vampirism"
@@ -1056,7 +1056,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_celerity
 	name = "Celerity"
 	desc = "Run faster."
-	icon_state = "default"
+	icon_state = "xenobuff_attack"
 
 /datum/status_effect/upgrade_celerity
 	id = "upgrade_celerity"
@@ -1092,7 +1092,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_adrenaline
 	name = "Adrenaline"
 	desc = "Regenerate plasma."
-	icon_state = "default"
+	icon_state = "xenobuff_attack"
 
 /datum/status_effect/upgrade_adrenaline
 	id = "upgrade_adrenaline"
@@ -1128,7 +1128,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_crush
 	name = "Crush"
 	desc = "Additional damage to objects."
-	icon_state = "default"
+	icon_state = "xenobuff_attack"
 
 /datum/status_effect/upgrade_crush
 	id = "upgrade_crush"
@@ -1168,7 +1168,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_toxin
 	name = "Toxin"
 	desc = "Inject toxin on attack."
-	icon_state = "default"
+	icon_state = "xenobuff_generic"
 
 /datum/status_effect/upgrade_toxin
 	id = "upgrade_toxin"
@@ -1216,7 +1216,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_pheromones
 	name = "Pheromones"
 	desc = "Allows to emit pheromones."
-	icon_state = "default"
+	icon_state = "xenobuff_phero"
 
 /atom/movable/screen/alert/status_effect/upgrade_pheromones/Click()
 	var/datum/status_effect/upgrade_pheromones/effect = attached_effect
@@ -1265,7 +1265,7 @@
 /atom/movable/screen/alert/status_effect/upgrade_acid_trail
 	name = "Trail"
 	desc = "We leave an acid trail behind."
-	icon_state = "default"
+	icon_state = "xenobuff_generic"
 
 /datum/status_effect/upgrade_acid_trail
 	id = "upgrade_acid_trail"
