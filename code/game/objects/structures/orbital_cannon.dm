@@ -208,7 +208,7 @@
 		if("plasma")
 			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[4] - tray.fuel_amt)
 
-	var/turf/target = locate(T.x + inaccurate_fuel * pick(-1,1),T.y + inaccurate_fuel * pick(-1,1),T.z)
+	var/turf/target = locate(T.x + inaccurate_fuel * pick(-2, 2),T.y + inaccurate_fuel * pick(-2, 2),T.z)
 
 	playsound_z_humans(target.z, 'sound/effects/OB_warning_announce.ogg', 100) //for marines on ground
 	playsound(target, 'sound/effects/OB_warning_announce_novoiceover.ogg', 125, FALSE, 30, 10) //VOX-less version for xenomorphs
@@ -224,7 +224,7 @@
 	log_game("OB fired by [user] at [AREACOORD(src)], OB type: [tray.warhead.warhead_kind], timerid to cancel: [impact_timerid]")
 	notify_ghosts("<b>[user]</b> has just fired \the <b>[src]</b> !", source = T, action = NOTIFY_JUMP)
 
-	tray.warhead.impact_message(target, impact_time) // RUTGMC ADDITION
+	tray.warhead.impact_message(target, impact_time)
 
 /obj/structure/orbital_cannon/proc/impact_callback(target,inaccurate_fuel)
 	tray.warhead.warhead_impact(target, inaccurate_fuel)
@@ -383,8 +383,6 @@
 /obj/structure/ob_ammo/warhead/explosive/warhead_impact(turf/target, inaccuracy_amt = 0)
 	cell_explosion(target, explosion_power, explosion_falloff + (inaccuracy_amt * 10)) // inaccuracy adds up fallof in result range decreases
 
-
-
 /obj/structure/ob_ammo/warhead/incendiary
 	name = "\improper Incendiary orbital warhead"
 	warhead_kind = "incendiary"
@@ -396,10 +394,8 @@
 	var/smoke_radius = 17
 	var/smoke_duration = 20
 
-
 /obj/structure/ob_ammo/warhead/incendiary/warhead_impact(turf/target, inaccuracy_amt = 0)
-	flame_range_num = max(15 - inaccuracy_amt, 12)
-	flame_radius(flame_range_num, target, flame_intensity, flame_duration, colour = flame_colour)
+	flame_radius(15 - inaccuracy_amt, target, flame_intensity, flame_duration, colour = flame_colour)
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
 	warcrime.set_up(smoke_radius, target, smoke_duration)
 	warcrime.start()
@@ -432,10 +428,9 @@
 	var/smoke_radius = 25
 	var/smoke_duration = 3 SECONDS
 
-
 /obj/structure/ob_ammo/warhead/plasmaloss/warhead_impact(turf/target, inaccuracy_amt = 0)
 	var/datum/effect_system/smoke_spread/plasmaloss/smoke = new
-	smoke.set_up(smoke_radius, target, smoke_duration)//Vape nation
+	smoke.set_up(smoke_radius - inaccuracy_amt, target, smoke_duration)//Vape nation
 	smoke.start()
 
 /obj/structure/ob_ammo/ob_fuel
