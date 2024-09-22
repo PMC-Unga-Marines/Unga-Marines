@@ -1016,7 +1016,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_vampirism
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/leech_buff_per_chamber = 0.03
-	var/base_leech = 5
+	var/base_leech = 3
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_vampirism/on_apply()
