@@ -1048,7 +1048,7 @@
 	var/leech_amount = (base_leech * chamber_scaling) + (buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling)
 	buff_owner.adjustBruteLoss(-leech_amount)
 	buff_owner.adjustFireLoss(-leech_amount)
-	updatehealth()
+	buff_owner.updatehealth()
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Attack
