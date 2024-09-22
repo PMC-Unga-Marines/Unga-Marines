@@ -155,7 +155,6 @@
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/foldable/bipod,
@@ -259,7 +258,6 @@
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/foldable/bipod,
@@ -441,7 +439,6 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/marine,
@@ -550,7 +547,6 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/lace,
@@ -635,7 +631,6 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
@@ -1001,7 +996,6 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/mini,
@@ -1156,7 +1150,6 @@
 	rounds_per_shot = 32
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
@@ -1208,7 +1201,6 @@
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,

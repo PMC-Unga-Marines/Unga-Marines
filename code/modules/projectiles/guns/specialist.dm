@@ -51,7 +51,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	var/obj/item/binoculars/tactical/integrated_laze = null
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/bipod,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/scope/antimaterial,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/sniperbarrel,

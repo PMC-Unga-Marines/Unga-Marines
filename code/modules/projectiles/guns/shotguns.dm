@@ -762,7 +762,6 @@ RU TGMC EDIT */
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/lasersight,
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
