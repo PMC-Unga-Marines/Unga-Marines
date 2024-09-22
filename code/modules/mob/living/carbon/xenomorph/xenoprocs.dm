@@ -106,6 +106,8 @@
 		remove_apply_upgrades(GLOB.xeno_utility_upgrades, STATUS_EFFECT_UPGRADE_TOXIN)
 	if(href_list["phero_buy"])
 		remove_apply_upgrades(GLOB.xeno_utility_upgrades, STATUS_EFFECT_UPGRADE_PHERO)
+	if(href_list["acid_trail_buy"])
+		remove_apply_upgrades(GLOB.xeno_utility_upgrades, STATUS_EFFECT_UPGRADE_ACID_TRAIL)
 
 ///Send a message to all xenos. Force forces the message whether or not the hivemind is intact. Target is an atom that is pointed out to the hive. Filter list is a list of xenos we don't message.
 /proc/xeno_message(message = null, span_class = "xenoannounce", size = 5, hivenumber = XENO_HIVE_NORMAL, force = FALSE, atom/target = null, sound = null, apply_preferences = FALSE, filter_list = null, arrow_type, arrow_color, report_distance = FALSE)
@@ -638,6 +640,7 @@
 		dat += "<div align='center'>UTILITY</div>"
 		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> | Cost: [upgrade_price] | Inject toxin into your target."
 		dat += "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> | Cost: [upgrade_price] | Ability to emit pheromones."
+		dat += "<br><a href='?src=[text_ref(src)];acid_trail_buy=1'>Acid Trail</a> | Cost: [upgrade_price] | Leave an acid trail behind."
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)

@@ -1239,7 +1239,7 @@
 	buff_owner = owner
 	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
-	current_aura = SSaura.add_emitter(buff_owner, AURA_XENO_RECOVERY, 6 + phero_power_per_chamber * chamber_scaling * 2, 1 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
+	current_aura = SSaura.add_emitter(buff_owner, AURA_XENO_RECOVERY, 6 + phero_power_per_chamber * chamber_scaling * 2, 1.5 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
 	return TRUE
 
 /datum/status_effect/upgrade_pheromones/on_remove()
@@ -1252,4 +1252,48 @@
 	SIGNAL_HANDLER
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
 	QDEL_NULL(current_aura)
-	current_aura = SSaura.add_emitter(buff_owner, emitted_aura, 6 + phero_power_per_chamber * chamber_scaling * 2, 1 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
+	current_aura = SSaura.add_emitter(buff_owner, emitted_aura, 6 + phero_power_per_chamber * chamber_scaling * 2, 1.5 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
+
+// ***************************************
+// ***************************************
+// ***************************************
+/atom/movable/screen/alert/status_effect/upgrade_acid_trail
+	name = "Trail"
+	desc = "We leave an acid trail behind."
+	icon_state = "default"
+
+/datum/status_effect/upgrade_acid_trail
+	id = "upgrade_acid_trail"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_acid_trail
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/datum/aura_bearer/current_aura
+	var/base_chance = 10
+	var/chance_per_chamber = 15
+	var/chamber_scaling = 0
+
+/datum/status_effect/upgrade_acid_trail/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
+	RegisterSignal(buff_owner, COMSIG_MOVABLE_MOVED, PROC_REF(do_acid_trail))
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
+	return TRUE
+
+/datum/status_effect/upgrade_acid_trail/on_remove()
+	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY)
+	UnregisterSignal(buff_owner, COMSIG_MOVABLE_MOVED)
+	return ..()
+
+/datum/status_effect/upgrade_acid_trail/proc/update_buff()
+	SIGNAL_HANDLER
+	chamber_scaling = length(buff_owner.hive.veil_chambers)
+
+/datum/status_effect/upgrade_acid_trail/proc/do_acid_trail()
+	SIGNAL_HANDLER
+	if(prob(base_chance + chance_per_chamber * chamber_scaling))
+		new /obj/effect/xenomorph/spray(get_turf(buff_owner), 5 SECONDS, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
+		for(var/obj/O in get_turf(buff_owner))
+			O.acid_spray_act(buff_owner)
