@@ -1015,7 +1015,8 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_vampirism
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/leech_buff_per_chamber = 0.05
+	var/leech_buff_per_chamber = 0.03
+	var/base_leech = 25
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_vampirism/on_apply()
@@ -1024,7 +1025,8 @@
 	buff_owner = owner
 	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
-	chamber_scaling = length(buff_owner.hive.shell_chambers)
+	chamber_scaling = isxenoravager(buff_owner) ? (length(buff_owner.hive.shell_chambers) / 2) : length(buff_owner.hive.shell_chambers)
+	base_leech = isxenoravager(buff_owner) ? 0 : 25
 	return TRUE
 
 /datum/status_effect/upgrade_vampirism/on_remove()
@@ -1034,7 +1036,8 @@
 
 /datum/status_effect/upgrade_vampirism/proc/update_buff()
 	SIGNAL_HANDLER
-	chamber_scaling = length(buff_owner.hive.shell_chambers)
+	chamber_scaling = isxenoravager(buff_owner) ? (length(buff_owner.hive.shell_chambers) / 2) : length(buff_owner.hive.shell_chambers)
+	base_leech = isxenoravager(buff_owner) ? 0 : 25
 
 /datum/status_effect/upgrade_vampirism/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -1042,8 +1045,8 @@
 		return
 	if(!ishuman(target))
 		return
-	buff_owner.adjustBruteLoss(-buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling)
-	buff_owner.adjustFireLoss(-buff_owner.fireloss * leech_buff_per_chamber * chamber_scaling)
+	buff_owner.adjustBruteLoss(-buff_owner.bruteloss * leech_buff_per_chamber * chamber_scaling - base_leech, TRUE)
+	buff_owner.adjustFireLoss(-buff_owner.fireloss * leech_buff_per_chamber * chamber_scaling - base_leech, TRUE)
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Attack
