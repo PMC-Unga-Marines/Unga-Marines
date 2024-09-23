@@ -625,28 +625,31 @@
 
 	dat += "</div>"
 
-	dat += "<div align='center'><hr>Avaliable upgrades:</div>"
-	if(length(user?.hive?.shell_chambers) > 0)
-		dat += "<div align='center'>SURVIVAL</div>"
-		dat += "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> | Cost: [upgrade_price] | Increase your armor."
-		dat += "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> | Cost: [upgrade_price] | Increase your health regeneration."
-		dat += "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> | Cost: [upgrade_price] | Leech from your attacks."
-	if(length(user?.hive?.spur_chambers) > 0)
-		dat += "<div align='center'>ATTACK</div>"
-		dat += "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> | Cost: [upgrade_price] | Increase your movement speed."
-		dat += "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> | Cost: [upgrade_price] | Increase your plasma regeneration."
-		dat += "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> | Cost: [upgrade_price] | Increase your damage to objects."
-	if(length(user?.hive?.veil_chambers) > 0)
-		dat += "<div align='center'>UTILITY</div>"
-		dat += "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> | Cost: [upgrade_price] | Inject toxin into your target."
-		dat += "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> | Cost: [upgrade_price] | Ability to emit pheromones."
-		dat += "<br><a href='?src=[text_ref(src)];acid_trail_buy=1'>Acid Trail</a> | Cost: [upgrade_price] | Leave an acid trail behind."
+	dat += "<div align='center'><hr>List of upgrades:</div>"
+	var/shell_chambers_built = length(user?.hive?.shell_chambers)
+	var/spur_chambers_built = length(user?.hive?.spur_chambers)
+	var/veil_chambers_built = length(user?.hive?.veil_chambers)
+	dat += "<div align='center'>SURVIVAL</div>"
+	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> " : "<br>Carapace "] | Cost: [upgrade_price] | Increase our armor."
+	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> " : "<br>Regeneration "] | Cost: [upgrade_price] | Increase our health regeneration."
+	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> " : "<br>Vampirism "] | Cost: [upgrade_price] | Leech from our attacks."
+	dat += "<div align='center'>ATTACK</div>"
+	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> " : "<br>Celerity "] | Cost: [upgrade_price] | Increase our movement speed."
+	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> " : "<br>Adrenalin "] | Cost: [upgrade_price] | Increase our plasma regeneration."
+	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> " : "<br>Crush "] | Cost: [upgrade_price] | Increase our damage to objects."
+	dat += "<div align='center'>UTILITY</div>"
+	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> " : "<br>Toxin "] | Cost: [upgrade_price] | Inject neurotoxin into the target."
+	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> " : "<br>Pheromones "] | Cost: [upgrade_price] | Ability to emit pheromones."
+	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];acid_trail_buy=1'>Acid Trail</a> " : "<br>Acid Trail "] | Cost: [upgrade_price] | Leave an acid trail behind."
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
 	popup.set_content(dat)
 	popup.open()
 
 /mob/living/carbon/xenomorph/proc/remove_apply_upgrades(list/upgrades_to_remove, datum/status_effect/upgrade_to_apply)
+	if(incapacitated(TRUE))
+		to_chat(usr, span_warning("Cant do that right now!"))
+		return
 	var/upgrade_price
 	switch(xeno_caste.tier)
 		if(XENO_TIER_ONE)
