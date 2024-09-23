@@ -290,8 +290,6 @@
 	LAZYREMOVE(hive.xenos_by_zlevel["[z]"], src)
 
 	remove_from_all_mob_huds()
-	xeno_caste = null
-	ammo = null
 
 	if(!isnull(current_aura))
 		QDEL_NULL(current_aura)
