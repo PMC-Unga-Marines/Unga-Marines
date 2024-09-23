@@ -743,6 +743,15 @@
 /obj/structure/sign/poster,
 /turf/open/floor/tile/red/redtaupe,
 /area/barren/security)
+"dT" = (
+/obj/machinery/door_control/unmeltable{
+	id = "secure_blast5";
+	name = "Vault Access";
+	pixel_y = null;
+	dir = 1
+	},
+/turf/open/floor/plating/mainship,
+/area/barren/misc/ashshelter)
 "dU" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -1008,6 +1017,10 @@
 	dir = 4
 	},
 /area/barren/medical)
+"fd" = (
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/open/floor/marking/delivery,
+/area/barren/cave/lz1)
 "fe" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/barren/cave/lz2)
@@ -1253,6 +1266,9 @@
 /area/barren/cave/north)
 "gh" = (
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
 	},
@@ -1653,12 +1669,11 @@
 /turf/open/floor/marking,
 /area/barren/cave/central)
 "hU" = (
-/obj/machinery/door/airlock/mainship/engineering/free_access{
-	dir = 1;
-	name = "\improper Engineering"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/machinery/door/airlock/mainship/engineering/free_access{
+	name = "\improper Engineering"
+	},
 /turf/open/floor/plating,
 /area/barren/engie/engine)
 "hY" = (
@@ -1731,7 +1746,8 @@
 /obj/item/frame/camera,
 /obj/machinery/door_control/unmeltable{
 	id = "secure_blast5";
-	name = "Vault Access"
+	name = "Vault Access";
+	use_power = 0
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
@@ -1956,7 +1972,8 @@
 "jk" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/colony/research{
-	dir = 1
+	dir = 1;
+	name = "\improper Research"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/prison/sterilewhite,
@@ -2036,7 +2053,9 @@
 /turf/open/floor,
 /area/barren/cave/lz1)
 "jC" = (
-/obj/machinery/door/airlock/colony/research,
+/obj/machinery/door/airlock/colony/research{
+	name = "\improper Research"
+	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
@@ -2068,6 +2087,7 @@
 	id = "SOM_13";
 	name = "SOM exit point 13"
 	},
+/obj/structure/reagent_dispensers/beerkeg,
 /turf/open/floor/marking/delivery,
 /area/barren/cave/lz1)
 "jK" = (
@@ -2203,6 +2223,9 @@
 /area/barren/cave/northeast)
 "kp" = (
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 1
+	},
 /turf/open/floor/tile/bar{
 	name = "medical"
 	},
@@ -2867,6 +2890,14 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
+"nv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/open/floor,
+/area/barren/civilian)
 "nw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2958,6 +2989,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/open/floor,
 /area/barren/civilian)
 "nU" = (
@@ -3095,6 +3127,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "oJ" = (
@@ -3236,6 +3269,7 @@
 /obj/item/trash/chips,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster,
+/obj/machinery/light,
 /turf/open/floor/tile/red/redtaupe,
 /area/barren/security)
 "pw" = (
@@ -3301,6 +3335,7 @@
 "pI" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/medical/firstaid,
+/obj/item/storage/belt/lifesaver/full,
 /turf/open/floor/freezer,
 /area/barren/medical/chemistry)
 "pK" = (
@@ -3354,6 +3389,9 @@
 /area/barren/misc/ashshelter)
 "qa" = (
 /obj/machinery/chem_dispenser,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "qb" = (
@@ -3687,6 +3725,13 @@
 	name = "medical"
 	},
 /area/barren/medical)
+"rz" = (
+/obj/effect/landmark/weed_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/central)
 "rA" = (
 /obj/machinery/door/airlock/mainship/security/glass/free_access,
 /turf/open/floor/tile/red,
@@ -3803,6 +3848,9 @@
 "sf" = (
 /obj/structure/table/reinforced,
 /obj/machinery/science/isolation_centerfuge,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "sg" = (
@@ -3813,8 +3861,8 @@
 /area/barren/security)
 "sh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+	dir = 4
 	},
 /turf/open/floor/tile/bar{
 	name = "medical"
@@ -3984,11 +4032,12 @@
 /turf/closed/wall,
 /area/barren/caves/south)
 "sU" = (
-/obj/machinery/door/airlock/mainship/secure/free_access{
-	name = "Brig Airlock"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/door/airlock/mainship/secure/free_access{
+	name = "Brig Airlock";
+	dir = 1
+	},
 /turf/open/floor/prison/bright_clean/two,
 /area/barren/security)
 "sV" = (
@@ -4120,6 +4169,9 @@
 /obj/item/tool/mop,
 /obj/structure/mopbucket,
 /obj/effect/landmark/start/job/survivor,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/dormitory)
 "tz" = (
@@ -4323,6 +4375,9 @@
 /area/barren/misc/genstorage)
 "uv" = (
 /obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "ux" = (
@@ -4372,7 +4427,8 @@
 "uK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/colony/research{
-	dir = 1
+	dir = 1;
+	name = "\improper Research"
 	},
 /turf/open/floor/tile/purple,
 /area/barren/medical/research)
@@ -4444,7 +4500,8 @@
 /area/barren/cave/central)
 "vd" = (
 /obj/machinery/door/airlock/colony/medical{
-	dir = 1
+	dir = 1;
+	name = "\improper Surgery"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/bar{
@@ -4910,7 +4967,8 @@
 "xt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/colony/medical{
-	dir = 1
+	dir = 1;
+	name = "\improper Medical Bay"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -5199,6 +5257,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/barren/civilian)
+"yU" = (
+/obj/structure/closet,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/freezer,
+/area/barren/medical/research)
 "yV" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	dir = 1;
@@ -5288,6 +5353,9 @@
 "zq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/pistachios,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/tile/red/redtaupe{
 	dir = 1
 	},
@@ -5494,6 +5562,9 @@
 "Aq" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/tile/red/redtaupe{
 	dir = 6
@@ -5886,8 +5957,15 @@
 	},
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
+"Ce" = (
+/obj/machinery/light,
+/turf/open/floor/prison/sterilewhite,
+/area/barren/medical/research)
 "Cf" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/tile/vault,
 /area/barren/civilian)
 "Cg" = (
@@ -6339,7 +6417,9 @@
 /turf/open/floor/wood/broken,
 /area/barren/civilian/workdorm)
 "Ey" = (
-/obj/machinery/door/airlock/colony/medical,
+/obj/machinery/door/airlock/colony/medical{
+	name = "\improper Medical Bay"
+	},
 /turf/open/floor/tile/bar{
 	name = "medical"
 	},
@@ -6444,6 +6524,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
+"Fb" = (
+/obj/machinery/door_control/unmeltable{
+	id = "secure_blast4";
+	name = "Vault Access";
+	pixel_y = null;
+	dir = 4;
+	use_power = 0
+	},
+/turf/open/floor,
+/area/barren/misc/eastarmory)
 "Fd" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 8
@@ -6504,7 +6594,9 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "Fo" = (
-/obj/machinery/door/airlock/colony/medical,
+/obj/machinery/door/airlock/colony/medical{
+	name = "\improper Medical Storage"
+	},
 /obj/structure/cable,
 /turf/open/floor/tile/bar{
 	name = "medical"
@@ -6795,6 +6887,16 @@
 /obj/item/lightstick/red/anchored,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
+"GB" = (
+/obj/machinery/door_control/unmeltable{
+	id = "secure_blast4";
+	name = "Vault Access";
+	pixel_y = null;
+	dir = 8;
+	pixel_x = null
+	},
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/east)
 "GC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -6917,6 +7019,13 @@
 	},
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
+"Hi" = (
+/obj/machinery/science/analyser,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/barren/medical/research)
 "Hj" = (
 /obj/structure/lattice,
 /obj/structure/cable,
@@ -7145,6 +7254,9 @@
 "Iu" = (
 /obj/structure/table/reinforced/prison,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 1
+	},
 /turf/open/floor,
 /area/barren/civilian/workdorm)
 "Iv" = (
@@ -7433,6 +7545,10 @@
 "JJ" = (
 /turf/open/floor/tile/dark2,
 /area/barren/misc/refinery)
+"JL" = (
+/obj/machinery/light,
+/turf/open/floor/wood,
+/area/barren/civilian/cook)
 "JM" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -7596,6 +7712,16 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/barren/engie/engine)
+"KH" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 2
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor,
+/area/barren/civilian)
 "KI" = (
 /obj/structure/table/reinforced/prison,
 /obj/item/toy/deck,
@@ -7626,6 +7752,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -7775,7 +7904,8 @@
 /area/barren/medical/chemistry)
 "LI" = (
 /obj/machinery/door/airlock/colony/research{
-	dir = 1
+	dir = 1;
+	name = "\improper Research"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/freezer,
@@ -7852,17 +7982,11 @@
 /turf/open/floor/plating,
 /area/barren/caves/south)
 "LZ" = (
-/obj/machinery/door/poddoor/mainship/indestructible{
-	id = "secure_blast4";
-	name = "\improper Secure Storage"
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/door_control/unmeltable{
-	id = "secure_blast4";
-	name = "Vault Access";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/asteroidfloor,
-/area/barren/misc/eastarmory)
+/turf/open/floor/prison/bright_clean/two,
+/area/barren/security)
 "Ma" = (
 /obj/structure/window/framed/colony,
 /obj/effect/decal/cleanable/dirt,
@@ -8945,6 +9069,14 @@
 /obj/structure/fence,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
+"Rx" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/whiteblue{
+	dir = 1
+	},
+/area/barren/medical)
 "Ry" = (
 /obj/structure/barricade/guardrail,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -9171,6 +9303,9 @@
 /area/barren/civilian)
 "SK" = (
 /obj/effect/landmark/weed_node,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/freezer,
 /area/barren/medical/research)
 "SM" = (
@@ -9614,6 +9749,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/open/floor/tile/vault,
 /area/barren/civilian)
 "Vg" = (
@@ -9939,6 +10075,12 @@
 /obj/structure/bed/chair/wood/normal,
 /turf/open/floor/tile/dark,
 /area/barren/cave/lz2)
+"WP" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/central)
 "WR" = (
 /obj/effect/decal/cleanable/blood/writing,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -9948,7 +10090,9 @@
 /turf/closed/mineral/brock,
 /area/barren/caves/rock)
 "WT" = (
-/obj/machinery/door/airlock/colony/medical,
+/obj/machinery/door/airlock/colony/medical{
+	name = "\improper Medical Bay"
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/barren/medical)
@@ -9967,7 +10111,8 @@
 /area/barren/civilian/workdorm)
 "WW" = (
 /obj/machinery/door/airlock/colony/research{
-	dir = 1
+	dir = 1;
+	name = "\improper Research"
 	},
 /turf/open/floor/freezer,
 /area/barren/medical/research)
@@ -10020,8 +10165,8 @@
 /obj/effect/decal/cleanable/ash,
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+	dir = 1
 	},
 /turf/open/floor,
 /area/barren/civilian/workdorm)
@@ -10115,6 +10260,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark2,
 /area/barren/engie/engine)
+"XN" = (
+/obj/effect/landmark/weed_node,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/bigredv2/outside/general_offices)
 "XQ" = (
 /obj/item/toy/inflatable_duck{
 	desc = "No bother to sink or swim when you can just float... on lava.";
@@ -10231,6 +10383,11 @@
 	dir = 6
 	},
 /area/barren/medical)
+"Yw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light,
+/turf/open/floor/wood,
+/area/bigredv2/outside/general_offices)
 "Yx" = (
 /obj/structure/lattice,
 /obj/effect/ai_node,
@@ -10335,6 +10492,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
+"YU" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+	dir = 2
+	},
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/central)
 "YW" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 2
@@ -10347,6 +10511,7 @@
 	dir = 1
 	},
 /obj/effect/spawner/random/medical/firstaid,
+/obj/item/storage/belt/lifesaver/full,
 /turf/open/floor/freezer,
 /area/barren/medical/chemistry)
 "YZ" = (
@@ -22773,7 +22938,7 @@ TF
 Fh
 Bi
 Sp
-Sp
+LZ
 Sp
 Bi
 ZS
@@ -24358,7 +24523,7 @@ gJ
 hb
 gJ
 gJ
-gJ
+dT
 RZ
 ZS
 ZN
@@ -27933,11 +28098,11 @@ DY
 JQ
 IM
 Dc
-iJ
+XN
 DG
 FB
 OZ
-RL
+Yw
 Dc
 HM
 wa
@@ -29278,7 +29443,7 @@ oU
 oU
 YZ
 UK
-UK
+yU
 IG
 YZ
 Zg
@@ -29783,7 +29948,7 @@ ZL
 RH
 ZS
 YZ
-jm
+Hi
 dK
 Qx
 WB
@@ -30046,7 +30211,7 @@ dK
 WB
 qP
 dK
-dK
+Ce
 YZ
 YZ
 YZ
@@ -34080,7 +34245,7 @@ Im
 Im
 Zp
 Nf
-Aj
+JL
 yw
 PB
 ja
@@ -37678,7 +37843,7 @@ Ba
 il
 Wv
 Gp
-Wr
+nv
 yw
 gC
 gC
@@ -40243,7 +40408,7 @@ qZ
 qm
 Kw
 ZW
-wA
+KH
 wA
 fL
 wA
@@ -40259,7 +40424,7 @@ QD
 QD
 QD
 QD
-Ic
+YU
 jH
 jH
 jH
@@ -40516,7 +40681,7 @@ ZL
 ZL
 ZL
 ZL
-RH
+rz
 jH
 wp
 Dr
@@ -40773,10 +40938,10 @@ JM
 RH
 Lm
 ZL
-ZL
+WP
 kp
-yA
-DF
+Rx
+vx
 sh
 VQ
 qb
@@ -51031,7 +51196,7 @@ Pw
 Pw
 yL
 Pw
-Ag
+fd
 Pw
 mY
 Pw
@@ -56448,7 +56613,7 @@ OD
 OD
 OD
 Pv
-Pv
+GB
 Hp
 ZZ
 Hp
@@ -56706,7 +56871,7 @@ OD
 yH
 yH
 yH
-LZ
+Xx
 cL
 Xx
 yH
@@ -56962,7 +57127,7 @@ OD
 OD
 yH
 mA
-RY
+Fb
 RY
 mQ
 DB
