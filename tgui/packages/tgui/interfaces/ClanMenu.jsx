@@ -23,7 +23,7 @@ export const ClanMenu = (props) => {
   } = data;
 
   return (
-    <Window resizable width={600} height={600}>
+    <Window width={600} height={600}>
       <Window.Content
         scrollable
         style={{
