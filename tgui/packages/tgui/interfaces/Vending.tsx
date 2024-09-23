@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Section, Box, LabeledList, ProgressBar, Modal, Divider, Tabs, Stack } from '../components';
+import { Button, Section, Box, LabeledList, ProgressBar, Divider, Tabs, Stack } from '../components';
 import { Window } from '../layouts';
 
 type VendingData = {
@@ -51,14 +51,6 @@ export const Vending = (props) => {
       width={500}
       height={600}
       theme={ui_theme}>
-      {showDesc ? (
-        <Modal width="400px">
-          <Box>{showDesc}</Box>
-          <Button content="Dismiss" onClick={() => setShowDesc(null)} />
-        </Modal>
-      ) : (
-        currently_vending
-      )}
       <Window.Content scrollable>
         <Section
           title="Select an item"
