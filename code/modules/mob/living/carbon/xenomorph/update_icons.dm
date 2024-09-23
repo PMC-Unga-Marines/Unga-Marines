@@ -36,8 +36,9 @@
 				icon_state = "[xeno_caste.caste_name] Running"
 			else
 				icon_state = "[xeno_caste.caste_name] Walking"
-	update_fire() //the fire overlay depends on the xeno's stance, so we must update it.
+	update_fire() //all 3 overlays depends on the xeno's stance, so we update them.
 	update_wounds()
+	update_snowflake_overlays()
 
 	hud_set_sunder()
 	hud_set_firestacks()
@@ -140,13 +141,45 @@
 
 	wound_overlay.vis_flags &= ~VIS_HIDE // Show the overlay
 
+///Updates the niche overlays of a xenomorph, like the backpack overlay
+/mob/living/carbon/xenomorph/proc/update_snowflake_overlays()
+	if(!backpack_overlay)
+		return
+	if(!istype(back,/obj/item/storage/backpack/marine/duffelbag/xenosaddle))
+		backpack_overlay.icon_state = ""
+		return
+	var/obj/item/storage/backpack/marine/duffelbag/xenosaddle/saddle = back
+	if(stat == DEAD)
+		backpack_overlay.icon_state = "[saddle.style] Dead"
+		return
+	if(lying_angle)
+		if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
+			backpack_overlay.icon_state = "[saddle.style] Sleeping"
+			return
+		backpack_overlay.icon_state = "[saddle.style] Knocked Down"
+		return
+	backpack_overlay.icon_state = "[saddle.style]"
+
 /mob/living/carbon/xenomorph/update_transform()
 	. = ..()
 	return update_icons()
 
-///Used to display the xeno wounds without rapidly switching overlays
+///Used to display xeno wounds & equipment without rapidly switching overlays
+
+/atom/movable/vis_obj/xeno_wounds/backpack_overlay
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Xeno/saddles/runnersaddle.dmi' //this should probally be something more generic if saddles r ever added to anything other than rounies
+	///The xeno this overlay belongs to
+	var/mob/living/carbon/xenomorph/owner
+
 /atom/movable/vis_obj/xeno_wounds
 	vis_flags = VIS_INHERIT_DIR|VIS_INHERIT_ID
+
+/atom/movable/vis_obj/xeno_wounds/backpack_overlay/Initialize(mapload, new_owner)
+	owner = new_owner
+	if(!owner)
+		return INITIALIZE_HINT_QDEL
+	return ..()
 
 /atom/movable/vis_obj/xeno_wounds/fire_overlay
 	light_system = MOVABLE_LIGHT

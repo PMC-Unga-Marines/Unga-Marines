@@ -52,6 +52,9 @@
 	fire_overlay = new(src, src)
 	vis_contents += fire_overlay
 
+	backpack_overlay = new(src, src)
+	vis_contents += backpack_overlay
+
 	generate_nicknumber()
 
 	generate_name()
@@ -241,17 +244,6 @@
 		CRASH("Unemployment has reached to a xeno, who has failed to become a [xeno_caste.job_type]")
 	apply_assigned_role_to_spawn(xeno_job)
 
-/mob/living/carbon/xenomorph/proc/grabbed_self_attack()
-	SIGNAL_HANDLER
-	if(!(xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER))
-		return NONE
-	if(isxenocrusher(pulling) || isxenobehemoth(pulling))
-		var/mob/living/carbon/xenomorph/crusher/grabbed = pulling
-		if(grabbed.stat == CONSCIOUS && stat == CONSCIOUS)
-			INVOKE_ASYNC(grabbed, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, carry_xeno), src, TRUE)
-			return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
-	return NONE
-
 ///Initiate of form changing on the xeno
 /mob/living/carbon/xenomorph/proc/change_form()
 	return
@@ -312,8 +304,10 @@
 
 	vis_contents -= wound_overlay
 	vis_contents -= fire_overlay
+	vis_contents -= backpack_overlay
 	QDEL_NULL(wound_overlay)
 	QDEL_NULL(fire_overlay)
+	QDEL_NULL(backpack_overlay)
 	return ..()
 
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
@@ -355,6 +349,8 @@
 	if(!ishuman(puller) || isyautja(puller))
 		return TRUE
 	var/mob/living/carbon/human/H = puller
+	if(hivenumber == XENO_HIVE_CORRUPTED) // we can grab friendly benos
+		return TRUE
 	H.Paralyze(rand(xeno_caste.tacklemin,xeno_caste.tacklemax) * 20)
 	playsound(H.loc, 'sound/weapons/pierce.ogg', 25, 1)
 	H.visible_message(span_warning("[H] tried to pull [src] but instead gets a tail swipe to the head!"))
@@ -571,6 +567,26 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 		else if(move_force > target.move_resist)
 			return SWAPPING
 	return NO_SWAP
+
+/mob/living/carbon/xenomorph/equip_to_slot(obj/item/item_to_equip, slot, bitslot)
+	. = ..()
+	switch(slot)
+		if(SLOT_BACK)
+			back = item_to_equip
+			item_to_equip.equipped(src, slot)
+			update_inv_back()
+		if(SLOT_L_HAND)
+			l_hand = item_to_equip
+			item_to_equip.equipped(src, slot)
+			update_inv_l_hand()
+		if(SLOT_R_HAND)
+			r_hand = item_to_equip
+			item_to_equip.equipped(src, slot)
+			update_inv_r_hand()
+		if(SLOT_WEAR_MASK)
+			wear_mask = item_to_equip
+			item_to_equip.equipped(src, slot)
+			wear_mask_update(item_to_equip, TRUE)
 
 /mob/living/carbon/xenomorph/grabbed_self_attack(mob/living/user)
 	. = ..()

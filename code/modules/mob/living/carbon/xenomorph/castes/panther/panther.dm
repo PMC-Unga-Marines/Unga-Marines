@@ -60,6 +60,3 @@
 	if(prob(44.81))
 		new /obj/item/reagent_containers/food/drinks/pantherheart(loc)
 		gib()
-
-/mob/living/carbon/xenomorph/panther/set_frenzy_aura(new_aura)
-	return
