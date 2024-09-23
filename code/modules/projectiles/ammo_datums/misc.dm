@@ -215,7 +215,7 @@
 		return
 	T.ignite(5, 10)
 
-/datum/ammo/bullet/tx54_spread/incendiary/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/bullet/tx54_spread/incendiary/on_leave_turf(turf/T, obj/projectile/proj)
 	drop_flame(T)
 
 /datum/ammo/bullet/tx54_spread/smoke
@@ -241,7 +241,7 @@
 /datum/ammo/bullet/tx54_spread/smoke/on_hit_mob(mob/M, obj/projectile/proj)
 	return
 
-/datum/ammo/bullet/tx54_spread/smoke/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/bullet/tx54_spread/smoke/on_leave_turf(turf/T, obj/projectile/proj)
 	trail_spread_system.set_up(0, T)
 	trail_spread_system.start()
 
@@ -279,7 +279,7 @@
 /datum/ammo/bullet/tx54_spread/razor/on_hit_mob(mob/M, obj/projectile/proj)
 	return
 
-/datum/ammo/bullet/tx54_spread/razor/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/bullet/tx54_spread/razor/on_leave_turf(turf/T, obj/projectile/proj)
 	chemical_payload.set_up(0, T, reagent_list, RAZOR_FOAM)
 	chemical_payload.start()
 
@@ -374,7 +374,7 @@
 		return
 	T.ignite(5, 10)
 
-/datum/ammo/bullet/micro_rail_spread/incendiary/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/bullet/micro_rail_spread/incendiary/on_leave_turf(turf/T, obj/projectile/proj)
 	if(prob(40))
 		drop_flame(T)
 
@@ -423,7 +423,7 @@
 				var/obj/obj_victim = target
 				obj_victim.take_damage(explosion_damage, BRUTE, BOMB)
 
-/datum/ammo/micro_rail_cluster/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/micro_rail_cluster/on_leave_turf(turf/T, obj/projectile/proj)
 	///chance to detonate early, scales with distance and capped, to avoid lots of immediate detonations, and nothing reach max range respectively.
 	var/detonate_probability = min(proj.distance_travelled * 4, 16)
 	if(prob(detonate_probability))
