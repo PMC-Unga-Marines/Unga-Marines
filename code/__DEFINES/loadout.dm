@@ -83,6 +83,7 @@ GLOBAL_LIST_INIT(robot_gear_listed_products, list(
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBOT, "Terra Experimental laser pistol", 10, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBOT, "Terra Experimental tesla shock rifle", 25, "red"),
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
+	/obj/item/cell/lasgun/volkite/powerpack/marine_back = list(CAT_ROBOT, "Terra Experimental powerback", 20, "orange2"),
 	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
 	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
 ))
