@@ -10,8 +10,6 @@
 	gib_anim = "gibbed-a-small-corpse"
 	gib_flick = "gibbed-a-small"
 
-	deevolves_to = /mob/living/carbon/xenomorph/larva
-
 	// *** Melee Attacks *** //
 	melee_damage = 16
 

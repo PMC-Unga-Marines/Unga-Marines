@@ -26,9 +26,6 @@
 	// *** Sunder *** //
 	sunder_multiplier = 0.8
 
-	// *** Evolution *** //
-	deevolves_to = /datum/xeno_caste/carrier
-
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_hold_eggs = CAN_HOLD_ONE_HAND

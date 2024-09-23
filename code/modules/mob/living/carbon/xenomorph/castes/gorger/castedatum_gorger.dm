@@ -26,9 +26,6 @@
 	// *** Health *** //
 	max_health = 600
 
-	// *** Evolution *** //
-	deevolves_to = /datum/xeno_caste/warrior
-
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY

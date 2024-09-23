@@ -25,8 +25,6 @@
 	// *** Health *** //
 	max_health = 325
 
-	deevolves_to = /datum/xeno_caste/spitter
-
 	// *** Darksight *** ///
 	conscious_see_in_dark = 20
 

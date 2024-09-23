@@ -26,8 +26,6 @@
 	// *** Evolution *** //
 	maximum_active_caste = 1
 
-	deevolves_to = /datum/xeno_caste/drone
-
 	// *** Flags *** //
 	caste_flags = CASTE_IS_INTELLIGENT|CASTE_IS_STRONG|CASTE_IS_BUILDER|CASTE_INSTANT_EVOLUTION|CASTE_EVOLUTION_ALLOWED|CASTE_LEADER_TYPE|CASTE_ACID_BLOOD
 	can_hold_eggs = CAN_HOLD_TWO_HANDS

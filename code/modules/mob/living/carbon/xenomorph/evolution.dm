@@ -278,7 +278,7 @@
 	return TRUE
 
 ///Check if the xeno can currently evolve into a specific caste
-/mob/living/carbon/xenomorph/proc/caste_evolution_checks(new_mob_type, castepick, regression = FALSE)
+/mob/living/carbon/xenomorph/proc/caste_evolution_checks(new_mob_type, regression = FALSE)
 	if(!regression && !(new_mob_type in get_evolution_options()))
 		balloon_alert(src, "We can't evolve to that caste from our current one")
 		return FALSE

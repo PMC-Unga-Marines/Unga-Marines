@@ -59,9 +59,6 @@
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
 
-	///Singular type path for the caste to deevolve to when forced to by the queen.
-	var/deevolves_to
-
 	///see_in_dark value while consicious
 	var/conscious_see_in_dark = 8
 	///see_in_dark value while unconscious

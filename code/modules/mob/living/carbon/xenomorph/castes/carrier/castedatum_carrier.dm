@@ -26,8 +26,6 @@
 	// *** Evolution *** //
 	evolution_threshold = 225
 
-	deevolves_to = /datum/xeno_caste/drone
-
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_hold_eggs = CAN_HOLD_ONE_HAND

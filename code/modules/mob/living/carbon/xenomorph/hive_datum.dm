@@ -656,12 +656,11 @@
 
 ///attempts to have devolver devolve target
 /datum/hive_status/proc/attempt_deevolve(mob/living/carbon/xenomorph/devolver, mob/living/carbon/xenomorph/target)
-	if(!target.xeno_caste.deevolves_to)
-		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
-		return
 	var/datum/xeno_caste/new_caste = get_deevolve_caste(devolver, target)
+
 	if(!new_caste) //better than nothing
-		new_caste = GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to][XENO_UPGRADE_NORMAL]
+		to_chat(devolver, span_xenonotice("no new caste was chosen."))
+		return
 
 	var/reason = stripped_input(devolver, "Provide a reason for deevolving this xenomorph, [target]")
 	if(isnull(reason))
@@ -773,7 +772,7 @@
 				to_chat(devolver, span_warning("Xeno tier does not allow you to regress."))
 				return
 		if(XENO_TIER_ONE)
-			tiers_to_pick_from = list(/mob/living/carbon/xenomorph/larva)
+			tiers_to_pick_from = list(/datum/xeno_caste/larva)
 		if(XENO_TIER_TWO)
 			tiers_to_pick_from = GLOB.xeno_types_tier_one
 		if(XENO_TIER_THREE)
