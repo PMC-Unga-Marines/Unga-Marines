@@ -1221,13 +1221,13 @@
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/somvet
-	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/tacsensor
-	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/attachable/motiondetector)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/standard
-	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/attachable/reddot)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/culverin
 	name = "\improper VX-42 Culverin"
