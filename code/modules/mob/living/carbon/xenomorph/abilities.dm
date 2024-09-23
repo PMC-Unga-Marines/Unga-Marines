@@ -1001,9 +1001,9 @@
 	sting_chemical = /datum/reagent/toxin/xeno_transvitox
 
 ///Adds ability tally to the end-round statistics.
-/datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn/track_stats()
+/datum/action/ability/activable/xeno/neurotox_sting/transvitox/track_stats()
 	GLOB.round_statistics.ozelomelyn_stings++
-	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ozelomelyn_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "transvitox_stings")
 
 // ***************************************
 // *********** Psychic Whisper

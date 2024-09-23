@@ -230,9 +230,9 @@
 	if(active)
 		. += image('icons/obj/items/grenade.dmi', "xenonade_active")
 
-//Neuro variant
-/datum/action/ability/activable/xeno/toxic_grenade/neuro
-	name = "Neuro grenade"
+//transvitox variant
+/datum/action/ability/activable/xeno/toxic_grenade/transvitox
+	name = "transvitox grenade"
 	action_icon_state = "gas mine"
 	desc = "Throws a lump of compressed neurotoxin, which explodes into a small gas cloud."
 	ability_cost = 200
@@ -240,16 +240,16 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOXIC_GRENADE,
 	)
-	nade_type = /obj/item/explosive/grenade/smokebomb/xeno/neuro
+	nade_type = /obj/item/explosive/grenade/smokebomb/xeno/transvitox
 
-/obj/item/explosive/grenade/smokebomb/xeno/neuro
-	name = "Neuro grenade"
+/obj/item/explosive/grenade/smokebomb/xeno/transvitox
+	name = "Transvitox grenade"
 	desc = "A fleshy mass that bounces along the ground. It seems to be heating up."
 	greyscale_colors = "#bfc208"
 	greyscale_config = /datum/greyscale_config/xenogrenade
 	det_time = 15
 	smoke_duration = 4
 	dangerous = TRUE
-	smoketype = /datum/effect_system/smoke_spread/xeno/neuro/light
+	smoketype = /datum/effect_system/smoke_spread/xeno/transvitox
 	arm_sound = 'sound/voice/alien/yell_alt.ogg'
 	smokeradius = 3

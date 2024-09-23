@@ -111,5 +111,5 @@
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
 		/datum/action/ability/activable/xeno/neurotox_sting/transvitox,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/toxic_grenade/neuro,
+		/datum/action/ability/activable/xeno/toxic_grenade/transvitox,
 	)
