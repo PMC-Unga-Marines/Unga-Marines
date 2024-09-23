@@ -160,7 +160,7 @@
 	icon = 'icons/Xeno/castes/predalien_larva.dmi'
 	icon_state = "Predalien Larva"
 	base_icon_state = "Predalien Larva"
-	caste_base_type = /datum/xeno_caste/predalien
+	caste_base_type = /datum/xeno_caste/larva_predalien
 
 /mob/living/carbon/xenomorph/larva/predalien/Initialize(mapload, mob/living/carbon/xenomorph/oldxeno, h_number)
 	. = ..()
