@@ -613,8 +613,6 @@
 			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
 		if(XENO_TIER_THREE)
 			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
-		if(XENO_TIER_FOUR)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
 		else
 			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
 	var/dat = "<div align='center'>"
@@ -658,8 +656,6 @@
 			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
 		if(XENO_TIER_THREE)
 			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
-		if(XENO_TIER_FOUR)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
 		else
 			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
 	if(biomass < upgrade_price)
