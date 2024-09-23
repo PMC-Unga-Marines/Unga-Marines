@@ -97,7 +97,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
-		/datum/action/ability/activable/xeno/neurotox_sting,
+		/datum/action/ability/activable/xeno/neurotox_sting/transvitox,
 		/datum/action/ability/activable/xeno/xeno_spit,
 	)
 
@@ -111,7 +111,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
-		/datum/action/ability/activable/xeno/neurotox_sting,
+		/datum/action/ability/activable/xeno/neurotox_sting/transvitox,
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/activable/xeno/toxic_grenade/neuro
 	)
