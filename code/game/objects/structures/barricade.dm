@@ -1176,12 +1176,10 @@
 	if(!isliving(atom_movable))
 		return FALSE
 	var/mob/living/living = atom_movable
-	if(living.mob_size > MOB_SIZE_XENO)
-		return FALSE // most of t3 xeno's are immune to that
-
 	balloon_alert(living, "Wire slices into us")
 	living.apply_damage(10, BRUTE, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
-	living.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
+	if(living.mob_size < MOB_SIZE_BIG)
+		living.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
 	playsound(living, 'sound/machines/bonk.ogg', 75, FALSE)
 
 	atom_movable.stop_throw()

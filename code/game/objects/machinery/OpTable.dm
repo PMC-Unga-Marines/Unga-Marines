@@ -37,6 +37,10 @@
 			computer.table = src
 			break
 
+/obj/machinery/optable/Destroy()
+	computer = null
+	return ..()
+
 /obj/machinery/optable/update_overlays()
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
