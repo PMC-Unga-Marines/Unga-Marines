@@ -16,7 +16,7 @@
 
 	// *** Plasma *** //
 	plasma_max = 2400
-	plasma_gain = 65
+	plasma_gain = 100
 	plasma_regen_limit = 0.5
 	plasma_icon_state = "hivelord_plasma"
 
@@ -50,7 +50,7 @@
 
 	// *** Abilities *** //
 
-	resin_max_range = 1 //Hivelord can place resin structures from 1 tile away
+	resin_max_range = 2 //Hivelord can place resin structures from 1 tile away
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
