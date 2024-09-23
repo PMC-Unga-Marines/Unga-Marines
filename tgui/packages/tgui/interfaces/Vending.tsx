@@ -117,7 +117,8 @@ const ProductEntry = (props: VendingProductEntryProps) => {
 
   const { currently_vending } = data;
 
-  const { stock, key, product_color, product_name, prod_desc, prod_ref } = props;
+  const { stock, key, product_color, product_name, prod_desc, prod_ref } =
+    props;
 
   const [showDesc, setShowDesc] = useLocalState<String | null>(
     'showDesc',
