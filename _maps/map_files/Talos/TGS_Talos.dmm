@@ -24044,10 +24044,10 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/squads/delta)
 "nZw" = (
-/obj/vehicle/ridden/powerloader,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
+/obj/vehicle/unmanned/droid/ripley,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "nZT" = (
@@ -32271,7 +32271,7 @@
 /area/mainship/hull/starboard_hull)
 "sSg" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/sr127,
+/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "sSK" = (
