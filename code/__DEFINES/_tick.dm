@@ -1,5 +1,5 @@
 /// Percentage of tick to leave for master controller to run
-#define MAPTICK_MC_MIN_RESERVE 40
+#define MAPTICK_MC_MIN_RESERVE 60
 #define MAPTICK_LAST_INTERNAL_TICK_USAGE (world.map_cpu)
 /// Amount of a tick to reserve for byond if MAPTICK_LAST_INTERNAL_TICK_USAGE is 0 or not working.
 #define TICK_BYOND_RESERVE 2
