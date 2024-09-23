@@ -573,7 +573,7 @@
 	)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical
-	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/attachable/reddot)
 
 /datum/lasrifle/energy_pistol_mode/standard
 	rounds_per_shot = 20
@@ -1173,7 +1173,7 @@
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/gyro)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/standard
-	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/attachable/reddot)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/scout
 	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/gyro)
