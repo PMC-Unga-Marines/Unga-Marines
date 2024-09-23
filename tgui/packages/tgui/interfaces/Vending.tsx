@@ -113,6 +113,7 @@ export const Vending = (props) => {
 
 type VendingProductEntryProps = {
   stock: number;
+  key: string;
   product_color: string;
   product_name: string;
   prod_desc: string;
