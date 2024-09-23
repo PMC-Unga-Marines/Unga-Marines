@@ -22,10 +22,7 @@ const category_icon = {
 export const Assembler = (props) => {
   const { act, data } = useBackend();
 
-  const [selectedMenu, setSelectedMenu] = useLocalState(
-    'selectedMenu',
-    null
-  );
+  const [selectedMenu, setSelectedMenu] = useLocalState('selectedMenu', null);
 
   const { supplypacks } = data;
 
@@ -54,10 +51,7 @@ export const Assembler = (props) => {
 const MenuButton = (props) => {
   const { condition, menuname, icon, width } = props;
 
-  const [selectedMenu, setSelectedMenu] = useLocalState(
-    'selectedMenu',
-    null
-  );
+  const [selectedMenu, setSelectedMenu] = useLocalState('selectedMenu', null);
 
   return (
     <Button
@@ -152,10 +146,7 @@ const Category = (props) => {
 
   const { supplypackscontents, assemblercraft } = data;
 
-  const [selectedMenu, setSelectedMenu] = useLocalState(
-    'selectedMenu',
-    null
-  );
+  const [selectedMenu, setSelectedMenu] = useLocalState('selectedMenu', null);
 
   const { selectedPackCat, should_filter, level } = props;
 
