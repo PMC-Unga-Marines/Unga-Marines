@@ -236,7 +236,8 @@ const Hacked = (props) => {
                 prod_ref={hidden_record.ref}
               />
             );
-          })}
+          })
+        }
       </LabeledList>
     </Section>
   );
