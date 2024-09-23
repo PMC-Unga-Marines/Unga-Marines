@@ -13609,13 +13609,25 @@
 	},
 /area/mainship/squads/charlie)
 "igf" = (
-/obj/machinery/door_control/mainship/cic{
-	dir = 4;
-	directional = 0;
-	pixel_x = -30;
-	pixel_y = 4
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 4
 	},
-/turf/open/floor/mainship/metal/full,
+/obj/effect/turf_decal/siding/metal,
+/obj/machinery/door_control{
+	id = "Brig Lockdown";
+	name = "Brig Lockdown";
+	directional = 0;
+	dir = 1;
+	pixel_y = -15;
+	pixel_x = -5
+	},
+/obj/machinery/door_control/mainship/cic{
+	dir = 1;
+	directional = 0;
+	pixel_x = 5;
+	pixel_y = -15
+	},
+/turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "igh" = (
 /obj/machinery/loadout_vendor,
@@ -18721,14 +18733,6 @@
 "lfB" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
-	},
-/obj/machinery/door_control{
-	id = "Brig Lockdown";
-	name = "Brig Lockdown";
-	dir = 8;
-	directional = 0;
-	pixel_x = 30;
-	pixel_y = 4
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
@@ -60916,7 +60920,7 @@ exm
 eME
 vTO
 gDV
-qHj
+igf
 bUV
 abt
 abt
@@ -61170,7 +61174,7 @@ eAH
 gtP
 hUJ
 tdl
-igf
+tdl
 tdl
 oGq
 qHj
