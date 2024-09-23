@@ -434,10 +434,7 @@
 	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/machinery/deployable/mounted/sentry/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
-	knock_down()
-	. = (CHARGE_SPEED(charge_datum) * 50)
-	charge_datum.speed_down(1)
-	return
+	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/structure/razorwire/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) || charger.is_charging < CHARGE_ON)
@@ -565,6 +562,12 @@
 	charge_datum.speed_down(2) //Lose two turfs worth of speed.
 	return NONE
 
+/obj/machinery/deployable/mounted/sentry/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	knock_down()
+	if(density)
+		return PRECRUSH_STOPPED
+	return PRECRUSH_PLOWED
+
 /mob/living/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	if(density && ((mob_size == charger.mob_size && charger.is_charging <= CHARGE_MAX) || mob_size > charger.mob_size))
 		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
@@ -604,7 +607,7 @@
 			span_xenodanger("We ram [src]!"))
 			charge_datum.speed_down(1) //Lose one turf worth of speed.
 			GLOB.round_statistics.bull_crush_hit++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "bull_crush_hit")
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "bull_crush_hit")
 			return PRECRUSH_PLOWED
 
 		if(CHARGE_BULL_GORE)
@@ -618,7 +621,7 @@
 				charger.visible_message(span_danger("[charger] gores [src]!"),
 					span_xenowarning("We gore [src] and skid to a halt!"))
 				GLOB.round_statistics.bull_gore_hit++
-				SSblackbox.record_feedback("tally", "round_statistics", 1, "bull_gore_hit")
+				SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "bull_gore_hit")
 
 
 		if(CHARGE_BULL_HEADBUTT)
@@ -638,7 +641,7 @@
 			charger.visible_message(span_danger("[charger] rams into [src] and flings [p_them()] away!"),
 				span_xenowarning("We ram into [src] and skid to a halt!"))
 			GLOB.round_statistics.bull_headbutt_hit++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "bull_headbutt_hit")
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "bull_headbutt_hit")
 
 	charge_datum.do_stop_momentum(FALSE)
 	return PRECRUSH_STOPPED

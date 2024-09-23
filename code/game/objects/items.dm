@@ -110,8 +110,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/toolspeed = 1
 	var/usesound = null
 	var/active = FALSE
-	///If TRUE you cant deploy item next to another deployable in 5x5 tile radius.
-	var/near_lock = FALSE
 	//Coloring vars
 	///Some defines to determine if the item is allowed to be recolored.
 	var/colorable_allowed = NONE
@@ -1447,3 +1445,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	update_icon()
 	update_greyscale()
 
+/obj/item/psi_act(psi_power, mob/living/user)
+	if(user.a_intent == INTENT_HELP)
+		throw_at(user, 4 + psi_power, psi_power, user, TRUE)
+	else
+		var/target = get_turf_in_angle(Get_Angle(user, src), src, 7)
+		throw_at(target, 4 + psi_power, psi_power, user, TRUE)
+	return list(3 SECONDS, 10)

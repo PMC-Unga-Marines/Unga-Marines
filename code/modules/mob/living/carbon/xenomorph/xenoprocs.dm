@@ -459,7 +459,7 @@
 
 	if(isxenopraetorian(X))
 		GLOB.round_statistics.praetorian_spray_direct_hits++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "praetorian_spray_direct_hits")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "praetorian_spray_direct_hits")
 
 	var/damage = X.xeno_caste.acid_spray_damage_on_hit
 	INVOKE_ASYNC(src, PROC_REF(apply_acid_spray_damage), damage)

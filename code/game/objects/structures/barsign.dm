@@ -58,7 +58,7 @@
 	desc = "The Drunk Carp, Bar and Grill"
 	icon_state = "thedrunkcarp"
 
-/obj/structure/sign/double/barsign/carp/Initialize(mapload)
+/obj/structure/sign/double/barsign/Initialize(mapload)
 	. = ..()
 	ChangeSign("thedrunkcarp")
 

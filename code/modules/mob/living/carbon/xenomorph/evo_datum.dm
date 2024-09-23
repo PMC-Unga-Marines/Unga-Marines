@@ -1,3 +1,5 @@
+//! TODO: this needs a refactor/UI rewor at some point, we've probably bolted too much onto this over time
+
 /// Empty datum parent for use as evolution panel entrance.
 /datum/evolution_panel
 	// Empty
@@ -39,7 +41,7 @@
 			"type_path" = caste.caste_type_path,
 			"name" = caste.display_name,
 			"abilities" = list(),
-			"instant_evolve" = (caste.caste_flags & CASTE_INSTANT_EVOLUTION || (HAS_TRAIT(xeno, TRAIT_CASTE_SWAP) || HAS_TRAIT(xeno, TRAIT_REGRESSING))),
+			"instant_evolve" = (caste.caste_flags & CASTE_INSTANT_EVOLUTION || (HAS_TRAIT(xeno, TRAIT_STRAIN_SWAP) || HAS_TRAIT(xeno, TRAIT_CASTE_SWAP) || HAS_TRAIT(xeno, TRAIT_REGRESSING))),
 		)
 		for(var/ability in caste.actions)
 			var/datum/action/ability/xeno_action/xeno_ability = ability
@@ -74,10 +76,11 @@
 	switch(action)
 		if("evolve")
 			var/datum/xeno_caste/caste = GLOB.xeno_caste_datums[text2path(params["path"])][XENO_UPGRADE_BASETYPE]
-			xeno.do_evolve(caste.caste_type_path, caste.display_name, (HAS_TRAIT(xeno, TRAIT_CASTE_SWAP) || HAS_TRAIT(xeno, TRAIT_REGRESSING))) // All the checks for can or can't are handled inside do_evolve
+			xeno.do_evolve(caste.caste_type_path, caste.display_name, (HAS_TRAIT(xeno, TRAIT_CASTE_SWAP) || HAS_TRAIT(xeno, TRAIT_REGRESSING) || HAS_TRAIT(xeno, TRAIT_STRAIN_SWAP))) // All the checks for can or can't are handled inside do_evolve
 			return TRUE
 
 /datum/evolution_panel/ui_close(mob/user)
 	. = ..()
 	REMOVE_TRAIT(user, TRAIT_CASTE_SWAP, TRAIT_CASTE_SWAP)
 	REMOVE_TRAIT(user, TRAIT_REGRESSING, TRAIT_REGRESSING)
+	REMOVE_TRAIT(user, TRAIT_STRAIN_SWAP, TRAIT_STRAIN_SWAP)

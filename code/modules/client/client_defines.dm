@@ -2,6 +2,9 @@
 	parent_type = /datum // black magic
 	preload_rsc = PRELOAD_RSC // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
 	view = WORLD_VIEW
+
+	show_popup_menus = TRUE // right click menu no longer shows up
+	control_freak = CONTROL_FREAK_MACROS
 	var/datum/tooltip/tooltips
 
 	//Admin related
@@ -17,7 +20,6 @@
 	//Preferences related
 	var/datum/preferences/prefs = null
 	var/inprefs = FALSE
-
 
 	//Mob related
 	var/list/keys_held = list() // A list of any keys held currently
@@ -110,6 +112,19 @@
 	var/parallax_layers_max = 4
 	var/parallax_animate_timer
 
+	var/datum/db_query/clan_info
+
+	///a timer id for returning the ahelp verb
+	var/adminhelptimerid = 0
+	///the current ticket the (usually) not-admin client is dealing with
+	var/datum/admin_help/current_ticket
+
+	/// Stat panel window declaration
+	var/datum/tgui_window/stat_panel
+
+	/** Assigned say modal of the client */
+	var/datum/tgui_say/tgui_say
+
 	/**
 	 * Assoc list with all the active maps - when a screen obj is added to
 	 * a map, it's put in here as well.
@@ -124,6 +139,3 @@
 	/// The direction we WANT to move, based off our keybinds
 	/// Will be udpated to be the actual direction later on
 	var/intended_direction = NONE
-
-	show_popup_menus = TRUE // right click menu no longer shows up
-	control_freak = CONTROL_FREAK_MACROS

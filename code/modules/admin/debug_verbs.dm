@@ -161,8 +161,7 @@
 			A.flags_atom |= ADMIN_SPAWNED
 
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delete_atom(atom/A as obj|mob|turf in world)
 	set category = null
@@ -247,7 +246,7 @@
 		return
 
 	var/dat = "<br>"
-	for(var/i in L.get_contents())
+	for(var/i in L.GetAllContents())
 		var/atom/A = i
 		dat += "[A] [ADMIN_VV(A)]<br>"
 

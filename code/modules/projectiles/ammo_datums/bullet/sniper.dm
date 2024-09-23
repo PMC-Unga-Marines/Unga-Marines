@@ -44,7 +44,16 @@
 	damage = 70
 	penetration = 35
 	sundering = 0
-	additional_xeno_penetration = 25
+	additional_xeno_penetration = 15
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 8 SECONDS
+
+/datum/ammo/bullet/sniper/svd/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/sniper/martini
 	name = "crude heavy sniper bullet"
@@ -86,10 +95,14 @@
 	name = "high caliber rifle bullet"
 	hud_state = "sniper_heavy"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
-	damage = 80
+	damage = 75
 	penetration = 30
-	sundering = 7.5
+	sundering = 0
+	additional_xeno_penetration = 15
 	damage_falloff = 0.25
+
+/datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, slowdown = 1, max_range = 17)
 
 /datum/ammo/bullet/sniper/pfc/flak
 	name = "high caliber flak rifle bullet"

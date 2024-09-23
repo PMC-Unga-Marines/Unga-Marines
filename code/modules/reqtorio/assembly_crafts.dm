@@ -120,7 +120,7 @@ EXPLOSIVES
 /datum/assembly_craft/explosives/phosphos
 	name = "M40 HPDP grenade"
 	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/gun_powder = 3) // 40 + 24 points
-	output = list(/obj/item/explosive/grenade/phosphorus = 2) // 72 points from old factory
+	output = list(/obj/item/explosive/grenade/phosphorus = 1) // 36 points from old factory
 
 /datum/assembly_craft/explosives/bignade
 	name = "M15 fragmentation grenade"

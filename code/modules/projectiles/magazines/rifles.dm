@@ -703,12 +703,6 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/ar18/sabot
-	name = "\improper AR-18 APDS magazine (10x24mm)"
-	desc = "A 10mm APDS carbine magazine."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/sabot
-
 /obj/item/ammo_magazine/rifle/ar12/ap
 	name = "\improper AR-12 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing assault rifle magazine."
@@ -726,12 +720,6 @@
 	desc = "A 10mm hollow-point assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
-
-/obj/item/ammo_magazine/rifle/ar12/sabot
-	name = "\improper AR-12 APDS magazine (10x24mm)"
-	desc = "A 10mm APDS assault rifle magazine."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/sabot
 
 /obj/item/ammo_magazine/rifle/br64/ap
 	name = "\improper BR-64 AP magazine (10x26.5mm)"
@@ -759,12 +747,6 @@
 	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
-
-/obj/item/ammo_magazine/rifle/ar21/sabot
-	name = "\improper AR-21 skirmish APDS rifle magazine"
-	desc = "A magazine filled with 10x25mm APDS rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot
 
 /obj/item/ammo_magazine/rifle/som/ap
 	name = "\improper V-31 AP magazine (10x24mm)"

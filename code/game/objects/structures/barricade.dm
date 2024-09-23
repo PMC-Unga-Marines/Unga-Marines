@@ -18,7 +18,8 @@
 	///to specify a non-zero amount of stack to drop when destroyed
 	var/destroyed_stack_amount = 0
 	var/base_acid_damage = 2
-	var/barricade_type = "barricade" //"metal", "plasteel", etc.
+	///"metal", "plasteel", etc.
+	var/barricade_type = "barricade"
 	///Whether this barricade has damaged states
 	var/can_change_dmg_state = TRUE
 	///Whether we can open/close this barrricade and thus go over it
@@ -143,7 +144,7 @@
 		if(!disassembled && destroyed_stack_amount)
 			stack_amt = destroyed_stack_amount
 		else
-			stack_amt = round(stack_amount * (obj_integrity/max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
+			stack_amt = round(stack_amount * (obj_integrity / max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
 
 		if(stack_amt)
 			new stack_type (loc, stack_amt)
@@ -289,7 +290,7 @@
 
 	if(ET.folded)
 		return
-	deconstruct(!!get_self_acid())
+	deconstruct(!get_self_acid())
 
 /*----------------------*/
 // GUARD RAIL
@@ -641,7 +642,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
+			deconstruct(!get_self_acid())
 			return TRUE
 		if(BARRICADE_METAL_FIRM)
 
@@ -814,7 +815,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
+			deconstruct(!get_self_acid())
 
 /obj/structure/barricade/plasteel/wrench_act(mob/living/user, obj/item/I)
 	if(!iswrench(I))
@@ -970,7 +971,7 @@
 			return TRUE
 		user.visible_message(span_notice("[user] disassembles [src]."),
 		span_notice("You disassemble [src]."))
-		deconstruct(!!get_self_acid())
+		deconstruct(!get_self_acid())
 		return TRUE
 
 	if(istype(I, /obj/item/stack/sandbags))
@@ -1158,7 +1159,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
+			deconstruct(!get_self_acid())
 
 /obj/structure/barricade/plasteel
 	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 30, BIO = 100, FIRE = 80, ACID = 55)
@@ -1175,12 +1176,10 @@
 	if(!isliving(atom_movable))
 		return FALSE
 	var/mob/living/living = atom_movable
-	if(living.mob_size > MOB_SIZE_XENO)
-		return FALSE // most of t3 xeno's are immune to that
-
 	balloon_alert(living, "Wire slices into us")
 	living.apply_damage(10, BRUTE, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
-	living.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
+	if(living.mob_size < MOB_SIZE_BIG)
+		living.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
 	playsound(living, 'sound/machines/bonk.ogg', 75, FALSE)
 
 	atom_movable.stop_throw()

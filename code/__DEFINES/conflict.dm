@@ -74,7 +74,7 @@
 ///If the projectile ricochet and miss sound is pitched up
 #define AMMO_SOUND_PITCH (1<<16)
 ///Used to identify ammo from sentry guns and other other automated sources
-#define AMMO_SENTRY (1<<17)	
+#define AMMO_SENTRY (1<<17)
 
 //Gun defines for gun related thing. More in the projectile folder.
 //flags_gun_features
@@ -137,10 +137,10 @@
 //Slowdown from various armors.
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up
 
-#define SLOWDOWN_ARMOR_VERY_LIGHT 0.20
+#define SLOWDOWN_ARMOR_VERY_LIGHT 0.25
 #define SLOWDOWN_ARMOR_LIGHT 0.3
 #define SLOWDOWN_ARMOR_MEDIUM 0.5
-#define SLOWDOWN_ARMOR_HEAVY 0.7
+#define SLOWDOWN_ARMOR_HEAVY 0.75
 #define SLOWDOWN_ARMOR_VERY_HEAVY 1
 
 

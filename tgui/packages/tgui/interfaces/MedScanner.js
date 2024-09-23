@@ -290,6 +290,14 @@ export const MedScanner = (props, context) => {
                           <Box inline width={'5px'} />
                         </>
                       ) : null}
+                      {limb.internal_bleeding_limb ? (
+                        <>
+                          <Box inline color={'red'} bold={1}>
+                            Internal bleeding
+                          </Box>
+                          <Box inline width={'5px'} />
+                        </>
+                      ) : null}
                       {limb.implant ? (
                         <>
                           <Box inline color={'white'} bold={1}>

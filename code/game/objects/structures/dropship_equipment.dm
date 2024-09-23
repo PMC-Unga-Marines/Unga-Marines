@@ -886,8 +886,8 @@
 	deployed_table.loc = loc
 	icon_state = "table1"
 
+/* Uncomment when you will actually use it, instead of leaving as invisible piece of shit in fabricator
 // bomb pod
-
 /obj/structure/dropship_equipment/cas/weapon/bomb_pod
 	name = "bomb pod"
 	icon_state = "bomb_pod"
@@ -907,3 +907,4 @@
 		icon_state = "bomb_pod_installed"
 	else
 		icon_state = "bomb_pod"
+*/
