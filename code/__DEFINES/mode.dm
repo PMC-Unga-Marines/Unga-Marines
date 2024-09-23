@@ -127,9 +127,9 @@
 //How many psy points a hive gets if all generators are corrupted
 #define GENERATOR_PSYCH_POINT_OUTPUT 1
 //How many psy points are gave for each marine psy drained
-#define PSY_DRAIN_REWARD 90
+#define PSY_DRAIN_REWARD 60
 //How many psy points are gave every 5 second by a cocoon
-#define COCOON_PSY_POINTS_REWARD 3
+#define COCOON_PSY_POINTS_REWARD 2
 
 /// How each alive marine contributes to burrower larva output per minute. So with one pool, 15 marines are giving 0.375 points per minute, so it's a new xeno every 22 minutes
 #define SILO_BASE_OUTPUT_PER_MARINE 0.035
