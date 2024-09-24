@@ -216,6 +216,7 @@
 	if(source_mob)
 		pixel_x += source_mob.pixel_x
 	flick(gib_icon, src)
+	return ..()
 
 /obj/effect/overlay/temp/gib_animation/human
 	icon = 'icons/mob/human_gib.dmi'
