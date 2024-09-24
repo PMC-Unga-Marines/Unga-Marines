@@ -214,10 +214,13 @@
 
 /obj/effect/overlay/temp/gib_animation/Initialize(mapload, effect_duration, mob/source_mob, gib_icon)
 	if(source_mob)
-		pixel_x = source_mob.pixel_x
-		pixel_y = source_mob.pixel_y
-	icon_state = gib_icon
-	return ..()
+		pixel_x += source_mob.pixel_x
+	flick(gib_icon, src)
+
+/obj/effect/overlay/temp/gib_animation/human
+	icon = 'icons/mob/human_gib.dmi'
+	pixel_x = -16
+	pixel_y = -16
 
 /obj/effect/overlay/temp/gib_animation/animal
 	icon = 'icons/mob/animal.dmi'
