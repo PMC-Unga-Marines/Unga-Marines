@@ -16,6 +16,8 @@
 	use_power = NO_POWER_USE
 	/// list of the target x and y, and the dialing we can do to them
 	var/list/coords = list("name"= "", "targ_x" = 0, "targ_y" = 0, "dial_x" = 0, "dial_y" = 0)
+	///list of old x and y coords, so we don't play a message each ui act
+	var/list/old_coords = list("target_x" = 0, "target_y" = 0)
 	/// saved last three inputs that were actually used to fire a round
 	var/list/last_three_inputs = list(
 		"coords_one" = list("name"="Target 1", "targ_x" = 0, "targ_y" = 0, "dial_x" = 0, "dial_y" = 0),
@@ -73,8 +75,8 @@
 	var/static/list/id_by_type = list()
 	/// list of linked binoculars to the structure of the mortar, used for continuity to item
 	var/list/linked_struct_binoculars
-	///minimap obj ref that we will display to users
-	var/atom/movable/screen/minimap/map
+	///minimap action ref that we will display to users
+	var/datum/action/minimap/minimap
 
 /obj/machinery/deployable/mortar/Initialize(mapload, _internal_item, deployer)
 	. = ..()
@@ -90,7 +92,7 @@
 
 /obj/machinery/deployable/mortar/Destroy()
 	QDEL_NULL(impact_cam)
-	map = null
+	minimap = null
 	return ..()
 
 
@@ -171,7 +173,9 @@
 			last_three_inputs["coords_three"]["name"] = new_name
 		if("open_map")
 			open_map(usr)
-	if((coords["targ_x"] != 0 && coords["targ_y"] != 0))
+	if(coords["targ_x"] != old_coords["target_x"] || coords["targ_y"] != old_coords["target_y"])
+		old_coords["target_x"] = coords["targ_x"]
+		old_coords["target_y"] = coords["targ_y"]
 		usr.visible_message(span_notice("[usr] adjusts [src]'s firing angle and distance."),
 		span_notice("You adjust [src]'s firing angle and distance to match the new coordinates."))
 		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
@@ -413,17 +417,26 @@
 	return ..()
 
 /obj/machinery/deployable/mortar/on_unset_interaction(mob/user)
-	user?.client?.screen -= map // If we open a minimap through action, it will leave a locator on the screen. It need a refactor so fucking much.
+	minimap?.toggle_minimap(FALSE)
 
 /obj/machinery/deployable/mortar/proc/open_map(mob/user)
 	if(is_centcom_level(loc.z))
 		balloon_alert(user, "This region doesn't have a minimap!")
 		return
 
-	map = SSminimaps.fetch_minimap_object(loc.z, MINIMAP_FLAG_MARINE)
-	user.client.screen += map
-	var/list/polled_coords = map.get_coords_from_click(user)
-	user?.client?.screen -= map
+	for(var/datum/action/action AS in user.actions) // it needs a refactor so badly
+		if(istype(action, /datum/action/minimap))
+			minimap = action
+	if(!minimap)
+		balloon_alert(user, "You don't have a minimap!")
+		return
+	if(minimap.minimap_displayed) // simply close the minimap if we have it open
+		minimap.toggle_minimap()
+		return
+
+	minimap.toggle_minimap(TRUE)
+	var/list/polled_coords = minimap.map.get_coords_from_click(user)
+	minimap?.toggle_minimap(FALSE)
 
 	if(!user.Adjacent(src))
 		return
