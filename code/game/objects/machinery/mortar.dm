@@ -13,6 +13,7 @@
 	coverage = 20
 	layer = ABOVE_MOB_LAYER //So you can't hide it under corpses
 	resistance_flags = XENO_DAMAGEABLE
+	use_power = NO_POWER_USE
 	/// list of the target x and y, and the dialing we can do to them
 	var/list/coords = list("name"= "", "targ_x" = 0, "targ_y" = 0, "dial_x" = 0, "dial_y" = 0)
 	/// saved last three inputs that were actually used to fire a round
@@ -62,8 +63,6 @@
 		/obj/item/mortal_shell/plasmaloss,
 	)
 
-	use_power = NO_POWER_USE
-
 	///Used for round stats
 	var/tally_type = TALLY_MORTAR
 
@@ -74,6 +73,8 @@
 	var/static/list/id_by_type = list()
 	/// list of linked binoculars to the structure of the mortar, used for continuity to item
 	var/list/linked_struct_binoculars
+	///minimap obj ref that we will display to users
+	var/atom/movable/screen/minimap/map
 
 /obj/machinery/deployable/mortar/Initialize(mapload, _internal_item, deployer)
 	. = ..()
@@ -89,6 +90,7 @@
 
 /obj/machinery/deployable/mortar/Destroy()
 	QDEL_NULL(impact_cam)
+	map = null
 	return ..()
 
 
@@ -167,6 +169,8 @@
 		if("change_saved_three_name")
 			new_name = params["name"]
 			last_three_inputs["coords_three"]["name"] = new_name
+		if("open_map")
+			open_map(usr)
 	if((coords["targ_x"] != 0 && coords["targ_y"] != 0))
 		usr.visible_message(span_notice("[usr] adjusts [src]'s firing angle and distance."),
 		span_notice("You adjust [src]'s firing angle and distance to match the new coordinates."))
@@ -408,8 +412,28 @@
 			personal_statistics.war_crimes += war_crimes_counter
 	return ..()
 
-// Artillery cameras. Together with the artillery impact hud tablet, shows a live feed of imapcts.
+/obj/machinery/deployable/mortar/on_unset_interaction(mob/user)
+	user?.client?.screen -= map // If we open a minimap through action, it will leave a locator on the screen. It need a refactor so fucking much.
 
+/obj/machinery/deployable/mortar/proc/open_map(mob/user)
+	if(is_centcom_level(loc.z))
+		balloon_alert(user, "This region doesn't have a minimap!")
+		return
+
+	map = SSminimaps.fetch_minimap_object(loc.z, MINIMAP_FLAG_MARINE)
+	user.client.screen += map
+	var/list/polled_coords = map.get_coords_from_click(user)
+	user?.client?.screen -= map
+
+	if(!user.Adjacent(src))
+		return
+
+	if(!polled_coords)
+		return
+	coords["targ_x"] = polled_coords[1]
+	coords["targ_y"] = polled_coords[2]
+
+// Artillery cameras. Together with the artillery impact hud tablet, shows a live feed of imapcts.
 /obj/machinery/camera/artillery
 	name = "artillery camera"
 	network = list("terragovartillery")
