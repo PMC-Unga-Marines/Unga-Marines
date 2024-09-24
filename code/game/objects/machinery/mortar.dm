@@ -432,11 +432,11 @@
 	if(!minimap)
 		balloon_alert(user, "You don't have a minimap!")
 		return
-	if(minimap.minimap_displayed) // simply close the minimap if we have it open
+	if(minimap?.minimap_displayed) // simply close the minimap if we have it open
 		minimap.toggle_minimap()
 		return
 
-	minimap.toggle_minimap(TRUE)
+	minimap?.toggle_minimap(TRUE)
 	var/list/polled_coords = minimap.map.get_coords_from_click(user)
 	minimap?.toggle_minimap(FALSE)
 
