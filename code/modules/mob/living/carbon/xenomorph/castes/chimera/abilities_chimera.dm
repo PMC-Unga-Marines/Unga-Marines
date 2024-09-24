@@ -5,7 +5,7 @@
 	name = "Blink"
 	action_icon_state = "blink"
 	desc = "We teleport ourselves a short distance to a location within line of sight."
-	use_state_flags = ABILITY_TURF_TARGET
+	use_state_flags = ABILITY_TURF_TARGET|ABILITY_USE_STAGGERED
 	ability_cost = 50
 	cooldown_duration = 3 SECONDS
 	keybinding_signals = list(

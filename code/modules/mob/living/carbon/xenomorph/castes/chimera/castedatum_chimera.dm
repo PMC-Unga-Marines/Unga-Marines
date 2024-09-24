@@ -33,8 +33,8 @@
 	// *** Defense *** //
 	soft_armor = list(MELEE = 50, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 50, FIRE = 0, ACID = 50)
 
-	blink_drag_nonfriendly_living_multiplier = 20
-	blink_drag_friendly_multiplier = 4
+	blink_drag_nonfriendly_living_multiplier = 7
+	blink_drag_friendly_multiplier = 3
 	blink_range = 5
 
 	minimap_icon = "chimera"
@@ -45,10 +45,10 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/blink,
-		/datum/action/ability/xeno_action/phantom,
 		/datum/action/ability/activable/xeno/pounce/abduction,
 		/datum/action/ability/activable/xeno/body_swap,
 		/datum/action/ability/xeno_action/warp_blast,
+		/datum/action/ability/xeno_action/crippling_strike,
 	)
 
 /datum/xeno_caste/chimera/normal
@@ -84,8 +84,10 @@
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 
-	max_health = 150
+	max_health = 250
 
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 30, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 0, BIO = 25, FIRE = 0, ACID = 25)
 
-	actions = null
+	actions = list(
+		/datum/action/ability/xeno_action/crippling_strike,
+	)
