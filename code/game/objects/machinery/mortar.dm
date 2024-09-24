@@ -75,8 +75,6 @@
 	var/static/list/id_by_type = list()
 	/// list of linked binoculars to the structure of the mortar, used for continuity to item
 	var/list/linked_struct_binoculars
-	///minimap action ref that we will display to users
-	var/datum/action/minimap/minimap
 
 /obj/machinery/deployable/mortar/Initialize(mapload, _internal_item, deployer)
 	. = ..()
@@ -92,7 +90,6 @@
 
 /obj/machinery/deployable/mortar/Destroy()
 	QDEL_NULL(impact_cam)
-	minimap = null
 	return ..()
 
 
@@ -417,6 +414,10 @@
 	return ..()
 
 /obj/machinery/deployable/mortar/on_unset_interaction(mob/user)
+	var/datum/action/minimap/minimap // not setting the var on mortar, because if there's more than 1 user it acts weird
+	for(var/datum/action/action AS in user.actions) // it needs a refactor so badly
+		if(istype(action, /datum/action/minimap))
+			minimap = action
 	minimap?.toggle_minimap(FALSE)
 
 /obj/machinery/deployable/mortar/proc/open_map(mob/user)
@@ -424,6 +425,7 @@
 		balloon_alert(user, "This region doesn't have a minimap!")
 		return
 
+	var/datum/action/minimap/minimap // not setting the var on mortar, because if there's more than 1 user it acts weird
 	for(var/datum/action/action AS in user.actions) // it needs a refactor so badly
 		if(istype(action, /datum/action/minimap))
 			minimap = action
