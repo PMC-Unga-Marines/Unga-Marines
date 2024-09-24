@@ -585,7 +585,7 @@
 /datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_obj(obj/O, obj/projectile/P)
 	if(ismecha(O))
 		P.damage *= 3
-	if(ishitbox(O))
+	if(ishitbox(O) || isvehicle(O))
 		P.damage *= 1.5
 
 /datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_mob(mob/M, obj/projectile/P)

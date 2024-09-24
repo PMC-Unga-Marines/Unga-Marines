@@ -461,7 +461,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/boiler_gas/on_hit_obj(obj/O, obj/projectile/P)
 	if(ismecha(O))
 		P.damage *= 5 //Globs deal much higher damage to mechs.
-	if(ishitbox(O))
+	if(ishitbox(O) || isvehicle(O))
 		P.damage *= 1.5
 	var/turf/target_turf = get_turf(O)
 	drop_nade(O.density ? P.loc : target_turf, P.firer)
