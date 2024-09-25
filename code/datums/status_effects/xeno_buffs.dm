@@ -1099,8 +1099,8 @@
 	tick_interval = 5 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_adrenaline
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/plasma_regen_buff_per_chamber = 0.10
-	var/percent_buff_per_chamber = 0.01
+	var/plasma_regen_buff_per_chamber = 0.12
+	var/percent_buff_per_chamber = 0.02
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_adrenaline/on_apply()
@@ -1218,6 +1218,9 @@
 
 /atom/movable/screen/alert/status_effect/upgrade_pheromones/Click()
 	var/datum/status_effect/upgrade_pheromones/effect = attached_effect
+	if(effect.buff_owner.incapacitated(TRUE))
+		to_chat(usr, span_warning("Cant do that right now!"))
+		return
 	var/phero_choice = show_radial_menu(effect.buff_owner, effect.buff_owner, GLOB.pheromone_images_list, radius = 35, require_near = TRUE)
 	if(!phero_choice)
 		return
