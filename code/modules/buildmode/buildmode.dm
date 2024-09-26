@@ -47,16 +47,15 @@
 	holder.show_popup_menus = TRUE
 	qdel(src)
 
-
 /datum/buildmode/Destroy()
 	close_switchstates()
 	holder.player_details.post_login_callbacks -= li_cb
+	li_cb = null
 	holder = null
 	QDEL_NULL(mode)
 	QDEL_LIST(modeswitch_buttons)
 	QDEL_LIST(dirswitch_buttons)
 	return ..()
-
 
 /datum/buildmode/proc/post_login()
 	// since these will get wiped upon login

@@ -262,3 +262,4 @@
 //regress and caste swap UI
 #define TRAIT_CASTE_SWAP "caste_swap"
 #define TRAIT_REGRESSING "regressing"
+#define TRAIT_STRAIN_SWAP "strain swap"

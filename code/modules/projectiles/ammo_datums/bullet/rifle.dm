@@ -30,14 +30,6 @@
 	damage = 15
 	penetration = 0
 
-/datum/ammo/bullet/rifle/sabot
-	name = "APDS rifle bullet"
-	hud_state = "rifle_ap"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
-	damage = 20
-	penetration = 5
-	sundering = 0.5
-
 /datum/ammo/bullet/rifle/t25
 	name = "smartmachinegun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
@@ -85,14 +77,6 @@
 	damage = 20
 	penetration = 0
 	additional_xeno_penetration = 0
-
-/datum/ammo/bullet/rifle/heavy/sabot
-	name = "APDS heavy rifle bullet"
-	hud_state = "rifle_heavy"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
-	damage = 20
-	penetration = 10
-	sundering = 1
 
 /datum/ammo/bullet/rifle/repeater
 	name = "heavy impact rifle bullet"

@@ -434,10 +434,7 @@
 	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/machinery/deployable/mounted/sentry/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
-	knock_down()
-	. = (CHARGE_SPEED(charge_datum) * 50)
-	charge_datum.speed_down(1)
-	return
+	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/structure/razorwire/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) || charger.is_charging < CHARGE_ON)
@@ -564,6 +561,12 @@
 		return PRECRUSH_STOPPED
 	charge_datum.speed_down(2) //Lose two turfs worth of speed.
 	return NONE
+
+/obj/machinery/deployable/mounted/sentry/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	knock_down()
+	if(density)
+		return PRECRUSH_STOPPED
+	return PRECRUSH_PLOWED
 
 /mob/living/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	if(density && ((mob_size == charger.mob_size && charger.is_charging <= CHARGE_MAX) || mob_size > charger.mob_size))

@@ -15,11 +15,24 @@
 	set desc = "Change into another caste in the same tier."
 	set category = "Alien"
 
-	if(world.time - (GLOB.key_to_time_of_caste_swap[key] ? GLOB.key_to_time_of_caste_swap[key] : -INFINITY) < 15 MINUTES)
+	if(world.time - (GLOB.key_to_time_of_caste_swap[key] ? GLOB.key_to_time_of_caste_swap[key] : -INFINITY) < (15 MINUTES))
 		to_chat(src, span_warning("Your caste swap timer is not done yet."))
 		return
 
 	ADD_TRAIT(src, TRAIT_CASTE_SWAP, TRAIT_CASTE_SWAP)
+	GLOB.evo_panel.ui_interact(src)
+
+/mob/living/carbon/xenomorph/verb/strain_swap()
+	set name = "Strain Swap"
+	set desc = "Change into a strain of your current caste."
+	set category = "Alien"
+
+	if(world.time - (GLOB.key_to_time_of_caste_swap[key] ? GLOB.key_to_time_of_caste_swap[key] : -INFINITY) < (5 MINUTES)) // yes this is shared
+		to_chat(src, span_warning("Your caste swap timer is not done yet."))
+		return
+
+	SStgui.close_user_uis(src, GLOB.evo_panel)
+	ADD_TRAIT(src, TRAIT_STRAIN_SWAP, TRAIT_STRAIN_SWAP)
 	GLOB.evo_panel.ui_interact(src)
 
 /mob/living/carbon/xenomorph/verb/regress()
@@ -33,6 +46,8 @@
 ///Creates a list of possible evolution options for a caste based on their tier.
 /mob/living/carbon/xenomorph/proc/get_evolution_options()
 	. = list()
+	if(HAS_TRAIT(src, TRAIT_STRAIN_SWAP))
+		return xeno_caste.get_strain_options()
 	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP))
 		switch(tier)
 			if(XENO_TIER_ZERO, XENO_TIER_FOUR)
@@ -241,7 +256,7 @@
 		balloon_alert(src, "The restraints are too restricting to allow us to evolve")
 		return FALSE
 
-	if(isnull(get_evolution_options()) || !(xeno_caste.caste_flags & CASTE_EVOLUTION_ALLOWED) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
+	if(length(get_evolution_options()) < 1 || (!HAS_TRAIT(src, TRAIT_STRAIN_SWAP) && !(xeno_caste.caste_flags & CASTE_EVOLUTION_ALLOWED)) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO)) // todo: why does this flag still exist?
 		balloon_alert(src, "We are already the apex of form and function. Let's go forth and spread the hive!")
 		return FALSE
 

@@ -15,7 +15,7 @@
 #define MAP_GELIDA_IV "Gelida IV"
 #define MAP_DELTA_STATION "Delta Station"
 #define MAP_OSCAR_OUTPOST "Oscar Outpost"
-
+#define MAP_KUTJEVO_REFINERY "Kutjevo Refinery"
 #define MAP_TALOS "Talos"
 #define MAP_PILLAR_OF_SPRING "Pillar of Spring"
 #define MAP_SULACO "Sulaco"

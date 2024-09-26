@@ -1,5 +1,4 @@
 /mob/living/carbon/human/gib()
-
 	var/is_a_synth = issynth(src)
 	for(var/datum/limb/E in limbs)
 		if(istype(E, /datum/limb/chest))
@@ -18,14 +17,10 @@
 	if(is_a_synth)
 		spawn_gibs()
 		return
-	..()
-
-
-
-
+	return ..()
 
 /mob/living/carbon/human/gib_animation()
-	new /obj/effect/overlay/temp/gib_animation(loc, 0, src, species ? species.gibbed_anim : "gibbed-h")
+	new /obj/effect/overlay/temp/gib_animation/human(loc, 0, src, species ? species.gibbed_anim : "gibbed-h")
 
 /mob/living/carbon/human/spawn_gibs()
 	if(species)
@@ -33,18 +28,14 @@
 	else
 		hgibs(loc)
 
-
-
 /mob/living/carbon/human/spawn_dust_remains()
 	if(species)
 		new species.remains_type(loc)
 	else
 		new /obj/effect/decal/remains/xeno(loc)
 
-
 /mob/living/carbon/human/dust_animation()
 	new /obj/effect/overlay/temp/dust_animation(loc, 0, src, "dust-h")
-
 
 /mob/living/carbon/human/death(gibbing, deathmessage, silent, special_death_message)
 	if(!species)

@@ -510,8 +510,10 @@
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small,
 /obj/effect/landmark/start/squad/squadmarine/charlie,
+/obj/machinery/light/mainship{
+	light_color = "#da2f1b"
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "anV" = (
@@ -764,10 +766,6 @@
 	},
 /obj/item/bedsheet/purple{
 	pixel_y = 13
-	},
-/obj/machinery/light/mainship/small{
-	dir = 1;
-	pixel_x = 12
 	},
 /obj/effect/landmark/start/squad/squadleader/charlie,
 /turf/open/floor/mainship/metal,
@@ -2440,9 +2438,14 @@
 	},
 /area/mainship/squads/req)
 "btp" = (
-/obj/machinery/light/mainship,
-/turf/open/floor/mainship_hull,
-/area/mainship/powered)
+/obj/effect/turf_decal/siding/metal{
+	dir = 1
+	},
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/hallways/bow_hallway)
 "btr" = (
 /obj/structure/table/mainship,
 /obj/item/tool/soap/nanotrasen,
@@ -4481,6 +4484,9 @@
 	dir = 5
 	},
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/machinery/light/mainship/small{
+	dir = 1
+	},
 /turf/open/floor/carpet,
 /area/mainship/hull/upper_hull)
 "cxT" = (
@@ -4532,10 +4538,6 @@
 	},
 /obj/item/bedsheet/purple{
 	pixel_y = 13
-	},
-/obj/machinery/light/mainship/small{
-	dir = 1;
-	pixel_x = 12
 	},
 /obj/structure/sign/semiotic/bathwomens{
 	pixel_x = 32
@@ -8762,9 +8764,6 @@
 /turf/open/floor/mainship/red,
 /area/mainship/shipboard/firing_range)
 "eUA" = (
-/obj/machinery/light/mainship{
-	dir = 1
-	},
 /obj/structure/largecrate/guns/merc,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
@@ -10321,6 +10320,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
+/obj/structure/table/black,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "fPY" = (
@@ -10451,7 +10451,6 @@
 /area/mainship/hallways/hangar)
 "fUu" = (
 /obj/structure/cable,
-/obj/structure/platform_decoration,
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
@@ -10594,6 +10593,16 @@
 "fYS" = (
 /obj/structure/cable,
 /obj/structure/platform,
+/obj/structure/platform_decoration{
+	dir = 8;
+	pixel_y = -32;
+	pixel_x = -32
+	},
+/obj/structure/platform_decoration{
+	dir = 4;
+	pixel_x = 26;
+	pixel_y = -32
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/cic)
 "fYU" = (
@@ -10825,10 +10834,10 @@
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small{
+/obj/effect/landmark/start/squad/squadmarine/alpha,
+/obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/effect/landmark/start/squad/squadmarine/alpha,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "glV" = (
@@ -12724,6 +12733,9 @@
 "hAW" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/structure/cable,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -12880,6 +12892,9 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "hGt" = (
@@ -12905,8 +12920,11 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
 "hHh" = (
-/obj/structure/platform_decoration,
 /obj/effect/ai_node,
+/obj/structure/platform_decoration{
+	pixel_x = 5;
+	pixel_y = -5
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/cic)
 "hHm" = (
@@ -13591,10 +13609,25 @@
 	},
 /area/mainship/squads/charlie)
 "igf" = (
-/obj/machinery/light/mainship{
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
 	},
-/turf/open/floor/mainship_hull,
+/obj/effect/turf_decal/siding/metal,
+/obj/machinery/door_control{
+	id = "Brig Lockdown";
+	name = "Brig Lockdown";
+	directional = 0;
+	dir = 1;
+	pixel_y = -15;
+	pixel_x = -5
+	},
+/obj/machinery/door_control/mainship/cic{
+	dir = 1;
+	directional = 0;
+	pixel_x = 5;
+	pixel_y = -15
+	},
+/turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "igh" = (
 /obj/machinery/loadout_vendor,
@@ -13845,9 +13878,6 @@
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
 "ioD" = (
-/obj/machinery/light/mainship{
-	dir = 1
-	},
 /obj/structure/table/mainship,
 /obj/machinery/door_control/mainship/tcomms{
 	dir = 4
@@ -18277,9 +18307,6 @@
 /obj/machinery/computer/navigation{
 	dir = 4
 	},
-/obj/machinery/light/mainship{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
@@ -18382,9 +18409,6 @@
 	},
 /obj/item/bedsheet/red{
 	pixel_y = 13
-	},
-/obj/machinery/light/mainship/small{
-	pixel_x = -12
 	},
 /obj/effect/landmark/start/squad/squadcorpsman/alpha,
 /turf/open/floor/mainship/metal/full,
@@ -18900,15 +18924,6 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
-"llx" = (
-/obj/machinery/light/mainship/small{
-	pixel_x = -12
-	},
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 8
-	},
-/turf/open/floor/mainship/metal/full,
-/area/mainship/squads/charlie)
 "llB" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -20299,6 +20314,11 @@
 /obj/structure/window/reinforced/toughened,
 /obj/machinery/computer/communications,
 /obj/structure/platform,
+/obj/structure/platform_decoration{
+	dir = 8;
+	pixel_y = -20;
+	pixel_x = -27
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "lTC" = (
@@ -21298,6 +21318,9 @@
 /area/mainship/squads/req)
 "mze" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/light/mainship{
+	light_color = "#da2f1b"
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "mzh" = (
@@ -22102,6 +22125,9 @@
 "mUT" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt{
 	dir = 1
+	},
+/obj/machinery/light/mainship{
+	light_color = "#da2f1b"
 	},
 /turf/open/floor/mainship,
 /area/mainship/command/telecomms)
@@ -23253,6 +23279,9 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/machinery/light/mainship{
+	dir = 4
+	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
 "nEl" = (
@@ -23940,10 +23969,10 @@
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small{
+/obj/effect/landmark/start/squad/squadcorpsman/alpha,
+/obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/effect/landmark/start/squad/squadcorpsman/alpha,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
 "nWE" = (
@@ -24044,10 +24073,10 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/squads/delta)
 "nZw" = (
-/obj/vehicle/ridden/powerloader,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
+/obj/vehicle/unmanned/droid/ripley,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "nZT" = (
@@ -24374,7 +24403,7 @@
 	pixel_x = -7
 	},
 /obj/machinery/light/mainship{
-	dir = 8
+	dir = 1
 	},
 /turf/open/floor/mainship/metal/white{
 	color = "#53876F"
@@ -24779,9 +24808,6 @@
 	},
 /obj/item/bedsheet/red{
 	pixel_y = 13
-	},
-/obj/machinery/light/mainship/small{
-	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 5
@@ -26629,9 +26655,6 @@
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small{
-	dir = 4
-	},
 /obj/structure/sign/semiotic/bathunisex{
 	pixel_x = 32
 	},
@@ -28048,9 +28071,6 @@
 	dir = 5
 	},
 /obj/structure/bed/chair/comfy/black,
-/obj/structure/platform_decoration{
-	dir = 8
-	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/cic)
 "qpG" = (
@@ -28087,6 +28107,15 @@
 	},
 /obj/structure/platform{
 	dir = 1
+	},
+/obj/structure/platform_decoration{
+	pixel_x = -32;
+	pixel_y = 32
+	},
+/obj/structure/platform_decoration{
+	dir = 1;
+	pixel_y = 32;
+	pixel_x = 26
 	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/cic)
@@ -28538,43 +28567,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
-"qER" = (
-/obj/structure/bed,
-/obj/structure/bed{
-	pixel_y = 13;
-	layer = 3.5;
-	max_buckled_mobs = 13
-	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
-/obj/item/bedsheet/purple{
-	pixel_y = 13
-	},
-/obj/machinery/light/mainship/small{
-	dir = 1;
-	pixel_x = -12
-	},
-/obj/effect/landmark/start/squad/squadcorpsman/charlie,
-/turf/open/floor/mainship/metal,
-/area/mainship/squads/charlie)
-"qFq" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 4
-	},
-/obj/machinery/door_control/mainship/cic{
-	dir = 1;
-	pixel_x = 5
-	},
-/obj/effect/turf_decal/siding/metal,
-/obj/machinery/door_control{
-	id = "Brig Lockdown";
-	name = "Brig Lockdown";
-	dir = 1;
-	pixel_x = -6
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/command/cic)
 "qFE" = (
 /obj/structure/table/mainship,
 /obj/item/reagent_containers/food/snacks/grown/tomato{
@@ -29404,13 +29396,6 @@
 /obj/machinery/marine_selector/clothes/leader,
 /turf/open/floor/wood,
 /area/mainship/squads/alpha)
-"rhh" = (
-/obj/structure/closet/marine/charlie,
-/obj/machinery/light/mainship/small{
-	pixel_x = 12
-	},
-/turf/open/floor/mainship/metal/full,
-/area/mainship/squads/charlie)
 "rhl" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/window/reinforced{
@@ -30309,9 +30294,6 @@
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small{
-	pixel_x = 12
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 9
 	},
@@ -30830,6 +30812,7 @@
 /area/mainship/command/cic)
 "sbB" = (
 /obj/machinery/power/monitor,
+/obj/machinery/light/mainship,
 /turf/open/floor/mainship/black/full,
 /area/mainship/command/cic)
 "sbR" = (
@@ -30996,8 +30979,10 @@
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small,
 /obj/effect/landmark/start/squad/squadrobot/charlie,
+/obj/machinery/light/mainship{
+	light_color = "#da2f1b"
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "sfw" = (
@@ -32271,7 +32256,7 @@
 /area/mainship/hull/starboard_hull)
 "sSg" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/sr127,
+/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127,
 /turf/open/floor/mainship/metal,
 /area/mainship/shipboard/firing_range)
 "sSK" = (
@@ -33637,10 +33622,10 @@
 /area/mainship/hull/port_hull)
 "tPV" = (
 /obj/machinery/light/mainship{
-	dir = 1
+	dir = 4
 	},
-/turf/open/floor/mainship_hull,
-/area/mainship/powered)
+/turf/closed/wall/mainship/talos,
+/area/mainship/squads/charlie)
 "tQe" = (
 /obj/structure/cable,
 /obj/machinery/light/mainship{
@@ -38700,10 +38685,6 @@
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
-/obj/machinery/light/mainship/small{
-	dir = 1;
-	pixel_x = -12
-	},
 /obj/effect/landmark/start/squad/squadsmartgunner/charlie,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
@@ -39885,9 +39866,6 @@
 /area/mainship/hull/port_hull)
 "xFx" = (
 /obj/structure/bed/chair/sofa/corner,
-/obj/machinery/light/mainship/small{
-	dir = 4
-	},
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
 	},
@@ -57852,13 +57830,13 @@ ooO
 dnv
 dnv
 dnv
-igf
 dnv
 dnv
 dnv
 dnv
 dnv
-igf
+dnv
+dnv
 dnv
 dnv
 vwb
@@ -58107,17 +58085,17 @@ neu
 neu
 ooO
 dnv
-abt
-cRi
-vDw
-cRi
-cRi
-cRi
 cRi
 cRi
 vDw
 cRi
-abt
+cRi
+cRi
+cRi
+cRi
+vDw
+cRi
+cRi
 dnv
 dnv
 enG
@@ -60419,7 +60397,7 @@ neu
 ooO
 dnv
 dnv
-btp
+dnv
 abt
 eoR
 fYU
@@ -60431,7 +60409,7 @@ gDV
 qqM
 saO
 abt
-tPV
+dnv
 dnv
 dnv
 dnv
@@ -60942,7 +60920,7 @@ exm
 eME
 vTO
 gDV
-qFq
+igf
 bUV
 abt
 abt
@@ -72281,7 +72259,7 @@ pDb
 kVD
 sgP
 dDn
-xGL
+btp
 shs
 xzH
 bmI
@@ -83231,7 +83209,7 @@ jrs
 uEI
 uEI
 aPG
-rhh
+rdw
 oMC
 arx
 tqj
@@ -84002,9 +83980,9 @@ mHd
 fve
 jdV
 qFE
-llx
+nRu
 oMC
-qER
+bhE
 mMB
 anQ
 tkN
@@ -85797,7 +85775,7 @@ rvG
 eWU
 eWU
 tkN
-tkN
+tPV
 tkN
 tkN
 tkN
