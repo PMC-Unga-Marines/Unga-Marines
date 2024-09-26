@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(470 modules,
-    885/7600 macros, 11.6%)</aside></h3>
+<aside>(471 modules,
+    885/7605 macros, 11.6%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -496,6 +496,7 @@ that is in the general direction relative to the parent.</li>
     <li><span class="no-substance">under&#x2F;</span><a href="code/modules/clothing/under/marine_uniform.html" title="code&#x2F;modules&#x2F;clothing&#x2F;under&#x2F;marine_uniform">marine_uniform</a></li>
     </ul></li>
     <li><span class="no-substance">detectivework&#x2F;</span><a href="code/modules/detectivework/forensics.html" title="code&#x2F;modules&#x2F;detectivework&#x2F;forensics">forensics</a> - todo: is this entire file deprecated and should be removed?</li>
+    <li><span class="no-substance">discord&#x2F;</span><a href="code/modules/discord/tgs_commands.html" title="code&#x2F;modules&#x2F;discord&#x2F;tgs_commands">tgs_commands</a></li>
     <li><span class="no-substance">events&#x2F;</span><a href="code/modules/events/_events.html" title="code&#x2F;modules&#x2F;events&#x2F;_events">_events</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;instruments">instruments</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;modules&#x2F;instruments&#x2F;instrument_data">instrument_data</span><ul class="index-tree">
@@ -742,7 +743,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1068 detailed/1336 documented/19924 total, 6.7%)</aside></h3>
+<aside>(1069 detailed/1338 documented/19933 total, 6.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -1159,6 +1160,7 @@ for scheduling different subsystems for different stages of the round</li>
     <li><a href="datum/controller/subsystem/aura.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;aura">aura</a></li>
     <li><a href="datum/controller/subsystem/automatedfire.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;automatedfire">automatedfire</a></li>
     <li><a href="datum/controller/subsystem/direction.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;direction">direction</a></li>
+    <li><a href="datum/controller/subsystem/discord.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;discord">discord</a></li>
     <li><a href="datum/controller/subsystem/evacuation.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;evacuation">evacuation</a></li>
     <li><a href="datum/controller/subsystem/events.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;events">events</a></li>
     <li><a href="datum/controller/subsystem/excavation.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;excavation">excavation</a></li>
@@ -1545,7 +1547,9 @@ Can detect if a given code stack has exited, used by the mc for stack overflow d
     <li><span class="no-substance">generic&#x2F;</span><a href="datum/surgery_step/generic/repair.html" title="&#x2F;datum&#x2F;surgery_step&#x2F;generic&#x2F;repair">repair</a> - Sewing people closed. Not fast, but works on corpses.</li>
     </ul></li>
     <li><a href="datum/tgs_chat_channel.html" title="&#x2F;datum&#x2F;tgs_chat_channel">tgs_chat_channel</a> - Represents a connected chat channel.</li>
-    <li><a href="datum/tgs_chat_command.html" title="&#x2F;datum&#x2F;tgs_chat_command">tgs_chat_command</a> - User definable chat command.</li>
+    <li class="has-children"><a href="datum/tgs_chat_command.html" title="&#x2F;datum&#x2F;tgs_chat_command">tgs_chat_command</a> - User definable chat command.<ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;tgs_chat_command&#x2F;myuserid">myuserid</span> - Gets the discord user's Discord UserID</li>
+    </ul></li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;tgs_chat_embed">tgs_chat_embed</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;tgs_chat_embed&#x2F;field">field</span> - See https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure for details. Must have name and value set in New().</li>
     <li><a href="datum/tgs_chat_embed/footer.html" title="&#x2F;datum&#x2F;tgs_chat_embed&#x2F;footer">footer</a> - See https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure for details.</li>
@@ -2593,7 +2597,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/2df9bc8b6fd15f7b5e5c84bbca3145ebb0021e3a">2df9bc8</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/0ef120f169fe17fbee202c80eafb4a358e33ca1e">0ef120f</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
