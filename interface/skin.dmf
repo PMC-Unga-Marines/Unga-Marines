@@ -188,15 +188,15 @@ window "infowindow"
 		saved-params = "is-checked"
 		text = "Wiki"
 		command = "wiki"
-	elem "forum"
+	elem "boosty"
 		type = BUTTON
 		pos = 370,5
 		size = 90x20
 		anchor1 = 58,0
 		anchor2 = 72,0
 		saved-params = "is-checked"
-		text = "Forum"
-		command = "forum"
+		text = "Boosty"
+		command = "boosty"
 	elem "github"
 		type = BUTTON
 		pos = 460,5
