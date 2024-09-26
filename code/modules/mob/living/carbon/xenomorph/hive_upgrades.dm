@@ -232,14 +232,17 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/spawner
 
+/datum/hive_upgrade/building/upgrade_chamber
+	psypoint_cost = 200
+	flags_upgrade = ABILITY_NUCLEARWAR
+	icon = "upgrade_chamber"
+	var/max_chambers = 3
+
 /datum/hive_upgrade/building/upgrade_chamber/shell
 	name = "Shell Upgrade Chamber"
 	desc = "Constructs a chamber that allows xenos to buy survival upgrades"
-	psypoint_cost = 200
-	icon = "maturitytower"
-	flags_upgrade = ABILITY_NUCLEARWAR
+
 	building_type = /obj/structure/xeno/upgrade_chamber/shell
-	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/shell/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
@@ -250,11 +253,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 /datum/hive_upgrade/building/upgrade_chamber/spur
 	name = "Spur Upgrade Chamber"
 	desc = "Constructs a chamber that allows xenos to buy attack upgrades"
-	psypoint_cost = 200
-	icon = "maturitytower"
-	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/upgrade_chamber/spur
-	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/spur/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
@@ -265,11 +264,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 /datum/hive_upgrade/building/upgrade_chamber/veil
 	name = "Veil Upgrade Chamber"
 	desc = "Constructs a chamber that allows xenos to buy utility upgrades"
-	psypoint_cost = 200
-	icon = "maturitytower"
-	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/upgrade_chamber/veil
-	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/veil/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()

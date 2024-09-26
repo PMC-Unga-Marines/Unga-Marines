@@ -203,22 +203,22 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define PRIMAL_WRATH_GAIN_MULTIPLIER 0.5
 
 GLOBAL_LIST_INIT(xeno_survival_upgrades, list(
-		/datum/status_effect/upgrade_carapace,
-		/datum/status_effect/upgrade_regeneration,
-		/datum/status_effect/upgrade_vampirism,
-		))
+	/datum/status_effect/upgrade_carapace,
+	/datum/status_effect/upgrade_regeneration,
+	/datum/status_effect/upgrade_vampirism,
+	))
 
 GLOBAL_LIST_INIT(xeno_attack_upgrades, list(
-		/datum/status_effect/upgrade_celerity,
-		/datum/status_effect/upgrade_adrenaline,
-		/datum/status_effect/upgrade_crush,
-		))
+	/datum/status_effect/upgrade_celerity,
+	/datum/status_effect/upgrade_adrenaline,
+	/datum/status_effect/upgrade_crush,
+	))
 
 GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
-		/datum/status_effect/upgrade_toxin,
-		/datum/status_effect/upgrade_pheromones,
-		/datum/status_effect/upgrade_acid_trail,
-		))
+	/datum/status_effect/upgrade_toxin,
+	/datum/status_effect/upgrade_pheromones,
+	/datum/status_effect/upgrade_acid_trail,
+	))
 
 #define	XENO_UPGRADE_BIOMASS_COST_T1 10
 #define	XENO_UPGRADE_BIOMASS_COST_T2 15
