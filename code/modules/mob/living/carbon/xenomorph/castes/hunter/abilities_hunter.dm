@@ -230,15 +230,13 @@
 /datum/action/ability/activable/xeno/hunter_blink/use_ability(atom/A)
 	. = ..()
 	if(!isliving(A))
-		owner.balloon_alert(owner, "We can only teleport to other beings!")
 		return fail_activate()
 	if(get_dist(owner, A) > 7 || owner.z != A.z)
 		owner.balloon_alert(owner, "We are too far away!")
 		return fail_activate()
 
-	var/mob/living/target = A
 	var/mob/living/carbon/xenomorph/hunter/X = owner
-	var/turf/target_turf = get_ranged_target_turf(target, get_dir(src, target))
+	var/turf/target_turf = get_turf(A)
 	var/turf/origin_turf = get_turf(X)
 
 	target_turf = get_step_rand(target_turf)
@@ -250,10 +248,9 @@
 	playsound(target_turf, 'sound/effects/EMPulse.ogg', 25, TRUE)
 
 	if(target_turf)
-		X.face_atom(target_turf)
 		X.forceMove(target_turf)
 	else
-		X.forceMove(target.loc) //don't even ask me why
+		X.forceMove(A.loc)
 
 	X.apply_status_effect(/datum/status_effect/hunt)
 
@@ -263,11 +260,6 @@
 	var/datum/action/ability/activable/xeno/hunter_pounce = X.actions_by_path[/datum/action/ability/activable/xeno/pounce]
 	if(hunter_pounce)
 		hunter_pounce.add_cooldown(3 SECONDS)
-
-/datum/action/ability/activable/xeno/hunter_blink/can_use_ability(atom/A, silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
-		return FALSE
 
 /datum/action/ability/activable/xeno/hunter_blink/on_cooldown_finish()
 	owner.balloon_alert(owner, "Blink ready")
@@ -673,3 +665,6 @@
 	heal_amount = 0
 	plasma_gain = 20
 	decay_time = 15 SECONDS
+
+#undef ILUSSION_CHANCE
+#undef ILLUSION_LIFETIME
