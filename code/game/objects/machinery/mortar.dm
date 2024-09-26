@@ -273,8 +273,7 @@
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
 	shell.generate_bullet(ammo)
 	var/shell_range = min(get_dist_euclidean(src, target), ammo.max_range)
-	// shell.fire_at(target, null, src, shell_range, ammo.shell_speed) // FUTURE ORIGINAL, WE DON'T HAVE NEEDED CHANGES YET
-	shell.fire_at(target, src, src, shell_range, ammo.shell_speed) // RUTGMC OLD VERSION
+	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
 

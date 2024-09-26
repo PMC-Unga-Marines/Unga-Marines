@@ -5,8 +5,6 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	ping = "ping_x"
 	damage_type = TOX
 	flags_ammo_behavior = AMMO_XENO
-	var/added_spit_delay = 0 //used to make cooldown of the different spits vary.
-	var/spit_cost = 5
 	armor_type = BIO
 	shell_speed = 1
 	accuracy = 40
@@ -15,6 +13,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	bullet_color = COLOR_LIME
+	///used to make cooldown of the different spits vary.
+	var/added_spit_delay = 0
+	var/spit_cost = 5
 	///List of reagents transferred upon spit impact if any
 	var/list/datum/reagent/spit_reagents
 	///Amount of reagents transferred upon spit impact if any
@@ -399,9 +400,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///We're going to reuse one smoke spread system repeatedly to cut down on processing.
 	var/datum/effect_system/smoke_spread/xeno/trail_spread_system
 
-/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
-	if(isxeno(firer))
-		var/mob/living/carbon/xenomorph/X = firer
+/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, obj/projectile/proj)
+	if(isxeno(proj.firer))
+		var/mob/living/carbon/xenomorph/X = proj.firer
 		trail_spread_system.strength = X.xeno_caste.bomb_strength
 	trail_spread_system.set_up(0, T)
 	trail_spread_system.start()
