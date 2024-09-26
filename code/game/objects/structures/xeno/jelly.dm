@@ -17,7 +17,6 @@
 	if(xeno_attacker.do_actions || !isnull(current_user))
 		return
 	current_user = xeno_attacker
-	xeno_attacker.balloon_alert(xeno_attacker, "Applying...")
 	activate_jelly(xeno_attacker)
 
 /obj/item/resin_jelly/attack_self(mob/living/carbon/xenomorph/user)
@@ -27,7 +26,6 @@
 	if(user.do_actions || !isnull(current_user))
 		return
 	current_user = user
-	user.balloon_alert(user, "Applying...")
 	activate_jelly(user)
 
 /obj/item/resin_jelly/attack(mob/living/carbon/xenomorph/M, mob/living/user)
@@ -41,9 +39,6 @@
 	if(user.do_actions || !isnull(current_user))
 		return FALSE
 	current_user = M
-	M.balloon_alert(user, "Applying...")
-	if(M != user)
-		user.balloon_alert(M, "Applying jelly...") //Notify recipient to not move.
 	activate_jelly(M)
 	user.temporarilyRemoveItemFromInventory(src)
 	return FALSE
