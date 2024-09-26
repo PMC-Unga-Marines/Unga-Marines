@@ -35,17 +35,18 @@ SUBSYSTEM_DEF(discord)
 	/// list of people who tried to use Boosty styff, so we don't call the API every time
 	var/list/boosty_cache = list()
 	/// Is TGS enabled (If not we won't fire because otherwise this is useless)
-	var/enabled = 0
+	var/enabled = FALSE
 
 /datum/controller/subsystem/discord/Initialize(start_timeofday)
 	// Check for if we are using TGS, otherwise return and disables firing
 	if(world.TgsAvailable())
-		enabled = 1 // Allows other procs to use this (Account linking, etc)
+		enabled = TRUE // Allows other procs to use this (Account linking, etc)
+		return SS_INIT_SUCCESS
 	else
-		can_fire = 0 // We dont want excess firing
-		return ..() // Cancel
+		can_fire = FALSE // We dont want excess firing
+		return SS_INIT_NO_NEED
 
-	return ..()
+
 
 /datum/controller/subsystem/discord/fire()
 	if(!enabled)
@@ -104,6 +105,12 @@ SUBSYSTEM_DEF(discord)
 	return num_only.Replace(input, "")
 
 /datum/controller/subsystem/discord/proc/get_boosty_tier(ckey, silent = TRUE)
+	#ifdef TESTING
+	if(!silent)
+		to_chat(src, span_warning("Test mod gave you tier 3 boost"))
+	return BOOSTY_TIER_3
+	#endif
+
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
 		if(!silent)
