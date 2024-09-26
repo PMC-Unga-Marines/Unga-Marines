@@ -408,15 +408,15 @@
 	if(anchored)
 		if(flags_atom & ON_BORDER)
 			if(dir == REVERSE_DIR(charger.dir))
-				. = (CHARGE_SPEED(charge_datum) * 80) //Damage to inflict.
+				. = (CHARGE_SPEED(charge_datum) * 120) //Damage to inflict.
 				charge_datum.speed_down(3)
 				return
 			else
-				. = (CHARGE_SPEED(charge_datum) * 160)
+				. = (CHARGE_SPEED(charge_datum) * 240)
 				charge_datum.speed_down(1)
 				return
 		else
-			. = (CHARGE_SPEED(charge_datum) * 240)
+			. = (CHARGE_SPEED(charge_datum) * 320)
 			charge_datum.speed_down(2)
 			return
 
