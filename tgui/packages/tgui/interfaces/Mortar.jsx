@@ -102,6 +102,12 @@ export const Mortar = (props) => {
                   })
                 }
               />
+              <Button
+                icon="map"
+                tooltip="Minimap Targetting"
+                inline
+                onClick={() => act('open_map')}
+              />
             </Flex>
           </Flex.Item>
           <Flex.Item>
