@@ -29,7 +29,6 @@ SUBSYSTEM_DEF(discord)
 	name = "Discord"
 	wait = 3000
 	init_order = INIT_ORDER_DISCORD
-
 	/// List that holds accounts to link, used in conjunction with TGS
 	var/list/account_link_cache = list()
 	/// list of people who tried to use Boosty styff, so we don't call the API every time
