@@ -71,9 +71,8 @@
 	return
 
 /mob/living/carbon/xenomorph/proc/toggle_rouny()
-
 	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_3)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this"))
+		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
 	is_a_rouny = !is_a_rouny
@@ -81,11 +80,11 @@
 
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
-		balloon_alert(src, "Your caste does not have the ability to change appearance")
+		balloon_alert(src, "Your caste does not have the ability to change appearance.")
 		return
 
 	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this"))
+		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
 	var/selection
