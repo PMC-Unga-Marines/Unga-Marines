@@ -45,8 +45,6 @@ SUBSYSTEM_DEF(discord)
 		can_fire = FALSE // We dont want excess firing
 		return SS_INIT_NO_NEED
 
-
-
 /datum/controller/subsystem/discord/fire()
 	if(!enabled)
 		return // Dont do shit if its disabled
