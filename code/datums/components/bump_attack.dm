@@ -87,7 +87,7 @@
 	if(!isnull(.))
 		return
 	var/mob/living/living_target = target
-	if(bumper.faction == living_target.faction)
+	if(bumper.faction == living_target?.faction)
 		return //FF
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/xeno = target

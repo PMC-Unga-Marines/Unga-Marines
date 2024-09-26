@@ -51,7 +51,6 @@
 		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/ar18/ap,
 		/obj/item/ammo_magazine/rifle/ar18/hp,
-		/obj/item/ammo_magazine/rifle/ar18/sabot,
 		/obj/item/ammo_magazine/rifle/ar18/incendiary,
 	)
 	attachable_allowed = list(
@@ -146,7 +145,6 @@
 		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar12/ap,
 		/obj/item/ammo_magazine/rifle/ar12/hp,
-		/obj/item/ammo_magazine/rifle/ar12/sabot,
 		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
@@ -1712,7 +1710,6 @@
 		/obj/item/ammo_magazine/rifle/ar21/extended,
 		/obj/item/ammo_magazine/rifle/ar21/ap,
 		/obj/item/ammo_magazine/rifle/ar21/hp,
-		/obj/item/ammo_magazine/rifle/ar21/sabot,
 		/obj/item/ammo_magazine/rifle/ar21/incendiary,
 	)
 	attachable_allowed = list(
@@ -1959,7 +1956,6 @@
 		/obj/item/ammo_magazine/rifle/ar12,
 		/obj/item/ammo_magazine/rifle/ar12/ap,
 		/obj/item/ammo_magazine/rifle/ar12/hp,
-		/obj/item/ammo_magazine/rifle/ar12/sabot,
 		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(

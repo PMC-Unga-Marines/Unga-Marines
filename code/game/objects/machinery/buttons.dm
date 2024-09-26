@@ -155,12 +155,50 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 	desc = "A remote control switch for a mass driver."
-	var/id = null
-	var/active = 0
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/active = 0
+
+/obj/machinery/driver_button/attack_ai(mob/living/silicon/ai/AI)
+	return attack_hand(AI)
+
+/obj/machinery/driver_button/attackby(obj/item/I, mob/user, params)
+	. = ..()
+
+	if(istype(I, /obj/item/detective_scanner))
+		return
+	else
+		return attack_hand(user)
+
+/obj/machinery/driver_button/attack_hand(mob/living/user)
+	. = ..()
+	if(.)
+		return
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+	if(active)
+		return
+
+	use_power(active_power_usage)
+
+	active = TRUE
+	icon_state = "launcheract"
+
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if(M.id == id)
+			M.open()
+
+	sleep(5 SECONDS)
+
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if(M.id == id)
+			M.close()
+
+	icon_state = "launcherbtt"
+	active = 0
 
 /obj/machinery/ignition_switch
 	name = "ignition switch"

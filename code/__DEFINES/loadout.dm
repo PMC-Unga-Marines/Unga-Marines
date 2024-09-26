@@ -83,6 +83,7 @@ GLOBAL_LIST_INIT(robot_gear_listed_products, list(
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBOT, "Terra Experimental laser pistol", 10, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBOT, "Terra Experimental tesla shock rifle", 25, "red"),
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
+	/obj/item/cell/lasgun/volkite/powerpack/marine_back = list(CAT_ROBOT, "Terra Experimental powerback", 20, "orange2"),
 	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
 	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
 ))
@@ -193,6 +194,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_LEDSUP, "Razorburn grenade", 3, "orange3"),
 	/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 1, "yellow"),
 	/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
+	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_LEDSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
 	/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
@@ -229,6 +231,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_FCSUP, "Orbital beacon", 5, "blue"),
 	/obj/item/fulton_extraction_pack = list(CAT_FCSUP, "Fulton Extraction Pack", 5, "blue"),
 	/obj/item/deployable_camera = list(CAT_FCSUP, "Deployable Overwatch Camera", 1, "blue"),
+	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "blue"),
 	/obj/item/stack/sheet/metal/small_stack = list(CAT_FCSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sheet/plasteel/small_stack = list(CAT_FCSUP, "Plasteel x10", PLASTEEL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_FCSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
