@@ -132,16 +132,16 @@
 
 /obj/machinery/telecomms/relay/preset/tower/proc/set_tower_status()
 	var/health_percent = round((tower_integrity / max_tower_integrity) * 100)
-	var/marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
+	var/marker_icon = "comm_tower_broken"
 	switch(health_percent)
 		if(-INFINITY to 0)
 			tower_status = TOWER_BROKEN
-			marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
+			marker_icon = "comm_tower_broken"
 		if(1 to INFINITY)
 			tower_status = on ? TOWER_ON : TOWER_OFF
-			marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_[on ? "_on" : "_off"]"
+			marker_icon = "comm_tower[on ? "_on" : "_off"]"
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon))
 	update_icon()
 
 /obj/machinery/telecomms/relay/preset/tower/attack_ai(mob/user)

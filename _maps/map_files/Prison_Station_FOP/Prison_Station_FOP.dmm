@@ -42727,7 +42727,7 @@
 /area/prison/cellblock/highsec/south/south)
 "hPH" = (
 /obj/effect/landmark/sensor_tower,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/prison/sterilewhite,
 /area/prison/medbay)
 "hQE" = (
@@ -44076,7 +44076,7 @@
 	},
 /area/prison/cellblock/highsec/south/north)
 "kyf" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/darkred/full,
 /area/prison/security/briefing)
@@ -46374,7 +46374,7 @@
 /turf/open/floor/wood,
 /area/prison/residential/central)
 "puu" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/plating/platebot,
 /area/prison/pirate)
 "puF" = (
@@ -47320,7 +47320,7 @@
 "raQ" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/landmark/sensor_tower,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/prison/bright_clean/two,
 /area/prison/yard)
 "rbs" = (
@@ -47397,7 +47397,7 @@
 /area/prison/residential/south)
 "rhB" = (
 /obj/effect/landmark/sensor_tower,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/prison,
 /area/prison/security/monitoring/highsec)
 "rhE" = (
@@ -48634,7 +48634,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/prison/yard)
 "tum" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/lowsec/nw)
 "tuK" = (
@@ -50207,7 +50207,7 @@
 /area/prison/monorail/west)
 "wHf" = (
 /obj/effect/landmark/sensor_tower,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/mediumsec/south)
 "wHm" = (

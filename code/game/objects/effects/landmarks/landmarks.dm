@@ -633,7 +633,7 @@
 	icon = 'icons/obj/structures/sensor.dmi'
 	icon_state = "sensor"
 
-/obj/effect/landmark/sensor_towers_infestation_ground/Initialize(mapload)
+/obj/effect/landmark/sensor_tower_infestation_ground/Initialize(mapload)
 	..()
 	GLOB.sensor_towers_infestation_ground += loc
 	return INITIALIZE_HINT_QDEL

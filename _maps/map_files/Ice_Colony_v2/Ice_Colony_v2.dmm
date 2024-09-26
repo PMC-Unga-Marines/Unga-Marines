@@ -1989,7 +1989,7 @@
 /turf/closed/wall,
 /area/ice_colony/surface/clinic/treatment)
 "aox" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -9616,7 +9616,7 @@
 	},
 /area/ice_colony/surface/excavation/storage)
 "bgl" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark/purple2{
 	dir = 1
 	},
@@ -14249,7 +14249,7 @@
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
@@ -17974,7 +17974,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/crew/library)
 "ckO" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/carpet,
 /area/ice_colony/underground/crew/leisure)
 "cmS" = (
@@ -18869,7 +18869,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/engineering)
 "dEe" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/shuttle/dropship/floor,
 /area/ice_colony/underground/responsehangar)
 "dEg" = (
@@ -18916,7 +18916,7 @@
 /area/ice_colony/underground/crew/bball/garbledradio)
 "dIn" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/command)
 "dIA" = (
@@ -19620,7 +19620,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves/open)
 "eRb" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 1
 	},
@@ -21682,7 +21682,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/landing_pad2)
 "hPd" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark/red2,
 /area/ice_colony/underground/security/interrogation)
 "hPw" = (
@@ -22482,7 +22482,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/engineering)
 "iZt" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 5
 	},
@@ -22811,7 +22811,7 @@
 /turf/open/floor/wood,
 /area/ice_colony/underground/crew/bball/garbledradio)
 "jwv" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves/open/garbledradio)
 "jwL" = (
@@ -25287,7 +25287,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/requesition/lobby)
 "mSh" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/plating,
 /area/ice_colony/surface/mining)
 "mSi" = (
@@ -25301,7 +25301,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/wood,
 /area/ice_colony/surface/clinic/treatment)
 "mSR" = (
@@ -26097,7 +26097,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/red/whitered{
 	dir = 1
 	},
@@ -30545,7 +30545,7 @@
 /turf/closed/mineral/smooth/bluefrostwall,
 /area/ice_colony/exterior/underground/caves/open/garbledradio)
 "tRB" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/engineering)
 "tRU" = (
@@ -31029,7 +31029,7 @@
 /area/ice_colony/exterior/surface/landing_pad)
 "uEk" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/tile/dark/brown2{
 	dir = 4
 	},
@@ -31819,7 +31819,7 @@
 	},
 /area/ice_colony/underground/medical/lobby/garbledradio)
 "vCm" = (
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves/open)
 "vCr" = (
@@ -32191,7 +32191,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/landmark/sensor_towers_infestation_ground,
+/obj/effect/landmark/sensor_tower_infestation_ground,
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 8
 	},
