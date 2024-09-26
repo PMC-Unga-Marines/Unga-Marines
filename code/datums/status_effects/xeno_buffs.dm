@@ -931,7 +931,7 @@
 	qdel(src)
 
 /datum/status_effect/hunt
-	id = "buff"
+	id = "hunt"
 	duration = -1
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = null
