@@ -5,6 +5,9 @@
 	config_tag = "Points Defence"
 	silo_scaling = 0 //do you really need a silo?
 	max_silo_ammount = 1
+	//free respawn
+	respawn_time = 3 MINUTES
+	xenorespawn_time = 1 MINUTES
 
 	///The amount of sensor towers in sensor defence
 
