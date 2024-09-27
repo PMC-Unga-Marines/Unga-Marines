@@ -269,7 +269,7 @@
 	if(isgrabitem(thing_to_load))
 		var/obj/item/grab/grab_item = thing_to_load
 		thing_to_load = grab_item.grabbed_thing
-	if(!isliving(thing_to_load) && !is_type_in_typecache(thing_to_load.type, easy_load_list))
+	if(!isliving(thing_to_load) && !is_type_in_typecache(thing_to_load, easy_load_list))
 		return
 	if(!interior)
 		user.balloon_alert(user, "no interior")
