@@ -239,10 +239,6 @@
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/west)
-"bD" = (
-/obj/effect/landmark/patrol_point/som/som_14,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "bI" = (
 /obj/structure/platform/trench{
 	dir = 4
@@ -353,10 +349,6 @@
 /obj/structure/platform/trench,
 /turf/open/ground/grass,
 /area/oscar_outpost/outside/northwest)
-"dd" = (
-/obj/effect/landmark/patrol_point/som/som_22,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "de" = (
 /obj/structure/platform/trench{
 	dir = 4
@@ -409,10 +401,6 @@
 	},
 /turf/open/floor,
 /area/oscar_outpost)
-"dF" = (
-/obj/effect/landmark/patrol_point/som/som_21,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "dN" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner,
 /area/oscar_outpost/outside/east)
@@ -443,10 +431,6 @@
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner2,
 /area/oscar_outpost/outside/northeast)
-"el" = (
-/obj/effect/landmark/patrol_point/som/som_23,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "en" = (
 /obj/structure/platform/trench,
 /turf/open/floor/plating/ground/dirtgrassborder{
@@ -475,10 +459,6 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor,
 /area/oscar_outpost)
-"eB" = (
-/obj/effect/landmark/patrol_point/som/som_11,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "eC" = (
 /turf/open/ground/grass,
 /area/oscar_outpost/outside/northwest)
@@ -583,10 +563,6 @@
 	},
 /turf/open/floor,
 /area/oscar_outpost)
-"fe" = (
-/obj/effect/landmark/patrol_point/som/som_24,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "ff" = (
 /obj/machinery/floodlight/outpost/oscar,
 /turf/open/floor/plating/ground/dirtgrassborder{
@@ -604,10 +580,6 @@
 	dir = 4
 	},
 /area/oscar_outpost/outside/road)
-"fm" = (
-/obj/effect/landmark/patrol_point/som/som_12,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "fx" = (
 /obj/effect/ai_node,
 /obj/structure/platform/trench{
@@ -635,10 +607,6 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost)
-"fL" = (
-/obj/effect/landmark/patrol_point/som/som_13,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/outside/north)
 "fM" = (
 /obj/structure/platform/trench{
 	dir = 4
@@ -7495,7 +7463,7 @@ ZE
 ZE
 ZE
 ZE
-fL
+ZE
 ZE
 ZE
 ZE
@@ -7647,7 +7615,7 @@ ZE
 ZE
 cy
 ZE
-eB
+ZE
 ZE
 ZE
 ZE
@@ -7959,7 +7927,7 @@ uc
 ZE
 ZE
 ZE
-fm
+ZE
 ZE
 ZE
 ZE
@@ -8266,7 +8234,7 @@ th
 th
 th
 uc
-bD
+ZE
 ZE
 cy
 ZE
@@ -18653,7 +18621,7 @@ uc
 ZE
 ZE
 ZE
-fe
+ZE
 ZE
 ZE
 ZE
@@ -18961,7 +18929,7 @@ th
 th
 uc
 ZE
-el
+ZE
 ZE
 ZE
 cy
@@ -19119,7 +19087,7 @@ ZE
 ZE
 ZE
 ZE
-dd
+ZE
 ZE
 ZE
 ZE
@@ -19272,7 +19240,7 @@ cy
 ZE
 ZE
 ZE
-dF
+ZE
 ZE
 ZE
 ZE
