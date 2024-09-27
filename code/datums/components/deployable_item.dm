@@ -42,14 +42,16 @@
 ///Wrapper for proc/finish_deploy
 /datum/component/deployable_item/proc/deploy(mob/user, atom/object, turf/location, control, params)
 	SIGNAL_HANDLER
-	if(!isturf(location))
-		return
-	if(ISDIAGONALDIR(get_dir(user,location)))
+	var/list/modifiers = params2list(params)
+	if(!modifiers["ctrl"] || modifiers["right"])
 		return
 	if(parent != user.get_active_held_item())
 		return
-	var/list/modifiers = params2list(params)
-	if(!modifiers["ctrl"] || modifiers["right"] || get_turf(user) == location || !(user.Adjacent(object)) || !location)
+	if(!isturf(location))
+		return
+	if(ISDIAGONALDIR(get_dir(user, location)))
+		return
+	if(get_turf(user) == location || !(user.Adjacent(object)))
 		return
 	INVOKE_ASYNC(src, PROC_REF(finish_deploy), parent, user, location)
 	return COMSIG_KB_ACTIVATED
