@@ -1383,10 +1383,6 @@
 "bHA" = (
 /turf/open/floor/kutjevo/multi_tiles,
 /area/kutjevo/interior/power/comms)
-"bHQ" = (
-/obj/effect/landmark/patrol_point/tgmc_13,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_South)
 "bIb" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -3098,10 +3094,6 @@
 	dir = 1
 	},
 /area/kutjevo/interior/filtration)
-"dws" = (
-/obj/effect/landmark/patrol_point/som/som_13,
-/turf/open/floor/kutjevo/multi_tiles,
-/area/kutjevo/interior/power)
 "dwx" = (
 /obj/machinery/light{
 	dir = 8
@@ -6832,10 +6824,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/kutjevo/multi_tiles,
 /area/kutjevo/interior/power)
-"hmk" = (
-/obj/effect/landmark/patrol_point/som/som_23,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_north)
 "hmR" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -11332,10 +11320,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/scrubland/south)
-"mhM" = (
-/obj/effect/landmark/patrol_point/som/som_12,
-/turf/open/floor/kutjevo/multi_tiles,
-/area/kutjevo/interior/power)
 "mhQ" = (
 /obj/structure/flora/desert/grass,
 /obj/effect/landmark/weed_node,
@@ -11585,10 +11569,6 @@
 	},
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/complex/botany)
-"mvf" = (
-/obj/effect/landmark/patrol_point/tgmc_22,
-/turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
-/area/kutjevo/exterior/Northwest_Colony)
 "mvt" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 6
@@ -11649,10 +11629,6 @@
 /obj/item/frame/rack,
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/complex/botany/east_tech)
-"myf" = (
-/obj/effect/landmark/patrol_point/tgmc_14,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_South)
 "myQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -12026,10 +12002,6 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /turf/open/floor/kutjevo/tan,
 /area/kutjevo/interior/filtration)
-"mQm" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_South)
 "mRP" = (
 /obj/structure/cable,
 /turf/open/floor/kutjevo/colors/purple/inner_corner{
@@ -12327,10 +12299,6 @@
 	dir = 8
 	},
 /area/kutjevo/exterior/complex_border/med_park)
-"nlp" = (
-/obj/effect/landmark/patrol_point/tgmc_21,
-/turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
-/area/kutjevo/exterior/telecomm/lz2_north)
 "nlv" = (
 /obj/structure/rock/variable/tinyrock,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -12781,11 +12749,6 @@
 /obj/item/stack/sandbags_empty,
 /turf/open/floor/kutjevo/colors,
 /area/kutjevo/interior/complex/botany)
-"nIo" = (
-/obj/structure/rock/variable/tinyrock,
-/obj/effect/landmark/patrol_point/tgmc_24,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/Northwest_Colony)
 "nIy" = (
 /obj/effect/spawner/random/engineering/metal,
 /turf/open/floor/kutjevo/tan/multi_tiles,
@@ -14931,10 +14894,6 @@
 /obj/item/clothing/suit/armor/vest/security,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/complex_border/botany_medical_cave)
-"pLe" = (
-/obj/effect/landmark/patrol_point/som/som_21,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_north)
 "pLJ" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/kutjevo,
@@ -16011,10 +15970,6 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth,
 /area/kutjevo/interior/power)
-"qWh" = (
-/obj/effect/landmark/patrol_point/som/som_22,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_north)
 "qWL" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -16697,11 +16652,6 @@
 /obj/structure/rock/variable/tinyrock,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/lz_dunes)
-"rMf" = (
-/obj/machinery/light,
-/obj/effect/landmark/patrol_point/som/som_11,
-/turf/open/floor/kutjevo/colors/orange,
-/area/kutjevo/interior/power)
 "rMp" = (
 /obj/item/tool/weldpack,
 /obj/machinery/atmospherics/components/unary/vent_scrubber,
@@ -18255,10 +18205,6 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/complex/botany)
-"tpY" = (
-/obj/effect/landmark/patrol_point/tgmc_23,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/Northwest_Colony)
 "tql" = (
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
 /area/kutjevo/exterior/stonyfields)
@@ -18629,10 +18575,6 @@
 	},
 /turf/open/floor/kutjevo/tan,
 /area/kutjevo/interior/complex/med/cells)
-"tLn" = (
-/obj/effect/landmark/patrol_point/som/som_24,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_north)
 "tLD" = (
 /obj/structure/platform/metalplatform{
 	dir = 8
@@ -19419,10 +19361,6 @@
 	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/complex_border/med_rec)
-"uzD" = (
-/obj/effect/landmark/patrol_point/som/som_14,
-/turf/open/floor/kutjevo/multi_tiles,
-/area/kutjevo/interior/power)
 "uzJ" = (
 /obj/structure/rock/variable/tinyrock,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -21090,10 +21028,6 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth,
 /area/kutjevo/exterior/Northwest_Colony)
-"whD" = (
-/obj/effect/landmark/patrol_point/tgmc_12,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/colony_South)
 "wix" = (
 /obj/structure/platform/metalplatform{
 	dir = 4
@@ -31558,7 +31492,7 @@ fdH
 pyp
 xXe
 gwM
-rMf
+jaY
 qjZ
 rjS
 rjS
@@ -31890,7 +31824,7 @@ wIG
 wIG
 xgV
 pnM
-uzD
+wIG
 ltX
 ips
 pyp
@@ -32391,7 +32325,7 @@ wIG
 nnU
 lVo
 qHT
-dws
+wIG
 qKn
 aKH
 pyp
@@ -32727,7 +32661,7 @@ qTN
 mGb
 nHV
 fUD
-mhM
+wIG
 pBV
 ptd
 dxF
@@ -33261,7 +33195,7 @@ iin
 soL
 ahM
 soL
-mvf
+soL
 soL
 soL
 soL
@@ -33591,7 +33525,7 @@ slP
 mzn
 nMb
 sVF
-tpY
+sVF
 sVF
 sVF
 iin
@@ -33761,7 +33695,7 @@ sVF
 oTF
 dxF
 iin
-nIo
+iin
 dFc
 cUF
 sVF
@@ -33922,7 +33856,7 @@ dxF
 mjg
 qVe
 ylf
-nlp
+slP
 mzn
 iin
 dxF
@@ -49284,7 +49218,7 @@ wTt
 wTt
 wTt
 wTt
-qWh
+ykY
 ykY
 ykY
 ykY
@@ -49454,7 +49388,7 @@ bfg
 ykY
 ykY
 ykY
-tLn
+ykY
 ykY
 ykY
 ykY
@@ -49950,7 +49884,7 @@ wTt
 ykY
 ykY
 ykY
-pLe
+ykY
 bfg
 ykY
 ykY
@@ -50289,7 +50223,7 @@ dxF
 dxF
 wTt
 wTt
-hmk
+ykY
 ykY
 wTt
 wTt
@@ -56886,13 +56820,13 @@ dxF
 lAe
 xnT
 ckC
-mQm
 xnT
 xnT
 xnT
 xnT
 xnT
-myf
+xnT
+xnT
 xnT
 pAS
 xnT
@@ -57055,7 +56989,7 @@ pxB
 xnT
 xnT
 xnT
-whD
+xnT
 xnT
 xnT
 pAS
@@ -57554,7 +57488,7 @@ qOP
 qOP
 tCm
 xnT
-bHQ
+xnT
 xnT
 xnT
 pMB
