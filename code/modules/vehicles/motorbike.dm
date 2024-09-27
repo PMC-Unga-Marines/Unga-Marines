@@ -5,13 +5,14 @@
 	name = "all-terrain motorbike"
 	desc = "An all-terrain vehicle built for traversing rough terrain with ease. \"TGMC CAVALRY\" is stamped on the side of the engine."
 	icon_state = "motorbike"
-	max_integrity = 300
-	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 0, BOMB = 30, FIRE = 60, ACID = 60)
+	max_integrity = 200
+	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 0, BOMB = 30, FIRE = 0, ACID = 0)
 	resistance_flags = XENO_DAMAGEABLE
 	flags_atom = PREVENT_CONTENTS_EXPLOSION
 	key_type = null
 	integrity_failure = 0.5
 	allow_pass_flags = PASSABLE
+	move_delay = 0
 	coverage = 30	//It's just a bike, not hard to shoot over
 	buckle_flags = CAN_BUCKLE|BUCKLE_PREVENTS_PULL|BUCKLE_NEEDS_HAND
 	///Internal motorbick storage object
@@ -39,6 +40,16 @@
 		return
 	. += "To access internal storage click with an empty hand or drag the bike onto self."
 	. += "The fuel gauge on the bike reads \"[fuel_count/fuel_max*100]%\""
+
+/obj/vehicle/ridden/motorbike/user_buckle_mob(mob/living/M, mob/user, check_loc = TRUE)
+	if(!do_after(M, 1 SECONDS, NONE, src))
+		return FALSE
+	return ..(M, user, FALSE)
+
+/obj/vehicle/ridden/motorbike/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
+	if(!do_after(buckling_mob, 1 SECONDS, NONE, src))
+		return FALSE
+	return ..()
 
 /obj/vehicle/ridden/motorbike/post_buckle_mob(mob/living/M)
 	add_overlay(motorbike_cover)
@@ -84,6 +95,12 @@
 		COOLDOWN_START(src, enginesound_cooldown, 20)
 		playsound(get_turf(src), 'sound/vehicles/carrev.ogg', 100, TRUE)
 
+/obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
+	if(!COOLDOWN_CHECK(src, cooldown_vehicle_move))
+		return FALSE
+	COOLDOWN_START(src, cooldown_vehicle_move, move_delay)
+	return ..()
+
 /obj/vehicle/ridden/motorbike/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(istype(I, /obj/item/reagent_containers/jerrycan))
@@ -114,6 +131,7 @@
 		user.temporarilyRemoveItemFromInventory(I)
 		I.forceMove(src)
 		attached_sidecar = I
+		move_delay += attached_sidecar.move_delay_penalty
 		cut_overlay(motorbike_cover)
 		motorbike_cover.icon_state = "sidecar_cover"
 		motorbike_cover.icon = 'icons/obj/motorbike_sidecar.dmi'
@@ -151,6 +169,7 @@
 		return FALSE
 	if(!do_after(user, 3 SECONDS, NONE, src))
 		return TRUE
+	move_delay -= attached_sidecar.move_delay_penalty
 	attached_sidecar.forceMove(get_turf(src))
 	attached_sidecar = null
 	RemoveElement(/datum/element/ridable, /datum/component/riding/vehicle/motorbike/sidecar)
@@ -214,6 +233,7 @@
 	desc = "A detached sidecar for TGMC motorbikes, which can be attached to them, allowing a second passenger. Use a wrench to dettach the sidecar."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "sidecar"
+	var/move_delay_penalty = 1
 
 #undef FUEL_PER_CAN_POUR
 #undef LOW_FUEL_LEFT_MESSAGE
