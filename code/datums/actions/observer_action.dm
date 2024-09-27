@@ -93,6 +93,19 @@
 	var/mob/living/carbon/human/H = new_mob
 	H.fully_replace_character_name(H.real_name, H.species.random_name(H.gender))
 
+//respawn button
+/datum/action/observer_action/respawn
+	name = "Respawn"
+	action_icon_state = "respawn"
+
+/datum/action/observer_action/respawn/action_activate()
+	var/datum/game_mode/mode = SSticker.mode
+	if(!mode)
+		to_chat(usr, span_warning("The round isn't ready yet!"))
+		return
+
+	mode.player_respawn(owner)
+
 /datum/action/observer_action/find_facehugger_spawn
 	name = "Spawn as Facehugger"
 	action_icon = 'icons/Xeno/actions.dmi'
