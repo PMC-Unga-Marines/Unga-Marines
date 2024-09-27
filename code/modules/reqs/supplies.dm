@@ -117,5 +117,4 @@
 	name = "Pig toys crate"
 	contains = list(/obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig)
 	cost = 100
-	available_against_xeno_only = TRUE
 	containertype = /obj/structure/closet/crate/supply

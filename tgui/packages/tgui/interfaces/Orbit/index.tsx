@@ -34,7 +34,6 @@ const ObservableSearch = (props, context) => {
     humans = [],
     marines = [],
     yautja = [],
-    som = [],
     survivors = [],
     xenos = [],
     valhalla = [],
@@ -55,7 +54,7 @@ const ObservableSearch = (props, context) => {
       // Sorts descending by orbiters
       sortBy<Observable>((observable) => -(observable.orbiters || 0)),
       // Makes a single Observables list for an easy search
-    ])([humans, marines, yautja, som, survivors, xenos, valhalla].flat())[0];
+    ])([humans, marines, yautja, survivors, xenos, valhalla].flat())[0];
     if (mostRelevant !== undefined) {
       act('orbit', {
         ref: mostRelevant.ref,
@@ -120,7 +119,6 @@ const ObservableContent = (props, context) => {
     yautja = [],
     misc = [],
     npcs = [],
-    som = [],
     survivors = [],
     xenos = [],
   } = data;
@@ -131,7 +129,6 @@ const ObservableContent = (props, context) => {
       <ObservableSection color="blue" section={marines} title="Marines" />
       <ObservableSection color="teal" section={humans} title="Humans" />
       <ObservableSection color="good" section={survivors} title="Survivors" />
-      <ObservableSection color="average" section={som} title="SOM" />
       <ObservableSection color="darkred" section={yautja} title="Predators" />
       <ObservableSection section={dead} title="Dead" />
       <ObservableSection section={ghosts} title="Ghosts" />

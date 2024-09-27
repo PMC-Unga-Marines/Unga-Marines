@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	frequency = FREQ_COMMON
 	flags_atom = CONDUCT | PREVENT_CONTENTS_EXPLOSION
 	freerange = TRUE
-	var/obj/machinery/camera/camera
+	var/obj/machinery/camera/camera = /obj/machinery/camera/headset
 	var/datum/atom_hud/squadhud = null
 	var/mob/living/carbon/human/wearer = null
 	var/headset_hud_on = FALSE
@@ -184,10 +184,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/Initialize(mapload)
 	. = ..()
-	if(faction == FACTION_SOM)
-		camera = new /obj/machinery/camera/headset/som(src)
-	else
-		camera = new /obj/machinery/camera/headset(src)
+	new camera(src)
 
 /obj/item/radio/headset/mainship/equipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_EARS)

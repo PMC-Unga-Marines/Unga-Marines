@@ -14,7 +14,6 @@
 		/obj/item/clothing/head/helmet/marine/riot,
 	)
 	cost = 120
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/armor/marine_shield
 	name = "TL-172 Defensive Shield"
@@ -57,7 +56,6 @@
 	name = "High Capacity Grenade Belt"
 	contains = list(/obj/item/storage/belt/grenade/b17)
 	cost = 200
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
 	name = "Valkyrie autodoc armor module"
@@ -117,7 +115,6 @@
 		/obj/item/clothing/suit/storage/marine/robot/advanced/physical,
 	)
 	cost = 600
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/armor/robot/advanced/acid
 	name = "Exidobate acid protection armor set"
@@ -126,7 +123,6 @@
 		/obj/item/clothing/suit/storage/marine/robot/advanced/acid,
 	)
 	cost = 600
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/armor/robot/advanced/bomb
 	name = "Tardigrada bomb protection armor set"
@@ -135,7 +131,6 @@
 		/obj/item/clothing/suit/storage/marine/robot/advanced/bomb,
 	)
 	cost = 600
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/armor/robot/advanced/fire
 	name = "Urodela fire protection armor set"
@@ -144,4 +139,3 @@
 		/obj/item/clothing/suit/storage/marine/robot/advanced/fire,
 	)
 	cost = 600
-	available_against_xeno_only = TRUE
