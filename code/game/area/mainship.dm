@@ -431,6 +431,11 @@
 	name = "Common Squads Preparation"
 	icon_state = "req"
 
+/area/mainship/squads/req
+	name = "Requisitions"
+	icon_state = "req"
+	minimap_color = MINIMAP_AREA_REQ
+
 /area/mainship/powered //for objects not intended to lose power
 	name = "Powered"
 	icon_state = "selfdestruct"
