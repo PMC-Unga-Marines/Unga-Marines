@@ -1017,13 +1017,13 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	id = /obj/item/card/id
 	belt = /obj/item/storage/belt/rig/medical
 	ears = /obj/item/radio/headset/mainship/doc
-	w_uniform = /obj/item/clothing/under/rank/medical/purple
+	w_uniform = /obj/item/clothing/under/rank/medical
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
-	head = /obj/item/clothing/head/surgery/purple
+	head = /obj/item/clothing/head/surgery/green
 	r_store = /obj/item/storage/pouch/surgery
 	l_store = /obj/item/storage/pouch/medkit/medic
 
