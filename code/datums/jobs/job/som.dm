@@ -18,15 +18,6 @@
 	selection_color = "#ffeeee"
 	exp_type_department = EXP_TYPE_MARINES
 
-/datum/job/som/squad/radio_help_message(mob/M)
-	. = ..()
-	if(istype(SSticker.mode, /datum/game_mode/hvh/combat_patrol))
-		if(issensorcapturegamemode(SSticker.mode))
-			to_chat(M, span_highdanger("Your platoon has orders to defend sensor towers in the AO and prevent them from reactivation by TerraGov forces until heavy reeinforcement arrives. High Command considers the successful prevention of the reactivation of the sensor towers a major victory"))
-		else
-			to_chat(M, span_highdanger("Your platoon has orders to patrol a remote territory illegally claimed by TerraGov imperialists. Intel suggests TGMC units are similarly trying to press their claims by force. Work with your team and eliminate all TGMC you encounter while preserving your own strength! High Command considers wiping out all enemies a major victory, or inflicting more casualties a minor victory."))
-		return
-
 /datum/job/som/squad/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
 	. = ..()
 	C.hud_set_job(faction)
@@ -48,7 +39,6 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 
 //SOM Standard
 /datum/job/som/squad/standard
-	title = SOM_SQUAD_MARINE
 	paygrade = "SOM_E1"
 	comm_title = "Mar"
 	minimap_icon = "private"
@@ -105,7 +95,6 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 
 
 /datum/job/som/squad/engineer
-	title = SOM_SQUAD_ENGINEER
 	paygrade = "SOM_E3"
 	comm_title = "Eng"
 	total_positions = 12
@@ -161,7 +150,6 @@ Your squaddies will look to you when it comes to construction in the field of ba
 
 
 /datum/job/som/squad/medic
-	title = SOM_SQUAD_CORPSMAN
 	paygrade = "SOM_E3"
 	comm_title = "Med"
 	total_positions = 16
@@ -217,7 +205,6 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 
 
 /datum/job/som/squad/veteran
-	title = SOM_SQUAD_VETERAN
 	paygrade = "SOM_S1"
 	comm_title = "Vet"
 	total_positions = 8
@@ -267,7 +254,6 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	id = /obj/item/card/id/dogtag/som
 
 /datum/job/som/squad/leader
-	title = SOM_SQUAD_LEADER
 	req_admin_notify = TRUE
 	paygrade = "SOM_S3"
 	comm_title = JOB_COMM_TITLE_SQUAD_LEADER
