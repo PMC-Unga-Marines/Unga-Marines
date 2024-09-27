@@ -82,8 +82,6 @@
 		return
 
 	var/mob/new_player/M = new /mob/new_player()
-	if(SSticker.mode?.flags_round_type & MODE_TWO_HUMAN_FACTIONS)
-		M.faction = faction
 	if(!client)
 		qdel(M)
 		return

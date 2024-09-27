@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/effect/landmark/patrol_point/som/som_21,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/patricks_rest/ground/colonynw)
 "ac" = (
 /obj/effect/decal/cleanable/blood/writing{
 	desc = "It looks like a writing in blood. It says, 'The gates of Hel are open when this armory is opened.'";
@@ -206,10 +202,6 @@
 "aY" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/patricks_rest/ground/colonysw)
-"aZ" = (
-/obj/effect/landmark/patrol_point/som/som_23,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/patricks_rest/ground/colonynw)
 "bb" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light,
@@ -308,10 +300,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/patricks_rest/surface/building/storage_depot_research)
-"bv" = (
-/obj/effect/landmark/patrol_point/som/som_24,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/patricks_rest/ground/river/riverside_south)
 "bw" = (
 /obj/structure/prop/mainship/sensor_computer1,
 /turf/open/floor/prison/darkyellow/full,
@@ -324,10 +312,6 @@
 /obj/structure/girder/reinforced,
 /turf/open/floor/mainship/sterile,
 /area/patricks_rest/surface/building/medbay)
-"bB" = (
-/obj/effect/landmark/patrol_point/som/som_22,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/patricks_rest/ground/colonynw)
 "bD" = (
 /obj/structure/platform/metalplatform{
 	dir = 9
@@ -1067,10 +1051,6 @@
 	dir = 1
 	},
 /area/patricks_rest/surface/building/storage_depot_south)
-"eU" = (
-/obj/effect/landmark/patrol_point/tgmc_22,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyne)
 "eV" = (
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/patricks_rest/surface/building/residential_engi)
@@ -1144,10 +1124,6 @@
 "fo" = (
 /turf/open/liquid/water/river,
 /area/patricks_rest/ground/colonycent)
-"fq" = (
-/obj/effect/landmark/patrol_point/tgmc_21,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/surface/building/science)
 "fr" = (
 /obj/structure/table/reinforced/prison,
 /turf/open/floor/grayscale/black,
@@ -1326,12 +1302,6 @@
 	},
 /turf/open/floor/mainship/tcomms,
 /area/patricks_rest/surface/building/science)
-"gg" = (
-/obj/effect/landmark/patrol_point/tgmc_24,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/patricks_rest/ground/colonyne)
 "gi" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -1502,10 +1472,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/patricks_rest/ground/colonyn)
-"gX" = (
-/obj/effect/landmark/patrol_point/tgmc_23,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyne)
 "gY" = (
 /obj/structure/platform/metalplatform{
 	dir = 10
@@ -1985,13 +1951,6 @@
 	dir = 9
 	},
 /area/patricks_rest/surface/landing_pad)
-"jg" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/landmark/patrol_point/som/som_14,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/surface/building/engineering)
 "jh" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
@@ -2042,12 +2001,6 @@
 /obj/structure/largecrate,
 /turf/open/floor/mainship/sterile,
 /area/patricks_rest/surface/building/medbay)
-"ju" = (
-/obj/effect/landmark/patrol_point/som/som_12,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/patricks_rest/ground/colonyw)
 "jv" = (
 /obj/structure/window/framed/mainship,
 /turf/open/floor/mainship/mono,
@@ -2135,10 +2088,6 @@
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/patricks_rest/surface/building/engineering)
-"jQ" = (
-/obj/effect/landmark/patrol_point/som/som_11,
-/turf/open/floor/plating/ground/concrete/lines,
-/area/patricks_rest/ground/colonyw)
 "jR" = (
 /obj/structure/prop/turbine,
 /obj/structure/platform/metalplatform,
@@ -2209,10 +2158,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/patricks_rest/ground/underground/cave)
-"ki" = (
-/obj/effect/landmark/patrol_point/som/som_13,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyw)
 "kk" = (
 /obj/machinery/computer3,
 /obj/structure/table/mainship,
@@ -2905,10 +2850,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/patricks_rest/ground/colonynw)
-"np" = (
-/obj/effect/landmark/patrol_point/tgmc_14,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyse)
 "nq" = (
 /obj/structure/largecrate/random/barrel/green,
 /obj/machinery/light{
@@ -3061,10 +3002,6 @@
 /obj/structure/largecrate/random/barrel/yellow,
 /turf/open/floor/mainship/mono,
 /area/patricks_rest/surface/building/residential_cent)
-"nX" = (
-/obj/effect/landmark/patrol_point/tgmc_13,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyse)
 "nY" = (
 /obj/machinery/light{
 	dir = 1
@@ -3213,10 +3150,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/sterile,
 /area/patricks_rest/surface/building/medbay)
-"oE" = (
-/obj/effect/landmark/patrol_point/tgmc_12,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyse)
 "oF" = (
 /obj/machinery/vending/coffee,
 /obj/machinery/light{
@@ -3255,10 +3188,6 @@
 	dir = 1
 	},
 /area/patricks_rest/surface/building/command)
-"oP" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonyse)
 "oQ" = (
 /obj/structure/prop/mainship/mission_planning_system,
 /turf/open/floor/prison/darkyellow/full,
@@ -10839,7 +10768,7 @@ IJ
 IJ
 Ot
 ID
-jQ
+qo
 IJ
 IJ
 IJ
@@ -11101,7 +11030,7 @@ Ah
 vw
 IJ
 IJ
-ju
+Ot
 ID
 qo
 IJ
@@ -11231,7 +11160,7 @@ gt
 gt
 eb
 vw
-jg
+wR
 up
 Ot
 ID
@@ -11299,7 +11228,7 @@ ao
 ao
 ao
 KP
-aZ
+KP
 AD
 IN
 ao
@@ -11368,7 +11297,7 @@ ui
 Jd
 Ld
 qo
-ki
+up
 IJ
 IJ
 IJ
@@ -11695,7 +11624,7 @@ ao
 ao
 ao
 ao
-bv
+hh
 hh
 gC
 gC
@@ -12223,7 +12152,7 @@ ao
 ao
 ao
 ao
-bB
+AD
 AD
 AD
 AD
@@ -12881,7 +12810,7 @@ aY
 cu
 Ev
 Ev
-aa
+AD
 om
 LX
 KP
@@ -31907,7 +31836,7 @@ aG
 aG
 PN
 nd
-eU
+qX
 qX
 ip
 Ny
@@ -32305,7 +32234,7 @@ Gc
 gs
 MI
 qX
-gg
+gb
 RO
 gT
 RO
@@ -32542,7 +32471,7 @@ uP
 uP
 Uy
 Uy
-oP
+we
 Yw
 "}
 (168,1,1) = {"
@@ -32699,11 +32628,11 @@ nd
 nd
 nd
 nd
-fq
+MI
 qX
 qX
 qX
-gX
+qX
 qX
 qX
 qX
@@ -32796,14 +32725,14 @@ we
 we
 we
 we
-np
-we
-we
-nX
 we
 we
 we
-oE
+we
+we
+we
+we
+we
 we
 Sb
 pj

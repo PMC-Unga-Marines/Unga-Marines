@@ -43,7 +43,6 @@ SUBSYSTEM_DEF(direction)
 		init_squad(hivenumber, HS.living_xeno_ruler)
 	return SS_INIT_SUCCESS
 
-
 /datum/controller/subsystem/direction/stat_entry()
 	var/mobcount = 0
 	for(var/L in processing_mobs)

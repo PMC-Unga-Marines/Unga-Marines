@@ -118,7 +118,6 @@
 		if(JOB_PREFERENCES)
 			data["job_preferences"] = job_preferences
 			data["preferred_squad"] = preferred_squad
-			data["preferred_squad_som"] = preferred_squad_som
 			data["alternate_option"] = alternate_option
 			data["special_occupation"] = be_special
 		if(GAME_SETTINGS)
@@ -504,7 +503,6 @@
 		if("jobreset")
 			job_preferences = list()
 			preferred_squad = "None"
-			preferred_squad_som = "None"
 			alternate_option = 2 // return to lobby
 
 		if("underwear")

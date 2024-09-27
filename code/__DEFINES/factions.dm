@@ -85,12 +85,10 @@ GLOBAL_LIST_INIT(faction_to_iff, list(
 ///List of correspond factions to data hud
 GLOBAL_LIST_INIT(faction_to_data_hud, list(
 	FACTION_TERRAGOV = DATA_HUD_SQUAD_TERRAGOV,
-	FACTION_SOM = DATA_HUD_SQUAD_SOM,
 ))
 
 GLOBAL_LIST_INIT(faction_to_squad_hud, list(
 	FACTION_TERRAGOV = SQUAD_HUD_TERRAGOV,
-	FACTION_SOM = SQUAD_HUD_SOM,
 ))
 
 GLOBAL_LIST_INIT(faction_to_portrait, list(
