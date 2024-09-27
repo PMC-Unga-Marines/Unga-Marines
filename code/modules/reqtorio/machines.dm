@@ -156,7 +156,7 @@
 	///Icon state displayed while something is being processed in the machine
 	var/processiconstate = "reconstructor"
 	//points generation
-	var/spawn_ticks = 32 //tick every 5 seconds
+	var/spawn_ticks = 48 //tick every 5 seconds
 	//points generation
 	var/ground_spawn_ticks = 24 //tick every 5 seconds
 	///Last time points balance was checked
@@ -208,6 +208,11 @@
 	name = "Junk fabricator"
 	desc = "Creates junk from... air. even this is garbage, it can be useful"
 	item_to_fabricate = /obj/item/stack/sheet/mineral/junk/large_stack
+
+/obj/machinery/fabricator/plasteel
+	name = "Plasteel fabricator"
+	desc = "Creates metal from... warp. I think so"
+	item_to_fabricate = /obj/item/stack/sheet/plasteel/large_stack
 
 /obj/machinery/splitter
 	name = "Splitter"
