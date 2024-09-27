@@ -79,7 +79,6 @@
 #define issommarineleaderjob(J) (istype(J, /datum/job/som/squad/leader))
 #define ismarinecommandjob(J) (istype(J, /datum/job/terragov/command))
 #define ismarinecaptainjob(J) (istype(J, /datum/job/terragov/command/captain))
-#define issommarinecommandjob(J) (istype(J, /datum/job/som/command))
 #define iscorporateliaisonjob(J) (istype(J, /datum/job/terragov/civilian/liaison))
 #define issurvivorjob(J) (istype(J, /datum/job/survivor))
 #define ischaplainjob(J) (istype(J, /datum/job/survivor/chaplain))
@@ -286,9 +285,6 @@
 //Gamemode
 #define iscrashgamemode(O) (istype(O, /datum/game_mode/infestation/crash))
 #define isinfestationgamemode(O) (istype(O, /datum/game_mode/infestation))
-#define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol))
-#define issensorcapturegamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol/sensor_capture))
-#define iscampaigngamemode(O) (istype(O, /datum/game_mode/hvh/campaign))
 #define isexterminationgamemode(O) (istype(O, /datum/game_mode/infestation/distress/extermination))
 #define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))
 #define ispointsdefencegamemode(O) (istype(O, /datum/game_mode/infestation/distress/points_defence))

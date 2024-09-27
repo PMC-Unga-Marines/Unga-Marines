@@ -253,7 +253,7 @@
 
 
 /obj/machinery/door/poddoor/timed_late/Initialize(mapload)
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH, COMSIG_GLOB_CAMPAIGN_MISSION_STARTED), PROC_REF(open))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH), PROC_REF(open))
 	return ..()
 
 
@@ -285,56 +285,6 @@
 	id = "landing_zone"
 	smoothing_groups = null
 
-
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2
 	id = "landing_zone_2"
 	smoothing_groups = null
-
-///Faction signals for campaign mode doors
-GLOBAL_LIST_INIT(faction_to_campaign_door_signal, list(
-	FACTION_TERRAGOV = COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC,
-	FACTION_SOM = COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_SOM,
-))
-
-/obj/machinery/door/poddoor/campaign
-	name = "secure blast door"
-	desc = "Safety shutters designed to withstand any punishment. You're not forcing your way past this."
-	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'
-	use_power = FALSE
-	resistance_flags = DROPSHIP_IMMUNE|RESIST_ALL
-	open_layer = UNDER_TURF_LAYER
-	closed_layer = ABOVE_WINDOW_LAYER
-	///Faction associated with the door, for signal purposes
-	var/faction = FACTION_TERRAGOV
-
-/obj/machinery/door/poddoor/campaign/Initialize(mapload)
-	RegisterSignal(SSdcs, GLOB.faction_to_campaign_door_signal[faction], PROC_REF(open))
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, TYPE_PROC_REF(/obj/machinery/door, close))
-	return ..()
-
-/obj/machinery/door/poddoor/campaign/som
-	faction = FACTION_SOM
-
-/obj/machinery/door/poddoor/nt_lockdown
-	name = "secure blast door"
-	desc = "Safety shutters designed to withstand any punishment. You're not forcing your way past this."
-	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'
-	use_power = FALSE
-	resistance_flags = DROPSHIP_IMMUNE|RESIST_ALL
-	open_layer = UNDER_TURF_LAYER
-	closed_layer = ABOVE_WINDOW_LAYER
-	///color associated with the door, for signal purposes
-	var/code_color = MISSION_CODE_BLUE
-
-/obj/machinery/door/poddoor/nt_lockdown/Initialize(mapload)
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_CODE, PROC_REF(receive_code))
-	return ..()
-
-///Opens if the correct code color is received
-/obj/machinery/door/poddoor/nt_lockdown/proc/receive_code(datum/source, color)
-	if(color != code_color)
-		return
-	open()
-
-/obj/machinery/door/poddoor/nt_lockdown/red
-	code_color = MISSION_CODE_RED

@@ -22,7 +22,6 @@
 
 /obj/machinery/cic_maptable/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_LOADED, PROC_REF(change_targeted_z))
 	update_icon()
 
 /obj/machinery/cic_maptable/Destroy()
@@ -70,16 +69,6 @@
 		return
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
 	source.unset_interaction()
-
-///Updates the z-level this maptable views
-/obj/machinery/cic_maptable/proc/change_targeted_z(datum/source, new_z)
-	SIGNAL_HANDLER
-	if(!isnum(new_z))
-		return
-	for(var/mob/user AS in interactees)
-		on_unset_interaction(user)
-	map = null
-	targetted_zlevel = new_z
 
 /obj/machinery/cic_maptable/on_unset_interaction(mob/user)
 	. = ..()
@@ -164,14 +153,6 @@
 	user?.client?.mouse_pointer_icon = null
 	for(var/atom/movable/screen/minimap_tool/tool AS in drawing_tools)
 		tool.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP))
-
-///Updates the z-level this maptable views
-/obj/machinery/cic_maptable/drawable/change_targeted_z(datum/source, new_z)
-	. = ..()
-
-	for(var/atom/movable/screen/minimap_tool/tool AS in drawing_tools)
-		tool.zlevel = new_z
-		tool.set_zlevel(new_z, tool.minimap_flag)
 
 /obj/machinery/cic_maptable/drawable/big
 	icon = 'icons/Marine/mainship_props96.dmi'

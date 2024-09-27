@@ -729,13 +729,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = dat + " radio headset"
 	return ..()
 
-/obj/item/radio/headset/mainship/som/command
-	name = "SOM command radio headset"
-	icon_state = "com_headset_alt"
-	keyslot = /obj/item/encryptionkey/mcom/som
-	use_command = TRUE
-	command = TRUE
-
 /obj/item/radio/headset/mainship/som/zulu
 	name = "SOM zulu radio headset"
 	icon_state = "headset_marine_zulu"
