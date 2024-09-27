@@ -213,7 +213,7 @@
 		seed.harvest(src,1)
 		qdel(src)
 
-/obj/effect/plantsegment/proc/life()
+/obj/effect/plantsegment/proc/Life(seconds_per_tick, times_fired)
 
 	if(!seed)
 		return
@@ -269,7 +269,7 @@
 		SV.name = "[seed.seed_name] vines"
 		SV.update()
 
-/obj/effect/plant_controller/process()
+/obj/effect/plant_controller/process(delta_time)
 
 	// Space vines exterminated. Remove the controller
 	if(!vines)
@@ -309,7 +309,7 @@
 		queue_end += SV
 		growth_queue -= SV
 
-		SV.life()
+		SV.Life(delta_time)
 		if(!SV) continue
 
 		if(SV.energy < 2) //If tile isn't fully grown

@@ -5,7 +5,7 @@
 
 #define XENO_HUD_ICON_BUCKETS 16  // should equal the number of icons you use to represent health / plasma (from 0 -> X)
 
-/mob/living/carbon/xenomorph/Life()
+/mob/living/carbon/xenomorph/Life(seconds_per_tick, times_fired)
 
 	if(!loc)
 		return
@@ -28,12 +28,12 @@
 					zoom_out()
 			if(lying_angle)
 				zoom_out()
-		update_progression()
-		update_evolving()
+		update_progression(seconds_per_tick)
+		update_evolving(seconds_per_tick)
 
-	handle_living_sunder_updates()
-	handle_living_health_updates()
-	handle_living_plasma_updates()
+	handle_living_sunder_updates(seconds_per_tick)
+	handle_living_health_updates(seconds_per_tick)
+	handle_living_plasma_updates(seconds_per_tick)
 //RUTGMC EDIT ADDITION BEGIN - Preds
 	handle_interference()
 //RUTGMC EDIT ADDITION END
@@ -49,9 +49,9 @@
 	if(!(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE) && on_fire) //Sanity check; have to be on fire to actually take the damage.
 		apply_damage((fire_stacks + 3), BURN, blocked = FIRE)
 
-/mob/living/carbon/xenomorph/proc/handle_living_health_updates()
+/mob/living/carbon/xenomorph/proc/handle_living_health_updates(seconds_per_tick)
 	if(health < 0)
-		handle_critical_health_updates()
+		handle_critical_health_updates(seconds_per_tick)
 		return
 	if((health >= maxHealth) || on_fire) //can't regenerate.
 		updatehealth() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
@@ -65,18 +65,18 @@
 		ruler_healing_penalty = 1
 	if(loc_weeds_type || xeno_caste.caste_flags & CASTE_INNATE_HEALING) //We regenerate on weeds or can on our own.
 		if(lying_angle || resting || xeno_caste.caste_flags & CASTE_QUICK_HEAL_STANDING)
-			heal_wounds(XENO_RESTING_HEAL * ruler_healing_penalty * loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1, TRUE)
+			heal_wounds(XENO_RESTING_HEAL * ruler_healing_penalty * loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1, TRUE, seconds_per_tick)
 		else
-			heal_wounds(XENO_STANDING_HEAL * ruler_healing_penalty, TRUE) //Major healing nerf if standing.
+			heal_wounds(XENO_STANDING_HEAL * ruler_healing_penalty, TRUE, seconds_per_tick) //Major healing nerf if standing.
 	updatehealth()
 
 ///Handles sunder modification/recovery during life.dm for xenos
-/mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
+/mob/living/carbon/xenomorph/proc/handle_living_sunder_updates(seconds_per_tick)
 
 	if(!sunder || on_fire) //No sunder, no problem; or we're on fire and can't regenerate.
 		return
 
-	var/sunder_recov = xeno_caste.sunder_recover * -0.5 //Baseline
+	var/sunder_recov = xeno_caste.sunder_recover * -0.5 * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Baseline
 
 	if(resting) //Resting doubles sunder recovery
 		sunder_recov *= 2
@@ -87,17 +87,17 @@
 	if(recovery_aura)
 		sunder_recov *= 1 + recovery_aura * 0.1 //10% bonus per rank of recovery aura
 
-	SEND_SIGNAL(src, COMSIG_XENOMORPH_SUNDER_REGEN, src)
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_SUNDER_REGEN, seconds_per_tick)
 
 	adjust_sunder(sunder_recov)
 
-/mob/living/carbon/xenomorph/proc/handle_critical_health_updates()
+/mob/living/carbon/xenomorph/proc/handle_critical_health_updates(seconds_per_tick)
 	if(loc_weeds_type)
-		heal_wounds(XENO_RESTING_HEAL)
+		heal_wounds(XENO_RESTING_HEAL, seconds_per_tick)
 	else if(!endure) //If we're not Enduring we bleed out
-		adjustBruteLoss(XENO_CRIT_DAMAGE)
+		adjustBruteLoss(XENO_CRIT_DAMAGE * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD)
 
-/mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE)
+/mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE, seconds_per_tick)
 	var/amount = 1 + (maxHealth * 0.0375) // 1 damage + 3.75% max health, with scaling power.
 	if(recovery_aura)
 		amount += recovery_aura * maxHealth * 0.01 // +1% max health per recovery level, up to +5%
@@ -105,19 +105,19 @@
 		if(recovery_aura)
 			regen_power = clamp(regen_power + xeno_caste.regen_ramp_amount*30,0,1) //Ignores the cooldown, and gives a 50% boost.
 		else if(regen_power < 0) // We're not supposed to regenerate yet. Start a countdown for regeneration.
-			regen_power += 2 SECONDS //Life ticks are 2 seconds.
+			regen_power += seconds_per_tick
 			return
 		else
 			regen_power = min(regen_power + xeno_caste.regen_ramp_amount*20,1)
 		amount *= regen_power
-	amount *= multiplier * GLOB.xeno_stat_multiplicator_buff
+	amount *= multiplier * GLOB.xeno_stat_multiplicator_buff * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
 
 	var/list/heal_data = list(amount)
-	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data)
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data, seconds_per_tick)
 	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
 	return heal_data[1]
 
-/mob/living/carbon/xenomorph/proc/handle_living_plasma_updates()
+/mob/living/carbon/xenomorph/proc/handle_living_plasma_updates(seconds_per_tick)
 	var/turf/T = loc
 	if(!istype(T)) //This means plasma doesn't update while you're in things like a vent, but since you don't have weeds in a vent or can actually take advantage of pheros, this is fine
 		return
@@ -127,7 +127,7 @@
 
 	if(current_aura)
 		if(plasma_stored < pheromone_cost)
-			use_plasma(plasma_stored, FALSE)
+			use_plasma(pheromone_cost * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD, FALSE)
 			QDEL_NULL(current_aura)
 			src.balloon_alert(src, "Stop emitting, no plasma")
 		else
@@ -145,9 +145,11 @@
 
 	plasma_gain *= loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1
 
+	plasma_gain *= seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+
 	var/list/plasma_mod = list(plasma_gain)
 
-	SEND_SIGNAL(src, COMSIG_XENOMORPH_PLASMA_REGEN, plasma_mod)
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_PLASMA_REGEN, plasma_mod, seconds_per_tick)
 
 	gain_plasma(plasma_mod[1])
 

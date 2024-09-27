@@ -132,7 +132,7 @@
 //You can include code related to your event or add your own
 //time stamped events.
 //Called more than once.
-/datum/round_event/proc/tick()
+/datum/round_event/proc/tick(delta_time)
 	return
 
 //Called on or after the tick is equal or more than endWhen

@@ -20,7 +20,7 @@
 	var/sound/ai_sound //The lines that it plays when speaking.
 
 
-/mob/living/silicon/decoy/Life()
+/mob/living/silicon/decoy/Life(seconds_per_tick, times_fired)
 	if(stat == DEAD)
 		SSmobs.stop_processing(src)
 		return FALSE

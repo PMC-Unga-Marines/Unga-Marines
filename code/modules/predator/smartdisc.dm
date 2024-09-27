@@ -200,7 +200,7 @@
 	apply_damage(proj.damage, BRUTE)
 	return 1
 
-/mob/living/simple_animal/hostile/smartdisc/Life()
+/mob/living/simple_animal/hostile/smartdisc/Life(seconds_per_tick, times_fired)
 	. = ..()
 	lifetime--
 	if(lifetime <= 0 || time_idle > 3)

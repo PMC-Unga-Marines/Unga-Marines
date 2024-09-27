@@ -24,7 +24,7 @@
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 	RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
 
-/mob/living/carbon/xenomorph/ravager/Life()
+/mob/living/carbon/xenomorph/ravager/Life(seconds_per_tick, times_fired)
 	. = ..()
 	update_rage()
 

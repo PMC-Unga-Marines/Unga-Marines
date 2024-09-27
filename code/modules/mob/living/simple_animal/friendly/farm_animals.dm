@@ -28,7 +28,7 @@
 	. = ..()
 	AddComponent(/datum/component/udder)
 
-/mob/living/simple_animal/hostile/retaliate/goat/Life()
+/mob/living/simple_animal/hostile/retaliate/goat/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(!.)
 		return
@@ -132,7 +132,7 @@
 	pixel_y = rand(0, 10)
 
 
-/mob/living/simple_animal/chick/Life()
+/mob/living/simple_animal/chick/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return
@@ -143,7 +143,7 @@
 			qdel(src)
 
 
-/mob/living/simple_animal/chick/holo/Life()
+/mob/living/simple_animal/chick/holo/Life(seconds_per_tick, times_fired)
 	. = ..()
 	amount_grown = 0
 
@@ -212,7 +212,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/chicken/Life()
+/mob/living/simple_animal/chicken/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return

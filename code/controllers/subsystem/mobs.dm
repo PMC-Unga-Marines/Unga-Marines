@@ -68,11 +68,12 @@ SUBSYSTEM_DEF(mobs)
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
 	var/times_fired = src.times_fired
+	var/seconds_per_tick = wait / (1 SECONDS) * SS_MOBS_BUCKET_DELAY
 	while(length(currentrun))
 		var/mob/living/L = currentrun[length(currentrun)]
 		currentrun.len--
 		if(L)
-			L.Life(seconds, times_fired)
+			L.Life(seconds_per_tick, times_fired)
 		else
 			processing.Remove(L)
 		if (MC_TICK_CHECK)

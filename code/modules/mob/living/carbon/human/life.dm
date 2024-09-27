@@ -1,4 +1,4 @@
-/mob/living/carbon/human/Life()
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	. = ..()
 
 	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
