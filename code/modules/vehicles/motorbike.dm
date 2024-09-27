@@ -68,6 +68,9 @@
 	return welder_repair_act(user, I, 10, 2 SECONDS, fuel_req = 1)
 
 /obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
+	if(!COOLDOWN_CHECK(src, cooldown_vehicle_move))
+		return FALSE
+	COOLDOWN_START(src, cooldown_vehicle_move, move_delay)
 	if(fuel_count <= 0)
 		if(!TIMER_COOLDOWN_CHECK(src, COOLDOWN_BIKE_FUEL_MESSAGE))
 			to_chat(user, span_warning("There is no fuel left!"))
@@ -94,12 +97,6 @@
 	if(COOLDOWN_CHECK(src, enginesound_cooldown))
 		COOLDOWN_START(src, enginesound_cooldown, 20)
 		playsound(get_turf(src), 'sound/vehicles/carrev.ogg', 100, TRUE)
-
-/obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
-	if(!COOLDOWN_CHECK(src, cooldown_vehicle_move))
-		return FALSE
-	COOLDOWN_START(src, cooldown_vehicle_move, move_delay)
-	return ..()
 
 /obj/vehicle/ridden/motorbike/attackby(obj/item/I, mob/user, params)
 	. = ..()
