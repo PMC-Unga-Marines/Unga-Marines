@@ -12,7 +12,6 @@
 	key_type = null
 	integrity_failure = 0.5
 	allow_pass_flags = PASSABLE
-	move_delay = 0
 	coverage = 30	//It's just a bike, not hard to shoot over
 	buckle_flags = CAN_BUCKLE|BUCKLE_PREVENTS_PULL|BUCKLE_NEEDS_HAND
 	///Internal motorbick storage object
@@ -68,9 +67,6 @@
 	return welder_repair_act(user, I, 10, 2 SECONDS, fuel_req = 1)
 
 /obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
-	if(!COOLDOWN_CHECK(src, cooldown_vehicle_move))
-		return FALSE
-	COOLDOWN_START(src, cooldown_vehicle_move, move_delay)
 	if(fuel_count <= 0)
 		if(!TIMER_COOLDOWN_CHECK(src, COOLDOWN_BIKE_FUEL_MESSAGE))
 			to_chat(user, span_warning("There is no fuel left!"))
@@ -128,7 +124,6 @@
 		user.temporarilyRemoveItemFromInventory(I)
 		I.forceMove(src)
 		attached_sidecar = I
-		move_delay += attached_sidecar.move_delay_penalty
 		cut_overlay(motorbike_cover)
 		motorbike_cover.icon_state = "sidecar_cover"
 		motorbike_cover.icon = 'icons/obj/motorbike_sidecar.dmi'
@@ -166,7 +161,6 @@
 		return FALSE
 	if(!do_after(user, 3 SECONDS, NONE, src))
 		return TRUE
-	move_delay -= attached_sidecar.move_delay_penalty
 	attached_sidecar.forceMove(get_turf(src))
 	attached_sidecar = null
 	RemoveElement(/datum/element/ridable, /datum/component/riding/vehicle/motorbike/sidecar)
@@ -230,7 +224,6 @@
 	desc = "A detached sidecar for TGMC motorbikes, which can be attached to them, allowing a second passenger. Use a wrench to dettach the sidecar."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "sidecar"
-	var/move_delay_penalty = 1
 
 #undef FUEL_PER_CAN_POUR
 #undef LOW_FUEL_LEFT_MESSAGE
