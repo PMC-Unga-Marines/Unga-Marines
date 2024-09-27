@@ -169,7 +169,7 @@
 /obj/item/storage/proc/can_see_content()
 	var/list/lookers = list()
 	for(var/i in content_watchers)
-		if(!ismob(i))
+		if(!ismob(i)) // for whatever reason we get non-mobs in here, this prevents runtimes
 			continue
 		var/mob/M = i
 		if(M.s_active == src && M.client)
