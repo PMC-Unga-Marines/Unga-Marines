@@ -201,7 +201,7 @@
 		var/list/dept_dat = list()
 		for(var/job in category)
 			job_datum = job
-			if(!IsJobAvailable(job_datum, TRUE, faction))
+			if(!IsJobAvailable(job_datum, TRUE))
 				continue
 			var/command_bold = ""
 			if(job_datum.job_flags & JOB_FLAG_BOLD_NAME_ON_SELECTION)
@@ -352,7 +352,7 @@
 		qdel(src)
 
 
-/mob/new_player/proc/IsJobAvailable(datum/job/job, latejoin = FALSE, faction)
+/mob/new_player/proc/IsJobAvailable(datum/job/job, latejoin = FALSE)
 	if(!job)
 		return FALSE
 	if((job.current_positions >= job.total_positions) && job.total_positions != -1)
@@ -370,8 +370,6 @@
 	if(job.boosty_job && SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
 		return FALSE
 	if(latejoin && !job.special_check_latejoin(client))
-		return FALSE
-	if(faction && job.faction != faction)
 		return FALSE
 	return TRUE
 
