@@ -21,7 +21,7 @@
 		/datum/job/terragov/squad/engineer = 5,
 		/datum/job/xenomorph = CRASH_LARVA_POINTS_NEEDED,
 	)
-	blacklist_ground_maps = list(MAP_BIG_RED, MAP_DELTA_STATION, MAP_PRISON_STATION, MAP_LV_624, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_LAST_STAND)
+	blacklist_ground_maps = list(MAP_BIG_RED, MAP_DELTA_STATION, MAP_PRISON_STATION, MAP_LV_624, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_LAST_STAND)
 
 	// Round end conditions
 	var/shuttle_landed = FALSE

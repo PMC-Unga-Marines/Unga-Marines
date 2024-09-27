@@ -61,12 +61,6 @@
 
 #define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"
 
-#define MODE_COMBAT_PATROL_MARINE_MAJOR "Marine Major Victory"
-#define MODE_COMBAT_PATROL_MARINE_MINOR "Marine Minor Victory"
-#define MODE_COMBAT_PATROL_SOM_MAJOR "Sons of Mars Major Victory"
-#define MODE_COMBAT_PATROL_SOM_MINOR "Sons of Mars Minor Victory"
-#define MODE_COMBAT_PATROL_DRAW "DRAW: Mutual Annihilation"
-
 #define CRASH_EVAC_NONE "CRASH_EVAC_NONE"
 #define CRASH_EVAC_INPROGRESS "CRASH_EVAC_INPROGRESS"
 #define CRASH_EVAC_COMPLETED "CRASH_EVAC_COMPLETED"

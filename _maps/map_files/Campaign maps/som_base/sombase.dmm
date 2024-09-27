@@ -2702,10 +2702,6 @@
 	dir = 8
 	},
 /area/rocinante_base/surface/building/security/garage_sec)
-"dOA" = (
-/obj/effect/landmark/campaign_structure/phoron_stack,
-/turf/open/floor/plating/ground/concrete,
-/area/rocinante_base/surface/building/train_station)
 "dPa" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
@@ -7108,10 +7104,6 @@
 	dir = 1
 	},
 /area/rocinante_base/surface/building/science/research_lab)
-"jTp" = (
-/obj/effect/landmark/campaign_structure/drop_blocker,
-/turf/open/floor/plating/ground/concrete,
-/area/rocinante_base/ground/base_cent)
 "jTw" = (
 /obj/machinery/door/airlock/mainship/engineering{
 	dir = 2
@@ -10682,7 +10674,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
 	},
-/obj/effect/landmark/campaign_structure/phoron_stack,
 /turf/open/floor/mainship/som/ne,
 /area/rocinante_base/surface/building/science/tele_lab)
 "oVZ" = (
@@ -11651,13 +11642,6 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/plating/ground/concrete,
 /area/rocinante_base/ground/base_cent)
-"qst" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/effect/landmark/campaign_structure/train/carriage,
-/turf/open/floor/plating/ground/concrete,
-/area/rocinante_base/surface/building/train_station)
 "qsA" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -12734,13 +12718,6 @@
 "rWf" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
-/area/rocinante_base/surface/building/train_station)
-"rWu" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/effect/landmark/campaign_structure/train,
-/turf/open/floor/plating/ground/concrete,
 /area/rocinante_base/surface/building/train_station)
 "rWy" = (
 /obj/structure/closet/secure_closet/engineering_welding,
@@ -15495,12 +15472,6 @@
 	},
 /turf/open/ground/grass/weedable/patch,
 /area/rocinante_base/ground/base_sw)
-"vyU" = (
-/obj/effect/landmark/campaign_structure/phoron_stack,
-/turf/open/floor/mainship/red{
-	dir = 8
-	},
-/area/rocinante_base/surface/building/science/tele_lab)
 "vzm" = (
 /obj/structure/table/black,
 /obj/machinery/computer3/laptop,
@@ -15720,11 +15691,6 @@
 /obj/machinery/power/apc,
 /turf/open/floor/mainship/mono,
 /area/rocinante_base/surface/building/living/janitor)
-"vOw" = (
-/obj/structure/table/black,
-/obj/item/hardpoint/treads,
-/turf/open/floor/mainship/mono,
-/area/rocinante_base/surface/building/cargo/southern_aux)
 "vPC" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#5b7857";
@@ -34481,7 +34447,7 @@ gnj
 jaw
 jaw
 jaw
-vOw
+lJq
 tao
 oVs
 pEm
@@ -34633,7 +34599,7 @@ gnj
 aSY
 gOG
 cQP
-vOw
+lJq
 oVs
 oVs
 pEm
@@ -36684,7 +36650,7 @@ ltW
 ltW
 goE
 ltW
-jTp
+ltW
 khm
 gaV
 gZp
@@ -41275,7 +41241,7 @@ ika
 eUN
 ooS
 eUN
-qst
+cNj
 eUN
 eUN
 rgY
@@ -43420,7 +43386,7 @@ eUN
 eUN
 eUN
 eUN
-dOA
+eUN
 fjM
 voB
 voB
@@ -44017,7 +43983,7 @@ eUN
 fjM
 eUN
 eUN
-dOA
+eUN
 fjM
 bFN
 eUN
@@ -45329,7 +45295,7 @@ sWY
 txy
 txy
 txy
-vyU
+txy
 uiw
 bde
 gYj
@@ -45531,7 +45497,7 @@ cOn
 eUN
 ooS
 eUN
-rWu
+cNj
 eUN
 eUN
 eUN

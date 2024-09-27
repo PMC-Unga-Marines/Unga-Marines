@@ -489,7 +489,6 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
-/turf/open/floor/mainship/ntlogo/nt3,
 /area/orion_outpost/ground/outpostse)
 "ct" = (
 /obj/effect/landmark/start/job/survivor,
@@ -3438,7 +3437,6 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
-/turf/open/floor/mainship/ntlogo,
 /area/orion_outpost/ground/outpostse)
 "qv" = (
 /obj/structure/cable,
@@ -4635,10 +4633,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
-"vU" = (
-/obj/effect/landmark/campaign_structure/tele_blocker,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostcent)
 "vV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -7026,10 +7020,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/building/crashedufo)
-"HK" = (
-/obj/effect/landmark/campaign_structure/phoron_stack,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/surface/train_yard)
 "HL" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/blue{
@@ -7335,7 +7325,6 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/vehicledepot)
 "Jk" = (
-/turf/open/floor/mainship/ntlogo/nt2,
 /area/orion_outpost/ground/outpostse)
 "Jl" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
@@ -7672,10 +7661,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/podhatch/floor,
 /area/orion_outpost/surface/building/crashedufo)
-"KQ" = (
-/obj/effect/landmark/campaign_structure/phoron_stack,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/train_yard)
 "KR" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/effect/ai_node,
@@ -7899,10 +7884,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/orange/full,
 /area/orion_outpost/surface/building/cargo)
-"LL" = (
-/obj/effect/landmark/campaign_structure/tank,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/surface/building/vehicledepot)
 "LP" = (
 /turf/open/floor/mainship/blue/corner{
 	dir = 8
@@ -8648,15 +8629,6 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/cargo)
-"Pk" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/effect/landmark/campaign_structure/train{
-	dir = 8
-	},
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/surface/train_yard)
 "Pl" = (
 /obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
 /turf/open/floor/plating/ground/concrete/lines,
@@ -8756,10 +8728,6 @@
 /obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/open/shuttle/dropship/three,
 /area/orion_outpost/surface/building/tadpolepad)
-"PL" = (
-/obj/effect/landmark/campaign_structure/apc,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/surface/building/vehicledepot)
 "PM" = (
 /obj/item/ammo_casing/bullet,
 /obj/effect/spawner/random/weaponry/gun/rifles,
@@ -8777,15 +8745,6 @@
 "PS" = (
 /turf/closed/mineral/smooth,
 /area/orion_outpost/ground/underground/caveN)
-"PT" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/effect/landmark/campaign_structure/train/carriage{
-	dir = 8
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/surface/train_yard)
 "PX" = (
 /obj/structure/table/mainship,
 /obj/machinery/light{
@@ -11818,7 +11777,7 @@ Gs
 Gs
 FZ
 HM
-Pk
+Eg
 HM
 bi
 HM
@@ -12745,7 +12704,7 @@ UR
 ji
 UR
 UR
-KQ
+UR
 PI
 MB
 Vk
@@ -14986,7 +14945,7 @@ PQ
 Vk
 JZ
 Uj
-PT
+ZS
 Wp
 Vk
 Vk
@@ -16165,7 +16124,7 @@ wt
 wt
 wt
 Vk
-HK
+Vk
 Vk
 ET
 Pd
@@ -16510,14 +16469,14 @@ li
 dZ
 OP
 dZ
-PL
+dZ
 lB
 AL
 Bl
 cc
 OP
 dZ
-PL
+dZ
 lB
 dZ
 li
@@ -18094,7 +18053,7 @@ li
 OP
 dZ
 dZ
-LL
+dZ
 lB
 zH
 Ds
@@ -18102,7 +18061,7 @@ ED
 OP
 dZ
 dZ
-LL
+dZ
 lB
 Ut
 aZ
@@ -20110,7 +20069,7 @@ rt
 rt
 rt
 rt
-vU
+rt
 DU
 DU
 DU

@@ -1255,12 +1255,6 @@
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/patricks_rest/surface/building/residential_w)
-"fP" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/floor/plating/ground/concrete/edge{
-	dir = 4
-	},
-/area/patricks_rest/ground/colonyse)
 "fQ" = (
 /obj/structure/prop/mainship/gelida/rails{
 	dir = 8
@@ -1849,10 +1843,6 @@
 /obj/structure/bed/chair/dropship/passenger,
 /turf/open/shuttle/dropship/seven,
 /area/patricks_rest/surface/landing_pad)
-"iC" = (
-/obj/effect/landmark/campaign_structure/phoron_crate,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/patricks_rest/ground/underground/cave)
 "iD" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -5272,10 +5262,6 @@
 	},
 /turf/open/floor/prison/red/full,
 /area/patricks_rest/surface/building/security_post_cargo)
-"zj" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/patricks_rest/ground/colonyw)
 "zl" = (
 /obj/structure/dropship_piece/two/cockpit/right{
 	dir = 1
@@ -5460,10 +5446,6 @@
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/prison/darkyellow/full,
 /area/patricks_rest/surface/building/engineering)
-"Aq" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/patricks_rest/ground/colonys)
 "As" = (
 /turf/open/floor/mainship/mono,
 /area/patricks_rest/surface/building/offices)
@@ -6195,10 +6177,6 @@
 	},
 /turf/open/floor/mainship/sterile/purple,
 /area/patricks_rest/surface/building/science)
-"Eq" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonys)
 "Er" = (
 /obj/machinery/floodlight/colony,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -7939,10 +7917,6 @@
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/mono,
 /area/patricks_rest/surface/building/science)
-"MX" = (
-/obj/effect/landmark/campaign_structure/tele_blocker,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/patricks_rest/ground/colonyn)
 "MZ" = (
 /obj/structure/cargo_container/hd_blue{
 	dir = 4
@@ -8509,10 +8483,6 @@
 	dir = 5
 	},
 /area/patricks_rest/ground/colonyse)
-"PS" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/patricks_rest/ground/colonyn)
 "PT" = (
 /turf/open/floor/plating/ground/concrete,
 /area/patricks_rest/surface/building/storage_depot_research)
@@ -8534,10 +8504,6 @@
 	dir = 1
 	},
 /area/patricks_rest/surface/building/science)
-"PX" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/patricks_rest/ground/colonyw)
 "PY" = (
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/mono,
@@ -8797,10 +8763,6 @@
 /obj/structure/prop/brokenvendor/brokenuniformvendor,
 /turf/open/floor/mainship/green/full,
 /area/patricks_rest/surface/building/barracks)
-"Rq" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonys)
 "Rr" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
@@ -8943,10 +8905,6 @@
 	dir = 1
 	},
 /area/patricks_rest/surface/building/command)
-"RW" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/floor/plating/ground/concrete/lines,
-/area/patricks_rest/ground/colonyn)
 "RX" = (
 /obj/machinery/light{
 	dir = 1
@@ -9264,10 +9222,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/patricks_rest/surface/building/atc)
-"TG" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/patricks_rest/ground/colonycent)
 "TJ" = (
 /obj/effect/ai_node,
 /obj/machinery/door/airlock/multi_tile/mainship/personalglass{
@@ -9311,10 +9265,6 @@
 "TU" = (
 /turf/open/floor/plating/ground/concrete/edge,
 /area/patricks_rest/ground/colonyw)
-"TW" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/patricks_rest/ground/colonye)
 "TX" = (
 /obj/structure/table/mainship,
 /obj/machinery/light,
@@ -9381,10 +9331,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/patricks_rest/surface/building/transformer_residential)
-"Un" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement,
-/area/patricks_rest/ground/colonycent)
 "Up" = (
 /turf/closed/mineral/smooth,
 /area/patricks_rest/ground/colonys)
@@ -9555,12 +9501,6 @@
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreenfull2,
 /area/patricks_rest/surface/building/residential_w)
-"Vg" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/patricks_rest/ground/colonys)
 "Vh" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -9890,10 +9830,6 @@
 	dir = 10
 	},
 /area/patricks_rest/surface/building/residential_w)
-"WQ" = (
-/obj/effect/landmark/campaign_structure/mlrs,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/patricks_rest/ground/colonye)
 "WR" = (
 /obj/item/bedsheet/medical,
 /turf/open/floor/mainship/sterile,
@@ -16172,7 +16108,7 @@ iy
 bj
 iy
 iy
-PX
+iy
 Yq
 Yq
 Yq
@@ -16831,7 +16767,7 @@ gk
 wj
 Yq
 Yq
-zj
+Yq
 Yq
 iy
 bH
@@ -19578,7 +19514,7 @@ wA
 pW
 cc
 va
-RW
+XG
 AZ
 AZ
 xp
@@ -19652,7 +19588,7 @@ ud
 tz
 Km
 Lr
-Rq
+wz
 wz
 wz
 wz
@@ -21362,7 +21298,7 @@ ff
 ff
 ff
 lX
-Aq
+lX
 lX
 wz
 tz
@@ -21825,7 +21761,7 @@ va
 XG
 fk
 Ow
-PS
+Ow
 oJ
 fk
 AZ
@@ -22882,7 +22818,7 @@ AZ
 AZ
 JF
 fk
-MX
+Ow
 Ow
 Ow
 Ow
@@ -23205,7 +23141,7 @@ Lr
 VG
 VG
 UR
-Eq
+wz
 tz
 Km
 Km
@@ -23304,7 +23240,7 @@ ME
 ME
 ME
 NW
-TG
+GX
 GX
 cC
 ME
@@ -23470,7 +23406,7 @@ mx
 VG
 Ni
 wz
-Vg
+tz
 Km
 Km
 Km
@@ -24352,7 +24288,7 @@ Qz
 wk
 Pg
 Pg
-Un
+Pg
 Pg
 PL
 PL
@@ -26602,7 +26538,7 @@ eY
 eY
 vW
 eY
-iC
+eY
 eY
 eY
 eY
@@ -26734,8 +26670,8 @@ eY
 eY
 eY
 eY
-iC
-iC
+eY
+eY
 eY
 eY
 Fc
@@ -26866,9 +26802,9 @@ eY
 eY
 MH
 eY
-iC
-iC
-iC
+eY
+eY
+eY
 eY
 sL
 sL
@@ -26997,10 +26933,10 @@ eY
 eY
 eY
 eY
-iC
-iC
-iC
-iC
+eY
+eY
+eY
+eY
 eY
 sL
 sL
@@ -29139,7 +29075,7 @@ nQ
 um
 um
 jN
-fP
+Yy
 Rr
 MO
 PE
@@ -31757,9 +31693,9 @@ Jz
 Jz
 Jz
 IX
-TW
 IX
-WQ
+IX
+Jz
 Jz
 Jz
 Jz
