@@ -285,7 +285,8 @@
 		user.visible_message(span_notice("[user] starts to stuff [thing_to_load] into \the [src]!"))
 		mob_try_enter(thing_to_load, user, TRUE)
 		return
-	user.temporarilyRemoveItemFromInventory(thing_to_load)
+	if(isitem(thing_to_load))
+		user.temporarilyRemoveItemFromInventory(thing_to_load)
 	thing_to_load.forceMove(interior.door.get_enter_location())
 	user.balloon_alert(user, "item thrown inside")
 
