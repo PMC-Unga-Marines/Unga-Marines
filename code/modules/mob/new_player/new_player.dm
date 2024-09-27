@@ -373,10 +373,10 @@
 		return FALSE
 	if(job.required_playtime_remaining(client))
 		return FALSE
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(!(GLOB.roles_whitelist[ckey] && WHITELIST_PREDATOR) && job == /datum/job/predator)
 		return FALSE
-//RUTGMC EDIT ADDITION END
+	if(job.boosty_job && SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
+		return FALSE
 	if(latejoin && !job.special_check_latejoin(client))
 		return FALSE
 	if(faction && job.faction != faction)
