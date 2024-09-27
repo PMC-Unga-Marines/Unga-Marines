@@ -229,13 +229,12 @@ REAGENT SCANNER
 			var/necrotized = FALSE
 			var/internal_bleeding_limb = FALSE
 
-			if(!internal_bleeding)
-				for(var/datum/wound/wound in limb.wounds)
-					if(!istype(wound, /datum/wound/internal_bleeding))
-						continue
-					internal_bleeding = TRUE
-					internal_bleeding_limb = TRUE
-					break
+			for(var/datum/wound/wound in limb.wounds)
+				if(!istype(wound, /datum/wound/internal_bleeding))
+					continue
+				internal_bleeding = TRUE //yes, we put TRUE every time, but its faster than doing if
+				internal_bleeding_limb = TRUE
+				break
 			if(limb.germ_level > INFECTION_LEVEL_ONE)
 				infection_message = "Infection detected in subject's [limb.display_name]. Antibiotics recommended."
 				infected = TRUE
