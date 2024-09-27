@@ -229,7 +229,7 @@
 
 /mob/living/simple_animal/hostile/smartdisc/gib()
 	visible_message("\The [src] explodes!")
-	..()
+	. = ..()
 	spawn(1)
 		if(src)
 			qdel(src)

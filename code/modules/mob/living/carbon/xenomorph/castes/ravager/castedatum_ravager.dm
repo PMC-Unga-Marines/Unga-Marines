@@ -28,7 +28,7 @@
 	deevolves_to = /mob/living/carbon/xenomorph/hunter
 
 	// *** Flags *** //
-	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER
 	caste_traits = null
 

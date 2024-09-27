@@ -8,6 +8,9 @@
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
+	else if(mob_size == MOB_SIZE_SMALL)
+		move_resist = MOVE_FORCE_WEAK
+		move_force = MOVE_FORCE_WEAK
 	light_pixel_x -= pixel_x
 	light_pixel_y -= pixel_y
 	. = ..()
@@ -40,7 +43,7 @@
 
 	GLOB.xeno_mob_list += src
 	GLOB.round_statistics.total_xenos_created++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_xenos_created")
 
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
@@ -287,6 +290,9 @@
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+	LAZYREMOVE(hive.xenos_by_zlevel["[z]"], src)
+
+	remove_from_all_mob_huds()
 
 	if(!isnull(current_aura))
 		QDEL_NULL(current_aura)
@@ -537,6 +543,8 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 	/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
 	 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us */
 	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc) && (target.faction == faction || target.move_resist <= move_force))
+		return PHASING
+	if(get_xeno_hivenumber() == target.get_xeno_hivenumber() && (target.pass_flags & PASS_XENO || pass_flags & PASS_XENO))
 		return PHASING
 	// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(a_intent == INTENT_HELP || restrained())

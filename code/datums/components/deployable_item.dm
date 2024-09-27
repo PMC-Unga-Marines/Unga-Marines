@@ -81,11 +81,11 @@
 		if(user.do_actions)
 			user.balloon_alert(user, "Вы уже чем-то заняты!")
 			return
-		if(item_to_deploy.near_lock)
-			for(var/obj/machinery/deployable/def in urange(2, location))
-				if(def != src)
-					user.balloon_alert(user, "Слишком близко к [def]!")
-					return
+
+		if(istype(item_to_deploy, /obj/item/weapon/gun/sentry))
+			for(var/obj/machinery/deployable/mounted/sentry/sentry in urange(2, location))
+				user.balloon_alert(user, "Слишком близко к [sentry]!")
+				return
 		user.balloon_alert(user, "Вы начали установку...")
 		user.setDir(newdir) //Face towards deploy location for ease of deploy.
 		if(!do_after(user, deploy_time, NONE, item_to_deploy, BUSY_ICON_BUILD))
@@ -93,6 +93,10 @@
 		if(LinkBlocked(get_turf(user), location))
 			location.balloon_alert(user, "No room to deploy")
 			return
+		if(istype(item_to_deploy, /obj/item/weapon/gun/sentry))
+			for(var/obj/machinery/deployable/mounted/sentry/sentry in urange(2, location))
+				user.balloon_alert(user, "Слишком близко к [sentry]!")
+				return
 		user.temporarilyRemoveItemFromInventory(item_to_deploy)
 
 		item_to_deploy.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_FIREMODE, COMSIG_KB_AUTOEJECT, COMSIG_MOB_CLICK_RIGHT)) //This unregisters Signals related to guns, its for safety

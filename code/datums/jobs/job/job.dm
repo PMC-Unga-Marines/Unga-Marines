@@ -5,14 +5,13 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 	EXP_TYPE_MEDICAL = list("titles" = GLOB.jobs_medical),
 	EXP_TYPE_MARINES = list("titles" = GLOB.jobs_marines),
 	EXP_TYPE_REQUISITIONS = list("titles" = GLOB.jobs_requisitions),
-	//EXP_TYPE_SPECIAL = list("titles" = GLOB.jobs_xenos), // ORIGINAL
-	EXP_TYPE_XENO = list("titles" = GLOB.jobs_xenos), // RUTGMC ADDITION
+	EXP_TYPE_SYNTHETIC = list("titles" = GLOB.jobs_engineering + GLOB.jobs_medical),
+	EXP_TYPE_XENO = list("titles" = GLOB.jobs_xenos),
 ))
 
 GLOBAL_LIST_INIT(exp_specialmap, list(
 	EXP_TYPE_LIVING = list(),
-	// EXP_TYPE_SPECIAL = list(ROLE_XENOMORPH, ROLE_XENO_QUEEN), // ORIGINAL
-	EXP_TYPE_XENO = list(ROLE_XENOMORPH, ROLE_XENO_QUEEN), // RUTGMC ADDITION
+	EXP_TYPE_XENO = list(ROLE_XENOMORPH, ROLE_XENO_QUEEN),
 	EXP_TYPE_GHOST = list(),
 	EXP_TYPE_ADMIN = list()
 ))
@@ -295,7 +294,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	faction = job.faction
 	job.announce(src)
 	GLOB.round_statistics.total_humans_created[faction]++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_humans_created[faction]")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_humans_created[faction]")
 	SEND_GLOBAL_SIGNAL(COMSIG_LIVING_JOB_SET, src)
 
 /mob/living/carbon/human/apply_assigned_role_to_spawn(datum/job/assigned_role, client/player, datum/squad/assigned_squad, admin_action = FALSE)

@@ -360,15 +360,15 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 	var/obj/projectile/P = new /obj/projectile(boiler_owner.loc)
 	P.generate_bullet(boiler_owner.ammo)
-	P.fire_at(target, boiler_owner, null, boiler_owner.ammo.max_range, boiler_owner.ammo.shell_speed)
+	P.fire_at(target, boiler_owner, boiler_owner, boiler_owner.ammo.max_range, boiler_owner.ammo.shell_speed)
 	playsound(boiler_owner, 'sound/effects/blobattack.ogg', 25, 1)
 	if(istype(boiler_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
 		GLOB.round_statistics.boiler_acid_smokes++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "boiler_acid_smokes")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_acid_smokes")
 		boiler_owner.corrosive_ammo--
 	else
 		GLOB.round_statistics.boiler_neuro_smokes++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "boiler_neuro_smokes")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_neuro_smokes")
 		boiler_owner.neuro_ammo--
 
 	boiler_owner.update_boiler_glow()

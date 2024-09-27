@@ -16,6 +16,9 @@
 			table.computer = src
 			break
 
+/obj/machinery/computer/operating/Destroy()
+	table = null
+	return ..()
 
 /obj/machinery/computer/operating/interact(mob/user)
 	. = ..()

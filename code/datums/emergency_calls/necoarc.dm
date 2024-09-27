@@ -5,6 +5,8 @@
 	spawn_type = /mob/living/carbon/human/species/necoarc
 	shuttle_id = SHUTTLE_DISTRESS_UFO
 	alignement_factor = 0
+	///Max amount of psionics allowed in this squad.
+	var/max_psionics = 2
 
 /datum/emergency_call/necoarc/print_backstory(mob/living/carbon/human/H)
 	to_chat(H, "<B>Ваши емоуты: *muda, *bubu, *dori, *sa, *sa2, *yanyan, *nya, *isa, *qahu.")
@@ -31,9 +33,16 @@
 		leader = H
 		var/datum/job/J = SSjob.GetJobType(/datum/job/necoarc/leader)
 		H.apply_assigned_role_to_spawn(J)
-		to_chat(H, "<p style='font-size:1.5em'>[span_notice("Yahoo")]</p>")
+		to_chat(H, "<p style='font-size:1.5em'>[span_notice("Yahoo!")]</p>")
+		return
+
+	if(max_psionics)
+		var/datum/job/J = SSjob.GetJobType(/datum/job/necoarc/psionic)
+		H.apply_assigned_role_to_spawn(J)
+		to_chat(H, "<p style='font-size:1.5em'>[span_notice("Yahoo!")]</p>")
+		max_psionics--
 		return
 
 	var/datum/job/J = SSjob.GetJobType(/datum/job/necoarc/standard)
 	H.apply_assigned_role_to_spawn(J)
-	to_chat(H, "<p style='font-size:1.5em'>[span_notice("Yahoo")]</p>")
+	to_chat(H, "<p style='font-size:1.5em'>[span_notice("Yahoo!")]</p>")

@@ -438,8 +438,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HEAD_LAYER 13
 #define COLLAR_LAYER 12
 #define SUIT_STORE_LAYER 11
-#define BACK_LAYER 10
-#define KAMA_LAYER 9
+#define KAMA_LAYER 10
+#define BACK_LAYER 9
 #define CAPE_LAYER 8
 #define HANDCUFF_LAYER 7
 #define L_HAND_LAYER 6
@@ -545,6 +545,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<14) // xenos with this flag wont be announced to hive when dying
 #define CASTE_STAGGER_RESISTANT (1<<15) //Resistant to some forms of stagger, such as projectiles
 #define CASTE_HAS_WOUND_MASK (1<<16) //uses an alpha mask for wounded states
+#define CASTE_EXCLUDE_STRAINS (1<<17) // denotes castes/basetypes that should be excluded from being evoable as a strain
 
 // Xeno defines that affect evolution, considering making a new var for these
 #define CASTE_LEADER_TYPE (1<<16) //Whether we are a leader type caste, such as the queen, shrike or ?king?, and is affected by queen ban and playtime restrictions
@@ -655,6 +656,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define DEFILER_REAGENT_SLASH_INJECT_AMOUNT 7
 #define DEFILER_REAGENT_SLASH_DURATION 4 SECONDS
 #define DEFILER_TRANSVITOX_CAP 180 //Max toxin damage transvitox will allow
+#define DEFILER_TRANSVITOX_DAMAGE 2 //Damage dealt per tick per xeno toxin by the transvitox toxin
 #define DEFILER_DEFILE_CHANNEL_TIME 0.5 SECONDS //Wind up time for the Defile ability
 #define DEFILER_DEFILE_FAIL_COOLDOWN 5 SECONDS //Time Defile goes on cooldown for when it fails
 #define DEFILER_DEFILE_STRENGTH_MULTIPLIER 0.5 //Base multiplier for determining the power of Defile

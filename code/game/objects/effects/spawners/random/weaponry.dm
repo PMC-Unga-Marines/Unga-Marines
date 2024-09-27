@@ -18,7 +18,7 @@
 		/obj/item/weapon/gun/smg/mp19,
 		/obj/item/weapon/gun/rifle/dmr37,
 		/obj/item/weapon/gun/rifle/br64,
-		/obj/item/weapon/gun/rifle/sr127/unscoped,
+		/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127,
 		/obj/item/weapon/gun/shotgun/pump/bolt/unscoped,
 		/obj/item/weapon/gun/shotgun/double/martini,
 		/obj/item/weapon/gun/pistol/p14,

@@ -22,20 +22,6 @@
 	var/directional = TRUE
 	var/pressed = FALSE
 
-/obj/machinery/door_control/unmeltable
-	resistance_flags = RESIST_ALL
-
-/obj/machinery/door_control/ai
-	name = "AI Lockdown"
-
-/obj/machinery/door_control/ai/exterior
-	name = "AI Exterior Lockdown"
-	id = "ailockdownexterior"
-
-/obj/machinery/door_control/ai/interior
-	name = "AI Interior Lockdown"
-	id = "ailockdowninterior"
-
 /obj/machinery/door_control/Initialize(mapload, ndir = 0)
 	. = ..()
 	if(directional)
@@ -120,10 +106,8 @@
 	desiredstate = !desiredstate
 	addtimer(CALLBACK(src, PROC_REF(unpress)), 15, TIMER_OVERRIDE|TIMER_UNIQUE)
 
-
 /obj/machinery/door_control/attack_ai(mob/living/silicon/ai/AI)
 	return attack_hand(AI)
-
 
 /obj/machinery/door_control/proc/unpress()
 	pressed = FALSE
@@ -138,44 +122,19 @@
 	else
 		icon_state = "doorctrl0"
 
-/obj/machinery/driver_button/attack_ai(mob/living/silicon/ai/AI)
-	return attack_hand(AI)
+/obj/machinery/door_control/unmeltable
+	resistance_flags = RESIST_ALL
 
+/obj/machinery/door_control/ai
+	name = "AI Lockdown"
 
-/obj/machinery/driver_button/attackby(obj/item/I, mob/user, params)
-	. = ..()
+/obj/machinery/door_control/ai/exterior
+	name = "AI Exterior Lockdown"
+	id = "ailockdownexterior"
 
-	if(istype(I, /obj/item/detective_scanner))
-		return
-	else
-		return attack_hand(user)
-
-/obj/machinery/driver_button/attack_hand(mob/living/user)
-	. = ..()
-	if(.)
-		return
-	if(machine_stat & (NOPOWER|BROKEN))
-		return
-	if(active)
-		return
-
-	use_power(active_power_usage)
-
-	active = TRUE
-	icon_state = "launcheract"
-
-	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
-		if(M.id == id)
-			M.open()
-
-	sleep(5 SECONDS)
-
-	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
-		if(M.id == id)
-			M.close()
-
-	icon_state = "launcherbtt"
-	active = 0
+/obj/machinery/door_control/ai/interior
+	name = "AI Interior Lockdown"
+	id = "ailockdowninterior"
 
 //mainship door controls
 /obj/machinery/door_control/mainship/ammo
