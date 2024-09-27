@@ -87,12 +87,6 @@
 	icon_state = "droppodtable"
 	screen_overlay = "droppodtable_emissive"
 
-/obj/machinery/cic_maptable/som_maptable
-	icon_state = "som_console"
-	screen_overlay = "som_maptable_screen"
-	minimap_flag = MINIMAP_FLAG_MARINE_SOM
-	light_color = LIGHT_COLOR_FLARE
-
 /obj/machinery/cic_maptable/no_flags
 	minimap_flag = NONE
 
@@ -169,9 +163,3 @@
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
 	)
 	AddElement(/datum/element/connect_loc, connections)
-
-/obj/machinery/cic_maptable/drawable/big/som
-	minimap_flag = MINIMAP_FLAG_MARINE_SOM
-	screen_overlay = "som_maptable_screen"
-	light_color = LIGHT_COLOR_FLARE
-	light_range = 3

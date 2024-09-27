@@ -160,23 +160,18 @@
 			if(1 to 40)
 				// Standard
 				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/marine) : subtypesof(/datum/outfit/quick/tgmc/marine)
-				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/standard) : SSjob.GetJobType(/datum/job/terragov/squad/standard)
 			if(41 to 55)
 				// Engineer
 				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/engineer) : subtypesof(/datum/outfit/quick/tgmc/engineer)
-				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/engineer) : SSjob.GetJobType(/datum/job/terragov/squad/engineer)
 			if(56 to 70)
 				// Corpsman
 				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/medic) : subtypesof(/datum/outfit/quick/tgmc/corpsman)
-				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/medic) : SSjob.GetJobType(/datum/job/terragov/squad/corpsman)
 			if(70 to 85)
 				// Specialist
 				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/veteran) : subtypesof(/datum/outfit/quick/tgmc/smartgunner)
-				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/veteran) : SSjob.GetJobType(/datum/job/terragov/squad/smartgunner)
 			else
 				// Squad Leader
 				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/squad_leader) : subtypesof(/datum/outfit/quick/tgmc/leader)
-				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/leader) : SSjob.GetJobType(/datum/job/terragov/squad/leader)
 
 		var/datum/job/J = job_type
 		eord_body.apply_assigned_role_to_spawn(J)

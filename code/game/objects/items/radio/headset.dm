@@ -337,7 +337,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		wearer.hud_used.SL_locator.alpha = 128
 		if(wearer.assigned_squad.squad_leader == wearer)
 			SSdirection.set_leader(wearer.assigned_squad.tracking_id, wearer)
-			SSdirection.start_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, wearer)
+			SSdirection.start_tracking(TRACKING_ID_MARINE_COMMANDER, wearer)
 		else
 			SSdirection.start_tracking(wearer.assigned_squad.tracking_id, wearer)
 
@@ -355,7 +355,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 	if(wearer.assigned_squad.squad_leader == wearer)
 		SSdirection.clear_leader(wearer.assigned_squad.tracking_id)
-		SSdirection.stop_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, wearer)
+		SSdirection.stop_tracking(TRACKING_ID_MARINE_COMMANDER, wearer)
 	else
 		SSdirection.stop_tracking(wearer.assigned_squad.tracking_id, wearer)
 
@@ -486,12 +486,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 		loud = TRUE
 		balloon_alert(user, "Loud mode enabled")
-
-/obj/item/radio/headset/mainship/mcom/som
-	frequency = FREQ_SOM
-	keyslot = /obj/item/encryptionkey/mcom/som
-	faction = FACTION_SOM
-	minimap_type = /datum/action/minimap/som
 
 /obj/item/radio/headset/mainship/mcom/silicon
 	name = "silicon radio"
@@ -647,12 +641,10 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	freerange = TRUE
 	frequency = FREQ_COMMON
 
-
 /obj/item/radio/headset/distress/dutch
 	name = "colonist headset"
 	keyslot = /obj/item/encryptionkey/dutch
 	frequency = FREQ_COLONIST
-
 
 /obj/item/radio/headset/distress/pmc
 	name = "contractor headset"
@@ -660,12 +652,10 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot2 = /obj/item/encryptionkey/mcom
 	frequency = FREQ_PMC
 
-
 /obj/item/radio/headset/distress/usl
 	name = "non-standard headset"
 	keyslot = /obj/item/encryptionkey/usl
 	frequency = FREQ_USL
-
 
 /obj/item/radio/headset/distress/commando
 	name = "commando headset"
@@ -673,18 +663,15 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot2 = /obj/item/encryptionkey/mcom
 	frequency = FREQ_DEATHSQUAD
 
-
 /obj/item/radio/headset/distress/imperial
 	name = "imperial headset"
 	keyslot = /obj/item/encryptionkey/imperial
 	frequency = FREQ_IMPERIAL
 
-
 /obj/item/radio/headset/distress/som
 	name = "miners' headset"
 	keyslot = /obj/item/encryptionkey/som
 	frequency = FREQ_SOM
-
 
 /obj/item/radio/headset/distress/sectoid
 	name = "alien headset"
@@ -700,123 +687,3 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/distress/echo
 	name = "\improper Echo Task Force headset"
 	keyslot = /obj/item/encryptionkey/echo
-
-//SOM headsets
-
-/obj/item/radio/headset/mainship/som
-	frequency = FREQ_SOM
-	keyslot = /obj/item/encryptionkey/general/som
-	faction = FACTION_SOM
-	minimap_type = /datum/action/minimap/som
-
-/obj/item/radio/headset/mainship/som/Initialize(mapload, datum/squad/squad, rank)
-	if(!squad)
-		return ..()
-	icon_state = "headset_marine_[lowertext(squad.name)]"
-	var/dat = "marine [lowertext(squad.name)]"
-	frequency = squad.radio_freq
-	if(ispath(rank, /datum/job/som/squad/leader))
-		dat += " leader"
-		keyslot2 = /obj/item/encryptionkey/squadlead/som
-		use_command = TRUE
-		command = TRUE
-	else if(ispath(rank, /datum/job/som/squad/engineer))
-		dat += " engineer"
-		keyslot2 = /obj/item/encryptionkey/engi/som
-	else if(ispath(rank, /datum/job/som/squad/medic))
-		dat += " corpsman"
-		keyslot2 = /obj/item/encryptionkey/med/som
-	name = dat + " radio headset"
-	return ..()
-
-/obj/item/radio/headset/mainship/som/zulu
-	name = "SOM zulu radio headset"
-	icon_state = "headset_marine_zulu"
-	frequency = FREQ_ZULU
-
-/obj/item/radio/headset/mainship/som/zulu/LateInitialize()
-	. = ..()
-	camera.network += list("zulu")
-
-/obj/item/radio/headset/mainship/som/zulu/lead
-	name = "SOM zulu leader radio headset"
-	keyslot2 = /obj/item/encryptionkey/squadlead/som
-	use_command = TRUE
-	command = TRUE
-
-/obj/item/radio/headset/mainship/som/zulu/engi
-	name = "SOM zulu engineer radio headset"
-	keyslot2 = /obj/item/encryptionkey/engi/som
-
-/obj/item/radio/headset/mainship/som/zulu/med
-	name = "SOM zulu corpsman radio headset"
-	keyslot2 = /obj/item/encryptionkey/med/som
-
-/obj/item/radio/headset/mainship/som/yankee
-	name = "SOM yankee radio headset"
-	icon_state = "headset_marine_yankee"
-	frequency = FREQ_YANKEE
-
-/obj/item/radio/headset/mainship/som/yankee/LateInitialize()
-	. = ..()
-	camera.network += list("yankee")
-
-/obj/item/radio/headset/mainship/som/yankee/lead
-	name = "SOM yankee leader radio headset"
-	keyslot2 = /obj/item/encryptionkey/squadlead/som
-	use_command = TRUE
-	command = TRUE
-
-/obj/item/radio/headset/mainship/som/yankee/engi
-	name = "SOM yankee engineer radio headset"
-	keyslot2 = /obj/item/encryptionkey/engi/som
-
-/obj/item/radio/headset/mainship/som/yankee/med
-	name = "SOM yankee corpsman radio headset"
-	keyslot2 = /obj/item/encryptionkey/med/som
-
-/obj/item/radio/headset/mainship/som/xray
-	name = "SOM xray radio headset"
-	icon_state = "headset_marine_xray"
-	frequency = FREQ_XRAY
-
-/obj/item/radio/headset/mainship/som/xray/LateInitialize()
-	. = ..()
-	camera.network += list("xray")
-
-/obj/item/radio/headset/mainship/som/xray/lead
-	name = "SOM xray leader radio headset"
-	keyslot2 = /obj/item/encryptionkey/squadlead/som
-	use_command = TRUE
-	command = TRUE
-
-/obj/item/radio/headset/mainship/som/xray/engi
-	name = "SOM xray engineer radio headset"
-	keyslot2 = /obj/item/encryptionkey/engi/som
-
-/obj/item/radio/headset/mainship/som/xray/med
-	name = "SOM xray corpsman radio headset"
-	keyslot2 = /obj/item/encryptionkey/med/som
-
-/obj/item/radio/headset/mainship/som/whiskey
-	name = "SOM whiskey radio headset"
-	icon_state = "headset_marine_whiskey"
-	frequency = FREQ_WHISKEY
-
-/obj/item/radio/headset/mainship/som/whiskey/LateInitialize()
-	. = ..()
-	camera.network += list("whiskey")
-
-/obj/item/radio/headset/mainship/som/whiskey/lead
-	name = "SOM whiskey leader radio headset"
-	keyslot2 = /obj/item/encryptionkey/squadlead/som
-	use_command = TRUE
-	command = TRUE
-
-/obj/item/radio/headset/mainship/som/whiskey/engi
-	name = "SOM whiskey engineer radio headset"
-	keyslot2 = /obj/item/encryptionkey/engi/som
-
-/obj/item/radio/headset/mainship/som/whiskey/med
-	name = "SOM whiskey corpsman radio headset"
-	keyslot2 = /obj/item/encryptionkey/med/som

@@ -47,16 +47,6 @@ export const JobPreferences = (props, context) => {
     'Squad Smartgunner',
     'Squad Leader',
   ];
-  const somJobs = [
-    'SOM Squad Standard',
-    'SOM Squad Engineer',
-    'SOM Squad Medic',
-    'SOM Squad Veteran',
-    'SOM Squad Leader',
-    'SOM Field Commander',
-    'SOM Staff Officer',
-    'SOM Commander',
-  ];
   const flavourJobs = ['Corporate Liaison'];
 
   const JobList = ({ name, jobs }) => (
@@ -182,11 +172,6 @@ export const JobPreferences = (props, context) => {
               </Flex.Item>
             </Flex>
           </Section>
-        </Stack.Item>
-      </Stack>
-      <Stack>
-        <Stack.Item grow>
-          <JobList name="SOM Jobs" jobs={somJobs} />
         </Stack.Item>
       </Stack>
     </Section>

@@ -212,7 +212,6 @@
 				)
 		if(JOB_PREFERENCES)
 			.["squads"] = SELECTABLE_SQUADS
-			.["squads_som"] = SELECTABLE_SQUADS_SOM
 			.["jobs"] = list()
 			for(var/datum/job/job AS in SSjob.joinable_occupations)
 				var/rank = job.title
@@ -709,12 +708,6 @@
 			if(!(new_squad in SELECTABLE_SQUADS))
 				return
 			preferred_squad = new_squad
-
-		if("squad_som")
-			var/new_squad_som = params["newValue"]
-			if(!(new_squad_som in SELECTABLE_SQUADS_SOM))
-				return
-			preferred_squad_som = new_squad_som
 
 		if("med_record")
 			var/new_record = trim(html_encode(params["medicalDesc"]), MAX_MESSAGE_LEN)
