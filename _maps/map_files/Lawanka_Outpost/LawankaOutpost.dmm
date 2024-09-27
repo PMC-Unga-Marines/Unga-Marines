@@ -1298,7 +1298,6 @@
 	pixel_y = -4
 	},
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/campaign_structure/tele_blocker,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/west)
 "bdf" = (
@@ -3484,10 +3483,6 @@
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/lawankaoutpost/colony/marshalls)
-"cXI" = (
-/obj/effect/landmark/campaign_structure/asat_system,
-/turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/lawankaoutpost/outside/west)
 "cXS" = (
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/tile/dark2,
@@ -7482,10 +7477,6 @@
 	},
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/operations_hall)
-"gjD" = (
-/obj/effect/landmark/campaign_structure/asat_system,
-/turf/open/floor,
-/area/lawankaoutpost/colony/landingzonetwo)
 "gjR" = (
 /turf/open/floor/freezer,
 /area/lawankaoutpost/colony/biologics)
@@ -17847,10 +17838,6 @@
 	dir = 4
 	},
 /area/lawankaoutpost/colony/northdorms)
-"pbK" = (
-/obj/effect/landmark/campaign_structure/asat_system,
-/turf/open/floor/plating/ground/dirt,
-/area/lawankaoutpost/outside/central)
 "pcm" = (
 /turf/open/floor/mainship/blue,
 /area/lawankaoutpost/colony/biologics)
@@ -18576,10 +18563,6 @@
 	},
 /turf/open/floor/freezer,
 /area/lawankaoutpost/colony/northdorms)
-"pEo" = (
-/obj/effect/landmark/campaign_structure/asat_system,
-/turf/open/ground/grass,
-/area/lawankaoutpost/outside/northwest)
 "pEq" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
@@ -26311,7 +26294,6 @@
 /area/lawankaoutpost/colony/medbay)
 "wca" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/effect/landmark/campaign_structure/asat_system,
 /turf/open/ground/grass,
 /area/lawankaoutpost/colony/operations_hall)
 "wce" = (
@@ -47608,7 +47590,7 @@ vuj
 ewf
 qyR
 lNL
-cXI
+vuj
 oxj
 iJs
 ulZ
@@ -50816,7 +50798,7 @@ nQk
 amB
 uPN
 xQt
-pEo
+xQt
 oRz
 xuZ
 sdr
@@ -63496,7 +63478,7 @@ uJt
 dxV
 sUR
 hoS
-pbK
+wQV
 iBn
 wQV
 pCP
@@ -71348,7 +71330,7 @@ uaC
 wEk
 wEk
 hYh
-gjD
+wEk
 wEk
 wEk
 xRX

@@ -4661,10 +4661,6 @@
 	dir = 8
 	},
 /area/lv624/lazarus/research/caves)
-"ym" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/ground/grass/weedable,
-/area/lv624/ground/jungle10)
 "yn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -5014,10 +5010,6 @@
 	},
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
-/area/lv624/ground/jungle7)
-"zL" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "zO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7503,14 +7495,6 @@
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
-"Mn" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/jungle9)
 "Mo" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -8980,10 +8964,6 @@
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/medbay)
-"To" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/jungle9)
 "Tp" = (
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/tile/bar,
@@ -10306,10 +10286,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
-"ZY" = (
-/obj/effect/landmark/campaign_structure/sensor_tower,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/jungle5)
 
 (1,1,1) = {"
 wh
@@ -11091,7 +11067,7 @@ wM
 JY
 Zj
 Zj
-ym
+Zj
 Zj
 km
 kT
@@ -14967,7 +14943,7 @@ Om
 Om
 Om
 EH
-Mn
+GQ
 ft
 ft
 EH
@@ -15257,7 +15233,7 @@ Du
 ft
 ft
 ft
-To
+ft
 ft
 Du
 br
@@ -15743,7 +15719,7 @@ ua
 FC
 FC
 Rw
-zL
+Rw
 OM
 Ww
 Ww
@@ -19513,7 +19489,7 @@ Up
 UI
 UI
 WX
-ZY
+WX
 Nj
 UI
 UI
