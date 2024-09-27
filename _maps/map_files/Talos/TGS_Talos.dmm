@@ -10050,6 +10050,23 @@
 /obj/machinery/chem_master,
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/chemistry)
+"fCZ" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/head/det_hat,
+/obj/item/clothing/head/det_hat,
+/obj/item/clothing/head/det_hat,
+/obj/item/clothing/head/det_hat,
+/obj/item/clothing/head/det_hat,
+/obj/item/clothing/head/det_hat,
+/obj/item/clothing/head/det_hat,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/wood,
+/area/mainship/shipboard/weapon_room)
 "fDi" = (
 /obj/effect/spawner/random/misc/structure/barrel,
 /obj/effect/decal/cleanable/dirt,
@@ -28959,14 +28976,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/head/det_hat,
-/obj/item/clothing/head/det_hat,
-/obj/item/clothing/head/det_hat,
-/obj/item/clothing/head/det_hat,
-/obj/item/clothing/head/det_hat,
-/obj/item/clothing/head/det_hat,
-/obj/item/clothing/head/det_hat,
 /turf/open/floor/wood,
 /area/mainship/shipboard/weapon_room)
 "qPr" = (
@@ -66493,7 +66502,7 @@ xqN
 oio
 iaX
 oio
-dGY
+fCZ
 wnT
 qwP
 qwP
