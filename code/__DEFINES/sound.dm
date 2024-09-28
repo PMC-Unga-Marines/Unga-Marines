@@ -2,12 +2,11 @@
 #define CHANNEL_LOBBYMUSIC 1024
 #define CHANNEL_AMBIENT 1023
 #define CHANNEL_NOTIFY 1022 // observer, new player, vote notifications
-#define CHANNEL_VOX 1021 //vox announcements from AI
-#define CHANNEL_ANNOUNCEMENTS 1020 // IC priority announcements, hivemind messages etc
-#define CHANNEL_CINEMATIC 1019
-#define CHANNEL_ADMIN 1018
-#define CHANNEL_MIDI 1017
-#define CHANNEL_AMBIENCE 1016
+#define CHANNEL_ANNOUNCEMENTS 1021 // IC priority announcements, hivemind messages etc
+#define CHANNEL_CINEMATIC 1020
+#define CHANNEL_ADMIN 1019
+#define CHANNEL_MIDI 1018
+#define CHANNEL_AMBIENCE 1017
 
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
