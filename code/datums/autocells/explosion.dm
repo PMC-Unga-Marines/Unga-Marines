@@ -201,7 +201,7 @@
 			// Set the direction the explosion is traveling in
 			our_explosion.direction = our_dir
 			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
-			if(our_dir in GLOB.diagonals)
+			if(!direction && (our_dir in GLOB.diagonals))
 				our_explosion.delay = 1
 
 			setup_new_cell(our_explosion)
