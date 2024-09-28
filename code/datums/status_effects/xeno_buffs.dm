@@ -1206,7 +1206,7 @@
 		return
 	var/mob/living/carbon/carbon_target = target
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
-	carbon_target.reagents.add_reagent(injected_reagent, 1 + toxin_amount_per_chamber * chamber_scaling)
+	carbon_target.reagents.add_reagent(injected_reagent, 2 + toxin_amount_per_chamber * chamber_scaling)
 
 // ***************************************
 // ***************************************
@@ -1226,7 +1226,7 @@
 		return
 	QDEL_NULL(effect.current_aura)
 	effect.emitted_aura = phero_choice
-	effect.current_aura = SSaura.add_emitter(effect.buff_owner, phero_choice, 6 + effect.phero_power_per_chamber * effect.chamber_scaling * 2, 1 + effect.phero_power_per_chamber * effect.chamber_scaling, -1, FACTION_XENO, effect.buff_owner.hivenumber)
+	effect.current_aura = SSaura.add_emitter(effect.buff_owner, phero_choice, 6 + effect.phero_power_per_chamber * effect.chamber_scaling * 2, 2 + effect.phero_power_per_chamber * effect.chamber_scaling, -1, FACTION_XENO, effect.buff_owner.hivenumber)
 
 /datum/status_effect/upgrade_pheromones
 	id = "upgrade_pheromones"
@@ -1245,7 +1245,7 @@
 	buff_owner = owner
 	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
-	current_aura = SSaura.add_emitter(buff_owner, AURA_XENO_RECOVERY, 6 + phero_power_per_chamber * chamber_scaling * 2, 1.5 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
+	current_aura = SSaura.add_emitter(buff_owner, AURA_XENO_RECOVERY, 6 + phero_power_per_chamber * chamber_scaling * 2, 2 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
 	return TRUE
 
 /datum/status_effect/upgrade_pheromones/on_remove()
@@ -1258,7 +1258,7 @@
 	SIGNAL_HANDLER
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
 	QDEL_NULL(current_aura)
-	current_aura = SSaura.add_emitter(buff_owner, emitted_aura, 6 + phero_power_per_chamber * chamber_scaling * 2, 1.5 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
+	current_aura = SSaura.add_emitter(buff_owner, emitted_aura, 6 + phero_power_per_chamber * chamber_scaling * 2, 2 + phero_power_per_chamber * chamber_scaling, -1, FACTION_XENO, buff_owner.hivenumber)
 
 // ***************************************
 // ***************************************
@@ -1275,8 +1275,8 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_acid_trail
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/datum/aura_bearer/current_aura
-	var/base_chance = 10
-	var/chance_per_chamber = 15
+	var/base_chance = 25
+	var/chance_per_chamber = 25
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_acid_trail/on_apply()
