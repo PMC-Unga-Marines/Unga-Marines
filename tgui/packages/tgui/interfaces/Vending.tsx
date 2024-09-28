@@ -56,9 +56,7 @@ export const Vending = () => {
           <Box>{showDesc}</Box>
           <Button content="Dismiss" onClick={() => setShowDesc(null)} />
         </Modal>
-      ) : (
-        null
-      )}
+      ) : null}
       <Window.Content scrollable>
         <Section
           title="Select an item"
