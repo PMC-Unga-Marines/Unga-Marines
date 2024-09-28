@@ -24625,6 +24625,15 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
+"osa" = (
+/obj/effect/turf_decal/siding/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/metal{
+	dir = 4
+	},
+/turf/open/floor/mainship/metal,
+/area/mainship/hallways/aft_hallway)
 "osc" = (
 /obj/machinery/marine_selector/gear/marine,
 /obj/structure/window{
@@ -67491,7 +67500,7 @@ tLw
 lIb
 tLw
 tLw
-tLw
+osa
 fMt
 irB
 tLw
