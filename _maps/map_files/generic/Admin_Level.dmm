@@ -97,6 +97,12 @@
 /obj/effect/turf_decal/sandedge,
 /turf/open/floor/plating,
 /area/centcom/valhalla)
+"bcA" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	where = "close2"
+	},
+/turf/open/floor/plating,
+/area/centcom/valhalla)
 "beG" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
 /turf/open/floor/tile/red/yellowfull,
@@ -1303,6 +1309,13 @@
 /obj/machinery/camera/autoname/thunderdome/hidden,
 /turf/open/floor/podhatch/floor,
 /area/tdome)
+"tik" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/machinery/button/valhalla/marine_button{
+	link = "xenoclose2"
+	},
+/turf/open/floor/mainship/stripesquare,
+/area/centcom/valhalla)
 "tiO" = (
 /obj/effect/landmark/thunderdome/admin,
 /obj/structure/bed/chair/sofa/left{
@@ -6708,7 +6721,7 @@ xJj
 dhA
 xUc
 xUc
-gAO
+bcA
 xUc
 mGD
 hdk
@@ -6987,7 +7000,7 @@ xUc
 xUc
 xUc
 rCR
-jvR
+tik
 tzf
 iVt
 wqU
