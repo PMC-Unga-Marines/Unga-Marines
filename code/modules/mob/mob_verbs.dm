@@ -112,7 +112,6 @@
  * SOM and TG loadouts are handled differently, taking subtypes from the HvH loadout sets.
  */
 /proc/do_eord_respawn(mob/respawner)
-
 	var/spawn_location = pick(GLOB.deathmatch)
 	var/mob/living/carbon/human/eord_body
 	if(ishuman(respawner) && !is_centcom_level(respawner.z)) // Wont take
