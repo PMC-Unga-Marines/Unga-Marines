@@ -116,7 +116,7 @@
 /area/centcom/valhalla)
 "bhl" = (
 /turf/open/space/basic,
-/area/centcom/valhalla/exterior)
+/area/space)
 "bjQ" = (
 /obj/structure/sign/securearea/firingrange,
 /turf/closed/wall/r_wall/unmeltable,
@@ -6912,8 +6912,8 @@ xrI
 xrI
 xrI
 xrI
-bhl
-bhl
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -15831,7 +15831,7 @@ xrI
 xrI
 xrI
 xrI
-xrI
+bhl
 xrI
 xrI
 xrI
