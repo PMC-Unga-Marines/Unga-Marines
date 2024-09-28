@@ -50,7 +50,7 @@
 
 	// *** Abilities *** //
 
-	resin_max_range = 1 //Hivelord can place resin structures from 1 tile away
+	resin_max_range = 2 //Hivelord can place resin structures from 1 tile away
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,

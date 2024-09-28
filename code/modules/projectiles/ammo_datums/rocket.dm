@@ -78,6 +78,11 @@
 /datum/ammo/rocket/ltb/drop_nade(turf/T)
 	cell_explosion(T, 200, 45)
 
+/datum/ammo/rocket/ltb/on_hit_mob(mob/victim, obj/projectile/proj)
+	drop_nade(get_turf(victim))
+	if(!isxeno(victim))
+		victim.gib()
+
 /datum/ammo/rocket/heavy_isg
 	name = "15cm round"
 	icon_state = "heavyrr"
