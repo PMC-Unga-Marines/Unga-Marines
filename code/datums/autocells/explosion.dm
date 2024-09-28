@@ -134,18 +134,13 @@
 		return
 	// The resistance here will affect the damage taken and the falloff in the propagated explosion
 	var/resistance = max(0, in_turf.get_explosion_resistance(direction))
-	for(var/atom/our_atom in in_turf)
-		resistance += max(0, our_atom.get_explosion_resistance())
 
 	// Blow stuff up
 	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
 	for(var/atom/our_atom in in_turf)
-		if(iseffect(our_atom))
+		if(our_atom.gc_destroyed || (our_atom in exploded_atoms))
 			continue
-		if(our_atom in exploded_atoms)
-			continue
-		if(our_atom.gc_destroyed)
-			continue
+		resistance += max(0, our_atom.get_explosion_resistance())
 		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += our_atom
 
