@@ -1805,9 +1805,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/nuke_disk_candidate{
-	force_for_sets = list("basic")
-	},
+/obj/machinery/computer/nuke_disk_generator/red,
 /turf/open/floor/wood,
 /area/barren/security)
 "iw" = (
@@ -3890,9 +3888,7 @@
 "se" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/structure/nuke_disk_candidate{
-	force_for_sets = list("basic")
-	},
+/obj/structure/table/woodentable,
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
 "sf" = (
@@ -3960,9 +3956,7 @@
 /turf/open/floor,
 /area/barren/misc/genstorage)
 "ss" = (
-/obj/structure/nuke_disk_candidate{
-	force_for_sets = list("basic")
-	},
+/obj/machinery/computer/nuke_disk_generator/blue,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 6
 	},
@@ -8088,9 +8082,7 @@
 /area/barren/cave/lz2)
 "LW" = (
 /obj/structure/sign/poster,
-/obj/structure/nuke_disk_candidate{
-	force_for_sets = list("basic")
-	},
+/obj/machinery/computer/nuke_disk_generator/green,
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "LX" = (
@@ -8882,9 +8874,6 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PT" = (
-/obj/structure/nuke_disk_candidate{
-	force_for_sets = list("basic")
-	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "PV" = (
