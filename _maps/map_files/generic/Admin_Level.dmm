@@ -22,13 +22,13 @@
 "ahz" = (
 /turf/open/floor/mainship/cargo,
 /area/centcom/supplypod/loading/three)
-"aik" = (
-/obj/structure/girder,
-/turf/open/floor/plating/scorched,
-/area/centcom/valhalla)
 "ajx" = (
 /turf/open/floor/mainship/cargo,
 /area/centcom/supplypod/loading/four)
+"ajL" = (
+/obj/effect/spawner/modularmap/admin/eorg,
+/turf/open/space/basic,
+/area/space)
 "akg" = (
 /turf/open/floor/mainship/cargo,
 /area/centcom/supplypod/loading/ert)
@@ -41,7 +41,7 @@
 "aoa" = (
 /obj/effect/turf_decal/warning_stripes/leader,
 /obj/effect/turf_decal/loading_area,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "aoD" = (
 /turf/open/floor/mainship/stripesquare,
@@ -52,13 +52,14 @@
 "arj" = (
 /turf/open/floor/mainship/plate/outline,
 /area/centcom/supplypod/flyMeToTheMoon)
+"ath" = (
+/obj/machinery/iv_drip,
+/obj/effect/turf_decal/tile/metal/medical,
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "avM" = (
 /obj/structure/barricade/wooden,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla)
-"awi" = (
-/obj/item/ore/iron,
-/turf/open/floor/plating/ground/mars/random/cave,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "aDr" = (
 /obj/effect/landmark/thunderdome/observe,
@@ -71,62 +72,67 @@
 /area/tdome/tdomeobserve)
 "aLR" = (
 /obj/structure/girder,
-/turf/open/floor/plating/ground/mars/random/cave,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "aMq" = (
-/turf/open/floor/plating/ground/mars/random/cave,
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 1
+	},
+/area/centcom/valhalla)
+"aRf" = (
+/obj/structure/barricade/wooden,
+/obj/item/explosive/grenade/flare/on,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "aSD" = (
 /obj/effect/landmark/valhalla/xeno_spawn_landmark{
 	where = "far1"
 	},
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla)
-"aWz" = (
-/obj/effect/turf_decal/warning_stripes/smartgunner,
-/obj/effect/turf_decal/loading_area{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "bbO" = (
-/obj/effect/turf_decal/sandedge/corner,
-/turf/open/floor/plating,
+/obj/machinery/vending/weapon/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 9
+	},
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "bbR" = (
-/obj/effect/turf_decal/sandedge,
-/turf/open/floor/plating,
-/area/centcom/valhalla)
-"bcA" = (
-/obj/effect/landmark/valhalla/xeno_spawn_landmark{
-	where = "close2"
-	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "beG" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
-"bgz" = (
-/obj/machinery/vending/cigarette,
+"bfK" = (
+/obj/machinery/vending/cigarette/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
+	dir = 6
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
-"bhl" = (
-/turf/open/space/basic,
-/area/centcom/valhalla/exterior)
+"bgz" = (
+/turf/closed/wall/mainship/gray/outer,
+/area/centcom/valhalla)
 "bjQ" = (
 /obj/structure/sign/securearea/firingrange,
-/turf/closed/wall/r_wall/unmeltable,
+/turf/closed/wall/mainship/gray/outer,
 /area/centcom/valhalla)
 "bka" = (
-/turf/closed/wall/r_wall,
+/obj/machinery/vending/boozeomat/nopower,
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "ble" = (
-/obj/machinery/vending/medical/valhalla,
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/chem_dispenser/valhalla,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 4
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "blx" = (
 /turf/closed/wall/indestructible,
@@ -137,22 +143,34 @@
 	},
 /turf/open/floor/carpet/side,
 /area/tdome/tdomeobserve)
+"bnV" = (
+/obj/effect/turf_decal/warning_stripes/mech,
+/obj/effect/turf_decal/loading_area,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "bog" = (
-/obj/structure/window/reinforced/extratoughened{
+/obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
 	},
-/obj/machinery/chem_dispenser/beer/nopower{
-	pixel_y = 7
-	},
-/obj/structure/table/fancywoodentable,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "boC" = (
 /turf/closed/mineral/smooth,
 /area/centcom/valhalla/xenocave)
+"bqF" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/adv,
+/obj/item/reagent_containers/spray/surgery{
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/obj/item/storage/surgical_tray/alt,
+/obj/effect/turf_decal/tile/metal/medical,
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "bqN" = (
 /obj/machinery/marine_selector/gear/medic/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "bsY" = (
 /obj/effect/landmark/corpsespawner/colonist,
@@ -168,31 +186,16 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "bCd" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 10
 	},
-/obj/effect/spawner/random/misc/plushie/nospawnninetynine{
-	pixel_y = -3
-	},
-/obj/effect/turf_decal/warning_stripes/thick,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
-"bKo" = (
-/obj/effect/spawner/random/engineering/pickaxe,
-/turf/open/floor/plating/ground/mars/random/cave,
+/obj/machinery/vending/MarineMed/Blood/valhalla,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "bPK" = (
-/obj/effect/turf_decal/sandedge{
-	dir = 4
-	},
-/turf/open/floor/plating,
+/obj/machinery/marine_selector/gear/marine/valhalla,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
-"bRv" = (
-/turf/closed/wall/r_wall/unmeltable,
-/area/centcom/valhalla/exterior)
 "bZu" = (
 /obj/machinery/door/poddoor/shutters/mainship/thunderdome/one,
 /turf/open/floor/plating,
@@ -204,23 +207,45 @@
 /obj/effect/spawner/random/misc/plushie/nospawnninetynine{
 	pixel_y = -3
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "cbR" = (
 /obj/effect/landmark/newplayer_start,
 /turf/open/floor,
 /area/start)
+"cbS" = (
+/obj/machinery/marine_selector/clothes/valhalla,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "cdt" = (
-/obj/machinery/chem_dispenser/valhalla,
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 6
+	},
+/obj/structure/table/black,
+/obj/item/storage/box/beakers{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/storage/box/pillbottles{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "cnE" = (
 /obj/machinery/vending/engivend/nopower/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"cpH" = (
+/obj/machinery/chem_master/nopower/valhalla,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 8
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "cre" = (
 /obj/machinery/marine_selector/gear/commander/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "cFt" = (
 /obj/item/explosive/grenade/chem_grenade/cleaner,
@@ -236,6 +261,11 @@
 /obj/structure/table,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"cRJ" = (
+/obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
+/turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
 "daE" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -244,11 +274,13 @@
 /area/tdome)
 "dhA" = (
 /obj/item/stack/sheet/metal/small_stack,
-/turf/open/floor/plating/scorched,
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 1
+	},
 /area/centcom/valhalla)
 "dlQ" = (
 /obj/item/target/alien,
-/turf/open/floor/plating/ground/mars/random/cave,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "drK" = (
 /obj/item/bedsheet/yellow,
@@ -258,11 +290,13 @@
 	},
 /area/tdome/tdomeobserve)
 "dyS" = (
-/obj/machinery/marine_selector/clothes/synth/valhalla,
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/tile/metal/medical,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "dAJ" = (
-/turf/open/floor/plating/dmg3,
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "dDv" = (
 /obj/machinery/camera/autoname/thunderdome/hidden,
@@ -271,28 +305,9 @@
 	},
 /area/tdome)
 "dFm" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner,
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "dHM" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
 	pixel_x = 1;
 	pixel_y = 15
@@ -303,11 +318,15 @@
 	pixel_y = 15
 	},
 /obj/item/storage/fancy/cigar,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "dIY" = (
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
+"dJw" = (
+/obj/machinery/status_display/ai,
+/turf/closed/wall/mainship/gray/outer,
+/area/centcom/valhalla)
 "dNn" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor,
@@ -326,33 +345,18 @@
 	},
 /area/tdome/tdomeobserve)
 "ecT" = (
-/turf/open/floor/tile/vault{
-	dir = 5
-	},
+/turf/open/floor/plating/mainship/reinforced,
 /area/centcom/valhalla)
 "epz" = (
 /obj/machinery/vending/uniform_supply/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "etk" = (
-/obj/structure/table,
-/obj/item/storage/box/pillbottles{
-	pixel_x = 7;
-	pixel_y = 7
+/obj/machinery/loadout_vendor/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
 	},
-/obj/item/storage/box/pillbottles{
-	pixel_x = 7;
-	pixel_y = 7
-	},
-/obj/item/storage/box/beakers{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/storage/box/beakers{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "evE" = (
 /obj/machinery/camera/autoname/thunderdome/hidden,
@@ -360,14 +364,16 @@
 	dir = 4
 	},
 /area/tdome)
-"eCf" = (
-/obj/machinery/vending/armor_supply/valhalla,
-/obj/machinery/marine_selector/clothes/valhalla,
-/turf/open/floor/plating,
+"eCH" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/smartgunner,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "eGk" = (
 /obj/item/stack/sheet/metal/small_stack,
-/turf/open/floor/plating,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "eLQ" = (
 /obj/effect/landmark/thunderdome/admin,
@@ -380,24 +386,37 @@
 /obj/structure/bed/stool,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
-"eXk" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/ground/mars/random/cave,
+"eSM" = (
+/obj/structure/closet/secure_closet/medical2{
+	req_access = null
+	},
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 6
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "fdy" = (
 /obj/item/explosive/grenade/flare/on,
-/turf/open/floor/plating,
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 1
+	},
 /area/centcom/valhalla)
 "fmR" = (
 /turf/closed/mineral/smooth,
-/area/centcom/valhalla/exterior)
+/area/centcom/valhalla)
 "fog" = (
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
 "foh" = (
 /obj/machinery/vending/uniform_supply/valhalla,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
+	},
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "foG" = (
 /obj/structure/table,
@@ -413,34 +432,21 @@
 /obj/machinery/door/airlock/mainship/marine/general/sl{
 	dir = 3
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "fsy" = (
 /obj/machinery/chem_master/condimaster,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
 "fvw" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/tile/metal/medical,
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "fLA" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
-"fNU" = (
-/obj/structure/door_assembly/door_assembly_mhatch,
-/obj/item/ore/iron,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla)
 "fOQ" = (
 /obj/structure/window/framed/mainship/hull,
 /obj/effect/forcefield{
@@ -450,17 +456,22 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor,
 /area/tdome)
+"fTr" = (
+/obj/machinery/marine_selector/clothes/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"fUN" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/machinery/vending/weapon/valhalla,
+/turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
 "fWu" = (
 /turf/closed/mineral/smooth/indestructible,
-/area/centcom/valhalla/exterior)
-"gds" = (
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/structure/rack,
-/turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "glQ" = (
 /obj/structure/disposalpipe/segment,
@@ -477,26 +488,38 @@
 /area/tdome/tdomeobserve)
 "gzk" = (
 /obj/machinery/vending/tool/nopower/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"gzS" = (
+/obj/machinery/vending/weapon/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "gzY" = (
-/obj/effect/turf_decal/warning_stripes/synth,
-/obj/effect/turf_decal/loading_area,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
 /area/centcom/valhalla)
 "gAO" = (
 /obj/effect/landmark/valhalla/xeno_spawn_landmark{
-	where = "close1"
+	where = "close2"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 1
+	},
 /area/centcom/valhalla)
 "gBi" = (
 /obj/effect/landmark/thunderdome/two,
 /turf/open/floor/plating,
 /area/tdome/tdome2)
 "gCD" = (
-/obj/machinery/chem_master/nopower/valhalla,
-/turf/open/floor/tile/dark/gray,
+/obj/structure/table/black,
+/obj/machinery/microwave,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
 /area/centcom/valhalla)
 "gEX" = (
 /obj/machinery/button/valhalla/xeno_button{
@@ -504,38 +527,22 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
-"gGW" = (
-/obj/effect/turf_decal/sandedge/corner{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/centcom/valhalla)
 "gJS" = (
-/obj/structure/bed/chair/office/light{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/bot/roomba/valhalla,
+/turf/open/floor/glass/reinforced,
 /area/centcom/valhalla)
 "gMl" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
+/obj/structure/table/black,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
 	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/machinery/chem_dispenser/valhalla,
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
-"gQk" = (
-/obj/item/stack/sheet/metal/small_stack,
-/obj/effect/turf_decal/sandedge,
-/turf/open/floor/plating,
 /area/centcom/valhalla)
 "gUR" = (
 /obj/machinery/door/airlock/mainship/generic{
@@ -552,7 +559,7 @@
 /area/centcom/valhalla/xenocave)
 "hdk" = (
 /obj/effect/turf_decal/warning_stripes/thick,
-/turf/open/floor/mainship/stripesquare,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "heB" = (
 /obj/machinery/button/valhalla/xeno_button{
@@ -560,6 +567,10 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
+"hkP" = (
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "hlk" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 1
@@ -570,56 +581,62 @@
 /obj/machinery/door/poddoor/shutters/mainship/thunderdome/two,
 /turf/open/floor/plating,
 /area/tdome)
+"hGQ" = (
+/obj/machinery/vending/marineFood/valhalla,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "hUu" = (
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
 "hYu" = (
 /obj/machinery/vending/valhalla_seasonal_req,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "ibs" = (
 /turf/closed/wall/mainship,
 /area/tdome/tdomeobserve)
-"ieF" = (
-/obj/effect/turf_decal/sandedge/corner2{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/centcom/valhalla)
 "ijc" = (
 /obj/machinery/marine_selector/clothes/commander/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
+"iot" = (
+/obj/machinery/vending/boozeomat/nopower,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
 /area/centcom/valhalla)
 "itM" = (
 /turf/open/floor/carpet/side{
 	dir = 1
 	},
 /area/tdome/tdomeobserve)
+"iDZ" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/engineer,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "iNh" = (
 /obj/machinery/door/airlock/mainship/marine/general/engi{
 	dir = 3
 	},
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
-"iVt" = (
-/obj/item/ore/iron,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "iZc" = (
-/turf/open/floor/tile/dark/gray,
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
 /area/centcom/valhalla)
 "iZT" = (
 /obj/machinery/computer/security/telescreen,
 /obj/structure/table,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
-"jaD" = (
-/obj/effect/turf_decal/warning_stripes/engineer,
-/obj/effect/turf_decal/loading_area{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
 "jla" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
@@ -637,36 +654,33 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "jtw" = (
-/obj/structure/girder,
-/turf/open/floor/plating,
-/area/centcom/valhalla)
-"jtL" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/sandedge,
+/turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla)
 "jvi" = (
-/obj/effect/turf_decal/sandedge/corner2,
-/turf/open/floor/plating,
+/obj/machinery/marine_selector/clothes/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "jvR" = (
 /obj/effect/turf_decal/warning_stripes/thick,
 /obj/machinery/button/valhalla/marine_button{
-	link = "xenoclose1"
+	link = "xenoclose2"
 	},
-/turf/open/floor/mainship/stripesquare,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"jJC" = (
+/obj/structure/window/framed/mainship/gray/toughened/hull,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "jWH" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
+/obj/structure/table/reinforced,
+/obj/machinery/computer/operating/valhalla,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
 	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
-/obj/effect/turf_decal/warning_stripes/thick,
-/turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "jWX" = (
 /obj/structure/sign/securearea{
@@ -687,12 +701,12 @@
 /obj/machinery/door/airlock/mainship/marine/general/corps{
 	dir = 3
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "kjb" = (
 /obj/effect/turf_decal/warning_stripes/fcdr,
 /obj/effect/turf_decal/loading_area,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "kmb" = (
 /obj/item/toy/plush/rouny,
@@ -702,15 +716,25 @@
 /obj/machinery/door/airlock/mainship/command/FCDRquarters{
 	dir = 3
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "kmB" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
 "knm" = (
-/obj/structure/window/framed/colony/reinforced/hull,
-/turf/open/floor/tile/dark/gray,
+/obj/structure/table/black,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
+/obj/machinery/reagentgrinder/nopower/valhalla{
+	pixel_y = 7
+	},
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
 /area/centcom/valhalla)
 "knX" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
@@ -735,22 +759,17 @@
 /area/tdome/tdomeobserve)
 "kIe" = (
 /obj/machinery/marine_selector/clothes/medic/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
+"kJx" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/open/floor/plating/mainship/reinforced,
 /area/centcom/valhalla)
 "kKa" = (
 /obj/machinery/vending/valhalla_req,
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
-"kME" = (
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4
-	},
-/obj/machinery/door/airlock/mainship/security/free_access,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "kMT" = (
 /turf/open/floor/tile/red/yellowfull,
@@ -759,6 +778,18 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
+"kSB" = (
+/obj/machinery/vending/MarineMed/valhalla,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"kUY" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/synth,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "ldg" = (
 /obj/structure/sign/double/barsign/carp{
 	dir = 1
@@ -766,21 +797,15 @@
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
 "llp" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 9
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "lof" = (
 /obj/structure/closet/secure_closet/bar,
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
-"luM" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
 "lzH" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
@@ -790,25 +815,40 @@
 "lAb" = (
 /turf/closed/wall/indestructible/splashscreen,
 /area/start)
+"lEp" = (
+/obj/machinery/marine_selector/gear/robo/valhalla,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"lFj" = (
+/obj/machinery/vending/weapon/valhalla,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "lIC" = (
 /turf/closed/wall/mainship,
 /area/tdome)
-"lMV" = (
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner,
-/turf/open/floor/tile/dark/gray,
+"lKz" = (
+/obj/item/explosive/grenade/flare/on,
+/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "lPX" = (
-/obj/machinery/loadout_vendor/valhalla,
-/turf/open/floor/plating,
+/turf/open/floor/mainship/metal,
 /area/centcom/valhalla)
 "lYp" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
+/obj/machinery/marine_selector/clothes/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 9
 	},
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"mcN" = (
+/obj/machinery/vending/uniform_supply/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 10
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "meN" = (
 /obj/structure/rack/nometal,
@@ -824,7 +864,7 @@
 /area/tdome/tdomeadmin)
 "mqB" = (
 /obj/machinery/marine_selector/clothes/engi/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "muw" = (
 /obj/machinery/door/airlock/command/thunderdome{
@@ -833,45 +873,30 @@
 /turf/open/floor,
 /area/tdome)
 "myT" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
+/obj/effect/turf_decal/tile/metal/medical,
+/obj/structure/table/fancywoodentable,
+/obj/machinery/chem_dispenser/beer/nopower{
 	dir = 1
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "mzc" = (
 /obj/machinery/status_display,
 /turf/closed/wall/mainship,
 /area/tdome)
 "mzH" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick,
-/obj/effect/turf_decal/warning_stripes/thick/corner,
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "mGD" = (
-/obj/effect/turf_decal/tile/black{
-	dir = 1
+/obj/machinery/vending/armor_supply/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 9
 	},
-/obj/effect/turf_decal/tile/black,
-/obj/structure/table/mainship,
-/turf/open/floor/mainship/stripesquare,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "mHP" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "mJp" = (
 /obj/structure/window/framed/mainship/hull,
@@ -895,6 +920,12 @@
 	dir = 10
 	},
 /area/tdome/tdomeobserve)
+"mLF" = (
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 5
+	},
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "mMr" = (
 /turf/open/floor/carpet/side{
 	dir = 6
@@ -902,15 +933,15 @@
 /area/tdome/tdomeobserve)
 "mNv" = (
 /obj/machinery/marine_selector/clothes/smartgun/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "mPJ" = (
 /obj/machinery/marine_selector/clothes/leader/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "mPT" = (
 /obj/machinery/marine_selector/gear/leader/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "mQe" = (
 /turf/open/ai_visible,
@@ -933,7 +964,7 @@
 /area/tdome/tdomeobserve)
 "ndm" = (
 /obj/machinery/bot/roomba/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/glass/reinforced,
 /area/centcom/valhalla)
 "ndu" = (
 /obj/effect/landmark/thunderdome/two,
@@ -941,24 +972,34 @@
 /turf/open/floor/plating,
 /area/tdome/tdome2)
 "noL" = (
-/obj/structure/table,
-/obj/machinery/reagentgrinder/nopower/valhalla{
-	pixel_y = 7
+/obj/effect/turf_decal/tile/metal/medical,
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
+"ntU" = (
+/obj/machinery/vending/armor_supply/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 9
 	},
-/obj/effect/turf_decal/tile/red{
+/obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/red{
-	dir = 1
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"nvt" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
 	},
-/obj/item/stack/sheet/mineral/phoron/medium_stack,
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/button/valhalla/marine_button{
+	link = "xenoclose1"
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "nwK" = (
-/obj/machinery/computer/mech_builder,
-/turf/open/floor/tile/vault{
-	dir = 5
+/obj/machinery/computer/mech_builder{
+	dir = 1
 	},
+/turf/open/floor/plating/mainship/reinforced,
 /area/centcom/valhalla)
 "nzE" = (
 /obj/machinery/door/airlock/mainship/generic{
@@ -972,12 +1013,26 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "nCB" = (
-/obj/structure/window/framed/colony/reinforced/hull,
-/turf/open/floor/plating,
+/obj/machinery/chem_dispenser/valhalla,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 8
+	},
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
+"nIK" = (
+/obj/machinery/bioprinter/valhalla,
+/obj/effect/turf_decal/tile/metal/medical,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "nKg" = (
-/obj/machinery/vending/armor_supply/valhalla,
-/turf/open/floor/plating,
+/obj/machinery/marine_selector/clothes/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
+	},
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "nOQ" = (
 /obj/structure/table,
@@ -993,18 +1048,15 @@
 	dir = 4
 	},
 /area/tdome)
-"nUd" = (
-/obj/effect/turf_decal/sandedge{
-	dir = 1
+"okD" = (
+/obj/machinery/vending/weapon/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
 	},
-/turf/open/floor/plating,
-/area/centcom/valhalla)
-"nXQ" = (
-/obj/effect/turf_decal/warning_stripes/medical,
-/obj/effect/turf_decal/loading_area{
-	dir = 1
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "onv" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -1021,9 +1073,22 @@
 "oHd" = (
 /turf/open/floor,
 /area/tdome)
+"oHK" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	where = "close1"
+	},
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "oJr" = (
 /obj/machinery/vending/weapon/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
+"oKa" = (
+/obj/machinery/vending/medical/valhalla,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "oNJ" = (
 /obj/structure/disposalpipe/trunk{
@@ -1033,30 +1098,15 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "oNZ" = (
-/obj/effect/turf_decal/tile/red{
+/obj/effect/turf_decal/sandedge,
+/obj/item/target/alien,
+/turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 8
-	},
-/turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "oXf" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
-"oYw" = (
-/obj/machinery/marine_selector/gear/robo,
-/turf/open/floor/plating,
-/area/centcom/valhalla)
 "ped" = (
 /obj/structure/table,
 /obj/item/toy/deck/kotahi,
@@ -1067,27 +1117,41 @@
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
 "pfh" = (
-/turf/open/floor/plating/scorched,
+/turf/open/floor/plating/heatinggrate,
+/area/centcom/valhalla)
+"pga" = (
+/obj/machinery/vending/uniform_supply/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"pik" = (
+/obj/machinery/vending/tool/nopower/valhalla,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "ppm" = (
 /obj/machinery/vending/armor_supply/valhalla,
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
-"pqM" = (
-/obj/machinery/marine_selector/clothes/valhalla,
-/turf/open/floor/plating,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "pqO" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
-"psp" = (
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud{
-	pixel_x = -5
+"prY" = (
+/obj/machinery/button/valhalla/xeno_button{
+	link = "marinesurgery"
 	},
-/obj/structure/rack,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
+/area/centcom/valhalla)
+"pwk" = (
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 8
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "pBq" = (
 /turf/open/floor/tile/red/redtaupe{
@@ -1095,25 +1159,52 @@
 	},
 /area/tdome)
 "pLH" = (
-/obj/machinery/vending/MarineMed/valhalla,
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/chem_master/nopower/valhalla,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 4
+	},
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
+"pUr" = (
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/item/clothing/glasses/hud/xenohud,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 5
+	},
+/obj/structure/table/black,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"pZi" = (
+/obj/item/storage/box/beakers{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/storage/box/pillbottles{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 10
+	},
+/obj/structure/table/black,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "qhT" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 4
+/obj/structure/table/reinforced,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
 	},
-/obj/effect/turf_decal/tile/black{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/black,
-/obj/structure/table/mainship,
-/turf/open/floor/mainship/stripesquare,
 /area/centcom/valhalla)
 "qlP" = (
-/obj/structure/bed/chair/office/light{
-	dir = 4
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/tile/metal/medical,
+/obj/structure/table/black,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "qpT" = (
 /obj/effect/landmark/thunderdome/observe,
@@ -1173,26 +1264,29 @@
 /obj/structure/table/mainship,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"qYs" = (
+/obj/machinery/loadout_vendor/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "rei" = (
-/obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/bluespace,
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/tile/metal/medical,
+/obj/structure/table/fancywoodentable,
+/obj/machinery/chem_dispenser/soda/nopower{
+	dir = 1
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "rhC" = (
 /obj/machinery/marine_selector/gear/smartgun/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "rjK" = (
 /obj/effect/landmark/start/job/fallen/xenomorph,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
-"rvU" = (
-/obj/effect/turf_decal/sandedge/corner2{
-	dir = 4
-	},
-/obj/item/target/alien,
-/turf/open/floor/plating,
-/area/centcom/valhalla)
 "rwm" = (
 /obj/structure/table,
 /obj/item/storage/box/drinkingglasses,
@@ -1214,41 +1308,32 @@
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
 "rBJ" = (
-/obj/effect/turf_decal/warning_stripes/thick/corner,
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 4
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/warning_stripes/medical,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "rCR" = (
-/obj/machinery/firealarm{
-	dir = 8
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/black{
+/obj/effect/turf_decal/warning_stripes/thick{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/black,
-/obj/structure/table/mainship,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/turf/open/floor/mainship/stripesquare,
+/obj/structure/table/black,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"rFk" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/medical,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "rMb" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
 "rVD" = (
-/obj/machinery/marine_selector/gear/marine,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/warning_stripes/robot,
+/obj/effect/turf_decal/loading_area,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "sji" = (
 /obj/machinery/chem_dispenser/beer{
@@ -1271,7 +1356,7 @@
 /area/tdome)
 "sCM" = (
 /obj/machinery/loadout_vendor/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "sEd" = (
 /obj/effect/landmark/thunderdome/observe,
@@ -1282,18 +1367,17 @@
 /obj/structure/sign/securearea{
 	dir = 1
 	},
-/turf/closed/wall,
+/turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla)
-"sHO" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating,
+"sJF" = (
+/obj/effect/turf_decal/warning_stripes/marine,
+/obj/effect/turf_decal/loading_area,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "sWX" = (
 /obj/effect/turf_decal/warning_stripes/thick,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/effect/turf_decal/caution,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "sYH" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -1309,12 +1393,10 @@
 /obj/machinery/camera/autoname/thunderdome/hidden,
 /turf/open/floor/podhatch/floor,
 /area/tdome)
-"tik" = (
-/obj/effect/turf_decal/warning_stripes/thick,
-/obj/machinery/button/valhalla/marine_button{
-	link = "xenoclose2"
-	},
-/turf/open/floor/mainship/stripesquare,
+"sZz" = (
+/obj/machinery/vending/cigarette/valhalla,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "tiO" = (
 /obj/effect/landmark/thunderdome/admin,
@@ -1323,6 +1405,17 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"tiQ" = (
+/obj/effect/landmark/valhalla/marine_spawner_landmark{
+	where = "surgery"
+	},
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/machinery/optable/valhalla,
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
+/area/centcom/valhalla)
 "tkX" = (
 /obj/structure/table,
 /obj/item/toy/dice,
@@ -1369,19 +1462,30 @@
 /obj/structure/table/woodentable,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"tuZ" = (
+/obj/machinery/marine_selector/clothes/robo/valhalla,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "tvb" = (
 /obj/effect/landmark/ai_multicam_room,
 /turf/open/ai_visible,
 /area/ai_multicam_room)
 "tzf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"tAC" = (
+/obj/machinery/vending/armor_supply/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "tFi" = (
 /obj/machinery/door/airlock/mainship/marine/general/smart{
 	dir = 3
 	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "tFt" = (
 /obj/machinery/igniter,
@@ -1392,6 +1496,11 @@
 "tGL" = (
 /turf/open/floor/podhatch/floor,
 /area/tdome)
+"tSq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/job/fallen,
+/turf/open/floor/glass/reinforced,
+/area/centcom/valhalla)
 "uaI" = (
 /obj/structure/window/framed/mainship/hull,
 /turf/open/floor/tile/white,
@@ -1416,22 +1525,21 @@
 /obj/structure/table,
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
-"ucT" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/open/floor/tile/vault{
-	dir = 5
-	},
-/area/centcom/valhalla)
 "uez" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"ufQ" = (
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 10
+	},
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "uut" = (
 /obj/machinery/marine_selector/gear/engi/valhalla,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "uwK" = (
 /obj/effect/landmark/thunderdome/one,
@@ -1445,12 +1553,7 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "uOI" = (
-/obj/structure/table,
-/obj/machinery/reagentgrinder/nopower/valhalla{
-	pixel_y = 7
-	},
-/obj/item/stack/sheet/mineral/phoron/medium_stack,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/centcom/valhalla)
 "uSh" = (
 /obj/machinery/computer/pod,
@@ -1464,6 +1567,12 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor,
 /area/tdome)
+"veZ" = (
+/obj/item/explosive/grenade/flare/on,
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 1
+	},
+/area/centcom/valhalla)
 "vhr" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -1476,6 +1585,11 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"vtX" = (
+/obj/machinery/marine_selector/clothes/synth/valhalla,
+/obj/effect/turf_decal/warning_stripes/thick,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "vuf" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/open/floor/tile/red/redblue/full,
@@ -1488,29 +1602,18 @@
 /obj/structure/bed/chair/sofa/left,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"vEv" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/turf/open/floor/mainship/metal/white{
+	color = "#E2E0DC"
+	},
+/area/centcom/valhalla)
 "vFf" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
-"vQc" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/black{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/black,
-/obj/structure/table/mainship,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/obj/item/clothing/glasses/hud/xenohud,
-/turf/open/floor/mainship/stripesquare,
-/area/centcom/valhalla)
 "wee" = (
 /obj/structure/bed/chair/sofa{
 	dir = 1
@@ -1518,33 +1621,25 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "wfL" = (
-/obj/structure/table/mainship,
 /obj/item/clothing/glasses/hud/xenohud,
 /obj/item/clothing/glasses/hud/xenohud,
 /obj/item/clothing/glasses/hud/xenohud,
 /obj/item/clothing/glasses/hud/xenohud,
 /obj/item/clothing/glasses/hud/xenohud,
 /obj/item/clothing/glasses/hud/xenohud,
-/turf/open/floor/mainship/stripesquare,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 9
+	},
+/obj/structure/table/black,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "wkQ" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
-/turf/open/floor/tile/dark/gray,
+/obj/machinery/door/airlock/mainship/medical/glass/free_access,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "wqU" = (
 /obj/effect/landmark/start/job/fallen,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/glass/reinforced,
 /area/centcom/valhalla)
 "wrn" = (
 /turf/open/floor/tile/red/redblue/full,
@@ -1588,8 +1683,9 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "wZg" = (
-/obj/machinery/vending/weapon/valhalla,
-/turf/open/floor/plating,
+/obj/machinery/vending/engivend/nopower/valhalla,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "xdq" = (
 /obj/structure/bed/chair/wood/wings{
@@ -1597,16 +1693,11 @@
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
-"xgU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
-/turf/open/floor/tile/dark/gray,
-/area/centcom/valhalla)
 "xpm" = (
 /obj/item/target/alien,
-/turf/open/floor/plating/dmg3,
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "xrI" = (
 /turf/open/space/basic,
@@ -1621,30 +1712,25 @@
 /turf/open/floor/plating,
 /area/tdome)
 "xzt" = (
-/turf/closed/wall/r_wall/unmeltable,
+/obj/structure/window/framed/mainship/gray/toughened/hull,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "xJj" = (
 /turf/closed/wall,
 /area/centcom/valhalla)
 "xOF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/red{
+/obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "xUc" = (
-/turf/open/floor/plating,
-/area/centcom/valhalla)
-"xUt" = (
-/turf/open/floor/plating/dmg1,
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 1
+	},
 /area/centcom/valhalla)
 "xVT" = (
 /obj/machinery/button/valhalla/marine_button{
@@ -1653,20 +1739,14 @@
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 10
 	},
-/turf/open/floor/mainship/stripesquare,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "xWF" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/glass/reinforced,
 /area/centcom/valhalla)
 "yeN" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/tile/dark/gray,
+/turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "ykJ" = (
 /obj/structure/table,
@@ -3689,12 +3769,12 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -3827,12 +3907,12 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+llp
+pwk
+pwk
+bCd
+bgz
 xrI
 xrI
 xrI
@@ -3965,12 +4045,12 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+xOF
+jWH
+gzY
+bqF
+bgz
 xrI
 xrI
 xrI
@@ -4103,12 +4183,12 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+xOF
+tiQ
+gzY
+ath
+bgz
 xrI
 xrI
 xrI
@@ -4241,12 +4321,12 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+xOF
+qhT
+prY
+nIK
+bgz
 xrI
 xrI
 xrI
@@ -4371,20 +4451,20 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+mLF
+bog
+bog
+eSM
+bgz
 xrI
 xrI
 xrI
@@ -4509,20 +4589,20 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+bgz
+hGQ
+uOI
+fTr
+gzS
+qYs
+gzS
+jvi
+bgz
+xzt
+wkQ
+jJC
+jJC
+bgz
 xrI
 xrI
 xrI
@@ -4647,23 +4727,23 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xzt
-xzt
-xzt
-xzt
-xzt
-xzt
-xzt
-xzt
-xzt
-xrI
-xrI
-xrI
+bgz
+sZz
+uOI
+lPX
+lPX
+lPX
+lPX
+lPX
+uOI
+pwk
+pwk
+pwk
+ufQ
+bgz
+bgz
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -4785,23 +4865,23 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xzt
-nKg
-jWH
+bgz
 wZg
-bCd
-nKg
-fvw
-wZg
-xzt
-xrI
-xrI
-xrI
+uOI
+ntU
+foh
+uOI
+ntU
+foh
+uOI
+dFm
+xWF
+dFm
+dyS
+nCB
+cpH
+pZi
+bgz
 xrI
 xrI
 xrI
@@ -4923,23 +5003,23 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xzt
-foh
-jWH
-pqM
-sWX
-foh
-fvw
-eCf
-xzt
-xrI
-xrI
-xrI
+bgz
+pik
+uOI
+lPX
+lPX
+lPX
+lPX
+lPX
+uOI
+dFm
+xWF
+dFm
+dyS
+gzY
+vEv
+qlP
+bgz
 xrI
 xrI
 xrI
@@ -5061,23 +5141,23 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xzt
-lPX
-oNZ
-wkQ
+bgz
+bka
+uOI
+lYp
+okD
+uOI
+bbO
+nKg
+uOI
 dFm
-wkQ
-mzH
-lPX
-xzt
-xrI
-xrI
-xrI
+xWF
+dFm
+dyS
+iot
+gzY
+noL
+bgz
 xrI
 xrI
 xrI
@@ -5199,24 +5279,24 @@ xrI
 xrI
 xrI
 xrI
+bgz
+kSB
+uOI
+lPX
+lPX
+lPX
+lPX
+lPX
+uOI
+dFm
+wqU
+dFm
+dyS
+gCD
+gzY
+rei
+bgz
 xrI
-xrI
-xrI
-xrI
-xrI
-xzt
-nKg
-jWH
-wZg
-fvw
-nKg
-fvw
-rVD
-xzt
-xzt
-xzt
-xzt
-xzt
 xrI
 xrI
 xrI
@@ -5337,24 +5417,24 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-fWu
-xrI
-xzt
-foh
-jWH
-pqM
-xOF
-foh
-fvw
-oYw
-gCD
+bgz
+oKa
 uOI
-rei
+mGD
+pga
 etk
-xzt
+tAC
+mcN
+uOI
+dFm
+xWF
+rBJ
+dyS
+gMl
+gzY
+myT
+bgz
+xrI
 xrI
 xrI
 xrI
@@ -5469,30 +5549,30 @@ xrI
 xrI
 xrI
 xrI
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-xzt
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
 bgz
-rBJ
-xWF
-lMV
-xgU
-lMV
-xWF
-gMl
-gJS
-myT
-noL
-xzt
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+vtX
+kUY
+dFm
+tSq
+dFm
+dyS
+knm
+gzY
+fvw
+bgz
+xrI
 xrI
 xrI
 xrI
@@ -5606,31 +5686,31 @@ xrI
 xrI
 xrI
 xrI
+xrI
 fWu
 fWu
-fmR
-jtw
-fmR
-fmR
-fmR
+fWu
+fWu
+fWu
+fWu
 sFR
-xJj
-fmR
-fmR
+fWu
+fWu
+fWu
 bjQ
-xzt
-bog
-iZc
-iZc
-iZc
-iZc
-iZc
-iZc
-iZc
+bgz
+bgz
+bfK
+dFm
+dFm
+xWF
+dFm
+dyS
+gzY
 iZc
 qlP
-rei
-xzt
+bgz
+xrI
 xrI
 xrI
 xrI
@@ -5743,32 +5823,32 @@ aew
 xrI
 xrI
 xrI
-fWu
+xrI
+xrI
 fWu
 fmR
-fmR
-aMq
-avM
+bbR
+aRf
 avM
 bbR
 eGk
-nUd
-aMq
 bbR
-xUc
-xUc
+aMq
+veZ
+dAJ
+pfh
 wfL
 xVT
-iZc
-iZc
-iZc
-gzY
+dFm
+dFm
+wqU
+dFm
 dyS
 ble
 pLH
 cdt
-gCD
-xzt
+bgz
+xrI
 xrI
 xrI
 xrI
@@ -5881,32 +5961,32 @@ aew
 xrI
 xrI
 xrI
+xrI
+xrI
 fWu
-fmR
-xJj
-aMq
-aMq
-aSD
-aMq
 bbR
-xUt
-rvU
-bPK
-jvi
+lKz
+aSD
+bbR
+bbR
+bbR
+dlQ
+aMq
 xUc
-xUc
-qhT
+dAJ
+pfh
+rCR
 hdk
-iZc
-iZc
-iZc
-iZc
-xzt
-xzt
-xzt
-xzt
-xzt
-xzt
+dFm
+dFm
+xWF
+dFm
+lEp
+bgz
+bgz
+bgz
+bgz
+xrI
 xrI
 xrI
 xrI
@@ -6019,31 +6099,31 @@ aew
 xrI
 xrI
 xrI
+xrI
+xrI
 fWu
-fmR
-fmR
-aMq
+bbR
 dlQ
+bbR
+bbR
+bbR
+bbR
+bbR
 aMq
-awi
-gGW
-ieF
-xUc
-sHO
 dhA
-xUc
-xUc
-mGD
-hdk
-iZc
-iZc
+dAJ
+pfh
+rCR
+sWX
+dFm
+dFm
 wqU
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+rVD
+lFj
+bgz
+bgz
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -6157,31 +6237,31 @@ aew
 xrI
 xrI
 xrI
+xrI
+xrI
 fWu
-fmR
-aik
-aMq
-aMq
-eXk
-aMq
-aMq
 bbR
-xUc
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
 gAO
 xUc
 dAJ
-xUc
-mGD
+pfh
+rCR
 hdk
-iZc
+dFm
 tzf
 ndm
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+dFm
+tuZ
+bgz
+ecT
+nwK
+bgz
 xrI
 xrI
 xrI
@@ -6295,31 +6375,31 @@ aew
 xrI
 xrI
 xrI
+xrI
+xrI
 fWu
-fmR
-xJj
 aLR
-aMq
-aMq
+bbR
+bbR
 dlQ
-bbO
-jvi
-fdy
-xUc
+bbR
+bbR
+lKz
+aMq
 xUc
 xpm
-xUc
-vQc
+pfh
+rCR
 jvR
 tzf
-iVt
-iZc
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+dFm
+wqU
+dFm
+bnV
+kJx
+ecT
+ecT
+bgz
 xrI
 xrI
 xrI
@@ -6433,31 +6513,31 @@ xrI
 xrI
 xrI
 xrI
+xrI
+xrI
 fWu
-fWu
-fmR
 xJj
 aLR
-bKo
-aMq
 bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+dAJ
 pfh
-xUc
-jvi
-jvi
-xUc
-xUc
-qhT
-hdk
-iZc
-iZc
-iZc
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+rCR
+sWX
+tzf
+dFm
+xWF
+tzf
+bPK
+bgz
+ecT
+nwK
+bgz
 xrI
 xrI
 xrI
@@ -6572,30 +6652,30 @@ xrI
 xrI
 xrI
 xrI
+xrI
 fWu
-fWu
 fmR
 fmR
 fmR
-fNU
-gQk
-eGk
-jvi
-xUc
-xUc
-xUc
-xUc
-qhT
+bbR
+bbR
+bbR
+bbR
+aMq
+oNZ
+oHK
+pfh
+rCR
 hdk
-iZc
-iZc
-wqU
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+tzf
+dFm
+tSq
+sJF
+lFj
+bgz
+bgz
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -6717,23 +6797,23 @@ fWu
 fWu
 fmR
 fmR
-xJj
-dhA
+bbR
+bbR
+fdy
 xUc
-xUc
-bcA
-xUc
-mGD
-hdk
-iZc
-iZc
-iZc
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+dAJ
+pfh
+pUr
+nvt
+tzf
+dFm
+xWF
+dFm
+cbS
+bgz
+bgz
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -6849,25 +6929,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-bRv
+fmR
+fmR
+fmR
+fWu
+fWu
 fWu
 jtw
-xUc
-dAJ
-xUc
-xUc
-xUc
-mGD
-hdk
-iZc
+fWu
+fWu
+bgz
+jJC
+jJC
+jJC
+bgz
+hYu
 tzf
-iZc
-iZc
-xzt
+wqU
+dFm
+bgz
+ppm
+mHP
+ijc
+bgz
 xrI
 xrI
 xrI
@@ -6910,10 +6994,6 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-bhl
-bhl
 xrI
 xrI
 xrI
@@ -6992,24 +7072,24 @@ xrI
 xrI
 xrI
 xrI
-fWu
-fWu
-xUc
-xpm
-xUc
-xUc
-xUc
-rCR
-tik
-tzf
-iVt
-wqU
-iZc
-xzt
 xrI
 xrI
 xrI
 xrI
+bgz
+uut
+yeN
+mqB
+jJC
+cnE
+dFm
+xWF
+bZV
+jJC
+mHP
+mHP
+epz
+dJw
 xrI
 xrI
 xrI
@@ -7132,22 +7212,22 @@ xrI
 xrI
 xrI
 xrI
-fWu
-fWu
-xzt
-xzt
-nCB
-nCB
-xzt
-hYu
-iZc
-iZc
-tzf
-xzt
 xrI
 xrI
-xrI
-xrI
+bgz
+cRJ
+mHP
+mHP
+iNh
+iDZ
+dFm
+wqU
+kjb
+kmz
+mHP
+mHP
+oJr
+bgz
 xrI
 xrI
 xrI
@@ -7271,21 +7351,21 @@ xrI
 xrI
 xrI
 xrI
-fWu
-xzt
+xrI
+bgz
 uut
+mHP
 yeN
-mqB
-knm
-cnE
-iZc
+jJC
+gzk
+dFm
+xWF
 tzf
-iZc
-xzt
-xrI
-xrI
-xrI
-xrI
+jJC
+dHM
+mHP
+cre
+bgz
 xrI
 xrI
 xrI
@@ -7409,21 +7489,21 @@ xrI
 xrI
 xrI
 xrI
-fWu
-xzt
-psp
-llp
-iZc
-knm
-gzk
-iZc
-iZc
-iZc
-xzt
-xzt
-xzt
-xzt
-xzt
+xrI
+bgz
+bgz
+jJC
+jJC
+bgz
+sCM
+dFm
+wqU
+dFm
+bgz
+jJC
+jJC
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -7548,20 +7628,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-uut
-llp
-yeN
-iNh
-jaD
-tzf
-wqU
-iZc
-xzt
-ppm
-lYp
-ijc
-xzt
+bgz
+bqN
+mHP
+kIe
+jJC
+hkP
+dFm
+xWF
+dFm
+jJC
+mPJ
+mHP
+oJr
+bgz
 xrI
 xrI
 xrI
@@ -7686,20 +7766,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-xzt
-nCB
-nCB
-xzt
-sCM
-iZc
-iZc
-bZV
-knm
-iZc
-lYp
-epz
-xzt
+bgz
+cRJ
+yeN
+yeN
+khV
+rFk
+tzf
+wqU
+dFm
+jJC
+cRJ
+mHP
+mPJ
+bgz
 xrI
 xrI
 xrI
@@ -7824,20 +7904,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
+bgz
 bqN
-llp
-kIe
-knm
-ble
-iZc
-iZc
-kjb
-kmz
-iZc
-lYp
-oJr
-xzt
+mHP
+mHP
+jJC
+mzH
+dFm
+gJS
+aoa
+frZ
+mHP
+mHP
+mPT
+bgz
 xrI
 xrI
 xrI
@@ -7962,20 +8042,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-gds
-yeN
-tzf
-knm
-pLH
-iZc
-iZc
-tzf
-knm
-dHM
-lYp
-cre
-xzt
+bgz
+bgz
+jJC
+jJC
+jJC
+kKa
+dFm
+wqU
+dFm
+bgz
+bgz
+bgz
+bgz
+bgz
 xrI
 xrI
 xrI
@@ -8100,20 +8180,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-bqN
-llp
-llp
-khV
-nXQ
-iZc
-wqU
-jtL
-xzt
-nCB
-nCB
-xzt
-xzt
+bgz
+mNv
+mHP
+mHP
+tFi
+eCH
+dFm
+xWF
+dFm
+bgz
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -8238,20 +8318,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-xzt
-nCB
-nCB
-xzt
-kKa
-iZc
-iZc
-iZc
-knm
-mPJ
+bgz
+rhC
 mHP
-oJr
-xzt
+yeN
+jJC
+sCM
+dFm
+dFm
+dFm
+bgz
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -8376,20 +8456,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
+bgz
 mNv
-llp
-rhC
-knm
-sCM
-tzf
-iZc
-iZc
-knm
-iZc
-mHP
-mPJ
-xzt
+cRJ
+fUN
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -8514,20 +8594,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-oJr
-llp
-tzf
-knm
-iZc
-iZc
-tzf
-aoa
-frZ
-mHP
-mHP
-mPT
-xzt
+bgz
+bgz
+bgz
+bgz
+bgz
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -8652,20 +8732,20 @@ xrI
 xrI
 xrI
 xrI
-xzt
-mNv
-llp
-llp
-tFi
-aWz
-llp
-wqU
-luM
-xzt
-xzt
-xzt
-xzt
-xzt
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -8790,16 +8870,16 @@ xrI
 xrI
 xrI
 xrI
-xzt
-xzt
-xzt
-bka
-xzt
-xzt
-xzt
-kME
-bka
-bka
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -8933,11 +9013,11 @@ xrI
 xrI
 xrI
 xrI
-bka
-ecT
-ecT
-ecT
-bka
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -9071,11 +9151,11 @@ xrI
 xrI
 xrI
 xrI
-bka
-nwK
-ucT
-nwK
-bka
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -9209,11 +9289,11 @@ xrI
 xrI
 xrI
 xrI
-bka
-ecT
-ecT
-ecT
-bka
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -9347,11 +9427,11 @@ xrI
 xrI
 xrI
 xrI
-bka
-bka
-bka
-bka
-bka
+xrI
+xrI
+xrI
+xrI
+xrI
 xrI
 xrI
 xrI
@@ -16642,7 +16722,7 @@ xrI
 xrI
 xrI
 xrI
-xrI
+ajL
 xrI
 xrI
 xrI
