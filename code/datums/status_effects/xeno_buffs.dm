@@ -981,7 +981,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/regen_buff_per_chamber = 0.04
+	var/regen_buff_per_chamber = 0.05
 	var/sunder_regen_per_chamber = 0.33
 	var/chamber_scaling = 0
 
