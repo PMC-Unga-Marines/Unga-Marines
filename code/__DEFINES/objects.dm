@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define RAZORWIRE_BASE_DAMAGE 40
 #define RAZORWIRE_ENTANGLE_DELAY 5 SECONDS
 #define RAZORWIRE_SOAK 5
-#define RAZORWIRE_MAX_HEALTH 100
+#define RAZORWIRE_MAX_HEALTH 120
 #define RAZORWIRE_MIN_DAMAGE_MULT_LOW 0.4 //attacking
 #define RAZORWIRE_MAX_DAMAGE_MULT_LOW 0.6
 #define RAZORWIRE_MIN_DAMAGE_MULT_MED 0.8 //climbing into, disentangling or crusher charging it
