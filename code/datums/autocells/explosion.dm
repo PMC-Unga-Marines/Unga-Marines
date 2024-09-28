@@ -161,7 +161,7 @@
 	if(power <= 0)
 		qdel(src)
 		return
-
+	var/turf/old_turf = in_turf
 	// Propagate the explosion
 	var/list/to_spread = get_propagation_dirs(reflected)
 	for(var/our_dir in to_spread)
@@ -187,22 +187,36 @@
 			if(EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF)
 				new_falloff += (new_falloff * 0.5) * dir_falloff
 
-		var/datum/automata_cell/explosion/our_explosion = propagate(our_dir)
-		if(our_explosion)
-			our_explosion.power = new_power
-			our_explosion.power_falloff = new_falloff
-			our_explosion.falloff_shape = falloff_shape
+		if(our_dir == direction)
+			var/turf/new_turf = get_step(in_turf, our_dir)
+			transfer_turf(new_turf)
+			shockwave.Move(new_turf, our_dir, 0)
+			power = new_power
+			setup_new_cell(src)
+		else
+			var/datum/automata_cell/explosion/our_explosion = propagate(our_dir, old_turf)
+			if(our_explosion)
+				our_explosion.power = new_power
+				our_explosion.power_falloff = new_falloff
+				our_explosion.falloff_shape = falloff_shape
+				our_explosion.direction = our_dir
+				if(!direction && (our_dir in GLOB.diagonals))
+					our_explosion.delay = 1
+				setup_new_cell(our_explosion)
+	if(old_turf == in_turf)
+		qdel(src)
 
-			// Set the direction the explosion is traveling in
-			our_explosion.direction = our_dir
-			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
-			if(!direction && (our_dir in GLOB.diagonals))
-				our_explosion.delay = 1
+/datum/automata_cell/explosion/propagate(dir, turf/start_turf)
+	if(!dir)
+		return
 
-			setup_new_cell(our_explosion)
+	var/turf/our_turf = get_step(start_turf, dir)
+	if(QDELETED(our_turf))
+		return
 
-	// We've done our duty, now die pls
-	qdel(src)
+	// Create the new cell
+	var/datum/automata_cell/our_cell = new type(our_turf)
+	return our_cell
 
 /*
 The issue is that between the cell being birthed and the cell processing,
@@ -298,3 +312,4 @@ as having entered the turf.
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer = FLY_LAYER
+	animate_movement = NO_STEPS
