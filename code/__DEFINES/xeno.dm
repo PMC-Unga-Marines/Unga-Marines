@@ -211,3 +211,6 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 #define SPIDERLING_ATTACK "seek and attack order"
 
 #define SPIDERLING_WITHER_RANGE 15
+
+/// Life runs every 2 seconds, but we don't want to multiply all healing by 2 due to seconds_per_tick
+#define XENO_PER_SECOND_LIFE_MOD 0.5
