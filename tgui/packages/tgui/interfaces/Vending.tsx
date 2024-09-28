@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Section, Box, LabeledList, ProgressBar, Divider, Tabs, Stack } from '../components';
+import { Button, Section, Box, LabeledList, ProgressBar, Modal, Divider, Tabs, Stack } from '../components';
 import { Window } from '../layouts';
 
 type VendingData = {
@@ -23,7 +23,7 @@ type VendingRecord = {
   tab: string;
 };
 
-export const Vending = (props) => {
+export const Vending = () => {
   const { act, data } = useBackend<VendingData>();
 
   const {
@@ -51,6 +51,14 @@ export const Vending = (props) => {
       width={500}
       height={600}
       theme={ui_theme}>
+      {showDesc ? (
+        <Modal width="400px">
+          <Box>{showDesc}</Box>
+          <Button content="Dismiss" onClick={() => setShowDesc(null)} />
+        </Modal>
+      ) : (
+        null
+      )}
       <Window.Content scrollable>
         <Section
           title="Select an item"
@@ -164,17 +172,17 @@ const ProductEntry = (props: VendingProductEntryProps) => {
   );
 };
 
-const Products = (props) => {
+const Products = () => {
   const { data } = useBackend<VendingData>();
 
   const { displayed_records, stock, tabs } = data;
 
-  const [selectedTab, setSelectedTab] = useLocalState(
+  const [selectedTab] = useLocalState(
     'selectedTab',
     tabs.length ? tabs[0] : null
   );
 
-  const [showEmpty, setShowEmpty] = useLocalState('showEmpty', false);
+  const [showEmpty] = useLocalState('showEmpty', false);
 
   return (
     <Section>
@@ -204,12 +212,12 @@ const Products = (props) => {
   );
 };
 
-const Hacked = (props) => {
-  const { act, data } = useBackend<VendingData>();
+const Hacked = () => {
+  const { data } = useBackend<VendingData>();
 
   const { hidden_records, stock, tabs } = data;
 
-  const [selectedTab, setSelectedTab] = useLocalState(
+  const [selectedTab] = useLocalState(
     'selectedTab',
     tabs.length ? tabs[0] : null
   );
@@ -236,12 +244,12 @@ const Hacked = (props) => {
   );
 };
 
-const Premium = (props) => {
+const Premium = () => {
   const { act, data } = useBackend<VendingData>();
 
   const { coin_records, stock, coin, tabs } = data;
 
-  const [selectedTab, setSelectedTab] = useLocalState(
+  const [selectedTab] = useLocalState(
     'selectedTab',
     tabs.length ? tabs[0] : null
   );
