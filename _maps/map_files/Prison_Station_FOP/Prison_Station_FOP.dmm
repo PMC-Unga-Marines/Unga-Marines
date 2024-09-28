@@ -41459,8 +41459,8 @@
 /area/prison/recreation/medsec)
 "fet" = (
 /obj/machinery/miner/damaged,
-/turf/open/floor/plating,
-/area/prison/hangar/civilian)
+/turf/open/floor/prison/darkred/full,
+/area/prison/hangar/main)
 "ffu" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
@@ -43046,7 +43046,7 @@
 "iBb" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/prison,
-/area/prison/hangar/main)
+/area/prison/hangar/civilian)
 "iBj" = (
 /obj/effect/landmark/excavation_site_spawner,
 /obj/effect/ai_node,
@@ -54381,7 +54381,7 @@ qhf
 qhf
 iOg
 ctr
-fet
+qhf
 qhf
 hdB
 iHW
@@ -56175,7 +56175,7 @@ pSs
 qFm
 qFm
 qFm
-rEr
+qFm
 qFm
 qFm
 tbD
@@ -56683,7 +56683,7 @@ ays
 ubZ
 bkv
 ays
-ays
+iBb
 iNO
 mKN
 ays
@@ -56692,7 +56692,7 @@ gWR
 gWR
 uVZ
 bcH
-ays
+iBb
 aAC
 qBi
 aAC
@@ -110156,7 +110156,7 @@ aYL
 bAK
 bnQ
 bDe
-bxM
+fet
 bzn
 ghl
 dhH
@@ -111949,7 +111949,7 @@ nTj
 dXl
 bwp
 bnQ
-iBb
+bnQ
 eJX
 obp
 bAP
