@@ -40,13 +40,8 @@
 	. += "To access internal storage click with an empty hand or drag the bike onto self."
 	. += "The fuel gauge on the bike reads \"[fuel_count/fuel_max*100]%\""
 
-/obj/vehicle/ridden/motorbike/user_buckle_mob(mob/living/M, mob/user, check_loc = TRUE)
-	if(!do_after(M, 1 SECONDS, NONE, src, extra_checks = CALLBACK(M, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = M.health))))
-		return FALSE
-	return ..(M, user, FALSE)
-
 /obj/vehicle/ridden/motorbike/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
-	if(!do_after(buckling_mob, 1 SECONDS, NONE, src, extra_checks = CALLBACK(buckling_mob, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = buckling_mob.health))))
+	if(!do_after(buckling_mob, 2 SECONDS, NONE, src, extra_checks = CALLBACK(buckling_mob, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = buckling_mob.health))))
 		return FALSE
 	return ..()
 
