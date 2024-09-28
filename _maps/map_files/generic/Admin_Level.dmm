@@ -1141,7 +1141,7 @@
 /area/centcom/valhalla/xenocave)
 "prY" = (
 /obj/machinery/button/valhalla/xeno_button{
-	link = "surgery"
+	link = "marinesurgery"
 	},
 /turf/open/floor/mainship/metal/white{
 	color = "#E2E0DC"
