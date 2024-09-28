@@ -716,7 +716,7 @@
 	name = "neuro hugger"
 	desc = "This strange creature has a single prominent sharp proboscis."
 	color = COLOR_DARK_ORANGE
-	impact_time = 0.5 SECONDS
+	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
@@ -740,7 +740,7 @@
 	name = "acid hugger"
 	desc = "This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	color = COLOR_GREEN
-	impact_time = 0.5 SECONDS
+	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
@@ -768,7 +768,7 @@
 	name = "resin hugger"
 	desc = "This truly bizzare, bloated creature drips with purple, viscous resin."
 	color = COLOR_STRONG_VIOLET
-	impact_time = 0.5 SECONDS
+	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
@@ -806,9 +806,9 @@
 	name = "clawed hugger"
 	desc = "This nasty little creature is a nightmarish scrabble of muscle and sharp, long claws."
 	color = COLOR_RED
-	impact_time = 0.5 SECONDS
-	activate_time = 1.2 SECONDS
-	jump_cooldown = 1.2 SECONDS
+	impact_time = 0.1 SECONDS
+	activate_time = 1 SECONDS
+	jump_cooldown = 1 SECONDS
 	proximity_time = 0.5 SECONDS
 
 /obj/item/clothing/mask/facehugger/combat/slash/Attach(mob/M)

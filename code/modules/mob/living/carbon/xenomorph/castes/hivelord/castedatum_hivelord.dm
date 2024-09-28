@@ -16,7 +16,7 @@
 
 	// *** Plasma *** //
 	plasma_max = 2400
-	plasma_gain = 65
+	plasma_gain = 100
 	plasma_regen_limit = 0.5
 	plasma_icon_state = "hivelord_plasma"
 
