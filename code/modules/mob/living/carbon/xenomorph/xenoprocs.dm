@@ -598,8 +598,8 @@
 	revive(TRUE)
 
 /mob/living/carbon/xenomorph/verb/upgrade_menu()
-	set name = "Upgrade Menu"
-	set desc = "See current Upgrade Chambers and get buffs for yourself"
+	set name = "Mutations Menu"
+	set desc = "See current Upgrade Chambers and get mutations for yourself"
 	set category = "Alien"
 
 	get_upgrades(src)
@@ -640,7 +640,7 @@
 	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> " : "<br>Pheromones "] | Cost: [upgrade_price] | Ability to emit pheromones."
 	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];acid_trail_buy=1'>Acid Trail</a> " : "<br>Acid Trail "] | Cost: [upgrade_price] | Leave an acid trail behind."
 
-	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Upgrade Menu</div>", 600, 600)
+	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Mutations Menu</div>", 600, 600)
 	popup.set_content(dat)
 	popup.open()
 
@@ -663,11 +663,11 @@
 		return
 	var/upgrade = locate(upgrade_to_apply) in status_effects
 	if(upgrade)
-		to_chat(usr, span_xenonotice("Existing upgrade chosen. No biomass spent."))
+		to_chat(usr, span_xenonotice("Existing mutation chosen. No biomass spent."))
 		DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
 		return
 	biomass -= upgrade_price
-	to_chat(usr, span_xenonotice("Upgrade applied."))
+	to_chat(usr, span_xenonotice("Mutation gained."))
 	for(var/datum/status_effect/S AS in upgrades_to_remove)
 		remove_status_effect(S)
 	do_jitter_animation(500)
