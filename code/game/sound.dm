@@ -71,8 +71,6 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S, sound_reciever = listening_mob)
 
 	for(var/mob/M AS in GLOB.aiEyes)
-		if(!M.client && !istype(M, /mob/camera/aiEye))
-			continue
 		if(ambient_sound && !(M.client?.prefs?.toggles_sound & SOUND_AMBIENCE))
 			continue
 		var/turf/T = get_turf(M)
@@ -92,9 +90,6 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 
 //todo rename S to sound_to_use
 /mob/proc/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, channel = 0, sound/S, distance_multiplier = 1, mob/sound_reciever)
-	if(!client)
-		return
-
 	if(!sound_reciever)
 		sound_reciever = src
 	if(!sound_reciever.client)
