@@ -981,7 +981,8 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/regen_buff_per_chamber = 0.5
+	var/regen_buff_per_chamber = 0.04
+	var/sunder_regen_per_chamber = 0.33
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_regeneration/on_apply()
@@ -997,7 +998,9 @@
 /datum/status_effect/upgrade_regeneration/tick()
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
-		buff_owner.heal_wounds(regen_buff_per_chamber * chamber_scaling, FALSE)
+		var/amount = buff_owner.maxHealth * regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05)
+		HEAL_XENO_DAMAGE(buff_owner, amount, FALSE)
+		buff_owner.adjust_sunder(-sunder_regen_per_chamber * chamber_scaling)
 		buff_owner.updatehealth()
 	return ..()
 
@@ -1206,7 +1209,7 @@
 		return
 	var/mob/living/carbon/carbon_target = target
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
-	carbon_target.reagents.add_reagent(injected_reagent, 2 + toxin_amount_per_chamber * chamber_scaling)
+	carbon_target.reagents.add_reagent(injected_reagent, 1 + toxin_amount_per_chamber * chamber_scaling)
 
 // ***************************************
 // ***************************************
