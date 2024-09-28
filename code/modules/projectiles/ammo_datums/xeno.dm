@@ -205,7 +205,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage = 40
 	max_range = 7
 	spit_cost = 200
-	added_spit_delay = 8 SECONDS
+	added_spit_delay = 3 SECONDS
 	bonus_projectiles_type = /datum/ammo/xeno/sticky/mini
 	bonus_projectiles_scatter = 22
 	var/bonus_projectile_quantity = 16
@@ -460,7 +460,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/boiler_gas/on_hit_obj(obj/O, obj/projectile/P)
 	if(ismecha(O))
-		P.damage *= 7 //Globs deal much higher damage to mechs.
+		P.damage *= 5 //Globs deal much higher damage to mechs.
+	else if(ishitbox(O) || isvehicle(O))
+		P.damage *= 1.5
 	var/turf/target_turf = get_turf(O)
 	drop_nade(O.density ? P.loc : target_turf, P.firer)
 
