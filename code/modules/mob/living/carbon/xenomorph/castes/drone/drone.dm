@@ -6,7 +6,7 @@
 	icon_state = "Drone Walking"
 	bubble_icon = "alien"
 	skins = list(
-		"bonehead" = 'icons/Xeno/castes/drone_king.dmi',
+		"king" = 'icons/Xeno/castes/drone_king.dmi',
 		"baseline" = 'icons/Xeno/castes/drone.dmi',
 	)
 	health = 120
