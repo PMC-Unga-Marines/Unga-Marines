@@ -7,6 +7,9 @@
 
 	var/caste_type_path = null
 
+	//for strains basetype
+	var/base_caste_type_path = null
+
 	///primordial message that is shown when a caste becomes primordial
 	var/primordial_message = ""
 

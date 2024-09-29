@@ -80,6 +80,7 @@
 
 /datum/xeno_caste/sentinel/retrograde
 	caste_type_path = /mob/living/carbon/xenomorph/sentinel/retrograde
+	base_caste_type_path = /mob/living/carbon/xenomorph/sentinel
 	upgrade_name = ""
 	caste_name = "Retrograde Sentinel"
 	display_name = "Sentinel"

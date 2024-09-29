@@ -150,7 +150,7 @@
 			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER), //RUTGMC ADDITION
 			"is_leader" = xeno.queen_chosen_lead,
 			"is_ssd" = !xeno.client,
-			"index" = GLOB.hive_ui_caste_index[caste.caste_type_path],
+			"index" = GLOB.hive_ui_caste_index[caste.base_caste_type_path ? caste.base_caste_type_path : caste.caste_type_path],
 		))
 
 	var/mob/living/carbon/xenomorph/xeno_user
