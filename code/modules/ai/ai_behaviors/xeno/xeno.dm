@@ -10,7 +10,7 @@
 	var/can_heal = TRUE
 
 /datum/ai_behavior/xeno/New(loc, parent_to_assign, escorted_atom, can_heal = TRUE)
-	..()
+	. = ..()
 	refresh_abilities()
 	mob_parent.a_intent = INTENT_HARM //Killing time
 	src.can_heal = can_heal
@@ -159,7 +159,7 @@
 	UnregisterSignal(mob_parent, COMSIG_XENOMORPH_TAKING_DAMAGE)
 
 ///Signal handler to try to attack our target
-/datum/ai_behavior/xeno/proc/attack_target(datum/soure, atom/attacked)
+/datum/ai_behavior/xeno/proc/attack_target(datum/source, atom/attacked)
 	SIGNAL_HANDLER
 	if(world.time < mob_parent.next_move)
 		return

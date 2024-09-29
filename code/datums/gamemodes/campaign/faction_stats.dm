@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 
 	faction_portrait = GLOB.faction_to_portrait[faction] ? GLOB.faction_to_portrait[faction] : /atom/movable/screen/text/screen_text/picture/potrait/unknown
 
-/datum/faction_stats/Destroy(force, ...)
+/datum/faction_stats/Destroy(force)
 	GLOB.faction_stats_datums -= faction
 	return ..()
 

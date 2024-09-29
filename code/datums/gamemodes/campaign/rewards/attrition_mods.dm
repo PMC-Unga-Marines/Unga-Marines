@@ -12,7 +12,7 @@
 	faction.attrition_gain_multiplier -= attrition_mod
 	asset_flags |= ASSET_CONSUMED
 
-/datum/campaign_asset/attrition_modifier/Destroy(force, ...)
+/datum/campaign_asset/attrition_modifier/Destroy(force)
 	if(!(asset_flags & ASSET_CONSUMED))
 		remove_passive_effect()
 	return ..()
