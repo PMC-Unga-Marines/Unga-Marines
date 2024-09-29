@@ -57,8 +57,8 @@ export type MaintData = {
 export type OperatorData = {
   name: string;
   integrity: number;
-  power_level: number;
-  power_max: number;
+  power_level: number | null;
+  power_max: number | null;
   mecha_flags: number;
   internal_damage: number;
   internal_damage_keys: string[];

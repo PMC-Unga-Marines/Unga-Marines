@@ -175,8 +175,8 @@ interface StripMenuRowProps {
   unavailable: BooleanLike;
 }
 
-const StripMenuRow = (props: StripMenuRowProps) => {
-  const { act, data } = useBackend<StripMenuData>();
+const StripMenuRow = (props: StripMenuRowProps, context) => {
+  const { act, data } = useBackend<StripMenuData>(context);
 
   const name = props.obscured
     ? 'Obscured'
@@ -226,8 +226,8 @@ const StripMenuRow = (props: StripMenuRowProps) => {
   );
 };
 
-export const StripMenu = (props) => {
-  const { act, data } = useBackend<StripMenuData>();
+export const StripMenu = (props, context) => {
+  const { act, data } = useBackend<StripMenuData>(context);
 
   const items = data.items;
   const layout = data.layout || DEFAULT_LAYOUT;

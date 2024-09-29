@@ -2,8 +2,8 @@ import { useBackend } from '../../backend';
 import { Box, Section, Stack, LabeledList, Button, Table } from '../../components';
 import { TableCell, TableRow } from '../../components/Table';
 
-export const DrawOrder = (props) => {
-  const { act, data } = useBackend<DrawOrder>();
+export const DrawOrder = (props, context) => {
+  const { act, data } = useBackend<DrawOrder>(context);
   const { draw_order = [], quick_equip = [] } = data;
   return (
     <Section title="Draw Order">

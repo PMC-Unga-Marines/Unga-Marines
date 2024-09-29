@@ -1,7 +1,6 @@
 import { Stack, Box, Button, TextArea, Dropdown } from '../components';
 import { Window } from '../layouts';
-import { useBackend } from '../backend';
-import { useState } from 'react';
+import { useBackend, useLocalState } from '../backend';
 
 type SquadManagerData = {
   active_squads?: SquadData[];
@@ -14,12 +13,25 @@ type SquadData = {
   color: string;
 };
 
-export const SquadManager = (props) => {
-  const { act, data } = useBackend<SquadManagerData>();
+export const SquadManager = (props, context) => {
+  const { act, data } = useBackend<SquadManagerData>(context);
   const { active_squads, valid_colors } = data;
-  const [squadName, setSquadName] = useState('New Squad');
-  const [squadColor, setSquadColor] = useState(valid_colors[0]);
-  const [squadDesc, setSquadDesc] = useState('No description set.');
+  const [squadName, setSquadName] = useLocalState<string>(
+    context,
+    'squadName',
+    'New Squad'
+  );
+  const [squadColor, setSquadColor] = useLocalState<string>(
+    context,
+    'squadColor',
+    valid_colors[0]
+  );
+
+  const [squadDesc, setSquadDesc] = useLocalState<string>(
+    context,
+    'squadDesc',
+    'No description set.'
+  );
 
   return (
     <Window width={350} height={320}>

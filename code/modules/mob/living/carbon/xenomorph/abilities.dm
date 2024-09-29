@@ -182,15 +182,15 @@
 	action_icon_state = RESIN_WALL
 	desc = "Builds whatever resin you selected"
 	target_flags = ABILITY_TURF_TARGET
-	ability_cost = 50
+	ability_cost = 75
 	action_type = ACTION_TOGGLE
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SECRETE_RESIN,
 	)
 	///Minimum time to build a resin structure
-	var/base_wait = 0.5 SECONDS
+	var/base_wait = 1 SECONDS
 	///Multiplicator factor to add to the building time, depends on the health of the structure built
-	var/scaling_wait = 0.5 SECONDS
+	var/scaling_wait = 1 SECONDS
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,

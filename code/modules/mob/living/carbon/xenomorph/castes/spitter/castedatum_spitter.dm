@@ -12,11 +12,11 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.7
+	speed = -0.6
 
 	// *** Plasma *** //
 	plasma_max = 925
-	plasma_gain = 50
+	plasma_gain = 30
 
 	// *** Health *** //
 	max_health = 310

@@ -14,8 +14,4 @@
 	tier = XENO_TIER_THREE
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
-	skins = list(
-		"tacticool" = 'icons/Xeno/castes/praetorian_tacticool.dmi',
-		"baseline" = 'icons/Xeno/castes/praetorian.dmi',
-	)
 

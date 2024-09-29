@@ -7,9 +7,9 @@
 	bound_height = 64
 	obj_integrity = 600
 	max_integrity = 600
-	xeno_structure_flags = CRITICAL_STRUCTURE|IGNORE_WEED_REMOVAL
+	xeno_structure_flags = CRITICAL_STRUCTURE
 	///boost amt to be added per tower per cycle
-	var/boost_amount = 0.5
+	var/boost_amount = 0.2
 
 /obj/structure/xeno/evotower/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -33,7 +33,7 @@
 	bound_height = 64
 	obj_integrity = 400
 	max_integrity = 400
-	xeno_structure_flags = CRITICAL_STRUCTURE|IGNORE_WEED_REMOVAL
+	xeno_structure_flags = CRITICAL_STRUCTURE
 
 /obj/structure/xeno/psychictower/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -57,7 +57,7 @@
 	bound_height = 32
 	obj_integrity = 400
 	max_integrity = 400
-	xeno_structure_flags = CRITICAL_STRUCTURE|IGNORE_WEED_REMOVAL
+	xeno_structure_flags = CRITICAL_STRUCTURE
 	///The type of pheromone currently being emitted.
 	var/datum/aura_bearer/current_aura
 	///Strength of pheromones given by this tower.

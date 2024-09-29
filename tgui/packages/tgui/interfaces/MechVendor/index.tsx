@@ -6,12 +6,17 @@ import { MechAssembly } from './MechAssembly';
 import { MechWeapons } from './MechWeapons';
 import { tabs, MechWeapon } from './data';
 
-export const MechVendor = (props) => {
+export const MechVendor = (props, context) => {
   const [showDesc, setShowDesc] = useLocalState<MechWeapon | null>(
+    context,
     'showDesc',
     null
   );
-  const [selectedTab, setSelectedTab] = useLocalState('selectedTab', tabs[0]);
+  const [selectedTab, setSelectedTab] = useLocalState(
+    context,
+    'selectedTab',
+    tabs[0]
+  );
 
   return (
     <Window title={'Mecha Assembler'} width={1440} height={650}>
@@ -34,7 +39,7 @@ export const MechVendor = (props) => {
                   mt={3}
                   mb={9}
                   style={{
-                    transform: 'scale(3) translate(20%, 20%)',
+                    'transform': 'scale(3) translate(20%, 20%)',
                   }}
                 />
                 <LabeledList>
@@ -119,8 +124,12 @@ export const MechVendor = (props) => {
   );
 };
 
-const PanelContent = (props) => {
-  const [selectedTab, setSelectedTab] = useLocalState('selectedTab', tabs[0]);
+const PanelContent = (props, context) => {
+  const [selectedTab, setSelectedTab] = useLocalState(
+    context,
+    'selectedTab',
+    tabs[0]
+  );
   {
     switch (selectedTab) {
       case 'Mecha Assembly':

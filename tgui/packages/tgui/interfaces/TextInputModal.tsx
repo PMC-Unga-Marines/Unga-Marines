@@ -1,10 +1,9 @@
 import { Loader } from './common/Loader';
 import { InputButtons } from './common/InputButtons';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
+import { KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
 import { Box, Section, Stack, TextArea } from '../components';
 import { Window } from '../layouts';
-import { useState } from 'react';
-import { KEY } from 'common/keys';
 
 type TextInputData = {
   large_buttons: boolean;
@@ -24,19 +23,22 @@ export const removeAllSkiplines = (toSanitize: string) => {
   return toSanitize.replace(/[\r\n]+/, '');
 };
 
-export const TextInputModal = (props) => {
-  const { act, data } = useBackend<TextInputData>();
+export const TextInputModal = (props, context) => {
+  const { act, data } = useBackend<TextInputData>(context);
   const {
     large_buttons,
     max_length,
     message = '',
     multiline,
-    placeholder = '',
+    placeholder,
     timeout,
     title,
   } = data;
-
-  const [input, setInput] = useState(placeholder || '');
+  const [input, setInput] = useLocalState<string>(
+    context,
+    'input',
+    placeholder || ''
+  );
   const onType = (value: string) => {
     if (value === input) {
       return;
@@ -60,13 +62,11 @@ export const TextInputModal = (props) => {
       {timeout && <Loader value={timeout} />}
       <Window.Content
         onKeyDown={(event) => {
-          if (
-            event.key === KEY.Enter &&
-            (!visualMultiline || !event.shiftKey)
-          ) {
+          const keyCode = window.event ? event.which : event.keyCode;
+          if (keyCode === KEY_ENTER && (!visualMultiline || !event.shiftKey)) {
             act('submit', { entry: input });
           }
-          if (event.key === KEY.Escape) {
+          if (keyCode === KEY_ESCAPE) {
             act('cancel');
           }
         }}>
@@ -92,11 +92,8 @@ export const TextInputModal = (props) => {
 };
 
 /** Gets the user input and invalidates if there's a constraint. */
-const InputArea = (props: {
-  input: string;
-  onType: (value: string) => void;
-}) => {
-  const { act, data } = useBackend<TextInputData>();
+const InputArea = (props, context) => {
+  const { act, data } = useBackend<TextInputData>(context);
   const { max_length, multiline } = data;
   const { input, onType } = props;
 

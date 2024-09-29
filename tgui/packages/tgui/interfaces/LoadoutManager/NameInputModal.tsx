@@ -1,10 +1,11 @@
+import { useLocalState } from '../../backend';
 import { Button, Flex, Modal, TextArea } from '../../components';
 import { NameInputModalData } from './Types';
-import { useState } from 'react';
 
-export const NameInputModal = (props: NameInputModalData) => {
+export const NameInputModal = (props: NameInputModalData, context) => {
   const { label, button_text, onSubmit, onBack } = props;
-  const [input, setInput] = useState('');
+
+  const [input, setInput] = useLocalState(context, label, '');
 
   return (
     <Modal>

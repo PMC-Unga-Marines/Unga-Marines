@@ -10,8 +10,8 @@ const COLUMNS = 3;
 const BUTTON_DIMENSION_WIDTH = '70px';
 const BUTTON_DIMENSION_HEIGHT = '70px';
 
-export const SlotSelector = (props: LoadoutSlotData) => {
-  const { act } = useBackend();
+export const SlotSelector = (props: LoadoutSlotData, context) => {
+  const { act } = useBackend(context);
 
   const { items } = props;
 
@@ -98,8 +98,8 @@ export const SlotSelector = (props: LoadoutSlotData) => {
                                   width="100%"
                                   color="transparent"
                                   style={{
-                                    position: 'absolute',
-                                    verticalAlign: 'middle',
+                                    'position': 'absolute',
+                                    'vertical-align': 'middle',
                                     transform:
                                       'translateX(' +
                                       iconinfo.translateX +

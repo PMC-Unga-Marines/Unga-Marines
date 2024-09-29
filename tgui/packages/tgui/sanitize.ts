@@ -48,8 +48,7 @@ const defTag = [
 // Advanced HTML tags that we can trust admins (but not players) with
 const advTag = ['img'];
 
-// Background is here because it accepts image urls
-const defAttr = ['class', 'style', 'background'];
+const defAttr = ['class', 'style'];
 
 /**
  * Feed it a string and it should spit out a sanitized version.

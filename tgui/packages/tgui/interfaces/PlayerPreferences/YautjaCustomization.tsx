@@ -3,8 +3,8 @@ import { Section, Flex, LabeledList, Box, ColorBox, Button } from '../../compone
 import { TextFieldPreference, SelectFieldPreference } from './FieldPreferences';
 import { ProfilePicture } from './ProfilePicture';
 
-export const YautjaCustomization = (props) => {
-  const { act, data } = useBackend<YautjaCustomizationData>();
+export const YautjaCustomization = (props, context) => {
+  const { act, data } = useBackend<YautjaCustomizationData>(context);
   const {
     has_wl,
     legacy,

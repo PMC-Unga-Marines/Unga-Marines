@@ -583,10 +583,9 @@
 	glow_color = "#CB0166"
 
 /datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_obj(obj/O, obj/projectile/P)
-	if(ismecha(O))
-		P.damage *= 3
-	else if(ishitbox(O) || isvehicle(O))
-		P.damage *= 1.5
+	if(isvehicle(O))
+		var/obj/vehicle/veh_victim = O
+		veh_victim.take_damage(200, BURN, ENERGY, TRUE, armour_penetration = penetration)
 
 /datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_mob(mob/M, obj/projectile/P)
 	if(isxeno(M))

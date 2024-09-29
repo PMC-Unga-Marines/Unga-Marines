@@ -4,7 +4,7 @@ import { Box, Button, ByondUi, Collapsible, ColorBox, Input, Section, Stack } fr
 import { formatTime } from '../../format';
 import { BodypartPickerData, ColorDisplayData, MechVendData, partdefinetofluff } from './data';
 
-const ColorDisplayRow = (props: ColorDisplayData) => {
+const ColorDisplayRow = (props: ColorDisplayData, context) => {
   const { shown_colors } = props;
   let splitted = shown_colors.split('#').map((item) => '#' + item);
   splitted.shift();
@@ -19,8 +19,8 @@ const ColorDisplayRow = (props: ColorDisplayData) => {
   );
 };
 
-const BodypartPicker = (props: BodypartPickerData) => {
-  const { act, data } = useBackend<MechVendData>();
+const BodypartPicker = (props: BodypartPickerData, context) => {
+  const { act, data } = useBackend<MechVendData>(context);
   const { displayingpart } = props;
   const {
     selected_primary,
@@ -30,6 +30,7 @@ const BodypartPicker = (props: BodypartPickerData) => {
   } = data;
 
   const [selectedBodypart, setSelectedBodypart] = useLocalState(
+    context,
     'selectedBodypart',
     'none'
   );
@@ -59,8 +60,8 @@ const BodypartPicker = (props: BodypartPickerData) => {
   );
 };
 
-export const MechAssembly = (props) => {
-  const { act, data } = useBackend<MechVendData>();
+export const MechAssembly = (props, context) => {
+  const { act, data } = useBackend<MechVendData>(context);
   const {
     mech_view,
     selected_variants,
@@ -71,6 +72,7 @@ export const MechAssembly = (props) => {
     cooldown_left,
   } = data;
   const [selectedBodypart, setSelectedBodypart] = useLocalState(
+    context,
     'selectedBodypart',
     'none'
   );
@@ -311,11 +313,12 @@ export const MechAssembly = (props) => {
   );
 };
 
-const ColorSelector = (props) => {
-  const { act, data } = useBackend<MechVendData>();
+const ColorSelector = (props, context) => {
+  const { act, data } = useBackend<MechVendData>(context);
   const { selected_primary, selected_secondary, selected_visor } = data;
   const { type, listtoshow } = props;
   const [selectedBodypart, setSelectedBodypart] = useLocalState(
+    context,
     'selectedBodypart',
     'none'
   );

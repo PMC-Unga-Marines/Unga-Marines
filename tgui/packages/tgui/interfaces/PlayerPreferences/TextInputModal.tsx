@@ -1,15 +1,16 @@
 import { Button, Flex, Modal, TextArea } from '../../components';
-import { useState } from 'react';
+import { useLocalState } from '../../backend';
 
-export const TextInputModal = (props: TextInputModalData) => {
+export const TextInputModal = (props: TextInputModalData, context) => {
   const { label, button_text, onSubmit, onBack, areaHeigh, areaWidth } = props;
-  const [input, setInput] = useState('');
+
+  const [input, setInput] = useLocalState(context, label, '');
 
   return (
     <Modal id="grab-focus">
       <Flex direction="column">
         <Flex.Item fontSize="16px" maxWidth="90vw" mb={1}>
-          {label}
+          {label}:
         </Flex.Item>
 
         <Flex.Item mr={2} mb={1}>

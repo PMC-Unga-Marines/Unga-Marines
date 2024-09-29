@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { useBackend } from '../../backend';
+import { useBackend, useLocalState } from '../../backend';
 import { Section, LabeledList, Modal, Button, Box, Stack, Flex } from '../../components';
 
-export const JobPreferences = (props) => {
-  const { act, data } = useBackend<JobPreferencesData>();
+export const JobPreferences = (props, context) => {
+  const { act, data } = useBackend<JobPreferencesData>(context);
   const {
     alternate_option,
     squads,
@@ -12,7 +11,11 @@ export const JobPreferences = (props) => {
     special_occupations,
     special_occupation,
   } = data;
-  const [shownDescription, setShownDescription] = useState(null);
+  const [shownDescription, setShownDescription] = useLocalState(
+    context,
+    'shown-desc',
+    null
+  );
 
   const xenoJobs = ['Xeno Queen', 'Xenomorph'];
   const commandRoles = [
@@ -161,8 +164,8 @@ export const JobPreferences = (props) => {
   );
 };
 
-const JobPreference = (props) => {
-  const { act, data } = useBackend<JobPreferenceData>();
+const JobPreference = (props, context) => {
+  const { act, data } = useBackend<JobPreferenceData>(context);
   const { jobs, job_preferences } = data;
   const { job, setShownDescription } = props;
   const jobData = jobs[job];

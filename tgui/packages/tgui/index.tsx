@@ -18,7 +18,7 @@ import './styles/themes/syndicate.scss';
 import './styles/themes/som.scss';
 import './styles/themes/xeno.scss';
 
-import { configureStore } from './store';
+import { StoreProvider, configureStore } from './store';
 
 import { captureExternalLinks } from './links';
 import { createRenderer } from './renderer';
@@ -26,7 +26,6 @@ import { perf } from 'common/perf';
 import { setupGlobalEvents } from './events';
 import { setupHotKeys } from './hotkeys';
 import { setupHotReloading } from 'tgui-dev-server/link/client.cjs';
-import { setGlobalStore } from './backend';
 
 perf.mark('inception', window.performance?.timing?.navigationStart);
 perf.mark('init');
@@ -34,11 +33,13 @@ perf.mark('init');
 const store = configureStore();
 
 const renderApp = createRenderer(() => {
-  setGlobalStore(store);
-
   const { getRoutedComponent } = require('./routes');
   const Component = getRoutedComponent(store);
-  return <Component />;
+  return (
+    <StoreProvider store={store}>
+      <Component />
+    </StoreProvider>
+  );
 });
 
 const setupApp = () => {

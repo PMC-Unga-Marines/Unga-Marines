@@ -5,10 +5,6 @@
 	icon = 'icons/Xeno/castes/shrike.dmi'
 	icon_state = "Shrike Walking"
 	bubble_icon = "alienroyal"
-	skins = list(
-		"jokershrike" = 'icons/Xeno/castes/jokershrike.dmi',
-		"baseline" = 'icons/Xeno/castes/shrike.dmi',
-	)
 	attacktext = "bites"
 	attack_sound = null
 	friendly = "nuzzles"

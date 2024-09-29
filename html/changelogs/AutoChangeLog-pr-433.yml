@@ -1,0 +1,5 @@
+author: "Valentyi"
+delete-after: True
+changes:
+  - imageadd: "Изменил спрайты у sterile mask, medical jumpsuit, labcoat, surgical cap, latex gloves, sterilizing spray"
+  - code_imp: "Изменил выдачу униформы у медика."

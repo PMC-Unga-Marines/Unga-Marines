@@ -1,8 +1,7 @@
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 import { Button, Section, Box, LabeledList, Divider, Tabs, Stack, Collapsible, Flex } from '../components';
 import { classes } from 'common/react';
-import { useState } from 'react';
 
 type BlessingData = {
   user: string;
@@ -27,10 +26,14 @@ const categoryIcons = {
   'Primordial': 'skull', // wolf-pack-battalion
 };
 
-export const BlessingMenu = (props) => {
-  const { data } = useBackend<BlessingData>();
+export const BlessingMenu = (props, context) => {
+  const { data } = useBackend<BlessingData>(context);
+
   const { psypoints, categories } = data;
-  const [selectedCategory, setSelectedCategory] = useState(
+
+  const [selectedCategory, setSelectedCategory] = useLocalState(
+    context,
+    'selectedCategory',
     categories.length ? categories[0] : null
   );
 
@@ -67,17 +70,23 @@ export const BlessingMenu = (props) => {
               <Divider />
             </Section>
           )}
-          <Upgrades selectedCategory={selectedCategory} />
+          <Upgrades />
         </Section>
       </Window.Content>
     </Window>
   );
 };
 
-const Upgrades = (props: { selectedCategory: string | null }) => {
-  const { data } = useBackend<BlessingData>();
-  const { psypoints, upgrades } = data;
-  const { selectedCategory } = props;
+const Upgrades = (props, context) => {
+  const { data } = useBackend<BlessingData>(context);
+
+  const { psypoints, upgrades, categories } = data;
+
+  const [selectedCategory, setSelectedCategory] = useLocalState(
+    context,
+    'selectedCategory',
+    categories.length ? categories[0] : null
+  );
 
   return (
     <Section>
@@ -113,8 +122,8 @@ type UpgradeEntryProps = {
   upgradeicon: string;
 };
 
-const UpgradeEntry = (props: UpgradeEntryProps) => {
-  const { act } = useBackend<UpgradeData>();
+const UpgradeEntry = (props: UpgradeEntryProps, context) => {
+  const { act } = useBackend<UpgradeData>(context);
 
   const {
     psy_points,
@@ -157,8 +166,8 @@ type UpgradeViewEntryProps = {
   cost: number;
 };
 
-const UpgradeView = (props: UpgradeViewEntryProps) => {
-  const { data } = useBackend<BlessingData>();
+const UpgradeView = (props: UpgradeViewEntryProps, context) => {
+  const { data } = useBackend<BlessingData>(context);
   const { psypoints } = data;
 
   const { name, desc, timesbought, iconstate, cost } = props;
@@ -176,7 +185,7 @@ const UpgradeView = (props: UpgradeViewEntryProps) => {
           ml={3}
           mt={3}
           style={{
-            transform: 'scale(2) translate(0px, 10%)',
+            'transform': 'scale(2) translate(0px, 10%)',
           }}
         />
         <Box bold mt={5} color={psypoints > cost ? 'good' : 'bad'}>

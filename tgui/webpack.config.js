@@ -24,17 +24,27 @@ const createStats = (verbose) => ({
   version: verbose,
 });
 
+// prettier-ignore
 module.exports = (env = {}, argv) => {
   const mode = argv.mode || 'production';
   const bench = env.TGUI_BENCH;
   const config = {
     mode: mode === 'production' ? 'production' : 'development',
     context: path.resolve(__dirname),
-    target: ['web', 'es5', 'browserslist:ie 11'],
+    target: ['web', 'es3', 'browserslist:ie 8'],
     entry: {
-      'tgui': ['./packages/tgui-polyfill', './packages/tgui'],
-      'tgui-panel': ['./packages/tgui-polyfill', './packages/tgui-panel'],
-      'tgui-say': ['./packages/tgui-polyfill', './packages/tgui-say'],
+      'tgui': [
+        './packages/tgui-polyfill',
+        './packages/tgui',
+      ],
+      'tgui-panel': [
+        './packages/tgui-polyfill',
+        './packages/tgui-panel',
+      ],
+      'tgui-say': [
+        './packages/tgui-polyfill',
+        './packages/tgui-say',
+      ],
     },
     output: {
       path: argv.useTmpFolder
@@ -43,16 +53,15 @@ module.exports = (env = {}, argv) => {
       filename: '[name].bundle.js',
       chunkFilename: '[name].bundle.js',
       chunkLoadTimeout: 15000,
-      publicPath: '/',
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.js', '.jsx'],
+      extensions: ['.tsx', '.ts', '.js'],
       alias: {},
     },
     module: {
       rules: [
         {
-          test: /\.(js(x)?|cjs|ts(x)?)$/,
+          test: /\.(js|cjs|ts|tsx)$/,
           use: [
             {
               loader: require.resolve('babel-loader'),
@@ -134,11 +143,17 @@ module.exports = (env = {}, argv) => {
 
   // Production build specific options
   if (mode === 'production') {
-    const { EsbuildPlugin } = require('esbuild-loader');
+    const TerserPlugin = require('terser-webpack-plugin');
     config.optimization.minimizer = [
-      new EsbuildPlugin({
-        target: 'ie11',
-        css: true,
+      new TerserPlugin({
+        extractComments: false,
+        terserOptions: {
+          ie8: true,
+          output: {
+            ascii_only: true,
+            comments: false,
+          },
+        },
       }),
     ];
   }

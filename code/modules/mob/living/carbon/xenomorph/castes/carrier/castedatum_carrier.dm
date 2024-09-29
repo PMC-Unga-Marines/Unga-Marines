@@ -14,7 +14,7 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.4
+	speed = -0.3
 
 	// *** Plasma *** //
 	plasma_max = 800

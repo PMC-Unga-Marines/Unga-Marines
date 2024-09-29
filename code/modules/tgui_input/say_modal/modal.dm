@@ -33,7 +33,6 @@
 /datum/tgui_say/New(client/client, id)
 	src.client = client
 	window = new(client, id)
-	winset(client, "tgui_say", "size=1,1;is-visible=0;")
 	window.subscribe(src, PROC_REF(on_message))
 	window.is_browser = TRUE
 
@@ -60,14 +59,11 @@
  */
 /datum/tgui_say/proc/load()
 	window_open = FALSE
-
-	winset(client, "tgui_say", "pos=848,500;size=231,30;is-visible=0;")
-
+	winshow(client, "tgui_say", FALSE)
 	window.send_message("props", list(
 		lightMode = FALSE, //client.prefs?.read_preference(/datum/preference/toggle/tgui_say_light_mode),
 		maxLength = max_length,
 	))
-
 	stop_thinking()
 	return TRUE
 

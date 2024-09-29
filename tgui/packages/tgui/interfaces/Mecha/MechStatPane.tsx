@@ -2,8 +2,8 @@ import { useBackend } from '../../backend';
 import { Stack, Button, Section, Box, ProgressBar, LabeledList } from '../../components';
 import { OperatorData } from './data';
 
-export const MechStatPane = (props) => {
-  const { act, data } = useBackend<OperatorData>();
+export const MechStatPane = (props, context) => {
+  const { act, data } = useBackend<OperatorData>(context);
   const { name, integrity, weapons_safety, mecha_flags, mechflag_keys } = data;
   return (
     <Stack fill vertical>
@@ -78,8 +78,8 @@ export const MechStatPane = (props) => {
   );
 };
 
-const DNABody = (props) => {
-  const { act, data } = useBackend<OperatorData>();
+const DNABody = (props, context) => {
+  const { act, data } = useBackend<OperatorData>(context);
   const { dna_lock } = data;
   if (dna_lock === null) {
     return (
@@ -114,8 +114,8 @@ const DNABody = (props) => {
   }
 };
 
-const PowerBar = (props) => {
-  const { act, data } = useBackend<OperatorData>();
+const PowerBar = (props, context) => {
+  const { act, data } = useBackend<OperatorData>(context);
   const { power_level, power_max } = data;
   if (power_max === null) {
     return <Box content={'No Power cell installed!'} />;

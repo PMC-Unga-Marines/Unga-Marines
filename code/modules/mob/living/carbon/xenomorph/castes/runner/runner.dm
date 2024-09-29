@@ -15,8 +15,7 @@
 	old_x = -16
 	bubble_icon = "alien"
 	skins = list(
-		"golden" = 'icons/Xeno/castes/runner_gold.dmi',
-		"tacticool" = 'icons/Xeno/castes/runner_tacticool.dmi',
+		"golden" = 'icons/Xeno/castes/golden_runner.dmi',
 		"baseline" = 'icons/Xeno/castes/runner.dmi',
 	)
 	inherent_verbs = list(

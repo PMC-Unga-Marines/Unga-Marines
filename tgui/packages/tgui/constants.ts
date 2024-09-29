@@ -144,7 +144,7 @@ const GASES = [
     path: '/datum/gas/nitrogen',
     name: 'Nitrogen',
     label: 'N₂',
-    color: 'yellow',
+    color: 'red',
   },
   {
     id: 'co2',

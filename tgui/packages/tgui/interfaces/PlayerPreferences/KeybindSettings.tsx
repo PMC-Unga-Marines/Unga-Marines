@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { useBackend } from '../../backend';
-import { Button, Input, Section, LabeledList, Box, Stack } from '../../components';
+import { useBackend, useLocalState } from '../../backend';
+import { Button, Input, Section, LabeledList, Box, Stack, ButtonKeybind } from '../../components';
 import { TextInputModal } from './TextInputModal';
 
 const KEY_MODS = {
@@ -9,12 +8,21 @@ const KEY_MODS = {
   'CONTROL': true,
 };
 
-export const KeybindSettings = (props) => {
-  const { act, data } = useBackend<KeybindSettingData>();
+export const KeybindSettings = (props, context) => {
+  const { act, data } = useBackend<KeybindSettingData>(context);
   const { all_keybindings, is_admin } = data;
+
   const [captureSentence, setCaptureSentence] =
-    useState<KeybindSentenceCapture | null>(null);
-  const [filter, setFilter] = useState<string | null>(null);
+    useLocalState<KeybindSentenceCapture | null>(
+      context,
+      `setCaptureSentence`,
+      null
+    );
+  const [filter, setFilter] = useLocalState<string | null>(
+    context,
+    `keybind-filter`,
+    null
+  );
 
   const filterSearch = (kb: KeybindingsData) =>
     !filter // If we don't have a filter, don't filter
@@ -34,7 +42,7 @@ export const KeybindSettings = (props) => {
     <Section title="Keybindings" buttons={resetButton}>
       {captureSentence && (
         <TextInputModal
-          label="Choose a custom sentence"
+          label="Chose a custom sentence"
           button_text="Confirm"
           onSubmit={(input) => {
             act('setCustomSentence', {
@@ -137,8 +145,8 @@ export const KeybindSettings = (props) => {
   );
 };
 
-const KeybindingPreference = (props) => {
-  const { act, data } = useBackend<KeybindPreferenceData>();
+const KeybindingPreference = (props, context) => {
+  const { act, data } = useBackend<KeybindPreferenceData>(context);
   const { key_bindings } = data;
   const { keybind } = props;
   const current = key_bindings[keybind.name];
@@ -146,7 +154,7 @@ const KeybindingPreference = (props) => {
     <LabeledList.Item label={keybind.display_name}>
       {current &&
         current.map((key) => (
-          <Button.Keybind
+          <ButtonKeybind
             color="transparent"
             key={key}
             content={key}
@@ -167,7 +175,7 @@ const KeybindingPreference = (props) => {
             }}
           />
         ))}
-      <Button.Keybind
+      <ButtonKeybind
         icon="plus"
         color="transparent"
         onFinish={(keysDown) => {
@@ -197,8 +205,8 @@ const KeybindingPreference = (props) => {
   );
 };
 
-const CustomSentence = (props) => {
-  const { act, data } = useBackend<KeybindPreferenceData>();
+const CustomSentence = (props, context) => {
+  const { act, data } = useBackend<KeybindPreferenceData>(context);
   const { key_bindings, custom_emotes } = data;
   const { keybind, setCaptureSentence } = props;
   const current = key_bindings[keybind.name];
@@ -224,11 +232,11 @@ const CustomSentence = (props) => {
       <Button
         onClick={() => setCaptureSentence({ name: keybind.name })}
         tooltip={currentSentence && currentSentence.sentence}>
-        Choose a custom sentence
+        Chose custom sentence
       </Button>
       {current &&
         current.map((key) => (
-          <Button.Keybind
+          <ButtonKeybind
             color="transparent"
             key={key}
             content={key}
@@ -249,7 +257,7 @@ const CustomSentence = (props) => {
             }}
           />
         ))}
-      <Button.Keybind
+      <ButtonKeybind
         icon="plus"
         color="transparent"
         onFinish={(keysDown) => {

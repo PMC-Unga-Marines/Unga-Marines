@@ -10,8 +10,8 @@ import { KeybindSettings } from './KeybindSettings';
 import { BackgroundInformation } from './BackgroundInformation';
 import { DrawOrder } from './DrawOrder';
 
-export const PlayerPreferences = (props) => {
-  const { act, data } = useBackend<PlayerPreferencesData>();
+export const PlayerPreferences = (props, context) => {
+  const { act, data } = useBackend<PlayerPreferencesData>(context);
 
   const { save_slot_names, slot, tabIndex } = data;
 
@@ -87,9 +87,9 @@ export const PlayerPreferences = (props) => {
   );
 };
 
-const NavigationSelector = (props) => {
+const NavigationSelector = (props, context) => {
   const { tabIndex } = props;
-  const { act } = useBackend();
+  const { act } = useBackend(context);
   return (
     <Tabs vertical>
       <Tabs.Tab

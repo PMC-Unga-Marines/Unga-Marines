@@ -100,8 +100,3 @@
 /obj/machinery/bioprinter/stocked
 	stored_metal = 1000
 	stored_matter = 1000
-
-/obj/machinery/bioprinter/valhalla
-	use_power = NO_POWER_USE
-	stored_metal = 9999
-	stored_matter = 9999
