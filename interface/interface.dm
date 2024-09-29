@@ -13,18 +13,18 @@
 	DIRECT_OUTPUT(src, link(CONFIG_GET(string/wikiurl)))
 
 
-/client/verb/forum()
-	set name = "forum"
+/client/verb/boosty()
+	set name = "boosty"
 	set hidden = TRUE
 
-	if(!CONFIG_GET(string/forumurl))
-		to_chat(src, span_warning("The forum URL is not set in the server configuration."))
+	if(!CONFIG_GET(string/donationurl))
+		to_chat(src, span_warning("The donation URL is not set in the server configuration."))
 		return
 
-	if(alert("This will open the forum in your browser. Are you sure?", "Forum", "Yes", "No") != "Yes")
+	if(alert("This will open the boosty in your browser. Are you sure?", "Forum", "Yes", "No") != "Yes")
 		return
 
-	DIRECT_OUTPUT(src, link(CONFIG_GET(string/forumurl)))
+	DIRECT_OUTPUT(src, link(CONFIG_GET(string/donationurl)))
 
 
 /client/verb/rules()

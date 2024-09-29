@@ -19,8 +19,7 @@
 	skills_type = /datum/skills/civilian/clown
 	display_order = JOB_DISPLAY_ORDER_CLOWN
 	outfit = /datum/outfit/job/civilian/clown
-	exp_requirements = XP_REQ_INTERMEDIATE
-	exp_type = EXP_TYPE_REGULAR_ALL
+	boosty_job = TRUE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
