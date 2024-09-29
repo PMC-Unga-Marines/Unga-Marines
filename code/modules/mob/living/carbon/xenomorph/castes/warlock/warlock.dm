@@ -5,6 +5,10 @@
 	icon = 'icons/Xeno/castes/warlock.dmi'
 	icon_state = "Warlock Walking"
 	bubble_icon = "alienroyal"
+		skins = list(
+		"arabian" = 'icons/Xeno/castes/warlock_arab.dmi',
+		"baseline" = 'icons/Xeno/castes/warlock.dmi',
+	)
 	attacktext = "slashes"
 	attack_sound = null
 	friendly = "nuzzles"
