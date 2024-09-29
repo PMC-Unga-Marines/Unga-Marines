@@ -136,7 +136,7 @@
 
 	load_mission_brief() //late loaded so we can ref the specific factions etc
 
-/datum/campaign_mission/Destroy(force, ...)
+/datum/campaign_mission/Destroy(force)
 	STOP_PROCESSING(SSslowprocess, src)
 	mission_z_level = null
 	mode = null
