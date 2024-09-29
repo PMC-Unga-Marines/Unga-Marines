@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Массовые взрывы патрон теперь не настолько массовые."

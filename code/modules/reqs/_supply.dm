@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	SIGNAL_HANDLER
 	qdel(src)
 
-/datum/supply_ui/Destroy(force, ...)
+/datum/supply_ui/Destroy(force)
 	source_object = null
 	return ..()
 

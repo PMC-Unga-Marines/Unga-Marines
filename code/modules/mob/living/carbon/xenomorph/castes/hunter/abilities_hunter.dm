@@ -41,7 +41,7 @@
 	if(stealth)
 		cancel_stealth()
 		return TRUE
-	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))   // stops stealth and disguise from stacking
+	if(HAS_TRAIT(owner, TRAIT_STEALTH))   // stops stealth and disguise from stacking
 		owner.balloon_alert(owner, "Already in a form of stealth!")
 		return
 	succeed_activate()
@@ -68,7 +68,7 @@
 
 	RegisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(damage_taken))
 
-	ADD_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	ADD_TRAIT(owner, TRAIT_STEALTH, TRAIT_STEALTH)
 
 	handle_stealth()
 	addtimer(CALLBACK(src, PROC_REF(sneak_attack_cooldown)), HUNTER_POUNCE_SNEAKATTACK_DELAY) //Short delay before we can sneak attack.
@@ -99,7 +99,7 @@
 
 	stealth = FALSE
 	can_sneak_attack = FALSE
-	REMOVE_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	animate(owner, 1 SECONDS, alpha = 255) //no transparency/translucency
 
 ///Signal wrapper to verify that an object is damageable before breaking stealth

@@ -84,7 +84,6 @@
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -303,7 +302,6 @@
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -470,7 +468,6 @@
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
-			/obj/item/ammo_magazine/smg/vector/sabot = -1,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
@@ -530,7 +527,6 @@
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -626,7 +622,6 @@
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
-			/obj/item/ammo_magazine/packet/p9mm/sabot = -1,
 			/obj/item/ammo_magazine/packet/p9mm/incendiary = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/acp/ap = -1,
@@ -641,7 +636,6 @@
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
-			/obj/item/ammo_magazine/packet/p10x24mm/sabot = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/incendiary = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm/ap = -1,
@@ -970,6 +964,7 @@
 /obj/machinery/vending/MarineMed/valhalla
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
+	req_one_access = null
 	products = list(
 		"Pill Bottles" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
@@ -1059,6 +1054,20 @@
 			R.product_name += blood_type? " [blood_type]" : ""
 			temp_list -= R.product_path
 			if(!length(temp_list)) break
+
+/obj/machinery/vending/MarineMed/Blood/valhalla
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	req_one_access = null
+	products = list(
+		/obj/item/reagent_containers/blood/APlus = -1,
+		/obj/item/reagent_containers/blood/AMinus = -1,
+		/obj/item/reagent_containers/blood/BPlus = -1,
+		/obj/item/reagent_containers/blood/BMinus = -1,
+		/obj/item/reagent_containers/blood/OPlus = -1,
+		/obj/item/reagent_containers/blood/OMinus = -1,
+		/obj/item/reagent_containers/blood/empty = -1,
+	)
 
 /obj/machinery/vending/armor_supply
 	name = "\improper Surplus Armor Equipment Vendor"
@@ -1513,7 +1522,7 @@
 			/obj/item/clothing/gloves/marine/specialist = -1,
 			/obj/item/clothing/suit/storage/marine/B17/valhalla = -1,
 			/obj/item/clothing/head/helmet/marine/grenadier = -1,
-			/obj/item/storage/backpack/marine/satchel/scout_cloak/scout = -1,
+			/obj/item/storage/backpack/marine/satchel/scout_cloak = -1,
 			/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper = -1,
 			/obj/item/storage/belt/grenade/b17 = -1,
 			/obj/item/armor_module/module/valkyrie_autodoc = -1,

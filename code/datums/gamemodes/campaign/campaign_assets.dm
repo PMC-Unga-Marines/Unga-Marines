@@ -55,7 +55,7 @@
 	if(asset_flags & ASSET_PASSIVE_EFFECT)
 		passive_effect()
 
-/datum/campaign_asset/Destroy(force, ...)
+/datum/campaign_asset/Destroy(force)
 	faction = null
 	return ..()
 

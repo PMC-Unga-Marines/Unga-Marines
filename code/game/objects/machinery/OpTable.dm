@@ -37,6 +37,10 @@
 			computer.table = src
 			break
 
+/obj/machinery/optable/Destroy()
+	computer = null
+	return ..()
+
 /obj/machinery/optable/update_overlays()
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
@@ -235,3 +239,6 @@
 
 /obj/machinery/optable/yautja
 	icon = 'icons/obj/machines/yautja_machines.dmi'
+
+/obj/machinery/optable/valhalla
+	use_power = NO_POWER_USE

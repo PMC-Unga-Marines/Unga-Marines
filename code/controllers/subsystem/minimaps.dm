@@ -404,7 +404,7 @@ SUBSYSTEM_DEF(minimaps)
 /atom/movable/screen/minimap/proc/get_coords_from_click(mob/user)
 	//lord forgive my shitcode
 	var/signal_by_type = isobserver(user) ? COMSIG_OBSERVER_CLICKON : COMSIG_MOB_CLICKON
-	RegisterSignal(user, signal_by_type, PROC_REF(on_click))
+	RegisterSignal(user, signal_by_type, PROC_REF(on_click), TRUE)
 	while(!(choices_by_mob[user] || stop_polling) && user.client)
 		stoplag(1)
 	UnregisterSignal(user, signal_by_type)
@@ -532,7 +532,7 @@ SUBSYSTEM_DEF(minimaps)
 	var/atom/movable/tracking = locator_override ? locator_override : owner
 	var/atom/movable/new_track = to_track ? to_track : owner
 	if(locator_override)
-		UnregisterSignal(locator_override, COMSIG_QDELETING)
+		clear_locator_override()
 	if(owner)
 		UnregisterSignal(tracking, COMSIG_MOVABLE_Z_CHANGED)
 	if(!minimap_displayed)

@@ -63,6 +63,23 @@
 		if(get_dist(source, nearby_illusion) > distance)
 			continue
 		. += nearby_illusion
+///Returns a list of vehicles via get_dist and same z level method, very cheap compared to range()
+/proc/cheap_get_tanks_near(atom/movable/source, distance)
+	. = list()
+	var/turf/source_turf = get_turf(source)
+	if(!source_turf)
+		return
+	for(var/obj/vehicle/sealed/armored/nearby_tank AS in GLOB.tank_list)
+		if(isnull(nearby_tank))
+			continue
+		if(source_turf.z != nearby_tank.z)
+			continue
+		var/bound_max = 1
+		if(nearby_tank.hitbox)
+			bound_max = max(nearby_tank.hitbox.bound_height, nearby_tank.hitbox.bound_width) / 32
+		if(get_dist(source_turf, nearby_tank) > distance + bound_max - 1)
+			continue
+		. += nearby_tank
 
 ///Returns the nearest target that has the right target flag
 /proc/get_nearest_target(atom/source, distance, target_flags, attacker_faction, attacker_hive)
@@ -76,6 +93,8 @@
 		for(var/mob/living/nearby_human AS in cheap_get_humans_near(source, distance))
 			if(nearby_human.stat == DEAD || nearby_human.faction == attacker_faction || nearby_human.alpha <= SCOUT_CLOAK_RUN_ALPHA || isnestedhost(nearby_human))
 				continue
+			if(HAS_TRAIT(nearby_human, TRAIT_STEALTH))
+				continue
 			if(get_dist(source, nearby_human) < shorter_distance)
 				nearest_target = nearby_human
 				shorter_distance = get_dist(source, nearby_human) //better to recalculate than to save the var
@@ -87,6 +106,8 @@
 			if(nearby_xeno.stat == DEAD || nearby_xeno.alpha <= HUNTER_STEALTH_RUN_ALPHA)
 				continue
 			if((nearby_xeno.status_flags & GODMODE) || (nearby_xeno.status_flags & INCORPOREAL)) //No attacking invulnerable/ai's eye!
+				continue
+			if(HAS_TRAIT(nearby_xeno, TRAIT_STEALTH))
 				continue
 			if(get_dist(source, nearby_xeno) < shorter_distance)
 				nearest_target = nearby_xeno
@@ -101,6 +122,8 @@
 	if(target_flags & TARGET_UNMANNED_VEHICLE)
 		for(var/atom/nearby_vehicle AS in GLOB.unmanned_vehicles)
 			if(source.z != nearby_vehicle.z)
+				continue
+			if(HAS_TRAIT(nearby_vehicle, TRAIT_STEALTH))
 				continue
 			if(!(get_dist(source, nearby_vehicle) < shorter_distance))
 				continue

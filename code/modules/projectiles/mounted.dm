@@ -232,7 +232,6 @@
 	if(isnull(operator.loc) || isnull(loc) || !z || !target?.z == z)
 		return FALSE
 
-
 	var/angle = get_dir(src, target)
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	//we can only fire in a 90 degree cone
@@ -252,11 +251,17 @@
 		to_chat(operator, "[src] cannot be rotated while anchored.")
 		return FALSE
 
+	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_MOUNTED_GUN_ROTATE))
+		to_chat(operator, span_warning("[src] cannot be rotated so violently."))
+		stop_fire()
+		return FALSE
+
 	var/list/leftright = LeftAndRightOfDir(dir)
 	var/left = leftright[1] - 1
 	var/right = leftright[2] + 1
 	if(!(left == (angle-1)) && !(right == (angle+1)))
-		to_chat(operator, span_warning(" [src] cannot be rotated so violently."))
+		to_chat(operator, span_warning("[src] cannot be rotated so violently."))
+		stop_fire()
 		return FALSE
 	var/mob/living/carbon/human/user = operator
 
@@ -274,14 +279,18 @@
 	setDir(angle)
 	user.set_interaction(src)
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-	operator.visible_message("[operator] rotates the [src].","You rotate [src].")
+	operator.visible_message("[operator] rotates the [src].", "You rotate [src].")
+	TIMER_COOLDOWN_START(src, COOLDOWN_MOUNTED_GUN_ROTATE, 0.75 SECONDS)
 	update_pixels(user, TRUE)
 
 	if(current_scope?.deployed_scope_rezoom)
 		INVOKE_ASYNC(current_scope, TYPE_PROC_REF(/obj/item/attachable/scope, activate), operator)
+	return TRUE
 
-	return FALSE
-
+///Resets the fire of internal gun
+/obj/machinery/deployable/mounted/proc/stop_fire(datum/source)
+	var/obj/item/weapon/gun/gun = get_internal_item()
+	gun?.stop_fire()
 
 ///Unsets the user from manning the internal gun
 /obj/machinery/deployable/mounted/on_unset_interaction(mob/user)
