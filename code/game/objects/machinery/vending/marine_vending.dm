@@ -964,6 +964,7 @@
 /obj/machinery/vending/MarineMed/valhalla
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
+	req_one_access = null
 	products = list(
 		"Pill Bottles" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
@@ -1053,6 +1054,20 @@
 			R.product_name += blood_type? " [blood_type]" : ""
 			temp_list -= R.product_path
 			if(!length(temp_list)) break
+
+/obj/machinery/vending/MarineMed/Blood/valhalla
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	req_one_access = null
+	products = list(
+		/obj/item/reagent_containers/blood/APlus = -1,
+		/obj/item/reagent_containers/blood/AMinus = -1,
+		/obj/item/reagent_containers/blood/BPlus = -1,
+		/obj/item/reagent_containers/blood/BMinus = -1,
+		/obj/item/reagent_containers/blood/OPlus = -1,
+		/obj/item/reagent_containers/blood/OMinus = -1,
+		/obj/item/reagent_containers/blood/empty = -1,
+	)
 
 /obj/machinery/vending/armor_supply
 	name = "\improper Surplus Armor Equipment Vendor"

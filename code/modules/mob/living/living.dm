@@ -200,6 +200,17 @@
 		if(client)
 			reset_perspective()
 
+/mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
+	if(registered_z == new_z)
+		return
+	if(registered_z)
+		SSmobs.clients_by_zlevel[registered_z] -= src
+	if(isnull(client))
+		registered_z = null
+		return
+	if(new_z)
+		SSmobs.clients_by_zlevel[new_z] += src
+	registered_z = new_z
 
 /mob/living/proc/do_camera_update(oldLoc)
 	return

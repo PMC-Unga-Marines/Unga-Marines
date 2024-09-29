@@ -7,7 +7,7 @@ import { Window } from 'tgui/layouts';
 import { getDisplayColor, getDisplayName, isJobOrNameMatch } from './helpers';
 import type { Observable, OrbitData } from './types';
 
-export const Orbit = (props, context) => {
+export const Orbit = (props) => {
   return (
     <Window title="Orbit" width={400} height={550}>
       <Window.Content scrollable>
@@ -27,8 +27,8 @@ export const Orbit = (props, context) => {
 };
 
 /** Controls filtering out the list of observables via search */
-const ObservableSearch = (props, context) => {
-  const { act, data } = useBackend<OrbitData>(context);
+const ObservableSearch = (props) => {
+  const { act, data } = useBackend<OrbitData>();
   const {
     auto_observe,
     humans = [],
@@ -39,7 +39,6 @@ const ObservableSearch = (props, context) => {
     valhalla = [],
   } = data;
   const [searchQuery, setSearchQuery] = useLocalState<string>(
-    context,
     'searchQuery',
     ''
   );
@@ -108,8 +107,8 @@ const ObservableSearch = (props, context) => {
  * Renders a scrollable section replete with subsections for each
  * observable group.
  */
-const ObservableContent = (props, context) => {
-  const { data } = useBackend<OrbitData>(context);
+const ObservableContent = (props) => {
+  const { data } = useBackend<OrbitData>();
   const {
     dead = [],
     ghosts = [],
@@ -143,19 +142,16 @@ const ObservableContent = (props, context) => {
  * Displays a collapsible with a map of observable items.
  * Filters the results if there is a provided search query.
  */
-const ObservableSection = (
-  props: {
-    color?: string;
-    section: Array<Observable>;
-    title: string;
-  },
-  context
-) => {
+const ObservableSection = (props: {
+  color?: string;
+  section: Array<Observable>;
+  title: string;
+}) => {
   const { color, section = [], title } = props;
   if (!section.length) {
     return null;
   }
-  const [searchQuery] = useLocalState<string>(context, 'searchQuery', '');
+  const [searchQuery] = useLocalState<string>('searchQuery', '');
   const filteredSection: Array<Observable> = flow([
     filter<Observable>((observable) =>
       isJobOrNameMatch(observable, searchQuery)
@@ -186,11 +182,8 @@ const ObservableSection = (
 };
 
 /** Renders an observable button that has tooltip info for living Observables*/
-const ObservableItem = (
-  props: { color?: string; item: Observable },
-  context
-) => {
-  const { act } = useBackend<OrbitData>(context);
+const ObservableItem = (props: { color?: string; item: Observable }) => {
+  const { act } = useBackend<OrbitData>();
   const { color, item } = props;
   const { health, icon, full_name, nickname, orbiters, ref } = item;
 
@@ -240,8 +233,8 @@ const ObservableTooltip = (props: { item: Observable }) => {
 };
 
 /** Generates a small icon for buttons based on ICONMAP */
-const ObservableIcon = (props: { icon: Observable['icon'] }, context) => {
-  const { data } = useBackend<OrbitData>(context);
+const ObservableIcon = (props: { icon: Observable['icon'] }) => {
+  const { data } = useBackend<OrbitData>();
   const { icons = [] } = data;
   const { icon } = props;
   if (!icon || !icons[icon]) {
@@ -255,7 +248,6 @@ const ObservableIcon = (props: { icon: Observable['icon'] }, context) => {
       src={`data:image/jpeg;base64,${icons[icon]}`}
       style={{
         transform: 'scale(2) translatey(-1px)',
-        '-ms-interpolation-mode': 'nearest-neighbor',
       }}
     />
   );
