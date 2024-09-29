@@ -667,8 +667,7 @@
 	var/image/secondary_overlay
 
 /atom/movable/vis_obj/turret_overlay/Destroy()
-	if(primary_overlay)
-		QDEL_NULL(primary_overlay)
+	QDEL_NULL(primary_overlay)
 	return ..()
 
 /atom/movable/vis_obj/turret_overlay/proc/update_gun_overlay(gun_icon_state)
@@ -678,6 +677,7 @@
 
 	primary_overlay = new()
 	primary_overlay.icon = icon //VIS_INHERIT_ICON doesn't work with flick
+	primary_overlay.base_icon_state = gun_icon_state
 	primary_overlay.icon_state = gun_icon_state
 	vis_contents += primary_overlay
 
