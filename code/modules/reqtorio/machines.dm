@@ -162,7 +162,7 @@
 	///Last time points balance was checked
 	var/ticks = 0
 	var/faction = FACTION_TERRAGOV
-	var/points_per_tick = 5
+	var/points_per_tick = 2
 
 /obj/machinery/fabricator/Initialize(mapload)
 	. = ..()
@@ -190,9 +190,8 @@
 	balloon_alert(user, "Facing [dir2text(dir)]")
 
 /obj/machinery/fabricator/process()
-	if(points_per_tick > SSpoints.supply_points[faction])
-		return
-	SSpoints.supply_points[faction] -= points_per_tick
+	if(!is_ground_level(z) && points_per_tick < SSpoints.supply_points[faction])
+		SSpoints.supply_points[faction] -= points_per_tick
 	ticks++
 	var/ticks_to_spawn = is_ground_level(z) ? ground_spawn_ticks : spawn_ticks
 	if(ticks >= ticks_to_spawn)
