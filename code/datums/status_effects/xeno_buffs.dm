@@ -1355,7 +1355,9 @@
 		for(var/obj/O in T.contents)
 			if(is_type_in_typecache(O, GLOB.no_sticky_resin))
 				return
-		new selected_trail(T)
 		if(selected_trail == /obj/effect/xenomorph/spray)
+			new selected_trail(T, 1 SECONDS)
 			for(var/obj/O in T)
 				O.acid_spray_act(buff_owner)
+		else
+			new selected_trail(T)
