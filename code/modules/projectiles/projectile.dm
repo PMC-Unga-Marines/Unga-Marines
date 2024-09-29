@@ -839,7 +839,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		proj.damage -= proj.damage*proj.damage_marine_falloff
 		return FALSE
 	//shooting from behind the shoulder
-	if(ismob(proj.firer))
+	if(ismob(proj.firer) && !isxeno(proj.firer))
 		var/mob/firer = proj.firer
 		if(firer.faction == faction && Adjacent(proj.firer))
 			proj.damage -= proj.damage*proj.damage_marine_falloff //no guns with marine falloff by the way
