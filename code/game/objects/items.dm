@@ -121,6 +121,10 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/current_variant
 	///Current hair concealing option selected.
 	var/current_hair_concealment
+	/// Has the item been reskinned?
+	var/current_skin
+	///List of options to reskin.
+	var/list/unique_reskin
 
 /obj/item/Initialize(mapload)
 
@@ -148,6 +152,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 	if(current_variant)
 		update_icon()
+
+	setup_reskinning()
 
 /obj/item/ex_act(severity, explosion_direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
