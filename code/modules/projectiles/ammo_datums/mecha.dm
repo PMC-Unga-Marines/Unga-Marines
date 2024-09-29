@@ -134,9 +134,9 @@
 
 /datum/ammo/rocket/mech
 	name = "large high-explosive rocket"
-	damage = 75
+	damage = 0 //explosion do damage
 	penetration = 50
 	max_range = 30
 
 /datum/ammo/rocket/mech/drop_nade(turf/T)
-	cell_explosion(T, 75, 15)
+	cell_explosion(T, 150, 30)
