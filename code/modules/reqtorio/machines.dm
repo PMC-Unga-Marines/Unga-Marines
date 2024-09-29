@@ -144,7 +144,7 @@
 
 /obj/machinery/fabricator
 	name = "Metal fabricator"
-	desc = "Creates metal from... air. I think so"
+	desc = "Spends requisition points to create metal."
 	icon = 'icons/obj/factory/factory_machines.dmi'
 	icon_state = "reconstructor_inactive"
 	density = TRUE
@@ -161,6 +161,8 @@
 	var/ground_spawn_ticks = 24 //tick every 5 seconds
 	///Last time points balance was checked
 	var/ticks = 0
+	var/faction = FACTION_TERRAGOV
+	var/points_per_tick = 5
 
 /obj/machinery/fabricator/Initialize(mapload)
 	. = ..()
@@ -179,6 +181,7 @@
 	else
 		icon_state = initial(icon_state)
 		STOP_PROCESSING(SSslowprocess, src)
+	faction = user.faction
 	balloon_alert(user, "[anchored ? "" : "un"]anchored")
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 
@@ -187,6 +190,9 @@
 	balloon_alert(user, "Facing [dir2text(dir)]")
 
 /obj/machinery/fabricator/process()
+	if(points_per_tick < SSpoints.supply_points[faction])
+		return
+	SSpoints.supply_points[faction] -= points_per_tick
 	ticks++
 	var/ticks_to_spawn = is_ground_level(z) ? ground_spawn_ticks : spawn_ticks
 	if(ticks >= ticks_to_spawn)
@@ -197,7 +203,7 @@
 
 /obj/machinery/fabricator/gunpowder
 	name = "Gunpowder fabricator"
-	desc = "Creates gunpowder from... air. I think so, looks kinda dangerous"
+	desc = "Spends requisition points to create gunpowder."
 	item_to_fabricate = /obj/item/stack/gun_powder/large_stack
 
 /obj/machinery/fabricator/gunpowder/Destroy()
@@ -206,7 +212,7 @@
 
 /obj/machinery/fabricator/junk
 	name = "Junk fabricator"
-	desc = "Creates junk from... air. even this is garbage, it can be useful"
+	desc = "Spends requisition points to create junk."
 	item_to_fabricate = /obj/item/stack/sheet/mineral/junk/large_stack
 
 /obj/machinery/splitter
