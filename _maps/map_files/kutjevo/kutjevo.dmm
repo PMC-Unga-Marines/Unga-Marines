@@ -1142,6 +1142,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/filtration)
+"bqo" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/multi_tiles,
+/area/kutjevo/interior/power)
 "brH" = (
 /obj/structure/closet/wardrobe/medic_white,
 /obj/machinery/light{
@@ -3622,6 +3629,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 1
 	},
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/complex/botany)
 "dVL" = (
@@ -17635,6 +17643,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 1
 	},
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/kutjevo/colors,
 /area/kutjevo/interior/complex/med/cells)
 "sKG" = (
@@ -19552,6 +19561,10 @@
 /obj/structure/cable,
 /turf/open/floor/kutjevo/colors/green,
 /area/kutjevo/interior/complex/botany)
+"uGl" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/carpet,
+/area/kutjevo/interior/colony_South/power2)
 "uGN" = (
 /obj/structure/flora/grass/tallgrass/autosmooth/desert,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -21090,6 +21103,10 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth,
 /area/kutjevo/exterior/Northwest_Colony)
+"whC" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/tan/multi_tiles,
+/area/kutjevo/interior/filtration)
 "whD" = (
 /obj/effect/landmark/patrol_point/tgmc_12,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -22162,6 +22179,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 8
 	},
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/kutjevo/tan/grey_inner_edge{
 	dir = 4
 	},
@@ -27362,7 +27380,7 @@ fvC
 ivL
 rSf
 wzJ
-hcz
+whC
 uvD
 kKi
 bdp
@@ -31056,7 +31074,7 @@ eJi
 eJi
 vGx
 vFv
-ltX
+bqo
 evZ
 byl
 uDH
@@ -48532,7 +48550,7 @@ nPf
 ukd
 xay
 gdb
-xay
+uGl
 xay
 tTi
 vkV

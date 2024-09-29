@@ -227,12 +227,6 @@
 
 		ai_actual_track(pick(target))
 
-#ifdef AI_VOX
-	if(href_list["say_word"])
-		play_vox_word(href_list["say_word"], null, src)
-		return
-#endif
-
 /mob/living/silicon/ai/proc/switchCamera(obj/machinery/camera/C)
 	if(QDELETED(C))
 		return FALSE

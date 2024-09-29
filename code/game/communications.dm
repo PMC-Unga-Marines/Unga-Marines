@@ -166,7 +166,7 @@ GLOBAL_LIST_INIT(reverseradiochannels, list(
 /datum/radio_frequency/New(freq)
 	frequency = freq
 
-/datum/radio_frequency/Destroy(force, ...)
+/datum/radio_frequency/Destroy(force)
 	if(length(devices))
 		devices.Cut()
 	return ..()

@@ -30,8 +30,8 @@ type VehicleSupplyData = {
   elevator_dir: string;
 };
 
-export const VehicleSupply = (props, context) => {
-  const { act, data } = useBackend<VehicleSupplyData>(context);
+export const VehicleSupply = (props) => {
+  const { act, data } = useBackend<VehicleSupplyData>();
   const {
     vehicles,
     primaryWeapons,
