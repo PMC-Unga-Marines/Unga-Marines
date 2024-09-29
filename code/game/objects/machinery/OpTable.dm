@@ -239,3 +239,6 @@
 
 /obj/machinery/optable/yautja
 	icon = 'icons/obj/machines/yautja_machines.dmi'
+
+/obj/machinery/optable/valhalla
+	use_power = NO_POWER_USE

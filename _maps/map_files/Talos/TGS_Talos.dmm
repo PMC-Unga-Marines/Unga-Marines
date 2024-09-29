@@ -18760,7 +18760,9 @@
 /area/mainship/medical/upper_medical)
 "lgj" = (
 /obj/machinery/holopad,
-/obj/effect/turf_decal/siding/emblem,
+/obj/effect/turf_decal/siding/emblem{
+	dir = 8
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "lgL" = (
