@@ -190,7 +190,7 @@
 	balloon_alert(user, "Facing [dir2text(dir)]")
 
 /obj/machinery/fabricator/process()
-	if(points_per_tick < SSpoints.supply_points[faction])
+	if(points_per_tick > SSpoints.supply_points[faction])
 		return
 	SSpoints.supply_points[faction] -= points_per_tick
 	ticks++
@@ -214,6 +214,11 @@
 	name = "Junk fabricator"
 	desc = "Spends requisition points to create junk."
 	item_to_fabricate = /obj/item/stack/sheet/mineral/junk/large_stack
+
+/obj/machinery/fabricator/plasteel
+	name = "Plasteel fabricator"
+	desc = "Spends requisition points to create plasteel."
+	item_to_fabricate = /obj/item/stack/sheet/plasteel/large_stack
 
 /obj/machinery/splitter
 	name = "Splitter"
