@@ -179,7 +179,7 @@
 	set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
 /datum/component/riding/vehicle/motorbike/sidecar
-	vehicle_move_delay = 2.5
+	vehicle_move_delay = 2
 
 /datum/component/riding/vehicle/motorbike/sidecar/Initialize(mob/living/riding_mob, force, ride_check_flags, potion_boost)
 	. = ..()
