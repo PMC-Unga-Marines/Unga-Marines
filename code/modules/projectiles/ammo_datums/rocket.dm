@@ -39,7 +39,6 @@
 	hud_state = "rocket_he"
 	accurate_range = 20
 	max_range = 14
-	damage = 0 //explosion do damage
 	penetration = 100
 	sundering = 100
 
@@ -47,7 +46,6 @@
 	cell_explosion(T, 300, 80)
 
 /datum/ammo/rocket/he/unguided
-	damage = 0 //explosion do damage
 	flags_ammo_behavior = AMMO_SNIPER // We want this one to specifically go over onscreen range.
 
 /datum/ammo/rocket/he/unguided/drop_nade(turf/T)
@@ -72,7 +70,6 @@
 	accurate_range = 15
 	max_range = 40
 	penetration = 50
-	damage = 0 //explosion do damage
 	hud_state = "bigshell_he"
 
 /datum/ammo/rocket/ltb/drop_nade(turf/T)
@@ -199,7 +196,6 @@
 	shell_speed = 2
 	accurate_range = 20
 	max_range = 30
-	damage = 0 //explosion do damage
 	penetration = 50
 	sundering = 50
 
@@ -238,7 +234,6 @@
 	flags_ammo_behavior = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
 	accurate_range = 15
 	max_range = 20
-	damage = 0 //explosion do damage
 	penetration = 50
 	sundering = 25
 
@@ -286,7 +281,6 @@
 	flags_ammo_behavior = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
 	accurate_range = 15
 	max_range = 20
-	damage = 0 //explosion do damage
 	penetration = 15
 	sundering = 25
 
@@ -295,7 +289,6 @@
 
 /datum/ammo/rocket/oneuse
 	name = "explosive rocket"
-	damage = 0 //explosion do damage
 	penetration = 100
 	sundering = 100
 	max_range = 30
@@ -310,7 +303,6 @@
 	flags_ammo_behavior = AMMO_SNIPER
 	accurate_range = 15
 	max_range = 20
-	damage = 0 //explosion do damage
 	penetration = 20
 	sundering = 20
 
@@ -323,7 +315,6 @@
 	hud_state = "rpg_le"
 	flags_ammo_behavior = AMMO_SNIPER
 	accurate_range = 15
-	damage = 0 //explosion do damage
 	penetration = 10
 
 /datum/ammo/rocket/som/light/drop_nade(turf/T)
@@ -399,7 +390,6 @@
 	hud_state_empty = "shell_empty"
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF
 	shell_speed = 2
-	damage = 0 //explosion do damage
 	penetration = 30
 	sundering = 25
 	max_range = 30
@@ -438,7 +428,6 @@
 	name = "low velocity high explosive shell"
 	hud_state = "shell_he"
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
-	damage = 0 //explosion do damage
 	penetration = 50
 	sundering = 35
 

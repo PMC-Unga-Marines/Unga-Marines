@@ -134,7 +134,6 @@
 
 /datum/ammo/rocket/mech
 	name = "large high-explosive rocket"
-	damage = 0 //explosion do damage
 	penetration = 50
 	max_range = 30
 
