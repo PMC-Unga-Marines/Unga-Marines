@@ -55,7 +55,7 @@
 
 #define STATUS_EFFECT_UPGRADE_PHERO /datum/status_effect/upgrade_pheromones
 
-#define STATUS_EFFECT_UPGRADE_ACID_TRAIL /datum/status_effect/upgrade_acid_trail
+#define STATUS_EFFECT_UPGRADE_TRAIL /datum/status_effect/upgrade_trail
 
 #define STATUS_EFFECT_MINDMEND /datum/status_effect/mindmeld
 

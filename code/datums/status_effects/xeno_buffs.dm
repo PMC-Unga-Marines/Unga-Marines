@@ -1171,6 +1171,28 @@
 	desc = "Inject toxin on attack."
 	icon_state = "xenobuff_generic"
 
+/atom/movable/screen/alert/status_effect/upgrade_toxin/Click()
+	var/static/list/upgrade_toxin_images_list = list(
+			DEFILER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN),
+			DEFILER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE),
+			DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX),
+			DEFILER_NEUROTOXIN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN),
+			DEFILER_ACID = image('icons/Xeno/actions.dmi', icon_state = DEFILER_ACID),
+			)
+	var/datum/status_effect/upgrade_toxin/effect = attached_effect
+	if(effect.buff_owner.incapacitated(TRUE))
+		to_chat(usr, span_warning("Cant do that right now!"))
+		return
+	var/datum/reagent/toxin/toxin_choice = show_radial_menu(effect.buff_owner, effect.buff_owner, upgrade_toxin_images_list, radius = 35, require_near = TRUE)
+	if(!toxin_choice)
+		return
+	for(var/toxin in effect.selectable_reagents)
+		var/datum/reagent/R = GLOB.chemical_reagents_list[toxin]
+		if(R.name == toxin_choice)
+			effect.injected_reagent = R.type
+			break
+	effect.buff_owner.balloon_alert(effect.buff_owner, "[toxin_choice]")
+
 /datum/status_effect/upgrade_toxin
 	id = "upgrade_toxin"
 	duration = -1
@@ -1179,7 +1201,14 @@
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/toxin_amount_per_chamber = 1
 	var/chamber_scaling = 0
-	var/injected_reagent = /datum/reagent/toxin/xeno_neurotoxin
+	var/datum/reagent/toxin/injected_reagent = /datum/reagent/toxin/xeno_neurotoxin
+	var/list/selectable_reagents = list(
+		/datum/reagent/toxin/xeno_ozelomelyn,
+		/datum/reagent/toxin/xeno_hemodile,
+		/datum/reagent/toxin/xeno_transvitox,
+		/datum/reagent/toxin/xeno_neurotoxin,
+		/datum/reagent/toxin/acid,
+		)
 
 /datum/status_effect/upgrade_toxin/on_apply()
 	if(!isxeno(owner))
@@ -1266,23 +1295,39 @@
 // ***************************************
 // ***************************************
 // ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_acid_trail
+/atom/movable/screen/alert/status_effect/upgrade_trail
 	name = "Trail"
 	desc = "We leave an acid trail behind."
 	icon_state = "xenobuff_generic"
 
-/datum/status_effect/upgrade_acid_trail
-	id = "upgrade_acid_trail"
+/atom/movable/screen/alert/status_effect/upgrade_trail/Click()
+	var/datum/status_effect/upgrade_trail/effect = attached_effect
+	if(effect.buff_owner.incapacitated(TRUE))
+		to_chat(usr, span_warning("Cant do that right now!"))
+		return
+	var/i = effect.selectable_trails.Find(effect.selected_trail)
+	if(length(effect.selectable_trails) == i)
+		effect.selected_trail = effect.selectable_trails[1]
+	else
+		effect.selected_trail = effect.selectable_trails[i+1]
+	effect.buff_owner.balloon_alert(effect.buff_owner, "[effect.selected_trail.name]")
+
+/datum/status_effect/upgrade_trail
+	id = "upgrade_trail"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_acid_trail
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_trail
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/datum/aura_bearer/current_aura
+	var/obj/selected_trail = /obj/effect/xenomorph/spray
 	var/base_chance = 25
 	var/chance_per_chamber = 25
 	var/chamber_scaling = 0
+	var/list/selectable_trails = list(
+		/obj/effect/xenomorph/spray,
+		/obj/alien/resin/sticky/thin,
+		)
 
-/datum/status_effect/upgrade_acid_trail/on_apply()
+/datum/status_effect/upgrade_trail/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
@@ -1291,18 +1336,25 @@
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
 	return TRUE
 
-/datum/status_effect/upgrade_acid_trail/on_remove()
+/datum/status_effect/upgrade_trail/on_remove()
 	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY)
 	UnregisterSignal(buff_owner, COMSIG_MOVABLE_MOVED)
 	return ..()
 
-/datum/status_effect/upgrade_acid_trail/proc/update_buff()
+/datum/status_effect/upgrade_trail/proc/update_buff()
 	SIGNAL_HANDLER
 	chamber_scaling = length(buff_owner.hive.veil_chambers)
 
-/datum/status_effect/upgrade_acid_trail/proc/do_acid_trail()
+/datum/status_effect/upgrade_trail/proc/do_acid_trail()
 	SIGNAL_HANDLER
 	if(prob(base_chance + chance_per_chamber * chamber_scaling))
-		new /obj/effect/xenomorph/spray(get_turf(buff_owner), 5 SECONDS, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
-		for(var/obj/O in get_turf(buff_owner))
-			O.acid_spray_act(buff_owner)
+		var/turf/T = get_turf(buff_owner)
+		if(T.density || istype(T, /turf/open/space))
+			return
+		for(var/obj/O in T.contents)
+			if(is_type_in_typecache(O, GLOB.no_sticky_resin))
+				return
+		new selected_trail(T)
+		if(selected_trail == /obj/effect/xenomorph/spray)
+			for(var/obj/O in T)
+				O.acid_spray_act(buff_owner)
