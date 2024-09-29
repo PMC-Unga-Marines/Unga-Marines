@@ -14,6 +14,11 @@
 	pixel_x = -16  //Needed for 2x2
 	old_x = -16
 	bubble_icon = "alien"
+	skins = list(
+		"golden" = 'icons/Xeno/castes/runner_gold.dmi',
+		"tacticool" = 'icons/Xeno/castes/runner_tacticool.dmi',
+		"baseline" = 'icons/Xeno/castes/runner.dmi',
+	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)

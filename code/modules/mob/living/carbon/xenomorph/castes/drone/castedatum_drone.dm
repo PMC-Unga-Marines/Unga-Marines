@@ -20,7 +20,7 @@
 
 	// *** Plasma *** //
 	plasma_max = 1000
-	plasma_gain = 40
+	plasma_gain = 75
 
 	// *** Health *** //
 	max_health = 300
@@ -59,7 +59,7 @@
 		/datum/action/ability/activable/xeno/psychic_cure/acidic_salve,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
-		/datum/action/ability/xeno_action/create_jelly/slow,
+		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
@@ -91,7 +91,7 @@
 		/datum/action/ability/xeno_action/sow,
 		/datum/action/ability/xeno_action/enhancement,
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
-		/datum/action/ability/xeno_action/create_jelly/slow,
+		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
