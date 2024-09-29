@@ -137,7 +137,7 @@
 
 	// Blow stuff up
 	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
-	for(var/atom/our_atom in in_turf)
+	for(var/atom/our_atom AS in in_turf)
 		if(our_atom.gc_destroyed || (our_atom in exploded_atoms))
 			continue
 		resistance += max(0, our_atom.get_explosion_resistance())
@@ -164,7 +164,7 @@
 	var/turf/old_turf = in_turf
 	// Propagate the explosion
 	var/list/to_spread = get_propagation_dirs(reflected)
-	for(var/our_dir in to_spread)
+	for(var/our_dir AS in to_spread)
 		// Diagonals are longer, that should be reflected in the power falloff
 		var/dir_falloff = 1
 		if(our_dir in GLOB.diagonals)
@@ -187,7 +187,7 @@
 			if(EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF)
 				new_falloff += (new_falloff * 0.5) * dir_falloff
 
-		if(our_dir == direction)
+		if(our_dir == direction || our_dir == REVERSE_DIR(direction))
 			var/turf/new_turf = get_step(in_turf, our_dir)
 			transfer_turf(new_turf)
 			shockwave.Move(new_turf, our_dir, 0)
@@ -203,7 +203,7 @@
 				if(!direction && (our_dir in GLOB.diagonals))
 					our_explosion.delay = 1
 				setup_new_cell(our_explosion)
-	if(old_turf == in_turf)
+	if(isnull(direction) || old_turf == in_turf)
 		qdel(src)
 
 /datum/automata_cell/explosion/propagate(dir, turf/start_turf)
