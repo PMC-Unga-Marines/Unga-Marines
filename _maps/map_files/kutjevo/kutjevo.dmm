@@ -2791,6 +2791,14 @@
 	},
 /turf/open/floor/mainship/research/containment/floor2,
 /area/kutjevo/interior/complex/botany)
+"dcM" = (
+/obj/item/stack/sheet/wood,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 1
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/tan/multi_tiles,
+/area/kutjevo/interior/complex/botany)
 "dda" = (
 /obj/effect/ai_node,
 /turf/open/floor/kutjevo/multi_tiles{
@@ -3608,13 +3616,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/kutjevo/catwalk,
-/area/kutjevo/interior/complex/botany)
-"dVl" = (
-/obj/item/stack/sheet/wood,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 1
-	},
-/turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/complex/botany)
 "dVL" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -7811,6 +7812,10 @@
 	dir = 4
 	},
 /area/kutjevo/interior/complex/med/triage)
+"iAc" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/tan/multi_tiles,
+/area/kutjevo/interior/filtration)
 "iAu" = (
 /obj/structure/stairs/seamless,
 /obj/structure/cable,
@@ -11153,6 +11158,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/lz_dunes)
+"mbu" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/colors,
+/area/kutjevo/interior/complex/med/cells)
 "mbL" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8
@@ -15227,6 +15239,15 @@
 	dir = 1
 	},
 /area/kutjevo/interior/complex/Northwest_Security_Checkpoint)
+"qfN" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/tan/grey_inner_edge{
+	dir = 4
+	},
+/area/kutjevo/interior/complex/med)
 "qgr" = (
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /turf/open/floor/kutjevo/colors,
@@ -16419,6 +16440,13 @@
 	},
 /turf/open/floor/kutjevo/tan/grey_inner_edge,
 /area/kutjevo/interior/complex/med)
+"ryc" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/kutjevo/multi_tiles,
+/area/kutjevo/interior/power)
 "ryi" = (
 /obj/structure/cable,
 /obj/structure/stairs/seamless/edge_vert{
@@ -17581,12 +17609,6 @@
 	},
 /turf/open/floor/kutjevo/tan,
 /area/kutjevo/interior/complex/med/auto_doc)
-"sJj" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
-/turf/open/floor/kutjevo/colors,
-/area/kutjevo/interior/complex/med/cells)
 "sKG" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -20995,6 +21017,10 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/Northwest_Colony)
+"weW" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/carpet,
+/area/kutjevo/interior/colony_South/power2)
 "wff" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/complex_border/botany_medical_cave)
@@ -22092,14 +22118,6 @@
 /obj/structure/cable,
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/complex/botany)
-"xoq" = (
-/obj/structure/bed/chair/office/light{
-	dir = 8
-	},
-/turf/open/floor/kutjevo/tan/grey_inner_edge{
-	dir = 4
-	},
-/area/kutjevo/interior/complex/med)
 "xoM" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 1;
@@ -27296,7 +27314,7 @@ fvC
 ivL
 rSf
 wzJ
-hcz
+iAc
 uvD
 kKi
 bdp
@@ -30990,7 +31008,7 @@ eJi
 eJi
 vGx
 vFv
-ltX
+ryc
 evZ
 byl
 uDH
@@ -39066,7 +39084,7 @@ pue
 hzq
 pSK
 sLG
-sJj
+mbu
 lcS
 pSK
 aHl
@@ -40080,7 +40098,7 @@ oVX
 jzl
 ujk
 rxX
-xoq
+qfN
 cXP
 snr
 tpm
@@ -40275,7 +40293,7 @@ xdc
 aYF
 ivW
 maD
-dVl
+dcM
 wNW
 gbq
 kth
@@ -48466,7 +48484,7 @@ nPf
 ukd
 xay
 gdb
-xay
+weW
 xay
 tTi
 vkV

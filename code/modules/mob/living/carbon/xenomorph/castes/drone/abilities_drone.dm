@@ -6,9 +6,6 @@
 /datum/action/ability/activable/xeno/transfer_plasma/drone
 	plasma_transfer_amount = PLASMA_TRANSFER_AMOUNT * 2
 
-/datum/action/ability/xeno_action/create_jelly/slow
-	cooldown_duration = 45 SECONDS
-
 // ***************************************
 // *********** Essence Link
 // ***************************************

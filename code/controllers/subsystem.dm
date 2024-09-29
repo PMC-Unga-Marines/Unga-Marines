@@ -30,6 +30,12 @@
 	///Bitmap of what game states can this subsystem fire at. See [RUNLEVELS_DEFAULT] for more details.
 	var/runlevels = RUNLEVELS_DEFAULT //points of the game at which the SS can fire
 
+	/**
+	 * boolean set by admins. if TRUE then this subsystem will stop the world profiler after ignite() returns and start it again when called.
+	 * used so that you can audit a specific subsystem or group of subsystems' synchronous call chain.
+	 */
+	var/profiler_focused = FALSE
+
 	// Bookkeeping variables; probably shouldn't mess with these.
 
 	///last world.time we called fire()
