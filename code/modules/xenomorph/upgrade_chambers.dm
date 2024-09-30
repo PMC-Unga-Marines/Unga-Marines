@@ -20,6 +20,7 @@
 
 /obj/structure/xeno/upgrade_chamber/shell/Initialize(mapload, _hivenumber)
 	. = ..()
+	set_light(3, 1, COLOR_DARK_CYAN)
 	GLOB.hive_datums[hivenumber].shell_chambers += src
 	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_SURVIVAL)
 
@@ -35,6 +36,7 @@
 
 /obj/structure/xeno/upgrade_chamber/spur/Initialize(mapload, _hivenumber)
 	. = ..()
+	set_light(3, 1, COLOR_RED)
 	GLOB.hive_datums[hivenumber].spur_chambers += src
 	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_ATTACK)
 
@@ -50,6 +52,7 @@
 
 /obj/structure/xeno/upgrade_chamber/veil/Initialize(mapload, _hivenumber)
 	. = ..()
+	set_light(3, 1, COLOR_LIME)
 	GLOB.hive_datums[hivenumber].veil_chambers += src
 	SEND_GLOBAL_SIGNAL(COMSIG_UPGRADE_CHAMBER_UTILITY)
 
