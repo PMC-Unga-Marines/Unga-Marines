@@ -215,7 +215,7 @@
 		return
 
 	// Create the new cell
-	var/datum/automata_cell/our_cell = new type(our_turf)
+	var/datum/automata_cell/explosion/our_cell = new type(our_turf)
 	return our_cell
 
 /*
