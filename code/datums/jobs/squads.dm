@@ -13,7 +13,7 @@
 		SQUAD_CORPSMAN = 0,
 		SQUAD_SMARTGUNNER = 0,
 		SQUAD_LEADER = 0,
-		SQUAD_ROBOT = 0, //for campaign
+		SQUAD_ROBOT = 0,
 	)
 	var/max_positions = list(
 		SQUAD_MARINE = -1,
@@ -66,83 +66,6 @@
 	access = list(ACCESS_MARINE_DELTA)
 	radio_freq = FREQ_DELTA
 
-//SOM squads
-/datum/squad/zulu
-	name = "Zulu"
-	id = ZULU_SQUAD
-	color = "#FF6A00"
-	access = list(ACCESS_MARINE_ALPHA) //No unique SOM access yet
-	radio_freq = FREQ_ZULU
-	faction = FACTION_SOM
-	current_positions = list(
-		SOM_SQUAD_MARINE = 0,
-		SOM_SQUAD_VETERAN = 0,
-		SOM_SQUAD_CORPSMAN = 0,
-		SOM_SQUAD_ENGINEER = 0,
-		SOM_SQUAD_LEADER = 0,
-)
-	max_positions = list(
-		SOM_SQUAD_MARINE = -1,
-		SOM_SQUAD_LEADER = 1,
-)
-
-/datum/squad/yankee
-	name = "Yankee"
-	id = YANKEE_SQUAD
-	color = "#009999"
-	access = list(ACCESS_MARINE_BRAVO)
-	radio_freq = FREQ_YANKEE
-	faction = FACTION_SOM
-	current_positions = list(
-		SOM_SQUAD_MARINE = 0,
-		SOM_SQUAD_VETERAN = 0,
-		SOM_SQUAD_CORPSMAN = 0,
-		SOM_SQUAD_ENGINEER = 0,
-		SOM_SQUAD_LEADER = 0,
-)
-	max_positions = list(
-		SOM_SQUAD_MARINE = -1,
-		SOM_SQUAD_LEADER = 1,
-)
-
-/datum/squad/xray
-	name = "Xray"
-	id = XRAY_SQUAD
-	color = "#008000"
-	access = list(ACCESS_MARINE_CHARLIE)
-	radio_freq = FREQ_XRAY
-	faction = FACTION_SOM
-	current_positions = list(
-		SOM_SQUAD_MARINE = 0,
-		SOM_SQUAD_VETERAN = 0,
-		SOM_SQUAD_CORPSMAN = 0,
-		SOM_SQUAD_ENGINEER = 0,
-		SOM_SQUAD_LEADER = 0,
-)
-	max_positions = list(
-		SOM_SQUAD_MARINE = -1,
-		SOM_SQUAD_LEADER = 1,
-)
-
-/datum/squad/whiskey
-	name = "Whiskey"
-	id = WHISKEY_SQUAD
-	color = "#CC00CC"
-	access = list(ACCESS_MARINE_DELTA)
-	radio_freq = FREQ_WHISKEY
-	faction = FACTION_SOM
-	current_positions = list(
-		SOM_SQUAD_MARINE = 0,
-		SOM_SQUAD_VETERAN = 0,
-		SOM_SQUAD_CORPSMAN = 0,
-		SOM_SQUAD_ENGINEER = 0,
-		SOM_SQUAD_LEADER = 0,
-)
-	max_positions = list(
-		SOM_SQUAD_MARINE = -1,
-		SOM_SQUAD_LEADER = 1,
-)
-
 /datum/squad/New(set_color, set_name)
 	tracking_id = SSdirection.init_squad(name, squad_leader)
 
@@ -189,10 +112,10 @@
 
 	current_positions[new_squaddie.job.title]++
 
-	if((ismarineleaderjob(new_squaddie.job) || issommarineleaderjob(new_squaddie.job)) && !squad_leader)
+	if(ismarineleaderjob(new_squaddie.job) && !squad_leader)
 		squad_leader = new_squaddie
 		SSdirection.set_leader(tracking_id, new_squaddie)
-		SSdirection.start_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, new_squaddie)
+		SSdirection.start_tracking(TRACKING_ID_MARINE_COMMANDER, new_squaddie)
 
 	var/obj/item/radio/headset/mainship/headset = new_squaddie.wear_ear
 	if(give_radio && !istype(headset))
@@ -280,10 +203,10 @@
 		CRASH("attempted to remove squad leader from squad [name] while not having one set")
 
 	SSdirection.clear_leader(tracking_id)
-	SSdirection.stop_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, squad_leader)
+	SSdirection.stop_tracking(TRACKING_ID_MARINE_COMMANDER, squad_leader)
 
 	//Handle aSL skill level and radio
-	if(!ismarineleaderjob(squad_leader.job) && !issommarineleaderjob(squad_leader.job))
+	if(!ismarineleaderjob(squad_leader.job))
 		squad_leader.set_skills(squad_leader.skills.setRating(leadership = SKILL_LEAD_NOVICE))
 		if(squad_leader.mind)
 			var/datum/job/J = squad_leader.job
@@ -311,10 +234,10 @@
 
 	squad_leader = H
 	SSdirection.set_leader(tracking_id, H)
-	SSdirection.start_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, H)
+	SSdirection.start_tracking(TRACKING_ID_MARINE_COMMANDER, H)
 
 	//Handle aSL skill level and radio
-	if(!ismarineleaderjob(squad_leader.job) && !issommarineleaderjob(squad_leader.job))
+	if(!ismarineleaderjob(squad_leader.job))
 		squad_leader.set_skills(squad_leader.skills.setRating(leadership = SKILL_LEAD_TRAINED))
 		squad_leader.comm_title = "aSL"
 		var/obj/item/card/id/ID = squad_leader.get_idcard()
@@ -386,11 +309,7 @@
 	var/strict = player.client.prefs.be_special && (player.client.prefs.be_special & BE_SQUAD_STRICT)
 	//List of all the faction accessible squads
 	var/list/available_squads = SSjob.active_squads[faction]
-	var/datum/squad/preferred_squad
-	if(faction == FACTION_SOM)
-		preferred_squad = LAZYACCESSASSOC(SSjob.squads_by_name, faction, player.client.prefs.preferred_squad_som)
-	else
-		preferred_squad = LAZYACCESSASSOC(SSjob.squads_by_name, faction, player.client.prefs.preferred_squad) //TGMC and rebels use the same squads
+	var/datum/squad/preferred_squad = LAZYACCESSASSOC(SSjob.squads_by_name, faction, player.client.prefs.preferred_squad) //TGMC and rebels use the same squads
 	if(available_squads.Find(preferred_squad) && preferred_squad?.assign_initial(player, job, latejoin))
 		return TRUE
 	if(strict)
@@ -439,13 +358,6 @@ GLOBAL_LIST_EMPTY_TYPED(custom_squad_radio_freqs, /datum/squad)
 		LAZYADDASSOCSIMPLE(terragov_server_freqs, 1, freq)
 		LAZYADDASSOCSIMPLE(terragov_bus_freqs, 1, freq)
 		LAZYADDASSOCSIMPLE(terragov_receiver_freqs, 1, freq)
-	else
-		var/list/som_server_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/server/presets/zulu]
-		var/list/som_bus_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/bus/preset_three/som]
-		var/list/som_receiver_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/receiver/preset_left/som]
-		LAZYADDASSOCSIMPLE(som_server_freqs, 1, freq)
-		LAZYADDASSOCSIMPLE(som_bus_freqs, 1, freq)
-		LAZYADDASSOCSIMPLE(som_receiver_freqs, 1, freq)
 	SSjob.active_squads[new_squad.faction] += new_squad
 	SSjob.squads[new_squad.id] = new_squad
 	LAZYSET(SSjob.squads_by_name[new_squad.faction], new_squad.name, new_squad)
@@ -464,8 +376,4 @@ GLOBAL_LIST_INIT(custom_squad_colors, list(
 	COLOR_STRONG_MAGENTA = "charlieradio",
 	COLOR_NAVY = "deltaradio",
 	COLOR_PURPLE = "sciradio",
-	COLOR_TAN_ORANGE = "zuluradio",
-	COLOR_TEAL = "yankeeradio",
-	COLOR_GREEN = "xrayradio",
-	COLOR_MAGENTA = "whiskeyradio",
 ))
