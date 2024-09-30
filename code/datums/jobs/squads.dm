@@ -156,7 +156,7 @@
 		GLOB.minimap_icons[icon_state] = icon2base64(top)
 
 
-/datum/squad/Destroy(force, ...)
+/datum/squad/Destroy(force)
 	for(var/mob/living/carbon/human/squaddie AS in marines_list)
 		remove_from_squad(squaddie)
 	GLOB.custom_squad_radio_freqs -= "[radio_freq]"

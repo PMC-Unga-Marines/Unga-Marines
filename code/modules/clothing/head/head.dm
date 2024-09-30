@@ -49,7 +49,7 @@
 	icon_state = "beanie_cargo"
 	flags_inv_hide = HIDETOPHAIR
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 
 /obj/item/clothing/head/tgmcberet
 	name = "\improper Dark gray beret"
@@ -60,7 +60,7 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	icon_state = "beret"
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_item_map_variant = NONE
 	flags_armor_features = ARMOR_NO_DECAP
 
@@ -108,7 +108,7 @@
 	name = "\improper Command Master at Arms beret"
 	desc = "A beret with the lieutenant insignia emblazoned on it. It shines with the glow of corrupt authority and a smudge of doughnut."
 	icon_state = "beretwo"
-	soft_armor = list(MELEE = 15, BULLET = 50, LASER = 50, ENERGY = 15, BOMB = 50, BIO = 5, FIRE = 50, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_item_map_variant = NONE
 
 /obj/item/clothing/head/tgmcberet/fc
@@ -128,7 +128,7 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	var/flipped_cap = FALSE
 	var/base_cap_icon
 	flags_item_map_variant = (ITEM_ICE_VARIANT)
@@ -174,7 +174,7 @@
 	icon_state = "booniehat"
 	item_state = "booniehat"
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 
 /obj/item/clothing/head/ornamented_cap
 	name = "\improper ornamented cap"
@@ -184,7 +184,7 @@
 	item_icons = list(
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi',)
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_armor_features = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/slouch
@@ -196,7 +196,7 @@
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi',
 	)
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 
 /obj/item/clothing/head/headband
 	name = "\improper Cyan headband"
@@ -208,7 +208,7 @@
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	icon_state = "headband"
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_armor_features = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/headband/red
@@ -249,7 +249,7 @@
 	name = "marine officer beret"
 	desc = "A beret with the TGMC insignia emblazoned on it. It radiates respect and authority."
 	icon_state = "hosberet"
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_inventory = BLOCKSHARPOBJ
 
 /obj/item/clothing/head/beret/marine/captain
@@ -623,7 +623,7 @@
 	item_icons = list(
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
 	icon_state = "cap_black"
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_inventory = BLOCKSHARPOBJ
 	flags_armor_features = ARMOR_NO_DECAP
 	species_exception = list(/datum/species/robot)
