@@ -206,7 +206,7 @@
 	.["user_index"] = 0
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/xeno_user = user
-		.["user_index"] = GLOB.hive_ui_caste_index[xeno_user.xeno_caste.caste_type_path]
+		.["user_index"] = GLOB.hive_ui_caste_index[xeno_user.xeno_caste.base_caste_type_path ? xeno_user.xeno_caste.base_caste_type_path : xeno_user.xeno_caste.caste_type_path]
 
 	.["user_purchase_perms"] = FALSE
 	if(isxeno(user))
