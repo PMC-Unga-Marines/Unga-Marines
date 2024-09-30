@@ -84,7 +84,7 @@
 			user.balloon_alert(user, "Вы уже чем-то заняты!")
 			return
 
-		if(istype(item_to_deploy, /obj/item/weapon/gun/sentry))
+		if(CHECK_BITFIELD(item_to_deploy.flags_item, IS_SENTRY))
 			for(var/obj/machinery/deployable/mounted/sentry/sentry in urange(2, location))
 				user.balloon_alert(user, "Слишком близко к [sentry]!")
 				return
