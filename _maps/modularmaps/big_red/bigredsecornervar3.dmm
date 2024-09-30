@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ax" = (
-/obj/effect/landmark/patrol_point/tgmc_14,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
 "aA" = (
 /obj/machinery/door/airlock/mainship/research,
 /obj/effect/turf_decal/sandedge{
@@ -21,10 +17,6 @@
 /area/bigredv2/caves/east)
 "bk" = (
 /obj/effect/landmark/start/job/xenomorph,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
-"bl" = (
-/obj/effect/landmark/patrol_point/tgmc_12,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "bn" = (
@@ -102,7 +94,6 @@
 /area/bigredv2/caves/undergroundrobotics)
 "fk" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
 /obj/effect/spawner/random/engineering/cable,
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/tile/blue/taupeblue{
@@ -375,10 +366,6 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
-"qw" = (
-/obj/effect/landmark/patrol_point/tgmc_13,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
 "qC" = (
 /obj/effect/turf_decal/sandedge,
 /obj/effect/landmark/xeno_resin_door,
@@ -546,10 +533,6 @@
 /obj/item/book/manual/robotics_cyborgs,
 /turf/open/floor/tile/blue/taupeblue,
 /area/bigredv2/caves/undergroundrobotics)
-"BF" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
 "Ci" = (
 /obj/structure/rack,
 /obj/item/weapon/gun/shotgun/pump/cmb,
@@ -4501,7 +4484,7 @@ dj
 dj
 dj
 dj
-ax
+QB
 QB
 QB
 QB
@@ -4560,7 +4543,7 @@ dj
 dj
 dj
 dj
-qw
+QB
 QB
 QB
 QB
@@ -4783,7 +4766,7 @@ QB
 QB
 cZ
 QB
-BF
+QB
 dj
 dj
 dj
@@ -4840,7 +4823,7 @@ dj
 dj
 dj
 dj
-bl
+QB
 QB
 QB
 QB
