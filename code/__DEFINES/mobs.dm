@@ -1,7 +1,5 @@
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
-///Comment out if you don't want VOX to be enabled and have players download the voice sounds.
-#define AI_VOX
 
 //Mob movement define
 
@@ -752,11 +750,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define BRAVO_SQUAD "bravo_squad"
 #define CHARLIE_SQUAD "charlie_squad"
 #define DELTA_SQUAD "delta_squad"
-
-#define ZULU_SQUAD "zulu_squad"
-#define YANKEE_SQUAD "yankee_squad"
-#define XRAY_SQUAD "xray_squad"
-#define WHISKEY_SQUAD "whiskey_squad"
 
 #define TYPING_INDICATOR_LIFETIME 3 SECONDS	//Grace period after which typing indicator disappears regardless of text in chatbar.
 

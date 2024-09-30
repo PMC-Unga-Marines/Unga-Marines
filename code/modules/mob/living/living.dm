@@ -521,6 +521,7 @@
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].remove_from_hud(src)
 
+	ADD_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	smokecloaked = TRUE
 
 /mob/living/proc/smokecloak_off()
@@ -536,6 +537,7 @@
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
 
+	REMOVE_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	smokecloaked = FALSE
 
 /mob/living/proc/update_cloak()

@@ -17,7 +17,6 @@
 	name = "orbital beacon"
 	contains = list(/obj/item/beacon/orbital_bombardment_beacon)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/fulton_extraction_pack
 	name = "Fulton extraction pack"
@@ -46,13 +45,11 @@
 		/obj/item/encryptionkey/cas,
 	)
 	cost = 300
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/pinpointer
 	name = "Xeno structure tracker crate"
 	contains = list(/obj/item/pinpointer)
 	cost = 200
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/xeno_iff_tag
 	name = "Xenomorph IFF tag crate" //Intended for corrupted or friendly rounies as rounds sometimes turn out. Avoid abuse or I'll have to admin-only it, which is no fun!
@@ -81,7 +78,6 @@
 	cost = 200
 	access = ACCESS_MARINE_ENGINEERING
 	containertype = /obj/structure/closet/crate/secure/explosives
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/warhead_explosive
 	name = "HE orbital warhead"
@@ -89,7 +85,6 @@
 	cost = 300
 	access = ACCESS_MARINE_ENGINEERING
 	containertype = /obj/structure/closet/crate/secure/explosives
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/warhead_incendiary
 	name = "Incendiary orbital warhead"
@@ -97,7 +92,6 @@
 	cost = 200
 	access = ACCESS_MARINE_ENGINEERING
 	containertype = /obj/structure/closet/crate/secure/explosives
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/warhead_plasmaloss
 	name = "Plasma draining orbital warhead"
@@ -105,7 +99,6 @@
 	cost = 150
 	access = ACCESS_MARINE_ENGINEERING
 	containertype = /obj/structure/closet/crate/secure/explosives
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/ob_fuel
 	name = "Solid fuel"
@@ -113,7 +106,6 @@
 	cost = 50
 	access = ACCESS_MARINE_ENGINEERING
 	containertype = /obj/structure/closet/crate/secure/explosives
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/operations/droppod
 	name = "drop pod"
