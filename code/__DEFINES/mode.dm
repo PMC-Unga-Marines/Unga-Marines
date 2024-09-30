@@ -43,15 +43,12 @@
 #define MODE_HIJACK_POSSIBLE (1<<7)
 #define MODE_DEAD_GRAB_FORBIDDEN (1<<8)
 #define MODE_SILO_RESPAWN (1<<9)
-#define MODE_HUMAN_ONLY (1<<10)
-#define MODE_TWO_HUMAN_FACTIONS	(1<<11)
-#define MODE_NO_PERMANENT_WOUNDS (1<<12)
-#define MODE_SILOS_SPAWN_MINIONS (1<<13)
-#define MODE_ALLOW_XENO_QUICKBUILD (1<<14)
-#define MODE_DISALLOW_RAILGUN (1<<15)
-#define MODE_SILO_NO_LARVA (1<<16)
-#define MODE_TELETOWER (1<<17)
-#define MODE_XENO_DEN (1<<18)
+#define MODE_SILOS_SPAWN_MINIONS (1<<10)
+#define MODE_ALLOW_XENO_QUICKBUILD (1<<11)
+#define MODE_DISALLOW_RAILGUN (1<<12)
+#define MODE_SILO_NO_LARVA (1<<13)
+#define MODE_TELETOWER (1<<14)
+#define MODE_XENO_DEN (1<<15)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
@@ -60,12 +57,6 @@
 #define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
 
 #define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"
-
-#define MODE_COMBAT_PATROL_MARINE_MAJOR "Marine Major Victory"
-#define MODE_COMBAT_PATROL_MARINE_MINOR "Marine Minor Victory"
-#define MODE_COMBAT_PATROL_SOM_MAJOR "Sons of Mars Major Victory"
-#define MODE_COMBAT_PATROL_SOM_MINOR "Sons of Mars Minor Victory"
-#define MODE_COMBAT_PATROL_DRAW "DRAW: Mutual Annihilation"
 
 #define CRASH_EVAC_NONE "CRASH_EVAC_NONE"
 #define CRASH_EVAC_INPROGRESS "CRASH_EVAC_INPROGRESS"
