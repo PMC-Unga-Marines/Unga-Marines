@@ -74,10 +74,6 @@ Godspeed, captain! And remember, you are not above the law."})
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
 
-
-/datum/job/terragov/command/captain/campaign
-	outfit = /datum/outfit/job/command/captain/campaign
-
 /datum/outfit/job/command/captain
 	name = CAPTAIN
 	jobtype = /datum/job/terragov/command/captain
@@ -93,10 +89,6 @@ Godspeed, captain! And remember, you are not above the law."})
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator/yellow
 	head = null
 	back = FALSE
-
-/datum/outfit/job/command/captain/campaign
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/binoculars/fire_support/campaign
 
 //Field Commander
 /datum/job/terragov/command/fieldcommander
@@ -170,54 +162,6 @@ Make the TGMC proud!"})
 	l_store = /obj/item/hud_tablet/fieldcommand
 	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
 
-//Campaign version with specific loadout
-/datum/job/terragov/command/fieldcommander/campaign
-	outfit = /datum/outfit/job/command/fieldcommander/campaign
-
-/datum/outfit/job/command/fieldcommander/campaign
-	name = FIELD_COMMANDER
-	jobtype = /datum/job/terragov/command/fieldcommander/campaign
-
-	id = /obj/item/card/id/dogtag/fc
-	belt = /obj/item/storage/holster/blade/officer/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	glasses = /obj/item/clothing/glasses/hud/health
-	w_uniform = /obj/item/clothing/under/marine/officer/exec/webbing
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/valk
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine/officer
-	mask = /obj/item/clothing/mask/rebreather
-	head = /obj/item/clothing/head/tgmcberet/fc
-	r_store = /obj/item/storage/pouch/firstaid/combat_patrol_leader
-	l_store = /obj/item/storage/pouch/grenade/combat_patrol
-	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
-
-/datum/outfit/job/command/fieldcommander/campaign/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_ACCESSORY)
-
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-
-
 //Staff Officer
 /datum/job/terragov/command/staffofficer
 	title = STAFF_OFFICER
@@ -277,9 +221,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
 
-/datum/job/terragov/command/staffofficer/campaign
-	outfit = /datum/outfit/job/command/staffofficer/campaign
-
 /datum/outfit/job/command/staffofficer
 	name = STAFF_OFFICER
 	jobtype = /datum/job/terragov/command/staffofficer
@@ -293,11 +234,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	head = null
 	w_uniform = /obj/item/clothing/under/marine/whites/blacks
 	shoes = /obj/item/clothing/shoes/laceup
-
-/datum/outfit/job/command/staffofficer/campaign
-	l_store = /obj/item/binoculars/fire_support/campaign
-
-	id = /obj/item/card/id/silver
 
 //Transport Officer
 /datum/job/terragov/command/transportofficer
@@ -867,7 +803,7 @@ A happy ship is a well-functioning ship."})
 	jobtype = /datum/job/terragov/requisitions/officer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/holster/belt/m44/full
+	belt = /obj/item/storage/holster/belt/revolver/m44/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/ro_suit
 	wear_suit = /obj/item/clothing/suit/storage/marine/officer/req
@@ -1017,13 +953,13 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	id = /obj/item/card/id
 	belt = /obj/item/storage/belt/rig/medical
 	ears = /obj/item/radio/headset/mainship/doc
-	w_uniform = /obj/item/clothing/under/rank/medical/purple
+	w_uniform = /obj/item/clothing/under/rank/medical
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
-	head = /obj/item/clothing/head/surgery/purple
+	head = /obj/item/clothing/head/surgery/green
 	r_store = /obj/item/storage/pouch/surgery
 	l_store = /obj/item/storage/pouch/medkit/medic
 

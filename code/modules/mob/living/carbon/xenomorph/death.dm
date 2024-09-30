@@ -52,7 +52,7 @@
 	hud_set_queen_overwatch() //updates the overwatch hud to remove the upgrade chevrons, gold star, etc
 
 	GLOB.round_statistics.total_xeno_deaths++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_xeno_deaths")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_xeno_deaths")
 
 	switch (upgrade)
 		if(XENO_UPGRADE_NORMAL)
@@ -88,7 +88,6 @@
 	xeno_message("Hive: \The [src] has <b>died</b>[A? " at [A]":""]!", "xenoannounce", xeno_caste.caste_flags & CASTE_DO_NOT_ALERT_LOW_LIFE ? 2 : 5, hivenumber)
 
 /mob/living/carbon/xenomorph/gib()
-
 	var/obj/effect/decal/remains/xeno/remains = new(get_turf(src))
 	remains.icon = icon
 	remains.pixel_x = pixel_x //For 2x2.

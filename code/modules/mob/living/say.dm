@@ -18,22 +18,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	RADIO_KEY_REQUISITIONS = RADIO_CHANNEL_REQUISITIONS,
 ))
 
-GLOBAL_LIST_INIT(department_radio_keys_som, list(
-	MODE_KEY_R_HAND = MODE_R_HAND,
-	MODE_KEY_L_HAND = MODE_L_HAND,
-	MODE_KEY_INTERCOM = MODE_INTERCOM,
-
-	MODE_KEY_DEPARTMENT = MODE_DEPARTMENT,
-
-	RADIO_KEY_MEDICAL = RADIO_CHANNEL_MEDICAL_SOM,
-	RADIO_KEY_ENGINEERING = RADIO_CHANNEL_ENGINEERING_SOM,
-	RADIO_KEY_COMMAND = RADIO_CHANNEL_COMMAND_SOM,
-	RADIO_KEY_ALPHA = RADIO_CHANNEL_ZULU,
-	RADIO_KEY_BRAVO = RADIO_CHANNEL_YANKEE,
-	RADIO_KEY_CHARLIE = RADIO_CHANNEL_XRAY,
-	RADIO_KEY_DELTA = RADIO_CHANNEL_WHISKEY,
-))
-
 /mob/living/proc/Ellipsis(original_msg, chance = 50, keep_words)
 	if(chance <= 0)
 		return "..."
@@ -96,17 +80,17 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 		to_chat(src, span_warning("\"[message]\""))
 		REPORT_CHAT_FILTER_TO_USER(src, filter_result)
 		log_filter("IC", message, filter_result)
-		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return FALSE
 
 	if(soft_filter_result)
 		if(tgui_alert(usr,"Your message contains \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[soft_filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to say it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
-			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
 			log_filter("Soft IC", message, filter_result)
 			return FALSE
 		message_admins("[ADMIN_LOOKUPFLW(usr)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Message: \"[message]\"")
 		log_admin_private("[key_name(usr)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Message: \"[message]\"")
-		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "passed_soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
 		log_filter("Soft IC (Passed)", message, filter_result)
 
 	if(stat == DEAD)

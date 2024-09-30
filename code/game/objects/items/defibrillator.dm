@@ -302,7 +302,7 @@
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
 		personal_statistics.revives++
 	GLOB.round_statistics.total_human_revives[H.faction]++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_revives[H.faction]")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_human_revives[H.faction]")
 	to_chat(H, span_notice("You suddenly feel a spark and your consciousness returns, dragging you back to the mortal plane."))
 
 	if(CHECK_BITFIELD(H.status_flags, XENO_HOST))

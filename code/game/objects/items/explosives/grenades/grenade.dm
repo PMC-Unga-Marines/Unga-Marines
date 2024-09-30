@@ -82,11 +82,10 @@
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	//playsound(loc, arm_sound, 25, 1, 6) //ORIGINAL
-	playsound(loc, arm_sound, 30, 1, 6) //RUTGMC EDIT
+	playsound(loc, arm_sound, 30, 1, 6)
 	if(dangerous)
 		GLOB.round_statistics.grenades_thrown++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "grenades_thrown")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "grenades_thrown")
 		update_icon()
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
 	return TRUE
@@ -115,7 +114,7 @@
 /obj/item/explosive/grenade/proc/launched_det_time()
 	det_time = min(12, det_time)
 
-/obj/item/explosive/grenade/throw_at()
+/obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
 

@@ -198,11 +198,6 @@
 	default_ammo = /datum/ammo/bullet/pistol/incendiary
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
-/obj/item/ammo_magazine/pistol/vp70/sabot
-	name = "\improper 88M4 APDS magazine (9mm)"
-	default_ammo = /datum/ammo/bullet/pistol/sabot
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-
 //-------------------------------------------------------
 //VP78
 

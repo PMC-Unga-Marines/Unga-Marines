@@ -18,10 +18,6 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/landing_pad_external)
-"an" = (
-/obj/effect/landmark/patrol_point/som/som_24,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveN)
 "ao" = (
 /obj/structure/flora/tree/joshua,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -1218,10 +1214,6 @@
 "gi" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/orion_outpost/ground/outposte)
-"gj" = (
-/obj/effect/landmark/patrol_point/som/som_12,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostsw)
 "gk" = (
 /obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
 /turf/open/floor/mainship/mono,
@@ -1802,10 +1794,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposts)
-"jD" = (
-/obj/effect/landmark/patrol_point/tgmc_21,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/landing_pad2_external)
 "jE" = (
 /obj/structure/platform{
 	dir = 5
@@ -1870,10 +1858,6 @@
 	dir = 8
 	},
 /area/orion_outpost/surface/building/command)
-"jR" = (
-/obj/effect/landmark/patrol_point/som/som_23,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveN)
 "jS" = (
 /obj/machinery/light{
 	dir = 4
@@ -2664,10 +2648,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostnw)
-"nG" = (
-/obj/effect/landmark/patrol_point/som/som_13,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostsw)
 "nJ" = (
 /obj/item/ammo_magazine/tank/ltb_cannon,
 /obj/item/ammo_magazine/tank/ltaap_chaingun,
@@ -2695,11 +2675,6 @@
 	dir = 10
 	},
 /area/orion_outpost/surface/building/cargo)
-"nQ" = (
-/obj/effect/landmark/patrol_point/tgmc_24,
-/obj/machinery/landinglight/lz2,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/surface/landing_pad2_external)
 "nR" = (
 /turf/open/floor/mainship/red{
 	dir = 4
@@ -3349,7 +3324,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveE)
 "qX" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -3368,10 +3343,6 @@
 	},
 /turf/open/floor/prison,
 /area/orion_outpost/surface/building/engineering)
-"ra" = (
-/obj/effect/landmark/patrol_point/tgmc_23,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/landing_pad2_external)
 "rb" = (
 /obj/structure/prop/brokenvendor/surplusarmor,
 /turf/open/floor/mainship/red{
@@ -4077,10 +4048,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/prep)
-"uF" = (
-/obj/effect/landmark/patrol_point/som/som_11,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostsw)
 "uG" = (
 /obj/effect/landmark/corpsespawner/marine,
 /obj/effect/ai_node,
@@ -4373,7 +4340,7 @@
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostw)
 "wc" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "wf" = (
@@ -5242,10 +5209,6 @@
 	dir = 9
 	},
 /area/orion_outpost/surface/building/atc)
-"AF" = (
-/obj/effect/landmark/patrol_point/som/som_22,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveN)
 "AG" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -5933,10 +5896,6 @@
 /obj/structure/prop/mainship/sensor_computer1,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/atc)
-"Ea" = (
-/obj/effect/landmark/patrol_point/som/som_21,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveN)
 "Ec" = (
 /obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -6007,7 +5966,7 @@
 	},
 /area/orion_outpost/surface/building/engineering)
 "Ew" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -6029,10 +5988,6 @@
 "EB" = (
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostcent)
-"EC" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveS)
 "ED" = (
 /obj/structure/table/mainship,
 /obj/item/stack/sheet/metal,
@@ -6345,10 +6300,6 @@
 "Gs" = (
 /turf/closed/mineral/smooth,
 /area/orion_outpost/surface/landing_pad_external)
-"Gt" = (
-/obj/effect/landmark/patrol_point/tgmc_12,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveS)
 "Gu" = (
 /obj/structure/platform{
 	dir = 9
@@ -6617,10 +6568,6 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/administration)
-"HN" = (
-/obj/effect/landmark/patrol_point/tgmc_14,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveS)
 "HP" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
@@ -6819,10 +6766,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostse)
-"IR" = (
-/obj/effect/landmark/patrol_point/som/som_14,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostsw)
 "IX" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 9
@@ -8104,10 +8047,6 @@
 	},
 /turf/open/liquid/water/river,
 /area/orion_outpost/ground/river/riverside_south)
-"Pa" = (
-/obj/effect/landmark/patrol_point/tgmc_13,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveS)
 "Pb" = (
 /turf/open/floor/mainship/orange{
 	dir = 1
@@ -8666,10 +8605,6 @@
 /obj/effect/landmark/corpsespawner/marine,
 /turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/medbay)
-"RY" = (
-/obj/effect/landmark/patrol_point/tgmc_22,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/surface/landing_pad2_external)
 "RZ" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/drained,
@@ -10777,7 +10712,7 @@ ve
 ve
 ve
 ve
-IR
+ve
 wt
 wt
 wt
@@ -11334,7 +11269,7 @@ zI
 zI
 zI
 zI
-ra
+zI
 zI
 zI
 zI
@@ -11458,7 +11393,7 @@ Kp
 WO
 WO
 WO
-jD
+zI
 zI
 zI
 zI
@@ -11709,7 +11644,7 @@ ve
 ve
 ve
 ve
-uF
+ve
 wt
 wt
 YX
@@ -12118,7 +12053,7 @@ Kp
 WO
 WO
 eW
-nQ
+EJ
 IH
 ft
 ft
@@ -12363,7 +12298,7 @@ wt
 wt
 wt
 wt
-gj
+ve
 ve
 ve
 ve
@@ -12762,7 +12697,7 @@ wt
 wt
 wt
 wt
-nG
+ve
 ve
 ve
 ve
@@ -13305,7 +13240,7 @@ WO
 Kp
 WO
 WO
-RY
+eW
 Bf
 bW
 bW
@@ -30711,7 +30646,7 @@ mR
 mR
 mR
 zi
-HN
+zi
 zi
 zi
 zi
@@ -30860,7 +30795,7 @@ PS
 sl
 PS
 PS
-AF
+Lb
 Lb
 Lb
 Lb
@@ -30999,7 +30934,7 @@ Lb
 Lb
 Lb
 Lb
-an
+Lb
 PS
 PS
 PS
@@ -31630,7 +31565,7 @@ zi
 zi
 zi
 zi
-Pa
+zi
 mR
 mR
 mR
@@ -31770,7 +31705,7 @@ zi
 zi
 zi
 zi
-Gt
+zi
 mR
 mR
 mR
@@ -31914,7 +31849,7 @@ Zm
 LZ
 PS
 sl
-Ea
+Lb
 Lb
 Lb
 Lb
@@ -32059,7 +31994,7 @@ Lb
 Lb
 Lb
 Lb
-jR
+Lb
 PS
 sl
 PS
@@ -32295,7 +32230,7 @@ zi
 zi
 aM
 zi
-EC
+zi
 mR
 mR
 mR

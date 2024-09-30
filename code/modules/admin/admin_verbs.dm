@@ -1371,7 +1371,7 @@
 
 	message_admins(span_adminnotice("[key_name_admin(usr)] has put [frommob.key] in control of [tomob.name]."))
 	log_admin("[key_name(usr)] stuffed [frommob.key] into [tomob.name].")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Ghost Drag Control")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Ghost Drag Control")
 
 	tomob.ckey = frommob.ckey
 	tomob.client?.init_verbs()
@@ -1449,7 +1449,7 @@
 		to_chat(usr, "This can only be used on instances of type /mob and /mind", confidential = TRUE)
 		return
 	target_mind.traitor_panel()
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Objective Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Objective Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/validate_objectives()
 	set category = "Debug"

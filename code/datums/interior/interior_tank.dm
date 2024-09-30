@@ -7,21 +7,21 @@
 	///door to enter and leave the tank. TODO: make this support multiple doors
 	var/turf/closed/interior/tank/door/door
 
-/datum/interior/armored/Destroy(force, ...)
+/datum/interior/armored/Destroy(force)
 	breech = null
 	secondary_breech = null
 	door = null
 	return ..()
 
 /datum/interior/armored/mob_enter(mob/enterer)
-	. = ..()
 	if(door)
 		enterer.forceMove(door.get_enter_location())
 		enterer.setDir(EAST)
-		return
+		return ..()
 	to_chat(enterer, span_userdanger("AN ERROR OCCURED PUTTING YOU INTO AN INTERIOR"))
 	stack_trace("a [enterer.type] could not find a door when entering an interior")
 	enterer.forceMove(pick(loaded_turfs))
+	return ..()
 
 /turf/closed/interior/tank
 	name = "\improper Banteng tank interior"

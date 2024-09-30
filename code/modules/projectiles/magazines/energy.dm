@@ -196,3 +196,36 @@
 	slowdown = 0
 	maxcharge = 2400
 	self_recharge = FALSE
+
+/obj/item/cell/lasgun/volkite/powerpack/marine_back
+	name = "\improper TE powerback"
+	desc = "A heavy reinforced backpack with an array of ultradensity energy cells. Click drag cells to the powerpack to recharge."
+	icon = 'icons/obj/items/storage/storage.dmi'
+	icon_state = "pp_100"
+	maxcharge = 2400
+	base_icon_state = "pp"
+
+/obj/item/cell/lasgun/volkite/powerpack/marine_back/Initialize(mapload, ...)
+	. = ..()
+	update_icon()
+
+/obj/item/cell/lasgun/volkite/powerpack/marine_back/update_icon_state()
+	. = ..()
+	icon_state = base_icon_state
+	if(charge > 0)
+		switch(PERCENT(charge/maxcharge))
+			if(75 to INFINITY)
+				icon_state += "_100"
+			if(50 to 74.9)
+				icon_state += "_75"
+			if(25 to 49.9)
+				icon_state += "_50"
+			if(0.1 to 24.9)
+				icon_state += "_25"
+	else
+		icon_state += "_0"
+
+	//update worn sprite, a bit of shitcode
+	if(ishuman(loc))
+		var/mob/living/carbon/human/human = loc
+		human.update_inv_back()

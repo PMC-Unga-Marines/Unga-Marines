@@ -46,3 +46,7 @@ Your health meter will not regenerate normally, so kill and die for the hive!</s
 <span class='role_body'>|______________________|</span>
 "})
 	emote("roar")
+
+/mob/living/carbon/xenomorph/predalien/warrior
+	name = "Abomination Warrior" //snowflake name
+	icon = 'icons/Xeno/castes/predalien_warrior.dmi'

@@ -53,6 +53,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	var/exp_requirements = 0
 	var/exp_type = ""
 	var/exp_type_department = ""
+	var/boosty_job = FALSE
 
 	var/datum/outfit/job/outfit
 	///whether the job has multiple outfits
@@ -294,7 +295,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	faction = job.faction
 	job.announce(src)
 	GLOB.round_statistics.total_humans_created[faction]++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_humans_created[faction]")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_humans_created[faction]")
 	SEND_GLOBAL_SIGNAL(COMSIG_LIVING_JOB_SET, src)
 
 /mob/living/carbon/human/apply_assigned_role_to_spawn(datum/job/assigned_role, client/player, datum/squad/assigned_squad, admin_action = FALSE)

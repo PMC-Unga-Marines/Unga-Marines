@@ -219,7 +219,7 @@
 
 /obj/machinery/vending/medical/valhalla
 	use_power = NO_POWER_USE
-	req_access = list()
+	req_access = null
 	resistance_flags = INDESTRUCTIBLE
 	products = list(
 		"Hypospray" = list (

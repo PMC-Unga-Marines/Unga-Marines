@@ -239,10 +239,6 @@
 	///The special pod type for this fire support mode
 	var/pod_type = /obj/structure/droppod/nonmob/turret_pod
 
-/datum/fire_support/droppod/New()
-	. = ..()
-	disable_pods()
-
 /datum/fire_support/droppod/select_target(turf/target_turf)
 	for(var/obj/structure/droppod/nonmob/droppod AS in GLOB.droppod_list)
 		if(droppod.type != pod_type)
@@ -253,20 +249,6 @@
 			return
 		droppod.start_launch_pod()
 		return
-
-///Enabled the datum for use
-/datum/fire_support/droppod/proc/enable_pods(datum/source)
-	SIGNAL_HANDLER
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, PROC_REF(disable_pods))
-	UnregisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS)
-	enable_firesupport(-1) //pods can be used separately, restocked, emptied, etc. select_target will check if there's actually a pod available.
-
-///Disabled the datum from use
-/datum/fire_support/droppod/proc/disable_pods(datum/source)
-	SIGNAL_HANDLER
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS, PROC_REF(enable_pods))
-	UnregisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED)
-	disable(TRUE)
 
 /datum/fire_support/droppod/supply
 	name = "Supply drop pod"

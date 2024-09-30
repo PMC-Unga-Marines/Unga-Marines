@@ -43,7 +43,7 @@
 
 	GLOB.xeno_mob_list += src
 	GLOB.round_statistics.total_xenos_created++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_xenos_created")
 
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
@@ -290,6 +290,9 @@
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+	LAZYREMOVE(hive.xenos_by_zlevel["[z]"], src)
+
+	remove_from_all_mob_huds()
 
 	if(!isnull(current_aura))
 		QDEL_NULL(current_aura)

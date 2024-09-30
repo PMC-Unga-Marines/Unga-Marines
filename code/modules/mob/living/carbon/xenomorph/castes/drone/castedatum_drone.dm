@@ -20,7 +20,7 @@
 
 	// *** Plasma *** //
 	plasma_max = 1000
-	plasma_gain = 40
+	plasma_gain = 75
 
 	// *** Health *** //
 	max_health = 300
@@ -31,7 +31,7 @@
 	deevolves_to = /mob/living/carbon/xenomorph/larva
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER|CASTE_ACID_BLOOD
 	can_hold_eggs = CAN_HOLD_TWO_HANDS
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_JELLY|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
@@ -59,7 +59,7 @@
 		/datum/action/ability/activable/xeno/psychic_cure/acidic_salve,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
-		/datum/action/ability/xeno_action/create_jelly/slow,
+		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
@@ -91,7 +91,7 @@
 		/datum/action/ability/xeno_action/sow,
 		/datum/action/ability/xeno_action/enhancement,
 		/datum/action/ability/activable/xeno/corrosive_acid/drone,
-		/datum/action/ability/xeno_action/create_jelly/slow,
+		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,

@@ -18,7 +18,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.crusher_stomps++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "crusher_stomps")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomps")
 
 	playsound(X.loc, 'sound/effects/bang.ogg', 25, 0)
 	X.visible_message(span_xenodanger("[X] smashes into the ground!"), \
@@ -32,11 +32,8 @@
 		var/damage = X.xeno_caste.stomp_damage/max(1, distance + 1)
 		if(distance == 0) //If we're on top of our victim, give him the full impact
 			GLOB.round_statistics.crusher_stomp_victims++
-			SSblackbox.record_feedback("tally", "round_statistics", 1, "crusher_stomp_victims")
-			//RUTGMC EDIT CHANGE BEGIN
-			//M.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3) // ORIGINAL
-			M.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE, penetration = 100, max_limbs = 3) //RUTGMC CHANGE
-			//RUTGMC EDIT END
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomp_victims")
+			M.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE, penetration = 100, max_limbs = 3)
 			M.Paralyze(3 SECONDS)
 			to_chat(M, span_highdanger("You are stomped on by [X]!"))
 			shake_camera(M, 3, 3)

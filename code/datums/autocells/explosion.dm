@@ -64,8 +64,9 @@
 	transfer_turf(new_turf)
 
 /datum/automata_cell/explosion/death()
+	exploded_atoms = null
 	if(shockwave)
-		qdel(shockwave)
+		QDEL_NULL(shockwave)
 
 // Compare directions. If the other explosion is traveling in the same direction,
 // the explosion is amplified. If not, it's weakened
@@ -114,7 +115,7 @@
 
 	var/our_dir = reflected ? REVERSE_DIR(direction) : direction
 
-	if(our_dir in GLOB.cardinals)
+	if(our_dir in GLOB.diagonals)
 		propagation_dirs += list(our_dir, turn(our_dir, 45), turn(our_dir, -45))
 	else
 		propagation_dirs += our_dir
@@ -137,7 +138,7 @@
 		resistance += max(0, our_atom.get_explosion_resistance())
 
 	// Blow stuff up
-	in_turf.ex_act(power, direction)
+	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
 	for(var/atom/our_atom in in_turf)
 		if(iseffect(our_atom))
 			continue
@@ -145,7 +146,7 @@
 			continue
 		if(our_atom.gc_destroyed)
 			continue
-		our_atom.ex_act(power, direction)
+		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += our_atom
 
 	var/reflected = FALSE
@@ -200,7 +201,7 @@
 			// Set the direction the explosion is traveling in
 			our_explosion.direction = our_dir
 			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
-			if(!direction && (our_dir in GLOB.diagonals))
+			if(our_dir in GLOB.diagonals)
 				our_explosion.delay = 1
 
 			setup_new_cell(our_explosion)
@@ -230,7 +231,7 @@ as having entered the turf.
 	if(our_atom.gc_destroyed)
 		return
 
-	our_atom.ex_act(power, null)
+	INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, null)
 
 // Spawns a cellular automaton of an explosion
 /proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, orig_range, direction, color, silent, adminlog = TRUE)
@@ -257,20 +258,23 @@ as having entered the turf.
 		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
 		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
 
-		for(var/MN in GLOB.player_list)
+		//no need to loop this for every mob
+		switch(power)
+			if(0 to EXPLODE_LIGHT)
+				explosion_sound = sound(get_sfx("explosion_small"))
+				far_explosion_sound = sound(get_sfx("explosion_small_distant"))
+			if(EXPLODE_LIGHT to EXPLODE_HEAVY)
+				explosion_sound = sound(get_sfx("explosion_med"))
+			if(EXPLODE_HEAVY to INFINITY)
+				explosion_sound = sound(get_sfx("explosion_large"))
+
+		//there should be a use of client_by_zlevel, but due to the nature of explosions this is difficult to implement
+		for(var/MN in GLOB.player_list|GLOB.aiEyes)
 			var/mob/our_mob = MN
 			// Double check for client
 			var/turf/mob_turf = get_turf(our_mob)
 			if(mob_turf?.z == epicenter.z)
 				var/dist = get_dist(mob_turf, epicenter)
-				switch(power)
-					if(0 to EXPLODE_LIGHT)
-						explosion_sound = sound(get_sfx("explosion_small"))
-						far_explosion_sound = sound(get_sfx("explosion_small_distant"))
-					if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-						explosion_sound = sound(get_sfx("explosion_med"))
-					if(EXPLODE_HEAVY to INFINITY)
-						explosion_sound = sound(get_sfx("explosion_large"))
 				if(dist <= max(round(power, 1)))
 					our_mob.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
 					if(is_mainship_level(epicenter.z))

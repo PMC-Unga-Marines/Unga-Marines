@@ -12,11 +12,11 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.6
+	speed = -0.7
 
 	// *** Plasma *** //
 	plasma_max = 925
-	plasma_gain = 30
+	plasma_gain = 50
 
 	// *** Health *** //
 	max_health = 310
@@ -27,7 +27,7 @@
 	deevolves_to = /mob/living/carbon/xenomorph/sentinel
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 

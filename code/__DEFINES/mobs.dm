@@ -1,7 +1,5 @@
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
-///Comment out if you don't want VOX to be enabled and have players download the voice sounds.
-#define AI_VOX
 
 //Mob movement define
 
@@ -438,8 +436,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HEAD_LAYER 13
 #define COLLAR_LAYER 12
 #define SUIT_STORE_LAYER 11
-#define BACK_LAYER 10
-#define KAMA_LAYER 9
+#define KAMA_LAYER 10
+#define BACK_LAYER 9
 #define CAPE_LAYER 8
 #define HANDCUFF_LAYER 7
 #define L_HAND_LAYER 6
@@ -545,6 +543,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<14) // xenos with this flag wont be announced to hive when dying
 #define CASTE_STAGGER_RESISTANT (1<<15) //Resistant to some forms of stagger, such as projectiles
 #define CASTE_HAS_WOUND_MASK (1<<16) //uses an alpha mask for wounded states
+#define CASTE_EXCLUDE_STRAINS (1<<17) // denotes castes/basetypes that should be excluded from being evoable as a strain
 
 // Xeno defines that affect evolution, considering making a new var for these
 #define CASTE_LEADER_TYPE (1<<16) //Whether we are a leader type caste, such as the queen, shrike or ?king?, and is affected by queen ban and playtime restrictions
@@ -751,11 +750,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define BRAVO_SQUAD "bravo_squad"
 #define CHARLIE_SQUAD "charlie_squad"
 #define DELTA_SQUAD "delta_squad"
-
-#define ZULU_SQUAD "zulu_squad"
-#define YANKEE_SQUAD "yankee_squad"
-#define XRAY_SQUAD "xray_squad"
-#define WHISKEY_SQUAD "whiskey_squad"
 
 #define TYPING_INDICATOR_LIFETIME 3 SECONDS	//Grace period after which typing indicator disappears regardless of text in chatbar.
 

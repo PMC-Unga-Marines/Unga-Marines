@@ -474,10 +474,6 @@
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
-"do" = (
-/obj/effect/landmark/patrol_point/tgmc_14,
-/turf/open/floor,
-/area/oscar_outpost/village/south)
 "dq" = (
 /obj/machinery/computer/body_scanconsole,
 /turf/open/floor/mainship/sterile,
@@ -675,7 +671,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "eN" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/vehicle/ridden/wheelchair,
 /turf/open/floor/wood,
 /area/oscar_outpost/village/east)
 "eT" = (
@@ -1206,12 +1202,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
-"ik" = (
-/obj/machinery/factory/heater{
-	anchored = 1
-	},
-/turf/open/floor/prison,
-/area/oscar_outpost/base)
 "in" = (
 /obj/structure/closet/crate,
 /obj/item/toy/crayon/rainbow,
@@ -1719,7 +1709,6 @@
 /turf/open/liquid/water/river/desertdam/clean/deep_water_clean,
 /area/oscar_outpost/village/fairgrounds)
 "lQ" = (
-/obj/item/factory_refill/phosnade_refill,
 /obj/structure/rack,
 /obj/item/paper/factoryhowto,
 /turf/open/floor/prison,
@@ -3420,10 +3409,6 @@
 	dir = 1
 	},
 /area/oscar_outpost)
-"xj" = (
-/obj/effect/landmark/patrol_point/tgmc_24,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/village/fairgrounds)
 "xk" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/under/brown,
@@ -3511,12 +3496,6 @@
 	},
 /turf/open/floor/wood,
 /area/oscar_outpost/village/east)
-"xF" = (
-/obj/machinery/factory/cutter{
-	anchored = 1
-	},
-/turf/open/floor/prison,
-/area/oscar_outpost/base)
 "xI" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
@@ -4211,10 +4190,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
-"Bl" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/village/fairgrounds)
 "Bo" = (
 /obj/item/storage/belt/lifesaver/full,
 /obj/item/clothing/glasses/hud/health,
@@ -4518,10 +4493,6 @@
 /obj/machinery/vending/armor_supply,
 /turf/open/floor/prison,
 /area/oscar_outpost/base)
-"CF" = (
-/obj/effect/landmark/patrol_point/tgmc_22,
-/turf/open/floor,
-/area/oscar_outpost/village/south)
 "CH" = (
 /obj/machinery/space_heater,
 /turf/open/floor/wood,
@@ -5961,10 +5932,6 @@
 /obj/item/tool/weldingtool,
 /turf/open/floor,
 /area/oscar_outpost/village)
-"IH" = (
-/obj/effect/landmark/patrol_point/tgmc_21,
-/turf/open/floor,
-/area/oscar_outpost/village/south)
 "II" = (
 /obj/structure/closet/crate,
 /obj/item/tool/wrench,
@@ -6841,12 +6808,6 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost/village)
-"Mj" = (
-/obj/machinery/factory/former{
-	anchored = 1
-	},
-/turf/open/floor/prison,
-/area/oscar_outpost/base)
 "Mk" = (
 /obj/machinery/computer3/laptop{
 	pixel_y = 4
@@ -7696,10 +7657,6 @@
 /obj/item/weapon/gun/smg/m25,
 /turf/open/floor,
 /area/oscar_outpost/village)
-"Qk" = (
-/obj/effect/landmark/patrol_point/tgmc_12,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/village/fairgrounds)
 "Ql" = (
 /obj/effect/spawner/random/food_or_drink/beer/oscaroutpost{
 	pixel_x = -5;
@@ -8528,12 +8485,6 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/wood,
 /area/oscar_outpost/village/central)
-"TA" = (
-/obj/machinery/unboxer{
-	anchored = 1
-	},
-/turf/open/floor/prison,
-/area/oscar_outpost/base)
 "TB" = (
 /obj/structure/platform{
 	dir = 8
@@ -8831,10 +8782,6 @@
 	dir = 4
 	},
 /area/oscar_outpost/outside/west)
-"Vl" = (
-/obj/effect/landmark/patrol_point/tgmc_23,
-/turf/open/floor,
-/area/oscar_outpost/village/south)
 "Vm" = (
 /obj/effect/landmark/start/job/squadcorpsman,
 /obj/machinery/landinglight/lz1{
@@ -9591,10 +9538,6 @@
 /obj/machinery/computer/crew,
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost/village/central)
-"Yw" = (
-/obj/effect/landmark/patrol_point/tgmc_13,
-/turf/open/floor/plating/ground/dirt,
-/area/oscar_outpost/village/fairgrounds)
 "Yx" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -21876,13 +21819,13 @@ bk
 bk
 bk
 Tx
-TA
+uq
 XX
-xF
+uq
 nk
-ik
+uq
 XX
-Mj
+uq
 Ck
 OP
 ff
@@ -30938,7 +30881,7 @@ DU
 GY
 zI
 DP
-IH
+DP
 DP
 sV
 VM
@@ -31441,9 +31384,9 @@ DU
 DU
 GY
 nU
-CF
 DP
-do
+DP
+DP
 sV
 sV
 sV
@@ -31945,7 +31888,7 @@ DU
 DU
 GY
 zI
-Vl
+DP
 el
 DP
 nU
@@ -40500,7 +40443,7 @@ VN
 VN
 Ta
 Ta
-Qk
+Ta
 Ta
 Ta
 Ta
@@ -40751,7 +40694,7 @@ Ta
 Ta
 Ta
 Ta
-Bl
+Ta
 Ta
 Ta
 oj
@@ -41001,7 +40944,7 @@ Ta
 PE
 Ta
 Ta
-Yw
+Ta
 Ta
 lg
 Ta
@@ -41507,7 +41450,7 @@ VI
 VQ
 VI
 ZP
-xj
+Ta
 lO
 id
 lI

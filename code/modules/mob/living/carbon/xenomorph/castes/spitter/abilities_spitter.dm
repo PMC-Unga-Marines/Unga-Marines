@@ -31,7 +31,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.spitter_acid_sprays++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "spitter_acid_sprays")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "spitter_acid_sprays")
 
 
 /datum/action/ability/activable/xeno/spray_acid/line/proc/spray_turfs(list/turflist)
@@ -125,13 +125,13 @@
 	newspit.generate_bullet(scatter_spit, scatter_spit.damage * SPIT_UPGRADE_BONUS(X))
 	newspit.def_zone = X.get_limbzone_target()
 
-	newspit.fire_at(target, X, null, newspit.ammo.max_range)
+	newspit.fire_at(target, X, X, newspit.ammo.max_range)
 
 	succeed_activate()
 	add_cooldown()
 
 	GLOB.round_statistics.spitter_scatter_spits++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "spitter_scatter_spits")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "spitter_scatter_spits")
 
 /datum/action/ability/activable/xeno/scatter_spit/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our auxiliary sacks fill to bursting; we can use scatter spit again."))

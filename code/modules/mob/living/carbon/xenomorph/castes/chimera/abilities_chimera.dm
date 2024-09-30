@@ -111,7 +111,7 @@
 	add_cooldown(cooldown_duration * cooldown_mod)
 
 	GLOB.round_statistics.chimera_blinks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "chimera_blinks") //Statistics
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "chimera_blinks") //Statistics
 
 ///Called by many of the Chimera's teleportation effects
 /datum/action/ability/activable/xeno/proc/teleport_debuff_aoe(atom/movable/teleporter, silent = FALSE)
@@ -223,7 +223,7 @@
 		COMSIG_XENO_LIVING_THROW_HIT,
 		COMSIG_XENOMORPH_DISARM_HUMAN), PROC_REF(uncloak))
 
-	ADD_TRAIT(X, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	ADD_TRAIT(X, TRAIT_STEALTH, TRAIT_STEALTH)
 
 /datum/action/ability/xeno_action/phantom/proc/uncloak()
 	SIGNAL_HANDLER
@@ -239,7 +239,7 @@
 		COMSIG_XENO_LIVING_THROW_HIT,
 		COMSIG_XENOMORPH_DISARM_HUMAN,))
 
-	REMOVE_TRAIT(X, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	REMOVE_TRAIT(X, TRAIT_STEALTH, TRAIT_STEALTH)
 
 /datum/action/ability/xeno_action/phantom/ai_should_start_consider()
 	return FALSE
