@@ -41,7 +41,7 @@ export const ChatPageSettings = (props) => {
                 updateChatPage({
                   pageId: page.id,
                   hideUnreadCount: !page.hideUnreadCount,
-                }),
+                })
               )
             }
           />
