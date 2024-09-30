@@ -170,7 +170,7 @@
 		if(our_dir in GLOB.diagonals)
 			dir_falloff = 1.414
 
-		if(isnull(direction))
+		else if(isnull(direction))
 			dir_falloff = 0
 
 		var/new_power = power - (power_falloff * dir_falloff)
