@@ -6,7 +6,8 @@
 	desc = "A Infantry-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
 
 	icon_state = "chest"
-	item_state = "chest"	soft_armor = MARINE_ARMOR_MEDIUM
+	item_state = "chest"
+	soft_armor = MARINE_ARMOR_MEDIUM
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 	attachments_allowed = list(
