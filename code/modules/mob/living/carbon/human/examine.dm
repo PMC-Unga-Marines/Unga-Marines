@@ -194,9 +194,6 @@
 	if(holo_card_color)
 		msg += "[t_He] [t_has] a [holo_card_color] holo card on [t_his] chest.\n"
 
-	if(suiciding)
-		msg += "[span_warning("[t_He] appear[p_s()] to have commited suicide... there is no hope of recovery.")]\n"
-
 	if(stat)
 		if(stat == UNCONSCIOUS)
 			msg += "[span_info("[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.")]\n"
@@ -517,12 +514,6 @@
 				msg += "<a href='?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
 
 	msg += "[flavor_text]<br>"
-
-	if(HAS_TRAIT(src, TRAIT_HOLLOW))
-		if(isxeno(user))
-			msg += "<span style='font-weight: bold; color: purple;'>[t_He] [t_is] hollow. Useless.</span>\n"
-		else
-			msg += "[span_warning("<b>[t_He] [t_is] hollowed out!</b>")]\n"
 
 	if(isxeno(user))
 		if(species.species_flags & IS_SYNTHETIC)
