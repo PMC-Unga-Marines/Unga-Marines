@@ -496,7 +496,6 @@
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
 	var/dat = "Status: [M ? M.getStatusText() : "*Missing*"]<br><br>"
 	if(M)
-		dat += "<A href='?src=[REF(src)];hijack=1'>Launch to [SSmapping.configs[SHIP_MAP].map_name]</A><br>"
 		dat += "<A href='?src=[REF(src)];abduct=1'>Capture the [M]</A><br>"
 		M.unlock_all()
 		M.silicon_lock_airlocks(TRUE)
@@ -689,30 +688,6 @@
 		return
 
 	var/mob/living/carbon/xenomorph/X = usr
-
-	if(href_list["hijack"])
-		if(!(X.hive.hive_flags & HIVE_CAN_HIJACK))
-			to_chat(X, span_warning("Our hive lacks the psychic prowess to hijack the bird."))
-			return
-		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
-		if(living_player_list[1] > 5)
-			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
-			return
-		switch(M.mode)
-			if(SHUTTLE_RECHARGING)
-				to_chat(X, span_xenowarning("The bird is still cooling down."))
-				return
-			if(SHUTTLE_IDLE) //Continue.
-			else
-				to_chat(X, span_xenowarning("We can't do that right now."))
-				return
-		var/confirm = tgui_alert(usr, "Would you like to hijack the metal bird?", "Hijack the bird?", list("Yes", "No"))
-		if(confirm != "Yes")
-			return
-		var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
-		if(!CT)
-			return
-		do_hijack(M, CT, X)
 
 	if(href_list["abduct"])
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
