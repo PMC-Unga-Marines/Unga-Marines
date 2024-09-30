@@ -1348,6 +1348,8 @@
 
 /datum/status_effect/upgrade_trail/proc/do_acid_trail()
 	SIGNAL_HANDLER
+	if(buff_owner.incapacitated(TRUE))
+		return
 	if(prob(base_chance + chance_per_chamber * chamber_scaling))
 		var/turf/T = get_turf(buff_owner)
 		if(T.density || istype(T, /turf/open/space))
