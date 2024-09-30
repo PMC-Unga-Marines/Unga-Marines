@@ -3553,7 +3553,7 @@
 	},
 /area/campaign/jungle_outpost/outpost/req/qm)
 "pn" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -3828,7 +3828,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/campaign/jungle_outpost/outpost/req/containers)
 "qE" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete,
 /area/campaign/jungle_outpost/outpost/req/containers)
@@ -4637,7 +4637,7 @@
 /turf/open/floor/tile/neutral/full,
 /area/campaign/jungle_outpost/outpost/living/canteen)
 "tN" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /obj/structure/cable,

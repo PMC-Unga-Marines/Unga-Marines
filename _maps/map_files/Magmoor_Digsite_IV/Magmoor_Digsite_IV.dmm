@@ -13898,7 +13898,7 @@
 	},
 /area/magmoor/medical/chemistry)
 "kau" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/mainship/cargo,
 /area/magmoor/landing/two)
 "kaA" = (
@@ -15834,7 +15834,7 @@
 /turf/open/floor/tile/red/full,
 /area/magmoor/security/lobby)
 "lvP" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
@@ -17169,7 +17169,7 @@
 	},
 /area/magmoor/medical/patient)
 "mzU" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
 /turf/open/floor/mainship/floor,
@@ -20942,7 +20942,7 @@
 /turf/open/floor/tile,
 /area/magmoor/security/infocenter)
 "pmM" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
@@ -26278,7 +26278,7 @@
 /turf/open/floor/freezer,
 /area/magmoor/cargo/freezer)
 "tle" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -26981,7 +26981,7 @@
 	},
 /area/magmoor/research/containment)
 "tMC" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
