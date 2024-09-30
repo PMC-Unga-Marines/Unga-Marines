@@ -6863,7 +6863,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle5)
 "Jb" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "Jc" = (
@@ -6940,7 +6940,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "Jn" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -6972,7 +6972,7 @@
 /turf/open/floor/plating/dmg1,
 /area/lv624/ground/jungle9)
 "Jv" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
