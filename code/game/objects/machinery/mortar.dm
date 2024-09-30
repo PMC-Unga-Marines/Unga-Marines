@@ -84,9 +84,10 @@
 	var/obj/item/mortar_kit/mortar = get_internal_item()
 	for (var/obj/item/binoculars/tactical/binoc in mortar?.linked_item_binoculars)
 		binoc.set_mortar(src)
-	impact_cam = new
-	impact_cam.forceMove(src)
-	impact_cam.c_tag = "[strip_improper(name)] #[++id_by_type[type]]"
+	if(!is_centcom_level(loc.z))
+		impact_cam = new
+		impact_cam.forceMove(src)
+		impact_cam.c_tag = "[strip_improper(name)] #[++id_by_type[type]]"
 
 /obj/machinery/deployable/mortar/Destroy()
 	QDEL_NULL(impact_cam)
