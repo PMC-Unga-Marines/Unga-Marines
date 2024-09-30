@@ -726,7 +726,7 @@
 		var/confirm = tgui_alert(usr, "Would you like to capture the metal bird?\n THIS WILL END THE ROUND", "Capture the ship?", list( "Yes", "No"))
 		if(confirm != "Yes")
 			return
-		priority_announce("The Normandy has been captured! Losing their main mean of accessing the ground, the marines have no choice but to retreat.", title = "Alamo Captured", color_override = "orange")
+		priority_announce("The Normandy has been captured! Losing their main mean of accessing the ground, the marines have no choice but to retreat.", title = "Normandy Captured", color_override = "orange")
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 		return
