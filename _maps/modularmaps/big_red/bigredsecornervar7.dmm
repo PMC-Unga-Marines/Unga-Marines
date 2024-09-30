@@ -48,10 +48,6 @@
 "B" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
-"C" = (
-/obj/effect/landmark/patrol_point/tgmc_13,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
 "E" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/southeast/garbledradio)
@@ -63,10 +59,6 @@
 /obj/docking_port/stationary/crashmode,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
-"I" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
 "J" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -76,17 +68,9 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast/garbledradio)
-"L" = (
-/obj/effect/landmark/patrol_point/tgmc_14,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
 "M" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southeast)
-"R" = (
-/obj/effect/landmark/patrol_point/tgmc_12,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "V" = (
@@ -2254,7 +2238,7 @@ v
 v
 v
 v
-C
+B
 B
 B
 e
@@ -3096,7 +3080,7 @@ e
 B
 B
 B
-I
+B
 v
 v
 v
@@ -3290,11 +3274,11 @@ B
 B
 B
 B
-L
+B
 v
 v
 v
-R
+B
 B
 B
 B

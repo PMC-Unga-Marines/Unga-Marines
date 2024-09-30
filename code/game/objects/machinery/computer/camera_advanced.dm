@@ -26,10 +26,7 @@
 	for(var/i in networks)
 		networks -= i
 		networks += lowertext(i)
-	if(SOM_CAMERA_NETWORK in networks)
-		parent_cameranet = GLOB.som_cameranet
-	else
-		parent_cameranet = GLOB.cameranet
+	parent_cameranet = GLOB.cameranet
 	off_action = new
 	jump_action = new(null, parent_cameranet)
 	if(lock_override)
