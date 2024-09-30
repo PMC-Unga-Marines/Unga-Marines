@@ -93,7 +93,8 @@
 	name = "Researcher's labcoat"
 	desc = "A high quality labcoat, seemingly worn by scholars and researchers alike. It has a distinct rough feel to it, and goads you towards adventure."
 	icon_state = "labcoat_researcher"
-	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 10, BOMB = 15, BIO = 0, FIRE = 10, ACID = 10)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = MARINE_ARMOR_MEDIUM
 	allowed = list(
 		/obj/item/weapon/gun,
 		/obj/item/instrument,
