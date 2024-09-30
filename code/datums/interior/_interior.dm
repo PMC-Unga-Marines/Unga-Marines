@@ -43,7 +43,7 @@
 
 	connect_atoms()
 
-/datum/interior/Destroy(force, ...)
+/datum/interior/Destroy(force)
 	for(var/mob/occupant AS in occupants)
 		mob_leave(occupant)
 	exit_callback = null

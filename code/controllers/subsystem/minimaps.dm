@@ -697,11 +697,11 @@ SUBSYSTEM_DEF(minimaps)
 	minimaps_by_z["[zlevel]"].hud_image = icon_gen //done making the image!
 
 /datum/action/minimap/yautja
-	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_YAUTJA
+	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_YAUTJA
 	marker_flags = MINIMAP_FLAG_YAUTJA
 
 /datum/action/minimap/observer
-	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
+	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
 
 
 /datum/action/minimap/xeno
@@ -720,20 +720,12 @@ SUBSYSTEM_DEF(minimaps)
 		KEYBINDING_NORMAL = COMSIG_KB_TOGGLE_EXTERNAL_MINIMAP,
 	)
 
-/datum/action/minimap/marine/external/som
-	minimap_flags = MINIMAP_FLAG_MARINE_SOM
-	marker_flags = MINIMAP_FLAG_MARINE_SOM
-
 /datum/action/minimap/ai	//I'll keep this as seperate type despite being identical so it's easier if people want to make different aspects different.
 	minimap_flags = MINIMAP_FLAG_MARINE
 	marker_flags = MINIMAP_FLAG_MARINE
 
-/datum/action/minimap/som
-	minimap_flags = MINIMAP_FLAG_MARINE_SOM
-	marker_flags = MINIMAP_FLAG_MARINE_SOM
-
 /datum/action/minimap/observer
-	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE
+	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE
 	marker_flags = NONE
 
 /datum/action/minimap/observer/action_activate()

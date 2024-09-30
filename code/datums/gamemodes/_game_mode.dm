@@ -70,11 +70,11 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///If the gamemode has a whitelist of valid ship maps. Whitelist overrides the blacklist
 	var/list/whitelist_ship_maps
 	///If the gamemode has a blacklist of disallowed ship maps
-	var/list/blacklist_ship_maps = list(MAP_COMBAT_PATROL_BASE, MAP_ITERON)
+	var/list/blacklist_ship_maps
 	///If the gamemode has a whitelist of valid ground maps. Whitelist overrides the blacklist
 	var/list/whitelist_ground_maps
 	///If the gamemode has a blacklist of disallowed ground maps
-	var/list/blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_LAST_STAND)
+	var/list/blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_LAST_STAND)
 	///if fun tads are enabled by default
 	var/enable_fun_tads = FALSE
 
@@ -123,7 +123,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	create_characters()
 	spawn_characters()
 	transfer_characters()
-	SSpoints.prepare_supply_packs_list(CHECK_BITFIELD(flags_round_type, MODE_HUMAN_ONLY))
+	SSpoints.prepare_supply_packs_list()
 	SSreqtorio.prepare_assembly_crafts_list()
 	SSpoints.dropship_points = 0
 	SSpoints.supply_points[FACTION_TERRAGOV] = 0
@@ -707,10 +707,6 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /datum/game_mode/proc/scale_squad_jobs()
 	var/datum/job/scaled_job = SSjob.GetJobType(/datum/job/terragov/squad/leader)
 	scaled_job.total_positions = length(SSjob.active_squads[FACTION_TERRAGOV])
-
-///Return the list of joinable factions, with regards with the current round balance
-/datum/game_mode/proc/get_joinable_factions(should_look_balance)
-	return
 
 /datum/game_mode/proc/display_report()
 	GLOB.common_report = build_roundend_report()

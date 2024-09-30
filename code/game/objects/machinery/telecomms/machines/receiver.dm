@@ -50,12 +50,6 @@
 	autolinkers = list("receiverA") // link to relay
 	freq_listening = list(FREQ_MEDICAL, FREQ_REQUISITIONS, FREQ_ALPHA, FREQ_BRAVO, FREQ_CHARLIE, FREQ_DELTA, FREQ_COMMAND, FREQ_ENGINEERING, FREQ_CAS, FREQ_PMC, FREQ_COLONIST, FREQ_USL, FREQ_DEATHSQUAD, FREQ_IMPERIAL, FREQ_SOM, FREQ_SECTOID, FREQ_ECHO, YAUT_FREQ)
 
-/obj/machinery/telecomms/receiver/preset_left/som
-	id = "Receiver A som"
-	autolinkers = list("receiverA_som") // link to relay
-	freq_listening = list(FREQ_MEDICAL_SOM, FREQ_ZULU, FREQ_YANKEE, FREQ_XRAY, FREQ_WHISKEY, FREQ_COMMAND_SOM, FREQ_ENGINEERING_SOM) //ert channels shouldn't be needed. Probably.
-
-
 //--PRESET RIGHT--//
 /obj/machinery/telecomms/receiver/preset_right
 	id = "Receiver B"
