@@ -90,8 +90,6 @@
 	switch(faction)
 		if(FACTION_TERRAGOV)
 			hud_type = DATA_HUD_SQUAD_TERRAGOV
-		if(FACTION_SOM)
-			hud_type = DATA_HUD_SQUAD_SOM
 		else
 			return
 	var/datum/atom_hud/squad/squad_hud = GLOB.huds[hud_type]
