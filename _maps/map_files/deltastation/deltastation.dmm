@@ -7712,7 +7712,7 @@
 /turf/open/floor/iron/white,
 /area/deltastation/security/medical)
 "bCd" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/asteroidfloor,
@@ -43307,7 +43307,7 @@
 /turf/open/floor/iron/white,
 /area/deltastation/science/ordnance/storage)
 "iNo" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/asteroidfloor,
 /area/deltastation/external/landingzone)
 "iNv" = (
@@ -45922,7 +45922,7 @@
 /turf/open/floor/iron,
 /area/deltastation/engineering/lobby)
 "jqe" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,

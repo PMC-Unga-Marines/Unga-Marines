@@ -11395,7 +11395,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "jKv" = (
 /obj/effect/turf_decal/warning_stripes/box,
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/tile/dark2,
@@ -14650,7 +14650,7 @@
 /area/lawankaoutpost/outside/northeast)
 "mzW" = (
 /obj/effect/turf_decal/warning_stripes/box,
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/tile/dark2,
@@ -15413,7 +15413,7 @@
 /area/lawankaoutpost/colony/engineering)
 "niD" = (
 /obj/effect/turf_decal/warning_stripes/box,
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,

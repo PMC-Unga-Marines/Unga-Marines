@@ -6636,7 +6636,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "euf" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/landing_zone_2)
 "euu" = (
@@ -12367,7 +12367,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
 "ioI" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -13660,7 +13660,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/landing_zone_1)
 "jmn" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -18677,7 +18677,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
 "mFF" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/landing_zone_2)
 "mGn" = (
@@ -18782,7 +18782,7 @@
 /turf/open/floor/prison/whitegreen/full,
 /area/gelida/indoors/a_block/medical)
 "mJV" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -18936,7 +18936,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/admin)
 "mPk" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -19883,7 +19883,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/security)
 "nwd" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -24962,7 +24962,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/gelida/outdoors/colony_streets/north_east_street)
 "qOf" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/landing_zone_1)
 "qOg" = (
@@ -29597,7 +29597,7 @@
 /turf/open/shuttle/dropship/three,
 /area/gelida/landing_zone_forecon/UD6_Tornado)
 "tUP" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/prison/cleanmarked,

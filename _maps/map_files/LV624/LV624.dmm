@@ -855,19 +855,19 @@
 /turf/open/floor/marking/bot,
 /area/lv624/ground/sand5)
 "axl" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
 /turf/open/floor,
 /area/lv624/ground/sand5)
 "axq" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor,
 /area/lv624/ground/sand5)
 "axB" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor,
@@ -2150,7 +2150,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "bcE" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/marking/bot,
@@ -5037,7 +5037,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/sleep_female)
 "dPb" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
 /turf/open/floor,
@@ -6709,7 +6709,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
 "fKR" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/plating/platebotc,
@@ -6869,7 +6869,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "fXk" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/plating/platebotc,
@@ -10959,7 +10959,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
 "kse" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor,
@@ -11746,7 +11746,7 @@
 /turf/open/floor/freezer,
 /area/lv624/lazarus/kitchen)
 "lmI" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/marking/bot,
@@ -13364,7 +13364,7 @@
 	},
 /area/lv624/lazarus/sleep_female)
 "nav" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor,
@@ -15226,7 +15226,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "ppS" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
 /turf/open/floor/plating/platebotc,
@@ -18150,10 +18150,10 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand6/garbledradio)
 "srR" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 8
 	},
 /turf/open/floor/marking/bot,
@@ -19475,7 +19475,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle4)
 "tRM" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor,
@@ -22686,7 +22686,7 @@
 	},
 /area/lv624/lazarus/spaceport)
 "xfb" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor,
@@ -23892,7 +23892,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle4)
 "yls" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "ylZ" = (

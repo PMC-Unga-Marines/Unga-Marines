@@ -49,7 +49,7 @@
 	icon_state = "beret"
 	siemens_coefficient = 0.9
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_armor_features = ARMOR_NO_DECAP
 
 //Security
@@ -106,7 +106,7 @@
 	desc = "Someone who wears this will look very smart."
 	icon_state = "detective"
 	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/tool/pen)
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	soft_armor = MARINE_HAT_ARMOR
 	siemens_coefficient = 0.9
 	flags_armor_protection = NONE
 	species_exception = list(/datum/species/robot)

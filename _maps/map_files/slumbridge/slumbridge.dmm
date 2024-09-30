@@ -5844,7 +5844,7 @@
 /turf/open/floor/prison,
 /area/slumbridge/inside/prison/outerringsouth)
 "evj" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -12975,7 +12975,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/outside/southeast)
 "jKd" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -25690,7 +25690,7 @@
 /turf/open/floor/tile/blue,
 /area/slumbridge/inside/houses/surgery/garbledradio)
 "sXA" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/tile/dark/purple2{
 	dir = 8
 	},
