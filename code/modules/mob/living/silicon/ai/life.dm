@@ -32,3 +32,10 @@
 	health = 100 - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss()
 
 	update_stat()
+
+// for adminbus
+/mob/living/silicon/ai/revive()
+	. = ..()
+	icon_state = "ai"
+	set_eyeobj_visible(TRUE)
+	update_minimap_icon()
