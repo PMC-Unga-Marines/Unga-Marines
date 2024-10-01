@@ -36,6 +36,11 @@
 /obj/structure/xeno/fire_act(burn_level, flame_color)
 	take_damage(burn_level / 3, BURN, FIRE)
 
+/obj/structure/xeno/effect_smoke(obj/effect/particle_effect/smoke/S)
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
+		return
+	return ..()
+
 /// Destroy the xeno structure when the weed it was on is destroyed
 /obj/structure/xeno/proc/weed_removed()
 	SIGNAL_HANDLER
