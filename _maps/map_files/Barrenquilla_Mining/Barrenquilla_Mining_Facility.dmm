@@ -2113,14 +2113,6 @@
 /obj/effect/landmark/corpsespawner/pmc,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"jJ" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_13";
-	name = "SOM exit point 13"
-	},
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/open/floor/marking/delivery,
-/area/barren/cave/lz1)
 "jK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -2434,13 +2426,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"lf" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_13";
-	name = "TGMC exit point 13"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
 "lh" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 8
@@ -4047,13 +4032,6 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/barren/engie/engine)
-"sO" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_11";
-	name = "TGMC exit point 11"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
 "sP" = (
 /obj/effect/landmark/corpsespawner/doctor,
 /obj/structure/curtain/medical,
@@ -4886,14 +4864,6 @@
 	},
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
-"wL" = (
-/obj/machinery/light,
-/obj/effect/landmark/patrol_point{
-	id = "SOM_12";
-	name = "SOM exit point 12"
-	},
-/turf/open/floor,
-/area/barren/cave/lz1)
 "wP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
@@ -5726,13 +5696,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark2,
 /area/barren/misc/refinery)
-"AT" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_23";
-	name = "SOM exit point 23"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southwest)
 "AV" = (
 /obj/machinery/washing_machine,
 /obj/effect/decal/cleanable/cobweb2,
@@ -5755,13 +5718,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"AZ" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_21";
-	name = "SOM exit point 21"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southwest)
 "Ba" = (
 /turf/open/floor/plating/ground/dirt,
 /area/barren/civilian)
@@ -5773,13 +5729,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"Bd" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_21";
-	name = "TGMC exit point 21"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "Bf" = (
 /turf/open/floor/plating,
 /area/barren/cave/north)
@@ -6134,13 +6083,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
-"CE" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_24";
-	name = "SOM exit point 24"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southwest)
 "CF" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/generic,
@@ -6330,15 +6272,6 @@
 /obj/structure/table/flipped,
 /turf/open/floor/plating,
 /area/barren/caves/south)
-"DM" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_14";
-	name = "SOM exit point 14"
-	},
-/turf/open/floor/plating/warning{
-	dir = 8
-	},
-/area/shuttle/drop1/lz1)
 "DN" = (
 /obj/structure/table/reinforced/prison,
 /obj/effect/decal/cleanable/dirt,
@@ -6429,13 +6362,6 @@
 	},
 /turf/open/floor/marking,
 /area/barren/cave/central)
-"Em" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_24";
-	name = "TGMC exit point 24"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "En" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
@@ -6480,13 +6406,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"Ev" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_23";
-	name = "TGMC exit point 23"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "Ew" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/blue/whiteblue{
@@ -6545,13 +6464,6 @@
 	dir = 1
 	},
 /area/barren/medical)
-"EI" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_14";
-	name = "TGMC exit point 14"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
 "EM" = (
 /obj/structure/window/framed/colony/reinforced,
 /obj/structure/cable,
@@ -7633,13 +7545,6 @@
 /obj/structure/sign/poster,
 /turf/open/floor,
 /area/barren/cave/lz1)
-"JH" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_22";
-	name = "SOM exit point 22"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southwest)
 "JI" = (
 /obj/structure/bookcase/manuals/research_and_development,
 /turf/open/floor/prison/sterilewhite,
@@ -9938,13 +9843,6 @@
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/open/floor/wood,
 /area/barren/civilian/workdorm)
-"Vx" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_12";
-	name = "TGMC exit point 12"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
 "Vy" = (
 /obj/structure/fence,
 /obj/structure/cable,
@@ -10573,13 +10471,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"Yz" = (
-/obj/effect/landmark/patrol_point{
-	id = "TGMC_22";
-	name = "TGMC exit point 22"
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "YA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -10828,13 +10719,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
-"ZE" = (
-/obj/effect/landmark/patrol_point{
-	id = "SOM_11";
-	name = "SOM exit point 11"
-	},
-/turf/open/floor,
-/area/barren/cave/lz1)
 "ZF" = (
 /obj/machinery/light{
 	dir = 4
@@ -16666,7 +16550,7 @@ ZS
 ZS
 ZS
 ZS
-lf
+fM
 fM
 ZS
 ZS
@@ -16926,7 +16810,7 @@ fM
 fM
 hV
 fM
-Vx
+fM
 ZS
 ZS
 WS
@@ -17948,7 +17832,7 @@ ZS
 ZS
 ZS
 ZS
-sO
+fM
 fM
 fM
 fM
@@ -18466,7 +18350,7 @@ fM
 fM
 fM
 fM
-EI
+fM
 ZS
 ZS
 ZS
@@ -18585,7 +18469,7 @@ ZS
 YI
 YI
 YI
-AT
+YI
 YI
 YI
 YI
@@ -19103,7 +18987,7 @@ YI
 YI
 YI
 YI
-CE
+YI
 ZS
 ad
 aI
@@ -19610,7 +19494,7 @@ ZS
 ZS
 ZS
 ZS
-AZ
+YI
 YI
 YI
 YI
@@ -20384,7 +20268,7 @@ QB
 YI
 YI
 YI
-JH
+YI
 YI
 YI
 YI
@@ -56343,7 +56227,7 @@ ZS
 wj
 Lo
 wj
-Bd
+wj
 wj
 wj
 wj
@@ -56853,7 +56737,7 @@ ZS
 WS
 ZS
 ZS
-Yz
+wj
 wj
 Lo
 wj
@@ -57116,7 +57000,7 @@ wj
 wj
 wj
 Bz
-Em
+wj
 wj
 wj
 SA
@@ -57884,7 +57768,7 @@ SA
 LQ
 Sr
 wj
-Ev
+wj
 wj
 wj
 wj
@@ -58305,7 +58189,7 @@ tm
 tm
 tm
 tm
-DM
+tm
 tm
 tm
 tm
@@ -58813,7 +58697,7 @@ Pw
 Pw
 Pw
 Pw
-ZE
+Pw
 Pw
 Pw
 Pw
@@ -59076,7 +58960,7 @@ Pw
 Pw
 Pw
 Pw
-wL
+gf
 AK
 AK
 AK
@@ -59330,7 +59214,7 @@ AK
 Pw
 Pt
 Pw
-jJ
+fd
 Pw
 eI
 Pw
