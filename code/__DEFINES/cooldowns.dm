@@ -55,6 +55,7 @@
 #define COOLDOWN_TANK_SWIVEL "tank_turret_swivel"
 #define COOLDOWN_ARMORED_HORN "cooldown_armored_horn"
 #define COOLDOWN_MOB_EX_ACT "mob_ex_act"
+#define COOLDOWN_MOUNTED_GUN_ROTATE "mounted_gun_rotate"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"

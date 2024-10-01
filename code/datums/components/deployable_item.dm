@@ -42,14 +42,16 @@
 ///Wrapper for proc/finish_deploy
 /datum/component/deployable_item/proc/deploy(mob/user, atom/object, turf/location, control, params)
 	SIGNAL_HANDLER
-	if(!isturf(location))
-		return
-	if(ISDIAGONALDIR(get_dir(user,location)))
+	var/list/modifiers = params2list(params)
+	if(!modifiers["ctrl"] || modifiers["right"])
 		return
 	if(parent != user.get_active_held_item())
 		return
-	var/list/modifiers = params2list(params)
-	if(!modifiers["ctrl"] || modifiers["right"] || get_turf(user) == location || !(user.Adjacent(object)) || !location)
+	if(!isturf(location))
+		return
+	if(ISDIAGONALDIR(get_dir(user, location)))
+		return
+	if(get_turf(user) == location || !(user.Adjacent(object)))
 		return
 	INVOKE_ASYNC(src, PROC_REF(finish_deploy), parent, user, location)
 	return COMSIG_KB_ACTIVATED
@@ -93,6 +95,10 @@
 		if(LinkBlocked(get_turf(user), location))
 			location.balloon_alert(user, "No room to deploy")
 			return
+		if(istype(item_to_deploy, /obj/item/weapon/gun/sentry))
+			for(var/obj/machinery/deployable/mounted/sentry/sentry in urange(2, location))
+				user.balloon_alert(user, "Слишком близко к [sentry]!")
+				return
 		user.temporarilyRemoveItemFromInventory(item_to_deploy)
 
 		item_to_deploy.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_FIREMODE, COMSIG_KB_AUTOEJECT, COMSIG_MOB_CLICK_RIGHT)) //This unregisters Signals related to guns, its for safety

@@ -404,7 +404,7 @@ SUBSYSTEM_DEF(minimaps)
 /atom/movable/screen/minimap/proc/get_coords_from_click(mob/user)
 	//lord forgive my shitcode
 	var/signal_by_type = isobserver(user) ? COMSIG_OBSERVER_CLICKON : COMSIG_MOB_CLICKON
-	RegisterSignal(user, signal_by_type, PROC_REF(on_click))
+	RegisterSignal(user, signal_by_type, PROC_REF(on_click), TRUE)
 	while(!(choices_by_mob[user] || stop_polling) && user.client)
 		stoplag(1)
 	UnregisterSignal(user, signal_by_type)
