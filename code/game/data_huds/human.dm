@@ -22,10 +22,10 @@
 /mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
-		holder.icon_state = "hudhealth98"
+		holder.icon_state = "health98"
 		return
 	var/percentage = round(health * 100 / maxHealth, 7) // rounding to 7 because there are 14 pixel lines in the health hud
-	holder.icon_state = "hudhealth[percentage]"
+	holder.icon_state = "health[percentage]"
 
 /mob/living/carbon/human/med_hud_set_status()
 	set_status_hud()
@@ -40,36 +40,36 @@
 	status_hud.icon_state = ""
 	if(species.species_flags & IS_SYNTHETIC)
 		if(stat != DEAD)
-			status_hud.icon_state = "hudsynth"
+			status_hud.icon_state = "synth"
 		else if(!client)
 			var/mob/dead/observer/G = get_ghost(FALSE, TRUE)
 			if(!G)
-				status_hud.icon_state = "hudsynthdnr"
+				status_hud.icon_state = "synth_dnr"
 			else
-				status_hud.icon_state = "hudsynthdead"
+				status_hud.icon_state = "synth_dead"
 		return TRUE
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
-			status_hud.icon_state = "huddead_robot"
+			status_hud.icon_state = "dead_robot"
 		else
-			status_hud.icon_state = "huddead"
+			status_hud.icon_state = "dead"
 		return TRUE
 	switch(stat)
 		if(DEAD)
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
 				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
 				if(species.species_flags & ROBOTIC_LIMBS)
-					status_hud.icon_state = "huddead_robot"
+					status_hud.icon_state = "dead_robot"
 				else
-					status_hud.icon_state = "huddead"
+					status_hud.icon_state = "dead"
 				return TRUE
 			if(!client)
 				var/mob/dead/observer/ghost = get_ghost()
 				if(!ghost?.can_reenter_corpse)
 					if(species.species_flags & ROBOTIC_LIMBS)
-						status_hud.icon_state = "huddead_robot"
+						status_hud.icon_state = "dead_robot"
 					else
-						status_hud.icon_state = "huddead"
+						status_hud.icon_state = "dead"
 					return TRUE
 			var/stage
 			switch(dead_ticks)
@@ -83,39 +83,39 @@
 				initial_stage = stage
 				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
 				if(species.species_flags & ROBOTIC_LIMBS)
-					status_hud.icon_state = "huddeaddefib_robot"
+					status_hud.icon_state = "dead_defibable_robot"
 				else
-					status_hud.icon_state = "huddeaddefib[stage]"
+					status_hud.icon_state = "dead_defibable[stage]"
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				status_hud.icon_state = "hud_uncon_afk"
+				status_hud.icon_state = "afk"
 				return TRUE
 			if(IsUnconscious()) //Should hopefully get out of it soon.
-				status_hud.icon_state = "hud_uncon_ko"
+				status_hud.icon_state = "knockout"
 				return TRUE
-			status_hud.icon_state = "hud_uncon_sleep" //Regular sleep, else.
+			status_hud.icon_state = "sleep" //Regular sleep, else.
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
-				status_hud.icon_state = "hud_uncon_afk"
+				status_hud.icon_state = "afk"
 				return TRUE
 			if(IsParalyzed()) //I've fallen and I can't get up.
-				status_hud.icon_state = "hud_con_kd"
+				status_hud.icon_state = "knockdown"
 				return TRUE
 			if(IsStun())
-				status_hud.icon_state = "hud_con_stun"
+				status_hud.icon_state = "stun"
 				return TRUE
 			if(IsStaggered())
 				return TRUE
 			if(slowdown)
-				status_hud.icon_state = "hud_con_slowdown"
+				status_hud.icon_state = "slowdown"
 				return TRUE
 			if(species.species_flags & ROBOTIC_LIMBS)
-				status_hud.icon_state = "hudrobot"
+				status_hud.icon_state = "robot"
 				return TRUE
 			else
-				status_hud.icon_state = "hudhealthy"
+				status_hud.icon_state = "healthy"
 				return TRUE
 	return FALSE
 
@@ -127,7 +127,7 @@
 	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD]
 	infection_hud.icon_state = ""
 	if(species.species_flags & IS_SYNTHETIC)
-		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
+		infection_hud.icon_state = "synth" //Xenos can feel synths are not human.
 		return TRUE
 
 	if(status_flags & XENO_HOST)
@@ -145,10 +145,10 @@
 		if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
 			infection_hud.icon_state = "psy_drain"
 		else
-			infection_hud.icon_state = "huddead_xeno_animated"
+			infection_hud.icon_state = "dead_xeno_animated"
 		return TRUE
 	if(species.species_flags & ROBOTIC_LIMBS)
-		infection_hud.icon_state = "hudrobot"
+		infection_hud.icon_state = "robot"
 		return TRUE
 	return FALSE
 
@@ -165,28 +165,28 @@
 			return FALSE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				simple_status_hud.icon_state = "hud_uncon_afk"
+				simple_status_hud.icon_state = "afk"
 				return TRUE
 			if(IsUnconscious()) //Should hopefully get out of it soon.
-				simple_status_hud.icon_state = "hud_uncon_ko"
+				simple_status_hud.icon_state = "knockout"
 				return TRUE
-			simple_status_hud.icon_state = "hud_uncon_sleep"
+			simple_status_hud.icon_state = "sleep"
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
-				simple_status_hud.icon_state = "hud_uncon_afk"
+				simple_status_hud.icon_state = "afk"
 				return TRUE
 			if(IsParalyzed()) //I've fallen and I can't get up.
-				simple_status_hud.icon_state = "hud_con_kd"
+				simple_status_hud.icon_state = "knockdown"
 				return TRUE
 			if(IsStun())
-				simple_status_hud.icon_state = "hud_con_stun"
+				simple_status_hud.icon_state = "stun"
 				return TRUE
 			if(IsStaggered())
-				simple_status_hud.icon_state = "hud_con_stagger"
+				simple_status_hud.icon_state = "stagger"
 				return TRUE
 			if(slowdown)
-				simple_status_hud.icon_state = "hud_con_slowdown"
+				simple_status_hud.icon_state = "slowdown"
 				return TRUE
 	return FALSE
 
@@ -307,7 +307,7 @@
 		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD || SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_STEALTH) & COMPONENT_HIDE_HEALTH)
-		holder.icon_state = "hudhealth98"
+		holder.icon_state = "health98"
 		return TRUE
 
 	var/perceived_health = round(health * 100 / maxHealth)
@@ -316,7 +316,7 @@
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= STAMINA_RATIO_PAIN_HUD * staminaloss
 
-	holder.icon_state = "hudhealth[clamp(round(perceived_health, 7), -98, 98)]" // rounding to 7 because there are 14 pixel lines in the health hud
+	holder.icon_state = "health[clamp(round(perceived_health, 7), -98, 98)]" // rounding to 7 because there are 14 pixel lines in the health hud
 	return TRUE
 
 /mob/living/carbon/human/proc/hud_set_job(faction = FACTION_TERRAGOV)
@@ -338,23 +338,23 @@
 		if(assigned_squad.squad_leader == src)
 			rank = JOB_COMM_TITLE_SQUAD_LEADER
 		if(job.job_flags & JOB_FLAG_PROVIDES_SQUAD_HUD)
-			var/image/IMG = image('icons/mob/hud.dmi', src, "hudmarine")
+			var/image/IMG = image('icons/mob/hud.dmi', src, "marine")
 			IMG.color = squad_color
 			holder.overlays += IMG
-			holder.overlays += image('icons/mob/hud.dmi', src, "hudmarine [rank]")
+			holder.overlays += image('icons/mob/hud.dmi', src, "marine [rank]")
 		var/fireteam = wear_id?.assigned_fireteam
 		if(fireteam)
-			var/image/IMG2 = image('icons/mob/hud.dmi', src, "hudmarinesquadft[fireteam]")
+			var/image/IMG2 = image('icons/mob/hud.dmi', src, "marinesquadft[fireteam]")
 			IMG2.color = squad_color
 			holder.overlays += IMG2
 
 	else if(job.job_flags & JOB_FLAG_PROVIDES_SQUAD_HUD)
-		holder.overlays += image('icons/mob/hud.dmi', src, "hudmarine [job.comm_title]")
+		holder.overlays += image('icons/mob/hud.dmi', src, "marine [job.comm_title]")
 	hud_list[hud_type] = holder
 
 /mob/living/carbon/human/proc/hud_set_order()
 	var/image/holder = hud_list[ORDER_HUD]
-	holder.icon_state = "hudblank"
+	holder.icon_state = "blank"
 	if(stat != DEAD)
 		var/tempname = ""
 		if(mobility_aura)
@@ -364,7 +364,7 @@
 		if(marksman_aura)
 			tempname += "focus"
 		if(tempname)
-			holder.icon_state = "hud[tempname]"
+			holder.icon_state = "[tempname]"
 
 	hud_list[ORDER_HUD] = holder
 
@@ -374,15 +374,15 @@
 	holder.overlays.Cut()
 	for(var/aura_type in command_aura_allowed)
 		if(emitted_auras.Find(aura_type))
-			holder.overlays += image('icons/mob/hud.dmi', src, "hud[aura_type]aura")
+			holder.overlays += image('icons/mob/hud.dmi', src, "[aura_type]aura")
 
 /mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
 	var/image/holder = hud_list[HUNTER_HEALTH_HUD]
 	if(stat == DEAD)
-		holder.icon_state = "hudhealth98"
+		holder.icon_state = "health98"
 		return
 	var/percentage = round(health * 100 / maxHealth, 7) // rounding to 7 because there are 14 pixel lines in the health hud
-	holder.icon_state = "hudhealth[percentage]"
+	holder.icon_state = "health[percentage]"
 
 #undef PAIN_RATIO_PAIN_HUD
 #undef STAMINA_RATIO_PAIN_HUD
