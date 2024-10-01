@@ -552,8 +552,6 @@
 			if(assigned_squad == H.assigned_squad) //same squad
 				msg += "<a href='?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
 
-	msg += "[flavor_text]<br>"
-
 	if(isxeno(user))
 		if(species.species_flags & IS_SYNTHETIC)
 			msg += "[span_xenowarning("You sense [t_he] [t_is] not organic.")]\n"
