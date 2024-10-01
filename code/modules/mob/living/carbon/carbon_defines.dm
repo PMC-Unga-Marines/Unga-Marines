@@ -37,6 +37,8 @@
 
 	/// % Chance of exploding on death, incremented by total damage taken if not initially zero.
 	var/gib_chance = 0
+	/// how much it takes to gib a mob
+	var/explosion_threshold_gib = EXPLOSION_WEAK_THRESHOLD_GIB
 	///list of abilities this mob has access to
 	var/list/datum/action/ability/mob_abilities = list()
 	///Currently selected ability

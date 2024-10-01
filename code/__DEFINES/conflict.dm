@@ -231,7 +231,10 @@
 // Note that NEIGHBORS_CARDINAL | NEIGHBORS_ORDINALS gives you all 8 surrounding neighbors
 
 /// how much it takes to gib a mob
-#define EXPLOSION_THRESHOLD_GIB 200 // maybe should change it to 300?
+#define EXPLOSION_WEAK_THRESHOLD_GIB 200
+#define EXPLOSION_MEDIUM_THRESHOLD_GIB 400
+#define EXPLOSION_HARD_THRESHOLD_THRESHOLD_GIB 600
+#define EXPLOSION_INSANE_THRESHOLD_THRESHOLD_GIB 800
 /// prone mobs receive less damage from explosions
 #define EXPLOSION_PRONE_MULTIPLIER 0.5
 
