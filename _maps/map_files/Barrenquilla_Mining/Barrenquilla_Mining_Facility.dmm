@@ -623,7 +623,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/maintenance/dormitory)
+/area/barren/civilian)
 "dn" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/drained{
@@ -1202,7 +1202,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/maintenance/dormitory)
+/area/barren/civilian)
 "fQ" = (
 /obj/structure/bed/chair/pew{
 	dir = 1
@@ -1766,7 +1766,6 @@
 /turf/open/floor/prison/sterilewhite,
 /area/barren/civilian)
 "io" = (
-/obj/item/frame/camera,
 /obj/machinery/door_control/unmeltable{
 	id = "secure_blast5";
 	name = "Ash Shelter";
@@ -1805,7 +1804,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/nuke_disk_generator/red,
+/obj/structure/nuke_disk_candidate,
 /turf/open/floor/wood,
 /area/barren/security)
 "iw" = (
@@ -2090,6 +2089,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
+/obj/structure/sign/chemistry2,
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "jE" = (
@@ -3029,6 +3029,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/structure/sign/hydro,
 /turf/open/floor,
 /area/barren/civilian)
 "nU" = (
@@ -3888,7 +3889,7 @@
 "se" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/structure/table/woodentable,
+/obj/structure/nuke_disk_candidate,
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
 "sf" = (
@@ -3956,7 +3957,7 @@
 /turf/open/floor,
 /area/barren/misc/genstorage)
 "ss" = (
-/obj/machinery/computer/nuke_disk_generator/blue,
+/obj/structure/nuke_disk_candidate,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 6
 	},
@@ -3973,7 +3974,6 @@
 /turf/open/floor/prison,
 /area/barren/security)
 "sy" = (
-/obj/structure/cable,
 /obj/structure/table,
 /turf/open/floor,
 /area/barren/civilian)
@@ -4215,7 +4215,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/maintenance/dormitory)
+/area/barren/civilian)
 "tz" = (
 /obj/machinery/light,
 /obj/structure/rack,
@@ -6122,6 +6122,9 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
+/obj/structure/sign/examroom{
+	dir = 1
+	},
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -6570,9 +6573,13 @@
 	},
 /area/barren/security)
 "ER" = (
-/obj/structure/sign/hydro,
-/turf/closed/wall,
-/area/barren/civilian)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 9
+	},
+/obj/structure/sign/science,
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/central)
 "ET" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -7087,9 +7094,8 @@
 /turf/open/floor/tile/blue/whiteblue,
 /area/barren/medical)
 "Hc" = (
-/obj/structure/sign/chemistry2,
 /turf/closed/wall,
-/area/barren/medical/research)
+/area/barren/civilian/botany)
 "Hg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -7484,7 +7490,7 @@
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/maintenance/dormitory)
+/area/barren/civilian)
 "Jd" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -7681,10 +7687,6 @@
 "JV" = (
 /turf/open/floor/prison/kitchen,
 /area/barren/civilian/cook)
-"JX" = (
-/obj/structure/sign/science,
-/turf/closed/wall,
-/area/barren/medical/research)
 "JZ" = (
 /obj/structure/girder,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -8082,7 +8084,7 @@
 /area/barren/cave/lz2)
 "LW" = (
 /obj/structure/sign/poster,
-/obj/machinery/computer/nuke_disk_generator/green,
+/obj/structure/nuke_disk_candidate,
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
 "LX" = (
@@ -8161,12 +8163,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
-"My" = (
-/obj/machinery/power/apc,
-/obj/structure/cable,
-/obj/structure/table,
-/turf/open/floor,
-/area/barren/civilian)
 "MA" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/prison,
@@ -8356,10 +8352,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/tile/dark2,
 /area/barren/engie/engine)
-"Ns" = (
-/obj/structure/sign/examroom,
-/turf/closed/wall,
-/area/barren/medical)
 "Nt" = (
 /obj/structure/window/framed/colony,
 /obj/structure/cable,
@@ -8874,6 +8866,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "PT" = (
+/obj/structure/nuke_disk_candidate,
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "PV" = (
@@ -10758,7 +10751,7 @@
 /obj/structure/closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/maintenance/dormitory)
+/area/barren/civilian)
 "Zl" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -30903,8 +30896,8 @@ ZL
 ZL
 RH
 bN
-Ic
-JX
+ER
+YZ
 Ac
 dK
 dK
@@ -31940,7 +31933,7 @@ YZ
 YZ
 fY
 jC
-Hc
+YZ
 YZ
 ZS
 Zg
@@ -38031,11 +38024,11 @@ Wv
 Gp
 nv
 yw
-gC
-gC
-gC
-gC
-gC
+Hc
+Hc
+Hc
+Hc
+Hc
 gs
 RH
 ZL
@@ -38292,7 +38285,7 @@ vs
 HT
 Ps
 uo
-gC
+Hc
 ZL
 ZL
 ZL
@@ -38549,7 +38542,7 @@ Dp
 kt
 zw
 Jf
-gC
+Hc
 ZS
 Lm
 ZL
@@ -38806,7 +38799,7 @@ oz
 HT
 HT
 uo
-gC
+Hc
 ZS
 ZS
 Lm
@@ -39063,7 +39056,7 @@ PI
 QT
 SG
 zw
-gC
+Hc
 ZS
 ZS
 ZL
@@ -39079,7 +39072,7 @@ jH
 vh
 DF
 RK
-Ns
+jH
 CB
 DU
 tt
@@ -39320,7 +39313,7 @@ kt
 Gs
 kt
 uo
-gC
+Hc
 ZS
 ZL
 ZL
@@ -39565,19 +39558,19 @@ VH
 VH
 qK
 Kw
-My
+sy
 Dj
 np
 eX
 eX
 Dj
 nR
-ER
+yw
 NZ
 kt
 kt
 HT
-gC
+Hc
 ZS
 ZL
 ZL
@@ -39834,7 +39827,7 @@ ng
 Pq
 Ow
 HT
-gC
+Hc
 ZS
 RH
 ZL
@@ -40087,11 +40080,11 @@ ie
 eX
 eD
 yw
-gC
-gC
-gC
-gC
-gC
+Hc
+Hc
+Hc
+Hc
+Hc
 ZS
 ZL
 ZL
@@ -40346,7 +40339,7 @@ Wr
 yw
 dj
 ty
-gC
+yw
 ZS
 ZS
 RH
@@ -40603,7 +40596,7 @@ mh
 Vm
 fO
 Zk
-gC
+yw
 ZS
 bN
 QD
@@ -40860,7 +40853,7 @@ eX
 Qr
 Jc
 Jc
-gC
+yw
 ZS
 ld
 ZL
@@ -41115,9 +41108,9 @@ UJ
 yw
 LN
 yw
-gC
-gC
-gC
+yw
+yw
+yw
 ZS
 ld
 JM
