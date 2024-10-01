@@ -10,7 +10,7 @@
 
 /mob/living/carbon/human/species/zombie/ai/patrol/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie/patrolling , null)
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie/patrolling, null)
 
 /mob/living/carbon/human/species/zombie/ai/follower/Initialize(mapload, atom_to_escort)
 	. = ..()

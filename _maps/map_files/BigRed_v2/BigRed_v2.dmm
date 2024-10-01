@@ -4707,10 +4707,6 @@
 	dir = 8
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
-"aQK" = (
-/obj/effect/landmark/patrol_point/som/som_23,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
 "aRg" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/technology_scanner,
@@ -8389,10 +8385,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
-"drv" = (
-/obj/effect/landmark/patrol_point/tgmc_21,
-/turf/open/floor/plating,
-/area/bigredv2/outside/space_port)
 "dst" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -8611,7 +8603,6 @@
 /area/bigredv2/outside/bar)
 "dSS" = (
 /obj/machinery/light,
-/obj/effect/landmark/patrol_point/tgmc_23,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/space_port)
 "dVz" = (
@@ -9166,10 +9157,6 @@
 	dir = 4
 	},
 /area/bigredv2/caves/lambda_lab)
-"ffN" = (
-/obj/effect/landmark/patrol_point/som/som_22,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
 "fgb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -11123,10 +11110,6 @@
 	dir = 4
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
-"jsF" = (
-/obj/effect/landmark/patrol_point/som/som_24,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
 "jsL" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -12066,10 +12049,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
-"lFa" = (
-/obj/effect/landmark/patrol_point/tgmc_24,
-/turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/space_port)
 "lFi" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -12397,12 +12376,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
-"mqH" = (
-/obj/effect/landmark/patrol_point/tgmc_22,
-/turf/open/floor/marking/asteroidwarning{
-	dir = 1
-	},
-/area/bigredv2/outside/space_port)
 "mqU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
@@ -14079,10 +14052,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
-"qiV" = (
-/obj/effect/landmark/patrol_point/som/som_21,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
 "qjc" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -21467,7 +21436,7 @@ dHg
 dHg
 dHg
 dHg
-lFa
+azc
 bOC
 kRS
 pLY
@@ -23845,7 +23814,7 @@ gCQ
 gCQ
 hYk
 dHg
-mqH
+ocx
 ieL
 jjg
 jjg
@@ -26015,7 +25984,7 @@ gCQ
 gCQ
 hYk
 dHg
-drv
+iwK
 bBr
 iwK
 iwK
@@ -61838,7 +61807,7 @@ gCQ
 gCQ
 gCQ
 gCQ
-ffN
+vyZ
 vyZ
 vyZ
 vyZ
@@ -62928,7 +62897,7 @@ mtc
 mtc
 mtc
 vyZ
-jsF
+vyZ
 vyZ
 kKe
 kKe
@@ -64235,7 +64204,7 @@ vyZ
 vyZ
 vyZ
 vyZ
-aQK
+vyZ
 gCQ
 gCQ
 gCQ
@@ -65092,7 +65061,7 @@ gCQ
 gCQ
 gCQ
 gCQ
-qiV
+vyZ
 vyZ
 vyZ
 gCQ

@@ -327,10 +327,6 @@
 			. = size ? "CLF" : "CLF Medic"
 		if("CLF3")
 			. = size ? "CLF" : "CLF Leader"
-		if("SOM_E1")
-			. = size ? "PTE" : "SOM Private"
-		if("SOM_E2")
-			. = size ? "PFC" : "SOM Private First Class"
 		if("SOM_E3")
 			. = size ? "LCP" : "SOM Lance Corporal"
 		if("SOM_E4")
@@ -345,50 +341,8 @@
 			. = size ? "1SG" : "SOM First Sergeant"
 		if("SOM_S4")
 			. = size ? "SSG" : "SOM Staff Sergeant"
-		if("SOM_S5")
-			. = size ? "MSG" : "SOM Master Sergeant"
-		if("SOM_W1")
-			. = size ? "3WO" : "SOM Third Warrant Officer"
-		if("SOM_W2")
-			. = size ? "2WO" : "SOM Second Warrant Officer"
-		if("SOM_W3")
-			. = size ? "1WWO" : "SOM First Warrant Officer"
-		if("SOM_W4")
-			. = size ? "MWO" : "SOM Master Warrant Officer"
-		if("SOM_W5")
-			. = size ? "SWO" : "SOM Senior Warrant Officer"
-		if("SOM_W6")
-			. = size ? "CWO" : "SOM Chief Warrant Officer"
 		if("SOM_O1")
 			. = size ? "2LT" : "SOM Second Lieutenant"
-		if("SOM_O2")
-			. = size ? "LTA" : "SOM Lieutenant"
-		if("SOM_O3")
-			. = size ? "CPT" : "SOM Captain"
-		if("SOM_O4")
-			. = size ? "MAJ" : "SOM Major"
-		if("SOM_O5")
-			. = size ? "LTC" : "SOM Lieutenant-Colonel"
-		if("SOM_O6")
-			. = size ? "SLTC" : "SOM Senior Lieutenant-Colonel"
-		if("SOM_O7")
-			. = size ? "COL" : "SOM Colonel"
-		if("SOM_G1")
-			. = size ? "BG" : "SOM Brigadier-General"
-		if("SOM_G2")
-			. = size ? "MG" : "SOM Major-General"
-		if("SOM_G3")
-			. = size ? "LG" : "SOM Lieutenant-General"
-		if("SOM_G4")
-			. = size ? "GEN" : "SOM General"
-		if("SOM_A1")
-			. = size ? "RADM(1)" : "SOM Rear-Admiral"
-		if("SOM_A2")
-			. = size ? "RADM(2)" : "SOM Rear-Admiral"
-		if("SOM_A3")
-			. = size ? "VADM" : "SOM Vice-Admiral"
-		if("SOM_A4")
-			. = size ? "ADM" : "SOM Admiral"
 		if("ICC1")
 			. = size ? "ICC" : "ICC Standard"
 		if("ICC2")
