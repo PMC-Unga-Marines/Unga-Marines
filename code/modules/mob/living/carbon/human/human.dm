@@ -31,7 +31,6 @@
 	var/datum/action/innate/message_squad/screen_orders = new
 	screen_orders.give_action(src)
 
-
 	//makes order hud visible
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ORDER]
 	H.add_hud_to(usr)
@@ -58,12 +57,11 @@
 
 
 /mob/living/carbon/human/prepare_huds()
-	..()
+	. = ..()
 	//updating all the mob's hud images
 	med_pain_set_perceived_health()
 	med_hud_set_health()
 	med_hud_set_status()
-	sec_hud_set_security_status()
 	hud_set_order()
 	//and display them
 	add_to_all_mob_huds()
@@ -309,39 +307,6 @@
 			else
 				return
 		hud_set_job(faction)
-
-
-	if(href_list["criminal"])
-		if(!hasHUD(usr, "security"))
-			return
-
-		var/perpname
-		if(wear_id)
-			var/obj/item/card/id/I = get_idcard()
-			if(istype(I))
-				perpname = I.registered_name
-			else
-				perpname = name
-		else
-			perpname = name
-
-		if(!perpname)
-			return
-
-		for(var/datum/data/record/general_record in GLOB.datacore.general)
-			if(!(general_record.fields["name"] == perpname))
-				continue
-			for(var/datum/data/record/security_record in GLOB.datacore.security)
-				if(!(security_record.fields["id"] == general_record.fields["id"]))
-					continue
-				var/new_criminal_status = tgui_input_list(usr, "Specify a new criminal status for this person.", "Security HUD", list("None", "*Arrest*", "Incarcerated", "Released"))
-				if(!new_criminal_status)
-					return
-				security_record.fields["criminal"] = new_criminal_status
-				sec_hud_set_security_status()
-				return
-
-		to_chat(usr, span_warning("Unable to locate a data core entry for this person."))
 
 	if(href_list["secrecord"])
 		if(!hasHUD(usr, "security"))

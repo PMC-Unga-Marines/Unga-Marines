@@ -285,27 +285,6 @@
 	holder.icon_state = "hudhealth[clamp(round(perceived_health, 7), -98, 98)]" // rounding to 7 because there are 14 pixel lines in the health hud
 	return TRUE
 
-/mob/living/carbon/human/proc/sec_hud_set_security_status()
-	var/image/holder = hud_list[WANTED_HUD]
-	holder.icon_state = "hudblank"
-	var/perpname = name
-	var/obj/item/card/id/I = get_idcard()
-	if(istype(I))
-		perpname = I.registered_name
-
-	for(var/datum/data/record/E in GLOB.datacore.general)
-		if(E.fields["name"] == perpname)
-			for(var/datum/data/record/R in GLOB.datacore.security)
-				if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "*Arrest*"))
-					holder.icon_state = "hudwanted"
-					break
-				else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Incarcerated"))
-					holder.icon_state = "hudprisoner"
-					break
-				else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Released"))
-					holder.icon_state = "hudreleased"
-					break
-
 /mob/living/carbon/human/proc/hud_set_job(faction = FACTION_TERRAGOV)
 	var/hud_type
 	switch(faction)
