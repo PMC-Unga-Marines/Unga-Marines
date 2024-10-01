@@ -27,62 +27,34 @@
 	var/percentage = round(health * 100 / maxHealth, 7) // rounding to 7 because there are 14 pixel lines in the health hud
 	holder.icon_state = "hudhealth[percentage]"
 
-
 /mob/living/carbon/human/med_hud_set_status()
-	var/image/status_hud = hud_list[STATUS_HUD] //Status for med-hud.
-	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD] //State of the xeno embryo.
-	var/image/simple_status_hud = hud_list[STATUS_HUD_SIMPLE] //Status for the naked eye.
-
+	set_status_hud()
+	set_infection_hud()
+	set_simple_status_hud()
 	set_reagent_hud()
 	set_debuff_hud()
 
+ //Set status for med-hud.
+/mob/living/carbon/human/proc/set_status_hud()
+	var/image/status_hud = hud_list[STATUS_HUD]
 	if(species.species_flags & IS_SYNTHETIC)
-		simple_status_hud.icon_state = ""
 		if(stat != DEAD)
 			status_hud.icon_state = "hudsynth"
-		else
-			if(!client)
-				var/mob/dead/observer/G = get_ghost(FALSE, TRUE)
-				if(!G)
-					status_hud.icon_state = "hudsynthdnr"
-				else
-					status_hud.icon_state = "hudsynthdead"
-			return
-		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
+		else if(!client)
+			var/mob/dead/observer/G = get_ghost(FALSE, TRUE)
+			if(!G)
+				status_hud.icon_state = "hudsynthdnr"
+			else
+				status_hud.icon_state = "hudsynthdead"
 		return TRUE
-
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
 			status_hud.icon_state = "huddead_robot"
 		else
 			status_hud.icon_state = "huddead"
-		infection_hud.icon_state = ""
-		simple_status_hud.icon_state = ""
 		return TRUE
-
-	if(status_flags & XENO_HOST)
-		var/obj/item/alien_embryo/E = locate(/obj/item/alien_embryo) in src
-		if(E)
-			if(E.boost_timer)
-				infection_hud.icon_state = "infectedmodifier[E.stage]"
-			else
-				infection_hud.icon_state = "infected[E.stage]"
-		else if(locate(/mob/living/carbon/xenomorph/larva) in src)
-			infection_hud.icon_state = "infected6"
-		else
-			infection_hud.icon_state = ""
-	else
-		infection_hud.icon_state = ""
-	if(species.species_flags & ROBOTIC_LIMBS)
-		simple_status_hud.icon_state = ""
-		infection_hud.icon_state = "hudrobot"
-
 	switch(stat)
 		if(DEAD)
-			simple_status_hud.icon_state = ""
-			infection_hud.icon_state = "huddead_xeno_animated"
-			if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
-				infection_hud.icon_state = "psy_drain"
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
 				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
 				if(species.species_flags & ROBOTIC_LIMBS)
@@ -116,45 +88,101 @@
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				simple_status_hud.icon_state = "hud_uncon_afk"
 				status_hud.icon_state = "hud_uncon_afk"
 				return TRUE
 			if(IsUnconscious()) //Should hopefully get out of it soon.
-				simple_status_hud.icon_state = "hud_uncon_ko"
 				status_hud.icon_state = "hud_uncon_ko"
 				return TRUE
 			status_hud.icon_state = "hud_uncon_sleep" //Regular sleep, else.
+			return TRUE
+		if(CONSCIOUS)
+			if(!key) //Nobody home. Shouldn't affect aghosting.
+				status_hud.icon_state = "hud_uncon_afk"
+				return TRUE
+			if(IsParalyzed()) //I've fallen and I can't get up.
+				status_hud.icon_state = "hud_con_kd"
+				return TRUE
+			if(IsStun())
+				status_hud.icon_state = "hud_con_stun"
+				return TRUE
+			if(IsStaggered())
+				return TRUE
+			if(slowdown)
+				status_hud.icon_state = "hud_con_slowdown"
+				return TRUE
+			if(species.species_flags & ROBOTIC_LIMBS)
+				status_hud.icon_state = "hudrobot"
+				return TRUE
+			else
+				status_hud.icon_state = "hudhealthy"
+				return TRUE
+	return FALSE
+
+ //Set state of the xeno embryo and other strange stuff
+/mob/living/carbon/human/proc/set_infection_hud()
+	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD]
+
+	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
+		return TRUE
+
+	if(species.species_flags & IS_SYNTHETIC)
+		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
+		return TRUE
+
+	if(status_flags & XENO_HOST)
+		var/obj/item/alien_embryo/embryo = locate(/obj/item/alien_embryo) in src
+		if(embryo)
+			if(embryo.boost_timer)
+				infection_hud.icon_state = "infectedmodifier[embryo.stage]"
+			else
+				infection_hud.icon_state = "infected[embryo.stage]"
+		else if(locate(/mob/living/carbon/xenomorph/larva) in src)
+			infection_hud.icon_state = "infected6"
+		return TRUE
+
+	if(stat == DEAD && !HAS_TRAIT(src, TRAIT_PSY_DRAINED))
+		infection_hud.icon_state = "psy_drain"
+		return TRUE
+	if(species.species_flags & ROBOTIC_LIMBS)
+		infection_hud.icon_state = "hudrobot"
+		return TRUE
+	return FALSE
+
+//Set status for the naked eye.
+/mob/living/carbon/human/proc/set_simple_status_hud()
+	if(species.species_flags & (IS_SYNTHETIC || HEALTH_HUD_ALWAYS_DEAD))
+		return FALSE
+
+	var/image/simple_status_hud = hud_list[STATUS_HUD_SIMPLE]
+	switch(stat)
+		if(DEAD)
+			return FALSE
+		if(UNCONSCIOUS)
+			if(!client) //Nobody home.
+				simple_status_hud.icon_state = "hud_uncon_afk"
+				return TRUE
+			if(IsUnconscious()) //Should hopefully get out of it soon.
+				simple_status_hud.icon_state = "hud_uncon_ko"
+				return TRUE
 			simple_status_hud.icon_state = "hud_uncon_sleep"
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
 				simple_status_hud.icon_state = "hud_uncon_afk"
-				status_hud.icon_state = "hud_uncon_afk"
 				return TRUE
 			if(IsParalyzed()) //I've fallen and I can't get up.
 				simple_status_hud.icon_state = "hud_con_kd"
-				status_hud.icon_state = "hud_con_kd"
 				return TRUE
 			if(IsStun())
 				simple_status_hud.icon_state = "hud_con_stun"
-				status_hud.icon_state = "hud_con_stun"
 				return TRUE
 			if(IsStaggered())
 				simple_status_hud.icon_state = "hud_con_stagger"
 				return TRUE
 			if(slowdown)
 				simple_status_hud.icon_state = "hud_con_slowdown"
-				status_hud.icon_state = "hud_con_slowdown"
 				return TRUE
-			else
-				if(species.species_flags & ROBOTIC_LIMBS)
-					simple_status_hud.icon_state = ""
-					status_hud.icon_state = "hudrobot"
-					return TRUE
-				else
-					simple_status_hud.icon_state = ""
-					status_hud.icon_state = "hudhealthy"
-					return TRUE
+	return FALSE
 
 ///Displays active reagents for xenomorphs, so they know how to react to it
 /mob/living/carbon/human/proc/set_reagent_hud()
@@ -315,8 +343,7 @@
 			holder.overlays += IMG2
 
 	else if(job.job_flags & JOB_FLAG_PROVIDES_SQUAD_HUD)
-		holder.overlays += image('icons/mob/hud.dmi', src, "hudmarine [job.comm_title]") ///RUTGMC edit, icon redirect to module
-
+		holder.overlays += image('icons/mob/hud.dmi', src, "hudmarine [job.comm_title]")
 	hud_list[hud_type] = holder
 
 /mob/living/carbon/human/proc/hud_set_order()
@@ -344,7 +371,12 @@
 			holder.overlays += image('icons/mob/hud.dmi', src, "hud[aura_type]aura")
 
 /mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
-	. = ..()
+	var/image/holder = hud_list[HUNTER_HEALTH_HUD]
+	if(stat == DEAD)
+		holder.icon_state = "hudhealth98"
+		return
+	var/percentage = round(health * 100 / maxHealth, 7) // rounding to 7 because there are 14 pixel lines in the health hud
+	holder.icon_state = "hudhealth[percentage]"
 
 #undef PAIN_RATIO_PAIN_HUD
 #undef STAMINA_RATIO_PAIN_HUD

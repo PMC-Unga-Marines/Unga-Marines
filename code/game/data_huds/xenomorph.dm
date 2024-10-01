@@ -80,7 +80,7 @@
 	var/image/holder = hud_list[PHEROMONE_HUD]
 	if(!holder)
 		return
-	holder.icon_state = "hudblank"
+	holder.overlays.Cut()
 	if(stat != DEAD)
 		var/tempname = ""
 		if(frenzy_aura)
@@ -104,26 +104,27 @@
 		return
 	for(var/aura_type in GLOB.pheromone_images_list)
 		if(emitted_auras.Find(aura_type))
-			holder.overlays += image('icons/mob/hud.dmi', src, "hudaura[aura_type]") //RUTGMC EDIT .dmi
+			holder.overlays += image('icons/mob/hud.dmi', src, "hudaura[aura_type]")
 
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]
 	holder.overlays.Cut()
-	holder.icon_state = "hudblank"
-	if(stat != DEAD)
-		if(hive?.living_xeno_queen)
-			if(hive.living_xeno_queen.observed_xeno == src)
-				holder.icon_state = "queen_overwatch"
-			if(queen_chosen_lead)
-				var/image/I = image('icons/mob/hud.dmi',src, "hudxenoleader") //RUTGMC EDIT .dmi
-				holder.overlays += I
+	if(stat == DEAD)
+		return
+	if(!hive?.living_xeno_queen)
+		return
+	if(hive.living_xeno_queen.observed_xeno == src)
+		holder.icon_state = "queen_overwatch"
+	if(queen_chosen_lead)
+		var/image/I = image('icons/mob/hud.dmi',src, "hudxenoleader")
+		holder.overlays += I
 	hud_list[QUEEN_OVERWATCH_HUD] = holder
 
 /mob/living/carbon/xenomorph/proc/hud_set_banished()
 	var/image/holder = hud_list[XENO_BANISHED_HUD]
 	holder.overlays.Cut()
 	holder.icon_state = "hudblank"
-	if (stat != DEAD && HAS_TRAIT(src, TRAIT_BANISHED))
+	if(stat != DEAD && HAS_TRAIT(src, TRAIT_BANISHED))
 		holder.icon_state = "xeno_banished"
 	holder.pixel_x = -4
 	holder.pixel_y = -6
