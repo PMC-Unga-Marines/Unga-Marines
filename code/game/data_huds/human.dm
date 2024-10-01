@@ -37,6 +37,7 @@
  //Set status for med-hud.
 /mob/living/carbon/human/proc/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
+	status_hud.icon_state = ""
 	if(species.species_flags & IS_SYNTHETIC)
 		if(stat != DEAD)
 			status_hud.icon_state = "hudsynth"
@@ -120,11 +121,11 @@
 
  //Set state of the xeno embryo and other strange stuff
 /mob/living/carbon/human/proc/set_infection_hud()
-	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD]
-
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
-		return TRUE
+		return FALSE
 
+	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD]
+	infection_hud.icon_state = ""
 	if(species.species_flags & IS_SYNTHETIC)
 		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
 		return TRUE
@@ -140,8 +141,11 @@
 			infection_hud.icon_state = "infected6"
 		return TRUE
 
-	if(stat == DEAD && !HAS_TRAIT(src, TRAIT_PSY_DRAINED))
-		infection_hud.icon_state = "psy_drain"
+	if(stat == DEAD)
+		if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
+			infection_hud.icon_state = "psy_drain"
+		else
+			infection_hud.icon_state = "huddead_xeno_animated"
 		return TRUE
 	if(species.species_flags & ROBOTIC_LIMBS)
 		infection_hud.icon_state = "hudrobot"
@@ -150,10 +154,12 @@
 
 //Set status for the naked eye.
 /mob/living/carbon/human/proc/set_simple_status_hud()
+	var/image/simple_status_hud = hud_list[STATUS_HUD_SIMPLE]
+	simple_status_hud.icon_state = ""
+
 	if(species.species_flags & (IS_SYNTHETIC || HEALTH_HUD_ALWAYS_DEAD))
 		return FALSE
 
-	var/image/simple_status_hud = hud_list[STATUS_HUD_SIMPLE]
 	switch(stat)
 		if(DEAD)
 			return FALSE
@@ -186,12 +192,12 @@
 
 ///Displays active reagents for xenomorphs, so they know how to react to it
 /mob/living/carbon/human/proc/set_reagent_hud()
-	if(stat == DEAD)
-		return
-
 	var/image/xeno_reagent = hud_list[XENO_REAGENT_HUD]
 	xeno_reagent.overlays.Cut()
 	xeno_reagent.icon_state = ""
+
+	if(stat == DEAD)
+		return FALSE
 
 	var/static/image/neurotox_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin")
 	var/static/image/hemodile_image = image('icons/mob/hud.dmi', icon_state = "hemodile")
