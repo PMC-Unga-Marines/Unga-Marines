@@ -51,7 +51,7 @@
 			else
 				playsound(loc, 'sound/weapons/tap.ogg', 25, 1)
 		if(BURN)
-			playsound(loc, 'sound/items/welder.ogg', 50, 1)
+			playsound(loc, 'sound/items/welder.ogg', 25, 1)
 
 /obj/ex_act(severity, direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))

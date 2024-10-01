@@ -135,11 +135,6 @@ a.popt {text-decoration: none;}
 .charlieradio			{color: #AA55AA;}
 .deltaradio				{color: #007FCF;}
 
-.zuluradio				{color: #FF6A00;}
-.yankeeradio			{color: #009999;}
-.xrayradio				{color: #008000;}
-.whiskeyradio			{color: #CC00CC;}
-
 .yautjaradio {color: #b33d3d;}
 
 .binarysay    			{color: #20c20e; background-color: #000000; display: block;}
@@ -234,4 +229,5 @@ h1.alert, h2.alert		{color: #000000;}
 
 .text-normal {font-weight: normal; font-style: normal;}
 .hidden {display: none; visibility: hidden;}
+.upside_down			{display: inline; -moz-transform: scale(-1, -1); -webkit-transform: scale(-1, -1); -o-transform: scale(-1, -1); -ms-transform: scale(-1, -1); transform: scale(-1, -1);}
 </style>"}

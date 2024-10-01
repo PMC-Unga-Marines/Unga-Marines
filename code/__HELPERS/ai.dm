@@ -93,6 +93,8 @@
 		for(var/mob/living/nearby_human AS in cheap_get_humans_near(source, distance))
 			if(nearby_human.stat == DEAD || nearby_human.faction == attacker_faction || nearby_human.alpha <= SCOUT_CLOAK_RUN_ALPHA || isnestedhost(nearby_human))
 				continue
+			if(HAS_TRAIT(nearby_human, TRAIT_STEALTH))
+				continue
 			if(get_dist(source, nearby_human) < shorter_distance)
 				nearest_target = nearby_human
 				shorter_distance = get_dist(source, nearby_human) //better to recalculate than to save the var
@@ -104,6 +106,8 @@
 			if(nearby_xeno.stat == DEAD || nearby_xeno.alpha <= HUNTER_STEALTH_RUN_ALPHA)
 				continue
 			if((nearby_xeno.status_flags & GODMODE) || (nearby_xeno.status_flags & INCORPOREAL)) //No attacking invulnerable/ai's eye!
+				continue
+			if(HAS_TRAIT(nearby_xeno, TRAIT_STEALTH))
 				continue
 			if(get_dist(source, nearby_xeno) < shorter_distance)
 				nearest_target = nearby_xeno
@@ -118,6 +122,8 @@
 	if(target_flags & TARGET_UNMANNED_VEHICLE)
 		for(var/atom/nearby_vehicle AS in GLOB.unmanned_vehicles)
 			if(source.z != nearby_vehicle.z)
+				continue
+			if(HAS_TRAIT(nearby_vehicle, TRAIT_STEALTH))
 				continue
 			if(!(get_dist(source, nearby_vehicle) < shorter_distance))
 				continue

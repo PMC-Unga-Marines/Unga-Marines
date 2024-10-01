@@ -124,48 +124,6 @@
 	freq_listening = list(FREQ_CAS)
 	autolinkers = list("firesupport")
 
-//SOM
-/obj/machinery/telecomms/server/presets/medical/som
-	id = "Medical Server som"
-	freq_listening = list(FREQ_MEDICAL_SOM)
-	autolinkers = list("medical_som")
-
-/obj/machinery/telecomms/server/presets/zulu
-	id = "Zulu"
-	freq_listening = list(FREQ_ZULU)
-	autolinkers = list("zulu")
-
-
-/obj/machinery/telecomms/server/presets/yankee
-	id = "Yankee"
-	freq_listening = list(FREQ_YANKEE)
-	autolinkers = list("yankee")
-
-
-/obj/machinery/telecomms/server/presets/xray
-	id = "Xray"
-	freq_listening = list(FREQ_XRAY)
-	autolinkers = list("xray")
-
-
-/obj/machinery/telecomms/server/presets/whiskey
-	id = "Whiskey"
-	freq_listening = list(FREQ_WHISKEY)
-	autolinkers = list("whiskey")
-
-
-/obj/machinery/telecomms/server/presets/command/som
-	id = "Command Server som"
-	freq_listening = list(FREQ_COMMAND_SOM)
-	autolinkers = list("command_som")
-
-
-/obj/machinery/telecomms/server/presets/engineering/som
-	id = "Engineering Server som"
-	freq_listening = list(FREQ_ENGINEERING_SOM)
-	autolinkers = list("engineering_som")
-
-
 /obj/machinery/telecomms/server/presets/common
 	id = "Common Server"
 	freq_listening = list(FREQ_COMMON, FREQ_PMC, FREQ_COLONIST, FREQ_USL, FREQ_DEATHSQUAD, FREQ_IMPERIAL, FREQ_SOM, FREQ_SECTOID, FREQ_ECHO, YAUT_FREQ)
