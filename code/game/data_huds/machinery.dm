@@ -5,6 +5,7 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(obj_integrity < 1)
 		holder.icon_state = "xenohealth0"
 		return
@@ -21,6 +22,7 @@
 	if(!holder)
 		return
 	var/obj/item/weapon/gun/internal_gun = internal_item.resolve()
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(!internal_gun?.rounds)
 		holder.icon_state = "plasma0"
 		return
@@ -34,6 +36,7 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(!current_rounds)
 		holder.icon_state = "plasma0"
 		return

@@ -43,7 +43,7 @@
 	if(!holder)
 		return
 	holder.overlays.Cut()
-	holder.icon_state = "hudblank"
+	holder.icon_state = ""
 	if(stat == DEAD || !duration)
 		return
 	holder.icon_state = "evasion_duration[duration]"

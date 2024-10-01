@@ -16,6 +16,7 @@
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
 		return
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "xenohealth0"
 		return
@@ -34,6 +35,7 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "sundering0"
 		return
@@ -47,6 +49,7 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_misc.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "firestack0"
 		return
@@ -90,7 +93,7 @@
 		if(recovery_aura)
 			tempname += AURA_XENO_RECOVERY
 		if(tempname)
-			holder.icon_state = "hud[tempname]"
+			holder.icon_state = "[tempname]"
 
 	hud_list[PHEROMONE_HUD] = holder
 
@@ -104,7 +107,7 @@
 		return
 	for(var/aura_type in GLOB.pheromone_images_list)
 		if(emitted_auras.Find(aura_type))
-			holder.overlays += image('icons/mob/hud.dmi', src, "hudaura[aura_type]")
+			holder.overlays += image('icons/mob/hud/aura.dmi', src, "[aura_type]_aura")
 
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]
@@ -114,17 +117,18 @@
 	if(!hive?.living_xeno_queen)
 		return
 	if(hive.living_xeno_queen.observed_xeno == src)
+		holder.icon = 'icons/mob/hud/xeno_misc.dmi'
 		holder.icon_state = "queen_overwatch"
 	if(queen_chosen_lead)
-		var/image/I = image('icons/mob/hud.dmi',src, "hudxenoleader")
+		var/image/I = image('icons/mob/hud/xeno_misc.dmi',src, "leader")
 		holder.overlays += I
 	hud_list[QUEEN_OVERWATCH_HUD] = holder
 
 /mob/living/carbon/xenomorph/proc/hud_set_banished()
 	var/image/holder = hud_list[XENO_BANISHED_HUD]
-	holder.overlays.Cut()
-	holder.icon_state = "hudblank"
+	holder.icon_state = ""
 	if(stat != DEAD && HAS_TRAIT(src, TRAIT_BANISHED))
+		holder.icon = 'icons/mob/hud/xeno_misc.dmi'
 		holder.icon_state = "xeno_banished"
 	holder.pixel_x = -4
 	holder.pixel_y = -6
@@ -133,9 +137,9 @@
 	var/image/holder = hud_list[XENO_RANK_HUD]
 	if(!holder)
 		return
-	holder.icon_state = "hudblank"
+	holder.icon_state = ""
 	if(stat != DEAD && playtime_as_number() > 0)
-		holder.icon_state = "hudxenoupgrade[playtime_as_number()]"
+		holder.icon_state = "upgrade[playtime_as_number()]"
 
 	hud_list[XENO_RANK_HUD] = holder
 
@@ -143,10 +147,11 @@
 	var/image/holder = hud_list[XENO_PRIMO_HUD]
 	if(!holder)
 		return
-	holder.icon_state = "hudblank"
+	holder.icon_state = ""
 	if(stat == DEAD)
 		return
 	if(upgrade == XENO_UPGRADE_PRIMO)
-		holder.icon_state = "hudxenoprimo[playtime_as_number()]"
+		holder.icon = 'icons/mob/hud/xeno_misc.dmi'
+		holder.icon_state = "primo[playtime_as_number()]"
 
 	hud_list[XENO_PRIMO_HUD] = holder

@@ -21,6 +21,7 @@
 
 /mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[HEALTH_HUD]
+	holder.icon = 'icons/mob/hud/human_health.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "health98"
 		return
@@ -199,22 +200,22 @@
 	if(stat == DEAD)
 		return FALSE
 
-	var/static/image/neurotox_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin")
-	var/static/image/hemodile_image = image('icons/mob/hud.dmi', icon_state = "hemodile")
-	var/static/image/transvitox_image = image('icons/mob/hud.dmi', icon_state = "transvitox")
-	var/static/image/sanguinal_image = image('icons/mob/hud.dmi', icon_state = "sanguinal")
-	var/static/image/ozelomelyn_image = image('icons/mob/hud.dmi', icon_state = "ozelomelyn")
-	var/static/image/ozelomelyn_high_image = image('icons/mob/hud.dmi', icon_state = "ozelomelyn_high")
-	var/static/image/neurotox_high_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin_high")
-	var/static/image/hemodile_high_image = image('icons/mob/hud.dmi', icon_state = "hemodile_high")
-	var/static/image/transvitox_high_image = image('icons/mob/hud.dmi', icon_state = "transvitox_high")
-	var/static/image/sanguinal_high_image = image('icons/mob/hud.dmi', icon_state = "sanguinal_high")
-	var/static/image/medicalnanites_high_image = image('icons/mob/hud.dmi', icon_state = "nanites")
-	var/static/image/medicalnanites_medium_image = image('icons/mob/hud.dmi', icon_state = "nanites_medium")
-	var/static/image/medicalnanites_low_image = image('icons/mob/hud.dmi', icon_state = "nanites_low")
-	var/static/image/ifosfamide_image = image('icons/mob/hud.dmi', icon_state = "ifosfamide")
-	var/static/image/jellyjuice_image = image('icons/mob/hud.dmi', icon_state = "jellyjuice")
-	var/static/image/russianred_image = image('icons/mob/hud.dmi', icon_state = "russian_red")
+	var/static/image/neurotox_image = image('icons/mob/hud/reagent.dmi', icon_state = "neurotoxin")
+	var/static/image/hemodile_image = image('icons/mob/hud/reagent.dmi', icon_state = "hemodile")
+	var/static/image/transvitox_image = image('icons/mob/hud/reagent.dmi', icon_state = "transvitox")
+	var/static/image/sanguinal_image = image('icons/mob/hud/reagent.dmi', icon_state = "sanguinal")
+	var/static/image/ozelomelyn_image = image('icons/mob/hud/reagent.dmi', icon_state = "ozelomelyn")
+	var/static/image/ozelomelyn_high_image = image('icons/mob/hud/reagent.dmi', icon_state = "ozelomelyn_high")
+	var/static/image/neurotox_high_image = image('icons/mob/hud/reagent.dmi', icon_state = "neurotoxin_high")
+	var/static/image/hemodile_high_image = image('icons/mob/hud/reagent.dmi', icon_state = "hemodile_high")
+	var/static/image/transvitox_high_image = image('icons/mob/hud/reagent.dmi', icon_state = "transvitox_high")
+	var/static/image/sanguinal_high_image = image('icons/mob/hud/reagent.dmi', icon_state = "sanguinal_high")
+	var/static/image/medicalnanites_high_image = image('icons/mob/hud/reagent.dmi', icon_state = "nanites")
+	var/static/image/medicalnanites_medium_image = image('icons/mob/hud/reagent.dmi', icon_state = "nanites_medium")
+	var/static/image/medicalnanites_low_image = image('icons/mob/hud/reagent.dmi', icon_state = "nanites_low")
+	var/static/image/ifosfamide_image = image('icons/mob/hud/reagent.dmi', icon_state = "ifosfamide")
+	var/static/image/jellyjuice_image = image('icons/mob/hud/reagent.dmi', icon_state = "jellyjuice")
+	var/static/image/russianred_image = image('icons/mob/hud/reagent.dmi', icon_state = "russian_red")
 
 	var/neurotox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin)
 	var/hemodile_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile)
@@ -272,11 +273,11 @@
 ///Displays active xeno specific debuffs
 /mob/living/carbon/human/proc/set_debuff_hud()
 	var/image/xeno_debuff = hud_list[XENO_DEBUFF_HUD]
-	var/static/image/intoxicated_image = image('icons/mob/hud.dmi', icon_state = "intoxicated")
-	var/static/image/intoxicated_amount_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_amount0")
-	var/static/image/intoxicated_high_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_high")
-	var/static/image/hive_target_image = image('icons/mob/hud.dmi', icon_state = "hive_target")
-	var/static/image/hunter_silence_image = image('icons/mob/hud.dmi', icon_state = "silence_debuff")
+	var/static/image/intoxicated_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated")
+	var/static/image/intoxicated_amount_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_amount0")
+	var/static/image/intoxicated_high_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_high")
+	var/static/image/hive_target_image = image('icons/mob/hud/human_misc.dmi', icon_state = "hive_target")
+	var/static/image/hunter_silence_image = image('icons/mob/hud/human_misc.dmi', icon_state = "silence_debuff")
 
 	//Xeno debuff section start
 	xeno_debuff.overlays.Cut()
@@ -309,6 +310,7 @@
 	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO))
 		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
+	holder.icon = 'icons/mob/hud/human_health.dmi'
 	if(stat == DEAD || SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_STEALTH) & COMPONENT_HIDE_HEALTH)
 		holder.icon_state = "health98"
 		return TRUE
@@ -341,23 +343,24 @@
 		if(assigned_squad.squad_leader == src)
 			rank = JOB_COMM_TITLE_SQUAD_LEADER
 		if(job.job_flags & JOB_FLAG_PROVIDES_SQUAD_HUD)
-			var/image/IMG = image('icons/mob/hud.dmi', src, "marine")
+			var/image/IMG = image('icons/mob/hud/job.dmi', src, "color")
 			IMG.color = squad_color
 			holder.overlays += IMG
-			holder.overlays += image('icons/mob/hud.dmi', src, "marine [rank]")
+			holder.overlays += image('icons/mob/hud/job.dmi', src, "marine [rank]")
 		var/fireteam = wear_id?.assigned_fireteam
 		if(fireteam)
-			var/image/IMG2 = image('icons/mob/hud.dmi', src, "marinesquadft[fireteam]")
+			var/image/IMG2 = image('icons/mob/hud/job.dmi', src, "squadft[fireteam]")
 			IMG2.color = squad_color
 			holder.overlays += IMG2
 
 	else if(job.job_flags & JOB_FLAG_PROVIDES_SQUAD_HUD)
-		holder.overlays += image('icons/mob/hud.dmi', src, "marine [job.comm_title]")
+		holder.overlays += image('icons/mob/hud/job.dmi', src, "[job.comm_title]")
 	hud_list[hud_type] = holder
 
 /mob/living/carbon/human/proc/hud_set_order()
 	var/image/holder = hud_list[ORDER_HUD]
-	holder.icon_state = "blank"
+	holder.icon = 'icons/mob/hud/aura.dmi'
+	holder.icon_state = ""
 	if(stat != DEAD)
 		var/tempname = ""
 		if(mobility_aura)
@@ -377,10 +380,11 @@
 	holder.overlays.Cut()
 	for(var/aura_type in command_aura_allowed)
 		if(emitted_auras.Find(aura_type))
-			holder.overlays += image('icons/mob/hud.dmi', src, "[aura_type]aura")
+			holder.overlays += image('icons/mob/hud/aura.dmi', src, "[aura_type]_aura")
 
 /mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
 	var/image/holder = hud_list[HUNTER_HEALTH_HUD]
+	holder.icon = 'icons/mob/hud/human_health.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "health98"
 		return

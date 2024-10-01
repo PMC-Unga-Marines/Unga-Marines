@@ -5,6 +5,7 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(obj_integrity < 1)
 		holder.icon_state = "xenohealth0"
 		return
@@ -21,19 +22,10 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(!cell)
 		holder.icon_state = "plasma0"
 		return
 
 	var/amount = round(cell.charge * 100 / cell.maxcharge, 10)
 	holder.icon_state = "plasma[amount]"
-
-/obj/vehicle/sealed/mecha/proc/diag_hud_set_mechstat()
-	var/image/holder = hud_list[ORDER_HUD]
-	if(!holder)
-		return
-	var/icon/I = icon(icon, icon_state, dir)
-	holder.pixel_y = I.Height() - world.icon_size
-	if(internal_damage)
-		holder.icon_state = "hudwarn"
-	holder.icon_state = null

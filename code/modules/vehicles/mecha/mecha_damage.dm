@@ -73,10 +73,8 @@
 	internal_damage |= int_dam_flag
 	log_message("Internal damage of type [int_dam_flag].", LOG_MECHA)
 	SEND_SOUND(occupants, sound('sound/machines/warning-buzzer.ogg',wait=0))
-	diag_hud_set_mechstat()
 
 /obj/vehicle/sealed/mecha/proc/clear_internal_damage(int_dam_flag)
 	if(internal_damage & int_dam_flag && int_dam_flag == MECHA_INT_FIRE)
 		to_chat(occupants, "[icon2html(src, occupants)][span_boldnotice("Internal fire extinguished.")]")
 	internal_damage &= ~int_dam_flag
-	diag_hud_set_mechstat()
