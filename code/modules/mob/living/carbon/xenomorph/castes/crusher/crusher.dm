@@ -7,7 +7,6 @@
 	bubble_icon = "alien"
 	health = 300
 	maxHealth = 300
-	explosion_threshold_gib = EXPLOSION_HARD_THRESHOLD_THRESHOLD_GIB
 	plasma_stored = 200
 	tier = XENO_TIER_THREE
 	upgrade = XENO_UPGRADE_NORMAL

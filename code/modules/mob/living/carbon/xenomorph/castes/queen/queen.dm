@@ -9,7 +9,6 @@
 	friendly = "nuzzles"
 	health = 300
 	maxHealth = 300
-	explosion_threshold_gib = EXPLOSION_MEDIUM_THRESHOLD_GIB
 	plasma_stored = 300
 	pixel_x = -16
 	old_x = -16
