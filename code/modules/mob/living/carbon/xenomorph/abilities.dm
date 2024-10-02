@@ -1002,7 +1002,7 @@
 
 ///Adds ability tally to the end-round statistics.
 /datum/action/ability/activable/xeno/neurotox_sting/transvitox/track_stats()
-	GLOB.round_statistics.ozelomelyn_stings++
+	GLOB.round_statistics.transvitox_stings++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "transvitox_stings")
 
 // ***************************************
