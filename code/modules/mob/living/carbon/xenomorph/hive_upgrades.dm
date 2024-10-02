@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	category = "Primordial"
 	name = PRIMORDIAL
 	desc = "Unlocks the primordial upgrade"
-	psypoint_cost = 0
+	psypoint_cost = 1200
 	icon = "primoqueen"
 	flags_upgrade = UPGRADE_FLAG_ONETIME|UPGRADE_FLAG_MESSAGE_HIVE
 
