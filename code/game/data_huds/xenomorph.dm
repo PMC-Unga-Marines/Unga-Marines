@@ -74,6 +74,7 @@
 	holder.overlays.Cut()
 	if(stat == DEAD)
 		return
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	var/plasma_amount = xeno_caste.plasma_max? round(plasma_stored * 100 / xeno_caste.plasma_max, 10) : 0
 	holder.overlays += xeno_caste.plasma_icon_state? "[xeno_caste.plasma_icon_state][plasma_amount]" : null
 	var/wrath_amount = xeno_caste.wrath_max? round(wrath_stored * 100 / xeno_caste.wrath_max, 10) : 0
@@ -112,6 +113,7 @@
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]
 	holder.overlays.Cut()
+	holder.icon_state = ""
 	if(stat == DEAD)
 		return
 	if(!hive?.living_xeno_queen)
@@ -129,7 +131,7 @@
 	holder.icon_state = ""
 	if(stat != DEAD && HAS_TRAIT(src, TRAIT_BANISHED))
 		holder.icon = 'icons/mob/hud/xeno_misc.dmi'
-		holder.icon_state = "xeno_banished"
+		holder.icon_state = "banished"
 	holder.pixel_x = -4
 	holder.pixel_y = -6
 
@@ -138,7 +140,10 @@
 	if(!holder)
 		return
 	holder.icon_state = ""
-	if(stat != DEAD && playtime_as_number() > 0)
+	if(stat == DEAD)
+		return
+	if(playtime_as_number() > 0)
+		holder.icon = 'icons/mob/hud/xeno_misc.dmi'
 		holder.icon_state = "upgrade[playtime_as_number()]"
 
 	hud_list[XENO_RANK_HUD] = holder

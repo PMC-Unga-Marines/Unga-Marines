@@ -39,6 +39,7 @@
 /mob/living/carbon/human/proc/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
+	status_hud.icon_state = 'icons/mob/hud/human_misc.dmi'
 	if(species.species_flags & IS_SYNTHETIC)
 		if(stat != DEAD)
 			status_hud.icon_state = "synth"
@@ -140,6 +141,7 @@
 				infection_hud.icon_state = "infected[embryo.stage]"
 		else if(locate(/mob/living/carbon/xenomorph/larva) in src)
 			infection_hud.icon_state = "infected6"
+			infection_hud.icon = 'icons/mob/hud/infected.dmi'
 		return TRUE
 
 	if(stat == DEAD)
@@ -346,7 +348,7 @@
 			var/image/IMG = image('icons/mob/hud/job.dmi', src, "color")
 			IMG.color = squad_color
 			holder.overlays += IMG
-			holder.overlays += image('icons/mob/hud/job.dmi', src, "marine [rank]")
+			holder.overlays += image('icons/mob/hud/job.dmi', src, "[rank]")
 		var/fireteam = wear_id?.assigned_fireteam
 		if(fireteam)
 			var/image/IMG2 = image('icons/mob/hud/job.dmi', src, "squadft[fireteam]")
