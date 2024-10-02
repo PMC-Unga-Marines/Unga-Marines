@@ -992,9 +992,6 @@
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	return TRUE
 
-/datum/status_effect/upgrade_regeneration/on_remove()
-	return ..()
-
 /datum/status_effect/upgrade_regeneration/tick()
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
@@ -1027,7 +1024,7 @@
 	buff_owner = owner
 	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_SURVIVAL, PROC_REF(update_buff))
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
-	chamber_scaling = isxenoravager(buff_owner) ? (length(buff_owner.hive.shell_chambers) / 2) : length(buff_owner.hive.shell_chambers)
+	chamber_scaling = isxenoravager(buff_owner) ? (length(buff_owner.hive.shell_chambers) * 0.5) : length(buff_owner.hive.shell_chambers)
 	return TRUE
 
 /datum/status_effect/upgrade_vampirism/on_remove()
@@ -1037,7 +1034,7 @@
 
 /datum/status_effect/upgrade_vampirism/proc/update_buff()
 	SIGNAL_HANDLER
-	chamber_scaling = isxenoravager(buff_owner) ? (length(buff_owner.hive.shell_chambers) / 2) : length(buff_owner.hive.shell_chambers)
+	chamber_scaling = isxenoravager(buff_owner) ? (length(buff_owner.hive.shell_chambers) * 0.5) : length(buff_owner.hive.shell_chambers)
 
 /datum/status_effect/upgrade_vampirism/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -1113,9 +1110,6 @@
 	chamber_scaling = length(buff_owner.hive.spur_chambers)
 	return TRUE
 
-/datum/status_effect/upgrade_adrenaline/on_remove()
-	return ..()
-
 /datum/status_effect/upgrade_adrenaline/tick()
 	if(HAS_TRAIT(buff_owner, TRAIT_NOPLASMAREGEN))
 		return
@@ -1178,7 +1172,7 @@
 			DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX),
 			DEFILER_NEUROTOXIN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN),
 			DEFILER_ACID = image('icons/Xeno/actions.dmi', icon_state = DEFILER_ACID),
-			)
+		)
 	var/datum/status_effect/upgrade_toxin/effect = attached_effect
 	if(effect.buff_owner.incapacitated(TRUE))
 		to_chat(usr, span_warning("Cant do that right now!"))
@@ -1208,7 +1202,7 @@
 		/datum/reagent/toxin/xeno_transvitox,
 		/datum/reagent/toxin/xeno_neurotoxin,
 		/datum/reagent/toxin/acid,
-		)
+	)
 
 /datum/status_effect/upgrade_toxin/on_apply()
 	if(!isxeno(owner))
@@ -1326,7 +1320,7 @@
 	var/list/selectable_trails = list(
 		/obj/effect/xenomorph/spray,
 		/obj/alien/resin/sticky/thin,
-		)
+	)
 
 /datum/status_effect/upgrade_trail/on_apply()
 	if(!isxeno(owner))
@@ -1352,13 +1346,13 @@
 		return
 	if(prob(base_chance + chance_per_chamber * chamber_scaling))
 		var/turf/T = get_turf(buff_owner)
-		if(T.density || istype(T, /turf/open/space))
+		if(T.density || isspaceturf(T))
 			return
 		for(var/obj/O in T.contents)
 			if(is_type_in_typecache(O, GLOB.no_sticky_resin))
 				return
 		if(selected_trail == /obj/effect/xenomorph/spray)
-			new selected_trail(T, 1 SECONDS)
+			new selected_trail(T, rand(2 SECONDS, 5 SECONDS))
 			for(var/obj/O in T)
 				O.acid_spray_act(buff_owner)
 		else
