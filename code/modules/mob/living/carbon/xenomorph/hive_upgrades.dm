@@ -1,14 +1,11 @@
-#define PRIMORDIAL_TIER_ONE "Primordial tier one"
-#define PRIMORDIAL_TIER_TWO "Primordial tier two"
-#define PRIMORDIAL_TIER_THREE "Primordial tier three"
-#define PRIMORDIAL_TIER_FOUR "Primordial tier four"
+#define PRIMORDIAL "Primordial upgrade"
 
 GLOBAL_LIST_INIT(upgrade_categories, list("Buildings", "Defences", "Primordial"))//, "Xenos"))//uncomment to unlock globally
 GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
-	XENO_TIER_ONE = PRIMORDIAL_TIER_ONE,
-	XENO_TIER_TWO = PRIMORDIAL_TIER_TWO,
-	XENO_TIER_THREE = PRIMORDIAL_TIER_THREE,
-	XENO_TIER_FOUR = PRIMORDIAL_TIER_FOUR,
+	XENO_TIER_ONE = PRIMORDIAL,
+	XENO_TIER_TWO = PRIMORDIAL,
+	XENO_TIER_THREE = PRIMORDIAL,
+	XENO_TIER_FOUR = PRIMORDIAL,
 ))
 
 /datum/hive_purchases
@@ -319,6 +316,10 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/primordial
 	category = "Primordial"
+	name = PRIMORDIAL
+	desc = "Unlocks the primordial upgrade"
+	psypoint_cost = 0
+	icon = "primoqueen"
 	flags_upgrade = UPGRADE_FLAG_ONETIME|UPGRADE_FLAG_MESSAGE_HIVE
 
 /datum/hive_upgrade/primordial/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
@@ -327,30 +328,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		if(!silent)
 			to_chat(buyer, span_xenonotice("You must be a ruler to buy this!"))
 		return FALSE
-
-/datum/hive_upgrade/primordial/tier_four
-	name = PRIMORDIAL_TIER_FOUR
-	desc = "Unlocks the primordial for the last tier"
-	psypoint_cost = 800
-	icon = "primoqueen"
-
-/datum/hive_upgrade/primordial/tier_three
-	name = PRIMORDIAL_TIER_THREE
-	desc = "Unlocks the primordial for the third tier"
-	psypoint_cost = 1000
-	icon = "primorav"
-
-/datum/hive_upgrade/primordial/tier_two
-	name = PRIMORDIAL_TIER_TWO
-	desc = "Unlocks the primordial for the second tier"
-	psypoint_cost = 800
-	icon = "primowarrior"
-
-/datum/hive_upgrade/primordial/tier_one
-	name = PRIMORDIAL_TIER_ONE
-	desc = "Unlocks the primordial for the first tier"
-	psypoint_cost = 600
-	icon = "primosent"
 
 /datum/hive_upgrade/defence/oblivion
 	name = "Oblivion"
