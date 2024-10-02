@@ -208,27 +208,7 @@ jobs:
     needs: [run_alternate_tests]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup cache
-        uses: actions/cache@v2
-        with:
-          path: $HOME/BYOND
-          key: ${{ runner.os }}-byond
-      - name: Setup database
-        run: |
-          sudo systemctl start mysql
-          mysql -u root -proot -e 'CREATE DATABASE tg_ci;'
-          mysql -u root -proot tg_ci < SQL/tgmc-schema.sql
-          mysql -u root -proot -e 'CREATE DATABASE tg_ci_prefixed;'
-      - name: Install rust-g
-        run: |
-          bash tools/ci/install_rust_g.sh
-      - name: Compile and run tests
-        run: |
-          bash tools/ci/install_byond.sh
-          source $HOME/BYOND/byond/bin/byondsetup
-          tools/build/build --ci -DCIBUILDING
-          bash tools/ci/run_server.sh
+      - run: echo Alternate tests passed.
 
   test_windows:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
