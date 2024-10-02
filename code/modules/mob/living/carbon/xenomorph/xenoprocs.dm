@@ -75,6 +75,10 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
+	if(!("[xeno_caste.caste_name] rouny Running" in icon_states(icon))) // check's if we have the main icon_state of running xeno
+		to_chat(usr, span_warning("Sorry! But rouny skin is currently unavalaible for this caste!"))
+		return
+
 	is_a_rouny = !is_a_rouny
 	update_icons()
 

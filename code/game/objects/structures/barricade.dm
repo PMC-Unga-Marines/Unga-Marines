@@ -385,8 +385,8 @@
 	name = "metal barricade"
 	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
 	icon_state = "metal_0"
-	max_integrity = 250 //4 sheets
-	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 20, BIO = 100, FIRE = 80, ACID = 40)
+	max_integrity = 200 //4 sheets
+	soft_armor = list(MELEE = 10, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 20, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/metal
 	stack_amount = 4
@@ -666,11 +666,11 @@
 
 			switch(barricade_upgrade_type)
 				if(CADE_TYPE_BOMB)
-					soft_armor = soft_armor.modifyRating(bomb = -50)
+					soft_armor = soft_armor.modifyRating(bomb = -80)
 				if(CADE_TYPE_MELEE)
-					soft_armor = soft_armor.modifyRating(melee = -30, bullet = -30, laser = -30, energy = -30)
+					soft_armor = soft_armor.modifyRating(melee = -40, bullet = -50, laser = -50, energy = -50, acid = 10)
 				if(CADE_TYPE_ACID)
-					soft_armor = soft_armor.modifyRating(acid = -20)
+					soft_armor = soft_armor.modifyRating(melee = 10, acid = -40)
 					resistance_flags &= ~UNACIDABLE
 
 			new /obj/item/stack/sheet/metal(loc, CADE_UPGRADE_REQUIRED_SHEETS)
@@ -694,7 +694,7 @@
 	name = "plasteel barricade"
 	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints. Use a blowtorch to repair. Can be flipped down to create a path."
 	icon_state = "plasteel_closed_0"
-	max_integrity = 550
+	max_integrity = 500
 	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 30, BIO = 100, FIRE = 80, ACID = 55)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/plasteel
@@ -1094,7 +1094,7 @@
 	name = "plasteel barricade"
 	desc = "A sturdy and heavily assembled barricade made of plasteel plates. Use a blowtorch to repair."
 	icon_state = "new_plasteel_0"
-	max_integrity = 600 //4 sheets
+	max_integrity = 550 //4 sheets
 	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 35, BIO = 100, FIRE = 80, ACID = 55)
 	stack_type = /obj/item/stack/sheet/plasteel
 	stack_amount = 4
