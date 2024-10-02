@@ -84,7 +84,6 @@
 	var/image/holder = hud_list[PHEROMONE_HUD]
 	if(!holder)
 		return
-	holder.overlays.Cut()
 	if(stat != DEAD)
 		var/tempname = ""
 		if(frenzy_aura)
@@ -95,6 +94,7 @@
 			tempname += AURA_XENO_RECOVERY
 		if(tempname)
 			holder.icon_state = "[tempname]"
+			holder.icon = 'icons/mob/hud/aura.dmi'
 
 	hud_list[PHEROMONE_HUD] = holder
 

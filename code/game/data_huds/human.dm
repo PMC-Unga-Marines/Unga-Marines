@@ -39,7 +39,6 @@
 /mob/living/carbon/human/proc/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
-	status_hud.icon_state = 'icons/mob/hud/human_misc.dmi'
 	if(species.species_flags & IS_SYNTHETIC)
 		if(stat != DEAD)
 			status_hud.icon_state = "synth"
@@ -58,7 +57,7 @@
 		return TRUE
 	switch(stat)
 		if(DEAD)
-			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
+			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
 				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
 				if(species.species_flags & ROBOTIC_LIMBS)
 					status_hud.icon_state = "dead_robot"
@@ -83,11 +82,11 @@
 					stage = 3
 			if(initial_stage != stage)
 				initial_stage = stage
-				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
-				if(species.species_flags & ROBOTIC_LIMBS)
-					status_hud.icon_state = "dead_defibable_robot"
-				else
-					status_hud.icon_state = "dead_defibable[stage]"
+				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // this is used to slightly increase performance of minimap revivable icons
+			if(species.species_flags & ROBOTIC_LIMBS)
+				status_hud.icon_state = "dead_defibable_robot"
+			else
+				status_hud.icon_state = "dead_defibable[stage]"
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
@@ -131,8 +130,12 @@
 	if(species.species_flags & IS_SYNTHETIC)
 		infection_hud.icon_state = "synth" //Xenos can feel synths are not human.
 		return TRUE
+	if(species.species_flags & ROBOTIC_LIMBS)
+		infection_hud.icon_state = "robot"
+		return TRUE
 
 	if(status_flags & XENO_HOST)
+		infection_hud.icon = 'icons/mob/hud/infected.dmi'
 		var/obj/item/alien_embryo/embryo = locate(/obj/item/alien_embryo) in src
 		if(embryo)
 			if(embryo.boost_timer)
@@ -141,17 +144,13 @@
 				infection_hud.icon_state = "infected[embryo.stage]"
 		else if(locate(/mob/living/carbon/xenomorph/larva) in src)
 			infection_hud.icon_state = "infected6"
-			infection_hud.icon = 'icons/mob/hud/infected.dmi'
 		return TRUE
 
-	if(stat == DEAD)
+	else if(stat == DEAD)
 		if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
 			infection_hud.icon_state = "psy_drain"
 		else
 			infection_hud.icon_state = "dead_xeno_animated"
-		return TRUE
-	if(species.species_flags & ROBOTIC_LIMBS)
-		infection_hud.icon_state = "robot"
 		return TRUE
 	return FALSE
 
