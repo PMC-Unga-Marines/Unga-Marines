@@ -1227,6 +1227,14 @@
 	dir = 4
 	},
 /area/slumbridge/outside/northeast)
+"aYw" = (
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 4;
+	on = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/open/floor/tile/dark,
+/area/slumbridge/inside/colony/dorms)
 "aYB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/plate,
@@ -2065,6 +2073,9 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/cyan/visible/layer3{
+	dir = 10
+	},
 /turf/open/floor/plating,
 /area/slumbridge/inside/hydrotreatment)
 "bCz" = (
@@ -2262,6 +2273,12 @@
 	},
 /turf/open/floor/plating/asteroidplating,
 /area/slumbridge/inside/zeta/south)
+"bIO" = (
+/obj/machinery/atmospherics/pipe/manifold/green/visible/layer1{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "bIY" = (
 /obj/structure/fence,
 /obj/structure/flora/jungle/vines/heavy,
@@ -3293,6 +3310,16 @@
 /obj/machinery/computer/body_scanconsole,
 /turf/open/floor/tile/blue,
 /area/slumbridge/inside/houses/surgery/garbledradio)
+"cwu" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 5;
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/orange/visible/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "cwz" = (
 /obj/machinery/door/airlock/mainship/secure/open,
 /obj/effect/turf_decal/tracks/wheels/bloody{
@@ -4593,6 +4620,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/slumbridge/inside/colony/construction)
+"dxS" = (
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1,
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "dxX" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -5540,6 +5571,19 @@
 	dir = 6
 	},
 /area/slumbridge/inside/colony/southerndome)
+"elb" = (
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1{
+	dir = 9;
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "elw" = (
 /obj/machinery/vending/snack,
 /turf/open/floor/tile/blue/whitebluefull,
@@ -6116,6 +6160,17 @@
 /turf/open/floor/tile/yellow/full,
 /area/slumbridge/inside/engi/central)
 "eKY" = (
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1{
+	dir = 5;
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 5
+	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice,
 /turf/open/floor/plating,
@@ -6542,6 +6597,10 @@
 	dir = 1
 	},
 /area/slumbridge/inside/prison/innerring)
+"fdY" = (
+/obj/machinery/atmospherics/pipe/simple/cyan/visible/layer3,
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "fek" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -8448,7 +8507,10 @@
 /turf/open/ground/grass/weedable,
 /area/slumbridge/outside/southeast)
 "gzE" = (
+/obj/machinery/atmospherics/pipe/layer_manifold,
 /obj/structure/disposalpipe/segment/corner,
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1,
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3,
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/slumbridge/inside/hydrotreatment)
@@ -10398,6 +10460,23 @@
 /obj/structure/prop/mainship/gelida/powerccable,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/slumbridge/outside/southwest)
+"hWf" = (
+/obj/machinery/atmospherics/components/trinary/filter/atmos{
+	dir = 8;
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1{
+	dir = 8;
+	pixel_x = -8
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible/layer2,
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	dir = 8;
+	pixel_x = 13
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "hWn" = (
 /obj/structure/table/mainship,
 /obj/structure/prop/mainship/minigun_crate,
@@ -13333,6 +13412,19 @@
 	dir = 8
 	},
 /area/slumbridge/outside/northwest)
+"kaS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/visible/layer3{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/visible/layer3{
+	dir = 10;
+	pixel_y = -6
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "kbn" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/ground/grass/weedable/patch,
@@ -15038,10 +15130,6 @@
 /obj/effect/spawner/random/misc/structure/stool,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/corpsespawner/colonist/regular,
-/obj/machinery/atmospherics/components/unary/vent_pump{
-	dir = 8;
-	on = 1
-	},
 /turf/open/floor/plating/heatinggrate,
 /area/slumbridge/inside/colony/dorms)
 "lpI" = (
@@ -15049,6 +15137,14 @@
 /turf/open/floor/plating/ground/snow,
 /area/slumbridge/outside/southwest)
 "lpM" = (
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 10;
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 10
+	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/slumbridge/inside/hydrotreatment)
@@ -18757,6 +18853,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/slumbridge/inside/sombase/east)
+"nXy" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1,
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "nXF" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -21738,6 +21841,15 @@
 /obj/structure/cable,
 /turf/open/floor/tile/blue,
 /area/slumbridge/inside/medical/chemistry)
+"qkz" = (
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "qll" = (
 /obj/structure/barricade/snow,
 /turf/open/floor/plating/ground/snow/layer2,
@@ -22361,6 +22473,19 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/silver,
 /area/slumbridge/inside/colony/northerndome)
+"qIU" = (
+/obj/machinery/atmospherics/components/trinary/mixer/on/layer3,
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1{
+	dir = 8;
+	pixel_x = -3
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/visible/layer3{
+	dir = 8;
+	pixel_x = -3
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible/layer2,
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "qJo" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/asteroidfloor,
@@ -23815,6 +23940,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/zeta/south)
 "rKf" = (
+/obj/machinery/atmospherics/pipe/layer_manifold,
 /obj/structure/lattice,
 /obj/machinery/light{
 	dir = 4
@@ -24783,6 +24909,24 @@
 /obj/structure/cable,
 /turf/open/floor/tile/brown,
 /area/slumbridge/inside/houses/dorms)
+"stY" = (
+/obj/machinery/atmospherics/components/trinary/filter/atmos{
+	dir = 4;
+	pixel_x = -4
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 8;
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	pixel_y = -6
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "sux" = (
 /obj/structure/table,
 /obj/item/reagent_containers/glass/bottle/dylovene,
@@ -24848,7 +24992,14 @@
 /turf/open/floor/prison,
 /area/slumbridge/inside/prison/outerringnorth)
 "swK" = (
+/obj/machinery/atmospherics/pipe/layer_manifold,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	dir = 9
+	},
 /obj/structure/lattice,
 /obj/machinery/light{
 	dir = 4
@@ -24929,6 +25080,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/south)
 "sAl" = (
+/obj/machinery/atmospherics/pipe/manifold/purple/visible/layer1,
 /obj/structure/disposalpipe/segment,
 /obj/effect/ai_node,
 /turf/open/floor/plating,
@@ -25834,13 +25986,10 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "tlu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump{
-	dir = 4;
-	on = 1
-	},
-/turf/open/floor/plating/heatinggrate,
-/area/slumbridge/inside/colony/dorms)
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "tlS" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -26469,11 +26618,17 @@
 /turf/open/floor/elevatorshaft,
 /area/slumbridge/inside/zeta/north)
 "tII" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/machinery/atmospherics/pipe/simple/purple/visible/layer1{
+	dir = 10
 	},
-/turf/open/floor/tile/dark,
-/area/slumbridge/inside/colony/dorms)
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3{
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible/layer3,
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "tJb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
@@ -29060,11 +29215,14 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/west)
 "vHI" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/cyan/visible/layer3{
+	dir = 5
 	},
-/turf/open/floor/tile/dark,
-/area/slumbridge/inside/colony/dorms)
+/obj/machinery/atmospherics/pipe/simple/green/visible/layer1{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/slumbridge/inside/hydrotreatment)
 "vHO" = (
 /obj/machinery/smartfridge/chemistry/nopower,
 /turf/open/floor/plating,
@@ -32689,6 +32847,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkbrown/full,
 /area/slumbridge/inside/houses/swcargo)
+"ymi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 1;
+	on = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/open/floor/tile/dark,
+/area/slumbridge/inside/colony/dorms)
 
 (1,1,1) = {"
 dHe
@@ -36731,13 +36898,13 @@ feW
 feW
 buv
 lFT
-nlB
-lFT
-lFT
-lFT
-lFT
-nlB
-lFT
+kaS
+fdY
+vHI
+dxS
+bIO
+nXy
+elb
 lyP
 feW
 feW
@@ -36913,12 +37080,12 @@ snj
 dIA
 ujc
 bCd
-lFT
-lFT
-lFT
-lFT
+fdY
+qIU
+cwu
+hWf
 nlB
-lFT
+qkz
 lyP
 nst
 feW
@@ -37096,10 +37263,10 @@ nTY
 kzb
 kzb
 kzb
-kzb
+stY
 sAl
 tzA
-lFT
+qkz
 lyP
 ouI
 ouI
@@ -37274,11 +37441,11 @@ feW
 feW
 lyP
 rKf
+tlu
+tlu
+tlu
 lpM
-lpM
-lpM
-lpM
-lpM
+tII
 gzE
 swK
 lyP
@@ -45659,7 +45826,7 @@ tti
 tFo
 gZD
 eND
-tlu
+juU
 mUy
 tti
 nCl
@@ -45838,9 +46005,9 @@ rIp
 uTW
 jXX
 xTb
-opq
+aYw
 svM
-tII
+opq
 hbY
 jXX
 uls
@@ -46562,9 +46729,9 @@ rIp
 uls
 jXX
 xTb
-vHI
+opq
 svM
-hbY
+ymi
 hbY
 jXX
 uls
