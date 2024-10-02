@@ -590,6 +590,7 @@ RU TGMC EDIT */
 	item_state = "leicrepeater"
 	unique_reskin = list(
 		"Raven repeater" = "raven_repeater",
+		"Red" = "leicrepeater_red",
 	)
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_repeater.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
