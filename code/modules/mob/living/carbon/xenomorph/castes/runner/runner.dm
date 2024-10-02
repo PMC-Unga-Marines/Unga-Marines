@@ -17,6 +17,8 @@
 	skins = list(
 		"golden" = 'icons/Xeno/castes/runner_gold.dmi',
 		"tacticool" = 'icons/Xeno/castes/runner_tacticool.dmi',
+		"cowboy" = 'icons/Xeno/castes/runner_cowboy.dmi',
+		"saddles" = 'icons/Xeno/castes/runner_saddles.dmi',
 		"baseline" = 'icons/Xeno/castes/runner.dmi',
 	)
 	inherent_verbs = list(

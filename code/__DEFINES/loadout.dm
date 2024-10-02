@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_FCSUP, "Orbital beacon", 5, "blue"),
 	/obj/item/fulton_extraction_pack = list(CAT_FCSUP, "Fulton Extraction Pack", 5, "blue"),
 	/obj/item/deployable_camera = list(CAT_FCSUP, "Deployable Overwatch Camera", 1, "blue"),
-	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "blue"),
+	/obj/item/binoculars/tactical/scout = list(CAT_FCSUP, "Scout Tactical Binoculars", 5, "blue"),
 	/obj/item/stack/sheet/metal/small_stack = list(CAT_FCSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sheet/plasteel/small_stack = list(CAT_FCSUP, "Plasteel x10", PLASTEEL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_FCSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),

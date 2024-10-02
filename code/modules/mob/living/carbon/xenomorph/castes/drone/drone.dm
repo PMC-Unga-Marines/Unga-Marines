@@ -7,6 +7,7 @@
 	bubble_icon = "alien"
 	skins = list(
 		"king" = 'icons/Xeno/castes/drone_king.dmi',
+		"cyborg" = 'icons/Xeno/castes/drone_cyborg.dmi',
 		"baseline" = 'icons/Xeno/castes/drone.dmi',
 	)
 	health = 120

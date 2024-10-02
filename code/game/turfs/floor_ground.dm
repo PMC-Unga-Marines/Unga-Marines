@@ -431,6 +431,14 @@
 	barefootstep = FOOTSTEP_CONCRETE
 	shoefootstep = FOOTSTEP_CONCRETE
 
+/turf/open/floor/plating/rivergrate
+	name = "grate"
+	icon = 'icons/turf/desertdam_map.dmi'
+	icon_state = "shallow_grate"
+	mediumxenofootstep = FOOTSTEP_PLATING
+	barefootstep = FOOTSTEP_PLATING
+	shoefootstep = FOOTSTEP_PLATING
+
 ///These are entirely for decoration purposes, do not make them functional, it will cause salt.
 /turf/open/floor/chasm
 	name = "chasm"
@@ -448,10 +456,103 @@
 	icon_state = "junglechasm-0"
 	base_icon_state = "junglechasm"
 
-/turf/open/floor/plating/rivergrate
-	name = "grate"
-	icon = 'icons/turf/desertdam_map.dmi'
-	icon_state = "shallow_grate"
-	mediumxenofootstep = FOOTSTEP_PLATING
-	barefootstep = FOOTSTEP_PLATING
-	shoefootstep = FOOTSTEP_PLATING
+// LAVA
+
+/turf/open/floor/plating/ground/lavaland
+	icon = 'icons/turf/lava.dmi'
+	plane = FLOOR_PLANE
+	baseturfs = /turf/open/floor/plating/ground/lavaland/basalt
+
+/turf/open/floor/plating/ground/lavaland/basalt
+	name = "basalt"
+	icon_state = "basalt"
+	shoefootstep = FOOTSTEP_GRAVEL
+	barefootstep = FOOTSTEP_GRAVEL
+	mediumxenofootstep = FOOTSTEP_GRAVEL
+
+/turf/open/floor/plating/ground/lavaland/basalt/cave
+	name = "cave"
+	icon_state = "basalt_to_cave"
+
+/turf/open/floor/plating/ground/lavaland/basalt/cave/corner
+	name = "cave"
+	icon_state = "basalt_to_cave_corner"
+
+/turf/open/floor/plating/ground/lavaland/basalt/cave/autosmooth
+	icon = 'icons/turf/floors/cave-basalt.dmi'
+	icon_state = "cave-basalt-icon"
+	base_icon_state = "cave-basalt"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_BASALT)
+	canSmoothWith = list(
+		SMOOTH_GROUP_BASALT,
+		SMOOTH_GROUP_OPEN_FLOOR,
+		SMOOTH_GROUP_MINERAL_STRUCTURES,
+		SMOOTH_GROUP_WINDOW_FULLTILE,
+		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
+		SMOOTH_GROUP_AIRLOCK,
+		SMOOTH_GROUP_WINDOW_FRAME,
+	)
+
+/turf/open/floor/plating/ground/lavaland/basalt/dirt
+	name = "dirt"
+	icon_state = "basalt_to_dirt"
+
+/turf/open/floor/plating/ground/lavaland/basalt/dirt/corner
+	name = "dirt"
+	icon_state = "basalt_to_dirt_corner"
+
+/turf/open/floor/plating/ground/lavaland/basalt/dirt/autosmoothing
+	icon = 'icons/turf/floors/basalt-dirt.dmi'
+	icon_state = "basalt-dirt-icon"
+	base_icon_state = "basalt-dirt"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_BASALT)
+	canSmoothWith = list(
+		SMOOTH_GROUP_BASALT,
+		SMOOTH_GROUP_OPEN_FLOOR,
+		SMOOTH_GROUP_MINERAL_STRUCTURES,
+		SMOOTH_GROUP_WINDOW_FULLTILE,
+		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
+		SMOOTH_GROUP_AIRLOCK,
+		SMOOTH_GROUP_WINDOW_FRAME,
+	)
+
+/turf/open/floor/plating/ground/lavaland/basalt/glowing
+	icon_state = "basaltglow"
+	light_system = STATIC_LIGHT
+	light_range = 4
+	light_power = 0.75
+	light_color = LIGHT_COLOR_LAVA
+
+/turf/open/floor/plating/ground/lavaland/catwalk
+	name = "catwalk"
+	icon_state = "lavacatwalk"
+	light_system = STATIC_LIGHT
+	light_range = 1.4
+	light_power = 2
+	light_color = LIGHT_COLOR_LAVA
+	shoefootstep = FOOTSTEP_CATWALK
+	barefootstep = FOOTSTEP_CATWALK
+	mediumxenofootstep = FOOTSTEP_CATWALK
+
+/turf/open/floor/plating/ground/lavaland/catwalk/built
+	var/deconstructing = FALSE
+
+/turf/open/floor/plating/ground/lavaland/catwalk/built/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
+		return
+	if(xeno_attacker.a_intent != INTENT_HARM)
+		return
+	if(deconstructing)
+		return
+	deconstructing = TRUE
+	if(!do_after(xeno_attacker, 10 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		deconstructing = FALSE
+		return
+	deconstructing = FALSE
+	playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
+	var/turf/current_turf = get_turf(src)
+	if(current_turf)
+		current_turf.flags_atom |= AI_BLOCKED
+	ChangeTurf(/turf/open/liquid/lava)
