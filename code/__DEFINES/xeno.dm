@@ -52,9 +52,6 @@
 #define TRAP_ACID_NORMAL "acid"
 #define TRAP_ACID_STRONG "strong acid"
 
-//Forbid
-#define MAX_FORBIDEN_CASTES 8
-
 //Xeno acid strength defines
 #define WEAK_ACID_STRENGTH 0.016
 #define REGULAR_ACID_STRENGTH 0.04

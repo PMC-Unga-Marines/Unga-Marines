@@ -7,6 +7,9 @@
 
 	var/caste_type_path = null
 
+	//for strains basetype
+	var/base_caste_type_path = null
+
 	///primordial message that is shown when a caste becomes primordial
 	var/primordial_message = ""
 
@@ -58,9 +61,6 @@
 	// *** Evolution *** //
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
-
-	///Singular type path for the caste to deevolve to when forced to by the queen.
-	var/deevolves_to
 
 	///see_in_dark value while consicious
 	var/conscious_see_in_dark = 8
@@ -301,6 +301,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	var/datum/xeno_caste/xeno_caste
+	/// /datum/xeno_caste that we will be on init
 	var/caste_base_type
 	var/language = "Xenomorph"
 	///Plasma currently stored

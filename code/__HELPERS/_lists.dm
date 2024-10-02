@@ -510,7 +510,6 @@
 						L[T] = TRUE
 		return L
 
-
 //Copies a list, and all lists inside it recusively
 //Does not copy any other reference type
 /proc/deepCopyList(list/L)
