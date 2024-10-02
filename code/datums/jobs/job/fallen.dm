@@ -111,3 +111,4 @@
 
 /datum/job/fallen/xenomorph
 	title = ROLE_FALLEN(ROLE_XENOMORPH)
+	faction = FACTION_XENO
