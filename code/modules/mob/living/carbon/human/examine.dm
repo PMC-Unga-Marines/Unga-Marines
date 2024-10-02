@@ -441,26 +441,6 @@
 			continue
 		msg += "[span_warning("<b>[t_He] [t_has] \a [embedded] sticking out of [t_his] flesh!")]\n"
 
-	if(hasHUD(user,"security"))
-		var/perpname = "wot"
-		var/criminal = "None"
-
-		var/obj/item/card/id/I = get_idcard()
-		if(istype(I))
-			perpname = I.registered_name
-		else
-			perpname = name
-
-		if(perpname)
-			for (var/datum/data/record/E in GLOB.datacore.general)
-				if(E.fields["name"] == perpname)
-					for (var/datum/data/record/R in GLOB.datacore.security)
-						if(R.fields["id"] == E.fields["id"])
-							criminal = R.fields["criminal"]
-
-			msg += "[span_deptradio("Criminal status:")] <a href='?src=[text_ref(src)];criminal=1'>\[[criminal]\]</a>\n"
-			msg += "[span_deptradio("Security records:")] <a href='?src=[text_ref(src)];secrecord=`'>\[View\]</a>  <a href='?src=[text_ref(src)];secrecordadd=`'>\[Add comment\]</a>\n"
-
 	if(hasHUD(user,"medical"))
 		var/cardcolor = holo_card_color
 		if(!cardcolor) cardcolor = "none"
