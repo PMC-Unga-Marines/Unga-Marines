@@ -356,4 +356,6 @@ export const TgsTarget = new Juke.Target({
   },
 });
 
+const TGS_MODE = process.env.CBT_BUILD_MODE === 'TGS';
+
 export default TGS_MODE ? TgsTarget : BuildTarget;
