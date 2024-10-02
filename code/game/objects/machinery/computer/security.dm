@@ -470,7 +470,7 @@ What a mess.*/
 
 	for(var/datum/data/record/R in GLOB.datacore.security)
 		if(prob(10/severity))
-			switch(rand(1,6))
+			switch(rand(1,5))
 				if(1)
 					R.fields["name"] = GLOB.namepool[/datum/namepool].get_random_name(pick(MALE, FEMALE))
 				if(2)
