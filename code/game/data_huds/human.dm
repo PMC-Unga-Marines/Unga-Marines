@@ -35,7 +35,7 @@
 	set_reagent_hud()
 	set_debuff_hud()
 
- //Set status for med-hud.
+//Set status for med-hud.
 /mob/living/carbon/human/proc/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
@@ -120,7 +120,7 @@
 				return TRUE
 	return FALSE
 
- //Set state of the xeno embryo and other strange stuff
+//Set state of the xeno embryo and other strange stuff
 /mob/living/carbon/human/proc/set_infection_hud()
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		return FALSE
