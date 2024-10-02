@@ -270,10 +270,7 @@
 		return
 
 	if(GLOB.custom_info)
-		to_chat(src, "<h1 class='alert'>Custom Information</h1>")
-		to_chat(src, "<h2 class='alert'>The following custom information has been set for this round:</h2>")
-		to_chat(src, span_alert("[GLOB.custom_info]"))
-		to_chat(src, "<br>")
+		custom_info()
 
 	connection_time = world.time
 	connection_realtime = world.realtime

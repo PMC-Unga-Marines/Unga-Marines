@@ -165,6 +165,12 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
 
+/turf/closed/mineral/brock
+	name = "basalt rock"
+	icon = 'icons/turf/lava.dmi'
+	icon_state = "brock"
+	open_turf_type = /turf/open/lavaland/basalt
+
 //Ground map dense jungle
 /turf/closed/gm
 	icon = 'icons/turf/walls/jungle.dmi'
@@ -211,14 +217,6 @@
 	base_icon_state = "pwall"
 	icon_state = "pwall"
 	icon = 'icons/turf/shuttle.dmi'
-
-
-//lava rock
-/turf/closed/brock
-	name = "basalt rock"
-	icon = 'icons/turf/lava.dmi'
-	icon_state = "brock"
-	open_turf_type = /turf/open/lavaland/basalt
 
 
 /turf/closed/brock/Initialize(mapload)

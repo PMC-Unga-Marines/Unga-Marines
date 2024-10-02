@@ -109,15 +109,19 @@
 		for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 			var/mob/M = i
 			SEND_SOUND(M, S)
-			to_chat(M, span_xenoannounce("Главная Королева проникает в ваш разум с расстояния в несколько миров."))
-			to_chat(M, span_xenoannounce("Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье[BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету "] на металлической птице."))
+			to_chat(M, assemble_alert(
+				title = "Сообщение от Главное Королевы",
+				subtitle = "Главная Королева проникает в ваш разум с расстояния в несколько миров...",
+				message = "Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье[BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету "] на металлической птице.",
+				color_override = "purple"
+			))
 
 	var/name = "[MAIN_AI_SYSTEM]: Статус Биосканирования"
 	var/input = {"Биосканирование завершено. Датчики показывают [numXenosShip || "отсуствие"] неизвестных форм жизни на корабле[BIOSCAN_LOCATION(show_locations, xenoLocationS)], [numXenosPlanetr ? "примерно [numXenosPlanetr]":"отсуствие"] сигнатур на земле[BIOSCAN_LOCATION(show_locations, xenoLocationP)] и [numXenosTransit || "отсуствие"] неизвестных форм жизни на шаттлах."}
 	var/ai_name = "[usr]: Статус Биосканирования"
 
 	if(ai_operator)
-		priority_announce(input, ai_name, sound = 'sound/AI/bioscan.ogg')
+		priority_announce(input, ai_name, sound = 'sound/AI/bioscan.ogg', color_override = "grey", receivers = (GLOB.alive_human_list + GLOB.ai_list))
 		log_game("Биосканирование. Люди: [numHostsPlanet] на земле[hostLocationP ? " Место:[hostLocationP]":""] и [numHostsShip] на корабле.[hostLocationS ? " Место: [hostLocationS].":""] Ксеноморфы: [numXenosPlanetr] на земле и [numXenosShip] на корабле[xenoLocationP ? " Место:[xenoLocationP]":""] и [numXenosTransit] на перелётах.")
 
 		switch(GLOB.current_orbit)
@@ -132,7 +136,7 @@
 		return
 
 	if(announce_humans)
-		priority_announce(input, name, sound = 'sound/AI/bioscan.ogg')
+		priority_announce(input, name, sound = 'sound/AI/bioscan.ogg', color_override = "grey", receivers = (GLOB.alive_human_list + GLOB.ai_list)) // Hide this from observers, they have their own detailed alert.
 
 	if(send_fax)
 		var/fax_message = generate_templated_fax("Боевой Информационный Центр", "[MAIN_AI_SYSTEM]: Статус Биосканирования", "", input, "", MAIN_AI_SYSTEM)
@@ -142,13 +146,17 @@
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i
-		to_chat(M, "<h2 class='alert'>Детальная Информация</h2>")
-		to_chat(M, {"<span class='alert'>[numXenosPlanet] ксеноморфов на земле.
+		to_chat(M, assemble_alert(
+			title = "Детальная Информация",
+			message = {"[numXenosPlanet] ксеноморфов на земле.
 [numXenosShip] ксеноморфов на корабле.
+[numXenosTransit] ксеноморфов на перелётах.
+
 [numHostsPlanet] людей на земле.
 [numHostsShip] людей на корабле.
-[numHostsTransit] людей на перелётах.
-[numXenosTransit] ксеноморфов на перелётах.</span>"})
+[numHostsTransit] людей на перелётах."},
+			color_override = "purple"
+		))
 
 	message_admins("Bioscan - Humans: [numHostsPlanet] on the planet[hostLocationP ? ". Location:[hostLocationP]":""]. [numHostsShipr] on the ship.[hostLocationS ? " Location: [hostLocationS].":""]. [numHostsTransitr] in transit.")
 	message_admins("Bioscan - Xenos: [numXenosPlanetr] on the planet[numXenosPlanetr > 0 && xenoLocationP ? ". Location:[xenoLocationP]":""]. [numXenosShip] on the ship.[xenoLocationS ? " Location: [xenoLocationS].":""] [numXenosTransitr] in transit.")
@@ -208,7 +216,17 @@
 
 /datum/game_mode/infestation/declare_completion()
 	. = ..()
-	to_chat(world, span_round_header("|[round_finished]|"))
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+
+/datum/game_mode/infestation/end_round_fluff()
+	send_ooc_announcement(
+		sender_override = "Round Concluded",
+		title = round_finished,
+		text = "Thus ends the story of the brave men and women of the TerraGov Marine Corps, and their struggle on [SSmapping.configs[GROUND_MAP].map_name]...",
+		play_sound = FALSE,
+		style = "game"
+	)
+
 	var/sound/xeno_track
 	var/sound/human_track
 	var/sound/ghost_track
@@ -290,7 +308,12 @@
 	if(!SSmapping.configs[GROUND_MAP].announce_text)
 		return
 
-	priority_announce(SSmapping.configs[GROUND_MAP].announce_text, SSmapping.configs[SHIP_MAP].map_name)
+	priority_announce(
+		title = "High Command Update",
+		subtitle = "Good morning, marines.",
+		message = "Cryosleep disengaged by TGMC High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		color_override = "red"
+	)
 
 
 /datum/game_mode/infestation/announce()
@@ -307,7 +330,7 @@
 
 /datum/game_mode/infestation/proc/on_nuclear_diffuse(obj/machinery/nuclearbomb/bomb, mob/living/carbon/xenomorph/X)
 	SIGNAL_HANDLER
-	priority_announce("ВНИМАНИЕ. ВНИМАНИЕ. Планетарная ядерная бомба деактивирована. ВНИМАНИЕ. ВНИМАНИЕ. Самоуничтожение не удалось. ВНИМАНИЕ. ВНИМАНИЕ.", "Приоритетное оповещение")
+	priority_announce("ВНИМАНИЕ. ВНИМАНИЕ. Планетарная ядерная бомба деактивирована. ВНИМАНИЕ. ВНИМАНИЕ. Самоуничтожение не удалось. ВНИМАНИЕ. ВНИМАНИЕ.", "Планетарная Боеголовка Отключена", type = ANNOUNCEMENT_PRIORITY)
 
 /datum/game_mode/infestation/proc/on_nuclear_explosion(datum/source, z_level)
 	SIGNAL_HANDLER
@@ -323,7 +346,7 @@
 
 /datum/game_mode/infestation/proc/play_cinematic(z_level)
 	GLOB.enter_allowed = FALSE
-	priority_announce("ТРЕВОГА. ТРЕВОГА. Активирована планетарная ядерная бомба. ТРЕВОГА. ТРЕВОГА. Идет самоуничтожение. ТРЕВОГА. ТРЕВОГА.", "Приоритетное оповещение")
+	priority_announce("ТРЕВОГА. ТРЕВОГА. Активирована планетарная ядерная бомба. ТРЕВОГА. ТРЕВОГА. Идет самоуничтожение. ТРЕВОГА. ТРЕВОГА.", "Планетарная Боеголовка Успешно Запущена", type = ANNOUNCEMENT_PRIORITY)
 	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 

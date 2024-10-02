@@ -152,7 +152,7 @@
 	message_admins("Distress beacon: '[name]' activated. Looking for candidates.")
 
 	if(announce)
-		priority_announce("Сигнал бедствия запущен. Ожидание ответа...", "Сигнал Бедствия", sound = 'sound/AI/distressbeacon.ogg')
+		priority_announce("Сигнал бедствия запущен. Ожидание ответа...", title = "Сигнал Бедствия", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/distressbeacon.ogg', color_override = "orange")
 
 	SSticker.mode.on_distress_cooldown = TRUE
 

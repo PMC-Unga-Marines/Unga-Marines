@@ -11,6 +11,7 @@
 		#include "map_files\Vapor_Processing\Vapor_Processing.dmm"
 		#include "map_files\icy_caves\icy_caves.dmm"
 		#include "map_files\Research_Outpost\Research_Outpost.dmm"
+		#include "map_files\Barrenquilla_Mining\Barrenquilla_Mining_Facility.dmm"
 		#include "map_files\Magmoor_Digsite_IV\Magmoor_Digsite_IV.dmm"
 		#include "map_files\kutjevo\kutjevo.dmm"
 		#include "map_files\Orion_Military_Outpost\orionoutpost.dmm"

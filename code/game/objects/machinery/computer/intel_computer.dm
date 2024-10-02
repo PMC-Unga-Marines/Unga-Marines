@@ -57,16 +57,14 @@
 		STOP_PROCESSING(SSmachines, src)
 		return
 	progress += progress_interval
-	if(progress <= 100)
-		return
-	STOP_PROCESSING(SSmachines, src)
-	printing = FALSE
-	printing_complete = TRUE
-	update_minimap_icon()
-	SSpoints.supply_points[faction] += supply_reward
-	SSpoints.dropship_points += dropship_reward
-	priority_announce("Получена секретная передача из [get_area(src)]. Бонус доставлен в виде [supply_reward] очков Карго и [dropship_reward] очков шаттла.", title = "Отдел Разведки TGMC", sound = 'sound/AI/bonus_climed.ogg')
-	SSminimaps.remove_marker(src)
+	if(progress >= 100)
+		STOP_PROCESSING(SSmachines, src)
+		printing = FALSE
+		printing_complete = TRUE
+		SSpoints.supply_points[faction] += supply_reward
+		SSpoints.dropship_points += dropship_reward
+		priority_announce("Получена секретная передача из [get_area(src)]. Бонус доставлен в виде [supply_reward] очков Карго и [dropship_reward] очков шаттла.", title = "Отдел Разведки TGMC", sound = 'sound/AI/bonus_climed.ogg')
+		SSminimaps.remove_marker(src)
 
 /obj/machinery/computer/intel_computer/Destroy()
 	GLOB.intel_computers -= src

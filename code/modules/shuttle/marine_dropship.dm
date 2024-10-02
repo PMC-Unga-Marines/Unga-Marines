@@ -165,6 +165,8 @@
 	var/cycle_timer
 	///If first landing is false intro sequence wont play
 	var/static/first_landing = TRUE
+	///If this dropship can play the takeoff announcement
+	var/takeoff_alarm_locked = FALSE
 
 /obj/docking_port/mobile/marine_dropship/register()
 	. = ..()
@@ -176,6 +178,7 @@
 		return
 	// pull the shuttle from datum/source, and state info from the shuttle itself
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_TRANSIT)
+	takeoff_alarm_locked = FALSE // Allow the alarm to be used again
 	if(first_landing)
 		first_landing = FALSE
 		var/op_name = GLOB.operation_namepool[/datum/operation_namepool].get_random_name()
@@ -258,7 +261,7 @@
 	if(hijack_state != HIJACK_STATE_NORMAL)
 		return
 	cycle_timer = addtimer(CALLBACK(src, PROC_REF(go_to_previous_destination)), 20 SECONDS, TIMER_STOPPABLE)
-	priority_announce("Десантный шаттл взлетает через 20 секунд по направлению к [previous.name]", "Dropship Automatic Departure")
+	priority_announce("Десантный шаттл взлетает через 20 секунд по направлению к [previous.name]", "Автопилот Нормандии", color_override = "grey", playing_sound = FALSE)
 
 ///Send the dropship to its previous dock
 /obj/docking_port/mobile/marine_dropship/proc/go_to_previous_destination()
@@ -321,7 +324,7 @@
 /obj/docking_port/mobile/marine_dropship/on_prearrival()
 	. = ..()
 	if(hijack_state == HIJACK_STATE_CRASHING)
-		priority_announce("ДЕСАНТНЫЙ ШАТТЛ НА КУРСЕ СТОЛКНОВЕНИЯ. АВАРИЯ НЕИЗБЕЖНА.", "ТРЕВОГА", sound = 'sound/AI/dropship_emergency.ogg')
+		priority_announce("ДЕСАНТНЫЙ ШАТТЛ НА КУРСЕ СТОЛКНОВЕНИЯ. АВАРИЯ НЕИЗБЕЖНА.", "ТРЕВОГА", sound = 'sound/AI/dropship_emergency.ogg', color_override = "red")
 	for(var/obj/machinery/landinglight/light AS in GLOB.landing_lights)
 		if(light.linked_port == destination)
 			light.turn_on()
@@ -373,7 +376,7 @@
 	message_admins("[ADMIN_TPMONTY(src)] has summoned the dropship")
 	log_admin("[key_name(src)] has summoned the dropship")
 	hive?.xeno_message("[src] has summoned down the metal bird to [port], gather to her now!")
-	priority_announce("Неизвестное вмешательство в управление десантным шаттлом. Выключение автопилота...",  "Неисправность Шаттла", sound = 'sound/AI/dropship_wrong.ogg')
+	priority_announce("Неизвестное вмешательство в управление десантным шаттлом. Выключение автопилота...", "Неисправность Шаттла", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_wrong.ogg')
 
 
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
@@ -434,7 +437,7 @@
 		D.silicon_lock_airlocks(TRUE)
 		to_chat(user, span_warning("Мы отменили блокировку шаттла!"))
 		playsound(user, "alien_roar", 50)
-		priority_announce("Протокол блокировки Нормандии скомпрометирован. Постороннее вмешательство блокирует попытки удалённого управления.", "Шаттл Заблокирован", sound = 'sound/AI/dropship_block.ogg')
+		priority_announce("Протокол блокировки Нормандии скомпрометирован. Постороннее вмешательство блокирует попытки удалённого управления.", "Шаттл Заблокирован", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_block.ogg')
 		return FALSE
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
 		to_chat(user, span_warning("Сознание птицы активно. Нужно подождать, пока он станет более уязвимым..."))
@@ -723,7 +726,7 @@
 		var/confirm = tgui_alert(usr, "Хотите захватить металлическую птицу?\n ЭТО ЗАВЕРШИТ РАУНД", "Захватить птицу?", list( "Да", "Нет"))
 		if(confirm != "Да")
 			return
-		priority_announce("Нормандия захвачена! Потеряв главный путь к земле, морпехи вынуждены отступить.", title = "НОРМАНДИЯ ЗАХВАЧЕНА")
+		priority_announce("Нормандия захвачена! Потеряв главный путь к земле, морпехи вынуждены отступить.", title = "Нормандия Захвачена", color_override = "orange")
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 		return
@@ -737,7 +740,7 @@
 	crashing_dropship.crashing = TRUE
 	crashing_dropship.unlock_all()
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_HIJACKED)
-	priority_announce("Зафиксирован незапланированный вылет Нормандии из зоны боевых действий. Вероятен угон.", "Оповещение о Шаттле", sound = 'sound/AI/hijack.ogg')
+	priority_announce("Зафиксирован незапланированный вылет Нормандии из зоны боевых действий. Вероятен угон.", title = "Неисправность Нормандии", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/hijack.ogg', color_override = "red")
 	to_chat(user, span_danger("A loud alarm erupts from [src]! The fleshy hosts must know that you can access it!"))
 	user.hive.on_shuttle_hijack(crashing_dropship)
 	playsound(src, 'sound/misc/queen_alarm.ogg')
