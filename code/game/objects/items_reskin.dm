@@ -1,49 +1,10 @@
-/// Called when alt clicked and the item has unique reskin options
-/obj/item/proc/on_click_alt_reskin(datum/source, mob/user)
-	SIGNAL_HANDLER
-
-	if(current_skin)
-		return
-
-	INVOKE_ASYNC(src, PROC_REF(reskin_obj), user)
-
-/**
- * Checks if we should set up reskinning,
- * by default if unique_reskin is set.
- *
- * Called on setup_reskinning().
- * Inheritors should override this to add their own checks.
- */
-/obj/item/proc/check_setup_reskinning()
-	SHOULD_CALL_PARENT(TRUE)
-	if(unique_reskin)
-		return TRUE
-
-	return FALSE
-
-/**
- * Registers signals and context for reskinning,
- * if check_setup_reskinning() passes.
- *
- * Called on Initialize(...).
- * Inheritors should override this to add their own setup steps,
- * or to avoid double calling register_context().
- */
-/obj/item/proc/setup_reskinning()
-	SHOULD_CALL_PARENT(FALSE)
-	if(!check_setup_reskinning())
-		return
-
-	//CLICK_ALT_RIGHT because CLICK_ALT detach modules
-	RegisterSignal(src, COMSIG_CLICK_ALT_RIGHT, PROC_REF(on_click_alt_reskin))
-
 /**
  * Reskins object based on a user's choice
  *
  * Arguments:
  * * user The mob choosing a reskin option
  */
-/obj/item/proc/reskin_obj(mob/user)
+/obj/item/proc/reskin_obj(obj/item/facepaint/paint, mob/user)
 	if(!LAZYLEN(unique_reskin))
 		return
 
@@ -58,9 +19,6 @@
 		return
 	if(!unique_reskin[pick])
 		return
-	if(SSdiscord.get_boosty_tier(user.ckey) < BOOSTY_TIER_2)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
-		return
 	current_skin = unique_reskin[pick]
 	icon_state = unique_reskin[pick]
 	//this may not be the right way to do it but..
@@ -70,6 +28,11 @@
 	SEND_SIGNAL(src, COMSIG_OBJ_RESKIN, user, pick)
 	//correctly display item in hands
 	update_icon()
+	if(paint)
+		user.temporarilyRemoveItemFromInventory(paint)
+		user.update_inv_l_hand(0)
+		user.update_inv_r_hand()
+		qdel(paint)
 
 /**
  * Checks if we are allowed to interact with a radial menu for reskins

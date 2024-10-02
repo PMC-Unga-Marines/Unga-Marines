@@ -153,8 +153,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(current_variant)
 		update_icon()
 
-	setup_reskinning()
-
 /obj/item/ex_act(severity, explosion_direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
@@ -257,6 +255,10 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 // I have cleaned it up a little, but it could probably use more.  -Sayu
 /obj/item/attackby(obj/item/I, mob/user, params)
 	. = ..()
+
+	if(istype(I, /obj/item/facepaint/rainbow) && unique_reskin && !current_skin)
+		reskin_obj(I, user)
+		return
 
 	if(istype(I, /obj/item/facepaint) && colorable_allowed != NONE)
 		color_item(I, user)
