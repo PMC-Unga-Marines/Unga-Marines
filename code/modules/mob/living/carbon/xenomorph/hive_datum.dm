@@ -658,7 +658,7 @@
 /datum/hive_status/proc/attempt_deevolve(mob/living/carbon/xenomorph/devolver, mob/living/carbon/xenomorph/target)
 	var/datum/xeno_caste/new_caste = get_deevolve_caste(devolver, target)
 
-	if(!new_caste) //better than nothing
+	if(!new_caste)
 		to_chat(devolver, span_xenonotice("no new caste was chosen."))
 		return
 
