@@ -995,6 +995,23 @@
 	GLOB.round_statistics.ozelomelyn_stings++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ozelomelyn_stings")
 
+//Transvitox Sting
+/datum/action/ability/activable/xeno/neurotox_sting/transvitox
+	name = "Transvitox Sting"
+	action_icon_state = "neuro_sting"
+	desc = "A channeled melee attack that injects the target with Transvitox over a few seconds, dealing minor toxin damage to a moderate cap while inside them."
+	cooldown_duration = 12 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_OZELOMELYN_STING,
+	)
+	ability_cost = 120
+	sting_chemical = /datum/reagent/toxin/xeno_transvitox
+
+///Adds ability tally to the end-round statistics.
+/datum/action/ability/activable/xeno/neurotox_sting/transvitox/track_stats()
+	GLOB.round_statistics.transvitox_stings++
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "transvitox_stings")
+
 // ***************************************
 // *********** Psychic Whisper
 // ***************************************

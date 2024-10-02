@@ -11,8 +11,6 @@
 	gib_anim = "gibbed-a-corpse-runner"
 	gib_flick = "gibbed-a-runner"
 
-	deevolves_to = /mob/living/carbon/xenomorph/larva
-
 	// *** Melee Attacks *** //
 	melee_damage = 21
 	attack_delay = 6

@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/sentinel
-	caste_base_type = /mob/living/carbon/xenomorph/sentinel
+	caste_base_type = /datum/xeno_caste/sentinel
 	name = "Sentinel"
 	desc = "A slithery, spitting kind of alien."
 	icon = 'icons/Xeno/castes/sentinel.dmi'
@@ -17,3 +17,6 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+
+/mob/living/carbon/xenomorph/sentinel/retrograde
+	caste_base_type = /datum/xeno_caste/sentinel/retrograde
