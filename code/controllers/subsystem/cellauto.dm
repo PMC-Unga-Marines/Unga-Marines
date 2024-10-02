@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(cellauto)
 	name = "Cellular Automata"
-	wait = 1
+	wait = 0.5
 	priority = FIRE_PRIORITY_CELLAUTO
 	flags = SS_NO_INIT
 	var/list/cellauto_cells = list()
@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(cellauto)
 		if(!our_cell || QDELETED(our_cell))
 			continue
 
-		our_cell.update_state()
+		INVOKE_ASYNC(our_cell, TYPE_PROC_REF(/datum/automata_cell, update_state))
 
 		if(MC_TICK_CHECK)
 			return
