@@ -95,11 +95,6 @@
 				for(var/i in 1 to number)
 					H.equip_to_slot_or_del(new path(H),SLOT_IN_BACKPACK, override_nodrop = TRUE)
 
-	//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
-	if(usr.ckey && SSdiscord.get_boosty_tier(usr.ckey) >= BOOSTY_TIER_2)
-		H.equip_to_slot_or_del(new /obj/item/facepaint/rainbow, SLOT_IN_BACKPACK)
-	//RUTGMC EDIT ADDITION  END
-
 	post_equip(H, visualsOnly)
 
 	if(implants && implants.len)
