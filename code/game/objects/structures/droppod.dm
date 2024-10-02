@@ -49,9 +49,8 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	interaction_actions = list()
 	interaction_actions += new /datum/action/innate/set_drop_target(src)
 	interaction_actions += new /datum/action/innate/launch_droppod(src)
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_DROPSHIP_HIJACKED, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, COMSIG_GLOB_CAMPAIGN_DISABLE_DROPPODS), PROC_REF(disable_launching))
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED, COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS), PROC_REF(allow_drop))
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_LOADED, PROC_REF(change_targeted_z))
+	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(disable_launching))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(allow_drop))
 	GLOB.droppod_list += src
 	update_icon()
 	if((!locate(/obj/structure/drop_pod_launcher) in get_turf(src)) && mapload)
@@ -66,8 +65,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 		ejectee.forceMove(loc)
 	QDEL_NULL(reserved_area)
 	QDEL_LIST(interaction_actions)
-	if(drop_state == DROPPOD_READY)
-		GLOB.droppod_list -= src
+	GLOB.droppod_list -= src
 	return ..()
 
 
@@ -146,15 +144,6 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	. = checklanding(notified_user)
 	if(notified_user && .)
 		balloon_alert(notified_user, "Coordinates updated")
-
-///Updates the z-level this pod drops to
-/obj/structure/droppod/proc/change_targeted_z(datum/source, new_z)
-	SIGNAL_HANDLER
-	for(var/mob/dropper AS in buckled_mobs)
-		unbuckle_mob(dropper)
-	target_z = new_z
-	target_x = 1
-	target_y = 1
 
 ///returns boolean if the currently set target/optionally passed turf are valid to drop to
 /obj/structure/droppod/proc/checklanding(mob/user, optional_turf)
@@ -376,6 +365,8 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 
 /obj/structure/droppod/nonmob/Destroy()
 	unload_package()
+	if(stored_object)
+		QDEL_NULL(stored_object)
 	return ..()
 
 /obj/structure/droppod/nonmob/update_icon_state()
@@ -506,11 +497,6 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 		return
 	load_package(mecha_clicker, user)
 
-/obj/structure/droppod/nonmob/mech_pod/change_targeted_z(datum/source, new_z)
-	. = ..()
-	for(var/atom/movable/ejectee AS in contents)
-		ejectee.forceMove(loc)
-
 /obj/structure/droppod/nonmob/mech_pod/dodrop(turf/targetturf, mob/user)
 	deadchat_broadcast(" has landed at [get_area(targetturf)]!", src, stored_object ? stored_object : null)
 	cell_explosion(targetturf, 100, 50) //A mech just dropped onto your head from orbit
@@ -605,3 +591,6 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 
 /obj/structure/drop_pod_launcher/leader
 	pod_type = /obj/structure/droppod/leader
+
+#undef DROPPOD_TRANSIT_TIME
+#undef LEADER_POD_DISPERSION

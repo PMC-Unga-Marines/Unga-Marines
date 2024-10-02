@@ -1,20 +1,16 @@
-//This is the proc for gibbing a mob. Cannot gib ghosts.
-//added different sort of gibs and animations. N
+///This is the proc for gibbing a mob. Cannot gib ghosts.
 /mob/proc/gib()
 	gib_animation()
 	spawn_gibs()
 	death(TRUE)
 
-
+///Proc for playing the gib animation on the gib proc.
 /mob/proc/gib_animation()
 	return
 
+///Proc for spawning gore, blood and gibs on the gib proc
 /mob/proc/spawn_gibs()
 	hgibs(loc)
-
-
-
-
 
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
@@ -24,14 +20,11 @@
 	spawn_dust_remains()
 	death(TRUE)
 
-
 /mob/proc/spawn_dust_remains()
 	new /obj/effect/decal/cleanable/ash(loc)
 
 /mob/proc/dust_animation()
 	return
-
-
 
 /mob/proc/death(gibbing, deathmessage = "seizes up and falls limp...", silent)
 	SHOULD_CALL_PARENT(TRUE)
@@ -42,7 +35,6 @@
 			qdel(src)
 		return
 	set_stat(DEAD)
-//RUTGMC EDIT
 	if(SSticker.current_state != GAME_STATE_FINISHED && !is_centcom_level(z))
 		var/mob/living/living = last_damage_source
 		if(istype(living))
@@ -50,7 +42,6 @@
 			if(ishuman(living) && isyautja(living) && living != src)
 				INVOKE_ASYNC(living.client, TYPE_PROC_REF(/client, add_honor), life_kills_total + life_value)
 			living.life_kills_total += life_kills_total + life_value
-//RUTGMC EDIT
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src)
 	SEND_SIGNAL(src, COMSIG_MOB_DEATH, gibbing)
 	log_combat(src, src, "[deathmessage]")

@@ -58,15 +58,7 @@
 	hud_state = "pistol_hollow"
 	damage = 37.5
 	penetration = 0
-	additional_xeno_penetration = -15
-
-/datum/ammo/bullet/pistol/sabot
-	name = "APDS pistol bullet"
-	hud_state = "pistol_ap"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
-	damage = 15
-	penetration = 5
-	sundering = 0.5
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
@@ -118,7 +110,7 @@
 	hud_state_empty = "monkey_empty"
 	ping = null //no bounce off.
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_INCENDIARY|AMMO_IGNORE_ARMOR
+	flags_ammo_behavior = AMMO_INCENDIARY
 	shell_speed = 2
 	damage = 15
 

@@ -231,12 +231,6 @@
 /obj/machinery/computer/security/marine_network
 	network = list("marine")
 
-/obj/machinery/computer/security/som_mainship
-	network = list("sommainship")
-
-/obj/machinery/computer/security/som_network
-	network = list(SOM_CAMERA_NETWORK)
-
 /obj/machinery/computer/security/dropship
 	name = "abstract dropship camera computer"
 	desc = "A computer to monitor cameras linked to the dropship."
@@ -246,7 +240,6 @@
 	screen_overlay = "consoleleft_emissive"
 	circuit = null
 	resistance_flags = RESIST_ALL
-
 
 /obj/machinery/computer/security/dropship/one
 	name = "\improper 'Alamo' camera controls"

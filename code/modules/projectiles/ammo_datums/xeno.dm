@@ -5,8 +5,6 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	ping = "ping_x"
 	damage_type = TOX
 	flags_ammo_behavior = AMMO_XENO
-	var/added_spit_delay = 0 //used to make cooldown of the different spits vary.
-	var/spit_cost = 5
 	armor_type = BIO
 	shell_speed = 1
 	accuracy = 40
@@ -15,6 +13,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	bullet_color = COLOR_LIME
+	///used to make cooldown of the different spits vary.
+	var/added_spit_delay = 0
+	var/spit_cost = 5
 	///List of reagents transferred upon spit impact if any
 	var/list/datum/reagent/spit_reagents
 	///Amount of reagents transferred upon spit impact if any
@@ -32,7 +33,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/toxin
 	name = "neurotoxic spit"
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	spit_cost = 55
 	added_spit_delay = 0
 	damage_type = STAMINA
@@ -151,7 +152,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "sticky resin spit"
 	icon_state = "sticky"
 	ping = null
-	flags_ammo_behavior = AMMO_SKIPS_ALIENS|AMMO_EXPLOSIVE|AMMO_XENO
+	flags_ammo_behavior = AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
 	damage_type = STAMINA
 	armor_type = BIO
 	spit_cost = 50
@@ -204,7 +205,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage = 40
 	max_range = 7
 	spit_cost = 200
-	added_spit_delay = 8 SECONDS
+	added_spit_delay = 3 SECONDS
 	bonus_projectiles_type = /datum/ammo/xeno/sticky/mini
 	bonus_projectiles_scatter = 22
 	var/bonus_projectile_quantity = 16
@@ -243,7 +244,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage_type = BURN
 	added_spit_delay = 5
 	spit_cost = 50
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF
 	armor_type = ACID
 	damage = 18
 	max_range = 8
@@ -282,7 +283,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage_falloff = 0.3
 	spit_cost = 25
 	added_spit_delay = 0
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/auto/on_hit_mob(mob/M, obj/projectile/P)
 	var/turf/T = get_turf(M)
@@ -316,7 +317,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	new /obj/effect/xenomorph/spray/strong(T, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/heavy/passthrough //Praetorian
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/heavy/turret
 	damage = 20
@@ -347,7 +348,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 ///For the Spitter's Scatterspit ability
 /datum/ammo/xeno/acid/heavy/scatter
 	damage = 20
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	bonus_projectiles_type = /datum/ammo/xeno/acid/heavy/scatter
 	bonus_projectiles_amount = 6
 	bonus_projectiles_scatter = 2
@@ -375,7 +376,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/icon_key = BOILER_GLOB_NEURO
 	///This text will show up when a boiler selects this ammo. Span proc should be applied when this var is used.
 	var/select_text = "We will now fire neurotoxic gas. This is nonlethal."
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
 	var/danger_message = span_danger("A glob of acid lands with a splat and explodes into noxious fumes!")
 	armor_type = BIO
 	accuracy_var_high = 10
@@ -399,9 +400,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///We're going to reuse one smoke spread system repeatedly to cut down on processing.
 	var/datum/effect_system/smoke_spread/xeno/trail_spread_system
 
-/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
-	if(isxeno(firer))
-		var/mob/living/carbon/xenomorph/X = firer
+/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, obj/projectile/proj)
+	if(isxeno(proj.firer))
+		var/mob/living/carbon/xenomorph/X = proj.firer
 		trail_spread_system.strength = X.xeno_caste.bomb_strength
 	trail_spread_system.set_up(0, T)
 	trail_spread_system.start()
@@ -459,7 +460,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/boiler_gas/on_hit_obj(obj/O, obj/projectile/P)
 	if(ismecha(O))
-		P.damage *= 7 //Globs deal much higher damage to mechs.
+		P.damage *= 5 //Globs deal much higher damage to mechs.
+	else if(ishitbox(O) || isvehicle(O))
+		P.damage *= 1.5
 	var/turf/target_turf = get_turf(O)
 	drop_nade(O.density ? P.loc : target_turf, P.firer)
 
@@ -490,7 +493,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sound_bounce = "acid_bounce"
 	icon_key = BOILER_GLOB_ACID
 	select_text = "We will now fire corrosive acid. This is lethal!"
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
 	armor_type = ACID
 	danger_message = span_danger("A glob of acid lands with a splat and explodes into corrosive bile!")
 	damage = 50

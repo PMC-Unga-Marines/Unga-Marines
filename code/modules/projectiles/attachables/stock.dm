@@ -21,7 +21,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/t27
+/obj/item/attachable/stock/mg27
 	name = "MG-27 Body"
 	desc = "A stock for a MG-27 MMG."
 	icon = 'icons/Marine/marine-mmg.dmi'
@@ -53,7 +53,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/tx15
+/obj/item/attachable/stock/sh15
 	name = "\improper SH-15 stock"
 	desc = "The standard stock for the SH-15. Cannot be removed."
 	icon_state = "tx15stock"
@@ -88,7 +88,7 @@
 	pixel_shift_x = 41
 	pixel_shift_y = 10
 
-/obj/item/attachable/stock/tl127stock
+/obj/item/attachable/stock/sr127stock
 	name = "\improper SR-127 stock"
 	desc = "A irremovable SR-127 sniper rifle stock."
 	icon_state = "tl127stock"
@@ -176,7 +176,7 @@
 	name = "PR-11 stock"
 	icon_state = "m41a"
 
-/obj/item/attachable/stock/tx11
+/obj/item/attachable/stock/ar11
 	name = "AR-11 stock"
 	icon_state = "tx11stock"
 
@@ -187,14 +187,14 @@
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 
-/obj/item/attachable/stock/t18stock
+/obj/item/attachable/stock/ar18stock
 	name = "\improper AR-18 stock"
 	desc = "A specialized stock for the AR-18."
 	icon_state = "t18stock"
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/t12stock
+/obj/item/attachable/stock/ar12stock
 	name = "\improper AR-12 stock"
 	desc = "A specialized stock for the AR-12."
 	icon_state = "t12stock"
@@ -208,7 +208,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/t64stock
+/obj/item/attachable/stock/br64stock
 	name = "\improper BR-64 stock"
 	desc = "A specialized stock for the BR-64."
 	icon_state = "t64stock"

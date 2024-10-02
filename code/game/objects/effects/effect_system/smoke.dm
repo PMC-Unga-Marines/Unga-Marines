@@ -100,9 +100,11 @@
 			M.smokecloak_off()
 
 /obj/effect/particle_effect/smoke/proc/apply_smoke_effect(turf/T)
+	if(!T)
+		return
+
 	T.effect_smoke(src)
-	for(var/V in T)
-		var/atom/A = V
+	for(var/atom/A in T)
 		A.effect_smoke(src)
 
 /obj/effect/particle_effect/smoke/proc/pre_chem_effect(mob/living/carbon/C)
@@ -434,7 +436,9 @@
 	smoke_type = /obj/effect/particle_effect/smoke/xeno/burn/extinguishing
 
 /obj/effect/particle_effect/smoke/xeno/burn/extinguishing
-	smoke_traits = SMOKE_XENO|SMOKE_XENO_ACID|SMOKE_GASP|SMOKE_COUGH|SMOKE_HUGGER_PACIFY|SMOKE_EXTINGUISH
+	alpha = 120
+	opacity = FALSE
+	smoke_traits = SMOKE_XENO|SMOKE_XENO_ACID|SMOKE_GASP|SMOKE_COUGH|SMOKE_EXTINGUISH
 
 /////////////////////////////////////////////
 // Chem smoke

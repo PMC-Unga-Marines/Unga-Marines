@@ -41,7 +41,7 @@
 	if(stealth)
 		cancel_stealth()
 		return TRUE
-	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))   // stops stealth and disguise from stacking
+	if(HAS_TRAIT(owner, TRAIT_STEALTH))   // stops stealth and disguise from stacking
 		owner.balloon_alert(owner, "Already in a form of stealth!")
 		return
 	succeed_activate()
@@ -68,7 +68,7 @@
 
 	RegisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(damage_taken))
 
-	ADD_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	ADD_TRAIT(owner, TRAIT_STEALTH, TRAIT_STEALTH)
 
 	handle_stealth()
 	addtimer(CALLBACK(src, PROC_REF(sneak_attack_cooldown)), HUNTER_POUNCE_SNEAKATTACK_DELAY) //Short delay before we can sneak attack.
@@ -99,7 +99,7 @@
 
 	stealth = FALSE
 	can_sneak_attack = FALSE
-	REMOVE_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	animate(owner, 1 SECONDS, alpha = 255) //no transparency/translucency
 
 ///Signal wrapper to verify that an object is damageable before breaking stealth
@@ -232,7 +232,7 @@
 		return TRUE
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	var/datum/action/ability/activable/xeno/hunter_mark/mark = xenoowner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
-	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))   // stops stealth and disguise from stacking
+	if(HAS_TRAIT(owner, TRAIT_STEALTH))   // stops stealth and disguise from stacking
 		owner.balloon_alert(owner, "already in a form of stealth!")
 		return
 	if(!mark.marked_target)
@@ -244,7 +244,7 @@
 	if(!do_after(xenoowner, 1.5 SECONDS, IGNORE_LOC_CHANGE, xenoowner, BUSY_ICON_HOSTILE))
 		return
 	old_appearance = xenoowner.appearance
-	ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
+	ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, TRAIT_STEALTH)
 	xenoowner.update_wounds()
 	xenoowner.add_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE, 0, NONE, TRUE, DISGUISE_SLOWDOWN)
 	return ..()
@@ -252,7 +252,7 @@
 /datum/action/ability/xeno_action/stealth/disguise/cancel_stealth()
 	. = ..()
 	owner.appearance = old_appearance
-	REMOVE_TRAIT(owner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_MOB_ICON_UPDATE_BLOCKED, TRAIT_STEALTH)
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	xenoowner.update_wounds()
 	xenoowner.remove_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE)
@@ -490,7 +490,7 @@
 	succeed_activate()
 
 	GLOB.round_statistics.hunter_marks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "hunter_marks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "hunter_marks")
 	add_cooldown()
 
 ///Nulls the target of our hunter's mark
@@ -713,7 +713,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.hunter_silence_targets += victim_count //Increment by victim count
-	SSblackbox.record_feedback("tally", "round_statistics", victim_count, "hunter_silence_targets") //Statistics
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", victim_count, "hunter_silence_targets") //Statistics
 
 /datum/action/ability/activable/xeno/silence/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We refocus our psionic energies, allowing us to impose silence again.</b>") )
@@ -729,6 +729,6 @@
 
 /datum/action/ability/xeno_action/crippling_strike/hunter
 	additional_damage = 1
-	heal_amount = 20
+	heal_amount = 0
 	plasma_gain = 20
 	decay_time = 15 SECONDS

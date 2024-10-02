@@ -22,10 +22,10 @@
 		var/datum/action/action_to_remove = a
 		action_to_remove.remove_action(src)
 	set_focus(null)
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(hunter_data)
 		hunter_data.clean_data()
-//RUTGMC EDIT ADDITION END
+	if(last_damage_source)
+		last_damage_source = null
 	return ..()
 
 /mob/Initialize(mapload)
@@ -254,6 +254,8 @@
 	if(W.equip_delay_self && !ignore_delay)
 		if(!do_after(src, W.equip_delay_self, NONE, W, BUSY_ICON_FRIENDLY))
 			to_chat(src, "You stop putting on \the [W]")
+			return FALSE
+		if(!W.mob_can_equip(src, slot, warning, override_nodrop))
 			return FALSE
 		equip_to_slot(W, slot) //This proc should not ever fail.
 		//This will unwield items -without- triggering lights.
@@ -547,7 +549,7 @@
 /mob/proc/get_idcard(hand_first)
 	return
 
-/mob/proc/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
+/mob/proc/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
 	return FALSE
 
 /mob/forceMove(atom/destination)
@@ -831,6 +833,9 @@
 		return
 	if(old_z == new_z)
 		return
+	if(isliving(src))
+		var/mob/living/living = src
+		living.update_z(new_z)
 	if(is_ground_level(new_z))
 		hud_used.remove_parallax(src)
 		return

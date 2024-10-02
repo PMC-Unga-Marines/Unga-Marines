@@ -70,40 +70,6 @@
 ///called when an AI is requested by a holopad
 #define COMSIG_GLOB_HOLOPAD_AI_CALLED "!holopad_calling"
 
-///Opens the TGMC shipside shutters on campaign
-#define COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC "!open_campaign_shutters_tgmc"
-///Opens the SOM shipside shutters on campaign
-#define COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_SOM "!open_campaign_shutters_som"
-///Sent when a new campaign mission is loaded
-#define COMSIG_GLOB_CAMPAIGN_MISSION_LOADED "!campaign_mission_loaded"
-///Sent when a campaign mission is started
-#define COMSIG_GLOB_CAMPAIGN_MISSION_STARTED "!campaign_mission_started"
-///Sent when a campaign mission ends
-#define COMSIG_GLOB_CAMPAIGN_MISSION_ENDED "!campaign_mission_ended"
-///Sent when a campaign objective has been destroyed
-#define COMSIG_GLOB_CAMPAIGN_OBJECTIVE_DESTROYED "!campaign_objective_destroyed"
-///Sent when a campaign capture objective has been captured
-#define COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAPTURED "!campaign_capture_objective_captured"
-///Sent when a campaign capture objective has been decaptured
-#define COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_DECAPTURED "!campaign_capture_objective_decaptured"
-///Sent when a campaign capture objective has started the capture process
-#define COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAP_STARTED "!campaign_capture_objective_started"
-///Enables droppod use during campaign
-#define COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS "!campaign_enable_droppods"
-///Disables droppod use during campaign
-#define COMSIG_GLOB_CAMPAIGN_DISABLE_DROPPODS "!campaign_disable_droppods"
-///Removes teleporter restrictions from a mission
-#define COMSIG_GLOB_CAMPAIGN_TELEBLOCKER_DISABLED "!campaign_teleblocker_disabled"
-///Removes droppod restrictions from a mission
-#define COMSIG_GLOB_CAMPAIGN_DROPBLOCKER_DISABLED "!campaign_dropblocker_disabled"
-///Override code for NT base rescue mission
-#define COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_CODE "!campaign_nt_override_code"
-
-///Campaign asset activation successful
-#define COMSIG_CAMPAIGN_ASSET_ACTIVATION "campaign_asset_activation"
-///Campaign asset disabler activated
-#define COMSIG_CAMPAIGN_DISABLER_ACTIVATION "campaign_disabler_activation"
-
 //////////////////////////////////////////////////////////////////
 
 // /datum signals
@@ -462,11 +428,6 @@
 #define COMSIG_GRAB_SELF_ATTACK "grab_self_attack"				//from base of obj/item/grab/attack() if attacked is the same as attacker: (mob/living/user)
 	#define COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK (1<<0)
 
-// /obj/projectile signals
-#define COMSIG_PROJ_SCANTURF "proj_scanturf"
-	#define COMPONENT_PROJ_SCANTURF_TURFCLEAR (1<<0)
-	#define COMPONENT_PROJ_SCANTURF_TARGETFOUND (1<<1)
-
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbing)
 #define COMSIG_MOB_PRE_DEATH "mob_pre_death"
@@ -527,12 +488,10 @@
 #define COMSIG_MOB_ATTACHMENT_FIRED "mob_attachment_fired"
 #define COMSIG_MOB_TOGGLEMOVEINTENT "mob_togglemoveintent"		//drom base of mob/toggle_move_intent(): (new_intent)
 #define COMSIG_MOB_FACE_DIR "mob_face_dir"
-#define COMSIG_MOB_ENABLE_STEALTH "mob_togglestealth"
-	#define STEALTH_ALREADY_ACTIVE (1<<0)
 #define COMSIG_RANGED_ACCURACY_MOD_CHANGED "ranged_accuracy_mod_changed"
 #define COMSIG_RANGED_SCATTER_MOD_CHANGED "ranged_scatter_mod_changed"
 #define COMSIG_MOB_SKILLS_CHANGED "mob_skills_changed"
-#define COMSIG_MOB_SHOCK_STAGE_CHANGED "mob_shock_stage_changed"
+#define COMSIG_MOB_PAINLOSS_CHANGED "mob_painloss_changed"
 /// from mob/get_status_tab_items(): (list/items)
 #define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
 
@@ -933,6 +892,15 @@
 #define COMSIG_XENOABILITY_EARTH_RISER_ALTERNATE "xenoability_earth_riser_alternate"
 #define COMSIG_XENOABILITY_SEISMIC_FRACTURE "xenoability_seismic_fracture"
 #define COMSIG_XENOABILITY_PRIMAL_WRATH "xenoability_primal_wrath"
+
+//sectoid abilities
+#define COMSIG_ABILITY_MINDMELD "ability_mindmeld"
+#define COMSIG_ABILITY_MINDFRAY "ability_mindfray"
+#define COMSIG_ABILITY_REKNIT_FORM "ability_reknit_form"
+#define COMSIG_ABILITY_FUSE "ability_fuse"
+#define COMSIG_ABILITY_STASIS "ability_stasis"
+#define COMSIG_ABILITY_TELEKINESIS "ability_telekinesis"
+#define COMSIG_ABILITY_REANIMATE "ability_reanimate"
 
 // throw parry signals
 #define COMSIG_THROW_PARRY_CHECK "throw_parry_check"

@@ -284,11 +284,11 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla,
 		/obj/item/weapon/gun/rifle/pepperball,
 		/obj/item/weapon/gun/grenade_launcher/single_shot/flare,
-		/obj/item/weapon/gun/pistol/standard_pistol,
-		/obj/item/weapon/gun/pistol/standard_pocketpistol,
+		/obj/item/weapon/gun/pistol/p14,
+		/obj/item/weapon/gun/pistol/p17,
 		/obj/item/weapon/gun/pistol/rt3,
 		/obj/item/weapon/gun/pistol/m1911,
-		/obj/item/weapon/gun/pistol/standard_heavypistol,
+		/obj/item/weapon/gun/pistol/p23,
 		/obj/item/weapon/gun/pistol/g22,
 		/obj/item/weapon/gun/pistol/heavy,
 		/obj/item/weapon/gun/pistol/heavy/gold,
@@ -300,7 +300,7 @@
 		/obj/item/weapon/gun/pistol/vp78,
 		/obj/item/weapon/gun/pistol/som,
 		/obj/item/weapon/gun/pistol/icc_dpistol,
-		/obj/item/weapon/gun/revolver/standard_revolver,
+		/obj/item/weapon/gun/revolver/r44,
 		/obj/item/weapon/gun/revolver/single_action/m44,
 		/obj/item/weapon/gun/revolver/upp,
 		/obj/item/weapon/gun/revolver/small,
@@ -334,8 +334,8 @@
 		/obj/item/weapon/gun/revolver/mateba/notmarine,
 		/obj/item/weapon/gun/revolver/mateba/custom,
 		/obj/item/weapon/gun/revolver/standard_magnum,
-		/obj/item/weapon/gun/smg/standard_machinepistol,
-		/obj/item/weapon/gun/smg/standard_smg,
+		/obj/item/weapon/gun/smg/mp19,
+		/obj/item/weapon/gun/smg/smg90,
 		/obj/item/weapon/gun/smg/m25,
 		/obj/item/weapon/gun/smg/mp7,
 		/obj/item/weapon/gun/smg/skorpion,
@@ -362,10 +362,10 @@
 	name = "Tier 3 Weapon Spawn"
 	icon_state = "weapon3"
 	weapon_list = list(
-		/obj/item/weapon/gun/rifle/standard_carbine,
-		/obj/item/weapon/gun/rifle/standard_assaultrifle,
-		/obj/item/weapon/gun/rifle/standard_dmr,
-		/obj/item/weapon/gun/rifle/standard_br,
+		/obj/item/weapon/gun/rifle/ar18,
+		/obj/item/weapon/gun/rifle/ar12,
+		/obj/item/weapon/gun/rifle/dmr37,
+		/obj/item/weapon/gun/rifle/br64,
 		/obj/item/weapon/gun/rifle/m412,
 		/obj/item/weapon/gun/rifle/m41a,
 		/obj/item/weapon/gun/rifle/mpi_km,
@@ -373,12 +373,12 @@
 		/obj/item/weapon/gun/rifle/m16,
 		/obj/item/weapon/gun/rifle/famas,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine,
-		/obj/item/weapon/gun/rifle/standard_lmg,
-		/obj/item/weapon/gun/rifle/standard_gpmg,
+		/obj/item/weapon/gun/rifle/mg42,
+		/obj/item/weapon/gun/rifle/mg60,
 		/obj/item/weapon/gun/rifle/m412l1_hpr,
 		/obj/item/weapon/gun/rifle/type71/flamer,
 		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/standard_autoshotgun,
+		/obj/item/weapon/gun/rifle/sh15,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle,
 		/obj/item/weapon/gun/shotgun/pump,
 		/obj/item/weapon/gun/shotgun/pump/t35,
@@ -389,9 +389,9 @@
 		/obj/item/weapon/gun/shotgun/pump/trenchgun,
 		/obj/item/weapon/gun/flamer/big_flamer,
 		/obj/item/weapon/gun/pistol/auto9,
-		/obj/item/weapon/gun/rifle/chambered,
-		/obj/item/weapon/gun/rifle/tx11,
-		/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+		/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127,
+		/obj/item/weapon/gun/rifle/ar11,
+		/obj/item/weapon/gun/rifle/ar21,
 		/obj/item/weapon/gun/rifle/mkh,
 		/obj/item/weapon/gun/rifle/som,
 		/obj/item/weapon/gun/rifle/som_carbine,
@@ -404,7 +404,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/standard,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/standard,
-		/obj/item/weapon/gun/standard_mmg,
+		/obj/item/weapon/gun/mg27,
 		/obj/item/weapon/gun/launcher/rocket/oneuse,
 	)
 
@@ -423,7 +423,7 @@
 		/obj/item/weapon/gun/rifle/icc_coilgun,
 		/obj/item/weapon/gun/rifle/sniper/svd,
 		/obj/item/weapon/gun/grenade_launcher/single_shot,
-		/obj/item/weapon/gun/rifle/standard_smartmachinegun,
+		/obj/item/weapon/gun/rifle/sg29,
 		/obj/item/weapon/gun/rifle/sectoid_rifle,
 		/obj/item/weapon/gun/rifle/tx8,
 		/obj/item/weapon/gun/shotgun/pump/bolt,
@@ -434,7 +434,7 @@
 		/obj/item/weapon/gun/shotgun/zx76,
 		/obj/item/weapon/gun/flamer/big_flamer/marinestandard,
 		/obj/item/weapon/gun/flamer/som,
-		/obj/item/weapon/gun/rifle/standard_autosniper,
+		/obj/item/weapon/gun/rifle/sr81,
 		/obj/item/weapon/energy/axe,
 		/obj/item/weapon/gun/rifle/tx54,
 		/obj/item/weapon/gun/rifle/tx55,
@@ -458,7 +458,7 @@
 		/obj/item/weapon/gun/minigun,
 		/obj/item/weapon/gun/grenade_launcher/multinade_launcher,
 		/obj/item/weapon/gun/energy/lasgun/pulse,
-		/obj/item/weapon/gun/tl102/death, // memes
+		/obj/item/weapon/gun/hsg102/death, // memes
 	)
 
 /obj/effect/landmark/weapon_spawn/tier6_weapon_spawn
@@ -498,104 +498,6 @@
 /obj/effect/landmark/valhalla/marine_spawner_landmark
 	name = "Marine spawner landmark"
 	spawns = "marine"
-
-//Combat patrol spawn in spots
-/obj/effect/landmark/patrol_point
-	name = "Patrol exit point"
-	///ID to link with an associated start point
-	var/id = null
-	///Faction this belongs to for minimap purposes
-	var/faction = FACTION_TERRAGOV
-	///minimap icon state
-	var/minimap_icon = "patrol_1"
-
-/obj/effect/landmark/patrol_point/Initialize(mapload)
-	. = ..()
-	//adds the exit points to the glob, and the start points link to them in lateinit
-	GLOB.patrol_point_list += src
-	if(!(SSticker?.mode?.flags_round_type & MODE_TWO_HUMAN_FACTIONS))
-		return
-	SSminimaps.add_marker(src, GLOB.faction_to_minimap_flag[faction], image('icons/UI_icons/map_blips.dmi', null, minimap_icon))
-
-/obj/effect/landmark/patrol_point/Destroy()
-	GLOB.patrol_point_list -= src
-	return ..()
-
-/obj/effect/landmark/patrol_point/tgmc_11
-	name = "TGMC exit point 11"
-	id = "TGMC_11"
-
-/obj/effect/landmark/patrol_point/tgmc_12
-	name = "TGMC exit point 12"
-	id = "TGMC_12"
-
-/obj/effect/landmark/patrol_point/tgmc_13
-	name = "TGMC exit point 13"
-	id = "TGMC_13"
-
-/obj/effect/landmark/patrol_point/tgmc_14
-	name = "TGMC exit point 14"
-	id = "TGMC_14"
-
-/obj/effect/landmark/patrol_point/tgmc_21
-	name = "TGMC exit point 21"
-	id = "TGMC_21"
-	minimap_icon = "patrol_2"
-
-/obj/effect/landmark/patrol_point/tgmc_22
-	name = "TGMC exit point 22"
-	id = "TGMC_22"
-	minimap_icon = "patrol_2"
-
-/obj/effect/landmark/patrol_point/tgmc_23
-	name = "TGMC exit point 23"
-	id = "TGMC_23"
-	minimap_icon = "patrol_2"
-
-/obj/effect/landmark/patrol_point/tgmc_24
-	name = "TGMC exit point 24"
-	id = "TGMC_24"
-	minimap_icon = "patrol_2"
-
-/obj/effect/landmark/patrol_point/som
-	faction = FACTION_SOM
-	minimap_icon = "som_patrol_1"
-
-/obj/effect/landmark/patrol_point/som/som_11
-	name = "SOM exit point 11"
-	id = "SOM_11"
-
-/obj/effect/landmark/patrol_point/som/som_12
-	name = "SOM exit point 12"
-	id = "SOM_12"
-
-/obj/effect/landmark/patrol_point/som/som_13
-	name = "SOM exit point 13"
-	id = "SOM_13"
-
-/obj/effect/landmark/patrol_point/som/som_14
-	name = "SOM exit point 14"
-	id = "SOM_14"
-
-/obj/effect/landmark/patrol_point/som/som_21
-	name = "SOM exit point 21"
-	id = "SOM_21"
-	minimap_icon = "som_patrol_2"
-
-/obj/effect/landmark/patrol_point/som/som_22
-	name = "SOM exit point 22"
-	id = "SOM_22"
-	minimap_icon = "som_patrol_2"
-
-/obj/effect/landmark/patrol_point/som/som_23
-	name = "SOM exit point 23"
-	id = "SOM_23"
-	minimap_icon = "som_patrol_2"
-
-/obj/effect/landmark/patrol_point/som/som_24
-	name = "SOM exit point 24"
-	id = "SOM_24"
-	minimap_icon = "som_patrol_2"
 
 /obj/effect/landmark/eord_roomba
 	name = "EORD roomba spawn point"

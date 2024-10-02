@@ -50,7 +50,7 @@
 		/obj/item/weapon/gun/minigun,
 		/obj/item/weapon/gun/launcher/rocket/sadar,
 		/obj/item/weapon/gun/rifle/railgun,
-		/obj/item/weapon/gun/rifle/standard_autosniper,
+		/obj/item/weapon/gun/rifle/sr81,
 		/obj/item/weapon/gun/shotgun/zx76,
 		/obj/item/storage/belt/champion,
 	)
@@ -97,7 +97,7 @@
 		/obj/effect/supply_drop/oicw,
 		/obj/item/storage/belt/lifesaver/quick,
 		/obj/item/storage/belt/rig/medical,
-		/obj/effect/supply_drop/mmg,
+		/obj/effect/supply_drop/mg27,
 	)
 	common_list = list(
 		/obj/effect/supply_drop/armor_upgrades,
@@ -105,9 +105,9 @@
 		/obj/item/storage/pouch/firstaid/combat_patrol,
 		/obj/item/storage/pouch/medical_injectors/firstaid,
 		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/effect/supply_drop/standard_carbine,
-		/obj/effect/supply_drop/standard_rifle,
-		/obj/effect/supply_drop/combat_rifle,
+		/obj/effect/supply_drop/ar18,
+		/obj/effect/supply_drop/ar12,
+		/obj/effect/supply_drop/ar11,
 		/obj/effect/supply_drop/laser_rifle,
 		/obj/effect/supply_drop/standard_shotgun,
 	)
@@ -234,35 +234,35 @@
 	new /obj/item/weapon/shield/riot/marine(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/mmg/Initialize(mapload)
+/obj/effect/supply_drop/mg27/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/standard_mmg/machinegunner(loc)
-	new /obj/item/ammo_magazine/standard_mmg(loc)
-	new /obj/item/ammo_magazine/standard_mmg(loc)
-	new /obj/item/ammo_magazine/standard_mmg(loc)
+	new /obj/item/weapon/gun/mg27/machinegunner(loc)
+	new /obj/item/ammo_magazine/mg27(loc)
+	new /obj/item/ammo_magazine/mg27(loc)
+	new /obj/item/ammo_magazine/mg27(loc)
 	new /obj/item/stack/sandbags/large_stack(loc)
 	new /obj/item/stack/barbed_wire/full(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/standard_carbine/Initialize(mapload)
+/obj/effect/supply_drop/ar18/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/standard_carbine/scout(loc)
-	new /obj/item/storage/belt/marine/t18(loc)
+	new /obj/item/weapon/gun/rifle/ar18/scout(loc)
+	new /obj/item/storage/belt/marine/ar18(loc)
 	new /obj/item/explosive/grenade(loc)
 	new /obj/item/explosive/grenade(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/standard_rifle/Initialize(mapload)
+/obj/effect/supply_drop/ar12/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman(loc)
-	new /obj/item/storage/belt/marine/t12(loc)
+	new /obj/item/weapon/gun/rifle/ar12/rifleman(loc)
+	new /obj/item/storage/belt/marine/ar12(loc)
 	new /obj/item/explosive/grenade(loc)
 	new /obj/item/explosive/grenade(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/supply_drop/combat_rifle/Initialize(mapload)
+/obj/effect/supply_drop/ar11/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/tx11/standard(loc)
+	new /obj/item/weapon/gun/rifle/ar11/standard(loc)
 	new /obj/item/storage/belt/marine/combat_rifle(loc)
 	return INITIALIZE_HINT_QDEL
 
@@ -413,7 +413,7 @@
 		/obj/item/storage/box/crate/loot/sadarclassic_pack,
 	)
 	rare_list = list(
-		/obj/item/storage/box/crate/loot/tl102_pack,
+		/obj/item/storage/box/crate/loot/hsg102_pack,
 		/obj/item/storage/box/crate/loot/mortar_pack,
 		/obj/structure/closet/crate/loot/howitzer_pack,
 		/obj/item/storage/box/crate/loot/sentry_pack,
@@ -426,7 +426,7 @@
 		/obj/item/storage/box/crate/loot/recoilless_pack,
 	)
 	common_list = list(
-		/obj/item/storage/box/crate/loot/autosniper_pack,
+		/obj/item/storage/box/crate/loot/sr81_pack,
 		/obj/item/storage/box/crate/loot/thermobaric_pack,
 		/obj/item/storage/box/crate/loot/tesla_pack,
 		/obj/item/storage/box/crate/loot/tx54_pack,
@@ -463,21 +463,21 @@
 
 // Common
 
-/obj/item/storage/box/crate/loot/autosniper_pack/Initialize(mapload)
+/obj/item/storage/box/crate/loot/sr81_pack/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/rifle/standard_autosniper(src)
-	new /obj/item/weapon/gun/rifle/standard_autosniper(src)
-	new /obj/item/weapon/gun/rifle/standard_autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src)
-	new /obj/item/ammo_magazine/rifle/autosniper(src) //180 total and common, fine considering 3 autos is really strong.
+	new /obj/item/weapon/gun/rifle/sr81(src)
+	new /obj/item/weapon/gun/rifle/sr81(src)
+	new /obj/item/weapon/gun/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src)
+	new /obj/item/ammo_magazine/rifle/sr81(src) //180 total and common, fine considering 3 autos is really strong.
 
 /obj/item/storage/box/crate/loot/thermobaric_pack/Initialize(mapload)
 	. = ..()
@@ -612,22 +612,22 @@
 	new /obj/item/mortal_shell/howitzer/white_phos(src)
 	new /obj/item/mortal_shell/howitzer/white_phos(src)
 
-/obj/item/storage/box/crate/loot/tl102_pack/Initialize(mapload)
+/obj/item/storage/box/crate/loot/hsg102_pack/Initialize(mapload)
 	. = ..()
-	new /obj/item/storage/box/tl102(src)
-	new /obj/item/storage/box/tl102(src)
+	new /obj/item/storage/box/hsg102(src)
+	new /obj/item/storage/box/hsg102(src)
 
 /obj/item/storage/box/crate/loot/agl_pack/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/standard_agls(src)
-	new /obj/item/ammo_magazine/standard_agls(src)
-	new /obj/item/ammo_magazine/standard_agls(src)
-	new /obj/item/ammo_magazine/standard_agls(src)
-	new /obj/item/ammo_magazine/standard_agls(src)
-	new /obj/item/ammo_magazine/standard_agls/fragmentation(src)
-	new /obj/item/ammo_magazine/standard_agls/fragmentation(src)
-	new /obj/item/ammo_magazine/standard_agls/fragmentation(src)
-	new /obj/item/ammo_magazine/standard_agls/fragmentation(src)
+	new /obj/item/weapon/gun/agls37(src)
+	new /obj/item/ammo_magazine/agls37(src)
+	new /obj/item/ammo_magazine/agls37(src)
+	new /obj/item/ammo_magazine/agls37(src)
+	new /obj/item/ammo_magazine/agls37(src)
+	new /obj/item/ammo_magazine/agls37/fragmentation(src)
+	new /obj/item/ammo_magazine/agls37/fragmentation(src)
+	new /obj/item/ammo_magazine/agls37/fragmentation(src)
+	new /obj/item/ammo_magazine/agls37/fragmentation(src)
 
 /obj/item/storage/box/crate/loot/sentry_pack/Initialize(mapload)
 	. = ..()
@@ -669,5 +669,5 @@
 /obj/item/storage/box/crate/loot/sadarclassic_pack/Initialize(mapload)
 	. = ..()
 	new /obj/item/weapon/gun/launcher/rocket/sadar(src)
-	new /obj/item/storage/backpack/marine/satchel/scout_cloak/scout(src)
+	new /obj/item/storage/backpack/marine/satchel/scout_cloak(src)
 	new /obj/item/ammo_magazine/rocket/sadar/ap(src)

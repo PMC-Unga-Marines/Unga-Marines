@@ -146,9 +146,9 @@
 /obj/item/tool/wrench,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/tool/screwdriver,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
-/obj/item/ammo_magazine/tl102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
+/obj/item/ammo_magazine/hsg102/hsg_nest,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "aw" = (

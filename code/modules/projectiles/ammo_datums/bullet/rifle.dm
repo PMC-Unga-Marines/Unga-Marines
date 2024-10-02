@@ -12,7 +12,7 @@
 	hud_state = "rifle"
 	damage = 45
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/rifle/ap
 	name = "armor-piercing rifle bullet"
@@ -30,15 +30,7 @@
 	damage = 15
 	penetration = 0
 
-/datum/ammo/bullet/rifle/sabot
-	name = "APDS rifle bullet"
-	hud_state = "rifle_ap"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
-	damage = 20
-	penetration = 5
-	sundering = 0.5
-
-/datum/ammo/bullet/rifle/T25
+/datum/ammo/bullet/rifle/t25
 	name = "smartmachinegun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
@@ -68,7 +60,7 @@
 	hud_state = "rifle_heavy"
 	damage = 50
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
 /datum/ammo/bullet/rifle/heavy/ap
 	name = "armor-piercing heavy rifle bullet"
@@ -85,14 +77,6 @@
 	damage = 20
 	penetration = 0
 	additional_xeno_penetration = 0
-
-/datum/ammo/bullet/rifle/heavy/sabot
-	name = "APDS heavy rifle bullet"
-	hud_state = "rifle_heavy"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF
-	damage = 20
-	penetration = 10
-	sundering = 1
 
 /datum/ammo/bullet/rifle/repeater
 	name = "heavy impact rifle bullet"
@@ -182,9 +166,9 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	damage = 50
 	penetration = 0
-	additional_xeno_penetration = -15
+	additional_xeno_penetration = -10
 
-/datum/ammo/bullet/rifle/standard_dmr
+/datum/ammo/bullet/rifle/dmr37
 	name = "marksman bullet"
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
@@ -204,7 +188,7 @@
 	penetration = 25
 	additional_xeno_penetration = 5
 
-/datum/ammo/bullet/rifle/standard_br
+/datum/ammo/bullet/rifle/br64
 	name = "light marksman bullet"
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
@@ -213,7 +197,7 @@
 	damage = 30
 	additional_xeno_penetration = 10
 
-/datum/ammo/bullet/rifle/standard_br/ap
+/datum/ammo/bullet/rifle/br64/ap
 	name = "light marksman armor piercing bullet"
 	penetration = 25
 	damage = 25
@@ -226,7 +210,7 @@
 	penetration = 40
 	additional_xeno_penetration = 12.5
 
-/datum/ammo/bullet/smarttargetrifle
+/datum/ammo/bullet/sg62
 	name = "smart marksman bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
@@ -241,7 +225,7 @@
 	accurate_range = 25
 	accurate_range_min = 3
 
-/datum/ammo/bullet/spottingrifle
+/datum/ammo/bullet/sg153
 	name = "smart spotting bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "spotrifle"
@@ -254,32 +238,32 @@
 	accurate_range = 12
 	max_range = 12
 
-/datum/ammo/bullet/spottingrifle/highimpact
+/datum/ammo/bullet/sg153/highimpact
 	name = "smart high-impact spotting bullet"
 	hud_state = "spotrifle_impact"
 	damage = 10
 	sundering = 0.5
 
-/datum/ammo/bullet/spottingrifle/highimpact/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/sg153/highimpact/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 1, max_range = 12)
 
-/datum/ammo/bullet/spottingrifle/heavyrubber
+/datum/ammo/bullet/sg153/heavyrubber
 	name = "smart heavy-rubber spotting bullet"
 	hud_state = "spotrifle_rubber"
 	damage = 10
 	sundering = 0.5
 
-/datum/ammo/bullet/spottingrifle/heavyrubber/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/sg153/heavyrubber/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, slowdown = 3, max_range = 12)
 
-/datum/ammo/bullet/spottingrifle/plasmaloss
+/datum/ammo/bullet/sg153/plasmaloss
 	name = "smart tanglefoot spotting bullet"
 	hud_state = "spotrifle_plasmaloss"
 	damage = 10
 	sundering = 0.5
 	var/datum/effect_system/smoke_spread/smoke_system
 
-/datum/ammo/bullet/spottingrifle/plasmaloss/on_hit_mob(mob/living/victim, obj/projectile/proj)
+/datum/ammo/bullet/sg153/plasmaloss/on_hit_mob(mob/living/victim, obj/projectile/proj)
 	if(isxeno(victim))
 		var/mob/living/carbon/xenomorph/X = victim
 		X.use_plasma(20 + 0.2 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit) // This is draining 20%+20 flat per hit.
@@ -287,20 +271,20 @@
 	S.set_up(0, victim, 3)
 	S.start()
 
-/datum/ammo/bullet/spottingrifle/plasmaloss/on_hit_obj(obj/O, obj/projectile/P)
+/datum/ammo/bullet/sg153/plasmaloss/on_hit_obj(obj/O, obj/projectile/P)
 	var/turf/T = get_turf(O)
 	drop_tg_smoke(T.density ? P.loc : T)
 
-/datum/ammo/bullet/spottingrifle/plasmaloss/on_hit_turf(turf/T, obj/projectile/P)
+/datum/ammo/bullet/sg153/plasmaloss/on_hit_turf(turf/T, obj/projectile/P)
 	drop_tg_smoke(T.density ? P.loc : T)
 
-/datum/ammo/bullet/spottingrifle/plasmaloss/do_at_max_range(turf/T, obj/projectile/P)
+/datum/ammo/bullet/sg153/plasmaloss/do_at_max_range(turf/T, obj/projectile/P)
 	drop_tg_smoke(T.density ? P.loc : T)
 
-/datum/ammo/bullet/spottingrifle/plasmaloss/set_smoke()
+/datum/ammo/bullet/sg153/plasmaloss/set_smoke()
 	smoke_system = new /datum/effect_system/smoke_spread/plasmaloss()
 
-/datum/ammo/bullet/spottingrifle/plasmaloss/proc/drop_tg_smoke(turf/T)
+/datum/ammo/bullet/sg153/plasmaloss/proc/drop_tg_smoke(turf/T)
 	if(T.density)
 		return
 
@@ -309,26 +293,26 @@
 	smoke_system.start()
 	smoke_system = null
 
-/datum/ammo/bullet/spottingrifle/tungsten
+/datum/ammo/bullet/sg153/tungsten
 	name = "smart tungsten spotting bullet"
 	hud_state = "spotrifle_tungsten"
 	damage = 10
 	sundering = 0.5
 
-/datum/ammo/bullet/spottingrifle/tungsten/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/sg153/tungsten/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
 
-/datum/ammo/bullet/spottingrifle/flak
+/datum/ammo/bullet/sg153/flak
 	name = "smart flak spotting bullet"
 	hud_state = "spotrifle_flak"
 	damage = 60
 	sundering = 0.5
 	airburst_multiplier = 0.5
 
-/datum/ammo/bullet/spottingrifle/flak/on_hit_mob(mob/victim, obj/projectile/proj)
+/datum/ammo/bullet/sg153/flak/on_hit_mob(mob/victim, obj/projectile/proj)
 	airburst(victim, proj)
 
-/datum/ammo/bullet/spottingrifle/incendiary
+/datum/ammo/bullet/sg153/incendiary
 	name = "smart incendiary spotting  bullet"
 	hud_state = "spotrifle_incend"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY

@@ -116,7 +116,7 @@
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(0, 4), TEXT_WEST = list(0, 4)))
 
 /datum/component/riding/vehicle/wheelchair
-	vehicle_move_delay = 0
+	vehicle_move_delay = 6
 	ride_check_flags = RIDER_NEEDS_ARMS
 
 /datum/component/riding/vehicle/wheelchair/driver_move(atom/movable/movable_parent, mob/living/user, direction, glide_size_override)
@@ -154,7 +154,6 @@
 		delay_to_add += vehicle_move_delay * 0.5
 	else if(right_hand.is_broken())
 		delay_to_add = vehicle_move_delay * 0.33
-
 	return delay_to_add
 
 /datum/component/riding/vehicle/wheelchair/handle_specials()
@@ -179,6 +178,8 @@
 	set_vehicle_dir_layer(EAST, OBJ_LAYER)
 	set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
+/datum/component/riding/vehicle/motorbike/sidecar
+	vehicle_move_delay = 2
 
 /datum/component/riding/vehicle/motorbike/sidecar/Initialize(mob/living/riding_mob, force, ride_check_flags, potion_boost)
 	. = ..()

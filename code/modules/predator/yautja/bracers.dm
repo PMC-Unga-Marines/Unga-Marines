@@ -498,7 +498,7 @@
 			M.see_invisible = 35
 			new_alpha = 75
 
-		ADD_TRAIT(M, TRAIT_TURRET_HIDDEN, TRAIT_TURRET_HIDDEN)
+		ADD_TRAIT(M, TRAIT_STEALTH, TRAIT_STEALTH)
 		ADD_TRAIT(M, TRAIT_LIGHT_STEP, TRAIT_LIGHT_STEP)
 		log_game("[key_name_admin(usr)] has enabled their cloaking device.")
 		M.visible_message(span_warning("[M] vanishes into thin air!"), span_notice("You are now invisible to normal detection."))
@@ -514,7 +514,7 @@
 //Any projectile can decloak a predator. It does defeat one free bullet though.
 /obj/item/clothing/gloves/yautja/proc/bullet_act_sim(mob/living/carbon/human/H, obj/projectile/proj)
 	var/ammo_flags = proj.ammo.flags_ammo_behavior
-	if(ammo_flags & (AMMO_ROCKET|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
+	if(ammo_flags & (AMMO_SNIPER|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
 		decloak(H) //Continue on to damage.
 	else if(prob(20))
 		decloak(H)
@@ -1129,7 +1129,7 @@
 
 	cloaked = FALSE
 
-	REMOVE_TRAIT(user, TRAIT_TURRET_HIDDEN, TRAIT_TURRET_HIDDEN)
+	REMOVE_TRAIT(user, TRAIT_STEALTH, TRAIT_STEALTH)
 	REMOVE_TRAIT(user, TRAIT_LIGHT_STEP, TRAIT_LIGHT_STEP)
 	log_game("[key_name_admin(usr)] has disabled their cloaking device.")
 	user.visible_message(span_warning("[user] shimmers into existence!"), span_warning("Your cloaking device deactivates."))

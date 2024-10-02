@@ -5,6 +5,11 @@
 	icon = 'icons/Xeno/castes/drone.dmi'
 	icon_state = "Drone Walking"
 	bubble_icon = "alien"
+	skins = list(
+		"king" = 'icons/Xeno/castes/drone_king.dmi',
+		"cyborg" = 'icons/Xeno/castes/drone_cyborg.dmi',
+		"baseline" = 'icons/Xeno/castes/drone.dmi',
+	)
 	health = 120
 	maxHealth = 120
 	plasma_stored = 350

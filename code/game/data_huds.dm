@@ -359,7 +359,7 @@
 
 	var/perceived_health = round(health * 100 / maxHealth)
 	if(!(species.species_flags & NO_PAIN))
-		perceived_health -= PAIN_RATIO_PAIN_HUD * traumatic_shock
+		perceived_health -= PAIN_RATIO_PAIN_HUD * painloss
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= STAMINA_RATIO_PAIN_HUD * staminaloss
 
@@ -542,9 +542,6 @@
 
 /datum/atom_hud/squad
 	hud_icons = list(SQUAD_HUD_TERRAGOV, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
-
-/datum/atom_hud/squad_som
-	hud_icons = list(SQUAD_HUD_SOM, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 
 /mob/proc/hud_set_job(faction = FACTION_TERRAGOV)
 	return

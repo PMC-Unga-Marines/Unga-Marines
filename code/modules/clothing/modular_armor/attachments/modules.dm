@@ -21,6 +21,7 @@
 	icon_state = "pt_belt"
 	item_state = "pt_belt_a"
 	slot = ATTACHMENT_SLOT_BELT
+	flags_attach_features = ATTACH_NO_HANDS
 
 /**
  * Shoulder lamp strength module
@@ -479,7 +480,7 @@
 	icon_state = "style_heavy"
 	item_state = "style_heavy_a"
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 
 /**
  *   Helmet Modules
@@ -837,7 +838,7 @@
 			hostile_detected = TRUE
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
-		if(HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN))
+		if(HAS_TRAIT(nearby_xeno, TRAIT_STEALTH))
 			continue
 		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
 			continue

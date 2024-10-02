@@ -492,6 +492,7 @@ SUBSYSTEM_DEF(vote)
 /datum/action/innate/vote/give_action(mob/M)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_REMOVE_VOTE_BUTTON, PROC_REF(remove_vote_action))
+	RegisterSignal(M, COMSIG_QDELETING, PROC_REF(remove_vote_action))
 
 /datum/action/innate/vote/proc/remove_vote_action(datum/source)
 	SIGNAL_HANDLER

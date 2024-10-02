@@ -74,7 +74,7 @@
 	var/icon/mob_icon = icon(mob_leaver.icon)
 	animate(mob_leaver.get_filter(MOB_LIQUID_TURF_MASK), y = ((64 - mob_icon.Height()) * 0.5) - MOB_LIQUID_TURF_MASK_HEIGHT, time = mob_leaver.cached_multiplicative_slowdown + mob_leaver.next_move_slowdown)
 	animate(mob_leaver, pixel_y = mob_leaver.pixel_y - mob_liquid_depth, time = mob_leaver.cached_multiplicative_slowdown + mob_leaver.next_move_slowdown, flags = ANIMATION_PARALLEL)
-	addtimer(CALLBACK(mob_leaver, TYPE_PROC_REF(/atom, remove_filter), MOB_LIQUID_TURF_MASK), mob_leaver.cached_multiplicative_slowdown + mob_leaver.next_move_slowdown)
+	addtimer(CALLBACK(mob_leaver, TYPE_PROC_REF(/atom, remove_filter), MOB_LIQUID_TURF_MASK), clamp(mob_leaver.cached_multiplicative_slowdown + mob_leaver.next_move_slowdown, 0.1, 5))
 
 /turf/open/liquid/water
 	name = "river"
@@ -132,6 +132,15 @@
 		SMOOTH_GROUP_MINERAL_STRUCTURES,
 	)
 
+/turf/open/liquid/water/river/autosmooth/desert
+	icon = 'icons/turf/floors/river_desert.dmi'
+
+/turf/open/liquid/water/river/autosmooth/desert/deep
+	icon_state = "river_deep-icon"
+	mob_liquid_height = 18
+	mob_liquid_depth = -8
+	slowdown_multiplier = 1.5
+
 /turf/open/liquid/water/river/autosmooth/deep
 	icon_state = "river_deep-icon"
 	mob_liquid_height = 18
@@ -149,6 +158,9 @@
 //shallow water
 /turf/open/liquid/water/river/desertdam/clean/shallow
 	icon_state = "shallow_water_clean"
+
+/turf/open/liquid/water/river/desertdam/clean/shallow/dirty
+	icon_state = "shallow_water_dirty"
 
 //shallow water transition to deep
 /turf/open/liquid/water/river/desertdam/clean/shallow_edge

@@ -16,22 +16,14 @@
 	scatter_unwielded = 0
 	burst_scatter_mult = 0
 	burst_amount = 4
-
-	ignored_terrains = list(
-		/obj/machinery/deployable/mounted,
-		/obj/machinery/miner,
-	)
-
 	turret_flags = TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	deployable_item = /obj/machinery/deployable/mounted/sentry
-	flags_item = IS_DEPLOYABLE|TWOHANDED
+	flags_item = IS_DEPLOYABLE|TWOHANDED|IS_SENTRY
 	deploy_time = 5 SECONDS
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
-
-	near_lock = TRUE
 
 // *******************************
 // ********* UPGRADE KIT *********
@@ -145,9 +137,9 @@
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 
-	attachable_allowed = list(/obj/item/attachable/scope/unremovable/tl102)
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/tl102,
+		/obj/item/attachable/scope/unremovable/hsg102,
 	)
 
 /obj/item/weapon/gun/sentry/pod_sentry
@@ -186,11 +178,6 @@
 	sentry_iff_signal = SOM_IFF
 
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 80, ACID = 50)
-
-	ignored_terrains = list(
-		/obj/machinery/deployable/mounted,
-		/obj/machinery/miner,
-	)
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_ENERGY|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE //doesn't autoeject its recharging battery
@@ -410,9 +397,9 @@
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
-	attachable_allowed = list(/obj/item/attachable/scope/unremovable/tl102)
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/tl102,
+		/obj/item/attachable/scope/unremovable/hsg102,
 	)
 
 

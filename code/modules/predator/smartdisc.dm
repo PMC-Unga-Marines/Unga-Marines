@@ -21,7 +21,6 @@
 	throwforce = 35
 	throw_speed = 1
 
-	G_hit_sound = null
 	G_throw_sound = 'sound/effects/smartdisk_throw.ogg'
 	hitsound = 'sound/effects/smartdisk_hit.ogg'
 
@@ -230,7 +229,7 @@
 
 /mob/living/simple_animal/hostile/smartdisc/gib()
 	visible_message("\The [src] explodes!")
-	..()
+	. = ..()
 	spawn(1)
 		if(src)
 			qdel(src)

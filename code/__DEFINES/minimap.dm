@@ -1,16 +1,14 @@
 
 #define MINIMAP_FLAG_XENO (1<<0)
 #define MINIMAP_FLAG_MARINE (1<<1)
-#define MINIMAP_FLAG_MARINE_SOM (1<<2)
-#define MINIMAP_FLAG_EXCAVATION_ZONE (1<<3)
-#define MINIMAP_FLAG_UNIDENTIFIED (1<<4)
-#define MINIMAP_FLAG_YAUTJA (1<<5)
-#define MINIMAP_FLAG_ALL (1<<6) - 1
+#define MINIMAP_FLAG_EXCAVATION_ZONE (1<<2)
+#define MINIMAP_FLAG_UNIDENTIFIED (1<<3)
+#define MINIMAP_FLAG_YAUTJA (1<<4)
+#define MINIMAP_FLAG_ALL (1<<5) - 1
 
 GLOBAL_LIST_INIT(faction_to_minimap_flag, list(
 	FACTION_XENO = MINIMAP_FLAG_XENO,
 	FACTION_TERRAGOV = MINIMAP_FLAG_MARINE,
-	FACTION_SOM = MINIMAP_FLAG_MARINE_SOM,
 ))
 
 ///Converts the overworld x and y to minimap x and y values

@@ -124,54 +124,13 @@
 	hard_armor = null
 	soft_armor = null
 
-/mob/proc/get_contents()
-	return
-
-
-//Recursive function to find everything a mob is holding.
-/mob/living/get_contents(obj/item/storage/Storage = null)
-	var/list/L = list()
-
-	if(Storage) //If it called itself
-		L += Storage.return_inv()
-
-		for(var/obj/item/gift/G in Storage.return_inv()) //Check for gift-wrapped items
-			L += G.gift
-			if(istype(G.gift, /obj/item/storage))
-				L += get_contents(G.gift)
-
-		for(var/obj/item/smallDelivery/D in Storage.return_inv()) //Check for package wrapped items
-			L += D.wrapped
-			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
-				L += get_contents(D.wrapped)
-		return L
-
-	else
-
-		L += contents
-		for(var/obj/item/storage/S in contents)	//Check for storage items
-			L += get_contents(S)
-
-		for(var/obj/item/gift/G in contents) //Check for gift-wrapped items
-			L += G.gift
-			if(istype(G.gift, /obj/item/storage))
-				L += get_contents(G.gift)
-
-		for(var/obj/item/smallDelivery/D in contents) //Check for package wrapped items
-			L += D.wrapped
-			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
-				L += get_contents(D.wrapped)
-		return L
-
-
 /mob/living/proc/check_contents_for(A)
-	var/list/L = get_contents()
+	var/list/L = GetAllContents()
 
 	for(var/obj/O in L)
 		if(O.type == A)
 			return TRUE
 	return FALSE
-
 
 /mob/living/proc/set_armor_datum()
 	if(islist(soft_armor))
@@ -241,6 +200,17 @@
 		if(client)
 			reset_perspective()
 
+/mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
+	if(registered_z == new_z)
+		return
+	if(registered_z)
+		SSmobs.clients_by_zlevel[registered_z] -= src
+	if(isnull(client))
+		registered_z = null
+		return
+	if(new_z)
+		SSmobs.clients_by_zlevel[new_z] += src
+	registered_z = new_z
 
 /mob/living/proc/do_camera_update(oldLoc)
 	return
@@ -470,6 +440,11 @@
 		stop_pulling() //being thrown breaks pulls.
 	if(pulledby)
 		pulledby.stop_pulling()
+	if(LAZYLEN(buckled_mobs) && !flying)
+		unbuckle_all_mobs(force = TRUE)
+	if(buckled)
+		buckled.unbuckle_mob(src)
+
 	return ..()
 
 /**
@@ -546,6 +521,7 @@
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].remove_from_hud(src)
 
+	ADD_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	smokecloaked = TRUE
 
 /mob/living/proc/smokecloak_off()
@@ -561,6 +537,7 @@
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
 
+	REMOVE_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	smokecloaked = FALSE
 
 /mob/living/proc/update_cloak()

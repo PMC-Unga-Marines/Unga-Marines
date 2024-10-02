@@ -32,8 +32,8 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 			level = SEC_LEVEL_DELTA
 
 	if(level <= SEC_LEVEL_BLUE)
-		for(var/obj/effect/soundplayer/alarmplayer AS in GLOB.ship_alarms)
-			alarmplayer.deltalarm.stop(alarmplayer)
+		for(var/obj/effect/soundplayer/deltaplayer/alarmplayer AS in GLOB.ship_alarms)
+			alarmplayer.loop_sound.stop(alarmplayer)
 		for(var/obj/machinery/light/mainship/light AS in GLOB.mainship_lights)
 			light.base_state = "tube"
 			var/area/A = get_area(light)
@@ -49,11 +49,11 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 				light.icon_state = "tube1"
 			light.update_light()
 	else
-		for(var/obj/effect/soundplayer/alarmplayer AS in GLOB.ship_alarms)
+		for(var/obj/effect/soundplayer/deltaplayer/alarmplayer AS in GLOB.ship_alarms)
 			if(level != SEC_LEVEL_DELTA)
-				alarmplayer.deltalarm.stop(alarmplayer)
+				alarmplayer.loop_sound.stop(alarmplayer)
 			else
-				alarmplayer.deltalarm.start(alarmplayer)
+				alarmplayer.loop_sound.start(alarmplayer)
 		for(var/obj/machinery/light/mainship/light AS in GLOB.mainship_lights)
 			light.base_state = "tubered"
 			var/area/A = get_area(light)

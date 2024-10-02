@@ -67,12 +67,10 @@ SUBSYSTEM_DEF(points)
 	return SS_INIT_SUCCESS
 
 /// Prepare the global supply pack list at the gamemode start
-/datum/controller/subsystem/points/proc/prepare_supply_packs_list(is_human_req_only = FALSE)
+/datum/controller/subsystem/points/proc/prepare_supply_packs_list()
 	for(var/pack in subtypesof(/datum/supply_packs))
 		var/datum/supply_packs/P = pack
 		if(!initial(P.cost))
-			continue
-		if(is_human_req_only && initial(P.available_against_xeno_only))
 			continue
 		P = new pack()
 		if(!P.contains)

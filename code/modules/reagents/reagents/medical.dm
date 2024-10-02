@@ -165,7 +165,7 @@
 	L.apply_damage(0.2*effect_str, TOX)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
+		C.set_painloss(min(C.painloss - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
 	return ..()
 
 /datum/reagent/medicine/oxycodone/overdose_process(mob/living/L, metabolism)
@@ -200,7 +200,7 @@
 	L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
+		C.set_painloss(min(C.painloss - 1*effect_str, 150)) //you can still paincrit if under ludicrous situations, but you can't go into deep shock
 	return ..()
 
 /datum/reagent/medicine/hydrocodone/overdose_process(mob/living/L, metabolism)
@@ -603,7 +603,7 @@
 	L.adjustToxLoss(3.75*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - volume*effect_str, 150)) //will pull a target out of deep paincrit instantly, if he's in it
+		C.set_painloss(min(C.painloss - volume*effect_str, 150)) //will pull a target out of deep paincrit instantly, if he's in it
 	return ..()
 
 /datum/reagent/medicine/neuraline/overdose_process(mob/living/L, metabolism)
@@ -678,7 +678,7 @@
 	L.adjustCloneLoss(0.7*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		C.setShock_Stage(min(C.shock_stage - 5*effect_str, 150)) //removes a target from deep paincrit instantly
+		C.set_painloss(min(C.painloss - 5*effect_str, 150)) //removes a target from deep paincrit instantly
 	return ..()
 
 /datum/reagent/medicine/russian_red/overdose_process(mob/living/L, metabolism)
@@ -1468,14 +1468,14 @@
 				L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 
 			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
-				L.heal_overall_damage(1.9*effect_str, 0)
+				L.heal_overall_damage(3 * effect_str, 0)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))
 					to_chat(L, span_notice("Your cuts and bruises begin to scab over rapidly!"))
 
 			if (volume > 5 && L.getFireLoss(organic_only = TRUE))
-				L.heal_overall_damage(0, 1.9*effect_str)
+				L.heal_overall_damage(0, 3 * effect_str)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
 				if(prob(40))

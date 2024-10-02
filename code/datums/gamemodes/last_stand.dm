@@ -13,6 +13,7 @@
 		/datum/job/terragov/medical/medicalofficer = 6,
 		/datum/job/terragov/medical/researcher = 2,
 		/datum/job/terragov/civilian/liaison = 1,
+		/datum/job/terragov/civilian/clown = -1,
 		/datum/job/terragov/silicon/synthetic = 1,
 		/datum/job/terragov/squad/engineer = 8,
 		/datum/job/terragov/squad/corpsman = 8,
@@ -46,6 +47,8 @@
 	for(var/job_type in GLOB.spawns_by_job)
 		for(var/atom/loc in GLOB.spawns_by_job[job_type])
 			if(is_ground_level(loc.z))
+				continue
+			if(is_centcom_level(loc.z))
 				continue
 			GLOB.spawns_by_job[job_type] -= loc
 

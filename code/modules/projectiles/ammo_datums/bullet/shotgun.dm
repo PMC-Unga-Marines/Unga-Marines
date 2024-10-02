@@ -60,12 +60,24 @@
 	damage = 45
 	damage_falloff = 0.5
 	penetration = 15
-	additional_xeno_penetration = 30
+	additional_xeno_penetration = 20
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 8 SECONDS
+
+/datum/ammo/bullet/shotgun/flechette/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread
 	name = "additional flechette"
 	damage = 35
 	additional_xeno_penetration = 30
+
+/datum/ammo/bullet/shotgun/flechette/flechette_spread/on_hit_mob(mob/M, obj/projectile/proj)
+	return
 
 /datum/ammo/bullet/shotgun/buckshot
 	name = "shotgun buckshot shell"
@@ -176,13 +188,13 @@
 /datum/ammo/bullet/shotgun/sx16_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 1, knockback = 1)
 
-/datum/ammo/bullet/shotgun/tx15_flechette
+/datum/ammo/bullet/shotgun/sh15_flechette
 	name = "shotgun flechette shell"
 	handful_icon_state = "shotgun flechette shell"
 	icon_state = "flechette"
 	hud_state = "shotgun_flechette"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	bonus_projectiles_type = /datum/ammo/bullet/shotgun/tx15_flechette/spread
+	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh15_flechette/spread
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 2
 	max_range = 15
@@ -191,10 +203,10 @@
 	penetration = 17
 	additional_xeno_penetration = 20
 
-/datum/ammo/bullet/shotgun/tx15_flechette/spread
+/datum/ammo/bullet/shotgun/sh15_flechette/spread
 	name = "additional flechette"
 
-/datum/ammo/bullet/shotgun/tx15_slug
+/datum/ammo/bullet/shotgun/sh15_slug
 	name = "shotgun slug"
 	handful_icon_state = "shotgun slug"
 	hud_state = "shotgun_slug"
@@ -205,7 +217,7 @@
 	penetration = 30
 	additional_xeno_penetration = 5
 
-/datum/ammo/bullet/shotgun/tx15_slug/on_hit_mob(mob/M, obj/projectile/P)
+/datum/ammo/bullet/shotgun/sh15_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 2, knockback = 1)
 
 /datum/ammo/bullet/shotgun/mbx900_buckshot

@@ -59,6 +59,10 @@
 	next_activate = world.time + 3 SECONDS
 	return TRUE
 
+/obj/machinery/button/psi_act(psi_power, mob/living/user)
+	pulsed()
+	return list(0.1 SECONDS, 1)
+
 /obj/machinery/button/door
 	name = "door button"
 	desc = "A door remote control switch."
@@ -151,12 +155,50 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 	desc = "A remote control switch for a mass driver."
-	var/id = null
-	var/active = 0
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/active = 0
+
+/obj/machinery/driver_button/attack_ai(mob/living/silicon/ai/AI)
+	return attack_hand(AI)
+
+/obj/machinery/driver_button/attackby(obj/item/I, mob/user, params)
+	. = ..()
+
+	if(istype(I, /obj/item/detective_scanner))
+		return
+	else
+		return attack_hand(user)
+
+/obj/machinery/driver_button/attack_hand(mob/living/user)
+	. = ..()
+	if(.)
+		return
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+	if(active)
+		return
+
+	use_power(active_power_usage)
+
+	active = TRUE
+	icon_state = "launcheract"
+
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if(M.id == id)
+			M.open()
+
+	sleep(5 SECONDS)
+
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if(M.id == id)
+			M.close()
+
+	icon_state = "launcherbtt"
+	active = 0
 
 /obj/machinery/ignition_switch
 	name = "ignition switch"
@@ -293,6 +335,31 @@
 	QDEL_NULL(linked)
 	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
 		to_chat(xeno_attacker, span_warning("An error occured, yell at the coders."))
+		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
+	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+	if(selected_outfit == "Naked" || !selected_outfit)
+		return
+	linked.equipOutfit(job_outfits[selected_outfit], FALSE)
+
+/obj/machinery/button/valhalla/xeno_button/attack_hand(mob/living/user)
+	var/list/job_outfits = list()
+	for(var/type in subtypesof(/datum/outfit/job))
+		if(istype(type, /datum/outfit))
+			continue
+		var/datum/outfit/out = type
+		if(initial(out.can_be_admin_equipped))
+			job_outfits[initial(out.name)] = out
+
+	job_outfits = sortList(job_outfits)
+	job_outfits.Insert(1, "Naked")
+
+	var/datum/outfit/selected_outfit = tgui_input_list(usr, "Which outfit do you want the human to wear?", "Human spawn", job_outfits)
+	if(!selected_outfit)
+		return
+
+	QDEL_NULL(linked)
+	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+		to_chat(user, span_warning("An error occured, yell at the coders."))
 		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
 	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
 	if(selected_outfit == "Naked" || !selected_outfit)

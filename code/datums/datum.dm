@@ -17,6 +17,10 @@
 	  */
 	var/gc_destroyed
 
+	/// Open uis owned by this datum
+	/// Lazy, since this case is semi rare
+	var/list/open_uis
+
 	/// Active timers with this datum as the target
 	var/list/_active_timers
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
@@ -88,7 +92,7 @@
  *
  * Returns [QDEL_HINT_QUEUE]
  */
-/datum/proc/Destroy(force=FALSE, ...)
+/datum/proc/Destroy(force = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
@@ -116,10 +120,10 @@
 		var/all_components = dc[/datum/component]
 		if(length(all_components))
 			for(var/datum/component/component as anything in all_components)
-				qdel(component, FALSE, TRUE)
+				qdel(component, FALSE)
 		else
 			var/datum/component/C = all_components
-			qdel(C, FALSE, TRUE)
+			qdel(C, FALSE)
 		dc.Cut()
 
 	clear_signal_refs()

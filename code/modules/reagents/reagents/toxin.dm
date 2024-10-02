@@ -533,10 +533,6 @@
 	RegisterSignal(L, COMSIG_HUMAN_DAMAGE_TAKEN, PROC_REF(transvitox_human_damage_taken))
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_life(mob/living/L, metabolism)
-	var/fire_loss = L.getFireLoss(TRUE)
-	if(!fire_loss) //If we have no burn damage, cancel out
-		return ..()
-
 	if(prob(10))
 		to_chat(L, span_warning("You notice your wounds crusting over with disgusting green ichor.") )
 
@@ -546,7 +542,6 @@
 		if(is_type_in_typecache(current_reagent, GLOB.defiler_toxins_typecache_list)) //For each xeno toxin reagent, double the strength multiplier
 			tox_cap_multiplier *= 2 //Each other Defiler toxin doubles the multiplier
 
-	//RUTGMC EDIT
 	if(L.has_status_effect(STATUS_EFFECT_INTOXICATED))
 		var/datum/status_effect/stacking/intoxicated/debuff = L.has_status_effect(STATUS_EFFECT_INTOXICATED)
 		if(debuff.stacks > 10)
@@ -556,13 +551,7 @@
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out
 		return ..()
 
-	var/dam = (current_cycle * 0.25 * tox_cap_multiplier) //Converts burn damage at this rate to toxin damage
-
-	if(fire_loss < dam) //If burn damage is less than damage to be converted, have the conversion value be equal to the burn damage
-		dam = fire_loss
-
-	L.heal_limb_damage(burn = dam, updating_health = TRUE) //Heal damage equal to toxin damage dealt; heal before applying toxin damage so we don't flash kill the target
-	L.adjustToxLoss(dam * (1 + 0.1 * tox_cap_multiplier)) //Apply toxin damage. Deal extra toxin damage equal to 10% * the tox cap multiplier
+	L.adjustToxLoss(tox_cap_multiplier * DEFILER_TRANSVITOX_DAMAGE * (1 + 0.1 * tox_cap_multiplier)) //Apply toxin damage. Deal extra toxin damage equal to 10% * the tox cap multiplier
 
 	return ..()
 
@@ -709,7 +698,7 @@
 			L.reagent_pain_modifier -= PAIN_REDUCTION_VERY_HEAVY
 			L.jitter(6)
 		if(31 to INFINITY)
-			L.reagent_pain_modifier -= PAIN_REDUCTION_VERY_HEAVY * 1.5 //bad times ahead
+			L.reagent_pain_modifier -= PAIN_REDUCTION_SUPER_HEAVY
 			L.jitter(8)
 
 	if(current_cycle > 21)

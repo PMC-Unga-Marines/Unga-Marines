@@ -58,7 +58,7 @@
 /datum/supply_packs/explosives/explosives_m15
 	name = "M15 fragmentation grenade box crate"
 	notes = "Contains 15 grenades"
-	contains = list(/obj/item/storage/box/visual/grenade/M15)
+	contains = list(/obj/item/storage/box/visual/grenade/m15)
 	cost = 350
 
 /datum/supply_packs/explosives/explosives_trailblazer
@@ -78,7 +78,6 @@
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/drain)
 	cost = 700
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/explosives/plastique
 	name = "C4 plastic explosive"
@@ -89,7 +88,6 @@
 	name = "EX-62 Genghis incendiary charge"
 	contains = list(/obj/item/explosive/plastique/genghis_charge)
 	cost = 150
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/explosives/detpack
 	name = "detpack explosive"
@@ -126,7 +124,6 @@
 	name = "T-50S mortar tanglefoot shell"
 	contains = list(/obj/item/mortal_shell/plasmaloss)
 	cost = 10
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/explosives/mlrs
 	name = "TA-40L Multiple Rocket System"
@@ -147,7 +144,6 @@
 	name = "AI artillery targeting module"
 	contains = list(/obj/item/ai_target_beacon)
 	cost = 100
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/explosives/knee_mortar
 	name = "T-10K Knee Mortar"
@@ -158,7 +154,6 @@
 	name = "TA-10K knee mortar HE shell"
 	contains = list(/obj/item/mortal_shell/knee, /obj/item/mortal_shell/knee)
 	cost = 5
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/explosives/explosives_trailblazer_phosphorus
 	name = "M45 Phosphorous trailblazer grenade box crate"
@@ -190,4 +185,3 @@
 	name = "TA-100Y howitzer tanglefoot shell"
 	contains = list(/obj/item/mortal_shell/howitzer/plasmaloss)
 	cost = 60
-	available_against_xeno_only = TRUE

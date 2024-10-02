@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			to_chat(buyer, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!buildloc.check_alien_construction(buyer, silent) || !buildloc.check_disallow_alien_fortification(buyer, silent))
+	if(!buildloc.check_alien_construction(buyer, silent, building_type) || !buildloc.check_disallow_alien_fortification(buyer, silent))
 		return FALSE
 
 /datum/hive_upgrade/building/on_buy(mob/living/carbon/xenomorph/buyer)
@@ -213,6 +213,22 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		if(!silent)
 			to_chat(buyer, span_xenowarning("Hive cannot support more than [max_silo] active silos!"))
 		return FALSE
+
+/datum/hive_upgrade/building/evotower
+	name = "Evolution Tower"
+	desc = "Constructs a tower that increases the rate of evolution point and maturity point generation by 1.5 times per tower."
+	psypoint_cost = 300
+	icon = "evotower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/evotower
+
+/datum/hive_upgrade/building/psychictower
+	name = "Psychic Relay"
+	desc = "Constructs a tower that increases the slots of higher tier Xenomorphs."
+	psypoint_cost = 300
+	icon = "maturitytower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/psychictower
 
 /datum/hive_upgrade/building/pherotower
 	name = "Pheromone Tower"
@@ -265,7 +281,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			to_chat(buyer, span_xenowarning("No weeds here!"))
 		return FALSE
 
-	if(!T.check_alien_construction(buyer, silent = silent, planned_building = /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(buyer))
+	if(!T.check_alien_construction(buyer, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(buyer))
 		return FALSE
 
 	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
@@ -311,7 +327,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		if(!silent)
 			to_chat(buyer, span_xenonotice("You must be a ruler to buy this!"))
 		return FALSE
-
 
 /datum/hive_upgrade/primordial/tier_four
 	name = PRIMORDIAL_TIER_FOUR

@@ -57,7 +57,7 @@
 /datum/action/ability/activable/xeno/plant_weeds/proc/plant_weeds(atom/A)
 	var/turf/T = get_turf(A)
 
-	if(!T.check_alien_construction(owner, FALSE))
+	if(!T.check_alien_construction(owner, FALSE, weed_type))
 		return fail_activate()
 
 	if(!T.check_disallow_alien_fortification(null, TRUE))
@@ -82,7 +82,7 @@
 	last_weeded_turf = T
 	playsound(T, "alien_resin_build", 25)
 	GLOB.round_statistics.weeds_planted++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "weeds_planted")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "weeds_planted")
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.weeds_planted++
@@ -182,15 +182,15 @@
 	action_icon_state = RESIN_WALL
 	desc = "Builds whatever resin you selected"
 	target_flags = ABILITY_TURF_TARGET
-	ability_cost = 75
+	ability_cost = 50
 	action_type = ACTION_TOGGLE
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SECRETE_RESIN,
 	)
 	///Minimum time to build a resin structure
-	var/base_wait = 1 SECONDS
+	var/base_wait = 0.5 SECONDS
 	///Multiplicator factor to add to the building time, depends on the health of the structure built
-	var/scaling_wait = 1 SECONDS
+	var/scaling_wait = 0.5 SECONDS
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
@@ -333,7 +333,7 @@
 		return
 
 	var/mob/living/carbon/xenomorph/X = owner
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
@@ -387,10 +387,10 @@
 /datum/action/ability/activable/xeno/secrete_resin/proc/build_resin(turf/T)
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.selected_resin == /obj/structure/bed/nest)
-		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
+		for(var/obj/structure/bed/nest/xeno_nest in range (2, T))
 			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
 			return
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
@@ -419,7 +419,7 @@
 		return fail_activate()
 	if(!do_after(X, get_wait(), NONE, T, BUSY_ICON_BUILD))
 		return fail_activate()
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
@@ -740,7 +740,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_XENO_SPIT,
 	)
-	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_BUCKLED|ABILITY_DO_AFTER_ATTACK
+	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_BUCKLED|ABILITY_DO_AFTER_ATTACK|ABILITY_USE_STAGGERED
 	target_flags = ABILITY_MOB_TARGET
 	///Current target that the xeno is targeting. This is for aiming.
 	var/current_target
@@ -837,7 +837,7 @@
 	ability_cost = X.ammo.spit_cost
 	newspit.generate_bullet(X.ammo, X.ammo.damage * SPIT_UPGRADE_BONUS(X))
 	newspit.def_zone = X.get_limbzone_target()
-	newspit.fire_at(current_target, X, null, X.ammo.max_range, X.ammo.shell_speed)
+	newspit.fire_at(current_target, X, X, X.ammo.max_range, X.ammo.shell_speed)
 
 	if(can_use_ability(current_target) && X.client) //X.client to make sure autospit doesn't continue for non player mobs.
 		succeed_activate()
@@ -902,6 +902,13 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HIDE,
 	)
+
+/datum/action/ability/xeno_action/xenohide/can_use_action(atom/A, silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(HAS_TRAIT(owner, TRAIT_TANK_DESANT))
+		return FALSE
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
@@ -969,7 +976,7 @@
 ///Adds ability tally to the end-round statistics.
 /datum/action/ability/activable/xeno/neurotox_sting/proc/track_stats()
 	GLOB.round_statistics.sentinel_neurotoxin_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "sentinel_neurotoxin_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "sentinel_neurotoxin_stings")
 
 //Ozelomelyn Sting
 /datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn
@@ -986,7 +993,7 @@
 ///Adds ability tally to the end-round statistics.
 /datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn/track_stats()
 	GLOB.round_statistics.ozelomelyn_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "ozelomelyn_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ozelomelyn_stings")
 
 // ***************************************
 // *********** Psychic Whisper
@@ -1046,7 +1053,7 @@
 	var/mob/living/carbon/xenomorph/xeno = owner
 	var/turf/current_turf = get_turf(owner)
 
-	if(!current_turf.check_alien_construction(owner))
+	if(!current_turf.check_alien_construction(owner, planned_building = /obj/alien/egg/hugger))
 		return fail_activate()
 
 	if(!xeno.loc_weeds_type)
@@ -1096,7 +1103,7 @@
 	add_cooldown()
 
 	GLOB.round_statistics.xeno_rally_hive++ //statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_rally_hive")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_rally_hive")
 
 /datum/action/ability/xeno_action/rally_minion
 	name = "Rally Minions"
@@ -1225,8 +1232,7 @@
 	ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	if(HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE))
 		victim.med_hud_set_status()
-	var/psy_points_reward = PSY_DRAIN_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (PSY_DRAIN_REWARD_MAX - PSY_DRAIN_REWARD_MIN))
-	psy_points_reward = clamp(psy_points_reward, PSY_DRAIN_REWARD_MIN, PSY_DRAIN_REWARD_MAX)
+	var/psy_points_reward = PSY_DRAIN_REWARD
 	if(HAS_TRAIT(victim, TRAIT_HIVE_TARGET))
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, X)
 		psy_points_reward = psy_points_reward * 3

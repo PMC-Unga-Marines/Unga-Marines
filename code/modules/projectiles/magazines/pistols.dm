@@ -2,7 +2,7 @@
 //-------------------------------------------------------
 //M4A3 PISTOL
 
-/obj/item/ammo_magazine/pistol/standard_pistol
+/obj/item/ammo_magazine/pistol/p14
 	name = "\improper P-14 magazine (9mm)"
 	desc = "A pistol magazine."
 	caliber = CALIBER_9X19
@@ -78,7 +78,7 @@
 //-------------------------------------------------------
 //P-23
 
-/obj/item/ammo_magazine/pistol/standard_heavypistol
+/obj/item/ammo_magazine/pistol/p23
 	name = "\improper P-23 magazine (.45)"
 	default_ammo = /datum/ammo/bullet/pistol/heavy
 	caliber = CALIBER_45ACP
@@ -154,7 +154,7 @@
 //-------------------------------------------------------
 //P-17.
 
-/obj/item/ammo_magazine/pistol/standard_pocketpistol
+/obj/item/ammo_magazine/pistol/p17
 	name = "\improper P-17 pocket pistol AP magazine (.380)"
 	desc = "A surprisingly small magazine used by the P-17 pistol holding .380 ACP bullets."
 	default_ammo = /datum/ammo/bullet/pistol/tiny/ap
@@ -197,11 +197,6 @@
 	name = "\improper 88M4 incendiary magazine (9mm)"
 	default_ammo = /datum/ammo/bullet/pistol/incendiary
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
-
-/obj/item/ammo_magazine/pistol/vp70/sabot
-	name = "\improper 88M4 APDS magazine (9mm)"
-	default_ammo = /datum/ammo/bullet/pistol/sabot
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
 
 //-------------------------------------------------------
 //VP78
@@ -272,7 +267,7 @@
 	max_rounds = 300
 
 //SP-13 (Calico)
-/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol
+/obj/item/ammo_magazine/pistol/p14/smart_pistol
 	name = "\improper SP-13 magazine (9mm AP)"
 	caliber = CALIBER_9X19
 	icon_state = "tx13"

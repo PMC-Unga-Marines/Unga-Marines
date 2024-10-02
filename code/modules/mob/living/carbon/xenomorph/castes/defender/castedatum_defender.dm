@@ -29,7 +29,7 @@
 	deevolves_to = /mob/living/carbon/xenomorph/larva
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 

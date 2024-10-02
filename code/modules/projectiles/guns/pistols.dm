@@ -44,7 +44,7 @@
 //-------------------------------------------------------
 //P-14 PISTOL
 
-/obj/item/weapon/gun/pistol/standard_pistol
+/obj/item/weapon/gun/pistol/p14
 	name = "\improper P-14 pistol"
 	desc = "The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Capable of mounting a limited amount of attachments, and firing at a respectable rate of fire, often as fast as you can pull the trigger. Takes 21-round 9mm magazines."
 	icon_state = "tp14"
@@ -57,8 +57,8 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p14
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p14)
 
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 20,"rail_x" = 10, "rail_y" = 22, "under_x" = 25, "under_y" = 14, "stock_x" = 21, "stock_y" = 17)
 
@@ -172,7 +172,7 @@
 //-------------------------------------------------------
 // P-23 service pistol
 
-/obj/item/weapon/gun/pistol/standard_heavypistol
+/obj/item/weapon/gun/pistol/p23
 	name = "\improper P-23 service pistol"
 	desc = "A standard P-23 chambered in .45 ACP. Has a smaller magazine capacity, but packs a better punch. Has an irremovable laser sight. Uses .45 magazines."
 	icon_state = "tp23"
@@ -187,8 +187,8 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 	)
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_heavypistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_heavypistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p23
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p23)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
@@ -211,13 +211,13 @@
 	recoil_unwielded = -2
 	lower_akimbo_accuracy = 2
 
-/obj/item/weapon/gun/pistol/standard_heavypistol/suppressed
+/obj/item/weapon/gun/pistol/p23/suppressed
 	starting_attachment_types = list(/obj/item/attachable/suppressor, /obj/item/attachable/flashlight) //Tacticool
 
-/obj/item/weapon/gun/pistol/standard_heavypistol/tacticool
+/obj/item/weapon/gun/pistol/p23/tacticool
 	starting_attachment_types = list(/obj/item/attachable/lace, /obj/item/attachable/flashlight) //Tacticool
 
-/obj/item/weapon/gun/pistol/standard_heavypistol/tactical
+/obj/item/weapon/gun/pistol/p23/tactical
 	starting_attachment_types = list(/obj/item/attachable/reddot)
 //-------------------------------------------------------
 //P-1911
@@ -433,7 +433,7 @@
 //-------------------------------------------------------
 //P-17 Pocket pistol. Based on a PMM.
 
-/obj/item/weapon/gun/pistol/standard_pocketpistol
+/obj/item/weapon/gun/pistol/p17
 	name = "\improper P-17 pocket pistol"
 	desc = "A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine."
 	icon_state = "tp17"
@@ -442,8 +442,8 @@
 	caliber = CALIBER_380ACP //codex
 	max_shells = 8 //codex
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_p17.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pocketpistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pocketpistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p17
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p17)
 	w_class = WEIGHT_CLASS_TINY
 	force = 5
 	attachable_allowed = list(
@@ -512,7 +512,6 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/vp70/hp,
-		/obj/item/ammo_magazine/pistol/vp70/sabot,
 		/obj/item/ammo_magazine/pistol/vp70/incendiary,
 	)
 	force = 8
@@ -759,8 +758,8 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	max_shells = 30 //codex
 	fire_sound = 'sound/weapons/guns/fire/tp14.ogg' //same bullets, same sound
 	reload_sound = 'sound/weapons/guns/interact/tp14_reload.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol)
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p14/smart_pistol
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p14/smart_pistol)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,

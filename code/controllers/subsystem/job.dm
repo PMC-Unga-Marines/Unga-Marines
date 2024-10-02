@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(job)
 	if(!job.player_old_enough(player.client))
 		JobDebug("AR player not old enough, Player: [player], Job:[job.title]")
 		return FALSE
-	if(ismarinejob(job) || issommarinejob(job))
+	if(ismarinejob(job))
 		if(!handle_initial_squad(player, job, latejoin, job.faction))
 			JobDebug("Failed to assign marine role to a squad. Player: [player.key] Job: [job.title]")
 			return FALSE
@@ -208,9 +208,6 @@ SUBSYSTEM_DEF(job)
 	for(var/mob/new_player/player AS in unassigned)
 		if(PopcapReached())
 			RejectPlayer(player)
-		//Choose a faction in advance if needed
-		if(SSticker.mode?.flags_round_type & MODE_TWO_HUMAN_FACTIONS) //Alternates between the two factions
-			faction_rejected = faction_rejected == FACTION_TERRAGOV ? FACTION_SOM : FACTION_TERRAGOV
 		// Loop through all jobs
 		for(var/datum/job/job AS in occupations_to_assign)
 			// If the player wants that job on this level, then try give it to him.
@@ -345,13 +342,13 @@ SUBSYSTEM_DEF(job)
 				return
 		else
 			var/mob/living/carbon/human/h = M
-			if(h.assigned_squad && length_char(GLOB.latejoin_squad_landmarks_list))
-				SendToAtom(M, pick(GLOB.latejoin_squad_landmarks_list[h.assigned_squad.id]))
-				return
-			else
+			if(!ishuman(M) || !h.assigned_squad || !length_char(GLOB.latejoin_squad_landmarks_list))
 				if(length_char(GLOB.latejoin))
 					SendToAtom(M, pick(GLOB.latejoin))
 					return
+			else
+				SendToAtom(M, pick(GLOB.latejoin_squad_landmarks_list[h.assigned_squad.id]))
+				return
 	message_admins("Unable to send mob [M] to late join!")
 	CRASH("Unable to send mob [M] to late join!")
 

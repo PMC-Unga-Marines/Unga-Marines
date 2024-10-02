@@ -2,7 +2,7 @@
 "a" = (
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /turf/open/floor/mainship/floor,
@@ -197,7 +197,7 @@
 /area/shuttle/minidropship)
 "U" = (
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/machinery/door/poddoor/mainship/open{
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
 /obj/structure/barricade/plasteel{

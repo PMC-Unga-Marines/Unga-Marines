@@ -33,7 +33,7 @@
 //-------------------------------------------------------
 //MP-19 Machinepistol ammo
 
-/obj/item/ammo_magazine/smg/standard_machinepistol
+/obj/item/ammo_magazine/smg/mp19
 	name = "\improper MP-19 machinepistol magazine (10x20mm)"
 	desc = "A 10x20mm caseless machine pistol magazine."
 	caliber = CALIBER_10X20_CASELESS
@@ -45,7 +45,7 @@
 //-------------------------------------------------------
 //SMG-90 SMG ammo
 
-/obj/item/ammo_magazine/smg/standard_smg
+/obj/item/ammo_magazine/smg/smg90
 	name = "\improper SMG-90 submachine gun magazine (10x20mm)"
 	desc = "A 10x20mm caseless submachine gun magazine."
 	caliber = CALIBER_10X20_CASELESS
@@ -230,8 +230,3 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/smg/acp/hp
 
-/obj/item/ammo_magazine/smg/vector/sabot
-	name = "\improper Vector APDS drum magazine (.45ACP)"
-	desc = "A .45ACP APDS drum magazine for the Vector, with even more dakka."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/smg/acp/sabot

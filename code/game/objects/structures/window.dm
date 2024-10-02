@@ -86,11 +86,11 @@
 		thrown_mob = AM
 		throw_damage *= thrown_mob.mob_size * 8
 	take_damage(throw_damage)
-	if(obj_integrity > 0) //we only stop if we don't break the window
-		AM.stop_throw()
-		. = TRUE
+	AM.stop_throw()
+	. = TRUE
 	if(thrown_mob)
 		thrown_mob.take_overall_damage(speed * 5, BRUTE, MELEE, !., FALSE, TRUE, 0, 4) //done here for dramatic effect, and to make the damage sharp if we broke the window
+	return TRUE
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point
@@ -270,6 +270,11 @@
 
 /obj/structure/window/GetExplosionBlock(explosion_dir)
 	return (!explosion_dir || ISDIAGONALDIR(dir) || dir & explosion_dir || REVERSE_DIR(dir) & explosion_dir) ? real_explosion_block : 0
+
+/obj/structure/window/effect_smoke(obj/effect/particle_effect/smoke/S)
+	. = ..()
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
+		take_damage(1 * S.strength, BURN, ACID) // glass doesn't care about acid
 
 /obj/structure/window/phoronbasic
 	name = "phoron window"
@@ -699,6 +704,38 @@
 	name = "reinforced orbital insertion safety window"
 	desc = "A durable glass window with a specialized reinforced rod matrice inside a wall frame, 6 times as strong as a normal window to be spaceworthy and withstand impacts."
 	max_integrity = 600 // 25 hunter slashes
+
+/obj/structure/window/framed/kutjevo
+	name = "window"
+	icon = 'icons/obj/smooth_objects/kutjevo_window_blue.dmi'
+	icon_state = "chigusa_wall-0"
+	base_icon_state = "chigusa_wall"
+	window_frame = /obj/structure/window_frame/kutjevo
+
+/obj/structure/window/framed/kutjevo/orange
+	icon = 'icons/obj/smooth_objects/kutjevo_window_orange.dmi'
+
+/obj/structure/window/framed/kutjevo/reinforced
+	name = "window"
+	icon = 'icons/obj/smooth_objects/kutjevo_window_blue_reinforced.dmi'
+	icon_state = "window-reinforced"
+	base_icon_state = "chigusa_wall"
+	window_frame = /obj/structure/window_frame/kutjevo
+
+/obj/structure/window/framed/kutjevo/reinforced/orange
+	name = "window"
+	icon = 'icons/obj/smooth_objects/kutjevo_window_orange_reinforced.dmi'
+	icon_state = "window-reinforced"
+	base_icon_state = "chigusa_wall"
+	window_frame = /obj/structure/window_frame/kutjevo
+
+/obj/structure/window/framed/kutjevo/reinforced/hull
+	name = "hull window"
+	icon = 'icons/obj/smooth_objects/kutjevo_window_orange_reinforced.dmi'
+	desc = "A glass window with a special rod matrice inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here."
+	icon_state = "window-invincible"
+	base_icon_state = "chigusa_wall"
+	resistance_flags = RESIST_ALL
 
 //pred
 /obj/structure/window/framed/colony/reinforced/hull/pred

@@ -1,7 +1,7 @@
 /datum/ammo/mortar
 	name = "80mm shell"
 	icon_state = "mortar"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	shell_speed = 0.75
 	damage = 0
 	penetration = 0
@@ -158,7 +158,7 @@
 		return
 	T.ignite(5, 10)
 
-/datum/ammo/bullet/atgun_spread/incendiary/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/bullet/atgun_spread/incendiary/on_leave_turf(turf/T, obj/projectile/proj)
 	drop_flame(T)
 
 /datum/ammo/ags_shrapnel
@@ -170,7 +170,7 @@
 	handful_amount = 1
 	ping = null //no bounce off.
 	sound_bounce = "rocket_bounce"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_IFF
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_IFF
 	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2
@@ -273,9 +273,9 @@
 	nade_type = /obj/item/explosive/grenade/smokebomb
 	icon_state = "smoke_shell"
 
-/datum/ammo/grenade_container/ags_grenade
+/datum/ammo/grenade_container/agls37
 	name = "grenade shell"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_IFF
+	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_IFF
 	icon_state = "grenade_projectile"
 	hud_state = "grenade_he"
 	hud_state_empty = "grenade_empty"
@@ -284,14 +284,14 @@
 	max_range = 21
 	nade_type = /obj/item/explosive/grenade/ags
 
-/datum/ammo/grenade_container/ags_grenade/flare
+/datum/ammo/grenade_container/agls37/flare
 	hud_state = "grenade_dummy"
 	nade_type = /obj/item/explosive/grenade/flare
 
-/datum/ammo/grenade_container/ags_grenade/cloak
+/datum/ammo/grenade_container/agls37/cloak
 	hud_state = "grenade_hide"
 	nade_type = /obj/item/explosive/grenade/smokebomb/cloak/ags
 
-/datum/ammo/grenade_container/ags_grenade/tanglefoot
+/datum/ammo/grenade_container/agls37/tanglefoot
 	hud_state = "grenade_drain"
 	nade_type = /obj/item/explosive/grenade/smokebomb/drain/agls

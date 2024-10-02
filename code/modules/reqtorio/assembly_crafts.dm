@@ -120,7 +120,7 @@ EXPLOSIVES
 /datum/assembly_craft/explosives/phosphos
 	name = "M40 HPDP grenade"
 	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/gun_powder = 3) // 40 + 24 points
-	output = list(/obj/item/explosive/grenade/phosphorus = 2) // 72 points from old factory
+	output = list(/obj/item/explosive/grenade/phosphorus = 1) // 36 points from old factory
 
 /datum/assembly_craft/explosives/bignade
 	name = "M15 fragmentation grenade"
@@ -201,30 +201,25 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
 	output = list(/obj/item/ammo_magazine/packet/smart_minigun = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/smartgun_magazine
+/datum/assembly_craft/weapons/sg29
 	name = "SG-29 ammo drum"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
-	output = list(/obj/item/ammo_magazine/standard_smartmachinegun = 1) // 25 points from old factory
+	output = list(/obj/item/ammo_magazine/sg29 = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/smartgun_targetrifle
+/datum/assembly_craft/weapons/sg62
 	name = "SG-62 ammo magazine"
 	input = list(/obj/item/stack/sheet/mineral/osmium = 5, /obj/item/stack/gun_powder = 1) // 30 + 8 points
-	output = list(/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = 1) // 25 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sg62 = 1) // 25 points from old factory
 
-/datum/assembly_craft/weapons/autosniper_magazine
+/datum/assembly_craft/weapons/sr81_magazine
 	name = "SR-81 IFF Auto Sniper magazine"
 	input = list(/obj/item/stack/sheet/mineral/platinum = 1, /obj/item/stack/gun_powder = 2) // 12 + 16 points
-	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 13.3 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/sr81 = 1) // 13.3 points from old factory
 
 /datum/assembly_craft/weapons/scout_rifle_magazine
 	name = "SR-81 automatic sniper rifle magazine"
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 16 points
-	output = list(/obj/item/ammo_magazine/rifle/autosniper = 1) // 10 points from old factory
-
-/datum/assembly_craft/weapons/mateba_speedloader
-	name = "Mateba autorevolver speedloader"
-	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
-	output = list(/obj/item/ammo_magazine/revolver/mateba = 1) // 10 points from old factory
+	output = list(/obj/item/ammo_magazine/rifle/tx8 = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/mateba_speedloader
 	name = "Mateba autorevolver speedloader"
@@ -301,12 +296,12 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/metal = 1, /obj/item/stack/gun_powder = 1) // 4 + 8 points
 	output = list(/obj/item/mortal_shell/smoke = 1) // 4 points from old factory
 
-/datum/assembly_craft/weapons/mlrs_rocket
-	name = "MLRS High Explosive rocket"
+/datum/assembly_craft/weapons/mlrs_rocket_gas
+	name = "MLRS Gas rockets"
 	input = list(/obj/item/stack/sheet/plasteel = 4, /obj/item/stack/gun_powder = 4) // 32 + 32 points
-	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 40 points from old factory
+	output = list(/obj/item/storage/box/mlrs_rockets_gas = 1) // 40 points from old factory
 
 /datum/assembly_craft/weapons/mlrs_rocket
-	name = "TA-40L rocket crate"
+	name = "MLRS High Explosive rocket"
 	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/gun_powder = 3) // 24 + 24 points
 	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 33 points from old factory

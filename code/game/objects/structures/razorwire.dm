@@ -11,25 +11,17 @@
 	climbable = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_DEFENSIVE_STRUCTURE|PASS_GRILLE|PASSABLE
+	max_integrity = RAZORWIRE_MAX_HEALTH
+	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 35, BIO = 100, FIRE = 80, ACID = 0)
 	var/list/entangled_list
 	var/sheet_type = /obj/item/stack/barbed_wire
 	var/sheet_type2 = /obj/item/stack/rods
-	var/table_prefix = "" //used in update_icon()
-	max_integrity = RAZORWIRE_MAX_HEALTH
-	var/soak = 5
 
 /obj/structure/razorwire/deconstruct(disassembled = TRUE)
-	if(disassembled)
-		if(obj_integrity > max_integrity * 0.5)
-			new sheet_type(loc)
-		var/obj/item/stack/rods/salvage = new sheet_type2(loc)
-		salvage.amount = max(1, round(4 * (obj_integrity / max_integrity) ) )
+	if(obj_integrity > max_integrity * 0.5)
+		new sheet_type(loc)
 	else
-		if(prob(50))
-			new sheet_type(loc)
-		if(prob(50))
-			var/obj/item/stack/rods/salvage = new sheet_type2(loc)
-			salvage.amount = rand(1,4)
+		new sheet_type2(loc)
 	return ..()
 
 /obj/structure/razorwire/Initialize(mapload)
@@ -122,48 +114,36 @@
 	. = ..()
 
 	if(istype(I, /obj/item/stack/sheet/metal))
-		var/obj/item/stack/sheet/metal/metal_sheets = I
-
-		visible_message(span_notice("[user] begins to repair  \the [src]."))
-
-		if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity)
+		if(obj_integrity >= max_integrity)
 			return
 
+		balloon_alert(user, "Repairing!")
+		if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
+			return
+
+		var/obj/item/stack/sheet/metal/metal_sheets = I
 		if(!metal_sheets.use(1))
 			return
 
-		repair_damage(max_integrity * 0.30, user)
+		repair_damage(max_integrity * 0.60, user)
 		visible_message(span_notice("[user] repairs \the [src]."))
 		update_icon()
 		return
 
-	if(!istype(I, /obj/item/grab))
+/obj/structure/razorwire/grab_interact(obj/item/grab/grab, mob/user, base_damage, is_sharp)
+	if(!isliving(grab.grabbed_thing))
 		return
-	if(isxeno(user))//I am very tempted to remove this >:)
+	var/mob/living/M = grab.grabbed_thing
+	if(user.grab_state < GRAB_NECK) // warrior is technically able to do that
+		to_chat(user, span_warning("You need a better grip to do that!"))
 		return
-
-	var/obj/item/grab/G = I
-	if(!isliving(G.grabbed_thing))
-		return
-
-	var/mob/living/M = G.grabbed_thing
-	if(user.a_intent == INTENT_HARM)
-		if(user.grab_state <= GRAB_AGGRESSIVE)
-			to_chat(user, span_warning("You need a better grip to do that!"))
-			return
-
-		var/def_zone = ran_zone()
-		M.apply_damage(RAZORWIRE_BASE_DAMAGE, BRUTE, def_zone, MELEE, TRUE, updating_health = TRUE)
-		user.visible_message(span_danger("[user] spartas [M]'s into [src]!"),
-		span_danger("You sparta [M]'s against [src]!"))
-		log_combat(user, M, "spartaed", "", "against \the [src]")
-		playsound(src, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
-
-	else if(user.grab_state >= GRAB_AGGRESSIVE)
-		M.forceMove(loc)
-		M.Paralyze(10 SECONDS)
-		user.visible_message(span_danger("[user] throws [M] on [src]."),
-		span_danger("You throw [M] on [src]."))
+	M.forceMove(loc)
+	M.Paralyze(5 SECONDS)
+	var/def_zone = ran_zone()
+	M.apply_damage(RAZORWIRE_BASE_DAMAGE, BRUTE, def_zone, MELEE, TRUE, updating_health = TRUE)
+	user.visible_message(span_danger("[user] throws [M] on [src]."),
+	span_danger("You throw [M] on [src]."))
+	playsound(src, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
 
 /obj/structure/razorwire/wirecutter_act(mob/living/user, obj/item/I)
 	user.visible_message(span_notice("[user] starts disassembling [src]."),
