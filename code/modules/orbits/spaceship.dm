@@ -161,7 +161,7 @@ GLOBAL_VAR_INIT(current_orbit,STANDARD_ORBIT)
 
 	message_admins("[ADMIN_TPMONTY(usr)] Has sent the ship [direction == "UP" ? "UPWARD" : "DOWNWARD"] in orbit")
 	var/message = "Внимание. Смена орбиты через 10 секунд."
-	minor_announce(message, title = "Смена Орбиты", sound = 'sound/AI/orbit_change.ogg')
+	minor_announce(message, title = "Смена Орбиты")
 	addtimer(CALLBACK(src, PROC_REF(do_change_orbit), current_orbit, direction), 10 SECONDS)
 
 /obj/machinery/computer/navigation/proc/can_change_orbit(current_orbit, direction, silent = FALSE)
