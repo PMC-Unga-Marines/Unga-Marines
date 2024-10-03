@@ -1,5 +1,3 @@
-import { toFixed } from 'common/math';
-
 import { useBackend } from '../../backend';
 import {
   Box,
