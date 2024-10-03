@@ -4,7 +4,7 @@
 
 /datum/yautja_energy_weapon_modes
 	///how much power the gun uses on this mode when shot.
-	var/rounds_per_shot = 0
+	var/charge_cost = 0
 	///the ammo datum this mode is.
 	var/datum/ammo/ammo_datum_type = null
 	///how long it takes between each shot of that mode, same as gun fire delay.
@@ -21,7 +21,7 @@
 	var/muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_bolts
-	rounds_per_shot = 30
+	charge_cost = 100
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
 	fire_delay = 5
 	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
@@ -30,7 +30,7 @@
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_heavy_bolts
-	rounds_per_shot = 100
+	charge_cost = 100
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt/stun
 	fire_delay = 15
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
@@ -39,7 +39,7 @@
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_spheres
-	rounds_per_shot = 300
+	charge_cost = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere/stun
 	fire_delay = 100
 	fire_sound = 'sound/weapons/pulse.ogg'
@@ -48,7 +48,7 @@
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/lethal_bolts
-	rounds_per_shot = 300
+	charge_cost = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt
 	fire_delay = 10
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
@@ -57,7 +57,7 @@
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
 
 /datum/yautja_energy_weapon_modes/lethal_spheres
-	rounds_per_shot = 1200
+	charge_cost = 1200
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere
 	fire_delay = 100
 	fire_sound = 'sound/weapons/pulse.ogg'
@@ -98,7 +98,7 @@
 	gun_user?.hud_used.update_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 
 /obj/item/weapon/gun/energy/yautja/get_display_ammo_count()
-	return round(rounds / rounds_per_shot, 1)
+	return round(rounds / charge_cost, 1)
 
 /obj/item/weapon/gun/energy/yautja/unload(mob/living/user, drop = TRUE, after_fire = FALSE)
 	return
@@ -117,7 +117,7 @@
 	ammo_datum_type = GLOB.ammo_list[initial(choice.ammo_datum_type)]
 	fire_delay = initial(choice.fire_delay)
 	fire_sound = initial(choice.fire_sound)
-	rounds_per_shot = initial(choice.rounds_per_shot)
+	charge_cost = initial(choice.charge_cost)
 
 	to_chat(user, initial(choice.message_to_user))
 	update_ammo_count()
@@ -419,7 +419,7 @@
 	ammo_datum_type = GLOB.ammo_list[initial(choice.ammo_datum_type)]
 	fire_delay = initial(choice.fire_delay)
 	fire_sound = initial(choice.fire_sound)
-	rounds_per_shot = initial(choice.rounds_per_shot)
+	charge_cost = initial(choice.charge_cost)
 	muzzle_flash_color = initial(choice.muzzle_flash_color)
 
 	to_chat(user, initial(choice.message_to_user))
