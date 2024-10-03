@@ -1,4 +1,4 @@
-#define TELEPORTING_COST 750
+#define TELEPORTING_COST 650
 /obj/machinery/deployable/teleporter
 	density = FALSE
 	max_integrity = 200
@@ -20,16 +20,16 @@
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	if(!kit?.cell)
 		. += span_notice("It currently lacks a power cell.")
+	else
+		. += span_notice("It has charge left for [round(kit.cell.charge / TELEPORTING_COST)] teleportations.")
 	if(kit?.linked_teleporter)
 		. += span_notice("It is currently linked to a Teleporter #[kit.linked_teleporter.self_tele_tag] at [get_area(kit.linked_teleporter)].")
 	else
 		. += span_notice("It isn't linked to any other teleporter.")
 
-
 /obj/machinery/deployable/teleporter/Initialize(mapload)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "teleporter", HIGH_FLOAT_LAYER))
-
 
 /obj/machinery/deployable/teleporter/attack_hand(mob/living/user)
 	. = ..()
@@ -100,7 +100,6 @@
 		return
 	user.forceMove(get_turf(kit.linked_teleporter))
 
-
 /obj/machinery/deployable/teleporter/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(!user)
@@ -148,7 +147,7 @@
 
 /obj/item/teleporter_kit
 	name = "\improper ASRS Bluespace teleporter"
-	desc = "A bluespace telepad for moving personnel and equipment across small distances to another prelinked teleporter."
+	desc = "A bluespace telepad for moving personnel and equipment across small distances to another prelinked teleporter. If area is unpowered, used built-in cell to provide teleportations."
 	icon = 'icons/Marine/teleporter.dmi'
 	icon_state = "teleporter"
 
@@ -161,12 +160,11 @@
 	var/obj/item/teleporter_kit/linked_teleporter
 	///The optional cell to power the teleporter if off the grid
 	var/obj/item/cell/cell
-	COOLDOWN_DECLARE(teleport_cooldown)
-
 	///Tag for teleporters number. Exists for fluff reasons. Shared variable.
 	var/static/tele_tag = 78
 	///References to the number of the teleporter.
 	var/self_tele_tag
+	COOLDOWN_DECLARE(teleport_cooldown)
 
 /obj/item/teleporter_kit/Initialize(mapload)
 	. = ..()
