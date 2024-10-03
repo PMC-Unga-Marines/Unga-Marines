@@ -81,12 +81,12 @@
 	COOLDOWN_START(kit, teleport_cooldown, 2 SECONDS)
 	COOLDOWN_START(linked_kit, teleport_cooldown, 2 SECONDS)
 	if(powered())
-		use_power(TELEPORTING_COST * 200)
+		use_power(TELEPORTING_COST * 100)
 	else
 		kit.cell.charge -= TELEPORTING_COST
 	update_icon()
 	if(deployed_linked_teleporter.powered())
-		deployed_linked_teleporter.use_power(TELEPORTING_COST * 200)
+		deployed_linked_teleporter.use_power(TELEPORTING_COST * 100)
 	else
 		linked_kit.cell.charge -= TELEPORTING_COST
 	deployed_linked_teleporter.update_icon()
