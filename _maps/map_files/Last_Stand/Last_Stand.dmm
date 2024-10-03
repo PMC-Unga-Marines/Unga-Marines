@@ -4458,7 +4458,6 @@
 /area/whiskey_outpost/outside/north)
 "GX" = (
 /obj/structure/barricade/metal,
-/obj/structure/barricade/metal,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/east)
 "GZ" = (
@@ -5339,7 +5338,6 @@
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "Rb" = (
-/obj/structure/barricade/metal,
 /obj/structure/barricade/metal,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
