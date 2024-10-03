@@ -30,7 +30,7 @@
 	colour = "full"
 	icon_state = "full_camo"
 
-/obj/item/facepaint/rainbow
+/obj/item/facepaint/premium
 	name = "Premium customization kit"
 	desc = "A kit designed for customizing weapon. Comes with rainbow paint!"
 	colour = "rainbow"

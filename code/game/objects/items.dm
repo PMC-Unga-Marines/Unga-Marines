@@ -256,7 +256,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if(istype(I, /obj/item/facepaint/rainbow) && unique_reskin && !current_skin)
+	if(istype(I, /obj/item/facepaint/premium) && unique_reskin && !current_skin)
 		reskin_obj(I, user)
 		return
 
