@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/chimera
-	caste_base_type = /mob/living/carbon/xenomorph/chimera
+	caste_base_type = /datum/xeno_caste/chimera
 	name = "Chimera"
 	desc = "A slim, deadly alien creature. It has two additional arms with mantis blades."
 	icon = 'icons/Xeno/castes/chimera.dmi'
@@ -25,7 +25,7 @@
 	return WARLOCK_WATER_SLOWDOWN
 
 /mob/living/carbon/xenomorph/chimera/phantom
-	caste_base_type = /mob/living/carbon/xenomorph/chimera/phantom
+	caste_base_type = /datum/xeno_caste/chimera/phantom
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 	mob_size = MOB_SIZE_XENO
