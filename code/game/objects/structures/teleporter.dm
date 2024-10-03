@@ -1,4 +1,4 @@
-#define TELEPORTING_COST 250
+#define TELEPORTING_COST 750
 /obj/machinery/deployable/teleporter
 	density = FALSE
 	max_integrity = 200
@@ -148,7 +148,7 @@
 
 /obj/item/teleporter_kit
 	name = "\improper ASRS Bluespace teleporter"
-	desc = "A bluespace telepad for moving personnel and equipment across small distances to another prelinked teleporter. Ctrl+Click on a tile to deploy, use a wrench to undeploy, use a crowbar to remove the power cell."
+	desc = "A bluespace telepad for moving personnel and equipment across small distances to another prelinked teleporter."
 	icon = 'icons/Marine/teleporter.dmi'
 	icon_state = "teleporter"
 
@@ -176,13 +176,16 @@
 	self_tele_tag = tele_tag
 	name = "\improper ASRS Bluespace teleporter #[tele_tag]"
 
-
 /obj/item/teleporter_kit/Destroy()
 	if(linked_teleporter)
 		linked_teleporter.linked_teleporter = null
 		linked_teleporter = null
 	QDEL_NULL(cell)
 	return ..()
+
+/obj/item/teleporter_kit/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl+Click on a tile to deploy, use a wrench to undeploy, use a crowbar to remove the power cell.")
 
 ///Link the two teleporters
 /obj/item/teleporter_kit/proc/set_linked_teleporter(obj/item/teleporter_kit/link_teleport)
