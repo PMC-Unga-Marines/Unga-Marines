@@ -168,7 +168,8 @@ const Menu = (props) => {
             <Button
               onClick={() => act('send')}
               disabled={!elev_status}
-              icon={'angle-double-' + elevator_dir}>
+              icon={'angle-double-' + elevator_dir}
+            >
               {elevator_dir === 'up' ? 'Raise' : 'Lower'}
             </Button>
           </Flex.Item>
@@ -275,23 +276,22 @@ const OrderList = (props) => {
                       content="Approve"
                     />
                   )}
-                  {!readOnly && !authed_by && (
-                    <Button
-                      onClick={() => act('deny', { id: id })}
-                      icon="times"
-                      content="Deny"
-                    />
-                  )}
-                  {selectedMenu === 'Awaiting Delivery' && (
-                    <Button
-                      onClick={() => act('delivery', { id: id })}
-                      icon="luggage-cart"
-                      content="Delivery"
-                      disabled={!data.beacon}
-                    />
-                  )}
-                </>
-              )
+                {!readOnly && !authed_by && (
+                  <Button
+                    onClick={() => act('deny', { id: id })}
+                    icon="times"
+                    content="Deny"
+                  />
+                )}
+                {selectedMenu === 'Awaiting Delivery' && (
+                  <Button
+                    onClick={() => act('delivery', { id: id })}
+                    icon="luggage-cart"
+                    content="Delivery"
+                    disabled={!data.beacon}
+                  />
+                )}
+              </>
             }
           >
             <LabeledList>
@@ -331,7 +331,7 @@ const Pack = (props) => {
   return !!contains && contains.constructor === Object ? (
     <Collapsible
       color="gray"
-      title={<PackName cost={cost} name={name} pl={0}  amount={amount}/>}
+      title={<PackName cost={cost} name={name} pl={0} amount={amount} />}
     >
       <Table>
         <PackContents contains={contains} />
