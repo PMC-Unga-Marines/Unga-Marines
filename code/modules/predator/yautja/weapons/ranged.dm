@@ -23,7 +23,7 @@
 /datum/yautja_energy_weapon_modes/stun_bolts
 	charge_cost = 750
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
-	fire_delay = 5
+	fire_delay = 50
 	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
 	message_to_user = "will now fire low power stun bolts"
 	radial_icon_state = "plasma_weak"
@@ -32,7 +32,7 @@
 /datum/yautja_energy_weapon_modes/stun_heavy_bolts
 	charge_cost = 1000
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt/stun
-	fire_delay = 15
+	fire_delay = 70
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire high power stun bolts"
 	radial_icon_state = "plasma_strong"
@@ -50,7 +50,7 @@
 /datum/yautja_energy_weapon_modes/lethal_bolts
 	charge_cost = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt
-	fire_delay = 10
+	fire_delay = 20
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire plasma bolts"
 	radial_icon_state = "laser_disabler"
