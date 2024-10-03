@@ -100,33 +100,6 @@
 		C.apply_effect(stun_time, STUN)
 	..()
 
-/datum/ammo/energy/yautja/caster/sphere
-	name = "plasma eradicator"
-	icon_state = "bluespace"
-	bullet_color = COLOR_BRIGHT_BLUE
-	flags_ammo_behavior = AMMO_TARGET_TURF
-	shell_speed = 2
-	accuracy = 40
-
-	hud_state = "plasma_sphere"
-
-	damage = 55
-
-	accurate_range = 8
-	max_range = 8
-
-/datum/ammo/energy/yautja/caster/sphere/on_hit_mob(mob/M, obj/projectile/P)
-	cell_explosion(get_turf(M), 50, 25)
-
-/datum/ammo/energy/yautja/caster/sphere/on_hit_turf(turf/T, obj/projectile/P)
-	cell_explosion(get_turf(T), 50, 25)
-
-/datum/ammo/energy/yautja/caster/sphere/on_hit_obj(obj/O, obj/projectile/P)
-	cell_explosion(get_turf(O), 50, 25)
-
-/datum/ammo/energy/yautja/caster/sphere/do_at_max_range(obj/projectile/P)
-	cell_explosion(get_turf(P), 50, 25)
-
 /datum/ammo/energy/yautja/caster/sphere/stun
 	name = "plasma immobilizer"
 	bullet_color = COLOR_MAGENTA

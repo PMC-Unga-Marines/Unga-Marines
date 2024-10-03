@@ -56,15 +56,6 @@
 	radial_icon_state = "laser_disabler"
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
 
-/datum/yautja_energy_weapon_modes/lethal_spheres
-	charge_cost = 1200
-	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere
-	fire_delay = 100
-	fire_sound = 'sound/weapons/pulse.ogg'
-	message_to_user = "will now fire plasma spheres"
-	radial_icon_state = "laser_swarm"
-	muzzle_flash_color = COLOR_BRIGHT_BLUE
-
 /obj/item/weapon/gun/energy/yautja
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = null
@@ -366,14 +357,13 @@
 	PRED_MODE_LETHAL = image(icon = 'icons/mob/radial.dmi', icon_state = "pred_mode_lethal"))
 	var/list/mode_by_mode_list = list(
 		"stun" = list("low power stun bolts", "high power stun bolts", "plasma immobilizers"),
-		"lethal" = list("plasma bolts", "plasma spheres")
+		"lethal" = list("plasma bolts")
 	)
 	mode_list = list(
 		"low power stun bolts" = /datum/yautja_energy_weapon_modes/stun_bolts,
 		"high power stun bolts" = /datum/yautja_energy_weapon_modes/stun_heavy_bolts,
 		"plasma immobilizers" = /datum/yautja_energy_weapon_modes/stun_spheres,
 		"plasma bolts" = /datum/yautja_energy_weapon_modes/lethal_bolts,
-		"plasma spheres" = /datum/yautja_energy_weapon_modes/lethal_spheres
 	)
 
 	var/mob/living/carbon/laser_target = null
