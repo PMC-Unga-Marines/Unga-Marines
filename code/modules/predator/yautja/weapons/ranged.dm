@@ -21,7 +21,7 @@
 	var/muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_bolts
-	charge_cost = 100
+	charge_cost = 750
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
 	fire_delay = 5
 	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
@@ -30,7 +30,7 @@
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_heavy_bolts
-	charge_cost = 100
+	charge_cost = 1000
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt/stun
 	fire_delay = 15
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
@@ -39,7 +39,7 @@
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_spheres
-	charge_cost = 300
+	charge_cost = 1200
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere/stun
 	fire_delay = 100
 	fire_sound = 'sound/weapons/pulse.ogg'
