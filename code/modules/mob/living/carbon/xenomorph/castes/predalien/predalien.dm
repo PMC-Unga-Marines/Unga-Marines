@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/predalien
-	caste_base_type = /mob/living/carbon/xenomorph/predalien
+	caste_base_type = /datum/xeno_caste/predalien
 	name = "Abomination" //snowflake name
 	desc = "A strange looking creature with fleshy strands on its head. It appears like a mixture of armor and flesh, smooth, but well carapaced."
 	icon = 'icons/Xeno/castes/predalien_praetorian.dmi'
