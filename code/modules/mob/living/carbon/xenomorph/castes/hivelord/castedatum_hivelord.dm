@@ -23,11 +23,8 @@
 	// *** Health *** //
 	max_health = 350
 
-
 	// *** Evolution *** //
 	evolution_threshold = 225
-
-	deevolves_to = /mob/living/carbon/xenomorph/drone
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER|CASTE_ACID_BLOOD
