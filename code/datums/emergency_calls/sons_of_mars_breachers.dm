@@ -2,7 +2,7 @@
 /datum/emergency_call/som_breachers
 	name = "Sons of Mars Squad"
 	base_probability = 13
-	alignement_factor = 0
+	alignement_factor = 1
 	///number of available special weapon dudes
 	var/max_specialists = 1
 
