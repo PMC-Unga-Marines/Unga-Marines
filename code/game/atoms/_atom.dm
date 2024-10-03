@@ -962,3 +962,7 @@ directive is properly returned.
 /atom/proc/do_acid_melt()
 	visible_message(span_xenodanger("[src] collapses under its own weight into a puddle of goop and undigested debris!"))
 	playsound(src, "acid_hit", 25)
+
+/// Handles anything that should happen when the Warrior's punch hits any atom.
+/atom/proc/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, push = TRUE)
+	return TRUE
