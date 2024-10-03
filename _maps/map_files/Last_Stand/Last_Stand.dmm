@@ -5164,9 +5164,7 @@
 	},
 /area/whiskey_outpost)
 "Ot" = (
-/obj/machinery/marine_selector/clothes{
-	lock_flags = 0
-	},
+/obj/machinery/marine_selector/clothes,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost)
 "Oz" = (
