@@ -164,7 +164,7 @@ const GetPredInfo = (props) => {
       <td>{rank}</td>
       <td>{honor}</td>
       {player_rank_pos > rank_pos ? (
-        <Fragment>
+        <>
           {player_modify_ranks ? (
             <td>
               <div unselectable="on">
@@ -195,7 +195,7 @@ const GetPredInfo = (props) => {
               </div>
             </td>
           ) : null}
-        </Fragment>
+        </>
       ) : null}
     </tr>
   );
