@@ -95265,17 +95265,9 @@
 /turf/open/floor/iron/white,
 /area/deltastation/medical/chemistry)
 "ttl" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 8;
-	name = "Gas to Chamber";
-	pixel_y = -5
-	},
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 4;
-	name = "Chamber to Cooling";
-	pixel_y = 4
-	},
 /obj/effect/turf_decal/box,
+/obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
+/obj/effect/mapping_helpers/simple_pipes/green/visible/layer4,
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "ttm" = (
