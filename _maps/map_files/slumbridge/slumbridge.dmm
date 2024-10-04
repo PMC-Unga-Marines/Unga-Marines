@@ -32677,15 +32677,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkbrown/full,
 /area/slumbridge/inside/houses/swcargo)
-"ymi" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump{
-	dir = 1;
-	on = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark,
-/area/slumbridge/inside/colony/dorms)
 
 (1,1,1) = {"
 dHe
@@ -46561,7 +46552,7 @@ jXX
 xTb
 opq
 svM
-ymi
+hbY
 hbY
 jXX
 uls
