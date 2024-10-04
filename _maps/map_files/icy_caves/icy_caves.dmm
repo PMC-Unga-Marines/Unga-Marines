@@ -566,9 +566,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 8
-	},
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
