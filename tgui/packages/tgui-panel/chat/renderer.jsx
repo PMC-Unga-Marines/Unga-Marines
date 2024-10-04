@@ -580,7 +580,7 @@ class ChatRenderer {
     }
     // Remove pruned messages from the message array
     this.messages = this.messages.filter(
-      (message) => message.node !== 'pruned'
+      (message) => message.node !== 'pruned',
     );
     logger.log(`Cleared chat`);
   }

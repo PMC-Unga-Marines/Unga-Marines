@@ -57,7 +57,7 @@ export const SettingsPanel = (props) => {
                   dispatch(
                     changeSettingsTab({
                       tabId: tab.id,
-                    })
+                    }),
                   )
                 }
               >
@@ -95,7 +95,7 @@ export const SettingsGeneral = (props) => {
                 dispatch(
                   updateSettings({
                     theme: THEME,
-                  })
+                  }),
                 )
               }
             />
@@ -129,7 +129,7 @@ export const SettingsGeneral = (props) => {
                       dispatch(
                         updateSettings({
                           fontFamily: FONT,
-                        })
+                        }),
                       )
                     }
                   />
@@ -144,7 +144,7 @@ export const SettingsGeneral = (props) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -175,7 +175,7 @@ export const SettingsGeneral = (props) => {
               dispatch(
                 updateSettings({
                   fontSize: value,
-                })
+                }),
               )
             }
           />
@@ -193,7 +193,7 @@ export const SettingsGeneral = (props) => {
               dispatch(
                 updateSettings({
                   lineHeight: value,
-                })
+                }),
               )
             }
           />
@@ -284,7 +284,7 @@ const TextHighlightSetting = (props) => {
               dispatch(
                 removeHighlightSetting({
                   id: id,
-                })
+                }),
               )
             }
           />
@@ -299,7 +299,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   highlightWholeMessage: !highlightWholeMessage,
-                })
+                }),
               )
             }
           />
@@ -315,7 +315,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   matchWord: !matchWord,
-                })
+                }),
               )
             }
           />
@@ -330,7 +330,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   matchCase: !matchCase,
-                })
+                }),
               )
             }
           />
@@ -347,7 +347,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   highlightColor: value,
-                })
+                }),
               )
             }
           />
@@ -362,7 +362,7 @@ const TextHighlightSetting = (props) => {
             updateHighlightSetting({
               id: id,
               highlightText: value,
-            })
+            }),
           )
         }
       />

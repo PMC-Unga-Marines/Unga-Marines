@@ -33,7 +33,7 @@ export const ChatPageSettings = (props) => {
                 updateChatPage({
                   pageId: page.id,
                   name: value,
-                })
+                }),
               )
             }
           />
@@ -49,7 +49,7 @@ export const ChatPageSettings = (props) => {
                 updateChatPage({
                   pageId: page.id,
                   hideUnreadCount: !page.hideUnreadCount,
-                })
+                }),
               )
             }
           />
@@ -63,7 +63,7 @@ export const ChatPageSettings = (props) => {
               dispatch(
                 removeChatPage({
                   pageId: page.id,
-                })
+                }),
               )
             }
           />
@@ -72,7 +72,7 @@ export const ChatPageSettings = (props) => {
       <Divider />
       <Section title="Messages to display" level={2}>
         {MESSAGE_TYPES.filter(
-          (typeDef) => !typeDef.important && !typeDef.admin
+          (typeDef) => !typeDef.important && !typeDef.admin,
         ).map((typeDef) => (
           <Button.Checkbox
             key={typeDef.type}
@@ -82,7 +82,7 @@ export const ChatPageSettings = (props) => {
                 toggleAcceptedType({
                   pageId: page.id,
                   type: typeDef.type,
-                })
+                }),
               )
             }
           >
@@ -91,7 +91,7 @@ export const ChatPageSettings = (props) => {
         ))}
         <Collapsible mt={1} color="transparent" title="Admin stuff">
           {MESSAGE_TYPES.filter(
-            (typeDef) => !typeDef.important && typeDef.admin
+            (typeDef) => !typeDef.important && typeDef.admin,
           ).map((typeDef) => (
             <Button.Checkbox
               key={typeDef.type}
@@ -101,7 +101,7 @@ export const ChatPageSettings = (props) => {
                   toggleAcceptedType({
                     pageId: page.id,
                     type: typeDef.type,
-                  })
+                  }),
                 )
               }
             >
