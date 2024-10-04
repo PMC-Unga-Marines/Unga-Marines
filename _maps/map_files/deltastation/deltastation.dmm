@@ -20615,8 +20615,6 @@
 /area/deltastation/command/heads_quarters/rd)
 "ehW" = (
 /obj/structure/prop/mainship/supermatter,
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
-/obj/effect/mapping_helpers/simple_pipes/green/visible/layer4,
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "ehZ" = (
@@ -36523,8 +36521,6 @@
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/command/heads_quarters/hos)
 "hpF" = (
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
-/obj/effect/mapping_helpers/simple_pipes/green/visible/layer4,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -52912,15 +52908,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/deltastation/security/prison/mess)
-"kNX" = (
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
-/obj/effect/mapping_helpers/simple_pipes/green/visible/layer4,
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/open/floor/engine,
-/area/deltastation/engineering/supermatter)
 "kOb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59117,16 +59104,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/deltastation/security/prison)
-"mbE" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 1
-	},
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/open/floor/engine,
-/area/deltastation/engineering/supermatter)
 "mbR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/iron/white/smooth_large,
@@ -74173,8 +74150,6 @@
 /turf/open/floor/plating,
 /area/deltastation/engineering/transit_tube)
 "pir" = (
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
-/obj/effect/mapping_helpers/simple_pipes/green/visible/layer4,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -95263,8 +95238,6 @@
 /area/deltastation/medical/chemistry)
 "ttl" = (
 /obj/effect/turf_decal/box,
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
-/obj/effect/mapping_helpers/simple_pipes/green/visible/layer4,
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "ttm" = (
@@ -101290,7 +101263,6 @@
 /turf/open/floor/iron/grimy,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
 "uCs" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
 	name = "Blocker"
@@ -141231,8 +141203,8 @@ jHw
 jdQ
 gWn
 uCs
-kNX
-mbE
+uCs
+uCs
 oMW
 nzj
 sHC
@@ -141489,7 +141461,7 @@ seK
 tbJ
 uCs
 ehW
-mbE
+uCs
 aIN
 vRs
 mEc
@@ -141745,8 +141717,8 @@ kTe
 lvk
 gWn
 uCs
-kNX
-mbE
+uCs
+uCs
 oMW
 qnb
 jrx
