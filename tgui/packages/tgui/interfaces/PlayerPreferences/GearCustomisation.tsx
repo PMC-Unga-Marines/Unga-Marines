@@ -177,7 +177,8 @@ export const GearCustomization = (props) => {
               {bySlot['Miscellaneous']?.map((item) => (
                 <LabeledList.Item
                   key={item.name}
-                  label={`${item.name} (${item.cost})`}>
+                  label={`${item.name} (${item.cost})`}
+                >
                   <Button.Checkbox
                     inline
                     content={'Equipped'}

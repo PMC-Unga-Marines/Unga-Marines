@@ -53,7 +53,7 @@ export const PlayerPreferences = (props) => {
   // I dont like this shit, but it doesn't matter in the end
   // i'd rather massage the data in js than byond.
   const slotNames = Object.values(save_slot_names).map(
-    (name) => name.split(' ')[0]
+    (name) => name.split(' ')[0],
   );
 
   const saveSlots = new Array(10).fill(1).map((_, idx) => (

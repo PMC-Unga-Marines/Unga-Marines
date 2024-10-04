@@ -159,7 +159,8 @@ export const MedScanner = (props) => {
                   <Box
                     inline
                     color={chemical.od ? 'red' : 'white'}
-                    bold={chemical.od}>
+                    bold={chemical.od}
+                  >
                     {chemical.amount + 'u ' + chemical.name}
                   </Box>
                   <Box inline width={'5px'} />

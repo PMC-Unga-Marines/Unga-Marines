@@ -132,9 +132,9 @@ export const KeybindSettings = (props) => {
             <LabeledList.Item>
               <h3>Yautja</h3>
             </LabeledList.Item>
-            {all_keybindings['YAUTJA']?.filter(filterSearch).map((kb) => (
-              <KeybindingPreference key={kb.name} keybind={kb} />
-            ))}
+            {all_keybindings['YAUTJA']
+              ?.filter(filterSearch)
+              .map((kb) => <KeybindingPreference key={kb.name} keybind={kb} />)}
             <LabeledList.Item>
               <h3>Psionic</h3>
             </LabeledList.Item>
