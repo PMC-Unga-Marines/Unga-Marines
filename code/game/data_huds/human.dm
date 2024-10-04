@@ -134,7 +134,14 @@
 		infection_hud.icon_state = "robot"
 		return TRUE
 
-	if(status_flags & XENO_HOST)
+	if(stat == DEAD)
+		if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
+			infection_hud.icon_state = "psy_drain"
+		else
+			infection_hud.icon_state = "dead_xeno_animated"
+		return TRUE
+
+	else if(status_flags & XENO_HOST)
 		infection_hud.icon = 'icons/mob/hud/infected.dmi'
 		var/obj/item/alien_embryo/embryo = locate(/obj/item/alien_embryo) in src
 		if(embryo)
@@ -144,13 +151,6 @@
 				infection_hud.icon_state = "infected[embryo.stage]"
 		else if(locate(/mob/living/carbon/xenomorph/larva) in src)
 			infection_hud.icon_state = "infected6"
-		return TRUE
-
-	else if(stat == DEAD)
-		if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
-			infection_hud.icon_state = "psy_drain"
-		else
-			infection_hud.icon_state = "dead_xeno_animated"
 		return TRUE
 	return FALSE
 
