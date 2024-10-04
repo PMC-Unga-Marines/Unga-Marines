@@ -375,12 +375,14 @@
 	SIGNAL_HANDLER
 	if(target.stat == DEAD)
 		return
-	if(!ishuman(target)) // no farming on animals/dead
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/human_target = target
+	if(human_target.species.species_flags & NO_BLOOD)
 		return
 	if(timeleft(timer_ref) > 0)
 		return
-	var/mob/living/carbon/human/human_target = target // RUTGMC ADDITION START
-	human_target.blood_volume -= 5 // something about 1% // RUTGMC ADDITION END
+	human_target.blood_volume -= 5 // something about 1%
 	var/mob/living/carbon/xenomorph/x = owner
 	x.adjustBruteLoss(-x.bruteloss * 0.125)
 	x.adjustFireLoss(-x.fireloss * 0.125)

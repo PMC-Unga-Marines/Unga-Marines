@@ -19,11 +19,13 @@
 	. = ..()
 	if(!.)
 		return
-	if(!ishuman(target) || issynth(target))
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/victim = target
+	if(victim.species.species_flags & NO_BLOOD)
 		if(!silent)
 			to_chat(owner, span_warning("That wouldn't taste very good."))
 		return FALSE
-	var/mob/living/carbon/human/victim = target
 	if(owner.do_actions) //can't use if busy
 		return FALSE
 	if(!owner.Adjacent(victim)) //checks if owner next to target
@@ -100,7 +102,10 @@
 
 /datum/action/ability/activable/xeno/drain/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
-	if(!ishuman(target) || issynth(target))
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/human_target = target
+	if(human_target.species.species_flags & NO_BLOOD)
 		if(!silent)
 			to_chat(owner, span_xenowarning("We can't drain this!"))
 		return FALSE
@@ -320,14 +325,6 @@
 		if(!silent)
 			to_chat(owner, span_notice("It is beyond our reach, we must be close and our way must be clear."))
 		return FALSE
-	/*if(HAS_TRAIT(owner, TRAIT_PSY_LINKED)) //RUTGMC EDIT REMOVAL BEGIN
-		if(!silent)
-			to_chat(owner, span_notice("You are already linked to a xenomorph."))
-		return FALSE
-	if(HAS_TRAIT(target, TRAIT_PSY_LINKED))
-		if(!silent)
-			to_chat(owner, span_notice("[target] is already linked to a xenomorph."))
-		return FALSE*/ //RUTGMC EDIT REMOVAL END
 	return TRUE
 
 /datum/action/ability/activable/xeno/psychic_link/use_ability(atom/target)
@@ -350,16 +347,10 @@
 	RegisterSignal(psychic_link, COMSIG_XENO_PSYCHIC_LINK_REMOVED, PROC_REF(status_removed))
 	target.balloon_alert(owner_xeno, "link successul")
 	owner_xeno.balloon_alert(target, "linked to [owner_xeno]")
-	//RUTGMC EDIT REMOVAL BEGIN
-	/*if(!owner_xeno.resting)
-		owner_xeno.set_resting(TRUE, TRUE)
-	RegisterSignal(owner_xeno, COMSIG_XENOMORPH_UNREST, PROC_REF(cancel_psychic_link)) */
-	//RUTGMC EDIT REMOVAL END
 	succeed_activate()
 
 ///Removes the status effect on unrest
 /datum/action/ability/activable/xeno/psychic_link/proc/cancel_psychic_link(datum/source)
-	//SIGNAL_HANDLER //RUTGMC EDIT REMOVAL
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	owner_xeno.remove_status_effect(STATUS_EFFECT_XENO_PSYCHIC_LINK)
 
@@ -367,7 +358,6 @@
 /datum/action/ability/activable/xeno/psychic_link/proc/status_removed(datum/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(source, COMSIG_XENO_PSYCHIC_LINK_REMOVED)
-	//UnregisterSignal(owner, COMSIG_XENOMORPH_UNREST) //RUTGMC EDIT REMOVAL
 	add_cooldown()
 
 ///Clears up things used for the linking

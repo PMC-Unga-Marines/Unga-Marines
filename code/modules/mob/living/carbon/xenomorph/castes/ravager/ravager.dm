@@ -90,6 +90,20 @@
 
 /mob/living/carbon/xenomorph/ravager/proc/drain_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
+	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
+	if(endure_ability.endure_duration) //Check if Endure is active
+		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH))
+		deltimer(endure_ability.endure_duration) //Reset timers
+		deltimer(endure_ability.endure_warning_duration)
+		endure_ability.endure_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_deactivate)), new_duration, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
+		if(new_duration > 3 SECONDS) //Check timing
+			endure_ability.endure_warning_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_warning)), new_duration - 3 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
+
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human_target = target
+	if(human_target.species.species_flags & NO_BLOOD)
+		return
 	var/brute_damage = getBruteLoss()
 	var/burn_damage = getFireLoss()
 	if(!brute_damage && !burn_damage)
@@ -103,16 +117,7 @@
 	if(burn_damage)
 		health_modifier = -min(burn_damage, health_recovery)
 		adjustFireLoss(health_modifier, TRUE)
-
-	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
-	if(endure_ability.endure_duration) //Check if Endure is active
-		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH))
-		deltimer(endure_ability.endure_duration) //Reset timers
-		deltimer(endure_ability.endure_warning_duration)
-		endure_ability.endure_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_deactivate)), new_duration, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
-		if(new_duration > 3 SECONDS) //Check timing
-			endure_ability.endure_warning_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_warning)), new_duration - 3 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
-
+	human_target.blood_volume -= 10 // something about 2%
 // ***************************************
 // *********** Mob overrides
 // ***************************************
@@ -120,8 +125,8 @@
 	. = ..()
 	if(stat)
 		return
-	if(pass_flags & PASS_FIRE) // RUTGMC ADDITION START
-		return FALSE // RUTGMC ADDITION END
+	if(pass_flags & PASS_FIRE)
+		return FALSE
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_RAVAGER_FLAMER_ACT))
 		return FALSE
 	gain_plasma(50)
