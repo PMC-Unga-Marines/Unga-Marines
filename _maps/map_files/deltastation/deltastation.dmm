@@ -110775,10 +110775,6 @@
 /turf/open/floor/iron,
 /area/deltastation/security/execution/transfer)
 "wvg" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 1;
-	name = "Engine Cooling Bypass"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
