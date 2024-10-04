@@ -2,9 +2,11 @@
 
 //Base Area
 
+//Why is /area/barren a lava area?
 /area/barren
 	name = "Lava"
 	icon_state = "lava"
+	always_unpowered = TRUE
 
 //Caves
 /area/lavaland/cave
@@ -83,6 +85,7 @@
 	icon_state = "lava_med"
 	outside = FALSE
 	minimap_color = MINIMAP_AREA_MEDBAY
+	always_unpowered = FALSE
 
 /area/barren/medical/chemistry
 	name = "Medical Clinic Chemistry"
@@ -102,6 +105,7 @@
 	outside = FALSE
 	icon_state = "lava_engine"
 	minimap_color = MINIMAP_AREA_ENGI
+	always_unpowered = FALSE
 
 /area/barren/engie/one
 	name = "Generator One"
@@ -126,6 +130,7 @@
 	icon_state = "lava_sec_prison"
 	outside = FALSE
 	minimap_color = MINIMAP_AREA_SEC
+	always_unpowered = FALSE
 
 /area/barren/security/storage
 	name = "Prison Facility Storage"
@@ -146,6 +151,7 @@
 	name = "Civilian Housing"
 	icon_state = "lava_civ"
 	outside = FALSE
+	always_unpowered = FALSE
 
 /area/barren/civilian/cook
 	name = "Civilian Kitchen"
