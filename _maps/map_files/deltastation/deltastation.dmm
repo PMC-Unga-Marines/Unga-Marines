@@ -47200,7 +47200,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/layer_manifold,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/iron,
 /area/deltastation/science/xenobiology)
@@ -72118,7 +72117,6 @@
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/components/unary/outlet_injector,
 /turf/open/floor/iron/dark,
 /area/deltastation/security/execution/education)
 "oLV" = (
@@ -110714,7 +110712,6 @@
 /area/deltastation/asteroidcaves/derelictwest)
 "wur" = (
 /obj/effect/spawner/random/misc/plant,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
 	},
