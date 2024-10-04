@@ -1702,9 +1702,6 @@
 /obj/item/stack/sheet/metal,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 9
-	},
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 1
 	},
