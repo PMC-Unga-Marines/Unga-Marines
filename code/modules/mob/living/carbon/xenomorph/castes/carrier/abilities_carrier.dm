@@ -446,12 +446,13 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	young.adjust_boost_timer(20, 40)
 
-	if(young.stage <= 1)
-		victim.throw_at(owner, 2, 1, owner)
-	else if(young.stage > 1 && young.stage <= 5)
-		victim.throw_at(owner, 3, 1, owner)
-	else if(young.stage == 6)
-		victim.throw_at(owner, 4, 1, owner)
+	if(!CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST))
+		if(young.stage <= 1)
+			victim.throw_at(owner, 2, 1, owner)
+		else if(young.stage > 1 && young.stage <= 5)
+			victim.throw_at(owner, 3, 1, owner)
+		else if(young.stage == 6)
+			victim.throw_at(owner, 4, 1, owner)
 
 	succeed_activate()
 	add_cooldown()
