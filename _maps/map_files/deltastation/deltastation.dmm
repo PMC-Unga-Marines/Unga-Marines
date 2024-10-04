@@ -48670,7 +48670,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible,
 /obj/effect/mapping_helpers/simple_pipes/cyan/visible/layer2,
 /obj/machinery/door_control{
 	dir = 4;
