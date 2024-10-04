@@ -15,7 +15,6 @@
 	ambience = list('sound/ambience/ambicave.ogg', 'sound/ambience/ambilava1.ogg', 'sound/ambience/ambilava2.ogg', 'sound/ambience/ambilava3.ogg')
 	ceiling = CEILING_NONE
 	minimap_color = MINIMAP_AREA_COLONY
-	always_unpowered = TRUE
 
 /area/barren/cave/central
 	name = "Central Caves"
