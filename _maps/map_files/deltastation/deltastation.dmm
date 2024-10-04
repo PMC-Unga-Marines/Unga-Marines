@@ -78735,7 +78735,6 @@
 	},
 /obj/structure/prop/mainship/turretprop,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
 	},
