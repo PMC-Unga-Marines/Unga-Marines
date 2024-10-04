@@ -46,11 +46,13 @@
 	name = "Landing Zone 1"
 	icon_state = "lava_lz1"
 	outside = FALSE
+	always_unpowered = FALSE
 
 /area/barren/cave/lz2
 	name = "Landing Zone 2"
 	icon_state = "lava_lz2"
 	outside = FALSE
+	always_unpowered = FALSE
 
 /area/barren/caves
 	name = "Unknown Area"
@@ -204,10 +206,12 @@
 /area/barren/misc/genstorage
 	name = "General Storage"
 	icon_state =  "lava_misc_genstorage"
+	always_unpowered = FALSE
 
 /area/barren/misc/eastarmory
 	name = "Eastern Armory"
 	icon_state =  "lava_misc_armory1"
+	always_unpowered = FALSE
 
 /area/barren/misc/westarmory
 	name = "Western Armory"
@@ -217,6 +221,7 @@
 	name = "Ore Processing Facility"
 	icon_state = "lava_misc_refinery"
 	minimap_color = MINIMAP_AREA_ENGI
+	always_unpowered = FALSE
 
 /area/barren/misc/crashed
 	name = "Crashed Ship"
@@ -230,4 +235,5 @@
 /area/barren/misc/ashshelter
 	name = "Ash Shelter"
 	icon_state = "lava_ash_shelter"
+	always_unpowered = FALSE
 
