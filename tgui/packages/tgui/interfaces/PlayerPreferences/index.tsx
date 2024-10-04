@@ -3,12 +3,12 @@ import { Button, Flex, Section, Tabs } from '../../components';
 import { Window } from '../../layouts';
 import { BackgroundInformation } from './BackgroundInformation';
 import { CharacterCustomization } from './CharacterCustomization';
-import { YautjaCustomization } from './YautjaCustomization';
 import { DrawOrder } from './DrawOrder';
 import { GameSettings } from './GameSettings';
 import { GearCustomization } from './GearCustomisation';
 import { JobPreferences } from './JobPreferences';
 import { KeybindSettings } from './KeybindSettings';
+import { YautjaCustomization } from './YautjaCustomization';
 
 export const PlayerPreferences = (props) => {
   const { act, data } = useBackend<PlayerPreferencesData>();
