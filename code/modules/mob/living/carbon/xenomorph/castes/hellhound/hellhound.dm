@@ -37,7 +37,7 @@
 	)
 
 /mob/living/carbon/xenomorph/hellhound
-	caste_base_type = /mob/living/carbon/xenomorph/hellhound
+	caste_base_type = /datum/xeno_caste/hellhound
 	name = "Hellhound"
 	desc = "A disgusting beast from hell, it has four menacing spikes growing from its head."
 	icon = 'icons/Xeno/castes/hellhound.dmi'
