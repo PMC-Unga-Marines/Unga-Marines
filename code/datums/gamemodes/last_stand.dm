@@ -70,6 +70,10 @@
 			continue
 		GLOB.latejoin_gateway -= loc
 
+	for(var/atom/nuke in GLOB.last_stand_nukes)
+		var/turf_targeted = get_turf(nuke)
+		new /obj/effect/ai_node/goal(turf_targeted, null)
+
 	GLOB.start_squad_landmarks_list = null
 	GLOB.latejoin_squad_landmarks_list = null
 
