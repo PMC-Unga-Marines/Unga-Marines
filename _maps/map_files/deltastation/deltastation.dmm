@@ -52908,6 +52908,13 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/deltastation/security/prison/mess)
+"kNX" = (
+/obj/effect/forcefield{
+	desc = "You can't get in. Heh.";
+	name = "Blocker"
+	},
+/turf/open/floor/engine,
+/area/deltastation/engineering/supermatter)
 "kOb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -101262,13 +101269,6 @@
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/iron/grimy,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
-"uCs" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/open/floor/engine,
-/area/deltastation/engineering/supermatter)
 "uCE" = (
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/engineering/atmos/hfr_room)
@@ -107787,9 +107787,7 @@
 /turf/open/floor/iron,
 /area/deltastation/medical/paramedic)
 "vQG" = (
-/obj/effect/turf_decal/tile/transparent/yellow{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/layer_manifold,
 /obj/effect/turf_decal/tile/transparent/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
@@ -112645,7 +112643,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/open/floor/iron,
 /area/deltastation/engineering/supermatter/room)
 "wNb" = (
@@ -141202,9 +141199,9 @@ wyI
 jHw
 jdQ
 gWn
-uCs
-uCs
-uCs
+kNX
+kNX
+kNX
 oMW
 nzj
 sHC
@@ -141459,9 +141456,9 @@ ekN
 spQ
 seK
 tbJ
-uCs
+kNX
 ehW
-uCs
+kNX
 aIN
 vRs
 mEc
@@ -141716,9 +141713,9 @@ qxm
 kTe
 lvk
 gWn
-uCs
-uCs
-uCs
+kNX
+kNX
+kNX
 oMW
 qnb
 jrx
