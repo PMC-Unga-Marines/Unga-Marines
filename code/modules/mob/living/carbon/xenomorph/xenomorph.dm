@@ -255,9 +255,10 @@
 /mob/living/carbon/xenomorph/examine(mob/user)
 	. = ..()
 	. += xeno_caste.caste_desc
+	. += "<span class='notice'>"
 
 	if(stat == DEAD)
-		. += "It is DEAD. Kicked the bucket. Off to that great hive in the sky."
+		. += "<span class='deadsay'>It is DEAD. Kicked the bucket. Off to that great hive in the sky.</span>"
 	else if(stat == UNCONSCIOUS)
 		. += "It quivers a bit, but barely moves."
 	else
@@ -273,6 +274,8 @@
 				. += "It bleeds with sizzling wounds."
 			if(1 to 24)
 				. += "It is heavily injured and limping badly."
+
+	. += "</span>"
 
 	if(hivenumber != XENO_HIVE_NORMAL)
 		var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
@@ -290,6 +293,9 @@
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+	LAZYREMOVE(hive.xenos_by_zlevel["[z]"], src)
+
+	remove_from_all_mob_huds()
 
 	if(!isnull(current_aura))
 		QDEL_NULL(current_aura)

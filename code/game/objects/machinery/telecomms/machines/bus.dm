@@ -83,23 +83,6 @@
 	freq_listening = list(FREQ_COMMON)
 	autolinkers = list("processor4", "common")
 
-//SOM
-/obj/machinery/telecomms/bus/preset_one/som
-	id = "Bus 1 som"
-	freq_listening = list(FREQ_COMMAND_SOM, FREQ_MEDICAL_SOM, FREQ_ENGINEERING_SOM) //No need for extra channels at this stage
-	autolinkers = list("processor1_som", "command_som", "medical_som", "engineering_som")
-
-/obj/machinery/telecomms/bus/preset_three/som
-	id = "Bus 3 som"
-	freq_listening = list(FREQ_ZULU, FREQ_YANKEE, FREQ_XRAY, FREQ_WHISKEY)
-	autolinkers = list("processor3_som", "zulu", "yankee", "xray", "whiskey")
-
-/obj/machinery/telecomms/bus/preset_four/som
-	id = "Bus 4 som"
-	freq_listening = list(FREQ_SOM) //same channel as SOM ert
-	autolinkers = list("processor4_som", "common_som")
-
-
 /obj/machinery/telecomms/bus/preset_four/Initialize(mapload)
 	. = ..()
 	for(var/i = MIN_FREQ, i <= MAX_FREQ, i += 2)

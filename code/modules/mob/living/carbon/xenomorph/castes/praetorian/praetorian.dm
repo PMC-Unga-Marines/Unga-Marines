@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/praetorian
-	caste_base_type = /mob/living/carbon/xenomorph/praetorian
+	caste_base_type = /datum/xeno_caste/praetorian
 	name = "Praetorian"
 	desc = "A huge, looming beast of an alien."
 	icon = 'icons/Xeno/castes/praetorian.dmi'
@@ -14,4 +14,8 @@
 	tier = XENO_TIER_THREE
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
+	skins = list(
+		"tacticool" = 'icons/Xeno/castes/praetorian_tacticool.dmi',
+		"baseline" = 'icons/Xeno/castes/praetorian.dmi',
+	)
 

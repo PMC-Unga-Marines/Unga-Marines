@@ -32,7 +32,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/hivenumber = XENO_HIVE_NORMAL
 
 /datum/ammo/xeno/toxin
-	name = "neurotoxic spit"
+	icon_state = "transvitox"
+	name = "transvitox spit"
 	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	spit_cost = 55
 	added_spit_delay = 0
@@ -47,34 +48,14 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	smoke_strength = 0.5
 	smoke_range = 0
 	reagent_transfer_amount = 4
-	bullet_color = COLOR_LIGHT_ORANGE
-
-/datum/ammo/xeno/tox_loss
-	name = "toxin spit"
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
-	spit_cost = 50
-	added_spit_delay = 0
-	damage_type = STAMINA
-	accurate_range = 5
-	max_range = 10
-	accuracy_var_low = 3
-	accuracy_var_high = 3
-	damage = 15
-	stagger_stacks = 1 SECONDS
-	slowdown_stacks = 1.5
-	bullet_color = COLOR_LIGHT_ORANGE
-	var/toxin_damage = 10
-
-/datum/ammo/xeno/tox_loss/on_hit_mob(mob/living/carbon/carbon_victim, obj/projectile/proj)
-	carbon_victim.apply_damage(toxin_damage, TOX, proj.def_zone, armor_type, updating_health = TRUE)
-	return ..()
+	bullet_color = COLOR_TOXIN_XENO_TRANSVITOX
 
 ///Set up the list of reagents the spit transfers upon impact
 /datum/ammo/xeno/toxin/proc/set_reagents()
-	spit_reagents = list(/datum/reagent/toxin/xeno_neurotoxin = reagent_transfer_amount)
+	spit_reagents = list(/datum/reagent/toxin/xeno_transvitox = reagent_transfer_amount)
 
 /datum/ammo/xeno/toxin/on_hit_mob(mob/living/carbon/carbon_victim, obj/projectile/proj)
-	drop_neuro_smoke(get_turf(carbon_victim))
+	drop_transvitox_smoke(get_turf(carbon_victim))
 
 	if(!istype(carbon_victim) || carbon_victim.stat == DEAD || carbon_victim.issamexenohive(proj.firer) )
 		return
@@ -95,18 +76,18 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/toxin/on_hit_obj(obj/O, obj/projectile/P)
 	var/turf/T = get_turf(O)
-	drop_neuro_smoke(T.density ? P.loc : T)
+	drop_transvitox_smoke(T.density ? P.loc : T)
 
 /datum/ammo/xeno/toxin/on_hit_turf(turf/T, obj/projectile/P)
-	drop_neuro_smoke(T.density ? P.loc : T)
+	drop_transvitox_smoke(T.density ? P.loc : T)
 
 /datum/ammo/xeno/toxin/do_at_max_range(turf/T, obj/projectile/P)
-	drop_neuro_smoke(T.density ? P.loc : T)
+	drop_transvitox_smoke(T.density ? P.loc : T)
 
 /datum/ammo/xeno/toxin/set_smoke()
-	smoke_system = new /datum/effect_system/smoke_spread/xeno/neuro/light()
+	smoke_system = new /datum/effect_system/smoke_spread/xeno/transvitox/light()
 
-/datum/ammo/xeno/toxin/proc/drop_neuro_smoke(turf/T)
+/datum/ammo/xeno/toxin/proc/drop_transvitox_smoke(turf/T)
 	if(T.density)
 		return
 
@@ -140,6 +121,26 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	smoke_strength = 1
 	reagent_transfer_amount = 18
 	smoke_range = 1
+
+/datum/ammo/xeno/tox_loss
+	name = "toxin spit"
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+	spit_cost = 50
+	added_spit_delay = 0
+	damage_type = STAMINA
+	accurate_range = 5
+	max_range = 10
+	accuracy_var_low = 3
+	accuracy_var_high = 3
+	damage = 15
+	stagger_stacks = 1 SECONDS
+	slowdown_stacks = 1.5
+	bullet_color = COLOR_LIGHT_ORANGE
+	var/toxin_damage = 10
+
+/datum/ammo/xeno/tox_loss/on_hit_mob(mob/living/carbon/carbon_victim, obj/projectile/proj)
+	carbon_victim.apply_damage(toxin_damage, TOX, proj.def_zone, armor_type, updating_health = TRUE)
+	return ..()
 
 /datum/ammo/xeno/tox_loss/heavy //Praetorian
 	name = "toxin splash"
@@ -205,7 +206,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage = 40
 	max_range = 7
 	spit_cost = 200
-	added_spit_delay = 8 SECONDS
+	added_spit_delay = 3 SECONDS
 	bonus_projectiles_type = /datum/ammo/xeno/sticky/mini
 	bonus_projectiles_scatter = 22
 	var/bonus_projectile_quantity = 16
@@ -460,7 +461,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/boiler_gas/on_hit_obj(obj/O, obj/projectile/P)
 	if(ismecha(O))
-		P.damage *= 7 //Globs deal much higher damage to mechs.
+		P.damage *= 5 //Globs deal much higher damage to mechs.
+	else if(ishitbox(O) || isvehicle(O))
+		P.damage *= 1.5
 	var/turf/target_turf = get_turf(O)
 	drop_nade(O.density ? P.loc : target_turf, P.firer)
 

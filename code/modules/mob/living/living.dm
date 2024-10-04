@@ -200,6 +200,17 @@
 		if(client)
 			reset_perspective()
 
+/mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
+	if(registered_z == new_z)
+		return
+	if(registered_z)
+		SSmobs.clients_by_zlevel[registered_z] -= src
+	if(isnull(client))
+		registered_z = null
+		return
+	if(new_z)
+		SSmobs.clients_by_zlevel[new_z] += src
+	registered_z = new_z
 
 /mob/living/proc/do_camera_update(oldLoc)
 	return
@@ -510,6 +521,7 @@
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].remove_from_hud(src)
 
+	ADD_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	smokecloaked = TRUE
 
 /mob/living/proc/smokecloak_off()
@@ -525,6 +537,7 @@
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
 
+	REMOVE_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	smokecloaked = FALSE
 
 /mob/living/proc/update_cloak()

@@ -13,7 +13,14 @@
 		return new /datum/export_report(0, name, faction_selling)
 	return ..()
 
-///Getter to obtain the req point value of whatever this is
+/mob/living/carbon/xenomorph/supply_export(faction_selling)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/list/points = get_export_value()
+	GLOB.round_statistics.points_from_xenos += points[1]
+
 /atom/movable/proc/get_export_value()
 	return 0
 

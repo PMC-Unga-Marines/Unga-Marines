@@ -106,37 +106,31 @@
 	name = "Sawn Off Shotgun"
 	contains = list(/obj/item/weapon/gun/shotgun/double/sawn)
 	cost = 150
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/imports/leveraction
 	name = "Lever Action Rifle"
 	contains = list(/obj/item/weapon/gun/shotgun/pump/lever)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/imports/mbx900
 	name = "MBX 900"
 	contains = list(/obj/item/weapon/gun/shotgun/pump/lever/mbx900)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/imports/mbx900/buckshot
 	name = "MBX-900 Buckshot Shells"
 	contains = list(/obj/item/ammo_magazine/shotgun/mbx900/buckshot)
 	cost = 10
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/imports/dragunov
 	name = "SVD Dragunov Sniper"
 	contains = list(/obj/item/weapon/gun/rifle/sniper/svd)
 	cost = 150
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/imports/dragunov/ammo
 	name = "SVD Dragunov Sniper Ammo"
 	contains = list(/obj/item/ammo_magazine/sniper/svd)
 	cost = 10
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/imports/mpi_km
 	name = "MPi-KM Assault Rifle"

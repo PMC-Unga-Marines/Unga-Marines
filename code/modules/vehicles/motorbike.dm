@@ -5,8 +5,8 @@
 	name = "all-terrain motorbike"
 	desc = "An all-terrain vehicle built for traversing rough terrain with ease. \"TGMC CAVALRY\" is stamped on the side of the engine."
 	icon_state = "motorbike"
-	max_integrity = 300
-	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 0, BOMB = 30, FIRE = 60, ACID = 60)
+	max_integrity = 200
+	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 0, BOMB = 30, FIRE = 0, ACID = 0)
 	resistance_flags = XENO_DAMAGEABLE
 	flags_atom = PREVENT_CONTENTS_EXPLOSION
 	key_type = null
@@ -39,6 +39,11 @@
 		return
 	. += "To access internal storage click with an empty hand or drag the bike onto self."
 	. += "The fuel gauge on the bike reads \"[fuel_count/fuel_max*100]%\""
+
+/obj/vehicle/ridden/motorbike/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
+	if(!do_after(buckling_mob, 2 SECONDS, NONE, src, extra_checks = CALLBACK(buckling_mob, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = buckling_mob.health))))
+		return FALSE
+	return ..()
 
 /obj/vehicle/ridden/motorbike/post_buckle_mob(mob/living/M)
 	add_overlay(motorbike_cover)

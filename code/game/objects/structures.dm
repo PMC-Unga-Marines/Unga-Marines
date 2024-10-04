@@ -189,3 +189,8 @@
 /obj/structure/proc/turf_cover_check(atom/movable/source)
 	SIGNAL_HANDLER
 	return TRUE
+
+/obj/structure/effect_smoke(obj/effect/particle_effect/smoke/S)
+	. = ..()
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
+		take_damage(10 * S.strength, BURN, ACID)

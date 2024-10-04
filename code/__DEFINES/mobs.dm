@@ -1,7 +1,5 @@
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
-///Comment out if you don't want VOX to be enabled and have players download the voice sounds.
-#define AI_VOX
 
 //Mob movement define
 
@@ -438,8 +436,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HEAD_LAYER 13
 #define COLLAR_LAYER 12
 #define SUIT_STORE_LAYER 11
-#define BACK_LAYER 10
-#define KAMA_LAYER 9
+#define KAMA_LAYER 10
+#define BACK_LAYER 9
 #define CAPE_LAYER 8
 #define HANDCUFF_LAYER 7
 #define L_HAND_LAYER 6
@@ -753,11 +751,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CHARLIE_SQUAD "charlie_squad"
 #define DELTA_SQUAD "delta_squad"
 
-#define ZULU_SQUAD "zulu_squad"
-#define YANKEE_SQUAD "yankee_squad"
-#define XRAY_SQUAD "xray_squad"
-#define WHISKEY_SQUAD "whiskey_squad"
-
 #define TYPING_INDICATOR_LIFETIME 3 SECONDS	//Grace period after which typing indicator disappears regardless of text in chatbar.
 
 
@@ -871,6 +864,9 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define BASE_WALL_SLAM_DAMAGE 15
 ///Default damage for slamming a mob against another mob
 #define BASE_MOB_SLAM_DAMAGE 8
+
+///Pixel_y offset when lying down
+#define CARBON_LYING_Y_OFFSET -6
 
 // Yautja defines
 

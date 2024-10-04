@@ -7,7 +7,7 @@
 	///door to enter and leave the tank. TODO: make this support multiple doors
 	var/turf/closed/interior/tank/door/door
 
-/datum/interior/armored/Destroy(force, ...)
+/datum/interior/armored/Destroy(force)
 	breech = null
 	secondary_breech = null
 	door = null

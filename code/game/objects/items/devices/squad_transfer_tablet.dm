@@ -34,7 +34,7 @@
 	if(!ishuman(usr))
 		return
 	var/mob/living/carbon/human/human_user = usr
-	if(!ismarineleaderjob(human_user.job) && !issommarineleaderjob(human_user.job) && !ismarinecommandjob(human_user.job) && !issommarinecommandjob(human_user.job))
+	if(!ismarineleaderjob(human_user.job) && !ismarinecommandjob(human_user.job))
 		to_chat(human_user, span_notice("Only command roles my request squad changes!"))
 		return FALSE
 	if(action != "transfer")

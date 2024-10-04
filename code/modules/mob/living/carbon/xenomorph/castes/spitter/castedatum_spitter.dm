@@ -12,19 +12,17 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.6
+	speed = -0.7
 
 	// *** Plasma *** //
 	plasma_max = 925
-	plasma_gain = 30
+	plasma_gain = 50
 
 	// *** Health *** //
 	max_health = 310
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-
-	deevolves_to = /mob/living/carbon/xenomorph/sentinel
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD

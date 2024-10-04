@@ -7,6 +7,9 @@
 
 	var/caste_type_path = null
 
+	//for strains basetype
+	var/base_caste_type_path = null
+
 	///primordial message that is shown when a caste becomes primordial
 	var/primordial_message = ""
 
@@ -58,9 +61,6 @@
 	// *** Evolution *** //
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
-
-	///Singular type path for the caste to deevolve to when forced to by the queen.
-	var/deevolves_to
 
 	///see_in_dark value while consicious
 	var/conscious_see_in_dark = 8
@@ -301,6 +301,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	var/datum/xeno_caste/xeno_caste
+	/// /datum/xeno_caste that we will be on init
 	var/caste_base_type
 	var/language = "Xenomorph"
 	///Plasma currently stored
@@ -335,6 +336,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Will increase by 10 every decisecond if under 0.
 	///Increases by xeno_caste.regen_ramp_amount every decisecond. If you want to balance this, look at the xeno_caste defines mentioned above.
 	var/regen_power = 0
+	///Stored biomass
+	var/biomass = 0
 
 	var/is_zoomed = 0
 	var/zoom_turf = null
@@ -430,3 +433,5 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	COOLDOWN_DECLARE(xeno_resting_cooldown)
 	///The unresting cooldown
 	COOLDOWN_DECLARE(xeno_unresting_cooldown)
+
+	var/list/skins = list()

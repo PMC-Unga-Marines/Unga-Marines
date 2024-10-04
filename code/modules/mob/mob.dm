@@ -833,6 +833,9 @@
 		return
 	if(old_z == new_z)
 		return
+	if(isliving(src))
+		var/mob/living/living = src
+		living.update_z(new_z)
 	if(is_ground_level(new_z))
 		hud_used.remove_parallax(src)
 		return

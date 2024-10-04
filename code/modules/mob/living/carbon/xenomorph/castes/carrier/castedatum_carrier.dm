@@ -14,7 +14,7 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.3
+	speed = -0.4
 
 	// *** Plasma *** //
 	plasma_max = 800
@@ -25,8 +25,6 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-
-	deevolves_to = /mob/living/carbon/xenomorph/drone
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
