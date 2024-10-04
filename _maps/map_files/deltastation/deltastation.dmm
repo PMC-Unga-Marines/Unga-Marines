@@ -24790,12 +24790,6 @@
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor/iron,
 /area/deltastation/hallway/secondary/entry)
-"eYP" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/gcircuit,
-/area/deltastation/ai_monitored/turret_protected/ai)
 "eYV" = (
 /turf/open/floor/iron/white/corner{
 	dir = 4
@@ -44344,7 +44338,9 @@
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "iXV" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 5
+	},
 /turf/open/floor/plating,
 /area/deltastation/ai_monitored/turret_protected/ai)
 "iXW" = (
@@ -77412,9 +77408,6 @@
 "pNP" = (
 /obj/effect/spawner/random/misc/structure/office_chair_or_metal/dark/west,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 4
-	},
 /obj/effect/ai_node,
 /turf/open/floor/iron/dark,
 /area/deltastation/ai_monitored/turret_protected/ai)
@@ -94601,9 +94594,6 @@
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/iron,
 /area/deltastation/science/server)
@@ -127878,7 +127868,7 @@ piC
 cwO
 ckX
 xYm
-eYP
+ckX
 ckX
 xxC
 dWz
