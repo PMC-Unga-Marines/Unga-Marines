@@ -12,5 +12,5 @@
 		set_eyeobj_visible(FALSE)
 
 	to_chat(src,"<b>[span_deadsay("<p style='font-size:1.5em'><big>You have been shut down.</big></p>")]</b>")
-
+	update_minimap_icon()
 	return ..()
