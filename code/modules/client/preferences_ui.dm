@@ -5,6 +5,12 @@
 		ui = new(user, src, "PlayerPreferences", "Preferences")
 		ui.set_autoupdate(FALSE)
 		ui.open()
+		// HACK: Without this the character starts out really tiny because of some BYOND bug.
+		// You can fix it by changing a preference, so let's just forcably update the body to emulate this.
+		// Lemon from the future: this issue appears to replicate if the byond map (what we're relaying here)
+		// Is shown while the client's mouse is on the screen. As soon as their mouse enters the main map, it's properly scaled
+		// I hate this place
+		addtimer(CALLBACK(src, PROC_REF(update_preview_icon)), 1 SECONDS)
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
