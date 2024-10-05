@@ -84,38 +84,18 @@
 			phorone_sensors_amount = 3
 			platinum_sensors_amount = 3
 
-	// TODOD поменять на стационарные точки
-	//setup sensor towers
 	for(var/i in 1 to phorone_sensors_amount)
-		var/turf/T = pick(GLOB.miner_phorone_locs)
-		new /obj/structure/sensor_tower_infestation(T)
-		GLOB.miner_phorone_locs -= T
-
-	for(var/i in 1 to platinum_sensors_amount)
-		var/turf/T = pick(GLOB.miner_platinum_locs)
-		new /obj/structure/sensor_tower_infestation(T)
-		GLOB.miner_platinum_locs -= T
-
-	/* татарла мапит
-
-	// /obj/effect/landmark/sensor_tower_infestation_ground
-
-	for(var/i in 1 to sensor_towers_infestation_ground)
 		var/turf/T = pick(GLOB.sensor_towers_infestation_ground)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.sensor_towers_infestation_ground -= T
 
-	// /obj/effect/landmark/sensor_tower_infestation_caves
-
-	for(var/i in 1 to sensor_towers_infestation_caves)
+	for(var/i in 1 to platinum_sensors_amount)
 		var/turf/T = pick(GLOB.sensor_towers_infestation_caves)
 		new /obj/structure/sensor_tower_infestation(T)
 		GLOB.sensor_towers_infestation_caves -= T
 
-	// /obj/effect/landmark/tower_relay
-
-	new /obj/machinery/telecomms/relay/preset/tower(pick(GLOB.tower_relay_locs))
-	*/
+	if(length(GLOB.tower_relay_locs))
+		new /obj/machinery/telecomms/relay/preset/tower(pick(GLOB.tower_relay_locs))
 
 	//xenoden landing zone
 	var/turf/marine_dropship_loc = pick(GLOB.xenoden_docking_ports_locs)
@@ -227,8 +207,8 @@
 		return
 
 	//Victory point
-	marine_victory_point += sensors_activated * (points_check_interval * 0.1) * marine_victory_points_factor / (phorone_sensors_amount + platinum_sensors_amount) * (sensors_activated >= boost_condition_sensors_amount) ? 1 : 5 //xeno is fucked up, so skip ground and go to xenorush
-	if(marine_victory_point >= points_to_win && !can_hunt)
+	marine_victory_point += sensors_activated * (points_check_interval * 0.1) * marine_victory_points_factor / (phorone_sensors_amount + platinum_sensors_amount)
+	if((marine_victory_point >= points_to_win || sensors_activated >= boost_condition_sensors_amount) && !can_hunt)//xeno is fucked up, so skip ground and go to xenorush
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 			if(human.faction == FACTION_TERRAGOV)

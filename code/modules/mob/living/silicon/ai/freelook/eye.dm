@@ -147,7 +147,7 @@
 		user.cameraFollow = null
 
 
-// Return to the Core.
+/// Return to the Core.
 /mob/living/silicon/ai/proc/view_core()
 	if(istype(current, /obj/machinery/holopad))
 		var/obj/machinery/holopad/H = current
