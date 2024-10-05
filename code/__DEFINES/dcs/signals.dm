@@ -370,6 +370,9 @@
 
 #define COMSIG_ITEM_UNDEPLOY "item_undeploy" //from base of /obj/machinery/deployable
 
+///From /obj/structure/transmitter/update_icon()
+#define COMSIG_TRANSMITTER_UPDATE_ICON "transmitter_update_icon"
+
 ///From /obj/item/proc/pickup(): (/obj/item/picked_up_item)
 #define COMSIG_ITEM_ATTEMPT_PICK_UP "item_attempt_pick_up"
 

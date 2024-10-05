@@ -336,7 +336,7 @@
 		return FALSE
 
 	if(!force)
-		return FALSE	
+		return FALSE
 
 	if(!M)
 		return FALSE

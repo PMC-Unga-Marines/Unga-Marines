@@ -1776,6 +1776,8 @@
 #include "code\modules\paperwork\paperbin.dm"
 #include "code\modules\paperwork\photocopier.dm"
 #include "code\modules\paperwork\photography.dm"
+#include "code\modules\phone\internal_phone.dm"
+#include "code\modules\phone\phone.dm"
 #include "code\modules\power\batteryrack.dm"
 #include "code\modules\power\cable.dm"
 #include "code\modules\power\fusion_engine.dm"

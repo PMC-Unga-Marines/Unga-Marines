@@ -130,3 +130,12 @@
 
 ///give this to can_receive to specify that there is no restriction on what z level this signal is sent to
 #define RADIO_NO_Z_LEVEL_RESTRICTION 0
+
+#define PHONE_MARINE "Marine"
+#define PHONE_UPP_SOLDIER "Soldier"
+#define PHONE_IO "IO"
+
+#define PHONE_DND_FORCED 2
+#define PHONE_DND_ON 1
+#define PHONE_DND_OFF 0
+#define PHONE_DND_FORBIDDEN -1

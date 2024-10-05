@@ -665,21 +665,101 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		SU = new(src)
 	return SU.interact(user)
 
+GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack)
+
 /obj/item/storage/backpack/marine/radiopack
 	name = "\improper TGMC radio operator backpack"
 	desc = "A backpack that resembles the ones old-age radio operator marines would use. It has a supply ordering console installed on it, and a retractable antenna to receive supply drops."
 	icon_state = "radiopack"
 	item_state = "radiopack"
+	actions_types = list(/datum/action/item_action/radiopack)
 	///Var for the window pop-up
 	var/datum/supply_ui/requests/supply_interface
 	/// Reference to the datum used by the supply drop console
 	var/datum/supply_beacon/beacon_datum
 
+	var/obj/structure/transmitter/internal/internal_transmitter
+
+	var/phone_category = PHONE_MARINE
+	var/list/networks_receive = list(FACTION_TERRAGOV)
+	var/list/networks_transmit = list(FACTION_TERRAGOV)
+
+/datum/action/item_action/radiopack
+	name = "Use Phone"
+
+/datum/action/item_action/radiopack/action_activate()
+	. = ..()
+	for(var/obj/item/storage/backpack/marine/radiopack/radio_backpack in owner)
+		radio_backpack.use_phone(owner)
+		return
+
+/obj/item/storage/backpack/marine/radiopack/Initialize()
+	. = ..()
+	internal_transmitter = new(src)
+	internal_transmitter.relay_obj = src
+	internal_transmitter.phone_category = phone_category
+	internal_transmitter.enabled = FALSE
+	internal_transmitter.networks_receive = networks_receive
+	internal_transmitter.networks_transmit = networks_transmit
+	RegisterSignal(internal_transmitter, COMSIG_TRANSMITTER_UPDATE_ICON, PROC_REF(check_for_ringing))
+	GLOB.radio_packs += src
+
 /obj/item/storage/backpack/marine/radiopack/Destroy()
+	GLOB.radio_packs -= src
+	qdel(internal_transmitter)
 	if(beacon_datum)
 		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
 		QDEL_NULL(beacon_datum)
 	return ..()
+
+/obj/item/storage/backpack/marine/radiopack/forceMove(atom/dest)
+	. = ..()
+	if(isturf(dest))
+		internal_transmitter.set_tether_holder(src)
+	else
+		internal_transmitter.set_tether_holder(loc)
+
+/obj/item/storage/backpack/marine/radiopack/pickup(mob/user)
+	. = ..()
+	autoset_phone_id(user)
+
+/obj/item/storage/backpack/marine/radiopack/equipped(mob/user, slot)
+	. = ..()
+	autoset_phone_id(user)
+
+/obj/item/storage/backpack/marine/radiopack/dropped(mob/user)
+	. = ..()
+	autoset_phone_id(null) // Disable phone when dropped
+
+/// Automatically sets the phone_id based on the current or updated user
+/obj/item/storage/backpack/marine/radiopack/proc/autoset_phone_id(mob/user)
+	if(!user)
+		internal_transmitter.phone_id = "[src]"
+		internal_transmitter.enabled = FALSE
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.comm_title)
+			internal_transmitter.phone_id = "[H.comm_title] [H]"
+		else if(H.job)
+			internal_transmitter.phone_id = "[H.job] [H]"
+		else
+			internal_transmitter.phone_id = "[H]"
+
+		if(H.assigned_squad)
+			internal_transmitter.phone_id += " ([H.assigned_squad.name])"
+	else
+		internal_transmitter.phone_id = "[user]"
+	internal_transmitter.enabled = TRUE
+
+/obj/item/storage/backpack/marine/radiopack/proc/use_phone(mob/user)
+	internal_transmitter.attack_hand(user)
+
+/obj/item/storage/backpack/marine/radiopack/attackby(obj/item/W, mob/user)
+	if(internal_transmitter && internal_transmitter.attached_to == W)
+		internal_transmitter.attackby(W, user)
+	else
+		. = ..()
 
 /obj/item/storage/backpack/marine/radiopack/examine(mob/user)
 	. = ..()

@@ -13,7 +13,7 @@
 
 	var/bloodlossamount = tgui_alert(usr, "How much blood should [target] lose?", "Bloodloss amount", list("A little", "A lot", "So fucking much", "FUCK THIS DUDE"))
 	to_chat(target, span_userdanger("You feel your skin growing pale as your blood drains away..."), confidential = TRUE)
-	
+
 	switch (bloodlossamount)
 		if ("A little")
 			target.blood_volume = BLOOD_VOLUME_NOT_IDEAL //80% blood
