@@ -123,8 +123,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	var/list/message_data = treat_message(message) // unfortunately we still need this
 	message = message_data["message"]
-	var/tts_message = message_data["tts_message"]
-	var/list/tts_filter = message_data["tts_filter"]
 
 	// Detection of language needs to be before inherent channels, because
 	// AIs use inherent channels for the holopad. Most inherent channels
@@ -140,10 +138,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	log_talk(original_message, LOG_SAY)
 
-	var/last_message = message
 	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args)
-	if(last_message != message)
-		tts_message = message
 	if(sigreturn & COMPONENT_UPPERCASE_SPEECH)
 		message = uppertext(message)
 
@@ -171,7 +166,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(radio_return & NOPASS)
 		return TRUE
 
-	send_speech(message, message_range, src, bubble_type, spans, language, message_mode, tts_message = tts_message, tts_filter = tts_filter)
+	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 
 	return TRUE
 
@@ -213,7 +208,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	return message
 
 
-/mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
+/mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode)
 	var/static/list/eavesdropping_modes = list(MODE_WHISPER = TRUE, MODE_WHISPER_CRIT = TRUE)
 	var/eavesdrop_range = 0
 	if(eavesdropping_modes[message_mode])
@@ -234,58 +229,22 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		eavesdropping = stars(message_raw)
 		eavesrendered = compose_message(src, message_language, eavesdropping, null, spans, message_mode)
 
-	var/list/listened = list()
 	var/rendered = compose_message(src, message_language, message_raw, null, spans, message_mode)
 	for(var/atom/movable/listening_movable as anything in listening)
 		if(!listening_movable)
 			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
 			continue
-		var/heard
 		if(eavesdrop_range && get_dist(source, listening_movable) > eavesdrop_range && !isobserver(listening_movable))
-			heard = listening_movable.Hear(eavesrendered, src, message_language, eavesdropping, null, spans, message_mode)
+			listening_movable.Hear(eavesrendered, src, message_language, eavesdropping, null, spans, message_mode)
 		else
-			heard = listening_movable.Hear(rendered, src, message_language, message_raw, null, spans, message_mode)
-		if(heard && !isobserver(listening_movable)) // observers excluded cus we dont want tts to trigger on them(tts handles that)
-			listened += listening_movable
-	//Note, TG has a found_client var they use, piggybacking on unrelated say popups and runechat code
-	//we dont do that since it'd probably be much more expensive to loop over listeners instead of just doing
-	if(voice && !(client?.prefs.muted & MUTE_TTS) && !is_banned_from(ckey, "TTS"))
-		var/tts_message_to_use = tts_message
-		if(!tts_message_to_use)
-			tts_message_to_use = message_raw
-
-		var/list/filter = list()
-		var/list/special_filter = list()
-		var/voice_to_use = voice
-		var/use_radio = FALSE
-		if(length(voice_filter) > 0)
-			filter += voice_filter
-
-		if(length(tts_filter) > 0)
-			filter += tts_filter.Join(",")
-		if(ishuman(src))
-			var/mob/living/carbon/human/human_speaker = src
-			if(human_speaker.wear_mask)
-				var/obj/item/clothing/mask/worn_mask = human_speaker.wear_mask
-				if(istype(worn_mask))
-					if(worn_mask.voice_override)
-						voice_to_use = worn_mask.voice_override
-					if(worn_mask.voice_filter)
-						filter += worn_mask.voice_filter
-					use_radio = worn_mask.use_radio_beeps_tts
-		if(use_radio)
-			special_filter += TTS_FILTER_RADIO
-		if(issilicon(src))
-			special_filter += TTS_FILTER_SILICON
-
-		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(tts_message_to_use), message_language, voice_to_use, filter.Join(","), listened, message_range = message_range, volume_offset = (job?.job_flags & JOB_FLAG_LOUDER_TTS) ? 20 : 0, pitch = pitch, special_filters = special_filter.Join("|"))
+			listening_movable.Hear(rendered, src, message_language, message_raw, null, spans, message_mode)
 
 	//speech bubble
 	var/list/speech_bubble_recipients = list()
 	for(var/mob/M in listening)
 		if(M.client)
 			speech_bubble_recipients.Add(M.client)
-	var/image/I = image('icons/mob/effects/talk.dmi', src, "[bubble_type][say_test(message_raw)]", FLY_LAYER) //RUTGMC edit - icon change
+	var/image/I = image('icons/mob/effects/talk.dmi', src, "[bubble_type][say_test(message_raw)]", FLY_LAYER)
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), I, speech_bubble_recipients, 30)
 
@@ -325,35 +284,19 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	return null
 
 
-/mob/living/proc/treat_message(message, tts_message, tts_filter, capitalize_message = TRUE)
+/mob/living/proc/treat_message(message, capitalize_message = TRUE)
 	RETURN_TYPE(/list)
 	// check for and apply punctuation
 	var/end = copytext(message, length(message))
 	if(!(end in list("!", ".", "?", ":", "\"", "-")))
 		message += "."
 
-	tts_filter = list()
-	var/list/data = list(message, tts_message, tts_filter)
-	SEND_SIGNAL(src, COMSIG_LIVING_TREAT_MESSAGE, data)
-	message = data[TREAT_MESSAGE_ARG]
-	tts_message = data[TREAT_TTS_MESSAGE_ARG]
-	tts_filter = data[TREAT_TTS_FILTER_ARG]
-
-	if(!tts_message)
-		tts_message = message
+	SEND_SIGNAL(src, COMSIG_LIVING_TREAT_MESSAGE, args)
 
 	if(capitalize_message)
 		message = capitalize(message)
-		tts_message = capitalize(tts_message)
 
-	///caps the length of individual letters to 3: ex: heeeeeeyy -> heeeyy
-	/// prevents TTS from choking on unrealistic text while keeping emphasis
-	var/static/regex/length_regex = regex(@"(.+)\1\1\1", "gi")
-	while(length_regex.Find(tts_message))
-		var/replacement = tts_message[length_regex.index]+tts_message[length_regex.index]+tts_message[length_regex.index]
-		tts_message = replacetext(tts_message, length_regex.match, replacement, length_regex.index)
-
-	return list("message" = message, "tts_message" = tts_message, "tts_filter" = tts_filter)
+	return message
 
 
 /mob/living/proc/radio(message, message_mode, list/spans, language)
