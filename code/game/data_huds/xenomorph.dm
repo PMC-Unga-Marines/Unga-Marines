@@ -84,6 +84,7 @@
 	var/image/holder = hud_list[PHEROMONE_HUD]
 	if(!holder)
 		return
+	holder.icon_state = ""
 	if(stat != DEAD)
 		var/tempname = ""
 		if(frenzy_aura)
