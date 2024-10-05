@@ -130,9 +130,6 @@
 	if(species.species_flags & IS_SYNTHETIC)
 		infection_hud.icon_state = "synth" //Xenos can feel synths are not human.
 		return TRUE
-	if(species.species_flags & ROBOTIC_LIMBS)
-		infection_hud.icon_state = "robot"
-		return TRUE
 
 	if(stat == DEAD)
 		if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
@@ -141,7 +138,11 @@
 			infection_hud.icon_state = "dead_xeno_animated"
 		return TRUE
 
-	else if(status_flags & XENO_HOST)
+	if(species.species_flags & ROBOTIC_LIMBS)
+		infection_hud.icon_state = "robot"
+		return TRUE
+
+	if(status_flags & XENO_HOST)
 		infection_hud.icon = 'icons/mob/hud/infected.dmi'
 		var/obj/item/alien_embryo/embryo = locate(/obj/item/alien_embryo) in src
 		if(embryo)
