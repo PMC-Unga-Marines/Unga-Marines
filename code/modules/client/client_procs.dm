@@ -479,13 +479,11 @@
 
 	return ..()
 
-//checks if a client is afk
-//3000 frames = 5 minutes
+///checks if a client is afk, 3000 frames = 5 minutes
 /client/proc/is_afk(duration = 5 MINUTES)
 	if(inactivity > duration)
 		return inactivity
 	return FALSE
-
 
 /// Send resources to the client. Sends both game resources and browser assets.
 /client/proc/send_resources()
@@ -506,14 +504,13 @@
 		if (CONFIG_GET(flag/asset_simple_preload))
 			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
 
-
 //Hook, override it to run code when dir changes
 //Like for /atoms, but clients are their own snowflake FUCK
 /client/proc/setDir(newdir)
 	dir = newdir
 
 /// Show the dummy in 4 dirs for preferences
-/client/proc/show_character_previews(mutable_appearance/MA)
+/client/proc/show_character_previews(mutable_appearance/MA, mob/living/carbon/human/dummy/dummy)
 	var/pos = 0
 	for(var/D in GLOB.cardinals)
 		pos++
@@ -526,14 +523,12 @@
 		O.dir = D
 		O.screen_loc = "player_pref_map:[pos],1"
 
-
 /client/proc/clear_character_previews()
 	for(var/index in char_render_holders)
 		var/atom/movable/screen/S = char_render_holders[index]
 		screen -= S
 		qdel(S)
 	char_render_holders = null
-
 
 /client/proc/set_client_age_from_db(connectiontopic)
 	if(IsGuestKey(key))

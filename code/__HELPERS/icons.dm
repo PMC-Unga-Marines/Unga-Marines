@@ -682,7 +682,7 @@ ColorTone(rgb, tone)
 		return BlendRGB(tone, "#ffffff", (gray - tone_gray) / ((255 - tone_gray) || 1))
 
 
-// Creates a single icon from a given /atom or /image.  Only the first argument is required.
+/// Creates a single icon from a given /atom or /image. Only the first argument is required.
 /proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
 	//Define... defines.
 	var/static/icon/flat_template = icon('icons/effects/effects.dmi', "nothing")
