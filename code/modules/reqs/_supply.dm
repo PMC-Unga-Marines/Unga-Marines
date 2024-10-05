@@ -704,10 +704,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack
 	RegisterSignal(internal_transmitter, COMSIG_TRANSMITTER_UPDATE_ICON, PROC_REF(check_for_ringing))
 	GLOB.radio_packs += src
 
-/obj/item/storage/backpack/marine/radiopack/proc/check_for_ringing()
-	SIGNAL_HANDLER
-	update_icon()
-
 /obj/item/storage/backpack/marine/radiopack/Destroy()
 	GLOB.radio_packs -= src
 	qdel(internal_transmitter)
@@ -715,6 +711,13 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack
 		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
 		QDEL_NULL(beacon_datum)
 	return ..()
+
+/obj/item/storage/backpack/marine/radiopack/forceMove(atom/dest)
+	. = ..()
+	if(isturf(dest))
+		internal_transmitter.set_tether_holder(src)
+	else
+		internal_transmitter.set_tether_holder(loc)
 
 /obj/item/storage/backpack/marine/radiopack/pickup(mob/user)
 	. = ..()

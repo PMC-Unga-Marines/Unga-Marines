@@ -12,6 +12,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	var/phone_icon
 
 	var/obj/item/phone/attached_to
+	var/atom/tether_holder
 
 	var/obj/structure/transmitter/calling
 	var/obj/structure/transmitter/caller
@@ -214,7 +215,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		return
 
 	if(!get_calling_phone())
-		ui_interact(user)
+		tgui_interact(user)
 		return
 
 	var/obj/structure/transmitter/T = get_calling_phone()
@@ -237,12 +238,17 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 #undef TRANSMITTER_UNAVAILABLE
 
-/obj/structure/transmitter/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/transmitter/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PhoneMenu", phone_id)
 		ui.open()
 
+/obj/structure/transmitter/proc/set_tether_holder(atom/A)
+	tether_holder = A
+
+	if(attached_to)
+		attached_to.reset_tether()
 
 /obj/structure/transmitter/proc/reset_call(timeout = FALSE)
 	var/obj/structure/transmitter/T = get_calling_phone()
@@ -347,8 +353,8 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(!P || !attached_to)
 		return
 
-	P.handle_hear(speaking, speech_args)
-	attached_to.handle_hear(speaking, speech_args)
+	P.handle_hear(speech_args[SPEECH_MESSAGE], speech_args[SPEECH_LANGUAGE], speaking)
+	attached_to.handle_hear(speech_args[SPEECH_MESSAGE], speech_args[SPEECH_LANGUAGE], speaking)
 	playsound(P, "talk_phone", 5)
 	log_say("TELEPHONE: [key_name(speaking)] on Phone '[phone_id]' to '[T.phone_id]' said '[speech_args[SPEECH_MESSAGE]]'")
 
@@ -389,6 +395,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	hitsound = 'sound/weapons/ring.ogg'
 
 	var/obj/structure/transmitter/attached_to
+	var/datum/effects/tethering/tether_effect
 
 	var/raised = FALSE
 	var/zlevel_transfer = FALSE
@@ -413,7 +420,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	attached_to.handle_speak(message, speech_args)
 
-/obj/item/phone/proc/handle_hear(mob/living/carbon/speaking, list/speech_args)
+/obj/item/phone/proc/handle_hear(message, datum/language/L, mob/speaking)
 	if(!attached_to)
 		return
 
@@ -435,13 +442,10 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(M == speaking)
 		vname = attached_to.phone_id
 
-	/*
 	M.hear_radio(
 		message, "says", L, part_a = "<span class='purple'><span class='name'>",
 		part_b = "</span><span class='message'> ", vname = vname,
-		speaker = speaking, command = loudness, no_paygrade = TRUE)*/
-
-	M.Hear(speech_args[SPEECH_MESSAGE], speaking)
+		speaker = speaking, command = loudness, no_paygrade = TRUE)
 
 /obj/item/phone/proc/attach_to(obj/structure/transmitter/to_attach)
 	if(!istype(to_attach))
@@ -454,11 +458,53 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 /obj/item/phone/proc/remove_attached()
 	attached_to = null
+	reset_tether()
+
+/obj/item/phone/proc/reset_tether()
+	SIGNAL_HANDLER
+	if (tether_effect)
+		UnregisterSignal(tether_effect, COMSIG_QDELETING)
+		if(!QDESTROYING(tether_effect))
+			qdel(tether_effect)
+		tether_effect = null
+	if(!do_zlevel_check())
+		on_beam_removed()
 
 /obj/item/phone/attack_hand(mob/user)
 	if(attached_to && get_dist(user, attached_to) > attached_to.range)
 		return FALSE
 	return ..()
+
+
+/obj/item/phone/proc/on_beam_removed()
+	if(!attached_to)
+		return
+
+	if(loc == attached_to)
+		return
+
+	if(get_dist(attached_to, src) > attached_to.range)
+		attached_to.recall_phone()
+
+	var/atom/tether_to = src
+
+	if(loc != get_turf(src))
+		tether_to = loc
+		if(tether_to.loc != get_turf(tether_to))
+			attached_to.recall_phone()
+			return
+
+	var/atom/tether_from = attached_to
+
+	if(attached_to.tether_holder)
+		tether_from = attached_to.tether_holder
+
+	if(tether_from == tether_to)
+		return
+
+	var/list/tether_effects = apply_tether(tether_from, tether_to, range = attached_to.range, icon = "wire", always_face = FALSE)
+	tether_effect = tether_effects["tetherer_tether"]
+	RegisterSignal(tether_effect, COMSIG_QDELETING, PROC_REF(reset_tether))
 
 /obj/item/phone/attack_self(mob/user)
 	..()
@@ -478,13 +524,13 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		raised = FALSE
 		item_state = "rpb_phone"
 
-		var/obj/item/radio/R = istype(H.wear_ear, /obj/item/radio) ? H.wear_ear : null
+		var/obj/item/device/radio/R = H.get_type_in_ears(/obj/item/device/radio)
 		R?.on = TRUE
 	else
 		raised = TRUE
 		item_state = "rpb_phone_ear"
 
-		var/obj/item/radio/R = istype(H.wear_ear, /obj/item/radio) ? H.wear_ear : null
+		var/obj/item/device/radio/R = H.get_type_in_ears(/obj/item/device/radio)
 		R?.on = FALSE
 
 	H.update_inv_r_hand()
@@ -505,6 +551,11 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	. = ..()
 	RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speak))
 
+/obj/item/phone/forceMove(atom/dest)
+	. = ..()
+	if(.)
+		reset_tether()
+
 /obj/item/phone/proc/do_zlevel_check()
 	if(!attached_to || !loc.z || !attached_to.z)
 		return FALSE
@@ -520,6 +571,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	if(attached_to && loc.z != attached_to.z)
 		zlevel_transfer = TRUE
+		zlevel_transfer_timer = addtimer(CALLBACK(src, PROC_REF(try_doing_tether)), zlevel_transfer_timeout, TIMER_UNIQUE|TIMER_STOPPABLE)
 		RegisterSignal(attached_to, COMSIG_MOVABLE_MOVED, PROC_REF(transmitter_move_handler))
 		return TRUE
 	return FALSE
@@ -529,3 +581,11 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	zlevel_transfer = FALSE
 	if(zlevel_transfer_timer)
 		deltimer(zlevel_transfer_timer)
+	UnregisterSignal(attached_to, COMSIG_MOVABLE_MOVED)
+	reset_tether()
+
+/obj/item/phone/proc/try_doing_tether()
+	zlevel_transfer_timer = TIMER_ID_NULL
+	zlevel_transfer = FALSE
+	UnregisterSignal(attached_to, COMSIG_MOVABLE_MOVED)
+	reset_tether()
