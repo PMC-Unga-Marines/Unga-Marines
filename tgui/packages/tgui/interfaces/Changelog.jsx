@@ -74,16 +74,7 @@ export class Changelog extends Component {
       const result = await changelogData.text();
       const errorRegex = /^Cannot find/;
 
-      if (errorRegex.test(result)) {
-        const timeout = 50 + attemptNumber * 50;
-
-        self.setData('Loading changelog data' + '.'.repeat(attemptNumber + 3));
-        setTimeout(() => {
-          self.getData(date, attemptNumber + 1);
-        }, timeout);
-      } else {
-        self.setData(yaml.load(result, { schema: yaml.CORE_SCHEMA }));
-      }
+      self.setData(yaml.load(result, { schema: yaml.CORE_SCHEMA }));
     });
   };
 
