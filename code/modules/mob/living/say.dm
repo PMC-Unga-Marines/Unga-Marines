@@ -121,8 +121,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(!language)
 		language = get_default_language()
 
-	var/list/message_data = treat_message(message) // unfortunately we still need this
-	message = message_data["message"]
+	treat_message(message) // unfortunately we still need this
 
 	// Detection of language needs to be before inherent channels, because
 	// AIs use inherent channels for the holopad. Most inherent channels
