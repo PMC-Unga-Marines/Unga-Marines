@@ -52,7 +52,7 @@
 	///Our driver utility module
 	var/obj/item/tank_module/gunner_utility_module
 	///list of weapons we allow to attach
-	var/list/permitted_weapons = list(/obj/item/armored_weapon, /obj/item/armored_weapon/ltaap, /obj/item/armored_weapon/secondary_weapon)
+	var/list/permitted_weapons = list(/obj/item/armored_weapon, /obj/item/armored_weapon/ltaap, /obj/item/armored_weapon/secondary_weapon, /obj/item/armored_weapon/secondary_flamer)
 	///list of mods we allow to attach
 	var/list/permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/passenger, /obj/item/tank_module/ability/zoom)
 	///Minimap flags to use for this vehcile
@@ -87,6 +87,7 @@
 	if(flags_armored & ARMORED_HAS_PRIMARY_WEAPON)
 		turret_overlay = new()
 		turret_overlay.icon = turret_icon
+		turret_overlay.base_icon_state = turret_icon_state
 		turret_overlay.icon_state = turret_icon_state
 		turret_overlay.setDir(dir)
 		turret_overlay.layer = layer+0.002
