@@ -191,14 +191,12 @@ SUBSYSTEM_DEF(mapping)
 	INIT_ANNOUNCE("Loading [ground_map.map_name]...")
 	LoadGroup(FailedZs, ground_map.map_name, ground_map.map_path, ground_map.map_file, ground_map.traits, ZTRAITS_GROUND)
 	// Also saving this as a feedback var as we don't have ship_name in the round table.
-	SSblackbox.record_feedback("text", "ground_map", 1, ground_map.map_name)
+	SSblackbox.record_feedback(FEEDBACK_TEXT, "ground_map", 1, ground_map.map_name)
 
 	#if !(defined(CIBUILDING) && !defined(ALL_MAPS))
 	var/datum/map_config/ship_map = configs[SHIP_MAP]
 	INIT_ANNOUNCE("Loading [ship_map.map_name]...")
 	LoadGroup(FailedZs, ship_map.map_name, ship_map.map_path, ship_map.map_file, ship_map.traits, ZTRAITS_MAIN_SHIP)
-	// Also saving this as a feedback var as we don't have ship_name in the round table.
-	SSblackbox.record_feedback("text", "ship_map", 1, ship_map.map_name)
 	#endif
 
 	if(SSdbcore.Connect())
