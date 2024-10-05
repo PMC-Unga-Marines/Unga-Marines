@@ -514,10 +514,6 @@
 
 /// From mob/living/treat_message(): (list/message_args)
 #define COMSIG_LIVING_TREAT_MESSAGE "living_treat_message"
-	/// The index of message_args that corresponds to the actual message
-	#define TREAT_MESSAGE_ARG 1
-	#define TREAT_TTS_MESSAGE_ARG 2
-	#define TREAT_TTS_FILTER_ARG 3
 
 //ALL OF THESE DO NOT TAKE INTO ACCOUNT WHETHER AMOUNT IS 0 OR LOWER AND ARE SENT REGARDLESS!
 #define COMSIG_LIVING_STATUS_STUN "living_stun"					//from base of mob/living/Stun() (amount, update, ignore)

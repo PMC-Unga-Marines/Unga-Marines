@@ -11,7 +11,6 @@
 	good_eyesight = pick(list(FALSE, TRUE))
 	citizenship = pick(CITIZENSHIP_CHOICES)
 	religion = pick(RELIGION_CHOICES)
-	tts_voice = random_tts_voice()
 	randomize_hair_color("hair")
 	randomize_hair_color("grad")
 	randomize_hair_color("facial")
@@ -203,9 +202,6 @@
 
 	character.citizenship = citizenship
 	character.religion = religion
-
-	character.voice = tts_voice
-	character.pitch = tts_pitch
 
 	character.moth_wings = moth_wings
 	character.underwear = underwear

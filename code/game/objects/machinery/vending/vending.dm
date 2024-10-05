@@ -66,7 +66,6 @@
 	active_power_usage = 100
 	interaction_flags = INTERACT_MACHINE_TGUI|INTERACT_POWERLOADER_PICKUP_ALLOWED
 	wrenchable = TRUE
-	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
@@ -157,12 +156,6 @@
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
 	wires = new /datum/wires/vending(src)
-
-	if(SStts.tts_enabled)
-		var/static/vendor_voice_by_type = list()
-		if(!vendor_voice_by_type[type])
-			vendor_voice_by_type[type] = pick(SStts.available_speakers)
-		voice = vendor_voice_by_type[type]
 
 	slogan_list = splittext(product_slogans, ";")
 

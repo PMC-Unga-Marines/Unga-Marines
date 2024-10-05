@@ -27,7 +27,6 @@
 		hivenumber = XENO_HIVE_ADMEME //so admins can safely spawn xenos in Thunderdome for tests.
 
 	set_initial_hivenumber()
-	voice = "Woman (Journalist)" // TODO when we get tagging make this pick female only
 
 	switch(stat)
 		if(CONSCIOUS)
@@ -535,7 +534,7 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 
 	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
 
-/mob/living/carbon/xenomorph/send_speech(message_raw, message_range = 7, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
+/mob/living/carbon/xenomorph/send_speech(message_raw, message_range = 7, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode,)
 	. = ..()
 	playsound(loc, talk_sound, 25, 1)
 
