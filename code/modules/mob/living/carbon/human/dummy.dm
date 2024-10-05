@@ -97,6 +97,7 @@ GLOBAL_LIST_EMPTY(human_dummy_list)
 /mob/living/carbon/human/dummy/hud_set_job()
 	return
 
+///Cleans up the dummy's overlays and equipment.
 /proc/unset_busy_human_dummy(slotkey)
 	if(!slotkey)
 		return
@@ -105,6 +106,7 @@ GLOBAL_LIST_EMPTY(human_dummy_list)
 		D.wipe_state()
 		D.in_use = FALSE
 
+///Deletes the dummy.
 /proc/clear_human_dummy(slotkey)
 	if(!slotkey)
 		return

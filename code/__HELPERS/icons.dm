@@ -1123,7 +1123,6 @@ ColorTone(rgb, tone)
 		return SSassets.transport.get_asset_url(key)
 	return "<img class='[extra_classes] icon icon-[icon_state]' src='[SSassets.transport.get_asset_url(key)]'>"
 
-
 /proc/icon2base64html(thing)
 	if(!thing)
 		return
@@ -1138,13 +1137,11 @@ ColorTone(rgb, tone)
 			if(!icon_base64) // Doesn't exist yet, make it.
 				bicon_cache[icon_md5] = icon_base64 = icon2base64(I)
 
-
 		return "<img class='icon icon-misc' src='data:image/png;base64,[icon_base64]'>"
 
 	// Either an atom or somebody fucked up and is gonna get a runtime, which I'm fine with.
 	var/atom/A = thing
 	var/key = "[istype(A.icon, /icon) ? "[REF(A.icon)]" : A.icon]:[A.icon_state]"
-
 
 	if(!bicon_cache[key]) // Doesn't exist, make it.
 		var/icon/I = icon(A.icon, A.icon_state, SOUTH, 1)
@@ -1157,8 +1154,7 @@ ColorTone(rgb, tone)
 
 	return "<img class='icon icon-[A.icon_state]' src='data:image/png;base64,[bicon_cache[key]]'>"
 
-
-//Costlier version of icon2html() that uses getFlatIcon() to account for overlays, underlays, etc. Use with extreme moderation, ESPECIALLY on mobs.
+///Costlier version of icon2html() that uses getFlatIcon() to account for overlays, underlays, etc. Use with extreme moderation, ESPECIALLY on mobs.
 /proc/costly_icon2html(thing, target, sourceonly = FALSE)
 	if(!thing)
 		return
@@ -1169,7 +1165,7 @@ ColorTone(rgb, tone)
 	var/icon/I = getFlatIcon(thing)
 	return icon2html(I, target, sourceonly = sourceonly)
 
-//For creating consistent icons for human looking simple animals
+///For creating consistent icons for human looking simple animals
 /proc/get_flat_human_icon(icon_id, datum/job/J, datum/preferences/prefs, dummy_key, showDirs = GLOB.cardinals, outfit_override)
 	var/static/list/humanoid_icon_cache = list()
 	if(!icon_id || !humanoid_icon_cache[icon_id])
@@ -1180,7 +1176,6 @@ ColorTone(rgb, tone)
 			J.equip_dummy(body, outfit_override = outfit_override)
 		else if(outfit_override)
 			body.equipOutfit(outfit_override, visualsOnly = TRUE)
-
 
 		var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
 		for(var/D in showDirs)

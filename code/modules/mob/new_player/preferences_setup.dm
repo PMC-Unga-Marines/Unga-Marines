@@ -147,8 +147,10 @@
 	// Set up the dummy for its photoshoot
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(dummy_type)
 	copy_to(mannequin)
+	
 	mannequin.job = previewJob
 	previewJob.equip_dummy(mannequin, preference_source = parent)
+
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(dummy_type)
 

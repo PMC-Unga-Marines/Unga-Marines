@@ -512,7 +512,7 @@
 /client/proc/setDir(newdir)
 	dir = newdir
 
-
+/// Show the dummy in 4 dirs for preferences
 /client/proc/show_character_previews(mutable_appearance/MA)
 	var/pos = 0
 	for(var/D in GLOB.cardinals)
