@@ -26,8 +26,27 @@
 		amount = -1 //don't want the 'zero health' icon when we are crit
 	holder.icon_state = "xenohealth[amount]"
 
+/mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
+	var/image/holder = hud_list[HEALTH_HUD_XENO]
+	if(!holder)
+		return
+
+	if(status_flags & INCORPOREAL)
+		holder.icon_state = ""
+		return
+
+	var/amount = round(health * 100 / maxHealth, 10)
+	if(!amount)
+		amount = 1 //don't want the 'zero health' icon when we still have 4% of our health
+	holder.icon_state = "xenohealth0"
+	holder.icon_state = "xenohealth[amount]"
+
 /mob/living/carbon/xenomorph/med_hud_set_status()
 	hud_set_pheromone()
+
+/// Hiveminds specifically have no status hud element
+/mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
+	return
 
 ///Set sunder on the hud
 /mob/living/carbon/xenomorph/proc/hud_set_sunder()
