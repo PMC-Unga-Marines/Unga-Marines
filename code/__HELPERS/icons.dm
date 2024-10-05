@@ -1169,7 +1169,6 @@ ColorTone(rgb, tone)
 	var/icon/I = getFlatIcon(thing)
 	return icon2html(I, target, sourceonly = sourceonly)
 
-
 //For creating consistent icons for human looking simple animals
 /proc/get_flat_human_icon(icon_id, datum/job/J, datum/preferences/prefs, dummy_key, showDirs = GLOB.cardinals, outfit_override)
 	var/static/list/humanoid_icon_cache = list()
@@ -1194,7 +1193,6 @@ ColorTone(rgb, tone)
 		return out_icon
 	else
 		return humanoid_icon_cache[icon_id]
-
 
 GLOBAL_LIST_EMPTY(transformation_animation_objects)
 /**

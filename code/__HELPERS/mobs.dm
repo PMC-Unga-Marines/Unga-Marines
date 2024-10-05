@@ -1,6 +1,5 @@
 /proc/random_ethnicity()
-	//return pick(GLOB.ethnicities_list) Original
-	return pick(GLOB.human_ethnicities_list) //RU TGMC EDIT
+	return pick(GLOB.human_ethnicities_list)
 
 /proc/random_hair_style(gender, species = "Human")
 	var/list/valid_hairstyles = list()

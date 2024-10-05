@@ -258,9 +258,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user?.client)
 		return
-	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP) // RUTGMC ADDITION START
+	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
 		to_chat(src, span_warning("The game is still setting up, please try again later."))
-		return // RUTGMC ADDITION END
+		return
 
 	update_preview_icon()
 	ui_interact(user)

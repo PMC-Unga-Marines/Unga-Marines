@@ -182,10 +182,8 @@
 	. = list()
 	switch(tab_index)
 		if(CHARACTER_CUSTOMIZATION)
-			update_preview_icon()
 			.["mapRef"] = "player_pref_map"
 		if(PRED_CHARACTER_CUSTOMIZATION)
-			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_PRED_SLOT_PREFERENCES)
 			.["mapRef"] = "player_pref_map"
 		if(GEAR_CUSTOMIZATION)
 			.["clothing"] = list(

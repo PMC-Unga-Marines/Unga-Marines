@@ -147,16 +147,13 @@
 	// Set up the dummy for its photoshoot
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(dummy_type)
 	copy_to(mannequin)
-
-	if(previewJob)
-		mannequin.job = previewJob
-		previewJob.equip_dummy(mannequin, preference_source = parent)
+	mannequin.job = previewJob
+	previewJob.equip_dummy(mannequin, preference_source = parent)
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(dummy_type)
 
 /datum/preferences/proc/randomize_species_specific()
 	moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")
-
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = FALSE)
 	var/new_name
@@ -214,7 +211,6 @@
 
 	character.update_body()
 	character.update_hair()
-
 
 /datum/preferences/proc/random_character()
 	gender = pick(MALE, FEMALE)
