@@ -404,14 +404,14 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	remove_attached()
 	return ..()
 
-/obj/item/phone/proc/handle_speak(mob/speaking, message, datum/language/L)
+/obj/item/phone/proc/handle_speak(mob/living/carbon/speaking, list/speech_args)
 	SIGNAL_HANDLER
 
 	if(!attached_to || loc == attached_to)
 		UnregisterSignal(speaking, COMSIG_MOB_SAY)
 		return
 
-	attached_to.handle_speak(message, L, speaking)
+	attached_to.handle_speak(message, speech_args)
 
 /obj/item/phone/proc/handle_hear(mob/living/carbon/speaking, list/speech_args)
 	if(!attached_to)
