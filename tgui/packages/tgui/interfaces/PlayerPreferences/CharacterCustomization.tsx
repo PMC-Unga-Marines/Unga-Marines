@@ -48,8 +48,7 @@ export const CharacterCustomization = (props) => {
                 value={'real_name'}
                 extra={
                   <Box as="span">
-                    <Button onClick={() => act('randomize_name')}>
-                      Randomize
+                    <Button icon="dice" tooltip="Randomize" onClick={() => act('randomize_name')}>
                     </Button>
                     <Button.Checkbox
                       inline
