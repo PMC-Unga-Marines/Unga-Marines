@@ -60,7 +60,7 @@ export class Changelog extends Component {
   getData = (date, attemptNumber = 1) => {
     const { act } = useBackend();
     const self = this;
-    const maxAttempts = 6;
+    const maxAttempts = 15;
 
     if (attemptNumber > maxAttempts) {
       return this.setData(
