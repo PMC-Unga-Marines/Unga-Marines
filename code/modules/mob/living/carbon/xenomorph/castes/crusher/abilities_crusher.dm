@@ -4,7 +4,7 @@
 /datum/action/ability/activable/xeno/stomp
 	name = "Stomp"
 	action_icon_state = "stomp"
-	desc = "Knocks all adjacent targets away and down."
+	desc = "Knocks all adjacent targets away and down. Deals extra damage if on the same turf with the target. "
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -29,7 +29,7 @@
 		if(X.issamexenohive(M) || M.stat == DEAD || isnestedhost(M))
 			continue
 		var/distance = get_dist(M, X)
-		var/damage = X.xeno_caste.stomp_damage/max(1, distance + 1)
+		var/damage = X.xeno_caste.stomp_damage / max(1, distance + 1)
 		if(distance == 0) //If we're on top of our victim, give him the full impact
 			GLOB.round_statistics.crusher_stomp_victims++
 			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomp_victims")
