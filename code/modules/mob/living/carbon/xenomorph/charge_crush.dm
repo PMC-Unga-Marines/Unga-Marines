@@ -2,9 +2,7 @@
 	name = "Toggle Charging"
 	action_icon_state = "ready_charge"
 	desc = "Toggles the movement-based charge on and off."
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_CHARGE,
-	)
+	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_CHARGE)
 	action_type = ACTION_TOGGLE
 	use_state_flags = ABILITY_USE_LYING
 	var/charge_type = CHARGE_CRUSH
@@ -18,7 +16,8 @@
 	var/steps_for_charge = 7
 	var/max_steps_buildup = 14
 	var/crush_living_damage = 20
-	var/next_special_attack = 0 //Little var to keep track on special attack timers.
+	///Little var to keep track on special attack timers.
+	var/next_special_attack = 0
 	var/plasma_use_multiplier = 1
 	///If this charge should keep momentum on dir change and if it can charge diagonally
 	var/agile_charge = FALSE
@@ -213,7 +212,7 @@
 	else if(valid_steps_taken < steps_for_charge)
 		do_stop_crushing()
 
-/proc/precrush2signal(precrush)
+/datum/action/ability/xeno_action/ready_charge/proc/precrush2signal(precrush)
 	switch(precrush)
 		if(PRECRUSH_STOPPED)
 			return COMPONENT_MOVABLE_PREBUMP_STOPPED
