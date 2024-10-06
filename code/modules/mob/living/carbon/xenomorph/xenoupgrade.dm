@@ -184,6 +184,9 @@
 /mob/living/carbon/xenomorph/sentinel/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
+/mob/living/carbon/xenomorph/sentinel/retrograde/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
 //----SENTINEL END----//
 //================//
 //-----SPITTER START-----//

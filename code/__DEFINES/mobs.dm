@@ -865,6 +865,9 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 ///Default damage for slamming a mob against another mob
 #define BASE_MOB_SLAM_DAMAGE 8
 
+///Pixel_y offset when lying down
+#define CARBON_LYING_Y_OFFSET -6
+
 // Yautja defines
 
 //Gear select defines

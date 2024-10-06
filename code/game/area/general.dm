@@ -215,6 +215,29 @@
 	icon_state = "yellow"
 	requires_power = 0
 
+//Drop Pods
+/area/shuttle/drop1
+	ambience = list('sound/ambience/ambigen10.ogg','sound/ambience/ambispace.ogg','sound/ambience/ambisin4.ogg','sound/ambience/signal.ogg')
+
+/area/shuttle/drop1/Enter(atom/movable/arrived, direction)
+	if(istype(arrived, /obj/structure/barricade))
+		return FALSE
+	return TRUE
+
+/area/shuttle/drop1/lz1
+	name = "Normandy Landing Zone"
+	icon_state = "away1"
+	flags_area = NONE
+
+/area/shuttle/drop2/Enter(atom/movable/arrived, direction)
+	if(istype(arrived, /obj/structure/barricade))
+		return FALSE
+	return TRUE
+
+/area/shuttle/drop2/lz2
+	name = "Normandy Landing Zone"
+	icon_state = "away2"
+	flags_area = NONE
 
 /area/start            // will be unused once kurper gets his login interface patch done
 	name = "start area"
