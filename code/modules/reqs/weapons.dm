@@ -748,8 +748,8 @@
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
 	cost = 10
 
-/datum/supply_packs/weapons/ltb_shells
-	name = "LTB tank shell"
+/datum/supply_packs/weapons/ltb_shells_apfds
+	name = "LTB tank APFDS shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds)
 	cost = 10
 
