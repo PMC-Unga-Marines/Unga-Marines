@@ -29,7 +29,6 @@
 		if(X.issamexenohive(M) || M.stat == DEAD || isnestedhost(M))
 			continue
 		var/distance = get_dist(M, X)
-		var/damage = X.xeno_caste.stomp_damage / max(1, distance + 1)
 		if(distance == 0) //If we're on top of our victim, give him the full impact
 			GLOB.round_statistics.crusher_stomp_victims++
 			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomp_victims")
@@ -41,7 +40,7 @@
 			step_away(M, X, 1) //Knock away
 			shake_camera(M, 2, 2)
 			to_chat(M, span_highdanger("You reel from the shockwave of [X]'s stomp!"))
-			M.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3)
+			M.take_overall_damage(damage * 0.5, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3)
 			M.Paralyze(0.5 SECONDS)
 
 /datum/action/ability/activable/xeno/stomp/ai_should_start_consider()
