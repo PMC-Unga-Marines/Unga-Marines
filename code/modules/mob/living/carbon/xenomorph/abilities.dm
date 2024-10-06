@@ -903,6 +903,13 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HIDE,
 	)
 
+/datum/action/ability/xeno_action/xenohide/can_use_action(atom/A, silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(HAS_TRAIT(owner, TRAIT_TANK_DESANT))
+		return FALSE
+
 /datum/action/ability/xeno_action/xenohide/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.layer != XENO_HIDING_LAYER)
@@ -987,6 +994,23 @@
 /datum/action/ability/activable/xeno/neurotox_sting/ozelomelyn/track_stats()
 	GLOB.round_statistics.ozelomelyn_stings++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "ozelomelyn_stings")
+
+//Transvitox Sting
+/datum/action/ability/activable/xeno/neurotox_sting/transvitox
+	name = "Transvitox Sting"
+	action_icon_state = "neuro_sting"
+	desc = "A channeled melee attack that injects the target with Transvitox over a few seconds, dealing minor toxin damage to a moderate cap while inside them."
+	cooldown_duration = 12 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_OZELOMELYN_STING,
+	)
+	ability_cost = 120
+	sting_chemical = /datum/reagent/toxin/xeno_transvitox
+
+///Adds ability tally to the end-round statistics.
+/datum/action/ability/activable/xeno/neurotox_sting/transvitox/track_stats()
+	GLOB.round_statistics.transvitox_stings++
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "transvitox_stings")
 
 // ***************************************
 // *********** Psychic Whisper
@@ -1221,6 +1245,7 @@
 
 	victim.do_jitter_animation(2)
 	victim.adjustCloneLoss(20)
+	X.biomass = min(X.biomass + 15, 100)
 
 	ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	if(HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE))
@@ -1330,6 +1355,7 @@
 	victim.dead_ticks = 0
 	ADD_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
 	X.eject_victim(TRUE, starting_turf)
+	X.biomass = min(X.biomass + 15, 100)
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.cocooned++

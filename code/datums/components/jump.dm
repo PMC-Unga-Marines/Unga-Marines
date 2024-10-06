@@ -79,8 +79,8 @@
 		var/spin_number = ROUND_UP(jump_duration * 0.1)
 		jumper.animation_spin(jump_duration / spin_number, spin_number, jumper.dir == WEST ? FALSE : TRUE)
 
-	animate(jumper, pixel_y = jumper.pixel_y + jump_height, layer = MOB_JUMP_LAYER, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-	animate(pixel_y = jumper.pixel_y - jump_height, layer = original_layer, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_IN)
+	animate(jumper, pixel_z = jumper.pixel_z + jump_height, layer = max(MOB_JUMP_LAYER, original_layer), time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_OUT)
+	animate(pixel_z = jumper.pixel_z - jump_height, layer = original_layer, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_IN)
 
 	if(jump_flags & JUMP_SHADOW)
 		animate(shadow_filter, y = -jump_height, size = 4, time = jump_duration * 0.5, easing = CIRCULAR_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)

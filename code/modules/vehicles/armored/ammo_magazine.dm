@@ -15,6 +15,12 @@
 	max_rounds = 1
 	loading_sound = 'sound/vehicles/weapons/ltb_reload.ogg'
 
+/obj/item/ammo_magazine/tank/ltb_cannon/apfds
+	name = "LTB APFDS round (105mm)"
+	desc = "A 105mm armor piercing shell with exceptional velocity and penetrating characteristics. Will pierce through walls and targets."
+	icon_state = "ltbammo_apfds"
+	default_ammo = /datum/ammo/bullet/tank_apfds
+
 /obj/item/ammo_magazine/tank/ltaap_chaingun
 	name = "\improper LTA-AP chaingun Magazine"
 	desc = "A primary armament chaingun magazine."
@@ -52,6 +58,14 @@
 	w_class = WEIGHT_CLASS_GIGANTIC
 	default_ammo = /datum/ammo/bullet/cupola
 	max_rounds = 75
+
+/obj/item/ammo_magazine/tank/secondary_flamer_tank
+	name = "napalm stream tank"
+	desc = "A fuel tank containing fuel for the secondary vehicle mounted flamer. This tank contains a more fluid mix that flows easier but flames less area at once."
+	caliber = CALIBER_FUEL_THICK
+	icon_state = "sflamer"
+	max_rounds = 150
+	default_ammo = /datum/ammo/flamethrower/armored_spray
 
 /obj/item/ammo_magazine/tank/tank_glauncher
 	name = "Grenade Launcher Magazine"
