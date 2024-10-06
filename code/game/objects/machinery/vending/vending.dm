@@ -793,6 +793,16 @@
 		tip_over()
 	return ..()
 
+/obj/machinery/vending/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!anchored)
+		return ..()
+	tip_over()
+	if(density)
+		return PRECRUSH_STOPPED
+	charger.visible_message(span_danger("[charger] slams [src] into the ground!"),
+	span_xenowarning("We slam [src] into the ground!"))
+	return PRECRUSH_PLOWED
+
 #undef CAT_NORMAL
 #undef CAT_HIDDEN
 #undef CAT_COIN

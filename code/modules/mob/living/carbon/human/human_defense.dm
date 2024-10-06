@@ -519,3 +519,8 @@ Contains most of the procs that are called when a mob is attacked by something
 			return TRUE
 
 	return FALSE
+
+/mob/living/carbon/human/emote_gored()
+	if(species.species_flags & NO_PAIN)
+		return
+	emote("gored")

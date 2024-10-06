@@ -264,3 +264,86 @@
 	blur_eyes(rad_strength) //adds a visual indicator that you've just been irradiated
 	adjust_radiation(rad_strength * 20) //Radiation status effect, duration is in deciseconds
 	to_chat(src, span_warning("Your body tingles as you suddenly feel the strength drain from your body!"))
+
+/mob/living/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return (stat == DEAD ? 0 : CHARGE_SPEED(charge_datum) * charge_datum.crush_living_damage)
+
+/mob/living/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(density && ((mob_size == charger.mob_size && charger.is_charging <= CHARGE_MAX) || mob_size > charger.mob_size))
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+		span_xenowarning("We ram into [src] and skid to a halt!"))
+		charge_datum.do_stop_momentum(FALSE)
+		step(src, charger.dir)
+		return PRECRUSH_STOPPED
+
+	switch(charge_datum.charge_type)
+		if(CHARGE_CRUSH)
+			Paralyze(CHARGE_SPEED(charge_datum) * 2 SECONDS)
+		if(CHARGE_BULL_HEADBUTT)
+			Paralyze(CHARGE_SPEED(charge_datum) * 2.5 SECONDS)
+
+	if(anchored)
+		charge_datum.do_stop_momentum(FALSE)
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+			span_xenowarning("We ram into [src] and skid to a halt!"))
+		return PRECRUSH_STOPPED
+
+	switch(charge_datum.charge_type)
+		if(CHARGE_CRUSH, CHARGE_BULL, CHARGE_BEHEMOTH)
+			var/fling_dir = pick((charger.dir & (NORTH|SOUTH)) ? list(WEST, EAST, charger.dir|WEST, charger.dir|EAST) : list(NORTH, SOUTH, charger.dir|NORTH, charger.dir|SOUTH)) //Fling them somewhere not behind nor ahead of the charger.
+			var/fling_dist = min(round(CHARGE_SPEED(charge_datum)) + 1, 3)
+			var/turf/destination = loc
+			var/turf/temp
+
+			for(var/i in 1 to fling_dist)
+				temp = get_step(destination, fling_dir)
+				if(!temp)
+					break
+				destination = temp
+			if(destination != loc)
+				throw_at(destination, fling_dist, 1, charger, TRUE)
+
+			charger.visible_message(span_danger("[charger] rams [src]!"),
+			span_xenodanger("We ram [src]!"))
+			charge_datum.speed_down(1) //Lose one turf worth of speed.
+			GLOB.round_statistics.bull_crush_hit++
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "bull_crush_hit")
+			return PRECRUSH_PLOWED
+
+		if(CHARGE_BULL_GORE)
+			if(world.time > charge_datum.next_special_attack)
+				charge_datum.next_special_attack = world.time + 2 SECONDS
+				attack_alien_harm(charger, charger.xeno_caste.melee_damage * charger.xeno_melee_damage_modifier, charger.zone_selected, FALSE, TRUE, TRUE) //Free gore attack.
+				emote_gored()
+				var/turf/destination = get_step(loc, charger.dir)
+				if(destination)
+					throw_at(destination, 1, 1, charger, FALSE)
+				charger.visible_message(span_danger("[charger] gores [src]!"),
+					span_xenowarning("We gore [src] and skid to a halt!"))
+				GLOB.round_statistics.bull_gore_hit++
+				SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "bull_gore_hit")
+
+		if(CHARGE_BULL_HEADBUTT)
+			var/fling_dir = charger.a_intent == INTENT_HARM ? charger.dir : REVERSE_DIR(charger.dir)
+			var/fling_dist = min(round(CHARGE_SPEED(charge_datum)) + 1, 3)
+			var/turf/destination = loc
+			var/turf/temp
+
+			for(var/i in 1 to fling_dist)
+				temp = get_step(destination, fling_dir)
+				if(!temp)
+					break
+				destination = temp
+			if(destination != loc)
+				throw_at(destination, fling_dist, 1, charger, TRUE)
+
+			charger.visible_message(span_danger("[charger] rams into [src] and flings [p_them()] away!"),
+				span_xenowarning("We ram into [src] and skid to a halt!"))
+			GLOB.round_statistics.bull_headbutt_hit++
+			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "bull_headbutt_hit")
+
+	charge_datum.do_stop_momentum(FALSE)
+	return PRECRUSH_STOPPED
+
+/mob/living/proc/emote_gored()
+	return

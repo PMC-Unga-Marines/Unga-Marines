@@ -430,6 +430,12 @@
 		WF.setDir(dir)
 	return ..()
 
+/obj/structure/window/framed/crushed_special_behavior()
+	if(window_frame)
+		return STOP_CRUSHER_ON_DEL
+	else
+		return ..()
+
 /obj/structure/window/framed/mainship
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
