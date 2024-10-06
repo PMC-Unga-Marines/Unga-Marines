@@ -934,6 +934,35 @@
 
 	qdel(src)
 
+/datum/status_effect/hunt
+	id = "hunt"
+	duration = -1
+	status_type = STATUS_EFFECT_REFRESH
+	alert_type = null
+
+/datum/status_effect/hunt/on_creation(atom/A)
+	if(!isxeno(A))
+		qdel(src)
+		return
+
+	. = ..()
+
+	var/mob/living/carbon/xenomorph/X = A
+	X.xeno_caste.attack_delay -= 3
+
+	X.add_filter("hunt", 1, outline_filter(1, "#2a0f527d"))
+
+	addtimer(CALLBACK(src, PROC_REF(end_bonuses)), 2 SECONDS)
+
+/datum/status_effect/hunt/proc/end_bonuses()
+	if(owner)
+		var/mob/living/carbon/xenomorph/X = owner
+		X.xeno_caste.attack_delay = initial(X.xeno_caste.attack_delay)
+
+		X.remove_filter("hunt");
+
+	qdel(src)
+
 // ***************************************
 // *********** Upgrade Chambers Buffs - Survival
 // ***************************************

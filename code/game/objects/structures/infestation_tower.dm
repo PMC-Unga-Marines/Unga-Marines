@@ -184,9 +184,9 @@
 /obj/structure/sensor_tower_infestation/proc/update_control_minimap_icon()
 	SSminimaps.remove_marker(src)
 	if(activated)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_Icons/map_blips.dmi', null, "tower_infestation_on_full"))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "beacon_marines"))
 	else
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_Icons/map_blips.dmi', null, "tower_infestation[current_timer ? "_on" : "_off"]"))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "beacon[current_timer ? "_capture" : "_xeno"]"))
 
 /obj/structure/sensor_tower_infestation/process()
 	if(add_tick >= required_ticks)

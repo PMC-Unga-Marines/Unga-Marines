@@ -46,7 +46,7 @@
 	bullet_color = COLOR_VIOLET
 	damage = 0
 	flags_ammo_behavior = AMMO_ENERGY
-	var/stun_time = 5 SECONDS
+	var/stun_time = 2.5 SECONDS
 
 /datum/ammo/energy/yautja/caster/stun/on_hit_mob(mob/M, obj/projectile/P)
 	var/mob/living/carbon/C = M
@@ -58,7 +58,7 @@
 
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect(stun_time + 10 SECONDS, WEAKEN)
+			H.apply_effect(stun_time, WEAKEN)
 		else
 			C.apply_effect(stun_time, WEAKEN)
 
@@ -75,7 +75,7 @@
 /datum/ammo/energy/yautja/caster/bolt/stun
 	name = "high power stun bolt"
 	icon_state = "pred_stun"
-	var/stun_time = 20 SECONDS
+	var/stun_time = 5 SECONDS
 	bullet_color = COLOR_MAGENTA
 
 	hud_state = "plasma_rifle"
@@ -93,39 +93,12 @@
 
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect(stun_time + 10 SECONDS, WEAKEN)
+			H.apply_effect(stun_time, WEAKEN)
 		else
 			C.apply_effect(stun_time, WEAKEN)
 
 		C.apply_effect(stun_time, STUN)
 	..()
-
-/datum/ammo/energy/yautja/caster/sphere
-	name = "plasma eradicator"
-	icon_state = "bluespace"
-	bullet_color = COLOR_BRIGHT_BLUE
-	flags_ammo_behavior = AMMO_TARGET_TURF
-	shell_speed = 2
-	accuracy = 40
-
-	hud_state = "plasma_sphere"
-
-	damage = 55
-
-	accurate_range = 8
-	max_range = 8
-
-/datum/ammo/energy/yautja/caster/sphere/on_hit_mob(mob/M, obj/projectile/P)
-	cell_explosion(get_turf(M), 50, 25)
-
-/datum/ammo/energy/yautja/caster/sphere/on_hit_turf(turf/T, obj/projectile/P)
-	cell_explosion(get_turf(T), 50, 25)
-
-/datum/ammo/energy/yautja/caster/sphere/on_hit_obj(obj/O, obj/projectile/P)
-	cell_explosion(get_turf(O), 50, 25)
-
-/datum/ammo/energy/yautja/caster/sphere/do_at_max_range(obj/projectile/P)
-	cell_explosion(get_turf(P), 50, 25)
 
 /datum/ammo/energy/yautja/caster/sphere/stun
 	name = "plasma immobilizer"
@@ -136,7 +109,7 @@
 	accurate_range = 20
 	max_range = 20
 	var/stun_range = 4
-	var/stun_time = 6 SECONDS
+	var/stun_time = 3 SECONDS
 
 /datum/ammo/energy/yautja/caster/sphere/stun/on_hit_mob(mob/M, obj/projectile/P)
 	do_area_stun(P)
