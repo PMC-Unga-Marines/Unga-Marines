@@ -682,7 +682,6 @@
 	attachable_allowed = list(
 		/obj/item/attachable/stock/mpi_km,
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
@@ -715,13 +714,12 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
 	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
-	force = 20
+	force = 15
 	burst_amount = 1
 	aim_slowdown = 0.5
 	recoil = 1.5
 	fire_delay = 0.20 SECONDS
-	damage_mult = 1.1 // компенсация фаер дилея
-	scatter = 3
+	scatter = 2
 	wield_delay = 0.8 SECONDS
 	placed_overlay_iconstate = "ak47"
 
@@ -742,7 +740,6 @@
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/som_carbine,
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -779,11 +776,11 @@
 	accuracy_mult = 0.75
 	scatter = 12
 	recoil = 2
-	wield_delay = 0.4 SECONDS
+	wield_delay = 0.5 SECONDS
 	aim_slowdown = 0.3
 	movement_acc_penalty_mult = 4
 	damage_falloff_mult = 1.4
-	damage_mult = 0.95
+	damage_mult = 0.65
 
 //-------------------------------------------------------
 // RPD

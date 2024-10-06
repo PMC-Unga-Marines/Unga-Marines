@@ -170,7 +170,7 @@
 
 /datum/ammo/bullet/rifle/mpi_km/mar
 	penetration = 5
-	additional_xeno_penetration = 8
+	additional_xeno_penetration = 5
 
 /datum/ammo/bullet/rifle/dmr37
 	name = "marksman bullet"
