@@ -4,7 +4,7 @@
 	base_probability = 26
 	spawn_type = /mob/living/carbon/human/species/sectoid
 	shuttle_id = SHUTTLE_DISTRESS_UFO
-	alignement_factor = 0
+	alignement_factor = 1
 	///Max amount of psionics allowed in this squad.
 	var/max_psionics = 2
 

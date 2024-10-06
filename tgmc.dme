@@ -2080,6 +2080,7 @@
 #include "code\modules\xenomorph\trap.dm"
 #include "code\modules\xenomorph\tunnel.dm"
 #include "code\modules\xenomorph\turret.dm"
+#include "code\modules\xenomorph\upgrade_chambers.dm"
 #include "code\modules\xenomorph\xeno_core.dm"
 #include "code\modules\xenomorph\xeno_towers.dm"
 #include "code\ze_genesis_call\genesis_call.dm"

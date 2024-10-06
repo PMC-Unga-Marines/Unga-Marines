@@ -336,6 +336,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Will increase by 10 every decisecond if under 0.
 	///Increases by xeno_caste.regen_ramp_amount every decisecond. If you want to balance this, look at the xeno_caste defines mentioned above.
 	var/regen_power = 0
+	///Stored biomass
+	var/biomass = 0
 
 	var/is_zoomed = 0
 	var/zoom_turf = null
