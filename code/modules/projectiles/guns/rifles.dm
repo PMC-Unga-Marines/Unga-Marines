@@ -719,7 +719,8 @@
 	burst_amount = 1
 	aim_slowdown = 0.5
 	recoil = 1.5
-	fire_delay = 0.17 SECONDS
+	fire_delay = 0.20 SECONDS
+	damage_mult = 1.1 // компенсация фаер дилея
 	scatter = 3
 	wield_delay = 0.8 SECONDS
 	placed_overlay_iconstate = "ak47"
