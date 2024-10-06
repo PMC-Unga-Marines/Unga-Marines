@@ -5,19 +5,29 @@
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_CHARGE)
 	action_type = ACTION_TOGGLE
 	use_state_flags = ABILITY_USE_LYING
+	///Type of charging
 	var/charge_type = CHARGE_CRUSH
 	var/next_move_limit = 0
 	var/turf/lastturf = null
+	///The dir we are charging in
 	var/charge_dir = null
+	///Is our ability unactive?
 	var/charge_ability_on = FALSE
+	///The amount of steps we took
 	var/valid_steps_taken = 0
+	///The sound we play upon charging into someone
 	var/crush_sound = "punch"
+	///The speed we gain per step of charging
 	var/speed_per_step = 0.15
+	///Minimum amount of steps before we start charging
 	var/steps_for_charge = 7
+	///The cap of damage we can build up based on steps
 	var/max_steps_buildup = 14
+	///How much damage will we deal upon running into mob
 	var/crush_living_damage = 20
 	///Little var to keep track on special attack timers.
 	var/next_special_attack = 0
+	///Multiplier for decreasing your plasma on charging
 	var/plasma_use_multiplier = 1
 	///If this charge should keep momentum on dir change and if it can charge diagonally
 	var/agile_charge = FALSE
