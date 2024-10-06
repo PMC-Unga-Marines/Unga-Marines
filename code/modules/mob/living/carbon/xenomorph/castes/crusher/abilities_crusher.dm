@@ -8,9 +8,7 @@
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_STOMP,
-	)
+	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_XENOABILITY_STOMP)
 
 /datum/action/ability/activable/xeno/stomp/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
