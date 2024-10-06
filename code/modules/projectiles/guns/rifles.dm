@@ -656,6 +656,135 @@
 		/obj/item/attachable/reddot,
 	)
 
+//-------------------------------------------------------
+// MPI-KM but for marines
+
+/obj/item/weapon/gun/rifle/zarya
+	name = "\improper Type-16 Zarya rifle"
+	desc = "placeholder"
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "ak47"
+	item_state = "ak47"
+	caliber = CALIBER_602X41
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	max_shells = 40
+	fire_sound = 'sound/weapons/guns/fire/ak47.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/zarya,
+		/obj/item/ammo_magazine/rifle/zarya/carbine,
+		/obj/item/ammo_magazine/rifle/zarya/extended,
+	)
+	aim_slowdown = 0.5
+	attachable_allowed = list(
+		/obj/item/attachable/stock/mpi_km,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+	)
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
+	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
+	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
+	force = 20
+	burst_amount = 1
+	aim_slowdown = 0.5
+	recoil = 1.5
+	fire_delay = 0.17 SECONDS
+	scatter = 3
+	wield_delay = 0.8 SECONDS
+	placed_overlay_iconstate = "ak47"
+
+/obj/item/weapon/gun/rifle/zarya/foldable
+	name = "\improper Type-16M2 Zarya rifle"
+	desc = "placeholder"
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "v34_black"
+	item_state = "v34_black"
+	muzzleflash_iconstate = "muzzle_flash"
+	max_shells = 30
+	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya/carbine
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/zarya/carbine,
+		/obj/item/ammo_magazine/rifle/zarya/carbine,
+		/obj/item/ammo_magazine/rifle/zarya/extended,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/foldable/som_carbine,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+	)
+	flags_equip_slot = list(ITEM_SLOT_BACK, ITEM_SLOT_BELT)
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 18,"rail_x" = 8, "rail_y" = 20, "under_x" = 17, "under_y" = 13, "stock_x" = -6, "stock_y" = 16)
+	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
+	force = 10
+	burst_amount = 1
+	fire_delay = 0.15 SECONDS
+	accuracy_mult = 0.75
+	scatter = 12
+	recoil = 2
+	wield_delay = 0.4 SECONDS
+	aim_slowdown = 0.3
+	movement_acc_penalty_mult = 4
+	damage_falloff_mult = 1.4
+	damage_mult = 0.95
+
+//-------------------------------------------------------
 // RPD
 
 /obj/item/weapon/gun/rifle/lmg_d

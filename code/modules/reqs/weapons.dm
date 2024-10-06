@@ -652,6 +652,12 @@
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
+/datum/supply_packs/weapons/zarya_extended_mag
+	name = "Type-16 extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/zarya/extended)
+	cost = 15
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/weapons/smg25_ap
 	name = "SMG-25 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/smg/m25/ap)

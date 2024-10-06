@@ -164,6 +164,48 @@
 	aim_speed_mod = 0.2
 	wield_delay_mod = 0.2
 
+// Marine mags for AK
+/obj/item/ammo_magazine/rifle/zarya
+	name = "\improper Type-16 Zarya magazine (6.02x41)"
+	desc = "A 40 round 6.02x41mm magazine."
+	caliber = CALIBER_602X41
+	icon_state = "ak_40"
+	icon_state_mini = "mag_rifle_brown"
+	bonus_overlay = "ak_40"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
+	max_rounds = 40
+	scatter_mod = 2
+	aim_speed_mod = 0.1
+	wield_delay_mod = 0.1 SECONDS
+
+/obj/item/ammo_magazine/rifle/zarya/black
+	name = "\improper Type-16 Zarya magazine (6.02x41)"
+	desc = "A 6.02x41mm cal magazine. This one had an modern black polymer finish."
+	icon_state = "ak_40_black"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak_40_black"
+
+/obj/item/ammo_magazine/rifle/zarya/carbine
+	name = "\improper Type-16 Zarya magazine (6.02x41)"
+	desc = "A 30 round 6.02x41mm cal magazine."
+	icon_state = "ak_30_black"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak_30_black"
+	max_rounds = 30
+	scatter_mod = 0
+	aim_speed_mod = 0
+	wield_delay_mod = 0
+
+/obj/item/ammo_magazine/rifle/zarya/extended
+	name = "\improper Type-16 Zarya extended magazine (6.02x41)"
+	desc = "A 50 round 6.02x41mm cal magazine."
+	icon_state = "ak47_ext"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak47_ex"
+	max_rounds = 50
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2
+
 // RPD
 
 /obj/item/ammo_magazine/rifle/lmg_d
