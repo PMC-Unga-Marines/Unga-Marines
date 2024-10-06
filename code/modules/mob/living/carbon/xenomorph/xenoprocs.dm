@@ -734,4 +734,3 @@
 
 	charge_datum.speed_down(1) //Lose one turf worth of speed.
 	return PRECRUSH_PLOWED
-  
