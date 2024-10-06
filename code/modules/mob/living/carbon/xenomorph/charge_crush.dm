@@ -199,6 +199,8 @@
 						shake_camera(victim, 1, 1)
 					if(victim.loc != charger.loc || !victim.lying_angle || isnestedhost(victim))
 						continue
+					if(victim.pass_flags & PASS_THROW) // if the mob is being thrown by us EXPLICITLY, we don't deal x2 damage
+						continue
 					charger.visible_message(span_danger("[charger] runs [victim] over!"),
 						span_danger("We run [victim] over!"), null, 5)
 					victim.apply_damage(CHARGE_SPEED(src) * 50, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE)
