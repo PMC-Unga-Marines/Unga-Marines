@@ -1,21 +1,33 @@
-import { Fragment } from 'react';
-import { useBackend, useLocalState } from '../backend';
-import { Button, Flex, Divider, Collapsible, Box, Section, Icon, Input, Table, Stack } from '../components';
-import { Window } from '../layouts';
 import { map } from 'common/collections';
+import { Fragment } from 'react';
+
+import { useBackend, useLocalState } from '../backend';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Divider,
+  Flex,
+  Icon,
+  Input,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+import { Window } from '../layouts';
 
 const category_icon = {
-  'Operations': 'parachute-box',
-  'Weapons': 'fighter-jet',
-  'Explosives': 'bomb',
-  'Armor': 'hard-hat',
-  'Clothing': 'tshirt',
-  'Medical': 'medkit',
-  'Engineering': 'tools',
-  'Supplies': 'hamburger',
-  'Imports': 'boxes',
-  'Vehicles': 'road',
-  'Factory': 'industry',
+  Operations: 'parachute-box',
+  Weapons: 'fighter-jet',
+  Explosives: 'bomb',
+  Armor: 'hard-hat',
+  Clothing: 'tshirt',
+  Medical: 'medkit',
+  Engineering: 'tools',
+  Supplies: 'hamburger',
+  Imports: 'boxes',
+  Vehicles: 'road',
+  Factory: 'industry',
   'Pending Order': 'shopping-cart',
 };
 
@@ -155,8 +167,8 @@ const Category = (props) => {
   const filterSearch = (entry) =>
     should_filter && filter
       ? supplypackscontents[entry].name
-        ?.toLowerCase()
-        .includes(filter.toLowerCase())
+          ?.toLowerCase()
+          .includes(filter.toLowerCase())
       : true;
 
   return (
@@ -167,7 +179,8 @@ const Category = (props) => {
           <Icon name={category_icon[selectedMenu]} mr="5px" />
           {selectedMenu}
         </>
-      }>
+      }
+    >
       <Stack vertical>
         {should_filter && (
           <Stack.Item>
