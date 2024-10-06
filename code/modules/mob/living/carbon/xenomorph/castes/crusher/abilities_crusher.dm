@@ -26,9 +26,8 @@
 	for(var/mob/living/M in range(1, get_turf(X)))
 		if(X.issamexenohive(M) || M.stat == DEAD || isnestedhost(M))
 			continue
-		var/distance = get_dist(M, X)
 		var/damage = X.xeno_caste.stomp_damage
-		if(distance == 0) //If we're on top of our victim, give him the full impact
+		if(get_dist(M, X) == 0) //If we're on top of our victim, give him the full impact
 			GLOB.round_statistics.crusher_stomp_victims++
 			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomp_victims")
 			M.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE, penetration = 100, max_limbs = 3)
