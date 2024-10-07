@@ -82,7 +82,7 @@
 "abW" = (
 /obj/machinery/vending/uniform_supply,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "acd" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -741,7 +741,7 @@
 /obj/structure/table/woodentable,
 /obj/effect/spawner/random/misc/table_lighting,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "arc" = (
 /obj/effect/turf_decal/warning_stripes/box/small{
 	dir = 1
@@ -2099,7 +2099,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "bhQ" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/ship_ammo/cas/rocket/banshee,
@@ -2760,7 +2760,7 @@
 "bAZ" = (
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship/talos,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "bBk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2769,7 +2769,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "bBA" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -3654,7 +3654,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "can" = (
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
@@ -3768,7 +3768,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/mainship/mech,
 /turf/open/floor/mainship/stripesquare,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "ceo" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -5361,7 +5361,7 @@
 /obj/item/stack/sheet/mineral/phoron/medium_stack,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "cZT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5427,7 +5427,7 @@
 "dbR" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "dcs" = (
 /obj/effect/turf_decal/warning_stripes/box/small,
 /obj/effect/turf_decal/warning_stripes/box/small{
@@ -6587,7 +6587,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "dMM" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/structure/sign/prop1,
@@ -6884,7 +6884,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "dWd" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -8450,7 +8450,7 @@
 /area/mainship/command/cic)
 "eQV" = (
 /turf/closed/wall/mainship/talos,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "eRa" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/emerald,
@@ -8666,7 +8666,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "eWC" = (
 /turf/open/liquid/water/river/desertdam/clean/shallow_water_desert_coast{
 	dir = 4
@@ -8713,7 +8713,7 @@
 /area/mainship/squads/charlie)
 "eXH" = (
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "eXN" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
@@ -11255,7 +11255,7 @@
 /obj/machinery/holopad,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "gGw" = (
 /obj/structure/table/fancywoodentable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -11386,7 +11386,7 @@
 "gKO" = (
 /obj/machinery/vending/weapon,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "gLp" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -12255,7 +12255,7 @@
 "hqA" = (
 /obj/structure/bed/bunkbed,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "hqB" = (
 /obj/machinery/door/airlock/multi_tile/mainship/marine/alpha/smart,
 /obj/machinery/door/firedoor{
@@ -13548,7 +13548,7 @@
 "ijM" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "ikb" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -13608,7 +13608,7 @@
 "imB" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "imD" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -15383,7 +15383,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/dark,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "jrf" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/weaponry/melee,
@@ -15808,7 +15808,7 @@
 /obj/effect/spawner/random/food_or_drink/burger/weird,
 /obj/effect/spawner/random/food_or_drink/wine,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "jFR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname,
@@ -16376,7 +16376,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "jXt" = (
 /obj/machinery/holosign_switch{
 	id = "or1sign";
@@ -17091,7 +17091,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "kut" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
@@ -19051,7 +19051,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/mainship/mech,
 /turf/open/floor/mainship/stripesquare,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "lvG" = (
 /obj/structure/rack,
 /obj/item/fuel_cell/full,
@@ -19382,7 +19382,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "lDs" = (
 /obj/structure/table/fancywoodentable,
 /turf/open/floor/grass,
@@ -19489,7 +19489,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "lFP" = (
 /obj/structure/cable,
 /obj/item/tool/wet_sign,
@@ -20109,7 +20109,7 @@
 "lYP" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "lYT" = (
 /obj/effect/turf_decal/arrows{
 	dir = 8;
@@ -22904,7 +22904,7 @@
 	dir = 9
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "nAV" = (
 /obj/machinery/floor_warn_light/self_destruct,
 /turf/open/floor/mainship/metal/full,
@@ -23662,7 +23662,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "nVd" = (
 /obj/machinery/door/window{
 	dir = 8
@@ -26640,7 +26640,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "pHv" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
@@ -27360,7 +27360,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "qdj" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /obj/effect/turf_decal/siding/metal{
@@ -27832,7 +27832,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "qpd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
@@ -27993,7 +27993,7 @@
 "qsj" = (
 /obj/effect/landmark/start/job/mechpilot,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "qsr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/mainship{
@@ -28007,7 +28007,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "qsJ" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/decal/cleanable/cobweb{
@@ -29735,7 +29735,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "rzM" = (
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
@@ -29853,7 +29853,7 @@
 	dir = 10
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "rCz" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/fulltile,
@@ -32088,7 +32088,7 @@
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "sSK" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/camera_advanced/overwatch/charlie,
@@ -34097,7 +34097,7 @@
 "ukf" = (
 /obj/machinery/vending/armor_supply,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "uku" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt{
 	dir = 4
@@ -34348,7 +34348,7 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "upU" = (
 /obj/machinery/vending/uniform_supply,
 /obj/structure/window{
@@ -35647,7 +35647,7 @@
 "veA" = (
 /obj/machinery/loadout_vendor,
 /turf/open/floor/mainship/metal,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "veL" = (
 /obj/machinery/door/airlock/mainship/marine/charlie/medic,
 /obj/machinery/door/firedoor{
@@ -36436,7 +36436,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "vGU" = (
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -37290,7 +37290,7 @@
 	dir = 6
 	},
 /turf/open/floor/plating/mainship/reinforced,
-/area/sulaco/mechpilotquarters)
+/area/mainship/living/mechbunks)
 "wfA" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
