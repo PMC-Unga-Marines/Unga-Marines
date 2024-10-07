@@ -131,10 +131,7 @@
 /area/bigredv2/outside/filtration_plant)
 "lG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump{
-	dir = 8;
-	on = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "lM" = (
@@ -215,7 +212,6 @@
 "st" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -385,6 +381,10 @@
 "IH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/headset/survivor,
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 8;
+	on = 1
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "IP" = (
@@ -422,8 +422,10 @@
 "JN" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "Kn" = (
@@ -506,6 +508,11 @@
 /area/bigredv2/outside/se)
 "RB" = (
 /turf/closed/wall,
+/area/bigredv2/outside/filtration_plant)
+"RP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "RV" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -819,7 +826,7 @@ ab
 Vb
 "}
 (9,1,1) = {"
-lv
+RP
 lG
 lv
 zp

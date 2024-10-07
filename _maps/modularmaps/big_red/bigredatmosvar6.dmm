@@ -29,8 +29,10 @@
 "bB" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "cG" = (
@@ -222,6 +224,10 @@
 "po" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/headset/survivor,
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 8;
+	on = 1
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "pF" = (
@@ -398,7 +404,6 @@
 "zI" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -705,15 +710,17 @@
 /area/bigredv2/outside/se)
 "WF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump{
-	dir = 8;
-	on = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "Xe" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/se)
+"Yb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
 "Zd" = (
 /obj/machinery/power/geothermal,
 /obj/structure/cable,
@@ -948,7 +955,7 @@ de
 Rk
 "}
 (9,1,1) = {"
-Km
+Yb
 WF
 Km
 GV
