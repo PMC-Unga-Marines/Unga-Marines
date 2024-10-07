@@ -37,7 +37,7 @@
 	Talk in Hivemind using <strong>;</strong>, <strong>.a</strong>, or <strong>,a</strong> (e.g. ';My life for the queen!')")
 
 /datum/job/xenomorph/handle_special_preview(client/parent)
-	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Bloody Larva", dir = SOUTH))
+	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Bloody Larva"), list(SOUTH))
 	return TRUE
 
 /datum/job/xenomorph/add_job_positions(amount)
@@ -84,7 +84,7 @@
 	Talk in Hivemind using <strong>;</strong>, <strong>.a</strong>, or <strong>,a</strong> (e.g. ';My life for the hive!')")
 
 /datum/job/xenomorph/queen/handle_special_preview(client/parent)
-	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Larva", dir = SOUTH))
+	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Larva"), list(SOUTH))
 	return TRUE
 
 /datum/job/xenomorph/facehugger
