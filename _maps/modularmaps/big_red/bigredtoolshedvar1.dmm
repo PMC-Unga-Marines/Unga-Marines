@@ -132,6 +132,12 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
+"B" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/c)
 "C" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -144,6 +150,10 @@
 "F" = (
 /obj/effect/turf_decal/warning_stripes,
 /obj/item/toy/beach_ball/basketball,
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 4;
+	on = 1
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "G" = (
@@ -180,6 +190,9 @@
 	id = "basketball";
 	side = "right"
 	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "M" = (
@@ -206,10 +219,10 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "Q" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 1
-	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "R" = (
@@ -340,7 +353,7 @@ b
 m
 I
 I
-I
+B
 I
 I
 g
@@ -351,7 +364,7 @@ e
 m
 I
 I
-I
+B
 I
 I
 g
@@ -362,7 +375,7 @@ e
 m
 I
 I
-I
+B
 I
 I
 g
@@ -373,7 +386,7 @@ e
 m
 I
 I
-I
+B
 I
 I
 g
@@ -384,7 +397,7 @@ b
 m
 I
 I
-I
+B
 I
 I
 g
@@ -406,7 +419,7 @@ e
 I
 I
 I
-I
+B
 I
 I
 I

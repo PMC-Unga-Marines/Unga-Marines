@@ -50,11 +50,9 @@
 /turf/open/floor,
 /area/bigredv2/outside/storage)
 "k" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 10
-	},
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "l" = (
@@ -198,11 +196,19 @@
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
-"O" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 1
-	},
+"N" = (
 /obj/structure/cable,
+/obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/c)
+"O" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "P" = (
@@ -268,7 +274,7 @@ s
 W
 G
 q
-M
+N
 k
 l
 F
