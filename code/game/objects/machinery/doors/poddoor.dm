@@ -255,19 +255,16 @@
 	use_power = FALSE
 	resistance_flags = DROPSHIP_IMMUNE|RESIST_ALL
 
-
 /obj/machinery/door/poddoor/timed_late/Initialize(mapload)
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH), PROC_REF(open))
 	return ..()
 
-
 /obj/machinery/door/poddoor/timed_late/containment
 	name = "Containment shutters"
 	desc = "Safety shutters triggered by some kind of lockdown event."
-	resistance_flags = DROPSHIP_IMMUNE|RESIST_ALL
+	resistance_flags = DROPSHIP_IMMUNE|RESIST_ALL|BLOCK_PASSTHROUGH_PROJECTILES
 	open_layer = UNDER_TURF_LAYER //No longer needs to be interacted with.
 	closed_layer = ABOVE_WINDOW_LAYER //Higher than usual, this is only around on the start of the round.
-
 
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/Initialize(mapload)
 	. = ..()
@@ -281,6 +278,7 @@
 	. = ..()
 	var/area/ourarea = get_area(src)
 	DISABLE_BITFIELD(ourarea.flags_area, DISALLOW_WEEDING)
+	DISABLE_BITFIELD(resistance_flags, BLOCK_PASSTHROUGH_PROJECTILES)
 
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/get_explosion_resistance()
 	return density ? EXPLOSION_MAX_POWER : 0
