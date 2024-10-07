@@ -84,7 +84,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(!owner.Adjacent(A) || !ismovable(A))
+	if(!owner.Adjacent(A) || isarmoredvehicle(A) || !ismovable(A))
 		return FALSE
 	var/atom/movable/movable_atom = A
 	if(movable_atom.anchored)
