@@ -18,7 +18,10 @@
 		LAZYADDASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
 
 /obj/structure/xeno/Destroy()
-	if(!locate(src) in GLOB.xeno_structures_by_hive[hivenumber]+GLOB.xeno_critical_structures_by_hive[hivenumber]) //The rest of the proc is pointless to look through if its not in the lists
+	var/list/list_to_check = GLOB.xeno_structures_by_hive[hivenumber]
+	if(xeno_structure_flags & CRITICAL_STRUCTURE)
+		list_to_check += GLOB.xeno_critical_structures_by_hive[hivenumber]
+	if(!locate(src) in list_to_check) //The rest of the proc is pointless to look through if its not in the lists
 		stack_trace("[src] not found in the list of (potentially critical) xeno structures!") //We dont want to CRASH because that'd block deletion completely. Just trace it and continue.
 		return ..()
 	GLOB.xeno_structures_by_hive[hivenumber] -= src
