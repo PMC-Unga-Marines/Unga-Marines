@@ -2695,7 +2695,9 @@
 "axj" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 5
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "axl" = (
@@ -6369,15 +6371,17 @@
 /area/bigredv2/outside/filtration_plant)
 "btl" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 6
+	dir = 4
 	},
-/turf/open/floor/asteroidfloor,
+/turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/s)
 "btm" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/floor/marking/asteroidwarning,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 4
+	},
 /area/bigredv2/outside/s)
 "btr" = (
 /obj/machinery/computer/station_alert,
@@ -7894,11 +7898,10 @@
 	},
 /area/bigredv2/outside/space_port/two)
 "cku" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/floor/asteroidfloor,
+/turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "cly" = (
 /obj/structure/cable,
@@ -9559,6 +9562,9 @@
 	dir = 1;
 	name = "\improper Engineering Complex"
 	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "fWZ" = (
@@ -10794,10 +10800,8 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "iSu" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 8
-	},
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "iTO" = (
@@ -10823,13 +10827,12 @@
 	},
 /area/bigredv2/outside/nw)
 "iWB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 9
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+	dir = 8
 	},
-/turf/open/floor/marking/asteroidwarning{
-	dir = 4
-	},
-/area/bigredv2/outside/s)
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
 "iWS" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
@@ -14030,9 +14033,6 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "qfk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
@@ -17019,13 +17019,13 @@
 /area/bigredv2/outside/virology)
 "wQm" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "wSJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/s)
 "wTu" = (
@@ -17083,11 +17083,11 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/west)
 "xax" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/cable,
-/obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "xaJ" = (
@@ -33463,7 +33463,7 @@ lKw
 lKw
 lKw
 aMc
-cku
+biY
 xax
 vBu
 vBu
@@ -33681,7 +33681,7 @@ yhc
 wzM
 aMc
 qfk
-eBA
+cku
 oxP
 oxP
 oxP
@@ -33897,8 +33897,8 @@ sZl
 lKw
 wzM
 aMc
-bhR
-eBA
+biY
+cku
 oxP
 oxP
 wzM
@@ -34114,8 +34114,8 @@ vpK
 lKw
 lKw
 aMc
-bhR
-eBA
+biY
+cku
 oxP
 wzM
 lKw
@@ -34331,8 +34331,8 @@ lKw
 lKw
 lKw
 aMc
-bhR
-eBA
+biY
+cku
 oxP
 oxP
 wzM
@@ -39131,7 +39131,7 @@ gVm
 dXF
 pwE
 iSu
-bod
+iWB
 btN
 bkt
 wMP
@@ -39347,7 +39347,7 @@ gTn
 bkE
 bkt
 bkt
-bpo
+bkE
 fWy
 bkt
 bkt
@@ -39563,9 +39563,9 @@ brA
 pES
 bmK
 bkt
-btl
-iWB
+jNI
 bjx
+btm
 bjZ
 wMP
 wMP
@@ -39780,9 +39780,9 @@ bkt
 bkt
 bkt
 bkt
-btm
+bjY
 wMP
-wMP
+btl
 wMP
 wMP
 wMP
@@ -39997,9 +39997,9 @@ brB
 txu
 vSK
 bkt
-btm
+bjY
 fDh
-wMP
+btl
 wMP
 wMP
 wMP
@@ -40214,9 +40214,9 @@ lfR
 wOO
 scx
 bkt
-btm
+bjY
 vdg
-wMP
+btl
 wMP
 wMP
 vdg
@@ -40431,9 +40431,9 @@ wOO
 nRv
 ykK
 bkt
-btm
+bjY
 wMP
-wMP
+btl
 wMP
 wMP
 wMP
@@ -40648,9 +40648,9 @@ lfR
 wOO
 jRa
 bkt
-btm
+bjY
 wMP
-wMP
+btl
 wMP
 wMP
 wMP
@@ -40867,7 +40867,7 @@ bsF
 asV
 wSJ
 wMP
-wMP
+btl
 wMP
 wMP
 wMP
@@ -41084,7 +41084,7 @@ bsG
 asV
 wSJ
 vdg
-wMP
+btl
 wMP
 wMP
 wdV
@@ -41299,9 +41299,9 @@ tLg
 mGp
 bsG
 asV
-btm
+bjY
 wMP
-wMP
+btl
 wMP
 vJR
 hLG
@@ -41516,9 +41516,9 @@ bkE
 wOO
 bsG
 bkt
-btm
+bjY
 fDh
-wMP
+btl
 vJR
 hLG
 hLG
