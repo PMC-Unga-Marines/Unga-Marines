@@ -11181,7 +11181,6 @@
 /area/mainship/squads/req)
 "gEA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/warning_cone,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -23187,7 +23186,6 @@
 	dir = 8
 	},
 /obj/machinery/holopad,
-/obj/item/clothing/head/warning_cone,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "nKJ" = (
@@ -24238,7 +24236,6 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 8
 	},
-/obj/item/clothing/head/warning_cone,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "omN" = (
