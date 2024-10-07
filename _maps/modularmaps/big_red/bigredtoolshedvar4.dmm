@@ -135,6 +135,11 @@
 	dir = 4
 	},
 /area/bigredv2/outside/c)
+"B" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/c)
 "C" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -173,14 +178,6 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
-"M" = (
-/obj/structure/cable,
-/obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 10
-	},
-/turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "N" = (
 /obj/structure/rack,
@@ -232,7 +229,9 @@
 "Z" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 
@@ -241,7 +240,7 @@ t
 j
 L
 W
-M
+B
 Z
 C
 Q

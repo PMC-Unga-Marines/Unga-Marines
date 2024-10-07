@@ -7898,11 +7898,10 @@
 	},
 /area/bigredv2/outside/space_port/two)
 "cku" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 6
+	dir = 4
 	},
-/turf/open/floor/asteroidfloor,
+/turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "cly" = (
 /obj/structure/cable,
@@ -14034,9 +14033,6 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "qfk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
@@ -17090,7 +17086,7 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 9
+	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
@@ -33467,7 +33463,7 @@ lKw
 lKw
 lKw
 aMc
-cku
+biY
 xax
 vBu
 vBu
@@ -33685,7 +33681,7 @@ yhc
 wzM
 aMc
 qfk
-eBA
+cku
 oxP
 oxP
 oxP
@@ -33901,8 +33897,8 @@ sZl
 lKw
 wzM
 aMc
-bhR
-eBA
+biY
+cku
 oxP
 oxP
 wzM
@@ -34118,8 +34114,8 @@ vpK
 lKw
 lKw
 aMc
-bhR
-eBA
+biY
+cku
 oxP
 wzM
 lKw
@@ -34335,8 +34331,8 @@ lKw
 lKw
 lKw
 aMc
-bhR
-eBA
+biY
+cku
 oxP
 oxP
 wzM
