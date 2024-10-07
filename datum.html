@@ -16,7 +16,7 @@
 <h1>datum <aside>/<a href="datum.html">datum</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L11">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L11">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 11"/></a></h1>
 
 <p>The absolute base class for everything</p>
@@ -78,39 +78,39 @@ Will be logged as a representation of this datum if it's a part of a search chai
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L25">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L25">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 25"/></a></h3>
         <p>Active timers with this datum as the target</p><h3 id="var/_datum_components"><aside class="declaration">var </aside>_datum_components
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L37">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L37">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 37"/></a></h3>
         <p>Components attached to this datum</p>
 <p>Lazy associated list in the structure of <code>type -&gt; component/list of components</code></p><h3 id="var/_listen_lookup"><aside class="declaration">var </aside>_listen_lookup
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L43">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L43">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 43"/></a></h3>
         <p>Any datum registered to receive signals from this datum is in this list</p>
 <p>Lazy associated list in the structure of <code>signal -&gt; registree/list of registrees</code></p><h3 id="var/_signal_procs"><aside class="declaration">var </aside>_signal_procs
             <aside>&ndash; /list/list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L45">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L45">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 45"/></a></h3>
         <p>Lazy associated list in the structure of <code>target -&gt; list(signal -&gt; proctype)</code> that are run when the datum receives that signal</p><h3 id="var/_status_traits"><aside class="declaration">var </aside>_status_traits
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L27">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L27">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 27"/></a></h3>
         <p>Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))</p><h3 id="var/cached_ref"><aside class="declaration">var </aside>cached_ref
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L53">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L53">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 53"/></a></h3>
         <p>A cached version of our \ref
 The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
@@ -118,7 +118,7 @@ This avoids doing that more then once per datum by ensuring ref strings always h
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L79">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L79">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 79"/></a></h3>
         <p>Lazy associative list of currently active cooldowns.</p>
 <p>cooldowns [ COOLDOWN_INDEX ] = add_timer()
@@ -126,13 +126,13 @@ add_timer() returns the truthy value of -1 when not stoppable, and else a truthy
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L48">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L48">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 48"/></a></h3>
         <p>Datum level flags</p><h3 id="var/gc_destroyed"><aside class="declaration">var </aside>gc_destroyed
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L18">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L18">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 18"/></a></h3>
         <p>Tick count time when this object was destroyed.</p>
 <p>If this is non zero then the object has been garbage collected and is awaiting either
@@ -140,14 +140,14 @@ a hard del by the GC subsystme, or to be autocollected (if it has no references)
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L22">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L22">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 22"/></a></h3>
         <p>Open uis owned by this datum
 Lazy, since this case is semi rare</p><h3 id="var/tgui_shared_states"><aside class="declaration">var </aside>tgui_shared_states
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L130">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L130">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 130"/></a></h3>
         <p>global</p>
 <p>Associative list of JSON-encoded shared states that were set by
@@ -155,12 +155,12 @@ tgui clients.</p><h3 id="var/weak_reference"><aside class="declaration">var </as
             <aside>&ndash; /<a href="datum.html">datum</a>/weakref</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L56">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L56">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 56"/></a></h3>
         <p>A weak reference to another datum</p><h2 id="proc">Proc Details</h2><h3 id="proc/Destroy"><aside class="declaration">proc </aside>Destroy<aside>(force) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L95">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L95">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 95"/></a></aside>
         </h3>
         <p>Default implementation of clean-up code.</p>
@@ -177,7 +177,7 @@ in most cases this is <a href="code/__DEFINES/qdel.html#define/QDEL_HINT_QUEUE" 
 <p>Returns <a href="code/__DEFINES/qdel.html#define/QDEL_HINT_QUEUE" title="QDEL_HINT_QUEUE">QDEL_HINT_QUEUE</a></p><h3 id="proc/GetComponent"><aside class="declaration">proc </aside>GetComponent<aside>(/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a>/c_type) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L223">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L223">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 223"/></a></aside>
         </h3>
         <p>Return any component assigned to this datum of the given type</p>
@@ -188,7 +188,7 @@ in most cases this is <a href="code/__DEFINES/qdel.html#define/QDEL_HINT_QUEUE" 
 </ul><h3 id="proc/GetComponents"><aside class="declaration">proc </aside>GetComponents<aside>(c_type) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L264">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L264">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 264"/></a></aside>
         </h3>
         <p>Get all components of a given type that are attached to this datum</p>
@@ -198,7 +198,7 @@ in most cases this is <a href="code/__DEFINES/qdel.html#define/QDEL_HINT_QUEUE" 
 </ul><h3 id="proc/GetExactComponent"><aside class="declaration">proc </aside>GetExactComponent<aside>(/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a>/c_type) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L243">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L243">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 243"/></a></aside>
         </h3>
         <p>Return any component assigned to this datum of the exact given type</p>
@@ -209,7 +209,7 @@ in most cases this is <a href="code/__DEFINES/qdel.html#define/QDEL_HINT_QUEUE" 
 </ul><h3 id="proc/RegisterSignal"><aside class="declaration">proc </aside>RegisterSignal<aside>(/<a href="datum.html">datum</a>/target, signal_type, proctype, override) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/signals.dm#L16">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/signals.dm#L16">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;signals.dm 16"/></a></aside>
         </h3>
         <p>Register to listen for a signal from the passed in target</p>
@@ -227,13 +227,13 @@ Return values from procs registered must be a bitfield</p>
 </ul><h3 id="proc/RegisterSignals"><aside class="declaration">proc </aside>RegisterSignals<aside>(/<a href="datum.html">datum</a>/target, /list/signal_types, proctype, override) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/signals.dm#L56">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/signals.dm#L56">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;signals.dm 56"/></a></aside>
         </h3>
         <p>Registers multiple signals to the same proc.</p><h3 id="proc/TakeComponent"><aside class="declaration">proc </aside>TakeComponent<aside>(/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a>/target) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L382">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L382">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 382"/></a></aside>
         </h3>
         <p>Transfer this component to another parent</p>
@@ -244,14 +244,14 @@ Return values from procs registered must be a bitfield</p>
 </ul><h3 id="proc/Topic"><aside class="declaration">proc </aside>Topic<aside>(href, /list/href_list) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L254">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L254">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 254"/></a></aside>
         </h3>
         <p>Called when a href for this datum is clicked</p>
 <p>Sends a <a href="code/__DEFINES/dcs/signals.html#define/COMSIG_TOPIC" title="COMSIG_TOPIC">COMSIG_TOPIC</a> signal</p><h3 id="proc/TransferComponents"><aside class="declaration">proc </aside>TransferComponents<aside>(/<a href="datum.html">datum</a>/target) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L406">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L406">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 406"/></a></aside>
         </h3>
         <p>Transfer all components to target</p>
@@ -262,7 +262,7 @@ Return values from procs registered must be a bitfield</p>
 </ul><h3 id="proc/UnregisterSignal"><aside class="declaration">proc </aside>UnregisterSignal<aside>(/<a href="datum.html">datum</a>/target, sig_type_or_types) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/signals.dm#L71">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/signals.dm#L71">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;signals.dm 71"/></a></aside>
         </h3>
         <p>Stop listening to a given signal from target</p>
@@ -275,7 +275,7 @@ Return values from procs registered must be a bitfield</p>
 </ul><h3 id="proc/_AddComponent"><aside class="declaration">proc </aside>_AddComponent<aside>(/list/raw_args) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L283">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L283">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 283"/></a></aside>
         </h3>
         <p>Creates an instance of <code>new_type</code> in the datum and attaches to it as parent</p>
@@ -285,13 +285,13 @@ Return values from procs registered must be a bitfield</p>
 <p>Properly handles duplicate situations based on the <code>dupe_mode</code> var</p><h3 id="proc/_AddElement"><aside class="declaration">proc </aside>_AddElement<aside>(/list/arguments) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/elements/_element.dm#L52">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/elements/_element.dm#L52">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;elements&#x2F;_element.dm 52"/></a></aside>
         </h3>
         <p>Finds the singleton for the element type given and attaches it to src</p><h3 id="proc/_LoadComponent"><aside class="declaration">proc </aside>_LoadComponent<aside>(/list/arguments) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/components/_component.dm#L357">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/components/_component.dm#L357">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 357"/></a></aside>
         </h3>
         <p>Get existing component of type, or create it and return a reference to it</p>
@@ -303,14 +303,14 @@ Return values from procs registered must be a bitfield</p>
 </ul><h3 id="proc/_RemoveElement"><aside class="declaration">proc </aside>_RemoveElement<aside>(/list/arguments) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/elements/_element.dm#L64">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/elements/_element.dm#L64">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;elements&#x2F;_element.dm 64"/></a></aside>
         </h3>
         <p>Finds the singleton for the element type given and detaches it from src
 You only need additional arguments beyond the type if you're using <a href="code/__DEFINES/dcs/flags.html#define/ELEMENT_BESPOKE" title="ELEMENT_BESPOKE">ELEMENT_BESPOKE</a></p><h3 id="proc/_SendSignal"><aside class="declaration">proc </aside>_SendSignal<aside>(sigtype, /list/arguments) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/signals.dm#L113">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/signals.dm#L113">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;signals.dm 113"/></a></aside>
         </h3>
         <p>Internal proc to handle most all of the signaling procedure</p>
@@ -318,44 +318,44 @@ You only need additional arguments beyond the type if you're using <a href="code
 <p>Use the <a href="code/__DEFINES/dcs/helpers.html#define/SEND_SIGNAL" title="SEND_SIGNAL">SEND_SIGNAL</a> define instead</p><h3 id="proc/deserialize_json"><aside class="declaration">proc </aside>deserialize_json<aside>(/list/input, /list/options) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L201">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L201">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 201"/></a></aside>
         </h3>
         <p>Deserializes from JSON. Does not parse type.</p><h3 id="proc/deserialize_list"><aside class="declaration">proc </aside>deserialize_list<aside>(json, /list/options) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L188">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L188">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 188"/></a></aside>
         </h3>
         <p>Accepts a LIST from deserialize_datum. Should return whether or not the deserialization was successful.</p><h3 id="proc/jatum_new_arglist"><aside class="declaration">proc </aside>jatum_new_arglist<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/__HELPERS/jatum.dm#L6">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/__HELPERS/jatum.dm#L6">
         <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;jatum.dm 6"/></a></aside>
         </h3>
         <p>Gets the flat list that can be passed in a <code>new /type(argslist(retval))</code> expression to recreate the datum. Must only return a list containing values that can be JATUM serialized</p><h3 id="proc/ref_search_details"><aside class="declaration">proc </aside>ref_search_details<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/admin/view_variables/reference_tracking.dm#L164">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/admin/view_variables/reference_tracking.dm#L164">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;view_variables&#x2F;reference_tracking.dm 164"/></a></aside>
         </h3>
         <p>Return info about us for reference searching purposes
 Will be logged as a representation of this datum if it's a part of a search chain</p><h3 id="proc/serialize_json"><aside class="declaration">proc </aside>serialize_json<aside>(/list/options) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L193">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L193">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 193"/></a></aside>
         </h3>
         <p>Serializes into JSON. Does not encode type.</p><h3 id="proc/serialize_list"><aside class="declaration">proc </aside>serialize_list<aside>(/list/options, /list/semvers) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/datums/datum.dm#L178">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/datums/datum.dm#L178">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 178"/></a></aside>
         </h3>
         <p>Return a list of data which can be used to investigate the datum, also ensure that you set the semver in the options list</p><h3 id="proc/ui_act"><aside class="declaration">proc </aside>ui_act<aside>(action, /list/params, /<a href="datum.html">datum</a>/<a href="datum/tgui.html">tgui</a>/ui, /<a href="datum.html">datum</a>/<a href="datum/ui_state.html">ui_state</a>/state) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L87">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L87">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 87"/></a></aside>
         </h3>
         <p>public</p>
@@ -366,7 +366,7 @@ required params list A list of parameters attached to the button.</p>
 <p>return bool If the user's input has been handled and the UI should update.</p><h3 id="proc/ui_assets"><aside class="declaration">proc </aside>ui_assets<aside>(/<a href="mob.html">mob</a>/user) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L102">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L102">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 102"/></a></aside>
         </h3>
         <p>public</p>
@@ -375,7 +375,7 @@ push various assets to tgui, for examples spritesheets.</p>
 <p>return list List of asset datums or file paths.</p><h3 id="proc/ui_close"><aside class="declaration">proc </aside>ui_close<aside>(/<a href="mob.html">mob</a>/user) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L152">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L152">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 152"/></a></aside>
         </h3>
         <p>public</p>
@@ -383,7 +383,7 @@ push various assets to tgui, for examples spritesheets.</p>
 client/verb/uiclose(), which closes the ui window</p><h3 id="proc/ui_data"><aside class="declaration">proc </aside>ui_data<aside>(/<a href="mob.html">mob</a>/user) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L30">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L30">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 30"/></a></aside>
         </h3>
         <p>public</p>
@@ -393,7 +393,7 @@ This must be implemented for a UI to work.</p>
 <p>return list Data to be sent to the UI.</p><h3 id="proc/ui_host"><aside class="declaration">proc </aside>ui_host<aside>(/<a href="mob.html">mob</a>/user) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L112">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L112">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 112"/></a></aside>
         </h3>
         <p>private</p>
@@ -402,7 +402,7 @@ This allows modules/datums to have the UI attached to them,
 and be a part of another object.</p><h3 id="proc/ui_interact"><aside class="declaration">proc </aside>ui_interact<aside>(/<a href="mob.html">mob</a>/user, /<a href="datum.html">datum</a>/<a href="datum/tgui.html">tgui</a>/ui) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L17">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L17">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 17"/></a></aside>
         </h3>
         <p>public</p>
@@ -412,7 +412,7 @@ If this proc is not implemented properly, the UI will not update correctly.</p>
 optional ui datum/tgui The UI to be updated, if it exists.</p><h3 id="proc/ui_state"><aside class="declaration">proc </aside>ui_state<aside>(/<a href="mob.html">mob</a>/user) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L121">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L121">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 121"/></a></aside>
         </h3>
         <p>private</p>
@@ -420,7 +420,7 @@ optional ui datum/tgui The UI to be updated, if it exists.</p><h3 id="proc/ui_st
 This is a proc over a var for memory reasons</p><h3 id="proc/ui_static_data"><aside class="declaration">proc </aside>ui_static_data<aside>(/<a href="mob.html">mob</a>/user) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L47">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L47">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 47"/></a></aside>
         </h3>
         <p>public</p>
@@ -433,7 +433,7 @@ object on the frontend side, but the static part is cached.</p>
 <p>return list Statuic Data to be sent to the UI.</p><h3 id="proc/ui_status"><aside class="declaration">proc </aside>ui_status<aside>(/<a href="mob.html">mob</a>/user, /<a href="datum.html">datum</a>/<a href="datum/ui_state.html">ui_state</a>/state) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/states.dm#L19">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/states.dm#L19">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;states.dm 19"/></a></aside>
         </h3>
         <p>public</p>
@@ -443,7 +443,7 @@ required state datum/ui_state The state to check.</p>
 <p>return UI_state The state of the UI.</p><h3 id="proc/update_static_data"><aside class="declaration">proc </aside>update_static_data<aside>(/<a href="mob.html">mob</a>/user, /<a href="datum.html">datum</a>/<a href="datum/tgui.html">tgui</a>/ui) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L59">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L59">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 59"/></a></aside>
         </h3>
         <p>public</p>
@@ -453,7 +453,7 @@ happens to change static data.</p>
 optional ui ui to be updated</p><h3 id="proc/update_static_data_for_all_viewers"><aside class="declaration">proc </aside>update_static_data_for_all_viewers<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/1247c61c1369e4503d126072412632710d7c88d6/code/modules/tgui/external.dm#L72">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/a6017fc6a03804724ab4196e787a2d9698538770/code/modules/tgui/external.dm#L72">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;external.dm 72"/></a></aside>
         </h3>
         <p>public</p>
@@ -462,7 +462,7 @@ Should be done manually whenever something happens to
 change static data.</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/1247c61c1369e4503d126072412632710d7c88d6">1247c61</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/a6017fc6a03804724ab4196e787a2d9698538770">a6017fc</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
