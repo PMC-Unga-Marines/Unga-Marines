@@ -7896,7 +7896,7 @@
 "cku" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
+	dir = 6
 	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
@@ -17083,11 +17083,11 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/west)
 "xax" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 9
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "xaJ" = (
