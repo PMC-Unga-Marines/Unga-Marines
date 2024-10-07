@@ -104,6 +104,7 @@
 
 /area/shuttle/vehicle_supply
 	name = "Vehicle Supply Shuttle"
+	requires_power = TRUE
 
 /*
 /area/shuttle/escape
