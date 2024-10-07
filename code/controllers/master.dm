@@ -252,7 +252,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/time = (REALTIMEOFDAY - start_timeofday) * 0.1
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, span_boldannounce("[msg]"))
+	to_chat(world, span_boldwarning("[msg]"))
 	log_world(msg)
 
 
@@ -339,7 +339,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			chat_warning = TRUE
 
 	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
+	var/chat_message = chat_warning ? span_boldwarning(message) : span_alert("<b>[message]</b>")
 
 	to_chat(world, chat_message)
 	log_world(message)

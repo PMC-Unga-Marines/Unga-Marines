@@ -23,11 +23,8 @@
 	// *** Health *** //
 	max_health = 350
 
-
 	// *** Evolution *** //
 	evolution_threshold = 225
-
-	deevolves_to = /mob/living/carbon/xenomorph/drone
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER|CASTE_ACID_BLOOD
@@ -50,7 +47,7 @@
 
 	// *** Abilities *** //
 
-	resin_max_range = 1 //Hivelord can place resin structures from 1 tile away
+	resin_max_range = 2 //Hivelord can place resin structures from 2 tile away
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,

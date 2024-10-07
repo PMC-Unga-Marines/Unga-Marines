@@ -48,15 +48,15 @@
 	if(!ishuman(user))
 		return
 	if(chameleon_on)
-		if(SEND_SIGNAL(user, COMSIG_MOB_ENABLE_STEALTH) & STEALTH_ALREADY_ACTIVE)
+		if(HAS_TRAIT(user, TRAIT_STEALTH))
 			to_chat(user, span_warning("You are already cloaked!"))
 			return
-		RegisterSignal(user, COMSIG_MOB_ENABLE_STEALTH, PROC_REF(on_other_activate))
+		ADD_TRAIT(user, TRAIT_STEALTH, TRAIT_STEALTH)
 		user.alpha = 25
 		to_chat(user, span_notice("You activate the [src]."))
 		spark_system.start()
 	else
-		UnregisterSignal(user, COMSIG_MOB_ENABLE_STEALTH)
+		REMOVE_TRAIT(user, TRAIT_STEALTH, TRAIT_STEALTH)
 		user.alpha = initial(user.alpha)
 		to_chat(user, span_notice("You deactivate the [src]."))
 		spark_system.start()
@@ -69,7 +69,3 @@
 
 /obj/item/chameleon/proc/disrupt(mob/user)
 	toggle(user, TRUE)
-
-/obj/item/chameleon/proc/on_other_activate()
-	SIGNAL_HANDLER
-	return STEALTH_ALREADY_ACTIVE

@@ -233,10 +233,18 @@
 	default_ammo = source.default_ammo
 
 /obj/item/ammo_magazine/fire_act(burn_level, flame_color)
+	if(QDELETED(src))
+		return
 	if(!current_rounds)
 		return
-	cell_explosion(loc, 5, 5)
-	qdel(src)
+	var/turf/explosion_loc = loc // we keep it so we dn't runtime on src deletion
+	var/power = 5
+	for(var/obj/item/ammo_magazine/ammo in explosion_loc) // we unite all small explosions into 1 big, so we don't fucking crash the game
+		if(!ammo.current_rounds)
+			continue
+		power++
+		qdel(ammo)
+	cell_explosion(explosion_loc, power, power)
 
 //Helper proc, to allow us to see a percentage of how full the magazine is.
 /obj/item/ammo_magazine/proc/get_ammo_percent()		// return % charge of cell
@@ -469,10 +477,18 @@ Turn() or Shift() as there is virtually no overhead. ~N
 
 //explosion when using flamer procs.
 /obj/item/big_ammo_box/fire_act(burn_level, flame_color)
+	if(QDELETED(src))
+		return
 	if(!bullet_amount)
 		return
-	cell_explosion(loc, 15, 15)
-	qdel(src)
+	var/turf/explosion_loc = loc // we keep it so we don't runtime on src deletion
+	var/power = 5
+	for(var/obj/item/big_ammo_box/box in explosion_loc)
+		if(!box.bullet_amount)
+			continue
+		power++
+		qdel(box)
+	cell_explosion(explosion_loc, power, power)
 
 //Deployable shotgun ammo box
 /obj/item/shotgunbox

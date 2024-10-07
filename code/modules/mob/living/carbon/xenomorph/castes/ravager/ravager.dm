@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/ravager
-	caste_base_type = /mob/living/carbon/xenomorph/ravager
+	caste_base_type = /datum/xeno_caste/ravager
 	name = "Ravager"
 	desc = "A huge, nasty red alien with enormous scythed claws."
 	icon = 'icons/Xeno/castes/ravager.dmi'
@@ -15,7 +15,7 @@
 	old_x = -16
 	bubble_icon = "alienroyal"
 	skins = list(
-		"bonehead" = 'icons/Xeno/castes/bonehead.dmi',
+		"bonehead" = 'icons/Xeno/castes/ravager_bone.dmi',
 		"baseline" = 'icons/Xeno/castes/ravager.dmi',
 	)
 	var/rage_power
