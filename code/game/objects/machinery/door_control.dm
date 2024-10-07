@@ -202,6 +202,11 @@
 	id = "mech_shutters"
 	req_one_access = list(ACCESS_MARINE_MECH)
 
+/obj/machinery/door_control/mainship/vehicle
+	name = "Armored Vehicle Shutter"
+	id = "vehicle_armored"
+	req_one_access = list(ACCESS_MARINE_ARMORED)
+
 /obj/machinery/door_control/mainship/tcomms
 	name = "Telecommunications Entrance"
 	id = "tcomms"
@@ -211,7 +216,6 @@
 	name = "Engineering Armory Lockdown"
 	id = "engi_armory"
 	req_one_access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_BRIDGE)
-
 
 /obj/machinery/door_control/mainship/corporate
 	name = "Privacy Shutters"
