@@ -17862,6 +17862,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/tankerbunks)
 "kOO" = (
@@ -23122,6 +23123,16 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
+"nJg" = (
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "vehicle_elevator_railing"
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/shuttle/vehicle_supply)
 "nJh" = (
 /obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
@@ -74199,7 +74210,7 @@ iwc
 xGu
 vvq
 iYn
-iYn
+nJg
 vvq
 iYn
 xGu
