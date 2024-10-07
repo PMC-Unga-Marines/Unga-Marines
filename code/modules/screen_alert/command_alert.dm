@@ -72,7 +72,7 @@
 		for(var/mob/living/carbon/human/marine AS in human_owner.assigned_squad.marines_list | GLOB.observer_list)
 			marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>ПРИКАЗ ОТРЯДУ:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(marine, assemble_alert(
-				title = "Приказ отряду [human_owner.assigned_squad.name]",
+				title = "Приказ отряду [human_owner.assigned_squad.ru_name]",
 				subtitle = "Отправлен [human_owner.real_name]",
 				message = text,
 				color_override = override_color
