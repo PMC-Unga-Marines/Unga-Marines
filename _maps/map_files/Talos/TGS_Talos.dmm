@@ -562,7 +562,6 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/obj/machinery/light/mainship/small,
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
 "aoi" = (
@@ -1498,6 +1497,9 @@
 	dir = 4
 	},
 /obj/machinery/landinglight/lz2{
+	dir = 8
+	},
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/mainship/metal/full,
@@ -5187,8 +5189,9 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/command/cic)
 "cVJ" = (
-/obj/machinery/light/mainship/small{
-	dir = 1
+/obj/machinery/light/floor{
+	dir = 1;
+	pixel_y = 4
 	},
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
@@ -5598,7 +5601,7 @@
 /turf/open/floor/mainship/blue/full,
 /area/mainship/command/cic)
 "dkn" = (
-/obj/machinery/light/mainship/small{
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/plating/mainship/reinforced,
@@ -8191,7 +8194,7 @@
 /turf/open/floor/mainship/orange/full,
 /area/mainship/command/cic)
 "eMt" = (
-/obj/machinery/light/mainship/small,
+/obj/machinery/light/floor,
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
 "eMx" = (
@@ -8646,6 +8649,18 @@
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
+"eYd" = (
+/obj/machinery/landinglight/lz2{
+	dir = 8
+	},
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/open/floor/mainship/metal/full,
+/area/mainship/hallways/hangar)
 "eYE" = (
 /obj/machinery/light/mainship/small{
 	dir = 4
@@ -10017,9 +10032,6 @@
 /area/mainship/hallways/hangar)
 "fPJ" = (
 /obj/machinery/computer/camera_advanced/remote_fob,
-/obj/machinery/light/mainship{
-	dir = 1
-	},
 /obj/structure/sign/semiotic/landingzone{
 	pixel_x = 15;
 	pixel_y = 24
@@ -10209,9 +10221,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "fUV" = (
-/obj/machinery/light/mainship/small{
-	dir = 1
-	},
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/vending/engivend,
 /turf/open/floor/mainship/metal,
@@ -10583,7 +10592,7 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 8
 	},
-/obj/item/clothing/head/warning_cone,
+/obj/machinery/floor_warn_light/self_destruct,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "gmK" = (
@@ -12987,6 +12996,9 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
+/obj/machinery/light/mainship/small{
+	dir = 4
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "hWW" = (
@@ -13641,9 +13653,6 @@
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
 "iro" = (
-/obj/machinery/light/mainship/small{
-	dir = 8
-	},
 /obj/effect/ai_node,
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -20940,6 +20949,9 @@
 "mDQ" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/vending/tool,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "mDV" = (
@@ -21534,9 +21546,6 @@
 /area/mainship/command/cic)
 "mTR" = (
 /obj/machinery/camera/autoname,
-/obj/machinery/light/mainship/small{
-	dir = 1
-	},
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
 "mTZ" = (
@@ -22297,7 +22306,6 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 8
 	},
-/obj/item/clothing/head/warning_cone,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "npM" = (
@@ -23712,12 +23720,6 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 5
-	},
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
@@ -24574,9 +24576,6 @@
 /obj/machinery/camera/autoname,
 /obj/machinery/landinglight/lz2{
 	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -25857,9 +25856,14 @@
 /turf/closed/wall/mainship/talos,
 /area/mainship/hull/upper_hull)
 "ptH" = (
-/obj/machinery/light/mainship{
-	dir = 1
+/obj/machinery/landinglight/lz2{
+	dir = 8
 	},
+/obj/effect/turf_decal/trimline/brown/warning{
+	dir = 8
+	},
+/obj/machinery/holopad,
+/obj/item/clothing/head/warning_cone,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "ptQ" = (
@@ -31935,11 +31939,11 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "tbE" = (
-/obj/machinery/light/mainship/small{
-	dir = 8
-	},
 /obj/machinery/camera/autoname{
 	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
@@ -39651,12 +39655,15 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/engineering/engine_core)
 "xTc" = (
-/obj/machinery/holopad,
 /obj/machinery/landinglight/lz2{
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 8
+	},
+/obj/machinery/light/floor{
+	dir = 8;
+	pixel_x = null
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -67286,7 +67293,7 @@ xpo
 xpo
 tbE
 sIq
-dkn
+xpo
 cgl
 dkn
 xpo
@@ -67538,7 +67545,6 @@ eXH
 bBk
 upP
 eQV
-cVJ
 xpo
 xpo
 xpo
@@ -67548,7 +67554,8 @@ xpo
 xpo
 xpo
 xpo
-eMt
+xpo
+xpo
 iwc
 gpR
 goK
@@ -67795,6 +67802,7 @@ ijM
 pGN
 lFO
 eQV
+cVJ
 xpo
 xpo
 xpo
@@ -67804,8 +67812,7 @@ xpo
 xpo
 xpo
 xpo
-xpo
-xpo
+eMt
 iwc
 fLj
 neA
@@ -68052,7 +68059,6 @@ gGt
 caa
 qsu
 eQV
-cVJ
 xpo
 xpo
 xpo
@@ -68062,7 +68068,8 @@ xpo
 xpo
 xpo
 xpo
-eMt
+xpo
+xpo
 qMe
 fLT
 grG
@@ -69340,8 +69347,8 @@ pGB
 dup
 dup
 gmt
-hkv
-dup
+xTc
+ptH
 npy
 hkv
 xTc
@@ -70101,11 +70108,11 @@ iwc
 iXy
 qMe
 oHP
-bRX
+rwu
 bHF
 bRX
 jnz
-bRX
+rwu
 otK
 jnz
 bRX
@@ -70116,7 +70123,7 @@ bRX
 jnz
 bRX
 bRX
-bRX
+rwu
 oeA
 eMx
 cEZ
@@ -71148,7 +71155,7 @@ xpo
 eMV
 iwc
 iwc
-ptH
+etc
 etc
 chJ
 etc
@@ -73189,7 +73196,7 @@ aIL
 bJO
 fqu
 eyW
-bSY
+eYd
 sas
 eyW
 bSY
