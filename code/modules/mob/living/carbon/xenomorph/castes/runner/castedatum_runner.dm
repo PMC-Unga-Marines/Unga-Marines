@@ -12,7 +12,7 @@
 	gib_flick = "gibbed-a-runner"
 
 	// *** Melee Attacks *** //
-	melee_damage = 21
+	melee_damage = 28
 	attack_delay = 6
 
 	// *** Speed *** //

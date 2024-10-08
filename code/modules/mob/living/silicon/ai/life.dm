@@ -32,3 +32,10 @@
 	health = 100 - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss()
 
 	update_stat()
+
+// for adminbus
+/mob/living/silicon/ai/revive()
+	. = ..()
+	icon_state = "ai" // if someone figures out how to set it based on icon_state_dead, while also checking for it in icon_states() do we don't break anything, good luck
+	set_eyeobj_visible(TRUE)
+	update_minimap_icon()

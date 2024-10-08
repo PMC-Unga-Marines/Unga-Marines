@@ -151,6 +151,10 @@
 	icon_state = "hangar"
 	minimap_color = MINIMAP_AREA_COMMAND
 
+/area/mainship/living/mechbunks
+	name = "Mech Pilot Bunks"
+	icon_state = "livingspace"
+	minimap_color = MINIMAP_AREA_COMMAND
 
 /area/mainship/living/tankerbunks
 	name = "Vehicle Crew Bunks"

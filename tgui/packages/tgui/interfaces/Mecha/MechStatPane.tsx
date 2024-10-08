@@ -1,5 +1,12 @@
 import { useBackend } from '../../backend';
-import { Stack, Button, Section, Box, ProgressBar, LabeledList } from '../../components';
+import {
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../../components';
 import { OperatorData } from './data';
 
 export const MechStatPane = (props) => {
@@ -32,7 +39,8 @@ export const MechStatPane = (props) => {
             <LabeledList.Item label="Safety">
               <Button
                 color={weapons_safety ? 'red' : ''}
-                onClick={() => act('toggle_safety')}>
+                onClick={() => act('toggle_safety')}
+              >
                 {weapons_safety ? 'Dis' : 'En'}able
               </Button>
             </LabeledList.Item>
@@ -52,7 +60,8 @@ export const MechStatPane = (props) => {
                 onClick={() => act('toggle_maintenance')}
                 selected={
                   mecha_flags & mechflag_keys['ADDING_MAINT_ACCESS_POSSIBLE']
-                }>
+                }
+              >
                 {mecha_flags & mechflag_keys['ADDING_MAINT_ACCESS_POSSIBLE']
                   ? 'En'
                   : 'Dis'}
@@ -62,9 +71,8 @@ export const MechStatPane = (props) => {
             <LabeledList.Item label="ID reader panel">
               <Button
                 onClick={() => act('toggle_id_panel')}
-                selected={
-                  mecha_flags & mechflag_keys['ADDING_ACCESS_POSSIBLE']
-                }>
+                selected={mecha_flags & mechflag_keys['ADDING_ACCESS_POSSIBLE']}
+              >
                 {mecha_flags & mechflag_keys['ADDING_ACCESS_POSSIBLE']
                   ? 'En'
                   : 'Dis'}
