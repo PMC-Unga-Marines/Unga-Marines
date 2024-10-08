@@ -228,10 +228,14 @@
 	id = "mech_shutters"
 	resistance_flags = PLASMACUTTER_IMMUNE
 
+/obj/machinery/door/poddoor/mainship/vehicle
+	name = "\improper Armored Vehicle Shutters"
+	id = "vehicle_armored"
+	resistance_flags = PLASMACUTTER_IMMUNE
+
 /obj/machinery/door/poddoor/mainship/umbilical
 	name = "Umbilical Airlock"
 	resistance_flags = RESIST_ALL
-
 
 /obj/machinery/door/poddoor/mainship/umbilical/north
 	id = "n_umbilical"
