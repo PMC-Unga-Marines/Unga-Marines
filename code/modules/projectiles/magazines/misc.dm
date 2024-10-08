@@ -29,8 +29,8 @@
 	caliber = CALIBER_602X41
 	icon_state = "box_602x41"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
-	current_rounds = 100
-	max_rounds = 100
+	current_rounds = 150
+	max_rounds = 150
 
 /obj/item/ammo_magazine/packet/pnato
 	name = "box of 5.56x45mm"
