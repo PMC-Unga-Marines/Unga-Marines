@@ -731,6 +731,7 @@
 	item_state = "v34_black"
 	muzzleflash_iconstate = "muzzle_flash"
 	max_shells = 30
+	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya/carbine
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/zarya/carbine,
@@ -780,7 +781,10 @@
 	aim_slowdown = 0.3
 	movement_acc_penalty_mult = 4
 	damage_falloff_mult = 1.4
-	damage_mult = 0.65
+	damage_mult = 0.70
+	upper_akimbo_accuracy = 12
+	lower_akimbo_accuracy = 9
+	akimbo_additional_delay = 2
 
 //-------------------------------------------------------
 // RPD
