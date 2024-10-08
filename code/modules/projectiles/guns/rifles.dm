@@ -780,8 +780,8 @@
 	wield_delay = 0.5 SECONDS
 	aim_slowdown = 0.3
 	movement_acc_penalty_mult = 4
-	damage_falloff_mult = 1.1
-	damage_mult = 0.70
+	damage_falloff_mult = 1.5
+	damage_mult = 0.80
 	upper_akimbo_accuracy = 12
 	lower_akimbo_accuracy = 9
 	akimbo_additional_delay = 2
