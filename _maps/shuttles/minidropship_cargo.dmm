@@ -35,6 +35,10 @@
 /area/shuttle/minidropship)
 "k" = (
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/obj/machinery/door/poddoor/mainship/open/nonsmoothing{
+	id = "minidropship_podlock";
+	dir = 1
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "o" = (
@@ -74,10 +78,11 @@
 /area/shuttle/minidropship)
 "v" = (
 /obj/structure/window/reinforced,
-/obj/machinery/camera/autoname/mainship/dropship_two{
+/obj/effect/turf_decal/tile/transparent/dark_blue/anticorner,
+/obj/machinery/vending/nanomed/tadpolemed{
+	pixel_x = 5;
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/transparent/dark_blue/anticorner,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "w" = (
