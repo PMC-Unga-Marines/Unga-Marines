@@ -766,7 +766,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 	)
-	flags_equip_slot = list(ITEM_SLOT_BACK, ITEM_SLOT_BELT)
+	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 18,"rail_x" = 8, "rail_y" = 20, "under_x" = 17, "under_y" = 13, "stock_x" = -6, "stock_y" = 16)
@@ -781,7 +781,6 @@
 	aim_slowdown = 0.3
 	movement_acc_penalty_mult = 4
 	damage_falloff_mult = 1.5
-	damage_mult = 0.80
 	upper_akimbo_accuracy = 12
 	lower_akimbo_accuracy = 9
 	akimbo_additional_delay = 2
