@@ -243,6 +243,10 @@
 			/obj/item/ammo_magazine/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71/ap = -1,
 			/obj/item/ammo_magazine/rifle/type71/hp = -1,
+			/obj/item/weapon/gun/rifle/zarya = -1,
+			/obj/item/ammo_magazine/rifle/zarya = -1,
+			/obj/item/weapon/gun/rifle/zarya/foldable = -1,
+			/obj/item/ammo_magazine/rifle/zarya/carbine = -1,
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -384,6 +388,7 @@
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
+			/obj/item/ammo_magazine/packet/p602x41 = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
