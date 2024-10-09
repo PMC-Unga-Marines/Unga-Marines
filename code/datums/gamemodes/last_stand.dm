@@ -34,7 +34,7 @@
 	///the strength of the waves is ultimately multiplied by the number of people
 	var/waves_power = 1
 	///time from the beginning of the round when the waves will not spawn
-	var/neutral_time = 5 SECONDS
+	var/neutral_time = 5 MINUTES
 	///list of possible wave generators
 	var/list/waves_spawner = list()
 
