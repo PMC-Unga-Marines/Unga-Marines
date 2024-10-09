@@ -1,0 +1,4 @@
+author: "Valentyi"
+delete-after: True
+changes:
+  - rscadd: "Добавил новый ТАД \"Карго\"."
