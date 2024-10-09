@@ -292,9 +292,6 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		)), \
 	new/datum/stack_recipe_list("rifle boxes",list( \
 		new/datum/stack_recipe("AR-12 mag box", /obj/item/storage/box/visual/magazine/compact/ar12), \
-		new/datum/stack_recipe("AR-18 mag box", /obj/item/storage/box/visual/magazine/compact/ar18), \
-		new/datum/stack_recipe("AR-21 mag box", /obj/item/storage/box/visual/magazine/compact/ar21), \
-		new/datum/stack_recipe("AR-11 mag box", /obj/item/storage/box/visual/magazine/compact/ar11), \
 		new/datum/stack_recipe("Martini Henry packet box", /obj/item/storage/box/visual/magazine/compact/martini), \
 		new/datum/stack_recipe("TE cell box", /obj/item/storage/box/visual/magazine/compact/lasrifle/marine), \
 		new/datum/stack_recipe("SH-15 mag box", /obj/item/storage/box/visual/magazine/compact/sh15), \
