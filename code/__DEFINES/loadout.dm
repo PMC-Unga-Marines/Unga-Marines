@@ -1,6 +1,7 @@
 
 #define CAT_ESS "ESSENTIALS"
 #define CAT_STD "STANDARD EQUIPMENT"
+#define CAT_UNI "UNIFORM"
 #define CAT_SHO "SHOES"
 #define CAT_HEL "HATS"
 #define CAT_AMR "ARMOR"
