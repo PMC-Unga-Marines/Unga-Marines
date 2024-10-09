@@ -468,6 +468,7 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 
 GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/effect/vendor_bundle/basic = list(CAT_STD, "Standard Kit", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
 		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
