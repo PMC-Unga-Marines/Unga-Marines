@@ -244,7 +244,7 @@
 	dir = 2
 	},
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "bs" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -570,6 +570,10 @@
 	dir = 1
 	},
 /area/barren/medical/chemistry)
+"cY" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "cZ" = (
 /obj/structure/barricade/guardrail,
 /obj/structure/barricade/guardrail{
@@ -661,6 +665,11 @@
 /obj/item/ore/silver,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
+"dz" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/north)
 "dA" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -1082,7 +1091,10 @@
 	dir = 2
 	},
 /turf/open/floor/tile/dark2,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
+"fq" = (
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "fr" = (
 /obj/structure/barricade/guardrail{
 	dir = 8
@@ -1282,7 +1294,8 @@
 /turf/open/floor,
 /area/barren/cave/lz1)
 "gg" = (
-/obj/effect/landmark/xeno_silo_spawn,
+/obj/machinery/miner/damaged,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gh" = (
@@ -1666,7 +1679,7 @@
 "hP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "hQ" = (
 /obj/machinery/light{
 	dir = 8
@@ -1695,10 +1708,11 @@
 /turf/open/floor/plating,
 /area/barren/engie/engine)
 "hV" = (
-/obj/effect/landmark/weed_node,
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
+/obj/structure/table/woodentable,
+/obj/item/weapon/gun/shotgun/double,
+/obj/effect/spawner/random/weaponry/ammo/shotgun,
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "hY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -1985,6 +1999,10 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
+"jf" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "jg" = (
 /obj/structure/closet/secure_closet/engineering_personal,
 /turf/open/floor/plating,
@@ -2068,7 +2086,7 @@
 "jz" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "jA" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
@@ -2436,6 +2454,13 @@
 /obj/structure/sign/heat,
 /turf/closed/wall,
 /area/barren/engie/engine)
+"lj" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "lk" = (
 /obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
 /obj/structure/table/reinforced,
@@ -2589,6 +2614,10 @@
 /obj/structure/largecrate,
 /turf/open/floor,
 /area/barren/misc/genstorage)
+"lZ" = (
+/obj/effect/ai_node,
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "ma" = (
 /obj/machinery/door/airlock/mainship/secure/free_access{
 	name = "Brig Airlock"
@@ -3027,6 +3056,14 @@
 /obj/structure/table,
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
+"nW" = (
+/obj/structure/table/woodentable,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle{
+	pixel_x = -10
+	},
+/obj/effect/spawner/random/misc/cigarettes,
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "nY" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 8
@@ -3144,6 +3181,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
+"oF" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "oG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3263,7 +3305,7 @@
 "pk" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "pl" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark2,
@@ -3490,12 +3532,12 @@
 /obj/structure/cable,
 /obj/machinery/power/apc,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "qm" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "qn" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -3580,7 +3622,7 @@
 "qK" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "qN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -3646,7 +3688,7 @@
 /area/shuttle/drop2/lz2)
 "qZ" = (
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "ra" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 5
@@ -3690,6 +3732,12 @@
 /obj/effect/landmark/corpsespawner/miner,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
+"rk" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "rl" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
@@ -4801,6 +4849,10 @@
 /obj/structure/cable,
 /turf/open/floor/prison/plate,
 /area/barren/security/nuke)
+"wx" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "wy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
@@ -4925,7 +4977,7 @@
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "xe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -5700,7 +5752,7 @@
 /obj/machinery/washing_machine,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "AW" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -6339,6 +6391,11 @@
 /obj/item/stack/sheet/metal/medium_stack,
 /turf/open/floor/prison,
 /area/barren/security/nuke)
+"Ee" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/north)
 "Eh" = (
 /obj/structure/filingcabinet,
 /turf/open/floor,
@@ -6484,6 +6541,10 @@
 	dir = 1
 	},
 /area/barren/security)
+"EQ" = (
+/obj/structure/bed/chair/wood/wings,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "ER" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -6804,6 +6865,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/bright_clean/two,
 /area/barren/security)
+"Gk" = (
+/obj/effect/landmark/weed_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/lavaland/basalt,
+/area/barren/cave/north)
 "Gl" = (
 /obj/machinery/light{
 	dir = 8
@@ -7671,7 +7738,7 @@
 /area/barren/caves/southwest)
 "Kw" = (
 /turf/closed/wall,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "Kx" = (
 /obj/structure/bed/chair/pew{
 	dir = 5
@@ -7916,6 +7983,10 @@
 	dir = 8
 	},
 /area/barren/medical/chemistry)
+"LH" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/wood/variable/wide,
+/area/barren/misc/ruin)
 "LI" = (
 /obj/machinery/door/airlock/colony/research{
 	dir = 1;
@@ -8055,6 +8126,9 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
+"Mq" = (
+/turf/closed/wall/wood,
+/area/barren/misc/ruin)
 "Mt" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_tunnel_spawn,
@@ -8620,6 +8694,9 @@
 	},
 /turf/open/floor,
 /area/barren/cave/lz1)
+"Ph" = (
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "Pj" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 8
@@ -8982,7 +9059,11 @@
 	dir = 2
 	},
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
+"QV" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/wall,
+/area/barren/civilian)
 "QW" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/freezer,
@@ -9092,6 +9173,10 @@
 /obj/structure/fence,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
+"Rw" = (
+/obj/effect/landmark/corpsespawner/security,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "Rx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 1
@@ -9157,6 +9242,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
+"RN" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "RO" = (
 /obj/docking_port/stationary/crashmode,
 /turf/closed/mineral/brock,
@@ -9520,6 +9609,11 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark2,
 /area/barren/misc/refinery)
+"TD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/floor/prison/sterilewhite,
+/area/barren/civilian)
 "TF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/writing{
@@ -9822,6 +9916,10 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/barren/civilian)
+"Vn" = (
+/obj/structure/window_frame/wood,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "Vp" = (
 /obj/structure/table/mainship,
 /turf/open/floor/wood,
@@ -9872,7 +9970,7 @@
 	dir = 8
 	},
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "VC" = (
 /obj/structure/closet/wardrobe/chemistry_white,
 /obj/effect/decal/cleanable/cobweb{
@@ -9900,7 +9998,7 @@
 "VH" = (
 /obj/structure/cable,
 /turf/open/floor/vault,
-/area/prison/laundry)
+/area/barren/civilian/laundry)
 "VK" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -10357,6 +10455,11 @@
 /obj/item/tool/pen,
 /turf/open/floor/tile/dark2,
 /area/bigredv2/outside/general_offices)
+"XS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/corpsespawner/miner,
+/turf/open/floor/freezer,
+/area/barren/civilian)
 "XU" = (
 /obj/item/lightstick/red/anchored,
 /turf/open/floor/plating,
@@ -10471,6 +10574,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
+"Yy" = (
+/obj/item/stack/sheet/wood,
+/turf/open/floor/wood/variable/wide/damaged,
+/area/barren/misc/ruin)
 "YA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -16550,8 +16657,8 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
+Mq
+Mq
 ZS
 ZS
 ZS
@@ -16806,11 +16913,11 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
+Mq
+nW
 hV
-fM
-fM
+Mq
+Mq
 ZS
 ZS
 WS
@@ -17063,12 +17170,12 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
-fM
-fM
-fM
-fM
+Mq
+fq
+fq
+oF
+cY
+jf
 fM
 oB
 fM
@@ -17319,13 +17426,13 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
-AW
-ca
-fM
-fM
-fM
+Mq
+wx
+fq
+lZ
+fq
+Rw
+jf
 fM
 qG
 fM
@@ -17576,13 +17683,13 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
-fM
-fM
-fM
-AW
-fM
+Mq
+fq
+LH
+fq
+fq
+RN
+Yy
 fM
 oB
 fM
@@ -17832,11 +17939,11 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
-fM
-fM
-fM
+Mq
+EQ
+Ph
+Rw
+Ph
 ZS
 ZS
 ZS
@@ -18089,11 +18196,11 @@ ZS
 ZS
 ZS
 ZS
-AW
-fM
-fM
-fM
-fM
+Mq
+lj
+rk
+cY
+Ph
 ZS
 ZS
 ZS
@@ -18346,11 +18453,11 @@ ZS
 ZS
 ZS
 ZS
-fM
-fM
-fM
-fM
-fM
+Mq
+Vn
+Vn
+Yy
+rk
 ZS
 ZS
 ZS
@@ -18608,7 +18715,7 @@ fM
 Qo
 fM
 fM
-fM
+Mq
 ZS
 ZS
 ZS
@@ -32733,18 +32840,18 @@ aI
 aI
 aI
 ad
-WS
-WS
-WS
-WS
-WS
-hN
-hN
-hN
-WS
-WS
-WS
-WS
+ZS
+ZS
+ZS
+ZS
+ZS
+gs
+gs
+gs
+ZS
+ZS
+ZS
+ZS
 ZS
 ZS
 ZS
@@ -33001,7 +33108,7 @@ gs
 gs
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -33258,7 +33365,7 @@ gs
 gs
 bj
 ZS
-WS
+ZS
 ZS
 gs
 gs
@@ -33505,9 +33612,9 @@ aI
 aI
 ad
 ZS
-gs
-gs
-bj
+ZS
+ZS
+ZS
 ZS
 cb
 gs
@@ -33515,7 +33622,7 @@ bj
 cb
 gs
 gs
-hN
+gs
 gs
 cb
 gs
@@ -33762,17 +33869,17 @@ aI
 aI
 ad
 ZS
+ZS
+ZS
+ZS
+ZS
+gs
+gs
+gs
+gs
+gs
 bj
 gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-bj
-hN
 gs
 gs
 gs
@@ -34019,25 +34126,25 @@ aI
 aI
 ad
 ZS
-gs
-gs
-gg
-bj
+ZS
+ZS
+ZS
+ZS
 gs
 bL
 Et
 gs
 gs
-gs
 hN
-gs
-bj
-gs
-gs
-gs
-ZS
-ZS
-gs
+hN
+hN
+Ee
+hN
+hN
+hN
+WS
+WS
+hN
 gs
 gs
 ZS
@@ -34276,25 +34383,25 @@ aI
 aI
 ad
 ZS
-gs
-gs
-gs
+ZS
+ZS
+ZS
 gs
 gs
 bL
 Lc
 gs
 gs
-BX
+gg
+gs
+gs
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 hN
-gs
-ZS
-ZS
-ZS
-ZS
-ZS
-ZS
-gs
 gs
 gs
 ZS
@@ -34533,17 +34640,17 @@ aI
 aI
 ad
 ZS
-gs
-gs
-gs
+ZS
+ZS
+ZS
 gs
 bj
 gs
 bL
 gs
 gs
-gs
 hN
+gs
 ZS
 yw
 yw
@@ -34551,7 +34658,7 @@ yw
 yw
 yw
 ZS
-ZS
+WS
 bj
 gs
 ZS
@@ -34790,8 +34897,8 @@ aI
 aI
 ad
 ZS
-gs
-bj
+ZS
+ZS
 ZS
 ZS
 gs
@@ -34799,8 +34906,8 @@ gs
 gs
 gs
 gs
-gs
-WS
+hN
+ZS
 ZS
 yw
 pU
@@ -34808,7 +34915,7 @@ BB
 iY
 yw
 ZS
-ZS
+WS
 gs
 gs
 RP
@@ -35056,8 +35163,8 @@ gs
 gs
 cb
 bj
-gs
-WS
+hN
+ZS
 ZS
 yw
 RJ
@@ -35065,7 +35172,7 @@ qt
 RJ
 yw
 ZS
-ZS
+WS
 gs
 gs
 bj
@@ -35313,8 +35420,8 @@ gs
 gs
 gs
 gs
-ZS
 WS
+ZS
 ZS
 yw
 iA
@@ -35322,7 +35429,7 @@ iV
 iY
 yw
 ZS
-ZS
+WS
 gs
 gs
 gs
@@ -35560,26 +35667,26 @@ aI
 aI
 aI
 ad
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+gs
+gs
+gs
+gs
 WS
-WS
-WS
-WS
-WS
-WS
-hN
-hN
-hN
-hN
-WS
-WS
+ZS
 ZS
 yw
 rx
-iV
+XS
 rx
 yw
 yw
-yw
+QV
 gs
 gs
 gs
@@ -35827,16 +35934,16 @@ gs
 gs
 gs
 bj
-gs
+hN
 ZS
 ZS
 yw
 Ca
 in
-in
+TD
 MZ
 Vs
-gs
+hN
 cb
 gs
 gs
@@ -36084,7 +36191,7 @@ ZS
 gs
 gs
 gs
-gs
+hN
 gs
 gs
 yw
@@ -36093,7 +36200,7 @@ Sh
 Yr
 KV
 KV
-Bx
+Gk
 je
 ru
 je
@@ -36341,7 +36448,7 @@ ZS
 gs
 gs
 gs
-gs
+hN
 gs
 ZS
 yw
@@ -36350,7 +36457,7 @@ ZF
 in
 yw
 yw
-gs
+hN
 gs
 gs
 gs
@@ -36598,7 +36705,7 @@ ZS
 gs
 gs
 bj
-gs
+hN
 gs
 ZS
 yw
@@ -36607,7 +36714,7 @@ yw
 ff
 yw
 gs
-gs
+hN
 gs
 gs
 gs
@@ -36855,7 +36962,7 @@ ZS
 gs
 gs
 gs
-gs
+hN
 gs
 ZS
 yw
@@ -36864,7 +36971,7 @@ yw
 LM
 yw
 gs
-gs
+hN
 gs
 gs
 bj
@@ -37112,7 +37219,7 @@ ZS
 gs
 cb
 gs
-cb
+dz
 bj
 ZS
 yw
@@ -37121,7 +37228,7 @@ yw
 yw
 yw
 gs
-gs
+hN
 bj
 gs
 ZS
@@ -37369,7 +37476,7 @@ ZS
 ZS
 gs
 gs
-gs
+hN
 gs
 ZS
 ZS
@@ -37378,7 +37485,7 @@ ZS
 ZS
 bj
 gs
-gs
+hN
 gs
 gs
 ZS
@@ -37626,7 +37733,7 @@ ZS
 ZS
 bj
 gs
-gs
+hN
 gs
 ZS
 ZS
@@ -37635,7 +37742,7 @@ ZS
 cb
 gs
 gs
-gs
+hN
 gs
 cb
 gs
@@ -37883,16 +37990,16 @@ ZS
 ZS
 gs
 gs
-gs
-gs
-gs
-ZS
-ZS
-gs
-gs
-gs
-gs
-gs
+hN
+hN
+hN
+WS
+WS
+hN
+hN
+hN
+hN
+hN
 gs
 bj
 ZS

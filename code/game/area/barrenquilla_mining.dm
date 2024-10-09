@@ -145,6 +145,8 @@
 /area/barren/civilian
 	name = "Civilian Housing"
 	icon_state = "lava_civ"
+	minimap_color = MINIMAP_AREA_LIVING
+	ceiling = CEILING_METAL
 	outside = FALSE
 
 /area/barren/civilian/cook
@@ -169,6 +171,10 @@
 	ceiling = CEILING_DEEP_UNDERGROUND
 	outside = FALSE
 	minimap_color = MINIMAP_AREA_CAVES
+
+/area/barren/civilian/laundry
+	name = "Laundry"
+	icon_state = "bluenew"
 
 //Misc Locations
 
@@ -225,3 +231,6 @@
 	name = "Ash Shelter"
 	icon_state = "lava_ash_shelter"
 
+/area/barren/misc/ruin
+	name = "\improper Unknown structure"
+	icon_state = "red"
