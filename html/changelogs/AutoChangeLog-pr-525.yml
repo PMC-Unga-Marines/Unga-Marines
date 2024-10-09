@@ -1,0 +1,7 @@
+author: "lorianss"
+delete-after: True
+changes:
+  - rscadd: "Бегемот переворачивает турели своим бегом."
+  - rscadd: "Баф софт армора бегемота, буллет 20->40, лазер 20->40."
+  - balance: "Баф бегемота."
+  - code_imp: "Добавил в хелпер issentry."
