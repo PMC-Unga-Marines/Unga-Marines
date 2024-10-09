@@ -77,7 +77,7 @@
 	var/direction_to_deploy
 	var/obj/deployed_machine
 
-	if(user)
+	if(user && item_to_deploy.loc == user)
 		if(!ishuman(user) || HAS_TRAIT(item_to_deploy, TRAIT_NODROP) || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 			return
 
@@ -146,8 +146,8 @@
 
 	deployed_machine.update_appearance()
 
-	if(user)
-		item_to_deploy.balloon_alert(user, "Установлено!")
+	if(user && item_to_deploy.loc == user)
+		item_to_deploy.balloon_alert(user, "DepУстoyed!")
 		user.transferItemToLoc(item_to_deploy, deployed_machine, TRUE)
 		if(user.client.prefs.toggles_gameplay & AUTO_INTERACT_DEPLOYABLES)
 			deployed_machine.interact(user)
