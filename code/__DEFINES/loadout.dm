@@ -580,8 +580,8 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
-		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
-		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 		/obj/item/clothing/under/marine/engineer = list(CAT_UNI, "TGMC Engineer Fatigues", 0, "black"),
 		/obj/item/clothing/under/marine/gorka_eng = list(CAT_UNI, "Engineer Gorka", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
@@ -650,8 +650,8 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
-		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
-		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 		/obj/item/clothing/under/marine/corpsman = list(CAT_UNI, "TGMC corpsman fatigues", 0, "black"),
 		/obj/item/clothing/under/marine/gorka_med = list(CAT_UNI, "Medic Gorka", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
@@ -697,7 +697,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
-		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
+		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0, "black"),
 		/obj/item/clothing/mask/gas = list(CAT_MAS, "Transparent gas mask", 0,"black"),
 		/obj/item/clothing/mask/gas/tactical = list(CAT_MAS, "Tactical gas mask", 0,"black"),
 		/obj/item/clothing/mask/gas/tactical/coif = list(CAT_MAS, "Tactical coifed gas mask", 0,"black"),
@@ -706,8 +706,8 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
-		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
-		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
 		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
@@ -766,8 +766,8 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
-		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
-		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
 		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
@@ -948,8 +948,8 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(commander_clothes_listed_products, list(
-	/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
-	/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+	/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+	/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 	/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
 	/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
 	/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
