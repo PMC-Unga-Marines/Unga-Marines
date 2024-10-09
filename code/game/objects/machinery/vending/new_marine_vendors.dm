@@ -206,6 +206,9 @@
 	use_points = TRUE
 	categories = list(
 		CAT_STD = 1,
+		CAT_UNI = 1,
+		CAT_GLO = 1,
+		CAT_SHO = 1,
 		CAT_GLA = 1,
 		CAT_HEL = 1,
 		CAT_AMR = 1,

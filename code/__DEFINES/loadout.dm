@@ -2,10 +2,10 @@
 #define CAT_ESS "ESSENTIALS"
 #define CAT_STD "STANDARD EQUIPMENT"
 #define CAT_UNI "UNIFORM"
+#define CAT_GLO "GLOVES"
 #define CAT_SHO "SHOES"
 #define CAT_HEL "HATS"
 #define CAT_AMR "ARMOR"
-#define CAT_GLO "GLOVES"
 #define CAT_EAR "EAR"
 #define CAT_BAK "BACKPACK"
 #define CAT_POU "POUCHES"
@@ -36,14 +36,15 @@
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
 		CAT_MOD = 1,
+		CAT_UNI = 1,
+		CAT_GLO = 1,
+		CAT_SHO = 1,
 		CAT_ARMMOD = 1,
 		CAT_STD = 1,
-		CAT_SHO = 1,
 		CAT_HEL = 1,
 		CAT_AMR = 1,
 		CAT_SMR = 1,
 		CAT_SHN = 1,
-		CAT_GLO = 1,
 		CAT_EAR = 1,
 		CAT_BAK = 1,
 		CAT_WEB = 1,
