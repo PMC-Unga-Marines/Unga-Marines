@@ -574,9 +574,12 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_engineer = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/gorka_engineer = list(CAT_STD, "Standard Gorka kit", 0, "white"), // RUTGMC ADDITION, SIEGLUCK'S STUFF
-		/obj/effect/vendor_bundle/basic_jaeger_engineer = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
+		/obj/item/clothing/under/marine/engineer = list(CAT_UNI, "TGMC Engineer Fatigues", 0, "black"),
+		/obj/item/clothing/under/marine/gorka_eng = list(CAT_UNI, "Engineer Gorka", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/item/clothing/glasses/welding = list(CAT_GLA, "Welding Goggles", 0, "white"),
 		/obj/item/clothing/glasses/meson = list(CAT_GLA, "Optical Meson Scanner", 0, "white"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
@@ -1007,8 +1010,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/cell/high = 1,
 		/obj/item/lightreplacer = 1,
 		/obj/item/circuitboard/apc = 1,
-		/obj/item/clothing/under/marine/engineer = 1,
-		/obj/item/clothing/under/marine/gorka_eng = 1, // TODO: delete clothe bundles and just put in more categories
 		/obj/item/tool/surgery/solderingtool = 1,
 	),
 	SQUAD_CORPSMAN = list(
@@ -1022,8 +1023,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/clothing/glasses/hud/health = 1,
-		/obj/item/clothing/under/marine/corpsman = 1,
-		/obj/item/clothing/under/marine/gorka_med = 1, // TODO: delete clothe bundles and just put in more categories
 		/obj/item/tool/surgery/solderingtool = 1,
 	),
 	SQUAD_SMARTGUNNER = list(
