@@ -856,7 +856,7 @@ RU TGMC EDIT */
  */
 /atom/movable/proc/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
 	SHOULD_CALL_PARENT(TRUE)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf, new_turf)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf?.z, new_turf?.z)
 
 	if(!notify_contents)
 		return
