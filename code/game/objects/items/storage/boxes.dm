@@ -790,30 +790,6 @@
 
 // -SMG-
 
-/obj/item/storage/box/visual/magazine/compact/smg90
-	name = "SMG-90 magazine box"
-	desc = "A box specifically designed to hold a large amount of SMG-90 magazines."
-	closed_overlay = "mag_box_small_overlay_smg90"
-	can_hold = list(
-		/obj/item/ammo_magazine/smg/smg90,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/smg90/full
-	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/smg/smg90
-
-/obj/item/storage/box/visual/magazine/compact/mp19
-	name = "MP-19 magazine box"
-	desc = "A box specifically designed to hold a large amount of MP-19 magazines."
-	closed_overlay = "mag_box_small_overlay_mp19"
-	can_hold = list(
-		/obj/item/ammo_magazine/smg/mp19,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/mp19/full
-	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/smg/mp19
-
 /obj/item/storage/box/visual/magazine/compact/pepperball
 	name = "Pepperball canister box"
 	desc = "A box specifically designed to hold a large amount of Pepperball canisters."
