@@ -335,6 +335,7 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 ))
 
 GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
+	/obj/effect/vendor_bundle/synth = list(CAT_ESS, "Essential synthetic set", 0, "white"),
 	//command stuff
 	/obj/item/beacon/supply_beacon = list(CAT_SYNTH, "Supply beacon", 5, "blue"),
 	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_SYNTH, "Orbital beacon", 5, "blue"),
@@ -467,7 +468,12 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 
 GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/effect/vendor_bundle/basic = list(CAT_STD, "Standard Kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -575,6 +581,7 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 
 GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
 		/obj/item/clothing/under/marine/engineer = list(CAT_UNI, "TGMC Engineer Fatigues", 0, "black"),
 		/obj/item/clothing/under/marine/gorka_eng = list(CAT_UNI, "Engineer Gorka", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
@@ -643,6 +650,8 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
 		/obj/item/clothing/under/marine/corpsman = list(CAT_UNI, "TGMC corpsman fatigues", 0, "black"),
 		/obj/item/clothing/under/marine/gorka_med = list(CAT_UNI, "Medic Gorka", 0, "black"),
 		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
@@ -697,8 +706,14 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_smartgunner = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger_smartgunner = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -719,7 +734,7 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/belt/knifepouch = list(CAT_BEL, "Knives belt", 0, "black"),
 		/obj/item/storage/holster/belt/pistol/t457 = list(CAT_BEL, "Pistol belt", 0, "orange"),
 		/obj/item/storage/holster/belt/revolver/t457 = list(CAT_BEL, "Revolver belt", 0, "orange"),
-		/obj/item/storage/holster/belt/pistol/smart_pistol/full = list(CAT_BEL, "Smart pistol belt", 0, "orange"), // RUTGMC ADDITION
+		/obj/item/storage/holster/belt/pistol/smart_pistol/full = list(CAT_BEL, "Smart pistol belt", 0, "orange"),
 		/obj/item/storage/belt/sparepouch = list(CAT_BEL, "G8 general utility pouch", 0, "orange"),
 		/obj/item/armor_module/module/welding = list(CAT_HEL, "Jaeger welding module", 0, "orange"),
 		/obj/item/armor_module/module/binoculars = list(CAT_HEL, "Jaeger binoculars module", 0, "orange"),
@@ -751,8 +766,14 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_squadleader = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger_squadleader = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light/leader = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium/leader = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy/leader = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -813,7 +834,6 @@ GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/synth = list(CAT_ESS, "Essential synthetic set", 0, "white"),
 		/obj/item/clothing/glasses/meson = list(CAT_GLA, "Optical Meson Scanner", 0, "white"),
 		/obj/item/clothing/under/marine = list(CAT_STD, "TGMC marine uniform", 0, "black"),
 		/obj/item/clothing/under/rank/medical/blue = list(CAT_STD, "Medical scrubs (blue)", 0, "black"),
@@ -928,8 +948,14 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(commander_clothes_listed_products, list(
-	/obj/effect/vendor_bundle/basic_commander = list(CAT_STD, "Standard kit", 0, "white"),
-	/obj/effect/vendor_bundle/basic_jaeger_commander = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+	/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0 "white")
+	/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black")
+	/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+	/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+	/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+	/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+	/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+	/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 	/obj/effect/vendor_bundle/xenonauten_light/leader = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 	/obj/effect/vendor_bundle/xenonauten_medium/leader = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 	/obj/effect/vendor_bundle/xenonauten_heavy/leader = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
