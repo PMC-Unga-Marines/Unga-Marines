@@ -32,6 +32,7 @@
 /obj/item/detpack/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
+	code = rand(1, 100)
 
 /obj/item/detpack/examine(mob/user)
 	. = ..()
