@@ -526,22 +526,6 @@
 		/obj/item/facepaint/green,
 	)
 
-/obj/effect/vendor_bundle/basic_medic
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/corpsman,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger_medic
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
-	)
 
 /obj/effect/vendor_bundle/basic_engineer
 	gear_to_spawn = list(
@@ -586,13 +570,6 @@
 		/obj/item/storage/firstaid/adv,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/tool/surgery/solderingtool,
-	)
-
-/obj/effect/vendor_bundle/gorka_medic
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/gorka_med,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
 	)
 
 /obj/effect/vendor_bundle/stretcher
