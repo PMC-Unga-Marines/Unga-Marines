@@ -567,7 +567,7 @@
 
 /obj/effect/landmark/last_stand_waves/Initialize(mapload)
 	. = ..()
-	GLOB.waves_spawner_loc = loc
+	GLOB.waves_spawner_locs += loc
 	return INITIALIZE_HINT_QDEL
 
 /// Marks the bottom left of the testing zone.
