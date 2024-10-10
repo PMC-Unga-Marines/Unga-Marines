@@ -498,9 +498,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "gzY" = (
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "gAO" = (
 /obj/effect/landmark/valhalla/xeno_spawn_landmark{
@@ -517,9 +515,7 @@
 "gCD" = (
 /obj/structure/table/black,
 /obj/machinery/microwave,
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "gEX" = (
 /obj/machinery/button/valhalla/xeno_button{
@@ -540,9 +536,7 @@
 /obj/item/reagent_containers/glass/beaker/bluespace,
 /obj/item/reagent_containers/glass/beaker/bluespace,
 /obj/item/reagent_containers/glass/beaker/bluespace,
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "gUR" = (
 /obj/machinery/door/airlock/mainship/generic{
@@ -602,9 +596,7 @@
 /area/centcom/valhalla)
 "iot" = (
 /obj/machinery/vending/boozeomat/nopower,
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "itM" = (
 /turf/open/floor/carpet/side{
@@ -628,9 +620,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "iZT" = (
 /obj/machinery/computer/security/telescreen,
@@ -678,9 +668,7 @@
 "jWH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/operating/valhalla,
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "jWX" = (
 /obj/structure/sign/securearea{
@@ -732,9 +720,7 @@
 /obj/machinery/reagentgrinder/nopower/valhalla{
 	pixel_y = 7
 	},
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "knX" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
@@ -1143,9 +1129,7 @@
 /obj/machinery/button/valhalla/xeno_button{
 	link = "marinesurgery"
 	},
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "pwk" = (
 /obj/effect/turf_decal/tile/metal/medical{
@@ -1197,9 +1181,7 @@
 /area/centcom/valhalla)
 "qhT" = (
 /obj/structure/table/reinforced,
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "qlP" = (
 /obj/effect/turf_decal/tile/metal/medical,
@@ -1412,9 +1394,7 @@
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /obj/machinery/optable/valhalla,
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "tkX" = (
 /obj/structure/table,
@@ -1606,9 +1586,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 8
 	},
-/turf/open/floor/mainship/metal/white{
-	color = "#E2E0DC"
-	},
+/turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "vFf" = (
 /obj/structure/table/reinforced,
