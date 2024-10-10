@@ -332,11 +332,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
-"bM" = (
-/obj/structure/cable,
-/obj/machinery/power/port_gen/pacman,
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "bN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -377,11 +372,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
-"bX" = (
-/obj/structure/rack,
-/obj/item/stack/sheet/mineral/phoron/small_stack,
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "bZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -656,11 +646,6 @@
 /obj/structure/noticeboard,
 /turf/closed/wall,
 /area/barren/civilian)
-"dx" = (
-/obj/structure/cable,
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/south)
 "dy" = (
 /obj/item/ore/silver,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -2676,13 +2661,6 @@
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/shuttle/plating,
 /area/barren/security)
-"mk" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/blood/writing{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/south)
 "mm" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
@@ -4261,13 +4239,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
-"tE" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
-/obj/effect/decal/cleanable/cobweb{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "tF" = (
 /obj/item/shard,
 /obj/effect/decal/cleanable/dirt,
@@ -4618,10 +4589,6 @@
 	},
 /turf/open/floor/prison/bright_clean/two,
 /area/barren/security)
-"vn" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "vo" = (
 /turf/closed/wall/r_wall,
 /area/barren)
@@ -5192,14 +5159,6 @@
 "yh" = (
 /turf/closed/wall/r_wall/unmeltable,
 /area/barren/misc/eastarmory)
-"yj" = (
-/obj/structure/cable,
-/obj/machinery/door/airlock/mainship/engineering/free_access{
-	dir = 2;
-	name = "\improper Generator One"
-	},
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "yk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/writing,
@@ -5805,11 +5764,6 @@
 /obj/item/ammo_magazine/pistol/g22,
 /turf/open/floor/tile/red/full,
 /area/barren/security)
-"Bn" = (
-/obj/structure/cable,
-/obj/effect/ai_node,
-/turf/open/floor/marking,
-/area/barren/cave/central)
 "Bo" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/miner,
@@ -6843,11 +6797,6 @@
 	},
 /turf/open/floor/plating,
 /area/barren/cave/central)
-"Gg" = (
-/obj/structure/cable,
-/obj/machinery/light/small,
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "Gh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -8441,10 +8390,6 @@
 	dir = 4
 	},
 /area/barren/medical)
-"NT" = (
-/obj/structure/cable,
-/turf/open/floor/marking,
-/area/barren/cave/central)
 "NU" = (
 /obj/structure/flora/pottedplant/twentytwo,
 /turf/open/floor/tile/bar{
@@ -9078,10 +9023,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/kitchen,
 /area/barren/civilian/cook)
-"Ra" = (
-/obj/structure/cable,
-/turf/open/floor/plating/dmg1,
-/area/barren/cave/central)
 "Rb" = (
 /obj/machinery/power/apc/drained{
 	dir = 1
@@ -9459,11 +9400,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/barren/security)
-"SU" = (
-/obj/machinery/power/apc/drained,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/barren/caves/south)
 "SV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8
@@ -9941,11 +9877,6 @@
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/open/floor/wood,
 /area/barren/civilian/workdorm)
-"Vy" = (
-/obj/structure/fence,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/south)
 "Vz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -10075,10 +10006,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/barren/security)
-"VZ" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/south)
 "Wa" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/mainship/indestructible{
@@ -10402,7 +10329,6 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "XD" = (
-/obj/structure/cable,
 /turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/caves/south)
 "XG" = (
@@ -10664,11 +10590,6 @@
 	name = "medical"
 	},
 /area/barren/medical)
-"YS" = (
-/obj/item/lightstick/red/anchored,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/south)
 "YU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -10821,11 +10742,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/barren/civilian)
-"ZD" = (
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/south)
 "ZF" = (
 /obj/machinery/light{
 	dir = 4
@@ -37819,17 +37735,17 @@ ZL
 ZL
 RH
 Lm
-Rq
-Rq
-Rq
-Rq
-Rq
-Rq
-Rq
-Rq
-Rq
-dx
-VZ
+ZL
+ZL
+ZL
+ZL
+ZL
+ZL
+ZL
+ZL
+ZL
+WF
+Zg
 Zg
 Zg
 Zg
@@ -38070,13 +37986,13 @@ wl
 jl
 Ta
 ZL
-Rq
-Rq
-Rq
-Rq
-Rq
-Rq
-Rq
+ZL
+ZL
+ZL
+ZL
+ZL
+ZL
+ZL
 ZL
 ZL
 ZL
@@ -38086,12 +38002,12 @@ Ta
 ZL
 ZL
 Zg
-VZ
-VZ
-ZD
-VZ
-VZ
-VZ
+Zg
+Zg
+Zb
+Zg
+Zg
+Zg
 Zg
 Zg
 Zg
@@ -38320,14 +38236,14 @@ Ru
 SQ
 aA
 Zd
-Bn
-NT
-NT
-NT
-Ra
-Hj
-Rq
-Rq
+AG
+SQ
+SQ
+SQ
+MJ
+Ta
+ZL
+ZL
 ZL
 ZL
 ZL
@@ -38348,9 +38264,9 @@ Zg
 Zg
 Zg
 Zg
-dx
-VZ
-VZ
+WF
+Zg
+Zg
 Zg
 Zg
 ZS
@@ -38607,7 +38523,7 @@ ZS
 Zg
 Zg
 WF
-VZ
+Zg
 Zg
 Zg
 ZS
@@ -38864,7 +38780,7 @@ ZS
 ZS
 Zg
 Zg
-VZ
+Zg
 ZS
 RO
 ZS
@@ -39121,7 +39037,7 @@ ZS
 ZS
 BN
 BN
-Vy
+BN
 ZS
 ZS
 ZS
@@ -39378,7 +39294,7 @@ ZS
 ZS
 Zg
 Zg
-VZ
+Zg
 Zg
 ZS
 ZS
@@ -39635,7 +39551,7 @@ Zg
 Zg
 Zg
 Zg
-VZ
+Zg
 Zg
 ZS
 ZS
@@ -39892,7 +39808,7 @@ Zg
 Zg
 Zb
 Zg
-VZ
+Zg
 Zg
 zY
 ZS
@@ -40149,7 +40065,7 @@ SM
 Zg
 Zg
 Zg
-VZ
+Zg
 Zg
 Zg
 ZS
@@ -40663,7 +40579,7 @@ Zg
 Zg
 Zg
 Zg
-VZ
+Zg
 Zg
 Zg
 Zg
@@ -40920,15 +40836,15 @@ Zg
 Zg
 Zg
 Zg
-VZ
 Zg
 Zg
 Zg
-sS
-sS
-sS
-sS
-sS
+Zg
+Zg
+Zg
+ZS
+ZS
+ZS
 ZS
 XB
 Zg
@@ -41177,15 +41093,15 @@ Zg
 Zg
 Zg
 WF
-YS
+Zg
 To
 Zg
 Zg
-sS
-SU
-HN
-bX
-sS
+Zg
+Zg
+Zg
+ZS
+ZS
 ZS
 XB
 Zg
@@ -41434,15 +41350,15 @@ Zg
 Zb
 Zg
 Zg
-VZ
-mk
-VZ
-VZ
-yj
-vn
-vn
-Gg
-sS
+Zg
+jy
+Zg
+Zg
+Zg
+Zg
+Zg
+Zg
+ZS
 ZS
 XB
 Zg
@@ -41695,11 +41611,11 @@ Zg
 jy
 Zb
 Zg
-sS
-tE
-HN
-bM
-sS
+Zg
+Zg
+Zg
+Zg
+ZS
 ZS
 XB
 Zg
@@ -41952,11 +41868,11 @@ Zg
 jy
 Zg
 Zg
-sS
-sS
-sS
-sS
-sS
+Zg
+Zg
+Zg
+Zg
+ZS
 ZS
 ZS
 XB

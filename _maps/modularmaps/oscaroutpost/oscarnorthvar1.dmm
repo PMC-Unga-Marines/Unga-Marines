@@ -4331,11 +4331,6 @@
 	name = "trench lining";
 	pixel_y = 1
 	},
-/obj/structure/barricade/sandbags{
-	dir = 8;
-	name = "trench lining";
-	pixel_y = 1
-	},
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/northeast)
 "Yu" = (
