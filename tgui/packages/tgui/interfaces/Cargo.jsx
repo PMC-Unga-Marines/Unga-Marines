@@ -1,21 +1,35 @@
-import { Fragment } from 'react';
-import { useBackend, useLocalState } from '../backend';
-import { Button, Flex, Divider, Collapsible, AnimatedNumber, Box, Section, LabeledList, Icon, Input, Table, Stack } from '../components';
-import { Window } from '../layouts';
 import { map } from 'common/collections';
+import { Fragment } from 'react';
+
+import { useBackend, useLocalState } from '../backend';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Collapsible,
+  Divider,
+  Flex,
+  Icon,
+  Input,
+  LabeledList,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+import { Window } from '../layouts';
 
 const category_icon = {
-  'Operations': 'parachute-box',
-  'Weapons': 'fighter-jet',
-  'Explosives': 'bomb',
-  'Armor': 'hard-hat',
-  'Clothing': 'tshirt',
-  'Medical': 'medkit',
-  'Engineering': 'tools',
-  'Supplies': 'hamburger',
-  'Imports': 'boxes',
-  'Vehicles': 'road',
-  'Factory': 'industry',
+  Operations: 'parachute-box',
+  Weapons: 'fighter-jet',
+  Explosives: 'bomb',
+  Armor: 'hard-hat',
+  Clothing: 'tshirt',
+  Medical: 'medkit',
+  Engineering: 'tools',
+  Supplies: 'hamburger',
+  Imports: 'boxes',
+  Vehicles: 'road',
+  Factory: 'industry',
   'Pending Order': 'shopping-cart',
 };
 
@@ -155,7 +169,8 @@ const Menu = (props) => {
             <Button
               onClick={() => act('send')}
               disabled={!elev_status}
-              icon={'angle-double-' + elevator_dir}>
+              icon={'angle-double-' + elevator_dir}
+            >
               {elevator_dir === 'up' ? 'Raise' : 'Lower'}
             </Button>
           </Flex.Item>
@@ -278,7 +293,8 @@ const OrderList = (props) => {
                   />
                 )}
               </>
-            }>
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="Requested by">
                 {rank + ' ' + orderer}
@@ -316,7 +332,8 @@ const Pack = (props) => {
   return !!contains && contains.constructor === Object ? (
     <Collapsible
       color="gray"
-      title={<PackName cost={cost} name={name} pl={0} amount={amount} />}>
+      title={<PackName cost={cost} name={name} pl={0} amount={amount} />}
+    >
       <Table>
         <PackContents contains={contains} />
       </Table>
@@ -468,8 +485,8 @@ const Category = (props) => {
   const filterSearch = (entry) =>
     should_filter && filter
       ? supplypackscontents[entry].name
-        ?.toLowerCase()
-        .includes(filter.toLowerCase())
+          ?.toLowerCase()
+          .includes(filter.toLowerCase())
       : true;
 
   return (
@@ -480,7 +497,8 @@ const Category = (props) => {
           <Icon name={category_icon[selectedMenu]} mr="5px" />
           {selectedMenu}
         </>
-      }>
+      }
+    >
       <Stack vertical>
         {should_filter && (
           <Stack.Item>

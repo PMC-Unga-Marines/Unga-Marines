@@ -160,6 +160,11 @@
 	description = "A high-point orbital shuttle with a tactical umbilical airlock for insertion of ground troops."
 	display_name = "Tadpole Umbilical Model"
 
+/datum/map_template/shuttle/minidropship/cargo
+	suffix = "_cargo"
+	description = "A Tadpole model was modified to expedite the delivery of supplies to combat zones. The weapon system attach point had to be removed to enlarge the cargo area."
+	display_name = "Tadpole Cargo Model"
+
 /datum/map_template/shuttle/escape_pod
 	shuttle_id = SHUTTLE_ESCAPE_POD
 	name = "Escape Pod"
