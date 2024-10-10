@@ -70,40 +70,6 @@
 ///called when an AI is requested by a holopad
 #define COMSIG_GLOB_HOLOPAD_AI_CALLED "!holopad_calling"
 
-///Opens the TGMC shipside shutters on campaign
-#define COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC "!open_campaign_shutters_tgmc"
-///Opens the SOM shipside shutters on campaign
-#define COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_SOM "!open_campaign_shutters_som"
-///Sent when a new campaign mission is loaded
-#define COMSIG_GLOB_CAMPAIGN_MISSION_LOADED "!campaign_mission_loaded"
-///Sent when a campaign mission is started
-#define COMSIG_GLOB_CAMPAIGN_MISSION_STARTED "!campaign_mission_started"
-///Sent when a campaign mission ends
-#define COMSIG_GLOB_CAMPAIGN_MISSION_ENDED "!campaign_mission_ended"
-///Sent when a campaign objective has been destroyed
-#define COMSIG_GLOB_CAMPAIGN_OBJECTIVE_DESTROYED "!campaign_objective_destroyed"
-///Sent when a campaign capture objective has been captured
-#define COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAPTURED "!campaign_capture_objective_captured"
-///Sent when a campaign capture objective has been decaptured
-#define COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_DECAPTURED "!campaign_capture_objective_decaptured"
-///Sent when a campaign capture objective has started the capture process
-#define COMSIG_GLOB_CAMPAIGN_CAPTURE_OBJECTIVE_CAP_STARTED "!campaign_capture_objective_started"
-///Enables droppod use during campaign
-#define COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS "!campaign_enable_droppods"
-///Disables droppod use during campaign
-#define COMSIG_GLOB_CAMPAIGN_DISABLE_DROPPODS "!campaign_disable_droppods"
-///Removes teleporter restrictions from a mission
-#define COMSIG_GLOB_CAMPAIGN_TELEBLOCKER_DISABLED "!campaign_teleblocker_disabled"
-///Removes droppod restrictions from a mission
-#define COMSIG_GLOB_CAMPAIGN_DROPBLOCKER_DISABLED "!campaign_dropblocker_disabled"
-///Override code for NT base rescue mission
-#define COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_CODE "!campaign_nt_override_code"
-
-///Campaign asset activation successful
-#define COMSIG_CAMPAIGN_ASSET_ACTIVATION "campaign_asset_activation"
-///Campaign asset disabler activated
-#define COMSIG_CAMPAIGN_DISABLER_ACTIVATION "campaign_disabler_activation"
-
 //////////////////////////////////////////////////////////////////
 
 // /datum signals
@@ -522,8 +488,6 @@
 #define COMSIG_MOB_ATTACHMENT_FIRED "mob_attachment_fired"
 #define COMSIG_MOB_TOGGLEMOVEINTENT "mob_togglemoveintent"		//drom base of mob/toggle_move_intent(): (new_intent)
 #define COMSIG_MOB_FACE_DIR "mob_face_dir"
-#define COMSIG_MOB_ENABLE_STEALTH "mob_togglestealth"
-	#define STEALTH_ALREADY_ACTIVE (1<<0)
 #define COMSIG_RANGED_ACCURACY_MOD_CHANGED "ranged_accuracy_mod_changed"
 #define COMSIG_RANGED_SCATTER_MOD_CHANGED "ranged_scatter_mod_changed"
 #define COMSIG_MOB_SKILLS_CHANGED "mob_skills_changed"
@@ -850,7 +814,7 @@
 #define COMSIG_XENOABILITY_RECYCLE "xenoability_recycle"
 
 #define COMSIG_XENOABILITY_TOGGLE_STEALTH "xenoability_toggle_stealth"
-#define COMSIG_XENOABILITY_TOGGLE_DISGUISE "xenoability_toggle_disguise"
+#define COMSIG_XENOABILITY_HUNTER_BLINK "xenoability_hunter_blink"
 #define COMSIG_XENOABILITY_MIRAGE "xenoability_mirage"
 
 #define COMSIG_XENOABILITY_SCREECH "xenoability_screech"
@@ -1129,3 +1093,7 @@
 
 #define COMSIG_LIVING_HEALTH_STEALTH "living_health_stealth"
 	#define COMPONENT_HIDE_HEALTH (1<<0)
+
+#define COMSIG_UPGRADE_CHAMBER_SURVIVAL "upgrade_chamber_survival"
+#define COMSIG_UPGRADE_CHAMBER_ATTACK "upgrade_chamber_attack"
+#define COMSIG_UPGRADE_CHAMBER_UTILITY "upgrade_chamber_utility"

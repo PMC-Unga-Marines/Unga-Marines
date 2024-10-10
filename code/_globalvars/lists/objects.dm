@@ -39,7 +39,6 @@ GLOBAL_LIST_EMPTY(beacon_list)
 GLOBAL_LIST_EMPTY(id_card_list)
 GLOBAL_LIST_EMPTY(disposal_list)
 GLOBAL_LIST_EMPTY(ladder_list)
-GLOBAL_LIST_EMPTY(patrol_point_list)
 GLOBAL_LIST_EMPTY(brig_closets)
 GLOBAL_LIST_EMPTY(supply_pad_list)
 GLOBAL_LIST_EMPTY(supply_beacon)
@@ -59,16 +58,6 @@ GLOBAL_LIST_EMPTY(nuke_disk_spawn_locs)				///list of spawn locations for nuke d
 GLOBAL_LIST_EMPTY(nuke_disk_list)					//list of all /obj/item/disk/nuclear
 GLOBAL_LIST_EMPTY(nightfall_toggleable_lights)		//list of all atoms which light can be shut down
 GLOBAL_LIST_EMPTY(main_overwatch_consoles)			//list of all main overwatch consoles
-///List of all objectives in the campaign gamemode loaded in the current mission
-GLOBAL_LIST_EMPTY(campaign_objectives)
-///List of non-objective campaign related structures loaded in the current mission
-GLOBAL_LIST_EMPTY(campaign_structures)
-///List of all mech spawners in campaign mode
-GLOBAL_LIST_EMPTY(campaign_mech_spawners)
-///Locations for rewards to spawn by faction
-GLOBAL_LIST_EMPTY(campaign_reward_spawners)
-///List of all teleporter arrays
-GLOBAL_LIST_EMPTY(teleporter_arrays)
 ///List of all droppod bays
 GLOBAL_LIST_EMPTY(droppod_bays)
 GLOBAL_LIST_EMPTY(landing_lights)

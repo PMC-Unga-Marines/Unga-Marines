@@ -58,12 +58,12 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	if(is_offered_on_creation)
 		LAZYDISTINCTADD(GLOB.ssd_living_mobs, mob_parent)
 
-/datum/ai_behavior/Destroy(force, ...)
-	. = ..()
+/datum/ai_behavior/Destroy(force)
 	current_node = null
 	escorted_atom = null
 	mob_parent = null
 	atom_to_walk_to = null
+	return ..()
 
 ///Register ai behaviours
 /datum/ai_behavior/proc/start_ai()
@@ -348,6 +348,8 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 	mob_parent.next_move_slowdown = 0
 	var/step_dir
 	if(get_dist(mob_parent, atom_to_walk_to) == distance_to_maintain)
+		if(!mob_parent.CanReach(atom_to_walk_to))
+			return
 		if(SEND_SIGNAL(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE) & COMSIG_MAINTAIN_POSITION)
 			return
 		if(!get_dir(mob_parent, atom_to_walk_to)) //We're right on top, move out of it

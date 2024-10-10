@@ -301,7 +301,7 @@
 /turf/open/floor/marking/bot,
 /area/bigredv2/outside/cargo)
 "qU" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/marking/bot,
@@ -498,7 +498,7 @@
 /turf/open/floor/marking/delivery,
 /area/bigredv2/outside/cargo)
 "FX" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/marking/bot,
 /area/bigredv2/outside/cargo)
 "Gu" = (
@@ -660,7 +660,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "QV" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor,

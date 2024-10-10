@@ -54,15 +54,12 @@
 
 	var/list/humans = list()
 	var/list/marines = list()
-	var/list/som = list()
 	var/list/survivors = list()
 	var/list/xenos = list()
-//RUTGMC EDIT
 	var/list/yautja = list()
-//RUTGMC EDIT
 	var/list/dead = list()
 	var/list/ghosts = list()
-	var/list/valhalla = list() // RUTGMC ADDITION
+	var/list/valhalla = list()
 	var/list/misc = list()
 	var/list/npcs = list()
 
@@ -131,13 +128,11 @@
 			var/datum/job/job = human.job
 			serialized["nickname"] = human.real_name
 
-//RUTGMC EDIT
 			if(mob_poi.hunter_data.thralled)
 				serialized["icon"] = "thrall"
 				serialized["job"] = job.title
 				yautja += list(serialized)
 				continue
-//RUTGMC EDIT
 
 			if(ismarinejob(human.job))
 				if(human.assigned_squad)
@@ -146,27 +141,21 @@
 				marines += list(serialized)
 				continue
 
-			if(job) // RUTGMC ADDITION, ORBIT BREAKAGE FIX
+			if(job)
 				serialized["icon"] = job.minimap_icon
 				serialized["job"] = job.title
 
-//RUTGMC EDIT
 			if(isyautja(mob_poi))
 				serialized["icon"] = job.minimap_icon
 				serialized["job"] = job.title
 				yautja += list(serialized)
-				continue
-//RUTGMC EDIT
-
-			if(issommarinejob(human.job))
-				som += list(serialized)
 				continue
 
 			if(issurvivorjob(human.job))
 				survivors += list(serialized)
 				continue
 
-			if(istype(human.job, /datum/job/fallen)) // RUTGMC ADDITION
+			if(istype(human.job, /datum/job/fallen))
 				valhalla += list(serialized)
 				continue
 
@@ -174,16 +163,13 @@
 
 	data["dead"] = dead
 	data["ghosts"] = ghosts
-	data["valhalla"] = valhalla // RUTGMC ADDITION
+	data["valhalla"] = valhalla
 	data["humans"] = humans
 	data["icons"] = GLOB.minimap_icons
 	data["misc"] = misc
 	data["npcs"] = npcs
 	data["marines"] = marines
-//RUTGMC EDIT
 	data["yautja"] = yautja
-//RUTGMC EDIT
-	data["som"] = som
 	data["survivors"] = survivors
 	data["xenos"] = xenos
 

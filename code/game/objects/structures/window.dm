@@ -271,6 +271,11 @@
 /obj/structure/window/GetExplosionBlock(explosion_dir)
 	return (!explosion_dir || ISDIAGONALDIR(dir) || dir & explosion_dir || REVERSE_DIR(dir) & explosion_dir) ? real_explosion_block : 0
 
+/obj/structure/window/effect_smoke(obj/effect/particle_effect/smoke/S)
+	. = ..()
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
+		take_damage(1 * S.strength, BURN, ACID) // glass doesn't care about acid
+
 /obj/structure/window/phoronbasic
 	name = "phoron window"
 	desc = "A phoron-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."

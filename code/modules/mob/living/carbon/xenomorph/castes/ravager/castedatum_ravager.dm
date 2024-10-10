@@ -24,16 +24,13 @@
 	// *** Health *** //
 	max_health = 350
 
-	// *** Evolution *** //
-	deevolves_to = /mob/living/carbon/xenomorph/hunter
-
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 50, BULLET = 55, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 65, ACID = 40)
+	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 65, ACID = 40)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "ravager"

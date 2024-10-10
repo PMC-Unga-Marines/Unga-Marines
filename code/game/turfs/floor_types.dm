@@ -273,6 +273,12 @@
 /turf/open/floor/mainship/metal/white
 	icon_state = "white"
 
+/turf/open/floor/mainship/metal/gray
+	icon_state = "metal_gray"
+
+/turf/open/floor/mainship/metal/green
+	icon_state = "metal_green"
+
 //Outerhull
 
 /turf/open/floor/mainship_hull

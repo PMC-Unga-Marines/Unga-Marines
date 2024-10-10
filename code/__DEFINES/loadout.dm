@@ -76,6 +76,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
+	/obj/item/tool/surgery/solderingtool = list(CAT_ESS, "Essential Soldering Tool", 0, "white"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBOT, "Terra Experimental laser rifle", 15, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBOT, "Terra Experimental laser sniper rifle", 20, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBOT, "Terra Experimental laser carbine", 15, "red"),
@@ -231,7 +232,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_FCSUP, "Orbital beacon", 5, "blue"),
 	/obj/item/fulton_extraction_pack = list(CAT_FCSUP, "Fulton Extraction Pack", 5, "blue"),
 	/obj/item/deployable_camera = list(CAT_FCSUP, "Deployable Overwatch Camera", 1, "blue"),
-	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "blue"),
+	/obj/item/binoculars/tactical/scout = list(CAT_FCSUP, "Scout Tactical Binoculars", 5, "blue"),
 	/obj/item/stack/sheet/metal/small_stack = list(CAT_FCSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sheet/plasteel/small_stack = list(CAT_FCSUP, "Plasteel x10", PLASTEEL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_FCSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
@@ -510,7 +511,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0,"black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -529,7 +530,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/robot/essentials = list(CAT_STD, "Essential Combat Robot Kit", 0, "white"),
+		/obj/item/clothing/under/marine/robotic = list(CAT_STD, "Robotic Armor Suit Mount", 0, "white"),
 		/obj/effect/vendor_bundle/robot/light_armor = list(CAT_AMR, "Combat robot light armor kit", 0, "black"),
 		/obj/effect/vendor_bundle/robot/medium_armor = list(CAT_AMR, "Combat robot medium armor kit", 0, "black"),
 		/obj/effect/vendor_bundle/robot/heavy_armor = list(CAT_AMR, "Combat robot heavy armor kit", 0, "black"),
@@ -564,7 +565,7 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0,"black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -624,7 +625,7 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Combat injector pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -674,7 +675,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/item/armor_module/storage/grenade = list(CAT_MOD, "Grenade Storage Module", 0, "black"),
 		/obj/item/storage/pouch/medical_injectors/medic = list(CAT_POU, "Advanced Autoinjector pouch", 0, "orange"),
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -730,7 +731,7 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/pouch/medkit/firstaid = list(CAT_POU, "First aid pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
@@ -790,7 +791,7 @@ GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -834,7 +835,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/suit/armor/bulletproof = list(CAT_SMR, "Bulletproof Vest", 0, "synth-armor"),
 		/obj/item/clothing/suit/surgical = list(CAT_SMR, "Surgical apron", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/storage/labcoat = list(CAT_SMR, "Labcoat", 0, "synth-cosmetic"),
-		/obj/item/clothing/suit/storage/labcoat/researcher = list(CAT_SMR, "Researcher's labcoat", 0, "synth-cosmetic"),
+		/obj/item/clothing/suit/storage/labcoat/researcher = list(CAT_SMR, "Researcher's labcoat", 0, "synth-armor"),
 		/obj/item/clothing/suit/storage/hazardvest = list(CAT_SMR, "Orange reflective safety vest", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/storage/hazardvest/lime = list(CAT_SMR, "Lime reflective safety vest", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/storage/hazardvest/blue = list(CAT_SMR, "Blue reflective safety vest", 0, "synth-cosmetic"),
@@ -993,7 +994,10 @@ GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 ))
 
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
-	SQUAD_ENGINEER = list (
+	SQUAD_ROBOT = list(
+		/obj/item/tool/surgery/solderingtool = 1,
+	),
+	SQUAD_ENGINEER = list(
 		/obj/item/weapon/gun/sentry/basic = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1,
