@@ -197,7 +197,6 @@
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_UNRELENTING_FORCE_SELECT,
 	)
 
-
 /datum/action/ability/activable/xeno/unrelenting_force/on_cooldown_finish()
 	to_chat(owner, span_notice("Our mind is ready to unleash another blast of force."))
 	return ..()
