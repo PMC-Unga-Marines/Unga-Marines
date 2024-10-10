@@ -4,7 +4,7 @@
 
 /datum/yautja_energy_weapon_modes
 	///how much power the gun uses on this mode when shot.
-	var/rounds_per_shot = 0
+	var/charge_cost = 0
 	///the ammo datum this mode is.
 	var/datum/ammo/ammo_datum_type = null
 	///how long it takes between each shot of that mode, same as gun fire delay.
@@ -21,25 +21,25 @@
 	var/muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_bolts
-	rounds_per_shot = 30
+	charge_cost = 750
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
-	fire_delay = 5
+	fire_delay = 5 SECONDS
 	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
 	message_to_user = "will now fire low power stun bolts"
 	radial_icon_state = "plasma_weak"
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_heavy_bolts
-	rounds_per_shot = 100
+	charge_cost = 1000
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt/stun
-	fire_delay = 15
+	fire_delay = 7 SECONDS
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire high power stun bolts"
 	radial_icon_state = "plasma_strong"
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_spheres
-	rounds_per_shot = 300
+	charge_cost = 1200
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere/stun
 	fire_delay = 100
 	fire_sound = 'sound/weapons/pulse.ogg'
@@ -48,21 +48,12 @@
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/lethal_bolts
-	rounds_per_shot = 300
+	charge_cost = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt
-	fire_delay = 10
+	fire_delay = 2 SECONDS
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire plasma bolts"
 	radial_icon_state = "laser_disabler"
-	muzzle_flash_color = COLOR_BRIGHT_BLUE
-
-/datum/yautja_energy_weapon_modes/lethal_spheres
-	rounds_per_shot = 1200
-	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere
-	fire_delay = 100
-	fire_sound = 'sound/weapons/pulse.ogg'
-	message_to_user = "will now fire plasma spheres"
-	radial_icon_state = "laser_swarm"
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
 
 /obj/item/weapon/gun/energy/yautja
@@ -98,7 +89,7 @@
 	gun_user?.hud_used.update_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 
 /obj/item/weapon/gun/energy/yautja/get_display_ammo_count()
-	return round(rounds / rounds_per_shot, 1)
+	return round(rounds / charge_cost, 1)
 
 /obj/item/weapon/gun/energy/yautja/unload(mob/living/user, drop = TRUE, after_fire = FALSE)
 	return
@@ -117,7 +108,7 @@
 	ammo_datum_type = GLOB.ammo_list[initial(choice.ammo_datum_type)]
 	fire_delay = initial(choice.fire_delay)
 	fire_sound = initial(choice.fire_sound)
-	rounds_per_shot = initial(choice.rounds_per_shot)
+	charge_cost = initial(choice.charge_cost)
 
 	to_chat(user, initial(choice.message_to_user))
 	update_ammo_count()
@@ -366,14 +357,13 @@
 	PRED_MODE_LETHAL = image(icon = 'icons/mob/radial.dmi', icon_state = "pred_mode_lethal"))
 	var/list/mode_by_mode_list = list(
 		"stun" = list("low power stun bolts", "high power stun bolts", "plasma immobilizers"),
-		"lethal" = list("plasma bolts", "plasma spheres")
+		"lethal" = list("plasma bolts")
 	)
 	mode_list = list(
 		"low power stun bolts" = /datum/yautja_energy_weapon_modes/stun_bolts,
 		"high power stun bolts" = /datum/yautja_energy_weapon_modes/stun_heavy_bolts,
 		"plasma immobilizers" = /datum/yautja_energy_weapon_modes/stun_spheres,
 		"plasma bolts" = /datum/yautja_energy_weapon_modes/lethal_bolts,
-		"plasma spheres" = /datum/yautja_energy_weapon_modes/lethal_spheres
 	)
 
 	var/mob/living/carbon/laser_target = null
@@ -419,7 +409,7 @@
 	ammo_datum_type = GLOB.ammo_list[initial(choice.ammo_datum_type)]
 	fire_delay = initial(choice.fire_delay)
 	fire_sound = initial(choice.fire_sound)
-	rounds_per_shot = initial(choice.rounds_per_shot)
+	charge_cost = initial(choice.charge_cost)
 	muzzle_flash_color = initial(choice.muzzle_flash_color)
 
 	to_chat(user, initial(choice.message_to_user))

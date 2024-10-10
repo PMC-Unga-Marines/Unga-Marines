@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, NumberInput, Flex, Table, Input } from '../components';
+import { Button, Flex, Input, NumberInput, Table } from '../components';
 import { Window } from '../layouts';
 
 export const Mortar = (props) => {
@@ -135,7 +135,7 @@ export const Mortar = (props) => {
                     <Table.Cell key={'coords_one_' + i}>
                       {coordsinput}
                     </Table.Cell>
-                  )
+                  ),
                 )}
               </Table.Row>
               <Table.Row>
@@ -161,7 +161,7 @@ export const Mortar = (props) => {
                     <Table.Cell key={'coords_two_' + i}>
                       {coordsinput}
                     </Table.Cell>
-                  )
+                  ),
                 )}
               </Table.Row>
               <Table.Row>
@@ -187,7 +187,7 @@ export const Mortar = (props) => {
                     <Table.Cell key={'coords_three_' + i}>
                       {coordsinput}
                     </Table.Cell>
-                  )
+                  ),
                 )}
               </Table.Row>
             </Table>
