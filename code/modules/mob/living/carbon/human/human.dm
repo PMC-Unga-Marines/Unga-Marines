@@ -31,7 +31,6 @@
 	var/datum/action/innate/message_squad/screen_orders = new
 	screen_orders.give_action(src)
 
-
 	//makes order hud visible
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ORDER]
 	H.add_hud_to(usr)
@@ -58,12 +57,11 @@
 
 
 /mob/living/carbon/human/prepare_huds()
-	..()
+	. = ..()
 	//updating all the mob's hud images
 	med_pain_set_perceived_health()
 	med_hud_set_health()
 	med_hud_set_status()
-	sec_hud_set_security_status()
 	hud_set_order()
 	//and display them
 	add_to_all_mob_huds()
@@ -309,134 +307,6 @@
 			else
 				return
 		hud_set_job(faction)
-
-
-	if(href_list["criminal"])
-		if(!hasHUD(usr, "security"))
-			return
-
-		var/perpname
-		if(wear_id)
-			var/obj/item/card/id/I = get_idcard()
-			if(istype(I))
-				perpname = I.registered_name
-			else
-				perpname = name
-		else
-			perpname = name
-
-		if(!perpname)
-			return
-
-		for(var/datum/data/record/general_record in GLOB.datacore.general)
-			if(!(general_record.fields["name"] == perpname))
-				continue
-			for(var/datum/data/record/security_record in GLOB.datacore.security)
-				if(!(security_record.fields["id"] == general_record.fields["id"]))
-					continue
-				var/new_criminal_status = tgui_input_list(usr, "Specify a new criminal status for this person.", "Security HUD", list("None", "*Arrest*", "Incarcerated", "Released"))
-				if(!new_criminal_status)
-					return
-				security_record.fields["criminal"] = new_criminal_status
-				sec_hud_set_security_status()
-				return
-
-		to_chat(usr, span_warning("Unable to locate a data core entry for this person."))
-
-	if(href_list["secrecord"])
-		if(!hasHUD(usr, "security"))
-			return
-		var/perpname
-
-		if(!wear_id)
-			return //because how do you determine a crime for a person without an ID to record the crime to
-		if(istype(wear_id, /obj/item/card/id))
-			var/obj/item/card/id/worn_id = wear_id
-			perpname = worn_id.registered_name
-
-		if(!perpname)
-			return //the ID didn't have a registered name
-
-		for(var/datum/data/record/general_record in GLOB.datacore.general)
-			if(!(general_record.fields["name"] == perpname))
-				continue
-			for(var/datum/data/record/security_record in GLOB.datacore.security)
-				if(!(security_record.fields["id"] == general_record.fields["id"]))
-					continue
-				to_chat(usr, "<b>Name:</b> [security_record.fields["name"]]	<b>Criminal Status:</b> [security_record.fields["criminal"]]")
-				to_chat(usr, "<b>Minor Crimes:</b> [security_record.fields["mi_crim"]]")
-				to_chat(usr, "<b>Details:</b> [security_record.fields["mi_crim_d"]]")
-				to_chat(usr, "<b>Major Crimes:</b> [security_record.fields["ma_crim"]]")
-				to_chat(usr, "<b>Details:</b> [security_record.fields["ma_crim_d"]]")
-				to_chat(usr, "<b>Notes:</b> [security_record.fields["notes"]]")
-				to_chat(usr, "<a href='?src=[text_ref(src)];secrecordComment=`'>\[View Comment Log\]</a>")
-				return
-
-		to_chat(usr, span_warning("Unable to locate a data core entry for this person."))
-
-	if(href_list["secrecordComment"])
-		if(!hasHUD(usr, "security"))
-			return
-
-		var/perpname
-
-		if(!wear_id)
-			return //because how do you determine a crime for a person without an ID to record the crime to
-		if(istype(wear_id, /obj/item/card/id))
-			var/obj/item/card/id/worn_id = wear_id
-			perpname = worn_id.registered_name
-
-		if(!perpname)
-			return //the ID didn't have a registered name
-
-		for(var/datum/data/record/general_record in GLOB.datacore.general)
-			if(!(general_record.fields["name"] == perpname))
-				continue
-			for(var/datum/data/record/security_record in GLOB.datacore.security)
-				if(!(security_record.fields["id"] == general_record.fields["id"]))
-					continue
-				var/counter = 1
-				while(security_record.fields["com_[counter]"])
-					to_chat(usr, "[security_record.fields["com_[counter]"]]")
-					counter++
-				if(counter == 1)
-					to_chat(usr, "No comment found")
-				to_chat(usr, "<a href='?src=[text_ref(src)];secrecordadd=`'>\[Add comment\]</a>")
-				return
-
-		to_chat(usr, span_warning("Unable to locate a data core entry for this person."))
-
-	if(href_list["secrecordadd"])
-		if(!hasHUD(usr, "security"))
-			return
-
-		var/perpname
-
-		if(!wear_id)
-			return //because how do you determine a crime for a person without an ID to record the crime to
-
-		if(istype(wear_id, /obj/item/card/id))
-			var/obj/item/card/id/worn_id = wear_id
-			perpname = worn_id.registered_name
-
-		if(!perpname)
-			return //the ID didn't have a registered name
-
-		for(var/datum/data/record/general_record in GLOB.datacore.general)
-			if(!(general_record.fields["name"] == perpname))
-				continue
-			for(var/datum/data/record/security_record in GLOB.datacore.security)
-				if(!(security_record.fields["id"] == general_record.fields["id"]))
-					continue
-				var/comment_to_add = stripped_input(usr, "Add Comment:", "Sec. records")
-				if(!(comment_to_add) || usr.stat || usr.restrained() || !(hasHUD(usr,"security")))
-					return
-				var/counter = 1
-				while(security_record.fields["com_[counter]"])
-					counter++
-				if(istype(usr, /mob/living/carbon/human))
-					var/mob/living/carbon/human/U = usr
-					security_record.fields["com_[counter]"] = "Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GAME_YEAR]<BR>[comment_to_add]"
 
 	if(href_list["medical"])
 		if(!hasHUD(usr, "medical"))
