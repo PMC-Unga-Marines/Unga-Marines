@@ -161,15 +161,6 @@
 /obj/machinery/deployable/floodlight,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
-"aY" = (
-/obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "aZ" = (
 /turf/open/floor/tile/yellow{
 	dir = 10
@@ -981,8 +972,6 @@
 	},
 /area/whiskey_outpost)
 "fE" = (
-/obj/item/storage/box/crate/minisentry,
-/obj/item/storage/box/crate/minisentry,
 /obj/structure/rack,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
@@ -1523,12 +1512,6 @@
 "iX" = (
 /obj/machinery/smartfridge/chemistry,
 /turf/open/floor/mainship/sterile,
-/area/whiskey_outpost)
-"iY" = (
-/obj/structure/largecrate/supply/weapons/standard_carbine,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 4
-	},
 /area/whiskey_outpost)
 "iZ" = (
 /obj/structure/largecrate/supply/weapons/sentries,
@@ -2697,10 +2680,6 @@
 /obj/structure/largecrate/supply/floodlights,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
-"qm" = (
-/obj/structure/largecrate/supply/weapons/standard_carbine,
-/turf/open/floor/plating/asteroidfloor,
-/area/whiskey_outpost)
 "qo" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/gun/launcher/rocket,
@@ -3383,24 +3362,10 @@
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
 /obj/item/storage/box/visual/magazine/compact/smg90/full,
 /obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
-/obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/mp19/full,
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full,
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_br/full,
-/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full,
 /obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/obj/item/storage/box/visual/magazine/compact/chamberedrifle/full,
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/west)
 "vM" = (
@@ -4456,11 +4421,6 @@
 /obj/machinery/floodlight/outpost,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/north)
-"GX" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal,
-/turf/open/floor/plating/warning,
-/area/whiskey_outpost/outside/east)
 "GZ" = (
 /obj/item/weapon/gun/sentry/premade,
 /obj/structure/barricade/sandbags{
@@ -5087,7 +5047,6 @@
 /turf/closed/wall/r_wall,
 /area/whiskey_outpost/outside/east)
 "ND" = (
-/obj/effect/ai_node/goal,
 /obj/structure/nuclearbomb,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
@@ -5165,9 +5124,7 @@
 	},
 /area/whiskey_outpost)
 "Ot" = (
-/obj/machinery/marine_selector/clothes{
-	lock_flags = 0
-	},
+/obj/machinery/marine_selector/clothes,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost)
 "Oz" = (
@@ -5336,11 +5293,6 @@
 /area/whiskey_outpost/outside/west)
 "QY" = (
 /obj/structure/barricade/plasteel,
-/turf/open/floor/plating/warning,
-/area/whiskey_outpost/outside/west)
-"Rb" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "Rc" = (
@@ -12122,7 +12074,7 @@ NW
 NW
 NW
 ac
-aY
+fE
 bl
 ns
 cd
@@ -13003,7 +12955,7 @@ Hr
 hm
 hm
 Xh
-Rb
+QX
 Hm
 Qu
 In
@@ -13929,7 +13881,7 @@ yQ
 yw
 yw
 FD
-qm
+yw
 yw
 yQ
 Fi
@@ -14921,7 +14873,7 @@ kl
 Zi
 PW
 Pv
-GX
+VI
 Jf
 Jf
 Jf
@@ -15695,7 +15647,7 @@ ft
 gb
 gK
 iH
-iY
+kc
 jp
 kc
 kC
@@ -16839,7 +16791,7 @@ Jf
 Jf
 Jf
 Pv
-GX
+VI
 Jf
 Jf
 Bp
