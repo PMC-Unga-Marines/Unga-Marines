@@ -131,7 +131,6 @@
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/ammo_magazine/handful,
 	)
-	cant_hold = list(/obj/item/cell/lasgun/volkite/powerpack)
 
 /obj/item/storage/internal/pocket/insertion_message(obj/item/item, mob/user)
 	var/visidist = item.w_class >= WEIGHT_CLASS_NORMAL ? 3 : 1
@@ -185,7 +184,6 @@
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/ammo_magazine/handful,
 	)
-	cant_hold = list(/obj/item/cell/lasgun/volkite/powerpack)
 
 /obj/item/armor_module/storage/general/som
 	name = "General Purpose Storage module"
