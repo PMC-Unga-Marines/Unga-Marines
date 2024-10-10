@@ -178,7 +178,7 @@
 	var/image/holder = hud_list[HUNTER_HUD]
 	if(!holder)
 		return
-	holder.icon_state = "hudblank"
+	holder.icon_state = ""
 	holder.overlays.Cut()
 	if(hunter_data.hunted)
 		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_hunted")
@@ -199,7 +199,7 @@
 	var/image/holder = hud_list[HUNTER_HUD]
 	if(!holder)
 		return
-	holder.icon_state = "hudblank"
+	holder.icon_state = ""
 	holder.overlays.Cut()
 	holder.pixel_x = -17
 	holder.pixel_y = 20

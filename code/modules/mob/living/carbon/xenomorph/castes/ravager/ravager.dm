@@ -151,6 +151,7 @@
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
 		return
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "xenohealth0"
 		return
