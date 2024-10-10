@@ -121,6 +121,13 @@
 "aK" = (
 /turf/open/floor/mainship,
 /area/whiskey_outpost)
+"aL" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/turf_decal/grassdecal{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "aM" = (
 /obj/effect/landmark/start/job/squadmarine,
 /turf/open/floor/mainship/sterile/dark,
@@ -790,7 +797,7 @@
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "ep" = (
-/obj/effect/turf_decal/grassdecal{
+/obj/effect/turf_decal/grassdecal/corner{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -851,7 +858,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/west)
 "eC" = (
-/obj/structure/filingcabinet,
+/obj/machinery/marine_selector/gear/commander,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "eE" = (
@@ -948,6 +955,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/marine_selector/clothes/commander,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "fs" = (
@@ -1101,9 +1109,6 @@
 /area/whiskey_outpost)
 "fV" = (
 /obj/machinery/vending/weapon,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "fW" = (
@@ -2471,13 +2476,6 @@
 "oL" = (
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/rock)
-"oP" = (
-/obj/effect/turf_decal/grassdecal/corner{
-	dir = 8
-	},
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/dirt,
-/area/whiskey_outpost/outside/south)
 "oQ" = (
 /obj/machinery/light{
 	dir = 4
@@ -3551,6 +3549,10 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)
+"wM" = (
+/obj/effect/spawner/random/misc/plant,
+/turf/open/floor/prison,
+/area/whiskey_outpost)
 "wN" = (
 /obj/structure/barricade/metal,
 /obj/structure/barricade/metal{
@@ -3678,11 +3680,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/north)
-"xN" = (
-/obj/effect/turf_decal/grassdecal/corner2,
-/obj/effect/landmark/last_stand_waves,
-/turf/open/floor/plating/ground/dirt,
-/area/whiskey_outpost/outside/south)
 "xO" = (
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
@@ -4764,6 +4761,13 @@
 	dir = 8
 	},
 /area/whiskey_outpost)
+"KF" = (
+/obj/effect/turf_decal/grassdecal{
+	dir = 8
+	},
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "KG" = (
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen,
@@ -4823,13 +4827,6 @@
 /obj/effect/landmark/start/job/squadcorpsman,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
-"Ls" = (
-/obj/structure/flora/jungle/vines,
-/obj/effect/turf_decal/grassdecal{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/dirt,
-/area/whiskey_outpost/outside/south)
 "Lt" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 4
@@ -4864,6 +4861,11 @@
 "LQ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating,
+/area/whiskey_outpost/outside/south)
+"LW" = (
+/obj/effect/turf_decal/grassdecal/corner2,
+/obj/effect/landmark/last_stand_waves,
+/turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "Mb" = (
 /obj/effect/ai_node,
@@ -13508,13 +13510,13 @@ Hq
 KO
 kn
 lq
-oP
+ep
 Hq
 iu
 iu
 vi
 Ul
-ep
+KF
 xd
 iu
 iu
@@ -13528,7 +13530,7 @@ rN
 xZ
 xZ
 xZ
-Ls
+aL
 xZ
 pY
 Hq
@@ -14747,7 +14749,7 @@ kn
 ss
 lq
 IK
-xN
+LW
 CV
 Hq
 Hq
@@ -15342,7 +15344,7 @@ ac
 DR
 eC
 fr
-fW
+wM
 ac
 Dl
 cM
@@ -15887,7 +15889,7 @@ NW
 NW
 ac
 SL
-DR
+fW
 ac
 fu
 gg
