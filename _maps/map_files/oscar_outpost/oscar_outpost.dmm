@@ -4060,11 +4060,6 @@
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor,
 /area/oscar_outpost/village)
-"AJ" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/hyper,
-/turf/open/floor/tile/dark,
-/area/oscar_outpost)
 "AL" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
@@ -18058,7 +18053,7 @@ Tx
 WZ
 Li
 WZ
-AJ
+YO
 YO
 bk
 xe

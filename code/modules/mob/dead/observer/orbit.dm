@@ -128,13 +128,11 @@
 			var/datum/job/job = human.job
 			serialized["nickname"] = human.real_name
 
-//RUTGMC EDIT
 			if(mob_poi.hunter_data.thralled)
 				serialized["icon"] = "thrall"
 				serialized["job"] = job.title
 				yautja += list(serialized)
 				continue
-//RUTGMC EDIT
 
 			if(ismarinejob(human.job))
 				if(human.assigned_squad)

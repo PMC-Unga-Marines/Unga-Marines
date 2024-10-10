@@ -207,11 +207,12 @@ The Grenade Launchers
 	desc = "A lightweight, single-shot grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
 	icon_state = "m81"
 	item_state = "m81"
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shells = 1 //codex
 	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	wield_delay = 0.8 SECONDS
 	aim_slowdown = 1
-	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_STABLE_FIRING_ONLY
+	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_allowed = list()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1.05 SECONDS

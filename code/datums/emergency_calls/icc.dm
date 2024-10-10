@@ -2,7 +2,7 @@
 /datum/emergency_call/icc
 	name = "Independent Colonial Confederation Squad"
 	base_probability = 26
-	alignement_factor = 0
+	alignement_factor = 1
 
 /datum/emergency_call/icc/print_backstory(mob/living/carbon/human/H)
 	to_chat(H, "<B>You are part of the Independent Colonial Confederation Armed Forces (ICCAF), formed by the ICC, a group of former generation ship colonies which have banded together to form economic and military alliances against their much larger neighbor TerraGov.</b>")
