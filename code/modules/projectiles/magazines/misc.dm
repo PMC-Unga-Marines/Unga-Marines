@@ -24,7 +24,7 @@
 	max_rounds = 150
 
 /obj/item/ammo_magazine/packet/p602x41
-	name = "box of 6.02x41mm FMJ"
+	name = "box of 6.02x41mm"
 	desc = "A box containing 100 rounds of 6.02x41mm."
 	caliber = CALIBER_602X41
 	icon_state = "box_602x41"
