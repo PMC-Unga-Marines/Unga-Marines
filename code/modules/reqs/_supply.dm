@@ -919,6 +919,12 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 				to_chat(usr, span_danger("A vehicle of this type has already been purchased!"))
 				return
 			current_veh_type = newtype
+			current_primary = null // set everything to null, to avoid bugs
+			current_secondary = null
+			current_driver_mod = null
+			current_gunner_mod = null
+			primary_ammo = list()
+			secondary_ammo = list()
 			. = TRUE
 
 		if("setprimary")
@@ -1009,6 +1015,14 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 			supply_shuttle.buy(usr, src)
 			ui_act("send", params, ui, state)
 			SStgui.close_user_uis(usr, src)
+			current_veh_type = null
+			current_primary = null
+			current_secondary = null
+			current_driver_mod = null
+			current_gunner_mod = null
+			primary_ammo = list()
+			secondary_ammo = list()
+			update_static_data(usr)
 
 	if(.)
 		update_static_data(usr)

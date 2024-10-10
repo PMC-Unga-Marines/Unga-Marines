@@ -2,9 +2,11 @@
 
 //Base Area
 
+//Why is /area/barren a lava area?
 /area/barren
 	name = "Lava"
 	icon_state = "lava"
+	always_unpowered = TRUE
 
 //Caves
 /area/lavaland/cave
@@ -44,11 +46,13 @@
 	name = "Landing Zone 1"
 	icon_state = "lava_lz1"
 	outside = FALSE
+	always_unpowered = FALSE
 
 /area/barren/cave/lz2
 	name = "Landing Zone 2"
 	icon_state = "lava_lz2"
 	outside = FALSE
+	always_unpowered = FALSE
 
 /area/barren/caves
 	name = "Unknown Area"
@@ -83,6 +87,7 @@
 	icon_state = "lava_med"
 	outside = FALSE
 	minimap_color = MINIMAP_AREA_MEDBAY
+	always_unpowered = FALSE
 
 /area/barren/medical/chemistry
 	name = "Medical Clinic Chemistry"
@@ -102,6 +107,7 @@
 	outside = FALSE
 	icon_state = "lava_engine"
 	minimap_color = MINIMAP_AREA_ENGI
+	always_unpowered = FALSE
 
 /area/barren/engie/one
 	name = "Generator One"
@@ -126,6 +132,7 @@
 	icon_state = "lava_sec_prison"
 	outside = FALSE
 	minimap_color = MINIMAP_AREA_SEC
+	always_unpowered = FALSE
 
 /area/barren/security/storage
 	name = "Prison Facility Storage"
@@ -145,7 +152,10 @@
 /area/barren/civilian
 	name = "Civilian Housing"
 	icon_state = "lava_civ"
+	minimap_color = MINIMAP_AREA_LIVING
+	ceiling = CEILING_METAL
 	outside = FALSE
+	always_unpowered = FALSE
 
 /area/barren/civilian/cook
 	name = "Civilian Kitchen"
@@ -169,6 +179,10 @@
 	ceiling = CEILING_DEEP_UNDERGROUND
 	outside = FALSE
 	minimap_color = MINIMAP_AREA_CAVES
+
+/area/barren/civilian/laundry
+	name = "Laundry"
+	icon_state = "bluenew"
 
 //Misc Locations
 
@@ -198,10 +212,12 @@
 /area/barren/misc/genstorage
 	name = "General Storage"
 	icon_state =  "lava_misc_genstorage"
+	always_unpowered = FALSE
 
 /area/barren/misc/eastarmory
 	name = "Eastern Armory"
 	icon_state =  "lava_misc_armory1"
+	always_unpowered = FALSE
 
 /area/barren/misc/westarmory
 	name = "Western Armory"
@@ -211,6 +227,7 @@
 	name = "Ore Processing Facility"
 	icon_state = "lava_misc_refinery"
 	minimap_color = MINIMAP_AREA_ENGI
+	always_unpowered = FALSE
 
 /area/barren/misc/crashed
 	name = "Crashed Ship"
@@ -224,4 +241,8 @@
 /area/barren/misc/ashshelter
 	name = "Ash Shelter"
 	icon_state = "lava_ash_shelter"
+	always_unpowered = FALSE
 
+/area/barren/misc/ruin
+	name = "\improper Unknown structure"
+	icon_state = "red"
