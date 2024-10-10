@@ -26,7 +26,11 @@
 /obj/machinery/telecomms/relay/preset/tower/Initialize(mapload)
 	. = ..()
 	init_marker()
-	GLOB.tower_relay = FALSE
+
+/obj/machinery/miner/Destroy()
+	if(src in GLOB.tower_relays)
+		GLOB.tower_relays -= src
+	return ..()
 
 /obj/machinery/telecomms/relay/preset/tower/proc/init_marker()
 
@@ -104,10 +108,11 @@
 
 	if(on)
 		say("It's on")
+		GLOB.tower_relays += src
 	else
 		say("It's off")
+		GLOB.tower_relays -= src
 
-	GLOB.tower_relay = on
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TELETOWER)
 	set_tower_status()
 
@@ -120,8 +125,9 @@
 		if(!do_after(X, 3 SECONDS, NONE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
 			return
 		if(tower_integrity <= 50)
+			if(src in GLOB.tower_relays)
+				GLOB.tower_relays -= src
 			on = FALSE
-			GLOB.tower_relay = FALSE
 			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TELETOWER)
 		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		X.visible_message(span_danger("[X] slashes \the [src]!"), \
@@ -132,16 +138,16 @@
 
 /obj/machinery/telecomms/relay/preset/tower/proc/set_tower_status()
 	var/health_percent = round((tower_integrity / max_tower_integrity) * 100)
-	var/marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
+	var/marker_icon = "comm_tower_broken"
 	switch(health_percent)
 		if(-INFINITY to 0)
 			tower_status = TOWER_BROKEN
-			marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_off"
+			marker_icon = "comm_tower_broken"
 		if(1 to INFINITY)
 			tower_status = on ? TOWER_ON : TOWER_OFF
-			marker_icon = "miner_[TRUE ? "platinum" : "phoron"]_[on ? "_on" : "_off"]"
+			marker_icon = "comm_tower[on ? "_on" : "_off"]"
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_icon))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon))
 	update_icon()
 
 /obj/machinery/telecomms/relay/preset/tower/attack_ai(mob/user)

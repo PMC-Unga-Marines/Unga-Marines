@@ -1228,7 +1228,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	display_order = JOB_DISPLAY_ORDER_AI
 	skills_type = /datum/skills/ai
-	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION
+	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
@@ -1243,6 +1243,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Assist the crew whenever you’re needed, be the doorknob of the ship. Recon the areas for threats via cameras, report your findings to the crew at various communication channels. Follow your laws.
 	"}
+	minimap_icon = "ai" // this is saved for making minimap icon later for ai core
 
 /datum/job/terragov/silicon/ai/get_special_name(client/preference_source)
 	return preference_source.prefs.ai_name
