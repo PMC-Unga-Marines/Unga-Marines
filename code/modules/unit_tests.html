@@ -14,7 +14,7 @@
 </header>
 <main>
 <h1>Unit Tests <aside>code/modules/unit_tests/README.md</aside> 
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/540a85af7ace6454f027a298467190cc66a2b8b5/code/modules/unit_tests/README.md">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/f77cbfea31713bcd1b386d632800768e0d1103b0/code/modules/unit_tests/README.md">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;unit_tests&#x2F;README.md"/></a></h1>
 
 <table class="summary" cellspacing="0">
@@ -45,7 +45,7 @@
 <p>Open <code>code/_compile_options.dm</code> and uncomment the following line.</p>
 <pre><code>//#define UNIT_TESTS			//If this is uncommented, we do a single run though of the game setup and tear down process with unit tests in between
 </code></pre>
-<p>Then, run tgstation.dmb in Dream Daemon. Don't bother trying to connect, you won't need to. You'll be able to see the outputs of all the tests. You'll get to see which tests failed and for what reason. If they all pass, you're set!</p>
+<p>Then, run tgmc.dmb in Dream Daemon. Don't bother trying to connect, you won't need to. You'll be able to see the outputs of all the tests. You'll get to see which tests failed and for what reason. If they all pass, you're set!</p>
 <hh2 id="how-to-think-about-tests">How to think about tests</hh2>
 <p>Unit tests exist to prevent bugs that would happen in a real game. Thus, they should attempt to emulate the game world wherever possible.  For example, the <a href="https://github.com/tgstation/tgstation/blob/e416283f162b86345a8623125ab866839b1ac40d/code/modules/unit_tests/quick_swap_sanity.dm">quick swap sanity test</a> emulates a <em>real</em> scenario of the bug it fixed occurring by creating a character and giving it real items. The unrecommended alternative would be to create special test-only items. This isn't a hard rule, the <a href="https://github.com/tgstation/tgstation/blob/e416283f162b86345a8623125ab866839b1ac40d/code/modules/unit_tests/reagent_mod_expose.dm">reagent method exposure tests</a> create a test-only reagent for example, but do keep it in mind.</p>
 <p>Unit tests should also be just that--testing <em>units</em> of code. For example, instead of having one massive test for reagents, there are instead several smaller tests for testing exposure, metabolization, etc.</p>
@@ -65,7 +65,7 @@
 </ul></td></tr></table></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/540a85af7ace6454f027a298467190cc66a2b8b5">540a85a</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/f77cbfea31713bcd1b386d632800768e0d1103b0">f77cbfe</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>

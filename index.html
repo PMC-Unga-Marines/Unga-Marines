@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(468 modules,
-    847/7519 macros, 11.3%)</aside></h3>
+<aside>(472 modules,
+    848/7519 macros, 11.3%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -639,6 +639,8 @@ SPDX-License-Identifier: MIT</li>
 SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/default.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;default">default</a> - Copyright (c) 2020 Aleksej Komarov
 SPDX-License-Identifier: MIT</li>
+    <li><a href="code/modules/tgui/states/fun.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;fun">fun</a> - Copyright (c) 2020 Aleksej Komarov
+SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/hands.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;hands">hands</a> - Copyright (c) 2020 Aleksej Komarov
 SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/human_adjacent.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;human_adjacent">human_adjacent</a> - Copyright (c) 2020 Aleksej Komarov
@@ -646,6 +648,8 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/inventory.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;inventory">inventory</a> - Copyright (c) 2020 Aleksej Komarov
 SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/language_menu.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;language_menu">language_menu</a> - Copyright (c) 2020 Aleksej Komarov
+SPDX-License-Identifier: MIT</li>
+    <li><a href="code/modules/tgui/states/never.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;never">never</a> - Copyright (c) 2021 Arm A. Hammer
 SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/not_incapacitated.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;not_incapacitated">not_incapacitated</a> - Copyright (c) 2020 Aleksej Komarov
 SPDX-License-Identifier: MIT</li>
@@ -655,6 +659,7 @@ SPDX-License-Identifier: MIT</li>
 SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/physical.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;physical">physical</a> - Copyright (c) 2020 Aleksej Komarov
 SPDX-License-Identifier: MIT</li>
+    <li><a href="code/modules/tgui/states/reverse_contained.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;reverse_contained">reverse_contained</a> - Not copyrighted, but magatsuchi made it.</li>
     <li><a href="code/modules/tgui/states/self.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;self">self</a> - Copyright (c) 2020 Aleksej Komarov
 SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/tgui/states/zlevel.html" title="code&#x2F;modules&#x2F;tgui&#x2F;states&#x2F;zlevel">zlevel</a> - Copyright (c) 2020 Aleksej Komarov
@@ -691,6 +696,7 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/modules/unit_tests/create_and_destroy.html" title="code&#x2F;modules&#x2F;unit_tests&#x2F;create_and_destroy">create_and_destroy</a></li>
     <li><a href="code/modules/unit_tests/dcs_get_id_from_elements.html" title="code&#x2F;modules&#x2F;unit_tests&#x2F;dcs_get_id_from_elements">dcs_get_id_from_elements</a></li>
     <li><a href="code/modules/unit_tests/implanting.html" title="code&#x2F;modules&#x2F;unit_tests&#x2F;implanting">implanting</a></li>
+    <li><a href="code/modules/unit_tests/mapping.html" title="code&#x2F;modules&#x2F;unit_tests&#x2F;mapping">mapping</a></li>
     <li><a href="code/modules/unit_tests/tgui_create_message.html" title="code&#x2F;modules&#x2F;unit_tests&#x2F;tgui_create_message">tgui_create_message</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;vehicles">vehicles</span><ul class="index-tree">
@@ -734,7 +740,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1027 detailed/1295 documented/19558 total, 6.6%)</aside></h3>
+<aside>(1028 detailed/1297 documented/19571 total, 6.6%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -1562,6 +1568,7 @@ Base type with no disk type
 forcespawned abstract type for vehicles, will never spawn outside of it
 Tests that DCS' GetIdFromArguments works as expected with standard and odd cases</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;unit_test&#x2F;implanting">implanting</span> - Implants a human to make sure it effectively is inserted and deleted.</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;unit_test&#x2F;log_mapping">log_mapping</span> - Conveys all log_mapping messages as unit test failures, as they all indicate mapping problems.</li>
     <li><a href="datum/unit_test/map_templates.html" title="&#x2F;datum&#x2F;unit_test&#x2F;map_templates">map_templates</a></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;unit_test&#x2F;tgui_create_message">tgui_create_message</span> - Test that <code>TGUI_CREATE_MESSAGE</code> is correctly implemented</li>
     </ul></li>
@@ -2322,6 +2329,7 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><a href="obj/machinery/vending/boozeomat.html" title="&#x2F;obj&#x2F;machinery&#x2F;vending&#x2F;boozeomat">boozeomat</a></li>
     </ul></li>
     </ul></li>
+    <li><a href="obj/merge_conflict_marker.html" title="&#x2F;obj&#x2F;merge_conflict_marker">merge_conflict_marker</a></li>
     <li class="has-children"><a href="obj/projectile.html" title="&#x2F;obj&#x2F;projectile">projectile</a><ul class="index-tree">
     <li><a href="obj/projectile/hitscan.html" title="&#x2F;obj&#x2F;projectile&#x2F;hitscan">hitscan</a></li>
     </ul></li>
@@ -2532,7 +2540,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/540a85af7ace6454f027a298467190cc66a2b8b5">540a85a</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/f77cbfea31713bcd1b386d632800768e0d1103b0">f77cbfe</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
