@@ -261,6 +261,8 @@
 
 #define isfire(A) (istype(A, /obj/fire))
 
+#define issentry(A) (istype(A, /obj/machinery/deployable/mounted/sentry))
+
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
 

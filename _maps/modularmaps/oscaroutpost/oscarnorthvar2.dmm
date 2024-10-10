@@ -262,9 +262,6 @@
 "cy" = (
 /obj/structure/table/reinforced,
 /obj/structure/barricade/metal,
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal,
 /turf/open/floor/plating,
 /area/oscar_outpost/outside/north)
 "cz" = (
@@ -1669,11 +1666,6 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/west)
 "qC" = (
-/obj/structure/barricade/sandbags{
-	dir = 4;
-	name = "trench lining";
-	pixel_y = 1
-	},
 /obj/structure/barricade/sandbags{
 	dir = 4;
 	name = "trench lining";
@@ -5396,11 +5388,6 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/northeast)
 "Yr" = (
-/obj/structure/barricade/sandbags{
-	dir = 8;
-	name = "trench lining";
-	pixel_y = 1
-	},
 /obj/structure/barricade/sandbags{
 	dir = 8;
 	name = "trench lining";
