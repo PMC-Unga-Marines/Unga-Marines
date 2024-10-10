@@ -189,4 +189,4 @@
 				span_danger("You are splattered with sizzling blood! IT BURNS!"))
 				if(victim.stat == CONSCIOUS && !(victim.species.species_flags & NO_PAIN))
 					victim.emote("scream")
-				victim.take_overall_damage(rand(15, 30), BURN, ACID, updating_health = TRUE)
+				victim.take_overall_damage(rand(5, 15), BURN, ACID, updating_health = TRUE)
