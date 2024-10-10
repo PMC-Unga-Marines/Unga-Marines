@@ -21,6 +21,7 @@
 	ENABLE_BITFIELD(attaching_gun.flags_gun_features, GUN_IFF)
 
 /obj/item/attachable/b7_scope/on_detach(detaching_item, mob/user)
+	. = ..()
 	var/obj/item/weapon/gun/detaching_gun = detaching_item
 	DISABLE_BITFIELD(detaching_gun.flags_gun_features, GUN_IFF)
 
