@@ -78,6 +78,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
+	/obj/item/tool/surgery/solderingtool = list(CAT_ESS, "Essential Soldering Tool", 0, "white"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBOT, "Terra Experimental laser rifle", 15, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBOT, "Terra Experimental laser sniper rifle", 20, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBOT, "Terra Experimental laser carbine", 15, "red"),
@@ -538,7 +539,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/robot/essentials = list(CAT_STD, "Essential Combat Robot Kit", 0, "white"),
+		/obj/item/clothing/under/marine/robotic = list(CAT_STD, "Robotic Armor Suit Mount", 0, "white"),
 		/obj/effect/vendor_bundle/robot/light_armor = list(CAT_AMR, "Combat robot light armor kit", 0, "black"),
 		/obj/effect/vendor_bundle/robot/medium_armor = list(CAT_AMR, "Combat robot medium armor kit", 0, "black"),
 		/obj/effect/vendor_bundle/robot/heavy_armor = list(CAT_AMR, "Combat robot heavy armor kit", 0, "black"),
@@ -1029,7 +1030,10 @@ GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 ))
 
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
-	SQUAD_ENGINEER = list (
+	SQUAD_ROBOT = list(
+		/obj/item/tool/surgery/solderingtool = 1,
+	),
+	SQUAD_ENGINEER = list(
 		/obj/item/weapon/gun/sentry/basic = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1,
