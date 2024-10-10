@@ -23,6 +23,8 @@ Basics, the most important.
 
 /datum/config_entry/string/forumurl
 
+/datum/config_entry/string/donationurl
+
 /datum/config_entry/string/rulesurl
 
 /datum/config_entry/string/githuburl
@@ -447,3 +449,17 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 
 /datum/config_entry/flag/save_spritesheets
 	default = FALSE
+
+// DISCORD ROLE STUFFS
+
+/datum/config_entry/string/discord_token
+
+//yes ID is a number but config is a string
+
+/datum/config_entry/string/discord_guildid
+
+/datum/config_entry/string/discord_boosty_roleid_tier_1
+
+/datum/config_entry/string/discord_boosty_roleid_tier_2
+
+/datum/config_entry/string/discord_boosty_roleid_tier_3

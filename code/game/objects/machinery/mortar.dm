@@ -13,8 +13,11 @@
 	coverage = 20
 	layer = ABOVE_MOB_LAYER //So you can't hide it under corpses
 	resistance_flags = XENO_DAMAGEABLE
+	use_power = NO_POWER_USE
 	/// list of the target x and y, and the dialing we can do to them
 	var/list/coords = list("name"= "", "targ_x" = 0, "targ_y" = 0, "dial_x" = 0, "dial_y" = 0)
+	///list of old x and y coords, so we don't play a message each ui act
+	var/list/old_coords = list("target_x" = 0, "target_y" = 0)
 	/// saved last three inputs that were actually used to fire a round
 	var/list/last_three_inputs = list(
 		"coords_one" = list("name"="Target 1", "targ_x" = 0, "targ_y" = 0, "dial_x" = 0, "dial_y" = 0),
@@ -62,8 +65,6 @@
 		/obj/item/mortal_shell/plasmaloss,
 	)
 
-	use_power = NO_POWER_USE
-
 	///Used for round stats
 	var/tally_type = TALLY_MORTAR
 
@@ -83,9 +84,10 @@
 	var/obj/item/mortar_kit/mortar = get_internal_item()
 	for (var/obj/item/binoculars/tactical/binoc in mortar?.linked_item_binoculars)
 		binoc.set_mortar(src)
-	impact_cam = new
-	impact_cam.forceMove(src)
-	impact_cam.c_tag = "[strip_improper(name)] #[++id_by_type[type]]"
+	if(!is_centcom_level(loc.z))
+		impact_cam = new
+		impact_cam.forceMove(src)
+		impact_cam.c_tag = "[strip_improper(name)] #[++id_by_type[type]]"
 
 /obj/machinery/deployable/mortar/Destroy()
 	QDEL_NULL(impact_cam)
@@ -167,7 +169,11 @@
 		if("change_saved_three_name")
 			new_name = params["name"]
 			last_three_inputs["coords_three"]["name"] = new_name
-	if((coords["targ_x"] != 0 && coords["targ_y"] != 0))
+		if("open_map")
+			open_map(usr)
+	if(coords["targ_x"] != old_coords["target_x"] || coords["targ_y"] != old_coords["target_y"])
+		old_coords["target_x"] = coords["targ_x"]
+		old_coords["target_y"] = coords["targ_y"]
 		usr.visible_message(span_notice("[usr] adjusts [src]'s firing angle and distance."),
 		span_notice("You adjust [src]'s firing angle and distance to match the new coordinates."))
 		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
@@ -273,8 +279,7 @@
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
 	shell.generate_bullet(ammo)
 	var/shell_range = min(get_dist_euclidean(src, target), ammo.max_range)
-	// shell.fire_at(target, null, src, shell_range, ammo.shell_speed) // FUTURE ORIGINAL, WE DON'T HAVE NEEDED CHANGES YET
-	shell.fire_at(target, src, src, shell_range, ammo.shell_speed) // RUTGMC OLD VERSION
+	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
 
@@ -409,8 +414,42 @@
 			personal_statistics.war_crimes += war_crimes_counter
 	return ..()
 
-// Artillery cameras. Together with the artillery impact hud tablet, shows a live feed of imapcts.
+/obj/machinery/deployable/mortar/on_unset_interaction(mob/user)
+	var/datum/action/minimap/minimap // not setting the var on mortar, because if there's more than 1 user it acts weird
+	for(var/datum/action/action AS in user.actions) // it needs a refactor so badly
+		if(istype(action, /datum/action/minimap))
+			minimap = action
+	minimap?.toggle_minimap(FALSE)
 
+/obj/machinery/deployable/mortar/proc/open_map(mob/user)
+	if(is_centcom_level(loc.z))
+		balloon_alert(user, "This region doesn't have a minimap!")
+		return
+
+	var/datum/action/minimap/minimap // not setting the var on mortar, because if there's more than 1 user it acts weird
+	for(var/datum/action/action AS in user.actions) // it needs a refactor so badly
+		if(istype(action, /datum/action/minimap))
+			minimap = action
+	if(!minimap)
+		balloon_alert(user, "You don't have a minimap!")
+		return
+	if(minimap?.minimap_displayed) // simply close the minimap if we have it open
+		minimap.toggle_minimap()
+		return
+
+	minimap?.toggle_minimap(TRUE)
+	var/list/polled_coords = minimap.map.get_coords_from_click(user)
+	minimap?.toggle_minimap(FALSE)
+
+	if(!user.Adjacent(src))
+		return
+
+	if(!polled_coords)
+		return
+	coords["targ_x"] = polled_coords[1]
+	coords["targ_y"] = polled_coords[2]
+
+// Artillery cameras. Together with the artillery impact hud tablet, shows a live feed of imapcts.
 /obj/machinery/camera/artillery
 	name = "artillery camera"
 	network = list("terragovartillery")

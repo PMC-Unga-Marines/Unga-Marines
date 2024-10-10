@@ -73,4 +73,5 @@
 	max_w_class = WEIGHT_CLASS_GIGANTIC
 	can_hold = list(
 		/obj/item/ammo_magazine/tank/secondary_cupola,
+		/obj/item/ammo_magazine/tank/secondary_flamer_tank,
 	)

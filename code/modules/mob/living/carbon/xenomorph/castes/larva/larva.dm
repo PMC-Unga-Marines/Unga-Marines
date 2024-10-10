@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/larva
-	caste_base_type = /mob/living/carbon/xenomorph/larva
+	caste_base_type = /datum/xeno_caste/larva
 	speak_emote = list("hisses")
 	icon_state = "Bloody Larva"
 	bubble_icon = "alien"
@@ -131,7 +131,7 @@
 	evolution_threshold = 50
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
@@ -160,7 +160,7 @@
 	icon = 'icons/Xeno/castes/predalien_larva.dmi'
 	icon_state = "Predalien Larva"
 	base_icon_state = "Predalien Larva"
-	caste_base_type = /mob/living/carbon/xenomorph/larva/predalien
+	caste_base_type = /datum/xeno_caste/larva_predalien
 
 /mob/living/carbon/xenomorph/larva/predalien/Initialize(mapload, mob/living/carbon/xenomorph/oldxeno, h_number)
 	. = ..()

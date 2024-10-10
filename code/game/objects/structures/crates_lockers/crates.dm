@@ -5,6 +5,7 @@
 	icon_state = "closed_basic"
 	icon_opened = "open_basic"
 	icon_closed = "closed_basic"
+	overlay_welded = "welded_basic"
 	anchored = FALSE
 	mob_storage_capacity = 0
 	storage_capacity = 100
@@ -230,6 +231,7 @@
 	icon_state = "closed_trashcart"
 	icon_opened = "open_trashcart"
 	icon_closed = "closed_trashcart"
+	overlay_welded = "welded_trashcart"
 
 /obj/structure/closet/crate/wayland
 	name = "Wayland crate"
@@ -263,7 +265,6 @@
 /obj/structure/closet/crate/mass_produced_crate
 	name = "Mass Produced Crate"
 	desc = "A rectangular steel crate. Cannot be welded for metal."
-	icon = 'icons/obj/structures/crates.dmi'
 	icon_state = "closed_basic"
 	icon_opened = "open_basic"
 	icon_closed = "closed_basic"

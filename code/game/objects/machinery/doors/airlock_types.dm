@@ -566,6 +566,10 @@
 /obj/machinery/door/airlock/mainship/generic/mech_pilot/bunk
 	name = "\improper Mech Pilot's Bunks"
 
+/obj/machinery/door/airlock/mainship/generic/vehicle_crew
+	name = "\improper Vehicle Crewman Office"
+	req_access = list(ACCESS_MARINE_ARMORED)
+
 /obj/machinery/door/airlock/mainship/generic/ert
 	name = "\improper Airlock"
 	icon = 'icons/obj/doors/mainship/personaldoor.dmi'

@@ -1,23 +1,27 @@
-import { useBackend, useLocalState } from '../../backend';
-import { Section, LabeledList, Modal, Button, Box, Stack, Flex } from '../../components';
+import { useState } from 'react';
 
-export const JobPreferences = (props, context) => {
-  const { act, data } = useBackend<JobPreferencesData>(context);
+import { useBackend } from '../../backend';
+import {
+  Box,
+  Button,
+  Flex,
+  LabeledList,
+  Modal,
+  Section,
+  Stack,
+} from '../../components';
+
+export const JobPreferences = (props) => {
+  const { act, data } = useBackend<JobPreferencesData>();
   const {
     alternate_option,
     squads,
-    squads_som,
     preferred_squad,
-    preferred_squad_som,
     overflow_job,
     special_occupations,
     special_occupation,
   } = data;
-  const [shownDescription, setShownDescription] = useLocalState(
-    context,
-    'shown-desc',
-    null
-  );
+  const [shownDescription, setShownDescription] = useState(null);
 
   const xenoJobs = ['Xeno Queen', 'Xenomorph'];
   const commandRoles = [
@@ -47,16 +51,6 @@ export const JobPreferences = (props, context) => {
     'Squad Smartgunner',
     'Squad Leader',
   ];
-  const somJobs = [
-    'SOM Squad Standard',
-    'SOM Squad Engineer',
-    'SOM Squad Medic',
-    'SOM Squad Veteran',
-    'SOM Squad Leader',
-    'SOM Field Commander',
-    'SOM Staff Officer',
-    'SOM Commander',
-  ];
   const flavourJobs = ['Corporate Liaison'];
 
   const JobList = ({ name, jobs }) => (
@@ -80,7 +74,8 @@ export const JobPreferences = (props, context) => {
         <Button color="bad" icon="power-off" onClick={() => act('jobreset')}>
           Reset everything!
         </Button>
-      }>
+      }
+    >
       {shownDescription && (
         <Modal width="500px" min-height="300px">
           <Box dangerouslySetInnerHTML={{ __html: shownDescription }} />
@@ -148,18 +143,6 @@ export const JobPreferences = (props, context) => {
                 ))}
               </Flex.Item>
               <Flex.Item>
-                <h4>Preferred Squad - SOM</h4>
-                {Object.values(squads_som).map((squad_som) => (
-                  <Button.Checkbox
-                    key={squad_som}
-                    inline
-                    content={squad_som}
-                    checked={preferred_squad_som === squad_som}
-                    onClick={() => act('squad_som', { newValue: squad_som })}
-                  />
-                ))}
-              </Flex.Item>
-              <Flex.Item>
                 <h4>Occupational choices</h4>
                 {Object.keys(special_occupations).map((special, idx) => (
                   <>
@@ -176,7 +159,7 @@ export const JobPreferences = (props, context) => {
                         })
                       }
                     />
-                    {idx === 1 && <br />}
+                    {idx === 1}
                   </>
                 ))}
               </Flex.Item>
@@ -184,17 +167,12 @@ export const JobPreferences = (props, context) => {
           </Section>
         </Stack.Item>
       </Stack>
-      <Stack>
-        <Stack.Item grow>
-          <JobList name="SOM Jobs" jobs={somJobs} />
-        </Stack.Item>
-      </Stack>
     </Section>
   );
 };
 
-const JobPreference = (props, context) => {
-  const { act, data } = useBackend<JobPreferenceData>(context);
+const JobPreference = (props) => {
+  const { act, data } = useBackend<JobPreferenceData>();
   const { jobs, job_preferences } = data;
   const { job, setShownDescription } = props;
   const jobData = jobs[job];

@@ -33,7 +33,7 @@
 	SIGNAL_HANDLER
 	qdel(src)
 
-/datum/browser/Destroy(force, ...)
+/datum/browser/Destroy(force)
 	user = null
 	return ..()
 

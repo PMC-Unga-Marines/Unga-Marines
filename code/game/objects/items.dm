@@ -110,8 +110,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/toolspeed = 1
 	var/usesound = null
 	var/active = FALSE
-	///If TRUE you cant deploy item next to another deployable in 5x5 tile radius.
-	var/near_lock = FALSE
 	//Coloring vars
 	///Some defines to determine if the item is allowed to be recolored.
 	var/colorable_allowed = NONE
@@ -205,6 +203,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /obj/item/examine(mob/user)
 	. = ..()
+	. += EXAMINE_SECTION_BREAK
 	. += "[gender == PLURAL ? "They are" : "It is"] a [weight_class_to_text(w_class)] item."
 
 /obj/item/attack_ghost(mob/dead/observer/user)

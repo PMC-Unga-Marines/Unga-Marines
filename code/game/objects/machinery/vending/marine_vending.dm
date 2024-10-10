@@ -329,21 +329,6 @@
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = 3,
-			/obj/item/ammo_magazine/sg29 = -1,
-			/obj/item/ammo_magazine/minigun_powerpack/smartgun = -1,
-			/obj/item/ammo_magazine/packet/smart_minigun = -1,
-			/obj/item/ammo_magazine/rifle/t25 = -1,
-			/obj/item/ammo_magazine/packet/t25 = -1,
-			/obj/item/ammo_magazine/rifle/sg62 = -1,
-			/obj/item/ammo_magazine/packet/sg62 = -1,
-			/obj/item/ammo_magazine/pistol/p14/smart_pistol = -1,
-			/obj/item/ammo_magazine/rifle/sg153 = -1,
-			/obj/item/ammo_magazine/rifle/sg153/highimpact = -1,
-			/obj/item/ammo_magazine/rifle/sg153/heavyrubber = -1,
-			/obj/item/ammo_magazine/rifle/sg153/tungsten = -1,
-			/obj/item/ammo_magazine/rifle/sg153/flak = -1,
-			/obj/item/ammo_magazine/rifle/sg153/plasmaloss = -1,
-			/obj/item/ammo_magazine/rifle/sg153/incendiary = -1,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
@@ -964,6 +949,7 @@
 /obj/machinery/vending/MarineMed/valhalla
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
+	req_one_access = null
 	products = list(
 		"Pill Bottles" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
@@ -1053,6 +1039,20 @@
 			R.product_name += blood_type? " [blood_type]" : ""
 			temp_list -= R.product_path
 			if(!length(temp_list)) break
+
+/obj/machinery/vending/MarineMed/Blood/valhalla
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	req_one_access = null
+	products = list(
+		/obj/item/reagent_containers/blood/APlus = -1,
+		/obj/item/reagent_containers/blood/AMinus = -1,
+		/obj/item/reagent_containers/blood/BPlus = -1,
+		/obj/item/reagent_containers/blood/BMinus = -1,
+		/obj/item/reagent_containers/blood/OPlus = -1,
+		/obj/item/reagent_containers/blood/OMinus = -1,
+		/obj/item/reagent_containers/blood/empty = -1,
+	)
 
 /obj/machinery/vending/armor_supply
 	name = "\improper Surplus Armor Equipment Vendor"
@@ -1507,7 +1507,7 @@
 			/obj/item/clothing/gloves/marine/specialist = -1,
 			/obj/item/clothing/suit/storage/marine/B17/valhalla = -1,
 			/obj/item/clothing/head/helmet/marine/grenadier = -1,
-			/obj/item/storage/backpack/marine/satchel/scout_cloak/scout = -1,
+			/obj/item/storage/backpack/marine/satchel/scout_cloak = -1,
 			/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper = -1,
 			/obj/item/storage/belt/grenade/b17 = -1,
 			/obj/item/armor_module/module/valkyrie_autodoc = -1,
@@ -1536,8 +1536,10 @@ RU TGMC EDIT*/
 			/obj/item/armored_weapon/ltaap = -1,
 			/obj/item/armored_weapon/secondary_weapon = -1,
 			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon/apfds = -1,
 			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
 			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
+			/obj/item/ammo_magazine/tank/flamer = -1,
 		),
 	)
 

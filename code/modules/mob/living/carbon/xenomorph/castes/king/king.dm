@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/king
-	caste_base_type = /mob/living/carbon/xenomorph/king
+	caste_base_type = /datum/xeno_caste/king
 	name = "King"
 	desc = "A primordial creature, evolved to smash the hardiest of defences and hunt the hardiest of prey."
 	icon = 'icons/Xeno/castes/king.dmi'
@@ -17,6 +17,10 @@
 	tier = XENO_TIER_FOUR //King, like queen, doesn't count towards population limit.
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
+	skins = list(
+		"red" = 'icons/Xeno/castes/king_red.dmi',
+		"baseline" = 'icons/Xeno/castes/king.dmi',
+	)
 	footstep_type = FOOTSTEP_XENO_STOMPY
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/hijack,

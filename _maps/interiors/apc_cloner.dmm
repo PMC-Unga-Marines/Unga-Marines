@@ -41,6 +41,7 @@
 /turf/open/interior/apc/ten,
 /area/interior/apc)
 "o" = (
+/obj/machinery/loadout_vendor,
 /turf/open/interior/apc/sixteen,
 /area/interior/apc)
 "p" = (
@@ -64,12 +65,6 @@
 /area/interior/apc)
 "D" = (
 /turf/open/interior/apc/fifteen,
-/area/interior/apc)
-"F" = (
-/obj/machinery/quick_vendor/beginner{
-	pixel_x = 28
-	},
-/turf/closed/interior/apc/thirteen,
 /area/interior/apc)
 "H" = (
 /obj/machinery/cloning/vats/apc/south{
@@ -132,7 +127,7 @@
 (1,1,1) = {"
 Y
 C
-F
+p
 p
 a
 "}

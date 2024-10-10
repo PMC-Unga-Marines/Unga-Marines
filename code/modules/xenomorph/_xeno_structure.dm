@@ -18,12 +18,16 @@
 		LAZYADDASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
 
 /obj/structure/xeno/Destroy()
-	if(!locate(src) in GLOB.xeno_structures_by_hive[hivenumber]+GLOB.xeno_critical_structures_by_hive[hivenumber]) //The rest of the proc is pointless to look through if its not in the lists
-		stack_trace("[src] not found in the list of (potentially critical) xeno structures!") //We dont want to CRASH because that'd block deletion completely. Just trace it and continue.
-		return ..()
-	GLOB.xeno_structures_by_hive[hivenumber] -= src
+	if(!locate(src) in GLOB.xeno_structures_by_hive[hivenumber])
+		//We dont want to CRASH because that'd block deletion completely. Just trace it and continue.
+		stack_trace("[src] not found in the list of xeno structures!")
+	else
+		GLOB.xeno_structures_by_hive[hivenumber] -= src
 	if(xeno_structure_flags & CRITICAL_STRUCTURE)
-		GLOB.xeno_critical_structures_by_hive[hivenumber] -= src
+		if(!locate(src) in GLOB.xeno_critical_structures_by_hive[hivenumber])
+			stack_trace("[src] not found in the list of critical xeno structures!")
+		else
+			GLOB.xeno_critical_structures_by_hive[hivenumber] -= src
 	return ..()
 
 /obj/structure/xeno/ex_act(severity)
@@ -35,6 +39,11 @@
 
 /obj/structure/xeno/fire_act(burn_level, flame_color)
 	take_damage(burn_level / 3, BURN, FIRE)
+
+/obj/structure/xeno/effect_smoke(obj/effect/particle_effect/smoke/S)
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
+		return
+	return ..()
 
 /// Destroy the xeno structure when the weed it was on is destroyed
 /obj/structure/xeno/proc/weed_removed()

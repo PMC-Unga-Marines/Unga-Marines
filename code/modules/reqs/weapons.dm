@@ -240,7 +240,6 @@
 	name = "GL-54 HE grenade magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx54/he)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/tx55
 	name = "AR-55 OICW Rifle"
@@ -251,43 +250,36 @@
 	name = "RL-160 Recoilless rifle kit"
 	contains = list(/obj/item/storage/holster/backholster/rpg/full)
 	cost = 400
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/shell_regular
 	name = "RL-160 RR HE shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/shell_le
 	name = "RL-160 RR LE shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/light)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/shell_heat
 	name = "RL-160 HEAT shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/heat)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/shell_smoke
 	name = "RL-160 RR Smoke shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/smoke)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/shell_smoke
 	name = "RL-160 RR Cloak shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/cloak)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/shell_smoke
 	name = "RL-160 RR Tanglefoot shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/plasmaloss)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/pepperball
 	name = "PB-12 pepperball gun"
@@ -323,79 +315,66 @@
 	name = "BR-8 Scout Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/tx8)
 	cost = 400
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/scout_regular
 	name = "BR-8 scout rifle magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx8)
 	cost = 20
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/scout_regular_box
 	name = "BR-8 scout rifle ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/scout_rifle)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/scout_impact
 	name = "BR-8 scout rifle impact magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx8/impact)
 	cost = 40
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/scout_incendiary
 	name = "Br-8 scout rifle incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx8/incendiary)
 	cost = 40
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/thermobaric
 	name = "RL-57 Thermobaric Launcher"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)
 	cost = 500
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/thermobaric_wp
 	name = "RL-57 Thermobaric WP rocket array"
 	contains = list(/obj/item/ammo_magazine/rocket/m57a4)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/specdemo
 	name = "RL-152 SADAR Rocket Launcher"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/sadar)
 	cost = SADAR_PRICE
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rpg_regular
 	name = "RL-152 SADAR HE rocket"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rpg_regular_unguided
 	name = "RL-152 SADAR HE rocket (Unguided)"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/unguided)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rpg_ap
 	name = "RL-152 SADAR AP rocket"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/ap)
 	cost = 60
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rpg_wp
 	name = "RL-152 SADAR WP rocket"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/wp)
 	cost = 40
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rpg_wp_unguided
 	name = "RL-152 SADAR WP rocket (Unguided)"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/wp/unguided)
 	cost = 40
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/zx76
 	name = "ZX-76 Twin-Barrled Burst Shotgun"
@@ -406,55 +385,46 @@
 	name = "12 Gauge Tracker Shells"
 	contains = list(/obj/item/ammo_magazine/shotgun/tracker)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/incendiaryslugs
 	name = "Box of Incendiary Slugs"
 	contains = list(/obj/item/ammo_magazine/shotgun/incendiary)
 	cost = 100
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/sr81
 	name = "SR-81 IFF Auto Sniper kit"
 	contains = list(/obj/item/weapon/gun/rifle/sr81)
 	cost = 500
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/sr81_ammo
 	name = "SR-81 IFF sniper magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/sr81)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/sr81_packet
 	name = "SR-81 IFF sniper ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/sr81)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/antimaterial
 	name = "SR-26 Antimaterial rifle (AMR) kit"
 	contains = list(/obj/item/weapon/gun/rifle/sniper/antimaterial)
 	cost = 775
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/antimaterial_ammo
 	name = "SR-26 AMR magazine"
 	contains = list(/obj/item/ammo_magazine/sniper)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/antimaterial_incend_ammo
 	name = "SR-26 AMR incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/sniper/incendiary)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/antimaterial_flak_ammo
 	name = "SR-26 AMR flak magazine"
 	contains = list(/obj/item/ammo_magazine/sniper/flak)
 	cost = 40
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/specminigun
 	name = "MG-100 Vindicator Minigun"
@@ -606,26 +576,22 @@
 	name = "RL-72 Disposable RPG"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/oneuse)
 	cost = 100
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/mateba
 	name = "Mateba Autorevolver belt"
 	contains = list(/obj/item/storage/holster/belt/revolver/mateba/full)
 	notes = "Contains 6 speedloaders"
 	cost = 150
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/mateba_ammo
 	name = "Mateba magazine"
 	contains = list(/obj/item/ammo_magazine/revolver/mateba)
 	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/mateba_packet
 	name = "Mateba packet"
 	contains = list(/obj/item/ammo_magazine/packet/mateba)
 	cost = 120
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/standard_ammo
 	name = "Surplus Standard Ammo Crate"
@@ -638,7 +604,6 @@
 	name = "SR-127 Flak Magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/sr127/flak)
 	cost = 50
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rechargemag
 	name = "Terra Experimental recharger battery"
@@ -748,13 +713,11 @@
 	name = "RL-57 Thermobaric Launcher Kit"
 	contains = list(/obj/item/storage/holster/backholster/rlquad/full)
 	cost = 500 + 50 //ammo price
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/specdemo
 	name = "RL-152 SADAR Rocket Launcher kit"
 	contains = list(/obj/item/storage/holster/backholster/rlsadar/full)
 	cost = SADAR_PRICE + 150 //ammo price
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/minigun_powerpack
 	name = "SG-85 Minigun Powerpack"
@@ -785,6 +748,11 @@
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
 	cost = 10
 
+/datum/supply_packs/weapons/ltb_shells_apfds
+	name = "LTB tank APFDS shell"
+	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds)
+	cost = 10
+
 /datum/supply_packs/weapons/ltaap_rounds
 	name = "LTAAP tank magazine"
 	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
@@ -793,4 +761,9 @@
 /datum/supply_packs/weapons/cupola_rounds
 	name = "Cupola tank magazine"
 	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
+	cost = 10
+
+/datum/supply_packs/weapons/secondary_flamer_tank
+	name = "Spray flamer tank"
+	contains = list(/obj/item/ammo_magazine/tank/secondary_flamer_tank)
 	cost = 10

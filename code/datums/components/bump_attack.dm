@@ -58,7 +58,7 @@
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_BUMP_ATTACK))
 		return NONE
 	var/mob/living/bumper = parent
-	if(!(target.flags_atom & BUMP_ATTACKABLE) || bumper.throwing || bumper.incapacitated() || HAS_TRAIT(target, TRAIT_TURRET_HIDDEN))
+	if(!(target.flags_atom & BUMP_ATTACKABLE) || bumper.throwing || bumper.incapacitated() || HAS_TRAIT(target, TRAIT_STEALTH) && prob(50)) //added prob, because there should be visibility that minions aren't too dumb
 		return NONE
 
 ///Handles carbon bump action checks before actually doing the attack checks.
@@ -87,7 +87,7 @@
 	if(!isnull(.))
 		return
 	var/mob/living/living_target = target
-	if(bumper.faction == living_target.faction)
+	if(bumper?.faction == living_target?.faction)
 		return //FF
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/xeno = target
