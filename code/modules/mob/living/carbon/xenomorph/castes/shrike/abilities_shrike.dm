@@ -374,11 +374,14 @@
 
 /datum/action/ability/xeno_action/place_acidwell/action_activate()
 	var/turf/T = get_turf(owner)
-	succeed_activate()
+
+	if(!do_after(owner, 0.5 SECONDS, NONE, T, BUSY_ICON_BUILD))
+		return
 
 	playsound(T, "alien_resin_build", 25)
 	new /obj/structure/xeno/acidwell(T, owner)
 
+	succeed_activate()
 	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
 	GLOB.round_statistics.xeno_acid_wells++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_acid_wells")

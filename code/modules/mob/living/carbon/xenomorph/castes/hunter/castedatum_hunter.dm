@@ -30,8 +30,6 @@
 	// *** Evolution *** //
 	evolution_threshold = 225
 
-	deevolves_to = /mob/living/carbon/xenomorph/runner
-
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
@@ -48,10 +46,10 @@
 
 	// *** Abilities *** //
 	actions = list(
+		/datum/action/ability/xeno_action/hunter_army,
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/silence,
 		/datum/action/ability/activable/xeno/pounce,
 		/datum/action/ability/xeno_action/stealth,
 		/datum/action/ability/activable/xeno/hunter_mark,
@@ -75,13 +73,13 @@
 	primordial_message = "We are the ultimate predator. Let the hunt begin."
 
 	actions = list(
+		/datum/action/ability/xeno_action/hunter_army,
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/silence,
 		/datum/action/ability/activable/xeno/pounce,
 		/datum/action/ability/xeno_action/stealth,
-		/datum/action/ability/xeno_action/stealth/disguise,
+		/datum/action/ability/activable/xeno/hunter_blink,
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,

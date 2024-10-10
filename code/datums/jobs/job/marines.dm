@@ -114,7 +114,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 		<br /><br />
 		<b>Duty</b>: Carry out orders made by your acting Squad Leader, deal with any threats that oppose the TGMC.
 	"}
-	minimap_icon = "robo"
+	minimap_icon = "robot"
 
 /datum/job/terragov/squad/robot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()

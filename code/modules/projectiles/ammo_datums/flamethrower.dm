@@ -55,6 +55,14 @@
 	burn_level = 18
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 
+/datum/ammo/flamethrower/armored_spray // armored vehicle flamer that sprays a visual continual flame
+	name = "spraying flames"
+	icon_state = "spray_flamer"
+	max_range = 7
+	shell_speed = 0.3
+	damage = 6
+	burn_time = 0.3 SECONDS
+
 /datum/ammo/water
 	name = "water"
 	icon_state = "pulse1"

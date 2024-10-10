@@ -40,6 +40,13 @@ export const CHANGELOG_ENTRIES = [
 	],
 
 	[
+		["sound"],
+		{
+			placeholders: ["added/deleted/changed a sound thingy"],
+		},
+	],
+
+	[
 		["soundadd"],
 		{
 			placeholders: ["added a new sound thingy"],
@@ -54,6 +61,13 @@ export const CHANGELOG_ENTRIES = [
 	],
 
 	[
+		["image"],
+		{
+			placeholders: ["added/deleted/changed some icons and images"],
+		},
+	],
+
+	[
 		["imageadd"],
 		{
 			placeholders: ["added some icons and images"],
@@ -64,6 +78,13 @@ export const CHANGELOG_ENTRIES = [
 		["imagedel"],
 		{
 			placeholders: ["deleted some icons and images"],
+		},
+	],
+
+	[
+		["map"],
+		{
+			placeholders: ["added/modified/removed map content"],
 		},
 	],
 

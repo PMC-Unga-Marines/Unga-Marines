@@ -284,7 +284,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация с уменьшением габаритов и калибра, крайне лёгок в установке."
 	icon_state = "minisentry"
 
-	fire_sound = '\sound/items/turrets/turret_smg.ogg'
+	fire_sound = 'sound/items/turrets/turret_smg.ogg'
 
 	max_shells = 300
 	knockdown_threshold = 80
@@ -348,7 +348,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня большим калибром на дальние дистанции."
 	icon_state = "sentry_sniper"
 
-	fire_sound = '\sound/items/turrets/turret_sniper.ogg'
+	fire_sound = 'sound/items/turrets/turret_sniper.ogg'
 
 	turret_range = 14
 	deploy_time = 10 SECONDS
@@ -379,7 +379,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения массивного огня на ближние дистанции."
 	icon_state = "sentry_shotgun"
 
-	fire_sound = '\sound/items/turrets/turret_shotgun.ogg'
+	fire_sound = 'sound/items/turrets/turret_shotgun.ogg'
 
 	turret_range = 5
 	deploy_time = 5 SECONDS
