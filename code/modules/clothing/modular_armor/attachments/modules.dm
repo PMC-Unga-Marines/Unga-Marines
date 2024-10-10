@@ -354,7 +354,7 @@
 	examine_list += span_notice("Maximum Shield Health: [max_shield_health]")
 	if(!recharge_timer)
 		return
-	examine_list += span_warning("Charging is delayed! It will start recharging again in [timeleft(recharge_timer) / 10] seconds!")
+	examine_list += span_warning("Charging is delayed! It will start recharging again in [timeleft(recharge_timer) * 0.1] seconds!")
 
 ///Handles starting the shield when the parent is equiped to the correct slot.
 /obj/item/armor_module/module/eshield/proc/handle_equip(datum/source, mob/equipper, slot)
