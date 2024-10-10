@@ -660,7 +660,7 @@
 // MPI-KM but for marines
 
 /obj/item/weapon/gun/rifle/zarya
-	name = "\improper Type-16 Zarya rifle"
+	name = "\improper Type-16 Felon rifle"
 	desc = "Chinese replica of the MPi-KM rifle, made in bakelite with picatinny tactical rail. Uses 6.02x41mm ammo."
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "ak47"
@@ -723,7 +723,7 @@
 	placed_overlay_iconstate = "ak47"
 
 /obj/item/weapon/gun/rifle/zarya/foldable
-	name = "\improper Type-16M2 Zarya rifle"
+	name = "\improper Type-16M2 Zarya carbine"
 	desc = "Chinese replica of MPi-KM rifle, made in fashionable polymer with tactical picatinny rail and folding stock. Uses 6.02x41mm ammo."
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "v34_black"
