@@ -52,7 +52,7 @@
 	///Our driver utility module
 	var/obj/item/tank_module/gunner_utility_module
 	///list of weapons we allow to attach
-	var/list/permitted_weapons = list(/obj/item/armored_weapon, /obj/item/armored_weapon/ltaap, /obj/item/armored_weapon/secondary_weapon)
+	var/list/permitted_weapons = list(/obj/item/armored_weapon, /obj/item/armored_weapon/ltaap, /obj/item/armored_weapon/secondary_weapon, /obj/item/armored_weapon/secondary_flamer)
 	///list of mods we allow to attach
 	var/list/permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/passenger, /obj/item/tank_module/ability/zoom)
 	///Minimap flags to use for this vehcile
@@ -87,6 +87,7 @@
 	if(flags_armored & ARMORED_HAS_PRIMARY_WEAPON)
 		turret_overlay = new()
 		turret_overlay.icon = turret_icon
+		turret_overlay.base_icon_state = turret_icon_state
 		turret_overlay.icon_state = turret_icon_state
 		turret_overlay.setDir(dir)
 		turret_overlay.layer = layer+0.002
@@ -269,7 +270,7 @@
 	if(isgrabitem(thing_to_load))
 		var/obj/item/grab/grab_item = thing_to_load
 		thing_to_load = grab_item.grabbed_thing
-	if(!isliving(thing_to_load) && !is_type_in_typecache(thing_to_load.type, easy_load_list))
+	if(!isliving(thing_to_load) && !is_type_in_typecache(thing_to_load, easy_load_list))
 		return
 	if(!interior)
 		user.balloon_alert(user, "no interior")
@@ -285,7 +286,8 @@
 		user.visible_message(span_notice("[user] starts to stuff [thing_to_load] into \the [src]!"))
 		mob_try_enter(thing_to_load, user, TRUE)
 		return
-	user.temporarilyRemoveItemFromInventory(thing_to_load)
+	if(isitem(thing_to_load))
+		user.temporarilyRemoveItemFromInventory(thing_to_load)
 	thing_to_load.forceMove(interior.door.get_enter_location())
 	user.balloon_alert(user, "item thrown inside")
 
@@ -361,6 +363,16 @@
 	for(var/mob/living/carbon/human/crew AS in occupants)
 		if(crew.wear_id?.iff_signal & proj.iff_signal)
 			return FALSE
+	if(src == proj.shot_from)
+		return FALSE
+	if(src == proj.original_target)
+		return TRUE
+	if(!hitbox)
+		return ..()
+	if(proj.firer in hitbox.tank_desants)
+		return FALSE
+	if(proj.original_target in hitbox.tank_desants)
+		return FALSE
 	return ..()
 
 /obj/vehicle/sealed/armored/attack_hand(mob/living/user)
@@ -606,7 +618,7 @@
 	SIGNAL_HANDLER
 	modifiers = params2list(modifiers)
 	if(isnull(location) && target.plane == CLICKCATCHER_PLANE) //Checks if the intended target is in deep darkness and adjusts target based on params.
-		target = params2turf(modifiers["screen-loc"], get_turf(user), user.client)
+		target = params2turf(modifiers["screen-loc"], get_turf(src), user.client)
 		modifiers["icon-x"] = num2text(ABS_PIXEL_TO_REL(text2num(modifiers["icon-x"])))
 		modifiers["icon-y"] = num2text(ABS_PIXEL_TO_REL(text2num(modifiers["icon-y"])))
 	if(modifiers[SHIFT_CLICK]) //Allows things to be examined.

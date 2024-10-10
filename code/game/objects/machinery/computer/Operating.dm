@@ -16,6 +16,9 @@
 			table.computer = src
 			break
 
+/obj/machinery/computer/operating/Destroy()
+	table = null
+	return ..()
 
 /obj/machinery/computer/operating/interact(mob/user)
 	. = ..()
@@ -51,3 +54,6 @@
 	var/datum/browser/popup = new(user, "op", "<div align='center'>Operating Computer</div>")
 	popup.set_content(dat)
 	popup.open()
+
+/obj/machinery/computer/operating/valhalla
+	use_power = NO_POWER_USE

@@ -1,10 +1,17 @@
 import { useBackend } from '../../backend';
-import { Section, Flex, LabeledList, Box, ColorBox, Button } from '../../components';
-import { TextFieldPreference, SelectFieldPreference } from './FieldPreferences';
+import {
+  Box,
+  Button,
+  ColorBox,
+  Flex,
+  LabeledList,
+  Section,
+} from '../../components';
+import { SelectFieldPreference, TextFieldPreference } from './FieldPreferences';
 import { ProfilePicture } from './ProfilePicture';
 
-export const YautjaCustomization = (props, context) => {
-  const { act, data } = useBackend<YautjaCustomizationData>(context);
+export const YautjaCustomization = (props) => {
+  const { act, data } = useBackend<YautjaCustomizationData>();
   const {
     has_wl,
     legacy,

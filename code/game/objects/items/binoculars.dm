@@ -29,17 +29,25 @@
 
 /obj/item/binoculars/tactical
 	name = "tactical binoculars"
-	desc = "A pair of binoculars, with a laser targeting function. Unique action to toggle mode. Alt+Click to change selected linked artillery. Ctrl+Click when using to target something. Shift+Click to get coordinates. Ctrl+Shift+Click to fire OB when lasing in OB mode"
+	desc = "A pair of binoculars, with a laser targeting function."
 	icon = 'icons/Marine/marine-navigation.dmi'
 	icon_state = "range_finders"
+	///The cooldown after we use
 	var/laser_cooldown = 0
-	var/cooldown_duration = 200 //20 seconds
+	///Used for setting laser_cooldown on laser_target deletion
+	var/cooldown_duration = 20 SECONDS
+	///The laser target on which all the shit lands
 	var/obj/effect/overlay/temp/laser_target/laser
-	var/target_acquisition_delay = 100 //10 seconds
-	var/mode = 0  //Able to be switched between modes, 0 for cas laser, 1 for finding coordinates, 2 for directing railgun, 3 for orbital bombardment, 4 for range finding and mortar targeting.
-	var/changable = TRUE //If set to FALSE, you can't toggle the mode between CAS and coordinate finding
-	var/ob_fired = FALSE // If the user has fired the OB
-	var/turf/current_turf // The target turf, used for OBs
+	///Time for which you initiate the laser target
+	var/target_acquisition_delay = 10 SECONDS
+	///The mode binoculars start with
+	var/mode = MODE_CAS
+	///If set to FALSE, you can't toggle the mode between CAS and coordinate finding
+	var/changeable = TRUE
+	/// If the user has fired the OB
+	var/ob_fired = FALSE
+	/// The target turf, used for OBs
+	var/turf/current_turf
 	///Last stored turf targetted by rangefinders
 	var/turf/targetturf
 	///Linked mortar for remote targeting.
@@ -73,12 +81,19 @@
 		. += span_notice("They are currently set to [linked_mortars[selected_mortar].name] N°[selected_mortar].")
 		return
 	. += span_notice("They are not linked to any artillery piece(s).")
+	if(ishuman(user))
+		. += ""
+		. += span_danger("Unique action to toggle mode.")
+		. += span_danger("Ctrl + Click when using to target something.")
+		. += span_danger("Shift + Click to get coordinates.")
+		. += span_danger("Alt + Click to change selected linked artillery.")
+		if(changeable && mode != MODE_ORBITAL) // we don't want the range-finders to have this message, so it doesn't confuse anyone
+			. += span_danger("Ctrl + Shift + Click to fire OB when lasing in OB mode.")
 
 /obj/item/binoculars/tactical/Destroy()
 	if(laser)
 		QDEL_NULL(laser)
 	return ..()
-
 
 /obj/item/binoculars/tactical/InterceptClickOn(mob/user, params, atom/object)
 	var/list/pa = params2list(params)
@@ -114,13 +129,11 @@
 	user.reset_perspective(user)
 	user.update_sight()
 
-
 /obj/item/binoculars/tactical/update_remote_sight(mob/living/user)
 	user.see_in_dark = 32 // Should include the offset from zoom and client viewport
 	user.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	user.sync_lighting_plane_alpha()
 	return TRUE
-
 
 /obj/item/binoculars/tactical/update_overlays()
 	. = ..()
@@ -163,7 +176,7 @@
 	if (laser)
 		to_chat(user, span_warning("You can't switch mode while targeting"))
 		return
-	if(!changable)
+	if(!changeable)
 		to_chat(user, span_warning("These binoculars only have one mode."))
 		return
 	mode += 1
@@ -205,14 +218,10 @@
 		to_chat(user, span_warning("You can't focus properly through \the [src] while looking through something else."))
 		return
 
-
 	if(!user.mind)
 		return
 	var/datum/squad/S = user.assigned_squad
-
 	var/laz_name = "[user.get_paygrade()] [user.name][S ? " ([S.name])" : null]"
-
-
 	var/area/targ_area = get_area(A)
 	if(!istype(TU))
 		return
@@ -336,15 +345,15 @@
 
 /obj/item/binoculars/tactical/scout
 	name = "scout tactical binoculars"
-	desc = "A modified version of tactical binoculars with an advanced laser targeting function. Ctrl+Click to target something."
-	cooldown_duration = 80
-	target_acquisition_delay = 30
+	desc = "A modified version of tactical binoculars with an advanced laser targeting function."
+	cooldown_duration = 8 SECONDS
+	target_acquisition_delay = 3 SECONDS
 
 //For events
 /obj/item/binoculars/tactical/range
 	name = "range-finder"
-	desc = "A pair of binoculars designed to find coordinates, and aim linked artillery pieces. Shift+Click or Ctrl+Click to get coordinates while using them. Alt+Click to change selected linked artillery"
-	changable = 0
+	desc = "A pair of binoculars designed to find coordinates, and aim linked artillery pieces."
+	changeable = FALSE
 	mode = MODE_RANGE_FINDER
 
 #undef MODE_CAS

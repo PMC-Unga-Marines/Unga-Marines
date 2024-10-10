@@ -110,7 +110,7 @@
 	return
 
 ///Special effects for leaving a turf. Only called if the projectile has AMMO_LEAVE_TURF enabled
-/datum/ammo/proc/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/proc/on_leave_turf(turf/T, obj/projectile/proj)
 	return
 
 ///Handles CC application on the victim
@@ -189,7 +189,7 @@
 			continue
 		victim.visible_message(span_danger("[victim] is hit by backlash from \a [proj.name]!"),
 			isxeno(victim) ? span_xenodanger("We are hit by backlash from \a </b>[proj.name]</b>!") : span_highdanger("You are hit by backlash from \a </b>[proj.name]</b>!"))
-		victim.apply_damage(proj.damage * proj.airburst_multiplier, proj.ammo.damage_type, blocked = armor_type, updating_health = TRUE)
+		victim.apply_damage(proj.damage * airburst_multiplier, proj.ammo.damage_type, blocked = armor_type, updating_health = TRUE)
 
 ///handles the probability of a projectile hit to trigger fire_burst, based off actual damage done
 /datum/ammo/proc/deflagrate(atom/target, obj/projectile/proj)
@@ -222,7 +222,12 @@
 		victim.adjust_fire_stacks(5)
 		victim.IgniteMob()
 
-/datum/ammo/proc/fire_bonus_projectiles(obj/projectile/main_proj, atom/shooter, atom/source, range, speed, angle, target, origin_override)
+/**
+ * Fires additional projectiles, generally considered to still be originating from a gun
+ * Such a buckshot
+ * origin_override used to have the new projectile(s) originate from a different source than the main projectile
+*/
+/datum/ammo/proc/fire_bonus_projectiles(obj/projectile/main_proj, mob/living/shooter, atom/source, range, speed, angle, target, origin_override) //todo: Combine these procs with extra args or something, as they are quite similar
 	var/effect_icon = ""
 	var/proj_type = /obj/projectile
 	if(istype(main_proj, /obj/projectile/hitscan))
@@ -249,7 +254,7 @@
 		new_proj.fire_at(target, shooter, source, range, speed, new_angle, TRUE, loc_override = origin_override)
 
 ///A variant of Fire_bonus_projectiles without fixed scatter and no link between gun and bonus_projectile accuracy
-/datum/ammo/proc/fire_directionalburst(obj/projectile/main_proj, atom/shooter, atom/source, projectile_amount, range, speed, angle, target)
+/datum/ammo/proc/fire_directionalburst(obj/projectile/main_proj, mob/living/shooter, atom/source, projectile_amount, range, speed, angle, target)
 	var/effect_icon = ""
 	var/proj_type = /obj/projectile
 	if(istype(main_proj, /obj/projectile/hitscan))
@@ -265,7 +270,7 @@
 
 		if(isgun(source))
 			var/obj/item/weapon/gun/gun = source
-			gun.apply_gun_modifiers(new_proj, target, shooter)
+			gun.apply_gun_modifiers(new_proj, target)
 
 		//Scatter here is how many degrees extra stuff deviate from the main projectile's firing angle. Fully randomised with no 45 degree cap like normal bullets
 		var/f = (i-1)
@@ -274,7 +279,7 @@
 			new_angle += 360
 		if(new_angle > 360)
 			new_angle -= 360
-		new_proj.fire_at(target, main_proj.loc, source, range, speed, new_angle, TRUE)
+		new_proj.fire_at(target, shooter, main_proj.loc, range, speed, new_angle, TRUE)
 
 /datum/ammo/proc/drop_flame(turf/T)
 	if(!istype(T))
@@ -293,7 +298,7 @@
 
 ///bounces the projectile by creating a new projectile and calculating an angle of reflection
 /datum/ammo/proc/reflect(turf/T, obj/projectile/proj, scatter_variance)
-	if(!bonus_projectiles_type)
+	if(!bonus_projectiles_type) //while fire_bonus_projectiles does not require this var, it can cause infinite recursion in some cases, leading to death tiles
 		return
 
 	var/new_range = proj.proj_max_range - proj.distance_travelled
@@ -320,5 +325,5 @@
 		new_angle -= 360
 
 	bonus_projectiles_amount = 1
-	fire_bonus_projectiles(proj, T, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(T, dir_to_proj))
+	fire_bonus_projectiles(proj, null, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(T, dir_to_proj))
 	bonus_projectiles_amount = 0

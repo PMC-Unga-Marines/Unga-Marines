@@ -134,18 +134,13 @@
 		return
 	// The resistance here will affect the damage taken and the falloff in the propagated explosion
 	var/resistance = max(0, in_turf.get_explosion_resistance(direction))
-	for(var/atom/our_atom in in_turf)
-		resistance += max(0, our_atom.get_explosion_resistance())
 
 	// Blow stuff up
 	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
-	for(var/atom/our_atom in in_turf)
-		if(iseffect(our_atom))
+	for(var/atom/our_atom AS in in_turf)
+		if(our_atom.gc_destroyed || (our_atom in exploded_atoms))
 			continue
-		if(our_atom in exploded_atoms)
-			continue
-		if(our_atom.gc_destroyed)
-			continue
+		resistance += max(0, our_atom.get_explosion_resistance())
 		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += our_atom
 
@@ -166,16 +161,16 @@
 	if(power <= 0)
 		qdel(src)
 		return
-
+	var/turf/old_turf = in_turf
 	// Propagate the explosion
 	var/list/to_spread = get_propagation_dirs(reflected)
-	for(var/our_dir in to_spread)
+	for(var/our_dir AS in to_spread)
 		// Diagonals are longer, that should be reflected in the power falloff
 		var/dir_falloff = 1
 		if(our_dir in GLOB.diagonals)
 			dir_falloff = 1.414
 
-		if(isnull(direction))
+		else if(isnull(direction))
 			dir_falloff = 0
 
 		var/new_power = power - (power_falloff * dir_falloff)
@@ -192,22 +187,36 @@
 			if(EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF)
 				new_falloff += (new_falloff * 0.5) * dir_falloff
 
-		var/datum/automata_cell/explosion/our_explosion = propagate(our_dir)
-		if(our_explosion)
-			our_explosion.power = new_power
-			our_explosion.power_falloff = new_falloff
-			our_explosion.falloff_shape = falloff_shape
+		if(our_dir == direction || our_dir == REVERSE_DIR(direction))
+			var/turf/new_turf = get_step(in_turf, our_dir)
+			transfer_turf(new_turf)
+			shockwave.Move(new_turf, our_dir, 0)
+			power = new_power
+			setup_new_cell(src)
+		else
+			var/datum/automata_cell/explosion/our_explosion = propagate(our_dir, old_turf)
+			if(our_explosion)
+				our_explosion.power = new_power
+				our_explosion.power_falloff = new_falloff
+				our_explosion.falloff_shape = falloff_shape
+				our_explosion.direction = our_dir
+				if(!direction && (our_dir in GLOB.diagonals))
+					our_explosion.delay = 1
+				setup_new_cell(our_explosion)
+	if(isnull(direction) || old_turf == in_turf)
+		qdel(src)
 
-			// Set the direction the explosion is traveling in
-			our_explosion.direction = our_dir
-			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
-			if(our_dir in GLOB.diagonals)
-				our_explosion.delay = 1
+/datum/automata_cell/explosion/propagate(dir, turf/start_turf)
+	if(!dir)
+		return
 
-			setup_new_cell(our_explosion)
+	var/turf/our_turf = get_step(start_turf, dir)
+	if(QDELETED(our_turf))
+		return
 
-	// We've done our duty, now die pls
-	qdel(src)
+	// Create the new cell
+	var/datum/automata_cell/explosion/our_cell = new type(our_turf)
+	return our_cell
 
 /*
 The issue is that between the cell being birthed and the cell processing,
@@ -258,20 +267,23 @@ as having entered the turf.
 		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
 		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
 
-		for(var/MN in GLOB.player_list)
+		//no need to loop this for every mob
+		switch(power)
+			if(0 to EXPLODE_LIGHT)
+				explosion_sound = sound(get_sfx("explosion_small"))
+				far_explosion_sound = sound(get_sfx("explosion_small_distant"))
+			if(EXPLODE_LIGHT to EXPLODE_HEAVY)
+				explosion_sound = sound(get_sfx("explosion_med"))
+			if(EXPLODE_HEAVY to INFINITY)
+				explosion_sound = sound(get_sfx("explosion_large"))
+
+		//there should be a use of client_by_zlevel, but due to the nature of explosions this is difficult to implement
+		for(var/MN in GLOB.player_list|GLOB.aiEyes)
 			var/mob/our_mob = MN
 			// Double check for client
 			var/turf/mob_turf = get_turf(our_mob)
 			if(mob_turf?.z == epicenter.z)
 				var/dist = get_dist(mob_turf, epicenter)
-				switch(power)
-					if(0 to EXPLODE_LIGHT)
-						explosion_sound = sound(get_sfx("explosion_small"))
-						far_explosion_sound = sound(get_sfx("explosion_small_distant"))
-					if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-						explosion_sound = sound(get_sfx("explosion_med"))
-					if(EXPLODE_HEAVY to INFINITY)
-						explosion_sound = sound(get_sfx("explosion_large"))
 				if(dist <= max(round(power, 1)))
 					our_mob.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
 					if(is_mainship_level(epicenter.z))
@@ -303,3 +315,4 @@ as having entered the turf.
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer = FLY_LAYER
+	animate_movement = NO_STEPS

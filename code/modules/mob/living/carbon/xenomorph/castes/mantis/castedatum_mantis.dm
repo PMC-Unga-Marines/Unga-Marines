@@ -17,15 +17,15 @@
 	speed = -0.6
 
 	// *** Plasma *** //
-	plasma_max = 600 //3 ravage
+	plasma_max = 500 //2 ravages
 	plasma_gain = 20
 
 	// *** Health *** //
 	max_health = 150
 
 	// *** Flags *** //
-	caste_flags = CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_IS_A_MINION
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED
+	caste_flags = CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_IS_A_MINION|CASTE_ACID_BLOOD
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = null
 
 	// *** Defense *** //

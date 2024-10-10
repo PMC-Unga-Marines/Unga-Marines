@@ -25,8 +25,6 @@
 	// *** Health *** //
 	max_health = 325
 
-	deevolves_to = /mob/living/carbon/xenomorph/spitter
-
 	// *** Darksight *** ///
 	conscious_see_in_dark = 20
 
@@ -64,7 +62,6 @@
 		/datum/action/ability/xeno_action/create_boiler_bomb,
 		/datum/action/ability/activable/xeno/bombard,
 		/datum/action/ability/xeno_action/toggle_long_range,
-		/datum/action/ability/xeno_action/toggle_bomb,
 		/datum/action/ability/activable/xeno/spray_acid/line/boiler,
 		/datum/action/ability/xeno_action/dump_acid,
 		/datum/action/ability/xeno_action/place_trap,

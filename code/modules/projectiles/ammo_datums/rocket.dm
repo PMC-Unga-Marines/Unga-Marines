@@ -78,6 +78,34 @@
 /datum/ammo/rocket/ltb/drop_nade(turf/T)
 	cell_explosion(T, 200, 45)
 
+/datum/ammo/bullet/tank_apfds
+	name = "8.8cm APFDS round"
+	icon_state = "apfds"
+	hud_state = "bigshell_apfds"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	damage = 300
+	penetration = 75
+	shell_speed = 4
+	accurate_range = 24
+	max_range = 30
+	on_pierce_multiplier = 0.85
+	barricade_clear_distance = 4
+
+/datum/ammo/bullet/tank_apfds/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	proj.proj_max_range -= 10
+
+/datum/ammo/bullet/tank_apfds/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	proj.proj_max_range -= 2
+	if(ishuman(target_mob) && prob(35))
+		target_mob.gib()
+
+/datum/ammo/bullet/tank_apfds/on_hit_obj(obj/target_object, obj/projectile/proj)
+	if(!isvehicle(target_object) && !ishitbox(target_object))
+		proj.proj_max_range -= 5
+		return
+	proj.proj_max_range = 0 //we don't penetrate past a vehicle
+	proj.damage *= 2.2
+
 /datum/ammo/rocket/heavy_isg
 	name = "15cm round"
 	icon_state = "heavyrr"

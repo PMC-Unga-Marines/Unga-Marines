@@ -30,7 +30,7 @@
 	RegisterSignal(controlled, COMSIG_PREQDELETED, PROC_REF(disable_controls))
 
 
-/datum/component/remote_control/Destroy(force=FALSE, silent=FALSE)
+/datum/component/remote_control/Destroy(force = FALSE)
 	UnregisterSignal(controlled, COMSIG_PREQDELETED)
 	controlled = null
 	left_click_proc = null

@@ -8,7 +8,7 @@
 	wound_type = ""
 	upgrade_name = ""
 
-	caste_flags = CASTE_INNATE_HEALING|CASTE_INNATE_PLASMA_REGEN
+	caste_flags = CASTE_INNATE_HEALING|CASTE_INNATE_PLASMA_REGEN|CASTE_ACID_BLOOD
 
 	// *** Melee Attacks *** //
 	melee_damage = 35
@@ -37,7 +37,7 @@
 	)
 
 /mob/living/carbon/xenomorph/hellhound
-	caste_base_type = /mob/living/carbon/xenomorph/hellhound
+	caste_base_type = /datum/xeno_caste/hellhound
 	name = "Hellhound"
 	desc = "A disgusting beast from hell, it has four menacing spikes growing from its head."
 	icon = 'icons/Xeno/castes/hellhound.dmi'

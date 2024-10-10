@@ -9,6 +9,7 @@
 #define MAP_LV_624 "LV624"
 #define MAP_PRISON_STATION "Prison Station"
 #define MAP_RESEARCH_OUTPOST "Research Outpost"
+#define MAP_BARRENQUILLA_MINING "Barrenquilla Mining Facility"
 #define MAP_WHISKEY_OUTPOST "Whiskey Outpost"
 #define MAP_LAST_STAND "Last Stand"
 #define MAP_MAGMOOR_DIGSITE "Magmoor Digsite IV"
@@ -17,15 +18,6 @@
 #define MAP_OSCAR_OUTPOST "Oscar Outpost"
 #define MAP_KUTJEVO_REFINERY "Kutjevo Refinery"
 #define MAP_TALOS "Talos"
-#define MAP_PILLAR_OF_SPRING "Pillar of Spring"
-#define MAP_SULACO "Sulaco"
-#define MAP_THESEUS "Theseus"
-#define MAP_ARACHNE "Arachne"
-#define MAP_COMBAT_PATROL_BASE "Combat Patrol Base"
-
-#define MAP_FORT_PHOBOS "Fort Phobos"
-#define MAP_ITERON "Iteron"
-
 
 #define SEE_INVISIBLE_MINIMUM 5
 

@@ -20,7 +20,7 @@
 	return ..()
 
 /mob/living/carbon/human/gib_animation()
-	new /obj/effect/overlay/temp/gib_animation(loc, 0, src, species ? species.gibbed_anim : "gibbed-h")
+	new /obj/effect/overlay/temp/gib_animation/human(loc, 0, src, species ? species.gibbed_anim : "gibbed-h")
 
 /mob/living/carbon/human/spawn_gibs()
 	if(species)

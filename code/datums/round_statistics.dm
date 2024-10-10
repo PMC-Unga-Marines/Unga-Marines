@@ -18,6 +18,7 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/human_bump_attacks = 0
 	var/points_from_research = 0
 	var/points_from_mining = 0
+	var/points_from_xenos = 0
 	var/total_xeno_deaths = 0
 	///All human deaths during the round, listed by faction
 	var/list/total_human_deaths = list()
@@ -66,6 +67,7 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/sentinel_drain_stings = 0
 	var/sentinel_neurotoxin_stings = 0
 	var/ozelomelyn_stings = 0
+	var/transvitox_stings = 0
 	var/defiler_defiler_stings = 0
 	var/defiler_neurogas_uses = 0
 	var/defiler_inject_egg_neurogas = 0

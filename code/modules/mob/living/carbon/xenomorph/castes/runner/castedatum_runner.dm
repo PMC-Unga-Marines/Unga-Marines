@@ -11,10 +11,8 @@
 	gib_anim = "gibbed-a-corpse-runner"
 	gib_flick = "gibbed-a-runner"
 
-	deevolves_to = /mob/living/carbon/xenomorph/larva
-
 	// *** Melee Attacks *** //
-	melee_damage = 21
+	melee_damage = 28
 	attack_delay = 6
 
 	// *** Speed *** //
@@ -31,7 +29,7 @@
 	evolution_threshold = 100
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 

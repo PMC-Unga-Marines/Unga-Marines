@@ -355,6 +355,11 @@
 	color = "#abf775"
 	smoke_traits = SMOKE_XENO|SMOKE_XENO_TRANSVITOX|SMOKE_COUGH|SMOKE_HUGGER_PACIFY
 
+/obj/effect/particle_effect/smoke/xeno/transvitox/light
+	alpha = 60
+	opacity = FALSE
+	smoke_traits = SMOKE_XENO|SMOKE_XENO_TRANSVITOX|SMOKE_COUGH
+
 //Toxic smoke when the Defiler successfully uses Defile
 /obj/effect/particle_effect/smoke/xeno/sanguinal
 	color = "#bb0a1e" //Blood red
@@ -426,6 +431,9 @@
 /datum/effect_system/smoke_spread/xeno/transvitox
 	smoke_type = /obj/effect/particle_effect/smoke/xeno/transvitox
 
+/datum/effect_system/smoke_spread/xeno/transvitox/light
+	smoke_type = /obj/effect/particle_effect/smoke/xeno/transvitox/light
+
 /datum/effect_system/smoke_spread/xeno/sanguinal
 	smoke_type = /obj/effect/particle_effect/smoke/xeno/sanguinal
 
@@ -436,7 +444,9 @@
 	smoke_type = /obj/effect/particle_effect/smoke/xeno/burn/extinguishing
 
 /obj/effect/particle_effect/smoke/xeno/burn/extinguishing
-	smoke_traits = SMOKE_XENO|SMOKE_XENO_ACID|SMOKE_GASP|SMOKE_COUGH|SMOKE_HUGGER_PACIFY|SMOKE_EXTINGUISH
+	alpha = 120
+	opacity = FALSE
+	smoke_traits = SMOKE_XENO|SMOKE_XENO_ACID|SMOKE_GASP|SMOKE_COUGH|SMOKE_EXTINGUISH
 
 /////////////////////////////////////////////
 // Chem smoke

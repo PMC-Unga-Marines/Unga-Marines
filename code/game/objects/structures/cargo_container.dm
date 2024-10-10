@@ -37,8 +37,8 @@
 /obj/structure/cargo_container/green
 	icon_state = "green"
 
-/obj/structure/cargo_container/nt
-	icon_state = "NT"
+/obj/structure/cargo_container/wy
+	icon_state = "WY"
 
 /obj/structure/cargo_container/hd
 	icon_state = "HD"

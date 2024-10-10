@@ -16,22 +16,14 @@
 	scatter_unwielded = 0
 	burst_scatter_mult = 0
 	burst_amount = 4
-
-	ignored_terrains = list(
-		/obj/machinery/deployable/mounted,
-		/obj/machinery/miner,
-	)
-
 	turret_flags = TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	deployable_item = /obj/machinery/deployable/mounted/sentry
-	flags_item = IS_DEPLOYABLE|TWOHANDED
+	flags_item = IS_DEPLOYABLE|TWOHANDED|IS_SENTRY
 	deploy_time = 5 SECONDS
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
-
-	near_lock = TRUE
 
 // *******************************
 // ********* UPGRADE KIT *********
@@ -187,11 +179,6 @@
 
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 80, ACID = 50)
 
-	ignored_terrains = list(
-		/obj/machinery/deployable/mounted,
-		/obj/machinery/miner,
-	)
-
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_ENERGY|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE //doesn't autoeject its recharging battery
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
@@ -297,7 +284,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация с уменьшением габаритов и калибра, крайне лёгок в установке."
 	icon_state = "minisentry"
 
-	fire_sound = '\sound/items/turrets/turret_smg.ogg'
+	fire_sound = 'sound/items/turrets/turret_smg.ogg'
 
 	max_shells = 300
 	knockdown_threshold = 80
@@ -361,7 +348,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня большим калибром на дальние дистанции."
 	icon_state = "sentry_sniper"
 
-	fire_sound = '\sound/items/turrets/turret_sniper.ogg'
+	fire_sound = 'sound/items/turrets/turret_sniper.ogg'
 
 	turret_range = 14
 	deploy_time = 10 SECONDS
@@ -392,7 +379,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения массивного огня на ближние дистанции."
 	icon_state = "sentry_shotgun"
 
-	fire_sound = '\sound/items/turrets/turret_shotgun.ogg'
+	fire_sound = 'sound/items/turrets/turret_shotgun.ogg'
 
 	turret_range = 5
 	deploy_time = 5 SECONDS

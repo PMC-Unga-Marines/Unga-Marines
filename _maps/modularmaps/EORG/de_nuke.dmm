@@ -85,7 +85,7 @@
 /turf/open/floor/wood,
 /area/deathmatch)
 "kh" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/plating/asteroidplating,
 /area/deathmatch)
 "kR" = (
@@ -93,7 +93,7 @@
 /turf/open/floor/plating/asteroidplating,
 /area/deathmatch)
 "kU" = (
-/obj/structure/cargo_container/nt,
+/obj/structure/cargo_container/wy,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/deathmatch)
 "nk" = (
@@ -110,7 +110,7 @@
 	},
 /area/deathmatch)
 "nN" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidplating,
@@ -169,7 +169,7 @@
 /turf/open/floor/plating/asteroidplating,
 /area/deathmatch)
 "tH" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/plating/asteroidplating,
@@ -264,7 +264,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/deathmatch)
 "AN" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -517,7 +517,7 @@
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/deathmatch)
 "ZJ" = (
-/obj/structure/cargo_container/nt{
+/obj/structure/cargo_container/wy{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/sand,

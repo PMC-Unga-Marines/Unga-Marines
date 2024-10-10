@@ -16,8 +16,9 @@
 	var/maximum_magazines = 5
 	///ammo types we'll be able to accept
 	var/list/accepted_ammo = list(
-		/obj/item/ammo_magazine/tank/tank_glauncher,
 		/obj/item/ammo_magazine/tank/ltb_cannon,
+		/obj/item/ammo_magazine/tank/ltb_cannon/apfds,
+		/obj/item/ammo_magazine/tank/tank_glauncher,
 	)
 	///current tracked target for fire(), updated when user drags
 	var/atom/current_target
@@ -166,6 +167,11 @@
 	projectile_to_fire.projectile_speed = projectile_to_fire.ammo.shell_speed
 	if(chassis.hitbox?.tank_desants)
 		projectile_to_fire.hit_atoms += chassis.hitbox.tank_desants
+	if(!isliving(firer))
+		return
+	var/mob/living/living_firer = firer
+	if(living_firer.IsStaggered())
+		projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
 	if((projectile_to_fire.ammo.flags_ammo_behavior & AMMO_IFF) && ishuman(firer))
 		var/mob/living/carbon/human/human_firer = firer
 		var/obj/item/card/id/id = human_firer.get_idcard()
@@ -195,10 +201,10 @@
 	projectile_to_fire.generate_bullet(GLOB.ammo_list[ammo.default_ammo])
 
 	apply_weapon_modifiers(projectile_to_fire, current_firer)
-	var/firing_angle = get_angle_with_scatter(chassis, current_target, projectile_to_fire.scatter, projectile_to_fire.p_x, projectile_to_fire.p_y)
+	var/firing_angle = get_angle_with_scatter(chassis, current_target, variance, projectile_to_fire.p_x, projectile_to_fire.p_y)
 
 	playsound(chassis, islist(fire_sound) ? pick(fire_sound):fire_sound, 20, TRUE)
-	projectile_to_fire.fire_at(current_target, chassis, null, projectile_to_fire.ammo.max_range, projectile_to_fire.projectile_speed, firing_angle, suppress_light = HAS_TRAIT(src, TRAIT_GUN_SILENCED))
+	projectile_to_fire.fire_at(current_target, current_firer, chassis, projectile_to_fire.ammo.max_range, projectile_to_fire.projectile_speed, firing_angle, suppress_light = HAS_TRAIT(src, TRAIT_GUN_SILENCED))
 
 	chassis.log_message("Fired from [name], targeting [current_target] at [AREACOORD(current_target)].", LOG_ATTACK)
 
@@ -338,3 +344,20 @@
 	)
 	projectile_delay = 0.7 SECONDS
 	hud_state_empty = "grenade_empty"
+
+/obj/item/armored_weapon/secondary_flamer
+	name = "\improper OMR Mk.3 secondary flamer"
+	desc = "A large, vehicle mounted flamer. This one is capable of spraying it's payload due to a less solid mix."
+	icon_state = "sflamer"
+	fire_sound = "gun_flamethrower"
+	ammo = /obj/item/ammo_magazine/tank/secondary_flamer_tank
+	weapon_slot = MODULE_SECONDARY
+	fire_mode = GUN_FIREMODE_AUTOMATIC
+	variance = 5
+	rearm_time = 1 SECONDS
+	maximum_magazines = 5
+	accepted_ammo = list(
+		/obj/item/ammo_magazine/tank/secondary_flamer_tank,
+	)
+	projectile_delay = 1 // spray visuals
+	hud_state_empty = "flame_empty"

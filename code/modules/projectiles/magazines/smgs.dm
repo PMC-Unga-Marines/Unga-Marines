@@ -230,8 +230,3 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/smg/acp/hp
 
-/obj/item/ammo_magazine/smg/vector/sabot
-	name = "\improper Vector APDS drum magazine (.45ACP)"
-	desc = "A .45ACP APDS drum magazine for the Vector, with even more dakka."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/smg/acp/sabot
