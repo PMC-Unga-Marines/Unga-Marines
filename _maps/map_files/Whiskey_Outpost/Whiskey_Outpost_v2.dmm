@@ -2726,7 +2726,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
 /obj/machinery/vending/weapon,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
@@ -6800,9 +6799,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/north)
 "Ot" = (
-/obj/machinery/marine_selector/clothes{
-	lock_flags = 0
-	},
+/obj/machinery/marine_selector/clothes,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost)
 "Ow" = (
@@ -7056,7 +7053,6 @@
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "Rb" = (
-/obj/structure/barricade/metal,
 /obj/structure/barricade/metal,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)

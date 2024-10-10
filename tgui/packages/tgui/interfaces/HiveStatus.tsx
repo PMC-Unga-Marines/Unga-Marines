@@ -1,8 +1,18 @@
-import { useState } from 'react';
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
-import { Button, Flex, Divider, Box, Section, ProgressBar, Tooltip, Collapsible } from '../components';
 import { round } from 'common/math';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Divider,
+  Flex,
+  ProgressBar,
+  Section,
+  Tooltip,
+} from '../components';
+import { Window } from '../layouts';
 
 type InputPack = {
   // ------- Hive info --------
@@ -23,7 +33,6 @@ type InputPack = {
   hive_death_timers: DeathTimer[];
   hive_queen_max: number;
   hive_structures: StructureData[];
-  hive_forbiden_castes: ForbidenData[]; // RUTGMC EDIT ADDITION
   // ----- Per xeno info ------
   xeno_info: XenoData[];
   static_info: StaticData[];
@@ -86,10 +95,6 @@ type DeathTimer = {
   end_time: number;
 };
 
-type ForbidenData = {
-  is_forbid: boolean;
-};
-
 export const HiveStatus = (_props) => {
   const { act, data } = useBackend<InputPack>();
   const {
@@ -106,33 +111,38 @@ export const HiveStatus = (_props) => {
       theme="xeno"
       title={hive_name + ' Hive Status'}
       width={1000}
-      height={800}>
+      height={800}
+    >
       <Window.Content scrollable>
         <CachedCollapsible
           title="General Information"
           open={user_show_general}
-          onClickXeno={() => act('ToggleGeneral', { xeno: user_ref })}>
+          onClickXeno={() => act('ToggleGeneral', { xeno: user_ref })}
+        >
           <GeneralInfo />
         </CachedCollapsible>
         <Divider />
         <CachedCollapsible
           title="Hive Population"
           open={user_show_population}
-          onClickXeno={() => act('TogglePopulation', { xeno: user_ref })}>
+          onClickXeno={() => act('TogglePopulation', { xeno: user_ref })}
+        >
           <PopulationPyramid />
         </CachedCollapsible>
         <Divider />
         <CachedCollapsible
           title="Xenomorph List"
           open={user_show_xeno_list}
-          onClickXeno={() => act('ToggleXenoList', { xeno: user_ref })}>
+          onClickXeno={() => act('ToggleXenoList', { xeno: user_ref })}
+        >
           <XenoList />
         </CachedCollapsible>
         <Divider />
         <CachedCollapsible
           title="Hive Structures"
           open={user_show_structures}
-          onClickXeno={() => act('ToggleStructures', { xeno: user_ref })}>
+          onClickXeno={() => act('ToggleStructures', { xeno: user_ref })}
+        >
           <StructureList />
         </CachedCollapsible>
         <Divider />
@@ -165,7 +175,8 @@ const CachedCollapsible = (props: {
           <Button
             fluid
             icon={props.open ? 'chevron-down' : 'chevron-right'}
-            onClick={props.onClickXeno}>
+            onClick={props.onClickXeno}
+          >
             {props.title}
           </Button>
         </div>
@@ -187,7 +198,8 @@ const BlessingsButton = (_props) => {
     <Box className="Section__buttons">
       <Button
         onClick={() => act('Blessings', { xeno: user_ref })}
-        icon={'store'}>
+        icon={'store'}
+      >
         Blessings
       </Button>
     </Box>
@@ -220,7 +232,8 @@ const GeneralInfo = (_props) => {
                 : hive_psy_points < 800
                   ? 'average'
                   : 'good'
-            }>
+            }
+          >
             {' ' + hive_psy_points + ' '}
           </Box>
           | Burrowed Larva:
@@ -324,7 +337,8 @@ const LarvaBar = (_props) => {
         <Flex.Item grow>
           <ProgressBar
             color="green"
-            value={hive_larva_current / hive_larva_threshold}>
+            value={hive_larva_current / hive_larva_threshold}
+          >
             {`${hive_larva_rate} per minute ` + // Linters eating my white space.
               `(${hive_larva_current}/${hive_larva_threshold})`}
           </ProgressBar>
@@ -349,7 +363,8 @@ const EvolutionBar = (_props) => {
       <Flex.Item mr={2} width={bar_text_width}>
         <Button
           tooltip="Open Panel"
-          onClick={() => act('Evolve', { xeno: user_ref })}>
+          onClick={() => act('Evolve', { xeno: user_ref })}
+        >
           Evolution Progress:
         </Button>
       </Flex.Item>
@@ -359,7 +374,8 @@ const EvolutionBar = (_props) => {
             good: [0.75, Infinity],
             average: [-Infinity, 0.75],
           }}
-          value={user_evolution / max}>
+          value={user_evolution / max}
+        >
           {round((user_evolution / max) * 100, 0)}%
         </ProgressBar>
       </Flex.Item>
@@ -381,7 +397,6 @@ const PopulationPyramid = (_props) => {
     hive_max_tier_three,
     hive_minion_count,
     hive_primos,
-    hive_forbiden_castes, // RUTGMC EDIT ADDITION
     xeno_info,
     static_info,
     user_ref,
@@ -434,13 +449,15 @@ const PopulationPyramid = (_props) => {
         <div>
           <Button.Checkbox
             checked={showCompact}
-            onClick={() => toggleCompact(!showCompact)}>
+            onClick={() => toggleCompact(!showCompact)}
+          >
             Compact Mode
           </Button.Checkbox>
           <Button.Checkbox
             checked={showEmpty}
             tooltip="Display all castes"
-            onClick={() => toggleEmpty(!showEmpty)}>
+            onClick={() => toggleEmpty(!showEmpty)}
+          >
             Show Empty
           </Button.Checkbox>
         </div>
@@ -451,13 +468,15 @@ const PopulationPyramid = (_props) => {
       <div>
         <Button.Checkbox
           checked={user_show_compact}
-          onClick={() => act('ToggleCompact', { xeno: user_ref })}>
+          onClick={() => act('ToggleCompact', { xeno: user_ref })}
+        >
           Compact Mode
         </Button.Checkbox>
         <Button.Checkbox
           checked={user_show_empty}
           tooltip="Display all castes"
-          onClick={() => act('ToggleEmpty', { xeno: user_ref })}>
+          onClick={() => act('ToggleEmpty', { xeno: user_ref })}
+        >
           Show Empty
         </Button.Checkbox>
       </div>
@@ -471,10 +490,12 @@ const PopulationPyramid = (_props) => {
     <Section
       title={`Total Living Sisters: ${hive_total}`}
       align={compact_display ? 'left' : 'center'}
-      buttons={<ShowButtons />}>
+      buttons={<ShowButtons />}
+    >
       <Flex
         direction="column-reverse"
-        align={compact_display ? 'left' : 'center'}>
+        align={compact_display ? 'left' : 'center'}
+      >
         {pyramid_data.map((tier_info, tier) => {
           // Hardcoded tier check for limited slots.
           const max_slots =
@@ -487,7 +508,8 @@ const PopulationPyramid = (_props) => {
             return (
               <Box
                 as="span"
-                textColor={tier_info.total === max_slots ? 'bad' : 'good'}>
+                textColor={tier_info.total === max_slots ? 'bad' : 'good'}
+              >
                 ({tier_info.total}/{max_slots})
               </Box>
             );
@@ -554,27 +576,18 @@ const PopulationPyramid = (_props) => {
                     return <Box key={tier} />;
                   }
                   const static_entry = static_info[value];
-                  const forbid_entry = hive_forbiden_castes[value]; // RUTGMC EDIT ADDITION
                   return (
                     <Flex.Item
-                      textColor={forbid_entry.is_forbid ? 'red' : 'white'} // RUTGMC EDIT ADDITION
-                      width="100%"
                       minWidth={row_width}
                       bold
-                      key={static_entry.name}>
+                      key={static_entry.name}
+                    >
                       <Box
                         as="img"
                         src={`data:image/jpeg;base64,${static_entry.minimap}`}
                         style={{
                           transform: 'scale(3) translateX(-3.5px)',
                         }}
-                        onClick={
-                          () =>
-                            act('Forbid', {
-                              xeno: user_ref,
-                              forbidcaste: value,
-                            }) // RUTGMC EDIT ADDITION
-                        }
                       />
                       {static_entry.name}
                     </Flex.Item>
@@ -592,7 +605,8 @@ const PopulationPyramid = (_props) => {
                       width="100%"
                       minWidth={row_width}
                       key={static_entry.name}
-                      fontSize={static_entry.is_unique ? 1 : 1.25}>
+                      fontSize={static_entry.is_unique ? 1 : 1.25}
+                    >
                       <Box as="span" color={count >= 1 ? 'good' : 'average'}>
                         {static_entry.is_unique
                           ? count >= 1
@@ -659,7 +673,8 @@ const XenoList = (_props) => {
             category: props.text,
             down: sortingBy.category === props.text ? !sortingBy.down : true,
           })
-        }>
+        }
+      >
         {props.text}
       </Button>
     );
@@ -821,7 +836,8 @@ const XenoList = (_props) => {
                   style={{
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                  }}>
+                  }}
+                >
                   <Button
                     italic={
                       user_tracked === entry.ref && user_ref !== entry.ref
@@ -844,7 +860,8 @@ const XenoList = (_props) => {
                       if (user_ref !== entry.ref) {
                         act('Compass', { xeno: user_ref, target: entry.ref });
                       }
-                    }}>
+                    }}
+                  >
                     {entry.name}
                   </Button>
                 </Flex.Item>
@@ -879,7 +896,8 @@ const XenoList = (_props) => {
                   style={{
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                  }}>
+                  }}
+                >
                   {entry.location}
                 </Flex.Item>
               </Flex>
@@ -1029,13 +1047,15 @@ const StructureList = (_props) => {
                         xeno: user_ref,
                         target: entry.ref,
                       })
-                    }>
+                    }
+                  >
                     Track
                   </Button>
                 </Flex.Item>
                 <Flex.Item
                   width={name_width}
-                  italic={user_tracked === entry.ref}>
+                  italic={user_tracked === entry.ref}
+                >
                   {entry.name}
                 </Flex.Item>
                 <Flex.Item width={integrity_width}>
@@ -1058,7 +1078,8 @@ const StructureList = (_props) => {
                   style={{
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                  }}>
+                  }}
+                >
                   {entry.location}
                 </Flex.Item>
               </Flex>

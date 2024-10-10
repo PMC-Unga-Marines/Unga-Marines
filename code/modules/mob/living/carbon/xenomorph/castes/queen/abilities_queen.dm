@@ -46,9 +46,9 @@
 			color_override = "purple"
 		))
 		switch(Q.caste_base_type)
-			if(/mob/living/carbon/xenomorph/queen, /mob/living/carbon/xenomorph/shrike)
+			if(/datum/xeno_caste/queen, /datum/xeno_caste/shrike)
 				SEND_SOUND(X, queen_sound)
-			if(/mob/living/carbon/xenomorph/king)
+			if(/datum/xeno_caste/king)
 				SEND_SOUND(X, king_sound)
 		//Display the ruler's hive message at the top of the game screen.
 		X.play_screen_text(queens_word, /atom/movable/screen/text/screen_text/queen_order)
