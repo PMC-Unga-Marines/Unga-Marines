@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/hunter
-	caste_base_type = /mob/living/carbon/xenomorph/hunter
+	caste_base_type = /datum/xeno_caste/hunter
 	name = "Hunter"
 	desc = "A beefy, fast alien with sharp claws."
 	icon = 'icons/Xeno/castes/hunter.dmi'
