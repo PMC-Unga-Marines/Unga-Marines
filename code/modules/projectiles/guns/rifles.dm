@@ -717,7 +717,6 @@
 	force = 20
 	burst_amount = 1
 	aim_slowdown = 0.5
-	recoil = 1.5
 	fire_delay = 0.20 SECONDS
 	scatter = 2
 	wield_delay = 0.8 SECONDS
