@@ -676,9 +676,9 @@
 		if(!allowed(usr))
 			return
 		if(href_list["lockdown"])
-
+			EMPTY_BLOCK_GUARD
 		else if(href_list["release"])
-
+			EMPTY_BLOCK_GUARD
 		else if(href_list["lock"])
 			M.lockdown_airlocks(href_list["lock"])
 		else if(href_list["unlock"])
@@ -706,6 +706,7 @@
 				to_chat(X, span_xenowarning("The bird is still cooling down."))
 				return
 			if(SHUTTLE_IDLE) //Continue.
+				EMPTY_BLOCK_GUARD
 			else
 				to_chat(X, span_xenowarning("We can't do that right now."))
 				return

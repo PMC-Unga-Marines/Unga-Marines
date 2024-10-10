@@ -132,7 +132,7 @@ explosion resistance exactly as much as their health
 
 				switch(angle) //this reduces power when the explosion is going around corners
 					if (0)
-						//no change
+						EMPTY_BLOCK_GUARD //no change
 					if (45)
 						if(spread_power >= 0)
 							spread_power *= 0.75

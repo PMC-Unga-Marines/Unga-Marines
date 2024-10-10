@@ -20609,7 +20609,9 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "moF" = (
-/obj/machinery/door/airlock/mainship/maint,
+/obj/machinery/door/airlock/mainship/maint{
+	req_one_access = list(44)
+	},
 /turf/open/floor/plating,
 /area/mainship/living/pilotbunks)
 "moG" = (
