@@ -2,8 +2,19 @@ import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { capitalizeFirst, multiline } from 'common/string';
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Box, Button, Collapsible, Icon, Input, LabeledList, NoticeBox, Section, Stack } from 'tgui/components';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Icon,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from 'tgui/components';
 import { Window } from 'tgui/layouts';
+
 import { getDisplayColor, getDisplayName, isJobOrNameMatch } from './helpers';
 import type { Observable, OrbitData } from './types';
 
@@ -34,14 +45,13 @@ const ObservableSearch = (props) => {
     humans = [],
     marines = [],
     yautja = [],
-    som = [],
     survivors = [],
     xenos = [],
     valhalla = [],
   } = data;
   const [searchQuery, setSearchQuery] = useLocalState<string>(
     'searchQuery',
-    ''
+    '',
   );
   /** Gets a list of Observables, then filters the most relevant to orbit */
   const orbitMostRelevant = (searchQuery: string) => {
@@ -49,12 +59,12 @@ const ObservableSearch = (props) => {
     const mostRelevant: Observable = flow([
       // Filters out anything that doesn't match search
       filter<Observable>((observable) =>
-        isJobOrNameMatch(observable, searchQuery)
+        isJobOrNameMatch(observable, searchQuery),
       ),
       // Sorts descending by orbiters
       sortBy<Observable>((observable) => -(observable.orbiters || 0)),
       // Makes a single Observables list for an easy search
-    ])([humans, marines, yautja, som, survivors, xenos, valhalla].flat())[0];
+    ])([humans, marines, yautja, survivors, xenos, valhalla].flat())[0];
     if (mostRelevant !== undefined) {
       act('orbit', {
         ref: mostRelevant.ref,
@@ -119,7 +129,6 @@ const ObservableContent = (props) => {
     yautja = [],
     misc = [],
     npcs = [],
-    som = [],
     survivors = [],
     xenos = [],
   } = data;
@@ -130,7 +139,6 @@ const ObservableContent = (props) => {
       <ObservableSection color="blue" section={marines} title="Marines" />
       <ObservableSection color="teal" section={humans} title="Humans" />
       <ObservableSection color="good" section={survivors} title="Survivors" />
-      <ObservableSection color="average" section={som} title="SOM" />
       <ObservableSection color="darkred" section={yautja} title="Predators" />
       <ObservableSection section={dead} title="Dead" />
       <ObservableSection section={ghosts} title="Ghosts" />
@@ -157,12 +165,12 @@ const ObservableSection = (props: {
   const [searchQuery] = useLocalState<string>('searchQuery', '');
   const filteredSection: Array<Observable> = flow([
     filter<Observable>((observable) =>
-      isJobOrNameMatch(observable, searchQuery)
+      isJobOrNameMatch(observable, searchQuery),
     ),
     sortBy<Observable>((observable) =>
       getDisplayName(observable.full_name, observable.nickname)
         .replace(/^"/, '')
-        .toLowerCase()
+        .toLowerCase(),
     ),
   ])(section);
   if (!filteredSection.length) {
@@ -175,7 +183,8 @@ const ObservableSection = (props: {
         bold
         color={color ?? 'grey'}
         open={!!color}
-        title={title + ` - (${filteredSection.length})`}>
+        title={title + ` - (${filteredSection.length})`}
+      >
         {filteredSection.map((poi, index) => {
           return <ObservableItem color={color} item={poi} key={index} />;
         })}
@@ -195,7 +204,8 @@ const ObservableItem = (props: { color?: string; item: Observable }) => {
       color={getDisplayColor(item, !!color)}
       onClick={() => act('orbit', { ref: ref })}
       tooltip={!!health && <ObservableTooltip item={item} />}
-      tooltipPosition="bottom-start">
+      tooltipPosition="bottom-start"
+    >
       {!!icon && <ObservableIcon icon={icon} />}
       {capitalizeFirst(getDisplayName(full_name, nickname))}
       {!!orbiters && (

@@ -58,7 +58,7 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	if(is_offered_on_creation)
 		LAZYDISTINCTADD(GLOB.ssd_living_mobs, mob_parent)
 
-/datum/ai_behavior/Destroy(force, ...)
+/datum/ai_behavior/Destroy(force)
 	current_node = null
 	escorted_atom = null
 	mob_parent = null

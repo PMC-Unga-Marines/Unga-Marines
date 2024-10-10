@@ -22,9 +22,6 @@
 	// *** Health *** //
 	max_health = 350
 
-	// *** Evolution *** //
-	deevolves_to = /mob/living/carbon/xenomorph/panther
-
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER

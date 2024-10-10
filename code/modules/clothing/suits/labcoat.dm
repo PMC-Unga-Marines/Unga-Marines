@@ -93,3 +93,18 @@
 	name = "Researcher's labcoat"
 	desc = "A high quality labcoat, seemingly worn by scholars and researchers alike. It has a distinct rough feel to it, and goads you towards adventure."
 	icon_state = "labcoat_researcher"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = MARINE_ARMOR_MEDIUM
+	allowed = list(
+		/obj/item/weapon/gun,
+		/obj/item/instrument,
+		/obj/item/storage/belt/sparepouch,
+		/obj/item/storage/holster/blade,
+		/obj/item/weapon/claymore/harvester,
+		/obj/item/storage/holster/belt,
+		/obj/item/storage/belt/knifepouch,
+		/obj/item/weapon/twohanded,
+		/obj/item/tool/pickaxe/plasmacutter,
+		/obj/item/tool/shovel/etool,
+		/obj/item/weapon/energy/sword,
+	)

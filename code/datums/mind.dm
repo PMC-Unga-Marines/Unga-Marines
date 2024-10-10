@@ -47,7 +47,7 @@
 	src.key = key
 
 
-/datum/mind/Destroy(force, ...)
+/datum/mind/Destroy(force)
 	current = null
 	if(initial_account)
 		QDEL_NULL(initial_account)

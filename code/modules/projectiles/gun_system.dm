@@ -808,7 +808,7 @@
 
 ///Wrapper proc to complete the whole firing process.
 /obj/item/weapon/gun/proc/Fire()
-	if(!target || !(gun_user || istype(loc, /obj/machinery/deployable/mounted/sentry)) || !(CHECK_BITFIELD(flags_item, IS_DEPLOYED) || able_to_fire(gun_user)) || windup_checked == WEAPON_WINDUP_CHECKING)
+	if(!target || !(gun_user || issentry(loc)) || !(CHECK_BITFIELD(flags_item, IS_DEPLOYED) || able_to_fire(gun_user)) || windup_checked == WEAPON_WINDUP_CHECKING)
 		return NONE
 	if(windup_delay && windup_checked == WEAPON_WINDUP_NOT_CHECKED)
 		windup_checked = WEAPON_WINDUP_CHECKING
@@ -870,7 +870,7 @@
 
 ///Actually fires the gun, sets up the projectile and fires it.
 /obj/item/weapon/gun/proc/do_fire(obj/object_to_fire)
-	var/firer = (istype(loc, /obj/machinery/deployable/mounted/sentry) && !gun_user) ? loc : gun_user
+	var/firer = (issentry(loc) && !gun_user) ? loc : gun_user
 	var/obj/projectile/projectile_to_fire = object_to_fire
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_HANDFULS))
 		projectile_to_fire = get_ammo_object()
@@ -1738,7 +1738,7 @@
 			var/mob/living/carbon/human/_firer = firer
 			var/obj/item/card/id/id = _firer.get_idcard()
 			iff_signal = id?.iff_signal
-		else if(istype(firer, /obj/machinery/deployable/mounted/sentry))
+		else if(issentry(firer))
 			var/obj/machinery/deployable/mounted/sentry/sentry = firer
 			iff_signal = sentry.iff_signal
 		projectile_to_fire.iff_signal = iff_signal

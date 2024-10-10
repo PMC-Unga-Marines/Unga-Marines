@@ -25,13 +25,11 @@
 		changed++
 		ntransform.TurnTo(lying_prev, lying_angle)
 		if(!lying_angle) //Lying to standing
-			final_pixel_y = lying_angle ? -6 : initial(pixel_y)
-		else //if(lying_angle != 0)
-			if(lying_prev == 0) //Standing to lying down
-				pixel_y = lying_angle ? -6 : initial(pixel_y)
-				final_pixel_y = lying_angle ? -6 : initial(pixel_y)
-				if(dir & (EAST|WEST)) //Facing east or west
-					final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
+			final_pixel_y = lying_angle ? CARBON_LYING_Y_OFFSET : initial(pixel_y)
+		else if(lying_prev == 0) //Standing to lying down
+			final_pixel_y = lying_angle ? CARBON_LYING_Y_OFFSET : initial(pixel_y)
+			if(dir & (EAST|WEST))
+				final_dir = pick(NORTH, SOUTH)
 
 	if(resize != RESIZE_DEFAULT_SIZE)
 		changed++

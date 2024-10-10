@@ -751,11 +751,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CHARLIE_SQUAD "charlie_squad"
 #define DELTA_SQUAD "delta_squad"
 
-#define ZULU_SQUAD "zulu_squad"
-#define YANKEE_SQUAD "yankee_squad"
-#define XRAY_SQUAD "xray_squad"
-#define WHISKEY_SQUAD "whiskey_squad"
-
 #define TYPING_INDICATOR_LIFETIME 3 SECONDS	//Grace period after which typing indicator disappears regardless of text in chatbar.
 
 
@@ -869,6 +864,9 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define BASE_WALL_SLAM_DAMAGE 15
 ///Default damage for slamming a mob against another mob
 #define BASE_MOB_SLAM_DAMAGE 8
+
+///Pixel_y offset when lying down
+#define CARBON_LYING_Y_OFFSET -6
 
 // Yautja defines
 
