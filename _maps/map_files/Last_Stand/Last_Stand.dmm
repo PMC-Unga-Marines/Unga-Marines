@@ -829,11 +829,6 @@
 /obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/full,
 /obj/item/storage/box/visual/magazine/compact/sr127/full,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/closet/crate/secure/ammo,
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
@@ -3122,11 +3117,6 @@
 /area/whiskey_outpost)
 "tu" = (
 /obj/structure/largecrate/supply/weapons/ar18,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /turf/open/floor/plating/asteroidwarning{
 	dir = 4
 	},
@@ -4306,11 +4296,6 @@
 /obj/item/storage/box/crate/sentry,
 /obj/item/storage/box/crate/sentry,
 /obj/structure/rack,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/rack,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
@@ -5636,11 +5621,6 @@
 /area/whiskey_outpost/outside/east)
 "Vu" = (
 /obj/structure/largecrate/supply/weapons/ar18,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "Vy" = (
@@ -5853,11 +5833,6 @@
 /obj/item/storage/box/visual/magazine/compact/ar18/full,
 /obj/item/storage/box/visual/magazine/compact/ar18/full,
 /obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/rack,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
