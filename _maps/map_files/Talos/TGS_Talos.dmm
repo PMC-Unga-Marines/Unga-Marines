@@ -20609,7 +20609,9 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "moF" = (
-/obj/machinery/door/airlock/mainship/maint,
+/obj/machinery/door/airlock/mainship/maint{
+	req_one_access = list(44)
+	},
 /turf/open/floor/plating,
 /area/mainship/living/pilotbunks)
 "moG" = (
@@ -23826,10 +23828,10 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/squads/delta)
 "nZw" = (
-/obj/vehicle/ridden/powerloader,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
+/obj/vehicle/unmanned/droid/ripley,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "nZT" = (
