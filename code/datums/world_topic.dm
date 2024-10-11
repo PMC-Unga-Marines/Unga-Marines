@@ -38,7 +38,7 @@
 
 // TOPICS
 /datum/world_topic/status
-	keyword = "status"
+	keyword = "Статус"
 
 
 /datum/world_topic/status/Run(list/input)

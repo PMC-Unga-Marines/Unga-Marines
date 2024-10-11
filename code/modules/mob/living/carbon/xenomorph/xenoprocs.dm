@@ -177,7 +177,7 @@
 	stack_trace("Logic for handling this Upgrade tier wasn't written")
 	return FALSE
 
-//Adds stuff to your "Status" pane -- Specific castes can have their own, like carrier hugger count
+//Adds stuff to your "Статус" pane -- Specific castes can have their own, like carrier hugger count
 //Those are dealt with in their caste files.
 /mob/living/carbon/xenomorph/get_status_tab_items()
 	. = ..()

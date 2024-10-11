@@ -464,7 +464,7 @@
 
 /datum/admins/proc/stickybanpanel()
 	set name = "Sticky Ban Panel"
-	set category = "Admin"
+	set category = "Администрирование"
 
 	if(!check_rights(R_BAN))
 		return

@@ -1,5 +1,5 @@
 /client/proc/cmd_select_equipment(mob/target in GLOB.mob_list)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Select equipment"
 
 

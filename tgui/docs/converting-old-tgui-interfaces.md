@@ -221,7 +221,7 @@ This will be a reference of tgui components and the tgui-next equivalent.
 Equivalent of `<ui-display>` is `<Section>`
 
 ```
-<ui-display title="Status">
+<ui-display title="Статус">
   Contents
 </ui-display>
 ```
@@ -229,7 +229,7 @@ Equivalent of `<ui-display>` is `<Section>`
 becomes
 
 ```jsx
-<Section title="Status">
+<Section title="Статус">
   Contents
 </Section>
 ```
@@ -237,7 +237,7 @@ becomes
 A feature sometimes used is if `ui-display` has the `button` property, it will contain a `partial` command. This becomes the `buttons` property on `Section`:
 
 ```
-<ui-display title="Status" button>
+<ui-display title="Статус" button>
   {{#partial button}}
     <ui-button /> // lots more button bullshit here
   {{/partial}}
@@ -249,7 +249,7 @@ becomes
 
 ```jsx
 <Section
-  title="Status"
+  title="Статус"
   buttons={(
     <Button />
   )}>

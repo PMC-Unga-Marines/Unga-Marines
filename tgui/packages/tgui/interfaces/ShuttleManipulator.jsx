@@ -191,7 +191,7 @@ export const ShuttleManipulatorModification = (props) => {
             >
               <LabeledList>
                 <LabeledList.Item
-                  label="Status"
+                  label="Статус"
                   buttons={
                     <Button
                       content="Jump To"
@@ -212,7 +212,7 @@ export const ShuttleManipulatorModification = (props) => {
           ) : (
             <Section level={2} title="Existing Shuttle: None" />
           )}
-          <Section level={2} title="Status">
+          <Section level={2} title="Статус">
             <Button
               content="Preview"
               onClick={() =>

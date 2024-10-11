@@ -1,5 +1,5 @@
 /datum/admins/proc/admin_ghost()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Aghost"
 	set desc = "Allows you to ghost and re-enter body at will."
 
@@ -25,7 +25,7 @@
 
 /datum/admins/proc/invisimin()
 	set name = "Invisimin"
-	set category = "Admin"
+	set category = "Администрирование"
 	set desc = "Toggles ghost-like invisibility."
 
 	if(!check_rights(R_ADMIN))
@@ -52,7 +52,7 @@
 
 
 /datum/admins/proc/stealth_mode()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Stealth Mode"
 	set desc = "Allows you to change your ckey for non-admins to see."
 
@@ -126,7 +126,7 @@
 
 
 /datum/admins/proc/give_mob_panel()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Give  Mob"
 
 	if(!check_rights(R_ADMIN))
@@ -174,7 +174,7 @@
 
 
 /datum/admins/proc/rejuvenate_panel()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Rejuvenate Mob"
 
 	if(!check_rights(R_ADMIN))
@@ -219,7 +219,7 @@
 
 
 /datum/admins/proc/toggle_sleep_panel()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Toggle Sleeping Mob"
 
 	if(!check_rights(R_ADMIN))
@@ -236,7 +236,7 @@
 
 
 /datum/admins/proc/toggle_sleep_area()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Toggle Sleeping Area"
 
 	if(!check_rights(R_ADMIN))
@@ -255,7 +255,7 @@
 			message_admins("[ADMIN_TPMONTY(usr)] has unslept everyone in view.")
 
 /datum/admins/proc/logs_server()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Get Server Logs"
 
 	if(!check_rights(R_LOG))
@@ -265,7 +265,7 @@
 
 
 /datum/admins/proc/logs_current()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Get Current Logs"
 	set desc = "View/retrieve logfiles for the current round."
 
@@ -276,7 +276,7 @@
 
 
 /datum/admins/proc/logs_folder()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Get Server Logs Folder"
 	set desc = "Please use responsibly."
 
@@ -481,7 +481,7 @@
 
 
 /client/proc/asay(msg as text)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "asay"
 	set hidden = TRUE
 
@@ -525,7 +525,7 @@
 
 
 /client/proc/msay(msg as text)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "msay"
 	set hidden = TRUE
 
@@ -577,7 +577,7 @@
 
 
 /client/proc/dsay(msg as text)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "dsay"
 	set hidden = TRUE
 
@@ -617,7 +617,7 @@
 
 
 /datum/admins/proc/jump()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Jump To"
 
 	if(!check_rights(R_ADMIN))
@@ -641,7 +641,7 @@
 
 
 /datum/admins/proc/get_mob()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Get Mob"
 
 	if(!check_rights(R_ADMIN))
@@ -665,7 +665,7 @@
 
 
 /datum/admins/proc/send_mob()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Send Mob"
 
 	if(!check_rights(R_ADMIN))
@@ -791,7 +791,7 @@
 
 
 /client/proc/private_message_panel()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Private Message Mob"
 
 	if(!check_rights(R_ADMIN|R_MENTOR))
@@ -1207,7 +1207,7 @@
 
 
 /datum/admins/proc/remove_from_tank()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Remove From Tank"
 
 	if(!check_rights(R_ADMIN))
@@ -1221,7 +1221,7 @@
 
 /// Admin verb to delete a squad completely
 /datum/admins/proc/delete_squad()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Delete a squad"
 
 	if(!check_rights(R_ADMIN))
@@ -1235,7 +1235,7 @@
 	log_admin(msg)
 
 /datum/admins/proc/job_slots()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Job Slots"
 
 	if(!check_rights(R_ADMIN))
@@ -1282,7 +1282,7 @@
 
 
 /datum/admins/proc/mcdb()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Open MCDB"
 
 	if(!CONFIG_GET(string/dburl))
@@ -1317,13 +1317,13 @@
 
 /client/proc/get_togglebuildmode()
 	set name = "Toggle Build Mode"
-	set category = "Admin.Fun"
+	set category = "Администрирование.АдминАбьюз"
 	if(!check_rights(R_SPAWN))
 		return
 	togglebuildmode(mob)
 
 /client/proc/toggle_admin_tads()
-	set category = "Admin.Fun"
+	set category = "Администрирование.АдминАбьюз"
 	set name = "Toggle Tadpole Restrictions"
 
 	if(!check_rights(R_FUN))
@@ -1381,7 +1381,7 @@
 
 /client/proc/mass_replace()
 	set name = "Mass replace atom"
-	set category = "Admin.Fun"
+	set category = "Администрирование.АдминАбьюз"
 	if(!check_rights(R_SPAWN))
 		return
 	var/to_replace = pick_closest_path(input("Pick a movable atom path to be replaced", "Enter path as text") as text)
@@ -1417,7 +1417,7 @@
 	message_admins(afterlogging)
 
 /client/proc/smite(mob/living/target as mob) //select a living mob as a target and smite them with a choice with a selection from global smites
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Smite"
 
 	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in GLOB.smites //Choose a smite if any exist from global smites
@@ -1439,7 +1439,7 @@
 	log_admin("[key_name(src)] punished [key_name(whom)] with [punishment].")
 
 /client/proc/show_traitor_panel(mob/target_mob in GLOB.mob_list)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Show Objective Panel"
 	var/datum/mind/target_mind = target_mob.mind
 	if(!target_mind)
@@ -1504,7 +1504,7 @@
 
 /client/proc/cmd_admin_create_predator_report()
 	set name = "Report: Yautja AI"
-	set category = "Admin"
+	set category = "Администрирование"
 
 	if(!check_rights(R_ADMIN))
 		to_chat(src, "Only administrators may use this command.")

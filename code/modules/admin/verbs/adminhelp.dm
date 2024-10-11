@@ -73,16 +73,16 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	switch(state)
 		if(AHELP_ACTIVE)
 			l2b = active_tickets
-			title = "Active Tickets"
+			title = "Активные обращения"
 		if(AHELP_CLOSED)
 			l2b = closed_tickets
-			title = "Closed Tickets"
+			title = "Отклоненные обращения"
 		if(AHELP_RESOLVED)
 			l2b = resolved_tickets
-			title = "Resolved Tickets"
+			title = "Решенные обращения"
 	if(!l2b)
 		return
-	var/dat = "<A href='?_src_=holder;[HrefToken()];ahelp_tickets=[state]'>Refresh</A><br><br>"
+	var/dat = "<A href='?_src_=holder;[HrefToken()];ahelp_tickets=[state]'>Обновить</A><br><br>"
 	for(var/I in l2b)
 		var/datum/admin_help/AH = I
 		if(AH.tier == TICKET_MENTOR && check_rights(R_ADMINTICKET|R_MENTOR, FALSE))
@@ -135,9 +135,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			num_admins_resolved++
 
 	if(check_rights_for(target, R_ADMINTICKET))
-		L[++L.len] = list("Active Tickets:", "[astatclick.update("[num_mentors_active + num_admins_active]")]", null, REF(astatclick))
+		L[++L.len] = list("Активные обращений:", "[astatclick.update("[num_mentors_active + num_admins_active]")]", null, REF(astatclick))
 	else if(check_rights_for(target, R_MENTOR))
-		L[++L.len] = list("Active Tickets:", "[astatclick.update("[num_mentors_active]")]", null, REF(astatclick))
+		L[++L.len] = list("Активные обращения:", "[astatclick.update("[num_mentors_active]")]", null, REF(astatclick))
 
 	for(var/I in active_tickets)
 		var/datum/admin_help/AH = I
@@ -154,14 +154,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 				L[++L.len] = list("\[D\] #[AH.id]. Admin. [AH.initiator_key_name]:", "[updated.name]", REF(AH))
 
 	if(check_rights_for(target, R_ADMINTICKET))
-		L[++L.len] = list("Closed Tickets:", "[cstatclick.update("[num_mentors_closed + num_admins_closed]")]", null, REF(cstatclick))
+		L[++L.len] = list("Отклоненные обращения:", "[cstatclick.update("[num_mentors_closed + num_admins_closed]")]", null, REF(cstatclick))
 	else if(check_rights_for(target, R_MENTOR))
-		L[++L.len] = list("Closed Tickets:", "[cstatclick.update("[num_mentors_closed]")]", null, REF(cstatclick))
+		L[++L.len] = list("Отклоненные обращения:", "[cstatclick.update("[num_mentors_closed]")]", null, REF(cstatclick))
 
 	if(check_rights_for(target, R_ADMINTICKET))
-		L[++L.len] = list("Resolved Tickets:", "[rstatclick.update("[num_mentors_resolved + num_admins_resolved]")]", null, REF(rstatclick))
+		L[++L.len] = list("Решенные обращения:", "[rstatclick.update("[num_mentors_resolved + num_admins_resolved]")]", null, REF(rstatclick))
 	else if(check_rights_for(target, R_MENTOR))
-		L[++L.len] = list("Resolved Tickets:", "[rstatclick.update("[num_mentors_resolved]")]", null, REF(rstatclick))
+		L[++L.len] = list("Решенные обращения:", "[rstatclick.update("[num_mentors_resolved]")]", null, REF(rstatclick))
 
 	return L
 
@@ -780,7 +780,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 
 /client/verb/adminhelp(msg as message)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Adminhelp"
 
 	//handle muting and automuting
@@ -811,7 +811,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 
 /client/verb/mentorhelp(msg as message)
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Mentorhelp"
 
 	//handle muting and automuting

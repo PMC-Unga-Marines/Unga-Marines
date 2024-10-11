@@ -214,7 +214,7 @@
 	if(timer && timeleft(timer) <= 5 SECONDS)
 		status = "Initializing nuclear explosion. Have a nice day :)"
 
-	data["status"] = status
+	data["Статус"] = status
 
 	return data
 

@@ -162,7 +162,7 @@
 
 /datum/admins/proc/ban_panel()
 	set name = "Ban Panel"
-	set category = "Admin"
+	set category = "Администрирование"
 
 	if(!check_rights(R_BAN))
 		return
@@ -606,7 +606,7 @@
 
 /datum/admins/proc/unban_panel()
 	set name = "Unban Panel"
-	set category = "Admin"
+	set category = "Администрирование"
 
 	if(!check_rights(R_BAN))
 		return

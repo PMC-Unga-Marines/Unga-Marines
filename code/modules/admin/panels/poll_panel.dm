@@ -1,6 +1,6 @@
 /client/proc/poll_panel()
 	set name = "Server Poll Management"
-	set category = "Admin"
+	set category = "Администрирование"
 	if(!check_rights(R_DBRANKS))
 		return
 	holder.poll_list_panel()

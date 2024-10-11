@@ -189,7 +189,7 @@
 
 	eord_body.regenerate_icons()
 
-	to_chat(eord_body, "<br><br><h1>[span_danger("Fight for your life (again), try not to die this time!")]</h1><br><br>")
+	to_chat(eord_body, "<br><br><h1>[span_danger("Сразись за свою жизнь (в который раз) и постарайся больше не умирать.")]</h1><br><br>")
 
 
 /mob/verb/cancel_camera()

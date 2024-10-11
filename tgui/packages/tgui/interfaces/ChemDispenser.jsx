@@ -36,7 +36,7 @@ export const ChemDispenser = (props) => {
     <Window width={565} height={620}>
       <Window.Content scrollable>
         <Section
-          title="Status"
+          title="Статус"
           buttons={
             recording && (
               <Box inline mx={1} color="red">

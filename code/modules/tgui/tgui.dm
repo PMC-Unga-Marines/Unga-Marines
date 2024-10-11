@@ -243,7 +243,7 @@
 	var/list/json_data = list()
 	json_data["config"] = list(
 		"title" = title,
-		"status" = status,
+		"Статус" = status,
 		"interface" = interface,
 		"refreshing" = refreshing,
 		"window" = list(

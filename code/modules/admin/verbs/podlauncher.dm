@@ -1,5 +1,5 @@
 /datum/admins/proc/launch_pod()
-	set category = "Admin.Fun"
+	set category = "Администрирование.АдминАбьюз"
 	set name = "Launch Supply Pod"
 
 	if(!check_rights(R_FUN))

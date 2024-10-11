@@ -31,8 +31,8 @@
 	xenorespawn_time = 1 MINUTES
 
 /datum/game_mode/extended/announce()
-	to_chat(world, "<b>The current game mode is - Extended Role-Playing!</b>")
-	to_chat(world, "<b>Just have fun and role-play!</b>")
+	to_chat(world, "<b>Текущий игровой режим - Экста</b>")
+	to_chat(world, "<b>Просто веселитесь!</b>")
 
 /datum/game_mode/extended/check_finished()
 	if(!round_finished)
@@ -45,4 +45,4 @@
 	var/sound/S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nИгровой режим: [name]\nВремя раунда: [duration2text()]\nКоличество людей к концу: [length(GLOB.clients)]\nИтого ксеноморфов заспавненось: [GLOB.round_statistics.total_xenos_created]\nИтого людей заспавнилось: [GLOB.round_statistics.total_humans_created]")

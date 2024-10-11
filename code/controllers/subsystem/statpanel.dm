@@ -23,12 +23,12 @@ SUBSYSTEM_DEF(statpanels)
 	if (!resumed)
 		num_fires++
 		global_data = list(
-			"Ground Map: [length(SSmapping.configs) ? SSmapping.configs[GROUND_MAP].map_name : "Loading..."]",
-			"Ship Map: [length(SSmapping.configs) ? SSmapping.configs[SHIP_MAP].map_name : "Loading..."]",
-			"Game Mode: [GLOB.master_mode]",
-			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Operation Time: [stationTimestamp("hh:mm")]",
+			"Объект: [length(SSmapping.configs) ? SSmapping.configs[GROUND_MAP].map_name : "Загрузка..."]",
+			"Судно: [length(SSmapping.configs) ? SSmapping.configs[SHIP_MAP].map_name : "Загрузка..."]",
+			"Игровой режим: [GLOB.master_mode]",
+			"ID раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
+			"Глобальное время: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
+			"Внутриигровое время: [stationTimestamp("hh:mm")]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 		)
 
@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(statpanels)
 		if(!target.stat_panel.is_ready())
 			continue
 
-		if(target.stat_tab == "Status" && num_fires % status_wait == 0)
+		if(target.stat_tab == "Статус" && num_fires % status_wait == 0)
 			set_status_tab(target)
 
 		if(!target.holder)
@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(statpanels)
 		else
 			target.stat_panel.send_message("update_split_admin_tabs", target.prefs.split_admin_tabs)
 
-			if(!("Tickets" in target.panel_tabs))
+			if(!("Тикеты" in target.panel_tabs))
 				target.stat_panel.send_message("add_admin_tabs", target.holder.href_token)
 
 			if(check_rights_for(target, R_DEBUG))
@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(statpanels)
 				if(target.stat_tab == "MC" && ((num_fires % mc_wait == 0) || target.prefs.fast_mc_refresh))
 					set_MC_tab(target)
 
-			if(target.stat_tab == "Tickets" && num_fires % default_wait == 0)
+			if(target.stat_tab == "Тикеты" && num_fires % default_wait == 0)
 				set_tickets_tab(target)
 
 			if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
@@ -87,7 +87,7 @@ SUBSYSTEM_DEF(statpanels)
 
 	target.stat_panel.send_message("update_stat", list(
 		"global_data" = global_data,
-		"ping_str" = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
+		"ping_str" = "Пинг: [round(target.lastping, 1)]мс (В среднем: [round(target.avgping, 1)]мс)",
 		"other_str" = target.mob?.get_status_tab_items(),
 	))
 
@@ -202,7 +202,7 @@ SUBSYSTEM_DEF(statpanels)
 	if(!target.stat_panel.is_ready())
 		return FALSE
 
-	if(target.stat_tab == "Status")
+	if(target.stat_tab == "Статус")
 		set_status_tab(target)
 		return TRUE
 
@@ -225,7 +225,7 @@ SUBSYSTEM_DEF(statpanels)
 		set_MC_tab(target)
 		return TRUE
 
-	if(target.stat_tab == "Tickets")
+	if(target.stat_tab == "Тикеты")
 		set_tickets_tab(target)
 		return TRUE
 

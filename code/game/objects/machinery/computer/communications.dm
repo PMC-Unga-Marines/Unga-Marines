@@ -274,7 +274,7 @@
 				state = STATE_VIEWMESSAGE
 
 
-		if("status")
+		if("Статус")
 			state = STATE_STATUSDISPLAY
 
 		// Status display stuff

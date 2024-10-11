@@ -15,9 +15,9 @@ if (!String.prototype.trim) {
 }
 
 // Status panel implementation ------------------------------------------------
-var status_tab_parts = ["Loading..."];
+var status_tab_parts = ["Загрузка..."];
 var current_tab = null;
-var mc_tab_parts = [["Loading...", ""]];
+var mc_tab_parts = [["Загрузка...", ""]];
 var href_token = null;
 var spells = [];
 var spell_tabs = [];
@@ -47,7 +47,7 @@ function run_after_focus(callback) {
 function createStatusTab(name) {
 	if (name.indexOf(".") != -1) {
 		var splitName = name.split(".");
-		if (split_admin_tabs && splitName[0] === "Admin")
+		if (split_admin_tabs && splitName[0] === "Администрирование")
 			name = splitName[1];
 		else
 			name = splitName[0];
@@ -67,7 +67,7 @@ function createStatusTab(name) {
 	B.textContent = name;
 	B.className = "button";
 	//ORDERING ALPHABETICALLY
-	B.style.order = ({"Status": 1, "MC": 2, "Tickets": 3})[name] || name.charCodeAt(0);
+	B.style.order = ({"Статус": 1, "MC": 2, "Тикеты": 3, "Администрирование": 4, "АдминАбьюз": 5})[name] || name.charCodeAt(0);
 	//END ORDERING
 	menu.appendChild(B);
 	SendTabToByond(name);
@@ -149,7 +149,7 @@ function verbs_cat_check(cat) {
 	var tabCat = cat;
 	if (cat.indexOf(".") != -1) {
 		var splitName = cat.split(".");
-		if (split_admin_tabs && splitName[0] === "Admin")
+		if (split_admin_tabs && splitName[0] === "Администрирование")
 			tabCat = splitName[1];
 		else
 			tabCat = splitName[0];
@@ -165,7 +165,7 @@ function verbs_cat_check(cat) {
 		verbcat = part[0];
 		if (verbcat.indexOf(".") != -1) {
 			var splitName = verbcat.split(".");
-			if (split_admin_tabs && splitName[0] === "Admin")
+			if (split_admin_tabs && splitName[0] === "Администрирование")
 				verbcat = splitName[1];
 			else
 				verbcat = splitName[0];
@@ -181,7 +181,7 @@ function verbs_cat_check(cat) {
 	if (verbs_in_cat != 1) {
 		removeStatusTab(tabCat);
 		if (current_tab == tabCat)
-			tab_change("Status");
+			tab_change("Статус");
 	}
 }
 
@@ -245,7 +245,7 @@ function tab_change(tab) {
 		document.getElementById(tab).className = "button active"; // make current button active
 	var spell_tabs_thingy = (spell_tabs.includes(tab));
 	var verb_tabs_thingy = (verb_tabs.includes(tab));
-	if (tab == "Status") {
+	if (tab == "Статус") {
 		draw_status();
 	} else if (tab == "MC") {
 		draw_mc();
@@ -255,7 +255,7 @@ function tab_change(tab) {
 		draw_verbs(tab);
 	} else if (tab == "Debug Stat Panel") {
 		draw_debug();
-	} else if (tab == "Tickets") {
+	} else if (tab == "Тикеты") {
 		draw_tickets();
 		//draw_interviews();
 	} else if (tab == "SDQL2") {
@@ -263,7 +263,7 @@ function tab_change(tab) {
 	} else if (tab == turfname) {
 		draw_listedturf();
 	} else {
-		statcontentdiv.textContext = "Loading...";
+		statcontentdiv.textContext = "Загрузка...";
 	}
 	Byond.winset(Byond.windowId, {
 		'is-visible': true,
@@ -297,7 +297,7 @@ function draw_debug() {
 		// Hide subgroups except admin subgroups if they are split
 		if (verb_tabs[i].lastIndexOf(".") != -1) {
 			var splitName = verb_tabs[i].split(".");
-			if (split_admin_tabs && splitName[0] === "Admin")
+			if (split_admin_tabs && splitName[0] === "Администрирование")
 				part = splitName[1];
 			else
 				continue;
@@ -347,9 +347,9 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if (!document.getElementById("Status")) {
-		createStatusTab("Status");
-		current_tab = "Status";
+	if (!document.getElementById("Статус")) {
+		createStatusTab("Статус");
+		current_tab = "Статус";
 	}
 	statcontentdiv.textContent = '';
 	for (var i = 0; i < status_tab_parts.length; i++) {
@@ -393,9 +393,9 @@ function draw_mc() {
 function remove_tickets() {
 	if (tickets) {
 		tickets = [];
-		removePermanentTab("Tickets");
-		if (current_tab == "Tickets")
-			tab_change("Status");
+		removePermanentTab("Тикеты");
+		if (current_tab == "Тикеты")
+			tab_change("Статус");
 	}
 	checkStatusTab();
 }
@@ -405,7 +405,7 @@ function remove_sdql2() {
 		sdql2 = [];
 		removePermanentTab("SDQL2");
 		if (current_tab == "SDQL2")
-			tab_change("Status");
+			tab_change("Статус");
 	}
 	checkStatusTab();
 }
@@ -496,14 +496,14 @@ function remove_listedturf() {
 	removePermanentTab(turfname);
 	checkStatusTab();
 	if (current_tab == turfname) {
-		tab_change("Status");
+		tab_change("Статус");
 	}
 }
 
 function remove_mc() {
 	removePermanentTab("MC");
 	if (current_tab == "MC") {
-		tab_change("Status");
+		tab_change("Статус");
 	}
 };
 
@@ -604,7 +604,7 @@ function draw_interviews() {
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
 		var a = document.createElement("a");
-		a.textContent = part["status"];
+		a.textContent = part["Статус"];
 		a.href = "?_src_=holder;admin_token=" + href_token + ";interview=" + part["ref"] + ";statpanel_item_click=left";
 		td.appendChild(a);
 		tr.appendChild(td);
@@ -654,7 +654,7 @@ function draw_verbs(cat) {
 	sortVerbs();
 	if (split_admin_tabs && cat.lastIndexOf(".") != -1) {
 		var splitName = cat.split(".");
-		if (splitName[0] === "Admin")
+		if (splitName[0] === "Администрирование")
 			cat = splitName[1];
 	}
 	verbs.reverse(); // sort verbs backwards before we draw
@@ -663,7 +663,7 @@ function draw_verbs(cat) {
 		var name = part[0];
 		if (split_admin_tabs && name.lastIndexOf(".") != -1) {
 			var splitName = name.split(".");
-			if (splitName[0] === "Admin")
+			if (splitName[0] === "Администрирование")
 				name = splitName[1];
 		}
 		var command = part[1];
@@ -760,7 +760,7 @@ function add_verb_list(payload) {
 		var category = part[0];
 		if (category.indexOf(".") != -1) {
 			var splitName = category.split(".");
-			if (split_admin_tabs && splitName[0] === "Admin")
+			if (split_admin_tabs && splitName[0] === "Администрирование")
 				category = splitName[1];
 			else
 				category = splitName[0];
@@ -795,8 +795,8 @@ document.addEventListener("mouseup", restoreFocus);
 document.addEventListener("keyup", restoreFocus);
 
 if (!current_tab) {
-	addPermanentTab("Status");
-	tab_change("Status");
+	addPermanentTab("Статус");
+	tab_change("Статус");
 }
 
 window.onload = function () {
@@ -867,7 +867,7 @@ Byond.subscribeTo('update_stat', function (payload) {
 
 	for (var i = 0; i < parsed.length; i++) if (parsed[i] != null) status_tab_parts.push(parsed[i]);
 
-	if (current_tab == "Status") {
+	if (current_tab == "Статус") {
 		draw_status();
 	} else if (current_tab == "Debug Stat Panel") {
 		draw_debug();
@@ -944,7 +944,7 @@ Byond.subscribeTo('update_listedturf', function (TC) {
 
 Byond.subscribeTo('update_interviews', function (I) {
 	interviewManager = I;
-	if (current_tab == "Tickets") {
+	if (current_tab == "Тикеты") {
 		draw_interviews();
 	}
 });
@@ -955,7 +955,7 @@ Byond.subscribeTo('update_split_admin_tabs', function (status) {
 	if (split_admin_tabs !== status) {
 		if (split_admin_tabs === true) {
 			removeStatusTab("Events");
-			removeStatusTab("Fun");
+			removeStatusTab("АдминАбьюз");
 			removeStatusTab("Game");
 		}
 		update_verbs();
@@ -965,7 +965,7 @@ Byond.subscribeTo('update_split_admin_tabs', function (status) {
 
 Byond.subscribeTo('add_admin_tabs', function (ht) {
 	href_token = ht;
-	addPermanentTab("Tickets");
+	addPermanentTab("Тикеты");
 });
 
 Byond.subscribeTo('add_mc_tab', function () {
@@ -985,11 +985,11 @@ Byond.subscribeTo('update_sdql2', function (S) {
 
 Byond.subscribeTo('update_tickets', function (T) {
 	tickets = T;
-	if (!verb_tabs.includes("Tickets")) {
-		verb_tabs.push("Tickets");
-		addPermanentTab("Tickets");
+	if (!verb_tabs.includes("Тикеты")) {
+		verb_tabs.push("Тикеты");
+		addPermanentTab("Тикеты");
 	}
-	if (current_tab == "Tickets") {
+	if (current_tab == "Тикеты") {
 		draw_tickets();
 	}
 });

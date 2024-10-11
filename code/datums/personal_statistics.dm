@@ -118,65 +118,64 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 ///Assemble a list of statistics associated with the ckey this datum belongs to
 /datum/personal_statistics/proc/compose_report()
 	var/list/stats = list()
-	stats += "<br><hr><u>Your personal round statistics:</u><br>"
+	stats += "<br><hr><u>Персональная статистика:</u><br>"
 	//Combat
 	if(projectiles_fired)
-		stats += "Fired [projectiles_fired] projectile\s."
-		stats += "[projectiles_hit] projectile\s hit their target\s."
-		stats += projectiles_hit ? "Your accuracy score is [PERCENT(projectiles_hit / projectiles_fired)]%!" : "You missed every shot!"
-		stats += projectile_damage ? "[projectile_damage] projectile damage dealt!" : "You dealt no projectile damage."
+		stats += "Выстрелов сделано: [projectiles_fired], из которых: [projectiles_hit] попали в цель."
+		stats += projectiles_hit ? "Твоя точность составила [PERCENT(projectiles_hit / projectiles_fired)]%!" : "Из-за своей рукожопости ты не сделал ни одного попадания!"
+		stats += projectile_damage ? "Твои выстрелы нанесли [projectile_damage] урона!" : "Ты не наносил урон выстрелами."
 		stats += ""
 	if(melee_hits)
-		stats += "Landed [melee_hits] melee attack\s."
-		stats += melee_damage ? "[melee_damage] melee damage dealt!" : "You dealt no melee damage."
+		stats += "Ударов сделано: [melee_hits]."
+		stats += melee_damage ? "Твои удары нанесли [melee_damage] урона!" : "ты не наносил урон своими атаками."
 		stats += ""
-	stats += friendly_fire_damage ? "You caused [friendly_fire_damage] damage to allies...<br>" : "You avoided committing acts of friendly fire!<br>"
+	stats += friendly_fire_damage ? "Ты нанес [friendly_fire_damage] урона союзникам...<br>" : "Тебе удалось избежать ведения дружественного огня!<br>"
 
 	if(projectiles_caught)
-		stats += "[projectiles_caught] projectile\s caught by psychic shield."
-		stats += "[projectiles_reflected] projectile\s [projectiles_reflected != 1 ? "were" : "was"] reflected."
+		stats += "[projectiles_caught] выстрелов было поймано пси-щитом."
+		stats += "[projectiles_reflected] выстрелов было отражено."
 		if(rockets_reflected)
-			stats += "[rockets_reflected] rocket\s [rockets_reflected != 1 ? "were" : "was"] reflected!"
+			stats += "[rockets_reflected] ракет были отражены!"
 		stats += ""
 
 	if(grenades_primed)
-		stats += "[grenades_primed] grenade\s thrown."
+		stats += "Ты бросил [grenades_primed] [grenades_primed != 1 ? "гранат" : "гранату"]."
 	if(traps_created)
-		stats += "[traps_created] trap\s/mine\s/hazard\s placed."
+		stats += "[traps_created] [traps_created != 1 ? "ловушек было установлено" : "ловушка была установлена"]."
 	if(grenades_primed || traps_created)
 		stats += ""
 
-	stats += "Lost [limbs_lost] limb[limbs_lost != 1 ? "s" : ""]."
+	stats += "Ты потерял [limbs_lost] [limbs_lost != 1 ? "конечностей" : "конечность"]."
 	if(delimbs)
-		stats += "You severed [delimbs] limb\s!"
-	stats += internal_injuries ? "You suffered [internal_injuries] internal injur[internal_injuries != 1 ? "ies" : "y"]." : "You avoided any internal injuries."
+		stats += "Ты оторвал [delimbs] [delimbs != 1 ? "конечностей" : "конечность"]!"
+	stats += internal_injuries ? "Ты получил [internal_injuries] [internal_injuries != 1 ? "внутренних травм" : "внутреннюю травму"]." : "Ты не получил ни одной внутренней травмы."
 	if(internal_injuries_inflicted)
-		stats += "Inflicted [internal_injuries_inflicted] internal injur[internal_injuries_inflicted > 1 ? "ies" : "y"] on [internal_injuries_inflicted > 1 ? "others" : "somebody"]."
+		stats += "Ты причинил [internal_injuries_inflicted > 1 ? "другим" : "кому-то"] [internal_injuries_inflicted] [internal_injuries_inflicted > 1 ? "внутренних травм" : "внутреннюю травму"]."
 
 	//Medical
 	stats += "<hr>"
 	if(self_heals)
-		stats += "You healed yourself [self_heals] time\s."
+		stats += "Ты лечил свои травмы [self_heals] раз."
 	if(heals)
-		stats += "Healed others [heals] time\s."
+		stats += "Ты лечил травмы союзников [heals] раз."
 	if(surgical_actions_performed)
-		stats += "Performed [surgical_actions_performed] surgical operation\s."
+		stats += "Ты выполнил [surgical_actions_performed] [surgical_actions_performed != 1 ? "операций" : "операцию"]."
 	if(revives)
-		stats += "Performed [revives] revive\s."
+		stats += "Ты реанимировал [revives] [revives != 1 ? "союзников" : "союзника"]."
 	if(times_revived)
-		stats += "You were revived [times_revived] time\s."
-	stats += deaths ? "You died [deaths] time\s." : "You survived the whole round."
+		stats += "Ты был реанимирован [times_revived] раз."
+	stats += deaths ? "Ты умер [deaths] раз." : "Ты выжил на протяжении всего раунда."
 
 	//Downtime
 	var/list/downtime_stats = list()
 	if(time_resting)
-		downtime_stats += "You were lying down for [DisplayTimeText(time_resting)]."
+		downtime_stats += "Ты отдыхал [DisplayTimeText(time_resting)]."
 	if(time_unconscious)
-		downtime_stats += "Slept for [DisplayTimeText(time_unconscious)]."
+		downtime_stats += "Ты провел без сознания [DisplayTimeText(time_unconscious)]."
 	if(time_in_stasis)
-		downtime_stats += "Spent [DisplayTimeText(time_in_stasis)] in stasis."
+		downtime_stats += "Ты провел в стазисе [DisplayTimeText(time_in_stasis)]."
 	if(time_in_cryo)
-		downtime_stats += "Spent [DisplayTimeText(time_in_cryo)] in cryo."
+		downtime_stats += "Ты провел в криокамере [DisplayTimeText(time_in_cryo)]."
 
 	if(LAZYLEN(downtime_stats))
 		stats += "<hr>"
@@ -185,43 +184,43 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	//Support & logistics
 	var/list/support_stats = list()
 	if(weeds_planted)
-		support_stats += "Planted [weeds_planted] weed node\s."
+		support_stats += "Посажено [weeds_planted] наростов."
 	if(structures_built)
-		support_stats += "Built [structures_built] structure\s."
+		support_stats += "[structures_built != 1 ? "Построено [structures_built] структур" : "[structures_built] структура"]."
 	if(times_repaired)
-		support_stats += "Performed [times_repaired] repair\s."
+		support_stats += "[times_repaired != 1 ? "Произведено [times_repaired] ремонтов" : " Произведен [times_repaired] ремонт"]."
 	if(integrity_repaired)
-		support_stats += "Repaired [integrity_repaired] point\s of integrity."
+		support_stats += "Вы восстановили [integrity_repaired] очков прочности структур."
 	if(generator_repairs_performed)
-		support_stats += "Performed [generator_repairs_performed] generator repair\s."
+		support_stats += "[generator_repairs_performed != 1 ? "Вы отремонтировали [generator_repairs_performed] генераторов" : "Вы отремонтировали [generator_repairs_performed] генератор"]."
 	if(miner_repairs_performed)
-		support_stats += "Performed [miner_repairs_performed] miner repair\s."
+		support_stats += "Буры были отремонтированы [miner_repairs_performed] раз."
 	if(apcs_repaired)
-		support_stats += "Repaired [apcs_repaired] APC\s."
+		support_stats += "Вы отремонтировали БРП [apcs_repaired] раз."
 
 	if(generator_sabotages_performed)
-		support_stats += "Sabotaged [generator_sabotages_performed] generator\s."
+		support_stats += "Вы произвели  [generator_sabotages_performed != 1 ? "[generator_sabotages_performed] саботажей генераторов" : "[generator_sabotages_performed] саботаж генераторов"]."
 	if(miner_sabotages_performed)
-		support_stats += "Sabotaged [miner_sabotages_performed] miner\s."
+		support_stats += "Вы произвели  [miner_sabotages_performed != 1 ? "[miner_sabotages_performed] саботажей генераторов" : "[miner_sabotages_performed] саботаж генераторов"]."
 	if(apcs_slashed)
-		support_stats += "Slashed [apcs_slashed] APC\s."
+		support_stats += "Вы вывели из строя [apcs_slashed] БРП."
 
 	if(artillery_fired)
-		support_stats += "Fired [artillery_fired] artillery shell\s."
+		support_stats += "Вы выстрелили из артиллерии [artillery_fired] раз."
 
 	if(req_points_used)
-		support_stats += "Used [req_points_used] requisition point\s."
+		support_stats += "Вы потратили [req_points_used] очков карго."
 
 	if(drained)
-		support_stats += "Drained [drained] host\s."
+		support_stats += "Вы истощили силы морпехов [drained] раз."
 	if(cocooned)
-		support_stats += "Cocooned [cocooned] host\s."
+		support_stats += "Вы завернули в кокон [cocooned] морпехов."
 	if(recycle_points_denied)
-		support_stats += "Recycled [recycle_points_denied] sister\s to continue serving the hive even in death."
+		support_stats += "Вы утилизировали [recycle_points_denied] сестер. Помогать улью можно и после смерти."
 	if(huggers_created)
-		support_stats += "Gave birth to [huggers_created] hugger\s."
+		support_stats += "Вы выносили [huggers_created] лицехватов."
 	if(impregnations)
-		support_stats += "Impregnated [impregnations] host\s."
+		support_stats += "Вы заразили морпехов [impregnations] раз."
 
 	if(LAZYLEN(support_stats))
 		stats += "<hr>"
@@ -230,15 +229,15 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	//Close air support
 	var/list/cas_stats = list()
 	if(cas_cannon_shots)
-		cas_stats += "Shot [cas_cannon_shots] GAU-21 cannon voll[cas_cannon_shots > 1 ? "ies" : "ey"]."
+		cas_stats += "Вы сделали [cas_cannon_shots] заходов на GAU-21."
 	if(cas_laser_shots)
-		cas_stats += "You scorched the battlefield with [cas_laser_shots] high-power laser beam\s."
+		cas_stats += "Вы выжгли поле боя высокомощным лазером [cas_laser_shots] раз."
 	if(cas_minirockets_fired)
-		cas_stats += "Launched [cas_minirockets_fired] air-to-surface mini-rocket\s."
+		cas_stats += "Вы запустили [cas_minirockets_fired] неуправляемых ракет воздух-земля."
 	if(cas_rockets_fired)
-		cas_stats += "Launched [cas_rockets_fired] air-to-surface laser-guide rocket\s."
+		cas_stats += "Вы запустили [cas_rockets_fired] управляемых ракет класса воздух-земля."
 	if(cas_points_used)
-		cas_stats += "Used [cas_points_used] dropship fabricator point\s."
+		cas_stats += "Вы израсходовали [cas_points_used] поинтов фабрикатора."
 
 	if(LAZYLEN(cas_stats))
 		stats += "<hr>"
@@ -247,15 +246,15 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	//The funnies
 	var/list/misc_stats = list()
 	if(LAZYLEN(chemicals_ingested))
-		misc_stats += "Most consumed reagent: [get_most_ingested_chemical()]"
+		misc_stats += "Больше всего вы приняли: [get_most_ingested_chemical()]"
 	if(weights_lifted)
-		misc_stats += "You lifted [weights_lifted] weight\s[weights_lifted > 100 ? ". Sick gains!" : "."]"
+		misc_stats += "Вы сделали [weights_lifted != 1 ? "[weights_lifted] подходов на штанге лежа" : "[weights_lifted] подход на штанге лежа"]  [weights_lifted > 100 ? ". чел, харош!" : "."]"
 	if(sippies)
-		misc_stats += "You put your mouth on the communal drinking fountain [sippies] time\s."
+		misc_stats += "Вы попили из фонтанчика [sippies] раз."
 	if(war_crimes)
-		misc_stats += "You have committed [war_crimes] war crime\s."
+		misc_stats += "Вы совершили [war_crimes >= 10 ? "[war_crimes] военных преступлений, большой шлепа одобряет!" : "[war_crimes] военных преступлений."]"
 	if(tactical_unalives)
-		misc_stats += "You strategically ended your life [tactical_unalives] time\s."
+		misc_stats += "Вы СТРАТЕГИЧЕСКИ покончили с собой [tactical_unalives] раз."
 
 	if(LAZYLEN(misc_stats))
 		stats += "<hr>"

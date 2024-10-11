@@ -1,5 +1,5 @@
 /datum/admins/proc/pref_ff_attack_logs()
-	set category = "Preferences.Chat"
+	set category = "Настройки.Чат"
 	set name = "Toggle FF Attack Log Messages"
 
 	if(!check_rights(R_ADMIN))
@@ -16,7 +16,7 @@
 
 
 /datum/admins/proc/pref_end_attack_logs()
-	set category = "Preferences.Chat"
+	set category = "Настройки.Чат"
 	set name = "Toggle End-Of-Round Attack Log Messages"
 
 	if(!check_rights(R_ADMIN))
@@ -34,7 +34,7 @@
 
 /datum/admins/proc/pref_debug_logs()
 	set name = "Toggle Debug Log Messages"
-	set category = "Preferences.Chat"
+	set category = "Настройки.Чат"
 
 	if(!check_rights(R_ADMIN))
 		return
@@ -50,7 +50,7 @@
 
 
 /datum/admins/proc/set_ooc_color_self()
-	set category = "Preferences"
+	set category = "Настройки"
 	set name = "OOC Text Color"
 
 	if(!check_rights(R_COLOR))
@@ -66,7 +66,7 @@
 
 
 /datum/admins/proc/toggle_prayers()
-	set category = "Preferences.Chat"
+	set category = "Настройки.Чат"
 	set name = "Toggle Prayers"
 
 	usr.client.prefs.toggles_chat ^= CHAT_PRAYER
@@ -76,7 +76,7 @@
 
 
 /datum/admins/proc/toggle_adminhelp_sound()
-	set category = "Preferences.Sound"
+	set category = "Настройки.Звуки"
 	set name = "Toggle Adminhelp Sound"
 
 	usr.client.prefs.toggles_sound ^= SOUND_ADMINHELP

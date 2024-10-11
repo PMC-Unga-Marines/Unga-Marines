@@ -76,16 +76,16 @@
 		return
 
 	if(SSticker.current_state == GAME_STATE_PREGAME)
-		. += "Time To Start: [SSticker.time_left > 0 ? SSticker.GetTimeLeft() : "(DELAYED)"]"
-		. += "Players: [length(GLOB.player_list)]"
-		. += "Players Ready: [length(GLOB.ready_players)]"
+		. += "До старта осталось: [SSticker.time_left > 0 ? SSticker.GetTimeLeft() : "(Старт отложен)"]"
+		. += "Всего игроков: [length(GLOB.player_list)]"
+		. += "Игроков готово: [length(GLOB.ready_players)]"
 		for(var/i in GLOB.player_list)
 			if(isnewplayer(i))
 				var/mob/new_player/N = i
-				. += "[N.client?.holder?.fakekey ? N.client.holder.fakekey : N.key][N.ready ? " Playing" : ""]"
+				. += "[N.client?.holder?.fakekey ? N.client.holder.fakekey : N.key][N.ready ? " Готов" : ""]"
 			else if(isobserver(i))
 				var/mob/dead/observer/O = i
-				. += "[O.client?.holder?.fakekey ? O.client.holder.fakekey : O.key] Observing"
+				. += "[O.client?.holder?.fakekey ? O.client.holder.fakekey : O.key] Наблюдатель"
 
 
 /mob/new_player/Topic(href, href_list[])

@@ -1,5 +1,5 @@
 /datum/admins/proc/mode_panel()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Mode Panel"
 
 	if(!check_rights(R_ADMIN))

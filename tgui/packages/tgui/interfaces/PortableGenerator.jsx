@@ -20,7 +20,7 @@ export const PortableGenerator = (props) => {
     <Window width={450} height={340}>
       <Window.Content scrollable>
         {!data.anchored && <NoticeBox>Generator not anchored.</NoticeBox>}
-        <Section title="Status">
+        <Section title="Статус">
           <LabeledList>
             <LabeledList.Item label="Power switch">
               <Button

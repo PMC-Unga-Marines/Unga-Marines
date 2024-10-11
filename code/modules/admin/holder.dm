@@ -124,7 +124,7 @@
 
 /client/proc/readmin()
 	set name = "Re-Admin"
-	set category = "Admin"
+	set category = "Администрирование"
 	set desc = "Regain your admin powers."
 
 	var/datum/admins/A = GLOB.deadmins[ckey]
@@ -147,7 +147,7 @@
 
 /client/proc/deadmin()
 	set name = "De-Admin"
-	set category = "Admin"
+	set category = "Администрирование"
 	set desc = "Temporarily remove your admin powers."
 
 	if(!holder)

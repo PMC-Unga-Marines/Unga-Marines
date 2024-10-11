@@ -222,34 +222,34 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 ///End of round messaging
 /datum/game_mode/proc/end_round_fluff()
-	to_chat(world, span_round_body("Thus ends the story of the brave men and women of the [SSmapping.configs[SHIP_MAP].map_name] and their struggle on [SSmapping.configs[GROUND_MAP].map_name]."))
+	to_chat(world, span_round_body("И так заканчивается история о бравых братьях и сестрах, с корабля [SSmapping.configs[SHIP_MAP].map_name] и их нескончаемой борьбы на [SSmapping.configs[GROUND_MAP].map_name]."))
 
 /datum/game_mode/proc/display_roundstart_logout_report()
-	var/msg = "<hr>[span_notice("<b>Roundstart logout report</b>")]<br>"
+	var/msg = "<hr>[span_notice("<b>Список отключившихся на старте игроков</b>")]<br>"
 	for(var/mob/living/L in GLOB.mob_living_list)
 		if(L.ckey && L.client)
 			continue
 
 		else if(L.ckey)
-			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Disconnected</b>)<br>"
+			msg += "<b>[ADMIN_TPMONTY(L)]</b> [L.job.title] (<b>Вышел из игры</b>)<br>"
 
 		else if(L.client)
 			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME * 0.5))
-				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Connected, Inactive</b>)<br>"
+				msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Подключен, АФК</b>)<br>"
 			else if(L.stat)
 				if(L.stat == UNCONSCIOUS)
-					msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dying)<br>"
+					msg += "<b>[ADMIN_TPMONTY(L)]</b> [L.job.title] (При смерти)<br>"
 				else if(L.stat == DEAD)
-					msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dead)<br>"
+					msg += "<b>[ADMIN_TPMONTY(L)]</b> [L.job.title] (Мертв)<br>"
 
 	for(var/mob/dead/observer/D in GLOB.dead_mob_list)
 		if(!isliving(D.mind?.current))
 			continue
 		var/mob/living/L = D.mind.current
 		if(L.stat == DEAD)
-			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (Dead)<br>"
+			msg += "<b>[ADMIN_TPMONTY(L)]</b> [L.job.title] (Мертв)<br>"
 		else if(!D.can_reenter_corpse)
-			msg += "<b>[ADMIN_TPMONTY(L)]</b> the [L.job.title] (<b>Ghosted</b>)<br>"
+			msg += "<b>[ADMIN_TPMONTY(L)]</b> [L.job.title] (<b>Покинул бренное тело</b>)<br>"
 
 
 	msg += "<hr>"
@@ -315,7 +315,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		if(!(M.client?.prefs?.be_special & BE_DEATHMATCH))
 			continue
 		if(!M.mind) //This proc is too important to prevent one admin shenanigan from runtiming it entirely
-			to_chat(M, "<br><br><h1>[span_danger("You don't have a mind, if you believe this is not intended, please report it.")]</h1><br><br>")
+			to_chat(M, "<br><br><h1>[span_danger("У вас нет разума, если вы уверены что это ошибка - пожалуйста, напишите об этом репорт.")]</h1><br><br>")
 			continue
 
 		var/turf/picked
@@ -346,7 +346,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			do_eord_respawn(H)
 
 		M.on_eord(picked)
-		to_chat(M, "<br><br><h1>[span_danger("Fight for your life!")]</h1><br><br>")
+		to_chat(M, "<br><br><h1>[span_danger("Давай, сражайся, докажи другим людям какой ты у нас крутой!")]</h1><br><br>")
 		CHECK_TICK
 
 	for(var/obj/effect/landmark/eord_roomba/landmark in GLOB.eord_roomba_spawns)
@@ -375,7 +375,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/recipient in GLOB.medal_awards)
 		var/datum/recipient_awards/RA = GLOB.medal_awards[recipient]
 		for(var/i in 1 to length(RA.medal_names))
-			parts += "<br><b>[RA.recipient_rank] [recipient]</b> is awarded [RA.posthumous[i] ? "posthumously " : ""]the [span_boldnotice("[RA.medal_names[i]]")]: \'<i>[RA.medal_citations[i]]</i>\'."
+			parts += "<br><b>[RA.recipient_rank] [recipient]</b> награжден [RA.posthumous[i] ? "посмертно " : ""] [span_boldnotice("[RA.medal_names[i]]")]: \'<i>[RA.medal_citations[i]]</i>\'."
 
 	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
@@ -385,115 +385,115 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 
 
 /datum/game_mode/proc/announce_round_stats()
-	var/list/parts = list({"[span_round_body("The end of round statistics are:")]<br>
-		<br>There were [GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV]] total projectiles fired.
-		<br>[GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] : "No"] projectiles managed to hit marines. For a [(GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV], 1)) * 100]% friendly fire rate!"})
+	var/list/parts = list({"[span_round_body("Статистика раунда:")]<br>
+		<br>Выстрелов сделано: [GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV]].
+		<br>[GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] ? "[GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV]] выстрелов попало по морпехам." : "Ни одного выстрела не попало в морпеха!"] Процент дружественного огня составил [(GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV], 1)) * 100]%."})
 	if(GLOB.round_statistics.total_projectile_hits[FACTION_XENO])
-		parts += "[GLOB.round_statistics.total_projectile_hits[FACTION_XENO]] projectiles managed to hit xenomorphs. For a [(GLOB.round_statistics.total_projectile_hits[FACTION_XENO] / max(GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV], 1)) * 100]% accuracy total!"
+		parts += "[GLOB.round_statistics.total_projectile_hits[FACTION_XENO]] выстрелов попало по ксеноморфам. Точность стрельбы составила [(GLOB.round_statistics.total_projectile_hits[FACTION_XENO] / max(GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV], 1)) * 100]%!"
 	if(GLOB.round_statistics.grenades_thrown)
-		parts += "[GLOB.round_statistics.grenades_thrown] total grenades exploding."
+		parts += "[GLOB.round_statistics.grenades_thrown] гранат взорвалось."
 	else
-		parts += "No grenades exploded."
+		parts += "Не было взорвано ни одной гранаты."
 	if(GLOB.round_statistics.mortar_shells_fired)
-		parts += "[GLOB.round_statistics.mortar_shells_fired] mortar shells were fired."
+		parts += "[GLOB.round_statistics.mortar_shells_fired] выстрелов было совершено из мортир."
 	if(GLOB.round_statistics.howitzer_shells_fired)
-		parts += "[GLOB.round_statistics.howitzer_shells_fired] howitzer shells were fired."
+		parts += "[GLOB.round_statistics.howitzer_shells_fired] выстрелов было совершено из гаубиц."
 	if(GLOB.round_statistics.rocket_shells_fired)
-		parts += "[GLOB.round_statistics.rocket_shells_fired] rocket artillery shells were fired."
+		parts += "[GLOB.round_statistics.rocket_shells_fired] выстрелов было совершено из ракетной артиллерии."
 	if(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV])
-		parts += "[GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]] people were killed, among which [GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV]] were revived and [GLOB.round_statistics.total_human_respawns] respawned. For a [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% revival rate and a [(GLOB.round_statistics.total_human_respawns / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% respawn rate."
+		parts += "[GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]] человек были убиты, из которых [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV])] были реанимированы и [GLOB.round_statistics.total_human_respawns] зареспавнились. Со счетом [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% возрождений, и [(GLOB.round_statistics.total_human_respawns / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% респавнов."
 	if(SSevacuation.human_escaped)
-		parts += "[SSevacuation.human_escaped] marines manage to evacuate, among [SSevacuation.initial_human_on_ship] that were on ship when xenomorphs arrived."
+		parts += "[SSevacuation.human_escaped] морпехам из [SSevacuation.initial_human_on_ship] удалось эвакуироваться, после вторжения ксеноморфов на корабль."
 	if(GLOB.round_statistics.now_pregnant)
-		parts += "[GLOB.round_statistics.now_pregnant] people infected among which [GLOB.round_statistics.total_larva_burst] burst. For a [(GLOB.round_statistics.total_larva_burst / max(GLOB.round_statistics.now_pregnant, 1)) * 100]% successful delivery rate!"
+		parts += "[GLOB.round_statistics.now_pregnant] людей было заражено, из которых [GLOB.round_statistics.total_larva_burst] родило на свет грудолома. Рождаемость составила [(GLOB.round_statistics.total_larva_burst / max(GLOB.round_statistics.now_pregnant, 1)) * 100]%!"
 	if(length(GLOB.round_statistics.workout_counts))
 		for(var/faction in GLOB.round_statistics.workout_counts)
-			parts += "The [faction] faction did [GLOB.round_statistics.workout_counts[faction]] workout sets."
+			parts += "[faction] сделали [GLOB.round_statistics.workout_counts[faction]] подходов на штанге лежа."
 	if(GLOB.round_statistics.queen_screech)
-		parts += "[GLOB.round_statistics.queen_screech] Queen screeches."
+		parts += "Королева издала [GLOB.round_statistics.queen_screech] криков."
 	if(GLOB.round_statistics.warrior_lunges)
-		parts += "[GLOB.round_statistics.warrior_lunges] Warriors lunges."
+		parts += "[GLOB.round_statistics.warrior_lunges] раз(а) воины сделали бросок."
 	if(GLOB.round_statistics.crusher_stomp_victims)
-		parts += "[GLOB.round_statistics.crusher_stomp_victims] people stomped by crushers."
+		parts += "[GLOB.round_statistics.crusher_stomp_victims] человек растоптали крашеры."
 	if(GLOB.round_statistics.praetorian_spray_direct_hits)
-		parts += "[GLOB.round_statistics.praetorian_spray_direct_hits] people hit directly by Praetorian acid spray."
+		parts += "Струи кислоты преторианца попали по [GLOB.round_statistics.praetorian_spray_direct_hits] морпехам."
 	if(GLOB.round_statistics.weeds_planted)
-		parts += "[GLOB.round_statistics.weeds_planted] weed nodes planted."
+		parts += "[GLOB.round_statistics.weeds_planted] наростов ксеноморфов было посажено."
 	if(GLOB.round_statistics.weeds_destroyed)
-		parts += "[GLOB.round_statistics.weeds_destroyed] weed tiles removed."
+		parts += "[GLOB.round_statistics.weeds_destroyed] порослей ксеноморфов было уничтожено."
 	if(GLOB.round_statistics.trap_holes)
-		parts += "[GLOB.round_statistics.trap_holes] holes for acid and huggers were made."
+		parts += "[GLOB.round_statistics.trap_holes] отверстий для кислоты и лицехватов было вырыто."
 	if(GLOB.round_statistics.sentinel_drain_stings)
-		parts += "[GLOB.round_statistics.sentinel_drain_stings] number of times sentinel drain sting was used."
+		parts += "[GLOB.round_statistics.sentinel_drain_stings] раз(а) сентинель ужалил морпехов истощающим жалом."
 	if(GLOB.round_statistics.sentinel_neurotoxin_stings)
-		parts += "[GLOB.round_statistics.sentinel_neurotoxin_stings] number of times neurotoxin sting was used."
+		parts += "[GLOB.round_statistics.sentinel_neurotoxin_stings] раз(а) морпехов ужалили нейротоксином."
 	if(GLOB.round_statistics.ozelomelyn_stings)
-		parts += "[GLOB.round_statistics.ozelomelyn_stings] number of times ozelomelyn sting was used."
+		parts += "[GLOB.round_statistics.ozelomelyn_stings] раз(а) морпехов ужалили оцеломелином."
 	if(GLOB.round_statistics.transvitox_stings)
-		parts += "[GLOB.round_statistics.transvitox_stings] number of times transvitox sting was used."
+		parts += "[GLOB.round_statistics.transvitox_stings] раз(а) морпехов ужалили трансвитоксином."
 	if(GLOB.round_statistics.defiler_defiler_stings)
-		parts += "[GLOB.round_statistics.defiler_defiler_stings] number of times Defilers stung."
+		parts += "[GLOB.round_statistics.defiler_defiler_stings] раз(а) Дефайлер ужалил морпехов."
 	if(GLOB.round_statistics.defiler_neurogas_uses)
-		parts += "[GLOB.round_statistics.defiler_neurogas_uses] number of times Defilers vented neurogas."
+		parts += "[GLOB.round_statistics.defiler_neurogas_uses] раз(а) Дефайлер источал токсичный газ."
 	if(GLOB.round_statistics.defiler_reagent_slashes)
-		parts += "[GLOB.round_statistics.defiler_reagent_slashes] number of times Defilers struck an enemy with their reagent slash."
+		parts += "[GLOB.round_statistics.defiler_reagent_slashes] раз(а) Дефайлер исполосовал морпехов токсичным ударом."
 	if(GLOB.round_statistics.xeno_unarmed_attacks && GLOB.round_statistics.xeno_bump_attacks)
-		parts += "[GLOB.round_statistics.xeno_bump_attacks] bump attacks, which made up [(GLOB.round_statistics.xeno_bump_attacks / GLOB.round_statistics.xeno_unarmed_attacks) * 100]% of all attacks ([GLOB.round_statistics.xeno_unarmed_attacks])."
+		parts += "Ксеноморфы сделали [GLOB.round_statistics.xeno_bump_attacks] ударов через столкновение, что составило [(GLOB.round_statistics.xeno_bump_attacks / GLOB.round_statistics.xeno_unarmed_attacks) * 100]% от всех ударов ([GLOB.round_statistics.xeno_unarmed_attacks])."
 	if(GLOB.round_statistics.xeno_rally_hive)
-		parts += "[GLOB.round_statistics.xeno_rally_hive] number of times xeno leaders rallied the hive."
+		parts += "[GLOB.round_statistics.xeno_rally_hive] раз(а) лидеры ксеноморфов вели улей в атаку."
 	if(GLOB.round_statistics.hivelord_healing_infusions)
-		parts += "[GLOB.round_statistics.hivelord_healing_infusions] number of times Hivelords used Healing Infusion."
+		parts += "[GLOB.round_statistics.hivelord_healing_infusions] раз(а) Хайвлорды использовали лечащее касание."
 	if(GLOB.round_statistics.spitter_acid_sprays)
-		parts += "[GLOB.round_statistics.spitter_acid_sprays] number of times Spitters spewed an Acid Spray."
+		parts += "[GLOB.round_statistics.spitter_acid_sprays] раз(а) Спиттеры выплеснули поток кислоты."
 	if(GLOB.round_statistics.spitter_scatter_spits)
-		parts += "[GLOB.round_statistics.spitter_scatter_spits] number of times Spitters horked up scatter spits."
+		parts += "[GLOB.round_statistics.spitter_scatter_spits] раз(а) Спиттеры плюнули рассеянным плевком."
 	if(GLOB.round_statistics.ravager_endures)
-		parts += "[GLOB.round_statistics.ravager_endures] number of times Ravagers used Endure."
+		parts += "[GLOB.round_statistics.ravager_endures] раз(а) Равагеры стерпели."
 	if(GLOB.round_statistics.bull_crush_hit)
-		parts += "[GLOB.round_statistics.bull_crush_hit] number of times Bulls crushed marines."
+		parts += "[GLOB.round_statistics.bull_crush_hit] раз(а) Быки протаранили морпехов."
 	if(GLOB.round_statistics.bull_gore_hit)
-		parts += "[GLOB.round_statistics.bull_gore_hit] number of times Bulls gored marines."
+		parts += "[GLOB.round_statistics.bull_gore_hit] раз(а) Быки разрывали морпехов."
 	if(GLOB.round_statistics.bull_headbutt_hit)
-		parts += "[GLOB.round_statistics.bull_headbutt_hit] number of times Bulls headbutted marines."
+		parts += "[GLOB.round_statistics.bull_headbutt_hit] раз(а) Быки насаживали морпехов на рога."
 	if(GLOB.round_statistics.hunter_marks)
-		parts += "[GLOB.round_statistics.hunter_marks] number of times Hunters marked a target for death."
+		parts += "[GLOB.round_statistics.hunter_marks] раз(а) хантеры помечали цель меткой смерти."
 	if(GLOB.round_statistics.ravager_rages)
-		parts += "[GLOB.round_statistics.ravager_rages] number of times Ravagers raged."
+		parts += "[GLOB.round_statistics.ravager_rages] раз(а) Равагеры впадали в ярость."
 	if(GLOB.round_statistics.hunter_silence_targets)
-		parts += "[GLOB.round_statistics.hunter_silence_targets] number of targets silenced by Hunters."
+		parts += "Хантеры заглушили [GLOB.round_statistics.hunter_silence_targets] морпехов."
 	if(GLOB.round_statistics.larva_from_psydrain)
-		parts += "[GLOB.round_statistics.larva_from_psydrain] larvas came from psydrain."
+		parts += "[GLOB.round_statistics.larva_from_psydrain] грудоломов появилось благодаря Пси-сифону."
 	if(GLOB.round_statistics.larva_from_silo)
-		parts += "[GLOB.round_statistics.larva_from_silo] larvas came from silos."
+		parts += "[GLOB.round_statistics.larva_from_silo] грудоломов появилось из Сило."
 	if(GLOB.round_statistics.larva_from_xeno_core)
-		parts += "[GLOB.round_statistics.larva_from_xeno_core] larvas came from infestation towers."
+		parts += "[GLOB.round_statistics.larva_from_xeno_core] грудоломов появилось из башен заражения."
 	if(GLOB.round_statistics.larva_from_cocoon)
-		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
+		parts += "[GLOB.round_statistics.larva_from_cocoon] грудоломов появилось из кокона."
 	if(GLOB.round_statistics.larva_from_marine_spawning)
-		parts += "[GLOB.round_statistics.larva_from_marine_spawning] larvas came from marine spawning."
+		parts += "[GLOB.round_statistics.larva_from_marine_spawning] грудоломов появилось относительно количества морпехов."
 	if(GLOB.round_statistics.larva_from_siloing_body)
-		parts += "[GLOB.round_statistics.larva_from_siloing_body] larvas came from siloing bodies."
+		parts += "[GLOB.round_statistics.larva_from_siloing_body] грудоломов появилось благодаря доставке тел к Сило."
 	if(GLOB.round_statistics.psy_crushes)
-		parts += "[GLOB.round_statistics.psy_crushes] number of times Warlocks used Psychic Crush."
+		parts += "[GLOB.round_statistics.psy_crushes] раз(а) Варлок использовал пси-сокрушение."
 	if(GLOB.round_statistics.psy_blasts)
-		parts += "[GLOB.round_statistics.psy_blasts] number of times Warlocks used Psychic Blast."
+		parts += "[GLOB.round_statistics.psy_blasts] раз(а) Варлок использовал пси-взрыв."
 	if(GLOB.round_statistics.psy_lances)
-		parts += "[GLOB.round_statistics.psy_lances] number of times Warlocks used Psychic Lance."
+		parts += "[GLOB.round_statistics.psy_lances] раз(а) Варлок использовал пси-копье."
 	if(GLOB.round_statistics.psy_shields)
-		parts += "[GLOB.round_statistics.psy_shields] number of times Warlocks used Psychic Shield."
+		parts += "[GLOB.round_statistics.psy_shields] раз(а) Варлок использовал пси-щит."
 	if(GLOB.round_statistics.psy_shield_blasts)
-		parts += "[GLOB.round_statistics.psy_shield_blasts] number of times Warlocks detonated a Psychic Shield."
+		parts += "[GLOB.round_statistics.psy_shield_blasts] раз(а)(а) Варлок превратил пси-щит в пси-волну."
 	if(GLOB.round_statistics.points_from_mining)
-		parts += "[GLOB.round_statistics.points_from_mining] requisitions points gained from mining."
+		parts += "[GLOB.round_statistics.points_from_mining] карго-поинтов получено благодаря бурению."
 	if(GLOB.round_statistics.points_from_towers)
-		parts += "[GLOB.round_statistics.points_from_towers] requisitions points gained from infestation towers."
+		parts += "[GLOB.round_statistics.points_from_towers] карго-поинтов получено благодаря башням заражения."
 	if(GLOB.round_statistics.points_from_research)
-		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
+		parts += "[GLOB.round_statistics.points_from_research] карго-поинтов получено благодаря исследованиям."
 	if(GLOB.round_statistics.points_from_xenos)
-		parts += "[GLOB.round_statistics.points_from_xenos] requisitions points gained from xenomorph sales."
+		parts += "[GLOB.round_statistics.points_from_xenos] карго-поинтов получено от продажи трупов ксеноморфов."
 
 	if(length(GLOB.round_statistics.req_items_produced))
-		parts += "Requisitions produced: "
+		parts += "Произведенное снаряжение: "
 		for(var/atom/movable/path AS in GLOB.round_statistics.req_items_produced)
 			parts += "[GLOB.round_statistics.req_items_produced[path]] [initial(path.name)]"
 			if(path == GLOB.round_statistics.req_items_produced[length(GLOB.round_statistics.req_items_produced)]) //last element
@@ -583,23 +583,23 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(!isnewplayer(NP))
 		return FALSE
 	if(!NP.IsJobAvailable(job, TRUE))
-		to_chat(usr, span_warning("Selected job is not available."))
+		to_chat(usr, span_warning("Выбранная роль не доступна."))
 		return FALSE
 	if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-		to_chat(usr, span_warning("The round is either not ready, or has already finished!"))
+		to_chat(usr, span_warning("Раунд еще не начался, либо уже подошел к концу!"))
 		return FALSE
 	if(!GLOB.enter_allowed || (!GLOB.xeno_enter_allowed && istype(job, /datum/job/xenomorph)))
-		to_chat(usr, span_warning("Spawning currently disabled, please observe."))
+		to_chat(usr, span_warning("Подключение к раунду недоступно, воспользуйтесь ролью наблюдателя."))
 		return FALSE
 	if(!NP.client.prefs.random_name)
 		var/name_to_check = NP.client.prefs.real_name
 		if(job.job_flags & JOB_FLAG_SPECIALNAME)
 			name_to_check = job.get_special_name(NP.client)
 		if(CONFIG_GET(flag/prevent_dupe_names) && GLOB.real_names_joined.Find(name_to_check))
-			to_chat(usr, span_warning("Someone has already joined the round with this character name. Please pick another."))
+			to_chat(usr, span_warning("Кто-то уже взял персонажа с этим именем, выберите себе другое."))
 			return FALSE
 	if(!SSjob.AssignRole(NP, job, TRUE))
-		to_chat(usr, span_warning("Failed to assign selected role."))
+		to_chat(usr, span_warning("Не удалось подключиться на выбранной роли."))
 		return FALSE
 	return TRUE
 
@@ -614,16 +614,16 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	job.on_late_spawn(player.new_character)
 	player.new_character.client?.init_verbs()
 	var/area/A = get_area(player.new_character)
-	deadchat_broadcast(span_game(" has woken at [span_name("[A?.name]")]."), span_game("[span_name("[player.new_character.real_name]")] ([job.title])"), follow_target = player.new_character, message_type = DEADCHAT_ARRIVALRATTLE)
+	deadchat_broadcast(span_game(" Очнулся из криосна на [span_name("[A?.name]")]."), span_game("[span_name("[player.new_character.real_name]")] ([job.title])"), follow_target = player.new_character, message_type = DEADCHAT_ARRIVALRATTLE)
 	qdel(player)
 
 /datum/game_mode/proc/attempt_to_join_as_larva(mob/xeno_candidate)
-	to_chat(xeno_candidate, span_warning("This is unavailable in this gamemode."))
+	to_chat(xeno_candidate, span_warning("Недоступно в текущем игровом режиме."))
 	return FALSE
 
 
 /datum/game_mode/proc/spawn_larva(mob/xeno_candidate)
-	to_chat(xeno_candidate, span_warning("This is unavailable in this gamemode."))
+	to_chat(xeno_candidate, span_warning("Недоступно в текущем игровом режиме."))
 	return FALSE
 
 /datum/game_mode/proc/set_valid_job_types()
@@ -771,20 +771,20 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				var/turf/current_turf = get_turf(M)
 				if(!is_mainship_level(current_turf.z) && (round_finished == MODE_INFESTATION_X_MINOR))
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>You managed to survive, but were marooned on [SSmapping.configs[GROUND_MAP].map_name]...</span>"
+					parts += "<span class='marooned'>Вам удалось пережить кровавую баню на [SSmapping.configs[GROUND_MAP].map_name], но вы оказались брошены без надежды на дальнейшее выживание...</span>"
 				else if(!is_mainship_level(current_turf.z) && (round_finished == MODE_INFESTATION_X_MAJOR))
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>You managed to survive, but were marooned on [SSmapping.configs[GROUND_MAP].map_name]...</span>"
+					parts += "<span class='marooned'>Вам удалось пережить кровавую баню на [SSmapping.configs[GROUND_MAP].map_name], но вы оказались брошены без надежды на дальнейшее выживание...</span>"
 				else
 					parts += "<div class='panel greenborder'>"
-					parts += span_greentext("You managed to survive the events on [SSmapping.configs[GROUND_MAP].map_name] as [M.real_name].")
+					parts += span_greentext("[M.real_name], вы смогли пережить события [SSmapping.configs[GROUND_MAP].map_name] и вышли победителем в неравной схватке.")
 			else
 				parts += "<div class='panel greenborder'>"
-				parts += span_greentext("You managed to survive the events on [SSmapping.configs[GROUND_MAP].map_name] as [M.real_name].")
+				parts += span_greentext("[M.real_name], вы смогли пережить события [SSmapping.configs[GROUND_MAP].map_name] и вышли победителем в неравной схватке.")
 
 		else
 			parts += "<div class='panel redborder'>"
-			parts += span_redtext("You did not survive the events on [SSmapping.configs[GROUND_MAP].map_name]...")
+			parts += span_redtext("Вам не удалось пережить события [SSmapping.configs[GROUND_MAP].map_name]. Имя [M.real_name] будет увековечено на мемориале падших...")
 		if(GLOB.personal_statistics_list[C.ckey])
 			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[C.ckey]
 			parts += personal_statistics.compose_report()
@@ -815,10 +815,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	var/datum/action/report/R = new
 	C.player_details.player_actions += R
 	R.give_action(C.mob)
-	to_chat(C,"<span class='infoplain'><a href='?src=[REF(R)];report=1'>Show roundend report again</a></span>")
+	to_chat(C,"<span class='infoplain'><a href='?src=[REF(R)];report=1'>Повторно вывести статистику раунда</a></span>")
 
 /datum/action/report
-	name = "Show roundend report"
+	name = "Посмотреть статистику раунда"
 	action_icon_state = "end_round"
 
 /datum/action/report/action_activate()
@@ -835,7 +835,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(!HN.living_xeno_ruler)
 		return
 
-	parts += span_round_body("The surviving xenomorph ruler was:<br>[HN.living_xeno_ruler.key] as [span_boldnotice("[HN.living_xeno_ruler]")]")
+	parts += span_round_body("Выжившим лидером ксеноморфов был:<br>[HN.living_xeno_ruler.key] на роли [span_boldnotice("[HN.living_xeno_ruler]")]")
 
 	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
@@ -872,20 +872,20 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	return objective_parts.Join("<br>")
 
 /proc/printplayer(datum/mind/ply, fleecheck)
-	var/text = "<b>[ply.key]</b> was <b>[ply.name]</b> and"
+	var/text = "<b>[ply.key]</b> был <b>[ply.name]</b> and"
 	if(ply.current)
 		if(ply.current.stat == DEAD)
-			text += " [span_redtext("died")]"
+			text += " [span_redtext("погиб")]"
 		else
-			text += " [span_greentext("survived")]"
+			text += " [span_greentext("выжил")]"
 		if(fleecheck)
 			var/turf/T = get_turf(ply.current)
 			if(!T || !is_station_level(T.z))
-				text += " while [span_redtext("fleeing the station")]"
+				text += " и [span_redtext("покинул судно")]"
 		if(ply.current.real_name != ply.name)
-			text += " as <b>[ply.current.real_name]</b>"
+			text += " будучи <b>[ply.current.real_name]</b>"
 	else
-		text += " [span_redtext("had their body destroyed")]"
+		text += " [span_redtext(" тело было уничтожено")]"
 	return text
 
 /datum/game_mode/proc/antag_report()
@@ -952,10 +952,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	SIGNAL_HANDLER
 	var/patrol_end_countdown = game_end_countdown()
 	if(patrol_end_countdown)
-		items += "Round End timer: [patrol_end_countdown]"
+		items += "Времени осталось до конца раунда: [patrol_end_countdown]"
 	var/patrol_wave_countdown = wave_countdown()
 	if(patrol_wave_countdown)
-		items += "Respawn wave timer: [patrol_wave_countdown]"
+		items += "Времени осталось до следующей волны подкрепления: [patrol_wave_countdown]"
 
 	if (isobserver(source) || isxeno(source))
 		handle_collapse_timer(dcs, source, items)
@@ -967,13 +967,13 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(isobserver(source))
 		var/siloless_countdown = SSticker.mode.get_siloless_collapse_countdown()
 		if(siloless_countdown)
-			items +="Silo less hive collapse timer: [siloless_countdown]"
+			items +="Улей без гнезда! Распад улья через: [siloless_countdown]"
 	else if(isxeno(source))
 		var/mob/living/carbon/xenomorph/xeno_source = source
 		if(xeno_source.hivenumber == XENO_HIVE_NORMAL)
 			var/siloless_countdown = SSticker.mode.get_siloless_collapse_countdown()
 			if(siloless_countdown)
-				items +="Silo less hive collapse timer: [siloless_countdown]"
+				items +="Улей без гнезда! Распад улья через: [siloless_countdown]"
 
 /// Displays the orphan hivemind collapse timer, if applicable
 /datum/game_mode/proc/handle_collapse_timer(datum/dcs, mob/source, list/items)
@@ -983,7 +983,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			return // Don't show for non-normal hives
 	var/rulerless_countdown = get_hivemind_collapse_countdown()
 	if(rulerless_countdown)
-		items += "Orphan hivemind collapse timer: [rulerless_countdown]"
+		items += "Улей осиротел! Без лидера улей распадется через: [rulerless_countdown]"
 
 /// Displays your position in the larva queue and how many burrowed larva there are, if applicable
 /datum/game_mode/proc/handle_larva_timer(datum/dcs, mob/source, list/items)
@@ -991,21 +991,21 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		return
 	var/larva_position = SEND_SIGNAL(source.client, COMSIG_CLIENT_GET_LARVA_QUEUE_POSITION)
 	if (larva_position) // If non-zero, we're in queue
-		items += "Position in larva candidate queue: [larva_position]"
+		items += "Позиция в очереди на роль грудолома: [larva_position]"
 
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	if(stored_larva)
-		items += "Burrowed larva: [stored_larva]"
+		items += "Грудоломов в стазисе: [stored_larva]"
 
 /// Displays your xeno respawn timer, if applicable
 /datum/game_mode/proc/handle_xeno_respawn_timer(datum/dcs, mob/source, list/items)
 	if(GLOB.respawn_allowed)
 		var/status_value = ((GLOB.key_to_time_of_xeno_death[source.key] ? GLOB.key_to_time_of_xeno_death[source.key] : -INFINITY)  + SSticker.mode?.xenorespawn_time - world.time) * 0.1 //If xeno_death is null, use -INFINITY
 		if(status_value <= 0)
-			items += "Xeno respawn timer: READY"
+			items += "Респавн на ксеноморфе: ДОСТУПЕН"
 		else
-			items += "Xeno respawn timer: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
+			items += "Респавн на ксеноморфе будет доступен через: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
 
 /// called to check for updates that might require starting/stopping the siloless collapse timer
 /datum/game_mode/proc/update_silo_death_timer(datum/hive_status/silo_owner)
@@ -1030,7 +1030,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	flags_round_type |= MODE_PREDATOR
 
 /datum/game_mode/proc/initialize_predator(mob/living/carbon/human/new_predator, client/player, ignore_pred_num = FALSE)
-	predators[lowertext(player.ckey)] = list("Name" = new_predator.real_name, "Status" = "Alive")
+	predators[lowertext(player.ckey)] = list("Name" = new_predator.real_name, "Статус" = "Alive")
 	if(!ignore_pred_num)
 		pred_current_num++
 
@@ -1069,37 +1069,37 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 
 	if(!job)
 		if(show_warning)
-			to_chat(pred_candidate, span_warning("Something went wrong!"))
+			to_chat(pred_candidate, span_warning("Что-то пошло не по плану!"))
 		return
 
-	if(show_warning && alert(pred_candidate, "Confirm joining the hunt. You will join as \a [lowertext(job.get_whitelist_status(GLOB.roles_whitelist, pred_candidate.client))] predator", "Confirm", "Yes", "No") != "Yes")
+	if(show_warning && alert(pred_candidate, "Подтвердите готовность. Вы присоединитесь как [lowertext(job.get_whitelist_status(GLOB.roles_whitelist, pred_candidate.client))] хищник", "Confirm", "Yes", "No") != "Yes")
 		return
 
 	if(!(GLOB.roles_whitelist[pred_candidate.ckey] & WHITELIST_PREDATOR))
 		if(show_warning)
-			to_chat(pred_candidate, span_warning("You are not whitelisted! You may apply on the forums to be whitelisted as a predator."))
+			to_chat(pred_candidate, span_warning("Вы не находитесь в белом списке на роль хищника! Вы можете подать заявку на нашем дискорд сервере."))
 		return
 
 	if(is_banned_from(ckey(pred_candidate.key), JOB_PREDATOR))
 		if(show_warning)
-			to_chat(pred_candidate, span_warning("You are banned."))
+			to_chat(pred_candidate, span_warning("Роль хищника для вас заблокирована."))
 		return
 
 	if(!(flags_round_type & MODE_PREDATOR))
 		if(show_warning)
-			to_chat(pred_candidate, span_warning("There is no Hunt this round! Maybe the next one."))
+			to_chat(pred_candidate, span_warning("В этом раунде не идет охота. Может быть в другой раз..."))
 		return
 
 	if(pred_candidate.ckey in predators)
 		if(show_warning)
-			to_chat(pred_candidate, span_warning("You already were a Yautja! Give someone else a chance."))
+			to_chat(pred_candidate, span_warning("В этом раунде вы уже были хищником! Дайте возможность поиграть и другим."))
 		return
 
 	if(get_desired_status(pred_candidate.client.prefs.yautja_status, WHITELIST_COUNCIL) == WHITELIST_NORMAL)
 		var/pred_max = calculate_pred_max
 		if(pred_current_num >= pred_max)
 			if(show_warning)
-				to_chat(pred_candidate, span_warning("Only [pred_max] predators may spawn this round, but Councillors and Ancients do not count."))
+				to_chat(pred_candidate, span_warning("Только [pred_max] хищников доступно в этом раунде. Консулы и древние в счет не идут."))
 			return
 
 	return TRUE

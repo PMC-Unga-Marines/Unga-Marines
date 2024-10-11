@@ -1,5 +1,5 @@
 /datum/admins/proc/player_panel()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Player Panel"
 
 	if(!check_rights(R_BAN))
@@ -302,7 +302,7 @@
 
 
 /datum/admins/proc/player_panel_extended()
-	set category = "Admin"
+	set category = "Администрирование"
 	set name = "Player Panel Extended"
 
 	if(!check_rights(R_BAN))

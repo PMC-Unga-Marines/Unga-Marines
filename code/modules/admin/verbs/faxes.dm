@@ -74,7 +74,7 @@ GLOBAL_LIST_EMPTY(faxes)
 
 
 /datum/admins/proc/view_faxes()
-	set category = "Admin.Fun"
+	set category = "Администрирование.АдминАбьюз"
 	set name = "View Faxes"
 
 	if(!check_rights(R_ADMIN, FALSE) && !is_mentor(usr.client))

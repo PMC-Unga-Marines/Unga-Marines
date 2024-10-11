@@ -52,7 +52,7 @@
 				var/list/crewmemberData = list()
 
 				crewmemberData["sensor_type"] = C.sensor_mode
-				crewmemberData["status"] = H.stat
+				crewmemberData["Статус"] = H.stat
 				crewmemberData[OXY] = round(H.getOxyLoss(), 1)
 				crewmemberData[TOX] = round(H.getToxLoss(), 1)
 				crewmemberData[BURN] = round(H.getFireLoss(), 1)
