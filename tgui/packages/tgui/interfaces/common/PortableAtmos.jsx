@@ -13,7 +13,7 @@ export const PortableBasicInfo = (props) => {
   return (
     <>
       <Section
-        title="Статус"
+        title="Status"
         buttons={
           <Button
             icon={on ? 'power-off' : 'times'}

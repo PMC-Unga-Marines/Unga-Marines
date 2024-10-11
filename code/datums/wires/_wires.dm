@@ -268,7 +268,7 @@
 			"attached" = is_attached(color)
 		)))
 	data["wires"] = payload
-	data["Статус"] = get_status()
+	data["Status"] = get_status()
 	return data
 
 /datum/wires/ui_act(action, list/params)

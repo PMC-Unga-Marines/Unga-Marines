@@ -21,7 +21,7 @@ export const MechStatPane = (props) => {
         />
       </Stack.Item>
       <Stack.Item>
-        <Section title="Статус">
+        <Section title="Status">
           <LabeledList>
             <LabeledList.Item label="Integrity">
               <ProgressBar

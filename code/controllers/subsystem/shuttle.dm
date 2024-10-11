@@ -529,7 +529,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/ui_data(mob/user)
 	var/list/data = list()
-	data["tabs"] = list("Статус", "Templates", "Modification")
+	data["tabs"] = list("Status", "Templates", "Modification")
 
 	// Templates panel
 	data["templates"] = list()
@@ -579,7 +579,7 @@ SUBSYSTEM_DEF(shuttle)
 			L["can_fast_travel"] = FALSE
 		if (M.mode != SHUTTLE_IDLE)
 			L["mode"] = capitalize(M.mode)
-		L["Статус"] = M.getDbgStatusText()
+		L["Status"] = M.getDbgStatusText()
 		if(M == existing_shuttle)
 			data["existing_shuttle"] = L
 

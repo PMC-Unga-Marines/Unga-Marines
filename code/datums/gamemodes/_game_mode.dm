@@ -1030,7 +1030,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	flags_round_type |= MODE_PREDATOR
 
 /datum/game_mode/proc/initialize_predator(mob/living/carbon/human/new_predator, client/player, ignore_pred_num = FALSE)
-	predators[lowertext(player.ckey)] = list("Name" = new_predator.real_name, "Статус" = "Alive")
+	predators[lowertext(player.ckey)] = list("Name" = new_predator.real_name, "Status" = "Alive")
 	if(!ignore_pred_num)
 		pred_current_num++
 
