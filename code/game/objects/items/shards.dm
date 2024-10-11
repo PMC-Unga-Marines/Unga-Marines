@@ -14,7 +14,7 @@
 	)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
-	var/source_sheet_type = /obj/item/stack/sheet/glass
+	var/source_sheet_type = /obj/item/stack/sheet/glass/glass
 	var/shardsize = TRUE
 
 /obj/item/shard/attack(mob/living/carbon/M, mob/living/carbon/user)

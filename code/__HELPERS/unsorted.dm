@@ -139,6 +139,7 @@
 	else if(. >= 360)
 		. -= 360
 
+///Returns one of the 8 directions based on an angle
 /proc/angle_to_dir(angle)
 	switch(angle)
 		if(338 to 360, 0 to 22)
