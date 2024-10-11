@@ -85,7 +85,7 @@
 				. += "[N.client?.holder?.fakekey ? N.client.holder.fakekey : N.key][N.ready ? " Готов" : ""]"
 			else if(isobserver(i))
 				var/mob/dead/observer/O = i
-				. += "[O.client?.holder?.fakekey ? O.client.holder.fakekey : O.key] Наблюдатель"
+				. += "[O.client?.holder?.fakekey ? O.client.holder.fakekey : O.key] Наблюдает"
 
 
 /mob/new_player/Topic(href, href_list[])

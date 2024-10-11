@@ -599,7 +599,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			to_chat(usr, span_warning("Кто-то уже взял персонажа с этим именем, выберите себе другое."))
 			return FALSE
 	if(!SSjob.AssignRole(NP, job, TRUE))
-		to_chat(usr, span_warning("Не удалось подключиться на выбранной роли."))
+		to_chat(usr, span_warning("Не удалось присоединиться в качестве выбранной роли."))
 		return FALSE
 	return TRUE
 
