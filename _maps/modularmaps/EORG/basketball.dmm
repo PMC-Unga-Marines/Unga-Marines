@@ -3,7 +3,7 @@
 /turf/closed/wall/mainship/outer,
 /area/deathmatch)
 "ab" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "ac" = (
 /turf/closed/wall/mainship,

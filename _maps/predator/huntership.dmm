@@ -1102,7 +1102,7 @@
 /turf/open/beach/sand,
 /area/yautja)
 "dI" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "dP" = (
 /obj/item/explosive/grenade/spawnergrenade/hellhound,
