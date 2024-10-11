@@ -7,3 +7,4 @@
 			O.update()
 	set_eyeobj_visible(TRUE)
 	view_core()
+	update_minimap_icon() // in case someone rejuvs it

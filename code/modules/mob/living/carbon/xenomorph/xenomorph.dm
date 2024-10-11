@@ -78,7 +78,7 @@
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon)) //RUTGMC edit - icon change
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon))
 	handle_weeds_on_movement()
 
 	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
@@ -255,9 +255,10 @@
 /mob/living/carbon/xenomorph/examine(mob/user)
 	. = ..()
 	. += xeno_caste.caste_desc
+	. += "<span class='notice'>"
 
 	if(stat == DEAD)
-		. += "It is DEAD. Kicked the bucket. Off to that great hive in the sky."
+		. += "<span class='deadsay'>It is DEAD. Kicked the bucket. Off to that great hive in the sky.</span>"
 	else if(stat == UNCONSCIOUS)
 		. += "It quivers a bit, but barely moves."
 	else
@@ -273,6 +274,8 @@
 				. += "It bleeds with sizzling wounds."
 			if(1 to 24)
 				. += "It is heavily injured and limping badly."
+
+	. += "</span>"
 
 	if(hivenumber != XENO_HIVE_NORMAL)
 		var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]

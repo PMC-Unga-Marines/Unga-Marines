@@ -214,6 +214,22 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			to_chat(buyer, span_xenowarning("Hive cannot support more than [max_silo] active silos!"))
 		return FALSE
 
+/datum/hive_upgrade/building/evotower
+	name = "Evolution Tower"
+	desc = "Constructs a tower that increases the rate of evolution point and maturity point generation by 1.5 times per tower."
+	psypoint_cost = 300
+	icon = "evotower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/evotower
+
+/datum/hive_upgrade/building/psychictower
+	name = "Psychic Relay"
+	desc = "Constructs a tower that increases the slots of higher tier Xenomorphs."
+	psypoint_cost = 300
+	icon = "maturitytower"
+	flags_upgrade = ABILITY_NUCLEARWAR
+	building_type = /obj/structure/xeno/psychictower
+
 /datum/hive_upgrade/building/pherotower
 	name = "Pheromone Tower"
 	desc = "Constructs a tower that emanates a selectable type of pheromone."
@@ -231,6 +247,49 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "spawner"
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/spawner
+
+/datum/hive_upgrade/building/upgrade_chamber
+	flags_upgrade = ABILITY_NUCLEARWAR
+	var/max_chambers = 3
+
+/datum/hive_upgrade/building/upgrade_chamber/shell
+	name = "Shell Upgrade Chamber"
+	desc = "Constructs a chamber that allows xenos to buy survival mutations. Build up to 3 structures to increase mutation power."
+	icon = "shell"
+	psypoint_cost = 200
+	building_type = /obj/structure/xeno/upgrade_chamber/shell
+
+/datum/hive_upgrade/building/upgrade_chamber/shell/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.shell_chambers) >= max_chambers)
+		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active shell chambers!"))
+		return FALSE
+
+/datum/hive_upgrade/building/upgrade_chamber/spur
+	name = "Spur Upgrade Chamber"
+	desc = "Constructs a chamber that allows xenos to buy attack mutations. Build up to 3 structures to increase mutation power."
+	icon = "spur"
+	psypoint_cost = 150
+	building_type = /obj/structure/xeno/upgrade_chamber/spur
+
+/datum/hive_upgrade/building/upgrade_chamber/spur/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.spur_chambers) >= max_chambers)
+		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active spur chambers!"))
+		return FALSE
+
+/datum/hive_upgrade/building/upgrade_chamber/veil
+	name = "Veil Upgrade Chamber"
+	desc = "Constructs a chamber that allows xenos to buy utility mutations. Build up to 3 structures to increase mutation power."
+	icon = "veil"
+	psypoint_cost = 100
+	building_type = /obj/structure/xeno/upgrade_chamber/veil
+
+/datum/hive_upgrade/building/upgrade_chamber/veil/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(length(buyer.hive.veil_chambers) >= max_chambers)
+		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active veil chambers!"))
+		return FALSE
 
 /datum/hive_upgrade/defence
 	category = "Defences"

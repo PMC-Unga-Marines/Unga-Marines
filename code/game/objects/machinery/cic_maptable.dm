@@ -22,7 +22,6 @@
 
 /obj/machinery/cic_maptable/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_LOADED, PROC_REF(change_targeted_z))
 	update_icon()
 
 /obj/machinery/cic_maptable/Destroy()
@@ -71,16 +70,6 @@
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
 	source.unset_interaction()
 
-///Updates the z-level this maptable views
-/obj/machinery/cic_maptable/proc/change_targeted_z(datum/source, new_z)
-	SIGNAL_HANDLER
-	if(!isnum(new_z))
-		return
-	for(var/mob/user AS in interactees)
-		on_unset_interaction(user)
-	map = null
-	targetted_zlevel = new_z
-
 /obj/machinery/cic_maptable/on_unset_interaction(mob/user)
 	. = ..()
 	interactees -= user
@@ -97,12 +86,6 @@
 	desc = "A map that display the planetside AO, specialized in revealing potential areas to drop pod. This is especially useful to see where the frontlines and marines are at so that anyone droppodding can decide where to land. Pray that your land nav skills are robust to not get lost!"
 	icon_state = "droppodtable"
 	screen_overlay = "droppodtable_emissive"
-
-/obj/machinery/cic_maptable/som_maptable
-	icon_state = "som_console"
-	screen_overlay = "som_maptable_screen"
-	minimap_flag = MINIMAP_FLAG_MARINE_SOM
-	light_color = LIGHT_COLOR_FLARE
 
 /obj/machinery/cic_maptable/no_flags
 	minimap_flag = NONE
@@ -165,14 +148,6 @@
 	for(var/atom/movable/screen/minimap_tool/tool AS in drawing_tools)
 		tool.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP))
 
-///Updates the z-level this maptable views
-/obj/machinery/cic_maptable/drawable/change_targeted_z(datum/source, new_z)
-	. = ..()
-
-	for(var/atom/movable/screen/minimap_tool/tool AS in drawing_tools)
-		tool.zlevel = new_z
-		tool.set_zlevel(new_z, tool.minimap_flag)
-
 /obj/machinery/cic_maptable/drawable/big
 	icon = 'icons/Marine/mainship_props96.dmi'
 	layer = ABOVE_OBJ_LAYER
@@ -188,9 +163,3 @@
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
 	)
 	AddElement(/datum/element/connect_loc, connections)
-
-/obj/machinery/cic_maptable/drawable/big/som
-	minimap_flag = MINIMAP_FLAG_MARINE_SOM
-	screen_overlay = "som_maptable_screen"
-	light_color = LIGHT_COLOR_FLARE
-	light_range = 3

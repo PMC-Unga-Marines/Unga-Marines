@@ -19,32 +19,9 @@
 	var/mob/living/silicon/ai/AI = usr
 	AI.view_core()
 
-
 /atom/movable/screen/ai/camera_list
 	name = "Show Camera List"
 	icon_state = "camera"
-
-/atom/movable/screen/ai/announcement
-	name = "Make Vox Announcement"
-	icon_state = "announcement"
-
-/atom/movable/screen/ai/announcement/Click()
-	. = ..()
-	if(.)
-		return
-	var/mob/living/silicon/ai/AI = usr
-	AI.announcement()
-
-/atom/movable/screen/ai/announcement_help
-	name = "Vox Announcement Help"
-	icon_state = "alerts"
-
-/atom/movable/screen/ai/announcement_help/Click()
-	. = ..()
-	if(.)
-		return
-	var/mob/living/silicon/ai/AI = usr
-	AI.announcement_help()
 
 /atom/movable/screen/ai/bioscan
 	name = "Issue Manual Bioscan"
@@ -134,16 +111,6 @@
 //Track
 	using = new /atom/movable/screen/ai/camera_track(null, src)
 	using.screen_loc = ui_ai_track_with_camera
-	static_inventory += using
-
-//VOX
-	using = new /atom/movable/screen/ai/announcement(null, src)
-	using.screen_loc = ui_ai_announcement
-	static_inventory += using
-
-//VOX Help
-	using = new /atom/movable/screen/ai/announcement_help(null, src)
-	using.screen_loc = ui_ai_announcement_help
 	static_inventory += using
 
 //Camera light

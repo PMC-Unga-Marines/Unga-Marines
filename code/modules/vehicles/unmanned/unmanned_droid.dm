@@ -106,6 +106,7 @@
 	remove_wibbly_filters(src)
 	playsound(src, 'sound/effects/pred_cloakon.ogg', 60, TRUE)
 	alpha = CLOAK_IMPLANT_ALPHA
+	ADD_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	cloaktimer = addtimer(CALLBACK(src, PROC_REF(deactivate_cloak)), 1 MINUTES, TIMER_STOPPABLE)
 
 ///Deactivates the cloak when someone turns it off or its forced off
@@ -115,6 +116,7 @@
 		cloaktimer = null
 	playsound(src, 'sound/effects/pred_cloakoff.ogg', 60, TRUE)
 	alpha = initial(alpha)
+	REMOVE_TRAIT(src, TRAIT_STEALTH, TRAIT_STEALTH)
 	TIMER_COOLDOWN_START(src, COOLDOWN_DRONE_CLOAK, 12 SECONDS)
 
 ///Proc used for the supply link feature, activate to appear as an antenna
