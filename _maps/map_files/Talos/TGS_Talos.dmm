@@ -12037,7 +12037,7 @@
 	teleport_z_offset = 1
 	},
 /obj/structure/disposalpipe/segment,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "hkl" = (
 /obj/effect/soundplayer,
@@ -22138,7 +22138,7 @@
 /turf/open/floor/mainship/metal/gray,
 /area/mainship/medical/surgery_hallway)
 "neu" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "nez" = (
 /obj/effect/spawner/random/misc/plant,
@@ -23031,7 +23031,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "nFG" = (
 /turf/open/floor/prison/sterilewhite,
@@ -23469,7 +23469,7 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "nQH" = (
 /obj/structure/disposalpipe/segment/corner{
@@ -26493,7 +26493,7 @@
 /area/mainship/hull/port_hull)
 "pCl" = (
 /obj/structure/cable,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "pCu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -30733,7 +30733,7 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "sdG" = (
 /obj/machinery/computer/squad_changer,
@@ -30872,7 +30872,7 @@
 /area/mainship/squads/alpha)
 "sgH" = (
 /obj/structure/disposalpipe/segment,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "sgP" = (
 /obj/effect/ai_node,
@@ -33755,7 +33755,7 @@
 /area/mainship/squads/req)
 "tYf" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "tYC" = (
 /obj/item/radio/intercom/general{
@@ -39220,7 +39220,7 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "xsl" = (
 /obj/structure/cable,

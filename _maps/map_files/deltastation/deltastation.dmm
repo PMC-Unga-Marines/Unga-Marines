@@ -23195,7 +23195,7 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "eHO" = (
 /obj/structure/table/woodentable,
@@ -41746,7 +41746,7 @@
 	teleport_z_offset = 1
 	},
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "iyu" = (
 /obj/machinery/door/firedoor,
@@ -54597,7 +54597,7 @@
 /turf/open/floor/wood,
 /area/deltastation/service/library)
 "lhb" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "lhc" = (
 /obj/structure/closet/coffin,
@@ -114540,7 +114540,7 @@
 /obj/effect/spawner/random/misc/structure/directional_window/west,
 /obj/effect/spawner/random/misc/structure/directional_window,
 /obj/structure/prop/mainship/holobarrier,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "xih" = (
 /obj/effect/turf_decal/tile/transparent/neutral/half/contrasted{
@@ -116800,7 +116800,7 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "xEN" = (
 /turf/closed/wall/r_wall,

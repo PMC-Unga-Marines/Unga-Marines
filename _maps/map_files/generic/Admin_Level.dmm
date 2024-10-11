@@ -27,7 +27,7 @@
 /area/centcom/supplypod/loading/four)
 "ajL" = (
 /obj/effect/spawner/modularmap/admin/eorg,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "akg" = (
 /turf/open/floor/mainship/cargo,
@@ -1054,7 +1054,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/tdome)
 "oHd" = (
 /turf/open/floor,
@@ -1678,7 +1678,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "xrI" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "xte" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{

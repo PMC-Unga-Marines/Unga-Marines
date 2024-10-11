@@ -122,7 +122,7 @@
 	},
 /area/barren/medical/chemistry)
 "aI" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "aJ" = (
 /obj/effect/ai_node,
@@ -3395,7 +3395,7 @@
 /area/barren/civilian/cook)
 "pL" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "pR" = (
 /obj/structure/barricade/guardrail{

@@ -1268,7 +1268,7 @@
 /area/oscar_outpost/base)
 "iM" = (
 /obj/effect/spawner/modularmap/oscaroutpostbase,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "iS" = (
 /obj/machinery/door/airlock/mainship/generic,
@@ -3434,7 +3434,7 @@
 /area/oscar_outpost/base)
 "xo" = (
 /obj/effect/spawner/modularmap/oscaroutposttophalf,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "xq" = (
 /obj/structure/rack,
@@ -9942,7 +9942,7 @@
 	},
 /area/oscar_outpost/village/central)
 "ZL" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "ZP" = (
 /obj/structure/bed/chair/wood/wings{

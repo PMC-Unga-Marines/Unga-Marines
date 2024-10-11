@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "aaC" = (
 /obj/machinery/light{
@@ -5000,7 +5000,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "aUu" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/bigredv2/caves/lambda_lab)
 "aUy" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8035,7 +8035,7 @@
 /area/bigredv2/outside/c)
 "cDA" = (
 /obj/effect/spawner/modularmap/bigred/swcorner,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "cEb" = (
 /obj/effect/landmark/start/job/xenomorph,
@@ -8172,7 +8172,7 @@
 /area/bigredv2/outside/marshal_office)
 "cRz" = (
 /obj/effect/spawner/modularmap/bigred/cargo,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "cSl" = (
 /obj/structure/cable,
@@ -8623,7 +8623,7 @@
 /area/bigredv2/caves/lambda_lab)
 "dWH" = (
 /obj/effect/spawner/modularmap/bigred/lambdacave,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "dWZ" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
@@ -8856,11 +8856,11 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "esu" = (
 /obj/effect/spawner/modularmap/bigred/cargoarea,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "etr" = (
 /obj/effect/spawner/modularmap/bigred/eta,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "eub" = (
 /obj/structure/flora/pottedplant/ten,
@@ -9727,7 +9727,7 @@
 /area/bigredv2/caves/south)
 "gwQ" = (
 /obj/effect/spawner/modularmap/bigred/operations,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "gxl" = (
 /obj/effect/landmark/weed_node,
@@ -9927,7 +9927,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "gNA" = (
 /obj/effect/spawner/modularmap/bigred/cargoentry,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "gNC" = (
 /obj/effect/decal/cleanable/blood/gibs,
@@ -10593,7 +10593,7 @@
 /area/bigredv2/outside/marshal_office)
 "itZ" = (
 /obj/effect/spawner/modularmap/bigred/medbay,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "iup" = (
 /obj/effect/decal/cleanable/blood,
@@ -10770,7 +10770,7 @@
 /area/bigredv2/caves/lambda_lab)
 "iPH" = (
 /obj/effect/spawner/modularmap/bigred/medbaypassage,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "iPZ" = (
 /obj/structure/cable,
@@ -11454,7 +11454,7 @@
 /area/bigredv2/outside/space_port)
 "jYt" = (
 /obj/effect/spawner/modularmap/bigred/lambdalock,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/bigredv2/caves/northeast/garbledradio)
 "jYM" = (
 /obj/structure/table,
@@ -11695,7 +11695,7 @@
 /area/bigredv2/outside/telecomm)
 "kHH" = (
 /obj/effect/spawner/modularmap/bigred/lambdatunnelsouth,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "kII" = (
 /obj/structure/cable,
@@ -11774,7 +11774,7 @@
 /area/bigredv2/outside/space_port)
 "kUz" = (
 /obj/effect/spawner/modularmap/bigred/east,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "kUV" = (
 /obj/effect/decal/cleanable/blood,
@@ -11972,7 +11972,7 @@
 /area/bigredv2/outside/space_port/two)
 "luJ" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "luR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -12270,7 +12270,7 @@
 /area/bigredv2/caves/lambda_lab)
 "mex" = (
 /obj/effect/spawner/modularmap/bigred/generalstore,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "mez" = (
 /obj/effect/landmark/lv624/fog_blocker,
@@ -12462,7 +12462,7 @@
 /area/bigredv2/outside/marshal_office)
 "mCH" = (
 /obj/effect/spawner/modularmap/bigred/chapel,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "mCI" = (
 /obj/machinery/miner/damaged/platinum,
@@ -12514,7 +12514,7 @@
 /area/bigredv2/outside/marshal_office)
 "mHh" = (
 /obj/effect/spawner/modularmap/bigred/engineering,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "mHJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -12564,7 +12564,7 @@
 /area/bigredv2/outside/hydroponics)
 "mPI" = (
 /obj/effect/spawner/modularmap/bigred/southwesteast,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "mQi" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -12843,7 +12843,7 @@
 /area/bigredv2/outside/marshal_office)
 "nrz" = (
 /obj/effect/spawner/modularmap/bigred/atmos,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "nrC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -13011,7 +13011,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "nFg" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/bigredv2/caves/northeast/garbledradio)
 "nGs" = (
 /obj/structure/cable,
@@ -13245,7 +13245,7 @@
 /area/bigredv2/outside/marshal_office)
 "okf" = (
 /obj/effect/spawner/modularmap/bigred/lambdalock,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/bigredv2/caves/lambda_lab)
 "okZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -13428,7 +13428,7 @@
 /area/bigredv2/outside/bar)
 "oDF" = (
 /obj/effect/spawner/modularmap/bigred/northlambda,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "oEN" = (
 /obj/machinery/vending/coffee,
@@ -13758,7 +13758,7 @@
 /area/bigredv2/outside/dorms)
 "pze" = (
 /obj/effect/spawner/modularmap/bigred/checkpointsouth,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "pAz" = (
 /obj/effect/ai_node,
@@ -14001,7 +14001,7 @@
 /area/bigredv2/outside/marshal_office)
 "qcM" = (
 /obj/effect/spawner/modularmap/bigred/lambdatunnel,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "qez" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
@@ -14302,7 +14302,7 @@
 /area/bigredv2/outside/sw)
 "qVY" = (
 /obj/effect/spawner/modularmap/bigred/office,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "qWd" = (
 /obj/effect/ai_node,
@@ -15634,7 +15634,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "tUi" = (
 /obj/effect/spawner/modularmap/bigred/westeta,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "tVp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -15718,7 +15718,7 @@
 /area/bigredv2/caves/southwest)
 "ufh" = (
 /obj/effect/spawner/modularmap/bigred/toolshed,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "ufO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -15775,7 +15775,7 @@
 /area/bigredv2/outside/hydroponics)
 "ukS" = (
 /obj/effect/spawner/modularmap/bigred/checkpoint,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "ulB" = (
 /turf/open/floor/marking/asteroidwarning{
@@ -16045,7 +16045,7 @@
 /area/bigredv2/outside/cargo)
 "uKk" = (
 /obj/effect/spawner/modularmap/bigred/secorner,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "uKW" = (
 /obj/effect/decal/cleanable/blood/gibs,
@@ -16682,7 +16682,7 @@
 /area/bigredv2/outside/filtration_plant)
 "waj" = (
 /obj/effect/spawner/modularmap/bigred/dorms,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "waY" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -17723,7 +17723,7 @@
 /area/bigredv2/outside/se)
 "yme" = (
 /obj/effect/spawner/modularmap/bigred/library,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 
 (1,1,1) = {"
