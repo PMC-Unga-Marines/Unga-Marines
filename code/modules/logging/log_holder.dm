@@ -34,7 +34,7 @@ GENERAL_PROTECT_DATUM(/datum/log_holder)
 
 /client/proc/log_viewer_new()
 	set name = "View Round Logs"
-	set category = "Администрирование"
+	set category = "Админ"
 
 	if(!check_rights(R_LOG))
 		return

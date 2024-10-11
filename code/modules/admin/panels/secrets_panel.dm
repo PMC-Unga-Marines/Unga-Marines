@@ -1,6 +1,6 @@
 /datum/admins/proc/secrets_panel()
 	set name = "Secrets Panel"
-	set category = "Администрирование"
+	set category = "Админ"
 
 	if(!check_rights(R_ADMIN))
 		return

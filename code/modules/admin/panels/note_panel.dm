@@ -1,6 +1,6 @@
 /datum/admins/proc/note_panel()
 	set name = "Note Panel"
-	set category = "Администрирование"
+	set category = "Админ"
 
 	if(!check_rights(R_BAN))
 		return

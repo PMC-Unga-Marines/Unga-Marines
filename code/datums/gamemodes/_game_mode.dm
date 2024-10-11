@@ -346,7 +346,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			do_eord_respawn(H)
 
 		M.on_eord(picked)
-		to_chat(M, "<br><br><h1>[span_danger("Давай, сражайся, докажи другим людям какой ты у нас крутой!")]</h1><br><br>")
+		to_chat(M, "<br><br><h1>[span_danger("Сражайся за свою жизнь!")]</h1><br><br>")
 		CHECK_TICK
 
 	for(var/obj/effect/landmark/eord_roomba/landmark in GLOB.eord_roomba_spawns)
@@ -771,10 +771,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				var/turf/current_turf = get_turf(M)
 				if(!is_mainship_level(current_turf.z) && (round_finished == MODE_INFESTATION_X_MINOR))
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>Вам удалось пережить кровавую баню на [SSmapping.configs[GROUND_MAP].map_name], но вы оказались брошены без надежды на дальнейшее выживание...</span>"
+					parts += "<span class='marooned'>Вам удалось пережить боевую операцию на [SSmapping.configs[GROUND_MAP].map_name], но вы оказались брошены без надежды на дальнейшее выживание...</span>"
 				else if(!is_mainship_level(current_turf.z) && (round_finished == MODE_INFESTATION_X_MAJOR))
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>Вам удалось пережить кровавую баню на [SSmapping.configs[GROUND_MAP].map_name], но вы оказались брошены без надежды на дальнейшее выживание...</span>"
+					parts += "<span class='marooned'>Вам удалось пережить боевую операцию на [SSmapping.configs[GROUND_MAP].map_name], но вы оказались брошены без надежды на дальнейшее выживание...</span>"
 				else
 					parts += "<div class='panel greenborder'>"
 					parts += span_greentext("[M.real_name], вы смогли пережить события [SSmapping.configs[GROUND_MAP].map_name] и вышли победителем в неравной схватке.")

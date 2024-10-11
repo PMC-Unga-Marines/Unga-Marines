@@ -47,7 +47,7 @@ function run_after_focus(callback) {
 function createStatusTab(name) {
 	if (name.indexOf(".") != -1) {
 		var splitName = name.split(".");
-		if (split_admin_tabs && splitName[0] === "Администрирование")
+		if (split_admin_tabs && splitName[0] === "Админ")
 			name = splitName[1];
 		else
 			name = splitName[0];
@@ -67,7 +67,7 @@ function createStatusTab(name) {
 	B.textContent = name;
 	B.className = "button";
 	//ORDERING ALPHABETICALLY
-	B.style.order = ({"Статус": 1, "MC": 2, "Тикеты": 3, "Администрирование": 4, "АдминАбьюз": 5})[name] || name.charCodeAt(0);
+	B.style.order = ({"Статус": 1, "MC": 2, "Тикеты": 3, "Админ": 4, "Админ абьюз": 5})[name] || name.charCodeAt(0);
 	//END ORDERING
 	menu.appendChild(B);
 	SendTabToByond(name);
@@ -149,7 +149,7 @@ function verbs_cat_check(cat) {
 	var tabCat = cat;
 	if (cat.indexOf(".") != -1) {
 		var splitName = cat.split(".");
-		if (split_admin_tabs && splitName[0] === "Администрирование")
+		if (split_admin_tabs && splitName[0] === "Админ")
 			tabCat = splitName[1];
 		else
 			tabCat = splitName[0];
@@ -165,7 +165,7 @@ function verbs_cat_check(cat) {
 		verbcat = part[0];
 		if (verbcat.indexOf(".") != -1) {
 			var splitName = verbcat.split(".");
-			if (split_admin_tabs && splitName[0] === "Администрирование")
+			if (split_admin_tabs && splitName[0] === "Админ")
 				verbcat = splitName[1];
 			else
 				verbcat = splitName[0];
@@ -297,7 +297,7 @@ function draw_debug() {
 		// Hide subgroups except admin subgroups if they are split
 		if (verb_tabs[i].lastIndexOf(".") != -1) {
 			var splitName = verb_tabs[i].split(".");
-			if (split_admin_tabs && splitName[0] === "Администрирование")
+			if (split_admin_tabs && splitName[0] === "Админ")
 				part = splitName[1];
 			else
 				continue;
@@ -654,7 +654,7 @@ function draw_verbs(cat) {
 	sortVerbs();
 	if (split_admin_tabs && cat.lastIndexOf(".") != -1) {
 		var splitName = cat.split(".");
-		if (splitName[0] === "Администрирование")
+		if (splitName[0] === "Админ")
 			cat = splitName[1];
 	}
 	verbs.reverse(); // sort verbs backwards before we draw
@@ -663,7 +663,7 @@ function draw_verbs(cat) {
 		var name = part[0];
 		if (split_admin_tabs && name.lastIndexOf(".") != -1) {
 			var splitName = name.split(".");
-			if (splitName[0] === "Администрирование")
+			if (splitName[0] === "Админ")
 				name = splitName[1];
 		}
 		var command = part[1];
@@ -760,7 +760,7 @@ function add_verb_list(payload) {
 		var category = part[0];
 		if (category.indexOf(".") != -1) {
 			var splitName = category.split(".");
-			if (split_admin_tabs && splitName[0] === "Администрирование")
+			if (split_admin_tabs && splitName[0] === "Админ")
 				category = splitName[1];
 			else
 				category = splitName[0];
@@ -955,7 +955,7 @@ Byond.subscribeTo('update_split_admin_tabs', function (status) {
 	if (split_admin_tabs !== status) {
 		if (split_admin_tabs === true) {
 			removeStatusTab("Events");
-			removeStatusTab("АдминАбьюз");
+			removeStatusTab("Админ абьюз");
 			removeStatusTab("Game");
 		}
 		update_verbs();

@@ -8,8 +8,8 @@
 #define CURRENT_SEASON_DESC "current_season_description"
 
 //Season names
-#define SEASONAL_GUNS "| сезонное_оружие"
-#define SEASONAL_HEAVY "| сезонное_тяжелое_оружие"
+#define SEASONAL_GUNS " Сезонное_оружие"
+#define SEASONAL_HEAVY " Сезонное_тяжелое_оружие"
 
 SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
@@ -200,7 +200,7 @@ SUBSYSTEM_DEF(persistence)
 	var/list/item_list = list()
 
 /datum/season_datum/weapons/guns/rifle_seasonal_one
-	name = "Старая терра"
+	name = "Старая Земля"
 	description = "Древнее огнестрельное оружие Земли. Пусть и устаревшее - все еще смертоносное"
 	item_list = list(
 		/obj/item/weapon/gun/rifle/mkh = -1,

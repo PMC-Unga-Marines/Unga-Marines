@@ -1,6 +1,6 @@
 /datum/admins/proc/game_panel()
 	set name = "Game Panel"
-	set category = "Администрирование"
+	set category = "Админ"
 
 	if(!check_rights(R_ADMIN))
 		return
