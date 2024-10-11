@@ -139,3 +139,5 @@
 #define PHONE_DND_ON 1
 #define PHONE_DND_OFF 0
 #define PHONE_DND_FORBIDDEN -1
+
+#define FREQ_PHONE 2000

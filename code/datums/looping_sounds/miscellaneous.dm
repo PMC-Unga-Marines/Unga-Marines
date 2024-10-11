@@ -22,7 +22,7 @@
 	volume = 10
 
 /datum/looping_sound/telephone/busy
-	start_sound = 'sound/voice/callstation_unavailable.ogg'
+	start_sound = 'sound/machines/telephone/callstation_unavailable.ogg'
 	start_length = 5.7 SECONDS
 	mid_sounds = 'sound/machines/telephone/phone_busy.ogg'
 	mid_length = 5 SECONDS

@@ -28,6 +28,8 @@
 	var/beam_type = /obj/effect/ebeam
 	///This is used as the visual_contents of beams, so you can apply one effect to this and the whole beam will look like that. never gets deleted on redrawing.
 	var/obj/effect/ebeam/visuals
+	///will the origin object always turn to face the target?
+	var/always_turn = FALSE
 
 /datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=INFINITY,maxdistance=INFINITY,btype = /obj/effect/ebeam)
 	origin = beam_origin
@@ -79,6 +81,8 @@
  * Creates the beam effects and places them in a line from the origin to the target. Sets their rotation to make the beams face the target, too.
  */
 /datum/beam/proc/Draw()
+	if(always_turn)
+		origin.setDir(get_dir(origin, target)) //Causes the source of the beam to rotate to continuosly face the BeamTarget.
 	var/Angle = round(Get_Angle(origin,target))
 	var/matrix/rot_matrix = matrix()
 	var/turf/origin_turf = get_turf(origin)
@@ -156,8 +160,8 @@
  * maxdistance: how far the beam will go before stopping itself. Used mainly for two things: preventing lag if the beam may go in that direction and setting a range to abilities that use beams.
  * beam_type: The type of your custom beam. This is for adding other wacky stuff for your beam only. Most likely, you won't (and shouldn't) change it.
  */
-/atom/proc/beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time = INFINITY,maxdistance = INFINITY,beam_type=/obj/effect/ebeam)
-	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type)
+/atom/proc/beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time = INFINITY,maxdistance = INFINITY,beam_type=/obj/effect/ebeam, always_turn = FALSE)
+	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,always_turn)
 	INVOKE_ASYNC(newbeam, TYPE_PROC_REF(/datum/beam, Start))
 	return newbeam
 

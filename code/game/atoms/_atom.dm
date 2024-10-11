@@ -123,6 +123,9 @@
 	///The list of alternate appearances for this atom
 	var/list/alternate_appearances
 
+	//Effects
+	var/list/effects_list
+
 /*
 We actually care what this returns, since it can return different directives.
 Not specifically here, but in other variations of this. As a general safety,

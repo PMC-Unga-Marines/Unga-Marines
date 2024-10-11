@@ -353,6 +353,8 @@
 #include "code\datums\datum.dm"
 #include "code\datums\embedding_behavior.dm"
 #include "code\datums\emotes.dm"
+#include "code\datums\effects\_effects.dm"
+#include "code\datums\effects\tether.dm"
 #include "code\datums\fire_support.dm"
 #include "code\datums\flaying.dm"
 #include "code\datums\fluff_emails.dm"

@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	var/phone_type = /obj/item/phone
 
-	var/range = 7
+	var/range = 3
 
 	var/enabled = TRUE
 	/// Whether or not the phone is receiving calls or not. Varies between on/off or forcibly on/off.
@@ -164,7 +164,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	transmitters -= phone_id
 
 	if(!length(transmitters) || !(calling_phone_id in transmitters))
-		to_chat(user, span_purple("[icon2html(src, user)] No transmitters could be located to call!"))
+		to_chat(user, span_red("[icon2html(src, user)] No transmitters could be located to call!"))
 		return
 
 	var/obj/structure/transmitter/T = transmitters[calling_phone_id]
@@ -180,7 +180,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.last_caller = src.phone_id
 	T.update_icon()
 
-	to_chat(user, span_purple("[icon2html(src, user)] Dialing [calling_phone_id].."))
+	to_chat(user, span_red("[icon2html(src, user)] Dialing [calling_phone_id].."))
 	playsound(get_turf(user), "rtb_handset")
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start()
@@ -215,20 +215,20 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		return
 
 	if(!get_calling_phone())
-		tgui_interact(user)
+		ui_interact(user)
 		return
 
 	var/obj/structure/transmitter/T = get_calling_phone()
 
 	if(T.attached_to && ismob(T.attached_to.loc))
 		var/mob/M = T.attached_to.loc
-		to_chat(M, span_purple("[icon2html(src, M)] [phone_id] has picked up."))
+		to_chat(M, span_red("[icon2html(src, M)] [phone_id] has picked up."))
 		playsound(T.attached_to.loc, 'sound/machines/telephone/remote_pickup.ogg', 20)
 		if(T.timeout_timer_id)
 			deltimer(T.timeout_timer_id)
 			T.timeout_timer_id = null
 
-	to_chat(user, span_purple("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
+	to_chat(user, span_red("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
 	playsound(get_turf(user), "rtb_handset")
 
 	T.outring_loop.stop()
@@ -238,7 +238,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 #undef TRANSMITTER_UNAVAILABLE
 
-/obj/structure/transmitter/tgui_interact(mob/user, datum/tgui/ui)
+/obj/structure/transmitter/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PhoneMenu", phone_id)
@@ -255,17 +255,17 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(T)
 		if(T.attached_to && ismob(T.attached_to.loc))
 			var/mob/M = T.attached_to.loc
-			to_chat(M, span_purple("[icon2html(src, M)] [phone_id] has hung up on you."))
+			to_chat(M, span_red("[icon2html(src, M)] [phone_id] has hung up on you."))
 			T.hangup_loop.start()
 
 		if(attached_to && ismob(attached_to.loc))
 			var/mob/M = attached_to.loc
 			if(timeout)
-				to_chat(M, span_purple("[icon2html(src, M)] Your call to [T.phone_id] has reached voicemail, nobody picked up the phone."))
+				to_chat(M, span_red("[icon2html(src, M)] Your call to [T.phone_id] has reached voicemail, nobody picked up the phone."))
 				busy_loop.start()
 				outring_loop.stop()
 			else
-				to_chat(M, span_purple("[icon2html(src, M)] You have hung up on [T.phone_id]."))
+				to_chat(M, span_red("[icon2html(src, M)] You have hung up on [T.phone_id]."))
 
 	if(calling)
 		calling.caller = null
@@ -353,8 +353,9 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(!P || !attached_to)
 		return
 
-	P.handle_hear(speech_args[SPEECH_MESSAGE], speech_args[SPEECH_LANGUAGE], speaking)
-	attached_to.handle_hear(speech_args[SPEECH_MESSAGE], speech_args[SPEECH_LANGUAGE], speaking)
+	P.handle_hear(speaking, speech_args)
+	attached_to.handle_hear(speaking, speech_args)
+
 	playsound(P, "talk_phone", 5)
 	log_say("TELEPHONE: [key_name(speaking)] on Phone '[phone_id]' to '[T.phone_id]' said '[speech_args[SPEECH_MESSAGE]]'")
 
@@ -418,9 +419,9 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		UnregisterSignal(speaking, COMSIG_MOB_SAY)
 		return
 
-	attached_to.handle_speak(message, speech_args)
+	attached_to.handle_speak(speaking, speech_args)
 
-/obj/item/phone/proc/handle_hear(message, datum/language/L, mob/speaking)
+/obj/item/phone/proc/handle_hear(mob/living/carbon/speaking, list/speech_args)
 	if(!attached_to)
 		return
 
@@ -432,20 +433,12 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(!ismob(loc))
 		return
 
-	var/loudness = 0
-	if(raised)
-		loudness = 3
-
 	var/mob/M = loc
-	var/vname = T.phone_id
 
-	if(M == speaking)
-		vname = attached_to.phone_id
-
-	M.hear_radio(
-		message, "says", L, part_a = "<span class='purple'><span class='name'>",
-		part_b = "</span><span class='message'> ", vname = vname,
-		speaker = speaking, command = loudness, no_paygrade = TRUE)
+	var/rendered = compose_message(src, speech_args[SPEECH_LANGUAGE], speech_args[SPEECH_MESSAGE], FREQ_PHONE)
+	if(raised)
+		rendered = span_big(rendered)
+	M.Hear(span_red(rendered), speaking, speech_args[SPEECH_LANGUAGE], speech_args[SPEECH_MESSAGE])
 
 /obj/item/phone/proc/attach_to(obj/structure/transmitter/to_attach)
 	if(!istype(to_attach))
@@ -502,7 +495,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(tether_from == tether_to)
 		return
 
-	var/list/tether_effects = apply_tether(tether_from, tether_to, range = attached_to.range, icon = "wire", always_face = FALSE)
+	var/list/tether_effects = apply_tether(tether_from, tether_to, range = attached_to.range, icon = "chain", always_face = FALSE)
 	tether_effect = tether_effects["tetherer_tether"]
 	RegisterSignal(tether_effect, COMSIG_QDELETING, PROC_REF(reset_tether))
 
@@ -524,13 +517,13 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		raised = FALSE
 		item_state = "rpb_phone"
 
-		var/obj/item/device/radio/R = H.get_type_in_ears(/obj/item/device/radio)
+		var/obj/item/radio/R = istype(H.wear_ear, /obj/item/radio) ? H.wear_ear : null
 		R?.on = TRUE
 	else
 		raised = TRUE
 		item_state = "rpb_phone_ear"
 
-		var/obj/item/device/radio/R = H.get_type_in_ears(/obj/item/device/radio)
+		var/obj/item/radio/R = istype(H.wear_ear, /obj/item/radio) ? H.wear_ear : null
 		R?.on = FALSE
 
 	H.update_inv_r_hand()
@@ -548,6 +541,10 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		attached_to.recall_phone()
 
 /obj/item/phone/pickup(mob/user)
+	. = ..()
+	RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speak))
+
+/obj/item/phone/equipped(mob/user, slot)
 	. = ..()
 	RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speak))
 
