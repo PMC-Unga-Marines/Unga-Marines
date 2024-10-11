@@ -76,6 +76,9 @@
 
 	to_chat(src,"<b>[span_deadsay("<p style='font-size:1.5em'><big>We have perished.</big><br><small>But it is not the end of us yet... wait until a newborn can rise in this world...</small></p>")]</b>")
 
+	if(islaststandgamemode(SSticker.mode)) // snowflaky, but we need to cleanup
+		QDEL_IN(src, 1 MINUTES)
+
 	return ..()
 
 
