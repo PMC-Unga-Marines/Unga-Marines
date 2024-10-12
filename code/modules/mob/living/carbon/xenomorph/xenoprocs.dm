@@ -10,11 +10,9 @@
 	set desc = "Check the status of your current hive."
 	set category = "Alien"
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(interference)
-		to_chat(src, span_warning("A headhunter temporarily cut off your psychic connection!"))
+		to_chat(src, span_warning("A headhunter temporarily cuts off your psychic connection!"))
 		return
-//RUTGMC EDIT ADDITION END
 
 	check_hive_status(src)
 
@@ -76,7 +74,7 @@
 		return
 
 	if(!rouny_icon)
-		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavalaible for this caste."))
+		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
 		return
 
 	toggle_rouny_skin()
