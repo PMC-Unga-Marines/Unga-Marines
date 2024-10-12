@@ -734,7 +734,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya/carbine
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/zarya/carbine,
-		/obj/item/ammo_magazine/rifle/zarya/carbine,
 		/obj/item/ammo_magazine/rifle/zarya/extended,
 	)
 	attachable_allowed = list(
