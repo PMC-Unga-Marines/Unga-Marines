@@ -236,11 +236,6 @@
 	contains = list(/obj/item/ammo_magazine/rifle/tx54/smoke/tangle)
 	cost = 48
 
-/datum/supply_packs/weapons/tx54_he
-	name = "GL-54 HE grenade magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/tx54/he)
-	cost = 50
-
 /datum/supply_packs/weapons/tx55
 	name = "AR-55 OICW Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/tx55)
