@@ -27,7 +27,7 @@
 // ***************************************
 /mob/living/carbon/xenomorph/carrier/Initialize(mapload)
 	. = ..()
-	hugger_overlays_icon = mutable_appearance('icons/Xeno/castes/carrier.dmi',"empty")
+	hugger_overlays_icon = mutable_appearance('icons/Xeno/castes/carrier/effects.dmi',"empty")
 
 /mob/living/carbon/xenomorph/carrier/get_status_tab_items()
 	. = ..()
