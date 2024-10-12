@@ -262,6 +262,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	desc = "What the hell is THAT?"
 	icon = 'icons/Xeno/castes/larva.dmi'
 	icon_state = "Drone Walking"
+	effects_icon = 'icons/Xeno/castes/larva.dmi'
 	speak_emote = list("hisses")
 	melee_damage = 5 //Arbitrary damage value
 	attacktext = "claws"
