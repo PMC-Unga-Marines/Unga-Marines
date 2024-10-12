@@ -4,6 +4,7 @@
 	desc = "A bright red alien with a matching temper."
 	icon = 'icons/Xeno/castes/bull/basic.dmi'
 	icon_state = "Bull Walking"
+	effects_icon = 'icons/Xeno/castes/bull/effects.dmi'
 	bubble_icon = "alien"
 	health = 160
 	maxHealth = 160

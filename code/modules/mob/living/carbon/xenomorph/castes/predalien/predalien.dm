@@ -4,6 +4,7 @@
 	desc = "A strange looking creature with fleshy strands on its head. It appears like a mixture of armor and flesh, smooth, but well carapaced."
 	icon = 'icons/Xeno/castes/predalien/praetorian.dmi'
 	icon_state = "Predalien Walking"
+	effects_icon = 'icons/Xeno/castes/predalien/praetorian_effects.dmi'
 	wall_smash = TRUE
 	pixel_x = -16
 	old_x = -16
@@ -49,3 +50,4 @@ Your health meter will not regenerate normally, so kill and die for the hive!</s
 
 /mob/living/carbon/xenomorph/predalien/warrior
 	icon = 'icons/Xeno/castes/predalien/warrior.dmi'
+	effects_icon = 'icons/Xeno/castes/predalien/warrior_effects.dmi'

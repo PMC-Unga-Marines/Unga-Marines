@@ -4,6 +4,7 @@
 	desc = "A huge ass xeno covered in weeds! Oh shit!"
 	icon = 'icons/Xeno/castes/hivelord/basic.dmi'
 	icon_state = "Hivelord Walking"
+	effects_icon = 'icons/Xeno/castes/hivelord/effects.dmi'
 	bubble_icon = "alienroyal"
 	health = 250
 	maxHealth = 250

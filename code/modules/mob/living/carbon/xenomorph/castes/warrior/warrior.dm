@@ -4,6 +4,7 @@
 	desc = "A beefy, alien with an armored carapace."
 	icon = 'icons/Xeno/castes/warrior/basic.dmi'
 	icon_state = "Warrior Walking"
+	effects_icon = 'icons/Xeno/castes/warrior/effects.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200

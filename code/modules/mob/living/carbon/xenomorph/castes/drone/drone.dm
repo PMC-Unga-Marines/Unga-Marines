@@ -4,6 +4,7 @@
 	desc = "An Alien Drone"
 	icon = 'icons/Xeno/castes/drone/basic.dmi'
 	icon_state = "Drone Walking"
+	effects_icon = 'icons/Xeno/castes/drone/effects.dmi'
 	bubble_icon = "alien"
 	skins = list(
 		"king" = 'icons/Xeno/castes/drone/king.dmi',

@@ -4,6 +4,7 @@
 	desc = "A primordial creature, evolved to smash the hardiest of defences and hunt the hardiest of prey."
 	icon = 'icons/Xeno/castes/king/basic.dmi'
 	icon_state = "King Walking"
+	effects_icon = 'icons/Xeno/castes/king/effects.dmi'
 	attacktext = "bites"
 	attack_sound = null
 	friendly = "nuzzles"

@@ -4,6 +4,7 @@
 	desc = "A large, lanky alien creature. It seems psychically unstable."
 	icon = 'icons/Xeno/castes/shrike/basic.dmi'
 	icon_state = "Shrike Walking"
+	effects_icon = 'icons/Xeno/castes/shrike/effects.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
 		"joker" = 'icons/Xeno/castes/shrike/joker.dmi',

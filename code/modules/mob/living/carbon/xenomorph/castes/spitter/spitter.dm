@@ -4,6 +4,7 @@
 	desc = "A gross, oozing alien of some kind."
 	icon = 'icons/Xeno/castes/spitter/basic.dmi'
 	icon_state = "Spitter Walking"
+	effects_icon = 'icons/Xeno/castes/spitter/effects.dmi'
 	bubble_icon = "alienroyal"
 	health = 180
 	maxHealth = 180

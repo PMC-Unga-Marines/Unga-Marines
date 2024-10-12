@@ -298,6 +298,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
+	///Var for keeping the effects icon of current skin, changeable with skin toggling
+	var/effects_icon
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	var/datum/xeno_caste/xeno_caste

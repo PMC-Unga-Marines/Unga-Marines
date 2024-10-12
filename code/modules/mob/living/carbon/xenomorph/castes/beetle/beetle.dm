@@ -4,6 +4,7 @@
 	desc = "A bulky, six-legged alien with a horn. Its carapace seems quite durable."
 	icon = 'icons/Xeno/castes/beetle/basic.dmi'
 	icon_state = "Beetle Walking"
+	effects_icon = 'icons/Xeno/castes/beetle/effects.dmi'
 	health = 200
 	maxHealth = 200
 	plasma_stored = 50

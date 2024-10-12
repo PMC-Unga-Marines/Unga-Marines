@@ -4,6 +4,7 @@
 	desc = "A large, physically frail creature. It hovers in the air and seems to buzz with psychic power."
 	icon = 'icons/Xeno/castes/warlock/basic.dmi'
 	icon_state = "Warlock Walking"
+	effects_icon = 'icons/Xeno/castes/warlock/effects.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
 		"arabian" = 'icons/Xeno/castes/warlock/arab.dmi',

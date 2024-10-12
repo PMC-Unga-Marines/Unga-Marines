@@ -4,6 +4,7 @@
 	desc = "A huge alien with an enormous armored head crest."
 	icon = 'icons/Xeno/castes/crusher/basic.dmi'
 	icon_state = "Crusher Walking"
+	effects_icon = 'icons/Xeno/castes/crusher/effects.dmi'
 	bubble_icon = "alien"
 	health = 300
 	maxHealth = 300

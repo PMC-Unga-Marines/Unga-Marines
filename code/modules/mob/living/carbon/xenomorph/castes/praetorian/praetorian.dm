@@ -4,6 +4,7 @@
 	desc = "A huge, looming beast of an alien."
 	icon = 'icons/Xeno/castes/praetorian/basic.dmi'
 	icon_state = "Praetorian Walking"
+	effects_icon = 'icons/Xeno/castes/praetorian/effects.dmi'
 	health = 210
 	maxHealth = 210
 	plasma_stored = 200

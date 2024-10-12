@@ -4,6 +4,7 @@
 	desc = "A huge, nasty red alien with enormous scythed claws."
 	icon = 'icons/Xeno/castes/ravager/basic.dmi'
 	icon_state = "Ravager Walking"
+	effects_icon = 'icons/Xeno/castes/ravager/effects.dmi'
 	health = 250
 	maxHealth = 250
 	plasma_stored = 50

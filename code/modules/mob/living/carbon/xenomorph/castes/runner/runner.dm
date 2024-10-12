@@ -2,8 +2,8 @@
 	caste_base_type = /datum/xeno_caste/runner
 	name = "Runner"
 	desc = "A small red alien that looks like it could run fairly quickly..."
-	icon = 'icons/Xeno/castes/runner.dmi' //They are now like, 2x1 or something
 	icon = 'icons/Xeno/castes/runner/basic.dmi' //They are now like, 2x1 or something
+	effects_icon = 'icons/Xeno/castes/runner/basic_effects.dmi'
 	icon_state = "Runner Walking"
 	bubble_icon = "alienleft"
 	health = 100

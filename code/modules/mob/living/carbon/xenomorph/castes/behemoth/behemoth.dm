@@ -4,6 +4,7 @@
 	desc = "A resilient and equally ferocious monster that commands the earth itself."
 	icon = 'icons/Xeno/castes/behemoth/basic.dmi'
 	icon_state = "Behemoth Walking"
+	effects_icon = 'icons/Xeno/castes/behemoth/effects.dmi'
 	bubble_icon = "alienleft"
 	health = 750
 	maxHealth = 750

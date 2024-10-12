@@ -4,6 +4,7 @@
 	desc = "A strange-looking alien creature. It carries a number of scuttling jointed crablike creatures."
 	icon = 'icons/Xeno/castes/carrier/basic.dmi' //They are now like, 2x2
 	icon_state = "Carrier Walking"
+	effects_icon = 'icons/Xeno/castes/carrier/effects.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200

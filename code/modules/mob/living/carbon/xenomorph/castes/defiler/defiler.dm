@@ -4,6 +4,7 @@
 	desc = "A large, powerfully muscled xeno replete with dripping spines and gas leaking dorsal vents."
 	icon = 'icons/Xeno/castes/defiler/basic.dmi'
 	icon_state = "Defiler Walking"
+	effects_icon = 'icons/Xeno/castes/defiler/effects.dmi'
 	bubble_icon = "alienroyal"
 	health = 225
 	maxHealth = 225
