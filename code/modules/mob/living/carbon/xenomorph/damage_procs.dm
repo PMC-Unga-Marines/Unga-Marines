@@ -69,9 +69,6 @@
 	if(!damage) //no damage
 		return 0
 
-	if(damage > 12) //Light damage won't splash.
-		check_blood_splash(damage, damagetype, 0, 1, sharp, edge)
-
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_TAKING_DAMAGE, damage)
 
 	if(stat == DEAD)
@@ -153,40 +150,3 @@
 		updatehealth()
 
 #undef HANDLE_OVERHEAL
-
-/mob/living/carbon/xenomorph/proc/check_blood_splash(damage = 0, damtype = BRUTE, chancemod = 0, radius = 1, sharp = FALSE, edge = FALSE)
-	if(!damage)
-		return FALSE
-	var/chance = 25 //base chance
-	if(damtype == BRUTE)
-		chance += 5
-	if(sharp)
-		chancemod += 10
-	if(edge) //Pierce weapons give the most bonus
-		chancemod += 12
-	chance += chancemod + (damage * 0.33)
-	var/turf/T = loc
-	if(!T || !istype(T))
-		return
-
-	if(radius > 1 || prob(chance))
-
-		var/obj/effect/decal/cleanable/blood/xeno/decal = locate(/obj/effect/decal/cleanable/blood/xeno) in T
-
-		if(!decal) //Let's not stack blood, it just makes lagggggs.
-			add_splatter_floor(T) //Drop some on the ground first.
-		else
-			if(decal.random_icon_states && length(decal.random_icon_states) > 0) //If there's already one, just randomize it so it changes.
-				decal.icon_state = pick(decal.random_icon_states)
-
-		if(!(xeno_caste.caste_flags & CASTE_ACID_BLOOD))
-			return
-		var/splash_chance
-		for(var/mob/living/carbon/human/victim in range(radius,src)) //Loop through all nearby victims, including the tile.
-			splash_chance = (chance * 2) - (get_dist(src,victim) * 20)
-			if(prob(splash_chance))
-				victim.visible_message(span_danger("\The [victim] is scalded with hissing green blood!"), \
-				span_danger("You are splattered with sizzling blood! IT BURNS!"))
-				if(victim.stat == CONSCIOUS && !(victim.species.species_flags & NO_PAIN))
-					victim.emote("scream")
-				victim.take_overall_damage(rand(5, 15), BURN, ACID, updating_health = TRUE)

@@ -8,7 +8,7 @@
 	wound_type = ""
 	upgrade_name = ""
 
-	caste_flags = CASTE_INNATE_HEALING|CASTE_INNATE_PLASMA_REGEN|CASTE_ACID_BLOOD
+	caste_flags = CASTE_INNATE_HEALING|CASTE_INNATE_PLASMA_REGEN
 
 	// *** Melee Attacks *** //
 	melee_damage = 35

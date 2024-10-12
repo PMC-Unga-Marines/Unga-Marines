@@ -534,16 +534,15 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CASTE_HIDE_IN_STATUS (1<<5)
 #define CASTE_QUICK_HEAL_STANDING (1<<6) // Xenomorphs heal standing same if they were resting.
 #define CASTE_INNATE_PLASMA_REGEN (1<<7) // Xenos get full plasma regardless if they are on weeds or not
-#define CASTE_ACID_BLOOD (1<<8) //The acid blood effect which damages humans near xenos that take damage
-#define CASTE_IS_STRONG (1<<9)//can tear open acided walls without being big
-#define CASTE_IS_BUILDER (1<<10) //whether we are classified as a builder caste
-#define CASTE_IS_A_MINION (1<<11) //That's a dumb ai
-#define CASTE_PLASMADRAIN_IMMUNE (1<<12)
-#define CASTE_NOT_IN_BIOSCAN (1<<13) // xenos with this flag aren't registered towards bioscan
-#define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<14) // xenos with this flag wont be announced to hive when dying
-#define CASTE_STAGGER_RESISTANT (1<<15) //Resistant to some forms of stagger, such as projectiles
-#define CASTE_HAS_WOUND_MASK (1<<16) //uses an alpha mask for wounded states
-#define CASTE_EXCLUDE_STRAINS (1<<17) // denotes castes/basetypes that should be excluded from being evoable as a strain
+#define CASTE_IS_STRONG (1<<8)//can tear open acided walls without being big
+#define CASTE_IS_BUILDER (1<<9) //whether we are classified as a builder caste
+#define CASTE_IS_A_MINION (1<<10) //That's a dumb ai
+#define CASTE_PLASMADRAIN_IMMUNE (1<<11)
+#define CASTE_NOT_IN_BIOSCAN (1<<12) // xenos with this flag aren't registered towards bioscan
+#define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<13) // xenos with this flag wont be announced to hive when dying
+#define CASTE_STAGGER_RESISTANT (1<<14) //Resistant to some forms of stagger, such as projectiles
+#define CASTE_HAS_WOUND_MASK (1<<15) //uses an alpha mask for wounded states
+#define CASTE_EXCLUDE_STRAINS (1<<16) // denotes castes/basetypes that should be excluded from being evoable as a strain
 
 // Xeno defines that affect evolution, considering making a new var for these
 #define CASTE_LEADER_TYPE (1<<16) //Whether we are a leader type caste, such as the queen, shrike or ?king?, and is affected by queen ban and playtime restrictions

@@ -96,8 +96,6 @@
 
 	remains.icon_state = xeno_caste.gib_anim
 
-	check_blood_splash(35, BURN, 65, 2)
-
 	return ..()
 
 /mob/living/carbon/xenomorph/gib_animation()
