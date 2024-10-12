@@ -8,8 +8,8 @@
 	rouny_icon = 'icons/Xeno/castes/shrike/rouny.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
-		"joker" = 'icons/Xeno/castes/shrike/joker.dmi',
-		"basic" = 'icons/Xeno/castes/shrike/basic.dmi',
+		/datum/xenomorph_skin/shrike/joker,
+		/datum/xenomorph_skin/shrike,
 	)
 	attacktext = "bites"
 	attack_sound = null

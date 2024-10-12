@@ -17,8 +17,8 @@
 	old_x = -16
 	bubble_icon = "alienroyal"
 	skins = list(
-		"bonehead" = 'icons/Xeno/castes/ravager/bone.dmi',
-		"basic" = 'icons/Xeno/castes/ravager/basic.dmi',
+		/datum/xenomorph_skin/ravager/bonehead,
+		/datum/xenomorph_skin/ravager,
 	)
 	var/rage_power
 	var/rage = FALSE

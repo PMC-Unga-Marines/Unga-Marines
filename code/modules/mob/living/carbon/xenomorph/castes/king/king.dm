@@ -19,8 +19,8 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	skins = list(
-		"red" = 'icons/Xeno/castes/king/red.dmi',
-		"basic" = 'icons/Xeno/castes/king/basic.dmi',
+		/datum/xenomorph_skin/king,
+		/datum/xenomorph_skin/king/red,
 	)
 	footstep_type = FOOTSTEP_XENO_STOMPY
 	inherent_verbs = list(

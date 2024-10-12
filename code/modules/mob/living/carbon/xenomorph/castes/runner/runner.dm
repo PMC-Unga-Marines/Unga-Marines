@@ -17,11 +17,11 @@
 	old_x = -16
 	bubble_icon = "alien"
 	skins = list(
-		"golden" = 'icons/Xeno/castes/runner/gold.dmi',
-		"tacticool" = 'icons/Xeno/castes/runner/tacticool.dmi',
-		"cowboy" = 'icons/Xeno/castes/runner/cowboy.dmi',
-		"saddles" = 'icons/Xeno/castes/runner/saddles.dmi',
-		"basic" = 'icons/Xeno/castes/runner/basic.dmi',
+		/datum/xenomorph_skin/runner/gold,
+		/datum/xenomorph_skin/runner/tacticool,
+		/datum/xenomorph_skin/runner/cowboy,
+		/datum/xenomorph_skin/runner/saddles,
+		/datum/xenomorph_skin/runner,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,

@@ -97,15 +97,20 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
-	var/selection
-	if(length(skins) == 1)
-		selection = skins[1]
-	else
-		selection = tgui_input_list(src, "Choose an setting appearance", "Choose an setting appearance", skins)
+	var/datum/xenomorph_skin/selection
+	var/list/available_skins = list() // we do a list of names instead of datums
+	for(var/datum/xenomorph_skin/our_skin AS in skins)
+		available_skins[our_skin.name] = our_skin
+	var/answer = tgui_input_list(src, "Choose a setting appearance", "Choose a setting appearance", available_skins)
+	selection = available_skins[answer]
 
-	if(selection)
-		icon = skins[selection]
-		base_icon = skins[selection]
+	if(!selection)
+		return
+
+	icon = selection.icon
+	base_icon = selection.icon
+	effects_icon = selection.effects_icon
+	rouny_icon = selection.rouny_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()

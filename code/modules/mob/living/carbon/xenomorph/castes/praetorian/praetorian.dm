@@ -17,7 +17,7 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	skins = list(
-		"tacticool" = 'icons/Xeno/castes/praetorian/tacticool.dmi',
-		"basic" = 'icons/Xeno/castes/praetorian/basic.dmi',
+		/datum/xenomorph_skin/praetorian/tacticool,
+		/datum/xenomorph_skin/praetorian,
 	)
 

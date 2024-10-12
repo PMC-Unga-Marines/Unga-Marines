@@ -304,13 +304,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/effects_icon = 'icons/Xeno/castes/larva.dmi'
 	///Var for keeping the rouny icon of current skin, changeable with skin toggling
 	var/rouny_icon
-	/** List of alternative skins to which xeno is able to change
-	 * Example: "golden" = 'icons/Xeno/castes/runner/gold.dmi', 'icons/Xeno/castes/runner/gold_effects.dmi', 'icons/Xeno/castes/runner/gold_rouny.dmi'
-	 * Arguments:
-	 * * The main icon
-	 * * The effects icon
-	 * * The rouny icon
-	*/
+	/// List of alternative skins to which xeno is able to change, you put only skin datums in here
 	var/list/skins = list()
 
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay

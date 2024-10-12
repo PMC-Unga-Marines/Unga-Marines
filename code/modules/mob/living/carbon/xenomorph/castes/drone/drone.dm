@@ -8,9 +8,9 @@
 	rouny_icon = 'icons/Xeno/castes/drone/rouny.dmi'
 	bubble_icon = "alien"
 	skins = list(
-		"king" = 'icons/Xeno/castes/drone/king.dmi',
-		"cyborg" = 'icons/Xeno/castes/drone/cyborg.dmi',
-		"basic" = 'icons/Xeno/castes/drone/basic.dmi',
+		/datum/xenomorph_skin/drone/king,
+		/datum/xenomorph_skin/drone/cyborg,
+		/datum/xenomorph_skin/drone,
 	)
 	health = 120
 	maxHealth = 120
