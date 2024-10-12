@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/chimera
 	name = "Chimera"
 	desc = "A slim, deadly alien creature. It has two additional arms with mantis blades."
-	icon = 'icons/Xeno/castes/chimera.dmi'
+	icon = 'icons/Xeno/castes/chimera/basic.dmi'
 	icon_state = "Chimera Walking"
 	health = 400
 	maxHealth = 400

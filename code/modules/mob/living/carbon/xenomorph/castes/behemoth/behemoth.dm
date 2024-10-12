@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/behemoth
 	name = "Behemoth"
 	desc = "A resilient and equally ferocious monster that commands the earth itself."
-	icon = 'icons/Xeno/castes/behemoth.dmi'
+	icon = 'icons/Xeno/castes/behemoth/basic.dmi'
 	icon_state = "Behemoth Walking"
 	bubble_icon = "alienleft"
 	health = 750

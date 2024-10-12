@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/panther
 	name = "Panther"
 	desc = "What you have done with this cute little rouny?"
-	icon = 'icons/Xeno/castes/panther.dmi'
+	icon = 'icons/Xeno/castes/panther/basic.dmi'
 	icon_state = "Panther Walking" //Panther sprites by Drawsstuff (CC BY-NC-SA 3.0)
 	health = 50
 	maxHealth = 100

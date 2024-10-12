@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/boiler
 	name = "Boiler"
 	desc = "A huge, grotesque xenomorph covered in glowing, oozing acid slime."
-	icon = 'icons/Xeno/castes/boiler.dmi'
+	icon = 'icons/Xeno/castes/boiler/basic.dmi'
 	icon_state = "Boiler Walking"
 	bubble_icon = "alienroyal"
 	health = 200

@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/ravager
 	name = "Ravager"
 	desc = "A huge, nasty red alien with enormous scythed claws."
-	icon = 'icons/Xeno/castes/ravager.dmi'
+	icon = 'icons/Xeno/castes/ravager/basic.dmi'
 	icon_state = "Ravager Walking"
 	health = 250
 	maxHealth = 250
@@ -15,8 +15,8 @@
 	old_x = -16
 	bubble_icon = "alienroyal"
 	skins = list(
-		"bonehead" = 'icons/Xeno/castes/ravager_bone.dmi',
-		"baseline" = 'icons/Xeno/castes/ravager.dmi',
+		"bonehead" = 'icons/Xeno/castes/ravager/bone.dmi',
+		"basic" = 'icons/Xeno/castes/ravager/basic.dmi',
 	)
 	var/rage_power
 	var/rage = FALSE

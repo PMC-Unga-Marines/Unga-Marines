@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/praetorian
 	name = "Praetorian"
 	desc = "A huge, looming beast of an alien."
-	icon = 'icons/Xeno/castes/praetorian.dmi'
+	icon = 'icons/Xeno/castes/praetorian/basic.dmi'
 	icon_state = "Praetorian Walking"
 	health = 210
 	maxHealth = 210
@@ -15,7 +15,7 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	skins = list(
-		"tacticool" = 'icons/Xeno/castes/praetorian_tacticool.dmi',
-		"baseline" = 'icons/Xeno/castes/praetorian.dmi',
+		"tacticool" = 'icons/Xeno/castes/praetorian/tacticool.dmi',
+		"basic" = 'icons/Xeno/castes/praetorian/basic.dmi',
 	)
 

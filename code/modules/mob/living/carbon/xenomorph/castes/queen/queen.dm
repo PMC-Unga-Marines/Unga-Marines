@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/queen
 	name = "Queen"
 	desc = "A huge, looming alien creature. The biggest and the baddest."
-	icon = 'icons/Xeno/castes/queen.dmi'
+	icon = 'icons/Xeno/castes/queen/basic.dmi'
 	icon_state = "Queen Walking"
 	attacktext = "bites"
 	attack_sound = null

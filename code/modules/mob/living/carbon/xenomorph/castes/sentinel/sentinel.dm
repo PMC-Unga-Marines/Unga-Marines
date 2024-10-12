@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/sentinel
 	name = "Sentinel"
 	desc = "A slithery, spitting kind of alien."
-	icon = 'icons/Xeno/castes/sentinel.dmi'
+	icon = 'icons/Xeno/castes/sentinel/basic.dmi'
 	icon_state = "Sentinel Walking"
 	bubble_icon = "alienleft"
 	health = 150

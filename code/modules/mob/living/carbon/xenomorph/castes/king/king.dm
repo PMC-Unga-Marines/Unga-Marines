@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/king
 	name = "King"
 	desc = "A primordial creature, evolved to smash the hardiest of defences and hunt the hardiest of prey."
-	icon = 'icons/Xeno/castes/king.dmi'
+	icon = 'icons/Xeno/castes/king/basic.dmi'
 	icon_state = "King Walking"
 	attacktext = "bites"
 	attack_sound = null
@@ -18,8 +18,8 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	skins = list(
-		"red" = 'icons/Xeno/castes/king_red.dmi',
-		"baseline" = 'icons/Xeno/castes/king.dmi',
+		"red" = 'icons/Xeno/castes/king/red.dmi',
+		"basic" = 'icons/Xeno/castes/king/basic.dmi',
 	)
 	footstep_type = FOOTSTEP_XENO_STOMPY
 	inherent_verbs = list(

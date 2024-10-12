@@ -3,6 +3,7 @@
 	name = "Runner"
 	desc = "A small red alien that looks like it could run fairly quickly..."
 	icon = 'icons/Xeno/castes/runner.dmi' //They are now like, 2x1 or something
+	icon = 'icons/Xeno/castes/runner/basic.dmi' //They are now like, 2x1 or something
 	icon_state = "Runner Walking"
 	bubble_icon = "alienleft"
 	health = 100
@@ -15,11 +16,11 @@
 	old_x = -16
 	bubble_icon = "alien"
 	skins = list(
-		"golden" = 'icons/Xeno/castes/runner_gold.dmi',
-		"tacticool" = 'icons/Xeno/castes/runner_tacticool.dmi',
-		"cowboy" = 'icons/Xeno/castes/runner_cowboy.dmi',
-		"saddles" = 'icons/Xeno/castes/runner_saddles.dmi',
-		"baseline" = 'icons/Xeno/castes/runner.dmi',
+		"golden" = 'icons/Xeno/castes/runner/gold.dmi',
+		"tacticool" = 'icons/Xeno/castes/runner/tacticool.dmi',
+		"cowboy" = 'icons/Xeno/castes/runner/cowboy.dmi',
+		"saddles" = 'icons/Xeno/castes/runner/saddles.dmi',
+		"basic" = 'icons/Xeno/castes/runner/basic.dmi',
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,

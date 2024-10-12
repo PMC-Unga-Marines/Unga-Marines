@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/beetle
 	name = "Beetle"
 	desc = "A bulky, six-legged alien with a horn. Its carapace seems quite durable."
-	icon = 'icons/Xeno/castes/beetle.dmi'
+	icon = 'icons/Xeno/castes/beetle/basic.dmi'
 	icon_state = "Beetle Walking"
 	health = 200
 	maxHealth = 200
