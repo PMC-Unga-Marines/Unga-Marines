@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/hivelord/basic.dmi'
 	icon_state = "Hivelord Walking"
 	effects_icon = 'icons/Xeno/castes/hivelord/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/hivelord/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 250
 	maxHealth = 250

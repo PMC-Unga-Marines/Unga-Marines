@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/shrike/basic.dmi'
 	icon_state = "Shrike Walking"
 	effects_icon = 'icons/Xeno/castes/shrike/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/shrike/rouny.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
 		"joker" = 'icons/Xeno/castes/shrike/joker.dmi',

@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/boiler/basic.dmi'
 	icon_state = "Boiler Walking"
 	effects_icon = 'icons/Xeno/castes/boiler/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/boiler/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200

@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/panther/basic.dmi'
 	icon_state = "Panther Walking" //Panther sprites by Drawsstuff (CC BY-NC-SA 3.0)
 	effects_icon = 'icons/Xeno/castes/panther/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/panther/rouny.dmi'
 	health = 50
 	maxHealth = 100
 	plasma_stored = 10

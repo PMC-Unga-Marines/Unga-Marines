@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/crusher/basic.dmi'
 	icon_state = "Crusher Walking"
 	effects_icon = 'icons/Xeno/castes/crusher/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/crusher/rouny.dmi'
 	bubble_icon = "alien"
 	health = 300
 	maxHealth = 300

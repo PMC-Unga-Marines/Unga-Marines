@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/warlock/basic.dmi'
 	icon_state = "Warlock Walking"
 	effects_icon = 'icons/Xeno/castes/warlock/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/warlock/rouny.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
 		"arabian" = 'icons/Xeno/castes/warlock/arab.dmi',

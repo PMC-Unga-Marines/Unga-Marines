@@ -1189,6 +1189,7 @@
 #include "code\modules\admin\smites\lightning.dm"
 #include "code\modules\admin\smites\nugget.dm"
 #include "code\modules\admin\smites\puzzle.dm"
+#include "code\modules\admin\smites\rounify.dm"
 #include "code\modules\admin\smites\smite.dm"
 #include "code\modules\admin\verbs\adminhelp.dm"
 #include "code\modules\admin\verbs\centcom_podlauncher.dm"

@@ -20,6 +20,8 @@
 	mini.give_action(src)
 	add_abilities()
 
+	base_icon = icon
+
 	create_reagents(1000)
 	gender = NEUTER
 

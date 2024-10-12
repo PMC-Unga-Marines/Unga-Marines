@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/warrior/basic.dmi'
 	icon_state = "Warrior Walking"
 	effects_icon = 'icons/Xeno/castes/warrior/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/warrior/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200

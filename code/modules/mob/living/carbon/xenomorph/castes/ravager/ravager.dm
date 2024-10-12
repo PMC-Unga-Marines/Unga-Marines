@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/ravager/basic.dmi'
 	icon_state = "Ravager Walking"
 	effects_icon = 'icons/Xeno/castes/ravager/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/ravager/rouny.dmi'
 	health = 250
 	maxHealth = 250
 	plasma_stored = 50

@@ -75,12 +75,20 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
-	if(!("[xeno_caste.caste_name] rouny Running" in icon_states(icon))) // check's if we have the main icon_state of running xeno
-		to_chat(usr, span_warning("Sorry! But rouny skin is currently unavalaible for this caste!"))
+	if(!rouny_icon)
+		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavalaible for this caste."))
 		return
 
-	is_a_rouny = !is_a_rouny
-	update_icons()
+	toggle_rouny_skin()
+
+/mob/living/carbon/xenomorph/proc/toggle_rouny_skin()
+	if(!rouny_icon) // we should check for it before using the proc, but just in case
+		return
+
+	if(icon == rouny_icon)
+		icon = base_icon
+	else
+		icon = rouny_icon
 
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
@@ -99,6 +107,7 @@
 
 	if(selection)
 		icon = skins[selection]
+		base_icon = skins[selection]
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()

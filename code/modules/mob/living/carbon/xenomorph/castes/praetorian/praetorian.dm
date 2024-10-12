@@ -5,6 +5,7 @@
 	icon = 'icons/Xeno/castes/praetorian/basic.dmi'
 	icon_state = "Praetorian Walking"
 	effects_icon = 'icons/Xeno/castes/praetorian/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/praetorian/rouny.dmi'
 	health = 210
 	maxHealth = 210
 	plasma_stored = 200
