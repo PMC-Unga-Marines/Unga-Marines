@@ -119,7 +119,7 @@
 	if(burn_damage)
 		health_modifier = -min(burn_damage, health_recovery)
 		adjustFireLoss(health_modifier, TRUE)
- 
+
 	human_target.blood_volume -= 10 // something about 2%
 
 // ***************************************
