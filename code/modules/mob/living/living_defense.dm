@@ -347,3 +347,42 @@
 
 /mob/living/proc/emote_gored()
 	return
+
+/mob/living/punch_act(mob/living/carbon/xenomorph/warrior/xeno, punch_damage, push = TRUE)
+	. = ..()
+	var/slowdown_stacks = WARRIOR_PUNCH_SLOWDOWN
+	var/stagger_stacks = WARRIOR_PUNCH_STAGGER
+	var/visual_effect = /obj/effect/temp_visual/warrior/punch/weak
+	var/sound_effect = 'sound/weapons/punch1.ogg'
+	if(pulledby == xeno)
+		xeno.stop_pulling()
+		punch_damage *= WARRIOR_PUNCH_GRAPPLED_DAMAGE_MULTIPLIER
+		slowdown_stacks *= WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER
+		stagger_stacks *= WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER
+		visual_effect = /obj/effect/temp_visual/warrior/punch/strong
+		sound_effect = 'sound/weapons/punch2.ogg'
+		Paralyze(WARRIOR_PUNCH_GRAPPLED_PARALYZE)
+		Shake(duration = 0.5 SECONDS)
+	var/datum/limb/target_limb
+	if(!iscarbon(src))
+		var/mob/living/carbon/carbon_target = src
+		target_limb = carbon_target.get_limb(xeno.zone_selected)
+		if(!target_limb || (target_limb.limb_status & LIMB_DESTROYED))
+			target_limb = carbon_target.get_limb(BODY_ZONE_CHEST)
+	xeno.face_atom(src)
+	xeno.do_attack_animation(src)
+	new visual_effect(get_turf(src))
+	playsound(src, sound_effect, 50, 1)
+	shake_camera(src, 1, 1)
+	add_slowdown(slowdown_stacks)
+	adjust_stagger(stagger_stacks SECONDS)
+	adjust_blurriness(slowdown_stacks)
+	apply_damage(punch_damage, BRUTE, target_limb ? target_limb : 0, MELEE)
+	apply_damage(punch_damage, STAMINA, updating_health = TRUE)
+	var/turf_behind = get_step(src, REVERSE_DIR(get_dir(src, xeno)))
+	if(!push)
+		return
+	if(LinkBlocked(get_turf(src), turf_behind))
+		do_attack_animation(turf_behind)
+		return
+	knockback(xeno, WARRIOR_PUNCH_KNOCKBACK_DISTANCE, WARRIOR_PUNCH_KNOCKBACK_SPEED)
