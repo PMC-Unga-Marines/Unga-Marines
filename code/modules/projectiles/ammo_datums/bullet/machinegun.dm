@@ -98,7 +98,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
 	damage = 20
-	penetration = 25
+	penetration = 5
 	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/smart_minigun
@@ -110,5 +110,5 @@
 	accurate_range = 12
 	damage = 50
 	penetration = -20
-	additional_xeno_penetration = 10
+	additional_xeno_penetration = 0
 	damage_falloff = 0.1
