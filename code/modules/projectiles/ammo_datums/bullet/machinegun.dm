@@ -110,5 +110,4 @@
 	accurate_range = 12
 	damage = 50
 	penetration = -20
-	additional_xeno_penetration = 0
 	damage_falloff = 0.1
