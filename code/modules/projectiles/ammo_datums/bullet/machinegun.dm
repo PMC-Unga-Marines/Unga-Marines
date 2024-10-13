@@ -108,6 +108,6 @@
 	hud_state_empty = "smartgun_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
-	damage = 50
+	damage = 25
 	penetration = -20
 	damage_falloff = 0.1
