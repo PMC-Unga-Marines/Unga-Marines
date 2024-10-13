@@ -57,15 +57,6 @@ RU TGMC EDIT */
 	///Internal holder for emissive blocker object, do not use directly use blocks_emissive
 	var/atom/movable/emissive_blocker/em_block
 
-	/// The voice that this movable makes when speaking
-	var/voice
-	/// The pitch adjustment that this movable uses when speaking.
-	var/pitch = 0
-	/// The filter to apply to the voice when processing the TTS audio message.
-	var/voice_filter = ""
-	/// Set to anything other than "" to activate the silicon voice effect for TTS messages.
-	var/tts_silicon_voice_effect = ""
-
 	///Lazylist to keep track on the sources of illumination.
 	var/list/affected_movable_lights
 	///Highest-intensity light affecting us, which determines our visibility.
@@ -504,7 +495,7 @@ RU TGMC EDIT */
 		return
 	if(!isturf(loc))
 		return
-	var/dir_to_proj = get_dir(hit_atom, old_throw_source)
+	var/dir_to_proj = angle_to_cardinal_dir(Get_Angle(hit_atom, old_throw_source))
 	if(ISDIAGONALDIR(dir_to_proj))
 		var/list/cardinals = list(turn(dir_to_proj, 45), turn(dir_to_proj, -45))
 		for(var/direction in cardinals)
@@ -513,10 +504,8 @@ RU TGMC EDIT */
 				cardinals -= direction
 		dir_to_proj = pick(cardinals)
 
-	var/perpendicular_angle = 0
-	if(dir_to_proj != 0)
-		perpendicular_angle = Get_Angle(hit_atom, get_step(hit_atom, dir_to_proj))
-	var/new_angle = (perpendicular_angle + (perpendicular_angle - Get_Angle(old_throw_source, src) - 180) + rand(-10, 10))
+	var/perpendicular_angle = Get_Angle(hit_atom, get_step(hit_atom, ISDIAGONALDIR(dir_to_proj) ? get_dir(hit_atom, old_throw_source) - dir_to_proj : dir_to_proj))
+	var/new_angle = (perpendicular_angle + (perpendicular_angle - Get_Angle(old_throw_source, (loc == old_throw_source ? hit_atom : src)) - 180) + rand(-10, 10))
 
 	if(new_angle < -360)
 		new_angle += 720 //north is 0 instead of 360
@@ -639,13 +628,13 @@ RU TGMC EDIT */
 		flags_atom &= ~DIRLOCK
 	if(isobj(src) && throwing)
 		throw_impact(get_turf(src), speed)
-	if(loc)
-		stop_throw(flying, original_layer)
-		SEND_SIGNAL(loc, COMSIG_TURF_THROW_ENDED_HERE, src)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW)
+	stop_throw(flying, original_layer)
 
-/// Annul all throw var to ensure a clean exit out of throw state
+///Clean up all throw vars
 /atom/movable/proc/stop_throw(flying = FALSE, original_layer)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW)
+	if(loc)
+		SEND_SIGNAL(loc, COMSIG_TURF_THROW_ENDED_HERE, src)
 	set_throwing(FALSE)
 	if(flying)
 		set_flying(FALSE, original_layer)
@@ -1078,10 +1067,7 @@ RU TGMC EDIT */
 	grab_state = newstate
 
 ///Toggles AM between throwing states
-/atom/movable/proc/set_throwing(new_throwing, flying)
-	if(new_throwing == throwing)
-		return
-	. = throwing
+/atom/movable/proc/set_throwing(new_throwing)
 	throwing = new_throwing
 	if(throwing)
 		pass_flags |= PASS_THROW

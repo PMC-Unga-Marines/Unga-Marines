@@ -4,6 +4,7 @@
 	desc = "This one looks much more active than its fellows"
 	icon = 'icons/Xeno/castes/facehugger.dmi'
 	icon_state = "Facehugger Walking"
+	effects_icon = 'icons/Xeno/castes/facehugger.dmi'
 
 	health = 50
 	maxHealth = 50

@@ -1,6 +1,5 @@
 /proc/random_ethnicity()
-	//return pick(GLOB.ethnicities_list) Original
-	return pick(GLOB.human_ethnicities_list) //RU TGMC EDIT
+	return pick(GLOB.human_ethnicities_list)
 
 /proc/random_hair_style(gender, species = "Human")
 	var/list/valid_hairstyles = list()
@@ -37,18 +36,6 @@
 		return "Shaved"
 
 	return pick(valid_facialhairstyles)
-
-///returns a random tts voice based on gender. Assumes theres 30 voices, not actually how many there are but yolo. todo should return based on gender but we need voice tags for that
-/proc/random_tts_voice()
-	var/list/voices
-	if(SStts.tts_enabled)
-		voices = SStts.available_speakers
-	else if(fexists("data/cached_tts_voices.json"))
-		var/list/text_data = rustg_file_read("data/cached_tts_voices.json")
-		voices = json_decode(text_data)
-	if(!length(voices))
-		return null
-	return pick(voices)
 
 /proc/get_playable_species()
 	return GLOB.roundstart_species
