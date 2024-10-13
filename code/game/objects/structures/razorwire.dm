@@ -191,3 +191,27 @@
 		return
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(2 * S.strength, BURN, ACID)
+
+/obj/structure/razorwire/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) || charger.is_charging < CHARGE_ON)
+		charge_datum.do_stop_momentum()
+		return PRECRUSH_STOPPED
+	if(anchored)
+		var/charge_damage = (CHARGE_SPEED(charge_datum) * 45)  // 2.1 * 45 = 94.5 max damage to inflict.
+		. = charge_damage
+		charge_datum.speed_down(3)
+		charger.adjust_sunder(10)
+		return
+	return (CHARGE_SPEED(charge_datum) * 20) //Damage to inflict.
+
+/obj/structure/razorwire/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!anchored)
+		return ..()
+	razorwire_tangle(charger, RAZORWIRE_ENTANGLE_DELAY * 0.10) //entangled for only 10% as long or 0.5 seconds
+	charger.visible_message(span_danger("The barbed wire slices into [charger]!"),
+	span_danger("The barbed wire slices into you!"), null, 5)
+	charger.Paralyze(0.5 SECONDS)
+	charger.apply_damage(RAZORWIRE_BASE_DAMAGE * RAZORWIRE_MIN_DAMAGE_MULT_MED, BRUTE, sharp = TRUE, updating_health = TRUE	) //Armor is being ignored here.
+	playsound(src, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
+	update_icon()
+	return PRECRUSH_ENTANGLED //Let's return this so that the charger may enter the turf in where it's entangled, if it survived the wounds without gibbing.

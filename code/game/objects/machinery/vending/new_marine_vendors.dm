@@ -206,6 +206,9 @@
 	use_points = TRUE
 	categories = list(
 		CAT_STD = 1,
+		CAT_UNI = 1,
+		CAT_GLO = 1,
+		CAT_SHO = 1,
 		CAT_GLA = 1,
 		CAT_HEL = 1,
 		CAT_AMR = 1,
@@ -324,7 +327,7 @@
 
 /obj/machinery/marine_selector/clothes/synth/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.synthetic_clothes_listed_products + GLOB.synthetic_gear_listed_products //RUTGMC EDIT
+	listed_products = GLOB.synthetic_clothes_listed_products + GLOB.synthetic_gear_listed_products
 
 ////////////////////// Gear ////////////////////////////////////////////////////////
 
@@ -473,104 +476,9 @@
 
 /obj/effect/vendor_bundle/basic
 	gear_to_spawn = list(
-		/obj/item/clothing/under/marine,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
 		/obj/item/storage/box/MRE,
 		/obj/item/paper/tutorial/medical,
 		/obj/item/paper/tutorial/mechanics,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
-		/obj/item/paper/tutorial/medical,
-		/obj/item/paper/tutorial/mechanics,
-	)
-
-/obj/effect/vendor_bundle/basic_smartgunner
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger_smartgunner
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
-	)
-
-/obj/effect/vendor_bundle/basic_squadleader
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger_squadleader
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
-	)
-
-/obj/effect/vendor_bundle/basic_medic
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/corpsman,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger_medic
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/clothing/gloves/marine,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
-	)
-
-/obj/effect/vendor_bundle/basic_engineer
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/engineer,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger_engineer
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
-	)
-
-/obj/effect/vendor_bundle/basic_commander
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
-	)
-
-/obj/effect/vendor_bundle/basic_jaeger_commander
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/jaeger,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
-		/obj/item/facepaint/green,
 	)
 
 /obj/effect/vendor_bundle/medic
@@ -586,13 +494,6 @@
 		/obj/item/storage/firstaid/adv,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/tool/surgery/solderingtool,
-	)
-
-/obj/effect/vendor_bundle/gorka_medic
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/gorka_med,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
 	)
 
 /obj/effect/vendor_bundle/stretcher
@@ -612,13 +513,6 @@
 		/obj/item/lightreplacer,
 		/obj/item/circuitboard/apc,
 		/obj/item/tool/surgery/solderingtool,
-	)
-
-/obj/effect/vendor_bundle/gorka_engineer
-	gear_to_spawn = list(
-		/obj/item/clothing/under/marine/gorka_eng,
-		/obj/item/clothing/shoes/marine/full,
-		/obj/item/storage/box/MRE,
 	)
 
 /obj/effect/vendor_bundle/smartgunner_pistol
@@ -643,9 +537,7 @@
 	gear_to_spawn = list(
 		/obj/item/explosive/plastique,
 		/obj/item/beacon/supply_beacon,
-		//RUTGMC EDIT ADDITION BEGIN - ORBITAL_BEACON
 		/obj/item/beacon/orbital_bombardment_beacon,
-		//RUTGMC EDIT ADDITION END
 		/obj/item/healthanalyzer,
 		/obj/item/roller/medevac,
 		/obj/item/medevac_beacon,

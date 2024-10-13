@@ -877,6 +877,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(stat == DEAD)
 		return
 
+	if(proj.sundering)
+		adjust_sunder(proj.sundering)
+
 	var/damage = max(0, proj.damage - round(proj.distance_travelled * proj.damage_falloff))
 	if(!damage)
 		return
@@ -909,9 +912,6 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		adjust_fire_stacks(proj.ammo.incendiary_strength)
 		if(IgniteMob())
 			feedback_flags |= (BULLET_FEEDBACK_FIRE)
-
-	if(proj.sundering)
-		adjust_sunder(proj.sundering)
 
 	if(stat != DEAD && proj.firer)
 		proj.firer.record_projectile_damage(damage, src)	//Tally up whoever the shooter was

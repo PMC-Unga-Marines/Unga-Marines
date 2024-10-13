@@ -8,71 +8,54 @@
 	dextrous = TRUE
 
 	initial_language_holder = /datum/language_holder/synthetic
-	voice_filter = "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=1,rubberband=pitch=0.8"
 
 	var/obj/machinery/camera/builtInCamera = null
 	var/obj/item/radio/headset/mainship/mcom/silicon/radio = null
 
 	var/list/HUD_toggled = list(0, 0, 0)
 
-
 /mob/living/silicon/Initialize(mapload)
 	. = ..()
 	GLOB.silicon_mobs += src
 	radio = new(src)
-	if(SStts.tts_enabled)
-		voice = pick(SStts.available_speakers)
-
 
 /mob/living/silicon/Destroy()
 	QDEL_NULL(radio)
 	GLOB.silicon_mobs -= src
 	return ..()
 
-
 /mob/living/silicon/drop_held_item()
 	return
-
 
 /mob/living/silicon/drop_all_held_items()
 	return
 
-
 /mob/living/silicon/get_held_item()
 	return
-
 
 /mob/living/silicon/get_inactive_held_item()
 	return
 
-
 /mob/living/silicon/get_active_held_item()
 	return
-
 
 /mob/living/silicon/put_in_l_hand(obj/item/I)
 	return
 
-
 /mob/living/silicon/put_in_r_hand(obj/item/I)
 	return
-
 
 /mob/living/silicon/stripPanelUnequip(obj/item/I, mob/M, slot)
 	return
 
-
 /mob/living/silicon/med_hud_set_health()
 	return
-
 
 /mob/living/silicon/med_hud_set_status()
 	return
 
-
 /mob/living/silicon/contents_explosion(severity)
 	return
-
 
 /mob/living/silicon/emp_act(severity)
 	switch(severity)
@@ -91,37 +74,29 @@
 /mob/living/silicon/apply_effect(effect = 0, effecttype = STUN, updating_health = FALSE)
 	return FALSE
 
-
 /mob/living/silicon/adjustToxLoss(amount)
 	return FALSE
-
 
 /mob/living/silicon/setToxLoss(amount)
 	return FALSE
 
-
 /mob/living/silicon/adjustCloneLoss(amount)
 	return FALSE
-
 
 /mob/living/silicon/setCloneLoss(amount)
 	return FALSE
 
-
 /mob/living/silicon/adjustBrainLoss(amount)
 	return FALSE
 
-
 /mob/living/silicon/setBrainLoss(amount)
 	return FALSE
-
 
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg, target_zone, penetrate_thick = FALSE)
 	if(user && error_msg)
 		to_chat(user, span_alert("The armoured plating is too tough."))
 	return FALSE
-
 
 /mob/living/silicon/proc/toggle_sensor_mode()
 	if(!client)
@@ -154,7 +129,6 @@
 		H.add_hud_to(src)
 		to_chat(src, span_boldnotice("[hud_choice] Enabled"))
 
-
 /mob/living/silicon/ex_act(severity)
 	flash_act()
 	if(stat == DEAD)
@@ -167,7 +141,6 @@
 	adjustBruteLoss(severity)
 	UPDATEHEALTH(src)
 
-
 /mob/living/silicon/update_transform()
 	var/matrix/ntransform = matrix(transform)
 	var/changed = 0
@@ -179,7 +152,6 @@
 	if(changed)
 		animate(src, transform = ntransform, time = 2, easing = EASE_IN|EASE_OUT)
 	return ..()
-
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /mob/living/silicon/attack_hand(mob/living/user)
