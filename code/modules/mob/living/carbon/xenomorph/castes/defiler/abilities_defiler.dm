@@ -154,7 +154,7 @@
 			to_chat(living_target, span_highdanger("YOUR INSIDES FEEL LIKE THEY'RE ON FIRE!!"))
 
 	GLOB.round_statistics.defiler_defiler_stings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_defiler_stings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_defiler_stings")
 	succeed_activate()
 	return ..()
 
@@ -190,16 +190,16 @@
 
 	X.emitting_gas = TRUE //We gain bump movement immunity while we're emitting gas.
 
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Power Up"
+	X.icon_state = "[X.xeno_caste.caste_name] Power Up"
 
 	if(!do_after(X, DEFILER_GAS_CHANNEL_TIME, NONE, null, BUSY_ICON_HOSTILE))
 		if(!QDELETED(src))
 			to_chat(X, span_xenodanger("We abort emitting fumes, our expended plasma resulting in nothing."))
 			X.emitting_gas = FALSE
-			X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Running"
+			X.icon_state = "[X.xeno_caste.caste_name] Running"
 			return fail_activate()
 	X.emitting_gas = FALSE
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Running"
+	X.icon_state = "[X.xeno_caste.caste_name] Running"
 
 	add_cooldown()
 	succeed_activate()
@@ -210,7 +210,7 @@
 
 	owner.record_war_crime()
 	GLOB.round_statistics.defiler_neurogas_uses++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_neurogas_uses")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_neurogas_uses")
 
 	X.visible_message(span_xenodanger("[X] emits a noxious gas!"), \
 	span_xenodanger("We emit noxious gas!"))
@@ -234,7 +234,7 @@
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/transvitox(defiler_owner)
 			if(/datum/reagent/toxin/xeno_ozelomelyn)
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/ozelomelyn(defiler_owner)
-			if(/datum/reagent/toxin/acid) //RUTGMC EDIT ADDITION
+			if(/datum/reagent/toxin/acid)
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/acid/light(defiler_owner)
 
 	if(defiler_owner.IsStaggered()) //If we got staggered, return
@@ -271,7 +271,7 @@
 			particle_holder = new(owner, /particles/xeno_smoke/transvitox)
 		if(/datum/reagent/toxin/xeno_ozelomelyn)
 			particle_holder = new(owner, /particles/xeno_smoke/ozelomelyn)
-		if(/datum/reagent/toxin/acid) //RUTGMC EDIT ADDITION
+		if(/datum/reagent/toxin/acid)
 			particle_holder = new(owner, /particles/xeno_smoke/acid_light)
 	particle_holder.pixel_x = 16
 	particle_holder.pixel_y = 16
@@ -335,14 +335,14 @@
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/hemodile
 		if(/datum/reagent/toxin/xeno_transvitox)
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/transvitox
-		if(/datum/reagent/toxin/acid) //RUTGMC EDIT ADDITION
+		if(/datum/reagent/toxin/acid)
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/acid/light
-	newegg.update_icon_state() //RUTGMC EDIT ADDITION
+	newegg.update_icon_state()
 	qdel(alien_egg)
 
 	owner.record_war_crime()
 	GLOB.round_statistics.defiler_inject_egg_neurogas++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_inject_egg_neurogas")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_inject_egg_neurogas")
 
 // ***************************************
 // *********** Reagent selection
@@ -350,7 +350,7 @@
 /datum/action/ability/xeno_action/select_reagent
 	name = "Select Reagent"
 	action_icon_state = "select_reagent0"
-	desc = "Selects which reagent to use for reagent slash and noxious gas. Neuro causes increasing pain and stamina damage. Hemodile slows targets down, multiplied by each other xeno-based toxin. Transvitox converts burns to toxin, and causes additional toxin damage when they take brute damage, both effects multiplied by other xeno-based toxins. Ozelomelyn purges all medicines from their system rapidly and causes minor toxin damage."
+	desc = "Selects which reagent to use for reagent slash and noxious gas. Hemodile slows targets down, multiplied by each other xeno-based toxin. Transvitox converts burns to toxin, and causes additional toxin damage when they take brute damage, both effects multiplied by other xeno-based toxins. Ozelomelyn purges all medicines from their system rapidly and causes minor toxin damage. Acid is transparent but causes major burn damage."
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SELECT_REAGENT,
@@ -487,7 +487,7 @@
 	playsound(carbon_target, 'sound/effects/spray3.ogg', 15, TRUE)
 
 	GLOB.round_statistics.defiler_reagent_slashes++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_reagent_slashes")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_reagent_slashes")
 
 	reagent_slash_count-- //Decrement the reagent slash count
 
@@ -508,17 +508,13 @@
 		return
 
 	switch(X.selected_reagent)
-/*
-		if(/datum/reagent/toxin/xeno_neurotoxin)
-			particle_holder = new(owner, /particles/xeno_slash/neurotoxin)
-*/
 		if(/datum/reagent/toxin/xeno_hemodile)
 			particle_holder = new(owner, /particles/xeno_slash/hemodile)
 		if(/datum/reagent/toxin/xeno_transvitox)
 			particle_holder = new(owner, /particles/xeno_slash/transvitox)
 		if(/datum/reagent/toxin/xeno_ozelomelyn)
 			particle_holder = new(owner, /particles/xeno_slash/ozelomelyn)
-		if(/datum/reagent/toxin/acid) //RUTGMC EDIT ADDITION
+		if(/datum/reagent/toxin/acid)
 			particle_holder = new(owner, /particles/xeno_slash/transvitox)
 	particle_holder.pixel_x = 16
 	particle_holder.pixel_y = 12
@@ -597,7 +593,7 @@
 	target.throw_at(get_step(owner, owner.dir), TENTACLE_ABILITY_RANGE, 1, owner, FALSE)
 	if(isliving(target))
 		var/mob/living/loser = target
-		loser.ImmobilizeNoChain(1 SECONDS) //RuTGMC Edit
+		loser.ImmobilizeNoChain(1 SECONDS)
 		loser.adjust_stagger(5 SECONDS)
 
 ///signal handler to delete tetacle after we are done draggging owner along

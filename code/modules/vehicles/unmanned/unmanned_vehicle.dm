@@ -268,7 +268,7 @@
 		//Shoot at the thing
 		var/angle = Get_Angle(src, target)
 		playsound(loc, gunnoise, 65, 1)
-		in_chamber.fire_at(target, src, null, ammo.max_range, ammo.shell_speed)
+		in_chamber.fire_at(target, user, src, ammo.max_range, ammo.shell_speed)
 		in_chamber = null
 		COOLDOWN_START(src, fire_cooldown, fire_delay)
 		current_rounds--
@@ -288,6 +288,9 @@
 
 /obj/vehicle/unmanned/welder_act(mob/living/user, obj/item/I)
 	return welder_repair_act(user, I, 35, 2 SECONDS, 0, SKILL_ENGINEER_ENGI, 1, 4 SECONDS)
+
+/obj/vehicle/unmanned/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return (CHARGE_SPEED(charge_datum) * 50)
 
 /obj/vehicle/unmanned/medium
 	name = "UV-M Gecko"

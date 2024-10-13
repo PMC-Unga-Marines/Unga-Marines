@@ -27,9 +27,8 @@
 /datum/job/fallen/marine/standard
 
 /datum/job/fallen/marine/combat_robot
-	title = SQUAD_ROBOT
+	title = ROLE_FALLEN(SQUAD_ROBOT)
 	access = list(ACCESS_MARINE_ROBOT)
-	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_DROPSHIP)
 	outfit = /datum/outfit/job/marine/robot
 
 /datum/job/fallen/marine/combat_robot/get_special_name(client/preference_source)
@@ -111,3 +110,4 @@
 
 /datum/job/fallen/xenomorph
 	title = ROLE_FALLEN(ROLE_XENOMORPH)
+	faction = FACTION_XENO

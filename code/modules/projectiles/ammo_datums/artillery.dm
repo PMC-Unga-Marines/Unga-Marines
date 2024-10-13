@@ -158,7 +158,7 @@
 		return
 	T.ignite(5, 10)
 
-/datum/ammo/bullet/atgun_spread/incendiary/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+/datum/ammo/bullet/atgun_spread/incendiary/on_leave_turf(turf/T, obj/projectile/proj)
 	drop_flame(T)
 
 /datum/ammo/ags_shrapnel

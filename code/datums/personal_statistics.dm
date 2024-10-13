@@ -310,17 +310,15 @@ The alternative is scattering them everywhere under their respective objects whi
 	return ..()
 
 ///Tally to personal_statistics that a successful shot was made and record the damage dealt
-/mob/living/proc/record_projectile_damage(mob/shooter, damage)
+/mob/living/proc/record_projectile_damage(damage, mob/living/victim)
 	//Check if a ckey exists; the check for victim aliveness is handled before the proc call
-	if(!shooter.ckey)
+	if(!ckey)
 		return FALSE
-	var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[shooter.ckey]
+	var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[ckey]
 	personal_statistics.projectiles_hit++
 	personal_statistics.projectile_damage += damage
-	if(faction && isliving(shooter))	//See if any friendly fire was made
-		var/mob/living/L = shooter
-		if(faction == L.faction)
-			personal_statistics.friendly_fire_damage += damage	//FF multiplier already included by the way
+	if(faction == victim.faction)
+		personal_statistics.friendly_fire_damage += damage	//FF multiplier already included by the way
 	return TRUE
 
 ///Record what reagents and how much of them were transferred to a mob into their ckey's /datum/personal_statistics

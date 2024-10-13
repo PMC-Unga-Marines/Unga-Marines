@@ -19,33 +19,33 @@
 
 	var/stored_id = SSdiscord.lookup_id(usr.ckey)
 	if(!stored_id) // Account is not linked
-		var/know_how = alert("Do you know how to get a Discord user ID? This ID is NOT your Discord username and numbers! (Pressing NO will open a guide.)","Question","Yes","No","Cancel Linking")
+		var/know_how = tgui_alert(usr, "Do you know how to get a Discord user ID? This ID is NOT your Discord username and numbers! (Pressing NO will open a guide.)", "Question", list("Yes", "No", "Cancel Linking"))
+
 		if(know_how == "No") // Opens discord support on how to collect IDs
-			src << link("https://tgstation13.org/wiki/How_to_find_your_Discord_User_ID")
+			DIRECT_OUTPUT(src, link("https://tgstation13.org/wiki/How_to_find_your_Discord_User_ID"))
 		if(know_how == "Cancel Linking")
 			return
 		var/entered_id = tgui_input_text(usr, "Please enter your Discord ID (18-ish digits)", "Enter Discord ID")
 		SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
-		alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
+		tgui_alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
 	else // Account is already linked
-		var/choice = alert("You already have the Discord Account [stored_id] linked to [usr.ckey]. Would you like to link a different account?","Already Linked","Yes","No")
+		var/choice = tgui_alert(usr, "You already have the Discord Account [stored_id] linked to [usr.ckey]. Would you like to link a different account?", "Already Linked", list("Yes", "No"))
 		if(choice == "Yes")
-			var/know_how = alert("Do you know how to get a Discord user ID? This ID is NOT your Discord username and numbers! (Pressing NO will open a guide.)","Question","Yes","No", "Cancel Linking")
+			var/know_how = tgui_alert(usr, "Do you know how to get a Discord user ID? This ID is NOT your Discord username and numbers! (Pressing NO will open a guide.)", "Question", list("Yes", "No", "Cancel Linking"))
 			if(know_how == "No")
-				src << link("https://tgstation13.org/wiki/How_to_find_your_Discord_User_ID")
+				DIRECT_OUTPUT(src, link("https://tgstation13.org/wiki/How_to_find_your_Discord_User_ID"))
 
 			if(know_how == "Cancel Linking")
 				return
 
 			var/entered_id = tgui_input_text(usr, "Please enter your Discord ID (18-ish digits)", "Enter Discord ID")
 			SSdiscord.account_link_cache[replacetext(lowertext(usr.ckey), " ", "")] = "[entered_id]" // Prepares for TGS-side verification, also fuck spaces
-			alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
+			tgui_alert(usr, "Account link started. Please ping the bot of the server you\'re currently on, followed by \"verify [usr.ckey]\" in Discord to successfully verify your account (Example: @Mr_Terry verify [usr.ckey])")
 
-// IF you have linked your account, this will trigger a verify of the user
-/client/verb/verify_in_discord()
+/client/verb/check_discord()
 	set category = "OOC.Discord"
-	set name = "Verify Discord Account"
+	set name = "Check Discord ID"
 	set desc = "Verify or reverify your discord account against your linked ckey"
 
 	// Safety checks
@@ -63,12 +63,6 @@
 		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
 
-	// check that this is not an IDIOT mistaking us for an attack vector
-	if(SSdiscord.reverify_cache[usr.ckey] == TRUE)
-		to_chat(src, span_warning("Thou can only do this once a round, if you're stuck seek help."))
-		return
-	SSdiscord.reverify_cache[usr.ckey] = TRUE
-
 	// check that account is linked with discord
 	var/stored_id = SSdiscord.lookup_id(usr.ckey)
 	if(!stored_id) // Account is not linked
@@ -76,12 +70,11 @@
 		return
 
 	// honey its time for your role flattening
-	to_chat(usr, span_notice("Discord verified"))
+	to_chat(usr, span_notice("Discord - [stored_id] - verified"))
 
-// IF you have linked your account, this will trigger a verify of the user
 /client/verb/boosty_roly()
 	set category = "OOC.Discord"
-	set name = "Check boosty"
+	set name = "Check Boosty"
 	set desc = "Checking if you have permission to bind to boosty"
 
 	// Safety checks
@@ -98,9 +91,9 @@
 	if(!SSdiscord.enabled)
 		to_chat(src, span_warning("This feature requires the server is running on the TGS toolkit."))
 		return
-
-	if(SSdiscord.is_boosty(usr.ckey))
-		to_chat(usr, span_notice("Boosty discord role is verified"))
+	var/tier = SSdiscord.get_boosty_tier(usr.ckey, FALSE)
+	if(!tier)
+		to_chat(usr, span_notice("You don't have a boosty permission"))
 		return
 
-	to_chat(usr, span_notice("You don't have a boosty permission"))
+	to_chat(usr, span_notice("Boosty discord role is verified. Your current tier is [tier]"))

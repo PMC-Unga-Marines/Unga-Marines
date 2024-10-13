@@ -132,7 +132,7 @@ explosion resistance exactly as much as their health
 
 				switch(angle) //this reduces power when the explosion is going around corners
 					if (0)
-						//no change
+						EMPTY_BLOCK_GUARD //no change
 					if (45)
 						if(spread_power >= 0)
 							spread_power *= 0.75
@@ -277,7 +277,7 @@ explosion resistance exactly as much as their health
 		target = locate(target.x + round(scatter_x, 1), target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
-	throw_at(target, range, speed, null, TRUE)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE, targetted_throw = FALSE)
 
 /mob/proc/explosion_throw(severity, direction)
 	if(anchored || !isturf(loc))
@@ -314,4 +314,4 @@ explosion resistance exactly as much as their health
 		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
-	throw_at(target, range, speed, null, spin)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, spin, targetted_throw = FALSE)

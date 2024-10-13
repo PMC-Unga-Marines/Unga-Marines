@@ -1,9 +1,11 @@
 /mob/living/carbon/xenomorph/defender
-	caste_base_type = /mob/living/carbon/xenomorph/defender
+	caste_base_type = /datum/xeno_caste/defender
 	name = "Defender"
 	desc = "An alien with an armored head crest."
-	icon = 'icons/Xeno/castes/defender.dmi'
+	icon = 'icons/Xeno/castes/defender/basic.dmi'
 	icon_state = "Defender Walking"
+	effects_icon = 'icons/Xeno/castes/defender/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/defender/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200
@@ -19,10 +21,10 @@
 // ***************************************
 /mob/living/carbon/xenomorph/defender/handle_special_state()
 	if(fortify)
-		icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Fortify"
+		icon_state = "[xeno_caste.caste_name] Fortify"
 		return TRUE
 	if(crest_defense)
-		icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Crest"
+		icon_state = "[xeno_caste.caste_name] Crest"
 		return TRUE
 	return FALSE
 

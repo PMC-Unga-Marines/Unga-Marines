@@ -1,20 +1,16 @@
-//This is the proc for gibbing a mob. Cannot gib ghosts.
-//added different sort of gibs and animations. N
+///This is the proc for gibbing a mob. Cannot gib ghosts.
 /mob/proc/gib()
 	gib_animation()
 	spawn_gibs()
 	death(TRUE)
 
-
+///Proc for playing the gib animation on the gib proc.
 /mob/proc/gib_animation()
 	return
 
+///Proc for spawning gore, blood and gibs on the gib proc
 /mob/proc/spawn_gibs()
 	hgibs(loc)
-
-
-
-
 
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
@@ -23,7 +19,6 @@
 	dust_animation()
 	spawn_dust_remains()
 	death(TRUE)
-
 
 /mob/proc/spawn_dust_remains()
 	new /obj/effect/decal/cleanable/ash(loc)

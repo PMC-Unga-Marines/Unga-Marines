@@ -1,7 +1,7 @@
 /datum/game_mode/last_stand
 	name = "Last Stand"
 	config_tag = "Last Stand"
-	flags_xeno_abilities = ABILITY_CRASH
+	flags_xeno_abilities = ABILITY_LAST_STAND
 	flags_round_type = MODE_XENO_SPAWN_PROTECT
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
@@ -48,6 +48,8 @@
 		for(var/atom/loc in GLOB.spawns_by_job[job_type])
 			if(is_ground_level(loc.z))
 				continue
+			if(is_centcom_level(loc.z))
+				continue
 			GLOB.spawns_by_job[job_type] -= loc
 
 	for(var/latejoin in GLOB.latejoin)
@@ -67,6 +69,10 @@
 		if(is_ground_level(loc.z))
 			continue
 		GLOB.latejoin_gateway -= loc
+
+	for(var/atom/nuke in GLOB.last_stand_nukes)
+		var/turf_targeted = get_turf(nuke)
+		new /obj/effect/ai_node/goal(turf_targeted, null)
 
 	GLOB.start_squad_landmarks_list = null
 	GLOB.latejoin_squad_landmarks_list = null

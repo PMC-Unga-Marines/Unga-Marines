@@ -154,7 +154,7 @@
 /datum/action/ability/activable/xeno/psychic_fling/use_ability(atom/target)
 	var/mob/living/victim = target
 	GLOB.round_statistics.psychic_flings++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_flings")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psychic_flings")
 
 	owner.visible_message(span_xenowarning("A strange and violent psychic aura is suddenly emitted from \the [owner]!"), \
 	span_xenowarning("We violently fling [victim] with the power of our mind!"))
@@ -162,18 +162,7 @@
 	span_xenowarning("You are violently flung to the side by an unseen force!"))
 	playsound(owner,'sound/effects/magic.ogg', 75, 1)
 	playsound(victim,'sound/weapons/alien_claw_block.ogg', 75, 1)
-/* RU TGMC EDIT
-		//Held facehuggers get killed for balance reasons
-	if(istype(owner.r_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.r_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
 
-	if(istype(owner.l_hand, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/FH = owner.l_hand
-		if(FH.stat != DEAD)
-			FH.kill_hugger()
-RU TGMC EDIT */
 	succeed_activate()
 	add_cooldown()
 	if(ishuman(victim))
@@ -208,7 +197,6 @@ RU TGMC EDIT */
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_UNRELENTING_FORCE_SELECT,
 	)
 
-
 /datum/action/ability/activable/xeno/unrelenting_force/on_cooldown_finish()
 	to_chat(owner, span_notice("Our mind is ready to unleash another blast of force."))
 	return ..()
@@ -218,7 +206,7 @@ RU TGMC EDIT */
 	add_cooldown()
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_icons)), 1 SECONDS)
 	var/mob/living/carbon/xenomorph/xeno = owner
-	owner.icon_state = "[xeno.xeno_caste.caste_name][xeno.is_a_rouny ? " rouny" : ""] Screeching"
+	owner.icon_state = "[xeno.xeno_caste.caste_name] Screeching"
 	if(target) // Keybind use doesn't have a target
 		owner.face_atom(target)
 
@@ -238,23 +226,26 @@ RU TGMC EDIT */
 			lower_left = locate(owner.x + 1, owner.y - 1, owner.z)
 			upper_right = locate(owner.x + 3, owner.y + 1, owner.z)
 
-	for(var/turf/affected_tile in block(lower_left, upper_right)) //everything in the 2x3 block is found.
+	var/list/things_to_throw = list()
+	for(var/turf/affected_tile in block(lower_left, upper_right)) //everything in the 3x3 block is found.
 		affected_tile.Shake(duration = 0.5 SECONDS)
-		for(var/i in affected_tile)
-			var/atom/movable/affected = i
+		for(var/atom/movable/affected AS in affected_tile)
 			if(!ishuman(affected) && !istype(affected, /obj/item) && !isdroid(affected))
 				affected.Shake(duration = 0.5 SECONDS)
 				continue
-			if(ishuman(affected)) //if they're human, they also should get knocked off their feet from the blast.
+			if(ishuman(affected))
 				var/mob/living/carbon/human/H = affected
-				if(H.stat == DEAD) //unless they are dead, then the blast mysteriously ignores them.
+				if(H.stat == DEAD)
 					continue
-				H.apply_effects(2 SECONDS, 2 SECONDS) 	// Stun
+				H.apply_effects(2 SECONDS, 2 SECONDS)
 				shake_camera(H, 2, 1)
-			var/throwlocation = affected.loc //first we get the target's location
-			for(var/x in 1 to 6)
-				throwlocation = get_step(throwlocation, owner.dir) //then we find where they're being thrown to, checking tile by tile.
-			affected.throw_at(throwlocation, 6, 1, owner, TRUE)
+			things_to_throw += affected
+
+	for(var/atom/movable/affected AS in things_to_throw)
+		var/throwlocation = affected.loc
+		for(var/x in 1 to 6)
+			throwlocation = get_step(throwlocation, owner.dir)
+		affected.throw_at(throwlocation, 6, 1, owner, TRUE)
 
 	owner.visible_message(span_xenowarning("[owner] sends out a huge blast of psychic energy!"), \
 	span_xenowarning("We send out a huge blast of psychic energy!"))
@@ -274,8 +265,8 @@ RU TGMC EDIT */
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PSYCHIC_CURE,
 	)
-	var/heal_range = SHRIKE_HEAL_RANGE
 	target_flags = ABILITY_MOB_TARGET
+	var/heal_range = SHRIKE_HEAL_RANGE
 
 
 /datum/action/ability/activable/xeno/psychic_cure/on_cooldown_finish()
@@ -289,8 +280,6 @@ RU TGMC EDIT */
 		return FALSE
 	if(QDELETED(target))
 		return FALSE
-	if(!check_distance(target, silent))
-		return FALSE
 	if(!isxeno(target))
 		return FALSE
 	var/mob/living/carbon/xenomorph/patient = target
@@ -298,23 +287,26 @@ RU TGMC EDIT */
 		if(!silent)
 			to_chat(owner, span_warning("It's too late. This sister won't be coming back."))
 		return FALSE
-
+	if(!check_distance(patient, silent))
+		return FALSE
 
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
 	if(dist > heal_range)
-		to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
+		if(!silent)
+			to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
-	else if(!line_of_sight(owner, target))
-		to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
+	else if(!line_of_sight(owner, target, heal_range))
+		if(!silent)
+			to_chat(owner, span_warning("We can't focus properly without a clear line of sight!"))
 		return FALSE
 	return TRUE
-
 
 /datum/action/ability/activable/xeno/psychic_cure/use_ability(atom/target)
 	if(owner.do_actions)
 		return FALSE
 
+	owner.face_atom(target) //Face the target so we don't look stupid
 	if(!do_after(owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
 
@@ -322,7 +314,7 @@ RU TGMC EDIT */
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.heals++
 	GLOB.round_statistics.psychic_cures++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_cures")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psychic_cures")
 	owner.visible_message(span_xenowarning("A strange psychic aura is suddenly emitted from \the [owner]!"), \
 	span_xenowarning("We cure [target] with the power of our mind!"))
 	target.visible_message(span_xenowarning("[target] suddenly shimmers in a chill light."), \
@@ -376,7 +368,7 @@ RU TGMC EDIT */
 			to_chat(owner, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/acidwell))
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))
@@ -384,14 +376,17 @@ RU TGMC EDIT */
 
 /datum/action/ability/xeno_action/place_acidwell/action_activate()
 	var/turf/T = get_turf(owner)
-	succeed_activate()
+
+	if(!do_after(owner, 0.5 SECONDS, NONE, T, BUSY_ICON_BUILD))
+		return
 
 	playsound(T, "alien_resin_build", 25)
 	new /obj/structure/xeno/acidwell(T, owner)
 
+	succeed_activate()
 	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
 	GLOB.round_statistics.xeno_acid_wells++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_acid_wells")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_acid_wells")
 	owner.record_traps_created()
 
 

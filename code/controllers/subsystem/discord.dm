@@ -29,23 +29,21 @@ SUBSYSTEM_DEF(discord)
 	name = "Discord"
 	wait = 3000
 	init_order = INIT_ORDER_DISCORD
-
 	/// List that holds accounts to link, used in conjunction with TGS
 	var/list/account_link_cache = list()
-	/// list of people who tried to reverify, so they can only do it once per round as a shitty slowdown
-	var/list/reverify_cache = list()
+	/// list of people who tried to use Boosty styff, so we don't call the API every time
+	var/list/boosty_cache = list()
 	/// Is TGS enabled (If not we won't fire because otherwise this is useless)
-	var/enabled = 0
+	var/enabled = FALSE
 
 /datum/controller/subsystem/discord/Initialize(start_timeofday)
 	// Check for if we are using TGS, otherwise return and disables firing
 	if(world.TgsAvailable())
-		enabled = 1 // Allows other procs to use this (Account linking, etc)
+		enabled = TRUE // Allows other procs to use this (Account linking, etc)
+		return SS_INIT_SUCCESS
 	else
-		can_fire = 0 // We dont want excess firing
-		return ..() // Cancel
-
-	return ..()
+		can_fire = FALSE // We dont want excess firing
+		return SS_INIT_NO_NEED
 
 /datum/controller/subsystem/discord/fire()
 	if(!enabled)
@@ -103,26 +101,40 @@ SUBSYSTEM_DEF(discord)
 	var/regex/num_only = regex("\[^0-9\]", "g")
 	return num_only.Replace(input, "")
 
-/datum/controller/subsystem/discord/proc/is_boosty(ckey)
+/datum/controller/subsystem/discord/proc/get_boosty_tier(ckey, silent = TRUE)
+	#ifdef TESTING
+	if(!silent)
+		to_chat(src, span_warning("Test mod gave you tier 3 boost"))
+	return BOOSTY_TIER_3
+	#endif
+
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
-		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
-		return
+		if(!silent)
+			to_chat(src, span_warning("This feature requires the SQL backend to be running."))
+		return BOOSTY_TIER_0
 
 	// ss is still starting
 	if(!SSdiscord)
-		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
-		return
+		if(!silent)
+			to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
+		return BOOSTY_TIER_0
 
 	if(!SSdiscord.enabled)
-		to_chat(usr, span_warning("TGS is not enabled"))
-		return
+		if(!silent)
+			to_chat(usr, span_warning("TGS is not enabled"))
+		return BOOSTY_TIER_0
+
+	//use cache if possible
+	if(boosty_cache[ckey])
+		return boosty_cache[ckey]
 
 	var/discord_id = lookup_id(ckey)
 
 	if(!discord_id) // Account is not linked
-		to_chat(usr, "Link your discord account via the linkdiscord verb in the OOC tab first");
-		return
+		if(!silent)
+			to_chat(usr, "Link your discord account via the linkdiscord verb in the OOC tab first");
+		return BOOSTY_TIER_0
 
 	var/url = "https://discord.com/api/guilds/[CONFIG_GET(string/discord_guildid)]/members/[discord_id]"
 	// Make the request
@@ -137,14 +149,28 @@ SUBSYSTEM_DEF(discord)
 	try
 		data = json_decode(res.body)
 	catch(var/exception/e)
-		to_chat(usr, span_warning("JSON parsing FAILED: [e]: [res.body]"))
-		return
+		if(!silent)
+			to_chat(usr, span_warning("JSON parsing FAILED: [e]: [res.body]"))
+		return BOOSTY_TIER_0
 
 	if(!data["roles"])
-		to_chat(usr, span_warning("Failed to check discord roles"));
-		return
+		if(!silent)
+			to_chat(usr, span_warning("Failed to check discord roles"));
+		return BOOSTY_TIER_0
 
-	if(CONFIG_GET(string/discord_boosty_roleid) in data["roles"])
-		return TRUE
+	//save cache and return tier
 
-	return FALSE
+	if(CONFIG_GET(string/discord_boosty_roleid_tier_3) in data["roles"])
+		boosty_cache[ckey] = BOOSTY_TIER_3
+		return BOOSTY_TIER_3
+
+	if(CONFIG_GET(string/discord_boosty_roleid_tier_2) in data["roles"])
+		boosty_cache[ckey] = BOOSTY_TIER_2
+		return BOOSTY_TIER_2
+
+	if(CONFIG_GET(string/discord_boosty_roleid_tier_1) in data["roles"])
+		boosty_cache[ckey] = BOOSTY_TIER_1
+		return BOOSTY_TIER_1
+
+	boosty_cache[ckey] = BOOSTY_TIER_0
+	return BOOSTY_TIER_0

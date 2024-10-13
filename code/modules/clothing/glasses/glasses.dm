@@ -300,8 +300,8 @@
 //sunglasses
 
 /obj/item/clothing/glasses/sunglasses
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
 	name = "sunglasses"
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
 	icon_state = "sun"
 	item_state = "sunglasses"
 	eye_protection = 1
@@ -370,12 +370,13 @@
 	prescription = TRUE
 
 /obj/item/clothing/glasses/sunglasses/fake/big
+	name = "designer sunglasses"
 	desc = "A pair of larger than average designer sunglasses. Doesn't seem like it'll block flashes."
 	icon_state = "bigsunglasses"
 	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/sunglasses/fake/big/prescription
-	name = "prescription sunglasses"
+	name = "prescription designer sunglasses"
 	prescription = TRUE
 
 /obj/item/clothing/glasses/sunglasses/sa
@@ -440,21 +441,21 @@
 		qdel(our_item)
 		qdel(src)
 		user.put_in_hands(our_glasses)
-		update_icon(user)
+		update_icon()
 	else if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
 		var/obj/item/clothing/glasses/night/imager_goggles/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical imager scaner to the inside of the glasses."))
 		qdel(our_item)
 		qdel(src)
 		user.put_in_hands(our_glasses)
-		update_icon(user)
+		update_icon()
 	else if(istype(our_item, /obj/item/clothing/glasses/meson))
 		var/obj/item/clothing/glasses/meson/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical meson scaner to the inside of the glasses."))
 		qdel(our_item)
 		qdel(src)
 		user.put_in_hands(our_glasses)
-		update_icon(user)
+		update_icon()
 
 /obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"

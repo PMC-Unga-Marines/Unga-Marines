@@ -244,7 +244,13 @@ directive is properly returned.
 
 	if(length(result))
 		for(var/i in 1 to (length(result) - 1))
-			result[i] += "\n"
+			if(result[i] != EXAMINE_SECTION_BREAK)
+				result[i] += "\n"
+			else
+				// remove repeated <hr's> and ones on the ends.
+				if((i == 1) || (i == length(result)) || (result[i - 1] == EXAMINE_SECTION_BREAK))
+					result.Cut(i, i + 1)
+					i--
 
 	to_chat(src, examine_block(span_infoplain(result.Join())))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)
@@ -272,16 +278,18 @@ directive is properly returned.
 	SHOULD_CALL_PARENT(TRUE)
 	var/examine_string = get_examine_string(user, thats = TRUE)
 	if(examine_string)
-		. = list("[examine_string].")
+		. = list("[examine_string].", EXAMINE_SECTION_BREAK)
 	else
 		. = list()
 
 	if(desc)
 		. += desc
 	if(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value()))
+		. += EXAMINE_SECTION_BREAK
 		. += span_notice("The codex has <a href='?_src_=codex;show_examined_info=[REF(src)];show_to=[REF(user)]'>relevant information</a> available.")
 
 	if((get_dist(user,src) <= 2) && reagents)
+		. += EXAMINE_SECTION_BREAK
 		if(reagents.reagent_flags & TRANSPARENT)
 			. += "It contains:"
 			if(length(reagents.reagent_list)) // TODO: Implement scan_reagent and can_see_reagents() to show each individual reagent
@@ -392,6 +400,10 @@ directive is properly returned.
 	if(density)
 		AM.stop_throw()
 		return TRUE
+
+///Psionic interaction with this atom
+/atom/proc/psi_act(psi_power, mob/living/user)
+	return
 
 /atom/proc/GenerateTag()
 	return
@@ -830,9 +842,9 @@ directive is properly returned.
 			if(HUD_LIST_LIST)
 				hud_list[hud] = list()
 			else
-				var/image/I = image('icons/mob/hud.dmi', src, "")
+				var/image/I = image('icons/mob/hud/human_misc.dmi', src, "")
 				if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
-					I = image('icons/mob/hud_yautja.dmi', src, "")
+					I = image('icons/mob/hud/yautja.dmi', src, "")
 				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
 				hud_list[hud] = I
 
@@ -958,3 +970,11 @@ directive is properly returned.
 /atom/proc/do_acid_melt()
 	visible_message(span_xenodanger("[src] collapses under its own weight into a puddle of goop and undigested debris!"))
 	playsound(src, "acid_hit", 25)
+
+///Anything called here will have failed CanPass(), so it's likely dense.
+/atom/proc/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return //If this happens it will error.
+
+///By default, if this happens then movement stops. But not necessarily.
+/atom/proc/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return PRECRUSH_STOPPED

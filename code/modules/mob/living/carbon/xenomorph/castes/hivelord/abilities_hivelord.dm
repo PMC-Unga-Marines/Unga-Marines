@@ -269,7 +269,7 @@
 	if(!T.check_disallow_alien_fortification(owner, silent))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/resin_jelly_pod))
 		return FALSE
 
 /datum/action/ability/xeno_action/place_jelly_pod/action_activate()
@@ -304,7 +304,7 @@
 /datum/action/ability/xeno_action/create_jelly/action_activate()
 	var/obj/item/resin_jelly/jelly = new(owner.loc)
 	owner.put_in_hands(jelly)
-	to_chat(owner, span_xenonotice("We create a globule of resin from our ovipostor.")) // Ewww...
+	to_chat(owner, span_xenonotice("We create a globule of resin from our ovipositor.")) // Ewww...
 	add_cooldown()
 	succeed_activate()
 
@@ -340,14 +340,13 @@
 			target.balloon_alert(owner, "Cannot heal, dead")
 		return FALSE
 
-	if(!check_distance(target, silent))
+	if(!check_distance(patient, silent))
 		return FALSE
 
-	if(HAS_TRAIT(target, TRAIT_HEALING_INFUSION))
+	if(HAS_TRAIT(patient, TRAIT_HEALING_INFUSION))
 		if(!silent)
-			target.balloon_alert(owner, "Cannot heal, already infused")
+			patient.balloon_alert(owner, "Cannot heal, already infused")
 		return FALSE
-
 
 /datum/action/ability/activable/xeno/healing_infusion/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
@@ -356,12 +355,11 @@
 			target.balloon_alert(owner, "Cannot reach")
 			to_chat(owner, span_warning("Too far for our reach... We need to be [dist - heal_range] steps closer!"))
 		return FALSE
-	else if(!line_of_sight(owner, target))
+	else if(!line_of_sight(owner, target, heal_range))
 		if(!silent)
 			target.balloon_alert(owner, "Cannot heal, no line of sight")
 		return FALSE
 	return TRUE
-
 
 /datum/action/ability/activable/xeno/healing_infusion/use_ability(atom/target)
 	if(owner.do_actions)
@@ -390,7 +388,7 @@
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.heals++
 	GLOB.round_statistics.hivelord_healing_infusions++ //Statistics
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "hivelord_healing_infusions")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "hivelord_healing_infusions")
 
 // ***************************************
 // *********** Sow
@@ -416,7 +414,7 @@
 		return FALSE
 
 	var/turf/T = get_turf(owner)
-	if(!T.check_alien_construction(owner, silent))
+	if(!T.check_alien_construction(owner, silent, owner_xeno.selected_plant))
 		return FALSE
 
 /datum/action/ability/xeno_action/sow/action_activate()

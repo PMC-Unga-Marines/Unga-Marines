@@ -219,7 +219,7 @@
 
 /obj/machinery/vending/medical/valhalla
 	use_power = NO_POWER_USE
-	req_access = list()
+	req_access = null
 	resistance_flags = INDESTRUCTIBLE
 	products = list(
 		"Hypospray" = list (
@@ -306,9 +306,10 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/virilyth = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/roulettium = -1,
 			/obj/item/reagent_containers/glass/bottle/toxin = -1,
+			/obj/item/reagent_containers/glass/bottle/doctor_delight = -1,
+			/obj/item/alien_embryo = -1,
 		),
 	)
-
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch

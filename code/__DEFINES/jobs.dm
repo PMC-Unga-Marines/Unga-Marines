@@ -41,8 +41,6 @@
 #define JOB_FLAG_CAN_SEE_ORDERS (1<<12) //Able to see rally and CIC orders
 #define JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP (1<<13) //Will appear on all minimaps, including squad minimaps
 #define JOB_FLAG_SHOW_OPEN_POSITIONS (1<<14) //You can only see how many positions are opened, and not how many positions are fullfilled
-/// Job has a TTS volume bonus
-#define JOB_FLAG_LOUDER_TTS (1<<15)
 
 #define CAPTAIN "Captain"
 #define EXECUTIVE_OFFICER "Executive Officer" //Currently disabled.
@@ -70,25 +68,6 @@
 #define SQUAD_VATGROWN "Squad VatGrown"
 #define SILICON_AI "AI"
 
-//SOM
-#define SOM_COMMANDER "SOM Commander"
-#define SOM_FIELD_COMMANDER "SOM Field Commander"
-#define SOM_STAFF_OFFICER "SOM Staff Officer"
-#define SOM_PILOT_OFFICER "SOM Pilot Officer"
-#define SOM_MECH_PILOT "SOM Mech Pilot"
-#define SOM_REQUISITIONS_OFFICER "SOM Requisitions Officer"
-#define SOM_CHIEF_ENGINEER "SOM Chief Engineer"
-#define SOM_CHIEF_MEDICAL_OFFICER "SOM Chief Medical Officer"
-#define SOM_TECH "SOM Technician"
-#define SOM_MEDICAL_DOCTOR "SOM Medical Doctor"
-#define SOM_CHEF "SOM chef"
-
-#define SOM_SQUAD_LEADER "SOM Squad Leader"
-#define SOM_SQUAD_CORPSMAN "SOM Squad Medic"
-#define SOM_SQUAD_ENGINEER "SOM Squad Engineer"
-#define SOM_SQUAD_VETERAN "SOM Squad Veteran"
-#define SOM_SQUAD_MARINE "SOM Squad Standard"
-
 #define JOB_CAT_COMMAND "Command"
 #define JOB_CAT_SILICON "Silicon"
 #define JOB_CAT_REQUISITIONS "Requisitions"
@@ -115,11 +94,9 @@ GLOBAL_LIST_INIT(jobs_engineering, list(SQUAD_ENGINEER, SHIP_TECH))
 GLOBAL_LIST_INIT(jobs_requisitions, list(REQUISITIONS_OFFICER, SHIP_TECH))
 GLOBAL_LIST_INIT(jobs_medical, list(CHIEF_MEDICAL_OFFICER, MEDICAL_DOCTOR, MEDICAL_RESEARCHER, SQUAD_CORPSMAN))
 GLOBAL_LIST_INIT(jobs_marines, list(SQUAD_LEADER, SQUAD_SMARTGUNNER, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_MARINE, SQUAD_ROBOT))
-GLOBAL_LIST_INIT(jobs_som, list(SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER, SOM_STAFF_OFFICER, SOM_COMMANDER))
 GLOBAL_LIST_INIT(jobs_regular_all, list(CAPTAIN, FIELD_COMMANDER, STAFF_OFFICER, PILOT_OFFICER, TRANSPORT_OFFICER, MECH_PILOT, REQUISITIONS_OFFICER, \
 CHIEF_MEDICAL_OFFICER, SYNTHETIC, SILICON_AI, CORPORATE_LIAISON, SHIP_TECH, \
-MEDICAL_DOCTOR, MEDICAL_RESEARCHER, SQUAD_LEADER, SQUAD_SMARTGUNNER, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_MARINE, SQUAD_ROBOT, \
-SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER, SOM_STAFF_OFFICER, SOM_COMMANDER))
+MEDICAL_DOCTOR, MEDICAL_RESEARCHER, SQUAD_LEADER, SQUAD_SMARTGUNNER, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_MARINE, SQUAD_ROBOT))
 GLOBAL_LIST_INIT(jobs_xenos, list(ROLE_XENOMORPH, ROLE_XENO_QUEEN))
 GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine), TRUE))
 
@@ -132,6 +109,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define EXP_TYPE_MARINES "Marines"
 #define EXP_TYPE_REQUISITIONS "Requisitions"
 #define EXP_TYPE_SILICON "Silicon"
+#define EXP_TYPE_SYNTHETIC "Medical/Engineering" // this define is used to limit synthetic to those who played at least medical or engineering
 #define EXP_TYPE_XENO "Xenomorph"
 #define EXP_TYPE_GHOST "Ghost"
 #define EXP_TYPE_ADMIN "Admin"
@@ -146,11 +124,14 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define CRYO_CHARLIE "Charlie Squad"
 #define CRYO_DELTA "Delta Squad"
 
-
-#define XP_REQ_UNSEASONED 600 //RuTGMC Edit 60
-#define XP_REQ_INTERMEDIATE 1200 //RuTGMC Edit 180
-#define XP_REQ_EXPERIENCED 2400 //RuTGMC Edit 600
-#define XP_REQ_EXPERT 3600 //RuTGMC Edit 900
+// Those are in minutes, and we convert them to hours
+#define XP_REQ_NOVICE 300
+#define XP_REQ_UNSEASONED 600
+#define XP_REQ_INTERMEDIATE 1200
+#define XP_REQ_UPPER_INTERMEDIATE 1800
+#define XP_REQ_EXPERIENCED 2400
+#define XP_REQ_MASTER 3000
+#define XP_REQ_EXPERT 3600
 
 // how much a job is going to contribute towards burrowed larva. see config for points required to larva. old balance was 1 larva per 3 humans.
 #define LARVA_POINTS_SHIPSIDE 1

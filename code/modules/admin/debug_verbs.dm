@@ -161,8 +161,7 @@
 			A.flags_atom |= ADMIN_SPAWNED
 
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delete_atom(atom/A as obj|mob|turf in world)
 	set category = null
@@ -247,7 +246,7 @@
 		return
 
 	var/dat = "<br>"
-	for(var/i in L.get_contents())
+	for(var/i in L.GetAllContents())
 		var/atom/A = i
 		dat += "[A] [ADMIN_VV(A)]<br>"
 
@@ -290,25 +289,6 @@
 	else
 		log_admin("Database connection re-established!")
 		message_admins("Database connection re-established!")
-
-/// A debug verb to try and re-establish a connection with the TTS server and to refetch TTS voices.
-/// Since voices are cached beforehand, this is unlikely to update preferences.
-/client/proc/reestablish_tts_connection()
-	set category = "Debug"
-	set name = "Re-establish Connection To TTS"
-	set desc = "Re-establishes connection to the TTS server if possible"
-	if(!check_rights(R_DEBUG))
-		return
-
-	message_admins("[key_name_admin(usr)] attempted to re-establish connection to the TTS HTTP server.")
-	log_admin("[key_name(usr)] attempted to re-establish connection to the TTS HTTP server.")
-	var/success = SStts.establish_connection_to_tts()
-	if(!success)
-		message_admins("[key_name_admin(usr)] failed to re-established the connection to the TTS HTTP server.")
-		log_admin("[key_name(usr)] failed to re-established the connection to the TTS HTTP server.")
-		return
-	message_admins("[key_name_admin(usr)] successfully re-established the connection to the TTS HTTP server.")
-	log_admin("[key_name(usr)] successfully re-established the connection to the TTS HTTP server.")
 
 /datum/admins/proc/view_runtimes()
 	set category = "Debug"

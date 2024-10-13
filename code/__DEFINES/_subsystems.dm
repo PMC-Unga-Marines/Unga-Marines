@@ -83,18 +83,17 @@
 #define INIT_ORDER_INPUT 21
 #define INIT_ORDER_VIS 20
 #define INIT_ORDER_SOUNDS 19
-#define INIT_ORDER_INSTRUMENTS 17
-#define INIT_ORDER_GREYSCALE 16
-#define INIT_ORDER_CODEX 15
-#define INIT_ORDER_EVENTS 14
-#define INIT_ORDER_MONITOR 13
-#define INIT_ORDER_JOBS 12
-#define INIT_ORDER_TICKER 11
-#define INIT_ORDER_MAPPING 10
-#define INIT_ORDER_EARLY_ASSETS 9
-#define INIT_ORDER_SPATIAL_GRID 8
-#define INIT_ORDER_PERSISTENCE 7 //before assets because some assets take data from SSPersistence, such as vendor items
-#define INIT_ORDER_TTS 6
+#define INIT_ORDER_INSTRUMENTS 16
+#define INIT_ORDER_GREYSCALE 15
+#define INIT_ORDER_CODEX 14
+#define INIT_ORDER_EVENTS 13
+#define INIT_ORDER_MONITOR 12
+#define INIT_ORDER_JOBS 11
+#define INIT_ORDER_TICKER 10
+#define INIT_ORDER_MAPPING 9
+#define INIT_ORDER_EARLY_ASSETS 8
+#define INIT_ORDER_SPATIAL_GRID 7
+#define INIT_ORDER_PERSISTENCE 6 //before assets because some assets take data from SSPersistence, such as vendor items
 #define INIT_ORDER_ATOMS 5
 #define INIT_ORDER_MODULARMAPPING 4
 #define INIT_ORDER_MACHINES 3
@@ -144,16 +143,15 @@
 #define FIRE_PRIORITY_SILO 92
 #define FIRE_PRIORITY_PATHFINDING 95
 #define FIRE_PRIORITY_PROJECTILES 98
-#define FIRE_PRIORITY_CELLAUTO 99
 #define FIRE_PRIORITY_MOBS 100
 #define FIRE_PRIORITY_ASSETS 105
 #define FIRE_PRIORITY_TGUI 110
+#define FIRE_PRIORITY_CELLAUTO 150
 #define FIRE_PRIORITY_TICKER 200
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
 #define FIRE_PRIORITY_LOOPINGSOUND 405
 #define FIRE_PRIORITY_RUNECHAT 410
-#define FIRE_PRIORITY_TTS 425
 #define FIRE_PRIORITY_AUTOFIRE 450
 #define FIRE_PRIORITY_OVERLAYS 500
 #define FIRE_PRIORITY_TIMER 700
@@ -188,3 +186,10 @@
 
 /// The timer key used to know how long subsystem initialization takes
 #define SS_INIT_TIMER_KEY "ss_init"
+
+//Blackbox feedback defines
+#define FEEDBACK_TEXT "text"
+#define FEEDBACK_AMOUNT "amount"
+#define FEEDBACK_TALLY "tally"
+#define FEEDBACK_NESTED_TALLY "nested_tally"
+#define FEEDBACK_ASSOCIATIVE "associative"

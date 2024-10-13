@@ -54,16 +54,19 @@
 	if(!check_rights(R_FUN))
 		return
 
-	var/customname = tgui_input_text(usr, "What do you want it to be called?.", "Queen Mother Report", "Queen Mother", encode = FALSE)
+	var/customname = tgui_input_text(usr, "What do you want the title of this report to be?", "Report Title", "Queen Mother Directive", encode = FALSE)
 	var/input = tgui_input_text(usr, "This should be a message from the ruler of the Xenomorph race.", "Queen Mother Report", "", multiline = TRUE, encode = FALSE)
 	if(!input || !customname)
 		return
 
-	var/msg = "<br><h2 class='alert'>[customname]</h2><br>[span_warning("[input]")]<br><br>"
 
 	for(var/i in (GLOB.xeno_mob_list + GLOB.observer_list))
 		var/mob/M = i
-		to_chat(M, msg)
+		to_chat(M, assemble_alert(
+			title = customname,
+			message = input,
+			color_override = "purple"
+		))
 
 	log_admin("[key_name(usr)] created a Queen Mother report: [input]")
 	message_admins("[ADMIN_TPMONTY(usr)] created a Queen Mother report.")
@@ -76,11 +79,12 @@
 	if(!check_rights(R_FUN))
 		return
 
-	for(var/mob/living/carbon/xenomorph/xenotorouny in GLOB.xeno_mob_list)
-		if(!isliving(xenotorouny))
-			return
-		xenotorouny.is_a_rouny = !xenotorouny.is_a_rouny
-
+	for(var/mob/living/carbon/xenomorph/xeno in GLOB.xeno_mob_list)
+		if(!isxeno(xeno)) // will it even do something?
+			continue
+		if(!xeno.rouny_icon)
+			continue
+		xeno.toggle_rouny_skin()
 
 /datum/admins/proc/hive_status()
 	set category = "Admin.Fun"
@@ -137,7 +141,9 @@
 
 
 	var/customname = tgui_input_text(usr, "Pick a title for the report.", "Title", "TGMC Update", encode = FALSE)
+	var/customsubtitle = tgui_input_text(usr, "Pick a subtitle for the report.", "Subtitle", "", encode = FALSE)
 	var/input = tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "What?", "", multiline = TRUE, encode = FALSE)
+	var/override = tgui_input_list(usr, "Pick a color for the report.", "Color", faction_alert_colors - "default", default = "blue")
 
 	if(!input || !customname)
 		return
@@ -147,9 +153,9 @@
 
 	switch(tgui_alert(usr, "Should this be announced to the general population?", "Announce", list("Yes", "No", "Cancel")))
 		if("Yes")
-			priority_announce(input, customname, sound = 'sound/AI/commandreport.ogg');
+			priority_announce(input, customname, customsubtitle, sound = 'sound/AI/commandreport.ogg', color_override = override);
 		if("No")
-			priority_announce("New update available at all communication consoles.", type = ANNOUNCEMENT_COMMAND, sound = 'sound/AI/commandreport.ogg')
+			priority_announce("New update available at all communication consoles.", "Classified Transmission Received", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/commandreport.ogg')
 		else
 			return
 
@@ -284,8 +290,13 @@
 
 	GLOB.custom_info = new_info
 
-	to_chat(world, "<h1 class='alert'>Custom Information</h1>")
-	to_chat(world, span_alert("[GLOB.custom_info]"))
+	to_chat(world, assemble_alert(
+		title = "Custom Information",
+		subtitle = "An admin set custom information for this round.",
+		message = GLOB.custom_info,
+		color_override = "red"
+	))
+	SEND_SOUND(src, sound('sound/misc/adm_announce.ogg'))
 
 	log_admin("[key_name(usr)] has changed the custom event text: [GLOB.custom_info]")
 	message_admins("[ADMIN_TPMONTY(usr)] has changed the custom event text.")
@@ -299,9 +310,13 @@
 		to_chat(src, span_notice("There currently is no custom information set."))
 		return
 
-	to_chat(src, "<h1 class='alert'>Custom Information</h1>")
-	to_chat(src, span_alert("[GLOB.custom_info]"))
-
+	to_chat(src, assemble_alert(
+		title = "Custom Information",
+		subtitle = "An admin set custom information for this round.",
+		message = GLOB.custom_info,
+		color_override = "red"
+	))
+	SEND_SOUND(src, sound('sound/misc/adm_announce.ogg'))
 
 /datum/admins/proc/sound_file(S as sound)
 	set category = "Admin.Fun"
@@ -315,8 +330,7 @@
 	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = CHANNEL_MIDI)
 	uploaded_sound.priority = 250
 
-
-	var/style = tgui_alert(usr, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local", "Cancel"))
+	var/style = tgui_alert(usr, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local"), timeout = 0)
 	switch(style)
 		if("Global")
 			for(var/i in GLOB.clients)
@@ -334,7 +348,6 @@
 	log_admin("[key_name(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 	message_admins("[ADMIN_TPMONTY(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 
-
 /datum/admins/proc/sound_web()
 	set category = "Admin.Fun"
 	set name = "Play Internet Sound"
@@ -342,12 +355,12 @@
 	if(!check_rights(R_SOUND))
 		return
 
-	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+	var/ytdl = CONFIG_GET(string/invoke_yt_dlp)
 	if(!ytdl)
-		to_chat(usr, span_warning("Youtube-dl was not configured, action unavailable."))
+		to_chat(usr, span_warning("yt-dlp was not configured, action unavailable."))
 		return
 
-	var/web_sound_input = input("Enter content URL (supported sites only)", "Play Internet Sound via youtube-dl") as text|null
+	var/web_sound_input = input("Enter content URL (supported sites only)", "Play Internet Sound via yt-dlp") as text|null
 	if(!istext(web_sound_input) || !length(web_sound_input))
 		return
 
@@ -355,7 +368,7 @@
 
 	if(findtext(web_sound_input, ":") && !findtext(web_sound_input, GLOB.is_http_protocol))
 		to_chat(usr, span_warning("Non-http(s) URIs are not allowed."))
-		to_chat(usr, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full url from the website."))
+		to_chat(usr, span_warning("For yt-dlp shortcuts like ytsearch: please use the appropriate full url from the website."))
 		return
 
 	var/web_sound_url = ""
@@ -369,14 +382,14 @@
 	var/stderr = output[SHELLEO_STDERR]
 
 	if(errorlevel)
-		to_chat(usr, span_warning("Youtube-dl URL retrieval FAILED: [stderr]"))
+		to_chat(usr, span_warning("yt-dlp URL retrieval FAILED: [stderr]"))
 		return
 
 	var/list/data = list()
 	try
 		data = json_decode(stdout)
 	catch(var/exception/e)
-		to_chat(usr, span_warning("Youtube-dl JSON parsing FAILED: [e]: [stdout]"))
+		to_chat(usr, span_warning("yt-dlp JSON parsing FAILED: [e]: [stdout]"))
 		return
 
 	if(data["url"])
@@ -386,7 +399,7 @@
 		music_extra_data["end"] = data["end_time"]
 		music_extra_data["link"] = data["webpage_url"]
 		music_extra_data["title"] = data["title"]
-		switch(tgui_alert(usr, "Show the title of and link to this song to the players?\n[title]", "Play Internet Sound", list("Yes", "No", "Cancel")))
+		switch(tgui_alert(usr, "Show the title of and link to this song to the players?\n[title]", "Play Internet Sound", list("Yes", "No"), timeout = 0))
 			if("Yes")
 				show = TRUE
 			if("No")
@@ -403,11 +416,11 @@
 	var/style = tgui_input_list(usr, "Do you want to play this globally or to the xenos/marines?", null, list("Globally", "Xenos", "Marines", "Locally"))
 	switch(style)
 		if("Globally")
-			targets = GLOB.mob_list
+			targets = GLOB.player_list
 		if("Xenos")
-			targets = GLOB.xeno_mob_list + GLOB.dead_mob_list
+			targets = GLOB.xeno_mob_list + GLOB.observer_list
 		if("Marines")
-			targets = GLOB.human_mob_list + GLOB.dead_mob_list
+			targets = GLOB.human_mob_list + GLOB.observer_list
 		if("Locally")
 			targets = viewers(usr.client.view, usr)
 		else
@@ -416,16 +429,14 @@
 	for(var/i in targets)
 		var/mob/M = i
 		var/client/C = M?.client
-		if(!C?.prefs)
+		if(!(C?.prefs.toggles_sound & SOUND_MIDI))
 			continue
-		if(C.prefs.toggles_sound & SOUND_MIDI)
-			C.tgui_panel?.play_music(web_sound_url, music_extra_data)
-			if(show)
-				to_chat(C, span_boldnotice("An admin played: <a href='[data["webpage_url"]]'>[title]</a>"))
+		C.tgui_panel?.play_music(web_sound_url, music_extra_data)
+		if(show)
+			to_chat(C, span_boldnotice("An admin played: <a href='[data["webpage_url"]]'>[title]</a>"))
 
 	log_admin("[key_name(usr)] played web sound: [web_sound_input] - [title] - [style]")
 	message_admins("[ADMIN_TPMONTY(usr)] played web sound: [web_sound_input] - [title] - [style]")
-
 
 /datum/admins/proc/sound_stop()
 	set category = "Admin.Fun"
@@ -441,7 +452,6 @@
 	log_admin("[key_name(usr)] stopped regular sounds.")
 	message_admins("[ADMIN_TPMONTY(usr)] stopped regular sounds.")
 
-
 /datum/admins/proc/music_stop()
 	set category = "Admin.Fun"
 	set name = "Stop Playing Music"
@@ -453,10 +463,8 @@
 		var/client/C = i
 		C?.tgui_panel?.stop_music()
 
-
 	log_admin("[key_name(usr)] stopped the currently playing music.")
 	message_admins("[ADMIN_TPMONTY(usr)] stopped the currently playing music.")
-
 
 /datum/admins/proc/announce()
 	set category = "Admin.Fun"
@@ -474,7 +482,7 @@
 
 	log_admin("Announce: [key_name(usr)] : [message]")
 	message_admins("[ADMIN_TPMONTY(usr)] Announces:")
-	to_chat(world, span_event_announcement("<b>[usr.client.holder.fakekey ? "Administrator" : "[usr.client.key] ([usr.client.holder.rank])"] Announces:</b>\n [message]"))
+	send_ooc_announcement(message, "From [usr.client.holder.fakekey ? "Administrator" : usr.key]")
 
 
 /datum/admins/proc/force_distress()
@@ -1142,7 +1150,7 @@
 
 	message_admins("[key_name_admin(usr)] started weather of type [weather_type] on the z-level [z_level].")
 	log_admin("[key_name(usr)] started weather of type [weather_type] on the z-level [z_level].")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Run Weather")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Run Weather")
 
 ///client verb to set round end sound
 /client/proc/set_round_end_sound(S as sound)
@@ -1155,7 +1163,7 @@
 
 	log_admin("[key_name(src)] set the round end sound to [S]")
 	message_admins("[key_name_admin(src)] set the round end sound to [S]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set Round End Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Set Round End Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ///Adjusts gravity, modifying the jump component for all mobs
 /datum/admins/proc/adjust_gravity()

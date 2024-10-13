@@ -43,7 +43,7 @@
 /datum/keybinding/xeno/secrete_resin
 	name = "secrete_resin"
 	full_name = "Secrete Resin"
-	description = "Builds whatever you’ve selected with (choose resin structure) on your tile."
+	description = "Builds whatever you've selected with (choose resin structure) on your tile."
 	keybind_signal = COMSIG_XENOABILITY_SECRETE_RESIN
 	hotkey_keys = list("R")
 
@@ -592,11 +592,11 @@
 	keybind_signal = COMSIG_XENOABILITY_TOGGLE_STEALTH
 	hotkey_keys = list("Q")
 
-/datum/keybinding/xeno/toggle_disguise
-	name = "toggle_disguise"
-	full_name = "Hunter: Toggle Disguise"
+/datum/keybinding/xeno/hunter_blink
+	name = "hunter_blink"
+	full_name = "Hunter: Hunter's Blink"
 	description = ""
-	keybind_signal = COMSIG_XENOABILITY_TOGGLE_DISGUISE
+	keybind_signal = COMSIG_XENOABILITY_HUNTER_BLINK
 	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/mirage

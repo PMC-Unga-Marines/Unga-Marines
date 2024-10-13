@@ -270,10 +270,7 @@
 		return
 
 	if(GLOB.custom_info)
-		to_chat(src, "<h1 class='alert'>Custom Information</h1>")
-		to_chat(src, "<h2 class='alert'>The following custom information has been set for this round:</h2>")
-		to_chat(src, span_alert("[GLOB.custom_info]"))
-		to_chat(src, "<br>")
+		custom_info()
 
 	connection_time = world.time
 	connection_realtime = world.realtime
@@ -482,13 +479,11 @@
 
 	return ..()
 
-//checks if a client is afk
-//3000 frames = 5 minutes
+///checks if a client is afk, 3000 frames = 5 minutes
 /client/proc/is_afk(duration = 5 MINUTES)
 	if(inactivity > duration)
 		return inactivity
 	return FALSE
-
 
 /// Send resources to the client. Sends both game resources and browser assets.
 /client/proc/send_resources()
@@ -509,27 +504,15 @@
 		if (CONFIG_GET(flag/asset_simple_preload))
 			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
 
-		#if (PRELOAD_RSC == 0)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/client, preload_vox)), 1 MINUTES)
-		#endif
-
-#if (PRELOAD_RSC == 0)
-/client/proc/preload_vox()
-	for (var/name in GLOB.vox_sounds)
-		var/file = GLOB.vox_sounds[name]
-		Export("##action=load_rsc", file)
-		stoplag()
-#endif
-
 //Hook, override it to run code when dir changes
 //Like for /atoms, but clients are their own snowflake FUCK
 /client/proc/setDir(newdir)
 	dir = newdir
 
-
-/client/proc/show_character_previews(mutable_appearance/MA)
+/// Show the dummy in 4 dirs for preferences
+/client/proc/show_character_previews(mutable_appearance/MA, list/dir_list = GLOB.cardinals)
 	var/pos = 0
-	for(var/D in GLOB.cardinals)
+	for(var/D in dir_list)
 		pos++
 		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
@@ -540,14 +523,12 @@
 		O.dir = D
 		O.screen_loc = "player_pref_map:[pos],1"
 
-
 /client/proc/clear_character_previews()
 	for(var/index in char_render_holders)
 		var/atom/movable/screen/S = char_render_holders[index]
 		screen -= S
 		qdel(S)
 	char_render_holders = null
-
 
 /client/proc/set_client_age_from_db(connectiontopic)
 	if(IsGuestKey(key))

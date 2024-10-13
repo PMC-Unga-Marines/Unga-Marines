@@ -15,6 +15,10 @@
 	var/number_silo
 	///For minimap icon change if silo takes damage or nearby hostile
 	var/warning
+	///Strength of pheromones given by silo.
+	var/aura_strength = 4
+	///Radius (in tiles) of the pheromones given by silo.
+	var/aura_radius = 30
 	COOLDOWN_DECLARE(silo_damage_alert_cooldown)
 	COOLDOWN_DECLARE(silo_proxy_alert_cooldown)
 
@@ -31,10 +35,14 @@
 			RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(resin_silo_proxy_alert))
 
 	if(SSticker.mode?.flags_round_type & MODE_SILOS_SPAWN_MINIONS)
-		SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, null)
+		SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, CALLBACK(src, PROC_REF(on_spawn)))
 		SSspawning.spawnerdata[src].required_increment = 2 * max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 		SSspawning.spawnerdata[src].max_allowed_mobs = max(1, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count * 0.5)
 	update_minimap_icon()
+
+	SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
+	SSaura.add_emitter(src, AURA_XENO_WARDING, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
+	SSaura.add_emitter(src, AURA_XENO_FRENZY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -156,6 +164,11 @@
 /obj/structure/xeno/silo/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
+
+/// Transfers the spawned minion to the silo's hivenumber.
+/obj/structure/xeno/silo/proc/on_spawn(list/newly_spawned_things)
+	for(var/mob/living/carbon/xenomorph/spawned_minion AS in newly_spawned_things)
+		spawned_minion.transfer_to_hive(hivenumber)
 
 /obj/structure/xeno/silo/crash
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | INDESTRUCTIBLE

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "globe"
 
-	minimap_flag = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
+	minimap_flag = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
 
 /obj/machinery/prop/yautja/bubbler
 	name = "yautja cauldron"

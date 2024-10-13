@@ -227,12 +227,6 @@
 
 		ai_actual_track(pick(target))
 
-#ifdef AI_VOX
-	if(href_list["say_word"])
-		play_vox_word(href_list["say_word"], null, src)
-		return
-#endif
-
 /mob/living/silicon/ai/proc/switchCamera(obj/machinery/camera/C)
 	if(QDELETED(C))
 		return FALSE
@@ -583,3 +577,10 @@
 		else //if the receiver is outside AI_PING_RADIUS, give them a name and coords
 			playsound(M, 'sound/machines/twobeep.ogg', 20)
 			to_chat(M, span_notice("<b>ALERT! The ship AI has detected Hostile/Unknown: [A.name] at: [AREACOORD_NO_Z(A)].</b>"))
+
+/mob/living/silicon/ai/proc/update_minimap_icon()
+	SSminimaps.remove_marker(src)
+	if(stat == DEAD)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, job.minimap_icon + "_dead"))
+	else
+		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, job.minimap_icon))

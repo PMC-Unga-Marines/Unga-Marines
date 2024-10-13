@@ -66,7 +66,6 @@
 	active_power_usage = 100
 	interaction_flags = INTERACT_MACHINE_TGUI|INTERACT_POWERLOADER_PICKUP_ALLOWED
 	wrenchable = TRUE
-	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
@@ -157,12 +156,6 @@
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
 	wires = new /datum/wires/vending(src)
-
-	if(SStts.tts_enabled)
-		var/static/vendor_voice_by_type = list()
-		if(!vendor_voice_by_type[type])
-			vendor_voice_by_type[type] = pick(SStts.available_speakers)
-		voice = vendor_voice_by_type[type]
 
 	slogan_list = splittext(product_slogans, ";")
 
@@ -440,14 +433,7 @@
 		.["currently_vending"] = MAKE_VENDING_RECORD_DATA(currently_vending)
 	.["extended"] = extended_inventory
 	.["isshared"] = isshared
-
-	var/ui_theme
-	switch(faction)
-		if(FACTION_SOM)
-			ui_theme = "som"
-		else
-			ui_theme = "main"
-	.["ui_theme"] = ui_theme
+	.["ui_theme"] = "main"
 
 /obj/machinery/vending/ui_act(action, list/params)
 	. = ..()
@@ -520,7 +506,9 @@
 			sleep(delay_vending)
 		else
 			return
-	SSblackbox.record_feedback("tally", "vendored", 1, R.product_name)
+		if(R.amount <= 0)
+			return
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "vendored", 1, R.product_name)
 	addtimer(CALLBACK(src, PROC_REF(stock_vacuum)), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
 	if(vending_sound)
 		playsound(src, vending_sound, 25, 0)
@@ -799,6 +787,16 @@
 	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()
+
+/obj/machinery/vending/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!anchored)
+		return ..()
+	tip_over()
+	if(density)
+		return PRECRUSH_STOPPED
+	charger.visible_message(span_danger("[charger] slams [src] into the ground!"),
+	span_xenowarning("We slam [src] into the ground!"))
+	return PRECRUSH_PLOWED
 
 #undef CAT_NORMAL
 #undef CAT_HIDDEN

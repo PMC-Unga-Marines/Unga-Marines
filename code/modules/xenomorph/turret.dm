@@ -161,15 +161,15 @@
 	var/distance = range + 0.5 //we add 0.5 so if a potential target is at range, it is accepted by the system
 	var/buffer_distance
 	var/list/turf/path = list()
-	for (var/atom/nearby_hostile AS in potential_hostiles)
+	for(var/atom/nearby_hostile AS in potential_hostiles)
 		if(isliving(nearby_hostile))
 			var/mob/living/nearby_living_hostile = nearby_hostile
 			if(nearby_living_hostile.stat == DEAD)
 				continue
-		if(HAS_TRAIT(nearby_hostile, TRAIT_TURRET_HIDDEN))
+		if(HAS_TRAIT(nearby_hostile, TRAIT_STEALTH))
 			continue
 		buffer_distance = get_dist(nearby_hostile, src)
-		if (distance <= buffer_distance) //If we already found a target that's closer
+		if(distance <= buffer_distance) //If we already found a target that's closer
 			continue
 		path = getline(src, nearby_hostile)
 		path -= get_turf(src)
@@ -228,7 +228,7 @@
 	var/obj/projectile/newshot = new(loc)
 	newshot.generate_bullet(ammo)
 	newshot.def_zone = pick(GLOB.base_miss_chance)
-	newshot.fire_at(hostile, src, null, ammo.max_range, ammo.shell_speed)
+	newshot.fire_at(hostile, null, src, ammo.max_range, ammo.shell_speed)
 	if(istype(ammo, /datum/ammo/xeno/hugger))
 		var/datum/ammo/xeno/hugger/hugger_ammo = ammo
 		newshot.color = initial(hugger_ammo.hugger_type.color)

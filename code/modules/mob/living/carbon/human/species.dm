@@ -458,13 +458,11 @@
 /datum/species/robot/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
 	H.speech_span = SPAN_ROBOT
-	H.voice_filter = "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=1,rubberband=pitch=0.8"
 	H.health_threshold_crit = -100
 
 /datum/species/robot/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	H.speech_span = initial(H.speech_span)
-	H.voice_filter = initial(H.voice_filter)
 	H.health_threshold_crit = -50
 
 /datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
@@ -722,6 +720,7 @@
 	eyes = "blank_eyes"
 	speech_verb_override = "transmits"
 	count_human = TRUE
+	total_health = 80
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY
 
@@ -735,7 +734,6 @@
 
 	namepool = /datum/namepool/sectoid
 	special_death_message = "You have perished."
-
 
 /datum/species/moth
 	name = "Moth"
@@ -1035,6 +1033,7 @@
 	eyes = "blank_eyes"
 	speech_verb_override = "transmits"
 	count_human = TRUE
+	total_health = 80
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY
 

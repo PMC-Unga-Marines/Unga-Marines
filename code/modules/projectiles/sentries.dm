@@ -1,3 +1,14 @@
+GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
+
+///Creates the list of atoms that will be ignored by sentry target pathing
+/proc/set_sentry_ignore_List()
+	. = list(
+		/obj/machinery/deployable/mounted,
+		/obj/machinery/miner,
+	)
+	. += typesof(/obj/hitbox)
+	. += typesof(/obj/vehicle/sealed/armored/multitile)
+
 /obj/machinery/deployable/mounted/sentry
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
 	use_power = 0
@@ -23,8 +34,6 @@
 	var/obj/item/radio/radio
 	///Iff signal of the sentry. If the /gun has a set IFF then this will be the same as that. If not the sentry will get its IFF signal from the deployer
 	var/iff_signal = NONE
-	///List of terrains/structures/machines that the sentry ignores for targetting. (If a window is inside the list, the sentry will shot at targets even if the window breaks los) For accuracy, this is on a specific typepath base and not istype().
-	var/list/ignored_terrains
 	///For minimap icon change if sentry is firing
 	var/firing
 	///Scan effect sound loop, when the turret is on
@@ -46,7 +55,6 @@
 
 	knockdown_threshold = gun?.knockdown_threshold ? gun.knockdown_threshold : initial(gun.knockdown_threshold)
 	range = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ?  gun.turret_range - 2 : gun.turret_range
-	ignored_terrains = gun?.ignored_terrains ? gun.ignored_terrains : initial(gun.ignored_terrains)
 
 	radio = new(src)
 
@@ -71,15 +79,7 @@
 	SSminimaps.remove_marker(src)
 	if(!z)
 		return
-	var/marker_flags
-	switch(iff_signal)
-		if(TGMC_LOYALIST_IFF)
-			marker_flags = MINIMAP_FLAG_MARINE
-		if(SOM_IFF)
-			marker_flags = MINIMAP_FLAG_MARINE_SOM
-		else
-			marker_flags = MINIMAP_FLAG_MARINE
-	SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "sentry[firing ? "_firing" : "_passive"]"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "sentry[firing ? "_firing" : "_passive"]"))
 
 /obj/machinery/deployable/mounted/sentry/update_icon_state()
 	. = ..()
@@ -142,7 +142,7 @@
 		span_notice("Вы поставили [src] на место."))
 
 	DISABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
-	density = TRUE
+	density = initial(density)
 	set_on(TRUE)
 
 /obj/machinery/deployable/mounted/sentry/attack_ghost(mob/dead/observer/user)
@@ -378,22 +378,31 @@
 	if(!gun)
 		return FALSE
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
-		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal) || HAS_TRAIT(nearby_human, TRAIT_TURRET_HIDDEN))
+		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal) || HAS_TRAIT(nearby_human, TRAIT_STEALTH))
 			continue
 		potential_targets += nearby_human
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))
-		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So hiveminds wont be shot at when in phase shift
+		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_STEALTH) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So hiveminds wont be shot at when in phase shift
 			continue
 		potential_targets += nearby_xeno
 	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(src, range))
 		potential_targets += nearby_illusion
 	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
-		if(!length(nearby_mech.occupants))
+		var/list/driver_list = nearby_mech.return_drivers()
+		if(!length(driver_list))
 			continue
-		var/mob/living/carbon/human/human_occupant = nearby_mech.occupants[1]
-		if(!istype(human_occupant) || (human_occupant.wear_id?.iff_signal & iff_signal))
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.wear_id?.iff_signal & iff_signal)
 			continue
 		potential_targets += nearby_mech
+	for(var/obj/vehicle/sealed/armored/nearby_tank AS in cheap_get_tanks_near(src, range))
+		var/list/driver_list = nearby_tank.return_drivers()
+		if(!length(driver_list))
+			continue
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.wear_id?.iff_signal & iff_signal)
+			continue
+		potential_targets += nearby_tank
 	return length(potential_targets)
 
 ///Checks the range and the path of the target currently being shot at to see if it is eligable for being shot at again. If not it will stop the firing.
@@ -417,14 +426,13 @@
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	var/atom/target = get_target()
-	update_icon()
-	soundloop.start()
 	if(!target)
 		gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
 		return
 	sentry_alert(SENTRY_ALERT_HOSTILE, target)
+	update_icon()
 	if(target != gun.target)
 		gun.stop_fire()
 		firing = FALSE
@@ -474,18 +482,23 @@
 		if(smoke?.opacity)
 			return FALSE
 
-		if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE) && !(T.type in ignored_terrains))
+		if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE) && !(T.type in GLOB.sentry_ignore_List))
 			return FALSE
 
 		for(var/atom/movable/AM AS in T)
+			if(AM == target)
+				continue
 			if(AM.opacity)
 				return FALSE
 			if(!AM.density)
 				continue
 			if(ismob(AM))
 				continue
-			if(!(AM.allow_pass_flags & (gun.ammo_datum_type::flags_ammo_behavior & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE) && !(AM.type in ignored_terrains))) //todo:accurately populate ignored_terrains
-				return FALSE
+			if(AM.type in GLOB.sentry_ignore_List) //todo:accurately populate GLOB.sentry_ignore_List
+				continue
+			if(AM.allow_pass_flags & (gun.ammo_datum_type::flags_ammo_behavior  & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE))
+				continue
+			return FALSE
 
 	return TRUE
 
@@ -521,6 +534,15 @@
 	if((GLOB.faction_to_iff[user.faction] != iff_signal) && iff_signal) //You can't steal other faction's turrets
 		return FALSE
 	return TRUE
+
+/obj/machinery/deployable/mounted/sentry/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return (CHARGE_SPEED(charge_datum) * 50)
+
+/obj/machinery/deployable/mounted/sentry/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	knock_down()
+	if(density)
+		return PRECRUSH_STOPPED
+	return PRECRUSH_PLOWED
 
 /obj/machinery/deployable/mounted/sentry/buildasentry
 	name = "broken build-a-sentry"

@@ -26,10 +26,7 @@
 	for(var/i in networks)
 		networks -= i
 		networks += lowertext(i)
-	if(SOM_CAMERA_NETWORK in networks)
-		parent_cameranet = GLOB.som_cameranet
-	else
-		parent_cameranet = GLOB.cameranet
+	parent_cameranet = GLOB.cameranet
 	off_action = new
 	jump_action = new(null, parent_cameranet)
 	if(lock_override)
@@ -369,8 +366,8 @@
 		return
 	holder.overlays.Cut()
 	for(var/aura_type in current_aura_list)
-		holder.overlays += image('icons/mob/hud.dmi', src, "hud[aura_type]")
-		holder.overlays += image('icons/mob/hud.dmi', src, "hud[aura_type]aura")
+		holder.overlays += image('icons/mob/hud/aura.dmi', src, "[aura_type]")
+		holder.overlays += image('icons/mob/hud/aura.dmi', src, "[aura_type]_aura")
 
 /datum/action/innate/camera_off
 	name = "End Camera View"

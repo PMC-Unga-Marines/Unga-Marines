@@ -41,7 +41,7 @@
 	if(stealth)
 		cancel_stealth()
 		return TRUE
-	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))   // stops stealth and disguise from stacking
+	if(HAS_TRAIT(owner, TRAIT_STEALTH))   // stops stealth and disguise from stacking
 		owner.balloon_alert(owner, "Already in a form of stealth!")
 		return
 	succeed_activate()
@@ -68,7 +68,7 @@
 
 	RegisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(damage_taken))
 
-	ADD_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	ADD_TRAIT(owner, TRAIT_STEALTH, TRAIT_STEALTH)
 
 	handle_stealth()
 	addtimer(CALLBACK(src, PROC_REF(sneak_attack_cooldown)), HUNTER_POUNCE_SNEAKATTACK_DELAY) //Short delay before we can sneak attack.
@@ -99,7 +99,7 @@
 
 	stealth = FALSE
 	can_sneak_attack = FALSE
-	REMOVE_TRAIT(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_STEALTH, TRAIT_STEALTH)
 	animate(owner, 1 SECONDS, alpha = 255) //no transparency/translucency
 
 ///Signal wrapper to verify that an object is damageable before breaking stealth
@@ -196,12 +196,6 @@
 
 	cancel_stealth()
 
-/datum/action/ability/xeno_action/stealth/proc/damage_taken(mob/living/carbon/xenomorph/X, damage_taken)
-	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/xenoowner = owner
-	if(damage_taken > xenoowner.xeno_caste.stealth_break_threshold)
-		cancel_stealth()
-
 /datum/action/ability/xeno_action/stealth/proc/plasma_regen(datum/source, list/plasma_mod)
 	SIGNAL_HANDLER
 	if(owner.last_move_intent < world.time - 20) //Stealth halves the rate of plasma recovery on weeds, and eliminates it entirely while moving
@@ -209,82 +203,68 @@
 	else
 		plasma_mod[1] = 0
 
+/datum/action/ability/xeno_action/stealth/proc/damage_taken(mob/living/carbon/xenomorph/X, damage_taken)
+	SIGNAL_HANDLER
+	var/mob/living/carbon/xenomorph/xenoowner = owner
+	if(damage_taken > xenoowner.xeno_caste.stealth_break_threshold)
+		cancel_stealth()
+
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_zone()
 	SIGNAL_HANDLER
 	if(!can_sneak_attack)
 		return
 	return COMSIG_ACCURATE_ZONE
 
-/datum/action/ability/xeno_action/stealth/disguise
-	name = "Disguise"
-	action_icon_state = "xenohide"
-	desc = "Disguise yourself as the enemy. Uses plasma to move. Select your disguise with Hunter's Mark."
-	cooldown_duration = 15 SECONDS
+/datum/action/ability/activable/xeno/hunter_blink
+	name = "Hunter's Blink"
+	action_icon_state = "blink"
+	desc = "Teleport to the selected target, gaining a short bonus to attack speed."
+	target_flags = ABILITY_MOB_TARGET
+	use_state_flags = ABILITY_USE_BUCKLED
+	ability_cost = 50
+	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_DISGUISE,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_BLINK,
 	)
-	///the regular appearance of the hunter
-	var/old_appearance
 
-/datum/action/ability/xeno_action/stealth/disguise/action_activate()
-	if(stealth)
-		cancel_stealth()
-		return TRUE
-	var/mob/living/carbon/xenomorph/xenoowner = owner
-	var/datum/action/ability/activable/xeno/hunter_mark/mark = xenoowner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
-	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))   // stops stealth and disguise from stacking
-		owner.balloon_alert(owner, "already in a form of stealth!")
-		return
-	if(!mark.marked_target)
-		owner.balloon_alert(owner, "We have no target to disguise into!")
-		return
-	if(!isliving(mark.marked_target))
-		owner.balloon_alert(owner, "You cannot turn into this object!")
-		return
-	if(!do_after(xenoowner, 1.5 SECONDS, IGNORE_LOC_CHANGE, xenoowner, BUSY_ICON_HOSTILE))
-		return
-	old_appearance = xenoowner.appearance
-	ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
-	xenoowner.update_wounds()
-	xenoowner.add_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE, 0, NONE, TRUE, DISGUISE_SLOWDOWN)
-	return ..()
-
-/datum/action/ability/xeno_action/stealth/disguise/cancel_stealth()
+/datum/action/ability/activable/xeno/hunter_blink/use_ability(atom/A)
 	. = ..()
-	owner.appearance = old_appearance
-	REMOVE_TRAIT(owner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
-	var/mob/living/carbon/xenomorph/xenoowner = owner
-	xenoowner.update_wounds()
-	xenoowner.remove_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE)
+	if(!isliving(A))
+		return fail_activate()
+	if(get_dist(owner, A) > 7 || owner.z != A.z)
+		owner.balloon_alert(owner, "We are too far away!")
+		return fail_activate()
 
-/datum/action/ability/xeno_action/stealth/disguise/handle_stealth()
-	var/mob/living/carbon/xenomorph/xenoowner = owner
-	var/datum/action/ability/activable/xeno/hunter_mark/mark = xenoowner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
-	var/old_layer = xenoowner.layer
-	xenoowner.appearance = mark.marked_target.appearance
-	//Retaining old rendering layer to prevent rendering under objects.
-	xenoowner.layer = old_layer
-	xenoowner.underlays.Cut()
-	if(owner.last_move_intent >= world.time - HUNTER_STEALTH_STEALTH_DELAY)
-		xenoowner.use_plasma(owner.m_intent == MOVE_INTENT_WALK ? HUNTER_STEALTH_WALK_PLASMADRAIN : HUNTER_STEALTH_RUN_PLASMADRAIN)
-	//If we have 0 plasma after expending stealth's upkeep plasma, end stealth.
-	if(!xenoowner.plasma_stored)
-		to_chat(xenoowner, span_xenodanger("We lack sufficient plasma to remain disguised."))
-		cancel_stealth()
+	var/mob/living/carbon/xenomorph/hunter/X = owner
+	var/turf/target_turf = get_turf(A)
+	var/turf/origin_turf = get_turf(X)
 
-/datum/action/ability/xeno_action/stealth/disguise/sneak_attack_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
-	if(!can_sneak_attack)
-		return
+	target_turf = get_step_rand(target_turf)
 
-	var/mob/living/carbon/xenomorph/xeno = owner
-	damage = xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier
+	new /obj/effect/temp_visual/blink_portal(origin_turf)
+	new /obj/effect/temp_visual/blink_portal(target_turf)
+	new /obj/effect/particle_effect/sparks(origin_turf)
+	new /obj/effect/particle_effect/sparks(target_turf)
+	playsound(target_turf, 'sound/effects/EMPulse.ogg', 25, TRUE)
 
-	owner.visible_message(span_danger("\The [owner] strikes [target] with deadly precision!"), \
-	span_danger("We strike [target] with deadly precision!"))
-	target.ParalyzeNoChain(1 SECONDS)
-	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, penetration = 25) // additional damage
+	if(target_turf)
+		X.forceMove(target_turf)
+	else
+		X.forceMove(A.loc)
 
-	cancel_stealth()
+	X.apply_status_effect(/datum/status_effect/hunt)
+
+	succeed_activate()
+	add_cooldown()
+
+	var/datum/action/ability/activable/xeno/hunter_pounce = X.actions_by_path[/datum/action/ability/activable/xeno/pounce]
+	if(hunter_pounce)
+		hunter_pounce.add_cooldown(3 SECONDS)
+
+/datum/action/ability/activable/xeno/hunter_blink/on_cooldown_finish()
+	owner.balloon_alert(owner, "Blink ready")
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
+	return ..()
 
 // ***************************************
 // *********** Hunter's Pounce
@@ -339,6 +319,9 @@
 	addtimer(CALLBACK(src, PROC_REF(reset_pass_flags)), 0.6 SECONDS)
 	succeed_activate()
 	add_cooldown()
+	var/datum/action/ability/activable/xeno/hunter_blink = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_blink]
+	if(hunter_blink)
+		hunter_blink.add_cooldown(3 SECONDS)
 
 /datum/action/ability/activable/xeno/pounce/proc/movement_fx()
 	SIGNAL_HANDLER
@@ -371,7 +354,6 @@
 	playsound(get_turf(living_target), 'sound/voice/alien/pounce.ogg', 25, TRUE)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.set_throwing(FALSE)
-	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
 	xeno_owner.forceMove(get_turf(living_target))
 	living_target.Knockdown(XENO_POUNCE_STUN_DURATION)
 
@@ -423,11 +405,11 @@
 	name = "Hunter's Mark"
 	action_icon_state = "hunter_mark"
 	desc = "Psychically mark a creature you have line of sight to, allowing you to sense its direction, distance and location with Psychic Trace."
-	ability_cost = 25
+	ability_cost = 0
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_MARK,
 	)
-	cooldown_duration = 10 SECONDS
+	cooldown_duration = 5 SECONDS
 	///the target marked
 	var/atom/movable/marked_target
 
@@ -490,7 +472,7 @@
 	succeed_activate()
 
 	GLOB.round_statistics.hunter_marks++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "hunter_marks")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "hunter_marks")
 	add_cooldown()
 
 ///Nulls the target of our hunter's mark
@@ -579,7 +561,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_MIRAGE,
 	)
-	cooldown_duration = 30 SECONDS
+	cooldown_duration = 15 SECONDS
 	///How long will the illusions live
 	var/illusion_life_time = 10 SECONDS
 	///How many illusions are created
@@ -602,7 +584,7 @@
 
 /datum/action/ability/xeno_action/mirage/action_activate()
 	succeed_activate()
-	if (!length(illusions))
+	if(!length(illusions))
 		spawn_illusions()
 	else
 		swap()
@@ -639,89 +621,40 @@
 	selected_illusion.forceMove(current_turf)
 
 // ***************************************
-// *********** Silence
+// *********** One Hunter Army
 // ***************************************
-/datum/action/ability/activable/xeno/silence
-	name = "Silence"
-	action_icon_state = "silence"
-	desc = "Impairs the ability of hostile living creatures we can see in a 5x5 area. Targets will be unable to speak and hear for 10 seconds, or 15 seconds if they're your Hunter Mark target."
-	ability_cost = 50
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SILENCE,
-	)
-	cooldown_duration = HUNTER_SILENCE_COOLDOWN
+#define ILUSSION_CHANCE 70
+#define ILLUSION_LIFETIME 5 SECONDS
 
-/datum/action/ability/activable/xeno/silence/can_use_ability(atom/A, silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/hunter_army
+	name = "One Hunter Army"
+	desc = ""
+	ability_cost = 0
+	cooldown_duration = 0
+	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+
+/datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
 	. = ..()
-	if(!.)
+	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
+
+/datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
+	. = ..()
+	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
+
+/datum/action/ability/xeno_action/hunter_army/proc/on_attack(datum/source, mob/living/target)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	if(!isliving(target))
 		return
 
-	var/mob/living/carbon/xenomorph/impairer = owner //Type cast this for on_fire
+	var/target_turf = get_step_rand(target.loc)
 
-	var/distance = get_dist(impairer, A)
-	if(distance > HUNTER_SILENCE_RANGE)
-		if(!silent)
-			to_chat(impairer, span_xenodanger("The target location is too far! We must be [distance - HUNTER_SILENCE_RANGE] tiles closer!"))
-		return FALSE
+	if(prob(ILUSSION_CHANCE))
+		new /mob/illusion/xeno(target_turf, owner, owner, ILLUSION_LIFETIME)
 
-	if(!line_of_sight(impairer, A)) //Need line of sight.
-		if(!silent)
-			to_chat(impairer, span_xenowarning("We require line of sight to the target location!") )
-		return FALSE
-
-	return TRUE
-
-
-/datum/action/ability/activable/xeno/silence/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/X = owner
-
-	X.face_atom(A)
-
-	var/victim_count
-	for(var/mob/living/target AS in cheap_get_humans_near(A, HUNTER_SILENCE_AOE))
-		if(!isliving(target)) //Filter out non-living
-			continue
-		if(target.stat == DEAD) //Ignore the dead
-			continue
-		if(!line_of_sight(X, target)) //Need line of sight
-			continue
-		if(isxeno(target)) //Ignore friendlies
-			var/mob/living/carbon/xenomorph/xeno_victim = target
-			if(X.issamexenohive(xeno_victim))
-				continue
-
-		var/silence_multiplier = 1
-		var/datum/action/ability/activable/xeno/hunter_mark/mark_action = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
-		if(mark_action?.marked_target == target) //Double debuff stacks for the marked target
-			silence_multiplier = HUNTER_SILENCE_MULTIPLIER
-		to_chat(target, span_danger("Your mind convulses at the touch of something ominous as the world seems to blur, your voice dies in your throat, and everything falls silent!") ) //Notify privately
-		target.playsound_local(target, 'sound/effects/ghost.ogg', 25, 0, 1)
-		target.adjust_stagger(HUNTER_SILENCE_STAGGER_STACKS * silence_multiplier)
-		target.adjust_blurriness(HUNTER_SILENCE_SENSORY_STACKS * silence_multiplier)
-		target.adjust_ear_damage(HUNTER_SILENCE_SENSORY_STACKS * silence_multiplier, HUNTER_SILENCE_SENSORY_STACKS * silence_multiplier)
-		target.apply_status_effect(/datum/status_effect/mute, HUNTER_SILENCE_MUTE_DURATION * silence_multiplier)
-		victim_count++
-
-	if(!victim_count)
-		to_chat(X, span_xenodanger("We were unable to violate the minds of any victims."))
-		add_cooldown(HUNTER_SILENCE_WHIFF_COOLDOWN) //We cooldown to prevent spam, but only for a short duration
-		return fail_activate()
-
-	X.playsound_local(X, 'sound/effects/ghost.ogg', 25, 0, 1)
-	to_chat(X, span_xenodanger("We invade the mind of [victim_count] [victim_count > 1 ? "victims" : "victim"], silencing and muting them...") )
-	succeed_activate()
-	add_cooldown()
-
-	GLOB.round_statistics.hunter_silence_targets += victim_count //Increment by victim count
-	SSblackbox.record_feedback("tally", "round_statistics", victim_count, "hunter_silence_targets") //Statistics
-
-/datum/action/ability/activable/xeno/silence/on_cooldown_finish()
-	to_chat(owner, span_xenowarning("<b>We refocus our psionic energies, allowing us to impose silence again.</b>") )
-	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
-	cooldown_duration = initial(cooldown_duration) //Reset the cooldown timer to its initial state in the event of a whiffed Silence.
-	return ..()
-
-#undef DISGUISE_SLOWDOWN
+/datum/action/ability/xeno_action/hunter_army/should_show()
+	return FALSE
 
 // ***************************************
 // *********** Crippling strike
@@ -729,6 +662,9 @@
 
 /datum/action/ability/xeno_action/crippling_strike/hunter
 	additional_damage = 1
-	heal_amount = 20
+	heal_amount = 0
 	plasma_gain = 20
 	decay_time = 15 SECONDS
+
+#undef ILUSSION_CHANCE
+#undef ILLUSION_LIFETIME

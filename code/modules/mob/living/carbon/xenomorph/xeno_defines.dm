@@ -7,6 +7,9 @@
 
 	var/caste_type_path = null
 
+	//for strains basetype
+	var/base_caste_type_path = null
+
 	///primordial message that is shown when a caste becomes primordial
 	var/primordial_message = ""
 
@@ -58,9 +61,6 @@
 	// *** Evolution *** //
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
-
-	///Singular type path for the caste to deevolve to when forced to by the queen.
-	var/deevolves_to
 
 	///see_in_dark value while consicious
 	var/conscious_see_in_dark = 8
@@ -226,6 +226,37 @@
 	for(var/trait in caste_traits)
 		REMOVE_TRAIT(xenomorph, trait, XENO_TRAIT)
 
+///returns the basetype caste to get what the base caste is (e.g base rav not primo or strain rav)
+/datum/xeno_caste/proc/get_base_caste_type()
+	var/datum/xeno_caste/current_type = type
+	while(initial(current_type.upgrade) != XENO_UPGRADE_BASETYPE)
+		current_type = initial(current_type.parent_type)
+	return current_type
+
+/// basetype = list(strain1, strain2)
+GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
+/proc/init_glob_strain_list()
+	var/list/strain_list = list()
+	for(var/datum/xeno_caste/root_caste AS in GLOB.xeno_caste_datums)
+		if(root_caste.parent_type != /datum/xeno_caste)
+			continue
+		strain_list[root_caste] = list()
+		for(var/datum/xeno_caste/typepath AS in subtypesof(root_caste))
+			if(typepath::upgrade != XENO_UPGRADE_BASETYPE)
+				continue
+			if(typepath::caste_flags & CASTE_EXCLUDE_STRAINS)
+				continue
+			strain_list[root_caste] += typepath
+	return strain_list
+
+///returns a list of strains(xeno castedatum paths) that this caste can currently evolve to
+/datum/xeno_caste/proc/get_strain_options()
+	var/datum/xeno_caste/root_type = type
+	while(initial(root_type.parent_type) != /datum/xeno_caste)
+		root_type = root_type::parent_type
+	var/list/options = GLOB.strain_list[root_type]
+	return options?.Copy()
+
 /mob/living/carbon/xenomorph
 	name = "Drone"
 	desc = "What the hell is THAT?"
@@ -254,7 +285,6 @@
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
-	voice_filter = @{"[0:a] asplit [out0][out2]; [out0] asetrate=%SAMPLE_RATE%*0.8,aresample=%SAMPLE_RATE%,atempo=1/0.8,aformat=channel_layouts=mono [p0]; [out2] asetrate=%SAMPLE_RATE%*1.2,aresample=%SAMPLE_RATE%,atempo=1/1.2,aformat=channel_layouts=mono[p2]; [p0][0][p2] amix=inputs=3"}
 	gib_chance = 5
 	light_system = MOVABLE_LIGHT
 
@@ -267,9 +297,19 @@
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
+	///Var for keeping the base icon of current skin, used for toggling to normal appearance from rouny skin, changeable with skin toggling
+	var/base_icon
+	///Var for keeping the effects icon of current skin, changeable with skin toggling
+	var/effects_icon = 'icons/Xeno/castes/larva.dmi'
+	///Var for keeping the rouny icon of current skin, changeable with skin toggling
+	var/rouny_icon
+	/// List of alternative skins to which xeno is able to change, you put only skin datums in here
+	var/list/skins = list()
+
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	var/datum/xeno_caste/xeno_caste
+	/// /datum/xeno_caste that we will be on init
 	var/caste_base_type
 	var/language = "Xenomorph"
 	///Plasma currently stored
@@ -304,6 +344,8 @@
 	///Will increase by 10 every decisecond if under 0.
 	///Increases by xeno_caste.regen_ramp_amount every decisecond. If you want to balance this, look at the xeno_caste defines mentioned above.
 	var/regen_power = 0
+	///Stored biomass
+	var/biomass = 0
 
 	var/is_zoomed = 0
 	var/zoom_turf = null
@@ -384,9 +426,6 @@
 	///The xenos/silo/nuke currently tracked by the xeno_tracker arrow
 	var/atom/tracked
 
-	///Are we the roony version of this xeno
-	var/is_a_rouny = FALSE
-
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
@@ -399,3 +438,4 @@
 	COOLDOWN_DECLARE(xeno_resting_cooldown)
 	///The unresting cooldown
 	COOLDOWN_DECLARE(xeno_unresting_cooldown)
+

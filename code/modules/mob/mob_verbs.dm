@@ -72,7 +72,7 @@
 
 	to_chat(usr, span_notice("You can respawn now, enjoy your new life!<br><b>Make sure to play a different character, and please roleplay correctly.</b>"))
 	GLOB.round_statistics.total_human_respawns++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_respawns")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_human_respawns")
 
 
 	if(!client)
@@ -82,8 +82,6 @@
 		return
 
 	var/mob/new_player/M = new /mob/new_player()
-	if(SSticker.mode?.flags_round_type & MODE_TWO_HUMAN_FACTIONS)
-		M.faction = faction
 	if(!client)
 		qdel(M)
 		return
@@ -140,8 +138,7 @@
 	// List of HvH factions - these are handled differently, using the quick loadout outfits.
 	var/list/static/hvh_faction_list = list(/datum/job/som, /datum/job/terragov)
 	// List of rare factions, not common because they're funny in moderation / stronk.
-	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
-
+	var/list/static/rare_faction_list = list(/datum/job/necoarc, /datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
 
 	var/total_list = base_faction_list + hvh_faction_list
 

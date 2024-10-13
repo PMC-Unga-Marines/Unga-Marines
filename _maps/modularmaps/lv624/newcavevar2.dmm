@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ar" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor,
+/area/lv624/ground/caves/central1/garbledradio)
 "bk" = (
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/central1/garbledradio)
@@ -6,6 +10,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/lv624/ground/caves/central1)
+"bT" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central3)
 "co" = (
 /turf/open/floor,
 /area/lv624/ground/caves/central1/garbledradio)
@@ -511,7 +519,7 @@ XC
 tJ
 tJ
 tJ
-tJ
+bT
 tJ
 tJ
 "}
@@ -1934,7 +1942,7 @@ Yu
 Yu
 jJ
 yu
-Ux
+xX
 Ux
 jJ
 Yu
@@ -2006,7 +2014,7 @@ Ux
 Ux
 Ux
 Ux
-Ux
+xX
 DQ
 Ux
 Py
@@ -2088,7 +2096,7 @@ Ux
 CL
 Ux
 Ux
-Ux
+xX
 "}
 (47,1,1) = {"
 XC
@@ -2181,7 +2189,7 @@ Ux
 Ux
 Ux
 tK
-Ux
+xX
 dg
 dg
 xX
@@ -2319,7 +2327,7 @@ Ux
 Ux
 Ux
 Ux
-Ux
+xX
 tK
 Ux
 Ux
@@ -2658,7 +2666,7 @@ XC
 XC
 XC
 XC
-Ux
+xX
 Ux
 Ux
 yu
@@ -3269,7 +3277,7 @@ vo
 vo
 vo
 JT
-vo
+qe
 XC
 XC
 XC
@@ -3277,6 +3285,6 @@ yQ
 XC
 co
 co
-co
+ar
 co
 "}

@@ -33,7 +33,7 @@
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
@@ -84,7 +84,6 @@
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -111,6 +110,7 @@
 			/obj/item/storage/box/m94/cas = -1,
 		),
 		"Specialized" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
@@ -164,12 +164,13 @@
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
 		"Boxes" = list(
-			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
+			/obj/item/ammo_magazine/packet/acp/ap = -1,
+			/obj/item/ammo_magazine/packet/acp/hp = -1,
 			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
-			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
+			/obj/item/ammo_magazine/packet/p380acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
@@ -180,10 +181,9 @@
 			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
-			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
-			/obj/item/ammo_magazine/packet/p492x34mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
+			/obj/item/ammo_magazine/packet/svd762x54mmR = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
@@ -239,15 +239,6 @@
 			/obj/item/ammo_magazine/rifle/type71/ap = -1,
 			/obj/item/ammo_magazine/rifle/type71/hp = -1,
 		),
-		"Energy Weapons" = list(
-			/obj/item/cell/lasgun/lasrifle = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = 2,
-		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
@@ -257,7 +248,7 @@
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
@@ -311,7 +302,6 @@
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -330,6 +320,7 @@
 			/obj/item/storage/box/m94/cas = 50,
 		),
 		"Specialized" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = 40,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
@@ -338,21 +329,6 @@
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = 3,
-			/obj/item/ammo_magazine/sg29 = -1,
-			/obj/item/ammo_magazine/minigun_powerpack/smartgun = -1,
-			/obj/item/ammo_magazine/packet/smart_minigun = -1,
-			/obj/item/ammo_magazine/rifle/t25 = -1,
-			/obj/item/ammo_magazine/packet/t25 = -1,
-			/obj/item/ammo_magazine/rifle/sg62 = -1,
-			/obj/item/ammo_magazine/packet/sg62 = -1,
-			/obj/item/ammo_magazine/pistol/p14/smart_pistol = -1,
-			/obj/item/ammo_magazine/rifle/sg153 = -1,
-			/obj/item/ammo_magazine/rifle/sg153/highimpact = -1,
-			/obj/item/ammo_magazine/rifle/sg153/heavyrubber = -1,
-			/obj/item/ammo_magazine/rifle/sg153/tungsten = -1,
-			/obj/item/ammo_magazine/rifle/sg153/flak = -1,
-			/obj/item/ammo_magazine/rifle/sg153/plasmaloss = -1,
-			/obj/item/ammo_magazine/rifle/sg153/incendiary = -1,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
@@ -392,8 +368,10 @@
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
+			/obj/item/ammo_magazine/packet/acp/ap = -1,
+			/obj/item/ammo_magazine/packet/acp/hp = -1,
 			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
-			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
+			/obj/item/ammo_magazine/packet/p380acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
@@ -402,9 +380,7 @@
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
-			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
-			/obj/item/ammo_magazine/packet/p492x34mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
@@ -477,12 +453,11 @@
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
-			/obj/item/ammo_magazine/smg/vector/sabot = -1,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
@@ -537,7 +512,6 @@
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
 			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/ammo_magazine/pistol/vp70/sabot = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
@@ -633,13 +607,13 @@
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
-			/obj/item/ammo_magazine/packet/p9mm/sabot = -1,
 			/obj/item/ammo_magazine/packet/p9mm/incendiary = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
+			/obj/item/ammo_magazine/packet/acp/ap = -1,
+			/obj/item/ammo_magazine/packet/acp/hp = -1,
 			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
-			/obj/item/ammo_magazine/packet/pthreeightyacp = -1,
+			/obj/item/ammo_magazine/packet/p380acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
-			/obj/item/ammo_magazine/packet/standard_magnum = -1,
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
 			/obj/item/ammo_magazine/packet/t500/slavs = -1,
@@ -647,15 +621,12 @@
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
-			/obj/item/ammo_magazine/packet/p10x24mm/sabot = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/incendiary = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm/hp = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
-			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
-			/obj/item/ammo_magazine/packet/p492x34mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
@@ -813,7 +784,6 @@
 			/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/ar12/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/martini/full = -1,
-			/obj/item/storage/box/visual/magazine/compact/ar11/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/sh15/slug/full = -1,
@@ -979,6 +949,7 @@
 /obj/machinery/vending/MarineMed/valhalla
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
+	req_one_access = null
 	products = list(
 		"Pill Bottles" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
@@ -1068,6 +1039,20 @@
 			R.product_name += blood_type? " [blood_type]" : ""
 			temp_list -= R.product_path
 			if(!length(temp_list)) break
+
+/obj/machinery/vending/MarineMed/Blood/valhalla
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	req_one_access = null
+	products = list(
+		/obj/item/reagent_containers/blood/APlus = -1,
+		/obj/item/reagent_containers/blood/AMinus = -1,
+		/obj/item/reagent_containers/blood/BPlus = -1,
+		/obj/item/reagent_containers/blood/BMinus = -1,
+		/obj/item/reagent_containers/blood/OPlus = -1,
+		/obj/item/reagent_containers/blood/OMinus = -1,
+		/obj/item/reagent_containers/blood/empty = -1,
+	)
 
 /obj/machinery/vending/armor_supply
 	name = "\improper Surplus Armor Equipment Vendor"
@@ -1268,7 +1253,6 @@
 			/obj/item/storage/belt/sparepouch = -1,
 			/obj/item/storage/holster/belt/pistol/t457 = -1,
 			/obj/item/storage/holster/belt/revolver/t457 = -1,
-			/obj/item/storage/holster/mp19 = -1,
 			/obj/item/storage/holster/blade/tomahawk/full = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
 			/obj/item/storage/holster/blade/harvester/full = -1,
@@ -1478,7 +1462,7 @@
 			/obj/item/ammo_magazine/minigun_powerpack/smartgun = -1,
 			/obj/item/ammo_magazine/packet/smart_minigun = -1,
 			/obj/item/weapon/gun/launcher/rocket/oneuse = -1,
-			/obj/item/storage/holster/belt/mateba/full = -1,
+			/obj/item/storage/holster/belt/revolver/mateba/full = -1,
 			/obj/item/ammo_magazine/revolver/mateba = -1,
 			/obj/item/ammo_magazine/packet/mateba = -1,
 			/obj/item/ammo_magazine/rifle/sr127/flak = -1,
@@ -1523,7 +1507,7 @@
 			/obj/item/clothing/gloves/marine/specialist = -1,
 			/obj/item/clothing/suit/storage/marine/B17/valhalla = -1,
 			/obj/item/clothing/head/helmet/marine/grenadier = -1,
-			/obj/item/storage/backpack/marine/satchel/scout_cloak/scout = -1,
+			/obj/item/storage/backpack/marine/satchel/scout_cloak = -1,
 			/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper = -1,
 			/obj/item/storage/belt/grenade/b17 = -1,
 			/obj/item/armor_module/module/valkyrie_autodoc = -1,
@@ -1552,8 +1536,10 @@ RU TGMC EDIT*/
 			/obj/item/armored_weapon/ltaap = -1,
 			/obj/item/armored_weapon/secondary_weapon = -1,
 			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon/apfds = -1,
 			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
 			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
+			/obj/item/ammo_magazine/tank/flamer = -1,
 		),
 	)
 

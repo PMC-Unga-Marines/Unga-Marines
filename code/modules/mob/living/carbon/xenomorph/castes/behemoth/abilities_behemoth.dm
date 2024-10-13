@@ -396,6 +396,11 @@
 					var/obj/vehicle/veh_victim = affected_atom
 					veh_victim.take_damage(damage * LANDSLIDE_DAMAGE_VEHICLE_MODIFIER, MELEE)
 					continue
+				if(issentry(affected_atom))
+					var/obj/machinery/deployable/mounted/sentry/sentry = affected_atom
+					sentry.take_damage(damage, BRUTE, MELEE)
+					sentry.knock_down()
+					continue
 				var/obj/affected_object = affected_atom
 				if(!affected_object.density || affected_object.allow_pass_flags & PASS_MOB || affected_object.resistance_flags & INDESTRUCTIBLE)
 					continue
@@ -969,7 +974,7 @@ RU TGMC EDIT */
 			pixel_y += 6
 
 /atom/movable/vis_obj/wrath_block
-	icon = 'icons/Xeno/castes/behemoth.dmi'
+	icon = 'icons/Xeno/castes/behemoth/effects.dmi'
 	icon_state = "Behemoth Flashing"
 
 /datum/action/ability/xeno_action/primal_wrath
@@ -1389,7 +1394,7 @@ RU TGMC EDIT */
 	var/datum/ammo/xeno/earth_pillar/projectile = landslide? GLOB.ammo_list[/datum/ammo/xeno/earth_pillar/landslide] : GLOB.ammo_list[/datum/ammo/xeno/earth_pillar]
 	var/obj/projectile/new_projectile = new /obj/projectile(source_turf)
 	new_projectile.generate_bullet(projectile)
-	new_projectile.fire_at(get_turf(target_atom), usr, null, new_projectile.ammo.max_range, loc_override = source_turf)
+	new_projectile.fire_at(get_turf(target_atom), usr, source_turf, new_projectile.ammo.max_range)
 
 /// Seismic Fracture (as in the ability) has a special interaction with any Earth Pillars caught in its attack range.
 /// Those Earth Pillars will reflect the same attack in a similar range around it, destroying itself afterwards.

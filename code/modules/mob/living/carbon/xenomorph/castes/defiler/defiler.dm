@@ -1,9 +1,11 @@
 /mob/living/carbon/xenomorph/defiler
-	caste_base_type = /mob/living/carbon/xenomorph/defiler
+	caste_base_type = /datum/xeno_caste/defiler
 	name = "Defiler"
 	desc = "A large, powerfully muscled xeno replete with dripping spines and gas leaking dorsal vents."
-	icon = 'icons/Xeno/castes/defiler.dmi'
+	icon = 'icons/Xeno/castes/defiler/basic.dmi'
 	icon_state = "Defiler Walking"
+	effects_icon = 'icons/Xeno/castes/defiler/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/defiler/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 225
 	maxHealth = 225

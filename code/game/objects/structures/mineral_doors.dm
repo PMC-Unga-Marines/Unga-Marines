@@ -19,8 +19,9 @@
 	var/material_type
 
 /obj/structure/mineral_door/Initialize(mapload)
-	if((locate(/mob/living) in loc) && !open)	//If we build a door below ourselves, it starts open.
-		toggle_state()
+	//if((locate(/mob/living) in loc) && !open)	//If we build a door below ourselves, it starts open.
+	//	toggle_state()
+	toggle_state() // TODO: WE ARE MISSING SOME FIXES FROM OFFS, PORT IT AND DELETE THIS SHIT AFTER
 	/*
 	We are calling parent later because if we toggle state, the opacity changes only to change to
 	non opaque after the parent procs do their thing, this is an issue because this changes the
@@ -82,7 +83,6 @@
 	else
 		icon_state = "[base_icon_state][smoothing_flags ? "-[smoothing_junction]" : ""]"
 
-
 /obj/structure/mineral_door/attackby(obj/item/W, mob/living/user)
 	. = ..()
 	if(QDELETED(src))
@@ -113,6 +113,17 @@
 		return EXPLOSION_MAX_POWER
 	return density ? obj_integrity : 0
 
+/obj/structure/mineral_door/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!anchored)
+		return ..()
+	if(!open)
+		toggle_state(charger)
+	if(density)
+		return PRECRUSH_STOPPED
+	charger.visible_message(span_danger("[charger] slams [src] open!"),
+	span_xenowarning("We slam [src] open!"))
+	return PRECRUSH_PLOWED
+
 /obj/structure/mineral_door/iron
 	name = "iron door"
 	material_type = /obj/item/stack/sheet/metal
@@ -123,24 +134,28 @@
 	name = "silver door"
 	material_type = /obj/item/stack/sheet/mineral/silver
 	base_icon_state = "silver"
+	icon_state = "silver"
 	max_integrity = 500
 
 /obj/structure/mineral_door/gold
 	name = "gold door"
 	material_type = /obj/item/stack/sheet/mineral/gold
 	base_icon_state = "gold"
+	icon_state = "gold"
 	max_integrity = 250
 
 /obj/structure/mineral_door/uranium
 	name = "uranium door"
 	material_type = /obj/item/stack/sheet/mineral/uranium
 	base_icon_state = "uranium"
+	icon_state = "uranium"
 	max_integrity = 500
 
 /obj/structure/mineral_door/sandstone
 	name = "sandstone door"
 	material_type = /obj/item/stack/sheet/mineral/sandstone
 	base_icon_state = "sandstone"
+	icon_state = "sandstone"
 	max_integrity = 100
 
 /obj/structure/mineral_door/transparent
@@ -156,6 +171,7 @@
 	name = "phoron door"
 	material_type = /obj/item/stack/sheet/mineral/phoron
 	base_icon_state = "phoron"
+	icon_state = "phoron"
 	max_integrity = 250
 
 /obj/structure/mineral_door/transparent/phoron/attackby(obj/item/W as obj, mob/user as mob)
@@ -178,6 +194,7 @@
 	name = "diamond door"
 	material_type = /obj/item/stack/sheet/mineral/diamond
 	base_icon_state = "diamond"
+	icon_state = "diamond"
 	max_integrity = 1000
 
 
@@ -185,6 +202,7 @@
 	name = "wooden door"
 	material_type = /obj/item/stack/sheet/wood
 	base_icon_state = "wood"
+	icon_state = "wood"
 	trigger_sound = 'sound/effects/doorcreaky.ogg'
 	max_integrity = 100
 

@@ -8,6 +8,9 @@
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
+	else if(mob_size == MOB_SIZE_SMALL)
+		move_resist = MOVE_FORCE_WEAK
+		move_force = MOVE_FORCE_WEAK
 	light_pixel_x -= pixel_x
 	light_pixel_y -= pixel_y
 	. = ..()
@@ -17,6 +20,8 @@
 	mini.give_action(src)
 	add_abilities()
 
+	base_icon = icon
+
 	create_reagents(1000)
 	gender = NEUTER
 
@@ -24,7 +29,6 @@
 		hivenumber = XENO_HIVE_ADMEME //so admins can safely spawn xenos in Thunderdome for tests.
 
 	set_initial_hivenumber()
-	voice = "Woman (Journalist)" // TODO when we get tagging make this pick female only
 
 	switch(stat)
 		if(CONSCIOUS)
@@ -40,7 +44,7 @@
 
 	GLOB.xeno_mob_list += src
 	GLOB.round_statistics.total_xenos_created++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_xenos_created")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "total_xenos_created")
 
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
@@ -75,7 +79,7 @@
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon)) //RUTGMC edit - icon change
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon))
 	handle_weeds_on_movement()
 
 	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
@@ -252,9 +256,10 @@
 /mob/living/carbon/xenomorph/examine(mob/user)
 	. = ..()
 	. += xeno_caste.caste_desc
+	. += "<span class='notice'>"
 
 	if(stat == DEAD)
-		. += "It is DEAD. Kicked the bucket. Off to that great hive in the sky."
+		. += "<span class='deadsay'>It is DEAD. Kicked the bucket. Off to that great hive in the sky.</span>"
 	else if(stat == UNCONSCIOUS)
 		. += "It quivers a bit, but barely moves."
 	else
@@ -270,6 +275,8 @@
 				. += "It bleeds with sizzling wounds."
 			if(1 to 24)
 				. += "It is heavily injured and limping badly."
+
+	. += "</span>"
 
 	if(hivenumber != XENO_HIVE_NORMAL)
 		var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
@@ -287,6 +294,9 @@
 	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
+	LAZYREMOVE(hive.xenos_by_zlevel["[z]"], src)
+
+	remove_from_all_mob_huds()
 
 	if(!isnull(current_aura))
 		QDEL_NULL(current_aura)
@@ -526,7 +536,7 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 
 	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
 
-/mob/living/carbon/xenomorph/send_speech(message_raw, message_range = 7, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
+/mob/living/carbon/xenomorph/send_speech(message_raw, message_range = 7, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode,)
 	. = ..()
 	playsound(loc, talk_sound, 25, 1)
 
@@ -537,6 +547,8 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 	/* If we're moving diagonally, but the mob isn't on the diagonal destination turf and the destination turf is enterable we have no reason to shuffle/push them
 	 * However we also do not want mobs of smaller move forces being able to pass us diagonally if our move resist is larger, unless they're the same faction as us */
 	if(moving_diagonally && (get_dir(src, target) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc) && (target.faction == faction || target.move_resist <= move_force))
+		return PHASING
+	if(get_xeno_hivenumber() == target.get_xeno_hivenumber() && (target.pass_flags & PASS_XENO || pass_flags & PASS_XENO))
 		return PHASING
 	// Restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(a_intent == INTENT_HELP || restrained())

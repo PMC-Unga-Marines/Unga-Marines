@@ -24,19 +24,19 @@
 		return
 	if(state_change)
 		if(stat == DEAD)
-			icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Dead"
+			icon_state = "[xeno_caste.caste_name] Dead"
 		else if(HAS_TRAIT(src, TRAIT_BURROWED))
-			icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Burrowed"
+			icon_state = "[xeno_caste.caste_name] Burrowed"
 		else if(lying_angle)
 			if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
-				icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Sleeping"
+				icon_state = "[xeno_caste.caste_name] Sleeping"
 			else
-				icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Knocked Down"
+				icon_state = "[xeno_caste.caste_name] Knocked Down"
 		else if(!handle_special_state())
 			if(m_intent == MOVE_INTENT_RUN)
-				icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Running"
+				icon_state = "[xeno_caste.caste_name] Running"
 			else
-				icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Walking"
+				icon_state = "[xeno_caste.caste_name] Walking"
 	update_fire() //the fire overlay depends on the xeno's stance, so we must update it.
 	update_wounds()
 
@@ -128,10 +128,11 @@
 	else
 		overlay_to_show = handle_special_wound_states(health_thresholds)
 
+	wound_overlay.icon = effects_icon
 	wound_overlay.icon_state = "[xeno_caste.wound_type]_[overlay_to_show]"
 
 	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK)
-		var/image/wounded_mask = image(icon, null, "alpha_[overlay_to_show]")
+		var/image/wounded_mask = image(effects_icon, null, "alpha_[overlay_to_show]")
 		wounded_mask.render_target = "*[REF(src)]"
 		overlays_standing[WOUND_LAYER] = wounded_mask
 		apply_overlay(WOUND_LAYER)
@@ -140,7 +141,7 @@
 	wound_overlay.vis_flags &= ~VIS_HIDE // Show the overlay
 
 /mob/living/carbon/xenomorph/update_transform()
-	..()
+	. = ..()
 	return update_icons()
 
 ///Used to display the xeno wounds without rapidly switching overlays
@@ -156,7 +157,7 @@
 	owner = new_owner
 	if(!owner)
 		return INITIALIZE_HINT_QDEL
-	icon = owner.icon
+	icon = owner.effects_icon
 	light_pixel_x = owner.light_pixel_x
 	light_pixel_y = owner.light_pixel_y
 	. = ..()
@@ -200,5 +201,3 @@
 	else
 		set_light_range_power_color(intensity, 0.5, LIGHT_COLOR_FIRE)
 		set_light_on(TRUE)
-
-

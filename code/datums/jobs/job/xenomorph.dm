@@ -37,7 +37,7 @@
 	Talk in Hivemind using <strong>;</strong>, <strong>.a</strong>, or <strong>,a</strong> (e.g. ';My life for the queen!')")
 
 /datum/job/xenomorph/handle_special_preview(client/parent)
-	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Bloody Larva", dir = SOUTH))
+	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Bloody Larva"), list(SOUTH))
 	return TRUE
 
 /datum/job/xenomorph/add_job_positions(amount)
@@ -53,7 +53,7 @@
 
 /datum/job/xenomorph/after_spawn(mob/living/carbon/xenomorph/xeno, mob/M, latejoin)
 	. = ..()
-	SSminimaps.add_marker(xeno, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno.xeno_caste.minimap_icon)) //RUTGMC edit - icon change
+	SSminimaps.add_marker(xeno, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno.xeno_caste.minimap_icon))
 
 /datum/job/xenomorph/queen
 	title = ROLE_XENO_QUEEN
@@ -62,7 +62,7 @@
 	selection_color = "#8972AA"
 	display_order = JOB_DISPLAY_ORDER_XENO_QUEEN
 	exp_requirements = XP_REQ_INTERMEDIATE
-	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_NOHEADSET|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_HIDE_CURRENT_POSITIONS|JOB_FLAG_LOUDER_TTS
+	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_NOHEADSET|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_HIDE_CURRENT_POSITIONS
 	jobworth = list(/datum/job/survivor/rambo = SURVIVOR_POINTS_REGULAR)
 	html_description = {"
 		<b>Difficulty</b>: Soul crushing<br /><br />
@@ -84,7 +84,7 @@
 	Talk in Hivemind using <strong>;</strong>, <strong>.a</strong>, or <strong>,a</strong> (e.g. ';My life for the hive!')")
 
 /datum/job/xenomorph/queen/handle_special_preview(client/parent)
-	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Larva", dir = SOUTH))
+	parent.show_character_previews(image('icons/Xeno/castes/larva.dmi', icon_state = "Larva"), list(SOUTH))
 	return TRUE
 
 /datum/job/xenomorph/facehugger

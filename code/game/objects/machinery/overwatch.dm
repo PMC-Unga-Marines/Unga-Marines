@@ -163,36 +163,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	desc = "Big Brother Requisition demands to see money flowing into the void that is greed."
 	circuit = /obj/item/circuitboard/computer/supplyoverwatch
 
-/obj/machinery/computer/camera_advanced/overwatch/som
-	faction = FACTION_SOM
-	icon_state = "som_console"
-	screen_overlay = "som_overwatch_emissive"
-	light_color = LIGHT_COLOR_FLARE
-	networks = list(SOM_CAMERA_NETWORK)
-	req_access = list(ACCESS_MARINE_BRIDGE)
-	map_flags = MINIMAP_FLAG_MARINE_SOM
-
-/obj/machinery/computer/camera_advanced/overwatch/main/som
-	faction = FACTION_SOM
-	icon_state = "som_console"
-	screen_overlay = "som_main_overwatch_emissive"
-	light_color = LIGHT_COLOR_FLARE
-	networks = list(SOM_CAMERA_NETWORK)
-	req_access = list(ACCESS_MARINE_BRIDGE)
-	map_flags = MINIMAP_FLAG_MARINE_SOM
-
-/obj/machinery/computer/camera_advanced/overwatch/som/zulu
-	name = "\improper Zulu Overwatch Console"
-
-/obj/machinery/computer/camera_advanced/overwatch/som/yankee
-	name = "\improper Yankee Overwatch Console"
-
-/obj/machinery/computer/camera_advanced/overwatch/som/xray
-	name = "\improper X-ray Overwatch Console"
-
-/obj/machinery/computer/camera_advanced/overwatch/som/whiskey
-	name = "\improper Whiskey Overwatch Console"
-
 /obj/machinery/computer/camera_advanced/overwatch/CreateEye()
 	eyeobj = new(null, parent_cameranet, faction)
 	eyeobj.origin = src
@@ -265,7 +235,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 					else
 						dat += "<b><font color=red>NONE!</font></b> <a href='?src=[text_ref(src)];operation=set_secondary'>\[Set\]</a><br>"
 					dat += "<br>"
-					dat += "<A href='?src=[text_ref(src)];operation=insubordination'>Report a marine for insubordination</a><BR>"
 					dat += "<A href='?src=[text_ref(src)];operation=squad_transfer'>Transfer a marine to another squad</a><BR><BR>"
 					dat += "<a href='?src=[text_ref(src)];operation=monitor'>Squad Monitor</a><br>"
 					dat += "----------------------<br>"
@@ -339,18 +308,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		if("monitordelta_squad")
 			state = OW_MONITOR
 			current_squad = get_squad_by_id(DELTA_SQUAD)
-		if("monitorzulu_squad")
-			state = OW_MONITOR
-			current_squad = get_squad_by_id(ZULU_SQUAD)
-		if("monitoryankee_squad")
-			state = OW_MONITOR
-			current_squad = get_squad_by_id(YANKEE_SQUAD)
-		if("monitorxray_squad")
-			state = OW_MONITOR
-			current_squad = get_squad_by_id(XRAY_SQUAD)
-		if("monitorwhiskey_squad")
-			state = OW_MONITOR
-			current_squad = get_squad_by_id(WHISKEY_SQUAD)
 		if("change_operator")
 			if(operator != usr)
 				if(current_squad)
@@ -480,8 +437,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			if(!new_lead || new_lead == "Cancel")
 				return
 			change_lead(operator, new_lead)
-		if("insubordination")
-			mark_insubordination()
 		if("squad_transfer")
 			if(!current_squad)
 				to_chat(operator, "[icon2html(src, operator)] [span_warning("No squad selected!")]")
@@ -725,39 +680,10 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			to_chat(source, span_boldnotice("[target.real_name] is the new Squad Leader of squad '[target_squad]'! Logging to enlistment file."))
 		visible_message(span_boldnotice("[target.real_name] is the new Squad Leader of squad '[target_squad]'! Logging to enlistment file."))
 
-	to_chat(target, "[icon2html(src, target)] <font size='3' color='blue'><B>\[Overwatch\]: You've been promoted to \'[(ismarineleaderjob(target.job) || issommarineleaderjob(target.job)) ? "SQUAD LEADER" : "ACTING SQUAD LEADER"]\' for [target_squad.name]. Your headset has access to the command channel (:v).</B></font>")
+	to_chat(target, "[icon2html(src, target)] <font size='3' color='blue'><B>\[Overwatch\]: You've been promoted to \'[(ismarineleaderjob(target.job)) ? "SQUAD LEADER" : "ACTING SQUAD LEADER"]\' for [target_squad.name]. Your headset has access to the command channel (:v).</B></font>")
 	to_chat(source, "[icon2html(src, source)] [target.real_name] is [target_squad]'s new leader!")
 	target_squad.promote_leader(target)
 
-
-/obj/machinery/computer/camera_advanced/overwatch/proc/mark_insubordination()
-	if(!usr || usr != operator)
-		return
-	if(!current_squad)
-		to_chat(operator, "[icon2html(src, operator)] [span_warning("No squad selected!")]")
-		return
-	var/mob/living/carbon/human/wanted_marine = tgui_input_list(operator, "Report a marine for insubordination", null, current_squad.get_all_members())
-	if(!wanted_marine) return
-	if(!istype(wanted_marine))//gibbed/deleted, all we have is a name.
-		to_chat(operator, "[icon2html(src, operator)] [span_warning("[wanted_marine] is missing in action.")]")
-		return
-
-	for (var/datum/data/record/E in GLOB.datacore.general)
-		if(E.fields["name"] == wanted_marine.real_name)
-			for (var/datum/data/record/R in GLOB.datacore.security)
-				if (R.fields["id"] == E.fields["id"])
-					if(!findtext(R.fields["ma_crim"],"Insubordination."))
-						R.fields["criminal"] = "*Arrest*"
-						if(R.fields["ma_crim"] == "None")
-							R.fields["ma_crim"] = "Insubordination."
-						else
-							R.fields["ma_crim"] += "Insubordination."
-						if(issilicon(operator))
-							to_chat(operator, span_boldnotice("[wanted_marine] has been reported for insubordination. Logging to enlistment file."))
-						visible_message(span_boldnotice("[wanted_marine] has been reported for insubordination. Logging to enlistment file."))
-						to_chat(wanted_marine, "[icon2html(src, wanted_marine)] <font size='3' color='blue'><B>\[Overwatch\]:</b> You've been reported for insubordination by your overwatch officer.</font>")
-						wanted_marine.sec_hud_set_security_status()
-					return
 
 /obj/machinery/computer/camera_advanced/overwatch/proc/transfer_squad(datum/source, mob/living/carbon/human/transfer_marine, datum/squad/new_squad)
 	if(!source || source != operator)
@@ -777,7 +703,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	if(!new_squad)
 		return
 
-	if((ismarineleaderjob(transfer_marine.job) || issommarineleaderjob(transfer_marine.job)) && new_squad.current_positions[transfer_marine.job.type] >= SQUAD_MAX_POSITIONS(transfer_marine.job.total_positions))
+	if((ismarineleaderjob(transfer_marine.job)) && new_squad.current_positions[transfer_marine.job.type] >= SQUAD_MAX_POSITIONS(transfer_marine.job.total_positions))
 		to_chat(source, "[icon2html(src, source)] [span_warning("Transfer aborted. [new_squad] can't have another [transfer_marine.job.title].")]")
 		return
 
@@ -1159,7 +1085,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		if(current_squad.squad_leader)
 			if(H == current_squad.squad_leader)
 				dist = "<b>N/A</b>"
-				if(!ismarineleaderjob(H.job) && !issommarineleaderjob(H.job))
+				if(!ismarineleaderjob(H.job))
 					act_sl = " (acting SL)"
 			else if(M_turf && SL_z && M_turf.z == SL_z)
 				dist = "[get_dist(H, current_squad.squad_leader)] ([dir2text_short(get_dir(current_squad.squad_leader, H))])"

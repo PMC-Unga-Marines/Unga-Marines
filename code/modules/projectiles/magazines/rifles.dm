@@ -675,7 +675,7 @@
 	icon_state = "t21_ext"
 	max_rounds = 50
 	icon_state_mini = "mag_rifle_big_yellow"
-	//bonus_overlay = "t21_ext"
+	bonus_overlay = "t21_ext"
 
 /obj/item/ammo_magazine/rifle/t25/extended
 	name = "\improper T-25 extended magazine (10x26mm)"
@@ -683,7 +683,7 @@
 	icon_state = "t25_ext"
 	max_rounds = 120
 	icon_state_mini = "mag_rifle_big_yellow"
-	//bonus_overlay = "t25_ext"
+	bonus_overlay = "t25_ext"
 
 /obj/item/ammo_magazine/rifle/ar18/ap
 	name = "\improper AR-18 AP magazine (10x24mm)"
@@ -703,12 +703,6 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/ar18/sabot
-	name = "\improper AR-18 APDS magazine (10x24mm)"
-	desc = "A 10mm APDS carbine magazine."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/sabot
-
 /obj/item/ammo_magazine/rifle/ar12/ap
 	name = "\improper AR-12 AP magazine (10x24mm)"
 	desc = "A 10mm armor piercing assault rifle magazine."
@@ -727,19 +721,12 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/rifle/ar12/sabot
-	name = "\improper AR-12 APDS magazine (10x24mm)"
-	desc = "A 10mm APDS assault rifle magazine."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/sabot
-
 /obj/item/ammo_magazine/rifle/br64/ap
 	name = "\improper BR-64 AP magazine (10x26.5mm)"
 	desc = "A 10mm armor piercing battle rifle magazine."
 	caliber = CALIBER_10x265_CASELESS
 	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "t64_ap"
-	//bonus_overlay = "t64_ap"
 	default_ammo = /datum/ammo/bullet/rifle/br64/ap
 	icon_state_mini = "mag_rifle_big"
 
@@ -760,12 +747,6 @@
 	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
-
-/obj/item/ammo_magazine/rifle/ar21/sabot
-	name = "\improper AR-21 skirmish APDS rifle magazine"
-	desc = "A magazine filled with 10x25mm APDS rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot
 
 /obj/item/ammo_magazine/rifle/som/ap
 	name = "\improper V-31 AP magazine (10x24mm)"

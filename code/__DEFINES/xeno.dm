@@ -52,9 +52,6 @@
 #define TRAP_ACID_NORMAL "acid"
 #define TRAP_ACID_STRONG "strong acid"
 
-//Forbid
-#define MAX_FORBIDEN_CASTES 8
-
 //Xeno acid strength defines
 #define WEAK_ACID_STRENGTH 0.016
 #define REGULAR_ACID_STRENGTH 0.04
@@ -201,3 +198,41 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define ERROR_CONSTRUCT 8
 
 #define PRIMAL_WRATH_GAIN_MULTIPLIER 0.5
+
+GLOBAL_LIST_INIT(xeno_survival_upgrades, list(
+	/datum/status_effect/upgrade_carapace,
+	/datum/status_effect/upgrade_regeneration,
+	/datum/status_effect/upgrade_vampirism,
+))
+
+GLOBAL_LIST_INIT(xeno_attack_upgrades, list(
+	/datum/status_effect/upgrade_celerity,
+	/datum/status_effect/upgrade_adrenaline,
+	/datum/status_effect/upgrade_crush,
+))
+
+GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
+	/datum/status_effect/upgrade_toxin,
+	/datum/status_effect/upgrade_pheromones,
+	/datum/status_effect/upgrade_trail,
+))
+
+#define	XENO_UPGRADE_BIOMASS_COST_T1 10
+#define	XENO_UPGRADE_BIOMASS_COST_T2 15
+#define	XENO_UPGRADE_BIOMASS_COST_T3 20
+#define	XENO_UPGRADE_BIOMASS_COST_T4 25
+
+#define CHARGE_SPEED(charger) (min(charger.valid_steps_taken, charger.max_steps_buildup) * charger.speed_per_step)
+#define CHARGE_MAX_SPEED (speed_per_step * max_steps_buildup)
+
+#define CHARGE_CRUSH (1<<0)
+#define CHARGE_BULL (1<<1)
+#define CHARGE_BULL_HEADBUTT (1<<2)
+#define CHARGE_BULL_GORE (1<<3)
+#define CHARGE_BEHEMOTH (1<<4)
+
+#define STOP_CRUSHER_ON_DEL (1<<0)
+
+#define PRECRUSH_STOPPED -1
+#define PRECRUSH_PLOWED -2
+#define PRECRUSH_ENTANGLED -3

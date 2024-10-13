@@ -1,14 +1,15 @@
 #define TIME_TO_TRANSFORM 1 SECONDS
 
 /mob/living/carbon/xenomorph/hivemind
-	caste_base_type = /mob/living/carbon/xenomorph/hivemind
+	caste_base_type =/datum/xeno_caste/hivemind
 	name = "Hivemind"
 	real_name = "Hivemind"
 	desc = "A glorious singular entity."
 
 	icon_state = "hivemind_marker"
 	bubble_icon = "alienroyal"
-	icon = 'icons/Xeno/castes/hivemind.dmi'
+	icon = 'icons/Xeno/castes/hivemind/basic.dmi'
+	effects_icon = 'icons/Xeno/castes/hivemind/effects.dmi'
 	status_flags = GODMODE | INCORPOREAL
 	resistance_flags = RESIST_ALL
 	pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_FIRE //to prevent hivemind eye to catch fire when crossing lava
@@ -259,19 +260,6 @@
 /mob/living/carbon/xenomorph/hivemind/update_icons()
 	return
 
-/mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
-	var/image/holder = hud_list[HEALTH_HUD_XENO]
-	if(!holder)
-		return
-
-	if(status_flags & INCORPOREAL)
-		holder.icon_state = ""
-
-	var/amount = round(health * 100 / maxHealth, 10)
-	if(!amount)
-		amount = 1 //don't want the 'zero health' icon when we still have 4% of our health
-	holder.icon_state = "xenohealth[amount]"
-
 /mob/living/carbon/xenomorph/hivemind/DblClickOn(atom/A, params)
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
@@ -300,10 +288,6 @@
 /mob/living/carbon/xenomorph/hivemind/a_intent_change()
 	return //Unable to change intent, forced help intent
 
-/// Hiveminds specifically have no status hud element
-/mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
-	return
-
 /mob/living/carbon/xenomorph/hivemind/update_progression()
 	return
 
@@ -324,15 +308,14 @@
 	max_integrity = 600
 	icon = 'icons/Xeno/1x1building.dmi'
 	icon_state = "hivemind_core"
-
 	plane = FLOOR_PLANE
-	xeno_structure_flags = CRITICAL_STRUCTURE|DEPART_DESTRUCTION_IMMUNE
-
+	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|DEPART_DESTRUCTION_IMMUNE
 	///The cooldown of the alert hivemind gets when a hostile is near it's core
 	COOLDOWN_DECLARE(hivemind_proxy_alert_cooldown)
-
 	///The weakref to the parent hivemind mob that we're attached to
 	var/datum/weakref/parent
+	///For minimap icon change if silo takes damage or nearby hostile
+	var/warning
 
 /obj/structure/xeno/hivemindcore/Initialize(mapload)
 	. = ..()
@@ -341,6 +324,7 @@
 	set_light(7, 5, LIGHT_COLOR_PURPLE)
 	for(var/turfs in RANGE_TURFS(XENO_HIVEMIND_DETECTION_RANGE, src))
 		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(hivemind_proxy_alert))
+	update_minimap_icon()
 
 /obj/structure/xeno/hivemindcore/Destroy()
 	GLOB.hive_datums[hivenumber].hivemindcores -= src
@@ -404,10 +388,22 @@
 		var/mob/living/carbon/xenomorph/X = hostile
 		if(X.hivenumber == hivenumber) //Trigger proxy alert only for hostile xenos
 			return
-
+	warning = TRUE
+	update_minimap_icon()
 	to_chat(get_parent(), span_xenoannounce("Our [src.name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y])."))
 	SEND_SOUND(get_parent(), 'sound/voice/alien/help1.ogg')
 	COOLDOWN_START(src, hivemind_proxy_alert_cooldown, XENO_HIVEMIND_DETECTION_COOLDOWN) //set the cooldown.
+	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_HIVEMIND_DETECTION_COOLDOWN) //clear warning
+
+///Clears the warning for minimap if its warning for hostiles
+/obj/structure/xeno/hivemindcore/proc/clear_warning()
+	warning = FALSE
+	update_minimap_icon()
+
+///Updates the minimap marker
+/obj/structure/xeno/hivemindcore/proc/update_minimap_icon()
+	SSminimaps.remove_marker(src)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "hivemindcore[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
 
 /// Getter for the parent of this hive core
 /obj/structure/xeno/hivemindcore/proc/get_parent()

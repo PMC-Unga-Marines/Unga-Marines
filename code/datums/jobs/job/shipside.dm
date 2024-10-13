@@ -4,7 +4,6 @@
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_COMMAND
 
-
 //Captain
 /datum/job/terragov/command/captain
 	title = CAPTAIN
@@ -19,9 +18,9 @@
 	minimal_access = ALL_MARINE_ACCESS
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
 	outfit = /datum/outfit/job/command/captain
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERT
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
+	exp_type = EXP_TYPE_COMMAND
+	exp_requirements = XP_REQ_INTERMEDIATE
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
@@ -75,10 +74,6 @@ Godspeed, captain! And remember, you are not above the law."})
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
 
-
-/datum/job/terragov/command/captain/campaign
-	outfit = /datum/outfit/job/command/captain/campaign
-
 /datum/outfit/job/command/captain
 	name = CAPTAIN
 	jobtype = /datum/job/terragov/command/captain
@@ -95,10 +90,6 @@ Godspeed, captain! And remember, you are not above the law."})
 	head = null
 	back = FALSE
 
-/datum/outfit/job/command/captain/campaign
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/binoculars/fire_support/campaign
-
 //Field Commander
 /datum/job/terragov/command/fieldcommander
 	title = FIELD_COMMANDER
@@ -111,9 +102,9 @@ Godspeed, captain! And remember, you are not above the law."})
 	minimal_access = ALL_MARINE_ACCESS
 	display_order = JOB_DISPLAY_ORDER_EXECUTIVE_OFFICER
 	outfit = /datum/outfit/job/command/fieldcommander
-	exp_type = EXP_TYPE_MARINES
-	exp_requirements = XP_REQ_EXPERT
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
+	exp_type = EXP_TYPE_COMMAND
+	exp_requirements = XP_REQ_UNSEASONED
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
@@ -171,54 +162,6 @@ Make the TGMC proud!"})
 	l_store = /obj/item/hud_tablet/fieldcommand
 	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
 
-//Campaign version with specific loadout
-/datum/job/terragov/command/fieldcommander/campaign
-	outfit = /datum/outfit/job/command/fieldcommander/campaign
-
-/datum/outfit/job/command/fieldcommander/campaign
-	name = FIELD_COMMANDER
-	jobtype = /datum/job/terragov/command/fieldcommander/campaign
-
-	id = /obj/item/card/id/dogtag/fc
-	belt = /obj/item/storage/holster/blade/officer/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	glasses = /obj/item/clothing/glasses/hud/health
-	w_uniform = /obj/item/clothing/under/marine/officer/exec/webbing
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/valk
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine/officer
-	mask = /obj/item/clothing/mask/rebreather
-	head = /obj/item/clothing/head/tgmcberet/fc
-	r_store = /obj/item/storage/pouch/firstaid/combat_patrol_leader
-	l_store = /obj/item/storage/pouch/grenade/combat_patrol
-	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
-
-/datum/outfit/job/command/fieldcommander/campaign/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_ACCESSORY)
-
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-
-
 //Staff Officer
 /datum/job/terragov/command/staffofficer
 	title = STAFF_OFFICER
@@ -231,7 +174,7 @@ Make the TGMC proud!"})
 	display_order = JOB_DISPLAY_ORDER_STAFF_OFFICER
 	outfit = /datum/outfit/job/command/staffofficer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -278,9 +221,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
 
-/datum/job/terragov/command/staffofficer/campaign
-	outfit = /datum/outfit/job/command/staffofficer/campaign
-
 /datum/outfit/job/command/staffofficer
 	name = STAFF_OFFICER
 	jobtype = /datum/job/terragov/command/staffofficer
@@ -295,11 +235,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	w_uniform = /obj/item/clothing/under/marine/whites/blacks
 	shoes = /obj/item/clothing/shoes/laceup
 
-/datum/outfit/job/command/staffofficer/campaign
-	l_store = /obj/item/binoculars/fire_support/campaign
-
-	id = /obj/item/card/id/silver
-
 //Transport Officer
 /datum/job/terragov/command/transportofficer
 	title = TRANSPORT_OFFICER
@@ -311,7 +246,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	skills_type = /datum/skills/transportofficer
 	display_order = JOB_DISPLAY_ORDER_TRANSPORT_OFFICER
 	outfit = /datum/outfit/job/command/transportofficer
-	exp_requirements = XP_REQ_EXPERT
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
@@ -390,7 +325,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	display_order = JOB_DISPLAY_ORDER_PILOT_OFFICER
 	outfit = /datum/outfit/job/command/pilot
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE_STRONG,
@@ -468,7 +403,7 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	display_order = JOB_DISPLAY_ORDER_MECH_PILOT
 	outfit = /datum/outfit/job/command/mech_pilot
 	exp_type = EXP_TYPE_MARINES
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	job_points_needed = 80
 	jobworth = list(
@@ -532,8 +467,8 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
 	display_order = JOB_DISPLAY_ORDER_MECH_PILOT
 	outfit = /datum/outfit/job/command/transport_crewman
-	exp_requirements = XP_REQ_EXPERT
-	exp_type = EXP_TYPE_REGULAR_ALL
+	exp_requirements = XP_REQ_MASTER
+	exp_type = EXP_TYPE_MARINES
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	job_points_needed = 40
 	jobworth = list(
@@ -599,8 +534,8 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
 	display_order = JOB_DISPLAY_ORDER_MECH_PILOT
 	outfit = /datum/outfit/job/command/assault_crewman
-	exp_requirements = XP_REQ_EXPERT
-	exp_type = EXP_TYPE_REGULAR_ALL
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
+	exp_type = EXP_TYPE_MARINES
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	job_points_needed = 999 //50
 	jobworth = list(
@@ -672,8 +607,8 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
 	display_order = JOB_DISPLAY_ORDER_MECH_PILOT
 	outfit = /datum/outfit/job/command/transport_crewman
-	exp_requirements = XP_REQ_EXPERT
-	exp_type = EXP_TYPE_REGULAR_ALL
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
+	exp_type = EXP_TYPE_MARINES
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	job_points_needed = 40
 	jobworth = list(
@@ -727,12 +662,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine
 
-/datum/job/terragov/engineering
-	job_category = JOB_CAT_ENGINEERING
-	selection_color = "#fff5cc"
-	supervisors = "the acting captain"
-	exp_type_department = EXP_TYPE_ENGINEERING
-
 //Ship Engineer
 /datum/job/terragov/requisitions/tech
 	title = SHIP_TECH
@@ -745,8 +674,8 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	skills_type = /datum/skills/st
 	display_order = JOB_DISPLAY_ORDER_SHIP_TECH
 	outfit = /datum/outfit/job/requisitions/tech
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_type = EXP_TYPE_MARINES
+	exp_requirements = XP_REQ_NOVICE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -824,8 +753,8 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	skills_type = /datum/skills/ro
 	display_order = JOB_DISPLAY_ORDER_REQUISITIONS_OFFICER
 	outfit = /datum/outfit/job/requisitions/officer
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_type = EXP_TYPE_ENGINEERING
+	exp_requirements = XP_REQ_UNSEASONED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -874,7 +803,7 @@ A happy ship is a well-functioning ship."})
 	jobtype = /datum/job/terragov/requisitions/officer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/holster/belt/m44/full
+	belt = /obj/item/storage/holster/belt/revolver/m44/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/ro_suit
 	wear_suit = /obj/item/clothing/suit/storage/marine/officer/req
@@ -977,8 +906,8 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	skills_type = /datum/skills/doctor
 	display_order = JOB_DISPLAY_ORDER_DOCTOR
 	outfit = /datum/outfit/job/medical/medicalofficer
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_type = EXP_TYPE_MARINES
+	exp_requirements = XP_REQ_UNSEASONED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -1024,13 +953,13 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	id = /obj/item/card/id
 	belt = /obj/item/storage/belt/rig/medical
 	ears = /obj/item/radio/headset/mainship/doc
-	w_uniform = /obj/item/clothing/under/rank/medical/purple
+	w_uniform = /obj/item/clothing/under/rank/medical
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
-	head = /obj/item/clothing/head/surgery/purple
+	head = /obj/item/clothing/head/surgery/green
 	r_store = /obj/item/storage/pouch/surgery
 	l_store = /obj/item/storage/pouch/medkit/medic
 
@@ -1053,7 +982,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	display_order = JOB_DISPLAY_ORDER_MEDICAL_RESEARCHER
 	outfit = /datum/outfit/job/medical/researcher
 	exp_type = EXP_TYPE_MEDICAL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_UNSEASONED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -1133,8 +1062,8 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	skills_type = /datum/skills/civilian
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	outfit = /datum/outfit/job/civilian/liaison
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_type = EXP_TYPE_COMMAND
+	exp_requirements = XP_REQ_UNSEASONED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
@@ -1189,11 +1118,9 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	w_uniform = /obj/item/clothing/under/liaison_suit
 	shoes = /obj/item/clothing/shoes/laceup
 
-
 /datum/job/terragov/silicon
 	job_category = JOB_CAT_SILICON
 	selection_color = "#aaee55"
-
 
 //Synthetic
 /datum/job/terragov/silicon/synthetic
@@ -1208,8 +1135,8 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	minimal_access = ALL_ACCESS
 	display_order = JOB_DISPLAY_ORDER_SYNTHETIC
 	outfit = /datum/outfit/job/civilian/synthetic
-	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERT
+	exp_type = EXP_TYPE_SYNTHETIC
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	job_points_needed = 40
 	jobworth = list(
@@ -1275,7 +1202,6 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	to_chat(M, {"Your primary job is to support and assist all TGMC departments and personnel on-board.
 In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."})
 
-
 /datum/outfit/job/civilian/synthetic
 	name = SYNTHETIC
 	jobtype = /datum/job/terragov/silicon/synthetic
@@ -1289,7 +1215,6 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	r_store = /obj/item/storage/pouch/general/medium
 	l_store = /obj/item/storage/pouch/general/medium
 
-
 /datum/job/terragov/silicon/ai
 	title = SILICON_AI
 	job_category = JOB_CAT_SILICON
@@ -1300,10 +1225,10 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	supervisors = "your laws and the human crew"
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	display_order = JOB_DISPLAY_ORDER_AI
 	skills_type = /datum/skills/ai
-	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION
+	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
@@ -1318,11 +1243,10 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Assist the crew whenever you’re needed, be the doorknob of the ship. Recon the areas for threats via cameras, report your findings to the crew at various communication channels. Follow your laws.
 	"}
-
+	minimap_icon = "ai" // this is saved for making minimap icon later for ai core
 
 /datum/job/terragov/silicon/ai/get_special_name(client/preference_source)
 	return preference_source.prefs.ai_name
-
 
 /datum/job/terragov/silicon/ai/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/silicon/ai
@@ -1334,16 +1258,14 @@ However, your vision is limited through cameras from the ship or to marines grou
 Recon any threats and report findings at various communication channels.
 If you require any help, use <b>mentorhelp</b> to ask mentors about what you're supposed to do."})
 
-
 /datum/job/terragov/silicon/ai/announce(mob/living/announced_mob)
 	. = ..()
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), "[announced_mob] has been downloaded to an empty bluespace-networked AI core at [AREACOORD(announced_mob)]."))
-
 
 /datum/job/terragov/silicon/ai/config_check()
 	return CONFIG_GET(flag/allow_ai)
 
 // Silicons only need a very basic preview since there is no customization for them.
 /datum/job/terragov/silicon/ai/handle_special_preview(client/parent)
-	parent.show_character_previews(image('icons/mob/ai.dmi', icon_state = "ai", dir = SOUTH))
+	parent.show_character_previews(image('icons/mob/ai.dmi', icon_state = "ai"), list(SOUTH))
 	return TRUE

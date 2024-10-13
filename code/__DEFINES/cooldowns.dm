@@ -48,13 +48,13 @@
 #define COOLDOWN_ITEM_TRICK "cooldown_item_trick"
 #define COOLDOWN_RAVAGER_FLAMER_ACT "cooldown_ravager_flamer_act"
 #define COOLDOWN_DROPPOD_TARGETTING "cooldown_droppod_targetting"
-#define COOLDOWN_TRY_TTS "cooldown_try_tts"
 #define COOLDOWN_EVACUATION "evacuation"
 #define COOLDOWN_SENTIENT_HUGGER "sentient_hugger"
 #define COOLDOWN_EVASION_ACTIVATION "cooldown_evasion_activation"
 #define COOLDOWN_TANK_SWIVEL "tank_turret_swivel"
 #define COOLDOWN_ARMORED_HORN "cooldown_armored_horn"
 #define COOLDOWN_MOB_EX_ACT "mob_ex_act"
+#define COOLDOWN_MOUNTED_GUN_ROTATE "mounted_gun_rotate"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"

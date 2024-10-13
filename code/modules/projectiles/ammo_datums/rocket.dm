@@ -12,14 +12,14 @@
 	accuracy = 40
 	accurate_range = 20
 	max_range = 14
-	damage = 200
+	damage = 80
 	penetration = 100
 	sundering = 100
 	bullet_color = LIGHT_COLOR_FIRE
 	barricade_clear_distance = 2
 
 /datum/ammo/rocket/drop_nade(turf/T)
-	cell_explosion(T, 200, 35)
+	cell_explosion(T, 320, 55)
 
 /datum/ammo/rocket/on_hit_mob(mob/M, obj/projectile/P)
 	drop_nade(get_turf(M))
@@ -39,19 +39,19 @@
 	hud_state = "rocket_he"
 	accurate_range = 20
 	max_range = 14
-	damage = 150
+	damage = 60
 	penetration = 100
 	sundering = 100
 
 /datum/ammo/rocket/he/drop_nade(turf/T)
-	cell_explosion(T, 150, 40)
+	cell_explosion(T, 240, 65)
 
 /datum/ammo/rocket/he/unguided
-	damage = 100
+	damage = 60
 	flags_ammo_behavior = AMMO_SNIPER // We want this one to specifically go over onscreen range.
 
 /datum/ammo/rocket/he/unguided/drop_nade(turf/T)
-	cell_explosion(T, 200, 50)
+	cell_explosion(T, 240, 60)
 
 /datum/ammo/rocket/ap
 	name = "kinetic penetrator"
@@ -72,11 +72,39 @@
 	accurate_range = 15
 	max_range = 40
 	penetration = 50
-	damage = 200
+	damage = 80
 	hud_state = "bigshell_he"
 
 /datum/ammo/rocket/ltb/drop_nade(turf/T)
-	cell_explosion(T, 200, 45)
+	cell_explosion(T, 320, 70)
+
+/datum/ammo/bullet/tank_apfds
+	name = "8.8cm APFDS round"
+	icon_state = "apfds"
+	hud_state = "bigshell_apfds"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	damage = 300
+	penetration = 75
+	shell_speed = 4
+	accurate_range = 24
+	max_range = 30
+	on_pierce_multiplier = 0.85
+	barricade_clear_distance = 4
+
+/datum/ammo/bullet/tank_apfds/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	proj.proj_max_range -= 10
+
+/datum/ammo/bullet/tank_apfds/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	proj.proj_max_range -= 2
+	if(ishuman(target_mob) && prob(35))
+		target_mob.gib()
+
+/datum/ammo/bullet/tank_apfds/on_hit_obj(obj/target_object, obj/projectile/proj)
+	if(!isvehicle(target_object) && !ishitbox(target_object))
+		proj.proj_max_range -= 5
+		return
+	proj.proj_max_range = 0 //we don't penetrate past a vehicle
+	proj.damage *= 2.2
 
 /datum/ammo/rocket/heavy_isg
 	name = "15cm round"
@@ -199,12 +227,12 @@
 	shell_speed = 2
 	accurate_range = 20
 	max_range = 30
-	damage = 100
+	damage = 50
 	penetration = 50
 	sundering = 50
 
 /datum/ammo/rocket/recoilless/drop_nade(turf/T)
-	cell_explosion(T, 150, 75)
+	cell_explosion(T, 200, 70)
 
 /datum/ammo/rocket/recoilless/heat
 	name = "HEAT shell"
@@ -238,12 +266,11 @@
 	flags_ammo_behavior = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
 	accurate_range = 15
 	max_range = 20
-	damage = 75
 	penetration = 50
 	sundering = 25
 
 /datum/ammo/rocket/recoilless/light/drop_nade(turf/T)
-	cell_explosion(T, 75, 25)
+	cell_explosion(T, 150, 50)
 
 /datum/ammo/rocket/recoilless/chemical
 	name = "low velocity chemical shell"
@@ -286,22 +313,22 @@
 	flags_ammo_behavior = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
 	accurate_range = 15
 	max_range = 20
-	damage = 75
+	damage = 35
 	penetration = 15
 	sundering = 25
 
 /datum/ammo/rocket/recoilless/low_impact/drop_nade(turf/T)
-	cell_explosion(T, 100, 15)
+	cell_explosion(T, 140, 20)
 
 /datum/ammo/rocket/oneuse
 	name = "explosive rocket"
-	damage = 100
+	damage = 50
 	penetration = 100
 	sundering = 100
 	max_range = 30
 
 /datum/ammo/rocket/oneuse/drop_nade(turf/T)
-	cell_explosion(T, 115, 45)
+	cell_explosion(T, 175, 60)
 
 /datum/ammo/rocket/som
 	name = "high explosive RPG"
@@ -310,12 +337,12 @@
 	flags_ammo_behavior = AMMO_SNIPER
 	accurate_range = 15
 	max_range = 20
-	damage = 80
+	damage = 50
 	penetration = 20
 	sundering = 20
 
 /datum/ammo/rocket/som/drop_nade(turf/T)
-	cell_explosion(T, 175, 35)
+	cell_explosion(T, 205, 35)
 
 /datum/ammo/rocket/som/light
 	name = "low impact RPG"
@@ -323,11 +350,11 @@
 	hud_state = "rpg_le"
 	flags_ammo_behavior = AMMO_SNIPER
 	accurate_range = 15
-	damage = 60
+	damage = 35
 	penetration = 10
 
 /datum/ammo/rocket/som/light/drop_nade(turf/T)
-	cell_explosion(T, 125, 15)
+	cell_explosion(T, 150, 15)
 
 /datum/ammo/rocket/som/thermobaric
 	name = "thermobaric RPG"
@@ -399,14 +426,14 @@
 	hud_state_empty = "shell_empty"
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF
 	shell_speed = 2
-	damage = 90
+	damage = 30
 	penetration = 30
 	sundering = 25
 	max_range = 30
 	handful_amount = 1
 
 /datum/ammo/rocket/atgun_shell/drop_nade(turf/T)
-	cell_explosion(T, 55 , 30)
+	cell_explosion(T, 115 , 60)
 
 /datum/ammo/rocket/atgun_shell/on_hit_turf(turf/T, obj/projectile/P) //no explosion every time it hits a turf
 	P.proj_max_range -= 10
@@ -438,12 +465,12 @@
 	name = "low velocity high explosive shell"
 	hud_state = "shell_he"
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
-	damage = 50
+	damage = 30
 	penetration = 50
 	sundering = 35
 
 /datum/ammo/rocket/atgun_shell/he/drop_nade(turf/T)
-	cell_explosion(T, 90, 30)
+	cell_explosion(T, 110, 40)
 
 /datum/ammo/rocket/atgun_shell/he/on_hit_turf(turf/T, obj/projectile/P)
 	drop_nade(T.density ? P.loc : T)

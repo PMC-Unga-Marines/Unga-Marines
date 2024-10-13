@@ -227,13 +227,14 @@ REAGENT SCANNER
 		for(var/datum/limb/limb AS in human_patient.limbs)
 			var/infected = FALSE
 			var/necrotized = FALSE
+			var/internal_bleeding_limb = FALSE
 
-			if(!internal_bleeding)
-				for(var/datum/wound/wound in limb.wounds)
-					if(!istype(wound, /datum/wound/internal_bleeding))
-						continue
-					internal_bleeding = TRUE
-					break
+			for(var/datum/wound/wound in limb.wounds)
+				if(!istype(wound, /datum/wound/internal_bleeding))
+					continue
+				internal_bleeding = TRUE //yes, we put TRUE every time, but its faster than doing if
+				internal_bleeding_limb = TRUE
+
 			if(limb.germ_level > INFECTION_LEVEL_ONE)
 				infection_message = "Infection detected in subject's [limb.display_name]. Antibiotics recommended."
 				infected = TRUE
@@ -264,6 +265,7 @@ REAGENT SCANNER
 				"bleeding" = CHECK_BITFIELD(limb.limb_status, LIMB_BLEEDING),
 				"open_incision" = limb.surgery_open_stage,
 				"necrotized" = necrotized,
+				"internal_bleeding_limb" = internal_bleeding_limb,
 				"infected" = infected,
 				"implant" = implant
 			)
@@ -294,12 +296,13 @@ REAGENT SCANNER
 			)
 			damaged_organs += list(current_organ)
 		data["damaged_organs"] = damaged_organs
-
+	var/ssd = null
 	if(patient.has_brain() && patient.stat != DEAD && ishuman(patient))
 		if(!patient.key)
-			data["ssd"] = "No soul detected." // they ghosted
+			ssd = "No soul detected." // they ghosted
 		else if(!patient.client)
-			data["ssd"] = "SSD detected." // SSD
+			ssd = "SSD detected." // SSD
+	data["ssd"] = ssd
 
 	return data
 

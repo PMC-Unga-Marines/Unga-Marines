@@ -163,11 +163,21 @@
 /obj/item/ammo_magazine/packet/acp
 	name = "box of .45 ACP"
 	icon_state = "box_.45acp"
-	default_ammo = /datum/ammo/bullet/pistol/heavy
-	w_class = WEIGHT_CLASS_SMALL
+	default_ammo = /datum/ammo/bullet/smg/acp
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = CALIBER_45ACP
-	current_rounds = 150
-	max_rounds = 150
+	current_rounds = 160
+	max_rounds = 160
+
+/obj/item/ammo_magazine/packet/acp/ap
+	name = "box of .45 ACP(AP)"
+	icon_state = "box_.45acp_ap"
+	default_ammo = /datum/ammo/bullet/smg/acp/ap
+
+/obj/item/ammo_magazine/packet/acp/hp
+	name = "box of .45 ACP(HP)"
+	icon_state = "box_.45acp_hp"
+	default_ammo = /datum/ammo/bullet/smg/acp/hp
 
 /obj/item/ammo_magazine/packet/rifle762X39
 	name = "box of 7.62X39"
@@ -177,6 +187,15 @@
 	caliber = CALIBER_762X39
 	current_rounds = 150
 	max_rounds = 150
+
+/obj/item/ammo_magazine/packet/svd762x54mmR
+	name = "box of 7.62X54"
+	icon_state = "box_7.62x54mm"
+	default_ammo = /datum/ammo/bullet/sniper/svd
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = CALIBER_762X54
+	current_rounds = 50
+	max_rounds = 50
 
 /obj/item/ammo_magazine/packet/p9mm/ap
 	name = "packet of 9mm AP"
@@ -189,12 +208,6 @@
 	desc = "A packet containing 70 rounds of 9mm hollow-point."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/pistol/hp
-
-/obj/item/ammo_magazine/packet/p9mm/sabot
-	name = "packet of 9mm APDS"
-	desc = "A packet containing 70 rounds of 9mm APDS."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/pistol/sabot
 
 /obj/item/ammo_magazine/packet/p9mm/incendiary
 	name = "packet of 9mm incendiary"
@@ -233,7 +246,7 @@
 	current_rounds = 50
 	max_rounds = 50
 
-/obj/item/ammo_magazine/packet/pthreeightyacp
+/obj/item/ammo_magazine/packet/p380acp
 	name = "packet of .380 ACP"
 	desc = "A packet containing 210 rounds of .380 ACP."
 	caliber = CALIBER_380ACP
@@ -324,12 +337,6 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
-/obj/item/ammo_magazine/packet/p10x24mm/sabot
-	name = "box of 10x24mm APDS"
-	desc = "A box containing 150 APDS rounds of 10x24mm caseless."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/sabot
-
 /obj/item/ammo_magazine/packet/p10x25mm/ap
 	name = "box of 10x25mm AP"
 	desc = "A box containing 125 armor piercing rounds of 10x25mm caseless."
@@ -341,12 +348,6 @@
 	desc = "A box containing 125 hollow-point rounds of 10x25mm caseless."
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
-
-/obj/item/ammo_magazine/packet/p10x25mm/sabot
-	name = "box of 10x25mm APDS"
-	desc = "A box containing 125 APDS rounds of 10x25mm caseless."
-	ammo_band_color = AMMO_BAND_COLOR_SABOT
-	default_ammo = /datum/ammo/bullet/rifle/heavy/sabot
 
 /obj/item/ammo_magazine/packet/p10x25mm/incendiary
 	name = "box of 10x25mm incendiary"

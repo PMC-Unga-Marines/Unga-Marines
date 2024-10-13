@@ -106,6 +106,13 @@
 		if(CONFIG_GET(flag/allow_admin_ooccolor) && check_rights(R_COLOR, FALSE))
 			display_colour = prefs.ooccolor
 
+	var/keyname
+	var/boosty_tier = SSdiscord.get_boosty_tier(ckey)
+
+	if(boosty_tier)
+		var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
+		keyname = "[sheet.icon_tag("emoji-tier-[boosty_tier]")][keyname]"
+
 	for(var/client/C AS in GLOB.clients)
 		if(!(C.prefs.toggles_chat & CHAT_OOC))
 			continue
@@ -122,9 +129,9 @@
 			display_name = "<a class='hidelink' href='?_src_=holder;[HrefToken(TRUE)];playerpanel=[REF(usr)]'>[display_name]</a>"
 		var/avoid_highlight = C == src
 		if(display_colour)
-			to_chat(C, "<font color='[display_colour]'>[span_ooc("<span class='prefix'>OOC: [display_name]")]: <span class='message linkify'>[msg]</span></span></font>", avoid_highlighting = avoid_highlight)
+			to_chat(C, "<font color='[display_colour]'><EM>[keyname]</EM>[span_ooc("<span class='prefix'>OOC: [display_name]")]: <span class='message linkify'>[msg]</span></span></font>", avoid_highlighting = avoid_highlight)
 		else
-			to_chat(C, "<span class='[display_class]'>[span_prefix("OOC: [display_name]")]: <span class='message linkify'>[msg]</span></span>", avoid_highlighting = avoid_highlight)
+			to_chat(C, "<span class='[display_class]'><EM>[keyname]</EM>[span_prefix("OOC: [display_name]")]: <span class='message linkify'>[msg]</span></span>", avoid_highlighting = avoid_highlight)
 
 
 /client/verb/xooc_wrapper()

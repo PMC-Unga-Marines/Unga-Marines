@@ -20,6 +20,9 @@ SUBSYSTEM_DEF(ambience)
 
 		var/area/current_area = get_area(client_iterator.mob)
 
+		if(!current_area)
+			continue
+
 		SEND_SOUND(client_iterator.mob, sound(pick(current_area.ambience), repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
 
 		ambience_listening_clients[client_iterator] = world.time + rand(current_area.min_ambience_cooldown, current_area.max_ambience_cooldown)

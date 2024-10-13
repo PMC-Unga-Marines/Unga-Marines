@@ -1,9 +1,11 @@
 /mob/living/carbon/xenomorph/queen
-	caste_base_type = /mob/living/carbon/xenomorph/queen
+	caste_base_type = /datum/xeno_caste/queen
 	name = "Queen"
 	desc = "A huge, looming alien creature. The biggest and the baddest."
-	icon = 'icons/Xeno/castes/queen.dmi'
+	icon = 'icons/Xeno/castes/queen/basic.dmi'
 	icon_state = "Queen Walking"
+	effects_icon = 'icons/Xeno/castes/queen/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/queen/rouny.dmi'
 	attacktext = "bites"
 	attack_sound = null
 	friendly = "nuzzles"
@@ -39,7 +41,7 @@
 
 /mob/living/carbon/xenomorph/queen/handle_special_state()
 	if(is_charging >= CHARGE_ON)
-		icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Charging"
+		icon_state = "[xeno_caste.caste_name] Charging"
 		return TRUE
 	return FALSE
 

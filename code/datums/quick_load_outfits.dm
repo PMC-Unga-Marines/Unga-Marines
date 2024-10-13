@@ -80,11 +80,6 @@
 
 	post_equip(H, visualsOnly)
 
-	if(!visualsOnly)
-		if(internals_slot)
-			H.internal = H.get_item_by_slot(internals_slot)
-			H.update_action_buttons()
-
 	H.update_body()
 	return TRUE
 
@@ -1141,7 +1136,7 @@
 	name = "SOM Squad Marine"
 	jobtype = "SOM Squad Standard"
 
-	ears = /obj/item/radio/headset/mainship/som
+	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/webbing
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	wear_suit = /obj/item/clothing/suit/modular/som/shield
@@ -1431,7 +1426,7 @@
 	name = "SOM Squad Engineer"
 	jobtype = "SOM Squad Engineer"
 
-	ears = /obj/item/radio/headset/mainship/som
+	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/webbing
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	wear_suit = /obj/item/clothing/suit/modular/som/engineer
@@ -1611,7 +1606,7 @@
 	jobtype = "SOM Squad Medic"
 
 	belt = /obj/item/storage/belt/lifesaver/som/quick
-	ears = /obj/item/radio/headset/mainship/som
+	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/medic/vest
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	wear_suit = /obj/item/clothing/suit/modular/som/medic
@@ -1781,7 +1776,7 @@
 	name = "SOM Squad Veteran"
 	jobtype = "SOM Squad Veteran"
 
-	ears = /obj/item/radio/headset/mainship/som
+	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/veteran/webbing
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/shield
@@ -2085,7 +2080,7 @@
 	name = "SOM Squad Leader"
 	jobtype = "SOM Squad Leader"
 
-	ears = /obj/item/radio/headset/mainship/som
+	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/leader/webbing
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/leader/valk

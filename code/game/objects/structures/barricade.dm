@@ -18,7 +18,8 @@
 	///to specify a non-zero amount of stack to drop when destroyed
 	var/destroyed_stack_amount = 0
 	var/base_acid_damage = 2
-	var/barricade_type = "barricade" //"metal", "plasteel", etc.
+	///"metal", "plasteel", etc.
+	var/barricade_type = "barricade"
 	///Whether this barricade has damaged states
 	var/can_change_dmg_state = TRUE
 	///Whether we can open/close this barrricade and thus go over it
@@ -143,7 +144,7 @@
 		if(!disassembled && destroyed_stack_amount)
 			stack_amt = destroyed_stack_amount
 		else
-			stack_amt = round(stack_amount * (obj_integrity/max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
+			stack_amt = round(stack_amount * (obj_integrity / max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
 
 		if(stack_amt)
 			new stack_type (loc, stack_amt)
@@ -289,7 +290,7 @@
 
 	if(ET.folded)
 		return
-	deconstruct(!!get_self_acid())
+	deconstruct(!get_self_acid())
 
 /*----------------------*/
 // GUARD RAIL
@@ -384,8 +385,8 @@
 	name = "metal barricade"
 	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
 	icon_state = "metal_0"
-	max_integrity = 225 //4 sheets
-	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
+	max_integrity = 200 //4 sheets
+	soft_armor = list(MELEE = 10, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 20, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/metal
 	stack_amount = 4
@@ -500,11 +501,11 @@
 
 	switch(choice)
 		if(CADE_TYPE_BOMB)
-			soft_armor = soft_armor.modifyRating(bomb = 50)
+			soft_armor = soft_armor.modifyRating(bomb = 80)
 		if(CADE_TYPE_MELEE)
-			soft_armor = soft_armor.modifyRating(melee = 30, bullet = 30, laser = 30, energy = 30)
+			soft_armor = soft_armor.modifyRating(melee = 40, bullet = 50, laser = 50, energy = 50, acid = -10)
 		if(CADE_TYPE_ACID)
-			soft_armor = soft_armor.modifyRating(acid = 20)
+			soft_armor = soft_armor.modifyRating(melee = -10, acid = 40)
 			resistance_flags |= UNACIDABLE
 
 	barricade_upgrade_type = choice
@@ -641,7 +642,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
+			deconstruct(!get_self_acid())
 			return TRUE
 		if(BARRICADE_METAL_FIRM)
 
@@ -665,11 +666,11 @@
 
 			switch(barricade_upgrade_type)
 				if(CADE_TYPE_BOMB)
-					soft_armor = soft_armor.modifyRating(bomb = -50)
+					soft_armor = soft_armor.modifyRating(bomb = -80)
 				if(CADE_TYPE_MELEE)
-					soft_armor = soft_armor.modifyRating(melee = -30, bullet = -30, laser = -30, energy = -30)
+					soft_armor = soft_armor.modifyRating(melee = -40, bullet = -50, laser = -50, energy = -50, acid = 10)
 				if(CADE_TYPE_ACID)
-					soft_armor = soft_armor.modifyRating(acid = -20)
+					soft_armor = soft_armor.modifyRating(melee = 10, acid = -40)
 					resistance_flags &= ~UNACIDABLE
 
 			new /obj/item/stack/sheet/metal(loc, CADE_UPGRADE_REQUIRED_SHEETS)
@@ -694,11 +695,11 @@
 	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints. Use a blowtorch to repair. Can be flipped down to create a path."
 	icon_state = "plasteel_closed_0"
 	max_integrity = 500
-	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
+	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 30, BIO = 100, FIRE = 80, ACID = 55)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/plasteel
-	stack_amount = 5
-	destroyed_stack_amount = 2
+	stack_amount = 6
+	destroyed_stack_amount = 3
 	hit_sound = "sound/effects/metalhit.ogg"
 	barricade_type = "plasteel"
 	density = FALSE
@@ -814,7 +815,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
+			deconstruct(!get_self_acid())
 
 /obj/structure/barricade/plasteel/wrench_act(mob/living/user, obj/item/I)
 	if(!iswrench(I))
@@ -970,7 +971,7 @@
 			return TRUE
 		user.visible_message(span_notice("[user] disassembles [src]."),
 		span_notice("You disassemble [src]."))
-		deconstruct(!!get_self_acid())
+		deconstruct(!get_self_acid())
 		return TRUE
 
 	if(istype(I, /obj/item/stack/sandbags))
@@ -1093,7 +1094,7 @@
 	name = "plasteel barricade"
 	desc = "A sturdy and heavily assembled barricade made of plasteel plates. Use a blowtorch to repair."
 	icon_state = "new_plasteel_0"
-	max_integrity = 350 //4 sheets
+	max_integrity = 550 //4 sheets
 	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 35, BIO = 100, FIRE = 80, ACID = 55)
 	stack_type = /obj/item/stack/sheet/plasteel
 	stack_amount = 4
@@ -1108,7 +1109,7 @@
 	name = "folding metal barricade"
 	desc = "A folding barricade made out of metal, making it slightly weaker than a normal metal barricade. Use a blowtorch to repair. Can be flipped down to create a path."
 	icon_state = "folding_metal_closed_0"
-	max_integrity = 350 //6 sheets
+	max_integrity = 225 //6 sheets
 	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
 	stack_type = /obj/item/stack/sheet/metal
 	stack_amount = 6
@@ -1158,12 +1159,7 @@
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
 			span_notice("You take [src]'s panels apart."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-			deconstruct(!!get_self_acid())
-
-/obj/structure/barricade/plasteel
-	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 30, BIO = 100, FIRE = 80, ACID = 55)
-	stack_amount = 6
-	destroyed_stack_amount = 3
+			deconstruct(!get_self_acid())
 
 #undef BARRICADE_PLASTEEL_LOOSE
 #undef BARRICADE_PLASTEEL_ANCHORED
@@ -1175,12 +1171,10 @@
 	if(!isliving(atom_movable))
 		return FALSE
 	var/mob/living/living = atom_movable
-	if(living.mob_size > MOB_SIZE_XENO)
-		return FALSE // most of t3 xeno's are immune to that
-
 	balloon_alert(living, "Wire slices into us")
 	living.apply_damage(10, BRUTE, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
-	living.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
+	if(living.mob_size < MOB_SIZE_BIG)
+		living.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
 	playsound(living, 'sound/machines/bonk.ogg', 75, FALSE)
 
 	atom_movable.stop_throw()

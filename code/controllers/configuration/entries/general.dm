@@ -23,6 +23,8 @@ Basics, the most important.
 
 /datum/config_entry/string/forumurl
 
+/datum/config_entry/string/donationurl
+
 /datum/config_entry/string/rulesurl
 
 /datum/config_entry/string/githuburl
@@ -322,14 +324,14 @@ Master controller and performance related.
 /datum/config_entry/flag/tickcomp
 
 /*
-System command that invokes youtube-dl, used by Play Internet Sound.
-You can install youtube-dl with
-"pip install youtube-dl" if you have pip installed
-from https://github.com/rg3/youtube-dl/releases
+System command that invokes yt-dlp, used by Play Internet Sound.
+You can install yt-dlp with
+"pip install yt-dlp" if you have pip installed
+from https://github.com/yt-dlp/yt-dlp/releases
 or your package manager
-The default value assumes youtube-dl is in your system PATH
+The default value assumes yt-dlp is in your system PATH
 */
-/datum/config_entry/string/invoke_youtubedl
+/datum/config_entry/string/invoke_yt_dlp
 	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
 
 
@@ -456,4 +458,8 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 
 /datum/config_entry/string/discord_guildid
 
-/datum/config_entry/string/discord_boosty_roleid
+/datum/config_entry/string/discord_boosty_roleid_tier_1
+
+/datum/config_entry/string/discord_boosty_roleid_tier_2
+
+/datum/config_entry/string/discord_boosty_roleid_tier_3

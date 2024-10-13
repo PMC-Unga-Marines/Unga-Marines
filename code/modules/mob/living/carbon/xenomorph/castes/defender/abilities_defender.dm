@@ -24,7 +24,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 
 	GLOB.round_statistics.defender_tail_sweeps++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_tail_sweeps")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_tail_sweeps")
 	X.visible_message(span_xenowarning("\The [X] sweeps its tail in a wide circle!"), \
 	span_xenowarning("We sweep our tail in a wide circle!"))
 
@@ -38,6 +38,11 @@
 
 	for(var/obj/item/explosive/grenade/G in L)
 		G.knockback(X, 6, 2)
+
+	for(var/obj/machinery/deployable/mounted/sentry/sentry in L)
+		var/damage = X.xeno_caste.melee_damage
+		sentry.take_damage(damage, BRUTE, MELEE)
+		sentry.knock_down()
 
 	for(var/mob/living/carbon/human/H in L)
 		if(H.stat == DEAD)
@@ -53,7 +58,7 @@
 		H.apply_damage(damage, STAMINA, updating_health = TRUE)
 		H.Paralyze(0.5 SECONDS) //trip and go
 		GLOB.round_statistics.defender_tail_sweep_hits++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_tail_sweep_hits")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_tail_sweep_hits")
 		shake_camera(H, 2, 1)
 
 		to_chat(H, span_xenowarning("We are struck by \the [X]'s tail sweep!"))
@@ -220,7 +225,7 @@
 		if(!silent)
 			to_chat(X, span_xenowarning("We tuck ourselves into a defensive stance."))
 		GLOB.round_statistics.defender_crest_lowerings++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_crest_lowerings")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_crest_lowerings")
 		ADD_TRAIT(X, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT) //Can now endure impacts/damages that would make lesser xenos flinch
 		X.soft_armor = X.soft_armor.modifyAllRatings(last_crest_bonus)
 		X.add_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE, TRUE, 0, NONE, TRUE, X.xeno_caste.crest_defense_slowdown)
@@ -228,7 +233,7 @@
 		if(!silent)
 			to_chat(X, span_xenowarning("We raise our crest."))
 		GLOB.round_statistics.defender_crest_raises++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_crest_raises")
+		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_crest_raises")
 		REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT)
 		X.soft_armor = X.soft_armor.modifyAllRatings(-last_crest_bonus)
 		X.remove_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE)
@@ -301,7 +306,7 @@
 /datum/action/ability/xeno_action/fortify/proc/set_fortify(on, silent = FALSE)
 	var/mob/living/carbon/xenomorph/defender/X = owner
 	GLOB.round_statistics.defender_fortifiy_toggles++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_fortifiy_toggles")
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_fortifiy_toggles")
 	if(on)
 		ADD_TRAIT(X, TRAIT_IMMOBILE, FORTIFY_TRAIT)
 		ADD_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
@@ -415,6 +420,14 @@
 	X.spin(4, 1)
 	X.enable_throw_parry(0.6 SECONDS)
 	playsound(X, pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
+
+	for(var/obj/item/explosive/grenade/G in orange (1, X))
+		G.knockback(X, 6, 2)
+
+	for(var/obj/machinery/deployable/mounted/sentry/sentry in orange (1, X))
+		var/damage = X.xeno_caste.melee_damage
+		sentry.take_damage(damage, BRUTE, MELEE)
+		sentry.knock_down()
 
 	for(var/mob/living/carbon/human/slapped in orange(1, X))
 		if(slapped.stat == DEAD)

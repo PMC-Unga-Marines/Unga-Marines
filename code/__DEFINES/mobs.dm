@@ -1,7 +1,5 @@
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
-///Comment out if you don't want VOX to be enabled and have players download the voice sounds.
-#define AI_VOX
 
 //Mob movement define
 
@@ -438,8 +436,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define HEAD_LAYER 13
 #define COLLAR_LAYER 12
 #define SUIT_STORE_LAYER 11
-#define BACK_LAYER 10
-#define KAMA_LAYER 9
+#define KAMA_LAYER 10
+#define BACK_LAYER 9
 #define CAPE_LAYER 8
 #define HANDCUFF_LAYER 7
 #define L_HAND_LAYER 6
@@ -545,6 +543,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<14) // xenos with this flag wont be announced to hive when dying
 #define CASTE_STAGGER_RESISTANT (1<<15) //Resistant to some forms of stagger, such as projectiles
 #define CASTE_HAS_WOUND_MASK (1<<16) //uses an alpha mask for wounded states
+#define CASTE_EXCLUDE_STRAINS (1<<17) // denotes castes/basetypes that should be excluded from being evoable as a strain
 
 // Xeno defines that affect evolution, considering making a new var for these
 #define CASTE_LEADER_TYPE (1<<16) //Whether we are a leader type caste, such as the queen, shrike or ?king?, and is affected by queen ban and playtime restrictions
@@ -637,7 +636,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define GORGER_REJUVENATE_HEAL 0.05 //in %
 #define GORGER_REJUVENATE_THRESHOLD 0.10 //in %
 #define GORGER_PSYCHIC_LINK_CHANNEL 10 SECONDS
-#define GORGER_PSYCHIC_LINK_RANGE 15
+#define GORGER_PSYCHIC_LINK_RANGE 7
 #define GORGER_PSYCHIC_LINK_REDIRECT 0.5 //in %
 #define GORGER_PSYCHIC_LINK_MIN_HEALTH 0.2 //in %
 #define GORGER_CARNAGE_HEAL 0.2
@@ -656,6 +655,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define DEFILER_REAGENT_SLASH_INJECT_AMOUNT 7
 #define DEFILER_REAGENT_SLASH_DURATION 4 SECONDS
 #define DEFILER_TRANSVITOX_CAP 180 //Max toxin damage transvitox will allow
+#define DEFILER_TRANSVITOX_DAMAGE 2 //Damage dealt per tick per xeno toxin by the transvitox toxin
 #define DEFILER_DEFILE_CHANNEL_TIME 0.5 SECONDS //Wind up time for the Defile ability
 #define DEFILER_DEFILE_FAIL_COOLDOWN 5 SECONDS //Time Defile goes on cooldown for when it fails
 #define DEFILER_DEFILE_STRENGTH_MULTIPLIER 0.5 //Base multiplier for determining the power of Defile
@@ -751,11 +751,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define BRAVO_SQUAD "bravo_squad"
 #define CHARLIE_SQUAD "charlie_squad"
 #define DELTA_SQUAD "delta_squad"
-
-#define ZULU_SQUAD "zulu_squad"
-#define YANKEE_SQUAD "yankee_squad"
-#define XRAY_SQUAD "xray_squad"
-#define WHISKEY_SQUAD "whiskey_squad"
 
 #define TYPING_INDICATOR_LIFETIME 3 SECONDS	//Grace period after which typing indicator disappears regardless of text in chatbar.
 
@@ -870,6 +865,9 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define BASE_WALL_SLAM_DAMAGE 15
 ///Default damage for slamming a mob against another mob
 #define BASE_MOB_SLAM_DAMAGE 8
+
+///Pixel_y offset when lying down
+#define CARBON_LYING_Y_OFFSET -6
 
 // Yautja defines
 

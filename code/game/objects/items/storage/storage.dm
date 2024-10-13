@@ -94,6 +94,9 @@
 		quick_empty(over_object, usr)
 		return
 
+	if(HAS_TRAIT(src, TRAIT_NODROP))
+		return
+
 	//Makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 	//There's got to be a better way of doing this.
 	if(loc != usr || (loc && loc.loc == usr))
@@ -166,6 +169,8 @@
 /obj/item/storage/proc/can_see_content()
 	var/list/lookers = list()
 	for(var/i in content_watchers)
+		if(!ismob(i)) // for whatever reason we get non-mobs in here, this prevents runtimes
+			continue
 		var/mob/M = i
 		if(M.s_active == src && M.client)
 			lookers |= M

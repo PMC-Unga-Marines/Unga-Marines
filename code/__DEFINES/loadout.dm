@@ -1,10 +1,11 @@
 
 #define CAT_ESS "ESSENTIALS"
 #define CAT_STD "STANDARD EQUIPMENT"
+#define CAT_UNI "UNIFORM"
+#define CAT_GLO "GLOVES"
 #define CAT_SHO "SHOES"
 #define CAT_HEL "HATS"
 #define CAT_AMR "ARMOR"
-#define CAT_GLO "GLOVES"
 #define CAT_EAR "EAR"
 #define CAT_BAK "BACKPACK"
 #define CAT_POU "POUCHES"
@@ -35,14 +36,15 @@
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
 		CAT_MOD = 1,
+		CAT_UNI = 1,
+		CAT_GLO = 1,
+		CAT_SHO = 1,
 		CAT_ARMMOD = 1,
 		CAT_STD = 1,
-		CAT_SHO = 1,
 		CAT_HEL = 1,
 		CAT_AMR = 1,
 		CAT_SMR = 1,
 		CAT_SHN = 1,
-		CAT_GLO = 1,
 		CAT_EAR = 1,
 		CAT_BAK = 1,
 		CAT_WEB = 1,
@@ -73,10 +75,10 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
-	/obj/item/research_product/money/basic = list(CAT_MARINE, "50 credits coin", 8, "yellow2"),
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
+	/obj/item/tool/surgery/solderingtool = list(CAT_ESS, "Essential Soldering Tool", 0, "white"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBOT, "Terra Experimental laser rifle", 15, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBOT, "Terra Experimental laser sniper rifle", 20, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBOT, "Terra Experimental laser carbine", 15, "red"),
@@ -84,9 +86,9 @@ GLOBAL_LIST_INIT(robot_gear_listed_products, list(
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBOT, "Terra Experimental laser pistol", 10, "red"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBOT, "Terra Experimental tesla shock rifle", 25, "red"),
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
+	/obj/item/cell/lasgun/volkite/powerpack/marine_back = list(CAT_ROBOT, "Terra Experimental powerback", 20, "orange2"),
 	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
 	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
-	/obj/item/research_product/money/basic = list(CAT_ROBOT, "50 credits coin", 8, "yellow2"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
@@ -129,7 +131,6 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/item/mortal_shell/smoke = list(CAT_ENGSUP, "Smoke Mortar shell", 1, "orange2"),
 	/obj/item/mortal_shell/flare = list(CAT_ENGSUP, "Flare Mortar shell", 1, "orange2"),
 	/obj/item/ammo_magazine/flamer_tank/large = list(CAT_ENGSUP, "Flamethrower tank", 1, "orange2"),
-	/obj/item/research_product/money/basic = list(CAT_ENGSUP, "50 credits coin", 8, "yellow2"),
 ))
 
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
@@ -168,7 +169,6 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_MEDSUP, "Deployable Operating Table", 12, "yellow"),
-	/obj/item/research_product/money/basic = list(CAT_MEDSUP, "50 credits coin", 8, "yellow2"),
 ))
 
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
@@ -197,13 +197,14 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_LEDSUP, "Razorburn grenade", 3, "orange3"),
 	/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 1, "yellow"),
 	/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
+	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_LEDSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
 	/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
 	/obj/structure/closet/bodybag/tarp = list(CAT_LEDSUP, "V1 thermal-dampening tarp", 2, "yellow"),
 	/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_LEDSUP, "FL-84 flamethrower", 6, "red"),
 	/obj/item/ammo_magazine/flamer_tank/large = list(CAT_LEDSUP, "Flamethrower tank", 2, "orange2"),
-	/obj/item/storage/holster/belt/mateba/full = list(CAT_LEDSUP, "Mateba Autorevolver belt", 10, "red"),
+	/obj/item/storage/holster/belt/revolver/mateba/full = list(CAT_LEDSUP, "Mateba Autorevolver belt", 10, "red"),
 	/obj/item/ammo_magazine/revolver/mateba = list(CAT_LEDSUP, "Mateba magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/packet/mateba = list(CAT_LEDSUP, "Mateba packet", 3, "orange2"),
 	/obj/item/storage/holster/backholster/rpg/full = list(CAT_LEDSUP, "RL-160 Recoilless rifle kit", 15, "red"),
@@ -225,7 +226,6 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/storage/firstaid/adv = list(CAT_LEDSUP, "Advanced firstaid kit", 1, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 2, "cyan"),
-	/obj/item/research_product/money/basic = list(CAT_LEDSUP, "50 credits coin", 8, "yellow2"),
 ))
 
 GLOBAL_LIST_INIT(commander_gear_listed_products, list(
@@ -234,6 +234,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_FCSUP, "Orbital beacon", 5, "blue"),
 	/obj/item/fulton_extraction_pack = list(CAT_FCSUP, "Fulton Extraction Pack", 5, "blue"),
 	/obj/item/deployable_camera = list(CAT_FCSUP, "Deployable Overwatch Camera", 1, "blue"),
+	/obj/item/binoculars/tactical/scout = list(CAT_FCSUP, "Scout Tactical Binoculars", 5, "blue"),
 	/obj/item/stack/sheet/metal/small_stack = list(CAT_FCSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sheet/plasteel/small_stack = list(CAT_FCSUP, "Plasteel x10", PLASTEEL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_FCSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
@@ -287,7 +288,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/weapon/gun/rifle/t25 = list(CAT_FCSUP, "t25 Smartrifle", 23, "red"),
 	/obj/item/ammo_magazine/rifle/t25 = list(CAT_FCSUP, "t25 smartrifle magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/packet/t25 = list(CAT_FCSUP, "t25 smartrifle ammo box", 3, "orange2"),
-	/obj/item/storage/holster/belt/mateba/full = list(CAT_FCSUP, "Mateba Autorevolver belt", 10, "red"),
+	/obj/item/storage/holster/belt/revolver/mateba/full = list(CAT_FCSUP, "Mateba Autorevolver belt", 10, "red"),
 	/obj/item/ammo_magazine/revolver/mateba = list(CAT_FCSUP, "Mateba magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/packet/mateba = list(CAT_FCSUP, "Mateba packet", 3, "orange2"),
 	/obj/item/weapon/gun/pistol/smart_pistol = list(CAT_FCSUP, "TX13 Smartpistol", 10, "red"),
@@ -308,7 +309,6 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 2, "cyan"),
 	/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_FCSUP, "Combat Trauma Kit", 2, "cyan"),
 	/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_FCSUP, "Combat Burn Kit", 2, "cyan"),
-	/obj/item/research_product/money/basic = list(CAT_FCSUP, "50 credits coin", 8, "yellow2"),
 ))
 
 //A way to give them everything at once that still works with loadouts would be nice, but barring that make sure that your point calculation is set up so they don't get more than what they're supposed to
@@ -333,10 +333,10 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/sg153/plasmaloss = list(CAT_SGSUP, "SG-153 Spotting Rifle Tanglefoot Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/pistol/p14/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "orange2"),
-	/obj/item/research_product/money/basic = list(CAT_SGSUP, "50 credits coin", 6, "yellow2"),
 ))
 
 GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
+	/obj/effect/vendor_bundle/synth = list(CAT_ESS, "Essential synthetic set", 0, "white"),
 	//command stuff
 	/obj/item/beacon/supply_beacon = list(CAT_SYNTH, "Supply beacon", 5, "blue"),
 	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_SYNTH, "Orbital beacon", 5, "blue"),
@@ -395,7 +395,6 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_SYNTH, "Deployable Operating Table", 12, "yellow"),
-	/obj/item/research_product/money/basic = list(CAT_SYNTH, "50 credits coin", 8, "yellow2"),
 ))
 
 ///Assoc list linking the job title with their specific points vendor
@@ -470,7 +469,13 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 
 GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/effect/vendor_bundle/basic = list(CAT_STD, "Standard Kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -515,7 +520,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0,"black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -534,7 +539,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/robot/essentials = list(CAT_STD, "Essential Combat Robot Kit", 0, "white"),
+		/obj/item/clothing/under/marine/robotic = list(CAT_STD, "Robotic Armor Suit Mount", 0, "white"),
 		/obj/effect/vendor_bundle/robot/light_armor = list(CAT_AMR, "Combat robot light armor kit", 0, "black"),
 		/obj/effect/vendor_bundle/robot/medium_armor = list(CAT_AMR, "Combat robot medium armor kit", 0, "black"),
 		/obj/effect/vendor_bundle/robot/heavy_armor = list(CAT_AMR, "Combat robot heavy armor kit", 0, "black"),
@@ -569,7 +574,7 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0,"black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -577,9 +582,13 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_engineer = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/gorka_engineer = list(CAT_STD, "Standard Gorka kit", 0, "white"), // RUTGMC ADDITION, SIEGLUCK'S STUFF
-		/obj/effect/vendor_bundle/basic_jaeger_engineer = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
+		/obj/item/clothing/under/marine/engineer = list(CAT_UNI, "TGMC Engineer Fatigues", 0, "black"),
+		/obj/item/clothing/under/marine/gorka_eng = list(CAT_UNI, "Engineer Gorka", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/item/clothing/glasses/welding = list(CAT_GLA, "Welding Goggles", 0, "white"),
 		/obj/item/clothing/glasses/meson = list(CAT_GLA, "Optical Meson Scanner", 0, "white"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
@@ -629,7 +638,7 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Combat injector pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -643,9 +652,15 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_medic = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/gorka_medic = list(CAT_STD, "Standard Gorka kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger_medic = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
+		/obj/item/clothing/under/marine/corpsman = list(CAT_UNI, "TGMC corpsman fatigues", 0, "black"),
+		/obj/item/clothing/under/marine/gorka_med = list(CAT_UNI, "Medic Gorka", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -679,12 +694,12 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/item/armor_module/storage/grenade = list(CAT_MOD, "Grenade Storage Module", 0, "black"),
 		/obj/item/storage/pouch/medical_injectors/medic = list(CAT_POU, "Advanced Autoinjector pouch", 0, "orange"),
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
-		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
+		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0, "black"),
 		/obj/item/clothing/mask/gas = list(CAT_MAS, "Transparent gas mask", 0,"black"),
 		/obj/item/clothing/mask/gas/tactical = list(CAT_MAS, "Tactical gas mask", 0,"black"),
 		/obj/item/clothing/mask/gas/tactical/coif = list(CAT_MAS, "Tactical coifed gas mask", 0,"black"),
@@ -693,8 +708,14 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_smartgunner = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger_smartgunner = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -715,7 +736,7 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/belt/knifepouch = list(CAT_BEL, "Knives belt", 0, "black"),
 		/obj/item/storage/holster/belt/pistol/t457 = list(CAT_BEL, "Pistol belt", 0, "orange"),
 		/obj/item/storage/holster/belt/revolver/t457 = list(CAT_BEL, "Revolver belt", 0, "orange"),
-		/obj/item/storage/holster/belt/pistol/smart_pistol/full = list(CAT_BEL, "Smart pistol belt", 0, "orange"), // RUTGMC ADDITION
+		/obj/item/storage/holster/belt/pistol/smart_pistol/full = list(CAT_BEL, "Smart pistol belt", 0, "orange"),
 		/obj/item/storage/belt/sparepouch = list(CAT_BEL, "G8 general utility pouch", 0, "orange"),
 		/obj/item/armor_module/module/welding = list(CAT_HEL, "Jaeger welding module", 0, "orange"),
 		/obj/item/armor_module/module/binoculars = list(CAT_HEL, "Jaeger binoculars module", 0, "orange"),
@@ -735,7 +756,7 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/pouch/medkit/firstaid = list(CAT_POU, "First aid pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
@@ -747,8 +768,14 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/basic_squadleader = list(CAT_STD, "Standard kit", 0, "white"),
-		/obj/effect/vendor_bundle/basic_jaeger_squadleader = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+		/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+		/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+		/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+		/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+		/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+		/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 		/obj/effect/vendor_bundle/xenonauten_light/leader = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_medium/leader = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 		/obj/effect/vendor_bundle/xenonauten_heavy/leader = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -795,7 +822,7 @@ GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
@@ -809,37 +836,36 @@ GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
-		/obj/effect/vendor_bundle/synth = list(CAT_ESS, "Essential synthetic set", 0, "white"),
 		/obj/item/clothing/glasses/meson = list(CAT_GLA, "Optical Meson Scanner", 0, "white"),
-		/obj/item/clothing/under/marine = list(CAT_STD, "TGMC marine uniform", 0, "black"),
-		/obj/item/clothing/under/rank/medical/blue = list(CAT_STD, "Medical scrubs (blue)", 0, "black"),
-		/obj/item/clothing/under/rank/medical/green = list(CAT_STD, "Medical scrubs (green)", 0, "black"),
-		/obj/item/clothing/under/rank/medical/purple = list(CAT_STD, "Medical scrubs (purple)", 0, "black"),
-		/obj/item/clothing/under/marine/officer/engi = list(CAT_STD, "Engineering uniform", 0, "black"),
-		/obj/item/clothing/under/marine/officer/logistics = list(CAT_STD, "Officer uniform", 0, "black"),
-		/obj/item/clothing/under/marine/whites = list(CAT_STD, "TGMC dress uniform", 0, "black"),
-		/obj/item/clothing/under/marine/officer/pilot = list(CAT_STD, "Pilot bodysuit", 0, "black"),
-		/obj/item/clothing/under/marine/mp = list(CAT_STD, "Military police uniform", 0, "black"),
-		/obj/item/clothing/under/marine/officer/warden = list(CAT_STD, "Marine Officer uniform", 0, "black"),
-		/obj/item/clothing/under/marine/officer/researcher = list(CAT_STD, "Researcher outfit", 0, "black"),
-		/obj/item/clothing/under/rank/chef = list(CAT_STD, "Chef uniform", 0, "black"),
-		/obj/item/clothing/under/rank/bartender = list(CAT_STD, "Bartender uniform", 0, "black"),
-		/obj/item/clothing/under/rank/chef/altchef = list(CAT_STD, "Red Chef uniform", 0, "black"),
-		/obj/item/clothing/under/rank/vice = list(CAT_STD, "Vice Officer's uniform", 0, "black"),
-		/obj/item/clothing/under/rank/janitor = list(CAT_STD, "Janitor uniform", 0, "black"),
-		/obj/item/clothing/under/rank/det = list(CAT_STD, "Detective uniform", 0, "black"),
-		/obj/item/clothing/under/rank/dispatch = list(CAT_STD, "Dispatch uniform", 0, "black"),
-		/obj/item/clothing/under/overalls = list(CAT_STD, "Overalls", 0, "black"),
-		/obj/item/clothing/under/CM_uniform = list(CAT_STD, "Colonial Marshal uniform", 0, "black"),
-		/obj/item/clothing/under/gentlesuit = list(CAT_STD, "Gentleman's Suit", 0, "black"),
-		/obj/item/clothing/under/sl_suit = list(CAT_STD, "Amish Suit", 0, "black"),
-		/obj/item/clothing/under/kilt = list(CAT_STD, "Kilt", 0, "black"),
-		/obj/item/clothing/under/waiter = list(CAT_STD, "Waiter's uniform", 0, "black"),
+		/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC marine uniform", 0, "black"),
+		/obj/item/clothing/under/rank/medical/blue = list(CAT_UNI, "Medical scrubs (blue)", 0, "black"),
+		/obj/item/clothing/under/rank/medical/green = list(CAT_UNI, "Medical scrubs (green)", 0, "black"),
+		/obj/item/clothing/under/rank/medical/purple = list(CAT_UNI, "Medical scrubs (purple)", 0, "black"),
+		/obj/item/clothing/under/marine/officer/engi = list(CAT_UNI, "Engineering uniform", 0, "black"),
+		/obj/item/clothing/under/marine/officer/logistics = list(CAT_UNI, "Officer uniform", 0, "black"),
+		/obj/item/clothing/under/marine/whites = list(CAT_UNI, "TGMC dress uniform", 0, "black"),
+		/obj/item/clothing/under/marine/officer/pilot = list(CAT_UNI, "Pilot bodysuit", 0, "black"),
+		/obj/item/clothing/under/marine/mp = list(CAT_UNI, "Military police uniform", 0, "black"),
+		/obj/item/clothing/under/marine/officer/warden = list(CAT_UNI, "Marine Officer uniform", 0, "black"),
+		/obj/item/clothing/under/marine/officer/researcher = list(CAT_UNI, "Researcher outfit", 0, "black"),
+		/obj/item/clothing/under/rank/chef = list(CAT_UNI, "Chef uniform", 0, "black"),
+		/obj/item/clothing/under/rank/bartender = list(CAT_UNI, "Bartender uniform", 0, "black"),
+		/obj/item/clothing/under/rank/chef/altchef = list(CAT_UNI, "Red Chef uniform", 0, "black"),
+		/obj/item/clothing/under/rank/vice = list(CAT_UNI, "Vice Officer's uniform", 0, "black"),
+		/obj/item/clothing/under/rank/janitor = list(CAT_UNI, "Janitor uniform", 0, "black"),
+		/obj/item/clothing/under/rank/det = list(CAT_UNI, "Detective uniform", 0, "black"),
+		/obj/item/clothing/under/rank/dispatch = list(CAT_UNI, "Dispatch uniform", 0, "black"),
+		/obj/item/clothing/under/overalls = list(CAT_UNI, "Overalls", 0, "black"),
+		/obj/item/clothing/under/CM_uniform = list(CAT_UNI, "Colonial Marshal uniform", 0, "black"),
+		/obj/item/clothing/under/gentlesuit = list(CAT_UNI, "Gentleman's Suit", 0, "black"),
+		/obj/item/clothing/under/sl_suit = list(CAT_UNI, "Amish Suit", 0, "black"),
+		/obj/item/clothing/under/kilt = list(CAT_UNI, "Kilt", 0, "black"),
+		/obj/item/clothing/under/waiter = list(CAT_UNI, "Waiter's uniform", 0, "black"),
 		/obj/item/clothing/suit/modular/xenonauten/pilot = list(CAT_SMR, "M70 flak jacket", 0, "synth-rcmarmstorage"),
 		/obj/item/clothing/suit/armor/bulletproof = list(CAT_SMR, "Bulletproof Vest", 0, "synth-armor"),
 		/obj/item/clothing/suit/surgical = list(CAT_SMR, "Surgical apron", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/storage/labcoat = list(CAT_SMR, "Labcoat", 0, "synth-cosmetic"),
-		/obj/item/clothing/suit/storage/labcoat/researcher = list(CAT_SMR, "Researcher's labcoat", 0, "synth-cosmetic"),
+		/obj/item/clothing/suit/storage/labcoat/researcher = list(CAT_SMR, "Researcher's labcoat", 0, "synth-armor"),
 		/obj/item/clothing/suit/storage/hazardvest = list(CAT_SMR, "Orange reflective safety vest", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/storage/hazardvest/lime = list(CAT_SMR, "Lime reflective safety vest", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/storage/hazardvest/blue = list(CAT_SMR, "Blue reflective safety vest", 0, "synth-cosmetic"),
@@ -924,8 +950,14 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 	))
 
 GLOBAL_LIST_INIT(commander_clothes_listed_products, list(
-	/obj/effect/vendor_bundle/basic_commander = list(CAT_STD, "Standard kit", 0, "white"),
-	/obj/effect/vendor_bundle/basic_jaeger_commander = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
+	/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+	/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
+	/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
+	/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
+	/obj/item/clothing/gloves/marine = list(CAT_GLO, "Marine Combat Gloves", 0, "black"),
+	/obj/item/clothing/gloves/marine/fingerless = list(CAT_GLO, "Fingerless Marine Combat Gloves", 0, "black"),
+	/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
+	/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 	/obj/effect/vendor_bundle/xenonauten_light/leader = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
 	/obj/effect/vendor_bundle/xenonauten_medium/leader = list(CAT_AMR, "Xenonauten medium armor kit", 0, "orange"),
 	/obj/effect/vendor_bundle/xenonauten_heavy/leader = list(CAT_AMR, "Xenonauten heavy armor kit", 0, "orange"),
@@ -998,7 +1030,10 @@ GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 ))
 
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
-	SQUAD_ENGINEER = list (
+	SQUAD_ROBOT = list(
+		/obj/item/tool/surgery/solderingtool = 1,
+	),
+	SQUAD_ENGINEER = list(
 		/obj/item/weapon/gun/sentry/basic = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1,
@@ -1006,8 +1041,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/cell/high = 1,
 		/obj/item/lightreplacer = 1,
 		/obj/item/circuitboard/apc = 1,
-		/obj/item/clothing/under/marine/engineer = 1,
-		/obj/item/clothing/under/marine/gorka_eng = 1, // TODO: delete clothe bundles and just put in more categories
 		/obj/item/tool/surgery/solderingtool = 1,
 	),
 	SQUAD_CORPSMAN = list(
@@ -1021,8 +1054,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/clothing/glasses/hud/health = 1,
-		/obj/item/clothing/under/marine/corpsman = 1,
-		/obj/item/clothing/under/marine/gorka_med = 1, // TODO: delete clothe bundles and just put in more categories
 		/obj/item/tool/surgery/solderingtool = 1,
 	),
 	SQUAD_SMARTGUNNER = list(

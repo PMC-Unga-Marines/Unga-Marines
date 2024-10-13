@@ -255,6 +255,8 @@
 		if(!do_after(src, W.equip_delay_self, NONE, W, BUSY_ICON_FRIENDLY))
 			to_chat(src, "You stop putting on \the [W]")
 			return FALSE
+		if(!W.mob_can_equip(src, slot, warning, override_nodrop))
+			return FALSE
 		equip_to_slot(W, slot) //This proc should not ever fail.
 		//This will unwield items -without- triggering lights.
 		if(CHECK_BITFIELD(W.flags_item, TWOHANDED))
@@ -831,6 +833,9 @@
 		return
 	if(old_z == new_z)
 		return
+	if(isliving(src))
+		var/mob/living/living = src
+		living.update_z(new_z)
 	if(is_ground_level(new_z))
 		hud_used.remove_parallax(src)
 		return

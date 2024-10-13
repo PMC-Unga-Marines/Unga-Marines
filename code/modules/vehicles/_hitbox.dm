@@ -196,7 +196,7 @@
 		return TRUE
 
 /obj/hitbox/projectile_hit(obj/projectile/proj)
-	if(proj.firer == root)
+	if(proj.shot_from == root)
 		return FALSE
 	return root.projectile_hit(arglist(args))
 
@@ -218,6 +218,9 @@
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(2 * S.strength, BURN, ACID)
+
+/obj/hitbox/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return (CHARGE_SPEED(charge_datum) * 50)
 
 ///2x2 hitbox version
 /obj/hitbox/medium

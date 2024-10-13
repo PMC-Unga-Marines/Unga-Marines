@@ -1,9 +1,11 @@
 /mob/living/carbon/xenomorph/boiler
-	caste_base_type = /mob/living/carbon/xenomorph/boiler
+	caste_base_type = /datum/xeno_caste/boiler
 	name = "Boiler"
 	desc = "A huge, grotesque xenomorph covered in glowing, oozing acid slime."
-	icon = 'icons/Xeno/castes/boiler.dmi'
+	icon = 'icons/Xeno/castes/boiler/basic.dmi'
 	icon_state = "Boiler Walking"
+	effects_icon = 'icons/Xeno/castes/boiler/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/boiler/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200

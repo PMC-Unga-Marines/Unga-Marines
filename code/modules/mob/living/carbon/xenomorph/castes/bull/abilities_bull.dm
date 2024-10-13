@@ -47,11 +47,10 @@
 
 /datum/action/ability/xeno_action/acid_charge/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
-	X.apply_damage(40, BRUTE, TRUE, updating_health = TRUE)
 	particle_holder = new(X, /particles/bull_selfslash)
 	particle_holder.pixel_y = 12
 	particle_holder.pixel_x = 18
@@ -65,7 +64,7 @@
 	charge_duration = addtimer(CALLBACK(src, PROC_REF(acid_charge_deactivate)), 2 SECONDS,  TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
 	RegisterSignals(X, list(COMSIG_LIVING_STATUS_PARALYZE, COMSIG_LIVING_STATUS_STAGGER), PROC_REF(acid_charge_deactivate))
 	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(acid_puddle))
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Charging"
+	X.icon_state = "[X.xeno_caste.caste_name] Charging"
 
 	succeed_activate()
 	add_cooldown()
@@ -105,7 +104,7 @@
 
 /datum/action/ability/xeno_action/headbutt/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
@@ -117,7 +116,7 @@
 	RegisterSignals(X, list(COMSIG_LIVING_STATUS_PARALYZE, COMSIG_LIVING_STATUS_STAGGER), PROC_REF(headbutt_charge_deactivate))
 	RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(bull_charge_slash))
 	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(afterimage))
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Charging"
+	X.icon_state = "[X.xeno_caste.caste_name] Charging"
 	succeed_activate()
 	add_cooldown()
 
@@ -172,7 +171,7 @@
 
 /datum/action/ability/xeno_action/gore/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, 0.5 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
@@ -184,7 +183,7 @@
 	RegisterSignals(X, list(COMSIG_LIVING_STATUS_PARALYZE, COMSIG_LIVING_STATUS_STAGGER), PROC_REF(gore_charge_deactivate))
 	RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(bull_charge_slash))
 	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(afterimage))
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Charging"
+	X.icon_state = "[X.xeno_caste.caste_name] Charging"
 
 	succeed_activate()
 	add_cooldown()
