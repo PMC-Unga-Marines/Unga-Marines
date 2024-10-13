@@ -103,6 +103,13 @@
 	penetration = 10
 	additional_xeno_penetration = 12.5
 
+/datum/ammo/bullet/rifle/pkp_machinegun
+	name = "machinegun bullet"
+	hud_state = "rifle_heavy"
+	damage = 30
+	penetration = 15
+	additional_xeno_penetration = 15
+
 /datum/ammo/bullet/rifle/som_machinegun
 	name = "machinegun bullet"
 	hud_state = "rifle_heavy"

@@ -240,6 +240,20 @@
 	reload_delay = 3 SECONDS
 
 //-------------------------------------------------------
+//PKP pecheneg Purpose suppression machinegun
+
+/obj/item/ammo_magazine/pkp
+	name = "\improper PKP pecheneg box magazine (7.62x54mm)"
+	desc = "A belt box for the PKP pecheneg Purpose suppression machinegun."
+	icon_state = "pkp"
+	icon_state_mini = "mag_pkp"
+	caliber = CALIBER_762X54
+	default_ammo = /datum/ammo/bullet/rifle/pkp_machinegun
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 100
+	reload_delay = 2.5 SECONDS
+
+//-------------------------------------------------------
 //PR-412L1 HEAVY PULSE RIFLE
 
 /obj/item/ammo_magazine/m412l1_hpr
