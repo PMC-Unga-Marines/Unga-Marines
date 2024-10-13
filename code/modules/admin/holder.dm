@@ -358,7 +358,6 @@ GLOBAL_PROTECT(admin_verbs_asay)
 	/client/proc/debug_controller,
 	/datum/admins/proc/check_contents,
 	/datum/admins/proc/reestablish_db_connection,
-	/client/proc/reestablish_tts_connection,
 	/datum/admins/proc/view_runtimes,
 	/datum/admins/proc/profiler,
 	/client/proc/spawn_wave,
