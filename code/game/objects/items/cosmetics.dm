@@ -13,7 +13,6 @@
 	colour = "green"
 	icon_state = "green_camo"
 
-
 /obj/item/facepaint/brown
 	name = "brown customization kit"
 	colour = "brown"
