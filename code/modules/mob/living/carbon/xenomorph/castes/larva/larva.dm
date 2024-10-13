@@ -159,6 +159,7 @@
 /mob/living/carbon/xenomorph/larva/predalien
 	icon = 'icons/Xeno/castes/predalien_larva.dmi'
 	icon_state = "Predalien Larva"
+	effects_icon = 'icons/Xeno/castes/predalien_larva.dmi'
 	base_icon_state = "Predalien Larva"
 	caste_base_type = /datum/xeno_caste/larva_predalien
 

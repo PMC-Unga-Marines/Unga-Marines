@@ -4750,7 +4750,7 @@
 /area/slumbridge/outside/southeast)
 "dDF" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/glass{
+/obj/item/stack/sheet/glass/glass{
 	amount = 30
 	},
 /turf/open/floor/tile/dark,

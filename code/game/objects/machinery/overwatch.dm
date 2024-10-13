@@ -235,7 +235,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 					else
 						dat += "<b><font color=red>NONE!</font></b> <a href='?src=[text_ref(src)];operation=set_secondary'>\[Set\]</a><br>"
 					dat += "<br>"
-					dat += "<A href='?src=[text_ref(src)];operation=insubordination'>Report a marine for insubordination</a><BR>"
 					dat += "<A href='?src=[text_ref(src)];operation=squad_transfer'>Transfer a marine to another squad</a><BR><BR>"
 					dat += "<a href='?src=[text_ref(src)];operation=monitor'>Squad Monitor</a><br>"
 					dat += "----------------------<br>"
@@ -438,8 +437,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			if(!new_lead || new_lead == "Cancel")
 				return
 			change_lead(operator, new_lead)
-		if("insubordination")
-			mark_insubordination()
 		if("squad_transfer")
 			if(!current_squad)
 				to_chat(operator, "[icon2html(src, operator)] [span_warning("No squad selected!")]")
@@ -687,35 +684,6 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	to_chat(source, "[icon2html(src, source)] [target.real_name] is [target_squad]'s new leader!")
 	target_squad.promote_leader(target)
 
-
-/obj/machinery/computer/camera_advanced/overwatch/proc/mark_insubordination()
-	if(!usr || usr != operator)
-		return
-	if(!current_squad)
-		to_chat(operator, "[icon2html(src, operator)] [span_warning("No squad selected!")]")
-		return
-	var/mob/living/carbon/human/wanted_marine = tgui_input_list(operator, "Report a marine for insubordination", null, current_squad.get_all_members())
-	if(!wanted_marine) return
-	if(!istype(wanted_marine))//gibbed/deleted, all we have is a name.
-		to_chat(operator, "[icon2html(src, operator)] [span_warning("[wanted_marine] is missing in action.")]")
-		return
-
-	for (var/datum/data/record/E in GLOB.datacore.general)
-		if(E.fields["name"] == wanted_marine.real_name)
-			for (var/datum/data/record/R in GLOB.datacore.security)
-				if (R.fields["id"] == E.fields["id"])
-					if(!findtext(R.fields["ma_crim"],"Insubordination."))
-						R.fields["criminal"] = "*Arrest*"
-						if(R.fields["ma_crim"] == "None")
-							R.fields["ma_crim"] = "Insubordination."
-						else
-							R.fields["ma_crim"] += "Insubordination."
-						if(issilicon(operator))
-							to_chat(operator, span_boldnotice("[wanted_marine] has been reported for insubordination. Logging to enlistment file."))
-						visible_message(span_boldnotice("[wanted_marine] has been reported for insubordination. Logging to enlistment file."))
-						to_chat(wanted_marine, "[icon2html(src, wanted_marine)] <font size='3' color='blue'><B>\[Overwatch\]:</b> You've been reported for insubordination by your overwatch officer.</font>")
-						wanted_marine.sec_hud_set_security_status()
-					return
 
 /obj/machinery/computer/camera_advanced/overwatch/proc/transfer_squad(datum/source, mob/living/carbon/human/transfer_marine, datum/squad/new_squad)
 	if(!source || source != operator)

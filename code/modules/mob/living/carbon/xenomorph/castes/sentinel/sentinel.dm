@@ -2,8 +2,9 @@
 	caste_base_type = /datum/xeno_caste/sentinel
 	name = "Sentinel"
 	desc = "A slithery, spitting kind of alien."
-	icon = 'icons/Xeno/castes/sentinel.dmi'
+	icon = 'icons/Xeno/castes/sentinel/basic.dmi'
 	icon_state = "Sentinel Walking"
+	effects_icon = 'icons/Xeno/castes/sentinel/effects.dmi'
 	bubble_icon = "alienleft"
 	health = 150
 	maxHealth = 150
@@ -19,4 +20,5 @@
 	)
 
 /mob/living/carbon/xenomorph/sentinel/retrograde
+	icon = 'icons/Xeno/castes/sentinel/retrograde.dmi'
 	caste_base_type = /datum/xeno_caste/sentinel/retrograde
