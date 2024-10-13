@@ -10,11 +10,9 @@
 	set desc = "Check the status of your current hive."
 	set category = "Alien"
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(interference)
-		to_chat(src, span_warning("A headhunter temporarily cut off your psychic connection!"))
+		to_chat(src, span_warning("A headhunter temporarily cuts off your psychic connection!"))
 		return
-//RUTGMC EDIT ADDITION END
 
 	check_hive_status(src)
 
@@ -75,12 +73,20 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
-	if(!("[xeno_caste.caste_name] rouny Running" in icon_states(icon))) // check's if we have the main icon_state of running xeno
-		to_chat(usr, span_warning("Sorry! But rouny skin is currently unavalaible for this caste!"))
+	if(!rouny_icon)
+		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
 		return
 
-	is_a_rouny = !is_a_rouny
-	update_icons()
+	toggle_rouny_skin()
+
+/mob/living/carbon/xenomorph/proc/toggle_rouny_skin()
+	if(!rouny_icon) // we should check for it before using the proc, but just in case
+		return
+
+	if(icon == rouny_icon)
+		icon = base_icon
+	else
+		icon = rouny_icon
 
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
@@ -91,14 +97,20 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
-	var/selection
-	if(length(skins) == 1)
-		selection = skins[1]
-	else
-		selection = tgui_input_list(src, "Choose an setting appearance", "Choose an setting appearance", skins)
+	var/datum/xenomorph_skin/selection
+	var/list/available_skins = list() // we do a list of names instead of datums
+	for(var/datum/xenomorph_skin/our_skin AS in skins)
+		available_skins[our_skin.name] = our_skin
+	var/answer = tgui_input_list(src, "Choose a setting appearance", "Choose a setting appearance", available_skins)
+	selection = available_skins[answer]
 
-	if(selection)
-		icon = skins[selection]
+	if(!selection)
+		return
+
+	icon = selection.icon
+	base_icon = selection.icon
+	effects_icon = selection.effects_icon
+	rouny_icon = selection.rouny_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
