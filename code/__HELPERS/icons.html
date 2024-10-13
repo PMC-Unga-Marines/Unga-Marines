@@ -14,10 +14,12 @@
 </header>
 <main>
 <h1>code/__HELPERS/icons.dm 
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/74604a6b57c71611bdd0b767f65b6d468a542fe2/code/__HELPERS/icons.dm">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/04d022ec4686ce614f150164facc278a0f3de9f1/code/__HELPERS/icons.dm">
         <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;icons.dm"/></a></h1>
 
 <table class="summary" cellspacing="0">
+        <tr><th>/proc/<a href="global.html#proc/getFlatIcon">getFlatIcon</a></th>
+                <td>Creates a single icon from a given /atom or /image. Only the first argument is required.</td></tr>
         <tr><th>/proc/<a href="global.html#proc/generate_and_hash_rsc_file">generate_and_hash_rsc_file</a></th>
                 <td>generates a filename for a given asset.
 like generate_asset_name(), except returns the rsc reference and the rsc file hash as well as the asset name (sans extension)
@@ -44,6 +46,10 @@ if successful, this looks like &quot;icons/path/to/dmi_file.dmi&quot;
 but they pass both isicon() and isfile() checks. theyre the easiest case since stringifying them gives us the path we want
 generate an asset for the given icon or the icon of the given appearance for [thing], and send it to any clients in target.
 Arguments:</td></tr>
+        <tr><th>/proc/<a href="global.html#proc/costly_icon2html">costly_icon2html</a></th>
+                <td>Costlier version of icon2html() that uses getFlatIcon() to account for overlays, underlays, etc. Use with extreme moderation, ESPECIALLY on mobs.</td></tr>
+        <tr><th>/proc/<a href="global.html#proc/get_flat_human_icon">get_flat_human_icon</a></th>
+                <td>For creating consistent icons for human looking simple animals</td></tr>
         <tr><th>/proc/<a href="global.html#proc/center_image">center_image</a></th>
                 <td>Center's an image.
 Requires:
@@ -54,7 +60,7 @@ eg: center_image(image_to_center, 32,32)
 eg2: center_image(image_to_center, 96,96)</td></tr></table></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/74604a6b57c71611bdd0b767f65b6d468a542fe2">74604a6</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/04d022ec4686ce614f150164facc278a0f3de9f1">04d022e</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
