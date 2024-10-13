@@ -23,6 +23,8 @@
 			/obj/item/ammo_magazine/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71/ap = -1,
 			/obj/item/ammo_magazine/rifle/type71/hp = -1,
+			/obj/item/weapon/gun/rifle/ar11 = -1,
+			/obj/item/ammo_magazine/rifle/ar11 = -1,
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
