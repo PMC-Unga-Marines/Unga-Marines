@@ -64,8 +64,8 @@
 		return
 	switch(action)
 		if("saveLoadout")
-			if(length(loadouts_data) >= MAXIMUM_LOADOUT * 2)
-				to_chat(ui.user, span_warning("You've reached the maximum number of loadouts saved, please delete some before saving new ones"))
+			if(length(loadouts_data) >= MAXIMUM_LOADOUT)
+				to_chat(ui.user, span_warning("You've reached the maximum number of loadouts saved, please delete some before saving new ones."))
 				return
 			var/loadout_name = params["loadout_name"]
 			if(isnull(loadout_name))
@@ -73,7 +73,7 @@
 			var/loadout_job = params["loadout_job"]
 			for(var/loadout_data in loadouts_data)
 				if(loadout_data[1] == loadout_job && loadout_data[2] == loadout_name)
-					to_chat(ui.user, span_warning("Loadout [loadout_name] for [loadout_job] already exists. Try another name"))
+					to_chat(ui.user, span_warning("Loadout [loadout_name] for [loadout_job] already exists. Try another name."))
 					return
 			var/datum/loadout/loadout = create_empty_loadout(loadout_name, loadout_job)
 			loadout.save_mob_loadout(ui.user)

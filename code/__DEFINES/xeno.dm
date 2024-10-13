@@ -221,3 +221,18 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 #define	XENO_UPGRADE_BIOMASS_COST_T2 15
 #define	XENO_UPGRADE_BIOMASS_COST_T3 20
 #define	XENO_UPGRADE_BIOMASS_COST_T4 25
+
+#define CHARGE_SPEED(charger) (min(charger.valid_steps_taken, charger.max_steps_buildup) * charger.speed_per_step)
+#define CHARGE_MAX_SPEED (speed_per_step * max_steps_buildup)
+
+#define CHARGE_CRUSH (1<<0)
+#define CHARGE_BULL (1<<1)
+#define CHARGE_BULL_HEADBUTT (1<<2)
+#define CHARGE_BULL_GORE (1<<3)
+#define CHARGE_BEHEMOTH (1<<4)
+
+#define STOP_CRUSHER_ON_DEL (1<<0)
+
+#define PRECRUSH_STOPPED -1
+#define PRECRUSH_PLOWED -2
+#define PRECRUSH_ENTANGLED -3

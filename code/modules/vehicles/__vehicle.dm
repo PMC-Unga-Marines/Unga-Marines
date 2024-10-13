@@ -183,3 +183,13 @@
 ///Any special behavior when a desant is removed
 /obj/vehicle/proc/remove_desant(mob/living/old_desant)
 	return
+
+/obj/vehicle/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	take_damage(charger.xeno_caste.melee_damage * charger.xeno_melee_damage_modifier, BRUTE, MELEE)
+	if(density && charger.move_force <= move_resist)
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+		span_xenowarning("We ram into [src] and skid to a halt!"))
+		charge_datum.do_stop_momentum(FALSE)
+		return PRECRUSH_STOPPED
+	charge_datum.speed_down(2) //Lose two turfs worth of speed.
+	return NONE
