@@ -728,3 +728,21 @@
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)
 	DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
+
+//Special override case. May not call the parent.
+/mob/living/carbon/xenomorph/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!issamexenohive(charger))
+		return ..()
+
+	if(anchored || (mob_size > charger.mob_size && charger.is_charging <= CHARGE_MAX))
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+		span_xenowarning("We ram into [src] and skid to a halt!"))
+		charge_datum.do_stop_momentum(FALSE)
+		if(!anchored)
+			step(src, charger.dir)
+		return PRECRUSH_STOPPED
+
+	throw_at(get_step(loc, (charger.dir & (NORTH|SOUTH) ? pick(EAST, WEST) : pick(NORTH, SOUTH))), 1, 1, charger, (mob_size < charger.mob_size))
+
+	charge_datum.speed_down(1) //Lose one turf worth of speed.
+	return PRECRUSH_PLOWED

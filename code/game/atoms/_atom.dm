@@ -970,3 +970,11 @@ directive is properly returned.
 /atom/proc/do_acid_melt()
 	visible_message(span_xenodanger("[src] collapses under its own weight into a puddle of goop and undigested debris!"))
 	playsound(src, "acid_hit", 25)
+
+///Anything called here will have failed CanPass(), so it's likely dense.
+/atom/proc/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return //If this happens it will error.
+
+///By default, if this happens then movement stops. But not necessarily.
+/atom/proc/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return PRECRUSH_STOPPED
