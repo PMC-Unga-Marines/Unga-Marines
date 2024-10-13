@@ -97,6 +97,7 @@
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_GIBBING)
 
+	remains.icon = effects_icon
 	remains.icon_state = xeno_caste.gib_anim
 
 	check_blood_splash(35, BURN, 65, 2)
@@ -104,7 +105,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/gib_animation()
-	new /obj/effect/overlay/temp/gib_animation/xeno(loc, 0, src, xeno_caste.gib_flick, icon)
+	new /obj/effect/overlay/temp/gib_animation/xeno(loc, 0, src, xeno_caste.gib_flick, effects_icon)
 
 /mob/living/carbon/xenomorph/spawn_gibs()
 	xgibs(get_turf(src))

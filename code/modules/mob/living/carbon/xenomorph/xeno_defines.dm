@@ -285,7 +285,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
-	voice_filter = @{"[0:a] asplit [out0][out2]; [out0] asetrate=%SAMPLE_RATE%*0.8,aresample=%SAMPLE_RATE%,atempo=1/0.8,aformat=channel_layouts=mono [p0]; [out2] asetrate=%SAMPLE_RATE%*1.2,aresample=%SAMPLE_RATE%,atempo=1/1.2,aformat=channel_layouts=mono[p2]; [p0][0][p2] amix=inputs=3"}
 	gib_chance = 5
 	light_system = MOVABLE_LIGHT
 
@@ -297,6 +296,15 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/xeno_flags = NONE //TODO: There are loads of vars below that should be flags
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
+
+	///Var for keeping the base icon of current skin, used for toggling to normal appearance from rouny skin, changeable with skin toggling
+	var/base_icon
+	///Var for keeping the effects icon of current skin, changeable with skin toggling
+	var/effects_icon = 'icons/Xeno/castes/larva.dmi'
+	///Var for keeping the rouny icon of current skin, changeable with skin toggling
+	var/rouny_icon
+	/// List of alternative skins to which xeno is able to change, you put only skin datums in here
+	var/list/skins = list()
 
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
@@ -418,9 +426,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///The xenos/silo/nuke currently tracked by the xeno_tracker arrow
 	var/atom/tracked
 
-	///Are we the roony version of this xeno
-	var/is_a_rouny = FALSE
-
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
@@ -434,4 +439,3 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///The unresting cooldown
 	COOLDOWN_DECLARE(xeno_unresting_cooldown)
 
-	var/list/skins = list()

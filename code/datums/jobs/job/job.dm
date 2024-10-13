@@ -18,7 +18,6 @@ GLOBAL_LIST_INIT(exp_specialmap, list(
 GLOBAL_PROTECT(exp_jobsmap)
 GLOBAL_PROTECT(exp_specialmap)
 
-
 /datum/job
 	var/title = ""
 	var/paygrade = ""
@@ -112,22 +111,18 @@ GLOBAL_PROTECT(exp_specialmap)
 		if(istype(id))
 			id.associated_account_number = bank_account.account_number
 
-
 /datum/job/proc/announce(mob/living/announced_mob)
 	return
-
 
 //Used for a special check of whether to allow a client to latejoin as this job.
 /datum/job/proc/special_check_latejoin(client/C)
 	return TRUE
-
 
 /datum/job/proc/equip_dummy(mob/living/carbon/human/dummy/mannequin, datum/outfit/outfit_override = null, client/preference_source)
 	if(!mannequin)
 		CRASH("equip_dummy called without a mannequin")
 
 	mannequin.equipOutfit(outfit_override || outfit, TRUE, preference_source)
-
 
 /datum/job/proc/get_access()
 	if(!config)	//Needed for robots.
@@ -140,13 +135,11 @@ GLOBAL_PROTECT(exp_specialmap)
 	else
 		. = access.Copy()
 
-
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
 /datum/job/proc/player_old_enough(client/C)
 	if(available_in_days(C) == 0)
 		return TRUE	//Available in 0 days = available right now = player is old enough to play.
 	return FALSE
-
 
 /datum/job/proc/available_in_days(client/C)
 	if(!C)
@@ -157,17 +150,13 @@ GLOBAL_PROTECT(exp_specialmap)
 		return FALSE //Without a database connection we can't get a player's age so we'll assume they're old enough for all jobs
 	if(!isnum(minimal_player_age))
 		return FALSE
-
 	return max(0, minimal_player_age - C.player_age)
-
 
 /datum/job/proc/config_check()
 	return TRUE
 
-
 /datum/job/proc/map_check()
 	return TRUE
-
 
 /datum/job/proc/radio_help_message(mob/M)
 	to_chat(M, {"
@@ -182,14 +171,11 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/outfit/job
 	var/jobtype
 
-
 /datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	return
 
-
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	return
-
 
 /datum/outfit/job/proc/handle_id(mob/living/carbon/human/H, client/override_client)
 	var/datum/job/job = H.job ? H.job : SSjob.GetJobType(jobtype)
@@ -205,9 +191,7 @@ GLOBAL_PROTECT(exp_specialmap)
 		id.update_label()
 		if(H.mind?.initial_account) // In most cases they won't have a mind at this point.
 			id.associated_account_number = H.mind.initial_account.account_number
-
 	H.update_action_buttons()
-
 
 /datum/job/proc/get_special_name(client/preference_source)
 	return
@@ -283,7 +267,6 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!SSticker.HasRoundStarted() && !(SSjob.ssjob_flags & SSJOB_OVERRIDE_JOBS_START) && previous_amount < total_positions)
 		LAZYADD(SSjob.occupations_reroll, src)
 
-
 // Spawning mobs.
 /mob/living/proc/apply_assigned_role_to_spawn(datum/job/assigned_role, client/player, datum/squad/assigned_squad, admin_action = FALSE)
 	if(!player && client)
@@ -298,7 +281,6 @@ GLOBAL_PROTECT(exp_specialmap)
 
 /mob/living/carbon/human/apply_assigned_role_to_spawn(datum/job/assigned_role, client/player, datum/squad/assigned_squad, admin_action = FALSE)
 	. = ..()
-
 	LAZYADD(GLOB.alive_human_list_faction[faction], src)
 	comm_title = job.comm_title
 	if(job.outfit)
@@ -364,7 +346,6 @@ GLOBAL_PROTECT(exp_specialmap)
 	chosen_variant = new chosen_variant
 	chosen_variant.equip(src)
 
-
 /datum/job/proc/equip_spawning_squad(mob/living/carbon/human/new_character, datum/squad/assigned_squad, client/player)
 	return
 
@@ -374,13 +355,11 @@ GLOBAL_PROTECT(exp_specialmap)
 		return
 	assigned_squad.insert_into_squad(new_character)
 
-
 /datum/job/proc/on_late_spawn(mob/living/late_spawner)
 	if(job_flags & JOB_FLAG_ADDTOMANIFEST)
 		if(!ishuman(late_spawner))
 			CRASH("on_late_spawn called for job with JOB_FLAG_ADDTOMANIFEST on non-human late_spawner: [late_spawner]")
 		GLOB.datacore.manifest_inject(late_spawner)
-
 
 /datum/job/proc/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/carbon/human

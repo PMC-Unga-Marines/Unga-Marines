@@ -2113,7 +2113,6 @@
 /area/magmoor/engi/atmos)
 "bvA" = (
 /obj/structure/closet/radiation,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/floor,
 /area/magmoor/research/containment)
 "bvE" = (
@@ -4578,7 +4577,6 @@
 	},
 /area/magmoor/compound/west)
 "dlF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/machinery/door/airlock/multi_tile/mainship/research{
 	name = "\improper Research Storage"
 	},
@@ -4687,7 +4685,6 @@
 /area/magmoor/volcano)
 "dpu" = (
 /obj/structure/lattice,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/research/containment)
 "dpO" = (
@@ -5652,11 +5649,6 @@
 	dir = 4
 	},
 /area/magmoor/compound/southwest)
-"dXz" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall,
-/area/magmoor/research/containment)
 "dXC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -6959,10 +6951,6 @@
 	},
 /turf/open/floor/mainship,
 /area/magmoor/landing/two)
-"eQY" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall,
-/area/magmoor/research/containment)
 "eRs" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -9579,11 +9567,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/magmoor/cargo/storage/south)
-"gMC" = (
-/obj/item/shard/phoron,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating,
-/area/magmoor/research/containment)
 "gMI" = (
 /obj/structure/bed/chair/sofa/left{
 	dir = 8
@@ -9965,10 +9948,6 @@
 /obj/machinery/smartfridge/chemistry,
 /turf/open/floor/plating,
 /area/magmoor/medical/chemistry)
-"hin" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/r_wall,
-/area/magmoor/research/containment)
 "hiG" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound)
@@ -17241,7 +17220,6 @@
 /area/magmoor/medical/surgery)
 "mDT" = (
 /obj/structure/xenoautopsy/tank/escaped,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/magmoor/research/containment)
 "mDZ" = (
@@ -23274,7 +23252,6 @@
 /area/magmoor/compound/northwest)
 "rap" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
@@ -24534,7 +24511,6 @@
 "rYP" = (
 /obj/structure/xenoautopsy/tank/escaped,
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/magmoor/research/containment)
 "rZi" = (
@@ -25230,10 +25206,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/magmoor/cargo/processing/south)
-"sAQ" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/mainship/sterile/dark,
-/area/magmoor/research/containment)
 "sAV" = (
 /obj/structure/cargo_container/green{
 	dir = 1
@@ -25932,7 +25904,6 @@
 /area/magmoor/cave/west)
 "tbD" = (
 /obj/structure/closet/open,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/floor,
 /area/magmoor/research/containment)
 "tbO" = (
@@ -32039,7 +32010,6 @@
 	},
 /area/magmoor/research/containment)
 "xrI" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/purple{
 	dir = 1
 	},
@@ -67458,22 +67428,22 @@ iKb
 ipy
 ipy
 ipy
-hin
+feJ
 bvA
 rap
 tbD
-hin
-hin
-hin
-hin
-hin
-hin
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
 dpu
-eQY
+dFa
 rYP
-gMC
+eyv
 mDT
-eQY
+dFa
 rxl
 rxl
 kcd
@@ -67691,7 +67661,7 @@ ipy
 ipy
 rxl
 rxl
-hin
+feJ
 feJ
 tMe
 feJ
@@ -67706,7 +67676,7 @@ dFa
 wEa
 bgH
 eyv
-eQY
+dFa
 rxl
 rxl
 kcd
@@ -67924,7 +67894,7 @@ rxl
 rxl
 rxl
 rxl
-hin
+feJ
 xGU
 kXD
 kSs
@@ -67939,7 +67909,7 @@ lrb
 bMW
 xNu
 iAW
-eQY
+dFa
 dFa
 dFa
 dFa
@@ -68157,7 +68127,7 @@ rxl
 rxl
 rxl
 rxl
-hin
+feJ
 dGT
 fld
 pJJ
@@ -68172,7 +68142,7 @@ xzO
 hFZ
 hFZ
 xTq
-eQY
+dFa
 kKI
 dKc
 dFa
@@ -68390,12 +68360,12 @@ lwH
 lwH
 rxl
 rxl
-hin
+feJ
 kPG
 hFZ
 wbD
 hFZ
-sAQ
+hFZ
 hFZ
 hFZ
 hFZ
@@ -68623,7 +68593,7 @@ xaR
 lwH
 lwH
 rxl
-hin
+feJ
 iHz
 gxa
 wfK
@@ -68856,7 +68826,7 @@ bZr
 lwH
 lwH
 lwH
-hin
+feJ
 xxj
 fSa
 jfW
@@ -68871,7 +68841,7 @@ ghh
 pjg
 icQ
 iQX
-eQY
+dFa
 xGc
 qvq
 dFa
@@ -69089,7 +69059,7 @@ lwH
 xaR
 lwH
 lwH
-hin
+feJ
 vik
 sqs
 nWW
@@ -69104,7 +69074,7 @@ sHu
 aav
 dDT
 fRS
-eQY
+dFa
 dFa
 dFa
 dFa
@@ -69322,7 +69292,7 @@ lwH
 lwH
 lwH
 rxl
-hin
+feJ
 kEL
 heQ
 kil
@@ -69337,7 +69307,7 @@ dFa
 joM
 wYx
 fWe
-eQY
+dFa
 rxl
 kcd
 kcd
@@ -69555,7 +69525,7 @@ lwH
 lwH
 rxl
 rxl
-hin
+feJ
 kds
 eNh
 sGv
@@ -69566,11 +69536,11 @@ vDt
 jQe
 rBn
 ljc
-eQY
-eQY
-eQY
-eQY
-dXz
+dFa
+dFa
+dFa
+dFa
+dFa
 rxl
 kcd
 kcd
@@ -69788,18 +69758,18 @@ rxl
 rxl
 rxl
 rxl
-hin
-hin
-hin
-hin
-hin
-hin
-hin
-hin
-hin
-hin
-hin
-eQY
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
+feJ
+dFa
 rxl
 rxl
 rxl

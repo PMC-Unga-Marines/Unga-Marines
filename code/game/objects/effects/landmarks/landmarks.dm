@@ -561,7 +561,7 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/last_stand_waves
-	icon = 'icons/Xeno/castes/runner.dmi'
+	icon = 'icons/Xeno/castes/runner/basic.dmi'
 	icon_state = "Runner Walking"
 	name = "last stand waves location"
 

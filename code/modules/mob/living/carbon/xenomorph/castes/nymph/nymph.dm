@@ -2,8 +2,9 @@
 	caste_base_type = /datum/xeno_caste/nymph
 	name = "Nymph"
 	desc = "An ant-looking creature."
-	icon = 'icons/Xeno/castes/nymph.dmi'
+	icon = 'icons/Xeno/castes/nymph/basic.dmi'
 	icon_state = "Nymph Walking"
+	effects_icon = 'icons/Xeno/castes/nymph/effects.dmi'
 	health = 200
 	maxHealth = 200
 	plasma_stored = 50
