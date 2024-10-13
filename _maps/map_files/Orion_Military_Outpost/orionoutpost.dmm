@@ -3295,7 +3295,6 @@
 "qM" = (
 /obj/effect/ai_node,
 /obj/structure/barricade/plasteel,
-/obj/structure/barricade/plasteel,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad2_external)
 "qO" = (
@@ -8572,7 +8571,6 @@
 /turf/closed/mineral/smooth/indestructible,
 /area/orion_outpost/ground/outpostw)
 "RS" = (
-/obj/structure/barricade/metal,
 /obj/structure/barricade/metal,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad2_external)

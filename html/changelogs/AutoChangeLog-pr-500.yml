@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Огнемётный холстер больше не пополняет топливо кроме обычного."

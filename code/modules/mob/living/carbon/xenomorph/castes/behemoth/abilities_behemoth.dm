@@ -396,6 +396,11 @@
 					var/obj/vehicle/veh_victim = affected_atom
 					veh_victim.take_damage(damage * LANDSLIDE_DAMAGE_VEHICLE_MODIFIER, MELEE)
 					continue
+				if(issentry(affected_atom))
+					var/obj/machinery/deployable/mounted/sentry/sentry = affected_atom
+					sentry.take_damage(damage, BRUTE, MELEE)
+					sentry.knock_down()
+					continue
 				var/obj/affected_object = affected_atom
 				if(!affected_object.density || affected_object.allow_pass_flags & PASS_MOB || affected_object.resistance_flags & INDESTRUCTIBLE)
 					continue
@@ -969,7 +974,7 @@ RU TGMC EDIT */
 			pixel_y += 6
 
 /atom/movable/vis_obj/wrath_block
-	icon = 'icons/Xeno/castes/behemoth.dmi'
+	icon = 'icons/Xeno/castes/behemoth/effects.dmi'
 	icon_state = "Behemoth Flashing"
 
 /datum/action/ability/xeno_action/primal_wrath

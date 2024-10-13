@@ -2728,7 +2728,6 @@
 /area/bigredv2/caves/lambda_lab)
 "axF" = (
 /obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
 "axP" = (
@@ -11734,7 +11733,7 @@
 /area/bigredv2/outside/marshal_office)
 "kOk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass/glass,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "kPA" = (
@@ -12901,7 +12900,7 @@
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stock_parts/smes_coil,
-/obj/item/stack/sheet/glass{
+/obj/item/stack/sheet/glass/glass{
 	amount = 30
 	},
 /turf/open/floor,

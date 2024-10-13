@@ -9,12 +9,11 @@
 		return pick(GLOB.start_squad_landmarks_list[squad][SQUAD_MARINE])
 	return pick(GLOB.start_squad_landmarks_list[squad][title])
 
-/datum/job/terragov/squad/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+/datum/job/terragov/squad/after_spawn(mob/living/carbon/human/human_spawn, mob/M, latejoin = FALSE)
 	. = ..()
-	C.hud_set_job(faction)
-	if(!ishuman(C))
+	if(!ishuman(human_spawn))
 		return
-	var/mob/living/carbon/human/human_spawn = C
+	human_spawn.hud_set_job(faction)
 	if(!(human_spawn.species.species_flags & ROBOTIC_LIMBS))
 		human_spawn.set_nutrition(250)
 	if(!human_spawn.assigned_squad)
@@ -404,7 +403,7 @@ You can serve a variety of roles, so choose carefully."})
 
 	display_order = JOB_DISPLAY_ORDER_SQUAD_LEADER
 	outfit = /datum/outfit/job/marine/leader
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_LOUDER_TTS
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_HIGH,
