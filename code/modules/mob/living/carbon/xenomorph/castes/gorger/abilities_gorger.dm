@@ -20,7 +20,7 @@
 	if(!.)
 		return
 	if(!ishuman(target))
-		return
+		return FALSE
 	var/mob/living/carbon/human/victim = target
 	if(victim.species.species_flags & NO_BLOOD)
 		if(!silent)
@@ -103,7 +103,7 @@
 /datum/action/ability/activable/xeno/drain/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
 	if(!ishuman(target))
-		return
+		return FALSE
 	var/mob/living/carbon/human/human_target = target
 	if(human_target.species.species_flags & NO_BLOOD)
 		if(!silent)
