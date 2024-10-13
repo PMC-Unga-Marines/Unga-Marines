@@ -347,7 +347,7 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if (!document.getElementById("status")) {
+	if (!document.getElementById("Status")) {
 		createStatusTab("Статус");
 		current_tab = "Статус";
 	}

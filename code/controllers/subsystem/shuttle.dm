@@ -529,7 +529,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/ui_data(mob/user)
 	var/list/data = list()
-	data["tabs"] = list("status", "Templates", "Modification")
+	data["tabs"] = list("Status", "Templates", "Modification")
 
 	// Templates panel
 	data["templates"] = list()
