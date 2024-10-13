@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	var/message = log_entry.Join("\n")
 	log_test(message)
 
-	test_results[test_path] = list("Status" = test.succeeded ? UNIT_TEST_PASSED : UNIT_TEST_FAILED, "message" = message, "name" = test_path)
+	test_results[test_path] = list("status" = test.succeeded ? UNIT_TEST_PASSED : UNIT_TEST_FAILED, "message" = message, "name" = test_path)
 
 	qdel(test)
 

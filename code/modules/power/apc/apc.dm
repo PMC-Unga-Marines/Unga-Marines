@@ -228,7 +228,7 @@
 			list(
 				"title" = "Equipment",
 				"powerLoad" = DisplayPower(lastused_equip),
-				"Status" = equipment,
+				"status" = equipment,
 				"topicParams" = list(
 					"auto" = list("eqp" = 3),
 					"on" = list("eqp" = 2),
@@ -238,7 +238,7 @@
 			list(
 				"title" = "Lighting",
 				"powerLoad" = DisplayPower(lastused_light),
-				"Status" = lighting,
+				"status" = lighting,
 				"topicParams" = list(
 					"auto" = list("lgt" = 3),
 					"on" = list("lgt" = 2),
@@ -248,7 +248,7 @@
 			list(
 				"title" = "Environment",
 				"powerLoad" = DisplayPower(lastused_environ),
-				"Status" = environ,
+				"status" = environ,
 				"topicParams" = list(
 					"auto" = list("env" = 3),
 					"on" = list("env" = 2),

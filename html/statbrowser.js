@@ -347,7 +347,7 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if (!document.getElementById("Status")) {
+	if (!document.getElementById("status")) {
 		createStatusTab("Статус");
 		current_tab = "Статус";
 	}
@@ -604,7 +604,7 @@ function draw_interviews() {
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
 		var a = document.createElement("a");
-		a.textContent = part["Status"];
+		a.textContent = part["status"];
 		a.href = "?_src_=holder;admin_token=" + href_token + ";interview=" + part["ref"] + ";statpanel_item_click=left";
 		td.appendChild(a);
 		tr.appendChild(td);

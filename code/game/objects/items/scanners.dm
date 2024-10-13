@@ -291,7 +291,7 @@ REAGENT SCANNER
 				continue
 			var/current_organ = list(
 				"name" = organ.name,
-				"Status" = organ.organ_status == ORGAN_BRUISED ? "Bruised" : "Broken",
+				"status" = organ.organ_status == ORGAN_BRUISED ? "Bruised" : "Broken",
 				"damage" = organ.damage
 			)
 			damaged_organs += list(current_organ)
