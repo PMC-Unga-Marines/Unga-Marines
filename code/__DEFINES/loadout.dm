@@ -58,6 +58,7 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 #define SANDBAG_PRICE_IN_GEAR_VENDOR 3
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
+	/obj/item/weapon/gun/rifle/mpi_km/ak_15 = list(CAT_MARINE, "AK-15 (6П71) rifle", 30, "red"),
 	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
 	/obj/item/fulton_extraction_pack = list(CAT_MARINE, "Fulton Extraction Pack", 5, "orange"),

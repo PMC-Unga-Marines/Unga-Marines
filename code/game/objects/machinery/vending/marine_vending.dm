@@ -23,6 +23,7 @@
 			/obj/item/ammo_magazine/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71/ap = -1,
 			/obj/item/ammo_magazine/rifle/type71/hp = -1,
+			/obj/item/ammo_magazine/rifle/ak15 = -1,
 		),
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -54,7 +55,7 @@
 		"Machinegun" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
-			/obj/item/weapon/gun/rifle/pkp_pecheneg = -1,
+			/obj/item/weapon/gun/rifle/pkp_pecheneg = 4,
 			/obj/item/ammo_magazine/pkp = -1,
 			/obj/item/weapon/gun/mg27 = 5,
 			/obj/item/ammo_magazine/mg27 = -1,
