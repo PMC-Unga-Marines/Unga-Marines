@@ -1072,7 +1072,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			to_chat(pred_candidate, span_warning("Что-то пошло не по плану!"))
 		return
 
-	if(show_warning && alert(pred_candidate, "Подтвердите готовность. Вы присоединитесь как [lowertext(job.get_whitelist_status(GLOB.roles_whitelist, pred_candidate.client))] хищник", "Confirm", "Yes", "No") != "Yes")
+	if(show_warning && alert(pred_candidate, "Подтвердите готовность к охоте. Вы присоединитесь как [lowertext(job.get_whitelist_status(GLOB.roles_whitelist, pred_candidate.client))] хищник", "Confirm", "Yes", "No") != "Yes")
 		return
 
 	if(!(GLOB.roles_whitelist[pred_candidate.ckey] & WHITELIST_PREDATOR))
