@@ -408,6 +408,7 @@
 	flags_equip_slot = ITEM_SLOT_BACK
 	flags_magazine = MAGAZINE_WORN
 	w_class = WEIGHT_CLASS_HUGE
+	reload_delay = 0.5 SECONDS
 	default_ammo = /datum/ammo/bullet/minigun
 	current_rounds = 600
 	max_rounds = 600
@@ -436,7 +437,6 @@
 	caliber = CALIBER_10x26_CASELESS
 	flags_item_map_variant = null
 
-
 // ICC coilgun
 
 /obj/item/ammo_magazine/rifle/icc_coilgun
@@ -448,4 +448,3 @@
 	max_rounds = 5
 	reload_delay = 10
 	icon_state_mini = "mag_dmr"
-
