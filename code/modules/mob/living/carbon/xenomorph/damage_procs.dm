@@ -180,13 +180,11 @@
 	if(!prob(chance))
 		return FALSE
 
-	if(prob(30)) // so we don't shit with blood constantly
-		var/obj/effect/decal/cleanable/blood/xeno/decal = locate(/obj/effect/decal/cleanable/blood/xeno) in loc
-
-		if(!decal) //Let's not stack blood, it just makes lags.
-			add_splatter_floor(loc) //Drop some on the ground first.
-		else if(decal.random_icon_states) //If there's already one, just randomize it so it changes.
-			decal.icon_state = pick(decal.random_icon_states)
+	var/obj/effect/decal/cleanable/blood/xeno/decal = locate(/obj/effect/decal/cleanable/blood/xeno) in loc
+	if(!decal) //Let's not stack blood, it just makes lags.
+		add_splatter_floor(loc) //Drop some on the ground first.
+	else if(decal.random_icon_states) //If there's already one, just randomize it so it changes.
+		decal.icon_state = pick(decal.random_icon_states)
 
 	for(var/mob/living/carbon/human/victim in range(1, src)) //Loop through all nearby victims, including the tile.
 		if(!Adjacent(victim))
