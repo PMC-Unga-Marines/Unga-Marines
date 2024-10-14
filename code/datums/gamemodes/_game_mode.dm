@@ -872,7 +872,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	return objective_parts.Join("<br>")
 
 /proc/printplayer(datum/mind/ply, fleecheck)
-	var/text = "<b>[ply.key]</b> был <b>[ply.name]</b> and"
+	var/text = "<b>[ply.key]</b> был <b>[ply.name]</b> и"
 	if(ply.current)
 		if(ply.current.stat == DEAD)
 			text += " [span_redtext("погиб")]"
