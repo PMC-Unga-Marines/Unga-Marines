@@ -74,7 +74,8 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
-	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
+	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "blue"),
+	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 22, "blue"),
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
@@ -207,6 +208,8 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/storage/holster/belt/revolver/mateba/full = list(CAT_LEDSUP, "Mateba Autorevolver belt", 10, "red"),
 	/obj/item/ammo_magazine/revolver/mateba = list(CAT_LEDSUP, "Mateba magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/packet/mateba = list(CAT_LEDSUP, "Mateba packet", 3, "orange2"),
+	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_LEDSUP, "AR-21 extended magazine", 3, "orange2"),
+	/obj/item/storage/briefcase/standard_magnum = list(CAT_LEDSUP, "R-76 crate", 10, "orange2"),
 	/obj/item/storage/holster/backholster/rpg/full = list(CAT_LEDSUP, "RL-160 Recoilless rifle kit", 15, "red"),
 	/obj/item/ammo_magazine/rocket/recoilless = list(CAT_LEDSUP, "RL-160 RR HE shell", 2, "orange2"),
 	/obj/item/ammo_magazine/rocket/recoilless/light = list(CAT_LEDSUP, "RL-160 RR LE shell", 2, "orange2"),
@@ -270,6 +273,8 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/ammo_magazine/flamer_tank/large = list(CAT_FCSUP, "FL-84 normal fuel tank", 5, "orange2"),
 	/obj/item/ammo_magazine/flamer_tank/large/X = list(CAT_FCSUP, "FL-84 X-fuel tank", 15, "orange2"),
 	/obj/item/weapon/gun/energy/lasgun/lasrifle/xray = list(CAT_FCSUP, "TE-X Laser Rifle", 23, "red"),
+	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_FCSUP, "AR-21 extended magazine", 3, "red"),
+	/obj/item/storage/briefcase/standard_magnum = list(CAT_FCSUP, "R-76 crate", 10, "red"),
 	/obj/item/weapon/gun/rifle/railgun = list(CAT_FCSUP, "SR-220 Railgun", 23, "red"),
 	/obj/item/ammo_magazine/railgun = list(CAT_FCSUP, "SR-220 Railgun APDS round", 2, "orange2"),
 	/obj/item/ammo_magazine/railgun/hvap = list(CAT_FCSUP, "SR-220 Railgun HVAP round", 3, "orange2"),
