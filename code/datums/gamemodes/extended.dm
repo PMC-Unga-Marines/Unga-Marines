@@ -31,8 +31,8 @@
 	xenorespawn_time = 1 MINUTES
 
 /datum/game_mode/extended/announce()
-	to_chat(world, "<b>Текущий игровой режим - Экста</b>")
-	to_chat(world, "<b>Просто веселитесь!</b>")
+	to_chat(world, "<b>Текущий игровой режим - Продолжительный Ролевой Отыгрыш</b>")
+	to_chat(world, "<b>Просто веселитесь и отыгрывайте свою роль!</b>")
 
 /datum/game_mode/extended/check_finished()
 	if(!round_finished)
