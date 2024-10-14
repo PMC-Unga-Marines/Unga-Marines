@@ -582,18 +582,28 @@
 		return
 
 	mob.log_talk(msg, LOG_DSAY)
-	msg = "<span class='game deadsay'><span class='prefix'>DEAD:</span> <span class='name'>[holder.fakekey ? "" : "([holder.rank.name]) "][holder.fakekey ? "Administrator" : key]</span> says, \"<span class='message'>[msg]</span>\"</span>"
+
+	var/rank_name = ""
+	if(holder.fakekey)
+		rank_name = "Administrator"
+	else
+		rank_name += holder.rank.name
+		rank_name += " "
+		rank_name += key
+	rank_name = span_name(rank_name)
 
 	for(var/i in GLOB.clients)
 		var/client/C = i
-		if(istype(C.mob, /mob/new_player))
+
+		if(!check_other_rights(C, R_ADMIN, FALSE) && (C.mob.stat != DEAD || isnewplayer(C.mob)))
 			continue
 
-		if(check_other_rights(C, R_ADMIN, FALSE) && (C.prefs.toggles_chat & CHAT_DEAD))
-			to_chat(C, msg)
+		if(!(C.prefs.toggles_chat & CHAT_DEAD))
+			continue
 
-		else if(C.mob.stat == DEAD && (C.prefs.toggles_chat & CHAT_DEAD))
-			to_chat(C, msg)
+		to_chat(C,
+			type = MESSAGE_TYPE_DEADCHAT,
+			html = span_game("<span class='deadsay'>[span_prefix("DEAD: [rank_name]")] says, [span_message(msg)]</span>"))
 
 /datum/admins/proc/jump()
 	set category = "Admin"
