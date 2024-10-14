@@ -688,8 +688,14 @@ GLOBAL_PROTECT(clan_verbs)
 			chosen = input("Please, select a turf.", title) as null|turf in world
 		if(APICKER_COORDS)
 			var/X = tgui_input_number(usr, "X coordinate.", title, max_value = 255, min_value = 1, timeout = 0)
+			if(!X)
+				return
 			var/Y = tgui_input_number(usr, "Y coordinate.", title, max_value = 255, min_value = 1, timeout = 0)
+			if(!Y)
+				return
 			var/Z = tgui_input_number(usr, "Z coordinate.", title, max_value = 10, min_value = 1, timeout = 0)
+			if(!Z)
+				return
 			chosen = locate(X, Y, Z)
 	return chosen
 
