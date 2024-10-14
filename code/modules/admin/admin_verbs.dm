@@ -518,11 +518,9 @@
 				type = MESSAGE_TYPE_ADMINCHAT,
 				html = msg)
 
-
 /client/proc/get_msay()
 	var/msg = input(src, null, "msay \"text\"") as text|null
 	msay(msg)
-
 
 /client/proc/msay(msg as text)
 	set category = "Admin"
@@ -575,12 +573,10 @@
 	var/msg = input(src, null, "dsay \"text\"") as text|null
 	dsay(msg)
 
-
 /client/proc/dsay(msg as text)
 	set category = "Admin"
 	set name = "dsay"
 	set hidden = TRUE
-
 
 	if(!check_rights(R_ADMIN|R_MENTOR))
 		return
@@ -702,7 +698,6 @@
 	if(!isobserver(M))
 		message_admins("[ADMIN_TPMONTY(usr)] jumped to [ADMIN_VERBOSEJMP(M)].")
 
-
 /datum/admins/proc/jump_turf(turf/T as turf)
 	set category = null
 	set name = "Jump to Turf"
@@ -779,7 +774,6 @@
 	if(!isobserver(N))
 		message_admins("[ADMIN_TPMONTY(usr)] jumped to [ADMIN_TPMONTY(T)].")
 
-
 /client/proc/private_message_context(mob/M in GLOB.player_list)
 	set category = null
 	set name = "Private Message"
@@ -788,7 +782,6 @@
 		return
 
 	private_message(M.client, null)
-
 
 /client/proc/private_message_panel()
 	set category = "Admin"
