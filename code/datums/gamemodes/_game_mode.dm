@@ -1099,7 +1099,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		var/pred_max = calculate_pred_max
 		if(pred_current_num >= pred_max)
 			if(show_warning)
-				to_chat(pred_candidate, span_warningto_chat("Только [pred_max != 1 ? "[pred_max] хищников доступно" : "[pred_max] хищник доступен"] в этом раунде. Консулы и древние в счет не идут."))
+				to_chat(pred_candidate, span_warning("Только [pred_max != 1 ? "[pred_max] хищников доступно" : "[pred_max] хищник доступен"] в этом раунде. Консулы и древние в счет не идут."))
 			return
 
 	return TRUE
