@@ -462,7 +462,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(GLOB.round_statistics.hunter_silence_targets)
 		parts += "Хантеры заглушили [GLOB.round_statistics.hunter_silence_targets] морпехов."
 	if(GLOB.round_statistics.larva_from_psydrain)
-		parts += "[GLOB.round_statistics.larva_from_psydrain] грудоломов появилось благодаря Пси-сифону."
+		parts += "[GLOB.round_statistics.larva_from_psydrain] грудоломов появилось благодаря Пси-поглощению."
 	if(GLOB.round_statistics.larva_from_silo)
 		parts += "[GLOB.round_statistics.larva_from_silo] грудоломов появилось из Сило."
 	if(GLOB.round_statistics.larva_from_xeno_core)
