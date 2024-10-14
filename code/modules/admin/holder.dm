@@ -646,7 +646,6 @@ GLOBAL_PROTECT(clan_verbs)
 	GLOB.stealthminID["IRCKEY"] = stealth
 	return	stealth
 
-
 /proc/IsAdminGhost(mob/user)
 	if(!isobserver(user))
 		return FALSE
@@ -666,7 +665,6 @@ GLOBAL_PROTECT(clan_verbs)
 	if(!check_other_rights(user.client, R_ADMIN, FALSE)) // Are they allowed?
 		return FALSE
 	return TRUE
-
 
 /datum/admins/proc/apicker(text, title, list/targets)
 	if(!check_rights(NONE))
@@ -693,9 +691,7 @@ GLOBAL_PROTECT(clan_verbs)
 			var/Y = input("Y coordinate.", title) as null|num
 			var/Z = input("Z coordinate.", title) as null|num
 			chosen = locate(X, Y, Z)
-
 	return chosen
-
 
 /datum/admins/vv_edit_var(var_name, var_value)
 	return FALSE
