@@ -22,7 +22,6 @@
 	if(M.stat != DEAD)
 		message_admins("[ADMIN_TPMONTY(ghost)] admin ghosted.")
 
-
 /datum/admins/proc/invisimin()
 	set name = "Invisimin"
 	set category = "Admin"
@@ -49,7 +48,6 @@
 	log_admin("[key_name(M)] has [(M.invisibility == INVISIBILITY_MAXIMUM) ? "enabled" : "disabled"] invisimin.")
 	if(!check_rights(R_DBRANKS))
 		message_admins("[ADMIN_TPMONTY(M)] has [(M.invisibility == INVISIBILITY_MAXIMUM) ? "enabled" : "disabled"] invisimin.")
-
 
 /datum/admins/proc/stealth_mode()
 	set category = "Admin"
@@ -97,7 +95,6 @@
 	log_admin(logging)
 	message_admins(logging)
 
-
 /datum/admins/proc/give_mob(mob/living/given_living in GLOB.mob_living_list)
 	set category = null
 	set name = "Give Mob"
@@ -123,7 +120,6 @@
 	message_admins("[ADMIN_TPMONTY(usr)] gave [ADMIN_TPMONTY(given_living)] to [ADMIN_TPMONTY(mob_received)].")
 
 	given_living.take_over(mob_received, TRUE)
-
 
 /datum/admins/proc/give_mob_panel()
 	set category = "Admin"
@@ -152,7 +148,6 @@
 
 	given_living.take_over(mob_received, TRUE)
 
-
 /datum/admins/proc/rejuvenate(mob/living/L in GLOB.mob_living_list)
 	set category = null
 	set name = "Rejuvenate"
@@ -171,7 +166,6 @@
 
 	log_admin("[key_name(usr)] revived [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] revived [ADMIN_TPMONTY(L)].")
-
 
 /datum/admins/proc/rejuvenate_panel()
 	set category = "Admin"
@@ -196,7 +190,6 @@
 	log_admin("[key_name(usr)] revived [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] revived [ADMIN_TPMONTY(L)].")
 
-
 /datum/admins/proc/toggle_sleep(mob/living/L in GLOB.mob_living_list)
 	set category = null
 	set name = "Toggle Sleeping"
@@ -217,7 +210,6 @@
 	log_admin("[key_name(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [ADMIN_TPMONTY(L)].")
 
-
 /datum/admins/proc/toggle_sleep_panel()
 	set category = "Admin"
 	set name = "Toggle Sleeping Mob"
@@ -233,7 +225,6 @@
 
 	log_admin("[key_name(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [ADMIN_TPMONTY(L)].")
-
 
 /datum/admins/proc/toggle_sleep_area()
 	set category = "Admin"
@@ -263,7 +254,6 @@
 
 	usr.client.holder.browse_server_logs()
 
-
 /datum/admins/proc/logs_current()
 	set category = "Admin"
 	set name = "Get Current Logs"
@@ -273,7 +263,6 @@
 		return
 
 	usr.client.holder.browse_server_logs("[GLOB.log_directory]/")
-
 
 /datum/admins/proc/logs_folder()
 	set category = "Admin"
@@ -292,7 +281,6 @@
 
 	usr.client.holder.recursive_download(path)
 
-
 /datum/admins/proc/browse_server_logs(path = "data/logs/")
 	if(!check_rights(R_LOG))
 		return
@@ -301,19 +289,18 @@
 	if(!path)
 		return
 
-	switch(input("View (in game), Open (in your system's text editor), Download", path) as null|anything in list("View", "Open", "Download"))
+	switch(tgui_alert(usr, "View (in game), Open (in your system's text editor), Download", path, list("View", "Open", "Download"), 0))
 		if("View")
-			usr << browse("<pre style='word-wrap: break-word;'>[html_encode(file2text(file(path)))]</pre>", list2params(list("window" = "viewfile.[path]")))
+			DIRECT_OUTPUT(usr, browse("<pre style='word-wrap: break-word;'>[html_encode(file2text(file(path)))]</pre>", list2params(list("window" = "viewfile.[path]"))))
 		if("Open")
-			usr << run(file(path))
+			DIRECT_OUTPUT(usr, run(file(path)))
 		if("Download")
-			usr << ftp(file(path))
+			DIRECT_OUTPUT(usr, ftp(file(path)))
 		else
 			return
 
 	log_admin("[key_name(usr)] accessed file: [path].")
 	message_admins("[ADMIN_TPMONTY(usr)] accessed file: [path].")
-
 
 /datum/admins/proc/recursive_download(folder)
 	if(!check_rights(R_LOG))
@@ -328,8 +315,7 @@
 			log_admin("[key_name(usr)] accessed file: [folder][next].")
 			to_chat(usr, "Downloading: [folder][next]")
 			var/fil = replacetext("[folder][next]", "/", "_")
-			usr << ftp(file(folder + next), fil)
-
+			DIRECT_OUTPUT(usr, ftp(file(folder + next), fil))
 
 /datum/admins/proc/browse_folders(root = "data/logs/", max_iterations = 100)
 	if(!check_rights(R_ADMIN))
@@ -340,7 +326,7 @@
 		var/list/choices = flist(path)
 		if(path != root)
 			choices.Insert(1, "/")
-		var/choice = input("Choose a folder to access:", "Server Logs") as null|anything in choices
+		var/choice = tgui_input_list(usr, "Choose a folder to access:", "Server Logs", choices, timeout = 0)
 		switch(choice)
 			if(null)
 				return FALSE
@@ -352,16 +338,14 @@
 		if(copytext(path, -1, 0) != "/")		//didn't choose a directory, no need to iterate again
 			return FALSE
 
-		switch(alert("Is this the folder you want to download?:", "Server Logs", "Yes", "No", "Cancel"))
+		switch(tgui_alert("Is this the folder you want to download?:", "Server Logs", "Yes", "No", "Cancel"))
 			if("Yes")
 				break
 			if("No")
 				continue
 			if("Cancel")
 				return FALSE
-
 	return path
-
 
 /datum/admins/proc/browse_files(root = "data/logs/", max_iterations = 20, list/valid_extensions = list("txt", "log", "htm", "html", "json"))
 	if(!check_rights(R_LOG))
@@ -372,7 +356,7 @@
 		var/list/choices = flist(path)
 		if(path != root)
 			choices.Insert(1, "/")
-		var/choice = input("Choose a file to access:", "Download", null) as null|anything in choices
+		var/choice = tgui_input_list(usr, "Choose a file to access:", "Download", choices, timeout = 0)
 		switch(choice)
 			if(null)
 				return
@@ -611,7 +595,6 @@
 		else if(C.mob.stat == DEAD && (C.prefs.toggles_chat & CHAT_DEAD))
 			to_chat(C, msg)
 
-
 /datum/admins/proc/jump()
 	set category = "Admin"
 	set name = "Jump To"
@@ -634,7 +617,6 @@
 	log_admin("[key_name(usr)] jumped to [A] at [AREACOORD(T)].")
 	if(!isobserver(N))
 		message_admins("[ADMIN_TPMONTY(usr)] jumped to [A] at [ADMIN_TPMONTY(T)].")
-
 
 /datum/admins/proc/get_mob()
 	set category = "Admin"
@@ -659,7 +641,6 @@
 	log_admin("[key_name(usr)] teleported [key_name(M)] to themselves [AREACOORD(M.loc)].")
 	message_admins("[ADMIN_TPMONTY(usr)] teleported [ADMIN_TPMONTY(M)] to themselves.")
 
-
 /datum/admins/proc/send_mob()
 	set category = "Admin"
 	set name = "Send Mob"
@@ -682,8 +663,7 @@
 	log_admin("[key_name(usr)] teleported [key_name(M)] to [AREACOORD(T)].")
 	message_admins("[ADMIN_TPMONTY(usr)] teleported [ADMIN_TPMONTY(M)] to [ADMIN_VERBOSEJMP(T)].")
 
-
-/datum/admins/proc/jump_area(area/A in GLOB.sorted_areas)
+/datum/admins/proc/jump_area()
 	set category = null
 	set name = "Jump to Area"
 
@@ -691,7 +671,9 @@
 		return
 
 	var/mob/M = usr
-	var/turf/T = pick(get_area_turfs(A))
+	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", GLOB.sorted_areas, timeout = 0)
+	chosen = pick(get_area_turfs(chosen))
+	var/turf/T = pick(get_area_turfs(chosen))
 	M.forceMove(T)
 
 	log_admin("[key_name(usr)] jumped to [AREACOORD(M)].")
@@ -712,8 +694,7 @@
 	if(!isobserver(M))
 		message_admins("[ADMIN_TPMONTY(M)] jumped to turf [ADMIN_VERBOSEJMP(T)].")
 
-
-/datum/admins/proc/jump_coord(tx as num, ty as num, tz as num)
+/datum/admins/proc/jump_coord()
 	set category = null
 	set name = "Jump to Coordinate"
 
@@ -721,6 +702,19 @@
 		return
 
 	var/mob/M = usr
+
+	var/tx = tgui_input_number(usr, "Choose X coordinate.", "X coordinate", max_value = 255, min_value = 1, timeout = 0)
+	if(!tx)
+		return
+
+	var/ty = tgui_input_number(usr, "Choose Y coordinate.", "Y coordinate", max_value = 255, min_value = 1, timeout = 0)
+	if(!ty)
+		return
+
+	var/tz = tgui_input_number(usr, "Choose Z coordinate.", "Z coordinate", max_value = 10, min_value = 1, timeout = 0)
+	if(!tz)
+		return
+
 	var/turf/T = locate(tx, ty, tz)
 	if(!istype(T))
 		return
@@ -730,7 +724,6 @@
 	if(!isobserver(M))
 		message_admins("[ADMIN_TPMONTY(M)] jumped to coordinate [ADMIN_VERBOSEJMP(T)].")
 
-
 /datum/admins/proc/jump_mob()
 	set category = null
 	set name = "Jump to Mob"
@@ -738,7 +731,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/mob/M = input("Please, select a mob.", "Jump to Mob") as null|anything in sortNames(GLOB.mob_list)
+	var/mob/M = tgui_input_list(usr, "Please, select a mob.", "Jump to Mob", sortNames(GLOB.mob_list), timeout = 0)
 	if(!istype(M))
 		return
 
@@ -752,7 +745,6 @@
 	if(!isobserver(N))
 		message_admins("[ADMIN_TPMONTY(N)] jumped to [ADMIN_TPMONTY(T)].")
 
-
 /datum/admins/proc/jump_key()
 	set category = null
 	set name = "Jump to Key"
@@ -760,7 +752,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/client/C = input("Please, select a key.", "Jump to Key") as null|anything in sortKey(GLOB.clients)
+	var/client/C = tgui_input_list(usr, "Please, select a key.", "Jump to Key", sortKey(GLOB.clients), timeout = 0)
 	if(!C?.mob)
 		return
 
@@ -1212,21 +1204,6 @@
 		log_admin("[key_name(usr)] forcibly removed all players from [armor].")
 		message_admins("[ADMIN_TPMONTY(usr)] forcibly removed all players from [armor].")
 
-/// Admin verb to delete a squad completely
-/datum/admins/proc/delete_squad()
-	set category = "Admin"
-	set name = "Delete a squad"
-
-	if(!check_rights(R_ADMIN))
-		return
-	var/id_to_del = input("Choose the marine's new squad.", "Change Squad") as null|anything in SSjob.squads
-	if(!id_to_del)
-		return
-	qdel(SSjob.squads[id_to_del])
-	var/msg = "[key_name(usr)] has deleted a squad. ID:[id_to_del]."
-	message_admins(msg)
-	log_admin(msg)
-
 /datum/admins/proc/job_slots()
 	set category = "Admin"
 	set name = "Job Slots"
@@ -1413,7 +1390,7 @@
 	set category = "Admin"
 	set name = "Smite"
 
-	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in GLOB.smites //Choose a smite if any exist from global smites
+	var/punishment = tgui_input_list(usr, "Choose a punishment", "DIVINE SMITING", GLOB.smites, timeout = 0)//Choose a smite if any exist from global smites
 
 	if(QDELETED(target) || !punishment)
 		return
