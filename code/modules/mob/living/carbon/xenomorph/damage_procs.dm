@@ -165,9 +165,6 @@
 	if(!(xeno_caste.caste_flags & CASTE_ACID_BLOOD))
 		return FALSE
 
-	if(stat == DEAD)
-		return FALSE
-
 	if(!isturf(loc))
 		return FALSE
 
@@ -176,6 +173,8 @@
 		chancemod += 10
 	if(edge) //Pierce weapons give the most bonus
 		chancemod += 15
+	if(stat == DEAD) // pressure in dead body is lower than usual
+		chancemod * 0.5
 	chance += chancemod + (damage * 0.33)
 	if(!prob(chance))
 		return FALSE
