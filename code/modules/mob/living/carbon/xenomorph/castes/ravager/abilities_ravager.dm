@@ -389,3 +389,52 @@
 	particle_holder.pixel_y = 18
 	particle_holder.pixel_x = 18
 	timer_ref = QDEL_NULL_IN(src, particle_holder, heal_delay)
+
+// ***************************************
+// *********** Immortality
+// ***************************************
+/datum/action/ability/xeno_action/immortality
+	name = "Immortality"
+	action_icon_state = "enhancement"
+	desc = "We are too angry to die."
+	ability_cost = 666
+	cooldown_duration = 35 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_IMMORTALITY,
+	)
+	use_state_flags = ABILITY_USE_STAGGERED
+
+/datum/action/ability/xeno_action/immortality/on_cooldown_finish()
+	to_chat(owner, span_xenodanger("We are able to become immortal once again."))
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
+	return ..()
+
+/datum/action/ability/xeno_action/immortality/action_activate()
+	var/mob/living/carbon/xenomorph/ravager/X = owner
+
+	X.emote("roar")
+	X.visible_message(span_danger("[X]'s skin begins to glow!"), \
+	span_xenowarning("We are too angry to die!"))
+
+	X.add_filter("ravager_immortality_outline", 4, outline_filter(0.5, COLOR_TRANSPARENT_SHADOW))
+
+	ENABLE_BITFIELD(X.status_flags, GODMODE)
+
+	addtimer(CALLBACK(src, PROC_REF(immortality_deactivate)), RAVAGER_IMMORTALITY_DURATION, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
+
+	succeed_activate()
+	add_cooldown()
+
+/datum/action/ability/xeno_action/immortality/proc/immortality_deactivate()
+	if(QDELETED(owner))
+		return
+	var/mob/living/carbon/xenomorph/X = owner
+
+	DISABLE_BITFIELD(X.status_flags, GODMODE)
+
+	X.do_jitter_animation(500)
+
+	X.remove_filter("ravager_immortality_outline")
+
+	to_chat(owner,span_highdanger("We are now mortal again."))
+	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)

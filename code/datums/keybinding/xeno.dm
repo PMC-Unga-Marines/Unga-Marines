@@ -748,6 +748,13 @@
 	description = "While active, will increase the ravagers healing for a while for every time it hits a new enemy. Effects stack."
 	keybind_signal = COMSIG_XENOABILITY_VAMPIRISM
 
+/datum/keybinding/xeno/ravager_immortality
+	name = "ravager_immortality"
+	full_name = "Ravager: Immortality"
+	description = "For the next few moments we will be immune to damage."
+	keybind_signal = COMSIG_XENOABILITY_IMMORTALITY
+	hotkey_keys = list("X")
+
 /datum/keybinding/xeno/ravage
 	name = "ravage"
 	full_name = "Ravager: Ravage"
