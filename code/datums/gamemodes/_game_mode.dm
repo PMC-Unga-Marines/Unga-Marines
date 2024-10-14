@@ -614,7 +614,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	job.on_late_spawn(player.new_character)
 	player.new_character.client?.init_verbs()
 	var/area/A = get_area(player.new_character)
-	deadchat_broadcast(span_game(" Очнулся из криосна на [span_name("[A?.name]")]."), span_game("[span_name("[player.new_character.real_name]")] ([job.title])"), follow_target = player.new_character, message_type = DEADCHAT_ARRIVALRATTLE)
+	deadchat_broadcast(span_game(" Очнулся из криосна в [span_name("[A?.name]")]."), span_game("[span_name("[player.new_character.real_name]")] ([job.title])"), follow_target = player.new_character, message_type = DEADCHAT_ARRIVALRATTLE)
 	qdel(player)
 
 /datum/game_mode/proc/attempt_to_join_as_larva(mob/xeno_candidate)
@@ -967,13 +967,13 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(isobserver(source))
 		var/siloless_countdown = SSticker.mode.get_siloless_collapse_countdown()
 		if(siloless_countdown)
-			items +="Улей без гнезда! Распад улья через: [siloless_countdown]"
+			items +="Улей без Сило! Распад улья через: [siloless_countdown]"
 	else if(isxeno(source))
 		var/mob/living/carbon/xenomorph/xeno_source = source
 		if(xeno_source.hivenumber == XENO_HIVE_NORMAL)
 			var/siloless_countdown = SSticker.mode.get_siloless_collapse_countdown()
 			if(siloless_countdown)
-				items +="Улей без гнезда! Распад улья через: [siloless_countdown]"
+				items +="Улей без Сило! Распад улья через: [siloless_countdown]"
 
 /// Displays the orphan hivemind collapse timer, if applicable
 /datum/game_mode/proc/handle_collapse_timer(datum/dcs, mob/source, list/items)
