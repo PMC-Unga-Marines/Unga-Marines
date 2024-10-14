@@ -54,8 +54,8 @@
 	var/list/our_brute_chems = list(/datum/reagent/medicine/bicaridine, /datum/reagent/medicine/tricordrazine)
 	var/list/our_burn_chems = list(/datum/reagent/medicine/kelotane, /datum/reagent/medicine/tricordrazine)
 	var/list/our_tox_chems = list(/datum/reagent/medicine/hyronalin, /datum/reagent/medicine/tricordrazine)
-	var/list/our_oxy_chems = list(/datum/reagent/medicine/inaprovaline, /datum/reagent/medicine/tricordrazine)
-	var/list/our_pain_chems = list(/datum/reagent/medicine/oxycodone, /datum/reagent/medicine/tricordrazine)
+	var/list/our_oxy_chems = list(/datum/reagent/medicine/inaprovaline)
+	var/list/our_pain_chems = list(/datum/reagent/medicine/oxycodone)
 	/// This will do nothing without the autodoc update
 	parent.AddComponent(/datum/component/suit_autodoc, 3 MINUTES, our_brute_chems, our_burn_chems, our_tox_chems, our_oxy_chems, our_pain_chems, 0.5)
 	parent.AddElement(/datum/element/limb_support, supported_limbs)
