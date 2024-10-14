@@ -45,4 +45,4 @@
 	var/sound/S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
-	log_game("[round_finished]\nИгровой режим: [name]\nВремя раунда: [duration2text()]\nКоличество людей к концу: [length(GLOB.clients)]\nИтого ксеноморфов заспавненось: [GLOB.round_statistics.total_xenos_created]\nИтого людей заспавнилось: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nИгровой режим: [name]\nВремя раунда: [duration2text()]\nКоличество людей к концу: [length(GLOB.clients)]\nИтого ксеноморфов заспавнилось: [GLOB.round_statistics.total_xenos_created]\nИтого людей заспавнилось: [GLOB.round_statistics.total_humans_created]")
