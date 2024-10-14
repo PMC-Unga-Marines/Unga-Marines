@@ -57,7 +57,7 @@
 	var/list/our_oxy_chems = list(/datum/reagent/medicine/inaprovaline)
 	var/list/our_pain_chems = list(/datum/reagent/medicine/oxycodone)
 	/// This will do nothing without the autodoc update
-	parent.AddComponent(/datum/component/suit_autodoc, 3 MINUTES, our_brute_chems, our_burn_chems, our_tox_chems, our_oxy_chems, our_pain_chems, 0.5)
+	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES, our_brute_chems, our_burn_chems, our_tox_chems, our_oxy_chems, our_pain_chems, 0.5)
 	parent.AddElement(/datum/element/limb_support, supported_limbs)
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_detach(obj/item/detaching_from, mob/user)
