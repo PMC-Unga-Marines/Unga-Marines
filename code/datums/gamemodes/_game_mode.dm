@@ -881,7 +881,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		if(fleecheck)
 			var/turf/T = get_turf(ply.current)
 			if(!T || !is_station_level(T.z))
-				text += " и [span_redtext("покинул судно")]"
+				text += ", [span_redtext(" при эвакуации с судна")]"
 		if(ply.current.real_name != ply.name)
 			text += " будучи <b>[ply.current.real_name]</b>"
 	else
@@ -1099,7 +1099,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		var/pred_max = calculate_pred_max
 		if(pred_current_num >= pred_max)
 			if(show_warning)
-				to_chat(pred_candidate, span_warningto_chat(pred_candidate, span_warning("Только [pred_max] [pred_max != 1 ? "хищников доступно" : "хищник доступен"] в этом раунде. Консулы и древние в счет не идут."))
+				to_chat(pred_candidate, span_warningto_chat("Только [pred_max != 1 ? "[pred_max] хищников доступно" : "[pred_max] хищник доступен"] в этом раунде. Консулы и древние в счет не идут."))
 			return
 
 	return TRUE
