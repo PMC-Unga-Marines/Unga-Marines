@@ -49,20 +49,22 @@
 		clear_fullscreen(category)
 
 /mob/proc/hide_fullscreens()
-	if(client)
-		for(var/category in fullscreens)
-			client.screen -= fullscreens[category]
+	if(!client)
+		return
+	for(var/category in fullscreens)
+		client.screen -= fullscreens[category]
 
 /mob/proc/reload_fullscreens()
-	if(client)
-		var/atom/movable/screen/fullscreen/screen
-		for(var/category in fullscreens)
-			screen = fullscreens[category]
-			if(screen.should_show_to(src))
-				screen.update_for_view(client.view)
-				client.screen |= screen
-			else
-				client.screen -= screen
+	if(!client)
+		return
+	var/atom/movable/screen/fullscreen/screen
+	for(var/category in fullscreens)
+		screen = fullscreens[category]
+		if(screen.should_show_to(src))
+			screen.update_for_view(client.view)
+			client.screen |= screen
+		else
+			client.screen -= screen
 
 /atom/movable/screen/fullscreen
 	icon = 'icons/mob/screen/full/misc.dmi'
@@ -83,7 +85,9 @@
 	return ..()
 
 /atom/movable/screen/fullscreen/proc/update_for_view(client_view)
-	if (screen_loc == "CENTER-7,CENTER-7" && fs_view != client_view)
+	if(fs_view == client_view)
+		return
+	if(screen_loc != "CENTER-7,CENTER-7")
 		var/list/actualview = getviewsize(client_view)
 		fs_view = client_view
 		transform = matrix(actualview[1] / FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2] / FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
