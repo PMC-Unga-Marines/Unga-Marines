@@ -6,7 +6,6 @@
 	icon_state = "cleanbot0"
 	density = FALSE
 	anchored = FALSE
-	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	shutdownsentences = list(
 		"Turning me off won't magically clean up your mess...",
 		"I'll patiently await your next need for my exceptional assistance.",

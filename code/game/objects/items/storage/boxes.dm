@@ -790,30 +790,6 @@
 
 // -SMG-
 
-/obj/item/storage/box/visual/magazine/compact/smg90
-	name = "SMG-90 magazine box"
-	desc = "A box specifically designed to hold a large amount of SMG-90 magazines."
-	closed_overlay = "mag_box_small_overlay_smg90"
-	can_hold = list(
-		/obj/item/ammo_magazine/smg/smg90,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/smg90/full
-	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/smg/smg90
-
-/obj/item/storage/box/visual/magazine/compact/mp19
-	name = "MP-19 magazine box"
-	desc = "A box specifically designed to hold a large amount of MP-19 magazines."
-	closed_overlay = "mag_box_small_overlay_mp19"
-	can_hold = list(
-		/obj/item/ammo_magazine/smg/mp19,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/mp19/full
-	spawn_number = 40
-	spawn_type = /obj/item/ammo_magazine/smg/mp19
-
 /obj/item/storage/box/visual/magazine/compact/pepperball
 	name = "Pepperball canister box"
 	desc = "A box specifically designed to hold a large amount of Pepperball canisters."
@@ -841,45 +817,6 @@
 /obj/item/storage/box/visual/magazine/compact/ar12/full
 	spawn_number = 30
 	spawn_type = /obj/item/ammo_magazine/rifle/ar12
-
-/obj/item/storage/box/visual/magazine/compact/ar18
-	name = "AR-18 magazine box"
-	desc = "A box specifically designed to hold a large amount of AR-18 magazines."
-	storage_slots = 30
-	closed_overlay = "mag_box_small_overlay_ar18"
-	can_hold = list(
-		/obj/item/ammo_magazine/rifle/ar18,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/ar18/full
-	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/ar18
-
-/obj/item/storage/box/visual/magazine/compact/ar21
-	name = "AR-21 magazine box"
-	desc = "A box specifically designed to hold a large amount of AR-21 magazines."
-	storage_slots = 30
-	closed_overlay = "mag_box_small_overlay_ar21"
-	can_hold = list(
-		/obj/item/ammo_magazine/rifle/ar21,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/ar21/full
-	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/ar21
-
-/obj/item/storage/box/visual/magazine/compact/ar11
-	name = "AR-11 magazine box"
-	desc = "A box specifically designed to hold a large amount of AR-11 magazines."
-	storage_slots = 30
-	closed_overlay = "mag_box_small_overlay_ar11"
-	can_hold = list(
-		/obj/item/ammo_magazine/rifle/ar11,
-	)
-
-/obj/item/storage/box/visual/magazine/compact/ar11/full
-	spawn_number = 30
-	spawn_type = /obj/item/ammo_magazine/rifle/ar11
 
 /obj/item/storage/box/visual/magazine/compact/martini
 	name = "Martini Henry ammo packet box"
