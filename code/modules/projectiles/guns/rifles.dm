@@ -1032,7 +1032,6 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pkp)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
-		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/scope/mini,
