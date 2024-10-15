@@ -684,7 +684,6 @@
 		/obj/item/attachable/bayonetknife,
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/compensator,
-		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/angledgrip,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
