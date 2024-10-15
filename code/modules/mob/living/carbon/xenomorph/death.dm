@@ -113,6 +113,9 @@
 	new /obj/effect/overlay/temp/dust_animation(loc, 0, src, "dust-a")
 
 /mob/living/carbon/xenomorph/proc/last_stand_death()
+	if(QDELETED(src)) // in case we were gibbed
+		return
+
 	fade_out(src, our_time = 5 SECONDS)
 	sleep(5 SECONDS)
 	if(prob(25))
