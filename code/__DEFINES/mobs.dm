@@ -612,7 +612,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.75 //The maximum % of HP we can have to trigger Rage
 #define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD		0.5
 #define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
-#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			100 //Maximum amount of healing from slash during Rage
+#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			40 //Base amount of healing from slash during Rage
+#define RAVAGER_IMMORTALITY_DURATION					5 SECONDS
 
 //crusher defines
 #define CRUSHER_STOMP_LOWER_DMG 40
@@ -895,3 +896,12 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 
 ///Filter name for illusion impacts
 #define ILLUSION_HIT_FILTER "illusion_hit_filter"
+
+#define WARRIOR_PUNCH_SLOWDOWN 3
+#define WARRIOR_PUNCH_STAGGER 3
+#define WARRIOR_PUNCH_EMPOWER_MULTIPLIER 1.8
+#define WARRIOR_PUNCH_GRAPPLED_DAMAGE_MULTIPLIER 1.8
+#define WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER 1.5
+#define WARRIOR_PUNCH_GRAPPLED_PARALYZE 0.5 SECONDS
+#define WARRIOR_PUNCH_KNOCKBACK_DISTANCE 1
+#define WARRIOR_PUNCH_KNOCKBACK_SPEED 1

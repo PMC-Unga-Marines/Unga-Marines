@@ -178,3 +178,52 @@
 ///returns how much the object blocks an explosion. Used by subtypes.
 /obj/proc/GetExplosionBlock(explosion_dir)
 	CRASH("Unimplemented GetExplosionBlock()")
+
+/obj/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if((resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE)) || charger.is_charging < CHARGE_ON)
+		charge_datum.do_stop_momentum()
+		return PRECRUSH_STOPPED
+	if(anchored)
+		if(flags_atom & ON_BORDER)
+			if(dir == REVERSE_DIR(charger.dir))
+				. = (CHARGE_SPEED(charge_datum) * 120) //Damage to inflict.
+				charge_datum.speed_down(3)
+				return
+			else
+				. = (CHARGE_SPEED(charge_datum) * 240)
+				charge_datum.speed_down(1)
+				return
+		else
+			. = (CHARGE_SPEED(charge_datum) * 320)
+			charge_datum.speed_down(2)
+			return
+
+	for(var/m in buckled_mobs)
+		unbuckle_mob(m)
+	return (CHARGE_SPEED(charge_datum) * 50) //Damage to inflict.
+
+/obj/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(anchored) //Did it manage to stop it?
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+		span_xenowarning("We ram into [src] and skid to a halt!"))
+		if(charger.is_charging > CHARGE_OFF)
+			charge_datum.do_stop_momentum(FALSE)
+		return PRECRUSH_STOPPED
+	var/fling_dir = pick(GLOB.cardinals - ((charger.dir & (NORTH|SOUTH)) ? list(NORTH, SOUTH) : list(EAST, WEST))) //Fling them somewhere not behind nor ahead of the charger.
+	var/fling_dist = min(round(CHARGE_SPEED(charge_datum)) + 1, 3)
+	if(!step(src, fling_dir) && density)
+		charge_datum.do_stop_momentum(FALSE) //Failed to be tossed away and returned, more powerful than ever, to block the charger's path.
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+			span_xenowarning("We ram into [src] and skid to a halt!"))
+		return PRECRUSH_STOPPED
+	if(--fling_dist)
+		for(var/i in 1 to fling_dist)
+			if(!step(src, fling_dir))
+				break
+	charger.visible_message("[span_warning("[charger] knocks [src] aside.")]!",
+	span_xenowarning("We knock [src] aside.")) //Canisters, crates etc. go flying.
+	charge_datum.speed_down(2) //Lose two turfs worth of speed.
+	return PRECRUSH_PLOWED
+
+/obj/proc/crushed_special_behavior()
+	return NONE

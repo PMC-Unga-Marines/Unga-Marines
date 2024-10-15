@@ -596,6 +596,10 @@
 	update()
 	update_icon()
 
+/obj/machinery/power/apc/punch_act(...)
+	. = ..()
+	beenhit += 4 // Break it open instantly.
+	update_appearance()
 
 //------Various APCs ------//
 

@@ -39,7 +39,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return TRUE
 
 
-/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), tts_message, list/tts_filter)
+/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list())
 	var/found_client = FALSE
 	var/rendered = compose_message(src, message_language, message, , spans, message_mods)
 	var/list/listeners = get_hearers_in_view(range, source)
@@ -52,25 +52,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 			listened += hearing_movable
 		if(!found_client && length(hearing_movable.client_mobs_in_contents))
 			found_client = TRUE
-
-	var/tts_message_to_use = tts_message
-	if(!tts_message_to_use)
-		tts_message_to_use = message
-
-	var/list/filter = list()
-	var/list/special_filter = list()
-	var/voice_to_use = voice
-	var/use_radio = FALSE
-	if(length(voice_filter) > 0)
-		filter += voice_filter
-
-	if(length(tts_filter) > 0)
-		filter += tts_filter.Join(",")
-	if(use_radio)
-		special_filter += TTS_FILTER_RADIO
-
-	if(voice && found_client)
-		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(tts_message_to_use), message_language, voice_to_use, filter.Join(","), listened, message_range = range, pitch = pitch, special_filters = special_filter.Join("|"))
 
 #define CMSG_FREQPART compose_freq(speaker, radio_freq)
 #define CMSG_JOBPART compose_job(speaker, message_language, raw_message, radio_freq)

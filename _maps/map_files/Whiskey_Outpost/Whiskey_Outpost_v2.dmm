@@ -583,11 +583,6 @@
 /area/whiskey_outpost)
 "cK" = (
 /obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "cL" = (
@@ -4214,11 +4209,8 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
 /obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/mp19/full,
 /obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
 /obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
 /obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full,
