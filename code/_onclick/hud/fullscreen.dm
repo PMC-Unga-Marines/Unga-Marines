@@ -177,6 +177,16 @@
 /atom/movable/screen/fullscreen/machine/robotlow
 	icon_state = "robotlow"
 
+/atom/movable/screen/fullscreen/machine/pred
+	alpha = 140
+
+/atom/movable/screen/fullscreen/machine/pred/meson
+	icon_state = "pred_meson"
+	icon = 'icons/mob/screen/full.dmi'
+
+/atom/movable/screen/fullscreen/machine/pred/night
+	icon_state = "robothalf"
+
 /atom/movable/screen/fullscreen/ivanov_display
 	icon_state = "ivanov"
 	alpha = 180

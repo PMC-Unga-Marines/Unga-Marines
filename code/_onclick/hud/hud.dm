@@ -62,6 +62,7 @@
 
 	var/list/atom/movable/screen/plane_master/plane_masters = list() // see "appearance_flags" in the ref, assoc list of "[plane]" = object
 
+	var/atom/movable/screen/pred_power_icon
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -132,6 +133,8 @@
 	QDEL_LIST(ammo_hud_list)
 
 	mymob = null
+
+	pred_power_icon = null
 
 	return ..()
 
