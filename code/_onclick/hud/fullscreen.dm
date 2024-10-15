@@ -5,7 +5,6 @@
 	overlay_fullscreen(category, type, severity)
 	addtimer(CALLBACK(src, PROC_REF(clear_fullscreen), category, animated), duration)
 
-
 ///Applies a fullscreen overlay
 /mob/proc/overlay_fullscreen(category, type, severity)
 	var/atom/movable/screen/fullscreen/screen = fullscreens[category]
@@ -48,17 +47,14 @@
 	fullscreens -= category
 	qdel(screen)
 
-
 /mob/proc/clear_fullscreens()
 	for(var/category in fullscreens)
 		clear_fullscreen(category)
-
 
 /mob/proc/hide_fullscreens()
 	if(client)
 		for(var/category in fullscreens)
 			client.screen -= fullscreens[category]
-
 
 /mob/proc/reload_fullscreens()
 	if(client)
@@ -85,12 +81,10 @@
 	///Holder for deletion timer
 	var/removal_timer
 
-
 /atom/movable/screen/fullscreen/Destroy()
 	deltimer(removal_timer)
 	removal_timer = null
 	return ..()
-
 
 /atom/movable/screen/fullscreen/proc/update_for_view(client_view)
 	if (screen_loc == "CENTER-7,CENTER-7" && fs_view != client_view)
