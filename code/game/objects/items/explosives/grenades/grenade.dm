@@ -66,6 +66,17 @@
 		return
 	user.throw_item(target)
 
+/obj/item/explosive/grenade/update_overlays()
+	. = ..()
+	if(!dangerous)
+		return
+	if(active && overlay_type)
+		. += image('icons/effects/danger.dmi', icon_state = "danger_[overlay_type]")
+
+/obj/item/explosive/grenade/fire_act(burn_level, flame_color)
+	activate()
+
+///Activates the grenade
 /obj/item/explosive/grenade/proc/activate(mob/user)
 	if(active)
 		return
@@ -85,23 +96,22 @@
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
 	return TRUE
 
-/obj/item/explosive/grenade/update_overlays()
-	. = ..()
-	if(!dangerous)
-		return
-	if(active && overlay_type)
-		. += image('icons/effects/danger.dmi', icon_state = "danger_[overlay_type]")
-
 /obj/item/explosive/grenade/proc/prime()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/idiot = loc
+		if(idiot.l_hand == src)
+			idiot.amputate_limb(BODY_ZONE_PRECISE_L_HAND)
+		else if(idiot.r_hand == src)
+			idiot.amputate_limb(BODY_ZONE_PRECISE_R_HAND)
+		idiot.visible_message(span_danger("[idiot]'s hand is blown into tiny pieces by [src]!"),
+		span_userdanger("You feel incredible pain and stupidity as [src] blows your hand up."))
+		idiot.emote("scream")
 	cell_explosion(loc, power = src.power, falloff = src.falloff)
 	qdel(src)
 
-/obj/item/explosive/grenade/fire_act(burn_level, flame_color)
-	activate()
-
 ///Adjusts det time, used for grenade launchers
 /obj/item/explosive/grenade/proc/launched_det_time()
-	det_time = min(12, det_time)
+	det_time = min(1 SECONDS, det_time)
 
 /obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
