@@ -138,7 +138,6 @@
 
 	return ..()
 
-
 /mob/proc/create_mob_hud()
 	if(!client || hud_used)
 		return
@@ -148,7 +147,6 @@
 	hud_used = new hud_type(src, ui_style, ui_color, ui_alpha)
 	update_sight()
 	SEND_SIGNAL(src, COMSIG_MOB_HUD_CREATED)
-
 
 /datum/hud/proc/plane_masters_update()
 	// Plane masters are always shown to OUR mob, never to observers
@@ -234,9 +232,7 @@
 			show_hud(hud_version, M)
 	else if(viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
-
 	return TRUE
-
 
 /datum/hud/human/show_hud(version = 0, mob/viewmob)
 	. = ..()
@@ -246,7 +242,6 @@
 	if(!screenmob.client)
 		return FALSE
 	hidden_inventory_update(screenmob)
-
 
 /datum/hud/proc/hidden_inventory_update(mob/viewer)
 	return
@@ -290,12 +285,10 @@
 		return
 	openToolTip(usr, src, params, title = name, content = desc)
 
-
 /atom/movable/screen/action_button/MouseExited()
 	if (!usr.client?.prefs?.tooltips)
 		return
 	closeToolTip(usr)
-
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
 /mob/verb/button_pressed_F12()
