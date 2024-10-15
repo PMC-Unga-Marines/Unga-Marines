@@ -90,6 +90,18 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass = 3) // 40 + 6
 	output = list(/obj/structure/droppod = 1) //40 points
 
+/datum/assembly_craft/engineering/aidroidscout
+	name = "XN-43-Stealth combat droid"
+	craft_time = 20 SECONDS
+	input = list(/obj/item/stack/sheet/jeweler_steel = 10, /obj/item/stack/sheet/composite = 5,)
+	output = list(/obj/vehicle/unmanned/droid/scout = 1)
+
+/datum/assembly_craft/engineering/aidroidcombat
+	name = "XN-43-Heavy combat droid"
+	craft_time = 30 SECONDS
+	input = list(/obj/item/stack/sheet/composite = 10, /obj/item/stack/sheet/metal = 3, /obj/item/stack/sheet/jeweler_steel = 2)
+	output = list(/obj/vehicle/unmanned/droid = 1)
+
 /*******************************************************************************
 CLOTHING
 *******************************************************************************/
