@@ -1,6 +1,3 @@
-#define SHOULD_SHOW_TO(mymob, myscreen) (!(mymob.stat == DEAD && !myscreen.show_when_dead))
-
-
 /mob/proc/overlay_fullscreen_timer(duration, animated, category, type, severity)
 	overlay_fullscreen(category, type, severity)
 	addtimer(CALLBACK(src, PROC_REF(clear_fullscreen), category, animated), duration)
@@ -22,7 +19,7 @@
 
 	screen.icon_state = "[initial(screen.icon_state)][severity]"
 	screen.severity = severity
-	if(client && SHOULD_SHOW_TO(src, screen))
+	if(client && screen.should_show_to(src))
 		screen.update_for_view(client.view)
 		client.screen += screen
 	return screen
@@ -61,12 +58,11 @@
 		var/atom/movable/screen/fullscreen/screen
 		for(var/category in fullscreens)
 			screen = fullscreens[category]
-			if(SHOULD_SHOW_TO(src, screen))
+			if(screen.should_show_to(src))
 				screen.update_for_view(client.view)
 				client.screen |= screen
 			else
 				client.screen -= screen
-
 
 /atom/movable/screen/fullscreen
 	icon = 'icons/mob/screen/full/misc.dmi'
@@ -91,6 +87,11 @@
 		var/list/actualview = getviewsize(client_view)
 		fs_view = client_view
 		transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+
+/atom/movable/screen/fullscreen/proc/should_show_to(mob/mob)
+	if(!show_when_dead && mob.stat == DEAD)
+		return FALSE
+	return TRUE
 
 /atom/movable/screen/fullscreen/black
 	icon_state = "black" //just a black square, you can change this if you get better ideas
@@ -210,5 +211,3 @@
 	layer = LIGHTING_PRIMARY_LAYER
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
-
-#undef SHOULD_SHOW_TO
