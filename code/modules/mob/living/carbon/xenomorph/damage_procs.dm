@@ -154,7 +154,7 @@
 
 #undef HANDLE_OVERHEAL
 
-///Splashes living mob in radius with acid, spawns
+///Splashes living mob in 1 tile radius with acid, spawns
 /mob/living/carbon/xenomorph/proc/check_blood_splash(damage = 0, damtype = BRUTE, chancemod = 0, sharp = FALSE, edge = FALSE)
 	if(!damage)
 		return FALSE
