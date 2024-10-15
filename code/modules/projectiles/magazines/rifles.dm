@@ -197,7 +197,7 @@
 	bonus_overlay = "ak47_ex"
 	max_rounds = 50
 	aim_speed_mod = 0.2
-	wield_delay_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
 
 // RPD
 
