@@ -20,7 +20,7 @@
 	outfit = /datum/outfit/job/command/captain
 	exp_type = EXP_TYPE_COMMAND
 	exp_requirements = XP_REQ_INTERMEDIATE
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
@@ -104,7 +104,7 @@ Godspeed, captain! And remember, you are not above the law."})
 	outfit = /datum/outfit/job/command/fieldcommander
 	exp_type = EXP_TYPE_COMMAND
 	exp_requirements = XP_REQ_UNSEASONED
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
@@ -1267,5 +1267,5 @@ If you require any help, use <b>mentorhelp</b> to ask mentors about what you're 
 
 // Silicons only need a very basic preview since there is no customization for them.
 /datum/job/terragov/silicon/ai/handle_special_preview(client/parent)
-	parent.show_character_previews(image('icons/mob/ai.dmi', icon_state = "ai", dir = SOUTH))
+	parent.show_character_previews(image('icons/mob/ai.dmi', icon_state = "ai"), list(SOUTH))
 	return TRUE

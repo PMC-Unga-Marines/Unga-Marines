@@ -4,7 +4,6 @@
 	icon = 'icons/obj/aibots.dmi'
 	density = FALSE
 	anchored = FALSE
-	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	///Keeps track of how many items or whatever have been cleaned
 	var/counter = 0
 	///So It doesnt infinitely look for an exit and crash the server
@@ -28,11 +27,6 @@
 
 /obj/machinery/bot/Initialize(mapload)
 	. = ..()
-	if(SStts.tts_enabled)
-		var/static/todays_voice
-		if(!todays_voice)
-			todays_voice = pick(SStts.available_speakers)
-		voice = todays_voice
 	RegisterSignal(src, COMSIG_AREA_EXITED, PROC_REF(turn_around))
 	update_icon()
 	if(is_active)
