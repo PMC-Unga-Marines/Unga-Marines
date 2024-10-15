@@ -86,7 +86,7 @@
 	if (screen_loc == "CENTER-7,CENTER-7" && fs_view != client_view)
 		var/list/actualview = getviewsize(client_view)
 		fs_view = client_view
-		transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+		transform = matrix(actualview[1] / FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2] / FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
 
 /atom/movable/screen/fullscreen/proc/should_show_to(mob/mob)
 	if(!show_when_dead && mob.stat == DEAD)
