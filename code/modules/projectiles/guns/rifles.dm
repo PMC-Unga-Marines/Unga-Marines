@@ -711,14 +711,16 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
+	actions_types = list(/datum/action/item_action/aim_mode)
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
 	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
 	force = 20
-	burst_amount = 1
+	burst_amount = 2
+	autoburst_delay = 0.10 SECONDS
 	aim_slowdown = 0.5
 	fire_delay = 0.20 SECONDS
-	scatter = 2
+	scatter = 0
 	wield_delay = 0.8 SECONDS
 	placed_overlay_iconstate = "ak47"
 
@@ -743,8 +745,8 @@
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
@@ -764,6 +766,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 	)
+	actions_types = null
 	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
@@ -778,7 +781,9 @@
 	wield_delay = 0.5 SECONDS
 	aim_slowdown = 0.3
 	movement_acc_penalty_mult = 4
-	damage_falloff_mult = 1.5
+	burst_amount = 3
+	autoburst_delay = 0.10 SECONDS
+	damage_falloff_mult = 2.5
 	upper_akimbo_accuracy = 12
 	lower_akimbo_accuracy = 9
 	akimbo_additional_delay = 2
