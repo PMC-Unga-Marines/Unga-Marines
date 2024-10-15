@@ -167,7 +167,7 @@
 // Marine mags for AK
 /obj/item/ammo_magazine/rifle/zarya
 	name = "\improper Type-16 rifle magazine (6.02x41)"
-	desc = "A 40 round 6.02x41mm magazine. Somebody fucking soldered this mag's mount for fucking nobody knows why, now it only fits the rifle."
+	desc = "A 40 round 6.02x41mm magazine. The magazine well appears to be soldered shut so it now only fits the rifle.
 	caliber = CALIBER_602X41
 	icon_state = "ak_40"
 	icon_state_mini = "mag_rifle_brown"
