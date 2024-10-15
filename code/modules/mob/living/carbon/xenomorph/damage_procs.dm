@@ -70,7 +70,7 @@
 		return FALSE
 
 	if(damage > 12) //Light damage won't splash.
-		check_blood_splash(damage, damagetype, 0, 1, sharp, edge)
+		check_blood_splash(damage, damagetype, 0, sharp, edge)
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_TAKING_DAMAGE, damage)
 
