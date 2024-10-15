@@ -251,8 +251,8 @@
 //PKP pecheneg Purpose suppression machinegun
 
 /obj/item/ammo_magazine/pkp
-	name = "\improper PKP "Pecheneg" box magazine (7.62x54mm)"
-	desc = "A belt box for the PKP "Pecheneg" Purpose suppression machinegun."
+	name = "\improper PKP (Pecheneg) box magazine (7.62x54mm)"
+	desc = "A belt box for the PKP (Pecheneg) Purpose suppression machinegun."
 	icon_state = "pkp"
 	icon_state_mini = "mag_pkp"
 	caliber = CALIBER_762X54
