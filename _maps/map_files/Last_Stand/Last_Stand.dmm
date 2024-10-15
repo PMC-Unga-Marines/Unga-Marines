@@ -481,15 +481,6 @@
 /obj/structure/cable,
 /turf/open/floor,
 /area/whiskey_outpost)
-"cK" = (
-/obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "cL" = (
 /obj/structure/cable,
 /obj/machinery/power/fusion_engine/preset,
@@ -970,10 +961,6 @@
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
-/area/whiskey_outpost)
-"fE" = (
-/obj/structure/rack,
-/turf/open/floor/prison,
 /area/whiskey_outpost)
 "fG" = (
 /obj/machinery/vending/cargo_supply,
@@ -3355,19 +3342,6 @@
 /obj/structure/table/mainship,
 /turf/open/floor/tile/whiteyellow/full,
 /area/whiskey_outpost)
-"vI" = (
-/obj/structure/closet/crate/secure/ammo,
-/obj/item/big_ammo_box/ap,
-/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
-/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/mp19/full,
-/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/turf/open/ground/grass,
-/area/whiskey_outpost/outside/west)
 "vM" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/tile/whiteyellow/full,
@@ -5046,10 +5020,6 @@
 "NC" = (
 /turf/closed/wall/r_wall,
 /area/whiskey_outpost/outside/east)
-"ND" = (
-/obj/structure/nuclearbomb,
-/turf/open/floor/plating/asteroidfloor,
-/area/whiskey_outpost)
 "NG" = (
 /obj/structure/barricade/sandbags,
 /turf/open/floor/plating/ground/dirt,
@@ -5122,10 +5092,6 @@
 /turf/open/floor/mainship/emerald{
 	dir = 4
 	},
-/area/whiskey_outpost)
-"Ot" = (
-/obj/machinery/marine_selector/clothes,
-/turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost)
 "Oz" = (
 /turf/open/floor/plating/ground/dirtgrassborder{
@@ -5201,6 +5167,10 @@
 "Pv" = (
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/east)
+"Px" = (
+/obj/structure/rack,
+/turf/open/floor/prison,
+/area/whiskey_outpost)
 "Py" = (
 /obj/machinery/recharger,
 /obj/structure/table/mainship,
@@ -5224,6 +5194,10 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/west)
+"PP" = (
+/obj/structure/nuclearbomb,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "PR" = (
 /obj/item/storage/box/explosive_mines,
 /obj/effect/turf_decal/lvsanddecal/full,
@@ -5714,6 +5688,40 @@
 /obj/structure/fence,
 /turf/open/ground/jungle/impenetrable/nobush,
 /area/whiskey_outpost/outside/south)
+"WX" = (
+/obj/structure/closet/crate/secure/ammo,
+/obj/item/big_ammo_box/ap,
+/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
+/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
+/obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
+/obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
+/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
+/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
+/obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full,
+/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
+/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
+/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
+/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
+/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
+/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
+/obj/item/storage/box/visual/magazine/compact/standard_br/full,
+/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full,
+/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
+/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
+/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
+/obj/item/storage/box/visual/magazine/compact/chamberedrifle/full,
+/obj/structure/closet/crate/secure/ammo,
+/obj/item/big_ammo_box/ap,
+/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
+/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/smg90/full,
+/obj/item/storage/box/visual/magazine/compact/mp19/full,
+/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
+/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
+/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
+/turf/open/ground/grass,
+/area/whiskey_outpost/outside/west)
 "WZ" = (
 /obj/structure/barricade/plasteel,
 /obj/effect/turf_decal/lvsanddecal/full,
@@ -5782,6 +5790,10 @@
 /obj/effect/landmark/last_stand_waves,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
+"Yh" = (
+/obj/machinery/marine_selector/clothes,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost)
 "Yi" = (
 /turf/closed/wall,
 /area/whiskey_outpost)
@@ -11945,7 +11957,7 @@ DR
 DR
 dG
 ac
-fE
+Px
 DR
 Nq
 DR
@@ -12074,7 +12086,7 @@ NW
 NW
 NW
 ac
-fE
+Px
 bl
 ns
 cd
@@ -12211,7 +12223,7 @@ NW
 NW
 NW
 ac
-cK
+Px
 bo
 aW
 cd
@@ -13653,7 +13665,7 @@ hm
 Kz
 Zq
 an
-vI
+WX
 Zj
 bH
 UX
@@ -14066,7 +14078,7 @@ RF
 yj
 dh
 Yi
-Ot
+Yh
 HW
 NQ
 HW
@@ -14292,7 +14304,7 @@ yw
 yw
 yw
 pU
-ND
+PP
 yw
 yw
 yw
@@ -15573,7 +15585,7 @@ De
 mg
 iF
 Yi
-Ot
+Yh
 Jf
 kl
 kl

@@ -31,7 +31,7 @@
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
-	if(severity >= (health) && severity >= EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB))
+	if(severity >= max(health, EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
 		create_shrapnel(oldloc, rand(16, 24), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
