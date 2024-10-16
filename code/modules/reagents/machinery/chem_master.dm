@@ -409,7 +409,7 @@
 
 /obj/machinery/chem_master/update_icon()
 	. = ..()
-	if(machine_stat & (DISABLED|NOPOWER))
+	if(machine_stat & (NOPOWER))
 		set_light(0)
 	else
 		set_light(initial(light_range))
@@ -425,7 +425,7 @@
 
 /obj/machinery/chem_master/update_overlays()
 	. = ..()
-	if(machine_stat & (DISABLED|NOPOWER))
+	if(machine_stat & (NOPOWER))
 		return
 	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
