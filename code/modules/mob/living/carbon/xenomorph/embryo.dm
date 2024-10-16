@@ -15,7 +15,7 @@
 	///How long will the embryo's growth rate be increased
 	var/boost_timer = 0
 	var/hivenumber = XENO_HIVE_NORMAL
-	//var/admin = FALSE
+	var/admin = FALSE
 
 /obj/item/alien_embryo/Initialize(mapload)
 	. = ..()
