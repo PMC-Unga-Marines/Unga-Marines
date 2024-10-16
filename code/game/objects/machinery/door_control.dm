@@ -4,8 +4,8 @@
 /obj/machinery/door_control
 	name = "remote door-control"
 	desc = "It controls doors, remotely."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "doorctrl0"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "button"
 	desc = "A remote control-switch for a door."
 	power_channel = ENVIRON
 	anchored = TRUE
@@ -88,9 +88,9 @@
 	if(!allowed(user))
 		to_chat(user, span_warning("Access Denied"))
 		if(directional)
-			flick("doorctrl-denied",src)
+			flick("button_denied",src)
 		if(!directional) //nondirectional door controls use the old door denied sprites
-			flick("olddoorctrl-denied",src)
+			flick("old_button_denied",src)
 		return
 
 	use_power(active_power_usage)
@@ -116,11 +116,11 @@
 /obj/machinery/door_control/update_icon_state()
 	. = ..()
 	if(machine_stat & NOPOWER)
-		icon_state = "doorctrl-p"
+		icon_state = "button_off"
 	else if(pressed)
-		icon_state = "doorctrl1"
+		icon_state = "button_on"
 	else
-		icon_state = "doorctrl0"
+		icon_state = "button"
 
 /obj/machinery/door_control/unmeltable
 	resistance_flags = RESIST_ALL
@@ -242,17 +242,17 @@
 	resistance_flags = RESIST_ALL
 
 /obj/machinery/door_control/old //sometimes we need a button that has the appearance of the old button and isn't initialized to an x or y value
-	icon_state = "olddoorctrl0"
+	icon_state = "old_button"
 	directional = FALSE
 
 /obj/machinery/door_control/old/update_icon_state()
 	. = ..()
 	if(machine_stat & NOPOWER)
-		icon_state = "olddoorctrl-p"
+		icon_state = "old_button_off"
 	else if(pressed)
-		icon_state = "olddoorctrl1"
+		icon_state = "old_button_on"
 	else
-		icon_state = "olddoorctrl0"
+		icon_state = "old_button"
 
 /obj/machinery/door_control/old/req
 	name = "RO Line Shutters"

@@ -2,7 +2,7 @@
 	name = "Practice Button (Surgery)"
 	desc = "A button used to simulate situations for training purposes."
 	icon = 'icons/obj/machines/buttons.dmi'
-	icon_state = "doorctrl"
+	icon_state = "door"
 	resistance_flags = RESIST_ALL
 	var/mob/living/carbon/human/humanspawned = null
 

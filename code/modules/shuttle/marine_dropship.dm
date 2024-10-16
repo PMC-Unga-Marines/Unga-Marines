@@ -837,7 +837,7 @@
 
 	if(!allowed(user))
 		to_chat(user, span_warning("Access Denied"))
-		flick("doorctrl-denied",src)
+		flick("button_denied",src)
 		return
 
 	use_power(5)

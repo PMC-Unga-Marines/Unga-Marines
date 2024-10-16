@@ -4,12 +4,14 @@
 	name = "button"
 	desc = "A remote control switch."
 	icon = 'icons/obj/machines/buttons.dmi'
-	icon_state = "doorctrl"
+	icon_state = "door"
 	power_channel = ENVIRON
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 5
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, FIRE = 90, ACID = 70)
+	light_range = 1
+	light_power = 0.3
 	var/id = null
 	var/next_activate = 0
 
@@ -23,12 +25,25 @@
 	pixel_y = ( (dir & 3) ? (dir == 1 ? -24 : 24) : 0 )
 	update_icon()
 
+/obj/machinery/button/update_icon()
+	. = ..()
+	if(machine_stat & (NOPOWER|BROKEN))
+		set_light(0)
+	else
+		set_light(initial(light_range))
+
 /obj/machinery/button/update_icon_state()
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
-		icon_state = "[initial(icon_state)]-p"
+		icon_state = "[initial(icon_state)]_off"
 	else
 		icon_state = initial(icon_state)
+
+/obj/machinery/button/update_overlays()
+	. = ..()
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+	. += emissive_appearance(icon, "[icon_state]_emissive")
 
 /obj/machinery/button/attack_ai(mob/user)
 	return attack_hand(user)
@@ -43,11 +58,11 @@
 
 	if(!allowed(user))
 		to_chat(user, span_danger("Access Denied"))
-		flick("[initial(icon_state)]-denied", src)
+		flick("[initial(icon_state)]_denied", src)
 		return
 
 	use_power(active_power_usage)
-	icon_state = "[initial(icon_state)]1"
+	icon_state = "[initial(icon_state)]_on"
 
 	pulsed()
 
@@ -108,7 +123,9 @@
 /obj/machinery/button/door/open_only/landing_zone
 	name = "lockdown override"
 	id = "landing_zone"
-	icon_state = "shutterctrl"
+	icon_state = "shutter"
+	light_range = 0
+	light_power = 0
 	use_power = NO_POWER_USE
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP)
@@ -130,10 +147,10 @@
 	#endif
 	if(!allowed(user))
 		to_chat(user, span_danger("Access Denied"))
-		flick("[initial(icon_state)]-denied", src)
+		flick("[initial(icon_state)]_denied", src)
 		return
 	if(alarm_played)
-		flick("[initial(icon_state)]-denied", src)
+		flick("[initial(icon_state)]_denied", src)
 		return
 	use_power(active_power_usage)
 	icon_state = "[initial(icon_state)]1"
@@ -152,8 +169,8 @@
 
 /obj/machinery/driver_button
 	name = "mass driver button"
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "launcherbtt"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "launcher"
 	desc = "A remote control switch for a mass driver."
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
@@ -185,7 +202,7 @@
 	use_power(active_power_usage)
 
 	active = TRUE
-	icon_state = "launcheract"
+	icon_state = "launcher_on"
 
 	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if(M.id == id)
@@ -197,32 +214,32 @@
 		if(M.id == id)
 			M.close()
 
-	icon_state = "launcherbtt"
+	icon_state = "launcher"
 	active = 0
 
 /obj/machinery/ignition_switch
 	name = "ignition switch"
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "launcherbtt"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "launcher"
 	desc = "A remote control switch for a mounted igniter."
-	var/id = null
-	var/active = 0
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/active = 0
 
 /obj/machinery/flasher_button
 	name = "flasher button"
 	desc = "A remote control switch for a mounted flasher."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "launcherbtt"
-	var/id = null
-	var/active = 0
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "launcher"
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/active = 0
 
 /obj/machinery/crema_switch
 	desc = "Burn baby burn!"
@@ -238,14 +255,14 @@
 
 /obj/machinery/medical_help_button
 	name = "Medical attention required"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "doorctrl0"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "button"
 	desc = "A button for alerting doctors that you require assistance."
-	var/active = FALSE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/active = FALSE
 	var/obj/item/radio/radio
 
 /obj/machinery/medical_help_button/Initialize(mapload)
@@ -268,7 +285,7 @@
 	if(active)
 		return
 	use_power(active_power_usage)
-	icon_state = "doorctrl1"
+	icon_state = "button"
 
 	radio.talk_into(src, "<b>[user.name] is requesting medical attention at: [get_area(src)].</b>", RADIO_CHANNEL_MEDICAL)
 	visible_message("Remain calm, someone will be with you shortly.")
@@ -283,9 +300,9 @@
 /obj/machinery/medical_help_button/update_icon_state()
 	. = ..()
 	if(machine_stat & NOPOWER)
-		icon_state = "doorctrl-p"
+		icon_state = "door_off"
 	else
-		icon_state = "doorctrl0"
+		icon_state = "door"
 
 /obj/machinery/button/valhalla
 	resistance_flags = INDESTRUCTIBLE
