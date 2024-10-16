@@ -76,6 +76,8 @@
 		"Sidearm" = list(
 			/obj/item/weapon/gun/revolver/standard_revolver = 5,
 			/obj/item/ammo_magazine/revolver/standard_revolver = -1,
+			/obj/item/storage/briefcase/standard_magnum/nickle = 10,
+			/obj/item/ammo_magazine/revolver/standard_magnum = -1,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
@@ -303,6 +305,8 @@
 		"Sidearm" = list(
 			/obj/item/weapon/gun/revolver/standard_revolver = 5,
 			/obj/item/ammo_magazine/revolver/standard_revolver = -1,
+			/obj/item/storage/briefcase/standard_magnum/nickle = 10,
+			/obj/item/ammo_magazine/revolver/standard_magnum = -1,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
@@ -530,6 +534,8 @@
 		"Sidearm" = list(
 			/obj/item/weapon/gun/revolver/standard_revolver = -1,
 			/obj/item/ammo_magazine/revolver/standard_revolver = -1,
+			/obj/item/storage/briefcase/standard_magnum/nickle = -1,
+			/obj/item/ammo_magazine/revolver/standard_magnum = -1,
 			/obj/item/storage/box/t500case = -1,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
