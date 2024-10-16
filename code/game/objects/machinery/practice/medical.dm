@@ -22,11 +22,13 @@
 		visible_message(span_notice("The dummy vanishes, ending the simulation."))
 		return
 	else
-		var/choice = tgui_input_list(user, "What surgery would you like to simulate?", null, list("larval host", "broken bones", "missing limbs", "damaged organs"))
+		var/choice = tgui_input_list(user, "What surgery would you like to simulate?", null, list("basic dummy", "larval host", "broken bones", "missing limbs", "damaged organs"))
 		if(!choice)
 			to_chat(user, span_notice("You must select a surgery to start the simulation."))
 			return
 		switch(choice)
+			if("basic dummy")
+				new /mob/living/carbon/human(get_turf(src))
 			if("larval host")
 				humanspawned = new /mob/living/carbon/human(get_turf(src))
 				new /obj/item/alien_embryo(humanspawned)
