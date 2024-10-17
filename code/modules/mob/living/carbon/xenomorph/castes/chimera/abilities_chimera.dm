@@ -465,9 +465,12 @@
 	target.apply_damage(additional_damage * stacks, BRUTE, X.zone_selected, blocked = FALSE)
 	target.add_slowdown(slowdown_amount * stacks)
 	target.adjust_stagger(stagger_duration * stacks)
-	if(stacks == stacks_max)
+
+	var/mob/living/carbon/human/human_target = target
+	if(stacks == stacks_max && ishuman(human_target) && !(human_target.species.species_flags & NO_BLOOD))
 		X.heal_overall_damage(heal_amount, heal_amount, updating_health = TRUE)
 		X.gain_plasma(plasma_gain)
+		human_target.blood_volume -= 10 // something about 2%
 	if(stacks < stacks_max)
 		stacks++
 	decay_time = initial(decay_time)
