@@ -10,8 +10,8 @@
 	power_channel = ENVIRON
 	light_power = 0.5
 	light_range = 0.7
-	///This gets set to 1 on all devices except the one where the initial request was made.
-	var/active = 0
+	///This gets set to TRUE on all devices except the one where the initial request was made.
+	var/active = FALSE
 	var/event = ""
 	var/screen = 1
 	///This variable is set by the device that confirms the request.
@@ -37,8 +37,9 @@
 
 	if(machine_stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
+		return
 
-	else if(istype(I, /obj/item/card/id))
+	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/ID = I
 		if(!(ACCESS_MARINE_BRIDGE in ID.access))
 			return
@@ -55,14 +56,12 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "auth_off"
-		set_light(0, 0)
 
 /obj/machinery/keycard_auth/update_overlays()
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
 	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
-	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/keycard_auth/can_interact(mob/user)
 	. = ..()
@@ -137,14 +136,14 @@
 	event_source = null
 	icon_state = "auth_off"
 	set_light(0, 0)
-	update_icon(UPDATE_ICON)
+	update_icon(UPDATE_OVERLAYS)
 	event_triggered_by = null
 	event_confirmed_by = null
 
 /obj/machinery/keycard_auth/proc/broadcast_request()
 	icon_state = "auth_on"
 	set_light(initial(light_range), initial(light_power), LIGHT_COLOR_KEYCARD_BLUE)
-	update_icon(UPDATE_ICON)
+	update_icon(UPDATE_OVERLAYS)
 	for(var/obj/machinery/keycard_auth/KA in GLOB.machines)
 		if(KA == src)
 			continue
@@ -168,14 +167,14 @@
 	active = TRUE
 	icon_state = "auth_on"
 	set_light(initial(light_range), initial(light_power), LIGHT_COLOR_KEYCARD_BLUE)
-	update_icon(UPDATE_ICON)
+	update_icon(UPDATE_OVERLAYS)
 	addtimer(CALLBACK(src, PROC_REF(confirm)), confirm_delay)
 
 /obj/machinery/keycard_auth/proc/confirm()
 	event_source = null
 	icon_state = "auth_off"
 	set_light(0, 0)
-	update_icon(UPDATE_ICON)
+	update_icon(UPDATE_OVERLAYS)
 	active = FALSE
 	busy = FALSE
 
