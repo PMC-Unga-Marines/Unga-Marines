@@ -5,6 +5,8 @@
 	mind_initialize()	//updates the mind (or creates and initializes one if one doesn't exist)
 	mind.active = 1		//indicates that the mind is currently synced with a client
 
+	INVOKE_ASYNC(SSdiscord, TYPE_PROC_REF(/datum/controller/subsystem/discord, get_boosty_tier), ckey)
+
 	var/turf/T = get_turf(src)
 	if (isturf(T))
 		update_z(T.z)

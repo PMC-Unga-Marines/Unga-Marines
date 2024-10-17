@@ -659,7 +659,8 @@
 			/obj/item/toy/deck/kotahi = -1,
 			/obj/item/deployable_floodlight = -1,
 			/obj/item/fulton_extraction_pack = -1,
-		),
+			/obj/item/facepaint/premium = -1,
+		)
 	)
 
 /obj/machinery/vending/cigarette

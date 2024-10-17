@@ -1117,6 +1117,9 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "type71"
 	item_state = "type71"
+	unique_reskin = list(
+		"Wood" = "type71_wood",
+	)
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	caliber = CALIBER_762X39 //codex
 	max_shells = 42 //codex
