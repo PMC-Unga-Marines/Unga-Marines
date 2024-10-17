@@ -5449,7 +5449,7 @@
 	},
 /area/mainship/hull/starboard_hull)
 "ddo" = (
-/obj/item/folder/black_random,
+/obj/effect/spawner/random/misc/folder,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/secure/bridge,
 /obj/machinery/door/window{
@@ -16856,7 +16856,7 @@
 	id = "CIC Lockdown";
 	name = "\improper Combat Information Center Blast Door"
 	},
-/obj/item/folder/black_random,
+/obj/effect/spawner/random/misc/folder,
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "CIC Checkpoint Shutters";
 	name = "\improper CIC Checkpoint Shutters"
@@ -20988,9 +20988,7 @@
 "myC" = (
 /obj/effect/turf_decal/woodsiding,
 /obj/structure/table/woodentable,
-/obj/item/folder/black_random{
-	pixel_y = 2
-	},
+/obj/effect/spawner/random/misc/folder,
 /obj/item/eftpos{
 	eftpos_name = "Cargo Bay EFTPOS scanner";
 	pixel_y = 1;
@@ -23648,7 +23646,7 @@
 /area/mainship/hallways/bow_hallway)
 "nUD" = (
 /obj/structure/table/mainship,
-/obj/item/folder/black_random,
+/obj/effect/spawner/random/misc/folder,
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
