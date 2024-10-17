@@ -87,12 +87,16 @@
 	if(!isnull(.))
 		return
 	var/mob/living/living_target = target
-	if(bumper?.faction == living_target?.faction)
-		return //FF
-	if(isxeno(target))
+	if(ishuman(living_target))
+		var/mob/living/carbon/human/human_target = living_target
+		if(bumper?.wear_id?.iff_signal & human_target?.wear_id?.iff_signal)
+			return //FF x2
+	else if(isxeno(target))
 		var/mob/living/carbon/xenomorph/xeno = target
 		if(bumper.wear_id && CHECK_BITFIELD(xeno.xeno_iff_check(), bumper.wear_id.iff_signal))
 			return //Do not hit friend with tag!
+	else if(bumper?.faction == living_target?.faction)
+		return //FF
 	INVOKE_ASYNC(src, PROC_REF(human_do_bump_action), target)
 
 ///Handles xeno pre-bump attack checks.
