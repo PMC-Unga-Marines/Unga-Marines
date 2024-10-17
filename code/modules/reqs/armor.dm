@@ -62,7 +62,7 @@
 	contains = list(
 		/obj/item/armor_module/module/valkyrie_autodoc,
 	)
-	cost = 120
+	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/fire_proof
 	name = "Surt fireproof module set"
