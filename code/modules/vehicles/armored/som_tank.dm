@@ -10,8 +10,7 @@
 	icon_state = "tank"
 	hitbox = /obj/hitbox/rectangle/som_tank
 	interior = /datum/interior/armored/som
-	minimap_icon_state = "tank"
-	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
+	minimap_icon_state = "som_tank"
 	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_HEADLIGHTS|ARMORED_WRECKABLE
 	pass_flags = PASS_LOW_STRUCTURE|PASS_DEFENSIVE_STRUCTURE|PASS_FIRE
 	pixel_x = -65
