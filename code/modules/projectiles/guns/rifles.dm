@@ -656,6 +656,41 @@
 		/obj/item/attachable/reddot,
 	)
 
+/obj/item/weapon/gun/rifle/mpi_km/ak_15
+	name = "\improper AK-15 (6П71) rifle"
+	desc = "An improved Kalashnikov assault rifle adopted by the TGMC army in 2415. Posey considers the day to be the gold standard. Uses 7.62x39mm ammo."
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "ak15"
+	item_state = "ak15" //Both sprites are similar to each other, (AK47/AK-15) so there was no point in redrawing the sprite for the sake of two pixels
+	caliber = CALIBER_762X39
+	max_shells = 30
+	fire_sound = 'sound/weapons/guns/fire/ak15.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak15_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak15_cocked.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/ak15
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ak15)
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/attachable/motiondetector,
+	)
+	attachable_offset = list("muzzle_x" = 50, "muzzle_y" = 18,"rail_x" = 16, "rail_y" = 21, "under_x" = 34, "under_y" = 16,)
+
 // RPD
 
 /obj/item/weapon/gun/rifle/lmg_d
@@ -964,6 +999,59 @@
 	scatter = 2
 	scatter_unwielded = 80
 	movement_acc_penalty_mult = 6
+
+//-------------------------------------------------------
+//PKP pecheneg Purpose suppression machinegun
+/obj/item/weapon/gun/rifle/pkp_pecheneg
+	name = "\improper PKP pecheneg Purpose suppression machine gun"
+	desc = "Invented by the TSNIItochmash Institute PKP pecheneg Purpose suppression machinegun is the TGMC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 7.62x54 boxes."
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "pkp"
+	item_state = "pkp"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	)
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+
+	caliber = CALIBER_762X54 //codex
+	max_shells = 100 //codex
+	force = 30
+	aim_slowdown = 1.4
+	wield_delay = 3.5 SECONDS
+	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_pkp.ogg'
+	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_pkp_low.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
+	unload_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boxout.ogg'
+	reload_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boxin.ogg'
+	cocked_sound = 'sound/weapons/guns/machineguns/MG-60/MG60_boltpull.ogg'
+	wield_sound =  'sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/pkp
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pkp)
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/magnetic_harness,
+	)
+
+	flags_gun_features = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	gun_skill_category = SKILL_HEAVY_WEAPONS
+	attachable_offset = list("rail_x" = 18, "rail_y" = 23, "under_x" = 36, "under_y" = 15,)
+	aim_fire_delay = 0.1 SECONDS
+	aim_speed_modifier = 5.3
+
+	fire_delay = 0.13 SECONDS
+	damage_falloff_mult = 0.5
+	burst_amount = 1
+	accuracy_mult = 0.85
+	accuracy_mult_unwielded = 0.4
+	scatter = 7
+	scatter_unwielded = 45
+	movement_acc_penalty_mult = 7.25
 
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
