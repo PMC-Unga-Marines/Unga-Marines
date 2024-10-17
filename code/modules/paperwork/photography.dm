@@ -165,8 +165,12 @@
 
 /obj/item/camera
 	name = "camera"
-	icon = 'icons/obj/device.dmi'
 	desc = "A polaroid camera."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/items/civilian_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/civilian_right.dmi',
+	)
+	icon = 'icons/obj/device.dmi'
 	icon_state = "camera"
 	item_state = "camera"
 	light_color = COLOR_WHITE
@@ -370,8 +374,8 @@
 	var/wipe_atoms = FALSE
 
 	if(istype(clone_area) && total_x == clone_area.width && total_y == clone_area.height && size_x >= 0 && size_y > 0)
-		var/cloned_center_x = round(clone_area.bottom_left_coords[1] + ((total_x - 1) * 0.5))
-		var/cloned_center_y = round(clone_area.bottom_left_coords[2] + ((total_y - 1) * 0.5))
+		var/cloned_center_x = round(clone_area.bottom_left_coords[1] + ((total_x - 1) / 2))
+		var/cloned_center_y = round(clone_area.bottom_left_coords[2] + ((total_y - 1) / 2))
 		for(var/t in turfs)
 			var/turf/T = t
 			var/offset_x = T.x - center.x
@@ -415,8 +419,8 @@
 		sorted.Insert(j+1, c)
 		CHECK_TICK
 
-	var/xcomp = FLOOR(psize_x * 0.5, 1) - 15
-	var/ycomp = FLOOR(psize_y * 0.5, 1) - 15
+	var/xcomp = FLOOR(psize_x / 2, 1) - 15
+	var/ycomp = FLOOR(psize_y / 2, 1) - 15
 
 
 	for(var/atom/A in sorted)
