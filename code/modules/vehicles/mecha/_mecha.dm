@@ -159,6 +159,8 @@
 	var/mech_emped = FALSE
 	///Current owning faction
 	var/faction
+	///holds the EMP timer
+	var/emp_timer
 
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
@@ -223,8 +225,10 @@
 	QDEL_NULL(smoke_system)
 	QDEL_NULL(ui_view)
 
-	GLOB.mechas_list -= src //global mech list
-	for(var/datum/atom_hud/squad/mech_status_hud in GLOB.huds) //Add to the squad HUD
+	emp_timer = null
+
+	GLOB.mechas_list -= src
+	for(var/datum/atom_hud/squad/mech_status_hud in GLOB.huds)
 		mech_status_hud.remove_from_hud(src)
 	return ..()
 
@@ -326,8 +330,9 @@
 		return base_icon_state
 	return "[base_icon_state]-open"
 
+///Restores the mech after EMP
 /obj/vehicle/sealed/mecha/proc/restore_equipment()
-	mech_emped = FALSE
+	emp_timer = null
 	equipment_disabled = FALSE
 	update_appearance(UPDATE_OVERLAYS)
 	for(var/mob/mob_occupant AS in occupants)
