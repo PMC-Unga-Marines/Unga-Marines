@@ -33,7 +33,7 @@
 
 	switch(dir)
 		if(NORTH)
-			pixel_y = -16
+			pixel_y = -22
 		if(SOUTH)
 			pixel_y = 28
 		if(EAST)
