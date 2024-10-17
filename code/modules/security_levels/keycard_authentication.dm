@@ -28,10 +28,6 @@
 	//1 = select event
 	//2 = authenticate
 
-/obj/machinery/keycard_auth/Initialize(mapload)
-	. = ..()
-	set_light(0, 0) // we need to emit light only when toggled
-
 /obj/machinery/keycard_auth/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
@@ -56,12 +52,21 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "auth_off"
+	update_emissives()
 
 /obj/machinery/keycard_auth/update_overlays()
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
 	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+
+/obj/machinery/keycard_auth/proc/update_emissives()
+	if(icon_state == "auth_on") // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		set_light(initial(light_range), initial(light_power), LIGHT_COLOR_KEYCARD_BLUE)
+		update_icon(UPDATE_OVERLAYS)
+	else
+		set_light(0, 0)
+		update_icon(UPDATE_OVERLAYS)
 
 /obj/machinery/keycard_auth/can_interact(mob/user)
 	. = ..()
@@ -135,15 +140,13 @@
 	synth_activation = 0
 	event_source = null
 	icon_state = "auth_off"
-	set_light(0, 0)
-	update_icon(UPDATE_OVERLAYS)
+	update_emissives()
 	event_triggered_by = null
 	event_confirmed_by = null
 
 /obj/machinery/keycard_auth/proc/broadcast_request()
 	icon_state = "auth_on"
-	set_light(initial(light_range), initial(light_power), LIGHT_COLOR_KEYCARD_BLUE)
-	update_icon(UPDATE_OVERLAYS)
+	update_emissives()
 	for(var/obj/machinery/keycard_auth/KA in GLOB.machines)
 		if(KA == src)
 			continue
@@ -166,15 +169,13 @@
 	busy = FALSE
 	active = TRUE
 	icon_state = "auth_on"
-	set_light(initial(light_range), initial(light_power), LIGHT_COLOR_KEYCARD_BLUE)
-	update_icon(UPDATE_OVERLAYS)
+	update_emissives()
 	addtimer(CALLBACK(src, PROC_REF(confirm)), confirm_delay)
 
 /obj/machinery/keycard_auth/proc/confirm()
 	event_source = null
 	icon_state = "auth_off"
-	set_light(0, 0)
-	update_icon(UPDATE_OVERLAYS)
+	update_emissives()
 	active = FALSE
 	busy = FALSE
 
