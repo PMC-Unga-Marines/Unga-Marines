@@ -23,6 +23,15 @@
 	current_rounds = 150
 	max_rounds = 150
 
+/obj/item/ammo_magazine/packet/p602x41
+	name = "box of 6.02x41mm"
+	desc = "A box containing 100 rounds of 6.02x41mm."
+	caliber = CALIBER_602X41
+	icon_state = "box_602x41"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
+	current_rounds = 150
+	max_rounds = 150
+
 /obj/item/ammo_magazine/packet/pnato
 	name = "box of 5.56x45mm"
 	desc = "A box containing 150 rounds of 5.56x45mm."
