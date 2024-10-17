@@ -58,8 +58,8 @@
 /datum/action/ability/xeno_action/ready_charge/proc/charge_on(verbose = TRUE)
 	var/mob/living/carbon/xenomorph/charger = owner
 	charge_ability_on = TRUE
-	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(update_charging))
-	RegisterSignal(charger, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change))
+	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(update_charging), override = TRUE)
+	RegisterSignal(charger, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change), override = TRUE)
 	set_toggle(TRUE)
 	if(verbose)
 		to_chat(charger, span_xenonotice("We will charge when moving, now."))
