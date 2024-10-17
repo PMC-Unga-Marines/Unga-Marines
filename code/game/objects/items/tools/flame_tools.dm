@@ -156,6 +156,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette
 	name = "cigarette"
 	desc = "A roll of tobacco and nicotine."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/clothing/lefthand_cigs.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/clothing/righthand_cigs.dmi',
+	)
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
@@ -358,7 +362,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!lit)
 		if(isturf(target))
 			var/turf/T = target
-			if(locate(/obj/fire/flamer) in T.contents)
+			if(locate(/obj/flamer_fire) in T.contents)
 				light(span_notice("[user] lights [user.p_their()] [src] with the burning ground."))
 				return
 
