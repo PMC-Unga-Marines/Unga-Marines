@@ -30,6 +30,17 @@
 		/obj/item/attachable/stock/t76,
 		/obj/item/attachable/scope/standard_magnum,
 		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
 	)
 
 /obj/item/storage/briefcase/standard_magnum/gold/Initialize(mapload)

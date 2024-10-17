@@ -41,6 +41,24 @@
 	current_rounds = 120
 	max_rounds = 120
 
+/obj/item/ammo_magazine/packet/pwarsaw/ap
+	name = "box of AP 7.62x39mm"
+	desc = "A box containing 120 AP rounds of 7.62x39mm."
+	caliber = CALIBER_762X39
+	icon_state = "box_76239mm"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/ap
+	current_rounds = 120
+	max_rounds = 120
+
+/obj/item/ammo_magazine/packet/pwarsaw/hp
+	name = "box of HP 7.62x39mm"
+	desc = "A box containing 120 HP rounds of 7.62x39mm."
+	caliber = CALIBER_762X39
+	icon_state = "box_76239mm"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/hp
+	current_rounds = 120
+	max_rounds = 120
+
 /obj/item/ammo_magazine/packet/p10x265mm
 	name = "box of 10x26.5mm"
 	desc = "A box containing 100 rounds of 10x26.5mm caseless."

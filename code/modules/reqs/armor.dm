@@ -88,11 +88,6 @@
 	)
 	cost = 120
 
-/datum/supply_packs/armor/modular/attachments/hlin_bombimmune
-	name = "Hlin armor module"
-	contains = list(/obj/item/armor_module/module/hlin_explosive_armor)
-	cost = 120
-
 /datum/supply_packs/armor/modular/attachments/artemis_mark_two
 	name = "Freyr Mark 2 helmet module"
 	contains = list(
