@@ -4,8 +4,9 @@
 /obj/machinery/door_control
 	name = "remote door-control"
 	desc = "It controls doors, remotely."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "doorctrl0"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "button"
+	base_icon_state = "button"
 	desc = "A remote control-switch for a door."
 	power_channel = ENVIRON
 	anchored = TRUE
@@ -18,17 +19,27 @@
 	/// Zero is closed, 1 is open.
 	var/desiredstate = 0
 	var/specialfunctions = 1
-	/// if true we apply directional offsets, if not the door control is free floating
-	var/directional = TRUE
+	///If the button was pressed recently
 	var/pressed = FALSE
 
-/obj/machinery/door_control/Initialize(mapload, ndir = 0)
+/obj/machinery/door_control/Initialize(mapload)
 	. = ..()
-	if(directional)
-		setDir(ndir)
-		pixel_x = ( (dir & 3) ? 0 : (dir == 4 ? -22 : 22) )
-		pixel_y = ( (dir & 3) ? (dir == 1 ? -16 : 28) : 0 )
-		update_icon()
+	set_offsets()
+
+///Proc that sets pixel offsets on Initialize if the button doesn't have it map-edited
+/obj/machinery/door_control/proc/set_offsets()
+	if(pixel_x || pixel_y)
+		return
+
+	switch(dir)
+		if(NORTH)
+			pixel_y = -22
+		if(SOUTH)
+			pixel_y = 28
+		if(EAST)
+			pixel_x = -22
+		if(WEST)
+			pixel_x = 22
 
 /obj/machinery/door_control/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -41,86 +52,88 @@
 
 /obj/machinery/door_control/proc/handle_door()
 	for(var/obj/machinery/door/airlock/D in range(range))
-		if(D.id_tag == src.id)
-			if(specialfunctions & OPEN)
-				if (D.density)
-					D.open()
-				else
-					D.close()
-			if(desiredstate == 1)
-				if(specialfunctions & IDSCAN)
-					D.aiDisabledIdScanner = 1
-				if(specialfunctions & BOLTS)
-					D.lock()
-				if(specialfunctions & SHOCK)
-					D.secondsElectrified = -1
-				if(specialfunctions & SAFE)
-					D.safe = 0
+		if(D.id_tag != src.id)
+			continue
+
+		if(specialfunctions & OPEN)
+			if(D.density)
+				D.open()
 			else
-				if(specialfunctions & IDSCAN)
-					D.aiDisabledIdScanner = 0
-				if(specialfunctions & BOLTS)
-					if(!D.wires.is_cut(WIRE_BOLTS) && D.hasPower())
-						D.unlock()
-				if(specialfunctions & SHOCK)
-					D.secondsElectrified = 0
-				if(specialfunctions & SAFE)
-					D.safe = 1
+				D.close()
+		if(desiredstate == 1)
+			if(specialfunctions & IDSCAN)
+				D.aiDisabledIdScanner = 1
+			if(specialfunctions & BOLTS)
+				D.lock()
+			if(specialfunctions & SHOCK)
+				D.secondsElectrified = -1
+			if(specialfunctions & SAFE)
+				D.safe = 0
+		else
+			if(specialfunctions & IDSCAN)
+				D.aiDisabledIdScanner = 0
+			if(specialfunctions & BOLTS)
+				if(!D.wires.is_cut(WIRE_BOLTS) && D.hasPower())
+					D.unlock()
+			if(specialfunctions & SHOCK)
+				D.secondsElectrified = 0
+			if(specialfunctions & SAFE)
+				D.safe = 1
 
 /obj/machinery/door_control/proc/handle_pod()
 	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
-		if(M.id == id)
-			if(M.density)
-				M.open()
-			else
-				M.close()
+		if(M.id != id)
+			continue
+
+		if(M.density)
+			M.open()
+		else
+			M.close()
 
 /obj/machinery/door_control/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	if(istype(user,/mob/living/carbon/xenomorph))
-		return
 	if(machine_stat & (NOPOWER|BROKEN))
 		to_chat(user, span_warning("[src] doesn't seem to be working."))
 		return
 
+	if(pressed)
+		return
+
 	if(!allowed(user))
 		to_chat(user, span_warning("Access Denied"))
-		if(directional)
-			flick("doorctrl-denied",src)
-		if(!directional) //nondirectional door controls use the old door denied sprites
-			flick("olddoorctrl-denied",src)
+		flick("[base_icon_state]_denied", src)
+		pressed = TRUE
+		addtimer(VARSET_CALLBACK(src, pressed, FALSE), 0.5 SECONDS, TIMER_OVERRIDE|TIMER_UNIQUE)
 		return
 
 	use_power(active_power_usage)
 	pressed = TRUE
-	update_icon()
+	flick("[base_icon_state]_on", src)
 
+	on_press()
+
+	addtimer(VARSET_CALLBACK(src, pressed, FALSE), 1 SECONDS, TIMER_OVERRIDE|TIMER_UNIQUE)
+
+///What do we on the button press?
+/obj/machinery/door_control/proc/on_press()
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)
 			handle_door()
 		if(CONTROL_POD_DOORS)
 			handle_pod()
-
 	desiredstate = !desiredstate
-	addtimer(CALLBACK(src, PROC_REF(unpress)), 15, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /obj/machinery/door_control/attack_ai(mob/living/silicon/ai/AI)
 	return attack_hand(AI)
 
-/obj/machinery/door_control/proc/unpress()
-	pressed = FALSE
-	update_icon()
-
 /obj/machinery/door_control/update_icon_state()
 	. = ..()
 	if(machine_stat & NOPOWER)
-		icon_state = "doorctrl-p"
-	else if(pressed)
-		icon_state = "doorctrl1"
+		icon_state = "[base_icon_state]_off"
 	else
-		icon_state = "doorctrl0"
+		icon_state = base_icon_state
 
 /obj/machinery/door_control/unmeltable
 	resistance_flags = RESIST_ALL
@@ -242,17 +255,11 @@
 	resistance_flags = RESIST_ALL
 
 /obj/machinery/door_control/old //sometimes we need a button that has the appearance of the old button and isn't initialized to an x or y value
-	icon_state = "olddoorctrl0"
-	directional = FALSE
+	icon_state = "table"
+	base_icon_state = "table"
 
-/obj/machinery/door_control/old/update_icon_state()
-	. = ..()
-	if(machine_stat & NOPOWER)
-		icon_state = "olddoorctrl-p"
-	else if(pressed)
-		icon_state = "olddoorctrl1"
-	else
-		icon_state = "olddoorctrl0"
+/obj/machinery/door_control/old/set_offsets()
+	return
 
 /obj/machinery/door_control/old/req
 	name = "RO Line Shutters"

@@ -122,7 +122,7 @@
 	use_power(active_power_usage)
 
 	active = 1
-	icon_state = "launcheract"
+	icon_state = "launcher_on"
 
 	for(var/obj/machinery/sparker/M in GLOB.machines)
 		if (M.id == src.id)
@@ -136,6 +136,6 @@
 
 	sleep(5 SECONDS)
 
-	icon_state = "launcherbtt"
+	icon_state = "launcher"
 	active = 0
 

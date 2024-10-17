@@ -818,35 +818,17 @@
 	D.right_airlocks += src
 
 /obj/machinery/door_control/dropship
-	var/obj/docking_port/mobile/marine_dropship/D
 	req_one_access = list(ACCESS_MARINE_BRIG, ACCESS_MARINE_DROPSHIP)
 	pixel_y = -19
 	name = "Dropship Lockdown"
+	var/obj/docking_port/mobile/marine_dropship/D
 
 /obj/machinery/door_control/dropship/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
 	. = ..()
 	D = port
 
-/obj/machinery/door_control/dropship/attack_hand(mob/living/user)
-	. = ..()
-	if(isxeno(user))
-		return
-	if(!is_operational())
-		to_chat(user, span_warning("[src] doesn't seem to be working."))
-		return
-
-	if(!allowed(user))
-		to_chat(user, span_warning("Access Denied"))
-		flick("doorctrl-denied",src)
-		return
-
-	use_power(5)
-	pressed = TRUE
-	update_icon()
-
+/obj/machinery/door_control/dropship/on_press()
 	D.lockdown_all()
-
-	addtimer(CALLBACK(src, PROC_REF(unpress)), 15, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 // half-tile structure pieces
 /obj/structure/dropship_piece
