@@ -6,7 +6,7 @@
 		"basic": 1
 	},
 	"quickbuilds": 1800,
-	"announce_text": "A second generation colony has had a beacon transmitting the same signal, nonstop. Attempts to hail the colony over comms have proved futile. Because the ship was at a nearby drydock, it has been dispatched to figure out what's wrong. TGMC, prepare to deploy!",
+	"announce_text": "На колонии второго поколения появился маяк, безостановочно передающий один и тот же сигнал. Попытки связаться с колонией по связи оказались тщетными. Поскольку ваш корабль находился в ближе всего, мы отправили выяснить вас, в чем дело. TGMC, приготовиться к высадке!",
 	"traits":[{
 		"weather_sandstorm": true
 	}]

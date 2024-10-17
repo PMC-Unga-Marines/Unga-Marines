@@ -22,5 +22,5 @@
 /datum/round_event/intel_computer/proc/activate(obj/machinery/computer/intel_computer/I)
 	I.active = TRUE
 	I.update_minimap_icon()
-	priority_announce("Our data sifting algorithm has detected valuable classified information on a access point in [get_area(I)]. Should this data be recovered by ground forces, a reward will be given in the form of increased assets.", title = "TGMC Intel Division")
-	xeno_message("We sense a looming threat from [get_area(I)]. We must keep the hosts away from there.")
+	priority_announce("Обнаружена ценная информация в [get_area(I)]. Если эти данные будут восстановлены наземными силами, будет выдано вознаграждение.", title = "Отдел Разведки TGMC", sound = 'sound/AI/bonus_found.ogg')
+	xeno_message("Мы чувствуем надвигающуюся угрозу со стороны [get_area(I)]. Мы должны держать этих мясных идиотов подальше от этого места.")
