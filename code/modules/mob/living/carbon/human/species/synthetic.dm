@@ -38,7 +38,7 @@
 /datum/species/synthetic/handle_unique_behavior(mob/living/carbon/human/H)
 	if(H.health <= SYNTHETIC_CRIT_THRESHOLD && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
 		H.apply_effect(4 SECONDS, STUTTER) // Added flavor
-		H.adjust_fire_loss(rand(5, 16)) // Melting!!!
+		H.take_overall_damage(rand(5, 16), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 		if(prob(12))
 			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
 			do_sparks(4, TRUE, H)
