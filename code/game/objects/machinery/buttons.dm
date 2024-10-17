@@ -18,12 +18,24 @@
 /obj/machinery/button/indestructible
 	resistance_flags = RESIST_ALL
 
-/obj/machinery/button/Initialize(mapload, ndir = 0)
+/obj/machinery/button/Initialize(mapload)
 	. = ..()
-	setDir(ndir)
-	pixel_x = ( (dir & 3) ? 0 : (dir == 4 ? -24 : 24) )
-	pixel_y = ( (dir & 3) ? (dir == 1 ? -24 : 24) : 0 )
-	update_icon()
+	set_offsets()
+
+///Proc that sets pixel offsets on Initialize if the button doesn't have it map-edited
+/obj/machinery/button/proc/set_offsets()
+	if(pixel_x || pixel_y)
+		return
+
+	switch(dir)
+		if(NORTH)
+			pixel_y = -32
+		if(SOUTH)
+			pixel_y = 32
+		if(EAST)
+			pixel_x = -32
+		if(WEST)
+			pixel_x = 32
 
 /obj/machinery/button/update_icon()
 	. = ..()

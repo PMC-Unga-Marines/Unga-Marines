@@ -6,12 +6,18 @@
 	resistance_flags = RESIST_ALL
 	var/mob/living/carbon/human/humanspawned = null
 
-/obj/machinery/practice/medical/surgery/Initialize(mapload, ndir = 0)
+/obj/machinery/practice/medical/surgery/Initialize(mapload)
 	. = ..()
-	setDir(ndir)
-	pixel_x = ( (dir & 3) ? 0 : (dir == 4 ? -24 : 24) )
-	pixel_y = ( (dir & 3) ? (dir == 1 ? -24 : 24) : 0 )
-	update_icon()
+
+	switch(dir)
+		if(NORTH)
+			pixel_y = -24
+		if(SOUTH)
+			pixel_y = 24
+		if(EAST)
+			pixel_x = -24
+		if(WEST)
+			pixel_x = 24
 
 /obj/machinery/practice/medical/surgery/attack_hand(mob/living/user)
 	if(user.a_intent == INTENT_HARM)

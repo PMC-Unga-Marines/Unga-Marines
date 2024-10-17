@@ -44,11 +44,9 @@
 	if(istype(user,/mob/living/carbon/xenomorph))
 		return
 
-	icon_state = "button_on"
+	flick("button_on", src)
 
 	for(var/obj/machinery/line_nexter/L in GLOB.machines)
-		if(id == L.id)
-			L.next()
-
-	spawn(15)
-		icon_state = "button"
+		if(id != L.id)
+			continue
+		L.next()
