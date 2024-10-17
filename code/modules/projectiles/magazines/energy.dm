@@ -118,6 +118,7 @@
 	flags_equip_slot = ITEM_SLOT_BACK
 	flags_magazine_features = MAGAZINE_REFUND_IN_CHAMBER|MAGAZINE_WORN
 	w_class = WEIGHT_CLASS_HUGE
+	reload_delay = 0.5 SECONDS
 	slowdown = 0.2
 	maxcharge = 3000
 	self_recharge = TRUE
