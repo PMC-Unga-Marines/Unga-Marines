@@ -518,16 +518,17 @@
 
 /obj/item/weapon/gun/update_icon_state()
 	. = ..()
+	var/real_icon = current_skin ? current_skin : base_gun_icon
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN) && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED))
-		icon_state = !greyscale_config ? base_gun_icon + "_o" : GUN_ICONSTATE_OPEN
+		icon_state = !greyscale_config ? real_icon + "_o" : GUN_ICONSTATE_OPEN
 	else if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && !in_chamber && length(chamber_items))
-		icon_state = !greyscale_config ? base_gun_icon + "_u" : GUN_ICONSTATE_UNRACKED
+		icon_state = !greyscale_config ? real_icon + "_u" : GUN_ICONSTATE_UNRACKED
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
-		icon_state = !greyscale_config ? base_gun_icon + "_e" : GUN_ICONSTATE_UNLOADED
+		icon_state = !greyscale_config ? real_icon + "_e" : GUN_ICONSTATE_UNLOADED
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
-		icon_state = base_gun_icon + "_l"
+		icon_state = real_icon + "_l"
 	else
-		icon_state = !greyscale_config ? base_gun_icon : GUN_ICONSTATE_LOADED
+		icon_state = !greyscale_config ? real_icon : GUN_ICONSTATE_LOADED
 
 /obj/item/weapon/gun/color_item(obj/item/facepaint/paint, mob/user)
 	. = ..()
@@ -559,14 +560,14 @@
 
 /obj/item/weapon/gun/update_item_state()
 	var/current_state = item_state
+	var/real_icon = current_skin ? current_skin : initial(icon_state)
 	if(flags_gun_features & GUN_SHOWS_AMMO_REMAINING) //shows different ammo levels
 		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells ? max_shells : 1), 1)) * 100, 25)
-		item_state = "[initial(icon_state)]_[remaining_rounds][flags_item & WIELDED ? "_w" : ""]"
+		item_state = "[real_icon]_[remaining_rounds][flags_item & WIELDED ? "_w" : ""]"
 	else if(flags_gun_features & GUN_SHOWS_LOADED) //shows loaded or unloaded
-		item_state = "[initial(icon_state)]_[rounds ? 100 : 0][flags_item & WIELDED ? "_w" : ""]"
+		item_state = "[real_icon]_[rounds ? 100 : 0][flags_item & WIELDED ? "_w" : ""]"
 	else
-		item_state = "[base_gun_icon][flags_item & WIELDED ? "_w" : ""]"
-		return
+		item_state = "[current_skin ? current_skin : base_gun_icon][flags_item & WIELDED ? "_w" : ""]"
 
 	if(current_state != item_state && ishuman(gun_user))
 		var/mob/living/carbon/human/human_user = gun_user

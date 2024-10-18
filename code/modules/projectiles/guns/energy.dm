@@ -425,6 +425,9 @@
 	fire_sound = 'sound/weapons/guns/fire/Laser Rifle Standard.ogg'
 	icon_state = "ter"
 	item_state = "ter"
+	unique_reskin = list(
+		"Red" = "ter_red",
+	)
 	max_shots = 60
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine
 	rounds_per_shot = 10
