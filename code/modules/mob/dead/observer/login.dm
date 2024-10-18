@@ -49,12 +49,3 @@
 
 	if(SSticker.mode && SSticker.mode.flags_round_type & MODE_PREDATOR)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, "<span style='color: red;'>This is a <B>PREDATOR ROUND</B>! If you are whitelisted, you may Join the Hunt!</span>"), 2 SECONDS)
-
-///Loads any gamemode specific ghost actions
-/mob/dead/observer/proc/load_ghost_gamemode_actions()
-	SIGNAL_HANDLER
-	UnregisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED)
-	for(var/path in SSticker.mode.ghost_verbs())
-		if(!actions_by_path[path])
-			var/datum/action/action = new path(src)
-			action.give_action(src)
