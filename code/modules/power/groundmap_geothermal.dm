@@ -139,7 +139,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 					visible_message("[icon2html(src, viewers(src))] [span_notice("<b>[src]</b> begins to hum loudly as it reaches half capacity.")]")
 				if(100)
 					visible_message("[icon2html(src, viewers(src))] [span_notice("<b>[src]</b> rumbles loudly as the combustion and thermal chambers reach full strength.")]")
-		add_avail(power_generation_max * (power_gen_percent / 100) ) //Nope, all good, just add the power
+		add_avail(power_generation_max * (power_gen_percent / 0.01) ) //Nope, all good, just add the power
 
 /obj/machinery/power/geothermal/proc/check_failure()
 	cur_tick++
