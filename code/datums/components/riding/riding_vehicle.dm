@@ -167,7 +167,7 @@
 	vehicle_move_delay = 5
 
 /datum/component/riding/vehicle/motorbike
-	vehicle_move_delay = 1.64
+	vehicle_move_delay = 1.5
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 
 /datum/component/riding/vehicle/motorbike/handle_specials()
@@ -179,7 +179,7 @@
 	set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
 /datum/component/riding/vehicle/motorbike/sidecar
-	vehicle_move_delay = 2
+	vehicle_move_delay = 1.82
 
 /datum/component/riding/vehicle/motorbike/sidecar/Initialize(mob/living/riding_mob, force, ride_check_flags, potion_boost)
 	. = ..()
