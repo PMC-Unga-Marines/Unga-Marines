@@ -226,10 +226,10 @@
 	advance_maturity(stage_ready_to_burst)
 	return TRUE
 
-/obj/alien/egg/hugger/forsaken
-	hivenumber = XENO_HIVE_FORSAKEN
+/obj/alien/egg/hugger/yautja
+	hivenumber = XENO_HIVE_YAUTJA
 
-/obj/alien/egg/hugger/forsaken/attack_ghost(mob/dead/observer/user)
+/obj/alien/egg/hugger/yautja/attack_ghost(mob/dead/observer/user)
 	return
 
 /obj/alien/egg/gas
