@@ -44,7 +44,7 @@
 
 /obj/machinery/air_alarm/update_overlays()
 	. = ..()
-	if(machine_stat & (NOPOWER|BROKEN))
+	if(machine_stat & (BROKEN))
 		return
 	. += emissive_appearance(icon, "[icon_state]_emissive")
 
