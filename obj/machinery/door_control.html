@@ -11,33 +11,47 @@
     <a href="index.html">byond</a> -
     <a href="index.html#modules">Modules</a> -
     <a href="index.html#types">Types</a>
- &mdash; <a href="obj/machinery/door_control.html#var">Var Details</a></header>
+ &mdash; <a href="obj/machinery/door_control.html#var">Var Details</a> - <a href="obj/machinery/door_control.html#proc">Proc Details</a></header>
 <main>
 <h1>door_control <aside>/<a href="obj.html">obj</a>/<a href="obj/machinery.html">machinery</a>/<a href="obj/machinery/door_control.html">door_control</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/5b144631e8fddd40d14027a2a7d28779fd7ef80a/code/game/objects/machinery/door_control.dm#L4">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0dbfe99026ac46ef6deb747ccfcd41e6746d0b9d/code/game/objects/machinery/door_control.dm#L4">
         <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 4"/></a></h1>
 
 <table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
             <tr><th><a href="obj/machinery/door_control.html#var/desiredstate">desiredstate</a></th><td>Zero is closed, 1 is open.</td></tr>
-            <tr><th><a href="obj/machinery/door_control.html#var/directional">directional</a></th><td>if true we apply directional offsets, if not the door control is free floating</td></tr></table>
+            <tr><th><a href="obj/machinery/door_control.html#var/pressed">pressed</a></th><td>If the button was pressed recently</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="obj/machinery/door_control.html#proc/on_press">on_press</a></th><td>What do we on the button press?</td></tr>
+            <tr><th><a href="obj/machinery/door_control.html#proc/set_offsets">set_offsets</a></th><td>Proc that sets pixel offsets on Initialize if the button doesn't have it map-edited</td></tr></table>
     <h2 id="var">Var Details</h2><h3 id="var/desiredstate"><aside class="declaration">var </aside>desiredstate
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/5b144631e8fddd40d14027a2a7d28779fd7ef80a/code/game/objects/machinery/door_control.dm#L19">
-        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 19"/></a></h3>
-        <p>Zero is closed, 1 is open.</p><h3 id="var/directional"><aside class="declaration">var </aside>directional
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0dbfe99026ac46ef6deb747ccfcd41e6746d0b9d/code/game/objects/machinery/door_control.dm#L20">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 20"/></a></h3>
+        <p>Zero is closed, 1 is open.</p><h3 id="var/pressed"><aside class="declaration">var </aside>pressed
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/5b144631e8fddd40d14027a2a7d28779fd7ef80a/code/game/objects/machinery/door_control.dm#L22">
-        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 22"/></a></h3>
-        <p>if true we apply directional offsets, if not the door control is free floating</p></main>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0dbfe99026ac46ef6deb747ccfcd41e6746d0b9d/code/game/objects/machinery/door_control.dm#L23">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 23"/></a></h3>
+        <p>If the button was pressed recently</p><h2 id="proc">Proc Details</h2><h3 id="proc/on_press"><aside class="declaration">proc </aside>on_press<aside>() 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0dbfe99026ac46ef6deb747ccfcd41e6746d0b9d/code/game/objects/machinery/door_control.dm#L120">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 120"/></a></aside>
+        </h3>
+        <p>What do we on the button press?</p><h3 id="proc/set_offsets"><aside class="declaration">proc </aside>set_offsets<aside>() 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0dbfe99026ac46ef6deb747ccfcd41e6746d0b9d/code/game/objects/machinery/door_control.dm#L30">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;door_control.dm 30"/></a></aside>
+        </h3>
+        <p>Proc that sets pixel offsets on Initialize if the button doesn't have it map-edited</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/5b144631e8fddd40d14027a2a7d28779fd7ef80a">5b14463</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/0dbfe99026ac46ef6deb747ccfcd41e6746d0b9d">0dbfe99</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
