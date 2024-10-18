@@ -121,6 +121,10 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/current_variant
 	///Current hair concealing option selected.
 	var/current_hair_concealment
+	/// Has the item been reskinned?
+	var/current_skin
+	///List of options to reskin.
+	var/list/unique_reskin
 
 /obj/item/Initialize(mapload)
 
@@ -252,6 +256,10 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 // I have cleaned it up a little, but it could probably use more.  -Sayu
 /obj/item/attackby(obj/item/I, mob/user, params)
 	. = ..()
+
+	if(istype(I, /obj/item/facepaint/premium) && unique_reskin && !current_skin)
+		reskin_obj(I, user)
+		return
 
 	if(istype(I, /obj/item/facepaint) && colorable_allowed != NONE)
 		color_item(I, user)
