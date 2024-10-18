@@ -102,9 +102,6 @@
 /obj/item/ammo_magazine/rifle/tx54/get_additional_codex_info()
 	. += "20mm airburst grenades release a number of piercing sub munitions when they detonate. Submunitions inflict damage, sunder, stagger and slow.<br>"
 
-/obj/item/ammo_magazine/rifle/tx54/he/get_additional_codex_info()
-	. += "20mm high explosive grenades instantly detonate on impact on the turf targeted, creating a small explosion.<br>"
-
 /obj/item/ammo_magazine/rifle/tx54/incendiary/get_additional_codex_info()
 	. += "20mm incendiary grenades release a number of piercing sub munitions when they detonate. Submunitions burn any mob they hit, and leave fire in turfs crossed.<br>"
 
