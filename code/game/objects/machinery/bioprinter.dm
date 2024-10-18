@@ -10,7 +10,7 @@
 	icon_state = "bioprinter"
 
 	light_range = 0.5
-	light_power = 0.5
+	light_power = 0.4
 
 	var/working = 0
 	var/stored_matter = 0
