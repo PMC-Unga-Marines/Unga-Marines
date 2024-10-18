@@ -14071,8 +14071,7 @@
 "iDP" = (
 /obj/machinery/door_control/mainship/cic{
 	id = "bot_armory";
-	name = "Armory Lockdown";
-	pixel_x = -5
+	name = "Armory Lockdown"
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
@@ -28366,14 +28365,16 @@
 	},
 /obj/machinery/door_control/mainship/cic{
 	dir = 1;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = -16
 	},
 /obj/effect/turf_decal/siding/metal,
 /obj/machinery/door_control{
 	id = "Brig Lockdown";
 	name = "Brig Lockdown";
 	dir = 1;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = -16
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
