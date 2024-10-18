@@ -240,6 +240,12 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define DROPPOD_ACTIVE 2
 #define DROPPOD_LANDED 3
 
+#define DROPSHIP_WEAPON "dropship_weapon"
+#define DROPSHIP_CREW_WEAPON "dropship_crew_weapon"
+#define DROPSHIP_ELECTRONICS "dropship_electronics"
+#define DROPSHIP_FUEL_EQP "dropship_fuel_equipment"
+#define DROPSHIP_COMPUTER "dropship_computer"
+
 ///Burn level applied by lava if it calls fire_act
 #define LAVA_BURN_LEVEL 60
 

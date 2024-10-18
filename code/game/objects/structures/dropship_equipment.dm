@@ -1,13 +1,3 @@
-
-#define DROPSHIP_WEAPON "dropship_weapon"
-#define DROPSHIP_CREW_WEAPON "dropship_crew_weapon"
-#define DROPSHIP_ELECTRONICS "dropship_electronics"
-#define DROPSHIP_FUEL_EQP "dropship_fuel_equipment"
-#define DROPSHIP_COMPUTER "dropship_computer"
-
-
-//the bases onto which you attach dropship equipments.
-
 /obj/effect/attach_point
 	name = "equipment attach point"
 	desc = "A place where heavy equipment can be installed with a powerloader."
