@@ -76,8 +76,8 @@ SUBSYSTEM_DEF(ticker)
 				start_at = time_left || world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 			for(var/client/C in GLOB.clients)
 				window_flash(C)
-			to_chat(world, span_round_body("Welcome to the pre-game lobby of [CONFIG_GET(string/server_name)]!"))
-			to_chat(world, span_role_body("Please, setup your character and select ready. Game will start in [round(time_left * 0.1) || CONFIG_GET(number/lobby_countdown)] seconds."))
+			to_chat(world, span_round_body("Добро пожаловать в пре-игровое лобби [CONFIG_GET(string/server_name)]!"))
+			to_chat(world, span_role_body("Настройте вашего персонажа и нажмите ГОТОВ. Раунд начнется через [round(time_left * 0.1) || CONFIG_GET(number/lobby_countdown)] секунд."))
 			current_state = GAME_STATE_PREGAME
 			to_chat(world, SSpersistence.seasons_info_message())
 			fire()
@@ -128,14 +128,14 @@ SUBSYSTEM_DEF(ticker)
 					C.mob?.update_sight() // To reveal ghosts
 
 /datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, span_boldnotice("<b>Enjoy the game!</b>"))
+	to_chat(world, span_boldnotice("<b>Приятной игры!</b>"))
 	var/init_start = world.timeofday
 	//Create and announce mode
 	mode = config.pick_mode(GLOB.master_mode)
 
 	CHECK_TICK
 	if(!mode.can_start(bypass_checks))
-		to_chat(world, "Reverting to pre-game lobby.")
+		to_chat(world, "Возврат к пре-игровому лобби.")
 		QDEL_NULL(mode)
 		SSjob.ResetOccupations()
 		return FALSE
@@ -169,7 +169,7 @@ SUBSYSTEM_DEF(ticker)
 
 	GLOB.datacore.manifest()
 
-	log_world("Game start took [(world.timeofday - init_start) * 0.1]s")
+	log_world("Запуск игры занял [(world.timeofday - init_start) * 0.1] секунд")
 	round_start_time = world.time
 	SSdbcore.SetRoundStart()
 
@@ -301,7 +301,7 @@ SUBSYSTEM_DEF(ticker)
 			graceful = TRUE
 
 	if(graceful)
-		to_chat_immediate(world, "<h3>[span_boldnotice("Shutting down...")]</h3>")
+		to_chat_immediate(world, "<h3>[span_boldnotice("Отключение сервера...")]</h3>")
 		world.Reboot(FALSE)
 		return
 
@@ -310,21 +310,21 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, span_boldnotice("An admin has delayed the round end."))
+		to_chat(world, span_boldnotice("Администратор отложил конец раунда."))
 		return
 
-	to_chat(world, span_boldnotice("Rebooting World in [DisplayTimeText(delay)]. [reason]"))
+	to_chat(world, span_boldnotice("Перезапуск сервера через [DisplayTimeText(delay)]. [reason]"))
 
 	var/start_wait = world.time
 	UNTIL(round_end_sound_sent || (world.time - start_wait) > (delay * 2)) //don't wait forever
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, span_boldnotice("Reboot was cancelled by an admin."))
+		to_chat(world, span_boldnotice("Перезапуск сервера был отменен администратором."))
 		return
 
 	log_game("Rebooting World. [reason]")
-	to_chat_immediate(world, "<h3>[span_boldnotice("Rebooting...")]</h3>")
+	to_chat_immediate(world, "<h3>[span_boldnotice("Перезапуск...")]</h3>")
 
 	world.Reboot(TRUE)
 
@@ -340,7 +340,7 @@ SUBSYSTEM_DEF(ticker)
 		tip = pick(SSstrings.get_list_from_file("tips/meme"))
 
 	if(tip)
-		to_chat(world, examine_block("[span_tip("<big>Tip of the round:</big>")][EXAMINE_SECTION_BREAK][html_encode(tip)]"))
+		to_chat(world, examine_block("[span_tip("<big>Совет по игре:</big>")][EXAMINE_SECTION_BREAK][html_encode(tip)]"))
 
 
 /datum/controller/subsystem/ticker/proc/check_queue()

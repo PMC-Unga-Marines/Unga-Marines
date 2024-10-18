@@ -76,7 +76,7 @@
 
 
 /client/verb/staffwho()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Staffwho"
 
 	var/msg = ""
