@@ -56,5 +56,5 @@
 	new /obj/item/attachable/scope/standard_magnum(src)
 	new /obj/item/attachable/stock/t76(src)
 	new /obj/item/attachable/compensator(src)
-		for(var/i in 1 to 12)
-    new /obj/item/ammo_magazine/revolver/standard_magnum(src)
+	for(var/i in 1 to 12)
+  		new /obj/item/ammo_magazine/revolver/standard_magnum(src)
