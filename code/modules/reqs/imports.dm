@@ -144,7 +144,7 @@
 
 /datum/supply_packs/imports/mpi_km/ammo_packet
 	name = "7.62x39mm Ammo Box"
-	contains = list(/obj/item/ammo_magazine/packet/pwarsaw)
+	contains = list(/obj/item/ammo_magazine/packet/groza)
 	cost = 15
 
 /datum/supply_packs/imports/mkh
