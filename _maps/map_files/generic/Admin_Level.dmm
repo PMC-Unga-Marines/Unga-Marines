@@ -1126,9 +1126,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
 "prY" = (
-/obj/machinery/button/valhalla/xeno_button{
-	link = "marinesurgery"
-	},
+/obj/machinery/practice/medical/surgery,
 /turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
 "pwk" = (
@@ -1388,9 +1386,6 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "tiQ" = (
-/obj/effect/landmark/valhalla/marine_spawner_landmark{
-	where = "surgery"
-	},
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /obj/machinery/optable/valhalla,
