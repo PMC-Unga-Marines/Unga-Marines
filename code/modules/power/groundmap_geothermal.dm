@@ -245,7 +245,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 
 		if(!WT.remove_fuel(1, user))
 			to_chat(user, span_warning("You need more welding fuel to complete this task."))
-			return FALSE
+			return
 		playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
 		user.visible_message(span_notice("[user] carefully starts burning [src]'s resin off."),
 		span_notice("You carefully start burning [src]'s resin off."))
