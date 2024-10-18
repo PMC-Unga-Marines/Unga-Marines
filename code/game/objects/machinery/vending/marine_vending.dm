@@ -1537,10 +1537,8 @@
 			/obj/item/armor_module/module/tyr_extra_armor = -1,
 			/obj/item/armor_module/module/tyr_head = -1,
 			/obj/item/attachable/shoulder_mount = -1,
-/* RU TGMC EDIT
 			/obj/item/armor_module/module/mimir_environment_protection = -1,
 			/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet = -1,
-RU TGMC EDIT*/
 			/obj/item/armor_module/module/better_shoulder_lamp = -1,
 			/obj/item/attachable/heatlens = -1,
 			/obj/item/storage/backpack/lightpack = -1,
