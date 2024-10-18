@@ -241,8 +241,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 			user.visible_message(span_notice("[user] fumbles around figuring out the resin tendrils on [src]."),
 			span_notice("You fumble around figuring out the resin tendrils on [src]."))
 		var/fumbling_time = 10 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
-				return
+		return welder_repair_act(user, I, 10, fumbling_time, fuel_req = 1)	return welder_repair_act(user, I, 10, fumbling_time, fuel_req = 1)
 		if(!WT.remove_fuel(1, user))
 			to_chat(user, span_warning("You need more welding fuel to complete this task."))
 			return
