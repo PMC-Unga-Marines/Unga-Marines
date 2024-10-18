@@ -164,6 +164,14 @@
 	aim_speed_mod = 0.2
 	wield_delay_mod = 0.2
 
+/obj/item/ammo_magazine/rifle/ak15
+	name = "\improper AK-15 magazine (7.62x39mm)"
+	desc = "A 30 round 7.62x39mm Kalashnikov magazine."
+	caliber = CALIBER_762X39
+	icon_state = "ak15"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/ak_15
+	max_rounds = 30
+
 // RPD
 
 /obj/item/ammo_magazine/rifle/lmg_d
@@ -238,6 +246,20 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_rounds = 200
 	reload_delay = 3 SECONDS
+
+//-------------------------------------------------------
+//PKP pecheneg Purpose suppression machinegun
+
+/obj/item/ammo_magazine/pkp
+	name = "\improper PKP (Pecheneg) box magazine (7.62x54mm)"
+	desc = "A belt box for the PKP (Pecheneg) Purpose suppression machinegun."
+	icon_state = "pkp"
+	icon_state_mini = "mag_pkp"
+	caliber = CALIBER_762X54
+	default_ammo = /datum/ammo/bullet/rifle/pkp_machinegun
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 100
+	reload_delay = 2.5 SECONDS
 
 //-------------------------------------------------------
 //PR-412L1 HEAVY PULSE RIFLE

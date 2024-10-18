@@ -436,6 +436,11 @@
 	contains = list(/obj/item/ammo_magazine/minigun_powerpack)
 	cost = 50
 
+/datum/supply_packs/weapons/pkp_pecheneg
+	name = "PKP pecheneg"
+	contains = list(/obj/item/weapon/gun/rifle/pkp_pecheneg)
+	cost = 350
+
 /datum/supply_packs/weapons/mg27
 	name = "MG-27 Medium Machinegun"
 	contains = list(/obj/item/weapon/gun/mg27)
