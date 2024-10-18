@@ -241,6 +241,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define DROPPOD_LANDED 3
 
 #define DROPSHIP_WEAPON "dropship_weapon"
+#define DROPSHIP_WEAPON_CAS "dropship_weapon_cas"
 #define DROPSHIP_CREW_WEAPON "dropship_crew_weapon"
 #define DROPSHIP_ELECTRONICS "dropship_electronics"
 #define DROPSHIP_FUEL_EQP "dropship_fuel_equipment"

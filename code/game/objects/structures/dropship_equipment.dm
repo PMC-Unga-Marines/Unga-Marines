@@ -61,7 +61,6 @@
 
 	loaded_equipment.update_equipment()
 
-
 /obj/effect/attach_point/weapon
 	name = "weapon system attach point"
 	icon_state = "equip_base_front"
@@ -77,6 +76,7 @@
 
 /obj/effect/attach_point/weapon/cas
 	ship_tag = SHUTTLE_CAS_DOCK
+	base_category = DROPSHIP_WEAPON_CAS
 	icon = 'icons/Marine/casship.dmi'
 	icon_state = "15"
 
@@ -627,7 +627,7 @@
 /obj/structure/dropship_equipment/cas/weapon
 	name = "abstract weapon"
 	icon = 'icons/Marine/mainship_props64.dmi'
-	equip_category = DROPSHIP_WEAPON
+	equip_category = DROPSHIP_WEAPON_CAS
 	bound_width = 32
 	bound_height = 64
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE|FIRE_MISSION_ONLY
