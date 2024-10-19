@@ -598,3 +598,102 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/hugger/acid
 	hugger_type = /obj/item/clothing/mask/facehugger/combat/acid
+
+/*
+//================================================
+					Widow Ammo Types
+//================================================
+*/
+
+/datum/ammo/xeno/web
+	name = "web globe"
+	icon_state = "web_spit"
+	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
+	damage = 0
+	max_range = 7
+	bullet_color = COLOR_WHITE
+	bonus_projectiles_type = /datum/ammo/xeno/mini_web
+	bonus_projectiles_scatter = 22
+	var/bonus_projectile_quantity = 16
+	var/bonus_projectile_range = 3
+	var/bonus_projectile_speed = 1
+
+/datum/ammo/xeno/mini_web
+	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
+	damage = 0
+	max_range = 3
+	bullet_color = COLOR_WHITE
+	icon_state = "web_spit"
+
+/datum/ammo/xeno/mini_web/on_leave_turf(turf/T, obj/projectile/P)
+	drop_web(T)
+
+/datum/ammo/xeno/mini_web/do_at_max_range(turf/T, obj/projectile/P)
+	var/turf/initial_turf = T.density ? P.loc : T
+	drop_web(initial_turf)
+
+/datum/ammo/xeno/web/on_leave_turf(turf/T, obj/projectile/P)
+	drop_web(T)
+
+/datum/ammo/xeno/web/on_hit_obj(obj/O, obj/projectile/P)
+	var/turf/initial_turf = O.density ? P.loc : get_turf(O)
+	drop_web(initial_turf)
+	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+
+/datum/ammo/xeno/web/on_hit_turf(turf/T, obj/projectile/P)
+	var/turf/initial_turf = T.density ? P.loc : T
+	drop_web(initial_turf)
+	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+
+/datum/ammo/xeno/web/on_hit_mob(mob/M, obj/projectile/P)
+	var/turf/initial_turf = get_turf(M)
+	drop_web(initial_turf)
+	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+
+/datum/ammo/xeno/web/do_at_max_range(turf/T, obj/projectile/P)
+	var/turf/initial_turf = T.density ? P.loc : T
+	drop_web(initial_turf)
+	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+
+/datum/ammo/xeno/proc/drop_web(turf/T)
+	if(T.density || istype(T, /turf/open/space)) // No structures in space
+		return
+
+	for(var/obj/O in T.contents)
+		if(is_type_in_typecache(O, GLOB.no_sticky_resin))
+			return
+
+	new /obj/alien/resin/sticky/thin/web(T)
+
+/datum/ammo/xeno/leash_ball
+	icon_state = "widow_snareball"
+	ping = "ping_x"
+	damage_type = STAMINA
+	flags_ammo_behavior = AMMO_SKIPS_ALIENS | AMMO_TARGET_TURF
+	bullet_color = COLOR_PURPLE
+	ping = null
+	damage = 0
+	armor_type = BIO
+	shell_speed = 1.5
+	accurate_range = 8
+	max_range = 8
+
+/datum/ammo/xeno/leash_ball/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_leashball(target_turf.density ? proj.loc : target_turf)
+
+/datum/ammo/xeno/leash_ball/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_mob)
+	drop_leashball(target_turf.density ? proj.loc : target_turf, proj.firer)
+
+/datum/ammo/xeno/leash_ball/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_obj)
+	if(target_turf.density || (target_obj.density && !(target_obj.allow_pass_flags & PASS_PROJECTILE)))
+		target_turf = get_turf(proj)
+	drop_leashball(target_turf.density ? proj.loc : target_turf, proj.firer)
+
+/datum/ammo/xeno/leash_ball/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_leashball(target_turf.density ? proj.loc : target_turf)
+
+/// This spawns a leash ball and checks if the turf is dense before doing so
+/datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/target_turf)
+	new /obj/structure/xeno/aoe_leash(get_turf(target_turf), hivenumber)

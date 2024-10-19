@@ -1111,3 +1111,66 @@
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/burrow
+	name = "burrow"
+	full_name = "Widow: Burrow"
+	description = "Dig to the ground, making you invisible."
+	keybind_signal = COMSIG_XENOABILITY_BURROW
+	hotkey_keys = list("C")
+
+/datum/keybinding/xeno/web_spit
+	name = "Web Spit"
+	full_name = "Widow: Web Spit"
+	description = "Spit web at your target. Hitting the target will impede their functions depending on their hit location."
+	keybind_signal = COMSIG_XENOABILITY_WEB_SPIT
+	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/leash_ball
+	name = "Leash Ball"
+	full_name = "Widow: Leash Ball"
+	description = "Spit a huge web ball of web that snares groups of targets for a brief while."
+	keybind_signal = COMSIG_XENOABILITY_LEASH_BALL
+	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/create_spiderling
+	name = "Birth Spiderling"
+	full_name = "Widow: Birth Spiderling"
+	description = "Give birth to a spiderling after a short charge-up."
+	keybind_signal = COMSIG_XENOABILITY_CREATE_SPIDERLING
+	hotkey_keys = list("F")
+
+/datum/keybinding/xeno/create_spiderling_using_cc
+	name = "Birth Spiderling using Cannibalise charges"
+	full_name = "Widow: Birth Spiderling using Cannibalise charges"
+	description = "Give birth to a spiderling after a short charge-up if you have any Cannibalise charges available."
+	keybind_signal = COMSIG_XENOABILITY_CREATE_SPIDERLING_USING_CC
+	hotkey_keys = list("H")
+
+/datum/keybinding/xeno/attach_spiderlings
+	name = "Attach Spiderlings"
+	full_name = "Widow: Attach Spiderlings"
+	description = "Scoop up and carry your spawn with you."
+	keybind_signal = COMSIG_XENOABILITY_ATTACH_SPIDERLINGS
+	hotkey_keys = list("X")
+
+/datum/keybinding/xeno/cannibalise
+	name = "Cannibalise Spiderling"
+	full_name = "Widow: Cannibalise Spiderling"
+	description = "Eat your own young and store their biomass for later."
+	keybind_signal = COMSIG_XENOABILITY_CANNIBALISE_SPIDERLING
+	hotkey_keys = list("G")
+
+/datum/keybinding/xeno/web_hook
+	name = "Web Hook"
+	full_name = "Widow: Web Hook"
+	description = "Shoot a strong web and pull yourself towards whatever it hits."
+	keybind_signal = COMSIG_XENOABILITY_WEB_HOOK
+	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/spiderling_mark
+	name = "Spiderling Mark"
+	full_name = "Widow: Spiderling Mark"
+	description = "Signal your spawn to a target they shall attack."
+	keybind_signal = COMSIG_XENOABILITY_SPIDERLING_MARK
+	hotkey_keys = list("V")

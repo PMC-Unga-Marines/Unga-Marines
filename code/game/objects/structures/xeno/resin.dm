@@ -80,3 +80,16 @@
 
 	ignore_weed_destruction = FALSE
 	refundable = FALSE
+
+/obj/alien/resin/sticky/thin/web
+	name = "sticky web"
+	desc = "A thin layer of web."
+	max_integrity = 2
+	slow_amt = 0
+
+	ignore_weed_destruction = TRUE
+	refundable = FALSE
+
+/obj/alien/resin/sticky/thin/web/Initialize(mapload)
+	. = ..()
+	icon_state = pick("stickyweb1", "stickyweb2")
