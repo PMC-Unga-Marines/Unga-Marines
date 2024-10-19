@@ -1,5 +1,0 @@
-author: "definitelynotspaghetti"
-delete-after: True
-changes:
-  - bugfix: "Исправил дублирование звука у примо крашера."
-  - bugfix: "Исправил два рантайма, которые появлялись после каждого использования абилки."

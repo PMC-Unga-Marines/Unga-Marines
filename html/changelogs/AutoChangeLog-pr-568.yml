@@ -1,4 +1,0 @@
-author: "Tatarla"
-delete-after: True
-changes:
-  - balance: "Скорость починки наземных генераторов скалируется от навыка инженерии"
