@@ -253,35 +253,3 @@
 	if(target == user && !user.do_self_harm)
 		return
 	return ..()
-
-/obj/item/weapon/chainsword
-	name = "chainsword"
-	desc = "chainsword thing"
-	icon = 'icons/obj/items/weapons.dmi'
-	icon_state = "chainsword"
-	attack_verb = list("gored", "slashed", "cut")
-	force = 10
-	throwforce = 5
-	var/on = FALSE
-
-/obj/item/weapon/chainsword/attack_self(mob/user)
-	. = ..()
-	if(!on)
-		on = !on
-		icon_state = "[initial(icon_state)]_on"
-		force = 80
-		throwforce = 30
-	else
-		on = !on
-		icon_state = initial(icon_state)
-		force = initial(force)
-		throwforce = initial(icon_state)
-
-/obj/item/weapon/chainsword/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	playsound(loc, 'sound/weapons/chainsawhit.ogg', 100, 1)
-	return ..()
-
-/obj/item/weapon/chainsword/civilian
-	name = "chainsaw"
-	desc = "A chainsaw. Good for turning big things into little things."
-	icon_state = "chainsaw"

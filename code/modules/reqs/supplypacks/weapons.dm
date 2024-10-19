@@ -225,6 +225,11 @@
 	contains = list(/obj/item/weapon/twohanded/rocketsledge)
 	cost = 600
 
+/datum/supply_packs/weapons/chainsaw
+	name = "Chainsaw"
+	contains = list(/obj/item/weapon/twohanded/chainsaw)
+	cost = 500
+
 /datum/supply_packs/weapons/vector_incendiary
 	name = "vector incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector/incendiary)
