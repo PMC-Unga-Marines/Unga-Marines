@@ -192,7 +192,7 @@
 	name = "Spiderling Mark"
 	desc = "Send your spawn on a valid target."
 	action_icon_state = "spiderling_mark"
-	ability_cost = 50
+	ability_cost = 0
 	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SPIDERLING_MARK,

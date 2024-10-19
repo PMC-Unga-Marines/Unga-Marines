@@ -1,8 +1,6 @@
 #define SPIDERLING_ATTEMPTING_GUARD "spiderling_attempting_guard"
 #define SPIDERLING_NOT_GUARDING "spiderling_not_guarding"
 #define SPIDERLING_GUARDING "spiderling_guarding"
-#define SPIDERLING_ENRAGED "spiderling_enraged"
-#define SPIDERLING_NORMAL "spiderling_normal"
 
 /mob/living/carbon/xenomorph/spiderling
 	caste_base_type = /datum/xeno_caste/spiderling
@@ -21,25 +19,17 @@
 	density = FALSE
 	/// The widow that this spiderling belongs to
 	var/mob/living/carbon/xenomorph/spidermother
-	/// What sprite state this - normal, enraged, guarding? Used for update_icons()
-	var/spiderling_state = SPIDERLING_NORMAL
+	///our masters weakref
+	var/datum/weakref/weak_master
 
 /mob/living/carbon/xenomorph/spiderling/Initialize(mapload, mob/living/carbon/xenomorph/mother)
 	. = ..()
-	spidermother = mother
-	if(spidermother)
-		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/spiderling, spidermother)
-		transfer_to_hive(spidermother.get_xeno_hivenumber())
+	weak_master = WEAKREF(mother)
+	if(mother)
+		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/spiderling, mother)
+		transfer_to_hive(mother.get_xeno_hivenumber())
 	else
 		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
-
-/mob/living/carbon/xenomorph/spiderling/update_icons(state_change = TRUE)
-	. = ..()
-	if(state_change)
-		if(spiderling_state == SPIDERLING_ENRAGED)
-			icon_state = "[icon_state] Enraged"
-		if(spiderling_state == SPIDERLING_GUARDING)
-			icon_state = "[icon_state] Guarding"
 
 /mob/living/carbon/xenomorph/spiderling/on_death()
 	//We QDEL them as cleanup and preventing them from being sold
@@ -52,6 +42,14 @@
 		spidermother.attack_alien(xeno_attacker, damage_amount, damage_type, armor_type, effects, isrightclick)
 		return
 	return ..()
+
+/mob/living/carbon/xenomorph/spiderling/Life(seconds_per_tick, times_fired)
+	. = ..()
+	var/atom/movable/master = weak_master?.resolve()
+	if(!master)
+		death(gibbing = FALSE)
+	if(get_dist(src, master) > 15)
+		adjustBruteLoss(25)
 
 // ***************************************
 // *********** Spiderling AI Section
@@ -165,9 +163,6 @@
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, PROC_REF(revert_to_default_escort))
 	guarding_status = SPIDERLING_NOT_GUARDING
-	var/mob/living/carbon/xenomorph/spiderling/X = mob_parent
-	X?.spiderling_state = SPIDERLING_NORMAL
-	X?.update_icons()
 
 /datum/ai_behavior/spiderling/ai_do_move()
 	if((guarding_status == SPIDERLING_ATTEMPTING_GUARD) && (get_dist(mob_parent, atom_to_walk_to) <= 1))
@@ -187,9 +182,6 @@
 		return
 	if(prob(50))
 		X.emote("roar")
-	if(X.spiderling_state != SPIDERLING_ENRAGED)
-		X.spiderling_state = SPIDERLING_GUARDING
-		X.update_icons()
 	distance_to_maintain = 0
 	revert_to_default_escort()
 	atom_to_walk_to = escorted_atom
@@ -210,22 +202,19 @@
 	if(!length(possible_victims))
 		kill_parent()
 		return
-	x.spiderling_state = SPIDERLING_ENRAGED
-	x.update_icons()
 	// Makes the spiderlings roar at slightly different times so they don't stack their roars
 	addtimer(CALLBACK(x, TYPE_PROC_REF(/mob, emote), "roar"), rand(1, 4))
 	change_action(MOVING_TO_ATOM, pick(possible_victims))
 	addtimer(CALLBACK(src, PROC_REF(kill_parent)), 10 SECONDS)
 
-/// Makes the spiderling roar and then kill themselves after some time
 /datum/ai_behavior/spiderling/proc/triggered_spiderling_rage(mob/M, mob/victim)
 	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
 	if(QDELETED(spiderling_parent))
 		return
 	change_action(MOVING_TO_ATOM, victim)
-	spiderling_parent.spiderling_state = SPIDERLING_ENRAGED
-	spiderling_parent.update_icons()
 	addtimer(CALLBACK(spiderling_parent, TYPE_PROC_REF(/mob, emote), "roar"), rand(1, 4))
+	addtimer(CALLBACK(src, PROC_REF(guard_owner)), 8 SECONDS)
+
 
 ///This kills the spiderling
 /datum/ai_behavior/spiderling/proc/kill_parent()
