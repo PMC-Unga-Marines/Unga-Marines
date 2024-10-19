@@ -10,8 +10,8 @@
 	desc = "A widow spawn, it chitters angrily without any sense of self-preservation, only to obey the widow's will."
 	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "Spiderling Running"
-	health = 250
-	maxHealth = 250
+	health = 150
+	maxHealth = 150
 	plasma_stored = 200
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
@@ -226,7 +226,6 @@
 	spiderling_parent.spiderling_state = SPIDERLING_ENRAGED
 	spiderling_parent.update_icons()
 	addtimer(CALLBACK(spiderling_parent, TYPE_PROC_REF(/mob, emote), "roar"), rand(1, 4))
-	addtimer(CALLBACK(src, PROC_REF(kill_parent)), 15 SECONDS)
 
 ///This kills the spiderling
 /datum/ai_behavior/spiderling/proc/kill_parent()

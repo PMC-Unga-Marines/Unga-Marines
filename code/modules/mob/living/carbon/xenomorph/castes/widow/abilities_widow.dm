@@ -33,8 +33,8 @@
 	desc = "Spit a huge web ball that snares groups of targets for a brief while."
 	action_icon_state = "leash_ball"
 	action_icon = 'icons/Xeno/actions.dmi'
-	ability_cost = 250
-	cooldown_duration = 20 SECONDS
+	ability_cost = 75
+	cooldown_duration = 15 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LEASH_BALL,
 	)
@@ -43,7 +43,7 @@
 	var/turf/target = get_turf(A)
 	var/mob/living/carbon/xenomorph/X = owner
 	X.face_atom(target)
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, IGNORE_LOC_CHANGE, X, BUSY_ICON_DANGER))
 		return fail_activate()
 	var/datum/ammo/xeno/leash_ball = GLOB.ammo_list[/datum/ammo/xeno/leash_ball]
 	leash_ball.hivenumber = X.hivenumber
@@ -60,16 +60,16 @@
 	icon_state = "aoe_leash"
 	desc = "Sticky and icky. Destroy it when you are stuck!"
 	destroy_sound = 'sound/effects/alien/resin_break1.ogg'
-	max_integrity = 75
+	max_integrity = 150
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	allow_pass_flags = NONE
 	density = FALSE
 	obj_flags = CAN_BE_HIT | PROJ_IGNORE_DENSITY
 	/// How long the leash ball lasts untill it dies
-	var/leash_life = 10 SECONDS
+	var/leash_life = 5 SECONDS
 	/// Radius for how far the leash should affect humans and how far away they may walk
-	var/leash_radius = 5
+	var/leash_radius = 3
 	/// List of beams to be removed on obj_destruction
 	var/list/obj/effect/ebeam/beams = list()
 	/// List of victims to unregister aoe_leash is destroyed
@@ -131,10 +131,10 @@
 
 /datum/action/ability/xeno_action/create_spiderling
 	name = "Birth Spiderling"
-	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time. On alt-use, if any charges of Cannibalise are stored, create a spiderling at no plasma cost or cooldown."
+	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time."
 	action_icon_state = "spawn_spiderling"
-	ability_cost = 100
-	cooldown_duration = 15 SECONDS
+	ability_cost = 80
+	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_SPIDERLING,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_CREATE_SPIDERLING_USING_CC,
@@ -142,14 +142,12 @@
 
 	/// List of all our spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/spiderlings = list()
-	/// Current amount of cannibalise charges
-	var/cannibalise_charges = 0
 
 /datum/action/ability/xeno_action/create_spiderling/give_action(mob/living/L)
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = L
 	var/max_spiderlings = X?.xeno_caste.max_spiderlings ? X.xeno_caste.max_spiderlings : 5
-	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy [max_spiderlings] spiderlings at one time. On alt-use, if any charges of Cannibalise are stored, create a spiderling at no plasma cost or cooldown."
+	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy [max_spiderlings] spiderlings at one time."
 
 /datum/action/ability/xeno_action/create_spiderling/can_use_action(silent = FALSE, override_flags)
 	. = ..()
@@ -164,37 +162,11 @@
 /// The action to create spiderlings
 /datum/action/ability/xeno_action/create_spiderling/action_activate()
 	. = ..()
-	if(!do_after(owner, 0.5 SECONDS, NONE, owner, BUSY_ICON_DANGER))
+	if(!do_after(owner, 0.5 SECONDS, IGNORE_LOC_CHANGE, owner, BUSY_ICON_DANGER))
 		return fail_activate()
 	add_spiderling()
 	succeed_activate()
 	add_cooldown()
-
-/datum/action/ability/xeno_action/create_spiderling/alternate_action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
-	if(cannibalise_charges <= 0)
-		X.balloon_alert(X, "No charges remaining!")
-		return
-	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
-		X.balloon_alert(X, "Max Spiderlings")
-		return
-	INVOKE_ASYNC(src, PROC_REF(use_cannibalise))
-	return COMSIG_KB_ACTIVATED
-
-/// Birth a spiderling and use up a charge of cannibalise
-/datum/action/ability/xeno_action/create_spiderling/proc/use_cannibalise()
-	if(!do_after(owner, 0.5 SECONDS, NONE, owner, BUSY_ICON_DANGER))
-		return FALSE
-	var/mob/living/carbon/xenomorph/X = owner
-	if(cannibalise_charges <= 0)
-		X.balloon_alert(X, "No charges remaining!")
-		return
-	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
-		X.balloon_alert(X, "Max Spiderlings")
-		return
-	add_spiderling()
-	cannibalise_charges -= 1
-	owner.balloon_alert(owner, "[cannibalise_charges]/3 charges remaining")
 
 /// Adds spiderlings to spiderling list and registers them for death so we can remove them later
 /datum/action/ability/xeno_action/create_spiderling/proc/add_spiderling()
@@ -218,7 +190,7 @@
 
 /datum/action/ability/activable/xeno/spiderling_mark
 	name = "Spiderling Mark"
-	desc = "Send your spawn on a valid target, they will automatically destroy themselves out of sheer fury after 15 seconds."
+	desc = "Send your spawn on a valid target."
 	action_icon_state = "spiderling_mark"
 	ability_cost = 50
 	cooldown_duration = 5 SECONDS
@@ -370,50 +342,6 @@
 		owner.buckle_mob(remaining_spiderling, TRUE, TRUE, 90, 1,0)
 		ADD_TRAIT(remaining_spiderling, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
 	addtimer(CALLBACK(src, PROC_REF(grab_spiderlings), remaining_list, number_of_attempts_left - 1), 1)
-
-// ***************************************
-// *********** Cannibalise
-// ***************************************
-/datum/action/ability/activable/xeno/cannibalise
-	name = "Cannibalise Spiderling"
-	desc = "Consume one of your children, storing their biomass for future use. If any charges of Cannibalise are stored, alt-use of Birth Spiderling will create one spiderling in exchange for one charge of Cannibalise. Up to three charges of Cannibalise may be stored at once."
-	action_icon_state = "cannibalise_spiderling"
-	ability_cost = 150
-	cooldown_duration = 2 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CANNIBALISE_SPIDERLING,
-	)
-
-/datum/action/ability/activable/xeno/cannibalise/can_use_ability(atom/A, silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
-		return
-	if(!owner.Adjacent(A))
-		owner.balloon_alert(owner, "Not adjacent")
-		return FALSE
-	if(!istype(A, /mob/living/carbon/xenomorph/spiderling))
-		owner.balloon_alert(owner, "We can't cannibalise this")
-		return FALSE
-	return TRUE
-
-/datum/action/ability/activable/xeno/cannibalise/use_ability(atom/A)
-	if(!do_after(owner, 0.5 SECONDS, NONE, A, BUSY_ICON_DANGER))
-		return fail_activate()
-
-	var/mob/living/carbon/xenomorph/spiderling/to_cannibalise = A
-	QDEL_NULL(to_cannibalise)
-	var/datum/action/ability/xeno_action/create_spiderling/create_spiderling_action = owner.actions_by_path[/datum/action/ability/xeno_action/create_spiderling]
-	if(!create_spiderling_action)
-		return
-
-	if(create_spiderling_action.cannibalise_charges < 3)
-		create_spiderling_action.cannibalise_charges += 1
-		owner.balloon_alert(owner, "[create_spiderling_action.cannibalise_charges]/3 charges")
-	else
-		owner.balloon_alert(owner, "We're full, no charges gained!")
-	playsound(owner.loc, 'sound/items/eatfood.ogg', 15, TRUE)
-	succeed_activate()
-	add_cooldown()
 
 // ***************************************
 // *********** Web Hook

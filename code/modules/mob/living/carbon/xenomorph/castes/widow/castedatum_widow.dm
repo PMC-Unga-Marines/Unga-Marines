@@ -47,7 +47,6 @@
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/lay_egg,
 		/datum/action/ability/xeno_action/attach_spiderlings,
-		/datum/action/ability/activable/xeno/cannibalise,
 		/datum/action/ability/activable/xeno/spiderling_mark,
 	)
 
@@ -82,7 +81,6 @@
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/lay_egg,
 		/datum/action/ability/xeno_action/attach_spiderlings,
-		/datum/action/ability/activable/xeno/cannibalise,
 		/datum/action/ability/activable/xeno/spiderling_mark,
 		/datum/action/ability/activable/xeno/web_hook,
 	)
