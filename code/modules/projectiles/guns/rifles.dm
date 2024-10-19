@@ -663,6 +663,10 @@
 	name = "\improper Type-16 Felon rifle"
 	desc = "Chinese replica of the MPi-KM rifle, made in bakelite with picatinny tactical rail. Uses 6.02x41mm ammo."
 	icon = 'icons/Marine/gun64.dmi'
+	unique_reskin = list(
+		"Polymer" = "ak47_black",
+		"Plum" = "ak47",
+	)
 	icon_state = "ak47"
 	item_state = "ak47"
 	caliber = CALIBER_602X41
@@ -730,6 +734,10 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "v34_black"
 	item_state = "v34_black"
+	unique_reskin = list(
+		"Polymer" = "v34_black",
+		"Plum" = "v34",
+	)
 	muzzleflash_iconstate = "muzzle_flash"
 	max_shells = 30
 	w_class = WEIGHT_CLASS_NORMAL
