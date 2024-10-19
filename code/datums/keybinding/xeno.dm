@@ -1119,11 +1119,11 @@
 	keybind_signal = COMSIG_XENOABILITY_BURROW
 	hotkey_keys = list("C")
 
-/datum/keybinding/xeno/web_spit
-	name = "Web Spit"
-	full_name = "Widow: Web Spit"
-	description = "Spit web at your target. Hitting the target will impede their functions depending on their hit location."
-	keybind_signal = COMSIG_XENOABILITY_WEB_SPIT
+/datum/keybinding/xeno/weave
+	name = "Weave"
+	full_name = "Widow: Weave"
+	description = "Cover a small area in front of you with a spider web."
+	keybind_signal = COMSIG_XENOABILITY_WEAVE
 	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/leash_ball

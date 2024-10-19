@@ -2,18 +2,18 @@
 // *********** Web Spit
 // ***************************************
 
-/datum/action/ability/activable/xeno/web_spit
+/datum/action/ability/activable/xeno/weave
 	name = "Weave"
 	desc = "Cover a small area in front of you with a spider web."
 	action_icon_state = "web_spit"
 	action_icon = 'icons/Xeno/actions.dmi'
-	ability_cost = 150
-	cooldown_duration = 5 SECONDS
+	ability_cost = 125
+	cooldown_duration = 3 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEB_SPIT,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEAVE,
 	)
 
-/datum/action/ability/activable/xeno/web_spit/use_ability(atom/target)
+/datum/action/ability/activable/xeno/weave/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/X = owner
 	var/datum/ammo/xeno/web/web_spit = GLOB.ammo_list[/datum/ammo/xeno/web]
 	var/obj/projectile/newspit = new /obj/projectile(get_turf(X))
