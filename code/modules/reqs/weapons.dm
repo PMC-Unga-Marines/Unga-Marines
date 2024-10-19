@@ -655,7 +655,7 @@
 /datum/supply_packs/weapons/zarya_extended_mag
 	name = "Type-16 extended magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/zarya/extended)
-	cost = 25
+	cost = 15
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/smg25_ap
