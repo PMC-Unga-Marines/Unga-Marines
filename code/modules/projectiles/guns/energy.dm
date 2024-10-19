@@ -542,8 +542,8 @@
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol
 	ammo_level_icon = null
 	rounds_per_shot = 20
-	gun_firemode = GUN_FIREMODE_SEMIAUTO
-	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
+	gun_firemode = GUN_FIREMODE_AUTOMATIC
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
