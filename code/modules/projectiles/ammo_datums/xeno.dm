@@ -608,9 +608,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/web
 	name = "web globe"
 	icon_state = "web_spit"
-	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
+	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_PASS_THROUGH_MOB|AMMO_TARGET_TURF|AMMO_XENO
 	damage = 0
-	max_range = 7
+	max_range = 3
 	bullet_color = COLOR_WHITE
 	bonus_projectiles_type = /datum/ammo/xeno/mini_web
 	bonus_projectiles_scatter = 22
@@ -619,7 +619,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/bonus_projectile_speed = 1
 
 /datum/ammo/xeno/mini_web
-	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
+	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_PASS_THROUGH_MOB|AMMO_TARGET_TURF|AMMO_XENO
 	damage = 0
 	max_range = 3
 	bullet_color = COLOR_WHITE
