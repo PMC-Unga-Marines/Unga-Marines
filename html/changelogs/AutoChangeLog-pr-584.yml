@@ -1,0 +1,4 @@
+author: "kel593"
+delete-after: True
+changes:
+  - bugfix: "Боевые роботы снова имеют доступы к своим вендорам."
