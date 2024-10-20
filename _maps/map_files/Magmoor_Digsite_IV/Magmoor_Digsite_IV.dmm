@@ -10287,7 +10287,7 @@
 "hwn" = (
 /obj/structure/table/mainship,
 /obj/item/tool/surgery/hemostat,
-/obj/item/folder/black_random,
+/obj/effect/spawner/random/misc/folder,
 /turf/open/floor/mainship/mono,
 /area/magmoor/research/rnd/lobby)
 "hwY" = (
@@ -10340,7 +10340,7 @@
 /area/magmoor/command/lobby)
 "hyr" = (
 /obj/structure/table/mainship,
-/obj/item/folder/black_random,
+/obj/effect/spawner/random/misc/folder,
 /obj/item/tool/pen,
 /obj/machinery/air_alarm,
 /turf/open/floor/mainship/purple{

@@ -305,6 +305,8 @@
 #define COMSIG_OBJ_HIDE "obj_hide"
 #define COMSIG_OBJ_ATTACK_ALIEN "obj_attack_alien"				//from obj/attack_alien(): (/mob/living/carbon/xenomorph)
 	#define COMPONENT_NO_ATTACK_ALIEN (1<<0)
+/// from /obj/obj_reskin: (mob/user, skin)
+#define COMSIG_OBJ_RESKIN "obj_reskin"
 
 #define COMSIG_MACHINERY_POWERED "machinery_powered"			/// from /obj/machinery/proc/powered: ()
 	#define COMPONENT_POWERED (1<<0)
@@ -821,7 +823,6 @@
 #define COMSIG_XENOABILITY_QUEEN_GIVE_PLASMA "xenoability_queen_give_plasma"
 #define COMSIG_XENOABILITY_QUEEN_HIVE_MESSAGE "xenoability_queen_hive_message"
 #define COMSIG_XENOABILITY_DEEVOLVE "xenoability_deevolve"
-#define COMSIG_XENOABILITY_QUEEN_BULWARK "xenoability_queen_bulwark"
 
 #define COMSIG_XENOABILITY_LAY_HIVEMIND "xenoability_lay_hivemind"
 #define COMSIG_XENOABILITY_LAY_EGG "xenoability_lay_egg"
