@@ -939,8 +939,7 @@
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
 	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rockets/Initialize(mapload)
-	. = ..()
+/obj/item/storage/box/mlrs_rockets/PopulateContents()
 	for(var/i in 1 to 16)
 		new /obj/item/mortal_shell/rocket/mlrs(src)
 
@@ -949,8 +948,7 @@
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
 	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rockets_gas/Initialize(mapload)
-	. = ..()
+/obj/item/storage/box/mlrs_rockets_gas/PopulateContents()
 	for(var/i in 1 to 16)
 		new /obj/item/mortal_shell/rocket/mlrs/gas(src)
 
@@ -959,8 +957,7 @@
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
 	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rockets_tangle/Initialize(mapload)
-	. = ..()
+/obj/item/storage/box/mlrs_rockets_tangle/PopulateContents()
 	for(var/i in 1 to 16)
 		new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
 
