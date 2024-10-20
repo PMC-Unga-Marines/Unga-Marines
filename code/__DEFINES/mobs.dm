@@ -741,7 +741,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define WIDOW_SPEED_BONUS 1 // How much faster widow moves while she has wall_speedup element
 
 //Spiderling defines
-#define TIME_TO_DISSOLVE 5 SECONDS
 #define SPIDERLING_RAGE_RANGE 10 // how close a nearby human has to be in order to be targeted
 
 //misc
