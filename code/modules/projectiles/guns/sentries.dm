@@ -21,7 +21,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	deployable_item = /obj/machinery/deployable/mounted/sentry
 	flags_item = IS_DEPLOYABLE|TWOHANDED|IS_SENTRY
-	deploy_time = 5 SECONDS
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
 
@@ -125,7 +124,8 @@
 	icon_state = "sentry"
 
 	turret_range = 8
-	deploy_time = 5 SECONDS
+	deploy_time = 2.5 SECONDS
+	undeploy_time = 2 SECONDS
 	max_shells = 500
 	fire_delay = 0.25 SECONDS
 
@@ -382,7 +382,7 @@
 	fire_sound = 'sound/items/turrets/turret_shotgun.ogg'
 
 	turret_range = 5
-	deploy_time = 5 SECONDS
+	deploy_time = 3 SECONDS
 	max_shells = 75
 	fire_delay = 1 SECONDS
 
@@ -415,7 +415,7 @@
 
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS
 	turret_range = 8
-	deploy_time = 5 SECONDS
+	deploy_time = 4 SECONDS
 	max_shells = 100
 	fire_delay = 3 SECONDS
 
