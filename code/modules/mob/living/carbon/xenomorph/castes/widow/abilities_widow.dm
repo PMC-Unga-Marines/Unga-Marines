@@ -198,21 +198,34 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SPIDERLING_MARK,
 	)
 
+/datum/action/ability/activable/xeno/spiderling_mark/can_use_ability(atom/target, silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(ishuman(target))
+		var/mob/living/carbon/human/victim = target
+		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
+			return FALSE
+
 /datum/action/ability/activable/xeno/spiderling_mark/use_ability(atom/A)
 	. = ..()
 	// So the spiderlings can actually attack
 	owner.unbuckle_all_mobs(TRUE)
 	var/datum/action/ability/xeno_action/create_spiderling/create_spiderling_action = owner.actions_by_path[/datum/action/ability/xeno_action/create_spiderling]
 	if(length(create_spiderling_action.spiderlings) <= 0)
+		owner.balloon_alert(owner, "No spiderlings")
 		return fail_activate()
 	if(!isturf(A) && !istype(A, /obj/alien/weeds))
+		owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
 	else
 		for(var/item in A) //Autoaim at humans if weeds or turfs are clicked
 			if(!ishuman(item))
 				continue
 			A = item
+			owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
 			break
 		if(!ishuman(A)) //If no human found, cancel ability
+			owner.balloon_alert(owner, "Nothing to attack, cancelled")
 			return fail_activate()
 
 	succeed_activate()

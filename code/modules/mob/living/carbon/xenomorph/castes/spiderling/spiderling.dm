@@ -211,8 +211,6 @@
 	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
 	if(QDELETED(spiderling_parent))
 		return
-	if(victim.stat == DEAD)
-		return
 	change_action(MOVING_TO_ATOM, victim)
 	addtimer(CALLBACK(spiderling_parent, TYPE_PROC_REF(/mob, emote), "roar"), rand(1, 4))
 	addtimer(CALLBACK(src, PROC_REF(guard_owner)), 8 SECONDS)
