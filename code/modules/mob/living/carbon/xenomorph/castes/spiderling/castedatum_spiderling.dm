@@ -17,7 +17,7 @@
 	// *** Health *** //
 	max_health = 125
 	// *** Flags *** //
-	caste_flags = CASTE_NOT_IN_BIOSCAN|CASTE_DO_NOT_ANNOUNCE_DEATH|CASTE_DO_NOT_ALERT_LOW_LIFE
+	caste_flags = CASTE_NOT_IN_BIOSCAN|CASTE_DO_NOT_ANNOUNCE_DEATH|CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_IS_A_MINION
 	// *** Minimap Icon *** //
 	minimap_icon = "spiderling"
 	// *** Defense *** //
