@@ -941,22 +941,8 @@
 
 /obj/item/storage/box/mlrs_rockets/Initialize(mapload)
 	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
+	for(var/i in 1 to 16)
+		new /obj/item/mortal_shell/rocket/mlrs(src)
 
 /obj/item/storage/box/mlrs_rockets_gas
 	name = "\improper TA-40L X-50 rocket crate"
@@ -965,22 +951,8 @@
 
 /obj/item/storage/box/mlrs_rockets_gas/Initialize(mapload)
 	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
+	for(var/i in 1 to 16)
+		new /obj/item/mortal_shell/rocket/mlrs/gas(src)
 
 /obj/item/storage/box/mlrs_rockets_tangle
 	name = "\improper TA-40L T-33 rocket crate"
@@ -989,22 +961,8 @@
 
 /obj/item/storage/box/mlrs_rockets_tangle/Initialize(mapload)
 	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
-	new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
+	for(var/i in 1 to 16)
+		new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
 
 #undef TALLY_MORTAR
 #undef TALLY_HOWITZER
