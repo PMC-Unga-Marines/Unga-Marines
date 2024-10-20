@@ -1412,7 +1412,7 @@
 
 /datum/status_effect/widows_domain/tick()
 	new /obj/effect/temp_visual/healing(get_turf(buff_owner))
-	var/heal_amount = buff_owner.maxHealth * 0.01
+	var/heal_amount = buff_owner.maxHealth * 0.1
 	buff_owner.adjustFireLoss(-max(0, heal_amount - buff_owner.getBruteLoss()), passive = TRUE)
 	buff_owner.adjustBruteLoss(-heal_amount, passive = TRUE)
 	buff_owner.gain_plasma(heal_amount)
