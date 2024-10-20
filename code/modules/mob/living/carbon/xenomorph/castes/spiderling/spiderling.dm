@@ -27,7 +27,7 @@
 	weak_master = WEAKREF(mother)
 	if(mother)
 		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/spiderling, mother)
-		transfer_to_hive(mother.get_xeno_hivenumber())
+		hivenumber = spidermother.hivenumber
 	else
 		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
 
