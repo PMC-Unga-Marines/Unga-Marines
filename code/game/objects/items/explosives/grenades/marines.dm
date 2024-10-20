@@ -318,7 +318,7 @@
 	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "ags_grenade"
 	item_state = "ags_grenade"
-	det_time = 0 SECONDS
+	det_time = 1 SECONDS
 	light_impact_range = 2
 	weak_impact_range = 4
 	power = 80
