@@ -785,7 +785,7 @@
 
 /obj/item/mortal_shell/rocket/mlrs/tangle
 	name = "\improper 60mm 'T-33' rocket"
-	desc = "A 60mm rocket loaded with tanglefoot gas that drains plasma from benoses."
+	desc = "A 60mm rocket loaded with tanglefoot gas that drains plasma from xeno."
 	icon_state = "mlrs_rocket_gas"
 	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/tangle
 
