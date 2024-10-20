@@ -8,7 +8,7 @@
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 	// *** Melee Attacks *** //
-	melee_damage = 8
+	melee_damage = 7
 	// *** Speed *** //
 	speed = -0.6
 	// *** Plasma *** //

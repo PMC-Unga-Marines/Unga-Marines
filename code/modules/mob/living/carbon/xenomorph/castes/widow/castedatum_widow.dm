@@ -12,7 +12,7 @@
 	melee_damage = 18
 
 	// *** Speed *** //
-	speed = -0.5
+	speed = -0.4
 
 	// *** Plasma *** //
 	plasma_max = 600
@@ -23,7 +23,7 @@
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 
 	// *** Defense *** //
@@ -41,7 +41,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/cocoon,
-		/datum/action/ability/activable/xeno/weave,
+		/datum/action/ability/activable/xeno/web_spit,
 		/datum/action/ability/xeno_action/burrow,
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
@@ -75,12 +75,12 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/cocoon,
-		/datum/action/ability/activable/xeno/weave,
+		/datum/action/ability/activable/xeno/web_spit,
 		/datum/action/ability/xeno_action/burrow,
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/lay_egg,
 		/datum/action/ability/xeno_action/attach_spiderlings,
 		/datum/action/ability/activable/xeno/spiderling_mark,
-		/datum/action/ability/activable/xeno/web_hook,
+		/datum/action/ability/activable/xeno/weave,
 	)

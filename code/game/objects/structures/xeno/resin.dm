@@ -102,11 +102,13 @@
 /obj/alien/resin/sticky/thin/web/proc/enter_web(datum/source, atom/movable/O, oldloc, oldlocs)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/X = O
-	if(isxenowidow(X))
+	if(isxenowidow(X) || isxenospiderling(X))
 		ENABLE_BITFIELD(X.pass_flags, (PASS_LOW_STRUCTURE|PASS_MOB))
+		X.apply_status_effect(/datum/status_effect/widows_domain)
 
 /obj/alien/resin/sticky/thin/web/proc/exit_web(datum/source, atom/movable/O, oldloc, oldlocs)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/X = O
-	if(isxenowidow(X))
+	if(isxenowidow(X) || isxenospiderling(X))
 		DISABLE_BITFIELD(X.pass_flags, (PASS_LOW_STRUCTURE|PASS_MOB))
+		X.remove_status_effect(/datum/status_effect/widows_domain)

@@ -60,6 +60,9 @@
 #define STATUS_EFFECT_MINDMEND /datum/status_effect/mindmeld
 
 #define STATUS_EFFECT_REKNIT_FORM /datum/status_effect/reknit_form
+
+#define STATUS_EFFECT_WIDOWS_DOMAIN /datum/status_effect/widows_domain
+
 /////////////
 // DEBUFFS //
 /////////////

@@ -4,11 +4,11 @@
 
 /datum/action/ability/activable/xeno/weave
 	name = "Weave"
-	desc = "Cover a small area in front of you with a spider web."
+	desc = "Cover a small space in front of you with a spider web. Your web will give different bonuses as long as you stand on it."
 	action_icon_state = "web_spit"
 	action_icon = 'icons/Xeno/actions.dmi'
-	ability_cost = 125
-	cooldown_duration = 3 SECONDS
+	ability_cost = 100
+	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEAVE,
 	)
@@ -135,9 +135,9 @@
 	action_icon_state = "spawn_spiderling"
 	ability_cost = 80
 	cooldown_duration = 10 SECONDS
+	use_state_flags = ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_SPIDERLING,
-		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_CREATE_SPIDERLING_USING_CC,
 	)
 
 	/// List of all our spiderlings
@@ -204,19 +204,15 @@
 	owner.unbuckle_all_mobs(TRUE)
 	var/datum/action/ability/xeno_action/create_spiderling/create_spiderling_action = owner.actions_by_path[/datum/action/ability/xeno_action/create_spiderling]
 	if(length(create_spiderling_action.spiderlings) <= 0)
-		owner.balloon_alert(owner, "No spiderlings")
 		return fail_activate()
 	if(!isturf(A) && !istype(A, /obj/alien/weeds))
-		owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
 	else
 		for(var/item in A) //Autoaim at humans if weeds or turfs are clicked
 			if(!ishuman(item))
 				continue
 			A = item
-			owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
 			break
 		if(!ishuman(A)) //If no human found, cancel ability
-			owner.balloon_alert(owner, "Nothing to attack, cancelled")
 			return fail_activate()
 
 	succeed_activate()
@@ -344,66 +340,28 @@
 	addtimer(CALLBACK(src, PROC_REF(grab_spiderlings), remaining_list, number_of_attempts_left - 1), 1)
 
 // ***************************************
-// *********** Web Hook
+// *********** Web Spit
 // ***************************************
-/datum/action/ability/activable/xeno/web_hook
-	name = "Web Hook"
-	desc = "Shoot out a web and pull it to traverse forward"
-	action_icon_state = "web_hook"
-	ability_cost = 200
-	cooldown_duration = 10 SECONDS
+
+/datum/action/ability/activable/xeno/web_spit
+	name = "Web Spit"
+	desc = "Stun and blind the target with a web projectile"
+	action_icon_state = "web_projectile"
+	action_icon = 'icons/Xeno/actions.dmi'
+	ability_cost = 100
+	cooldown_duration = 15 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEB_HOOK,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEB_SPIT,
 	)
-	//ref to beam for web hook
-	var/datum/beam/web_beam
 
-/datum/action/ability/activable/xeno/web_hook/can_use_ability(atom/A)
-	. = ..()
-	if(!.)
-		return
-	if(isliving(A))
-		owner.balloon_alert(owner, "We can't attach to that")
-		return FALSE
-	if(!isturf(A))
-		return FALSE
-	if(get_dist(owner, A) <= WIDOW_WEB_HOOK_MIN_RANGE)
-		owner.balloon_alert(owner, "Too close")
-		return FALSE
-	var/turf/current = get_turf(owner)
-	var/turf/target_turf = get_turf(A)
-	if(get_dist(current, target_turf) > WIDOW_WEB_HOOK_RANGE)
-		owner.balloon_alert(owner, "Too far")
-		return FALSE
-	current = get_step_towards(current, target_turf)
+/datum/action/ability/activable/xeno/web_spit/use_ability(atom/target)
+	var/mob/living/carbon/xenomorph/X = owner
+	var/datum/ammo/xeno/web_projectile/web = GLOB.ammo_list[/datum/ammo/xeno/web_projectile]
+	var/obj/projectile/newspit = new /obj/projectile(get_turf(X))
 
-/datum/action/ability/activable/xeno/web_hook/use_ability(atom/A)
-	var/atom/movable/web_hook/web_hook = new (get_turf(owner))
-	web_beam = owner.beam(web_hook,"beam_web",'icons/effects/beam.dmi')
-	RegisterSignals(web_hook, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(drag_widow), TRUE)
-	web_hook.throw_at(A, WIDOW_WEB_HOOK_RANGE, 3, owner, FALSE)
+	newspit.generate_bullet(web)
+	newspit.def_zone = X.get_limbzone_target()
+
+	newspit.fire_at(target, X, X, newspit.ammo.max_range)
 	succeed_activate()
 	add_cooldown()
-
-/// This throws widow wherever the web_hook landed, distance is dependant on if the web_hook hit a wall or just ground
-/datum/action/ability/activable/xeno/web_hook/proc/drag_widow(datum/source, turf/target_turf)
-	SIGNAL_HANDLER
-	QDEL_NULL(web_beam)
-	if(target_turf)
-		owner.throw_at(target_turf, WIDOW_WEB_HOOK_RANGE, WIDOW_WEB_HOOK_SPEED, owner, FALSE)
-	else
-		// we throw widow half the distance if she hits the floor
-		owner.throw_at(get_turf(source), WIDOW_WEB_HOOK_RANGE / 2, WIDOW_WEB_HOOK_SPEED, owner, FALSE)
-	qdel(source)
-	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(delete_beam))
-
-///signal handler to delete the web_hook after we are done draggging owner along
-/datum/action/ability/activable/xeno/web_hook/proc/delete_beam(datum/source)
-	SIGNAL_HANDLER
-	UnregisterSignal(source, COMSIG_MOVABLE_POST_THROW)
-	QDEL_NULL(web_beam)
-
-/// Our web hook that we throw
-/atom/movable/web_hook
-	name = "You can't see this"
-	invisibility = INVISIBILITY_ABSTRACT

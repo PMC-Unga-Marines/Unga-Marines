@@ -697,3 +697,29 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /// This spawns a leash ball and checks if the turf is dense before doing so
 /datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/target_turf)
 	new /obj/structure/xeno/aoe_leash(get_turf(target_turf), hivenumber)
+
+/datum/ammo/xeno/web_projectile
+	icon_state = "web_spit"
+	sound_hit = "snap"
+	sound_bounce = "alien_resin_build3"
+	damage_type = STAMINA
+	bullet_color = COLOR_PURPLE
+	flags_ammo_behavior = AMMO_SKIPS_ALIENS
+	ping = null
+	armor_type = BIO
+	accurate_range = 15
+	max_range = 15
+	///For how long the victim will be blinded
+	var/hit_eye_blind = 1
+	///How long the victim will be KO'd
+	var/hit_weaken = 1 SECONDS
+
+/datum/ammo/xeno/web_projectile/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	. = ..()
+	if(!ishuman(target_mob))
+		return
+	playsound(get_turf(target_mob), sound(get_sfx("snap")), 30, falloff = 5)
+	var/mob/living/carbon/human/human_victim = target_mob
+	human_victim.blind_eyes(hit_eye_blind)
+	human_victim.apply_effect(hit_weaken, WEAKEN)
+

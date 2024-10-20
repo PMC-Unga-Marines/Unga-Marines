@@ -1122,7 +1122,7 @@
 /datum/keybinding/xeno/weave
 	name = "Weave"
 	full_name = "Widow: Weave"
-	description = "Cover a small area in front of you with a spider web."
+	description = "Cover a small space in front of you with a spider web. Your web will give different bonuses as long as you stand on it."
 	keybind_signal = COMSIG_XENOABILITY_WEAVE
 	hotkey_keys = list("Q")
 
@@ -1147,16 +1147,16 @@
 	keybind_signal = COMSIG_XENOABILITY_ATTACH_SPIDERLINGS
 	hotkey_keys = list("X")
 
-/datum/keybinding/xeno/web_hook
-	name = "Web Hook"
-	full_name = "Widow: Web Hook"
-	description = "Shoot a strong web and pull yourself towards whatever it hits."
-	keybind_signal = COMSIG_XENOABILITY_WEB_HOOK
-	hotkey_keys = list("R")
-
 /datum/keybinding/xeno/spiderling_mark
 	name = "Spiderling Mark"
 	full_name = "Widow: Spiderling Mark"
 	description = "Signal your spawn to a target they shall attack."
 	keybind_signal = COMSIG_XENOABILITY_SPIDERLING_MARK
 	hotkey_keys = list("V")
+
+/datum/keybinding/xeno/web_spit
+	name = "Web Spit"
+	full_name = "Widow: Web Spit"
+	description = "Stun and blind the target with a web projectile"
+	keybind_signal = COMSIG_XENOABILITY_WEB_SPIT
+	hotkey_keys = list("Q")
