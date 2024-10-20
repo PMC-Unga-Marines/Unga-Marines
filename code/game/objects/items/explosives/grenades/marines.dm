@@ -430,6 +430,18 @@
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
 	overlay_type = "purple"
 
+/obj/item/explosive/grenade/sticky/cloaker/tangle
+	name = "\improper M45-T Tanglefoot grenade"
+	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. This one creates cloaking smoke! It is set to detonate in 5 seconds."
+	icon_state = "grenade_sticky_pgas"
+	item_state = "grenade_sticky_pgas"
+	det_time = 5 SECONDS
+	light_impact_range = 1
+	self_sticky = TRUE
+	overlay_type = "purple"
+	smoketype = /datum/effect_system/smoke_spread/plasmaloss
+	smoke_duration = 3
+
 /obj/item/explosive/grenade/smokebomb/drain/agls
 	name = "\improper AGLS-T smoke grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
