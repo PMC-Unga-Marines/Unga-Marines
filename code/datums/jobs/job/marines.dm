@@ -89,8 +89,8 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	title = SQUAD_ROBOT
 	paygrade = "E1"
 	comm_title = "Rob"
-	access = list(ACCESS_MARINE_ROBOT)
-	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_DROPSHIP)
+	access = list(ACCESS_MARINE_ROBOT, ACCESS_MARINE_PREP)
+	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_ROBOT)
 	display_order = JOB_DISPLAY_ORDER_SQUAD_ROBOT
 	outfit = /datum/outfit/job/marine/robot
 	total_positions = -1
