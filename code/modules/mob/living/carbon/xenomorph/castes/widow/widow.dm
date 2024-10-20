@@ -2,7 +2,8 @@
 	caste_base_type = /datum/xeno_caste/widow
 	name = "Widow"
 	desc = "A large arachnid xenomorph, with fangs ready to bear and crawling with many little spiderlings ready to grow."
-	icon = 'icons/Xeno/castes/widow/widow.dmi'
+	icon = 'icons/Xeno/castes/widow/basic.dmi'
+	effects_icon = 'icons/Xeno/castes/widow/effects.dmi'
 	icon_state = "Widow Walking"
 	bubble_icon = "alienroyal"
 	health = 200
