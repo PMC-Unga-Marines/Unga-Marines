@@ -1159,4 +1159,4 @@
 	full_name = "Widow: Web Spit"
 	description = "Stun and blind the target with a web projectile"
 	keybind_signal = COMSIG_XENOABILITY_WEB_SPIT
-	hotkey_keys = list("Q")
+	hotkey_keys = list("R")
