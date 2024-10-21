@@ -39,7 +39,6 @@
 
 /mob/living/carbon/xenomorph/spiderling/Destroy()
 	spidermother = null
-	remove_from_hive()
 	return ..()
 
 ///If we're covering our widow, any clicks should be transferred to them
