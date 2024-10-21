@@ -898,6 +898,7 @@
 #define COMSIG_XENOABILITY_ATTACH_SPIDERLINGS "xenoability_attach_spiderlings"
 #define COMSIG_XENOABILITY_SPIDERLING_MARK "xenoability_spiderling_mark"
 #define COMSIG_XENOABILITY_WEB_SPIT "xenoability_web_spit"
+#define COMSIG_XENOABILITY_CREATE_HUGGER "xenoability_create_hugger"
 
 // widow spiderling signals
 #define COMSIG_SPIDERLING_MARK "spiderling_mark"
