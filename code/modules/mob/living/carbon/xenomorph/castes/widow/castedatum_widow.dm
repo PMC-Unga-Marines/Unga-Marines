@@ -47,7 +47,8 @@
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/attach_spiderlings,
-		/datum/action/ability/activable/xeno/spiderling_mark,
+		/datum/action/ability/xeno_action/widow_unleash,
+		/datum/action/ability/xeno_action/widow_recall,
 	)
 
 /datum/xeno_caste/widow/on_caste_applied(mob/xenomorph)
@@ -81,6 +82,7 @@
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/attach_spiderlings,
-		/datum/action/ability/activable/xeno/spiderling_mark,
 		/datum/action/ability/activable/xeno/weave,
+		/datum/action/ability/xeno_action/widow_unleash,
+		/datum/action/ability/xeno_action/widow_recall,
 	)

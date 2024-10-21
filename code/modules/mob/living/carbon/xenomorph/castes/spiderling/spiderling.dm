@@ -1,7 +1,3 @@
-#define SPIDERLING_ATTEMPTING_GUARD "spiderling_attempting_guard"
-#define SPIDERLING_NOT_GUARDING "spiderling_not_guarding"
-#define SPIDERLING_GUARDING "spiderling_guarding"
-
 /mob/living/carbon/xenomorph/spiderling
 	caste_base_type = /datum/xeno_caste/spiderling
 	name = "Spiderling"
@@ -50,7 +46,7 @@
 	. = ..()
 	if(!spidermother)
 		return
-	if(get_dist(src, spidermother) > 15)
+	if(get_dist(src, spidermother) > SPIDERLING_WITHER_RANGE)
 		adjustBruteLoss(25)
 
 // ***************************************
@@ -59,93 +55,82 @@
 /datum/ai_behavior/spiderling
 	target_distance = 1
 	base_action = ESCORTING_ATOM
-	//The atom that will be used in revert_to_default_escort proc, by default this atom is the spiderling's widow
-	var/datum/weakref/default_escorted_atom
-	//Whether we are currently guarding a crit widow or not
-	var/guarding_status = SPIDERLING_NOT_GUARDING
+	identifier = IDENTIFIER_XENO
+	///should we go back to escorting the widow if we stray too far
+	var/too_far_escort = TRUE
+	///weakref to our mother
+	var/datum/weakref/master_ref
 
-/datum/ai_behavior/spiderling/New(loc, parent_to_assign, escorted_atom, can_heal = FALSE)
+/datum/ai_behavior/spiderling/New(loc, parent_to_assign, escorted_atom)
 	. = ..()
-	default_escorted_atom = WEAKREF(escorted_atom)
-	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(go_to_target))
-	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(go_to_obj_target))
-	RegisterSignal(escorted_atom, COMSIG_SPIDERLING_GUARD, PROC_REF(attempt_guard))
-	RegisterSignal(escorted_atom, COMSIG_SPIDERLING_UNGUARD, PROC_REF(attempt_unguard))
-	RegisterSignal(escorted_atom, COMSIG_MOB_DEATH, PROC_REF(spiderling_rage))
-	RegisterSignal(escorted_atom, COMSIG_LIVING_DO_RESIST, PROC_REF(parent_resist))
-	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_RESIN_JELLY_APPLIED, PROC_REF(apply_spiderling_jelly))
+	master_ref = WEAKREF(escorted_atom)
+	change_order(null, SPIDERLING_RECALL)
+
+///starts AI and registers obstructed move signal
+/datum/ai_behavior/spiderling/start_ai()
+	var/master = master_ref?.resolve()
+	if(master)
+		RegisterSignal(master, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, PROC_REF(change_order))
+	RegisterSignal(mob_parent, COMSIG_OBSTRUCTED_MOVE, PROC_REF(deal_with_obstacle))
+	RegisterSignal(mob_parent, COMSIG_SPIDERLING_CHANGE_ORDER, PROC_REF(change_order))
 	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_REST, PROC_REF(start_resting))
 	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_UNREST, PROC_REF(stop_resting))
 	RegisterSignal(escorted_atom, COMSIG_ELEMENT_JUMP_STARTED, PROC_REF(do_jump))
-	RegisterSignal(escorted_atom, COMSIG_SPIDERLING_MARK, PROC_REF(decide_mark))
-	RegisterSignal(escorted_atom, COMSIG_SPIDERLING_RETURN, PROC_REF(revert_to_default_escort))
+	RegisterSignal(escorted_atom, COMSIG_LIVING_DO_RESIST, PROC_REF(parent_resist))
+	return ..()
 
-/// Decides what to do when widow uses spiderling mark ability
-/datum/ai_behavior/spiderling/proc/decide_mark(source, atom/A)
-	SIGNAL_HANDLER
-	if(!A)
-		revert_to_default_escort()
-		return
-	if(atom_to_walk_to == A)
-		return
-	escorted_atom = null
-	if(ishuman(A))
-		INVOKE_ASYNC(src, PROC_REF(triggered_spiderling_rage), source, A)
-		return
-	if(isobj(A))
-		var/obj/obj_target = A
-		RegisterSignal(obj_target, COMSIG_QDELETING, PROC_REF(revert_to_default_escort))
-		go_to_obj_target(source, A)
-		return
-
-/// Sets escorted atom to our pre-defined default escorted atom, which by default is this spiderling's widow, and commands the spiderling to follow it
-/datum/ai_behavior/spiderling/proc/revert_to_default_escort(source)
-	SIGNAL_HANDLER
-	escorted_atom = default_escorted_atom.resolve()
-	change_action(ESCORTING_ATOM, escorted_atom)
-
-/// Signal handler to check if we can attack the obj's that our escorted_atom is attacking
-/datum/ai_behavior/spiderling/proc/go_to_obj_target(source, obj/target)
-	SIGNAL_HANDLER
-	if(QDELETED(target))
-		return
-	atom_to_walk_to = target
-	change_action(MOVING_TO_ATOM, target)
-
-/// Signal handler to check if we can attack what our escorted_atom is attacking
-/datum/ai_behavior/spiderling/proc/go_to_target(source, mob/living/target)
-	SIGNAL_HANDLER
-	if(!isliving(target))
-		return
-	if(mob_parent?.get_xeno_hivenumber() == target.get_xeno_hivenumber())
-		return
-	atom_to_walk_to = target
-	change_action(MOVING_TO_ATOM, target)
+///cleans up signals and unregisters obstructed move signal
+/datum/ai_behavior/spiderling/cleanup_signals()
+	. = ..()
+	UnregisterSignal(mob_parent, list(COMSIG_OBSTRUCTED_MOVE,COMSIG_SPIDERLING_CHANGE_ORDER))
+	var/master = master_ref?.resolve()
+	if(master)
+		UnregisterSignal(master, COMSIG_SPIDERLING_CHANGE_ALL_ORDER)
 
 ///Signal handler to try to attack our target
-/datum/ai_behavior/spiderling/proc/attack_target(datum/source)
+///Attack our current atom we are moving to, if targetted is specified attack that instead
+/datum/ai_behavior/spiderling/proc/attack_target(datum/source, atom/targetted)
 	SIGNAL_HANDLER
-	if(world.time < mob_parent?.next_move)
+	if(world.time < mob_parent.next_move)
 		return
-	if(Adjacent(atom_to_walk_to))
+	var/atom/target = targetted ? targetted : atom_to_walk_to
+	if(!mob_parent.Adjacent(target))
 		return
-	mob_parent.face_atom(atom_to_walk_to)
-	mob_parent.UnarmedAttack(atom_to_walk_to, mob_parent)
+	if(mob_parent.z != target.z)
+		return
+	mob_parent.face_atom(target)
+	mob_parent.UnarmedAttack(target, mob_parent)
 
-/// Check if escorted_atom moves away from the spiderling while it's attacking something, this is to always keep them close to escorted_atom
+///looks for a new state, handles recalling if too far and some AI shenanigans
 /datum/ai_behavior/spiderling/look_for_new_state()
-	if(current_action == MOVING_TO_ATOM)
-		if(escorted_atom && !(mob_parent.Adjacent(escorted_atom)))
-			change_action(ESCORTING_ATOM, escorted_atom)
+	switch(current_action)
+		if(MOVING_TO_NODE, FOLLOWING_PATH)
+			if(get_dist(mob_parent, escorted_atom) > SPIDERLING_WITHER_RANGE && too_far_escort)
+				change_order(null, SPIDERLING_RECALL)
+				return
+			if(!change_order(null, SPIDERLING_SEEK_CLOSEST))
+				change_action(MOVING_TO_NODE)
+				return
+		if(IDLE)
+			if(!change_order(null, SPIDERLING_SEEK_CLOSEST))
+				return
+		if(ESCORTING_ATOM)
+			if(!escorted_atom && master_ref)
+				escorted_atom = master_ref.resolve()
+		if(MOVING_TO_ATOM)
+			if(!atom_to_walk_to) //edge case
+				late_initialize()
+	return ..()
 
-/// Check so that we dont keep attacking our target beyond it's death
+///override for MOVING_TO_ATOM to register signals for maintaining distance with our target and attacking
 /datum/ai_behavior/spiderling/register_action_signals(action_type)
 	if(action_type == MOVING_TO_ATOM)
 		RegisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE, PROC_REF(attack_target))
 		if(!isobj(atom_to_walk_to))
-			RegisterSignals(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state))
+			RegisterSignal(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state))
 	return ..()
 
+///override for MOVING_TO_ATOM to unregister signals for maintaining distance with our target and attacking
 /datum/ai_behavior/spiderling/unregister_action_signals(action_type)
 	if(action_type == MOVING_TO_ATOM)
 		UnregisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE)
@@ -153,81 +138,76 @@
 			UnregisterSignal(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING))
 	return ..()
 
-/// If the spiderling's mother goes into crit, the spiderlings will stop what they are doing and attempt to shield her
-/datum/ai_behavior/spiderling/proc/attempt_guard()
-	SIGNAL_HANDLER
-	if(guarding_status == SPIDERLING_NOT_GUARDING) //Nothing to cleanup
-		INVOKE_ASYNC(src, PROC_REF(guard_owner))
-		return
+///attack the first closest human, by moving towards it
+/datum/ai_behavior/spiderling/proc/seek_and_attack_closest(mob/living/source)
+	var/victim = get_nearest_target(mob_parent, target_distance, TARGET_HUMAN, mob_parent.faction)
+	if(!victim)
+		return FALSE
+	change_action(MOVING_TO_ATOM, victim)
+	return TRUE
 
-/// Spiderling's mother woke up from crit; reset stuff back to normal
-/datum/ai_behavior/spiderling/proc/attempt_unguard()
-	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, PROC_REF(revert_to_default_escort))
-	guarding_status = SPIDERLING_NOT_GUARDING
-
-/datum/ai_behavior/spiderling/ai_do_move()
-	if((guarding_status == SPIDERLING_ATTEMPTING_GUARD) && (get_dist(mob_parent, atom_to_walk_to) <= 1))
-		var/mob/living/carbon/xenomorph/spiderling/X = mob_parent
-		if(prob(50))
-			X?.emote("hiss")
-		guarding_status = SPIDERLING_GUARDING
-		var/mob/living/carbon/xenomorph/widow/to_guard = escorted_atom
-		to_guard.buckle_mob(X, TRUE, TRUE)
-		X?.dir = SOUTH
-	return ..()
-
-/// Moves spiderlings to the widow
-/datum/ai_behavior/spiderling/proc/guard_owner()
-	var/mob/living/carbon/xenomorph/spiderling/X = mob_parent
-	if(QDELETED(X))
-		return
-	if(prob(50))
-		X.emote("roar")
-	distance_to_maintain = 0
-	revert_to_default_escort()
-	atom_to_walk_to = escorted_atom
-	guarding_status = SPIDERLING_ATTEMPTING_GUARD
-
-/// This happens when the spiderlings mother dies, they move faster and will attack any nearby marines
-/datum/ai_behavior/spiderling/proc/spiderling_rage()
-	SIGNAL_HANDLER
-	escorted_atom = null
-	var/mob/living/carbon/xenomorph/spiderling/x = mob_parent
-	if(QDELETED(x))
-		return
+///seeks a living humans in a 9 tile range near our parent, picks one, then changes our action to move towards it and attack.
+/datum/ai_behavior/spiderling/proc/seek_and_attack()
 	var/list/mob/living/carbon/human/possible_victims = list()
-	for(var/mob/living/victim in get_nearest_target(x, SPIDERLING_RAGE_RANGE))
+	for(var/mob/living/carbon/human/victim in cheap_get_humans_near(mob_parent, 9))
 		if(victim.stat == DEAD)
 			continue
 		possible_victims += victim
 	if(!length(possible_victims))
-		kill_parent()
-		return
-	// Makes the spiderlings roar at slightly different times so they don't stack their roars
-	addtimer(CALLBACK(x, TYPE_PROC_REF(/mob, emote), "roar"), rand(1, 4))
+		return FALSE
+
 	change_action(MOVING_TO_ATOM, pick(possible_victims))
-	addtimer(CALLBACK(src, PROC_REF(kill_parent)), 10 SECONDS)
+	return TRUE
 
-/datum/ai_behavior/spiderling/proc/triggered_spiderling_rage(mob/M, mob/victim)
-	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
-	if(QDELETED(spiderling_parent))
-		return
-	change_action(MOVING_TO_ATOM, victim)
-	addtimer(CALLBACK(spiderling_parent, TYPE_PROC_REF(/mob, emote), "roar"), rand(1, 4))
-	addtimer(CALLBACK(src, PROC_REF(guard_owner)), 8 SECONDS)
-
-
-///This kills the spiderling
-/datum/ai_behavior/spiderling/proc/kill_parent()
-	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
-	spiderling_parent?.death(gibbing = FALSE)
-
-/// resist when widow does
-/datum/ai_behavior/spiderling/proc/parent_resist()
+///changes our current behavior with a define (order), optionally with a target, FALSE means fail and TRUE means success
+/datum/ai_behavior/spiderling/proc/change_order(mob/living/source, order, atom/target)
 	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
-	spiderling_parent?.do_resist()
+	if(!order)
+		stack_trace("spiderling AI was somehow passed a null order")
+		return FALSE
+	switch(order)
+		if(SPIDERLING_SEEK_CLOSEST) //internal order, to attack closest enemy
+			return seek_and_attack_closest()
+		if(SPIDERLING_RECALL) //reset our escorted atom to master_ref and change our action to escorting it, and turn on recalling if out of range.
+			escorted_atom = master_ref?.resolve()
+			base_action = ESCORTING_ATOM
+			change_action(ESCORTING_ATOM, escorted_atom)
+			too_far_escort = TRUE
+			return TRUE
+		if(SPIDERLING_ATTACK) //turns on recalling out of range, if there is a target, attacks it, otherwise seeks and attacks one
+			too_far_escort = TRUE
+			source?.unbuckle_all_mobs()
+			if(target)
+				change_action(MOVING_TO_ATOM, target)
+				return TRUE
+			else
+				return seek_and_attack()
+
+///behavior to deal with obstacles
+/datum/ai_behavior/spiderling/deal_with_obstacle(datum/source, direction)
+	var/turf/obstacle_turf = get_step(mob_parent, direction)
+	if(obstacle_turf.flags_atom & AI_BLOCKED)
+		return
+	for(var/thing in obstacle_turf.contents)
+		if(istype(thing, /obj/structure/window_frame)) //if its a window, climb it after 2 seconds
+			LAZYINCREMENT(mob_parent.do_actions, obstacle_turf)
+			addtimer(CALLBACK(src, PROC_REF(climb_window_frame), obstacle_turf), 2 SECONDS)
+			return COMSIG_OBSTACLE_DEALT_WITH
+		if(istype(thing, /obj/alien)) //dont attack resin and such
+			return
+		if(isobj(thing)) //otherwise smash it if its damageable
+			var/obj/obstacle = thing
+			if(obstacle.resistance_flags & XENO_DAMAGEABLE)
+				INVOKE_ASYNC(src, PROC_REF(attack_target), null, obstacle)
+				return COMSIG_OBSTACLE_DEALT_WITH
+	if(ISDIAGONALDIR(direction) && ((deal_with_obstacle(null, turn(direction, -45)) & COMSIG_OBSTACLE_DEALT_WITH) || (deal_with_obstacle(null, turn(direction, 45)) & COMSIG_OBSTACLE_DEALT_WITH)))
+		return COMSIG_OBSTACLE_DEALT_WITH
+
+///makes our parent climb over a turf with a window by setting its location to it
+/datum/ai_behavior/spiderling/proc/climb_window_frame(turf/window_turf)
+	mob_parent.loc = window_turf
+	mob_parent.last_move_time = world.time
+	LAZYDECREMENT(mob_parent.do_actions, window_turf)
 
 /// rest when widow does
 /datum/ai_behavior/spiderling/proc/start_resting(mob/source)
@@ -235,21 +215,28 @@
 	var/mob/living/living = mob_parent
 	living?.set_resting(TRUE)
 
-/// stop resting when widow does, plus unbuckle all mobs so the widow won't get stuck
+/// stop resting when widow does
 /datum/ai_behavior/spiderling/proc/stop_resting(mob/source)
 	SIGNAL_HANDLER
 	var/mob/living/living = mob_parent
 	living?.set_resting(FALSE)
 	source?.unbuckle_all_mobs()
 
-/// Signal handler to make the spiderling jump when widow does
+/// jump when widow does
 /datum/ai_behavior/spiderling/proc/do_jump()
 	SIGNAL_HANDLER
-	var/datum/component/jump/jumpy_spider = mob_parent.GetComponent(/datum/component/jump)
-	jumpy_spider?.do_jump(mob_parent)
+	var/datum/component/jump/spider_jump = mob_parent.GetComponent(/datum/component/jump)
+	spider_jump?.do_jump(mob_parent)
+
+/// resist when widow does
+/datum/ai_behavior/spiderling/proc/parent_resist()
+	SIGNAL_HANDLER
+	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
+	spiderling_parent?.do_resist()
 
 /// Signal handler to apply resin jelly to the spiderling whenever widow gets it
 /datum/ai_behavior/spiderling/proc/apply_spiderling_jelly()
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/spiderling/beno_to_coat = mob_parent
 	beno_to_coat?.apply_status_effect(STATUS_EFFECT_RESIN_JELLY_COATING)
+

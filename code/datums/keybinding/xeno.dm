@@ -1147,13 +1147,6 @@
 	keybind_signal = COMSIG_XENOABILITY_ATTACH_SPIDERLINGS
 	hotkey_keys = list("X")
 
-/datum/keybinding/xeno/spiderling_mark
-	name = "Spiderling Mark"
-	full_name = "Widow: Spiderling Mark"
-	description = "Signal your spawn to a target they shall attack."
-	keybind_signal = COMSIG_XENOABILITY_SPIDERLING_MARK
-	hotkey_keys = list("V")
-
 /datum/keybinding/xeno/web_spit
 	name = "Web Spit"
 	full_name = "Widow: Web Spit"
@@ -1168,3 +1161,16 @@
 	keybind_signal = COMSIG_XENOABILITY_CREATE_HUGGER
 	hotkey_keys = list("G")
 
+/datum/keybinding/xeno/widow_unleash
+	name = "Unleash Spiderlings"
+	full_name = "Widow: Unleash Spiderlings"
+	description = "Send out your spawn to attack nearby humans"
+	keybind_signal = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS
+	hotkey_keys = list("N")
+
+/datum/keybinding/xeno/widow_recall
+	name = "Recall Spiderlings"
+	full_name = "Widow: Recall Spiderlings"
+	description = "Recall your siderlings to follow you once more"
+	keybind_signal = COMSIG_XENOABILITY_RECALL_SPIDERLINGS
+	hotkey_keys = list("M")

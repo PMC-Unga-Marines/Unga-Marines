@@ -19,6 +19,13 @@
 /mob/living/carbon/xenomorph/widow/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
+	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(postattack))
+
+/mob/living/carbon/xenomorph/widow/proc/postattack(mob/living/source, mob/living/target, damage)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	SEND_SIGNAL(src, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_ATTACK, target) //we are on harm intent so it probably means we want to kill the target
 
 /mob/living/carbon/xenomorph/widow/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	if(!force)
@@ -35,15 +42,6 @@
 	if(ishuman(user))
 		return
 	return ..()
-
-/mob/living/carbon/xenomorph/widow/set_stat(new_stat)
-	. = ..()
-	if(new_stat == UNCONSCIOUS)
-		unbuckle_all_mobs(TRUE) //If we have spiderlings on us, get them off and ready for guard
-		SEND_SIGNAL(src, COMSIG_SPIDERLING_GUARD)
-	else if(new_stat == CONSCIOUS)
-		unbuckle_all_mobs(TRUE)
-		SEND_SIGNAL(src, COMSIG_SPIDERLING_UNGUARD)
 
 /mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage, silent)
 	unbuckle_all_mobs(TRUE) //RELEASE THE HORDE

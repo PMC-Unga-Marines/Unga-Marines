@@ -5,7 +5,7 @@
 /datum/action/ability/activable/xeno/weave
 	name = "Weave"
 	desc = "Cover a small space in front of you with a spider web. Your web will give different bonuses as long as you stand on it."
-	action_icon_state = "web_spit"
+	action_icon_state = "weave"
 	action_icon = 'icons/Xeno/actions.dmi'
 	ability_cost = 100
 	cooldown_duration = 1 SECONDS
@@ -184,53 +184,6 @@
 	spiderlings -= source
 	UnregisterSignal(source, list(COMSIG_MOB_DEATH, COMSIG_QDELETING))
 
-// ***************************************
-// *********** Spiderling mark
-// ***************************************
-
-/datum/action/ability/activable/xeno/spiderling_mark
-	name = "Spiderling Mark"
-	desc = "Send your spawn on a valid target."
-	action_icon_state = "spiderling_mark"
-	ability_cost = 0
-	cooldown_duration = 5 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SPIDERLING_MARK,
-	)
-
-/datum/action/ability/activable/xeno/spiderling_mark/can_use_ability(atom/target, silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(ishuman(target))
-		var/mob/living/carbon/human/victim = target
-		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
-			return FALSE
-
-/datum/action/ability/activable/xeno/spiderling_mark/use_ability(atom/A)
-	. = ..()
-	// So the spiderlings can actually attack
-	owner.unbuckle_all_mobs(TRUE)
-	var/datum/action/ability/xeno_action/create_spiderling/create_spiderling_action = owner.actions_by_path[/datum/action/ability/xeno_action/create_spiderling]
-	if(length(create_spiderling_action.spiderlings) <= 0)
-		owner.balloon_alert(owner, "No spiderlings")
-		return fail_activate()
-	if(!isturf(A) && !istype(A, /obj/alien/weeds))
-		owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
-	else
-		for(var/item in A) //Autoaim at humans if weeds or turfs are clicked
-			if(!ishuman(item))
-				continue
-			A = item
-			owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
-			break
-		if(!ishuman(A)) //If no human found, cancel ability
-			owner.balloon_alert(owner, "Nothing to attack, cancelled")
-			return fail_activate()
-
-	succeed_activate()
-	SEND_SIGNAL(owner, COMSIG_SPIDERLING_MARK, A)
-	add_cooldown()
 
 // ***************************************
 // *********** Burrow
@@ -344,7 +297,7 @@
 	if(number_of_attempts_left <= 0)
 		return
 	for(var/mob/living/carbon/xenomorph/spiderling/remaining_spiderling AS in remaining_list)
-		SEND_SIGNAL(owner, COMSIG_SPIDERLING_RETURN) //So spiderlings move towards the buckle
+		SEND_SIGNAL(owner, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_RECALL) //So spiderlings move towards the buckle
 		if(!owner.Adjacent(remaining_spiderling))
 			continue
 		remaining_list -= remaining_spiderling
@@ -406,3 +359,39 @@
 	owner.put_in_hands(hugger)
 	add_cooldown()
 	succeed_activate()
+
+// ***************************************
+// *********** Unleash spiderlings
+// ***************************************
+/datum/action/ability/xeno_action/widow_unleash
+	name = "Unleash Spiderlings"
+	action_icon_state = "unleash"
+	action_icon = 'icons/Xeno/actions.dmi'
+	desc = "Send out your spiderlings to attack nearby humans"
+	keybinding_signals = list(
+	KEYBINDING_NORMAL = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS,
+	)
+
+/datum/action/ability/xeno_action/widow_unleash/action_activate(mob/living/victim)
+	if(SEND_SIGNAL(owner, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_ATTACK))
+		owner.balloon_alert(owner, "attacking")
+	else
+		owner.balloon_alert(owner, "fail")
+
+// ***************************************
+// *********** Recall spiderlings
+// ***************************************
+/datum/action/ability/xeno_action/widow_recall
+	name = "Recall Spiderlings"
+	action_icon = 'icons/Xeno/actions.dmi'
+	action_icon_state = "recall"
+	desc = "Recall your siderlings to follow you once more"
+	keybinding_signals = list(
+	KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECALL_SPIDERLINGS,
+	)
+
+/datum/action/ability/xeno_action/widow_recall/action_activate(mob/living/victim)
+	if(SEND_SIGNAL(owner, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_RECALL))
+		owner.balloon_alert(owner, "recalling")
+	else
+		owner.balloon_alert(owner, "fail")
