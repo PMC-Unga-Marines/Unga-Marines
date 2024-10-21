@@ -646,7 +646,6 @@ GLOBAL_PROTECT(clan_verbs)
 	GLOB.stealthminID["IRCKEY"] = stealth
 	return	stealth
 
-
 /proc/IsAdminGhost(mob/user)
 	if(!isobserver(user))
 		return FALSE
@@ -667,35 +666,38 @@ GLOBAL_PROTECT(clan_verbs)
 		return FALSE
 	return TRUE
 
-
 /datum/admins/proc/apicker(text, title, list/targets)
 	if(!check_rights(NONE))
 		return
 
 	var/atom/chosen
-	var/choice = input(text, title) as null|anything in targets
+	var/choice = tgui_input_list(usr, text, title, targets, timeout = 0)
 
 	switch(choice)
 		if(APICKER_CLIENT)
-			var/client/C = input("Please, select a key.", title) as null|anything in sortKey(GLOB.clients)
+			var/client/C = tgui_input_list(usr, "Please, select a key.", title, sortKey(GLOB.clients), timeout = 0)
 			chosen = C?.mob
 		if(APICKER_MOB)
-			chosen = input("Please, select a mob.", title) as null|anything in sortNames(GLOB.mob_list)
+			chosen = tgui_input_list(usr, "Please, select a mob.", title, sortNames(GLOB.mob_list), timeout = 0)
 		if(APICKER_LIVING)
-			chosen = input("Please, select a living mob.", title) as null|anything in sortNames(GLOB.mob_living_list)
+			chosen = tgui_input_list(usr, "Please, select a living mob.", title, sortNames(GLOB.mob_living_list), timeout = 0)
 		if(APICKER_AREA)
-			chosen = input("Please, select an area.", title) as null|anything in GLOB.sorted_areas
+			chosen = tgui_input_list(usr, "Please, select an area.", title, GLOB.sorted_areas, timeout = 0)
 			chosen = pick(get_area_turfs(chosen))
 		if(APICKER_TURF)
 			chosen = input("Please, select a turf.", title) as null|turf in world
 		if(APICKER_COORDS)
-			var/X = input("X coordinate.", title) as null|num
-			var/Y = input("Y coordinate.", title) as null|num
-			var/Z = input("Z coordinate.", title) as null|num
+			var/X = tgui_input_number(usr, "X coordinate.", title, max_value = 255, min_value = 1, timeout = 0)
+			if(!X)
+				return
+			var/Y = tgui_input_number(usr, "Y coordinate.", title, max_value = 255, min_value = 1, timeout = 0)
+			if(!Y)
+				return
+			var/Z = tgui_input_number(usr, "Z coordinate.", title, max_value = 10, min_value = 1, timeout = 0)
+			if(!Z)
+				return
 			chosen = locate(X, Y, Z)
-
 	return chosen
-
 
 /datum/admins/vv_edit_var(var_name, var_value)
 	return FALSE
