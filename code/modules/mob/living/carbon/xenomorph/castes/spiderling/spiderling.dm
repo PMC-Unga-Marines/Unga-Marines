@@ -19,15 +19,13 @@
 	density = FALSE
 	/// The widow that this spiderling belongs to
 	var/mob/living/carbon/xenomorph/spidermother
-	///our masters weakref
-	var/datum/weakref/weak_master
 
 /mob/living/carbon/xenomorph/spiderling/Initialize(mapload, mob/living/carbon/xenomorph/mother)
 	. = ..()
-	weak_master = WEAKREF(mother)
-	if(mother)
-		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/spiderling, mother)
-		hivenumber = spidermother.hivenumber
+	spidermother = mother
+	if(spidermother)
+		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/spiderling, spidermother)
+		transfer_to_hive(spidermother.get_xeno_hivenumber())
 	else
 		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
 
@@ -50,10 +48,9 @@
 
 /mob/living/carbon/xenomorph/spiderling/Life(seconds_per_tick, times_fired)
 	. = ..()
-	var/atom/movable/master = weak_master?.resolve()
-	if(!master)
-		death(gibbing = FALSE)
-	if(get_dist(src, master) > 15)
+	if(!spidermother)
+		return
+	if(get_dist(src, spidermother) > 15)
 		adjustBruteLoss(25)
 
 // ***************************************
