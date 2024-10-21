@@ -19,6 +19,12 @@
 	contains = list(/obj/item/storage/box/visual/grenade/razorburn)
 	cost = 500
 
+/datum/supply_packs/explosives/stickytanglenades
+	name = "M45-T adhesive tanglefoot grenade"
+	notes = "Contains 1 M45-T sticky grenade"
+	contains = list(/obj/item/explosive/grenade/sticky/cloaker/tangle)
+	cost = 20
+
 /datum/supply_packs/explosives/explosives_sticky
 	name = "M40 adhesive charge grenade box crate"
 	notes = "Contains 25 grenades"
