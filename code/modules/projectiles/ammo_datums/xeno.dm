@@ -656,7 +656,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
 
 /datum/ammo/xeno/proc/drop_web(turf/T)
-	if(T.density || istype(T, /turf/open/space)) // No structures in space
+	if(T.density || isspaceturf(T)) // No structures in space
 		return
 
 	for(var/obj/O in T.contents)
