@@ -71,7 +71,7 @@
 	desc = "Shoes worn by a spatial agent."
 	item_flags = DELONDROP
 
-/obj/item/clothing/shoes/pmc
+/obj/item/clothing/shoes/marine/pmc
 	name = "polished shoes"
 	desc = "The height of fashion, but these look to be woven with protective fiber."
 	icon_state = "jackboots"
@@ -84,6 +84,9 @@
 	heat_protection_flags = FEET
 	inventory_flags = NOSLIPPING
 	siemens_coefficient = 0.6
+
+/obj/item/clothing/shoes/marine/pmc/full
+	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
 /obj/item/clothing/shoes/marine/deathsquad
 	name = "\improper PMC commando boots"
@@ -144,6 +147,9 @@
 	icon_state = "boots"
 	worn_icon_state = "boots"
 
+/obj/item/clothing/shoes/marine/vsd/full
+	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+
 /obj/item/clothing/shoes/marine/clf/full
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
@@ -175,4 +181,22 @@
 	desc = "Well-robusted rubberized boots that protect against moisture, small fragments and impacts. The artisanal design of these shoes, of course, was canceled by production machines in order to provide for all employees as much as possible."
 	icon_state = "separatist"
 	worn_icon_state = "separatist"
+	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+
+/obj/item/clothing/shoes/marine/srf //Basically SWAT shoes combined with galoshes.
+	name = "combat boots"
+	desc = "When you REALLY want to turn up the heat"
+	icon_state = "swat"
+	worn_icon_state = "swat"
+	item_flags = SYNTH_RESTRICTED
+	soft_armor = list(MELEE = 80, BULLET = 60, LASER = 50, ENERGY = 25, BOMB = 50, BIO = 10, FIRE = 25, ACID = 25)
+	inventory_flags = NOSLIPPING
+	siemens_coefficient = 0.6
+
+	cold_protection_flags = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection_flags = FEET
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/marine/srf/full
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
