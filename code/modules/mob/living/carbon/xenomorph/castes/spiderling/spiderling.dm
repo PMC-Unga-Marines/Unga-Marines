@@ -35,10 +35,12 @@
 	//We QDEL them as cleanup and preventing them from being sold
 	QDEL_IN(src, TIME_TO_DISSOLVE)
 	spidermother = null
+	remove_from_hive()
 	return ..()
 
 /mob/living/carbon/xenomorph/spiderling/Destroy()
 	spidermother = null
+	remove_from_hive()
 	return ..()
 
 ///If we're covering our widow, any clicks should be transferred to them
