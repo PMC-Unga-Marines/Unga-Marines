@@ -1,6 +1,5 @@
 /datum/squad
 	var/name = ""
-	var/ru_name = ""
 	/// custom squad only: allows users to set a description for the squad
 	var/desc = ""
 	var/id = NO_SQUAD
@@ -39,7 +38,6 @@
 
 /datum/squad/alpha
 	name = "Alpha"
-	ru_name = "Альфа"
 	id = ALPHA_SQUAD
 	color = "#e61919" // rgb(230,25,25)
 	access = list(ACCESS_MARINE_ALPHA)
@@ -48,7 +46,6 @@
 
 /datum/squad/bravo
 	name = "Bravo"
-	ru_name = "Браво"
 	id = BRAVO_SQUAD
 	color = "#ffc32d" // rgb(255,195,45)
 	access = list(ACCESS_MARINE_BRAVO)
@@ -57,7 +54,6 @@
 
 /datum/squad/charlie
 	name = "Charlie"
-	ru_name = "Чарли"
 	id = CHARLIE_SQUAD
 	color = "#c864c8" // rgb(200,100,200)
 	access = list(ACCESS_MARINE_CHARLIE)
@@ -65,7 +61,6 @@
 
 /datum/squad/delta
 	name = "Delta"
-	ru_name = "Дельта"
 	id = DELTA_SQUAD
 	color = "#4148c8" // rgb(65,72,200)
 	access = list(ACCESS_MARINE_DELTA)

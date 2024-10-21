@@ -154,7 +154,7 @@
 		if("Yes")
 			priority_announce(input, customname, customsubtitle, sound = 'sound/AI/commandreport.ogg', color_override = override);
 		if("No")
-			priority_announce("Новое объявление доступно на всех консолях связи.", "Оповещение Всему Экипажу", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/commandreport.ogg')
+			priority_announce("Новое объявление доступно на всех консолях связи.", "Получена конфиденциальная передача", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/commandreport.ogg')
 		else
 			return
 

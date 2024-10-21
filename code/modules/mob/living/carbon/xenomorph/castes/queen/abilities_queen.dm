@@ -16,7 +16,7 @@
 	var/mob/living/carbon/xenomorph/queen/Q = owner
 
 	//Preferring the use of multiline input as the message box is larger and easier to quickly proofread before sending to hive.
-	var/input = stripped_multiline_input(Q, "Maximum message length: [MAX_BROADCAST_LEN]", "Hive Message", "", MAX_BROADCAST_LEN, TRUE)
+	var/input = stripped_multiline_input(Q, "Максимальная длина: [MAX_BROADCAST_LEN]", "Приказ Улью", "", MAX_BROADCAST_LEN, TRUE)
 	//Newlines are of course stripped and replaced with a space.
 	input = capitalize(trim(replacetext(input, "\n", " ")))
 	if(!input)
@@ -34,14 +34,14 @@
 
 	log_game("[key_name(Q)] has messaged the hive with: \"[input]\"")
 	deadchat_broadcast(" has messaged the hive: \"[input]\"", Q, Q)
-	var/queens_word = "<span class='maptext' style=font-size:18pt;text-align:center valign='top'><u>HIVE MESSAGE:</u><br></span>" + input
+	var/queens_word = "<span class='maptext' style=font-size:18pt;text-align:center valign='top'><u>ПРИКАЗ УЛЬЮ:</u><br></span>" + input
 
 	var/sound/queen_sound = sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS)
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
 	for(var/mob/living/carbon/xenomorph/X AS in Q.hive.get_all_xenos())
 		to_chat(X, assemble_alert(
-			title = "Hive Announcement",
-			subtitle = "From [Q.name]",
+			title = "Приказ Улью",
+			subtitle = "Приказ [Q.name]",
 			message = input,
 			color_override = "purple"
 		))

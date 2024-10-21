@@ -46,7 +46,7 @@
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) (show_locations && location ? ", включая [hostLocationP]":"")
+#define BIOSCAN_LOCATION(show_locations, location) (show_locations && location ? ", включая одного в [hostLocationP]":"")
 
 #define AI_SCAN_DELAY 15 SECONDS
 
@@ -57,7 +57,7 @@
 		#ifndef TESTING
 		var/mob/living/silicon/ai/bioscanning_ai = usr
 		if((bioscanning_ai.last_ai_bioscan + COOLDOWN_AI_BIOSCAN) > world.time)
-			to_chat(bioscanning_ai, "Приборы биосканирования все еще проходят повторную калибровку после последнего использования.")
+			to_chat(bioscanning_ai, "Приборы биосканирования все еще проходят перекалибровку после последнего использования.")
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
 		to_chat(bioscanning_ai, span_warning("Сканирование на предмет наличия враждебных форм жизни..."))
@@ -112,7 +112,7 @@
 			to_chat(M, assemble_alert(
 				title = "Сообщение от Главное Королевы",
 				subtitle = "Главная Королева проникает в ваш разум с расстояния в несколько миров...",
-				message = "Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье[BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету "] на металлической птице.",
+				message = "Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье [BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету"] на металлической птице.",
 				color_override = "purple"
 			))
 
@@ -309,9 +309,9 @@
 		return
 
 	priority_announce(
-		title = "High Command Update",
-		subtitle = "Good morning, marines.",
-		message = "Cryosleep disengaged by TGMC High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		title = "Оповещение Высшего Командования",
+		subtitle = "Доброе утро, морпехи.",
+		message = "Криосон отключен высшим командованием TGMC.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
 		color_override = "red"
 	)
 

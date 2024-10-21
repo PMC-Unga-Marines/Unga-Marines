@@ -101,7 +101,7 @@
 	var/datum/emergency_call/distress = SSticker?.mode?.picked_call //Just to simplify things a bit
 
 	if(is_banned_from(usr.ckey, ROLE_ERT))
-		to_chat(usr, span_danger("Не выйдет! Вы забанены из этой роли!"))
+		to_chat(usr, span_danger("Вы были ограничены в этой роли!"))
 		return
 
 	if(!istype(distress) || !SSticker.mode.waiting_for_candidates || distress.mob_max < 1)
@@ -170,11 +170,11 @@
 			continue
 		if(M.current) //If they still have a body
 			if(!isaghost(M.current) && M.current.stat != DEAD) // and not dead or admin ghosting,
-				to_chat(M.current, span_warning("Вас не выбрали в команду, потому что вы не мертвы."))
+				to_chat(M.current, span_warning("Вы не были выбраны в команду спасения, потому что вы не мертвы."))
 				continue
 		if(name == "Xenomorphs" && is_banned_from(ckey(M.key), ROLE_XENOMORPH))
 			if(M.current)
-				to_chat(M, span_warning("Вас не выбрали для участия в операции бедствия, потому что вас забанили в Xenomorph."))
+				to_chat(M, span_warning("Вас не выбрали для участия в операции бедствия, потому что вам забанили роль Xenomorph."))
 			continue
 		valid_candidates += M
 

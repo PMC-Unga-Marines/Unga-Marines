@@ -444,7 +444,7 @@
 		return FALSE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
-		to_chat(user, span_warning("Ещё много мясистых на земле. Они мешают нашему психическому полю. Мы должны уничтожить их, прежде чем сможем это сделать."))
+		to_chat(user, span_warning("Ещё много живой добычи на земле. Они мешают нашему психическому полю. Мы должны уничтожить их, прежде чем сможем это сделать."))
 		return FALSE
 	return TRUE
 

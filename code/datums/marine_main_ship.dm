@@ -14,11 +14,11 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 
 /datum/marine_main_ship/proc/make_maint_all_access()
 	maint_all_access = TRUE
-	priority_announce("Требование доступа для всех тех.тоннелей отменено.", "Внимание!", "Shipside emergency declared.", sound = 'sound/misc/notice1.ogg', color_override = "grey")
+	priority_announce("Требование доступа для всех тех тоннелей отменено.", "Внимание!", "На корабле объявлена чрезвычайная ситуация.", sound = 'sound/misc/notice1.ogg', color_override = "grey")
 
 /datum/marine_main_ship/proc/revoke_maint_all_access()
 	maint_all_access = FALSE
-	priority_announce("Требование доступа для всех тех.тоннелей было возвращено.", "Внимание!", "Shipside emergency revoked.", sound = 'sound/misc/notice2.ogg', color_override = "grey")
+	priority_announce("Требование доступа для всех тех тоннелей было возвращено.", "Внимание!", "Чрезвычайная ситуация под контролем.", sound = 'sound/misc/notice2.ogg', color_override = "grey")
 
 /datum/marine_main_ship/proc/set_security_level(level, announce = TRUE)
 	switch(level)
@@ -79,7 +79,7 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 		switch(level)
 			if(SEC_LEVEL_GREEN)
 				if(announce)
-					priority_announce("Все стабильно.", title = "Код Зеленый", sound = 'sound/AI/code_green.ogg', color_override = "green")
+					priority_announce("Всё стабильно.", title = "Код Зеленый", sound = 'sound/AI/code_green.ogg', color_override = "green")
 				security_level = SEC_LEVEL_GREEN
 				for(var/obj/machinery/status_display/SD in GLOB.machines)
 					if(is_mainship_level(SD.z))

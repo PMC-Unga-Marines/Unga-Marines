@@ -86,7 +86,7 @@ SUBSYSTEM_DEF(evacuation)
 	evac_time = world.time
 	evac_status = EVACUATION_STATUS_INITIATING
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EVACUATION_STARTED)
-	priority_announce("Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам. Запуск капсул через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.", title = "Эвакуация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuate.ogg', color_override = "orange")
+	priority_announce("Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам. Запуск капсул через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.", title = "Экстренная Эвакуация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuate.ogg', color_override = "orange")
 	xeno_message("A wave of adrenaline ripples through the hive. The fleshy creatures are trying to escape!")
 	pod_list = SSshuttle.escape_pods.Copy()
 	for(var/obj/docking_port/mobile/escape_pod/pod AS in pod_list)
@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(evacuation)
 	if(evac_status != EVACUATION_STATUS_INITIATING)
 		return FALSE
 	evac_status = EVACUATION_STATUS_IN_PROGRESS
-	priority_announce("Приказ об эвакуации подтвержден. Запуск спасательных капсул.", title = "Запуск Капсул", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuation_confirmed.ogg', color_override = "orange")
+	priority_announce("Приказ об эвакуации подтвержден. Запуск спасательных капсул.", title = "Экстренная Активация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuation_confirmed.ogg', color_override = "orange")
 	return TRUE
 
 
@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(evacuation)
 	GLOB.enter_allowed = TRUE
 	evac_time = null
 	evac_status = EVACUATION_STATUS_STANDING_BY
-	priority_announce("Эвакуация была отменена. Восстановление систем...", title = "Эвакуация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuate_cancelled.ogg', color_override = "orange")
+	priority_announce("Эвакуация была отменена. Восстановление систем...", title = "Экстренная Эвакуация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuate_cancelled.ogg', color_override = "orange")
 	for(var/obj/docking_port/mobile/escape_pod/pod AS in pod_list)
 		pod.unprep_for_launch()
 	return TRUE
@@ -177,7 +177,7 @@ SUBSYSTEM_DEF(evacuation)
 			dest_master.visible_message(span_warning("WARNING: Unable to trigger detonation. Please arm all control rods."))
 			return FALSE
 
-	priority_announce("ТРЕВОГА. ТРЕВОГА. ПРОТОКОЛ САМОУНИЧТОЖЕНИЯ ЗАВЕРШЕН. ТРЕВОГА. ТРЕВОГА. ДЕТОНАЦИЯ.", title = "Детонация", type = ANNOUNCEMENT_PRIORITY, color_override = "purple")
+	priority_announce("ТРЕВОГА. ТРЕВОГА. ПРОТОКОЛ САМОУНИЧТОЖЕНИЯ ЗАВЕРШЕН. ТРЕВОГА. ТРЕВОГА. ДЕТОНАЦИЯ.", title = "Система Самоуничтожения", type = ANNOUNCEMENT_PRIORITY, color_override = "purple")
 	GLOB.enter_allowed = FALSE
 	dest_status = NUKE_EXPLOSION_IN_PROGRESS
 	playsound(dest_master, 'sound/machines/alarm.ogg', 75, 0, 30)
