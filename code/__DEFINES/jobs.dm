@@ -134,7 +134,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define XP_REQ_EXPERT 3600
 
 // how much a job is going to contribute towards burrowed larva. see config for points required to larva. old balance was 1 larva per 3 humans.
-#define LARVA_POINTS_SHIPSIDE 1
+#define LARVA_POINTS_SHIPSIDE 0.5
 #define LARVA_POINTS_SHIPSIDE_STRONG 1.5
 #define LARVA_POINTS_REGULAR 3.25
 #define LARVA_POINTS_STRONG 6
