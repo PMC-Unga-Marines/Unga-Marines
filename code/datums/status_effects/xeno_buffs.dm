@@ -511,8 +511,7 @@
 ///Calculates the effectiveness of parts of the status based on plasma of owner
 #define CALC_PLASMA_MOD(xeno) \
 	(clamp(1 - xeno.plasma_stored / owner_xeno.xeno_caste.plasma_max, 0.2, 0.8) + 0.2)
-//#define HIGN_THRESHOLD 0.6 //ORIGINAL
-#define HIGN_THRESHOLD 0.8 //RUTGMC CHANGE
+#define HIGN_THRESHOLD 0.8
 #define KNOCKDOWN_DURATION 1 SECONDS
 
 // ***************************************
@@ -565,7 +564,12 @@
 ///Calls slash proc
 /datum/status_effect/xeno_carnage/proc/carnage_slash(datum/source, mob/living/target, damage)
 	SIGNAL_HANDLER
-	if(!ishuman(target) || issynth(target) || target.stat == DEAD) // RUTGMC ADDITION - || target.stat == DEAD
+	if(target.stat == DEAD)
+		return
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/human_target = target
+	if(human_target.species.species_flags & NO_BLOOD)
 		return
 	UnregisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	INVOKE_ASYNC(src, PROC_REF(do_carnage_slash), source, target, damage)
@@ -584,7 +588,7 @@
 
 		if(do_after(owner_xeno, KNOCKDOWN_DURATION, IGNORE_HELD_ITEM, target))
 			owner_xeno.gain_plasma(plasma_gain_on_hit)
-			target.blood_volume = max(target.blood_volume - 30, 0) //RUTGMC EDIT
+			target.blood_volume = max(target.blood_volume - 30, 0)
 
 	if(owner_xeno.has_status_effect(STATUS_EFFECT_XENO_FEAST))
 		for(var/mob/living/carbon/xenomorph/target_xeno AS in cheap_get_xenos_near(owner_xeno, 4))
@@ -1071,11 +1075,15 @@
 		return
 	if(!ishuman(target))
 		return
+	var/mob/living/carbon/human/human_target = target
+	if(human_target.species.species_flags & NO_BLOOD)
+		return
 	var/bruteloss_healed = buff_owner.maxHealth * leech_buff_per_chamber * chamber_scaling
 	var/fireloss_healed = clamp(bruteloss_healed - buff_owner.bruteloss, 0, bruteloss_healed)
 	buff_owner.adjustBruteLoss(-bruteloss_healed)
 	buff_owner.adjustFireLoss(-fireloss_healed)
 	buff_owner.updatehealth()
+	human_target.blood_volume -= 5 // something about 1%
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Attack
