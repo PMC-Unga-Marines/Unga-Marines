@@ -34,9 +34,7 @@
 	handle_living_sunder_updates()
 	handle_living_health_updates()
 	handle_living_plasma_updates()
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	handle_interference()
-//RUTGMC EDIT ADDITION END
 	update_action_button_icons()
 	update_icons(FALSE)
 
