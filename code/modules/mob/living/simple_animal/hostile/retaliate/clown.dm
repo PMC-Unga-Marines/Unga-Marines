@@ -1,15 +1,15 @@
 /mob/living/simple_animal/hostile/retaliate/clown
-	name = "Clown"
-	desc = "A denizen of clown planet"
+	name = "Клоун"
+	desc = "Представитель планеты клоунов"
 	icon_state = "clown"
 	icon_living = "clown"
 	icon_dead = "clown_dead"
 	icon_gib = "clown_gib"
 	speak_chance = 0
 	turns_per_move = 5
-	response_help = "pokes the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "тыкает"
+	response_disarm = "аккуратно отодвигает"
+	response_harm = "ударяет"
 	speak = list("HONK", "Honk!", "Welcome to clown planet!")
 	emote_see = list("honks")
 	speak_chance = 1

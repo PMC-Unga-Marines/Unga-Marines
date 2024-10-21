@@ -1,5 +1,5 @@
 /datum/admins/proc/set_view_range()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Set View Range"
 
 	if(!check_rights(R_FUN))
@@ -24,7 +24,7 @@
 
 
 /datum/admins/proc/emp()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "EM Pulse"
 
 	if(!check_rights(R_FUN))
@@ -48,7 +48,7 @@
 
 
 /datum/admins/proc/queen_report()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Queen Mother Report"
 
 	if(!check_rights(R_FUN))
@@ -73,7 +73,7 @@
 
 /datum/admins/proc/rouny_all()
 	set name = "Toggle Glob Xeno Rouny"
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set desc = "Toggle all living xenos into rouny versions of themselves"
 
 	if(!check_rights(R_FUN))
@@ -87,7 +87,7 @@
 		xeno.toggle_rouny_skin()
 
 /datum/admins/proc/hive_status()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Check Hive Status"
 	set desc = "Check the status of the hive."
 
@@ -103,7 +103,7 @@
 
 
 /datum/admins/proc/ai_report()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "AI Report"
 
 	if(!check_rights(R_FUN))
@@ -133,7 +133,7 @@
 
 
 /datum/admins/proc/command_report()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Command Report"
 
 	if(!check_rights(R_FUN))
@@ -164,7 +164,7 @@
 
 
 /datum/admins/proc/narrate_global()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Global Narrate"
 
 	if(!check_rights(R_FUN))
@@ -223,7 +223,7 @@
 
 
 /datum/admins/proc/subtle_message_panel()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Subtle Message Mob"
 
 	if(!check_rights(R_FUN|R_MENTOR))
@@ -262,7 +262,7 @@
 
 
 /datum/admins/proc/award_medal()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Award a Medal"
 
 	if(!check_rights(R_FUN))
@@ -272,7 +272,7 @@
 
 
 /datum/admins/proc/custom_info()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Change Custom Info"
 
 	if(!check_rights(R_FUN))
@@ -319,7 +319,7 @@
 	SEND_SOUND(src, sound('sound/misc/adm_announce.ogg'))
 
 /datum/admins/proc/sound_file(S as sound)
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Play Imported Sound"
 	set desc = "Play a sound imported from anywhere on your computer."
 
@@ -349,7 +349,7 @@
 	message_admins("[ADMIN_TPMONTY(usr)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 
 /datum/admins/proc/sound_web()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Play Internet Sound"
 
 	if(!check_rights(R_SOUND))
@@ -439,7 +439,7 @@
 	message_admins("[ADMIN_TPMONTY(usr)] played web sound: [web_sound_input] - [title] - [style]")
 
 /datum/admins/proc/sound_stop()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Stop Regular Sounds"
 
 	if(!check_rights(R_SOUND))
@@ -453,7 +453,7 @@
 	message_admins("[ADMIN_TPMONTY(usr)] stopped regular sounds.")
 
 /datum/admins/proc/music_stop()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Stop Playing Music"
 
 	if(!check_rights(R_SOUND))
@@ -467,7 +467,7 @@
 	message_admins("[ADMIN_TPMONTY(usr)] stopped the currently playing music.")
 
 /datum/admins/proc/announce()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Admin Announce"
 
 	if(!check_rights(R_FUN))
@@ -486,7 +486,7 @@
 
 
 /datum/admins/proc/force_distress()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Distress Beacon"
 	set desc = "Call a distress beacon manually."
 
@@ -575,7 +575,7 @@
 
 
 /datum/admins/proc/drop_bomb()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
@@ -664,7 +664,7 @@
 	flame_radius(5, impact, 60, 30)
 
 /datum/admins/proc/drop_OB()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Drop OB"
 	set desc = "Cause an OB explosion of varying strength at your location."
 
@@ -760,7 +760,7 @@
 			warhead.loc = target
 
 /datum/admins/proc/change_security_level()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Set Security Level"
 
 	if(!check_rights(R_FUN))
@@ -780,7 +780,7 @@
 
 
 /datum/admins/proc/rank_and_equipment(mob/living/carbon/human/H in GLOB.human_mob_list)
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Rank and Equipment"
 
 	if(!check_rights(R_FUN))
@@ -822,7 +822,7 @@
 
 
 /datum/admins/proc/edit_appearance(mob/living/carbon/human/H in GLOB.human_mob_list)
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Edit Appearance"
 
 	if(!check_rights(R_FUN))
@@ -857,7 +857,7 @@
 
 
 /datum/admins/proc/offer(mob/living/L in GLOB.mob_living_list)
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Offer Mob"
 
 	if(!check_rights(R_FUN))
@@ -892,7 +892,7 @@
 
 
 /datum/admins/proc/xeno_panel(mob/living/carbon/xenomorph/X in GLOB.xeno_mob_list)
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Xeno Panel"
 
 	if(!check_rights(R_FUN))
@@ -964,7 +964,7 @@
 
 
 /datum/admins/proc/imaginary_friend()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Imaginary Friend"
 
 	if(!check_rights(R_FUN|R_MENTOR))
@@ -1006,7 +1006,7 @@
 	message_admins("[ADMIN_TPMONTY(IF)] started being imaginary friend of [ADMIN_TPMONTY(friend_owner)].")
 
 /datum/admins/proc/force_dropship()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Force Dropship"
 
 	if(!check_rights(R_FUN))
@@ -1080,7 +1080,7 @@
 
 
 /datum/admins/proc/play_cinematic()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Play Cinematic"
 
 	if(!check_rights(R_FUN))
@@ -1097,7 +1097,7 @@
 
 
 /datum/admins/proc/set_tip()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Set Tip"
 
 	if(!check_rights(R_FUN))
@@ -1118,7 +1118,7 @@
 
 
 /datum/admins/proc/ghost_interact()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Ghost Interact"
 
 	if(!check_rights(R_FUN))
@@ -1130,7 +1130,7 @@
 	message_admins("[ADMIN_TPMONTY(usr)] has [usr.client.holder.ghost_interact ? "enabled" : "disabled"] ghost interact.")
 
 /client/proc/run_weather()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Run Weather"
 	set desc = "Triggers a weather on the z-level you choose."
 
@@ -1154,7 +1154,7 @@
 
 ///client verb to set round end sound
 /client/proc/set_round_end_sound(S as sound)
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Set Round End Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -1167,7 +1167,7 @@
 
 ///Adjusts gravity, modifying the jump component for all mobs
 /datum/admins/proc/adjust_gravity()
-	set category = "Admin.Fun"
+	set category = "Админ.Админ абьюз"
 	set name = "Adjust Gravity"
 
 	if(!check_rights(R_FUN))
