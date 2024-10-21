@@ -805,7 +805,7 @@
 
 
 /client/proc/ticket_reply(whom)
-	if(prefs.muted & MUTE_ADMINHELP)
+	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_warning("Error: You are unable to use admin PMs (muted)."))
@@ -854,7 +854,7 @@
 
 
 /client/proc/private_message(whom, msg)
-	if(prefs.muted & MUTE_ADMINHELP)
+	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_warning("You are unable to use admin PMs (muted)."))
@@ -923,7 +923,7 @@
 			if(!msg)
 				return
 
-			if(prefs.muted & MUTE_ADMINHELP)
+			if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 				to_chat(src,
 					type = MESSAGE_TYPE_ADMINPM,
 					html = span_warning("You are unable to use admin PMs (muted)."))
