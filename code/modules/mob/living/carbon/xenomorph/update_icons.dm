@@ -101,7 +101,7 @@
 	wound_overlay.layer = layer + 0.3
 	wound_overlay.icon = src.icon
 	wound_overlay.vis_flags |= VIS_HIDE
-	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED))
+	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED) || HAS_TRAIT(src, TRAIT_BURROWED))
 		wound_overlay.icon_state = "none"
 		return
 	if(health > health_threshold_crit)
