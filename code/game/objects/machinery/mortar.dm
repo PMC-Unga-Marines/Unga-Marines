@@ -282,8 +282,7 @@
 	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
-
-	var/fall_time = (shell_range/(ammo.shell_speed * 5)) - 0.5 SECONDS
+	var/fall_time = (shell_range / (ammo.shell_speed * 5)) - 0.5 SECONDS
 	//prevent runtime
 	if(fall_time < 0.5 SECONDS)
 		fall_time = 0.5 SECONDS
@@ -292,6 +291,19 @@
 	addtimer(CALLBACK(src, PROC_REF(falling), target, shell), fall_time)
 	addtimer(CALLBACK(src, PROC_REF(return_cam)), fall_time + 5 SECONDS)
 	addtimer(VARSET_CALLBACK(src, firing, FALSE), cool_off_time)
+	addtimer(CALLBACK(src, PROC_REF(impact_message), get_turf(target), TRUE), fall_time) // set it to half of fall_time if someone ever fixes it
+
+/obj/machinery/deployable/mortar/proc/impact_message(turf/target)
+	var/relative_dir
+	for(var/mob/mob in range(10, target))
+		if(get_turf(mob) == target)
+			relative_dir = 0
+		else
+			relative_dir = get_dir(mob, target)
+		mob.show_message( \
+			span_danger("A SHELL IS COMING DOWN <u>[relative_dir ? uppertext(("TO YOUR " + dir2text(relative_dir))) : uppertext("right above you")]</u>!"), EMOTE_VISIBLE, \
+			span_danger("YOU HEAR SOMETHING COMING DOWN <u>[relative_dir ? uppertext(("TO YOUR " + dir2text(relative_dir))) : uppertext("right above you")]</u>!"), EMOTE_AUDIBLE \
+		)
 
 ///Proc called by tactical binoculars to send targeting information.
 /obj/machinery/deployable/mortar/proc/recieve_target(turf/T, mob/user)
