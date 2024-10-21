@@ -19,7 +19,7 @@
 	plasma_gain = 55
 
 	// *** Health *** //
-	max_health = 450
+	max_health = 550
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED

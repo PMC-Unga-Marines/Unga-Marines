@@ -1398,7 +1398,7 @@
 	alert_type = null
 	/// The owner of this buff.
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/heal_amount = 25
+	var/heal_amount = 20
 
 /datum/status_effect/widows_domain/on_apply()
 	buff_owner = owner
@@ -1417,5 +1417,4 @@
 	buff_owner.adjustFireLoss(-max(0, heal_amount - buff_owner.getBruteLoss()), passive = TRUE)
 	buff_owner.adjustBruteLoss(-heal_amount, passive = TRUE)
 	buff_owner.gain_plasma(heal_amount)
-	adjustOverheal(buff_owner, heal_amount)
 	return ..()
