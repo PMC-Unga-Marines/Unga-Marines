@@ -165,8 +165,12 @@
 
 /obj/item/camera
 	name = "camera"
-	icon = 'icons/obj/device.dmi'
 	desc = "A polaroid camera."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/items/civilian_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/civilian_right.dmi',
+	)
+	icon = 'icons/obj/device.dmi'
 	icon_state = "camera"
 	item_state = "camera"
 	light_color = COLOR_WHITE
