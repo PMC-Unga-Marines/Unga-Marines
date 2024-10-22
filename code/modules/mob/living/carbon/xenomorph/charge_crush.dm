@@ -58,8 +58,8 @@
 /datum/action/ability/xeno_action/ready_charge/proc/charge_on(verbose = TRUE)
 	var/mob/living/carbon/xenomorph/charger = owner
 	charge_ability_on = TRUE
-	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(update_charging))
-	RegisterSignal(charger, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change))
+	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(update_charging), override = TRUE)
+	RegisterSignal(charger, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change), override = TRUE)
 	set_toggle(TRUE)
 	if(verbose)
 		to_chat(charger, span_xenonotice("We will charge when moving, now."))
@@ -269,7 +269,7 @@
 		if(precrush > 0)
 			log_combat(charger, crushed_living, "xeno charged")
 			//There is a chance to do enough damage here to gib certain mobs. Better update immediately.
-			crushed_living.apply_damage(precrush * 2, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 15)
+			crushed_living.apply_damage(precrush * 1.7, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 15)
 			if(QDELETED(crushed_living))
 				charger.visible_message(span_danger("[charger] anihilates [preserved_name]!"),
 				span_xenodanger("We anihilate [preserved_name]!"))
