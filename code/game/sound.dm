@@ -366,6 +366,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick("sound/voice/human/male/preburst1.ogg", 'sound/voice/human/male/preburst2.ogg', 'sound/voice/human/male/preburst3.ogg', 'sound/voice/human/male/preburst4.ogg', 'sound/voice/human/male/preburst5.ogg', 'sound/voice/human/male/preburst6.ogg', 'sound/voice/human/male/preburst7.ogg', 'sound/voice/human/male/preburst8.ogg', 'sound/voice/human/male/preburst9.ogg', 'sound/voice/human/male/preburst10.ogg')
 		if("female_preburst")
 			S = pick("sound/voice/human/female/preburst1.ogg", 'sound/voice/human/female/preburst2.ogg', 'sound/voice/human/female/preburst3.ogg')
+		if("male_laugh")
+			S = pick('sound/voice/human/male/laugh_1.ogg', 'sound/voice/human/male/laugh_2.ogg', 'sound/voice/human/male/laugh_3.ogg', 'sound/voice/human/male/laugh_4.ogg', 'sound/voice/human/male/laugh_5.ogg', 'sound/voice/human/male/laugh_6.ogg', 'sound/voice/human/male/laugh_7.ogg', 'sound/voice/human/male/laugh_8.ogg', 'sound/voice/human/male/laugh_9.ogg')
+		if("female_laugh")
+			S = pick('sound/voice/human/female/laugh_1.ogg', 'sound/voice/human/female/laugh_2.ogg', 'sound/voice/human/female/laugh_3.ogg', 'sound/voice/human/female/laugh_4.ogg', 'sound/voice/human/female/laugh_5.ogg', 'sound/voice/human/female/laugh_6.ogg', 'sound/voice/human/female/laugh_7.ogg')
 		if("jump")
 			S = pick('sound/effects/bounce_1.ogg','sound/effects/bounce_2.ogg','sound/effects/bounce_3.ogg','sound/effects/bounce_4.ogg')
 
