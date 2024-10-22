@@ -376,9 +376,9 @@
 		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 //RUTGMC EDIT
 	else if(user.gender == FEMALE)
-		return 'sound/voice/human/female/laugh_1.ogg'
+		return pick('sound/voice/human/female/laugh_1.ogg', 'sound/voice/human/female/laugh_2.ogg', 'sound/voice/human/female/laugh_3.ogg', 'sound/voice/human/female/laugh_4.ogg', 'sound/voice/human/female/laugh_5.ogg', 'sound/voice/human/female/laugh_6.ogg', 'sound/voice/human/female/laugh_7.ogg')
 	else
-		return pick('sound/voice/human/male/laugh_1.ogg', 'sound/voice/human/male/laugh_2.ogg')
+		return pick('sound/voice/human/male/laugh_1.ogg', 'sound/voice/human/male/laugh_2.ogg', 'sound/voice/human/male/laugh_3.ogg', 'sound/voice/human/male/laugh_4.ogg', 'sound/voice/human/male/laugh_5.ogg', 'sound/voice/human/male/laugh_6.ogg', 'sound/voice/human/male/laugh_7.ogg', 'sound/voice/human/male/laugh_8.ogg', 'sound/voice/human/male/laugh_9.ogg')
 
 /datum/emote/living/carbon/human/warcry
 	key = "warcry"
