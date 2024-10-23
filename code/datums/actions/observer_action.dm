@@ -142,7 +142,7 @@
 			continue
 		if(!potential_egg.hugger_type)
 			continue
-		if(istype(potential_egg, /obj/alien/egg/hugger/forsaken))
+		if(istype(potential_egg, /obj/alien/egg/hugger/yautja))
 			continue
 
 		var/area_egg = get_area(potential_egg)
