@@ -99,13 +99,7 @@
 	///The tag used by this hand, used for activate_hand()
 	var/hand_tag = ""
 
-/atom/movable/screen/inventory/hand/left
-	name = "l_hand"
-	icon_state = "hand_l"
-	screen_loc = ui_lhand
-	hand_tag = "l"
-
-/atom/movable/screen/inventory/hand/left/update_overlays()
+/atom/movable/screen/inventory/hand/right/update_overlays()
 	. = ..()
 	if(!hud?.mymob?.hand)
 		return
@@ -117,24 +111,23 @@
 		var/mob/living/carbon/C = usr
 		C.activate_hand(hand_tag)
 
+/atom/movable/screen/inventory/hand/left
+	name = "l_hand"
+	icon_state = "hand_l"
+	screen_loc = ui_lhand
+	hand_tag = "l"
+
 /atom/movable/screen/inventory/hand/right
 	name = "r_hand"
 	icon_state = "hand_r"
 	screen_loc = ui_rhand
 	hand_tag = "r"
 
-/atom/movable/screen/inventory/hand/right/update_overlays()
-	. = ..()
-	if(!hud?.mymob || hud.mymob.hand)
-		return
-	. += "hand_active"
-
 /atom/movable/screen/close
 	name = "close"
 	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
-
 
 /atom/movable/screen/close/Click()
 	if(istype(master, /obj/item/storage))
