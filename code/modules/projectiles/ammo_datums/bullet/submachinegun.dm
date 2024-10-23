@@ -40,7 +40,7 @@
 
 /datum/ammo/bullet/smg/acp/ap
 	name = "armor-piercing submachinegun ACP bullet"
-	damage = 10
+	damage = 15
 	penetration = 15
 	additional_xeno_penetration = 20
 
