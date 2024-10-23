@@ -194,8 +194,6 @@
 #define TRAIT_STEALTH "stealth" //mob is in stealth, it means that turrets and ai ignore it, also you can't bump it
 #define TRAIT_MOB_ICON_UPDATE_BLOCKED "icon_blocked" //target should not update its icon_state
 #define TRAIT_VALHALLA_XENO "valhalla_xeno"
-#define TRAIT_BULWARKED_TURF "bulwarked_turf" // turf is affected by bulwark ability
-
 //important_recursive_contents traits
 /*
  * Used for movables that need to be updated, via COMSIG_ENTER_AREA and COMSIG_EXIT_AREA, when transitioning areas.

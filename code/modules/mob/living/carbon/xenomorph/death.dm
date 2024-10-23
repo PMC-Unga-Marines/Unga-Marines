@@ -99,7 +99,7 @@
 	remains.icon = effects_icon
 	remains.icon_state = xeno_caste.gib_anim
 
-	check_blood_splash(35, BURN, 65, 2)
+	check_blood_splash(50, BRUTE, 50)
 
 	return ..()
 
