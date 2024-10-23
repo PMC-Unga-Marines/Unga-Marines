@@ -451,6 +451,7 @@
 	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", PLURAL = "robot_pain", NEUTER = "robot_pain")
 	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
 	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", NEUTER = "robot_warcry")
+	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", PLURAL = "robot_male_laugh", NEUTER = "robot_female_laugh")
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = FALSE

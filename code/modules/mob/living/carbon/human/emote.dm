@@ -371,10 +371,10 @@
 
 
 /datum/emote/living/carbon/human/laugh/get_sound(mob/living/carbon/human/user)
-//RUTGMC EDIT
+
 	if(isyautja(user))
 		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
-//RUTGMC EDIT
+
 	if(!user.species)
 		return
 	if(user.species.laughs[user.gender])
@@ -634,14 +634,6 @@
 		return 'sound/voice/human/female/cry_1.ogg'
 	else
 		return 'sound/voice/human/male/cry_1.ogg'
-
-/datum/emote/living/carbon/human/laugh/get_sound(mob/living/user)
-	if(isrobot(user))
-		if(user.gender == FEMALE)
-			return 'sound/voice/robotic/female_laugh.ogg'
-		else
-			return pick('sound/voice/robotic/male_laugh_1.ogg', 'sound/voice/robotic/male_laugh_2.ogg')
-	return ..()
 
 /datum/emote/living/carbon/human/medic/get_sound(mob/living/carbon/human/user)
 	if(isrobot(user))
