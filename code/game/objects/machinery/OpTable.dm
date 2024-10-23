@@ -15,6 +15,8 @@
 	active_power_usage = 5
 	buckle_flags = CAN_BUCKLE
 	buckle_lying = 90
+	light_power = 0.2
+	light_range = 0.4
 	var/mob/living/carbon/human/victim = null
 	var/strapped = 0
 	var/obj/item/tank/anesthetic/anes_tank
@@ -40,6 +42,14 @@
 /obj/machinery/optable/Destroy()
 	computer = null
 	return ..()
+
+/obj/machinery/optable/update_icon_state()
+	. = ..()
+
+	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
+		set_light(0, 0)
+	else
+		set_light(initial(light_range), initial(light_power))
 
 /obj/machinery/optable/update_overlays()
 	. = ..()
