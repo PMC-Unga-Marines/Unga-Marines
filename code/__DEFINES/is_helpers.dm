@@ -286,6 +286,7 @@
 #define isexterminationgamemode(O) (istype(O, /datum/game_mode/infestation/distress/extermination))
 #define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))
 #define ispointsdefencegamemode(O) (istype(O, /datum/game_mode/infestation/distress/points_defence))
+#define islaststandgamemode(O) istype(O, /datum/game_mode/last_stand)
 
 #define isxenoresearcharea(A) (istype(A, /area/mainship/medical/medical_science))
 
