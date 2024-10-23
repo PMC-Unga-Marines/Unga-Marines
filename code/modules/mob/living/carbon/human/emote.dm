@@ -375,7 +375,7 @@
 	if(isyautja(user))
 		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 
-	if(!user.species)
+	if(!user?.species?.laughs)
 		return
 	if(user.species.laughs[user.gender])
 		return user.species.laughs[user.gender]
