@@ -1904,7 +1904,6 @@
 	default_ammo_type = null
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/tx54,
-		/obj/item/ammo_magazine/rifle/tx54/he,
 		/obj/item/ammo_magazine/rifle/tx54/incendiary,
 		/obj/item/ammo_magazine/rifle/tx54/smoke,
 		/obj/item/ammo_magazine/rifle/tx54/smoke/dense,

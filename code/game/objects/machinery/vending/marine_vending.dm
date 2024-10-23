@@ -544,7 +544,6 @@
 			/obj/item/weapon/gun/rifle/tx54 = -1,
 			/obj/item/ammo_magazine/rifle/tx54 = -1,
 			/obj/item/ammo_magazine/rifle/tx54/incendiary = -1,
-			/obj/item/ammo_magazine/rifle/tx54/he = -1,
 			/obj/item/ammo_magazine/rifle/tx54/smoke = -1,
 			/obj/item/ammo_magazine/rifle/tx54/smoke/dense = -1,
 			/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = -1,
