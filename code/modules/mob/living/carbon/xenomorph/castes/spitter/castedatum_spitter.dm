@@ -19,7 +19,7 @@
 	plasma_gain = 50
 
 	// *** Health *** //
-	max_health = 310
+	max_health = 510
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -30,7 +30,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 25, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 10, ACID = 20)
+	soft_armor = list(MELEE = 25, BULLET = 20, LASER = 20, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 10, ACID = 20)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "spitter"
