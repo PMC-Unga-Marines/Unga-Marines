@@ -48,7 +48,7 @@
 /datum/action/innate/order/proc/send_order(atom/target, datum/squad/squad, faction = FACTION_TERRAGOV)
 	if(!can_use_action())
 		return
-	to_chat(owner ,span_ordercic("You ordered marines to [verb_name] [get_area(target.loc)]!"))
+	to_chat(owner ,span_ordercic("Вы приказали морпехам [verb_name] [get_area(target.loc)]!"))
 	owner.playsound_local(owner, "sound/effects/CIC_order.ogg", 10, 1)
 	if(visual_type)
 		target = get_turf(target)
@@ -98,12 +98,12 @@
 	var/atom/movable/screen/arrow/arrow_hud = new arrow_type
 	arrow_hud.add_hud(src, target)
 	playsound_local(src, "sound/effects/CIC_order.ogg", 20, 1)
-	to_chat(src,span_ordercic("Command is urging you to [verb_name] [get_area(get_turf(target))]!"))
+	to_chat(src,span_ordercic("Командование приказывает вам [verb_name] [get_area(get_turf(target))]!"))
 
 /datum/action/innate/order/attack_order
 	name = "Send Attack Order"
 	action_icon_state = "attack"
-	verb_name = "attack the enemy at"
+	verb_name = "<font color='#d93b29'>АТАКОВАТЬ</font>"
 	arrow_type = /atom/movable/screen/arrow/attack_order_arrow
 	visual_type = /obj/effect/temp_visual/order/attack_order
 
@@ -125,7 +125,7 @@
 /datum/action/innate/order/defend_order
 	name = "Send Defend Order"
 	action_icon_state = "defend"
-	verb_name = "defend our position in"
+	verb_name = "<font color='#24e324'>ОБОРОНЯТЬ</font>"
 	arrow_type = /atom/movable/screen/arrow/defend_order_arrow
 	visual_type = /obj/effect/temp_visual/order/defend_order
 
@@ -146,7 +146,7 @@
 /datum/action/innate/order/retreat_order
 	name = "Send Retreat Order"
 	action_icon_state = "retreat"
-	verb_name = "retreat from"
+	verb_name = "<font color='#e024e3'>ОТСТУПАТЬ</font> из"
 	visual_type = /obj/effect/temp_visual/order/retreat_order
 
 /datum/action/innate/order/retreat_order/personal
@@ -166,7 +166,7 @@
 /datum/action/innate/order/rally_order
 	name = "Send Rally Order"
 	action_icon_state = "rally"
-	verb_name = "rally to"
+	verb_name = "<font color='#e3dd24'>СОБРАТЬСЯ</font> в"
 	arrow_type = /atom/movable/screen/arrow/rally_order_arrow
 	visual_type = /obj/effect/temp_visual/order/rally_order
 
