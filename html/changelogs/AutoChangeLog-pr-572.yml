@@ -1,4 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - bugfix: "Украшенные боксы с Р76 теперь не спавняться с дубликатами лута."
