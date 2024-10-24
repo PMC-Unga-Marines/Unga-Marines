@@ -189,7 +189,6 @@
 	new /obj/effect/temp_visual/ob_impact(target, tray.warhead)
 
 /obj/structure/orbital_cannon/proc/fire_ob_cannon(turf/T, mob/user)
-	var/warhead_kind_rus = ""
 	set waitfor = FALSE
 
 	if(ob_cannon_busy)
@@ -204,16 +203,12 @@
 
 	switch(tray.warhead.warhead_kind)
 		if("explosive")
-			warhead_kind_rus = "взрывной"
 			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[1] - tray.fuel_amt)
 		if("incendiary")
-			warhead_kind_rus = "зажигательный"
 			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[2] - tray.fuel_amt)
 		if("cluster")
-			warhead_kind_rus = "кластер"
 			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[3] - tray.fuel_amt)
 		if("plasma")
-			warhead_kind_rus = "плазма"
 			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[4] - tray.fuel_amt)
 
 	var/turf/target = locate(T.x + inaccurate_fuel * pick(-2, 2),T.y + inaccurate_fuel * pick(-2, 2),T.z)
@@ -224,7 +219,7 @@
 		fuel_warning = "Уровень топлива боеголовки: некорректный.<br>Возможно смещение области поражения."
 
 	priority_announce(
-		message = "Немедленно покиньте зону поражения!<br><br>Тип боеголовки: [warhead_kind_rus].<br>[fuel_warning]<br>Цель: [get_area(T)].",
+		message = "Немедленно покиньте зону поражения!<br><br>Тип боеголовки: [tray.warhead.warhead_kind_rus].<br>[fuel_warning]<br>Цель: [get_area(T)].",
 		title = "Обнаружена команда на запуск орбитальной бомбардировки!",
 		type = ANNOUNCEMENT_PRIORITY,
 		sound = 'sound/effects/OB_warning_announce.ogg',
@@ -233,7 +228,7 @@
 	)
 	var/list/receivers = (GLOB.alive_human_list + GLOB.ai_list + GLOB.observer_list)
 	for(var/mob/living/screentext_receiver AS in receivers)
-		screentext_receiver.play_screen_text("<span class='maptext' style=font-size:36pt;text-align:center valign='top'><u><b>ОРБИТАЛЬНЫЙ УДАР</b></u></span><br>Тип: [uppertext(warhead_kind_rus)]", /atom/movable/screen/text/screen_text/command_order)
+		screentext_receiver.play_screen_text("<span class='maptext' style=font-size:36pt;text-align:center valign='top'><u><b>ОРБИТАЛЬНЫЙ УДАР</b></u></span><br>ТИП СНАРЯДА: [uppertext(tray.warhead.warhead_kind_rus)]", /atom/movable/screen/text/screen_text/command_order)
 	playsound(target, 'sound/effects/OB_warning_announce_novoiceover.ogg', 125, FALSE, 30, 10) //VOX-less version for xenomorphs
 
 	var/impact_time = 10 SECONDS + (WARHEAD_FLY_TIME * (GLOB.current_orbit/3))
@@ -366,6 +361,7 @@
 /obj/structure/ob_ammo/warhead
 	name = "theoretical orbital ammo"
 	var/warhead_kind
+	var/warhead_kind_rus
 
 ///Explode the warhead
 /obj/structure/ob_ammo/warhead/proc/warhead_impact()
@@ -398,6 +394,7 @@
 /obj/structure/ob_ammo/warhead/explosive
 	name = "\improper HE orbital warhead"
 	warhead_kind = "explosive"
+	warhead_kind_rus = "взрывной"
 	icon_state = "ob_warhead_1"
 	var/explosion_power = 1425
 	var/explosion_falloff = 90
@@ -408,6 +405,7 @@
 /obj/structure/ob_ammo/warhead/incendiary
 	name = "\improper Incendiary orbital warhead"
 	warhead_kind = "incendiary"
+	warhead_kind_rus = "зажигательный"
 	icon_state = "ob_warhead_2"
 	var/flame_range_num
 	var/flame_intensity = 36
@@ -425,6 +423,7 @@
 /obj/structure/ob_ammo/warhead/cluster
 	name = "\improper Cluster orbital warhead"
 	warhead_kind = "cluster"
+	warhead_kind_rus = "кластер"
 	icon_state = "ob_warhead_3"
 	var/cluster_amount = 25
 	var/cluster_power = 240
@@ -446,6 +445,7 @@
 /obj/structure/ob_ammo/warhead/plasmaloss
 	name = "\improper Plasma draining orbital warhead"
 	warhead_kind = "plasma"
+	warhead_kind_rus = "Т-ГАЗ"
 	icon_state = "ob_warhead_4"
 	var/smoke_radius = 25
 	var/smoke_duration = 3 SECONDS

@@ -194,7 +194,7 @@ GLOBAL_VAR_INIT(current_orbit,STANDARD_ORBIT)
 	changing_orbit = TRUE
 	engine_shudder()
 
-	var/message = "Переход на новую орбиту. Приготовьтесь в запуску двигателей и стабилизации."
+	var/message = "Переход на новую орбиту. Приготовьтесь к запуску двигателей и стабилизации."
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), message, "Смена Орбиты"), 290 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(orbit_gets_changed), current_orbit, direction), 3 MINUTES)
 
