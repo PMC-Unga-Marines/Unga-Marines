@@ -41,11 +41,12 @@ SUBSYSTEM_DEF(mapping)
 
 //dlete dis once #39770 is resolved
 /datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
-	if(!configs)
-		configs = load_map_configs(ALL_MAPTYPES, error_if_missing = FALSE)
-		for(var/i in GLOB.clients)
-			var/client/C = i
-			winset(C, null, "mainwindow.title='[CONFIG_GET(string/title)] - [SSmapping.configs[SHIP_MAP].map_name]'")
+	if(configs)
+		return
+	configs = load_map_configs(ALL_MAPTYPES, error_if_missing = FALSE)
+	for(var/i in GLOB.clients)
+		var/client/C = i
+		winset(C, null, "mainwindow.title='[CONFIG_GET(string/title)] - [SSmapping.configs[SHIP_MAP].map_name]'")
 
 /datum/controller/subsystem/mapping/Initialize()
 	HACK_LoadMapConfig()
@@ -54,17 +55,19 @@ SUBSYSTEM_DEF(mapping)
 
 	for(var/i in ALL_MAPTYPES)
 		var/datum/map_config/MC = configs[i]
-		if(MC.defaulted)
-			var/old_config = configs[i]
-			configs[i] = global.config.defaultmaps[i]
-			if(!configs || configs[i].defaulted)
-				to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting."))
-				configs[i] = old_config
+		if(!MC.defaulted)
+			continue
+		var/old_config = configs[i]
+		configs[i] = global.config.defaultmaps[i]
+		if(!configs || configs[i].defaulted)
+			to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting."))
+			configs[i] = old_config
 
 	if(configs[GROUND_MAP])
 		for(var/datum/game_mode/M AS in config.votable_modes)
-			if(!(M.config_tag in configs[GROUND_MAP].gamemodes))
-				config.votable_modes -= M // remove invalid modes
+			if(M.config_tag in configs[GROUND_MAP].gamemodes)
+				continue
+			config.votable_modes -= M // remove invalid modes
 
 	loadWorld()
 	repopulate_sorted_areas()

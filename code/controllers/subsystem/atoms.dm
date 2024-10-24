@@ -89,20 +89,22 @@ SUBSYSTEM_DEF(atoms)
 		count = length(atoms)
 		for(var/I in 1 to count)
 			var/atom/A = atoms[I]
-			if(!(A.flags_atom & INITIALIZED))
-				CHECK_TICK
-				PROFILE_INIT_ATOM_BEGIN()
-				InitAtom(A, TRUE, mapload_arg)
-				PROFILE_INIT_ATOM_END(A)
+			if(A.flags_atom & INITIALIZED)
+				continue
+			CHECK_TICK
+			PROFILE_INIT_ATOM_BEGIN()
+			InitAtom(A, TRUE, mapload_arg)
+			PROFILE_INIT_ATOM_END(A)
 	else
 		count = 0
 		for(var/atom/A in world)
-			if(!(A.flags_atom & INITIALIZED))
-				PROFILE_INIT_ATOM_BEGIN()
-				InitAtom(A, FALSE, mapload_arg)
-				PROFILE_INIT_ATOM_END(A)
-				++count
-				CHECK_TICK
+			if(A.flags_atom & INITIALIZED)
+				continue
+			PROFILE_INIT_ATOM_BEGIN()
+			InitAtom(A, FALSE, mapload_arg)
+			PROFILE_INIT_ATOM_END(A)
+			++count
+			CHECK_TICK
 
 	testing("Initialized [count] atoms")
 	pass(count)
