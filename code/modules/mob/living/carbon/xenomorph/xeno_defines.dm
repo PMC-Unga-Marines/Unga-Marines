@@ -189,6 +189,10 @@
 	///Base range of Blink
 	var/blink_range = 0
 
+	// *** Widow Abilities *** //
+	///maximum amount of spiderlings a widow can carry at one time.
+	var/max_spiderlings = 0
+
 	///the 'abilities' available to a caste.
 	var/list/actions
 

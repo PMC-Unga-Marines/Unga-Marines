@@ -95,6 +95,11 @@
 			to_chat(owner, span_warning("We can't do this while in a solid object!"))
 		return FALSE
 
+	if(!(flags_to_check & ABILITY_USE_BURROWED) && HAS_TRAIT(carbon_owner, TRAIT_BURROWED))
+		if(!silent)
+			carbon_owner.balloon_alert(carbon_owner, "Cannot while burrowed")
+		return FALSE
+
 	return TRUE
 
 /datum/action/ability/fail_activate()
