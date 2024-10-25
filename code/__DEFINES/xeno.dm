@@ -45,7 +45,11 @@
 #define PANTHER_OZELOMELYN "Ozelomelyn"
 #define PANTHER_SANGUINAL "Sanguinal"
 
-#define TRAP_HUGGER "hugger"
+#define TRAP_HUGGER_LARVAL "hugger larval"
+#define TRAP_HUGGER_ACID "hugger acid"
+#define TRAP_HUGGER_NEURO "hugger neuro"
+#define TRAP_HUGGER_RESIN "hugger resin"
+#define TRAP_HUGGER_SLASH "hugger slash"
 #define TRAP_SMOKE_NEURO "neurotoxin gas"
 #define TRAP_SMOKE_ACID "acid gas"
 #define TRAP_ACID_WEAK "weak acid"
@@ -91,8 +95,7 @@ GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
-		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
+		/datum/reagent/toxin/acid,
 		))
 
 //List of toxins improving defile's damage
@@ -100,9 +103,8 @@ GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/xeno_sanguinal,
-		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
+		/datum/reagent/toxin/acid,
 		/datum/status_effect/stacking/intoxicated,
 		)))
 

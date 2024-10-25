@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Гибы теперь не влияют на скорость загрузки."

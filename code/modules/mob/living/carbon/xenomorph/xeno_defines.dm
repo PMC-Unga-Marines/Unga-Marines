@@ -351,7 +351,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Stored biomass
 	var/biomass = 0
 
-	var/is_zoomed = 0
+	var/is_zoomed = FALSE
 	var/zoom_turf = null
 	var/can_walk_zoomed = FALSE
 
