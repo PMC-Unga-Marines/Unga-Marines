@@ -104,11 +104,11 @@
 
 	if(!usr.restrained() && !usr.stat)
 		switch(over_object.name)
-			if("right_hand")
+			if("right hand")
 				usr.temporarilyRemoveItemFromInventory(src)
 				if(!usr.put_in_r_hand(src))
 					usr.dropItemToGround(src)
-			if("left_hand")
+			if("left hand")
 				usr.temporarilyRemoveItemFromInventory(src)
 				if(!usr.put_in_l_hand(src))
 					usr.dropItemToGround(src)
