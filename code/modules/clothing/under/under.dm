@@ -113,10 +113,10 @@
 	if(!over_object)
 		return
 	switch(over_object.name)
-		if("r_hand")
+		if("right hand")
 			usr.dropItemToGround(src)
 			usr.put_in_r_hand(src)
-		if("l_hand")
+		if("left hand")
 			usr.dropItemToGround(src)
 			usr.put_in_l_hand(src)
 
