@@ -225,7 +225,6 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/ammo_magazine/shotgun/mbx900/buckshot = list(CAT_LEDSUP, "A box of .410 buckshot rounds", 1, "orange2"),
 	/obj/item/weapon/gun/rifle/tx55 = list(CAT_LEDSUP, "AR-55 OICW Rifle", 15, "red"),
 	/obj/item/ammo_magazine/rifle/tx54 = list(CAT_LEDSUP, "GL-54 Flak Magazine for AR-55/GL-54", 2, "orange2"),
-	/obj/item/ammo_magazine/rifle/tx54/he = list(CAT_LEDSUP, "GL-54 HE Magazine for AR-55/GL-54", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/tx54/smoke = list(CAT_LEDSUP, "GL-54 tactical smoke Magazine for AR-55/GL-54", 1, "orange2"),
 	/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = list(CAT_LEDSUP, "GL-54 Tanglefoot Magazine for AR-55/GL-54", 3, "orange2"),
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_LEDSUP, "Terra Experimental recharger battery", 4, "orange2"),

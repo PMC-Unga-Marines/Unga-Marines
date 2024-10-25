@@ -857,6 +857,12 @@
 						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[msay]")
 					else
 						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=")
+				if(DEAD_CHANNEL)
+					if(holder)
+						var/dsay = tgui_say_create_open_command(DEAD_CHANNEL)
+						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[dsay]")
+					else
+						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=")
 	calculate_move_dir()
 
 /client/proc/change_view(new_size)

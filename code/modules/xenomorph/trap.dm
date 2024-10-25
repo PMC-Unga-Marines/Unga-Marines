@@ -30,18 +30,26 @@
 /obj/structure/xeno/trap/update_icon_state()
 	. = ..()
 	switch(trap_type)
-		if(TRAP_HUGGER)
-			icon_state = "traphugger"
+		if(TRAP_HUGGER_LARVAL)
+			icon_state = "trap_hugger"
+		if(TRAP_HUGGER_NEURO)
+			icon_state = "trap_hugger_neuro"
+		if(TRAP_HUGGER_ACID)
+			icon_state = "trap_hugger_acid"
+		if(TRAP_HUGGER_RESIN)
+			icon_state = "trap_hugger_resin"
+		if(TRAP_HUGGER_SLASH)
+			icon_state = "trap_hugger_slash"
 		if(TRAP_SMOKE_NEURO)
-			icon_state = "trapneurogas"
+			icon_state = "trap_neuro_gas"
 		if(TRAP_SMOKE_ACID)
-			icon_state = "trapacidgas"
+			icon_state = "trap_acid_gas"
 		if(TRAP_ACID_WEAK)
-			icon_state = "trapacidweak"
+			icon_state = "trap_acid_weak"
 		if(TRAP_ACID_NORMAL)
-			icon_state = "trapacid"
+			icon_state = "trap_acid"
 		if(TRAP_ACID_STRONG)
-			icon_state = "trapacidstrong"
+			icon_state = "trap_acid_strong"
 		else
 			icon_state = "trap"
 
@@ -60,22 +68,22 @@
 	. = ..()
 	if(!isxeno(user))
 		return
-	. += "A hole for a little one to hide in ambush for or for spewing acid."
+	. += span_notice("A hole for a little one to hide in ambush or for spewing acid.")
 	switch(trap_type)
-		if(TRAP_HUGGER)
-			. += "There's a little one inside."
+		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH)
+			. += span_notice("There's a little one inside.")
 		if(TRAP_SMOKE_NEURO)
-			. += "There's pressurized neurotoxin inside."
+			. += span_notice("There's pressurized neurotoxin inside.")
 		if(TRAP_SMOKE_ACID)
-			. += "There's pressurized acid gas inside."
+			. += span_notice("There's pressurized acid gas inside.")
 		if(TRAP_ACID_WEAK)
-			. += "There's pressurized weak acid inside."
+			. += span_notice("There's pressurized weak acid inside.")
 		if(TRAP_ACID_NORMAL)
-			. += "There's pressurized normal acid inside."
+			. += span_notice("There's pressurized normal acid inside.")
 		if(TRAP_ACID_STRONG)
-			. += "There's strong pressurized acid inside."
+			. += span_notice("There's strong pressurized acid inside.")
 		else
-			. += "It's empty."
+			. += span_notice("It's empty.")
 
 /obj/structure/xeno/trap/fire_act(burn_level, flame_color)
 	hugger?.kill_hugger()
@@ -95,7 +103,7 @@
 		crosser.visible_message(span_warning("[crosser] trips on [src]!"), span_danger("You trip on [src]!"))
 		crosser.ParalyzeNoChain(4 SECONDS)
 	switch(trap_type)
-		if(TRAP_HUGGER)
+		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH)
 			if(!AM)
 				drop_hugger()
 				return
@@ -133,7 +141,7 @@
 
 	if(xeno_attacker.a_intent == INTENT_HARM)
 		return ..()
-	if(trap_type == TRAP_HUGGER)
+	if(trap_type == (TRAP_HUGGER_LARVAL || TRAP_HUGGER_NEURO || TRAP_HUGGER_ACID || TRAP_HUGGER_RESIN || TRAP_HUGGER_SLASH))
 		if(!(xeno_attacker.xeno_caste.can_flags & CASTE_CAN_HOLD_FACEHUGGERS))
 			return
 		if(!hugger)
@@ -182,23 +190,23 @@
 	user.transferItemToLoc(FH, src)
 	FH.go_idle(TRUE)
 	hugger = FH
-	set_trap_type(TRAP_HUGGER)
+	set_trap_type(FH.trap_type)
 	balloon_alert(user, "Inserted facehugger")
 
 //Sentient facehugger can get in the trap
 /obj/structure/xeno/trap/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
 	. = ..()
-	if(tgui_alert(F, "Do you want to get into the trap?", "Get inside the trap", list("Yes", "No")) != "Yes")
-		return
-
 	if(trap_type)
 		F.balloon_alert(F, "The trap is occupied")
+		return
+
+	if(tgui_alert(F, "Do you want to get into the trap?", "Get inside the trap", list("Yes", "No")) != "Yes")
 		return
 
 	var/obj/item/clothing/mask/facehugger/FH = new(src)
 	FH.go_idle(TRUE)
 	hugger = FH
-	set_trap_type(TRAP_HUGGER)
+	set_trap_type(TRAP_HUGGER_LARVAL)
 
 	F.visible_message(span_xenowarning("[F] slides back into [src]."),span_xenonotice("You slides back into [src]."))
 	F.ghostize()
