@@ -872,9 +872,11 @@
 		CRASH("change_view called with a number argument. Use the string format instead.")
 	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
 		new_size = CONFIG_GET(string/default_view_square)
+
 	view = new_size
 	apply_clickcatcher()
 	mob.reload_fullscreens()
+
 	if(prefs.auto_fit_viewport)
 		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
 
