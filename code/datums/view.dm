@@ -18,7 +18,7 @@
 	chief = owner
 	apply()
 
-///sets the default view size froma string
+///sets the default view size froma  string
 /datum/view_data/proc/set_default(string)
 	default = string
 	apply()

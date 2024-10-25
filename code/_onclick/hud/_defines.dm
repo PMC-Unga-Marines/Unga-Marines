@@ -97,3 +97,26 @@
 #define ui_ai_bioscan "SOUTH:6,WEST+4"
 #define ui_ai_multicam "SOUTH:6,WEST+17"
 #define ui_ai_add_multicam "SOUTH:6,WEST+18"
+
+// Какого хрена атомы лежат в дефайнах?!
+// TODO: Уберите предовские атомы в другой И ПОДХОДЯЩИЙ файл, плиз.
+/*
+			| | |
+			| | |
+			v v v
+*/
+/atom/movable/screen/fullscreen/machine/pred
+	alpha = 140
+
+/atom/movable/screen/fullscreen/machine/pred/meson
+	icon_state = "pred_meson"
+	icon = 'icons/mob/screen/full.dmi'
+
+/atom/movable/screen/fullscreen/machine/pred/night
+	icon_state = "robothalf"
+
+/datum/hud/var/atom/movable/screen/pred_power_icon
+
+/datum/hud/Destroy()
+	pred_power_icon = null
+	return ..()

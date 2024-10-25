@@ -32,10 +32,12 @@
 	if(!client)
 		return
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(length(client_color_matrices))
 		update_client_color_matrices(time = 0) //This mob has client color matrices set, apply them instantly on login.
 	else
 		update_client_color_matrices(time = 1.5 SECONDS) //Otherwise, fade any matrices from a previous mob.
+//RUTGMC EDIT ADDITION END
 
 	canon_client = client
 	clear_important_client_contents(client)
