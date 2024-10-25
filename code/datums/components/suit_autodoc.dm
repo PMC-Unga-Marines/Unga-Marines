@@ -1,5 +1,5 @@
-#define SUIT_AUTODOC_DAM_MIN 20 //RU TGMC EDIT
-#define SUIT_AUTODOC_DAM_MAX 300 //RU TGMC EDIT
+#define SUIT_AUTODOC_DAM_MIN 20
+#define SUIT_AUTODOC_DAM_MAX 300
 #define COOLDOWN_CHEM_BURN "chem_burn"
 #define COOLDOWN_CHEM_OXY "oxy_chems"
 #define COOLDOWN_CHEM_BRUTE "brute_chems"
@@ -67,7 +67,7 @@
 /**
 	Setup the default cooldown, chemicals and supported limbs
 */
-/datum/component/suit_autodoc/Initialize(chem_cooldown, list/burn_chems, list/oxy_chems, list/brute_chems, list/tox_chems, list/pain_chems, overdose_threshold_mod)
+/datum/component/suit_autodoc/Initialize(chem_cooldown, list/brute_chems, list/burn_chems, list/tox_chems, list/oxy_chems, list/pain_chems, overdose_threshold_mod)
 	if(!istype(parent, /obj/item))
 		return COMPONENT_INCOMPATIBLE
 
@@ -75,10 +75,10 @@
 	if(!isnull(chem_cooldown))
 		src.chem_cooldown = chem_cooldown
 
-	src.burn_chems = burn_chems || default_burn_chems
-	src.oxy_chems = oxy_chems || default_oxy_chems
 	src.brute_chems = brute_chems || default_brute_chems
+	src.burn_chems = burn_chems || default_burn_chems
 	src.tox_chems = tox_chems || default_tox_chems
+	src.oxy_chems = oxy_chems || default_oxy_chems
 	src.pain_chems = pain_chems || default_pain_chems
 
 	if(!isnull(overdose_threshold_mod))
@@ -109,7 +109,6 @@
 	RegisterSignal(toggle_action, COMSIG_ACTION_TRIGGER, PROC_REF(action_toggle))
 	RegisterSignal(scan_action, COMSIG_ACTION_TRIGGER, PROC_REF(scan_user))
 	RegisterSignal(configure_action, COMSIG_ACTION_TRIGGER, PROC_REF(configure))
-
 
 /**
 	Remove signals
@@ -145,7 +144,6 @@
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_CHEM_PAIN))
 		details += "Its painkiller injector is currently refilling.</br>"
 
-
 /**
 	Disables the autodoc and removes actions when dropped
 */
@@ -156,7 +154,6 @@
 	remove_actions()
 	disable()
 	wearer = null
-
 
 /**
 	Enable the autodoc and give appropriate actions
@@ -200,7 +197,6 @@
 	if(!silent)
 		wearer.balloon_alert(wearer, "The automedical suite activates")
 		playsound(parent,'sound/voice/b18/activate.ogg', 15, 0, 1)
-
 
 /**
 	Proc for the damange taken signal, calls treat_injuries
@@ -257,7 +253,7 @@
 		CRASH("attempting to treat_injuries with no wearer")
 
 	var/burns = inject_chems(burn_chems, wearer, COOLDOWN_CHEM_BURN, wearer.getFireLoss(), damage_threshold, "Burn treatment", "Significant tissue burns detected. Restorative injection")
-	var/brute = inject_chems(brute_chems, wearer, COOLDOWN_CHEM_BRUTE, wearer.getBruteLoss(), damage_threshold, "Trauma treatment", "Significant tissue burns detected. Restorative injection")
+	var/brute = inject_chems(brute_chems, wearer, COOLDOWN_CHEM_BRUTE, wearer.getBruteLoss(), damage_threshold, "Trauma treatment", "Significant tissue bruises detected. Restorative injection")
 	var/oxy = inject_chems(oxy_chems, wearer, COOLDOWN_CHEM_OXY, wearer.getOxyLoss(), damage_threshold, "Oxygenation treatment", "Low blood oxygen detected. Reoxygenating preparation")
 	var/tox = inject_chems(tox_chems, wearer, COOLDOWN_CHEM_TOX, wearer.getToxLoss(), damage_threshold, "Toxicity treatment", "Significant blood toxicity detected. Chelating agents and curatives")
 	var/pain = inject_chems(pain_chems, wearer, COOLDOWN_CHEM_PAIN, wearer.painloss, pain_threshold, "Painkiller", "User pain at performance impeding levels. Painkillers")

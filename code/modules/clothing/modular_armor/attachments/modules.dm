@@ -51,10 +51,13 @@
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	var/list/tricord = list(/datum/reagent/medicine/tricordrazine)
-	var/list/tramadol = list(/datum/reagent/medicine/tramadol)
+	var/list/our_brute_chems = list(/datum/reagent/medicine/bicaridine, /datum/reagent/medicine/tricordrazine)
+	var/list/our_burn_chems = list(/datum/reagent/medicine/kelotane, /datum/reagent/medicine/tricordrazine)
+	var/list/our_tox_chems = list(/datum/reagent/medicine/hyronalin, /datum/reagent/medicine/tricordrazine)
+	var/list/our_oxy_chems = list(/datum/reagent/medicine/inaprovaline)
+	var/list/our_pain_chems = list(/datum/reagent/medicine/tramadol)
 	/// This will do nothing without the autodoc update
-	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES, tricord, tricord, tricord, tricord, tramadol, 0.5)
+	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES, our_brute_chems, our_burn_chems, our_tox_chems, our_oxy_chems, our_pain_chems, 0.5)
 	parent.AddElement(/datum/element/limb_support, supported_limbs)
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_detach(obj/item/detaching_from, mob/user)
