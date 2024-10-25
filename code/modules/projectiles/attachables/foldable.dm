@@ -149,7 +149,7 @@
 	icon_state = "bipod"
 	slot = ATTACHMENT_SLOT_UNDER
 	size_mod = 2
-	deploy_time = 1 SECONDS
+	deploy_time = 0.5 SECONDS
 	accuracy_mod = 0.3
 	recoil_mod = -2
 	scatter_mod = -10

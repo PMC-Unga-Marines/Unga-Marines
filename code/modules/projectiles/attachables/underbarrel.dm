@@ -101,4 +101,3 @@
 	slot = ATTACHMENT_SLOT_UNDER
 	burst_mod = 2
 	burst_scatter_mod = 1
-	burst_accuracy_mod = -0.1
