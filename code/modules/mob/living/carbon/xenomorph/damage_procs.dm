@@ -174,7 +174,7 @@
 	if(edge) //Pierce weapons give the most bonus
 		chancemod += 15
 	if(stat == DEAD) // pressure in dead body is lower than usual
-		chancemod * 0.5
+		chancemod *= 0.5
 	chance += chancemod + (damage * 0.33)
 	if(!prob(chance))
 		return FALSE

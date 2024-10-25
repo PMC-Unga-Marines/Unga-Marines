@@ -25,10 +25,6 @@
 #define ACCESSORY_SLOT_ARMOR_Y_RH "right_hand_bones"
 #define ACCESSORY_SLOT_ARMOR_Y_LH "left_hand_bones"
 
-#define FACTION_YAUTJA "Yautja"
-#define XENO_HIVE_FORSAKEN "forsaken_hive"
-#define XENO_HIVE_YAUTJA "yautja_hive"
-
 #define JOB_PREDATOR "Predator"
 
 #define CATEGORY_YAUTJA "YAUTJA"

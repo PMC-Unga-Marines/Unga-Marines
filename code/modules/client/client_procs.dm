@@ -857,6 +857,12 @@
 						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[msay]")
 					else
 						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=")
+				if(DEAD_CHANNEL)
+					if(holder)
+						var/dsay = tgui_say_create_open_command(DEAD_CHANNEL)
+						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[dsay]")
+					else
+						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=")
 	calculate_move_dir()
 
 /client/proc/change_view(new_size)
@@ -866,9 +872,11 @@
 		CRASH("change_view called with a number argument. Use the string format instead.")
 	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
 		new_size = CONFIG_GET(string/default_view_square)
+
 	view = new_size
 	apply_clickcatcher()
 	mob.reload_fullscreens()
+
 	if(prefs.auto_fit_viewport)
 		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
 
