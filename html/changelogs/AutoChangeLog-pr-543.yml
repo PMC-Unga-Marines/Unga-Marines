@@ -1,0 +1,5 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - admin: "Jump-To проки, смайты, скачивание логов и апикер теперь тгуи."
+  - admin: "Dsay теперь html."
