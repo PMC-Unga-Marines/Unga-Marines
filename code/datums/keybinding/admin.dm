@@ -2,7 +2,6 @@
 	category = CATEGORY_ADMIN
 	weight = WEIGHT_ADMIN
 
-
 /datum/keybinding/admin/admin_say
 	hotkey_keys = list("F3")
 	name = ADMIN_CHANNEL
@@ -19,17 +18,10 @@
 
 /datum/keybinding/admin/dead_say
 	hotkey_keys = list("F5")
-	name = "dead_say"
+	name = DEAD_CHANNEL
 	full_name = "Dead chat"
 	description = "Speak with the dead."
 	keybind_signal = COMSIG_KB_ADMIN_DSAY_DOWN
-
-/datum/keybinding/admin/dead_say/down(client/user)
-	. = ..()
-	if(.)
-		return
-	user.get_dsay()
-	return TRUE
 
 /datum/keybinding/admin/toggle_buildmode_self
 	hotkey_keys = list("F7")

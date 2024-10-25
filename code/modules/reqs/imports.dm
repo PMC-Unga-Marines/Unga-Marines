@@ -142,11 +142,6 @@
 	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/plum)
 	cost = 3
 
-/datum/supply_packs/imports/mpi_km/ammo_packet
-	name = "7.62x39mm Ammo Box"
-	contains = list(/obj/item/ammo_magazine/packet/pwarsaw)
-	cost = 15
-
 /datum/supply_packs/imports/mkh
 	name = "MKH-98 Storm Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/mkh)

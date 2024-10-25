@@ -86,6 +86,7 @@
 	var/list/coughs = list()
 	var/list/burstscreams = list()
 	var/list/warcries = list()
+	var/list/laughs = list()
 
 	var/blood_color = "#A10808" //Red.
 	var/flesh_color = "#FFC896" //Pink.
@@ -343,6 +344,7 @@
 	coughs = list(MALE = "male_cough", FEMALE = "female_cough")
 	burstscreams = list(MALE = "male_preburst", FEMALE = "female_preburst")
 	warcries = list(MALE = "male_warcry", FEMALE = "female_warcry")
+	laughs = list(MALE = "male_laugh", FEMALE = "female_laugh")
 	special_death_message = "<big>You have perished.</big><br><small>But it is not the end of you yet... if you still have your body with your head still attached, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = TRUE
 
@@ -449,6 +451,7 @@
 	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", PLURAL = "robot_pain", NEUTER = "robot_pain")
 	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
 	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", NEUTER = "robot_warcry")
+	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", PLURAL = "robot_male_laugh", NEUTER = "robot_female_laugh")
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = FALSE
@@ -566,6 +569,7 @@
 	paincries = list(MALE = "male_pain", FEMALE = "female_pain")
 	goredcries = list(MALE = "male_gored", FEMALE = "female_gored")
 	warcries = list(MALE = "male_warcry", FEMALE = "female_warcry")
+	laughs = list(MALE = "male_laugh", FEMALE = "female_laugh")
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
@@ -618,6 +622,7 @@
 	paincries = list(MALE = "male_pain", FEMALE = "female_pain")
 	goredcries = list(MALE = "male_gored", FEMALE = "female_gored")
 	warcries = list(MALE = "male_warcry", FEMALE = "female_warcry")
+	laughs = list(MALE = "male_laugh", FEMALE = "female_laugh")
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 
 /datum/species/early_synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
@@ -752,6 +757,7 @@
 	goredcries = list("neuter" = 'sound/voice/moth_scream.ogg')
 	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
 	warcries = list("neuter" = 'sound/voice/moth_scream.ogg')
+	laughs = list("neuter" = 'sound/voice/silly_laugh.ogg')
 
 	flesh_color = "#E5CD99"
 

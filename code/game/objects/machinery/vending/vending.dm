@@ -798,6 +798,11 @@
 	span_xenowarning("We slam [src] into the ground!"))
 	return PRECRUSH_PLOWED
 
+/obj/machinery/vending/punch_act(...)
+	. = ..()
+	if(tipped_level < 2)
+		tip_over()
+
 #undef CAT_NORMAL
 #undef CAT_HIDDEN
 #undef CAT_COIN
