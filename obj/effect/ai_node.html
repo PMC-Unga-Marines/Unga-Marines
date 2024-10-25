@@ -16,7 +16,7 @@
 <h1>ai_node <aside>/<a href="obj.html">obj</a>/<a href="obj/effect/ai_node.html">effect/ai_node</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L4">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L4">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 4"/></a></h1>
 
 <table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
@@ -41,30 +41,30 @@ Returns an adjacent node that was last visited; when a AI chose to visit a node,
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L20">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L20">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 20"/></a></h3>
         <p>Assoc list of adjacent landmark nodes by dir</p><h3 id="var/id_counter"><aside class="declaration">var </aside>id_counter
             <aside>&ndash; /static</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L16">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L16">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 16"/></a></h3>
         <p>static id counter for all nodes</p><h3 id="var/unique_id"><aside class="declaration">var </aside>unique_id
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L18">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L18">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 18"/></a></h3>
         <p>A unique id for this node</p><h3 id="var/weights"><aside class="declaration">var </aside>weights
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L23">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L23">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 23"/></a></h3>
         <p>List of weights for scoring stuff happening here; ultilizes &quot;identifiers&quot; to differentiate different kinds of AI types looking at the same node.</p><h2 id="proc">Proc Details</h2><h3 id="proc/get_best_adj_node"><aside class="declaration">proc </aside>get_best_adj_node<aside>(/list/weight_modifiers, identifier) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L79">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L79">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 79"/></a></aside>
         </h3>
         <p>A proc that gets the &quot;best&quot; adjacent node in src based on score
@@ -77,37 +77,37 @@ GetBestAdjNode(list(NODE_LAST_VISITED = -1), IDENTIFIER_XENO)
 Returns an adjacent node that was last visited; when a AI chose to visit a node, it will set NODE_LAST_VISITED to world.time</p><h3 id="proc/increment_weight"><aside class="declaration">proc </aside>increment_weight<aside>(identifier, name, amount) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L52">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L52">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 52"/></a></aside>
         </h3>
         <p>Adds to the specific weight of a specific identifier of this node</p><h3 id="proc/is_in_line_of_sight"><aside class="declaration">proc </aside>is_in_line_of_sight<aside>(/<a href="turf.html">turf</a>/target_loc) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L115">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L115">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 115"/></a></aside>
         </h3>
         <p>Returns true if the turf in argument is in line of sight</p><h3 id="proc/make_adjacents"><aside class="declaration">proc </aside>make_adjacents<aside>(bypass_diagonal_check) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L102">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L102">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 102"/></a></aside>
         </h3>
         <p>Clears the adjacencies of src and repopulates it, it will consider nodes &quot;adjacent&quot; to src should it be less 15 turfs away</p><h3 id="proc/serialize"><aside class="declaration">proc </aside>serialize<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L40">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L40">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 40"/></a></aside>
         </h3>
         <p>Serialize nodes information</p><h3 id="proc/set_weight"><aside class="declaration">proc </aside>set_weight<aside>(identifier, name, amount) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/8bc3a7b38d40a163f19ebf344c4e947fb840404f/code/modules/ai/ai_node.dm#L56">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/e697f966c498e35166d184be54dfb27c4f3548e8/code/modules/ai/ai_node.dm#L56">
         <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;ai_node.dm 56"/></a></aside>
         </h3>
         <p>Sets the specific weight of a specific identifier of this node</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/8bc3a7b38d40a163f19ebf344c4e947fb840404f">8bc3a7b</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/e697f966c498e35166d184be54dfb27c4f3548e8">e697f96</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
