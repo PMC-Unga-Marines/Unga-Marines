@@ -492,7 +492,7 @@
 /area/yautja)
 "by" = (
 /obj/effect/decal/remains/human,
-/obj/alien/egg/hugger/forsaken,
+/obj/alien/egg/hugger/yautja,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bz" = (
@@ -1784,7 +1784,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "ua" = (
-/obj/alien/egg/hugger/forsaken,
+/obj/alien/egg/hugger/yautja,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "uO" = (
