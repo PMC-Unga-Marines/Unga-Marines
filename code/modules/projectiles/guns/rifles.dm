@@ -1164,6 +1164,8 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/attachable/suppressor/unremovable/invisible,
+		/obj/item/attachable/scope/unremovable,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -1989,6 +1991,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 		/obj/item/weapon/gun/rifle/tx54/mini,
+		/obj/item/attachable/scope/optical,
 	)
 
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
