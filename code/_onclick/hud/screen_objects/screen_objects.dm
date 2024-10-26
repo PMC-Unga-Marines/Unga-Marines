@@ -100,7 +100,7 @@
 	var/hand_tag = ""
 
 /atom/movable/screen/inventory/hand/left
-	name = "left hand"
+	name = "l_hand"
 	icon_state = "hand_l"
 	screen_loc = ui_lhand
 	hand_tag = "l"
@@ -118,7 +118,7 @@
 		C.activate_hand(hand_tag)
 
 /atom/movable/screen/inventory/hand/right
-	name = "right hand"
+	name = "r_hand"
 	icon_state = "hand_r"
 	screen_loc = ui_rhand
 	hand_tag = "r"
