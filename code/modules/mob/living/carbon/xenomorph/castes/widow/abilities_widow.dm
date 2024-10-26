@@ -67,7 +67,7 @@
 	density = FALSE
 	obj_flags = CAN_BE_HIT | PROJ_IGNORE_DENSITY
 	/// How long the leash ball lasts untill it dies
-	var/leash_life = 5 SECONDS
+	var/leash_life = 10 SECONDS
 	/// Radius for how far the leash should affect humans and how far away they may walk
 	var/leash_radius = 3
 	/// List of beams to be removed on obj_destruction
