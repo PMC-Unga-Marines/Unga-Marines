@@ -26,10 +26,10 @@
 
 		if(!M.restrained() && !M.stat)
 			switch(over_object.name)
-				if("right hand")
+				if("r_hand")
 					M.dropItemToGround(src)
 					M.put_in_r_hand(src)
-				if("left hand")
+				if("l_hand")
 					M.dropItemToGround(src)
 					M.put_in_l_hand(src)
 
