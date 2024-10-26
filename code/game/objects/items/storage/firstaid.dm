@@ -275,6 +275,7 @@
 		return
 	for(var/i in 1 to max_storage_space)
 		new pill_type_to_fill(src)
+	update_icon(UPDATE_OVERLAYS)
 
 /obj/item/storage/pill_bottle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/hypospray))
