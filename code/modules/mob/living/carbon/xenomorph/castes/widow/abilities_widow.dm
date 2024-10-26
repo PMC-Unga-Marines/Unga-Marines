@@ -301,7 +301,7 @@
 		if(!owner.Adjacent(remaining_spiderling))
 			continue
 		remaining_list -= remaining_spiderling
-		owner.buckle_mob(remaining_spiderling, TRUE, TRUE, 90, 1,0)
+		owner.buckle_mob(remaining_spiderling, TRUE, TRUE, 90, FALSE, FALSE)
 		ADD_TRAIT(remaining_spiderling, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
 	addtimer(CALLBACK(src, PROC_REF(grab_spiderlings), remaining_list, number_of_attempts_left - 1), 1)
 
