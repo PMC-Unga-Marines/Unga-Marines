@@ -143,6 +143,9 @@
 	. = ..()
 	update_icon() //when available pass UPDATE_OVERLAYS since this is just for layering order
 
+/obj/vehicle/sealed/mecha/greyscale/throw_bounce(atom/hit_atom, turf/old_throw_source)
+	return //no bounce for us
+
 /obj/vehicle/sealed/mecha/greyscale/recon
 	name = "Recon Mecha"
 	limbs = list(
