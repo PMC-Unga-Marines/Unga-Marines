@@ -424,7 +424,7 @@
 
 /obj/item/explosive/grenade/sticky/cloaker/tangle
 	name = "\improper M45-T Tanglefoot grenade"
-	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. This one creates cloaking smoke! It is set to detonate in 5 seconds."
+	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. This one creates tanglefoot smoke! It is set to detonate in 5 seconds."
 	icon_state = "grenade_sticky_pgas"
 	item_state = "grenade_sticky_pgas"
 	det_time = 5 SECONDS
