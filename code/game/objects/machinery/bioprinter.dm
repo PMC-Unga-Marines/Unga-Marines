@@ -9,6 +9,9 @@
 
 	icon_state = "bioprinter"
 
+	light_range = 0.5
+	light_power = 0.4
+
 	var/working = 0
 	var/stored_matter = 0
 	var/stored_metal = 0
@@ -84,11 +87,13 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "bioprinter_off"
+		set_light(0, 0)
 		return
 	if(working)
 		icon_state = "bioprinter_busy"
 	else
 		icon_state = "bioprinter"
+	set_light(initial(light_range), initial(light_power))
 
 /obj/machinery/bioprinter/update_overlays()
 	. = ..()
