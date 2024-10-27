@@ -21,7 +21,7 @@
 	plasma_gain = 30
 
 	// *** Health *** //
-	max_health = 630
+	max_health = 500
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
