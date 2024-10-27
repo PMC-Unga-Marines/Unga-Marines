@@ -978,3 +978,7 @@ directive is properly returned.
 ///By default, if this happens then movement stops. But not necessarily.
 /atom/proc/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	return PRECRUSH_STOPPED
+
+/// Handles anything that should happen when the Warrior's punch hits any atom.
+/atom/proc/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, push = TRUE)
+	return TRUE
