@@ -111,7 +111,7 @@
 	desc = "Standard issue TGMC Regulation Prescription Glasses. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medglasses"
 	item_state = "medglasses"
-	deactive_state = "deactivated__medglasses"
+	deactive_state = "deactivated_medglasses"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
 		"Combat Robot" = 'icons/mob/species/robot/glasses.dmi',
