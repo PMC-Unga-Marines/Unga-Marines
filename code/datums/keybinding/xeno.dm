@@ -1114,7 +1114,7 @@
 
 /datum/keybinding/xeno/burrow
 	name = "burrow"
-	full_name = "Widow: Burrow"
+	full_name = "Burrow"
 	description = "Dig to the ground, making you invisible."
 	keybind_signal = COMSIG_XENOABILITY_BURROW
 	hotkey_keys = list("C")
