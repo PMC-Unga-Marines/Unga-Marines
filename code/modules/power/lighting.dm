@@ -480,6 +480,10 @@
 	cell_explosion(loc, 70, 30)
 	qdel(src)
 
+/obj/machinery/light/punch_act(mob/living/carbon/xenomorph/xeno, ...)
+	. = ..()
+	attack_alien(xeno)
+
 /obj/machinery/light/mainship
 	base_state = "tube"
 

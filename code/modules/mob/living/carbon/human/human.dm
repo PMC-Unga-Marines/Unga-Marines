@@ -10,7 +10,8 @@
 
 	GLOB.human_mob_list += src
 	GLOB.alive_human_list += src
-	LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
+	if(z)
+		LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
 
 	var/datum/action/skill/toggle_orders/toggle_orders_action = new
 	toggle_orders_action.give_action(src)
@@ -126,7 +127,7 @@
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
-	if(severity >= EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB))
+	if(severity >= EXPLOSION_THRESHOLD_GIB + (get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
@@ -782,14 +783,10 @@
 				return
 			to_chat(src, span_notice("Your source of light shorts out."))
 
-
-
 /mob/living/carbon/human/proc/randomize_appearance()
 	gender = pick(MALE, FEMALE)
 	name = species.random_name(gender)
 	real_name = name
-	voice = random_tts_voice()
-
 	if(!(species.species_flags & HAS_NO_HAIR))
 		switch(pick(15;"black", 15;"grey", 15;"brown", 15;"lightbrown", 10;"white", 15;"blonde", 15;"red"))
 			if("black")

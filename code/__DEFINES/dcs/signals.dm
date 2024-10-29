@@ -276,7 +276,7 @@
 #define COMSIG_MOVABLE_POST_THROW "movable_post_throw"			//called on tail of atom/movable/throw_at()
 #define COMSIG_MOVABLE_DISPOSING "movable_disposing"			//called when the movable is added to a disposal holder object for disposal movement: (obj/structure/disposalholder/holder, obj/machinery/disposal/source)
 #define COMSIG_MOVABLE_HEAR "movable_hear"						//from base of atom/movable/Hear(): (message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
-#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit" 			//from base of atom/movable/onTransitZ(): (old_z, new_z)
+#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit" 			//from base of atom/movable/on_changed_z_level(): (old_z, new_z)
 #define COMSIG_MOVABLE_PREBUMP_TURF "movable_prebump_turf"
 #define COMSIG_MOVABLE_PREBUMP_MOVABLE "movable_prebump_movable"
 	#define COMPONENT_MOVABLE_PREBUMP_STOPPED (1<<0)
@@ -305,6 +305,8 @@
 #define COMSIG_OBJ_HIDE "obj_hide"
 #define COMSIG_OBJ_ATTACK_ALIEN "obj_attack_alien"				//from obj/attack_alien(): (/mob/living/carbon/xenomorph)
 	#define COMPONENT_NO_ATTACK_ALIEN (1<<0)
+/// from /obj/obj_reskin: (mob/user, skin)
+#define COMSIG_OBJ_RESKIN "obj_reskin"
 
 #define COMSIG_MACHINERY_POWERED "machinery_powered"			/// from /obj/machinery/proc/powered: ()
 	#define COMPONENT_POWERED (1<<0)
@@ -514,10 +516,6 @@
 
 /// From mob/living/treat_message(): (list/message_args)
 #define COMSIG_LIVING_TREAT_MESSAGE "living_treat_message"
-	/// The index of message_args that corresponds to the actual message
-	#define TREAT_MESSAGE_ARG 1
-	#define TREAT_TTS_MESSAGE_ARG 2
-	#define TREAT_TTS_FILTER_ARG 3
 
 //ALL OF THESE DO NOT TAKE INTO ACCOUNT WHETHER AMOUNT IS 0 OR LOWER AND ARE SENT REGARDLESS!
 #define COMSIG_LIVING_STATUS_STUN "living_stun"					//from base of mob/living/Stun() (amount, update, ignore)
@@ -825,7 +823,6 @@
 #define COMSIG_XENOABILITY_QUEEN_GIVE_PLASMA "xenoability_queen_give_plasma"
 #define COMSIG_XENOABILITY_QUEEN_HIVE_MESSAGE "xenoability_queen_hive_message"
 #define COMSIG_XENOABILITY_DEEVOLVE "xenoability_deevolve"
-#define COMSIG_XENOABILITY_QUEEN_BULWARK "xenoability_queen_bulwark"
 
 #define COMSIG_XENOABILITY_LAY_HIVEMIND "xenoability_lay_hivemind"
 #define COMSIG_XENOABILITY_LAY_EGG "xenoability_lay_egg"
@@ -842,6 +839,7 @@
 #define COMSIG_XENOABILITY_SECOND_WIND "xenoability_second_wind"
 #define COMSIG_XENOABILITY_ENDURE "xenoability_endure"
 #define COMSIG_XENOABILITY_RAGE "xenoability_rage"
+#define COMSIG_XENOABILITY_IMMORTALITY "xenoability_immortality"
 #define COMSIG_XENOABILITY_VAMPIRISM "xenoability_vampirism"
 
 #define COMSIG_XENOABILITY_RUNNER_POUNCE "xenoability_runner_pounce"

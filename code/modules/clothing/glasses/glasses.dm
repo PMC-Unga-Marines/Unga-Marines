@@ -441,21 +441,21 @@
 		qdel(our_item)
 		qdel(src)
 		user.put_in_hands(our_glasses)
-		update_icon(user)
+		update_icon()
 	else if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
 		var/obj/item/clothing/glasses/night/imager_goggles/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical imager scaner to the inside of the glasses."))
 		qdel(our_item)
 		qdel(src)
 		user.put_in_hands(our_glasses)
-		update_icon(user)
+		update_icon()
 	else if(istype(our_item, /obj/item/clothing/glasses/meson))
 		var/obj/item/clothing/glasses/meson/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical meson scaner to the inside of the glasses."))
 		qdel(our_item)
 		qdel(src)
 		user.put_in_hands(our_glasses)
-		update_icon(user)
+		update_icon()
 
 /obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"

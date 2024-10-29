@@ -974,7 +974,7 @@ RU TGMC EDIT */
 			pixel_y += 6
 
 /atom/movable/vis_obj/wrath_block
-	icon = 'icons/Xeno/castes/behemoth.dmi'
+	icon = 'icons/Xeno/castes/behemoth/effects.dmi'
 	icon_state = "Behemoth Flashing"
 
 /datum/action/ability/xeno_action/primal_wrath

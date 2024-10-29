@@ -13,7 +13,6 @@
 	colour = "green"
 	icon_state = "green_camo"
 
-
 /obj/item/facepaint/brown
 	name = "brown customization kit"
 	colour = "brown"
@@ -30,6 +29,12 @@
 	colour = "full"
 	icon_state = "full_camo"
 
+/obj/item/facepaint/premium
+	name = "Premium customization kit"
+	desc = "A kit designed for customizing weapon. Comes with rainbow paint!"
+	colour = "rainbow"
+	icon_state = "rainbow_camo"
+	uses = 1
 
 /obj/item/facepaint/attack(mob/M as mob, mob/user as mob)
 	if(!ismob(M)) return

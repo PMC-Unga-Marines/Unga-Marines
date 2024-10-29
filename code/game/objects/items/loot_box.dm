@@ -512,12 +512,12 @@
 	new /obj/item/ammo_magazine/rifle/tx54(src)
 	new /obj/item/ammo_magazine/rifle/tx54(src)
 	new /obj/item/ammo_magazine/rifle/tx54(src)
-	new /obj/item/ammo_magazine/rifle/tx54/he(src)
-	new /obj/item/ammo_magazine/rifle/tx54/he(src)
-	new /obj/item/ammo_magazine/rifle/tx54/he(src)
-	new /obj/item/ammo_magazine/rifle/tx54/he(src)
-	new /obj/item/ammo_magazine/rifle/tx54/he(src)
-	new /obj/item/ammo_magazine/rifle/tx54/he(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
 
 // Uncommon
 
