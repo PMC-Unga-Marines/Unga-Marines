@@ -10,6 +10,21 @@
 
 	updatehealth()
 
+	if(client)
+		var/turf/T = get_turf(src)
+		if(!T)
+			return
+		if(registered_z != T.z)
+#ifdef TESTING
+			message_admins("[ADMIN_LOOKUPFLW(src)] has somehow ended up in Z-level [T.z] despite being registered in Z-level [registered_z]. If you could ask them how that happened and notify coderbus, it would be appreciated.")
+#endif
+			log_game("Z-TRACKING: [src] has somehow ended up in Z-level [T.z] despite being registered in Z-level [registered_z].")
+			update_z(T.z)
+		return
+	if(registered_z)
+		log_game("Z-TRACKING: [src] of type [src.type] has a Z-registration despite not having a client.")
+		update_z(null)
+
 
 //this updates all special effects: knockdown, druggy, etc.., DELETE ME!!
 /mob/living/proc/handle_status_effects()
@@ -200,6 +215,7 @@
 		if(client)
 			reset_perspective()
 
+///Updates the mob's registered_z
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
 	if(registered_z == new_z)
 		return
@@ -761,9 +777,10 @@ below 100 is not dizzy
 /mob/living/can_interact_with(datum/D)
 	return D == src || D.Adjacent(src)
 
-/mob/living/onTransitZ(old_z, new_z)
-	. = ..()
+/mob/living/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
 	set_jump_component()
+	. = ..()
+	update_z(new_turf?.z)
 
 /**
  * Changes the inclination angle of a mob, used by humans and others to differentiate between standing up and prone positions.
