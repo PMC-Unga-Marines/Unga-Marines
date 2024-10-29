@@ -1119,13 +1119,6 @@
 	keybind_signal = COMSIG_XENOABILITY_BURROW
 	hotkey_keys = list("C")
 
-/datum/keybinding/xeno/weave
-	name = "Weave"
-	full_name = "Widow: Weave"
-	description = "Cover a small space in front of you with a spider web. Your web will give different bonuses as long as you stand on it."
-	keybind_signal = COMSIG_XENOABILITY_WEAVE
-	hotkey_keys = list("Q")
-
 /datum/keybinding/xeno/leash_ball
 	name = "Leash Ball"
 	full_name = "Widow: Leash Ball"

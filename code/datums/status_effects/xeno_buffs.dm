@@ -1386,35 +1386,3 @@
 				O.acid_spray_act(buff_owner)
 		else
 			new selected_trail(T)
-
-// ***************************************
-// *********** Widow's domain
-// ***************************************
-/datum/status_effect/widows_domain
-	id = "widow's domain"
-	duration = -1
-	tick_interval = 2 SECONDS
-	status_type = STATUS_EFFECT_REFRESH
-	alert_type = null
-	/// The owner of this buff.
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/heal_amount = 20
-
-/datum/status_effect/widows_domain/on_apply()
-	buff_owner = owner
-	if(!isxeno(buff_owner))
-		return FALSE
-	buff_owner.add_movespeed_modifier(MOVESPEED_ID_WIDOW_WEB_BUFF,  TRUE, 0, NONE, TRUE, -0.2)
-	return TRUE
-
-/datum/status_effect/widows_domain/on_remove()
-	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_WIDOW_WEB_BUFF)
-	buff_owner.xeno_caste.max_health = initial(buff_owner.xeno_caste.max_health)
-	return ..()
-
-/datum/status_effect/widows_domain/tick()
-	new /obj/effect/temp_visual/healing(get_turf(buff_owner))
-	buff_owner.adjustFireLoss(-max(0, heal_amount - buff_owner.getBruteLoss()), passive = TRUE)
-	buff_owner.adjustBruteLoss(-heal_amount, passive = TRUE)
-	buff_owner.gain_plasma(heal_amount)
-	return ..()

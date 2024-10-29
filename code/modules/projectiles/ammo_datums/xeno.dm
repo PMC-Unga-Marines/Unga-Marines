@@ -605,66 +605,6 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 //================================================
 */
 
-/datum/ammo/xeno/web
-	name = "web globe"
-	icon_state = "web_spit"
-	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_PASS_THROUGH_MOB|AMMO_TARGET_TURF|AMMO_XENO
-	damage = 0
-	max_range = 3
-	bullet_color = COLOR_WHITE
-	bonus_projectiles_type = /datum/ammo/xeno/mini_web
-	bonus_projectiles_scatter = 22
-	var/bonus_projectile_quantity = 16
-	var/bonus_projectile_range = 3
-	var/bonus_projectile_speed = 1
-
-/datum/ammo/xeno/mini_web
-	flags_ammo_behavior = AMMO_LEAVE_TURF|AMMO_PASS_THROUGH_MOB|AMMO_TARGET_TURF|AMMO_XENO
-	damage = 0
-	max_range = 3
-	bullet_color = COLOR_WHITE
-	icon_state = "web_spit"
-
-/datum/ammo/xeno/mini_web/on_leave_turf(turf/T, obj/projectile/P)
-	drop_web(T)
-
-/datum/ammo/xeno/mini_web/do_at_max_range(turf/T, obj/projectile/P)
-	var/turf/initial_turf = T.density ? P.loc : T
-	drop_web(initial_turf)
-
-/datum/ammo/xeno/web/on_leave_turf(turf/T, obj/projectile/P)
-	drop_web(T)
-
-/datum/ammo/xeno/web/on_hit_obj(obj/O, obj/projectile/P)
-	var/turf/initial_turf = O.density ? P.loc : get_turf(O)
-	drop_web(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
-
-/datum/ammo/xeno/web/on_hit_turf(turf/T, obj/projectile/P)
-	var/turf/initial_turf = T.density ? P.loc : T
-	drop_web(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
-
-/datum/ammo/xeno/web/on_hit_mob(mob/M, obj/projectile/P)
-	var/turf/initial_turf = get_turf(M)
-	drop_web(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
-
-/datum/ammo/xeno/web/do_at_max_range(turf/T, obj/projectile/P)
-	var/turf/initial_turf = T.density ? P.loc : T
-	drop_web(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
-
-/datum/ammo/xeno/proc/drop_web(turf/T)
-	if(T.density || isspaceturf(T)) // No structures in space
-		return
-
-	for(var/obj/O in T.contents)
-		if(is_type_in_typecache(O, GLOB.no_sticky_resin))
-			return
-
-	new /obj/alien/resin/sticky/thin/web(T)
-
 /datum/ammo/xeno/leash_ball
 	icon_state = "widow_snareball"
 	ping = "ping_x"
@@ -707,8 +647,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	flags_ammo_behavior = AMMO_SKIPS_ALIENS
 	ping = null
 	armor_type = BIO
-	accurate_range = 15
-	max_range = 15
+	accurate_range = 8
+	max_range = 8
 	///How long the victim will be KO'd
 	var/hit_weaken = 2 SECONDS
 

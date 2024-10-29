@@ -80,35 +80,3 @@
 
 	ignore_weed_destruction = FALSE
 	refundable = FALSE
-
-/obj/alien/resin/sticky/thin/web
-	name = "sticky web"
-	desc = "A thin layer of web."
-	max_integrity = 2
-	slow_amt = 0
-
-	ignore_weed_destruction = TRUE
-	refundable = FALSE
-
-/obj/alien/resin/sticky/thin/web/Initialize(mapload)
-	. = ..()
-	icon_state = pick("stickyweb1", "stickyweb2")
-	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = PROC_REF(enter_web),
-		COMSIG_ATOM_EXITED = PROC_REF(exit_web),
-	)
-	AddElement(/datum/element/connect_loc, connections)
-
-/obj/alien/resin/sticky/thin/web/proc/enter_web(datum/source, atom/movable/O, oldloc, oldlocs)
-	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/X = O
-	if(isxenowidow(X) || isxenospiderling(X))
-		ENABLE_BITFIELD(X.pass_flags, (PASS_LOW_STRUCTURE|PASS_MOB))
-		X.apply_status_effect(STATUS_EFFECT_WIDOWS_DOMAIN)
-
-/obj/alien/resin/sticky/thin/web/proc/exit_web(datum/source, atom/movable/O, oldloc, oldlocs)
-	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/X = O
-	if(isxenowidow(X) || isxenospiderling(X))
-		DISABLE_BITFIELD(X.pass_flags, (PASS_LOW_STRUCTURE|PASS_MOB))
-		X.remove_status_effect(STATUS_EFFECT_WIDOWS_DOMAIN)

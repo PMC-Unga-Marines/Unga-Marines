@@ -1,28 +1,3 @@
-// ***************************************
-// *********** Web Spit
-// ***************************************
-
-/datum/action/ability/activable/xeno/weave
-	name = "Weave"
-	desc = "Cover a small space in front of you with a spider web. Your web will give different bonuses as long as you stand on it."
-	action_icon_state = "weave"
-	action_icon = 'icons/Xeno/actions.dmi'
-	ability_cost = 100
-	cooldown_duration = 1 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEAVE,
-	)
-
-/datum/action/ability/activable/xeno/weave/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/X = owner
-	var/datum/ammo/xeno/web/web_spit = GLOB.ammo_list[/datum/ammo/xeno/web]
-	var/obj/projectile/newspit = new /obj/projectile(get_turf(X))
-
-	newspit.generate_bullet(web_spit)
-
-	newspit.fire_at(target, X, X, newspit.ammo.max_range)
-	succeed_activate()
-	add_cooldown()
 
 // ***************************************
 // *********** Leash Ball
@@ -134,11 +109,12 @@
 	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time."
 	action_icon_state = "spawn_spiderling"
 	ability_cost = 80
-	cooldown_duration = 10 SECONDS
-	use_state_flags = ABILITY_USE_LYING
+	cooldown_duration = 15 SECONDS
+	use_state_flags = ABILITY_USE_LYING|ABILITY_IGNORE_COOLDOWN
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_SPIDERLING,
 	)
+	var/current_charges = 5
 
 	/// List of all our spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/spiderlings = list()
@@ -149,21 +125,55 @@
 	var/max_spiderlings = X?.xeno_caste.max_spiderlings ? X.xeno_caste.max_spiderlings : 5
 	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy [max_spiderlings] spiderlings at one time."
 
+	var/mutable_appearance/counter_maptext = mutable_appearance(icon = null, icon_state = null, layer = ACTION_LAYER_MAPTEXT)
+	counter_maptext.pixel_x = 16
+	counter_maptext.pixel_y = -4
+	counter_maptext.maptext = MAPTEXT("[current_charges]/[initial(current_charges)]")
+	visual_references[VREF_MUTABLE_SPIDERLING_CHARGES] = counter_maptext
+
+/datum/action/ability/xeno_action/create_spiderling/remove_action(mob/living/carbon/xenomorph/X)
+	. = ..()
+	button.cut_overlay(visual_references[VREF_MUTABLE_SPIDERLING_CHARGES])
+	visual_references[VREF_MUTABLE_SPIDERLING_CHARGES] = null
+
+/datum/action/ability/xeno_action/create_spiderling/update_button_icon()
+	button.cut_overlay(visual_references[VREF_MUTABLE_SPIDERLING_CHARGES])
+	var/mutable_appearance/number = visual_references[VREF_MUTABLE_SPIDERLING_CHARGES]
+	number?.maptext = MAPTEXT("[current_charges]/[initial(current_charges)]")
+	visual_references[VREF_MUTABLE_SPIDERLING_CHARGES] = number
+	button.add_overlay(visual_references[VREF_MUTABLE_SPIDERLING_CHARGES])
+	return ..()
+
+/datum/action/ability/xeno_action/create_spiderling/on_cooldown_finish()
+	current_charges = clamp(current_charges+1, 0, initial(current_charges))
+	owner.balloon_alert(owner, "[initial(name)] ready[current_charges > 1 ? " ([current_charges]/[initial(current_charges)])" : ""]")
+	update_button_icon()
+	if(current_charges < initial(current_charges))
+		cooldown_timer = addtimer(CALLBACK(src, PROC_REF(on_cooldown_finish)), cooldown_duration, TIMER_STOPPABLE)
+		return
+	return ..()
+
 /datum/action/ability/xeno_action/create_spiderling/can_use_action(silent = FALSE, override_flags)
 	. = ..()
-	if(!.)
-		return FALSE
-	var/mob/living/carbon/xenomorph/X = owner
-	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
-		if(!silent)
-			X.balloon_alert(X, "Max Spiderlings")
-		return FALSE
+	if(cooldown_timer && current_charges)
+		return TRUE
 
 /// The action to create spiderlings
 /datum/action/ability/xeno_action/create_spiderling/action_activate()
 	. = ..()
+
+	if(owner.do_actions)
+		return fail_activate()
+
+	var/mob/living/carbon/xenomorph/X = owner
+	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
+		X.balloon_alert(X, "Max Spiderlings")
+		return fail_activate()
+
 	if(!do_after(owner, 0.5 SECONDS, IGNORE_LOC_CHANGE, owner, BUSY_ICON_DANGER))
 		return fail_activate()
+
+	current_charges--
 	add_spiderling()
 	succeed_activate()
 	add_cooldown()
@@ -395,3 +405,30 @@
 		owner.balloon_alert(owner, "recalling")
 	else
 		owner.balloon_alert(owner, "fail")
+
+/datum/action/ability/xeno_action/spider_venom
+	name = "Widow's Poison"
+	desc = "Poison your target with incapacitating venom"
+	ability_cost = 0
+	cooldown_duration = 0
+	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+
+/datum/action/ability/xeno_action/spider_venom/give_action(mob/living/L)
+	. = ..()
+	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_bite))
+
+/datum/action/ability/xeno_action/spider_venom/remove_action(mob/living/L)
+	. = ..()
+	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
+
+/datum/action/ability/xeno_action/spider_venom/proc/on_bite(datum/source, mob/living/target)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	if(!ishuman(target))
+		return
+
+	target.apply_status_effect(STATUS_EFFECT_SPIDER_VENOM)
+
+/datum/action/ability/xeno_action/spider_venom/should_show()
+	return FALSE

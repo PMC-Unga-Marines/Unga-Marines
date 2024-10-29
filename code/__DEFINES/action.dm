@@ -30,6 +30,8 @@
 #define VREF_MUTABLE_SAVAGE_COOLDOWN "VREF_SAVAGE_COOLDOWN"
 // extra define for jab charges
 #define VREF_MUTABLE_JAB "VREF_JAB"
+// create spiderling charges
+#define VREF_MUTABLE_SPIDERLING_CHARGES "VREF_SPIDERLING_CHARGES"
 
 
 /// Actions that toggle on click/trigger

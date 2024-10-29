@@ -80,5 +80,5 @@
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/attach_spiderlings,
-		/datum/action/ability/activable/xeno/weave,
+		/datum/action/ability/xeno_action/spider_venom,
 	)
