@@ -77,6 +77,7 @@
 	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_UNREST, PROC_REF(stop_resting))
 	RegisterSignal(escorted_atom, COMSIG_ELEMENT_JUMP_STARTED, PROC_REF(do_jump))
 	RegisterSignal(escorted_atom, COMSIG_LIVING_DO_RESIST, PROC_REF(parent_resist))
+	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_RESIN_JELLY_APPLIED, PROC_REF(apply_spiderling_jelly))
 	return ..()
 
 ///cleans up signals and unregisters obstructed move signal
@@ -104,30 +105,23 @@
 ///looks for a new state, handles recalling if too far and some AI shenanigans
 /datum/ai_behavior/spiderling/look_for_new_state()
 	switch(current_action)
-		if(MOVING_TO_NODE, FOLLOWING_PATH)
-			if(get_dist(mob_parent, escorted_atom) > SPIDERLING_WITHER_RANGE && too_far_escort)
-				change_order(null, SPIDERLING_RECALL)
-				return
-			if(!change_order(null, SPIDERLING_SEEK_CLOSEST))
-				change_action(MOVING_TO_NODE)
-				return
-		if(IDLE)
-			if(!change_order(null, SPIDERLING_SEEK_CLOSEST))
-				return
 		if(ESCORTING_ATOM)
 			if(!escorted_atom && master_ref)
 				escorted_atom = master_ref.resolve()
 		if(MOVING_TO_ATOM)
-			if(!atom_to_walk_to) //edge case
-				late_initialize()
+			if(isliving(atom_to_walk_to))
+				var/mob/living/target = atom_to_walk_to
+				if(target.stat == DEAD)
+					change_order(null, SPIDERLING_RECALL)
+			if(QDELETED(atom_to_walk_to))
+				change_order(null, SPIDERLING_RECALL)
 	return ..()
 
 ///override for MOVING_TO_ATOM to register signals for maintaining distance with our target and attacking
 /datum/ai_behavior/spiderling/register_action_signals(action_type)
 	if(action_type == MOVING_TO_ATOM)
 		RegisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE, PROC_REF(attack_target))
-		if(!isobj(atom_to_walk_to))
-			RegisterSignal(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state))
+		RegisterSignals(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state))
 	return ..()
 
 ///override for MOVING_TO_ATOM to unregister signals for maintaining distance with our target and attacking
@@ -148,11 +142,19 @@
 
 ///seeks a living humans in a 9 tile range near our parent, picks one, then changes our action to move towards it and attack.
 /datum/ai_behavior/spiderling/proc/seek_and_attack()
-	var/list/mob/living/carbon/human/possible_victims = list()
+	var/list/possible_victims = list()
 	for(var/mob/living/carbon/human/victim in cheap_get_humans_near(mob_parent, 9))
 		if(victim.stat == DEAD)
 			continue
 		possible_victims += victim
+
+	for(var/atom/nearby_turret AS in GLOB.marine_turrets)
+		if(mob_parent.z != nearby_turret.z)
+			continue
+		if(!(get_dist(mob_parent, nearby_turret) < 9))
+			continue
+		possible_victims += nearby_turret
+
 	if(!length(possible_victims))
 		return FALSE
 
