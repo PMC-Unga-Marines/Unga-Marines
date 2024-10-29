@@ -379,7 +379,7 @@
 	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Send out your spiderlings to attack nearby humans"
 	keybinding_signals = list(
-	KEYBINDING_NORMAL = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS,
 	)
 
 /datum/action/ability/xeno_action/widow_unleash/action_activate(mob/living/victim)
@@ -397,7 +397,7 @@
 	action_icon_state = "recall"
 	desc = "Recall your siderlings to follow you once more"
 	keybinding_signals = list(
-	KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECALL_SPIDERLINGS,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECALL_SPIDERLINGS,
 	)
 
 /datum/action/ability/xeno_action/widow_recall/action_activate(mob/living/victim)
