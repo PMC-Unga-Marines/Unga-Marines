@@ -56,6 +56,7 @@
 /obj/machinery/door/airlock/centcom
 	name = "\improper Airlock"
 	icon = 'icons/obj/doors/mainship/securedoor.dmi'
+	openspeed = 4 //shorter open animation.
 
 /obj/machinery/door/airlock/vault
 	name = "\improper Vault"
@@ -70,6 +71,7 @@
 /obj/machinery/door/airlock/hatch
 	name = "\improper Airtight Hatch"
 	icon = 'icons/obj/doors/mainship/securedoor.dmi'
+	openspeed = 4 //shorter open animation.
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 
 /obj/machinery/door/airlock/hatch/engineering
