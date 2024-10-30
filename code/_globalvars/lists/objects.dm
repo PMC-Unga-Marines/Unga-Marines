@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(tower_relay_locs)
 GLOBAL_LIST_EMPTY(xenoden_docking_ports_locs)
 GLOBAL_LIST_EMPTY(xenoden_cores_locs)
 
-GLOBAL_VAR(waves_spawner_loc)
+GLOBAL_LIST_EMPTY(waves_spawner_locs)
 
 GLOBAL_LIST_EMPTY(last_stand_nukes)
 
