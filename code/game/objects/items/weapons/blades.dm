@@ -32,7 +32,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	///Special attack action granted to users with the right trait
-	var/datum/action/ability/activable/weapon_skill/sword_lunge/special_attack
+	var/datum/action/ability/activable/weapon_skill/sword_lunge/special_attack = /datum/action/ability/activable/weapon_skill/sword_lunge
 
 /obj/item/weapon/claymore/Initialize(mapload)
 	. = ..()
