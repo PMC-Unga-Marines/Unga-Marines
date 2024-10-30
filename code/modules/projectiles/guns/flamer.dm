@@ -59,9 +59,9 @@
 	///Max range of the flamer in tiles.
 	var/flame_max_range = 6
 	///Max resin wall penetration in tiles.
-	var/flame_max_wall_pen = 2
+	var/flame_max_wall_pen = 3
 	///After how many total resin walls the flame wont proceed further
-	var/flame_max_wall_pen_wide = 9
+	var/flame_max_wall_pen_wide = 7
 	///Travel speed of the flames in seconds.
 	var/flame_spread_time = 0.1 SECONDS
 	///Gun based modifier for burn level. Percentage based.
