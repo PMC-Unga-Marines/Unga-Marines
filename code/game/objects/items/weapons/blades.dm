@@ -50,7 +50,7 @@
 
 /obj/item/weapon/claymore/dropped(mob/user)
 	. = ..()
-	special_attack.remove_action(user)
+	special_attack?.remove_action(user)
 
 //Special attack
 /datum/action/ability/activable/weapon_skill/sword_lunge
