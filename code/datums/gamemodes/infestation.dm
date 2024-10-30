@@ -310,8 +310,8 @@
 
 	priority_announce(
 		title = "Оповещение Высшего Командования",
-		subtitle = "Доброе утро, морпехи.",
-		message = "Криосон отключен высшим командованием TGMC.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		subtitle = "Доброе утро, товарищи!",
+		message = "Криосон отключен генштабом.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
 		color_override = "red"
 	)
 
@@ -330,7 +330,7 @@
 
 /datum/game_mode/infestation/proc/on_nuclear_diffuse(obj/machinery/nuclearbomb/bomb, mob/living/carbon/xenomorph/X)
 	SIGNAL_HANDLER
-	priority_announce("ВНИМАНИЕ. ВНИМАНИЕ. Планетарная ядерная бомба деактивирована. ВНИМАНИЕ. ВНИМАНИЕ. Самоуничтожение не удалось. ВНИМАНИЕ. ВНИМАНИЕ.", "Планетарная Боеголовка Отключена", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("ВНИМАНИЕ. ВНИМАНИЕ. Планетарная ядерная бомба деактивирована. ВНИМАНИЕ. ВНИМАНИЕ. Самоуничтожение не удалось. ВНИМАНИЕ. ВНИМАНИЕ.", type = ANNOUNCEMENT_PRIORITY)
 
 /datum/game_mode/infestation/proc/on_nuclear_explosion(datum/source, z_level)
 	SIGNAL_HANDLER

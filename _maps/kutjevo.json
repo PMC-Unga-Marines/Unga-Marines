@@ -6,5 +6,5 @@
 		"basic": 1
 	},
 	"quickbuilds": 1800,
-	"announce_text": "An automated distress signal has been received from Nanotrasen colony Kutjevo Refinery, known for botanical research, export, and raw materials processing and refinement. The ###SHIPNAME### has been dispatched to investigate."
+	"announce_text": "С нефтеперерабатывающего завода колонии НаноТрейзен в Кутьево, известного своими ботаническими исследованиями, экспортом и переработкой сырья, был получен автоматический сигнал бедствия. Для расследования было отправлено наше судно."
 }

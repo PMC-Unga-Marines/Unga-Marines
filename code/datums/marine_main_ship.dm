@@ -98,10 +98,10 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
 					if(announce)
-						priority_announce("Существует непосредственная угроза судну. Боевому персоналу требуется организовать защиту экипажа.", title = "Код Красный", sound = 'sound/AI/code_red_elevated.ogg', color_override = "red")
+						priority_announce("Существует непосредственная угроза судну. Боеспособному персоналу надлежит организовать защиту экипажа.", title = "Код Красный", sound = 'sound/AI/code_red_elevated.ogg', color_override = "red")
 				else
 					if(announce)
-						priority_announce("Существует непосредственная угроза судну. Боевому персоналу требуется разобраться с остальными проблемами.", title = "Код Красный", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/code_red_lowered.ogg', color_override = "red")
+						priority_announce("Существует непосредственная угроза судну. Боеспособному персоналу требуется разобраться с остальными проблемами.", title = "Код Красный", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/code_red_lowered.ogg', color_override = "red")
 					/*
 					var/area/A
 					for(var/obj/machinery/power/apc/O in machines)
