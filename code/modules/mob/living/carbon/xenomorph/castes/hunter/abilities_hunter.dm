@@ -632,7 +632,6 @@
 	ability_cost = 0
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
-	hidden = TRUE
 
 /datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
 	. = ..()
@@ -653,6 +652,9 @@
 
 	if(prob(ILUSSION_CHANCE))
 		new /mob/illusion/xeno(target_turf, owner, owner, ILLUSION_LIFETIME)
+
+/datum/action/ability/xeno_action/hunter_army/should_show()
+	return FALSE
 
 // ***************************************
 // *********** Crippling strike
