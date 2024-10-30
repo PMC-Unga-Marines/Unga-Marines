@@ -67,8 +67,7 @@
 	var/mob/living/carbon/carbon_owner = owner
 
 	RegisterSignal(carbon_owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
-	//RegisterSignal(carbon_owner, COMSIG_MOVABLE_IMPACT, PROC_REF(lunge_impact)) // originally it was this signal, but doesn't work currently
-	RegisterSignal(carbon_owner, COMSIG_MOVABLE_BUMP, PROC_REF(lunge_impact))
+	RegisterSignals(carbon_owner, list(COMSIG_MOVABLE_IMPACT, COMSIG_MOVABLE_BUMP), PROC_REF(lunge_impact))
 	RegisterSignal(carbon_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
 
 	carbon_owner.visible_message(span_danger("[carbon_owner] charges towards \the [A]!"))
@@ -85,7 +84,7 @@
 ///Unregisters signals after lunge complete
 /datum/action/ability/activable/weapon_skill/sword_lunge/proc/charge_complete()
 	SIGNAL_HANDLER
-	UnregisterSignal(owner, list(COMSIG_MOVABLE_IMPACT, COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_MOVED))
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_IMPACT, COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_MOVED))
 
 ///Sig handler for atom impacts during lunge
 /datum/action/ability/activable/weapon_skill/sword_lunge/proc/lunge_impact(datum/source, obj/target, speed)
@@ -96,12 +95,12 @@
 ///Actual effects of lunge impact
 /datum/action/ability/activable/weapon_skill/sword_lunge/proc/do_lunge_impact(datum/source, obj/target)
 	var/mob/living/carbon/carbon_owner = source
-	if(!ishuman(target))
+	if(isobj(target))
 		var/obj/obj_victim = target
 		obj_victim.take_damage(damage, BRUTE, MELEE, TRUE, armour_penetration = penetration)
 		if(!obj_victim.anchored)
 			obj_victim.knockback(carbon_owner, 1, 2)
-	else
+	else if(ishuman(target))
 		var/mob/living/carbon/human/human_victim = target
 		human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration)
 		human_victim.adjust_stagger(1 SECONDS)
