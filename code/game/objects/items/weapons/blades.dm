@@ -67,7 +67,8 @@
 	var/mob/living/carbon/carbon_owner = owner
 
 	RegisterSignal(carbon_owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
-	RegisterSignal(carbon_owner, COMSIG_MOVABLE_IMPACT, PROC_REF(lunge_impact))
+	//RegisterSignal(carbon_owner, COMSIG_MOVABLE_IMPACT, PROC_REF(lunge_impact)) // originally it was this signal, but doesn't work currently
+	RegisterSignal(carbon_owner, COMSIG_MOVABLE_BUMP, PROC_REF(lunge_impact))
 	RegisterSignal(carbon_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
 
 	carbon_owner.visible_message(span_danger("[carbon_owner] charges towards \the [A]!"))
