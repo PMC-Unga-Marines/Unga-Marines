@@ -59,30 +59,6 @@
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
 
-/obj/item/attachable/lace/activate(mob/living/user, turn_off)
-	if(lace_deployed)
-		REMOVE_TRAIT(master_gun, TRAIT_NODROP, PISTOL_LACE_TRAIT)
-		to_chat(user, span_notice("You feel the [src] loosen around your wrist!"))
-		playsound(user, 'sound/weapons/fistunclamp.ogg', 25, 1, 7)
-		icon_state = "lace"
-	else if(turn_off)
-		return
-	else
-		if(user.do_actions)
-			return
-		if(!do_after(user, 0.5 SECONDS, NONE, src, BUSY_ICON_BAR))
-			return
-		to_chat(user, span_notice("You deploy the [src]."))
-		ADD_TRAIT(master_gun, TRAIT_NODROP, PISTOL_LACE_TRAIT)
-		to_chat(user, span_warning("You feel the [src] shut around your wrist!"))
-		playsound(user, 'sound/weapons/fistclamp.ogg', 25, 1, 7)
-		icon_state = "lace-on"
-
-	lace_deployed = !lace_deployed
-
-	update_icon()
-	return TRUE
-
 /obj/item/attachable/lace/t500
 	name = "R-500 lace"
 	icon = 'icons/Marine/attachments_64.dmi'

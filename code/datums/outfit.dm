@@ -105,6 +105,7 @@
 	H.update_body()
 	return TRUE
 
+
 /datum/outfit/proc/get_json_data()
 	. = list()
 	.["outfit_type"] = type

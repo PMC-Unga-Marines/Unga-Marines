@@ -124,7 +124,7 @@
 				priority_announce(input, subtitle = "Sent by [usr]", type = ANNOUNCEMENT_COMMAND)
 				message_admins("[ADMIN_TPMONTY(usr)] has just sent a command announcement")
 				log_game("[key_name(usr)] has just sent a command announcement.")
-				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
+				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, ORDER_COOLDOWN)
 				cooldown_message = world.time
 
 		if("award")
