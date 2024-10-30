@@ -216,7 +216,7 @@
 	flags_equip_slot = ITEM_SLOT_BACK
 	attack_speed = 15
 	///Special attack action granted to users with the right trait
-	var/datum/action/ability/activable/weapon_skill/axe_sweep/special_attack = /datum/action/ability/activable/weapon_skill/axe_sweep
+	var/datum/action/ability/activable/weapon_skill/axe_sweep/special_attack
 
 /obj/item/weapon/twohanded/fireaxe/som/Initialize(mapload)
 	. = ..()
