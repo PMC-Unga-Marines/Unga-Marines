@@ -1,0 +1,4 @@
+author: "definitelynotspaghetti"
+delete-after: True
+changes:
+  - bugfix: "Исправил неправильный путь у абилки хантера"
