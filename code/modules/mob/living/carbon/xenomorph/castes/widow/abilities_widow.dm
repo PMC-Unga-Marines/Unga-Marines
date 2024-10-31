@@ -146,7 +146,6 @@
 
 /datum/action/ability/xeno_action/create_spiderling/on_cooldown_finish()
 	current_charges = clamp(current_charges+1, 0, initial(current_charges))
-	owner.balloon_alert(owner, "[initial(name)] ready[current_charges > 1 ? " ([current_charges]/[initial(current_charges)])" : ""]")
 	update_button_icon()
 	if(current_charges < initial(current_charges))
 		cooldown_timer = addtimer(CALLBACK(src, PROC_REF(on_cooldown_finish)), cooldown_duration, TIMER_STOPPABLE)
