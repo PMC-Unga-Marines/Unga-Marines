@@ -20372,13 +20372,6 @@
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
-"mgc" = (
-/obj/item/tool/mop,
-/obj/effect/turf_decal/siding/metal{
-	dir = 8
-	},
-/turf/open/floor/mainship/metal,
-/area/mainship/hallways/bow_hallway)
 "mgh" = (
 /obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
@@ -71014,7 +71007,7 @@ fkO
 taD
 fkO
 fkO
-mgc
+fkO
 uoK
 rBl
 xkT
