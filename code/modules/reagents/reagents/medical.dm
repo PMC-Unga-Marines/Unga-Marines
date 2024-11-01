@@ -1698,9 +1698,8 @@
 	)
 
 /datum/reagent/medicine/mastac/on_mob_add(mob/living/L, metabolism)
-	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.3)
+	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.5)
 	to_chat(L, span_userdanger("You feel like your heart will stop at any second."))
-	trait_flags = TACHYCARDIC
 
 /datum/reagent/medicine/mastac/on_mob_life(mob/living/L, metabolism)
 	. = ..()
@@ -1715,7 +1714,8 @@
 		if(81)
 			to_chat(L, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
 		if(89 to INFINITY)
-			if(prob(0.5))
+			trait_flags = TACHYCARDIC
+			if(prob(0.3))
 				to_chat(L, span_userdanger("OUUH MY HEART"))
 				if(!ishuman(L))
 					return
@@ -1723,7 +1723,7 @@
 				var/mob/living/carbon/human/H = L
 				var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 				if(E)
-					E.take_damage(7, TRUE)
+					E.take_damage(15, TRUE)
 
 /datum/reagent/medicine/mastac/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("It seems that something has stopped pushing your heart with force."))
