@@ -312,7 +312,7 @@
 	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "ags_grenade"
 	item_state = "ags_grenade"
-	det_time = 2 SECONDS
+	det_time = 1 SECONDS
 	power = 80
 	falloff = 20
 	overlay_type = "yellow"
@@ -407,7 +407,7 @@
 	name = "\improper AGLS-37 SCDP smoke grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	icon_state = "ags_cloak"
-	smokeradius = 4
+	smokeradius = 3
 	overlay_type = "green"
 
 /obj/item/explosive/grenade/smokebomb/drain
@@ -426,8 +426,8 @@
 	name = "\improper AGLS-T smoke grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	icon_state = "ags_pgas"
-	det_time = 3 SECONDS
-	smokeradius = 4
+	det_time = 1 SECONDS
+	smokeradius = 2
 	overlay_type = "purple"
 
 /obj/item/explosive/grenade/phosphorus
