@@ -36,7 +36,6 @@
 	new /obj/item/weapon/gun/revolver/standard_magnum(src)
 	new /obj/item/attachable/scope/standard_magnum(src)
 	new /obj/item/attachable/stock/t76(src)
-	new /obj/item/attachable/compensator(src)
 	for(var/i in 1 to 15)
 		new /obj/item/ammo_magazine/revolver/standard_magnum(src)
 
@@ -44,7 +43,6 @@
 	new /obj/item/weapon/gun/revolver/standard_magnum/fancy/gold(src)
 	new /obj/item/attachable/scope/standard_magnum(src)
 	new /obj/item/attachable/stock/t76(src)
-	new /obj/item/attachable/compensator(src)
 	for(var/i in 1 to 15)
 		new /obj/item/ammo_magazine/revolver/standard_magnum(src)
 
@@ -52,7 +50,6 @@
 	new /obj/item/weapon/gun/revolver/standard_magnum/fancy/silver(src)
 	new /obj/item/attachable/scope/standard_magnum(src)
 	new /obj/item/attachable/stock/t76(src)
-	new /obj/item/attachable/compensator(src)
 	for(var/i in 1 to 15)
 		new /obj/item/ammo_magazine/revolver/standard_magnum(src)
 
