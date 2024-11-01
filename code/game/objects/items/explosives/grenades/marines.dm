@@ -428,7 +428,6 @@
 	icon_state = "grenade_sticky_pgas"
 	item_state = "grenade_sticky_pgas"
 	det_time = 5 SECONDS
-	light_impact_range = 1
 	self_sticky = TRUE
 	overlay_type = "purple"
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
