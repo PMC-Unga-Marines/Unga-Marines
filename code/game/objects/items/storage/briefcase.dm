@@ -39,6 +39,7 @@
 
 /obj/item/storage/briefcase/standard_magnum/gold/PopulateContents()
 	new /obj/item/weapon/gun/revolver/standard_magnum/fancy/gold(src)
+	new /obj/item/attachable/scope/standard_magnum(src)
 	for(var/i in 1 to 15)
 		new /obj/item/ammo_magazine/revolver/standard_magnum(src)
 
