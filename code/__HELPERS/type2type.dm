@@ -116,6 +116,24 @@
 		if(SOUTHWEST)
 			return "southwest"
 
+/proc/dir2rutext(direction)
+	switch(direction)
+		if(NORTH)
+			return "север"
+		if(SOUTH)
+			return "юг"
+		if(EAST)
+			return "восток"
+		if(WEST)
+			return "запад"
+		if(NORTHEAST)
+			return "северо-восток"
+		if(SOUTHEAST)
+			return "юго-восток"
+		if(NORTHWEST)
+			return "северо-запад"
+		if(SOUTHWEST)
+			return "юго-запад"
 
 //Turns a direction into text
 /proc/dir2text_short(direction)
