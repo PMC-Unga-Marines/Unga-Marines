@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Исправил рантайм связанный с счётчиком быстрой загрузки у ксеносов."
