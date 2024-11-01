@@ -1687,8 +1687,8 @@
 	custom_metabolism = REAGENTS_METABOLISM * 0
 	scannable = TRUE
 	taste_description = "sour coffee"
-	overdose_threshold = 6
-	overdose_crit_threshold = 7
+	overdose_threshold = 10
+	overdose_crit_threshold = 10
 	purge_rate = 10
 	purge_list = list(
 		/datum/reagent/medicalnanites,
@@ -1709,7 +1709,7 @@
 	switch(current_cycle)
 		if(1 to 80)
 			L.adjustStaminaLoss((4) * effect_str)
-			L.jitter(30)
+			L.jitter(2)
 		if(3)
 			to_chat(L, span_notice("Your heart is jumping out of your chest"))
 		if(81)
