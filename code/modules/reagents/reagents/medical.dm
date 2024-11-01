@@ -1686,7 +1686,7 @@
 	color = COLOR_REAGENT_MASSPEED
 	custom_metabolism = REAGENTS_METABOLISM * 0
 	scannable = TRUE
-	taste_description = "tastes like sour coffee"
+	taste_description = "sour coffee"
 	overdose_threshold = 6
 	overdose_crit_threshold = 7
 	purge_rate = 10
