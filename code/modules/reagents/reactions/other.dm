@@ -18,7 +18,7 @@
 	results = list(/datum/reagent/toxin/sleeptoxin = 5)
 	required_reagents = list(/datum/reagent/toxin/chloralhydrate = 1, /datum/reagent/consumable/sugar = 4)
 
-/datum/chemical_reaction/antipathy
+/datum/chemical_reaction/sleeptoxin_two
 	name = "Antipathy"
 	results = list(/datum/reagent/toxin/sleeptoxin = 2)
 	required_reagents = list(/datum/reagent/toxin/xeno_hemodile = 1, /datum/reagent/medicine/masspeed = 1)
