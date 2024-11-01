@@ -70,6 +70,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/structure/closet/crate/mortar_ammo/mortar_kit = list(CAT_MARINE, "Mortar kit", 35, "orange3"),
 	/obj/structure/closet/crate/mortar_ammo/howitzer_kit = list(CAT_MARINE, "Howitzer kit", 35, "orange3"),
 	/obj/structure/closet/crate/mortar_ammo/mlrs_kit = list(CAT_MARINE, "MLRS kit", 35, "orange3"),
+	/obj/item/reagent_containers/hypospray/autoinjector/mastac = list(CAT_MARINE, "M-S neurostimulator", 25, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
@@ -77,7 +78,6 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
 	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "blue"),
 	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 22, "blue"),
-	/obj/item/reagent_containers/hypospray/autoinjector/mastac = list(CAT_MARINE, "M-S neurostimulator", 25, "black"),
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
