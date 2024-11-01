@@ -18,6 +18,11 @@
 	results = list(/datum/reagent/toxin/sleeptoxin = 5)
 	required_reagents = list(/datum/reagent/toxin/chloralhydrate = 1, /datum/reagent/consumable/sugar = 4)
 
+/datum/chemical_reaction/antipathy
+	name = "Antipathy"
+	results = list(/datum/reagent/toxin/sleeptoxin = 2)
+	required_reagents = list(/datum/reagent/toxin/xeno_hemodile = 1, /datum/reagent/medicine/masspeed = 1)
+
 /datum/chemical_reaction/mutagen
 	name = "Unstable mutagen"
 	results = list(/datum/reagent/toxin/mutagen = 3)

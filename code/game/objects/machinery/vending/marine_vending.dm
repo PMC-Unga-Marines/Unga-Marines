@@ -1034,6 +1034,7 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/neuraline = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/masspeed = -1,
 		))
 
 /obj/machinery/vending/MarineMed/Blood
