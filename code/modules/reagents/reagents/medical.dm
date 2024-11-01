@@ -1698,7 +1698,7 @@
 	)
 
 /datum/reagent/medicine/mastac/on_mob_add(mob/living/L, metabolism)
-	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.5)
+	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
 	to_chat(L, span_userdanger("You feel like your heart will stop at any second."))
 
 /datum/reagent/medicine/mastac/on_mob_life(mob/living/L, metabolism)
@@ -1706,20 +1706,20 @@
 	if(volume < 5)
 		L.reagents.add_reagent(/datum/reagent/medicine/mastac, 0.5)
 	switch(current_cycle)
-		if(1 to 80)
+		if(1 to 40)
 			L.adjustStaminaLoss((4) * effect_str)
 			L.jitter(2)
 		if(3)
 			to_chat(L, span_notice("Your heart is jumping out of your chest"))
-		if(81)
+		if(41)
 			to_chat(L, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
-		if(89 to INFINITY)
+		if(45 to INFINITY)
 			trait_flags = TACHYCARDIC
-			if(prob(0.3))
+			if(prob(2))
 				to_chat(L, span_userdanger("OUUH MY HEART"))
+				L.adjustOxyLoss(30)
 				if(!ishuman(L))
 					return
-				L.adjustOxyLoss(30)
 				var/mob/living/carbon/human/H = L
 				var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 				if(E)
