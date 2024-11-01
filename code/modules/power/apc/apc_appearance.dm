@@ -19,30 +19,83 @@
 /obj/machinery/power/apc/update_icon_state()
 	. = ..()
 
-	var/broken = CHECK_BITFIELD(update_state, UPSTATE_BROKE) ? "-b" : ""
-	var/status = (CHECK_BITFIELD(update_state, UPSTATE_WIREEXP) && !CHECK_BITFIELD(update_state, UPSTATE_OPENED1)) ? "-wires" : broken
-	icon_state = "apc[opened][status]"
+	var/broken = CHECK_BITFIELD(update_state, UPSTATE_BROKE) ? "_broken" : ""
+	var/status = (CHECK_BITFIELD(update_state, UPSTATE_WIREEXP) && !CHECK_BITFIELD(update_state, UPSTATE_OPENED1)) ? "_wires" : broken
+	var/apc_opened
+	switch(opened)
+		if(APC_COVER_CLOSED)
+			apc_opened = "closed"
+		if(APC_COVER_OPENED)
+			apc_opened = "opened"
+		if(APC_COVER_REMOVED)
+			apc_opened = "removed"
+	icon_state = "apc_[apc_opened][status]"
 
 /obj/machinery/power/apc/update_overlays()
 	. = ..()
 
 	if(opened && cell)
-		. += "apco-cell"
+		. += "apc_overlay_cell"
 
 	if((machine_stat & (BROKEN|MAINT)) || update_state)
 		return
 
-	. += emissive_appearance(icon, "apcox-[locked]")
-	. += mutable_appearance(icon, "apcox-[locked]")
-	. += emissive_appearance(icon, "apco3-[charging]")
-	. += mutable_appearance(icon, "apco3-[charging]")
+	var/apc_locked = locked ? "locked" : "unlocked"
+	. += emissive_appearance(icon, "apc_overlay_[apc_locked]")
+	. += mutable_appearance(icon, "apc_overlay_[apc_locked]")
 
-	. += emissive_appearance(icon, "apco0-[operating ? equipment : 0]")
-	. += mutable_appearance(icon, "apco0-[operating ? equipment : 0]")
-	. += emissive_appearance(icon, "apco1-[operating ? lighting : 0]")
-	. += mutable_appearance(icon, "apco1-[operating ? lighting : 0]")
-	. += emissive_appearance(icon, "apco2-[operating ? environ : 0]")
-	. += mutable_appearance(icon, "apco2-[operating ? environ : 0]")
+	var/apc_charging = ""
+	switch(charging)
+		if(APC_NOT_CHARGING)
+			apc_charging = "off"
+		if(APC_CHARGING)
+			apc_charging = "on"
+		if(APC_FULLY_CHARGED)
+			apc_charging = "full"
+	. += emissive_appearance(icon, "apc_charging_[apc_charging]")
+	. += mutable_appearance(icon, "apc_charging_[apc_charging]")
+
+	if(!operating)
+		return
+
+	var/apc_equipment = ""
+	switch(equipment)
+		if(APC_CHANNEL_OFF)
+			apc_equipment = "off"
+		if(APC_CHANNEL_AUTO_OFF)
+			apc_equipment = "auto_off"
+		if(APC_CHANNEL_ON)
+			apc_equipment = "on"
+		if(APC_CHANNEL_AUTO_ON)
+			apc_equipment = "auto_on"
+	. += emissive_appearance(icon, "apc_equipment_[apc_equipment]")
+	. += mutable_appearance(icon, "apc_equipment_[apc_equipment]")
+
+	var/apc_lighting = ""
+	switch(lighting)
+		if(APC_CHANNEL_OFF)
+			apc_lighting = "off"
+		if(APC_CHANNEL_AUTO_OFF)
+			apc_lighting = "auto_off"
+		if(APC_CHANNEL_ON)
+			apc_lighting = "on"
+		if(APC_CHANNEL_AUTO_ON)
+			apc_lighting = "auto_on"
+	. += emissive_appearance(icon, "apc_lighting_[apc_lighting]")
+	. += mutable_appearance(icon, "apc_lighting_[apc_lighting]")
+
+	var/apc_environ = ""
+	switch(environ)
+		if(APC_CHANNEL_OFF)
+			apc_environ = "off"
+		if(APC_CHANNEL_AUTO_OFF)
+			apc_environ = "auto_off"
+		if(APC_CHANNEL_ON)
+			apc_environ = "on"
+		if(APC_CHANNEL_AUTO_ON)
+			apc_environ = "auto_on"
+	. += emissive_appearance(icon, "apc_environ_[apc_environ]")
+	. += mutable_appearance(icon, "apc_environ_[apc_environ]")
 
 /// Checks for what icon updates we will need to handle
 /obj/machinery/power/apc/proc/check_updates()

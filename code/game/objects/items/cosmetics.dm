@@ -4,8 +4,8 @@
 	desc = "A kit designed for customizing various pieces of armor and clothing. Comes with facepaint!"
 	icon = 'icons/obj/items/cosmetics.dmi'
 	icon_state = "camo"
-	var/colour = "green"
 	w_class = WEIGHT_CLASS_TINY
+	var/colour = "green"
 	var/uses = 100
 
 /obj/item/facepaint/green
@@ -46,22 +46,21 @@
 			return
 		if(H == user)
 			paint_face(H, user)
-			return 1
+			return TRUE
 		else
 			to_chat(user, span_notice("You attempt to apply [src] on [H]..."))
 			to_chat(H, span_notice("[user] is trying to apply [src] on your face..."))
-			if(tgui_alert(H, "Will you allow [user] to paint your face?", null, list("Sure","No")) == "Sure")
-				if( user && loc == user && (user in range(1,H)) ) //Have to be close and hold the thing.
-					paint_face(H, user)
-					return 1
+			if(tgui_alert(H, "Will you allow [user] to paint your face?", null, list("Sure","No")) != "Sure")
+				return
+			if(user && loc == user && (user in range(1, H))) //Have to be close and hold the thing.
+				paint_face(H, user)
+				return TRUE
 
 	to_chat(user, span_warning("Foiled!"))
 
-
 /obj/item/facepaint/proc/paint_face(mob/living/carbon/human/H, mob/user)
 	if(!H || !user) return //In case they're passed as null.
-	user.visible_message(span_notice("[user] carefully applies [src] on [H]'s face."), \
-						span_notice("You apply [src]."))
+	user.visible_message(span_notice("[user] carefully applies [src] on [H]'s face."), span_notice("You apply [src]."))
 	H.lip_style = colour
 	H.alpha = max(0, initial(H.alpha) - 1) // decreases your alpha by 1
 	H.update_body()

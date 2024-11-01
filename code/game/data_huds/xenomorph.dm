@@ -31,8 +31,9 @@
 	if(!holder)
 		return
 
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(status_flags & INCORPOREAL)
-		holder.icon_state = ""
+		holder.icon_state = "xenohealth0"
 		return
 
 	var/amount = round(health * 100 / maxHealth, 10)

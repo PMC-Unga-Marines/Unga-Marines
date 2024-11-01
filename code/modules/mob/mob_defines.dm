@@ -149,6 +149,3 @@
 	var/list/pain_stored = list()
 	var/last_pain_message = ""
 	var/next_pain_time = 0
-
-	///The z level this mob is currently registered in
-	var/registered_z = null //for sound optimization
