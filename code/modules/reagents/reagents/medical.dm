@@ -1714,7 +1714,7 @@
 			to_chat(L, span_notice("Your heart is jumping out of your chest"))
 		if(81)
 			to_chat(L, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
-		if (89 to INFINITY)
+		if(89 to INFINITY)
 			if(prob(1))
 				to_chat(L, span_userdanger("OUUH MY HEART"))
 				if(!ishuman(L))
