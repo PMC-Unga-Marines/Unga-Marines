@@ -17,7 +17,7 @@
 /datum/ammo/bullet/rifle/ap
 	name = "armor-piercing rifle bullet"
 	hud_state = "rifle_ap"
-	damage = 15
+	damage = 20
 	penetration = 25
 	additional_xeno_penetration = 25
 
