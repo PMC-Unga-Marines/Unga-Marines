@@ -1,0 +1,7 @@
+author: "Tatarla"
+delete-after: True
+changes:
+  - balance: "СГ29 18 урона 15 ап > 20 урона 25 ап"
+  - balance: "СГ85 10 урона 25 ап > 20 урона -15 ап"
+  - balance: "СГ25 17.5 урона 10 ап > 20 урона 45 ап"
+  - balance: "СГ62 42.5 ап > 30 ап"
