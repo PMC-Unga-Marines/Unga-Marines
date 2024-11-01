@@ -1686,7 +1686,7 @@
 	color = COLOR_REAGENT_MASTAC
 	custom_metabolism = REAGENTS_METABOLISM * 0
 	scannable = TRUE
-	taste_description = "tastes like sour coffee"
+	taste_description = "sour coffee"
 	overdose_threshold = 6
 	overdose_crit_threshold = 7
 	purge_rate = 10
@@ -1708,21 +1708,21 @@
 		L.reagents.add_reagent(/datum/reagent/medicine/mastac, 0.5)
 	switch(current_cycle)
 		if(1 to 80)
-			L.adjustStaminaLoss((4)*effect_str)
+			L.adjustStaminaLoss((4) * effect_str)
 			L.jitter(30)
 		if(3)
 			to_chat(L, span_notice("Your heart is jumping out of your chest"))
 		if(81)
 			to_chat(L, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
-		if (89 to INFINITY)
+		if(89 to INFINITY)
 			if(prob(1))
 				to_chat(L, span_userdanger("OUUH MY HEART"))
 				if(!ishuman(L))
-					L.adjustOxyLoss(1.5*effect_str)
+					L.adjustOxyLoss(1.5 * effect_str)
 					var/mob/living/carbon/human/H = L
 					var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 					if(E)
-						E.take_damage(1.5*effect_str, TRUE)
+						E.take_damage(1.5 * effect_str, TRUE)
 
 /datum/reagent/medicine/mastac/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("It seems that something has stopped pushing your heart with force."))
