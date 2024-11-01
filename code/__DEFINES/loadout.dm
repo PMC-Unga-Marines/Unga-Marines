@@ -77,7 +77,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
 	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "blue"),
 	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 22, "blue"),
-	/obj/item/reagent_containers/hypospray/autoinjector/masspeed = list(CAT_MARINE, "M-S neurostimulator", 25, "black"),
+	/obj/item/reagent_containers/hypospray/autoinjector/mastac = list(CAT_MARINE, "M-S neurostimulator", 25, "black"),
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(

@@ -1680,10 +1680,10 @@
 /datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
 
-/datum/reagent/medicine/masspeed
-	name = "MasSpeed"
+/datum/reagent/medicine/mastac
+	name = "MasTac"
 	description = "This is a neurostimulating substance that causes the brain to maintain an increased heart rate."
-	color = COLOR_REAGENT_MASSPEED
+	color = COLOR_REAGENT_MASTAC
 	custom_metabolism = REAGENTS_METABOLISM * 0
 	scannable = TRUE
 	taste_description = "tastes like sour coffee"
@@ -1697,15 +1697,15 @@
 		/datum/reagent/medicine/paracetamol,
 	)
 
-/datum/reagent/medicine/masspeed/on_mob_add(mob/living/L, metabolism)
+/datum/reagent/medicine/mastac/on_mob_add(mob/living/L, metabolism)
 	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.3)
 	to_chat(L, span_userdanger("You feel like your heart will stop at any second."))
 	trait_flags = TACHYCARDIC
 
-/datum/reagent/medicine/masspeed/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/medicine/mastac/on_mob_life(mob/living/L, metabolism)
 	. = ..()
 	if(volume < 5)
-		L.reagents.add_reagent(/datum/reagent/medicine/masspeed, 0.5)
+		L.reagents.add_reagent(/datum/reagent/medicine/mastac, 0.5)
 	switch(current_cycle)
 		if(1 to 80)
 			L.adjustStaminaLoss((4)*effect_str)
@@ -1724,7 +1724,7 @@
 					if(E)
 						E.take_damage(1.5*effect_str, TRUE)
 
-/datum/reagent/medicine/masspeed/on_mob_delete(mob/living/L, metabolism)
+/datum/reagent/medicine/mastac/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("It seems that something has stopped pushing your heart with force."))
 	L.remove_movespeed_modifier(type)
 	L.Paralyze(2 SECONDS)
