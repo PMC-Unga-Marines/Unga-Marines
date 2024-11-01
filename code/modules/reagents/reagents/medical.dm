@@ -1718,11 +1718,11 @@
 			if(prob(1))
 				to_chat(L, span_userdanger("OUUH MY HEART"))
 				if(!ishuman(L))
-					L.adjustOxyLoss(1.5*effect_str)
+					L.adjustOxyLoss(1.5 * effect_str)
 					var/mob/living/carbon/human/H = L
 					var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
 					if(E)
-						E.take_damage(1.5*effect_str, TRUE)
+						E.take_damage(1.5 * effect_str, TRUE)
 
 /datum/reagent/medicine/masspeed/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("It seems that something has stopped pushing your heart with force."))
