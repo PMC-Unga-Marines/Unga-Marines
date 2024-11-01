@@ -44,7 +44,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	 */
 	var/time_between_round = 0
 	///What factions are used in this gamemode, typically TGMC and xenos
-	var/list/factions = list(FACTION_TERRAGOV, FACTION_ALIEN)
+	var/list/factions = list(FACTION_TERRAGOV, FACTION_XENO)
 
 	var/list/predators = list()
 

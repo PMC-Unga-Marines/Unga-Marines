@@ -24,7 +24,6 @@
 	item_state = "grenade_pmc"
 	hud_state = "grenade_frag"
 	icon_state_mini = "grenade_red_white"
-	light_impact_range = 5
 	power = 125
 	falloff = 40
 
@@ -39,7 +38,6 @@
 	item_state = "grenade_ex"
 	hud_state = "grenade_frag"
 	icon_state_mini = "grenade_yellow"
-	light_impact_range = 5
 	power = 125
 	falloff = 40
 
@@ -78,7 +76,6 @@
 	icon_state = "alien_grenade"
 	item_state = "alien_grenade"
 	hud_state = "grenade_frag"
-	light_impact_range = 6
 	power = 150
 	falloff = 25
 	overlay_type = "yellow"
@@ -89,8 +86,6 @@
 	icon_state = "grenade_sticky"
 	item_state = "grenade_sticky"
 	det_time = 5 SECONDS
-	light_impact_range = 2
-	weak_impact_range = 3
 	icon_state_mini = "grenade_sticky"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
 	power = 90
@@ -216,7 +211,6 @@
 	icon_state = "grenade_sticky_cloak"
 	item_state = "grenade_sticky_cloak"
 	det_time = 5 SECONDS
-	light_impact_range = 1
 	self_sticky = TRUE
 	overlay_type = "green"
 	/// smoke type created when the grenade is primed
@@ -318,9 +312,7 @@
 	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "ags_grenade"
 	item_state = "ags_grenade"
-	det_time = 2 SECONDS
-	light_impact_range = 2
-	weak_impact_range = 4
+	det_time = 1 SECONDS
 	power = 80
 	falloff = 20
 	overlay_type = "yellow"
@@ -415,7 +407,7 @@
 	name = "\improper AGLS-37 SCDP smoke grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	icon_state = "ags_cloak"
-	smokeradius = 4
+	smokeradius = 3
 	overlay_type = "green"
 
 /obj/item/explosive/grenade/smokebomb/drain
@@ -434,8 +426,8 @@
 	name = "\improper AGLS-T smoke grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	icon_state = "ags_pgas"
-	det_time = 3 SECONDS
-	smokeradius = 4
+	det_time = 1 SECONDS
+	smokeradius = 2
 	overlay_type = "purple"
 
 /obj/item/explosive/grenade/phosphorus
@@ -487,7 +479,6 @@
 	det_time = 4 SECONDS
 	dangerous = TRUE
 	icon_state_mini = "grenade_blue_white"
-	light_impact_range = 3
 	power = 80
 	falloff = 30
 	overlay_type = "blue"

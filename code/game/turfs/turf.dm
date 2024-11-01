@@ -108,7 +108,7 @@
 		stack_trace("Incorrect turf deletion")
 	changing_turf = FALSE
 	if(force)
-		..()
+		. = ..()
 		//this will completely wipe turf state
 		var/turf/B = new world.turf(src)
 		for(var/A in B.contents)
@@ -120,7 +120,7 @@
 	DISABLE_BITFIELD(flags_atom, INITIALIZED)
 	soft_armor = null
 	hard_armor = null
-	..()
+	. = ..()
 	return QDEL_HINT_IWILLGC
 
 /// WARNING WARNING

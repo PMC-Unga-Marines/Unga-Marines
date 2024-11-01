@@ -25,10 +25,6 @@
 	var/arm_sound = 'sound/weapons/grenade/grenade_pinout.ogg'
 	var/hud_state = "grenade_he"
 	var/hud_state_empty = "grenade_empty"
-	///Light impact range when exploding
-	var/light_impact_range = 4
-	///Weak impact range when exploding
-	var/weak_impact_range = 0
 	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
 	/// Power of the explosion
 	var/power = 105
