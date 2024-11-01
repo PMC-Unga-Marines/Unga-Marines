@@ -791,7 +791,7 @@
 	movement_acc_penalty_mult = 4
 	burst_amount = 3
 	autoburst_delay = 0.10 SECONDS
-	damage_falloff_mult = 2.5
+	damage_falloff_mult = 1.5
 	upper_akimbo_accuracy = 12
 	lower_akimbo_accuracy = 9
 	akimbo_additional_delay = 2
