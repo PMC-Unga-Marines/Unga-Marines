@@ -1708,7 +1708,7 @@
 		L.reagents.add_reagent(/datum/reagent/medicine/masspeed, 0.5)
 	switch(current_cycle)
 		if(1 to 80)
-			L.adjustStaminaLoss((4)*effect_str)
+			L.adjustStaminaLoss((4) * effect_str)
 			L.jitter(30)
 		if(3)
 			to_chat(L, span_notice("Your heart is jumping out of your chest"))
