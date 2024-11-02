@@ -553,8 +553,8 @@ You can serve your Division in a variety of roles, so choose carefully."})
 
 /datum/job/terragov/command/assault_crewman/add_job_points(amount)
 	. = ..()
-	if(total_positions % 2)
-		add_job_positions(1) //always 2 there are, a master and an apprentice
+	if(total_positions == 1)
+		add_job_positions(2) //always 2 there are, a master and an apprentice
 
 /datum/job/terragov/command/assault_crewman/radio_help_message(mob/M)
 	. = ..()
