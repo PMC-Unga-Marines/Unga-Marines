@@ -1247,7 +1247,14 @@
 
 	victim.do_jitter_animation(2)
 	victim.adjustCloneLoss(20)
-	X.biomass = min(X.biomass + 15, 100)
+	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[X.hivenumber])
+		if(xeno.xeno_caste.caste_flags & CASTE_IS_A_MINION)
+			continue
+		if(isxenohivemind(xeno))
+			continue
+		if(isxenolarva(xeno) || isxenopredalienlarva(xeno))
+			continue
+		xeno.biomass = min(xeno.biomass + 10, 100)
 
 	ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	if(HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE))
@@ -1357,7 +1364,6 @@
 	victim.dead_ticks = 0
 	ADD_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
 	X.eject_victim(TRUE, starting_turf)
-	X.biomass = min(X.biomass + 15, 100)
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.cocooned++

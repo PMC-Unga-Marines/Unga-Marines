@@ -43,6 +43,14 @@
 	SSpoints.add_psy_points(hivenumber, COCOON_PSY_POINTS_REWARD)
 	//Gives marine cloneloss for a total of 30.
 	victim.adjustCloneLoss(0.5)
+	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[hivenumber])
+		if(xeno.xeno_caste.caste_flags & CASTE_IS_A_MINION)
+			continue
+		if(isxenohivemind(xeno))
+			continue
+		if(isxenolarva(xeno) || isxenopredalienlarva(xeno))
+			continue
+		xeno.biomass = min(xeno.biomass + 0.5, 100)
 
 /obj/structure/cocoon/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
