@@ -150,7 +150,7 @@
 	hud_state = "rifle_crude"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	damage = 30
-	damage_falloff = 4
+	damage_falloff = 3
 	penetration = 15
 	additional_xeno_penetration = 12.5
 
