@@ -1715,7 +1715,7 @@
 		if(41)
 			to_chat(live, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
 		if(45 to INFINITY)
-			if(prob(2))
+			if(prob(0.3))
 				to_chat(live, span_userdanger("OUUH MY HEART"))
 				live.adjustOxyLoss(30)
 				if(!ishuman(live))
