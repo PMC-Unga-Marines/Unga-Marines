@@ -364,8 +364,13 @@
 			return
 
 	if(X.selected_resin == /obj/structure/bed/nest)
-		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
+		for(var/obj/structure/bed/nest/xeno_nest in range(2, T))
 			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
+			return
+
+	if(X.selected_resin == /obj/structure/mineral_door/resin)
+		for(var/obj/structure/mineral_door/resin/door in range(2, T))
+			owner.balloon_alert(owner, span_notice("Another door is too close!"))
 			return
 
 	var/atom/new_resin
@@ -389,6 +394,10 @@
 	if(X.selected_resin == /obj/structure/bed/nest)
 		for(var/obj/structure/bed/nest/xeno_nest in range (2, T))
 			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
+			return
+	if(X.selected_resin == /obj/structure/mineral_door/resin)
+		for(var/obj/structure/mineral_door/resin/door in range(2, T))
+			owner.balloon_alert(owner, span_notice("Another door is too close!"))
 			return
 	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
