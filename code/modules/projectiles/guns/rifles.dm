@@ -1549,7 +1549,7 @@
 	)
 
 	burst_amount = 0
-	fire_delay = 1.35 SECONDS
+	fire_delay = 2.6 SECONDS
 	accuracy_mult = 1.15
 	accuracy_mult_unwielded = 0.7
 	scatter = -5
@@ -1558,7 +1558,6 @@
 	recoil_unwielded = 4
 	aim_slowdown = 1
 	wield_delay = 1.3 SECONDS
-	cock_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 6
 
 
