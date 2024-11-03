@@ -50,7 +50,7 @@
 			continue
 		if(isxenolarva(xeno) || isxenopredalienlarva(xeno))
 			continue
-		xeno.biomass = min(xeno.biomass + 0.5, 100)
+		xeno.biomass = min(xeno.biomass + 0.1, 100)
 
 /obj/structure/cocoon/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
