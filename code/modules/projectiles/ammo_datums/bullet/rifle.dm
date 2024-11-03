@@ -158,7 +158,7 @@
 	name = "crude heavy rifle bullet"
 	hud_state = "rifle_crude"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	damage = 20
+	damage = 25
 	penetration = 35
 	additional_xeno_penetration = 27.5
 
