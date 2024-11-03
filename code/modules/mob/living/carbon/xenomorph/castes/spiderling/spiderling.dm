@@ -146,6 +146,8 @@
 	for(var/mob/living/carbon/human/victim in cheap_get_humans_near(mob_parent, 9))
 		if(victim.stat == DEAD)
 			continue
+		if(HAS_TRAIT(victim, TRAIT_STEALTH))
+			continue
 		possible_victims += victim
 
 	for(var/atom/nearby_turret AS in GLOB.marine_turrets)
