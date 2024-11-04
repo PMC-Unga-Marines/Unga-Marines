@@ -11,7 +11,7 @@
 	blood_sprite_state = "helmetblood"
 	attachments_by_slot = list(ATTACHMENT_SLOT_BADGE)
 	attachments_allowed = list(/obj/item/armor_module/armor/badge)
-	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 0, ACID = 35)
+	soft_armor = MARINE_HAT_ARMOR
 	var/anti_hug = 0
 
 /obj/item/clothing/head/update_clothing_icon()
@@ -197,7 +197,7 @@
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi',
 	)
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 0, ACID = 35)
+	soft_armor = MARINE_HAT_ARMOR
 
 /obj/item/clothing/head/headband
 	name = "\improper Cyan headband"
@@ -209,7 +209,7 @@
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	icon_state = "headband"
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 0, ACID = 35)
+	soft_armor = MARINE_HAT_ARMOR
 	flags_armor_features = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/headband/red
@@ -416,7 +416,7 @@
 	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
 	icon_state = "straw_hat"
 	species_exception = list(/datum/species/robot)
-	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 0, ACID = 35)
+	soft_armor = MARINE_HAT_ARMOR
 
 /obj/item/clothing/head/squad_headband
 	name = "\improper Squad headband"

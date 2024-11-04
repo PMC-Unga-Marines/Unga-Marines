@@ -147,7 +147,7 @@
 #define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 5, ACID = 35)
 #define MARINE_ARMOR_MEDIUM list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 20, BIO = 40, FIRE = 10, ACID = 45)
 #define MARINE_ARMOR_HEAVY list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 15, ACID = 55)
-#define MARINE_HAT_ARMOR list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+#define MARINE_HAT_ARMOR list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 0, ACID = 35)
 
 //=================================================
 
