@@ -784,7 +784,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	set name = "Adminhelp"
 
 	//handle muting and automuting
-	if(prefs.muted & MUTE_ADMINHELP)
+	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 		to_chat(src, span_warning("Error: You cannot send adminhelps (Muted)."))
 		return
 
@@ -815,7 +815,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	set name = "Mentorhelp"
 
 	//handle muting and automuting
-	if(prefs.muted & MUTE_ADMINHELP)
+	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 		to_chat(src, span_warning("Error: You cannot send mentorhelps (Muted)."))
 		return
 
