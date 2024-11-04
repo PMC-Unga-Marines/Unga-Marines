@@ -647,7 +647,7 @@
 	cost = 120
 
 /datum/supply_packs/weapons/r76_speedloader
-	name = "R76 speedloader crate"
+	name = "R76 speedloader (x4)"
 	contains = list(
 		/obj/item/ammo_magazine/revolver/standard_magnum,
 		/obj/item/ammo_magazine/revolver/standard_magnum,
