@@ -77,6 +77,7 @@
 	name = "Underground robotics lab"
 	icon_state = "yellow"
 	ceiling = CEILING_DEEP_UNDERGROUND_METAL
+	requires_power = TRUE
 
 /area/bigredv2/caves/secomplex
 	name = "Underground research complex"

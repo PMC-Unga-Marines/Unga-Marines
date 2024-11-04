@@ -2,8 +2,10 @@
 	caste_base_type = /datum/xeno_caste/ravager
 	name = "Ravager"
 	desc = "A huge, nasty red alien with enormous scythed claws."
-	icon = 'icons/Xeno/castes/ravager.dmi'
+	icon = 'icons/Xeno/castes/ravager/basic.dmi'
 	icon_state = "Ravager Walking"
+	effects_icon = 'icons/Xeno/castes/ravager/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/ravager/rouny.dmi'
 	health = 250
 	maxHealth = 250
 	plasma_stored = 50
@@ -15,8 +17,8 @@
 	old_x = -16
 	bubble_icon = "alienroyal"
 	skins = list(
-		"bonehead" = 'icons/Xeno/castes/ravager_bone.dmi',
-		"baseline" = 'icons/Xeno/castes/ravager.dmi',
+		/datum/xenomorph_skin/ravager/bonehead,
+		/datum/xenomorph_skin/ravager,
 	)
 	var/rage_power
 	var/rage = FALSE
@@ -94,7 +96,7 @@
 	var/burn_damage = getFireLoss()
 	if(!brute_damage && !burn_damage)
 		return
-	var/health_recovery = RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH * rage_power
+	var/health_recovery = RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH + (RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH * rage_power)
 	var/health_modifier
 	if(brute_damage)
 		health_modifier = -min(brute_damage, health_recovery)
@@ -106,7 +108,7 @@
 
 	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
 	if(endure_ability.endure_duration) //Check if Endure is active
-		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH))
+		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + max(1 SECONDS, RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH * rage_power)))
 		deltimer(endure_ability.endure_duration) //Reset timers
 		deltimer(endure_ability.endure_warning_duration)
 		endure_ability.endure_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_deactivate)), new_duration, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
@@ -151,6 +153,7 @@
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
 		return
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
 	if(stat == DEAD)
 		holder.icon_state = "xenohealth0"
 		return

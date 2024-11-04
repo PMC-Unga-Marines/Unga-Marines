@@ -113,6 +113,17 @@
 		return EXPLOSION_MAX_POWER
 	return density ? obj_integrity : 0
 
+/obj/structure/mineral_door/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!anchored)
+		return ..()
+	if(!open)
+		toggle_state(charger)
+	if(density)
+		return PRECRUSH_STOPPED
+	charger.visible_message(span_danger("[charger] slams [src] open!"),
+	span_xenowarning("We slam [src] open!"))
+	return PRECRUSH_PLOWED
+
 /obj/structure/mineral_door/iron
 	name = "iron door"
 	material_type = /obj/item/stack/sheet/metal

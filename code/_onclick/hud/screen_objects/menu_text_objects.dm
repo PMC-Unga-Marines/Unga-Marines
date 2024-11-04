@@ -104,22 +104,17 @@
 	update_text()
 
 /atom/movable/screen/text/lobby/clickable/manifest
-	maptext = "<span class='maptext' style=font-size:8px>МАНИФЕСТ МОРПЕХОВ</span>"
+	maptext = "<span class='maptext' style=font-size:8px>МАНИФЕСТ</span>"
 	icon_state = "manifest"
 
 /atom/movable/screen/text/lobby/clickable/manifest/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
-	player.view_manifest()
-
-/atom/movable/screen/text/lobby/clickable/xenomanifest
-	maptext = "<span class='maptext' style=font-size:8px>МАНИФЕСТ УЛЬЯ</span>"
-	icon_state = "manifest"
-
-/atom/movable/screen/text/lobby/clickable/xenomanifest/Click()
-	. = ..()
-	var/mob/new_player/player = hud.mymob
-	player.view_xeno_manifest()
+	switch(tgui_alert(player, "Whose Manifest do you want to see?", "Choose Manifest", list("Marine", "Xenomorph")))
+		if("Marine")
+			player.view_manifest()
+		if("Xenomorph")
+			player.view_xeno_manifest()
 
 /atom/movable/screen/text/lobby/clickable/background
 	maptext = "<span class='maptext' style=font-size:8px>ПРЕДЫСТОРИЯ</span>"

@@ -59,7 +59,8 @@
 	return ..()
 
 /obj/vehicle/ridden/motorbike/welder_act(mob/living/user, obj/item/I)
-	return welder_repair_act(user, I, 10, 2 SECONDS, fuel_req = 1)
+	var/fumbling_time = 5 SECONDS - 1 SECONDS * user.skills.getRating(SKILL_ENGINEER)
+	return welder_repair_act(user, I, 1 SECONDS, fumbling_time, fuel_req = 1)
 
 /obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
 	if(fuel_count <= 0)

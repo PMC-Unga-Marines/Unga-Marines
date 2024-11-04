@@ -449,3 +449,19 @@
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(10 * S.strength, BURN, ACID)
+
+/obj/machinery/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, ...)
+	xeno.do_attack_animation(src, ATTACK_EFFECT_YELLOWPUNCH)
+	xeno.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
+	if(!(resistance_flags & UNACIDABLE) || resistance_flags & XENO_DAMAGEABLE) // If it's acidable or we can't acid it but it has the xeno damagable flag, we can damage it
+		attack_generic(xeno, punch_damage * 4, BRUTE, effects = FALSE)
+	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 50, 1)
+	Shake(duration = 0.5 SECONDS)
+	if(!(machine_stat & PANEL_OPEN))
+		machine_stat |= PANEL_OPEN
+	if(wires)
+		var/allcut = wires.is_all_cut()
+		if(!allcut)
+			wires.cut_all()
+	update_appearance()
+	return TRUE
