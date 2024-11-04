@@ -126,7 +126,7 @@
 			/obj/item/storage/box/m94 = -1,
 			/obj/item/storage/box/m94/cas = -1,
 		),
-		"Специалистам" = list(
+		"Специализированное" = list(
 			/obj/item/storage/box/crate/sentry = 4,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
@@ -340,7 +340,7 @@
 			/obj/item/storage/box/m94 = 200,
 			/obj/item/storage/box/m94/cas = 50,
 		),
-		"Специалистам" = list(
+		"Специализированное" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = 40,
@@ -573,7 +573,7 @@
 			/obj/item/storage/box/m94 = -1,
 			/obj/item/storage/box/m94/cas = -1,
 		),
-		"Специалистам" = list(
+		"Специализированное" = list(
 			/obj/item/weapon/gun/rifle/pepperball = -1,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = -1,
