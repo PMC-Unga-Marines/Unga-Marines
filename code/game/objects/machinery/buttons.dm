@@ -136,8 +136,6 @@
 	name = "lockdown override"
 	id = "landing_zone"
 	icon_state = "shutter"
-	light_range = 0
-	light_power = 0
 	use_power = NO_POWER_USE
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP)
@@ -165,7 +163,7 @@
 		flick("[initial(icon_state)]_denied", src)
 		return
 	use_power(active_power_usage)
-	icon_state = "[initial(icon_state)]1"
+	icon_state = "[initial(icon_state)]_on"
 
 	alarm_played = TRUE
 	playsound_z(z, 'sound/effects/shutters_alarm.ogg', 15) // woop woop, shutters opening.

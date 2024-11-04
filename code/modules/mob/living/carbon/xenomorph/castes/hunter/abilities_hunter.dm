@@ -637,7 +637,7 @@
 	. = ..()
 	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
 
-/datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
+/datum/action/ability/xeno_action/hunter_army/remove_action(mob/living/L)
 	. = ..()
 	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
 
