@@ -1680,7 +1680,7 @@
 /datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
 
-/datum/reagent/medicine/mastac
+/datum/reagent/mastac
 	name = "MasTac"
 	description = "This is a neurostimulating substance that causes the brain to maintain an increased heart rate."
 	color = COLOR_REAGENT_MASTAC
@@ -1695,17 +1695,16 @@
 		/datum/reagent/medicalnanites,
 		/datum/reagent/medicine/peridaxon,
 		/datum/reagent/medicine/peridaxon_plus,
-		/datum/reagent/medicine/paracetamol,
 	)
 
-/datum/reagent/medicine/mastac/on_mob_add(mob/living/live, metabolism)
+/datum/reagent/mastac/on_mob_add(mob/living/live, metabolism)
 	live.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
 	to_chat(live, span_userdanger("You feel like your heart will stop at any second."))
 
-/datum/reagent/medicine/mastac/on_mob_life(mob/living/live, metabolism)
+/datum/reagent/mastac/on_mob_life(mob/living/live, metabolism)
 	. = ..()
 	if(volume < 5)
-		live.reagents.add_reagent(/datum/reagent/medicine/mastac, 0.5)
+		live.reagents.add_reagent(/datum/reagent/mastac, 0.5)
 	switch(current_cycle)
 		if(1 to 40)
 			live.adjustStaminaLoss((4) * effect_str)
@@ -1725,7 +1724,7 @@
 				if(heart_damage)
 					heart_damage.take_damage(15, TRUE)
 
-/datum/reagent/medicine/mastac/on_mob_delete(mob/living/delete, metabolism)
+/datum/reagent/mastac/on_mob_delete(mob/living/delete, metabolism)
 	to_chat(delete, span_userdanger("It seems that something has stopped pushing your heart with force."))
 	delete.remove_movespeed_modifier(type)
 	delete.Paralyze(2 SECONDS)

@@ -21,7 +21,7 @@
 /datum/chemical_reaction/sleeptoxin_two
 	name = "Sleeptoxin"
 	results = list(/datum/reagent/toxin/sleeptoxin = 1)
-	required_reagents = list(/datum/reagent/toxin/xeno_hemodile = 2, /datum/reagent/medicine/mastac = 0.5)
+	required_reagents = list(/datum/reagent/toxin/xeno_hemodile = 2, /datum/reagent/mastac = 0.5)
 
 /datum/chemical_reaction/mutagen
 	name = "Unstable mutagen"

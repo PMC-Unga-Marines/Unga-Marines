@@ -377,6 +377,6 @@
 	icon_state = "RedWhite"
 	amount_per_transfer_from_this = 1
 	volume = 1
-	list_reagents = list(/datum/reagent/medicine/mastac = 1)
+	list_reagents = list(/datum/reagent/mastac = 1)
 	free_refills = FALSE
 	description_overlay = "Mt"
