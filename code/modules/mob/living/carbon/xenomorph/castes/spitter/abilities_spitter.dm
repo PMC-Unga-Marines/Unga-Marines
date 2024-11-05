@@ -137,3 +137,57 @@
 	to_chat(owner, span_xenodanger("Our auxiliary sacks fill to bursting; we can use scatter spit again."))
 	owner.playsound_local(owner, 'sound/voice/alien/drool1.ogg', 25, 0, 1)
 	return ..()
+
+// ***************************************
+// *********** Sticky Grenade ************
+// ***************************************
+/datum/action/ability/activable/xeno/toxic_grenade/sticky
+	name = "Slime grenade"
+	desc = "Throws a lump of compressed acid to stick to a target, which will leave a trail of acid behind them."
+	ability_cost = 75
+	cooldown_duration = 45 SECONDS
+	nade_type = /obj/item/explosive/grenade/sticky/xeno
+
+/datum/action/ability/activable/xeno/toxic_grenade/sticky/grenade_act(atom/our_atom)
+	var/obj/item/explosive/grenade/sticky/xeno/nade = new nade_type(get_turf(owner))
+	nade.throw_at(our_atom, 5, 1, owner, TRUE)
+	nade.activate(owner)
+	owner.visible_message(span_warning("[owner] vomits up a sticky lump and throws it at [our_atom]!"), span_warning("We vomit up a sticky lump and throw it at [our_atom]!"))
+
+/obj/item/explosive/grenade/sticky/xeno
+	name = "\improper slime grenade"
+	desc = "A fleshy mass oozing acid. It appears to be rapidly decomposing."
+	greyscale_colors = "#42A500"
+	greyscale_config = /datum/greyscale_config/xenogrenade
+	self_sticky = TRUE
+	arm_sound = 'sound/voice/alien/yell_alt.ogg'
+	overlay_type = null
+	var/acid_spray_damage = 15
+
+/obj/item/explosive/grenade/sticky/xeno/update_overlays()
+	. = ..()
+	if(active)
+		. += image('icons/obj/items/grenade.dmi', "xenonade_active")
+
+/obj/item/explosive/grenade/sticky/xeno/prime()
+	for(var/turf/acid_tile AS in RANGE_TURFS(1, loc))
+		new /obj/effect/temp_visual/acid_splatter(acid_tile) //SFX
+		new /obj/effect/xenomorph/spray(acid_tile, 5 SECONDS, acid_spray_damage)
+	playsound(loc, "acid_bounce", 35)
+	if(stuck_to)
+		clean_refs()
+	qdel(src)
+
+/obj/item/explosive/grenade/sticky/xeno/stuck_to(atom/hit_atom)
+	. = ..()
+	RegisterSignal(stuck_to, COMSIG_MOVABLE_MOVED, PROC_REF(drop_acid))
+	new /obj/effect/xenomorph/spray(get_turf(src), 5 SECONDS, acid_spray_damage)
+
+///causes acid tiles underneath target when stuck_to
+/obj/item/explosive/grenade/sticky/xeno/proc/drop_acid(datum/source, old_loc, movement_dir, forced, old_locs)
+	SIGNAL_HANDLER
+	new /obj/effect/xenomorph/spray(get_turf(src), 5 SECONDS, acid_spray_damage)
+
+/obj/item/explosive/grenade/sticky/xeno/clean_refs()
+	UnregisterSignal(stuck_to, COMSIG_MOVABLE_MOVED)
+	return ..()

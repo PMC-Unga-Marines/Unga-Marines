@@ -67,3 +67,15 @@
 
 	spit_delay = 0.3 SECONDS
 	spit_types = list(/datum/ammo/xeno/acid/medium/passthrough, /datum/ammo/xeno/acid/auto)
+
+	// *** Abilities *** //
+	actions = list(
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
+		/datum/action/ability/activable/xeno/xeno_spit,
+		/datum/action/ability/activable/xeno/scatter_spit,
+		/datum/action/ability/activable/xeno/spray_acid/line,
+		/datum/action/ability/activable/xeno/toxic_grenade/sticky,
+	)

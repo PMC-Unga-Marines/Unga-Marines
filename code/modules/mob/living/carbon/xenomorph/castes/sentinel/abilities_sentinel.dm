@@ -204,14 +204,18 @@
 	///Type of nade to be thrown
 	var/nade_type = /obj/item/explosive/grenade/smokebomb/xeno
 
-/datum/action/ability/activable/xeno/toxic_grenade/use_ability(atom/A)
+/datum/action/ability/activable/xeno/toxic_grenade/use_ability(atom/our_atom)
 	. = ..()
 	succeed_activate()
 	add_cooldown()
+	grenade_act(our_atom)
+
+/// All the grenade activations go here, so we don't overwrite the use_ability
+/datum/action/ability/activable/xeno/toxic_grenade/proc/grenade_act(atom/our_atom)
 	var/obj/item/explosive/grenade/smokebomb/xeno/nade = new nade_type(get_turf(owner))
-	nade.throw_at(A, 5, 1, owner, TRUE)
+	nade.throw_at(our_atom, 5, 1, owner, TRUE)
 	nade.activate(owner)
-	owner.visible_message(span_warning("[owner] vomits up a bulbous lump and throws it at [A]!"), span_warning("We vomit up a bulbous lump and throw it at [A]!"))
+	owner.visible_message(span_warning("[owner] vomits up a bulbous lump and throws it at [our_atom]!"), span_warning("We vomit up a bulbous lump and throw it at [our_atom]!"))
 
 /obj/item/explosive/grenade/smokebomb/xeno
 	name = "toxic grenade"
@@ -224,6 +228,7 @@
 	smoketype = /datum/effect_system/smoke_spread/xeno/toxic
 	arm_sound = 'sound/voice/alien/yell_alt.ogg'
 	smokeradius = 3
+	overlay_type = null
 
 /obj/item/explosive/grenade/smokebomb/xeno/update_overlays()
 	. = ..()
