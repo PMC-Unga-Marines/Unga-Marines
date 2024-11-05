@@ -641,6 +641,21 @@
 	contains = list(/obj/item/storage/box/t500case)
 	cost = 50
 
+/datum/supply_packs/weapons/r76case
+	name = "R76 bundle"
+	contains = list(/obj/item/storage/briefcase/standard_magnum)
+	cost = 120
+
+/datum/supply_packs/weapons/r76_speedloader
+	name = "R76 speedloader (x4)"
+	contains = list(
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+		/obj/item/ammo_magazine/revolver/standard_magnum,
+	)
+	cost = 40
+
 /datum/supply_packs/weapons/ar12_incendiary
 	name = "AR-12 incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/ar12/incendiary)
