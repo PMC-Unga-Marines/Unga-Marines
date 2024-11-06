@@ -79,25 +79,24 @@
 		to_chat(src, span_userdanger("You are tipped over by [user]!"))
 		Paralyze(20 SECONDS)
 		icon_state = icon_dead
-		spawn(rand(20, 50))
-			if(!stat && user)
-				icon_state = icon_living
-				var/external
-				var/internal
-				switch(pick(1,2,3,4))
-					if(1,2,3)
-						var/text = pick("imploringly.", "pleadingly.",
-							"with a resigned expression.")
-						external = "[src] looks at [user] [text]"
-						internal = "You look at [user] [text]"
-					if(4)
-						external = "[src] seems resigned to its fate."
-						internal = "You resign yourself to your fate."
-				visible_message(span_notice("[external]"),
-					span_revennotice("[internal]"))
+		addtimer(CALLBACK(src, PROC_REF(tip_message), user), rand(2 SECONDS, 5 SECONDS))
 	else
 		return ..()
 
+/mob/living/simple_animal/cow/proc/tip_message(mob/living/user)
+	if(stat || !user)
+		return
+	icon_state = icon_living
+	var/external
+	var/internal
+	if(prob(75))
+		var/text = pick("imploringly.", "pleadingly.", "with a resigned expression.")
+		external = "[src] looks at [user] [text]"
+		internal = "You look at [user] [text]"
+	else
+		external = "[src] seems resigned to its fate."
+		internal = "You resign yourself to your fate."
+	visible_message(span_notice("[external]"), span_revennotice("[internal]"))
 
 /mob/living/simple_animal/chick
 	name = "\improper chick"

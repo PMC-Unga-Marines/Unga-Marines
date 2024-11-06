@@ -62,30 +62,31 @@
 	update_icon()
 	attack_self(user) //Update the browsed page.
 
-
 /obj/item/paper_bundle/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "<span class='warning'>"
 
-	if(P.heat >= 400 && !user.restrained())
-		if(istype(P, /obj/item/tool/lighter/zippo))
-			class = "<span class='rose'>"
+	if(P.heat < 400 || user.restrained())
+		return
+	if(istype(P, /obj/item/tool/lighter/zippo))
+		class = "<span class='rose'>"
 
-		user.visible_message("[class][user] holds \the [P] up to \the [src], it looks like [user.p_theyre()] trying to burn it!</span>", \
+	user.visible_message("[class][user] holds \the [P] up to \the [src], it looks like [user.p_theyre()] trying to burn it!</span>", \
 		"[class]You hold \the [P] up to \the [src], burning it slowly.")
 
-		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_held_item() == P && P.heat)
-				user.visible_message("[class][user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-				"[class]You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+	if(!do_after(user, 2 SECONDS, NONE, src))
+		to_chat(user, span_warning("You must hold \the [P] steady to burn \the [src]."))
+		return
 
-				if(user.get_inactive_held_item() == src)
-					user.dropItemToGround(src)
+	if(!P.heat)
+		return
+	user.visible_message("[class][user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+		"[class]You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
 
-				new /obj/effect/decal/cleanable/ash(src.loc)
-				qdel(src)
+	if(user.get_inactive_held_item() == src)
+		user.dropItemToGround(src)
 
-			else
-				to_chat(user, span_warning("You must hold \the [P] steady to burn \the [src]."))
+	new /obj/effect/decal/cleanable/ash(src.loc)
+	qdel(src)
 
 /obj/item/paper_bundle/examine(mob/user)
 	. = ..()
