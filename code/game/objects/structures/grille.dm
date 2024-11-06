@@ -128,7 +128,7 @@
 		to_chat(user, span_notice("You place the [WD] on [src]."))
 		WD.update_icon()
 
-/obj/structure/grille/fire_act(burn_level)
+/obj/structure/grille/fire_act(burn_level, flame_color)
 	if(obj_integrity <= integrity_failure)
 		return
 	take_damage(1, BURN, FIRE)

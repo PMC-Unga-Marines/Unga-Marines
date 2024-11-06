@@ -202,7 +202,7 @@
 	user.dropItemToGround(src, TRUE)
 	return src
 
-/mob/living/carbon/fire_act(burn_level)
+/mob/living/carbon/fire_act(burn_level, flame_color)
 	. = ..()
 	adjust_bodytemperature(100, 0, BODYTEMP_HEAT_DAMAGE_LIMIT_ONE+10)
 
