@@ -8570,10 +8570,6 @@
 "RQ" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/orion_outpost/ground/outpostw)
-"RS" = (
-/obj/structure/barricade/metal,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/landing_pad2_external)
 "RT" = (
 /obj/structure/window{
 	dir = 4
@@ -12867,7 +12863,7 @@ ft
 jF
 gU
 eW
-RS
+hz
 Df
 lW
 lW
