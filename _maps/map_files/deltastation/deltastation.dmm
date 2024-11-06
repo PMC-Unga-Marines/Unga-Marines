@@ -4981,7 +4981,7 @@
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/fore)
 "baV" = (
-/obj/machinery/telecomms/receiver/preset_left,
+/obj/machinery/telecomms/receiver/preset/left,
 /turf/open/floor/gcircuit,
 /area/deltastation/tcommsat/server)
 "baY" = (
@@ -6358,7 +6358,7 @@
 /turf/open/floor/iron,
 /area/deltastation/command/heads_quarters/rd)
 "bpC" = (
-/obj/machinery/telecomms/broadcaster/preset_right,
+/obj/machinery/telecomms/broadcaster/preset/right,
 /turf/open/floor/bcircuit,
 /area/deltastation/tcommsat/server)
 "bpI" = (
@@ -69356,7 +69356,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/department/science)
 "ojN" = (
-/obj/machinery/telecomms/broadcaster/preset_left,
+/obj/machinery/telecomms/broadcaster/preset/left,
 /turf/open/floor/bcircuit,
 /area/deltastation/tcommsat/server)
 "ojW" = (
@@ -74998,10 +74998,6 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/deltastation/maintenance/space_hut/observatory)
-"prv" = (
-/obj/machinery/telecomms/receiver/preset_right,
-/turf/open/floor/gcircuit,
-/area/deltastation/tcommsat/server)
 "prR" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -158662,7 +158658,7 @@ ndM
 jLv
 vIe
 ykl
-prv
+baV
 tNq
 pCQ
 mBm
