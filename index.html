@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(472 modules,
-    846/7501 macros, 11.3%)</aside></h3>
+<aside>(473 modules,
+    845/7506 macros, 11.3%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -393,6 +393,7 @@ that is in the general direction relative to the parent.</li>
     <li><span class="no-substance">kitchen&#x2F;</span><a href="code/game/objects/machinery/kitchen/smartfridge.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;kitchen&#x2F;smartfridge">smartfridge</a></li>
     <li><a href="code/game/objects/machinery/miner.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;miner">miner</a></li>
     <li><a href="code/game/objects/machinery/nuclearbomb.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;nuclearbomb">nuclearbomb</a></li>
+    <li><a href="code/game/objects/machinery/overwatch.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;overwatch">overwatch</a></li>
     <li><a href="code/game/objects/machinery/research.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;research">research</a></li>
     <li><a href="code/game/objects/machinery/status_display.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;status_display">status_display</a></li>
     <li><a href="code/game/objects/machinery/suit_storage_unit.html" title="code&#x2F;game&#x2F;objects&#x2F;machinery&#x2F;suit_storage_unit">suit_storage_unit</a></li>
@@ -742,7 +743,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1027 detailed/1295 documented/19558 total, 6.6%)</aside></h3>
+<aside>(1033 detailed/1301 documented/19570 total, 6.6%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -831,6 +832,7 @@ do not touch this unless you know what you are doing</li>
     <li class="has-children"><a href="datum/action.html" title="&#x2F;datum&#x2F;action">action</a><ul class="index-tree">
     <li class="has-children"><a href="datum/action/ability.html" title="&#x2F;datum&#x2F;action&#x2F;ability">ability</a><ul class="index-tree">
     <li class="has-children"><a href="datum/action/ability/activable.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable">activable</a><ul class="index-tree">
+    <li><a href="datum/action/ability/activable/item_toggle.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;item_toggle">item_toggle</a></li>
     <li><a href="datum/action/ability/activable/psionic_interact.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;psionic_interact">psionic_interact</a></li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;sectoid">sectoid</span><ul class="index-tree">
     <li><a href="datum/action/ability/activable/sectoid/fuse.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;sectoid&#x2F;fuse">fuse</a></li>
@@ -839,6 +841,10 @@ do not touch this unless you know what you are doing</li>
     <li><a href="datum/action/ability/activable/sectoid/reanimate.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;sectoid&#x2F;reanimate">reanimate</a></li>
     <li><a href="datum/action/ability/activable/sectoid/reknit_form.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;sectoid&#x2F;reknit_form">reknit_form</a></li>
     <li><a href="datum/action/ability/activable/sectoid/stasis.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;sectoid&#x2F;stasis">stasis</a></li>
+    </ul></li>
+    <li class="has-children"><a href="datum/action/ability/activable/weapon_skill.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;weapon_skill">weapon_skill</a><ul class="index-tree">
+    <li><a href="datum/action/ability/activable/weapon_skill/axe_sweep.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;weapon_skill&#x2F;axe_sweep">axe_sweep</a></li>
+    <li><a href="datum/action/ability/activable/weapon_skill/sword_lunge.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;weapon_skill&#x2F;sword_lunge">sword_lunge</a></li>
     </ul></li>
     <li class="has-children"><a href="datum/action/ability/activable/xeno.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;xeno">xeno</a><ul class="index-tree">
     <li><a href="datum/action/ability/activable/xeno/adrenalinejump.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;activable&#x2F;xeno&#x2F;adrenalinejump">adrenalinejump</a></li>
@@ -2139,7 +2145,9 @@ TO-DO -- Using it as a power measurement tool for cables etc. Nannek.</li>
 While perhaps reagents created by udder component COULD be managed in the mob, it would be somewhat finnicky and I actually like the abstract udders.</li>
     <li><a href="obj/item/unmanned_vehicle_remote.html" title="&#x2F;obj&#x2F;item&#x2F;unmanned_vehicle_remote">unmanned_vehicle_remote</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;weapon">weapon</span><ul class="index-tree">
-    <li><span class="no-substance">claymore&#x2F;</span><a href="obj/item/weapon/claymore/tomahawk.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;claymore&#x2F;tomahawk">tomahawk</a></li>
+    <li class="has-children"><a href="obj/item/weapon/claymore.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;claymore">claymore</a><ul class="index-tree">
+    <li><a href="obj/item/weapon/claymore/tomahawk.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;claymore&#x2F;tomahawk">tomahawk</a></li>
+    </ul></li>
     <li><span class="no-substance">energy&#x2F;</span><a href="obj/item/weapon/energy/sword.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;energy&#x2F;sword">sword</a></li>
     <li class="has-children"><a href="obj/item/weapon/gun.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun">gun</a><ul class="index-tree">
     <li class="has-children"><span class="no-substance">energy&#x2F;lasgun&#x2F;</span><a href="obj/item/weapon/gun/energy/lasgun/lasrifle.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;gun&#x2F;energy&#x2F;lasgun&#x2F;lasrifle">lasrifle</a><ul class="index-tree">
@@ -2174,6 +2182,7 @@ While perhaps reagents created by udder component COULD be managed in the mob, i
     <li><a href="obj/item/weapon/powerfist.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;powerfist">powerfist</a></li>
     <li><span class="no-substance">shield&#x2F;riot&#x2F;marine&#x2F;</span><a href="obj/item/weapon/shield/riot/marine/deployable.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;shield&#x2F;riot&#x2F;marine&#x2F;deployable">deployable</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;twohanded">twohanded</span><ul class="index-tree">
+    <li><span class="no-substance">fireaxe&#x2F;</span><a href="obj/item/weapon/twohanded/fireaxe/som.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;twohanded&#x2F;fireaxe&#x2F;som">som</a></li>
     <li><span class="no-substance">glaive&#x2F;halberd&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;twohanded&#x2F;glaive&#x2F;halberd&#x2F;harvester">harvester</span> - VAL-HAL-A, the Vali Halberd</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;twohanded&#x2F;offhand">offhand</span> - OFFHAND</li>
     <li><a href="obj/item/weapon/twohanded/rocketsledge.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;twohanded&#x2F;rocketsledge">rocketsledge</a></li>
@@ -2541,7 +2550,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/fa64ea30984bfc9b3c8cfea55dd88f6b4d8cc080">fa64ea3</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/45fe6a9e13d358d7cebe80309112ca98e1b889fd">45fe6a9</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
