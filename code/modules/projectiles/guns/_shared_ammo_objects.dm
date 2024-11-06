@@ -139,7 +139,7 @@
 	burn_ticks = 12
 
 /obj/fire/flamer/affect_atom(atom/affected)
-	affected.fire_act(burn_level)
+	affected.fire_act(burn_level, flame_color)
 
 /obj/fire/flamer/process()
 	. = ..()
