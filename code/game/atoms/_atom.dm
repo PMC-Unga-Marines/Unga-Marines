@@ -386,14 +386,14 @@ directive is properly returned.
 		contents_explosion(severity, explosion_direction)
 
 ///Effects of fire
-/atom/proc/fire_act(burn_level)
+/atom/proc/fire_act(burn_level, flame_color)
 	return
 
 ///Effects of lava. Return true where we want the lava to keep processing
 /atom/proc/lava_act()
 	if(resistance_flags & INDESTRUCTIBLE)
 		return FALSE
-	fire_act(LAVA_BURN_LEVEL)
+	fire_act(LAVA_BURN_LEVEL, FLAME_COLOR_RED)
 	return TRUE
 
 /atom/proc/hitby(atom/movable/AM, speed = 5)

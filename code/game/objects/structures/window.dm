@@ -301,7 +301,7 @@
 	explosion_block = EXPLOSION_BLOCK_PROC
 	real_explosion_block = 4
 
-/obj/structure/window/phoronreinforced/fire_act(burn_level)
+/obj/structure/window/phoronreinforced/fire_act(burn_level, flame_color)
 	return
 
 /obj/structure/window/reinforced
