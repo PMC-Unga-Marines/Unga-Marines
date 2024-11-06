@@ -30,3 +30,6 @@
 /obj/machinery/telecomms/allinone/attackby(obj/item/P, mob/user, params)
 	if(ismultitool(P))
 		return attack_hand(user)
+
+/obj/machinery/telecomms/allinone/needs_power
+	use_power = IDLE_POWER_USE
