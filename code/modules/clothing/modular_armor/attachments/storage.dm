@@ -363,6 +363,7 @@
 
 /obj/item/storage/internal/modular/integrated
 	bypass_w_limit = list()
+	cant_hold = list()
 	storage_slots = null
 	max_storage_space = 15
 	max_w_class = WEIGHT_CLASS_NORMAL
