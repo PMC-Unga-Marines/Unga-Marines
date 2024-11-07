@@ -58,26 +58,26 @@
 /obj/item/reagent_containers/spray/proc/Spray_at(atom/A)
 	var/obj/effect/decal/chempuff/D = new/obj/effect/decal/chempuff(get_turf(src))
 	D.create_reagents(amount_per_transfer_from_this)
-	reagents.trans_to(D, amount_per_transfer_from_this, 1/spray_size)
+	reagents.trans_to(D, amount_per_transfer_from_this, 1 / spray_size)
 	D.color = mix_color_from_reagents(D.reagents.reagent_list)
 
-	var/turf/A_turf = get_turf(A)//BS12
+	INVOKE_ASYNC(src, PROC_REF(spray_step), A, D)
 
+/obj/item/reagent_containers/spray/proc/spray_step(atom/our_atom, obj/effect/decal/chempuff/our_decal)
+	var/turf/A_turf = get_turf(our_atom)//BS12
 	var/spray_dist = spray_size
-	spawn(0)
-		for(var/i=0, i<spray_dist, i++)
-			step_towards(D,A)
-			D.reagents.reaction(get_turf(D))
-			for(var/atom/T in get_turf(D))
-				D.reagents.reaction(T, VAPOR)
-				// When spraying against the wall, also react with the wall, but
-				// not its contents. BS12
-				if(get_dist(D, A_turf) == 1 && A_turf.density)
-					D.reagents.reaction(A_turf)
-				sleep(0.2 SECONDS)
-			sleep(0.3 SECONDS)
-		qdel(D)
-
+	for(var/i = 0, i < spray_dist, i++)
+		step_towards(our_decal, our_atom)
+		our_decal.reagents.reaction(get_turf(our_decal))
+		for(var/atom/T in get_turf(our_decal))
+			our_decal.reagents.reaction(T, VAPOR)
+			// When spraying against the wall, also react with the wall, but
+			// not its contents. BS12
+			if(get_dist(our_decal, A_turf) == 1 && A_turf.density)
+				our_decal.reagents.reaction(A_turf)
+			sleep(0.2 SECONDS)
+		sleep(0.3 SECONDS)
+	qdel(our_decal)
 
 /obj/item/reagent_containers/spray/attack_self(mob/user)
 	if(!possible_transfer_amounts)
@@ -169,7 +169,7 @@
 //this is a big copypasta clusterfuck, but it's still better than it used to be!
 /obj/item/reagent_containers/spray/chemsprayer/Spray_at(atom/A as mob|obj)
 	var/Sprays[3]
-	for(var/i=1, i<=3, i++) // intialize sprays
+	for(var/i = 1, i <= 3, i++) // intialize sprays
 		if(src.reagents.total_volume < 1) break
 		var/obj/effect/decal/chempuff/D = new/obj/effect/decal/chempuff(get_turf(src))
 		D.create_reagents(amount_per_transfer_from_this)
@@ -179,29 +179,30 @@
 
 		Sprays[i] = D
 
-	var/direction = get_dir(src, A)
-	var/turf/T = get_turf(A)
+	INVOKE_ASYNC(src, PROC_REF(spray_step), A, null, Sprays)
+
+/obj/item/reagent_containers/spray/chemspray/spray_step(atom/our_atom, obj/effect/decal/chempuff/our_decal, Sprays)
+	var/direction = get_dir(src, our_atom)
+	var/turf/T = get_turf(our_atom)
 	var/turf/T1 = get_step(T,turn(direction, 90))
 	var/turf/T2 = get_step(T,turn(direction, -90))
-	var/list/the_targets = list(T,T1,T2)
+	var/list/the_targets = list(T, T1, T2)
 
-	for(var/i=1, length(i<=Sprays), i++)
-		spawn()
-			var/obj/effect/decal/chempuff/D = Sprays[i]
-			if(!D) continue
+	for(var/i = 1, length(i <= Sprays), i++)
+		var/obj/effect/decal/chempuff/D = Sprays[i]
+		if(!D)
+			continue
+		// Spreads the sprays a little bit
+		var/turf/my_target = pick(the_targets)
+		the_targets -= my_target
 
-			// Spreads the sprays a little bit
-			var/turf/my_target = pick(the_targets)
-			the_targets -= my_target
-
-			for(var/j=1, j<=rand(6,8), j++)
-				step_towards(D, my_target)
-				D.reagents.reaction(get_turf(D))
-				for(var/atom/t in get_turf(D))
-					D.reagents.reaction(t, VAPOR)
-				sleep(0.2 SECONDS)
-			qdel(D)
-
+		for(var/j = 1, j <= rand(6, 8), j++)
+			step_towards(D, my_target)
+			D.reagents.reaction(get_turf(D))
+			for(var/atom/t in get_turf(D))
+				D.reagents.reaction(t, VAPOR)
+			sleep(0.2 SECONDS)
+		qdel(D)
 
 // Plant-B-Gone
 /obj/item/reagent_containers/spray/plantbgone // -- Skie

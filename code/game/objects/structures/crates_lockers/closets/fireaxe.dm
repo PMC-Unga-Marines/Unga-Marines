@@ -96,7 +96,7 @@
 			localopened = !localopened
 			if(localopened)
 				icon_state = "fireaxe[hasaxe][localopened][hitstaken][smashed]opening"
-					addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1 SECONDS)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1 SECONDS)
 			else
 				icon_state = "fireaxe[hasaxe][localopened][hitstaken][smashed]closing"
 				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1 SECONDS)
