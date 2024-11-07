@@ -90,9 +90,11 @@
 		var/mob/living/carbon/C = user
 		C.throw_mode_on()
 	overlays += new/obj/effect/overlay/danger
-	spawn(rand(3,50))
-		spark_system.start(src)
-		explode()
+	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), rand(3, 50))
+
+/obj/item/cell/proc/delayed_explosion()
+	spark_system.start(src)
+	explode()
 
 /obj/item/cell/attackby(obj/item/I, mob/user, params)
 	. = ..()
