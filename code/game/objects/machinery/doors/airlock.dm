@@ -55,8 +55,7 @@
 		if(!justzap)
 			if(shock(user, 100))
 				justzap = TRUE
-				spawn(openspeed)
-					justzap = FALSE
+				addtimer(VARSET_CALLBACK(src, justzap, FALSE), openspeed)
 				return
 		else /*if(justzap)*/
 			return
@@ -208,14 +207,16 @@
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
 		if("opening")
-			if(overlays) overlays.Cut()
+			if(overlays)
+				overlays.Cut()
 			if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 				spawn(2) // The only work around that works. Downside is that the door will be gone for a millisecond.
 					flick("o_door_opening", src)  //can not use flick due to BYOND bug updating overlays right before flicking
 			else
 				flick("door_opening", src)
 		if("closing")
-			if(overlays) overlays.Cut()
+			if(overlays)
+				overlays.Cut()
 			if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 				flick("o_door_closing", src)
 			else

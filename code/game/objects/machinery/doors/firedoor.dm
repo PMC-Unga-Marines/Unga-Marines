@@ -136,10 +136,12 @@
 			to_chat(xeno_attacker, span_warning("\The [src] is welded shut."))
 			return FALSE
 		if(density) //Make sure it's still closed
-			spawn(0)
-				open(1)
-				xeno_attacker.visible_message(span_danger("\The [xeno_attacker] pries \the [src] open."), \
-				span_danger("We pry \the [src] open."), null, 5)
+			INVOKE_ASYNC(src, PROC_REF(xeno_open), xeno_attacker)
+
+/obj/machinery/door/firedoor/proc/xeno_open(mob/living/carbon/xenomorph/xeno_attacker)
+	open(TRUE)
+	xeno_attacker.visible_message(span_danger("\The [xeno_attacker] pries \the [src] open."), \
+	span_danger("We pry \the [src] open."), null, 5)
 
 /obj/machinery/door/firedoor/attack_hand(mob/living/user)
 	. = ..()
@@ -187,14 +189,16 @@
 		close()
 
 	if(needs_to_close)
-		spawn(50)
-			alarmed = FALSE
-			for(var/area/A in areas_added)		//Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
-				if(A.flags_alarm_state & ALARM_WARNING_FIRE || A.air_doors_activated)
-					alarmed = TRUE
-			if(alarmed)
-				nextstate = FIREDOOR_CLOSED
-				close()
+		addtimer(CALLBACK(src, PROC_REF(closing_process)), 5 SECONDS)
+
+/obj/machinery/door/firedoor/proc/closing_process()
+	var/alarmed = FALSE
+	for(var/area/A in areas_added) // Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
+		if(A.flags_alarm_state & ALARM_WARNING_FIRE || A.air_doors_activated)
+			alarmed = TRUE
+	if(alarmed)
+		nextstate = FIREDOOR_CLOSED
+		close()
 
 /obj/machinery/door/firedoor/attackby(obj/item/I, mob/user, params)
 	. = ..()

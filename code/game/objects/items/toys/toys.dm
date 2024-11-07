@@ -206,7 +206,7 @@
 	if (istype(A, /obj/item/storage/backpack ))
 		return
 
-	else if (locate (/obj/structure/table, src.loc))
+	else if (locate (/obj/structure/table, loc))
 		return
 
 	else if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
@@ -215,33 +215,34 @@
 		return
 
 	else if (src.reagents.total_volume < 1)
-		src.empty = 1
+		empty = 1
 		to_chat(user, span_notice("Your flower has run dry!"))
 		return
 
 	else
-		src.empty = 0
+		empty = 0
 
 		var/obj/effect/decal/D = new/obj/effect/decal/(get_turf(src))
 		D.name = "water"
 		D.icon = 'icons/obj/items/chemistry.dmi'
 		D.icon_state = "chempuff"
 		D.create_reagents(5)
-		src.reagents.trans_to(D, 1)
-		playsound(src.loc, 'sound/effects/spray3.ogg', 15, 1, 3)
+		reagents.trans_to(D, 1)
+		playsound(loc, 'sound/effects/spray3.ogg', 15, 1, 3)
 
-		spawn(0)
-			for(var/i=0, i<1, i++)
-				step_towards(D,A)
-				D.reagents.reaction(get_turf(D))
-				for(var/atom/T in get_turf(D))
-					D.reagents.reaction(T)
-					if(ismob(T) && T:client)
-						to_chat(T:client, span_warning("[user] has sprayed you with water!"))
-				sleep(0.4 SECONDS)
-			qdel(D)
-
+		INVOKE_ASYNC(src, PROC_REF(spray_water), A, D, user)
 		return
+
+/obj/item/toy/waterflower/proc/spray_water(atom/our_atom, obj/effect/decal/our_decal, mob/user)
+	for(var/i = 0, i < 1, i++)
+		step_towards(our_decal, our_atom)
+		our_decal.reagents.reaction(get_turf(our_decal))
+		for(var/atom/T in get_turf(our_decal))
+			our_decal.reagents.reaction(T)
+			if(ismob(T) && T:client)
+				to_chat(T:client, span_warning("[user] has sprayed you with water!"))
+		sleep(0.4 SECONDS)
+	qdel(our_decal)
 
 /obj/item/toy/waterflower/examine(mob/user)
 	. = ..()
