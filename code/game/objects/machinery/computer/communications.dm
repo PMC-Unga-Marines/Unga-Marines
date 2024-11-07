@@ -181,14 +181,8 @@
 				if(!SSevacuation.cancel_evacuation())
 					to_chat(usr, span_warning("You are unable to cancel the evacuation right now!"))
 					return FALSE
-
-				spawn(35)//some time between AI announcements for evac cancel and SD cancel.
-					if(SSevacuation.evac_status == EVACUATION_STATUS_STANDING_BY)//nothing changed during the wait
-						//if the self_destruct is active we try to cancel it (which includes lowering alert level to red)
-						if(!SSevacuation.cancel_self_destruct(1))
-							//if SD wasn't active (likely canceled manually in the SD room), then we lower the alert level manually.
-							GLOB.marine_main_ship.set_security_level(SEC_LEVEL_RED, TRUE) //both SD and evac are inactive, lowering the security level.
-
+				//some time between AI announcements for evac cancel and SD cancel.
+				addtimer(CALLBACK(src, PROC_REF(evacuation_cancel)), 3.5 SECONDS)
 				log_game("[key_name(usr)] has canceled the emergency evacuation.")
 				message_admins("[ADMIN_TPMONTY(usr)] has canceled the emergency evacuation.")
 				return TRUE
@@ -332,6 +326,14 @@
 
 	updateUsrDialog()
 
+/obj/machinery/computer/communications/proc/evacuation_cancel()
+	if(SSevacuation.evac_status != EVACUATION_STATUS_STANDING_BY) // nothing changed during the wait
+		return
+		//if the self_destruct is active we try to cancel it (which includes lowering alert level to red)
+	if(SSevacuation.cancel_self_destruct(TRUE))
+		return
+		//if SD wasn't active (likely canceled manually in the SD room), then we lower the alert level manually.
+	GLOB.marine_main_ship.set_security_level(SEC_LEVEL_RED, TRUE) //both SD and evac are inactive, lowering the security level.
 
 /obj/machinery/computer/communications/interact(mob/user)
 	. = ..()

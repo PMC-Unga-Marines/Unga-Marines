@@ -87,20 +87,21 @@
 		var/obj/machinery/portable_atmospherics/scrubber/huge/scrubber = locate(href_list["scrub"])
 
 		if(!validscrubber(scrubber))
-			spawn(20)
-				status = "ERROR: Couldn't connect to scrubber! (timeout)"
-				connectedscrubbers -= scrubber
-				src.updateUsrDialog()
+			addtimer(CALLBACK(src, PROC_REF(send_error_message), scrubber), 2 SECONDS)
 			return
 
 		scrubber.on = text2num(href_list["toggle"])
 		scrubber.update_icon()
 
-/obj/machinery/computer/area_atmos/proc/validscrubber( obj/machinery/portable_atmospherics/scrubber/huge/scrubber as obj )
-	if(!isobj(scrubber) || get_dist(scrubber.loc, src.loc) > src.range || scrubber.loc.z != src.loc.z)
-		return 0
+/obj/machinery/computer/area_atmos/proc/send_error_message(obj/machinery/portable_atmospherics/scrubber/huge/scrubber)
+	status = "ERROR: Couldn't connect to scrubber! (timeout)"
+	connectedscrubbers -= scrubber
+	updateUsrDialog()
 
-	return 1
+/obj/machinery/computer/area_atmos/proc/validscrubber(obj/machinery/portable_atmospherics/scrubber/huge/scrubber as obj)
+	if(!isobj(scrubber) || get_dist(scrubber.loc, src.loc) > src.range || scrubber.loc.z != src.loc.z)
+		return FALSE
+	return TRUE
 
 /obj/machinery/computer/area_atmos/proc/scanscrubbers()
 	connectedscrubbers = new()

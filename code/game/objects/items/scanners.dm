@@ -53,13 +53,15 @@ REAGENT SCANNER
 			if(O.invisibility == INVISIBILITY_MAXIMUM)
 				O.invisibility = 0
 				O.alpha = 128
-				spawn(10)
-					if(O && !O.gc_destroyed)
-						var/turf/U = O.loc
-						if(U.intact_tile)
-							O.invisibility = INVISIBILITY_MAXIMUM
-							O.alpha = 255
+				addtimer(CALLBACK(src, PROC_REF(scan_for_items), O), 1 SECONDS)
 
+/obj/item/t_scanner/proc/scan_for_items(obj/our_object)
+	if(our_object.gc_destroyed)
+		return
+	var/turf/U = our_object.loc
+	if(U.intact_tile)
+		our_object.invisibility = INVISIBILITY_MAXIMUM
+		our_object.alpha = 255
 
 /obj/item/healthanalyzer
 	name = "\improper HF2 health analyzer"

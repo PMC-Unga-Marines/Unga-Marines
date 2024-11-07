@@ -90,9 +90,9 @@
 		var/mob/living/carbon/C = user
 		C.throw_mode_on()
 	overlays += new/obj/effect/overlay/danger
-	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), rand(3, 50))
+	addtimer(CALLBACK(src, PROC_REF(delayed_explosion), spark_system), rand(3, 50))
 
-/obj/item/cell/proc/delayed_explosion()
+/obj/item/cell/proc/delayed_explosion(datum/effect_system/spark_spread/spark_system)
 	spark_system.start(src)
 	explode()
 

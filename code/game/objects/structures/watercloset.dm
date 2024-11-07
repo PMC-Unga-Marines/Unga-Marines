@@ -234,21 +234,27 @@
 		if(watertemp == WATER_TEMP_FREEZING)
 			return
 		if(!ismist)
-			spawn(50)
-				if(src && on)
-					ismist = TRUE
-					mymist = new /obj/effect/mist(loc)
+			addtimer(CALLBACK(src, PROC_REF(spawn_mist)), 5 SECONDS)
 		else
 			ismist = TRUE
 			mymist = new /obj/effect/mist(loc)
 	else if(ismist)
 		ismist = TRUE
 		mymist = new /obj/effect/mist(loc)
-		spawn(250)
-			if(src && !on)
-				qdel(mymist)
-				mymist = null
-				ismist = FALSE
+		addtimer(CALLBACK(src, PROC_REF(clean_mist)), 25 SECONDS)
+
+/obj/machinery/shower/proc/spawn_mist()
+	if(!on)
+		return
+	ismist = TRUE
+	mymist = new /obj/effect/mist(loc)
+
+/obj/machinery/shower/proc/clean_mist()
+	if(on)
+		return
+	qdel(mymist)
+	mymist = null
+	ismist = FALSE
 
 /obj/machinery/shower/update_overlays()
 	. = ..()
