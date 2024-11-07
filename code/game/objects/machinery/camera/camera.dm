@@ -277,6 +277,14 @@
 	user.see_in_dark = 2
 	return TRUE
 
+/obj/machinery/camera/punch_act(...)
+	. = ..()
+	var/datum/effect_system/spark_spread/sparks = new
+	sparks.set_up(2, 0, src)
+	sparks.attach(src)
+	sparks.start()
+	deactivate()
+
 /obj/machinery/camera/autoname
 	light_range = 1
 	light_power = 0.2

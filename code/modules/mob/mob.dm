@@ -578,7 +578,7 @@
 			conga_line += S.buckled
 	while(!end_of_conga)
 		var/atom/movable/A = S.pulling
-		if(A in conga_line || A.anchored) //No loops, nor moving anchored things.
+		if((A in conga_line) || A.anchored) //No loops, nor moving anchored things.
 			end_of_conga = TRUE
 			break
 		conga_line += A
@@ -827,16 +827,13 @@
 	clear_important_client_contents()
 	canon_client = null
 
-/mob/onTransitZ(old_z, new_z)
+/mob/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
 	. = ..()
 	if(!client || !hud_used)
 		return
-	if(old_z == new_z)
+	if(old_turf?.z == new_turf?.z)
 		return
-	if(isliving(src))
-		var/mob/living/living = src
-		living.update_z(new_z)
-	if(is_ground_level(new_z))
+	if(is_ground_level(new_turf.z))
 		hud_used.remove_parallax(src)
 		return
 	hud_used.create_parallax(src)

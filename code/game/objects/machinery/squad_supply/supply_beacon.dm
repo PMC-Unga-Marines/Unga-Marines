@@ -121,10 +121,10 @@
 	SIGNAL_HANDLER
 	beacon_datum = null
 
-/obj/item/beacon/supply_beacon/onTransitZ(old_z,new_z)
+/obj/item/beacon/supply_beacon/on_changed_z_level(old_turf, new_turf, notify_contents)
 	. = ..()
 	//Assumes doMove sets loc before onTransitZ
-	if(beacon_datum) // RUTGMC ADDITION, supply beacon runtime fix
+	if(beacon_datum)
 		beacon_datum.drop_location = loc
 
 /obj/item/beacon/supply_beacon/activate(mob/living/carbon/human/H)

@@ -335,6 +335,8 @@
 		return
 	if(get_dist(user, flamer_tank) > 1)
 		return
+	if(flamer_tank.default_ammo != /datum/ammo/flamethrower) // hardcoded check for right fuel type
+		return
 	if(flamer_tank.current_rounds >= flamer_tank.max_rounds)
 		to_chat(user, span_warning("[flamer_tank] is already full."))
 		return
@@ -350,7 +352,7 @@
 
 /obj/item/storage/holster/backholster/flamer/examine(mob/user)
 	. = ..()
-	. += "[tank.current_rounds] units of fuel left!"
+	. += span_notice("[tank.current_rounds] units of fuel left!")
 
 /obj/item/storage/holster/backholster/flamer/full/Initialize(mapload)
 	. = ..()

@@ -199,20 +199,19 @@
 /obj/effect/decal/cleanable/blood/gibs/core
 	random_icon_states = list("gibmid1", "gibmid2", "gibmid3")
 
-
-/obj/effect/decal/cleanable/blood/gibs/proc/streak(list/directions)
+/obj/effect/decal/cleanable/blood/gibs/proc/streak(list/directions, mapload = FALSE)
 	spawn (0)
 		var/direction = pick(directions)
-		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
-			sleep(0.3 SECONDS)
-			if (i > 0)
+		for(var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
+			if(!mapload)
+				sleep(0.3 SECONDS)
+			if(i > 0)
 				var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)
 				b.basecolor = src.basecolor
 				b.update_icon()
 
-			if (step_to(src, get_step(src, direction), 0))
+			if(step_to(src, get_step(src, direction), 0))
 				break
-
 
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"

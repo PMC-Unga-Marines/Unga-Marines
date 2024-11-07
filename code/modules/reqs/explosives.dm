@@ -19,6 +19,12 @@
 	contains = list(/obj/item/storage/box/visual/grenade/razorburn)
 	cost = 500
 
+/datum/supply_packs/explosives/stickytanglenades
+	name = "M45-T adhesive tanglefoot grenade"
+	notes = "Contains 25 M45-T sticky grenade"
+	contains = list(/obj/item/storage/box/visual/grenade/drain)
+	cost = 300
+
 /datum/supply_packs/explosives/explosives_sticky
 	name = "M40 adhesive charge grenade box crate"
 	notes = "Contains 25 grenades"
@@ -133,22 +139,27 @@
 /datum/supply_packs/explosives/mlrs_rockets
 	name = "TA-40L MLRS Rocket Pack (x16)"
 	contains = list(/obj/item/storage/box/mlrs_rockets)
-	cost = 60
+	cost = 40
 
 /datum/supply_packs/explosives/mlrs_rockets_gas
 	name = "TA-40L X-50 MLRS Rocket Pack (x16)"
 	contains = list(/obj/item/storage/box/mlrs_rockets_gas)
-	cost = 60
+	cost = 50
+
+/datum/supply_packs/explosives/mlrs_rockets_tangle
+	name = "TA-40L T-33 MLRS Rocket Pack (x16)"
+	contains = list(/obj/item/storage/box/mlrs_rockets_tangle)
+	cost = 50
 
 /datum/supply_packs/explosives/ai_target_module
 	name = "AI artillery targeting module"
 	contains = list(/obj/item/ai_target_beacon)
-	cost = 100
+	cost = 50
 
 /datum/supply_packs/explosives/knee_mortar
 	name = "T-10K Knee Mortar"
 	contains = list(/obj/item/mortar_kit/knee)
-	cost = 125
+	cost = 50
 
 /datum/supply_packs/explosives/knee_mortar_ammo
 	name = "TA-10K knee mortar HE shell"
@@ -164,24 +175,24 @@
 /datum/supply_packs/explosives/howitzer
 	name = "TA-100Y howitzer"
 	contains = list(/obj/item/mortar_kit/howitzer)
-	cost = 600
+	cost = 500
 
 /datum/supply_packs/explosives/howitzer_ammo_he
 	name = "TA-100Y howitzer HE shell"
 	contains = list(/obj/item/mortal_shell/howitzer/he)
-	cost = 40
+	cost = 30
 
 /datum/supply_packs/explosives/howitzer_ammo_incend
 	name = "TA-100Y howitzer incendiary shell"
 	contains = list(/obj/item/mortal_shell/howitzer/incendiary)
-	cost = 40
+	cost = 30
 
 /datum/supply_packs/explosives/howitzer_ammo_wp
 	name = "TA-100Y howitzer white phosporous smoke shell"
 	contains = list(/obj/item/mortal_shell/howitzer/white_phos)
-	cost = 60
+	cost = 45
 
 /datum/supply_packs/explosives/howitzer_ammo_plasmaloss
 	name = "TA-100Y howitzer tanglefoot shell"
 	contains = list(/obj/item/mortal_shell/howitzer/plasmaloss)
-	cost = 60
+	cost = 45

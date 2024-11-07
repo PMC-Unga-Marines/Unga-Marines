@@ -1117,6 +1117,9 @@
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "type71"
 	item_state = "type71"
+	unique_reskin = list(
+		"Wood" = "type71_wood",
+	)
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	caliber = CALIBER_762X39 //codex
 	max_shells = 42 //codex
@@ -1901,7 +1904,6 @@
 	default_ammo_type = null
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/tx54,
-		/obj/item/ammo_magazine/rifle/tx54/he,
 		/obj/item/ammo_magazine/rifle/tx54/incendiary,
 		/obj/item/ammo_magazine/rifle/tx54/smoke,
 		/obj/item/ammo_magazine/rifle/tx54/smoke/dense,

@@ -457,14 +457,6 @@
 // ***************************************
 // *********** Punch
 // ***************************************
-#define WARRIOR_PUNCH_SLOWDOWN 3
-#define WARRIOR_PUNCH_STAGGER 3
-#define WARRIOR_PUNCH_EMPOWER_MULTIPLIER 1.8 // RU TGMC EDIT
-#define WARRIOR_PUNCH_GRAPPLED_DAMAGE_MULTIPLIER 1.8
-#define WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER 1.5
-#define WARRIOR_PUNCH_GRAPPLED_PARALYZE 0.5 SECONDS
-#define WARRIOR_PUNCH_KNOCKBACK_DISTANCE 1 // in tiles
-#define WARRIOR_PUNCH_KNOCKBACK_SPEED 1
 
 /datum/action/ability/activable/xeno/warrior/punch
 	name = "Punch"
@@ -543,108 +535,6 @@
 		return FALSE
 	return TRUE
 
-/// Handles anything that should happen when the Warrior's punch hits any atom.
-/atom/proc/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, push = TRUE)
-	return TRUE
-
-/obj/machinery/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, ...)
-	xeno.do_attack_animation(src, ATTACK_EFFECT_YELLOWPUNCH)
-	xeno.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
-	if(!(resistance_flags & UNACIDABLE) || resistance_flags & XENO_DAMAGEABLE) // If it's acidable or we can't acid it but it has the xeno damagable flag, we can damage it
-		attack_generic(xeno, punch_damage * 4, BRUTE, effects = FALSE)
-	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 50, 1)
-	Shake(duration = 0.5 SECONDS)
-	if(!(machine_stat & PANEL_OPEN))
-		machine_stat |= PANEL_OPEN
-	if(wires)
-		var/allcut = wires.is_all_cut()
-		if(!allcut)
-			wires.cut_all()
-	//update_appearance()
-	return TRUE
-
-/obj/machinery/computer/punch_act(...)
-	set_disabled() // Currently only computers use this; falcon punch away its density.
-	return ..()
-
-/obj/machinery/light/punch_act(mob/living/carbon/xenomorph/xeno, ...)
-	. = ..()
-	attack_alien(xeno)
-
-/obj/machinery/camera/punch_act(...)
-	. = ..()
-	var/datum/effect_system/spark_spread/sparks = new
-	sparks.set_up(2, 0, src)
-	sparks.attach(src)
-	sparks.start()
-	deactivate()
-
-/obj/machinery/power/apc/punch_act(...)
-	. = ..()
-	beenhit += 4 // Break it open instantly.
-	//update_appearance()
-
-/obj/machinery/vending/punch_act(...)
-	. = ..()
-	if(tipped_level < 2)
-		tip_over()
-
-/obj/structure/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, ...)
-	. = ..()
-	xeno.do_attack_animation(src, ATTACK_EFFECT_YELLOWPUNCH)
-	xeno.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
-	attack_alien(xeno, punch_damage * 4, BRUTE, effects = FALSE)
-	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 50, 1)
-	Shake(duration = 0.5 SECONDS)
-
-/obj/vehicle/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, ...)
-	. = ..()
-	xeno.do_attack_animation(src, ATTACK_EFFECT_YELLOWPUNCH)
-	xeno.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
-	attack_generic(xeno, punch_damage * 4, BRUTE, effects = FALSE)
-	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 50, 1)
-	Shake(duration = 0.5 SECONDS)
-	return TRUE
-
-/mob/living/punch_act(mob/living/carbon/xenomorph/warrior/xeno, punch_damage, push = TRUE)
-	. = ..()
-	var/slowdown_stacks = WARRIOR_PUNCH_SLOWDOWN
-	var/stagger_stacks = WARRIOR_PUNCH_STAGGER
-	var/visual_effect = /obj/effect/temp_visual/warrior/punch/weak
-	var/sound_effect = 'sound/weapons/punch1.ogg'
-	if(pulledby == xeno)
-		xeno.stop_pulling()
-		punch_damage *= WARRIOR_PUNCH_GRAPPLED_DAMAGE_MULTIPLIER
-		slowdown_stacks *= WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER
-		stagger_stacks *= WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER
-		visual_effect = /obj/effect/temp_visual/warrior/punch/strong
-		sound_effect = 'sound/weapons/punch2.ogg'
-		Paralyze(WARRIOR_PUNCH_GRAPPLED_PARALYZE)
-		Shake(duration = 0.5 SECONDS)
-	var/datum/limb/target_limb
-	if(!iscarbon(src))
-		var/mob/living/carbon/carbon_target = src
-		target_limb = carbon_target.get_limb(xeno.zone_selected)
-		if(!target_limb || (target_limb.limb_status & LIMB_DESTROYED))
-			target_limb = carbon_target.get_limb(BODY_ZONE_CHEST)
-	xeno.face_atom(src)
-	xeno.do_attack_animation(src)
-	new visual_effect(get_turf(src))
-	playsound(src, sound_effect, 50, 1)
-	shake_camera(src, 1, 1)
-	add_slowdown(slowdown_stacks)
-	adjust_stagger(stagger_stacks SECONDS)
-	adjust_blurriness(slowdown_stacks)
-	apply_damage(punch_damage, BRUTE, target_limb ? target_limb : 0, MELEE)
-	apply_damage(punch_damage, STAMINA, updating_health = TRUE)
-	var/turf_behind = get_step(src, REVERSE_DIR(get_dir(src, xeno)))
-	if(!push)
-		return
-	if(LinkBlocked(get_turf(src), turf_behind))
-		do_attack_animation(turf_behind)
-		return
-	knockback(xeno, WARRIOR_PUNCH_KNOCKBACK_DISTANCE, WARRIOR_PUNCH_KNOCKBACK_SPEED)
-
 /obj/effect/temp_visual/warrior/punch
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "weak_punch"
@@ -661,7 +551,6 @@
 	duration = 3
 	pixel_x = -16
 	pixel_y = -16
-
 
 // ***************************************
 // *********** Flurry
