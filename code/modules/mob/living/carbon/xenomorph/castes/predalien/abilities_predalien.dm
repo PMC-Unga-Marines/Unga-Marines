@@ -190,10 +190,7 @@
 		carbon.apply_damage(base_damage + damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
 		xeno.do_attack_animation(carbon, ATTACK_EFFECT_CLAW)
-		spawn()
-			for(var/x in 1 to 4)
-				sleep(1)
-				xeno.setDir(turn(xeno.dir, 90))
+		INVOKE_ASYNC(src, PROC_REF(ability_spin))
 		xeno.do_attack_animation(carbon, ATTACK_EFFECT_BITE)
 
 	playsound(xeno, 'sound/voice/alien/predalien/growl.ogg', 75, 0)
@@ -207,3 +204,9 @@
 
 	add_cooldown()
 	succeed_activate()
+
+/datum/action/ability/activable/xeno/devastate/proc/ability_spin()
+	var/mob/living/carbon/xenomorph/predalien/xeno = owner
+	for(var/x in 1 to 4)
+		sleep(1)
+		xeno.setDir(turn(xeno.dir, 90))
