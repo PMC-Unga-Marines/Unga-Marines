@@ -311,7 +311,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/sg29
 	max_rounds = 250
-	reload_delay = 2.5 SECONDS
+	reload_delay = 1.3 SECONDS
 
 //-------------------------------------------------------
 //SMART TARGET RIFLE AMMUNITION
@@ -480,14 +480,6 @@
 	max_rounds = 8
 	greyscale_config = /datum/greyscale_config/ammo
 	greyscale_colors = COLOR_AMMO_AIRBURST
-
-/obj/item/ammo_magazine/rifle/tx54/he
-	name = "\improper 20mm HE grenade magazine"
-	desc = "A 20mm magazine loaded with HE grenades. For use with the GL-54 or AR-55."
-	default_ammo = /datum/ammo/tx54/he
-	icon_state = "tx54_airburst"
-	icon_state_mini = "mag_sniper_red"
-	greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
 
 /obj/item/ammo_magazine/rifle/tx54/incendiary
 	name = "\improper 20mm incendiary grenade magazine"

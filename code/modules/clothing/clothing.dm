@@ -188,7 +188,6 @@
 	flags_armor_features ^= ARMOR_LAMP_ON
 	playsound(src, 'sound/items/flashlight.ogg', 15, TRUE)
 	update_icon()
-	update_action_button_icons()
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if(ismob(loc))
@@ -280,10 +279,6 @@
 	var/anti_hug = 0
 	var/toggleable = FALSE
 	active = TRUE
-	/// If defined, what voice should we override with if TTS is active?
-	var/voice_override
-	/// If set to true, activates the radio effect on TTS.
-	var/use_radio_beeps_tts = FALSE
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))

@@ -386,14 +386,14 @@ directive is properly returned.
 		contents_explosion(severity, explosion_direction)
 
 ///Effects of fire
-/atom/proc/fire_act(burn_level)
+/atom/proc/fire_act(burn_level, flame_color)
 	return
 
 ///Effects of lava. Return true where we want the lava to keep processing
 /atom/proc/lava_act()
 	if(resistance_flags & INDESTRUCTIBLE)
 		return FALSE
-	fire_act(LAVA_BURN_LEVEL)
+	fire_act(LAVA_BURN_LEVEL, FLAME_COLOR_RED)
 	return TRUE
 
 /atom/proc/hitby(atom/movable/AM, speed = 5)
@@ -842,9 +842,9 @@ directive is properly returned.
 			if(HUD_LIST_LIST)
 				hud_list[hud] = list()
 			else
-				var/image/I = image('icons/mob/hud.dmi', src, "")
+				var/image/I = image('icons/mob/hud/human_misc.dmi', src, "")
 				if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
-					I = image('icons/mob/hud_yautja.dmi', src, "")
+					I = image('icons/mob/hud/yautja.dmi', src, "")
 				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
 				hud_list[hud] = I
 
@@ -970,3 +970,15 @@ directive is properly returned.
 /atom/proc/do_acid_melt()
 	visible_message(span_xenodanger("[src] collapses under its own weight into a puddle of goop and undigested debris!"))
 	playsound(src, "acid_hit", 25)
+
+///Anything called here will have failed CanPass(), so it's likely dense.
+/atom/proc/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return //If this happens it will error.
+
+///By default, if this happens then movement stops. But not necessarily.
+/atom/proc/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return PRECRUSH_STOPPED
+
+/// Handles anything that should happen when the Warrior's punch hits any atom.
+/atom/proc/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, push = TRUE)
+	return TRUE

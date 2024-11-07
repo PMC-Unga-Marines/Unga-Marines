@@ -224,6 +224,8 @@ Important note: colors can end up significantly different from the basic html pi
 #define LIGHT_COLOR_LIGHT_CYAN "#40CEFF"
 /// Saturated blue. rgb(51, 117, 248)
 #define LIGHT_COLOR_DARK_BLUE "#6496FA"
+/// Blue used by keycard auth when blinking rgb(086, 104, 225)
+#define LIGHT_COLOR_KEYCARD_BLUE "#5668E1"
 /// Diluted, mid-warmth pink. rgb(225, 125, 225)
 #define LIGHT_COLOR_PINK "#E17DE1"
 /// Dimmed yellow, leaning kaki. rgb(225, 225, 125)

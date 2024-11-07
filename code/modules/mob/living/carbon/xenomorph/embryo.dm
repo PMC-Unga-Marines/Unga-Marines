@@ -29,7 +29,6 @@
 		var/mob/living/carbon/C = affected_mob
 		C.med_hud_set_status()
 
-
 /obj/item/alien_embryo/Destroy()
 	if(affected_mob)
 		log_combat(affected_mob, null, "had their embryo removed")
@@ -41,10 +40,12 @@
 		affected_mob = null
 	return ..()
 
-
 /obj/item/alien_embryo/process()
 	if(!affected_mob)
 		qdel(src)
+		return PROCESS_KILL
+
+	if(is_centcom_level(affected_mob.z) && !admin) // just in case
 		return PROCESS_KILL
 
 	if(loc != affected_mob)
@@ -64,7 +65,6 @@
 		return //If they are in cryo, bag or cell, the embryo won't grow.
 
 	process_growth()
-
 
 /obj/item/alien_embryo/proc/process_growth()
 	if(CHECK_BITFIELD(affected_mob.restrained_flags, RESTRAINED_XENO_NEST)) //Hosts who are nested in resin nests provide an ideal setting, larva grows faster.
@@ -145,14 +145,12 @@
 	//Spawn the larva.
 	var/mob/living/carbon/xenomorph/larva/new_xeno
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(isyautja(affected_mob))
 		new_xeno = new /mob/living/carbon/xenomorph/larva/predalien(affected_mob)
 		yautja_announcement(span_yautjaboldbig("ТРЕВОГА!\n\nЗамечено Отродье в [get_area_name(new_xeno)]. Это слишком низко для нашей чести. Ошибка природы. Уничтожьте его немедленно.\n\nОткрыт доступ к Тяжелому Вооружению."))
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_YAUTJA_ARMORY_OPENED)
 	else
 		new_xeno = new(affected_mob)
-//RUTGMC EDIT ADDITION END
 
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.update_icons()
@@ -165,7 +163,6 @@
 
 	stage = 6
 
-
 /mob/living/carbon/xenomorph/larva/proc/initiate_burst(mob/living/carbon/victim)
 	if(victim.chestburst || loc != victim)
 		return
@@ -176,7 +173,7 @@
 
 	victim.Unconscious(40 SECONDS)
 	victim.visible_message(span_danger("\The [victim] starts shaking uncontrollably!"), \
-								span_danger("You feel something ripping up your insides!"))
+		span_danger("You feel something ripping up your insides!"))
 	victim.jitter(300)
 
 	victim.emote_burstscream()
@@ -242,16 +239,13 @@
 
 	victim.death()
 
-
 /mob/living/proc/emote_burstscream()
 	return
-
 
 /mob/living/carbon/human/emote_burstscream()
 	if(species.species_flags & NO_PAIN)
 		return
 	emote("burstscream")
-
 
 ///Adjusts the growth acceleration timer
 /obj/item/alien_embryo/proc/adjust_boost_timer(amount, capped = 0, override_time = FALSE)

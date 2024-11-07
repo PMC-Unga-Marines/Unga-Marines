@@ -59,7 +59,6 @@
 	icon_off = "secure_closed_medical_white"
 
 /obj/structure/closet/secure_closet/medical3/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/glasses/hud/health(src)
 	new /obj/item/storage/belt/lifesaver/full(src)
 	new /obj/item/storage/backpack/marine/satchel(src)
