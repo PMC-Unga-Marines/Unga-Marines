@@ -91,10 +91,10 @@
 	},
 /area/shuttle/canterbury/cic)
 "aq" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /obj/machinery/air_alarm{
 	dir = 1
 	},
+/obj/machinery/telecomms/allinone/needs_power,
 /turf/open/floor/mainship/blue,
 /area/shuttle/canterbury/cic)
 "ar" = (
