@@ -30,34 +30,27 @@
 		signal.data["slow"] += rand(5, 10) // slow the signal down
 		relay_information(signal, signal.server_type)
 
-
 //Preset Processors
-/obj/machinery/telecomms/processor/preset_one
+/obj/machinery/telecomms/processor/preset
+	network = "tcommsat"
+
+/obj/machinery/telecomms/processor/preset/one
 	id = "Processor 1"
-	network = "tcommsat"
-	autolinkers = list("processor1") // processors are sort of isolated; they don't need backward links
+	autolinkers = list("processor1")// processors are sort of isolated; they don't need backward links
 
-
-/obj/machinery/telecomms/processor/preset_two
+/obj/machinery/telecomms/processor/preset/two
 	id = "Processor 2"
-	network = "tcommsat"
 	autolinkers = list("processor2")
 
-
-/obj/machinery/telecomms/processor/preset_three
+/obj/machinery/telecomms/processor/preset/three
 	id = "Processor 3"
-	network = "tcommsat"
 	autolinkers = list("processor3")
 
-
-/obj/machinery/telecomms/processor/preset_four
+/obj/machinery/telecomms/processor/preset/four
 	id = "Processor 4"
-	network = "tcommsat"
 	autolinkers = list("processor4")
 
 //proper backup server for CIC
-/obj/machinery/telecomms/processor/preset_four/cicbackup
-	on = 0
+/obj/machinery/telecomms/processor/preset/four/cicbackup
+	on = FALSE
 	id = "Backup Processor 4"
-	network = "tcommsat"
-	autolinkers = list("processor4")

@@ -1661,7 +1661,7 @@
 /turf/open/floor/iron,
 /area/deltastation/engineering/supermatter/room)
 "asB" = (
-/obj/machinery/telecomms/broadcaster/preset_right,
+/obj/machinery/telecomms/broadcaster/preset/right,
 /turf/open/floor/bcircuit,
 /area/deltastation/tcommsat/server)
 "asG" = (
@@ -46262,7 +46262,7 @@
 /turf/open/floor/iron,
 /area/deltastation/security/execution/transfer)
 "jtF" = (
-/obj/machinery/telecomms/receiver/preset_right,
+/obj/machinery/telecomms/receiver/preset/right,
 /turf/open/floor/gcircuit,
 /area/deltastation/tcommsat/server)
 "jtH" = (
@@ -60756,7 +60756,7 @@
 /turf/closed/wall,
 /area/deltastation/service/bar/backroom)
 "mtD" = (
-/obj/machinery/telecomms/broadcaster/preset_left,
+/obj/machinery/telecomms/broadcaster/preset/left,
 /turf/open/floor/bcircuit,
 /area/deltastation/tcommsat/server)
 "mtE" = (
@@ -88358,7 +88358,7 @@
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage/tech)
 "rZG" = (
-/obj/machinery/telecomms/receiver/preset_left,
+/obj/machinery/telecomms/receiver/preset/left,
 /turf/open/floor/gcircuit,
 /area/deltastation/tcommsat/server)
 "rZJ" = (
