@@ -10,6 +10,7 @@
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
 
+
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/subspace/signal)
 	if(!istype(signal) || signal.transmission_method != TRANSMISSION_SUBSPACE)  // receives on subspace only
 		return
@@ -26,6 +27,7 @@
 		addtimer(CALLBACK(signal, TYPE_PROC_REF(/datum/signal/subspace, broadcast)), signal.data["slow"])
 		return
 	signal.broadcast()
+
 
 /obj/machinery/telecomms/allinone/attackby(obj/item/P, mob/user, params)
 	if(ismultitool(P))
