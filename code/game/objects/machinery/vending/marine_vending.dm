@@ -14,6 +14,10 @@
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			/obj/item/weapon/gun/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -235,8 +239,8 @@
 	)
 
 	seasonal_items = list(
-		SEASONAL_GUNS = "Seasonal",
-		SEASONAL_HEAVY = "Operational Weapons",
+		SEASONAL_GUNS = "Сезонки",
+		SEASONAL_HEAVY = "Сезонное тяжелое вооружение",
 	)
 
 /obj/machinery/vending/weapon/crash
@@ -246,6 +250,10 @@
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			/obj/item/weapon/gun/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -453,6 +461,10 @@
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			/obj/item/weapon/gun/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
