@@ -16,7 +16,6 @@
 	var/list/log_entries = list()
 	var/totaltraffic = 0 // gigabytes (if > 1024, divide by 1024 -> terrabytes)
 
-
 /obj/machinery/telecomms/server/receive_information(datum/signal/subspace/vocal/signal, obj/machinery/telecomms/machine_from)
 	// can't log non-vocal signals
 	if(!istype(signal) || !signal.data["message"] || !is_freq_listening(signal))
@@ -53,71 +52,59 @@
 	if(!can_send)
 		relay_information(signal, /obj/machinery/telecomms/broadcaster)
 
-
 // Simple log entry datum
 /datum/comm_log_entry
 	var/input_type = "Speech File"
 	var/name = "data packet (#)"
 	var/parameters = list()  // copied from signal.data above
 
-
 // Preset Servers
 /obj/machinery/telecomms/server/presets
 	network = "tcommsat"
 
-
 /obj/machinery/telecomms/server/presets/Initialize(mapload)
 	. = ..()
 	name = id
-
 
 /obj/machinery/telecomms/server/presets/medical
 	id = "Medical Server"
 	freq_listening = list(FREQ_MEDICAL)
 	autolinkers = list("medical")
 
-
 /obj/machinery/telecomms/server/presets/requisitions
 	id = "Requisitions Server"
 	freq_listening = list(FREQ_REQUISITIONS)
 	autolinkers = list("requisitions")
-
 
 /obj/machinery/telecomms/server/presets/alpha
 	id = "Alpha Server"
 	freq_listening = list(FREQ_ALPHA)
 	autolinkers = list("alpha")
 
-
 /obj/machinery/telecomms/server/presets/bravo
 	id = "Bravo Server"
 	freq_listening = list(FREQ_BRAVO)
 	autolinkers = list("bravo")
-
 
 /obj/machinery/telecomms/server/presets/charlie
 	id = "Charlie Server"
 	freq_listening = list(FREQ_CHARLIE)
 	autolinkers = list("charlie")
 
-
 /obj/machinery/telecomms/server/presets/delta
 	id = "Delta Server"
 	freq_listening = list(FREQ_DELTA)
 	autolinkers = list("delta")
-
 
 /obj/machinery/telecomms/server/presets/command
 	id = "Command Server"
 	freq_listening = list(FREQ_COMMAND)
 	autolinkers = list("command")
 
-
 /obj/machinery/telecomms/server/presets/engineering
 	id = "Engineering Server"
 	freq_listening = list(FREQ_ENGINEERING)
 	autolinkers = list("engineering")
-
 
 /obj/machinery/telecomms/server/presets/cas
 	id = "Fire Support Server"

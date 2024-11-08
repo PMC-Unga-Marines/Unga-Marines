@@ -1660,10 +1660,6 @@
 /obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/open/floor/iron,
 /area/deltastation/engineering/supermatter/room)
-"asB" = (
-/obj/machinery/telecomms/broadcaster/preset/right,
-/turf/open/floor/bcircuit,
-/area/deltastation/tcommsat/server)
 "asG" = (
 /obj/machinery/newscaster{
 	dir = 8
@@ -38103,6 +38099,10 @@
 	},
 /turf/open/floor/wood,
 /area/deltastation/hallway/secondary/service)
+"hIm" = (
+/obj/machinery/telecomms/broadcaster/preset/left,
+/turf/open/floor/bcircuit,
+/area/deltastation/tcommsat/server)
 "hIr" = (
 /obj/machinery/air_alarm{
 	dir = 8
@@ -46261,10 +46261,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/iron,
 /area/deltastation/security/execution/transfer)
-"jtF" = (
-/obj/machinery/telecomms/receiver/preset/right,
-/turf/open/floor/gcircuit,
-/area/deltastation/tcommsat/server)
 "jtH" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/vault{
@@ -60755,10 +60751,6 @@
 "mtB" = (
 /turf/closed/wall,
 /area/deltastation/service/bar/backroom)
-"mtD" = (
-/obj/machinery/telecomms/broadcaster/preset/left,
-/turf/open/floor/bcircuit,
-/area/deltastation/tcommsat/server)
 "mtE" = (
 /obj/effect/turf_decal/tile/transparent/neutral/half/contrasted{
 	dir = 4
@@ -77188,6 +77180,10 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/maintenance/port/fore)
+"pLf" = (
+/obj/machinery/telecomms/receiver/preset/left,
+/turf/open/floor/gcircuit,
+/area/deltastation/tcommsat/server)
 "pLj" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
@@ -88357,10 +88353,6 @@
 /obj/effect/turf_decal/bot/right,
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage/tech)
-"rZG" = (
-/obj/machinery/telecomms/receiver/preset/left,
-/turf/open/floor/gcircuit,
-/area/deltastation/tcommsat/server)
 "rZJ" = (
 /obj/machinery/door_control{
 	id = "visitation";
@@ -99026,6 +99018,16 @@
 	},
 /turf/open/floor/plating,
 /area/deltastation/maintenance/department/security)
+"ugJ" = (
+/obj/machinery/telecomms/receiver/preset/right,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/machinery/telecomms/receiver/preset/left,
+/turf/open/floor/gcircuit,
+/area/deltastation/tcommsat/server)
 "ugK" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/turf_decal/tile/transparent/neutral/anticorner/contrasted{
@@ -120025,6 +120027,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/department/medical/morgue)
+"yjV" = (
+/obj/machinery/telecomms/broadcaster/preset/right,
+/turf/open/floor/bcircuit,
+/area/deltastation/tcommsat/server)
 "yka" = (
 /obj/effect/turf_decal/tile/transparent/neutral{
 	dir = 1
@@ -158152,7 +158158,7 @@ rpV
 vRI
 wHO
 vgI
-mtD
+hIm
 pCQ
 fun
 wGX
@@ -158662,7 +158668,7 @@ ndM
 jLv
 vIe
 ykl
-jtF
+ugJ
 tNq
 pCQ
 mBm
@@ -159690,7 +159696,7 @@ cAr
 jLv
 vIe
 ykl
-rZG
+pLf
 tNq
 pCQ
 sHW
@@ -160208,7 +160214,7 @@ rpV
 cjF
 kpV
 xKi
-asB
+yjV
 vgI
 ixu
 beT
