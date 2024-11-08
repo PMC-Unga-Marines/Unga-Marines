@@ -697,6 +697,9 @@
 /obj/item/tool/lighter/random,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
+"OK" = (
+/turf/open/floor,
+/area/bigredv2/outside/engineering)
 "OZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -976,9 +979,9 @@ vP
 Qe
 EF
 wG
-GK
+OK
 yH
-GK
+OK
 fh
 vP
 PW
@@ -1004,9 +1007,9 @@ Ul
 De
 Qe
 cD
-GK
+OK
 Be
-GK
+OK
 Ek
 SH
 vP
@@ -1058,8 +1061,8 @@ RB
 (5,1,1) = {"
 Qe
 xD
-GK
-GK
+OK
+OK
 Qe
 NI
 Mw
@@ -1091,9 +1094,9 @@ dz
 ko
 Qe
 EF
-GK
+OK
 jg
-GK
+OK
 qy
 qy
 vP
@@ -1143,17 +1146,17 @@ ZD
 ZD
 "}
 (8,1,1) = {"
-GK
+OK
 Rp
 Qe
 Qv
 CC
 PH
-GK
-GK
-GK
-GK
-GK
+OK
+OK
+OK
+OK
+OK
 vP
 ZD
 ZD
@@ -1172,17 +1175,17 @@ RB
 ZD
 "}
 (9,1,1) = {"
-GK
+OK
 Ej
 Mw
-GK
-GK
+OK
+OK
 OZ
 JS
-GK
+OK
 JS
-GK
-GK
+OK
+OK
 vP
 ZD
 ZD
@@ -1201,7 +1204,7 @@ Yb
 RB
 "}
 (10,1,1) = {"
-GK
+OK
 Rp
 Mw
 Ek
@@ -1209,8 +1212,8 @@ RR
 OZ
 ta
 eH
-GK
-GK
+OK
+OK
 eH
 vP
 ZD
@@ -1236,11 +1239,11 @@ Cu
 aZ
 Hz
 pq
-GK
-GK
-GK
+OK
+OK
+OK
 nu
-GK
+OK
 vP
 ZD
 ZD
@@ -1317,7 +1320,7 @@ RB
 zc
 "}
 (14,1,1) = {"
-GK
+OK
 DP
 Qe
 PH
@@ -1325,7 +1328,7 @@ eH
 Qe
 Zj
 DP
-GK
+OK
 eH
 LP
 vP
@@ -1346,13 +1349,13 @@ RB
 RB
 "}
 (15,1,1) = {"
-GK
+OK
 xo
 Mw
 ky
 KR
 Qe
-GK
+OK
 vN
 jg
 bO
@@ -1441,8 +1444,8 @@ jg
 Qe
 GK
 Pw
-GK
-GK
+OK
+OK
 rL
 vP
 ZD
@@ -1493,15 +1496,15 @@ RB
 (20,1,1) = {"
 jb
 Mw
-GK
+OK
 EF
 jg
-GK
-GK
+OK
+OK
 TA
 Ek
 jg
-GK
+OK
 vP
 ZD
 fd
@@ -1530,7 +1533,7 @@ pX
 jg
 nu
 jg
-GK
+OK
 vP
 ZD
 Au
@@ -1549,16 +1552,16 @@ vs
 RB
 "}
 (22,1,1) = {"
-GK
+OK
 Mw
-GK
+OK
 PH
 Mx
 Xz
 Kz
 Ns
-GK
-GK
+OK
+OK
 Ek
 vP
 ZD
@@ -1585,9 +1588,9 @@ km
 HC
 Pd
 OA
-GK
-GK
-GK
+OK
+OK
+OK
 AW
 vP
 ZD
@@ -1609,15 +1612,15 @@ RB
 (24,1,1) = {"
 jg
 ax
-GK
+OK
 km
 yb
 yb
 yb
 jg
 jg
-GK
-GK
+OK
+OK
 vP
 ZD
 ZD
@@ -1674,8 +1677,8 @@ BS
 SZ
 Db
 jg
-GK
-GK
+OK
+OK
 vP
 bf
 bf
@@ -1703,8 +1706,8 @@ vP
 rN
 OZ
 Wy
-GK
-GK
+OK
+OK
 vP
 vP
 vP
@@ -1759,11 +1762,11 @@ xM
 xM
 vP
 IN
-GK
+OK
 pV
 cI
 jg
-GK
+OK
 Ek
 YW
 vP
@@ -1793,7 +1796,7 @@ vP
 vP
 vP
 vP
-GK
+OK
 tr
 vP
 qS

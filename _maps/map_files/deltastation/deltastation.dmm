@@ -1660,6 +1660,10 @@
 /obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/open/floor/iron,
 /area/deltastation/engineering/supermatter/room)
+"asB" = (
+/obj/machinery/telecomms/broadcaster/preset_right,
+/turf/open/floor/bcircuit,
+/area/deltastation/tcommsat/server)
 "asG" = (
 /obj/machinery/newscaster{
 	dir = 8
@@ -29961,10 +29965,6 @@
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/engineering/storage/tech)
-"fZT" = (
-/obj/machinery/telecomms/receiver/preset/left,
-/turf/open/floor/gcircuit,
-/area/deltastation/tcommsat/server)
 "gac" = (
 /obj/effect/turf_decal/tile/transparent/neutral{
 	dir = 4
@@ -45976,10 +45976,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/deltastation/commons/toilet/restrooms)
-"jrg" = (
-/obj/machinery/telecomms/broadcaster/preset/left,
-/turf/open/floor/bcircuit,
-/area/deltastation/tcommsat/server)
 "jrk" = (
 /obj/effect/turf_decal/warning_stripes/linethick{
 	dir = 4
@@ -46265,6 +46261,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/iron,
 /area/deltastation/security/execution/transfer)
+"jtF" = (
+/obj/machinery/telecomms/receiver/preset_right,
+/turf/open/floor/gcircuit,
+/area/deltastation/tcommsat/server)
 "jtH" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/vault{
@@ -60755,6 +60755,10 @@
 "mtB" = (
 /turf/closed/wall,
 /area/deltastation/service/bar/backroom)
+"mtD" = (
+/obj/machinery/telecomms/broadcaster/preset_left,
+/turf/open/floor/bcircuit,
+/area/deltastation/tcommsat/server)
 "mtE" = (
 /obj/effect/turf_decal/tile/transparent/neutral/half/contrasted{
 	dir = 4
@@ -74280,10 +74284,6 @@
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
 /turf/open/floor/iron/white,
 /area/deltastation/science/research)
-"pjX" = (
-/obj/machinery/telecomms/broadcaster/preset/right,
-/turf/open/floor/bcircuit,
-/area/deltastation/tcommsat/server)
 "pjZ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -88357,6 +88357,10 @@
 /obj/effect/turf_decal/bot/right,
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage/tech)
+"rZG" = (
+/obj/machinery/telecomms/receiver/preset_left,
+/turf/open/floor/gcircuit,
+/area/deltastation/tcommsat/server)
 "rZJ" = (
 /obj/machinery/door_control{
 	id = "visitation";
@@ -158148,7 +158152,7 @@ rpV
 vRI
 wHO
 vgI
-jrg
+mtD
 pCQ
 fun
 wGX
@@ -158658,7 +158662,7 @@ ndM
 jLv
 vIe
 ykl
-fZT
+jtF
 tNq
 pCQ
 mBm
@@ -159686,7 +159690,7 @@ cAr
 jLv
 vIe
 ykl
-fZT
+rZG
 tNq
 pCQ
 sHW
@@ -160204,7 +160208,7 @@ rpV
 cjF
 kpV
 xKi
-pjX
+asB
 vgI
 ixu
 beT

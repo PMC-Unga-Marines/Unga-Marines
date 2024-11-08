@@ -4789,6 +4789,14 @@
 /obj/structure/fence,
 /turf/open/ground/grass,
 /area/oscar_outpost/outside/northwest)
+"Tj" = (
+/obj/structure/barricade/sandbags{
+	dir = 4;
+	name = "trench lining";
+	pixel_y = 1
+	},
+/turf/open/floor/plating/ground/dirt2,
+/area/oscar_outpost/outside/northwest)
 "Tn" = (
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 4
@@ -5376,6 +5384,14 @@
 	dir = 4;
 	name = "trench lining";
 	pixel_y = 6
+	},
+/turf/open/floor/plating/ground/dirt2,
+/area/oscar_outpost/outside/northeast)
+"Yr" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	name = "trench lining";
+	pixel_y = 1
 	},
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/northeast)
@@ -6362,7 +6378,7 @@ MU
 wR
 eC
 Oe
-qC
+Tj
 Rx
 eC
 eC
@@ -6490,23 +6506,23 @@ Pv
 Pv
 Pv
 Tv
-qC
-qC
-qC
+Tj
+Tj
+Tj
 hz
 hz
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
 xu
 XP
 eC
 mP
 xu
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -6810,9 +6826,9 @@ eC
 eC
 eC
 ZD
+Tj
 qC
-qC
-qC
+Tj
 Rx
 eC
 eC
@@ -6973,9 +6989,9 @@ qH
 Uw
 eC
 Oe
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -7574,15 +7590,15 @@ ym
 Fn
 Fn
 Fn
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -7597,9 +7613,9 @@ eC
 eC
 eC
 Oe
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -7612,7 +7628,7 @@ eC
 eC
 eC
 Oe
-qC
+Tj
 Rx
 eC
 eC
@@ -8204,7 +8220,7 @@ eC
 eC
 eC
 RA
-qC
+Tj
 xu
 XP
 IQ
@@ -8221,9 +8237,9 @@ Uw
 eC
 eC
 Oe
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -8677,7 +8693,7 @@ MU
 MU
 pp
 Oe
-qC
+Tj
 Rx
 Ly
 Ym
@@ -8845,9 +8861,9 @@ eC
 eC
 Hz
 Oe
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -9468,8 +9484,8 @@ wK
 wK
 wK
 wK
-qC
-qC
+Tj
+Tj
 Qz
 XP
 eC
@@ -9589,7 +9605,7 @@ vX
 os
 eC
 Oe
-qC
+Tj
 Rx
 eC
 Ly
@@ -10525,8 +10541,8 @@ eC
 eC
 eC
 Oe
-qC
-qC
+Tj
+Tj
 RA
 qN
 qN
@@ -10865,7 +10881,7 @@ wK
 wK
 xu
 xu
-qC
+Tj
 Rx
 eC
 eC
@@ -10994,7 +11010,7 @@ eC
 eC
 Oe
 ll
-qC
+Tj
 mP
 XP
 IQ
@@ -11010,7 +11026,7 @@ eC
 eC
 eC
 vg
-qC
+Tj
 Rx
 eC
 eC
@@ -11329,7 +11345,7 @@ eC
 eC
 eC
 Oe
-qC
+Tj
 xu
 XP
 eC
@@ -11946,10 +11962,10 @@ eC
 eC
 mP
 xu
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -12390,13 +12406,13 @@ eC
 eC
 mP
 xu
-qC
+Tj
 Rx
 IQ
 MU
 MU
 Oe
-qC
+Tj
 Rx
 eC
 eC
@@ -12562,9 +12578,9 @@ eC
 eC
 mP
 xu
-qC
-qC
-qC
+Tj
+Tj
+Tj
 Rx
 eC
 eC
@@ -13000,15 +13016,15 @@ Pv
 Li
 gl
 Tv
-qC
-qC
-qC
+Tj
+Tj
+Tj
 hz
 hz
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
 zf
 eC
 eC
@@ -13035,7 +13051,7 @@ eC
 eC
 mP
 xu
-qC
+Tj
 Rx
 eC
 eC
@@ -13178,9 +13194,9 @@ eC
 eC
 mP
 xu
-qC
-qC
-qC
+Tj
+Tj
+Tj
 Rx
 eC
 tN
@@ -13499,7 +13515,7 @@ eC
 eC
 eC
 Oe
-qC
+Tj
 xu
 XP
 eC
@@ -13794,9 +13810,9 @@ eC
 eC
 mP
 xu
-qC
-qC
-qC
+Tj
+Tj
+Tj
 Rx
 eC
 eC
@@ -14272,7 +14288,7 @@ wR
 eC
 eC
 vg
-qC
+Tj
 Rx
 eC
 mP
@@ -14394,24 +14410,24 @@ ym
 Fn
 Fn
 Fn
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
 xu
 xu
-qC
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -14723,9 +14739,9 @@ eC
 eC
 eC
 Oe
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -15050,7 +15066,7 @@ eC
 eC
 mP
 xu
-qC
+Tj
 Rx
 eC
 ut
@@ -15347,8 +15363,8 @@ eC
 eC
 eC
 Oe
-qC
-qC
+Tj
+Tj
 xG
 xu
 XP
@@ -15514,7 +15530,7 @@ ao
 Tt
 eC
 Oe
-qC
+Tj
 xu
 XP
 eC
@@ -15806,7 +15822,7 @@ eC
 eC
 eC
 Oe
-qC
+Tj
 Rx
 eC
 eC
@@ -15971,9 +15987,9 @@ eC
 eC
 eC
 Oe
-qC
-qC
-qC
+Tj
+Tj
+Tj
 xu
 XP
 Hz
@@ -16594,12 +16610,12 @@ wK
 wK
 wK
 wK
-qC
-qC
-qC
-qC
-qC
-qC
+Tj
+Tj
+Tj
+Tj
+Tj
+Tj
 xu
 XP
 eC
@@ -16742,7 +16758,7 @@ eC
 eC
 eC
 vg
-qC
+Tj
 Rx
 eC
 eC
@@ -28035,7 +28051,7 @@ Pv
 Pv
 YZ
 FC
-Az
+Yr
 Az
 Az
 Kk
