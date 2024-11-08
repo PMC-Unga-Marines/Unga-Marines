@@ -92,7 +92,7 @@
 			action.remove_action(user)
 		if(!user.hunter_data?.claimed_equipment)
 			claim_equipment.remove_action(user)
-	..()
+	return ..()
 
 /obj/item/clothing/gloves/yautja/equipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLOVES)

@@ -1,0 +1,20 @@
+/obj/machinery/telecomms/processor/preset_one : /obj/machinery/telecomms/processor/preset/one
+/obj/machinery/telecomms/processor/preset_two : /obj/machinery/telecomms/processor/preset/two
+/obj/machinery/telecomms/processor/preset_three : /obj/machinery/telecomms/processor/preset/three
+/obj/machinery/telecomms/processor/preset_four : /obj/machinery/telecomms/processor/preset/four
+/obj/machinery/telecomms/processor/preset_four/cicbackup :  /obj/machinery/telecomms/processor/preset/four/cicbackup
+
+/obj/machinery/telecomms/bus/preset_one : /obj/machinery/telecomms/bus/preset/one
+/obj/machinery/telecomms/bus/preset_two : /obj/machinery/telecomms/bus/preset/two
+/obj/machinery/telecomms/bus/preset_three : /obj/machinery/telecomms/bus/preset/three
+/obj/machinery/telecomms/bus/preset_four : /obj/machinery/telecomms/bus/preset/four
+/obj/machinery/telecomms/bus/preset_four/cicbackup :  /obj/machinery/telecomms/bus/preset/four/cicbackup
+
+/obj/machinery/telecomms/receiver/preset_left : /obj/machinery/telecomms/receiver/preset/left
+/obj/machinery/telecomms/receiver/preset_right : /obj/machinery/telecomms/receiver/preset/right
+/obj/machinery/telecomms/receiver/preset_right/cicbackup : /obj/machinery/telecomms/receiver/preset/left
+/obj/machinery/telecomms/receiver/preset_right/som : /obj/machinery/telecomms/receiver/preset/left
+
+/obj/machinery/telecomms/broadcaster/preset_left : /obj/machinery/telecomms/broadcaster/preset/left
+/obj/machinery/telecomms/broadcaster/preset_right : /obj/machinery/telecomms/broadcaster/preset/right
+/obj/machinery/telecomms/broadcaster/preset_right/cicbackup : /obj/machinery/telecomms/broadcaster/preset/right/cicbackup
