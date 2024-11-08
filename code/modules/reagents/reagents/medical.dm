@@ -1684,7 +1684,7 @@
 	name = "MasTac"
 	description = "This is a neurostimulating substance that causes the brain to maintain an increased heart rate."
 	color = COLOR_REAGENT_MASTAC
-	custom_metabolism = REAGENTS_METABOLISM * 0
+	custom_metabolism = 0
 	scannable = TRUE
 	taste_description = "sour coffee"
 	overdose_threshold = 10
