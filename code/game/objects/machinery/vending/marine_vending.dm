@@ -32,13 +32,13 @@
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
 		),
-		"Пистолеты-пулеметы" = list(
+		"Пистолеты-пулмёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 	),
-		"Снайперки" = list(
+		"Снайперкие винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
@@ -46,7 +46,7 @@
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
 		),
-		"Лазерное оружие" = list(
+		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
@@ -68,7 +68,7 @@
 			/obj/item/ammo_magazine/rifle/sh15_slug = -1,
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
-		"Пулеметы" = list(
+		"Пулемёты" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
@@ -239,8 +239,8 @@
 	)
 
 	seasonal_items = list(
-		SEASONAL_GUNS = "Сезонки",
-		SEASONAL_HEAVY = "Сезонное тяжелое вооружение",
+		SEASONAL_GUNS = "Сезонное",
+		SEASONAL_HEAVY = "Сезонное тяжёлое вооружение",
 	)
 
 /obj/machinery/vending/weapon/crash
@@ -268,13 +268,22 @@
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
 		),
-		"Пистолеты-пулеметы" = list(
+		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 		),
-		"Снайперки" = list(
+		"Энергетическое" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
+		),
+		"Снайперкие винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
@@ -297,7 +306,7 @@
 			/obj/item/ammo_magazine/rifle/sh15_slug = -1,
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
-		"Пулеметы" = list(
+		"Пулемёты" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
@@ -479,14 +488,14 @@
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
 		),
-		"Пистолеты-пулеметы" = list(
+		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
 		),
-		"Снайперки" = list(
+		"Снайперкие винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
@@ -496,7 +505,7 @@
 			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
 		),
-		"Лазерное оружие" = list(
+		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
@@ -519,7 +528,7 @@
 			/obj/item/weapon/gun/shotgun/double/marine = -1,
 			/obj/item/storage/holster/belt/ts34/full = -1,
 		),
-		"Пулеметы" = list(
+		"Пулемёты" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = -1,
@@ -597,7 +606,7 @@
 			/obj/item/mortar_kit/knee = 4,
 			/obj/item/mortal_shell/knee = 40,
 		),
-		"Тяжелое вооружение" = list(
+		"Тяжёлое вооружение" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = -1,
 			/obj/structure/closet/crate/mortar_ammo/howitzer_kit = -1,
 			/obj/structure/largecrate/supply/weapons/at36 = -1,
