@@ -458,7 +458,7 @@
 	)
 
 	seasonal_items = list(
-		SEASONAL_GUNS = "Seasonal",
+		SEASONAL_GUNS = "Сезонное",
 	)
 
 /obj/machinery/vending/weapon/valhalla
