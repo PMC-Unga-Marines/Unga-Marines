@@ -11,7 +11,7 @@
 /obj/machinery/telecomms/bus/preset_four/cicbackup :  /obj/machinery/telecomms/bus/preset/four/cicbackup
 
 /obj/machinery/telecomms/receiver/preset_left : /obj/machinery/telecomms/receiver/preset/left
-/obj/machinery/telecomms/receiver/preset_right : /obj/machinery/telecomms/receiver/preset/left
+/obj/machinery/telecomms/receiver/preset_right : /obj/machinery/telecomms/receiver/preset/right
 /obj/machinery/telecomms/receiver/preset_right/cicbackup : /obj/machinery/telecomms/receiver/preset/left
 /obj/machinery/telecomms/receiver/preset_right/som : /obj/machinery/telecomms/receiver/preset/left
 

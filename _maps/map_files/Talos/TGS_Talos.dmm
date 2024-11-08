@@ -21523,6 +21523,10 @@
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/brig)
+"mMJ" = (
+/obj/machinery/telecomms/receiver/preset/right,
+/turf/open/floor/mainship/silver/full,
+/area/mainship/command/telecomms)
 "mMT" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 9
@@ -69473,7 +69477,7 @@ vfY
 vfY
 ver
 vfY
-msD
+mMJ
 xPw
 eRE
 snt
