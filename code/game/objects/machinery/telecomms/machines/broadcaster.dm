@@ -67,21 +67,20 @@ GLOBAL_VAR_INIT(message_delay, 0) // To make sure restarting the recentmessages 
 	return ..()
 
 //Preset Broadcasters
-
-/obj/machinery/telecomms/broadcaster/preset
-	network = "tcommsat"
-
 //--PRESET LEFT--//
-/obj/machinery/telecomms/broadcaster/preset/left
+/obj/machinery/telecomms/broadcaster/preset_left
 	id = "Broadcaster A"
+	network = "tcommsat"
 	autolinkers = list("broadcasterA")
 
 //--PRESET RIGHT--//
-/obj/machinery/telecomms/broadcaster/preset/right
+/obj/machinery/telecomms/broadcaster/preset_right
 	id = "Broadcaster B"
+	network = "tcommsat"
 	autolinkers = list("broadcasterB")
 
 //proper cicbackup broadcaster
-/obj/machinery/telecomms/broadcaster/preset/right/cicbackup
+/obj/machinery/telecomms/broadcaster/preset_right/cicbackup
 	id = "Backup Broadcaster B"
+	network = "tcommsat"
 	autolinkers = list("broadcasterB")
