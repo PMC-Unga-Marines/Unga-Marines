@@ -4,7 +4,7 @@
 	///How much of this loadout there is. infinite by default
 	var/quantity = -1
 	///What job this loadout is associated with. Used for tabs and access.
-	var/jobtype = "Squad Marine"
+	var/jobtype = SQUAD_MARINE
 
 /datum/outfit/quick/equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/override_client)
 	pre_equip(H, visualsOnly, override_client)

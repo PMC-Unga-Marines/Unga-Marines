@@ -1,7 +1,7 @@
 //Base TGMC corpsman outfit
 /datum/outfit/quick/tgmc/corpsman
 	name = "TGMC Squad Corpsman"
-	jobtype = "Squad Corpsman"
+	jobtype = SQUAD_CORPSMAN
 
 	belt = /obj/item/storage/belt/lifesaver/quick
 	ears = /obj/item/radio/headset/mainship/marine

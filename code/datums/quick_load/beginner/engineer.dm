@@ -1,5 +1,5 @@
 /datum/outfit/quick/beginner/engineer
-	jobtype = "Squad Engineer"
+	jobtype = SQUAD_ENGINEER
 
 	w_uniform = /obj/item/clothing/under/marine/brown_vest
 	shoes = /obj/item/clothing/shoes/marine

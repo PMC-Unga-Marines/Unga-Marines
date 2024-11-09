@@ -1,8 +1,7 @@
 //Base TGMC leader outfit
 /datum/outfit/quick/tgmc/leader
 	name = "TGMC Squad Leader"
-	jobtype = "Squad Leader"
-
+	jobtype = SQUAD_LEADER
 	ears = /obj/item/radio/headset/mainship/marine
 	glasses = /obj/item/clothing/glasses/hud/health
 	w_uniform = /obj/item/clothing/under/marine/black_vest

@@ -1,5 +1,4 @@
 //Beginner Vendor
-
 GLOBAL_LIST_INIT(beginner_loadouts, init_beginner_loadouts())
 
 /proc/init_beginner_loadouts() //List of all loadouts in quick_load_beginners.dm
@@ -12,7 +11,6 @@ GLOBAL_LIST_INIT(beginner_loadouts, init_beginner_loadouts())
 		/datum/outfit/quick/beginner/marine/shocktrooper,
 		/datum/outfit/quick/beginner/marine/hazmat,
 		/datum/outfit/quick/beginner/marine/cqc,
-		/datum/outfit/quick/beginner/marine/chad,
 		/datum/outfit/quick/beginner/engineer/builder,
 		/datum/outfit/quick/beginner/engineer/burnitall,
 		/datum/outfit/quick/beginner/engineer/pcenjoyer,
@@ -33,6 +31,10 @@ GLOBAL_LIST_INIT(beginner_loadouts, init_beginner_loadouts())
 		"Squad Engineer",
 		"Squad Corpsman",
 		"Squad Smartgunner",
+		SQUAD_MARINE,
+		SQUAD_ENGINEER,
+		SQUAD_CORPSMAN,
+		SQUAD_SMARTGUNNER,
 	)
 	drop_worn_items = TRUE
 

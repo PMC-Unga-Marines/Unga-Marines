@@ -100,11 +100,11 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	var/faction = FACTION_NEUTRAL
 	//the different tabs in the vendor
 	var/list/categories = list(
-		"Squad Marine",
-		"Squad Engineer",
-		"Squad Corpsman",
-		"Squad Smartgunner",
-		"Squad Leader",
+		SQUAD_MARINE,
+		SQUAD_ENGINEER,
+		SQUAD_CORPSMAN,
+		SQUAD_SMARTGUNNER,
+		SQUAD_LEADER,
 	)
 	///Whichever global loadout is used to build the vendor stock
 	var/list/global_list_to_use

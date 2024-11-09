@@ -1,7 +1,7 @@
 //Base TGMC engineer outfit
 /datum/outfit/quick/tgmc/engineer
 	name = "TGMC Squad Engineer"
-	jobtype = "Squad Engineer"
+	jobtype = SQUAD_ENGINEER
 
 	ears = /obj/item/radio/headset/mainship/marine
 	glasses = /obj/item/clothing/glasses/meson

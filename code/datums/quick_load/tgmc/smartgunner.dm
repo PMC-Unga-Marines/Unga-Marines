@@ -1,7 +1,7 @@
 //Base TGMC smartgunner outfit
 /datum/outfit/quick/tgmc/smartgunner
 	name = "TGMC Squad Smartgunner"
-	jobtype = "Squad Smartgunner"
+	jobtype = SQUAD_SMARTGUNNER
 
 	belt = /obj/item/belt_harness/marine
 	ears = /obj/item/radio/headset/mainship/marine
