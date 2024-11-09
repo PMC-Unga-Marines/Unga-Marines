@@ -42,7 +42,7 @@
 	minimap_icon = "carrier"
 
 	// *** Carrier Abilities *** //
-	huggers_max = 8
+	huggers_max = 9
 	hugger_delay = 1.25 SECONDS
 
 	actions = list(
