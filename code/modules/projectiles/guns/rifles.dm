@@ -1192,6 +1192,8 @@
 	accuracy_mult_unwielded = 0.8
 	scatter = -1
 
+/obj/item/weapon/gun/rifle/type71/beginner
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet, /obj/item/attachable/gyro)
 
 /obj/item/weapon/gun/rifle/type71/flamer
 	name = "\improper Type 71 pulse rifle"
