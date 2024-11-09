@@ -83,7 +83,7 @@
 	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
 		. += mutable_appearance(icon, "fire_o1")
 
-/obj/machinery/firealarm/fire_act(burn_level)
+/obj/machinery/firealarm/fire_act(burn_level, flame_color)
 	if(!detecting)
 		return
 	alarm()

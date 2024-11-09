@@ -322,7 +322,7 @@ GLOBAL_PROTECT(exp_specialmap)
 		else
 			equip_role_outfit(job)
 
-	if(SSdiscord.get_boosty_tier(player.ckey) >= BOOSTY_TIER_2)
+	if(SSdiscord.get_boosty_tier(player?.ckey) >= BOOSTY_TIER_2)
 		equip_to_slot_or_del(new /obj/item/facepaint/premium, SLOT_IN_BACKPACK)
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)

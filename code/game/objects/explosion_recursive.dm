@@ -260,18 +260,18 @@ explosion resistance exactly as much as their health
 
 	if(!direction)
 		direction = pick(GLOB.alldirs)
-	var/range = min(round(severity * 0.2, 1), 14)
+	var/range = min(round(severity * 0.07, 1), 14)
 	if(!direction)
 		range = round(range * 0.5, 1)
 
 	if(range < 1)
 		return
 
-	var/speed = max(range * 2.5, 4)
+	var/speed = max(range, 3)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
 
 	if(range >= 2)
-		var/scatter = range / 4 * scatter_multiplier
+		var/scatter = range * 0.25 * scatter_multiplier
 		var/scatter_x = rand(-scatter, scatter)
 		var/scatter_y = rand(-scatter, scatter)
 		target = locate(target.x + round(scatter_x, 1), target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.

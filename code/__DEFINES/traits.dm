@@ -160,10 +160,6 @@
 #define TRAIT_BANISHED "banished"
 ///Mindmelded with another mob
 #define TRAIT_MINDMELDED "mindmelded"
-///You swing axe good
-#define TRAIT_AXE_EXPERT "axe_expert"
-///You swing sword good
-#define TRAIT_SWORD_EXPERT "sword_expert"
 ///Pain reduction light
 #define TRAIT_LIGHT_PAIN_RESIST "light_pain_resist"
 ///Pain reduction medium

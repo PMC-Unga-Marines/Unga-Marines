@@ -184,7 +184,7 @@
 	return ..()
 
 
-/obj/structure/mineral_door/transparent/phoron/fire_act(burn_level)
+/obj/structure/mineral_door/transparent/phoron/fire_act(burn_level, flame_color)
 	if(burn_level > 30)
 		var/turf/T = get_turf(src)
 		T.ignite(25, 25)

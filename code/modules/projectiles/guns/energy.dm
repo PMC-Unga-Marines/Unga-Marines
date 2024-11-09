@@ -588,7 +588,7 @@
 	fire_delay = 0.15 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/Laser Pistol Standard.ogg'
 	message_to_user = "You set the laser pistol's charge mode to standard fire."
-	fire_mode = GUN_FIREMODE_SEMIAUTO
+	fire_mode = GUN_FIREMODE_AUTOMATIC
 	icon_state = "tep"
 	description = "Fires a standard laser pulse. Moderate damage."
 

@@ -311,7 +311,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/sg29
 	max_rounds = 250
-	reload_delay = 2.5 SECONDS
+	reload_delay = 1.3 SECONDS
 
 //-------------------------------------------------------
 //SMART TARGET RIFLE AMMUNITION
