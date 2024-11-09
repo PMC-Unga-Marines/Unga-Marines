@@ -29,12 +29,11 @@
 	name = "Engineer Standard"
 	desc = "Born to build. Equipped with a metric ton of metal, you can be certain that a lack of barricades is not a possibility with you around."
 
-	suit_store = /obj/item/weapon/gun/rifle/mg42/beginner
+	suit_store = /obj/item/weapon/gun/smg/vector/beginner
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/heavy/mimirengi
 	mask = /obj/item/clothing/mask/gas/tactical
 	head = /obj/item/clothing/head/modular/m10x/mimir
 	back = /obj/item/storage/backpack/marine/radiopack
-	belt = /obj/item/belt_harness/marine
 	glasses = /obj/item/clothing/glasses/welding/superior
 	l_hand = /obj/item/paper/tutorial/builder
 
@@ -44,16 +43,23 @@
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/full, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg42, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg42, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg42, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg42, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg42, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
 
 /datum/outfit/quick/beginner/engineer/burnitall
 	name = "Flamethrower"
@@ -64,6 +70,7 @@
 	mask = /obj/item/clothing/mask/gas/tactical/coif
 	head = /obj/item/clothing/head/modular/m10x/superiorwelding
 	back = /obj/item/storage/holster/backholster/flamer
+	belt = /obj/item/belt_harness/marine/te_cells
 	glasses = /obj/item/clothing/glasses/meson
 	l_hand = /obj/item/paper/tutorial/flamer
 
@@ -73,16 +80,9 @@
 	human.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/tool/multitool, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-
 	human.equip_to_slot_or_del(new /obj/item/weapon/gun/flamer/big_flamer/marinestandard/engineer/beginner(human), SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_BACKPACK)
@@ -108,10 +108,9 @@
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/mp19/compact(human), SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/revolver/r44, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/magnum, SLOT_IN_BACKPACK)

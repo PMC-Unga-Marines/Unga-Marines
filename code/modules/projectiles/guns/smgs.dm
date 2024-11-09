@@ -745,3 +745,6 @@
 	movement_acc_penalty_mult = 0.1
 	upper_akimbo_accuracy = 5
 	lower_akimbo_accuracy = 5
+
+/obj/item/weapon/gun/smg/vector/beginner
+	starting_attachment_types = list(/obj/item/attachable/compensator, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
