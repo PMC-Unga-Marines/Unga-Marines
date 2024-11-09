@@ -157,8 +157,8 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 
 #define SQUAD_MAX_POSITIONS(total_positions) CEILING(total_positions / length(SSjob.active_squads), 1)
 
-/// How many points a marine can spend in job specific vendors by default
-#define DEFAULT_TOTAL_BUY_POINTS 45
+/// How many points a marine can spend by default
+#define MARINE_TOTAL_BUY_POINTS 45
 /// How many points a medic can spend on pills
 #define MEDIC_TOTAL_BUY_POINTS 45
 /// How many points an engineer can spend
@@ -167,13 +167,19 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define COMMANDER_TOTAL_BUY_POINTS 45
 /// How many points the synthetic can spend
 #define SYNTH_TOTAL_BUY_POINTS 50
+/// How many points the robot can spend
+#define ROBOT_TOTAL_BUY_POINTS 50
+/// How many points the leader can spend
+#define LEADER_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define SMARTGUNNER_TOTAL_BUY_POINTS 45
 
 GLOBAL_LIST_INIT(default_marine_points, list(
-	"MARINE SUPPLIES" = DEFAULT_TOTAL_BUY_POINTS,
-	"ROBOT SUPPLIES" = DEFAULT_TOTAL_BUY_POINTS,
-	"SMARTGUNNER SUPPLIES" = DEFAULT_TOTAL_BUY_POINTS,
+	"MARINE SUPPLIES" = MARINE_TOTAL_BUY_POINTS,
+	"ROBOT SUPPLIES" = ROBOT_TOTAL_BUY_POINTS,
+	"SMARTGUNNER SUPPLIES" = SMARTGUNNER_TOTAL_BUY_POINTS,
 	"ENGINEERING SUPPLIES" = ENGINEER_TOTAL_BUY_POINTS,
-	"LEADER SUPPLIES" = DEFAULT_TOTAL_BUY_POINTS,
+	"LEADER SUPPLIES" = LEADER_TOTAL_BUY_POINTS,
 	"MEDICAL SUPPLIES" = MEDIC_TOTAL_BUY_POINTS,
 	"COMMANDER SUPPLIES" = COMMANDER_TOTAL_BUY_POINTS,
 	"SYNTH SUPPLIES" = SYNTH_TOTAL_BUY_POINTS,
