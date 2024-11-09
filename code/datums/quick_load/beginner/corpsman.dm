@@ -38,13 +38,17 @@
 	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon, SLOT_IN_SUIT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon, SLOT_IN_SUIT)
 
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
@@ -57,8 +61,10 @@
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p4570, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p4570, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
 
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
@@ -72,7 +78,7 @@
 	suit_store = /obj/item/weapon/gun/shotgun/pump/t35/beginner
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/light/lightmedical
 	gloves = /obj/item/healthanalyzer/gloves
-	mask = /obj/item/clothing/mask/gas/modular/coofmask
+	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/m10x/antenna
 	r_store = /obj/item/storage/pouch/medkit/medic
 	l_store = /obj/item/storage/pouch/shotgun
@@ -95,10 +101,10 @@
 	human.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/slug, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/slug, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/slug, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/slug, SLOT_IN_L_POUCH)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/shotgun, SLOT_IN_L_POUCH)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/shotgun, SLOT_IN_L_POUCH)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/shotgun, SLOT_IN_L_POUCH)
+	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/shotgun, SLOT_IN_L_POUCH)
 
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
