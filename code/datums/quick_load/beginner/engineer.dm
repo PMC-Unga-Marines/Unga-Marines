@@ -70,7 +70,7 @@
 	mask = /obj/item/clothing/mask/gas/tactical/coif
 	head = /obj/item/clothing/head/modular/m10x/superiorwelding
 	back = /obj/item/storage/holster/backholster/flamer
-	belt = /obj/item/belt_harness/marine/te_cells
+	belt = /obj/item/storage/belt/marine/te_cells
 	glasses = /obj/item/clothing/glasses/meson
 	l_hand = /obj/item/paper/tutorial/flamer
 
