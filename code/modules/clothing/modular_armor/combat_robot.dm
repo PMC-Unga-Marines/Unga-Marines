@@ -72,6 +72,12 @@
 		/obj/item/armor_module/storage/injector,
 	)
 
+/obj/item/clothing/suit/modular/robot/svalinn
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/storage/general,
+	)
+
 /obj/item/clothing/suit/modular/robot/light
 	name = "XR-1-L armor plating"
 	desc = "Light armor plating designed for self mounting on TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
@@ -80,12 +86,17 @@
 	greyscale_config = /datum/greyscale_config/robot/light
 
 //---- Light armor with attachments
-/obj/item/clothing/suit/modular/robot/light/lightmedical
+/obj/item/clothing/suit/modular/robot/light/baldur_medical
 	starting_attachments = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
 		/obj/item/armor_module/storage/medical,
 	)
 
+/obj/item/clothing/suit/modular/robot/light/baldur_general
+	starting_attachments = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/storage/general,
+	)
 
 /obj/item/clothing/suit/modular/robot/heavy
 	name = "XR-1-H armor plating"
@@ -171,12 +182,18 @@
 /obj/item/clothing/head/modular/robot/antenna
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/heavy, /obj/item/armor_module/module/antenna)
 
+/obj/item/clothing/head/modular/robot/motion_detector
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/heavy, /obj/item/armor_module/module/motion_detector)
+
 /obj/item/clothing/head/modular/robot/light
 	name = "XN-1-L upper armor plating"
 	desc = "Light armor plating designed for self mounting on the upper half of TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/light)
 	soft_armor = list(MELEE = 40, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 50)
 	greyscale_config = /datum/greyscale_config/robot/light
+
+/obj/item/clothing/head/modular/robot/light/motion_detector
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/light, /obj/item/armor_module/module/motion_detector)
 
 /obj/item/clothing/head/modular/robot/heavy
 	name = "XN-1-H upper armor plating"

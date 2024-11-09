@@ -66,6 +66,7 @@
 	self_recharge = TRUE
 	charge_amount = 12 //balanced around recharging 1 standard laser rifle shot per second
 	charge_delay = 1 SECONDS
+
 /obj/item/cell/lasgun/fob_sentry/cell
 	maxcharge = INFINITY
 
