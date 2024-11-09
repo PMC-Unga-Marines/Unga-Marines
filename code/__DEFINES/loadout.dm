@@ -16,6 +16,10 @@
 #define CAT_MOD "JAEGER STORAGE MODULES"
 #define CAT_ARMMOD "JAEGER ARMOR MODULES"
 
+// Synth Special Categories
+#define CAT_SMR "SUITS AND ARMOR" // Synth's suits
+#define CAT_SHN "HATS" // Synth's non-protective hats
+
 #define CAT_MEDSUP "MEDICAL SUPPLIES"
 #define CAT_ENGSUP "ENGINEERING SUPPLIES"
 #define CAT_LEDSUP "LEADER SUPPLIES"
@@ -26,9 +30,34 @@
 #define CAT_ROBOT "COMBAT ROBOT SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
-// Synth Special Categories
-#define CAT_SMR "SUITS AND ARMOR" // Synth's suits
-#define CAT_SHN "HATS" // Synth's non-protective hats
+/// How many points a marine can spend by default
+#define MARINE_TOTAL_BUY_POINTS 45
+/// How many points the robot can spend
+#define ROBOT_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define LEADER_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define SMARTGUNNER_TOTAL_BUY_POINTS 45
+/// How many points a medic can spend on pills
+#define MEDIC_TOTAL_BUY_POINTS 45
+/// How many points an engineer can spend
+#define ENGINEER_TOTAL_BUY_POINTS 75
+/// How many points the field commander can spend
+#define COMMANDER_TOTAL_BUY_POINTS 45
+/// How many points the synthetic can spend
+#define SYNTH_TOTAL_BUY_POINTS 50
+
+GLOBAL_LIST_INIT(default_marine_points, list(
+	CAT_MARINE = MARINE_TOTAL_BUY_POINTS,
+	CAT_ROBOT = ROBOT_TOTAL_BUY_POINTS,
+	CAT_SGSUP = SMARTGUNNER_TOTAL_BUY_POINTS,
+	CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS,
+	CAT_LEDSUP = LEADER_TOTAL_BUY_POINTS,
+	CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
+	CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
+	CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
+))
+
 
 #define VENDOR_FACTION_NEUTRAL "Neutral"
 #define VENDOR_FACTION_CRASH "Crash"
