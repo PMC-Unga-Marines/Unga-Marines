@@ -178,10 +178,9 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	. = ..()
 	var/list/data = list()
 	var/list/loadouts_data_tgui = list()
-	var/list/loadouts_list = isrobot(user) ? GLOB.robot_loadouts : global_list_to_use
-	for(var/loadout_data in loadouts_list)
+	for(var/loadout_data in global_list_to_use)
 		var/list/next_loadout_data = list() //makes a list item with the below lines, for each loadout entry in the list
-		var/datum/outfit/quick/current_loadout = loadouts_list[loadout_data]
+		var/datum/outfit/quick/current_loadout = global_list_to_use[loadout_data]
 		next_loadout_data["job"] = current_loadout.jobtype
 		next_loadout_data["name"] = current_loadout.name
 		next_loadout_data["desc"] = current_loadout.desc
@@ -205,7 +204,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		return
 	switch(action)
 		if("selectLoadout")
-			var/datum/outfit/quick/selected_loadout = isrobot(ui.user) ? GLOB.robot_loadouts[text2path(params["loadout_outfit"])] : global_list_to_use[text2path(params["loadout_outfit"])]
+			var/datum/outfit/quick/selected_loadout = global_list_to_use[text2path(params["loadout_outfit"])]
 			if(!selected_loadout)
 				to_chat(ui.user, span_warning("Error when loading this loadout"))
 				CRASH("Fail to load loadouts")
