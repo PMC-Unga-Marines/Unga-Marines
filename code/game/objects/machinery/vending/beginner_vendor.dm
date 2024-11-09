@@ -11,6 +11,7 @@ GLOBAL_LIST_INIT(beginner_loadouts, init_beginner_loadouts())
 		/datum/outfit/quick/beginner/marine/shocktrooper,
 		/datum/outfit/quick/beginner/marine/hazmat,
 		/datum/outfit/quick/beginner/marine/cqc,
+		/datum/outfit/quick/beginner/robot/lasermachinegunner,
 		/datum/outfit/quick/beginner/engineer/builder,
 		/datum/outfit/quick/beginner/engineer/burnitall,
 		/datum/outfit/quick/beginner/engineer/pcenjoyer,
@@ -26,12 +27,8 @@ GLOBAL_LIST_INIT(beginner_loadouts, init_beginner_loadouts())
 /obj/machinery/quick_vendor/beginner //Loadout vendor that shits out basic pre-made loadouts so new players can get something usable
 	icon_state = "loadoutvendor"
 	categories = list(
-		"Squad Marine",
-		"Squad Robot",
-		"Squad Engineer",
-		"Squad Corpsman",
-		"Squad Smartgunner",
 		SQUAD_MARINE,
+		SQUAD_ROBOT,
 		SQUAD_ENGINEER,
 		SQUAD_CORPSMAN,
 		SQUAD_SMARTGUNNER,

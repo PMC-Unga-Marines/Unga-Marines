@@ -372,6 +372,7 @@
 #include "code\datums\quick_load\beginner\corpsman.dm"
 #include "code\datums\quick_load\beginner\engineer.dm"
 #include "code\datums\quick_load\beginner\marine.dm"
+#include "code\datums\quick_load\beginner\robot.dm"
 #include "code\datums\quick_load\beginner\smartgunner.dm"
 #include "code\datums\quick_load\som\_som.dm"
 #include "code\datums\quick_load\som\engineer.dm"

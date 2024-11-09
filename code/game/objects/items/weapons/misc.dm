@@ -72,7 +72,7 @@
 	var/powerused = setting * 20
 	. += "It's power setting is set to [setting]."
 	if(cell)
-		. += "It has [round(cell.charge/powerused, 1)] level [setting] punches remaining."
+		. += "It has [round(cell.charge / powerused, 1)] level [setting] punches remaining."
 	else
 		. += "There is no cell installed!"
 
@@ -96,7 +96,7 @@
 	if(powerused > cell.charge)
 		to_chat(user, span_warning("\The [src]'s cell doesn't have enough power!"))
 		M.apply_damage((force * 0.2), BRUTE, user.zone_selected, MELEE)
-		playsound(loc, 'sound/weapons/punch1.ogg', 50, TRUE)
+		hitsound = 'sound/weapons/punch1.ogg'
 		if(M == user)
 			to_chat(user, span_userdanger("You punch yourself!"))
 		else
@@ -132,7 +132,7 @@
 		return
 	if(cell)
 		unload(user)
-	user.transferItemToLoc(I,src)
+	user.transferItemToLoc(I, src)
 	cell = I
 	update_icon()
 	user.balloon_alert(user, "Cell inserted")
@@ -162,6 +162,15 @@
 	cell = null
 	update_icon()
 	playsound(user, 'sound/weapons/guns/interact/rifle_reload.ogg', 25, TRUE)
+
+/obj/item/weapon/powerfist/full
+	setting = 3
+
+/obj/item/weapon/powerfist/full/Initialize(mapload)
+	var/obj/item/cell/lasgun/lasrifle/future_cell = new(src) // snowflaky, but we don't use it often, so it's fine?
+	future_cell.forceMove(src)
+	cell = future_cell
+	return ..()
 
 /obj/item/weapon/brick
 	name = "brick"
