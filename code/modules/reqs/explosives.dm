@@ -22,7 +22,7 @@
 /datum/supply_packs/explosives/stickytanglenades
 	name = "M45-T adhesive tanglefoot grenade"
 	notes = "Contains 25 M45-T sticky grenade"
-	contains = list(/obj/item/storage/box/visual/grenade/drain)
+	contains = list(/obj/item/storage/box/visual/grenade/drain/sticky)
 	cost = 300
 
 /datum/supply_packs/explosives/explosives_sticky
@@ -82,7 +82,7 @@
 /datum/supply_packs/explosives/explosives_plasmadrain
 	name = "M40-T gas grenade box crate"
 	notes = "Contains 25 grenades"
-	contains = list(/obj/item/storage/box/visual/grenade/drain/sticky)
+	contains = list(/obj/item/storage/box/visual/grenade/drain)
 	cost = 700
 
 /datum/supply_packs/explosives/plastique
