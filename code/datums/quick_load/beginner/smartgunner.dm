@@ -26,16 +26,13 @@
 	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/plasma_pistol, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
+	for(var/i in 1 to 3)
+		human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
 	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
 	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
 
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
+	for(var/i in 1 to 4)
+		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
 
 /datum/outfit/quick/beginner/smartgunner/sg85
@@ -52,8 +49,7 @@
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
+	for(var/i in 1 to 3)
+		human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
 	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
 	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
