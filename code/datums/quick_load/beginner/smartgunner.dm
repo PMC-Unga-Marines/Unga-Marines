@@ -2,7 +2,6 @@
 	jobtype = SQUAD_SMARTGUNNER
 
 	w_uniform = /obj/item/clothing/under/marine/black_vest
-	shoes = /obj/item/clothing/shoes/marine
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/lightgeneral
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/m10x/antenna
@@ -10,8 +9,8 @@
 	glasses = /obj/item/clothing/glasses/night/m56_goggles
 
 /datum/outfit/quick/beginner/smartgunner/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BOOT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_HEAD)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_HEAD)
 
 /datum/outfit/quick/beginner/smartgunner/sg29
 	name = "Standard Smartmachinegun"

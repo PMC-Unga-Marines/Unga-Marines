@@ -2,14 +2,11 @@
 	jobtype = SQUAD_ENGINEER
 
 	w_uniform = /obj/item/clothing/under/marine/brown_vest
-	shoes = /obj/item/clothing/shoes/marine
 	gloves = /obj/item/clothing/gloves/marine/insulated
 	l_store = /obj/item/storage/pouch/tools
 
 /datum/outfit/quick/beginner/engineer/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BOOT)
-
 	human.equip_to_slot_or_del(new /obj/item/tool/screwdriver, SLOT_IN_L_POUCH)
 	human.equip_to_slot_or_del(new /obj/item/tool/wirecutters, SLOT_IN_L_POUCH)
 	human.equip_to_slot_or_del(new /obj/item/tool/wrench, SLOT_IN_L_POUCH)
@@ -24,6 +21,9 @@
 
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/plasteel/medium_stack, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
+
+	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
 
 /datum/outfit/quick/beginner/engineer/builder
 	name = "Engineer Standard"
@@ -102,7 +102,6 @@
 
 /datum/outfit/quick/beginner/engineer/pcenjoyer/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
 
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)

@@ -10,6 +10,11 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar12/medic
 	l_hand = /obj/item/paper/tutorial/beginner_rifleman
 
+/datum/outfit/quick/beginner/marine/post_equip(mob/living/carbon/human/human, visualsOnly)
+	. = ..()
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+
 /datum/outfit/quick/beginner/marine/rifleman/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
 	human.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
@@ -179,13 +184,10 @@
 	mask = /obj/item/clothing/mask/gas/tactical/coif
 	r_store = /obj/item/cell/lasgun/volkite/powerpack/marine
 	w_uniform = /obj/item/clothing/under/marine/corpman_vest
-	shoes = /obj/item/clothing/shoes/marine
 	l_hand = /obj/item/paper/tutorial/beginner_shocktrooper
 
 /datum/outfit/quick/beginner/marine/shocktrooper/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BOOT)
-
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)

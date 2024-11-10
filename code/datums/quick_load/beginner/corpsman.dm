@@ -1,14 +1,14 @@
 /datum/outfit/quick/beginner/corpsman
 	jobtype = SQUAD_CORPSMAN
 
-	shoes = /obj/item/clothing/shoes/marine
 	w_uniform = /obj/item/clothing/under/marine/corpsman/corpman_vest
 	glasses = /obj/item/clothing/glasses/hud/health
 	r_hand = /obj/item/medevac_beacon
 
 /datum/outfit/quick/beginner/corpsman/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BOOT)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 
 /datum/outfit/quick/beginner/corpsman/lifesaver
 	name = "Standard Lifesaver"
