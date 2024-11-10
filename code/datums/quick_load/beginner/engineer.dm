@@ -3,15 +3,10 @@
 
 	w_uniform = /obj/item/clothing/under/marine/brown_vest
 	gloves = /obj/item/clothing/gloves/marine/insulated
-	l_store = /obj/item/storage/pouch/tools
+	l_store = /obj/item/storage/pouch/tools/engineer
 
 /datum/outfit/quick/beginner/engineer/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/tool/screwdriver, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/tool/wirecutters, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/tool/wrench, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/tool/crowbar, SLOT_IN_L_POUCH)
-	human.equip_to_slot_or_del(new /obj/item/tool/weldingtool/hugetank, SLOT_IN_L_POUCH)
 
 	human.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_smol, SLOT_IN_ACCESSORY)
 	human.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_ACCESSORY)
@@ -39,16 +34,11 @@
 
 /datum/outfit/quick/beginner/engineer/builder/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
+	for(var/i in 1 to 3)
+		human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
+	for(var/i in 1 to 7)
+		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
 
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/full, SLOT_IN_BACKPACK)
@@ -56,10 +46,8 @@
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
+	for(var/i in 1 to 4)
+		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
 
 /datum/outfit/quick/beginner/engineer/burnitall
 	name = "Flamethrower"
@@ -108,8 +96,7 @@
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_SUIT)
 
 	human.equip_to_slot_or_del(new /obj/item/weapon/gun/revolver/r44, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
+	for(var/i in 1 to 3)
+		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/magnum, SLOT_IN_BACKPACK)
