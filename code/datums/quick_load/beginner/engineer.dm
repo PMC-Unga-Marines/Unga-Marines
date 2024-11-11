@@ -95,7 +95,7 @@
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_SUIT)
 
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/revolver/r44, SLOT_IN_BACKPACK)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/revolver/r44(human), SLOT_IN_BACKPACK)
 	for(var/i in 1 to 3)
 		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
 	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)

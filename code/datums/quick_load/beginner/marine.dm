@@ -27,7 +27,7 @@
 
 	for(var/i in 1 to 3)
 		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/beginner, SLOT_IN_ACCESSORY)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/beginner(human), SLOT_IN_ACCESSORY)
 
 	for(var/i in 1 to 6)
 		human.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_SUIT)
@@ -89,7 +89,7 @@
 
 	for(var/i in 1 to 3)
 		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/beginner, SLOT_IN_ACCESSORY)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/beginner(human), SLOT_IN_ACCESSORY)
 
 	human.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/bicaridine, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/kelotane, SLOT_IN_SUIT)
@@ -124,7 +124,7 @@
 
 	for(var/i in 1 to 3)
 		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/plasma_pistol, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/plasma_pistol/beginner, SLOT_IN_ACCESSORY)
+	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/plasma_pistol/beginner(human), SLOT_IN_ACCESSORY)
 
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
 	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
