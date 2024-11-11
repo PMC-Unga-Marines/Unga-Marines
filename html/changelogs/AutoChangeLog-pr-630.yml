@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Большая часть `spawn()` была переделана в таймеры."
