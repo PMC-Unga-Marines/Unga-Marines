@@ -83,8 +83,8 @@
 		return
 	if(user.species.coughs[user.gender])
 		return user.species.coughs[user.gender]
-	if(user.species.coughs[NEUTER])
-		return user.species.coughs[NEUTER]
+	if(user.species.coughs[MALE])
+		return user.species.coughs[MALE]
 
 
 /datum/emote/living/carbon/human/cry
@@ -137,8 +137,8 @@
 		return
 	if(user.species.gasps[user.gender])
 		return user.species.gasps[user.gender]
-	if(user.species.gasps[NEUTER])
-		return user.species.gasps[NEUTER]
+	if(user.species.gasps[MALE])
+		return user.species.gasps[MALE]
 
 /datum/emote/living/carbon/human/giggle
 	key = "giggle"
@@ -379,8 +379,8 @@
 		return
 	if(user.species.laughs[user.gender])
 		return user.species.laughs[user.gender]
-	if(user.species.laughs[NEUTER])
-		return user.species.laughs[NEUTER]
+	if(user.species.laughs[MALE])
+		return user.species.laughs[MALE]
 
 /datum/emote/living/carbon/human/warcry
 	key = "warcry"
@@ -393,8 +393,8 @@
 		return
 	if(user.species.warcries[user.gender])
 		return user.species.warcries[user.gender]
-	if(user.species.warcries[NEUTER])
-		return user.species.warcries[NEUTER]
+	if(user.species.warcries[MALE])
+		return user.species.warcries[MALE]
 
 
 /datum/emote/living/carbon/human/warcry/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
@@ -472,8 +472,8 @@
 		return
 	if(user.species.screams[user.gender])
 		return user.species.screams[user.gender]
-	if(user.species.screams[NEUTER])
-		return user.species.screams[NEUTER]
+	if(user.species.screams[MALE])
+		return user.species.screams[MALE]
 
 
 /datum/emote/living/carbon/human/scream/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
@@ -519,8 +519,8 @@
 		return
 	if(user.species.paincries[user.gender])
 		return user.species.paincries[user.gender]
-	if(user.species.paincries[NEUTER])
-		return user.species.paincries[NEUTER]
+	if(user.species.paincries[MALE])
+		return user.species.paincries[MALE]
 
 
 /datum/emote/living/carbon/human/pain/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
@@ -543,8 +543,8 @@
 		return
 	if(user.species.goredcries[user.gender])
 		return user.species.goredcries[user.gender]
-	if(user.species.goredcries[NEUTER])
-		return user.species.goredcries[NEUTER]
+	if(user.species.goredcries[MALE])
+		return user.species.goredcries[MALE]
 
 
 /datum/emote/living/carbon/human/gored/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
@@ -568,8 +568,8 @@
 		return
 	if(user.species.burstscreams[user.gender])
 		return user.species.burstscreams[user.gender]
-	if(user.species.burstscreams[NEUTER])
-		return user.species.burstscreams[NEUTER]
+	if(user.species.burstscreams[MALE])
+		return user.species.burstscreams[MALE]
 
 
 /datum/emote/living/carbon/human/burstscream/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)

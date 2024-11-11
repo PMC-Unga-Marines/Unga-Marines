@@ -3,7 +3,7 @@
 /obj/effect/decal/cleanable/blood
 	name = "blood"
 	desc = "It's thick and gooey. Perhaps it's the chef's cooking?"
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -112,7 +112,7 @@
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"
 	desc = "Some small drips of blood."
-	gender = PLURAL
+	gender = MALE
 	icon = 'icons/effects/drip.dmi'
 	icon_state = "1"
 	random_icon_states = list("1","2","3","4","5")
@@ -137,7 +137,7 @@
 /obj/effect/decal/cleanable/blood/writing
 	icon_state = "tracks"
 	desc = "It looks like a writing in blood."
-	gender = NEUTER
+	gender = MALE
 	random_icon_states = list("writing1","writing2","writing3","writing4","writing5")
 	amount = 0
 	var/message
@@ -158,7 +158,7 @@
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"
 	desc = "They look bloody and gruesome."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -216,7 +216,7 @@
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"
 	desc = "Disgusting mucus."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER

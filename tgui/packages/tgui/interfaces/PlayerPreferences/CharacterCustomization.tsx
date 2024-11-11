@@ -1,5 +1,3 @@
-import { capitalize } from 'common/string';
-
 import { useBackend } from '../../backend';
 import {
   Box,
@@ -41,11 +39,11 @@ export const CharacterCustomization = (props) => {
     };
     return '#' + convert(red) + convert(green) + convert(blue);
   };
-  const genders = ['male', 'female', 'plural', 'neuter'];
+  const genders = ['male', 'female', 'plural', 'MALE'];
   const genderToName = {
     male: 'Male',
     female: 'Female',
-    neuter: 'Object',
+    MALE: 'Object',
     plural: 'Other',
   };
   return (
@@ -108,7 +106,7 @@ export const CharacterCustomization = (props) => {
                   <Button.Checkbox
                     inline
                     key={thisgender}
-                    content={capitalize(genderToName[thisgender])}
+                    content={genderToName[thisgender]}
                     checked={data['gender'] === thisgender}
                     onClick={() =>
                       act('toggle_gender', { newgender: thisgender })

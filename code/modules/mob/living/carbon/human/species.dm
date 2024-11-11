@@ -447,11 +447,11 @@
 	has_organ = list()
 
 
-	screams = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
-	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", PLURAL = "robot_pain", NEUTER = "robot_pain")
-	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
-	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", NEUTER = "robot_warcry")
-	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", PLURAL = "robot_male_laugh", NEUTER = "robot_female_laugh")
+	screams = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", MALE = "robot_scream")
+	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", PLURAL = "robot_pain", MALE = "robot_pain")
+	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", MALE = "robot_scream")
+	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", MALE = "robot_warcry")
+	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", PLURAL = "robot_male_laugh", MALE = "robot_female_laugh")
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = FALSE
@@ -729,7 +729,7 @@
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY
 
-	paincries = list("neuter" = 'sound/voice/sectoid_death.ogg')
+	paincries = list("MALE" = 'sound/voice/sectoid_death.ogg')
 	death_sound = 'sound/voice/sectoid_death.ogg'
 
 	blood_color = "#00FF00"
@@ -752,12 +752,12 @@
 	species_flags = HAS_LIPS|HAS_NO_HAIR
 	preferences = list("moth_wings" = "Wings")
 
-	screams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	paincries = list("neuter" = 'sound/voice/human/male/pain_3.ogg')
-	goredcries = list("neuter" = 'sound/voice/moth_scream.ogg')
-	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	warcries = list("neuter" = 'sound/voice/moth_scream.ogg')
-	laughs = list("neuter" = 'sound/voice/silly_laugh.ogg')
+	screams = list("MALE" = 'sound/voice/moth_scream.ogg')
+	paincries = list("MALE" = 'sound/voice/human/male/pain_3.ogg')
+	goredcries = list("MALE" = 'sound/voice/moth_scream.ogg')
+	burstscreams = list("MALE" = 'sound/voice/moth_scream.ogg')
+	warcries = list("MALE" = 'sound/voice/moth_scream.ogg')
+	laughs = list("MALE" = 'sound/voice/silly_laugh.ogg')
 
 	flesh_color = "#E5CD99"
 
@@ -811,13 +811,13 @@
 
 	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD // Where we're going, we don't NEED underwear.
 
-	screams = list("neuter" = 'sound/voice/skeleton_scream.ogg') // RATTLE ME BONES
-	paincries = list("neuter" = 'sound/voice/skeleton_scream.ogg')
-	goredcries = list("neuter" = 'sound/voice/skeleton_scream.ogg')
-	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
+	screams = list("MALE" = 'sound/voice/skeleton_scream.ogg') // RATTLE ME BONES
+	paincries = list("MALE" = 'sound/voice/skeleton_scream.ogg')
+	goredcries = list("MALE" = 'sound/voice/skeleton_scream.ogg')
+	burstscreams = list("MALE" = 'sound/voice/moth_scream.ogg')
 	death_message = "collapses in a pile of bones, with a final rattle..."
-	death_sound = list("neuter" = 'sound/voice/skeleton_scream.ogg')
-	warcries = list("neuter" = 'sound/voice/skeleton_warcry.ogg') // AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	death_sound = list("MALE" = 'sound/voice/skeleton_scream.ogg')
+	warcries = list("MALE" = 'sound/voice/skeleton_warcry.ogg') // AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	namepool = /datum/namepool/skeleton
 
 ///Called when using the shredding behavior.
@@ -1043,7 +1043,7 @@
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY
 
-	paincries = list("neuter" = 'sound/voice/necoarc/NecoVIBIVII!!.ogg')
+	paincries = list("MALE" = 'sound/voice/necoarc/NecoVIBIVII!!.ogg')
 	death_sound = 'sound/voice/necoarc/Necojooooonoooooooo.ogg'
 
 	blood_color = "#00FF00"

@@ -68,7 +68,7 @@
 /client/p_they(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "they"
+	. = "he"
 	switch(temp_gender)
 		if(FEMALE)
 			. = "she"
@@ -81,7 +81,7 @@
 /client/p_their(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "their"
+	. = "his"
 	switch(temp_gender)
 		if(FEMALE)
 			. = "her"
@@ -94,7 +94,7 @@
 /client/p_them(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "them"
+	. = "him"
 	switch(temp_gender)
 		if(FEMALE)
 			. = "her"
@@ -108,47 +108,21 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "has"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "have"
-
 
 /client/p_are(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "is"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "are"
-
 
 /client/p_were(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "was"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "were"
-
 
 /client/p_do(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "does"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "do"
-
-
-/client/p_s(temp_gender)
-	if(!temp_gender)
-		temp_gender = gender
-	if(temp_gender != PLURAL && temp_gender != NEUTER)
-		. = "s"
-
-
-/client/p_es(temp_gender)
-	if(!temp_gender)
-		temp_gender = gender
-	if(temp_gender != PLURAL && temp_gender != NEUTER)
-		. = "es"
-
 
 //atoms also have gender! mostly only matters for singular/plural outside mobs, but you can have a male hat if you really want
 /atom/p_they(capitalized, temp_gender)
@@ -160,11 +134,8 @@
 			. = "she"
 		if(MALE)
 			. = "he"
-		if(PLURAL)
-			. = "they"
 	if(capitalized)
 		. = capitalize(.)
-
 
 /atom/p_their(capitalized, temp_gender)
 	if(!temp_gender)
@@ -175,11 +146,8 @@
 			. = "her"
 		if(MALE)
 			. = "his"
-		if(PLURAL)
-			. = "their"
 	if(capitalized)
 		. = capitalize(.)
-
 
 /atom/p_them(capitalized, temp_gender)
 	if(!temp_gender)
@@ -190,64 +158,43 @@
 			. = "her"
 		if(MALE)
 			. = "him"
-		if(PLURAL)
-			. = "them"
 	if(capitalized)
 		. = capitalize(.)
-
 
 /atom/p_have(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "has"
-	if(temp_gender == PLURAL)
-		. = "have"
-
 
 /atom/p_are(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "is"
-	if(temp_gender == PLURAL)
-		. = "are"
-
 
 /atom/p_were(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "was"
-	if(temp_gender == PLURAL)
-		. = "were"
-
 
 /atom/p_do(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "does"
-	if(temp_gender == PLURAL)
-		. = "do"
-
 
 /atom/p_s(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	if(temp_gender != PLURAL)
-		. = "s"
-
 
 /atom/p_es(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	if(temp_gender != PLURAL)
-		. = "es"
-
 
 //humans need special handling, because they can have their gender hidden
 /mob/living/carbon/human/p_they(capitalized, temp_gender)
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -255,7 +202,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -263,7 +210,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -271,7 +218,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -279,7 +226,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -287,7 +234,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -295,7 +242,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -303,7 +250,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()
 
 
@@ -311,5 +258,5 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = MALE
 	return ..()

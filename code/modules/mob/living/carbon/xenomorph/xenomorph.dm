@@ -23,7 +23,7 @@
 	base_icon = icon
 
 	create_reagents(1000)
-	gender = NEUTER
+	gender = MALE
 
 	if(is_centcom_level(z) && hivenumber == XENO_HIVE_NORMAL)
 		hivenumber = XENO_HIVE_ADMEME //so admins can safely spawn xenos in Thunderdome for tests.

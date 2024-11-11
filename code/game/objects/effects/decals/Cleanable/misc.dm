@@ -1,7 +1,7 @@
 /obj/effect/decal/cleanable/generic
 	name = "clutter"
 	desc = "Someone should clean that up."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -11,7 +11,7 @@
 /obj/effect/decal/cleanable/ash
 	name = "ashes"
 	desc = "Ashes to ashes, dust to dust, and into space."
-	gender = PLURAL
+	gender = MALE
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
 	anchored = TRUE
@@ -28,7 +28,7 @@
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
 	desc = "Someone should clean that up."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -39,7 +39,7 @@
 /obj/effect/decal/cleanable/glass
 	name = "broken glass"
 	desc = "This looks hazardous to anyone not wearing shoes."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -56,7 +56,7 @@
 /obj/effect/decal/cleanable/flour
 	name = "flour"
 	desc = "It's still good. Four second rule!"
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -66,7 +66,7 @@
 /obj/effect/decal/cleanable/greenglow
 	name = "glowing goo"
 	desc = "Jeez. I hope that's not for lunch."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER
@@ -104,7 +104,7 @@
 /obj/effect/decal/cleanable/vomit
 	name = "vomit"
 	desc = "Gosh, how unpleasant."
-	gender = PLURAL
+	gender = MALE
 	density = FALSE
 	anchored = TRUE
 	layer = TURF_LAYER

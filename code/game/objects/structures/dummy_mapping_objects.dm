@@ -64,7 +64,7 @@
 /obj/item/computer3_part
 	name = "computer part"
 	desc = "Holy jesus you donnit now"
-	gender = PLURAL
+	gender = MALE
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "hdd1"
 	w_class = WEIGHT_CLASS_SMALL

@@ -4,7 +4,7 @@
 	health = 20
 	maxHealth = 20
 	status_flags = CANPUSH
-	gender = PLURAL
+	gender = MALE
 	buckle_flags = NONE
 	move_force = MOVE_FORCE_WEAK
 	move_resist = MOVE_FORCE_WEAK

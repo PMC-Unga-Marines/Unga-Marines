@@ -81,7 +81,7 @@
 /obj/item/tool/soap
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
-	gender = PLURAL
+	gender = MALE
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "soap"
 	w_class = WEIGHT_CLASS_TINY

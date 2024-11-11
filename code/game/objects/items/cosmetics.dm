@@ -1,5 +1,5 @@
 /obj/item/facepaint
-	gender = PLURAL
+	gender = MALE
 	name = "customization kit"
 	desc = "A kit designed for customizing various pieces of armor and clothing. Comes with facepaint!"
 	icon = 'icons/obj/items/cosmetics.dmi'

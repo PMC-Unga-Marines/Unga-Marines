@@ -53,7 +53,7 @@
 	desc = "Great for toppings!"
 	icon_state = "cherry"
 	filling_color = "#FF0000"
-	gender = PLURAL
+	gender = MALE
 	plantname = "cherry"
 
 /obj/item/reagent_containers/food/snacks/grown/poppy
@@ -172,7 +172,7 @@
 	name = "bunch of poison-berries"
 	desc = "Taste so good, you could die!"
 	icon_state = "poisonberrypile"
-	gender = PLURAL
+	gender = MALE
 	potency = 15
 	filling_color = "#B422C7"
 	plantname = "poisonberries"
@@ -181,7 +181,7 @@
 	name = "bunch of death-berries"
 	desc = "Taste so good, you could die!"
 	icon_state = "deathberrypile"
-	gender = PLURAL
+	gender = MALE
 	potency = 50
 	filling_color = "#4E0957"
 	plantname = "deathberries"
@@ -310,7 +310,7 @@
 /obj/item/reagent_containers/food/snacks/grown/soybeans
 	name = "soybeans"
 	desc = "It's pretty bland, but oh the possibilities..."
-	gender = PLURAL
+	gender = MALE
 	filling_color = "#E6E8B7"
 	icon_state = "soybeans"
 	plantname = "soybean"
@@ -387,7 +387,7 @@
 /obj/item/reagent_containers/food/snacks/grown/wheat
 	name = "wheat"
 	desc = "Sigh... wheat... a-grain?"
-	gender = PLURAL
+	gender = MALE
 	icon_state = "wheat"
 	filling_color = "#F7E186"
 	plantname = "wheat"
@@ -395,7 +395,7 @@
 /obj/item/reagent_containers/food/snacks/grown/ricestalk
 	name = "rice stalk"
 	desc = "Rice to see you."
-	gender = PLURAL
+	gender = MALE
 	icon_state = "rice"
 	filling_color = "#FFF8DB"
 	plantname = "rice"

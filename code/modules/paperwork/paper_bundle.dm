@@ -1,6 +1,6 @@
 /obj/item/paper_bundle
 	name = "paper bundle"
-	gender = PLURAL
+	gender = MALE
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "paper"
 	item_icons = list(

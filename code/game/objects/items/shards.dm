@@ -146,7 +146,7 @@
 	name = "bone shrapnel chips"
 	desc = "It looks like it came from a prehistoric animal."
 	icon_state = "bonechips"
-	gender = PLURAL
+	gender = MALE
 	damage_on_move = 0.6
 	shardsize = FALSE
 

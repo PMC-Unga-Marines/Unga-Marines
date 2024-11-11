@@ -1,5 +1,5 @@
 /mob/living/silicon
-	gender = NEUTER
+	gender = MALE
 	verb_say = "states"
 	verb_ask = "queries"
 	verb_exclaim = "declares"

@@ -1,7 +1,7 @@
 /obj/item/stock_parts
 	name = "stock part"
 	desc = "What?"
-	gender = PLURAL
+	gender = MALE
 	icon = 'icons/obj/items/stock_parts.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/rating = 1

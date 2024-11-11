@@ -55,7 +55,7 @@
 	var/icon_state		// the icon_state of the accessory
 	var/preview_state	// a custom preview state for whatever reason
 	var/name			// the preview name of the accessory
-	var/gender = NEUTER // Determines if the accessory will be skipped or included in random hair generations
+	var/gender = MALE // Determines if the accessory will be skipped or included in random hair generations
 	var/locked = FALSE		//Is this part locked from roundstart selection? Used for parts that apply effects
 
 	var/list/species_allowed = list("Human","Human Hero", "Synthetic", "Early Synthetics", "Vat-Grown", "Vatborn") // Restrict some styles to specific species
@@ -1169,7 +1169,7 @@
 
 /datum/sprite_accessory/hair_gradient
 	icon = 'icons/mob/hair_gradients.dmi'
-	gender = NEUTER
+	gender = MALE
 	species_allowed = list("Human","Synthetic", "Early Synthetic", "Vat-Grown", "Vatborn")
 
 /datum/sprite_accessory/hair_gradient/none
@@ -1220,7 +1220,7 @@
 /datum/sprite_accessory/facial_hair/shaved
 	name = "Shaved"
 	icon_state = "bald"
-	gender = NEUTER
+	gender = MALE
 	species_allowed = list("Human","Synthetic", "Early Synthetic", "Vat-Grown", "Vatborn")
 
 /datum/sprite_accessory/facial_hair/watson
@@ -1316,8 +1316,8 @@
 	icon_state = "facial_brokenman_s"
 	greyscale_config = /datum/greyscale_config/broken_man
 
-	
-	
+
+
 //skin styles - WIP
 //going to have to re-integrate this with surgery
 //let the icon_state hold an icon preview for now
