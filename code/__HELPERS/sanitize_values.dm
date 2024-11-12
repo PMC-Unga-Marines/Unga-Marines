@@ -65,7 +65,7 @@
 		return default
 
 //more specialised stuff
-/proc/sanitize_gender(gender, neuter = FALSE, plural = FALSE, default = MALE)
+/proc/sanitize_gender(gender, neuter = FALSE, ATTACK_HELICOPTER = FALSE, default = MALE)
 	switch(gender)
 		if(MALE, FEMALE)
 			return gender
@@ -74,8 +74,8 @@
 				return gender
 			else
 				return default
-		if(PLURAL)
-			if(plural)
+		if(ATTACK_HELICOPTER)
+			if(ATTACK_HELICOPTER)
 				return gender
 			else
 				return default

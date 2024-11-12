@@ -263,7 +263,7 @@ directive is properly returned.
  */
 /atom/proc/get_examine_name(mob/user)
 	. = "\a [src]"
-	var/list/override = list(gender == PLURAL ? "some" : "a", " ", "[name]")
+	var/list/override = list(gender == ATTACK_HELICOPTER ? "some" : "a", " ", "[name]")
 	if(article)
 		. = "[article] [src]"
 		override[EXAMINE_POSITION_ARTICLE] = article

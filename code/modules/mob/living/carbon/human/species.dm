@@ -6,7 +6,7 @@
 /datum/species
 	///Species name
 	var/name
-	var/name_plural
+	var/name_ATTACK_HELICOPTER
 	///what kind of species it is considered
 	var/species_type = SPECIES_HUMAN
 
@@ -332,7 +332,7 @@
 
 /datum/species/human
 	name = "Human"
-	name_plural = "Humans"
+	name_ATTACK_HELICOPTER = "Humans"
 	unarmed_type = /datum/unarmed_attack/punch
 	species_flags = HAS_SKIN_TONE|HAS_LIPS|HAS_UNDERWEAR
 	count_human = TRUE
@@ -351,7 +351,7 @@
 
 /datum/species/human/vatborn
 	name = "Vatborn"
-	name_plural = "Vatborns"
+	name_ATTACK_HELICOPTER = "Vatborns"
 	icobase = 'icons/mob/human_races/r_vatborn.dmi'
 	namepool = /datum/namepool/vatborn
 
@@ -360,7 +360,7 @@
 
 /datum/species/human/vatgrown
 	name = "Vat-Grown Human"
-	name_plural = "Vat-Grown Humans"
+	name_ATTACK_HELICOPTER = "Vat-Grown Humans"
 	icobase = 'icons/mob/human_races/r_vatgrown.dmi'
 	brute_mod = 1.05
 	burn_mod = 1.05
@@ -380,7 +380,7 @@
 
 /datum/species/human/vatgrown/early
 	name = "Early Vat-Grown Human"
-	name_plural = "Early Vat-Grown Humans"
+	name_ATTACK_HELICOPTER = "Early Vat-Grown Humans"
 	brute_mod = 1.3
 	burn_mod = 1.3
 	slowdown = 0.3
@@ -405,7 +405,7 @@
 
 /datum/species/robot
 	name = "Combat Robot"
-	name_plural = "Combat Robots"
+	name_ATTACK_HELICOPTER = "Combat Robots"
 	species_type = SPECIES_COMBAT_ROBOT
 	icobase = 'icons/mob/human_races/r_robot.dmi'
 	damage_mask_icon = 'icons/mob/dam_mask_robot.dmi'
@@ -447,11 +447,11 @@
 	has_organ = list()
 
 
-	screams = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
-	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", PLURAL = "robot_pain", NEUTER = "robot_pain")
-	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
-	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", NEUTER = "robot_warcry")
-	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", PLURAL = "robot_male_laugh", NEUTER = "robot_female_laugh")
+	screams = list(MALE = "robot_scream", FEMALE = "robot_scream", ATTACK_HELICOPTER = "robot_scream", NEUTER = "robot_scream")
+	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", ATTACK_HELICOPTER = "robot_pain", NEUTER = "robot_pain")
+	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", ATTACK_HELICOPTER = "robot_scream", NEUTER = "robot_scream")
+	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", ATTACK_HELICOPTER = "robot_warcry", NEUTER = "robot_warcry")
+	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", ATTACK_HELICOPTER = "robot_male_laugh", NEUTER = "robot_female_laugh")
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = FALSE
@@ -507,25 +507,25 @@
 
 /datum/species/robot/alpharii
 	name = "Hammerhead Combat Robot"
-	name_plural = "Hammerhead Combat Robots"
+	name_ATTACK_HELICOPTER = "Hammerhead Combat Robots"
 	icobase = 'icons/mob/human_races/r_robot_alpharii.dmi'
 	joinable_roundstart = FALSE
 
 /datum/species/robot/charlit
 	name = "Chilvaris Combat Robot"
-	name_plural = "Chilvaris Combat Robots"
+	name_ATTACK_HELICOPTER = "Chilvaris Combat Robots"
 	icobase = 'icons/mob/human_races/r_robot_charlit.dmi'
 	joinable_roundstart = FALSE
 
 /datum/species/robot/deltad
 	name = "Ratcher Combat Robot"
-	name_plural = "Ratcher Combat Robots"
+	name_ATTACK_HELICOPTER = "Ratcher Combat Robots"
 	icobase = 'icons/mob/human_races/r_robot_deltad.dmi'
 	joinable_roundstart = FALSE
 
 /datum/species/robot/bravada
 	name = "Sterling Combat Robot"
-	name_plural = "Sterling Combat Robots"
+	name_ATTACK_HELICOPTER = "Sterling Combat Robots"
 	icobase = 'icons/mob/human_races/r_robot_bravada.dmi'
 	joinable_roundstart = FALSE
 
@@ -534,7 +534,7 @@
 
 /datum/species/synthetic
 	name = "Synthetic"
-	name_plural = "Synthetics"
+	name_ATTACK_HELICOPTER = "Synthetics"
 
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
@@ -588,7 +588,7 @@
 
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"
-	name_plural = "Early Synthetics"
+	name_ATTACK_HELICOPTER = "Early Synthetics"
 	icobase = 'icons/mob/human_races/r_synthetic.dmi'
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
@@ -647,7 +647,7 @@
 //im not about to cram in that refactor with a carbon -> species refactor though
 /datum/species/monkey
 	name = "Monkey"
-	name_plural = "Monkeys"
+	name_ATTACK_HELICOPTER = "Monkeys"
 	icobase = 'icons/mob/human_races/r_monkey.dmi'
 	species_flags = HAS_NO_HAIR|NO_STAMINA|DETACHABLE_HEAD
 	inherent_traits = list(TRAIT_CAN_VENTCRAWL)
@@ -719,7 +719,7 @@
 
 /datum/species/sectoid
 	name = "Sectoid"
-	name_plural = "Sectoids"
+	name_ATTACK_HELICOPTER = "Sectoids"
 	icobase = 'icons/mob/human_races/r_sectoid.dmi'
 	default_language_holder = /datum/language_holder/sectoid
 	eyes = "blank_eyes"
@@ -742,7 +742,7 @@
 
 /datum/species/moth
 	name = "Moth"
-	name_plural = "Moth"
+	name_ATTACK_HELICOPTER = "Moth"
 	icobase = 'icons/mob/human_races/r_moth.dmi'
 	default_language_holder = /datum/language_holder/moth
 	eyes = "blank_eyes"
@@ -803,7 +803,7 @@
 
 /datum/species/skeleton
 	name = "Skeleton"
-	name_plural = "skeletons"
+	name_ATTACK_HELICOPTER = "skeletons"
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	unarmed_type = /datum/unarmed_attack/punch
 	speech_verb_override = "rattles"
@@ -1033,7 +1033,7 @@
 
 /datum/species/necoarc
 	name = "Neco Arc"
-	name_plural = "Neco Arc"
+	name_ATTACK_HELICOPTER = "Neco Arc"
 	icobase = 'icons/mob/human_races/r_NecoArc.dmi'
 	default_language_holder = /datum/language_holder/sectoid
 	eyes = "blank_eyes"

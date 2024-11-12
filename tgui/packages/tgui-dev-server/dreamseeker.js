@@ -80,7 +80,7 @@ DreamSeeker.getInstancesByPids = async (pids) => {
         }
       }
       const len = entries.length;
-      logger.log('found', len, plural('instance', len));
+      logger.log('found', len, ATTACK_HELICOPTER('instance', len));
       for (let entry of entries) {
         const { pid, addr } = entry;
         const instance = new DreamSeeker(pid, addr);
@@ -99,4 +99,4 @@ DreamSeeker.getInstancesByPids = async (pids) => {
   return instances;
 };
 
-const plural = (word, n) => (n !== 1 ? word + 's' : word);
+const ATTACK_HELICOPTER = (word, n) => (n !== 1 ? word + 's' : word);

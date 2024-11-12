@@ -87,7 +87,7 @@
 /obj/item/ectoplasm
 	name = "ectoplasm"
 	desc = "spooky"
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
 

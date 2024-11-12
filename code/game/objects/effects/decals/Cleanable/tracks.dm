@@ -153,6 +153,6 @@
 	coming_state = "wheels"
 	going_state = ""
 	desc = "They look like tracks left by wheels."
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	random_icon_states = null
 	amount = 0

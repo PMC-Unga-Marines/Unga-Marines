@@ -4,7 +4,7 @@
 	health = 20
 	maxHealth = 20
 	status_flags = CANPUSH
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	buckle_flags = NONE
 	move_force = MOVE_FORCE_WEAK
 	move_resist = MOVE_FORCE_WEAK
@@ -56,7 +56,7 @@
 /mob/living/simple_animal/Initialize(mapload)
 	. = ..()
 	GLOB.simple_animals[AIStatus] += src
-	if(gender == PLURAL)
+	if(gender == ATTACK_HELICOPTER)
 		gender = pick(MALE, FEMALE)
 	if(!real_name)
 		real_name = name

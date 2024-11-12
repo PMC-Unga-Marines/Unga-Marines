@@ -360,7 +360,7 @@
   - bugfix: fixed the medbay exit button on sulaco
   - bugfix: fixed robot surgery
   lbnesquik:
-  - bugfix: fixed plural/neuter not having underwear
+  - bugfix: fixed ATTACK_HELICOPTER/neuter not having underwear
 2023-07-28:
   567Turtle:
   - rscadd: New vali codex information

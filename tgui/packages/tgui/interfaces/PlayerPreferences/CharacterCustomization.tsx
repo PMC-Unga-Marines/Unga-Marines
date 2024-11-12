@@ -41,12 +41,12 @@ export const CharacterCustomization = (props) => {
     };
     return '#' + convert(red) + convert(green) + convert(blue);
   };
-  const genders = ['male', 'female', 'plural', 'neuter'];
+  const genders = ['male', 'female', 'ATTACK_HELICOPTER', 'neuter'];
   const genderToName = {
     male: 'Male',
     female: 'Female',
     neuter: 'Object',
-    plural: 'Other',
+    ATTACK_HELICOPTER: 'Other',
   };
   return (
     <>

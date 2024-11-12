@@ -124,7 +124,7 @@
 	icon_state = "gygax_r_leg"
 
 /obj/item/mecha_parts/part/gygax_armor
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	name = "\improper Gygax armor plates"
 	desc = "A set of armor plates designed for the Gygax. Designed to effectively deflect damage with a lightweight construction."
 	icon_state = "gygax_armor"
@@ -165,7 +165,7 @@
 	icon_state = "durand_r_leg"
 
 /obj/item/mecha_parts/part/durand_armor
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	name = "\improper Durand armor plates"
 	desc = "A set of armor plates for the Durand. Built heavy to resist an incredible amount of brute force."
 	icon_state = "durand_armor"

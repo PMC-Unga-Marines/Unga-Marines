@@ -8,7 +8,7 @@
 /obj/item/frame/table
 	name = "table parts"
 	desc = "A kit for a table, including a large, flat metal surface and four legs. Some assembly required."
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "table_parts"
 	item_icons = list(

@@ -184,7 +184,7 @@
 	deconstruct(FALSE)
 
 /obj/item/flashlight/slime
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	name = "glowing slime"
 	desc = "A glowing ball of what appears to be amber."
 	icon = 'icons/obj/lighting.dmi'

@@ -1,6 +1,6 @@
 2022-08-01:
   BraveMole:
-  - bugfix: Fix plural gender not able to chose gear
+  - bugfix: Fix ATTACK_HELICOPTER gender not able to chose gear
   Lumipharon:
   - balance: Slightly reduced the accuracy of volkite projectiles, and decreased the
       damage of deflagration

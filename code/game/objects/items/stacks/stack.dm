@@ -1,6 +1,6 @@
 /obj/item/stack
 	icon = 'icons/obj/stack_objects.dmi'
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
 	var/stack_name = "stack"

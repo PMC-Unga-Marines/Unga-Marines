@@ -122,7 +122,7 @@
   Ghommie:
   - imageadd: Added in directional sprites for intercoms.
   Rohesie:
-  - tweak: The xenomorph hivemind members now use plural forms to refer to themselves.
+  - tweak: The xenomorph hivemind members now use ATTACK_HELICOPTER forms to refer to themselves.
       They have a hard time grasping concepts such as individuality. All are one,
       one is many.
   - tweak: Improved feedback of the Summon Dropship xeno ruler ability. Nested and

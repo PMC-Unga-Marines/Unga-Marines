@@ -49,8 +49,8 @@
 /datum/proc/p_es(temp_gender)
 	. = "es"
 
-/datum/proc/plural_s(pluralize)
-	switch(copytext_char(pluralize, -2))
+/datum/proc/ATTACK_HELICOPTER_s(ATTACK_HELICOPTERize)
+	switch(copytext_char(ATTACK_HELICOPTERize, -2))
 		if ("ss")
 			. = "es"
 		if ("sh")
@@ -58,7 +58,7 @@
 		if ("ch")
 			. = "es"
 		else
-			switch(copytext_char(pluralize, -1))
+			switch(copytext_char(ATTACK_HELICOPTERize, -1))
 				if("s", "x", "z")
 					. = "es"
 				else
@@ -108,7 +108,7 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "has"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
+	if(temp_gender == ATTACK_HELICOPTER || temp_gender == NEUTER)
 		. = "have"
 
 
@@ -116,7 +116,7 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "is"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
+	if(temp_gender == ATTACK_HELICOPTER || temp_gender == NEUTER)
 		. = "are"
 
 
@@ -124,7 +124,7 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "was"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
+	if(temp_gender == ATTACK_HELICOPTER || temp_gender == NEUTER)
 		. = "were"
 
 
@@ -132,25 +132,25 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "does"
-	if(temp_gender == PLURAL || temp_gender == NEUTER)
+	if(temp_gender == ATTACK_HELICOPTER || temp_gender == NEUTER)
 		. = "do"
 
 
 /client/p_s(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	if(temp_gender != PLURAL && temp_gender != NEUTER)
+	if(temp_gender != ATTACK_HELICOPTER && temp_gender != NEUTER)
 		. = "s"
 
 
 /client/p_es(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	if(temp_gender != PLURAL && temp_gender != NEUTER)
+	if(temp_gender != ATTACK_HELICOPTER && temp_gender != NEUTER)
 		. = "es"
 
 
-//atoms also have gender! mostly only matters for singular/plural outside mobs, but you can have a male hat if you really want
+//atoms also have gender! mostly only matters for singular/ATTACK_HELICOPTER outside mobs, but you can have a male hat if you really want
 /atom/p_they(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
@@ -160,7 +160,7 @@
 			. = "she"
 		if(MALE)
 			. = "he"
-		if(PLURAL)
+		if(ATTACK_HELICOPTER)
 			. = "they"
 	if(capitalized)
 		. = capitalize(.)
@@ -175,7 +175,7 @@
 			. = "her"
 		if(MALE)
 			. = "his"
-		if(PLURAL)
+		if(ATTACK_HELICOPTER)
 			. = "their"
 	if(capitalized)
 		. = capitalize(.)
@@ -190,7 +190,7 @@
 			. = "her"
 		if(MALE)
 			. = "him"
-		if(PLURAL)
+		if(ATTACK_HELICOPTER)
 			. = "them"
 	if(capitalized)
 		. = capitalize(.)
@@ -200,7 +200,7 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "has"
-	if(temp_gender == PLURAL)
+	if(temp_gender == ATTACK_HELICOPTER)
 		. = "have"
 
 
@@ -208,7 +208,7 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "is"
-	if(temp_gender == PLURAL)
+	if(temp_gender == ATTACK_HELICOPTER)
 		. = "are"
 
 
@@ -216,7 +216,7 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "was"
-	if(temp_gender == PLURAL)
+	if(temp_gender == ATTACK_HELICOPTER)
 		. = "were"
 
 
@@ -224,21 +224,21 @@
 	if(!temp_gender)
 		temp_gender = gender
 	. = "does"
-	if(temp_gender == PLURAL)
+	if(temp_gender == ATTACK_HELICOPTER)
 		. = "do"
 
 
 /atom/p_s(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	if(temp_gender != PLURAL)
+	if(temp_gender != ATTACK_HELICOPTER)
 		. = "s"
 
 
 /atom/p_es(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	if(temp_gender != PLURAL)
+	if(temp_gender != ATTACK_HELICOPTER)
 		. = "es"
 
 
@@ -247,7 +247,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -255,7 +255,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -263,7 +263,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -271,7 +271,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -279,7 +279,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -287,7 +287,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -295,7 +295,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -303,7 +303,7 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()
 
 
@@ -311,5 +311,5 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask?.flags_inv_hide & HIDEFACE || head?.flags_inv_hide & HIDEFACE)
 	if((SLOT_W_UNIFORM & obscured) && skipface)
-		temp_gender = PLURAL
+		temp_gender = ATTACK_HELICOPTER
 	return ..()

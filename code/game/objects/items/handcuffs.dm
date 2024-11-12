@@ -1,7 +1,7 @@
 /obj/item/restraints/handcuffs
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "handcuff"
 	flags_atom = CONDUCT

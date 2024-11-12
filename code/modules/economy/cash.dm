@@ -1,7 +1,7 @@
 /obj/item/spacecash
 	name = "0 dollars"
 	desc = "You have no dollars."
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "spacecash1"
 	opacity = FALSE

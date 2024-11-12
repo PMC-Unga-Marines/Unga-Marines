@@ -161,7 +161,7 @@
 /obj/item/stack/medical/heal_pack/ointment
 	name = "ointment"
 	desc = "Used to treat burns, infected wounds, and relieve itching in unusual places."
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 	singular_name = "ointment"
 	icon_state = "ointment"
 	heal_burn = 3

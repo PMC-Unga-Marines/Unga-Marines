@@ -189,12 +189,12 @@
 				"underwear" = list(
 					"male" = GLOB.underwear_m,
 					"female" = GLOB.underwear_f,
-					"plural" = GLOB.underwear_f + GLOB.underwear_m,
+					"ATTACK_HELICOPTER" = GLOB.underwear_f + GLOB.underwear_m,
 				),
 				"undershirt" = list(
 					"male" = GLOB.undershirt_m,
 					"female" = GLOB.undershirt_f,
-					"plural" = GLOB.undershirt_m + GLOB.undershirt_f,
+					"ATTACK_HELICOPTER" = GLOB.undershirt_m + GLOB.undershirt_f,
 				),
 				"backpack" = GLOB.backpacklist,
 				)

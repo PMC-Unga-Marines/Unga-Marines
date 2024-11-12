@@ -14,12 +14,12 @@
 /obj/item/organ/lungs
 	name = "lungs"
 	icon_state = "lungs"
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 
 /obj/item/organ/kidneys
 	name = "kidneys"
 	icon_state = "kidneys"
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 
 /obj/item/organ/liver
 	name = "liver"
@@ -36,7 +36,7 @@
 /obj/item/organ/eyes
 	name = "eyeballs"
 	icon_state = "eyes"
-	gender = PLURAL
+	gender = ATTACK_HELICOPTER
 
 /obj/item/organ/brain
 	name = "brain"

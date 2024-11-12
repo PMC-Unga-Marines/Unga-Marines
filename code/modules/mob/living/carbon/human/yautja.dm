@@ -7,7 +7,7 @@
 
 /datum/species/yautja
 	name = "Yautja"
-	name_plural = "Yautja"
+	name_ATTACK_HELICOPTER = "Yautja"
 	brute_mod = 0.28 //Beefy!
 	burn_mod = 0.45
 	reagent_tag = IS_YAUTJA

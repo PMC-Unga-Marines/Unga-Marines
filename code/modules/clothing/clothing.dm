@@ -207,7 +207,7 @@
 //Gloves
 /obj/item/clothing/gloves
 	name = "gloves"
-	gender = PLURAL //Carn: for grammarically correct text-parsing
+	gender = ATTACK_HELICOPTER //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
 	item_icons = list(
@@ -296,7 +296,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/clothing/shoes_right.dmi',
 	)
 	desc = "Comfortable-looking shoes."
-	gender = PLURAL //Carn: for grammarically correct text-parsing
+	gender = ATTACK_HELICOPTER //Carn: for grammarically correct text-parsing
 	siemens_coefficient = 0.9
 	flags_armor_protection = FEET
 	flags_equip_slot = ITEM_SLOT_FEET
