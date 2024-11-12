@@ -1325,6 +1325,11 @@ RU TGMC EDIT */
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
 
+/datum/supply_packs/armor/killa
+	name = "Altyn"
+	contains = list(/obj/item/clothing/head/helmet/marine/killa/)
+	cost = 50
+
 /datum/supply_packs/armor/modular/attachments/tyr_extra_armor
 	name = "Tyr armor module"
 	cost = 200

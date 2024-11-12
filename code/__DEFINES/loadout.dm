@@ -59,6 +59,7 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),
+	/obj/item/clothing/head/helmet/marine/killa = list(CAT_MARINE, "Altyn", 10, "orange"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
 	/obj/item/fulton_extraction_pack = list(CAT_MARINE, "Fulton Extraction Pack", 5, "orange"),
 	/obj/item/explosive/grenade = list(CAT_MARINE, "M40 HEDP grenade", 2, "orange3"),

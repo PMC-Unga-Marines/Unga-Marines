@@ -281,6 +281,63 @@
 	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR
 	flags_item = SYNTH_RESTRICTED
 
+/obj/item/clothing/head/helmet/marine/killa
+	name = "Killa's altyn"
+	desc = "STVOL U TEBYA GOVNO DA I SAM TI CHEPUHA"
+	soft_armor = list(MELEE = 65, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 50, BIO = 45, FIRE = 15, ACID = 45)
+	icon_state = "altyn_tripoloski"
+	actions_types = list(/datum/action/item_action/toggle)
+	flags_inventory = BLOCKSHARPOBJ
+	flags_inv_hide = HIDEEARS
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_STORAGE,
+	)
+	attachments_allowed = list(
+		/obj/item/armor_module/storage/helmet,
+	)
+	starting_attachments = list(/obj/item/armor_module/storage/helmet)
+	var/up = FALSE
+
+/obj/item/clothing/head/helmet/marine/killa/attack_self(mob/user)
+	toggle_item_state(user)
+
+/obj/item/clothing/head/helmet/marine/killa/verb/verbtoggle()
+	set category = "Object.Clothing"
+	set name = "Adjust zabralo"
+	set src in usr
+
+	if(!usr.incapacitated())
+		toggle_item_state(usr)
+
+/obj/item/clothing/head/helmet/marine/killa/proc/flip_up()
+	icon_state = "[initial(icon_state)]_up"
+
+/obj/item/clothing/head/helmet/marine/killa/proc/flip_down()
+	icon_state = initial(icon_state)
+
+/obj/item/clothing/head/helmet/marine/killa/toggle_item_state(mob/user)
+	. = ..()
+	up = !up
+	icon_state = "[initial(icon_state)][up ? "up" : ""]"
+	if(up)
+		flip_up()
+	else
+		flip_down()
+	if(user)
+		to_chat(usr, "You [up ? "push [src] up out of your ebalo" : "flip [src] down to protect your ebalo"].")
+
+	update_clothing_icon()	//so our mob-overlays update
+
+	update_action_button_icons()
+
+/obj/item/clothing/head/helmet/marine/killa/flipped //spawn in flipped up.
+	up = TRUE
+
+/obj/item/clothing/head/helmet/marine/killa/flipped/Initialize(mapload)
+	. = ..()
+	flip_up()
+
+
 /*=============================PMCS==================================
 =======================================================================*/
 
@@ -337,7 +394,6 @@
 	eye_protection = 2
 	anti_hug = 50
 	resistance_flags = UNACIDABLE
-
 /*==========================DISTRESS=================================
 =======================================================================*/
 
