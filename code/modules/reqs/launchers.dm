@@ -37,7 +37,7 @@
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/cloak)
 	cost = 30
 
-/datum/supply_packs/launchers/shell_smoke
+/datum/supply_packs/launchers/shell_tangle
 	name = "RL-160 RR Tanglefoot shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/plasmaloss)
 	cost = 30
