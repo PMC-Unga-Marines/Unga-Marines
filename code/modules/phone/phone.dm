@@ -148,12 +148,12 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	.["available_transmitters"] = get_transmitters() - list(phone_id)
 	var/list/transmitters = list()
 	for(var/i in GLOB.transmitters)
-		var/obj/structure/transmitter/T = i
+		var/obj/structure/transmitter/transmitter = i
 		transmitters += list(list(
-			"phone_category" = T.phone_category,
-			"phone_color" = T.phone_color,
-			"phone_id" = T.phone_id,
-			"phone_icon" = T.phone_icon
+			"phone_category" = transmitter.phone_category,
+			"phone_color" = transmitter.phone_color,
+			"phone_id" = transmitter.phone_id,
+			"phone_icon" = transmitter.phone_icon
 		))
 
 	.["transmitters"] = transmitters
@@ -166,18 +166,18 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		to_chat(user, span_red("[icon2html(src, user)] No transmitters could be located to call!"))
 		return
 
-	var/obj/structure/transmitter/T = transmitters[calling_phone_id]
-	if(!istype(T) || QDELETED(T))
-		transmitters -= T
-		CRASH("Qdelled/improper atom inside transmitters list! (istype returned: [istype(T)], QDELETED returned: [QDELETED(T)])")
+	var/obj/structure/transmitter/transmitter = transmitters[calling_phone_id]
+	if(!istype(transmitter) || QDELETED(transmitter))
+		transmitters -= transmitter
+		CRASH("Qdelled/improper atom inside transmitters list! (istype returned: [istype(transmitter)], QDELETED returned: [QDELETED(transmitter)])")
 
-	if(TRANSMITTER_UNAVAILABLE(T))
+	if(TRANSMITTER_UNAVAILABLE(transmitter))
 		return
 
-	calling = T
-	T.caller = src
-	T.last_caller = src.phone_id
-	T.update_icon()
+	calling = transmitter
+	transmitter.caller = src
+	transmitter.last_caller = src.phone_id
+	transmitter.update_icon()
 
 	to_chat(user, span_red("[icon2html(src, user)] Dialing [calling_phone_id].."))
 	playsound(get_turf(user), "rtb_handset")
@@ -185,7 +185,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	outring_loop.start()
 
 	START_PROCESSING(SSobj, src)
-	START_PROCESSING(SSobj, T)
+	START_PROCESSING(SSobj, transmitter)
 
 	user.put_in_hands(attached_to)
 
@@ -217,20 +217,20 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		ui_interact(user)
 		return
 
-	var/obj/structure/transmitter/T = get_calling_phone()
+	var/obj/structure/transmitter/transmitter = get_calling_phone()
 
-	if(T.attached_to && ismob(T.attached_to.loc))
-		var/mob/M = T.attached_to.loc
+	if(transmitter.attached_to && ismob(transmitter.attached_to.loc))
+		var/mob/M = transmitter.attached_to.loc
 		to_chat(M, span_red("[icon2html(src, M)] [phone_id] has picked up."))
-		playsound(T.attached_to.loc, 'sound/machines/telephone/remote_pickup.ogg', 20)
-		if(T.timeout_timer_id)
-			deltimer(T.timeout_timer_id)
-			T.timeout_timer_id = null
+		playsound(transmitter.attached_to.loc, 'sound/machines/telephone/remote_pickup.ogg', 20)
+		if(transmitter.timeout_timer_id)
+			deltimer(transmitter.timeout_timer_id)
+			transmitter.timeout_timer_id = null
 
-	to_chat(user, span_red("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
+	to_chat(user, span_red("[icon2html(src, user)] Picked up a call from [transmitter.phone_id]."))
 	playsound(get_turf(user), "rtb_handset")
 
-	T.outring_loop.stop()
+	transmitter.outring_loop.stop()
 	user.put_in_active_hand(attached_to)
 	update_icon()
 
@@ -244,21 +244,21 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		ui.open()
 
 /obj/structure/transmitter/proc/reset_call(timeout = FALSE)
-	var/obj/structure/transmitter/T = get_calling_phone()
-	if(T)
-		if(T.attached_to && ismob(T.attached_to.loc))
-			var/mob/M = T.attached_to.loc
+	var/obj/structure/transmitter/transmitter = get_calling_phone()
+	if(transmitter)
+		if(transmitter.attached_to && ismob(transmitter.attached_to.loc))
+			var/mob/M = transmitter.attached_to.loc
 			to_chat(M, span_red("[icon2html(src, M)] [phone_id] has hung up on you."))
-			T.hangup_loop.start()
+			transmitter.hangup_loop.start()
 
 		if(attached_to && ismob(attached_to.loc))
 			var/mob/M = attached_to.loc
 			if(timeout)
-				to_chat(M, span_red("[icon2html(src, M)] Your call to [T.phone_id] has reached voicemail, nobody picked up the phone."))
+				to_chat(M, span_red("[icon2html(src, M)] Your call to [transmitter.phone_id] has reached voicemail, nobody picked up the phone."))
 				busy_loop.start()
 				outring_loop.stop()
 			else
-				to_chat(M, span_red("[icon2html(src, M)] You have hung up on [T.phone_id]."))
+				to_chat(M, span_red("[icon2html(src, M)] You have hung up on [transmitter.phone_id]."))
 
 	if(calling)
 		calling.caller = null
@@ -272,13 +272,13 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		deltimer(timeout_timer_id)
 		timeout_timer_id = null
 
-	if(T)
-		if(T.timeout_timer_id)
-			deltimer(T.timeout_timer_id)
-			T.timeout_timer_id = null
+	if(transmitter)
+		if(transmitter.timeout_timer_id)
+			deltimer(transmitter.timeout_timer_id)
+			transmitter.timeout_timer_id = null
 
-		T.update_icon()
-		STOP_PROCESSING(SSobj, T)
+		transmitter.update_icon()
+		STOP_PROCESSING(SSobj, transmitter)
 
 	outring_loop.stop()
 
@@ -297,14 +297,14 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 				next_ring = world.time + 3 SECONDS
 
 	else if(calling)
-		var/obj/structure/transmitter/T = get_calling_phone()
-		if(!T)
+		var/obj/structure/transmitter/transmitter = get_calling_phone()
+		if(!transmitter)
 			STOP_PROCESSING(SSobj, src)
 			return
 
-		var/obj/item/phone/P = T.attached_to
+		var/obj/item/phone/P = transmitter.attached_to
 
-		if(P && attached_to.loc == src && P.loc == T && next_ring < world.time)
+		if(P && attached_to.loc == src && P.loc == transmitter && next_ring < world.time)
 			playsound(get_turf(attached_to), 'sound/machines/telephone/telephone_ring.ogg', 20, FALSE, 14)
 			visible_message(span_warning("[src] rings vigorously!"))
 			next_ring = world.time + 3 SECONDS
@@ -337,11 +337,11 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	return
 
 /obj/structure/transmitter/proc/handle_speak(mob/living/carbon/speaking, list/speech_args)
-	var/obj/structure/transmitter/T = get_calling_phone()
-	if(!istype(T))
+	var/obj/structure/transmitter/transmitter = get_calling_phone()
+	if(!istype(transmitter))
 		return
 
-	var/obj/item/phone/P = T.attached_to
+	var/obj/item/phone/P = transmitter.attached_to
 
 	if(!P || !attached_to)
 		return
@@ -350,7 +350,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	attached_to.handle_hear(speaking, speech_args)
 
 	playsound(P, "talk_phone", 5)
-	log_say("TELEPHONE: [key_name(speaking)] on Phone '[phone_id]' to '[T.phone_id]' said '[speech_args[SPEECH_MESSAGE]]'")
+	log_say("TELEPHONE: [key_name(speaking)] on Phone '[phone_id]' to '[transmitter.phone_id]' said '[speech_args[SPEECH_MESSAGE]]'")
 
 /obj/structure/transmitter/attackby(obj/item/W, mob/user)
 	if(W == attached_to)
@@ -417,9 +417,9 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(!attached_to)
 		return
 
-	var/obj/structure/transmitter/T = attached_to.get_calling_phone()
+	var/obj/structure/transmitter/transmitter = attached_to.get_calling_phone()
 
-	if(!T)
+	if(!transmitter)
 		return
 
 	if(!ismob(loc))
