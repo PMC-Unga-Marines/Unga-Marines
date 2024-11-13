@@ -84,6 +84,9 @@
 	upgrade = XENO_UPGRADE_BASETYPE
 	caste_desc = "An alien with an armored crest. It looks very tough."
 
+	// *** Speed *** //
+	speed = -0.4
+
 	// *** Defender Abilities *** //
 	crest_defense_armor = 30
 	crest_defense_slowdown = 0.8

@@ -310,8 +310,7 @@
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_fortifiy_toggles")
 	if(on)
 		if(move_on_fortifed)
-			X.add_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE, TRUE, 0, NONE, TRUE, 5)
-			X.set_glide_size(2)
+			X.add_movespeed_modifier(MOVESPEED_ID_FORTIFY, TRUE, 0, NONE, TRUE, 5)
 		else
 			ADD_TRAIT(X, TRAIT_IMMOBILE, FORTIFY_TRAIT)
 		ADD_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
@@ -326,7 +325,7 @@
 		X.soft_armor = X.soft_armor.modifyAllRatings(-last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = -last_fortify_bonus)
 		if(move_on_fortifed)
-			X.remove_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE)
+			X.remove_movespeed_modifier(MOVESPEED_ID_FORTIFY)
 		else
 			REMOVE_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
 
@@ -518,8 +517,8 @@
 /datum/action/ability/activable/xeno/headbutt/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/defender/X = owner
 	var/mob/living/victim = target
-	//GLOB.round_statistics.psychic_flings++ TODO
-	//SSblackbox.record_feedback("tally", "round_statistics", 1, "psychic_flings")
+
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "headbutts")
 
 	var/headbutt_distance = 1 + (X.crest_defense * 2) + (X.fortify * 2)
 	var/headbutt_damage = base_damage - (X.crest_defense * 10)
