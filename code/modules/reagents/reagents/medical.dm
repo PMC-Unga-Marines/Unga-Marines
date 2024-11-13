@@ -1703,6 +1703,10 @@
 
 /datum/reagent/mastac/on_mob_life(mob/living/our_living, metabolism)
 	. = ..()
+	if(volume < 1)
+		our_living.reagents.add_reagent(/datum/reagent/toxin/xeno_hemodile, 10)
+		return //antiduplicate
+
 	if(volume < 5)
 		our_living.reagents.add_reagent(/datum/reagent/mastac, 0.5)
 	switch(current_cycle)
