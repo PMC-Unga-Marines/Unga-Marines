@@ -57,7 +57,7 @@
 	contains = list(/obj/item/storage/holster/backholster/rlquad/full)
 	cost = 500 + 50 //ammo price
 
-/datum/supply_packs/launchers/specdemo
+/datum/supply_packs/launchers/sadar
 	name = "RL-152 SADAR Rocket Launcher"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/sadar)
 	cost = SADAR_PRICE
