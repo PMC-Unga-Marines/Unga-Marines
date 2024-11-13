@@ -433,11 +433,8 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/item/phone/proc/attach_to(obj/structure/transmitter/to_attach)
 	if(!istype(to_attach))
 		return
-
 	remove_attached()
-
 	attached_to = to_attach
-
 
 /obj/item/phone/proc/remove_attached()
 	attached_to = null
