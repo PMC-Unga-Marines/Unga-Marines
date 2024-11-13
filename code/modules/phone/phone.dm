@@ -354,7 +354,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(W == attached_to)
 		recall_phone()
 	else
-		. = ..()
+		return ..()
 
 /obj/structure/transmitter/Destroy()
 	if(attached_to)
