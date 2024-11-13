@@ -5,7 +5,7 @@
 /datum/supply_packs/supplies/crayons
 	name = "PFC Jim Special Crayon Pack"
 	contains = list(/obj/item/storage/fancy/crayons)
-	containertype = /obj/structure/closet/crate/operate
+	containertype = /obj/structure/closet/crate/operations
 	cost = 40
 
 /datum/supply_packs/supplies/janitor
