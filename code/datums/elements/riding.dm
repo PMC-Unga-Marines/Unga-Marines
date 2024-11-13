@@ -96,9 +96,6 @@
 			qdel(O)
 	return TRUE
 
-
-
-
 /obj/item/riding_offhand
 	name = "offhand"
 	icon = 'icons/obj/items/weapons.dmi'
