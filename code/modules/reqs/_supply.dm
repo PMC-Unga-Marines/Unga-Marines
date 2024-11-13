@@ -688,7 +688,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack
 	name = "Use Phone"
 
 /datum/action/item_action/radiopack/action_activate()
-	. = ..()
 	for(var/obj/item/storage/backpack/marine/radiopack/radio_backpack in owner)
 		radio_backpack.use_phone(owner)
 		return
