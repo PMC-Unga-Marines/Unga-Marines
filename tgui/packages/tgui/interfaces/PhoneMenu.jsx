@@ -20,7 +20,7 @@ const GeneralPanel = (props) => {
   const { availability, last_caller } = data;
   const available_transmitters = Object.keys(data.available_transmitters);
   const transmitters = data.transmitters.filter((val1) =>
-    available_transmitters.includes(val1.phone_id)
+    available_transmitters.includes(val1.phone_id),
   );
 
   const categories = [];
@@ -59,7 +59,8 @@ const GeneralPanel = (props) => {
               <Tabs.Tab
                 selected={val === currentCategory}
                 onClick={() => setCategory(val)}
-                key={val}>
+                key={val}
+              >
                 {val}
               </Tabs.Tab>
             ))}
@@ -100,7 +101,8 @@ const GeneralPanel = (props) => {
                         ? document.activeElement.blur()
                         : false
                     }
-                    icon={val.phone_icon}>
+                    icon={val.phone_icon}
+                  >
                     {val.phone_id}
                   </Tabs.Tab>
                 );
@@ -114,7 +116,8 @@ const GeneralPanel = (props) => {
               color="good"
               fluid
               textAlign="center"
-              onClick={() => act('call_phone', { phone_id: selectedPhone })}>
+              onClick={() => act('call_phone', { phone_id: selectedPhone })}
+            >
               Dial
             </Button>
           </Stack.Item>
@@ -128,7 +131,8 @@ const GeneralPanel = (props) => {
             icon={dnd_icon}
             fluid
             textAlign="center"
-            onClick={() => act('toggle_dnd')}>
+            onClick={() => act('toggle_dnd')}
+          >
             Do Not Disturb
           </Button>
         </Stack.Item>
