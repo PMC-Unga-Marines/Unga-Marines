@@ -1938,7 +1938,7 @@
 #include "code\modules\reqs\weapons.dm"
 #include "code\modules\reqs\smartguns.dm"
 #include "code\modules\reqs\stationary.dm"
-#include "code\modules\reqs\explosive_weapons.dm"
+#include "code\modules\reqs\launchers.dm"
 #include "code\modules\reqtorio\assembly_crafts.dm"
 #include "code\modules\reqtorio\craft_components.dm"
 #include "code\modules\reqtorio\howtopaper.dm"
