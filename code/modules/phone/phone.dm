@@ -11,16 +11,18 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	var/phone_id = "Telephone"
 	var/phone_icon
 
+	/// Сonnected phone, created from phone_type
 	var/obj/item/phone/attached_to
 
+	// Used to interact with other transmitters depending on whether we receive a call or call ourselves
 	var/obj/structure/transmitter/calling
 	var/obj/structure/transmitter/caller
 
+	/// sound effect timer
 	var/next_ring = 0
 
+	/// Telephone handset object type
 	var/phone_type = /obj/item/phone
-
-	var/range = 3
 
 	var/enabled = TRUE
 	/// Whether or not the phone is receiving calls or not. Varies between on/off or forcibly on/off.
@@ -436,11 +438,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 /obj/item/phone/proc/remove_attached()
 	attached_to = null
-
-/obj/item/phone/attack_hand(mob/user)
-	if(attached_to && get_dist(user, attached_to) > attached_to.range)
-		return FALSE
-	return ..()
 
 /obj/item/phone/attack_self(mob/user)
 	..()
