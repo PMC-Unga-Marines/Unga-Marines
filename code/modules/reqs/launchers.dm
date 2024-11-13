@@ -32,7 +32,7 @@
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/smoke)
 	cost = 30
 
-/datum/supply_packs/launchers/shell_smoke
+/datum/supply_packs/launchers/shell_cloak
 	name = "RL-160 RR Cloak shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/cloak)
 	cost = 30
