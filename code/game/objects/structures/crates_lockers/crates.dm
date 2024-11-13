@@ -171,6 +171,7 @@
 	name = "smart weapon crate"
 	desc = "A robust crate containing high-tech smartgun weapons and ammunitions."
 	icon_state = "closed_smart"
+	overlay_welded = "welded_smart"
 	icon_opened = "open_smart"
 	icon_closed = "closed_smart"
 
