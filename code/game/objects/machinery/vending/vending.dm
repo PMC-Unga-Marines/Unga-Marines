@@ -651,6 +651,7 @@
 			var/obj/item/storage/S = item_to_stock.loc
 			S.remove_from_storage(item_to_stock, user.loc, user)
 
+	item_to_stock.removed_from_inventory(user)
 	qdel(item_to_stock)
 
 	if(amount >= 0) //R negative means infinite item, no need to restock
