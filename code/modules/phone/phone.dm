@@ -334,8 +334,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	else if(caller)
 		return caller
 
-	return
-
 /obj/structure/transmitter/proc/handle_speak(mob/living/carbon/speaking, list/speech_args)
 	var/obj/structure/transmitter/transmitter = get_calling_phone()
 	if(!istype(transmitter))
