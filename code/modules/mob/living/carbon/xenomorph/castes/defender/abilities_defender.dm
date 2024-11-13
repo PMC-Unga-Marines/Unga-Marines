@@ -327,7 +327,8 @@
 		if(move_on_fortifed)
 			X.remove_movespeed_modifier(MOVESPEED_ID_FORTIFY)
 		else
-			REMOVE_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
+			REMOVE_TRAIT(X, TRAIT_IMMOBILE, FORTIFY_TRAIT)
+		REMOVE_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
 
 	X.fortify = on
 	X.anchored = on
@@ -621,5 +622,5 @@
 /datum/action/ability/xeno_action/soak/proc/remove_enrage()
 	owner.remove_filter("steelcrest_enraged")
 
-/datum/action/ability/xeno_action/fortify
+/datum/action/ability/xeno_action/fortify/steel_crest
 	move_on_fortifed = TRUE

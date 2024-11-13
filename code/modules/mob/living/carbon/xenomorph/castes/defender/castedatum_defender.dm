@@ -96,7 +96,7 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/xeno_action/fortify,
+		/datum/action/ability/xeno_action/fortify/steel_crest,
 		/datum/action/ability/xeno_action/toggle_crest_defense,
 		/datum/action/ability/activable/xeno/headbutt,
 		/datum/action/ability/xeno_action/soak,

@@ -43,9 +43,12 @@
 	if(isnull(.))
 		return
 	if(. == CONSCIOUS && fortify) //No longer conscious.
-		var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
-		FT.set_fortify(FALSE) //Fortify prevents dragging due to the anchor component.
-
+		if(actions_by_path[/datum/action/ability/xeno_action/fortify])
+			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
+			FT.set_fortify(FALSE) //Fortify prevents dragging due to the anchor component.
+		else if(actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest])
+			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest]
+			FT.set_fortify(FALSE) //Fortify prevents dragging due to the anchor component.
 
 // ***************************************
 // *********** Mob overrides
