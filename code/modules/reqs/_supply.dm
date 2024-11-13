@@ -755,7 +755,7 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack
 	if(internal_transmitter && internal_transmitter.attached_to == W)
 		internal_transmitter.attackby(W, user)
 	else
-		. = ..()
+		return ..()
 
 /obj/item/storage/backpack/marine/radiopack/examine(mob/user)
 	. = ..()
