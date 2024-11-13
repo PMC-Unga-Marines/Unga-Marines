@@ -451,7 +451,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		set_raised(TRUE, user)
 		to_chat(user, span_notice("You raise [src] to your ear."))
 
-
 /obj/item/phone/proc/set_raised(to_raise, mob/living/carbon/human/H)
 	if(!istype(H))
 		return
