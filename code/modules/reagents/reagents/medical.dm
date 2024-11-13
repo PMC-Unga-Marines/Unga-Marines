@@ -1714,13 +1714,12 @@
 		if(41)
 			to_chat(our_living, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
 		if(45 to INFINITY)
-			if(prob(99.9))
+			if(prob(99))
 				return
-			to_chat(our_living, span_userdanger("OUUH MY HEART"))
-			our_living.adjustOxyLoss(30)
+			our_living.adjustOxyLoss(3)
 			var/mob/living/carbon/human/damage = our_living
 			var/datum/internal_organ/heart/our_heart = damage.get_organ_slot(ORGAN_SLOT_HEART)
-			our_heart?.take_damage(15, TRUE)
+			our_heart?.take_damage(1.5, TRUE)
 
 /datum/reagent/mastac/on_mob_delete(mob/living/delete, metabolism)
 	to_chat(delete, span_userdanger("It seems that something has stopped pushing your heart with force."))
