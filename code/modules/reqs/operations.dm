@@ -1,6 +1,6 @@
 /datum/supply_packs/operations
 	group = "Operations"
-	containertype = /obj/structure/closet/crate/operate
+	containertype = /obj/structure/closet/crate/operations
 
 /datum/supply_packs/operations/standard_ammo
 	name = "Surplus Standard Ammo Crate"

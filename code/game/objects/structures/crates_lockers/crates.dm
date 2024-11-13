@@ -174,7 +174,7 @@
 	icon_opened = "open_smart"
 	icon_closed = "closed_smart"
 
-/obj/structure/closet/crate/operate
+/obj/structure/closet/crate/operations
 	name = "operations crate"
 	desc = "A robust crate containing support stuff."
 	icon_state = "close_operate"
