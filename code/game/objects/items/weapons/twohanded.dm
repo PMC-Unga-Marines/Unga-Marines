@@ -131,15 +131,13 @@
 	else
 		wield(user)
 
-
 ///////////OFFHAND///////////////
 /obj/item/weapon/twohanded/offhand
-	w_class = WEIGHT_CLASS_HUGE
-	icon_state = "offhand"
 	name = "offhand"
+	icon_state = "offhand"
+	w_class = WEIGHT_CLASS_HUGE
 	flags_item = DELONDROP|TWOHANDED|WIELDED
 	resistance_flags = RESIST_ALL
-
 
 /obj/item/weapon/twohanded/offhand/Destroy()
 	if(ismob(loc))
