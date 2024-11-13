@@ -8,7 +8,8 @@
 
 	icon_state = "hivemind_marker"
 	bubble_icon = "alienroyal"
-	icon = 'icons/Xeno/castes/hivemind.dmi'
+	icon = 'icons/Xeno/castes/hivemind/basic.dmi'
+	effects_icon = 'icons/Xeno/castes/hivemind/effects.dmi'
 	status_flags = GODMODE | INCORPOREAL
 	resistance_flags = RESIST_ALL
 	pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_FIRE //to prevent hivemind eye to catch fire when crossing lava
@@ -259,19 +260,6 @@
 /mob/living/carbon/xenomorph/hivemind/update_icons()
 	return
 
-/mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
-	var/image/holder = hud_list[HEALTH_HUD_XENO]
-	if(!holder)
-		return
-
-	if(status_flags & INCORPOREAL)
-		holder.icon_state = ""
-
-	var/amount = round(health * 100 / maxHealth, 10)
-	if(!amount)
-		amount = 1 //don't want the 'zero health' icon when we still have 4% of our health
-	holder.icon_state = "xenohealth[amount]"
-
 /mob/living/carbon/xenomorph/hivemind/DblClickOn(atom/A, params)
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
@@ -299,10 +287,6 @@
 
 /mob/living/carbon/xenomorph/hivemind/a_intent_change()
 	return //Unable to change intent, forced help intent
-
-/// Hiveminds specifically have no status hud element
-/mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
-	return
 
 /mob/living/carbon/xenomorph/hivemind/update_progression()
 	return

@@ -353,8 +353,8 @@ GLOBAL_LIST_EMPTY_TYPED(custom_squad_radio_freqs, /datum/squad)
 	new_squad.faction = squad_faction
 	if(new_squad.faction == FACTION_TERRAGOV)
 		var/list/terragov_server_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/server/presets/alpha]
-		var/list/terragov_bus_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/bus/preset_three]
-		var/list/terragov_receiver_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/receiver/preset_left]
+		var/list/terragov_bus_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/bus/preset/three]
+		var/list/terragov_receiver_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/receiver/preset/left]
 		LAZYADDASSOCSIMPLE(terragov_server_freqs, 1, freq)
 		LAZYADDASSOCSIMPLE(terragov_bus_freqs, 1, freq)
 		LAZYADDASSOCSIMPLE(terragov_receiver_freqs, 1, freq)

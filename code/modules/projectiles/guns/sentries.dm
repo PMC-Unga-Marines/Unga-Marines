@@ -82,7 +82,7 @@
 
 	playsound(user, 'sound/misc/electronics_1.ogg', 50)
 	icon_state = "upgradekit_open"
-	if(!do_after(user, 8 SECONDS, NONE, src, BUSY_ICON_ENERGY, prog_bar = null))
+	if(!do_after(user, 4 SECONDS, NONE, src, BUSY_ICON_ENERGY, prog_bar = null))
 		icon_state = initial(icon_state)
 		return
 
@@ -125,7 +125,7 @@
 	icon_state = "sentry"
 
 	turret_range = 8
-	deploy_time = 6 SECONDS
+	deploy_time = 5 SECONDS
 	max_shells = 500
 	fire_delay = 0.25 SECONDS
 
@@ -284,7 +284,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация с уменьшением габаритов и калибра, крайне лёгок в установке."
 	icon_state = "minisentry"
 
-	fire_sound = '\sound/items/turrets/turret_smg.ogg'
+	fire_sound = 'sound/items/turrets/turret_smg.ogg'
 
 	max_shells = 300
 	knockdown_threshold = 80
@@ -348,10 +348,10 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня большим калибром на дальние дистанции."
 	icon_state = "sentry_sniper"
 
-	fire_sound = '\sound/items/turrets/turret_sniper.ogg'
+	fire_sound = 'sound/items/turrets/turret_sniper.ogg'
 
 	turret_range = 14
-	deploy_time = 10 SECONDS
+	deploy_time = 5 SECONDS
 	max_shells = 75
 	fire_delay = 2 SECONDS
 
@@ -379,7 +379,7 @@
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения массивного огня на ближние дистанции."
 	icon_state = "sentry_shotgun"
 
-	fire_sound = '\sound/items/turrets/turret_shotgun.ogg'
+	fire_sound = 'sound/items/turrets/turret_shotgun.ogg'
 
 	turret_range = 5
 	deploy_time = 5 SECONDS

@@ -139,8 +139,8 @@ The Grenade Launchers
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/Marine/marine-weapons.dmi'
 	icon_state = "grenade"
-	max_shells = 1 //codex
-	max_chamber_items = 0
+	max_shells = 2 //codex
+	max_chamber_items = 1
 	fire_delay = 1 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/underbarrel_grenadelauncher.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
@@ -176,6 +176,11 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/impact,
 		/obj/item/explosive/grenade/sticky,
 		/obj/item/explosive/grenade/flashbang/stun,
+		/obj/item/explosive/grenade/m15,
+		/obj/item/explosive/grenade/sticky/trailblazer,
+		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus,
+		/obj/item/explosive/grenade/sticky/cloaker,
+		/obj/item/explosive/grenade/mirage,
 	)
 
 	wield_delay_mod = 0.2 SECONDS
@@ -207,11 +212,12 @@ The Grenade Launchers
 	desc = "A lightweight, single-shot grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
 	icon_state = "m81"
 	item_state = "m81"
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shells = 1 //codex
 	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	wield_delay = 0.8 SECONDS
 	aim_slowdown = 1
-	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_STABLE_FIRING_ONLY
+	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_allowed = list()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1.05 SECONDS

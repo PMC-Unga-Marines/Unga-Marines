@@ -586,3 +586,6 @@
 	req_one_access = internals_req_access
 	req_access = list()
 	return allowed(M)
+
+/obj/vehicle/sealed/mecha/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return (CHARGE_SPEED(charge_datum) * 375)

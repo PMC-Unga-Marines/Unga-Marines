@@ -141,8 +141,8 @@
 				ui.user.balloon_alert(ui.user, "The vendor is still reloading")
 				return
 			var/datum/loadout_seller/seller = new (loadout_vendor.faction)
-			if(seller.try_to_equip_loadout(src, ui.user))
-				TIMER_COOLDOWN_START(ui.user, COOLDOWN_LOADOUT_EQUIPPED, 30 SECONDS)
+			seller.try_to_equip_loadout(src, ui.user)
+			TIMER_COOLDOWN_START(ui.user, COOLDOWN_LOADOUT_EQUIPPED, 30 SECONDS)
 			ui.close()
 		if("overwriteLoadout")
 			item_list = list()

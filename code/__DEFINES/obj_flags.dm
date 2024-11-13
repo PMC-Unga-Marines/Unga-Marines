@@ -18,6 +18,8 @@
 #define CRUSHER_IMMUNE (1<<5) //is immune to crusher's charge destruction
 #define PLASMACUTTER_IMMUNE (1<<6) //is immune to being cut by a plasmacutter
 #define PROJECTILE_IMMUNE (1<<7) //Cannot be hit by projectiles
+///Block projectiles like artillery shots, xray lasgun's and warlock's psylance
+#define BLOCK_PASSTHROUGH_PROJECTILES (1<<8)
 
 #define RESIST_ALL (UNACIDABLE|INDESTRUCTIBLE|PLASMACUTTER_IMMUNE)
 

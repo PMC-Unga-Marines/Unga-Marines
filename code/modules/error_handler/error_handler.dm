@@ -64,21 +64,13 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 		CE = /datum/config_entry/number/error_silence_time
 		configured_error_silence_time = initial(CE.config_entry_value)
 
-
 	//Each occurence of a unique error adds to its cooldown time...
 	cooldown = max(0, cooldown - (world.time - last_seen)) + configured_error_cooldown
 	// ... which is used to silence an error if it occurs too often, too fast
 	if(cooldown > configured_error_cooldown * configured_error_limit)
 		cooldown = -1
 		silencing = TRUE
-		spawn(0) //Has to be used here
-			usr = null
-			sleep(configured_error_silence_time) //Has to be used here
-			var/skipcount = abs(error_cooldown[erroruid]) - 1
-			error_cooldown[erroruid] = 0
-			if(skipcount > 0)
-				SEND_TEXT(world.log, "\[[time_stamp()]] Skipped [skipcount] runtimes in [E.file],[E.line].")
-				GLOB.error_cache.log_error(E, skip_count = skipcount)
+		INVOKE_ASYNC(src, PROC_REF(log_errors), configured_error_silence_time, error_cooldown, erroruid, E)
 
 	error_last_seen[erroruid] = world.time
 	error_cooldown[erroruid] = cooldown
@@ -125,6 +117,14 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 		GLOB.current_test.Fail("[main_line]\n[desclines.Join("\n")]")
 #endif
 
-
 	// This writes the regular format (unwrapping newlines and inserting timestamps as needed).
 	log_runtime("runtime error: [E.name]\n[E.desc]")
+
+/world/proc/log_errors(silence_time, error_cooldown, erroruid, exception/our_exception)
+	usr = null
+	sleep(silence_time) //Has to be used here
+	var/skipcount = abs(error_cooldown[erroruid]) - 1
+	error_cooldown[erroruid] = 0
+	if(skipcount > 0)
+		SEND_TEXT(world.log, "\[[time_stamp()]] Skipped [skipcount] runtimes in [our_exception.file], [our_exception.line].")
+		GLOB.error_cache.log_error(our_exception, skip_count = skipcount)

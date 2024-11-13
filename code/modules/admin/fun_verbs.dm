@@ -79,11 +79,12 @@
 	if(!check_rights(R_FUN))
 		return
 
-	for(var/mob/living/carbon/xenomorph/xenotorouny in GLOB.xeno_mob_list)
-		if(!isliving(xenotorouny))
-			return
-		xenotorouny.is_a_rouny = !xenotorouny.is_a_rouny
-
+	for(var/mob/living/carbon/xenomorph/xeno in GLOB.xeno_mob_list)
+		if(!isxeno(xeno)) // will it even do something?
+			continue
+		if(!xeno.rouny_icon)
+			continue
+		xeno.toggle_rouny_skin()
 
 /datum/admins/proc/hive_status()
 	set category = "Admin.Fun"

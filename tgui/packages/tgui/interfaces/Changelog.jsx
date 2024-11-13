@@ -1,11 +1,20 @@
 import { classes } from 'common/react';
-import { useBackend } from '../backend';
-import { Component, Fragment } from 'react';
-import { Box, Button, Dropdown, Icon, Section, Stack, Table } from '../components';
-import { Window } from '../layouts';
-import { resolveAsset } from '../assets';
 import dateformat from 'dateformat';
 import yaml from 'js-yaml';
+import { Component, Fragment } from 'react';
+
+import { resolveAsset } from '../assets';
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Icon,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+import { Window } from '../layouts';
 
 const icons = {
   add: { icon: 'check-circle', color: 'green' },
@@ -27,6 +36,7 @@ const icons = {
   sound: { icon: 'volume-high', color: 'green' },
   soundadd: { icon: 'tg-sound-plus', color: 'green' },
   sounddel: { icon: 'tg-sound-minus', color: 'red' },
+  map: { icon: 'map', color: 'green' },
   spellcheck: { icon: 'spell-check', color: 'green' },
   tgs: { icon: 'toolbox', color: 'purple' },
   tweak: { icon: 'wrench', color: 'green' },
@@ -64,7 +74,7 @@ export class Changelog extends Component {
 
     if (attemptNumber > maxAttempts) {
       return this.setData(
-        'Failed to load data after ' + maxAttempts + ' attempts'
+        'Failed to load data after ' + maxAttempts + ' attempts',
       );
     }
 
@@ -94,7 +104,7 @@ export class Changelog extends Component {
 
     if (dates) {
       dates.forEach((date) =>
-        this.dateChoices.push(dateformat(date, 'mmmm yyyy', true))
+        this.dateChoices.push(dateformat(date, 'mmmm yyyy', true)),
       );
       this.setSelectedDate(this.dateChoices[0]);
       this.getData(dates[0]);
@@ -124,7 +134,7 @@ export class Changelog extends Component {
               window.scrollTo(
                 0,
                 document.body.scrollHeight ||
-                  document.documentElement.scrollHeight
+                  document.documentElement.scrollHeight,
               );
               return this.getData(dates[index]);
             }}
@@ -143,7 +153,7 @@ export class Changelog extends Component {
               window.scrollTo(
                 0,
                 document.body.scrollHeight ||
-                  document.documentElement.scrollHeight
+                  document.documentElement.scrollHeight,
               );
               return this.getData(dates[index]);
             }}
@@ -165,7 +175,7 @@ export class Changelog extends Component {
               window.scrollTo(
                 0,
                 document.body.scrollHeight ||
-                  document.documentElement.scrollHeight
+                  document.documentElement.scrollHeight,
               );
               return this.getData(dates[index]);
             }}
@@ -176,7 +186,7 @@ export class Changelog extends Component {
 
     const header = (
       <Section>
-        <h1>TerraGov Marine Corps</h1>
+        <h1>Unga Marine Corps</h1>
         <p>
           <b>Thanks to:</b> The CM-SS13 devs, The Russian CM, Baystation 12,
           /tg/Station, /vg/station, NTstation, CDK Station devs,
@@ -185,20 +195,16 @@ export class Changelog extends Component {
         </p>
         <p>
           {'Current organization members can be found '}
-          <a href="https://github.com/orgs/tgstation/people">here</a>
-          {', Current Staff team can be found '}
-          <a href="https://tgstation13.org/phpBB/viewtopic.php?f=69&t=19855">
-            Here
-          </a>
+          <a href="https://github.com/orgs/PMC-Unga-Marines/people">here</a>
           {', recent GitHub contributors can be found '}
-          <a href="https://github.com/tgstation/TerraGov-Marine-Corps/pulse/monthly">
+          <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/pulse/monthly">
             here
           </a>
           .
         </p>
         <p>
           {'You can also join our discord '}
-          <a href="https://discord.gg/2dFpfNE">here</a>.
+          <a href="https://discord.gg/N7wSfpusvZ">here</a>.
         </p>
         {dateDropdown}
       </Section>
@@ -242,17 +248,19 @@ export class Changelog extends Component {
           {' See the footer of '}
           <a
             href={
-              'https://github.com/tgstation/TerraGov-Marine-Corps/blob/master' +
+              'https://github.com/PMC-Unga-Marines/Unga-Marines/blob/master' +
               '/code/__DEFINES/tgs.dm'
-            }>
+            }
+          >
             code/__DEFINES/tgs.dm
           </a>
           {' and '}
           <a
             href={
-              'https://github.com/tgstation/TerraGov-Marine-Corps/blob/master' +
+              'https://github.com/PMC-Unga-Marines/Unga-Marines/blob/master' +
               '/code/modules/tgs/LICENSE'
-            }>
+            }
+          >
             code/modules/tgs/LICENSE
           </a>
           {' for the MIT license.'}
@@ -262,7 +270,8 @@ export class Changelog extends Component {
           <a
             href={
               'https://github.com/tgstation/TerraGov-Marine-Corps/commit/92ee94da6e144d4420c1ec4f83a4ee785d61dc9b'
-            }>
+            }
+          >
             -this commit-
           </a>
           {'is CC-BY-NC 3.0, unless specified.'}
@@ -291,7 +300,8 @@ export class Changelog extends Component {
                               className={classes([
                                 'Changelog__Cell',
                                 'Changelog__Cell--Icon',
-                              ])}>
+                              ])}
+                            >
                               <Icon
                                 color={
                                   icons[changeType]

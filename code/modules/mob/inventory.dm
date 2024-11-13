@@ -55,7 +55,10 @@
 	if(!l_hand)
 		W.forceMove(src)
 		l_hand = W
-		W.layer = ABOVE_HUD_LAYER
+		if(istype(W, /obj/item/weapon/twohanded/offhand) || istype(W, /obj/item/riding_offhand))
+			W.layer = ABOVE_HUD_LAYER - 0.1 // so it doesn't cover items inhands
+		else
+			W.layer = ABOVE_HUD_LAYER
 		W.plane = ABOVE_HUD_PLANE
 		update_inv_l_hand()
 		W.pixel_x = initial(W.pixel_x)
@@ -83,7 +86,10 @@
 	if(!r_hand)
 		W.forceMove(src)
 		r_hand = W
-		W.layer = ABOVE_HUD_LAYER
+		if(istype(W, /obj/item/weapon/twohanded/offhand) || istype(W, /obj/item/riding_offhand))
+			W.layer = ABOVE_HUD_LAYER - 0.1 // so it doesn't cover items inhands
+		else
+			W.layer = ABOVE_HUD_LAYER
 		W.plane = ABOVE_HUD_PLANE
 		update_inv_r_hand()
 		W.pixel_x = initial(W.pixel_x)
@@ -173,7 +179,9 @@
 	return FALSE					//nonliving mobs don't have hands
 
 /mob/living/put_in_hand_check(obj/item/I, hand_index)
-	if((I.flags_item & ITEM_ABSTRACT))
+	if((I.flags_item & ITEM_ABSTRACT) || !istype(I))
+		return FALSE
+	if(incapacitated() || lying_angle || (status_flags & INCORPOREAL))
 		return FALSE
 	return TRUE
 

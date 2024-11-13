@@ -2,8 +2,9 @@
 	caste_base_type = /datum/xeno_caste/carrier
 	name = "Carrier"
 	desc = "A strange-looking alien creature. It carries a number of scuttling jointed crablike creatures."
-	icon = 'icons/Xeno/castes/carrier.dmi' //They are now like, 2x2
+	icon = 'icons/Xeno/castes/carrier/basic.dmi' //They are now like, 2x2
 	icon_state = "Carrier Walking"
+	effects_icon = 'icons/Xeno/castes/carrier/effects.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200
@@ -27,7 +28,7 @@
 // ***************************************
 /mob/living/carbon/xenomorph/carrier/Initialize(mapload)
 	. = ..()
-	hugger_overlays_icon = mutable_appearance('icons/Xeno/castes/carrier.dmi',"empty")
+	hugger_overlays_icon = mutable_appearance('icons/Xeno/castes/carrier/effects.dmi',"empty")
 
 /mob/living/carbon/xenomorph/carrier/get_status_tab_items()
 	. = ..()

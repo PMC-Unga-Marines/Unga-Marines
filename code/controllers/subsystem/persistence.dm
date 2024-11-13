@@ -224,7 +224,7 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rifle/m41a = -1,
 		/obj/item/weapon/gun/rifle/type71/seasonal = -1,
 		/obj/item/ammo_magazine/rifle/type71 = -1,
-		/obj/item/ammo_magazine/packet/pwarsaw = -1,
+		/obj/item/ammo_magazine/packet/groza = -1,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine = -1,
 		/obj/item/ammo_magazine/rifle/alf_machinecarbine = -1,
 		)
@@ -235,7 +235,7 @@ SUBSYSTEM_DEF(persistence)
 	item_list = list(
 		/obj/item/weapon/gun/rifle/mpi_km= -1,
 		/obj/item/ammo_magazine/rifle/mpi_km/plum = -1,
-		/obj/item/ammo_magazine/packet/pwarsaw = -1,
+		/obj/item/ammo_magazine/packet/groza = -1,
 		/obj/item/weapon/gun/rifle/m16 = -1,
 		/obj/item/ammo_magazine/rifle/m16 = -1,
 		/obj/item/ammo_magazine/packet/pnato = -1,

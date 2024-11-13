@@ -1,7 +1,0 @@
-author: "definitelynotspaghetti"
-delete-after: True
-changes:
-  - rscadd: "Добавлено новое примо."
-  - rscdel: "Удалено старое примо."
-  - rscdel: "Удален Silence."
-  - balance: "Метка хантера больше не имеет КД."

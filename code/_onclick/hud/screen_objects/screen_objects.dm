@@ -650,7 +650,7 @@
  */
 /atom/movable/screen/ammo
 	name = "ammo"
-	icon = 'icons/mob/ammoHUD.dmi'
+	icon = 'icons/mob/hud/ammo.dmi'
 	icon_state = "ammo"
 	screen_loc = ui_ammo1
 	///If the user has already had their warning played for running out of ammo
@@ -689,8 +689,8 @@
 	overlays.Cut()
 
 	if(rounds <= 0)
-		overlays += image('icons/mob/ammoHUD.dmi', src, "o0")
-		var/image/empty_state = image('icons/mob/ammoHUD.dmi', src, ammo_type[AMMO_HUD_ICON_EMPTY])
+		overlays += image('icons/mob/hud/ammo.dmi', src, "o0")
+		var/image/empty_state = image('icons/mob/hud/ammo.dmi', src, ammo_type[AMMO_HUD_ICON_EMPTY])
 		overlays += empty_state
 		if(warned)
 			return
@@ -699,25 +699,25 @@
 		return
 
 	warned = FALSE
-	overlays += image('icons/mob/ammoHUD.dmi', src, "[ammo_type[AMMO_HUD_ICON_NORMAL]]")
+	overlays += image('icons/mob/hud/ammo.dmi', src, "[ammo_type[AMMO_HUD_ICON_NORMAL]]")
 
 	rounds = num2text(rounds)
 
 	//Handle the amount of rounds
 	switch(length(rounds))
 		if(1)
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o[rounds[1]]")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "o[rounds[1]]")
 		if(2)
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o[rounds[2]]")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "t[rounds[1]]")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "o[rounds[2]]")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "t[rounds[1]]")
 		if(3)
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o[rounds[3]]")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "t[rounds[2]]")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "h[rounds[1]]")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "o[rounds[3]]")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "t[rounds[2]]")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "h[rounds[1]]")
 		else //"0" is still length 1 so this means it's over 999
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o9")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "t9")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "h9")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "o9")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "t9")
+			overlays += image('icons/mob/hud/ammo.dmi', src, "h9")
 
 #undef AMMO_HUD_ICON_NORMAL
 #undef AMMO_HUD_ICON_EMPTY

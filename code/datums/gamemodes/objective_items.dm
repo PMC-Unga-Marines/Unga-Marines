@@ -105,11 +105,6 @@
 	targetitem = /obj/item/book/manual/engineering_hacking
 	difficulty = 10
 
-/datum/objective_item/steal/emag
-	name = "the working cryptographic sequencer."
-	targetitem = /obj/item/card/emag
-	difficulty = 10
-
 /datum/objective_item/steal/thermalgoggles
 	name = "the thermal goggles."
 	targetitem = /obj/item/clothing/glasses/thermal

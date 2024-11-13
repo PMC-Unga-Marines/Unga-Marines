@@ -532,18 +532,19 @@
 
 #define VV_HTML_ENCODE(thing) (sanitize ? html_encode(thing) : thing)
 
-/proc/debug_variable(name, value, level, datum/DA = null, sanitize = TRUE)
+/proc/debug_variable(name, value, level, datum/owner = null, sanitize = TRUE)
 	var/header
-	if(DA)
-		if(islist(DA))
+	if(owner)
+		if(islist(owner))
+			var/list/list_owner = owner
 			var/index = name
 			if(value)
-				name = DA[name] //name is really the index until this line
+				name = list_owner[name] //name is really the index until this line
 			else
-				value = DA[name]
-			header = "<li style='backgroundColor:white'>(<a href='?_src_=vars;[HrefToken()];listedit=[REF(DA)];index=[index]'>E</a>) (<a href='?_src_=vars;[HrefToken()];listchange=[REF(DA)];index=[index]'>C</a>) (<a href='?_src_=vars;[HrefToken()];listremove=[REF(DA)];index=[index]'>-</a>) "
+				value = list_owner[name]
+			header = "<li style='backgroundColor:white'>(<a href='?_src_=vars;[HrefToken()];listedit=[REF(owner)];index=[index]'>E</a>) (<a href='?_src_=vars;[HrefToken()];listchange=[REF(owner)];index=[index]'>C</a>) (<a href='?_src_=vars;[HrefToken()];listremove=[REF(owner)];index=[index]'>-</a>) "
 		else
-			header = "<li style='backgroundColor:white'>(<a href='?_src_=vars;[HrefToken()];datumedit=[REF(DA)];varnameedit=[name]'>E</a>) (<a href='?_src_=vars;[HrefToken()];datumchange=[REF(DA)];varnamechange=[name]'>C</a>) (<a href='?_src_=vars;[HrefToken()];datummass=[REF(DA)];varnamemass=[name]'>M</a>) "
+			header = "<li style='backgroundColor:white'>(<a href='?_src_=vars;[HrefToken()];datumedit=[REF(owner)];varnameedit=[name]'>E</a>) (<a href='?_src_=vars;[HrefToken()];datumchange=[REF(owner)];varnamechange=[name]'>C</a>) (<a href='?_src_=vars;[HrefToken()];datummass=[REF(owner)];varnamemass=[name]'>M</a>) "
 	else
 		header = "<li>"
 
@@ -571,7 +572,7 @@
 		var/list/L = value
 		var/list/items = list()
 
-		if(istype(DA, /datum/controller/global_vars) && !DA.vv_edit_var(name, L))
+		if(istype(owner, /datum/controller/global_vars) && !owner.vv_edit_var(name, L))
 			item = "[VV_HTML_ENCODE(name)] = /list ([length(L)])"
 		else if(length(L) > 0  && !(name == "underlays" || name == "overlays" || length(L) > (IS_NORMAL_LIST(L) ? 50 : 150)))
 			for(var/i in 1 to length(L))

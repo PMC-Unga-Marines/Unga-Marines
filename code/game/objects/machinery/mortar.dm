@@ -539,7 +539,7 @@
 	tally_type = TALLY_HOWITZER
 	cool_off_time = 10 SECONDS
 	reload_time = 1 SECONDS
-	max_spread = 8
+	max_spread = 2
 
 /obj/machinery/deployable/mortar/howitzer/AltRightClick(mob/living/user)
 	if(!Adjacent(user) || user.lying_angle || user.incapacitated() || !ishuman(user))
@@ -614,20 +614,21 @@
 	fire_sound = 'sound/weapons/guns/fire/rocket_arty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
 	fall_sound = 'sound/weapons/guns/misc/rocket_whistle.ogg'
-	minimum_range = 25
+	minimum_range = 20
 	allowed_shells = list(
 		/obj/item/mortal_shell/rocket/mlrs,
 		/obj/item/mortal_shell/rocket/mlrs/gas,
+		/obj/item/mortal_shell/rocket/mlrs/tangle,
 	)
 	tally_type = TALLY_ROCKET_ARTY
-	cool_off_time = 80 SECONDS
+	cool_off_time = 60 SECONDS
 	fire_delay = 0.15 SECONDS
 	fire_amount = 16
 	reload_time = 0.25 SECONDS
 	max_rounds = 32
 	offset_per_turfs = 25
-	spread = 5
-	max_spread = 5
+	spread = 3.5
+	max_spread = 6.5
 
 //this checks for box of rockets, otherwise will go to normal attackby for mortars
 /obj/machinery/deployable/mortar/howitzer/mlrs/attackby(obj/item/I, mob/user, params)
@@ -635,7 +636,7 @@
 		user.balloon_alert(user, "The barrel is steaming hot. Wait till it cools off")
 		return
 
-	if(!istype(I, /obj/item/storage/box/mlrs_rockets) && !istype(I, /obj/item/storage/box/mlrs_rockets_gas))
+	if(!istype(I, /obj/item/storage/box/mlrs_rockets) && !istype(I, /obj/item/storage/box/mlrs_rockets_gas) && !istype(I, /obj/item/storage/box/mlrs_rockets_tangle))
 		return ..()
 
 	var/obj/item/storage/box/rocket_box = I
@@ -781,6 +782,12 @@
 	desc = "A 60mm rocket loaded with deadly X-50 gas that drains the energy and life out of anything unfortunate enough to find itself inside of it."
 	icon_state = "mlrs_rocket_gas"
 	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs
+
+/obj/item/mortal_shell/rocket/mlrs/tangle
+	name = "\improper 60mm 'T-33' rocket"
+	desc = "A 60mm rocket loaded with tanglefoot gas that drains plasma from xeno."
+	icon_state = "mlrs_rocket_gas"
+	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/tangle
 
 /obj/structure/closet/crate/mortar_ammo
 	name = "\improper T-50S mortar ammo crate"
@@ -932,48 +939,27 @@
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
 	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rockets/Initialize(mapload)
-	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
-	new /obj/item/mortal_shell/rocket/mlrs(src)
+/obj/item/storage/box/mlrs_rockets/PopulateContents()
+	for(var/i in 1 to 16)
+		new /obj/item/mortal_shell/rocket/mlrs(src)
 
 /obj/item/storage/box/mlrs_rockets_gas
 	name = "\improper TA-40L X-50 rocket crate"
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
 	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rockets_gas/Initialize(mapload)
-	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
-	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
+/obj/item/storage/box/mlrs_rockets_gas/PopulateContents()
+	for(var/i in 1 to 16)
+		new /obj/item/mortal_shell/rocket/mlrs/gas(src)
+
+/obj/item/storage/box/mlrs_rockets_tangle
+	name = "\improper TA-40L T-33 rocket crate"
+	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
+	storage_slots = 16
+
+/obj/item/storage/box/mlrs_rockets_tangle/PopulateContents()
+	for(var/i in 1 to 16)
+		new /obj/item/mortal_shell/rocket/mlrs/tangle(src)
 
 #undef TALLY_MORTAR
 #undef TALLY_HOWITZER

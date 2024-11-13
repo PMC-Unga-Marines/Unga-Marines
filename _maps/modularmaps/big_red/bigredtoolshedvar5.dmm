@@ -74,6 +74,11 @@
 /obj/structure/closet/crate/secure/surgery,
 /turf/open/floor,
 /area/bigredv2/outside/storage)
+"m" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/c)
 "n" = (
 /obj/structure/cable,
 /turf/open/floor,
@@ -95,11 +100,11 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "r" = (
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "s" = (
@@ -288,7 +293,7 @@ v
 e
 W
 F
-u
+m
 r
 A
 f

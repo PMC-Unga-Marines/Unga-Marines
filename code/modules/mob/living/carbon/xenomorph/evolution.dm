@@ -8,6 +8,7 @@
 	set desc = "Evolve into a higher form."
 	set category = "Alien"
 
+	SStgui.close_user_uis(src, GLOB.evo_panel)
 	GLOB.evo_panel.ui_interact(src)
 
 /mob/living/carbon/xenomorph/verb/caste_swap()
@@ -19,6 +20,7 @@
 		to_chat(src, span_warning("Your caste swap timer is not done yet."))
 		return
 
+	SStgui.close_user_uis(src, GLOB.evo_panel)
 	ADD_TRAIT(src, TRAIT_CASTE_SWAP, TRAIT_CASTE_SWAP)
 	GLOB.evo_panel.ui_interact(src)
 
@@ -40,6 +42,7 @@
 	set desc = "Regress into a lower form."
 	set category = "Alien"
 
+	SStgui.close_user_uis(src, GLOB.evo_panel)
 	ADD_TRAIT(src, TRAIT_REGRESSING, TRAIT_REGRESSING)
 	GLOB.evo_panel.ui_interact(src)
 
@@ -79,7 +82,7 @@
 			return GLOB.xeno_types_tier_four + /datum/xeno_caste/hivemind
 		if(XENO_TIER_FOUR)
 			if(istype(xeno_caste, /datum/xeno_caste/shrike))
-				return list(/mob/living/carbon/xenomorph/queen, /mob/living/carbon/xenomorph/king)
+				return list(/datum/xeno_caste/queen, /datum/xeno_caste/king)
 
 ///Handles the evolution or devolution of the xenomorph
 /mob/living/carbon/xenomorph/proc/do_evolve(datum/xeno_caste/caste_type, regression = FALSE)
@@ -327,14 +330,6 @@
 		if(new_caste.tier == XENO_TIER_THREE && no_room_tier_three)
 			balloon_alert(src, "The hive cannot support another Tier 3, wait for either more aliens to be born or someone to die")
 			return FALSE
-		var/potential_queens = length(hive.xenos_by_typepath[/mob/living/carbon/xenomorph/larva]) + length(hive.xenos_by_typepath[/mob/living/carbon/xenomorph/drone])
-		if(SSticker.mode?.flags_round_type & MODE_XENO_RULER && !hive.living_xeno_ruler && potential_queens == 1)
-			if(isxenolarva(src) && new_mob_type != /mob/living/carbon/xenomorph/drone)
-				to_chat(src, span_xenonotice("The hive currently has no sister able to become a ruler! The survival of the hive requires from us to be a Drone!"))
-				return FALSE
-			else if(isxenodrone(src) && new_mob_type != /datum/xeno_caste/shrike)
-				to_chat(src, span_xenonotice("The hive currently has no sister able to become a ruler! The survival of the hive requires from us to be a Shrike!"))
-				return FALSE
 		if(!CHECK_BITFIELD(new_caste_flags, CASTE_INSTANT_EVOLUTION) && xeno_caste.evolution_threshold && evolution_stored < xeno_caste.evolution_threshold)
 			to_chat(src, span_warning("We must wait before evolving. Currently at: [evolution_stored] / [xeno_caste.evolution_threshold]."))
 			return FALSE

@@ -1713,19 +1713,11 @@ to_chat will check for valid clients itself already so no need to double check f
 /mob/living/carbon/xenomorph/king/Corrupted/fallen
 	hivenumber = XENO_HIVE_FALLEN
 
-/datum/hive_status/forsaken
-	name = "Forsaken Hive"
-	hivenumber = XENO_HIVE_FORSAKEN
-	prefix = "Forsaken "
-	color = "#cc8ec4"
-
-/datum/hive_status/forsaken/can_xeno_message()
-	return TRUE // can always talk in hivemind
-
 /datum/hive_status/yautja
 	name = "Yautja"
 	hivenumber = XENO_HIVE_YAUTJA
 	prefix = "Yautja "
+	color = "#cc8ec4"
 
 /datum/hive_status/yautja/can_xeno_message()
 	return FALSE

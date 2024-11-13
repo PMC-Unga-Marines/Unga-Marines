@@ -77,6 +77,7 @@
 			if(15)
 				hex += "F"
 			else
+				EMPTY_BLOCK_GUARD
 		power--
 	while(length(hex) < placeholder)
 		hex = "0[hex]"

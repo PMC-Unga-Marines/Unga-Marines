@@ -186,8 +186,8 @@
 	icon_state = "random_folder"
 	spawn_random_offset = TRUE
 	loot = list(
+		/obj/item/folder = 15,
 		/obj/item/folder/black = 15,
-		/obj/item/folder/black_random = 15,
 		/obj/item/folder/white = 15,
 		/obj/item/folder/red = 10,
 		/obj/item/folder/yellow = 10,

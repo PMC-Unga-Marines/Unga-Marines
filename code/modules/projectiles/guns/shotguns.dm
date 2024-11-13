@@ -588,6 +588,10 @@ RU TGMC EDIT */
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "leicrepeater"
 	item_state = "leicrepeater"
+	unique_reskin = list(
+		"Raven repeater" = "raven_repeater",
+		"Red" = "leicrepeater_red",
+	)
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_repeater.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/mosin_reload.ogg'

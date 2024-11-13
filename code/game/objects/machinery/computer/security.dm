@@ -80,32 +80,13 @@
 <th><A href='?src=[text_ref(src)];choice=Sorting;sort=id'>ID</A></th>
 <th><A href='?src=[text_ref(src)];choice=Sorting;sort=rank'>Rank</A></th>
 <th><A href='?src=[text_ref(src)];choice=Sorting;sort=fingerprint'>Fingerprints</A></th>
-<th>Criminal Status</th>
 </tr>"}
 					if(!isnull(GLOB.datacore.general))
 						for(var/datum/data/record/R in sortRecord(GLOB.datacore.general, sortBy, order))
-							var/crimstat = ""
-							for(var/datum/data/record/E in GLOB.datacore.security)
-								if ((E.fields["name"] == R.fields["name"] && E.fields["id"] == R.fields["id"]))
-									crimstat = E.fields["criminal"]
-							var/background
-							switch(crimstat)
-								if("*Arrest*")
-									background = "'background-color:#DC143C;'"
-								if("Incarcerated")
-									background = "'background-color:#CD853F;'"
-								if("Released")
-									background = "'background-color:#3BB9FF;'"
-								if("None")
-									background = "'background-color:#00FF7F;'"
-								if("")
-									background = "'background-color:#FFFFFF;'"
-									crimstat = "No Record."
-							dat += "<tr style=[background]><td><A href='?src=[text_ref(src)];choice=Browse Record;d_rec=[text_ref(R)]'>[R.fields["name"]]</a></td>"
+							dat += "<tr style='background-color:#FFFFFF;'><td><A href='?src=[text_ref(src)];choice=Browse Record;d_rec=[text_ref(R)]'>[R.fields["name"]]</a></td>"
 							dat += "<td>[R.fields["id"]]</td>"
 							dat += "<td>[R.fields["rank"]]</td>"
 							dat += "<td>[R.fields["fingerprint"]]</td>"
-							dat += "<td>[crimstat]</td></tr>"
 						dat += "</table><hr width='75%' />"
 					dat += "<A href='?src=[text_ref(src)];choice=Record Maintenance'>Record Maintenance</A><br><br>"
 					dat += "<A href='?src=[text_ref(src)];choice=Log Out'>{Log Out}</A>"
@@ -136,18 +117,6 @@
 						</td></tr></table>"
 					else
 						dat += "<B>General Record Lost!</B><BR>"
-					if ((istype(active2, /datum/data/record) && GLOB.datacore.security.Find(active2)))
-						dat += "<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: <A href='?src=[text_ref(src)];choice=Edit Field;field=criminal'>[active2.fields["criminal"]]</A><BR>\n<BR>\nMinor Crimes: <A href='?src=[text_ref(src)];choice=Edit Field;field=mi_crim'>[active2.fields["mi_crim"]]</A><BR>\nDetails: <A href='?src=[text_ref(src)];choice=Edit Field;field=mi_crim_d'>[active2.fields["mi_crim_d"]]</A><BR>\n<BR>\nMajor Crimes: <A href='?src=[text_ref(src)];choice=Edit Field;field=ma_crim'>[active2.fields["ma_crim"]]</A><BR>\nDetails: <A href='?src=[text_ref(src)];choice=Edit Field;field=ma_crim_d'>[active2.fields["ma_crim_d"]]</A><BR>\n<BR>\nImportant Notes:<BR>\n\t<A href='?src=[text_ref(src)];choice=Edit Field;field=notes'>[decode(active2.fields["notes"])]</A><BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
-						var/counter = 1
-						while(active2.fields["com_[counter]"])
-							dat += "[active2.fields["com_[counter]"]]<BR><A href='?src=[text_ref(src)];choice=Delete Entry;del_c=[counter]'>Delete Entry</A><BR><BR>"
-							counter++
-						dat += "<A href='?src=[text_ref(src)];choice=Add Entry'>Add Entry</A><BR><BR>"
-						dat += "<A href='?src=[text_ref(src)];choice=Delete Record (Security)'>Delete Record (Security Only)</A><BR><BR>"
-					else
-						dat += "<B>Security Record Lost!</B><BR>"
-						dat += "<A href='?src=[text_ref(src)];choice=New Record (Security)'>New Security Record</A><BR><BR>"
-					dat += "\n<A href='?src=[text_ref(src)];choice=Delete Record (ALL)'>Delete Record (ALL)</A><BR><BR>\n<A href='?src=[text_ref(src)];choice=Print Record'>Print Record</A><BR>\n<A href='?src=[text_ref(src)];choice=Return'>Back</A><BR>"
 				if(4.0)
 					if(!length(Perp))
 						dat += "ERROR.  String could not be located.<br><br><A href='?src=[text_ref(src)];choice=Return'>Back</A>"
@@ -165,35 +134,15 @@
 <th>ID</th>
 <th>Rank</th>
 <th>Fingerprints</th>
-<th>Criminal Status</th>
 </tr>					"}
 						for(var/i=1, length(i<=Perp), i += 2)
-							var/crimstat = ""
 							var/datum/data/record/R = Perp[i]
-							if(istype(Perp[i+1],/datum/data/record/))
-								var/datum/data/record/E = Perp[i+1]
-								crimstat = E.fields["criminal"]
-							var/background
-							switch(crimstat)
-								if("*Arrest*")
-									background = "'background-color:#DC143C;'"
-								if("Incarcerated")
-									background = "'background-color:#CD853F;'"
-								if("Released")
-									background = "'background-color:#3BB9FF;'"
-								if("None")
-									background = "'background-color:#00FF7F;'"
-								if("")
-									background = "'background-color:#FFFFFF;'"
-									crimstat = "No Record."
-							dat += "<tr style=[background]><td><A href='?src=[text_ref(src)];choice=Browse Record;d_rec=[text_ref(R)]'>[R.fields["name"]]</a></td>"
+							dat += "<tr style='background-color:#FFFFFF;'><td><A href='?src=[text_ref(src)];choice=Browse Record;d_rec=[text_ref(R)]'>[R.fields["name"]]</a></td>"
 							dat += "<td>[R.fields["id"]]</td>"
 							dat += "<td>[R.fields["rank"]]</td>"
 							dat += "<td>[R.fields["fingerprint"]]</td>"
-							dat += "<td>[crimstat]</td></tr>"
 						dat += "</table><hr width='75%' />"
 						dat += "<br><A href='?src=[text_ref(src)];choice=Return'>Return to index.</A>"
-				else
 		else
 			dat += "<A href='?src=[text_ref(src)];choice=Log In'>{Log In}</A>"
 
@@ -315,11 +264,8 @@ What a mess.*/
 			if (!( printing ))
 				printing = 1
 				var/datum/data/record/record1 = null
-				var/datum/data/record/record2 = null
 				if ((istype(active1, /datum/data/record) && GLOB.datacore.general.Find(active1)))
 					record1 = active1
-				if ((istype(active2, /datum/data/record) && GLOB.datacore.security.Find(active2)))
-					record2 = active2
 				sleep(5 SECONDS)
 				var/obj/item/paper/P = new /obj/item/paper( loc )
 				P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
@@ -329,14 +275,6 @@ What a mess.*/
 				else
 					P.info += "<B>General Record Lost!</B><BR>"
 					P.name = "Security Record"
-				if (record2)
-					P.info += "<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: [record2.fields["criminal"]]<BR>\n<BR>\nMinor Crimes: [record2.fields["mi_crim"]]<BR>\nDetails: [record2.fields["mi_crim_d"]]<BR>\n<BR>\nMajor Crimes: [record2.fields["ma_crim"]]<BR>\nDetails: [record2.fields["ma_crim_d"]]<BR>\n<BR>\nImportant Notes:<BR>\n\t[decode(record2.fields["notes"])]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
-					var/counter = 1
-					while(record2.fields["com_[counter]"])
-						P.info += "[record2.fields["com_[counter]"]]<BR>"
-						counter++
-				else
-					P.info += "<B>Security Record Lost!</B><BR>"
 				P.info += "</TT>"
 				printing = null
 				updateUsrDialog()
@@ -457,15 +395,6 @@ What a mess.*/
 						if (!t1 || active2 != a2)
 							return
 						active2.fields["notes"] = t1
-				if("criminal")
-					if (istype(active2, /datum/data/record))
-						temp = "<h5>Criminal Status:</h5>"
-						temp += "<ul>"
-						temp += "<li><a href='?src=[text_ref(src)];choice=Change Criminal Status;criminal2=none'>None</a></li>"
-						temp += "<li><a href='?src=[text_ref(src)];choice=Change Criminal Status;criminal2=arrest'>*Arrest*</a></li>"
-						temp += "<li><a href='?src=[text_ref(src)];choice=Change Criminal Status;criminal2=incarcerated'>Incarcerated</a></li>"
-						temp += "<li><a href='?src=[text_ref(src)];choice=Change Criminal Status;criminal2=released'>Released</a></li>"
-						temp += "</ul>"
 				if("rank")
 					var/list/L = list( "Head of Personnel", CAPTAIN, "AI" )
 					//This was so silly before the change. Now it actually works without beating your head against the keyboard. /N
@@ -501,21 +430,6 @@ What a mess.*/
 					if (active1)
 						active1.fields["rank"] = href_list["rank"]
 
-				if ("Change Criminal Status")
-					if (active2)
-						switch(href_list["criminal2"])
-							if("none")
-								active2.fields["criminal"] = "None"
-							if("arrest")
-								active2.fields["criminal"] = "*Arrest*"
-							if("incarcerated")
-								active2.fields["criminal"] = "Incarcerated"
-							if("released")
-								active2.fields["criminal"] = "Released"
-
-						for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
-							H.sec_hud_set_security_status()
-
 				if ("Delete Record (Security) Execute")
 					if (active2)
 						qdel(active2)
@@ -527,7 +441,6 @@ What a mess.*/
 							if ((R.fields["name"] == active1.fields["name"] || R.fields["id"] == active1.fields["id"]))
 								GLOB.datacore.medical -= R
 								qdel(R)
-							else
 						qdel(active1)
 						active1 = null
 					if (active2)
@@ -555,7 +468,7 @@ What a mess.*/
 
 	for(var/datum/data/record/R in GLOB.datacore.security)
 		if(prob(10/severity))
-			switch(rand(1,6))
+			switch(rand(1,5))
 				if(1)
 					R.fields["name"] = GLOB.namepool[/datum/namepool].get_random_name(pick(MALE, FEMALE))
 				if(2)
@@ -563,10 +476,8 @@ What a mess.*/
 				if(3)
 					R.fields["age"] = rand(5, 85)
 				if(4)
-					R.fields["criminal"] = pick("None", "*Arrest*", "Incarcerated", "Released")
-				if(5)
 					R.fields["p_stat"] = pick("*Unconcious*", "Active", "Physically Unfit")
-				if(6)
+				if(5)
 					R.fields["m_stat"] = pick("*Insane*", "*Unstable*", "*Watch*", "Stable")
 			continue
 

@@ -28,7 +28,7 @@
 ///How many variations of bullethole patterns there are
 #define BULLETHOLE_STATES 10
 ///Maximum possible bullet holes in a closed turf
-#define BULLETHOLE_MAX 24 
+#define BULLETHOLE_MAX 24
 
 //wet floors
 
@@ -45,6 +45,10 @@
 
 /// Takes a datum as input, returns its ref string
 #define text_ref(datum) ref(datum)
+
+/// A null statement to guard against EmptyBlock lint without necessitating the use of pass()
+/// Used to avoid proc-call overhead. But use sparingly. Probably pointless in most places.
+#define EMPTY_BLOCK_GUARD ;
 
 #define RESIZE_DEFAULT_SIZE 1
 
@@ -74,11 +78,11 @@ GLOBAL_VAR_INIT(global_unique_id, 1)
 #define FIXED_COLOUR_PRIORITY 4 //color inherent to the atom (e.g. blob color)
 #define COLOUR_PRIORITY_AMOUNT 4 //how many priority levels there are.
 
-
 //Dummy mob reserve slots
 #define DUMMY_HUMAN_SLOT_PREFERENCES "dummy_preference_preview"
 #define DUMMY_HUMAN_SLOT_ADMIN "admintools"
 #define DUMMY_HUMAN_SLOT_MANIFEST "dummy_manifest_generation"
+#define DUMMY_PRED_SLOT_PREFERENCES "dummy_preference_preview_second"
 
 #define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (istype(I, /client) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
 

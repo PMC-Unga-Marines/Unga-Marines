@@ -33,11 +33,23 @@
 	var/turf/turf_to_check = get_step(source, angle_to_dir(Get_Angle(source, clicked_atom)))
 	if(!turf_to_check || !source.Adjacent(turf_to_check))
 		return
-	
+
 	var/mob/target_mob = locate() in turf_to_check
-	if(!target_mob || source.faction == target_mob.faction)
+	if(!target_mob || target_mob.stat == DEAD)
 		return
-	
+	if(ishuman(source))
+		var/mob/living/carbon/human/source_human = source
+		if(ishuman(target_mob))
+			var/mob/living/carbon/human/target_human = target_mob
+			if(source_human.wear_id?.iff_signal & target_human.wear_id?.iff_signal)
+				return
+		else if(isxeno(target_mob))
+			var/mob/living/carbon/xenomorph/xeno_target = target_mob
+			if(source_human.wear_id && CHECK_BITFIELD(xeno_target.xeno_iff_check(), source_human.wear_id?.iff_signal))
+				return //Do not hit friend with tag!
+	else if(source.faction == GLOB.faction_to_iff[target_mob.faction])
+		return
+
 	//This is here to undo the +1 the click on the distant turf adds so we can click the mob near us
 	source.next_click = world.time - 1
 	INVOKE_ASYNC(source, TYPE_PROC_REF(/mob, ClickOn), target_mob, turf_to_check, click_params)

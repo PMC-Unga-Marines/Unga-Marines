@@ -5945,7 +5945,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
 "eSp" = (
-/obj/item/stack/sheet/glass{
+/obj/item/stack/sheet/glass/glass{
 	amount = 30
 	},
 /obj/structure/rack,
@@ -11078,7 +11078,7 @@
 /area/lv624/lazarus/atmos)
 "kyP" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/glass{
+/obj/item/stack/sheet/glass/glass{
 	amount = 30
 	},
 /turf/open/floor/plating/platebot,

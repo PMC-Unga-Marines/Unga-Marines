@@ -66,7 +66,6 @@
 	active_power_usage = 100
 	interaction_flags = INTERACT_MACHINE_TGUI|INTERACT_POWERLOADER_PICKUP_ALLOWED
 	wrenchable = TRUE
-	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
@@ -157,12 +156,6 @@
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
 	wires = new /datum/wires/vending(src)
-
-	if(SStts.tts_enabled)
-		var/static/vendor_voice_by_type = list()
-		if(!vendor_voice_by_type[type])
-			vendor_voice_by_type[type] = pick(SStts.available_speakers)
-		voice = vendor_voice_by_type[type]
 
 	slogan_list = splittext(product_slogans, ";")
 
@@ -487,16 +480,18 @@
 	vend_ready = 0 //One thing at a time!!
 	R.amount--
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		spawn(0)
-			src.speak(src.vend_reply)
-			src.last_reply = world.time
+	if(((last_reply + (src.vend_delay + 200)) <= world.time) && vend_reply)
+		INVOKE_ASYNC(src, PROC_REF(speak_on_vend))
 
 	var/obj/item/new_item = release_item(R, vend_delay)
 
 	if(istype(new_item))
 		new_item.on_vend(user, faction, fill_container = TRUE)
 	vend_ready = 1
+
+/obj/machinery/vending/proc/speak_on_vend()
+	speak(vend_reply)
+	last_reply = world.time
 
 /obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0)
 	if(delay_vending)
@@ -512,6 +507,8 @@
 				flick(icon_vend,src) //Show the vending animation if needed
 			sleep(delay_vending)
 		else
+			return
+		if(R.amount <= 0)
 			return
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "vendored", 1, R.product_name)
 	addtimer(CALLBACK(src, PROC_REF(stock_vacuum)), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
@@ -654,6 +651,7 @@
 			var/obj/item/storage/S = item_to_stock.loc
 			S.remove_from_storage(item_to_stock, user.loc, user)
 
+	item_to_stock.removed_from_inventory(user)
 	qdel(item_to_stock)
 
 	if(amount >= 0) //R negative means infinite item, no need to restock
@@ -783,8 +781,7 @@
 		break
 	if (!throw_item)
 		return FALSE
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
+	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, 16, 3, src)
 	src.visible_message(span_warning("[src] launches [throw_item.name] at [target]!"))
 	. = TRUE
 
@@ -792,6 +789,21 @@
 	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()
+
+/obj/machinery/vending/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!anchored)
+		return ..()
+	tip_over()
+	if(density)
+		return PRECRUSH_STOPPED
+	charger.visible_message(span_danger("[charger] slams [src] into the ground!"),
+	span_xenowarning("We slam [src] into the ground!"))
+	return PRECRUSH_PLOWED
+
+/obj/machinery/vending/punch_act(...)
+	. = ..()
+	if(tipped_level < 2)
+		tip_over()
 
 #undef CAT_NORMAL
 #undef CAT_HIDDEN

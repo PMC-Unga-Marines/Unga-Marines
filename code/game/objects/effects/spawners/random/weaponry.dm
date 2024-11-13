@@ -11,11 +11,7 @@
 	icon_state = "random_rifle"
 	loot = list(
 		/obj/item/weapon/gun/rifle/ar12,
-		/obj/item/weapon/gun/rifle/ar18,
-		/obj/item/weapon/gun/rifle/ar21,
-		/obj/item/weapon/gun/rifle/ar11/scopeless,
-		/obj/item/weapon/gun/smg/smg90,
-		/obj/item/weapon/gun/smg/mp19,
+		/obj/item/weapon/gun/rifle/type71,
 		/obj/item/weapon/gun/rifle/dmr37,
 		/obj/item/weapon/gun/rifle/br64,
 		/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127,
@@ -82,9 +78,7 @@
 	icon_state = "random_rifle"
 	loot = list(
 		/obj/item/weapon/gun/rifle/ar12,
-		/obj/item/weapon/gun/rifle/ar18,
-		/obj/item/weapon/gun/rifle/ar21,
-		/obj/item/weapon/gun/rifle/ar11/scopeless,
+		/obj/item/weapon/gun/rifle/type71,
 		/obj/item/weapon/gun/shotgun/pump/lever/repeater,
 		/obj/item/weapon/gun/rifle/garand,
 		/obj/item/weapon/gun/rifle/mpi_km,
@@ -160,11 +154,6 @@
 	icon_state = "random_ammo"
 	loot = list(
 		/obj/item/ammo_magazine/rifle/ar12,
-		/obj/item/ammo_magazine/rifle/ar18,
-		/obj/item/ammo_magazine/rifle/ar21,
-		/obj/item/ammo_magazine/rifle/ar11,
-		/obj/item/ammo_magazine/smg/smg90,
-		/obj/item/ammo_magazine/smg/mp19,
 		/obj/item/ammo_magazine/rifle/dmr37,
 		/obj/item/ammo_magazine/rifle/br64,
 		/obj/item/ammo_magazine/rifle/sr127,

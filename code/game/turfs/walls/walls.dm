@@ -492,3 +492,10 @@
 
 /turf/closed/wall/dissolvability(acid_strength)
 	return 0.5
+
+/turf/closed/wall/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if((resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE)) || charger.is_charging < CHARGE_ON)
+		charge_datum.do_stop_momentum()
+		return PRECRUSH_STOPPED
+	. = (CHARGE_SPEED(charge_datum) * 400)
+	charge_datum.speed_down(1)

@@ -374,3 +374,8 @@
 		if(our_area == get_area(carbon))
 			return FALSE
 	return TRUE
+
+/turf/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(charge_datum.valid_steps_taken >= charge_datum.max_steps_buildup)
+		return 2 //Should dismantle, or at least heavily damage it.
+	return 3 //Lighter damage.

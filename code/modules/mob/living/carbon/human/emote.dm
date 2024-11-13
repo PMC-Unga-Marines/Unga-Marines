@@ -370,15 +370,17 @@
 	emote_type = EMOTE_AUDIBLE
 
 
-/datum/emote/living/carbon/human/laugh/get_sound(mob/living/user)
-//RUTGMC EDIT
+/datum/emote/living/carbon/human/laugh/get_sound(mob/living/carbon/human/user)
+
 	if(isyautja(user))
 		return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
-//RUTGMC EDIT
-	else if(user.gender == FEMALE)
-		return 'sound/voice/human/female/laugh_1.ogg'
-	else
-		return pick('sound/voice/human/male/laugh_1.ogg', 'sound/voice/human/male/laugh_2.ogg')
+
+	if(!user?.species?.laughs)
+		return
+	if(user.species.laughs[user.gender])
+		return user.species.laughs[user.gender]
+	if(user.species.laughs[NEUTER])
+		return user.species.laughs[NEUTER]
 
 /datum/emote/living/carbon/human/warcry
 	key = "warcry"
@@ -632,14 +634,6 @@
 		return 'sound/voice/human/female/cry_1.ogg'
 	else
 		return 'sound/voice/human/male/cry_1.ogg'
-
-/datum/emote/living/carbon/human/laugh/get_sound(mob/living/user)
-	if(isrobot(user))
-		if(user.gender == FEMALE)
-			return 'sound/voice/robotic/female_laugh.ogg'
-		else
-			return pick('sound/voice/robotic/male_laugh_1.ogg', 'sound/voice/robotic/male_laugh_2.ogg')
-	return ..()
 
 /datum/emote/living/carbon/human/medic/get_sound(mob/living/carbon/human/user)
 	if(isrobot(user))

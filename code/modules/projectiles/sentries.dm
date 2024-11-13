@@ -535,6 +535,15 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		return FALSE
 	return TRUE
 
+/obj/machinery/deployable/mounted/sentry/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	return (CHARGE_SPEED(charge_datum) * 50)
+
+/obj/machinery/deployable/mounted/sentry/post_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	knock_down()
+	if(density)
+		return PRECRUSH_STOPPED
+	return PRECRUSH_PLOWED
+
 /obj/machinery/deployable/mounted/sentry/buildasentry
 	name = "broken build-a-sentry"
 	desc = "You should not be seeing this unless a mapper, coder or admin screwed up."

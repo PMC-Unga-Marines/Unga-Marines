@@ -166,7 +166,7 @@
 /turf/open/floor/mainship/empty/is_weedable()
 	return FALSE
 
-/turf/open/floor/mainship/empty/fire_act(burn_level)
+/turf/open/floor/mainship/empty/fire_act(burn_level, flame_color)
 	return
 
 /turf/open/floor/mainship/empty/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
@@ -272,6 +272,12 @@
 
 /turf/open/floor/mainship/metal/white
 	icon_state = "white"
+
+/turf/open/floor/mainship/metal/gray
+	icon_state = "metal_gray"
+
+/turf/open/floor/mainship/metal/green
+	icon_state = "metal_green"
 
 //Outerhull
 

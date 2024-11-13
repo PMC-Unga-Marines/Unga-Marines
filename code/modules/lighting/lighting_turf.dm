@@ -8,10 +8,12 @@
 	var/tmp/list/atom/movable/lighting_mask/hybrid_lights_affecting
 
 /turf/Destroy(force)
-	if(hybrid_lights_affecting)
-		for(var/atom/movable/lighting_mask/mask AS in hybrid_lights_affecting)
-			LAZYREMOVE(mask.affecting_turfs, src)
-		hybrid_lights_affecting.Cut()
+	if(!hybrid_lights_affecting)
+		return ..()
+
+	for(var/atom/movable/lighting_mask/mask AS in hybrid_lights_affecting)
+		LAZYREMOVE(mask.affecting_turfs, src)
+	hybrid_lights_affecting.Cut()
 	return ..()
 
 /// Causes any affecting light sources to be queued for a visibility update, for example a door got opened.

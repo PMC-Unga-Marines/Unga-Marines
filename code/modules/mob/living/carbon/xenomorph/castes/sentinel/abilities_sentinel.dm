@@ -28,6 +28,7 @@
 		if(C.has_status_effect(STATUS_EFFECT_INTOXICATED))
 			var/datum/status_effect/stacking/intoxicated/debuff = C.has_status_effect(STATUS_EFFECT_INTOXICATED)
 			debuff.add_stacks(intoxication_stacks)
+			return
 		C.apply_status_effect(STATUS_EFFECT_INTOXICATED, intoxication_stacks)
 
 // ***************************************
@@ -80,7 +81,8 @@
 	if(xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
 		var/datum/status_effect/stacking/intoxicated/debuff = xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
 		debuff.add_stacks(intoxication_stacks)
-	xeno_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, intoxication_stacks)
+	else
+		xeno_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, intoxication_stacks)
 	remaining_slashes-- //Decrement the toxic slash count
 	if(!remaining_slashes) //Deactivate if we have no toxic slashes remaining
 		toxic_slash_deactivate(xeno_owner)

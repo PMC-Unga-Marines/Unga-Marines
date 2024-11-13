@@ -39,6 +39,11 @@
 	for(var/obj/item/explosive/grenade/G in L)
 		G.knockback(X, 6, 2)
 
+	for(var/obj/machinery/deployable/mounted/sentry/sentry in L)
+		var/damage = X.xeno_caste.melee_damage
+		sentry.take_damage(damage, BRUTE, MELEE)
+		sentry.knock_down()
+
 	for(var/mob/living/carbon/human/H in L)
 		if(H.stat == DEAD)
 			continue
@@ -415,6 +420,14 @@
 	X.spin(4, 1)
 	X.enable_throw_parry(0.6 SECONDS)
 	playsound(X, pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
+
+	for(var/obj/item/explosive/grenade/G in orange (1, X))
+		G.knockback(X, 6, 2)
+
+	for(var/obj/machinery/deployable/mounted/sentry/sentry in orange (1, X))
+		var/damage = X.xeno_caste.melee_damage
+		sentry.take_damage(damage, BRUTE, MELEE)
+		sentry.knock_down()
 
 	for(var/mob/living/carbon/human/slapped in orange(1, X))
 		if(slapped.stat == DEAD)

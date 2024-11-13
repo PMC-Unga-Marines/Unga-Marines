@@ -9,6 +9,9 @@
 
 	icon_state = "bioprinter"
 
+	light_range = 0.5
+	light_power = 0.4
+
 	var/working = 0
 	var/stored_matter = 0
 	var/stored_metal = 0
@@ -44,15 +47,16 @@
 		to_chat(user, span_notice("\The [src] is now printing the selected organ. Please hold."))
 		working = 1
 		update_icon()
-		spawn(products[choice][4]) //Time
-			var/new_organ = products[choice][1]
-			new new_organ(get_turf(src))
-			working = 0
-			visible_message("The bio/synthetic printer spits out a new organ.")
-			update_icon()
-
+		addtimer(CALLBACK(src, PROC_REF(spawn_new_organ), choice), products[choice][4])
 	else
 		to_chat(user, "There is not enough materials in the printer.")
+
+/obj/machinery/bioprinter/proc/spawn_new_organ(choice)
+	var/new_organ = products[choice][1]
+	new new_organ(get_turf(src))
+	working = 0
+	visible_message("The bio/synthetic printer spits out a new organ.")
+	update_icon()
 
 /obj/machinery/bioprinter/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -84,11 +88,13 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "bioprinter_off"
+		set_light(0, 0)
 		return
 	if(working)
 		icon_state = "bioprinter_busy"
 	else
 		icon_state = "bioprinter"
+	set_light(initial(light_range), initial(light_power))
 
 /obj/machinery/bioprinter/update_overlays()
 	. = ..()

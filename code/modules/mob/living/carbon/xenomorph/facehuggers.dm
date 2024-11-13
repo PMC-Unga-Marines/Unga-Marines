@@ -50,7 +50,7 @@
 	///The timer to go active
 	var/activetimer
 	///Time to become active after impacting on a direct thrown hit
-	var/impact_time = 1.25 SECONDS
+	var/impact_time = 0.1 SECONDS
 	///Time to become active again
 	var/activate_time = 2 SECONDS
 	///Time to recover after jumping
@@ -61,6 +61,7 @@
 	var/about_to_jump = FALSE
 	///Time to become active after moving into the facehugger's space.
 	var/proximity_time = 0.75 SECONDS
+	var/trap_type = TRAP_HUGGER_LARVAL
 
 /obj/item/clothing/mask/facehugger/Initialize(mapload, input_hivenumber, input_source)
 	. = ..()
@@ -320,7 +321,7 @@
 			visible_message(span_xenowarning("[src] crawls into [T]!"))
 			forceMove(T)
 			T.hugger = src
-			T.set_trap_type(TRAP_HUGGER)
+			T.set_trap_type(trap_type)
 			go_idle(TRUE)
 			return FALSE
 		kill_hugger()
@@ -716,10 +717,10 @@
 	name = "neuro hugger"
 	desc = "This strange creature has a single prominent sharp proboscis."
 	color = COLOR_DARK_ORANGE
-	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	trap_type = TRAP_HUGGER_NEURO
 
 /obj/item/clothing/mask/facehugger/combat/neuro/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -740,10 +741,10 @@
 	name = "acid hugger"
 	desc = "This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	color = COLOR_GREEN
-	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	trap_type = TRAP_HUGGER_ACID
 
 /obj/item/clothing/mask/facehugger/combat/acid/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -768,10 +769,10 @@
 	name = "resin hugger"
 	desc = "This truly bizzare, bloated creature drips with purple, viscous resin."
 	color = COLOR_STRONG_VIOLET
-	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	trap_type = TRAP_HUGGER_RESIN
 	var/have_resin = TRUE
 
 /obj/item/clothing/mask/facehugger/combat/resin/Attach(mob/M, mob/user)
@@ -806,10 +807,10 @@
 	name = "clawed hugger"
 	desc = "This nasty little creature is a nightmarish scrabble of muscle and sharp, long claws."
 	color = COLOR_RED
-	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.5 SECONDS
+	trap_type = TRAP_HUGGER_SLASH
 
 /obj/item/clothing/mask/facehugger/combat/slash/Attach(mob/M)
 	if(!combat_hugger_check_target(M))

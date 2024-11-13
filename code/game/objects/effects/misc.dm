@@ -87,7 +87,7 @@
 	density = TRUE
 	icon_state = "blocker"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	resistance_flags = RESIST_ALL
+	resistance_flags = RESIST_ALL|BLOCK_PASSTHROUGH_PROJECTILES
 
 /obj/effect/forcefield/Initialize(mapload)
 	. = ..()

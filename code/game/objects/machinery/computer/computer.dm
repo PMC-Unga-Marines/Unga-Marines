@@ -221,3 +221,7 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_DISARM2) //SFX
 	playsound(loc, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1) //SFX
 	Shake(duration = 0.5 SECONDS)
+
+/obj/machinery/computer/punch_act(...)
+	set_disabled() // Currently only computers use this; falcon punch away its density.
+	return ..()

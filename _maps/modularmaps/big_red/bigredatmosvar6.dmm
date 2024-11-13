@@ -29,8 +29,10 @@
 "bB" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "cG" = (
@@ -73,9 +75,6 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/s)
 "go" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
@@ -90,6 +89,9 @@
 /area/bigredv2/outside/filtration_plant)
 "hu" = (
 /obj/effect/decal/cleanable/blood/gibs,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 9
+	},
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/se)
 "hS" = (
@@ -134,9 +136,6 @@
 /area/bigredv2/caves/rock)
 "kz" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/s)
 "lf" = (
@@ -198,6 +197,7 @@
 /area/bigredv2/outside/se)
 "ou" = (
 /obj/effect/landmark/corpsespawner/marine,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 9
 	},
@@ -224,6 +224,10 @@
 "po" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/headset/survivor,
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 8;
+	on = 1
+	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "pF" = (
@@ -281,6 +285,9 @@
 "sm" = (
 /obj/structure/barricade/wooden{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 1
@@ -352,6 +359,12 @@
 /obj/machinery/door/poddoor/two_tile_ver,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/s)
+"xA" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv2/outside/s)
 "xD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -391,7 +404,6 @@
 "zI" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -436,6 +448,14 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/s)
+"CB" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
+	dir = 1
+	},
+/area/bigredv2/outside/s)
 "CS" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/s)
@@ -444,9 +464,6 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/se)
 "DB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/s)
@@ -455,14 +472,14 @@
 /area/bigredv2/outside/se)
 "Eu" = (
 /obj/effect/landmark/corpsespawner/marine,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 1
 	},
 /area/bigredv2/outside/se)
 "Ey" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/s)
 "EA" = (
@@ -511,9 +528,6 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/se)
 "Jf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
@@ -551,6 +565,9 @@
 	},
 /area/bigredv2/outside/se)
 "Ma" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 9
 	},
@@ -643,6 +660,9 @@
 /area/bigredv2/caves/east/garbledradio)
 "Tv" = (
 /obj/item/stack/sheet/wood,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 1
 	},
@@ -651,6 +671,10 @@
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 8;
+	on = 1
+	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/se)
 "Uj" = (
@@ -658,10 +682,8 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/se)
 "Vb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 9
-	},
 /obj/item/stack/sheet/wood,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
@@ -688,15 +710,17 @@
 /area/bigredv2/outside/se)
 "WF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump{
-	dir = 8;
-	on = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "Xe" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/se)
+"Yb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
 "Zd" = (
 /obj/machinery/power/geothermal,
 /obj/structure/cable,
@@ -731,7 +755,7 @@ mz
 mz
 DB
 ms
-ms
+xA
 BV
 BV
 BV
@@ -758,7 +782,7 @@ Qv
 rd
 Ey
 ec
-ms
+xA
 BV
 Rk
 Rk
@@ -785,7 +809,7 @@ OK
 OK
 Ey
 ms
-ms
+xA
 BV
 Rk
 Rk
@@ -839,7 +863,7 @@ Qv
 OK
 Ey
 ms
-sG
+CB
 tw
 qo
 bw
@@ -866,7 +890,7 @@ Qv
 OK
 kz
 ec
-sG
+CB
 sG
 qo
 nC
@@ -893,7 +917,7 @@ Qv
 Qv
 kz
 ms
-sG
+CB
 CS
 qo
 Bc
@@ -920,7 +944,7 @@ OK
 Qv
 kz
 ms
-sG
+CB
 CS
 qo
 qo
@@ -931,7 +955,7 @@ de
 Rk
 "}
 (9,1,1) = {"
-Km
+Yb
 WF
 Km
 GV
@@ -947,7 +971,7 @@ Qv
 OK
 Ey
 ms
-sG
+CB
 CS
 qo
 aB
@@ -974,7 +998,7 @@ OK
 pZ
 Ey
 ec
-sG
+CB
 VK
 qo
 nC
@@ -1001,7 +1025,7 @@ Qv
 OK
 Ey
 ms
-sG
+CB
 qo
 aB
 fN
@@ -1028,7 +1052,7 @@ Qv
 OK
 Ey
 JB
-sG
+CB
 BV
 rO
 fN
@@ -1055,7 +1079,7 @@ OK
 OK
 Ey
 ms
-sG
+CB
 BV
 jM
 rV
@@ -1082,7 +1106,7 @@ uz
 OK
 Ey
 ec
-sG
+CB
 BV
 jM
 eE
@@ -1109,7 +1133,7 @@ OK
 OK
 Jf
 ms
-sG
+CB
 BV
 de
 rV
@@ -1188,7 +1212,7 @@ Dw
 yW
 MP
 Se
-pF
+hV
 tx
 Tv
 pR

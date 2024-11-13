@@ -249,11 +249,14 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
-
+	unique_reskin = list(
+		"Red" = "svd_red",
+	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	icon_state = "svd"
 	item_state = "svd"
+
 	max_shells = 10 //codex
 	caliber = CALIBER_762X54 //codex
 	fire_sound = "svd_fire"

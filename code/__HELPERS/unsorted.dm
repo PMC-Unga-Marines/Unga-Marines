@@ -102,11 +102,11 @@
 	if(!start.z)
 		start = get_turf(start)
 		if(!start)
-			CRASH("Get_Angle called for inexisting atoms (start): [isnull(start.loc) ? "null loc" : start.loc] [start] to [isnull(end.loc) ? "null loc" : end.loc] [end].") //Atoms are not on turfs.
+			CRASH("Get_Angle called for inexisting atoms (start): start loc = [isnull(start?.loc) ? "null loc" : start.loc], start = [start], end loc = [isnull(end?.loc) ? "null loc" : end.loc], end = [end].") //Atoms are not on turfs.
 	if(!end.z)
 		end = get_turf(end)
 		if(!end)
-			CRASH("Get_Angle called for inexisting atoms (end): [isnull(start.loc) ? "null loc" : start.loc] [start] to [isnull(end.loc) ? "null loc" : end.loc] [end].") //Atoms are not on turfs.
+			CRASH("Get_Angle called for inexisting atoms (end): start loc = [isnull(start?.loc) ? "null loc" : start.loc], start = [start], end loc = [isnull(end?.loc) ? "null loc" : end.loc], end = [end].") //Atoms are not on turfs.
 	var/dy = (32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
 	var/dx = (32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
 	if(!dy)
@@ -139,6 +139,7 @@
 	else if(. >= 360)
 		. -= 360
 
+///Returns one of the 8 directions based on an angle
 /proc/angle_to_dir(angle)
 	switch(angle)
 		if(338 to 360, 0 to 22)
@@ -1107,9 +1108,9 @@ will handle it, but:
 	animate(I, transform = 0, alpha = 255, time = 0.5 SECONDS, easing = ELASTIC_EASING)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(fade_out), I), duration - 0.5 SECONDS)
 
-/proc/fade_out(image/I, list/show_to)
-	animate(I, alpha = 0, time = 0.5 SECONDS, easing = EASE_IN)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), I, show_to), 0.5 SECONDS)
+/proc/fade_out(image/I, list/show_to, our_time = 0.5 SECONDS)
+	animate(I, alpha = 0, time = our_time, easing = EASE_IN)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), I, show_to), our_time)
 
 //takes an input_key, as text, and the list of keys already used, outputting a replacement key in the format of "[input_key] ([number_of_duplicates])" if it finds a duplicate
 //use this for lists of things that might have the same name, like mobs or objects, that you plan on giving to a player as input

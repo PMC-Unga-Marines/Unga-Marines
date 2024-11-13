@@ -100,14 +100,14 @@
 	additional_xeno_penetration = 17.5
 
 /datum/ammo/bullet/revolver/t76
-	name = "magnum bullet"
+	name = "magnum 12.7 bullet"
 	handful_amount = 5
-	damage = 100
-	penetration = 40
-	additional_xeno_penetration = 0
+	damage = 130
+	penetration = 30
+	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/revolver/t76/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, knockback = 1)
+	staggerstun(M, P, weaken = 2 SECONDS, stagger = 0.5, slowdown = 1)
 
 /datum/ammo/bullet/revolver/highimpact
 	name = "high-impact revolver bullet"

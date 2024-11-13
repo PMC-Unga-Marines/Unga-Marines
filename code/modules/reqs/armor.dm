@@ -62,7 +62,7 @@
 	contains = list(
 		/obj/item/armor_module/module/valkyrie_autodoc,
 	)
-	cost = 120
+	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/fire_proof
 	name = "Surt fireproof module set"
@@ -88,11 +88,6 @@
 	)
 	cost = 120
 
-/datum/supply_packs/armor/modular/attachments/hlin_bombimmune
-	name = "Hlin armor module"
-	contains = list(/obj/item/armor_module/module/hlin_explosive_armor)
-	cost = 120
-
 /datum/supply_packs/armor/modular/attachments/artemis_mark_two
 	name = "Freyr Mark 2 helmet module"
 	contains = list(
@@ -104,9 +99,6 @@
 	name = "Optical Imager Goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
-
-/datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
-	cost = 150
 
 /datum/supply_packs/armor/robot/advanced/physical
 	name = "Cingulata physical protection armor set"

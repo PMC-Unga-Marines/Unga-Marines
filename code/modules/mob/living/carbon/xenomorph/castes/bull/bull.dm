@@ -2,8 +2,10 @@
 	caste_base_type = /datum/xeno_caste/bull
 	name = "Bull"
 	desc = "A bright red alien with a matching temper."
-	icon = 'icons/Xeno/castes/bull.dmi'
+	icon = 'icons/Xeno/castes/bull/basic.dmi'
 	icon_state = "Bull Walking"
+	effects_icon = 'icons/Xeno/castes/bull/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/bull/rouny.dmi'
 	bubble_icon = "alien"
 	health = 160
 	maxHealth = 160
@@ -19,7 +21,7 @@
 
 /mob/living/carbon/xenomorph/bull/handle_special_state()
 	if(is_charging >= CHARGE_ON)
-		icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Charging"
+		icon_state = "[xeno_caste.caste_name] Charging"
 		return TRUE
 	return FALSE
 

@@ -507,6 +507,13 @@
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
+"Ed" = (
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 8;
+	on = 1
+	},
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/s)
 "Ey" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4
@@ -845,7 +852,7 @@ Ff
 Ff
 Ff
 Ff
-eH
+Ed
 qc
 eH
 eH

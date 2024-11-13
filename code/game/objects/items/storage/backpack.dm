@@ -762,7 +762,6 @@
 	else if(istype(I, /obj/item/ammo_magazine/flamer_tank))
 		var/obj/item/ammo_magazine/flamer_tank/FT = I
 		if(FT.default_ammo != /datum/ammo/flamethrower)
-			to_chat(user, span_warning("Not the right kind of fuel!"))
 			return ..()
 		if(FT.current_rounds == FT.max_rounds || !reagents.total_volume)
 			return ..()
@@ -806,7 +805,7 @@
 
 /obj/item/storage/backpack/marine/engineerpack/examine(mob/user)
 	. = ..()
-	. += "[reagents.total_volume] units of fuel left!"
+	. += span_notice("[reagents.total_volume] units of fuel left!")
 
 /obj/item/storage/backpack/lightpack
 	name = "\improper lightweight combat pack"

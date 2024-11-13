@@ -62,30 +62,31 @@
 	update_icon()
 	attack_self(user) //Update the browsed page.
 
-
 /obj/item/paper_bundle/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "<span class='warning'>"
 
-	if(P.heat >= 400 && !user.restrained())
-		if(istype(P, /obj/item/tool/lighter/zippo))
-			class = "<span class='rose'>"
+	if(P.heat < 400 || user.restrained())
+		return
+	if(istype(P, /obj/item/tool/lighter/zippo))
+		class = "<span class='rose'>"
 
-		user.visible_message("[class][user] holds \the [P] up to \the [src], it looks like [user.p_theyre()] trying to burn it!</span>", \
+	user.visible_message("[class][user] holds \the [P] up to \the [src], it looks like [user.p_theyre()] trying to burn it!</span>", \
 		"[class]You hold \the [P] up to \the [src], burning it slowly.")
 
-		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_held_item() == P && P.heat)
-				user.visible_message("[class][user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-				"[class]You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+	if(!do_after(user, 2 SECONDS, NONE, src))
+		to_chat(user, span_warning("You must hold \the [P] steady to burn \the [src]."))
+		return
 
-				if(user.get_inactive_held_item() == src)
-					user.dropItemToGround(src)
+	if(!P.heat)
+		return
+	user.visible_message("[class][user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+		"[class]You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
 
-				new /obj/effect/decal/cleanable/ash(src.loc)
-				qdel(src)
+	if(user.get_inactive_held_item() == src)
+		user.dropItemToGround(src)
 
-			else
-				to_chat(user, span_warning("You must hold \the [P] steady to burn \the [src]."))
+	new /obj/effect/decal/cleanable/ash(src.loc)
+	qdel(src)
 
 /obj/item/paper_bundle/examine(mob/user)
 	. = ..()
@@ -101,25 +102,25 @@
 		switch(screen)
 			if(0)
 				dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'></DIV>"
-				dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[text_ref(src)];remove=1'>Remove [(istype(src[page], /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+				dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[text_ref(src)];remove=1'>Remove [(istype(page, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
 				dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=[text_ref(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 			if(1)
 				dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=[text_ref(src)];prev_page=1'>Previous Page</A></DIV>"
-				dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[text_ref(src)];remove=1'>Remove [(istype(src[page], /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+				dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[text_ref(src)];remove=1'>Remove [(istype(page, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
 				dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=[text_ref(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 			if(2)
 				dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=[text_ref(src)];prev_page=1'>Previous Page</A></DIV>"
-				dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[text_ref(src)];remove=1'>Remove [(istype(src[page], /obj/item/paper)) ? "paper" : "photo"]</A></DIV><BR><HR>"
+				dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[text_ref(src)];remove=1'>Remove [(istype(page, /obj/item/paper)) ? "paper" : "photo"]</A></DIV><BR><HR>"
 				dat+= "<DIV STYLE='float;left; text-align:right; with:33.33333%'></DIV>"
-		if(istype(src[page], /obj/item/paper))
-			var/obj/item/paper/P = src[page]
+		if(istype(page, /obj/item/paper))
+			var/obj/item/paper/P = page
 			if(!(ishuman(usr) || isobserver(usr) || issilicon(usr)))
 				dat+= "<html><meta charset='UTF-8'><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>"
 			else
 				dat+= "<html><meta charset='UTF-8'><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>"
 			human_user << browse(dat, "window=[name]")
-		else if(istype(src[page], /obj/item/photo))
-			var/obj/item/photo/P = src[page]
+		else if(istype(page, /obj/item/photo))
+			var/obj/item/photo/P = page
 			human_user << browse_rsc(P.picture.picture_icon, "tmp_photo.png")
 			human_user << browse(dat + "<html><meta charset='UTF-8'><head><title>[P.name]</title></head>" \
 			+ "<body style='overflow:hidden'>" \

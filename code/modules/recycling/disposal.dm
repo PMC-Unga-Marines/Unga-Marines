@@ -400,8 +400,7 @@
 			target = get_offset_target_turf(loc, rand(5) - rand(5), rand(5) - rand(5))
 			AM.loc = loc
 			AM.pipe_eject(0)
-			spawn(1)
-				AM?.throw_at(target, 5, 1)
+			addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 3, 1), 0.5 SECONDS)
 
 		qdel(H)
 
@@ -664,9 +663,8 @@
 			for(var/atom/movable/AM in H)
 				AM.loc = T
 				AM.pipe_eject(direction)
-				spawn(1)
-					if(AM)
-						AM.throw_at(target, 100, 1)
+				if(AM)
+					addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 100, 1), 0.1 SECONDS)
 			qdel(H)
 
 	else //No specified direction, so throw in random direction
@@ -678,9 +676,8 @@
 
 				AM.loc = T
 				AM.pipe_eject(0)
-				spawn(1)
-					if(AM)
-						AM.throw_at(target, 5, 1)
+				if(AM)
+					addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 5, 1), 0.1 SECONDS)
 
 			qdel(H)
 
@@ -1289,8 +1286,7 @@
 		for(var/atom/movable/AM in H)
 			AM.loc = src.loc
 			AM.pipe_eject(dir)
-			spawn(5)
-				AM.throw_at(target, 3, 1)
+			addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 3, 1), 0.5 SECONDS)
 		qdel(H)
 
 /obj/structure/disposaloutlet/attackby(obj/item/I, mob/user, params)
@@ -1325,7 +1321,6 @@
 		C.density = TRUE
 		qdel(src)
 
-
 /obj/structure/disposaloutlet/retrieval
 	name = "retrieval outlet"
 	desc = "An outlet for the pneumatic disposal system."
@@ -1340,24 +1335,15 @@
 
 //Check if mob has client, if so restore client view on eject
 /mob/pipe_eject(direction)
-	if(client)
-		client.perspective = MOB_PERSPECTIVE
-		client.eye = src
+	if(!client)
+		return
+	client.perspective = MOB_PERSPECTIVE
+	client.eye = src
 
 /obj/effect/decal/cleanable/blood/gibs/pipe_eject(direction)
 	var/list/dirs
 	if(direction)
-		dirs = list( direction, turn(direction, -45), turn(direction, 45))
+		dirs = list(direction, turn(direction, -45), turn(direction, 45))
 	else
 		dirs = GLOB.alldirs.Copy()
-
-	streak(dirs)
-
-/obj/effect/decal/cleanable/blood/gibs/robot/pipe_eject(direction)
-	var/list/dirs
-	if(direction)
-		dirs = list( direction, turn(direction, -45), turn(direction, 45))
-	else
-		dirs = GLOB.alldirs.Copy()
-
 	streak(dirs)

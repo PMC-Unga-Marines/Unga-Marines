@@ -518,23 +518,17 @@
 
 /obj/item/weapon/gun/update_icon_state()
 	. = ..()
+	var/real_icon = current_skin ? current_skin : base_gun_icon
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN) && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED))
-		icon_state = !greyscale_config ? base_gun_icon + "_o" : GUN_ICONSTATE_OPEN
+		icon_state = real_icon + "_o"
 	else if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && !in_chamber && length(chamber_items))
-		icon_state = !greyscale_config ? base_gun_icon + "_u" : GUN_ICONSTATE_UNRACKED
+		icon_state = real_icon + "_u"
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
-		icon_state = !greyscale_config ? base_gun_icon + "_e" : GUN_ICONSTATE_UNLOADED
+		icon_state = real_icon + "_e"
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
-		icon_state = base_gun_icon + "_l"
+		icon_state = real_icon + "_l"
 	else
-		icon_state = !greyscale_config ? base_gun_icon : GUN_ICONSTATE_LOADED
-
-/obj/item/weapon/gun/color_item(obj/item/facepaint/paint, mob/user)
-	. = ..()
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/human = user
-	human.regenerate_icons()
+		icon_state = real_icon
 
 //manages the overlays for the gun - separate from attachment overlays
 /obj/item/weapon/gun/update_overlays()
@@ -559,14 +553,14 @@
 
 /obj/item/weapon/gun/update_item_state()
 	var/current_state = item_state
+	var/real_icon = current_skin ? current_skin : initial(icon_state)
 	if(flags_gun_features & GUN_SHOWS_AMMO_REMAINING) //shows different ammo levels
 		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells ? max_shells : 1), 1)) * 100, 25)
-		item_state = "[initial(icon_state)]_[remaining_rounds][flags_item & WIELDED ? "_w" : ""]"
+		item_state = "[real_icon]_[remaining_rounds][flags_item & WIELDED ? "_w" : ""]"
 	else if(flags_gun_features & GUN_SHOWS_LOADED) //shows loaded or unloaded
-		item_state = "[initial(icon_state)]_[rounds ? 100 : 0][flags_item & WIELDED ? "_w" : ""]"
+		item_state = "[real_icon]_[rounds ? 100 : 0][flags_item & WIELDED ? "_w" : ""]"
 	else
-		item_state = "[base_gun_icon][flags_item & WIELDED ? "_w" : ""]"
-		return
+		item_state = "[current_skin ? current_skin : base_gun_icon][flags_item & WIELDED ? "_w" : ""]"
 
 	if(current_state != item_state && ishuman(gun_user))
 		var/mob/living/carbon/human/human_user = gun_user
@@ -807,7 +801,7 @@
 
 ///Wrapper proc to complete the whole firing process.
 /obj/item/weapon/gun/proc/Fire()
-	if(!target || !(gun_user || istype(loc, /obj/machinery/deployable/mounted/sentry)) || !(CHECK_BITFIELD(flags_item, IS_DEPLOYED) || able_to_fire(gun_user)) || windup_checked == WEAPON_WINDUP_CHECKING)
+	if(!target || !(gun_user || issentry(loc)) || !(CHECK_BITFIELD(flags_item, IS_DEPLOYED) || able_to_fire(gun_user)) || windup_checked == WEAPON_WINDUP_CHECKING)
 		return NONE
 	if(windup_delay && windup_checked == WEAPON_WINDUP_NOT_CHECKED)
 		windup_checked = WEAPON_WINDUP_CHECKING
@@ -869,7 +863,7 @@
 
 ///Actually fires the gun, sets up the projectile and fires it.
 /obj/item/weapon/gun/proc/do_fire(obj/object_to_fire)
-	var/firer = (istype(loc, /obj/machinery/deployable/mounted/sentry) && !gun_user) ? loc : gun_user
+	var/firer = (issentry(loc) && !gun_user) ? loc : gun_user
 	var/obj/projectile/projectile_to_fire = object_to_fire
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_HANDFULS))
 		projectile_to_fire = get_ammo_object()
@@ -1737,7 +1731,7 @@
 			var/mob/living/carbon/human/_firer = firer
 			var/obj/item/card/id/id = _firer.get_idcard()
 			iff_signal = id?.iff_signal
-		else if(istype(firer, /obj/machinery/deployable/mounted/sentry))
+		else if(issentry(firer))
 			var/obj/machinery/deployable/mounted/sentry/sentry = firer
 			iff_signal = sentry.iff_signal
 		projectile_to_fire.iff_signal = iff_signal

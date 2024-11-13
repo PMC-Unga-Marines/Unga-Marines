@@ -1,10 +1,6 @@
-#define SHOULD_SHOW_TO(mymob, myscreen) (!(mymob.stat == DEAD && !myscreen.show_when_dead))
-
-
 /mob/proc/overlay_fullscreen_timer(duration, animated, category, type, severity)
 	overlay_fullscreen(category, type, severity)
 	addtimer(CALLBACK(src, PROC_REF(clear_fullscreen), category, animated), duration)
-
 
 ///Applies a fullscreen overlay
 /mob/proc/overlay_fullscreen(category, type, severity)
@@ -23,7 +19,7 @@
 
 	screen.icon_state = "[initial(screen.icon_state)][severity]"
 	screen.severity = severity
-	if(client && SHOULD_SHOW_TO(src, screen))
+	if(client && screen.should_show_to(src))
 		screen.update_for_view(client.view)
 		client.screen += screen
 	return screen
@@ -48,29 +44,27 @@
 	fullscreens -= category
 	qdel(screen)
 
-
 /mob/proc/clear_fullscreens()
 	for(var/category in fullscreens)
 		clear_fullscreen(category)
 
-
 /mob/proc/hide_fullscreens()
-	if(client)
-		for(var/category in fullscreens)
-			client.screen -= fullscreens[category]
-
+	if(!client)
+		return
+	for(var/category in fullscreens)
+		client.screen -= fullscreens[category]
 
 /mob/proc/reload_fullscreens()
-	if(client)
-		var/atom/movable/screen/fullscreen/screen
-		for(var/category in fullscreens)
-			screen = fullscreens[category]
-			if(SHOULD_SHOW_TO(src, screen))
-				screen.update_for_view(client.view)
-				client.screen |= screen
-			else
-				client.screen -= screen
-
+	if(!client)
+		return
+	var/atom/movable/screen/fullscreen/screen
+	for(var/category in fullscreens)
+		screen = fullscreens[category]
+		if(screen.should_show_to(src))
+			screen.update_for_view(client.view)
+			client.screen |= screen
+		else
+			client.screen -= screen
 
 /atom/movable/screen/fullscreen
 	icon = 'icons/mob/screen/full/misc.dmi'
@@ -85,18 +79,24 @@
 	///Holder for deletion timer
 	var/removal_timer
 
-
 /atom/movable/screen/fullscreen/Destroy()
 	deltimer(removal_timer)
 	removal_timer = null
 	return ..()
 
-
 /atom/movable/screen/fullscreen/proc/update_for_view(client_view)
-	if (screen_loc == "CENTER-7,CENTER-7" && fs_view != client_view)
-		var/list/actualview = getviewsize(client_view)
-		fs_view = client_view
-		transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+	if(fs_view == client_view)
+		return
+	if(screen_loc != "CENTER-7,CENTER-7")
+		return
+	var/list/actualview = getviewsize(client_view)
+	fs_view = client_view
+	transform = matrix(actualview[1] / FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2] / FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+
+/atom/movable/screen/fullscreen/proc/should_show_to(mob/mob)
+	if(!show_when_dead && mob.stat == DEAD)
+		return FALSE
+	return TRUE
 
 /atom/movable/screen/fullscreen/black
 	icon_state = "black" //just a black square, you can change this if you get better ideas
@@ -182,6 +182,16 @@
 /atom/movable/screen/fullscreen/machine/robotlow
 	icon_state = "robotlow"
 
+/atom/movable/screen/fullscreen/machine/pred
+	alpha = 140
+
+/atom/movable/screen/fullscreen/machine/pred/meson
+	icon_state = "pred_meson"
+	icon = 'icons/mob/screen/full.dmi'
+
+/atom/movable/screen/fullscreen/machine/pred/night
+	icon_state = "robothalf"
+
 /atom/movable/screen/fullscreen/ivanov_display
 	icon_state = "ivanov"
 	alpha = 180
@@ -216,5 +226,3 @@
 	layer = LIGHTING_PRIMARY_LAYER
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
-
-#undef SHOULD_SHOW_TO

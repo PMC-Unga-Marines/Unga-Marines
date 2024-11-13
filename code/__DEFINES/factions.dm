@@ -12,12 +12,10 @@
 #define FACTION_SOM "Sons of Mars"
 #define FACTION_ICC "Independent Colonial Confederation"
 #define FACTION_USL "United Space Lepidoptera"
-#define FACTION_ALIEN "Alien"
-#define FACTION_SPIDER "Spider"
-#define FACTION_HIVEBOT "Hivebot"
 #define FACTION_HOSTILE "Hostile"
 #define FACTION_PIRATE "Pirate"
 #define FACTION_SPECFORCE "Special Forces"
+#define FACTION_YAUTJA "Yautja"
 
 //Alignement are currently only used by req.
 ///Mob with a neutral alignement cannot be sold by anyone
@@ -45,11 +43,9 @@ GLOBAL_LIST_INIT(faction_to_alignement, list(
 	FACTION_SOM = ALIGNEMENT_HOSTILE,
 	FACTION_ICC = ALIGNEMENT_HOSTILE,
 	FACTION_USL = ALIGNEMENT_HOSTILE,
-	FACTION_ALIEN = ALIGNEMENT_HOSTILE,
-	FACTION_SPIDER = ALIGNEMENT_HOSTILE,
-	FACTION_HIVEBOT = ALIGNEMENT_HOSTILE,
 	FACTION_HOSTILE = ALIGNEMENT_HOSTILE,
 	FACTION_PIRATE = ALIGNEMENT_HOSTILE,
+	FACTION_YAUTJA = ALIGNEMENT_HOSTILE,
 ))
 
 ///Iff signals for factions
@@ -63,6 +59,7 @@ GLOBAL_LIST_INIT(faction_to_alignement, list(
 #define SECTOIDS_IFF (1<<7)
 #define USL_IFF (1<<8)
 #define PIRATE_IFF (1<<9)
+#define YAUTJA_IFF (1<<10)
 
 ///Iff for each faction that is able to use iff
 GLOBAL_LIST_INIT(faction_to_iff, list(
@@ -80,6 +77,7 @@ GLOBAL_LIST_INIT(faction_to_iff, list(
 	FACTION_ICC = ICC_IFF,
 	FACTION_USL = USL_IFF,
 	FACTION_PIRATE = PIRATE_IFF,
+	FACTION_YAUTJA = YAUTJA_IFF,
 ))
 
 ///Acronyms for each faction, or the shortest name possible
@@ -98,6 +96,7 @@ GLOBAL_LIST_INIT(faction_to_acronym, list(
 	FACTION_ICC = "ICC",
 	FACTION_USL = "USL",
 	FACTION_PIRATE = "Pirates",
+	FACTION_YAUTJA = "Yautjas",
 ))
 
 ///List of correspond factions to data hud

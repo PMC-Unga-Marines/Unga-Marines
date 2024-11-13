@@ -59,6 +59,9 @@
 		if(MENTOR_CHANNEL)
 			client.msay(entry)
 			return TRUE
+		if(DEAD_CHANNEL)
+			client.dsay(entry)
+			return TRUE
 	return FALSE
 
 /**

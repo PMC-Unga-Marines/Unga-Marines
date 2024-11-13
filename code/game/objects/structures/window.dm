@@ -197,7 +197,7 @@
 		if(reinf)
 			new /obj/item/stack/sheet/glass/reinforced(loc, 2)
 		else
-			new /obj/item/stack/sheet/glass(loc, 2)
+			new /obj/item/stack/sheet/glass/glass(loc, 2)
 	else
 		new shardtype(loc)
 		if(is_full_window())
@@ -301,7 +301,7 @@
 	explosion_block = EXPLOSION_BLOCK_PROC
 	real_explosion_block = 4
 
-/obj/structure/window/phoronreinforced/fire_act(burn_level)
+/obj/structure/window/phoronreinforced/fire_act(burn_level, flame_color)
 	return
 
 /obj/structure/window/reinforced
@@ -429,6 +429,12 @@
 		WF.icon_state = "[WF.basestate][junction]_frame"
 		WF.setDir(dir)
 	return ..()
+
+/obj/structure/window/framed/crushed_special_behavior()
+	if(window_frame)
+		return STOP_CRUSHER_ON_DEL
+	else
+		return ..()
 
 /obj/structure/window/framed/mainship
 	name = "reinforced window"

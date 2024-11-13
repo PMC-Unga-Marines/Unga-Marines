@@ -256,6 +256,9 @@
 	siemens_coefficient = 0.9
 	icon_state = "marine_service" //with thanks to Fitz 'Pancake' Sholl
 	item_state = "marine_service" //with thanks to Fitz 'Pancake' Sholl
+	adjustment_variants = list(
+		"Down" = "_d",
+	)
 
 /*=========================RESPONDERS================================*/
 

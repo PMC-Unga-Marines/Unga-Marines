@@ -589,6 +589,13 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor,
 /area/bigredv2/outside/s)
+"FR" = (
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 8;
+	on = 1
+	},
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/s)
 "Ga" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -1006,7 +1013,7 @@ Au
 Au
 Au
 Au
-zH
+FR
 zH
 zH
 Qe

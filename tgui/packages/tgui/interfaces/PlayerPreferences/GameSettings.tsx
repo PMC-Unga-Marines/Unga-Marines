@@ -1,6 +1,17 @@
 import { useBackend } from '../../backend';
-import { Button, Section, LabeledList, Stack, ColorBox } from '../../components';
-import { ToggleFieldPreference, TextFieldPreference, SelectFieldPreference, LoopingSelectionPreference } from './FieldPreferences';
+import {
+  Button,
+  ColorBox,
+  LabeledList,
+  Section,
+  Stack,
+} from '../../components';
+import {
+  LoopingSelectionPreference,
+  SelectFieldPreference,
+  TextFieldPreference,
+  ToggleFieldPreference,
+} from './FieldPreferences';
 
 const ParallaxNumToString = (integer) => {
   let returnval = '';
@@ -56,15 +67,6 @@ export const GameSettings = (props) => {
                 action="mute_xeno_health_alert_messages"
                 leftLabel={'Muted'}
                 rightLabel={'Enabled'}
-              />
-              <SelectFieldPreference
-                label="Play Text-to-Speech"
-                value="sound_tts"
-                action="sound_tts"
-              />
-              <TextFieldPreference
-                label="Text to speech volume"
-                value="volume_tts"
               />
               <ToggleFieldPreference
                 label="Fullscreen mode"

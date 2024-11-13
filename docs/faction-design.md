@@ -29,7 +29,7 @@ Xenos gain maturity over time, progressing from Young to Mature to Elder to Anci
 
 The 4 main tiers are supplemented by a minion tier that consists of AI xenomorphs. This tier serves as cannon fodder to provide a low enough challenge to new and low skill marine players to learn the basics.
 
-Xenos can persistently identify themselves through a simple phrase or word, e.g. `Mature Runner (Cucumber)`, as well as through selection of a female TTS voice.
+Xenos can persistently identify themselves through a simple phrase or word, e.g. `Mature Runner (Cucumber)`
 
 **Strengths**
 - More suited to hit-and-run attacks, due to their better information gathering (X-ray and darkvision) and high movement speed (especially on weeds).
@@ -180,12 +180,10 @@ As there are a lot more players in this faction (around ~3x the amount of player
 
 **Rework 1 ideas:**
 
-- Allow low skill xenos as well?). There should always be an acceptable minimum of these AIs that scales with pop (ratio TBD)
-- on TTS should hivemind play as well? and if yes can it be made so admins crack down on the ooc in ic
+- Allow low skill xenos as well?. There should always be an acceptable minimum of these AIs that scales with pop (ratio TBD)
 - Garrison (Tivi, pending map)
 - Maturity removal, primo stay on maturity system
 - Upping Minion spawn rate
-- Xeno TTS (Tivi)
 - Splitting psy points into tactical/strategic
 - Make minions playable while in queue
 - Adding a dedicated "become minion" button to make it easier for new players to become one

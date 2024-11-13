@@ -2,12 +2,14 @@
 	caste_base_type = /datum/xeno_caste/shrike
 	name = "Shrike"
 	desc = "A large, lanky alien creature. It seems psychically unstable."
-	icon = 'icons/Xeno/castes/shrike.dmi'
+	icon = 'icons/Xeno/castes/shrike/basic.dmi'
 	icon_state = "Shrike Walking"
+	effects_icon = 'icons/Xeno/castes/shrike/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/shrike/rouny.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
-		"jokershrike" = 'icons/Xeno/castes/jokershrike.dmi',
-		"baseline" = 'icons/Xeno/castes/shrike.dmi',
+		/datum/xenomorph_skin/shrike/joker,
+		/datum/xenomorph_skin/shrike,
 	)
 	attacktext = "bites"
 	attack_sound = null

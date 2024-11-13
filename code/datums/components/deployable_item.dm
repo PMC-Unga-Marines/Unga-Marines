@@ -151,7 +151,7 @@
 	if(!ishuman(user))
 		return
 	var/obj/machinery/deployable/mounted/sentry/sentry
-	if(istype(deployed_machine, /obj/machinery/deployable/mounted/sentry))
+	if(issentry(deployed_machine))
 		sentry = deployed_machine
 	sentry?.set_on(FALSE)
 	user.balloon_alert(user, "You start disassembling [undeployed_item]")

@@ -2,8 +2,10 @@
 	caste_base_type = /datum/xeno_caste/hivelord
 	name = "Hivelord"
 	desc = "A huge ass xeno covered in weeds! Oh shit!"
-	icon = 'icons/Xeno/castes/hivelord.dmi'
+	icon = 'icons/Xeno/castes/hivelord/basic.dmi'
 	icon_state = "Hivelord Walking"
+	effects_icon = 'icons/Xeno/castes/hivelord/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/hivelord/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 250
 	maxHealth = 250

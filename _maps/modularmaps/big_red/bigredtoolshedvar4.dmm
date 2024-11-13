@@ -135,6 +135,11 @@
 	dir = 4
 	},
 /area/bigredv2/outside/c)
+"B" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/c)
 "C" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -143,10 +148,10 @@
 	},
 /area/bigredv2/outside/c)
 "E" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 1
-	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "G" = (
@@ -222,11 +227,11 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "Z" = (
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 
@@ -235,7 +240,7 @@ t
 j
 L
 W
-o
+B
 Z
 C
 Q
