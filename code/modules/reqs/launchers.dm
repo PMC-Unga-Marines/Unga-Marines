@@ -55,7 +55,7 @@
 /datum/supply_packs/launchers/thermobaric
 	name = "RL-57 Thermobaric Launcher Kit"
 	contains = list(/obj/item/storage/holster/backholster/rlquad/full)
-	cost = 500 + 50 //ammo price
+	cost = 550 //launcher + ammo price
 
 /datum/supply_packs/launchers/sadar
 	name = "RL-152 SADAR Rocket Launcher"
