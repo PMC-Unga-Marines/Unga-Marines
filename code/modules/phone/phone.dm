@@ -12,7 +12,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	var/phone_icon
 
 	var/obj/item/phone/attached_to
-	var/atom/tether_holder
 
 	var/obj/structure/transmitter/calling
 	var/obj/structure/transmitter/caller
@@ -244,12 +243,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		ui = new(user, src, "PhoneMenu", phone_id)
 		ui.open()
 
-/obj/structure/transmitter/proc/set_tether_holder(atom/A)
-	tether_holder = A
-
-	if(attached_to)
-		attached_to.reset_tether()
-
 /obj/structure/transmitter/proc/reset_call(timeout = FALSE)
 	var/obj/structure/transmitter/T = get_calling_phone()
 	if(T)
@@ -383,7 +376,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/item/phone
 	name = "red phone"
 	desc = "Should anything ever go wrong..."
-	icon_state = "red_phone"
+	icon_state = "rpb_phone"
 
 	force = 3
 	throwforce = 2
@@ -396,7 +389,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	hitsound = 'sound/weapons/ring.ogg'
 
 	var/obj/structure/transmitter/attached_to
-	var/datum/effects/tethering/tether_effect
 
 	var/raised = FALSE
 	var/zlevel_transfer = FALSE
@@ -435,10 +427,8 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	var/mob/M = loc
 
-	var/rendered = compose_message(src, speech_args[SPEECH_LANGUAGE], speech_args[SPEECH_MESSAGE], FREQ_PHONE)
-	if(raised)
-		rendered = span_big(rendered)
-	M.Hear(span_red(rendered), speaking, speech_args[SPEECH_LANGUAGE], speech_args[SPEECH_MESSAGE])
+	var/rendered = compose_message(speaking, speech_args[SPEECH_LANGUAGE], speech_args[SPEECH_MESSAGE], FREQ_PHONE, raised ? list(SPAN_COMMAND) : null)
+	to_chat(M, rendered)
 
 /obj/item/phone/proc/attach_to(obj/structure/transmitter/to_attach)
 	if(!istype(to_attach))
@@ -451,53 +441,11 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 /obj/item/phone/proc/remove_attached()
 	attached_to = null
-	reset_tether()
-
-/obj/item/phone/proc/reset_tether()
-	SIGNAL_HANDLER
-	if (tether_effect)
-		UnregisterSignal(tether_effect, COMSIG_QDELETING)
-		if(!QDESTROYING(tether_effect))
-			qdel(tether_effect)
-		tether_effect = null
-	if(!do_zlevel_check())
-		on_beam_removed()
 
 /obj/item/phone/attack_hand(mob/user)
 	if(attached_to && get_dist(user, attached_to) > attached_to.range)
 		return FALSE
 	return ..()
-
-
-/obj/item/phone/proc/on_beam_removed()
-	if(!attached_to)
-		return
-
-	if(loc == attached_to)
-		return
-
-	if(get_dist(attached_to, src) > attached_to.range)
-		attached_to.recall_phone()
-
-	var/atom/tether_to = src
-
-	if(loc != get_turf(src))
-		tether_to = loc
-		if(tether_to.loc != get_turf(tether_to))
-			attached_to.recall_phone()
-			return
-
-	var/atom/tether_from = attached_to
-
-	if(attached_to.tether_holder)
-		tether_from = attached_to.tether_holder
-
-	if(tether_from == tether_to)
-		return
-
-	var/list/tether_effects = apply_tether(tether_from, tether_to, range = attached_to.range, icon = "chain", always_face = FALSE)
-	tether_effect = tether_effects["tetherer_tether"]
-	RegisterSignal(tether_effect, COMSIG_QDELETING, PROC_REF(reset_tether))
 
 /obj/item/phone/attack_self(mob/user)
 	..()
@@ -535,6 +483,9 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	set_raised(FALSE, user)
 
+	if(attached_to)
+		attached_to.recall_phone()
+
 /obj/item/phone/on_enter_storage(obj/item/storage/S)
 	. = ..()
 	if(attached_to)
@@ -547,11 +498,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/item/phone/equipped(mob/user, slot)
 	. = ..()
 	RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speak))
-
-/obj/item/phone/forceMove(atom/dest)
-	. = ..()
-	if(.)
-		reset_tether()
 
 /obj/item/phone/proc/do_zlevel_check()
 	if(!attached_to || !loc.z || !attached_to.z)
@@ -568,7 +514,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	if(attached_to && loc.z != attached_to.z)
 		zlevel_transfer = TRUE
-		zlevel_transfer_timer = addtimer(CALLBACK(src, PROC_REF(try_doing_tether)), zlevel_transfer_timeout, TIMER_UNIQUE|TIMER_STOPPABLE)
 		RegisterSignal(attached_to, COMSIG_MOVABLE_MOVED, PROC_REF(transmitter_move_handler))
 		return TRUE
 	return FALSE
@@ -579,10 +524,3 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(zlevel_transfer_timer)
 		deltimer(zlevel_transfer_timer)
 	UnregisterSignal(attached_to, COMSIG_MOVABLE_MOVED)
-	reset_tether()
-
-/obj/item/phone/proc/try_doing_tether()
-	zlevel_transfer_timer = TIMER_ID_NULL
-	zlevel_transfer = FALSE
-	UnregisterSignal(attached_to, COMSIG_MOVABLE_MOVED)
-	reset_tether()

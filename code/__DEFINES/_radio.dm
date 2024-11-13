@@ -3,6 +3,7 @@
 //say based modes like binary are in living/say.dm
 
 #define RADIO_CHANNEL_COMMON "Common"
+#define RADIO_CHANNEL_PHONE "Phone"
 #define RADIO_CHANNEL_SOM "Common SOM"
 #define RADIO_KEY_COMMON ";"
 
@@ -140,4 +141,4 @@
 #define PHONE_DND_OFF 0
 #define PHONE_DND_FORBIDDEN -1
 
-#define FREQ_PHONE 2000
+#define FREQ_PHONE "phone"

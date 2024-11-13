@@ -716,13 +716,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack
 		QDEL_NULL(beacon_datum)
 	return ..()
 
-/obj/item/storage/backpack/marine/radiopack/forceMove(atom/dest)
-	. = ..()
-	if(isturf(dest))
-		internal_transmitter.set_tether_holder(src)
-	else
-		internal_transmitter.set_tether_holder(loc)
-
 /obj/item/storage/backpack/marine/radiopack/pickup(mob/user)
 	. = ..()
 	autoset_phone_id(user)
