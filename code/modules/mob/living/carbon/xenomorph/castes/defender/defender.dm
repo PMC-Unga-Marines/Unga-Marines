@@ -43,7 +43,7 @@
 	if(isnull(.))
 		return
 	if(. == CONSCIOUS && fortify) //No longer conscious.
-		//Fortify prevents dragging due to the anchor component.
+		//Fortify prevents dragging due to the anchor component. // TODO: Unshitcode me
 		if(actions_by_path[/datum/action/ability/xeno_action/fortify])
 			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
 			FT.set_fortify(FALSE)
