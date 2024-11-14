@@ -27,7 +27,7 @@
 ///actual inits the map, seperate proc because otherwise it fails linter due to "sleep in new"
 /datum/interior/proc/init_map()
 	var/datum/map_template/map = new template
-	reservation = SSmapping.RequestBlockReservation(map.width + (INTERIOR_BUFFER_TILES*2), map.height + (INTERIOR_BUFFER_TILES*2))
+	reservation = SSmapping.request_turf_block_reservation(map.width + (INTERIOR_BUFFER_TILES * 2), map.height + (INTERIOR_BUFFER_TILES * 2))
 
 	var/list/load_coords = reservation.bottom_left_coords.Copy()
 	load_coords[1] = load_coords[1] + INTERIOR_BUFFER_TILES
