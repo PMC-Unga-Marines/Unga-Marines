@@ -115,9 +115,9 @@ explosion resistance exactly as much as their health
 		Controller.reflected_power += max(0, min(resistance, power))
 		power -= resistance
 
-	INVOKE_ASYNC(src, PROC_REF(explosion_spread_stage2), Controller, power, direction, our_ladder)
+	INVOKE_ASYNC(src, PROC_REF(explosion_spread_power), Controller, power, direction, our_ladder)
 
-/turf/proc/explosion_spread_stage2(obj/effect/explosion/Controller, power, direction, obj/structure/ladder/our_ladder)
+/turf/proc/explosion_spread_power(obj/effect/explosion/Controller, power, direction, obj/structure/ladder/our_ladder)
 	//spread in each ordinal direction
 	var/direction_angle = dir2angle(direction)
 	for(var/spread_direction in GLOB.alldirs)
