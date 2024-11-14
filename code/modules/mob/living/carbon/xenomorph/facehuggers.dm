@@ -495,7 +495,7 @@
 
 	if(M.in_throw_mode && M.dir != dir && !M.incapacitated() && !M.get_active_held_item() && can_catch)
 		var/catch_hug = 100
-		if(prob(catch_hug))
+		if(catch_hug)
 			M.visible_message(span_notice("[M] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!"))
 			kill_hugger()
 			return TRUE
