@@ -17,10 +17,10 @@
 	config_flag = /datum/config_entry/flag/log_hivemind
 	master_category = /datum/log_category/game
 
-/datum/log_category/game_minimap_drawing
+/datum/log_category/game_minimap_drawing // RUTGMC ADDITION START
 	category = LOG_CATEGORY_GAME_MINIMAP_DRAWING
 	config_flag = /datum/config_entry/flag/log_minimap_drawing
-	master_category = /datum/log_category/game
+	master_category = /datum/log_category/game // RUTGMC ADDITION END
 
 /datum/log_category/game_topic
 	category = LOG_CATEGORY_GAME_TOPIC
