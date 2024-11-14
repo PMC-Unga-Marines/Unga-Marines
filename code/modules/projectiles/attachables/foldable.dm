@@ -169,13 +169,14 @@
 		UnregisterSignal(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD))
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		to_chat(user, span_notice("You retract [src]."))
-		user.move_resist = MOVE_RESIST_DEFAULT
+		user.move_resist = user_old_move_resist
 		return
 
 	if(user)
 		RegisterSignals(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD), PROC_REF(retract_bipod))
 		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(retract_bipod))
 		to_chat(user, span_notice("You deploy [src]."))
+		user_old_move_resist = user.move_resist
 		user.move_resist = MOVE_FORCE_STRONG
 
 
