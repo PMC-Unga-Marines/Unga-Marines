@@ -63,11 +63,11 @@ SUBSYSTEM_DEF(atoms)
 		testing("Late initialized [length(late_loaders)] atoms")
 		late_loaders.Cut()
 
-	if (created_atoms)
+	if(created_atoms)
 		atoms_to_return += created_atoms
 		created_atoms = null
 
-	for (var/queued_deletion in queued_deletions)
+	for(var/queued_deletion in queued_deletions)
 		qdel(queued_deletion)
 
 	testing("[length(queued_deletions)] atoms were queued for deletion.")
@@ -79,7 +79,7 @@ SUBSYSTEM_DEF(atoms)
 
 /// Actually creates the list of atoms. Exists soley so a runtime in the creation logic doesn't cause initalized to totally break
 /datum/controller/subsystem/atoms/proc/CreateAtoms(list/atoms, list/atoms_to_return = null)
-	if (atoms_to_return)
+	if(atoms_to_return)
 		LAZYINITLIST(created_atoms)
 
 	var/count
@@ -144,7 +144,7 @@ SUBSYSTEM_DEF(atoms)
 	else if(!(A.flags_atom & INITIALIZED))
 		BadInitializeCalls[the_type] |= BAD_INIT_DIDNT_INIT
 	else
-		SEND_SIGNAL(A,COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE)
+		SEND_SIGNAL(A, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE)
 		if(created_atoms && from_template && ispath(the_type, /atom/movable))//we only want to populate the list with movables
 			created_atoms += A.GetAllContents()
 
