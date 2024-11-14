@@ -1273,7 +1273,6 @@
 		),
 		"Belts" = list(
 			/obj/item/storage/belt/marine = -1,
-			/obj/item/storage/belt/marine/auto_catch = -1,
 			/obj/item/storage/belt/shotgun = -1,
 			/obj/item/storage/belt/shotgun/martini = -1,
 			/obj/item/storage/belt/grenade = -1,
