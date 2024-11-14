@@ -380,10 +380,6 @@
 	var/list/bounds
 	src.bounds = bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 
-	//used for sending the maxx and maxy expanded global signals at the end of this proc
-	var/has_expanded_world_maxx = FALSE
-	var/has_expanded_world_maxy = FALSE
-
 	// Building y coordinate ranges
 	var/y_relative_to_absolute = y_offset - 1
 	var/x_relative_to_absolute = x_offset - 1
@@ -576,7 +572,6 @@
 			else
 				world.increase_max_y(ycrd)
 			expanded_y = TRUE
-			has_expanded_world_maxy = TRUE
 		var/zexpansion = zcrd > world.maxz
 		var/no_afterchange = no_changeturf
 		if(zexpansion)
@@ -684,9 +679,6 @@
 		bounds[MAP_MAXZ] = max(bounds[MAP_MAXZ], zcrd)
 
 	return TRUE
-
-	if(has_expanded_world_maxx || has_expanded_world_maxy)
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
 
 GLOBAL_LIST_EMPTY(map_model_default)
 
@@ -953,12 +945,12 @@ GLOBAL_LIST_EMPTY(map_model_default)
 		if(members_attributes[index] != default_list)
 			world.preloader_setup(members_attributes[index], members[index])
 
-		// CM/TGMC addition: delete map contents before inserting if delete truthy
-		if(delete)
-			for(var/atom/turf_atom as anything in crds.GetAllTurfStrictContents())
-				if(isobserver(turf_atom))
-					continue
-				qdel(turf_atom, force = TRUE)
+		// CM addition: delete map contents before inserting if delete truthy
+		//if(delete)
+		//	for(var/atom/turf_atom as anything in crds.GetAllTurfStrictContents())
+		//		if(isobserver(turf_atom))
+		//			continue
+		//		qdel(turf_atom, force = TRUE)
 
 		// Note: we make the assertion that the last path WILL be a turf. if it isn't, this will fail.
 		if(placeOnTop)
