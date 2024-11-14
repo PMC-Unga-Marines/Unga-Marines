@@ -578,10 +578,13 @@
 /obj/item/storage/holster/belt/pistol
 	name = "generic pistol belt"
 	desc = "A pistol belt that is not a revolver belt"
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE
 
 /obj/item/storage/holster/belt/pistol/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
+	AddComponent(/datum/component/magazine_catcher)
+	AddComponent(/datum/component/easy_restock)
 
 /obj/item/storage/holster/belt/pistol/m4a3
 	name = "\improper M4A3 holster rig"

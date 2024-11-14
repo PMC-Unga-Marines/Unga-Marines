@@ -1416,6 +1416,7 @@
 			user.put_in_hands(mag)
 		else
 			mag.forceMove(get_turf(src))
+			SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER))
 		chamber_items[chamber_items.Find(mag)] = null
 	else
