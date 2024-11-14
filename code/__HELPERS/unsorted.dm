@@ -511,6 +511,16 @@
 		var/atom/A = .[++i]
 		. += A.contents
 
+///Returns the src and all recursive contents as a list. Includes the starting atom.
+/atom/proc/get_all_contents(ignore_flag_1)
+	. = list(src)
+	var/i = 0
+	while(i < length(.))
+		var/atom/checked_atom = .[++i]
+		if(checked_atom.flags_atom & ignore_flag_1)
+			continue
+		. += checked_atom.contents
+
 ///identical to getallcontents but returns a list of atoms of the type passed in the argument.
 /atom/proc/get_all_contents_type(type)
 	var/list/processing_list = list(src)
