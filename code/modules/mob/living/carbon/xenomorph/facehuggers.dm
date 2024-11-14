@@ -448,9 +448,6 @@
 		if(species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))
 			return FALSE
 
-	if(on_fire)
-		return FALSE
-
 	if(check_mask)
 		if(wear_mask)
 			var/obj/item/W = wear_mask
@@ -662,9 +659,6 @@
 		kill_hugger()
 	proj.ammo.on_hit_obj(src, proj)
 	return TRUE
-
-/obj/item/clothing/mask/facehugger/fire_act(burn_level, flame_color)
-	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/dropped(mob/user)
 	. = ..()
