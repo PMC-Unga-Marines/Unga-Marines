@@ -334,7 +334,7 @@
 			else
 				return SHUTTLE_DOCKER_BLOCKED
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+/obj/machinery/computer/camera_advanced/shuttle_docker/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(port)
 		shuttleId = port.id
 		shuttlePortId = "[port.id]_custom"

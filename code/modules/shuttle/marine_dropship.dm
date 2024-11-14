@@ -796,21 +796,21 @@
 /turf/open/shuttle/dropship/floor/out
 	icon_state = "rasputin17"
 
-/obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship))
 		return
 	var/obj/docking_port/mobile/marine_dropship/D = port
 	D.rear_airlocks += src
 
-/obj/machinery/door/airlock/dropship_hatch/left/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door/airlock/dropship_hatch/left/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship))
 		return
 	var/obj/docking_port/mobile/marine_dropship/D = port
 	D.left_airlocks += src
 
-/obj/machinery/door/airlock/dropship_hatch/right/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door/airlock/dropship_hatch/right/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship))
 		return
@@ -823,7 +823,7 @@
 	pixel_y = -19
 	name = "Dropship Lockdown"
 
-/obj/machinery/door_control/dropship/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door_control/dropship/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	D = port
 

@@ -156,7 +156,7 @@
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	eject_user(TRUE)
 
-/obj/structure/caspart/caschair/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/structure/caspart/caschair/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship/casplane))
 		return
 	var/obj/docking_port/mobile/marine_dropship/casplane/plane = port

@@ -147,7 +147,7 @@
 	var/being_forced = 0 //Simple variable to prevent sound spam.
 	var/linked_to_shuttle = FALSE
 
-/obj/machinery/cryopod/evacuation/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/machinery/cryopod/evacuation/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(linked_to_shuttle)
 		return
 	. = ..()
@@ -186,7 +186,7 @@
 	close()
 	lock(TRUE)
 
-/obj/machinery/door/airlock/evacuation/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/machinery/door/airlock/evacuation/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(linked_to_shuttle)
 		return
 	. = ..()

@@ -731,7 +731,7 @@ directive is properly returned.
 	return TRUE
 
 ///This proc is called on atoms when they are loaded into a shuttle
-/atom/proc/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/atom/proc/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	return
 
 
