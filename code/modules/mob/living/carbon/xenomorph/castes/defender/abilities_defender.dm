@@ -563,7 +563,6 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_STEELCREST_SOAK,
 	)
-
 	/// Requires 140 damage taken within 6 seconds to activate the ability
 	var/damage_threshold = 140
 	/// Heal
