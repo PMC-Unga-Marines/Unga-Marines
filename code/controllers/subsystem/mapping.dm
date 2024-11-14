@@ -194,7 +194,7 @@ SUBSYSTEM_DEF(mapping)
 		var/full_path = "_maps/[path]/[file]"
 		var/datum/parsed_map/pm = new(file(full_path))
 		var/bounds = pm?.bounds
-		if (!bounds)
+		if(!bounds)
 			errorList |= full_path
 			continue
 		parsed_maps[pm] = total_z  // save the start Z of this file
@@ -206,20 +206,33 @@ SUBSYSTEM_DEF(mapping)
 		INIT_ANNOUNCE("WARNING: [length(traits)] trait sets specified for [total_z] z-levels in [path]!")
 		if(total_z < length(traits))  // ignore extra traits
 			traits.Cut(total_z + 1)
-		while (total_z > length(traits))  // fall back to defaults on extra levels
+		while(total_z > length(traits))  // fall back to defaults on extra levels
 			traits += list(default_traits)
 	// preload the relevant space_level datums
 	var/start_z = world.maxz + 1
 	var/i = 0
 	for(var/level in traits)
-		add_new_zlevel("[name][i ? " [i + 1]" : ""]", level)
+		add_new_zlevel("[name][i ? " [i + 1]" : ""]", level, contain_turfs = FALSE)
 		++i
 
+	// ================== CM Change ==================
+	// For some reason /tg/ SSmapping attempts to center the map in new Z-Level
+	// but because it's done before loading, it's calculated before performing
+	// X/Y world expansion. When loading a map bigger than world, this results
+	// in a negative offset and the start of the map to not be loaded.
+
 	// load the maps
-	for(var/P in parsed_maps)
-		var/datum/parsed_map/pm = P
-		if(!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
+	for(var/datum/parsed_map/pm AS in parsed_maps)
+		var/bounds = pm.bounds
+		var/x_offset = 1
+		var/y_offset = 1
+		if(bounds && world.maxx > bounds[MAP_MAXX])
+			x_offset = round(world.maxx * 0.5 - bounds[MAP_MAXX] * 0.5) + 1
+		if(bounds && world.maxy > bounds[MAP_MAXY])
+			y_offset = round(world.maxy * 0.5 - bounds[MAP_MAXY] * 0.5) + 1
+		if (!pm.load(x_offset, y_offset, start_z + parsed_maps[pm], no_changeturf = TRUE, new_z = TRUE))
 			errorList |= pm.original_path
+	// =============== END CM Change =================
 	if(!silent)
 		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time) * 0.1]s!")
 	return parsed_maps
@@ -297,26 +310,25 @@ SUBSYSTEM_DEF(mapping)
 
 	if(!length(Lines))
 		return
-	for (var/t in Lines)
-		if (!t)
+	for(var/t in Lines)
+		if(!t)
 			continue
 
 		t = trim(t)
-		if (length(t) == 0)
+		if(length(t) == 0)
 			continue
-		else if (t[1] == "#")
+		else if(t[1] == "#")
 			continue
 
 		var/pos = findtext(t, " ")
 		var/name = null
 
-		if (pos)
+		if(pos)
 			name = lowertext(copytext(t, 1, pos))
-
 		else
 			name = lowertext(t)
 
-		if (!name)
+		if(!name)
 			continue
 
 		. += t
@@ -366,9 +378,9 @@ SUBSYSTEM_DEF(mapping)
 	reservation_type = /datum/turf_reservation,
 	turf_type_override = null,
 )
-	UNTIL(initialized && !clearing_reserved_turfs)
-	var/datum/turf_reservation/reserve = new type
-	if(turf_type_override)
+	UNTIL((!z_reservation || reservation_ready["[z_reservation]"]) && !clearing_reserved_turfs)
+	var/datum/turf_reservation/reserve = new reservation_type
+	if(!isnull(turf_type_override))
 		reserve.turf_type = turf_type_override
 	if(!z_reservation)
 		for(var/i in levels_by_trait(ZTRAIT_RESERVED))
