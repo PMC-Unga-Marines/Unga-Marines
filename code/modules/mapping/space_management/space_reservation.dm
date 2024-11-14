@@ -56,7 +56,7 @@
 	SSmapping.used_turfs -= cordon_turfs
 	cordon_turfs = list()
 
-var/release_turfs = reserved_copy + cordon_copy
+	var/release_turfs = reserved_copy + cordon_copy
 
 	for(var/turf/reserved_turf as anything in release_turfs)
 		SEND_SIGNAL(reserved_turf, COMSIG_TURF_RESERVATION_RELEASED, src)
