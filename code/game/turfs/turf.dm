@@ -324,6 +324,10 @@
 			QUEUE_SMOOTH_NEIGHBORS(D)
 	return W
 
+//If you modify this function, ensure it works correctly with lateloaded map templates.
+/turf/proc/AfterChange(flags, oldType) //called after a turf has been replaced in ChangeTurf()
+	return // Placeholder. This is mostly used by /tg/ code for atmos updates
+
 /// Take off the top layer turf and replace it with the next baseturf down
 /turf/proc/ScrapeAway(amount=1, flags)
 	if(!amount)
@@ -698,6 +702,33 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		change_type = new_baseturfs
 	return ChangeTurf(change_type, null, flags)
 
+/// Places a turf on top - for map loading
+/turf/proc/load_on_top(turf/added_layer, flags)
+	var/area/our_area = get_area(src)
+	flags = our_area.PlaceOnTopReact(list(baseturfs), added_layer, flags)
+
+	if(flags & CHANGETURF_SKIP) // We haven't been initialized
+		if(flags_atom & INITIALIZED)
+			stack_trace("CHANGETURF_SKIP was used in a PlaceOnTop call for a turf that's initialized. This is a mistake. [src]([type])")
+		assemble_baseturfs()
+
+	var/turf/new_turf
+	if(!length(baseturfs))
+		baseturfs = list(baseturfs)
+
+	var/list/old_baseturfs = baseturfs.Copy()
+	if(!isclosedturf(src))
+		old_baseturfs += type
+
+	new_turf = ChangeTurf(added_layer, null, flags)
+	new_turf.assemble_baseturfs(initial(added_layer.baseturfs)) // The baseturfs list is created like roundstart
+	if(!length(new_turf.baseturfs))
+		new_turf.baseturfs = list(baseturfs)
+
+	// The old baseturfs are put underneath, and we sort out the unwanted ones
+	new_turf.baseturfs = baseturfs_string_list(old_baseturfs + (new_turf.baseturfs - GLOB.blacklisted_automated_baseturfs), new_turf)
+	return new_turf
+
 // Copy an existing turf and put it on top
 // Returns the new turf
 /turf/proc/CopyOnTop(turf/copytarget, ignore_bottom=1, depth=INFINITY, copy_air = FALSE)
@@ -873,6 +904,22 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	// Balloon alerts occuring on turf objects result in mass spam of alerts.
 	// Thus, no more balloon alerts for turfs.
 	return
+
+/// Call to move a turf from its current area to a new one
+/turf/proc/change_area(area/old_area, area/new_area)
+	//dont waste our time
+	if(old_area == new_area)
+		return
+
+	//move the turf
+	new_area.contents += src
+
+	//changes to make after turf has moved
+	on_change_area(old_area, new_area)
+
+/// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
+/turf/proc/on_change_area(area/old_area, area/new_area)
+	transfer_area_lighting(old_area, new_area)
 
 ///cleans any cleanable decals from the turf
 /turf/proc/clean_turf()
