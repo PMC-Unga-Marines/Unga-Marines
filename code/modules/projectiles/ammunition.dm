@@ -142,6 +142,7 @@
 	master_gun.aim_slowdown					-= aim_speed_mod
 	master_gun.wield_delay					-= wield_delay_mod
 
+///Сan the magazine be refilled, mainly used in transfer_ammo proc
 /obj/item/ammo_magazine/proc/can_transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, silent = FALSE)
 	if(current_rounds >= max_rounds) //Does the mag actually need reloading?
 		if(!silent)
