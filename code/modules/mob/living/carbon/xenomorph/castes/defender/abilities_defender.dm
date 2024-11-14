@@ -241,6 +241,8 @@
 	X.crest_defense = on
 	X.update_icons()
 
+#define DEFENDER_FORTIFY_BULLET_HARD_ARMOR 10
+
 // ***************************************
 // *********** Fortify
 // ***************************************
@@ -265,11 +267,13 @@
 	if(X.fortify)
 		X.soft_armor = X.soft_armor.modifyAllRatings(-last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = -last_fortify_bonus)
+		X.hard_armor = X.hard_armor.modifyRating(BULLET = -DEFENDER_FORTIFY_BULLET_HARD_ARMOR)
 
 		last_fortify_bonus = X.xeno_caste.fortify_armor
 
 		X.soft_armor = X.soft_armor.modifyAllRatings(last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = last_fortify_bonus)
+		X.hard_armor = X.hard_armor.modifyRating(BULLET = DEFENDER_FORTIFY_BULLET_HARD_ARMOR)
 	else
 		last_fortify_bonus = X.xeno_caste.fortify_armor
 
@@ -314,12 +318,14 @@
 			to_chat(X, span_xenowarning("We tuck ourselves into a defensive stance."))
 		X.soft_armor = X.soft_armor.modifyAllRatings(last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = last_fortify_bonus) //double bomb bonus for explosion immunity
+		X.hard_armor = X.hard_armor.modifyRating(BULLET = DEFENDER_FORTIFY_BULLET_HARD_ARMOR)
 		owner.drop_all_held_items() // drop items (hugger/jelly)
 	else
 		if(!silent)
 			to_chat(X, span_xenowarning("We resume our normal stance."))
 		X.soft_armor = X.soft_armor.modifyAllRatings(-last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = -last_fortify_bonus)
+		X.hard_armor = X.hard_armor.modifyRating(BULLET = -DEFENDER_FORTIFY_BULLET_HARD_ARMOR)
 		REMOVE_TRAIT(X, TRAIT_IMMOBILE, FORTIFY_TRAIT)
 		REMOVE_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
 
@@ -464,3 +470,5 @@
 		deltimer(spin_loop_timer)
 		spin_loop_timer = null
 	UnregisterSignal(owner, list(SIGNAL_ADDTRAIT(TRAIT_FLOORED), SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), SIGNAL_ADDTRAIT(TRAIT_IMMOBILE)))
+
+#undef DEFENDER_FORTIFY_BULLET_HARD_ARMOR
