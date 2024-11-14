@@ -1490,7 +1490,6 @@
 #include "code\modules\lighting\lighting_static\static_lighting_atom.dm"
 #include "code\modules\lighting\lighting_static\static_lighting_corner.dm"
 #include "code\modules\lighting\lighting_static\static_lighting_object.dm"
-#include "code\modules\lighting\lighting_static\static_lighting_setup.dm"
 #include "code\modules\lighting\lighting_static\static_lighting_source.dm"
 #include "code\modules\lighting\lighting_static\static_lighting_turf.dm"
 #include "code\modules\logging\log_category.dm"
