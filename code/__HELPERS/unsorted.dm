@@ -460,14 +460,12 @@
 
 	return locate(x, y, A.z)
 
-
 // returns turf relative to A offset in dx and dy tiles
 // bound to map limits
 /proc/get_offset_target_turf(atom/A, dx, dy)
 	var/x = min(world.maxx, max(1, A.x + dx))
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x, y, A.z)
-
 
 //Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
 /proc/between(low, middle, high)
@@ -483,11 +481,9 @@
 	while(rsq > 1 || !rsq)
 	return sigma * y * sqrt(-2 * log(rsq) / rsq)
 
-
 //returns random gauss number, rounded to 'roundto'
 /proc/GaussRandRound(sigma, roundto)
 	return round(GaussRand(sigma), roundto)
-
 
 /proc/anim(turf/location, atom/target, a_icon, a_icon_state, flick_anim, sleeptime = 0, direction)
 //This proc throws up either an icon or an animation for a specified amount of time.
@@ -507,7 +503,6 @@
 	sleep(max(sleeptime, 15))
 	qdel(animation)
 
-
 ///Returns the src and all recursive contents as a list.
 /atom/proc/GetAllContents()
 	. = list(src)
@@ -526,7 +521,6 @@
 		processing_list += A.contents
 		if(istype(A, type))
 			. += A
-
 
 /proc/is_blocked_turf(turf/T)
 	if(T.density)
@@ -1158,9 +1152,6 @@ will handle it, but:
 /proc/CallAsync(datum/source, proctype, list/arguments)
 	set waitfor = FALSE
 	return call(source, proctype)(arglist(arguments))
-
-#define TURF_FROM_COORDS_LIST(List) (locate(List[1], List[2], List[3]))
-
 
 ///Takes: Area type as text string or as typepath OR an instance of the area. Returns: A list of all areas of that type in the world.
 /proc/get_areas(areatype, subtypes=TRUE)
