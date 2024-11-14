@@ -324,10 +324,6 @@
 			QUEUE_SMOOTH_NEIGHBORS(D)
 	return W
 
-//If you modify this function, ensure it works correctly with lateloaded map templates.
-/turf/proc/AfterChange(flags, oldType) //called after a turf has been replaced in ChangeTurf()
-	return // Placeholder. This is mostly used by /tg/ code for atmos updates
-
 /// Take off the top layer turf and replace it with the next baseturf down
 /turf/proc/ScrapeAway(amount=1, flags)
 	if(!amount)

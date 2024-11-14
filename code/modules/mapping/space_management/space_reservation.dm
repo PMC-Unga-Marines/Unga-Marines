@@ -139,8 +139,8 @@
 		break
 	if(!passing || !istype(BL) || !istype(TR))
 		return FALSE
-	bottom_left_coords = list(BL.x, BL.y, BL.z)
-	top_right_coords = list(TR.x, TR.y, TR.z)
+	bottom_left_turfs = list(BL.x, BL.y, BL.z)
+	top_right_turfs = list(TR.x, TR.y, TR.z)
 	for(var/i in final)
 		var/turf/T = i
 		reserved_turfs |= T

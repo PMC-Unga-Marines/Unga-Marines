@@ -43,12 +43,6 @@
 		stack_trace("[name] template failed to initialize correctly!")
 		return
 
-	var/list/turfs = block(	locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]),
-							locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ]))
-	var/list/atom/movable/movables = list()
-	var/list/obj/docking_port/stationary/ports = list()
-	var/list/area/areas = list()
-
 	var/list/turfs = block(
 		locate(
 			bounds[MAP_MINX],
@@ -61,6 +55,10 @@
 			bounds[MAP_MAXZ]
 			)
 		)
+	var/list/atom/movable/movables = list()
+	var/list/obj/docking_port/stationary/ports = list()
+	var/list/area/areas = list()
+
 	for(var/turf/current_turf as anything in turfs)
 		var/area/current_turfs_area = current_turf.loc
 		areas |= current_turfs_area
