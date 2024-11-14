@@ -617,7 +617,6 @@
 
 	addtimer(CALLBACK(src, PROC_REF(remove_enrage), owner), 3 SECONDS)
 
-
 /datum/action/ability/xeno_action/soak/proc/remove_enrage()
 	owner.remove_filter("steelcrest_enraged")
 
