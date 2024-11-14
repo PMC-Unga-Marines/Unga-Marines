@@ -24,6 +24,7 @@
 
 /turf
 	icon = 'icons/turf/floors.dmi'
+	luminosity = TRUE
 	var/intact_tile = 1 //used by floors to distinguish floor with/without a floortile(e.g. plating).
 	var/can_bloody = TRUE //Can blood spawn on this turf?
 	// baseturfs can be either a list or a single turf type.
@@ -32,7 +33,6 @@
 	// In the case of a list it is sorted from bottom layer to top.
 	// This shouldn't be modified directly, use the helper procs.
 	var/list/baseturfs = /turf/baseturf_bottom
-	luminosity = 1
 	var/changing_turf = FALSE
 	/// %-reduction-based armor.
 	var/datum/armor/soft_armor
