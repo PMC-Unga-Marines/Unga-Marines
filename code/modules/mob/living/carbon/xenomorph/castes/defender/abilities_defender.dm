@@ -594,7 +594,7 @@
 	damage_accumulated += damage
 
 	if(damage_accumulated >= damage_threshold)
-		addtimer(CALLBACK(src, PROC_REF(enraged), owner), 1) //CM use timer, so i do
+		addtimer(CALLBACK(src, PROC_REF(enraged), owner), 0.1 SECONDS) //CM use timer, so i do
 		UnregisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE) // Two Unregistersignal because if the enrage proc doesnt happen, then it needs to stop counting
 
 /datum/action/ability/xeno_action/soak/proc/stop_accumulating()
