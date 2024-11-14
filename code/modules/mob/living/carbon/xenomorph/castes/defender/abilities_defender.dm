@@ -562,7 +562,6 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_STEELCREST_SOAK,
 	)
-
 	/// Requires 140 damage taken within 6 seconds to activate the ability
 	var/damage_threshold = 140
 	/// Heal
@@ -593,7 +592,7 @@
 	damage_accumulated += damage
 
 	if(damage_accumulated >= damage_threshold)
-		addtimer(CALLBACK(src, PROC_REF(enraged), owner), 1) //CM use timer, so i do
+		addtimer(CALLBACK(src, PROC_REF(enraged), owner), 0.1 SECONDS) //CM use timer, so i do
 		UnregisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE) // Two Unregistersignal because if the enrage proc doesnt happen, then it needs to stop counting
 
 /datum/action/ability/xeno_action/soak/proc/stop_accumulating()
@@ -604,7 +603,6 @@
 	owner.remove_filter("steelcrest_enraging")
 
 /datum/action/ability/xeno_action/soak/proc/enraged()
-
 	owner.remove_filter("steelcrest_enraging")
 	owner.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
 
@@ -616,7 +614,6 @@
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
 	addtimer(CALLBACK(src, PROC_REF(remove_enrage), owner), 3 SECONDS)
-
 
 /datum/action/ability/xeno_action/soak/proc/remove_enrage()
 	owner.remove_filter("steelcrest_enraged")
