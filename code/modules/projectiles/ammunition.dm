@@ -167,7 +167,7 @@
 
 	return TRUE
 
-//Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
+///Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
 /obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, is_new_ammo_type = FALSE)
 
 	if(!can_transfer_ammo(source, user, transfer_amount))
