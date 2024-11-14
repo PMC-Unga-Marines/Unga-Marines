@@ -88,7 +88,7 @@
 			continue
 		unlit.static_lighting_build_overlay()
 
-/datum/map_template/proc/load_new_z(secret = FALSE)
+/datum/map_template/proc/load_new_z(minimap = TRUE, list/traits = list(ZTRAIT_AWAY = TRUE))
 	var/x = round((world.maxx - width) * 0.5) + 1
 	var/y = round((world.maxy - height) * 0.5) + 1
 
@@ -107,7 +107,7 @@
 		return FALSE
 	repopulate_sorted_areas()
 	//initialize things that are normally initialized after map load
-	parsed.initTemplateBounds(bounds)
+	initTemplateBounds(bounds)
 	SSmodularmapping.load_modular_maps() //must be run after initTemplateBounds so markers have an actual loc
 	SSweather.load_late_z(level.z_value)
 	SSair.setup_atmos_machinery()
