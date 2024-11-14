@@ -109,7 +109,10 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define EXP_TYPE_MARINES "Marines"
 #define EXP_TYPE_REQUISITIONS "Requisitions"
 #define EXP_TYPE_SILICON "Silicon"
-#define EXP_TYPE_SYNTHETIC "Medical/Engineering" // this define is used to limit synthetic to those who played at least medical or engineering
+/// Used to limit synthetic to those who played at least medical or engineering.
+#define EXP_TYPE_SYNTHETIC "Medical/Engineering"
+/// Used to limit squad leader to those who played either marine or command. Also helps to unlock fc faster
+#define EXP_TYPE_SL "Marines/Command"
 #define EXP_TYPE_XENO "Xenomorph"
 #define EXP_TYPE_GHOST "Ghost"
 #define EXP_TYPE_ADMIN "Admin"
