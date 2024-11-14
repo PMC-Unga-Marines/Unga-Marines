@@ -36,7 +36,6 @@
 
 /datum/component/easy_restock/proc/do_tac_reload(obj/item/ammo_magazine/ammo_box, mob/user, params)
 	for(var/obj/item/ammo_magazine/item_to_restock in reloading_storage.contents)
-
 		var/amount_to_transfer = ammo_box.current_rounds
 
 		if(!item_to_restock.can_transfer_ammo(ammo_box, user, amount_to_transfer, TRUE))
