@@ -530,8 +530,7 @@
 	sparks.set_up(5, 4, src)
 	sparks.start()
 
-	spawn()
-		decloak(wearer, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(decloak), wearer, TRUE)
 
 /obj/item/clothing/gloves/yautja/proc/track_gear_internal(mob/caller, forced = FALSE)
 	. = check_random_function(caller, forced)

@@ -52,9 +52,7 @@ Instead of being uniform, it starts out a littler slower, goes fast in the middl
 	A.status_flags |= INCORPOREAL
 	var/initial_matrix = A.transform
 	animate(A, transform = matrix(0, 4, MATRIX_SCALE), alpha = 0, time = speed, easing = BACK_EASING)
-	spawn(speed)
-		A.transform = initial_matrix
-		A.status_flags &= ~INCORPOREAL
+	addtimer(CALLBACK(A, PROC_REF(transform_initial_matrix), A, initial_matrix), speed)
 	return speed
 
 //We want to make sure to reset color here as it can be changed by other animations.
@@ -64,9 +62,7 @@ Instead of being uniform, it starts out a littler slower, goes fast in the middl
 	A.transform = matrix(0, 4, MATRIX_SCALE)
 	A.alpha = 0 //Start with transparency, just in case.
 	animate(A, alpha = 255, transform = null, color = "#FFFFFF", time = speed, easing = BACK_EASING)
-	spawn(speed)
-		A.transform = initial_matrix
-		A.status_flags &= ~INCORPOREAL
+	addtimer(CALLBACK(A, PROC_REF(transform_initial_matrix), A, initial_matrix), speed)
 	return speed
 
 /*A magical teleport animation, for when the person is transported with some magic. Good for Halloween type events.
@@ -79,10 +75,8 @@ Can look good elsewhere as well.*/
 	animate(alpha = 0, time = speed)
 	var/image/I = image('icons/effects/effects.dmi',A,"sparkle")
 	flick_overlay_view(I, A, 9)
-	spawn(speed)
-		A.transform = initial_matrix
-		A.status_flags &= ~INCORPOREAL
-	return speed*3
+	addtimer(CALLBACK(A, PROC_REF(transform_initial_matrix), A, initial_matrix), speed)
+	return speed * 3
 
 /proc/animation_teleport_magic_in(atom/A, speed = 6)
 	A.status_flags |= INCORPOREAL
@@ -94,9 +88,7 @@ Can look good elsewhere as well.*/
 	animate(transform = null, time = speed-1)
 	var/image/I = image('icons/effects/effects.dmi',A,"sparkle")
 	flick_overlay_view(I, A, 10)
-	spawn(speed)
-		A.transform = initial_matrix
-		A.status_flags &= ~INCORPOREAL
+	addtimer(CALLBACK(A, PROC_REF(transform_initial_matrix), A, initial_matrix), speed)
 	return speed
 
 //A spooky teleport for evil dolls, horrors, and whatever else. Halloween type stuff.
@@ -108,9 +100,7 @@ Can look good elsewhere as well.*/
 	animate(alpha = 0, time = speed)
 	var/image/I = image('icons/effects/effects.dmi',A,"spooky")
 	flick_overlay_view(I, A, 9)
-	spawn(speed)
-		A.transform = initial_matrix
-		A.status_flags &= ~INCORPOREAL
+	addtimer(CALLBACK(A, PROC_REF(transform_initial_matrix), A, initial_matrix), speed)
 	return speed*3
 
 /proc/animation_teleport_spooky_in(atom/A, speed = 4)
@@ -122,9 +112,7 @@ Can look good elsewhere as well.*/
 	animate(transform = null, color = "#FFFFFF", time = speed, easing = QUAD_EASING|EASE_OUT)
 	var/image/I = image('icons/effects/effects.dmi',A,"spooky")
 	flick_overlay_view(I, A, 10)
-	spawn(speed)
-		A.transform = initial_matrix
-		A.status_flags &= ~INCORPOREAL
+	addtimer(CALLBACK(A, PROC_REF(transform_initial_matrix), A, initial_matrix), speed)
 	return speed
 
 //Regular fadeout disappear, for most objects.
@@ -166,3 +154,7 @@ Can look good elsewhere as well.*/
 	animate(src, transform = matrix_list[1], time = speed, loop_amount)
 	for(var/i in 2 to sections)
 		animate(transform = matrix_list[i], time = speed)
+
+/proc/transform_initial_matrix(atom/our_atom, initial_matrix)
+	our_atom.transform = initial_matrix
+	our_atom.status_flags &= ~INCORPOREAL
