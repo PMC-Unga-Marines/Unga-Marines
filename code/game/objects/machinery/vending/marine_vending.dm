@@ -32,13 +32,13 @@
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
 		),
-		"Пистолеты-пулмёты" = list(
+		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 	),
-		"Снайперкие винтовки" = list(
+		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
@@ -283,7 +283,7 @@
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
 		),
-		"Снайперкие винтовки" = list(
+		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
@@ -495,7 +495,7 @@
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
 		),
-		"Снайперкие винтовки" = list(
+		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
