@@ -24,7 +24,7 @@
 
 /datum/component/easy_restock/proc/on_examine(datum/source, mob/user, list/details)
 	SIGNAL_HANDLER
-	details += span_notice("You can easily restock magazines inside, right click on the belt with any ammo box")
+	details += span_notice("You can easily restock magazines inside, right click on the belt with any ammo box.")
 
 /datum/component/easy_restock/proc/on_parent_attackby_alternate(datum/source, obj/item/ammo_magazine/ammo_box, mob/user, params)
 	SIGNAL_HANDLER
