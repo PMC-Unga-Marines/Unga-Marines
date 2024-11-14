@@ -639,7 +639,7 @@
 			continue
 //		var/area/old_area = oldT.loc
 		underlying_area.contents += oldT
-		//oldT.change_area(old_area, underlying_area) //lighting
+		//oldT.transfer_area_lighting(old_area, underlying_area) //lighting
 		oldT.empty(FALSE)
 
 		// Here we locate the bottomost shuttle boundary and remove all turfs above it

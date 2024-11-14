@@ -19,8 +19,6 @@
 
 	new/datum/static_lighting_object(src)
 
-
-
 // Returns a boolean whether the turf is on soft lighting.
 // Soft lighting being the threshold at which point the overlay considers
 // itself as too dark to allow sight and see_in_dark becomes useful.
@@ -31,7 +29,8 @@
 
 	return !(luminosity || dynamic_lumcount)
 
-/turf/proc/change_area(area/old_area, area/new_area)
+///Transfer the lighting of one area to another
+/turf/proc/transfer_area_lighting(area/old_area, area/new_area)
 	if(SSlighting.initialized)
 		if (new_area.static_lighting != old_area.static_lighting)
 			if (new_area.static_lighting)
@@ -45,17 +44,16 @@
 		add_overlay(new_area.lighting_effect)
 
 /turf/proc/static_generate_missing_corners()
-	if (!lighting_corner_NE)
+	if(!lighting_corner_NE)
 		lighting_corner_NE = new/datum/static_lighting_corner(src, NORTH|EAST)
 
-	if (!lighting_corner_SE)
+	if(!lighting_corner_SE)
 		lighting_corner_SE = new/datum/static_lighting_corner(src, SOUTH|EAST)
 
-	if (!lighting_corner_SW)
+	if(!lighting_corner_SW)
 		lighting_corner_SW = new/datum/static_lighting_corner(src, SOUTH|WEST)
 
-	if (!lighting_corner_NW)
+	if(!lighting_corner_NW)
 		lighting_corner_NW = new/datum/static_lighting_corner(src, NORTH|WEST)
 
 	lighting_corners_initialised = TRUE
-
