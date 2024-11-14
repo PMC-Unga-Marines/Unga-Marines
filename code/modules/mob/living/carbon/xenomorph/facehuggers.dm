@@ -494,14 +494,8 @@
 		X.update_icons()
 
 	if(M.in_throw_mode && M.dir != dir && !M.incapacitated() && !M.get_active_held_item() && can_catch)
-		var/catch_chance = 50
-		if(M.dir == REVERSE_DIR(dir))
-			catch_chance += 20
-		catch_chance -= M.painloss * 0.3
-		if(M.get_inactive_held_item())
-			catch_chance  -= 25
-
-		if(prob(catch_chance))
+		var/catch_hug = 100
+		if(prob(catch_hug))
 			M.visible_message(span_notice("[M] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!"))
 			kill_hugger()
 			return TRUE
