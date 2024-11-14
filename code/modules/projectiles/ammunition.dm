@@ -164,7 +164,6 @@
 			to_chat(user, span_notice("You start refilling [src] with [source]."))
 		if(!do_after(user, fill_delay, NONE, src, BUSY_ICON_GENERIC))
 			return FALSE
-
 	return TRUE
 
 ///Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
