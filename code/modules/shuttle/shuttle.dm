@@ -67,13 +67,11 @@
 		unregister()
 	registered = TRUE
 
-
 ///unregister from SSshuttles
 /obj/docking_port/proc/unregister()
 	if(!registered)
 		WARNING("docking_port unregistered multiple times")
 	registered = FALSE
-
 
 //these objects are indestructible
 /obj/docking_port/Destroy(force)
@@ -402,6 +400,15 @@
 	. = ..()
 	SSshuttle.mobile += src
 
+/**
+ * Actions to be taken after shuttle is loaded and has been moved to its final location
+ *
+ * Arguments:
+ * * replace - TRUE if this shuttle is replacing an existing one. FALSE by default.
+ */
+/obj/docking_port/mobile/proc/postregister(replace = FALSE)
+	return
+
 /obj/docking_port/mobile/Destroy(force)
 	if(force)
 		SSshuttle.mobile -= src
@@ -437,6 +444,9 @@
 
 /// Called after the shuttle is loaded from template
 /obj/docking_port/mobile/proc/linkup(datum/map_template/shuttle/template, obj/docking_port/stationary/dock)
+	// ================== CM Change ==================
+	// This is gone in /tg/ backend but kept for historical reasons
+	// Suspect this is supposed to be handled in register
 	var/list/static/shuttle_id = list()
 	var/idnum
 	if(dock?.roundstart_shuttle_specific_id)
@@ -449,13 +459,10 @@
 				id = "[id][idnum]"
 			if(name == initial(name))
 				name = "[name] [idnum]"
-	for(var/place in shuttle_areas)
-		var/area/area = place
-		area.connect_to_shuttle(src, dock, idnum, FALSE)
-		for(var/each in place)
-			var/atom/atom = each
-			atom.connect_to_shuttle(src, dock, idnum, FALSE)
-
+	for(var/area/place as anything in shuttle_areas)
+		place.connect_to_shuttle(TRUE, src, dock)
+		for(var/atom/individual_atoms in place)
+			individual_atoms.connect_to_shuttle(TRUE, src, dock)
 
 //this is a hook for custom behaviour. Maybe at some point we could add checks to see if engines are intact
 /obj/docking_port/mobile/proc/canMove()
