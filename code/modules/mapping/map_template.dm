@@ -163,6 +163,7 @@
 	log_game("[name] loaded at [T.x], [T.y], [T.z]")
 	return bounds
 
+///Whatever special stuff you want
 /datum/map_template/proc/post_load()
 	return
 
