@@ -29,10 +29,10 @@
 	SSlighting.objects_queue += src
 
 /datum/static_lighting_object/Destroy(force)
-	if (!force)
+	if(!force)
 		return QDEL_HINT_LETMELIVE
 	SSlighting.objects_queue -= src
-	if (isturf(affected_turf))
+	if(isturf(affected_turf))
 		affected_turf.static_lighting_object = null
 		affected_turf.luminosity = 1
 		affected_turf.underlays -= current_underlay
@@ -40,7 +40,6 @@
 	return ..()
 
 /datum/static_lighting_object/proc/update()
-
 	// To the future coder who sees this and thinks
 	// "Why didn't he just use a loop?"
 	// Well my man, it's because the loop performed like shit.
