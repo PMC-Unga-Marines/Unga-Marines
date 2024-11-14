@@ -26,7 +26,7 @@
 
 /datum/preferences/proc/update_preferences(current_version, savefile/S)
 	if(current_version < 39)
-		key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
+		key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key)
 		parent.set_macros()
 		to_chat(parent, span_userdanger("Empty keybindings, setting to default"))
 
@@ -225,7 +225,7 @@
 
 	key_bindings = sanitize_islist(key_bindings, list())
 	if(!length(key_bindings))
-		key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
+		key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key)
 
 	custom_emotes = sanitize_is_full_emote_list(custom_emotes)
 	chem_macros = sanitize_islist(chem_macros, list())

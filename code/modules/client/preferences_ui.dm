@@ -920,7 +920,7 @@
 			emote.spoken_emote = !emote.spoken_emote
 
 		if("reset-keybindings")
-			key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
+			key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key)
 			current_client.set_macros()
 			save_keybinds()
 
