@@ -605,7 +605,6 @@
 	owner.remove_filter("steelcrest_enraging")
 
 /datum/action/ability/xeno_action/soak/proc/enraged()
-
 	owner.remove_filter("steelcrest_enraging")
 	owner.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
 
