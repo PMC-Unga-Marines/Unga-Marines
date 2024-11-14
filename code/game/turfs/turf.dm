@@ -48,6 +48,11 @@
 	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
 	var/list/fixed_underlay = null
 	var/list/datum/automata_cell/autocells
+	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
+	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
+	var/mob/oranges_ear/assigned_oranges_ear
+	/// The flags we give our turf
+	var/turf_flags = NONE
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
