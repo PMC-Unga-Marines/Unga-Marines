@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/fire(resumed)
 	// Cache for sonic speed
 	var/list/unused_turfs = src.unused_turfs
-	// CM TODO: figure out if these 2 are needed. Might be required by updated versions of map reader
+	// Those are used for atmos, so i doubt we will ever need it, but lets keep it
 	//var/list/world_contents = GLOB.areas_by_type[world.area].contents
 	//var/list/world_turf_contents = GLOB.areas_by_type[world.area].contained_turfs
 	var/list/lists_to_reserve = src.lists_to_reserve
