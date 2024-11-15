@@ -79,6 +79,19 @@
 	dir = 1
 	},
 /area/centcom/valhalla)
+"aNl" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
+"aOj" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/emerald/full,
+/area/space)
 "aRf" = (
 /obj/structure/barricade/wooden,
 /obj/item/explosive/grenade/flare/on,
@@ -90,6 +103,12 @@
 	},
 /turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
+"aXS" = (
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "bbO" = (
 /obj/machinery/vending/weapon/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -185,6 +204,12 @@
 /obj/item/toy/deck/kotahi,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"byC" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/orange{
+	dir = 5
+	},
+/area/space)
 "bCd" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 10
@@ -192,6 +217,13 @@
 /obj/machinery/vending/MarineMed/Blood/valhalla,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"bCW" = (
+/obj/structure/barricade/metal,
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "bPK" = (
 /obj/machinery/marine_selector/gear/marine/valhalla,
 /turf/open/floor/iron/dark/textured,
@@ -247,6 +279,18 @@
 /obj/machinery/marine_selector/gear/commander/valhalla,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
+"ctf" = (
+/obj/machinery/vending/armor_supply/valhalla,
+/turf/open/floor/mainship/red{
+	dir = 8
+	},
+/area/space)
+"cyK" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/red{
+	dir = 5
+	},
+/area/space)
 "cFt" = (
 /obj/item/explosive/grenade/chem_grenade/cleaner,
 /obj/item/explosive/grenade/chem_grenade/cleaner,
@@ -261,11 +305,41 @@
 /obj/structure/table,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"cKx" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/orange{
+	dir = 6
+	},
+/area/space)
+"cNt" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "cRJ" = (
 /obj/structure/table/fancywoodentable,
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
+"cVC" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
+"cZg" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/lavaland/basalt/dirt/autosmoothing,
+/area/space)
 "daE" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -282,6 +356,11 @@
 /obj/item/target/alien,
 /turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
+"dqt" = (
+/obj/structure/flora/tree/jungle/small,
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/ground/grass,
+/area/space)
 "drK" = (
 /obj/item/bedsheet/yellow,
 /obj/structure/bed,
@@ -344,9 +423,27 @@
 	dir = 9
 	},
 /area/tdome/tdomeobserve)
+"eaK" = (
+/obj/machinery/vending/weapon/valhalla,
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
+/area/space)
 "ecT" = (
 /turf/open/floor/plating/mainship/reinforced,
 /area/centcom/valhalla)
+"ekV" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/lavaland/basalt/dirt/autosmoothing,
+/area/space)
+"emY" = (
+/obj/machinery/vending/weapon/valhalla,
+/turf/open/floor/mainship/red{
+	dir = 8
+	},
+/area/space)
 "epz" = (
 /obj/machinery/vending/uniform_supply/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -382,10 +479,24 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"eMF" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/red,
+/area/space)
+"eNU" = (
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/mainship/orange,
+/area/space)
 "ePE" = (
 /obj/structure/bed/stool,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"ePS" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/red{
+	dir = 6
+	},
+/area/space)
 "eSM" = (
 /obj/structure/closet/secure_closet/medical2{
 	req_access = null
@@ -443,6 +554,12 @@
 /obj/machinery/vending/MarineMed/valhalla,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"fIo" = (
+/turf/closed/wall/mainship/gray/outer,
+/area/space)
+"fJO" = (
+/turf/closed/mineral/smooth/indestructible,
+/area/space)
 "fLA" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/tile/white,
@@ -473,6 +590,12 @@
 "fWu" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla)
+"fZE" = (
+/obj/machinery/vending/armor_supply/valhalla,
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
+/area/space)
 "glQ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark/thunderdome/admin,
@@ -517,6 +640,9 @@
 /obj/machinery/microwave,
 /turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
+"gCQ" = (
+/turf/open/liquid/lava/autosmoothing,
+/area/space)
 "gEX" = (
 /obj/machinery/button/valhalla/xeno_button{
 	link = "marineright"
@@ -571,6 +697,36 @@
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"hlp" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/red{
+	dir = 4
+	},
+/area/space)
+"hpv" = (
+/obj/machinery/vending/weapon/valhalla,
+/turf/open/floor/mainship/blue{
+	dir = 4
+	},
+/area/space)
+"hre" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/emerald{
+	dir = 10
+	},
+/area/space)
+"hBM" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/orange{
+	dir = 10
+	},
+/area/space)
+"hDj" = (
+/obj/machinery/vending/weapon/valhalla,
+/turf/open/floor/mainship/emerald{
+	dir = 4
+	},
+/area/space)
 "hGe" = (
 /obj/machinery/door/poddoor/shutters/mainship/thunderdome/two,
 /turf/open/floor/plating,
@@ -590,6 +746,10 @@
 "ibs" = (
 /turf/closed/wall/mainship,
 /area/tdome/tdomeobserve)
+"ict" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/plate,
+/area/space)
 "ijc" = (
 /obj/machinery/marine_selector/clothes/commander/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -598,11 +758,23 @@
 /obj/machinery/vending/boozeomat/nopower,
 /turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
+"isp" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/blue{
+	dir = 1
+	},
+/area/space)
 "itM" = (
 /turf/open/floor/carpet/side{
 	dir = 1
 	},
 /area/tdome/tdomeobserve)
+"iAT" = (
+/obj/machinery/vending/uniform_supply/valhalla,
+/turf/open/floor/mainship/emerald{
+	dir = 6
+	},
+/area/space)
 "iDZ" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 1
@@ -610,12 +782,26 @@
 /obj/effect/turf_decal/warning_stripes/engineer,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"iGh" = (
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/mainship/emerald{
+	dir = 1
+	},
+/area/space)
+"iJH" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/blue/full,
+/area/space)
 "iNh" = (
 /obj/machinery/door/airlock/mainship/marine/general/engi{
 	dir = 3
 	},
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
+"iPo" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/emerald,
+/area/space)
 "iZc" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -627,6 +813,10 @@
 /obj/structure/table,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"jgd" = (
+/obj/structure/barricade/metal,
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "jla" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
@@ -643,6 +833,14 @@
 /obj/item/stack/medical/heal_pack/ointment,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"jrH" = (
+/obj/structure/prop/mainship/toolboxforacause2020,
+/turf/open/floor/mainship/plate,
+/area/space)
+"jtp" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/ground/grass,
+/area/space)
 "jtw" = (
 /obj/effect/turf_decal/sandedge,
 /turf/closed/mineral/smooth/indestructible,
@@ -661,6 +859,19 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"jxH" = (
+/obj/structure/barricade/metal,
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
+"jAD" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/space)
 "jJC" = (
 /obj/structure/window/framed/mainship/gray/toughened/hull,
 /turf/open/floor/iron/dark/textured,
@@ -782,6 +993,15 @@
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"lgf" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "llp" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 9
@@ -801,6 +1021,10 @@
 "lAb" = (
 /turf/closed/wall/indestructible/splashscreen,
 /area/start)
+"lAl" = (
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/mainship/blue,
+/area/space)
 "lEp" = (
 /obj/machinery/marine_selector/gear/robo/valhalla,
 /turf/open/floor/iron/dark/textured,
@@ -819,6 +1043,12 @@
 "lPX" = (
 /turf/open/floor/mainship/metal,
 /area/centcom/valhalla)
+"lVB" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/orange{
+	dir = 4
+	},
+/area/space)
 "lYp" = (
 /obj/machinery/marine_selector/clothes/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -840,6 +1070,9 @@
 /obj/structure/rack/nometal,
 /turf/open/floor/plating,
 /area/tdome)
+"mjc" = (
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "mmW" = (
 /obj/machinery/button/door/indestructible{
 	dir = 1;
@@ -858,6 +1091,10 @@
 	},
 /turf/open/floor,
 /area/tdome)
+"myB" = (
+/obj/effect/turf_decal/warning_stripes/linethick,
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "myT" = (
 /obj/effect/turf_decal/tile/metal/medical,
 /obj/structure/table/fancywoodentable,
@@ -957,11 +1194,23 @@
 /obj/machinery/camera/autoname/thunderdome/hidden,
 /turf/open/floor/plating,
 /area/tdome/tdome2)
+"nfv" = (
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/mainship/emerald{
+	dir = 1
+	},
+/area/space)
 "noL" = (
 /obj/effect/turf_decal/tile/metal/medical,
 /obj/machinery/vending/medical/valhalla,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"ntv" = (
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "ntU" = (
 /obj/machinery/vending/armor_supply/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -972,6 +1221,15 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"nuR" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "nvt" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 6
@@ -1020,6 +1278,11 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"nMQ" = (
+/obj/structure/barricade/metal,
+/obj/effect/turf_decal/warning_stripes/line,
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "nOQ" = (
 /obj/structure/table,
 /obj/item/toy/deck,
@@ -1034,6 +1297,16 @@
 	dir = 4
 	},
 /area/tdome)
+"nSy" = (
+/obj/machinery/vending/uniform_supply/valhalla,
+/turf/open/floor/mainship/red{
+	dir = 10
+	},
+/area/space)
+"ogl" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/closed/gm/dense,
+/area/space)
 "okD" = (
 /obj/machinery/vending/weapon/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -1044,6 +1317,13 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"olM" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/linethick,
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "onv" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 10
@@ -1067,6 +1347,12 @@
 /obj/effect/turf_decal/sandedge,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"oIE" = (
+/obj/machinery/vending/uniform_supply/valhalla,
+/turf/open/floor/mainship/blue{
+	dir = 5
+	},
+/area/space)
 "oJr" = (
 /obj/machinery/vending/weapon/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -1090,9 +1376,22 @@
 	dir = 1
 	},
 /area/centcom/valhalla)
+"oRm" = (
+/turf/open/lavaland/basalt/dirt/autosmoothing,
+/area/space)
 "oXf" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
+"oZf" = (
+/obj/structure/barricade/metal,
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "ped" = (
 /obj/structure/table,
 /obj/item/toy/deck/kotahi,
@@ -1102,9 +1401,18 @@
 /obj/item/toy/deck/kotahi,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"pew" = (
+/turf/open/floor/iron/dark/textured,
+/area/space)
 "pfh" = (
 /turf/open/floor/plating/heatinggrate,
 /area/centcom/valhalla)
+"pfE" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/emerald{
+	dir = 9
+	},
+/area/space)
 "pga" = (
 /obj/machinery/vending/uniform_supply/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -1117,6 +1425,12 @@
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"poe" = (
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
+/area/space)
 "ppm" = (
 /obj/machinery/vending/armor_supply/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -1147,6 +1461,12 @@
 	},
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"pOr" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/emerald{
+	dir = 5
+	},
+/area/space)
 "pUr" = (
 /obj/item/clothing/glasses/hud/xenohud,
 /obj/item/clothing/glasses/hud/xenohud,
@@ -1211,6 +1531,12 @@
 /obj/item/storage/box/drinkingglasses,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"qxx" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/open/lavaland/basalt/dirt/autosmoothing,
+/area/space)
 "qAa" = (
 /obj/machinery/computer/pod{
 	id = "thunderdomeaxe";
@@ -1267,6 +1593,12 @@
 /obj/effect/landmark/start/job/fallen/xenomorph,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
+"rnd" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/red{
+	dir = 9
+	},
+/area/space)
 "rwm" = (
 /obj/structure/table,
 /obj/item/storage/box/drinkingglasses,
@@ -1299,6 +1631,9 @@
 /obj/structure/table/black,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"rDF" = (
+/turf/open/ground/grass,
+/area/space)
 "rFk" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 1
@@ -1315,6 +1650,12 @@
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"scH" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "sji" = (
 /obj/machinery/chem_dispenser/beer{
 	dir = 4;
@@ -1334,6 +1675,18 @@
 	},
 /turf/closed/wall/mainship,
 /area/tdome)
+"suV" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "sCM" = (
 /obj/machinery/loadout_vendor/valhalla,
 /turf/open/floor/iron/dark/textured,
@@ -1349,6 +1702,15 @@
 	},
 /turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla)
+"sIf" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "sJF" = (
 /obj/effect/turf_decal/warning_stripes/marine,
 /obj/effect/turf_decal/loading_area,
@@ -1378,6 +1740,16 @@
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"tbu" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/obj/structure/barricade/metal,
+/obj/effect/turf_decal/warning_stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "tiO" = (
 /obj/effect/landmark/thunderdome/admin,
 /obj/structure/bed/chair/sofa/left{
@@ -1412,6 +1784,12 @@
 /obj/item/toy/katana,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"tog" = (
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
+/area/space)
 "tpZ" = (
 /obj/structure/table,
 /obj/item/binoculars,
@@ -1456,6 +1834,10 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"tDR" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/red/full,
+/area/space)
 "tFi" = (
 /obj/machinery/door/airlock/mainship/marine/general/smart{
 	dir = 3
@@ -1471,6 +1853,12 @@
 "tGL" = (
 /turf/open/floor/podhatch/floor,
 /area/tdome)
+"tJF" = (
+/obj/machinery/vending/armor_supply/valhalla,
+/turf/open/floor/mainship/emerald{
+	dir = 4
+	},
+/area/space)
 "tSq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/fallen,
@@ -1512,6 +1900,16 @@
 /obj/machinery/vending/medical/valhalla,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"uhQ" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
+"uqw" = (
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/mainship/blue,
+/area/space)
 "uut" = (
 /obj/machinery/marine_selector/gear/engi/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -1520,6 +1918,10 @@
 /obj/effect/landmark/thunderdome/one,
 /turf/open/floor/plating,
 /area/tdome/tdome1)
+"uxz" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/orange/full,
+/area/space)
 "uzq" = (
 /obj/machinery/computer/pod{
 	id = "thunderdomegen";
@@ -1527,6 +1929,12 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"uMu" = (
+/obj/machinery/vending/uniform_supply/valhalla,
+/turf/open/floor/mainship/orange{
+	dir = 9
+	},
+/area/space)
 "uOI" = (
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/centcom/valhalla)
@@ -1542,6 +1950,12 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor,
 /area/tdome)
+"veJ" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/blue{
+	dir = 6
+	},
+/area/space)
 "veZ" = (
 /obj/item/explosive/grenade/flare/on,
 /turf/open/floor/plating/ground/mars/cavetodirt{
@@ -1553,6 +1967,16 @@
 /obj/machinery/microwave,
 /turf/open/floor/tile/white,
 /area/tdome/tdomeobserve)
+"vjK" = (
+/obj/machinery/vending/medical/valhalla,
+/turf/open/floor/mainship/orange,
+/area/space)
+"vmG" = (
+/obj/item/flag_base/upp_flag,
+/turf/open/floor/mainship/blue{
+	dir = 10
+	},
+/area/space)
 "vnF" = (
 /obj/effect/landmark/thunderdome/admin,
 /obj/structure/bed/chair/sofa/right{
@@ -1577,6 +2001,10 @@
 /obj/structure/bed/chair/sofa/left,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"vEu" = (
+/obj/effect/turf_decal/warning_stripes/line,
+/turf/open/floor/plating/mainship/reinforced,
+/area/space)
 "vEv" = (
 /obj/structure/bed/chair/office/light{
 	dir = 8
@@ -1617,6 +2045,12 @@
 "wrn" = (
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"wvS" = (
+/obj/machinery/vending/armor_supply/valhalla,
+/turf/open/floor/mainship/blue{
+	dir = 4
+	},
+/area/space)
 "wEg" = (
 /obj/machinery/button/door/indestructible{
 	dir = 1;
@@ -1632,6 +2066,12 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"wIC" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/blue{
+	dir = 8
+	},
+/area/space)
 "wPz" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
 	where = "right"
@@ -1648,6 +2088,11 @@
 	},
 /turf/open/floor,
 /area/tdome)
+"wUm" = (
+/obj/structure/flora/jungle/vines/heavy,
+/obj/structure/flora/tree/jungle/small,
+/turf/open/ground/grass,
+/area/space)
 "wYF" = (
 /obj/machinery/computer/pod{
 	id = "thunderdome";
@@ -1666,6 +2111,12 @@
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"xdK" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/emerald{
+	dir = 8
+	},
+/area/space)
 "xpm" = (
 /obj/item/target/alien,
 /obj/effect/turf_decal/sandytile,
@@ -1691,6 +2142,12 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"xFk" = (
+/obj/item/toy/plush/pig,
+/turf/open/floor/mainship/blue{
+	dir = 9
+	},
+/area/space)
 "xJj" = (
 /turf/closed/wall,
 /area/centcom/valhalla)
@@ -7076,17 +7533,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -7214,17 +7671,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+rnd
+ctf
+emY
+nSy
+jrH
+uMu
+eaK
+fZE
+hBM
+fIo
 xrI
 xrI
 xrI
@@ -7352,17 +7809,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+poe
+tDR
+tDR
+eMF
+ict
+jAD
+uxz
+uxz
+vjK
+fIo
 xrI
 xrI
 xrI
@@ -7490,17 +7947,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+tog
+tDR
+tDR
+eMF
+ict
+jAD
+uxz
+uxz
+eNU
+fIo
 xrI
 xrI
 xrI
@@ -7628,17 +8085,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+poe
+tDR
+tDR
+eMF
+ict
+jAD
+uxz
+uxz
+vjK
+fIo
 xrI
 xrI
 xrI
@@ -7766,17 +8223,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+cyK
+hlp
+hlp
+ePS
+ict
+byC
+lVB
+lVB
+cKx
+fIo
 xrI
 xrI
 xrI
@@ -7898,29 +8355,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -8036,29 +8493,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+sIf
+aXS
+aXS
+aXS
+jxH
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -8174,29 +8631,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+myB
+uhQ
+mjc
+jgd
+vEu
+rDF
+rDF
+fIo
+fIo
+pew
+fIo
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -8312,29 +8769,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+wUm
+jtp
+rDF
+rDF
+olM
+mjc
+mjc
+mjc
+nMQ
+rDF
+rDF
+rDF
+pew
+pew
+fIo
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -8450,29 +8907,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+myB
+uhQ
+mjc
+jgd
+vEu
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -8588,29 +9045,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+olM
+cVC
+mjc
+cVC
+nMQ
+rDF
+rDF
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -8726,29 +9183,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+dqt
+ogl
+jtp
+rDF
+rDF
+suV
+ntv
+lgf
+ntv
+tbu
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -8864,29 +9321,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -9002,29 +9459,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+wUm
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+fIo
+fIo
+pew
+fIo
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -9140,29 +9597,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+wUm
+ogl
+jtp
+jtp
+ogl
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+fIo
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -9278,29 +9735,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+gCQ
+gCQ
+fIo
+fIo
+fIo
+fIo
+pew
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -9416,29 +9873,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+gCQ
+gCQ
+fJO
+oRm
+oRm
+ekV
+gCQ
+fIo
+pew
+pew
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -9554,29 +10011,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+wUm
+jtp
+jtp
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+pew
+pew
+fIo
+fIo
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -9692,29 +10149,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+ogl
+jtp
+jtp
+oRm
+gCQ
+ekV
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+pew
+pew
+fIo
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -9830,29 +10287,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+gCQ
+fIo
+pew
+fIo
+pew
+fIo
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -9968,29 +10425,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+ogl
+oRm
+oRm
+gCQ
+cZg
+oRm
+oRm
+fJO
+gCQ
+fIo
+pew
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -10106,29 +10563,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+ogl
+jtp
+wUm
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+gCQ
+gCQ
+fIo
+pew
+pew
+pew
+pew
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -10244,29 +10701,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+wUm
+jtp
+jtp
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+gCQ
+oRm
+fIo
+fIo
+pew
+fIo
+fIo
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -10382,29 +10839,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+fJO
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+pew
+pew
+fIo
+fIo
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -10520,29 +10977,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+qxx
+fJO
+oRm
+oRm
+oRm
+fIo
+fIo
+pew
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -10658,29 +11115,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+wUm
+jtp
+ogl
+jtp
+oRm
+oRm
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+oRm
+fIo
+fIo
+fIo
+pew
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -10796,29 +11253,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+ogl
+jtp
+jtp
+jtp
+oRm
+oRm
+gCQ
+gCQ
+gCQ
+gCQ
+oRm
+gCQ
+oRm
+oRm
+fIo
+fIo
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -10934,29 +11391,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+fJO
+oRm
+oRm
+oRm
+gCQ
+fIo
+fIo
+fIo
+pew
+pew
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -11072,29 +11529,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+wUm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+pew
+pew
+fIo
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -11210,29 +11667,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+ogl
+jtp
+jtp
+ogl
+oRm
+gCQ
+oRm
+oRm
+oRm
+oRm
+qxx
+qxx
+fIo
+pew
+fIo
+pew
+pew
+fIo
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -11348,29 +11805,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+wUm
+jtp
+jtp
+jtp
+jtp
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+gCQ
+gCQ
+fIo
+pew
+fIo
+fIo
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -11486,29 +11943,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+wUm
+jtp
+oRm
+oRm
+gCQ
+cZg
+oRm
+oRm
+gCQ
+ekV
+fIo
+pew
+pew
+fIo
+pew
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -11624,29 +12081,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+ogl
+jtp
+jtp
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+ekV
+oRm
+fIo
+fIo
+pew
+fIo
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -11762,29 +12219,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+fJO
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+pew
+fIo
+fIo
+fIo
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -11900,29 +12357,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+ogl
+jtp
+jtp
+wUm
+ogl
+oRm
+gCQ
+gCQ
+gCQ
+oRm
+oRm
+oRm
+gCQ
+fIo
+pew
+pew
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -12038,29 +12495,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+wUm
+jtp
+jtp
+jtp
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+gCQ
+gCQ
+fIo
+fIo
+pew
+fIo
+pew
+fIo
+fIo
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -12176,29 +12633,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fJO
+gCQ
+fIo
+pew
+pew
+fIo
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -12314,29 +12771,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+ogl
+jtp
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+oRm
+gCQ
+fIo
+pew
+fIo
+fIo
+fIo
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -12452,29 +12909,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+ogl
+jtp
+jtp
+wUm
+jtp
+oRm
+fJO
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -12590,29 +13047,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+wUm
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+pew
+pew
+pew
+pew
+fIo
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -12728,29 +13185,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+ogl
+oRm
+gCQ
+qxx
+oRm
+oRm
+oRm
+qxx
+oRm
+fIo
+pew
+fIo
+fIo
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -12866,29 +13323,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+wUm
+oRm
+gCQ
+gCQ
+oRm
+oRm
+fJO
+gCQ
+gCQ
+fIo
+pew
+pew
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13004,29 +13461,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+oRm
+gCQ
+gCQ
+oRm
+oRm
+oRm
+gCQ
+gCQ
+fIo
+fIo
+fIo
+fIo
+pew
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13142,29 +13599,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+wUm
+ogl
+jtp
+jtp
+jtp
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+oRm
+fIo
+fIo
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13280,29 +13737,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+fIo
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13418,29 +13875,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+ogl
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+fIo
+pew
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -13556,29 +14013,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+wUm
+jtp
+rDF
+rDF
+cNt
+aXS
+aNl
+aXS
+oZf
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13694,29 +14151,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+olM
+scH
+mjc
+scH
+nMQ
+rDF
+rDF
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13832,29 +14289,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+myB
+uhQ
+mjc
+jgd
+vEu
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -13970,29 +14427,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+wUm
+jtp
+jtp
+ogl
+rDF
+rDF
+olM
+mjc
+mjc
+mjc
+nMQ
+rDF
+rDF
+rDF
+pew
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -14108,29 +14565,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+ogl
+jtp
+wUm
+rDF
+rDF
+myB
+uhQ
+mjc
+jgd
+vEu
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -14246,29 +14703,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+jtp
+jtp
+jtp
+jtp
+jtp
+rDF
+rDF
+nuR
+ntv
+ntv
+ntv
+bCW
+rDF
+rDF
+fIo
+fIo
+pew
+pew
+pew
+pew
+pew
+fIo
 xrI
 xrI
 xrI
@@ -14384,29 +14841,29 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
 xrI
 xrI
 xrI
@@ -14528,17 +14985,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+pfE
+xdK
+xdK
+hre
+ict
+xFk
+wIC
+wIC
+vmG
+fIo
 xrI
 xrI
 xrI
@@ -14666,17 +15123,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+nfv
+aOj
+aOj
+iPo
+ict
+isp
+iJH
+iJH
+uqw
+fIo
 xrI
 xrI
 xrI
@@ -14804,17 +15261,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+iGh
+aOj
+aOj
+iPo
+ict
+isp
+iJH
+iJH
+lAl
+fIo
 xrI
 xrI
 xrI
@@ -14942,17 +15399,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+nfv
+aOj
+aOj
+iPo
+ict
+isp
+iJH
+iJH
+uqw
+fIo
 xrI
 xrI
 xrI
@@ -15080,17 +15537,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+pOr
+tJF
+hDj
+iAT
+jrH
+oIE
+hpv
+wvS
+veJ
+fIo
 xrI
 xrI
 xrI
@@ -15218,17 +15675,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
+fIo
 xrI
 xrI
 xrI

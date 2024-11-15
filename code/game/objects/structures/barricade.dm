@@ -388,6 +388,7 @@
 	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
 	icon_state = "metal_0"
 	max_integrity = 200 //4 sheets
+	resistance_flags = RESIST_ALL
 	soft_armor = list(MELEE = 10, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 20, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/metal

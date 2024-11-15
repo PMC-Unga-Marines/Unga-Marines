@@ -515,6 +515,7 @@
 	item_state = "pig"
 	attack_verb = list("oinks", "grunts")
 	squeak_sound = 'sound/items/khryu.ogg'
+	anchored = TRUE
 
 /obj/item/toy/plush/pig/attack_self(mob/user)
 	if(world.time > last_hug_time)

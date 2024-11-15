@@ -515,6 +515,7 @@
 /obj/structure/flora/jungle/vines/heavy
 	desc = "A thick, coiled mass of twisted vines."
 	opacity = TRUE
+	resistance_flags = RESIST_ALL
 
 /obj/structure/flora/jungle/vines/heavy/Initialize(mapload)
 	. = ..()

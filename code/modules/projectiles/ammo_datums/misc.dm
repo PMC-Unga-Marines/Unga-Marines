@@ -491,7 +491,7 @@
 	accurate_range = 15
 	damage_type = STAMINA
 	armor_type = BIO
-	damage = 1
+	damage = 8
 	damage_falloff = 0
 	penetration = 0
 	shrapnel_chance = 0
