@@ -439,6 +439,17 @@
 		/obj/item/reagent_containers/food/snacks,
 	)
 
+/obj/item/storage/belt/marine/auto_catch
+	name = "\improper M344 pattern ammo load rig"
+	icon_state = "autocathbelt"
+	desc = "The M344 is the modern load-bearing equipment of the TGMC. It consists of a modular belt with various clips. Allows you to quickly obtain and use equipment during combat operations."
+	storage_slots = 4
+
+/obj/item/storage/belt/marine/auto_catch/Initialize(mapload, ...)
+	. = ..()
+	AddComponent(/datum/component/magazine_catcher)
+	AddComponent(/datum/component/easy_restock)
+
 /obj/item/storage/belt/marine/ar18/Initialize(mapload)
 	. = ..()
 	new /obj/item/ammo_magazine/rifle/ar18(src)

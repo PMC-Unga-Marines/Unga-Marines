@@ -142,25 +142,35 @@
 	master_gun.aim_slowdown					-= aim_speed_mod
 	master_gun.wield_delay					-= wield_delay_mod
 
-//Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
-/obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, is_new_ammo_type = FALSE)
+///Сan the magazine be refilled, mainly used in transfer_ammo proc
+/obj/item/ammo_magazine/proc/can_transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, silent = FALSE)
 	if(current_rounds >= max_rounds) //Does the mag actually need reloading?
-		to_chat(user, span_notice("[src] is already full."))
-		return
+		if(!silent)
+			to_chat(user, span_notice("[src] is already full."))
+		return FALSE
 
 	if(source.caliber != caliber) //Are they the same caliber?
-		to_chat(user, span_notice("The rounds don't match up. Better not mix them up."))
-		return
+		if(!silent)
+			to_chat(user, span_notice("The rounds don't match up. Better not mix them up."))
+		return FALSE
 
 	if(!source.current_rounds)
-		to_chat(user, span_warning("\The [source] is empty."))
-		return
+		if(!silent)
+			to_chat(user, span_warning("\The [source] is empty."))
+		return FALSE
 
 	//using handfuls; and filling internal mags has no delay.
 	if(fill_delay)
-		to_chat(user, span_notice("You start refilling [src] with [source]."))
+		if(!silent)
+			to_chat(user, span_notice("You start refilling [src] with [source]."))
 		if(!do_after(user, fill_delay, NONE, src, BUSY_ICON_GENERIC))
-			return
+			return FALSE
+	return TRUE
+
+///Generic proc to transfer ammo between ammo mags. Can work for anything, mags, handfuls, etc.
+/obj/item/ammo_magazine/proc/transfer_ammo(obj/item/ammo_magazine/source, mob/user, transfer_amount = 1, is_new_ammo_type = FALSE)
+	if(!can_transfer_ammo(source, user, transfer_amount))
+		return
 
 	to_chat(user, span_notice("You refill [src] with [source]."))
 
