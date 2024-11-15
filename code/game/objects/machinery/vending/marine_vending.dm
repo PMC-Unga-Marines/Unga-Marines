@@ -516,6 +516,7 @@
 			/obj/item/bodybag/tarp = -1,
 			/obj/item/storage/backpack/marine/satchel/scout_cloak = -1,
 			/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper = -1,
+			/obj/item/hunting_trap = -1,
 		),
 		"Утилити" = list(
 			/obj/item/tool/extinguisher = -1,
