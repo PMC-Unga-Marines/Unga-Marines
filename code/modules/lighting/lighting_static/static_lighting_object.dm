@@ -10,7 +10,7 @@
 
 /datum/static_lighting_object/New(turf/source)
 	if(!isturf(source))
-		qdel(src, force=TRUE)
+		qdel(src, force = TRUE)
 		stack_trace("a lighting object was assigned to [source], a non turf! ")
 		return
 	. = ..()

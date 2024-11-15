@@ -176,7 +176,6 @@
 			placement = corner
 	return block(placement, locate(placement.x+width-1, placement.y+height-1, placement.z))
 
-
 //for your ever biggening badminnery kevinz000
 //❤ - Cyberboss
 /proc/load_new_z_level(file, name, minimap = TRUE, list/traits = list())
