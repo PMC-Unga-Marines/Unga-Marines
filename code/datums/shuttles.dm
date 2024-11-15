@@ -57,7 +57,7 @@
 				++xcrd
 			--ycrd
 
-/datum/map_template/shuttle/load(turf/T, centered, register=TRUE)
+/datum/map_template/shuttle/load(turf/T, centered, register = TRUE)
 	. = ..()
 	if(!.)
 		return
@@ -65,12 +65,6 @@
 							locate(.[MAP_MAXX], .[MAP_MAXY], .[MAP_MAXZ]))
 	for(var/i in 1 to length(turfs))
 		var/turf/place = turfs[i]
-
-		// ================== CM Change ==================
-		// We perform atom initialization of the docking_ports BEFORE skipping space,
-		// because our lifeboats have their corners as object props and still
-		// reside on space turfs. Notably the bottom left corner, which also contains
-		// the docking port.
 
 		for(var/obj/docking_port/mobile/port in place)
 			SSatoms.InitializeAtoms(list(port))
@@ -83,7 +77,32 @@
 			continue
 		place.baseturfs.Insert(3, /turf/baseturf_skipover/shuttle)
 
-		// =============== END CM Change =================
+		for(var/obj/docking_port/mobile/port in place)
+			if(register)
+				port.register()
+			if(isnull(port_x_offset))
+				continue
+			switch(port.dir) // Yeah this looks a little ugly but mappers had to do this in their head before
+				if(NORTH)
+					port.width = width
+					port.height = height
+					port.dwidth = port_x_offset - 1
+					port.dheight = port_y_offset - 1
+				if(EAST)
+					port.width = height
+					port.height = width
+					port.dwidth = height - port_y_offset
+					port.dheight = port_x_offset - 1
+				if(SOUTH)
+					port.width = width
+					port.height = height
+					port.dwidth = width - port_x_offset
+					port.dheight = height - port_y_offset
+				if(WEST)
+					port.width = height
+					port.height = width
+					port.dwidth = port_y_offset - 1
+					port.dheight = width - port_x_offset
 
 /datum/map_template/shuttle/post_load(obj/docking_port/mobile/M)
 	if(movement_force)
