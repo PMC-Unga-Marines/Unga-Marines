@@ -81,7 +81,11 @@
 /atom/movable/screen/text/lobby/clickable/join_game/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
-	player.attempt_late_join()
+	if(SSticker?.current_state > GAME_STATE_PREGAME)
+		player.attempt_late_join()
+		return
+	player.toggle_ready()
+	update_text()
 
 /atom/movable/screen/text/lobby/clickable/join_game/update_text()
 	var/mob/new_player/player = hud.mymob
