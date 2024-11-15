@@ -481,6 +481,8 @@
 /area/tdome/tdomeadmin)
 "eMF" = (
 /obj/item/toy/plush/pig,
+/obj/effect/landmark/start/job/fallen,
+/obj/effect/landmark/start/job/fallen,
 /turf/open/floor/mainship/red,
 /area/centcom/valhalla)
 "eNU" = (
@@ -760,6 +762,7 @@
 /area/centcom/valhalla)
 "isp" = (
 /obj/item/toy/plush/pig,
+/obj/effect/landmark/start/job/fallen,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -800,6 +803,7 @@
 /area/centcom/valhalla)
 "iPo" = (
 /obj/item/toy/plush/pig,
+/obj/effect/landmark/start/job/fallen,
 /turf/open/floor/mainship/emerald,
 /area/centcom/valhalla)
 "iZc" = (
@@ -868,6 +872,7 @@
 /area/centcom/valhalla)
 "jAD" = (
 /obj/item/toy/plush/pig,
+/obj/effect/landmark/start/job/fallen,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -1491,6 +1496,11 @@
 /obj/structure/table/black,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"qdK" = (
+/obj/item/toy/plush/pig,
+/obj/effect/landmark/start/job/fallen,
+/turf/open/floor/mainship/red,
+/area/centcom/valhalla)
 "qhT" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/mainship/metal/gray,
@@ -1862,7 +1872,6 @@
 /area/centcom/valhalla)
 "tSq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/job/fallen,
 /turf/open/floor/glass/reinforced,
 /area/centcom/valhalla)
 "uaI" = (
@@ -1906,6 +1915,11 @@
 	dir = 1
 	},
 /turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
+"umb" = (
+/obj/item/toy/plush/pig,
+/obj/effect/landmark/start/job/fallen,
+/turf/open/floor/mainship/plate,
 /area/centcom/valhalla)
 "uqw" = (
 /obj/machinery/vending/medical/valhalla,
@@ -2040,8 +2054,10 @@
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "wqU" = (
+/obj/item/toy/plush/pig,
 /obj/effect/landmark/start/job/fallen,
-/turf/open/floor/glass/reinforced,
+/obj/effect/landmark/start/job/fallen,
+/turf/open/floor/mainship/plate,
 /area/centcom/valhalla)
 "wrn" = (
 /turf/open/floor/tile/red/redblue/full,
@@ -5726,7 +5742,7 @@ lPX
 lPX
 uOI
 dFm
-wqU
+xWF
 dFm
 dyS
 gCD
@@ -6278,7 +6294,7 @@ wfL
 xVT
 dFm
 dFm
-wqU
+xWF
 dFm
 dyS
 ble
@@ -6554,7 +6570,7 @@ rCR
 sWX
 dFm
 dFm
-wqU
+xWF
 rVD
 lFj
 bgz
@@ -6830,7 +6846,7 @@ rCR
 jvR
 tzf
 dFm
-wqU
+xWF
 dFm
 bnV
 kJx
@@ -7382,7 +7398,7 @@ jJC
 bgz
 hYu
 tzf
-wqU
+xWF
 dFm
 bgz
 ppm
@@ -7658,7 +7674,7 @@ mHP
 iNh
 iDZ
 dFm
-wqU
+xWF
 kjb
 kmz
 mHP
@@ -7820,7 +7836,7 @@ poe
 tDR
 tDR
 eMF
-ict
+wqU
 jAD
 uxz
 uxz
@@ -7934,7 +7950,7 @@ jJC
 bgz
 sCM
 dFm
-wqU
+xWF
 dFm
 bgz
 jJC
@@ -7958,7 +7974,7 @@ tog
 tDR
 tDR
 eMF
-ict
+wqU
 jAD
 uxz
 uxz
@@ -8095,8 +8111,8 @@ bgz
 poe
 tDR
 tDR
-eMF
-ict
+qdK
+umb
 jAD
 uxz
 uxz
@@ -8210,7 +8226,7 @@ yeN
 khV
 rFk
 tzf
-wqU
+xWF
 dFm
 jJC
 cRJ
@@ -8486,7 +8502,7 @@ jJC
 jJC
 kKa
 dFm
-wqU
+xWF
 dFm
 bgz
 bgz
@@ -15134,7 +15150,7 @@ nfv
 aOj
 aOj
 iPo
-ict
+umb
 isp
 iJH
 iJH
@@ -15272,7 +15288,7 @@ iGh
 aOj
 aOj
 iPo
-ict
+umb
 isp
 iJH
 iJH
@@ -15410,7 +15426,7 @@ nfv
 aOj
 aOj
 iPo
-ict
+umb
 isp
 iJH
 iJH
