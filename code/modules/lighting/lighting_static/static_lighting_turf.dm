@@ -15,7 +15,7 @@
 /// Builds a lighting object for us, but only if our area is dynamic.
 /turf/proc/static_lighting_build_overlay(area/our_area = loc)
 	if(static_lighting_object)
-		qdel(static_lighting_object, force=TRUE) //Shitty fix for lighting objects persisting after death
+		qdel(static_lighting_object, force = TRUE) //Shitty fix for lighting objects persisting after death
 
 	new/datum/static_lighting_object(src)
 
@@ -24,7 +24,7 @@
 // itself as too dark to allow sight and see_in_dark becomes useful.
 // So basically if this returns true the tile is unlit black.
 /turf/proc/static_is_softly_lit()
-	if (!static_lighting_object)
+	if(!static_lighting_object)
 		return FALSE
 
 	return !(luminosity || dynamic_lumcount)
@@ -32,8 +32,8 @@
 ///Transfer the lighting of one area to another
 /turf/proc/transfer_area_lighting(area/old_area, area/new_area)
 	if(SSlighting.initialized)
-		if (new_area.static_lighting != old_area.static_lighting)
-			if (new_area.static_lighting)
+		if(new_area.static_lighting != old_area.static_lighting)
+			if(new_area.static_lighting)
 				static_lighting_build_overlay(new_area)
 			else
 				static_lighting_clear_overlay()
