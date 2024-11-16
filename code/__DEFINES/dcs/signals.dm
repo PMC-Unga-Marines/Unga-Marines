@@ -412,6 +412,8 @@
 #define COMSIG_MOB_GUN_AUTOFIRED "mob_gun_autofired"
 #define COMSIG_MOB_GUN_COOLDOWN "mob_gun_cooldown"
 
+#define COMSIG_MAGAZINE_DROP "magazine_drop"
+
 #define COMSIG_XENO_FIRE "xeno_fire"
 #define COMSIG_XENO_STOP_FIRE "xeno_stop_fire"
 #define COMSIG_XENO_AUTOFIREDELAY_MODIFIED "xeno_firedelay_modified"

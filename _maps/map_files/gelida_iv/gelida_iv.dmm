@@ -27045,12 +27045,6 @@
 /obj/structure/prop/mainship/gelida/rails,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
-"shH" = (
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/snow/layer0,
-/area/gelida/outdoors/colony_streets/south_west_street)
 "shI" = (
 /obj/item/clothing/mask/facehugger/dead{
 	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
@@ -31417,12 +31411,6 @@
 	dir = 1
 	},
 /area/gelida/outdoors/colony_streets/east_central_street)
-"vka" = (
-/obj/structure/barricade/metal{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/snow/layer0,
-/area/gelida/outdoors/colony_streets/south_east_street)
 "vke" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal,
 /obj/structure/cable,
@@ -45360,7 +45348,7 @@ ngP
 ndb
 ngP
 iCC
-shH
+iCC
 xNz
 xNz
 ljQ
@@ -66001,7 +65989,7 @@ eWY
 eWY
 eWY
 mDs
-vka
+sHp
 txG
 txG
 txG

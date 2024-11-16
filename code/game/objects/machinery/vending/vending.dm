@@ -480,16 +480,18 @@
 	vend_ready = 0 //One thing at a time!!
 	R.amount--
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		spawn(0)
-			src.speak(src.vend_reply)
-			src.last_reply = world.time
+	if(((last_reply + (src.vend_delay + 200)) <= world.time) && vend_reply)
+		INVOKE_ASYNC(src, PROC_REF(speak_on_vend))
 
 	var/obj/item/new_item = release_item(R, vend_delay)
 
 	if(istype(new_item))
 		new_item.on_vend(user, faction, fill_container = TRUE)
 	vend_ready = 1
+
+/obj/machinery/vending/proc/speak_on_vend()
+	speak(vend_reply)
+	last_reply = world.time
 
 /obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0)
 	if(delay_vending)
@@ -649,6 +651,7 @@
 			var/obj/item/storage/S = item_to_stock.loc
 			S.remove_from_storage(item_to_stock, user.loc, user)
 
+	item_to_stock.removed_from_inventory(user)
 	qdel(item_to_stock)
 
 	if(amount >= 0) //R negative means infinite item, no need to restock
@@ -778,8 +781,7 @@
 		break
 	if (!throw_item)
 		return FALSE
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
+	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, 16, 3, src)
 	src.visible_message(span_warning("[src] launches [throw_item.name] at [target]!"))
 	. = TRUE
 
