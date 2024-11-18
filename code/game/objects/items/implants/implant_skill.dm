@@ -96,7 +96,7 @@
 	if(!allowed_limbs)
 		allowed_limbs = GLOB.human_body_parts
 
-/obj/item/implant/skill/try_implant(mob/living/carbon/human/target, var/mob/living/user)
+/obj/item/implant/skill/try_implant(mob/living/carbon/human/target, mob/living/user)
 	if(!ishuman(target))
 		return
 	if(target.zone_selected in implanted == TRUE)
