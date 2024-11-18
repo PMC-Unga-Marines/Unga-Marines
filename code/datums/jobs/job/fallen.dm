@@ -6,7 +6,9 @@
 /datum/job/fallen/return_spawn_type(datum/preferences/prefs)
 	switch(prefs?.species)
 		if("Vatborn")
-			return /mob/living/carbon/human/species/vatborn
+			return /mob/living/carbon/human/species/
+		if("Pigman")
+			return /mob/living/carbon/human/species/pigman
 		else
 			return /mob/living/carbon/human
 

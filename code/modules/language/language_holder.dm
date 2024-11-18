@@ -119,6 +119,9 @@
 /datum/language_holder/robot
 	languages = list(/datum/language/common, /datum/language/machine)
 
+/datum/language_holder/pig
+	languages = list(/datum/language/pig)
+
 /datum/language_holder/synthetic
 	languages = list(/datum/language/common, /datum/language/machine, /datum/language/xenocommon)
 

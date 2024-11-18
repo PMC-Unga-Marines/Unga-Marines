@@ -44,7 +44,7 @@
 
 			else
 				return null
-	else if(S.name == "Vatborn" || S.name == "Early Vat-Grown Human" || S.name == "Vat-Grown Human")
+	else if(S.name == "Vatborn" || S.name == "Pigman" || S.name == "Early Vat-Grown Human" || S.name == "Vat-Grown Human")
 		switch(limb_name)
 			if ("torso", "chest")
 				return "torso_[get_gender_name(gender)]"

@@ -11,5 +11,7 @@
 	switch(prefs?.species)
 		if("Vatborn")
 			return /mob/living/carbon/human/species/vatborn
+		if("Pigman")
+			return /mob/living/carbon/human/species/pigman
 		else
 			return /mob/living/carbon/human

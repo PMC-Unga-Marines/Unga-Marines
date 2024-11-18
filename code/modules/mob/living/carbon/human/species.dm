@@ -358,6 +358,17 @@
 /datum/species/human/vatborn/prefs_name(datum/preferences/prefs)
 	return prefs.real_name
 
+/datum/species/human/pigman
+	name = "Pigman"
+	name_plural = "Pigmans"
+	icobase = 'icons/mob/human_races/r_pigman.dmi'
+	namepool = /datum/namepool/vatborn
+	default_language_holder = /datum/language_holder/pig
+	joinable_roundstart = TRUE
+
+/datum/species/human/vatborn/prefs_name(datum/preferences/prefs)
+	return prefs.real_name
+
 /datum/species/human/vatgrown
 	name = "Vat-Grown Human"
 	name_plural = "Vat-Grown Humans"

@@ -461,6 +461,7 @@
 		<a href='?src=[ref];transform=synthetic;mob=[REF(M)]'>Synthetic</a> |
 		<a href='?src=[ref];transform=early_synth;mob=[REF(M)]'>Early_Synth</a> |
 		<a href='?src=[ref];transform=vatborn;mob=[REF(M)]'>Vatborn</a> |
+		<a href='?src=[ref];transform=pigman;mob=[REF(M)]'>Pigman</a> |
 		<a href='?src=[ref];transform=vatgrown;mob=[REF(M)]'>Vatgrown</a> |
 		<a href='?src=[ref];transform=combat_robot;mob=[REF(M)]'>Combat_Robot</a> |
 		<a href='?src=[ref];transform=monkey;mob=[REF(M)]'>Monkey</a> |
