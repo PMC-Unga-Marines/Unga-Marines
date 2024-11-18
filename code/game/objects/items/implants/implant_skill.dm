@@ -11,7 +11,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
-	var/obj/item/implant/imp = /obj/item/implant/skill
+	var/obj/item/implant/internal_implant = /obj/item/implant/skill
 	var/allowed_limbs
 
 /obj/item/implantator/Initialize(mapload, ...)
