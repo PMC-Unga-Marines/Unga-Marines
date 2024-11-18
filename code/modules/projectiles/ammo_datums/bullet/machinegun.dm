@@ -108,6 +108,14 @@
 	hud_state_empty = "smartgun_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
-	damage = 25
-	penetration = -15
+	damage = 10
+	penetration = 20
 	damage_falloff = 0.1
+	var/shatter_duration = 3 SECONDS
+
+/datum/ammo/bullet/smart_minigun/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
