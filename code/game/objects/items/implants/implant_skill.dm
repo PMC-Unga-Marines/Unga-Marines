@@ -115,7 +115,7 @@
 	implantated(target, user)
 	return
 
-/obj/item/implant/skill/proc/implantated(mob/living/carbon/human/target, var/mob/living/user)
+/obj/item/implant/skill/proc/implantated(mob/living/carbon/human/target, mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
 	forceMove(target)
 	implant_owner = target
