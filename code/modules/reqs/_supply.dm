@@ -735,6 +735,13 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/radiopack
 		return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
+
+		if(istype(H.job, /datum/job/fallen))
+			//just in case
+			internal_transmitter.phone_id = "[src]"
+			internal_transmitter.enabled = FALSE
+			return
+
 		if(H.comm_title)
 			internal_transmitter.phone_id = "[H.comm_title] [H]"
 		else if(H.job)
