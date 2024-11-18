@@ -11,16 +11,17 @@
 /datum/supply_packs/supplies/provision
 	name = "Emergency Provision Crate"
 	notes = "Contains 10 special TGMC MRE racions."
-	contains = list(/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE,
-	/obj/item/storage/box/MRE
+	contains = list(
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
 	)
 	containertype = /obj/structure/closet/crate/operations
 	cost = 65
