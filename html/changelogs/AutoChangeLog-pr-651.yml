@@ -1,0 +1,5 @@
+author: "Dark-Umbrella"
+delete-after: True
+changes:
+  - rscadd: "Добавил handheld charger в инженерный раздел карго за 85 пойнтов."
+  - rscadd: "Добавил Emergency Provision Crate (EPC) с 10 МРЕ внутри в раздел снабжения карго за 65 пойнтов."
