@@ -37,7 +37,7 @@
 	custom_metabolism = REAGENTS_METABOLISM * 0.1
 
 #define green_mucus_brute_heal 4
-#define green_mucus_tox_damage 1
+#define green_mucus_tox_damage 1.5
 #define green_mucus_fire_damage 2
 
 /datum/reagent/xeno_extract/green_mucus/on_mob_life(mob/living/L, metabolism)
