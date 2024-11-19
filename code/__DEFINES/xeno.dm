@@ -219,10 +219,7 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 	/datum/status_effect/upgrade_trail,
 ))
 
-#define	XENO_UPGRADE_BIOMASS_COST_T1 10
-#define	XENO_UPGRADE_BIOMASS_COST_T2 15
-#define	XENO_UPGRADE_BIOMASS_COST_T3 20
-#define	XENO_UPGRADE_BIOMASS_COST_T4 25
+#define	XENO_UPGRADE_COST 25
 
 #define CHARGE_SPEED(charger) (min(charger.valid_steps_taken, charger.max_steps_buildup) * charger.speed_per_step)
 #define CHARGE_MAX_SPEED (speed_per_step * max_steps_buildup)

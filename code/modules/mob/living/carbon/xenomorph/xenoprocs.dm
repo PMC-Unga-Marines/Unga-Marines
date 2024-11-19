@@ -659,16 +659,7 @@
 	get_upgrades(src)
 
 /mob/living/carbon/xenomorph/proc/get_upgrades(mob/living/carbon/xenomorph/user)
-	var/upgrade_price
-	switch(xeno_caste.tier)
-		if(XENO_TIER_ONE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T1
-		if(XENO_TIER_TWO)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
-		if(XENO_TIER_THREE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
-		else
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
+	var/upgrade_price = XENO_UPGRADE_COST
 	var/dat = "<div align='center'>"
 
 	dat += "<hr>Active Upgrade Chambers:"
@@ -702,17 +693,7 @@
 	if(incapacitated(TRUE))
 		to_chat(usr, span_warning("Cant do that right now!"))
 		return
-	var/upgrade_price
-	switch(xeno_caste.tier)
-		if(XENO_TIER_ONE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T1
-		if(XENO_TIER_TWO)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
-		if(XENO_TIER_THREE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
-		else
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
-	if(biomass < upgrade_price)
+	if(biomass < XENO_UPGRADE_COST)
 		to_chat(usr, span_warning("You dont have enough biomass!"))
 		return
 	var/upgrade = locate(upgrade_to_apply) in status_effects
@@ -720,12 +701,14 @@
 		to_chat(usr, span_xenonotice("Existing mutation chosen. No biomass spent."))
 		DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
 		return
-	biomass -= upgrade_price
+	biomass -= XENO_UPGRADE_COST
 	to_chat(usr, span_xenonotice("Mutation gained."))
 	for(var/datum/status_effect/S AS in upgrades_to_remove)
 		remove_status_effect(S)
+		upgrades_holder.Remove(S.type)
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)
+	upgrades_holder.Add(upgrade_to_apply.type)
 	DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
 
 //Special override case. May not call the parent.

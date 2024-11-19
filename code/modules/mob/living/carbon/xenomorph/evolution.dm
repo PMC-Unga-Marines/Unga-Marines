@@ -168,6 +168,9 @@
 		qdel(new_xeno.hunter_data)
 		new_xeno.hunter_data = hunter_data
 		hunter_data = null
+	new_xeno.upgrades_holder = upgrades_holder
+	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
+		new_xeno.apply_status_effect(S)
 	transfer_observers_to(new_xeno)
 
 	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
