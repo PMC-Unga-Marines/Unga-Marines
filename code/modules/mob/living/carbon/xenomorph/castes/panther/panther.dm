@@ -44,6 +44,7 @@
 	desc = "This is Panther heart... Wait, what?"
 	icon = 'icons/obj/items/drinks.dmi'
 	icon_state = "pantherheart"
+	base_icon_state = "pantherheart"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 0
 	throwforce = 0
@@ -54,7 +55,7 @@
 
 /obj/item/reagent_containers/food/drinks/pantherheart/on_reagent_change()
 	if(!reagents.total_volume)
-		icon_state = "pantherheart_e"
+		icon_state = base_icon_state + "_e"
 
 /mob/living/carbon/xenomorph/panther/on_death()
 	. = ..()

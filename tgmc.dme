@@ -1920,6 +1920,7 @@
 #include "code\modules\reagents\reagents\medical.dm"
 #include "code\modules\reagents\reagents\other.dm"
 #include "code\modules\reagents\reagents\toxin.dm"
+#include "code\modules\reagents\reagents\xeno_extract.dm"
 #include "code\modules\recycling\conveyor2.dm"
 #include "code\modules\recycling\disposal-construction.dm"
 #include "code\modules\recycling\disposal.dm"

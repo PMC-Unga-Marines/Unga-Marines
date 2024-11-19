@@ -23,3 +23,33 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+	extract_rewards = list(
+		/obj/item/stack/sheet/resin/big_stack,
+	)
+
+/obj/item/stack/sheet/resin
+	name = "resin"
+	desc = "Sheets made out of xeno resin."
+	singular_name = "resin sheet"
+	icon_state = "sheet-resin"
+	item_state = "sheet-resin"
+	flags_item = NOBLUDGEON
+	throwforce = 14
+	flags_atom = CONDUCT
+	merge_type = /obj/item/stack/sheet/resin
+	number_of_extra_variants = 3
+
+/obj/item/stack/sheet/resin/big_stack
+	amount = 50
+
+/obj/item/stack/sheet/resin/attack_self(mob/user)
+	. = ..()
+	create_object(user, new/datum/stack_recipe("resin barricade", /obj/structure/barricade/metal/resin, 5, time = 8 SECONDS, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE, skill_req = SKILL_CONSTRUCTION_METAL), 1)
+
+/obj/structure/barricade/metal/resin
+	name = "resin barricade"
+	desc = "Barricade made out of xeno resin."
+	icon_state = "resin_0"
+	barricade_type = "resin"
+	max_integrity = 600
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 100, BIO = 100, FIRE = 100, ACID = 100)

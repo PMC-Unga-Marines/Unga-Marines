@@ -66,6 +66,48 @@
 
 	return ..()
 
+/obj/item/tool/research/xeno_extractor
+	name = "xenomorph extractor"
+	desc = "A tool for extracting xenomorph bio matter. Just click on a xenomorph."
+	icon = 'icons/obj/items/surgery_tools.dmi'
+	icon_state = "alien_saw"
+
+/obj/item/tool/research/xeno_extractor/attack(mob/living/M, mob/living/user)
+	if(!isxeno(M))
+		return ..()
+
+	var/mob/living/carbon/xenomorph/target_xeno = M
+
+	var/list/xeno_rewards = target_xeno.extract_rewards
+	if(!xeno_rewards)
+		balloon_alert(user, "Can't research")
+		return ..()
+
+	if(HAS_TRAIT(target_xeno, TRAIT_RESEARCHED))
+		balloon_alert(user, "Already probed")
+		return ..()
+
+	if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_EXPERT)
+		user.balloon_alert_to_viewers("Tries to find weak point on [target_xeno]")
+		var/fumbling_time = 15 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_MEDICAL)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
+			return ..()
+	user.balloon_alert_to_viewers("Begins cutting [target_xeno]")
+	if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
+		return ..()
+
+	if(HAS_TRAIT(target_xeno, TRAIT_RESEARCHED))
+		balloon_alert(user, "Already probed")
+		return ..()
+
+	for(var/reward_typepath in xeno_rewards)
+		var/obj/reward = new reward_typepath
+		reward.forceMove(get_turf(user))
+
+	ADD_TRAIT(target_xeno, TRAIT_RESEARCHED, TRAIT_RESEARCHED)
+
+	return ..()
+
 #undef RESEARCH_DELAY
 
 /obj/item/tool/research/excavation_tool

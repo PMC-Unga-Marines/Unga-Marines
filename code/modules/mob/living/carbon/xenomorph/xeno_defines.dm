@@ -432,6 +432,9 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/interference = 0 // Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
 	var/talk_sound = "alien_talk"  // sound when talking
 
+	//researcher extract
+	var/list/extract_rewards
+
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)
 
 	///The resting cooldown
