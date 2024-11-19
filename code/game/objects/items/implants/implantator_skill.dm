@@ -15,6 +15,7 @@
 	var/allowed_limbs
 
 /obj/item/implantator/Initialize(mapload, ...)
+	. = ..()
 	name = name + " implanter"
 	desc = internal_implant.desc
 	if(internal_implant)
@@ -31,6 +32,7 @@
 	. += "it contains [internal_implant ? "a [internal_implant.name]" : "no implant"]!"
 
 /obj/item/implantator/attack(mob/target, mob/user)
+	. = ..()
 	if(!ishuman(target))
 		return FALSE
 	if(!internal_implant)
