@@ -311,7 +311,7 @@
 #define isstealobjective(O) (istype(O, /datum/objective/steal))
 #define isassassinateobjective(O) (istype(O, /datum/objective/assassinate))
 
-#define isresearcher(A) (ishuman(A) && A.job.title == "Medical Researcher")
+#define isresearcher(A) (ishuman(A) && A.job.title == "Field Researcher")
 #define isyautja(H) (is_species(H, /datum/species/yautja))
 
 #define ispredatorjob(J) (istype(J, /datum/job/predator))
