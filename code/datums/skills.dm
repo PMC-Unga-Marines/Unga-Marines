@@ -297,6 +297,10 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	pistols = SKILL_PISTOLS_TRAINED
 	police = SKILL_POLICE_MP
 
+/datum/skills/marine
+	name = SQUAD_MARINE
+	medical = SKILL_MEDICAL_NOVICE
+
 /datum/skills/combat_engineer
 	name = SQUAD_ENGINEER
 	engineer = SKILL_ENGINEER_ENGI

@@ -40,10 +40,10 @@
 		M.balloon_alert(user, "There is nothing in limb!")
 		return
 	var/skill = user.skills.getRating(SKILL_MEDICAL)
-	if(skill < SKILL_MEDICAL_PRACTICED)
+	if(skill < SKILL_MEDICAL_NOVICE)
 		user.visible_message(span_notice("[user] fumbles around with the [removaltool]."),
 		span_notice("You fumble around figuring out how to use [removaltool]."))
-		if(!do_after(user, fumble_duration * (SKILL_MEDICAL_PRACTICED - skill), NONE, target, BUSY_ICON_UNSKILLED))
+		if(!do_after(user, fumble_duration * (SKILL_MEDICAL_NOVICE - skill), NONE, target, BUSY_ICON_UNSKILLED))
 			return
 	user.visible_message(span_green("[user] starts searching for shrapnel in [target] with the [removaltool]."), span_green("You start searching for shrapnel in [target] with the [removaltool]."))
 	if(!do_after(user, do_after_time, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
@@ -71,9 +71,9 @@
 		if(is_type_in_list(I, GLOB.known_implants))
 			continue
 		I.unembed_ourself(FALSE)
-		if(skill < SKILL_MEDICAL_PRACTICED)
+		if(skill < SKILL_MEDICAL_NOVICE)
 			user.visible_message(span_notice("[user] violently rips out [I] from [target]!"), span_notice("You violently rip out [I] from [target]!"))
-			targetlimb.take_damage_limb(5 + additional_damage * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
+			targetlimb.take_damage_limb(5 + additional_damage * (SKILL_MEDICAL_NOVICE - skill), 0, FALSE, FALSE)
 		else
 			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
 			targetlimb.take_damage_limb(rand(3, 7), 0, FALSE, FALSE)

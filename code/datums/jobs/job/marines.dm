@@ -32,6 +32,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	display_order = JOB_DISPLAY_ORDER_SQUAD_MARINE
 	outfit = /datum/outfit/job/marine/standard
 	total_positions = -1
+	skills_type = /datum/skills/marine
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,

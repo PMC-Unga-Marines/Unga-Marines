@@ -90,7 +90,7 @@
 
 //medical skill
 #define SKILL_MEDICAL_UNTRAINED 0
-#define SKILL_MEDICAL_NOVICE 1 //Premed or paramedic. Recognizing chemicals. SL, survivors.
+#define SKILL_MEDICAL_NOVICE 1
 #define SKILL_MEDICAL_PRACTICED 2 //Beginning intern, Squad Corpsman, IO.
 #define SKILL_MEDICAL_COMPETENT 3 //General practitioner. Survivor doc, early synth.
 #define SKILL_MEDICAL_EXPERT 4 //Surgeons. CMO, MO, synth.
