@@ -81,3 +81,41 @@
 		I.forceMove(src)
 		imp = I
 		update_icon()
+
+/obj/item/implantcase/cargo
+	name = "glass implant case"
+	desc = "A case containing an implant."
+	icon = 'icons/obj/items/implants.dmi'
+	icon_state = "implantcase-0"
+	var/obj/item/implant/skill/internal_implant
+
+/obj/item/implantcase/cargo/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/implantator))
+		var/obj/item/implantator/M = I
+
+		if(!do_after(user, 5 SECONDS, NONE, user, BUSY_ICON_GENERIC))
+			to_chat(user, span_notice("You stop transfering [internal_implant]"))
+			return FALSE
+
+		if(M.internal_implant)
+			if((internal_implant || M.internal_implant.implanted))
+				return
+			M.internal_implant.forceMove(src)
+			internal_implant = M.internal_implant
+			M.internal_implant = null
+
+		if(internal_implant)
+			if(M.internal_implant)
+				return
+			internal_implant.forceMove(M)
+			M.internal_implant = internal_implant
+			internal_implant = null
+			update_icon()
+			M.update_icon()
+
+	else if(istype(I, /obj/item/implant/skill))
+		user.temporarilyRemoveItemFromInventory(I)
+		I.forceMove(src)
+		internal_implant = I
+		update_icon()
