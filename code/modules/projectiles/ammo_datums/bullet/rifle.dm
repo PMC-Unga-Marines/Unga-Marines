@@ -51,7 +51,7 @@
 /datum/ammo/bullet/rifle/heavy
 	name = "heavy rifle bullet"
 	hud_state = "rifle_heavy"
-	damage = 30
+	damage = 40
 	damage_falloff = 2
 	penetration = 10
 	additional_xeno_penetration = 15
@@ -65,7 +65,7 @@
 
 /datum/ammo/bullet/rifle/heavy/ap
 	name = "armor-piercing heavy rifle bullet"
-	damage = 25
+	damage = 30
 	penetration = 25
 	additional_xeno_penetration = 20
 
