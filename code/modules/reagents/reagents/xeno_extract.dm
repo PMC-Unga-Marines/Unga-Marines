@@ -40,7 +40,7 @@
 #define green_mucus_tox_damage 1
 #define green_mucus_fire_damage 2
 
-/datum/reagent/toxin/green_mucus/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/xeno_extract/green_mucus/on_mob_life(mob/living/L, metabolism)
 	var/brute_loss = L.getBruteLoss(TRUE)
 	if(brute_loss < 4)
 		return ..()
