@@ -17,11 +17,11 @@
 	return ..()
 
 /datum/reagent/xeno_extract/red_mucus/on_mob_add(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
+	to_chat(L, span_userdanger("You feel like you're being pumped full of jelly."))
 	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.6)
 
 /datum/reagent/xeno_extract/red_mucus/on_mob_delete(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("Your nanites have been fully purged! They no longer affect you."))
+	to_chat(L, span_userdanger("You feel the mucus leaving."))
 	L.remove_movespeed_modifier(type)
 
 /datum/reagent/xeno_extract/red_mucus/overdose_process(mob/living/L, metabolism)
@@ -36,9 +36,9 @@
 	color = COLOR_REAGENT_GREENMUCUS
 	custom_metabolism = REAGENTS_METABOLISM * 0.1
 
-#define green_mucus_brute_heal 4
-#define green_mucus_tox_damage 1.5
-#define green_mucus_fire_damage 2
+#define GREEN_MUCUS_BRUTE_HEAL 4
+#define GREEN_MUCUS_TOX_DAMAGE 1.5
+#define GREEN_MUCUS_FIRE_DAMAGE 2
 
 /datum/reagent/xeno_extract/green_mucus/on_mob_life(mob/living/L, metabolism)
 	var/brute_loss = L.getBruteLoss(TRUE)
@@ -48,12 +48,12 @@
 	if(prob(10))
 		to_chat(L, span_warning("You notice your wounds crusting over with disgusting green ichor.") )
 
-	L.heal_limb_damage(brute = green_mucus_brute_heal, updating_health = TRUE)
-	L.adjustToxLoss(green_mucus_tox_damage)
-	L.adjustFireLoss(green_mucus_fire_damage)
+	L.heal_limb_damage(brute = GREEN_MUCUS_BRUTE_HEAL, updating_health = TRUE)
+	L.adjustToxLoss(GREEN_MUCUS_TOX_DAMAGE)
+	L.adjustFireLoss(GREEN_MUCUS_FIRE_DAMAGE)
 
 	return ..()
 
-#undef green_mucus_brute_heal
-#undef green_mucus_tox_damage
-#undef green_mucus_fire_damage
+#undef GREEN_MUCUS_BRUTE_HEAL
+#undef GREEN_MUCUS_TOX_DAMAGE
+#undef GREEN_MUCUS_FIRE_DAMAGE

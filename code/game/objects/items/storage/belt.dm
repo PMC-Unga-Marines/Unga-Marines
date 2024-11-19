@@ -331,7 +331,6 @@
 	new /obj/item/tool/research/excavation_tool(src)
 	new /obj/item/tool/research/xeno_analyzer(src)
 	new /obj/item/tool/research/xeno_extractor(src)
-	new /obj/item/tool/research/xeno_extractor
 	new /obj/item/healthanalyzer(src)
 
 /obj/item/storage/belt/hypospraybelt
