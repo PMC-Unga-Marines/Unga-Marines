@@ -53,3 +53,5 @@
 	barricade_type = "resin"
 	max_integrity = 600
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 100, BIO = 100, FIRE = 100, ACID = 100)
+	resistance_flags = UNACIDABLE
+	can_upgrade = FALSE
