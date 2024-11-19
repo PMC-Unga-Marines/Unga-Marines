@@ -299,7 +299,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/marine
 	name = SQUAD_MARINE
-	medical = SKILL_MEDICAL_NOVICE
+	medical = SKILL_MEDICAL_CRAYON
 
 /datum/skills/combat_engineer
 	name = SQUAD_ENGINEER
