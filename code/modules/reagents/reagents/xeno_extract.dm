@@ -6,7 +6,7 @@
 
 /datum/reagent/xeno_extract/red_mucus
 	name = "Red mucus"
-	description = "A bunch of red slime"
+	description = "A bunch of red slime."
 	color = COLOR_REAGENT_REDMUCUS
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
 
