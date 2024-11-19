@@ -98,7 +98,7 @@
 	allowed_limbs = list(BODY_ZONE_HEAD)
 	internal_implant = /obj/item/implant/skill/oper_system
 
-/obj/item/implantator/leadership
+/obj/item/implantator/oper_system/leadership
 	name = "command protocols 'Graiyor' codex"
 	icon_state = "leadership1"
 	internal_implant = /obj/item/implant/skill/oper_system/leadership

@@ -27,15 +27,9 @@
 	var/large_vehicle
 	var/stamina
 
-/obj/item/implant/skill/proc/starting(mapload)
+/obj/item/implant/skill/on_initialize()
+	. = ..()
 	name = name + " implant"
-	if(flags_implant & GRANT_ACTIVATION_ACTION)
-		activation_action = new(src, src)
-	if(allow_reagents)
-		reagents = new /datum/reagents(MAX_IMPLANT_REAGENTS)
-		reagents.my_atom = WEAKREF(src)
-	if(!allowed_limbs)
-		allowed_limbs = GLOB.human_body_parts
 
 /obj/item/implant/skill/try_implant(mob/living/carbon/human/target, mob/living/user)
 	if(!ishuman(target))
@@ -73,11 +67,6 @@
 	unimplant()
 
 /obj/item/implant/skill/unimplant()
-	if(!implanted)
-		return FALSE
-	activation_action?.remove_action(implant_owner)
-	if(flags_implant & ACTIVATE_ON_HEAR)
-		UnregisterSignal(src, COMSIG_MOVABLE_HEAR)
 	implanted = FALSE
 	part.implants -= src
 	part = null
