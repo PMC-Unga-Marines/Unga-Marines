@@ -11,7 +11,7 @@
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
 
 /datum/reagent/xeno_extract/red_mucus/on_mob_life(mob/living/L, metabolism)
-	L.adjustStaminaLoss(effect_str * 0.5)
+	L.adjustStaminaLoss(effect_str * -0.5)
 	L.adjustDrowsyness(-1 SECONDS)
 	L.AdjustUnconscious(-2 SECONDS)
 	return ..()

@@ -104,13 +104,12 @@
 	name = "\improper crusher skin shield"
 	desc = "Shield made from crusher armor, very durable and heavy. A REAL man's trophy!!!"
 	icon_state = "crusher_shield"
-	flags_equip_slot = ITEM_SLOT_BACK
 	max_integrity = 600
 	integrity_failure = 0
 	soft_armor = list(MELEE = 75, BULLET = 100, LASER = 100, ENERGY = 50, BOMB = 90, BIO = 50, FIRE = 50, ACID = 95)
 	hard_armor = list(MELEE = 0, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
-	force = 60
-	slowdown = 0.8
+	force = 50
+	slowdown = 1 //heavy
 	sheet_type = /obj/item/stack/sheet/resin
 
 /obj/item/weapon/shield/riot/marine/crusher/set_shield()

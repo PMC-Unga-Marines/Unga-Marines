@@ -16,3 +16,12 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+	extract_rewards = list(
+		/obj/item/reagent_containers/food/drinks/pantherheart/sentinel/spitter,
+	)
+
+/obj/item/reagent_containers/food/drinks/pantherheart/sentinel/spitter
+	name = "Spitter gland"
+	desc = "This is spitter gland. Stings when touched"
+	volume = 40
+	list_reagents = list(/datum/reagent/xeno_extract/green_mucus = 40)
