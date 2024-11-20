@@ -61,7 +61,7 @@
 			return
 
 		if(sheets.get_amount() < 1)
-			to_chat(user, span_warning("You need one metal sheet to restore the structural integrity of [src]."))
+			to_chat(user, span_warning("You need one [sheets.singular_name] to restore the structural integrity of [src]."))
 			return
 
 		visible_message(span_notice("[user] begins to restore the structural integrity of [src]."))
