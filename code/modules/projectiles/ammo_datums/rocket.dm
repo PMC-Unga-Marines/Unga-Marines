@@ -61,9 +61,17 @@
 	accurate_range = 15
 	penetration = 200
 	sundering = 0
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 15 SECONDS
 
 /datum/ammo/rocket/ap/drop_nade(turf/T)
 	cell_explosion(T, 50, 25)
+
+/datum/ammo/rocket/ap/on_hit_mob(mob/M, obj/projectile/P)
+	if(!isliving(M))
+		return
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/rocket/ltb
 	name = "cannon round"
@@ -242,9 +250,17 @@
 	damage = 200
 	penetration = 100
 	sundering = 0
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 12 SECONDS
 
 /datum/ammo/rocket/recoilless/heat/drop_nade(turf/T)
 	cell_explosion(T, 50, 25)
+
+/datum/ammo/rocket/recoilless/heat/on_hit_mob(mob/M, obj/projectile/P)
+	if(!isliving(M))
+		return
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/rocket/recoilless/heat/mech //for anti mech use in HvH
 	name = "HEAM shell"
@@ -375,6 +391,14 @@
 	sundering = 0
 	accuracy = -10 //Not designed for anti human use
 	flags_ammo_behavior = AMMO_SNIPER|AMMO_UNWIELDY
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 12 SECONDS
+
+/datum/ammo/rocket/som/heat/on_hit_mob(mob/M, obj/projectile/P)
+	if(!isliving(M))
+		return
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/rocket/som/heat/on_hit_obj(obj/O, obj/projectile/P)
 	drop_nade(get_turf(O))
