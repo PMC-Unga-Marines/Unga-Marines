@@ -391,7 +391,7 @@
 /obj/item/weapon/combat_knife/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/scalping)
-	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 12 SECONDS, 10)
+	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 2 SECONDS, 10)
 
 /obj/item/weapon/combat_knife/upp
 	name = "\improper Type 30 survival knife"
