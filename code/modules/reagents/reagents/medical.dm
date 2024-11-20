@@ -1722,8 +1722,8 @@
 				return
 			our_human.adjustOxyLoss(3)
 			var/mob/living/carbon/human/damage = our_human
-			var/datum/internal_organ/heart/our_living = damage.get_organ_slot(ORGAN_SLOT_HEART)
-			our_living?.take_damage(1.5, TRUE)
+			var/datum/internal_organ/heart/our_heart = damage.get_organ_slot(ORGAN_SLOT_HEART)
+			our_heart?.take_damage(1.5, TRUE)
 
 /datum/reagent/mastac/on_mob_delete(mob/living/our_living, metabolism)
 	to_chat(our_living, span_userdanger("It seems that something has stopped pushing your heart with force."))
