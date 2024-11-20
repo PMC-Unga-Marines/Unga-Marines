@@ -1697,32 +1697,32 @@
 		/datum/reagent/medicine/peridaxon_plus,
 	)
 
-/datum/reagent/mastac/on_mob_add(mob/living/our_human, metabolism)
-	our_human.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
-	to_chat(our_human, span_userdanger("You feel like your heart could stop at any moment."))
+/datum/reagent/mastac/on_mob_add(mob/living/our_living, metabolism)
+	our_living.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
+	to_chat(our_living, span_userdanger("You feel like your heart could stop at any moment."))
 
-/datum/reagent/mastac/on_mob_life(mob/living/our_human, metabolism)
+/datum/reagent/mastac/on_mob_life(mob/living/our_living, metabolism)
 	. = ..()
 	if(volume < 1)
-		our_human.reagents.add_reagent(/datum/reagent/toxin/xeno_hemodile, 10)
+		our_living.reagents.add_reagent(/datum/reagent/toxin/xeno_hemodile, 10)
 		return //antiduplicate
 
 	if(volume < 5)
-		our_human.reagents.add_reagent(/datum/reagent/mastac, 0.5)
+		our_living.reagents.add_reagent(/datum/reagent/mastac, 0.5)
 	switch(current_cycle)
 		if(1 to 40)
-			our_human.adjustStaminaLoss((4) * effect_str)
-			our_human.jitter(2)
+			our_living.adjustStaminaLoss((4) * effect_str)
+			our_living.jitter(2)
 		if(3)
-			to_chat(our_human, span_notice("Your heart is jumping out of your chest."))
+			to_chat(our_living, span_notice("Your heart is jumping out of your chest."))
 		if(41)
-			to_chat(our_human, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard."))
+			to_chat(our_living, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard."))
 		if(45 to INFINITY)
 			if(prob(99))
 				return
-			our_human.adjustOxyLoss(3)
-			var/mob/living/carbon/human/damage = our_human
-			var/datum/internal_organ/heart/our_heart = damage.get_organ_slot(ORGAN_SLOT_HEART)
+			our_living.adjustOxyLoss(3)
+			var/mob/living/carbon/human/our_human = our_living
+			var/datum/internal_organ/heart/our_heart = our_human.get_organ_slot(ORGAN_SLOT_HEART)
 			our_heart?.take_damage(1.5, TRUE)
 
 /datum/reagent/mastac/on_mob_delete(mob/living/our_living, metabolism)
