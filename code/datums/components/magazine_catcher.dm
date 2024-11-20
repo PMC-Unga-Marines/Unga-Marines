@@ -43,4 +43,6 @@
 /datum/component/magazine_catcher/proc/try_to_catch_magazine(datum/source, obj/item/mag)
 	if(!storage.can_be_inserted(mag, FALSE))
 		return FALSE
+	if(!storage.auto_catch)
+		return FALSE
 	return storage.handle_item_insertion(mag, TRUE)
