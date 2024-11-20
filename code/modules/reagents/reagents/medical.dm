@@ -1699,7 +1699,7 @@
 
 /datum/reagent/mastac/on_mob_add(mob/living/our_human, metabolism)
 	our_human.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
-	to_chat(our_human, span_userdanger("You feel like your heart will stop at any second."))
+	to_chat(our_human, span_userdanger("You feel like your heart could stop at any moment."))
 
 /datum/reagent/mastac/on_mob_life(mob/living/our_human, metabolism)
 	. = ..()
