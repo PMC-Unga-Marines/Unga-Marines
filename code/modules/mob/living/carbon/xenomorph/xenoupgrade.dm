@@ -158,6 +158,9 @@
 /mob/living/carbon/xenomorph/ravager/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
+/mob/living/carbon/xenomorph/ravager/bloodthirster/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
 //----RAVAGER END----//
 //================//
 //RAVAGER ERT START

@@ -132,33 +132,5 @@
 		emote("roar")
 		to_chat(src, span_xenodanger("The heat of the fire roars in our veins! KILL! CHARGE! DESTROY!"))
 
-// ***************************************
-// *********** Ability related
-// ***************************************
-/mob/living/carbon/xenomorph/ravager/get_crit_threshold()
-	. = ..()
-	if(!endure)
-		return
-	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
-	return endure_ability.endure_threshold
-
-/mob/living/carbon/xenomorph/ravager/get_death_threshold()
-	. = ..()
-	if(!endure)
-		return
-	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
-	return endure_ability.endure_threshold
-
-/mob/living/carbon/xenomorph/ravager/med_hud_set_health()
-	var/image/holder = hud_list[HEALTH_HUD_XENO]
-	if(!holder)
-		return
-	holder.icon = 'icons/mob/hud/xeno_health.dmi'
-	if(stat == DEAD)
-		holder.icon_state = "xenohealth0"
-		return
-
-	var/amount = health > 0 ? round(health * 100 / maxHealth, 10) : CEILING(health, 10)
-	if(!amount && health < 0)
-		amount = -1 //don't want the 'zero health' icon when we are crit
-	holder.icon_state = "ravagerhealth[amount]"
+/mob/living/carbon/xenomorph/ravager/bloodthirster
+		caste_base_type = /datum/xeno_caste/ravager/bloodthirster
