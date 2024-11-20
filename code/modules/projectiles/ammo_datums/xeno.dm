@@ -37,12 +37,13 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	spit_cost = 55
 	added_spit_delay = 0
+	shell_speed = 1.5
 	damage_type = STAMINA
 	accurate_range = 5
 	max_range = 10
 	accuracy_var_low = 3
 	accuracy_var_high = 3
-	damage = 40
+	damage = 35
 	stagger_stacks = 1.1 SECONDS
 	slowdown_stacks = 1.5
 	smoke_strength = 0.5
@@ -117,7 +118,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "neurotoxic splash"
 	added_spit_delay = 0
 	spit_cost = 200
-	damage = 80
+	damage = 70
 	smoke_strength = 1
 	reagent_transfer_amount = 18
 	smoke_range = 1
@@ -126,6 +127,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "toxin spit"
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
 	spit_cost = 50
+	shell_speed = 1.5
 	added_spit_delay = 0
 	damage_type = STAMINA
 	accurate_range = 5
@@ -247,7 +249,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	spit_cost = 50
 	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF
 	armor_type = ACID
-	damage = 18
+	damage = 14
+	shell_speed = 1.5
 	max_range = 8
 	bullet_color = COLOR_PALE_GREEN_GRAY
 	///Duration of the acid puddles
@@ -265,7 +268,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/acid/medium
 	name = "acid spatter"
-	damage = 30
+	damage = 25
 	flags_ammo_behavior = AMMO_XENO
 	icon_state = "xeno_acid_normal"
 	bullet_color = COLOR_VERY_PALE_LIME_GREEN
@@ -280,7 +283,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/acid/auto
 	name = "light acid spatter"
-	damage = 10
+	damage = 8
 	damage_falloff = 0.3
 	spit_cost = 25
 	added_spit_delay = 0
@@ -301,14 +304,14 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/acid/passthrough
 	name = "acid spittle"
-	damage = 20
+	damage = 16
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/heavy
 	name = "acid splash"
 	added_spit_delay = 2
 	spit_cost = 70
-	damage = 30
+	damage = 25
 	icon_state = "xeno_acid_strong"
 	bullet_color = COLOR_ASSEMBLY_YELLOW
 
@@ -349,6 +352,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 ///For the Spitter's Scatterspit ability
 /datum/ammo/xeno/acid/heavy/scatter
 	damage = 20
+	shell_speed = 1
 	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	bonus_projectiles_type = /datum/ammo/xeno/acid/heavy/scatter
 	bonus_projectiles_amount = 6
