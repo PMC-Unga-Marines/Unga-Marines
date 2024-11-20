@@ -364,6 +364,8 @@
 	icobase = 'icons/mob/human_races/r_pigman.dmi'
 	namepool = /datum/namepool/vatborn
 	default_language_holder = /datum/language_holder/pig
+
+	warcries = list(MALE = "pigman_warcry", FEMALE = "pigman_warcry")
 	joinable_roundstart = TRUE
 
 /datum/species/human/vatborn/prefs_name(datum/preferences/prefs)

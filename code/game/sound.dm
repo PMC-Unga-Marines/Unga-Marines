@@ -391,6 +391,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if("robot_female_laugh")
 			S = pick('sound/voice/robotic/female_laugh1.ogg', 'sound/voice/robotic/female_laugh2.ogg', 'sound/voice/robotic/female_laugh3.ogg', 'sound/voice/robotic/female_laugh4.ogg', 'sound/voice/robotic/female_laugh5.ogg', 'sound/voice/robotic/female_laugh6.ogg', 'sound/voice/robotic/female_laugh7.ogg', )
 
+		//pigman
+		if("pigman_warcry")
+			S = 'sound/voice/pigman/pigman_warcry.ogg'
+
 		//yautja race
 		if("pred_scream")
 			S = pick('sound/voice/predator/roar1.ogg','sound/voice/predator/roar2.ogg','sound/voice/predator/roar3.ogg','sound/voice/predator/roar4.ogg','sound/voice/predator/roar5.ogg')
