@@ -1714,9 +1714,9 @@
 			our_human.adjustStaminaLoss((4) * effect_str)
 			our_human.jitter(2)
 		if(3)
-			to_chat(our_human, span_notice("Your heart is jumping out of your chest"))
+			to_chat(our_human, span_notice("Your heart is jumping out of your chest."))
 		if(41)
-			to_chat(our_human, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard"))
+			to_chat(our_human, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard."))
 		if(45 to INFINITY)
 			if(prob(99))
 				return
