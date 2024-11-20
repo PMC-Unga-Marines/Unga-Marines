@@ -626,7 +626,7 @@
 		to_chat(usr, "Clicking [src] with an empty hand now opens the pouch storage menu.")
 
 /obj/item/storage/holster/belt/pistol/verb/toggle_auto_catch()
-	set name = "Toggle Auto Catching Empty Magazines"
+	set name = "Toggle Auto Catching Magazines"
 	set category = "Object"
 	auto_catch = !auto_catch
 	if(!auto_catch)
