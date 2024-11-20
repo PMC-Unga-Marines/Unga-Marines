@@ -57,3 +57,31 @@
 #undef GREEN_MUCUS_BRUTE_HEAL
 #undef GREEN_MUCUS_TOX_DAMAGE
 #undef GREEN_MUCUS_FIRE_DAMAGE
+
+#define BLACK_MUCUS_PUNCH_BONUS 100
+
+/datum/reagent/xeno_extract/black_mucus
+	name = "Black mucus"
+	description = "A bunch of black slime"
+	color = COLOR_REAGENT_BLACKMUCUS
+	custom_metabolism = REAGENTS_METABOLISM * 0.005
+
+/datum/reagent/xeno_extract/black_mucus/on_mob_life(mob/living/L, metabolism)
+	if(!ishuman(L) || L.bodytemperature <= 169)
+		holder.remove_reagent(type, volume) //By default it slowly disappears.
+		return
+	return ..()
+
+/datum/reagent/xeno_extract/black_mucus/on_mob_add(mob/living/L, metabolism)
+	to_chat(L, span_userdanger("You feel much stronger."))
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		H.melee_damage += BLACK_MUCUS_PUNCH_BONUS
+
+/datum/reagent/xeno_extract/black_mucus/on_mob_delete(mob/living/L, metabolism)
+	to_chat(L, span_userdanger("You feel weak."))
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		H.melee_damage -= BLACK_MUCUS_PUNCH_BONUS
+
+#undef BLACK_MUCUS_PUNCH_BONUS

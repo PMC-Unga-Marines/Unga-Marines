@@ -32,6 +32,7 @@
 	hit_sound = 'sound/effects/grillehit.ogg'
 	destroy_sound = 'sound/effects/glassbr3.ogg'
 	var/cooldown = 0 //shield bash cooldown. based on world.time
+	var/sheet_type = /obj/item/stack/sheet/metal
 
 /obj/item/weapon/shield/riot/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -54,12 +55,12 @@
 /obj/item/weapon/shield/riot/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if(istype(I, /obj/item/stack/sheet/metal))
-		var/obj/item/stack/sheet/metal/metal_sheets = I
+	if(istype(I, sheet_type))
+		var/obj/item/stack/sheet/sheets = I
 		if(obj_integrity > integrity_failure)
 			return
 
-		if(metal_sheets.get_amount() < 1)
+		if(sheets.get_amount() < 1)
 			to_chat(user, span_warning("You need one metal sheet to restore the structural integrity of [src]."))
 			return
 
@@ -68,7 +69,7 @@
 		if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity)
 			return
 
-		if(!metal_sheets.use(1))
+		if(!sheets.use(1))
 			return
 
 		repair_damage(max_integrity * 0.2, user)
@@ -98,6 +99,26 @@
 	hard_armor = list(MELEE = 0, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	force = 20
 	slowdown = 0.5
+
+/obj/item/weapon/shield/riot/marine/crusher
+	name = "\improper crusher skin shield"
+	desc = "Shield made from crusher armor, very durable and heavy. A REAL man's trophy!!!"
+	icon_state = "crusher_shield"
+	flags_equip_slot = ITEM_SLOT_BACK
+	max_integrity = 600
+	integrity_failure = 0
+	soft_armor = list(MELEE = 75, BULLET = 100, LASER = 100, ENERGY = 50, BOMB = 90, BIO = 50, FIRE = 50, ACID = 95)
+	hard_armor = list(MELEE = 0, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	force = 60
+	slowdown = 0.8
+	sheet_type = /obj/item/stack/sheet/resin
+
+/obj/item/weapon/shield/riot/marine/crusher/set_shield()
+	AddComponent(/datum/component/shield, SHIELD_PARENT_INTEGRITY, shield_cover = list(MELEE = 75, BULLET = 100, LASER = 100, ENERGY = 50, BOMB = 90, BIO = 50, FIRE = 50, ACID = 95))
+	AddComponent(/datum/component/stun_mitigation)
+
+/obj/item/weapon/shield/riot/welder_act(mob/living/user, obj/item/I)
+	return FALSE
 
 /obj/item/weapon/shield/riot/marine/Initialize(mapload)
 	. = ..()

@@ -16,6 +16,10 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 
+	extract_rewards = list(
+		/obj/item/reagent_containers/food/snacks/warrior_muscle,
+	)
+
 
 // ***************************************
 // *********** Icons
@@ -70,3 +74,12 @@
 /mob/living/carbon/xenomorph/warrior/resisted_against(datum/source)
 	var/mob/living/living_target = source
 	living_target.do_resist_grab()
+
+/obj/item/reagent_containers/food/snacks/warrior_muscle
+	name = "\improper Warrior muscle"
+	desc = "Processed warrior muscles, according to legend the charli squad gives strength to those who can swallow it."
+	icon_state = "warior_muscle"
+	icon = 'icons/obj/items/food/xeno.dmi'
+	list_reagents = list(/datum/reagent/xeno_extract/black_mucus = 10)
+	tastes = list("acid" = 3, "metal" = 1)
+	bitesize = 5

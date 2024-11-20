@@ -19,6 +19,9 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+	extract_rewards = list(
+		/obj/item/reagent_containers/food/drinks/pantherheart,
+	)
 
 /mob/living/carbon/xenomorph/panther/set_stat()
 	. = ..()

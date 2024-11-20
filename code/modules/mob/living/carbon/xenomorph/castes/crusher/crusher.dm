@@ -21,6 +21,10 @@
 	old_x = -16
 	old_y = -3
 
+	extract_rewards = list(
+		/obj/item/weapon/shield/riot/marine/crusher,
+	)
+
 
 /mob/living/carbon/xenomorph/crusher/handle_special_state()
 	if(is_charging >= CHARGE_ON)
