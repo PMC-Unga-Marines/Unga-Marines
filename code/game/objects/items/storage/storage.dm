@@ -79,7 +79,7 @@
 	///Flags for specifically storage items
 	var/flags_storage = NONE
 	///Auto catching empty magazines: 0 - disabled, 1 - enabled
-	var/obj/item/storage/holster/belt/pistol/auto_catch = 1
+	var/auto_catch = 1
 
 /obj/item/storage/MouseDrop(atom/over_object)
 	if(!ishuman(usr))
@@ -624,15 +624,6 @@
 		to_chat(usr, "Clicking [src] with an empty hand now puts the last stored item in your hand.")
 	else
 		to_chat(usr, "Clicking [src] with an empty hand now opens the pouch storage menu.")
-
-/obj/item/storage/holster/belt/pistol/verb/toggle_auto_catch()
-	set name = "Toggle Auto Catching Magazines"
-	set category = "Object"
-	auto_catch = !auto_catch
-	if(!auto_catch)
-		to_chat(usr, "Auto catching disabled.")
-	else
-		to_chat(usr, "Auto catching enabled.")
 
 /obj/item/storage/proc/quick_empty(atom/dest_object, mob/user)
 	if(!user.CanReach(dest_object) || !user.CanReach(src))
