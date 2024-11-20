@@ -1721,11 +1721,11 @@
 			if(prob(99))
 				return
 			our_human.adjustOxyLoss(3)
-			var/mob/living/carbon/human/heart_damage = our_human
-			var/datum/internal_organ/heart/our_marine = heart_damage.get_organ_slot(ORGAN_SLOT_HEART)
-			our_marine.take_damage(1.5, TRUE)
+			var/mob/living/carbon/human/damage = our_human
+			var/datum/internal_organ/heart/our_living = damage.get_organ_slot(ORGAN_SLOT_HEART)
+			our_living?.take_damage(1.5, TRUE)
 
-/datum/reagent/mastac/on_mob_delete(mob/living/our_marine, metabolism)
-	to_chat(our_marine, span_userdanger("It seems that something has stopped pushing your heart with force."))
-	our_marine.remove_movespeed_modifier(type)
-	our_marine.Paralyze(2 SECONDS)
+/datum/reagent/mastac/on_mob_delete(mob/living/our_living, metabolism)
+	to_chat(our_living, span_userdanger("It seems that something has stopped pushing your heart with force."))
+	our_living.remove_movespeed_modifier(type)
+	our_living.Paralyze(2 SECONDS)
