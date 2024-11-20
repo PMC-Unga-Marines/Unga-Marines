@@ -90,12 +90,12 @@
 
 //medical skill
 #define SKILL_MEDICAL_UNTRAINED 0
-#define SKILL_MEDICAL_CRAYON 1 //for marines
-#define SKILL_MEDICAL_NOVICE 2 //for sl
-#define SKILL_MEDICAL_PRACTICED 3 //Beginning intern, Squad Corpsman, IO.
-#define SKILL_MEDICAL_COMPETENT 4 //General practitioner. Survivor doc, early synth.
-#define SKILL_MEDICAL_EXPERT 5 //Surgeons. CMO, MO, synth.
-#define SKILL_MEDICAL_MASTER 6 //Modern-day Aesculapius. Spatial agent only now.
+#define SKILL_MEDICAL_CRAYON 0.5 //for marines
+#define SKILL_MEDICAL_NOVICE 1 //for sl
+#define SKILL_MEDICAL_PRACTICED 2 //Beginning intern, Squad Corpsman, IO.
+#define SKILL_MEDICAL_COMPETENT 3 //General practitioner. Survivor doc, early synth.
+#define SKILL_MEDICAL_EXPERT 4 //Surgeons. CMO, MO, synth.
+#define SKILL_MEDICAL_MASTER 5 //Modern-day Aesculapius. Spatial agent only now.
 //higher levels means faster syringe use and better defibrillation
 
 //surgery skill
