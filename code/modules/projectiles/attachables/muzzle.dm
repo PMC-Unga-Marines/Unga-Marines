@@ -85,7 +85,7 @@
 /obj/item/attachable/bayonetknife/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/scalping)
-	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 12 SECONDS, 10)
+	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, SKILL_TASK_AVERAGE 50, 10)
 
 /obj/item/attachable/melee_attack_chain(mob/user, atom/target, params, rightclick)
 	if(target == user && !user.do_self_harm)

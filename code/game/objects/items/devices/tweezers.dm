@@ -22,4 +22,4 @@
 
 /obj/item/tweezers_advanced/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/shrapnel_removal, 1 SECONDS, 12 SECONDS)
+	AddElement(/datum/element/shrapnel_removal, 1 SECONDS, SKILL_TASK_AVERAGE)
