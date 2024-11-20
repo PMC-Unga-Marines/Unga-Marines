@@ -1725,7 +1725,7 @@
 			var/datum/internal_organ/heart/our_living = damage.get_organ_slot(ORGAN_SLOT_HEART)
 			our_living?.take_damage(1.5, TRUE)
 
-/datum/reagent/mastac/on_mob_delete(mob/living/delete, metabolism)
-	to_chat(delete, span_userdanger("It seems that something has stopped pushing your heart with force."))
-	delete.remove_movespeed_modifier(type)
-	delete.Paralyze(2 SECONDS)
+/datum/reagent/mastac/on_mob_delete(mob/living/our_living, metabolism)
+	to_chat(our_living, span_userdanger("It seems that something has stopped pushing your heart with force."))
+	our_living.remove_movespeed_modifier(type)
+	our_living.Paralyze(2 SECONDS)
