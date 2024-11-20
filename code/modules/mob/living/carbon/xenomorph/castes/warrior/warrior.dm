@@ -77,7 +77,7 @@
 
 /obj/item/reagent_containers/food/snacks/warrior_muscle
 	name = "\improper Warrior muscle"
-	desc = "Processed warrior muscles, according to legend the charli squad gives strength to those who can swallow it."
+	desc = "Processed warrior muscles, according to legend the charlie squad gives strength to those who can swallow it."
 	icon_state = "warior_muscle"
 	icon = 'icons/obj/items/food/xeno.dmi'
 	list_reagents = list(/datum/reagent/xeno_extract/black_mucus = 10)
