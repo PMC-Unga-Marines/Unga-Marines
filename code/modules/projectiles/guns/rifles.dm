@@ -561,10 +561,13 @@
 		/obj/item/ammo_magazine/rifle/mpi_km,
 		/obj/item/ammo_magazine/rifle/mpi_km/plum,
 		/obj/item/ammo_magazine/rifle/mpi_km/black,
+		/obj/item/ammo_magazine/rifle/mpi_km/anime,
 		/obj/item/ammo_magazine/rifle/mpi_km/carbine,
 		/obj/item/ammo_magazine/rifle/mpi_km/carbine/plum,
 		/obj/item/ammo_magazine/rifle/mpi_km/carbine/black,
+		/obj/item/ammo_magazine/rifle/mpi_km/carbine/anime,
 		/obj/item/ammo_magazine/rifle/mpi_km/extended,
+		/obj/item/ammo_magazine/rifle/mpi_km/extended/anime,
 	)
 	aim_slowdown = 0.5
 	attachable_allowed = list(
@@ -604,6 +607,37 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/bayonet,
 	)
+
+/obj/item/weapon/gun/rifle/mpi_km/anime
+	name = "\improper MPi-KM japanese rifle"
+	desc = "Cамый обычный калаш. Разве что... он побывал в руках странного оружейного мастера..."
+	fire_sound = 'sound/weapons/guns/fire/ak47-ani.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47-ani_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47-ani_cocked.ogg'
+	icon_state = "ak47_anime"
+	item_state = "ak47_anime"
+	default_ammo_type = /obj/item/ammo_magazine/rifle/mpi_km/anime
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/stock/mpi_km/anime,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/grenade_launcher/underslung/mpi, //alt sprite, unremovable
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+		)
+	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km/anime)
 
 /obj/item/weapon/gun/rifle/mpi_km/grenadier
 	desc = "A cheap and robust rifle, sometimes better known as an 'AK'. Chambers 7.62x39mm. This one has a built in underbarrel grenade launcher and looks very old, but well looked after."
