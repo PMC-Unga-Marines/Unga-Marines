@@ -1,12 +1,13 @@
 /datum/supply_packs/operations
 	group = "Operations"
-	containertype = /obj/structure/closet/crate
+	containertype = /obj/structure/closet/crate/operations
 
-/datum/supply_packs/imports/loot_pack
-	name = "TGMC Loot Pack"
-	notes = "Contains a random, but curated set of items, these packs are valued around 150 to 200 points. Some items can only be acquired from these. Spend responsibly."
-	contains = list(/obj/item/loot_box/tgmclootbox)
-	cost = 1000
+/datum/supply_packs/operations/standard_ammo
+	name = "Surplus Standard Ammo Crate"
+	notes = "Contains 22 ammo boxes of a wide variety which come prefilled. You lazy bum."
+	contains = list(/obj/structure/largecrate/supply/ammo/standard_ammo)
+	containertype = null
+	cost = 200
 
 /datum/supply_packs/operations/beacons_supply
 	name = "Supply beacon"

@@ -28,6 +28,9 @@
 
 #define COMSIG_GLOB_SHIP_SELF_DESTRUCT_ACTIVATED "!ship_self_destruct_activated"
 
+///Gamemode has successfully loaded
+#define COMSIG_GLOB_GAMEMODE_LOADED "!gamemode_loaded"
+
 /// from /obj/machinery/setAnchored(): (machine, anchoredstate)
 #define COMSIG_GLOB_MACHINERY_ANCHORED_CHANGE "!machinery_anchored_change"
 
@@ -349,7 +352,6 @@
 
 #define COMSIG_ITEM_TOGGLE_ACTION "item_toggle_action"			//from base of obj/item/ui_interact(): (/mob/user)
 #define COMSIG_ITEM_TOGGLE_ACTIVE "item_toggle_active"			//from base of /obj/item/toggle_active(): (new_state)
-#define COMSIG_ITEM_EXCLUSIVE_TOGGLE "item_exclusive_toggle"
 
 #define COMSIG_ITEM_MIDDLECLICKON "item_middleclickon"					//from base of mob/living/carbon/human/MiddleClickOn(): (/atom, /mob)
 #define COMSIG_ITEM_SHIFTCLICKON "item_shiftclickon"					//from base of mob/living/carbon/human/ShiftClickOn(): (/atom, /mob)
@@ -412,6 +414,8 @@
 #define COMSIG_MOB_GUN_FIRED "mob_gun_fired"
 #define COMSIG_MOB_GUN_AUTOFIRED "mob_gun_autofired"
 #define COMSIG_MOB_GUN_COOLDOWN "mob_gun_cooldown"
+
+#define COMSIG_MAGAZINE_DROP "magazine_drop"
 
 #define COMSIG_XENO_FIRE "xeno_fire"
 #define COMSIG_XENO_STOP_FIRE "xeno_stop_fire"
@@ -716,6 +720,7 @@
 #define COMSIG_MECHABILITY_SKYFALL "mechability_skyfall"
 #define COMSIG_MECHABILITY_STRIKE "mechability_strike"
 
+#define COMSIG_ACTION_EXCLUSIVE_TOGGLE "action_exclusive_toggle"
 // xeno abilities for keybindings
 
 #define COMSIG_XENOABILITY_REST "xenoability_rest"
@@ -937,6 +942,14 @@
 #define COMSIG_KB_DEFENDORDER "keybind_defendorder"
 #define COMSIG_KB_RETREATORDER "keybind_retreatorder"
 #define COMSIG_KB_VEHICLEHONK "keybind_vehiclehonk"
+
+//Item toggle keybinds
+#define COMSIG_ITEM_TOGGLE_JETPACK "item_toggle_jetpack"
+#define COMSIG_ITEM_TOGGLE_BLINKDRIVE "item_toggle_blinkdrive"
+
+//Weapon related ability keybinds
+#define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
+#define COMSIG_WEAPONABILITY_SWORDLUNGE "weaponability_swordlunge"
 
 // human modules signals for keybindings
 #define COMSIG_KB_VALI_CONFIGURE "keybinding_vali_configure"

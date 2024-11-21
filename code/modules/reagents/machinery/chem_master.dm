@@ -341,21 +341,8 @@
 	. = ..()
 	if(.)
 		return
-	// if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED) //RUTGMC edit - marines can use chem machines once again
-	// 	balloon_alert(user, "skill issue")
-	// 	return
-
 	if(!(user.client in has_sprites))
-		spawn()
-			has_sprites += user.client
-			for(var/i = 1 to MAX_PILL_BOTTLE_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/chemistry.dmi', pill_bottle_names[i]), pill_bottle_names[i]+".png")
-			for(var/i = 1 to MAX_PILL_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "pill" + num2text(i)), "pill[i].png")
-			for(var/i = 1 to MAX_BOTTLE_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "bottle-" + num2text(i)), "bottle-[i].png")
-			for(var/i = 1 to MAX_AUTOINJECTOR_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/syringe.dmi', "autoinjector-" + num2text(i)), "autoinjector-[i].png")
+		INVOKE_ASYNC(src, PROC_REF(show_container_choises), user)
 	var/dat = ""
 	if(!beaker)
 		dat = "Please insert beaker.<BR>"
@@ -406,6 +393,17 @@
 	var/datum/browser/popup = new(user, "chem_master", "<div align='center'>Chemmaster menu</div>", 575, 450)
 	popup.set_content(dat)
 	popup.open()
+
+/obj/machinery/chem_master/proc/show_container_choises(mob/user)
+	has_sprites += user.client
+	for(var/i = 1 to MAX_PILL_BOTTLE_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/chemistry.dmi', pill_bottle_names[i]), pill_bottle_names[i]+".png")
+	for(var/i = 1 to MAX_PILL_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "pill" + num2text(i)), "pill[i].png")
+	for(var/i = 1 to MAX_BOTTLE_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "bottle-" + num2text(i)), "bottle-[i].png")
+	for(var/i = 1 to MAX_AUTOINJECTOR_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/syringe.dmi', "autoinjector-" + num2text(i)), "autoinjector-[i].png")
 
 /obj/machinery/chem_master/update_icon()
 	. = ..()

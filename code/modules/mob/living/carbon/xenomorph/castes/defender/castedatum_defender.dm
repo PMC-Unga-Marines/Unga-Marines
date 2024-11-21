@@ -21,7 +21,7 @@
 	plasma_gain = 15
 
 	// *** Health *** //
-	max_health = 320
+	max_health = 410
 
 	// *** Evolution *** //
 	evolution_threshold = 100
@@ -33,6 +33,7 @@
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 40, BOMB = 20, BIO = 30, FIRE = 10, ACID = 30)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "defender"

@@ -15,10 +15,7 @@
 		if(M.glasses == src)
 			M.blind_eyes(3)
 			M.blur_eyes(5)
-			M.disabilities |= NEARSIGHTED
-			spawn(100)
-				M.disabilities &= ~NEARSIGHTED
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/thermal/yautja
 	name = "bio-mask thermal"
@@ -37,14 +34,14 @@
 /obj/item/clothing/glasses/thermal/yautja/dropped(mob/living/carbon/human/user)
 	if(istype(user) && user.glasses == src)
 		user.clear_fullscreen("machine", 5)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/thermal/yautja/equipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLASSES)
 		user.overlay_fullscreen("machine", /atom/movable/screen/fullscreen/machine/pred)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/thermal/yautja/unequipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLASSES)
 		user.clear_fullscreen("machine", 5)
-	..()
+	return ..()
