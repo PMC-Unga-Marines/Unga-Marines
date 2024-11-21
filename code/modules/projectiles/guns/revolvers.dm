@@ -93,9 +93,9 @@
 	if(istype(new_magazine.loc, /obj/item/storage))
 		var/obj/item/storage/S = new_magazine.loc
 		S.remove_from_storage(new_magazine, get_turf(user), user)
-	user.put_in_any_hand_if_possible(new_magazine)
+	//user.put_in_any_hand_if_possible(new_magazine)
 	reload(new_magazine, user)
-	SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine) //SEND_SIGNAL in reload wont do anything for revolvers because of ammo_magazine/handful ejecting. Putting it here solve this problem but it's kinda weird
+	SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine)
 	if(!do_after(user, tac_reload_time * 0.2, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 		return
 	unique_gun_close(user)
