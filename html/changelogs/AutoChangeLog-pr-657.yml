@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Заменил `spawn()` в коде взрывов на `addtimer` и `INVOKE_ASYNC`"
