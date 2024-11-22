@@ -119,7 +119,6 @@
 	else
 		to_chat(usr, "Auto catching enabled.")
 
-
 /obj/item/storage/holster/do_quick_equip(mob/user) //Will only draw the specific holstered item, not ammo etc.
 	if(!holstered_item)
 		return FALSE
