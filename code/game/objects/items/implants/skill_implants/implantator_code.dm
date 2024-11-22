@@ -15,6 +15,7 @@
 	var/obj/item/implant/internal_implant = /obj/item/implant/skill
 	var/allowed_limbs
 	var/spented = FALSE
+	var/max_skills
 
 /obj/item/implantator/Initialize(mapload, ...)
 	. = ..()
@@ -45,6 +46,10 @@
 	if(!(user.zone_selected in allowed_limbs))
 		balloon_alert(user, "wrong limb!")
 		return FALSE
+	for(var/skill in max_skills)
+		if(user.skills.getRating(skill) >= max_skills[skill])
+			to_chat(user, span_warning("You already know [skill]!"))
+			return FALSE
 	user.visible_message(span_warning("[user] is attemping to implant [target]."), span_notice("You're attemping to implant [target]."))
 	if(!do_after(user, 5 SECONDS, NONE, target, BUSY_ICON_GENERIC))
 		to_chat(user, span_notice("You failed to implant [target]."))
