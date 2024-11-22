@@ -1111,3 +1111,59 @@
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/burrow
+	name = "burrow"
+	full_name = "Burrow"
+	description = "Dig to the ground, making you invisible."
+	keybind_signal = COMSIG_XENOABILITY_BURROW
+	hotkey_keys = list("C")
+
+/datum/keybinding/xeno/leash_ball
+	name = "Leash Ball"
+	full_name = "Widow: Leash Ball"
+	description = "Spit a huge web ball of web that snares groups of targets for a brief while."
+	keybind_signal = COMSIG_XENOABILITY_LEASH_BALL
+	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/create_spiderling
+	name = "Birth Spiderling"
+	full_name = "Widow: Birth Spiderling"
+	description = "Give birth to a spiderling after a short charge-up."
+	keybind_signal = COMSIG_XENOABILITY_CREATE_SPIDERLING
+	hotkey_keys = list("F")
+
+/datum/keybinding/xeno/attach_spiderlings
+	name = "Attach Spiderlings"
+	full_name = "Widow: Attach Spiderlings"
+	description = "Scoop up and carry your spawn with you."
+	keybind_signal = COMSIG_XENOABILITY_ATTACH_SPIDERLINGS
+	hotkey_keys = list("X")
+
+/datum/keybinding/xeno/web_spit
+	name = "Web Spit"
+	full_name = "Widow: Web Spit"
+	description = "Stun and blind the target with a web projectile"
+	keybind_signal = COMSIG_XENOABILITY_WEB_SPIT
+	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/create_hugger
+	name = "Create Facehugger"
+	full_name = "Widow: Create Facehugger"
+	description = "Create a facehugger."
+	keybind_signal = COMSIG_XENOABILITY_CREATE_HUGGER
+	hotkey_keys = list("G")
+
+/datum/keybinding/xeno/widow_unleash
+	name = "Unleash Spiderlings"
+	full_name = "Widow: Unleash Spiderlings"
+	description = "Send out your spawn to attack nearby humans"
+	keybind_signal = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS
+	hotkey_keys = list("N")
+
+/datum/keybinding/xeno/widow_recall
+	name = "Recall Spiderlings"
+	full_name = "Widow: Recall Spiderlings"
+	description = "Recall your siderlings to follow you once more"
+	keybind_signal = COMSIG_XENOABILITY_RECALL_SPIDERLINGS
+	hotkey_keys = list("M")

@@ -1,0 +1,7 @@
+author: "definitelynotspaghetti"
+delete-after: True
+changes:
+  - rscadd: "Добавил новые абилки Вдове."
+  - rscdel: "Удалил Web Hook, Burrow и Cannibalise."
+  - balance: "Изменил КД и стоимость некоторых абилок и статы паучков."
+  - refactor: "Починил и улучшил ИИ паучков."
