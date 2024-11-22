@@ -78,8 +78,8 @@
 	var/refill_sound = null
 	///Flags for specifically storage items
 	var/flags_storage = NONE
-	///Auto catching empty magazines: 0 - disabled, 1 - enabled
-	var/auto_catch = 1
+	///Auto catching empty magazines: FALSE - disabled, TRUE - enabled
+	var/auto_catch = TRUE
 
 /obj/item/storage/MouseDrop(atom/over_object)
 	if(!ishuman(usr))
