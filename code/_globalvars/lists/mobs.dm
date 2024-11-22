@@ -108,10 +108,13 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/behemoth/primordial,
 	/mob/living/carbon/xenomorph/chimera,
 	/mob/living/carbon/xenomorph/chimera/primordial,
+	/mob/living/carbon/xenomorph/widow,
+	/mob/living/carbon/xenomorph/widow/primordial,
 	/mob/living/carbon/xenomorph/beetle,
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,
 	/mob/living/carbon/xenomorph/facehugger,
+	/mob/living/carbon/xenomorph/spiderling,
 ))
 
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)
@@ -146,6 +149,7 @@ GLOBAL_LIST_INIT(xeno_types_tier_three, list(
 	/datum/xeno_caste/praetorian,
 	/datum/xeno_caste/ravager,
 	/datum/xeno_caste/warlock,
+	/datum/xeno_caste/widow,
 ))
 
 GLOBAL_LIST_INIT(xeno_types_tier_four, list(
