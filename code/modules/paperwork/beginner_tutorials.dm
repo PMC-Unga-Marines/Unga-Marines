@@ -304,3 +304,57 @@
 	You almost never need to reload - you have enough rounds to fire for almost two straight minutes. Because of this, you should exclusively reload when it is completely safe to do so, as other marines are counting on you to protect them.<BR>
 	<BR>
 	Your minigun boasts an incredibly high amount of armor piercing. Aim for particularly durable targets, like Crushers and Kings, as you'll likely do a lot more damage."}
+
+/obj/item/paper/tutorial/robot_laser_rifleman
+	name = "Robot Laser Rifleman"
+	info = {"As a robot, you are immune to most traumas and toxins, but unable to run, which decreases your potential speed. Use either the instruments in your webbing, on the uniform, to repair yourself or autorepair ability. Welders are used to repair brute damage, cable coils for the burn damage, but the soldering tool is universal, so don't loose it!<BR>
+	<BR>
+	Your weapon is called Laser Rifle, it uses laser batteries from your belt to shoot. Red batteries are self-recharging, at the cost of decreased charge amount. Use laser powerpack cell, from your suit storage, to quickly recharge spent laser batteries.<BR>
+	<BR>
+	Don't forget to activate your armor integrated flashlight and helmet proximity detector module, by clicking buttons on the upper-left.
+	<BR>
+	You also have a mini-flamethrower attached to your gun. Enable it by clicking on the flamethrower button in upper-left. Shoot it by RMB-ing on the turfs. Reload it by clicking RMB with mini-flamethrower tanks from your backpack.<BR>
+	<BR>
+	You have a charged powerfist in your backpack storage, use it when xenomorphs get too close to you, to send them flying away from you. X2 performance points if you send them in the place, where all the marines are standing.<BR>
+	<BR>
+	In your helmet you have inaprovaline autoinjectors, use them on your human comrades, that seem sleeping on the battlefield, or just in critical state of health. It will recover 30% of their health instantly, which most probably will put them on their foot.<BR>
+	<BR>
+	Your flare gun can be rapidly reloaded by just right clicking the flare pouch with it in hand. Your flare pouch can be refilled by left clicking on it while holding a flare box. Flare any dark area you can see to reduce the risk of a xenomorph ambushing you from the dark. On a similar note, your suit's light can be toggled in the top left - you should almost always keep this on to help your visibility.
+	<BR>
+	Your tools pouch can be used for the sake of helping your fellow engineers with repairing barricades, generators or something similar."}
+
+/obj/item/paper/tutorial/robot_laser_machinegunner
+	name = "Robot Laser Machinegunner"
+	info = {"As a robot, you are immune to most traumas and toxins, but unable to run, which decreases your potential speed. Use either the instruments in your webbing, on the uniform, to repair yourself or autorepair ability. Welders are used to repair brute damage, cable coils for the burn damage, but the soldering tool is universal, so don't loose it!<BR>
+	<BR>
+	Your weapon is called Laser Machine Gun, it uses charge from laser batteries or powerpacks. Attack it your back powerpack for nearly infinite power-source for your weapon, as it recharges by the time by itself.<BR>
+	<BR>
+	You have a magnetic harness on your belt slot, click it with your weapon, so you don't loose it when someone attacks you.
+	<BR>
+	Don't forget to activate your armor integrated flashlight, by clicking buttons on the upper-left.
+	<BR>
+	You have a charged powerfist in your suit storage, use it when xenomorphs get too close to you, to send them flying away from you. X2 performance points if you send them in the place, where all the marines are standing.<BR>
+	<BR>
+	In your helmet you have inaprovaline autoinjectors, use them on your human comrades, that seem sleeping on the battlefield, or just in critical state of health. It will recover 30% of their health instantly, which most probably will put them on their foot.<BR>
+	<BR>
+	Your flare gun can be rapidly reloaded by just right clicking the flare pouch with it in hand. Your flare pouch can be refilled by left clicking on it while holding a flare box. Flare any dark area you can see to reduce the risk of a xenomorph ambushing you from the dark. On a similar note, your suit's light can be toggled in the top left - you should almost always keep this on to help your visibility.
+	<BR>
+	Your tools pouch can be used for the sake of helping your fellow engineers with repairing barricades, generators or something similar."}
+
+/obj/item/paper/tutorial/robot_laser_sniper
+	name = "Robot Laser Sniper"
+	info = {"As a robot, you are immune to most traumas and toxins, but unable to run, which decreases your potential speed. Use either the instruments in your webbing, on the uniform, to repair yourself or autorepair ability. Welders are used to repair brute damage, cable coils for the burn damage, but the soldering tool is universal, so don't loose it!<BR>
+	<BR>
+	Your weapon is called Laser Sniper Rifle, it uses charge from laser batteries or powerpacks. Attack it your back powerpack for nearly infinite power-source for your weapon, as it recharges by the time by itself.<BR>
+	<BR>
+	You have a magnetic harness on your belt slot, click it with your weapon, so you don't loose it when someone attacks you.
+	<BR>
+	Don't forget to activate your armor integrated flashlight, by clicking buttons on the upper-left.
+	<BR>
+	You have a charged powerfist in your suit storage, use it when xenomorphs get too close to you, to send them flying away from you. X2 performance points if you send them in the place, where all the marines are standing.<BR>
+	<BR>
+	In your helmet you have inaprovaline autoinjectors, use them on your human comrades, that seem sleeping on the battlefield, or just in critical state of health. It will recover 30% of their health instantly, which most probably will put them on their foot.<BR>
+	<BR>
+	Your flare gun can be rapidly reloaded by just right clicking the flare pouch with it in hand. Your flare pouch can be refilled by left clicking on it while holding a flare box. Flare any dark area you can see to reduce the risk of a xenomorph ambushing you from the dark. On a similar note, your suit's light can be toggled in the top left - you should almost always keep this on to help your visibility.
+	<BR>
+	Your tools pouch can be used for the sake of helping your fellow engineers with repairing barricades, generators or something similar."}

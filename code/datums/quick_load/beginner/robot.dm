@@ -28,6 +28,7 @@
 	belt = /obj/item/storage/belt/marine
 	head = /obj/item/clothing/head/modular/robot/motion_detector
 	wear_suit = /obj/item/clothing/suit/modular/robot/svalinn
+	l_hand = /obj/item/paper/tutorial/robot_laser_rifleman
 
 /datum/outfit/quick/beginner/robot/laser_rifle/post_equip(mob/living/carbon/human/robot, visualsOnly)
 	. = ..()
@@ -52,6 +53,7 @@
 	belt = /obj/item/belt_harness/marine
 	head = /obj/item/clothing/head/modular/robot/heavy/tyr
 	wear_suit = /obj/item/clothing/suit/modular/robot/heavy/tyr_onegeneral
+	l_hand = /obj/item/paper/tutorial/robot_laser_machinegunner
 
 /datum/outfit/quick/beginner/robot/laser_machinegunner/post_equip(mob/living/carbon/human/robot, visualsOnly)
 	. = ..()
@@ -68,6 +70,7 @@
 	belt = /obj/item/storage/holster/belt/pistol/laser
 	head = /obj/item/clothing/head/modular/robot/light/motion_detector
 	wear_suit = /obj/item/clothing/suit/modular/robot/light/baldur_general
+	l_hand = /obj/item/paper/tutorial/robot_laser_sniper
 
 /datum/outfit/quick/beginner/robot/laser_sniper/post_equip(mob/living/carbon/human/robot, visualsOnly)
 	. = ..()
