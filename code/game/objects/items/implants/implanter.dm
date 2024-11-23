@@ -80,17 +80,33 @@
 	icon_state = "cargo"
 	var/spent = FALSE
 	var/allowed_limbs
+	var/list/implants
 
 /obj/item/implanter/cargo/Initialize(mapload, ...)
 	. = ..()
+	update_icon_state()
 	if(imp)
-		icon_state = icon_state + "_full"
+		update_icon_state()
 		desc = imp.desc
 		imp = new imp(src)
 	if(!allowed_limbs)
 		allowed_limbs = GLOB.human_body_parts
 
-/obj/item/implanter/cargo/attack(mob/target, mob/user)
+/obj/item/implanter/cargo/update_icon_state()
+	. = ..()
+	icon_state = "cargo"
+	if(imp)
+		icon_state = "cargo_full"
+	if(!imp)
+		icon_state = "cargo_s"
+
+/obj/item/implanter/cargo/proc/has_implant(datum/limb/targetlimb)
+	for (var/obj/item/implant/skill/I in targetlimb.implants)
+		if(!is_type_in_list(I, GLOB.known_implants))
+			return TRUE
+	return FALSE
+
+/obj/item/implanter/cargo/attack(mob/living/target, mob/living/user, list/implants, datum/limb/targetlimb, var/obj/item/implant/skill/i)
 	. = ..()
 	if(!ishuman(target))
 		return FALSE
@@ -103,15 +119,19 @@
 	if(!(user.zone_selected in allowed_limbs))
 		balloon_alert(user, "wrong limb!")
 		return FALSE
+	for(i in user.zone_selected)
+		has_implant(targetlimb)
+		balloon_alert(user, "limb already implanted!")
+		return FALSE
 	user.visible_message(span_warning("[user] is attemping to implant [target]."), span_notice("You're attemping to implant [target]."))
 	if(!do_after(user, 5 SECONDS, NONE, target, BUSY_ICON_GENERIC) || !imp)
 		to_chat(user, span_notice("You failed to implant [target]."))
-		return
+		return FALSE
 	if(imp.try_implant(target, user))
 		target.visible_message(span_warning("[target] has been implanted by [user]."))
 		log_combat(user, target, "implanted", src)
 		imp = null
 		spent = TRUE
-		icon_state = icon_state + "_s"
+		update_icon_state()
 		return TRUE
 	to_chat(user, span_notice("You fail to implant [target]."))
