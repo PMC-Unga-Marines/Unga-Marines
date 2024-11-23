@@ -16,6 +16,7 @@
 	var/allowed_limbs
 	var/spented = FALSE
 	var/max_skills
+	var/list/implants
 
 /obj/item/implantator/Initialize(mapload, ...)
 	. = ..()
@@ -34,7 +35,13 @@
 	. = ..()
 	. += "it contains [internal_implant ? "a [internal_implant.name]" : "no implant"]!"
 
-/obj/item/implantator/attack(mob/target, mob/user)
+/obj/item/implantator/proc/has_implant(datum/limb/targetlimb)
+	for (var/obj/item/implant/skill/I in targetlimb.implants)
+		if(!is_type_in_list(I, GLOB.known_implants))
+			return TRUE
+	return FALSE
+
+/obj/item/implantator/attack(mob/living/target, mob/living/user, list/implants, datum/limb/targetlimb, var/obj/item/implant/skill/i)
 	. = ..()
 	if(spented == TRUE)
 		return FALSE
@@ -46,10 +53,10 @@
 	if(!(user.zone_selected in allowed_limbs))
 		balloon_alert(user, "wrong limb!")
 		return FALSE
-	for(var/skill in max_skills)
-		if(user.skills.getRating(skill) >= max_skills[skill])
-			to_chat(user, span_warning("You already know [skill]!"))
-			return FALSE
+	for(i in user.zone_selected)
+		has_implant(targetlimb)
+		balloon_alert(user, "limb already implanted!")
+		return FALSE
 	user.visible_message(span_warning("[user] is attemping to implant [target]."), span_notice("You're attemping to implant [target]."))
 	if(!do_after(user, 5 SECONDS, NONE, target, BUSY_ICON_GENERIC))
 		to_chat(user, span_notice("You failed to implant [target]."))
