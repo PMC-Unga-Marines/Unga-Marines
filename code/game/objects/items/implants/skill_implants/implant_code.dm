@@ -31,6 +31,8 @@
 /obj/item/implant/skill/on_initialize()
 	. = ..()
 	name = name + " implant"
+	if(!allowed_limbs)
+		allowed_limbs = GLOB.human_body_parts
 
 /obj/item/implant/skill/try_implant(mob/living/carbon/human/target, mob/living/user)
 	if(!ishuman(target))
