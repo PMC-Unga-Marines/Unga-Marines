@@ -55,8 +55,8 @@
 
 /datum/outfit/quick/beginner/robot/laser_machinegunner/post_equip(mob/living/carbon/human/robot, visualsOnly)
 	. = ..()
-	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
 	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_SUIT)
+	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
 
 /datum/outfit/quick/beginner/robot/laser_sniper
 	name = "Laser Sniper"
@@ -71,5 +71,5 @@
 
 /datum/outfit/quick/beginner/robot/laser_sniper/post_equip(mob/living/carbon/human/robot, visualsOnly)
 	. = ..()
-	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
 	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_SUIT)
+	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
