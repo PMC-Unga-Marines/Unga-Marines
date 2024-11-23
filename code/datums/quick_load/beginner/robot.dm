@@ -30,11 +30,12 @@
 	wear_suit = /obj/item/clothing/suit/modular/robot/svalinn
 
 /datum/outfit/quick/beginner/robot/laser_rifle/post_equip(mob/living/carbon/human/robot, visualsOnly)
+	. = ..()
 	for(var/i in 1 to 3)
 		robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
 	for(var/i in 1 to 3)
 		robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle/recharger, SLOT_IN_BELT)
-		
+
 	for(var/i in 1 to 6)
 		robot.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
 	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_BACKPACK)
@@ -53,6 +54,7 @@
 	wear_suit = /obj/item/clothing/suit/modular/robot/heavy/tyr_onegeneral
 
 /datum/outfit/quick/beginner/robot/laser_machinegunner/post_equip(mob/living/carbon/human/robot, visualsOnly)
+	. = ..()
 	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
 	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_SUIT)
 
@@ -68,5 +70,6 @@
 	wear_suit = /obj/item/clothing/suit/modular/robot/light/baldur_general
 
 /datum/outfit/quick/beginner/robot/laser_sniper/post_equip(mob/living/carbon/human/robot, visualsOnly)
+	. = ..()
 	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
 	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_SUIT)
