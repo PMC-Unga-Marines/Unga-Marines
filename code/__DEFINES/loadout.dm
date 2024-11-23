@@ -888,6 +888,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/suit/suspenders = list(CAT_SMR, "Suspenders", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/apron = list(CAT_SMR, "Apron", 0, "synth-cosmetic"),
 		/obj/item/clothing/suit/apron/overalls = list(CAT_SMR, "Overalls", 0, "synth-cosmetic"),
+		/obj/item/storage/backpack/marine/satchel/scout_cloak = list(CAT_BAK, "Scout cloak", 0, "black"),
 		/obj/item/storage/backpack/industrial = list(CAT_BAK, "Industrial backpack", 0, "black"),
 		/obj/item/storage/backpack/marine/corpsman = list(CAT_BAK, "TGMC corpsman backpack", 0, "black"),
 		/obj/item/storage/backpack/marine/tech = list(CAT_BAK, "TGMC technician backpack", 0, "black"),
