@@ -1,5 +1,0 @@
-author: "mister-onion"
-delete-after: True
-changes:
-  - rscadd: "Добавлена способность для постройки неста керриеру. Стоимость плазмы 200, КД 20с."
-  - balance: "способности: Call younger - 20s > 10s КД;  Throw hugger - 3s > 2s; КД Spawn hugger - 10s > 5s КД. Характеристики:Melee damage = 20>22;Plasma_max = 800>1000;plasma_gain = 38>45;max_health = 325>425\nsoft_armor = list (MELEE = 15>30, BULLET = 15>30, LASER = 15>30, ENERGY = 15>30, BOMB = 0, BIO = 5, FIRE = 0>25, ACID = 5)."
