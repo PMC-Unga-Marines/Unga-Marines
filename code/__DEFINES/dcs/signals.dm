@@ -28,6 +28,9 @@
 
 #define COMSIG_GLOB_SHIP_SELF_DESTRUCT_ACTIVATED "!ship_self_destruct_activated"
 
+///Gamemode has successfully loaded
+#define COMSIG_GLOB_GAMEMODE_LOADED "!gamemode_loaded"
+
 /// from /obj/machinery/setAnchored(): (machine, anchoredstate)
 #define COMSIG_GLOB_MACHINERY_ANCHORED_CHANGE "!machinery_anchored_change"
 
@@ -892,6 +895,19 @@
 #define COMSIG_XENOABILITY_EARTH_RISER_ALTERNATE "xenoability_earth_riser_alternate"
 #define COMSIG_XENOABILITY_SEISMIC_FRACTURE "xenoability_seismic_fracture"
 #define COMSIG_XENOABILITY_PRIMAL_WRATH "xenoability_primal_wrath"
+
+#define COMSIG_XENOABILITY_BURROW "xenoability_burrow"
+#define COMSIG_XENOABILITY_LEASH_BALL "xenoability_leash_ball"
+#define COMSIG_XENOABILITY_CREATE_SPIDERLING "xenoability_create_spiderling"
+#define COMSIG_XENOABILITY_ATTACH_SPIDERLINGS "xenoability_attach_spiderlings"
+#define COMSIG_XENOABILITY_WEB_SPIT "xenoability_web_spit"
+#define COMSIG_XENOABILITY_CREATE_HUGGER "xenoability_create_hugger"
+#define COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS "xenoability_unleash_spiderlings"
+#define COMSIG_XENOABILITY_RECALL_SPIDERLINGS "xenoability_recall_spiderlings"
+
+//spiderling
+#define COMSIG_SPIDERLING_CHANGE_ORDER "spiderlingchangeorder"
+#define COMSIG_SPIDERLING_CHANGE_ALL_ORDER "spiderlingglobalorder"
 
 //sectoid abilities
 #define COMSIG_ABILITY_MINDMELD "ability_mindmeld"
