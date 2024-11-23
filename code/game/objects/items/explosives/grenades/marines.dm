@@ -517,8 +517,8 @@
 	light_color = LIGHT_COLOR_FLARE
 	G_throw_sound = null
 	var/fuel = 0
-	var/lower_fuel_limit = 25
-	var/upper_fuel_limit = 30
+	var/lower_fuel_limit = 60
+	var/upper_fuel_limit = 75
 
 /obj/item/explosive/grenade/flare/dissolvability(acid_strength)
 	return 2
