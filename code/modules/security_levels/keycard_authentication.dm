@@ -10,6 +10,7 @@
 	power_channel = ENVIRON
 	light_power = 0.5
 	light_range = 0.7
+	resistance_flags = RESIST_ALL
 	///This gets set to TRUE on all devices except the one where the initial request was made.
 	var/active = FALSE
 	var/event = ""
