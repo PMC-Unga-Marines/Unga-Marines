@@ -41,8 +41,6 @@
 	if(allow_reagents)
 		reagents = new /datum/reagents(MAX_IMPLANT_REAGENTS)
 		reagents.my_atom = WEAKREF(src)
-	if(!allowed_limbs)
-		allowed_limbs = GLOB.human_body_parts
 
 /obj/item/implant/Destroy(force)
 	unimplant()
