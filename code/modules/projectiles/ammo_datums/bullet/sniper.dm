@@ -96,13 +96,10 @@
 	hud_state = "sniper_heavy"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 65
-	penetration = 30
+	penetration = 20
 	sundering = 0
-	additional_xeno_penetration = 10
+	additional_xeno_penetration = 5
 	damage_falloff = 0.25
-
-/datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, slowdown = 1, max_range = 17)
 
 /datum/ammo/bullet/sniper/pfc/flak
 	name = "high caliber flak rifle bullet"
