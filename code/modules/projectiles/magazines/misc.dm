@@ -124,7 +124,7 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/scout_rifle_impact
+/obj/item/ammo_magazine/packet/scout_rifle/impact
 	name = "Box of A19 high velocity impact bullets"
 	desc = "A box containing 150 rounds of A19 impact high velocity."
 	icon_state = "box_tx8_impact"
@@ -133,7 +133,7 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/scout_rifle_incendiary
+/obj/item/ammo_magazine/packet/scout_rifle/incendiary
 	name = "Box of A19 high velocity incendiary bullets"
 	desc = "A box containing 150 rounds of A19 incendiary high velocity."
 	icon_state = "box_tx8_incendiary"

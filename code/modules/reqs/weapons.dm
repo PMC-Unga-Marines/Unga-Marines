@@ -59,7 +59,7 @@
 
 /datum/supply_packs/weapons/scout_impact_box
 	name = "BR-8 scout rifle impact ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/scout_rifle_impact)
+	contains = list(/obj/item/ammo_magazine/packet/scout_rifle/impact)
 	cost = 100
 
 /datum/supply_packs/weapons/scout_incendiary
@@ -69,7 +69,7 @@
 
 /datum/supply_packs/weapons/scout_incendiary_box
 	name = "BR-8 scout rifle incendiary ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/scout_rifle_incendiary)
+	contains = list(/obj/item/ammo_magazine/packet/scout_rifle/incendiary)
 	cost = 100
 
 /datum/supply_packs/weapons/zx76
