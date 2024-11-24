@@ -129,9 +129,6 @@
 	desc = "A box containing 150 rounds of A19 impact high velocity."
 	icon_state = "box_tx8_impact"
 	default_ammo = /datum/ammo/bullet/rifle/tx8/impact
-	caliber = CALIBER_10X28_CASELESS
-	current_rounds = 150
-	max_rounds = 150
 
 /obj/item/ammo_magazine/packet/scout_rifle/incendiary
 	name = "Box of A19 high velocity incendiary bullets"
