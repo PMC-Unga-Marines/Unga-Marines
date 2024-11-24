@@ -493,3 +493,9 @@
       \ = 800>1000;plasma_gain = 38>45;max_health = 325>425\nsoft_armor = list (MELEE\
       \ = 15>30, BULLET = 15>30, LASER = 15>30, ENERGY = 15>30, BOMB = 0, BIO = 5,\
       \ FIRE = 0>25, ACID = 5)."
+2024-11-24:
+  Tatarla:
+  - balance: "\u0424\u043B\u0430\u0435\u0440\u0430 \u0442\u0435\u043F\u0435\u0440\u044C\
+      \ \u0433\u043E\u0440\u044F\u0442 \u043E\u0442 1.5 \u0434\u043E 2 \u043C\u0438\
+      \u043D\u0443\u0442 \u0432\u043C\u0435\u0441\u0442\u043E 25-30 \u043C\u0438\u043D\
+      \u0443\u0442"
