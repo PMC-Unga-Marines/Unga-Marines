@@ -148,6 +148,9 @@
 	base_gun_icon = "tp44cool"
 	update_icon()
 
+/obj/item/weapon/gun/revolver/r44/beginner
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
+
 //-------------------------------------------------------
 //RUSSIAN REVOLVER //Based on the 7.62mm Russian revolvers.
 

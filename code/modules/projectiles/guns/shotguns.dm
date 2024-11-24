@@ -117,6 +117,10 @@
 	wield_delay = 0.8 SECONDS
 	akimbo_additional_delay = 0.9
 
+/obj/item/weapon/gun/shotgun/combat/standardmarine/beginner
+	default_ammo_type = /datum/ammo/bullet/shotgun/slug
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel, /obj/item/attachable/verticalgrip, /obj/item/attachable/stock/t39stock)
+
 /obj/item/weapon/gun/shotgun/combat/masterkey
 	name = "masterkey shotgun"
 	desc = "A weapon-mounted, three-shot shotgun. Reloadable with any normal 12 gauge shell. The short barrel reduces the ammo's effectiveness drastically in exchange for fitting as a attachment.."
@@ -629,6 +633,9 @@ RU TGMC EDIT */
 	aim_slowdown = 0.6
 	movement_acc_penalty_mult = 5
 
+/obj/item/weapon/gun/shotgun/pump/lever/repeater/beginner
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet)
+
 //------------------------------------------------------
 //MBX900 Lever Action Shotgun
 /obj/item/weapon/gun/shotgun/pump/lever/mbx900
@@ -741,6 +748,10 @@ RU TGMC EDIT */
 /obj/item/weapon/gun/shotgun/pump/t35/nonstandard
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	starting_attachment_types = list(/obj/item/attachable/foldable/t35stock, /obj/item/attachable/angledgrip, /obj/item/attachable/magnetic_harness)
+
+/obj/item/weapon/gun/shotgun/pump/t35/beginner
+	default_ammo_type = /datum/ammo/bullet/shotgun/slug
+	starting_attachment_types = list(/obj/item/attachable/foldable/t35stock, /obj/item/attachable/gyro, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet)
 
 //-------------------------------------------------------
 //THE MYTH, THE GUN, THE LEGEND, THE DEATH, THE ZX
