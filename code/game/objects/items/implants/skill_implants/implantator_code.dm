@@ -1,4 +1,4 @@
-/obj/item/implantator
+/obj/item/implanter/implantator
 	name = "skill" //teeeeest.
 	desc = "Used to implant occupants with skill implants."
 	icon = 'icons/obj/items/implants.dmi'
@@ -12,36 +12,30 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
-	var/obj/item/implant/internal_implant = /obj/item/implant/skill
-	var/allowed_limbs
+	obj/item/implant/internal_implant = /obj/item/implant/skill
+	allowed_limbs
 	var/spented = FALSE
 	var/max_skills
 	var/list/implants
+	var/allowed_limbs
 
-/obj/item/implantator/Initialize(mapload, ...)
+/obj/item/implanter/implantator/Initialize(mapload, ...)
 	. = ..()
 	name = name + " implanter"
 	desc = internal_implant.desc
-	if(internal_implant)
-		internal_implant = new internal_implant(src)
 	if(!allowed_limbs)
 		allowed_limbs = GLOB.human_body_parts
 
-/obj/item/implantator/Destroy()
-	QDEL_NULL(internal_implant)
-	return ..()
+/obj/item/implanter/update_icon_state()
+	return
 
-/obj/item/implantator/examine(mob/user, distance, infix, suffix)
-	. = ..()
-	. += "it contains [internal_implant ? "a [internal_implant.name]" : "no implant"]!"
-
-/obj/item/implantator/proc/has_implant(datum/limb/targetlimb)
+/obj/item/implanter/implantator/proc/has_implant(datum/limb/targetlimb)
 	for (var/obj/item/implant/skill/I in targetlimb.implants)
 		if(!is_type_in_list(I, GLOB.known_implants))
 			return TRUE
 	return FALSE
 
-/obj/item/implantator/attack(mob/living/target, mob/living/user, list/implants, datum/limb/targetlimb, var/obj/item/implant/skill/i)
+/obj/item/implanter/implantator/attack(mob/living/target, mob/living/user, list/implants, datum/limb/targetlimb, var/obj/item/implant/skill/i)
 	. = ..()
 	if(spented == TRUE)
 		return FALSE
@@ -73,14 +67,14 @@
 	to_chat(user, span_notice("You fail to implant [target]."))
 	return
 
-/obj/item/implantator/combat
+/obj/item/implanter/implantator/combat
 	allowed_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 	internal_implant = /obj/item/implant/skill/combat
 
-/obj/item/implantator/codex
+/obj/item/implanter/implantator/codex
 	allowed_limbs = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
 	internal_implant = /obj/item/implant/skill/codex
 
-/obj/item/implantator/oper_system
+/obj/item/implanter/implantator/oper_system
 	allowed_limbs = list(BODY_ZONE_HEAD)
 	internal_implant = /obj/item/implant/skill/oper_system
