@@ -1,20 +1,19 @@
 /obj/item/ammo_magazine
 	name = "generic ammo"
 	desc = "A box of ammo."
-	icon = 'icons/obj/items/ammo/magazine.dmi'
-	icon_state = null
+	icon = 'icons/obj/items/ammo/handful.dmi'
 	item_state = "ammo_mag" //PLACEHOLDER. This ensures the mag doesn't use the icon state instead.
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
-		)
+	)
 	flags_atom = CONDUCT
 	flags_equip_slot = ITEM_SLOT_BELT
 	throwforce = 2
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 2
 	throw_range = 6
-	///Icon state in ammo.dmi to an overlay to add to the gun, for extended mags, box mags, and so on
+	///Icon state to an overlay to add to the gun, for extended mags, box mags, and so on
 	var/bonus_overlay = null
 	///This is a typepath for the type of bullet the magazine holds, it is cast so that it can draw the variable handful_amount from default_ammo in create_handful()
 	var/datum/ammo/bullet/default_ammo = /datum/ammo/bullet
@@ -225,7 +224,7 @@
 		set_greyscale_colors(ammo.handful_greyscale_colors)
 
 	name = "handful of [ammo_name + " ([new_caliber])"]"
-	icon_state = ammo.handful_icon_state
+	icon = 'icons/obj/items/ammo/handful.dmi'
 
 	default_ammo = new_ammo
 	caliber = new_caliber
