@@ -2,6 +2,7 @@
 	name = "\improper Магазин TUR-B (10x28мм)"
 	desc = "Коробчатый магазин на 200 безгильзовых патронов 10х28 мм для турели \"Базис\". Вставьте в порт турели в случае отстутсвия боеприпасов."
 	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "sentry_mag"
 	flags_magazine = NONE //can't be refilled or emptied by hand
 	caliber = CALIBER_10X28
@@ -12,6 +13,7 @@
 	name = "\improper Магазин TUR-M (10x20мм)"
 	desc = "Коробчатый магазин на 300 безгильзовых патронов 10х20 мм для турели \"Гном\". Вставьте в порт турели в случае отстутсвия боеприпасов."
 	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "minisentry_mag"
 	flags_magazine = NONE //can't be refilled or emptied by hand
 	caliber = CALIBER_10X20
