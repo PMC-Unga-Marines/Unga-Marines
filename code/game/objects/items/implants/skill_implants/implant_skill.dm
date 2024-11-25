@@ -1,7 +1,3 @@
-
-
-//////////////////////////////[IMPLANTS]//////////////////////////////
-
 /obj/item/implant/skill/combat/firearms
 	name = "aiming support"
 	desc = "integrated aiming support system! Update weapons skills!"
