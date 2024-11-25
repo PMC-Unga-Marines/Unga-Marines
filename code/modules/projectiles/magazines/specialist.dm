@@ -88,6 +88,7 @@
 	name = "\improper generic high-explosive rocket"
 	desc = "A precursor to all kinds of rocket ammo unfit for normal use. How did you get this anyway?"
 	caliber = CALIBER_84MM
+	icon = 'icons/obj/items/ammo/rocket.dmi'
 	icon_state = "rocket"
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
