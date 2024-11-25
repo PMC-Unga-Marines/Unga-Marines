@@ -490,6 +490,7 @@
 	icon_state = "t21_ext"
 	max_rounds = 50
 	icon_state_mini = "mag_rifle_big_yellow"
+	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 	bonus_overlay = "t21_ext"
 
 /obj/item/ammo_magazine/rifle/ar21/ap
