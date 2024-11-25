@@ -1,7 +1,7 @@
 /obj/item/ammo_magazine
 	name = "generic ammo"
 	desc = "A box of ammo."
-	icon = 'icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo/magazine.dmi'
 	icon_state = null
 	item_state = "ammo_mag" //PLACEHOLDER. This ensures the mag doesn't use the icon state instead.
 	item_icons = list(
@@ -427,7 +427,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 	name = "big ammo box (10x24mm)"
 	desc = "A large ammo box. It comes with a leather strap."
 	w_class = WEIGHT_CLASS_HUGE
-	icon = 'icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "big_ammo_box"
 	item_state = "big_ammo_box"
 	flags_equip_slot = ITEM_SLOT_BACK
@@ -519,7 +519,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 /obj/item/shotgunbox
 	name = "Slug Ammo Box"
 	desc = "A large, deployable ammo box."
-	icon = 'icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "ammoboxslug"
 	item_state = "ammoboxslug"
 	base_icon_state = "ammoboxslug"
@@ -669,6 +669,6 @@ Turn() or Shift() as there is virtually no overhead. ~N
 /obj/item/big_ammo_box/mg
 	name = "big ammo box (10x26mm)"
 	default_ammo = /datum/ammo/bullet/rifle/machinegun
-	caliber = CALIBER_10x26_CASELESS
+	caliber = CALIBER_10X26_CASELESS
 	bullet_amount = 3200 //a backpack holds 8 MG-60 box mags, which is 1600 rounds
 	max_bullet_amount = 3200
