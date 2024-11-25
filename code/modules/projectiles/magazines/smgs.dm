@@ -3,6 +3,7 @@
 	desc = "A submachinegun magazine."
 	default_ammo = /datum/ammo/bullet/smg
 	max_rounds = 30
+	icon = 'icons/obj/items/ammo/smg.dmi'
 	icon_state_mini = "mag_smg"
 
 //-------------------------------------------------------
