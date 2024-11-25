@@ -260,6 +260,7 @@
 /obj/item/ammo_magazine/mg42
 	name = "\improper MG-42 drum magazine (10x24mm)"
 	desc = "A drum magazine for the MG-42 light machine gun."
+	icon = 'icons/obj/items/ammo/magazine.dmi'
 	icon_state = "t42"
 	icon_state_mini = "mag_drum"
 	caliber = CALIBER_10X24_CASELESS
@@ -273,6 +274,7 @@
 /obj/item/ammo_magazine/mg60
 	name = "\improper MG-60 GPMG box magazine (10x26mm)"
 	desc = "A belt box for the MG-60 general purpose machinegun."
+	icon = 'icons/obj/items/ammo/magazine.dmi'
 	icon_state = "t60"
 	icon_state_mini = "mag_gpmg"
 	caliber = CALIBER_10X26_CASELESS
@@ -287,6 +289,7 @@
 /obj/item/ammo_magazine/m412l1_hpr
 	name = "\improper PR-412L1 box magazine (10x24mm)"
 	desc = "A semi-rectangular box of rounds for the PR-412L1 heavy pulse rifle."
+	icon = 'icons/obj/items/ammo/magazine.dmi'
 	icon_state = "m412l1"
 	icon_state_mini = "mag_box"
 	caliber = CALIBER_10X24_CASELESS
