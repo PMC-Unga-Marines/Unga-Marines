@@ -6,6 +6,7 @@
 	name = "\improper SR-26 magazine (10x28mm)"
 	desc = "A magazine of antimaterial rifle ammo."
 	caliber = CALIBER_10X28
+	icon = 'icons/obj/items/ammo/magazine.dmi'
 	icon_state = "t26"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_rounds = 15
