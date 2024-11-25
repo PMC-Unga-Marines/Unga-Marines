@@ -265,6 +265,7 @@
 	name = "\improper CHIMP70 magazine (.70M)"
 	default_ammo = /datum/ammo/bullet/pistol/mankey
 	caliber = CALIBER_70MANKEY
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "c70"
 	icon_state_mini = "Rule One: donotspeakofthis"
 	max_rounds = 300
@@ -286,4 +287,5 @@
 	default_ammo = /datum/ammo/bullet/pistol
 	caliber = CALIBER_ALIEN
 	icon_state = "knife"
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	max_rounds = 1

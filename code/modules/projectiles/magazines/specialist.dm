@@ -386,6 +386,7 @@
 	name = "pepperball canister (SAN balls)"
 	desc = "A canister holding a projectile to be used inside a pepperball gun."
 	caliber = CALIBER_PEPPERBALL
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "pepperball"
 	default_ammo = /datum/ammo/bullet/pepperball
 	max_rounds = 100

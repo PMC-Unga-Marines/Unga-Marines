@@ -541,6 +541,7 @@
 	name = "\improper 20mm airburst grenade magazine"
 	desc = "A 20mm magazine loaded with airburst grenades. For use with the GL-54 or AR-55."
 	caliber = CALIBER_20MM
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "tx54_airburst"
 	icon_state_mini = "mag_sniper_blue"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -553,7 +554,6 @@
 	name = "\improper 20mm incendiary grenade magazine"
 	desc = "A 20mm magazine loaded with incendiary grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/incendiary
-	icon_state = "tx54_airburst"
 	icon_state_mini = "mag_sniper_orange"
 	greyscale_colors = COLOR_AMMO_INCENDIARY
 
@@ -561,7 +561,6 @@
 	name = "\improper 20mm tactical smoke grenade magazine"
 	desc = "A 20mm magazine loaded with tactical smoke grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/smoke
-	icon_state = "tx54_airburst"
 	icon_state_mini = "mag_sniper_green"
 	greyscale_colors = COLOR_AMMO_TACTICAL_SMOKE
 
@@ -569,7 +568,6 @@
 	name = "\improper 20mm smoke grenade magazine"
 	desc = "A 20mm magazine loaded with smoke grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/smoke/dense
-	icon_state = "tx54_airburst"
 	icon_state_mini = "mag_sniper_cyan"
 	greyscale_colors = COLOR_AMMO_SMOKE
 
@@ -577,7 +575,6 @@
 	name = "\improper 20mm tanglefoot grenade magazine"
 	desc = "A 20mm magazine loaded with tanglefoot grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/smoke/tangle
-	icon_state = "tx54_airburst"
 	icon_state_mini = "mag_sniper_purple"
 	greyscale_colors = COLOR_AMMO_TANGLEFOOT
 
@@ -585,7 +582,6 @@
 	name = "\improper 20mm razorburn grenade magazine"
 	desc = "A 20mm magazine loaded with razorburn grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/razor
-	icon_state = "tx54_airburst"
 	icon_state_mini = "mag_sniper_yellow"
 	greyscale_colors = COLOR_AMMO_RAZORBURN
 
