@@ -16,9 +16,9 @@
 	for(var/i in 1 to fill_number)
 		new fill_type(src)
 
-/obj/item/storage/pouch/examine(mob/user)
+/obj/item/storage/pouch/examine_tags(mob/user)
 	. = ..()
-	. += "Can be worn by attaching it to a pocket."
+	.["pocket attachable"] = "Can be worn by attaching it to a pocket."
 
 /obj/item/storage/pouch/equipped(mob/user, slot)
 	if(slot == SLOT_L_STORE || slot == SLOT_R_STORE)

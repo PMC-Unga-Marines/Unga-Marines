@@ -31,6 +31,14 @@
 	///Color to use for the HUD tint; leave null if no tint
 	var/tint
 
+/obj/item/clothing/glasses/examine_descriptor(mob/user)
+	return "eyewear"
+
+/obj/item/clothing/glasses/examine_tags(mob/user)
+	. = ..()
+	if(prescription)
+		.["prescription"] = "It will help reduce symptoms of nearsightedness when worn."
+
 /obj/item/clothing/glasses/Initialize(mapload)
 	if(toggleable)
 		actions_types = list(/datum/action/item_action/toggle)
