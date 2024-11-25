@@ -32,6 +32,7 @@
 	name = "\improper RT-3 magazine (9mm)"
 	desc = "A pistol magazine."
 	caliber = CALIBER_9X19
+	icon = 'icons/obj/items/ammo/pistol.dmi'
 	icon_state = "m4a3"
 	max_rounds = 14
 	w_class = WEIGHT_CLASS_SMALL
@@ -265,7 +266,6 @@
 	name = "\improper CHIMP70 magazine (.70M)"
 	default_ammo = /datum/ammo/bullet/pistol/mankey
 	caliber = CALIBER_70MANKEY
-	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "c70"
 	icon_state_mini = "Rule One: donotspeakofthis"
 	max_rounds = 300
@@ -287,5 +287,4 @@
 	default_ammo = /datum/ammo/bullet/pistol
 	caliber = CALIBER_ALIEN
 	icon_state = "knife"
-	icon = 'icons/obj/items/ammo/misc.dmi'
 	max_rounds = 1

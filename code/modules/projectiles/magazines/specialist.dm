@@ -359,6 +359,7 @@
 	name = "railgun canister (Armor Piercing Discarding Sabot)"
 	desc = "A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister, this round will penetrate through most armor, but will not leave much of a hole."
 	caliber = CALIBER_RAILGUN
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "railgun"
 	default_ammo = /datum/ammo/bullet/railgun
 	max_rounds = 3
