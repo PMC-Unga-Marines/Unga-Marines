@@ -1,7 +1,7 @@
 /obj/item/ammo_magazine
 	name = "generic ammo"
 	desc = "A box of ammo."
-	icon = 'icons/obj/items/ammo/handful.dmi'
+	icon = 'icons/obj/items/ammo/magazine.dmi'
 	item_state = "ammo_mag" //PLACEHOLDER. This ensures the mag doesn't use the icon state instead.
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
@@ -256,7 +256,7 @@
 
 //Helper proc, to allow us to see a percentage of how full the magazine is.
 /obj/item/ammo_magazine/proc/get_ammo_percent()		// return % charge of cell
-	return 100.0*current_rounds/max_rounds
+	return 100.0* current_rounds / max_rounds
 
 /obj/item/ammo_magazine/handful
 	name = "generic handful of bullets or shells"
@@ -268,6 +268,7 @@
 	flags_atom = CONDUCT|DIRLOCK
 	flags_magazine = MAGAZINE_HANDFUL|MAGAZINE_REFILLABLE
 	attack_speed = 3 // should make reloading less painful
+	icon = 'icons/obj/items/ammo/handful.dmi'
 	icon_state_mini = "bullets"
 
 /obj/item/ammo_magazine/handful/repeater
