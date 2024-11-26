@@ -403,6 +403,9 @@
 // *********** Adding xenos
 // ***************************************
 /datum/hive_status/proc/add_xeno(mob/living/carbon/xenomorph/X) // should only be called by add_to_hive below
+	if(isnull(X)) // don't add nulls please
+		return FALSE
+
 	if(X.stat == DEAD)
 		dead_xenos += X
 	else
