@@ -754,13 +754,13 @@
 	full_name = "Ravager: Ravage"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_RAVAGE
-	hotkey_keys = list("R")
 
 /datum/keybinding/xeno/ravage_select
 	name = "ravage select"
 	full_name = "Ravager: Select Ravage"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_RAVAGE_SELECT
+	hotkey_keys = list("R")
 
 /datum/keybinding/xeno/pounce
 	name = "pounce"
