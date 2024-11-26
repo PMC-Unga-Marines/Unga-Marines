@@ -440,7 +440,7 @@
 	full_name = "Defiler: Inject Egg (Neurogas)"
 	description = "Inject an egg with neurogas, killing the little one inside"
 	keybind_signal = COMSIG_XENOABILITY_INJECT_EGG_NEUROGAS
-	hotkey_keys = list("ShiftF")
+	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/acidic_salve
 	name = "acidic_salve"
