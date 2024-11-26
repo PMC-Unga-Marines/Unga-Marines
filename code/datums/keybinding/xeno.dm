@@ -1161,11 +1161,11 @@ hotkey_keys = list("ShiftF")
 	full_name = "Widow: Unleash Spiderlings"
 	description = "Send out your spawn to attack nearby humans"
 	keybind_signal = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS
-	hotkey_keys = list("N")
+	hotkey_keys = list("O")
 
 /datum/keybinding/xeno/widow_recall
 	name = "Recall Spiderlings"
 	full_name = "Widow: Recall Spiderlings"
 	description = "Recall your siderlings to follow you once more"
 	keybind_signal = COMSIG_XENOABILITY_RECALL_SPIDERLINGS
-	hotkey_keys = list("M")
+	hotkey_keys = list("P")
