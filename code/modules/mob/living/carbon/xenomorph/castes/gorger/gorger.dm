@@ -15,6 +15,10 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	mob_size = MOB_SIZE_BIG
 	bubble_icon = "alienroyal"
+	extract_rewards = list(
+		/obj/item/ammo_magazine/shotgun/love_is,
+		/obj/item/ammo_magazine/shotgun/love_is,
+	)
 
 /mob/living/carbon/xenomorph/gorger/Initialize(mapload)
 	. = ..()

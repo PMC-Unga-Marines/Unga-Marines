@@ -85,3 +85,41 @@
 		H.melee_damage -= BLACK_MUCUS_PUNCH_BONUS
 
 #undef BLACK_MUCUS_PUNCH_BONUS
+
+/datum/reagent/xeno_extract/blood_mucus
+	name = "Bloody mucus"
+	description = "A bunch of bloody slime."
+	color = COLOR_REAGENT_REDMUCUS
+	custom_metabolism = REAGENTS_METABOLISM * 5
+	overdose_threshold = REAGENTS_OVERDOSE / 3
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL / 3
+
+/datum/reagent/medicine/russian_red/on_mob_add(mob/living/L, metabolism)
+	var/mob/living/carbon/human/H = L
+	if(TIMER_COOLDOWN_CHECK(L, name) || L.stat == DEAD)
+		return
+	if(L.health < H.health_threshold_crit && volume >= 5)
+		to_chat(L, span_userdanger("You feel flame of love course through your veins!"))
+		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.50)
+		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.50)
+		TIMER_COOLDOWN_START(L, name, 300 SECONDS)
+
+/datum/reagent/xeno_extract/blood_mucus/on_mob_life(mob/living/L, metabolism)
+	L.heal_overall_damage(10*effect_str, 10*effect_str)
+	L.adjustToxLoss(0.5*effect_str)
+	L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
+	if(prob(5))
+		to_chat(L, span_notice("you feel like you're in cotton"))
+	return ..()
+
+/datum/reagent/xeno_extract/blood_mucus/overdose_process(mob/living/L, metabolism)
+	L.adjustToxLoss(3*effect_str)
+
+/datum/reagent/xeno_extract/blood_mucus/overdose_crit_process(mob/living/L, metabolism)
+	if(!ishuman(L))
+		return
+
+	var/mob/living/carbon/human/H = L
+	var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS)
+	var/datum/internal_organ/Organrand = H.get_organ_slot(affected_organ)
+	Organrand.take_damage(8 * effect_str)
