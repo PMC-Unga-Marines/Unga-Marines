@@ -829,7 +829,7 @@
 	full_name = "Shrike: Unrelenting Force"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_UNRELENTING_FORCE
-	hotkey_keys = list("R")
+	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/unrelenting_force_select
 	name = "unrelenting_force_select"
