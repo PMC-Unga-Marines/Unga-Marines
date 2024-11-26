@@ -90,13 +90,15 @@
 		update_icon()
 	if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 		return
-	var/obj/item/storage/S = new_magazine.loc
-	if(istype(S, /obj/item/storage))
+	if(istype(new_magazine.loc, /obj/item/storage))
+		var/obj/item/storage/S = new_magazine.loc
 		S.remove_from_storage(new_magazine, get_turf(user), user)
+		if(!S.auto_catch)
+			user.put_in_any_hand_if_possible(new_magazine)
+		else
+			new_magazine.forceMove(get_turf(src))
+			SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine) //reload() wont SEND_SIGNAL because revolvers reload without unload() proc
 	reload(new_magazine, user)
-	SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine) //reload() wont SEND_SIGNAL because revolvers reload without unload() proc
-	if(!S.auto_catch)
-		user.put_in_any_hand_if_possible(new_magazine)
 	if(!do_after(user, tac_reload_time * 0.2, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 		return
 	unique_gun_close(user)
