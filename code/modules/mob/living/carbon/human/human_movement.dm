@@ -79,6 +79,9 @@
 /mob/living/carbon/human/return_mob_swap_mode(mob/living/target)
 	if(isxeno(target))
 		return NO_SWAP
+	// No allowed swap with teammate who was hugged
+	if(target.get_item_by_slot(SLOT_WEAR_MASK)= /obj/item/clothing/mask/facehugger/larval)
+		return NO_SWAP
 	// the puller can always swap with its victim if on grab intent
 	if(target.pulledby == src && a_intent == INTENT_GRAB)
 		return SWAPPING
