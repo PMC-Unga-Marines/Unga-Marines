@@ -21,14 +21,14 @@
 	plasma_gain = 30
 
 	// *** Health *** //
-	max_health = 400
+	max_health = 500
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
 	caste_traits = list(TRAIT_STOPS_TANK_COLLISION)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 90, BULLET = 80, LASER = 80, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 10, ACID = 100)
+	soft_armor = list(MELEE = 50, BULLET = 80, LASER = 65, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 10, ACID = 100)
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.5

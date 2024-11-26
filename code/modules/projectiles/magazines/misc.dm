@@ -124,6 +124,18 @@
 	current_rounds = 150
 	max_rounds = 150
 
+/obj/item/ammo_magazine/packet/scout_rifle/impact
+	name = "Box of A19 high velocity impact bullets"
+	desc = "A box containing 150 rounds of A19 impact high velocity."
+	icon_state = "box_tx8_impact"
+	default_ammo = /datum/ammo/bullet/rifle/tx8/impact
+
+/obj/item/ammo_magazine/packet/scout_rifle/incendiary
+	name = "Box of A19 high velocity incendiary bullets"
+	desc = "A box containing 150 rounds of A19 incendiary high velocity."
+	icon_state = "box_tx8_incendiary"
+	default_ammo = /datum/ammo/bullet/rifle/tx8/incendiary
+
 /obj/item/ammo_magazine/packet/sr81
 	name = "box of low-pressure 8.6x70mm"
 	desc = "A box containing 120 rounds of 8.6x70mm low velocity."

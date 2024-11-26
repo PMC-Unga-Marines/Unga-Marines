@@ -5,3 +5,6 @@
 
 /obj/effect/add_debris_element() //they're not hittable, and prevents recursions
 	return
+
+/obj/effect/ex_act()
+	return
