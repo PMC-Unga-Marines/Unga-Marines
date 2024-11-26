@@ -948,30 +948,35 @@ hotkey_keys = list("ShiftF")
 	full_name = "Behemoth: Landslide"
 	description = "Rush forward in the selected direction, damaging enemies caught in a wide path."
 	keybind_signal = COMSIG_XENOABILITY_LANDSLIDE
+	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/earth_riser
 	name = "Earth Riser"
 	full_name = "Behemoth: Earth Riser"
 	description = "Raise a pillar of earth at the selected location. This solid structure can be used for defense, and it interacts with other abilities for offensive usage."
 	keybind_signal = COMSIG_XENOABILITY_EARTH_RISER
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/earth_riser_alternate
 	name = "Destroy Earth Pillar"
 	full_name = "Behemoth: Destroy Earth Pillar"
 	description = "Destroy active Earth Pillars created by Earth Riser, starting by the oldest one."
 	keybind_signal = COMSIG_XENOABILITY_EARTH_RISER_ALTERNATE
+	hotkey_keys = list("ShiftC")
 
 /datum/keybinding/xeno/seismic_fracture
 	name = "Seismic Fracture"
 	full_name = "Behemoth: Seismic Fracture"
 	description = "Blast the earth around the selected location, inflicting heavy damage in a large radius."
 	keybind_signal = COMSIG_XENOABILITY_SEISMIC_FRACTURE
+	hotkey_keys = list("V")
 
 /datum/keybinding/xeno/primal_wrath
 	name = "Primal Wrath"
 	full_name = "Behemoth: Primal Wrath"
 	description = "Unleash your wrath. Enhances your abilities, changing their functionality and allowing them to apply a damage over time debuff."
 	keybind_signal = COMSIG_XENOABILITY_PRIMAL_WRATH
+	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/tearing_tail
 	name = "Tearing Tail"
