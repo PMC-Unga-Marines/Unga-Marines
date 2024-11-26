@@ -187,6 +187,28 @@
 
 	update_icon()
 
+///Called on a /ammo_magazine that wishes to be a handful. It generates all the data required for the handful.
+/obj/item/ammo_magazine/proc/generate_handful(new_ammo, new_caliber, new_rounds, maximum_rounds)
+	var/datum/ammo/ammo = ispath(new_ammo) ? GLOB.ammo_list[new_ammo] : new_ammo
+	var/ammo_name = ammo.name
+
+	///sets greyscale for the handful if it has been specified by the ammo datum
+	if (ammo.handful_greyscale_config && ammo.handful_greyscale_colors)
+		set_greyscale_config(ammo.handful_greyscale_config)
+		set_greyscale_colors(ammo.handful_greyscale_colors)
+
+	name = "handful of [ammo_name + " ([new_caliber])"]"
+	icon_state = ammo.handful_icon_state
+
+	default_ammo = new_ammo
+	caliber = new_caliber
+	if(maximum_rounds)
+		max_rounds = maximum_rounds
+	else
+		max_rounds = ammo.handful_amount
+	current_rounds = new_rounds
+	update_icon()
+
 //our magazine inherits ammo info from a source magazine
 /obj/item/ammo_magazine/proc/match_ammo(obj/item/ammo_magazine/source)
 	caliber = source.caliber
@@ -231,25 +253,3 @@
 		if(current_rounds <= 0 && CHECK_BITFIELD(flags_magazine, MAGAZINE_HANDFUL))
 			qdel(src)
 		return new_handful
-
-///Called on a /ammo_magazine that wishes to be a handful. It generates all the data required for the handful.
-/obj/item/ammo_magazine/proc/generate_handful(new_ammo, new_caliber, new_rounds, maximum_rounds)
-	var/datum/ammo/ammo = ispath(new_ammo) ? GLOB.ammo_list[new_ammo] : new_ammo
-	var/ammo_name = ammo.name
-
-	///sets greyscale for the handful if it has been specified by the ammo datum
-	if (ammo.handful_greyscale_config && ammo.handful_greyscale_colors)
-		set_greyscale_config(ammo.handful_greyscale_config)
-		set_greyscale_colors(ammo.handful_greyscale_colors)
-
-	name = "handful of [ammo_name + " ([new_caliber])"]"
-	icon_state = ammo.handful_icon_state
-
-	default_ammo = new_ammo
-	caliber = new_caliber
-	if(maximum_rounds)
-		max_rounds = maximum_rounds
-	else
-		max_rounds = ammo.handful_amount
-	current_rounds = new_rounds
-	update_icon()
