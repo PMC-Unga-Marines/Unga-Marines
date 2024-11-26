@@ -39,6 +39,7 @@
 	full_name = "Choose Weed"
 	description = "Choose what weed you will drop."
 	keybind_signal = COMSIG_XENOABILITY_CHOOSE_WEEDS
+	hotkey_keys = list("ShiftV")
 
 /datum/keybinding/xeno/secrete_resin
 	name = "secrete_resin"
