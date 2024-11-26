@@ -898,7 +898,7 @@
 	full_name = "Warrior: Toggle Agility"
 	description = "Toggles Agility mode. While in Agility mode, you move much more quickly but can't use abilities and your armor is greatly reduced."
 	keybind_signal = COMSIG_XENOABILITY_TOGGLE_AGILITY
-	hotkey_keys = list("Space")
+	hotkey_keys = list("Shift")
 
 /datum/keybinding/xeno/lunge
 	name = "lunge"
