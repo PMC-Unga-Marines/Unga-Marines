@@ -494,7 +494,7 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/stock/clf_heavyrifle,
-		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
 	)
 
 	starting_attachment_types = list(/obj/item/attachable/stock/clf_heavyrifle)
@@ -505,7 +505,7 @@
 	deployable_item = /obj/machinery/deployable/mounted
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_fire_delay = 2 SECONDS
+	aim_fire_delay = 3 SECONDS
 	aim_speed_modifier = 3
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
 

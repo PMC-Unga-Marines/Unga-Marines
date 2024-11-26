@@ -2,6 +2,16 @@
 	group = "Imports"
 	containertype = /obj/structure/closet/crate/weapon
 
+/datum/supply_packs/imports/clf_heavyrifle
+	name = "PTR-41/1785 anti-mech gun"
+	contains = list(/obj/item/weapon/gun/clf_heavyrifle)
+	cost = 350
+
+/datum/supply_packs/imports/clf_heavyrifle/ammo
+	name = "PTR-41/1785 ammo box"
+	contains = list(/obj/item/shotgunbox/clf_heavyrifle)
+	cost = 100
+
 /datum/supply_packs/imports/m41a
 	name = "PR-11 Pulse Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/m41a)
