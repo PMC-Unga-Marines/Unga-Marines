@@ -25,6 +25,7 @@
 	footstep_type = FOOTSTEP_XENO_STOMPY
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/hijack,
+		/mob/living/carbon/xenomorph/proc/blessings_menu,
 	)
 
 /mob/living/carbon/xenomorph/king/Initialize(mapload)

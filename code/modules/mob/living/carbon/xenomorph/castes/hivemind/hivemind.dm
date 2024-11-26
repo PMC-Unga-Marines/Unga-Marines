@@ -37,6 +37,10 @@
 	///The minimum health we can have
 	var/minimum_health = -300
 
+	inherent_verbs = list(
+		/mob/living/carbon/xenomorph/proc/blessings_menu,
+	)
+
 /mob/living/carbon/xenomorph/hivemind/Initialize(mapload)
 	var/obj/structure/xeno/hivemindcore/new_core = new /obj/structure/xeno/hivemindcore(loc, hivenumber)
 	core = WEAKREF(new_core)

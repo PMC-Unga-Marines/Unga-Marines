@@ -17,6 +17,9 @@
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
 	var/list/tunnels = list() //list of active tunnels
+	inherent_verbs = list(
+		/mob/living/carbon/xenomorph/proc/blessings_menu,
+	)
 
 // ***************************************
 // *********** Init

@@ -27,5 +27,6 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 		/mob/living/carbon/xenomorph/proc/hijack,
+		/mob/living/carbon/xenomorph/proc/blessings_menu,
 	)
 
