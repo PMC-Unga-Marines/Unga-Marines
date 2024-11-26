@@ -912,7 +912,7 @@
 	full_name = "Warrior: Fling"
 	description = "Quickly flings a target 4 tiles away and inflicts a short stun. Shared cooldown with Grapple Toss."
 	keybind_signal = COMSIG_XENOABILITY_FLING
-	hotkey_keys = list("Q")
+	hotkey_keys = list("V")
 
 /datum/keybinding/xeno/grapple_toss
 	name = "grapple_toss"
@@ -926,14 +926,14 @@
 	full_name = "Warrior: Punch"
 	description = "Punch a hostile creature, a structure or piece of machinery. Damage and status durations are doubled vs creatures you are grabbing. Damage is quadrupled vs structures and machinery."
 	keybind_signal = COMSIG_XENOABILITY_PUNCH
-	hotkey_keys = list("R")
+	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/jab
 	name = "jab"
 	full_name = "Warrior: Jab"
 	description = "Precisely strike your target from further away. Resets punch cooldown."
 	keybind_signal = COMSIG_XENOABILITY_JAB
-	hotkey_keys = list("E")
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/flurry
 	name = "flurry"
