@@ -4769,6 +4769,10 @@
 /area/mainship/squads/alpha)
 "cHf" = (
 /obj/machinery/vending/uniform_supply,
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "cHi" = (
@@ -6646,6 +6650,9 @@
 /area/mainship/living/basketball)
 "dNS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
+/obj/machinery/keycard_auth{
+	pixel_y = 30
+	},
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
 "dNU" = (
@@ -6677,6 +6684,12 @@
 	},
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
+"dOs" = (
+/obj/machinery/keycard_auth{
+	pixel_y = 30
+	},
+/turf/open/floor/mainship/tcomms,
+/area/mainship/command/telecomms)
 "dOt" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
 	dir = 1
@@ -9363,6 +9376,9 @@
 "fpl" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
+	},
+/obj/machinery/keycard_auth{
+	pixel_x = -30
 	},
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
@@ -20623,6 +20639,10 @@
 	dir = 8
 	},
 /obj/machinery/computer/crew,
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "mpD" = (
@@ -24980,9 +25000,6 @@
 /obj/item/attachable/suppressor,
 /obj/item/armor_module/storage/uniform/holster,
 /obj/item/portable_vendor/corporate,
-/obj/machinery/keycard_auth{
-	pixel_x = -30
-	},
 /obj/effect/turf_decal/woodsiding{
 	dir = 9
 	},
@@ -27274,6 +27291,13 @@
 /obj/structure/bedsheetbin,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
+"qak" = (
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 30
+	},
+/turf/open/floor/wood,
+/area/mainship/living/commandbunks)
 "qas" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -29294,6 +29318,9 @@
 /obj/structure/closet/secure_closet/req_officer,
 /obj/item/whistle,
 /obj/item/megaphone,
+/obj/machinery/keycard_auth{
+	pixel_x = -30
+	},
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "ril" = (
@@ -29444,9 +29471,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/engineering_workshop)
 "rpb" = (
-/obj/machinery/keycard_auth{
-	pixel_x = -30
-	},
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
 	},
@@ -34919,6 +34943,9 @@
 "uIq" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
+	},
+/obj/machinery/keycard_auth{
+	pixel_x = -30
 	},
 /turf/open/floor/carpet,
 /area/mainship/engineering/ce_room)
@@ -67558,7 +67585,7 @@ pQT
 pQT
 pQT
 pQT
-xXP
+pdB
 pdB
 pdB
 pdB
@@ -68430,7 +68457,7 @@ xzH
 qQI
 uNE
 uJU
-qPr
+qak
 toq
 lSw
 rEU
@@ -69985,7 +70012,7 @@ cEa
 hjM
 xzH
 xPw
-vfY
+dOs
 wgv
 viz
 rqA
