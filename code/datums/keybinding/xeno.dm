@@ -95,7 +95,7 @@
 	full_name = "Acid Spray"
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SPRAY_ACID
-	hotkey_keys = list("F")
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/xeno_spit
 	name = "xeno_spit"
@@ -857,7 +857,7 @@
 	full_name = "Spitter: Scatter Spit"
 	description = "Fires a scattershot of 6 acid globules which create acid puddles on impact or at the end of their range."
 	keybind_signal = COMSIG_XENOABILITY_SCATTER_SPIT
-	hotkey_keys = list("E")
+	hotkey_keys = list("V")
 
 /datum/keybinding/xeno/psychic_shield
 	name = "Psychic Shield"
