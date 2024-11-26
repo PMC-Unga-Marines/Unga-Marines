@@ -243,6 +243,7 @@
 		set_greyscale_colors(ammo.handful_greyscale_colors)
 
 	name = "handful of [ammo_name + " ([new_caliber])"]"
+	icon_state = ammo.handful_icon_state
 
 	default_ammo = new_ammo
 	caliber = new_caliber
