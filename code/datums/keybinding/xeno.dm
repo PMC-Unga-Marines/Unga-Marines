@@ -95,7 +95,7 @@
 	full_name = "Acid Spray"
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SPRAY_ACID
-	hotkey_keys = list("C")
+	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/xeno_spit
 	name = "xeno_spit"
@@ -1111,7 +1111,7 @@
 	full_name = "Praetorian: Short Acid Spray"
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
-	hotkey_keys = list("E")
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/burrow
 	name = "burrow"
