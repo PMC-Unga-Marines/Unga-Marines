@@ -102,7 +102,7 @@
 	full_name = "Spit"
 	description = "Spit neurotoxin or acid at your target up to 7 tiles away."
 	keybind_signal = COMSIG_XENOABILITY_XENO_SPIT
-	hotkey_keys = list("Q")
+	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/xenohide
 	name = "xenohide"
