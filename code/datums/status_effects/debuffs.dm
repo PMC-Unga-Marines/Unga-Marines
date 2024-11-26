@@ -847,3 +847,9 @@
 	name = "Freezing"
 	desc = "Space is very very cold, who would've thought?"
 	icon_state = "cold3"
+
+// ***************************************
+// *********** Dancer Tagged
+// ***************************************
+/datum/status_effect/incapacitating/dancer_tagged
+	id = "dancer_tagged"
