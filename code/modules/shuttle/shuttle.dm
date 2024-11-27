@@ -452,21 +452,6 @@
 
 /// Called after the shuttle is loaded from template
 /obj/docking_port/mobile/proc/linkup(datum/map_template/shuttle/template, obj/docking_port/stationary/dock)
-	// ================== CM Change ==================
-	// This is gone in /tg/ backend but kept for historical reasons
-	// Suspect this is supposed to be handled in register
-	var/list/static/shuttle_id = list()
-	var/idnum
-	if(dock?.roundstart_shuttle_specific_id)
-		shuttle_id = dock.roundstart_shuttle_specific_id
-		idnum = 1
-	else
-		idnum = ++shuttle_id[template]
-		if(idnum > 1)
-			if(shuttle_id == initial(shuttle_id))
-				shuttle_id = "[shuttle_id][idnum]"
-			if(name == initial(name))
-				name = "[name] [idnum]"
 	for(var/area/place AS in shuttle_areas)
 		place.connect_to_shuttle(TRUE, src, dock)
 		for(var/atom/individual_atoms in place)
