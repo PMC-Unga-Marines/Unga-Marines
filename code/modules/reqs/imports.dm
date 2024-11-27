@@ -2,13 +2,13 @@
 	group = "Imports"
 	containertype = /obj/structure/closet/crate/weapon
 
-/datum/supply_packs/imports/clf_heavyrifle
-	name = "PTR-41/1785 anti-mech gun"
-	contains = list(/obj/item/weapon/gun/clf_heavyrifle)
+/datum/supply_packs/imports/clf_heavyrifle/imported
+	name = "PTR-41/1785I1"
+	contains = list(/obj/item/weapon/gun/clf_heavyrifle/imported)
 	cost = 350
 
-/datum/supply_packs/imports/clf_heavyrifle/ammo
-	name = "PTR-41/1785 ammo box"
+/datum/supply_packs/imports/clf_heavyrifle/imported/ammo
+	name = "PTR-41/1785I1 ammo box"
 	contains = list(/obj/item/shotgunbox/clf_heavyrifle)
 	cost = 100
 
