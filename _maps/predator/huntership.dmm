@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ab" = (
 /obj/item/skull/king{
 	anchored = 1
@@ -2544,9 +2544,6 @@
 	},
 /turf/open/floor/corsat,
 /area/yautja)
-"QH" = (
-/turf/template_noop,
-/area/space)
 "RE" = (
 /obj/structure/closet/secure_closet/freezer/fridge/yautja,
 /obj/item/reagent_containers/food/snacks/grown/potato,
@@ -7106,11 +7103,11 @@ bj
 aa
 aa
 aa
-QH
-QH
-QH
-QH
-QH
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7328,7 +7325,7 @@ aa
 aa
 aa
 aa
-QH
+aa
 aa
 aa
 aa
@@ -7371,7 +7368,7 @@ aa
 aa
 aa
 aa
-QH
+aa
 aa
 aa
 aa
