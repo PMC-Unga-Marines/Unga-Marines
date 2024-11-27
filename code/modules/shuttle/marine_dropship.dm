@@ -698,7 +698,7 @@
 			to_chat(X, span_warning("Our hive lacks the psychic prowess to hijack the bird."))
 			return
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
-		if(living_player_list[1] > 5)
+		if(living_player_list[1] > living_player_list[2]) // if there are more marines than xenos, we are unable to hijack
 			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
 			return
 		switch(M.mode)

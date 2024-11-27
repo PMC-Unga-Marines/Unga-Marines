@@ -248,7 +248,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 
 	return ..()
 
-
 /obj/effect/DPtarget
 	name = "Landing Zone Indicator"
 	desc = "A holographic projection designating the landing zone of something. It's probably best to stand back."
@@ -257,11 +256,6 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 	layer = XENO_HIDING_LAYER
 	var/obj/effect/temp_visual/fallingPod
 	var/obj/structure/closet/supplypod/pod
-
-
-/obj/effect/ex_act()
-	return
-
 
 /obj/effect/DPtarget/Initialize(mapload, podParam, single_order)
 	. = ..()

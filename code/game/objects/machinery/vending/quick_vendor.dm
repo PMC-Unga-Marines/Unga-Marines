@@ -81,10 +81,10 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	for(var/X in loadout_list)
 		.[X] = new X
 
-
 /obj/machinery/quick_vendor
 	name = "Kwik-E-Quip vendor"
-	desc = "An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment."
+	desc = "An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment. \
+	Mutually exclusive with the GHMME."
 	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "specialist"
 	density = TRUE
@@ -100,12 +100,24 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	var/faction = FACTION_NEUTRAL
 	//the different tabs in the vendor
 	var/list/categories = list(
-		"Squad Marine",
-		"Squad Engineer",
-		"Squad Corpsman",
-		"Squad Smartgunner",
-		"Squad Leader",
+		SQUAD_MARINE,
+		SQUAD_ENGINEER,
+		SQUAD_CORPSMAN,
+		SQUAD_SMARTGUNNER,
+		SQUAD_LEADER,
 	)
+	///Whichever global loadout is used to build the vendor stock
+	var/list/global_list_to_use
+	///If the vendor drops your items, or deletes them when you vend a loadout
+	var/drop_worn_items = FALSE
+
+/obj/machinery/quick_vendor/Initialize(mapload)
+	. = ..()
+	set_stock_list()
+
+///Chooses which global list the vendor will build stock from, gets run on Initialize()
+/obj/machinery/quick_vendor/proc/set_stock_list()
+	global_list_to_use = GLOB.quick_loadouts
 
 /obj/machinery/quick_vendor/Initialize(mapload)
 	. = ..()
@@ -149,6 +161,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	var/obj/item/card/id/user_id = human_user.get_idcard()
 	if(user_id.registered_name != human_user.real_name)
 		return FALSE
+
 	return TRUE
 
 /obj/machinery/quick_vendor/ui_interact(mob/living/user, datum/tgui/ui)
@@ -165,9 +178,9 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	. = ..()
 	var/list/data = list()
 	var/list/loadouts_data_tgui = list()
-	for(var/loadout_data in GLOB.quick_loadouts)
+	for(var/loadout_data in global_list_to_use)
 		var/list/next_loadout_data = list() //makes a list item with the below lines, for each loadout entry in the list
-		var/datum/outfit/quick/current_loadout = GLOB.quick_loadouts[loadout_data]
+		var/datum/outfit/quick/current_loadout = global_list_to_use[loadout_data]
 		next_loadout_data["job"] = current_loadout.jobtype
 		next_loadout_data["name"] = current_loadout.name
 		next_loadout_data["desc"] = current_loadout.desc
@@ -185,14 +198,13 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	data["vendor_categories"] = categories
 	return data
 
-
 /obj/machinery/quick_vendor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 	switch(action)
 		if("selectLoadout")
-			var/datum/outfit/quick/selected_loadout = GLOB.quick_loadouts[text2path(params["loadout_outfit"])]
+			var/datum/outfit/quick/selected_loadout = global_list_to_use[text2path(params["loadout_outfit"])]
 			if(!selected_loadout)
 				to_chat(ui.user, span_warning("Error when loading this loadout"))
 				CRASH("Fail to load loadouts")
@@ -200,13 +212,36 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 				to_chat(usr, span_warning("This loadout has been depleted, you'll need to pick another."))
 				return
 			var/obj/item/card/id/user_id = usr.get_idcard() //ui.user better?
-			if(selected_loadout.jobtype != user_id.rank)
+			var/user_job = user_id.rank
+			user_job = replacetext(user_job, "Fallen ", "") //So that jobs in valhalla can vend a loadout too
+			if(selected_loadout.jobtype != user_job)
 				to_chat(usr, span_warning("You are not in the right job for this loadout!"))
 				return
-			if(user_id.can_buy_loadout)
-				user_id.can_buy_loadout = FALSE
+			if(user_id.flags_id & USED_GHMME) //Same check here, in case they opened the UI before vending a loadout somehow
+				to_chat(ui.user, span_warning("Access denied, continue using the GHHME."))
+				return FALSE
+			if(user_id.flags_id & CAN_BUY_LOADOUT)
+				for(var/points in user_id.marine_points)
+					if(user_id.marine_points[points] != GLOB.default_marine_points[points])
+						to_chat(ui.user, span_warning("Access denied, continue using the GHHME."))
+						return FALSE
+				for(var/option in user_id.marine_buy_choices)
+					if(user_id.marine_buy_choices[option] != GLOB.marine_selector_cats[option])
+						to_chat(ui.user, span_warning("Access denied, continue using the GHHME."))
+						return FALSE
+				user_id.flags_id &= ~CAN_BUY_LOADOUT
 				selected_loadout.quantity --
+				if(drop_worn_items)
+					for(var/obj/item/inventory_items in ui.user)
+						if(inventory_items.flags_equip_slot == ITEM_SLOT_ID)
+							continue
+						ui.user.dropItemToGround(inventory_items)
 				selected_loadout.equip(ui.user) //actually equips the loadout
+				//After vending a quick loadout, remove points and GHMME options so that you can't vend them via loadout vendor
+				for(var/points in user_id.marine_points)
+					user_id.marine_points[points] = 0
+				for(var/option in user_id.marine_buy_choices)
+					user_id.marine_buy_choices[option] = 0
 			else
 				to_chat(usr, span_warning("You can't buy things from this category anymore."))
 

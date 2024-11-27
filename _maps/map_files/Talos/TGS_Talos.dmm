@@ -4234,6 +4234,9 @@
 /area/mainship/living/basketball)
 "cqy" = (
 /obj/machinery/loadout_vendor,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
@@ -9599,6 +9602,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
+"fuK" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/quick_vendor/beginner,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/squads/bravo)
 "fuL" = (
 /obj/effect/turf_decal/siding/metal,
 /obj/machinery/camera/autoname{
@@ -9965,7 +9977,10 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fKa" = (
-/obj/machinery/loadout_vendor,
+/obj/machinery/quick_vendor/beginner,
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/mainship/emerald{
 	dir = 6
 	},
@@ -15471,6 +15486,9 @@
 /area/mainship/hallways/bow_hallway)
 "jsH" = (
 /obj/machinery/loadout_vendor,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/mainship/emerald,
 /area/mainship/squads/charlie)
 "jsI" = (
@@ -17417,7 +17435,10 @@
 /turf/open/floor/mainship/blue/full,
 /area/mainship/hallways/hangar)
 "kCI" = (
-/obj/machinery/loadout_vendor,
+/obj/machinery/quick_vendor/beginner,
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/mainship/red{
 	dir = 5
 	},
@@ -21700,12 +21721,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
-"mSl" = (
-/obj/structure/window{
-	dir = 8
-	},
-/turf/open/floor/mainship/blue,
-/area/mainship/squads/delta)
 "mSt" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 9
@@ -27129,14 +27144,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
-"pWv" = (
-/obj/structure/window{
-	dir = 8
-	},
-/turf/open/floor/mainship/orange{
-	dir = 1
-	},
-/area/mainship/squads/bravo)
 "pWN" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
 	dir = 1
@@ -31134,6 +31141,9 @@
 /area/mainship/hallways/hangar)
 "snY" = (
 /obj/machinery/loadout_vendor,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/mainship/blue,
 /area/mainship/squads/delta)
 "soq" = (
@@ -31475,12 +31485,6 @@
 /obj/structure/prop/mainship/sensor_computer1,
 /turf/open/floor/mainship/black/full,
 /area/mainship/command/cic)
-"sAK" = (
-/obj/machinery/loadout_vendor,
-/turf/open/floor/mainship/orange{
-	dir = 1
-	},
-/area/mainship/squads/bravo)
 "sAW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/operating,
@@ -34692,10 +34696,10 @@
 /area/mainship/living/grunt_rnr)
 "uAy" = (
 /obj/machinery/light/mainship,
-/obj/machinery/loadout_vendor,
 /obj/structure/window{
-	dir = 4
+	dir = 8
 	},
+/obj/machinery/quick_vendor/beginner,
 /turf/open/floor/mainship/blue,
 /area/mainship/squads/delta)
 "uBb" = (
@@ -82160,7 +82164,7 @@ hwt
 sRd
 pTc
 xhq
-sAK
+iqo
 xZI
 fNK
 hFG
@@ -82417,7 +82421,7 @@ qvh
 dNU
 nJh
 xhq
-iqo
+fuK
 sEf
 lYT
 dme
@@ -82674,7 +82678,7 @@ nYl
 eDk
 pTc
 xhq
-pWv
+oZG
 sXV
 sFX
 nju
@@ -82719,7 +82723,7 @@ eWU
 bny
 aDy
 knz
-mSl
+igP
 tkN
 eDY
 bli
