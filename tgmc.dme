@@ -1974,6 +1974,7 @@
 #include "code\modules\reqs\supplypacks\weapons.dm"
 #include "code\modules\reqs\ui\_ui.dm"
 #include "code\modules\reqs\ui\request.dm"
+#include "code\modules\reqs\ui\vehicle.dm"
 #include "code\modules\reqtorio\assembly_crafts.dm"
 #include "code\modules\reqtorio\craft_components.dm"
 #include "code\modules\reqtorio\howtopaper.dm"
