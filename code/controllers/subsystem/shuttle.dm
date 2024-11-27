@@ -220,10 +220,9 @@ SUBSYSTEM_DEF(shuttle)
 			transit_width += M.height
 			transit_height += M.width
 
-/*
-	to_chat(world, "The attempted transit dock will be [transit_width] width, and \)
-		[transit_height] in height. The travel dir is [travel_dir]."
-*/
+	#ifdef TESTING
+	testing("The attempted transit dock will be [transit_width] width, and [transit_height] in height. The travel dir is [travel_dir].")
+	#endif
 
 	var/transit_path = /turf/open/space/transit
 	switch(travel_dir)
