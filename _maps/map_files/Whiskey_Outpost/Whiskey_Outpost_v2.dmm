@@ -222,15 +222,6 @@
 /obj/machinery/deployable/floodlight,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
-"aY" = (
-/obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "aZ" = (
 /turf/open/floor/tile/yellow{
 	dir = 10
@@ -1128,8 +1119,8 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/north)
 "fE" = (
-/obj/item/storage/box/crate/minisentry,
-/obj/item/storage/box/crate/minisentry,
+/obj/item/storage/box/crate/sentry,
+/obj/item/storage/box/crate/sentry,
 /obj/structure/rack,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
@@ -1562,9 +1553,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "hW" = (
-/obj/machinery/factory/heater{
-	anchored = 1
-	},
+/obj/machinery/fabricator/junk,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "hX" = (
@@ -1787,7 +1776,7 @@
 /turf/open/floor/mainship/sterile,
 /area/whiskey_outpost)
 "iY" = (
-/obj/structure/largecrate/supply/weapons/standard_carbine,
+/obj/structure/largecrate/supply/weapons/ar18,
 /turf/open/floor/plating/asteroidwarning{
 	dir = 4
 	},
@@ -1809,9 +1798,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/north)
 "jg" = (
-/obj/machinery/factory/former{
-	anchored = 1
-	},
+/obj/machinery/assembler,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "jh" = (
@@ -2656,15 +2643,13 @@
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "nk" = (
-/obj/item/factory_refill/phosnade_refill,
+/obj/machinery/fabricator/junk,
 /obj/structure/rack,
 /obj/item/paper/factoryhowto,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "nl" = (
-/obj/machinery/factory/cutter{
-	anchored = 1
-	},
+/obj/machinery/fabricator/gunpowder,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "no" = (
@@ -3040,12 +3025,6 @@
 	},
 /turf/open/floor/mainship,
 /area/whiskey_outpost)
-"pb" = (
-/obj/machinery/unboxer{
-	anchored = 1
-	},
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "pe" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/ground/grass,
@@ -3301,7 +3280,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "qm" = (
-/obj/structure/largecrate/supply/weapons/standard_carbine,
+/obj/structure/largecrate/supply/weapons/ar18,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "qn" = (
@@ -4209,23 +4188,21 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
-/obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full,
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_br/full,
-/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full,
+/obj/item/storage/box/visual/magazine/compact/r44/full,
+/obj/item/storage/box/visual/magazine/compact/p14/full,
+/obj/item/storage/box/visual/magazine/compact/mg42/full,
+/obj/item/storage/box/visual/magazine/compact/mg42/full,
+/obj/item/storage/box/visual/magazine/compact/p23/full,
+/obj/item/storage/box/visual/magazine/compact/mg60/full,
+/obj/item/storage/box/visual/magazine/compact/mg60/full,
+/obj/item/storage/box/visual/magazine/compact/dmr37/full,
+/obj/item/storage/box/visual/magazine/compact/dmr37/full,
+/obj/item/storage/box/visual/magazine/compact/br64/full,
+/obj/item/storage/box/visual/magazine/compact/ar12/full,
 /obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/obj/item/storage/box/visual/magazine/compact/chamberedrifle/full,
+/obj/item/storage/box/visual/magazine/compact/sr127/full,
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/west)
 "vM" = (
@@ -13842,7 +13819,7 @@ rp
 dq
 cF
 pD
-pb
+jg
 eR
 nl
 gl
@@ -14247,7 +14224,7 @@ NW
 NW
 NW
 ac
-aY
+DR
 bl
 ns
 cd
