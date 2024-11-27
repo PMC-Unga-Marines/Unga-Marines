@@ -9,7 +9,7 @@
 	var/tmp/datum/static_lighting_corner/lighting_corner_NW
 
 /turf/proc/static_lighting_clear_overlay()
-	if (static_lighting_object)
+	if(static_lighting_object)
 		qdel(static_lighting_object, TRUE)
 
 /// Builds a lighting object for us, but only if our area is dynamic.
@@ -17,7 +17,7 @@
 	if(static_lighting_object)
 		qdel(static_lighting_object, force = TRUE) //Shitty fix for lighting objects persisting after death
 
-	new/datum/static_lighting_object(src)
+	new /datum/static_lighting_object(src)
 
 // Returns a boolean whether the turf is on soft lighting.
 // Soft lighting being the threshold at which point the overlay considers
