@@ -12,15 +12,15 @@
 /area/barren/cave/northeast)
 "ad" = (
 /turf/closed/mineral/smooth/indestructible,
-/area/space)
+/area/template_noop)
 "ae" = (
 /obj/structure/girder/reinforced,
 /turf/closed/mineral/smooth/indestructible,
-/area/space)
+/area/template_noop)
 "af" = (
 /obj/structure/girder/reinforced,
 /turf/closed/wall/indestructible/mineral,
-/area/space)
+/area/template_noop)
 "ag" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 1
@@ -29,7 +29,7 @@
 /area/barren/cave/northeast)
 "aj" = (
 /turf/closed/wall/r_wall,
-/area/space)
+/area/template_noop)
 "ak" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 1
@@ -123,7 +123,7 @@
 /area/barren/medical/chemistry)
 "aI" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "aJ" = (
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -3396,7 +3396,7 @@
 "pL" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "pR" = (
 /obj/structure/barricade/guardrail{
 	dir = 4;
@@ -4983,7 +4983,7 @@
 	},
 /obj/structure/grille,
 /turf/open/floor,
-/area/space)
+/area/template_noop)
 "xo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -7781,7 +7781,7 @@
 /obj/structure/window/reinforced/toughened,
 /obj/structure/grille,
 /turf/open/floor,
-/area/space)
+/area/template_noop)
 "KR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
@@ -7961,7 +7961,7 @@
 	},
 /obj/structure/grille,
 /turf/open/floor,
-/area/space)
+/area/template_noop)
 "LM" = (
 /obj/structure/toilet/alternate{
 	dir = 8
@@ -10024,7 +10024,7 @@
 	},
 /obj/structure/grille,
 /turf/open/floor,
-/area/space)
+/area/template_noop)
 "Wg" = (
 /obj/machinery/light,
 /turf/open/floor/prison,

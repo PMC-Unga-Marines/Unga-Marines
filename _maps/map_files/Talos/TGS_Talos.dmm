@@ -565,7 +565,7 @@
 /area/mainship/hallways/hangar)
 "aoi" = (
 /turf/closed/wall/mainship/outer/talos,
-/area/space)
+/area/template_noop)
 "aol" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -2551,7 +2551,7 @@
 "bwb" = (
 /obj/structure/prop/mainship/name_stencil,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "bwm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/warning_stripes/cargo,
@@ -2822,7 +2822,7 @@
 "bDD" = (
 /obj/structure/prop/mainship/name_stencil/U,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "bDL" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/turf_decal/siding/dark{
@@ -4185,7 +4185,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "coY" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/food_or_drink/outdoors_snacks,
@@ -5778,7 +5778,7 @@
 /area/mainship/squads/bravo)
 "dnv" = (
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "dnQ" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/machinery/light/mainship{
@@ -6363,7 +6363,7 @@
 "dFh" = (
 /obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "dFx" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -6844,7 +6844,7 @@
 /area/mainship/shipboard/weapon_room)
 "dUV" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dVe" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -6992,7 +6992,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 5
 	},
-/area/space)
+/area/template_noop)
 "eac" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -7150,7 +7150,7 @@
 /area/mainship/squads/delta)
 "egl" = (
 /turf/open/floor/mainship/terragov/north,
-/area/space)
+/area/template_noop)
 "egq" = (
 /obj/item/clipboard,
 /obj/item/tool/pen,
@@ -7432,7 +7432,7 @@
 /area/mainship/squads/charlie)
 "enG" = (
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "enW" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -9474,7 +9474,7 @@
 "fqS" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/mainship/outer/talos,
-/area/space)
+/area/template_noop)
 "fqV" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -9653,7 +9653,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "fwX" = (
 /obj/structure/closet/secure_closet/military_police,
 /turf/open/floor/mainship/red/full,
@@ -11744,7 +11744,7 @@
 	teleport_z_offset = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "gYI" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -11882,7 +11882,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "hdu" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
@@ -15154,7 +15154,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 10
 	},
-/area/space)
+/area/template_noop)
 "jil" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -17731,7 +17731,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 5
 	},
-/area/space)
+/area/template_noop)
 "kLQ" = (
 /obj/effect/ai_node,
 /obj/effect/turf_decal/woodsiding{
@@ -17759,7 +17759,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "kMI" = (
 /obj/structure/sign/semiotic/maint{
 	pixel_x = 8;
@@ -17812,7 +17812,7 @@
 "kNj" = (
 /obj/structure/cable,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "kNo" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 1
@@ -19911,7 +19911,7 @@
 /turf/open/floor/mainship/terragov{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "lQG" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -20103,7 +20103,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 4
 	},
-/area/space)
+/area/template_noop)
 "lYm" = (
 /obj/effect/turf_decal/siding/metal,
 /obj/structure/sign/semiotic/west{
@@ -20634,7 +20634,7 @@
 "moH" = (
 /obj/structure/disposalpipe/segment,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "moQ" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
@@ -21226,7 +21226,7 @@
 "mFt" = (
 /obj/structure/cable,
 /turf/closed/wall/mainship/outer/talos,
-/area/space)
+/area/template_noop)
 "mFO" = (
 /obj/effect/ai_node,
 /obj/effect/turf_decal/siding/metal{
@@ -21904,7 +21904,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 6
 	},
-/area/space)
+/area/template_noop)
 "mWn" = (
 /obj/effect/turf_decal/siding/metal/corner,
 /turf/open/floor/mainship/metal,
@@ -22204,7 +22204,7 @@
 "ngm" = (
 /obj/structure/cable,
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "ngt" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
 	name = "empty space";
@@ -23114,7 +23114,7 @@
 	teleport_z_offset = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "nJg" = (
 /obj/machinery/door/poddoor/railing{
 	dir = 8;
@@ -24288,7 +24288,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "ooT" = (
 /obj/machinery/door/airlock/mainship/secure/free_access{
 	dir = 2;
@@ -24348,7 +24348,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 9
 	},
-/area/space)
+/area/template_noop)
 "oqy" = (
 /obj/item/storage/bible/koran,
 /turf/open/floor/plating,
@@ -25328,7 +25328,7 @@
 "oYb" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "oYi" = (
 /obj/structure/table/mainship,
 /obj/item/reagent_containers/dropper,
@@ -25574,7 +25574,7 @@
 "peQ" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "pfa" = (
 /obj/structure/table/mainship,
 /obj/item/storage/firstaid/o2{
@@ -26309,7 +26309,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 4
 	},
-/area/space)
+/area/template_noop)
 "pyk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -29027,7 +29027,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "rcl" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -30205,7 +30205,7 @@
 /area/mainship/engineering/ce_room)
 "rMh" = (
 /turf/closed/wall/mainship/talos,
-/area/space)
+/area/template_noop)
 "rMu" = (
 /obj/structure/table/mainship,
 /obj/machinery/cic_maptable,
@@ -30378,7 +30378,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "rSo" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/warning_stripes/thin,
@@ -30581,7 +30581,7 @@
 	teleport_z_offset = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "rZC" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -32821,7 +32821,7 @@
 "tqu" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "tqF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -33175,7 +33175,7 @@
 "tDE" = (
 /obj/structure/disposalpipe/segment/corner,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "tDL" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
@@ -33524,7 +33524,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "tQD" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/medical/firstaid/often,
@@ -34196,7 +34196,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 6
 	},
-/area/space)
+/area/template_noop)
 "umw" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
@@ -35013,7 +35013,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 4
 	},
-/area/space)
+/area/template_noop)
 "uLd" = (
 /obj/machinery/door/window/secure/brig/cell_2{
 	dir = 2
@@ -36114,7 +36114,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 8
 	},
-/area/space)
+/area/template_noop)
 "vwZ" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
@@ -36660,7 +36660,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 8
 	},
-/area/space)
+/area/template_noop)
 "vNt" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
@@ -37108,7 +37108,7 @@
 "vZI" = (
 /obj/structure/cable,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "vZM" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -38306,7 +38306,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 10
 	},
-/area/space)
+/area/template_noop)
 "wPs" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -39471,7 +39471,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 9
 	},
-/area/space)
+/area/template_noop)
 "xzT" = (
 /obj/structure/table/mainship,
 /obj/item/tool/hand_labeler,
@@ -40474,7 +40474,7 @@
 "ydP" = (
 /obj/structure/lattice,
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "ydW" = (
 /obj/structure/table/mainship,
 /obj/item/lightreplacer,
@@ -40658,7 +40658,7 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "yhU" = (
 /obj/effect/turf_decal/woodsiding,
 /obj/effect/ai_node,

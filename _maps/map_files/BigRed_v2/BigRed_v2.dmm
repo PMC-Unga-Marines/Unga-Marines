@@ -1429,7 +1429,7 @@
 "amK" = (
 /obj/effect/spawner/modularmap/bigred/office,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "amL" = (
 /turf/open/floor/plating/warning,
 /area/bigredv2/caves/lambda_lab)
@@ -4919,7 +4919,7 @@
 "aTo" = (
 /obj/effect/spawner/modularmap/bigred/toolshed,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "aTq" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/e)
@@ -6322,7 +6322,7 @@
 "bsD" = (
 /obj/effect/spawner/modularmap/bigred/checkpointsouth,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "bsF" = (
 /obj/structure/table,
 /obj/item/circuitboard/solar_tracker,
@@ -7789,7 +7789,7 @@
 "cab" = (
 /obj/effect/spawner/modularmap/bigred/medbay,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "cal" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -8015,7 +8015,7 @@
 "czY" = (
 /obj/effect/spawner/modularmap/bigred/generalstore,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "cAc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -8328,7 +8328,7 @@
 /area/bigredv2/outside/cargo)
 "dlU" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dnx" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -8615,7 +8615,7 @@
 "dTh" = (
 /obj/effect/spawner/modularmap/bigred/chapel,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dVz" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -9396,7 +9396,7 @@
 "fFx" = (
 /obj/effect/spawner/modularmap/bigred/northlambda,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "fFW" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/space_port/two)
@@ -9690,7 +9690,7 @@
 "gnL" = (
 /obj/effect/spawner/modularmap/bigred/atmos,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "gpg" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -10138,7 +10138,7 @@
 "hfx" = (
 /obj/effect/spawner/modularmap/bigred/swcorner,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "hgb" = (
 /obj/machinery/vending/engivend,
 /obj/effect/landmark/weed_node,
@@ -10415,7 +10415,7 @@
 /area/bigredv2/caves/northeast)
 "hXy" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
-/area/space)
+/area/template_noop)
 "hXQ" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark/blue2,
@@ -10531,7 +10531,7 @@
 "imy" = (
 /obj/effect/spawner/modularmap/bigred/dorms,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "imS" = (
 /turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/space_port)
@@ -10581,7 +10581,7 @@
 "ipY" = (
 /obj/effect/spawner/modularmap/bigred/southwesteast,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "irs" = (
 /obj/docking_port/stationary/crashmode,
 /turf/closed/mineral/smooth/bigred,
@@ -10736,7 +10736,7 @@
 "iIm" = (
 /obj/effect/spawner/modularmap/bigred/lambdatunnelsouth,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "iKH" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 5
@@ -11023,7 +11023,7 @@
 "jjv" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "jjL" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
@@ -11357,7 +11357,7 @@
 "jLH" = (
 /obj/effect/spawner/modularmap/bigred/secorner,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "jNo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -11610,7 +11610,7 @@
 "krd" = (
 /obj/effect/spawner/modularmap/bigred/westeta,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "krs" = (
 /obj/machinery/shower{
 	dir = 8
@@ -11654,7 +11654,7 @@
 "kvN" = (
 /obj/effect/spawner/modularmap/bigred/cargoarea,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "kvX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/survivor,
@@ -12448,7 +12448,7 @@
 "mxW" = (
 /obj/effect/spawner/modularmap/bigred/east,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "mAi" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northwest)
@@ -12751,7 +12751,7 @@
 "njn" = (
 /obj/effect/spawner/modularmap/bigred/engineering,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "nkc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -13080,7 +13080,7 @@
 "nPd" = (
 /obj/effect/spawner/modularmap/bigred/eta,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "nQa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -13218,7 +13218,7 @@
 "ohl" = (
 /obj/effect/spawner/modularmap/bigred/lambdacave,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "oit" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -13690,7 +13690,7 @@
 "pqA" = (
 /obj/effect/spawner/modularmap/bigred/medbaypassage,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "prH" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -13706,7 +13706,7 @@
 "ptr" = (
 /obj/effect/spawner/modularmap/bigred/cargoentry,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "puE" = (
 /obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -15794,7 +15794,7 @@
 "umP" = (
 /obj/effect/spawner/modularmap/bigred/library,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "unk" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/darkish,
@@ -16466,7 +16466,7 @@
 "vFB" = (
 /obj/effect/spawner/modularmap/bigred/operations,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "vIk" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -16700,7 +16700,7 @@
 "wdU" = (
 /obj/effect/spawner/modularmap/bigred/checkpoint,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "wdV" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
@@ -17113,7 +17113,7 @@
 "xdT" = (
 /obj/effect/spawner/modularmap/bigred/lambdatunnel,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "xdX" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
@@ -17273,7 +17273,7 @@
 "xxa" = (
 /obj/effect/spawner/modularmap/bigred/cargo,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "xye" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4

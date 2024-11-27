@@ -133,7 +133,7 @@
 "agh" = (
 /obj/effect/spawner/modularmap/lv624/largecentralcave,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "agj" = (
 /obj/effect/ai_node,
 /turf/open/floor/freezer,
@@ -3443,7 +3443,7 @@
 "cbi" = (
 /obj/effect/spawner/modularmap/lv624/hydrobridge,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "cbv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -11013,7 +11013,7 @@
 "kud" = (
 /obj/effect/spawner/modularmap/lv624/southsandtemple,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "kuB" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/ammo_casing,
@@ -11928,7 +11928,7 @@
 "lAI" = (
 /obj/effect/spawner/modularmap/lv624/hydroroad,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "lBa" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/wall,
@@ -15273,7 +15273,7 @@
 /area/lv624/lazarus/quartstorage)
 "psZ" = (
 /turf/closed/mineral/smooth/indestructible,
-/area/space)
+/area/template_noop)
 "ptl" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating,
@@ -16889,7 +16889,7 @@
 "rhi" = (
 /obj/effect/spawner/modularmap/lv624/medicaldome,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "rhp" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/closed/gm/dense,
@@ -21061,7 +21061,7 @@
 /area/lv624/lazarus/corporate_affairs)
 "vCy" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "vCI" = (
 /obj/effect/decal/remains/human,
 /obj/structure/flora/jungle/vines,
