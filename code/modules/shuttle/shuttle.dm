@@ -691,8 +691,8 @@
 
 	return ripple_turfs
 
-/obj/docking_port/mobile/proc/dock_id(id)
-	var/port = SSshuttle.getDock(id)
+/obj/docking_port/mobile/proc/dock_id(shuttle_id)
+	var/port = SSshuttle.getDock(shuttle_id)
 	if(port)
 		. = initiate_docking(port)
 	else
