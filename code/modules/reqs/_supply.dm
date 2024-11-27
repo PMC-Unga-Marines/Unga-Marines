@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
-		/mob/living,
-		/obj/item/disk/nuclear,
-		/obj/item/radio/beacon,
-		/obj/vehicle,
-	)))
+	/mob/living,
+	/obj/item/disk/nuclear,
+	/obj/item/radio/beacon,
+	/obj/vehicle,
+)))
 
 /datum/supply_order
 	var/id
@@ -15,9 +15,6 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/list/datum/supply_packs/pack
 	///What faction ordered this
 	var/faction = FACTION_TERRAGOV
-
-/obj/item/paper/manifest
-	name = "Supply Manifest"
 
 /obj/docking_port/stationary/supply
 	id = "supply_home"
@@ -56,39 +53,41 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	railings.Cut()
 	return ..()
 
-
 /obj/docking_port/mobile/supply/afterShuttleMove()
 	. = ..()
-	if(getDockedId() == home_id)
-		for(var/j in railings)
-			var/obj/machinery/door/poddoor/railing/R = j
-			R.open()
+	if(getDockedId() != home_id)
+		return
+	for(var/j in railings)
+		var/obj/machinery/door/poddoor/railing/our_railing = j
+		our_railing.open()
 
 /obj/docking_port/mobile/supply/on_ignition()
 	if(getDockedId() == home_id)
 		for(var/j in railings)
-			var/obj/machinery/door/poddoor/railing/R = j
-			R.close()
+			var/obj/machinery/door/poddoor/railing/our_railing = j
+			our_railing.close()
 		for(var/i in gears)
-			var/obj/machinery/gear/G = i
-			G.start_moving(NORTH)
+			var/obj/machinery/gear/our_gear = i
+			our_gear.start_moving(NORTH)
 	else
 		for(var/i in gears)
-			var/obj/machinery/gear/G = i
-			G.start_moving(SOUTH)
+			var/obj/machinery/gear/our_gear = i
+			our_gear.start_moving(SOUTH)
 
 /obj/docking_port/mobile/supply/register()
 	. = ..()
-	for(var/obj/machinery/gear/G in GLOB.machines)
-		if(G.id == (railing_gear_name+"_elevator_gear"))
-			gears += G
-			RegisterSignal(G, COMSIG_QDELETING, PROC_REF(clean_gear))
-	for(var/obj/machinery/door/poddoor/railing/R in GLOB.machines)
-		if(R.id == (railing_gear_name+"_elevator_railing"))
-			railings += R
-			RegisterSignal(R, COMSIG_QDELETING, PROC_REF(clean_railing))
-			R.linked_pad = src
-			R.open()
+	for(var/obj/machinery/gear/our_gear in GLOB.machines)
+		if(our_gear.id != (railing_gear_name + "_elevator_gear"))
+			continue
+		gears += our_gear
+		RegisterSignal(our_gear, COMSIG_QDELETING, PROC_REF(clean_gear))
+	for(var/obj/machinery/door/poddoor/railing/our_railing in GLOB.machines)
+		if(our_railing.id != (railing_gear_name + "_elevator_railing"))
+			continue
+		railings += our_railing
+		RegisterSignal(our_railing, COMSIG_QDELETING, PROC_REF(clean_railing))
+		our_railing.linked_pad = src
+		our_railing.open()
 
 ///Signal handler when a gear is destroyed
 /obj/docking_port/mobile/supply/proc/clean_gear(datum/source)
@@ -146,43 +145,41 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	for(var/i in SSpoints.shoppinglist[faction])
 		if(!length(empty_turfs))
 			break
-		var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, i)
+		var/datum/supply_order/our_order = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, i)
 
-		var/datum/supply_packs/firstpack = SO.pack[1]
+		var/datum/supply_packs/firstpack = our_order.pack[1]
 
 		var/obj/structure/crate_type = firstpack.containertype || firstpack.contains[1]
 
-		var/obj/structure/A = new crate_type(pick_n_take(empty_turfs))
+		var/obj/structure/our_structure = new crate_type(pick_n_take(empty_turfs))
 		if(firstpack.containertype)
-			A.name = "Order #[SO.id] for [SO.orderer]"
-
+			our_structure.name = "Order #[our_order.id] for [our_order.orderer]"
 
 		var/list/contains = list()
 		//spawn the stuff, finish generating the manifest while you're at it
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
 			// yes i know
-			if(SP.access)
-				A.req_access = list()
-				A.req_access += text2num(SP.access)
+			if(our_pack.access)
+				our_structure.req_access = list()
+				our_structure.req_access += text2num(our_pack.access)
 
-			if(SP.randomised_num_contained)
-				if(length(SP.contains))
-					for(var/j in 1 to SP.randomised_num_contained)
-						contains += pick(SP.contains)
+			if(our_pack.randomised_num_contained)
+				if(length(our_pack.contains))
+					for(var/j in 1 to our_pack.randomised_num_contained)
+						contains += pick(our_pack.contains)
 			else
-				contains += SP.contains
+				contains += our_pack.contains
 
 		for(var/typepath in contains)
 			if(!typepath)
 				continue
 			if(!firstpack.containertype)
 				break
-			new typepath(A)
+			new typepath(our_structure)
 
-		SSpoints.shoppinglist[faction] -= "[SO.id]"
-		SSpoints.shopping_history += SO
-
+		SSpoints.shoppinglist[faction] -= "[our_order.id]"
+		SSpoints.shopping_history += our_order
 
 /datum/export_report
 	/// How many points from that export
@@ -216,7 +213,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	req_access = list(ACCESS_MARINE_CARGO)
 	flags_equip_slot = ITEM_SLOT_POCKET
 	w_class = WEIGHT_CLASS_NORMAL
-	var/datum/supply_ui/SU
+	var/datum/supply_ui/supply_ui
 	///Id of the shuttle controlled
 	var/shuttle_id = SHUTTLE_SUPPLY
 	/// Id of the home docking port
@@ -230,12 +227,12 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		return
 	if(!allowed(user))
 		return
-	if(!SU)
-		SU = new(src)
-		SU.shuttle_id = shuttle_id
-		SU.home_id = home_id
-		SU.faction = faction
-	return SU.interact(user)
+	if(!supply_ui)
+		supply_ui = new(src)
+		supply_ui.shuttle_id = shuttle_id
+		supply_ui.home_id = home_id
+		supply_ui.faction = faction
+	return supply_ui.interact(user)
 
 /obj/machinery/computer/supplycomp
 	name = "ASRS console"
@@ -245,7 +242,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	screen_overlay = "supply"
 	req_access = list(ACCESS_MARINE_CARGO)
 	circuit = /obj/item/circuitboard/computer/supplycomp
-	var/datum/supply_ui/SU
+	var/datum/supply_ui/supply_ui
 	///Id of the shuttle controlled
 	var/shuttle_id = SHUTTLE_SUPPLY
 	/// Id of the home docking port
@@ -259,12 +256,12 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		return
 	if(isliving(user) && !allowed(user))
 		return
-	if(!SU)
-		SU = new(src)
-		SU.shuttle_id = shuttle_id
-		SU.home_id = home_id
-		SU.faction = faction
-	return SU.interact(user)
+	if(!supply_ui)
+		supply_ui = new(src)
+		supply_ui.shuttle_id = shuttle_id
+		supply_ui.home_id = home_id
+		supply_ui.faction = faction
+	return supply_ui.interact(user)
 
 /datum/supply_ui
 	interaction_flags = INTERACT_MACHINE_TGUI
@@ -307,13 +304,14 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 /datum/supply_ui/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 
-	if(!ui)
-		if(shuttle_id)
-			supply_shuttle = SSshuttle.getShuttle(shuttle_id)
-			supply_shuttle.home_id = home_id
-			supply_shuttle.faction = faction
-		ui = new(user, src, tgui_name, source_object.name)
-		ui.open()
+	if(ui)
+		return
+	if(shuttle_id)
+		supply_shuttle = SSshuttle.getShuttle(shuttle_id)
+		supply_shuttle.home_id = home_id
+		supply_shuttle.faction = faction
+	ui = new(user, src, tgui_name, source_object.name)
+	ui.open()
 
 /datum/supply_ui/ui_static_data(mob/user)
 	. = list()
@@ -328,64 +326,86 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	.["personalpoints"] = round(SSpoints.personal_supply_points[user.ckey])
 	.["requests"] = list()
 	for(var/key in SSpoints.requestlist)
-		var/datum/supply_order/SO = SSpoints.requestlist[key]
-		if(SO.faction != user.faction)
+		var/datum/supply_order/our_order = SSpoints.requestlist[key]
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["requests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["requests"] += list(list("id" = our_order.id, "orderer" = our_order.orderer, "orderer_rank" = our_order.orderer_rank, "reason" = our_order.reason, "cost" = cost, "packs" = packs, "authed_by" = our_order.authorised_by))
 	.["deniedrequests"] = list()
 	for(var/i in length(SSpoints.deniedrequests) to 1 step -1)
-		var/datum/supply_order/SO = SSpoints.deniedrequests[SSpoints.deniedrequests[i]]
-		if(SO.faction != user.faction)
+		var/datum/supply_order/our_order = SSpoints.deniedrequests[SSpoints.deniedrequests[i]]
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["deniedrequests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["deniedrequests"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost, "packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["approvedrequests"] = list()
 	for(var/i in length(SSpoints.approvedrequests) to 1 step -1)
-		var/datum/supply_order/SO = SSpoints.approvedrequests[SSpoints.approvedrequests[i]]
-		if(SO.faction != user.faction)
+		var/datum/supply_order/our_order = SSpoints.approvedrequests[SSpoints.approvedrequests[i]]
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["approvedrequests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["approvedrequests"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost, "packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["awaiting_delivery"] = list()
 	.["awaiting_delivery_orders"] = 0
 	for(var/key in SSpoints.shoppinglist[faction])
-		var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
+		var/datum/supply_order/our_order = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
 		.["awaiting_delivery_orders"]++
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["awaiting_delivery"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["awaiting_delivery"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost,
+			"packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["export_history"] = list()
 	var/id = 0
 	var/lastexport = ""
@@ -398,31 +418,45 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			.["export_history"][id]["amount"] += 1
 			.["export_history"][id]["total"] += report.points
 		else
-			.["export_history"] += list(list("id" = id, "name" = report.export_name, "points" = report.points, "amount" = 1, total = report.points))
+			.["export_history"] += list(list(
+				"id" = id,
+				"name" = report.export_name,
+				"points" = report.points,
+				"amount" = 1,
+				total = report.points
+			))
 			id++
 			lastexport = report.export_name
 	.["shopping_history"] = list()
-	for(var/datum/supply_order/SO AS in SSpoints.shopping_history)
-		if(SO.faction != user.faction)
+	for(var/datum/supply_order/our_order AS in SSpoints.shopping_history)
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["shopping_history"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["shopping_history"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost,
+			"packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["shopping_list_cost"] = 0
 	.["shopping_list_items"] = 0
 	.["shopping_list"] = list()
 	for(var/i in SSpoints.shopping_cart)
-		var/datum/supply_packs/SP = SSpoints.supply_packs[i]
+		var/datum/supply_packs/our_pack = SSpoints.supply_packs[i]
 		.["shopping_list_items"] += SSpoints.shopping_cart[i]
-		.["shopping_list_cost"] += SP.cost * SSpoints.shopping_cart[SP.type]
-		.["shopping_list"][SP.type] = list("count" = SSpoints.shopping_cart[SP.type])
+		.["shopping_list_cost"] += our_pack.cost * SSpoints.shopping_cart[our_pack.type]
+		.["shopping_list"][our_pack.type] = list("count" = SSpoints.shopping_cart[our_pack.type])
 	if(supply_shuttle)
 		if(supply_shuttle?.mode == SHUTTLE_CALL)
 			if(is_mainship_level(supply_shuttle.destination.z))
@@ -562,76 +596,109 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	.["personalpoints"] = round(SSpoints.personal_supply_points[user.ckey])
 	.["requests"] = list()
 	for(var/i in SSpoints.requestlist)
-		var/datum/supply_order/SO = SSpoints.requestlist[i]
-		if(SO.faction != user.faction)
+		var/datum/supply_order/our_order = SSpoints.requestlist[i]
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["requests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["requests"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost,
+			"packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["deniedrequests"] = list()
 	for(var/i in length(SSpoints.deniedrequests) to 1 step -1)
-		var/datum/supply_order/SO = SSpoints.deniedrequests[SSpoints.deniedrequests[i]]
-		if(SO.faction != user.faction)
+		var/datum/supply_order/our_order = SSpoints.deniedrequests[SSpoints.deniedrequests[i]]
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["deniedrequests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["deniedrequests"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost,
+			"packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["approvedrequests"] = list()
 	for(var/i in length(SSpoints.approvedrequests) to 1 step -1)
-		var/datum/supply_order/SO = SSpoints.approvedrequests[SSpoints.approvedrequests[i]]
-		if(SO.faction != user.faction)
+		var/datum/supply_order/our_order = SSpoints.approvedrequests[SSpoints.approvedrequests[i]]
+		if(our_order.faction != user.faction)
 			continue
 		var/list/packs = list()
 		var/cost = 0
-		for(var/P in SO.pack)
-			var/datum/supply_packs/SP = P
-			if(packs[SP.type])
-				packs[SP.type] += 1
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
 			else
-				packs[SP.type] = 1
-			cost += SP.cost
-		.["approvedrequests"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["approvedrequests"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost,
+			"packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	.["awaiting_delivery"] = list()
 	.["awaiting_delivery_orders"] = 0
 	for(var/key in SSpoints.shoppinglist[faction])
 		//only own orders
-		var/datum/supply_order/SO = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
-		if(user.real_name == SO.orderer)
-			.["awaiting_delivery_orders"]++
-			var/list/packs = list()
-			var/cost = 0
-			for(var/P in SO.pack)
-				var/datum/supply_packs/SP = P
-				if(packs[SP.type])
-					packs[SP.type] += 1
-				else
-					packs[SP.type] = 1
-				cost += SP.cost
-			.["awaiting_delivery"] += list(list("id" = SO.id, "orderer" = SO.orderer, "orderer_rank" = SO.orderer_rank, "reason" = SO.reason, "cost" = cost, "packs" = packs, "authed_by" = SO.authorised_by))
+		var/datum/supply_order/our_order = LAZYACCESSASSOC(SSpoints.shoppinglist, faction, key)
+		if(user.real_name != our_order.orderer)
+			continue
+		.["awaiting_delivery_orders"]++
+		var/list/packs = list()
+		var/cost = 0
+		for(var/P in our_order.pack)
+			var/datum/supply_packs/our_pack = P
+			if(packs[our_pack.type])
+				packs[our_pack.type] += 1
+			else
+				packs[our_pack.type] = 1
+			cost += our_pack.cost
+		.["awaiting_delivery"] += list(list(
+			"id" = our_order.id,
+			"orderer" = our_order.orderer,
+			"orderer_rank" = our_order.orderer_rank,
+			"reason" = our_order.reason,
+			"cost" = cost,
+			"packs" = packs,
+			"authed_by" = our_order.authorised_by
+		))
 	if(!SSpoints.request_shopping_cart[user.ckey])
 		SSpoints.request_shopping_cart[user.ckey] = list()
 	.["shopping_list_cost"] = 0
 	.["shopping_list_items"] = 0
 	.["shopping_list"] = list()
 	for(var/i in SSpoints.request_shopping_cart[user.ckey])
-		var/datum/supply_packs/SP = SSpoints.supply_packs[i]
+		var/datum/supply_packs/our_pack = SSpoints.supply_packs[i]
 		.["shopping_list_items"] += SSpoints.request_shopping_cart[user.ckey][i]
-		.["shopping_list_cost"] += SP.cost * SSpoints.request_shopping_cart[user.ckey][SP.type]
-		.["shopping_list"][SP.type] = list("count" = SSpoints.request_shopping_cart[user.ckey][SP.type])
+		.["shopping_list_cost"] += our_pack.cost * SSpoints.request_shopping_cart[user.ckey][our_pack.type]
+		.["shopping_list"][our_pack.type] = list("count" = SSpoints.request_shopping_cart[user.ckey][our_pack.type])
 	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
 
 /datum/supply_ui/requests/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -653,7 +720,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	screen_overlay = "request"
 	broken_icon = "computer_orange_broken"
 	circuit = /obj/item/circuitboard/computer/ordercomp
-	var/datum/supply_ui/requests/SU
+	var/datum/supply_ui/requests/supply_ui
 
 /obj/machinery/computer/ordercomp/interact(mob/user)
 	. = ..()
@@ -661,9 +728,9 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		return
 	if(!allowed(user))
 		return
-	if(!SU)
-		SU = new(src)
-	return SU.interact(user)
+	if(!supply_ui)
+		supply_ui = new(src)
+	return supply_ui.interact(user)
 
 /obj/item/storage/backpack/marine/radiopack
 	name = "\improper TGMC radio operator backpack"
@@ -762,8 +829,6 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 /obj/docking_port/stationary/supply/vehicle
 	id = "vehicle_home"
 	roundstart_template = /datum/map_template/shuttle/supply/vehicle
-
-
 
 GLOBAL_LIST_EMPTY(armored_gunammo)
 GLOBAL_LIST_EMPTY(armored_modtypes)
