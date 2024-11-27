@@ -540,27 +540,19 @@
 		return
 	log_combat(src, M, "attempted to remove [key_name(I)] ([slot_to_process])")
 
+	src.move_resist = src.move_resist + HUMAN_STRIP_DELAY
+	M.move_resist = M.move_resist + HUMAN_STRIP_DELAY
+
 	M.visible_message(span_danger("[src] tries to remove [M]'s [I.name]."), \
 					span_userdanger("[src] tries to remove [M]'s [I.name]."), null, 5)
-	if(do_after(src, 10000, NONE, M, BUSY_ICON_HOSTILE))
-		// Тест Хуйни
-		src.move_resist = src.move_resist + 1
-		M.move_resist = M.move_resist +1
-		// Тест Хуйни
+	if(do_after(src, HUMAN_STRIP_DELAY, NONE, M, BUSY_ICON_HOSTILE))
 		if(Adjacent(M) && I && I == M.get_item_by_slot(slot_to_process))
 			M.dropItemToGround(I)
 			log_combat(src, M, "removed [key_name(I)] ([slot_to_process])")
-			// Тест Хуйни
-			src.move_resist = src.move_resist - 1
-			M.move_resist = M.move_resist - 1
-			// Тест Хуйни
-		else
-			// Тест Хуйни
-			src.move_resist = src.move_resist - 1
-			M.move_resist = M.move_resist - 1
-			// Тест Хуйни
 			if(isidcard(I))
 				message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
+	src.move_resist = src.move_resist - HUMAN_STRIP_DELAY
+	M.move_resist = M.move_resist - HUMAN_STRIP_DELAY
 
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE, client/override_client)
