@@ -140,7 +140,6 @@
 		crop_map = TRUE,
 		no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
 		place_on_top = should_place_on_top,
-		delete = delete
 	))
 		return
 
