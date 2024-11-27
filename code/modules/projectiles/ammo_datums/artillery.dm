@@ -53,7 +53,7 @@
 	icon_state = "howi"
 
 /datum/ammo/mortar/howi/drop_nade(turf/T)
-	cell_explosion(T, 175, 50)
+	cell_explosion(T, 200, 100)
 
 /datum/ammo/mortar/howi/incend/drop_nade(turf/T)
 	cell_explosion(T, 45, 30)
@@ -96,7 +96,7 @@
 
 /datum/ammo/mortar/rocket/incend/drop_nade(turf/T)
 	cell_explosion(T, 50, 20)
-	flame_radius(5, T)
+	flame_radius(6, T)
 	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
 /datum/ammo/mortar/rocket/minelayer/drop_nade(turf/T)
@@ -115,18 +115,30 @@
 	smoke.start()
 
 /datum/ammo/mortar/rocket/mlrs
-	shell_speed = 2.5
+	shell_speed = 3
 
 /datum/ammo/mortar/rocket/mlrs/drop_nade(turf/T)
 	cell_explosion(T, 70, 25)
 
 /datum/ammo/mortar/rocket/smoke/mlrs
-	shell_speed = 2.5
+	shell_speed = 3
 	smoketype = /datum/effect_system/smoke_spread/mustard
 
 /datum/ammo/mortar/rocket/smoke/mlrs/drop_nade(turf/T)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
 	cell_explosion(T, 30, 15)
+	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(5, T, 6)
+	flame_radius(4, T)
+	smoke.start()
+
+/datum/ammo/mortar/rocket/smoke/mlrs/tangle
+	shell_speed = 3
+	smoketype = /datum/effect_system/smoke_spread/plasmaloss
+
+/datum/ammo/mortar/rocket/smoke/mlrs/tangle/drop_nade(turf/T)
+	var/datum/effect_system/smoke_spread/smoke = new smoketype()
+	cell_explosion(T, 10, 2)
 	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
 	smoke.set_up(5, T, 6)
 	smoke.start()
@@ -208,10 +220,10 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 15
 	accuracy_var_high = 5
-	max_range = 6
+	max_range = 4
 	damage = 30
 	penetration = 20
-	sundering = 3
+	sundering = 1
 	damage_falloff = 0
 
 /datum/ammo/bullet/ags_spread/incendiary

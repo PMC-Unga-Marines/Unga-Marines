@@ -135,16 +135,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Whether to mute xeno health alerts from when other xenos are badly hurt.
 	var/mute_xeno_health_alert_messages = TRUE
 
-	///whether the user wants to hear tts
-	var/sound_tts = TTS_SOUND_ENABLED
-	///What tts voice should be used
-	var/tts_voice = "Male 01"
-	///how much to pitch the tts voice up and down
-	var/tts_pitch = 0
-	///Volume to use for tts
-	var/volume_tts = 100
-
-
 	/// Chat on map
 	var/chat_on_map = TRUE
 	var/see_chat_non_mob = FALSE
@@ -172,11 +162,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/fast_mc_refresh = FALSE
 	///When enabled, will split the 'Admin' panel into several tabs.
 	var/split_admin_tabs = TRUE
-
-	/// New TGUI Preference preview
-	var/map_name = "player_pref_map"
-	var/atom/movable/screen/map_view/screen_main
-	var/atom/movable/screen/background/screen_bg
 
 	/// If unique action will only act on the item in the active hand. If false, it will try to act on the item on the inactive hand as well in certain conditions.
 	var/unique_action_use_active_hand = TRUE
@@ -210,25 +195,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/pred_b_eyes = 0
 	var/yautja_status = WHITELIST_NORMAL
 
-
 /datum/preferences/New(client/C)
 	if(!istype(C))
 		return
 
 	parent = C
-
-	// Initialize map objects
-	screen_main = new
-	screen_main.name = "screen"
-	screen_main.assigned_map = map_name
-	screen_main.del_on_map_removal = FALSE
-	screen_main.screen_loc = "[map_name]:1,1"
-
-	screen_bg = new
-	screen_bg.assigned_map = map_name
-	screen_bg.del_on_map_removal = FALSE
-	screen_bg.icon_state = "clear"
-	screen_bg.fill_rect(1, 1, 4, 1)
 
 	if(!IsGuestKey(C.key))
 		load_path(C.ckey)
@@ -237,7 +208,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if(load_preferences() && load_character())
 			C.set_fullscreen(fullscreen_mode)
 			return
-
 
 	// We don't have a savefile or we failed to load them
 	random_character()
@@ -258,9 +228,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user?.client)
 		return
-	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP) // RUTGMC ADDITION START
+	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
 		to_chat(src, span_warning("The game is still setting up, please try again later."))
-		return // RUTGMC ADDITION END
+		return
 
 	update_preview_icon()
 	ui_interact(user)

@@ -50,7 +50,7 @@
 	switch(faction)
 		if(FACTION_SOM)
 			new /obj/item/loot_box/supply_drop/som(target_turf)
-		if(FACTION_ALIEN)
+		if(FACTION_XENO)
 			new /obj/effect/supply_drop/xenomorph(target_turf)
 		else
 			new /obj/item/loot_box/supply_drop(target_turf) //Marine box is the default

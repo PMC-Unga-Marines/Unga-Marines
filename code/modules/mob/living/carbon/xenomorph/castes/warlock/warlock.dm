@@ -2,12 +2,14 @@
 	caste_base_type = /datum/xeno_caste/warlock
 	name = "Warlock"
 	desc = "A large, physically frail creature. It hovers in the air and seems to buzz with psychic power."
-	icon = 'icons/Xeno/castes/warlock.dmi'
+	icon = 'icons/Xeno/castes/warlock/basic.dmi'
 	icon_state = "Warlock Walking"
+	effects_icon = 'icons/Xeno/castes/warlock/effects.dmi'
+	rouny_icon = 'icons/Xeno/castes/warlock/rouny.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
-		"arabian" = 'icons/Xeno/castes/warlock_arab.dmi',
-		"baseline" = 'icons/Xeno/castes/warlock.dmi',
+		/datum/xenomorph_skin/warlock/arabian,
+		/datum/xenomorph_skin/warlock,
 	)
 	attacktext = "slashes"
 	attack_sound = null

@@ -572,7 +572,7 @@
 	var/swap_used = FALSE
 
 /datum/action/ability/xeno_action/mirage/remove_action()
-	clean_illusions()
+	illusions = list() //the actual illusions fade on their own, and the cooldown object may be qdel'd
 	return ..()
 
 /datum/action/ability/xeno_action/mirage/can_use_action(silent = FALSE, override_flags)
@@ -637,7 +637,7 @@
 	. = ..()
 	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
 
-/datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
+/datum/action/ability/xeno_action/hunter_army/remove_action(mob/living/L)
 	. = ..()
 	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
 

@@ -11,7 +11,6 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
-	voice_filter = "lowpass=f=750,volume=2"
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list(/datum/reagent/toxin/phoron, "sleeping_agent", "carbon_dioxide")
 	///Does this particular mask have breath noises
@@ -54,7 +53,6 @@
 	flags_inventory = COVERMOUTH|BLOCKGASEFFECT
 	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/pmc/damaged
 	name = "damaged M8 pattern armored balaclava"
@@ -110,7 +108,6 @@
 	icon_state = "clown"
 	item_state = "clown_hat"
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/sexyclown
 	name = "sexy-clown wig and mask"
@@ -118,7 +115,6 @@
 	icon_state = "sexyclown"
 	item_state = "sexyclown"
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
@@ -126,7 +122,6 @@
 	icon_state = "mime"
 	item_state = "mime"
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/monkeymask
 	name = "monkey mask"
@@ -135,7 +130,6 @@
 	item_state = "monkeymask"
 	flags_armor_protection = HEAD|FACE|EYES
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/sexymime
 	name = "sexy mime mask"
@@ -143,14 +137,12 @@
 	icon_state = "sexymime"
 	item_state = "sexymime"
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
 	desc = "Beep boop"
 	icon_state = "death"
 	breathy = FALSE
-	voice_filter = null
 
 /obj/item/clothing/mask/gas/owl_mask
 	name = "owl mask"

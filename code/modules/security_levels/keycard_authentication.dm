@@ -3,12 +3,23 @@
 	desc = "This device is used to trigger station functions, which require more than one ID card to authenticate."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
-	var/active = 0 //This gets set to 1 on all devices except the one where the initial request was made.
+	anchored = TRUE
+	use_power = IDLE_POWER_USE
+	idle_power_usage = 2
+	active_power_usage = 6
+	power_channel = ENVIRON
+	light_power = 0.5
+	light_range = 0.7
+	///This gets set to TRUE on all devices except the one where the initial request was made.
+	var/active = FALSE
 	var/event = ""
 	var/screen = 1
-	var/confirmed = 0 //This variable is set by the device that confirms the request.
-	var/confirm_delay = 20 //(2 seconds)
-	var/busy = 0 //Busy when waiting for authentication or an event request has been sent from this device.
+	///This variable is set by the device that confirms the request.
+	var/confirmed = 0
+	///Delay before confirm deactivates
+	var/confirm_delay = 2 SECONDS
+	///Busy when waiting for authentication or an event request has been sent from this device.
+	var/busy = 0
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/event_triggered_by
 	var/mob/event_confirmed_by
@@ -16,20 +27,15 @@
 	var/synth_activation = 0
 	//1 = select event
 	//2 = authenticate
-	anchored = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 2
-	active_power_usage = 6
-	power_channel = ENVIRON
-
 
 /obj/machinery/keycard_auth/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
 	if(machine_stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
+		return
 
-	else if(istype(I, /obj/item/card/id))
+	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/ID = I
 		if(!(ACCESS_MARINE_BRIDGE in ID.access))
 			return
@@ -44,9 +50,23 @@
 
 /obj/machinery/keycard_auth/update_icon_state()
 	. = ..()
-	if(machine_stat &NOPOWER)
+	if(machine_stat & NOPOWER)
 		icon_state = "auth_off"
+	update_emissives()
 
+/obj/machinery/keycard_auth/update_overlays()
+	. = ..()
+	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
+		return
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+
+/obj/machinery/keycard_auth/proc/update_emissives()
+	if(icon_state == "auth_on") // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		set_light(initial(light_range), initial(light_power), LIGHT_COLOR_KEYCARD_BLUE)
+		update_icon(UPDATE_OVERLAYS)
+	else
+		set_light(0, 0)
+		update_icon(UPDATE_OVERLAYS)
 
 /obj/machinery/keycard_auth/can_interact(mob/user)
 	. = ..()
@@ -55,7 +75,6 @@
 	if(busy)
 		return FALSE
 	return TRUE
-
 
 /obj/machinery/keycard_auth/interact(mob/user)
 	. = ..()
@@ -90,7 +109,6 @@
 	popup.set_content(dat)
 	popup.open(FALSE)
 
-
 /obj/machinery/keycard_auth/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -122,11 +140,13 @@
 	synth_activation = 0
 	event_source = null
 	icon_state = "auth_off"
+	update_emissives()
 	event_triggered_by = null
 	event_confirmed_by = null
 
 /obj/machinery/keycard_auth/proc/broadcast_request()
 	icon_state = "auth_on"
+	update_emissives()
 	for(var/obj/machinery/keycard_auth/KA in GLOB.machines)
 		if(KA == src)
 			continue
@@ -149,11 +169,13 @@
 	busy = FALSE
 	active = TRUE
 	icon_state = "auth_on"
+	update_emissives()
 	addtimer(CALLBACK(src, PROC_REF(confirm)), confirm_delay)
 
 /obj/machinery/keycard_auth/proc/confirm()
 	event_source = null
 	icon_state = "auth_off"
+	update_emissives()
 	active = FALSE
 	busy = FALSE
 
@@ -167,6 +189,6 @@
 			GLOB.marine_main_ship.revoke_maint_all_access()
 
 /obj/machinery/door/airlock/allowed(mob/M)
-	if(is_mainship_level(z) && GLOB.marine_main_ship.maint_all_access && (ACCESS_MARINE_ENGINEERING in req_access+req_one_access))
+	if(is_mainship_level(z) && GLOB.marine_main_ship.maint_all_access && (ACCESS_MARINE_ENGINEERING in (req_access+req_one_access)))
 		return TRUE
 	return ..(M)

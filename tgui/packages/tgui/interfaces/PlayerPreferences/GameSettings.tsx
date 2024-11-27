@@ -68,15 +68,6 @@ export const GameSettings = (props) => {
                 leftLabel={'Muted'}
                 rightLabel={'Enabled'}
               />
-              <SelectFieldPreference
-                label="Play Text-to-Speech"
-                value="sound_tts"
-                action="sound_tts"
-              />
-              <TextFieldPreference
-                label="Text to speech volume"
-                value="volume_tts"
-              />
               <ToggleFieldPreference
                 label="Fullscreen mode"
                 value="fullscreen_mode"

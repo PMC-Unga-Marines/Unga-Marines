@@ -33,8 +33,8 @@
 
 /obj/machinery/line_nexter_control
 	name = "Next Button"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "doorctrl0"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "button"
 	var/id
 
 /obj/machinery/line_nexter_control/attack_hand(mob/living/user)
@@ -44,11 +44,9 @@
 	if(istype(user,/mob/living/carbon/xenomorph))
 		return
 
-	icon_state = "doorctrl1"
+	flick("button_on", src)
 
 	for(var/obj/machinery/line_nexter/L in GLOB.machines)
-		if(id == L.id)
-			L.next()
-
-	spawn(15)
-		icon_state = "doorctrl0"
+		if(id != L.id)
+			continue
+		L.next()

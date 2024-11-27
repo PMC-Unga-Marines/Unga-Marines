@@ -175,6 +175,13 @@
 		M.forceMove(loc)
 		return TRUE
 
+/obj/structure/bed/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	. = ..()
+	if(!.)
+		return
+	if(buckled_bodybag)
+		unbuckle_bodybag()
+
 /obj/structure/bed/alien
 	icon_state = "abed"
 

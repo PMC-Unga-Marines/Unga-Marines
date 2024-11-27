@@ -397,6 +397,10 @@
 /obj/effect/step_trigger/teleporter/yautja_ship,
 /turf/open/floor/light,
 /area/yautja)
+"be" = (
+/obj/alien/egg/hugger/yautja,
+/turf/open/floor/strata/multi_tiles,
+/area/yautja)
 "bg" = (
 /obj/structure/rack{
 	color = "#6b675e";
@@ -489,11 +493,6 @@
 	name = "\improper Storage Chamber"
 	},
 /turf/open/shuttle/dropship/fourteen,
-/area/yautja)
-"by" = (
-/obj/effect/decal/remains/human,
-/obj/alien/egg/hugger/forsaken,
-/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bz" = (
 /obj/structure/window/reinforced{
@@ -1101,9 +1100,6 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/beach/sand,
 /area/yautja)
-"dI" = (
-/turf/template_noop,
-/area/space)
 "dP" = (
 /obj/item/explosive/grenade/spawnergrenade/hellhound,
 /obj/item/explosive/grenade/spawnergrenade/hellhound,
@@ -1448,6 +1444,11 @@
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
+"jY" = (
+/obj/effect/decal/remains/human,
+/obj/alien/egg/hugger/yautja,
+/turf/open/floor/strata/multi_tiles,
+/area/yautja)
 "kA" = (
 /obj/item/weapon/twohanded/dualsaber{
 	force_wielded = 20;
@@ -1782,10 +1783,6 @@
 	amount = 30
 	},
 /turf/open/floor/corsat,
-/area/yautja)
-"ua" = (
-/obj/alien/egg/hugger/forsaken,
-/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "uO" = (
 /obj/structure/bed/chair/hunter{
@@ -2547,6 +2544,9 @@
 	},
 /turf/open/floor/corsat,
 /area/yautja)
+"QH" = (
+/turf/template_noop,
+/area/space)
 "RE" = (
 /obj/structure/closet/secure_closet/freezer/fridge/yautja,
 /obj/item/reagent_containers/food/snacks/grown/potato,
@@ -4378,9 +4378,9 @@ aa
 bj
 bj
 bj
-ua
+be
 MD
-ua
+be
 bj
 bj
 bj
@@ -4450,9 +4450,9 @@ aa
 aa
 bj
 bj
-by
+jY
 Kp
-ua
+be
 bj
 bj
 bj
@@ -7106,11 +7106,11 @@ bj
 aa
 aa
 aa
-dI
-dI
-dI
-dI
-dI
+QH
+QH
+QH
+QH
+QH
 aa
 aa
 aa
@@ -7328,7 +7328,7 @@ aa
 aa
 aa
 aa
-dI
+QH
 aa
 aa
 aa
@@ -7371,7 +7371,7 @@ aa
 aa
 aa
 aa
-dI
+QH
 aa
 aa
 aa

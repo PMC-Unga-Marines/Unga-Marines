@@ -312,7 +312,7 @@
 
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		var/area/current_area = get_area(S)
-		if(current_area.type in skipped_areas || !is_mainship_level(S.z)) // Ship only
+		if((current_area.type in skipped_areas) || !is_mainship_level(S.z)) // Ship only
 			continue
 		S.charge = 0
 		S.output_level = 0
@@ -336,7 +336,7 @@
 
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		var/area/current_area = get_area(S)
-		if(current_area.type in skipped_areas || !is_mainship_level(S.z))
+		if((current_area.type in skipped_areas) || !is_mainship_level(S.z))
 			continue
 		S.charge = S.capacity
 		S.output_level = S.output_level_max

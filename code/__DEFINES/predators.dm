@@ -25,16 +25,10 @@
 #define ACCESSORY_SLOT_ARMOR_Y_RH "right_hand_bones"
 #define ACCESSORY_SLOT_ARMOR_Y_LH "left_hand_bones"
 
-#define FACTION_YAUTJA "Yautja"
-#define XENO_HIVE_FORSAKEN "forsaken_hive"
-#define XENO_HIVE_YAUTJA "yautja_hive"
-
 #define JOB_PREDATOR "Predator"
 
 #define CATEGORY_YAUTJA "YAUTJA"
 #define HUNTERSHIPS_TEMPLATE_PATH "_maps/predator/huntership.dmm"
-
-#define DUMMY_PRED_SLOT_PREFERENCES "dummy_preference_preview_second"
 
 #define PRED_MATERIALS list("ebony", "silver", "bronze", "crimson", "bone")
 #define PRED_TRANSLATORS list("Modern", "Retro", "Combo")

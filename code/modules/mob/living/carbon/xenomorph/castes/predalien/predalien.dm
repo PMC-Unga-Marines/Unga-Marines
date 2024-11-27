@@ -2,8 +2,9 @@
 	caste_base_type = /datum/xeno_caste/predalien
 	name = "Abomination" //snowflake name
 	desc = "A strange looking creature with fleshy strands on its head. It appears like a mixture of armor and flesh, smooth, but well carapaced."
-	icon = 'icons/Xeno/castes/predalien_praetorian.dmi'
+	icon = 'icons/Xeno/castes/predalien/praetorian.dmi'
 	icon_state = "Predalien Walking"
+	effects_icon = 'icons/Xeno/castes/predalien/praetorian_effects.dmi'
 	wall_smash = TRUE
 	pixel_x = -16
 	old_x = -16
@@ -15,6 +16,11 @@
 	upgrade = XENO_UPGRADE_NORMAL
 
 	footstep_type = FOOTSTEP_PREDALIEN_STOMPY
+
+	skins = list(
+		/datum/xenomorph_skin/predalien/warrior,
+		/datum/xenomorph_skin/predalien,
+	)
 
 	var/max_bonus_life_kills = 10
 	var/butcher_time = 6 SECONDS
@@ -46,7 +52,3 @@ Your health meter will not regenerate normally, so kill and die for the hive!</s
 <span class='role_body'>|______________________|</span>
 "})
 	emote("roar")
-
-/mob/living/carbon/xenomorph/predalien/warrior
-	name = "Abomination Warrior" //snowflake name
-	icon = 'icons/Xeno/castes/predalien_warrior.dmi'

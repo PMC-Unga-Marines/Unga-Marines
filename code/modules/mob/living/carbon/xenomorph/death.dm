@@ -76,8 +76,10 @@
 
 	to_chat(src,"<b>[span_deadsay("<p style='font-size:1.5em'><big>We have perished.</big><br><small>But it is not the end of us yet... wait until a newborn can rise in this world...</small></p>")]</b>")
 
-	return ..()
+	if(islaststandgamemode(SSticker.mode)) // snowflaky, but we need to cleanup
+		addtimer(CALLBACK(src, PROC_REF(last_stand_death)), 1 MINUTES)
 
+	return ..()
 
 /mob/living/carbon/xenomorph/proc/xeno_death_alert()
 	if(is_centcom_level(z))
@@ -94,17 +96,28 @@
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_GIBBING)
 
+	remains.icon = effects_icon
 	remains.icon_state = xeno_caste.gib_anim
 
-	check_blood_splash(35, BURN, 65, 2)
+	check_blood_splash(50, BRUTE, 50)
 
 	return ..()
 
 /mob/living/carbon/xenomorph/gib_animation()
-	new /obj/effect/overlay/temp/gib_animation/xeno(loc, 0, src, xeno_caste.gib_flick, icon)
+	new /obj/effect/overlay/temp/gib_animation/xeno(loc, 0, src, xeno_caste.gib_flick, effects_icon)
 
 /mob/living/carbon/xenomorph/spawn_gibs()
 	xgibs(get_turf(src))
 
 /mob/living/carbon/xenomorph/dust_animation()
 	new /obj/effect/overlay/temp/dust_animation(loc, 0, src, "dust-a")
+
+/mob/living/carbon/xenomorph/proc/last_stand_death()
+	if(QDELETED(src)) // in case we were gibbed
+		return
+
+	fade_out(src, our_time = 5 SECONDS)
+	sleep(5 SECONDS)
+	if(prob(25))
+		new /obj/item/research_product/money/basic(loc)
+	qdel(src)

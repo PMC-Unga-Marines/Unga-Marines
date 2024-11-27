@@ -12,7 +12,7 @@
 		return FALSE
 	for(var/i in 1 to points * points_factor)
 		var/spawntype = pick(spawn_types)
-		new spawntype(GLOB.waves_spawner_loc)
+		new spawntype(pick(GLOB.waves_spawner_locs))
 	return TRUE
 
 /datum/wave_spawner/minions

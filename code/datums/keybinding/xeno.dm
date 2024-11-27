@@ -715,13 +715,6 @@
 	description = "Instantly displays a bolded announcement to all xenos in the hive."
 	keybind_signal = COMSIG_XENOABILITY_QUEEN_HIVE_MESSAGE
 
-/datum/keybinding/xeno/queen_bulwark
-	name = "queen_bulwark"
-	full_name = "Queen: Bulwark"
-	description = "Forms an area around you that reduces damage taken by friendly xenomorphs."
-	keybind_signal = COMSIG_XENOABILITY_QUEEN_BULWARK
-	hotkey_keys = list("F")
-
 /datum/keybinding/xeno/deevolve
 	name = "deevolve"
 	full_name = "Queen: Devolve Xeno"
@@ -747,6 +740,13 @@
 	full_name = "Ravager: Toggle vampirism"
 	description = "While active, will increase the ravagers healing for a while for every time it hits a new enemy. Effects stack."
 	keybind_signal = COMSIG_XENOABILITY_VAMPIRISM
+
+/datum/keybinding/xeno/ravager_immortality
+	name = "ravager_immortality"
+	full_name = "Ravager: Immortality"
+	description = "For the next few moments we will be immune to damage."
+	keybind_signal = COMSIG_XENOABILITY_IMMORTALITY
+	hotkey_keys = list("X")
 
 /datum/keybinding/xeno/ravage
 	name = "ravage"

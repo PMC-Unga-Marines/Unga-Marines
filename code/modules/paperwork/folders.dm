@@ -4,7 +4,6 @@
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
-	var/updateicon = 0//If they spawn with premade papers, update icon
 
 /obj/item/folder/blue
 	desc = "A blue folder."
@@ -30,24 +29,10 @@
 	desc = "A black folder."
 	icon_state = "folder_black"
 
-/obj/item/folder/black_random
-	desc = "A black folder. It is decorated with stripes."
-	icon_state = "folder_black_green"
-
-/obj/item/folder/black_random/Initialize(mapload)
-	. = ..()
-	icon_state = "folder_black[pick("_red", "_green", "_blue", "_yellow", "_white")]"
-
-/obj/item/folder/Initialize(mapload)
-	. = ..()
-	if(updateicon)
-		update_icon()
-
 /obj/item/folder/update_overlays()
 	. = ..()
 	if(length(contents))
 		. += "folder_paper"
-
 
 /obj/item/folder/attackby(obj/item/I, mob/user, params)
 	. = ..()

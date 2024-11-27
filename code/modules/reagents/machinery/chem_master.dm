@@ -8,6 +8,9 @@
 	layer = BELOW_OBJ_LAYER //So bottles/pills reliably appear above it
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 20
+	light_range = 1
+	light_power = 0.5
+	light_color = LIGHT_COLOR_ELECTRIC_CYAN
 
 	var/obj/item/reagent_containers/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
@@ -84,12 +87,13 @@
 		updateUsrDialog()
 
 /obj/machinery/chem_master/proc/transfer_chemicals(obj/dest, obj/source, amount, reagent_id)
-	if(istype(source))
-		if(amount > 0 && source.reagents && amount <= source.reagents.maximum_volume)
-			if(!istype(dest))
-				source.reagents.remove_reagent(reagent_id, amount)
-			else if(dest.reagents)
-				source.reagents.trans_id_to(dest, reagent_id, amount)
+	if(!istype(source))
+		return
+	if(amount > 0 && source.reagents && amount <= source.reagents.maximum_volume)
+		if(!istype(dest))
+			source.reagents.remove_reagent(reagent_id, amount)
+		else if(dest.reagents)
+			source.reagents.trans_id_to(dest, reagent_id, amount)
 
 /obj/machinery/chem_master/proc/replace_beaker(mob/user)
 	if(beaker)
@@ -102,7 +106,6 @@
 	icon_state = "mixer0"
 	return TRUE
 
-
 /obj/machinery/chem_master/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -112,12 +115,10 @@
 
 	var/mob/living/user = usr
 
-//RUTGMC edit start - marines can use chem machines once again
 	if(user.skills.getRating("medical") < SKILL_MEDICAL_NOVICE)
 		to_chat(user, span_notice("You start fiddling with \the [src]..."))
 		if(!do_after(user, SKILL_TASK_EASY, IGNORE_HELD_ITEM, src, BUSY_ICON_UNSKILLED))
 			return
-//RUTGMC edit end
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
@@ -340,21 +341,8 @@
 	. = ..()
 	if(.)
 		return
-	// if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED) //RUTGMC edit - marines can use chem machines once again
-	// 	balloon_alert(user, "skill issue")
-	// 	return
-
 	if(!(user.client in has_sprites))
-		spawn()
-			has_sprites += user.client
-			for(var/i = 1 to MAX_PILL_BOTTLE_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/chemistry.dmi', pill_bottle_names[i]), pill_bottle_names[i]+".png")
-			for(var/i = 1 to MAX_PILL_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "pill" + num2text(i)), "pill[i].png")
-			for(var/i = 1 to MAX_BOTTLE_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "bottle-" + num2text(i)), "bottle-[i].png")
-			for(var/i = 1 to MAX_AUTOINJECTOR_SPRITE)
-				user << browse_rsc(icon('icons/obj/items/syringe.dmi', "autoinjector-" + num2text(i)), "autoinjector-[i].png")
+		INVOKE_ASYNC(src, PROC_REF(show_container_choises), user)
 	var/dat = ""
 	if(!beaker)
 		dat = "Please insert beaker.<BR>"
@@ -406,6 +394,24 @@
 	popup.set_content(dat)
 	popup.open()
 
+/obj/machinery/chem_master/proc/show_container_choises(mob/user)
+	has_sprites += user.client
+	for(var/i = 1 to MAX_PILL_BOTTLE_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/chemistry.dmi', pill_bottle_names[i]), pill_bottle_names[i]+".png")
+	for(var/i = 1 to MAX_PILL_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "pill" + num2text(i)), "pill[i].png")
+	for(var/i = 1 to MAX_BOTTLE_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/chemistry.dmi', "bottle-" + num2text(i)), "bottle-[i].png")
+	for(var/i = 1 to MAX_AUTOINJECTOR_SPRITE)
+		user << browse_rsc(icon('icons/obj/items/syringe.dmi', "autoinjector-" + num2text(i)), "autoinjector-[i].png")
+
+/obj/machinery/chem_master/update_icon()
+	. = ..()
+	if(machine_stat & (NOPOWER))
+		set_light(0)
+	else
+		set_light(initial(light_range))
+
 /obj/machinery/chem_master/update_icon_state()
 	. = ..()
 	if(machine_stat & BROKEN)
@@ -414,6 +420,13 @@
 		icon_state = (beaker?"[base_state]1_nopower":"[base_state]0_nopower")
 	else
 		icon_state = (beaker?"[base_state]1":"[base_state]0")
+
+/obj/machinery/chem_master/update_overlays()
+	. = ..()
+	if(machine_stat & (NOPOWER))
+		return
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"

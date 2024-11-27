@@ -61,6 +61,7 @@
 	var/about_to_jump = FALSE
 	///Time to become active after moving into the facehugger's space.
 	var/proximity_time = 0.75 SECONDS
+	var/trap_type = TRAP_HUGGER_LARVAL
 
 /obj/item/clothing/mask/facehugger/Initialize(mapload, input_hivenumber, input_source)
 	. = ..()
@@ -320,7 +321,7 @@
 			visible_message(span_xenowarning("[src] crawls into [T]!"))
 			forceMove(T)
 			T.hugger = src
-			T.set_trap_type(TRAP_HUGGER)
+			T.set_trap_type(trap_type)
 			go_idle(TRUE)
 			return FALSE
 		kill_hugger()
@@ -719,6 +720,7 @@
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	trap_type = TRAP_HUGGER_NEURO
 
 /obj/item/clothing/mask/facehugger/combat/neuro/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -742,6 +744,7 @@
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	trap_type = TRAP_HUGGER_ACID
 
 /obj/item/clothing/mask/facehugger/combat/acid/Attach(mob/M, mob/user)
 	if(!combat_hugger_check_target(M))
@@ -769,6 +772,7 @@
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
+	trap_type = TRAP_HUGGER_RESIN
 	var/have_resin = TRUE
 
 /obj/item/clothing/mask/facehugger/combat/resin/Attach(mob/M, mob/user)
@@ -806,6 +810,7 @@
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.5 SECONDS
+	trap_type = TRAP_HUGGER_SLASH
 
 /obj/item/clothing/mask/facehugger/combat/slash/Attach(mob/M)
 	if(!combat_hugger_check_target(M))

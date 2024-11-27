@@ -6,6 +6,7 @@
 	anchored = TRUE
 	opacity = TRUE
 	density = TRUE
+	dir = EAST
 	allow_pass_flags = NONE
 	move_resist = MOVE_FORCE_VERY_STRONG
 	layer = DOOR_OPEN_LAYER
@@ -16,6 +17,7 @@
 	var/open_layer = DOOR_OPEN_LAYER
 	var/closed_layer = DOOR_CLOSED_LAYER
 	var/id
+	///How many seconds remain until the door is no longer electrified. -1 if it is permanently electrified until someone fixes it.
 	var/secondsElectrified = 0
 	var/visible = TRUE
 	var/operating = FALSE
@@ -24,14 +26,14 @@
 	var/normalspeed = TRUE
 	var/locked = FALSE
 	var/welded = FALSE
-	var/not_weldable = FALSE // stops people welding the door if true
-	var/openspeed = 10 //How many seconds does it take to open it? Default 1 second. Use only if you have long door opening animations
+	/// stops people welding the door if true
+	var/not_weldable = FALSE
+	///How many seconds does it take to open it? Use only if you have long door opening animations
+	var/openspeed = 1 SECONDS
 	var/list/fillers
 	//used for determining emergency access
 	var/emergency = FALSE
-
-	//Multi-tile doors
-	dir = EAST
+	///Multi-tile doors
 	var/width = 1
 
 /obj/machinery/door/Initialize(mapload)
@@ -132,16 +134,14 @@
 	else if(density)
 		flick("door_deny", src)
 
-
 /obj/machinery/door/emp_act(severity)
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
 		open()
 	if(prob(40/severity))
 		if(secondsElectrified == 0)
 			secondsElectrified = -1
-			spawn(300)
-				secondsElectrified = 0
-	..()
+			addtimer(VARSET_CALLBACK(src, secondsElectrified, 0), 30 SECONDS)
+	return ..()
 
 /obj/machinery/door/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
@@ -174,7 +174,6 @@
 				flick("doorc1", src)
 		if("deny")
 			flick("door_deny", src)
-
 
 /obj/machinery/door/proc/open()
 	SIGNAL_HANDLER_DOES_SLEEP

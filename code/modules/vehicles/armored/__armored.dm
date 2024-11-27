@@ -538,7 +538,8 @@
 
 
 /obj/vehicle/sealed/armored/welder_act(mob/living/user, obj/item/I)
-	return welder_repair_act(user, I, 50, 5 SECONDS, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
+	var/fumbling_time = 5 SECONDS - 1 SECONDS * user.skills.getRating(SKILL_ENGINEER)
+	return welder_repair_act(user, I, 5 SECONDS, fumbling_time, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
 
 /obj/vehicle/sealed/armored/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()

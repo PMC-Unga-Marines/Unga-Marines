@@ -48,14 +48,14 @@
 /obj/machinery/scoreboard_button
 	name = "scoreboard button"
 	desc = "A remote control button to reset a scoreboard."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "launcherbtt"
-	var/id = null
-	var/active = 0
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "launcher"
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/active = 0
 
 /obj/machinery/scoreboard_button/attack_hand(mob/living/user)
 	. = ..()
@@ -69,7 +69,7 @@
 	use_power(active_power_usage)
 
 	active = 1
-	icon_state = "launcheract"
+	icon_state = "launcher_on"
 
 	for(var/obj/machinery/scoreboard/X in GLOB.machines)
 		if(X.id == id)
@@ -77,6 +77,6 @@
 
 	sleep(5 SECONDS)
 
-	icon_state = "launcherbtt"
+	icon_state = "launcher"
 	active = 0
 

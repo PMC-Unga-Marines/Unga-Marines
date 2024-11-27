@@ -32,8 +32,6 @@
 	xeno.AddComponent(/datum/component/xeno_iff, carried_iff)
 	qdel(src)
 
-
-
 //Eventmins are fun so I'll make your job a tiny bit easier.
 
 /obj/item/xeno_iff_tag/som

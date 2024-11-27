@@ -34,3 +34,6 @@ Contains most of the procs that are called when a xeno is attacked by something
 	if(add_fire_stacks > 0 && ((xeno_caste.caste_flags & CASTE_FIRE_IMMUNE) || (HAS_TRAIT(src, TRAIT_NON_FLAMMABLE))))
 		return
 	return ..()
+
+/mob/living/carbon/xenomorph/emote_gored()
+	emote(prob(70) ? "hiss" : "roar")

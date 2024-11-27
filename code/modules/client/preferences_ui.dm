@@ -1,16 +1,19 @@
 /datum/preferences/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		user.client.register_map_obj(screen_main)
-		user.client.register_map_obj(screen_bg)
 
 		ui = new(user, src, "PlayerPreferences", "Preferences")
 		ui.set_autoupdate(FALSE)
 		ui.open()
+		// HACK: Without this the character starts out really tiny because of some BYOND bug.
+		// You can fix it by changing a preference, so let's just forcably update the body to emulate this.
+		// Lemon from the future: this issue appears to replicate if the byond map (what we're relaying here)
+		// Is shown while the client's mouse is on the screen. As soon as their mouse enters the main map, it's properly scaled
+		// I hate this place
+		addtimer(CALLBACK(src, PROC_REF(update_preview_icon)), 1 SECONDS)
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
-	user.client?.clear_map(map_name)
 	user.client?.clear_character_previews()
 
 /datum/preferences/ui_state(mob/user)
@@ -64,8 +67,6 @@
 			data["species"] = species || "Human"
 			data["good_eyesight"] = good_eyesight
 			data["citizenship"] = citizenship
-			data["tts_voice"] = tts_voice
-			data["tts_pitch"] = "[tts_pitch]"
 			data["religion"] = religion
 			data["h_style"] = h_style
 			data["grad_style"] = grad_style
@@ -128,8 +129,6 @@
 			data["windowflashing"] = windowflashing
 			data["auto_fit_viewport"] = auto_fit_viewport
 			data["mute_xeno_health_alert_messages"] = mute_xeno_health_alert_messages
-			data["sound_tts"] = sound_tts
-			data["volume_tts"] = volume_tts
 			data["tgui_fancy"] = tgui_fancy
 			data["tgui_lock"] = tgui_lock
 			data["tgui_input"] = tgui_input
@@ -182,10 +181,8 @@
 	. = list()
 	switch(tab_index)
 		if(CHARACTER_CUSTOMIZATION)
-			update_preview_icon()
 			.["mapRef"] = "player_pref_map"
 		if(PRED_CHARACTER_CUSTOMIZATION)
-			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_PRED_SLOT_PREFERENCES)
 			.["mapRef"] = "player_pref_map"
 		if(GEAR_CUSTOMIZATION)
 			.["clothing"] = list(
@@ -676,31 +673,6 @@
 				return
 			religion = choice
 
-		if("tts_voice")
-			var/list/voices
-			if(SStts.tts_enabled)
-				voices = SStts.available_speakers
-			else if(fexists("data/cached_tts_voices.json"))
-				var/list/text_data = rustg_file_read("data/cached_tts_voices.json")
-				voices = json_decode(text_data)
-			if(!length(voices))
-				return
-			var/choice = tgui_input_list(ui.user, "What do you sound like?", "TTS", voices)
-			if(!choice)
-				return
-			tts_voice = choice
-			if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_TRY_TTS))
-				return
-			TIMER_COOLDOWN_START(ui.user, COOLDOWN_TRY_TTS, 0.5 SECONDS)
-			INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), ui.user.client, "Hello, this is my voice.", speaker = choice, local = TRUE, special_filters = isrobot(GLOB.all_species[species]) ? TTS_FILTER_SILICON : "", pitch = tts_pitch)
-
-		if("tts_pitch")
-			tts_pitch = clamp(text2num(params["newValue"]), -12, 12)
-			if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_TRY_TTS))
-				return
-			TIMER_COOLDOWN_START(ui.user, COOLDOWN_TRY_TTS, 0.5 SECONDS)
-			INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), ui.user.client, "Hello, this is my voice.", speaker = tts_voice, local = TRUE, special_filters = isrobot(GLOB.all_species[species]) ? TTS_FILTER_SILICON : "", pitch = tts_pitch)
-
 		if("squad")
 			var/new_squad = params["newValue"]
 			if(!(new_squad in SELECTABLE_SQUADS))
@@ -747,19 +719,6 @@
 
 		if("mute_xeno_health_alert_messages")
 			mute_xeno_health_alert_messages = !mute_xeno_health_alert_messages
-
-		if("sound_tts")
-			var/choice = tgui_input_list(ui.user, "What kind of TTS do you want?", "TTS choice", GLOB.all_tts_options)
-			if(!choice)
-				return
-			sound_tts = choice
-
-		if("volume_tts")
-			var/new_vol = text2num(params["newValue"])
-			if(!isnum(new_vol))
-				return
-			new_vol = round(new_vol)
-			volume_tts = clamp(new_vol, 0, 100)
 
 		if("tgui_fancy")
 			tgui_fancy = !tgui_fancy

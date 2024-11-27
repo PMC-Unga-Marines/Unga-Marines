@@ -206,7 +206,7 @@
 	add_cooldown()
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_icons)), 1 SECONDS)
 	var/mob/living/carbon/xenomorph/xeno = owner
-	owner.icon_state = "[xeno.xeno_caste.caste_name][xeno.is_a_rouny ? " rouny" : ""] Screeching"
+	owner.icon_state = "[xeno.xeno_caste.caste_name] Screeching"
 	if(target) // Keybind use doesn't have a target
 		owner.face_atom(target)
 
@@ -376,6 +376,10 @@
 
 /datum/action/ability/xeno_action/place_acidwell/action_activate()
 	var/turf/T = get_turf(owner)
+
+	for(var/obj/structure/xeno/acidwell/well in range(1, T))
+		owner.balloon_alert(owner, span_notice("Another acid well is too close!"))
+		return
 
 	if(!do_after(owner, 0.5 SECONDS, NONE, T, BUSY_ICON_BUILD))
 		return

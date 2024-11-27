@@ -85,24 +85,9 @@
 		if(istype(manager))
 			loadout_manager.loadouts_data = convert_loadouts_list(manager?.loadouts_data)
 
-	if(savefile_version < 45) // merged sound_tts_blips and sound_tts
-		var/used_blips = FALSE
-		READ_FILE(S["sound_tts_blips"], used_blips)
-		var/used_tts = TRUE
-		READ_FILE(S["sound_tts"], used_tts)
-		var/new_val = TTS_SOUND_ENABLED
-		if(!used_tts)
-			new_val = TTS_SOUND_OFF
-		else if(used_blips)
-			new_val = TTS_SOUND_BLIPS
-		WRITE_FILE(S["sound_tts"], new_val)
-		sound_tts = new_val
-
-
 	savefile_version = SAVEFILE_VERSION_MAX
 	save_preferences()
 	return TRUE
-
 
 /datum/preferences/proc/load_path(ckey, filename = "preferences.sav")
 	ckey = ckey(ckey)
@@ -162,8 +147,6 @@
 	READ_FILE(S["clientfps"], clientfps)
 	READ_FILE(S["parallax"], parallax)
 	READ_FILE(S["tooltips"], tooltips)
-	READ_FILE(S["sound_tts"], sound_tts)
-	READ_FILE(S["volume_tts"], volume_tts)
 	READ_FILE(S["fast_mc_refresh"], fast_mc_refresh)
 	READ_FILE(S["split_admin_tabs"], split_admin_tabs)
 
@@ -220,8 +203,6 @@
 	clientfps = sanitize_integer(clientfps, 0, 240, initial(clientfps))
 	parallax = sanitize_integer(parallax, PARALLAX_INSANE, PARALLAX_DISABLE, null)
 	tooltips = sanitize_integer(tooltips, FALSE, TRUE, initial(tooltips))
-	sound_tts = sanitize_inlist(sound_tts, GLOB.all_tts_options, initial(sound_tts))
-	volume_tts = sanitize_integer(volume_tts, 1, 100, initial(volume_tts))
 
 	key_bindings = sanitize_islist(key_bindings, list())
 	if(!length(key_bindings))
@@ -295,8 +276,6 @@
 	clientfps = sanitize_integer(clientfps, 0, 240, initial(clientfps))
 	parallax = sanitize_integer(parallax, PARALLAX_INSANE, PARALLAX_DISABLE, null)
 	tooltips = sanitize_integer(tooltips, FALSE, TRUE, initial(tooltips))
-	sound_tts = sanitize_inlist(sound_tts, GLOB.all_tts_options, initial(sound_tts))
-	volume_tts = sanitize_integer(volume_tts, 1, 100, initial(volume_tts))
 
 	mute_self_combat_messages = sanitize_integer(mute_self_combat_messages, FALSE, TRUE, initial(mute_self_combat_messages))
 	mute_others_combat_messages = sanitize_integer(mute_others_combat_messages, FALSE, TRUE, initial(mute_others_combat_messages))
@@ -346,8 +325,6 @@
 	WRITE_FILE(S["clientfps"], clientfps)
 	WRITE_FILE(S["parallax"], parallax)
 	WRITE_FILE(S["tooltips"], tooltips)
-	WRITE_FILE(S["sound_tts"], sound_tts)
-	WRITE_FILE(S["volume_tts"], volume_tts)
 	WRITE_FILE(S["slot_draw_order"], slot_draw_order_pref)
 
 	WRITE_FILE(S["mute_self_combat_messages"], mute_self_combat_messages)
@@ -475,9 +452,6 @@
 	READ_FILE(S["citizenship"], citizenship)
 	READ_FILE(S["religion"], religion)
 
-	READ_FILE(S["tts_voice"], tts_voice)
-	READ_FILE(S["tts_pitch"], tts_pitch)
-
 	READ_FILE(S["med_record"], med_record)
 	READ_FILE(S["sec_record"], sec_record)
 	READ_FILE(S["gen_record"], gen_record)
@@ -546,9 +520,6 @@
 
 	citizenship = sanitize_inlist(citizenship, CITIZENSHIP_CHOICES, initial(citizenship))
 	religion = sanitize_inlist(religion, RELIGION_CHOICES, initial(religion))
-
-	tts_voice = sanitize_inlist_tts(tts_voice)
-	tts_pitch = sanitize_integer(tts_pitch, -12, 12, initial(tts_pitch))
 
 	med_record = sanitize_text(med_record, initial(med_record))
 	sec_record = sanitize_text(sec_record, initial(sec_record))
@@ -666,9 +637,6 @@
 	citizenship = sanitize_inlist(citizenship, CITIZENSHIP_CHOICES, initial(citizenship))
 	religion = sanitize_inlist(religion, RELIGION_CHOICES, initial(religion))
 
-	tts_voice = sanitize_inlist_tts(tts_voice)
-	tts_pitch = sanitize_integer(tts_pitch, -12, 12, initial(tts_pitch))
-
 	med_record = sanitize_text(med_record, initial(med_record))
 	sec_record = sanitize_text(sec_record, initial(sec_record))
 	gen_record = sanitize_text(gen_record, initial(gen_record))
@@ -747,9 +715,6 @@
 
 	WRITE_FILE(S["citizenship"], citizenship)
 	WRITE_FILE(S["religion"], religion)
-
-	WRITE_FILE(S["tts_voice"], tts_voice)
-	WRITE_FILE(S["tts_pitch"], tts_pitch)
 
 	WRITE_FILE(S["med_record"], med_record)
 	WRITE_FILE(S["sec_record"], sec_record)

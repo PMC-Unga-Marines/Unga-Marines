@@ -64,7 +64,7 @@
 	charge_duration = addtimer(CALLBACK(src, PROC_REF(acid_charge_deactivate)), 2 SECONDS,  TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
 	RegisterSignals(X, list(COMSIG_LIVING_STATUS_PARALYZE, COMSIG_LIVING_STATUS_STAGGER), PROC_REF(acid_charge_deactivate))
 	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(acid_puddle))
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Charging"
+	X.icon_state = "[X.xeno_caste.caste_name] Charging"
 
 	succeed_activate()
 	add_cooldown()
@@ -116,7 +116,7 @@
 	RegisterSignals(X, list(COMSIG_LIVING_STATUS_PARALYZE, COMSIG_LIVING_STATUS_STAGGER), PROC_REF(headbutt_charge_deactivate))
 	RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(bull_charge_slash))
 	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(afterimage))
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Charging"
+	X.icon_state = "[X.xeno_caste.caste_name] Charging"
 	succeed_activate()
 	add_cooldown()
 
@@ -183,7 +183,7 @@
 	RegisterSignals(X, list(COMSIG_LIVING_STATUS_PARALYZE, COMSIG_LIVING_STATUS_STAGGER), PROC_REF(gore_charge_deactivate))
 	RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(bull_charge_slash))
 	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(afterimage))
-	X.icon_state = "[X.xeno_caste.caste_name][X.is_a_rouny ? " rouny" : ""] Charging"
+	X.icon_state = "[X.xeno_caste.caste_name] Charging"
 
 	succeed_activate()
 	add_cooldown()

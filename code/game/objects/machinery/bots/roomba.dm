@@ -4,7 +4,6 @@
 	desc = "A robot vacuum cleaner designed by Nanotrasen. The roomba is designed to keep areas clean from dirty marines."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "roomba"
-	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	///The mine we have attached to this roomba
 	var/obj/item/explosive/mine/claymore //Claymore roomb
 	///Admins can let it have a claymore

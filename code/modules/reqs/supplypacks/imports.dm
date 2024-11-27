@@ -142,11 +142,6 @@
 	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/plum)
 	cost = 3
 
-/datum/supply_packs/imports/mpi_km/ammo_packet
-	name = "7.62x39mm Ammo Box"
-	contains = list(/obj/item/ammo_magazine/packet/pwarsaw)
-	cost = 15
-
 /datum/supply_packs/imports/mkh
 	name = "MKH-98 Storm Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/mkh)
@@ -292,7 +287,18 @@
 	contains = list(/obj/item/clothing/head/strawhat)
 	cost = 10
 
+/datum/supply_packs/imports/bricks
+	name = "Brick"
+	contains = list(/obj/item/weapon/brick)
+	cost = 10
+
 /datum/supply_packs/imports/loot_box
 	name = "Loot box"
 	contains = list(/obj/item/loot_box/marine)
 	cost = 500
+
+/datum/supply_packs/imports/loot_pack
+	name = "TGMC Loot Pack"
+	notes = "Contains a random, but curated set of items, these packs are valued around 150 to 200 points. Some items can only be acquired from these. Spend responsibly."
+	contains = list(/obj/item/loot_box/tgmclootbox)
+	cost = 1000

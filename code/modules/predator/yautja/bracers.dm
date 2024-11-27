@@ -92,7 +92,7 @@
 			action.remove_action(user)
 		if(!user.hunter_data?.claimed_equipment)
 			claim_equipment.remove_action(user)
-	..()
+	return ..()
 
 /obj/item/clothing/gloves/yautja/equipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLOVES)
@@ -530,8 +530,7 @@
 	sparks.set_up(5, 4, src)
 	sparks.start()
 
-	spawn()
-		decloak(wearer, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(decloak), wearer, TRUE)
 
 /obj/item/clothing/gloves/yautja/proc/track_gear_internal(mob/caller, forced = FALSE)
 	. = check_random_function(caller, forced)

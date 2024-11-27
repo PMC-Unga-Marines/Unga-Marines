@@ -10,26 +10,12 @@
 
 	GLOB.human_mob_list += src
 	GLOB.alive_human_list += src
-	LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
+	if(z)
+		LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
 
-	var/datum/action/skill/toggle_orders/toggle_orders_action = new
-	toggle_orders_action.give_action(src)
-	var/datum/action/skill/issue_order/move/issue_order_move = new
-	issue_order_move.give_action(src)
-	var/datum/action/skill/issue_order/hold/issue_order_hold = new
-	issue_order_hold.give_action(src)
-	var/datum/action/skill/issue_order/focus/issue_order_focus = new
-	issue_order_focus.give_action(src)
-	var/datum/action/innate/order/attack_order/personal/send_attack_order = new
-	send_attack_order.give_action(src)
-	var/datum/action/innate/order/defend_order/personal/send_defend_order = new
-	send_defend_order.give_action(src)
-	var/datum/action/innate/order/retreat_order/personal/send_retreat_order = new
-	send_retreat_order.give_action(src)
-	var/datum/action/innate/order/rally_order/personal/send_rally_order = new
-	send_rally_order.give_action(src)
-	var/datum/action/innate/message_squad/screen_orders = new
-	screen_orders.give_action(src)
+	for(var/action in GLOB.human_init_actions)
+		var/datum/action/human_action = new action(src)
+		human_action.give_action(src)
 
 	//makes order hud visible
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ORDER]
@@ -126,7 +112,7 @@
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
-	if(severity >= EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB))
+	if(severity >= EXPLOSION_THRESHOLD_GIB + (get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
@@ -782,14 +768,10 @@
 				return
 			to_chat(src, span_notice("Your source of light shorts out."))
 
-
-
 /mob/living/carbon/human/proc/randomize_appearance()
 	gender = pick(MALE, FEMALE)
 	name = species.random_name(gender)
 	real_name = name
-	voice = random_tts_voice()
-
 	if(!(species.species_flags & HAS_NO_HAIR))
 		switch(pick(15;"black", 15;"grey", 15;"brown", 15;"lightbrown", 10;"white", 15;"blonde", 15;"red"))
 			if("black")

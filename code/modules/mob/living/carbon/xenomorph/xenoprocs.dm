@@ -10,11 +10,9 @@
 	set desc = "Check the status of your current hive."
 	set category = "Alien"
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(interference)
-		to_chat(src, span_warning("A headhunter temporarily cut off your psychic connection!"))
+		to_chat(src, span_warning("A headhunter temporarily cuts off your psychic connection!"))
 		return
-//RUTGMC EDIT ADDITION END
 
 	check_hive_status(src)
 
@@ -75,12 +73,20 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
-	if(!("[xeno_caste.caste_name] rouny Running" in icon_states(icon))) // check's if we have the main icon_state of running xeno
-		to_chat(usr, span_warning("Sorry! But rouny skin is currently unavalaible for this caste!"))
+	if(!rouny_icon)
+		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
 		return
 
-	is_a_rouny = !is_a_rouny
-	update_icons()
+	toggle_rouny_skin()
+
+/mob/living/carbon/xenomorph/proc/toggle_rouny_skin()
+	if(!rouny_icon) // we should check for it before using the proc, but just in case
+		return
+
+	if(icon == rouny_icon)
+		icon = base_icon
+	else
+		icon = rouny_icon
 
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
@@ -91,14 +97,20 @@
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
 
-	var/selection
-	if(length(skins) == 1)
-		selection = skins[1]
-	else
-		selection = tgui_input_list(src, "Choose an setting appearance", "Choose an setting appearance", skins)
+	var/datum/xenomorph_skin/selection
+	var/list/available_skins = list() // we do a list of names instead of datums
+	for(var/datum/xenomorph_skin/our_skin AS in skins)
+		available_skins[our_skin.name] = our_skin
+	var/answer = tgui_input_list(src, "Choose a setting appearance", "Choose a setting appearance", available_skins)
+	selection = available_skins[answer]
 
-	if(selection)
-		icon = skins[selection]
+	if(!selection)
+		return
+
+	icon = selection.icon
+	base_icon = selection.icon
+	effects_icon = selection.effects_icon
+	rouny_icon = selection.rouny_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
@@ -383,11 +395,10 @@
 
 	update_sight()
 
-
 /mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 12)
 	if(stat || resting)
 		if(is_zoomed)
-			is_zoomed = 0
+			is_zoomed = FALSE
 			zoom_out()
 			return
 		return
@@ -396,8 +407,8 @@
 	if(!client)
 		return
 	zoom_turf = get_turf(src)
-	is_zoomed = 1
-	client.view_size.set_view_radius_to(viewsize * 0.5 - 2) //convert diameter to radius
+	is_zoomed = TRUE
+	client.view_size.set_view_radius_to((viewsize * 0.5) - 2) //convert diameter to radius
 	var/viewoffset = 32 * tileoffset
 	switch(dir)
 		if(NORTH)
@@ -414,7 +425,7 @@
 			client.pixel_y = 0
 
 /mob/living/carbon/xenomorph/proc/zoom_out()
-	is_zoomed = 0
+	is_zoomed = FALSE
 	zoom_turf = null
 	if(!client)
 		return
@@ -716,3 +727,21 @@
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)
 	DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
+
+//Special override case. May not call the parent.
+/mob/living/carbon/xenomorph/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
+	if(!issamexenohive(charger))
+		return ..()
+
+	if(anchored || (mob_size > charger.mob_size && charger.is_charging <= CHARGE_MAX))
+		charger.visible_message(span_danger("[charger] rams into [src] and skids to a halt!"),
+		span_xenowarning("We ram into [src] and skid to a halt!"))
+		charge_datum.do_stop_momentum(FALSE)
+		if(!anchored)
+			step(src, charger.dir)
+		return PRECRUSH_STOPPED
+
+	throw_at(get_step(loc, (charger.dir & (NORTH|SOUTH) ? pick(EAST, WEST) : pick(NORTH, SOUTH))), 1, 1, charger, (mob_size < charger.mob_size))
+
+	charge_datum.speed_down(1) //Lose one turf worth of speed.
+	return PRECRUSH_PLOWED

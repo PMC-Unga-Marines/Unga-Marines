@@ -230,7 +230,7 @@
 
 	hud_list[HUNTER_CLAN] = holder
 
-/mob/living/carbon/human/species/yautja/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
+/mob/living/carbon/human/species/yautja/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode)
 	. = ..()
 	playsound(loc, pick('sound/voice/predator/click1.ogg', 'sound/voice/predator/click2.ogg'), 25, 1)
 
