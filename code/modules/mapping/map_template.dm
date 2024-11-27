@@ -82,12 +82,6 @@
 
 	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
 
-	for(var/turf/unlit as anything in turfs)
-		var/area/loc_area = unlit.loc
-		if(!loc_area.static_lighting)
-			continue
-		unlit.static_lighting_build_overlay()
-
 /datum/map_template/proc/load_new_z(minimap = TRUE, list/traits = list(ZTRAIT_AWAY = TRUE))
 	var/x = round((world.maxx - width) * 0.5) + 1
 	var/y = round((world.maxy - height) * 0.5) + 1
