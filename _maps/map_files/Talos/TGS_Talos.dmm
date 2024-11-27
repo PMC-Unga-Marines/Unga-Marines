@@ -6104,7 +6104,7 @@
 /area/mainship/medical/medical_science)
 "dyg" = (
 /obj/docking_port/stationary/ert/target{
-	id = "port_target";
+	shuttle_id = "port_target";
 	name = "Port"
 	},
 /turf/open/floor/plating,
@@ -8440,7 +8440,7 @@
 /area/mainship/shipboard/ex_firing_range)
 "eQt" = (
 /obj/docking_port/stationary/ert/target{
-	id = "starboard_target";
+	shuttle_id = "starboard_target";
 	name = "Starboard"
 	},
 /turf/open/floor/plating,
@@ -32756,7 +32756,7 @@
 /area/mainship/living/commandbunks)
 "toA" = (
 /obj/docking_port/stationary/ert/target{
-	id = "starboard_target";
+	shuttle_id = "starboard_target";
 	name = "Starboard"
 	},
 /turf/open/floor/plating,
