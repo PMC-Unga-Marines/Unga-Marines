@@ -67,7 +67,7 @@
 		return
 	playsound(return_center_turf(),'sound/effects/escape_pod_launch.ogg', 25, 1)
 	count_escaped_humans()
-	SSshuttle.moveShuttleToTransit(id, TRUE)
+	SSshuttle.moveShuttleToTransit(shuttle_id, TRUE)
 
 /obj/docking_port/stationary/escape_pod
 	name = "escape pod"
@@ -80,7 +80,7 @@
 
 /obj/docking_port/stationary/escape_pod/escape_shuttle
 	name = "escape shuttle"
-	id = "escape hangar"
+	shuttle_id = "escape hangar"
 	dir = EAST
 	dwidth = 3
 	width = 7

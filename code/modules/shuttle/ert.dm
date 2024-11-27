@@ -1,14 +1,14 @@
 // small ert shuttles
 /obj/docking_port/stationary/ert
 	name = "ert shuttle"
-	id = SHUTTLE_DISTRESS
+	shuttle_id = SHUTTLE_DISTRESS
 	dir = SOUTH
 	dwidth = 3
 	width = 7
 	height = 13
 
 /obj/docking_port/stationary/ert/target
-	id = "distress_target"
+	shuttle_id = "distress_target"
 
 /obj/docking_port/mobile/ert
 	name = "ert shuttle"
@@ -43,7 +43,7 @@
 	var/obj/docking_port/stationary/S = pick(get_destinations())
 	if(!S)
 		return FALSE
-	SSshuttle.moveShuttle(id, S.id, TRUE)
+	SSshuttle.moveShuttle(shuttle_id, S.shuttle_id, TRUE)
 	return TRUE
 
 /obj/docking_port/mobile/ert/proc/open_shutters()
@@ -95,7 +95,7 @@
 	var/list/valid_destination_ids = list()
 	for(var/i in M.get_destinations())
 		var/obj/docking_port/stationary/ert/target/target_dock = i
-		valid_destination_ids += target_dock.id
+		valid_destination_ids += target_dock.shuttle_id
 	return valid_destination_ids
 
 
@@ -108,7 +108,7 @@
 	if(M?.mode == SHUTTLE_IDLE)
 		if(is_reserved_level(M.z))
 			for(var/obj/docking_port/stationary/S in M.get_destinations())
-				dat += "<A href='?src=[REF(src)];move=[S.id]'>Send to [S.name]</A><br>"
+				dat += "<A href='?src=[REF(src)];move=[S.shuttle_id]'>Send to [S.name]</A><br>"
 		else
 			dat += "<A href='?src=[REF(src)];depart=1'>Depart.</A><br>"
 

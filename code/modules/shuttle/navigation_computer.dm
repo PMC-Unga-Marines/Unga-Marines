@@ -48,21 +48,21 @@
 		connect_to_shuttle(SSshuttle.get_containing_shuttle(src))
 
 		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
-			if(S.id == shuttleId)
-				jumpto_ports[S.id] = TRUE
+			if(S.shuttle_id == shuttleId)
+				jumpto_ports[S.shuttle_id] = TRUE
 
 	for(var/V in SSshuttle.stationary_docking_ports)
 		if(!V)
 			continue
 		var/obj/docking_port/stationary/S = V
-		if(jumpto_ports[S.id])
+		if(jumpto_ports[S.shuttle_id])
 			z_lock |= S.z
 	whitelist_turfs = typecacheof(whitelist_turfs)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/Destroy()
 	if(my_port?.get_docked())
 		my_port.delete_after = TRUE
-		my_port.id = null
+		my_port.shuttle_id = null
 		my_port.name = "Old [my_port.name]"
 		my_port = null
 	else
@@ -182,7 +182,7 @@
 	if(my_port?.get_docked())
 		my_port.unregister()
 		my_port.delete_after = TRUE
-		my_port.id = null
+		my_port.shuttle_id = null
 		my_port.name = "Old [my_port.name]"
 		my_port = null
 
@@ -190,7 +190,7 @@
 		my_port = new()
 		my_port.unregister()
 		my_port.name = shuttlePortName
-		my_port.id = shuttlePortId
+		my_port.shuttle_id = shuttlePortId
 		my_port.height = shuttle_port.height
 		my_port.width = shuttle_port.width
 		my_port.dheight = shuttle_port.dheight
@@ -336,10 +336,10 @@
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(port)
-		shuttleId = port.id
-		shuttlePortId = "[port.id]_custom"
+		shuttleId = port.shuttle_id
+		shuttlePortId = "[port.shuttle_id]_custom"
 	if(dock)
-		jumpto_ports[dock.id] = TRUE
+		jumpto_ports[dock.shuttle_id] = TRUE
 
 /mob/camera/aiEye/remote/shuttle_docker
 	visible_icon = FALSE
@@ -428,7 +428,7 @@
 		var/obj/docking_port/stationary/S = V
 		if(length(console.z_lock) && !(S.z in console.z_lock))
 			continue
-		if(console.jumpto_ports[S.id])
+		if(console.jumpto_ports[S.shuttle_id])
 			L["([length(L)])[S.name]"] = S
 
 	playsound(console, 'sound/machines/terminal_prompt.ogg', 25, FALSE)

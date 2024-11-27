@@ -50,7 +50,7 @@
 	loaded_equipment.ship_base = src
 
 	for(var/obj/docking_port/mobile/marine_dropship/S in SSshuttle.dropship_list)
-		if(S.id == ship_tag)
+		if(S.shuttle_id == ship_tag)
 			loaded_equipment.linked_shuttle = S
 			S.equipments += loaded_equipment
 			break
@@ -401,7 +401,7 @@
 		if(deployed_turret)
 			deployed_turret.setDir(dir)
 			if(linked_shuttle && deployed_turret.camera)
-				if(linked_shuttle.id == SHUTTLE_ALAMO)
+				if(linked_shuttle.shuttle_id == SHUTTLE_ALAMO)
 					deployed_turret.camera.network.Add("dropship1") //accessible via the dropship camera console
 				else
 					deployed_turret.camera.network.Add("dropship2")

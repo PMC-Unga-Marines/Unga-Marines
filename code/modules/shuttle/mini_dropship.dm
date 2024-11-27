@@ -1,11 +1,11 @@
 /obj/docking_port/stationary/marine_dropship/minidropship
 	name = "Minidropship hangar pad"
-	id = SHUTTLE_TADPOLE
+	shuttle_id = SHUTTLE_TADPOLE
 	roundstart_template = null
 
 /obj/docking_port/mobile/marine_dropship/minidropship
 	name = "Tadpole"
-	id = SHUTTLE_TADPOLE
+	shuttle_id = SHUTTLE_TADPOLE
 	dwidth = 0
 	dheight = 0
 	width = 7

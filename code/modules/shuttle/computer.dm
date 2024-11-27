@@ -19,12 +19,12 @@
 	if(M)
 		var/destination_found
 		for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
-			if(!options.Find(S.id))
+			if(!options.Find(S.shuttle_id))
 				continue
-			if(!M.check_dock(S, silent=TRUE))
+			if(!M.check_dock(S, silent = TRUE))
 				continue
 			destination_found = TRUE
-			dat += "<A href='?src=[REF(src)];move=[S.id]'>Send to [S.name]</A><br>"
+			dat += "<A href='?src=[REF(src)];move=[S.shuttle_id]'>Send to [S.name]</A><br>"
 		if(!destination_found)
 			dat += "<B>Shuttle Locked</B><br>"
 			if(admin_controlled)
@@ -85,4 +85,4 @@
 
 /obj/machinery/computer/shuttle/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(port && (shuttleId == initial(shuttleId)))
-		shuttleId = port.id
+		shuttleId = port.shuttle_id

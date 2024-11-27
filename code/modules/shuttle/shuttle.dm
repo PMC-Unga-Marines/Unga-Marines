@@ -35,7 +35,7 @@
 	  * stationary ports and whatnot to tell them your ship's mobile
 	  * port can be used in these places, or the docking port is compatible, etc.
 	  */
-	var/id
+	var/shuttle_id
 	///Possible destinations
 	var/port_destinations
 	///this should point -away- from the dockingport door, ie towards the ship
@@ -208,8 +208,9 @@
 
 /obj/docking_port/proc/getDockedId()
 	var/obj/docking_port/P = get_docked()
-	if(P)
-		return P.id
+	if(!P)
+		return
+	return P.shuttle_id
 
 /obj/docking_port/proc/is_in_shuttle_bounds(atom/A)
 	var/turf/T = get_turf(A)
@@ -240,26 +241,26 @@
 
 /obj/docking_port/stationary/register(replace = FALSE)
 	. = ..()
-	if(!id)
-		id = "dock"
+	if(!shuttle_id)
+		shuttle_id = "dock"
 	else
-		port_destinations = id
+		port_destinations = shuttle_id
 
 	if(!name)
 		name = "dock"
 
-	var/counter = SSshuttle.assoc_stationary[id]
+	var/counter = SSshuttle.assoc_stationary[shuttle_id]
 	if(!replace || !counter)
 		if(counter)
 			counter++
-			SSshuttle.assoc_stationary[id] = counter
-			id = "[id]_[counter]"
+			SSshuttle.assoc_stationary[shuttle_id] = counter
+			shuttle_id = "[shuttle_id]_[counter]"
 			name = "[name] [counter]"
 		else
-			SSshuttle.assoc_stationary[id] = 1
+			SSshuttle.assoc_stationary[shuttle_id] = 1
 
 	if(!port_destinations)
-		port_destinations = id
+		port_destinations = shuttle_id
 
 	SSshuttle.stationary_docking_ports += src
 
@@ -418,8 +419,8 @@
 /obj/docking_port/mobile/Initialize(mapload)
 	. = ..()
 
-	if(!id)
-		id = "[length(SSshuttle.mobile_docking_ports)]"
+	if(!shuttle_id)
+		shuttle_id = "[length(SSshuttle.mobile_docking_ports)]"
 	if(name == "shuttle")
 		name = "shuttle[length(SSshuttle.mobile_docking_ports)]"
 
@@ -446,13 +447,13 @@
 	var/list/static/shuttle_id = list()
 	var/idnum
 	if(dock?.roundstart_shuttle_specific_id)
-		id = dock.roundstart_shuttle_specific_id
+		shuttle_id = dock.roundstart_shuttle_specific_id
 		idnum = 1
 	else
 		idnum = ++shuttle_id[template]
 		if(idnum > 1)
-			if(id == initial(id))
-				id = "[id][idnum]"
+			if(shuttle_id == initial(shuttle_id))
+				shuttle_id = "[shuttle_id][idnum]"
 			if(name == initial(name))
 				name = "[name] [idnum]"
 	for(var/area/place AS in shuttle_areas)
@@ -495,7 +496,7 @@
 		// attempt to move us where we currently are, it will get weird.
 			return SHUTTLE_ALREADY_DOCKED
 
-	if(S?.reservedId != id) // Checks so two shuttles don't get the same dock and conflict.
+	if(S?.reservedId != shuttle_id) // Checks so two shuttles don't get the same dock and conflict.
 		S.reservedId = null //Assigned shuttle does not exist or doesn't have the port as it's destination.
 
 	return SHUTTLE_CAN_DOCK
@@ -534,19 +535,19 @@
 					setTimer(callTime * engine_coeff)
 			else
 				destination = S
-				destination.reservedId = id
+				destination.reservedId = shuttle_id
 				setTimer(callTime * engine_coeff)
 		if(SHUTTLE_RECALL)
 			if(S == destination)
 				setTimer(callTime * engine_coeff - timeLeft(1))
 			else
 				destination = S
-				destination.reservedId = id
+				destination.reservedId = shuttle_id
 				setTimer(callTime * engine_coeff)
 			set_mode(SHUTTLE_CALL)
 		if(SHUTTLE_IDLE, SHUTTLE_IGNITING, SHUTTLE_RECHARGING)
 			destination = S
-			destination.reservedId = id
+			destination.reservedId = shuttle_id
 			set_mode(SHUTTLE_IGNITING)
 			on_ignition()
 			setTimer(ignitionTime)
@@ -596,7 +597,7 @@
 	var/obj/docking_port/stationary/S1 = assigned_transit
 	if(S1)
 		if(initiate_docking(S1) != DOCKING_SUCCESS)
-			WARNING("shuttle \"[id]\" could not enter transit space. Docked at [S0 ? S0.id : "null"]. Transit dock [S1 ? S1.id : "null"].")
+			WARNING("shuttle \"[shuttle_id]\" could not enter transit space. Docked at [S0 ? S0.shuttle_id : "null"]. Transit dock [S1 ? S1.shuttle_id : "null"].")
 		if(S0.delete_after)
 			qdel(S0, TRUE)
 		else
@@ -604,7 +605,7 @@
 			previous.reservedId = null
 			return TRUE
 	else
-		WARNING("shuttle \"[id]\" could not enter transit space. S0=[S0 ? S0.id : "null"] S1=[S1 ? S1.id : "null"]")
+		WARNING("shuttle \"[shuttle_id]\" could not enter transit space. S0=[S0 ? S0.shuttle_id : "null"] S1=[S1 ? S1.shuttle_id : "null"]")
 
 
 /obj/docking_port/mobile/proc/jumpToNullSpace()
@@ -857,21 +858,20 @@
 		else
 			dst = destination
 		if(dst)
-			. = "(transit to) [dst.name || dst.id]"
+			. = "(transit to) [dst.name || dst.shuttle_id]"
 		else
 			. = "(transit to) nowhere"
 	else if(dockedAt)
-		. = dockedAt.name || dockedAt.id
+		. = dockedAt.name || dockedAt.shuttle_id
 	else
 		. = "unknown"
-
 
 // attempts to locate /obj/machinery/computer/shuttle with matching ID inside the shuttle
 /obj/docking_port/mobile/proc/getControlConsole()
 	for(var/place in shuttle_areas)
 		var/area/shuttle/shuttle_area = place
 		for(var/obj/machinery/computer/shuttle/S in shuttle_area)
-			if(S.shuttleId == id)
+			if(S.shuttleId == shuttle_id)
 				return S
 	return null
 /*
@@ -967,7 +967,7 @@
 
 /obj/docking_port/mobile/pod/on_emergency_dock()
 	if(launch_status == ENDGAME_LAUNCHED)
-		initiate_docking(SSshuttle.getDock("[id]_away")) //Escape pods dock at centcom
+		initiate_docking(SSshuttle.getDock("[shuttle_id]_away")) //Escape pods dock at centcom
 		set_mode(SHUTTLE_ENDGAME)
 
 /obj/docking_port/mobile/emergency/on_emergency_dock()
@@ -976,7 +976,6 @@
 /obj/docking_port/mobile/proc/set_mode(new_mode)
 	mode = new_mode
 	SEND_SIGNAL(src, COMSIG_SHUTTLE_SETMODE, mode)
-
 
 /obj/docking_port/mobile/proc/can_move_topic(mob/user)
 	if(mode == SHUTTLE_RECHARGING)
