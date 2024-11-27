@@ -65,7 +65,7 @@
 	GLOB.latejoin_gateway = shuttle.latejoins
 	// Launch shuttle
 	var/list/valid_docks = list()
-	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary)
+	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary_docking_ports)
 		if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
 			continue
 		valid_docks += potential_crash_site

@@ -261,7 +261,7 @@
 	if(!port_destinations)
 		port_destinations = id
 
-	SSshuttle.stationary += src
+	SSshuttle.stationary_docking_ports += src
 
 /obj/docking_port/stationary/Initialize(mapload)
 	. = ..()
@@ -270,17 +270,13 @@
 		var/area/place = get_area(src)
 		area_type = place?.type // We might be created in nullspace
 
-//	if(mapload)
-//		for(var/turf/T in return_turfs())
-//			T.flags_1 |= NO_RUINS_1
-
 	#ifdef DOCKING_PORT_HIGHLIGHT
 	highlight("#f00")
 	#endif
 
 /obj/docking_port/stationary/unregister()
 	. = ..()
-	SSshuttle.stationary -= src
+	SSshuttle.stationary_docking_ports -= src
 
 /obj/docking_port/stationary/Destroy(force)
 	if(force)
@@ -327,14 +323,14 @@
 
 /obj/docking_port/stationary/transit/Initialize(mapload)
 	. = ..()
-	SSshuttle.transit += src
+	SSshuttle.transit_docking_ports += src
 	spawn_time = world.time
 
 /obj/docking_port/stationary/transit/Destroy(force=FALSE)
 	if(force)
 		if(get_docked())
 			log_world("A transit dock was destroyed while something was docked to it.")
-		SSshuttle.transit -= src
+		SSshuttle.transit_docking_ports -= src
 		if(owner)
 			if(owner.assigned_transit == src)
 				log_world("A transit dock was qdeled while it was assigned to [owner].")
@@ -398,7 +394,7 @@
 
 /obj/docking_port/mobile/register()
 	. = ..()
-	SSshuttle.mobile += src
+	SSshuttle.mobile_docking_ports += src
 
 /**
  * Actions to be taken after shuttle is loaded and has been moved to its final location
@@ -411,7 +407,7 @@
 
 /obj/docking_port/mobile/Destroy(force)
 	if(force)
-		SSshuttle.mobile -= src
+		SSshuttle.mobile_docking_ports -= src
 		destination = null
 		previous = null
 		QDEL_NULL(assigned_transit)		//don't need it where we're goin'!
@@ -423,9 +419,9 @@
 	. = ..()
 
 	if(!id)
-		id = "[length(SSshuttle.mobile)]"
+		id = "[length(SSshuttle.mobile_docking_ports)]"
 	if(name == "shuttle")
-		name = "shuttle[length(SSshuttle.mobile)]"
+		name = "shuttle[length(SSshuttle.mobile_docking_ports)]"
 
 	shuttle_areas = list()
 	var/list/all_turfs = return_ordered_turfs(x, y, z, dir)

@@ -47,11 +47,11 @@
 	if(!mapload)
 		connect_to_shuttle(SSshuttle.get_containing_shuttle(src))
 
-		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary)
+		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
 			if(S.id == shuttleId)
 				jumpto_ports[S.id] = TRUE
 
-	for(var/V in SSshuttle.stationary)
+	for(var/V in SSshuttle.stationary_docking_ports)
 		if(!V)
 			continue
 		var/obj/docking_port/stationary/S = V
@@ -421,7 +421,7 @@
 	playsound(console, 'sound/machines/terminal_prompt_deny.ogg', 25, FALSE)
 
 	var/list/L = list()
-	for(var/V in SSshuttle.stationary)
+	for(var/V in SSshuttle.stationary_docking_ports)
 		if(!V)
 			stack_trace("SSshuttle.stationary have null entry!")
 			continue

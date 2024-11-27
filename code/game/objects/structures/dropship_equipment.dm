@@ -59,7 +59,7 @@
 	installed_equipment = loaded_equipment
 	loaded_equipment.ship_base = src
 
-	for(var/obj/docking_port/mobile/marine_dropship/S in SSshuttle.dropships)
+	for(var/obj/docking_port/mobile/marine_dropship/S in SSshuttle.dropship_list)
 		if(S.id == ship_tag)
 			loaded_equipment.linked_shuttle = S
 			S.equipments += loaded_equipment

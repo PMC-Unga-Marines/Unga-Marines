@@ -29,11 +29,11 @@
 
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
+	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
 		if(istype(S, /obj/docking_port/stationary/ert/target))
 			if(canDock(S) == SHUTTLE_CAN_DOCK) // discards occupied docks
 				docks += S
-	for(var/i in SSshuttle.ert_shuttles)
+	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
 		if(E.destination in docks)
 			docks -= E.destination // another shuttle already headed there
@@ -68,11 +68,11 @@
 /obj/docking_port/mobile/ert/Destroy(force)
 	. = ..()
 	if(force)
-		SSshuttle.ert_shuttles -= src
+		SSshuttle.ert_shuttle_list -= src
 
 /obj/docking_port/mobile/ert/register()
 	. = ..()
-	SSshuttle.ert_shuttles += src
+	SSshuttle.ert_shuttle_list += src
 	for(var/t in return_turfs())
 		var/turf/T = t
 		for(var/atom/movable/O in T.GetAllContents())

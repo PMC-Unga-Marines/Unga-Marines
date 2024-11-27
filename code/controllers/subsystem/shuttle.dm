@@ -8,32 +8,42 @@ SUBSYSTEM_DEF(shuttle)
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME
 
-	var/list/mobile = list()
-	var/list/stationary = list()
-	var/list/transit = list()
+	/// A list of all the mobile docking ports.
+	var/list/mobile_docking_ports = list()
+	/// A list of all the stationary docking ports.
+	var/list/stationary_docking_ports = list()
+	/// A list of all the transit docking ports.
+	var/list/transit_docking_ports = list()
 
 	/// For ID generation
 	var/list/assoc_mobile = list()
 	/// For ID generation
 	var/list/assoc_stationary = list()
 
-	var/list/escape_pods = list()
-	var/list/ert_shuttles = list()
-	var/list/dropships = list()
+	/// A list of all the escape pods.
+	var/list/escape_pod_list = list()
+	/// A list of all the ert shuttles.
+	var/list/ert_shuttle_list = list()
+	/// A list of all the dropships.
+	var/list/dropship_list = list()
+	/// A mobile docking port, responsible for canterbury shuttle on the crash gamemode.
 	var/obj/docking_port/mobile/crashmode/canterbury = null
 
-	var/list/orderhistory = list()
-
+	/// A list of possible places, where hijacked shuttle can crash.
 	var/list/crash_targets = list()
 
+	/// A list of all the mobile docking ports currently requesting a spot in hyperspace.
 	var/list/transit_requesters = list()
+	/// An associative list of the mobile docking ports that have failed a transit request, with the amount of times they've actually failed that transit request, up to MAX_TRANSIT_REQUEST_RETRIES.
 	var/list/transit_request_failures = list()
 
+	/// All turfs hidden from navigation computers associated with a list containing the image hiding them and the type of the turf they are pretending to be.
+	var/list/hidden_shuttle_turfs = list()
+	/// Only the images from the above list.
+	var/list/hidden_shuttle_turf_images = list()
 
-	var/list/hidden_shuttle_turfs = list() //all turfs hidden from navigation computers associated with a list containing the image hiding them and the type of the turf they are pretending to be
-	var/list/hidden_shuttle_turf_images = list() //only the images from the above list
-
-	var/lockdown = FALSE	//disallow transit after nuke goes off
+	/// Disallow transit after nuke goes off
+	var/lockdown = FALSE
 
 	var/datum/map_template/shuttle/selected
 
@@ -44,7 +54,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/datum/turf_reservation/preview_reservation
 
-	/// safety to stop shuttles loading over each other
+	/// Safety to stop shuttles loading over each other.
 	var/loading_shuttle = FALSE
 
 /datum/controller/subsystem/shuttle/Initialize()
@@ -52,19 +62,19 @@ SUBSYSTEM_DEF(shuttle)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/shuttle/proc/initial_load()
-	for(var/s in stationary)
+	for(var/s in stationary_docking_ports)
 		var/obj/docking_port/stationary/S = s
 		S.load_roundstart()
 		CHECK_TICK
 
 /datum/controller/subsystem/shuttle/fire()
-	for(var/thing in mobile)
+	for(var/thing in mobile_docking_ports)
 		if(!thing)
-			mobile.Remove(thing)
+			mobile_docking_ports.Remove(thing)
 			continue
 		var/obj/docking_port/mobile/P = thing
 		P.check()
-	for(var/thing in transit)
+	for(var/thing in transit_docking_ports)
 		var/obj/docking_port/stationary/transit/T = thing
 		if(!T.owner)
 			qdel(T, force=TRUE)
@@ -94,13 +104,13 @@ SUBSYSTEM_DEF(shuttle)
 				break
 
 /datum/controller/subsystem/shuttle/proc/getShuttle(id)
-	for(var/obj/docking_port/mobile/M in mobile)
+	for(var/obj/docking_port/mobile/M in mobile_docking_ports)
 		if(M.id == id)
 			return M
 	WARNING("couldn't find shuttle with id: [id]")
 
 /datum/controller/subsystem/shuttle/proc/getDock(id)
-	for(var/obj/docking_port/stationary/S in stationary)
+	for(var/obj/docking_port/stationary/S in stationary_docking_ports)
 		if(S.id == id)
 			return S
 	WARNING("couldn't find dock with id: [id]")
@@ -273,22 +283,19 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/Recover()
 	initialized = SSshuttle.initialized
-	if (istype(SSshuttle.mobile))
-		mobile = SSshuttle.mobile
-	if (istype(SSshuttle.stationary))
-		stationary = SSshuttle.stationary
-	if (istype(SSshuttle.transit))
-		transit = SSshuttle.transit
-	if (istype(SSshuttle.transit_requesters))
+	if(istype(SSshuttle.mobile_docking_ports))
+		mobile_docking_ports = SSshuttle.mobile_docking_ports
+	if(istype(SSshuttle.stationary_docking_ports))
+		stationary_docking_ports = SSshuttle.stationary_docking_ports
+	if(istype(SSshuttle.transit_docking_ports))
+		transit_docking_ports = SSshuttle.transit_docking_ports
+	if(istype(SSshuttle.transit_requesters))
 		transit_requesters = SSshuttle.transit_requesters
-	if (istype(SSshuttle.transit_request_failures))
+	if(istype(SSshuttle.transit_request_failures))
 		transit_request_failures = SSshuttle.transit_request_failures
 
-	if (istype(SSshuttle.canterbury))
+	if(istype(SSshuttle.canterbury))
 		canterbury = SSshuttle.canterbury
-
-	if (istype(SSshuttle.orderhistory))
-		orderhistory = SSshuttle.orderhistory
 
 	lockdown = SSshuttle.lockdown
 
@@ -301,17 +308,16 @@ SUBSYSTEM_DEF(shuttle)
 
 	preview_reservation = SSshuttle.preview_reservation
 
-
 /datum/controller/subsystem/shuttle/proc/is_in_shuttle_bounds(atom/A)
 	var/area/current = get_area(A)
 	if(istype(current, /area/shuttle) && !istype(current, /area/shuttle/transit))
 		return TRUE
-	for(var/obj/docking_port/mobile/M in mobile)
+	for(var/obj/docking_port/mobile/M in mobile_docking_ports)
 		if(M.is_in_shuttle_bounds(A))
 			return TRUE
 
 /datum/controller/subsystem/shuttle/proc/get_containing_shuttle(atom/A)
-	var/list/mobile_cache = mobile
+	var/list/mobile_cache = mobile_docking_ports
 	for(var/i in 1 to length(mobile_cache))
 		var/obj/docking_port/port = mobile_cache[i]
 		if(port.is_in_shuttle_bounds(A))
@@ -319,7 +325,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/get_containing_dock(atom/A)
 	. = list()
-	var/list/stationary_cache = stationary
+	var/list/stationary_cache = stationary_docking_ports
 	for(var/i in 1 to length(stationary_cache))
 		var/obj/docking_port/port = stationary_cache[i]
 		if(port.is_in_shuttle_bounds(A))
@@ -327,7 +333,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/get_dock_overlap(x0, y0, x1, y1, z)
 	. = list()
-	var/list/stationary_cache = stationary
+	var/list/stationary_cache = stationary_docking_ports
 	for(var/i in 1 to length(stationary_cache))
 		var/obj/docking_port/port = stationary_cache[i]
 		if(!port || port.z != z)
@@ -569,7 +575,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	// Status panel
 	data["shuttles"] = list()
-	for(var/i in mobile)
+	for(var/i in mobile_docking_ports)
 		var/obj/docking_port/mobile/M = i
 		var/timeleft = M.timeLeft(1)
 		var/list/L = list()
@@ -619,7 +625,7 @@ SUBSYSTEM_DEF(shuttle)
 				. = TRUE
 		if("jump_to")
 			if(params["type"] == "mobile")
-				for(var/i in mobile)
+				for(var/i in mobile_docking_ports)
 					var/obj/docking_port/mobile/M = i
 					if(M.id == params["id"])
 						user.forceMove(get_turf(M))
@@ -627,7 +633,7 @@ SUBSYSTEM_DEF(shuttle)
 						break
 
 		if("fly")
-			for(var/i in mobile)
+			for(var/i in mobile_docking_ports)
 				var/obj/docking_port/mobile/M = i
 				if(M.id == params["id"])
 					. = TRUE
@@ -635,7 +641,7 @@ SUBSYSTEM_DEF(shuttle)
 					break
 
 		if("fast_travel")
-			for(var/i in mobile)
+			for(var/i in mobile_docking_ports)
 				var/obj/docking_port/mobile/M = i
 				if(M.id == params["id"] && M.timer && M.timeLeft(1) >= 50)
 					M.setTimer(50)

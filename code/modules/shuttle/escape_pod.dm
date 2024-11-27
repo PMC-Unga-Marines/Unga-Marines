@@ -20,12 +20,12 @@
 
 /obj/docking_port/mobile/escape_pod/register()
 	. = ..()
-	SSshuttle.escape_pods += src
+	SSshuttle.escape_pod_list += src
 
 /obj/docking_port/mobile/escape_pod/Destroy(force)
 	if(force)
-		SSshuttle.escape_pods -= src
-	. = ..()
+		SSshuttle.escape_pod_list -= src
+	return ..()
 
 /obj/docking_port/mobile/escape_pod/proc/count_escaped_humans()
 	for(var/turf/T AS in return_turfs())

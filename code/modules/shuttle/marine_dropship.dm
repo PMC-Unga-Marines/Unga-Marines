@@ -170,7 +170,7 @@
 
 /obj/docking_port/mobile/marine_dropship/register()
 	. = ..()
-	SSshuttle.dropships += src
+	SSshuttle.dropship_list += src
 
 /obj/docking_port/mobile/marine_dropship/enterTransit()
 	. = ..()
@@ -241,7 +241,7 @@
 /obj/docking_port/mobile/marine_dropship/Destroy(force)
 	. = ..()
 	if(force)
-		SSshuttle.dropships -= src
+		SSshuttle.dropship_list -= src
 
 /obj/docking_port/mobile/marine_dropship/initiate_docking(obj/docking_port/stationary/new_dock, movement_direction, force=FALSE)
 	if(crashing)
@@ -392,7 +392,7 @@
 		to_chat(user, span_warning("We can't call the bird from here!"))
 		return FALSE
 	var/obj/docking_port/mobile/marine_dropship/D
-	for(var/k in SSshuttle.dropships)
+	for(var/k in SSshuttle.dropship_list)
 		var/obj/docking_port/mobile/M = k
 		if(M.control_flags & SHUTTLE_MARINE_PRIMARY_DROPSHIP)
 			D = M
@@ -451,7 +451,7 @@
 // summon dropship to closest lz to A
 /datum/game_mode/proc/summon_dropship(atom/A)
 	var/list/lzs = list()
-	for(var/i in SSshuttle.stationary)
+	for(var/i in SSshuttle.stationary_docking_ports)
 		var/obj/docking_port/stationary/S = i
 		if(S.z != A.z)
 			continue
@@ -465,7 +465,7 @@
 		if(lzs[j] < lzs[closest])
 			closest = j
 	var/obj/docking_port/mobile/marine_dropship/D
-	for(var/k in SSshuttle.dropships)
+	for(var/k in SSshuttle.dropship_list)
 		var/obj/docking_port/mobile/M = k
 		if(M.control_flags & SHUTTLE_MARINE_PRIMARY_DROPSHIP)
 			D = M
@@ -608,7 +608,7 @@
 
 	var/list/options = valid_destinations()
 	var/list/valid_destinations = list()
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
+	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
 		if(!options.Find(S.id))
 			continue
 		if(!shuttle.check_dock(S, silent=TRUE))
@@ -1350,7 +1350,7 @@
 	data["linked_shuttle_name"] = M.name
 	data["shuttle_status"] = M.getStatusText()
 	for(var/option in options)
-		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary)
+		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
 			if(option != S.id)
 				continue
 			var/list/dataset = list()
@@ -1369,7 +1369,7 @@
 	// Getting all valid destinations into an assoc list with "name" = "portid"
 	var/list/port_assoc = list()
 	for(var/destination in all_destinations)
-		for(var/obj/docking_port/port AS in SSshuttle.stationary)
+		for(var/obj/docking_port/port AS in SSshuttle.stationary_docking_ports)
 			if(destination != port.id)
 				continue
 			port_assoc["[port.name]"] = destination
@@ -1401,7 +1401,7 @@
 		shuttleName = M.name
 	else
 		M = null
-		for(M AS in SSshuttle.mobile)
+		for(M AS in SSshuttle.mobile_docking_ports)
 			if(!(M.control_flags & compatible_control_flags)) //Need at least one matching control flag
 				continue
 			newId = M.id

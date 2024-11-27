@@ -1011,11 +1011,11 @@
 	if(!check_rights(R_FUN))
 		return
 
-	if(!length(SSshuttle.dropships) && !SSshuttle.canterbury)
+	if(!length(SSshuttle.dropship_list) && !SSshuttle.canterbury)
 		return
 
 	var/list/available_shuttles = list()
-	for(var/i in SSshuttle.mobile)
+	for(var/i in SSshuttle.mobile_docking_ports)
 		var/obj/docking_port/mobile/M = i
 		available_shuttles["[M.name] ([M.id])"] = M.id
 
@@ -1025,7 +1025,7 @@
 		return
 
 	var/obj/docking_port/mobile/D
-	for(var/i in SSshuttle.mobile)
+	for(var/i in SSshuttle.mobile_docking_ports)
 		var/obj/docking_port/mobile/M = i
 		if(M.id == shuttle_id)
 			D = M
@@ -1039,7 +1039,7 @@
 
 	var/list/valid_docks = list()
 	var/i = 1
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
+	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
 		if(istype(S, /obj/docking_port/stationary/transit))
 			continue // Don't use transit destinations
 		if(!D.check_dock(S, silent=TRUE))
