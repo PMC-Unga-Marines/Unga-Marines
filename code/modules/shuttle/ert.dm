@@ -16,16 +16,17 @@
 	dwidth = 5
 	width = 11
 	height = 21
-	var/list/mob_spawns = list()
-	var/list/item_spawns = list()
-	var/list/shutters = list()
-	var/departing = FALSE
 	ignitionTime = 10 SECONDS
 	prearrivalTime = 10 SECONDS
 	rechargeTime = 3 MINUTES
 	callTime = 1 MINUTES
 
 	shuttle_flags = GAMEMODE_IMMUNE
+
+	var/list/mob_spawns = list()
+	var/list/item_spawns = list()
+	var/list/shutters = list()
+	var/departing = FALSE
 
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
@@ -97,7 +98,6 @@
 		var/obj/docking_port/stationary/ert/target/target_dock = i
 		valid_destination_ids += target_dock.shuttle_id
 	return valid_destination_ids
-
 
 /obj/machinery/computer/shuttle/ert/ui_interact(mob/user)
 	. = ..()
