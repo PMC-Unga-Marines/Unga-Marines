@@ -702,10 +702,6 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
-"dQ" = (
-/obj/structure/largecrate/supply/ammo/smg90,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "dS" = (
 /obj/machinery/floodlight/outpost,
 /turf/open/ground/jungle,
@@ -4280,10 +4276,6 @@
 "FA" = (
 /obj/structure/barricade/plasteel,
 /turf/open/floor/mainship/sterile/dark,
-/area/whiskey_outpost)
-"FD" = (
-/obj/structure/largecrate/supply/weapons/smg90,
-/turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "FE" = (
 /obj/machinery/light,
@@ -12468,7 +12460,7 @@ bw
 ci
 fs
 dc
-dQ
+DR
 ac
 dC
 dJ
@@ -12740,7 +12732,7 @@ NW
 NW
 NW
 hO
-FD
+yw
 da
 dX
 yw
@@ -13857,7 +13849,7 @@ yw
 yQ
 yw
 yw
-FD
+yw
 Yr
 yw
 yQ
