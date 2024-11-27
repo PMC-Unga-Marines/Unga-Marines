@@ -459,7 +459,7 @@
 				id = "[id][idnum]"
 			if(name == initial(name))
 				name = "[name] [idnum]"
-	for(var/area/place as anything in shuttle_areas)
+	for(var/area/place AS in shuttle_areas)
 		place.connect_to_shuttle(TRUE, src, dock)
 		for(var/atom/individual_atoms in place)
 			individual_atoms.connect_to_shuttle(TRUE, src, dock)
