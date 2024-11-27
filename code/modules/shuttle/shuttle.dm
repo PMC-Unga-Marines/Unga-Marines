@@ -393,8 +393,19 @@
 	///Reference of the shuttle docker holding the mobile docking port
 	var/obj/machinery/computer/camera_advanced/shuttle_docker/shuttle_computer
 
-/obj/docking_port/mobile/register()
+/obj/docking_port/mobile/register(replace = FALSE)
 	. = ..()
+	var/counter = SSshuttle.assoc_mobile[shuttle_id]
+	if(!replace || !counter)
+		if(counter)
+			counter++
+			SSshuttle.assoc_mobile[shuttle_id] = counter
+			shuttle_id = "[shuttle_id]_[counter]"
+			name = "[name] [counter]"
+			//Re link machinery to new shuttle id
+			linkup()
+		else
+			SSshuttle.assoc_mobile[shuttle_id] = 1
 	SSshuttle.mobile_docking_ports += src
 
 /**
