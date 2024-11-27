@@ -56,6 +56,11 @@
 	qdel(cam_background)
 	return ..()
 
+/obj/machinery/computer/camera/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+	for(var/i in network)
+		network -= i
+		network += "[port.id][i]"
+
 /obj/machinery/computer/camera/ui_interact(mob/user, datum/tgui/ui)
 	// Update UI
 	ui = SStgui.try_update_ui(user, src, ui)
