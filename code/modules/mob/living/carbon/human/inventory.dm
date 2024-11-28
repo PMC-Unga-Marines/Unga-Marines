@@ -540,7 +540,7 @@
 		return
 	log_combat(src, M, "attempted to remove [key_name(I)] ([slot_to_process])")
 
-	src.move_resist = src.move_resist + HUMAN_STRIP_DELAY
+	move_resist = move_resist + HUMAN_STRIP_DELAY
 	M.move_resist = M.move_resist + HUMAN_STRIP_DELAY
 
 	M.visible_message(span_danger("[src] tries to remove [M]'s [I.name]."), \
@@ -551,7 +551,7 @@
 			log_combat(src, M, "removed [key_name(I)] ([slot_to_process])")
 			if(isidcard(I))
 				message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
-	src.move_resist = src.move_resist - HUMAN_STRIP_DELAY
+	move_resist = move_resist - HUMAN_STRIP_DELAY
 	M.move_resist = M.move_resist - HUMAN_STRIP_DELAY
 
 
