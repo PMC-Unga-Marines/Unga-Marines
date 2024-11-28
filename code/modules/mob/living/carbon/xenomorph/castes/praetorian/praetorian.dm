@@ -22,7 +22,12 @@
 	)
 
 /mob/living/carbon/xenomorph/praetorian/dancer
+	icon = 'icons/Xeno/castes/praetorian/dancer.dmi'
 	caste_base_type = /datum/xeno_caste/praetorian/dancer
+	skins = list(
+		/datum/xenomorph_skin/praetorian/tacticool,
+		/datum/xenomorph_skin/praetorian/dancer,
+	)
 
 /mob/living/carbon/xenomorph/praetorian/dancer/Initialize(mapload)
 	. = ..()

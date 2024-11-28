@@ -90,9 +90,10 @@
 
 /datum/xeno_caste/praetorian/dancer
 	caste_type_path = /mob/living/carbon/xenomorph/praetorian/dancer
+	base_caste_type_path = /mob/living/carbon/xenomorph/praetorian
 	upgrade_name = ""
-	caste_name = "Dancer Praetorian"
-	display_name = "Praetorian"
+	caste_name = "Praetorian"
+	display_name = "Dancer"
 	upgrade = XENO_UPGRADE_BASETYPE
 	caste_desc = "A giant melee monster. It looks pretty strong."
 
