@@ -61,6 +61,10 @@
 		return
 	if(damagetype != BRUTE && damagetype != BURN)
 		return
+
+	if(SSticker.mode)
+		damage *= SSticker.mode.xeno_damage_taking_multiplier
+
 	if(isnum(blocked))
 		damage -= clamp(damage * (blocked - penetration) * 0.01, 0, damage)
 	else

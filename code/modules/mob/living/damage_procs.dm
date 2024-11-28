@@ -17,6 +17,10 @@
 /mob/living/proc/apply_damage(damage = 0, damagetype = BRUTE, def_zone, blocked = 0, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration)
 	if(status_flags & (GODMODE))
 		return
+
+	if(SSticker.mode)
+		damage *= SSticker.mode.living_damage_taking_multiplier
+
 	if(isnum(blocked))
 		damage -= clamp(damage * (blocked - penetration) * 0.01, 0, damage)
 	else
