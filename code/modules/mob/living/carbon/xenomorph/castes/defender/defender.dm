@@ -43,9 +43,13 @@
 	if(isnull(.))
 		return
 	if(. == CONSCIOUS && fortify) //No longer conscious.
-		var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
-		FT.set_fortify(FALSE) //Fortify prevents dragging due to the anchor component.
-
+		//Fortify prevents dragging due to the anchor component. // TODO: Unshitcode me
+		if(actions_by_path[/datum/action/ability/xeno_action/fortify])
+			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
+			FT.set_fortify(FALSE)
+		else if(actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest])
+			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest]
+			FT.set_fortify(FALSE)
 
 // ***************************************
 // *********** Mob overrides
@@ -54,3 +58,24 @@
 /mob/living/carbon/xenomorph/defender/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/throw_parry)
+
+// ***************************************
+// *********** Steel crest
+// ***************************************
+
+/mob/living/carbon/xenomorph/defender/steel_crest
+	icon = 'icons/Xeno/castes/defender/steel_crest.dmi'
+	caste_base_type = /datum/xeno_caste/defender/steel_crest
+
+// ***************************************
+// *********** Front Armor
+// ***************************************
+
+/mob/living/carbon/xenomorph/defender/steel_crest/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
+	if(SEND_SIGNAL(src, COMSIG_XENO_PROJECTILE_HIT, proj, cardinal_move, uncrossing) & COMPONENT_PROJECTILE_DODGE)
+		return FALSE
+	if(proj.ammo.flags_ammo_behavior & AMMO_SKIPS_ALIENS)
+		return FALSE
+	if((cardinal_move & REVERSE_DIR(dir)))
+		proj.damage -= proj.damage * (0.2 * get_sunder())
+	return ..()

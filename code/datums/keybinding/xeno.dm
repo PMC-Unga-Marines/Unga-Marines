@@ -378,6 +378,20 @@
 	keybind_signal = COMSIG_XENOABILITY_FORTIFY
 	hotkey_keys = list("Space")
 
+/datum/keybinding/xeno/headbutt
+	name = "headbutt"
+	full_name = "Steel Crest: Headbutt"
+	description = "Headbutts into the designated target."
+	keybind_signal = COMSIG_XENOABILITY_STEELCREST_HEADBUTT
+	hotkey_keys = list("F")
+
+/datum/keybinding/xeno/soak
+	name = "soak"
+	full_name = "Steel Crest: Soak"
+	description = "Healing after taking damage"
+	keybind_signal = COMSIG_XENOABILITY_STEELCREST_SOAK
+	hotkey_keys = list("E")
+
 /datum/keybinding/xeno/regenerate_skin
 	name = "regenerate_skin"
 	full_name = "Defender: Regenerate Skin"
