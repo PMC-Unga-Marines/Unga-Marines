@@ -190,6 +190,7 @@
 #define SMOKE_XENO_OZELOMELYN (1<<19) //Smoke that purges chemicals and does minor capped toxin damage for Defiler.
 #define SMOKE_SATRAPINE (1<<20) //nerve agent that purges painkillers and causes increasing pain
 #define SMOKE_XENO_TOXIC (1<<21) //deals damage to anyone inside it and inflicts the intoxicated debuff, dealing damage over time
+#define SMOKE_ANTI_XENO (1<<22) //Insecticides that damage xenomorphs
 
 //Incapacitated
 #define INCAPACITATED_IGNORE_RESTRAINED (1<<0)

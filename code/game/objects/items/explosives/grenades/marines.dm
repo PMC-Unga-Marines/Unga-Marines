@@ -422,6 +422,18 @@
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
 	overlay_type = "purple"
 
+/obj/item/explosive/grenade/smokebomb/anti_xeno
+	name = "\improper black globe grenade"
+	desc = "Black globe made from defiler organs, very toxic to xenomorphs but neutral for people."
+	icon_state = "grenade_anti_xeno"
+	item_state = "grenade_anti_xeno"
+	hud_state = "grenade_drain"
+	dangerous = FALSE
+	det_time = 5 SECONDS
+	icon_state_mini = "grenade_purple"
+	smoketype = /datum/effect_system/smoke_spread/insecticides
+	overlay_type = "purple"
+
 /obj/item/explosive/grenade/sticky/cloaker/tangle
 	name = "\improper M45-T Tanglefoot grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. This one creates tanglefoot smoke! It is set to detonate in 5 seconds."
