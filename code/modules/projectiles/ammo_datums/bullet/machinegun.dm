@@ -90,17 +90,6 @@
 	penetration = 10
 	sundering = 1
 
-/datum/ammo/bullet/sg29
-	name = "smartmachinegun bullet"
-	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
-	hud_state = "smartgun"
-	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
-	accurate_range = 8
-	damage = 20
-	penetration = 5
-	additional_xeno_penetration = 20
-
 /datum/ammo/bullet/smart_minigun
 	name = "smartminigun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
