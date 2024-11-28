@@ -421,19 +421,19 @@
 	cell_explosion(impact, explosion_power, explosion_falloff) //tighter blast radius, but more devastating near center
 	qdel(src)
 
-/obj/structure/ship_ammo/cas/rocket/fatty
+/obj/structure/ship_ammo/cas/rocket/oreshnik
 	name = "\improper RS-26 'Oreshnik'"
 	desc = "The RS-26 'Oreshnik' is the most devestating prototype rocket in TGMC arsenal, only second after its big cluster brother in Orbital Cannon. These rocket are also known for highest number of Friendly-on-Friendly incidents due to secondary cluster explosions as well as range of these explosions, TGMC recommends pilots to encourage usage of signal flares or laser for 'Oreshnik' support. Moving this will require some sort of lifter."
-	icon_state = "fatty"
+	icon_state = "oreshnik"
 	travelling_time = 5 SECONDS
 	ammo_id = "f"
 	point_cost = 350
 	explosion_power = 450
 	explosion_falloff = 120
 	prediction_type = CAS_AMMO_EXPLOSIVE
-	cas_effect = /obj/effect/overlay/blinking_laser/fatty
+	cas_effect = /obj/effect/overlay/blinking_laser/oreshnik
 
-/obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
+/obj/structure/ship_ammo/cas/rocket/oreshnik/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
 	cell_explosion(impact, explosion_power, explosion_falloff) //first explosion is small to trick xenos into thinking its a minirocket.
 	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
@@ -445,7 +445,7 @@
  * * (turf/impact): targets impacted turf from first explosion
  */
 
-/obj/structure/ship_ammo/cas/rocket/fatty/proc/delayed_detonation(turf/impact)
+/obj/structure/ship_ammo/cas/rocket/oreshnik/proc/delayed_detonation(turf/impact)
 	var/list/impact_coords = list(list(-3, 3), list(0, 4), list(3,3), list(-4, 0), list(4, 0), list(-3, -3), list(0, -4), list(3, -3))
 	for(var/i = 1 to 8)
 		var/list/coords = impact_coords[i]

@@ -335,8 +335,8 @@
 /obj/effect/overlay/blinking_laser/keeper
 	icon_state = "keeper_target"
 
-/obj/effect/overlay/blinking_laser/fatty
-	icon_state = "fatty_target"
+/obj/effect/overlay/blinking_laser/oreshnik
+	icon_state = "oreshnik_target"
 
 /obj/effect/overlay/blinking_laser/napalm
 	icon_state = "napalm_target"
