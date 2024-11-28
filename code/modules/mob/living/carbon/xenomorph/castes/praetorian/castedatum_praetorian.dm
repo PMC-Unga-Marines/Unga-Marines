@@ -101,7 +101,7 @@
 
 	// Loses some common armor (-5) for more speed (-0.3).
 	speed = -0.8
-	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 10, BIO = 40, FIRE = 45, ACID = 40)
+	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 10, BIO = 40, FIRE = 15, ACID = 40)
 
 	// Loses ranged spit abilities for close combat combo abilities.
 	actions = list(
@@ -137,7 +137,7 @@
 		/datum/action/ability/xeno_action/dodge,
 		/datum/action/ability/activable/xeno/impale,
 		/datum/action/ability/activable/xeno/tail_trip,
-		/datum/action/ability/activable/xeno/charge/dash, // No unique primordial ability at the moment. Replace eventually with something cooler!
+		/datum/action/ability/activable/xeno/charge/acid_dash, // No unique primordial ability at the moment. Replace eventually with something cooler!
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
