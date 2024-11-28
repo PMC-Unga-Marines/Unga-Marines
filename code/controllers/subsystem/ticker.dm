@@ -178,8 +178,8 @@ SUBSYSTEM_DEF(ticker)
 
 	CHECK_TICK
 	PostSetup()
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_GAMEMODE_LOADED)
 	return TRUE
-
 
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE

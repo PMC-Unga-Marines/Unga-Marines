@@ -89,6 +89,12 @@
 	siemens_coefficient = 0.7
 	flags_armor_protection = FACE|EYES
 
+/obj/item/clothing/mask/gas/swat/on_hugger_damage()
+	name = "\improper torn SWAT mask"
+	icon_state = "swat_torn"
+	update_clothing_icon()
+	playsound(src, 'sound/items/velpro_rip.ogg', 25)
+
 /obj/item/clothing/mask/gas/syndicate
 	name = "syndicate mask"
 	desc = "A close-fitting tactical mask that can be connected to an air supply."
