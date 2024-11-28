@@ -26,6 +26,9 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+	extract_rewards = list(
+		/obj/item/reagent_containers/food/drinks/pantherheart/runner,
+	)
 
 /mob/living/carbon/xenomorph/runner/Initialize(mapload)
 	. = ..()
@@ -55,3 +58,12 @@
 	holder.pixel_x = 24
 	holder.pixel_y = 24
 	hud_list[XENO_EVASION_HUD] = holder
+
+/obj/item/reagent_containers/food/drinks/pantherheart/runner
+	name = "Runner heart"
+	desc = "This is Runner heart. Still warm"
+	icon_state = "runnerheart"
+	base_icon_state = "runnerheart"
+	gulp_size = 10
+	volume = 20
+	list_reagents = list(/datum/reagent/xeno_extract/red_mucus = 20)

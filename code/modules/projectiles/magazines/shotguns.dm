@@ -31,6 +31,13 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	default_ammo = /datum/ammo/bullet/shotgun/buckshot
 	icon_state_mini = "buckshot"
 
+/obj/item/ammo_magazine/shotgun/love_is
+	name = "box of 12 gauge 'love is' shells"
+	desc = "A box filled with bucks'love is' shotgun shells. 12 Gauge."
+	icon_state = "love_is"
+	default_ammo = /datum/ammo/bullet/shotgun/love_is
+	icon_state_mini = "love_is"
+
 /obj/item/ammo_magazine/shotgun/flechette
 	name = "box of 12 gauge flechette shells"
 	desc = "A box filled with flechette shotgun shells. 12 Gauge."

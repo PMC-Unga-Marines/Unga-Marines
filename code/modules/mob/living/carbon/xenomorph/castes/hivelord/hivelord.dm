@@ -18,6 +18,11 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	var/list/tunnels = list() //list of active tunnels
 
+	extract_rewards = list(
+		/obj/item/stack/sheet/resin/big_stack,
+		/obj/item/stack/sheet/resin/big_stack,
+	)
+
 // ***************************************
 // *********** Init
 // ***************************************

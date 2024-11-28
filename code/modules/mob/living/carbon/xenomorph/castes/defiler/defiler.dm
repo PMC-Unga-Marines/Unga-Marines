@@ -21,3 +21,9 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+	extract_rewards = list(
+		/obj/item/explosive/grenade/smokebomb/anti_xeno,
+		/obj/item/explosive/grenade/smokebomb/anti_xeno,
+		/obj/item/explosive/grenade/smokebomb/anti_xeno,
+		/obj/item/explosive/grenade/smokebomb/anti_xeno,
+	)

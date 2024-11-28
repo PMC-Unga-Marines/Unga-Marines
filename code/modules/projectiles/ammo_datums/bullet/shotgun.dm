@@ -97,6 +97,35 @@
 /datum/ammo/bullet/shotgun/buckshot/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
+#define LOVE_TRANSFUSION_HEAL 0.25 // in %
+
+/datum/ammo/bullet/shotgun/love_is
+	name = "shotgun 'love is' shell"
+	handful_icon_state = "love is shell"
+	hud_state = "shotgun_love_is"
+	icon_state = "love is"
+	max_range = 15
+	damage = 10 //still do some damage
+	penetration = 100
+
+/datum/ammo/bullet/shotgun/love_is/on_hit_mob(mob/M,obj/projectile/P)
+	//love is when.. lifeform doesn't matter
+	if(isxeno(M))
+		var/mob/living/carbon/xenomorph/target_xeno = M
+		var/heal_amount = target_xeno.maxHealth * LOVE_TRANSFUSION_HEAL
+		HEAL_XENO_DAMAGE(target_xeno, heal_amount, FALSE)
+		adjustOverheal(target_xeno, heal_amount)
+		return
+
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+
+	living_victim.reagents.add_reagent(/datum/reagent/xeno_extract/blood_mucus, 5)
+
+#undef LOVE_TRANSFUSION_HEAL
+
 /datum/ammo/bullet/shotgun/spread
 	name = "additional buckshot"
 	icon_state = "buckshot"

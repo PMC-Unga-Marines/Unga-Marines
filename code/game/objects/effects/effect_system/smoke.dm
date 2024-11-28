@@ -277,6 +277,16 @@
 	color = "#791697"
 	smoke_traits = SMOKE_PLASMALOSS
 
+///////////////////////////////////////////
+// Anti-xeno smoke
+//////////////////////////////////////////
+
+/obj/effect/particle_effect/smoke/insecticides
+	alpha = 80
+	opacity = FALSE
+	color = "#4b6150"
+	smoke_traits = SMOKE_ANTI_XENO|SMOKE_COUGH
+
 //////////////////////////////////////
 // FLASHBANG SMOKE
 ////////////////////////////////////
@@ -394,6 +404,9 @@
 
 /datum/effect_system/smoke_spread/satrapine
 	smoke_type = /obj/effect/particle_effect/smoke/satrapine
+
+/datum/effect_system/smoke_spread/insecticides
+	smoke_type = /obj/effect/particle_effect/smoke/insecticides
 
 /datum/effect_system/smoke_spread/xeno
 	smoke_type = /obj/effect/particle_effect/smoke/xeno

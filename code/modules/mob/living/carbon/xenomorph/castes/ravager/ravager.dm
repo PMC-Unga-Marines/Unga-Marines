@@ -25,6 +25,10 @@
 	var/staggerstun_immune = FALSE
 	var/on_cooldown = FALSE
 
+	extract_rewards = list(
+		/obj/item/weapon/claymore/mercsword/ravager_tail,
+	)
+
 /mob/living/carbon/xenomorph/ravager/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
@@ -162,3 +166,32 @@
 	if(!amount && health < 0)
 		amount = -1 //don't want the 'zero health' icon when we are crit
 	holder.icon_state = "ravagerhealth[amount]"
+
+/obj/item/weapon/claymore/mercsword/ravager_tail
+	name = "\improper Ravager's tail"
+	desc = "sd"
+	icon_state = "ravager_tail"
+	item_state = "ravager_tail"
+	attack_speed = 30
+	w_class = WEIGHT_CLASS_BULKY
+	force = 80
+	reach = 3
+	icon = 'icons/obj/items/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
+	)
+	flags_equip_slot = NONE
+	var/target_throw_distance = 4
+	var/target_throw_speed = 1
+
+/obj/item/weapon/claymore/mercsword/ravager_tail/attack(mob/living/carbon/M, mob/living/carbon/user)
+	if(M.status_flags & INCORPOREAL || user.status_flags & INCORPOREAL) //Incorporeal beings cannot attack or be attacked
+		return
+	var/atom/throw_target = get_edge_target_turf(M, get_dir(get_step_away(M, src), src))
+	M.throw_at(throw_target, target_throw_distance - M.mob_size, target_throw_speed)
+	return ..()
+
+/obj/item/weapon/claymore/mercsword/ravager_tail/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/strappable)

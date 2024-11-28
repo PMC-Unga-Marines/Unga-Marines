@@ -203,6 +203,7 @@
 		"Misc" = list(
 			/obj/item/tool/research/xeno_analyzer = -1,
 			/obj/item/tool/research/excavation_tool = -1,
+			/obj/item/tool/research/xeno_extractor = -1,
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
 			/obj/item/reagent_containers/spray/surgery = -1,
@@ -278,6 +279,7 @@
 		"Misc" = list(
 			/obj/item/tool/research/xeno_analyzer = -1,
 			/obj/item/tool/research/excavation_tool = -1,
+			/obj/item/tool/research/xeno_extractor = -1,
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
 			/obj/item/reagent_containers/spray/surgery = -1,
