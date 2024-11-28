@@ -210,7 +210,6 @@
 	item_state = "mod_biohazard_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
 	slowdown = 0.3
-	siemens_coefficient_mod = -0.9
 	permeability_coefficient_mod = -0.5
 	gas_transfer_coefficient_mod = -0.5
 
