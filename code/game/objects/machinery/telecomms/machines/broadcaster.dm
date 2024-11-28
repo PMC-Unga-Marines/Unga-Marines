@@ -52,13 +52,14 @@ GLOBAL_VAR_INIT(message_delay, 0) // To make sure restarting the recentmessages 
 
 	if(!GLOB.message_delay)
 		GLOB.message_delay = 1
-		spawn(10)
-			GLOB.message_delay = 0
-			GLOB.recentmessages = list()
+		addtimer(CALLBACK(src, PROC_REF(clear_recent_messages)), 1 SECONDS)
 
 	/* --- Do a snazzy animation! --- */
 	flick("broadcaster_send", src)
 
+/obj/machinery/telecomms/broadcaster/proc/clear_recent_messages()
+	GLOB.message_delay = 0
+	GLOB.recentmessages = list()
 
 /obj/machinery/telecomms/broadcaster/Destroy()
 	// In case message_delay is left on 1, otherwise it won't reset the list and people can't say the same thing twice anymore.
@@ -67,20 +68,21 @@ GLOBAL_VAR_INIT(message_delay, 0) // To make sure restarting the recentmessages 
 	return ..()
 
 //Preset Broadcasters
-//--PRESET LEFT--//
-/obj/machinery/telecomms/broadcaster/preset_left
-	id = "Broadcaster A"
+
+/obj/machinery/telecomms/broadcaster/preset
 	network = "tcommsat"
+
+//--PRESET LEFT--//
+/obj/machinery/telecomms/broadcaster/preset/left
+	id = "Broadcaster A"
 	autolinkers = list("broadcasterA")
 
 //--PRESET RIGHT--//
-/obj/machinery/telecomms/broadcaster/preset_right
+/obj/machinery/telecomms/broadcaster/preset/right
 	id = "Broadcaster B"
-	network = "tcommsat"
 	autolinkers = list("broadcasterB")
 
 //proper cicbackup broadcaster
-/obj/machinery/telecomms/broadcaster/preset_right/cicbackup
+/obj/machinery/telecomms/broadcaster/preset/right/cicbackup
 	id = "Backup Broadcaster B"
-	network = "tcommsat"
 	autolinkers = list("broadcasterB")

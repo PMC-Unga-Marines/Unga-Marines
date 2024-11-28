@@ -28,6 +28,7 @@
 		if(C.has_status_effect(STATUS_EFFECT_INTOXICATED))
 			var/datum/status_effect/stacking/intoxicated/debuff = C.has_status_effect(STATUS_EFFECT_INTOXICATED)
 			debuff.add_stacks(intoxication_stacks)
+			return
 		C.apply_status_effect(STATUS_EFFECT_INTOXICATED, intoxication_stacks)
 
 // ***************************************
@@ -65,6 +66,7 @@
 	particle_holder = new(owner, /particles/toxic_slash)
 	particle_holder.pixel_x = 9
 	particle_holder.pixel_y = 2
+	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyRating(bullet = 60)
 	succeed_activate()
 	add_cooldown()
 
@@ -80,7 +82,8 @@
 	if(xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
 		var/datum/status_effect/stacking/intoxicated/debuff = xeno_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
 		debuff.add_stacks(intoxication_stacks)
-	xeno_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, intoxication_stacks)
+	else
+		xeno_target.apply_status_effect(STATUS_EFFECT_INTOXICATED, intoxication_stacks)
 	remaining_slashes-- //Decrement the toxic slash count
 	if(!remaining_slashes) //Deactivate if we have no toxic slashes remaining
 		toxic_slash_deactivate(xeno_owner)
@@ -95,6 +98,7 @@
 	xeno_owner.balloon_alert(xeno_owner, "Toxic Slash over") //Let the user know
 	xeno_owner.playsound_local(xeno_owner, 'sound/voice/alien/hiss8.ogg', 25)
 	action_icon_state = "neuroclaws_off"
+	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyRating(bullet = -60)
 
 /datum/action/ability/xeno_action/toxic_slash/on_cooldown_finish()
 	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
@@ -204,14 +208,18 @@
 	///Type of nade to be thrown
 	var/nade_type = /obj/item/explosive/grenade/smokebomb/xeno
 
-/datum/action/ability/activable/xeno/toxic_grenade/use_ability(atom/A)
+/datum/action/ability/activable/xeno/toxic_grenade/use_ability(atom/our_atom)
 	. = ..()
 	succeed_activate()
 	add_cooldown()
+	grenade_act(our_atom)
+
+/// All the grenade activations go here, so we don't overwrite the use_ability
+/datum/action/ability/activable/xeno/toxic_grenade/proc/grenade_act(atom/our_atom)
 	var/obj/item/explosive/grenade/smokebomb/xeno/nade = new nade_type(get_turf(owner))
-	nade.throw_at(A, 5, 1, owner, TRUE)
+	nade.throw_at(our_atom, 5, 1, owner, TRUE)
 	nade.activate(owner)
-	owner.visible_message(span_warning("[owner] vomits up a bulbous lump and throws it at [A]!"), span_warning("We vomit up a bulbous lump and throw it at [A]!"))
+	owner.visible_message(span_warning("[owner] vomits up a bulbous lump and throws it at [our_atom]!"), span_warning("We vomit up a bulbous lump and throw it at [our_atom]!"))
 
 /obj/item/explosive/grenade/smokebomb/xeno
 	name = "toxic grenade"
@@ -224,6 +232,7 @@
 	smoketype = /datum/effect_system/smoke_spread/xeno/toxic
 	arm_sound = 'sound/voice/alien/yell_alt.ogg'
 	smokeradius = 3
+	overlay_type = null
 
 /obj/item/explosive/grenade/smokebomb/xeno/update_overlays()
 	. = ..()

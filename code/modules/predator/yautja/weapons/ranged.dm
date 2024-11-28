@@ -462,12 +462,15 @@
 /mob/living/carbon/apply_pred_laser()
 	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -PRED_LASER_LAYER)
 	apply_overlay(PRED_LASER_LAYER)
-	spawn(2 SECONDS)
-		if(overlays_standing[PRED_LASER_LAYER])
-			remove_overlay(PRED_LASER_LAYER)
-			overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -PRED_LASER_LAYER)
-			apply_overlay(PRED_LASER_LAYER)
+	addtimer(CALLBACK(src, PROC_REF(delayed_apply_pred_laser)), 2 SECONDS)
 	return TRUE
+
+/mob/living/carbon/proc/delayed_apply_pred_laser()
+	if(!overlays_standing[PRED_LASER_LAYER])
+		return
+	remove_overlay(PRED_LASER_LAYER)
+	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -PRED_LASER_LAYER)
+	apply_overlay(PRED_LASER_LAYER)
 
 /atom/proc/remove_pred_laser()
 	return FALSE

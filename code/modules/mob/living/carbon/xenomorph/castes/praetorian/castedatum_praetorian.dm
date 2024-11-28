@@ -19,14 +19,14 @@
 	plasma_gain = 80
 
 	// *** Health *** //
-	max_health = 460
+	max_health = 570
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 20, ACID = 40)
+	soft_armor = list(MELEE = 45, BULLET = 25, LASER = 15, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 20, ACID = 40)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS

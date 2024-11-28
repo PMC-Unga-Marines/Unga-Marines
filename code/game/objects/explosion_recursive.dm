@@ -73,10 +73,13 @@ explosion resistance exactly as much as their health
 
 	epicenter.explosion_spread(src, power, null)
 
-	spawn(2) //just in case something goes wrong
-		if(explosion_in_progress)
-			explosion_damage()
-			QDEL_IN(src, 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(explosion_delete)), 0.2 SECONDS)
+
+/obj/effect/explosion/proc/explosion_delete()
+	if(!explosion_in_progress)
+		return
+	explosion_damage()
+	QDEL_IN(src, 2 SECONDS)
 
 //direction is the direction that the spread took to come to this tile. So it is pointing in the main blast direction - meaning where this tile should spread most of it's force.
 /turf/proc/explosion_spread(obj/effect/explosion/Controller, power, direction)
@@ -97,11 +100,7 @@ explosion resistance exactly as much as their health
 			var/obj/effect/step_trigger/teleporter/our_tp = our_atom
 			var/turf/our_turf = locate(our_tp.x + our_tp.teleport_x, our_tp.y + our_tp.teleport_y, our_tp.z)
 			if(our_turf)
-				spawn(0)
-					our_turf.explosion_spread(Controller, power, direction)
-					Controller.active_spread_num--
-					if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
-						Controller.explosion_damage()
+				INVOKE_ASYNC(our_turf, PROC_REF(explosion_step))
 				return
 
 		if(istype(our_atom, /obj/structure/ladder)) //check for ladders
@@ -116,81 +115,85 @@ explosion resistance exactly as much as their health
 		Controller.reflected_power += max(0, min(resistance, power))
 		power -= resistance
 
+	INVOKE_ASYNC(src, PROC_REF(explosion_spread_power), Controller, power, direction, our_ladder)
 
-	//spawn(0) is important because it paces the explosion in an expanding circle, rather than a series of squiggly lines constantly checking overlap. Reduces lag by a lot. Note that INVOKE_ASYNC doesn't have the same effect as spawn(0) for this purpose.
-	spawn(0)
+/turf/proc/explosion_spread_power(obj/effect/explosion/Controller, power, direction, obj/structure/ladder/our_ladder)
+	//spread in each ordinal direction
+	var/direction_angle = dir2angle(direction)
+	for(var/spread_direction in GLOB.alldirs)
+		var/spread_power = power
 
-		//spread in each ordinal direction
-		var/direction_angle = dir2angle(direction)
-		for(var/spread_direction in GLOB.alldirs)
-			var/spread_power = power
+		if(direction) //false if, for example, this turf was the explosion source
+			var/spread_direction_angle = dir2angle(spread_direction)
 
-			if(direction) //false if, for example, this turf was the explosion source
-				var/spread_direction_angle = dir2angle(spread_direction)
+			var/angle = 180 - abs( abs( direction_angle - spread_direction_angle ) - 180 ) // the angle difference between the spread direction and initial direction
 
-				var/angle = 180 - abs( abs( direction_angle - spread_direction_angle ) - 180 ) // the angle difference between the spread direction and initial direction
+			switch(angle) //this reduces power when the explosion is going around corners
+				if(0)
+					EMPTY_BLOCK_GUARD //no change
+				if(45)
+					if(spread_power >= 0)
+						spread_power *= 0.75
+					else
+						spread_power *= 1.25
+				if(90)
+					if(spread_power >= 0)
+						spread_power *= 0.50
+					else
+						spread_power *= 1.5
+				else //turns out angles greater than 90 degrees almost never happen. This bit also prevents trying to spread backwards
+					continue
 
-				switch(angle) //this reduces power when the explosion is going around corners
-					if (0)
-						EMPTY_BLOCK_GUARD //no change
-					if (45)
-						if(spread_power >= 0)
-							spread_power *= 0.75
-						else
-							spread_power *= 1.25
-					if (90)
-						if(spread_power >= 0)
-							spread_power *= 0.50
-						else
-							spread_power *= 1.5
-					else //turns out angles greater than 90 degrees almost never happen. This bit also prevents trying to spread backwards
-						continue
-
-			switch(spread_direction)
-				if(NORTH,SOUTH,EAST,WEST)
-					spread_power -= Controller.falloff
-				else
-					spread_power -= Controller.falloff * 1.414 //diagonal spreading
-
-			if (spread_power <= Controller.minimum_spread_power)
-				continue
-
-			var/turf/T = get_step(src, spread_direction)
-
-			if(!T) //prevents trying to spread into "null" (edge of the map?)
-				continue
-
-			T.explosion_spread(Controller, spread_power, spread_direction)
-
-
-		//spreading up/down ladders
-		if(our_ladder)
-			var/ladder_spread_power
-			if(direction)
-				if(power >= 0)
-					ladder_spread_power = power * 0.75 - Controller.falloff
-				else
-					ladder_spread_power = power * 1.25 - Controller.falloff
+		switch(spread_direction)
+			if(NORTH, SOUTH, EAST, WEST)
+				spread_power -= Controller.falloff
 			else
-				if(power >= 0)
-					ladder_spread_power = power * 0.5 - Controller.falloff
-				else
-					ladder_spread_power = power * 1.5 - Controller.falloff
+				spread_power -= Controller.falloff * 1.414 //diagonal spreading
 
-			if(ladder_spread_power > Controller.minimum_spread_power)
-				if(our_ladder.up)
-					var/turf/T_up = get_turf(our_ladder.up)
-					if(T_up)
-						T_up.explosion_spread(Controller, ladder_spread_power, null)
-				if(our_ladder.down)
-					var/turf/T_down = get_turf(our_ladder.down)
-					if(T_down)
-						T_down.explosion_spread(Controller, ladder_spread_power, null)
+		if(spread_power <= Controller.minimum_spread_power)
+			continue
 
-		//if this is the last explosion spread, initiate explosion damage
-		Controller.active_spread_num--
-		if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
-			Controller.explosion_damage()
+		var/turf/T = get_step(src, spread_direction)
+
+		if(!T) //prevents trying to spread into "null" (edge of the map?)
+			continue
+
+		T.explosion_spread(Controller, spread_power, spread_direction)
+
+	//spreading up/down ladders
+	if(our_ladder)
+		var/ladder_spread_power
+		if(direction)
+			if(power >= 0)
+				ladder_spread_power = power * 0.75 - Controller.falloff
+			else
+				ladder_spread_power = power * 1.25 - Controller.falloff
+		else
+			if(power >= 0)
+				ladder_spread_power = power * 0.5 - Controller.falloff
+			else
+				ladder_spread_power = power * 1.5 - Controller.falloff
+
+		if(ladder_spread_power > Controller.minimum_spread_power)
+			if(our_ladder.up)
+				var/turf/T_up = get_turf(our_ladder.up)
+				if(T_up)
+					T_up.explosion_spread(Controller, ladder_spread_power, null)
+			if(our_ladder.down)
+				var/turf/T_down = get_turf(our_ladder.down)
+				if(T_down)
+					T_down.explosion_spread(Controller, ladder_spread_power, null)
+
+	//if this is the last explosion spread, initiate explosion damage
+	Controller.active_spread_num--
+	if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
+		Controller.explosion_damage()
+
+/turf/proc/explosion_step(obj/effect/explosion/Controller, power, direction)
+	explosion_spread(Controller, power, direction)
+	Controller.active_spread_num--
+	if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
+		Controller.explosion_damage()
 
 /obj/effect/explosion/proc/explosion_damage() //This step applies the ex_act effects for the explosion
 	explosion_in_progress = 0
@@ -223,20 +226,18 @@ explosion resistance exactly as much as their health
 			our_turf = locate(x, y, z)
 
 		for(var/atom/our_atom in our_turf)
-			spawn(0)
-				log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(our_turf)]!")
-				if(is_mainship_level(our_turf.z))
-					message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(our_turf)]!")
-
-				our_atom.ex_act(severity, direction)
-
+			INVOKE_ASYNC(src, PROC_REF(explosion_damage_logging), our_atom, severity, direction)
 		tiles_processed++
 		if(tiles_processed >= increment)
 			tiles_processed = 0
 			sleep(0.1 SECONDS)
+	QDEL_IN(src, 0.8 SECONDS)
 
-	spawn(8)
-		qdel(src)
+/obj/effect/explosion/proc/explosion_damage_logging(atom/our_atom, severity, direction)
+	log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(src)]!")
+	if(is_mainship_level(z))
+		message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(src)]!")
+	our_atom.ex_act(severity, direction)
 
 /atom/proc/get_explosion_resistance()
 	return 0
@@ -260,18 +261,18 @@ explosion resistance exactly as much as their health
 
 	if(!direction)
 		direction = pick(GLOB.alldirs)
-	var/range = min(round(severity * 0.2, 1), 14)
+	var/range = min(round(severity * 0.07, 1), 14)
 	if(!direction)
 		range = round(range * 0.5, 1)
 
 	if(range < 1)
 		return
 
-	var/speed = max(range * 2.5, 4)
+	var/speed = max(range, 3)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
 
 	if(range >= 2)
-		var/scatter = range / 4 * scatter_multiplier
+		var/scatter = range * 0.25 * scatter_multiplier
 		var/scatter_x = rand(-scatter, scatter)
 		var/scatter_y = rand(-scatter, scatter)
 		target = locate(target.x + round(scatter_x, 1), target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.

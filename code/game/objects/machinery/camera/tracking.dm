@@ -95,40 +95,40 @@
 
 	to_chat(src, span_notice("Now tracking [target.get_visible_name()] on camera."))
 
+	INVOKE_ASYNC(src, PROC_REF(start_tracking), target)
+
+/mob/living/silicon/ai/proc/start_tracking(mob/living/target)
 	var/cameraticks = 0
-	spawn(0)
-		while(cameraFollow == target)
-			if(cameraFollow == null)
-				return
+	while(cameraFollow == target)
+		if(cameraFollow == null)
+			return
 
-			if(!target.can_track(src))
-				tracking = TRUE
-				if(!cameraticks)
-					to_chat(src, span_warning("Target is not near any active cameras. Attempting to reacquire..."))
-				cameraticks++
-				if(cameraticks > 9)
-					cameraFollow = null
-					to_chat(src, span_warning("Unable to reacquire, cancelling track..."))
-					tracking = FALSE
-					return
-				else
-					sleep(1 SECONDS)
-					continue
-
-			else
-				cameraticks = 0
-				tracking = FALSE
-
-			if(eyeobj)
-				eyeobj.setLoc(get_turf(target))
-
-			else
-				view_core()
+		if(!target.can_track(src))
+			tracking = TRUE
+			if(!cameraticks)
+				to_chat(src, span_warning("Target is not near any active cameras. Attempting to reacquire..."))
+			cameraticks++
+			if(cameraticks > 9)
 				cameraFollow = null
+				to_chat(src, span_warning("Unable to reacquire, cancelling track..."))
+				tracking = FALSE
 				return
+			else
+				sleep(1 SECONDS)
+				continue
+		else
+			cameraticks = 0
+			tracking = FALSE
 
-			sleep(1 SECONDS)
+		if(eyeobj)
+			eyeobj.setLoc(get_turf(target))
 
+		else
+			view_core()
+			cameraFollow = null
+			return
+
+		sleep(1 SECONDS)
 
 /proc/near_camera(mob/living/M)
 	if(!isturf(M.loc))
