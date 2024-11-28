@@ -573,7 +573,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/hugger/on_hit_mob(mob/M, obj/projectile/proj)
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(M), hivenumber)
-	hugger.go_active()
+	hugger.Attach(M)
 
 /datum/ammo/xeno/hugger/on_hit_obj(obj/O, obj/projectile/proj)
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(O), hivenumber)
