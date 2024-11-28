@@ -76,10 +76,16 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
+	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
+	/obj/item/reagent_containers/glass/bottle/lemoline/doctor = list(CAT_MARINE, "Lemoline bottle", 23, "cyan"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
-	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "blue"),
-	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 22, "blue"),
+	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "orange2"),
+	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 22, "red"),
+	/obj/item/storage/backpack/marine/satchel/scout_cloak = list(CAT_MARINE, "M68 Thermal cloak", 20, "blue"),
+	/obj/item/armor_module/module/night_vision = list(CAT_MARINE, "BE-35 night vision kit", 20, "blue"),
+	/obj/item/clothing/glasses/night_vision = list(CAT_MARINE, "BE-47 night vision goggles", 30, "blue"),
+	/obj/item/cell/night_vision_battery = list(CAT_MARINE, "night vision battery", 5, "blue"),
 ))
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
