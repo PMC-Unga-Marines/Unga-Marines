@@ -189,10 +189,10 @@
 			distance = buffer_distance
 			. = nearby_hostile
 
-///Return TRUE if a possible target is near
+///Checks the nearby mobs for eligability. If they can be targets it stores them in potential_targets. Returns TRUE if there are targets, FALSE if not.
 /obj/structure/xeno/xeno_turret/proc/scan()
 	potential_hostiles.Cut()
-	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, TURRET_SCAN_RANGE))
+	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
 		if(nearby_human.stat == DEAD)
 			continue
 		if(nearby_human.get_xeno_hivenumber() == hivenumber)
@@ -208,12 +208,17 @@
 		if(HAS_TRAIT(nearby_xeno, TRAIT_STEALTH))
 			continue
 		potential_hostiles += nearby_xeno
-	for(var/obj/vehicle/unmanned/vehicle AS in GLOB.unmanned_vehicles)
-		if(vehicle.z == z && get_dist(vehicle, src) <= range)
-			potential_hostiles += vehicle
-	for(var/obj/vehicle/sealed/mecha/mech AS in GLOB.mechas_list)
-		if(mech.z == z && get_dist(mech, src) <= range)
-			potential_hostiles += mech
+	for(var/obj/vehicle/unmanned/nearby_unmanned_vehicle AS in cheap_get_unmanned_vehicles_near(src, range))
+		potential_hostiles += nearby_unmanned_vehicle
+	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
+		var/list/driver_list = nearby_mech.return_drivers()
+		if(!length(driver_list))
+			continue
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.get_xeno_hivenumber() == hivenumber) // what if zombie rides a mech?
+			continue
+		potential_hostiles += nearby_mech
+	return potential_hostiles
 
 ///Signal handler to make the turret shoot at its target
 /obj/structure/xeno/xeno_turret/proc/shoot()
