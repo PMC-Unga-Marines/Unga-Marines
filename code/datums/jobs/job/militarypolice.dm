@@ -84,12 +84,6 @@ In addition, you are tasked with the security of high-ranking personnel, includi
 	wear_suit = /obj/item/clothing/suit/armor/bulletproof/mp
 	suit_store = /obj/item/weapon/gun/energy/taser
 
-/obj/item/radio/headset/mainship/mp
-	icon = 'icons/obj/items/radio.dmi'
-	name = "security radio headset"
-	icon_state = "mp_headset"
-	keyslot = /obj/item/encryptionkey/mcom
-
 /obj/item/storage/pouch/pistol/laserpistol/Initialize()
 	. = ..()
 	new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(src)
