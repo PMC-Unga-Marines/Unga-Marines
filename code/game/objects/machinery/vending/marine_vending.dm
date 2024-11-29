@@ -363,7 +363,7 @@
 		),
 		"Специализированное" = list(
 			/obj/item/weapon/gun/rifle/pepperball = 4,
-			/obj/item/ammo_magazine/rifle/pepperball = 40,
+			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
 			/obj/item/ammo_magazine/flamer_tank/large = 30,
 			/obj/item/ammo_magazine/flamer_tank/large/G = 15,
