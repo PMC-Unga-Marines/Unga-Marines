@@ -139,11 +139,6 @@
 	SIGNAL_HANDLER
 	hostile = null
 
-///Signal handler for hard del of last_hostile
-/obj/structure/xeno/xeno_turret/proc/unset_last_hostile()
-	SIGNAL_HANDLER
-	last_hostile = null
-
 ///Setter for hostile with hard del in mind
 /obj/structure/xeno/xeno_turret/proc/set_hostile(_hostile)
 	if(hostile == _hostile)
