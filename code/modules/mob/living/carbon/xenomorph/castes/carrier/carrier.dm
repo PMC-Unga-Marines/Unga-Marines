@@ -16,10 +16,10 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
-	///Facehuggers overlay
-	var/mutable_appearance/hugger_overlays_icon
 	///Number of huggers the carrier is currently carrying
 	var/huggers = 0
+	///Facehuggers overlay
+	var/mutable_appearance/hugger_overlays_icon
 	///The number of huggers the carrier reserves against observer possession.
 	var/huggers_reserved = 0
 
