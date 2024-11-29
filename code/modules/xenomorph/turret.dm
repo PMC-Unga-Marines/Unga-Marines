@@ -21,7 +21,7 @@
 	///Last target of the turret
 	var/atom/last_hostile
 	///Potential list of targets found by scan
-	var/list/atom/potential_hostiles
+	var/list/atom/potential_hostiles = list()
 	///Fire rate of the target in ticks
 	var/firerate = 5
 	///The last time the sentry did a scan
@@ -39,7 +39,6 @@
 /obj/structure/xeno/xeno_turret/Initialize(mapload, _hivenumber)
 	. = ..()
 	ammo = GLOB.ammo_list[ammo]
-	potential_hostiles = list()
 	LAZYADDASSOC(GLOB.xeno_resin_turrets_by_hive, hivenumber, src)
 	START_PROCESSING(SSobj, src)
 	AddComponent(/datum/component/automatedfire/xeno_turret_autofire, firerate)
@@ -58,6 +57,7 @@
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
 		on_destruction()
+		playsound(loc,'sound/effects/alien/turret_death.ogg', 70)
 	return ..()
 
 /obj/structure/xeno/xeno_turret/proc/on_destruction()
@@ -70,7 +70,6 @@
 	set_hostile(null)
 	set_last_hostile(null)
 	STOP_PROCESSING(SSobj, src)
-	playsound(loc,'sound/effects/alien/turret_death.ogg', 70)
 	return ..()
 
 /obj/structure/xeno/xeno_turret/ex_act(severity)
@@ -95,10 +94,7 @@
 		obj_integrity = min(obj_integrity + TURRET_HEALTH_REGEN, max_integrity)
 		update_icon()
 		DISABLE_BITFIELD(resistance_flags, ON_FIRE)
-	if(world.time > last_scan_time + TURRET_SCAN_FREQUENCY)
-		scan()
-		last_scan_time = world.time
-	if(!length(potential_hostiles))
+	if(!scan())
 		return
 	set_hostile(get_target())
 	if (!hostile)
@@ -158,6 +154,10 @@
 	var/buffer_distance
 	var/list/turf/path = list()
 	for(var/atom/nearby_hostile AS in potential_hostiles)
+		if(isliving(nearby_hostile))
+			var/mob/living/nearby_living_hostile = nearby_hostile
+			if(nearby_living_hostile.stat == DEAD)
+				continue
 		buffer_distance = get_dist(nearby_hostile, src)
 		if(distance <= buffer_distance) //If we already found a target that's closer
 			continue
