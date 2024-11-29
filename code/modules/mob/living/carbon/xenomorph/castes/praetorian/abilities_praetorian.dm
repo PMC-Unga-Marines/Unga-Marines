@@ -399,7 +399,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	for(var/obj/O in get_turf(xeno_owner))
 		O.acid_spray_act(xeno_owner)
 
-
 // ***************************************
 // *********** Dodge
 // ***************************************
