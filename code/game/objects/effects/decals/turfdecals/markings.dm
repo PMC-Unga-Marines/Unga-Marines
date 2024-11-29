@@ -2,10 +2,6 @@
 	icon = 'icons/turf/decals.dmi'
 	icon_state = "whitedecal"
 
-/obj/effect/turf_decal/tile/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
-
 /obj/effect/turf_decal/tile/full
 	icon_state = "floor_large"
 

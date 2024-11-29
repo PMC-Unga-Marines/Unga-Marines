@@ -598,3 +598,65 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/hugger/acid
 	hugger_type = /obj/item/clothing/mask/facehugger/combat/acid
+
+/*
+//================================================
+					Widow Ammo Types
+//================================================
+*/
+
+/datum/ammo/xeno/leash_ball
+	icon_state = "widow_snareball"
+	ping = "ping_x"
+	damage_type = STAMINA
+	flags_ammo_behavior = AMMO_SKIPS_ALIENS | AMMO_TARGET_TURF
+	bullet_color = COLOR_PURPLE
+	ping = null
+	damage = 0
+	armor_type = BIO
+	shell_speed = 1.5
+	accurate_range = 8
+	max_range = 8
+
+/datum/ammo/xeno/leash_ball/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_leashball(target_turf.density ? proj.loc : target_turf)
+
+/datum/ammo/xeno/leash_ball/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_mob)
+	drop_leashball(target_turf.density ? proj.loc : target_turf, proj.firer)
+
+/datum/ammo/xeno/leash_ball/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_obj)
+	if(target_turf.density || (target_obj.density && !(target_obj.allow_pass_flags & PASS_PROJECTILE)))
+		target_turf = get_turf(proj)
+	drop_leashball(target_turf.density ? proj.loc : target_turf, proj.firer)
+
+/datum/ammo/xeno/leash_ball/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_leashball(target_turf.density ? proj.loc : target_turf)
+
+/// This spawns a leash ball and checks if the turf is dense before doing so
+/datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/target_turf)
+	new /obj/structure/xeno/aoe_leash(get_turf(target_turf), hivenumber)
+
+/datum/ammo/xeno/web_projectile
+	icon_state = "web_spit"
+	sound_hit = "snap"
+	sound_bounce = "alien_resin_build3"
+	damage_type = STAMINA
+	bullet_color = COLOR_PURPLE
+	flags_ammo_behavior = AMMO_SKIPS_ALIENS
+	ping = null
+	armor_type = BIO
+	accurate_range = 8
+	max_range = 8
+	///How long the victim will be KO'd
+	var/hit_weaken = 2 SECONDS
+
+/datum/ammo/xeno/web_projectile/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	. = ..()
+	if(!ishuman(target_mob))
+		return
+	playsound(get_turf(target_mob), sound(get_sfx("snap")), 30, falloff = 5)
+	var/mob/living/carbon/human/human_victim = target_mob
+	human_victim.apply_effect(hit_weaken, WEAKEN)
+

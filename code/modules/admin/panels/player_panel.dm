@@ -492,6 +492,7 @@
 		<a href='?src=[ref];transform=crusher;mob=[REF(M)]'>Crusher</a> |
 		<a href='?src=[ref];transform=gorger;mob=[REF(M)]'>Gorger</a> |
 		<a href='?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a> |
+		<a href='?src=[ref];transform=widow;mob=[REF(M)]'>Widow</a> |
 		<a href='?src=[ref];transform=behemoth;mob=[REF(M)]'>Behemoth</a> |
 		<a href='?src=[ref];transform=chimera;mob=[REF(M)]'>Chimera</a>
 		<br> Alien Tier 4:
