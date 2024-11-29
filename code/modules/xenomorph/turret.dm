@@ -266,3 +266,15 @@
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
 		new_proj.fire_at(null, src, range = rand(1, 3), angle = rand(1, 360), recursivity = TRUE)
+
+/obj/structure/xeno/xeno_turret/hugger_turret/attack_ghost(mob/dead/observer/user)
+	. = ..()
+
+	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
+	if(!hive.can_spawn_as_hugger(user))
+		return FALSE
+
+	var/mob/living/carbon/xenomorph/facehugger/new_hugger = new(get_turf(src))
+	new_hugger.transfer_to_hive(hivenumber)
+	new_hugger.transfer_mob(user)
+	return TRUE
