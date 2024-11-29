@@ -146,9 +146,10 @@
 
 ///Setter for hostile with hard del in mind
 /obj/structure/xeno/xeno_turret/proc/set_hostile(_hostile)
-	if(hostile != _hostile)
-		hostile = _hostile
-		RegisterSignal(hostile, COMSIG_QDELETING, PROC_REF(unset_hostile))
+	if(hostile == _hostile)
+		return
+	hostile = _hostile
+	RegisterSignal(hostile, COMSIG_QDELETING, PROC_REF(unset_hostile))
 
 ///Setter for last_hostile with hard del in mind
 /obj/structure/xeno/xeno_turret/proc/set_last_hostile(_last_hostile)
@@ -162,12 +163,6 @@
 	var/buffer_distance
 	var/list/turf/path = list()
 	for(var/atom/nearby_hostile AS in potential_hostiles)
-		if(isliving(nearby_hostile))
-			var/mob/living/nearby_living_hostile = nearby_hostile
-			if(nearby_living_hostile.stat == DEAD)
-				continue
-		if(HAS_TRAIT(nearby_hostile, TRAIT_STEALTH))
-			continue
 		buffer_distance = get_dist(nearby_hostile, src)
 		if(distance <= buffer_distance) //If we already found a target that's closer
 			continue
@@ -197,16 +192,20 @@
 ///Return TRUE if a possible target is near
 /obj/structure/xeno/xeno_turret/proc/scan()
 	potential_hostiles.Cut()
-	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, TURRET_SCAN_RANGE))
+	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, TURRET_SCAN_RANGE))
 		if(nearby_human.stat == DEAD)
 			continue
 		if(nearby_human.get_xeno_hivenumber() == hivenumber)
 			continue
+		if(HAS_TRAIT(nearby_human, TRAIT_STEALTH))
+			continue
 		potential_hostiles += nearby_human
-	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))
+	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))
 		if(GLOB.hive_datums[hivenumber] == nearby_xeno.hive)
 			continue
 		if(nearby_xeno.stat == DEAD)
+			continue
+		if(HAS_TRAIT(nearby_xeno, TRAIT_STEALTH))
 			continue
 		potential_hostiles += nearby_xeno
 	for(var/obj/vehicle/unmanned/vehicle AS in GLOB.unmanned_vehicles)
@@ -246,7 +245,7 @@
 	firerate = 5
 
 /obj/structure/xeno/xeno_turret/sticky/on_destruction()
-	for(var/i = 1 to 20) // maybe a bit laggy
+	for(var/i in 1 to 20) // maybe a bit laggy
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
 		new_proj.fire_at(null, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
@@ -262,7 +261,7 @@
 	firerate = 5 SECONDS
 
 /obj/structure/xeno/xeno_turret/hugger_turret/on_destruction()
-	for(var/i = 1 to 5)
+	for(var/i in 1 to 5)
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
 		new_proj.fire_at(null, src, range = rand(1, 3), angle = rand(1, 360), recursivity = TRUE)
