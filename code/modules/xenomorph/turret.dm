@@ -151,10 +151,6 @@
 	var/buffer_distance
 	var/list/turf/path = list()
 	for(var/atom/nearby_hostile AS in potential_hostiles)
-		if(isliving(nearby_hostile))
-			var/mob/living/nearby_living_hostile = nearby_hostile
-			if(nearby_living_hostile.stat == DEAD)
-				continue
 		buffer_distance = get_dist(nearby_hostile, src)
 		if(distance <= buffer_distance) //If we already found a target that's closer
 			continue
@@ -162,24 +158,31 @@
 		path -= get_turf(src)
 		if(!length(path)) //Can't shoot if it's on the same turf
 			continue
-		var/blocked = FALSE
+		var/blocked = FALSE //LoF Broken; stop checking; we can't proceed further.
 		for(var/turf/T AS in path)
 			if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE))
 				blocked = TRUE
-				break //LoF Broken; stop checking; we can't proceed further.
+				break
 
 			for(var/obj/machinery/MA in T)
-				if(MA.opacity || MA.density && !(MA.allow_pass_flags & PASS_PROJECTILE))
-					blocked = TRUE
-					break //LoF Broken; stop checking; we can't proceed further.
+				if(!MA.opacity)
+					continue
+				if(!MA.density && MA.allow_pass_flags & PASS_PROJECTILE)
+					continue
+				blocked = TRUE
+				break
 
 			for(var/obj/structure/S in T)
-				if(S.opacity || S.density && !(S.allow_pass_flags & PASS_PROJECTILE))
-					blocked = TRUE
-					break //LoF Broken; stop checking; we can't proceed further.
-		if(!blocked)
-			distance = buffer_distance
-			. = nearby_hostile
+				if(!S.opacity)
+					continue
+				if(!S.density && S.allow_pass_flags & PASS_PROJECTILE)
+					continue
+				blocked = TRUE
+				break
+		if(blocked)
+			continue
+		distance = buffer_distance
+		. = nearby_hostile
 
 ///Checks the nearby mobs for eligability. If they can be targets it stores them in potential_targets. Returns TRUE if there are targets, FALSE if not.
 /obj/structure/xeno/turret/proc/scan()
@@ -225,10 +228,6 @@
 	newshot.generate_bullet(ammo)
 	newshot.def_zone = pick(GLOB.base_miss_chance)
 	newshot.fire_at(hostile, null, src, ammo.max_range, ammo.shell_speed)
-	if(istype(ammo, /datum/ammo/xeno/hugger))
-		var/datum/ammo/xeno/hugger/hugger_ammo = ammo
-		newshot.color = initial(hugger_ammo.hugger_type.color)
-		hugger_ammo.hivenumber = hivenumber
 	firing = TRUE
 	update_minimap_icon()
 
@@ -256,6 +255,23 @@
 	light_initial_color = LIGHT_COLOR_BROWN
 	ammo = /datum/ammo/xeno/hugger
 	firerate = 5 SECONDS
+
+/obj/structure/xeno/turret/facehugger/shoot()
+	if(!hostile)
+		SEND_SIGNAL(src, COMSIG_AUTOMATIC_SHOOTER_STOP_SHOOTING_AT)
+		firing = FALSE
+		update_minimap_icon()
+		return
+	face_atom(hostile)
+	var/obj/projectile/newshot = new(loc)
+	newshot.generate_bullet(ammo)
+	newshot.def_zone = pick(GLOB.base_miss_chance)
+	newshot.fire_at(hostile, null, src, ammo.max_range, ammo.shell_speed)
+	var/datum/ammo/xeno/hugger/hugger_ammo = ammo
+	newshot.color = initial(hugger_ammo.hugger_type.color)
+	hugger_ammo.hivenumber = hivenumber
+	firing = TRUE
+	update_minimap_icon()
 
 /obj/structure/xeno/turret/facehugger/on_destruction()
 	for(var/i in 1 to 5)
