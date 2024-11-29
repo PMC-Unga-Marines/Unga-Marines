@@ -697,10 +697,6 @@
 		if(!(X.hive.hive_flags & HIVE_CAN_HIJACK))
 			to_chat(X, span_warning("Нашему улью не хватает экстрасенсорных способностей, чтобы украсть птицу."))
 			return
-		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
-		if(living_player_list[1] > living_player_list[2]) // if there are more marines than xenos, we are unable to hijack
-			to_chat(X, span_xenowarning("Еще осталась добыча, на которую можно поохотиться!"))
-			return
 		switch(M.mode)
 			if(SHUTTLE_RECHARGING)
 				to_chat(X, span_xenowarning("Птица все еще остывает..."))
