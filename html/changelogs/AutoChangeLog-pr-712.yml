@@ -1,0 +1,4 @@
+author: "CheBokJam"
+delete-after: True
+changes:
+  - bugfix: "Больше в камне Кинга нельзя установить/снять любую раскладываемую вещь."
