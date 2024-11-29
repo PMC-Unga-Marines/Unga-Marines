@@ -122,10 +122,10 @@
 	var/list/area_namecounts = list()
 	var/name
 
-	for(var/obj/structure/xeno/xeno_turret/potential_turret AS in GLOB.xeno_resin_turrets_by_hive[XENO_HIVE_NORMAL])
+	for(var/obj/structure/xeno/turret/potential_turret AS in GLOB.xeno_resin_turrets_by_hive[XENO_HIVE_NORMAL])
 		if(dead_owner.z != potential_turret.z)
 			continue
-		if(!istype(potential_turret, /obj/structure/xeno/xeno_turret/hugger_turret))
+		if(!istype(potential_turret, /obj/structure/xeno/turret/facehugger))
 			continue
 		var/area/area = get_area(potential_turret)
 		if(area in area_names)

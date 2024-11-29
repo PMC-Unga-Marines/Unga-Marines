@@ -1,4 +1,4 @@
-/obj/structure/xeno/xeno_turret
+/obj/structure/xeno/turret
 	name = "acid turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires acid against intruders."
 	icon = 'icons/Xeno/acidturret.dmi'
@@ -29,11 +29,11 @@
 	var/firing
 
 ///Change minimap icon if its firing or not firing
-/obj/structure/xeno/xeno_turret/proc/update_minimap_icon()
+/obj/structure/xeno/turret/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]")) // RU TGMC edit - map blips
 
-/obj/structure/xeno/xeno_turret/Initialize(mapload, _hivenumber)
+/obj/structure/xeno/turret/Initialize(mapload, _hivenumber)
 	. = ..()
 	ammo = GLOB.ammo_list[ammo]
 	LAZYADDASSOC(GLOB.xeno_resin_turrets_by_hive, hivenumber, src)
@@ -47,43 +47,43 @@
 	update_icon()
 
 ///Signal handler to delete the turret when the alamo is hijacked
-/obj/structure/xeno/xeno_turret/proc/destroy_on_hijack()
+/obj/structure/xeno/turret/proc/destroy_on_hijack()
 	SIGNAL_HANDLER
 	qdel(src)
 
-/obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/structure/xeno/turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
 		on_destruction()
 		playsound(loc,'sound/effects/alien/turret_death.ogg', 70)
 	return ..()
 
-/obj/structure/xeno/xeno_turret/proc/on_destruction()
+/obj/structure/xeno/turret/proc/on_destruction()
 	var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
 	smoke.set_up(1, get_turf(src))
 	smoke.start()
 
-/obj/structure/xeno/xeno_turret/Destroy()
+/obj/structure/xeno/turret/Destroy()
 	GLOB.xeno_resin_turrets_by_hive[hivenumber] -= src
 	set_hostile(null)
 	set_last_hostile(null)
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/structure/xeno/xeno_turret/ex_act(severity)
+/obj/structure/xeno/turret/ex_act(severity)
 	take_damage(severity * 5, BRUTE, BOMB)
 
-/obj/structure/xeno/xeno_turret/fire_act(burn_level, flame_color)
+/obj/structure/xeno/turret/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 2, BURN, FIRE)
 	ENABLE_BITFIELD(resistance_flags, ON_FIRE)
 
-/obj/structure/xeno/xeno_turret/update_overlays()
+/obj/structure/xeno/turret/update_overlays()
 	. = ..()
 	if(obj_integrity <= max_integrity * 0.5)
 		. += image(icon, src, "[base_icon_state]_damage")
 	if(CHECK_BITFIELD(resistance_flags, ON_FIRE))
 		. += image(icon, src, "turret_on_fire")
 
-/obj/structure/xeno/xeno_turret/process()
+/obj/structure/xeno/turret/process()
 	//Turrets regen some HP, every 2 sec
 	if(obj_integrity < max_integrity)
 		obj_integrity = min(obj_integrity + TURRET_HEALTH_REGEN, max_integrity)
@@ -103,7 +103,7 @@
 		set_last_hostile(hostile)
 		SEND_SIGNAL(src, COMSIG_AUTOMATIC_SHOOTER_START_SHOOTING_AT)
 
-/obj/structure/xeno/xeno_turret/attackby(obj/item/I, mob/living/user, params)
+/obj/structure/xeno/turret/attackby(obj/item/I, mob/living/user, params)
 	if(I.flags_item & NOBLUDGEON || !isliving(user))
 		return attack_hand(user)
 
@@ -126,25 +126,25 @@
 	playsound(src, "alien_resin_break", 25)
 
 ///Signal handler for hard del of hostile
-/obj/structure/xeno/xeno_turret/proc/unset_hostile()
+/obj/structure/xeno/turret/proc/unset_hostile()
 	SIGNAL_HANDLER
 	hostile = null
 
 ///Setter for hostile with hard del in mind
-/obj/structure/xeno/xeno_turret/proc/set_hostile(_hostile)
+/obj/structure/xeno/turret/proc/set_hostile(_hostile)
 	if(hostile == _hostile)
 		return
 	hostile = _hostile
 	RegisterSignal(hostile, COMSIG_QDELETING, PROC_REF(unset_hostile))
 
 ///Setter for last_hostile with hard del in mind
-/obj/structure/xeno/xeno_turret/proc/set_last_hostile(_last_hostile)
+/obj/structure/xeno/turret/proc/set_last_hostile(_last_hostile)
 	if(last_hostile)
 		UnregisterSignal(last_hostile, COMSIG_QDELETING)
 	last_hostile = _last_hostile
 
 ///Look for the closest human in range and in light of sight. If no human is in range, will look for xenos of other hives
-/obj/structure/xeno/xeno_turret/proc/get_target()
+/obj/structure/xeno/turret/proc/get_target()
 	var/distance = range + 0.5 //we add 0.5 so if a potential target is at range, it is accepted by the system
 	var/buffer_distance
 	var/list/turf/path = list()
@@ -180,7 +180,7 @@
 			. = nearby_hostile
 
 ///Checks the nearby mobs for eligability. If they can be targets it stores them in potential_targets. Returns TRUE if there are targets, FALSE if not.
-/obj/structure/xeno/xeno_turret/proc/scan()
+/obj/structure/xeno/turret/proc/scan()
 	potential_hostiles.Cut()
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
 		if(nearby_human.stat == DEAD)
@@ -211,7 +211,7 @@
 	return potential_hostiles
 
 ///Signal handler to make the turret shoot at its target
-/obj/structure/xeno/xeno_turret/proc/shoot()
+/obj/structure/xeno/turret/proc/shoot()
 	SIGNAL_HANDLER
 	if(!hostile)
 		SEND_SIGNAL(src, COMSIG_AUTOMATIC_SHOOTER_STOP_SHOOTING_AT)
@@ -230,7 +230,7 @@
 	firing = TRUE
 	update_minimap_icon()
 
-/obj/structure/xeno/xeno_turret/sticky
+/obj/structure/xeno/turret/sticky
 	name = "Sticky resin turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires resin against intruders."
 	icon_state = "resin_turret"
@@ -238,13 +238,13 @@
 	light_initial_color = LIGHT_COLOR_PURPLE
 	ammo = /datum/ammo/xeno/sticky/turret
 
-/obj/structure/xeno/xeno_turret/sticky/on_destruction()
+/obj/structure/xeno/turret/sticky/on_destruction()
 	for(var/i in 1 to 20) // maybe a bit laggy
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
 		new_proj.fire_at(null, src, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
 
-/obj/structure/xeno/xeno_turret/hugger_turret
+/obj/structure/xeno/turret/facehugger
 	name = "hugger turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires huggers against intruders."
 	icon_state = "hugger_turret"
@@ -255,13 +255,13 @@
 	ammo = /datum/ammo/xeno/hugger
 	firerate = 5 SECONDS
 
-/obj/structure/xeno/xeno_turret/hugger_turret/on_destruction()
+/obj/structure/xeno/turret/facehugger/on_destruction()
 	for(var/i in 1 to 5)
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
 		new_proj.fire_at(null, src, src, range = rand(1, 3), angle = rand(1, 360), recursivity = TRUE)
 
-/obj/structure/xeno/xeno_turret/hugger_turret/attack_ghost(mob/dead/observer/user)
+/obj/structure/xeno/turret/facehugger/attack_ghost(mob/dead/observer/user)
 	. = ..()
 
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]

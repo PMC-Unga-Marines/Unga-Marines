@@ -122,7 +122,7 @@
 	for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(resin_silo))
 	// Acid, sticky, and hugger turrets.
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
+	for(var/obj/structure/xeno/turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(turret))
 	// Psychic relays
 	for(var/obj/structure/xeno/psychictower/tower AS in GLOB.hive_datums[hivenumber].psychictowers)
