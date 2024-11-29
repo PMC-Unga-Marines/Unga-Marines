@@ -1,16 +1,15 @@
 /obj/structure/xeno/xeno_turret
-	icon = 'icons/Xeno/acidturret.dmi'
-	icon_state = XENO_TURRET_ACID_ICONSTATE
 	name = "acid turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires acid against intruders."
-	bound_width = 32
-	bound_height = 32
+	icon = 'icons/Xeno/acidturret.dmi'
+	icon_state = "acid_turret"
+	base_icon_state = "acid_turret"
 	obj_integrity = 600
 	max_integrity = 1500
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
-	xeno_structure_flags = IGNORE_WEED_REMOVAL|HAS_OVERLAY
+	resistance_flags = UNACIDABLE|DROPSHIP_IMMUNE
+	xeno_structure_flags = IGNORE_WEED_REMOVAL
 	allow_pass_flags = PASS_AIR|PASS_THROW
 	///What kind of spit it uses
 	var/datum/ammo/ammo = /datum/ammo/xeno/acid/heavy/turret
@@ -23,9 +22,7 @@
 	///Potential list of targets found by scan
 	var/list/atom/potential_hostiles = list()
 	///Fire rate of the target in ticks
-	var/firerate = 5
-	///The last time the sentry did a scan
-	var/last_scan_time
+	var/firerate = 0.5 SECONDS
 	///light color that gets set in initialize
 	var/light_initial_color = LIGHT_COLOR_GREEN
 	///For minimap icon change if sentry is firing
@@ -81,12 +78,10 @@
 
 /obj/structure/xeno/xeno_turret/update_overlays()
 	. = ..()
-	if(!(xeno_structure_flags & HAS_OVERLAY))
-		return
 	if(obj_integrity <= max_integrity * 0.5)
-		. += image('icons/Xeno/acidturret.dmi', src, "+turret_damage")
+		. += image(icon, src, "[base_icon_state]_damage")
 	if(CHECK_BITFIELD(resistance_flags, ON_FIRE))
-		. += image('icons/Xeno/acidturret.dmi', src, "+turret_on_fire")
+		. += image(icon, src, "turret_on_fire")
 
 /obj/structure/xeno/xeno_turret/process()
 	//Turrets regen some HP, every 2 sec
@@ -97,7 +92,7 @@
 	if(!scan())
 		return
 	set_hostile(get_target())
-	if (!hostile)
+	if(!hostile)
 		if(last_hostile)
 			set_last_hostile(null)
 		return
@@ -237,12 +232,11 @@
 
 /obj/structure/xeno/xeno_turret/sticky
 	name = "Sticky resin turret"
-	icon = 'icons/Xeno/acidturret.dmi'
-	icon_state = XENO_TURRET_STICKY_ICONSTATE
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires resin against intruders."
+	icon_state = "resin_turret"
+	base_icon_state = "resin_turret"
 	light_initial_color = LIGHT_COLOR_PURPLE
 	ammo = /datum/ammo/xeno/sticky/turret
-	firerate = 5
 
 /obj/structure/xeno/xeno_turret/sticky/on_destruction()
 	for(var/i in 1 to 20) // maybe a bit laggy
@@ -252,8 +246,9 @@
 
 /obj/structure/xeno/xeno_turret/hugger_turret
 	name = "hugger turret"
-	icon_state = "hugger_turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires huggers against intruders."
+	icon_state = "hugger_turret"
+	base_icon_state = "hugger_turret"
 	obj_integrity = 400
 	max_integrity = 400
 	light_initial_color = LIGHT_COLOR_BROWN
