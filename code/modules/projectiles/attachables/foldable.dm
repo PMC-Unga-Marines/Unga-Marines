@@ -155,6 +155,7 @@
 	scatter_mod = -10
 	burst_scatter_mod = -3
 	aim_mode_delay_mod = -0.5
+	var/user_old_move_resist
 
 /obj/item/attachable/foldable/bipod/activate(mob/living/user, turn_off)
 	if(folded && !(master_gun.flags_item & WIELDED)) //no one handed bipod use
@@ -168,12 +169,16 @@
 		UnregisterSignal(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD))
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		to_chat(user, span_notice("You retract [src]."))
+		user.move_resist = user_old_move_resist
 		return
 
 	if(user)
 		RegisterSignals(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD), PROC_REF(retract_bipod))
 		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(retract_bipod))
 		to_chat(user, span_notice("You deploy [src]."))
+		user_old_move_resist = user.move_resist
+		user.move_resist = MOVE_FORCE_STRONG
+
 
 ///Signal handler for forced undeployment
 /obj/item/attachable/foldable/bipod/proc/retract_bipod(datum/source, mob/living/user)

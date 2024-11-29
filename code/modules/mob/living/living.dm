@@ -323,6 +323,8 @@
 		return FALSE
 	if(buckled || now_pushing)
 		return
+	if(anchored)
+		return
 	if(isliving(A))
 		var/mob/living/L = A
 

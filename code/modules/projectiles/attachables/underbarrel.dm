@@ -96,9 +96,7 @@
 
 /obj/item/attachable/burstfire_assembly
 	name = "burst fire assembly"
-	desc = "A mechanism re-assembly kit that allows for automatic fire, or more shots per burst if the weapon already has the ability. \nIncreases scatter and decreases accuracy."
+	desc = "A mechanism re-assembly kit that allows for automatic fire, or more shots per burst if the weapon already has the ability."
 	icon_state = "rapidfire"
 	slot = ATTACHMENT_SLOT_UNDER
 	burst_mod = 2
-	burst_scatter_mod = 1
-	burst_accuracy_mod = -0.1
