@@ -224,10 +224,6 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	/// Faction of the tablet
 	var/faction = FACTION_TERRAGOV
 
-	/obj/item/supplytablet/crash
-	req_access = list() //So marines can access cargo stuff without relying on synth spawn
-	desc = "A tablet for an Automated Storage and Retrieval System. This version appears to be different from the one you usually see and does not require special access."
-
 /obj/item/supplytablet/interact(mob/user)
 	. = ..()
 	if(.)
