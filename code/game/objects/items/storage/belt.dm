@@ -1,5 +1,3 @@
-
-
 /obj/item/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
@@ -12,19 +10,17 @@
 	w_class = WEIGHT_CLASS_BULKY
 	allow_drawing_method = TRUE
 
-
-
 /obj/item/storage/belt/equipped(mob/user, slot)
 	if(slot == SLOT_BELT)
 		mouse_opacity = 2 //so it's easier to click when properly equipped.
-	..()
+	return ..()
 
 /obj/item/storage/belt/dropped(mob/user)
 	mouse_opacity = initial(mouse_opacity)
-	..()
+	return ..()
 
 /obj/item/storage/belt/vendor_equip(mob/user)
-	..()
+	. = ..()
 	return user.equip_to_appropriate_slot(src)
 
 /obj/item/storage/belt/champion
@@ -63,19 +59,17 @@
 		/obj/item/tool/surgery/solderingtool,
 	)
 
-/obj/item/storage/belt/utility/full/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/utility/full/PopulateContents()
 	new /obj/item/tool/screwdriver (src)
 	new /obj/item/tool/wirecutters (src)
 	new /obj/item/tool/weldingtool (src)
 	new /obj/item/tool/wrench (src)
 	new /obj/item/tool/crowbar (src)
-	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
+	new /obj/item/stack/cable_coil(src, 30, pick("red", "yellow", "orange"))
 	new /obj/item/tool/multitool(src)
 
 
-/obj/item/storage/belt/utility/atmostech/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/utility/atmostech/PopulateContents()
 	new /obj/item/tool/screwdriver(src)
 	new /obj/item/tool/wrench(src)
 	new /obj/item/tool/weldingtool(src)
@@ -129,8 +123,7 @@
 		/obj/item/tweezers_advanced,
 	)
 
-/obj/item/storage/belt/lifesaver/full/Initialize(mapload)  //The belt, with all it's magic inside!
-	. = ..()
+/obj/item/storage/belt/lifesaver/full/PopulateContents()  //The belt, with all it's magic inside!
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -153,8 +146,7 @@
 	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
 	new /obj/item/healthanalyzer(src)
 
-/obj/item/storage/belt/lifesaver/quick/Initialize(mapload)  //quick load for combat patrol
-	. = ..()
+/obj/item/storage/belt/lifesaver/quick/PopulateContents()  //quick load for combat patrol
 	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
@@ -169,12 +161,34 @@
 	new /obj/item/storage/pill_bottle/tricordrazine(src)
 	new /obj/item/storage/pill_bottle/inaprovaline(src)
 	new /obj/item/storage/pill_bottle/quickclot(src)
-	new /obj/item/storage/pill_bottle/alkysine(src)
-	new /obj/item/storage/pill_bottle/imidazoline(src)
+	new /obj/item/storage/pill_bottle/imialky(src)
 	new /obj/item/storage/pill_bottle/meralyne(src)
 	new /obj/item/storage/pill_bottle/dermaline(src)
 	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
+	new /obj/item/healthanalyzer(src)
+
+/obj/item/storage/belt/lifesaver/beginner/PopulateContents() //For beginner vendor
+	new /obj/item/storage/pill_bottle/bicaridine(src)
+	new /obj/item/storage/pill_bottle/meralyne(src)
+	new /obj/item/storage/pill_bottle/kelotane(src)
+	new /obj/item/storage/pill_bottle/dermaline(src)
+	new /obj/item/storage/pill_bottle/tramadol(src)
+	new /obj/item/storage/pill_bottle/tricordrazine(src)
+	new /obj/item/storage/pill_bottle/dylovene(src)
+	new /obj/item/storage/pill_bottle/inaprovaline(src)
+	new /obj/item/storage/pill_bottle/isotonic(src)
+	new /obj/item/storage/pill_bottle/spaceacillin(src)
+	new /obj/item/storage/pill_bottle/imialky(src)
+	new /obj/item/storage/pill_bottle/hypervene(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
 	new /obj/item/healthanalyzer(src)
 
 /obj/item/storage/belt/lifesaver/full/upp
@@ -190,8 +204,7 @@
 	icon_state = "medicbag_som"
 	item_state = "medicbag_som"
 
-/obj/item/storage/belt/lifesaver/som/ert/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/lifesaver/som/ert/PopulateContents()
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -214,8 +227,7 @@
 	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
 	new /obj/item/healthanalyzer(src)
 
-/obj/item/storage/belt/lifesaver/som/quick/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/lifesaver/som/quick/PopulateContents()
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -223,8 +235,7 @@
 	new /obj/item/storage/pill_bottle/dylovene(src)
 	new /obj/item/storage/pill_bottle/inaprovaline(src)
 	new /obj/item/storage/pill_bottle/quickclot(src)
-	new /obj/item/storage/pill_bottle/alkysine(src)
-	new /obj/item/storage/pill_bottle/imidazoline(src)
+	new /obj/item/storage/pill_bottle/imialky(src)
 	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/storage/pill_bottle/meralyne(src)
 	new /obj/item/storage/pill_bottle/dermaline(src)
@@ -244,8 +255,7 @@
 	icon_state = "medicbag_icc"
 	item_state = "medicbag_icc"
 
-/obj/item/storage/belt/lifesaver/icc/ert/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/lifesaver/icc/ert/PopulateContents()
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -296,8 +306,7 @@
 		/obj/item/tweezers_advanced,
 	)
 
-/obj/item/storage/belt/rig/medical/Initialize(mapload)  //The belt, with all it's magic inside!
-	. = ..()
+/obj/item/storage/belt/rig/medical/PopulateContents()
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -314,8 +323,7 @@
 	new /obj/item/defibrillator(src)
 	new /obj/item/healthanalyzer(src)
 
-/obj/item/storage/belt/rig/research/Initialize(mapload)  //The belt, with all it's magic inside!
-	. = ..()
+/obj/item/storage/belt/rig/research/PopulateContents()
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -349,8 +357,7 @@
 		/obj/item/storage/syringe_case,
 	)
 
-/obj/item/storage/belt/hypospraybelt/Initialize(mapload)  //The belt, with all it's magic inside!
-	. = ..()
+/obj/item/storage/belt/hypospraybelt/full/PopulateContents()
 	new /obj/item/reagent_containers/glass/bottle/bicaridine(src)
 	new /obj/item/reagent_containers/glass/bottle/kelotane(src)
 	new /obj/item/reagent_containers/glass/bottle/tramadol(src)
@@ -368,6 +375,29 @@
 	new /obj/item/reagent_containers/hypospray/advanced/imialky(src)
 	new /obj/item/reagent_containers/hypospray/advanced/hypervene(src)
 	new /obj/item/healthanalyzer(src)
+
+/obj/item/storage/belt/hypospraybelt/beginner/PopulateContents()
+	new /obj/item/reagent_containers/glass/bottle/bicaridine(src)
+	new /obj/item/reagent_containers/glass/bottle/kelotane(src)
+	new /obj/item/reagent_containers/glass/bottle/tramadol(src)
+	new /obj/item/reagent_containers/glass/bottle/tricordrazine(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/bicaridine(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/kelotane(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/tramadol(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/tricordrazine(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/combatmix(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/dylovene(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/inaprovaline(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/isotonic(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/spaceacillin(src)
+	new /obj/item/reagent_containers/hypospray/advanced/big/quickclot(src)
+	new /obj/item/reagent_containers/hypospray/advanced/imialky(src)
+	new /obj/item/reagent_containers/hypospray/advanced/hypervene(src)
+	new /obj/item/reagent_containers/hypospray/advanced/peridaxon(src)
+	new /obj/item/reagent_containers/hypospray/advanced/quickclot(src)
+	new /obj/item/storage/syringe_case/meraderm(src)
+	new /obj/item/storage/syringe_case/meraderm(src)
+	new /obj/item/reagent_containers/hypospray/advanced/meraderm(src)
 
 /obj/item/storage/belt/security
 	name = "\improper M276 pattern security rig"
@@ -450,17 +480,7 @@
 	AddComponent(/datum/component/magazine_catcher)
 	AddComponent(/datum/component/easy_restock)
 
-/obj/item/storage/belt/marine/ar18/Initialize(mapload)
-	. = ..()
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-
-/obj/item/storage/belt/marine/ar12/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/ar12/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/ar12(src)
 	new /obj/item/ammo_magazine/rifle/ar12(src)
 	new /obj/item/ammo_magazine/rifle/ar12(src)
@@ -468,8 +488,15 @@
 	new /obj/item/ammo_magazine/rifle/ar12(src)
 	new /obj/item/ammo_magazine/rifle/ar12(src)
 
-/obj/item/storage/belt/marine/ar21/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/ar18/PopulateContents()
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+
+/obj/item/storage/belt/marine/ar21/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/ar21(src)
 	new /obj/item/ammo_magazine/rifle/ar21(src)
 	new /obj/item/ammo_magazine/rifle/ar21(src)
@@ -477,8 +504,7 @@
 	new /obj/item/ammo_magazine/rifle/ar21(src)
 	new /obj/item/ammo_magazine/rifle/ar21(src)
 
-/obj/item/storage/belt/marine/br64/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/br64/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/br64(src)
 	new /obj/item/ammo_magazine/rifle/br64(src)
 	new /obj/item/ammo_magazine/rifle/br64(src)
@@ -486,8 +512,7 @@
 	new /obj/item/ammo_magazine/rifle/br64(src)
 	new /obj/item/ammo_magazine/rifle/br64(src)
 
-/obj/item/storage/belt/marine/t90/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/t90/PopulateContents()
 	new /obj/item/ammo_magazine/smg/smg90(src)
 	new /obj/item/ammo_magazine/smg/smg90(src)
 	new /obj/item/ammo_magazine/smg/smg90(src)
@@ -495,8 +520,7 @@
 	new /obj/item/ammo_magazine/smg/smg90(src)
 	new /obj/item/ammo_magazine/smg/smg90(src)
 
-/obj/item/storage/belt/marine/secondary/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/secondary/PopulateContents()
 	new /obj/item/ammo_magazine/smg/m25(src)
 	new /obj/item/ammo_magazine/smg/m25(src)
 	new /obj/item/ammo_magazine/smg/m25(src)
@@ -504,8 +528,7 @@
 	new /obj/item/ammo_magazine/smg/m25(src)
 	new /obj/item/ammo_magazine/smg/m25(src)
 
-/obj/item/storage/belt/marine/antimaterial/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/antimaterial/PopulateContents()
 	new /obj/item/ammo_magazine/sniper/flak(src)
 	new /obj/item/ammo_magazine/sniper/flak(src)
 	new /obj/item/ammo_magazine/sniper/incendiary(src)
@@ -513,8 +536,7 @@
 	new /obj/item/ammo_magazine/sniper(src)
 	new /obj/item/ammo_magazine/sniper(src)
 
-/obj/item/storage/belt/marine/tx8/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/tx8/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/tx8/impact(src)
 	new /obj/item/ammo_magazine/rifle/tx8/impact(src)
 	new /obj/item/ammo_magazine/rifle/tx8/incendiary(src)
@@ -522,8 +544,7 @@
 	new /obj/item/ammo_magazine/rifle/tx8(src)
 	new /obj/item/ammo_magazine/rifle/tx8(src)
 
-/obj/item/storage/belt/marine/combat_rifle/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/combat_rifle/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/ar11(src)
 	new /obj/item/ammo_magazine/rifle/ar11(src)
 	new /obj/item/ammo_magazine/rifle/ar11(src)
@@ -531,8 +552,7 @@
 	new /obj/item/ammo_magazine/rifle/ar11(src)
 	new /obj/item/ammo_magazine/rifle/ar11(src)
 
-/obj/item/storage/belt/marine/alf_machinecarbine/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/alf_machinecarbine/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
 	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
 	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
@@ -540,8 +560,7 @@
 	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
 	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
 
-/obj/item/storage/belt/marine/auto_shotgun/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/auto_shotgun/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
 	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
 	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
@@ -549,8 +568,7 @@
 	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
 	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
 
-/obj/item/storage/belt/marine/te_cells/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/te_cells/PopulateContents()
 	new /obj/item/cell/lasgun/lasrifle(src)
 	new /obj/item/cell/lasgun/lasrifle(src)
 	new /obj/item/cell/lasgun/lasrifle(src)
@@ -558,8 +576,7 @@
 	new /obj/item/cell/lasgun/lasrifle(src)
 	new /obj/item/cell/lasgun/lasrifle(src)
 
-/obj/item/storage/belt/marine/oicw/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/oicw/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/ar12(src)
 	new /obj/item/ammo_magazine/rifle/ar12(src)
 	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
@@ -567,8 +584,7 @@
 	new /obj/item/ammo_magazine/rifle/tx54(src)
 	new /obj/item/ammo_magazine/rifle/tx54(src)
 
-/obj/item/storage/belt/marine/smartgun/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/smartgun/PopulateContents()
 	new /obj/item/ammo_magazine/sg29(src)
 	new /obj/item/ammo_magazine/sg29(src)
 	new /obj/item/ammo_magazine/sg29(src)
@@ -576,8 +592,7 @@
 	new /obj/item/ammo_magazine/sg29(src)
 	new /obj/item/ammo_magazine/sg29(src)
 
-/obj/item/storage/belt/marine/sg62/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/sg62/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/sg62(src)
 	new /obj/item/ammo_magazine/rifle/sg62(src)
 	new /obj/item/ammo_magazine/rifle/sg62(src)
@@ -592,8 +607,7 @@
 	item_state = "upp_belt"
 
 //version full of type 71 mags
-/obj/item/storage/belt/marine/upp/full/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/upp/full/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/type71(src)
 	new /obj/item/ammo_magazine/rifle/type71(src)
 	new /obj/item/ammo_magazine/rifle/type71(src)
@@ -607,8 +621,7 @@
 	icon_state = "som_belt"
 	item_state = "som_belt"
 
-/obj/item/storage/belt/marine/som/som_rifle/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/som_rifle/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/som(src)
 	new /obj/item/ammo_magazine/rifle/som(src)
 	new /obj/item/ammo_magazine/rifle/som(src)
@@ -616,8 +629,7 @@
 	new /obj/item/ammo_magazine/rifle/som(src)
 	new /obj/item/ammo_magazine/rifle/som(src)
 
-/obj/item/storage/belt/marine/som/som_rifle_ap/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/som_rifle_ap/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/som/ap(src)
 	new /obj/item/ammo_magazine/rifle/som/ap(src)
 	new /obj/item/ammo_magazine/rifle/som/ap(src)
@@ -625,8 +637,7 @@
 	new /obj/item/ammo_magazine/rifle/som/ap(src)
 	new /obj/item/ammo_magazine/rifle/som/ap(src)
 
-/obj/item/storage/belt/marine/som/som_smg/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/som_smg/PopulateContents()
 	new /obj/item/ammo_magazine/smg/som(src)
 	new /obj/item/ammo_magazine/smg/som(src)
 	new /obj/item/ammo_magazine/smg/som(src)
@@ -634,8 +645,7 @@
 	new /obj/item/ammo_magazine/smg/som(src)
 	new /obj/item/ammo_magazine/smg/som(src)
 
-/obj/item/storage/belt/marine/som/som_smg_ap/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/som_smg_ap/PopulateContents()
 	new /obj/item/ammo_magazine/smg/som/ap(src)
 	new /obj/item/ammo_magazine/smg/som/ap(src)
 	new /obj/item/ammo_magazine/smg/som/ap(src)
@@ -643,8 +653,7 @@
 	new /obj/item/ammo_magazine/smg/som/ap(src)
 	new /obj/item/ammo_magazine/smg/som/ap(src)
 
-/obj/item/storage/belt/marine/som/volkite/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/volkite/PopulateContents()
 	new /obj/item/cell/lasgun/volkite(src)
 	new /obj/item/cell/lasgun/volkite(src)
 	new /obj/item/cell/lasgun/volkite(src)
@@ -652,8 +661,7 @@
 	new /obj/item/cell/lasgun/volkite(src)
 	new /obj/item/cell/lasgun/volkite(src)
 
-/obj/item/storage/belt/marine/som/mpi_plum/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/mpi_plum/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
@@ -661,8 +669,7 @@
 	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
 
-/obj/item/storage/belt/marine/som/mpi_black/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/mpi_black/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
@@ -670,8 +677,7 @@
 	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
 
-/obj/item/storage/belt/marine/som/carbine/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/carbine/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
@@ -679,8 +685,7 @@
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
 
-/obj/item/storage/belt/marine/som/carbine_black/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/marine/som/carbine_black/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
 	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
@@ -732,9 +737,7 @@
 	max_storage_space = 28
 	can_hold = list(/obj/item/ammo_magazine/handful)
 
-
 /obj/item/storage/belt/shotgun/attackby(obj/item/I, mob/user, params)
-
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/M = I
 		if(CHECK_BITFIELD(M.flags_magazine, MAGAZINE_HANDFUL))
@@ -764,8 +767,7 @@
 
 	return ..()
 
-/obj/item/storage/belt/shotgun/flechette/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/belt/shotgun/flechette/PopulateContents()
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
@@ -781,8 +783,7 @@
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
 
-/obj/item/storage/belt/shotgun/mixed/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/belt/shotgun/mixed/PopulateContents()
 	new /obj/item/ammo_magazine/handful/buckshot(src)
 	new /obj/item/ammo_magazine/handful/buckshot(src)
 	new /obj/item/ammo_magazine/handful/buckshot(src)
@@ -802,8 +803,7 @@
 	desc = "An ammunition belt designed to hold shotgun shells or individual bullets. Made with traditional SOM leather."
 	icon_state = "shotgunbelt_som"
 
-/obj/item/storage/belt/shotgun/som/flechette/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/belt/shotgun/som/flechette/PopulateContents()
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
@@ -819,8 +819,7 @@
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
 
-/obj/item/storage/belt/shotgun/som/mixed/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/belt/shotgun/som/mixed/PopulateContents()
 	new /obj/item/ammo_magazine/handful/buckshot(src)
 	new /obj/item/ammo_magazine/handful/buckshot(src)
 	new /obj/item/ammo_magazine/handful/buckshot(src)
@@ -841,8 +840,7 @@
 	desc = "An ammunition belt designed to hold shotgun shells or individual bullets, made with a synthetic tan fibre."
 	icon_state = "shotgunbelt_icc"
 
-/obj/item/storage/belt/shotgun/icc/flechette/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/belt/shotgun/icc/flechette/PopulateContents()
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
@@ -858,8 +856,7 @@
 	new /obj/item/ammo_magazine/handful/flechette(src)
 	new /obj/item/ammo_magazine/handful/flechette(src)
 
-/obj/item/storage/belt/shotgun/icc/mixed/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/belt/shotgun/icc/mixed/PopulateContents()
 	new /obj/item/ammo_magazine/handful/buckshot(src)
 	new /obj/item/ammo_magazine/handful/buckshot(src)
 	new /obj/item/ammo_magazine/handful/buckshot(src)
@@ -886,7 +883,7 @@
 
 	flags_atom = DIRLOCK
 
-/obj/item/storage/belt/shotgun/martini/Initialize(mapload, ...)
+/obj/item/storage/belt/shotgun/martini/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -937,8 +934,7 @@
 	draw_mode = TRUE
 	can_hold = list(/obj/item/stack/throwing_knife)
 
-/obj/item/storage/belt/knifepouch/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/knifepouch/PopulateContents()
 	new /obj/item/stack/throwing_knife(src)
 	new /obj/item/stack/throwing_knife(src)
 	new /obj/item/stack/throwing_knife(src)
@@ -961,8 +957,7 @@
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
 
-/obj/item/storage/belt/grenade/standard/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/grenade/standard/PopulateContents()
 	new /obj/item/explosive/grenade/incendiary(src)
 	new /obj/item/explosive/grenade/incendiary(src)
 	new /obj/item/explosive/grenade(src)
@@ -977,8 +972,7 @@
 	desc = "A simple harness system available in many configurations. This version is designed to carry bulk quantities of grenades."
 	icon_state = "grenadebelt_som"
 
-/obj/item/storage/belt/grenade/som/standard/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/grenade/som/standard/PopulateContents()
 	new /obj/item/explosive/grenade/incendiary/som(src)
 	new /obj/item/explosive/grenade/incendiary/som(src)
 	new /obj/item/explosive/grenade/som(src)
@@ -996,8 +990,7 @@
 	max_storage_space = 48
 	can_hold = list(/obj/item/explosive/grenade)
 
-/obj/item/storage/belt/grenade/b17/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/grenade/b17/PopulateContents()
 	new /obj/item/explosive/grenade/incendiary(src)
 	new /obj/item/explosive/grenade/incendiary(src)
 	new /obj/item/explosive/grenade/incendiary(src)
@@ -1042,8 +1035,7 @@
 	can_hold = list(/obj/item/reagent_containers/food/snacks/protein_pack)
 	sprite_slots = 4
 
-/obj/item/storage/belt/protein_pack/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/protein_pack/PopulateContents()
 	for(var/i in 1 to storage_slots)
 		new /obj/item/reagent_containers/food/snacks/protein_pack(src)
 
@@ -1071,7 +1063,6 @@
 		/obj/item/binoculars,
 	)
 
-/obj/item/storage/belt/mortar_belt/full/Initialize()
-	. = ..()
+/obj/item/storage/belt/mortar_belt/full/PopulateContents()
 	new /obj/item/mortar_kit/knee(src)
 	new /obj/item/binoculars/tactical/range(src)

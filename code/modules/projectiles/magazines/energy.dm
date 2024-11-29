@@ -57,6 +57,7 @@
 	icon_state = "te"
 	icon_state_mini = "mag_cell_te"
 	maxcharge = 600
+
 /obj/item/cell/lasgun/lasrifle/recharger
 	name = "\improper Terra Experimental recharger battery"
 	desc = "A prototype high density battery reverse-engineered from captured Volkite equipment. Due to developmental constraints and less than stellar jury-rigging, as well as space taken up by the recharger component, it boasts sub-par capacity."
@@ -65,6 +66,7 @@
 	self_recharge = TRUE
 	charge_amount = 12 //balanced around recharging 1 standard laser rifle shot per second
 	charge_delay = 1 SECONDS
+
 /obj/item/cell/lasgun/fob_sentry/cell
 	maxcharge = INFINITY
 

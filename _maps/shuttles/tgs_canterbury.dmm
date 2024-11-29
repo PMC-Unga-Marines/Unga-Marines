@@ -816,7 +816,7 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 4
 	},
-/obj/machinery/loadout_vendor/crash,
+/obj/machinery/quick_vendor/beginner,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "KE" = (

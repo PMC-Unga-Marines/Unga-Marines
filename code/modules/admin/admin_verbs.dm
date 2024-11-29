@@ -682,7 +682,6 @@
 
 	var/mob/M = usr
 	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", GLOB.sorted_areas, timeout = 0)
-	chosen = pick(get_area_turfs(chosen))
 	var/turf/T = pick(get_area_turfs(chosen))
 	M.forceMove(T)
 

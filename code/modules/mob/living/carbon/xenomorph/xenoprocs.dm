@@ -441,9 +441,7 @@
 		if(locate(/turf/closed/wall/resin) in loc)
 			to_chat(src, span_warning("We decide not to drop [F] after all."))
 			return
-
-	. = ..()
-
+	return ..()
 
 //When the Queen's pheromones are updated, or we add/remove a leader, update leader pheromones
 /mob/living/carbon/xenomorph/proc/handle_xeno_leader_pheromones(mob/living/carbon/xenomorph/queen/Q)

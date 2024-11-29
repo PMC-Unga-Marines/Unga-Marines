@@ -57,10 +57,20 @@
 	contains = list(/obj/item/ammo_magazine/rifle/tx8/impact)
 	cost = 40
 
+/datum/supply_packs/weapons/scout_impact_box
+	name = "BR-8 scout rifle impact ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/scout_rifle/impact)
+	cost = 100
+
 /datum/supply_packs/weapons/scout_incendiary
 	name = "Br-8 scout rifle incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx8/incendiary)
 	cost = 40
+
+/datum/supply_packs/weapons/scout_incendiary_box
+	name = "BR-8 scout rifle incendiary ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/scout_rifle/incendiary)
+	cost = 100
 
 /datum/supply_packs/weapons/zx76
 	name = "ZX-76 Twin-Barrled Burst Shotgun"

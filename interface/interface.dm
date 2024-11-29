@@ -7,11 +7,10 @@
 		to_chat(src, span_warning("The wiki URL is not set in the server configuration."))
 		return
 
-	if(alert("This will open the wiki in your browser. Are you sure?", "Wiki", "Yes", "No") != "Yes")
+	if(tgui_alert(src, "This will open the wiki in your browser. Are you sure?", "Wiki", list("Yes", "No"), 0) != "Yes")
 		return
 
 	DIRECT_OUTPUT(src, link(CONFIG_GET(string/wikiurl)))
-
 
 /client/verb/boosty()
 	set name = "boosty"
@@ -21,11 +20,10 @@
 		to_chat(src, span_warning("The donation URL is not set in the server configuration."))
 		return
 
-	if(alert("This will open the boosty in your browser. Are you sure?", "Forum", "Yes", "No") != "Yes")
+	if(tgui_alert(src, "This will open the boosty in your browser. Are you sure?", "Forum", list("Yes", "No"), 0) != "Yes")
 		return
 
 	DIRECT_OUTPUT(src, link(CONFIG_GET(string/donationurl)))
-
 
 /client/verb/rules()
 	set name = "rules"
@@ -35,11 +33,10 @@
 		to_chat(src, span_warning("The rules URL is not set in the server configuration."))
 		return
 
-	if(alert("This will open the rules in your browser. Are you sure?", "Rules", "Yes", "No") != "Yes")
+	if(tgui_alert("This will open the rules in your browser. Are you sure?", "Rules", list("Yes", "No"), 0) != "Yes")
 		return
 
 	DIRECT_OUTPUT(src, link(CONFIG_GET(string/rulesurl)))
-
 
 /client/verb/discord()
 	set name = "discord"
@@ -49,11 +46,10 @@
 		to_chat(src, span_warning("The Discord URL is not set in the server configuration."))
 		return
 
-	if(alert("This will open our Discord in your browser. Are you sure?", "Discord", "Yes", "No") != "Yes")
+	if(tgui_alert(src, "This will open our Discord in your browser. Are you sure?", "Discord", list("Yes", "No"), 0) != "Yes")
 		return
 
 	DIRECT_OUTPUT(src, link(CONFIG_GET(string/discordurl)))
-
 
 /client/verb/github()
 	set name = "github"
@@ -63,11 +59,10 @@
 		to_chat(src, span_warning("The bug tracker URL is not set in the server configuration."))
 		return
 
-	if(alert("This will open our bug tracker page in your browser. Are you sure?", "Github", "Yes", "No") != "Yes")
+	if(tgui_alert(src, "This will open our bug tracker page in your browser. Are you sure?", "Github", list("Yes", "No"), 0) != "Yes")
 		return
 
 	DIRECT_OUTPUT(src, link(CONFIG_GET(string/githuburl)))
-
 
 /client/verb/webmap()
 	set name = "webmap"
@@ -79,7 +74,7 @@
 		return
 	var/map_url
 
-	var/choice = alert("Do you want to view the ground or the ship?",,"Ship","Ground","Cancel")
+	var/choice = tgui_alert(src, "Do you want to view the ground or the ship?", "Webmap", list("Ship", "Ground"), 0)
 	switch(choice)
 		if("Ship")
 			map_url = SSmapping.configs[SHIP_MAP].map_file
