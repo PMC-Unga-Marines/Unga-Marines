@@ -414,7 +414,7 @@
 			locked_sides++
 			break
 		if(!locked_sides)
-			to_chat(user, span_warning("Птица уже на земле, открытая и уязвимая."))
+			to_chat(user, span_warning("Птица уже на земле, открыта и уязвимая."))
 			return FALSE
 		if(locked_sides < 3 && !isdropshiparea(get_area(user)))
 			to_chat(user, span_warning("По крайней мере одна сторона все еще разблокирована!"))
@@ -440,7 +440,7 @@
 		priority_announce("Протокол блокировки Нормандии скомпрометирован. Постороннее вмешательство блокирует попытки удалённого управления.", "Шаттл Заблокирован", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_block.ogg')
 		return FALSE
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
-		to_chat(user, span_warning("Сознание птицы активно. Нужно подождать, пока он станет более уязвимым..."))
+		to_chat(user, span_warning("Сознание птицы активно. Нужно подождать, пока она станет более уязвимым..."))
 		return FALSE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))

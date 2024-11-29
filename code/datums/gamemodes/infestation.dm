@@ -57,7 +57,7 @@
 		#ifndef TESTING
 		var/mob/living/silicon/ai/bioscanning_ai = usr
 		if((bioscanning_ai.last_ai_bioscan + COOLDOWN_AI_BIOSCAN) > world.time)
-			to_chat(bioscanning_ai, "Приборы биосканирования все еще проходят перекалибровку после последнего использования.")
+			to_chat(bioscanning_ai, "Приборы биосканирования все еще проходят перекалибровку с момента последнего использования.")
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
 		to_chat(bioscanning_ai, span_warning("Сканирование на предмет наличия враждебных форм жизни..."))
@@ -110,8 +110,8 @@
 			var/mob/M = i
 			SEND_SOUND(M, S)
 			to_chat(M, assemble_alert(
-				title = "Сообщение от Главное Королевы",
-				subtitle = "Главная Королева проникает в ваш разум с расстояния в несколько миров...",
+				title = "Сообщение от Главной Королевы",
+				subtitle = "Главная Королева проникает в ваш разум с расстояния в сотни миров...",
 				message = "Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье [BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету"] на металлической птице.",
 				color_override = "purple"
 			))
@@ -132,7 +132,7 @@
 				to_chat(usr, span_warning("В наших приборах биосканирования обнаружены незначительные ошибки из-за подъема судна, некоторая информация о враждебной активности может быть неверной."))
 				return
 			if(5)
-				to_chat(usr, span_warning("В наших показаниях биосканирования обнаружены серьезные ошибки из-за подъема корабля, информация может сильно отличаться от правды."))
+				to_chat(usr, span_warning("В наших показаниях биосканирования обнаружены серьезные ошибки из-за уровня орбиты корабля, информация может сильно отличаться от правды."))
 		return
 
 	if(announce_humans)
