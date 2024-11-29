@@ -80,10 +80,10 @@
 		return
 	for(var/mob/faction_receiver in alert_receivers)
 		if(faction_receiver.faction == human_owner.faction || isdead(faction_receiver))
-			var/faction_title = GLOB.faction_to_acronym[human_owner.faction] ? GLOB.faction_to_acronym[human_owner.faction] + " Командования" : "Неизвестной Фракции" + " Командования"
+			var/faction_title = GLOB.faction_to_acronym[human_owner.faction] ? "Командования " + GLOB.faction_to_acronym[human_owner.faction] : "Командования" + " Неизвестной Фракции"
 			faction_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u> ПРИКАЗ [uppertext(faction_title)]:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(faction_receiver, assemble_alert(
-				title = "Приказ [faction_title]",
+				title = "Сообщение от [faction_title]",
 				subtitle = "Отправлен [human_owner.job.title] [human_owner.real_name]",
 				message = text
 			))
