@@ -177,14 +177,14 @@
 */
 /obj/item/armor_module/module/mimir_environment_protection
 	name = "\improper Mark 2 Mimir Environmental Resistance System"
-	desc = "Designed for mounting on modular armor. This newer model provides great resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Will impact mobility."
+	desc = "Designed for mounting on modular armor. This newer model provides great resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to any gas clouds. Will impact mobility."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_biohazard"
 	item_state = "mod_biohazard_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 10)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
-	///siemens coefficient mod for gas protection.
+	///siemens (electro resist) coefficient mod for gas protection.
 	var/siemens_coefficient_mod = -0.9
 	///permeability coefficient mod for gas protection.
 	var/permeability_coefficient_mod = -1
@@ -205,11 +205,13 @@
 
 /obj/item/armor_module/module/mimir_environment_protection/mark1
 	name = "\improper Mark 1 Mimir Environmental Resistance System"
-	desc = "Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Will impact mobility."
+	desc = "Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user almost impervious to any gas clouds. Will impact mobility."
 	icon_state = "mod_biohazard"
 	item_state = "mod_biohazard_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 5)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
 	slowdown = 0.3
+	permeability_coefficient_mod = -0.5
+	gas_transfer_coefficient_mod = -0.5
 
 //SOM version
 /obj/item/armor_module/module/mimir_environment_protection/som
@@ -220,20 +222,20 @@
 	//soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet
-	name = "Mimir Environmental Helmet System"
-	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds"
+	name = "Mark 2 Mimir Environmental Helmet System"
+	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mimir_head"
 	item_state = "mimir_head_a"
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 10)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
-/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1 //gas protection
+/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1
 	name = "Mark 1 Mimir Environmental Helmet System"
-	desc = "Designed for mounting on a modular helmet. This older model provides minor resistance to acid and biological attacks. Pairing this with a Mimir suit module and mask will make the user impervious to xeno gas clouds."
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 5)
+	desc = "Designed for mounting on a modular helmet. This older model provides minor resistance to acid and biological attacks."
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
 
 //Explosive defense armor
 /obj/item/armor_module/module/hlin_explosive_armor
