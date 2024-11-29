@@ -309,7 +309,7 @@
 	icon_state = "sg29"
 	icon_state_mini = "mag_sg29"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/sg29
+	default_ammo = /datum/ammo/bullet/rifle/t25
 	max_rounds = 250
 	reload_delay = 1.3 SECONDS
 
