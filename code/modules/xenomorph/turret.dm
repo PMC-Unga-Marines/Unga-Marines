@@ -1,3 +1,5 @@
+#define TURRET_HEALTH_REGEN 8
+
 /obj/structure/xeno/turret
 	name = "acid turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires acid against intruders."
@@ -272,3 +274,5 @@
 	new_hugger.transfer_to_hive(hivenumber)
 	new_hugger.transfer_mob(user)
 	return TRUE
+
+#undef TURRET_HEALTH_REGEN
