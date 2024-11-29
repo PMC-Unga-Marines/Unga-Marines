@@ -182,6 +182,7 @@
 		"Коробки" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/acp/ap = -1,
 			/obj/item/ammo_magazine/packet/acp/hp = -1,
@@ -407,6 +408,7 @@
 		"Коробки" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/acp/ap = -1,
 			/obj/item/ammo_magazine/packet/acp/hp = -1,
