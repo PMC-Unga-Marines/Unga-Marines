@@ -846,6 +846,10 @@
 /obj/effect/landmark/start/job/crash/squadmarine,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"Dp" = (
+/obj/item/supplytablet/crash,
+/turf/open/floor/mainship/blue/full,
+/area/shuttle/canterbury/cic)
 "DF" = (
 /obj/effect/landmark/start/latejoin/crash,
 /turf/open/floor/mainship,
@@ -1444,7 +1448,7 @@ Uo
 Uo
 ad
 bH
-MY
+Dp
 ao
 bD
 as

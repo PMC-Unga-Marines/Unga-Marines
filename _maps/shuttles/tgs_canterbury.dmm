@@ -57,6 +57,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury/cic)
 "ak" = (
+/obj/item/supplytablet/crash,
 /turf/open/floor/mainship/blue/full,
 /area/shuttle/canterbury/cic)
 "am" = (

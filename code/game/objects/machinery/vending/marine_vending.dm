@@ -353,7 +353,7 @@
 			/obj/item/explosive/grenade/m15 = 10,
 			/obj/item/explosive/grenade/sticky = 25,
 			/obj/item/explosive/grenade/incendiary = 50,
-			/obj/item/explosive/grenade/incendiary/sticky = 25,
+			/obj/item/explosive/grenade/sticky/trailblazer = 25,
 			/obj/item/explosive/grenade/smokebomb/cloak = 25,
 			/obj/item/explosive/grenade/smokebomb/drain = 10,
 			/obj/item/explosive/grenade/mirage = 100,
