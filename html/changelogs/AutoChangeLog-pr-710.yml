@@ -1,4 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - rscdel: "Удалил бесплатные карго боеприпасы из карго вендора во вкладке \"Surplus Special Equipment\" (шахидок)"
