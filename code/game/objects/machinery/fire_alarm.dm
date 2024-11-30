@@ -83,7 +83,7 @@
 	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
 		. += mutable_appearance(icon, "fire_o1")
 
-/obj/machinery/firealarm/fire_act(burn_level)
+/obj/machinery/firealarm/fire_act(burn_level, flame_color)
 	if(!detecting)
 		return
 	alarm()
@@ -128,13 +128,15 @@
 					to_chat(user, span_warning("You need 5 pieces of cable to do wire \the [src]."))
 					return
 			else if(iscrowbar(I))
-				to_chat(user, "You pry out the circuit!")
+				to_chat(user, "You start prying out the circuit!")
 				playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
-				spawn(20)
-					new /obj/item/circuitboard/firealarm(loc)
-					electronics = null
-					buildstage = 0
-					update_icon()
+
+				if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
+					return
+				new /obj/item/circuitboard/firealarm(loc)
+				electronics = null
+				buildstage = 0
+				update_icon()
 		if(0)
 			if(istype(I, /obj/item/circuitboard/firealarm))
 				to_chat(user, "You insert the circuit!")

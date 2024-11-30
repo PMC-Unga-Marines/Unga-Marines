@@ -7,7 +7,7 @@
 	},
     "armor": "jungle",
 	"quickbuilds": 1400,
-	"announce_text": "A faint distress signal has been picked up by our scanners, which have tracked the source to a third generation colony, known as LV-624. Through use of bluespace drive tech, the ship has jumped within range of the colony. TGMC, gear up and get ready to respond!",
+	"announce_text": "Наши сканеры засекли слабый сигнал бедствия и определили, что его источником является колония третьего поколения, известная как LV-624. Используя блюспейс технологии, корабль прыгнул в зону досягаемости колонии. Товарищи, экипируйтесь и приготовьтесь к атаке!",
 	"traits":[{
 		"weather_acidrain": true
 	}]

@@ -328,7 +328,7 @@
 	playsound_z(3, 'sound/effects/powerloss.ogg')
 
 	if(announce)
-		priority_announce("Abnormal activity detected in the ship power system. As a precaution, power must be shut down for an indefinite duration.", "Critical Power Failure", sound = 'sound/AI/poweroff.ogg')
+		priority_announce("В системе питания судна обнаружена аномальная активность. В качестве меры предосторожности питание будет отключено на неопределенный срок.", "Критический Сбой Питания", sound = 'sound/AI/poweroff.ogg')
 
 
 /proc/power_restore(announce = TRUE)
@@ -351,7 +351,7 @@
 
 
 	if(announce)
-		priority_announce("Power has been restored. Reason: Unknown.", "Power Systems Nominal", sound = 'sound/AI/poweron.ogg')
+		priority_announce("Питание восстановлено. Причина: Неизвестно.", "Восстановление Питания", sound = 'sound/AI/poweron.ogg')
 
 
 /proc/power_restore_quick(announce = TRUE)
@@ -365,7 +365,7 @@
 		S.power_change()
 
 	if(announce)
-		priority_announce("Power has been restored. Reason: Unknown.", "Power Systems Nominal", sound = 'sound/AI/poweron.ogg')
+		priority_announce("Питание восстановлено. Причина: Неизвестно.", "Восстановление Питания", sound = 'sound/AI/poweron.ogg')
 
 
 /proc/power_restore_everything(announce = TRUE)
@@ -382,4 +382,4 @@
 		C.cell.charge = C.cell.maxcharge
 
 	if(announce)
-		priority_announce("Power has been restored. Reason: Unknown.", "Power Systems Nominal", sound = 'sound/AI/poweron.ogg')
+		priority_announce("Питание восстановлено. Причина: Неизвестно.", "Восстановление Питания", sound = 'sound/AI/poweron.ogg')

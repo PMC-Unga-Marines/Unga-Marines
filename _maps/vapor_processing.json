@@ -5,5 +5,5 @@
 	"disk_sets": {
 		"basic": 1
 	},
-    "announce_text": "A faint distress signal has been picked up by our scanners, which have tracked the source to a Vapor Processing colony, known as LV-984. Through use of bluespace drive tech, the ship has jumped within range of the colony. TGMC, gear up and get ready to respond!"
+    "announce_text": "Наши сканеры засекли слабый сигнал бедствия и определили, что его источником является колония по парообработке, известная как LV-984. Используя блюспейс технологии, корабль прыгнул в пределы досягаемости аванпоста. Товарищи, снарядитесь и приготовьтесь к высадке!"
 }

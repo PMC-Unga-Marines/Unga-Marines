@@ -955,7 +955,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		A.update_button_icon()
 
 /obj/item/proc/extinguish(atom/target, mob/user)
-	if (reagents.total_volume < 1)
+	if(reagents.total_volume < 1)
 		to_chat(user, span_warning("\The [src]'s water reserves are empty."))
 		return
 
@@ -964,91 +964,95 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	playsound(user.loc, 'sound/effects/extinguish.ogg', 52, 1, 7)
 
-	var/direction = get_dir(user,target)
+	var/direction = get_dir(user, target)
 
-	if(user.buckled && isobj(user.buckled) && !user.buckled.anchored )
-		spawn(0)
-			var/obj/structure/bed/chair/C = null
-			if(istype(user.buckled, /obj/structure/bed/chair))
-				C = user.buckled
-			var/obj/B = user.buckled
-			var/movementdirection = REVERSE_DIR(direction)
-			if(C)
-				C.propelled = 4
-			B.Move(get_step(user,movementdirection), movementdirection)
-			sleep(0.1 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			if(C)
-				C.propelled = 3
-			sleep(0.1 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			sleep(0.1 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			if(C)
-				C.propelled = 2
-			sleep(0.2 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			if(C)
-				C.propelled = 1
-			sleep(0.2 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			if(C)
-				C.propelled = 0
-			sleep(0.3 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			sleep(0.3 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
-			sleep(0.3 SECONDS)
-			B.Move(get_step(user,movementdirection), movementdirection)
+	if(user.buckled && isobj(user.buckled) && !user.buckled.anchored)
+		INVOKE_ASYNC(src, PROC_REF(propelle), target, user, direction)
 
-	var/turf/T = get_turf(target)
-	var/turf/T1 = get_step(T,turn(direction, 90))
-	var/turf/T2 = get_step(T,turn(direction, -90))
-
-	var/list/the_targets = list(T,T1,T2)
-
-	for(var/a=0, a<7, a++)
-		spawn(0)
-			var/obj/effect/particle_effect/water/W = new /obj/effect/particle_effect/water( get_turf(user) )
-			var/turf/my_target = pick(the_targets)
-			var/datum/reagents/R = new/datum/reagents(5)
-			if(!W)
-				return
-			W.reagents = R
-			R.my_atom = WEAKREF(W)
-			if(!W || !src)
-				return
-			reagents.trans_to(W,1)
-			for(var/b=0, b<7, b++)
-				step_towards(W,my_target)
-				if(!(W?.reagents))
-					return
-				W.reagents.reaction(get_turf(W))
-				for(var/atom/atm in get_turf(W))
-					if(!W)
-						return
-					if(!W.reagents)
-						break
-					W.reagents.reaction(atm)
-					if(isfire(atm))
-						var/obj/fire/FF = atm
-						FF.set_fire(FF.burn_ticks - EXTINGUISH_AMOUNT)
-						continue
-					if(isliving(atm)) //For extinguishing mobs on fire
-						var/mob/living/M = atm
-						M.ExtinguishMob()
-						for(var/obj/item/clothing/mask/cigarette/C in M.contents)
-							if(C.item_state == C.icon_on)
-								C.die()
-				if(W.loc == my_target)
-					break
-				sleep(0.2 SECONDS)
-			qdel(W)
+	for(var/a = 0, a < 7, a++)
+		INVOKE_ASYNC(src, PROC_REF(extinguish_stage_two), target, user, direction)
 
 	if(isspaceturf(user.loc))
 		user.inertia_dir = get_dir(target, user)
 		step(user, user.inertia_dir)
 
+/obj/item/proc/propelle(atom/target, mob/user, direction)
+	var/obj/structure/bed/chair/C = null
+	if(istype(user.buckled, /obj/structure/bed/chair))
+		C = user.buckled
+	var/obj/B = user.buckled
+	var/movementdirection = REVERSE_DIR(direction)
+	if(C)
+		C.propelled = 4
+	B.Move(get_step(user, movementdirection), movementdirection)
+	sleep(0.1 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	if(C)
+		C.propelled = 3
+	sleep(0.1 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	sleep(0.1 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	if(C)
+		C.propelled = 2
+	sleep(0.2 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	if(C)
+		C.propelled = 1
+	sleep(0.2 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	if(C)
+		C.propelled = 0
+	sleep(0.3 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	sleep(0.3 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+	sleep(0.3 SECONDS)
+	B.Move(get_step(user, movementdirection), movementdirection)
+
+/obj/item/proc/extinguish_stage_two(atom/target, mob/user, direction)
+	var/turf/T = get_turf(target)
+	var/turf/T1 = get_step(T, turn(direction, 90))
+	var/turf/T2 = get_step(T, turn(direction, -90))
+
+	var/list/the_targets = list(T, T1, T2)
+
+	var/obj/effect/particle_effect/water/W = new /obj/effect/particle_effect/water( get_turf(user) )
+	var/turf/my_target = pick(the_targets)
+	var/datum/reagents/R = new/datum/reagents(5)
+	if(!W)
+		return
+	W.reagents = R
+	R.my_atom = WEAKREF(W)
+	if(!W || !src)
+		return
+	reagents.trans_to(W, 1)
+	for(var/b = 0, b < 7, b++)
+		step_towards(W,my_target)
+		if(!(W?.reagents))
+			return
+		W.reagents.reaction(get_turf(W))
+		for(var/atom/atm in get_turf(W))
+			if(!W)
+				return
+			if(!W.reagents)
+				break
+			W.reagents.reaction(atm)
+			if(isfire(atm))
+				var/obj/fire/FF = atm
+				FF.set_fire(FF.burn_ticks - EXTINGUISH_AMOUNT)
+				continue
+			if(isliving(atm)) //For extinguishing mobs on fire
+				var/mob/living/M = atm
+				M.ExtinguishMob()
+				for(var/obj/item/clothing/mask/cigarette/C in M.contents)
+					if(C.item_state != C.icon_on)
+						continue
+					C.die()
+		if(W.loc == my_target)
+			break
+		sleep(0.2 SECONDS)
+	qdel(W)
 
 // Called when a mob tries to use the item as a tool.
 // Handles most checks.
@@ -1265,8 +1269,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				basic_spin_trick(arglist(arguments))
 			if(7)
 				if(istype(double))
-					spawn(0)
-						double.throw_catch_trick(user)
+					INVOKE_ASYNC(double, PROC_REF(throw_catch_trick), user)
 					throw_catch_trick(user)
 				else
 					throw_catch_trick(user)
