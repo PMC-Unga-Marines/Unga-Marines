@@ -10,7 +10,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
 	canSmoothWith = list(SMOOTH_GROUP_XENO_STRUCTURES)
-	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 30, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	resistance_flags = UNACIDABLE
 
 /turf/closed/wall/resin/add_debris_element()
@@ -186,7 +186,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 15, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/bulletproof
@@ -196,7 +196,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 150, LASER = 150, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 15, BULLET = 150, LASER = 150, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/fireproof
@@ -206,7 +206,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	soft_armor = list(MELEE = 15, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/meleeproof
@@ -216,5 +216,5 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 100, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 100, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200

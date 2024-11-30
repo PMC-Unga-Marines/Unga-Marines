@@ -344,7 +344,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	attached_to:gunattachment = src
 	activate(user)
 	new_action.set_toggle(TRUE)
-	new_action.update_button_icon()
 	update_icon()
 	RegisterSignal(master_gun, COMSIG_ITEM_REMOVED_INVENTORY, TYPE_PROC_REF(/obj/item/weapon/gun, drop_connected_mag))
 
@@ -380,11 +379,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		set_gun_user(null)
 		set_gun_user(master_gun.gun_user)
 		to_chat(user, span_notice("You start using [src]."))
-	for(var/datum/action/item_action/toggle/action AS in master_gun.actions)
-		if(action.target != src )
-			continue
-		action.set_toggle(master_gun.active_attachable == src)
-		action.update_button_icon()
 	return TRUE
 
 ///Called when the attachment is trying to be attached. If the attachment is allowed to go through, return TRUE.

@@ -26,16 +26,16 @@
 	var/access = list()
 	/// The name registered_name on the card
 	var/registered_name = "Unknown"
+	///Miscelaneous ID flags
+	var/flags_id = CAN_BUY_LOADOUT
 	///Blood type of the person that has it.
 	var/blood_type = "\[UNSET\]"
 
 	///How many points you can use to buy items
 	var/marine_points = list()
 
-	///What category of items can you buy - used for armor and poucehs
+	///What category of items can you buy - used for armor and pouches
 	var/marine_buy_choices = list()
-	///Used for quick vendor, to restrict buying loadout more than once
-	var/can_buy_loadout = TRUE
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
@@ -202,7 +202,7 @@
 	icon_state = "dogtag"
 	item_state = "dogtag"
 	iff_signal = TGMC_LOYALIST_IFF
-	marine_points = list(CAT_MARINE = DEFAULT_TOTAL_BUY_POINTS)
+	marine_points = list(CAT_MARINE = MARINE_TOTAL_BUY_POINTS)
 	var/dogtag_taken = FALSE
 
 /obj/item/card/id/dogtag/update_icon_state()
@@ -242,16 +242,16 @@
 
 // Vendor points for job override
 /obj/item/card/id/dogtag/smartgun
-	marine_points = list(CAT_SGSUP = DEFAULT_TOTAL_BUY_POINTS)
+	marine_points = list(CAT_SGSUP = SMARTGUNNER_TOTAL_BUY_POINTS)
 
 /obj/item/card/id/dogtag/robot
-	marine_points = list(CAT_ROBOT = DEFAULT_TOTAL_BUY_POINTS)
+	marine_points = list(CAT_ROBOT = ROBOT_TOTAL_BUY_POINTS)
 
 /obj/item/card/id/dogtag/engineer
 	marine_points = list(CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS)
 
 /obj/item/card/id/dogtag/leader
-	marine_points = list(CAT_LEDSUP = DEFAULT_TOTAL_BUY_POINTS)
+	marine_points = list(CAT_LEDSUP = LEADER_TOTAL_BUY_POINTS)
 
 /obj/item/card/id/dogtag/corpsman
 	marine_points = list(CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS)
@@ -261,14 +261,14 @@
 
 /obj/item/card/id/dogtag/full
 	marine_points = list(
-		CAT_MARINE = DEFAULT_TOTAL_BUY_POINTS,
-		CAT_SGSUP = DEFAULT_TOTAL_BUY_POINTS,
+		CAT_MARINE = MARINE_TOTAL_BUY_POINTS,
+		CAT_SGSUP = SMARTGUNNER_TOTAL_BUY_POINTS,
 		CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS,
-		CAT_LEDSUP = DEFAULT_TOTAL_BUY_POINTS,
+		CAT_LEDSUP = LEADER_TOTAL_BUY_POINTS,
 		CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
 		CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
 		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
-		CAT_ROBOT = DEFAULT_TOTAL_BUY_POINTS, //necessary to correctly show max points
+		CAT_ROBOT = ROBOT_TOTAL_BUY_POINTS, //necessary to correctly show max points
 	)
 
 /obj/item/card/id/dogtag/som

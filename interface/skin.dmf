@@ -154,8 +154,8 @@ window "infowindow"
 		is-vert = false
 	elem "changelog"
 		type = BUTTON
-		pos = 6,5
-		size = 94x20
+		pos = 0,5
+		size = 90x20
 		anchor1 = 1,0
 		anchor2 = 16,0
 		saved-params = "is-checked"
@@ -163,7 +163,7 @@ window "infowindow"
 		command = "changelog"
 	elem "discord"
 		type = BUTTON
-		pos = 100,5
+		pos = 90,5
 		size = 90x20
 		anchor1 = 16,0
 		anchor2 = 30,0
@@ -172,7 +172,7 @@ window "infowindow"
 		command = "discord"
 	elem "rules"
 		type = BUTTON
-		pos = 190,5
+		pos = 180,5
 		size = 90x20
 		anchor1 = 30,0
 		anchor2 = 44,0
@@ -181,7 +181,7 @@ window "infowindow"
 		command = "rules"
 	elem "wiki"
 		type = BUTTON
-		pos = 280,5
+		pos = 270,5
 		size = 90x20
 		anchor1 = 44,0
 		anchor2 = 58,0
@@ -190,7 +190,7 @@ window "infowindow"
 		command = "wiki"
 	elem "boosty"
 		type = BUTTON
-		pos = 370,5
+		pos = 360,5
 		size = 90x20
 		anchor1 = 58,0
 		anchor2 = 72,0
@@ -199,7 +199,7 @@ window "infowindow"
 		command = "boosty"
 	elem "github"
 		type = BUTTON
-		pos = 460,5
+		pos = 450,5
 		size = 90x20
 		anchor1 = 72,0
 		anchor2 = 86,0
@@ -208,14 +208,13 @@ window "infowindow"
 		command = "github"
 	elem "webmap"
 		type = BUTTON
-		pos = 550,5
-		size = 90x20
+		pos = 540,5
+		size = 95x20
 		anchor1 = 86,0
 		anchor2 = 100,0
 		saved-params = "is-checked"
 		text = "Webmap"
 		command = "webmap"
-
 
 window "outputwindow"
 	elem "outputwindow"

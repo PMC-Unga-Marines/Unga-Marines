@@ -398,7 +398,7 @@ You can serve a variety of roles, so choose carefully."})
 	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_TADPOLE)
 	skills_type = /datum/skills/sl
 
-	exp_type = EXP_TYPE_MARINES
+	exp_type = EXP_TYPE_SL
 	exp_requirements = XP_REQ_INTERMEDIATE
 
 	display_order = JOB_DISPLAY_ORDER_SQUAD_LEADER

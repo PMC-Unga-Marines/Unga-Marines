@@ -124,6 +124,9 @@
 
 	placed_overlay_iconstate = "tx7"
 
+/obj/item/weapon/gun/pistol/plasma_pistol/beginner
+	starting_attachment_types = list(/obj/item/weapon/gun/shotgun/combat/masterkey, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+
 /obj/item/weapon/gun/pistol/plasma_pistol/can_attach(obj/item/attaching_to, mob/attacher)
 	if(!attachments_by_slot[ATTACHMENT_SLOT_RAIL])
 		return TRUE
@@ -219,6 +222,10 @@
 
 /obj/item/weapon/gun/pistol/p23/tactical
 	starting_attachment_types = list(/obj/item/attachable/reddot)
+
+/obj/item/weapon/gun/pistol/p23/beginner
+	starting_attachment_types = list(/obj/item/attachable/lace, /obj/item/attachable/reddot)
+
 //-------------------------------------------------------
 //P-1911
 
@@ -236,7 +243,7 @@
 	default_ammo_type = /obj/item/ammo_magazine/pistol/m1911
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/m1911)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 21,"rail_x" = 17, "rail_y" = 22, "under_x" = 21, "under_y" = 15, "stock_x" = 21, "stock_y" = 17)
-	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT_LOCKED
+	reciever_flags = AMMO_RECIEVER_MAGAZINES
 	fire_delay = 0.2 SECONDS
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.85
@@ -545,6 +552,9 @@
 
 /obj/item/weapon/gun/pistol/vp70/tactical
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight, /obj/item/attachable/compensator)
+
+/obj/item/weapon/gun/pistol/vp70/beginner
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight, /obj/item/attachable/lace)
 
 //-------------------------------------------------------
 //VP78

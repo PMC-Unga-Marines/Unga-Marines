@@ -108,10 +108,13 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/behemoth/primordial,
 	/mob/living/carbon/xenomorph/chimera,
 	/mob/living/carbon/xenomorph/chimera/primordial,
+	/mob/living/carbon/xenomorph/widow,
+	/mob/living/carbon/xenomorph/widow/primordial,
 	/mob/living/carbon/xenomorph/beetle,
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,
 	/mob/living/carbon/xenomorph/facehugger,
+	/mob/living/carbon/xenomorph/spiderling,
 ))
 
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)
@@ -146,6 +149,7 @@ GLOBAL_LIST_INIT(xeno_types_tier_three, list(
 	/datum/xeno_caste/praetorian,
 	/datum/xeno_caste/ravager,
 	/datum/xeno_caste/warlock,
+	/datum/xeno_caste/widow,
 ))
 
 GLOBAL_LIST_INIT(xeno_types_tier_four, list(
@@ -217,3 +221,16 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 	for(var/i in GLOB.mob_list)
 		var/mob/M = i
 		M.update_config_movespeed()
+
+///The actions given to all humans on init
+GLOBAL_LIST_INIT(human_init_actions, list(
+	/datum/action/skill/toggle_orders,
+	/datum/action/skill/issue_order/move,
+	/datum/action/skill/issue_order/hold,
+	/datum/action/skill/issue_order/focus,
+	/datum/action/innate/order/attack_order/personal,
+	/datum/action/innate/order/defend_order/personal,
+	/datum/action/innate/order/retreat_order/personal,
+	/datum/action/innate/order/rally_order/personal,
+	/datum/action/innate/message_squad,
+))

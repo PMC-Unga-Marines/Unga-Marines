@@ -1120,7 +1120,7 @@
 	spawn_type = /obj/item/explosive/grenade/smokebomb/drain
 	closed_overlay = "grenade_box_overlay_drain"
 
-/obj/item/storage/box/visual/grenade/drain
+/obj/item/storage/box/visual/grenade/drain/sticky
 	name = "\improper M45-T grenade box"
 	desc = "A secure box holding 25 M40-T gas grenades. 100% safe to use around masked marines."
 	spawn_number = 25
