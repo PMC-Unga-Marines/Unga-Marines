@@ -354,6 +354,15 @@
 //----BEHEMOTH END----//
 //============//
 
+//----WIDOW START----//
+/mob/living/carbon/xenomorph/widow
+	upgrade = XENO_UPGRADE_NORMAL
+
+/mob/living/carbon/xenomorph/widow/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+//----WIDOW END----//
+
 //----PANTHER START----//
 /mob/living/carbon/xenomorph/panther/primordial
 	upgrade = XENO_UPGRADE_PRIMO
