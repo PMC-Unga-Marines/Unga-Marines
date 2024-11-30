@@ -718,9 +718,10 @@ ColorTone(rgb, tone)
 		}
 
 	var/static/icon/flat_template = icon('icons/effects/effects.dmi', "nothing")
+	var/icon/flat = icon(flat_template)
 
 	if(!appearance || appearance.alpha <= 0)
-		return icon(flat_template)
+		return flat
 
 	if(start)
 		if(!defdir)
@@ -766,7 +767,6 @@ ColorTone(rgb, tone)
 	var/curblend = appearance.blend_mode || defblend
 
 	if(length(appearance.overlays) || length(appearance.underlays))
-		var/icon/flat = icon(flat_template)
 		// Layers will be a sorted list of icons/overlays, based on the order in which they are displayed
 		var/list/layers = list()
 		var/image/copy
