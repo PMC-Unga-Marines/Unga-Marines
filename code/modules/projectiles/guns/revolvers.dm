@@ -334,7 +334,7 @@
 	icon_state = "t76"
 	item_state = "t76"
 	fire_animation = "t76_fire"
-	caliber = CALIBER_12x7 //codex
+	caliber = CALIBER_12X7 //codex
 	max_chamber_items = 5 //codex
 	default_ammo_type = /obj/item/ammo_magazine/revolver/standard_magnum
 	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/standard_magnum)
