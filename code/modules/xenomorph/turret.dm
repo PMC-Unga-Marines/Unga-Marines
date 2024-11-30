@@ -147,17 +147,10 @@
 
 ///Look for the closest human in range and in light of sight. If no human is in range, will look for xenos of other hives
 /obj/structure/xeno/turret/proc/get_target()
-	var/distance = range + 0.5 //we add 0.5 so if a potential target is at range, it is accepted by the system
-	var/buffer_distance
 	var/list/turf/path = list()
 	for(var/atom/nearby_hostile AS in potential_hostiles)
-		buffer_distance = get_dist(nearby_hostile, src)
-		if(distance <= buffer_distance) //If we already found a target that's closer
-			continue
 		path = getline(src, nearby_hostile)
 		path -= get_turf(src)
-		if(!length(path)) //Can't shoot if it's on the same turf
-			continue
 		var/blocked = FALSE //LoF Broken; stop checking; we can't proceed further.
 		for(var/turf/T AS in path)
 			if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE))
@@ -181,8 +174,7 @@
 				break
 		if(blocked)
 			continue
-		distance = buffer_distance
-		. = nearby_hostile
+		return nearby_hostile
 
 ///Checks the nearby mobs for eligability. If they can be targets it stores them in potential_targets. Returns TRUE if there are targets, FALSE if not.
 /obj/structure/xeno/turret/proc/scan()
