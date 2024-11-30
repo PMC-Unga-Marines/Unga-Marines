@@ -258,7 +258,7 @@ function tag_pr($payload, $opened) {
 	else if ($mergeable === FALSE)
 		$tags[] = 'Merge Conflict';
 
-	$treetags = array('_maps' => 'Map Edit', 'tools' => 'Tools', 'SQL' => 'SQL', '.github' => 'GitHub');
+	$treetags = array('_maps' => 'Mapping', 'tools' => 'Tools', 'SQL' => 'SQL', '.github' => 'GitHub');
 	$addonlytags = array('icons' => 'Sprites', 'sound' => 'Sound', 'config' => 'Config Update', 'code/controllers/configuration/entries' => 'Config Update', 'tgui' => 'UI');
 	foreach($treetags as $tree => $tag)
 		if(has_tree_been_edited($payload, $tree))
@@ -270,7 +270,6 @@ function tag_pr($payload, $opened) {
 			$tags[] = $tag;
 
 	check_tag_and_replace($payload, '[dnm]', 'Do Not Merge', $tags);
-	check_tag_and_replace($payload, '[no gbp]', 'GBP: No Update', $tags);
 
 	return array($tags, $remove);
 }
@@ -709,21 +708,14 @@ function checkchangelog($payload, $compile = true) {
 				break;
 			case 'qol':
 				if($item != 'made something easier to use') {
-					$tags[] = 'Quality of Life';
+					$tags[] = 'QoL';
 					$currentchangelogblock[] = array('type' => 'qol', 'body' => $item);
 				}
 				break;
-			case 'soundadd':
+			case 'sound':
 				if($item != 'added a new sound thingy') {
 					$tags[] = 'Sound';
-					$currentchangelogblock[] = array('type' => 'soundadd', 'body' => $item);
-				}
-				break;
-			case 'sounddel':
-				if($item != 'removed an old sound thingy') {
-					$tags[] = 'Sound';
-					$tags[] = 'Removal';
-					$currentchangelogblock[] = array('type' => 'sounddel', 'body' => $item);
+					$currentchangelogblock[] = array('type' => 'sound', 'body' => $item);
 				}
 				break;
 			case 'add':
@@ -742,17 +734,10 @@ function checkchangelog($payload, $compile = true) {
 					$currentchangelogblock[] = array('type' => 'rscdel', 'body' => $item);
 				}
 				break;
-			case 'imageadd':
+			case 'image':
 				if($item != 'added some icons and images') {
 					$tags[] = 'Sprites';
-					$currentchangelogblock[] = array('type' => 'imageadd', 'body' => $item);
-				}
-				break;
-			case 'imagedel':
-				if($item != 'deleted some icons and images') {
-					$tags[] = 'Sprites';
-					$tags[] = 'Removal';
-					$currentchangelogblock[] = array('type' => 'imagedel', 'body' => $item);
+					$currentchangelogblock[] = array('type' => 'image', 'body' => $item);
 				}
 				break;
 			case 'typo':
@@ -768,6 +753,13 @@ function checkchangelog($payload, $compile = true) {
 					$currentchangelogblock[] = array('type' => 'balance', 'body' => $item);
 				}
 				break;
+			case 'mapping':
+			case 'map':
+				if($item != 'added/modified/removed map content'){
+					$tags[] = 'Mapping';
+					$currentchangelogblock[] = array('type' => 'balance', 'body' => $item);
+				}
+			break;
 			case 'code_imp':
 			case 'code':
 				if($item != 'changed some code'){
