@@ -160,6 +160,28 @@
 	icon_opened = "open_medical"
 	icon_closed = "closed_medical"
 
+/obj/structure/closet/crate/mounted
+	name = "mounted weapon crate"
+	desc = "A robust crate containing stationary weapons."
+	icon_state = "closed_mounted_weapon"
+	icon_opened = "open_mounted_weapon"
+	icon_closed = "closed_mounted_weapon"
+
+/obj/structure/closet/crate/smart
+	name = "smart weapon crate"
+	desc = "A robust crate containing high-tech smartgun weapons and ammunitions."
+	icon_state = "closed_smart"
+	overlay_welded = "welded_smart"
+	icon_opened = "open_smart"
+	icon_closed = "closed_smart"
+
+/obj/structure/closet/crate/operations
+	name = "operations crate"
+	desc = "A robust crate containing support stuff."
+	icon_state = "close_operate"
+	icon_opened = "open_operate"
+	icon_closed = "close_operate"
+
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."

@@ -141,29 +141,31 @@
 			if (prob(50))
 				visible_message("DANGER! Magnetic containment field unstable! Containment field failure imminent!")
 				failing = 1
-				// 30 - 60 seconds and then BAM!
-				spawn(rand(300,600))
-					if(!failing) // Admin can manually set this var back to 0 to stop overload, for use when griffed.
-						update_icon()
-						visible_message("Magnetic containment stabilised.")
-						return
-					visible_message("DANGER! Magnetic containment field failure in 3 ... 2 ... 1 ...")
-					cell_explosion(loc, 250, 50)
-					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
-					qdel(src)
+				addtimer(CALLBACK(src, PROC_REF(smes_overload)), rand(30 SECONDS, 60 SECONDS))
 
-	// Gets powernet APCs and overloads lights or breaks the APC completely, depending on percentages.
+/obj/machinery/power/smes/buildable/proc/smes_overload()
+	if(!failing) // Admin can manually set this var back to 0 to stop overload, for use when griffed.
+		update_icon()
+		visible_message("Magnetic containment stabilised.")
+		return
+	visible_message("DANGER! Magnetic containment field failure in 3 ... 2 ... 1 ...")
+	cell_explosion(loc, 250, 50)
+	// Not sure if this is necessary, but just in case the SMES *somehow* survived..
+	qdel(src)
+
+/// Gets powernet APCs and overloads lights or breaks the APC completely, depending on percentages.
 /obj/machinery/power/smes/buildable/proc/apcs_overload(failure_chance, overload_chance)
-	if (!src.powernet)
+	if(!src.powernet)
 		return
 
 	for(var/obj/machinery/power/terminal/T in src.powernet.nodes)
-		if(istype(T.master, /obj/machinery/power/apc))
-			var/obj/machinery/power/apc/A = T.master
-			if (prob(overload_chance))
-				A.overload_lighting()
-			if (prob(failure_chance))
-				A.set_broken()
+		if(!istype(T.master, /obj/machinery/power/apc))
+			continue
+		var/obj/machinery/power/apc/A = T.master
+		if(prob(overload_chance))
+			A.overload_lighting()
+		if(prob(failure_chance))
+			A.set_broken()
 
 	// Failing SMES has special icon overlay.
 /obj/machinery/power/smes/buildable/update_overlays()

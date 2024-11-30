@@ -4980,10 +4980,6 @@
 	},
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/fore)
-"baV" = (
-/obj/machinery/telecomms/receiver/preset_left,
-/turf/open/floor/gcircuit,
-/area/deltastation/tcommsat/server)
 "baY" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -6357,10 +6353,6 @@
 /obj/effect/spawner/random/engineering/cable,
 /turf/open/floor/iron,
 /area/deltastation/command/heads_quarters/rd)
-"bpC" = (
-/obj/machinery/telecomms/broadcaster/preset_right,
-/turf/open/floor/bcircuit,
-/area/deltastation/tcommsat/server)
 "bpI" = (
 /obj/machinery/light{
 	dir = 8
@@ -29969,6 +29961,10 @@
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/engineering/storage/tech)
+"fZT" = (
+/obj/machinery/telecomms/receiver/preset/left,
+/turf/open/floor/gcircuit,
+/area/deltastation/tcommsat/server)
 "gac" = (
 /obj/effect/turf_decal/tile/transparent/neutral{
 	dir = 4
@@ -45980,6 +45976,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/deltastation/commons/toilet/restrooms)
+"jrg" = (
+/obj/machinery/telecomms/broadcaster/preset/left,
+/turf/open/floor/bcircuit,
+/area/deltastation/tcommsat/server)
 "jrk" = (
 /obj/effect/turf_decal/warning_stripes/linethick{
 	dir = 4
@@ -69355,10 +69355,6 @@
 	},
 /turf/open/floor/iron,
 /area/deltastation/maintenance/department/science)
-"ojN" = (
-/obj/machinery/telecomms/broadcaster/preset_left,
-/turf/open/floor/bcircuit,
-/area/deltastation/tcommsat/server)
 "ojW" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating,
@@ -74284,6 +74280,10 @@
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
 /turf/open/floor/iron/white,
 /area/deltastation/science/research)
+"pjX" = (
+/obj/machinery/telecomms/broadcaster/preset/right,
+/turf/open/floor/bcircuit,
+/area/deltastation/tcommsat/server)
 "pjZ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -74998,10 +74998,6 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/deltastation/maintenance/space_hut/observatory)
-"prv" = (
-/obj/machinery/telecomms/receiver/preset_right,
-/turf/open/floor/gcircuit,
-/area/deltastation/tcommsat/server)
 "prR" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -158152,7 +158148,7 @@ rpV
 vRI
 wHO
 vgI
-ojN
+jrg
 pCQ
 fun
 wGX
@@ -158662,7 +158658,7 @@ ndM
 jLv
 vIe
 ykl
-prv
+fZT
 tNq
 pCQ
 mBm
@@ -159690,7 +159686,7 @@ cAr
 jLv
 vIe
 ykl
-baV
+fZT
 tNq
 pCQ
 sHW
@@ -160208,7 +160204,7 @@ rpV
 cjF
 kpV
 xKi
-bpC
+pjX
 vgI
 ixu
 beT

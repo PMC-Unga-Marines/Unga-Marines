@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	name = "Clearing junk in phoron and glass? Explosion transformation power!"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 4) // 20 points
-	output = list(/obj/item/stack/sheet/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
+	output = list(/obj/item/stack/sheet/glass/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
 
 //one in one craft cuz junk is multi use resource
 /datum/assembly_craft/engineering/junk_phoron_iron
@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 /datum/assembly_craft/engineering/drop_pod
 	name = "Zeus orbital drop pod"
 	craft_time = 20 SECONDS
-	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass = 3) // 40 + 6
+	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass/glass = 3) // 40 + 6
 	output = list(/obj/structure/droppod = 1) //40 points
 
 /*******************************************************************************
@@ -98,7 +98,7 @@ CLOTHING
 
 /datum/assembly_craft/clothing/swat_mask
 	name = "SWAT mask"
-	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/glass = 3) // 24 + 6 points
+	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/glass/glass = 3) // 24 + 6 points
 	output = list(/obj/item/clothing/mask/gas/swat = 1) // 25 points from old factory
 
 
