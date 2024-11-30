@@ -248,6 +248,8 @@ function tag_pr($payload, $opened) {
 			$tags[] = 'Revert';
 		if(strpos(strtolower($title), 'removes') !== FALSE)
 			$tags[] = 'Removal';
+		if(strpos(strtolower($title), 'ports') !== FALSE)
+			$tags[] = 'Port';
 	}
 
 	$remove = array('Test Merge Candidate');
