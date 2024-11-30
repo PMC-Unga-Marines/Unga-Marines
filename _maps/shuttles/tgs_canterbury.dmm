@@ -31,8 +31,10 @@
 	},
 /area/shuttle/canterbury/cic)
 "ag" = (
-/obj/structure/table/mainship,
-/obj/machinery/faxmachine/cic,
+/obj/machinery/computer/supplycomp{
+	req_access = list();
+	resistance_flags = 67
+	},
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -57,7 +59,6 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury/cic)
 "ak" = (
-/obj/item/supplytablet/crash,
 /turf/open/floor/mainship/blue/full,
 /area/shuttle/canterbury/cic)
 "am" = (

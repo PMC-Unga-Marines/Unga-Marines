@@ -174,4 +174,4 @@
 /obj/structure/xeno/silo/crash
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | INDESTRUCTIBLE
 	aura_strength = 2
-	aura_radius = 50
+	aura_radius = 60

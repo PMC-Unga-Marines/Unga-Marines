@@ -471,6 +471,10 @@
 	},
 /area/shuttle/canterbury/cic)
 "bS" = (
+/obj/machinery/computer/supplycomp{
+	req_access = list();
+	resistance_flags = 67
+	},
 /turf/open/floor/mainship,
 /area/shuttle/canterbury/cic)
 "bT" = (
@@ -846,10 +850,6 @@
 /obj/effect/landmark/start/job/crash/squadmarine,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
-"Dp" = (
-/obj/item/supplytablet/crash,
-/turf/open/floor/mainship/blue/full,
-/area/shuttle/canterbury/cic)
 "DF" = (
 /obj/effect/landmark/start/latejoin/crash,
 /turf/open/floor/mainship,
@@ -1448,7 +1448,7 @@ Uo
 Uo
 ad
 bH
-Dp
+MY
 ao
 bD
 as
