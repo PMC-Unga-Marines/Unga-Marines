@@ -137,7 +137,7 @@
 		F.balloon_alert(F, span_xenowarning("We can't use this egg"))
 		return
 
-	F.visible_message(span_xenowarning("[F] slides back into [src]."),span_xenonotice("You slides back into [src]."))
+	F.visible_message(span_xenowarning("[F] slides back into [src]."),span_xenonotice("You slide back into [src]."))
 	F.ghostize()
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
