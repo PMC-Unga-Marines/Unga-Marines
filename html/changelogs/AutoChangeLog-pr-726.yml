@@ -1,0 +1,4 @@
+author: "MrFloppa"
+delete-after: True
+changes:
+  - rscadd: "Хайвмайнд теперь понимает язык маров"
