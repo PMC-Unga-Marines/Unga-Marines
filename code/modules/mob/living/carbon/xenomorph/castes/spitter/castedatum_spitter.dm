@@ -19,7 +19,7 @@
 	plasma_gain = 50
 
 	// *** Health *** //
-	max_health = 310
+	max_health = 450
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -30,7 +30,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 25, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 10, ACID = 20)
+	soft_armor = list(MELEE = 25, BULLET = 20, LASER = 10, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 10, ACID = 20)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "spitter"
@@ -67,3 +67,15 @@
 
 	spit_delay = 0.3 SECONDS
 	spit_types = list(/datum/ammo/xeno/acid/medium/passthrough, /datum/ammo/xeno/acid/auto)
+
+	// *** Abilities *** //
+	actions = list(
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
+		/datum/action/ability/activable/xeno/xeno_spit,
+		/datum/action/ability/activable/xeno/scatter_spit,
+		/datum/action/ability/activable/xeno/spray_acid/line,
+		/datum/action/ability/activable/xeno/toxic_grenade/sticky,
+	)

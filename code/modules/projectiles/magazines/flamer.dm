@@ -1,11 +1,9 @@
-
-
 //Flame thrower.
-
 /obj/item/ammo_magazine/flamer_tank
 	name = "incinerator tank"
 	desc = "A fuel tank of usually ultra thick napthal, a sticky combustable liquid chemical, for use in the FL-240 incinerator unit. Handle with care."
 	icon_state = "flametank"
+	icon = 'icons/obj/items/ammo/flamer.dmi'
 	max_rounds = 50 //Per turf.
 	current_rounds = 50
 	reload_delay = 2 SECONDS

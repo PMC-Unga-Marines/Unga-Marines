@@ -1,6 +1,36 @@
 /datum/supply_packs/vehicles
 	group = "Vehicles"
 
+/datum/supply_packs/vehicles/ltb_shells
+	name = "LTB tank shell"
+	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/vehicles/ltb_shells_apfds
+	name = "LTB tank APFDS shell"
+	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/vehicles/ltaap_rounds
+	name = "LTAAP tank magazine"
+	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/vehicles/cupola_rounds
+	name = "Cupola tank magazine"
+	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/vehicles/secondary_flamer_tank
+	name = "Spray flamer tank"
+	contains = list(/obj/item/ammo_magazine/tank/secondary_flamer_tank)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/vehicles/motorbike
 	name = "All-Terrain Motorbike"
 	cost = 400

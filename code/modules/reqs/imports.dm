@@ -287,7 +287,18 @@
 	contains = list(/obj/item/clothing/head/strawhat)
 	cost = 10
 
+/datum/supply_packs/imports/bricks
+	name = "Brick"
+	contains = list(/obj/item/weapon/brick)
+	cost = 10
+
 /datum/supply_packs/imports/loot_box
 	name = "Loot box"
 	contains = list(/obj/item/loot_box/marine)
 	cost = 500
+
+/datum/supply_packs/imports/loot_pack
+	name = "TGMC Loot Pack"
+	notes = "Contains a random, but curated set of items, these packs are valued around 150 to 200 points. Some items can only be acquired from these. Spend responsibly."
+	contains = list(/obj/item/loot_box/tgmclootbox)
+	cost = 1000

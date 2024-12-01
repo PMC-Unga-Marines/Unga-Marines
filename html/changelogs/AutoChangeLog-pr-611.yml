@@ -1,7 +1,0 @@
-author: "Istrelok2107"
-delete-after: True
-changes:
-  - balance: "Улучшение револьвера Р76: windup_delay 0.9>0.6  fire_delay 1.25>0.75 scatter 3>2"
-  - bugfix: "Удалил ненужные компенсатор и приклад из кейса с Р76."
-  - rscadd: "Ввел Р76 в карго за 120 очков"
-  - rscadd: "Ввел патроны к Р76 в карго 40 очков за 4 магазина"

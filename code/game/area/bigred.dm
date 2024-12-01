@@ -78,6 +78,7 @@
 	icon_state = "yellow"
 	ceiling = CEILING_DEEP_UNDERGROUND_METAL
 	requires_power = TRUE
+	always_unpowered = FALSE
 
 /area/bigredv2/caves/secomplex
 	name = "Underground research complex"

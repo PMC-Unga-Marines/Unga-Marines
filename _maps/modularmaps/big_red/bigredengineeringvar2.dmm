@@ -887,9 +887,6 @@
 "VL" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/rock)
-"Wo" = (
-/turf/open/floor,
-/area/bigredv2/outside/engineering)
 "WD" = (
 /obj/machinery/light{
 	dir = 1
@@ -983,9 +980,9 @@ GH
 Pt
 Ds
 uk
-Wo
+ib
 kJ
-Wo
+ib
 jo
 GH
 Cj
@@ -1011,9 +1008,9 @@ oK
 Zt
 Pt
 tK
-Wo
+ib
 JW
-Wo
+ib
 Vv
 kq
 GH
@@ -1065,8 +1062,8 @@ su
 (5,1,1) = {"
 Pt
 ge
-Wo
-Wo
+ib
+ib
 Pt
 EH
 wt
@@ -1098,9 +1095,9 @@ pZ
 LM
 Pt
 Ds
-Wo
+ib
 Jv
-Wo
+ib
 gF
 gF
 GH
@@ -1150,17 +1147,17 @@ LF
 LF
 "}
 (8,1,1) = {"
-Wo
+ib
 iu
 Pt
 xn
 bb
 Oa
-Wo
-Wo
-Wo
-Wo
-Wo
+ib
+ib
+ib
+ib
+ib
 GH
 LF
 LF
@@ -1179,17 +1176,17 @@ su
 LF
 "}
 (9,1,1) = {"
-Wo
+ib
 rP
 wt
-Wo
-Wo
+ib
+ib
 en
 tR
-Wo
+ib
 tR
-Wo
-Wo
+ib
+ib
 GH
 LF
 LF
@@ -1208,7 +1205,7 @@ CS
 su
 "}
 (10,1,1) = {"
-Wo
+ib
 iu
 wt
 Vv
@@ -1216,8 +1213,8 @@ sd
 en
 VC
 DH
-Wo
-Wo
+ib
+ib
 DH
 GH
 LF
@@ -1243,11 +1240,11 @@ hE
 hb
 JU
 Vs
-Wo
-Wo
-Wo
+ib
+ib
+ib
 dv
-Wo
+ib
 GH
 LF
 LF
@@ -1324,7 +1321,7 @@ su
 qm
 "}
 (14,1,1) = {"
-Wo
+ib
 wW
 Pt
 Oa
@@ -1332,7 +1329,7 @@ DH
 Pt
 UB
 wW
-Wo
+ib
 DH
 yB
 GH
@@ -1353,13 +1350,13 @@ su
 su
 "}
 (15,1,1) = {"
-Wo
+ib
 zj
 wt
 Ie
 qO
 Pt
-Wo
+ib
 Qv
 Jv
 Ow
@@ -1448,8 +1445,8 @@ Jv
 Pt
 ib
 At
-Wo
-Wo
+ib
+ib
 hV
 GH
 LF
@@ -1500,15 +1497,15 @@ su
 (20,1,1) = {"
 SP
 wt
-Wo
+ib
 Ds
 Jv
-Wo
-Wo
+ib
+ib
 Sv
 Vv
 Jv
-Wo
+ib
 GH
 LF
 Gh
@@ -1537,7 +1534,7 @@ fr
 Jv
 dv
 Jv
-Wo
+ib
 GH
 LF
 ox
@@ -1556,16 +1553,16 @@ Bn
 su
 "}
 (22,1,1) = {"
-Wo
+ib
 wt
-Wo
+ib
 Oa
 nC
 jG
 CN
 DO
-Wo
-Wo
+ib
+ib
 Vv
 GH
 LF
@@ -1592,9 +1589,9 @@ Of
 KV
 tt
 bN
-Wo
-Wo
-Wo
+ib
+ib
+ib
 OF
 GH
 LF
@@ -1616,15 +1613,15 @@ su
 (24,1,1) = {"
 Jv
 Px
-Wo
+ib
 Of
 eh
 eh
 eh
 Jv
 Jv
-Wo
-Wo
+ib
+ib
 GH
 LF
 LF
@@ -1681,8 +1678,8 @@ Dx
 ON
 Fq
 Jv
-Wo
-Wo
+ib
+ib
 GH
 VL
 VL
@@ -1710,8 +1707,8 @@ GH
 OK
 en
 AQ
-Wo
-Wo
+ib
+ib
 GH
 GH
 GH
@@ -1766,11 +1763,11 @@ xH
 xH
 GH
 Yq
-Wo
+ib
 VI
 bq
 Jv
-Wo
+ib
 Vv
 tv
 GH
@@ -1800,7 +1797,7 @@ GH
 GH
 GH
 GH
-Wo
+ib
 sg
 GH
 wm
