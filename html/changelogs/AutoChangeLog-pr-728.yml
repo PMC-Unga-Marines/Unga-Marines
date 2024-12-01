@@ -1,0 +1,4 @@
+author: "mister-onion"
+delete-after: True
+changes:
+  - balance: "кинг теперь имеет иммунитет к молотку"
