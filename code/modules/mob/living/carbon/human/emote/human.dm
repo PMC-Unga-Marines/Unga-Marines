@@ -426,6 +426,14 @@
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/medic/get_sound(mob/living/carbon/human/user)
+	if(isrobot(user))
+		if(user.gender == MALE)
+			if(prob(95))
+				return 'sound/voice/robotic/male_medic.ogg'
+			else
+				return 'sound/voice/robotic/male_medic2.ogg'
+		else
+			return 'sound/voice/robotic/female_medic.ogg'
 	if(user.gender == MALE)
 		if(prob(95))
 			return 'sound/voice/human/male/medic.ogg'
@@ -554,17 +562,6 @@
 		return 'sound/voice/human/female/cry_1.ogg'
 	else
 		return 'sound/voice/human/male/cry_1.ogg'
-
-/datum/emote/living/carbon/human/medic/get_sound(mob/living/carbon/human/user)
-	if(isrobot(user))
-		if(user.gender == MALE)
-			if(prob(95))
-				return 'sound/voice/robotic/male_medic.ogg'
-			else
-				return 'sound/voice/robotic/male_medic2.ogg'
-		else
-			return 'sound/voice/robotic/female_medic.ogg'
-	return ..()
 
 /datum/emote/living/carbon/human/whistle
 	key = "whistle"
