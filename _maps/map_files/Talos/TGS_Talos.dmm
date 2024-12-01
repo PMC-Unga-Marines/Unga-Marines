@@ -16996,11 +16996,11 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/bow_hallway)
 "koH" = (
+/obj/machinery/floor_warn_light/self_destruct,
 /obj/item/defibrillator,
 /obj/item/defibrillator,
 /obj/item/defibrillator,
 /obj/structure/table/mainship,
-/obj/machinery/floor_warn_light/self_destruct,
 /obj/machinery/recharger,
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
@@ -37184,6 +37184,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
+"wbo" = (
+/obj/structure/table/mainship,
+/obj/machinery/recharger,
+/turf/open/floor/prison/whitepurple{
+	dir = 6
+	},
+/area/mainship/medical/medical_science)
 "wbu" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/misc/table_lighting,
@@ -39170,13 +39177,6 @@
 	},
 /turf/open/floor/mainship/metal/gray,
 /area/mainship/medical/upper_medical)
-"xqg" = (
-/obj/structure/table/mainship,
-/obj/machinery/recharger,
-/turf/open/floor/prison/whitepurple{
-	dir = 6
-	},
-/area/mainship/medical/medical_science)
 "xqp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mainship/secure/free_access{
@@ -61151,7 +61151,7 @@ lhv
 uSU
 mVy
 lay
-xqg
+wbo
 oYi
 uHQ
 lhv
