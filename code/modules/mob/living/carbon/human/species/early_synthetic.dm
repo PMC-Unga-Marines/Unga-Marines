@@ -6,7 +6,6 @@
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
 	unarmed_type = /datum/unarmed_attack/punch
-	rarity_value = 1.5
 	slowdown = 1.15 //Slower than Late Synths.
 	total_health = 200 //Tough boys, very tough boys.
 	brute_mod = 0.6

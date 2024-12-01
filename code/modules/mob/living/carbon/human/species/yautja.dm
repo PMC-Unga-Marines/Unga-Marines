@@ -47,9 +47,6 @@
 		/mob/living/carbon/human/proc/butcher,
 	)
 
-	knock_down_reduction = 4
-	stun_reduction = 4
-
 	icobase = 'icons/mob/hunter/r_predator.dmi'
 
 /datum/species/yautja/handle_death(mob/living/carbon/human/H, gibbed)

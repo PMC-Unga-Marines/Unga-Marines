@@ -26,10 +26,6 @@
 	var/hud_type
 	var/slowdown = 0
 	var/taste_sensitivity = TASTE_NORMAL
-	/// Can eat some mobs. 1 for monkeys, 2 for people.
-	var/gluttonous
-	/// Relative rarity/collector value for this species. Only used by ninja and cultists atm.
-	var/rarity_value = 1
 	var/datum/unarmed_attack/unarmed_type = /datum/unarmed_attack
 	var/secondary_unarmed_type = /datum/unarmed_attack/bite
 	var/default_language_holder = /datum/language_holder
@@ -39,12 +35,10 @@
 	/// A list of sounds to potentially play when speaking.
 	var/list/speech_sounds
 	var/list/speech_chance
-	/// Can use small items.
-	var/has_fine_manipulation = TRUE
 	/// Does this count as a human?
 	var/count_human = FALSE
 
-	/// Inventory slots the race can't equip stuff to. Golems cannot wear jumpsuits, for example.
+	/// Inventory slots the race can't equip stuff to. Robots cannot wear shoes and gloves, for example.
 	var/list/no_equip = list()
 
 	// Some species-specific gibbing data.
@@ -77,6 +71,7 @@
 	/// Used for metabolizing reagents.
 	var/reagent_tag
 
+	/// Converts into see_in_dark on update_sight()
 	var/darksight = 2
 
 	/// Physical damage reduction/malus.
@@ -129,13 +124,6 @@
 		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
 		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
 	)
-
-	/// How much the knocked_down effect is reduced per Life call.
-	var/knock_down_reduction = 1
-	/// How much the stunned effect is reduced per Life call.
-	var/stun_reduction = 1
-	/// How much the knockout effect is reduced per Life call
-	var/knock_out_reduction = 1
 	var/lighting_alpha
 	var/see_in_dark
 

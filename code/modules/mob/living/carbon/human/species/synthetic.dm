@@ -5,7 +5,6 @@
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
 	unarmed_type = /datum/unarmed_attack/punch
-	rarity_value = 2
 
 	total_health = 125 //more health than regular humans
 
