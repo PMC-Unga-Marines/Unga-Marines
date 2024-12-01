@@ -253,6 +253,10 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	/// Faction of the computer
 	var/faction = FACTION_TERRAGOV
 
+/obj/machinery/computer/supplycomp/crash
+	req_access = list() //So marines can access cargo stuff without relying on synth spawn
+	resistance_flags = 67
+
 /obj/machinery/computer/supplycomp/interact(mob/user)
 	. = ..()
 	if(.)
