@@ -33,12 +33,6 @@
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/survivor/rambo = 1,
 	)
-	respawn_time = 10 MINUTES
-	xenorespawn_time = 2 MINUTES
-
-	xeno_damage_taking_multiplier = 1.6
-	human_damage_taking_multiplier = 1.5
-	living_damage_taking_multiplier = 1.5
 
 	var/siloless_hive_timer
 
