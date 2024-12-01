@@ -43,6 +43,11 @@
 	contains = list(/obj/item/stack/sheet/mineral/junk/large_stack)
 	cost = 300
 
+/datum/supply_packs/engineering/handheld_charger
+	name = "handheld charger"
+	contains = list(/obj/item/tool/handheld_charger)
+	cost = 80
+
 /datum/supply_packs/engineering/plasmacutter
 	name = "plasma cutter"
 	contains = list(/obj/item/tool/pickaxe/plasmacutter/)

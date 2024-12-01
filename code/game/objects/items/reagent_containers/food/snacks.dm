@@ -545,21 +545,25 @@
 	icon_state = "donkpocket"
 	filling_color = "#DEDEAB"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
-	var/warm = 0
 	tastes = list("meat" = 2, "dough" = 2, "laziness" = 1)
+	var/warm = FALSE
 
 /obj/item/reagent_containers/food/snacks/donkpocket/proc/cooltime()
-	if(warm)
-		spawn( 4200 )
-			if(!gc_destroyed) //not cdel'd
-				warm = 0
-				reagents.del_reagent(/datum/reagent/medicine/tricordrazine)
-				name = "donk-pocket"
+	if(!warm)
+		return
+	addtimer(CALLBACK(src, PROC_REF(cool_down)), 7 MINUTES)
+
+/obj/item/reagent_containers/food/snacks/donkpocket/proc/cool_down()
+	if(QDELETED(src))
+		return
+	warm = FALSE
+	reagents.del_reagent(/datum/reagent/medicine/tricordrazine)
+	name = "donk-pocket"
 
 /obj/item/reagent_containers/food/snacks/human
+	filling_color = "#D63C3C"
 	var/hname = ""
 	var/job = null
-	filling_color = "#D63C3C"
 
 /obj/item/reagent_containers/food/snacks/omelette
 	name = "Omelette Du Fromage"

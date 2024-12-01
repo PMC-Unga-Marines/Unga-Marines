@@ -300,7 +300,6 @@
 
 	// make the icons look correct
 	regenerate_icons()
-	med_hud_set_status()
 	med_pain_set_perceived_health()
 	med_hud_set_health()
 	handle_regular_hud_updates()
@@ -361,11 +360,12 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/revive(admin_revive = FALSE)
+	. = ..()
 	set_plasma(xeno_caste.plasma_max)
 	sunder = 0
+	hud_update_primo()
 	if(stat == DEAD)
 		hive?.on_xeno_revive(src)
-	return ..()
 
 ///Revive the huamn up to X health points
 /mob/living/carbon/human/proc/revive_to_crit(should_offer_to_ghost = FALSE, should_zombify = FALSE)

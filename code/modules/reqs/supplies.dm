@@ -5,7 +5,26 @@
 /datum/supply_packs/supplies/crayons
 	name = "PFC Jim Special Crayon Pack"
 	contains = list(/obj/item/storage/fancy/crayons)
+	containertype = /obj/structure/closet/crate/operations
 	cost = 40
+
+/datum/supply_packs/supplies/provision
+	name = "Emergency Provision Crate"
+	notes = "Contains 10 special TGMC MRE racions."
+	contains = list(
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/MRE,
+	)
+	containertype = /obj/structure/closet/crate/operations
+	cost = 65
 
 /datum/supply_packs/supplies/janitor
 	name = "assorted janitorial supplies"

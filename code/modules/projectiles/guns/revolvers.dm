@@ -148,6 +148,9 @@
 	base_gun_icon = "tp44cool"
 	update_icon()
 
+/obj/item/weapon/gun/revolver/r44/beginner
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
+
 //-------------------------------------------------------
 //RUSSIAN REVOLVER //Based on the 7.62mm Russian revolvers.
 
@@ -350,16 +353,16 @@
 		/obj/item/attachable/scope/standard_magnum,
 	)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 15, "rail_y" = 23, "under_x" = 22, "under_y" = 15, "stock_x" = 10, "stock_y" = 18)
-	windup_delay = 0.9 SECONDS
+	windup_delay = 0.6 SECONDS
 	aim_slowdown = 0.2
 	windup_sound = 'sound/weapons/guns/fire/t76_start.ogg'
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_r76.ogg'
-	fire_delay = 1.25 SECONDS
+	fire_delay = 0.75 SECONDS
 	akimbo_additional_delay = 1
 	accuracy_mult_unwielded = 0.85
 	accuracy_mult = 1
 	scatter_unwielded = 6
-	scatter = 3
+	scatter = 2
 	recoil = 3
 	recoil_unwielded = 6
 

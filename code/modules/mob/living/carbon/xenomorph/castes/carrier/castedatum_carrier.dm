@@ -11,17 +11,17 @@
 	wound_type = "carrier" //used to match appropriate wound overlays
 
 	// *** Melee Attacks *** //
-	melee_damage = 20
+	melee_damage = 22
 
 	// *** Speed *** //
 	speed = -0.4
 
 	// *** Plasma *** //
-	plasma_max = 800
-	plasma_gain = 38
+	plasma_max = 1000
+	plasma_gain = 45
 
 	// *** Health *** //
-	max_health = 325
+	max_health = 425
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -33,7 +33,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 0, BIO = 5, FIRE = 0, ACID = 5)
+	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 5, FIRE = 25, ACID = 5)
 
 	// *** Pheromones *** //
 	aura_strength = 2.5
@@ -42,8 +42,8 @@
 	minimap_icon = "carrier"
 
 	// *** Carrier Abilities *** //
-	huggers_max = 7
-	hugger_delay = 1.5 SECONDS
+	huggers_max = 9
+	hugger_delay = 1.25 SECONDS
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
@@ -61,6 +61,7 @@
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
 		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 		/datum/action/ability/xeno_action/carrier_panic,
+		/datum/action/ability/xeno_action/build_nest,
 		/datum/action/ability/xeno_action/choose_hugger_type,
 		/datum/action/ability/xeno_action/set_hugger_reserve,
 	)
@@ -90,6 +91,7 @@
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
 		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 		/datum/action/ability/xeno_action/carrier_panic,
+		/datum/action/ability/xeno_action/build_nest,
 		/datum/action/ability/xeno_action/choose_hugger_type,
 		/datum/action/ability/xeno_action/set_hugger_reserve,
 		/datum/action/ability/xeno_action/build_hugger_turret,

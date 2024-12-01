@@ -520,22 +520,15 @@
 	. = ..()
 	var/real_icon = current_skin ? current_skin : base_gun_icon
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN) && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED))
-		icon_state = !greyscale_config ? real_icon + "_o" : GUN_ICONSTATE_OPEN
+		icon_state = real_icon + "_o"
 	else if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && !in_chamber && length(chamber_items))
-		icon_state = !greyscale_config ? real_icon + "_u" : GUN_ICONSTATE_UNRACKED
+		icon_state = real_icon + "_u"
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
-		icon_state = !greyscale_config ? real_icon + "_e" : GUN_ICONSTATE_UNLOADED
+		icon_state = real_icon + "_e"
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
 		icon_state = real_icon + "_l"
 	else
-		icon_state = !greyscale_config ? real_icon : GUN_ICONSTATE_LOADED
-
-/obj/item/weapon/gun/color_item(obj/item/facepaint/paint, mob/user)
-	. = ..()
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/human = user
-	human.regenerate_icons()
+		icon_state = real_icon
 
 //manages the overlays for the gun - separate from attachment overlays
 /obj/item/weapon/gun/update_overlays()
@@ -1423,6 +1416,7 @@
 			user.put_in_hands(mag)
 		else
 			mag.forceMove(get_turf(src))
+			SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER))
 		chamber_items[chamber_items.Find(mag)] = null
 	else

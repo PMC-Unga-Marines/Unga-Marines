@@ -220,10 +220,10 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 15
 	accuracy_var_high = 5
-	max_range = 6
+	max_range = 4
 	damage = 30
 	penetration = 20
-	sundering = 3
+	sundering = 1
 	damage_falloff = 0
 
 /datum/ammo/bullet/ags_spread/incendiary

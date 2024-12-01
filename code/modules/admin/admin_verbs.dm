@@ -682,7 +682,6 @@
 
 	var/mob/M = usr
 	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", GLOB.sorted_areas, timeout = 0)
-	chosen = pick(get_area_turfs(chosen))
 	var/turf/T = pick(get_area_turfs(chosen))
 	M.forceMove(T)
 
@@ -800,7 +799,7 @@
 
 
 /client/proc/ticket_reply(whom)
-	if(prefs.muted & MUTE_ADMINHELP)
+	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_warning("Error: You are unable to use admin PMs (muted)."))
@@ -849,7 +848,7 @@
 
 
 /client/proc/private_message(whom, msg)
-	if(prefs.muted & MUTE_ADMINHELP)
+	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
 			html = span_warning("You are unable to use admin PMs (muted)."))
@@ -918,7 +917,7 @@
 			if(!msg)
 				return
 
-			if(prefs.muted & MUTE_ADMINHELP)
+			if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
 				to_chat(src,
 					type = MESSAGE_TYPE_ADMINPM,
 					html = span_warning("You are unable to use admin PMs (muted)."))

@@ -377,6 +377,10 @@
 /datum/action/ability/xeno_action/place_acidwell/action_activate()
 	var/turf/T = get_turf(owner)
 
+	for(var/obj/structure/xeno/acidwell/well in range(1, T))
+		owner.balloon_alert(owner, span_notice("Another acid well is too close!"))
+		return
+
 	if(!do_after(owner, 0.5 SECONDS, NONE, T, BUSY_ICON_BUILD))
 		return
 

@@ -258,6 +258,8 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/atom/A = X.selected_resin
 	action_icon_state = initial(A.name)
+	if(!is_gameplay_level(X.loc.z))
+		return ..() // prevents runtimes
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
 		var/mutable_appearance/number = visual_references[VREF_MUTABLE_BUILDING_COUNTER]
@@ -364,8 +366,13 @@
 			return
 
 	if(X.selected_resin == /obj/structure/bed/nest)
-		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
+		for(var/obj/structure/bed/nest/xeno_nest in range(2, T))
 			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
+			return
+
+	if(X.selected_resin == /obj/structure/mineral_door/resin)
+		for(var/obj/structure/mineral_door/resin/door in range(2, T))
+			owner.balloon_alert(owner, span_notice("Another door is too close!"))
 			return
 
 	var/atom/new_resin
@@ -389,6 +396,10 @@
 	if(X.selected_resin == /obj/structure/bed/nest)
 		for(var/obj/structure/bed/nest/xeno_nest in range (2, T))
 			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
+			return
+	if(X.selected_resin == /obj/structure/mineral_door/resin)
+		for(var/obj/structure/mineral_door/resin/door in range(2, T))
+			owner.balloon_alert(owner, span_notice("Another door is too close!"))
 			return
 	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
 		if(ERROR_CANT_WEED)
@@ -1157,7 +1168,7 @@
 
 /mob/living/carbon/xenomorph/proc/add_abilities()
 	for(var/action_path in xeno_caste.actions)
-		var/datum/action/ability/xeno_action/action = new action_path()
+		var/datum/action/ability/xeno_action/action = new action_path(src)
 		if(!SSticker.mode || SSticker.mode.flags_xeno_abilities & action.gamemode_flags)
 			action.give_action(src)
 

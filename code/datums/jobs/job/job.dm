@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 	EXP_TYPE_MARINES = list("titles" = GLOB.jobs_marines),
 	EXP_TYPE_REQUISITIONS = list("titles" = GLOB.jobs_requisitions),
 	EXP_TYPE_SYNTHETIC = list("titles" = GLOB.jobs_engineering + GLOB.jobs_medical),
+	EXP_TYPE_SL = list("titles" = GLOB.jobs_marines + GLOB.jobs_command),
 	EXP_TYPE_XENO = list("titles" = GLOB.jobs_xenos),
 ))
 
@@ -322,7 +323,7 @@ GLOBAL_PROTECT(exp_specialmap)
 		else
 			equip_role_outfit(job)
 
-	if(SSdiscord.get_boosty_tier(player.ckey) >= BOOSTY_TIER_2)
+	if(SSdiscord.get_boosty_tier(player?.ckey) >= BOOSTY_TIER_2)
 		equip_to_slot_or_del(new /obj/item/facepaint/premium, SLOT_IN_BACKPACK)
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
