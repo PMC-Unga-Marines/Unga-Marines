@@ -31,10 +31,7 @@
 	},
 /area/shuttle/canterbury/cic)
 "ag" = (
-/obj/machinery/computer/supplycomp{
-	req_access = list();
-	resistance_flags = 67
-	},
+/obj/machinery/computer/supplycomp/crash,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
