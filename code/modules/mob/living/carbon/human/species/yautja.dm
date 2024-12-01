@@ -163,7 +163,7 @@
 		mini.give_action(H)
 	return ..()
 
-/datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
+/datum/species/yautja/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(CHECK_BITFIELD(species_flags, NO_CHEM_METABOLIZATION)) //explicit
 		H.reagents.del_reagent(chem.type) //for the time being
 		return TRUE
