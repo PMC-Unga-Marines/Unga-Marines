@@ -10,12 +10,12 @@
 	species_flags = HAS_LIPS|HAS_NO_HAIR
 	preferences = list("moth_wings" = "Wings")
 
-	screams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	paincries = list("neuter" = 'sound/voice/human/male/pain_3.ogg')
-	goredcries = list("neuter" = 'sound/voice/moth_scream.ogg')
-	burstscreams = list("neuter" = 'sound/voice/moth_scream.ogg')
-	warcries = list("neuter" = 'sound/voice/moth_scream.ogg')
-	laughs = list("neuter" = 'sound/voice/silly_laugh.ogg')
+	screams = list(NEUTER = 'sound/voice/moth_scream.ogg')
+	paincries = list(NEUTER = 'sound/voice/human/male/pain_3.ogg')
+	goredcries = list(NEUTER = 'sound/voice/moth_scream.ogg')
+	burstscreams = list(NEUTER = 'sound/voice/moth_scream.ogg')
+	warcries = list(NEUTER = 'sound/voice/moth_scream.ogg')
+	laughs = list(NEUTER = 'sound/voice/silly_laugh.ogg')
 
 	flesh_color = "#E5CD99"
 

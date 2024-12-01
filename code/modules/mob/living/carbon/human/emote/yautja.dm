@@ -168,6 +168,3 @@
 	message = "ugly freak!"
 	sound = 'sound/voice/predator/ugly_freak.ogg'
 	emote_type = EMOTE_AUDIBLE
-
-/datum/emote/living/carbon/human/yautja/get_sound(mob/living/carbon/human/user)
-	return pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
