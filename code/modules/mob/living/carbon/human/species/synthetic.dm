@@ -1,6 +1,3 @@
-/mob/living/carbon/human/species/synthetic
-	race = "Synthetic"
-
 /datum/species/synthetic
 	name = "Synthetic"
 	name_plural = "Synthetics"

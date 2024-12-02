@@ -1,6 +1,3 @@
-/mob/living/carbon/human/species/necoarc
-	race = "Neco Arc"
-
 /datum/species/necoarc
 	name = "Neco Arc"
 	name_plural = "Neco Arc"

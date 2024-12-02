@@ -1,6 +1,3 @@
-/mob/living/carbon/human/species/skeleton
-	race = "Skeleton"
-
 /datum/species/skeleton
 	name = "Skeleton"
 	name_plural = "skeletons"
