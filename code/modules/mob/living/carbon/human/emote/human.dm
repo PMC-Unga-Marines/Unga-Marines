@@ -190,6 +190,8 @@
 
 /datum/emote/living/carbon/human/surrender/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
+	if(!.)
+		return
 	if(!isliving(user))
 		return
 	var/mob/living/L = user
