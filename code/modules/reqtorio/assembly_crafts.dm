@@ -317,7 +317,7 @@ WEAPONS
 	output = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds = 1)
 
 /datum/assembly_craft/weapons/ltb_cannon_TOW
-	name = "LTB TOW magazine"
+	name = "TOW Launcher Magazine"
 	input = list(/obj/item/stack/sheet/jeweler_steel = 3, /obj/item/stack/gun_powder = 6)
 	output = list(/obj/item/ammo_magazine/tank/towlauncher = 1)
 
