@@ -20,7 +20,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	name = "Supply Manifest"
 
 /obj/docking_port/stationary/supply
-	id = "supply_home"
+	shuttle_id = "supply_home"
 	roundstart_template = /datum/map_template/shuttle/supply
 	width = 5
 	dwidth = 2
@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 
 /obj/docking_port/mobile/supply
 	name = "supply shuttle"
-	id = SHUTTLE_SUPPLY
+	shuttle_id = SHUTTLE_SUPPLY
 	callTime = 15 SECONDS
 
 	dir = WEST
@@ -720,7 +720,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 
 /obj/docking_port/mobile/supply/vehicle
 	railing_gear_name = "vehicle"
-	id = SHUTTLE_VEHICLE_SUPPLY
+	shuttle_id = SHUTTLE_VEHICLE_SUPPLY
 	home_id = "vehicle_home"
 
 /obj/docking_port/mobile/supply/vehicle/buy(mob/user, datum/supply_ui/supply_ui)
@@ -760,7 +760,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 				new ammo(dumploc)
 
 /obj/docking_port/stationary/supply/vehicle
-	id = "vehicle_home"
+	shuttle_id = "vehicle_home"
 	roundstart_template = /datum/map_template/shuttle/supply/vehicle
 
 
