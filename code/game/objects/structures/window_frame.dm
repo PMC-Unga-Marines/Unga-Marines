@@ -168,6 +168,7 @@
 	basestate = "col_window_frame"
 
 /obj/structure/window_frame/kutjevo/reinforced
+	name = "reinforced window frame"
 	icon = 'icons/obj/smooth_objects/kutjevo_window_frame_reinforced.dmi'
 	icon_state = "col_rwindow_frame-0"
 	base_icon_state = "col_rwindow_frame"
