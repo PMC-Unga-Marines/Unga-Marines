@@ -411,6 +411,7 @@
 	ability_cost = 0
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+	hidden = TRUE
 
 /datum/action/ability/xeno_action/spider_venom/give_action(mob/living/L)
 	. = ..()
@@ -428,6 +429,3 @@
 		return
 
 	target.apply_status_effect(STATUS_EFFECT_SPIDER_VENOM)
-
-/datum/action/ability/xeno_action/spider_venom/should_show()
-	return FALSE

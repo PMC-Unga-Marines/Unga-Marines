@@ -1,6 +1,7 @@
 //FEB 2024 NOTE: some of these are missing loading_sounds, fix it before using these ingame
 //Special ammo magazines for hardpoint modules. Some may not be here since you can use normal magazines on them
 /obj/item/ammo_magazine/tank
+	icon = 'icons/obj/items/ammo/tank.dmi'
 	flags_magazine = NONE
 	///loading sound to play when
 	var/loading_sound
@@ -9,7 +10,7 @@
 	name = "high explosive LTB round"
 	desc = "A primary armament cannon magazine"
 	caliber = CALIBER_84MM
-	icon_state = "ltbammo"
+	icon_state = "ltb"
 	w_class = WEIGHT_CLASS_GIGANTIC
 	default_ammo = /datum/ammo/rocket/ltb
 	max_rounds = 1
@@ -18,7 +19,7 @@
 /obj/item/ammo_magazine/tank/ltb_cannon/apfds
 	name = "LTB APFDS round (105mm)"
 	desc = "A 105mm armor piercing shell with exceptional velocity and penetrating characteristics. Will pierce through walls and targets."
-	icon_state = "ltbammo_apfds"
+	icon_state = "ltb_apfds"
 	default_ammo = /datum/ammo/bullet/tank_apfds
 
 /obj/item/ammo_magazine/tank/ltaap_chaingun
@@ -36,6 +37,7 @@
 	desc = "A secondary armament flamethrower magazine"
 	caliber = CALIBER_FUEL_THICK
 	icon_state = "flametank_large"
+	icon = 'icons/obj/items/ammo/flamer.dmi'
 	w_class = WEIGHT_CLASS_GIGANTIC
 	default_ammo = /datum/ammo/flamethrower/tank_flamer
 	max_rounds = 120
@@ -45,6 +47,7 @@
 	desc = "A secondary armament rocket magazine"
 	caliber = CALIBER_68MM
 	icon_state = "quad_rocket"
+	icon = 'icons/obj/items/ammo/rocket.dmi'
 	w_class = WEIGHT_CLASS_GIGANTIC
 	default_ammo = /datum/ammo/rocket/ap //Fun fact, AP rockets seem to be a straight downgrade from normal rockets. Maybe I'm missing something...
 	max_rounds = 5
@@ -53,7 +56,7 @@
 	name = "M56 Cupola Magazine"
 	desc = "A secondary armament MG magazine"
 	caliber = CALIBER_10X28
-	icon_state = "cupolaammo"
+	icon_state = "cupola"
 	loading_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
 	w_class = WEIGHT_CLASS_GIGANTIC
 	default_ammo = /datum/ammo/bullet/cupola
