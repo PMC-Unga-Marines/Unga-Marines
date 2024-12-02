@@ -347,10 +347,10 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 			to_chat(owner, span_xenowarning("No weeds here!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(owner))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/turret) || !T.check_disallow_alien_fortification(owner))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
+	for(var/obj/structure/xeno/turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
 		if(get_dist(turret, owner) < 6)
 			if(!silent)
 				to_chat(owner, span_xenowarning("Another turret is too close!"))
@@ -364,7 +364,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		return FALSE
 
 	var/mob/living/carbon/xenomorph/carrier/caster = owner
-	var/obj/structure/xeno/xeno_turret/hugger_turret/turret = new (get_turf(owner), caster.hivenumber)
+	var/obj/structure/xeno/turret/facehugger/turret = new (get_turf(owner), caster.hivenumber)
 	turret.ammo = GLOB.ammo_list[GLOB.hugger_to_ammo[caster.selected_hugger_type]]
 	succeed_activate()
 	add_cooldown()
