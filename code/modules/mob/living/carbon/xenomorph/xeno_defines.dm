@@ -350,6 +350,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/regen_power = 0
 	///Stored biomass
 	var/biomass = 0
+	///Stored upgrade effects, so we reapply them on evolve
+	var/list/upgrades_holder = list()
 
 	var/is_zoomed = FALSE
 	var/zoom_turf = null
