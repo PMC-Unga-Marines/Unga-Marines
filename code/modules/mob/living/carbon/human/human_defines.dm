@@ -11,7 +11,7 @@
 	buckle_flags = CAN_BE_BUCKLED|CAN_BUCKLE
 	resistance_flags = XENO_DAMAGEABLE
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
-
+	dextrous = TRUE
 	hud_type = /datum/hud/human
 
 	/// Used for preventing possible lags in the med_hud_set_status(), yes it's ugly
