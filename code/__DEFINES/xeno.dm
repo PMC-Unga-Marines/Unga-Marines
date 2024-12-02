@@ -1,17 +1,13 @@
 //Xeno structure flags
 #define IGNORE_WEED_REMOVAL (1<<0)
-#define HAS_OVERLAY (1<<1)
-#define CRITICAL_STRUCTURE (1<<2)
-#define DEPART_DESTRUCTION_IMMUNE (1<<3)
+#define CRITICAL_STRUCTURE (1<<1)
+#define DEPART_DESTRUCTION_IMMUNE (1<<2)
 
 //Weeds defines
 #define WEED "weed sac"
 #define STICKY_WEED "sticky weed sac"
 #define RESTING_WEED "resting weed sac"
 #define AUTOMATIC_WEEDING "repeating"
-
-#define XENO_TURRET_ACID_ICONSTATE "acid_turret"
-#define XENO_TURRET_STICKY_ICONSTATE "resin_turret"
 
 //Plant defines
 #define HEAL_PLANT "life fruit"
