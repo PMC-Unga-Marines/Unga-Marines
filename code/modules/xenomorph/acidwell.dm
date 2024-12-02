@@ -186,9 +186,10 @@
 		charges_used ++
 
 	if(!isxeno(stepper))
+		var/mob/living/carbon/human/H = stepper
 		stepper.next_move_slowdown += charges * 2 //Acid spray has slow down so this should too; scales with charges, Min 2 slowdown, Max 10
-		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_L_FOOT, ACID,  penetration = 33)
-		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_R_FOOT, ACID,  penetration = 33)
+		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_L_FOOT, ACID,  penetration = 33 - 20 * H.get_permeability_protection()) //Wearing mimir MK1/2 will soften damage from wells by reducing AP
+		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_R_FOOT, ACID,  penetration = 33 - 20 * H.get_permeability_protection()) //without providing full protection against them
 		stepper.visible_message(span_danger("[stepper] is immersed in [src]'s acid!") , \
 		span_danger("We are immersed in [src]'s acid!") , null, 5)
 		playsound(stepper, "sound/bullets/acid_impact1.ogg", 10 * charges)

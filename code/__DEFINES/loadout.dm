@@ -16,6 +16,10 @@
 #define CAT_MOD "JAEGER STORAGE MODULES"
 #define CAT_ARMMOD "JAEGER ARMOR MODULES"
 
+// Synth Special Categories
+#define CAT_SMR "SUITS AND ARMOR" // Synth's suits
+#define CAT_SHN "HATS" // Synth's non-protective hats
+
 #define CAT_MEDSUP "MEDICAL SUPPLIES"
 #define CAT_ENGSUP "ENGINEERING SUPPLIES"
 #define CAT_LEDSUP "LEADER SUPPLIES"
@@ -26,9 +30,34 @@
 #define CAT_ROBOT "COMBAT ROBOT SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
-// Synth Special Categories
-#define CAT_SMR "SUITS AND ARMOR" // Synth's suits
-#define CAT_SHN "HATS" // Synth's non-protective hats
+/// How many points a marine can spend by default
+#define MARINE_TOTAL_BUY_POINTS 45
+/// How many points the robot can spend
+#define ROBOT_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define LEADER_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define SMARTGUNNER_TOTAL_BUY_POINTS 45
+/// How many points a medic can spend on pills
+#define MEDIC_TOTAL_BUY_POINTS 45
+/// How many points an engineer can spend
+#define ENGINEER_TOTAL_BUY_POINTS 75
+/// How many points the field commander can spend
+#define COMMANDER_TOTAL_BUY_POINTS 45
+/// How many points the synthetic can spend
+#define SYNTH_TOTAL_BUY_POINTS 50
+
+GLOBAL_LIST_INIT(default_marine_points, list(
+	CAT_MARINE = MARINE_TOTAL_BUY_POINTS,
+	CAT_ROBOT = ROBOT_TOTAL_BUY_POINTS,
+	CAT_SGSUP = SMARTGUNNER_TOTAL_BUY_POINTS,
+	CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS,
+	CAT_LEDSUP = LEADER_TOTAL_BUY_POINTS,
+	CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
+	CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
+	CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
+))
+
 
 #define VENDOR_FACTION_NEUTRAL "Neutral"
 #define VENDOR_FACTION_CRASH "Crash"
@@ -74,7 +103,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/structure/closet/crate/mortar_ammo/howitzer_kit = list(CAT_MARINE, "Howitzer kit", 35, "orange3"),
 	/obj/structure/closet/crate/mortar_ammo/mlrs_kit = list(CAT_MARINE, "MLRS kit", 35, "orange3"),
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
+	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjector", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
@@ -685,7 +714,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/item/armor_module/storage/uniform/holster = list(CAT_WEB, "Shoulder handgun holster", 0, "black"),
 		/obj/item/storage/belt/lifesaver/full = list(CAT_BEL, "Lifesaver belt", 0, "orange"),
 		/obj/item/storage/belt/rig/medical = list(CAT_BEL, "Rig belt", 0, "black"),
-		/obj/item/storage/belt/hypospraybelt = list(CAT_BEL, "Hypospray belt", 0, "black"),
+		/obj/item/storage/belt/hypospraybelt/full = list(CAT_BEL, "Hypospray belt", 0, "black"),
 		/obj/item/armor_module/module/welding = list(CAT_HEL, "Jaeger welding module", 0, "orange"),
 		/obj/item/armor_module/module/binoculars = list(CAT_HEL, "Jaeger binoculars module", 0, "orange"),
 		/obj/item/armor_module/module/artemis = list(CAT_HEL, "Jaeger Freyr module", 0, "orange"),
@@ -909,7 +938,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/gloves/white = list(CAT_GLO, "White gloves", 0, "black"),
 		/obj/item/storage/belt/lifesaver/full = list(CAT_BEL, "Lifesaver belt", 0, "orange", "synth-attachable"),
 		/obj/item/storage/belt/rig/medical = list(CAT_BEL, "Rig belt", 0, "black"),
-		/obj/item/storage/belt/hypospraybelt = list(CAT_BEL, "Hypospray belt", 0, "black"),
+		/obj/item/storage/belt/hypospraybelt/full = list(CAT_BEL, "Hypospray belt", 0, "black"),
 		/obj/item/clothing/shoes/marine = list(CAT_SHO, "Marine combat boots", 0, "synth-rcmarmor"),
 		/obj/item/clothing/shoes/white = list(CAT_SHO, "White shoes", 0, "synth-armor"),
 		/obj/item/clothing/shoes/brown = list(CAT_SHO, "Brown shoes", 0, "synth-armor"),

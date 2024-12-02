@@ -90,17 +90,6 @@
 	penetration = 10
 	sundering = 1
 
-/datum/ammo/bullet/sg29
-	name = "smartmachinegun bullet"
-	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
-	hud_state = "smartgun"
-	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
-	accurate_range = 8
-	damage = 20
-	penetration = 5
-	additional_xeno_penetration = 20
-
 /datum/ammo/bullet/smart_minigun
 	name = "smartminigun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
@@ -108,6 +97,14 @@
 	hud_state_empty = "smartgun_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 12
-	damage = 25
-	penetration = -15
+	damage = 12
+	penetration = 20
 	damage_falloff = 0.1
+	var/shatter_duration = 3 SECONDS
+
+/datum/ammo/bullet/smart_minigun/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)

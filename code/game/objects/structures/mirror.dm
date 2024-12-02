@@ -14,7 +14,7 @@
 	. = ..()
 	switch(dir)
 		if(NORTH)
-			pixel_y = -14
+			pixel_y = -17
 		if(SOUTH)
 			pixel_y = 27
 		if(EAST)

@@ -86,7 +86,7 @@
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection,
 	)
-	cost = 120
+	cost = 160
 
 /datum/supply_packs/armor/modular/attachments/artemis_mark_two
 	name = "Freyr Mark 2 helmet module"

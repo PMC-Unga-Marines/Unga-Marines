@@ -32,35 +32,37 @@
 	name = "\improper RT-3 magazine (9mm)"
 	desc = "A pistol magazine."
 	caliber = CALIBER_9X19
+	icon = 'icons/obj/items/ammo/pistol.dmi'
 	icon_state = "m4a3"
 	max_rounds = 14
 	w_class = WEIGHT_CLASS_SMALL
 	default_ammo = /datum/ammo/bullet/pistol
 	icon_state_mini = "mag_pistol_orange"
+	ammo_band_icon = "m4a3_band"
 
 /obj/item/ammo_magazine/pistol/hp
 	name = "\improper M4A3 hollowpoint magazine (9mm)"
-	icon_state = "m4a3_hp"
 	default_ammo = /datum/ammo/bullet/pistol/hollow
 	icon_state_mini = "mag_pistol_blue"
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 
 /obj/item/ammo_magazine/pistol/ap
 	name = "\improper M4A3 AP magazine (9mm)"
-	icon_state = "m4a3_ap"
 	default_ammo = /datum/ammo/bullet/pistol/ap
 	icon_state_mini = "mag_pistol_green"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 
 /obj/item/ammo_magazine/pistol/incendiary
 	name = "\improper M4A3 incendiary magazine (9mm)"
-	icon_state = "m4a3_incendiary"
 	default_ammo = /datum/ammo/bullet/pistol/incendiary
 	icon_state_mini = "mag_pistol_red"
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/item/ammo_magazine/pistol/extended
 	name = "\improper M4A3 extended magazine (9mm)"
 	max_rounds = 24
-	icon_state = "m4a3_ext"
 	icon_state_mini = "mag_pistol_yellow"
+	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 
 //-------------------------------------------------------
 //P-1911
@@ -218,18 +220,20 @@
 	icon_state = "v11"
 	icon_state_mini = "mag_pistol_normal"
 	max_rounds = 18
+	ammo_band_icon = "v11_band"
 
 /obj/item/ammo_magazine/pistol/som/incendiary
 	name = "\improper V-11 incendiary magazine (9mm)"
-	icon_state = "v11_incend"
 	default_ammo = /datum/ammo/bullet/pistol/incendiary
 	icon_state_mini = "mag_pistol_red"
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/item/ammo_magazine/pistol/som/extended
 	name = "\improper V-11 extended magazine (9mm)"
 	max_rounds = 30
 	icon_state = "v11_extended"
 	icon_state_mini = "mag_pistol_yellow"
+	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 
 //-------------------------------------------------------
 //PL-5
