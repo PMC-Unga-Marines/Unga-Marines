@@ -3,6 +3,7 @@
 //say based modes like binary are in living/say.dm
 
 #define RADIO_CHANNEL_COMMON "Common"
+#define RADIO_CHANNEL_PHONE "Phone"
 #define RADIO_CHANNEL_SOM "Common SOM"
 #define RADIO_KEY_COMMON ";"
 
@@ -130,3 +131,14 @@
 
 ///give this to can_receive to specify that there is no restriction on what z level this signal is sent to
 #define RADIO_NO_Z_LEVEL_RESTRICTION 0
+
+#define PHONE_MARINE "Marine"
+#define PHONE_UPP_SOLDIER "Soldier"
+#define PHONE_IO "IO"
+
+#define PHONE_DND_FORCED 2
+#define PHONE_DND_ON 1
+#define PHONE_DND_OFF 0
+#define PHONE_DND_FORBIDDEN -1
+
+#define FREQ_PHONE "phone"

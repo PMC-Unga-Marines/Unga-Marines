@@ -1,16 +1,3 @@
-/obj/item/phone
-	name = "red phone"
-	desc = "Should anything ever go wrong..."
-	icon = 'icons/obj/items/items.dmi'
-	icon_state = "red_phone"
-	force = 3
-	throwforce = 2
-	throw_speed = 1
-	throw_range = 4
-	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("called", "rang")
-	hitsound = 'sound/weapons/ring.ogg'
-
 /obj/item/clock
 	name = "digital clock"
 	desc = "A battery powered clock, able to keep time within about 5 seconds... it was never that accurate."
