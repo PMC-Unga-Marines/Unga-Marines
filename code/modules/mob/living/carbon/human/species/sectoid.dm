@@ -1,3 +1,6 @@
+/mob/living/carbon/human/species/sectoid
+	race = "Sectoid"
+
 /datum/species/sectoid
 	name = "Sectoid"
 	name_plural = "Sectoids"

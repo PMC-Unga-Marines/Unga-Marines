@@ -1,3 +1,6 @@
+/mob/living/carbon/human/species/early_synthetic
+	race = "Early Synthetic"
+
 //It really should be just a subtype of synthetic
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"

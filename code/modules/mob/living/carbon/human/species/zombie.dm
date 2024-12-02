@@ -1,3 +1,13 @@
+/mob/living/carbon/human/species/zombie
+	race = "Strong zombie"
+
+/mob/living/carbon/human/species/zombie/Initialize(mapload)
+	. = ..()
+	var/datum/outfit/outfit = pick(GLOB.survivor_outfits)
+	outfit = new outfit()
+	INVOKE_ASYNC(outfit, TYPE_PROC_REF(/datum/outfit, equip), src)
+	a_intent = INTENT_HARM
+
 /datum/species/zombie
 	name = "Zombie"
 	name_plural = "Zombies"

@@ -1,3 +1,6 @@
+/mob/living/carbon/human/species/monkey
+	race = "Monkey"
+
 //todo: wound overlays are strange for monkeys and should likely use icon adding instead
 //im not about to cram in that refactor with a carbon -> species refactor though
 /datum/species/monkey
@@ -49,15 +52,24 @@
 /datum/species/monkey/random_name(gender,unique,lastname)
 	return "[lowertext(name)] ([rand(1,999)])"
 
+/mob/living/carbon/human/species/monkey/farwa
+	race = "Farwa"
+
 /datum/species/monkey/tajara
 	name = "Farwa"
 	icobase = 'icons/mob/human_races/r_farwa.dmi'
 	speech_verb_override = "mews"
 
+/mob/living/carbon/human/species/monkey/naera
+	race = "Naera"
+
 /datum/species/monkey/skrell
 	name = "Naera"
 	icobase = 'icons/mob/human_races/r_naera.dmi'
 	speech_verb_override = "squiks"
+
+/mob/living/carbon/human/species/monkey/stok
+	race = "Stok"
 
 /datum/species/monkey/unathi
 	name = "Stok"
@@ -71,3 +83,6 @@
 	cold_level_1 = ICE_COLONY_TEMPERATURE - 20
 	cold_level_2 = ICE_COLONY_TEMPERATURE - 40
 	cold_level_3 = ICE_COLONY_TEMPERATURE - 80
+
+/mob/living/carbon/human/species/monkey/yiren
+	race = "Yiren"

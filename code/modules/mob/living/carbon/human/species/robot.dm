@@ -1,3 +1,7 @@
+/mob/living/carbon/human/species/robot
+	race = "Combat Robot"
+	bubble_icon = "robot"
+
 /datum/species/robot
 	name = "Combat Robot"
 	name_plural = "Combat Robots"
@@ -87,11 +91,17 @@
 		. = GLOB.namepool[namepool].get_random_name()
 		to_chat(prefs.parent, span_warning("You forgot to set your robot in your preferences. Please do so next time."))
 
+/mob/living/carbon/human/species/robot/alpharii
+	race = "Hammerhead Combat Robot"
+
 /datum/species/robot/alpharii
 	name = "Hammerhead Combat Robot"
 	name_plural = "Hammerhead Combat Robots"
 	icobase = 'icons/mob/human_races/r_robot_alpharii.dmi'
 	joinable_roundstart = FALSE
+
+/mob/living/carbon/human/species/robot/charlit
+	race = "Chilvaris Combat Robot"
 
 /datum/species/robot/charlit
 	name = "Chilvaris Combat Robot"
@@ -99,11 +109,17 @@
 	icobase = 'icons/mob/human_races/r_robot_charlit.dmi'
 	joinable_roundstart = FALSE
 
+/mob/living/carbon/human/species/robot/deltad
+	race = "Ratcher Combat Robot"
+
 /datum/species/robot/deltad
 	name = "Ratcher Combat Robot"
 	name_plural = "Ratcher Combat Robots"
 	icobase = 'icons/mob/human_races/r_robot_deltad.dmi'
 	joinable_roundstart = FALSE
+
+/mob/living/carbon/human/species/robot/bravada
+	race = "Sterling Combat Robot"
 
 /datum/species/robot/bravada
 	name = "Sterling Combat Robot"

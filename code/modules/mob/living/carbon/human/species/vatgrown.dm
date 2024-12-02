@@ -1,3 +1,6 @@
+/mob/living/carbon/human/species/vatgrown
+	race = "Vat-Grown Human"
+
 /datum/species/human/vatgrown
 	name = "Vat-Grown Human"
 	name_plural = "Vat-Grown Humans"
