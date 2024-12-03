@@ -136,7 +136,7 @@
 	full_name = "Toggle Charge"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_TOGGLE_CHARGE
-	hotkey_keys = list("Shift")
+	hotkey_keys = list("Space")
 
 /datum/keybinding/xeno/toxic_spit
 	name = "toxic_spit"
