@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/season_datum/weapons/guns/pistol_seasonal_one
 	name = "Час Расплаты"
-	description = "Револьверы? Они твои, мой друг. Стреляющие, острой пулей или картечью."
+	description = "Револьверы? Они твои, мой друг. Рикошетящие, одинарные или с дробью."
 	item_list = list(
 		/obj/item/weapon/gun/revolver/small = 5,
 		/obj/item/ammo_magazine/revolver/small = -1,
