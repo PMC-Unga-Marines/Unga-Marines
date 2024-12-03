@@ -408,6 +408,10 @@
 
 	interact(wearer)
 
+/datum/component/suit_autodoc/proc/dying()
+	if(damage_threshold >= -10)
+		playsound(parent,'sound/voice/b18/diying.ogg', 15, 0, 1)
+
 //// Action buttons
 /datum/action/suit_autodoc/can_use_action()
 	if(QDELETED(owner) || owner.incapacitated() || owner.lying_angle)
