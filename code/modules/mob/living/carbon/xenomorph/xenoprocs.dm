@@ -395,7 +395,7 @@
 
 	update_sight()
 
-/mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 12)
+/mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 4.5)
 	if(stat || resting)
 		if(is_zoomed)
 			is_zoomed = FALSE

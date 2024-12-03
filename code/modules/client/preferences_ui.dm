@@ -144,6 +144,7 @@
 			data["show_typing"] = show_typing
 			data["tooltips"] = tooltips
 			data["widescreenpref"] = widescreenpref
+			data["screen_resolution"] = screen_resolution
 			data["radialmedicalpref"] = !!(toggles_gameplay & RADIAL_MEDICAL)
 			data["radialstackspref"] = !!(toggles_gameplay & RADIAL_STACKS)
 			data["radiallasersgunpref"] = !!(toggles_gameplay & RADIAL_LASERGUNS)
@@ -906,7 +907,14 @@
 
 		if("widescreenpref")
 			widescreenpref = !widescreenpref
-			user.client.view_size.set_default(get_screen_size(widescreenpref))
+			user.client.view_size.set_default(get_screen_size(widescreenpref, screen_resolution))
+
+		if("screen_resolution")
+			var/choice = tgui_input_list(ui.user, "Choose widescreen resolution", "Resolutions", WIDESCREEN_RESOLUTIONS)
+			if(choice)
+				screen_resolution = choice
+				if(widescreenpref)
+					user.client.view_size.set_default(get_screen_size(widescreenpref, screen_resolution))
 
 		if("radialmedicalpref")
 			toggles_gameplay ^= RADIAL_MEDICAL
