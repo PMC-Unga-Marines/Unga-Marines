@@ -7,8 +7,8 @@
 /obj/item/implant/skill/combat/melee
 	name = "close combat codex"
 	desc = "integrated hit support system! Update melee skills!"
-	melee_weapons = 1
-	max_skills = list(SKILL_MELEE_WEAPONS = SKILL_MELEE_TRAINED)
+	melee_weapons = 2
+	max_skills = list(SKILL_MELEE_WEAPONS = SKILL_MELEE_SUPER)
 
 /obj/item/implant/skill/codex/medical
 	name = "medtech"
@@ -39,4 +39,5 @@
 	name = "delux command protocols 'Graiyor' codex"
 	desc = "uploading advanced knowledge of futuristic mnemonics of inspiration and persuasion to the brain so that people around go under bullets even more willingly! Update leadership skills even more!"
 	icon_state = "deluxleadership_implant"
+	leadership = 2
 	max_skills = list(SKILL_LEAD = SKILL_LEAD_SUPER)
