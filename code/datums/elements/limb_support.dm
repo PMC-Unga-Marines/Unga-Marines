@@ -57,4 +57,4 @@
 			playsound(worn_suit, 'sound/machines/hydraulics_1.ogg', 15, 0, 1)
 
 		if(!dropped && (limb.limb_status & LIMB_BLEEDING))
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), worn_suit, 'sound/voice/b18/ib_detected.ogg', 15, 0, 1), 22)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), worn_suit, 'sound/voice/b18/ib_detected.ogg', 15, 0, 1), 2.2 SECONDS)
