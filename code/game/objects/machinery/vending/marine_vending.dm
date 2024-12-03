@@ -789,11 +789,6 @@
 		"Surplus Special Equipment" = list(
 			/obj/item/pinpointer = 1,
 			/obj/item/beacon/supply_beacon = 1,
-			/obj/item/ammo_magazine/rifle/sr81 = 3,
-			/obj/item/ammo_magazine/rifle/tx8 = 3,
-			/obj/item/ammo_magazine/rocket/sadar = 3,
-			/obj/item/ammo_magazine/minigun_powerpack = 2,
-			/obj/item/ammo_magazine/shotgun/mbx900 = 2,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
 			/obj/item/clothing/suit/storage/marine/boomvest = 20,

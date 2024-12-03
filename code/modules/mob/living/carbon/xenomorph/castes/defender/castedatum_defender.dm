@@ -53,7 +53,10 @@
 		/datum/action/ability/xeno_action/tail_sweep,
 	)
 
-/datum/xeno_caste/defender/ancient
+/datum/xeno_caste/defender/normal
+	upgrade = XENO_UPGRADE_NORMAL
+
+/datum/xeno_caste/defender/steel_crest/normal
 	upgrade = XENO_UPGRADE_NORMAL
 
 /datum/xeno_caste/defender/primordial
@@ -72,3 +75,35 @@
 		/datum/action/ability/xeno_action/tail_sweep,
 		/datum/action/ability/xeno_action/centrifugal_force,
 	)
+
+/datum/xeno_caste/defender/steel_crest
+	caste_type_path = /mob/living/carbon/xenomorph/defender/steel_crest
+	base_caste_type_path = /mob/living/carbon/xenomorph/defender
+	upgrade_name = ""
+	caste_name = "Defender"
+	display_name = "Steel crest"
+	upgrade = XENO_UPGRADE_BASETYPE
+	caste_desc = "An alien with an armored crest. It looks very tough."
+
+	// *** Speed *** //
+	speed = -0.4
+
+	// *** Defender Abilities *** //
+	crest_defense_armor = 30
+	crest_defense_slowdown = 0.8
+	fortify_armor = 40
+
+	actions = list(
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/xeno_action/fortify/steel_crest,
+		/datum/action/ability/xeno_action/toggle_crest_defense,
+		/datum/action/ability/activable/xeno/headbutt,
+		/datum/action/ability/xeno_action/soak,
+	)
+
+/datum/xeno_caste/defender/steel_crest/primordial
+	upgrade_name = "Primordial"
+	upgrade = XENO_UPGRADE_PRIMO
+	caste_desc = "Alien with an incredibly tough and armored head crest able to endure even the strongest hits."

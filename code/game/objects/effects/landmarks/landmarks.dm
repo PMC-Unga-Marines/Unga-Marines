@@ -172,7 +172,7 @@
 
 /obj/effect/landmark/xeno_resin_wall/Initialize(mapload)
 	GLOB.xeno_resin_wall_turfs += loc
-	..()
+	. = ..()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/xeno_silo_spawn
@@ -192,7 +192,7 @@
 
 /obj/effect/landmark/xeno_tunnel_spawn/Initialize(mapload)
 	GLOB.xeno_tunnel_spawn_turfs += loc
-	..()
+	. = ..()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/resin_jelly_pod
@@ -202,17 +202,17 @@
 
 /obj/effect/landmark/resin_jelly_pod/Initialize(mapload)
 	GLOB.xeno_jelly_pod_turfs += loc
-	..()
+	. = ..()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/xeno_turret
 	name = "xeno turret landmark"
 	icon = 'icons/Xeno/acidturret.dmi'
-	icon_state = XENO_TURRET_ACID_ICONSTATE
+	icon_state = "acid_turret"
 
 /obj/effect/landmark/xeno_turret/Initialize(mapload)
 	GLOB.xeno_turret_turfs += loc
-	..()
+	. = ..()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/nuke_spawn
@@ -229,7 +229,7 @@
 
 /obj/effect/landmark/dropship_start_location/Initialize(mapload)
 	GLOB.minidropship_start_loc = loc
-	..()
+	. = ..()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/weapon_spawn
@@ -464,10 +464,11 @@
 /obj/effect/landmark/weapon_spawn/tier6_weapon_spawn
 	name = "Tier meme Weapon Spawn"
 	icon_state = "weapon6"
-	weapon_list = list(	/obj/item/weapon/gun/pistol/chimp,
-						/obj/item/weapon/banhammer,
-						/obj/item/weapon/chainsword,
-						)
+	weapon_list = list(
+		/obj/item/weapon/gun/pistol/chimp,
+		/obj/item/weapon/banhammer,
+		/obj/item/weapon/chainsword,
+	)
 
 /obj/effect/landmark/sensor_tower
 	name = "Sensor tower"
@@ -475,7 +476,7 @@
 	icon_state = "sensor_loyalist"
 
 /obj/effect/landmark/sensor_tower/Initialize(mapload)
-	..()
+	. = ..()
 	GLOB.sensor_towers += loc
 	return INITIALIZE_HINT_QDEL
 
@@ -516,7 +517,7 @@
 	icon_state = "pinonfar"
 
 /obj/effect/landmark/xenoden_docking_port/Initialize(mapload)
-	..()
+	. = ..()
 	GLOB.xenoden_docking_ports_locs += loc
 	return INITIALIZE_HINT_QDEL
 
@@ -526,7 +527,7 @@
 	icon_state = "weed_silo"
 
 /obj/effect/landmark/xenoden_core/Initialize(mapload)
-	..()
+	. = ..()
 	GLOB.xenoden_cores_locs += loc
 	return INITIALIZE_HINT_QDEL
 
@@ -536,7 +537,7 @@
 	icon_state = "sensor"
 
 /obj/effect/landmark/sensor_tower_infestation_ground/Initialize(mapload)
-	..()
+	. = ..()
 	GLOB.sensor_towers_infestation_ground += loc
 	return INITIALIZE_HINT_QDEL
 
@@ -546,7 +547,7 @@
 	icon_state = "sensor"
 
 /obj/effect/landmark/sensor_tower_infestation_caves/Initialize(mapload)
-	..()
+	. = ..()
 	GLOB.sensor_towers_infestation_caves += loc
 	return INITIALIZE_HINT_QDEL
 
@@ -556,7 +557,7 @@
 	icon_state = "comm_tower"
 
 /obj/effect/landmark/tower_relay/Initialize(mapload)
-	..()
+	. = ..()
 	GLOB.tower_relay_locs += loc
 	return INITIALIZE_HINT_QDEL
 

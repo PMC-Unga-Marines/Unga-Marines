@@ -19,7 +19,7 @@
 #define CALIBER_357 ".357 Magnum"
 #define CALIBER_454 ".454 Casull" //Mateba
 #define CALIBER_762X38 "7.62x38mm Rimmed" //UPP
-#define CALIBER_12x7 "12.7 Magnum"
+#define CALIBER_12X7 "12.7 Magnum"
 #define CALIBER_44LS ".44 Long Special"
 #define CALIBER_500 ".500 Nigro Express"
 
@@ -33,8 +33,8 @@
 // --- Rifles ---
 #define CALIBER_10X24_CASELESS "10x24mm caseless"
 #define CALIBER_10X25_CASELESS "10x25mm caseless"
-#define CALIBER_10x27_CASELESS "10x27mm caseless"
-#define CALIBER_10x265_CASELESS "10x26.5mm caseless"
+#define CALIBER_10X27_CASELESS "10x27mm caseless"
+#define CALIBER_10X265_CASELESS "10x26.5mm caseless"
 #define CALIBER_762X39 "7.62x39mm"
 #define CALIBER_556X45 "5.56x45mm"
 #define CALIBER_16G "16 gauge" //Autoshotty, but coded like a rifle so eeh
@@ -44,7 +44,7 @@
 #define CALIBER_10X28_CASELESS "10x28mm caseless" //Spec scout and OG Smartgun
 #define CALIBER_762X51 "7.62x51mm" //Minigun
 #define CALIBER_10X27_INCENDIARY_CASELESS "10x27mm incendiary caseless"
-#define CALIBER_10x26_CASELESS "10x26mm caseless" //MG-60 and SG
+#define CALIBER_10X26_CASELESS "10x26mm caseless" //MG-60 and SG
 #define CALIBER_ALIEN "alien alloy"
 
 // --- Shotguns ---
