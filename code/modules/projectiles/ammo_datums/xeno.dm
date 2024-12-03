@@ -573,15 +573,15 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/hugger/on_hit_mob(mob/M, obj/projectile/proj)
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(M), hivenumber)
-	hugger.go_idle()
+	hugger.Attach(M)
 
 /datum/ammo/xeno/hugger/on_hit_obj(obj/O, obj/projectile/proj)
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(O), hivenumber)
-	hugger.go_idle()
+	hugger.go_active()
 
 /datum/ammo/xeno/hugger/on_hit_turf(turf/T, obj/projectile/P)
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(T.density ? P.loc : T, hivenumber)
-	hugger.go_idle()
+	hugger.go_active()
 
 /datum/ammo/xeno/hugger/do_at_max_range(turf/T, obj/projectile/P)
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(T.density ? P.loc : T, hivenumber)

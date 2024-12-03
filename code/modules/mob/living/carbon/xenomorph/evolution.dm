@@ -167,6 +167,9 @@
 		qdel(new_xeno.hunter_data)
 		new_xeno.hunter_data = hunter_data
 		hunter_data = null
+	new_xeno.upgrades_holder = upgrades_holder
+	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
+		new_xeno.apply_status_effect(S)
 	new_xeno.generate_name() // This is specifically for numbered xenos who want to keep their previous number instead of a random new one.
 	new_xeno.hive?.update_ruler() // Since ruler wasn't set during initialization, update ruler now.
 	transfer_observers_to(new_xeno)

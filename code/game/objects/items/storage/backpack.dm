@@ -843,3 +843,56 @@
 	name = "\improper Modello/190"
 	desc = "A small lightweight buttpack made for use in a wide variety of operations, made with a synthetic black fibre."
 	icon_state = "icc_bag_guard"
+
+/obj/item/storage/backpack/marine/radiopack
+	name = "\improper TGMC radio operator backpack"
+	desc = "A backpack that resembles the ones old-age radio operator marines would use. It has a supply ordering console installed on it, and a retractable antenna to receive supply drops."
+	icon_state = "radiopack"
+	item_state = "radiopack"
+	///Var for the window pop-up
+	var/datum/supply_ui/requests/supply_interface
+	/// Reference to the datum used by the supply drop console
+	var/datum/supply_beacon/beacon_datum
+
+/obj/item/storage/backpack/marine/radiopack/Destroy()
+	if(beacon_datum)
+		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
+		QDEL_NULL(beacon_datum)
+	return ..()
+
+/obj/item/storage/backpack/marine/radiopack/examine(mob/user)
+	. = ..()
+	. += span_notice("Right-Click with empty hand to open requisitions interface.")
+	. += span_notice("Activate in hand to create a supply beacon signal.")
+
+/obj/item/storage/backpack/marine/radiopack/attack_hand_alternate(mob/living/user)
+	if(!allowed(user))
+		return ..()
+	if(!supply_interface)
+		supply_interface = new(src)
+	return supply_interface.interact(user)
+
+/obj/item/storage/backpack/marine/radiopack/attack_self(mob/living/user)
+	if(beacon_datum)
+		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
+		QDEL_NULL(beacon_datum)
+		user.show_message(span_warning("The [src] beeps and states, \"Your last position is no longer accessible by the supply console"), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
+		return
+	if(!is_ground_level(user.z))
+		to_chat(user, span_warning("You have to be on the planet to use this or it won't transmit."))
+		return FALSE
+	var/turf/location = get_turf(src)
+	beacon_datum = new /datum/supply_beacon(user.name, user.loc, user.faction, 4 MINUTES)
+	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
+	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
+	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)
+
+/obj/item/storage/backpack/marine/radiopack/proc/update_beacon_location()
+	if(beacon_datum)
+		beacon_datum.drop_location = get_turf(src)
+		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
+
+/// Signal handler to nullify beacon datum
+/obj/item/storage/backpack/marine/radiopack/proc/clean_beacon_datum()
+	SIGNAL_HANDLER
+	beacon_datum = null
