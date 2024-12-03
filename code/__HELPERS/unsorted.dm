@@ -1077,9 +1077,9 @@ will handle it, but:
 	var/pixel_y_offset = AM.pixel_y + M.get_y_shift()
 
 	//Irregular objects
-	var/icon/AMicon = icon(AM.icon, AM.icon_state)
-	var/AMiconheight = AMicon.Height()
-	var/AMiconwidth = AMicon.Width()
+	var/list/icon_dimensions = get_icon_dimensions(AM.icon)
+	var/AMiconheight = icon_dimensions["height"]
+	var/AMiconwidth = icon_dimensions["width"]
 	if(AMiconheight != world.icon_size || AMiconwidth != world.icon_size)
 		pixel_x_offset += ((AMiconwidth/world.icon_size)-1)*(world.icon_size*0.5)
 		pixel_y_offset += ((AMiconheight/world.icon_size)-1)*(world.icon_size*0.5)

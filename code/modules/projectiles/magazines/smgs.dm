@@ -3,6 +3,7 @@
 	desc = "A submachinegun magazine."
 	default_ammo = /datum/ammo/bullet/smg
 	max_rounds = 30
+	icon = 'icons/obj/items/ammo/smg.dmi'
 	icon_state_mini = "mag_smg"
 
 //-------------------------------------------------------
@@ -15,20 +16,21 @@
 	icon_state = "m25"
 	max_rounds = 60
 	w_class = WEIGHT_CLASS_SMALL
+	ammo_band_icon = "m25_band"
 
 /obj/item/ammo_magazine/smg/m25/ap
 	name = "\improper SMG-25 AP magazine (10x20mm)"
-	icon_state = "m25_ap"
 	default_ammo = /datum/ammo/bullet/smg/ap
 	icon_state_mini = "mag_smg_green"
 	bonus_overlay = "m25_ap"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 
 /obj/item/ammo_magazine/smg/m25/extended
 	name = "\improper SMG-25 extended magazine (10x20mm)"
-	icon_state = "m25_ext"
 	max_rounds = 90
 	icon_state_mini = "mag_smg_yellow"
 	bonus_overlay = "m25_ex"
+	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 
 //-------------------------------------------------------
 //MP-19 Machinepistol ammo
@@ -132,20 +134,21 @@
 	icon_state_mini = "mag_smg"
 	max_rounds = 50
 	w_class = WEIGHT_CLASS_SMALL
+	ammo_band_icon = "v21_band"
 
 /obj/item/ammo_magazine/smg/som/ap
 	name = "\improper V-21 AP submachinegun magazine (10x20mm)"
 	desc = "A 10x20mm caseless submachinegun magazine, loaded in armor piercing rounds."
-	icon_state = "v21_ap"
 	default_ammo = /datum/ammo/bullet/smg/ap
 	icon_state_mini = "mag_smg_green"
+	ammo_band_color = AMMO_BAND_COLOR_AP
 
 /obj/item/ammo_magazine/smg/som/incendiary
 	name = "\improper V-21 incendiary submachinegun magazine (10x20mm)"
 	desc = "A 10x20mm caseless submachinegun magazine, loaded in incendiary rounds."
-	icon_state = "v21_incend"
 	default_ammo = /datum/ammo/bullet/smg/incendiary
 	icon_state_mini = "mag_smg_red"
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/item/ammo_magazine/smg/som/extended
 	name = "\improper V-21 extended submachinegun magazine (10x20mm)"
@@ -155,6 +158,7 @@
 	icon_state_mini = "mag_smg_yellow"
 	w_class = WEIGHT_CLASS_NORMAL
 	aim_speed_mod = 0.1
+	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 
 /obj/item/ammo_magazine/smg/som/rad
 	name = "\improper V-21 radioactive submachinegun magazine (10x20mm)"
@@ -175,16 +179,14 @@
 	default_ammo = /datum/ammo/bullet/smg/ap
 	max_rounds = 32
 	w_class = WEIGHT_CLASS_SMALL
+	ammo_band_icon = "pl38_band"
 
 /obj/item/ammo_magazine/smg/icc_machinepistol/hp
 	name = "\improper PL-38 HP machinepistol magazine (10x20mm)"
 	desc = "A 10x20mm caseless hollow point machine pistol magazine."
-	caliber = CALIBER_10X20_CASELESS
-	icon_state = "pl38_hp"
 	icon_state_mini = "mag_smg_dark_blue"
 	default_ammo = /datum/ammo/bullet/smg/hollow
-	max_rounds = 32
-	w_class = WEIGHT_CLASS_SMALL
+	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 
 //-------------------------------------------------------
 //L-40, ICC PDW

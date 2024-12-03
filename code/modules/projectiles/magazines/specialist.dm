@@ -12,21 +12,21 @@
 	default_ammo = /datum/ammo/bullet/sniper
 	reload_delay = 3
 	icon_state_mini = "mag_sniper"
-
+	ammo_band_icon = "t26_band"
 
 /obj/item/ammo_magazine/sniper/incendiary
 	name = "\improper SR-26 incendiary magazine (10x28mm)"
 	default_ammo = /datum/ammo/bullet/sniper/incendiary
-	icon_state = "t26_inc"
 	icon_state_mini = "mag_sniper_red"
 	bonus_overlay = "t26_incend"
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/item/ammo_magazine/sniper/flak
 	name = "\improper SR-26 flak magazine (10x28mm)"
 	default_ammo = /datum/ammo/bullet/sniper/flak
-	icon_state = "t26_flak"
 	icon_state_mini = "mag_sniper_blue"
 	bonus_overlay = "t26_flak"
+	ammo_band_color = AMMO_BAND_COLOR_IMPACT
 
 //SR-42 magazine
 
@@ -62,24 +62,24 @@
 	default_ammo = /datum/ammo/bullet/rifle/tx8
 	max_rounds = 25
 	icon_state_mini = "mag_rifle_big"
+	ammo_band_icon = "tx8_band"
 
 /obj/item/ammo_magazine/rifle/tx8/incendiary
 	name = "\improper high velocity incendiary magazine (10x28mm)"
 	desc = "A magazine of overpressuered high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	caliber = CALIBER_10X28_CASELESS
-	icon_state = "tx8_incend"
 	default_ammo = /datum/ammo/bullet/rifle/tx8/incendiary
 	icon_state_mini = "mag_rifle_big_red"
 	bonus_overlay = "tx8_incend"
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/item/ammo_magazine/rifle/tx8/impact
 	name = "\improper high velocity impact magazine (10x28mm)"
 	desc = "A magazine of overpressuered high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
-	icon_state = "tx8_impact"
 	default_ammo = /datum/ammo/bullet/rifle/tx8/impact
 	icon_state_mini = "mag_rifle_big_blue"
 	bonus_overlay = "tx8_impact"
-
+	ammo_band_color = AMMO_BAND_COLOR_IMPACT
 
 //-------------------------------------------------------
 //M5 RPG
@@ -88,6 +88,7 @@
 	name = "\improper generic high-explosive rocket"
 	desc = "A precursor to all kinds of rocket ammo unfit for normal use. How did you get this anyway?"
 	caliber = CALIBER_84MM
+	icon = 'icons/obj/items/ammo/rocket.dmi'
 	icon_state = "rocket"
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
@@ -358,6 +359,7 @@
 	name = "railgun canister (Armor Piercing Discarding Sabot)"
 	desc = "A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister, this round will penetrate through most armor, but will not leave much of a hole."
 	caliber = CALIBER_RAILGUN
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "railgun"
 	default_ammo = /datum/ammo/bullet/railgun
 	max_rounds = 3
@@ -385,6 +387,7 @@
 	name = "pepperball canister (SAN balls)"
 	desc = "A canister holding a projectile to be used inside a pepperball gun."
 	caliber = CALIBER_PEPPERBALL
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "pepperball"
 	default_ammo = /datum/ammo/bullet/pepperball
 	max_rounds = 100
@@ -431,9 +434,9 @@
 	icon_state = "powerpacksg"
 	flags_magazine = MAGAZINE_WORN|MAGAZINE_REFILLABLE
 	default_ammo = /datum/ammo/bullet/smart_minigun
-	current_rounds = 2000
-	max_rounds = 2000
-	caliber = CALIBER_10x26_CASELESS
+	current_rounds = 1000
+	max_rounds = 1000
+	caliber = CALIBER_10X26_CASELESS
 	flags_item_map_variant = null
 
 
