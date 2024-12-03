@@ -1481,6 +1481,36 @@
 		log_admin("[key_name(H)] became a debug military policeman.")
 		message_admins("[ADMIN_TPMONTY(H)] became a debug military policeman.")
 
+/datum/admins/proc/basia_test()
+	set category = "Debug"
+	set name = "Basia Test"
+
+	if(!check_rights(R_FUN))
+		return
+
+	var/mob/M = usr
+	var/mob/living/carbon/human/H
+	var/spatial = FALSE
+	if(ishuman(M))
+		H = M
+		var/datum/job/J = H.job
+		spatial = istype(J, /datum/job/terragov/command/basia)
+
+	if(spatial)
+		log_admin("[key_name(M)] stopped being a debug testing.")
+		message_admins("[ADMIN_TPMONTY(M)] stopped being a debug testing.")
+		qdel(M)
+	else
+		H = new(get_turf(M))
+		M.client.prefs.copy_to(H)
+		M.mind.transfer_to(H, TRUE)
+		var/datum/job/J = SSjob.GetJobType(/datum/job/terragov/command/basia)
+		H.apply_assigned_role_to_spawn(J)
+		qdel(M)
+
+		log_admin("[key_name(H)] became a debug testing.")
+		message_admins("[ADMIN_TPMONTY(H)] became a debug testing.")
+
 /client/proc/cmd_admin_create_predator_report()
 	set name = "Report: Yautja AI"
 	set category = "Admin"
