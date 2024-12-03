@@ -161,7 +161,7 @@ SUBSYSTEM_DEF(garbage)
 
 	lastlevel = level
 
-	//We do this rather then for(var/refID in queue) because that sort of for loop copies the whole list.
+	//We do this rather then for(var/list/ref_info in queue) because that sort of for loop copies the whole list.
 	//Normally this isn't expensive, but the gc queue can grow to 40k items, and that gets costly/causes overrun.
 	for (var/i in 1 to length(queue))
 		var/list/L = queue[i]
@@ -175,20 +175,16 @@ SUBSYSTEM_DEF(garbage)
 		if(queued_at_time > cut_off_time)
 			break // Everything else is newer, skip them
 		count++
-		var/GCd_at_time = L[GC_QUEUE_ITEM_GCD_DESTROYED]
 
-		var/refID = L[GC_QUEUE_ITEM_REF]
-		var/datum/D
-		D = locate(refID)
-
-		if (!D || D.gc_destroyed != GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
+		var/datum/D = L[GC_QUEUE_ITEM_REF]
+		if(refcount(D) == 2)
 			++gcedlasttick
 			++totalgcs
 			pass_counts[level]++
 			#ifdef REFERENCE_TRACKING
 			reference_find_on_fail -= refID //It's deleted we don't care anymore.
 			#endif
-			if (MC_TICK_CHECK)
+			if(MC_TICK_CHECK)
 				return
 			continue
 
@@ -251,20 +247,19 @@ SUBSYSTEM_DEF(garbage)
 		count = 0
 
 /datum/controller/subsystem/garbage/proc/Queue(datum/D, level = GC_QUEUE_FILTER)
-	if (isnull(D))
+	if(isnull(D))
 		return
-	if (level > GC_QUEUE_COUNT)
+	if(level > GC_QUEUE_COUNT)
 		HardDelete(D)
 		return
 	var/queue_time = world.time
-	var/refid = text_ref(D)
 
-	if (D.gc_destroyed <= 0)
+	if(D.gc_destroyed <= 0)
 		D.gc_destroyed = queue_time
 
 	var/list/queue = queues[level]
 
-	queue[++queue.len] = list(queue_time, refid, D.gc_destroyed) // not += for byond reasons
+	queue[++queue.len] = list(queue_time, D, D.gc_destroyed) // not += for byond reasons
 
 //this is mainly to separate things profile wise.
 /datum/controller/subsystem/garbage/proc/HardDelete(datum/D)

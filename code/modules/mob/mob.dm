@@ -1,5 +1,6 @@
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
+	unset_machine()
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.offered_mob_list -= src
