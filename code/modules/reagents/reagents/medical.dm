@@ -149,7 +149,6 @@
 	name = "Oxycodone"
 	description = "An effective and very addictive painkiller."
 	color = COLOR_REAGENT_OXYCODONE
-	custom_metabolism = REAGENTS_METABOLISM * 1.25
 	overdose_threshold = REAGENTS_OVERDOSE * 0.5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
 	scannable = TRUE

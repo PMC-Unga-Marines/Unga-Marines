@@ -16,6 +16,10 @@
 #define CAT_MOD "JAEGER STORAGE MODULES"
 #define CAT_ARMMOD "JAEGER ARMOR MODULES"
 
+// Synth Special Categories
+#define CAT_SMR "SUITS AND ARMOR" // Synth's suits
+#define CAT_SHN "HATS" // Synth's non-protective hats
+
 #define CAT_MEDSUP "MEDICAL SUPPLIES"
 #define CAT_ENGSUP "ENGINEERING SUPPLIES"
 #define CAT_LEDSUP "LEADER SUPPLIES"
@@ -26,9 +30,34 @@
 #define CAT_ROBOT "COMBAT ROBOT SUPPLIES"
 #define CAT_LOAD "LOADOUT"
 
-// Synth Special Categories
-#define CAT_SMR "SUITS AND ARMOR" // Synth's suits
-#define CAT_SHN "HATS" // Synth's non-protective hats
+/// How many points a marine can spend by default
+#define MARINE_TOTAL_BUY_POINTS 45
+/// How many points the robot can spend
+#define ROBOT_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define LEADER_TOTAL_BUY_POINTS 45
+/// How many points the leader can spend
+#define SMARTGUNNER_TOTAL_BUY_POINTS 45
+/// How many points a medic can spend on pills
+#define MEDIC_TOTAL_BUY_POINTS 45
+/// How many points an engineer can spend
+#define ENGINEER_TOTAL_BUY_POINTS 75
+/// How many points the field commander can spend
+#define COMMANDER_TOTAL_BUY_POINTS 45
+/// How many points the synthetic can spend
+#define SYNTH_TOTAL_BUY_POINTS 50
+
+GLOBAL_LIST_INIT(default_marine_points, list(
+	CAT_MARINE = MARINE_TOTAL_BUY_POINTS,
+	CAT_ROBOT = ROBOT_TOTAL_BUY_POINTS,
+	CAT_SGSUP = SMARTGUNNER_TOTAL_BUY_POINTS,
+	CAT_ENGSUP = ENGINEER_TOTAL_BUY_POINTS,
+	CAT_LEDSUP = LEADER_TOTAL_BUY_POINTS,
+	CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
+	CAT_FCSUP = COMMANDER_TOTAL_BUY_POINTS,
+	CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
+))
+
 
 #define VENDOR_FACTION_NEUTRAL "Neutral"
 #define VENDOR_FACTION_CRASH "Crash"
@@ -61,6 +90,7 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),
+	/obj/item/storage/belt/marine/auto_catch = list(CAT_MARINE, "M344 pattern ammo load rig", 10, "orange"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
 	/obj/item/fulton_extraction_pack = list(CAT_MARINE, "Fulton Extraction Pack", 5, "orange"),
 	/obj/item/explosive/grenade = list(CAT_MARINE, "M40 HEDP grenade", 2, "orange3"),
@@ -74,7 +104,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/structure/closet/crate/mortar_ammo/mlrs_kit = list(CAT_MARINE, "MLRS kit", 35, "orange3"),
 	/obj/item/reagent_containers/hypospray/autoinjector/mastac = list(CAT_MARINE, "M-S neurostimulator", 20, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
-	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjecto", 10, "cyan"),
+	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjector", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
@@ -84,16 +114,9 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
 	/obj/item/tool/surgery/solderingtool = list(CAT_ESS, "Essential Soldering Tool", 0, "white"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = list(CAT_ROBOT, "Terra Experimental laser rifle", 15, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = list(CAT_ROBOT, "Terra Experimental laser sniper rifle", 20, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = list(CAT_ROBOT, "Terra Experimental laser carbine", 15, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = list(CAT_ROBOT, "Terra Experimental laser machine gun", 20, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = list(CAT_ROBOT, "Terra Experimental laser pistol", 10, "red"),
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = list(CAT_ROBOT, "Terra Experimental tesla shock rifle", 25, "red"),
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 4, "orange2"),
 	/obj/item/cell/lasgun/volkite/powerpack/marine_back = list(CAT_ROBOT, "Terra Experimental powerback", 20, "orange2"),
 	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
-	/obj/item/weapon/powerfist = list(CAT_ROBOT, "Powerfist", 10, "red"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
@@ -207,6 +230,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
 	/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
 	/obj/structure/closet/bodybag/tarp = list(CAT_LEDSUP, "V1 thermal-dampening tarp", 2, "yellow"),
+	/obj/item/storage/belt/marine/auto_catch = list(CAT_LEDSUP, "M344 pattern ammo load rig", 10, "orange"),
 	/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_LEDSUP, "FL-84 flamethrower", 6, "red"),
 	/obj/item/ammo_magazine/flamer_tank/large = list(CAT_LEDSUP, "Flamethrower tank", 2, "orange2"),
 	/obj/item/storage/holster/belt/revolver/mateba/full = list(CAT_LEDSUP, "Mateba Autorevolver belt", 10, "red"),
@@ -248,6 +272,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/armor_module/module/night_vision = list(CAT_FCSUP, "BE-35 night vision kit", 18, "blue"),
 	/obj/item/clothing/glasses/night_vision = list(CAT_FCSUP, "BE-47 night vision goggles", 26, "blue"),
 	/obj/item/cell/night_vision_battery = list(CAT_FCSUP, "night vision battery", 4, "blue"),
+	/obj/item/storage/belt/marine/auto_catch = list(CAT_FCSUP, "M344 pattern ammo load rig", 10, "orange"),
 	/obj/item/explosive/plastique = list(CAT_FCSUP, "Plastique explosive", 2, "orange3"),
 	/obj/item/detpack = list(CAT_FCSUP, "Detonation pack", 2, "orange3"),
 	/obj/item/storage/box/visual/grenade/sticky = list(CAT_FCSUP, "M40 adhesive charge grenade box", 15, "blue"),
@@ -341,6 +366,7 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/sg153/plasmaloss = list(CAT_SGSUP, "SG-153 Spotting Rifle Tanglefoot Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/pistol/p14/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "orange2"),
+	/obj/item/storage/belt/marine/auto_catch = list(CAT_SGSUP, "M344 pattern ammo load rig", 10, "orange"),
 ))
 
 GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
@@ -689,7 +715,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/item/armor_module/storage/uniform/holster = list(CAT_WEB, "Shoulder handgun holster", 0, "black"),
 		/obj/item/storage/belt/lifesaver/full = list(CAT_BEL, "Lifesaver belt", 0, "orange"),
 		/obj/item/storage/belt/rig/medical = list(CAT_BEL, "Rig belt", 0, "black"),
-		/obj/item/storage/belt/hypospraybelt = list(CAT_BEL, "Hypospray belt", 0, "black"),
+		/obj/item/storage/belt/hypospraybelt/full = list(CAT_BEL, "Hypospray belt", 0, "black"),
 		/obj/item/armor_module/module/welding = list(CAT_HEL, "Jaeger welding module", 0, "orange"),
 		/obj/item/armor_module/module/binoculars = list(CAT_HEL, "Jaeger binoculars module", 0, "orange"),
 		/obj/item/armor_module/module/artemis = list(CAT_HEL, "Jaeger Freyr module", 0, "orange"),
@@ -913,7 +939,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/gloves/white = list(CAT_GLO, "White gloves", 0, "black"),
 		/obj/item/storage/belt/lifesaver/full = list(CAT_BEL, "Lifesaver belt", 0, "orange", "synth-attachable"),
 		/obj/item/storage/belt/rig/medical = list(CAT_BEL, "Rig belt", 0, "black"),
-		/obj/item/storage/belt/hypospraybelt = list(CAT_BEL, "Hypospray belt", 0, "black"),
+		/obj/item/storage/belt/hypospraybelt/full = list(CAT_BEL, "Hypospray belt", 0, "black"),
 		/obj/item/clothing/shoes/marine = list(CAT_SHO, "Marine combat boots", 0, "synth-rcmarmor"),
 		/obj/item/clothing/shoes/white = list(CAT_SHO, "White shoes", 0, "synth-armor"),
 		/obj/item/clothing/shoes/brown = list(CAT_SHO, "Brown shoes", 0, "synth-armor"),

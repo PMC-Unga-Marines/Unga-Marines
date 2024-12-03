@@ -2,6 +2,7 @@
 	name = "box of 12x40mm"
 	desc = "A box containing 200 rounds of 12x40mm caseless."
 	caliber = CALIBER_12X40
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "ltbcannon_4"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/machinegun
@@ -13,6 +14,7 @@
 	name = "box of 11x35mm"
 	desc = "A box containing 200 rounds of 11x35mm caseless."
 	caliber = CALIBER_11X35
+	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "ltbcannon_4"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/smg

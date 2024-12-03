@@ -124,7 +124,7 @@
 				priority_announce(input, subtitle = "Sent by [usr]", type = ANNOUNCEMENT_COMMAND)
 				message_admins("[ADMIN_TPMONTY(usr)] has just sent a command announcement")
 				log_game("[key_name(usr)] has just sent a command announcement.")
-				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, ORDER_COOLDOWN)
+				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
 				cooldown_message = world.time
 
 		if("award")
@@ -181,14 +181,8 @@
 				if(!SSevacuation.cancel_evacuation())
 					to_chat(usr, span_warning("You are unable to cancel the evacuation right now!"))
 					return FALSE
-
-				spawn(35)//some time between AI announcements for evac cancel and SD cancel.
-					if(SSevacuation.evac_status == EVACUATION_STATUS_STANDING_BY)//nothing changed during the wait
-						//if the self_destruct is active we try to cancel it (which includes lowering alert level to red)
-						if(!SSevacuation.cancel_self_destruct(1))
-							//if SD wasn't active (likely canceled manually in the SD room), then we lower the alert level manually.
-							GLOB.marine_main_ship.set_security_level(SEC_LEVEL_RED, TRUE) //both SD and evac are inactive, lowering the security level.
-
+				//some time between AI announcements for evac cancel and SD cancel.
+				addtimer(CALLBACK(src, PROC_REF(evacuation_cancel)), 3.5 SECONDS)
 				log_game("[key_name(usr)] has canceled the emergency evacuation.")
 				message_admins("[ADMIN_TPMONTY(usr)] has canceled the emergency evacuation.")
 				return TRUE
@@ -236,7 +230,7 @@
 				cooldown_request = world.time
 				if(admin_response == "deny")
 					SSticker.mode.distress_cancelled = TRUE
-					priority_announce("The distress signal has been blocked, the launch tubes are now recalibrating.", "Distress Beacon")
+					priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distress_deny.ogg')
 					return FALSE
 				if(admin_response =="deny without annoncing")
 					SSticker.mode.distress_cancelled = TRUE
@@ -332,6 +326,14 @@
 
 	updateUsrDialog()
 
+/obj/machinery/computer/communications/proc/evacuation_cancel()
+	if(SSevacuation.evac_status != EVACUATION_STATUS_STANDING_BY) // nothing changed during the wait
+		return
+		//if the self_destruct is active we try to cancel it (which includes lowering alert level to red)
+	if(SSevacuation.cancel_self_destruct(TRUE))
+		return
+		//if SD wasn't active (likely canceled manually in the SD room), then we lower the alert level manually.
+	GLOB.marine_main_ship.set_security_level(SEC_LEVEL_RED, TRUE) //both SD and evac are inactive, lowering the security level.
 
 /obj/machinery/computer/communications/interact(mob/user)
 	. = ..()

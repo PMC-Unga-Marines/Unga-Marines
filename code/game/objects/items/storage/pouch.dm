@@ -802,11 +802,18 @@
 		/obj/item/tool/shovel/etool,
 	)
 
-/obj/item/storage/pouch/tools/full/Initialize(mapload)
-	. = ..()
+/obj/item/storage/pouch/tools/full/PopulateContents()
 	new /obj/item/tool/screwdriver (src)
 	new /obj/item/tool/wirecutters (src)
 	new /obj/item/tool/weldingtool (src)
+	new /obj/item/tool/wrench (src)
+	new /obj/item/tool/crowbar (src)
+
+
+/obj/item/storage/pouch/tools/engineer/PopulateContents()
+	new /obj/item/tool/screwdriver (src)
+	new /obj/item/tool/wirecutters (src)
+	new /obj/item/tool/weldingtool/hugetank (src)
 	new /obj/item/tool/wrench (src)
 	new /obj/item/tool/crowbar (src)
 
@@ -844,7 +851,6 @@
 	storage_slots = 7
 	draw_mode = 0
 	can_hold = list(/obj/item/ammo_magazine/handful)
-
 
 /obj/item/storage/pouch/shotgun/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/ammo_magazine))

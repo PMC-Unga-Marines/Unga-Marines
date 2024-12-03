@@ -131,15 +131,13 @@
 	else
 		wield(user)
 
-
 ///////////OFFHAND///////////////
 /obj/item/weapon/twohanded/offhand
-	w_class = WEIGHT_CLASS_HUGE
-	icon_state = "offhand"
 	name = "offhand"
+	icon_state = "offhand"
+	w_class = WEIGHT_CLASS_HUGE
 	flags_item = DELONDROP|TWOHANDED|WIELDED
 	resistance_flags = RESIST_ALL
-
 
 /obj/item/weapon/twohanded/offhand/Destroy()
 	if(ismob(loc))
@@ -594,7 +592,7 @@
 		else
 			stun = knockback ? knockback_stun_amount : crush_stun_amount
 
-	if(!M.IsStun() && !M.IsParalyzed() && !isxenoqueen(M)) //Prevent chain stunning. Queen is protected.
+	if(!M.IsStun() && !M.IsParalyzed() && !isxenoqueen(M) && !isxenoking(M)) //Prevent chain stunning. Queen and King are protected.
 		M.apply_effects(stun,weaken)
 
 	return ..()
