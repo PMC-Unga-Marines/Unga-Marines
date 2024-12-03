@@ -59,6 +59,8 @@ export const setClientTheme = (name) => {
       'github.text-color': '#000000',
       'webmap.background-color': 'none',
       'webmap.text-color': '#000000',
+      'boosty.background-color': 'none',
+      'boosty.text-color': '#000000',
       // Status and verb tabs
       'output.background-color': 'none',
       'output.text-color': '#000000',
@@ -113,6 +115,8 @@ export const setClientTheme = (name) => {
       'github.text-color': COLOR_DARK_TEXT,
       'webmap.background-color': '#494949',
       'webmap.text-color': COLOR_DARK_TEXT,
+      'boosty.background-color': '#494949',
+      'boosty.text-color': COLOR_DARK_TEXT,
       // Status and verb tabs
       'output.background-color': COLOR_DARK_BG_DARKER,
       'output.text-color': COLOR_DARK_TEXT,

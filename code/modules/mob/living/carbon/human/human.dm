@@ -10,26 +10,12 @@
 
 	GLOB.human_mob_list += src
 	GLOB.alive_human_list += src
-	LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
+	if(z)
+		LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
 
-	var/datum/action/skill/toggle_orders/toggle_orders_action = new
-	toggle_orders_action.give_action(src)
-	var/datum/action/skill/issue_order/move/issue_order_move = new
-	issue_order_move.give_action(src)
-	var/datum/action/skill/issue_order/hold/issue_order_hold = new
-	issue_order_hold.give_action(src)
-	var/datum/action/skill/issue_order/focus/issue_order_focus = new
-	issue_order_focus.give_action(src)
-	var/datum/action/innate/order/attack_order/personal/send_attack_order = new
-	send_attack_order.give_action(src)
-	var/datum/action/innate/order/defend_order/personal/send_defend_order = new
-	send_defend_order.give_action(src)
-	var/datum/action/innate/order/retreat_order/personal/send_retreat_order = new
-	send_retreat_order.give_action(src)
-	var/datum/action/innate/order/rally_order/personal/send_rally_order = new
-	send_rally_order.give_action(src)
-	var/datum/action/innate/message_squad/screen_orders = new
-	screen_orders.give_action(src)
+	for(var/action in GLOB.human_init_actions)
+		var/datum/action/human_action = new action(src)
+		human_action.give_action(src)
 
 	//makes order hud visible
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ORDER]
@@ -660,8 +646,6 @@
 	R.my_atom = WEAKREF(src)
 
 	species.create_organs(src)
-
-	dextrous = species.has_fine_manipulation
 
 	if(species.default_language_holder)
 		language_holder = new species.default_language_holder(src)

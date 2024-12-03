@@ -101,7 +101,7 @@
 
 // foam disolves when heated
 // except metal foams
-/obj/effect/particle_effect/foam/fire_act(burn_level)
+/obj/effect/particle_effect/foam/fire_act(burn_level, flame_color)
 	if(!(foam_flags & METAL_FOAM|RAZOR_FOAM) && prob(min(burn_level * 3, 100)))
 		kill_foam()
 
@@ -173,6 +173,6 @@
 		SMOOTH_GROUP_FOAM_WALL,
 	)
 
-/obj/structure/foamedmetal/fire_act(burn_level)
+/obj/structure/foamedmetal/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
 

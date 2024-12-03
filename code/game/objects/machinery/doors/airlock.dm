@@ -9,32 +9,44 @@
 	active_power_usage = 360
 	flags_atom = HTML_USE_INITAL_ICON_1
 	obj_flags = CAN_BE_HIT
-	var/aiControlDisabled = 0 //If 1, AI control is disabled until the AI hacks back in and disables the lock. If 2, the AI has bypassed the lock. If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
-	var/hackProof = 0 // if 1, this door can't be hacked by the AI
-	var/secondsMainPowerLost = 0 //The number of seconds until power is restored.
-	var/secondsBackupPowerLost = 0 //The number of seconds until power is restored.
+	autoclose = TRUE
+	/**
+	 * If 1, AI control is disabled until the AI hacks back in and disables the lock.
+	 * If 2, the AI has bypassed the lock.
+	 * If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
+	*/
+	var/aiControlDisabled = 0
+	/// if 1, this door can't be hacked by the AI
+	var/hackProof = 0
+	///The number of seconds until power is restored.
+	var/secondsMainPowerLost = 0
+	///The number of seconds until power is restored.
+	var/secondsBackupPowerLost = 0
 	var/spawnPowerRestoreRunning = 0
-	var/lights = 1 // bolt lights show by default
-	secondsElectrified = 0 //How many seconds remain until the door is no longer electrified. -1 if it is permanently electrified until someone fixes it.
+	/// bolt lights show by default
+	var/lights = 1
 	var/aiDisabledIdScanner = 0
 	var/aiHacking = 0
 	var/obj/machinery/door/airlock/closeOther = null
 	var/closeOtherId = null
 	var/list/signalers[12]
 	var/lockdownbyai = 0
-	autoclose = 1
 	var/assembly_type = /obj/structure/door_assembly
 	var/mineral = null
 	var/justzap = 0
 	var/safe = 1
 	normalspeed = 1
 	var/obj/item/circuitboard/airlock/electronics = null
-	var/hasShocked = 0 //Prevents multiple shocks from happening
-	var/secured_wires = 0	//for mapping use
-	var/no_panel = 0 //the airlock has no panel that can be screwdrivered open
+	///Prevents multiple shocks from happening
+	var/hasShocked = FALSE
+	///for mapping use
+	var/secured_wires = 0
+	///the airlock has no panel that can be screwdrivered open
+	var/no_panel = 0
 	///used to determine various abandoned door effects
 	var/abandoned = FALSE
 	smoothing_groups = list(SMOOTH_GROUP_AIRLOCK)
+
 
 /obj/machinery/door/airlock/bumpopen(mob/living/user) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
 	if(issilicon(user))
@@ -43,8 +55,7 @@
 		if(!justzap)
 			if(shock(user, 100))
 				justzap = TRUE
-				spawn (openspeed)
-					justzap = FALSE
+				addtimer(VARSET_CALLBACK(src, justzap, FALSE), openspeed)
 				return
 		else /*if(justzap)*/
 			return
@@ -57,7 +68,7 @@
 	return ..(user)
 
 /obj/machinery/door/airlock/Initialize()
-	..()
+	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door/airlock/LateInitialize()
@@ -160,17 +171,16 @@
 // The preceding comment was borrowed from the grille's shock script
 /obj/machinery/door/airlock/shock(mob/user, prb)
 	if(!hasPower())
-		return 0
+		return FALSE
 	if(hasShocked)
-		return 0	//Already shocked someone recently?
+		return FALSE	//Already shocked someone recently?
 	if(..())
-		hasShocked = 1
+		hasShocked = TRUE
 		sleep(1 SECONDS)
-		hasShocked = 0
-		return 1
+		hasShocked = FALSE
+		return TRUE
 	else
-		return 0
-
+		return FALSE
 
 /obj/machinery/door/airlock/update_icon_state()
 	. = ..()
@@ -197,14 +207,16 @@
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
 		if("opening")
-			if(overlays) overlays.Cut()
+			if(overlays)
+				overlays.Cut()
 			if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 				spawn(2) // The only work around that works. Downside is that the door will be gone for a millisecond.
 					flick("o_door_opening", src)  //can not use flick due to BYOND bug updating overlays right before flicking
 			else
 				flick("door_opening", src)
 		if("closing")
-			if(overlays) overlays.Cut()
+			if(overlays)
+				overlays.Cut()
 			if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 				flick("o_door_closing", src)
 			else
@@ -450,9 +462,9 @@
 
 	else if(!operating)
 		if(density)
-			open(1)
+			open(TRUE)
 		else
-			close(1)
+			close(TRUE)
 
 	return TRUE
 
@@ -519,7 +531,7 @@
 		playsound(src.loc, 'sound/machines/airlock.ogg', 25, 0)
 	for(var/turf/turf in locs)
 		var/obj/structure/window/killthis = (locate(/obj/structure/window) in turf)
-		killthis?.ex_act(2)//Smashin windows
+		killthis?.ex_act(200)//Smashin windows
 	return ..()
 
 /obj/machinery/door/airlock/proc/lock(forced = FALSE)
@@ -718,5 +730,4 @@
 	if(psi_power < PSIONIC_INTERACTION_STRENGTH_STANDARD && hasPower())
 		to_chat(user, span_warning("The airlock's motors resist your efforts to force it."))
 		return
-
 	return ..()

@@ -108,7 +108,7 @@
 		stack_trace("Incorrect turf deletion")
 	changing_turf = FALSE
 	if(force)
-		..()
+		. = ..()
 		//this will completely wipe turf state
 		var/turf/B = new world.turf(src)
 		for(var/A in B.contents)
@@ -120,7 +120,7 @@
 	DISABLE_BITFIELD(flags_atom, INITIALIZED)
 	soft_armor = null
 	hard_armor = null
-	..()
+	. = ..()
 	return QDEL_HINT_IWILLGC
 
 /// WARNING WARNING
@@ -411,44 +411,41 @@
 /turf/proc/ceiling_debris(size = 1) //debris falling in response to airstrikes, etc
 	var/area/A = get_area(src)
 	if(!A.ceiling) return
-
-	var/amount = size
-	var/spread = round(sqrt(size)*1.5)
+	var/spread = round(sqrt(size) * 1.5)
 
 	var/list/turfs = list()
-	for(var/turf/open/floor/F in range(src,spread))
+	for(var/turf/open/floor/F in range(src, spread))
 		turfs += F
 
+	var/drop_message
+	var/list/debris_list
 	switch(A.ceiling)
+		if(CEILING_NONE)
+			return
 		if(CEILING_GLASS)
 			playsound(src, 'sound/effects/glassbr1.ogg', 60, 1)
-			spawn(8)
-				if(amount >1)
-					visible_message(span_boldnotice("Shards of glass rain down from above!"))
-				for(var/i=1, i<=amount, i++)
-					new /obj/item/shard(pick(turfs))
-					new /obj/item/shard(pick(turfs))
+			drop_message = "Shards of glass rain down from above!"
+			debris_list = list(/obj/item/shard, /obj/item/shard)
 		if(CEILING_METAL, CEILING_OBSTRUCTED)
 			playsound(src, 'sound/effects/metal_crash.ogg', 30, 1)
-			spawn(8)
-				if(amount >1)
-					visible_message(span_boldnotice("Pieces of metal crash down from above!"))
-				for(var/i=1, i<=amount, i++)
-					new /obj/item/stack/sheet/metal(pick(turfs))
+			drop_message = "Pieces of metal crash down from above!"
+			debris_list = list(/obj/item/stack/sheet/metal)
 		if(CEILING_UNDERGROUND, CEILING_DEEP_UNDERGROUND)
 			playsound(src, 'sound/effects/meteorimpact.ogg', 60, 1)
-			spawn(8)
-				if(amount >1)
-					visible_message(span_boldnotice("Chunks of rock crash down from above!"))
-				for(var/i = 1, i <= amount, i++)
-					new /obj/item/ore(pick(turfs))
-					new /obj/item/ore(pick(turfs))
+			drop_message = "Chunks of rock crash down from above!"
+			debris_list = list(/obj/item/ore, /obj/item/ore)
 		if(CEILING_UNDERGROUND_METAL, CEILING_DEEP_UNDERGROUND_METAL)
 			playsound(src, 'sound/effects/metal_crash.ogg', 60, 1)
-			spawn(8)
-				for(var/i = 1, i <= amount, i++)
-					new /obj/item/stack/sheet/metal(pick(turfs))
-					new /obj/item/ore(pick(turfs))
+			debris_list = list(/obj/item/stack/sheet/metal, /obj/item/ore)
+	addtimer(CALLBACK(src, PROC_REF(drop_ceiling_debris), debris_list, size, drop_message, turfs), 0.8 SECONDS)
+
+/// Drop amount of listed stuff in listed turfs, with a message if amount is more than 1
+/turf/proc/drop_ceiling_debris(list/stuff_to_drop, amount, drop_message, list/turfs)
+	if(amount > 1 && drop_message)
+		visible_message(span_boldnotice(drop_message))
+	for(var/i = 1, i <= amount, i++)
+		for(var/item_to_drop AS in stuff_to_drop)
+			new item_to_drop(pick(turfs))
 
 /turf/proc/ceiling_desc()
 	var/area/A = get_area(src)

@@ -572,7 +572,7 @@
 	var/swap_used = FALSE
 
 /datum/action/ability/xeno_action/mirage/remove_action()
-	clean_illusions()
+	illusions = list() //the actual illusions fade on their own, and the cooldown object may be qdel'd
 	return ..()
 
 /datum/action/ability/xeno_action/mirage/can_use_action(silent = FALSE, override_flags)
@@ -632,12 +632,13 @@
 	ability_cost = 0
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+	hidden = TRUE
 
 /datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
 	. = ..()
 	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
 
-/datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
+/datum/action/ability/xeno_action/hunter_army/remove_action(mob/living/L)
 	. = ..()
 	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
 
@@ -652,9 +653,6 @@
 
 	if(prob(ILUSSION_CHANCE))
 		new /mob/illusion/xeno(target_turf, owner, owner, ILLUSION_LIFETIME)
-
-/datum/action/ability/xeno_action/hunter_army/should_show()
-	return FALSE
 
 // ***************************************
 // *********** Crippling strike

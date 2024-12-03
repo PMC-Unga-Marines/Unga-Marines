@@ -14,8 +14,9 @@
 
 /obj/item/reagent_containers/pill/Initialize(mapload)
 	. = ..()
-	if(icon_state == "pill1")
-		icon_state = pill_id ? GLOB.randomized_pill_icons[pill_id] : pick(GLOB.randomized_pill_icons)
+	if(icon_state != "pill1")
+		return
+	icon_state = pill_id ? GLOB.randomized_pill_icons[pill_id] : pick(GLOB.randomized_pill_icons)
 
 /obj/item/reagent_containers/pill/attack_self(mob/user)
 	. = ..()

@@ -7,9 +7,9 @@
 
 	INVOKE_ASYNC(SSdiscord, TYPE_PROC_REF(/datum/controller/subsystem/discord, get_boosty_tier), ckey)
 
-	var/turf/T = get_turf(src)
-	if (isturf(T))
-		update_z(T.z)
+	var/turf/mob_turf = get_turf(src)
+	if(isturf(mob_turf))
+		update_z(mob_turf.z)
 
 	if(length(pipes_shown)) //ventcrawling, need to reapply pipe vision
 		var/obj/machinery/atmospherics/A = loc

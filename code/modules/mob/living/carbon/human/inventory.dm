@@ -535,20 +535,21 @@
 	else if(equipped_item == s_store)
 		. = SLOT_S_STORE
 
-/mob/living/carbon/human/stripPanelUnequip(obj/item/I, mob/M, slot_to_process)
+/mob/living/carbon/human/stripPanelUnequip(obj/item/I, mob/M, slot_to_process, display_icon = BUSY_ICON_HOSTILE)
 	if(!I.canStrip(M))
 		return
 	log_combat(src, M, "attempted to remove [key_name(I)] ([slot_to_process])")
 
 	M.visible_message(span_danger("[src] tries to remove [M]'s [I.name]."), \
-					span_userdanger("[src] tries to remove [M]'s [I.name]."), null, 5)
-	if(do_after(src, HUMAN_STRIP_DELAY, NONE, M, BUSY_ICON_HOSTILE))
-		if(Adjacent(M) && I && I == M.get_item_by_slot(slot_to_process))
-			M.dropItemToGround(I)
-			log_combat(src, M, "removed [key_name(I)] ([slot_to_process])")
-			if(isidcard(I))
-				message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
-
+		span_userdanger("[src] tries to remove [M]'s [I.name]."), null, 5)
+	if(!do_after(src, HUMAN_STRIP_DELAY, NONE, M, display_icon))
+		return
+	if(!Adjacent(M)|| !I || I != M.get_item_by_slot(slot_to_process))
+		return
+	M.dropItemToGround(I)
+	log_combat(src, M, "removed [key_name(I)] ([slot_to_process])")
+	if(isidcard(I))
+		message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE, client/override_client)
 	var/datum/outfit/O = null
@@ -563,7 +564,6 @@
 		return FALSE
 
 	return O.equip(src, visualsOnly, override_client)
-
 
 /mob/living/carbon/human/proc/delete_equipment(save_id = FALSE)
 	for(var/i in contents)

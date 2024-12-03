@@ -28,6 +28,9 @@
 
 #define COMSIG_GLOB_SHIP_SELF_DESTRUCT_ACTIVATED "!ship_self_destruct_activated"
 
+///Gamemode has successfully loaded
+#define COMSIG_GLOB_GAMEMODE_LOADED "!gamemode_loaded"
+
 /// from /obj/machinery/setAnchored(): (machine, anchoredstate)
 #define COMSIG_GLOB_MACHINERY_ANCHORED_CHANGE "!machinery_anchored_change"
 
@@ -276,7 +279,7 @@
 #define COMSIG_MOVABLE_POST_THROW "movable_post_throw"			//called on tail of atom/movable/throw_at()
 #define COMSIG_MOVABLE_DISPOSING "movable_disposing"			//called when the movable is added to a disposal holder object for disposal movement: (obj/structure/disposalholder/holder, obj/machinery/disposal/source)
 #define COMSIG_MOVABLE_HEAR "movable_hear"						//from base of atom/movable/Hear(): (message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
-#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit" 			//from base of atom/movable/onTransitZ(): (old_z, new_z)
+#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit" 			//from base of atom/movable/on_changed_z_level(): (old_z, new_z)
 #define COMSIG_MOVABLE_PREBUMP_TURF "movable_prebump_turf"
 #define COMSIG_MOVABLE_PREBUMP_MOVABLE "movable_prebump_movable"
 	#define COMPONENT_MOVABLE_PREBUMP_STOPPED (1<<0)
@@ -349,7 +352,6 @@
 
 #define COMSIG_ITEM_TOGGLE_ACTION "item_toggle_action"			//from base of obj/item/ui_interact(): (/mob/user)
 #define COMSIG_ITEM_TOGGLE_ACTIVE "item_toggle_active"			//from base of /obj/item/toggle_active(): (new_state)
-#define COMSIG_ITEM_EXCLUSIVE_TOGGLE "item_exclusive_toggle"
 
 #define COMSIG_ITEM_MIDDLECLICKON "item_middleclickon"					//from base of mob/living/carbon/human/MiddleClickOn(): (/atom, /mob)
 #define COMSIG_ITEM_SHIFTCLICKON "item_shiftclickon"					//from base of mob/living/carbon/human/ShiftClickOn(): (/atom, /mob)
@@ -412,6 +414,8 @@
 #define COMSIG_MOB_GUN_FIRED "mob_gun_fired"
 #define COMSIG_MOB_GUN_AUTOFIRED "mob_gun_autofired"
 #define COMSIG_MOB_GUN_COOLDOWN "mob_gun_cooldown"
+
+#define COMSIG_MAGAZINE_DROP "magazine_drop"
 
 #define COMSIG_XENO_FIRE "xeno_fire"
 #define COMSIG_XENO_STOP_FIRE "xeno_stop_fire"
@@ -716,6 +720,7 @@
 #define COMSIG_MECHABILITY_SKYFALL "mechability_skyfall"
 #define COMSIG_MECHABILITY_STRIKE "mechability_strike"
 
+#define COMSIG_ACTION_EXCLUSIVE_TOGGLE "action_exclusive_toggle"
 // xeno abilities for keybindings
 
 #define COMSIG_XENOABILITY_REST "xenoability_rest"
@@ -796,6 +801,9 @@
 #define COMSIG_XENOABILITY_FORTIFY "xenoability_fortify"
 #define COMSIG_XENOABILITY_REGENERATE_SKIN "xenoability_regenerate_skin"
 #define COMSIG_XENOABILITY_CENTRIFUGAL_FORCE "xenoability_centrifugal_force"
+
+#define COMSIG_XENOABILITY_STEELCREST_HEADBUTT "xenoability_steelcrest_bodyswap_headbutt"
+#define COMSIG_XENOABILITY_STEELCREST_SOAK "xenoability_steelcrest_soak"
 
 #define COMSIG_XENOABILITY_EMIT_NEUROGAS "xenoability_emit_neurogas"
 #define COMSIG_XENOABILITY_SELECT_REAGENT "xenoability_select_reagent"
@@ -891,6 +899,19 @@
 #define COMSIG_XENOABILITY_SEISMIC_FRACTURE "xenoability_seismic_fracture"
 #define COMSIG_XENOABILITY_PRIMAL_WRATH "xenoability_primal_wrath"
 
+#define COMSIG_XENOABILITY_BURROW "xenoability_burrow"
+#define COMSIG_XENOABILITY_LEASH_BALL "xenoability_leash_ball"
+#define COMSIG_XENOABILITY_CREATE_SPIDERLING "xenoability_create_spiderling"
+#define COMSIG_XENOABILITY_ATTACH_SPIDERLINGS "xenoability_attach_spiderlings"
+#define COMSIG_XENOABILITY_WEB_SPIT "xenoability_web_spit"
+#define COMSIG_XENOABILITY_CREATE_HUGGER "xenoability_create_hugger"
+#define COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS "xenoability_unleash_spiderlings"
+#define COMSIG_XENOABILITY_RECALL_SPIDERLINGS "xenoability_recall_spiderlings"
+
+//spiderling
+#define COMSIG_SPIDERLING_CHANGE_ORDER "spiderlingchangeorder"
+#define COMSIG_SPIDERLING_CHANGE_ALL_ORDER "spiderlingglobalorder"
+
 //sectoid abilities
 #define COMSIG_ABILITY_MINDMELD "ability_mindmeld"
 #define COMSIG_ABILITY_MINDFRAY "ability_mindfray"
@@ -937,6 +958,14 @@
 #define COMSIG_KB_DEFENDORDER "keybind_defendorder"
 #define COMSIG_KB_RETREATORDER "keybind_retreatorder"
 #define COMSIG_KB_VEHICLEHONK "keybind_vehiclehonk"
+
+//Item toggle keybinds
+#define COMSIG_ITEM_TOGGLE_JETPACK "item_toggle_jetpack"
+#define COMSIG_ITEM_TOGGLE_BLINKDRIVE "item_toggle_blinkdrive"
+
+//Weapon related ability keybinds
+#define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
+#define COMSIG_WEAPONABILITY_SWORDLUNGE "weaponability_swordlunge"
 
 // human modules signals for keybindings
 #define COMSIG_KB_VALI_CONFIGURE "keybinding_vali_configure"
@@ -986,7 +1015,11 @@
 
 //Signals for CIC orders
 #define COMSIG_ORDER_SELECTED "order_selected"
-#define COMSIG_ORDER_SENT "order_updated"
+#define COMSIG_CIC_ORDER_SENT "order_updated"
+#define COMSIG_CIC_ORDER_OFF_CD "order_off_cd"
+
+#define COMSIG_SKILL_ORDER_SENT "skill_order_updated"
+#define COMSIG_SKILL_ORDER_OFF_CD "skill_order_off_cd"
 
 //Signals for automatic fire at component
 #define COMSIG_AUTOMATIC_SHOOTER_START_SHOOTING_AT "start_shooting_at"

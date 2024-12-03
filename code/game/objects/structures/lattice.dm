@@ -51,22 +51,12 @@
 		qdel(src)
 
 /obj/structure/lattice/proc/updateOverlays()
-	//if(!isspaceturf(loc))
-	//	qdel(src)
-	spawn(1)
-		overlays = list()
-
-		var/dir_sum = 0
-
-		for (var/direction in GLOB.cardinals)
-			if(locate(/obj/structure/lattice, get_step(src, direction)))
-				dir_sum += direction
-			else
-				if(!isspaceturf(get_step(src, direction)))
-					dir_sum += direction
-
-		icon_state = "lattice[dir_sum]"
-		return
+	var/dir_sum = 0
+	for(var/direction in GLOB.cardinals)
+		if(!locate(/obj/structure/lattice, get_step(src, direction)) || isspaceturf(get_step(src, direction)))
+			continue
+		dir_sum += direction
+	icon_state = "lattice[dir_sum]"
 
 /obj/structure/catwalk
 	icon = 'icons/obj/smooth_objects/catwalk.dmi'

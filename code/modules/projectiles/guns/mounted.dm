@@ -402,7 +402,7 @@
 	icon = 'icons/Marine/marine-mmg.dmi'
 	icon_state = "t27"
 	item_state = "t27"
-	caliber = CALIBER_10x27_CASELESS // codex
+	caliber = CALIBER_10X27_CASELESS // codex
 	max_shells = 150 //codex
 	force = 40
 	aim_slowdown = 1.2
@@ -619,7 +619,7 @@
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/agls37
 	scatter = 0
-	fire_delay = 1.1 SECONDS
+	fire_delay = 1 SECONDS
 	burst_amount = 0
 	accuracy_mult = 1.2 //it's got a bipod
 	flags_item = IS_DEPLOYABLE|TWOHANDED
@@ -643,7 +643,7 @@
 		/obj/item/ammo_magazine/agls37/tanglefoot,
 	)
 
-	deploy_time = 6 SECONDS
+	deploy_time = 5 SECONDS
 	undeploy_time = 3 SECONDS
 	deployable_item = /obj/machinery/deployable/mounted
 
