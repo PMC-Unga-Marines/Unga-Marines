@@ -164,6 +164,9 @@
 	if(owner.do_actions)
 		return fail_activate()
 
+	if(current_charges <= 0)
+		return fail_activate()
+
 	var/mob/living/carbon/xenomorph/X = owner
 	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
 		X.balloon_alert(X, "Max Spiderlings")
