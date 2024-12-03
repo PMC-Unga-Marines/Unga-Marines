@@ -121,14 +121,7 @@
 
 /datum/game_mode/infestation/crash/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
-	priority_announce(
-		message = "Scheduled for landing in T-10 Minutes. Prepare for landing. Known hostiles near LZ. Detonation Protocol Active, planet disposable. Marines disposable.",
-		title = "Good morning, marines.",
-		type = ANNOUNCEMENT_PRIORITY,
-		color_override = "red"
-	)
-	playsound(shuttle, 'sound/machines/warning-buzzer.ogg', 75, 0, 30)
-
+	priority_announce("Высадка запланирована через 10 минут. Приготовьтесь к посадке. Предварительное сканирование показывает наличие агрессивных форм биологической жизни. Ваша следующая миссия - заполучить коды доступа и активировать ядерную боеголовку.", title = "Доброе утро, товарищи!", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/crash_start.ogg', color_override = "red")
 
 /datum/game_mode/infestation/crash/process()
 	. = ..()

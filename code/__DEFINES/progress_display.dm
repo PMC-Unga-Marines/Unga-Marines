@@ -39,3 +39,4 @@
 #define BUSY_ICON_BAR /image/progdisplay/bar
 #define BUSY_ICON_UNSKILLED /image/progdisplay/unskilled
 #define BUSY_ICON_ENERGY /image/progdisplay/energy
+#define BUSY_ICON_FACEHUGGER /image/progdisplay/facehugger

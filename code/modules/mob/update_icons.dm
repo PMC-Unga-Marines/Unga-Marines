@@ -63,3 +63,6 @@
 
 /mob/proc/update_burst()
 	return
+
+/mob/proc/hud_set_hunter()
+	return

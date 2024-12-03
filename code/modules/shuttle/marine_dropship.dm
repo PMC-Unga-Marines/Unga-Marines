@@ -261,7 +261,7 @@
 	if(hijack_state != HIJACK_STATE_NORMAL)
 		return
 	cycle_timer = addtimer(CALLBACK(src, PROC_REF(go_to_previous_destination)), 20 SECONDS, TIMER_STOPPABLE)
-	priority_announce("The Alamo will depart towards [previous.name] in 20 seconds.", "Dropship Automatic Departure", color_override = "grey", playing_sound = FALSE)
+	priority_announce("Десантный шаттл взлетает через 20 секунд по направлению к [previous.name]", "Автопилот Нормандии", color_override = "grey", playing_sound = FALSE)
 
 ///Send the dropship to its previous dock
 /obj/docking_port/mobile/marine_dropship/proc/go_to_previous_destination()
@@ -324,7 +324,7 @@
 /obj/docking_port/mobile/marine_dropship/on_prearrival()
 	. = ..()
 	if(hijack_state == HIJACK_STATE_CRASHING)
-		priority_announce("DROPSHIP ON COLLISION COURSE. CRASH IMMINENT.", "EMERGENCY", sound = 'sound/AI/dropship_emergency.ogg', color_override = "red")
+		priority_announce("ДЕСАНТНЫЙ ШАТТЛ НА КУРСЕ СТОЛКНОВЕНИЯ. АВАРИЯ НЕИЗБЕЖНА.", "ТРЕВОГА", sound = 'sound/AI/dropship_emergency.ogg', color_override = "red")
 	for(var/obj/machinery/landinglight/light AS in GLOB.landing_lights)
 		if(light.linked_port == destination)
 			light.turn_on()
@@ -376,7 +376,7 @@
 	message_admins("[ADMIN_TPMONTY(src)] has summoned the dropship")
 	log_admin("[key_name(src)] has summoned the dropship")
 	hive?.xeno_message("[src] has summoned down the metal bird to [port], gather to her now!")
-	priority_announce("Unknown external interference with dropship control. Shutting down autopilot.", "Critical Dropship Alert", type = ANNOUNCEMENT_PRIORITY, color_override = "red")
+	priority_announce("Неизвестное вмешательство в управление десантным шаттлом. Выключение автопилота...", "Неисправность Шаттла", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_wrong.ogg')
 
 
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
@@ -414,37 +414,37 @@
 			locked_sides++
 			break
 		if(!locked_sides)
-			to_chat(user, span_warning("The bird is already on the ground, open and vulnerable."))
+			to_chat(user, span_warning("Птица уже на земле, открыта и уязвимая."))
 			return FALSE
 		if(locked_sides < 3 && !isdropshiparea(get_area(user)))
-			to_chat(user, span_warning("At least one side is still unlocked!"))
+			to_chat(user, span_warning("По крайней мере одна сторона все еще разблокирована!"))
 			return FALSE
-		to_chat(user, span_xenodanger("We crack open the metal bird's shell."))
+		to_chat(user, span_xenodanger("Мы вскрываем металлическую оболочку птицы."))
 		if(D.hijack_state != HIJACK_STATE_NORMAL)
 			return FALSE
-		to_chat(user, span_warning("We begin overriding the shuttle lockdown. This will take a while..."))
+		to_chat(user, span_warning("Мы начинаем отменять блокировку шаттла. Это займет некоторое время..."))
 		if(!do_after(user, 30 SECONDS, FALSE, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
-			to_chat(user, span_warning("We cease overriding the shuttle lockdown."))
+			to_chat(user, span_warning("Мы прекращаем отмену блокировки шаттла."))
 			return FALSE
 		if(!is_ground_level(D.z))
-			to_chat(user, span_warning("The bird has left meanwhile, try again."))
+			to_chat(user, span_warning("Птица улетела, попробуйте еще раз."))
 			return FALSE
 		D.unlock_all()
 		if(D.mode != SHUTTLE_IGNITING)
 			D.set_hijack_state(HIJACK_STATE_UNLOCKED)
 			D.do_start_hijack_timer(GROUND_LOCKDOWN_TIME)
-			to_chat(user, span_warning("We were unable to prevent the bird from flying as it is already taking off."))
+			to_chat(user, span_warning("Мы не можем помешать птице улететь, так как она уже взлетает."))
 		D.silicon_lock_airlocks(TRUE)
-		to_chat(user, span_warning("We have overriden the shuttle lockdown!"))
+		to_chat(user, span_warning("Мы отменили блокировку шаттла!"))
 		playsound(user, "alien_roar", 50)
-		priority_announce("Normandy lockdown protocol compromised. Interference preventing remote control.", "Dropship Lock Alert", type = ANNOUNCEMENT_PRIORITY, color_override = "red")
+		priority_announce("Протокол блокировки Нормандии скомпрометирован. Постороннее вмешательство блокирует попытки удалённого управления.", "Шаттл Заблокирован", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_block.ogg')
 		return FALSE
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
-		to_chat(user, span_warning("The bird's mind is currently active. We need to wait until it's more vulnerable..."))
+		to_chat(user, span_warning("Сознание птицы активно. Нужно подождать, пока она станет более уязвимым..."))
 		return FALSE
 	var/list/living_player_list = count_humans_and_xenos(SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND)), COUNT_IGNORE_ALIVE_SSD)
 	if(length_char(GLOB.alive_human_list) && ((living_player_list[1] / length_char(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
-		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
+		to_chat(user, span_warning("Ещё много живой добычи на земле. Они мешают нашему психическому полю. Мы должны уничтожить их, прежде чем сможем это сделать."))
 		return FALSE
 	return TRUE
 
@@ -695,23 +695,23 @@
 
 	if(href_list["hijack"])
 		if(!(X.hive.hive_flags & HIVE_CAN_HIJACK))
-			to_chat(X, span_warning("Our hive lacks the psychic prowess to hijack the bird."))
+			to_chat(X, span_warning("Нашему улью не хватает экстрасенсорных способностей, чтобы украсть птицу."))
 			return
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
 		if(living_player_list[1] > living_player_list[2]) // if there are more marines than xenos, we are unable to hijack
-			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
+			to_chat(X, span_xenowarning("Еще осталась добыча, на которую можно поохотиться!"))
 			return
 		switch(M.mode)
 			if(SHUTTLE_RECHARGING)
-				to_chat(X, span_xenowarning("The bird is still cooling down."))
+				to_chat(X, span_xenowarning("Птица все еще остывает..."))
 				return
 			if(SHUTTLE_IDLE) //Continue.
 				EMPTY_BLOCK_GUARD
 			else
-				to_chat(X, span_xenowarning("We can't do that right now."))
+				to_chat(X, span_xenowarning("Мы не можем сделать это сейчас."))
 				return
-		var/confirm = tgui_alert(usr, "Would you like to hijack the metal bird?", "Hijack the bird?", list("Yes", "No"))
-		if(confirm != "Yes")
+		var/confirm = tgui_alert(usr, "Хотите угнать металлическую птицу?", "Угнать птицу?", list("Да", "Нет"))
+		if(confirm != "Да")
 			return
 		var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
 		if(!CT)
@@ -721,13 +721,13 @@
 	if(href_list["abduct"])
 		var/list/living_player_list = SSticker.mode.count_humans_and_xenos(list(X.z), COUNT_IGNORE_ALIVE_SSD)
 		if(living_player_list[1] > 5)
-			to_chat(X, span_xenowarning("There is still prey left to hunt!"))
+			to_chat(X, span_xenowarning("Еще осталась добыча, на которую можно поохотиться!"))
 			return
 
-		var/confirm = tgui_alert(usr, "Would you like to capture the metal bird?\n THIS WILL END THE ROUND", "Capture the ship?", list( "Yes", "No"))
-		if(confirm != "Yes")
+		var/confirm = tgui_alert(usr, "Хотите захватить металлическую птицу?\n ЭТО ЗАВЕРШИТ РАУНД", "Захватить птицу?", list( "Да", "Нет"))
+		if(confirm != "Да")
 			return
-		priority_announce("The Normandy has been captured! Losing their main mean of accessing the ground, the marines have no choice but to retreat.", title = "Normandy Captured", color_override = "orange")
+		priority_announce("Нормандия захвачена! Потеряв главный путь к земле, морпехи вынуждены отступить.", title = "Нормандия Захвачена", color_override = "orange")
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 		return
@@ -741,7 +741,7 @@
 	crashing_dropship.crashing = TRUE
 	crashing_dropship.unlock_all()
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_HIJACKED)
-	priority_announce("Unscheduled dropship departure detected from operational area. Hijack likely.", title = "Critical Dropship Alert", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/hijack.ogg', color_override = "red")
+	priority_announce("Зафиксирован незапланированный вылет Нормандии из зоны боевых действий. Вероятен угон.", title = "Неисправность Нормандии", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/hijack.ogg', color_override = "red")
 	to_chat(user, span_danger("A loud alarm erupts from [src]! The fleshy hosts must know that you can access it!"))
 	user.hive.on_shuttle_hijack(crashing_dropship)
 	playsound(src, 'sound/misc/queen_alarm.ogg')
@@ -749,12 +749,12 @@
 	SSevacuation.flags_scuttle &= ~FLAGS_SDEVAC_TIMELOCK
 	switch(SSshuttle.moveShuttleToDock(shuttleId, crash_target, TRUE))
 		if(0)
-			visible_message("Shuttle departing. Please stand away from the doors.")
+			visible_message("Отправление шаттла. Осторожно, двери закрываются.")
 		if(1)
-			to_chat(user, span_warning("Invalid shuttle requested. This shouldn't happen, please report it."))
+			to_chat(user, span_warning("Неверный запрос на шаттл. Такого не должно быть! Сообщите об этом администрации."))
 			CRASH("moveShuttleToDock() returned 1.")
 		else
-			to_chat(user, span_warning("ERROR. This shouldn't happen, please report it."))
+			to_chat(user, span_warning("ОШИБКА. Такого не должно быть! Сообщите об этом администрации."))
 			CRASH("moveShuttleToDock() returned a non-zero-nor-one value.")
 
 /obj/machinery/computer/shuttle/marine_dropship/one
@@ -1481,7 +1481,7 @@
 
 		if(admin_response == "deny")
 			TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)
-			priority_announce("An evacuation attempt has been blocked, the engines are now restarting.", "Evacuation Attempt", ANNOUNCEMENT_COMMAND)
+			priority_announce("Попытка эвакуации заблокирована. Перезапуск двигателей...", "Попытка Эвакуации", ANNOUNCEMENT_COMMAND)
 			return TRUE
 		if(admin_response =="deny without annoncing")
 			TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)

@@ -441,9 +441,7 @@
 		if(locate(/turf/closed/wall/resin) in loc)
 			to_chat(src, span_warning("We decide not to drop [F] after all."))
 			return
-
-	. = ..()
-
+	return ..()
 
 //When the Queen's pheromones are updated, or we add/remove a leader, update leader pheromones
 /mob/living/carbon/xenomorph/proc/handle_xeno_leader_pheromones(mob/living/carbon/xenomorph/queen/Q)
@@ -659,16 +657,6 @@
 	get_upgrades(src)
 
 /mob/living/carbon/xenomorph/proc/get_upgrades(mob/living/carbon/xenomorph/user)
-	var/upgrade_price
-	switch(xeno_caste.tier)
-		if(XENO_TIER_ONE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T1
-		if(XENO_TIER_TWO)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
-		if(XENO_TIER_THREE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
-		else
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
 	var/dat = "<div align='center'>"
 
 	dat += "<hr>Active Upgrade Chambers:"
@@ -682,17 +670,17 @@
 	var/spur_chambers_built = length(user?.hive?.spur_chambers)
 	var/veil_chambers_built = length(user?.hive?.veil_chambers)
 	dat += "<div align='center'>SURVIVAL</div>"
-	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> " : "<br>Carapace "] | Cost: [upgrade_price] | Increase our armor."
-	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> " : "<br>Regeneration "] | Cost: [upgrade_price] | Increase our health regeneration."
-	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> " : "<br>Vampirism "] | Cost: [upgrade_price] | Leech from our attacks."
+	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];carapace_buy=1'>Carapace</a> " : "<br>Carapace "] | Cost: [XENO_UPGRADE_COST] | Increase our armor."
+	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];regeneration_buy=1'>Regeneration</a> " : "<br>Regeneration "] | Cost: [XENO_UPGRADE_COST] | Increase our health regeneration."
+	dat += "[shell_chambers_built ? "<br><a href='?src=[text_ref(src)];vampirism_buy=1'>Vampirism</a> " : "<br>Vampirism "] | Cost: [XENO_UPGRADE_COST] | Leech from our attacks."
 	dat += "<div align='center'>ATTACK</div>"
-	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> " : "<br>Celerity "] | Cost: [upgrade_price] | Increase our movement speed."
-	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> " : "<br>Adrenalin "] | Cost: [upgrade_price] | Increase our plasma regeneration."
-	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> " : "<br>Crush "] | Cost: [upgrade_price] | Increase our damage to objects."
+	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];celerity_buy=1'>Celerity</a> " : "<br>Celerity "] | Cost: [XENO_UPGRADE_COST] | Increase our movement speed."
+	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];adrenalin_buy=1'>Adrenalin</a> " : "<br>Adrenalin "] | Cost: [XENO_UPGRADE_COST] | Increase our plasma regeneration."
+	dat += "[spur_chambers_built ? "<br><a href='?src=[text_ref(src)];crush_buy=1'>Crush</a> " : "<br>Crush "] | Cost: [XENO_UPGRADE_COST] | Increase our damage to objects."
 	dat += "<div align='center'>UTILITY</div>"
-	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> " : "<br>Toxin "] | Cost: [upgrade_price] | Inject neurotoxin into the target."
-	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> " : "<br>Pheromones "] | Cost: [upgrade_price] | Ability to emit pheromones."
-	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];trail_buy=1'>Trail</a> " : "<br>Trail "] | Cost: [upgrade_price] | Leave a trail behind."
+	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];toxin_buy=1'>Toxin</a> " : "<br>Toxin "] | Cost: [XENO_UPGRADE_COST] | Inject neurotoxin into the target."
+	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];phero_buy=1'>Pheromones</a> " : "<br>Pheromones "] | Cost: [XENO_UPGRADE_COST] | Ability to emit pheromones."
+	dat += "[veil_chambers_built ? "<br><a href='?src=[text_ref(src)];trail_buy=1'>Trail</a> " : "<br>Trail "] | Cost: [XENO_UPGRADE_COST] | Leave a trail behind."
 
 	var/datum/browser/popup = new(user, "upgrademenu", "<div align='center'>Mutations Menu</div>", 600, 600)
 	popup.set_content(dat)
@@ -702,17 +690,7 @@
 	if(incapacitated(TRUE))
 		to_chat(usr, span_warning("Cant do that right now!"))
 		return
-	var/upgrade_price
-	switch(xeno_caste.tier)
-		if(XENO_TIER_ONE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T1
-		if(XENO_TIER_TWO)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T2
-		if(XENO_TIER_THREE)
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T3
-		else
-			upgrade_price = XENO_UPGRADE_BIOMASS_COST_T4
-	if(biomass < upgrade_price)
+	if(biomass < XENO_UPGRADE_COST)
 		to_chat(usr, span_warning("You dont have enough biomass!"))
 		return
 	var/upgrade = locate(upgrade_to_apply) in status_effects
@@ -720,12 +698,14 @@
 		to_chat(usr, span_xenonotice("Existing mutation chosen. No biomass spent."))
 		DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
 		return
-	biomass -= upgrade_price
+	biomass -= XENO_UPGRADE_COST
 	to_chat(usr, span_xenonotice("Mutation gained."))
 	for(var/datum/status_effect/S AS in upgrades_to_remove)
 		remove_status_effect(S)
+		upgrades_holder.Remove(S.type)
 	do_jitter_animation(500)
 	apply_status_effect(upgrade_to_apply)
+	upgrades_holder.Add(upgrade_to_apply.type)
 	DIRECT_OUTPUT(usr, browse(null, "window=["upgrademenu"]"))
 
 //Special override case. May not call the parent.

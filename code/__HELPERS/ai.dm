@@ -63,6 +63,7 @@
 		if(get_dist(source, nearby_illusion) > distance)
 			continue
 		. += nearby_illusion
+
 ///Returns a list of vehicles via get_dist and same z level method, very cheap compared to range()
 /proc/cheap_get_tanks_near(atom/movable/source, distance)
 	. = list()
@@ -80,6 +81,21 @@
 		if(get_dist(source_turf, nearby_tank) > distance + bound_max - 1)
 			continue
 		. += nearby_tank
+
+///Returns a list of unmanned vehicles via get_dist and same z level method, very cheap compared to range()
+/proc/cheap_get_unmanned_vehicles_near(atom/movable/source, distance)
+	. = list()
+	var/turf/source_turf = get_turf(source)
+	if(!source_turf)
+		return
+	for(var/obj/vehicle/unmanned/nearby_unmanned_vehicle AS in GLOB.unmanned_vehicles)
+		if(isnull(nearby_unmanned_vehicle))
+			continue
+		if(source_turf.z != nearby_unmanned_vehicle.z)
+			continue
+		if(get_dist(source_turf, nearby_unmanned_vehicle) > distance)
+			continue
+		. += nearby_unmanned_vehicle
 
 ///Returns the nearest target that has the right target flag
 /proc/get_nearest_target(atom/source, distance, target_flags, attacker_faction, attacker_hive)

@@ -488,6 +488,16 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "silicon radio"
 	keyslot = /obj/item/encryptionkey/mcom/ai
 
+/obj/item/radio/headset/mainship/mp
+	name = "security radio headset"
+	icon_state = "mp_headset"
+	keyslot = /obj/item/encryptionkey/mcom
+
+/obj/item/radio/headset/mainship/spatial
+	name = "spatial agent headset"
+	icon_state = "headset_marine_generic"
+	keyslot = /obj/item/encryptionkey/mcom/ai
+
 /obj/item/radio/headset/mainship/marine
 	keyslot = /obj/item/encryptionkey/general
 
