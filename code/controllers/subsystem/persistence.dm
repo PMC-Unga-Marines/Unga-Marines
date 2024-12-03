@@ -8,8 +8,8 @@
 #define CURRENT_SEASON_DESC "current_season_description"
 
 //Season names
-#define SEASONAL_GUNS "seasonal_guns"
-#define SEASONAL_HEAVY "seasonal_heavy"
+#define SEASONAL_GUNS "Сезонные пушки"
+#define SEASONAL_HEAVY "Сезонное тяжёлое вооружение"
 
 SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
@@ -124,13 +124,9 @@ SUBSYSTEM_DEF(persistence)
 /datum/controller/subsystem/persistence/proc/seasons_info_message()
 	var/message = ""
 	for(var/season_entry in season_progress)
-		var/season_name = jointext(splittext("[season_entry]", "_"), " ")
-		var/season_name_first_letter = uppertext(copytext(season_name, 1, 2))
-		var/season_name_remainder = copytext(season_name, 2, length(season_name) + 1)
-		season_name = season_name_first_letter + season_name_remainder
-		message += span_seasons_announce("<b>[season_name]</b> - season [season_progress[season_entry][CURRENT_SEASON_NUMBER]]<br>")
-		message += span_season_additional_info("<b>Title:</b> [season_progress[season_entry][CURRENT_SEASON_NAME]]<br>")
-		message += span_season_additional_info("<b>Description:</b> [season_progress[season_entry][CURRENT_SEASON_DESC]]<br>")
+		message += span_seasons_announce("<b>[season_entry]</b> - сезон [season_progress[season_entry][CURRENT_SEASON_NUMBER]]<br>")
+		message += span_season_additional_info("<b>Название:</b> [season_progress[season_entry][CURRENT_SEASON_NAME]]<br>")
+		message += span_season_additional_info("<b>Описание:</b> [season_progress[season_entry][CURRENT_SEASON_DESC]]<br>")
 
 	return message
 
@@ -200,8 +196,8 @@ SUBSYSTEM_DEF(persistence)
 	var/list/item_list = list()
 
 /datum/season_datum/weapons/guns/rifle_seasonal_one
-	name = "Old Earth"
-	description = "Ancient Earth guns. Antique and obsolete, but no less deadly"
+	name = "Старая Земля"
+	description = "Древнее Земное оружие. Старинное и устаревшее, но от этого не менее смертоносное."
 	item_list = list(
 		/obj/item/weapon/gun/rifle/mkh = -1,
 		/obj/item/ammo_magazine/rifle/mkh = -1,
@@ -215,8 +211,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/rifle_seasonal_two
-	name = "Pulse Weapons"
-	description = "Top-of-the-line pulse rifles, and a machinecarbine."
+	name = "Импульсное Оружие"
+	description = "Первоклассные импульсные винтовки и пулеметы."
 	item_list = list(
 		/obj/item/weapon/gun/rifle/m412 = -1,
 		/obj/item/ammo_magazine/rifle = -1,
@@ -230,8 +226,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/rifle_seasonal_three
-	name = "Cold War"
-	description = "Hot guns from the Cold War"
+	name = "Холодная Война"
+	description = "Горячие стволы из Холодной Войны."
 	item_list = list(
 		/obj/item/weapon/gun/rifle/mpi_km= -1,
 		/obj/item/ammo_magazine/rifle/mpi_km/plum = -1,
@@ -242,8 +238,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/pistol_seasonal_one
-	name = "High Noon"
-	description = "Revolvers? They are yours my friend. Bouncy, single-action, or with buckshot"
+	name = "Час Расплаты"
+	description = "Револьверы? Они твои, мой друг. Стреляющие, острой пулей или картечью."
 	item_list = list(
 		/obj/item/weapon/gun/revolver/small = 5,
 		/obj/item/ammo_magazine/revolver/small = -1,
@@ -257,8 +253,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/pistol_seasonal_two
-	name = "G22 and high-power gats"
-	description = "Four pistols for the pistol mains."
+	name = "G22 и мощные пистолеты."
+	description = "Четыре пистолета для любителей мелкоствольного."
 	item_list = list(
 		/obj/item/weapon/gun/pistol/g22 = 5,
 		/obj/item/ammo_magazine/pistol/g22 = -1,
@@ -271,8 +267,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/copsandrobbers_seasonal
-	name = "SWAT and Terrorists"
-	description = "Four classic SMGs, and no one's favorite burst revolver."
+	name = "Террористы и Спецназ"
+	description = "Четыре классических пистолета-пулемёта и никому ненужный серийный револьвер."
 	item_list = list(
 		/obj/item/weapon/gun/smg/uzi = -1,
 		/obj/item/ammo_magazine/smg/uzi = -1,
@@ -288,8 +284,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/shotgun_seasonal
-	name = "Pumps"
-	description = "Three classic pump shotguns from older times."
+	name = "Помповые"
+	description = "Три помповых дробовика со старых добрых времён."
 	item_list = list(
 		/obj/item/weapon/gun/shotgun/combat = -1,
 		/obj/item/weapon/gun/shotgun/pump = -1,
@@ -297,8 +293,8 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/lever_seasonal
-	name = "Lever Actions"
-	description = "Try and win the modern west with these"
+	name = "Рычаги"
+	description = "Попробуйте завоевать современный запад, усердно передёргивая... оружие."
 	item_list = list(
 		/obj/item/weapon/gun/shotgun/pump/lever = -1,
 		/obj/item/weapon/gun/shotgun/pump/lever/mbx900 = -1,
@@ -310,8 +306,8 @@ SUBSYSTEM_DEF(persistence)
 // Heavy Weapons Seasonals //
 
 /datum/season_datum/weapons/guns/heavy_defualt
-	name = "Default Heavy Weapons"
-	description = "The generic set of roundstart TGMC heavy weapons, TAT and RR."
+	name = "Стандартное Тяжелое Вооружение"
+	description = "Ракетницы, TAT и RR с самого начала раунда."
 	item_list = list(
 		/obj/structure/largecrate/supply/weapons/at36 = 1,
 		/obj/item/storage/holster/backholster/rpg/full = 2,
@@ -324,8 +320,8 @@ SUBSYSTEM_DEF(persistence)
 	)
 
 /datum/season_datum/weapons/guns/heavy_ff
-	name = "Fire and Forget Heavy Weapons"
-	description = "TAT, Thermobarics and Disposables for roundstart vendors."
+	name = "Стреляй и Бросай"
+	description = "TAT, Термалки и Одноразки."
 	item_list = list(
 		/obj/structure/largecrate/supply/weapons/at36 = 1,
 		/obj/item/weapon/gun/launcher/rocket/m57a4/t57/unloaded = 2,
@@ -334,8 +330,8 @@ SUBSYSTEM_DEF(persistence)
 	)
 
 /datum/season_datum/weapons/guns/heavy_autorail
-	name = "Wall and Armor Shredder Weapons"
-	description = "Flak gun and Railgun for roundstart vendors."
+	name = "Бронебойное"
+	description = "Зенитки и Рельсотрон. Долби броню!"
 	item_list = list(
 		/obj/structure/largecrate/supply/weapons/standard_flakgun = 1,
 		/obj/item/weapon/gun/rifle/railgun/unloaded = 2,
@@ -344,8 +340,8 @@ SUBSYSTEM_DEF(persistence)
 	)
 
 /datum/season_datum/weapons/guns/heavy_shock
-	name = "Shock Weapons"
-	description = "RR and MLRS for roundstart vendors."
+	name = "Ударное Оружие"
+	description = "RR и Миномёт. Взрывай на любом расстоянии."
 	item_list = list(
 		/obj/item/storage/holster/backholster/rpg/full = 2,
 		/obj/item/ammo_magazine/rocket/recoilless = 4,
