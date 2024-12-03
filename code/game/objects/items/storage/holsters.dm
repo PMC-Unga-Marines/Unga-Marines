@@ -101,7 +101,7 @@
 		underlays -= holstered_item_underlay
 		QDEL_NULL(holstered_item_underlay)
 
-/obj/item/storage/holster/belt/pistol/verb/toggle_auto_catch()
+/*/obj/item/storage/holster/belt/pistol/verb/toggle_auto_catch()
 	set name = "Toggle Auto Catching Magazines"
 	set category = "Object"
 	auto_catch = !auto_catch
@@ -118,7 +118,7 @@
 		to_chat(usr, "Auto catching disabled.")
 	else
 		to_chat(usr, "Auto catching enabled.")
-
+*/
 /obj/item/storage/holster/do_quick_equip(mob/user) //Will only draw the specific holstered item, not ammo etc.
 	if(!holstered_item)
 		return FALSE

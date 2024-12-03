@@ -15,12 +15,14 @@
 
 /datum/component/magazine_catcher/RegisterWithParent()
 	. = ..()
+	add_verbs()
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(equipped_to_slot))
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED), PROC_REF(removed_from_slot))
 	storage = parent
 
 /datum/component/magazine_catcher/UnregisterFromParent()
 	. = ..()
+	remove_verbs()
 	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED))
 
 /datum/component/magazine_catcher/proc/equipped_to_slot(datum/source, mob/user, slot)
@@ -40,9 +42,24 @@
 	wearer = null
 	UnregisterSignal(user, COMSIG_MAGAZINE_DROP)
 
+/datum/component/magazine_catcher/proc/add_verbs()
+	storage.verbs += /datum/component/magazine_catcher/verb/toggle_auto_catch
+
+/datum/component/magazine_catcher/proc/remove_verbs()
+	storage.verbs -= /datum/component/magazine_catcher/verb/toggle_auto_catch
+
 /datum/component/magazine_catcher/proc/try_to_catch_magazine(datum/source, obj/item/mag)
 	if(!storage.can_be_inserted(mag, FALSE))
 		return FALSE
 	if(!storage.auto_catch)
 		return FALSE
 	return storage.handle_item_insertion(mag, TRUE)
+
+/datum/component/magazine_catcher/verb/toggle_auto_catch()
+	set name = "Toggle Auto Catching Magazines"
+	set category = "Object"
+	storage.auto_catch = !storage.auto_catch
+	if(!storage.auto_catch)
+		to_chat(usr, "Auto catching disabled.")
+	else
+		to_chat(usr, "Auto catching enabled.")
