@@ -161,6 +161,9 @@ SUBSYSTEM_DEF(garbage)
 
 	lastlevel = level
 
+// 1 from the hard reference in the queue, and 1 from the variable used before this
+#define REFS_WE_EXPECT 2
+
 	//We do this rather then for(var/list/ref_info in queue) because that sort of for loop copies the whole list.
 	//Normally this isn't expensive, but the gc queue can grow to 40k items, and that gets costly/causes overrun.
 	for (var/i in 1 to length(queue))
@@ -177,7 +180,7 @@ SUBSYSTEM_DEF(garbage)
 		count++
 
 		var/datum/D = L[GC_QUEUE_ITEM_REF]
-		if(refcount(D) == 2)
+		if(refcount(D) == REFS_WE_EXPECT)
 			++gcedlasttick
 			++totalgcs
 			pass_counts[level]++
@@ -198,12 +201,15 @@ SUBSYSTEM_DEF(garbage)
 		switch (level)
 			if (GC_QUEUE_CHECK)
 				#ifdef REFERENCE_TRACKING
+				// Decides how many refs to look for (potentially)
+				// Based off the remaining and the ones we can account for
+				var/remaining_refs = refcount(D) - REFS_WE_EXPECT
 				if(reference_find_on_fail[refID])
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum,find_references))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references, remaining_refs))
 					ref_searching = TRUE
 				#ifdef GC_FAILURE_HARD_LOOKUP
 				else
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum,find_references))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references, remaining_refs))
 					ref_searching = TRUE
 				#endif
 				reference_find_on_fail -= refID
@@ -227,7 +233,7 @@ SUBSYSTEM_DEF(garbage)
 						return //ref searching intentionally cancels all further fires while running so things that hold references don't end up getting deleted, so we want to return here instead of continue
 					#endif
 					continue
-			if (GC_QUEUE_HARDDELETE)
+			if(GC_QUEUE_HARDDELETE)
 				HardDelete(D)
 				if (MC_TICK_CHECK)
 					return
@@ -242,9 +248,11 @@ SUBSYSTEM_DEF(garbage)
 
 		if (MC_TICK_CHECK)
 			return
-	if (count)
+	if(count)
 		queue.Cut(1,count+1)
 		count = 0
+
+#undef REFS_WE_EXPECT
 
 /datum/controller/subsystem/garbage/proc/Queue(datum/D, level = GC_QUEUE_FILTER)
 	if(isnull(D))
