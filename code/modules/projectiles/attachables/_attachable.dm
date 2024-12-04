@@ -359,7 +359,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	if(master_gun.active_attachable == src)
 		master_gun.active_attachable = null
 	master_gun.wield_delay					-= wield_delay_mod
-	UnregisterSignal(master_gun, list(COMSIG_ITEM_REMOVED_INVENTORY))
+	UnregisterSignal(master_gun, COMSIG_ITEM_REMOVED_INVENTORY)
 	master_gun = null
 	attached_to:gunattachment = null
 	update_icon()
