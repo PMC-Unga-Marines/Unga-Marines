@@ -331,7 +331,7 @@
 			return TRUE
 		if(M.mob_size <= MOB_SIZE_SMALL)
 			return TRUE
-		if(isxenorunner(M)) //alas, snowflake
+		if(isxenopanther(M)) //alas, snowflake
 			return TRUE
 		return FALSE
 

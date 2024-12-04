@@ -58,9 +58,9 @@
 	. = ..()
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/suicidal)
 
-/mob/living/carbon/xenomorph/runner/ai
+/mob/living/carbon/xenomorph/panther/ai
 
-/mob/living/carbon/xenomorph/runner/ai/Initialize(mapload)
+/mob/living/carbon/xenomorph/panther/ai/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
 

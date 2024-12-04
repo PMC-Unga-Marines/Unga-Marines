@@ -97,7 +97,6 @@
 #define isxenodefender(A) (istype(A, /mob/living/carbon/xenomorph/defender))
 #define isxenopraetorian(A) (istype(A, /mob/living/carbon/xenomorph/praetorian))
 #define isxenoravager(A) (istype(A, /mob/living/carbon/xenomorph/ravager))
-#define isxenorunner(A) (istype(A, /mob/living/carbon/xenomorph/runner))
 #define isxenospitter(A) (istype(A, /mob/living/carbon/xenomorph/spitter))
 #define isxenosentinel(A) (istype(A, /mob/living/carbon/xenomorph/sentinel))
 #define isxenowarrior(A) (istype(A, /mob/living/carbon/xenomorph/warrior))

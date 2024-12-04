@@ -1462,7 +1462,7 @@ to_chat will check for valid clients itself already so no need to double check f
 /mob/living/carbon/xenomorph/ravager/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
 
-/mob/living/carbon/xenomorph/runner/Corrupted
+/mob/living/carbon/xenomorph/panther/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
 
 /mob/living/carbon/xenomorph/sentinel/Corrupted
@@ -1537,7 +1537,7 @@ to_chat will check for valid clients itself already so no need to double check f
 /mob/living/carbon/xenomorph/ravager/Alpha
 	hivenumber = XENO_HIVE_ALPHA
 
-/mob/living/carbon/xenomorph/runner/Alpha
+/mob/living/carbon/xenomorph/panther/Alpha
 	hivenumber = XENO_HIVE_ALPHA
 
 /mob/living/carbon/xenomorph/sentinel/Alpha
@@ -1609,7 +1609,7 @@ to_chat will check for valid clients itself already so no need to double check f
 /mob/living/carbon/xenomorph/ravager/Beta
 	hivenumber = XENO_HIVE_BETA
 
-/mob/living/carbon/xenomorph/runner/Beta
+/mob/living/carbon/xenomorph/panther/Beta
 	hivenumber = XENO_HIVE_BETA
 
 /mob/living/carbon/xenomorph/sentinel/Beta
@@ -1681,7 +1681,7 @@ to_chat will check for valid clients itself already so no need to double check f
 /mob/living/carbon/xenomorph/ravager/Zeta
 	hivenumber = XENO_HIVE_ZETA
 
-/mob/living/carbon/xenomorph/runner/Zeta
+/mob/living/carbon/xenomorph/panther/Zeta
 	hivenumber = XENO_HIVE_ZETA
 
 /mob/living/carbon/xenomorph/sentinel/Zeta

@@ -115,7 +115,6 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"ravager",
 	"requisition",
 	"researcher",
-	"runner",
 	"sentinel",
 	"spiderling",
 	"spitter",

@@ -79,12 +79,6 @@
 
 //Tiered spawns.
 
-//-----RUNNER START-----//
-
-/mob/living/carbon/xenomorph/runner/primordial
-	upgrade = XENO_UPGRADE_PRIMO
-
-//-----RUNNER END-----//
 //================//
 //-----BULL START-----//
 

@@ -26,7 +26,7 @@
 
 /datum/wave_spawner/t1
 	spawn_types = list(
-		/mob/living/carbon/xenomorph/runner/ai,
+		/mob/living/carbon/xenomorph/panther/ai,
 		/mob/living/carbon/xenomorph/sentinel/ai,
 		/mob/living/carbon/xenomorph/defender/ai,
 		/mob/living/carbon/xenomorph/drone/ai,
@@ -60,7 +60,7 @@
 		/mob/living/carbon/xenomorph/mantis/ai,
 		/mob/living/carbon/xenomorph/scorpion/ai,
 		/mob/living/carbon/xenomorph/nymph/ai,
-		/mob/living/carbon/xenomorph/runner/ai,
+		/mob/living/carbon/xenomorph/panther/ai,
 		/mob/living/carbon/xenomorph/sentinel/ai,
 		/mob/living/carbon/xenomorph/defender/ai,
 		/mob/living/carbon/xenomorph/drone/ai,

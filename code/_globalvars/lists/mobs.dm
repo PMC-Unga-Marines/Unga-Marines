@@ -61,8 +61,6 @@ GLOBAL_LIST_INIT_TYPED(xeno_caste_datums, /list/datum/xeno_caste, init_xeno_cast
 		.[caste.get_base_caste_type()][caste.upgrade] = caste
 
 GLOBAL_LIST_INIT(all_xeno_types, list(
-	/mob/living/carbon/xenomorph/runner,
-	/mob/living/carbon/xenomorph/runner/primordial,
 	/mob/living/carbon/xenomorph/drone,
 	/mob/living/carbon/xenomorph/drone/primordial,
 	/mob/living/carbon/xenomorph/sentinel,
@@ -125,7 +123,7 @@ GLOBAL_LIST_EMPTY_TYPED(mob_illusions_list, /mob/illusion)
 GLOBAL_LIST_INIT(xeno_types_tier_one, list(
 	/datum/xeno_caste/defender,
 	/datum/xeno_caste/drone,
-	/datum/xeno_caste/runner,
+	/datum/xeno_caste/panther,
 	/datum/xeno_caste/sentinel,
 ))
 
@@ -134,7 +132,6 @@ GLOBAL_LIST_INIT(xeno_types_tier_two, list(
 	/datum/xeno_caste/carrier,
 	/datum/xeno_caste/hivelord,
 	/datum/xeno_caste/hunter,
-	/datum/xeno_caste/panther,
 	/datum/xeno_caste/spitter,
 	/datum/xeno_caste/warrior,
 ))

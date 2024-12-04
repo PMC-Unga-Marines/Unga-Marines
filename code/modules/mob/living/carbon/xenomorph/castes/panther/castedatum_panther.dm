@@ -4,7 +4,7 @@
 	upgrade_name = ""
 	caste_desc = "Run fast, hit hard, die young."
 	caste_type_path = /mob/living/carbon/xenomorph/panther
-	tier = XENO_TIER_TWO
+	tier = XENO_TIER_ONE
 	upgrade = XENO_UPGRADE_BASETYPE
 	wound_type = "panther" //used to match appropriate wound overlays
 
@@ -12,7 +12,7 @@
 	gib_flick = "gibbed-a-runner"
 
 	// *** Melee Attacks *** //
-	melee_damage = 23
+	melee_damage = 21
 	attack_delay = 6
 
 	// *** Speed *** //
@@ -28,7 +28,7 @@
 	max_health = 280
 
 	// *** Evolution *** //
-	evolution_threshold = 225
+	evolution_threshold = 100
 
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED

@@ -79,8 +79,8 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	var/mob/living/carbon/target = null
 
 /obj/effect/hallucination/simple
-	icon = 'icons/Xeno/castes/runner/basic.dmi'
-	icon_state = "Runner Walking"
+	icon = 'icons/Xeno/castes/panther/basic.dmi'
+	icon_state = "Panther Walking"
 	var/px = 0
 	var/py = 0
 	var/col_mod = null
@@ -124,14 +124,14 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	return ..()
 
 /obj/effect/hallucination/simple/xeno
-	name = "Mature Runner"
+	name = "Mature Panther"
 	desc = "A small red alien that looks like it could run fairly quickly..."
-	icon = 'icons/Xeno/castes/runner/basic.dmi'
-	icon_state = "Runner Walking"
+	icon = 'icons/Xeno/castes/panther/basic.dmi'
+	icon_state = "Panther Walking"
 
 /obj/effect/hallucination/simple/xeno/Initialize(mapload, mob/living/carbon/T)
 	. = ..()
-	name = "Mature Runner ([rand(100, 999)])"
+	name = "Mature Panther ([rand(100, 999)])"
 
 /obj/effect/hallucination/simple/xeno/throw_impact(atom/hit_atom, speed)
 	. = ..()
@@ -313,7 +313,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			fakemob = target //ever been so lonely you had to haunt yourself?
 		if(fakemob)
 			sleep(rand(20, 50))
-			to_chat(target, span_deadsay("<b>DEAD: [fakemob.name]</b> says, \"[pick("rip","why did i just drop dead?","hey [target.real_name]","git gud","you too?","did we get the [pick("nuke", "blue disk", "red disk", "green disk", "yellow disk")]?","i[prob(50)?" fucking":""] hate [pick("runners", "queens", "shrikes", "xenos", "this", "myself", "admins", "you")]")]\""))
+			to_chat(target, span_deadsay("<b>DEAD: [fakemob.name]</b> says, \"[pick("rip","why did i just drop dead?","hey [target.real_name]","git gud","you too?","did we get the [pick("nuke", "blue disk", "red disk", "green disk", "yellow disk")]?","i[prob(50)?" fucking":""] hate [pick("panthers", "queens", "shrikes", "xenos", "this", "myself", "admins", "you")]")]\""))
 	sleep(rand(7 SECONDS, 9 SECONDS))
 	target.set_screwyhud(SCREWYHUD_NONE)
 	target.SetSleeping(0)

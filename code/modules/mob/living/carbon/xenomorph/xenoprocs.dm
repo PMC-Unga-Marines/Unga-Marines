@@ -308,7 +308,7 @@
 	remove_verb(src, /mob/living/proc/toggle_resting)
 
 //Adds or removes a delay to movement based on your caste. If speed = 0 then it shouldn't do much.
-//Runners are -2, -4 is BLINDLINGLY FAST, +2 is fat-level
+//Pantherss are -2, -4 is BLINDLINGLY FAST, +2 is fat-level
 /mob/living/carbon/xenomorph/proc/setXenoCasteSpeed(new_speed)
 	if(new_speed == 0)
 		remove_movespeed_modifier(MOVESPEED_ID_XENO_CASTE_SPEED)
@@ -346,7 +346,7 @@
 		SEND_SOUND(src, sound('sound/effects/alien/evolveready.ogg'))
 
 
-//This deals with "throwing" xenos -- ravagers, hunters, and runners in particular. Everyone else defaults to normal
+//This deals with "throwing" xenos -- ravagers, hunters, and panthers in particular. Everyone else defaults to normal
 //Pounce, charge both use throw_at, so we need extra code to do stuff rather than just push people aside.
 /mob/living/carbon/xenomorph/throw_impact(atom/hit_atom, speed)
 	set waitfor = FALSE

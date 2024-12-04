@@ -822,6 +822,7 @@
 #define COMSIG_XENOABILITY_TOGGLE_STEALTH "xenoability_toggle_stealth"
 #define COMSIG_XENOABILITY_HUNTER_BLINK "xenoability_hunter_blink"
 #define COMSIG_XENOABILITY_MIRAGE "xenoability_mirage"
+#define COMSIG_XENOABILITY_HUNTER_POUNCE "xenoability_hunter_pounce"
 
 #define COMSIG_XENOABILITY_SCREECH "xenoability_screech"
 #define COMSIG_XENOABILITY_PSYCHIC_WHISPER "xenoability_psychic_whisper"
@@ -850,12 +851,7 @@
 #define COMSIG_XENOABILITY_IMMORTALITY "xenoability_immortality"
 #define COMSIG_XENOABILITY_VAMPIRISM "xenoability_vampirism"
 
-#define COMSIG_XENOABILITY_RUNNER_POUNCE "xenoability_runner_pounce"
-#define COMSIG_XENOABILITY_HUNTER_POUNCE "xenoability_hunter_pounce"
-#define COMSIG_XENOABILITY_TOGGLE_SAVAGE "xenoability_toggle_savage"
-#define COMSIG_XENOABILITY_EVASION "xenoability_evasion"
-#define COMSIG_XENOABILITY_AUTO_EVASION "xenoability_auto_evasion"
-#define COMSIG_XENOABILITY_SNATCH "xenoability_snatch"
+
 
 #define COMSIG_XENOABILITY_VENTCRAWL "xenoability_vent_crawl"
 
