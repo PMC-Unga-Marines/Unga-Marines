@@ -127,7 +127,6 @@ RU TGMC EDIT */
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_cell(src)
 
-
 	LAZYCLEARLIST(client_mobs_in_contents)
 
 	. = ..()

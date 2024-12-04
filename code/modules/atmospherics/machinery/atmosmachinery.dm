@@ -41,9 +41,6 @@
 	///The bitflag that's being checked on ventcrawling. Default is to allow ventcrawling and seeing pipes.
 	var/vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE
 
-	///Whether we get pipenet vision while inside or just see normally.
-	var/can_see_pipes = TRUE
-
 /obj/machinery/atmospherics/Initialize(mapload)
 	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
 	var/turf/turf_loc = null
@@ -323,7 +320,7 @@
 	return list()
 
 /obj/machinery/atmospherics/update_remote_sight(mob/user)
-	if(!can_see_pipes)
+	if(!(vent_movement & VENTCRAWL_CAN_SEE))
 		return
 	user.sight |= (SEE_TURFS|BLIND)
 

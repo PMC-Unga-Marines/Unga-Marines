@@ -66,7 +66,6 @@
 			else
 				to_chat(src, span_warning("This ventilation duct is not connected to anything!"))
 
-
 /**
  * Moves living mob directly into the vent as a ventcrawler
  *
