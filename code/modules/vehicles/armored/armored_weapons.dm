@@ -60,7 +60,7 @@
 	if(isdatum(ammo))
 		QDEL_NULL(ammo)
 	QDEL_LIST(ammo_magazine)
-	QDEL_LIST(accepted_ammo)
+	accepted_ammo.Cut()
 	return ..()
 
 ///called by the chassis: begins firing, yes this is stolen from mech but I made both so bite me
