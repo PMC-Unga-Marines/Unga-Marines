@@ -289,5 +289,5 @@
 	origin.shuttle_port.set_mode(SHUTTLE_CALL)
 	origin.last_valid_ground_port = origin.my_port
 	SSshuttle.moveShuttleToDock(origin.shuttleId, origin.my_port, TRUE)
-	if(world.time == SSticker.mode.shutters_drop_time)
+	if(world.time >= SSticker.round_start_time + SSticker.mode.shutters_drop_time)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LANDED)
