@@ -324,7 +324,7 @@
 	RegisterSignal(R, COMSIG_XENO_PROJECTILE_HIT, PROC_REF(evasion_dodge)) //This is where we actually check to see if we dodge the projectile.
 	RegisterSignal(R, COMSIG_ATOM_BULLET_ACT, PROC_REF(evasion_flamer_hit)) //Register status effects and fire which impact evasion.
 	RegisterSignal(R, COMSIG_LIVING_PRE_THROW_IMPACT, PROC_REF(evasion_throw_dodge)) //Register status effects and fire which impact evasion.
-	RegisterSignal(R, COMSIG_LIVING_ADD_VENTCRAWL, PROC_REF(evasion_deactivate))
+	RegisterSignal(R, COMSIG_LIVING_HANDLE_VENTCRAWL, PROC_REF(evasion_deactivate))
 
 	set_toggle(TRUE)
 	evade_active = TRUE //evasion is currently active
@@ -384,7 +384,7 @@
 		COMSIG_XENO_PROJECTILE_HIT,
 		COMSIG_LIVING_IGNITED,
 		COMSIG_LIVING_PRE_THROW_IMPACT,
-		COMSIG_LIVING_ADD_VENTCRAWL,
+		COMSIG_LIVING_HANDLE_VENTCRAWL,
 		COMSIG_ATOM_BULLET_ACT,))
 
 	set_toggle(FALSE)

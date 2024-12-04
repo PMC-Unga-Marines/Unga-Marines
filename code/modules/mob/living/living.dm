@@ -645,19 +645,19 @@ below 100 is not dizzy
 	return
 
 /mob/living/reset_perspective(atom/A)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
-
 	update_sight()
-	if (stat == DEAD)
-		animate(client, pixel_x = 0, pixel_y = 0)
+	update_fullscreen()
+	update_pipe_vision()
+
+/// Proc used to handle the fullscreen overlay updates, realistically meant for the reset_perspective() proc.
+/mob/living/proc/update_fullscreen()
 	if(client.eye && client.eye != src)
-		var/atom/AT = client.eye
-		AT.get_remote_view_fullscreens(src)
+		var/atom/client_eye = client.eye
+		client_eye.get_remote_view_fullscreens(src)
 	else
 		clear_fullscreen("remote_view", 0)
-	update_pipe_vision()
 
 /mob/living/update_sight()
 	if(SSticker.current_state == GAME_STATE_FINISHED && !is_centcom_level(z)) //Reveal ghosts to remaining survivors
@@ -916,7 +916,7 @@ below 100 is not dizzy
 /mob/living/carbon/xenomorph/transfer_mob(mob/candidate)
 	. = ..()
 	if(is_ventcrawling)  //If we are in a vent, fetch a fresh vent map
-		add_ventcrawl(loc)
+		handle_ventcrawl(loc)
 		get_up()
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
