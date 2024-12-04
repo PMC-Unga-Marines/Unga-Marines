@@ -6,14 +6,16 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_POUNCE,
 	)
-	cooldown_duration = 13 SECONDS
-	ability_cost = 20
-	var/pantherplasmaheal = 45
+	cooldown_duration = 8 SECONDS
+	ability_cost = 15
+	var/pantherplasmaheal = 35
+	var/pantherlifesteal = 25
 
 /datum/action/ability/activable/xeno/pounce/panther/mob_hit(datum/source, mob/living/M)
 	. = ..()
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	xenomorph_owner.plasma_stored += pantherplasmaheal
+	HEAL_XENO_DAMAGE(xenomorph_owner, pantherlifesteal, FALSE)
 
 ///////////////////////////////////
 // ***************************************
@@ -24,8 +26,8 @@
 	name = "Tearing tail"
 	action_icon_state = "tearing_tail"
 	desc = "Hit all nearby enemies around you, poisoning them with selected toxin and healing you for each target hit."
-	ability_cost = 50
-	cooldown_duration = 15 SECONDS
+	ability_cost = 35
+	cooldown_duration = 10 SECONDS
 	var/tearing_tail_reagent
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
@@ -52,7 +54,7 @@
 				affecting = human_target.get_limb("chest") //Gotta have a torso?!
 			human_target.apply_damage(damage, BRUTE, affecting, MELEE)
 			xenomorph_owner.plasma_stored += 25
-			xenomorph_owner.heal_overall_damage(25, 25, updating_health = TRUE)
+			xenomorph_owner.heal_overall_damage(35, 35, updating_health = TRUE)
 			if(human_target.can_sting())
 				tearing_tail_reagent = xenomorph_owner.selected_reagent
 				var/reagent_amount = (xenomorph_owner.selected_reagent == /datum/reagent/toxin/xeno_ozelomelyn) ? PANTHER_TEARING_TAIL_REAGENT_AMOUNT * 0.5 : PANTHER_TEARING_TAIL_REAGENT_AMOUNT
@@ -83,7 +85,7 @@
 	action_icon_state = "adrenaline_jump"
 	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target, this ability sends Pounce on cooldown."
 	ability_cost = 15
-	cooldown_duration = 12 SECONDS
+	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADRENALINE_JUMP,
 	)

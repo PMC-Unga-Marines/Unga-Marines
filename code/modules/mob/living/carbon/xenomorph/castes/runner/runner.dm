@@ -55,3 +55,6 @@
 	holder.pixel_x = 24
 	holder.pixel_y = 24
 	hud_list[XENO_EVASION_HUD] = holder
+
+/mob/living/carbon/xenomorph/runner/set_frenzy_aura(new_aura)
+	return
