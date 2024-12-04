@@ -185,7 +185,7 @@ SUBSYSTEM_DEF(garbage)
 			++totalgcs
 			pass_counts[level]++
 			#ifdef REFERENCE_TRACKING
-			reference_find_on_fail -= refID //It's deleted we don't care anymore.
+			reference_find_on_fail -= text_ref(D) //It's deleted we don't care anymore.
 			#endif
 			if(MC_TICK_CHECK)
 				return
@@ -204,15 +204,15 @@ SUBSYSTEM_DEF(garbage)
 				// Decides how many refs to look for (potentially)
 				// Based off the remaining and the ones we can account for
 				var/remaining_refs = refcount(D) - REFS_WE_EXPECT
-				if(reference_find_on_fail[refID])
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references, remaining_refs))
+				if(reference_find_on_fail[text_ref(D)])
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references), remaining_refs)
 					ref_searching = TRUE
 				#ifdef GC_FAILURE_HARD_LOOKUP
 				else
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references, remaining_refs))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references), remaining_refs)
 					ref_searching = TRUE
 				#endif
-				reference_find_on_fail -= refID
+				reference_find_on_fail -= text_ref(D)
 				#endif
 				var/type = D.type
 				var/datum/qdel_item/I = items[type]
