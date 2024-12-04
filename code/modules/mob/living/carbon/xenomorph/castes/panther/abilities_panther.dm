@@ -84,7 +84,7 @@
 	name = "Adrenaline Jump"
 	action_icon_state = "adrenaline_jump"
 	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target, this ability sends Pounce on cooldown."
-	ability_cost = 15
+	ability_cost = 10
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADRENALINE_JUMP,
