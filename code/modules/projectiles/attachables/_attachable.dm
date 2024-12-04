@@ -155,10 +155,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	. = ..()
 	AddElement(/datum/element/attachment, slot, icon, PROC_REF(on_attach), PROC_REF(on_detach), PROC_REF(activate), PROC_REF(can_attach), pixel_shift_x, pixel_shift_y, flags_attach_features, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound)
 
-/obj/item/attachable/Destroy()
-	master_gun = null
-	return ..()
-
+/obj/item/attachable
 ///Called when the attachment is attached to something. If it is a gun it will update the guns stats.
 /obj/item/attachable/proc/on_attach(attaching_item, mob/user)
 
@@ -349,6 +346,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	activate(user)
 	new_action.set_toggle(TRUE)
 	update_icon()
+	RegisterSignal(master_gun, COMSIG_QDELETING, PROC_REF(clean_attachable_refs))
 	RegisterSignal(master_gun, COMSIG_ITEM_REMOVED_INVENTORY, TYPE_PROC_REF(/obj/item/weapon/gun, drop_connected_mag))
 
 ///This is called when an attachment gun (src) detaches from a gun.
@@ -365,9 +363,15 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		master_gun.active_attachable = null
 	master_gun.wield_delay					-= wield_delay_mod
 	UnregisterSignal(master_gun, COMSIG_ITEM_REMOVED_INVENTORY)
+	UnregisterSignal(master_gun, COMSIG_QDELETING)
 	master_gun = null
 	attached_to:gunattachment = null
 	update_icon()
+
+/// Cleanup for deleting while attached to a gun.
+/obj/item/weapon/gun/proc/clean_attachable_refs()
+	SIGNAL_HANDLER
+	master_gun = null
 
 ///This activates the weapon for use.
 /obj/item/weapon/gun/proc/activate(mob/user)
