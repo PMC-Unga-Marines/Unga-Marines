@@ -76,14 +76,14 @@
 	hud_state = "bigshell_he"
 
 /datum/ammo/rocket/ltb/drop_nade(turf/T)
-	cell_explosion(T, 160, 70)
+	cell_explosion(T, 320, 70)
 
 /datum/ammo/bullet/tank_apfds
 	name = "8.8cm APFDS round"
 	icon_state = "apfds"
 	hud_state = "bigshell_apfds"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
-	damage = 150
+	damage = 300
 	penetration = 75
 	shell_speed = 4
 	accurate_range = 24
