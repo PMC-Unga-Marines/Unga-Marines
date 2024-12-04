@@ -24,7 +24,7 @@
 	plasma_icon_state = "fury"
 
 	// *** Health *** //
-	max_health = 600
+	max_health = 850
 
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
@@ -38,10 +38,11 @@
 	minimap_icon = "gorger"
 
 	// *** Gorger Abilities *** //
-	overheal_max = 275
+	overheal_max = 350
 	drain_plasma_gain = 75
 	carnage_plasma_gain = 150
 	feast_plasma_drain = 20
+	blood_drained = 30
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
@@ -51,6 +52,7 @@
 		/datum/action/ability/activable/xeno/drain,
 		/datum/action/ability/activable/xeno/transfusion,
 		/datum/action/ability/activable/xeno/carnage,
+		/datum/action/ability/activable/xeno/oppose,
 		/datum/action/ability/activable/xeno/feast,
 		/datum/action/ability/activable/xeno/devour,
 	)
@@ -73,5 +75,6 @@
 		/datum/action/ability/activable/xeno/rejuvenate,
 		/datum/action/ability/activable/xeno/carnage,
 		/datum/action/ability/activable/xeno/feast,
+		/datum/action/ability/activable/xeno/oppose,
 		/datum/action/ability/activable/xeno/devour,
 	)
