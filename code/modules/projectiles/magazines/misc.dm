@@ -301,7 +301,7 @@
 	name = "box of 10x26mm high-pressure"
 	desc = "A box containing 300 rounds of 10x26mm 'HP' caseless tuned for a smartgun."
 	icon_state = "box_t25"
-	default_ammo = /datum/ammo/bullet/rifle/t25
+	default_ammo = /datum/ammo/bullet/rifle/smart
 	caliber = CALIBER_10X26_CASELESS
 	current_rounds = 300
 	max_rounds = 300

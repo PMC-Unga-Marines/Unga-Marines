@@ -350,7 +350,7 @@
 	icon_state = "sg29"
 	icon_state_mini = "mag_sg29"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/t25
+	default_ammo = /datum/ammo/bullet/rifle/smart
 	max_rounds = 250
 	reload_delay = 1.3 SECONDS
 
@@ -718,7 +718,7 @@
 	caliber = CALIBER_10X26_CASELESS
 	icon_state = "t25"
 	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle/t25
+	default_ammo = /datum/ammo/bullet/rifle/smart
 	max_rounds = 80
 	icon_state_mini = "mag_rifle_big"
 

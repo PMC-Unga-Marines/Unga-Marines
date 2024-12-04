@@ -4,7 +4,7 @@
 	hud_state_empty = "rifle_empty"
 	accurate_range = 12
 	damage = 25
-	penetration = 5
+	penetration = 10
 	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/rifle/hp
@@ -30,7 +30,7 @@
 	damage = 15
 	penetration = 0
 
-/datum/ammo/bullet/rifle/t25
+/datum/ammo/bullet/rifle/smart
 	name = "smartmachinegun bullet"
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
@@ -121,7 +121,7 @@
 	damage_falloff = 0
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accurate_range = 15
-	damage = 35
+	damage = 40
 	penetration = 20
 	additional_xeno_penetration = 40
 	bullet_color = COLOR_SOFT_RED
@@ -130,7 +130,7 @@
 	name = "high velocity incendiary bullet"
 	hud_state = "hivelo_fire"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_PASS_THROUGH_MOB
-	damage = 25
+	damage = 30
 	penetration = 20
 	additional_xeno_penetration = 15
 	bullet_color = LIGHT_COLOR_FIRE
@@ -138,7 +138,7 @@
 /datum/ammo/bullet/rifle/tx8/impact
 	name = "high velocity impact bullet"
 	hud_state = "hivelo_impact"
-	damage = 30
+	damage = 35
 	penetration = 10
 	additional_xeno_penetration = 45
 
@@ -152,7 +152,7 @@
 	damage = 30
 	damage_falloff = 3
 	penetration = 15
-	additional_xeno_penetration = 12.5
+	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/rifle/mpi_km/ap
 	name = "crude heavy rifle bullet"
@@ -179,7 +179,7 @@
 	accurate_range = 25
 	accurate_range_min = 6
 	max_range = 40
-	damage = 60
+	damage = 65
 	penetration = 15
 	additional_xeno_penetration = 10
 
