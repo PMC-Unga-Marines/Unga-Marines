@@ -22,7 +22,8 @@
 
 /datum/component/magazine_catcher/UnregisterFromParent()
 	. = ..()
-	storage.verbs -= /datum/component/magazine_catcher/verb/toggle_auto_catch
+	if(storage)
+		storage.verbs -= /datum/component/magazine_catcher/verb/toggle_auto_catch
 	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED))
 
 /datum/component/magazine_catcher/proc/equipped_to_slot(datum/source, mob/user, slot)
