@@ -1,4 +1,4 @@
-
+// TODO transfer this code into handle_ventcrawl
 /mob/proc/start_ventcrawl()
 	var/atom/pipe
 	var/list/pipes = list()
