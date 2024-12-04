@@ -15,6 +15,7 @@
 #define COMSIG_GLOB_TELETOWER "!teletower"
 
 #define COMSIG_GLOB_TADPOLE_LAUNCHED "!tadpole_launched"
+#define COMSIG_GLOB_TADPOLE_LANDED "!tadpole_landed"
 #define COMSIG_GLOB_DROPPOD_LANDED "!pod_landed"
 #define COMSIG_GLOB_EVACUATION_STARTED "!evacuation_started"
 
