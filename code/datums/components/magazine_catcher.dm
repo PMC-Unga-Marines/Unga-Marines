@@ -41,13 +41,7 @@
 
 	wearer = null
 	UnregisterSignal(user, COMSIG_MAGAZINE_DROP)
-/*
-/datum/component/magazine_catcher/proc/add_verbs()
-	storage.verbs += /datum/component/magazine_catcher/verb/toggle_auto_catch
 
-/datum/component/magazine_catcher/proc/remove_verbs()
-	storage.verbs -= /datum/component/magazine_catcher/verb/toggle_auto_catch
-*/
 /datum/component/magazine_catcher/proc/try_to_catch_magazine(datum/source, obj/item/mag)
 	if(!storage.can_be_inserted(mag, FALSE))
 		return FALSE
