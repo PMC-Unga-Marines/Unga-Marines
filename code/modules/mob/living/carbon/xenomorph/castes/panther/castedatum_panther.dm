@@ -25,7 +25,7 @@
 	plasma_icon_state = "panther"
 
 	// *** Health *** //
-	max_health = 280
+	max_health = 200
 
 	// *** Evolution *** //
 	evolution_threshold = 100
