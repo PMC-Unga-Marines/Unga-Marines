@@ -124,7 +124,7 @@
 				priority_announce(input, subtitle = "Sent by [usr]", type = ANNOUNCEMENT_COMMAND)
 				message_admins("[ADMIN_TPMONTY(usr)] has just sent a command announcement")
 				log_game("[key_name(usr)] has just sent a command announcement.")
-				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, ORDER_COOLDOWN)
+				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
 				cooldown_message = world.time
 
 		if("award")
@@ -230,7 +230,7 @@
 				cooldown_request = world.time
 				if(admin_response == "deny")
 					SSticker.mode.distress_cancelled = TRUE
-					priority_announce("The distress signal has been blocked, the launch tubes are now recalibrating.", "Distress Beacon")
+					priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distress_deny.ogg')
 					return FALSE
 				if(admin_response =="deny without annoncing")
 					SSticker.mode.distress_cancelled = TRUE

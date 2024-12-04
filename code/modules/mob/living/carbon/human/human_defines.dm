@@ -11,7 +11,7 @@
 	buckle_flags = CAN_BE_BUCKLED|CAN_BUCKLE
 	resistance_flags = XENO_DAMAGEABLE
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
-
+	dextrous = TRUE
 	hud_type = /datum/hud/human
 
 	/// Used for preventing possible lags in the med_hud_set_status(), yes it's ugly
@@ -107,9 +107,7 @@
 
 	///Auras we can create, used for the order choice UI.
 	var/static/list/command_aura_allowed = list(AURA_HUMAN_MOVE, AURA_HUMAN_HOLD, AURA_HUMAN_FOCUS)
-	///Whether we can use another command order yet. Either null or a timer ID.
-	var/command_aura_cooldown
-
+	///Strength of the move order aura affecting us
 	var/mobility_aura = 0
 	var/protection_aura = 0
 	var/marksman_aura = 0

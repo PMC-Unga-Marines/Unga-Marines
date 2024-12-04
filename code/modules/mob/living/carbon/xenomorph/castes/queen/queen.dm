@@ -87,7 +87,7 @@
 		if(4201 to 9000)
 			name = prefix + "Ancient Empress ([nicknumber])"
 		if(9001 to INFINITY)
-			name = prefix + "Prime Empress ([nicknumber])"
+			name = prefix + "Primal Empress ([nicknumber])"
 		else
 			name = prefix + "Young Queen ([nicknumber])"
 
