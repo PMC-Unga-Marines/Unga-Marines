@@ -1,6 +1,5 @@
 /mob/living/carbon/human/Logout()
 	. = ..()
-	species?.handle_logout_special(src)
 	if(!key)
 		set_afk_status(MOB_DISCONNECTED)
 	else if(!isclientedaghost(src))

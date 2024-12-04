@@ -193,30 +193,27 @@
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null
-	var/mob/living/target = locate() in view(7,src)
+	var/mob/living/target = locate() in view(7, src)
 	if(!target)
-		return 0
+		return FALSE
 
-	for (var/O in item_quants)
+	for(var/O in item_quants)
 		if(item_quants[O] <= 0) //Try to use a record that actually has something to dump.
 			continue
 
 		item_quants[O]--
 		for(var/obj/T in contents)
-			if(T.name == O)
-				T.loc = src.loc
-				throw_item = T
-				break
+			if(T.name != O)
+				continue
+			T.loc = loc
+			throw_item = T
+			break
 		break
 	if(!throw_item)
-		return 0
-	spawn(0)
-		throw_item.throw_at(target,16,3,src)
-	src.visible_message(span_danger("[src] launches [throw_item.name] at [target.name]!"))
-	return 1
-
-
-
+		return FALSE
+	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, 16, 3, src)
+	visible_message(span_danger("[src] launches [throw_item.name] at [target.name]!"))
+	return TRUE
 
 /********************
 *	Smartfridge types

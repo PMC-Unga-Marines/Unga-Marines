@@ -131,6 +131,9 @@ The Grenade Launchers
 	fire_delay = 1.3 SECONDS
 	max_chamber_items = 5
 
+/obj/item/weapon/gun/grenade_launcher/multinade_launcher/beginner
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
+
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded
 	default_ammo_type = null
 
@@ -139,8 +142,8 @@ The Grenade Launchers
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/Marine/marine-weapons.dmi'
 	icon_state = "grenade"
-	max_shells = 1 //codex
-	max_chamber_items = 0
+	max_shells = 2 //codex
+	max_chamber_items = 1
 	fire_delay = 1 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/underbarrel_grenadelauncher.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
@@ -176,6 +179,11 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/impact,
 		/obj/item/explosive/grenade/sticky,
 		/obj/item/explosive/grenade/flashbang/stun,
+		/obj/item/explosive/grenade/m15,
+		/obj/item/explosive/grenade/sticky/trailblazer,
+		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus,
+		/obj/item/explosive/grenade/sticky/cloaker,
+		/obj/item/explosive/grenade/mirage,
 	)
 
 	wield_delay_mod = 0.2 SECONDS
