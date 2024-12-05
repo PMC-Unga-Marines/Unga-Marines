@@ -14,29 +14,32 @@
 
 /turf/open/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs) //todo refactor this entire proc is garbage
 	if(iscarbon(arrived))
-		var/mob/living/carbon/C = arrived
-		if(!C.lying_angle && !(C.buckled && istype(C.buckled,/obj/structure/bed/chair)))
-			if(ishuman(C))
-				var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/enteredMob = arrived
+		if(!enteredMob.lying_angle && !(enteredMob.buckled && istype(enteredMob.buckled,/obj/structure/bed/chair)))
+			if(ishuman(enteredMob))
+				var/mob/living/carbon/human/enteredHuman = enteredMob
 
 				// Tracking blood
 				var/list/bloodDNA = null
 				var/bloodcolor=""
-				if(H.shoes)
-					var/obj/item/clothing/shoes/S = H.shoes
-					if(S.track_blood && S.blood_overlay)
-						bloodcolor=S.blood_color
-						S.track_blood--
+				var/bloodamount = 0
+				if(enteredHuman.shoes)
+					var/obj/item/clothing/shoes/shoesEnteredHuman = enteredHuman.shoes
+					if(shoesEnteredHuman.track_blood && shoesEnteredHuman.blood_overlay)
+						bloodcolor = shoesEnteredHuman.blood_color
+						bloodamount = shoesEnteredHuman.track_blood
+						shoesEnteredHuman.track_blood--
 				else
-					if(H.track_blood && H.feet_blood_color)
-						bloodcolor=H.feet_blood_color
-						H.track_blood--
+					if(enteredHuman.track_blood && enteredHuman.feet_blood_color)
+						bloodcolor = enteredHuman.feet_blood_color
+						bloodamount = enteredHuman.track_blood
+						enteredHuman.track_blood--
 
-				if (bloodDNA && !locate(/obj/structure) in contents)
-					src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,H.dir,0,bloodcolor) // Coming
-					var/turf/from = get_step(H,REVERSE_DIR(H.dir))
+				if ((bloodamount > 0 ) && !locate(/obj/structure) in contents)
+					src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, bloodDNA, enteredHuman.dir, 0, bloodcolor) // Coming
+					var/turf/from = get_step(enteredHuman, REVERSE_DIR(enteredHuman.dir))
 					if(istype(from) && from)
-						from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,0,H.dir,bloodcolor) // Going
+						from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, bloodDNA, 0, enteredHuman.dir, bloodcolor) // Going
 
 					bloodDNA = null
 
