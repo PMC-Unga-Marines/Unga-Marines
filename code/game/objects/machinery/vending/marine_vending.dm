@@ -37,6 +37,8 @@
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
+			/obj/item/weapon/gun/smg/m25 = -1,
+			/obj/item/ammo_magazine/smg/m25 = -1,
 	),
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
@@ -274,6 +276,8 @@
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
+			/obj/item/weapon/gun/smg/m25 = -1,
+			/obj/item/ammo_magazine/smg/m25 = -1,
 		),
 		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -495,6 +499,8 @@
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
+			/obj/item/weapon/gun/smg/m25 = -1,
+			/obj/item/ammo_magazine/smg/m25 = -1,
 		),
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
