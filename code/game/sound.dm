@@ -402,6 +402,8 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/voice/predator/pain_rare1.ogg')
 		if("pred_warcry")
 			S = pick('sound/voice/predator/warcry.ogg')
+		if("pred_laugh")
+			S = pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 
 		//pred items
 		if("clan_sword_hit")

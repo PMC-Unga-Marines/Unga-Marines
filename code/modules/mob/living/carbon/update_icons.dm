@@ -38,3 +38,24 @@
 
 	if(changed)
 		animate(src, transform = ntransform, time = (lying_prev == 0 || lying_angle == 0) ? 0.2 SECONDS : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT))
+
+/mob/living/carbon/hud_set_hunter()
+	var/image/holder = hud_list[HUNTER_HUD]
+	if(!holder)
+		return
+	holder.icon_state = ""
+	holder.overlays.Cut()
+	if(hunter_data.hunted)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_hunted")
+
+	if(hunter_data.dishonored)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
+	else if(hunter_data.honored)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_honored")
+
+	if(hunter_data.thralled)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_thralled")
+	else if(hunter_data.gear)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_gear")
+
+	hud_list[HUNTER_HUD] = holder

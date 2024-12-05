@@ -16,7 +16,7 @@
 	var/mob/living/carbon/xenomorph/queen/Q = owner
 
 	//Preferring the use of multiline input as the message box is larger and easier to quickly proofread before sending to hive.
-	var/input = stripped_multiline_input(Q, "Maximum message length: [MAX_BROADCAST_LEN]", "Hive Message", "", MAX_BROADCAST_LEN, TRUE)
+	var/input = stripped_multiline_input(Q, "Максимальная длина: [MAX_BROADCAST_LEN]", "Приказ Улью", "", MAX_BROADCAST_LEN, TRUE)
 	//Newlines are of course stripped and replaced with a space.
 	input = capitalize(trim(replacetext(input, "\n", " ")))
 	if(!input)
@@ -34,14 +34,14 @@
 
 	log_game("[key_name(Q)] has messaged the hive with: \"[input]\"")
 	deadchat_broadcast(" has messaged the hive: \"[input]\"", Q, Q)
-	var/queens_word = "<span class='maptext' style=font-size:18pt;text-align:center valign='top'><u>HIVE MESSAGE:</u><br></span>" + input
+	var/queens_word = "<span class='maptext' style=font-size:18pt;text-align:center valign='top'><u>ПРИКАЗ УЛЬЮ:</u><br></span>" + input
 
 	var/sound/queen_sound = sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS)
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
 	for(var/mob/living/carbon/xenomorph/X AS in Q.hive.get_all_xenos())
 		to_chat(X, assemble_alert(
-			title = "Hive Announcement",
-			subtitle = "From [Q.name]",
+			title = "Приказ Улью",
+			subtitle = "Приказ [Q.name]",
 			message = input,
 			color_override = "purple"
 		))
@@ -224,6 +224,7 @@
 	desc = "See from the target Xenomorphs vision. Click again the ability to stop observing"
 	ability_cost = 0
 	use_state_flags = ABILITY_USE_LYING
+	hidden = TRUE
 	var/overwatch_active = FALSE
 
 /datum/action/ability/xeno_action/watch_xeno/give_action(mob/living/L)
@@ -236,9 +237,6 @@
 		stop_overwatch()
 	UnregisterSignal(L, list(COMSIG_MOB_DEATH, COMSIG_XENOMORPH_WATCHXENO))
 	return ..()
-
-/datum/action/ability/xeno_action/watch_xeno/should_show()
-	return FALSE // Overwatching now done through hive status UI!
 
 /datum/action/ability/xeno_action/watch_xeno/proc/start_overwatch(mob/living/carbon/xenomorph/target)
 	if(!can_use_action()) // Check for action now done here as action_activate pipeline has been bypassed with signal activation.
@@ -359,9 +357,7 @@
 	desc = "Make a target Xenomorph a leader."
 	ability_cost = 200
 	use_state_flags = ABILITY_USE_LYING
-
-/datum/action/ability/xeno_action/set_xeno_lead/should_show()
-	return FALSE // Leadership now set through hive status UI!
+	hidden = TRUE
 
 /datum/action/ability/xeno_action/set_xeno_lead/give_action(mob/living/L)
 	. = ..()

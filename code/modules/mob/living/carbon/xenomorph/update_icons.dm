@@ -201,3 +201,21 @@
 	else
 		set_light_range_power_color(intensity, 0.5, LIGHT_COLOR_FIRE)
 		set_light_on(TRUE)
+
+/mob/living/carbon/xenomorph/hud_set_hunter()
+	var/image/holder = hud_list[HUNTER_HUD]
+	if(!holder)
+		return
+	holder.icon_state = ""
+	holder.overlays.Cut()
+	holder.pixel_x = -17
+	holder.pixel_y = 20
+	if(hunter_data.hunted)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_hunted")
+
+	if(hunter_data.dishonored)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
+	else if(hunter_data.honored)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_honored")
+
+	hud_list[HUNTER_HUD] = holder

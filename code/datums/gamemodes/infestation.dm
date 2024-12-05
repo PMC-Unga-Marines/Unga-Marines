@@ -28,12 +28,12 @@
 		new /obj/structure/mineral_door/resin(i)
 	for(var/i in GLOB.xeno_tunnel_spawn_turfs)
 		var/obj/structure/xeno/tunnel/new_tunnel = new /obj/structure/xeno/tunnel(i, XENO_HIVE_NORMAL)
-		new_tunnel.name = "[get_area_name(new_tunnel)] tunnel"
+		new_tunnel.name = "[get_area_name(new_tunnel)] туннель"
 		new_tunnel.tunnel_desc = "["[get_area_name(new_tunnel)]"] (X: [new_tunnel.x], Y: [new_tunnel.y])"
 	for(var/i in GLOB.xeno_jelly_pod_turfs)
 		new /obj/structure/xeno/resin_jelly_pod(i, XENO_HIVE_NORMAL)
 	for(var/i in GLOB.xeno_turret_turfs)
-		new /obj/structure/xeno/xeno_turret(i, XENO_HIVE_NORMAL)
+		new /obj/structure/xeno/turret(i, XENO_HIVE_NORMAL)
 
 /datum/game_mode/infestation/process()
 	if(round_finished)
@@ -46,7 +46,7 @@
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) (show_locations && location ? ", including one in [hostLocationP]":"")
+#define BIOSCAN_LOCATION(show_locations, location) (show_locations && location ? ", включая одного в [hostLocationP]":"")
 
 #define AI_SCAN_DELAY 15 SECONDS
 
@@ -57,10 +57,10 @@
 		#ifndef TESTING
 		var/mob/living/silicon/ai/bioscanning_ai = usr
 		if((bioscanning_ai.last_ai_bioscan + COOLDOWN_AI_BIOSCAN) > world.time)
-			to_chat(bioscanning_ai, "Bioscan instruments are still recalibrating from their last use.")
+			to_chat(bioscanning_ai, "Приборы биосканирования все еще проходят перекалибровку с момента последнего использования.")
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
-		to_chat(bioscanning_ai, span_warning("Scanning for hostile lifeforms..."))
+		to_chat(bioscanning_ai, span_warning("Сканирование на предмет наличия враждебных форм жизни..."))
 		if(!do_after(usr, AI_SCAN_DELAY, NONE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
 			bioscanning_ai.last_ai_bioscan = 0
 			return
@@ -110,51 +110,51 @@
 			var/mob/M = i
 			SEND_SOUND(M, S)
 			to_chat(M, assemble_alert(
-				title = "Queen Mother Report",
-				subtitle = "The Queen Mother reaches into your mind...",
-				message = "To my children and their Queen,<br>I sense [numHostsShipr ? "approximately [numHostsShipr]":"no"] host[numHostsShipr > 1 ? "s":""] in the metal hive[BIOSCAN_LOCATION(show_locations, hostLocationS)], [numHostsPlanet || "none"] scattered elsewhere[BIOSCAN_LOCATION(show_locations, hostLocationP)] and [numHostsTransitr ? "approximately [numHostsTransitr]":"no"] host[numHostsTransitr > 1 ? "s":""] on the metal bird in transit.",
+				title = "Сообщение от Главной Королевы",
+				subtitle = "Главная Королева проникает в ваш разум с расстояния в сотни миров...",
+				message = "Мои дети и их Королева, я [numHostsShipr ? "":"не"] чувствую [numHostsShipr ? "примерно [numHostsShipr]":""] потенциальных носителей в их металлическом улье [BIOSCAN_LOCATION(show_locations, hostLocationS)], за его пределами их ["всего [numHostsPlanet]" || "нет"] [BIOSCAN_LOCATION(show_locations, hostLocationP)] и [numHostsTransitr ? "примерно [numHostsTransitr]":"вообще нету"] на металлической птице.",
 				color_override = "purple"
 			))
 
-	var/name = "[MAIN_AI_SYSTEM] Bioscan Status"
-	var/input = {"Bioscan complete. Sensors indicate [numXenosShip || "no"] unknown lifeform signature[numXenosShip > 1 ? "s":""] present on the ship[BIOSCAN_LOCATION(show_locations, xenoLocationS)], [numXenosPlanetr ? "approximately [numXenosPlanetr]":"no"] signature[numXenosPlanetr > 1 ? "s":""] located elsewhere[BIOSCAN_LOCATION(show_locations, xenoLocationP)] and [numXenosTransit || "no"] unknown lifeform signature[numXenosTransit > 1 ? "s":""] in transit."}
-	var/ai_name = "[usr] Bioscan Status"
+	var/name = "[MAIN_AI_SYSTEM]: Статус Биосканирования"
+	var/input = {"Биосканирование завершено. Датчики показывают [numXenosShip || "отсуствие"] неизвестных форм жизни на корабле[BIOSCAN_LOCATION(show_locations, xenoLocationS)], [numXenosPlanetr ? "примерно [numXenosPlanetr]":"отсуствие"] сигнатур на земле[BIOSCAN_LOCATION(show_locations, xenoLocationP)] и [numXenosTransit || "отсуствие"] неизвестных форм жизни на шаттлах."}
+	var/ai_name = "[usr]: Статус Биосканирования"
 
 	if(ai_operator)
 		priority_announce(input, ai_name, sound = 'sound/AI/bioscan.ogg', color_override = "grey", receivers = (GLOB.alive_human_list + GLOB.ai_list))
-		log_game("Bioscan. Humans: [numHostsPlanet] on the planet[hostLocationP ? " Location:[hostLocationP]":""] and [numHostsShip] on the ship.[hostLocationS ? " Location: [hostLocationS].":""] Xenos: [numXenosPlanetr] on the planet and [numXenosShip] on the ship[xenoLocationP ? " Location:[xenoLocationP]":""] and [numXenosTransit] in transit.")
+		log_game("Биосканирование. Люди: [numHostsPlanet] на земле[hostLocationP ? " Место:[hostLocationP]":""] и [numHostsShip] на корабле.[hostLocationS ? " Место: [hostLocationS].":""] Ксеноморфы: [numXenosPlanetr] на земле и [numXenosShip] на корабле[xenoLocationP ? " Место:[xenoLocationP]":""] и [numXenosTransit] на перелётах.")
 
 		switch(GLOB.current_orbit)
 			if(1)
-				to_chat(usr, span_warning("Signal analysis reveals excellent detail about hostile movements and numbers."))
+				to_chat(usr, span_warning("Анализ сигналов позволяет получить подробную информацию о передвижениях противника и его численности."))
 				return
 			if(3)
-				to_chat(usr, span_warning("Minor corruption detected in our bioscan instruments due to ship elevation, some information about hostile activity may be incorrect."))
+				to_chat(usr, span_warning("В наших приборах биосканирования обнаружены незначительные ошибки из-за подъема судна, некоторая информация о враждебной активности может быть неверной."))
 				return
 			if(5)
-				to_chat(usr, span_warning("Major corruption detected in our bioscan readings due to ship elevation, information heavily corrupted."))
+				to_chat(usr, span_warning("В наших показаниях биосканирования обнаружены серьезные ошибки из-за уровня орбиты корабля, информация может сильно отличаться от правды."))
 		return
 
 	if(announce_humans)
 		priority_announce(input, name, sound = 'sound/AI/bioscan.ogg', color_override = "grey", receivers = (GLOB.alive_human_list + GLOB.ai_list)) // Hide this from observers, they have their own detailed alert.
 
 	if(send_fax)
-		var/fax_message = generate_templated_fax("Combat Information Center", "[MAIN_AI_SYSTEM] Bioscan Status", "", input, "", MAIN_AI_SYSTEM)
-		send_fax(null, null, "Combat Information Center", "[MAIN_AI_SYSTEM] Bioscan Status", fax_message, FALSE)
+		var/fax_message = generate_templated_fax("Боевой Информационный Центр", "[MAIN_AI_SYSTEM]: Статус Биосканирования", "", input, "", MAIN_AI_SYSTEM)
+		send_fax(null, null, "Боевой Информационный Центр", "[MAIN_AI_SYSTEM]: Статус Биосканирования", fax_message, FALSE)
 
-	log_game("Bioscan. Humans: [numHostsPlanet] on the planet[hostLocationP ? " Location:[hostLocationP]":""] and [numHostsShip] on the ship.[hostLocationS ? " Location: [hostLocationS].":""] Xenos: [numXenosPlanetr] on the planet and [numXenosShip] on the ship[xenoLocationP ? " Location:[xenoLocationP]":""] and [numXenosTransit] in transit.")
+	log_game("Биосканирование. Люди: [numHostsPlanet] на земле[hostLocationP ? " Место:[hostLocationP]":""] и [numHostsShip] на корабле.[hostLocationS ? " Место: [hostLocationS].":""] Ксеноморфы: [numXenosPlanetr] на земле и [numXenosShip] на корабле[xenoLocationP ? " Место:[xenoLocationP]":""] и [numXenosTransit] на перелётах.")
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i
 		to_chat(M, assemble_alert(
-			title = "Detailed Bioscan",
-			message = {"[numXenosPlanet] xeno\s on the planet.
-[numXenosShip] xeno\s on the ship.
-[numXenosTransit] xeno\s in transit.
+			title = "Детальная Информация",
+			message = {"[numXenosPlanet] ксеноморфов на земле.
+[numXenosShip] ксеноморфов на корабле.
+[numXenosTransit] ксеноморфов на перелётах.
 
-[numHostsPlanet] human\s on the planet.
-[numHostsShip] human\s on the ship.
-[numHostsTransit] human\s in transit."},
+[numHostsPlanet] людей на земле.
+[numHostsShip] людей на корабле.
+[numHostsTransit] людей на перелётах."},
 			color_override = "purple"
 		))
 
@@ -178,37 +178,37 @@
 	var/num_humans_ship = living_player_list[3]
 
 	if(SSevacuation.dest_status == NUKE_EXPLOSION_FINISHED)
-		message_admins("Round finished: [MODE_GENERIC_DRAW_NUKE]") //ship blows, no one wins
+		message_admins("Раунд завершен: [MODE_GENERIC_DRAW_NUKE]") //ship blows, no one wins
 		round_finished = MODE_GENERIC_DRAW_NUKE
 		return TRUE
 
 	if(round_stage == INFESTATION_DROPSHIP_CAPTURED_XENOS)
-		message_admins("Round finished: [MODE_INFESTATION_X_MINOR]")
+		message_admins("Раунд завершен: [MODE_INFESTATION_X_MINOR]")
 		round_finished = MODE_INFESTATION_X_MINOR
 		return TRUE
 
 	if(!num_humans)
 		if(!num_xenos)
-			message_admins("Round finished: [MODE_INFESTATION_DRAW_DEATH]") //everyone died at the same time, no one wins
+			message_admins("Раунд завершен: [MODE_INFESTATION_DRAW_DEATH]") //everyone died at the same time, no one wins
 			round_finished = MODE_INFESTATION_DRAW_DEATH
 			return TRUE
-		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped out ALL the marines without hijacking, xeno major victory
+		message_admins("Раунд завершен: [MODE_INFESTATION_X_MAJOR]") //xenos wiped out ALL the marines without hijacking, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
 		return TRUE
 	if(!num_xenos)
 		if(round_stage == INFESTATION_MARINE_CRASHING)
-			message_admins("Round finished: [MODE_INFESTATION_M_MINOR]") //marines lost the ground operation but managed to wipe out Xenos on the ship at a greater cost, minor victory
+			message_admins("Раунд завершен: [MODE_INFESTATION_M_MINOR]") //marines lost the ground operation but managed to wipe out Xenos on the ship at a greater cost, minor victory
 			round_finished = MODE_INFESTATION_M_MINOR
 			return TRUE
-		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines win big
+		message_admins("Раунд завершен: [MODE_INFESTATION_M_MAJOR]") //marines win big
 		round_finished = MODE_INFESTATION_M_MAJOR
 		return TRUE
 	if(round_stage == INFESTATION_MARINE_CRASHING && !num_humans_ship)
 		if(SSevacuation.human_escaped > SSevacuation.initial_human_on_ship * 0.5)
-			message_admins("Round finished: [MODE_INFESTATION_X_MINOR]") //xenos have control of the ship, but most marines managed to flee
+			message_admins("Раунд завершен: [MODE_INFESTATION_X_MINOR]") //xenos have control of the ship, but most marines managed to flee
 			round_finished = MODE_INFESTATION_X_MINOR
 			return
-		message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //xenos wiped our marines, xeno major victory
+		message_admins("Раунд завершен: [MODE_INFESTATION_X_MAJOR]") //xenos wiped our marines, xeno major victory
 		round_finished = MODE_INFESTATION_X_MAJOR
 		return TRUE
 	return FALSE
@@ -279,7 +279,7 @@
 
 		SEND_SOUND(M, ghost_track)
 
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nРежим: [name]\nВремя раунда: [duration2text()]\nКоличество игроков в конце раунда: [length(GLOB.clients)]\nРождено ксеноморфов: [GLOB.round_statistics.total_xenos_created]\nПроизведено людей: [GLOB.round_statistics.total_humans_created]")
 
 /datum/game_mode/infestation/can_start(bypass_checks = FALSE)
 	. = ..()
@@ -296,7 +296,7 @@
 				xeno_candidate = TRUE
 				break
 	if(!xeno_candidate && !bypass_checks)
-		to_chat(world, "<b>Unable to start [name].</b> No xeno candidate found.")
+		to_chat(world, "<b>Невозможно начать [name].</b> Кандидат в ксеносы не найден.")
 		return FALSE
 
 /datum/game_mode/infestation/pre_setup()
@@ -309,9 +309,9 @@
 		return
 
 	priority_announce(
-		title = "High Command Update",
-		subtitle = "Good morning, marines.",
-		message = "Cryosleep disengaged by TGMC High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		title = "Оповещение Высшего Командования",
+		subtitle = "Доброе утро, товарищи!",
+		message = "Криосон отключен генштабом.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
 		color_override = "red"
 	)
 
@@ -330,7 +330,7 @@
 
 /datum/game_mode/infestation/proc/on_nuclear_diffuse(obj/machinery/nuclearbomb/bomb, mob/living/carbon/xenomorph/X)
 	SIGNAL_HANDLER
-	priority_announce("WARNING. WARNING. Planetary Nuke deactivated. WARNING. WARNING. Self destruct failed. WARNING. WARNING.", "Planetary Warhead Disengaged", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("ВНИМАНИЕ. ВНИМАНИЕ. Планетарная ядерная бомба деактивирована. ВНИМАНИЕ. ВНИМАНИЕ. Самоуничтожение не удалось. ВНИМАНИЕ. ВНИМАНИЕ.", type = ANNOUNCEMENT_PRIORITY)
 
 /datum/game_mode/infestation/proc/on_nuclear_explosion(datum/source, z_level)
 	SIGNAL_HANDLER
@@ -341,12 +341,12 @@
 	SIGNAL_HANDLER
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/area_name = get_area_name(nuke)
-	HS.xeno_message("An overwhelming wave of dread ripples throughout the hive... A nuke has been activated[area_name ? " in [area_name]":""]!")
+	HS.xeno_message("Волна ужаса прокатывается по улью... Они активировали ядерную бомбу[area_name ? " в [area_name]":""]!")
 	HS.set_all_xeno_trackers(nuke)
 
 /datum/game_mode/infestation/proc/play_cinematic(z_level)
 	GLOB.enter_allowed = FALSE
-	priority_announce("DANGER. DANGER. Planetary Nuke Activated. DANGER. DANGER. Self destruct in progress. DANGER. DANGER.", "Planetary Warhead Detonation Confirmed", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("ТРЕВОГА. ТРЕВОГА. Активирована планетарная ядерная бомба. ТРЕВОГА. ТРЕВОГА. Идет самоуничтожение. ТРЕВОГА. ТРЕВОГА.", "Планетарная Боеголовка Успешно Запущена", type = ANNOUNCEMENT_PRIORITY)
 	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 

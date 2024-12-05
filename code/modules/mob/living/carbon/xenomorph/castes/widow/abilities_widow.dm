@@ -164,6 +164,9 @@
 	if(owner.do_actions)
 		return fail_activate()
 
+	if(current_charges <= 0)
+		return fail_activate()
+
 	var/mob/living/carbon/xenomorph/X = owner
 	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
 		X.balloon_alert(X, "Max Spiderlings")
@@ -411,6 +414,7 @@
 	ability_cost = 0
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+	hidden = TRUE
 
 /datum/action/ability/xeno_action/spider_venom/give_action(mob/living/L)
 	. = ..()
@@ -428,6 +432,3 @@
 		return
 
 	target.apply_status_effect(STATUS_EFFECT_SPIDER_VENOM)
-
-/datum/action/ability/xeno_action/spider_venom/should_show()
-	return FALSE
