@@ -55,6 +55,8 @@
 #define SHUTTLE_IMMUNE (1<<14)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
 #define HTML_USE_INITAL_ICON_1 (1<<15)
+/// This atom should not bounce
+#define NO_BOUNCE (1<<16)
 
 //==========================================================================================
 
