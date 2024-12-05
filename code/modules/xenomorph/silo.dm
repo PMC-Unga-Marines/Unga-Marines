@@ -39,12 +39,9 @@
 		SSspawning.spawnerdata[src].required_increment = 2 * max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 		SSspawning.spawnerdata[src].max_allowed_mobs = max(1, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count * 0.5)
 	update_minimap_icon()
-	if(!istype(src, /obj/structure/xeno/silo/crash))
-		SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
-		SSaura.add_emitter(src, AURA_XENO_WARDING, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
-		SSaura.add_emitter(src, AURA_XENO_FRENZY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
-	else
-		SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)  // Xenos will receive a slight increase in regeneration on almost entire map, because waiting a minute just to heal is bad, and regenerating in seconds in a crash does not allow the Marines to catch their breath.
+	SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
+	SSaura.add_emitter(src, AURA_XENO_WARDING, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
+	SSaura.add_emitter(src, AURA_XENO_FRENZY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/xeno/silo/LateInitialize()
@@ -173,5 +170,3 @@
 
 /obj/structure/xeno/silo/crash
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | INDESTRUCTIBLE
-	aura_strength = 2
-	aura_radius = 60
