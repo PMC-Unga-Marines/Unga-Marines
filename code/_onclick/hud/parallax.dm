@@ -55,22 +55,22 @@
 
 		switch(parallax_selection)
 			if (PARALLAX_INSANE)
-				C.parallax_throttle = FALSE
+				C.do_parallax_animations = TRUE
 				C.parallax_layers_max = 5
 				return TRUE
 
 			if(PARALLAX_HIGH)
-				C.parallax_throttle = PARALLAX_DELAY_DEFAULT
+				C.do_parallax_animations = TRUE
 				C.parallax_layers_max = 4
 				return TRUE
 
 			if (PARALLAX_MED)
-				C.parallax_throttle = PARALLAX_DELAY_MED
+				C.do_parallax_animations = TRUE
 				C.parallax_layers_max = 3
 				return TRUE
 
 			if (PARALLAX_LOW)
-				C.parallax_throttle = PARALLAX_DELAY_LOW
+				C.do_parallax_animations = FALSE
 				C.parallax_layers_max = 1
 				return TRUE
 
@@ -215,7 +215,6 @@
 		else
 			parallax_layer.pixel_w = round(parallax_layer.offset_x, 1)
 			parallax_layer.pixel_z = round(parallax_layer.offset_y, 1)
-
 
 /atom/movable/proc/update_parallax_contents()
 	for(var/mob/client_mob as anything in client_mobs_in_contents)
