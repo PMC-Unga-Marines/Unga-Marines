@@ -42,7 +42,6 @@
 	max_shells = 36 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar18
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar18)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -139,7 +138,6 @@
 	max_shells = 50 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar12)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -681,7 +679,6 @@
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/lmg_d
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/lmg_d)
-
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
