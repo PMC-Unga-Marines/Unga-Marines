@@ -39,6 +39,7 @@
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 			/obj/item/weapon/gun/smg/m25 = -1,
 			/obj/item/ammo_magazine/smg/m25 = -1,
+			/obj/item/storage/holster/m25 = -1,
 	),
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
