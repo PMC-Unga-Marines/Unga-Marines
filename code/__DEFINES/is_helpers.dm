@@ -229,6 +229,8 @@
 
 #define isladder(A) (istype(A, /obj/structure/ladder))
 
+#define iscrate(A) (istype(A, /obj/structure/closet/crate))
+
 #define ismachinery(A) (istype(A, /obj/machinery))
 
 #define ispowermachinery(A) (istype(A, /obj/machinery/power))

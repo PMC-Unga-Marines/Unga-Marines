@@ -123,9 +123,11 @@
 	owner.interior.mob_leave(dropping)
 
 /turf/closed/interior/tank/door/grab_interact(obj/item/grab/grab, mob/user, base_damage, is_sharp)
-	if(!ismob(grab.grabbed_thing))
-		return ..()
-	owner.interior.mob_leave(grab.grabbed_thing)
+	if(iscrate(grab.grabbed_thing))
+		grab.grabbed_thing.forceMove(owner.exit_location(grab.grabbed_thing))
+	else if(ismob(grab.grabbed_thing))
+		owner.interior.mob_leave(grab.grabbed_thing)
+	return ..()
 
 ///returns where we want to spit out new enterers
 /turf/closed/interior/tank/door/proc/get_enter_location()
