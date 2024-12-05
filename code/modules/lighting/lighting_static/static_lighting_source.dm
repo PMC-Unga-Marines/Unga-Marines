@@ -69,6 +69,8 @@
 		LAZYREMOVE(top_atom.static_light_sources, src)
 
 	SSlighting.static_sources_queue -= src
+	top_atom = null
+	source_atom = null
 	return ..()
 
 // Yes this doesn't align correctly on anything other than 4 width tabs.

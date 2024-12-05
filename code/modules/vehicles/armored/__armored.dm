@@ -114,7 +114,7 @@
 				icon_state += "_desert"
 	if(minimap_icon_state)
 		SSminimaps.add_marker(src, minimap_flags, image('icons/UI_icons/map_blips_large.dmi', null, minimap_icon_state))
-	GLOB.tank_list += src
+	LAZYADD(GLOB.tank_list, src)
 
 /obj/vehicle/sealed/armored/Destroy()
 	if(primary_weapon)
@@ -132,7 +132,7 @@
 	if(isdatum(interior))
 		QDEL_NULL(interior)
 	underlay = null
-	GLOB.tank_list -= src
+	LAZYREMOVE(GLOB.tank_list, src)
 	return ..()
 
 /obj/vehicle/sealed/armored/generate_actions()
