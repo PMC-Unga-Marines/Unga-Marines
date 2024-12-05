@@ -3,7 +3,6 @@
 #define BAD_INIT_SLEPT 4
 #define BAD_INIT_NO_HINT 8
 
-#define SUBSYSTEM_INIT_SOURCE "subsystem init"
 SUBSYSTEM_DEF(atoms)
 	name = "Atoms"
 	init_order = INIT_ORDER_ATOMS
@@ -49,11 +48,16 @@ SUBSYSTEM_DEF(atoms)
 	if(initialized == INITIALIZATION_INSSATOMS)
 		return
 
-	set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, SUBSYSTEM_INIT_SOURCE)
+	// Generate a unique mapload source for this run of InitializeAtoms
+	var/static/uid = 0
+	uid = (uid + 1) % (SHORT_REAL_LIMIT - 1)
+	var/source = "subsystem init [uid]"
+	set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, source)
 
 	// This may look a bit odd, but if the actual atom creation runtimes for some reason, we absolutely need to set initialized BACK
-	CreateAtoms(atoms, atoms_to_return)
-	clear_tracked_initalize(SUBSYSTEM_INIT_SOURCE)
+	CreateAtoms(atoms, atoms_to_return, source)
+	clear_tracked_initalize(source)
+	SSicon_smooth.free_deferred(source)
 
 	if(length(late_loaders))
 		for(var/I in 1 to length(late_loaders))
@@ -80,7 +84,7 @@ SUBSYSTEM_DEF(atoms)
 	#endif
 
 /// Actually creates the list of atoms. Exists soley so a runtime in the creation logic doesn't cause initalized to totally break
-/datum/controller/subsystem/atoms/proc/CreateAtoms(list/atoms, list/atoms_to_return = null)
+/datum/controller/subsystem/atoms/proc/CreateAtoms(list/atoms, list/atoms_to_return = null, mapload_source = null)
 	if (atoms_to_return)
 		LAZYINITLIST(created_atoms)
 
@@ -93,7 +97,12 @@ SUBSYSTEM_DEF(atoms)
 			var/atom/A = atoms[I]
 			if(A.flags_atom & INITIALIZED)
 				continue
-			CHECK_TICK
+			// Unrolled CHECK_TICK setup to let us enable/disable mapload based off source
+				if(TICK_CHECK)
+					clear_tracked_initalize(mapload_source)
+					stoplag()
+					if(mapload_source)
+						set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, mapload_source)
 			PROFILE_INIT_ATOM_BEGIN()
 			InitAtom(A, TRUE, mapload_arg)
 			PROFILE_INIT_ATOM_END(A)
@@ -106,7 +115,11 @@ SUBSYSTEM_DEF(atoms)
 			InitAtom(A, FALSE, mapload_arg)
 			PROFILE_INIT_ATOM_END(A)
 			++count
-			CHECK_TICK
+			if(TICK_CHECK)
+				clear_tracked_initalize(mapload_source)
+				stoplag()
+				if(mapload_source)
+					set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, mapload_source)
 
 	testing("Initialized [count] atoms")
 	pass(count)
@@ -159,6 +172,13 @@ SUBSYSTEM_DEF(atoms)
 
 /datum/controller/subsystem/atoms/proc/map_loader_stop(source)
 	clear_tracked_initalize(source)
+
+/// Returns the source currently modifying SSatom's init behavior
+/datum/controller/subsystem/atoms/proc/get_initialized_source()
+	var/state_length = length(initialized_state)
+	if(!state_length)
+		return null
+	return initialized_state[state_length][1]
 
 /// Use this to set initialized to prevent error states where the old initialized is overriden, and we end up losing all context
 /// Accepts a state and a source, the most recent state is used, sources exist to prevent overriding old values accidentially
@@ -215,5 +235,3 @@ SUBSYSTEM_DEF(atoms)
 	var/initlog = InitLog()
 	if(initlog)
 		text2file(initlog, "[GLOB.log_directory]/initialize.log")
-
-#undef SUBSYSTEM_INIT_SOURCE
