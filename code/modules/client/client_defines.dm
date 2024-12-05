@@ -100,6 +100,7 @@
 
 	var/list/parallax_layers
 	var/list/parallax_layers_cached
+	var/atom/movable/screen/parallax_home/parallax_rock
 	var/atom/movable/movingmob
 	var/turf/previous_turf
 	///world.time of when we can state animate()ing parallax again
@@ -110,7 +111,10 @@
 	var/parallax_throttle = 0
 	var/parallax_movedir = 0
 	var/parallax_layers_max = 4
-	var/parallax_animate_timer
+	/// Timers for the area directional animation, one for each layer
+	var/list/parallax_animate_timers
+
+	var/do_parallax_animations = TRUE
 
 	var/datum/db_query/clan_info
 
@@ -139,3 +143,5 @@
 	/// The direction we WANT to move, based off our keybinds
 	/// Will be udpated to be the actual direction later on
 	var/intended_direction = NONE
+
+
