@@ -1,0 +1,5 @@
+author: "Basia"
+delete-after: True
+changes:
+  - rscadd: "B18 сообщает о внутреннем кровотечении."
+  - sound: "B18 теперь говорит по-русски."

@@ -37,7 +37,6 @@
 
 	var/mob/living/carbon/human/injured_mob = owner
 	var/obj/item/clothing/worn_suit = injured_mob.wear_suit
-
 	for(var/datum/limb/limb in injured_mob.limbs)
 		if(!(limbs_to_support & limb.body_part))
 			continue
@@ -49,7 +48,13 @@
 			continue
 
 		if(!dropped && ((limb.limb_status & LIMB_BROKEN) && !(limb.limb_status & LIMB_STABILIZED)))
+			if(limb.body_part == CHEST || limb.body_part == GROIN || limb.body_part == HEAD)
+				playsound(worn_suit, 'sound/voice/b18/fracture.ogg', 15, 0, 1)
+			else
+				playsound(worn_suit, 'sound/voice/b18/light_fracture.ogg', 15, 0, 1)
 			limb.limb_status |= LIMB_STABILIZED
-			playsound(worn_suit, 'sound/voice/b18/fracture.ogg', 15, 0, 1)
 			to_chat(injured_mob, span_notice("<b>You feel [worn_suit] constrict about your [limb.display_name], stabilizing it.</b>"))
 			playsound(worn_suit, 'sound/machines/hydraulics_1.ogg', 15, 0, 1)
+
+		if(!dropped && (limb.limb_status & LIMB_BLEEDING))
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), worn_suit, 'sound/voice/b18/ib_detected.ogg', 15, 0, 1), 2.2 SECONDS)
