@@ -17,7 +17,7 @@
 	var/area/this_area
 
 /datum/interior/New(atom/container, datum/callback/exit_callback)
-	..()
+	. = ..()
 	src.container = container
 	src.exit_callback = exit_callback
 	RegisterSignal(container, COMSIG_QDELETING, PROC_REF(handle_container_del))
@@ -50,6 +50,7 @@
 	this_area = null
 	loaded_turfs = null
 	QDEL_NULL(reservation) //all the turfs/objs are deleted past this point
+	UnregisterSignal(container, list(COMSIG_QDELETING, COMSIG_ATOM_ENTERED))
 	container = null
 	return ..()
 
