@@ -540,9 +540,6 @@
 		return
 	log_combat(src, M, "attempted to remove [key_name(I)] ([slot_to_process])")
 
-	move_resist = move_resist + HUMAN_STRIP_DELAY
-	M.move_resist = M.move_resist + HUMAN_STRIP_DELAY
-
 	M.visible_message(span_danger("[src] tries to remove [M]'s [I.name]."), \
 		span_userdanger("[src] tries to remove [M]'s [I.name]."), null, 5)
 	if(!do_after(src, HUMAN_STRIP_DELAY, NONE, M, display_icon))
