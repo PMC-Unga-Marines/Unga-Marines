@@ -1067,10 +1067,14 @@
 
 /datum/status_effect/upgrade_vampirism/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
-	if(target.stat == DEAD || !ishuman(target))
+	if(target.stat == DEAD)
 		return
-	var/health_amount = buff_owner.maxHealth * leech_buff_per_chamber * chamber_scaling
-	HEAL_XENO_DAMAGE(buff_owner, health_amount, FALSE)
+	if(!ishuman(target))
+		return
+	var/bruteloss_healed = buff_owner.maxHealth * leech_buff_per_chamber * chamber_scaling
+	var/fireloss_healed = clamp(bruteloss_healed - buff_owner.bruteloss, 0, bruteloss_healed)
+	buff_owner.adjustBruteLoss(-bruteloss_healed)
+	buff_owner.adjustFireLoss(-fireloss_healed)
 	buff_owner.updatehealth()
 
 // ***************************************
