@@ -284,7 +284,7 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/shotgun_seasonal
-	name = "Помповые"
+	name = "Помповые Пушки"
 	description = "Три помповых дробовика со старых добрых времён."
 	item_list = list(
 		/obj/item/weapon/gun/shotgun/combat = -1,
@@ -293,7 +293,7 @@ SUBSYSTEM_DEF(persistence)
 		)
 
 /datum/season_datum/weapons/guns/lever_seasonal
-	name = "Рычаги"
+	name = "Рычажное Оружие"
 	description = "Попробуйте завоевать современный запад, усердно передёргивая... оружие."
 	item_list = list(
 		/obj/item/weapon/gun/shotgun/pump/lever = -1,
