@@ -41,7 +41,7 @@
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
+			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
@@ -287,7 +287,7 @@
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
+			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
@@ -499,7 +499,7 @@
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
+			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
@@ -789,11 +789,6 @@
 		"Surplus Special Equipment" = list(
 			/obj/item/pinpointer = 1,
 			/obj/item/beacon/supply_beacon = 1,
-			/obj/item/ammo_magazine/rifle/sr81 = 3,
-			/obj/item/ammo_magazine/rifle/tx8 = 3,
-			/obj/item/ammo_magazine/rocket/sadar = 3,
-			/obj/item/ammo_magazine/minigun_powerpack = 2,
-			/obj/item/ammo_magazine/shotgun/mbx900 = 2,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
 			/obj/item/clothing/suit/storage/marine/boomvest = 20,

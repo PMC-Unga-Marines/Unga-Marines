@@ -72,7 +72,7 @@
 			/obj/item/ammo_magazine/rifle/br64,
 			/obj/item/ammo_magazine/rifle/br64,
 		),
-		list(/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127,
+		list(/obj/item/weapon/gun/rifle/sr127,
 			/obj/item/ammo_magazine/rifle/sr127,
 			/obj/item/ammo_magazine/rifle/sr127,
 			/obj/item/ammo_magazine/rifle/sr127,

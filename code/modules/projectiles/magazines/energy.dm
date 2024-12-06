@@ -3,7 +3,7 @@
 /obj/item/cell/lasgun
 	name = "\improper lasgun Battery"
 	desc = "A specialized high density battery used to power lasguns."
-	icon = 'icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo/energy.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
@@ -57,6 +57,7 @@
 	icon_state = "te"
 	icon_state_mini = "mag_cell_te"
 	maxcharge = 600
+
 /obj/item/cell/lasgun/lasrifle/recharger
 	name = "\improper Terra Experimental recharger battery"
 	desc = "A prototype high density battery reverse-engineered from captured Volkite equipment. Due to developmental constraints and less than stellar jury-rigging, as well as space taken up by the recharger component, it boasts sub-par capacity."
@@ -65,6 +66,7 @@
 	self_recharge = TRUE
 	charge_amount = 12 //balanced around recharging 1 standard laser rifle shot per second
 	charge_delay = 1 SECONDS
+
 /obj/item/cell/lasgun/fob_sentry/cell
 	maxcharge = INFINITY
 
@@ -73,7 +75,6 @@
 /obj/item/cell/lasgun/volkite
 	name = "\improper volkite energy cell"
 	desc = "A specialized high density battery used to power volkite weaponry."
-	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "volkite"
 	maxcharge = 1440
 	w_class = WEIGHT_CLASS_NORMAL
@@ -84,7 +85,6 @@
 /obj/item/cell/lasgun/volkite/small
 	name = "\improper compact volkite energy cell"
 	desc = "A specialized compact battery used to power the smallest volkite weaponry."
-	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "volkite_small"
 	maxcharge = 540
 	w_class = WEIGHT_CLASS_SMALL
@@ -93,7 +93,6 @@
 /obj/item/cell/lasgun/volkite/turret
 	name = "\improper volkite nuclear energy cell"
 	desc = "A nuclear powered battery designed for certain heavy SOM machinery like sentries. Slowly charges over time."
-	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "volkite_turret"
 	maxcharge = 1800
 	w_class = WEIGHT_CLASS_NORMAL

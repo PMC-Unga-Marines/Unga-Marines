@@ -100,13 +100,13 @@
 //Observers can become playable facehuggers by clicking on the egg
 /obj/alien/egg/hugger/attack_ghost(mob/dead/observer/user)
 	. = ..()
-	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 
 	if(maturity_stage != stage_ready_to_burst)
 		return FALSE
 	if(!hugger_type)
 		return FALSE
 
+	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	if(!hive.can_spawn_as_hugger(user))
 		return FALSE
 
@@ -137,7 +137,7 @@
 		F.balloon_alert(F, span_xenowarning("We can't use this egg"))
 		return
 
-	F.visible_message(span_xenowarning("[F] slides back into [src]."),span_xenonotice("You slides back into [src]."))
+	F.visible_message(span_xenowarning("[F] slides back into [src]."),span_xenonotice("You slide back into [src]."))
 	F.ghostize()
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)

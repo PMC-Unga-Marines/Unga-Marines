@@ -59,13 +59,6 @@
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
 
-/obj/item/attachable/lace/t500
-	name = "R-500 lace"
-	icon = 'icons/Marine/attachments_64.dmi'
-	slot = ATTACHMENT_SLOT_STOCK
-	pixel_shift_x = 0
-	pixel_shift_y = 0
-
 /obj/item/attachable/lace/activate(mob/living/user, turn_off)
 	if(lace_deployed)
 		REMOVE_TRAIT(master_gun, TRAIT_NODROP, PISTOL_LACE_TRAIT)
@@ -87,12 +80,15 @@
 
 	lace_deployed = !lace_deployed
 
-	for(var/i in master_gun.actions)
-		var/datum/action/action_to_update = i
-		action_to_update.update_button_icon()
-
 	update_icon()
 	return TRUE
+
+/obj/item/attachable/lace/t500
+	name = "R-500 lace"
+	icon = 'icons/Marine/attachments_64.dmi'
+	slot = ATTACHMENT_SLOT_STOCK
+	pixel_shift_x = 0
+	pixel_shift_y = 0
 
 /obj/item/attachable/burstfire_assembly
 	name = "burst fire assembly"

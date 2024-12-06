@@ -326,12 +326,12 @@
 /area/mainship/hallways/port_hallway)
 "ahQ" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
@@ -399,8 +399,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/metal,
 /obj/structure/sign/semiotic/cryo{
-	pixel_y = -32;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -32
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
@@ -516,9 +516,9 @@
 "anQ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -551,8 +551,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /obj/effect/turf_decal/warning_stripes/fulltile,
 /turf/open/floor/mainship/metal/full,
@@ -587,9 +587,9 @@
 "aoA" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -759,9 +759,9 @@
 "arx" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -1091,8 +1091,8 @@
 /obj/structure/table/fancywoodentable,
 /obj/item/radio/intercom/general,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/item/flashlight/lamp,
 /turf/open/floor/wood,
@@ -1185,8 +1185,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
@@ -1355,8 +1355,8 @@
 /area/mainship/hallways/bow_hallway)
 "aEs" = (
 /obj/structure/sign/semiotic/high_voltage{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
@@ -1383,8 +1383,8 @@
 "aEC" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
@@ -1562,9 +1562,9 @@
 "aLe" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -1675,8 +1675,8 @@
 "aQS" = (
 /obj/machinery/vending/coffee,
 /obj/structure/sign/semiotic/coffee{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
@@ -1900,8 +1900,8 @@
 /area/mainship/living/cafeteria)
 "bca" = (
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
@@ -1940,8 +1940,8 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/sign/semiotic/bathwomens{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/starboard_emb)
@@ -2068,9 +2068,9 @@
 "bhE" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -2517,8 +2517,8 @@
 "buA" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
@@ -2650,12 +2650,12 @@
 "byf" = (
 /obj/structure/table/black,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/orange/full,
 /area/mainship/command/cic)
@@ -2737,12 +2737,12 @@
 "bAn" = (
 /obj/structure/table/black,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/red/full,
 /area/mainship/command/cic)
@@ -2858,9 +2858,9 @@
 "bFB" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -3004,8 +3004,8 @@
 "bIW" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -3098,9 +3098,9 @@
 "bLZ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -3732,9 +3732,9 @@
 "cdc" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -3805,8 +3805,8 @@
 /area/mainship/hallways/starboard_hallway)
 "ceH" = (
 /obj/structure/sign/semiotic/north{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /obj/structure/sign/semiotic/landingzone{
 	pixel_x = -17;
@@ -3917,8 +3917,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/east{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24
@@ -3928,9 +3928,9 @@
 "chQ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -4085,8 +4085,8 @@
 /area/mainship/living/pilotbunks)
 "clZ" = (
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /obj/structure/sink/bathroom,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -4238,6 +4238,9 @@
 /area/mainship/living/basketball)
 "cqy" = (
 /obj/machinery/loadout_vendor,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
@@ -4281,9 +4284,9 @@
 "csB" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -4476,9 +4479,9 @@
 "cyW" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -4644,12 +4647,12 @@
 	dir = 1
 	},
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
@@ -4769,13 +4772,17 @@
 /area/mainship/squads/alpha)
 "cHf" = (
 /obj/machinery/vending/uniform_supply,
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "cHi" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
@@ -5008,9 +5015,9 @@
 "cQd" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -5393,8 +5400,8 @@
 	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/metal,
@@ -6055,9 +6062,9 @@
 "dvE" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -6271,8 +6278,8 @@
 "dCu" = (
 /obj/effect/turf_decal/siding/metal,
 /obj/structure/sign/semiotic/high_voltage{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/electronics{
 	pixel_y = -25
@@ -6646,6 +6653,9 @@
 /area/mainship/living/basketball)
 "dNS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
+/obj/machinery/keycard_auth{
+	pixel_y = 30
+	},
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
 "dNU" = (
@@ -6677,6 +6687,12 @@
 	},
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
+"dOs" = (
+/obj/machinery/keycard_auth{
+	pixel_y = 30
+	},
+/turf/open/floor/mainship/tcomms,
+/area/mainship/command/telecomms)
 "dOt" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
 	dir = 1
@@ -7074,8 +7090,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
@@ -7206,8 +7222,8 @@
 /obj/structure/cable,
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
@@ -7548,9 +7564,9 @@
 "eqT" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -7600,8 +7616,8 @@
 	},
 /obj/structure/sink/bathroom,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
@@ -7724,8 +7740,8 @@
 "ewv" = (
 /obj/structure/sink/bathroom,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /obj/machinery/light/mainship{
 	dir = 4
@@ -7771,8 +7787,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/east{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24
@@ -7983,9 +7999,9 @@
 "eEt" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -8143,8 +8159,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 9
@@ -8472,16 +8488,16 @@
 "eRD" = (
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
 "eRE" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
@@ -8540,9 +8556,9 @@
 "eUa" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -8566,8 +8582,8 @@
 /area/mainship/hallways/hangar)
 "eUl" = (
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
-	name = "\improper Pilot's Office";
 	dir = 2;
+	name = "\improper Pilot's Office";
 	req_one_access = list(44)
 	},
 /obj/structure/cable,
@@ -8645,9 +8661,9 @@
 "eVY" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -8746,12 +8762,12 @@
 "eYL" = (
 /obj/machinery/computer/cryopod,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
@@ -8940,8 +8956,8 @@
 	dir = 4
 	},
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
@@ -9056,8 +9072,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
@@ -9180,8 +9196,8 @@
 /area/mainship/hallways/port_hallway)
 "fjo" = (
 /obj/structure/sign/semiotic/storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
@@ -9324,8 +9340,8 @@
 "foF" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
@@ -9363,6 +9379,9 @@
 "fpl" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
+	},
+/obj/machinery/keycard_auth{
+	pixel_x = -30
 	},
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
@@ -9586,6 +9605,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
+"fuK" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/quick_vendor/beginner,
+/turf/open/floor/mainship/orange{
+	dir = 1
+	},
+/area/mainship/squads/bravo)
 "fuL" = (
 /obj/effect/turf_decal/siding/metal,
 /obj/machinery/camera/autoname{
@@ -9648,9 +9676,9 @@
 "fxC" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -9845,8 +9873,8 @@
 "fEc" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/upper_medical)
@@ -9868,8 +9896,8 @@
 /obj/structure/sink/bathroom,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
@@ -9952,7 +9980,10 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fKa" = (
-/obj/machinery/loadout_vendor,
+/obj/machinery/quick_vendor/beginner,
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/mainship/emerald{
 	dir = 6
 	},
@@ -10031,8 +10062,8 @@
 	pixel_y = -17
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -10214,8 +10245,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/west{
 	pixel_y = 24
@@ -10336,8 +10367,8 @@
 /area/mainship/hull/port_hull)
 "fVX" = (
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /obj/machinery/vending/snack,
 /turf/open/floor/mainship/metal,
@@ -10345,9 +10376,9 @@
 "fWu" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -10638,9 +10669,9 @@
 "glD" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -12303,8 +12334,8 @@
 "htq" = (
 /obj/structure/sink/bathroom,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/delta)
@@ -12391,8 +12422,8 @@
 /obj/structure/sink/bathroom,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
@@ -12403,6 +12434,7 @@
 /obj/structure/sign/semiotic/medical{
 	pixel_x = 32
 	},
+/obj/machinery/recharger,
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/upper_medical)
 "hwU" = (
@@ -12419,8 +12451,8 @@
 /obj/structure/largecrate/supply/supplies/mre,
 /obj/effect/turf_decal/warning_stripes/cargo,
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
@@ -12639,8 +12671,8 @@
 	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = 39;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 39
 	},
 /obj/structure/sign/semiotic/west{
 	pixel_y = 31
@@ -12780,8 +12812,8 @@
 "hIQ" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -12908,12 +12940,12 @@
 	dir = 5
 	},
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/carpet,
 /area/mainship/command/corporateliaison)
@@ -13016,8 +13048,8 @@
 	pixel_y = 6
 	},
 /obj/item/toy/prize/phazon{
-	pixel_y = 14;
-	pixel_x = 11
+	pixel_x = 11;
+	pixel_y = 14
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -13910,13 +13942,13 @@
 /area/mainship/hallways/hangar)
 "ixd" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/effect/landmark/start/latejoin_squad/alpha,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
@@ -14114,8 +14146,8 @@
 	pixel_y = 32
 	},
 /obj/structure/sign/semiotic/ref_chem_storage{
-	pixel_y = 32;
-	pixel_x = -14
+	pixel_x = -14;
+	pixel_y = 32
 	},
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
@@ -14203,8 +14235,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/fire_haz{
-	pixel_y = 32;
-	pixel_x = -18
+	pixel_x = -18;
+	pixel_y = 32
 	},
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
@@ -14624,9 +14656,9 @@
 "iSG" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -14687,8 +14719,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/machinery/light/mainship{
 	dir = 4
@@ -14858,8 +14890,8 @@
 "jag" = (
 /obj/machinery/vending/snack,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
@@ -14881,9 +14913,9 @@
 "jap" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -15074,8 +15106,8 @@
 	},
 /obj/effect/landmark/start/latejoin_squad/bravo,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
@@ -15169,8 +15201,8 @@
 "jiX" = (
 /obj/machinery/vending/coffee,
 /obj/structure/sign/semiotic/coffee{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
@@ -15458,8 +15490,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/north{
-	pixel_y = 7;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 7
 	},
 /obj/structure/sign/semiotic/bridge{
 	pixel_x = 32;
@@ -15469,6 +15501,9 @@
 /area/mainship/hallways/bow_hallway)
 "jsH" = (
 /obj/machinery/loadout_vendor,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/mainship/emerald,
 /area/mainship/squads/charlie)
 "jsI" = (
@@ -15549,12 +15584,12 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /turf/open/floor/mainship/metal,
@@ -15603,8 +15638,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/east{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/high_voltage{
 	pixel_y = 24
@@ -15620,13 +15655,13 @@
 /area/mainship/medical/surgery_hallway)
 "jwO" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/bed/chair/comfy/alpha,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/red/full,
 /area/mainship/hallways/hangar)
@@ -16047,8 +16082,8 @@
 /area/mainship/hallways/aft_hallway)
 "jMS" = (
 /obj/structure/sign/semiotic/coffee{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /obj/machinery/vending/coffee,
 /turf/open/floor/mainship/metal,
@@ -16475,8 +16510,8 @@
 	},
 /obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/structure/sign/semiotic/north{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /obj/structure/sign/semiotic/escapepod{
 	pixel_x = -17;
@@ -16649,8 +16684,8 @@
 /area/mainship/hallways/starboard_umbilical)
 "kgK" = (
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /obj/structure/sink/bathroom,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -16699,9 +16734,9 @@
 "khT" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -16968,11 +17003,12 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/bow_hallway)
 "koH" = (
+/obj/machinery/floor_warn_light/self_destruct,
 /obj/item/defibrillator,
 /obj/item/defibrillator,
 /obj/item/defibrillator,
 /obj/structure/table/mainship,
-/obj/machinery/floor_warn_light/self_destruct,
+/obj/machinery/recharger,
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
 "kpR" = (
@@ -16990,8 +17026,8 @@
 /area/mainship/hallways/port_hallway)
 "kqo" = (
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
@@ -17413,7 +17449,10 @@
 /turf/open/floor/mainship/blue/full,
 /area/mainship/hallways/hangar)
 "kCI" = (
-/obj/machinery/loadout_vendor,
+/obj/machinery/quick_vendor/beginner,
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/mainship/red{
 	dir = 5
 	},
@@ -17533,8 +17572,8 @@
 "kHo" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/aft_hallway)
@@ -17613,8 +17652,8 @@
 "kJi" = (
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /obj/structure/bed/chair/comfy/delta{
 	dir = 1
@@ -18043,9 +18082,9 @@
 "kUp" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -18091,9 +18130,9 @@
 "kVF" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -18144,8 +18183,8 @@
 	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
@@ -18258,8 +18297,8 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/sign/semiotic/galley{
-	pixel_y = 29;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 29
 	},
 /turf/open/floor/grass,
 /area/mainship/hallways/aft_hallway)
@@ -18586,8 +18625,8 @@
 	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
@@ -18699,8 +18738,8 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/mainship/generic{
-	name = "Kitchen";
-	dir = 1
+	dir = 1;
+	name = "Kitchen"
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -18766,8 +18805,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
@@ -18823,8 +18862,8 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 7
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
@@ -18837,8 +18876,8 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
@@ -18877,8 +18916,8 @@
 /area/mainship/engineering/port_atmos)
 "lsJ" = (
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /obj/machinery/vending/cigarette,
 /turf/open/floor/mainship/metal,
@@ -18950,8 +18989,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
@@ -19075,9 +19114,9 @@
 "lvY" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -19214,8 +19253,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/north{
-	pixel_y = 7;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 7
 	},
 /obj/structure/sign/semiotic/bridge{
 	pixel_x = 32;
@@ -19251,9 +19290,9 @@
 /area/mainship/squads/alpha)
 "lzz" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
@@ -19293,8 +19332,8 @@
 	pixel_y = 8
 	},
 /obj/structure/sign/semiotic/flightcontrol{
-	pixel_y = 8;
-	pixel_x = -18
+	pixel_x = -18;
+	pixel_y = 8
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
@@ -19411,9 +19450,9 @@
 "lEC" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -19428,12 +19467,12 @@
 "lEO" = (
 /obj/structure/bedsheetbin,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
@@ -19808,9 +19847,9 @@
 /area/mainship/hallways/hangar/droppod)
 "lNm" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /turf/open/floor/stairs/dark/right,
 /area/mainship/hull/port_hull)
@@ -20094,8 +20133,8 @@
 	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
@@ -20336,8 +20375,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/item/radio/intercom/general,
 /turf/open/floor/mainship/metal,
@@ -20382,12 +20421,12 @@
 "mgh" = (
 /obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
@@ -20596,8 +20635,8 @@
 	},
 /obj/structure/cable,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
@@ -20630,6 +20669,10 @@
 	dir = 8
 	},
 /obj/machinery/computer/crew,
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "mpD" = (
@@ -20965,12 +21008,12 @@
 /area/mainship/hull/starboard_hull)
 "mye" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
@@ -20990,8 +21033,8 @@
 /obj/effect/spawner/random/misc/folder,
 /obj/item/eftpos{
 	eftpos_name = "Cargo Bay EFTPOS scanner";
-	pixel_y = 1;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 1
 	},
 /obj/item/tool/hand_labeler{
 	pixel_x = -4
@@ -21073,8 +21116,8 @@
 	pixel_y = -8
 	},
 /obj/structure/sign/semiotic/north{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
@@ -21252,8 +21295,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/high_voltage{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/electronics{
 	pixel_y = 24
@@ -21602,8 +21645,8 @@
 "mOq" = (
 /obj/machinery/vending/coffee,
 /obj/structure/sign/semiotic/coffee{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
@@ -21714,12 +21757,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
-"mSl" = (
-/obj/structure/window{
-	dir = 8
-	},
-/turf/open/floor/mainship/blue,
-/area/mainship/squads/delta)
 "mSt" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 9
@@ -21997,9 +22034,9 @@
 "mYr" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -22056,8 +22093,8 @@
 	},
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
@@ -22224,9 +22261,9 @@
 /area/space)
 "ngt" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
@@ -22475,9 +22512,9 @@
 "nnX" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -22752,8 +22789,8 @@
 	pixel_y = -17
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/engineering/engineering_workshop)
@@ -23140,8 +23177,8 @@
 /obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
@@ -23151,9 +23188,9 @@
 "nJt" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -23657,9 +23694,9 @@
 /area/mainship/hallways/starboard_hallway)
 "nUR" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /turf/open/floor/stairs/dark/left,
 /area/mainship/hull/port_hull)
@@ -23708,9 +23745,9 @@
 "nVN" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -23973,9 +24010,9 @@
 /area/mainship/squads/req)
 "oex" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -24561,9 +24598,9 @@
 "oxS" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -24626,9 +24663,9 @@
 "oBC" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -24663,8 +24700,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -24675,8 +24712,8 @@
 	},
 /obj/effect/landmark/start/latejoin_squad/bravo,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 7
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
@@ -24939,12 +24976,12 @@
 /area/mainship/squads/req)
 "oJM" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
@@ -24987,9 +25024,6 @@
 /obj/item/attachable/suppressor,
 /obj/item/armor_module/storage/uniform/holster,
 /obj/item/portable_vendor/corporate,
-/obj/machinery/keycard_auth{
-	pixel_x = -30
-	},
 /obj/effect/turf_decal/woodsiding{
 	dir = 9
 	},
@@ -24997,13 +25031,13 @@
 /area/mainship/command/corporateliaison)
 "oLY" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/bed/chair/comfy/bravo,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/orange/full,
 /area/mainship/hallways/hangar)
@@ -25049,8 +25083,8 @@
 	},
 /obj/effect/spawner/random/misc/plant,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -25404,8 +25438,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
@@ -25419,12 +25453,12 @@
 "paw" = (
 /obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
@@ -25575,12 +25609,12 @@
 /area/mainship/living/numbertwobunks)
 "per" = (
 /obj/structure/sign/semiotic/ammunition{
-	pixel_y = 1;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 1
 	},
 /obj/structure/sign/semiotic/laser{
-	pixel_y = 15;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 15
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -25683,9 +25717,9 @@
 /area/mainship/hallways/bow_hallway)
 "phy" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -26008,8 +26042,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -26102,9 +26136,9 @@
 "psl" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -26219,8 +26253,8 @@
 	dir = 4
 	},
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/delta)
@@ -26233,8 +26267,8 @@
 	pixel_y = -17
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -26255,8 +26289,8 @@
 /area/mainship/engineering/ce_room)
 "pvW" = (
 /obj/structure/sign/semiotic/south{
-	pixel_y = -8;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = -8
 	},
 /obj/structure/sign/semiotic/landingzone{
 	pixel_x = -17;
@@ -26427,9 +26461,9 @@
 "pAq" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -26611,8 +26645,8 @@
 "pFV" = (
 /obj/machinery/light/mainship,
 /obj/structure/sign/semiotic/conference_room{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/hallways/bow_hallway)
@@ -26773,8 +26807,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -26782,8 +26816,8 @@
 "pLD" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -26796,8 +26830,8 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
@@ -26820,8 +26854,8 @@
 "pMR" = (
 /obj/machinery/vending/snack,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
@@ -27000,8 +27034,8 @@
 /area/mainship/squads/req)
 "pQZ" = (
 /obj/structure/sign/semiotic/exhaust{
-	pixel_y = -21;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = -21
 	},
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17;
@@ -27021,9 +27055,9 @@
 "pRM" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -27161,14 +27195,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
-"pWv" = (
-/obj/structure/window{
-	dir = 8
-	},
-/turf/open/floor/mainship/orange{
-	dir = 1
-	},
-/area/mainship/squads/bravo)
 "pWN" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
 	dir = 1
@@ -27236,8 +27262,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/delta)
@@ -27281,6 +27307,13 @@
 /obj/structure/bedsheetbin,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
+"qak" = (
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 30
+	},
+/turf/open/floor/wood,
+/area/mainship/living/commandbunks)
 "qas" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -27303,8 +27336,8 @@
 	dir = 1
 	},
 /obj/structure/sign/semiotic/cryo{
-	pixel_y = 32;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 32
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
@@ -27552,12 +27585,12 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/commandbunks)
@@ -28025,8 +28058,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -28346,9 +28379,9 @@
 "qER" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -28374,9 +28407,9 @@
 	},
 /obj/effect/turf_decal/siding/metal,
 /obj/machinery/door_control{
+	dir = 1;
 	id = "Brig Lockdown";
 	name = "Brig Lockdown";
-	dir = 1;
 	pixel_x = -6;
 	pixel_y = -16
 	},
@@ -29301,6 +29334,9 @@
 /obj/structure/closet/secure_closet/req_officer,
 /obj/item/whistle,
 /obj/item/megaphone,
+/obj/machinery/keycard_auth{
+	pixel_x = -30
+	},
 /turf/open/floor/carpet,
 /area/mainship/squads/req)
 "ril" = (
@@ -29451,9 +29487,6 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/engineering_workshop)
 "rpb" = (
-/obj/machinery/keycard_auth{
-	pixel_x = -30
-	},
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
 	},
@@ -29480,8 +29513,8 @@
 	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
@@ -29651,8 +29684,8 @@
 "rwf" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
@@ -29686,13 +29719,13 @@
 /area/mainship/living/grunt_rnr)
 "rxt" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/effect/landmark/start/latejoin_squad/charlie,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/charlie)
@@ -29718,8 +29751,8 @@
 "ryd" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -30047,8 +30080,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
@@ -30122,9 +30155,9 @@
 "rIX" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	layer = 3.2
@@ -30827,9 +30860,9 @@
 "sfi" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -31138,6 +31171,9 @@
 /area/mainship/hallways/hangar)
 "snY" = (
 /obj/machinery/loadout_vendor,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/mainship/blue,
 /area/mainship/squads/delta)
 "soq" = (
@@ -31289,8 +31325,8 @@
 "ssL" = (
 /obj/structure/sink/bathroom,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /obj/machinery/light/mainship{
 	dir = 4
@@ -31398,12 +31434,12 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/item/tool/wet_sign{
-	pixel_y = 20;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 20
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
@@ -31479,12 +31515,6 @@
 /obj/structure/prop/mainship/sensor_computer1,
 /turf/open/floor/mainship/black/full,
 /area/mainship/command/cic)
-"sAK" = (
-/obj/machinery/loadout_vendor,
-/turf/open/floor/mainship/orange{
-	dir = 1
-	},
-/area/mainship/squads/bravo)
 "sAW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/operating,
@@ -31966,9 +31996,9 @@
 /area/mainship/engineering/port_atmos)
 "sOW" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/machinery/light/mainship{
 	dir = 8
@@ -32236,8 +32266,8 @@
 	pixel_y = 1
 	},
 /obj/structure/sign/semiotic/waterhazard{
-	pixel_y = 18;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 18
 	},
 /turf/open/floor/prison/whitepurple{
 	dir = 5
@@ -32248,8 +32278,8 @@
 /obj/effect/turf_decal/woodsiding,
 /obj/item/ashtray/glass,
 /obj/item/storage/fancy/cigarettes/kpack{
-	pixel_y = 10;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = 10
 	},
 /obj/item/clothing/mask/cigarette,
 /turf/open/floor/carpet,
@@ -32275,9 +32305,9 @@
 "sYF" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -33338,9 +33368,9 @@
 /area/mainship/living/starboard_garden)
 "tJx" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /turf/open/floor/stairs/dark/left{
 	dir = 1
@@ -33355,9 +33385,9 @@
 /area/mainship/hull/upper_hull)
 "tJG" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/machinery/light/mainship{
 	dir = 4
@@ -33492,9 +33522,9 @@
 "tQf" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -33615,8 +33645,8 @@
 "tUh" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -33685,8 +33715,8 @@
 "tWw" = (
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /obj/structure/table/black,
 /obj/structure/sign/semiotic/intercom{
@@ -33703,8 +33733,8 @@
 /area/mainship/squads/alpha)
 "tWH" = (
 /obj/structure/sign/semiotic/north{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /obj/structure/sign/semiotic/bridge{
 	pixel_x = -17;
@@ -33759,8 +33789,8 @@
 "tYC" = (
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /obj/structure/table/black,
 /obj/structure/sign/semiotic/intercom{
@@ -33770,8 +33800,8 @@
 /area/mainship/command/cic)
 "tYD" = (
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /obj/structure/sink/bathroom,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -34300,8 +34330,8 @@
 /area/mainship/squads/alpha)
 "uou" = (
 /obj/structure/largecrate/random/case{
-	pixel_y = 5;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 5
 	},
 /turf/open/floor/mainship/red,
 /area/mainship/squads/alpha)
@@ -34345,8 +34375,8 @@
 /area/mainship/command/cic)
 "upJ" = (
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /obj/machinery/vending/marineFood,
 /turf/open/floor/mainship/metal,
@@ -34384,9 +34414,9 @@
 "uqU" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -34693,19 +34723,19 @@
 /area/mainship/living/grunt_rnr)
 "uAy" = (
 /obj/machinery/light/mainship,
-/obj/machinery/loadout_vendor,
 /obj/structure/window{
-	dir = 4
+	dir = 8
 	},
+/obj/machinery/quick_vendor/beginner,
 /turf/open/floor/mainship/blue,
 /area/mainship/squads/delta)
 "uBb" = (
 /obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/door_control/mainship/cic{
+	dir = 8;
 	id = "CIC Checkpoint Shutters";
-	name = "CIC Checkpoint Shutters";
-	dir = 8
+	name = "CIC Checkpoint Shutters"
 	},
 /obj/item/tool/pen,
 /obj/structure/table/black,
@@ -34746,8 +34776,8 @@
 	},
 /obj/structure/sink/bathroom,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -34881,8 +34911,8 @@
 "uGs" = (
 /obj/structure/sink/bathroom,
 /obj/structure/mirror{
-	pixel_y = 10;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 10
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
@@ -34926,6 +34956,9 @@
 "uIq" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
+	},
+/obj/machinery/keycard_auth{
+	pixel_x = -30
 	},
 /turf/open/floor/carpet,
 /area/mainship/engineering/ce_room)
@@ -35233,12 +35266,12 @@
 "uSa" = (
 /obj/structure/table/fancywoodentable,
 /obj/item/camera_film{
-	pixel_y = 3;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 3
 	},
 /obj/item/camera{
-	pixel_y = 3;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 3
 	},
 /obj/item/flashlight/lamp/green{
 	pixel_x = 7
@@ -35538,8 +35571,8 @@
 	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/hallways/aft_hallway)
@@ -35562,8 +35595,8 @@
 /area/mainship/hull/upper_hull)
 "vcY" = (
 /obj/machinery/vending/nanomed{
-	pixel_y = 4;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 4
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/delta)
@@ -35648,8 +35681,8 @@
 	dir = 8
 	},
 /obj/item/toy/plush/moth{
-	name = "scared moth plush";
-	desc = "A plushie depicting a scared moth. It was trying to eat in peace, but you ruined it!"
+	desc = "A plushie depicting a scared moth. It was trying to eat in peace, but you ruined it!";
+	name = "scared moth plush"
 	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
@@ -36042,8 +36075,8 @@
 "vtN" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/req)
@@ -36191,8 +36224,8 @@
 	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/high_voltage{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
@@ -36222,8 +36255,8 @@
 "vAb" = (
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /obj/structure/bed/chair/comfy/charlie{
 	dir = 1
@@ -36385,8 +36418,8 @@
 	dir = 1
 	},
 /obj/structure/mirror{
-	pixel_y = -15;
-	dir = 1
+	dir = 1;
+	pixel_y = -15
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 1
@@ -36435,8 +36468,8 @@
 	},
 /obj/structure/bed/chair/wood,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 7
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
@@ -37044,8 +37077,8 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
-	name = "\improper Vehicle Crew Office";
 	dir = 2;
+	name = "\improper Vehicle Crew Office";
 	req_one_access = list(49)
 	},
 /obj/machinery/door/firedoor,
@@ -37098,8 +37131,8 @@
 	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/escapepod{
-	pixel_y = 39;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 39
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
@@ -37158,6 +37191,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
+"wbo" = (
+/obj/structure/table/mainship,
+/obj/machinery/recharger,
+/turf/open/floor/prison/whitepurple{
+	dir = 6
+	},
+/area/mainship/medical/medical_science)
 "wbu" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/misc/table_lighting,
@@ -37344,13 +37384,13 @@
 /area/mainship/squads/bravo)
 "whB" = (
 /obj/item/radio/intercom/general{
-	pixel_y = -20;
-	pixel_x = -24
+	pixel_x = -24;
+	pixel_y = -20
 	},
 /obj/effect/landmark/start/latejoin_squad/delta,
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
@@ -37582,8 +37622,8 @@
 /obj/effect/turf_decal/warning_stripes/cargo/yellow,
 /obj/item/radio/intercom/general{
 	dir = 1;
-	pixel_y = -19;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -19
 	},
 /obj/structure/sign/semiotic/intercom{
 	pixel_y = -25
@@ -37717,8 +37757,8 @@
 	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/distribution_pipes{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -38007,12 +38047,12 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/suit_storage{
-	pixel_y = 39;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 39
 	},
 /obj/structure/sign/semiotic/distribution_pipes{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/electronics{
 	pixel_y = 24
@@ -38066,9 +38106,9 @@
 	layer = 3.2
 	},
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
 	pixel_y = 13
@@ -38246,9 +38286,9 @@
 "wNm" = (
 /obj/effect/ai_node,
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 6
@@ -38477,9 +38517,9 @@
 "wUQ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
 	layer = 3.2
@@ -38561,8 +38601,8 @@
 /area/mainship/living/cafeteria)
 "wXi" = (
 /obj/structure/sign/semiotic/exhaust{
-	pixel_y = -21;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = -21
 	},
 /obj/structure/sign/semiotic/fire_haz{
 	pixel_x = -17;
@@ -38619,8 +38659,8 @@
 /obj/machinery/light/mainship,
 /obj/effect/ai_node,
 /obj/structure/sign/semiotic/east{
-	pixel_y = -25;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -25
 	},
 /obj/structure/sign/semiotic/high_voltage{
 	pixel_y = -25
@@ -38761,8 +38801,8 @@
 	pixel_y = 24
 	},
 /obj/structure/sign/semiotic/ref_bio_storage{
-	pixel_y = 24;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/gray,
 /area/mainship/medical/surgery_hallway)
@@ -38978,8 +39018,8 @@
 "xjK" = (
 /obj/machinery/light/floor,
 /obj/structure/sign/semiotic/bathmens{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/starboard_emb)
@@ -39236,8 +39276,8 @@
 "xsE" = (
 /obj/machinery/vending/marineFood,
 /obj/structure/sign/semiotic/food_storage{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
@@ -39398,8 +39438,8 @@
 	pixel_y = -18
 	},
 /obj/structure/sign/semiotic/intercom{
-	pixel_y = 7;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 7
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/alpha)
@@ -39539,8 +39579,8 @@
 "xBI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/semiotic/south{
-	pixel_y = -8;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = -8
 	},
 /obj/structure/sign/semiotic/elevator{
 	pixel_x = -17;
@@ -39604,8 +39644,8 @@
 	},
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/semiotic/water{
-	pixel_y = -25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -25
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -39974,9 +40014,9 @@
 "xNa" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/blue{
 	layer = 3.2
@@ -40060,9 +40100,9 @@
 "xQZ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	pixel_y = 13;
 	layer = 3.5;
-	max_buckled_mobs = 13
+	max_buckled_mobs = 13;
+	pixel_y = 13
 	},
 /obj/item/bedsheet/yellow{
 	layer = 3.2
@@ -40203,9 +40243,9 @@
 /area/mainship/hull/upper_hull)
 "xWl" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /turf/open/floor/stairs/dark/right{
 	dir = 1
@@ -40332,8 +40372,8 @@
 "xZX" = (
 /obj/structure/cable,
 /obj/structure/sign/semiotic/cryo{
-	pixel_y = -32;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -40387,9 +40427,9 @@
 "ybg" = (
 /obj/effect/ai_node,
 /obj/structure/window/framed/mainship/hull/canterbury{
-	name = "empty space";
+	hit_sound = null;
 	invisibility = 100;
-	hit_sound = null
+	name = "empty space"
 	},
 /obj/effect/turf_decal/siding/metal{
 	dir = 10
@@ -40415,8 +40455,8 @@
 	dir = 4
 	},
 /obj/structure/sign/semiotic/coffee{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/charlie)
@@ -61118,7 +61158,7 @@ lhv
 uSU
 mVy
 lay
-lxr
+wbo
 oYi
 uHQ
 lhv
@@ -67565,7 +67605,7 @@ pQT
 pQT
 pQT
 pQT
-xXP
+pdB
 pdB
 pdB
 pdB
@@ -68437,7 +68477,7 @@ xzH
 qQI
 uNE
 uJU
-qPr
+qak
 toq
 lSw
 rEU
@@ -69992,7 +70032,7 @@ cEa
 hjM
 xzH
 xPw
-vfY
+dOs
 wgv
 viz
 rqA
@@ -82167,7 +82207,7 @@ hwt
 sRd
 pTc
 xhq
-sAK
+iqo
 xZI
 fNK
 hFG
@@ -82424,7 +82464,7 @@ qvh
 dNU
 nJh
 xhq
-iqo
+fuK
 sEf
 lYT
 dme
@@ -82681,7 +82721,7 @@ nYl
 eDk
 pTc
 xhq
-pWv
+oZG
 sXV
 sFX
 nju
@@ -82726,7 +82766,7 @@ eWU
 bny
 aDy
 knz
-mSl
+igP
 tkN
 eDY
 bli

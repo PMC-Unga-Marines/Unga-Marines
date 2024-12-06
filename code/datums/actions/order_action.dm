@@ -13,11 +13,11 @@
 
 /datum/action/innate/order/give_action(mob/M)
 	. = ..()
-	RegisterSignal(M, COMSIG_ORDER_SENT, PROC_REF(update_button_icon))
+	RegisterSignals(M, list(COMSIG_CIC_ORDER_SENT, COMSIG_CIC_ORDER_OFF_CD), PROC_REF(update_button_icon))
 
 /datum/action/innate/order/remove_action(mob/M)
 	. = ..()
-	UnregisterSignal(M, COMSIG_ORDER_SENT)
+	UnregisterSignal(M, list(COMSIG_CIC_ORDER_SENT, COMSIG_CIC_ORDER_OFF_CD))
 
 /datum/action/innate/order/Activate()
 	active = TRUE
@@ -48,14 +48,14 @@
 /datum/action/innate/order/proc/send_order(atom/target, datum/squad/squad, faction = FACTION_TERRAGOV)
 	if(!can_use_action())
 		return
-	to_chat(owner ,span_ordercic("You ordered marines to [verb_name] [get_area(target.loc)]!"))
+	to_chat(owner ,span_ordercic("Вы приказали морпехам [verb_name] [get_area(target.loc)]!"))
 	owner.playsound_local(owner, "sound/effects/CIC_order.ogg", 10, 1)
 	if(visual_type)
 		target = get_turf(target)
 		new visual_type(target, faction)
-	TIMER_COOLDOWN_START(owner, COOLDOWN_CIC_ORDERS, ORDER_COOLDOWN)
-	SEND_SIGNAL(owner, COMSIG_ORDER_SENT)
-	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_all_icons_orders)), ORDER_COOLDOWN)
+	TIMER_COOLDOWN_START(owner, COOLDOWN_CIC_ORDERS, CIC_ORDER_COOLDOWN)
+	SEND_SIGNAL(owner, COMSIG_CIC_ORDER_SENT)
+	addtimer(CALLBACK(src, PROC_REF(on_cooldown_finish)), CIC_ORDER_COOLDOWN + 1)
 	if(squad)
 		for(var/mob/living/carbon/human/marine AS in squad.marines_list)
 			marine.receive_order(target, arrow_type, verb_name, faction)
@@ -65,11 +65,9 @@
 			human.receive_order(target, arrow_type, verb_name, faction)
 	return TRUE
 
-///Update all icons of orders action of the mob
-/mob/proc/update_all_icons_orders()
-	for(var/datum/action/action AS in actions)
-		if(istype(action, /datum/action/innate/order))
-			action.update_button_icon()
+///Lets any other orders know when we're off CD
+/datum/action/innate/order/proc/on_cooldown_finish()
+	SEND_SIGNAL(owner, COMSIG_CIC_ORDER_OFF_CD, src)
 
 /**
  * Proc to give a marine an order
@@ -98,12 +96,12 @@
 	var/atom/movable/screen/arrow/arrow_hud = new arrow_type
 	arrow_hud.add_hud(src, target)
 	playsound_local(src, "sound/effects/CIC_order.ogg", 20, 1)
-	to_chat(src,span_ordercic("Command is urging you to [verb_name] [get_area(get_turf(target))]!"))
+	to_chat(src,span_ordercic("Командование приказывает вам [verb_name] [get_area(get_turf(target))]!"))
 
 /datum/action/innate/order/attack_order
 	name = "Send Attack Order"
 	action_icon_state = "attack"
-	verb_name = "attack the enemy at"
+	verb_name = "<font color='#d93b29'>АТАКОВАТЬ</font>"
 	arrow_type = /atom/movable/screen/arrow/attack_order_arrow
 	visual_type = /obj/effect/temp_visual/order/attack_order
 
@@ -114,6 +112,9 @@
 	)
 
 /datum/action/innate/order/attack_order/personal/should_show()
+	. = ..()
+	if(!.)
+		return
 	return owner.skills.getRating(skill_name) >= skill_min
 
 /datum/action/innate/order/attack_order/personal/action_activate()
@@ -125,7 +126,7 @@
 /datum/action/innate/order/defend_order
 	name = "Send Defend Order"
 	action_icon_state = "defend"
-	verb_name = "defend our position in"
+	verb_name = "<font color='#24e324'>ОБОРОНЯТЬ</font>"
 	arrow_type = /atom/movable/screen/arrow/defend_order_arrow
 	visual_type = /obj/effect/temp_visual/order/defend_order
 
@@ -135,6 +136,9 @@
 	)
 
 /datum/action/innate/order/defend_order/personal/should_show()
+	. = ..()
+	if(!.)
+		return
 	return owner.skills.getRating(skill_name) >= skill_min
 
 /datum/action/innate/order/defend_order/personal/action_activate()
@@ -146,7 +150,7 @@
 /datum/action/innate/order/retreat_order
 	name = "Send Retreat Order"
 	action_icon_state = "retreat"
-	verb_name = "retreat from"
+	verb_name = "<font color='#e024e3'>ОТСТУПАТЬ</font> из"
 	visual_type = /obj/effect/temp_visual/order/retreat_order
 
 /datum/action/innate/order/retreat_order/personal
@@ -155,6 +159,9 @@
 	)
 
 /datum/action/innate/order/retreat_order/personal/should_show()
+	. = ..()
+	if(!.)
+		return
 	return owner.skills.getRating(skill_name) >= skill_min
 
 /datum/action/innate/order/retreat_order/personal/action_activate()
@@ -166,7 +173,7 @@
 /datum/action/innate/order/rally_order
 	name = "Send Rally Order"
 	action_icon_state = "rally"
-	verb_name = "rally to"
+	verb_name = "<font color='#e3dd24'>СОБРАТЬСЯ</font> в"
 	arrow_type = /atom/movable/screen/arrow/rally_order_arrow
 	visual_type = /obj/effect/temp_visual/order/rally_order
 
@@ -176,6 +183,9 @@
 	)
 
 /datum/action/innate/order/rally_order/personal/should_show()
+	. = ..()
+	if(!.)
+		return
 	return owner.skills.getRating(skill_name) >= skill_min
 
 /datum/action/innate/order/rally_order/personal/action_activate()
