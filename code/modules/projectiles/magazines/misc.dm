@@ -347,7 +347,7 @@
 	if(prob(1))
 		icon_state = "boxt500_ke"
 
-/obj/item/ammo_magazine/packet/t500/med/
+/obj/item/ammo_magazine/packet/t500/med
 	caliber = CALIBER_500_EMB
 	current_rounds = 50
 	max_rounds = 50

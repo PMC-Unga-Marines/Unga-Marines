@@ -1213,7 +1213,7 @@
 		/obj/item/weapon/gun/revolver/t312,
 	)
 
-/obj/item/storage/box/t312case/Initialize()
+/obj/item/storage/box/t312case/PopulateContents()
 	. = ..()
 	new /obj/item/ammo_magazine/packet/t500/med/adrenaline(src)
 	new /obj/item/ammo_magazine/packet/t500/med/rr(src)
