@@ -526,13 +526,13 @@
 	purge_rate = 5
 
 /datum/reagent/medicine/adrenaline/on_mob_add(mob/living/carbon/human/L, metabolism)
-	if(TIMER_COOLDOWN_CHECK(L, name))
+	var/mob/living/carbon/human/H = L
+	if(TIMER_COOLDOWN_CHECK(L, COOLDOWN_STAMINA))
 		return
 	L.adjustStaminaLoss(-30 * effect_str)
 	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
 
-	var/mob/living/carbon/human/H = L
-	if(TIMER_COOLDOWN_CHECK(L, name) || L.stat == DEAD)
+	if(TIMER_COOLDOWN_CHECK(L, COOLDOWN_CRIT) || L.stat == DEAD)
 		return
 	if(L.health < H.health_threshold_crit && volume >= 2)
 		to_chat(L, span_userdanger("Heart explosion! Power running in your veins!"))
@@ -540,7 +540,7 @@
 		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
 		L.adjustToxLoss(5)
 		L.jitter(5)
-		TIMER_COOLDOWN_START(L, name, 120 SECONDS)
+		TIMER_COOLDOWN_START(L, COOLDOWN_CRIT, 120 SECONDS)
 
 /datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
@@ -567,7 +567,7 @@
 
 /datum/reagent/medicine/adrenaline/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("The room spins as your adrenaline starts to wear off!"))
-	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
+	TIMER_COOLDOWN_START(L, COOLDOWN_STAMINA, 60 SECONDS)
 
 /datum/reagent/medicine/neuraline //injected by neurostimulator implant and medic-only injector
 	name = "Neuraline"
