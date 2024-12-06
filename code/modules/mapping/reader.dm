@@ -344,11 +344,6 @@
 	SSatoms.map_loader_stop(REF(src))
 	loading = FALSE
 
-	// CM: Disabled due to not using contained_turfs and SSarea_contents
-//	if(new_z)
-//		for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
-//			SSmapping.build_area_turfs(z_index)
-
 	if(!no_changeturf)
 		var/list/turfs = block(
 			locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]),
@@ -393,11 +388,7 @@
 	var/highest_y = relative_y + y_relative_to_absolute
 
 	if(!crop_map && highest_y > world.maxy)
-		if(new_z)
-			// Need to avoid improperly loaded area/turf_contents
-			world.increase_max_y(highest_y, map_load_z_cutoff = z_offset - 1)
-		else
-			world.increase_max_y(highest_y)
+		world.increase_max_y(highest_y)
 		expanded_y = TRUE
 
 	// Skip Y coords that are above the smallest of the three params
@@ -429,11 +420,7 @@
 		var/delta = max(final_x - x_delta_with, 0)
 		final_x -= delta
 	if(final_x > world.maxx && !crop_map)
-		if(new_z)
-			// Need to avoid improperly loaded area/turf_contents
-			world.increase_max_x(final_x, map_load_z_cutoff = z_offset - 1)
-		else
-			world.increase_max_x(final_x)
+		world.increase_max_x(final_x)
 		expanded_x = TRUE
 
 	var/lowest_x = max(x_lower, 1 - x_relative_to_absolute)
@@ -564,11 +551,7 @@
 		var/ycrd = relative_y + y_relative_to_absolute
 		var/zcrd = gset.zcrd + grid_z_offset
 		if(!crop_map && ycrd > world.maxy)
-			if(new_z)
-				// Need to avoid improperly loaded area/turf_contents
-				world.increase_max_y(ycrd, map_load_z_cutoff = z_offset - 1)
-			else
-				world.increase_max_y(ycrd)
+			world.increase_max_y(ycrd)
 			expanded_y = TRUE
 		var/zexpansion = zcrd > world.maxz
 		var/no_afterchange = no_changeturf
@@ -621,11 +604,7 @@
 			final_x -= delta
 			x_target = x_step_count * key_len
 		if(final_x > world.maxx && !crop_map)
-			if(new_z)
-				// Need to avoid improperly loaded area/turf_contents
-				world.increase_max_x(final_x, map_load_z_cutoff = z_offset - 1)
-			else
-				world.increase_max_x(final_x)
+			world.increase_max_x(final_x)
 			expanded_x = TRUE
 
 		// We're gonna track the first and last pairs of coords we find
@@ -926,8 +905,6 @@ GLOBAL_LIST_EMPTY(map_model_default)
 
 		if(!new_z)
 			old_area = crds.loc
-//			old_area.turfs_to_uncontain += crds
-//			area_instance.contained_turfs.Add(crds)
 		area_instance.contents.Add(crds)
 
 		if(GLOB.use_preloader)
