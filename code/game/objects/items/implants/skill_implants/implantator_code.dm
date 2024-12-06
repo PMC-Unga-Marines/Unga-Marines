@@ -13,7 +13,6 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
 	var/max_skills
-	var/list/implants
 
 /obj/item/implanter/implantator/Initialize(mapload, ...)
 	. = ..()
@@ -24,7 +23,7 @@
 /obj/item/implanter/update_icon_state()
 	return
 
-/obj/item/implanter/implantator/attack(mob/living/target, mob/living/user, list/implants, datum/limb/targetlimb, var/obj/item/implant/skill/i)
+/obj/item/implanter/implantator/attack(mob/living/target, mob/living/user)
 	. = ..()
 
 /obj/item/implanter/implantator/combat
