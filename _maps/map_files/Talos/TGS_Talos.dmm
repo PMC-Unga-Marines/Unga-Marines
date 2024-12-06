@@ -15416,14 +15416,7 @@
 /area/mainship/living/mechbunks)
 "jrf" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/mpi_km/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/carbine/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/carbine/anime,
-/obj/item/ammo_magazine/rifle/mpi_km/extended/anime,
+/obj/effect/spawner/random/weaponry/melee,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "jrs" = (
