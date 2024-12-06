@@ -173,9 +173,7 @@
 	bonus_overlay = "ak_40_black"
 
 /obj/item/ammo_magazine/rifle/mpi_km/anime
-	desc = "A 7.62x39mm magazine for the Kalashnikov series of firearms. This one had an modern black polymer finish."
 	icon_state = "ak_40_anime"
-	icon_state_mini = "mag_rifle"
 	bonus_overlay = "ak_40_anime"
 
 /obj/item/ammo_magazine/rifle/mpi_km/carbine
@@ -204,7 +202,6 @@
 /obj/item/ammo_magazine/rifle/mpi_km/carbine/anime
 	desc = "A 30 round 7.62x39mm magazine for the Kalashnikov series of firearms. This one had an modern black polymer finish."
 	icon_state = "ak_30_anime"
-	icon_state_mini = "mag_rifle"
 	bonus_overlay = "ak_30_anime"
 
 /obj/item/ammo_magazine/rifle/mpi_km/extended
@@ -221,7 +218,6 @@
 	name = "\improper MPi-KM extended anime magazine (7.62x39mm)"
 	desc = "A 60 round 7.62x39mm Kalashnikov magazine. this one is notably heavy."
 	icon_state = "ak47_ext_anime"
-	icon_state_mini = "mag_rifle"
 	bonus_overlay = "ak47_ex_anime"
 
 // RPD

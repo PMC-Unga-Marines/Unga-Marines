@@ -54,3 +54,32 @@
 	new /obj/item/attachable/scope/standard_magnum(src)
 	for(var/i in 1 to 15)
 		new /obj/item/ammo_magazine/revolver/standard_magnum(src)
+
+/obj/item/storage/briefcase/anime
+	name = "Anime AK-47 case"
+	desc = "В этом кейсе хранится явно что-то... странное."
+	icon_state = "briefcase_anime"
+	item_state = "briefcase_anime"
+	flags_atom = CONDUCT
+	force = 12
+	throw_speed = 1
+	throw_range = 4
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = 15
+	storage_slots = 9
+	storage_type_limits = list(/obj/item/weapon/gun = 1)
+	can_hold = list(
+		/obj/item/weapon/gun/rifle/mpi_km/anime,
+		/obj/item/ammo_magazine/rifle/mpi_km/,
+	)
+
+/obj/item/storage/briefcase/anime/PopulateContents()
+	new /obj/item/weapon/gun/rifle/mpi_km/anime(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_magazine/rifle/mpi_km/anime(src)
+	for(var/i in 1 to 4)
+		new /obj/item/ammo_magazine/rifle/mpi_km/carbine/anime(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/rifle/mpi_km/extended/anime(src)
+
