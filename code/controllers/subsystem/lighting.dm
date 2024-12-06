@@ -27,7 +27,6 @@ SUBSYSTEM_DEF(lighting)
 ///Handle static lightning
 /datum/controller/subsystem/lighting/proc/create_all_lighting_objects()
 	for(var/area/our_area in world)
-
 		if(!our_area.static_lighting)
 			continue
 
