@@ -11,7 +11,6 @@
 	var/netexcess = 0			// excess power on the powernet (typically avail-load)
 	var/delayedload = 0			// load applied to powernet between power ticks.
 
-
 /datum/powernet/New()
 	SSmachines.powernets += src
 
@@ -44,8 +43,7 @@
 	if(C.powernet)
 		if(C.powernet == src)
 			return
-		else
-			C.powernet.remove_cable(C)
+		C.powernet.remove_cable(C)
 	C.powernet = src
 	cables +=C
 
@@ -58,15 +56,13 @@
 	if(is_empty())
 		qdel(src)
 
-
 //add a power machine to the current powernet
 //Warning : this proc DON'T check if the machine exists
 /datum/powernet/proc/add_machine(obj/machinery/power/M)
 	if(M.powernet)
 		if(M.powernet == src)
 			return
-		else
-			M.disconnect_from_network()
+		M.disconnect_from_network()
 	M.powernet = src
 	nodes[M] = M
 
@@ -93,5 +89,4 @@
 /datum/powernet/proc/get_electrocute_damage()
 	if(avail >= 1000)
 		return clamp(20 + round(avail/25000), 20, 195) + rand(-5,5)
-	else
-		return 0
+	return 0

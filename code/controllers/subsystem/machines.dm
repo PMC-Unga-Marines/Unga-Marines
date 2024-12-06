@@ -20,10 +20,11 @@ SUBSYSTEM_DEF(machines)
 	powernets.Cut()
 
 	for(var/obj/structure/cable/PC AS in GLOB.cable_list)
-		if(!PC.powernet)
-			var/datum/powernet/NewPN = new()
-			NewPN.add_cable(PC)
-			propagate_network(PC,PC.powernet)
+		if(PC.powernet)
+			continue
+		var/datum/powernet/NewPN = new()
+		NewPN.add_cable(PC)
+		propagate_network(PC,PC.powernet)
 
 /datum/controller/subsystem/machines/stat_entry(msg)
 	msg = "PM:[length(processing)]|PN:[length(powernets)]"
