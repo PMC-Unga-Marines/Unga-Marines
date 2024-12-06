@@ -10,6 +10,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 /obj/item/ammo_magazine/shotgun
 	name = "box of 12 gauge shotgun slugs"
 	desc = "A box filled with heavy shotgun shells. A timeless classic. 12 Gauge."
+	icon = 'icons/obj/items/ammo/packet.dmi'
 	icon_state = "slugs"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 	caliber = CALIBER_12G //All shotgun rounds are 12g right now.
@@ -55,6 +56,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 /obj/item/ammo_magazine/rifle/bolt
 	name = "box of 7.62x54mmR rifle rounds"
 	desc = "A box filled with rifle bullets."
+	icon = 'icons/obj/items/ammo/packet.dmi'
 	icon_state = "7.62" //Thank you Alterist
 	default_ammo = /datum/ammo/bullet/sniper/svd
 	caliber = CALIBER_762X54 //Cyka Blyat
@@ -75,6 +77,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 /obj/item/ammo_magazine/rifle/martini
 	name = "box of .557/440 rifle rounds"
 	desc = "A box filled with rifle bullets."
+	icon = 'icons/obj/items/ammo/packet.dmi'
 	icon_state = ".557"
 	default_ammo = /datum/ammo/bullet/sniper/martini
 	caliber = CALIBER_557
@@ -90,6 +93,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 /obj/item/ammo_magazine/pistol/derringer
 	name = "box of .40 rimfire pistol rounds"
 	desc = "A box filled with pistol bullets."
+	icon = 'icons/obj/items/ammo/packet.dmi'
 	icon_state = "derringer_box"
 	default_ammo = /datum/ammo/bullet/pistol/superheavy/derringer
 	caliber = CALIBER_41RIM

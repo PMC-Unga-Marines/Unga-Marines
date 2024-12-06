@@ -131,7 +131,7 @@
 	evolution_threshold = 50
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING|CASTE_ACID_BLOOD
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
@@ -206,4 +206,4 @@
 	. = list()
 	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP) || HAS_TRAIT(src, TRAIT_REGRESSING))
 		return
-	return list(/mob/living/carbon/xenomorph/predalien)
+	return list(/datum/xeno_caste/predalien)

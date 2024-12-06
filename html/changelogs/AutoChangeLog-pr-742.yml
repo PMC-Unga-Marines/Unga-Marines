@@ -1,0 +1,4 @@
+author: "definitelynotspaghetti"
+delete-after: True
+changes:
+  - code_imp: "Удалил анимацию возникающую при дупликации сообщений в чате"

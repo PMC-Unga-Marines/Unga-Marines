@@ -189,6 +189,10 @@
 	///Base range of Blink
 	var/blink_range = 0
 
+	// *** Widow Abilities *** //
+	///maximum amount of spiderlings a widow can carry at one time.
+	var/max_spiderlings = 0
+
 	///the 'abilities' available to a caste.
 	var/list/actions
 
@@ -346,6 +350,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/regen_power = 0
 	///Stored biomass
 	var/biomass = 0
+	///Stored upgrade effects, so we reapply them on evolve
+	var/list/upgrades_holder = list()
 
 	var/is_zoomed = FALSE
 	var/zoom_turf = null

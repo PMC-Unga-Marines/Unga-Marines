@@ -45,9 +45,6 @@
 /mob/living/silicon/put_in_r_hand(obj/item/I)
 	return
 
-/mob/living/silicon/stripPanelUnequip(obj/item/I, mob/M, slot)
-	return
-
 /mob/living/silicon/med_hud_set_health()
 	return
 

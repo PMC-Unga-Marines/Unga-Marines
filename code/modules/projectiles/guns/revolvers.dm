@@ -148,6 +148,9 @@
 	base_gun_icon = "tp44cool"
 	update_icon()
 
+/obj/item/weapon/gun/revolver/r44/beginner
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
+
 //-------------------------------------------------------
 //RUSSIAN REVOLVER //Based on the 7.62mm Russian revolvers.
 
@@ -331,7 +334,7 @@
 	icon_state = "t76"
 	item_state = "t76"
 	fire_animation = "t76_fire"
-	caliber = CALIBER_12x7 //codex
+	caliber = CALIBER_12X7 //codex
 	max_chamber_items = 5 //codex
 	default_ammo_type = /obj/item/ammo_magazine/revolver/standard_magnum
 	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/standard_magnum)

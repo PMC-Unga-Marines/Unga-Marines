@@ -402,7 +402,7 @@
 	icon = 'icons/Marine/marine-mmg.dmi'
 	icon_state = "t27"
 	item_state = "t27"
-	caliber = CALIBER_10x27_CASELESS // codex
+	caliber = CALIBER_10X27_CASELESS // codex
 	max_shells = 150 //codex
 	force = 40
 	aim_slowdown = 1.2
