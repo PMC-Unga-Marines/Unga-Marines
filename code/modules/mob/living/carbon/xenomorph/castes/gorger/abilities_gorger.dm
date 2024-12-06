@@ -429,9 +429,21 @@
 // *********** oppose
 // ***************************************
 
-/particles/bulwark_aoe/oppose_aoe
-	color = LIGHT_COLOR_BLOOD_MAGIC
-	fade = 3 SECONDS
+/particles/oppose_aoe
+    icon = 'icons/effects/particles/generic_particles.dmi'
+    icon_state = list("cross" = 1, "x" = 1, "rectangle" = 1, "up_arrow" = 1, "down_arrow" = 1, "square" = 1)
+    width = 500
+    height = 500
+    count = 2000
+    spawning = 50
+    gravity = list(0, 0.1)
+    color = LIGHT_COLOR_BLOOD_MAGIC
+    lifespan = 13
+    fade = 3
+    fadein = 5
+    scale = 0.8
+    friction = generator(GEN_NUM, 0.1, 0.15)
+    spin = generator(GEN_NUM, -20, 20)
 
 /datum/action/ability/activable/xeno/oppose
 	name = "Oppose"
@@ -458,7 +470,7 @@
 	owner_xeno.create_stomp() //Adds the visual effects. Wom wom wom
 	new /obj/effect/temp_visual/oppose_shatter(get_turf(owner_xeno)) //shatter displays stagger range
 
-	var/obj/effect/abstract/particle_holder/aoe_particles = new(owner.loc, /particles/bulwark_aoe/oppose_aoe) //particles display heal range
+	var/obj/effect/abstract/particle_holder/aoe_particles = new(owner.loc, /particles/oppose_aoe) //particles display heal range
 	aoe_particles.particles.position = generator(GEN_SQUARE, 0, 16 + 3*32, LINEAR_RAND)
 	addtimer(CALLBACK(src, PROC_REF(stop_particles), aoe_particles), 0.5 SECONDS)
 
