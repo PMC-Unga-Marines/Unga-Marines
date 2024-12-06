@@ -58,8 +58,8 @@
 	else // pump_direction == SIPHONING
 		icon_state = "[base_icon_state]_in"
 
-/obj/machinery/atmospherics/components/unary/vent_pump/weld_cut_act(mob/living/user, obj/item/W)
-	if(istype(W, /obj/item/tool/pickaxe/plasmacutter))
+/obj/machinery/atmospherics/components/unary/vent_pump/plasmacutter_act(mob/living/user, obj/item/W)
+	if(isplasmacutter(W))
 		var/obj/item/tool/pickaxe/plasmacutter/P = W
 		if(!welded)
 			to_chat(user, span_warning("\The [P] can only cut open welds!"))

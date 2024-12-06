@@ -33,8 +33,8 @@
 			return target.wirecutter_act(user, src)
 		if(TOOL_WELDER)
 			return target.welder_act(user, src)
-		if(TOOL_WELD_CUTTER)
-			return target.weld_cut_act(user, src)
+		if(TOOL_PLASMACUTTER)
+			return target.plasmacutter_act(user, src)
 		if(TOOL_ANALYZER)
 			return target.analyzer_act(user, src)
 		if(TOOL_FULTON)
@@ -336,7 +336,7 @@
 		return FALSE
 
 	if(!force)
-		return FALSE	
+		return FALSE
 
 	if(!M)
 		return FALSE
