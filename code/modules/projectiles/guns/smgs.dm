@@ -49,7 +49,6 @@
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/mp19
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/mp19)
-
 	w_class = WEIGHT_CLASS_NORMAL
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
@@ -422,7 +421,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/smg/uzi
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/uzi, /obj/item/ammo_magazine/smg/uzi/extended)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 20,"rail_x" = 11, "rail_y" = 27, "under_x" = 22, "under_y" = 16, "stock_x" = 22, "stock_y" = 16)
-
 	fire_delay = 0.15 SECONDS
 	burst_amount = 4
 	accuracy_mult_unwielded = 0.9

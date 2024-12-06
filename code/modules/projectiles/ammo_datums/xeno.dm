@@ -124,6 +124,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/tox_loss
 	name = "toxin spit"
+	icon_state = "transvitox"
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
 	spit_cost = 50
 	added_spit_delay = 0

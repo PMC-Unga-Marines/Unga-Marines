@@ -1,0 +1,5 @@
+author: "Tatarla"
+delete-after: True
+changes:
+  - balance: "Фаллоу вектора 3 >> 1.75"
+  - code_imp: "Убраны дубликаты allowed_ammo_types у АРкок"

@@ -1,0 +1,5 @@
+author: "LoneAsket"
+delete-after: True
+changes:
+  - balance: "Удалил Пенетру у зажигалок и БурстАсембли у МК88"
+  - balance: "АП зажигалок на пистолет 25 -> 0"
