@@ -567,7 +567,12 @@
 	caliber =  CALIBER_500_EMB
 	max_chamber_items = 5 //codex
 	default_ammo_type = /datum/ammo/bullet/revolver/t500/t312
-	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/t500/t312, /obj/item/ammo_magazine/revolver/t500/med/adrenaline, /obj/item/ammo_magazine/revolver/t500/med/rr, /obj/item/ammo_magazine/revolver/t500/med/md, /obj/item/ammo_magazine/revolver/t500/med/neu)
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/revolver/t500/t312,
+		/obj/item/ammo_magazine/revolver/t500/med/adrenaline,
+		/obj/item/ammo_magazine/revolver/t500/med/rr,
+		/obj/item/ammo_magazine/revolver/t500/med/md,
+		/obj/item/ammo_magazine/revolver/t500/med/neu)
 	force = 20
 	actions_types = null
 	attachable_allowed = list(
@@ -589,7 +594,9 @@
 	akimbo_additional_delay = 0.6
 
 /obj/item/weapon/gun/revolver/t312/able_to_fire(mob/user)
+	. = ..()
+	if (!.)
+		return
 	if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED)
 		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
 		return FALSE
-	return ..()

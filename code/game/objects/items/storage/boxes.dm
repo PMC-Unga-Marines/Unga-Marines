@@ -1193,7 +1193,6 @@
 /obj/item/storage/box/t312case
 	name = "R-312 'Albedo' Revolver special case"
 	desc = "High-tech case made by BMSS for delivery their special weapons. Label on this case says: 'Since we have already called Nigredo death, within the same metaphor we can call Albedo life. It is time to shoot at people legally.'"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "med_case"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_w_class = 1
@@ -1214,7 +1213,6 @@
 	)
 
 /obj/item/storage/box/t312case/PopulateContents()
-	. = ..()
 	new /obj/item/ammo_magazine/packet/t500/med/adrenaline(src)
 	new /obj/item/ammo_magazine/packet/t500/med/rr(src)
 	new /obj/item/ammo_magazine/packet/t500/med/md(src)

@@ -349,9 +349,6 @@
 
 /obj/item/ammo_magazine/packet/t500/med
 	caliber = CALIBER_500_EMB
-	current_rounds = 50
-	max_rounds = 50
-	w_class = WEIGHT_CLASS_SMALL
 	used_casings = 1
 
 /obj/item/ammo_magazine/packet/t500/med/adrenaline
