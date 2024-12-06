@@ -429,20 +429,20 @@
 // *********** oppose
 // ***************************************
 /particles/oppose_aoe
-    icon = 'icons/effects/particles/generic_particles.dmi'
-    icon_state = list("cross" = 1, "x" = 1, "rectangle" = 1, "up_arrow" = 1, "down_arrow" = 1, "square" = 1)
-    width = 500
-    height = 500
-    count = 2000
-    spawning = 50
-    gravity = list(0, 0.1)
-    color = LIGHT_COLOR_BLOOD_MAGIC
-    lifespan = 13
-    fade = 3
-    fadein = 5
-    scale = 0.8
-    friction = generator(GEN_NUM, 0.1, 0.15)
-    spin = generator(GEN_NUM, -20, 20)
+	icon = 'icons/effects/particles/generic_particles.dmi'
+	icon_state = list("cross" = 1, "x" = 1, "rectangle" = 1, "up_arrow" = 1, "down_arrow" = 1, "square" = 1)
+	width = 500
+	height = 500
+	count = 2000
+	spawning = 50
+	gravity = list(0, 0.1)
+	color = LIGHT_COLOR_BLOOD_MAGIC
+	lifespan = 13
+	fade = 3
+	fadein = 5
+	scale = 0.8
+	friction = generator(GEN_NUM, 0.1, 0.15)
+	spin = generator(GEN_NUM, -20, 20)
 
 /datum/action/ability/activable/xeno/oppose
 	name = "Oppose"
