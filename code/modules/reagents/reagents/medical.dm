@@ -531,10 +531,16 @@
 	L.adjustStaminaLoss(-30 * effect_str)
 	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
 
-	if(L.health < L.health_threshold_crit && volume >= 3)
-		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
+	var/mob/living/carbon/human/H = L
+	if(TIMER_COOLDOWN_CHECK(L, name) || L.stat == DEAD)
+		return
+	if(L.health < H.health_threshold_crit && volume >= 2)
+		to_chat(L, span_userdanger("Heart explosion! Power running in your veins!"))
 		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
+		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
+		L.adjustToxLoss(5)
 		L.jitter(5)
+		TIMER_COOLDOWN_START(L, name, 120 SECONDS)
 
 /datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
