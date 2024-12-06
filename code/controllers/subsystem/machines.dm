@@ -7,7 +7,6 @@ SUBSYSTEM_DEF(machines)
 	var/list/currentrun = list()
 	var/list/processing = list()
 	var/list/powernets = list()
-	var/list/zlevel_cables = list() //up or down cables
 
 /datum/controller/subsystem/machines/Initialize()
 	makepowernets()
