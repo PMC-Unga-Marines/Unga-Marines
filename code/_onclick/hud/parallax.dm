@@ -124,7 +124,7 @@
 			continue
 		//queue up another animate so lag doesn't create a shutter
 		animate(transform = new_transform, time = 0)
-		animate(transform = matrix(), time = scaled_time / 2)
+		animate(transform = matrix(), time = scaled_time * 0.5)
 		C.parallax_animate_timers[layer] = addtimer(CALLBACK(src, PROC_REF(update_parallax_motionblur), C, layer, new_parallax_movedir, new_transform), scaled_time, TIMER_CLIENT_TIME|TIMER_STOPPABLE)
 
 	C.dont_animate_parallax = world.time + min(longest_timer, PARALLAX_LOOP_TIME)
@@ -141,7 +141,7 @@
 	// (This is because of how derivatives work right?)
 	// Because of this, while our actual rate of change from before was PARALLAX_LOOP_TIME, our perceived rate of change was PARALLAX_LOOP_TIME / 2 (lower == faster).
 	// Let's account for that here
-	var/scaled_time = (PARALLAX_LOOP_TIME / layer.speed) / 2
+	var/scaled_time = (PARALLAX_LOOP_TIME / layer.speed) * 0.5
 	animate(layer, transform = new_transform, time = 0, loop = -1, flags = ANIMATION_END_NOW)
 	animate(transform = matrix(), time = scaled_time)
 
@@ -263,8 +263,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 	// Turn the view size into a grid of correctly scaled overlays
 	var/list/viewscales = getviewsize(view)
 	// This could be half the size but we need to provide space for parallax movement on mob movement, and movement on scroll from shuttles, so like this instead
-	var/countx = (CEILING((viewscales[1] / 2) * parallax_scaler, 1) + 1)
-	var/county = (CEILING((viewscales[2] / 2) * parallax_scaler, 1) + 1)
+	var/countx = (CEILING((viewscales[1] * 0.5) * parallax_scaler, 1) + 1)
+	var/county = (CEILING((viewscales[2] * 0.5) * parallax_scaler, 1) + 1)
 	var/list/new_overlays = new
 	for(var/x in -countx to countx)
 		for(var/y in -county to county)
