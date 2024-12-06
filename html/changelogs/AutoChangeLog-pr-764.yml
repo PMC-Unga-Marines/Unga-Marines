@@ -1,0 +1,4 @@
+author: "MalorMorfin"
+delete-after: True
+changes:
+  - refactor: "Переделал код у Fit Viewport"

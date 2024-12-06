@@ -42,7 +42,6 @@
 	max_shells = 36 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar18
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar18)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -139,7 +138,6 @@
 	max_shells = 50 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar12)
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -681,7 +679,6 @@
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/lmg_d
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/lmg_d)
-
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -1510,7 +1507,7 @@
 //SR-127 bolt action sniper rifle
 
 
-/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127 //its a subtype of antimaterial. A little complicated, but I don't want to copypast
+/obj/item/weapon/gun/rifle/sr127
 	name = "\improper SR-127 Bauer bolt action rifle"
 	desc = "The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines."
 	icon = 'icons/Marine/gun64.dmi'
@@ -1530,6 +1527,7 @@
 	reload_sound =   'sound/weapons/guns/sniper/SR-127/SR127_clipin.ogg'
 	silenced_sound = 'sound/weapons/guns/sniper/SR-127/SR127_SIL.ogg'
 	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
+	cocked_sound = 'sound/weapons/guns/sniper/SR-127/SR127_boltpull.ogg'
 	caliber = CALIBER_86X70 //codex
 	max_shells = 10 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/sr127
@@ -1551,6 +1549,7 @@
 	)
 
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	reciever_flags = AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS|AMMO_RECIEVER_AUTO_EJECT
 
 	cock_animation = "tl127_cock"
 	cocked_message = "You rack the bolt!"
@@ -1579,7 +1578,7 @@
 	movement_acc_penalty_mult = 6
 
 
-/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127/unscoped
+/obj/item/weapon/gun/rifle/sr127/unscoped
 	starting_attachment_types = list(/obj/item/attachable/stock/sr127stock)
 
 //-------------------------------------------------------
