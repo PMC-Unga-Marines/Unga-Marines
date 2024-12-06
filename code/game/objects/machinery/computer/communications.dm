@@ -230,7 +230,7 @@
 				cooldown_request = world.time
 				if(admin_response == "deny")
 					SSticker.mode.distress_cancelled = TRUE
-					priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distress_deny.ogg')
+					priority_announce("The distress signal has been blocked, the launch tubes are now recalibrating.", "Distress Beacon")
 					return FALSE
 				if(admin_response =="deny without annoncing")
 					SSticker.mode.distress_cancelled = TRUE

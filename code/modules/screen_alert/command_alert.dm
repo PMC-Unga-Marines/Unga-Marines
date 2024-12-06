@@ -42,7 +42,7 @@
 	if(!can_use_action())
 		return
 	var/mob/living/carbon/human/human_owner = owner
-	var/text = tgui_input_text(human_owner, "Максимальная длина [MAX_COMMAND_MESSAGE_LEN]", "Отправить сообщение отряду",  max_length = MAX_COMMAND_MESSAGE_LEN, multiline = TRUE)
+	var/text = tgui_input_text(human_owner, "Maximum message length [MAX_COMMAND_MESSAGE_LEN]", "Send message to squad",  max_length = MAX_COMMAND_MESSAGE_LEN, multiline = TRUE)
 	if(!text)
 		return
 	var/filter_result = CAN_BYPASS_FILTER(human_owner) ? null : is_ic_filtered(text)
@@ -75,21 +75,21 @@
 			else
 				override_color = "grey"
 		for(var/mob/living/carbon/human/marine AS in human_owner.assigned_squad.marines_list | GLOB.observer_list)
-			marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>ПРИКАЗ ОТРЯДУ:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
+			marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>SQUAD ANNOUNCEMENT:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(marine, assemble_alert(
-				title = "Приказ отряду [human_owner.assigned_squad.name]",
-				subtitle = "Отправлен [human_owner.real_name]",
+				title = "Squad [human_owner.assigned_squad.name] Announcement",
+				subtitle = "Sent by [human_owner.real_name]",
 				message = text,
 				color_override = override_color
 			))
 		return
 	for(var/mob/faction_receiver in alert_receivers)
 		if(faction_receiver.faction == human_owner.faction || isdead(faction_receiver))
-			var/faction_title = GLOB.faction_to_acronym[human_owner.faction] ? "Командования " + GLOB.faction_to_acronym[human_owner.faction] : "Командования" + " Неизвестной Фракции"
-			faction_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u> ПРИКАЗ [uppertext(faction_title)]:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
+			var/faction_title = GLOB.faction_to_acronym[human_owner.faction] ? GLOB.faction_to_acronym[human_owner.faction] + " Command" : "Unknown Faction" + " Command"
+			faction_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[uppertext(faction_title)] ANNOUNCEMENT:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(faction_receiver, assemble_alert(
-				title = "Сообщение от [faction_title]",
-				subtitle = "Отправлен [human_owner.job.title] [human_owner.real_name]",
+				title = "[faction_title] Announcement",
+				subtitle = "Sent by [human_owner.job.title] [human_owner.real_name]",
 				message = text
 			))
 			SEND_SOUND(faction_receiver, S)
