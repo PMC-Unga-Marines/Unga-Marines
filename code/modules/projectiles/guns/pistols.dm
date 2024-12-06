@@ -458,6 +458,7 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/lace,
+		/obj/item/attachable/flashlight/under,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
