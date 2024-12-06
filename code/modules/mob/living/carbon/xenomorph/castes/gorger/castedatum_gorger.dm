@@ -24,7 +24,7 @@
 	plasma_icon_state = "fury"
 
 	// *** Health *** //
-	max_health = 850
+	max_health = 600
 
 	// *** Flags *** //
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
@@ -38,7 +38,7 @@
 	minimap_icon = "gorger"
 
 	// *** Gorger Abilities *** //
-	overheal_max = 350
+	overheal_max = 275
 	drain_plasma_gain = 75
 	carnage_plasma_gain = 150
 	feast_plasma_drain = 20

@@ -428,7 +428,6 @@
 // ***************************************
 // *********** oppose
 // ***************************************
-
 /particles/oppose_aoe
     icon = 'icons/effects/particles/generic_particles.dmi'
     icon_state = list("cross" = 1, "x" = 1, "rectangle" = 1, "up_arrow" = 1, "down_arrow" = 1, "square" = 1)
