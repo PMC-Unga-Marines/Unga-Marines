@@ -902,3 +902,23 @@
 	. = ..()
 	for(var/i in 1 to storage_slots)
 		new /obj/item/reagent_containers/food/snacks/protein_pack(src)
+
+/obj/item/storage/pouch/medkit/t312
+	name = "BMSS medkit pouch"
+	desc = "Advanced medkit pouch made by BMSS. it also can hold R-312 ammo and tweezers."
+	icon = 'icons/obj/items/storage/storage.dmi'
+	icon_state = "t312"
+	can_hold = list(
+		/obj/item/healthanalyzer,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/storage/pill_bottle/packet,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/ammo_magazine/packet/t500/med,
+		/obj/item/ammo_magazine/revolver/t500/med,
+		/obj/item/tweezers,
+	)

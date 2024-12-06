@@ -336,6 +336,44 @@
 	icon_state = "boxt500_sv"
 	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
 
+/obj/item/ammo_magazine/packet/t500/t312
+	name = "packet of .500 White Express"
+	icon_state = "boxt500_we"
+	default_ammo = /datum/ammo/bullet/revolver/t500/t312
+	caliber = CALIBER_500_EMB
+
+/obj/item/ammo_magazine/packet/t500/t312/Initialize()
+	. = ..()
+	if(prob(1))
+		icon_state = "boxt500_ke"
+
+/obj/item/ammo_magazine/packet/t500/med/
+	caliber = CALIBER_500_EMB
+	current_rounds = 50
+	max_rounds = 50
+	w_class = WEIGHT_CLASS_SMALL
+	used_casings = 1
+
+/obj/item/ammo_magazine/packet/t500/med/adrenaline
+	name = "packet of .500 Adrenaline EMB"
+	icon_state = "boxt500_adr"
+	default_ammo = /datum/ammo/bullet/revolver/t500/med/adrenaline
+
+/obj/item/ammo_magazine/packet/t500/med/rr
+	name = "packet of .500 Russian Red EMB"
+	icon_state = "boxt500_rr"
+	default_ammo = /datum/ammo/bullet/revolver/t500/med/rr
+
+/obj/item/ammo_magazine/packet/t500/med/md
+	name = "packet of .500 Meraderm EMB"
+	icon_state = "boxt500_md"
+	default_ammo = /datum/ammo/bullet/revolver/t500/med/md
+
+/obj/item/ammo_magazine/packet/t500/med/neu
+	name = "packet of .500 Neuraline EMB"
+	icon_state = "boxt500_neu"
+	default_ammo = /datum/ammo/bullet/revolver/t500/med/neu
+
 /obj/item/ammo_magazine/packet/standard_magnum
 	name = "packet of .12x7mm"
 	icon_state = "box_t76"

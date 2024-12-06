@@ -367,3 +367,38 @@
 		/obj/item/clothing/mask/breath/medical,
 		/obj/item/tank/anesthetic,
 	)
+
+/datum/supply_packs/medical/t312case
+	name = "R-312 'Albedo' Revolver bundle"
+	contains = list(/obj/item/storage/box/t312case)
+	cost = 500
+
+/datum/supply_packs/medical/t312
+	name = "R-312 'Albedo' Revolver"
+	contains = list(/obj/item/attachable/lace/t500, /obj/item/weapon/gun/revolver/t312)
+	cost = 150
+
+/datum/supply_packs/medical/t312_adr
+	name = "R-312 packet of .500 Adrenaline EMB"
+	contains = list(/obj/item/ammo_magazine/packet/t500/med/adrenaline, /obj/item/ammo_magazine/revolver/t500/med/adrenaline)
+	cost = 50
+
+/datum/supply_packs/medical/t312_rr
+	name = "R-312 packet of .500 Russian Red EMB"
+	contains = list(/obj/item/ammo_magazine/packet/t500/med/rr, /obj/item/ammo_magazine/revolver/t500/med/rr)
+	cost = 150
+
+/datum/supply_packs/medical/t312_md
+	name = "R-312 packet of .500 Meraderm EMB"
+	contains = list(/obj/item/ammo_magazine/packet/t500/med/md, /obj/item/ammo_magazine/revolver/t500/med/md)
+	cost = 100
+
+/datum/supply_packs/medical/t312_neu
+	name = "R-312 packet of .500 Neuraline EMB"
+	contains = list(/obj/item/ammo_magazine/packet/t500/med/neu, /obj/item/ammo_magazine/revolver/t500/med/neu)
+	cost = 200
+
+/datum/supply_packs/medical/t312_medkit
+	name = "BMSS medkit pouch"
+	contains = list(/obj/item/storage/pouch/medkit/t312)
+	cost = 10
