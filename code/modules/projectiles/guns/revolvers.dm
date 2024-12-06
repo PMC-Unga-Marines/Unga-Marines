@@ -588,12 +588,8 @@
 	type_of_casings = null
 	akimbo_additional_delay = 0.6
 
-/* skill check, idk how to do this, help me pls
-
-/obj/item/weapon/gun/revolver/t312/Fire(mob/user)
-	. = ..()
+/obj/item/weapon/gun/revolver/t312/able_to_fire(mob/user)
 	if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED)
-		playsound(loc, 'sound/weapons/egloves.ogg', 25, 1, 6)
 		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
-		return
-*/
+		return FALSE
+	return ..()
