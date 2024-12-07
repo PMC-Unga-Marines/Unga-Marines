@@ -20,7 +20,6 @@
 				var/mob/living/carbon/human/enteredHuman = enteredMob
 
 				// Tracking blood
-				var/list/bloodDNA = null
 				var/bloodcolor=""
 				var/bloodamount = 0
 				if(enteredHuman.shoes)
@@ -38,9 +37,7 @@
 					src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, enteredHuman.dir, 0, bloodcolor) // Coming
 					var/turf/from = get_step(enteredHuman, REVERSE_DIR(enteredHuman.dir))
 					if(istype(from) && from)
-						from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, bloodDNA, 0, enteredHuman.dir, bloodcolor) // Going
-
-					bloodDNA = null
+						from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, 0, enteredHuman.dir, bloodcolor) // Going
 
 	return ..()
 
