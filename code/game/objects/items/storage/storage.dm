@@ -557,7 +557,8 @@
 				return do_refill(I, user)
 
 	if(!can_be_inserted(I))
-		open(user)
+		if(!user.s_active) // if somthing full or you want place too big object, container don't close
+			open(user)
 		return FALSE
 	return handle_item_insertion(I, FALSE, user)
 
