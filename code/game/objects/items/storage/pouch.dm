@@ -906,7 +906,6 @@
 /obj/item/storage/pouch/medkit/t312
 	name = "BMSS medkit pouch"
 	desc = "Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "t312"
 	can_hold = list(
 		/obj/item/healthanalyzer,
