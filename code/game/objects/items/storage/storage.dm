@@ -565,7 +565,7 @@
 	if(Adjacent(user) && !isxeno(user))
 		open(user)
 
-/obj/item/storage/CtrlShiftClick(mob/living/user) // Take left object in inevtory
+/obj/item/storage/CtrlShiftClick(mob/living/user) // Take left object in inventory
 	attempt_draw_object(user, TRUE)
 
 ///Refills the storage from the refill_types item
