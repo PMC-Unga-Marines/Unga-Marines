@@ -2,7 +2,7 @@
 	var/mob/living/carbon/human/wearer
 	///Parent storage in which we want to collect magazines
 	var/obj/item/storage/storage
-	///Auto catching empty magazines: FALSE - disabled, TRUE - enabled
+	////Auto catching empty magazines: FALSE - disabled, TRUE - enabled
 	var/auto_catch
 
 /datum/component/magazine_catcher/Initialize()
