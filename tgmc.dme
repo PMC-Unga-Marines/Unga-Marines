@@ -509,6 +509,7 @@
 #include "code\datums\interior\link_interior.dm"
 #include "code\datums\interior\map_templates.dm"
 #include "code\datums\jobs\access.dm"
+#include "code\datums\jobs\job\basia.dm"
 #include "code\datums\jobs\squads.dm"
 #include "code\datums\jobs\job\clf.dm"
 #include "code\datums\jobs\job\clown.dm"
