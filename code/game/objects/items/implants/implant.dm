@@ -35,13 +35,6 @@
 	if(!allowed_limbs)
 		allowed_limbs = GLOB.human_body_parts
 
-/obj/item/implant/proc/on_initialize()
-	if(flags_implant & GRANT_ACTIVATION_ACTION)
-		activation_action = new(src, src)
-	if(allow_reagents)
-		reagents = new /datum/reagents(MAX_IMPLANT_REAGENTS)
-		reagents.my_atom = WEAKREF(src)
-
 /obj/item/implant/Destroy(force)
 	unimplant()
 	QDEL_NULL(activation_action)
