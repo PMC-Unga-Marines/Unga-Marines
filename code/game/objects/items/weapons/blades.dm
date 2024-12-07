@@ -274,6 +274,9 @@
 	desc = "A specialist tactical weapon, very ancient and beloved by many. Issued to Delta by CAU."
 	icon_state = "tomahawk_classic"
 	item_state = "tomahawk_classic"
+	force = 90
+	throwforce = 150
+	penetration = 15
 
 //FC's sword.
 
