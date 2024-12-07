@@ -502,7 +502,7 @@ REAGENT SCANNER
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "adv_spectrometer"
+	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 	flags_atom = CONDUCT
