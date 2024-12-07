@@ -155,7 +155,8 @@
 
 /obj/structure/bed/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
+	if(resistance_flags && RESIST_ALL)
+		return
 	if(iswrench(I))
 		if(!buildstacktype)
 			return
