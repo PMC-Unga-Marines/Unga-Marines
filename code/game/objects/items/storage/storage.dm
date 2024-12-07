@@ -565,6 +565,9 @@
 	if(Adjacent(user) && !isxeno(user))
 		open(user)
 
+/obj/item/storage/CtrlShiftClick(mob/living/user) // Take left object in inevtory
+	attempt_draw_object(user,TRUE)
+
 ///Refills the storage from the refill_types item
 /obj/item/storage/proc/do_refill(obj/item/storage/refiller, mob/user)
 	if(!length(refiller.contents))
