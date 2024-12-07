@@ -7,6 +7,11 @@
 	var/height = 0
 	///Default view size, formatted as a string
 	var/default = ""
+	/// This client's current zoom level, if it's not being supressed
+	/// If it's 0, we autoscale to the size of the window. Otherwise it's treated as the ratio between
+	/// the pixels on the map and output pixels. Only looks proper nice in increments of whole numbers (iirc)
+	/// Stored here so other parts of the code have a non blocking way of getting a user's functional zoom
+	var/zoom = 0
 
 	///Bool that determines whether we want it to ignore any other changes after we applied some changes
 	var/supress_changes = FALSE
@@ -17,6 +22,10 @@
 	default = view_string
 	chief = owner
 	apply()
+
+/datum/view_data/Destroy()
+	chief = null
+	return ..()
 
 ///sets the default view size froma string
 /datum/view_data/proc/set_default(string)
@@ -33,14 +42,17 @@
 ///Resets the format type
 /datum/view_data/proc/assert_format()
 	winset(chief, "mapwindow.map", "zoom=0")
+	zoom = 0
 
 ///applies the current clients preferred pixel size setting
 /datum/view_data/proc/update_pixel_format()
-	winset(chief, "mapwindow.map", "zoom=[chief.prefs.pixel_size]")
+	zoom = chief?.prefs.pixel_size
+	winset(chief, "mapwindow.map", "zoom=[zoom]")
+	chief?.attempt_auto_fit_viewport() // If you change zoom mode, fit the viewport
 
 ///applies the preferred clients scaling method
 /datum/view_data/proc/update_zoom_mode()
-	winset(chief, "mapwindow.map", "zoom-mode=[chief.prefs.scaling_method]")
+	winset(chief, "mapwindow.map", "zoom-mode=[chief?.prefs.scaling_method]")
 
 ///Returns a boolean if the client has any form of zoom
 /datum/view_data/proc/is_zooming()
@@ -100,7 +112,7 @@
 
 ///applies all current outstanding changes to the client
 /datum/view_data/proc/apply()
-	chief.change_view(get_client_view_size())
+	chief?.change_view(get_client_view_size())
 	safe_apply_formatting()
 
 ///supresses any further view changes until it is unsupressed

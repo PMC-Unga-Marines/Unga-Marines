@@ -93,6 +93,8 @@
 	shrapnel_chance = 0
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 20
+	penetration = 0
+	additional_xeno_penetration = 0
 
 /datum/ammo/bullet/pistol/squash
 	name = "squash-head pistol bullet"

@@ -480,7 +480,7 @@
 	name = "Headbutt"
 	action_icon_state = "headbutt"
 	desc = "Headbutts into the designated target"
-	cooldown_duration = 10 SECONDS
+	cooldown_duration = 5 SECONDS
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // yea
 	keybinding_signals = list(
