@@ -535,6 +535,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lace/t500,
 	)
+	attachable_offset = list("muzzle_x" = 0, "muzzle_y" = 0,"rail_x" = 10, "rail_y" = 20, "under_x" = 19, "under_y" = 13, "stock_x" = -19, "stock_y" = 0)
 	windup_delay = 0.8 SECONDS
 	windup_sound = 'sound/weapons/guns/fire/t500_start.ogg'
 	fire_sound = 'sound/weapons/guns/fire/t500.ogg'
@@ -577,7 +578,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/lace/t500,
 	)
-	attachable_offset = list("muzzle_x" = 0, "muzzle_y" = 0,"rail_x" = 0, "rail_y" = 0, "under_x" = 19, "under_y" = 13, "stock_x" = -19, "stock_y" = 0)
+	attachable_offset = list("stock_x" = -19, "stock_y" = 0)
 	fire_sound = 'sound/weapons/guns/fire/t312.ogg'
 	dry_fire_sound = 'sound/mecha/mag_bullet_insert.ogg'
 	fire_animation = "t312_fire"
