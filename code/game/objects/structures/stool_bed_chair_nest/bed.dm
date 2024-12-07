@@ -154,8 +154,6 @@
 		qdel(src)
 
 /obj/structure/bed/wrench_act(mob/living/user, obj/item/I)
-	if(resistance_flags & RESIST_ALL)
-		return
 	if(!buildstacktype)
 		return
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
