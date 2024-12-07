@@ -75,7 +75,7 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SKIPS_ALIENS
 
 /datum/ammo/bullet/revolver/t312/med/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 0)
+	return
 
 /datum/ammo/bullet/revolver/t312/med/adrenaline
 	name = ".500 Adrenaline EMB"
