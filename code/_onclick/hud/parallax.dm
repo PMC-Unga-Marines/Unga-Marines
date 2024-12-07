@@ -35,11 +35,10 @@
 		0, 0, 0, 0
 		)
 
-
 /datum/hud/proc/remove_parallax(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
-	C.screen -= (C.parallax_layers_cached)
+	C.screen -= (C.parallax_rock)
 	var/atom/movable/screen/plane_master/PM = screenmob.hud_used.plane_masters["[PLANE_SPACE]"]
 	if(screenmob != mymob)
 		C.screen -= locate(/atom/movable/screen/plane_master/parallax_white) in C.screen
@@ -237,16 +236,15 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 
 /atom/movable/screen/parallax_layer
 	icon = 'icons/effects/parallax.dmi'
+	appearance_flags = APPEARANCE_UI | KEEP_TOGETHER
+	blend_mode = BLEND_ADD
+	plane = PLANE_SPACE_PARALLAX
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
 	var/view_sized
 	var/absolute = FALSE
-	appearance_flags = APPEARANCE_UI | KEEP_TOGETHER
-	blend_mode = BLEND_ADD
-	plane = PLANE_SPACE_PARALLAX
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
 
 /atom/movable/screen/parallax_layer/Initialize(mapload, datum/hud/hud_owner, view)
 	. = ..()
