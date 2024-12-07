@@ -153,7 +153,7 @@
 			new buildstacktype (loc, buildstackamount)
 		qdel(src)
 
-/obj/structure/bed/wrench_act(mob/living/user, obj/item/I)
+/obj/structure/bed/wrench_act()
 	if(resistance_flags & RESIST_ALL)
 		return
 	if(!buildstacktype)
