@@ -566,13 +566,13 @@
 		)
 	caliber =  CALIBER_500_EMB
 	max_chamber_items = 5 //codex
-	default_ammo_type = /datum/ammo/bullet/revolver/t500/t312
+	default_ammo_type = /datum/ammo/bullet/revolver/t312
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/revolver/t500/t312,
-		/obj/item/ammo_magazine/revolver/t500/med/adrenaline,
-		/obj/item/ammo_magazine/revolver/t500/med/rr,
-		/obj/item/ammo_magazine/revolver/t500/med/md,
-		/obj/item/ammo_magazine/revolver/t500/med/neu)
+		/obj/item/ammo_magazine/revolver/t312,
+		/obj/item/ammo_magazine/revolver/t312/med/adrenaline,
+		/obj/item/ammo_magazine/revolver/t312/med/rr,
+		/obj/item/ammo_magazine/revolver/t312/med/md,
+		/obj/item/ammo_magazine/revolver/t312/med/neu)
 	force = 20
 	actions_types = null
 	attachable_allowed = list(

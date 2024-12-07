@@ -746,6 +746,8 @@
 		/obj/item/ammo_magazine/revolver/t500,
 		/obj/item/ammo_magazine/revolver/t500/slavs,
 		/obj/item/ammo_magazine/packet/t500,
+		/obj/item/ammo_magazine/revolver/t312,
+		/obj/item/ammo_magazine/packet/t312
 	)
 
 /obj/item/storage/holster/belt/revolver/m44

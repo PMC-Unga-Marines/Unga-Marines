@@ -1199,28 +1199,28 @@
 	storage_slots = 7
 	max_storage_space = 1
 	bypass_w_limit = list(
-		/obj/item/ammo_magazine/packet/t500/med/adrenaline,
-		/obj/item/ammo_magazine/packet/t500/med/rr,
-		/obj/item/ammo_magazine/packet/t500/med/md,
-		/obj/item/ammo_magazine/packet/t500/med/neu,
-		/obj/item/ammo_magazine/revolver/t500/med/adrenaline,
-		/obj/item/ammo_magazine/revolver/t500/med/rr,
-		/obj/item/ammo_magazine/revolver/t500/med/md,
-		/obj/item/ammo_magazine/revolver/t500/med/neu,
+		/obj/item/ammo_magazine/packet/t312/med/adrenaline,
+		/obj/item/ammo_magazine/packet/t312/med/rr,
+		/obj/item/ammo_magazine/packet/t312/med/md,
+		/obj/item/ammo_magazine/packet/t312/med/neu,
+		/obj/item/ammo_magazine/revolver/t312/med/adrenaline,
+		/obj/item/ammo_magazine/revolver/t312/med/rr,
+		/obj/item/ammo_magazine/revolver/t312/med/md,
+		/obj/item/ammo_magazine/revolver/t312/med/neu,
 		/obj/item/storage/pouch/medkit/t312,
 		/obj/item/attachable/lace/t500,
 		/obj/item/weapon/gun/revolver/t312,
 	)
 
 /obj/item/storage/box/t312case/PopulateContents()
-	new /obj/item/ammo_magazine/packet/t500/med/adrenaline(src)
-	new /obj/item/ammo_magazine/packet/t500/med/rr(src)
-	new /obj/item/ammo_magazine/packet/t500/med/md(src)
-	new /obj/item/ammo_magazine/packet/t500/med/neu(src)
-	new /obj/item/ammo_magazine/revolver/t500/med/adrenaline(src)
-	new /obj/item/ammo_magazine/revolver/t500/med/rr(src)
-	new /obj/item/ammo_magazine/revolver/t500/med/md(src)
-	new /obj/item/ammo_magazine/revolver/t500/med/neu(src)
+	new /obj/item/ammo_magazine/packet/t312/med/adrenaline(src)
+	new /obj/item/ammo_magazine/packet/t312/med/rr(src)
+	new /obj/item/ammo_magazine/packet/t312/med/md(src)
+	new /obj/item/ammo_magazine/packet/t312/med/neu(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/adrenaline(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/rr(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/md(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/neu(src)
 	new /obj/item/storage/pouch/medkit/t312(src)
 	new /obj/item/attachable/lace/t500(src)
 	new /obj/item/weapon/gun/revolver/t312(src)

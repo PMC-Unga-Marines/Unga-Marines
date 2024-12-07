@@ -31,36 +31,37 @@
 	icon_state = "t500_sv"
 	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
 
-/obj/item/ammo_magazine/revolver/t500/t312
+/obj/item/ammo_magazine/revolver/t312
 	name = "\improper R-312 White Express speed loader (.500)"
 	desc = "A R-312 'Albedo' revolver speed loader."
 	icon_state = "t500_we"
-	default_ammo = /datum/ammo/bullet/revolver/t500/t312
+	default_ammo = /datum/ammo/bullet/revolver/t312
 	caliber = CALIBER_500_EMB
+	max_rounds = 5
 
-/obj/item/ammo_magazine/revolver/t500/med
+/obj/item/ammo_magazine/revolver/t312/med
 	name = "R-312 EMB speed loader"
 	desc = "A R-500 'Albedo' revolver speed loader."
 
-/obj/item/ammo_magazine/revolver/t500/med/adrenaline
+/obj/item/ammo_magazine/revolver/t312/med/adrenaline
 	name = "R-312 Adrenaline EMB speed loader"
 	icon_state = "t500_adr"
-	default_ammo = /datum/ammo/bullet/revolver/t500/med/adrenaline
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/adrenaline
 
-/obj/item/ammo_magazine/revolver/t500/med/rr
+/obj/item/ammo_magazine/revolver/t312/med/rr
 	name = "R-312 Russian Red EMB speed loader"
 	icon_state = "t500_rr"
-	default_ammo = /datum/ammo/bullet/revolver/t500/med/rr
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/rr
 
-/obj/item/ammo_magazine/revolver/t500/med/md
+/obj/item/ammo_magazine/revolver/t312/med/md
 	name = "R-312 Meraderm EMB speed loader"
 	icon_state = "t500_md"
-	default_ammo = /datum/ammo/bullet/revolver/t500/med/md
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/md
 
-/obj/item/ammo_magazine/revolver/t500/med/neu
+/obj/item/ammo_magazine/revolver/t312/med/neu
 	name = "R-312 Neuraline EMB speed loader"
 	icon_state = "t500_neu"
-	default_ammo = /datum/ammo/bullet/revolver/t500/med/neu
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/neu
 
 /obj/item/ammo_magazine/revolver/marksman
 	name = "\improper R-44 marksman speed loader (.44)"

@@ -918,7 +918,7 @@
 		/obj/item/stack/medical,
 		/obj/item/storage/pill_bottle/packet,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/ammo_magazine/packet/t500/med,
-		/obj/item/ammo_magazine/revolver/t500/med,
+		/obj/item/ammo_magazine/packet/t312/med,
+		/obj/item/ammo_magazine/revolver/t312/med,
 		/obj/item/tweezers,
 	)

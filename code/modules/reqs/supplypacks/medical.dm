@@ -380,22 +380,22 @@
 
 /datum/supply_packs/medical/t312_adr
 	name = "R-312 packet of .500 Adrenaline EMB"
-	contains = list(/obj/item/ammo_magazine/packet/t500/med/adrenaline, /obj/item/ammo_magazine/revolver/t500/med/adrenaline)
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/adrenaline, /obj/item/ammo_magazine/revolver/t312/med/adrenaline)
 	cost = 50
 
 /datum/supply_packs/medical/t312_rr
 	name = "R-312 packet of .500 Russian Red EMB"
-	contains = list(/obj/item/ammo_magazine/packet/t500/med/rr, /obj/item/ammo_magazine/revolver/t500/med/rr)
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/rr, /obj/item/ammo_magazine/revolver/t312/med/rr)
 	cost = 150
 
 /datum/supply_packs/medical/t312_md
 	name = "R-312 packet of .500 Meraderm EMB"
-	contains = list(/obj/item/ammo_magazine/packet/t500/med/md, /obj/item/ammo_magazine/revolver/t500/med/md)
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/md, /obj/item/ammo_magazine/revolver/t312/med/md)
 	cost = 100
 
 /datum/supply_packs/medical/t312_neu
 	name = "R-312 packet of .500 Neuraline EMB"
-	contains = list(/obj/item/ammo_magazine/packet/t500/med/neu, /obj/item/ammo_magazine/revolver/t500/med/neu)
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/neu, /obj/item/ammo_magazine/revolver/t312/med/neu)
 	cost = 200
 
 /datum/supply_packs/medical/t312_medkit
