@@ -108,3 +108,8 @@
 		/obj/item/tool/shovel/etool,
 		/obj/item/weapon/energy/sword,
 	)
+
+/obj/item/clothing/suit/storage/labcoat/researcher/basia
+	name = "Basia's labcoat"
+	icon_state = "labcoat_yellow"
+	slowdown = NONE
