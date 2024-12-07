@@ -352,7 +352,6 @@
 		icon_state = "boxt500_ke"
 
 /obj/item/ammo_magazine/packet/t312/med
-	caliber = CALIBER_500_EMB
 	used_casings = 1
 
 /obj/item/ammo_magazine/packet/t312/med/adrenaline

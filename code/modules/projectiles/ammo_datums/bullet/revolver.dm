@@ -83,7 +83,8 @@
 	hud_state = "t312_adr"
 
 /datum/ammo/bullet/revolver/t312/med/adrenaline/on_hit_mob(mob/M,obj/projectile/P)
-	if(!ishuman(M)) return
+	if(!ishuman(M))
+		return
 	M.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 2)
 	M.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 3)
 
@@ -93,7 +94,8 @@
 	hud_state = "t312_rr"
 
 /datum/ammo/bullet/revolver/t312/med/rr/on_hit_mob(mob/M,obj/projectile/P)
-	if(!ishuman(M)) return
+	if(!ishuman(M))
+		return
 	M.reagents.add_reagent(/datum/reagent/medicine/russian_red, 5)
 
 /datum/ammo/bullet/revolver/t312/med/md
@@ -102,7 +104,8 @@
 	hud_state = "t312_md"
 
 /datum/ammo/bullet/revolver/t312/med/md/on_hit_mob(mob/M,obj/projectile/P)
-	if(!ishuman(M)) return
+	if(!ishuman(M))
+		return
 	M.reagents.add_reagent(/datum/reagent/medicine/meralyne, 2.5)
 	M.reagents.add_reagent(/datum/reagent/medicine/dermaline, 2.5)
 
@@ -112,7 +115,8 @@
 	hud_state = "t312_neu"
 
 /datum/ammo/bullet/revolver/t312/med/neu/on_hit_mob(mob/M,obj/projectile/P)
-	if(!ishuman(M)) return
+	if(!ishuman(M))
+		return
 	M.reagents.add_reagent(/datum/reagent/medicine/neuraline, 3.1)
 	M.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 1.9)
 
