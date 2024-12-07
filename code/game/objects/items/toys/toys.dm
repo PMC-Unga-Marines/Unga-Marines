@@ -508,6 +508,13 @@
 	attack_verb = list("kickes", "punches", "pounces")
 	squeak_sound = 'sound/items/gnome.ogg'
 
+/obj/item/toy/plush/basia
+	name = "Basia plush"
+	desc = "Хороший антистресс. Можно оторвать ей голову."
+	icon_state = "basia"
+	item_state = "basia"
+	attack_verb = list("kickes", "punches", "pounces")
+
 /obj/item/toy/plush/pig
 	name = "pig toy"
 	desc = "Captain Dementy! Bring the pigs! Marines demand pigs!."

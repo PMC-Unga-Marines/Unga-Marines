@@ -31418,6 +31418,14 @@
 /obj/effect/turf_decal/tile/metal/medical,
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
+"sxK" = (
+/obj/structure/bed,
+/obj/item/bedsheet/yellow,
+/obj/item/toy/plush/basia{
+	layer = 4
+	},
+/turf/open/floor/mainship/metal/full,
+/area/mainship/living/starboard_emb)
 "sxP" = (
 /obj/effect/spawner/random/medical/structure/crate/medsupplies,
 /turf/open/floor/plating,
@@ -78978,7 +78986,7 @@ dnv
 dnv
 dnv
 acR
-acD
+sxK
 cLl
 xVF
 fGI
