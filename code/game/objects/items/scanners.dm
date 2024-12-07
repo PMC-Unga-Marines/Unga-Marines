@@ -514,6 +514,11 @@ REAGENT SCANNER
 	var/details = FALSE
 	var/recent_fail = FALSE
 
+/obj/item/reagent_scanner/adv
+	name = "advanced reagent scanner"
+	icon_state = "adv_spectrometer"
+	details = TRUE
+
 /obj/item/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
 	if(!proximity)
 		return
@@ -540,8 +545,3 @@ REAGENT SCANNER
 		else
 			recent_fail = TRUE
 	to_chat(user, span_notice("Chemicals found: [dat]"))
-
-/obj/item/reagent_scanner/adv
-	name = "advanced reagent scanner"
-	icon_state = "adv_spectrometer"
-	details = TRUE
