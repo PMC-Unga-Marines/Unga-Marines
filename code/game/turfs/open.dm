@@ -29,14 +29,13 @@
 						bloodcolor = shoesEnteredHuman.blood_color
 						bloodamount = shoesEnteredHuman.track_blood
 						shoesEnteredHuman.track_blood--
-				else
-					if(enteredHuman.track_blood && enteredHuman.feet_blood_color)
-						bloodcolor = enteredHuman.feet_blood_color
-						bloodamount = enteredHuman.track_blood
-						enteredHuman.track_blood--
+				else if(enteredHuman.track_blood && enteredHuman.feet_blood_color)
+					bloodcolor = enteredHuman.feet_blood_color
+					bloodamount = enteredHuman.track_blood
+					enteredHuman.track_blood--
 
-				if ((bloodamount > 0 ) && !locate(/obj/structure) in contents)
-					src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, bloodDNA, enteredHuman.dir, 0, bloodcolor) // Coming
+				if ((bloodamount > 0) && !locate(/obj/structure) in contents)
+					src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, enteredHuman.dir, 0, bloodcolor) // Coming
 					var/turf/from = get_step(enteredHuman, REVERSE_DIR(enteredHuman.dir))
 					if(istype(from) && from)
 						from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, bloodDNA, 0, enteredHuman.dir, bloodcolor) // Going
