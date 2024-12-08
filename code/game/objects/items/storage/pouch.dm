@@ -920,4 +920,5 @@
 		/obj/item/ammo_magazine/packet/t312/med,
 		/obj/item/ammo_magazine/revolver/t312/med,
 		/obj/item/tweezers,
+		/obj/item/ammo_magazine/handful
 	)
