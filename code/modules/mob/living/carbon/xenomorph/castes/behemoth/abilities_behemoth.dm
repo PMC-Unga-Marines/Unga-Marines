@@ -1187,6 +1187,38 @@ RU TGMC EDIT */
 	if(owner)
 		UnregisterSignal(owner, list(COMSIG_QDELETING, COMSIG_MOB_DEATH, COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED, COMSIG_XENOMORPH_BRUTE_DAMAGE, COMSIG_XENOMORPH_BURN_DAMAGE))
 
+// ***************************************
+// *********** Stone Shell
+// ***************************************
+
+#define STONE_SHELL_DAMAGE_REDUCTION 0.45
+
+/datum/action/ability/xeno_action/stone_shell
+	name = "Stone Shell"
+	desc = "Your stone shell absorbs a portion of the damage you take."
+	hidden = TRUE
+
+/datum/action/ability/xeno_action/stone_shell/give_action(mob/living/L)
+	. = ..()
+	RegisterSignals(owner, list(COMSIG_MOB_DEATH, COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED), PROC_REF(remove_ability))
+	RegisterSignals(owner, list(COMSIG_XENOMORPH_BRUTE_DAMAGE, COMSIG_XENOMORPH_BURN_DAMAGE), PROC_REF(apply_shell))
+
+/datum/action/ability/xeno_action/stone_shell/proc/apply_shell(datum/source, amount, list/amount_mod)
+	SIGNAL_HANDLER
+	if(owner.stat)
+		return
+	if(amount <= 0)
+		return
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(xeno_owner.health > (xeno_owner.maxHealth * 0.8))
+		return
+	var/damage_amount = round(amount * STONE_SHELL_DAMAGE_REDUCTION)
+	amount_mod += damage_amount
+
+/datum/action/ability/xeno_action/stone_shell/proc/remove_ability(datum/source)
+	SIGNAL_HANDLER
+	if(owner)
+		UnregisterSignal(owner, list(COMSIG_QDELETING, COMSIG_MOB_DEATH, COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED, COMSIG_XENOMORPH_BRUTE_DAMAGE, COMSIG_XENOMORPH_BURN_DAMAGE))
 
 // ***************************************
 // *********** Earth Pillar (also see: Earth Riser)
