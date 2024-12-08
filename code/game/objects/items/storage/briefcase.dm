@@ -71,7 +71,7 @@
 	storage_type_limits = list(/obj/item/weapon/gun = 1)
 	can_hold = list(
 		/obj/item/weapon/gun/rifle/mpi_km/anime,
-		/obj/item/ammo_magazine/rifle/mpi_km/,
+		/obj/item/ammo_magazine/rifle/mpi_km,
 	)
 
 /obj/item/storage/briefcase/anime/PopulateContents()
