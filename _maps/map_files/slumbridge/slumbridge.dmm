@@ -3644,7 +3644,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/slumbridge/outside/northeast/bridges)
 "cJw" = (
-/obj/item/spacecash/bundle/c20{
+/obj/item/spacecash/bundle/c50{
 	pixel_x = 11;
 	pixel_y = -8
 	},
@@ -5130,7 +5130,7 @@
 /turf/open/lavaland/catwalk,
 /area/slumbridge/inside/prison/outerringsouth)
 "dSm" = (
-/obj/item/spacecash/bundle/c20{
+/obj/item/spacecash/bundle/c50{
 	pixel_x = -11;
 	pixel_y = 10
 	},
@@ -22057,7 +22057,7 @@
 /turf/open/floor/wood/variable/wide,
 /area/slumbridge/inside/houses/dorms)
 "qxo" = (
-/obj/item/spacecash/bundle/c20{
+/obj/item/spacecash/bundle/c50{
 	pixel_x = 3;
 	pixel_y = 14
 	},
@@ -28593,7 +28593,7 @@
 	pixel_x = -8;
 	pixel_y = 13
 	},
-/obj/item/spacecash/bundle/c20{
+/obj/item/spacecash/bundle/c50{
 	pixel_x = 11;
 	pixel_y = 6
 	},

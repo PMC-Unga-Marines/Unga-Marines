@@ -489,8 +489,6 @@ GLOBAL_LIST_EMPTY(possible_items)
 			currentcash += 1
 		if(istype(I, /obj/item/spacecash/bundle/c10))
 			currentcash += 10
-		if(istype(I, /obj/item/spacecash/bundle/c20))
-			currentcash += 20
 		if(istype(I, /obj/item/spacecash/bundle/c50))
 			currentcash += 50
 		if(istype(I, /obj/item/spacecash/bundle/c100))

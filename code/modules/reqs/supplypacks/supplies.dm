@@ -107,11 +107,6 @@
 	contains = list(/obj/item/spacecash/bundle/c10)
 	cost = 1
 
-/datum/supply_packs/supplies/rubletwenty
-	name = "20 rubles"
-	contains = list(/obj/item/spacecash/bundle/c20)
-	cost = 2
-
 /datum/supply_packs/supplies/rublefifty
 	name = "50 rubles"
 	contains = list(/obj/item/spacecash/bundle/c50)

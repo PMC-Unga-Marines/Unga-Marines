@@ -54,7 +54,7 @@
 	cut_overlays()
 	var/remaining_worth = worth
 	var/iteration = 0
-	var/list/banknote_denominations = list(500, 200, 100, 50, 20, 10, 5, 1)
+	var/list/banknote_denominations = list(500, 200, 100, 50, 10, 5, 1)
 	for(var/i in banknote_denominations)
 		while(remaining_worth >= i && iteration < 50)
 			remaining_worth -= i
@@ -90,10 +90,6 @@
 /obj/item/spacecash/bundle/c10
 	icon_state = "spacecash10"
 	worth = 10
-
-/obj/item/spacecash/bundle/c20
-	icon_state = "spacecash20"
-	worth = 20
 
 /obj/item/spacecash/bundle/c50
 	icon_state = "spacecash50"
