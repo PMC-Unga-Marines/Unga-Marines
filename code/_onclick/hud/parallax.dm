@@ -113,6 +113,9 @@
 			scaled_time = PARALLAX_LOOP_TIME
 		longest_timer = max(longest_timer, scaled_time)
 
+		if(layer.absolute)
+			break
+
 		if(skip_windups)
 			update_parallax_motionblur(C, layer, new_parallax_movedir, new_transform)
 			continue
