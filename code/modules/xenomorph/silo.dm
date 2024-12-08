@@ -39,11 +39,9 @@
 		SSspawning.spawnerdata[src].required_increment = 2 * max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 		SSspawning.spawnerdata[src].max_allowed_mobs = max(1, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count * 0.5)
 	update_minimap_icon()
-
 	SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
 	SSaura.add_emitter(src, AURA_XENO_WARDING, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
 	SSaura.add_emitter(src, AURA_XENO_FRENZY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
-
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/xeno/silo/LateInitialize()

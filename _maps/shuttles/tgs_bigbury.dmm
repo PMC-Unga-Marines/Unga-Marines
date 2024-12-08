@@ -471,6 +471,7 @@
 	},
 /area/shuttle/canterbury/cic)
 "bS" = (
+/obj/machinery/computer/supplycomp/crash,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury/cic)
 "bT" = (
