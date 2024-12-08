@@ -401,6 +401,7 @@
 	INVOKE_ASYNC(src, PROC_REF(fill_gun))
 
 /obj/item/weapon/gun/Destroy()
+	master_gun = null
 	active_attachable = null
 	gunattachment = null
 	QDEL_NULL(muzzle_flash)
