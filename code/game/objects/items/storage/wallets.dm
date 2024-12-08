@@ -67,10 +67,10 @@
 
 /obj/item/storage/wallet/random/Initialize(mapload)
 	. = ..()
-	var/item1_type = pick( /obj/item/spacecash/c10,/obj/item/spacecash/c100,/obj/item/spacecash/c20,/obj/item/spacecash/c200,/obj/item/spacecash/c50, /obj/item/spacecash/c500)
+	var/item1_type = pick( /obj/item/spacecash/bundle/c10,/obj/item/spacecash/bundle/c100,/obj/item/spacecash/bundle/c200,/obj/item/spacecash/bundle/c50, /obj/item/spacecash/bundle/c500)
 	var/item2_type
 	if(prob(50))
-		item2_type = pick( /obj/item/spacecash/c10,/obj/item/spacecash/c100,/obj/item/spacecash/c20,/obj/item/spacecash/c200,/obj/item/spacecash/c50, /obj/item/spacecash/c500)
+		item2_type = pick( /obj/item/spacecash/bundle/c10,/obj/item/spacecash/bundle/c100,/obj/item/spacecash/bundle/c200,/obj/item/spacecash/bundle/c50, /obj/item/spacecash/bundle/c500)
 	var/item3_type = pick( /obj/item/coin/silver, /obj/item/coin/silver, /obj/item/coin/gold, /obj/item/coin/iron, /obj/item/coin/iron, /obj/item/coin/iron )
 
 	if(item1_type)
