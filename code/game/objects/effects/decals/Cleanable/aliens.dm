@@ -6,6 +6,7 @@
 	desc = "It's yellow and acidic. It looks like... <i>blood?</i>"
 	icon = 'icons/effects/blood.dmi'
 	basecolor = "#dffc00"
+	blood_color = "#66b400"
 	amount = 3
 
 /obj/effect/decal/cleanable/blood/gibs/xeno
@@ -14,6 +15,7 @@
 	icon_state = "xgib1"
 	random_icon_states = list("xgib1", "xgib2", "xgib3", "xgib4", "xgib5", "xgib6")
 	basecolor = "#dffc00"
+	blood_color = "#66b400"
 	amount = 5
 
 /obj/effect/decal/cleanable/blood/gibs/xeno/up
