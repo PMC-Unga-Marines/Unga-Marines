@@ -46,6 +46,11 @@
 	desc = "A black polymer stock, made to fit the MPi-KM."
 	icon_state = "ak47stock_black"
 
+/obj/item/attachable/stock/mpi_km/anime
+	name = "MPi-KM polymer stock"
+	desc = "A blue polymer stock, made to fit the MPi-KM."
+	icon_state = "ak47stock_anime"
+
 /obj/item/attachable/stock/lmg_d
 	name = "lMG-D wooden stock"
 	desc = "A metallic stock with a wooden paint coating, made to fit lMG-D."
