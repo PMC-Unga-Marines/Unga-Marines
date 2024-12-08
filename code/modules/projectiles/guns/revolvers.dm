@@ -592,6 +592,8 @@
 	accuracy_mult_unwielded = 2
 	type_of_casings = null
 	akimbo_additional_delay = 0.6
+	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_TOGGLES_OPEN
+
 
 /obj/item/weapon/gun/revolver/t312/able_to_fire(mob/user)
 	. = ..()
