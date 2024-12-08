@@ -53,7 +53,7 @@
 		return FALSE
 	return storage.handle_item_insertion(mag, TRUE)
 
-/datum/component/magazine_catcher/verb/toggle_auto_catch()
+/datum/component/magazine_catcher/proc/toggle_auto_catch()
 	set name = "Toggle Auto Catching Magazines/Speed Loaders"
 	set category = "Object"
 	var/datum/component/magazine_catcher/comp = GetComponent(/datum/component/magazine_catcher)
