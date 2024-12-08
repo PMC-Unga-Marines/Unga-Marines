@@ -3,7 +3,7 @@
 	///Parent storage in which we want to collect magazines
 	var/obj/item/storage/storage
 	////Auto catching empty magazines: FALSE - disabled, TRUE - enabled
-	var/auto_catch
+	var/auto_catch = TRUE
 
 /datum/component/magazine_catcher/Initialize()
 	. = ..()
@@ -22,7 +22,6 @@
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED), PROC_REF(removed_from_slot))
 	storage = parent
 	storage.verbs += /datum/component/magazine_catcher/verb/toggle_auto_catch
-	auto_catch = TRUE
 
 /datum/component/magazine_catcher/UnregisterFromParent()
 	. = ..()
