@@ -35773,7 +35773,6 @@
 "vha" = (
 /obj/structure/table/mainship,
 /obj/effect/turf_decal/tile/transparent/dark_blue/diagonal_centre,
-/obj/item/weapon/claymore/tomahawk/classic,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "vhK" = (
