@@ -107,11 +107,3 @@
 		if(AURA_XENO_FRENZY)
 			icon_state = "frenzytower"
 			set_light(2, 2, LIGHT_COLOR_RED)
-
-/obj/structure/xeno/pherotower/crash
-	name = "Recovery tower"
-	resistance_flags = RESIST_ALL
-	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
-
-/obj/structure/xeno/pherotower/crash/attack_alien(isrightclick = FALSE)
-	return

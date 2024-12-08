@@ -4,10 +4,8 @@
 
 #define ROBOT_TYPES list("Basic","Hammerhead","Chilvaris","Ratcher","Sterling")
 
-
 // Posters
 GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
-
 
 //////////////////////////
 /////Initial Building/////
@@ -30,7 +28,6 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 		GLOB.all_species[S.name] = S
 		if(S.joinable_roundstart)
 			GLOB.roundstart_species[S.name] = S
-
 
 /proc/init_language_datums()
 	for(var/L in subtypesof(/datum/language))
@@ -81,7 +78,6 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 		var/datum/operation_namepool/NP = new path
 		GLOB.operation_namepool[path] = NP
 
-
 /// These should be replaced with proper _INIT macros
 /proc/make_datum_reference_lists()
 	populate_seed_list()
@@ -93,7 +89,6 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 	init_namepool()
 	init_keybindings()
 
-
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)
@@ -102,3 +97,6 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 	for(var/path in subtypesof(prototype))
 		L += new path()
 	return L
+
+/// List of all the maps that have been cached for /proc/load_map
+GLOBAL_LIST_EMPTY(cached_maps)

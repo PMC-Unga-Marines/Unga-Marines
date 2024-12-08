@@ -64,7 +64,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/bigredv2/caves/secomplex)
 "fs" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "fG" = (
 /obj/effect/turf_decal/sandedge,

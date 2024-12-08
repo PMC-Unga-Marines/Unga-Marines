@@ -164,8 +164,9 @@
 		var/list/connections = working_cable.get_cable_connections(skip_assigned_powernets)
 
 		for(var/obj/structure/cable/cable_entry in connections)
-			if(!cables[cable_entry]) //Since it's an associated list, we can just do an access and check it's null before adding; prevents duplicate entries
-				cables[cable_entry] = TRUE
+			if(cables[cable_entry]) //Since it's an associated list, we can just do an access and check it's null before adding; prevents duplicate entries
+				continue
+			cables[cable_entry] = TRUE
 
 	for(var/obj/structure/cable/cable_entry in cables)
 		PN.add_cable(cable_entry)
@@ -173,8 +174,9 @@
 
 	//now that the powernet is set, connect found machines to it
 	for(var/obj/machinery/power/PM in found_machines)
-		if(!PM.connect_to_network()) //couldn't find a node on its turf...
-			PM.disconnect_from_network() //... so disconnect if already on a powernet
+		if(PM.connect_to_network())
+			continue
+		PM.disconnect_from_network() //couldn't find a node on its turf so disconnect if already on a powernet
 
 
 //Merge two powernets, the bigger (in cable length term) absorbing the other
@@ -196,8 +198,9 @@
 		net1.add_cable(Cable)
 
 	for(var/obj/machinery/power/Node in net2.nodes) //merge power machines
-		if(!Node.connect_to_network())
-			Node.disconnect_from_network() //if somehow we can't connect the machine to the new powernet, disconnect it from the old nonetheless
+		if(Node.connect_to_network())
+			continue
+		Node.disconnect_from_network() //if somehow we can't connect the machine to the new powernet, disconnect it from the old nonetheless
 
 	return net1
 
@@ -288,9 +291,10 @@
 	if(!can_have_cabling())
 		return null
 	for(var/obj/structure/cable/C in src)
-		if(C.machinery_layer & machinery_layer)
-			C.update_icon()
-			return C
+		if(!(C.machinery_layer & machinery_layer))
+			continue
+		C.update_icon()
+		return C
 	return null
 
 /// Returns a list of APCs in this area
@@ -298,14 +302,16 @@
 	RETURN_TYPE(/list)
 	. = list()
 	for(var/obj/machinery/power/apc/APC AS in GLOB.apcs_list)
-		if(APC.area == src)
-			. += APC
+		if(APC.area != src)
+			continue
+		. += APC
 
 /// Returns the first APC it finds in an area
 /area/proc/get_apc()
 	for(var/obj/machinery/power/apc/APC AS in GLOB.apcs_list)
-		if(APC.area == src)
-			return APC
+		if(APC.area != src)
+			continue
+		return APC
 
 /proc/power_failure(announce = TRUE)
 	var/list/skipped_areas = list(/area/turret_protected/ai)
@@ -330,7 +336,6 @@
 	if(announce)
 		priority_announce("В системе питания судна обнаружена аномальная активность. В качестве меры предосторожности питание будет отключено на неопределенный срок.", "Критический Сбой Питания", sound = 'sound/AI/poweroff.ogg')
 
-
 /proc/power_restore(announce = TRUE)
 	var/list/skipped_areas = list(/area/turret_protected/ai)
 
@@ -349,10 +354,8 @@
 			continue
 		C.cell.charge = C.cell.maxcharge
 
-
 	if(announce)
 		priority_announce("Питание восстановлено. Причина: Неизвестно.", "Восстановление Питания", sound = 'sound/AI/poweron.ogg')
-
 
 /proc/power_restore_quick(announce = TRUE)
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
@@ -366,7 +369,6 @@
 
 	if(announce)
 		priority_announce("Питание восстановлено. Причина: Неизвестно.", "Восстановление Питания", sound = 'sound/AI/poweron.ogg')
-
 
 /proc/power_restore_everything(announce = TRUE)
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
