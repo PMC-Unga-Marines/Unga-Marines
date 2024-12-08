@@ -198,7 +198,7 @@
 	req_role = /datum/job/terragov/civilian/liaison
 	listed_products = list(
 		list("INCENTIVES", 0, null, null, null),
-		list("Cash", 2, /obj/item/spacecash/c500, "white", "$500 USD, unmarked bills"),
+		list("Cash", 2, /obj/item/spacecash/bundle/c500, "white", "$500 USD, unmarked bills"),
 		list("Cigars", 5, /obj/item/storage/fancy/cigar, "white", "Case of premium cigars, untampered."),
 		list("Space Drug Autoinjector", 10, /obj/item/reagent_containers/hypospray/autoinjector/spacedrugs, "white", "Drugs for junkie marines who still need that fix."),
 		list("Nanotrasen 'Space-Aged' 60-Year Old Whiskey", 20, /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey, "white", "Aged at the bottom of a starship since 2378. You can guess how much it's worth."),
