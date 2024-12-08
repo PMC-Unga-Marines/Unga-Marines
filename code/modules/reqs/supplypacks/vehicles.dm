@@ -32,13 +32,13 @@
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/tank_glauncher
-	name = "Tank granade laucnher magazine"
+	name = "Tank grenade laucnher magazine"
 	contains = list(/obj/item/ammo_magazine/tank/tank_glauncher)
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/tank_slauncher
-	name = "Tank granade laucnher smoke magazine"
+	name = "Tank grenade laucnher smoke magazine"
 	contains = list(/obj/item/ammo_magazine/tank/tank_slauncher)
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
