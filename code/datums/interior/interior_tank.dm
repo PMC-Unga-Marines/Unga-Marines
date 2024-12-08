@@ -123,10 +123,14 @@
 	owner.interior.mob_leave(dropping)
 
 /turf/closed/interior/tank/door/grab_interact(obj/item/grab/grab, mob/user, base_damage, is_sharp)
-	if(iscrate(grab.grabbed_thing))
-		grab.grabbed_thing.forceMove(owner.exit_location(grab.grabbed_thing))
-	else if(ismob(grab.grabbed_thing))
+	if(ismob(grab.grabbed_thing))
+		user.balloon_alert(user, grab.grabbed_thing.name + " thrown outside")
 		owner.interior.mob_leave(grab.grabbed_thing)
+		return
+	else if(is_type_in_typecache(grab.grabbed_thing.type, owner.easy_load_list))
+		user.balloon_alert(user, "item thrown outside")
+		grab.grabbed_thing.forceMove(owner.exit_location(grab.grabbed_thing))
+		return
 	return ..()
 
 ///returns where we want to spit out new enterers
