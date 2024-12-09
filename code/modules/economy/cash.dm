@@ -122,4 +122,4 @@
 /obj/item/spacecash/ewallet/examine(mob/user)
 	. = ..()
 	if(user == loc)
-		. += span_notice("Charge card's owner: [owner_name]. rubles remaining: [worth].")
+		. += span_notice("Charge card's owner: [owner_name]. Rubles remaining: [worth].")
