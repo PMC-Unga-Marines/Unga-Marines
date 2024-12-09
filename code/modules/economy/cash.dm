@@ -3,7 +3,7 @@
 	desc = "You have no rubles."
 	gender = PLURAL
 	icon = 'icons/obj/stack_objects.dmi'
-	icon_state = "spacecash1"
+	icon_state = ""
 	opacity = FALSE
 	density = FALSE
 	anchored = FALSE
@@ -41,7 +41,6 @@
 
 /obj/item/spacecash/bundle
 	name = "stack of rubles"
-	icon_state = ""
 	desc = "They are worth 0 rubles."
 	worth = 0
 
@@ -84,27 +83,27 @@
 		qdel(src)
 
 /obj/item/spacecash/bundle/c1
-	icon_state = "spacecash1"
+	icon_state = "cash1"
 	worth = 1
 
 /obj/item/spacecash/bundle/c10
-	icon_state = "spacecash10"
+	icon_state = "cash10"
 	worth = 10
 
 /obj/item/spacecash/bundle/c50
-	icon_state = "spacecash50"
+	icon_state = "cash50"
 	worth = 50
 
 /obj/item/spacecash/bundle/c100
-	icon_state = "spacecash100"
+	icon_state = "cash100"
 	worth = 100
 
 /obj/item/spacecash/bundle/c200
-	icon_state = "spacecash200"
+	icon_state = "cash200"
 	worth = 200
 
 /obj/item/spacecash/bundle/c500
-	icon_state = "spacecash500"
+	icon_state = "cash500"
 	worth = 500
 
 /proc/spawn_money(sum, spawnloc, mob/living/carbon/human/human_user)

@@ -3644,13 +3644,16 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/slumbridge/outside/northeast/bridges)
 "cJw" = (
-/obj/item/spacecash/bundle/c50{
-	pixel_x = 11;
-	pixel_y = -8
-	},
 /obj/item/shard{
 	pixel_x = -6;
 	pixel_y = 6
+	},
+/obj/item/spacecash/bundle/c10{
+	pixel_x = 6
+	},
+/obj/item/spacecash/bundle/c10{
+	pixel_x = 11;
+	pixel_y = -8
 	},
 /turf/open/floor/prison/blackfloor,
 /area/slumbridge/inside/colony/vault)
@@ -5130,7 +5133,10 @@
 /turf/open/lavaland/catwalk,
 /area/slumbridge/inside/prison/outerringsouth)
 "dSm" = (
-/obj/item/spacecash/bundle/c50{
+/obj/item/spacecash/bundle/c10{
+	pixel_y = 8
+	},
+/obj/item/spacecash/bundle/c10{
 	pixel_x = -11;
 	pixel_y = 10
 	},
