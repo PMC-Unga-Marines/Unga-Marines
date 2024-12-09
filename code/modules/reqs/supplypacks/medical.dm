@@ -379,22 +379,22 @@
 	cost = 150
 
 /datum/supply_packs/medical/t312_adr
-	name = "R-312 packet of .500 Adrenaline EMB"
+	name = "R-312 Adrenaline ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/adrenaline, /obj/item/ammo_magazine/revolver/t312/med/adrenaline)
 	cost = 50
 
 /datum/supply_packs/medical/t312_rr
-	name = "R-312 packet of .500 Russian Red EMB"
+	name = "R-312 Russian Red ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/rr, /obj/item/ammo_magazine/revolver/t312/med/rr)
 	cost = 150
 
 /datum/supply_packs/medical/t312_md
-	name = "R-312 packet of .500 Meraderm EMB"
+	name = "R-312 Meraderm ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/md, /obj/item/ammo_magazine/revolver/t312/med/md)
 	cost = 100
 
 /datum/supply_packs/medical/t312_neu
-	name = "R-312 packet of .500 Neuraline EMB"
+	name = "R-312 Neuraline ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/neu, /obj/item/ammo_magazine/revolver/t312/med/neu)
 	cost = 200
 
