@@ -263,19 +263,19 @@ as having entered the turf.
 	var/far_dist = power * 0.1
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
-		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
-		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
-		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
+		var/sound/explosion_sound = SFX_EXPLOSION_LARGE
+		var/sound/far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
+		var/sound/creak_sound = SFX_EXPLOSION_CREAK
 
 		//no need to loop this for every mob
 		switch(power)
 			if(0 to EXPLODE_LIGHT)
-				explosion_sound = sound(get_sfx("explosion_small"))
-				far_explosion_sound = sound(get_sfx("explosion_small_distant"))
+				explosion_sound = SFX_EXPLOSION_SMALL
+				far_explosion_sound = SFX_EXPLOSION_SMALL_DISTANT
 			if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-				explosion_sound = sound(get_sfx("explosion_med"))
+				explosion_sound = SFX_EXPLOSION_MED
 			if(EXPLODE_HEAVY to INFINITY)
-				explosion_sound = sound(get_sfx("explosion_large"))
+				explosion_sound = SFX_EXPLOSION_LARGE
 
 		//there should be a use of client_by_zlevel, but due to the nature of explosions this is difficult to implement
 		for(var/MN in GLOB.player_list|GLOB.aiEyes)

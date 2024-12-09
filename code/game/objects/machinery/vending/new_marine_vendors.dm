@@ -177,7 +177,7 @@
 			else
 				vended_items += new idx(loc)
 
-			playsound(src, "vending", 25, 0)
+			playsound(src, SFX_VENDING, 25, 0)
 
 			if(icon_vend)
 				flick(icon_vend, src)
