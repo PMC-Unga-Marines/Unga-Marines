@@ -13,7 +13,6 @@
 /datum/component/magazine_catcher/Destroy(force, silent)
 	storage = null
 	wearer = null
-	auto_catch = null
 	return ..()
 
 /datum/component/magazine_catcher/RegisterWithParent()
