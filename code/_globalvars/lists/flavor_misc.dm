@@ -127,7 +127,6 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"xenominion",
 	"xenoqueen",
 	"xenoshrike",
-	"chimera",
 	"predator",
 	"thrall",
 	"hellhound",

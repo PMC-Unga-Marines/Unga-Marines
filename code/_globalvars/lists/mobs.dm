@@ -106,8 +106,6 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/warlock/primordial,
 	/mob/living/carbon/xenomorph/behemoth,
 	/mob/living/carbon/xenomorph/behemoth/primordial,
-	/mob/living/carbon/xenomorph/chimera,
-	/mob/living/carbon/xenomorph/chimera/primordial,
 	/mob/living/carbon/xenomorph/beetle,
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,
@@ -139,7 +137,6 @@ GLOBAL_LIST_INIT(xeno_types_tier_two, list(
 GLOBAL_LIST_INIT(xeno_types_tier_three, list(
 	/datum/xeno_caste/behemoth,
 	/datum/xeno_caste/boiler,
-	/datum/xeno_caste/chimera,
 	/datum/xeno_caste/crusher,
 	/datum/xeno_caste/defiler,
 	/datum/xeno_caste/gorger,

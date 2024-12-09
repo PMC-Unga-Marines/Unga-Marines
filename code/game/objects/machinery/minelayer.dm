@@ -41,6 +41,35 @@
 	addtimer(CALLBACK(src, PROC_REF(throw_mine), turf_list), 2 SECONDS)
 
 ///this proc is used to check for valid turfs and throw mines
+/proc/turf_block_check(atom/subject, atom/target, ignore_can_pass = FALSE, ignore_density = FALSE, ignore_closed_turf = FALSE, ignore_invulnerable = FALSE, ignore_objects = FALSE, ignore_mobs = FALSE, ignore_space = FALSE)
+	var/turf/T = get_turf(target)
+	if(isspaceturf(T) && !ignore_space)
+		return TRUE
+	if(isclosedturf(T) && !ignore_closed_turf) //If we care about closed turfs
+		return TRUE
+	for(var/atom/blocker AS in T)
+		if((blocker.flags_atom & ON_BORDER) || blocker == subject) //If they're a border entity or our subject, we don't care
+			continue
+		if(!blocker.CanPass(subject, T) && !ignore_can_pass) //If the subject atom can't pass and we care about that, we have a block
+			return TRUE
+		if(!blocker.density) //Check if we're dense
+			continue
+		if(!ignore_density) //If we care about all dense atoms or only certain types of dense atoms
+			return TRUE
+		if((blocker.resistance_flags & INDESTRUCTIBLE) && !ignore_invulnerable) //If we care about dense invulnerable objects
+			return TRUE
+		if(isobj(blocker) && !ignore_objects) //If we care about dense objects
+			var/obj/obj_blocker = blocker
+			if(!isstructure(obj_blocker)) //If it's not a structure and we care about objects, we have a block
+				return TRUE
+			var/obj/structure/blocker_structure = obj_blocker
+			if(!blocker_structure.climbable) //If it's a structure and can't be climbed, we have a block
+				return TRUE
+		if(ismob(blocker) && !ignore_mobs) //If we care about mobs
+			return TRUE
+
+	return FALSE
+
 /obj/machinery/deployable/minelayer/proc/throw_mine(list/turf/list_of_turfs)
 	if(!stored_amount > 0 || !length(list_of_turfs))
 		playsound(loc, 'sound/machines/twobeep.ogg', 25, 1)

@@ -666,5 +666,106 @@
 	plasma_gain = 20
 	decay_time = 15 SECONDS
 
+/particles/xeno_slash/vampirism/crippling_strike
+	icon_state = "x"
+	color = "#440088"
+	count = 0
+	velocity = list(50, 50)
+	drift = generator(GEN_CIRCLE, 15, 15, NORMAL_RAND)
+	gravity = list(0, 0)
+
+/datum/action/ability/xeno_action/crippling_strike
+	name = "Toggle crippling strike"
+	action_icon_state = "neuroclaws_off"
+	desc = "Toggle on to enable crippling attacks"
+	ability_cost = 0
+	cooldown_duration = 1 SECONDS
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE,
+	)
+	var/mob/living/old_target
+	var/additional_damage = 2
+	var/slowdown_amount = 1
+	var/stagger_duration = 0.2 SECONDS
+	var/heal_amount = 25
+	var/plasma_gain = 30
+	var/stacks = 0
+	var/stacks_max = 5
+	var/decay_time = 7 SECONDS
+	var/obj/effect/abstract/particle_holder/particle_holder
+
+/datum/action/ability/xeno_action/crippling_strike/update_button_icon()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	action_icon_state = xeno.vampirism ? "neuroclaws_on" : "neuroclaws_off"
+	return ..()
+
+/datum/action/ability/xeno_action/crippling_strike/give_action(mob/living/L)
+	. = ..()
+	var/mob/living/carbon/xenomorph/xeno = L
+	xeno.vampirism = TRUE
+	particle_holder = new(xeno, /particles/xeno_slash/vampirism/crippling_strike)
+	particle_holder.pixel_y = 18
+	particle_holder.pixel_x = 18
+	START_PROCESSING(SSprocessing, src)
+	RegisterSignal(L, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_slash))
+
+/datum/action/ability/xeno_action/crippling_strike/remove_action(mob/living/L)
+	. = ..()
+	var/mob/living/carbon/xenomorph/xeno = L
+	xeno.vampirism = FALSE
+	stacks = 0
+	QDEL_NULL(particle_holder)
+	STOP_PROCESSING(SSprocessing, src)
+	UnregisterSignal(L, COMSIG_XENOMORPH_POSTATTACK_LIVING)
+
+/datum/action/ability/xeno_action/crippling_strike/action_activate()
+	. = ..()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	xeno.vampirism = !xeno.vampirism
+	if(xeno.vampirism)
+		particle_holder = new(xeno, /particles/xeno_slash/vampirism/crippling_strike)
+		particle_holder.pixel_y = 18
+		particle_holder.pixel_x = 18
+		START_PROCESSING(SSprocessing, src)
+		RegisterSignal(xeno, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_slash))
+	else
+		stacks = 0
+		QDEL_NULL(particle_holder)
+		STOP_PROCESSING(SSprocessing, src)
+		UnregisterSignal(xeno, COMSIG_XENOMORPH_POSTATTACK_LIVING)
+	to_chat(xeno, span_xenonotice("You will now[xeno.vampirism ? "" : " no longer"] debuff targets"))
+
+/datum/action/ability/xeno_action/crippling_strike/process()
+	particle_holder.particles.count = stacks * stacks
+	if(decay_time > 0)
+		decay_time -= 1 SECONDS
+		return
+	if(stacks > 0)
+		stacks--
+	if(stacks == 0)
+		particle_holder.particles.count = 0
+
+/datum/action/ability/xeno_action/crippling_strike/proc/on_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
+	SIGNAL_HANDLER
+	if(target.stat == DEAD)
+		return
+	if(!ishuman(target))
+		return
+	if(old_target != target)
+		old_target = target
+		stacks = max(0, stacks - 2)
+	var/mob/living/carbon/xenomorph/X = owner
+	target.apply_damage(additional_damage * stacks, BRUTE, X.zone_selected, blocked = FALSE)
+	target.add_slowdown(slowdown_amount * stacks)
+	target.adjust_stagger(stagger_duration * stacks)
+	if(stacks == stacks_max)
+		X.heal_overall_damage(heal_amount, heal_amount, updating_health = TRUE)
+		X.gain_plasma(plasma_gain)
+	if(stacks < stacks_max)
+		stacks++
+	decay_time = initial(decay_time)
+	update_button_icon()
+
 #undef ILUSSION_CHANCE
 #undef ILLUSION_LIFETIME

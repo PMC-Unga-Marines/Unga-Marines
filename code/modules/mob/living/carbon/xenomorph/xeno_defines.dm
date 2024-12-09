@@ -181,14 +181,6 @@
 	/// The maximum amount of Wrath that we can have stored at a time.
 	var/wrath_max = 0
 
-	// *** Chimera Abilities ***
-	///Cooldown multiplier of Blink when used on non-friendlies
-	var/blink_drag_nonfriendly_living_multiplier = 0
-	///Cooldown multiplier of Blink when used on friendlies
-	var/blink_drag_friendly_multiplier = 0
-	///Base range of Blink
-	var/blink_range = 0
-
 	///the 'abilities' available to a caste.
 	var/list/actions
 
