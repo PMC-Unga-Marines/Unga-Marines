@@ -78,7 +78,7 @@
 		to_chat(user, span_warning("[I] can't cut through this!"))
 		return FALSE
 	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.item_flags & NOBLUDGEON))
+	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
 		return FALSE
 	if(!plasmacutter.start_cut(user, name, src))
 		return FALSE

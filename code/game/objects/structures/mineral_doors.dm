@@ -83,7 +83,7 @@
 	else
 		icon_state = "[base_icon_state][smoothing_flags ? "-[smoothing_junction]" : ""]"
 
-/obj/structure/mineral_door/attackby(obj/item/W, mob/living/user)
+/obj/structure/mineral_door/attackby(obj/item/attacking_item, mob/living/user)
 	. = ..()
 	if(QDELETED(src))
 		return
@@ -139,7 +139,7 @@
 	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
 	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.item_flags & NOBLUDGEON))
+	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
 		return FALSE
 	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
 	if(!plasmacutter.start_cut(user, name, src, charge_cost, no_string = TRUE))
@@ -149,7 +149,7 @@
 	user.do_attack_animation(src, used_item = plasmacutter)
 	plasmacutter.cut_apart(user, name, src, charge_cost)
 	take_damage(max(0, plasmacutter.force * (1 + PLASMACUTTER_RESIN_MULTIPLIER)), plasmacutter.damtype, MELEE)
-	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
+	playsound(src, "alien_resin_break", 25)
 	return TRUE
 
 /obj/structure/mineral_door/get_explosion_resistance()

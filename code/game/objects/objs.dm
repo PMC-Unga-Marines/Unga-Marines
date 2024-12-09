@@ -308,7 +308,7 @@
 	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
 	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.item_flags & NOBLUDGEON))
+	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
 		return FALSE
 	if(user.a_intent == INTENT_HARM) // Attack normally.
 		return FALSE
