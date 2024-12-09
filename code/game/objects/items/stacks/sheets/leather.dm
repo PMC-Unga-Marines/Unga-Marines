@@ -111,7 +111,7 @@
 //Step two - washing..... it's actually in washing machine code.
 
 //Step three - drying
-/obj/item/stack/sheet/wetleather/fire_act(burn_level)
+/obj/item/stack/sheet/wetleather/fire_act(burn_level, flame_color)
 	. = ..()
 	if(!wetness)
 		return

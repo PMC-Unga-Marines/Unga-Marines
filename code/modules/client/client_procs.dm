@@ -364,6 +364,7 @@
 
 	Master.UpdateTickRate()
 
+	fully_created = TRUE
 
 
 //////////////////
@@ -877,8 +878,7 @@
 	apply_clickcatcher()
 	mob.reload_fullscreens()
 
-	if(prefs.auto_fit_viewport)
-		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
+	attempt_auto_fit_viewport()
 
 ///Change the fullscreen setting of the client
 /client/proc/set_fullscreen(fullscreen_mode)

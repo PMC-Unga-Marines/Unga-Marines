@@ -122,7 +122,7 @@
 	for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(resin_silo))
 	// Acid, sticky, and hugger turrets.
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
+	for(var/obj/structure/xeno/turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(turret))
 	// Psychic relays
 	for(var/obj/structure/xeno/psychictower/tower AS in GLOB.hive_datums[hivenumber].psychictowers)
@@ -403,6 +403,9 @@
 // *********** Adding xenos
 // ***************************************
 /datum/hive_status/proc/add_xeno(mob/living/carbon/xenomorph/X) // should only be called by add_to_hive below
+	if(isnull(X)) // don't add nulls please
+		return FALSE
+
 	if(X.stat == DEAD)
 		dead_xenos += X
 	else
@@ -429,7 +432,7 @@
 
 	return TRUE
 
-/mob/living/carbon/xenomorph/proc/add_to_hive(datum/hive_status/HS, force=FALSE)
+/mob/living/carbon/xenomorph/proc/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE)
 	if(!force && hivenumber != XENO_HIVE_NONE)
 		CRASH("trying to do a dirty add_to_hive")
 
@@ -446,24 +449,30 @@
 	SSdirection.start_tracking(HS.hivenumber, src)
 	hive.update_tier_limits() //Update our tier limits.
 
-/mob/living/carbon/xenomorph/queen/add_to_hive(datum/hive_status/HS, force=FALSE) // override to ensure proper queen/hive behaviour
+/mob/living/carbon/xenomorph/queen/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
 	. = ..()
 	if(HS.living_xeno_queen) // theres already a queen
 		return
 
 	HS.living_xeno_queen = src
 
+	if(prevent_ruler)
+		return
+
 	HS.update_ruler()
 
 
-/mob/living/carbon/xenomorph/shrike/add_to_hive(datum/hive_status/HS, force = FALSE) // override to ensure proper queen/hive behaviour
+/mob/living/carbon/xenomorph/shrike/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
 	. = ..()
 
 	if(HS.living_xeno_ruler)
 		return
+	if(prevent_ruler)
+		return
+
 	HS.update_ruler()
 
-/mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE)
+/mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
 	. = ..()
 	if(!GLOB.xeno_structures_by_hive[HS.hivenumber])
 		GLOB.xeno_structures_by_hive[HS.hivenumber] = list()
@@ -484,23 +493,26 @@
 	hive_core.name = "[HS.hivenumber == XENO_HIVE_NORMAL ? "" : "[HS.name] "]hivemind core"
 	hive_core.color = HS.color
 
-/mob/living/carbon/xenomorph/king/add_to_hive(datum/hive_status/HS, force = FALSE)
+/mob/living/carbon/xenomorph/king/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
 	. = ..()
 
 	if(HS.living_xeno_ruler)
 		return
+	if(prevent_ruler)
+		return
+
 	HS.update_ruler()
 
-/mob/living/carbon/xenomorph/proc/add_to_hive_by_hivenumber(hivenumber, force=FALSE) // helper function to add by given hivenumber
+/mob/living/carbon/xenomorph/proc/add_to_hive_by_hivenumber(hivenumber, force=FALSE, prevent_ruler=FALSE) // helper function to add by given hivenumber
 	if(!GLOB.hive_datums[hivenumber])
 		CRASH("add_to_hive_by_hivenumber called with invalid hivenumber")
 	var/datum/hive_status/HS = GLOB.hive_datums[hivenumber]
-	add_to_hive(HS, force)
+	add_to_hive(HS, force, prevent_ruler)
 	hive.update_tier_limits() //Update our tier limits.
 
 // This is a special proc called only when a xeno is first created to set their hive and name properly
-/mob/living/carbon/xenomorph/proc/set_initial_hivenumber()
-	add_to_hive_by_hivenumber(hivenumber, force=TRUE)
+/mob/living/carbon/xenomorph/proc/set_initial_hivenumber(prevent_ruler=FALSE)
+	add_to_hive_by_hivenumber(hivenumber, force=TRUE, prevent_ruler=prevent_ruler)
 
 // ***************************************
 // *********** Removing xenos
@@ -829,20 +841,23 @@
 // ***************************************
 // *********** Xeno death
 // ***************************************
-/datum/hive_status/proc/on_xeno_death(mob/living/carbon/xenomorph/X)
-	remove_from_lists(X)
-	dead_xenos += X
 
-	SEND_SIGNAL(X, COMSIG_HIVE_XENO_DEATH)
+///Handles any effects when a xeno dies
+/datum/hive_status/proc/on_xeno_death(mob/living/carbon/xenomorph/dead_xeno)
+	remove_from_lists(dead_xeno)
+	dead_xenos += dead_xeno
 
-	if(X == living_xeno_ruler)
-		on_ruler_death(X)
-	var/datum/xeno_caste/caste = X?.xeno_caste
-	if(caste.death_evolution_delay <= 0)
+	SEND_SIGNAL(dead_xeno, COMSIG_HIVE_XENO_DEATH)
+
+	if(dead_xeno == living_xeno_ruler)
+		on_ruler_death(dead_xeno)
+	var/datum/xeno_caste/base_caste = GLOB.xeno_caste_datums[dead_xeno.caste_base_type][XENO_UPGRADE_BASETYPE]
+	if(base_caste.death_evolution_delay <= 0)
 		return
-	if(!caste_death_timers[caste])
-		caste_death_timers[caste] = addtimer(CALLBACK(src, PROC_REF(end_caste_death_timer), caste), caste.death_evolution_delay , TIMER_STOPPABLE)
+	if(!caste_death_timers[base_caste])
+		caste_death_timers[base_caste] = addtimer(CALLBACK(src, PROC_REF(end_caste_death_timer), base_caste), base_caste.death_evolution_delay , TIMER_STOPPABLE)
 
+///Handles effects if a xeno is revived
 /datum/hive_status/proc/on_xeno_revive(mob/living/carbon/xenomorph/X)
 	dead_xenos -= X
 	add_to_lists(X)
@@ -1016,7 +1031,7 @@ to_chat will check for valid clients itself already so no need to double check f
 /datum/hive_status/proc/set_all_xeno_trackers(atom/target)
 	for(var/mob/living/carbon/xenomorph/X AS in get_all_xenos())
 		X.set_tracked(target)
-		to_chat(X, span_notice(" Now tracking [target.name]"))
+		to_chat(X, span_notice("Now tracking [target.name]"))
 
 // ***************************************
 // *********** Normal Xenos

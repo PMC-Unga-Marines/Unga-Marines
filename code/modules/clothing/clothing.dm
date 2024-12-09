@@ -77,8 +77,12 @@
 			return storage_attachment.storage.do_quick_equip(user)
 	return src
 
-//Updates the icons of the mob wearing the clothing item, if any.
+///Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
+	return
+
+///Change the look of the clothing, when it's antihug reaches 0
+/obj/item/clothing/proc/on_hugger_damage()
 	return
 
 /obj/item/clothing/update_greyscale()
@@ -188,7 +192,6 @@
 	flags_armor_features ^= ARMOR_LAMP_ON
 	playsound(src, 'sound/items/flashlight.ogg', 15, TRUE)
 	update_icon()
-	update_action_button_icons()
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if(ismob(loc))

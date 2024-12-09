@@ -140,8 +140,7 @@
 	if(prob(40/severity))
 		if(secondsElectrified == 0)
 			secondsElectrified = -1
-			spawn(300)
-				secondsElectrified = 0
+			addtimer(VARSET_CALLBACK(src, secondsElectrified, 0), 30 SECONDS)
 	return ..()
 
 /obj/machinery/door/ex_act(severity)

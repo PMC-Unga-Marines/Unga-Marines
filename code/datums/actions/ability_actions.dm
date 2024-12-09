@@ -26,14 +26,18 @@
 		name = "[name] ([ability_cost])"
 	countdown = new(button, src)
 
+/datum/action/ability/Destroy()
+	if(cooldown_timer)
+		deltimer(cooldown_timer)
+	QDEL_NULL(countdown)
+	return ..()
+
 /datum/action/ability/give_action(mob/living/L)
 	. = ..()
 	var/mob/living/carbon/carbon_owner = L
 	carbon_owner.mob_abilities += src
 
 /datum/action/ability/remove_action(mob/living/L)
-	if(cooldown_timer)
-		deltimer(cooldown_timer)
 	var/mob/living/carbon/carbon_owner = L
 	if(!istype(carbon_owner))
 		stack_trace("/datum/action/ability/remove_action called with [L], expecting /mob/living/carbon.")
@@ -95,6 +99,11 @@
 			to_chat(owner, span_warning("We can't do this while in a solid object!"))
 		return FALSE
 
+	if(!(flags_to_check & ABILITY_USE_BURROWED) && HAS_TRAIT(carbon_owner, TRAIT_BURROWED))
+		if(!silent)
+			carbon_owner.balloon_alert(carbon_owner, "Cannot while burrowed")
+		return FALSE
+
 	return TRUE
 
 /datum/action/ability/fail_activate()
@@ -145,9 +154,9 @@
 ///override this for cooldown completion
 /datum/action/ability/proc/on_cooldown_finish()
 	cooldown_timer = null
-	if(!button)
-		CRASH("no button object on finishing ability action cooldown")
 	countdown.stop()
+	if(!button)
+		return
 	update_button_icon()
 
 ///Any changes when a xeno with this ability evolves
@@ -159,9 +168,21 @@
 
 /datum/action/ability/activable/Destroy()
 	var/mob/living/carbon/carbon_owner = owner
-	if(carbon_owner.selected_ability == src)
+	if(carbon_owner?.selected_ability == src)
 		deselect()
 	return ..()
+
+/datum/action/ability/activable/set_toggle(value)
+	. = ..()
+	if(!.)
+		return
+	if(!owner)
+		return
+	if(toggled)
+		SEND_SIGNAL(owner, COMSIG_ACTION_EXCLUSIVE_TOGGLE, owner)
+		RegisterSignal(owner, COMSIG_ACTION_EXCLUSIVE_TOGGLE, PROC_REF(deselect))
+	else
+		UnregisterSignal(owner, COMSIG_ACTION_EXCLUSIVE_TOGGLE)
 
 /datum/action/ability/activable/alternate_action_activate()
 	INVOKE_ASYNC(src, PROC_REF(action_activate))
@@ -174,7 +195,7 @@
 	if(carbon_owner.selected_ability == src)
 		return
 	if(carbon_owner.selected_ability)
-		carbon_owner.selected_ability.deselect()
+		carbon_owner.selected_ability.deselect() //todo: make jetpack/blinkdrive etc activatables
 	select()
 
 /datum/action/ability/activable/keybind_activation()
@@ -188,6 +209,7 @@
 		action_activate()
 
 /datum/action/ability/activable/remove_action(mob/living/carbon/carbon_owner)
+	deselect()
 	if(carbon_owner.selected_ability == src)
 		carbon_owner.selected_ability = null
 	return ..()
@@ -216,17 +238,18 @@
 	return
 
 ///Setting this ability as the active ability
-/datum/action/ability/activable/proc/select()
+/datum/action/ability/activable/select()
+	. = ..()
 	var/mob/living/carbon/carbon_owner = owner
-	set_toggle(TRUE)
 	carbon_owner.selected_ability = src
 	on_selection()
 
 ///Deselecting this ability for use
-/datum/action/ability/activable/proc/deselect()
-	var/mob/living/carbon/carbon_owner = owner
-	set_toggle(FALSE)
-	carbon_owner.selected_ability = null
+/datum/action/ability/activable/deselect()
+	. = ..()
+	if(owner)
+		var/mob/living/carbon/carbon_owner = owner
+		carbon_owner.selected_ability = null
 	on_deselection()
 
 ///Any effects on selecting this ability
@@ -250,7 +273,7 @@
 /mob/living/carbon/proc/add_ability(datum/action/ability/new_ability)
 	if(!new_ability)
 		return
-	new_ability = new new_ability
+	new_ability = new new_ability(src)
 	new_ability.give_action(src)
 
 ///Removes an ability from a mob

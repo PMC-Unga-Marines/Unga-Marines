@@ -108,7 +108,7 @@
 		CRASH("attempted to insert marine [new_squaddie] into squad while already having one")
 
 	if(!(new_squaddie.job.title in current_positions))
-		CRASH("Attempted to insert [new_squaddie.job.title] into squad [name]")
+		return FALSE
 
 	current_positions[new_squaddie.job.title]++
 
@@ -144,7 +144,6 @@
 	marines_list += new_squaddie
 	new_squaddie.assigned_squad = src
 	new_squaddie.hud_set_job(faction)
-	new_squaddie.update_action_buttons()
 	new_squaddie.update_inv_head()
 	new_squaddie.update_inv_wear_suit()
 	return TRUE
@@ -192,7 +191,6 @@
 
 	leaving_squaddie.assigned_squad = null
 	leaving_squaddie.hud_set_job(faction)
-	leaving_squaddie.update_action_buttons()
 	leaving_squaddie.update_inv_head()
 	leaving_squaddie.update_inv_wear_suit()
 	return TRUE
@@ -222,7 +220,6 @@
 	to_chat(squad_leader, "<font size='3' color='blue'>You're no longer the Squad Leader for [src]!</font>")
 	var/mob/living/carbon/human/H = squad_leader
 	squad_leader = null
-	H.update_action_buttons()
 	H.hud_set_job(faction)
 	H.update_inv_head()
 	H.update_inv_wear_suit()
@@ -251,7 +248,6 @@
 		R.use_command = TRUE
 
 	squad_leader.hud_set_job(faction)
-	squad_leader.update_action_buttons()
 	squad_leader.update_inv_head()
 	squad_leader.update_inv_wear_suit()
 	to_chat(squad_leader, "<font size='3' color='blue'>You're now the Squad Leader for [src]!</font>")
@@ -353,8 +349,8 @@ GLOBAL_LIST_EMPTY_TYPED(custom_squad_radio_freqs, /datum/squad)
 	new_squad.faction = squad_faction
 	if(new_squad.faction == FACTION_TERRAGOV)
 		var/list/terragov_server_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/server/presets/alpha]
-		var/list/terragov_bus_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/bus/preset_three]
-		var/list/terragov_receiver_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/receiver/preset_left]
+		var/list/terragov_bus_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/bus/preset/three]
+		var/list/terragov_receiver_freqs = GLOB.telecomms_freq_listening_list[/obj/machinery/telecomms/receiver/preset/left]
 		LAZYADDASSOCSIMPLE(terragov_server_freqs, 1, freq)
 		LAZYADDASSOCSIMPLE(terragov_bus_freqs, 1, freq)
 		LAZYADDASSOCSIMPLE(terragov_receiver_freqs, 1, freq)

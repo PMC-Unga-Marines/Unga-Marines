@@ -120,9 +120,7 @@
 	active = TRUE
 	playsound(loc, 'sound/items/countdown.ogg', 25, 1)
 	update_icon()
-	spawn(det_time)
-		prime()
-		return
+	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/prime()
 	if(spawner_type && deliveryamt)
@@ -212,10 +210,8 @@
 /mob/living/simple_animal/hostile/smartdisc/death()
 	visible_message("\The [src] stops whirring and spins out onto the floor.")
 	drop_real_disc()
-	..()
-	spawn(1)
-		if(src)
-			qdel(src)
+	. = ..()
+	QDEL_IN(src, 0.1 SECONDS)
 
 /mob/living/simple_animal/hostile/smartdisc/proc/drop_real_disc()
 	spawner_item.forceMove(loc)
@@ -230,9 +226,7 @@
 /mob/living/simple_animal/hostile/smartdisc/gib()
 	visible_message("\The [src] explodes!")
 	. = ..()
-	spawn(1)
-		if(src)
-			qdel(src)
+	QDEL_IN(src, 0.1 SECONDS)
 
 /mob/living/simple_animal/hostile/smartdisc/FindTarget()
 	var/atom/T = null

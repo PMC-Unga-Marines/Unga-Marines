@@ -86,7 +86,7 @@
 		counter += 2.5 //Doubles larval growth progress. Burst time in ~3 min.
 		adjust_boost_timer(-1)
 
-	if(stage < 5 && counter >= 120)
+	if(stage < 5 && counter >= 100)
 		counter = 0
 		stage++
 		log_combat(affected_mob, null, "had their embryo advance to stage [stage]")
@@ -147,7 +147,7 @@
 
 	if(isyautja(affected_mob))
 		new_xeno = new /mob/living/carbon/xenomorph/larva/predalien(affected_mob)
-		yautja_announcement(span_yautjaboldbig("WARNING!\n\nAn abomination has been detected at [get_area_name(new_xeno)]. It is a stain upon our purity and is unfit for life. Exterminate it immediately.\n\nHeavy Armory unlocked."))
+		yautja_announcement(span_yautjaboldbig("ТРЕВОГА!\n\nЗамечено Отродье в [get_area_name(new_xeno)]. Это слишком низко для нашей чести. Ошибка природы. Уничтожьте его немедленно.\n\nОткрыт доступ к Тяжелому Вооружению."))
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_YAUTJA_ARMORY_OPENED)
 	else
 		new_xeno = new(affected_mob)

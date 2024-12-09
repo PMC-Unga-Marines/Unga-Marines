@@ -39,7 +39,7 @@ export const JobPreferences = (props) => {
     'Requisitions Officer',
     'Chief Medical Officer',
     'Medical Doctor',
-    'Medical Researcher',
+    'Field Researcher',
     'Assault Crewman',
     'Transport Crewman',
   ];

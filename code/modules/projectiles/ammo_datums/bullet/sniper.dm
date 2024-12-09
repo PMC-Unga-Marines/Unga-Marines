@@ -95,10 +95,10 @@
 	name = "high caliber rifle bullet"
 	hud_state = "sniper_heavy"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER
-	damage = 75
+	damage = 80
 	penetration = 30
 	sundering = 0
-	additional_xeno_penetration = 15
+	additional_xeno_penetration = 0
 	damage_falloff = 0.25
 
 /datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/M, obj/projectile/P)
