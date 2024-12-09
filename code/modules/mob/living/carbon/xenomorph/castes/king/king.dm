@@ -44,7 +44,7 @@
 		if(4201 to 9000)
 			name = prefix + "Ancient Emperor ([nicknumber])"
 		if(9001 to INFINITY)
-			name = prefix + "Prime Emperor ([nicknumber])"
+			name = prefix + "Primal Emperor ([nicknumber])"
 		else
 			name = prefix + "Young King ([nicknumber])"
 

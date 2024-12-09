@@ -200,11 +200,7 @@
 		I.loc = M.loc
 		carrying.Remove(I)
 		if(isturf(I.loc))
-			spawn()
-				for(var/i = 1, i <= rand(1,2), i++)
-					if(I)
-						step(I, pick(NORTH,SOUTH,EAST,WEST))
-						sleep(rand(2,4))
+			drop_tray_contents(I)
 
 	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
 
@@ -339,7 +335,7 @@
 			overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer)
 
 /obj/item/tool/kitchen/tray/dropped(mob/user)
-	..()
+	. = ..()
 	var/mob/living/M
 	for(M in src.loc) //to handle hand switching
 		return
@@ -356,8 +352,11 @@
 		carrying.Remove(I)
 		if(!foundtable && isturf(loc))
 			// if no table, presume that the person just shittily dropped the tray on the ground and made a mess everywhere!
-			spawn()
-				for(var/i = 1, i <= rand(1,2), i++)
-					if(I)
-						step(I, pick(NORTH,SOUTH,EAST,WEST))
-						sleep(rand(2,4))
+			INVOKE_ASYNC(src, PROC_REF(drop_tray_contents), I)
+
+/obj/item/tool/kitchen/tray/proc/drop_tray_contents(obj/item/our_item)
+	for(var/i = 1, i <= rand(1, 2), i++)
+		if(!our_item)
+			break
+		step(our_item, pick(GLOB.cardinals))
+		sleep(rand(2,4))

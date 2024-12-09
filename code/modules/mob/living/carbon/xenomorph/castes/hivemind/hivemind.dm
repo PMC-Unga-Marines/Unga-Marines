@@ -29,6 +29,7 @@
 	sight = SEE_MOBS|SEE_TURFS|SEE_OBJS
 	see_in_dark = 8
 	move_on_shuttle = TRUE
+	initial_language_holder = /datum/language_holder/hivemind
 
 	hud_type = /datum/hud/hivemind
 	hud_possible = list(PLASMA_HUD, HEALTH_HUD_XENO, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)

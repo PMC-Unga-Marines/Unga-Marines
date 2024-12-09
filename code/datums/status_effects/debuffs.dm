@@ -847,3 +847,19 @@
 	name = "Freezing"
 	desc = "Space is very very cold, who would've thought?"
 	icon_state = "cold3"
+
+/datum/status_effect/incapacitating/spider_venom
+	id = "spider_venom"
+	status_type = STATUS_EFFECT_REFRESH
+	duration = 1 SECONDS
+	var/slowdown = 2
+
+/datum/status_effect/incapacitating/spider_venom/on_apply()
+	. = ..()
+	if(!.)
+		return
+	owner.add_movespeed_modifier(MOVESPEED_ID_SPIDER_VENOM, TRUE, 0, NONE, TRUE, slowdown)
+
+/datum/status_effect/incapacitating/spider_venom/on_remove()
+	owner.remove_movespeed_modifier(MOVESPEED_ID_SPIDER_VENOM)
+	return ..()

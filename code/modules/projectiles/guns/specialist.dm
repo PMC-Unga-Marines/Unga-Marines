@@ -427,7 +427,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	item_state = "minigun_sg"
 	fire_animation = "minigun_sg_fire"
 	max_shells = 2000 //codex
-	caliber = CALIBER_10x26_CASELESS //codex
+	caliber = CALIBER_10X26_CASELESS //codex
 	allowed_ammo_types = list(/obj/item/ammo_magazine/minigun_powerpack/smartgun)
 	wield_delay = 1.5 SECONDS
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
@@ -959,7 +959,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 31, "rail_y" = 23, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/scope/marine,
 	)
 
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_AMMO_COUNTER

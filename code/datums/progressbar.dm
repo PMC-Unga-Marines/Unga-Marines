@@ -260,3 +260,6 @@
 
 /image/progdisplay/energy
 	icon_state = "busy_energy"
+
+/image/progdisplay/facehugger
+	icon_state = "busy_facehugger"

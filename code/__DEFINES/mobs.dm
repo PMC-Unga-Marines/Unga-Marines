@@ -733,6 +733,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
 
+
 //misc
 
 #define STANDARD_SLOWDOWN_REGEN 0.3

@@ -81,9 +81,7 @@
 		/obj/item/bodybag,
 		/obj/item/roller,
 		/obj/item/whistle,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,
-		//RUTGMC EDIT ADDITION  END
 	)
 
 /obj/item/armor_module/storage/uniform/surgery_webbing

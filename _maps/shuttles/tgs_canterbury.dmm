@@ -31,8 +31,7 @@
 	},
 /area/shuttle/canterbury/cic)
 "ag" = (
-/obj/structure/table/mainship,
-/obj/machinery/faxmachine/cic,
+/obj/machinery/computer/supplycomp/crash,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -91,10 +90,10 @@
 	},
 /area/shuttle/canterbury/cic)
 "aq" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /obj/machinery/air_alarm{
 	dir = 1
 	},
+/obj/machinery/telecomms/allinone/needs_power,
 /turf/open/floor/mainship/blue,
 /area/shuttle/canterbury/cic)
 "ar" = (
@@ -816,7 +815,7 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 4
 	},
-/obj/machinery/loadout_vendor/crash,
+/obj/machinery/quick_vendor/beginner,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "KE" = (

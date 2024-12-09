@@ -1,0 +1,4 @@
+author: "MrFloppa"
+delete-after: True
+changes:
+  - balance: "Ракеты для RL-160 теперь normal-sized, вместо bulky"

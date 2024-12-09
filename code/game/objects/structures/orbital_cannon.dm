@@ -214,13 +214,13 @@
 	var/turf/target = locate(T.x + inaccurate_fuel * pick(-2, 2),T.y + inaccurate_fuel * pick(-2, 2),T.z)
 
 	// Give marines a warning if misfuelled.
-	var/fuel_warning = "Warhead fuel level: safe."
+	var/fuel_warning = "Уровень топлива боеголовки: корректный."
 	if(inaccurate_fuel > 0)
-		fuel_warning = "Warhead fuel level: incorrect.<br>Warhead may be inaccurate."
+		fuel_warning = "Уровень топлива боеголовки: некорректный.<br>Возможно смещение области поражения."
 
 	priority_announce(
-		message = "Evacuate the impact zone immediately!<br><br>Warhead type: [tray.warhead.warhead_kind].<br>[fuel_warning]<br>Estimated location of impact: [get_area(T)].",
-		title = "Orbital bombardment launch command detected!",
+		message = "Немедленно покиньте зону поражения!<br><br>Тип боеголовки: [tray.warhead.warhead_kind_rus].<br>[fuel_warning]<br>Цель: [get_area(T)].",
+		title = "Обнаружена команда на запуск орбитальной бомбардировки!",
 		type = ANNOUNCEMENT_PRIORITY,
 		sound = 'sound/effects/OB_warning_announce.ogg',
 		channel_override = SSsounds.random_available_channel(), // This way, we can't have it be cut off by other sounds.
@@ -228,7 +228,7 @@
 	)
 	var/list/receivers = (GLOB.alive_human_list + GLOB.ai_list + GLOB.observer_list)
 	for(var/mob/living/screentext_receiver AS in receivers)
-		screentext_receiver.play_screen_text("<span class='maptext' style=font-size:36pt;text-align:center valign='top'><u><b>ORBITAL STRIKE IMMINENT</b></u></span><br>TYPE: [uppertext(tray.warhead.warhead_kind)]", /atom/movable/screen/text/screen_text/command_order)
+		screentext_receiver.play_screen_text("<span class='maptext' style=font-size:36pt;text-align:center valign='top'><u><b>ОРБИТАЛЬНЫЙ УДАР</b></u></span><br>ТИП СНАРЯДА: [uppertext(tray.warhead.warhead_kind_rus)]", /atom/movable/screen/text/screen_text/command_order)
 	playsound(target, 'sound/effects/OB_warning_announce_novoiceover.ogg', 125, FALSE, 30, 10) //VOX-less version for xenomorphs
 
 	var/impact_time = 10 SECONDS + (WARHEAD_FLY_TIME * (GLOB.current_orbit/3))
@@ -361,6 +361,7 @@
 /obj/structure/ob_ammo/warhead
 	name = "theoretical orbital ammo"
 	var/warhead_kind
+	var/warhead_kind_rus
 
 ///Explode the warhead
 /obj/structure/ob_ammo/warhead/proc/warhead_impact()
@@ -373,8 +374,8 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.show_message(span_highdanger("The sky erupts into flames <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_VISIBLE,
-			span_highdanger("You hear a very loud sound coming from above to the <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_highdanger("Небо вспыхнуло <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
+			span_highdanger("Громкий шум слышно из неба <u>[relative_dir ? ("примерно с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(25, target))
@@ -382,17 +383,18 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.show_message(span_highdanger("The sky roars louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_VISIBLE,
-			span_highdanger("The sound becomes louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_highdanger("Небо ревет все громче <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
+			span_highdanger("Шум становится громче <u>[relative_dir ? ("где-то с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(15, target))
-		our_mob.show_message(span_highdanger("OH GOD THE SKY WILL EXPLODE!!!"), EMOTE_VISIBLE,
-			span_highdanger("YOU SHOULDN'T BE HERE!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_highdanger("О БОЖЕ, НЕБО СЕЙЧАС ВЗОРВЕТСЯ!!!"), EMOTE_VISIBLE,
+			span_highdanger("СМАТЫВАЙСЯ ОТСЮДА!"), EMOTE_AUDIBLE)
 
 /obj/structure/ob_ammo/warhead/explosive
 	name = "\improper HE orbital warhead"
 	warhead_kind = "explosive"
+	warhead_kind_rus = "взрывной"
 	icon_state = "ob_warhead_1"
 	var/explosion_power = 1425
 	var/explosion_falloff = 90
@@ -403,6 +405,7 @@
 /obj/structure/ob_ammo/warhead/incendiary
 	name = "\improper Incendiary orbital warhead"
 	warhead_kind = "incendiary"
+	warhead_kind_rus = "зажигательный"
 	icon_state = "ob_warhead_2"
 	var/flame_range_num
 	var/flame_intensity = 36
@@ -420,6 +423,7 @@
 /obj/structure/ob_ammo/warhead/cluster
 	name = "\improper Cluster orbital warhead"
 	warhead_kind = "cluster"
+	warhead_kind_rus = "кластер"
 	icon_state = "ob_warhead_3"
 	var/cluster_amount = 25
 	var/cluster_power = 240
@@ -441,6 +445,7 @@
 /obj/structure/ob_ammo/warhead/plasmaloss
 	name = "\improper Plasma draining orbital warhead"
 	warhead_kind = "plasma"
+	warhead_kind_rus = "Т-ГАЗ"
 	icon_state = "ob_warhead_4"
 	var/smoke_radius = 25
 	var/smoke_duration = 3 SECONDS
