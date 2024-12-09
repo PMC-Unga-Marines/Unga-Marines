@@ -1,4 +1,0 @@
-author: "MalorMorfin"
-delete-after: True
-changes:
-  - bugfix: "Теперь ctrl+shift+click позволят взять самый левый предмет."
