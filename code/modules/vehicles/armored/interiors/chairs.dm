@@ -58,6 +58,10 @@
 	var/obj/vehicle/sealed/armored/owner
 	buildstacktype = null
 
+/obj/structure/bed/chair/vehicle_gunner_seat/Destroy()
+	owner = null
+	return ..()
+
 /obj/structure/bed/chair/vehicle_gunner_seat/link_interior(datum/interior/link)
 	if(!istype(link, /datum/interior/armored))
 		CRASH("invalid interior [link.type] passed to [name]")
@@ -95,6 +99,10 @@
 	///owner of this object, assigned during interior linkage
 	var/obj/vehicle/sealed/armored/owner
 	buildstacktype = null
+
+/obj/structure/bed/chair/driver_gunner_seat/Destroy()
+	owner = null
+	return ..()
 
 /obj/structure/bed/chair/driver_gunner_seat/link_interior(datum/interior/link)
 	if(!istype(link, /datum/interior/armored))
