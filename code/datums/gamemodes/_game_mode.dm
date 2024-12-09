@@ -406,6 +406,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[SSevacuation.human_escaped] marines manage to evacuate, among [SSevacuation.initial_human_on_ship] that were on ship when xenomorphs arrived."
 	if(GLOB.round_statistics.now_pregnant)
 		parts += "[GLOB.round_statistics.now_pregnant] people infected among which [GLOB.round_statistics.total_larva_burst] burst. For a [(GLOB.round_statistics.total_larva_burst / max(GLOB.round_statistics.now_pregnant, 1)) * 100]% successful delivery rate!"
+	if(GLOB.round_statistics.failed_impregnations)
+		parts += "[GLOB.round_statistics.failed_impregnations] failed impregnation."
+	if(GLOB.round_statistics.larva_surgically_removed)
+		parts += "[GLOB.round_statistics.larva_surgically_removed] larvas surgically removed before burst."
 	if(length(GLOB.round_statistics.workout_counts))
 		for(var/faction in GLOB.round_statistics.workout_counts)
 			parts += "The [faction] faction did [GLOB.round_statistics.workout_counts[faction]] workout sets."
