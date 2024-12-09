@@ -70,7 +70,7 @@
 	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
 	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.flags & NOBLUDGEON))
+	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
 		return FALSE
 	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
 	if(!plasmacutter.start_cut(user, name, src, charge_cost, no_string = TRUE))
