@@ -1,16 +1,24 @@
 /datum/powernet
-	var/number					// unique id
-	var/list/cables = list()	// all cables & junctions
-	var/list/nodes = list()		// all APCs & sources
-
-	var/load = 0				// the current load on the powernet, increased by each machine at processing
-	var/newavail = 0			// what available power was gathered last tick, then becomes...
-	var/avail = 0				//...the current available power in the powernet
-	var/viewavail = 0			// the available power as it appears on the power console (gradually updated)
-	var/viewload = 0			// the load as it appears on the power console (gradually updated)
-	var/netexcess = 0			// excess power on the powernet (typically avail-load)
-	var/delayedload = 0			// load applied to powernet between power ticks.
-
+	/// unique id
+	var/number
+	/// all cables & junctions
+	var/list/cables = list()
+	/// all APCs & sources
+	var/list/nodes = list()
+	/// the current load on the powernet, increased by each machine at processing
+	var/load = 0
+	/// what available power was gathered last tick, then becomes...
+	var/newavail = 0
+	///...the current available power in the powernet
+	var/avail = 0
+	/// the available power as it appears on the power console (gradually updated)
+	var/viewavail = 0
+	/// the load as it appears on the power console (gradually updated)
+	var/viewload = 0
+	/// excess power on the powernet (typically avail-load)
+	var/netexcess = 0
+	/// load applied to powernet between power ticks.
+	var/delayedload = 0
 
 /datum/powernet/New()
 	SSmachines.powernets += src
@@ -44,8 +52,7 @@
 	if(C.powernet)
 		if(C.powernet == src)
 			return
-		else
-			C.powernet.remove_cable(C)
+		C.powernet.remove_cable(C)
 	C.powernet = src
 	cables +=C
 
@@ -53,11 +60,10 @@
 //if the powernet is then empty, delete it
 //Warning : this proc DON'T check if the machine exists
 /datum/powernet/proc/remove_machine(obj/machinery/power/M)
-	nodes -=M
+	nodes -= M
 	M.powernet = null
 	if(is_empty())
 		qdel(src)
-
 
 //add a power machine to the current powernet
 //Warning : this proc DON'T check if the machine exists
@@ -65,8 +71,7 @@
 	if(M.powernet)
 		if(M.powernet == src)
 			return
-		else
-			M.disconnect_from_network()
+		M.disconnect_from_network()
 	M.powernet = src
 	nodes[M] = M
 
@@ -93,5 +98,4 @@
 /datum/powernet/proc/get_electrocute_damage()
 	if(avail >= 1000)
 		return clamp(20 + round(avail/25000), 20, 195) + rand(-5,5)
-	else
-		return 0
+	return 0

@@ -702,10 +702,6 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
-"dQ" = (
-/obj/structure/largecrate/supply/ammo/smg90,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "dS" = (
 /obj/machinery/floodlight/outpost,
 /turf/open/ground/jungle,
@@ -4281,10 +4277,6 @@
 /obj/structure/barricade/plasteel,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
-"FD" = (
-/obj/structure/largecrate/supply/weapons/smg90,
-/turf/open/floor/plating/asteroidfloor,
-/area/whiskey_outpost)
 "FE" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -4780,16 +4772,6 @@
 	dir = 4
 	},
 /area/whiskey_outpost/outside/west)
-"Lu" = (
-/obj/structure/rack,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/structure/rack,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "Lz" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/plating/ground/dirt,
@@ -5261,11 +5243,8 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
 /obj/item/storage/box/visual/magazine/compact/r44/full,
 /obj/item/storage/box/visual/magazine/compact/p14/full,
-/obj/item/storage/box/visual/magazine/compact/mp19/full,
 /obj/item/storage/box/visual/magazine/compact/mg42/full,
 /obj/item/storage/box/visual/magazine/compact/mg42/full,
 /obj/item/storage/box/visual/magazine/compact/p23/full,
@@ -5273,8 +5252,6 @@
 /obj/item/storage/box/visual/magazine/compact/mg60/full,
 /obj/item/storage/box/visual/magazine/compact/dmr37/full,
 /obj/item/storage/box/visual/magazine/compact/dmr37/full,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
-/obj/item/storage/box/visual/magazine/compact/ar18/full,
 /obj/item/storage/box/visual/magazine/compact/br64/full,
 /obj/item/storage/box/visual/magazine/compact/ar12/full,
 /obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
@@ -5285,9 +5262,6 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/mp19/full,
 /obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/full,
@@ -5295,30 +5269,25 @@
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/standard_revolver/full,
-/obj/item/storage/box/visual/magazine/compact/standard_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_lmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_heavypistol/full,
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_gpmg/full,
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
-/obj/item/storage/box/visual/magazine/compact/standard_dmr/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_carbine/full,
-/obj/item/storage/box/visual/magazine/compact/standard_br/full,
-/obj/item/storage/box/visual/magazine/compact/standard_assaultrifle/full,
+/obj/item/storage/box/visual/magazine/compact/r44/full,
+/obj/item/storage/box/visual/magazine/compact/p14/full,
+/obj/item/storage/box/visual/magazine/compact/mg42/full,
+/obj/item/storage/box/visual/magazine/compact/mg42/full,
+/obj/item/storage/box/visual/magazine/compact/p23/full,
+/obj/item/storage/box/visual/magazine/compact/mg60/full,
+/obj/item/storage/box/visual/magazine/compact/mg60/full,
+/obj/item/storage/box/visual/magazine/compact/dmr37/full,
+/obj/item/storage/box/visual/magazine/compact/dmr37/full,
+/obj/item/storage/box/visual/magazine/compact/br64/full,
+/obj/item/storage/box/visual/magazine/compact/ar12/full,
 /obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/obj/item/storage/box/visual/magazine/compact/chamberedrifle/full,
+/obj/item/storage/box/visual/magazine/compact/sr127/full,
 /obj/structure/closet/crate/secure/ammo,
 /obj/item/big_ammo_box/ap,
 /obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
 /obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/smg90/full,
-/obj/item/storage/box/visual/magazine/compact/mp19/full,
 /obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
 /obj/item/storage/box/visual/magazine/compact/lasrifle/full,
@@ -12074,7 +12043,7 @@ NW
 NW
 NW
 ac
-Lu
+fE
 bl
 ns
 cd
@@ -12491,7 +12460,7 @@ bw
 ci
 fs
 dc
-dQ
+DR
 ac
 dC
 dJ
@@ -12763,7 +12732,7 @@ NW
 NW
 NW
 hO
-FD
+yw
 da
 dX
 yw
@@ -13880,7 +13849,7 @@ yw
 yQ
 yw
 yw
-FD
+yw
 Yr
 yw
 yQ

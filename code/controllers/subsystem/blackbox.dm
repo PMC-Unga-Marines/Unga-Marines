@@ -42,16 +42,13 @@ SUBSYSTEM_DEF(blackbox)
 	if(!GLOB.round_id)
 		SSdbcore.InitializeRound()
 
-
 	if(CONFIG_GET(flag/use_exp_tracking))
 		update_exp(10, FALSE)
 
-
 /datum/controller/subsystem/blackbox/vv_get_var(var_name)
 	if(var_name == "feedback")
-		return debug_variable(var_name, deepCopyList(feedback), 0, src)
+		return debug_variable(var_name, deep_copy_list(feedback), 0, src)
 	return ..()
-
 
 /datum/controller/subsystem/blackbox/vv_edit_var(var_name, var_value)
 	switch(var_name)
