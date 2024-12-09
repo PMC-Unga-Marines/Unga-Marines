@@ -407,7 +407,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(GLOB.round_statistics.now_pregnant)
 		parts += "[GLOB.round_statistics.now_pregnant] people infected among which [GLOB.round_statistics.total_larva_burst] burst. For a [(GLOB.round_statistics.total_larva_burst / max(GLOB.round_statistics.now_pregnant, 1)) * 100]% successful delivery rate!"
 	if(GLOB.round_statistics.failed_impregnations)
-		parts += "[GLOB.round_statistics.failed_impregnations] failed impregnation."
+		parts += "[GLOB.round_statistics.failed_impregnations] failed impregnations."
 	if(GLOB.round_statistics.larva_surgically_removed)
 		parts += "[GLOB.round_statistics.larva_surgically_removed] larvas surgically removed before burst."
 	if(length(GLOB.round_statistics.workout_counts))
