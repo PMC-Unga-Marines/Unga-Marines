@@ -5,6 +5,17 @@
 		return ..()
 	return SEND_SIGNAL(src, COMSIG_XENOMORPH_LEAP_BUMP, A)
 
+/mob/living/carbon/xenomorph/proc/blessings_menu()
+	set name = "Blessings menu"
+	set desc = "Ask the Queen Mother for blessings for your hive in exchange for psychic energy."
+	set category = "Alien"
+
+	if(interference)
+		to_chat(src, span_warning("A headhunter temporarily cuts off your psychic connection!"))
+		return
+
+	SEND_SIGNAL(src, COMSIG_XENOABILITY_BLESSINGSMENU)
+
 /mob/living/carbon/xenomorph/verb/hive_status()
 	set name = "Hive Status"
 	set desc = "Check the status of your current hive."
