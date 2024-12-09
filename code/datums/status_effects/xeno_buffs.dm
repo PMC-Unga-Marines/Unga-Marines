@@ -973,7 +973,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_carapace
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/armor_buff_per_chamber = 5
+	var/armor_buff_per_chamber = 2.5
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_carapace/on_apply()
@@ -1010,8 +1010,8 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/regen_buff_per_chamber = 0.05
-	var/sunder_regen_per_chamber = 0.33
+	var/regen_buff_per_chamber = 0.008
+	var/sunder_regen_per_chamber = 0.166
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_regeneration/on_apply()
@@ -1044,7 +1044,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_vampirism
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/leech_buff_per_chamber = 0.033
+	var/leech_buff_per_chamber = 0.016
 	var/chamber_scaling = 0
 
 /datum/status_effect/upgrade_vampirism/on_apply()
@@ -1199,7 +1199,7 @@
 			DEFILER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN),
 			DEFILER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE),
 			DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX),
-			DEFILER_NEUROTOXIN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN),
+			DEFILER_SANGUINAL = image('icons/Xeno/actions.dmi', icon_state = DEFILER_SANGUINAL),
 			DEFILER_ACID = image('icons/Xeno/actions.dmi', icon_state = DEFILER_ACID),
 		)
 	var/datum/status_effect/upgrade_toxin/effect = attached_effect
@@ -1224,12 +1224,12 @@
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/toxin_amount_per_chamber = 1
 	var/chamber_scaling = 0
-	var/datum/reagent/toxin/injected_reagent = /datum/reagent/toxin/xeno_neurotoxin
+	var/datum/reagent/toxin/injected_reagent = /datum/reagent/toxin/xeno_transvitox
 	var/list/selectable_reagents = list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+		/datum/reagent/toxin/xeno_sanguinal,
 		/datum/reagent/toxin/acid,
 	)
 
@@ -1290,7 +1290,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/upgrade_pheromones
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/datum/aura_bearer/current_aura
-	var/phero_power_per_chamber = 1
+	var/phero_power_per_chamber = 0.5
 	var/phero_power_base = 1
 	var/chamber_scaling = 0
 	var/emitted_aura = AURA_XENO_RECOVERY
@@ -1348,7 +1348,7 @@
 	var/chamber_scaling = 0
 	var/list/selectable_trails = list(
 		/obj/effect/xenomorph/spray,
-		/obj/alien/resin/sticky/thin,
+		/obj/alien/resin/sticky/thin/temporary,
 	)
 
 /datum/status_effect/upgrade_trail/on_apply()
