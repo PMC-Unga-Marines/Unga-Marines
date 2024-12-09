@@ -324,6 +324,24 @@
 	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/oxycodone)
 	cost = 20
 
+/datum/supply_packs/medical/Mt_neurostimulator
+	name = "M-S neurostimulator injector"
+	notes = "contains M-S neurostimulator auto injector."
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/mastac)
+	cost = 140
+
+/datum/supply_packs/medical/Mt_neurostimulator_kit
+	name = "M-S neurostimulator kit"
+	notes = "contains 5 M-S neurostimulator auto injectors."
+	contains = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
+		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
+		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
+		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
+		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
+	)
+	cost = 500
+
 /datum/supply_packs/medical/neuraline_kit
 	name ="large neuraline kit"
 	notes = "contains five neuraline injectors"
