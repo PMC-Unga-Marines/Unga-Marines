@@ -691,6 +691,33 @@
 	keybind_signal = COMSIG_XENOABILITY_DASH
 	hotkey_keys = list("E")
 
+/datum/keybinding/xeno/acid_dash
+	name = "acid_dash"
+	full_name = "Praetorian: Acid Dash"
+	description = "Quickly dash, leaving acid in your path and knocking down the first marine hit. Has reset potential."
+	keybind_signal = COMSIG_XENOABILITY_ACID_DASH
+	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/dodge
+	name = "Dodge"
+	full_name = "Praetorian: Dodge"
+	description = "Gain a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
+	keybind_signal = COMSIG_XENOABILITY_DODGE
+	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/impale
+	name = "Impale"
+	full_name = "Praetorian: Impale"
+	description = "Impale a marine next to you with your tail for moderate damage. Marked enemies are impaled twice."
+	keybind_signal = COMSIG_XENOABILITY_IMPALE
+	hotkey_keys = list("Z")
+
+/datum/keybinding/xeno/tail_trip
+	name = "Tail Trip"
+	full_name = "Praetorian: Tail Trip"
+	description = "Target a marine within two tiles of you to disorient and slows them. Marked enemies receive stronger debuffs and are stunned for a second."
+	keybind_signal = COMSIG_XENOABILITY_TAIL_TRIP
+	hotkey_keys = list("R")
 /datum/keybinding/xeno/screech
 	name = "screech"
 	full_name = "Queen: Screech"

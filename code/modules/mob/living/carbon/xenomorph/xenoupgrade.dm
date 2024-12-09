@@ -148,6 +148,9 @@
 /mob/living/carbon/xenomorph/praetorian/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
+/mob/living/carbon/xenomorph/praetorian/dancer/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
 //----PRAETORIAN END----//
 //================//
 //----RAVAGER START----//

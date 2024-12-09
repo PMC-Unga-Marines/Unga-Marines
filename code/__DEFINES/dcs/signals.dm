@@ -740,6 +740,7 @@
 #define COMSIG_XENOABILITY_CORROSIVE_ACID "xenoability_corrosive_acid"
 #define COMSIG_XENOABILITY_SPRAY_ACID "xenoability_spray_acid"
 #define COMSIG_XENOABILITY_DASH "xenoability_dash"
+#define COMSIG_XENOABILITY_ACID_DASH "xenoability_acid_dash"
 #define COMSIG_XENOABILITY_SHORT_SPRAY_ACID "xenoability_short_spray_acid"
 #define COMSIG_XENOABILITY_XENO_SPIT "xenoability_xeno_spit"
 #define COMSIG_XENOABILITY_HIDE "xenoability_hide"
@@ -750,6 +751,10 @@
 #define COMSIG_XENOABILITY_RALLY_MINION "xenoability_rally_minion"
 #define COMSIG_XENOABILITY_MINION_BEHAVIOUR "xenoability_minion_behavior"
 #define COMSIG_XENOABILITY_SILENCE "xenoability_silence"
+
+#define COMSIG_XENOABILITY_DODGE "xenoability_dodge"
+#define COMSIG_XENOABILITY_IMPALE "xenoability_impale"
+#define COMSIG_XENOABILITY_TAIL_TRIP "xenoability_tail_trip"
 
 #define COMSIG_XENOABILITY_TOXIC_SPIT "xenoability_toxic_spit"
 #define COMSIG_XENOABILITY_TOXIC_SLASH "xenoability_toxic_slash"
