@@ -196,6 +196,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_MEDSUP, "Deployable Operating Table", 12, "yellow"),
+	/obj/item/storage/box/t312case = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 25, "red"),
 ))
 
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
@@ -428,6 +429,7 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_SYNTH, "Deployable Operating Table", 12, "yellow"),
+	/obj/item/storage/box/t312case = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 25, "red"), // can buy for other, why not
 ))
 
 ///Assoc list linking the job title with their specific points vendor
