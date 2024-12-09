@@ -50,7 +50,6 @@
 		/mob/living/carbon/xenomorph/praetorian/ai,
 		/mob/living/carbon/xenomorph/ravager/ai,
 		/mob/living/carbon/xenomorph/boiler/ai,
-		/mob/living/carbon/xenomorph/chimera/ai,
 	)
 	min_time = 20 MINUTES
 	points_factor = 0.5
@@ -72,7 +71,6 @@
 		/mob/living/carbon/xenomorph/praetorian/ai,
 		/mob/living/carbon/xenomorph/ravager/ai,
 		/mob/living/carbon/xenomorph/boiler/ai,
-		/mob/living/carbon/xenomorph/chimera/ai,
 	)
 	min_time = 20 MINUTES
 	points_factor = 0.8

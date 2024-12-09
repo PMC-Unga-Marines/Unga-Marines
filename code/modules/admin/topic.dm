@@ -470,8 +470,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
 			if("panther")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/panther, location, null, delmob)
-			if("chimera")
-				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
 			//PREDS
 			if("hellhound")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/hellhound, location, null, delmob)

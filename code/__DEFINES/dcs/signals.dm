@@ -1056,11 +1056,6 @@
 #define COMSIG_XENOABILITY_PLASMA_SCREECH "xenoability_plasma_screech"
 #define COMSIG_XENOABILITY_FRENZY_SCREECH "xenoability_frenzy_screech"
 
-#define COMSIG_XENOABILITY_CHIMERA_PHANTOM "xenoability_chimera_phantom"
-#define COMSIG_XENOABILITY_CHIMERA_ABDUCTION "xenoability_chimera_abduction"
-#define COMSIG_XENOABILITY_CHIMERA_BLINK "xenoability_chimera_blink"
-#define COMSIG_XENOABILITY_CHIMERA_WARP_BLAST "xenoability_chimera_warp_blast"
-#define COMSIG_XENOABILITY_CHIMERA_BODYSWAP "xenoability_chimera_bodyswap"
 #define COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE "xenoability_chimera_crippling_strike"
 
 //Preds
