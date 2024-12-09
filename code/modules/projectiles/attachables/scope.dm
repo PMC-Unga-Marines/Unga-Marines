@@ -28,7 +28,6 @@
 	name = "T-47 rail scope"
 	desc = "A marine standard mounted zoom sight scope. Allows zoom by activating the attachment."
 	icon_state = "marinescope"
-	add_aim_mode = TRUE
 
 /obj/item/attachable/scope/nightvision
 	name = "T-46 Night vision scope"
@@ -208,7 +207,6 @@
 	scope_zoom_mod = TRUE
 	has_nightvision = FALSE
 	zoom_allow_movement = TRUE
-	add_aim_mode = TRUE
 	zoom_slowdown = 0.3
 	zoom_tile_offset = 5
 	zoom_viewsize = 0
