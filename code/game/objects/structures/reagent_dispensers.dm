@@ -186,7 +186,7 @@
 	flame_radius(round(reagents.total_volume * 0.005), loc)
 	qdel(src)
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(burn_level)
+/obj/structure/reagent_dispensers/fueltank/fire_act(burn_level, flame_color)
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/Moved(atom/old_loc, movement_dir, forced, list/old_locs)

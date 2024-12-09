@@ -163,8 +163,8 @@
 
 	//TODO: Make firetypes, colour types are terrible
 	if(flame_color == FLAME_COLOR_LIME)
-		var/datum/status_effect/stacking/melting/debuff = has_status_effect(STATUS_EFFECT_MELTING)
-		if(debuff)
+		if(has_status_effect(STATUS_EFFECT_MELTING))
+			var/datum/status_effect/stacking/melting/debuff = has_status_effect(STATUS_EFFECT_MELTING)
 			debuff.add_stacks(2)
 		else
 			apply_status_effect(STATUS_EFFECT_MELTING, 2)

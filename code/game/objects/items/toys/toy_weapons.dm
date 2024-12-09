@@ -106,7 +106,7 @@
 	if(!isturf(target.loc) || target == user) return
 	if(flag) return
 
-	if (locate (/obj/structure/table, src.loc))
+	if(locate (/obj/structure/table, src.loc))
 		return
 	else if (bullets)
 		var/turf/trg = get_turf(target)
@@ -116,14 +116,17 @@
 		D.name = "foam dart"
 		playsound(user.loc, 'sound/items/syringeproj.ogg', 15, 1)
 
-		for(var/i=0, i<6, i++)
-			if (D)
-				if(D.loc == trg) break
-				step_towards(D,trg)
+		for(var/i = 0, i < 6, i++)
+			if(D)
+				if(D.loc == trg)
+					break
+				step_towards(D, trg)
 
 				for(var/mob/living/M in D.loc)
-					if(!istype(M,/mob/living)) continue
-					if(M == user) continue
+					if(!istype(M, /mob/living))
+						continue
+					if(M == user)
+						continue
 					visible_message(span_warning("[M] was hit by the foam dart!"), visible_message_flags = COMBAT_MESSAGE)
 					new /obj/item/toy/crossbow_ammo(M.loc)
 					qdel(D)
@@ -137,16 +140,19 @@
 
 			sleep(0.1 SECONDS)
 
-		spawn(10)
-			if(D)
-				new /obj/item/toy/crossbow_ammo(D.loc)
-				qdel(D)
+		addtimer(CALLBACK(src, PROC_REF(convert_proj_to_item), D), 1 SECONDS)
 
 		return
 	else if(!bullets && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(10 SECONDS)
 		visible_message(span_warning("[user] realized they were out of ammo and starting scrounging for some!"))
+
+/obj/item/toy/crossbow/proc/convert_proj_to_item(obj/effect/foam_dart_dummy/dart)
+	if(!dart)
+		return
+	new /obj/item/toy/crossbow_ammo(dart.loc)
+	qdel(dart)
 
 
 /obj/item/toy/crossbow/attack(mob/M as mob, mob/user as mob)

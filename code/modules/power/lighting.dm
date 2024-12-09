@@ -350,15 +350,17 @@
 	if(flickering)
 		return
 	flickering = TRUE
-	spawn(0)
-		if(light_on && status == LIGHT_OK)
-			for(var/i = 0; i < amount; i++)
-				if(status != LIGHT_OK)
-					break
-				update(FALSE)
-				sleep(rand(5, 15))
-			update(FALSE)
-		flickering = FALSE
+	INVOKE_ASYNC(src, PROC_REF(flicker_stage_2), amount)
+
+/obj/machinery/light/proc/flicker_stage_2(amount)
+	if(light_on && status == LIGHT_OK)
+		for(var/i = 0; i < amount; i++)
+			if(status != LIGHT_OK)
+				break
+			update(FALSE, FALSE)
+			sleep(rand(5, 15))
+		update(FALSE)
+	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
 

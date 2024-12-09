@@ -206,11 +206,6 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define NIGHTFALL_IMMUNE 3
 #define NO_LIGHT_STATE_CHANGE 4
 
-//Xeno turrets define
-#define TURRET_SCAN_RANGE 25
-#define TURRET_SCAN_FREQUENCY 10 SECONDS
-#define TURRET_HEALTH_REGEN 8
-
 //Unmanned vehicle define
 #define OVERLAY_TURRET (1<<0)
 #define HAS_HEADLIGHTS (1<<1)

@@ -432,6 +432,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/gorger, location, null, delmob)
 			if("warlock")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/warlock, location, null, delmob)
+			if("widow")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/widow, location, null, delmob)
 			if("shrike")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/shrike, location, null, delmob)
 			if("hivemind")
@@ -653,7 +655,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			return
 
 		SSticker.mode.distress_cancelled = TRUE
-		priority_announce("The distress signal has been blocked, the launch tubes are now recalibrating.", "Distress Beacon")
+		priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distressbeaconlocked.ogg')
 		log_admin("[key_name(usr)] has denied a distress beacon, requested by [key_name(M)]")
 		message_admins("[ADMIN_TPMONTY(usr)] has denied a distress beacon, requested by [ADMIN_TPMONTY(M)]")
 

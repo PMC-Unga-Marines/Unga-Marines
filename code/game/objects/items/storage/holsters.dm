@@ -566,6 +566,7 @@
 		/obj/item/weapon/gun/pistol,
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
@@ -578,10 +579,13 @@
 /obj/item/storage/holster/belt/pistol
 	name = "generic pistol belt"
 	desc = "A pistol belt that is not a revolver belt"
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE
 
 /obj/item/storage/holster/belt/pistol/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
+	AddComponent(/datum/component/magazine_catcher)
+	AddComponent(/datum/component/easy_restock)
 
 /obj/item/storage/holster/belt/pistol/m4a3
 	name = "\improper M4A3 holster rig"
@@ -1047,3 +1051,10 @@
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/tomahawk/classic(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
+
+/obj/item/storage/holster/belt/pistol/laser/Initialize(mapload)
+	. = ..()
+	for(var/i in 1 to 5)
+		new /obj/item/cell/lasgun/lasrifle(src)
+	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)

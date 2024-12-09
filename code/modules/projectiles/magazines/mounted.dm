@@ -48,7 +48,7 @@
 	icon_state = "mag"
 	icon_state_mini = "mag_drum_big_armygreen"
 	flags_magazine = NONE
-	caliber = CALIBER_10x27_CASELESS
+	caliber = CALIBER_10X27_CASELESS
 	max_rounds = 150
 	default_ammo = /datum/ammo/bullet/rifle/heavy
 	reload_delay = 1 SECONDS
@@ -95,7 +95,6 @@
 	icon_state = "ags_mag_pgas"
 	default_ammo = /datum/ammo/grenade_container/agls37/tanglefoot
 
-
 /obj/item/ammo_magazine/at36
 	name = "AT-36 AP-HE shell (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns. Will penetrate walls and fortifications, before hitting a target and exploding, has less payload and punch than usual rounds."
@@ -141,7 +140,7 @@
 	name = "MG-2005 box magazine (7.62x51mm)"
 	desc = "A box of 1000 rounds for the MG-2005 mounted minigun."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "minigun"
 	flags_magazine = NONE
 	caliber = CALIBER_762X51
