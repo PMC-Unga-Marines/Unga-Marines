@@ -129,7 +129,7 @@
 	else if(is_type_in_typecache(grab.grabbed_thing.type, owner.easy_load_list))
 		user.balloon_alert(user, "item thrown outside")
 		grab.grabbed_thing.forceMove(owner.exit_location(grab.grabbed_thing))
-	return ..()
+	return
 
 ///returns where we want to spit out new enterers
 /turf/closed/interior/tank/door/proc/get_enter_location()
