@@ -507,7 +507,7 @@
 	name = "\improper Croweson musket"
 	desc = "A breech-loading rifle with room for a single round of 19mm ball."
 	icon = 'icons/Marine/gun64.dmi'
-	flags_equip_slot = ITEM_SLOT_BACK
+	//flags_equip_slot = ITEM_SLOT_BACK
 	icon_state = "musket"
 	item_state = "musket"
 	inhand_x_dimension = 64
@@ -520,6 +520,7 @@
 	caliber = CALIBER_19MM
 	muzzle_flash_lum = 6
 	max_chamber_items = 1
+	type_of_casings = null
 	ammo_datum_type = /datum/ammo/bullet/sniper/musket
 	default_ammo_type = /datum/ammo/bullet/sniper/musket
 	gun_skill_category = SKILL_RIFLES
@@ -567,6 +568,7 @@
 	caliber = CALIBER_19MM
 	muzzle_flash_lum = 3
 	max_chamber_items = 1
+	type_of_casings = null
 	ammo_datum_type = /datum/ammo/bullet/sniper/musket
 	default_ammo_type = /datum/ammo/bullet/sniper/musket
 	gun_skill_category = SKILL_PISTOLS
