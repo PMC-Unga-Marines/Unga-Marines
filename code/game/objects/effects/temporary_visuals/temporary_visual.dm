@@ -138,3 +138,17 @@ GLOBAL_DATUM_INIT(flare_particles, /particles/flare_smoke, new)
 	pixel_x = rand(-12, 12)
 	pixel_y = rand(-9, 0)
 
+/obj/effect/temp_visual/oppose_shatter
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "oppose_shatter"
+	name = "veined terrain"
+	desc = "blood rushes below the ground, forcing it upwards."
+	layer = PODDOOR_OPEN_LAYER
+	pixel_x = -32
+	pixel_y = -32
+	duration = 3 SECONDS
+	alpha = 200
+
+/obj/effect/temp_visual/oppose_shatter/Initialize(mapload)
+	. = ..()
+	animate(src, alpha = 0, time = 3 SECONDS)
