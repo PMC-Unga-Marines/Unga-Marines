@@ -330,6 +330,9 @@
 /obj/item/weapon/gun/rifle/dmr37/beginner
 	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
 
+#undef DMR_BUMP_FIRE_DELAY
+#undef DMR_BUMP_DAMAGE_MULT
+#undef DMR_BUMP_ACCURACY_MULT
 
 //-------------------------------------------------------
 //BR-64 BR
