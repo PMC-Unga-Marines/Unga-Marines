@@ -14,9 +14,9 @@
 		SMOOTH_GROUP_MINERAL_STRUCTURES,
 	)
 	soft_armor = list(MELEE = 33, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 15, BIO = 0, FIRE = 0, ACID = 0)
-	trigger_sound = "alien_resin_move"
-	hit_sound = "alien_resin_move"
-	destroy_sound = "alien_resin_move"
+	trigger_sound = SFX_ALIEN_RESIN_MOVE
+	hit_sound = SFX_ALIEN_RESIN_MOVE
+	destroy_sound = SFX_ALIEN_RESIN_MOVE
 	///The delay before the door closes automatically after being open
 	var/close_delay = 10 SECONDS
 	///The timer that tracks the delay above
@@ -60,7 +60,7 @@
 		return TRUE
 
 	src.balloon_alert(xeno_attacker, "Destroying...")
-	playsound(src, "alien_resin_break", 25)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	if(do_after(xeno_attacker, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
 		src.balloon_alert(xeno_attacker, "Destroyed")
 		qdel(src)
