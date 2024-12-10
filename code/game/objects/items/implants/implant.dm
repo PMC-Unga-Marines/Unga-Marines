@@ -35,7 +35,6 @@
 	if(!allowed_limbs)
 		allowed_limbs = GLOB.human_body_parts
 
-
 /obj/item/implant/Destroy(force)
 	unimplant()
 	QDEL_NULL(activation_action)
