@@ -11,23 +11,23 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
-	var/obj/item/implant/imp
+	var/obj/item/implant/internal_implant
 
 
-/obj/item/implantcase/Initialize(mapload, imp)
+/obj/item/implantcase/Initialize(mapload, internal_implant)
 	. = ..()
-	if(imp)
-		imp = new imp(src)
+	if(internal_implant)
+		internal_implant = new internal_implant(src)
 		update_icon()
 
 /obj/item/implantcase/Destroy()
-	QDEL_NULL(imp)
+	QDEL_NULL(internal_implant)
 	return ..()
 
 /obj/item/implantcase/update_icon_state()
 	. = ..()
-	if(imp)
-		icon_state = "implantcase-[imp.implant_color]"
+	if(internal_implant)
+		icon_state = "implantcase-[internal_implant.implant_color]"
 	else
 		icon_state = "implantcase-0"
 
@@ -47,31 +47,31 @@
 			name = initial(name)
 
 	else if(istype(I, /obj/item/reagent_containers/syringe))
-		if(!imp?.allow_reagents)
+		if(!internal_implant?.allow_reagents)
 			return
 
-		if(imp.reagents.total_volume >= imp.reagents.maximum_volume)
+		if(internal_implant.reagents.total_volume >= internal_implant.reagents.maximum_volume)
 			to_chat(user, span_warning("[src] is full."))
 			return
 
-		I.reagents.trans_to(imp, 5)
+		I.reagents.trans_to(internal_implant, 5)
 		to_chat(user, span_notice("You inject 5 units of the solution. The syringe now contains [I.reagents.total_volume] units."))
 
 	else if(istype(I, /obj/item/implanter))
 		var/obj/item/implanter/M = I
-		if(M.imp)
-			if((imp || M.imp.implanted))
+		if(M.internal_implant)
+			if((internal_implant || M.internal_implant.implanted))
 				return
-			M.imp.forceMove(src)
-			imp = M.imp
-			M.imp = null
+			M.internal_implant.forceMove(src)
+			internal_implant = M.internal_implant
+			M.internal_implant = null
 
-		else if(imp)
-			if(M.imp)
+		else if(internal_implant)
+			if(M.internal_implant)
 				return
-			imp.forceMove(M)
-			M.imp = imp
-			imp = null
+			internal_implant.forceMove(M)
+			M.internal_implant = internal_implant
+			internal_implant = null
 
 		update_icon()
 		M.update_icon()
@@ -79,5 +79,42 @@
 	else if(istype(I, /obj/item/implant))
 		user.temporarilyRemoveItemFromInventory(I)
 		I.forceMove(src)
-		imp = I
+		internal_implant = I
+		update_icon()
+
+/obj/item/implantcase/cargo
+	name = "glass implant case"
+	desc = "A case containing an implant."
+	icon = 'icons/obj/items/implants.dmi'
+	icon_state = "implantcase-0"
+
+/obj/item/implantcase/cargo/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/implanter/implantator))
+		var/obj/item/implanter/implantator/M = I
+
+		if(!do_after(user, 5 SECONDS, NONE, user, BUSY_ICON_GENERIC))
+			to_chat(user, span_notice("You stop transfering [internal_implant]"))
+			return FALSE
+
+		if(M.internal_implant)
+			if((internal_implant || M.internal_implant.implanted))
+				return
+			M.internal_implant.forceMove(src)
+			internal_implant = M.internal_implant
+			M.internal_implant = null
+
+		if(internal_implant)
+			if(M.internal_implant)
+				return
+			internal_implant.forceMove(M)
+			M.internal_implant = internal_implant
+			internal_implant = null
+			update_icon()
+			M.update_icon()
+
+	else if(istype(I, /obj/item/implant/skill))
+		user.temporarilyRemoveItemFromInventory(I)
+		I.forceMove(src)
+		internal_implant = I
 		update_icon()
