@@ -113,6 +113,8 @@
 		return
 	if(next_fire > world.time)//This mean duplication somewhere, we abort now
 		return
+	if(isnull(callback_fire))
+		return
 	if(!(callback_fire.Invoke() & AUTOFIRE_CONTINUE))//reset fire if we want to stop
 		hard_reset()
 		return

@@ -92,8 +92,17 @@
 	item_state = "giftbag"
 	w_class = WEIGHT_CLASS_BULKY
 	storage_slots = null
-	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 400 // can store a ton of shit!
+	max_w_class = 4
+	max_storage_space = 60 // can store a ton of shit!
+	flags_item = DELONDROP
+	access_delay = 0
+	bypass_w_limit = list(
+		/obj/item/weapon/gun/launcher/rocket/m57a4,
+	)
+
+/obj/item/storage/backpack/santabag/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
 
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"

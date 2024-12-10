@@ -241,6 +241,13 @@
 	. = ..()
 	AddComponent(/datum/component/clothing_tint, TINT_5, TRUE)
 
+/obj/item/clothing/glasses/welding/elf
+	flags_item = DELONDROP
+
+/obj/item/clothing/glasses/welding/elf/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_CHRISTMAS_ELF)
+
 /obj/item/clothing/glasses/welding/verb/verbtoggle()
 	set category = "Object.Clothing"
 	set name = "Adjust welding goggles"

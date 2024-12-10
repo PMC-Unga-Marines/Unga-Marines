@@ -3,21 +3,30 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
+/obj/structure/prop/holidays/string_lights/corner,
 /turf/closed/shuttle/dropship_regular/top_corner/alt{
 	dir = 1
 	},
 /area/shuttle/ert)
 "c" = (
+/obj/structure/prop/holidays/string_lights,
 /turf/closed/shuttle/dropship_regular/backwall,
 /area/shuttle/ert)
 "d" = (
 /obj/docking_port/mobile/ert,
+/obj/structure/prop/holidays/string_lights,
 /turf/closed/shuttle/dropship_regular/cockpit_window,
 /area/shuttle/ert)
 "e" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 1
+	},
 /turf/closed/shuttle/dropship_regular/top_corner/alt,
 /area/shuttle/ert)
 "f" = (
+/obj/structure/prop/holidays/string_lights{
+	dir = 6
+	},
 /turf/closed/shuttle/dropship_regular/interior_corner,
 /area/shuttle/ert)
 "g" = (
@@ -31,11 +40,17 @@
 /turf/open/floor/podhatch/floor,
 /area/shuttle/ert)
 "i" = (
+/obj/structure/prop/holidays/string_lights{
+	dir = 10
+	},
 /turf/closed/shuttle/dropship_regular/interior_corner{
 	dir = 1
 	},
 /area/shuttle/ert)
 "j" = (
+/obj/structure/prop/holidays/string_lights{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship_regular/interior_wall,
 /area/shuttle/ert)
 "k" = (
@@ -61,6 +76,9 @@
 /turf/open/floor/light,
 /area/shuttle/ert)
 "o" = (
+/obj/structure/prop/holidays/string_lights{
+	dir = 8
+	},
 /turf/closed/shuttle/dropship_regular/interior_wall{
 	dir = 1
 	},
@@ -94,11 +112,17 @@
 /turf/closed/shuttle/dropship_regular/backhatch,
 /area/shuttle/ert)
 "v" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship_regular/top_corner,
 /area/shuttle/ert)
 "w" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
+	},
+/obj/structure/prop/holidays/string_lights{
+	dir = 1
 	},
 /turf/open/floor/light,
 /area/shuttle/ert)
@@ -109,9 +133,15 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
+/obj/structure/prop/holidays/string_lights{
+	dir = 1
+	},
 /turf/open/floor/light,
 /area/shuttle/ert)
 "z" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 8
+	},
 /turf/closed/shuttle/dropship_regular/top_corner{
 	dir = 1
 	},
@@ -135,13 +165,47 @@
 	},
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/ert)
+"G" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 4
+	},
+/turf/closed/shuttle/dropship_regular/interior_wall,
+/area/shuttle/ert)
+"I" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/effect/landmark/distress_item,
+/obj/structure/prop/holidays/string_lights{
+	dir = 9
+	},
+/turf/open/floor/light,
+/area/shuttle/ert)
+"O" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 8
+	},
+/turf/closed/shuttle/dropship_regular/interior_wall{
+	dir = 1
+	},
+/area/shuttle/ert)
+"V" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/obj/effect/landmark/distress_item,
+/obj/structure/prop/holidays/string_lights{
+	dir = 5
+	},
+/turf/open/floor/light,
+/area/shuttle/ert)
 
 (1,1,1) = {"
 a
 b
 j
 j
-j
+G
 u
 a
 "}
@@ -150,7 +214,7 @@ b
 f
 k
 p
-k
+V
 v
 u
 "}
@@ -186,7 +250,7 @@ e
 i
 n
 s
-n
+I
 z
 A
 "}
@@ -195,7 +259,7 @@ a
 e
 o
 o
-o
+O
 A
 a
 "}
