@@ -202,7 +202,7 @@
 	var/deflagrate_chance = victim.modify_by_armor(proj.damage - (proj.distance_travelled * proj.damage_falloff), FIRE, proj.penetration) * deflagrate_multiplier
 	if(prob(deflagrate_chance))
 		new /obj/effect/temp_visual/shockwave(get_turf(victim), 2)
-		playsound(target, "incendiary_explosion", 40)
+		playsound(target, SFX_INCENDIARY_EXPLOSION, 40)
 		fire_burst(target, proj)
 
 ///the actual fireblast triggered by deflagrate

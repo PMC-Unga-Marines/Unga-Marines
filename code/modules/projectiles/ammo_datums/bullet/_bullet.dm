@@ -3,10 +3,10 @@
 	name = "default bullet"
 	icon_state = "bullet"
 	flags_ammo_behavior = AMMO_BALLISTIC
-	sound_hit = "ballistic_hit"
-	sound_armor = "ballistic_armor"
-	sound_miss = "ballistic_miss"
-	sound_bounce = "ballistic_bounce"
+	sound_hit = SFX_BALLISTIC_HIT
+	sound_armor = SFX_BALLISTIC_ARMOR
+	sound_miss = SFX_BALLISTIC_MISS
+	sound_bounce = SFX_BALLISTIC_BOUNCE
 	point_blank_range = 2
 	accurate_range_min = 0
 	shell_speed = 3
