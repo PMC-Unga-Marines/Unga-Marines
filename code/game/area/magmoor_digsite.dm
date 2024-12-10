@@ -427,3 +427,6 @@
 /area/magmoor/mining/storage
 	name = "Mineral Storage"
 	icon_state = "storage"
+
+/area/magmoor/command/monorail
+	icon_state = "purple"

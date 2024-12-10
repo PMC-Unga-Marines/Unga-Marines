@@ -400,9 +400,7 @@
 "afI" = (
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/north,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "afS" = (
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
@@ -1491,9 +1489,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ana" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 1;
@@ -2582,9 +2578,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 5
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "avx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -2888,9 +2882,7 @@
 /obj/effect/spawner/gibspawner/human,
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "aAD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/mainship/generic{
@@ -4562,9 +4554,7 @@
 	},
 /obj/structure/prop/train/cargo_hyperdyne,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "aOl" = (
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
@@ -4889,9 +4879,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "aSQ" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 4
@@ -5022,9 +5010,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "aUo" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
@@ -5297,9 +5283,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "aYv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -5342,9 +5326,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "aYH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -5943,9 +5925,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "blU" = (
 /obj/structure/window/framed/colony/reinforced/hull,
 /turf/open/floor/plating,
@@ -6471,9 +6451,7 @@
 /area/bigredv2/outside/space_port)
 "btF" = (
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "btJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -7307,9 +7285,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "bBF" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -7792,9 +7768,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "bTs" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -7823,9 +7797,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "bUW" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -7853,9 +7825,7 @@
 "bXJ" = (
 /obj/structure/stairs/seamless/edge,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "bZo" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -7870,9 +7840,7 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "cbA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
@@ -7897,9 +7865,7 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ces" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -7910,9 +7876,7 @@
 "ceG" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ceT" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -7934,9 +7898,7 @@
 "cfN" = (
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "cfS" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -7950,9 +7912,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ciD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -7982,9 +7942,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "cku" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -8037,9 +7995,7 @@
 "cqD" = (
 /obj/machinery/power/port_gen,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "cqL" = (
 /obj/structure/window/reinforced,
 /obj/prop/hydroponics,
@@ -8069,9 +8025,7 @@
 "cuO" = (
 /obj/structure/barricade/concrete,
 /turf/open/floor/marking/asteroidwarning,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "cuW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8187,9 +8141,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "cLe" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
@@ -8356,9 +8308,7 @@
 "daO" = (
 /obj/structure/largecrate/cow,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dcO" = (
 /obj/machinery/door/airlock/mainship/research/free_access{
 	name = "\improper Virology Lab Administration"
@@ -8376,15 +8326,11 @@
 "ddL" = (
 /obj/structure/cargo_container/ch_green,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dev" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dgo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -8399,9 +8345,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "dhB" = (
 /turf/open/floor/plating/dmg3,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "djb" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
@@ -8420,9 +8364,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "djD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8493,9 +8435,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dqB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/misc/structure/stool,
@@ -8563,23 +8503,17 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dwY" = (
 /obj/structure/barricade/handrail/wire{
 	dir = 1
 	},
 /obj/structure/lattice,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dxa" = (
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dxt" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/wall/r_wall,
@@ -8589,17 +8523,13 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dym" = (
 /obj/structure/monorail{
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dyO" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -8609,9 +8539,7 @@
 /obj/structure/mopbucket,
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dzA" = (
 /obj/structure/prop/mainship/telecomms/bus,
 /turf/open/floor/podhatch/floor,
@@ -8666,16 +8594,12 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dFz" = (
 /turf/open/floor/mainship/red{
 	dir = 9
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "dHg" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/space_port)
@@ -8916,9 +8840,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ekl" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark/purple2{
@@ -8999,9 +8921,7 @@
 	},
 /obj/structure/prop/vehicle/crane/destructible,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "epc" = (
 /obj/structure/cargo_container/green{
 	dir = 8
@@ -9019,9 +8939,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "esb" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -9065,9 +8983,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "eyt" = (
 /turf/open/floor/carpet/side{
 	dir = 1
@@ -9181,9 +9097,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "eKP" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -9241,9 +9155,7 @@
 "eQe" = (
 /obj/structure/largecrate/supply/supplies/mre,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "eQv" = (
 /obj/machinery/light{
 	dir = 8
@@ -9319,9 +9231,7 @@
 	},
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "fbY" = (
 /obj/item/stack/rods,
 /obj/structure/barricade/plasteel,
@@ -9562,9 +9472,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "fAX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
@@ -9600,17 +9508,13 @@
 /area/bigredv2/caves/south)
 "fFW" = (
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "fHa" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "fHv" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
@@ -9618,9 +9522,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "fHK" = (
 /obj/effect/turf_decal/sandedge/corner{
 	dir = 1
@@ -9735,9 +9637,7 @@
 	},
 /obj/machinery/light,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "fST" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -9825,9 +9725,7 @@
 "fZx" = (
 /obj/structure/largecrate/random/case,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "gaB" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -9928,9 +9826,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "gpg" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -9992,9 +9888,7 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "gAI" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -10185,9 +10079,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "gOD" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/tile/dark,
@@ -10208,9 +10100,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "gQb" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10249,9 +10139,7 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 10
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "gSH" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10376,9 +10264,7 @@
 "hdO" = (
 /obj/structure/closet/secure_closet/security,
 /turf/open/floor/mainship/red,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hdR" = (
 /obj/effect/ai_node,
 /obj/machinery/landinglight/lz1,
@@ -10387,9 +10273,7 @@
 "hdU" = (
 /obj/structure/prop/vehicle/truck/truckcargo,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hev" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -10429,9 +10313,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hir" = (
 /obj/structure/monorail{
 	dir = 4
@@ -10469,9 +10351,7 @@
 	},
 /obj/structure/prop/train/construction,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hlU" = (
 /obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/tile/dark,
@@ -10535,9 +10415,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hsK" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/cargo)
@@ -10558,9 +10436,7 @@
 	},
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hwI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -10589,9 +10465,7 @@
 /area/bigredv2/caves/lambda_lab)
 "hAn" = (
 /turf/closed/wall,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hBm" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
@@ -10639,9 +10513,7 @@
 /area/bigredv2/caves/lambda_lab)
 "hHO" = (
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hIr" = (
 /obj/structure/cable,
 /obj/docking_port/stationary/crashmode,
@@ -10708,9 +10580,7 @@
 /obj/structure/stairs/seamless/edge,
 /obj/structure/stairs/railstairs,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hSR" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10719,9 +10589,7 @@
 "hSS" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "hUH" = (
 /obj/machinery/botany/extractor,
 /obj/effect/decal/cleanable/dirt,
@@ -10813,9 +10681,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ieG" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/w)
@@ -10868,9 +10734,7 @@
 "ilE" = (
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/south,
 /turf/open/floor/marking/asteroidwarning,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "imS" = (
 /turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/space_port)
@@ -10884,15 +10748,11 @@
 	},
 /obj/structure/prop/train/weapons,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "inB" = (
 /obj/structure/largecrate/supply/medicine/iv,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "inW" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -10952,9 +10812,7 @@
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "iup" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
@@ -10984,9 +10842,7 @@
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 6
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "izj" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/weed_node,
@@ -11034,9 +10890,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "iEp" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 1
@@ -11141,9 +10995,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "iPs" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/ai_node,
@@ -11236,9 +11088,7 @@
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "iYM" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 8
@@ -11374,9 +11224,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jgh" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -11432,9 +11280,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jkl" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -11490,9 +11336,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jpZ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
@@ -11537,9 +11381,7 @@
 "jtH" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "juj" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -11547,9 +11389,7 @@
 "juT" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jvB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -11674,9 +11514,7 @@
 "jEy" = (
 /obj/structure/prop/vehicle/crawler/crawler_blue,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jFb" = (
 /obj/structure/glowshroom,
 /obj/effect/landmark/lv624/fog_blocker,
@@ -11720,9 +11558,7 @@
 "jIS" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jJZ" = (
 /obj/structure/table,
 /obj/structure/cable,
@@ -11825,9 +11661,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jSH" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 4
@@ -11865,9 +11699,7 @@
 /area/bigredv2/outside/sw)
 "jVp" = (
 /turf/open/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "jXK" = (
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -11938,9 +11770,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "khk" = (
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
@@ -12008,9 +11838,7 @@
 "koF" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "kpp" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 8
@@ -12069,9 +11897,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "kzl" = (
 /obj/machinery/light{
 	dir = 1
@@ -12182,9 +12008,7 @@
 "kPs" = (
 /obj/structure/prop/vehicle/crane/cranecargo,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "kPA" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
@@ -12199,9 +12023,7 @@
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "kRr" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south/garbledradio)
@@ -12276,18 +12098,14 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "kZg" = (
 /turf/open/floor/plating/dmg1,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "kZH" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
 "kZJ" = (
 /turf/open/floor/asteroidfloor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "lak" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -12347,9 +12165,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "liH" = (
 /obj/effect/turf_decal/warning_stripes,
 /turf/open/floor,
@@ -12437,9 +12253,7 @@
 /obj/effect/landmark/xeno_tunnel_spawn,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "luJ" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
 /turf/open/space/basic,
@@ -12475,9 +12289,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "lxP" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -12523,9 +12335,7 @@
 /turf/open/floor/mainship/red{
 	dir = 5
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "lDQ" = (
 /obj/structure/cable,
 /obj/machinery/light/built,
@@ -12536,9 +12346,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "lFi" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -12673,9 +12481,7 @@
 "lSW" = (
 /obj/structure/bigDelivery,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "lTA" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 6
@@ -12866,9 +12672,7 @@
 "mpp" = (
 /obj/machinery/robotic_cradle,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mpz" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/se)
@@ -12884,9 +12688,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "mqY" = (
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "msa" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/effect/landmark/weed_node,
@@ -12919,9 +12721,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mwX" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
@@ -12938,9 +12738,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mAi" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northwest)
@@ -13024,9 +12822,7 @@
 	dir = 10
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mHh" = (
 /obj/effect/spawner/modularmap/bigred/engineering,
 /turf/open/space/basic,
@@ -13055,9 +12851,7 @@
 	pixel_y = -1
 	},
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mJu" = (
 /obj/structure/cargo_container{
 	dir = 8
@@ -13072,9 +12866,7 @@
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mNY" = (
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/tile/dark/purple2{
@@ -13091,9 +12883,7 @@
 	},
 /obj/effect/spawner/gibspawner/robot,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "mPE" = (
 /obj/machinery/seed_extractor,
 /obj/effect/decal/cleanable/dirt,
@@ -13248,9 +13038,7 @@
 "nfi" = (
 /obj/structure/prop/turbine,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ngv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -13296,9 +13084,7 @@
 /obj/effect/soundplayer/deltaplayer,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nln" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
@@ -13413,9 +13199,7 @@
 "nue" = (
 /obj/structure/window/framed/colony/reinforced/hull,
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nux" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -13454,9 +13238,7 @@
 "nyr" = (
 /obj/structure/cargo_container/hd_blue,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nyy" = (
 /obj/structure/monorail{
 	dir = 4
@@ -13571,9 +13353,7 @@
 "nJo" = (
 /obj/structure/cargo_container/wy,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nJs" = (
 /obj/structure/table,
 /obj/item/alienjar,
@@ -13610,9 +13390,7 @@
 "nOa" = (
 /obj/structure/cargo_container/ch_red,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nOl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -13664,9 +13442,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nRv" = (
 /obj/structure/bed/chair/office/light,
 /obj/effect/decal/cleanable/dirt,
@@ -13703,9 +13479,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "nVU" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -13755,9 +13529,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "oeT" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -13855,9 +13627,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "omX" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -13891,9 +13661,7 @@
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "opQ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
@@ -14211,9 +13979,7 @@
 	},
 /obj/structure/bigDelivery,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "pfx" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/wood,
@@ -14226,9 +13992,7 @@
 "phs" = (
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "phx" = (
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/tile/dark/yellow2/corner,
@@ -14278,9 +14042,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "pmR" = (
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/elevatorshaft,
@@ -14295,9 +14057,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ppX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
@@ -14336,9 +14096,7 @@
 	},
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "puE" = (
 /obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -14430,9 +14188,7 @@
 "pDg" = (
 /obj/structure/cargo_container/red,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "pER" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
@@ -14565,9 +14321,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "pUl" = (
 /turf/open/floor/tile/vault{
 	dir = 8
@@ -14711,9 +14465,7 @@
 	name = "\improper Colony Security Checkpoint"
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qjc" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -14743,9 +14495,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qlj" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/excavation_site_spawner,
@@ -14862,9 +14612,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qEh" = (
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
@@ -14886,9 +14634,7 @@
 /turf/open/floor/mainship/red{
 	dir = 10
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qFS" = (
 /obj/structure/window/reinforced,
 /obj/prop/hydroponics,
@@ -14943,9 +14689,7 @@
 	},
 /obj/structure/prop/train/empty,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qLJ" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/decal/cleanable/blood/gibs/core,
@@ -14957,9 +14701,7 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qMK" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/southeast/garbledradio)
@@ -14999,9 +14741,7 @@
 "qSP" = (
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qUm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -15035,9 +14775,7 @@
 "qYr" = (
 /obj/structure/cargo_container/green,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "qYv" = (
 /obj/structure/table,
 /obj/item/storage/box/nt_mre,
@@ -15118,9 +14856,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/north,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rdR" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
@@ -15189,9 +14925,7 @@
 	},
 /obj/vehicle/ridden/atv,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rin" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -15268,9 +15002,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "roD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -15401,9 +15133,7 @@
 	},
 /obj/structure/prop/train/cargo_sat,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rCn" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -15461,9 +15191,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rJo" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -15509,9 +15237,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rNZ" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -15537,9 +15263,7 @@
 /area/bigredv2/outside/marshal_office)
 "rOX" = (
 /turf/open/floor/plating/ground/concrete/edge,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rQa" = (
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -15579,9 +15303,7 @@
 "rSI" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rSL" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/dmg2,
@@ -15635,9 +15357,7 @@
 "rWz" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/asteroidfloor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "rXL" = (
 /obj/structure/rack/nometal,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
@@ -15689,9 +15409,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "shc" = (
 /obj/effect/landmark/weed_node,
 /turf/closed/mineral/smooth/bigred,
@@ -15715,9 +15433,7 @@
 "skl" = (
 /obj/structure/largecrate/supply/supplies/water,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "skp" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -15795,9 +15511,7 @@
 "srD" = (
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ssU" = (
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
@@ -15868,17 +15582,13 @@
 "szu" = (
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "szD" = (
 /obj/structure/prop/vehicle/crane{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "sAX" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
@@ -15967,9 +15677,7 @@
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "sNF" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/west)
@@ -16034,9 +15742,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "sUg" = (
 /obj/item/shard,
 /obj/effect/decal/cleanable/blood/gibs,
@@ -16047,9 +15753,7 @@
 "sWL" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "sXc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -16218,9 +15922,7 @@
 "tsy" = (
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "tty" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -16278,9 +15980,7 @@
 "tyF" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "tza" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning{
@@ -16400,9 +16100,7 @@
 "tMC" = (
 /obj/structure/noticeboard,
 /turf/closed/wall,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "tOf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door_control{
@@ -16726,9 +16424,7 @@
 "utV" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "uue" = (
 /obj/effect/landmark/weed_node,
 /obj/machinery/light{
@@ -16737,9 +16433,7 @@
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "uuU" = (
 /obj/structure/xenoautopsy/tank/alien,
 /obj/effect/turf_decal/warning_stripes,
@@ -16799,9 +16493,7 @@
 /obj/effect/spawner/gibspawner/robot,
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "uyy" = (
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/landmark/lv624/fog_blocker,
@@ -16817,9 +16509,7 @@
 "uDs" = (
 /obj/structure/ore_box,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "uEL" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/cavetodirt,
@@ -16866,9 +16556,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "uIc" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 9
@@ -16968,9 +16656,7 @@
 "uSs" = (
 /obj/machinery/door/poddoor/opened/port,
 /turf/open/floor/marking/asteroidwarning,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "uTn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -17205,9 +16891,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "vrt" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tool,
@@ -17356,9 +17040,7 @@
 "vEH" = (
 /obj/machinery/power/apc/high,
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "vIk" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -17607,9 +17289,7 @@
 	},
 /obj/effect/spawner/random,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "wdZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -17654,9 +17334,7 @@
 "wkD" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "wkG" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 1;
@@ -17685,9 +17363,7 @@
 /turf/open/floor/mainship/red{
 	dir = 6
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "wmV" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
@@ -17698,9 +17374,7 @@
 "wnm" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "wnR" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/marking/asteroidwarning{
@@ -17787,9 +17461,7 @@
 "wvM" = (
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "wwv" = (
 /obj/effect/landmark/dropship_start_location,
 /turf/open/floor/marking/asteroidwarning{
@@ -17834,9 +17506,7 @@
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "wAW" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/rock)
@@ -18016,9 +17686,7 @@
 	pixel_y = -1
 	},
 /turf/closed/wall,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xax" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -18042,9 +17710,7 @@
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xbZ" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -18264,9 +17930,7 @@
 /obj/structure/prop/train/empty,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xzw" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -18293,9 +17957,7 @@
 /obj/machinery/door/poddoor/opened/port,
 /obj/machinery/door/poddoor/two_tile_hor/execution,
 /turf/open/floor/marking/asteroidwarning,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xDW" = (
 /obj/structure/glowshroom,
 /obj/effect/landmark/weed_node,
@@ -18311,16 +17973,12 @@
 	},
 /obj/structure/prop/train/crates,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xFo" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xFB" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -18370,9 +18028,7 @@
 "xMq" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xMA" = (
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -18426,9 +18082,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xPU" = (
 /obj/effect/turf_decal/sandedge/corner{
 	dir = 8
@@ -18461,9 +18115,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xTt" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -18553,9 +18205,7 @@
 	},
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "xZD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -18601,9 +18251,7 @@
 	name = "\improper Engineering Complex"
 	},
 /turf/open/floor,
-/area/prison/monorail{
-	name = "Big red monorail area"
-	})
+/area/bigredv2/outside/monorail)
 "ycZ" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,

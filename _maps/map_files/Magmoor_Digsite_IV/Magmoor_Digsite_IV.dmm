@@ -63,9 +63,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "acY" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -111,7 +109,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg2,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "aes" = (
 /obj/structure/rack,
 /obj/structure/sign/custodian{
@@ -129,9 +127,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "aeO" = (
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 8
@@ -181,18 +177,14 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "afT" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/magmoor/engi/thermal)
 "afU" = (
 /turf/open/floor/mainship/blue,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "agd" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -249,9 +241,7 @@
 "ahN" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ahZ" = (
 /obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/tile/purple/taupepurple,
@@ -311,9 +301,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 5
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "akE" = (
 /obj/structure/barricade/plasteel{
 	dir = 1
@@ -556,8 +544,10 @@
 /turf/open/floor/mainship,
 /area/magmoor/civilian/arrival)
 "atC" = (
-/turf/open/floor/mainship/floor,
-/area/prison/monorail)
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 6
+	},
+/area/magmoor/compound/southeast)
 "atW" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 6
@@ -1018,9 +1008,7 @@
 /turf/open/floor/mainship/black{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "aLv" = (
 /obj/structure/bed/chair/sofa/corsat/verticaltop{
 	name = "bench"
@@ -1036,9 +1024,7 @@
 /obj/structure/desertdam/decals/road/stop,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "aLW" = (
 /obj/structure/table/woodentable,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -1071,9 +1057,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "aNa" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
@@ -1125,6 +1109,11 @@
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/west)
+"aPo" = (
+/turf/open/floor/plating/ground/concrete/edge{
+	dir = 1
+	},
+/area/magmoor/command/monorail)
 "aPs" = (
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/cult,
@@ -1441,9 +1430,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "aZZ" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/landmark/weed_node,
@@ -2002,9 +1989,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "brx" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -2281,9 +2266,7 @@
 /obj/structure/bed/chair/sofa/corsat,
 /obj/structure/bed/chair/sofa/corsat/left,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bBX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -2358,9 +2341,7 @@
 	},
 /obj/effect/spawner/random_set/machineguns,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bEp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -2440,9 +2421,7 @@
 "bHh" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bIi" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -2500,9 +2479,7 @@
 "bJL" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bJU" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
@@ -2534,9 +2511,7 @@
 /obj/structure/prop/train,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bKR" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -2635,9 +2610,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete/lines,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bMW" = (
 /turf/open/floor/mainship/sterile/purple/side{
 	dir = 8
@@ -2763,9 +2736,7 @@
 "bQo" = (
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg2,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "bQv" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
@@ -3035,9 +3006,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cdr" = (
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/arrival/east)
@@ -3206,9 +3175,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cjw" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/edge{
@@ -3317,9 +3284,7 @@
 "cmJ" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cna" = (
 /obj/structure/rock/basalt/pile/alt2,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -3459,9 +3424,7 @@
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "crA" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -3506,9 +3469,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "csp" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
@@ -3629,18 +3590,19 @@
 	},
 /obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cxd" = (
 /obj/structure/closet/crate/trashcart,
 /obj/machinery/light,
 /turf/open/floor/tile/purple/taupepurple,
 /area/magmoor/civilian/jani)
+"cxp" = (
+/turf/open/floor/plating/ground/concrete/lines,
+/area/magmoor/command/monorail)
 "cyr" = (
 /obj/structure/lattice,
 /turf/closed/mineral/smooth,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "cyw" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{
 	id = "waste_lower_in";
@@ -3744,9 +3706,7 @@
 "cDM" = (
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cEo" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/freezer,
@@ -3805,9 +3765,7 @@
 /obj/structure/bed/chair/sofa/corsat/left,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cFo" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/dirttosand{
@@ -3999,9 +3957,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cOx" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/east)
@@ -4026,9 +3982,7 @@
 "cPF" = (
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg3,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cPG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -4089,9 +4043,7 @@
 "cRz" = (
 /obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cRP" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -4167,9 +4119,7 @@
 	},
 /obj/effect/decal/cleanable/blood/writing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cUk" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -4181,9 +4131,7 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/item/ammo_casing,
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "cUA" = (
 /turf/closed/wall,
 /area/magmoor/research/rnd)
@@ -4426,9 +4374,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ddj" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -4458,9 +4404,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "dep" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4;
@@ -4578,14 +4522,6 @@
 	dir = 4
 	},
 /area/magmoor/research/rnd/lobby)
-"did" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
 "din" = (
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -5024,9 +4960,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "dxe" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 8
@@ -5232,9 +5166,7 @@
 /obj/structure/prop/mainship/railing,
 /obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "dCL" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -5250,9 +5182,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "dCS" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/structure/cable,
@@ -5410,9 +5340,7 @@
 	},
 /obj/item/ammo_casing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "dIn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -5861,9 +5789,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ebc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
@@ -5933,9 +5859,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ecT" = (
 /obj/structure/table/mainship,
 /obj/machinery/light{
@@ -5950,9 +5874,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "edv" = (
 /turf/open/floor/mainship/sterile/purple/side{
 	dir = 10
@@ -6186,9 +6108,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eqa" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/mainship/cargo,
@@ -6272,9 +6192,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "esV" = (
 /obj/structure/rock/basalt/pile/alt2,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -6380,9 +6298,7 @@
 "euZ" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "evt" = (
 /obj/structure/platform,
 /turf/closed/wall/r_wall,
@@ -6417,9 +6333,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ewq" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 4
@@ -6581,9 +6495,7 @@
 "eBz" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eBU" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -6600,9 +6512,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eCB" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 1
@@ -6680,7 +6590,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/magmoor/compound/east)
+/area/magmoor/compound/southeast)
 "eDT" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
@@ -6726,9 +6636,7 @@
 "eFY" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete/edge,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eGp" = (
 /obj/machinery/door/airlock/mainship/engineering{
 	name = "\improper Power Management"
@@ -7051,9 +6959,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eQd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -7085,9 +6991,7 @@
 "eQS" = (
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eRs" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -7202,9 +7106,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "eVO" = (
 /obj/effect/turf_decal/siding{
 	dir = 4
@@ -7365,9 +7267,7 @@
 /turf/open/floor/mainship/black{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "fcp" = (
 /obj/machinery/computer/aifixer,
 /turf/open/floor/plating/mainship,
@@ -7723,9 +7623,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "fpa" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -7745,9 +7643,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "frh" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -8062,9 +7958,7 @@
 "fDi" = (
 /obj/structure/cargo_container/ch_green,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "fDl" = (
 /obj/structure/stairs{
 	dir = 1
@@ -8417,9 +8311,7 @@
 "fPb" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/mainship/mono,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "fQg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -8505,9 +8397,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "fSC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -8527,9 +8417,7 @@
 /obj/effect/landmark/corpsespawner/security,
 /obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "fTU" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/orange/corner{
@@ -8829,18 +8717,14 @@
 "gfo" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gge" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
 	},
 /obj/machinery/miner/damaged,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ggK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -8946,9 +8830,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gje" = (
 /obj/item/trash/popcorn,
 /turf/open/floor/plating/ground/concrete,
@@ -9136,9 +9018,7 @@
 "gsi" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gsk" = (
 /obj/machinery/camera/autoname/lz_camera,
 /turf/open/floor/plating,
@@ -9587,9 +9467,7 @@
 "gFW" = (
 /obj/structure/largecrate/supply/supplies/water,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gGn" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -9868,9 +9746,7 @@
 /turf/open/floor/mainship/black{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gUm" = (
 /obj/machinery/door_control{
 	dir = 1;
@@ -9899,9 +9775,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gVe" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -9924,9 +9798,7 @@
 /turf/open/floor/mainship/black{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gWS" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -9948,9 +9820,7 @@
 "gXz" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gXB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -9979,9 +9849,7 @@
 "gZs" = (
 /obj/structure/cargo_container/green,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "gZy" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
@@ -10130,9 +9998,7 @@
 "hgM" = (
 /obj/structure/largecrate/cow,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hgS" = (
 /obj/item/trash/cigbutt,
 /turf/open/floor/plating/ground/concrete,
@@ -10473,9 +10339,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 10
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hvO" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -10581,9 +10445,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hAn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
@@ -10727,9 +10589,7 @@
 /obj/structure/bed/chair/sofa/corsat/left,
 /obj/effect/decal/cleanable/blood/writing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hGn" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 4
@@ -10854,9 +10714,7 @@
 "hMU" = (
 /obj/effect/spawner/random/weaponry,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hMX" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
@@ -11155,9 +11013,7 @@
 "hXG" = (
 /obj/item/ammo_casing,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hYy" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete,
@@ -11181,14 +11037,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
-"hZJ" = (
-/turf/closed/wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "hZR" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
@@ -11226,9 +11075,7 @@
 /obj/effect/landmark/corpsespawner/security,
 /obj/structure/bed/chair/sofa/corsat,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ibg" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/mainship/silver{
@@ -11317,9 +11164,7 @@
 	},
 /obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "iec" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -11453,9 +11298,7 @@
 "ijG" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ijT" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/structure/table/reinforced/flipped{
@@ -11582,9 +11425,7 @@
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "imp" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher,
 /turf/open/floor/plating/ground/mars/dirttosand,
@@ -11921,9 +11762,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "izT" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/stairs/seamless{
@@ -12302,7 +12141,7 @@
 "iPD" = (
 /obj/structure/rock,
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/magmoor/compound/east)
+/area/magmoor/compound/southeast)
 "iPE" = (
 /obj/machinery/air_alarm,
 /turf/open/floor/mainship/purple{
@@ -12327,7 +12166,10 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
+"iPS" = (
+/turf/closed/mineral/smooth,
+/area/magmoor/command/monorail)
 "iQx" = (
 /obj/structure/table/mainship,
 /obj/item/clipboard,
@@ -12397,9 +12239,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "iTJ" = (
 /obj/machinery/light{
 	dir = 1
@@ -12442,9 +12282,7 @@
 "iVV" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "iWw" = (
 /obj/structure/flora/pottedplant/ten,
 /turf/open/floor/freezer,
@@ -12490,9 +12328,7 @@
 "iYc" = (
 /obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "iYp" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 4
@@ -12664,9 +12500,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "jed" = (
 /obj/structure/xenoautopsy/tank/escaped,
 /obj/item/shard/phoron,
@@ -12675,7 +12509,7 @@
 "jeu" = (
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg1,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "jev" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/blue/corner{
@@ -12885,9 +12719,7 @@
 "jkz" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "jkK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -12950,11 +12782,6 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/magmoor/medical/lobby)
-"jmZ" = (
-/turf/open/floor/plating/ground/concrete/lines,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
 "jnc" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 6
@@ -13190,23 +13017,17 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "jtT" = (
 /turf/closed/wall,
 /area/magmoor/civilian/jani)
 "jtY" = (
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "jvB" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "jvK" = (
 /obj/machinery/light{
 	dir = 4
@@ -13275,7 +13096,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/magmoor/compound/east)
+/area/magmoor/compound/southeast)
 "jxU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -13541,9 +13362,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "jGX" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -14068,7 +13887,7 @@
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg3,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "kan" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -14086,13 +13905,6 @@
 	dir = 8
 	},
 /area/magmoor/medical/chemistry)
-"kau" = (
-/turf/open/floor/plating/ground/concrete/edge{
-	dir = 1
-	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
 "kaA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -14119,9 +13931,7 @@
 "kbo" = (
 /obj/effect/spawner/random/weaponry/gun/sidearms,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kbE" = (
 /turf/open/floor/plating/icefloor/warnplate,
 /area/magmoor/landing)
@@ -14194,9 +14004,7 @@
 /turf/open/floor/mainship/black{
 	dir = 9
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ket" = (
 /obj/machinery/prop/r_n_d/server,
 /obj/structure/cable,
@@ -14312,9 +14120,7 @@
 /turf/open/floor/mainship/black{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "khR" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
@@ -14344,9 +14150,7 @@
 "kjh" = (
 /obj/structure/prop/mainship/railing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kke" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
@@ -14406,9 +14210,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "klI" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -14523,9 +14325,7 @@
 "kqp" = (
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "krk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -14618,9 +14418,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kvj" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -14643,9 +14441,7 @@
 "kwY" = (
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kxk" = (
 /obj/structure/barricade/guardrail{
 	dir = 1
@@ -14663,9 +14459,7 @@
 "kxn" = (
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kxw" = (
 /obj/structure/stairs/seamless/platform{
 	dir = 1
@@ -14725,9 +14519,7 @@
 /area/magmoor/engi/power)
 "kyK" = (
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kyL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -14892,9 +14684,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kDW" = (
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/plating/warning{
@@ -15006,9 +14796,7 @@
 "kHf" = (
 /obj/structure/prop/vehicle/crane/destructible,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kHq" = (
 /turf/open/floor/mainship/silver{
 	dir = 8
@@ -15065,9 +14853,7 @@
 "kKo" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kKp" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/dirttosand,
@@ -15127,9 +14913,7 @@
 "kNv" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kNC" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 4
@@ -15286,9 +15070,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kRT" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -15332,9 +15114,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "kTo" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -15514,9 +15294,7 @@
 /obj/structure/bed/chair/sofa/corsat,
 /obj/structure/bed/chair/sofa/corsat/right,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "lbB" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/explosive/grenade/multiplefour{
@@ -15579,9 +15357,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ldq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -15700,9 +15476,7 @@
 /turf/open/floor/mainship/black{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "lim" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
@@ -15783,7 +15557,7 @@
 	},
 /obj/structure/lattice,
 /turf/closed/mineral/smooth,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "llf" = (
 /obj/machinery/smartfridge,
 /turf/open/floor/plating,
@@ -15819,9 +15593,7 @@
 /turf/open/floor/mainship/black{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "lmh" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/mainship/orange{
@@ -16067,9 +15839,7 @@
 "lvP" = (
 /obj/structure/cargo_container/wy,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "lvZ" = (
 /obj/structure/curtain/open,
 /turf/open/floor/freezer,
@@ -16714,9 +16484,7 @@
 "lUL" = (
 /obj/effect/decal/cleanable/blood/writing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "lUN" = (
 /obj/structure/table/woodentable,
 /obj/structure/paper_bin{
@@ -16787,16 +16555,13 @@
 "lWY" = (
 /obj/structure/cargo_container/hd_blue,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "lXf" = (
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
+/obj/structure/fence,
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 5
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/compound/southeast)
 "lXv" = (
 /turf/open/floor/plating,
 /area/magmoor/compound)
@@ -16990,9 +16755,7 @@
 	},
 /obj/effect/spawner/random/weaponry/melee,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "mdJ" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -17126,9 +16889,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "mjE" = (
 /obj/structure/largecrate/chick,
 /obj/machinery/navbeacon,
@@ -17379,9 +17140,7 @@
 /obj/effect/landmark/corpsespawner/security,
 /obj/effect/spawner/random/weaponry,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "mwM" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
@@ -17541,9 +17300,9 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/magmoor/mining/storage)
 "mDe" = (
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
-/area/prison/monorail)
+/obj/structure/rock/basalt/alt3,
+/turf/open/floor/plating/ground/mars/random/dirt,
+/area/magmoor/compound/southeast)
 "mDi" = (
 /obj/item/weapon/gun/revolver/cmb,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -17864,9 +17623,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "mPF" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/ammo_casing,
@@ -18130,9 +17887,7 @@
 	},
 /obj/item/ammo_casing,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "mYK" = (
 /obj/item/shard,
 /turf/open/floor/mainship/blue,
@@ -18255,9 +18010,7 @@
 "ncy" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ncY" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -18329,9 +18082,7 @@
 "nfy" = (
 /obj/structure/cable,
 /turf/closed/mineral/smooth,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "nfY" = (
 /turf/open/floor/carpet/side{
 	dir = 6
@@ -18584,9 +18335,7 @@
 "nrd" = (
 /obj/structure/cargo_container/ch_red,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "nrk" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/secure{
@@ -18662,9 +18411,7 @@
 "ntW" = (
 /obj/structure/prop/vehicle/crane/cranecargo,
 /turf/open/floor/plating/ground/concrete/lines,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "nua" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
@@ -18827,6 +18574,9 @@
 	},
 /turf/open/floor/wood,
 /area/magmoor/civilian/mosque)
+"nDw" = (
+/turf/open/floor/plating/ground/concrete/edge,
+/area/magmoor/command/monorail)
 "nDA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -19357,6 +19107,11 @@
 	dir = 8
 	},
 /area/magmoor/cargo/storage/south)
+"oaT" = (
+/turf/open/floor/plating/ground/concrete/edge{
+	dir = 8
+	},
+/area/magmoor/command/monorail)
 "oaX" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -19435,9 +19190,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "odU" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
@@ -19513,9 +19266,7 @@
 /area/magmoor/medical/chemistry)
 "ogT" = (
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ogV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship/mono,
@@ -19557,9 +19308,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oil" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -19582,10 +19331,11 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/magmoor/engi/power)
 "ois" = (
-/turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 4
+	},
+/area/magmoor/compound/southeast)
 "oiu" = (
 /obj/effect/landmark/weed_node,
 /turf/open/lavaland/basalt/cave/autosmooth,
@@ -19888,7 +19638,7 @@
 	dir = 1
 	},
 /turf/open/lavaland/basalt/dirt/autosmoothing,
-/area/magmoor/compound/east)
+/area/magmoor/compound/southeast)
 "otR" = (
 /obj/structure/closet/secure_closet/CMO,
 /turf/open/floor/wood,
@@ -20057,7 +19807,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "oAE" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/machinery/power/apc/drained{
@@ -20132,9 +19882,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oCJ" = (
 /obj/machinery/power/geothermal,
 /obj/structure/disposalpipe/segment,
@@ -20167,10 +19915,6 @@
 	dir = 1
 	},
 /area/magmoor/compound/north)
-"oDN" = (
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg2,
-/area/prison/monorail)
 "oEb" = (
 /obj/structure/platform{
 	dir = 8
@@ -20198,9 +19942,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/secdoor/glass,
 /obj/structure/cable,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oEk" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -20244,9 +19986,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 9
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oFF" = (
 /obj/structure/monorail{
 	dir = 4
@@ -20254,9 +19994,7 @@
 /obj/structure/prop/train/carriage,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oFK" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/mainship/mono,
@@ -20294,9 +20032,7 @@
 /obj/item/ammo_casing,
 /obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oGV" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
@@ -20738,7 +20474,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "oVR" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 10
@@ -20815,9 +20551,7 @@
 "oYj" = (
 /obj/item/ammo_casing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "oYt" = (
 /obj/structure/stairs/seamless/platform{
 	dir = 8
@@ -20894,7 +20628,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg1,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "pbw" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 8;
@@ -21007,9 +20741,7 @@
 	},
 /obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pex" = (
 /obj/effect/landmark/weed_node,
 /turf/open/lavaland/catwalk,
@@ -21519,9 +21251,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pvQ" = (
 /turf/closed/wall/r_wall,
 /area/magmoor/security/lobby)
@@ -21721,9 +21451,7 @@
 "pDs" = (
 /obj/structure/largecrate/supply/medicine/iv,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pDx" = (
 /obj/machinery/air_alarm{
 	dir = 1
@@ -21795,9 +21523,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pFx" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
@@ -21810,9 +21536,7 @@
 	},
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pGS" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -22110,9 +21834,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pPW" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
@@ -22222,9 +21944,7 @@
 "pUn" = (
 /obj/structure/largecrate/supply/supplies/mre,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pUr" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -22328,9 +22048,7 @@
 "pYT" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "pZr" = (
 /obj/structure/toilet{
 	dir = 1
@@ -22351,9 +22069,7 @@
 /turf/open/floor/mainship/black{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "qav" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
@@ -22894,9 +22610,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg3,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "qtZ" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -23215,9 +22929,7 @@
 "qGn" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "qGJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -23234,9 +22946,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/mainship/blue,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "qHg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -23317,9 +23027,7 @@
 /turf/open/floor/mainship/black{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "qJW" = (
 /obj/structure/window_frame/colony/reinforced,
 /obj/item/shard,
@@ -23469,9 +23177,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 9
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/compound/southeast)
 "qSZ" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -23485,9 +23191,7 @@
 "qTO" = (
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "qUj" = (
 /obj/machinery/photocopier,
 /turf/open/floor/wood,
@@ -23830,9 +23534,7 @@
 "rfK" = (
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rge" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/plating,
@@ -23946,9 +23648,7 @@
 /obj/structure/prop/train/carriage_lit,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rkS" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete/lines,
@@ -24096,9 +23796,7 @@
 "rqY" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rrx" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 4
@@ -24178,9 +23876,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rub" = (
 /obj/machinery/door/airlock/multi_tile/mainship/comdoor/free_access{
 	dir = 1;
@@ -24376,9 +24072,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rBF" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /turf/closed/wall,
@@ -24513,7 +24207,7 @@
 "rHw" = (
 /obj/structure/desertdam/decals/road/stop,
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/magmoor/compound/east)
+/area/magmoor/compound/southeast)
 "rHK" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/ai_node,
@@ -24749,9 +24443,7 @@
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rRK" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -24862,9 +24554,6 @@
 	dir = 9
 	},
 /area/magmoor/civilian/pool)
-"rVk" = (
-/turf/open/floor/plating/ground/concrete/lines,
-/area/prison/monorail)
 "rVr" = (
 /obj/structure/table/mainship,
 /obj/item/lightreplacer,
@@ -24880,9 +24569,7 @@
 "rVI" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "rVY" = (
 /obj/structure/bed/chair/sofa/right{
 	dir = 4
@@ -25153,9 +24840,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "shv" = (
 /turf/closed/wall/r_wall,
 /area/magmoor/medical/breakroom)
@@ -25191,9 +24876,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "siA" = (
 /obj/structure/closet/crate,
 /turf/open/floor/plating/ground/concrete,
@@ -25214,9 +24897,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "sjn" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 6
@@ -25426,9 +25107,7 @@
 "sql" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "sqo" = (
 /obj/structure/table/mainship,
 /obj/item/book/manual/engineering_guide,
@@ -25693,9 +25372,7 @@
 /obj/machinery/light,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "sBq" = (
 /turf/open/floor/tile/purple/taupepurple{
 	dir = 1
@@ -25881,12 +25558,11 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/magmoor/mining/garage)
 "sHm" = (
-/turf/open/floor/plating/ground/concrete/edge{
+/obj/structure/fence,
+/turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/compound/southeast)
 "sHt" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -25973,6 +25649,11 @@
 	dir = 4
 	},
 /area/magmoor/engi)
+"sMn" = (
+/turf/open/floor/plating/ground/concrete/edge{
+	dir = 4
+	},
+/area/magmoor/command/monorail)
 "sMJ" = (
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 8
@@ -26045,11 +25726,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/wood,
 /area/magmoor/command/office/main)
-"sPp" = (
-/turf/open/floor/plating/ground/concrete/edge,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
 "sPr" = (
 /obj/machinery/vending/cigarette/colony,
 /turf/open/floor/mainship/mono,
@@ -26145,9 +25821,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "sTU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -26212,9 +25886,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "sVr" = (
 /turf/open/liquid/lava/autosmoothing,
 /area/magmoor/compound/northeast)
@@ -26526,8 +26198,10 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi)
 "thq" = (
-/turf/closed/mineral/smooth,
-/area/prison/monorail)
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 9
+	},
+/area/magmoor/compound/southeast)
 "thG" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 1;
@@ -26693,9 +26367,7 @@
 /obj/effect/spawner/random_set/machineguns,
 /obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "tmz" = (
 /obj/machinery/vending/cigarette/colony,
 /obj/machinery/light{
@@ -26924,9 +26596,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "tyo" = (
 /obj/structure/rock/basalt/alt2,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -27133,12 +26803,6 @@
 /obj/effect/ai_node,
 /turf/open/lavaland/catwalk,
 /area/magmoor/cave/north)
-"tEZ" = (
-/obj/structure/barricade/guardrail{
-	dir = 1
-	},
-/turf/open/liquid/lava/autosmoothing,
-/area/magmoor/compound/east)
 "tFK" = (
 /obj/item/stack/sheet/wood,
 /obj/effect/landmark/weed_node,
@@ -27445,9 +27109,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "tPd" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -27485,6 +27147,9 @@
 "tQU" = (
 /turf/closed/wall,
 /area/magmoor/civilian/pool)
+"tRl" = (
+/turf/closed/wall,
+/area/magmoor/command/monorail)
 "tRE" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating/mainship,
@@ -27669,9 +27334,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "tZz" = (
 /obj/structure/stairs/seamless{
 	dir = 8
@@ -27777,9 +27440,7 @@
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ucj" = (
 /turf/open/floor/mainship/sterile/side{
 	dir = 9
@@ -27826,6 +27487,9 @@
 	dir = 4
 	},
 /area/magmoor/medical/treatment)
+"udu" = (
+/turf/open/floor/plating/ground/concrete,
+/area/magmoor/command/monorail)
 "udO" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/platform/metalplatform{
@@ -27868,9 +27532,7 @@
 "ueL" = (
 /obj/structure/cargo_container/red,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ueY" = (
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
@@ -27939,9 +27601,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "ugC" = (
 /turf/open/floor/mainship/green{
 	dir = 8
@@ -28251,11 +27911,6 @@
 	dir = 4
 	},
 /area/magmoor/civilian/clean)
-"uqu" = (
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/prison/monorail)
 "uqG" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
@@ -28416,9 +28071,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uwq" = (
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/mainship/orange{
@@ -28488,9 +28141,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uxz" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -28500,9 +28151,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uxD" = (
 /obj/structure/morgue{
 	dir = 2
@@ -28742,9 +28391,7 @@
 /area/magmoor/civilian/clean/toilet)
 "uGt" = (
 /turf/closed/mineral/smooth,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/compound/southeast)
 "uGI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -28783,9 +28430,7 @@
 "uIh" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uIj" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/freezer,
@@ -28801,9 +28446,7 @@
 "uIp" = (
 /obj/structure/girder/reinforced,
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uIB" = (
 /obj/effect/landmark/weed_node,
 /turf/open/lavaland/catwalk,
@@ -28848,6 +28491,11 @@
 	},
 /turf/open/floor/plating,
 /area/magmoor/medical/cmo)
+"uJX" = (
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/magmoor/command/monorail)
 "uKn" = (
 /obj/machinery/light{
 	dir = 8
@@ -29171,9 +28819,7 @@
 /area/magmoor/engi/atmos)
 "uVv" = (
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uVx" = (
 /obj/machinery/vending/hydronutrients,
 /obj/machinery/light{
@@ -29252,9 +28898,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 6
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "uYA" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -29415,9 +29059,7 @@
 "vef" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "veg" = (
 /turf/open/floor/mainship/sterile/dark,
 /area/magmoor/medical/patient)
@@ -29444,9 +29086,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vgc" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -29642,9 +29282,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vsK" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/open/floor/freezer,
@@ -29681,9 +29319,7 @@
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vtA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
 /turf/open/floor/mainship,
@@ -29859,9 +29495,7 @@
 "vAK" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vBf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -29969,9 +29603,7 @@
 "vEX" = (
 /obj/structure/largecrate/random/case,
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vFv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -29995,9 +29627,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vFT" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -30029,9 +29659,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vIa" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -30256,13 +29884,11 @@
 /obj/structure/prop/mainship/railing,
 /obj/structure/girder/reinforced,
 /turf/open/floor/mainship,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "vPW" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/cargo,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vQa" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 9
@@ -30320,9 +29946,7 @@
 /obj/machinery/light,
 /obj/structure/lattice,
 /turf/open/floor/plating/dmg3,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "vRH" = (
 /turf/closed/wall/r_wall,
 /area/magmoor/security/arrivals/east)
@@ -30632,9 +30256,7 @@
 /area/magmoor/research/containment)
 "wbH" = (
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wca" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
@@ -30717,9 +30339,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wfK" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 10
@@ -31005,9 +30625,7 @@
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wsf" = (
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/blue{
@@ -31089,9 +30707,7 @@
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wvl" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/sterile/side{
@@ -31427,9 +31043,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wGr" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
@@ -31438,9 +31052,7 @@
 /obj/effect/spawner/random/weaponry,
 /obj/item/ammo_casing,
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wGC" = (
 /turf/open/floor/wood,
 /area/magmoor/medical/cmo)
@@ -31459,10 +31071,10 @@
 	},
 /area/magmoor/civilian/jani)
 "wHI" = (
-/turf/open/floor/plating/ground/concrete,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 5
+	},
+/area/magmoor/compound/southeast)
 "wIm" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -31804,9 +31416,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "wUl" = (
 /obj/machinery/conveyor{
 	id = "lower_garbage"
@@ -32020,9 +31630,7 @@
 	},
 /obj/structure/prop/mainship/railing,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "xaR" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -32274,9 +31882,6 @@
 	dir = 8
 	},
 /area/magmoor/cave/north)
-"xik" = (
-/turf/closed/wall/r_wall,
-/area/prison/monorail)
 "xil" = (
 /obj/structure/disposalpipe/segment/corner,
 /turf/closed/wall/r_wall,
@@ -32304,12 +31909,9 @@
 	},
 /area/magmoor/cave/north)
 "xkc" = (
-/turf/open/floor/plating/ground/concrete/edge{
-	dir = 8
-	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/obj/structure/fence,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/magmoor/compound/southeast)
 "xkf" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
@@ -32328,9 +31930,7 @@
 "xku" = (
 /obj/structure/bed/chair/sofa/corsat,
 /turf/open/floor/mainship,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "xkI" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/dirttosand{
@@ -32429,7 +32029,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
 	},
-/area/magmoor/compound/east)
+/area/magmoor/compound/southeast)
 "xou" = (
 /obj/structure/bed/chair/sofa,
 /turf/open/floor/mainship/mono,
@@ -32513,12 +32113,10 @@
 /turf/open/floor/mainship/black{
 	dir = 8
 	},
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "xqz" = (
 /turf/open/floor/mainship,
-/area/prison/monorail)
+/area/magmoor/command/monorail)
 "xqP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -33366,9 +32964,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "xSv" = (
 /obj/item/packageWrap,
 /obj/item/tool/hand_labeler,
@@ -33504,9 +33100,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/mainship/metal,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "xWx" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -33521,6 +33115,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/mainship,
 /area/magmoor/engi/storage)
+"xWX" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/magmoor/command/monorail)
 "xXv" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/dirttosand{
@@ -33707,6 +33307,11 @@
 	dir = 1
 	},
 /area/magmoor/security/lobby)
+"yer" = (
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 9
+	},
+/area/magmoor/command/monorail)
 "yeD" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -33863,9 +33468,7 @@
 "yjg" = (
 /obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/mainship/black,
-/area/prison/monorail{
-	name = "Magmur monorail"
-	})
+/area/magmoor/command/monorail)
 "yjq" = (
 /turf/open/floor/mainship/orange/corner{
 	dir = 1
@@ -65785,13 +65388,13 @@ tQU
 tQU
 tQU
 tQU
-cOx
-cOx
-nRk
-nRk
-nRk
-nRk
-nRk
+jRL
+jRL
+xUd
+xUd
+xUd
+xUd
+xUd
 xUd
 xwh
 xwh
@@ -66006,25 +65609,25 @@ lbq
 jCp
 hYy
 xyC
-gmf
-kik
-kik
-cOx
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-vTr
-vTr
-vTr
-vTr
+thq
+pnC
+pnC
+jRL
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xwh
+xwh
+xwh
+xwh
 xwh
 xwh
 xUd
@@ -66240,24 +65843,24 @@ lEE
 kkx
 oWD
 otK
-nRk
-nRk
-nRk
-nRk
-vTr
-vTr
-vTr
-vTr
-vTr
-vTr
-vTr
-vTr
-vTr
-vTr
-vTr
-nRk
-nRk
-nRk
+xUd
+xUd
+xUd
+xUd
+xwh
+xwh
+xwh
+xwh
+xwh
+xwh
+xwh
+xwh
+xwh
+xwh
+xwh
+xUd
+xUd
+xUd
 xUd
 xUd
 xUd
@@ -66472,25 +66075,25 @@ qbq
 vYm
 pcT
 vYm
-tEZ
-vTr
-vTr
-vTr
-vTr
-vTr
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-cOx
-cOx
+hTX
+xwh
+xwh
+xwh
+xwh
+xwh
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+jRL
+jRL
 jRL
 jRL
 jRL
@@ -66706,24 +66309,24 @@ gLG
 nsX
 fWr
 otK
-nRk
-nRk
-nRk
-nRk
-nRk
-nRk
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
+xUd
+xUd
+xUd
+xUd
+xUd
+xUd
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
 jRL
 jRL
 jRL
@@ -66938,25 +66541,25 @@ cVH
 jCp
 hYy
 vjP
-hSF
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
+cpt
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
 jRL
 jRL
 jRL
@@ -67171,25 +66774,25 @@ cVH
 jCp
 hYy
 xyC
-hSF
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-dzM
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
+cpt
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+mDe
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
 jRL
 jRL
 jRL
@@ -67404,25 +67007,25 @@ imp
 jCp
 hYy
 xyC
-hSF
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
+cpt
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
 jRL
 jRL
 vGi
@@ -67637,25 +67240,25 @@ cVH
 jCp
 hYy
 xyC
-hSF
-cOx
-cOx
+cpt
+jRL
+jRL
 iPD
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-tzT
-tzT
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+ggZ
+ggZ
 ggZ
 ggZ
 hjA
@@ -67870,25 +67473,25 @@ cVH
 jCp
 hYy
 xyC
-hSF
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cVH
-eDy
-kGP
+cpt
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+vGi
+qSa
+kTJ
 qKm
 qKm
 qKm
@@ -68103,25 +67706,25 @@ cVH
 jCp
 hYy
 xyC
-eiA
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cOx
-cVH
-jCp
-bso
+wHI
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+jRL
+vGi
+uwv
+ipm
 ipm
 ipm
 ipm
@@ -68336,25 +67939,25 @@ tlp
 jCp
 hYy
 xyC
-cCj
-qTD
-hzL
-hzL
-hzL
-hzL
-hzL
-hzL
-hzL
-hzL
-hzL
-hzL
-tzT
-tzT
-tzT
-tzT
-bCl
-jCp
-ijc
+xkc
+lXf
+sHm
+sHm
+sHm
+sHm
+sHm
+sHm
+sHm
+sHm
+sHm
+sHm
+ggZ
+ggZ
+ggZ
+ggZ
+hjA
+uwv
+iOL
 aAt
 aAt
 aAt
@@ -68569,24 +68172,24 @@ oGV
 qNE
 hYy
 sMJ
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-oGV
-qNE
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+qKm
+ljO
 eDI
 jRL
 jRL
@@ -68802,25 +68405,25 @@ wOl
 wOl
 eIW
 eIW
-eIW
-eIW
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-wOl
-osT
+ois
+ois
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+aAt
+atC
 jRL
 jRL
 jRL
@@ -69028,32 +68631,32 @@ nfy
 nfy
 mTX
 mTX
-uGt
-uGt
+iPS
+iPS
 vqD
 vqD
 vqD
 vqD
 vqD
-vqD
+wFB
 xnL
-xyC
-vqD
-vqD
+eFL
+wFB
+wFB
 jxP
-jCp
-xyC
+uwv
+eFL
 rHw
-vqD
-rxl
-rxl
-vqD
-rxl
-cOx
-cOx
-cOx
-cOx
-cOx
+wFB
+uGt
+uGt
+wFB
+uGt
+jRL
+jRL
+jRL
+jRL
+jRL
 jRL
 jRL
 jRL
@@ -69255,36 +68858,36 @@ tJg
 cjw
 der
 vqD
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-vqD
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+wFB
 xnL
-xyC
-vqD
-vqD
-vqD
-jCp
-xyC
-vqD
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
+eFL
+wFB
+wFB
+wFB
+uwv
+eFL
+wFB
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
 jRL
 jRL
 jRL
@@ -69487,19 +69090,19 @@ wOl
 mcV
 ijc
 osT
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
-uGt
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
+iPS
 kyK
 euZ
 fbX
@@ -69513,13 +69116,13 @@ euZ
 kyK
 kyK
 kyK
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
 jRL
 jRL
 jRL
@@ -69719,10 +69322,10 @@ kik
 pmM
 jCp
 xyC
-uGt
-uGt
-uGt
-uGt
+iPS
+iPS
+iPS
+iPS
 kyK
 kyK
 kyK
@@ -69746,15 +69349,15 @@ ogT
 ogT
 ogT
 kyK
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
-rxl
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
+uGt
 jRL
-rxl
+uGt
 jRL
 jRL
 jRL
@@ -69952,10 +69555,10 @@ cOx
 cPP
 jCp
 xyC
-uGt
-uGt
-uGt
-uGt
+iPS
+iPS
+iPS
+iPS
 kyK
 vtv
 kbo
@@ -70185,15 +69788,15 @@ cOx
 cPP
 jCp
 xyC
-uGt
-uGt
-uGt
-uGt
+iPS
+iPS
+iPS
+iPS
 kyK
 akr
 sih
 mPu
-hZJ
+tRl
 ogT
 ogT
 ogT
@@ -70418,21 +70021,21 @@ cOx
 cPP
 jCp
 xyC
-uGt
+iPS
 kyK
 kyK
 kyK
 rRI
-hZJ
+tRl
 ecK
 fPb
-hZJ
+tRl
 rtZ
 cOr
 uxy
 vfQ
 uYr
-hZJ
+tRl
 ogT
 llT
 jtY
@@ -70651,7 +70254,7 @@ cOx
 cPP
 jCp
 xyC
-uGt
+iPS
 kyK
 wbH
 kKo
@@ -70659,13 +70262,13 @@ dCN
 aLp
 aLp
 khQ
-hZJ
-hZJ
+tRl
+tRl
 pYT
 pYT
 pYT
-hZJ
-hZJ
+tRl
+tRl
 xqq
 kes
 rfK
@@ -70884,7 +70487,7 @@ cOx
 cPP
 jCp
 xyC
-uGt
+iPS
 ahN
 wbH
 wbH
@@ -71117,11 +70720,11 @@ cOx
 cPP
 jCp
 xyC
-uGt
+iPS
 kyK
 oFE
 hvH
-qSa
+yer
 hvH
 pvM
 ecW
@@ -71350,12 +70953,12 @@ cOx
 cPP
 jCp
 xyC
-uGt
+iPS
 kyK
-lXf
-jmZ
-lXf
-jmZ
+uJX
+cxp
+uJX
+cxp
 kRR
 ewi
 acI
@@ -71585,10 +71188,10 @@ jCp
 xyC
 vqD
 euZ
-lXf
-jmZ
-lXf
-jmZ
+uJX
+cxp
+uJX
+cxp
 wrZ
 bHh
 hgM
@@ -71818,10 +71421,10 @@ kBs
 sMJ
 oGV
 qJU
-kau
-xkc
-kau
-xkc
+aPo
+oaT
+aPo
+oaT
 kRR
 bHh
 vEX
@@ -72051,10 +71654,10 @@ jCp
 ijc
 wOl
 pZI
-sHm
-wHI
-wHI
-wHI
+sMn
+udu
+udu
+udu
 kRR
 bHh
 ncy
@@ -72069,8 +71672,8 @@ wrZ
 ijG
 eVI
 sTQ
-ois
-ois
+xqz
+xqz
 aLI
 kqp
 oFF
@@ -72284,10 +71887,10 @@ jCp
 xyC
 vqD
 euZ
-lXf
+uJX
 eFY
-sHm
-sPp
+sMn
+nDw
 kRR
 wTT
 vFQ
@@ -72301,7 +71904,7 @@ imn
 kRR
 hGk
 oYj
-ois
+xqz
 cFk
 kjh
 ddv
@@ -72518,9 +72121,9 @@ xyC
 vqD
 kyK
 pPJ
-jmZ
-lXf
-jmZ
+cxp
+uJX
+cxp
 kRR
 bHh
 ueL
@@ -72750,10 +72353,10 @@ jCp
 xyC
 vqD
 euZ
-lXf
-jmZ
-lXf
-jmZ
+uJX
+cxp
+uJX
+cxp
 odO
 bHh
 kTg
@@ -72983,10 +72586,10 @@ jCp
 sMJ
 oGV
 qJU
-kau
-jmZ
-lXf
-jmZ
+aPo
+cxp
+uJX
+cxp
 kRR
 bHh
 oif
@@ -72998,11 +72601,11 @@ sql
 hgM
 eog
 mdG
-ois
+xqz
 esS
 cUc
 ciU
-ois
+xqz
 aLI
 kqp
 rki
@@ -73216,10 +72819,10 @@ slF
 wOl
 wOl
 pZI
-sHm
-jmZ
-did
-jmZ
+sMn
+cxp
+xWX
+cxp
 kRR
 afM
 foV
@@ -73232,7 +72835,7 @@ foV
 aMF
 kRR
 bBP
-ois
+xqz
 jGL
 kuj
 sht
@@ -73449,10 +73052,10 @@ kik
 lbq
 vqD
 euZ
-lXf
-xkc
-kau
-xkc
+uJX
+oaT
+aPo
+oaT
 kRR
 bHh
 fDi
@@ -73683,9 +73286,9 @@ cVH
 rxl
 kyK
 pPJ
-wHI
-wHI
-wHI
+udu
+udu
+udu
 kRR
 bHh
 xSl
@@ -73915,10 +73518,10 @@ cOx
 cOx
 rxl
 kyK
-lXf
+uJX
 eFY
-sHm
-sPp
+sMn
+nDw
 kRR
 bHh
 vsb
@@ -73930,11 +73533,11 @@ wbH
 ddc
 eog
 kRR
-ois
+xqz
 iYc
 ePV
-ois
-ois
+xqz
+xqz
 aLI
 kqp
 bKA
@@ -74148,10 +73751,10 @@ cOx
 cOx
 rxl
 kyK
-lXf
-jmZ
-lXf
-jmZ
+uJX
+cxp
+uJX
+cxp
 kRR
 tyi
 weS
@@ -74166,7 +73769,7 @@ wrZ
 ePV
 cRz
 kwY
-ois
+xqz
 kjh
 ddv
 kqp
@@ -74381,9 +73984,9 @@ rxl
 rxl
 rxl
 kyK
-lXf
+uJX
 ntW
-lXf
+uJX
 bMH
 jtL
 dwT
@@ -74396,10 +73999,10 @@ dwT
 dwT
 dwT
 kRR
-ois
-ois
-uGt
-uGt
+xqz
+xqz
+iPS
+iPS
 kjh
 qtX
 bQo
@@ -74613,32 +74216,32 @@ rxl
 rxl
 rxl
 rxl
-xik
-uqu
-rVk
-uqu
-rVk
+kyK
+uJX
+cxp
+uJX
+cxp
 oAp
-atC
-atC
-atC
+wbH
+wbH
+wbH
 oAp
-atC
-atC
-atC
+wbH
+wbH
+wbH
 oAp
 iPP
 xqz
 oVJ
 xqz
 xqz
-thq
+iPS
 vPU
 aep
 kae
 lkh
 cyr
-xik
+kyK
 rxl
 rxl
 rxl
@@ -74846,32 +74449,32 @@ rxl
 rxl
 rxl
 rxl
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
-xik
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
+kyK
 jeu
-mDe
+cPF
 pbk
-oDN
-xik
+bQo
+kyK
 rxl
 rxl
 rxl

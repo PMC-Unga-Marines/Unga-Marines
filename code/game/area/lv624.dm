@@ -491,3 +491,7 @@
 	icon_state = "landingzone2"
 	flags_area = NO_DROPPOD
 	minimap_color = MINIMAP_AREA_LZ
+
+
+	/area/lv624/lazarus/monorail
+	icon_state = "purple"
