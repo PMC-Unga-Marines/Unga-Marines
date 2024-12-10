@@ -589,7 +589,7 @@
 	SIGNAL_HANDLER
 	if(amount >= max_amount)
 		return
-	if isnull(loc.contents)
+	if (isnull(loc))
 		return
 	for(var/item_in_loc in loc.contents)
 		if(!istype(item_in_loc, /obj/item/stack/throwing_knife) || item_in_loc == src)
