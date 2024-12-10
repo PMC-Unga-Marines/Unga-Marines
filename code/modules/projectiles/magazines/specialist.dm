@@ -458,7 +458,7 @@
 	icon_state = "musket_sack_m"
 	default_ammo = /datum/ammo/bullet/sniper/musket
 	max_rounds = 54
-	caliber = CALIBER_557
+	caliber = CALIBER_19MM
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state_mini = "musket_sack_m"
 
@@ -468,6 +468,6 @@
 	icon_state = "musket_sack_s"
 	default_ammo = /datum/ammo/bullet/sniper/musket
 	max_rounds = 27
-	caliber = CALIBER_557
+	caliber = CALIBER_19MM
 	w_class = WEIGHT_CLASS_TINY
 	icon_state_mini = "musket_sack_s"

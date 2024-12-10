@@ -148,7 +148,6 @@
 	damage = 220
 	penetration = 50
 	accurate_range_min = 2
-	///shatter effection duration when hitting mobs
 	var/shatter_duration = 5 SECONDS
 
 /datum/ammo/bullet/sniper/musket/on_hit_mob(mob/M, obj/projectile/proj)
