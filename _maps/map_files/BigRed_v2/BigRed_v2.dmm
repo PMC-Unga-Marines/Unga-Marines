@@ -400,7 +400,7 @@
 "afI" = (
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/north,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "afS" = (
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
@@ -1489,7 +1489,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ana" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 1;
@@ -2578,7 +2578,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 5
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "avx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -2882,7 +2882,7 @@
 /obj/effect/spawner/gibspawner/human,
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "aAD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/mainship/generic{
@@ -4554,7 +4554,7 @@
 	},
 /obj/structure/prop/train/cargo_hyperdyne,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "aOl" = (
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
@@ -4879,7 +4879,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "aSQ" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 4
@@ -5010,7 +5010,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "aUo" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
@@ -5283,7 +5283,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "aYv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -5326,7 +5326,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "aYH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -5925,7 +5925,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "blU" = (
 /obj/structure/window/framed/colony/reinforced/hull,
 /turf/open/floor/plating,
@@ -6451,7 +6451,7 @@
 /area/bigredv2/outside/space_port)
 "btF" = (
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "btJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -7285,7 +7285,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "bBF" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -7771,7 +7771,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "bTs" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -7800,7 +7800,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "bUW" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -7828,7 +7828,7 @@
 "bXJ" = (
 /obj/structure/stairs/seamless/edge,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "bZo" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -7843,7 +7843,7 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "cbA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
@@ -7868,7 +7868,7 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ces" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -7879,7 +7879,7 @@
 "ceG" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ceT" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -7901,7 +7901,7 @@
 "cfN" = (
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "cfS" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -7915,7 +7915,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ciD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -7945,7 +7945,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "cku" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -7998,7 +7998,7 @@
 "cqD" = (
 /obj/machinery/power/port_gen,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "cqL" = (
 /obj/structure/window/reinforced,
 /obj/prop/hydroponics,
@@ -8028,7 +8028,7 @@
 "cuO" = (
 /obj/structure/barricade/concrete,
 /turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "cuW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8144,7 +8144,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "cLe" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
@@ -8311,7 +8311,7 @@
 "daO" = (
 /obj/structure/largecrate/cow,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dcO" = (
 /obj/machinery/door/airlock/mainship/research/free_access{
 	name = "\improper Virology Lab Administration"
@@ -8329,11 +8329,11 @@
 "ddL" = (
 /obj/structure/cargo_container/ch_green,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dev" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dgo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -8348,7 +8348,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "dhB" = (
 /turf/open/floor/plating/dmg3,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "djb" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
@@ -8367,7 +8367,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "djD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8438,7 +8438,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dqB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/misc/structure/stool,
@@ -8506,14 +8506,14 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dwY" = (
 /obj/structure/barricade/handrail/wire{
 	dir = 1
 	},
 /obj/structure/lattice,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dxa" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/space_port/two)
@@ -8526,13 +8526,13 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dym" = (
 /obj/structure/monorail{
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dyO" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -8542,7 +8542,7 @@
 /obj/structure/mopbucket,
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dzA" = (
 /obj/structure/prop/mainship/telecomms/bus,
 /turf/open/floor/podhatch/floor,
@@ -8597,7 +8597,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dFz" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -8609,7 +8609,7 @@
 /turf/open/floor/mainship/red{
 	dir = 9
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "dHg" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/space_port)
@@ -8854,7 +8854,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ekl" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark/purple2{
@@ -8935,7 +8935,7 @@
 	},
 /obj/structure/prop/vehicle/crane/destructible,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "epc" = (
 /obj/structure/cargo_container/green{
 	dir = 8
@@ -8953,7 +8953,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "esb" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -8997,7 +8997,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "eyt" = (
 /turf/open/floor/carpet/side{
 	dir = 1
@@ -9111,7 +9111,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "eKP" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -9169,7 +9169,7 @@
 "eQe" = (
 /obj/structure/largecrate/supply/supplies/mre,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "eQv" = (
 /obj/machinery/light{
 	dir = 8
@@ -9245,7 +9245,7 @@
 	},
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "fbY" = (
 /obj/item/stack/rods,
 /obj/structure/barricade/plasteel,
@@ -9486,7 +9486,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "fAX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
@@ -9522,13 +9522,13 @@
 /area/bigredv2/caves/south)
 "fFW" = (
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "fHa" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "fHv" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
@@ -9536,7 +9536,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 2
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "fHK" = (
 /obj/effect/turf_decal/sandedge/corner{
 	dir = 1
@@ -9651,7 +9651,7 @@
 	},
 /obj/machinery/light,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "fST" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -9739,7 +9739,7 @@
 "fZx" = (
 /obj/structure/largecrate/random/case,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "gaB" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -9840,7 +9840,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "gpg" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -9903,6 +9903,11 @@
 "gzM" = (
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
+"gAf" = (
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
+	},
+/area/prison/monorail)
 "gAI" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -10093,7 +10098,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "gOD" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/tile/dark,
@@ -10114,7 +10119,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "gQb" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10153,7 +10158,7 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 10
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "gSH" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10281,7 +10286,7 @@
 "hdO" = (
 /obj/structure/closet/secure_closet/security,
 /turf/open/floor/mainship/red,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hdR" = (
 /obj/effect/ai_node,
 /obj/machinery/landinglight/lz1,
@@ -10290,7 +10295,7 @@
 "hdU" = (
 /obj/structure/prop/vehicle/truck/truckcargo,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hev" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -10330,7 +10335,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hir" = (
 /obj/structure/monorail{
 	dir = 4
@@ -10368,7 +10373,7 @@
 	},
 /obj/structure/prop/train/construction,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hlU" = (
 /obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/tile/dark,
@@ -10432,7 +10437,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hsK" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/cargo)
@@ -10453,7 +10458,7 @@
 	},
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hwI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -10481,11 +10486,8 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "hAn" = (
-/obj/machinery/power/apc/drained{
-	dir = 4
-	},
 /turf/closed/wall,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hBm" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
@@ -10531,6 +10533,9 @@
 	dir = 6
 	},
 /area/bigredv2/caves/lambda_lab)
+"hHO" = (
+/turf/open/floor/plating,
+/area/prison/monorail)
 "hIr" = (
 /obj/structure/cable,
 /obj/docking_port/stationary/crashmode,
@@ -10597,7 +10602,7 @@
 /obj/structure/stairs/seamless/edge,
 /obj/structure/stairs/railstairs,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hSR" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10606,7 +10611,7 @@
 "hSS" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "hUH" = (
 /obj/machinery/botany/extractor,
 /obj/effect/decal/cleanable/dirt,
@@ -10698,7 +10703,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ieG" = (
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/w)
@@ -10765,11 +10770,11 @@
 	},
 /obj/structure/prop/train/weapons,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "inB" = (
 /obj/structure/largecrate/supply/medicine/iv,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "inW" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -10829,7 +10834,7 @@
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 8
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "iup" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
@@ -10907,7 +10912,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "iEp" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 1
@@ -11012,7 +11017,7 @@
 	dir = 5
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "iPs" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/ai_node,
@@ -11108,7 +11113,7 @@
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 4
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "iYM" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 8
@@ -11244,7 +11249,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jgh" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -11300,7 +11305,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jkl" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -11356,7 +11361,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jpZ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
@@ -11401,7 +11406,7 @@
 "jtH" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "juj" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -11412,7 +11417,7 @@
 "juT" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jvB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -11537,7 +11542,7 @@
 "jEy" = (
 /obj/structure/prop/vehicle/crawler/crawler_blue,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jFb" = (
 /obj/structure/glowshroom,
 /obj/effect/landmark/lv624/fog_blocker,
@@ -11581,7 +11586,7 @@
 "jIS" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jJZ" = (
 /obj/structure/table,
 /obj/structure/cable,
@@ -11684,7 +11689,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "jSH" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 4
@@ -11720,6 +11725,12 @@
 	dir = 1
 	},
 /area/bigredv2/outside/sw)
+"jVp" = (
+/obj/machinery/status_display{
+	pixel_y = -1
+	},
+/turf/closed/wall/r_wall,
+/area/prison/monorail)
 "jXK" = (
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -11790,7 +11801,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "khk" = (
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
@@ -11858,7 +11869,7 @@
 "koF" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "kpp" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 8
@@ -11917,7 +11928,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "kzl" = (
 /obj/machinery/light{
 	dir = 1
@@ -12028,7 +12039,7 @@
 "kPs" = (
 /obj/structure/prop/vehicle/crane/cranecargo,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "kPA" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
@@ -12043,7 +12054,7 @@
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "kRr" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south/garbledradio)
@@ -12118,11 +12129,14 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "kZg" = (
 /turf/open/floor/plating/dmg1,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "kZH" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
+"kZJ" = (
+/turf/open/floor/asteroidfloor,
+/area/prison/monorail)
 "lak" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -12182,7 +12196,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "liH" = (
 /obj/effect/turf_decal/warning_stripes,
 /turf/open/floor,
@@ -12273,7 +12287,7 @@
 /obj/effect/landmark/xeno_tunnel_spawn,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "luJ" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
 /turf/open/space/basic,
@@ -12309,7 +12323,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "lxP" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -12355,7 +12369,7 @@
 /turf/open/floor/mainship/red{
 	dir = 5
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "lDQ" = (
 /obj/structure/cable,
 /obj/machinery/light/built,
@@ -12366,7 +12380,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 4
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "lFi" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -12376,6 +12390,9 @@
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
+"lFq" = (
+/turf/closed/wall/r_wall,
+/area/prison/monorail)
 "lGe" = (
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
@@ -12498,7 +12515,7 @@
 "lSW" = (
 /obj/structure/bigDelivery,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "lTA" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 6
@@ -12689,7 +12706,7 @@
 "mpp" = (
 /obj/machinery/robotic_cradle,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "mpz" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/se)
@@ -12705,7 +12722,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "mqY" = (
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "msa" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/effect/landmark/weed_node,
@@ -12738,7 +12755,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "mwX" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
@@ -12755,7 +12772,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "mAi" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northwest)
@@ -12839,7 +12856,7 @@
 	dir = 10
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "mHh" = (
 /obj/effect/spawner/modularmap/bigred/engineering,
 /turf/open/space/basic,
@@ -12883,7 +12900,7 @@
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "mNY" = (
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/tile/dark/purple2{
@@ -12900,7 +12917,7 @@
 	},
 /obj/effect/spawner/gibspawner/robot,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "mPE" = (
 /obj/machinery/seed_extractor,
 /obj/effect/decal/cleanable/dirt,
@@ -13061,7 +13078,7 @@
 "nfi" = (
 /obj/structure/prop/turbine,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ngv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -13107,7 +13124,7 @@
 /obj/effect/soundplayer/deltaplayer,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "nln" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
@@ -13261,7 +13278,7 @@
 "nyr" = (
 /obj/structure/cargo_container/hd_blue,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "nyy" = (
 /obj/structure/monorail{
 	dir = 4
@@ -13376,7 +13393,7 @@
 "nJo" = (
 /obj/structure/cargo_container/wy,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "nJs" = (
 /obj/structure/table,
 /obj/item/alienjar,
@@ -13413,7 +13430,7 @@
 "nOa" = (
 /obj/structure/cargo_container/ch_red,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "nOl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -13465,7 +13482,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "nRv" = (
 /obj/structure/bed/chair/office/light,
 /obj/effect/decal/cleanable/dirt,
@@ -13502,7 +13519,7 @@
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "nVU" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -13552,7 +13569,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "oeT" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -13650,7 +13667,7 @@
 	dir = 10
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "omX" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -13684,7 +13701,7 @@
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "opQ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
@@ -14002,7 +14019,7 @@
 	},
 /obj/structure/bigDelivery,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "pfx" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/wood,
@@ -14015,7 +14032,7 @@
 "phs" = (
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "phx" = (
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/tile/dark/yellow2/corner,
@@ -14065,7 +14082,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "pmR" = (
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/elevatorshaft,
@@ -14080,7 +14097,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ppX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
@@ -14119,7 +14136,7 @@
 	},
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "puE" = (
 /obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -14211,7 +14228,7 @@
 "pDg" = (
 /obj/structure/cargo_container/red,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "pER" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
@@ -14344,7 +14361,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "pUl" = (
 /turf/open/floor/tile/vault{
 	dir = 8
@@ -14488,7 +14505,7 @@
 	name = "\improper Colony Security Checkpoint"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qjc" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -14518,7 +14535,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qlj" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/excavation_site_spawner,
@@ -14635,7 +14652,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qEh" = (
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
@@ -14657,7 +14674,7 @@
 /turf/open/floor/mainship/red{
 	dir = 10
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qFS" = (
 /obj/structure/window/reinforced,
 /obj/prop/hydroponics,
@@ -14712,7 +14729,7 @@
 	},
 /obj/structure/prop/train/empty,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qLJ" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/decal/cleanable/blood/gibs/core,
@@ -14764,7 +14781,7 @@
 "qSP" = (
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qUm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -14798,7 +14815,7 @@
 "qYr" = (
 /obj/structure/cargo_container/green,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "qYv" = (
 /obj/structure/table,
 /obj/item/storage/box/nt_mre,
@@ -14879,7 +14896,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/north,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rdR" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
@@ -14948,7 +14965,7 @@
 	},
 /obj/vehicle/ridden/atv,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rin" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -15025,7 +15042,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "roD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -15156,7 +15173,7 @@
 	},
 /obj/structure/prop/train/cargo_sat,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rCn" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -15214,7 +15231,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rJo" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -15260,7 +15277,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rNZ" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -15286,7 +15303,7 @@
 /area/bigredv2/outside/marshal_office)
 "rOX" = (
 /turf/open/floor/plating/ground/concrete/edge,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rQa" = (
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -15326,7 +15343,7 @@
 "rSI" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rSL" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/dmg2,
@@ -15380,7 +15397,7 @@
 "rWz" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "rXL" = (
 /obj/structure/rack/nometal,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
@@ -15432,7 +15449,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "shc" = (
 /obj/effect/landmark/weed_node,
 /turf/closed/mineral/smooth/bigred,
@@ -15456,7 +15473,7 @@
 "skl" = (
 /obj/structure/largecrate/supply/supplies/water,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "skp" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -15534,7 +15551,7 @@
 "srD" = (
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "ssU" = (
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
@@ -15605,13 +15622,13 @@
 "szu" = (
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "szD" = (
 /obj/structure/prop/vehicle/crane{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "sAX" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
@@ -15700,7 +15717,7 @@
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "sNF" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/west)
@@ -15765,7 +15782,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "sUg" = (
 /obj/item/shard,
 /obj/effect/decal/cleanable/blood/gibs,
@@ -15776,7 +15793,7 @@
 "sWL" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "sXc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -15945,7 +15962,7 @@
 "tsy" = (
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "tty" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -16003,7 +16020,7 @@
 "tyF" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "tza" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning{
@@ -16123,7 +16140,7 @@
 "tMC" = (
 /obj/structure/noticeboard,
 /turf/closed/wall,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "tOf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door_control{
@@ -16447,7 +16464,7 @@
 "utV" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "uue" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -16463,7 +16480,7 @@
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "uuU" = (
 /obj/structure/xenoautopsy/tank/alien,
 /obj/effect/turf_decal/warning_stripes,
@@ -16523,7 +16540,7 @@
 /obj/effect/spawner/gibspawner/robot,
 /obj/structure/barricade/handrail/wire,
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "uyy" = (
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/landmark/lv624/fog_blocker,
@@ -16539,7 +16556,7 @@
 "uDs" = (
 /obj/structure/ore_box,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "uEL" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/cavetodirt,
@@ -16586,7 +16603,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "uIc" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 9
@@ -16686,7 +16703,7 @@
 "uSs" = (
 /obj/machinery/door/poddoor/opened/port,
 /turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "uTn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
@@ -16921,7 +16938,7 @@
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "vrt" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tool,
@@ -17067,6 +17084,10 @@
 	dir = 4
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
+"vEH" = (
+/obj/machinery/power/apc/high,
+/turf/closed/wall/r_wall,
+/area/prison/monorail)
 "vIk" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -17315,7 +17336,7 @@
 	},
 /obj/effect/spawner/random,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "wdZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -17360,7 +17381,7 @@
 "wkD" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/mainship/cargo,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "wkG" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 1;
@@ -17389,7 +17410,7 @@
 /turf/open/floor/mainship/red{
 	dir = 6
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "wmV" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
@@ -17400,7 +17421,7 @@
 "wnm" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "wnR" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/marking/asteroidwarning{
@@ -17487,7 +17508,7 @@
 "wvM" = (
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "wwv" = (
 /obj/effect/landmark/dropship_start_location,
 /turf/open/floor/marking/asteroidwarning{
@@ -17532,7 +17553,7 @@
 	dir = 9
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "wAW" = (
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/rock)
@@ -17712,7 +17733,7 @@
 	pixel_y = -1
 	},
 /turf/closed/wall,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xax" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -17736,7 +17757,7 @@
 	icon_state = "reinforced"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xbZ" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -17959,7 +17980,7 @@
 /obj/structure/prop/train/empty,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xzw" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -17986,7 +18007,7 @@
 /obj/machinery/door/poddoor/opened/port,
 /obj/machinery/door/poddoor/two_tile_hor/execution,
 /turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xDW" = (
 /obj/structure/glowshroom,
 /obj/effect/landmark/weed_node,
@@ -18002,12 +18023,12 @@
 	},
 /obj/structure/prop/train/crates,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xFo" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xFB" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -18057,7 +18078,7 @@
 "xMq" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/mainship/floor,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xMA" = (
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -18111,7 +18132,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xPU" = (
 /obj/effect/turf_decal/sandedge/corner{
 	dir = 8
@@ -18144,7 +18165,7 @@
 	dir = 6
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xTt" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -18234,7 +18255,7 @@
 	},
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship,
-/area/bigredv2/outside/cargo)
+/area/prison/monorail)
 "xZD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -22617,39 +22638,39 @@ gCQ
 gCQ
 gCQ
 gCQ
-hsK
+lFq
 afI
 rdD
 afI
 afI
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
-hsK
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
+lFq
 gCQ
 gCQ
 gGk
@@ -22834,13 +22855,13 @@ aMz
 aMz
 gCQ
 gCQ
-hsK
-aXH
+lFq
+hHO
 dEP
 cfN
 dhB
-aXH
-aXH
+hHO
+hHO
 opa
 cfN
 cfN
@@ -22866,7 +22887,7 @@ pmM
 btF
 btF
 btF
-hsK
+lFq
 gCQ
 gCQ
 gCQ
@@ -23051,13 +23072,13 @@ aNc
 aMz
 gCQ
 gCQ
-hsK
+lFq
 cfN
 dEP
-aXH
+hHO
 cfN
 cfN
-aXH
+hHO
 dEP
 cfN
 cfN
@@ -23083,7 +23104,7 @@ kyP
 kyP
 kyP
 kyP
-hsK
+lFq
 gCQ
 gCQ
 gCQ
@@ -23268,13 +23289,13 @@ aNc
 aMz
 gCQ
 gCQ
-hsK
-aXH
+lFq
+hHO
 dEP
 dhB
 cfN
 dhB
-aXH
+hHO
 inx
 cfN
 cfN
@@ -23300,7 +23321,7 @@ dyg
 dyg
 dyg
 gnh
-hsK
+lFq
 gCQ
 gCQ
 gCQ
@@ -23485,13 +23506,13 @@ aNc
 aMz
 gCQ
 gCQ
-hsK
-aXH
+lFq
+hHO
 muG
 cfN
-aXH
-aXH
-aXH
+hHO
+hHO
+hHO
 dEP
 cfN
 cfN
@@ -23517,7 +23538,7 @@ fFW
 nOa
 nyr
 uHm
-hsK
+lFq
 gCQ
 gCQ
 gCQ
@@ -23702,13 +23723,13 @@ aQy
 aMz
 gCQ
 gCQ
-hsK
-aXH
+lFq
+hHO
 dEP
-aXH
-aXH
-aXH
-aXH
+hHO
+hHO
+hHO
+hHO
 dEP
 cfN
 cfN
@@ -23734,7 +23755,7 @@ btF
 gOu
 amX
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -23919,13 +23940,13 @@ aMz
 aMz
 gCQ
 gCQ
-hsK
-aXH
+lFq
+hHO
 dEP
 dhB
-aXH
+hHO
 cfN
-aXH
+hHO
 dEP
 cfN
 cfN
@@ -23951,7 +23972,7 @@ fFW
 rIM
 eis
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -24136,12 +24157,12 @@ bco
 aNc
 gCQ
 gCQ
-hsK
-aXH
+lFq
+hHO
 dEP
-aXH
-aXH
-aXH
+hHO
+hHO
+hHO
 kZg
 dEP
 cfN
@@ -24168,7 +24189,7 @@ dju
 cfV
 dju
 mMW
-iWW
+jVp
 xpr
 gCQ
 gCQ
@@ -24353,8 +24374,8 @@ aNc
 aDm
 gCQ
 gCQ
-iWW
-aXH
+jVp
+hHO
 mGX
 jkb
 jkb
@@ -24385,7 +24406,7 @@ fFW
 rSI
 inB
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -24570,12 +24591,12 @@ aNc
 aDm
 aDm
 gCQ
-hsK
-aXH
+lFq
+hHO
 dEP
-aXH
-aXH
-aXH
+hHO
+hHO
+hHO
 cfN
 oef
 cfN
@@ -24602,7 +24623,7 @@ koF
 eQe
 juT
 fSF
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -24787,13 +24808,13 @@ aWj
 aDm
 aDm
 gCQ
-hsK
+lFq
 dym
 dym
 dym
-aXH
+hHO
 phs
-aXH
+hHO
 dqj
 cfN
 cfN
@@ -24819,7 +24840,7 @@ fFW
 xMq
 daO
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -25004,13 +25025,13 @@ aYC
 aDm
 aDm
 iQG
-hsK
-aXK
-aXK
-aXK
-aXH
-aXH
-aXH
+lFq
+hAn
+hAn
+hAn
+hHO
+hHO
+hHO
 oef
 cfN
 cfN
@@ -25036,7 +25057,7 @@ cki
 cki
 cki
 iPg
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -25221,13 +25242,13 @@ aWT
 aDm
 aDm
 iQG
-hsK
+lFq
 dFz
 qFN
 qhO
-aXH
+hHO
 dhB
-aXH
+hHO
 oef
 cfN
 cfN
@@ -25253,7 +25274,7 @@ wkD
 btF
 nJo
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -25438,13 +25459,13 @@ aWU
 aDm
 aDm
 bOR
-hsK
+lFq
 uue
 hdO
-hsK
+lFq
 dhB
 cfN
-aXH
+hHO
 oef
 cfN
 cfN
@@ -25470,7 +25491,7 @@ xMq
 fFW
 jfR
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -25659,8 +25680,8 @@ ceG
 lDG
 wmH
 ceG
-aXH
-aXH
+hHO
+hHO
 cfN
 xbt
 cfN
@@ -25687,7 +25708,7 @@ utV
 btF
 kgJ
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -25874,23 +25895,23 @@ ltk
 ltk
 ceG
 ceG
-hsK
-hsK
+lFq
+vEH
 hRE
 bXJ
 bXJ
-aXK
-aXK
-aXK
-aXK
-aXK
-aXK
-xaw
-aXK
+hAn
+hAn
+hAn
+hAn
+hAn
 hAn
 xaw
-aXK
-aXK
+hAn
+hAn
+xaw
+hAn
+hAn
 xaw
 tMC
 mpp
@@ -25904,7 +25925,7 @@ dyg
 dyg
 dyg
 gnh
-iWW
+jVp
 xpr
 gCQ
 gCQ
@@ -26089,8 +26110,8 @@ tFq
 tFq
 juw
 juw
-bew
-bew
+gAf
+gAf
 gSB
 mqY
 nUN
@@ -26121,7 +26142,7 @@ fFW
 nOa
 nyr
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -26307,7 +26328,7 @@ aWk
 juw
 juw
 rWz
-bdf
+kZJ
 uSs
 mqY
 nUN
@@ -26338,7 +26359,7 @@ btF
 gOu
 amX
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -26523,8 +26544,8 @@ aXA
 wrG
 evZ
 sSS
-bdf
-bdf
+kZJ
+kZJ
 xCE
 mqY
 nUN
@@ -26555,7 +26576,7 @@ fFW
 rIM
 eis
 uHm
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -26740,7 +26761,7 @@ tFq
 tFq
 gzy
 juw
-bdf
+kZJ
 xFo
 dwR
 mqY
@@ -26772,7 +26793,7 @@ dju
 dju
 dju
 mMW
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -26959,7 +26980,7 @@ mYd
 juw
 kRk
 cuO
-iWW
+jVp
 mqY
 avs
 lEs
@@ -26989,7 +27010,7 @@ jpC
 fAP
 aYD
 wzR
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -27174,7 +27195,7 @@ vUH
 tFq
 mYd
 juw
-bdf
+kZJ
 cuO
 ceG
 mqY
@@ -27206,7 +27227,7 @@ lxD
 lxD
 lxD
 lxD
-hsK
+lFq
 xpr
 gCQ
 gCQ
@@ -27391,7 +27412,7 @@ vUH
 tFq
 mYd
 juw
-bdf
+kZJ
 cuO
 ceG
 mqY
@@ -27423,7 +27444,7 @@ btF
 btF
 srD
 btF
-hsK
+lFq
 xpr
 gCQ
 gCQ
