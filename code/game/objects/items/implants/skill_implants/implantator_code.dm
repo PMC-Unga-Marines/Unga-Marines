@@ -12,7 +12,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
-	var/spented = FALSE
 	var/max_skills
 	var/allowed_limbs
 
@@ -31,7 +30,6 @@
 	if(.)
 		name += " used"
 		icon_state = empty_icon + "_s"
-		spented = TRUE
 		return TRUE
 	return
 
@@ -40,8 +38,6 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/human = target
-	if(spented)
-		return FALSE
 	if(!(user.zone_selected in allowed_limbs))
 		balloon_alert(user, "Wrong limb!")
 		return FALSE
