@@ -158,7 +158,7 @@
 	flags_equip_slot = ITEM_SLOT_BACK
 	icon = 'icons/Marine/marine-ac.dmi'
 	icon_state = "autocannon"
-	fire_sound = "ac_fire"
+	fire_sound = SFX_AC_FIRE
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 
 	default_ammo_type = /obj/item/ammo_magazine/atr22

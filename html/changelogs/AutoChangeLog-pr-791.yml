@@ -1,0 +1,4 @@
+author: "mister-onion"
+delete-after: True
+changes:
+  - rscdel: "дефайны врейза удалены из кола"

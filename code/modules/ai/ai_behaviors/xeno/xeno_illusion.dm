@@ -34,7 +34,7 @@
 	illusion_parent.face_atom(attacked)
 	if(ismob(attacked))
 		illusion_parent.do_attack_animation(attacked, ATTACK_EFFECT_REDSLASH)
-		playsound(illusion_parent.loc, "alien_claw_flesh", 25, 1)
+		playsound(illusion_parent.loc, SFX_ALIEN_CLAW_FLESH, 25, 1)
 		return
 	illusion_parent.do_attack_animation(attacked, ATTACK_EFFECT_CLAW)
-	playsound(illusion_parent.loc, "alien_claw_metal", 25, 1)
+	playsound(illusion_parent.loc, SFX_ALIEN_CLAW_METAL, 25, 1)
