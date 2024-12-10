@@ -29,7 +29,6 @@
 /datum/job/fallen/marine/combat_robot
 	title = ROLE_FALLEN(SQUAD_ROBOT)
 	access = list(ACCESS_MARINE_ROBOT)
-	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_ROBOT)
 	outfit = /datum/outfit/job/marine/robot
 
 /datum/job/fallen/marine/combat_robot/get_special_name(client/preference_source)
