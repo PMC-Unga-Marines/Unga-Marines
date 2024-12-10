@@ -351,8 +351,6 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 	mob_parent.next_move_slowdown = 0
 	var/step_dir
 	if(get_dist(mob_parent, atom_to_walk_to) == distance_to_maintain)
-		if(!mob_parent.CanReach(atom_to_walk_to))
-			return
 		if(SEND_SIGNAL(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE) & COMSIG_MAINTAIN_POSITION)
 			return
 		if(!get_dir(mob_parent, atom_to_walk_to)) //We're right on top, move out of it

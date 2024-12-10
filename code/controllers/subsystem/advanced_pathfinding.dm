@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 	. = ..()
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_AI_GOAL_SET, identifier, src)
 	RegisterSignal(SSdcs, COMSIG_GLOB_AI_GOAL_SET, PROC_REF(clean_goal_node))
-	GLOB.goal_nodes[identifier] = src
+	GLOB.goal_nodes[identifier] += src
 	if(!creator)
 		return
 	src.creator = creator

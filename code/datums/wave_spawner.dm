@@ -5,14 +5,16 @@
 	var/list/spawn_types = list()
 	var/points_factor = 1
 
-/datum/wave_spawner/proc/spawn_wave(points)
+/datum/wave_spawner/proc/spawn_wave(points, health_factor)
 	if(points <= 0)
 		return FALSE
 	if(!length(spawn_types))
 		return FALSE
 	for(var/i in 1 to points * points_factor)
 		var/spawntype = pick(spawn_types)
-		new spawntype(pick(GLOB.waves_spawner_locs))
+		var/mob/living/carbon/xenomorph/xenomorph = new spawntype(pick(GLOB.waves_spawner_locs))
+		xenomorph.maxHealth *= health_factor
+		xenomorph.health = xenomorph.maxHealth
 	return TRUE
 
 /datum/wave_spawner/minions
@@ -81,5 +83,5 @@
 	spawn_types = list(
 		/mob/living/carbon/xenomorph/queen/ai,
 	)
-	min_time = 25 MINUTES
+	min_time = 30 MINUTES
 	points_factor = 0.4
