@@ -1,0 +1,4 @@
+author: "Basia"
+delete-after: True
+changes:
+  - bugfix: "В меде пофиксил лампочку. (фикс года)"
