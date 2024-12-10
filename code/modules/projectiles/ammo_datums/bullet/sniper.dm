@@ -141,8 +141,8 @@
 	name = "musket lead bullet"
 	icon_state = "musket"
 	handful_icon_state = "musket"
-	hud_state = "pepperball"
-	hud_state_empty = "pepperball_empty"
+	hud_state = "musket_ball"
+	hud_state_empty = "musket_ball_empty"
 	handful_amount = 3
 	flags_ammo_behavior = AMMO_BALLISTIC
 	damage = 220

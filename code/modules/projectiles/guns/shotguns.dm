@@ -507,13 +507,11 @@
 	name = "\improper Croweson musket"
 	desc = "A breech-loading rifle with room for a single round of 19mm ball."
 	icon = 'icons/Marine/gun64.dmi'
-	//flags_equip_slot = ITEM_SLOT_BACK
 	icon_state = "musket"
 	item_state = "musket"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	item_icons = list(
-		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
 	)
