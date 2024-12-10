@@ -302,3 +302,14 @@
 	notes = "Contains a random, but curated set of items, these packs are valued around 150 to 200 points. Some items can only be acquired from these. Spend responsibly."
 	contains = list(/obj/item/loot_box/tgmclootbox)
 	cost = 1000
+
+/datum/supply_packs/imports/present_pack
+	name = "TGMC Present Pack"
+	notes = "Contains a number of unaddressed presents from Santa's Workshop. All proceeds go to starving elves. Naughty recipients may be disappointed."
+	contains = list(
+		/obj/item/a_gift/free, //none of the gifts need delivered and can be opened by anyone who is not a grinch
+		/obj/item/a_gift/free,
+		/obj/item/a_gift/free,
+		/obj/item/a_gift/free,
+	)
+	cost = 150

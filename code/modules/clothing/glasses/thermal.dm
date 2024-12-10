@@ -8,6 +8,14 @@
 	eye_protection = -1
 	deactive_state = "goggles_off"
 
+/obj/item/clothing/glasses/thermal/eyepatch
+	name = "Optical Thermal Eyepatch"
+	desc = "An eyepatch with built-in thermal optics"
+	icon_state = "eyepatch"
+	item_state = "eyepatch"
+	toggleable = 0
+	flags_armor_protection = NONE
+
 /obj/item/clothing/glasses/thermal/emp_act(severity)
 	if(ishuman(loc))
 		var/mob/living/carbon/human/M = src.loc

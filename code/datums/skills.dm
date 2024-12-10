@@ -697,6 +697,24 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
 
+/datum/skills/santaclause
+	name = "Santa Claus"
+	engineer = SKILL_ENGINEER_MASTER
+	construction = SKILL_CONSTRUCTION_MASTER
+	firearms = SKILL_FIREARMS_TRAINED
+	smartgun = SKILL_SMART_MASTER
+	medical = SKILL_MEDICAL_PRACTICED
+	cqc = SKILL_CQC_MASTER
+	surgery = SKILL_SURGERY_TRAINED
+	melee_weapons = SKILL_MELEE_SUPER
+	leadership = SKILL_LEAD_MASTER
+	pilot = SKILL_PILOT_TRAINED
+	pistols = SKILL_PISTOLS_TRAINED
+	smgs = SKILL_SMGS_TRAINED
+	rifles = SKILL_RIFLES_TRAINED
+	shotguns = SKILL_SHOTGUNS_TRAINED
+	heavy_weapons = SKILL_SMART_TRAINED
+
 /*======  I.o.M.  ======*/
 
 /datum/skills/imperial
@@ -720,6 +738,17 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	leadership = SKILL_LEAD_EXPERT
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
+
+/datum/skills/elf
+	name = "Elf"
+	cqc = SKILL_CQC_WEAK
+	melee_weapons = SKILL_MELEE_TRAINED
+	engineer = SKILL_ENGINEER_MASTER
+	construction = SKILL_CONSTRUCTION_MASTER
+	medical = SKILL_MEDICAL_PRACTICED
+	surgery = SKILL_SURGERY_AMATEUR
+	pistols = SKILL_PISTOLS_TRAINED
+	rifles = SKILL_RIFLES_TRAINED
 
 /datum/skills/imperial/medicae
 	name = "Guardsman Medicae" // medic

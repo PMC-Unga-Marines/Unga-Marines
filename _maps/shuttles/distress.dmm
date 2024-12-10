@@ -97,6 +97,9 @@
 /obj/effect/landmark/distress_item,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/belt/lifesaver/full,
+/obj/structure/prop/holidays/string_lights{
+	dir = 5
+	},
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/ert)
 "v" = (
@@ -167,6 +170,14 @@
 	dir = 4
 	},
 /area/shuttle/ert)
+"L" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 8
+	},
+/turf/closed/shuttle/dropship_regular/interior_wall{
+	dir = 1
+	},
+/area/shuttle/ert)
 "N" = (
 /turf/closed/shuttle/ert/engines/right/three{
 	dir = 1
@@ -182,6 +193,22 @@
 	dir = 1
 	},
 /area/shuttle/ert)
+"U" = (
+/obj/structure/rack,
+/obj/effect/landmark/distress_item,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/belt/lifesaver/full,
+/obj/structure/prop/holidays/string_lights{
+	dir = 9
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/ert)
+"W" = (
+/obj/structure/prop/holidays/string_lights/corner{
+	dir = 4
+	},
+/turf/closed/shuttle/dropship_regular/interior_wall,
+/area/shuttle/ert)
 "X" = (
 /turf/closed/shuttle/ert/engines/right/two{
 	dir = 1
@@ -191,6 +218,12 @@
 /turf/closed/shuttle/ert/engines/left/two{
 	dir = 1
 	},
+/area/shuttle/ert)
+"Z" = (
+/obj/structure/prop/holidays/string_lights{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/three,
 /area/shuttle/ert)
 
 (1,1,1) = {"
@@ -202,7 +235,7 @@ i
 i
 i
 p
-i
+W
 x
 G
 Y
@@ -220,7 +253,7 @@ g
 u
 y
 i
-i
+W
 H
 "}
 (3,1,1) = {"
@@ -250,7 +283,7 @@ r
 l
 z
 z
-z
+Z
 J
 "}
 (5,1,1) = {"
@@ -277,10 +310,10 @@ t
 t
 t
 g
-u
+U
 A
 o
-o
+L
 K
 "}
 (7,1,1) = {"
@@ -292,7 +325,7 @@ o
 o
 o
 p
-o
+L
 B
 N
 X

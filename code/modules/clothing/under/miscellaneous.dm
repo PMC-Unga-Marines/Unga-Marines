@@ -209,3 +209,5 @@
 	item_state = "tp_bodyrobes"
 	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
 
+/obj/item/clothing/under/spec_operative/elf
+	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 15, BOMB = 100, BIO = 10, FIRE = 15, ACID = 10)
