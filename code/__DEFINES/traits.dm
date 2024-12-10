@@ -106,6 +106,7 @@
 #define PETRIFY_ABILITY_TRAIT "petrify_ability_trait"
 #define SHATTERING_ROAR_ABILITY_TRAIT "shattering_roar_ability_trait"
 #define ZERO_FORM_BEAM_ABILITY_TRAIT "zero_form_beam_ability_trait"
+#define WIDOW_ABILITY_TRAIT "widow_ability_trait"
 #define VALHALLA_TRAIT "valhalla"
 #define WEIGHTBENCH_TRAIT "weightbench"
 #define BOILER_ROOTED_TRAIT "boiler_rooted"
@@ -160,10 +161,6 @@
 #define TRAIT_BANISHED "banished"
 ///Mindmelded with another mob
 #define TRAIT_MINDMELDED "mindmelded"
-///You swing axe good
-#define TRAIT_AXE_EXPERT "axe_expert"
-///You swing sword good
-#define TRAIT_SWORD_EXPERT "sword_expert"
 ///Pain reduction light
 #define TRAIT_LIGHT_PAIN_RESIST "light_pain_resist"
 ///Pain reduction medium

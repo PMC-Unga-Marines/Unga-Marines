@@ -250,6 +250,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber
 	flags_upgrade = ABILITY_NUCLEARWAR
+	building_loc = 0
 	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/shell
@@ -303,7 +304,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	///How long to build one turret
 	var/build_time = 10 SECONDS
 	///What type of turret is built
-	var/turret_type = /obj/structure/xeno/xeno_turret
+	var/turret_type = /obj/structure/xeno/turret
 
 /datum/hive_upgrade/defence/turret/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
@@ -324,10 +325,10 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			to_chat(buyer, span_xenowarning("No weeds here!"))
 		return FALSE
 
-	if(!T.check_alien_construction(buyer, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(buyer))
+	if(!T.check_alien_construction(buyer, silent, /obj/structure/xeno/turret) || !T.check_disallow_alien_fortification(buyer))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
+	for(var/obj/structure/xeno/turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
 		if(get_dist(turret, buyer) < 6)
 			if(!silent)
 				to_chat(buyer, span_xenowarning("Another turret is too close!"))
@@ -355,7 +356,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	desc = "Places a sticky spit spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog and on a weeded area."
 	icon = "resinturret"
 	psypoint_cost = 50
-	turret_type = /obj/structure/xeno/xeno_turret/sticky
+	turret_type = /obj/structure/xeno/turret/sticky
 
 /datum/hive_upgrade/xenos
 	category = "Xenos"

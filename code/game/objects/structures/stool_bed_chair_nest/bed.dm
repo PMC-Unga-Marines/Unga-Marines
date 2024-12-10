@@ -153,19 +153,17 @@
 			new buildstacktype (loc, buildstackamount)
 		qdel(src)
 
+/obj/structure/bed/wrench_act(mob/living/user, obj/item/I)
+	if(!buildstacktype)
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	if(dropmetal)
+		new buildstacktype(loc, buildstackamount)
+	qdel(src)
+
 /obj/structure/bed/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
-	if(iswrench(I))
-		if(!buildstacktype)
-			return
-
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		if(dropmetal)
-			new buildstacktype(loc, buildstackamount)
-		qdel(src)
-
-	else if(istype(I, /obj/item/grab) && !LAZYLEN(buckled_mobs) && !buckled_bodybag)
+	if(istype(I, /obj/item/grab) && !LAZYLEN(buckled_mobs) && !buckled_bodybag)
 		var/obj/item/grab/G = I
 		if(!ismob(G.grabbed_thing))
 			return

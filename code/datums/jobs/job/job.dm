@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 	EXP_TYPE_MARINES = list("titles" = GLOB.jobs_marines),
 	EXP_TYPE_REQUISITIONS = list("titles" = GLOB.jobs_requisitions),
 	EXP_TYPE_SYNTHETIC = list("titles" = GLOB.jobs_engineering + GLOB.jobs_medical),
+	EXP_TYPE_SL = list("titles" = GLOB.jobs_marines + GLOB.jobs_command),
 	EXP_TYPE_XENO = list("titles" = GLOB.jobs_xenos),
 ))
 
@@ -180,18 +181,18 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/outfit/job/proc/handle_id(mob/living/carbon/human/H, client/override_client)
 	var/datum/job/job = H.job ? H.job : SSjob.GetJobType(jobtype)
 	var/obj/item/card/id/id = H.wear_id
-	if(istype(id))
-		id.access = job.get_access()
-		id.iff_signal = GLOB.faction_to_iff[job.faction]
-		shuffle_inplace(id.access) // Shuffle access list to make NTNet passkeys less predictable
-		id.registered_name = H.real_name
-		id.assignment = job.title
-		id.rank = job.title
-		id.paygrade = job.paygrade
-		id.update_label()
-		if(H.mind?.initial_account) // In most cases they won't have a mind at this point.
-			id.associated_account_number = H.mind.initial_account.account_number
-	H.update_action_buttons()
+	if(!istype(id))
+		return
+	id.access = job.get_access()
+	id.iff_signal = GLOB.faction_to_iff[job.faction]
+	shuffle_inplace(id.access) // Shuffle access list to make NTNet passkeys less predictable
+	id.registered_name = H.real_name
+	id.assignment = job.title
+	id.rank = job.title
+	id.paygrade = job.paygrade
+	id.update_label()
+	if(H.mind?.initial_account) // In most cases they won't have a mind at this point.
+		id.associated_account_number = H.mind.initial_account.account_number
 
 /datum/job/proc/get_special_name(client/preference_source)
 	return
@@ -221,8 +222,9 @@ GLOBAL_PROTECT(exp_specialmap)
 		var/datum/job/scaled_job = SSjob.GetJobType(index)
 		if(!(scaled_job in SSjob.active_joinable_occupations))
 			continue
-		scaled_job.add_job_points(-jobworth[index])
+		scaled_job.remove_job_points(jobworth[index])
 
+///Adds to job points, adding a new slot if threshold reached
 /datum/job/proc/add_job_points(amount)
 	job_points += amount
 	if(total_positions >= max_positions)
@@ -230,6 +232,17 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(job_points >= job_points_needed )
 		job_points -= job_points_needed
 		add_job_positions(1)
+
+///Removes job points, and if needed, job positions
+/datum/job/proc/remove_job_points(amount)
+	if(job_points_needed == INFINITY || total_positions == -1)
+		return
+	if(job_points >= amount)
+		job_points -= amount
+		return
+	var/job_slots_removed = ROUND_UP((amount - job_points) / job_points_needed)
+	remove_job_positions(job_slots_removed)
+	job_points += (job_slots_removed * job_points_needed) - amount
 
 /datum/job/proc/add_job_positions(amount)
 	if(!(job_flags & (JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE)))
@@ -322,7 +335,7 @@ GLOBAL_PROTECT(exp_specialmap)
 		else
 			equip_role_outfit(job)
 
-	if(SSdiscord.get_boosty_tier(player.ckey) >= BOOSTY_TIER_2)
+	if(SSdiscord.get_boosty_tier(player?.ckey) >= BOOSTY_TIER_2)
 		equip_to_slot_or_del(new /obj/item/facepaint/premium, SLOT_IN_BACKPACK)
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)

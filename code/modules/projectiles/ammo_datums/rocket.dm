@@ -4,7 +4,7 @@
 	hud_state = "rocket_he"
 	hud_state_empty = "rocket_empty"
 	ping = null //no bounce off.
-	sound_bounce = "rocket_bounce"
+	sound_bounce = SFX_ROCKET_BOUNCE
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
 	armor_type = BOMB
 	damage_falloff = 0
@@ -197,7 +197,7 @@
 
 /datum/ammo/rocket/wp/quad/som
 	name = "white phosphorous RPG"
-	hud_state = "rpg_fire"
+	hud_state = SFX_RPG_FIRE
 	icon_state = "rpg_incendiary"
 	flags_ammo_behavior = AMMO_SNIPER
 	effect_radius = 5
@@ -493,19 +493,19 @@
 /datum/ammo/rocket/atgun_shell/beehive/on_hit_mob(mob/M, obj/projectile/proj)
 	staggerstun(M, proj, slowdown = 0.2, knockback = 1)
 	drop_nade(get_turf(M))
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, M) )
 
 /datum/ammo/rocket/atgun_shell/beehive/on_hit_obj(obj/O, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, O) )
 
 /datum/ammo/rocket/atgun_shell/beehive/on_hit_turf(turf/T, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, T) )
 
 /datum/ammo/rocket/atgun_shell/beehive/do_at_max_range(turf/T, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 5, 3, Get_Angle(proj.firer, get_turf(proj)) )
 
 /datum/ammo/rocket/atgun_shell/beehive/incend

@@ -72,7 +72,7 @@
 
 //Pheromone towers start off with recovery.
 	current_aura = SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
-	playsound(src, "alien_drool", 25)
+	playsound(src, SFX_ALIEN_DROOL, 25)
 	update_icon()
 
 /obj/structure/xeno/pherotower/ex_act(severity)
@@ -92,7 +92,7 @@
 	QDEL_NULL(current_aura)
 	current_aura = SSaura.add_emitter(src, phero_choice, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
 	balloon_alert(xeno_attacker, "[phero_choice]")
-	playsound(src, "alien_drool", 25)
+	playsound(src, SFX_ALIEN_DROOL, 25)
 	update_icon()
 
 /obj/structure/xeno/pherotower/update_icon_state()
@@ -107,11 +107,3 @@
 		if(AURA_XENO_FRENZY)
 			icon_state = "frenzytower"
 			set_light(2, 2, LIGHT_COLOR_RED)
-
-/obj/structure/xeno/pherotower/crash
-	name = "Recovery tower"
-	resistance_flags = RESIST_ALL
-	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
-
-/obj/structure/xeno/pherotower/crash/attack_alien(isrightclick = FALSE)
-	return

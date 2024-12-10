@@ -151,7 +151,7 @@
 		qdel(src)
 		return
 	cell_explosion(plant_target, 95, 45, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL)
-	playsound(plant_target, sound(get_sfx("explosion_small")), 100, FALSE, 25)
+	playsound(plant_target, SFX_EXPLOSION_SMALL, 100, FALSE, 25)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
 	smoke.set_up(smokeradius, plant_target, 2)
 	smoke.start()
@@ -190,7 +190,7 @@
 		qdel(src)
 		return
 	new /obj/fire/flamer/autospread(flame_target, 17, 31)
-	playsound(plant_target, sound(get_sfx("explosion_small")), 100, FALSE, 25)
+	playsound(plant_target, SFX_EXPLOSION_SMALL, 100, FALSE, 25)
 	qdel(src)
 
 /obj/fire/flamer/autospread

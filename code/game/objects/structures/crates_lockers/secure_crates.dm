@@ -32,7 +32,6 @@
 /obj/structure/closet/crate/secure/can_open()
 	return !locked
 
-
 /obj/structure/closet/crate/secure/verb/verb_togglelock()
 	set src in oview(1) // One square distance
 	set category = "Object"
@@ -42,28 +41,30 @@
 		return
 	togglelock(usr)
 
-
 /obj/structure/closet/crate/secure/emp_act(severity)
 	for(var/obj/O in src)
 		O.emp_act(severity)
-	if(!broken && !opened  && prob(50/severity))
+	if(!broken && !opened  && prob(50 / severity))
 		if(!locked)
 			locked = 1
 		else
 			overlays.Cut()
 			overlays += sparks
-			spawn(6) overlays -= sparks //Tried lots of stuff but nothing works right. so i have to use this *sadface*
+			addtimer(CALLBACK(src, PROC_REF(clear_sparks)), 0.6 SECONDS)
 			playsound(src.loc, 'sound/effects/sparks4.ogg', 25, 1)
 			locked = 0
 		update_icon()
-	if(!opened && prob(20/severity))
+	if(!opened && prob(20 / severity))
 		if(!locked)
 			open()
 		else
 			req_access = list()
 			req_access += pick(ALL_ACCESS)
-	..()
+	return ..()
 
+/// Used in emp_act to clear sparks with delay
+/obj/structure/closet/crate/secure/proc/clear_sparks()
+	overlays -= sparks
 
 //------------------------------------
 //			Secure Crates

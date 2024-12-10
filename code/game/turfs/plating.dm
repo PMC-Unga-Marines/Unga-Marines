@@ -17,7 +17,7 @@
 /turf/open/floor/plating/make_plating()
 	return //we don't dig past plating
 
-/turf/open/floor/plating/fire_act(burn_level)
+/turf/open/floor/plating/fire_act(burn_level, flame_color)
 	if(hull_floor)
 		return
 	if(!burnt && prob(5))

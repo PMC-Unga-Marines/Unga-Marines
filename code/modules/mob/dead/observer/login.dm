@@ -35,18 +35,17 @@
 
 	for(var/path in subtypesof(/datum/action/observer_action))
 		if(!actions_by_path[path])
-			var/datum/action/observer_action/A = new path()
+			var/datum/action/observer_action/A = new path(src)
 			A.give_action(src)
 
 	client.AddComponent(/datum/component/larva_queue)
 
 	if(!actions_by_path[/datum/action/minimap/observer])
-		var/datum/action/minimap/observer/mini = new
+		var/datum/action/minimap/observer/mini = new(src)
 		mini.give_action(src)
 
 	if(length(GLOB.offered_mob_list))
 		to_chat(src, span_boldnotice("There's mobs available for taking! Ghost > Take Offered Mob"))
-//RUTGMC EDIT
+
 	if(SSticker.mode && SSticker.mode.flags_round_type & MODE_PREDATOR)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, "<span style='color: red;'>This is a <B>PREDATOR ROUND</B>! If you are whitelisted, you may Join the Hunt!</span>"), 2 SECONDS)
-//RUTGMC EDIT

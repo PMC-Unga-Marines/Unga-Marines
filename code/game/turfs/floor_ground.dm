@@ -11,7 +11,7 @@
 /turf/open/floor/plating/ground/burnt_states()
 	return icon_state
 
-/turf/open/floor/plating/ground/fire_act(burn_level)
+/turf/open/floor/plating/ground/fire_act(burn_level, flame_color)
 	return
 
 /turf/open/floor/plating/ground/dirt

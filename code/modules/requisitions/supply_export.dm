@@ -18,46 +18,46 @@
 	if(!.)
 		return FALSE
 
-	var/list/points = get_export_value()
-	GLOB.round_statistics.points_from_xenos += points[1]
+	var/points = get_export_value()
+	GLOB.round_statistics.points_from_xenos += points
 
-/atom/movable/proc/get_export_value()
-	return 0
+/atom/movable/proc/get_export_value(export_value = 0)
+	return export_value
 
-/mob/living/carbon/human/get_export_value()
+/mob/living/carbon/human/get_export_value(export_value)
 	if(!job)
-		return 0
+		return export_value
 	switch(job.job_category)
 		if(JOB_CAT_CIVILIAN)
-			. = 10
+			export_value = 10
 		if(JOB_CAT_ENGINEERING, JOB_CAT_MEDICAL, JOB_CAT_REQUISITIONS)
-			. = 150
+			export_value = 150
 		if(JOB_CAT_MARINE)
-			. = 100
+			export_value = 100
 		if(JOB_CAT_SILICON)
-			. = 800
+			export_value = 800
 		if(JOB_CAT_COMMAND)
-			. = 1000
-	return 0
+			export_value = 1000
+	return export_value
 
 /mob/living/carbon/human/species/yautja/get_export_value()
 	return 3000
 
-/mob/living/carbon/xenomorph/get_export_value()
+/mob/living/carbon/xenomorph/get_export_value(export_value)
 	switch(tier)
 		if(XENO_TIER_MINION)
-			. = 50
+			export_value = 50
 		if(XENO_TIER_ZERO)
-			. = 70
+			export_value = 70
 		if(XENO_TIER_ONE)
-			. = 150
+			export_value = 150
 		if(XENO_TIER_TWO)
-			. = 300
+			export_value = 300
 		if(XENO_TIER_THREE)
-			. = 500
+			export_value = 500
 		if(XENO_TIER_FOUR)
-			. = 1000
-	return
+			export_value = 1000
+	return export_value
 
 //I hate it but it's how it was so I'm not touching it further than this
 /mob/living/carbon/xenomorph/shrike/get_export_value()

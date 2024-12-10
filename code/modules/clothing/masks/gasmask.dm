@@ -31,7 +31,7 @@
 			var/mob/HM = M
 			if(HM?.client?.prefs?.toggles_sound & SOUND_GAS_MASK)
 				continue
-			HM.playsound_local(user, "gasbreath", 20, 1)
+			HM.playsound_local(user, SFX_GASBREATH, 20, 1)
 			TIMER_COOLDOWN_START(src, COOLDOWN_GAS_BREATH, 10 SECONDS)
 
 /obj/item/clothing/mask/gas/tactical
@@ -88,6 +88,12 @@
 	anti_hug = 1
 	siemens_coefficient = 0.7
 	flags_armor_protection = FACE|EYES
+
+/obj/item/clothing/mask/gas/swat/on_hugger_damage()
+	name = "\improper torn SWAT mask"
+	icon_state = "swat_torn"
+	update_clothing_icon()
+	playsound(src, 'sound/items/velpro_rip.ogg', 25)
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "syndicate mask"

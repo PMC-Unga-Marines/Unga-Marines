@@ -37,7 +37,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_THROW_HUGGER,
 	)
-	cooldown_duration = 3 SECONDS
+	cooldown_duration = 2 SECONDS
 
 /datum/action/ability/activable/xeno/throw_hugger/get_cooldown()
 	var/mob/living/carbon/xenomorph/carrier/caster = owner
@@ -135,7 +135,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	succeed_activate()
 
-	playsound(T, "alien_resin_build", 25)
+	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
 	GLOB.round_statistics.trap_holes++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "carrier_traps")
 	owner.record_traps_created()
@@ -150,7 +150,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	action_icon_state = "spawn_hugger"
 	desc = "Spawn a facehugger that is stored on your body."
 	ability_cost = 100
-	cooldown_duration = 10 SECONDS
+	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SPAWN_HUGGER,
 	)
@@ -347,10 +347,10 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 			to_chat(owner, span_xenowarning("No weeds here!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(owner))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/turret) || !T.check_disallow_alien_fortification(owner))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
+	for(var/obj/structure/xeno/turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
 		if(get_dist(turret, owner) < 6)
 			if(!silent)
 				to_chat(owner, span_xenowarning("Another turret is too close!"))
@@ -364,7 +364,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		return FALSE
 
 	var/mob/living/carbon/xenomorph/carrier/caster = owner
-	var/obj/structure/xeno/xeno_turret/hugger_turret/turret = new (get_turf(owner), caster.hivenumber)
+	var/obj/structure/xeno/turret/facehugger/turret = new (get_turf(owner), caster.hivenumber)
 	turret.ammo = GLOB.ammo_list[GLOB.hugger_to_ammo[caster.selected_hugger_type]]
 	succeed_activate()
 	add_cooldown()
@@ -378,7 +378,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	action_icon_state = "call_younger"
 	desc = "Appeals to the larva inside the Marine. The Marine loses his balance, and larva's progress accelerates."
 	ability_cost = 150
-	cooldown_duration = 20 SECONDS
+	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CALL_YOUNGER,
 	)
@@ -454,5 +454,58 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		else if(young.stage == 6)
 			victim.throw_at(owner, 4, 1, owner)
 
+	succeed_activate()
+	add_cooldown()
+
+// ***************************************
+// *********** Build nest
+// ***************************************
+
+/datum/action/ability/xeno_action/build_nest
+	name = "Build nest"
+	action_icon_state = ALIEN_NEST
+	desc = "Build nest for host"
+	ability_cost = 200
+	cooldown_duration = 20 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SECRETE_RESIN,
+	)
+
+/datum/action/ability/xeno_action/build_nest/can_use_action(silent, override_flags)
+	. = ..()
+	var/turf/T = get_turf(owner)
+	var/mob/living/carbon/xenomorph/blocker = locate() in T
+	if(blocker && blocker != owner && blocker.stat != DEAD)
+		if(!silent)
+			to_chat(owner, span_xenowarning("You cannot build with [blocker] in the way!"))
+		return FALSE
+
+	if(!T.is_weedable())
+		return FALSE
+
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+	if(!owner_xeno.loc_weeds_type)
+		if(!silent)
+			to_chat(owner, span_xenowarning("No weeds here!"))
+		return FALSE
+
+	if(!T.check_alien_construction(owner, silent, /obj/structure/bed/nest) || !T.check_disallow_alien_fortification(owner))
+		return FALSE
+
+/datum/action/ability/xeno_action/build_nest/action_activate()
+
+	var/turf/T = get_turf(owner)
+	for(var/obj/structure/bed/nest/nest in range(2, T))
+		owner.balloon_alert(owner, "Another nest too close!")
+		return FALSE
+
+	if(!do_after(owner, 2 SECONDS, NONE, owner, BUSY_ICON_BUILD))
+		return FALSE
+
+	if(!can_use_action())
+		return FALSE
+
+	new /obj/structure/bed/nest(T)
+	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
 	succeed_activate()
 	add_cooldown()
