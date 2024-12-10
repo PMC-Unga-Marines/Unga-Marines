@@ -120,7 +120,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	///only used by lace, denotes whether the lace is currently deployed
 	var/lace_deployed = FALSE
 
-
 	///what ability to give the user when attached to a weapon they are holding.
 	var/attachment_action_type
 	///used for the codex to denote if a weapon has the ability to zoom in or not.

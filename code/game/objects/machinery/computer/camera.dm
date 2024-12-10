@@ -1,3 +1,5 @@
+#define DEFAULT_MAP_SIZE 15
+
 /obj/machinery/computer/camera
 	name = "security camera console"
 	desc = "Used to access the various cameras on the station."
@@ -15,7 +17,6 @@
 
 	// Stuff needed to render the map
 	var/map_name
-	var/const/default_map_size = 15
 	var/atom/movable/screen/map_view/cam_screen
 	/// All the plane masters that need to be applied.
 	var/list/cam_plane_masters
@@ -51,9 +52,9 @@
 	cam_background.del_on_map_removal = FALSE
 
 /obj/machinery/computer/camera/Destroy()
-	qdel(cam_screen)
+	QDEL_NULL(cam_screen)
 	QDEL_LIST(cam_plane_masters)
-	qdel(cam_background)
+	QDEL_NULL(cam_background)
 	return ..()
 
 /obj/machinery/computer/camera/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
@@ -157,7 +158,7 @@
 /obj/machinery/computer/camera/proc/show_camera_static()
 	cam_screen.vis_contents.Cut()
 	cam_background.icon_state = "scanline2"
-	cam_background.fill_rect(1, 1, default_map_size, default_map_size)
+	cam_background.fill_rect(1, 1, DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE)
 
 // Returns the list of cameras accessible from this computer
 /obj/machinery/computer/camera/proc/get_available_cameras()
@@ -177,3 +178,5 @@
 		if(length(tempnetwork))
 			valid_cams["[C.c_tag]"] = C
 	return valid_cams
+
+#undef DEFAULT_MAP_SIZE

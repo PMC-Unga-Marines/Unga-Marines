@@ -70,7 +70,7 @@
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "phero", ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
 	GLOB.hive_datums[hivenumber].pherotowers += src
 
-//Pheromone towers start off with recovery.
+	//Pheromone towers start off with recovery.
 	current_aura = SSaura.add_emitter(src, AURA_XENO_RECOVERY, aura_radius, aura_strength, -1, FACTION_XENO, hivenumber)
 	playsound(src, SFX_ALIEN_DROOL, 25)
 	update_icon()
@@ -80,6 +80,7 @@
 
 /obj/structure/xeno/pherotower/Destroy()
 	GLOB.hive_datums[hivenumber].pherotowers -= src
+	QDEL_NULL(current_aura)
 	return ..()
 
 // Clicking on the tower brings up a radial menu that allows you to select the type of pheromone that this tower will emit.

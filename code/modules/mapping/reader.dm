@@ -335,7 +335,7 @@
 		first_turf_index++
 
 	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin()
+	SSatoms.map_loader_begin(REF(src))
 	//instanciate the first /turf
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
@@ -354,7 +354,7 @@
 	for(index in 1 to first_turf_index-1)
 		instance_atom(members[index], members_attributes[index], crds, no_changeturf, placeOnTop, delete)
 	//Restore initialization to the previous value
-	SSatoms.map_loader_stop()
+	SSatoms.map_loader_stop(REF(src))
 
 ////////////////
 //Helpers procs
@@ -384,9 +384,9 @@
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
 	if(TICK_CHECK)
-		SSatoms.map_loader_stop()
+		SSatoms.map_loader_stop(REF(src))
 		stoplag()
-		SSatoms.map_loader_begin()
+		SSatoms.map_loader_begin(REF(src))
 
 /datum/parsed_map/proc/create_atom(path, crds)
 	set waitfor = FALSE
