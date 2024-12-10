@@ -1,3 +1,7 @@
+#define STAGE_ONE_BLOODTHIRST 100
+#define STAGE_TWO_BLOODTHIRST 300
+#define STAGE_THREE_BLOODTHIRST 400
+
 // ***************************************
 // *********** Charge
 // ***************************************
@@ -12,6 +16,9 @@
 	)
 	///charge distance
 	var/charge_range = RAV_CHARGEDISTANCE
+
+/datum/action/ability/activable/xeno/charge/nocost
+	ability_cost = 0
 
 /datum/action/ability/activable/xeno/charge/use_ability(atom/A)
 	if(!A)
@@ -28,7 +35,14 @@
 	X.xeno_flags |= XENO_LEAPING //This has to come before throw_at, which checks impact. So we don't do end-charge specials when thrown
 	succeed_activate()
 
-	X.throw_at(A, charge_range, RAV_CHARGESPEED, X)
+	var/multiplier = 1
+	if(HAS_TRAIT(owner, TRAIT_BLOODTHIRSTER))
+		if(X.plasma_stored >= STAGE_TWO_BLOODTHIRST)
+			multiplier += 0.5
+			if(X.plasma_stored >= STAGE_THREE_BLOODTHIRST)
+				multiplier += 0.5
+
+	X.throw_at(A, charge_range*multiplier, RAV_CHARGESPEED*multiplier, X)
 
 	add_cooldown()
 
@@ -71,7 +85,13 @@
 		return
 
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 0.25, FALSE, TRUE, FALSE, TRUE, INTENT_HARM) //Location is always random, cannot crit, harm only
+	var/multiplier = 1
+	if(HAS_TRAIT(xeno_owner, TRAIT_BLOODTHIRSTER))
+		if(xeno_owner.plasma_stored >= STAGE_TWO_BLOODTHIRST)
+			multiplier++
+			if(xeno_owner.plasma_stored >= STAGE_THREE_BLOODTHIRST)
+				multiplier++
+	living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 0.25 * multiplier, FALSE, TRUE, FALSE, TRUE, INTENT_HARM) //Location is always random, cannot crit, harm only
 	var/target_turf = get_ranged_target_turf(living_target, get_dir(src, living_target), rand(1, 3)) //we blast our victim behind us
 	target_turf = get_step_rand(target_turf) //Scatter
 	if(iscarbon(living_target))
@@ -103,6 +123,9 @@
 	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
 	var/obj/effect/abstract/particle_holder/particle_holder
 
+/datum/action/ability/activable/xeno/ravage/nocost
+	ability_cost = 0
+
 /datum/action/ability/activable/xeno/ravage/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to Ravage again."))
 	playsound(owner, "sound/effects/alien/newlarva.ogg", 50, 0, 1)
@@ -121,11 +144,26 @@
 	var/list/atom/movable/atoms_to_ravage = get_step(owner, owner.dir).contents.Copy()
 	atoms_to_ravage += get_step(owner, turn(owner.dir, -45)).contents
 	atoms_to_ravage += get_step(owner, turn(owner.dir, 45)).contents
+	///actual target we will check adjacency with
+	var/atom/adjacent_relative = X
+	if(HAS_TRAIT(owner, TRAIT_BLOODTHIRSTER))
+		if(X.plasma_stored >= STAGE_TWO_BLOODTHIRST)
+			var/turf/far = get_step(get_step(owner, owner.dir), owner.dir)
+			atoms_to_ravage += far.contents
+			atoms_to_ravage += get_step(far, turn(owner.dir, 90)).contents
+			atoms_to_ravage += get_step(far, turn(owner.dir, -90)).contents
+			var/turf/test = get_step(owner, owner.dir)
+			if(X.plasma_stored >= STAGE_THREE_BLOODTHIRST && test.Adjacent(far))
+				adjacent_relative = far
+				var/turf/furthest = get_step(far, owner.dir)
+				atoms_to_ravage += furthest.contents
+				atoms_to_ravage += get_step(furthest, turn(owner.dir, 90)).contents
+				atoms_to_ravage += get_step(furthest, turn(owner.dir, -90)).contents
 	for(var/atom/movable/ravaged AS in atoms_to_ravage)
 		if(ishitbox(ravaged) || isvehicle(ravaged))
 			ravaged.attack_alien(X, X.xeno_caste.melee_damage) //Handles APC/Tank stuff. Has to be before the !ishuman check or else ravage does work properly on vehicles.
 			continue
-		if(!(ravaged.resistance_flags & XENO_DAMAGEABLE) || !X.Adjacent(ravaged))
+		if(!(ravaged.resistance_flags & XENO_DAMAGEABLE) || !adjacent_relative.Adjacent(ravaged))
 			continue
 		if(!ishuman(ravaged))
 			ravaged.attack_alien(X, X.xeno_caste.melee_damage)
@@ -208,6 +246,9 @@
 	var/endure_duration
 	///Timer for Endure's warning
 	var/endure_warning_duration
+
+/datum/action/ability/xeno_action/endure/nocost
+	ability_cost = 0
 
 /datum/action/ability/xeno_action/endure/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We feel able to imbue ourselves with plasma to Endure once again!"))
@@ -438,3 +479,279 @@
 
 	to_chat(owner,span_highdanger("We are now mortal again."))
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
+
+// ***************************************
+// *********** Rage
+// ***************************************
+/datum/action/ability/xeno_action/rage
+	name = "Rage"
+	action_icon_state = "rage"
+	desc = "Use while at 50% health or lower to gain extra slash damage, resistances and speed in proportion to your missing hit points. This bonus is increased and you regain plasma while your HP is negative."
+	ability_cost = 0 //We're limited by cooldowns, not plasma
+	cooldown_duration = 60 SECONDS
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RAGE,
+	)
+	///Determines the power of Rage's many effects. Power scales inversely with the Ravager's HP; min 0.25 at 50% of Max HP, max 1 while in negative HP. 0.5 and above triggers especial effects.
+	var/rage_power
+	///Determines the Sunder to impose when Rage ends
+	//var/rage_sunder RU TGMC EDIT
+	///Determines the Plasma to remove when Rage ends
+	var/rage_plasma
+
+/datum/action/ability/xeno_action/rage/nocost
+	ability_cost = 0
+
+/datum/action/ability/xeno_action/rage/on_cooldown_finish()
+	to_chat(owner, span_xenodanger("We are able to enter our rage once again."))
+	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
+	return ..()
+/datum/action/ability/xeno_action/rage/can_use_action(atom/A, silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/mob/living/carbon/xenomorph/rager = owner
+	if(rager.health > rager.maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD) //Need to be at 50% of max hp or lower to rage
+		if(!silent)
+			to_chat(rager, span_xenodanger("Our health isn't low enough to rage! We must take [rager.health - (rager.maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)] more damage!"))
+		return FALSE
+/datum/action/ability/xeno_action/rage/action_activate()
+	var/mob/living/carbon/xenomorph/X = owner
+	rage_power = (1-(X.health/X.maxHealth)) * RAVAGER_RAGE_POWER_MULTIPLIER //Calculate the power of our rage; scales with difference between current and max HP
+	if(X.health < 0) //If we're at less than 0 HP, it's time to max rage.
+		rage_power = 1 //RU TGMC EDIT
+	var/rage_power_radius = CEILING(rage_power * 3, 1) //Define radius of the SFX RU TGMC EDIT
+	X.visible_message(span_danger("\The [X] becomes frenzied, bellowing with a shuddering roar!"), \
+	span_highdanger("We bellow as our fury overtakes us! RIP AND TEAR!"))
+	X.do_jitter_animation(1000)
+	//Roar SFX; volume scales with rage
+	playsound(X.loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
+	var/bonus_duration
+	if(rage_power >= RAVAGER_RAGE_SUPER_RAGE_THRESHOLD) //If we're super pissed it's time to get crazy
+		var/datum/action/ability/xeno_action/charge = X.actions_by_path[/datum/action/ability/activable/xeno/charge]
+		var/datum/action/ability/xeno_action/ravage = X.actions_by_path[/datum/action/ability/activable/xeno/ravage]
+		var/datum/action/ability/xeno_action/endure/endure_ability = X.actions_by_path[/datum/action/ability/xeno_action/endure]
+		if(endure_ability.endure_duration) //Check if Endure is active
+			endure_ability.endure_threshold = RAVAGER_ENDURE_HP_LIMIT * (1 + rage_power) //Endure crit threshold scales with Rage Power; min -100, max -150
+		if(charge)
+			charge.clear_cooldown() //Reset charge cooldown
+		if(ravage)
+			ravage.clear_cooldown() //Reset ravage cooldown
+		RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
+	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius / 2, X.loc))
+		affected_tiles.Shake(duration = 1 SECONDS) //SFX
+	for(var/mob/living/affected_mob in cheap_get_humans_near(X, rage_power_radius) + cheap_get_xenos_near(X, rage_power_radius)) //Roar that applies cool SFX
+		if(affected_mob.stat || affected_mob == X) //We don't care about the dead/unconsious
+			continue
+		shake_camera(affected_mob, 1 SECONDS, 1)
+		affected_mob.Shake(duration = 1 SECONDS) //SFX
+		if(rage_power >= RAVAGER_RAGE_SUPER_RAGE_THRESHOLD) //If we're super pissed it's time to get crazy
+			var/atom/movable/screen/plane_master/floor/OT = affected_mob.hud_used.plane_masters["[FLOOR_PLANE]"]
+			var/atom/movable/screen/plane_master/game_world/GW = affected_mob.hud_used.plane_masters["[GAME_PLANE]"]
+			addtimer(CALLBACK(OT, TYPE_PROC_REF(/atom, remove_filter), "rage_outcry"), 1 SECONDS)
+			GW.add_filter("rage_outcry", 2, radial_blur_filter(0.07))
+			animate(GW.get_filter("rage_outcry"), size = 0.12, time = 5, loop = -1)
+			OT.add_filter("rage_outcry", 2, radial_blur_filter(0.07))
+			animate(OT.get_filter("rage_outcry"), size = 0.12, time = 5, loop = -1)
+			addtimer(CALLBACK(GW, TYPE_PROC_REF(/atom, remove_filter), "rage_outcry"), 1 SECONDS)
+
+	var/multiplier = 1
+	if(HAS_TRAIT(owner, TRAIT_BLOODTHIRSTER))
+		if(X.plasma_stored >= STAGE_TWO_BLOODTHIRST)
+			multiplier++
+			if(X.plasma_stored >= STAGE_THREE_BLOODTHIRST)
+				multiplier++
+
+	X.add_filter("ravager_rage_outline", 5, outline_filter(1.5, COLOR_RED)) //Set our cool aura; also confirmation we have the buff
+
+	rage_plasma = min(X.xeno_caste.plasma_max - X.plasma_stored, X.xeno_caste.plasma_max * rage_power) //Calculate the plasma to restore (and take away later)
+	X.plasma_stored += rage_plasma //Regain a % of our maximum plasma scaling with rage
+/* RU TGMC EDIT
+	rage_sunder = min(X.sunder, rage_power * 100) //Set our temporary Sunder recovery
+	X.adjust_sunder(-1 * rage_sunder) //Restores up to 50 Sunder temporarily.
+RU TGMC EDIT */
+
+	X.xeno_melee_damage_modifier += rage_power  //Set rage melee damage bonus
+	X.add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, X.xeno_caste.speed * (0.5 * multiplier * rage_power)) //Set rage speed bonus
+
+	//Too angry to be stunned/slowed/staggered/knocked down
+	ADD_TRAIT(X, TRAIT_STUNIMMUNE, RAGE_TRAIT)
+	ADD_TRAIT(X, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
+	ADD_TRAIT(X, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
+	addtimer(CALLBACK(src, PROC_REF(rage_warning), bonus_duration), (RAVAGER_RAGE_DURATION + bonus_duration) * RAVAGER_RAGE_WARNING) //Warn the ravager when rage is about to expire.
+	addtimer(CALLBACK(src, PROC_REF(rage_deactivate)), (RAVAGER_RAGE_DURATION + bonus_duration))
+	succeed_activate()
+	add_cooldown()
+	GLOB.round_statistics.ravager_rages++ //Statistics
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "ravager_rages")
+///Warns the user when his rage is about to end.
+/datum/action/ability/xeno_action/rage/proc/rage_warning(bonus_duration = 0)
+	if(QDELETED(owner))
+		return
+	to_chat(owner,span_highdanger("Our rage begins to subside... [initial(name)] will only last for only [(RAVAGER_RAGE_DURATION + bonus_duration) * (1-RAVAGER_RAGE_WARNING) * 0.1] more seconds!"))
+	owner.playsound_local(owner, 'sound/voice/alien/hiss4.ogg', 50, 0, 1)
+///Warns the user when his rage is about to end.
+/datum/action/ability/xeno_action/rage/proc/drain_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
+	SIGNAL_HANDLER
+	var/mob/living/rager = owner
+	var/brute_damage = rager.getBruteLoss()
+	var/burn_damage = rager.getFireLoss()
+	if(!brute_damage && !burn_damage) //If we have no healable damage, don't bother proceeding
+		return
+	var/health_recovery = clamp(rage_power, 0, 0.5)  * damage //Amount of health we leech per slash //RU TGMC EDIT
+	var/health_modifier
+	if(brute_damage) //First heal Brute damage, then heal Burn damage with remainder
+		health_modifier = min(brute_damage, health_recovery)*-1 //Get the lower of our Brute Loss or the health we're leeching
+		rager.adjustBruteLoss(health_modifier)
+		health_recovery += health_modifier //Decrement the amount healed from our total healing pool
+	if(burn_damage)
+		health_modifier = min(burn_damage, health_recovery)*-1
+		rager.adjustFireLoss(health_modifier)
+	var/datum/action/ability/xeno_action/endure/endure_ability = rager.actions_by_path[/datum/action/ability/xeno_action/endure]
+	if(endure_ability.endure_duration) //Check if Endure is active
+		var/new_duration = min(RAVAGER_ENDURE_DURATION, (timeleft(endure_ability.endure_duration) + RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH)) //Increment Endure duration by 2 seconds per slash
+		deltimer(endure_ability.endure_duration) //Reset timers
+		deltimer(endure_ability.endure_warning_duration)
+		endure_ability.endure_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_deactivate)), new_duration, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE) //Reset Endure timers if active
+		if(new_duration > 3 SECONDS) //Check timing
+			endure_ability.endure_warning_duration = addtimer(CALLBACK(endure_ability, TYPE_PROC_REF(/datum/action/ability/xeno_action/endure, endure_warning)), new_duration - 3 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE) //Reset Endure timers if active
+///Called when we want to end the Rage effect
+/datum/action/ability/xeno_action/rage/proc/rage_deactivate()
+	if(QDELETED(owner))
+		return
+	var/mob/living/carbon/xenomorph/X = owner
+	X.do_jitter_animation(1000)
+	X.remove_filter("ravager_rage_outline")
+	X.visible_message(span_warning("[X] seems to calm down."), \
+	span_highdanger("Our rage subsides and its power leaves our body, leaving us exhausted."))
+	X.xeno_melee_damage_modifier = initial(X.xeno_melee_damage_modifier) //Reset rage melee damage bonus
+	X.remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE) //Reset speed
+	//X.adjust_sunder(rage_sunder) //Remove the temporary Sunder restoration //RU TGMC EDIT
+	X.use_plasma(rage_plasma) //Remove the temporary Plasma
+	REMOVE_TRAIT(X, TRAIT_STUNIMMUNE, RAGE_TRAIT)
+	REMOVE_TRAIT(X, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
+	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
+	UnregisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING)
+	//rage_sunder = 0 //RU TGMC EDIT
+	rage_power = 0
+	rage_plasma = 0
+	X.playsound_local(X, 'sound/voice/alien/hiss5.ogg', 50) //Audio cue
+
+
+
+#define BLOODTHIRST_DECAY_PER_TICK 30
+#define LOWEST_BLOODTHIRST_HP_ALLOWED 100
+#define MAX_DAMAGE_PER_DISINTEGRATING 25
+
+/datum/action/ability/xeno_action/bloodthirst
+	name = "bloodthirst"
+	///tick time of last time we attacked a human
+	var/last_fight_time
+	///time when we last hit 0 bloodthirst/plasma
+	var/hit_zero_time
+	/// delay until decaying starts
+	var/decay_delay = 30 SECONDS
+	///once bloodthirst hits 0 how long
+	var/damage_delay = 30 SECONDS
+	///used to track if effects played for disintegration start
+	var/disintegrating = FALSE
+
+/datum/action/ability/xeno_action/bloodthirst/give_action(mob/living/L)
+	. = ..()
+	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
+	RegisterSignal(L, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(on_take_damage))
+	ADD_TRAIT(L, TRAIT_BLOODTHIRSTER, TRAIT_GENERIC)
+	START_PROCESSING(SSprocessing, src)
+	last_fight_time = world.time
+
+/datum/action/ability/xeno_action/bloodthirst/remove_action(mob/living/L)
+	. = ..()
+	REMOVE_TRAIT(L, TRAIT_BLOODTHIRSTER, TRAIT_GENERIC)
+	UnregisterSignal(L, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_TAKING_DAMAGE))
+	STOP_PROCESSING(SSprocessing, src)
+
+/// sig handler to track attacks for bloodthirst
+/datum/action/ability/xeno_action/bloodthirst/proc/on_attack(datum/source, mob/living/attacked, damage)
+	SIGNAL_HANDLER
+	if(!ishuman(attacked) || attacked.stat == DEAD)
+		return
+	last_fight_time = world.time
+
+///sig handler to track last attacked for bloodthirst
+/datum/action/ability/xeno_action/bloodthirst/proc/on_take_damage(datum/source, damage)
+	SIGNAL_HANDLER
+	last_fight_time = world.time
+
+/datum/action/ability/xeno_action/bloodthirst/process()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(!last_fight_time) // you may live until first attack happens
+		return
+	if(last_fight_time + decay_delay > world.time)
+		return
+	if(xeno.use_plasma(BLOODTHIRST_DECAY_PER_TICK))
+		disintegrating = FALSE
+		return
+	if(!disintegrating)
+		hit_zero_time = world.time
+		owner.balloon_alert(owner, "disintegrating...")
+		xeno.playsound_local(xeno, 'sound/voice/alien/hiss5.ogg', 50)
+		disintegrating = TRUE
+		return
+	if((hit_zero_time + damage_delay) < world.time)
+		//take  damage per tick down to a minimum allowed hp
+		var/damage_taken = min(MAX_DAMAGE_PER_DISINTEGRATING, (xeno.health - xeno.health_threshold_crit - LOWEST_BLOODTHIRST_HP_ALLOWED))
+		xeno.take_overall_damage(damage_taken)
+
+
+#define DEATHMARK_DAMAGE_OR_DIE 400
+#define DEATHMARK_DURATION 40 SECONDS
+#define DEATHMARK_MESSAGE_COOLDOWN 2 SECONDS
+
+/datum/action/ability/xeno_action/deathmark
+	name = "deathmark"
+	action_icon_state = "deathmark"
+	desc = "Mark yourself for death, filling your bloodthirst, but failing to deal enough damage to living creatures while it is active instantly kills you."
+	cooldown_duration = DEATHMARK_DURATION*3
+	COOLDOWN_DECLARE(message_cooldown)
+	//tracker for damage dealt during deathmark
+	var/damage_dealt = 0
+
+/datum/action/ability/xeno_action/deathmark/action_activate()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	addtimer(CALLBACK(src, PROC_REF(on_deathmark_expire)), DEATHMARK_DURATION)
+
+	xeno.overlays_standing[SUIT_LAYER] = image('icons/Xeno/64x64_Xeno_overlays.dmi', icon_state = "deathmark")
+	xeno.apply_temp_overlay(SUIT_LAYER, DEATHMARK_DURATION)
+
+	RegisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
+	damage_dealt = 0
+	xeno.use_plasma(-xeno.xeno_caste.plasma_max) // fill it to the max so they can kill better
+	xeno.add_movespeed_modifier(MOVESPEED_ID_RAVAGER_DEATHMARK, TRUE, 0, NONE, TRUE, -1.5) //Extra speed so they can get to where to kill better
+	xeno.emote("roar")
+	add_cooldown()
+
+/// on attack for deathmark, tracks the amount of dmg dealt
+/datum/action/ability/xeno_action/deathmark/proc/on_attack(datum/source, mob/living/attacked, damage)
+	if(!ishuman(attacked) || attacked.stat == DEAD)
+		return
+	damage_dealt += damage
+	if(COOLDOWN_CHECK(src, message_cooldown))
+		var/percent_dealt = round((damage_dealt/DEATHMARK_DAMAGE_OR_DIE)*100)
+		owner.balloon_alert(owner, "[percent_dealt]%")
+		COOLDOWN_START(src, message_cooldown, DEATHMARK_MESSAGE_COOLDOWN)
+
+/// on expire after the timer, execute the owner if they gambled bad
+/datum/action/ability/xeno_action/deathmark/proc/on_deathmark_expire()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	UnregisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING)
+	xeno.remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_DEATHMARK)
+	if(damage_dealt < DEATHMARK_DAMAGE_OR_DIE)
+		to_chat(owner, span_highdanger("THE QUEEN MOTHER IS DISPLEASED WITH YOUR PERFORMANCE ([damage_dealt]/[DEATHMARK_DAMAGE_OR_DIE]). DEATH COMES TO TAKE ITS DUE."))
+		xeno.take_overall_damage(999)
+		var/turf/balloonloc = get_turf(xeno)
+		balloonloc.balloon_alert_to_viewers("JUDGEMENT")
+		return
+	xeno.playsound_local(xeno, 'sound/voice/alien/hiss5.ogg', 50)
+	to_chat(owner, span_highdanger("THE QUEEN MOTHER IS PLEASED WITH YOUR PERFORMANCE ([damage_dealt]/[DEATHMARK_DAMAGE_OR_DIE])."))
+	owner.balloon_alert(owner, "deathmark expired")
