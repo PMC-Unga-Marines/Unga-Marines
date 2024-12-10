@@ -6,7 +6,7 @@
 /area/prison/command/office)
 "aab" = (
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "aac" = (
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/prison/darkred{
@@ -211,7 +211,7 @@
 	teleport_z_offset = 4
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "acE" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
@@ -657,7 +657,7 @@
 "adO" = (
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "adP" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 8
@@ -969,7 +969,7 @@
 	dir = 8
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "aeK" = (
 /obj/structure/bed,
 /turf/open/floor/prison/plate,
@@ -4179,7 +4179,7 @@
 "aoj" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "aok" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -4948,7 +4948,7 @@
 	dir = 1
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "aqL" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -20137,7 +20137,7 @@
 /obj/structure/lattice,
 /obj/structure/grille/smoothing,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bkr" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -22847,7 +22847,7 @@
 /obj/structure/monorail,
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bte" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -25088,7 +25088,7 @@
 	dir = 2
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bAQ" = (
 /obj/machinery/air_alarm,
 /turf/open/floor/prison/bright_clean,
@@ -25863,7 +25863,7 @@
 "bDE" = (
 /obj/structure/monorail,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bDF" = (
 /obj/machinery/light{
 	dir = 4
@@ -29512,7 +29512,7 @@
 	dir = 6
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bPl" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/red{
@@ -29897,13 +29897,13 @@
 	dir = 9
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bQD" = (
 /obj/structure/monorail{
 	dir = 5
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bQE" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/prison/sterilewhite,
@@ -30884,7 +30884,7 @@
 	dir = 10
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "bUh" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -31433,7 +31433,7 @@
 /area/prison/engineering/atmos)
 "bWl" = (
 /turf/closed/mineral/smooth/indestructible,
-/area/space)
+/area/template_noop)
 "bWm" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	on = 1
@@ -33324,7 +33324,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "ccA" = (
 /obj/structure/sink{
 	dir = 4
@@ -36920,7 +36920,7 @@
 	dir = 4
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "cnE" = (
 /obj/machinery/light{
 	dir = 8
@@ -38243,7 +38243,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "cst" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4;
@@ -38598,7 +38598,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "ctz" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 8
@@ -38731,7 +38731,7 @@
 "cuf" = (
 /obj/item/stack/sheet/metal,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "cug" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 8
@@ -40275,7 +40275,7 @@
 	dir = 2
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
-/area/space)
+/area/template_noop)
 "cFx" = (
 /obj/structure/stairs/seamless{
 	dir = 8
@@ -40634,7 +40634,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "dsK" = (
 /obj/machinery/camera/autoname/lz_camera,
 /turf/open/floor/plating/icefloor/warnplate{
@@ -41607,12 +41607,12 @@
 /obj/structure/lattice,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "fva" = (
 /obj/item/stack/rods,
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "fvF" = (
 /obj/machinery/flasher{
 	id = "suspended_WES"
@@ -42474,7 +42474,7 @@
 	},
 /obj/item/stack/rods,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "hpX" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -42909,7 +42909,7 @@
 /area/prison/security/checkpoint/vip)
 "ikz" = (
 /turf/open/floor/plating,
-/area/space)
+/area/template_noop)
 "ikQ" = (
 /turf/open/floor/prison/darkred{
 	dir = 4
@@ -43139,7 +43139,7 @@
 	dir = 2
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "iHZ" = (
 /turf/open/floor/prison/yellow{
 	dir = 4
@@ -43159,7 +43159,7 @@
 "iLv" = (
 /obj/item/stack/rods,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "iLT" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -43281,7 +43281,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "iXP" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -45574,7 +45574,7 @@
 	},
 /obj/item/stack/rods,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "nFe" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -45868,7 +45868,7 @@
 /area/prison/command/secretary_office)
 "ogg" = (
 /turf/closed/wall/r_wall/prison_unmeltable,
-/area/space)
+/area/template_noop)
 "ogM" = (
 /obj/effect/attach_point/electronics/dropship1,
 /turf/open/floor/plating,
@@ -46709,7 +46709,7 @@
 "pWB" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "pWR" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/excavation_site_spawner,
@@ -47751,7 +47751,7 @@
 	dir = 2
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "rLp" = (
 /obj/effect/spawner/random/engineering/structure/tank/waterweighted,
 /turf/open/floor/prison/kitchen,
@@ -48722,7 +48722,7 @@
 	name = "Civilian Hangar Door"
 	},
 /turf/open/floor/plating,
-/area/space)
+/area/template_noop)
 "tKA" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/plushie,
@@ -49271,7 +49271,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "uUB" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -49477,7 +49477,7 @@
 	dir = 2
 	},
 /turf/open/space/sea,
-/area/space)
+/area/template_noop)
 "vsx" = (
 /turf/open/floor/prison,
 /area/prison/hangar_storage/research)
