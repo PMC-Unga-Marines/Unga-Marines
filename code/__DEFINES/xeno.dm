@@ -34,6 +34,7 @@
 #define DEFILER_TRANSVITOX "Transvitox"
 #define DEFILER_OZELOMELYN "Ozelomelyn"
 #define DEFILER_ACID "Sulphuric acid"
+#define DEFILER_SANGUINAL "Sanguinal"
 
 //Panther tearing tail reagents
 #define PANTHER_HEMODILE "Hemodile"
