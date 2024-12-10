@@ -24,15 +24,18 @@
 	var/rage = FALSE
 	var/staggerstun_immune = FALSE
 	var/on_cooldown = FALSE
+	var/autorage = TRUE
 
 /mob/living/carbon/xenomorph/ravager/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
-	RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
+	if(autorage)
+		RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
 
 /mob/living/carbon/xenomorph/ravager/Life()
 	. = ..()
-	update_rage()
+	if(autorage)
+		update_rage()
 
 /mob/living/carbon/xenomorph/ravager/proc/update_rage()
 	if(health > maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
@@ -136,6 +139,7 @@
 	icon = 'icons/Xeno/castes/ravager/bloodthirster.dmi'
 	caste_base_type = /datum/xeno_caste/ravager/bloodthirster
 	skins = null
+	autorage = FALSE
 
 /mob/living/carbon/xenomorph/ravager/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]

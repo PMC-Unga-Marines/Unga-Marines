@@ -646,6 +646,8 @@ RU TGMC EDIT */
 
 /datum/action/ability/xeno_action/bloodthirst
 	name = "bloodthirst"
+	desc = "bring them death."
+	hidden = TRUE
 	///tick time of last time we attacked a human
 	var/last_fight_time
 	///time when we last hit 0 bloodthirst/plasma
