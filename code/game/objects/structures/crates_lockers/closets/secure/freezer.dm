@@ -53,11 +53,11 @@
 /obj/structure/closet/secure_closet/freezer/money/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to 3)
-		new /obj/item/spacecash/c500(src)
+		new /obj/item/spacecash/bundle/c500(src)
 	for(var/i in 1 to 5)
-		new /obj/item/spacecash/c200(src)
+		new /obj/item/spacecash/bundle/c200(src)
 	for(var/i in 1 to 6)
-		new /obj/item/spacecash/c100(src)
+		new /obj/item/spacecash/bundle/c100(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/yautja
 	req_access = null

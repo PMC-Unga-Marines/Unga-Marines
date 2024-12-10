@@ -3423,7 +3423,7 @@
 /obj/structure/table/reinforced/flipped{
 	dir = 1
 	},
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c200{
 	pixel_y = 4
 	},
 /turf/open/floor/prison/blackfloor,
@@ -3644,13 +3644,16 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/slumbridge/outside/northeast/bridges)
 "cJw" = (
-/obj/item/spacecash/c20{
-	pixel_x = 11;
-	pixel_y = -8
-	},
 /obj/item/shard{
 	pixel_x = -6;
 	pixel_y = 6
+	},
+/obj/item/spacecash/bundle/c10{
+	pixel_x = 6
+	},
+/obj/item/spacecash/bundle/c10{
+	pixel_x = 11;
+	pixel_y = -8
 	},
 /turf/open/floor/prison/blackfloor,
 /area/slumbridge/inside/colony/vault)
@@ -5130,7 +5133,10 @@
 /turf/open/lavaland/catwalk,
 /area/slumbridge/inside/prison/outerringsouth)
 "dSm" = (
-/obj/item/spacecash/c20{
+/obj/item/spacecash/bundle/c10{
+	pixel_y = 8
+	},
+/obj/item/spacecash/bundle/c10{
 	pixel_x = -11;
 	pixel_y = 10
 	},
@@ -10037,7 +10043,7 @@
 /turf/open/floor,
 /area/slumbridge/inside/engi/engineroom)
 "hIL" = (
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c200{
 	pixel_x = -6;
 	pixel_y = -8
 	},
@@ -11490,7 +11496,7 @@
 	},
 /area/slumbridge/inside/zeta/south)
 "iFU" = (
-/obj/item/spacecash/c100{
+/obj/item/spacecash/bundle/c100{
 	pixel_x = 4;
 	pixel_y = 11
 	},
@@ -20809,7 +20815,7 @@
 /turf/open/shuttle/escapepod,
 /area/slumbridge/inside/zeta/entrance)
 "pzQ" = (
-/obj/item/spacecash/c1{
+/obj/item/spacecash/bundle/c1{
 	pixel_x = -8;
 	pixel_y = -8
 	},
@@ -21546,7 +21552,7 @@
 /turf/open/floor,
 /area/slumbridge/inside/hydrotreatment)
 "qeo" = (
-/obj/item/spacecash/c500{
+/obj/item/spacecash/bundle/c500{
 	pixel_x = -5;
 	pixel_y = -5
 	},
@@ -22057,7 +22063,7 @@
 /turf/open/floor/wood/variable/wide,
 /area/slumbridge/inside/houses/dorms)
 "qxo" = (
-/obj/item/spacecash/c20{
+/obj/item/spacecash/bundle/c50{
 	pixel_x = 3;
 	pixel_y = 14
 	},
@@ -22789,7 +22795,7 @@
 	},
 /area/slumbridge/outside/northwest)
 "qWx" = (
-/obj/item/spacecash/c500{
+/obj/item/spacecash/bundle/c500{
 	pixel_x = 8;
 	pixel_y = 11
 	},
@@ -23923,7 +23929,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/houses/dorms)
 "rOq" = (
-/obj/item/spacecash/c1{
+/obj/item/spacecash/bundle/c1{
 	pixel_x = 9;
 	pixel_y = 15
 	},
@@ -26271,7 +26277,7 @@
 /area/slumbridge/inside/sombase/west)
 "tAR" = (
 /obj/structure/table/reinforced,
-/obj/item/spacecash/c100{
+/obj/item/spacecash/bundle/c100{
 	pixel_x = -6;
 	pixel_y = 10
 	},
@@ -28589,11 +28595,11 @@
 /turf/open/floor/plating/ground/ice,
 /area/slumbridge/caves/southwestcaves)
 "vrd" = (
-/obj/item/spacecash/c1{
+/obj/item/spacecash/bundle/c1{
 	pixel_x = -8;
 	pixel_y = 13
 	},
-/obj/item/spacecash/c20{
+/obj/item/spacecash/bundle/c50{
 	pixel_x = 11;
 	pixel_y = 6
 	},
@@ -30324,7 +30330,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "wAl" = (
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c200{
 	pixel_x = -6;
 	pixel_y = 8
 	},
@@ -30443,7 +30449,7 @@
 "wDC" = (
 /obj/structure/table/reinforced,
 /obj/item/moneybag/vault,
-/obj/item/spacecash/c1,
+/obj/item/spacecash/bundle/c1,
 /turf/open/floor/prison/blackfloor,
 /area/slumbridge/inside/colony/vault)
 "wDD" = (

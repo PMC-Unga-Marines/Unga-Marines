@@ -5104,7 +5104,7 @@
 	pixel_x = 7;
 	pixel_y = 17
 	},
-/obj/item/spacecash/c100,
+/obj/item/spacecash/bundle/c100,
 /obj/item/storage/pill_bottle/happy{
 	pixel_x = 2;
 	pixel_y = -5
@@ -6914,7 +6914,7 @@
 /area/gelida/landing_zone_1)
 "eDG" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/spacecash/c100,
+/obj/item/spacecash/bundle/c100,
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/casino)
 "eDM" = (
@@ -32515,7 +32515,7 @@
 /area/gelida/indoors/c_block/casino)
 "war" = (
 /obj/structure/table/gamblingtable,
-/obj/item/spacecash/c500{
+/obj/item/spacecash/bundle/c500{
 	pixel_x = -7;
 	pixel_y = 10
 	},

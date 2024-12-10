@@ -13291,7 +13291,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
@@ -13502,10 +13502,10 @@
 /area/ice_colony/underground/storage/highsec)
 "bFo" = (
 /obj/structure/table/reinforced,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c100,
-/obj/item/spacecash/c10,
-/obj/item/spacecash/c1,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c100,
+/obj/item/spacecash/bundle/c10,
+/obj/item/spacecash/bundle/c1,
 /turf/open/floor/tile/dark/blue2,
 /area/ice_colony/underground/storage/highsec)
 "bFp" = (
