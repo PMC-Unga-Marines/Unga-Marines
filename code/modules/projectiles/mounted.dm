@@ -94,7 +94,7 @@
 	ADD_TRAIT(src, TRAIT_GUN_RELOADING, GUN_TRAIT)
 
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	if(length(gun?.chamber_items))
+	if(length(gun?.chamber_items) && gun.reciever_flags != AMMO_RECIEVER_HANDFULS)
 		gun.unload(user)
 		update_appearance()
 
