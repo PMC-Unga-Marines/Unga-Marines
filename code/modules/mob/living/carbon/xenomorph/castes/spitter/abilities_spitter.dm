@@ -173,7 +173,7 @@
 	for(var/turf/acid_tile AS in RANGE_TURFS(1, loc))
 		new /obj/effect/temp_visual/acid_splatter(acid_tile) //SFX
 		new /obj/effect/xenomorph/spray(acid_tile, 5 SECONDS, acid_spray_damage)
-	playsound(loc, "acid_bounce", 35)
+	playsound(loc, SFX_ACID_BOUNCE, 35)
 	if(stuck_to)
 		clean_refs()
 	qdel(src)

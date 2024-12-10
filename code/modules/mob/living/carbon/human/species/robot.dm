@@ -42,11 +42,11 @@
 	has_organ = list()
 
 
-	screams = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
-	paincries = list(MALE = "robot_pain", FEMALE = "robot_pain", PLURAL = "robot_pain", NEUTER = "robot_pain")
-	goredcries = list(MALE = "robot_scream", FEMALE = "robot_scream", PLURAL = "robot_scream", NEUTER = "robot_scream")
-	warcries = list(MALE = "robot_warcry", FEMALE = "robot_warcry", PLURAL = "robot_warcry", NEUTER = "robot_warcry")
-	laughs = list(MALE = "robot_male_laugh", FEMALE = "robot_female_laugh", PLURAL = "robot_male_laugh", NEUTER = "robot_female_laugh")
+	screams = list(MALE = SFX_ROBOT_SCREAM, FEMALE = SFX_ROBOT_SCREAM, PLURAL = SFX_ROBOT_SCREAM, NEUTER = SFX_ROBOT_SCREAM)
+	paincries = list(MALE = SFX_ROBOT_PAIN, FEMALE = SFX_ROBOT_PAIN, PLURAL = SFX_ROBOT_PAIN, NEUTER = SFX_ROBOT_PAIN)
+	goredcries = list(MALE = SFX_ROBOT_SCREAM, FEMALE = SFX_ROBOT_SCREAM, PLURAL = SFX_ROBOT_SCREAM, NEUTER = SFX_ROBOT_SCREAM)
+	warcries = list(MALE = SFX_ROBOT_WARCRY, FEMALE = SFX_ROBOT_WARCRY, PLURAL = SFX_ROBOT_WARCRY, NEUTER = SFX_ROBOT_WARCRY)
+	laughs = list(MALE = SFX_ROBOT_MALE_LAUGH, FEMALE = SFX_ROBOT_FEMALE_LAUGH, PLURAL = SFX_ROBOT_MALE_LAUGH, NEUTER = SFX_ROBOT_FEMALE_LAUGH)
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = FALSE

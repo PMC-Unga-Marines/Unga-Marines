@@ -132,7 +132,7 @@
 		drop_sound = 'sound/effects/lead_pipe_drop.ogg'
 
 	playsound(target_turf, drop_sound, 75, TRUE)
-	playsound(target_turf, "bone_break", 75, TRUE)
+	playsound(target_turf, SFX_BONE_BREAK, 75, TRUE)
 
 	Knockdown(10 SECONDS)
 	Stun(3 SECONDS)

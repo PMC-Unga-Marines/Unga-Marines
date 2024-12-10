@@ -81,7 +81,7 @@
 	sharp = IS_SHARP_ITEM_ACCURATE
 	edge = TRUE
 	w_class = WEIGHT_CLASS_HUGE
-	hitsound = "clan_sword_hit"
+	hitsound = SFX_CLAN_SWORD_HIT
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	attack_speed = 1 SECONDS
 	resistance_flags = UNACIDABLE

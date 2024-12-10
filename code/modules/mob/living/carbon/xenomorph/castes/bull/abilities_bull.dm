@@ -5,13 +5,13 @@
 	new /obj/effect/xenomorph/spray(get_turf(X), 5 SECONDS, XENO_ACID_CHARGE_DAMAGE)
 	for(var/obj/O in get_turf(X))
 		O.acid_spray_act(X)
-		playsound(X, "alien_footstep_large", 50)
+		playsound(X, SFX_ALIEN_FOOTSTEP_LARGE, 50)
 
 /datum/action/ability/xeno_action/proc/afterimage(atom/A, atom/OldLoc, Dir, Forced)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/X = owner
 	new/obj/effect/temp_visual/xenomorph/afterimage(get_turf(X), X)
-	playsound(X, "alien_footstep_large", 50)
+	playsound(X, SFX_ALIEN_FOOTSTEP_LARGE, 50)
 
 // ***************************************
 // *********** Acid Charge

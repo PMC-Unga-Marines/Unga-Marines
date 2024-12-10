@@ -98,7 +98,7 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	xeno_attacker.visible_message(span_danger("[xeno_attacker] slashes \the [src]!"), \
 	span_danger("We slash \the [src]!"), null, 5)
-	playsound(loc, "alien_claw_metal", 25, TRUE)
+	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, TRUE)
 
 	seconds_elapsed = (segment_time * 0.1) * completed_segments
 	running = FALSE

@@ -515,7 +515,7 @@
 	if(vending_sound)
 		playsound(src, vending_sound, 25, 0)
 	else
-		playsound(src, "vending", 25, 0)
+		playsound(src, SFX_VENDING, 25, 0)
 	if(ispath(R.product_path,/obj/item/weapon/gun))
 		return new R.product_path(get_turf(src), 1)
 	else

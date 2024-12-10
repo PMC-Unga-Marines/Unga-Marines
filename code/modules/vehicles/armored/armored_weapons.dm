@@ -349,7 +349,7 @@
 	name = "\improper OMR Mk.3 secondary flamer"
 	desc = "A large, vehicle mounted flamer. This one is capable of spraying it's payload due to a less solid mix."
 	icon_state = "sflamer"
-	fire_sound = "gun_flamethrower"
+	fire_sound = SFX_GUN_FLAMETHROWER
 	ammo = /obj/item/ammo_magazine/tank/secondary_flamer_tank
 	weapon_slot = MODULE_SECONDARY
 	fire_mode = GUN_FIREMODE_AUTOMATIC

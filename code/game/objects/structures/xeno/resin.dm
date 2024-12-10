@@ -17,7 +17,7 @@
 	opacity = FALSE
 	max_integrity = 36
 	layer = RESIN_STRUCTURE_LAYER
-	hit_sound = "alien_resin_move"
+	hit_sound = SFX_ALIEN_RESIN_MOVE
 	var/slow_amt = 8
 	/// Does this refund build points when destoryed?
 	var/refundable = TRUE
@@ -65,7 +65,7 @@
 		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker) && refundable)
 			SSresinshaping.decrement_build_counter(xeno_attacker)
 		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-		playsound(src, "alien_resin_break", 25)
+		playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 		deconstruct(TRUE)
 		return
 

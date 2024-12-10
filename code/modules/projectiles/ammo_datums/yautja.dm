@@ -13,9 +13,9 @@
 	ping = "ping_s"
 	icon_state = "MSpearFlight"
 	hud_state = "alloy_spike"
-	sound_hit = "alloy_hit"
-	sound_armor = "alloy_armor"
-	sound_bounce = "alloy_bounce"
+	sound_hit = SFX_ALLOY_HIT
+	sound_armor = SFX_ALLOY_ARMOR
+	sound_bounce = SFX_ALLOY_BOUNCE
 	bullet_color = COLOR_MAGENTA
 	armor_type = BULLET
 	accuracy = 20

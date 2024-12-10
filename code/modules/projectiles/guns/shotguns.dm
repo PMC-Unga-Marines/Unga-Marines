@@ -806,7 +806,7 @@ RU TGMC EDIT */
 	icon_state = "v51"
 	icon = 'icons/Marine/gun64.dmi'
 	item_state = "v51"
-	fire_sound = "shotgun_som"
+	fire_sound = SFX_SHOTGUN_SOM
 	dry_fire_sound = 'sound/weapons/guns/fire/v51_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/v51_load.ogg'
 	hand_reload_sound = 'sound/weapons/guns/interact/v51_load.ogg'
