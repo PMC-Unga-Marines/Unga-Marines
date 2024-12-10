@@ -20,7 +20,7 @@
 	. = ..()
 	if(.)
 		return
-	playsound(get_turf(loc), "rustle", 15, 1, 6)
+	playsound(get_turf(loc), SFX_RUSTLE, 15, 1, 6)
 	toggle()
 
 /obj/structure/curtain/attack_alien(mob/living/carbon/xenomorph/attackingxeno, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)

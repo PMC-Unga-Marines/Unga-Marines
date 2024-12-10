@@ -305,3 +305,28 @@ WEAPONS
 	name = "MLRS High Explosive rocket"
 	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/gun_powder = 3) // 24 + 24 points
 	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 33 points from old factory
+
+/datum/assembly_craft/weapons/ltb_shells
+	name = "LTB tank shell"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 5)
+	output = list(/obj/item/ammo_magazine/tank/ltb_cannon = 1)
+
+/datum/assembly_craft/weapons/ltb_cannon_apfds
+	name = "LTB tank APFDS shell"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 2, /obj/item/stack/gun_powder = 3)
+	output = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds = 1)
+
+/datum/assembly_craft/weapons/ltb_cannon_TOW
+	name = "TOW Launcher Magazine"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 3, /obj/item/stack/gun_powder = 6)
+	output = list(/obj/item/ammo_magazine/tank/towlauncher = 1)
+
+/datum/assembly_craft/weapons/heavy_isg_he
+	name = "A 15cm HE shell for the FK-88 mounted flak gun."
+	input = list(/obj/item/stack/sheet/jeweler_steel = 25, /obj/item/stack/gun_powder = 30)
+	output = list(/obj/item/ammo_magazine/heavy_isg/he = 1)
+
+/datum/assembly_craft/weapons/heavy_isg_sabot
+	name = "A 15cm APFDS shell for the FK-88 mounted flak gun"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 30, /obj/item/stack/gun_powder = 25)
+	output = list(/obj/item/ammo_magazine/heavy_isg/sabot = 1)

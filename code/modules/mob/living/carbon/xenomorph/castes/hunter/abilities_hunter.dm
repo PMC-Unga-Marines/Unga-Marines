@@ -660,7 +660,7 @@
 
 /datum/action/ability/xeno_action/crippling_strike/hunter
 	additional_damage = 1
-	heal_amount = 0
+	heal_amount = 12
 	plasma_gain = 20
 	decay_time = 15 SECONDS
 

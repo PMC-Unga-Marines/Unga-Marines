@@ -22,6 +22,16 @@
 	icon_state = "ltb_apfds"
 	default_ammo = /datum/ammo/bullet/tank_apfds
 
+/obj/item/ammo_magazine/tank/towlauncher
+	name = "TOW Launcher Magazine"
+	desc = "A primary armament rocket magazine"
+	caliber = CALIBER_68MM
+	icon_state = "quad_rocket"
+	icon = 'icons/obj/items/ammo/rocket.dmi'
+	w_class = WEIGHT_CLASS_GIGANTIC
+	default_ammo = /datum/ammo/rocket/ap //Fun fact, AP rockets seem to be a straight downgrade from normal rockets. Maybe I'm missing something...
+	max_rounds = 5
+
 /obj/item/ammo_magazine/tank/ltaap_chaingun
 	name = "\improper LTA-AP chaingun Magazine"
 	desc = "A primary armament chaingun magazine."
@@ -41,16 +51,6 @@
 	w_class = WEIGHT_CLASS_GIGANTIC
 	default_ammo = /datum/ammo/flamethrower/tank_flamer
 	max_rounds = 120
-
-/obj/item/ammo_magazine/tank/towlauncher
-	name = "TOW Launcher Magazine"
-	desc = "A secondary armament rocket magazine"
-	caliber = CALIBER_68MM
-	icon_state = "quad_rocket"
-	icon = 'icons/obj/items/ammo/rocket.dmi'
-	w_class = WEIGHT_CLASS_GIGANTIC
-	default_ammo = /datum/ammo/rocket/ap //Fun fact, AP rockets seem to be a straight downgrade from normal rockets. Maybe I'm missing something...
-	max_rounds = 5
 
 /obj/item/ammo_magazine/tank/secondary_cupola
 	name = "M56 Cupola Magazine"

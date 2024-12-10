@@ -222,12 +222,12 @@
 			if(!drain_power(caller, 70)) //We should only drain power if we actually yank the chain back. Failed attempts can quickly drain the charge away.
 				return TRUE
 			caller.visible_message(span_warning("<b>[caller] yanks [combistick]'s chain back!</b>"), span_warning("<b>You yank [combistick]'s chain back!</b>"))
-			playsound(caller, "chain_swing", 25)
+			playsound(caller, SFX_CHAIN_SWING, 25)
 		else if(caller.put_in_inactive_hand(combistick))///...Try putting it in our inactive hand.
 			if(!drain_power(caller, 70)) //We should only drain power if we actually yank the chain back. Failed attempts can quickly drain the charge away.
 				return TRUE
 			caller.visible_message(span_warning("<b>[caller] yanks [combistick]'s chain back!</b>"), span_warning("<b>You yank [combistick]'s chain back!</b>"))
-			playsound(caller, "chain_swing", 25)
+			playsound(caller, SFX_CHAIN_SWING, 25)
 		else //If neither hand can hold it, you must not have a free hand.
 			to_chat(caller, span_warning("You need a free hand to do this!</b>"))
 

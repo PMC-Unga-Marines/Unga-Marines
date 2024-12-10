@@ -122,6 +122,22 @@
 	var/list/area_namecounts = list()
 	var/name
 
+	for(var/obj/structure/xeno/turret/potential_turret AS in GLOB.xeno_resin_turrets_by_hive[XENO_HIVE_NORMAL])
+		if(dead_owner.z != potential_turret.z)
+			continue
+		if(!istype(potential_turret, /obj/structure/xeno/turret/facehugger))
+			continue
+		var/area/area = get_area(potential_turret)
+		if(area in area_names)
+			area_namecounts[area]++
+			name = "[potential_turret.name] at [area] ([area_namecounts[area]])"
+		else
+			area_names.Add(area)
+			area_namecounts[area] = 1
+			name = "[potential_turret.name] at [get_area(potential_turret)]"
+
+		spawn_point[name] = potential_turret
+
 	for(var/mob/living/carbon/xenomorph/potential_xeno AS in GLOB.alive_xeno_list)
 		if(dead_owner.z != potential_xeno.z)
 			continue

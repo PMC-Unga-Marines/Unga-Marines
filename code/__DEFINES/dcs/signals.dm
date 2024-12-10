@@ -867,14 +867,6 @@
 #define COMSIG_XENOABILITY_JAB "xenoability_jab"
 #define COMSIG_XENOABILITY_FLURRY "xenoability_flurry"
 
-#define COMSIG_XENOABILITY_PORTAL "xenoablity_portal"
-#define COMSIG_XENOABILITY_PORTAL_ALTERNATE "xenoability_portal_alternate"
-#define COMSIG_XENOABILITY_BLINK "xenoability_blink"
-#define COMSIG_XENOABILITY_BANISH "xenoability_banish"
-#define COMSIG_XENOABILITY_RECALL "xenoability_recall"
-#define COMSIG_XENOABILITY_TIMESTOP "xenoability_timestop"
-#define COMSIG_XENOABILITY_REWIND "xenoability_rewind"
-
 #define COMSIG_XENOABILITY_NIGHTFALL "xenoability_nightfall"
 #define COMSIG_XENOABILITY_PETRIFY "xenoability_petrify"
 #define COMSIG_XENOABILITY_OFFGUARD "xenoability_offguard"
