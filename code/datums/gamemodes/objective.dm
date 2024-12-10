@@ -485,19 +485,17 @@ GLOBAL_LIST_EMPTY(possible_items)
 	var/currentcash = 0
 	var/list/all_items = owner.current.GetAllContents()
 	for(var/obj/I in all_items) //Check and count cash
-		if(istype(I, /obj/item/spacecash/c1))
+		if(istype(I, /obj/item/spacecash/bundle/c1))
 			currentcash += 1
-		if(istype(I, /obj/item/spacecash/c10))
+		if(istype(I, /obj/item/spacecash/bundle/c10))
 			currentcash += 10
-		if(istype(I, /obj/item/spacecash/c20))
-			currentcash += 20
-		if(istype(I, /obj/item/spacecash/c50))
+		if(istype(I, /obj/item/spacecash/bundle/c50))
 			currentcash += 50
-		if(istype(I, /obj/item/spacecash/c100))
+		if(istype(I, /obj/item/spacecash/bundle/c100))
 			currentcash += 100
-		if(istype(I, /obj/item/spacecash/c200))
+		if(istype(I, /obj/item/spacecash/bundle/c200))
 			currentcash += 200
-		if(istype(I, /obj/item/spacecash/c500))
+		if(istype(I, /obj/item/spacecash/bundle/c500))
 			currentcash += 500
 	if(currentcash >= neededcash)
 		return TRUE
