@@ -3245,10 +3245,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi)
-"cki" = (
-/obj/structure/lattice,
-/turf/closed/mineral/smooth,
-/area/magmoor/cave/rock)
 "ckk" = (
 /obj/machinery/chem_master/condimaster,
 /turf/open/floor/freezer,
@@ -3598,10 +3594,6 @@
 /area/magmoor/civilian/jani)
 "cxp" = (
 /turf/open/floor/plating/ground/concrete/lines,
-/area/magmoor/command/monorail)
-"cyr" = (
-/obj/structure/lattice,
-/turf/closed/mineral/smooth,
 /area/magmoor/command/monorail)
 "cyw" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{
@@ -15556,7 +15548,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/closed/mineral/smooth,
+/turf/open/floor/plating/dmg3,
 /area/magmoor/command/monorail)
 "llf" = (
 /obj/machinery/smartfridge,
@@ -28445,7 +28437,7 @@
 /area/magmoor/command/lobby)
 "uIp" = (
 /obj/structure/girder/reinforced,
-/turf/closed/wall/r_wall,
+/turf/open/floor/plating/dmg3,
 /area/magmoor/command/monorail)
 "uIB" = (
 /obj/effect/landmark/weed_node,
@@ -29494,7 +29486,7 @@
 /area/magmoor/cave/rock)
 "vAK" = (
 /obj/structure/window/framed/colony/reinforced,
-/turf/closed/wall/r_wall,
+/turf/open/space/basic,
 /area/magmoor/command/monorail)
 "vBf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -74240,7 +74232,7 @@ vPU
 aep
 kae
 lkh
-cyr
+iPS
 kyK
 rxl
 rxl
@@ -74704,8 +74696,8 @@ iLH
 ngh
 ngh
 mZx
-cki
-cki
+rxl
+rxl
 vWt
 ngh
 rxl
@@ -74936,9 +74928,9 @@ iLH
 iLH
 iLH
 ngh
-cki
+rxl
 oya
-cki
+rxl
 oya
 ngh
 rxl
@@ -75405,7 +75397,7 @@ ngh
 oya
 oya
 lKQ
-cki
+rxl
 ngh
 rxl
 rxl
@@ -75868,7 +75860,7 @@ rxl
 rxl
 rxl
 ngh
-cki
+rxl
 oya
 lKQ
 oya

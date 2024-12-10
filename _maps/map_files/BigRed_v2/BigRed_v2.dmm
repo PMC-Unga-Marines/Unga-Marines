@@ -10091,16 +10091,6 @@
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
-"gPw" = (
-/obj/structure/monorail{
-	dir = 8
-	},
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
 "gQb" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -13653,15 +13643,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
-"opa" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
-/turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
 "opQ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
@@ -15669,15 +15650,6 @@
 	dir = 10
 	},
 /area/bigredv2/outside/space_port)
-"sMf" = (
-/obj/structure/monorail{
-	dir = 1
-	},
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
-/turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
 "sNF" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/west)
@@ -17703,12 +17675,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "xbt" = (
-/obj/structure/monorail{
-	dir = 8
-	},
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
+/obj/structure/girder/reinforced,
 /turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
 "xbZ" = (
@@ -22812,19 +22779,19 @@ cfN
 dhB
 hHO
 hHO
-opa
+xbt
 cfN
 cfN
-opa
+xbt
 cfN
 cfN
-opa
+xbt
 cfN
 cfN
-opa
+xbt
 cfN
 cfN
-opa
+xbt
 cfN
 pTH
 btF
@@ -23467,8 +23434,8 @@ dEP
 cfN
 cfN
 dEP
-caI
-caI
+cfN
+cfN
 dEP
 cfN
 cfN
@@ -24127,7 +24094,7 @@ dEP
 cfN
 cfN
 dEP
-caI
+cfN
 pTH
 fbT
 bBD
@@ -24344,7 +24311,7 @@ sTy
 jkb
 jkb
 sTy
-sMf
+xbt
 fFW
 hsz
 tyF
@@ -25420,7 +25387,7 @@ oef
 cfN
 cfN
 oef
-caI
+cfN
 cfN
 oef
 caI
@@ -25633,19 +25600,19 @@ ceG
 hHO
 hHO
 cfN
-xbt
+hHO
 cfN
 cfN
 xbt
 cfN
 cfN
 xbt
-caI
+cfN
 cfN
 xbt
 cfN
 cfN
-gPw
+xbt
 cfN
 rid
 hsz

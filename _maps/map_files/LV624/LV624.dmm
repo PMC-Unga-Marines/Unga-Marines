@@ -22309,9 +22309,7 @@
 /area/lv624/lazarus/engineering)
 "vCm" = (
 /obj/item/ore/uranium,
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
+/obj/structure/girder/reinforced,
 /turf/open/floor/plating/ground/concrete,
 /area/lv624/lazarus/monorail)
 "vCy" = (
