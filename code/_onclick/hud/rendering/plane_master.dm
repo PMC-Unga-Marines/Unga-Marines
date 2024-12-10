@@ -188,3 +188,18 @@
 	name = "balloon alert plane"
 	plane = BALLOON_CHAT_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/pipecrawl
+	name = "pipecrawl plane master"
+	plane = ABOVE_HUD_LAYER
+	appearance_flags = PLANE_MASTER
+	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/pipecrawl/Initialize(mapload)
+	. = ..()
+	// Makes everything on this plane slightly brighter
+	// Has a nice effect, makes thing stand out
+	color = list(1.2,0,0,0, 0,1.2,0,0, 0,0,1.2,0, 0,0,0,1, 0,0,0,0)
+	// This serves a similar purpose, I want the pipes to pop
+	add_filter("pipe_dropshadow", 1, drop_shadow_filter(x = -1, y= -1, size = 1, color = "#0000007A"))
+
