@@ -47,7 +47,7 @@
 			if(!client)
 				return
 			if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
-				playsound(src, get_sfx("alien_ventpass"), 35, TRUE)
+				playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
 			visible_message(span_notice("[src] scrambles out from the ventilation ducts!"),span_notice("You scramble out from the ventilation ducts."))
 			forceMove(ventcrawl_target.loc)
 			src.is_ventcrawling = FALSE
@@ -63,7 +63,7 @@
 				if(!client)
 					return
 				if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
-					playsound(src, get_sfx("alien_ventpass"), 35, TRUE)
+					playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
 				visible_message(span_notice("[src] scrambles into the ventilation ducts!"),span_notice("You climb into the ventilation ducts."))
 				move_into_vent(ventcrawl_target)
 			else
