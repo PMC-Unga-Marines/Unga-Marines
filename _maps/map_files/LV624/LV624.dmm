@@ -2856,10 +2856,6 @@
 	},
 /turf/open/floor/plating/catwalk,
 /area/lv624/ground/sand9)
-"brw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/closed/wall,
-/area/lv624/ground/southcargo)
 "brx" = (
 /obj/structure/disposalpipe/segment/corner,
 /turf/open/floor/plating/catwalk,
@@ -5559,10 +5555,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
-"edz" = (
-/obj/structure/barricade/metal,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "edH" = (
 /obj/structure/flora/jungle/vines,
 /obj/structure/stairs/seamless{
@@ -10402,7 +10394,6 @@
 	},
 /area/lv624/lazarus/sleep_female)
 "jmC" = (
-/obj/structure/razorwire,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
 	},
@@ -11657,6 +11648,12 @@
 /area/lv624/lazarus/quartstorage/outdoors)
 "kwz" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/lv624/ground/southcargo)
 "kwI" = (
@@ -13108,9 +13105,8 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle5)
 "mbm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/miner/damaged,
-/turf/open/floor/prison,
+/obj/structure/cable,
+/turf/open/floor/plating/plating_catwalk/prison,
 /area/lv624/ground/southcargo)
 "mbn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
@@ -15287,6 +15283,9 @@
 	dir = 6
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/lv624/ground/southcargo)
 "owx" = (
@@ -15844,6 +15843,7 @@
 "oZm" = (
 /obj/item/pipe,
 /obj/structure/monorail,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/plating,
 /area/lv624/ground/southcargo)
 "oZp" = (
@@ -16953,10 +16953,6 @@
 	},
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
-"qpo" = (
-/obj/item/weapon/gun/sentry/basic/premade/radial,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "qpx" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -20780,6 +20776,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/lv624/ground/southcargo)
 "tZm" = (
@@ -21411,6 +21410,9 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 9
+	},
 /turf/open/floor/plating,
 /area/lv624/ground/southcargo)
 "uIT" = (
@@ -22980,6 +22982,9 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/lv624/ground/southcargo)
 "wjg" = (
@@ -29405,7 +29410,7 @@ qIJ
 lry
 lry
 cAu
-edz
+cAu
 xrX
 sib
 sib
@@ -29950,8 +29955,8 @@ lry
 ogt
 cAu
 xGi
-qpo
-edz
+cAu
+cAu
 jmC
 cAu
 cAu
@@ -32135,7 +32140,7 @@ cAu
 cAu
 cAu
 cAu
-qpo
+cAu
 cAu
 fso
 qfM
@@ -37281,8 +37286,8 @@ pxU
 pxU
 ovM
 uqI
-brw
-rLe
+pmF
+mbm
 tyg
 eSp
 eJN
@@ -37627,7 +37632,7 @@ avd
 vgb
 aJX
 avd
-igl
+avd
 inx
 pxU
 pxU
@@ -37808,7 +37813,7 @@ avd
 jOx
 gfi
 avd
-igl
+avd
 avd
 dZY
 pxU
@@ -38719,7 +38724,7 @@ kir
 vVG
 avd
 avd
-igl
+avd
 msI
 pmF
 poR
@@ -39083,8 +39088,8 @@ avd
 aJX
 avd
 avd
-igl
-igl
+avd
+avd
 icV
 pmF
 pmF
@@ -39266,9 +39271,9 @@ jIK
 avd
 avd
 avd
-igl
-igl
-igl
+avd
+avd
+avd
 bfF
 pxU
 pxU
@@ -39447,10 +39452,10 @@ xWM
 xWM
 xWM
 avd
-igl
-igl
-igl
-igl
+avd
+avd
+avd
+avd
 bfF
 pxU
 rOf
@@ -39632,7 +39637,7 @@ avd
 avd
 avd
 avd
-igl
+avd
 bfF
 hgs
 uyD
@@ -39814,7 +39819,7 @@ avd
 avd
 avd
 avd
-igl
+avd
 bfF
 pxU
 hgs
@@ -40172,10 +40177,10 @@ mKd
 avd
 avd
 avd
-igl
-igl
-igl
-igl
+avd
+avd
+avd
+avd
 icV
 pmF
 pmF
@@ -40352,12 +40357,12 @@ tZS
 nny
 yem
 yft
-igl
-igl
-igl
-igl
-igl
-igl
+avd
+avd
+avd
+avd
+avd
+avd
 pmF
 pmF
 poR
@@ -40535,9 +40540,9 @@ nny
 mKd
 avd
 yft
-igl
-igl
-igl
+avd
+avd
+avd
 xNh
 pmF
 pmF
@@ -40717,9 +40722,9 @@ xWM
 xWM
 avd
 avd
-igl
-igl
-igl
+avd
+avd
+avd
 meZ
 eBT
 lML
@@ -40899,9 +40904,9 @@ xWM
 avd
 avd
 avd
-igl
-igl
-igl
+avd
+avd
+avd
 xNh
 oNa
 pxU
@@ -41082,8 +41087,8 @@ gfi
 avd
 xjr
 aFV
-igl
-igl
+avd
+avd
 xNh
 oNa
 pxU
@@ -41264,8 +41269,8 @@ avd
 auJ
 xhr
 aJX
-igl
-igl
+avd
+avd
 vGA
 oNa
 fRy
@@ -41447,7 +41452,7 @@ mOs
 auJ
 cbx
 auJ
-igl
+avd
 xNh
 oNa
 rAx
@@ -41649,7 +41654,7 @@ myO
 rlX
 vvX
 nOL
-mbm
+tDm
 rhz
 rhz
 rhz
