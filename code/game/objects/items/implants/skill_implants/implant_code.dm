@@ -30,7 +30,7 @@
 
 /obj/item/implant/skill/Initialize()
 	. = ..()
-	name = name + " implant"
+	name += " implant"
 
 /obj/item/implant/Destroy(force)
 	unimplant()

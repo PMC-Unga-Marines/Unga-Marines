@@ -27,12 +27,9 @@
 	return
 
 /obj/item/implanter/implantator/attack(mob/target, mob/living/user)
-	if(!can_implant(target, user))
-		return
 	. = ..()
 	if(.)
-		name = name + " used"
-		desc = desc + " It's spent."
+		name += " used"
 		icon_state = empty_icon + "_s"
 		spented = TRUE
 		return TRUE
@@ -48,16 +45,12 @@
 	if(!(user.zone_selected in allowed_limbs))
 		balloon_alert(user, "Wrong limb!")
 		return FALSE
-	if(has_implant(human.get_limb(user.zone_selected)))
-		balloon_alert(user, "Limb already implanted!")
-		return FALSE
-	return TRUE
-
-/obj/item/implanter/implantator/proc/has_implant(datum/limb/targetlimb)
+	var/datum/limb/targetlimb = human.get_limb(user.zone_selected)
 	for (var/obj/item/implant/skill/implant in targetlimb.implants)
 		if(!is_type_in_list(implant, /obj/item/implant/skill))
-			return TRUE
-	return FALSE
+			balloon_alert(user, "Limb already implanted!")
+			return FALSE
+	return TRUE
 
 /obj/item/implanter/implantator/combat
 	allowed_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
