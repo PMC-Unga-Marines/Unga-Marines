@@ -43,7 +43,7 @@
 	user.do_attack_animation(src, used_item = plasmacutter)
 	plasmacutter.cut_apart(user, name, src, charge_cost)
 	take_damage(max(0, plasmacutter.force * (2 + PLASMACUTTER_RESIN_MULTIPLIER)), plasmacutter.damtype, MELEE)
-	playsound(src, "alien_resin_break", 25)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	return TRUE
 
 /turf/closed/wall/resin/thick
@@ -101,7 +101,7 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
 	span_xenonotice("We tear down \the [src]."))
-	playsound(src, "alien_resin_break", 25)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	dismantle_wall()
 
 /turf/closed/wall/resin/attack_hand(mob/living/user)
@@ -122,7 +122,7 @@
 
 	damage *= max(0, multiplier)
 	take_damage(damage, I.damtype, MELEE)
-	playsound(src, "alien_resin_break", 25)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 
 /turf/closed/wall/resin/dismantle_wall()
 	ScrapeAway()
