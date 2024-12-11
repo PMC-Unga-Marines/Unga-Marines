@@ -1,0 +1,4 @@
+author: "definitelynotspaghetti"
+delete-after: True
+changes:
+  - rscadd: "Добавлена статистика количества проваленных заражений и количества хирургических удалений лярв до бёрста."
