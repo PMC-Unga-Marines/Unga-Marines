@@ -271,7 +271,10 @@
 
 /// A utility function for `/datum/strippable_item`s to start unequipping an item from a mob.
 /datum/strippable_item/proc/start_unequip_mob(obj/item/item, mob/source, mob/user, strip_delay)
-	if(!do_after(user, strip_delay || item.strip_delay, NONE, source, BUSY_ICON_FRIENDLY))
+	var/display_icon = BUSY_ICON_GENERIC
+	if(istype(item, /obj/item/clothing/mask/facehugger))
+		display_icon = BUSY_ICON_FACEHUGGER
+	if(!do_after(user, strip_delay || item.strip_delay, NONE, source, display_icon))
 		return FALSE
 	return TRUE
 
