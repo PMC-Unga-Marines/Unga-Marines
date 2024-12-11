@@ -36,7 +36,27 @@
 		loading_ways += "cells."
 	if(load_method & POWERPACK)
 		loading_ways += "it's powerpack."
-	traits += "Can be loaded using [english_list(loading_ways)]"
+	traits += "Can be loaded using [english_list(loading_ways)]:"
+
+	if(allowed_ammo_types)
+		for(var/i in allowed_ammo_types)
+			var/obj/item/ammo_magazine/mag = i
+			if(!mag.default_ammo)	//no ammo in mag - just print the name, otherwise add stats
+				traits += mag.name
+				continue
+
+			var/datum/ammo/bullet/def_ammo = mag.default_ammo
+			if(!mag.default_ammo.damage)
+				continue
+			var/damage_text = "DMG:[def_ammo.damage]"
+			if(def_ammo.bonus_projectiles_amount > 0)
+				damage_text += "x[def_ammo.bonus_projectiles_amount]"
+			var/ap_text = "AP:[def_ammo.penetration+def_ammo.additional_xeno_penetration]"
+			var/falloff_text = "FF:-[def_ammo.damage_falloff]/tile"
+			var/size_text = "AMMO: [mag.max_rounds]"
+			traits += "[mag.name] ([damage_text], [ap_text], [falloff_text], [size_text])"
+
+	traits += "Examine the ammo holders or ammunition for more info."
 
 	traits += "----------------------------------------------------------"
 	if(w_class)
@@ -76,13 +96,6 @@
 
 	traits += "----------------------------------------------------------"
 	if(attachable_allowed)
-		var/list/attach_types = list(
-			ATTACHMENT_SLOT_RAIL,
-			ATTACHMENT_SLOT_UNDER,
-			ATTACHMENT_SLOT_MUZZLE,
-			ATTACHMENT_SLOT_STOCK,
-			ATTACHMENT_BARREL_MOD
-		)
 		var/list/attachments_header_text = list(
 			ATTACHMENT_SLOT_RAIL = "<U>Rail attachments:</U>",
 			ATTACHMENT_SLOT_UNDER = "<U>Handguard attachments:</U>",
