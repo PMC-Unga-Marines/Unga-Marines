@@ -76,36 +76,37 @@
 
 	traits += "----------------------------------------------------------"
 	if(attachable_allowed)
+		var/list/attach_types = list(
+			ATTACHMENT_SLOT_RAIL,
+			ATTACHMENT_SLOT_UNDER,
+			ATTACHMENT_SLOT_MUZZLE,
+			ATTACHMENT_SLOT_STOCK,
+			ATTACHMENT_BARREL_MOD
+		)
 		var/list/attachments_header_text = list(
-			"<U>Rail attachments:</U>",
-			"<U>Handguard attachments:</U>",
-			"<U>Muzzle attachments:</U>",
-			"<U>Stock attachments:</U>",
-			"<U>Barrel attachments:</U>",
-			"<U>Other attachments:</U>"
+			ATTACHMENT_SLOT_RAIL = "<U>Rail attachments:</U>",
+			ATTACHMENT_SLOT_UNDER = "<U>Handguard attachments:</U>",
+			ATTACHMENT_SLOT_MUZZLE = "<U>Muzzle attachments:</U>",
+			ATTACHMENT_SLOT_STOCK = "<U>Stock attachments:</U>",
+			ATTACHMENT_BARREL_MOD = "<U>Barrel attachments:</U>"
 		)
 		var/list/attachments_text = list(
 			ATTACHMENT_SLOT_RAIL = list(),
 			ATTACHMENT_SLOT_UNDER = list(),
 			ATTACHMENT_SLOT_MUZZLE = list(),
 			ATTACHMENT_SLOT_STOCK = list(),
-			ATTACHMENT_BARREL_MOD = list(),
-			"other" = list()
+			ATTACHMENT_BARREL_MOD = list()
 		)
 
 		for(var/att in attachable_allowed)
 			var/obj/item/attachable/A = att
-			if (A.slot in attachments_text)
-				attachments_text[A.slot] += A.name
-			else
-				attachments_text["other"] += A.name
-		for(var/i in 1 to attachments_text.len)
-			traits += "[i]"
-			if(attachments_text[i])
+			attachments_text[A.slot] += A.name
+		for(var/i in attachments_text)
+			var/list/attach_list_of_type = attachments_text[i]
+			if(attach_list_of_type.len > 0)
 				traits += attachments_header_text[i]
-				for(var/X in attachments_text[i])
-					traits += X
-				//attachments_text[i] = sortList(attachments_text[i])
+				attachments_text[i] = sortList(attachments_text[i])
+				traits += attachments_text[i]
 
 	traits += "----------------------------------------------------------"
 	traits += "How to use:<br>"
