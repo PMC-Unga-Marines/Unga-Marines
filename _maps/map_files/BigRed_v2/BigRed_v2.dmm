@@ -7836,11 +7836,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/c)
-"caI" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
 "cbA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
@@ -8523,12 +8518,6 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/bigredv2/outside/monorail)
-"dym" = (
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
-/turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
 "dyO" = (
 /obj/structure/cable,
@@ -10567,7 +10556,6 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/space_port)
 "hRE" = (
-/obj/structure/stairs/seamless/edge,
 /obj/structure/stairs/railstairs,
 /turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
@@ -24726,9 +24714,9 @@ aDm
 aDm
 gCQ
 dxa
-dym
-dym
-dym
+xbt
+xbt
+xbt
 hHO
 phs
 hHO
@@ -25390,7 +25378,7 @@ oef
 cfN
 cfN
 oef
-caI
+cfN
 cfN
 oef
 cfN
