@@ -119,25 +119,25 @@
 	item_state = "skull_bandanna"
 
 /obj/item/clothing/mask/bandanna/alpha
-	name = "red bandanna"
-	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Cherry Red."
+	name = "Alpha Squad bandanna"
+	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Alpha Squad Red."
 	icon_state = "alpha_bandanna"
 	item_state = "alpha_bandanna"
 
 /obj/item/clothing/mask/bandanna/bravo
-	name = "yellow bandanna"
-	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Banana Yellow."
+	name = "Bravo Squad bandanna"
+	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Bravo Squad Yellow."
 	icon_state = "bravo_bandanna"
 	item_state = "bravo_bandanna"
 
 /obj/item/clothing/mask/bandanna/charlie
-	name = "purple bandanna"
-	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Grape Purple."
+	name = "Charlie Squad bandanna"
+	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Charlie Squad Purple."
 	icon_state = "charlie_bandanna"
 	item_state = "charlie_bandanna"
 
 /obj/item/clothing/mask/bandanna/delta
-	name = "blue bandanna"
-	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Blueberry Blue."
+	name = "Delta Squad bandanna"
+	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is colored Delta Squad Blue."
 	icon_state = "delta_bandanna"
 	item_state = "delta_bandanna"
