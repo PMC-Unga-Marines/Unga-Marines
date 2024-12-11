@@ -89,6 +89,8 @@ Godspeed, captain! And remember, you are not above the law."})
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator/yellow
 	head = null
 	back = FALSE
+	r_hand = /obj/item/weapon/gun/shotgun/double/musket
+	l_hand = /obj/item/ammo_magazine/packet/musket
 
 //Field Commander
 /datum/job/terragov/command/fieldcommander
@@ -234,6 +236,8 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	head = null
 	w_uniform = /obj/item/clothing/under/marine/whites/blacks
 	shoes = /obj/item/clothing/shoes/laceup
+	r_hand = /obj/item/weapon/gun/shotgun/double/musketoon
+	l_hand = /obj/item/ammo_magazine/packet/musket/small
 
 //Transport Officer
 /datum/job/terragov/command/transportofficer

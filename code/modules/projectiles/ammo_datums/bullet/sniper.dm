@@ -136,3 +136,26 @@
 	damage = 120
 	penetration = 60
 	sundering = 20
+
+/datum/ammo/bullet/sniper/musket
+	name = "musket lead bullet"
+	icon_state = "musket"
+	handful_icon_state = "musket"
+	hud_state = "musket_ball"
+	hud_state_empty = "musket_ball_empty"
+	handful_amount = 3
+	flags_ammo_behavior = AMMO_BALLISTIC
+	damage = 220
+	penetration = 50
+	accurate_range_min = 2
+	var/shatter_duration = 5 SECONDS
+
+/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/M, obj/projectile/proj)
+	if(!isliving(M))
+		return
+
+	var/mob/living/living_victim = M
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
+
+/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/M,obj/projectile/P)
+	staggerstun(M, P, slowdown = 1, knockback = 1)
