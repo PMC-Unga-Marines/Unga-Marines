@@ -193,7 +193,7 @@
 		if(3, 4)
 			xenomorph.visible_message(span_xenonotice("\The [xenomorph] clears the hatched egg."), \
 			span_xenonotice("We clear the hatched egg."))
-			playsound(loc, "alien_resin_break", 25)
+			playsound(loc, SFX_ALIEN_RESIN_BREAK, 25)
 			qdel(src)
 
 /obj/alien/egg/hugger/attackby(obj/item/I, mob/user, params)
@@ -290,7 +290,7 @@
 	if(maturity_stage > stage_ready_to_burst)
 		xenomorph.visible_message(span_xenonotice("\The [xenomorph] clears the hatched egg."), \
 		span_xenonotice("We clear the broken egg."))
-		playsound(loc, "alien_resin_break", 25)
+		playsound(loc, SFX_ALIEN_RESIN_BREAK, 25)
 		qdel(src)
 
 	if(!issamexenohive(xenomorph) || xenomorph.a_intent != INTENT_HELP)
