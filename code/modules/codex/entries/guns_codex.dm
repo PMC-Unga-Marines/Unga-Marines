@@ -27,15 +27,15 @@
 
 	var/list/loading_ways = list()
 	if(load_method & SINGLE_CASING)
-		loading_ways += "loose [caliber] rounds."
+		loading_ways += "loose [caliber] rounds"
 	if(load_method & SPEEDLOADER)
-		loading_ways += "speedloaders."
+		loading_ways += "speedloaders"
 	if(load_method & MAGAZINE)
-		loading_ways += "magazines."
+		loading_ways += "magazines"
 	if(load_method & CELL)
-		loading_ways += "cells."
+		loading_ways += "cells"
 	if(load_method & POWERPACK)
-		loading_ways += "it's powerpack."
+		loading_ways += "it's powerpack"
 	traits += "Can be loaded using [english_list(loading_ways)]:"
 
 	if(allowed_ammo_types)
@@ -54,7 +54,28 @@
 			var/ap_text = "AP:[def_ammo.penetration+def_ammo.additional_xeno_penetration]"
 			var/falloff_text = "FF:-[def_ammo.damage_falloff]/tile"
 			var/size_text = "AMMO: [mag.max_rounds]"
-			traits += "[mag.name] ([damage_text], [ap_text], [falloff_text], [size_text])"
+			traits += mag.name
+			traits += "-> [damage_text], [ap_text], [falloff_text], [size_text]"
+
+	if(load_method & SINGLE_CASING)
+		//check is done based on caliber only
+		for (var/i in typesof(/obj/item/ammo_magazine/handful))
+			var/obj/item/ammo_magazine/handful/mag = i
+			if(mag.caliber == caliber)
+				if(!mag.default_ammo)	//no ammo in mag - just print the name, otherwise add stats
+					traits += mag.name
+					continue
+
+				var/datum/ammo/bullet/def_ammo = mag.default_ammo
+				if(!mag.default_ammo.damage)
+					continue
+				var/damage_text = "DMG:[def_ammo.damage]"
+				if(def_ammo.bonus_projectiles_amount > 0)
+					damage_text += "x[def_ammo.bonus_projectiles_amount]"
+				var/ap_text = "AP:[def_ammo.penetration+def_ammo.additional_xeno_penetration]"
+				var/falloff_text = "FF:-[def_ammo.damage_falloff]/tile"
+				traits += def_ammo.name
+				traits += "-> [damage_text], [ap_text], [falloff_text]"
 
 	traits += "Examine the ammo holders or ammunition for more info."
 
@@ -65,7 +86,7 @@
 		traits += "Time between single-fire: [fire_delay * 0.1] seconds"
 	if(burst_amount > 1)
 		traits += "Shots fired on burst mode: [burst_amount]"
-		traits += "Time between bursts: [(burst_amount*(burst_delay-1) + fire_delay + extra_delay) * 0.1] seconds"
+		traits += "Time between bursts: [((burst_amount-1)*burst_delay + fire_delay + extra_delay) * 0.1] seconds"
 	if(/datum/action/item_action/aim_mode in actions_types)
 		traits += "Can be aimed with to shoot past allies."
 		traits += "Time between aimed shots: [(fire_delay + aim_fire_delay) * 0.1] seconds"
@@ -101,19 +122,24 @@
 			ATTACHMENT_SLOT_UNDER = "<U>Handguard attachments:</U>",
 			ATTACHMENT_SLOT_MUZZLE = "<U>Muzzle attachments:</U>",
 			ATTACHMENT_SLOT_STOCK = "<U>Stock attachments:</U>",
-			ATTACHMENT_BARREL_MOD = "<U>Barrel attachments:</U>"
+			ATTACHMENT_BARREL_MOD = "<U>Barrel attachments:</U>",
+			"other" = "<U>Other attachments:</U>"
 		)
 		var/list/attachments_text = list(
 			ATTACHMENT_SLOT_RAIL = list(),
 			ATTACHMENT_SLOT_UNDER = list(),
 			ATTACHMENT_SLOT_MUZZLE = list(),
 			ATTACHMENT_SLOT_STOCK = list(),
-			ATTACHMENT_BARREL_MOD = list()
+			ATTACHMENT_BARREL_MOD = list(),
+			"other" = list()
 		)
 
 		for(var/att in attachable_allowed)
 			var/obj/item/attachable/A = att
-			attachments_text[A.slot] += A.name
+			if(A.slot in attachments_text)
+				attachments_text[A.slot] += A.name
+			else
+				attachments_text["other"] += A.name
 		for(var/i in attachments_text)
 			var/list/attach_list_of_type = attachments_text[i]
 			if(attach_list_of_type.len > 0)
