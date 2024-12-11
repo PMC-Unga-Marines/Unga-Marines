@@ -247,9 +247,6 @@
 	///Timer for Endure's warning
 	var/endure_warning_duration
 
-/datum/action/ability/xeno_action/endure/nocost
-	ability_cost = 0
-
 /datum/action/ability/xeno_action/endure/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We feel able to imbue ourselves with plasma to Endure once again!"))
 	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
@@ -499,9 +496,6 @@
 	//var/rage_sunder RU TGMC EDIT
 	///Determines the Plasma to remove when Rage ends
 	var/rage_plasma
-
-/datum/action/ability/xeno_action/rage/nocost
-	ability_cost = 0
 
 /datum/action/ability/xeno_action/rage/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to enter our rage once again."))

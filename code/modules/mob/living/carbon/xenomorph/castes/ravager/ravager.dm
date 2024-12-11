@@ -38,7 +38,7 @@
 		update_rage()
 
 /mob/living/carbon/xenomorph/ravager/proc/update_rage()
-	if(health > maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
+	if(health > maxHealth * AUTORAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 		if(!rage)
 			return
 		rage = FALSE
@@ -55,7 +55,7 @@
 		balloon_alert(src, "We are rested enough")
 		return
 
-	var/rage_threshold = maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
+	var/rage_threshold = maxHealth * (1 - AUTORAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 	rage_power = max(0, (1 - ((health - RAVAGER_ENDURE_HP_LIMIT) / (maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold))))
 
 	add_filter("ravager_rage_outline", 5, outline_filter(rage_power, COLOR_RED))

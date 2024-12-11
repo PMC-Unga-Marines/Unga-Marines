@@ -124,8 +124,8 @@
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/charge/nocost,
 		/datum/action/ability/activable/xeno/ravage/nocost,
-		/datum/action/ability/xeno_action/endure/nocost,
-		/datum/action/ability/xeno_action/rage/nocost,
+		/datum/action/ability/xeno_action/endure,
+		/datum/action/ability/xeno_action/rage,
 		/datum/action/ability/xeno_action/bloodthirst,
 	)
 	plasma_damage_dealt_mult = 2
@@ -147,8 +147,8 @@
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/charge/nocost,
 		/datum/action/ability/activable/xeno/ravage/nocost,
-		/datum/action/ability/xeno_action/endure/nocost,
-		/datum/action/ability/xeno_action/rage/nocost,
+		/datum/action/ability/xeno_action/endure,
+		/datum/action/ability/xeno_action/rage,
 		/datum/action/ability/xeno_action/bloodthirst,
 		/datum/action/ability/xeno_action/deathmark,
 	)
