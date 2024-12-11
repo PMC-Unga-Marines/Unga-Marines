@@ -13,28 +13,15 @@
 /obj/item/weapon/gun/get_mechanics_info()
 	. = ..()
 	var/list/traits = list()
+	traits += "----------------------------------------------------------"
 
+	traits += "Caliber: [caliber]"
 	if(flags_gun_features & GUN_WIELDED_FIRING_ONLY)
-		traits += "This can only be fired with a two-handed grip."
-	else
-		traits += "It's best fired with a two-handed grip."
-
-
-	if(HAS_TRAIT(src, TRAIT_GUN_SAFETY))
-		traits += "It has a safety switch. Alt-Click it to toggle safety."
-
-	if(scope_zoom) //flawed, unless you check the codex for the first time when the scope is attached, this won't show. works for sniper rifles though.
-		traits += "It has a magnifying optical scope. It can be toggled with Use Scope verb."
-
-	if(burst_amount > 2)
-		traits += "It has multiple firemodes. Click the Toggle Burst Fire button to change it."
-
-
-	traits += "<br>Caliber: [caliber]"
-
+		traits += "Can only be fired with a two-handed grip."
+	if(burst_amount > 1)
+		traits += "Can fire in short bursts. Click the Toggle Burst Fire button to change it."
 	if(max_shells)
-		traits += "It can normally hold [max_shells] rounds."
-
+		traits += "Normally holds [max_shells] rounds."
 	if(max_shots)
 		traits += "Its maximum capacity is normally [max_shots] shots worth of power."
 
@@ -51,49 +38,77 @@
 		loading_ways += "it's powerpack."
 	traits += "Can be loaded using [english_list(loading_ways)]"
 
-	if(attachable_allowed)
-		traits += "<br><U>You can attach</U>:"
-		for(var/X in attachable_allowed)
-			var/obj/item/attachable/A = X
-			traits += "[initial(A.name)]"
-
-	traits += "<br><U>Basic Statistics for this weapon are as follows</U>:"
+	traits += "----------------------------------------------------------"
 	if(w_class)
 		traits += "Size: [w_class]"
-	if(force)
-		traits += "Base melee damage: [force]"
-	if(accuracy_mult)
-		traits += "Accuracy: [((accuracy_mult - 1) * 100) > 0 ? "+[(accuracy_mult - 1) * 100]" : "[(accuracy_mult - 1) * 100]"]%"
-	if(damage_mult)
-		traits += "Damage modifier: [((damage_mult - 1) * 100) > 0 ? "+[(damage_mult - 1) * 100]" : "[(damage_mult - 1) * 100]"]%"
-	if(damage_falloff_mult)
-		traits += "Damage falloff: -[damage_falloff_mult] per tile travelled."
-	if(recoil)
-		traits += "Recoil: [recoil]"
-	if(scatter)
-		traits += "Scatter angle: [scatter]"
-	if(burst_scatter_mult)
-		traits += "Burst scatter angle multiplier: x[burst_scatter_mult]"
-	if(accuracy_mult_unwielded)
-		traits += "Accuracy unwielded modifier: [((accuracy_mult_unwielded - 1) * 100) > 0 ? "+[(accuracy_mult_unwielded - 1) * 100]" : "[(accuracy_mult_unwielded - 1) * 100]"]%"
-	if(recoil_unwielded)
-		traits += "Recoil Unwielded: [recoil_unwielded]"
-	if(scatter_unwielded)
-		traits += "Unwielded Scatter angle: [scatter_unwielded > 0 ? "+[scatter_unwielded]" : "[scatter_unwielded]"]"
-	if(movement_acc_penalty_mult)
-		traits += "Movement unwielded penalty modifier: -[(movement_acc_penalty_mult * 0.15) * 100]%"
 	if(fire_delay)
 		traits += "Time between single-fire: [fire_delay * 0.1] seconds"
-	if(wield_delay)
-		traits += "Wield delay: [wield_delay * 0.1] seconds"
 	if(burst_amount > 1)
 		traits += "Shots fired on burst mode: [burst_amount]"
-		traits += "Time between burst-fire: [(min((burst_delay * 2), (fire_delay * 3))) * 0.1] seconds"
+		traits += "Time between bursts: [(burst_amount*(burst_delay-1) + fire_delay + extra_delay) * 0.1] seconds"
 	if(/datum/action/item_action/aim_mode in actions_types)
 		traits += "Can be aimed with to shoot past allies."
 		traits += "Time between aimed shots: [(fire_delay + aim_fire_delay) * 0.1] seconds"
+	if(wield_delay)
+		traits += "Wield delay: [wield_delay * 0.1] seconds"
+	if(force)
+		traits += "Melee damage: [force]"
+	if(damage_mult <> 1)
+		traits += "Damage multiplier: x[damage_mult]"
+	if(damage_falloff_mult <> 1)
+		traits += "Damage falloff multiplier: x[damage_falloff_mult]"
+	if(accuracy_mult <> 1)
+		traits += "Accuracy multiplier: x[accuracy_mult]"
+	if(accuracy_mult_unwielded)
+		traits += "Accuracy unwielded multiplier: x[accuracy_mult_unwielded]"
+	if(movement_acc_penalty_mult)
+		traits += "Moving accuracy (flat malus): -[(movement_acc_penalty_mult * 3)]%"
+	if(recoil)
+		traits += "Recoil: [recoil]"
+	if(recoil_unwielded)
+		traits += "Recoil unwielded: [recoil_unwielded]"
+	if(scatter)
+		traits += "Scatter angle: [scatter]"
+	if(scatter_unwielded)
+		traits += "Unwielded scatter angle: [scatter_unwielded]"
+	if(burst_scatter_mult <> 1)
+		traits += "Burst scatter angle multiplier: x[burst_scatter_mult]"
 
-	traits += "<br>"
+	traits += "----------------------------------------------------------"
+	if(attachable_allowed)
+		var/list/attachments_header_text = list(
+			"<U>Rail attachments:</U>",
+			"<U>Handguard attachments:</U>",
+			"<U>Muzzle attachments:</U>",
+			"<U>Stock attachments:</U>",
+			"<U>Barrel attachments:</U>",
+			"<U>Other attachments:</U>"
+		)
+		var/list/attachments_text = list(
+			ATTACHMENT_SLOT_RAIL = list(),
+			ATTACHMENT_SLOT_UNDER = list(),
+			ATTACHMENT_SLOT_MUZZLE = list(),
+			ATTACHMENT_SLOT_STOCK = list(),
+			ATTACHMENT_BARREL_MOD = list(),
+			"other" = list()
+		)
+
+		for(var/att in attachable_allowed)
+			var/obj/item/attachable/A = att
+			if (A.slot in attachments_text)
+				attachments_text[A.slot] += A.name
+			else
+				attachments_text["other"] += A.name
+		for(var/i in 1 to attachments_text.len)
+			traits += "[i]"
+			if(attachments_text[i])
+				traits += attachments_header_text[i]
+				for(var/X in attachments_text[i])
+					traits += X
+				//attachments_text[i] = sortList(attachments_text[i])
+
+	traits += "----------------------------------------------------------"
+	traits += "How to use:<br>"
 	var/list/entries = SScodex.retrieve_entries_for_string(general_codex_key)
 	var/datum/codex_entry/general_entry = LAZYACCESS(entries, 1)
 	if(general_entry?.mechanics_text)
