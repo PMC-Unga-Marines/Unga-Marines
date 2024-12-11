@@ -1,0 +1,4 @@
+author: "MalorMorfin"
+delete-after: True
+changes:
+  - bugfix: "Теперь если положить слишком большей предмет в хранилище оно не закроется."
