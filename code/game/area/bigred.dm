@@ -287,3 +287,6 @@
 	icon_state = "storage"
 	ceiling = CEILING_METAL
 	outside = FALSE
+
+
+/area/bigredv2/outside/monorail
