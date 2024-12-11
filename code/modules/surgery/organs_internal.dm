@@ -56,6 +56,7 @@
 		else
 			A.forceMove(target.loc)
 			target.status_flags &= ~XENO_HOST
+			GLOB.round_statistics.larva_surgically_removed++
 
 	affected.createwound(CUT, rand(0,20), 1)
 	target.updatehealth()
