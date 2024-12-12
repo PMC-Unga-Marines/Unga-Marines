@@ -167,6 +167,14 @@
 	w_class = WEIGHT_CLASS_TINY
 
 //-------------------------------------------------------
+//P-51.
+/obj/item/ammo_magazine/pistol/p17/p51
+		name = "\improper P-51 pocket pistol AP magazine (.380)"
+		desc = "Склеянные друг с другом три магазина для такого же пистолета."
+		max_rounds = 24
+		icon_state = "tp51"
+
+//-------------------------------------------------------
 //Automag. .50.
 
 /obj/item/ammo_magazine/pistol/highpower

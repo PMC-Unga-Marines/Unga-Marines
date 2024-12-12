@@ -470,6 +470,27 @@
 	scatter_unwielded = 0
 	aim_speed_modifier = 0
 
+/obj/item/weapon/gun/pistol/p17/p51
+	name = "\improper P-51 tristol"
+	desc = "Сваренные друг с другом три пистолета P17. Вот кому-то делать нефиг..."
+	icon_state = "tp51"
+	default_ammo_type = /obj/item/ammo_magazine/pistol/p17/p51
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p17/p51)
+	attachable_allowed = list(
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/lace,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	attachable_offset = list("muzzle_x" = 28, "muzzle_y" = 20,"rail_x" = 9, "rail_y" = 23, "under_x" = 18, "under_y" = 14, "stock_x" = 21, "stock_y" = 18)
+
+	recoil_backtime_multiplier = 0.7
+	recoil = 5
+	recoil_unwielded = 7
+	scatter = 10
+	scatter_unwielded = 20
+	fire_delay = 0.02 SECONDS
 
 //-------------------------------------------------------
 // Browning Hipower
