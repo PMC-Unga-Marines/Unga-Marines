@@ -104,92 +104,92 @@
 /datum/job/zombie
 	title = "Oh god run"
 
-/datum/job/santa
+/datum/job/dedmoroz
 	title = "Elf" //no custom names here, Santa can't tell them apart
 	access = ALL_ANTAGONIST_ACCESS
 	minimal_access = ALL_ANTAGONIST_ACCESS
-	skills_type = /datum/skills/elf
-	faction = FACTION_SANTA
-	outfit = /datum/outfit/job/santa/elf
+	skills_type = /datum/skills/snowman
+	faction = FACTION_DEDMOROZ
+	outfit = /datum/outfit/job/dedmoroz/snowman
 
-/datum/job/santa/elf/eventspawn
-	outfit = /datum/outfit/job/santa/elf/eventspawn
+/datum/job/dedmoroz/snowman/eventspawn
+	outfit = /datum/outfit/job/dedmoroz/snowman/eventspawn
 
-/datum/job/santa/leader
-	title = "Santa Claus"
+/datum/job/dedmoroz/leader
+	title = "Ded Moroz"
 	access = ALL_ACCESS
 	minimal_access = ALL_ACCESS
-	skills_type = /datum/skills/santaclause
-	outfit = /datum/outfit/job/santa/leader
+	skills_type = /datum/skills/dedmoroz
+	outfit = /datum/outfit/job/dedmoroz/leader
 
-/datum/job/santa/contractspawn
-	outfit = /datum/outfit/job/santa/elf/contractspawn
+/datum/job/dedmoroz/contractspawn
+	outfit = /datum/outfit/job/dedmoroz/snowman/contractspawn
 
-/datum/job/santa/eventspawn
-	title = "Event Santa Claus"
+/datum/job/dedmoroz/eventspawn
+	title = "Event Ded Moroz"
 	access = ALL_ACCESS
 	minimal_access = ALL_ACCESS
-	skills_type = /datum/skills/santaclause
-	outfit = /datum/outfit/job/santa/eventspawn
+	skills_type = /datum/skills/dedmoroz
+	outfit = /datum/outfit/job/dedmoroz/eventspawn
 
-/datum/outfit/job/santa/elf
-	name = "Elf"
-	jobtype = /datum/outfit/job/santa/elf/eventspawn
+/datum/outfit/job/dedmoroz/snowman
+	name = "Snow man"
+	jobtype = /datum/outfit/job/dedmoroz/snowman/eventspawn
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp70_pmc
 	ears = /obj/item/radio/headset/distress/commando
-	w_uniform = /obj/item/clothing/under/spec_operative/elf
+	w_uniform = /obj/item/clothing/under/spec_operative/snowman
 	shoes = /obj/item/clothing/shoes/ruggedboot
-	wear_suit = /obj/item/clothing/suit/space/elf/nodrop
+	wear_suit = /obj/item/clothing/suit/space/snowman/nodrop
 	gloves = /obj/item/clothing/gloves/ruggedgloves
-	head = /obj/item/clothing/head/helmet/space/elf/special
+	head = /obj/item/clothing/head/helmet/space/snowman/special
 	glasses = /obj/item/clothing/glasses/welding
 	l_store = /obj/item/storage/pouch/construction/equippedengineer
 	r_store = /obj/item/storage/pouch/tools/full
 	back = /obj/item/storage/backpack/industrial
 	suit_store = /obj/item/weapon/gun/pistol/vp70
-	r_hand = /obj/item/weapon/twohanded/spear/candycane/elf
+	r_hand = /obj/item/weapon/twohanded/spear/candycane/snowman
 
-/datum/outfit/job/santa/elf/eventspawn
-	name = "Event Elf"
-	jobtype = /datum/job/santa
+/datum/outfit/job/dedmoroz/snowman/eventspawn
+	name = "Event Snow man"
+	jobtype = /datum/job/dedmoroz
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/distress/commando
-	w_uniform = /obj/item/clothing/under/spec_operative/elf
+	w_uniform = /obj/item/clothing/under/spec_operative/snowman
 	shoes = /obj/item/clothing/shoes/ruggedboot
-	wear_suit = /obj/item/clothing/suit/space/elf/nodrop
+	wear_suit = /obj/item/clothing/suit/space/snowman/nodrop
 	gloves = /obj/item/clothing/gloves/ruggedgloves
-	head = /obj/item/clothing/head/helmet/space/elf/special
+	head = /obj/item/clothing/head/helmet/space/snowman/special
 	glasses = /obj/item/clothing/glasses/welding
 	l_store = /obj/item/storage/pouch/medkit/medic
 	r_store = /obj/item/storage/pouch/pistol/vp70
 	back = /obj/item/storage/backpack/industrial
 	suit_store = /obj/item/weapon/gun/pistol/vp70
-	r_hand = /obj/item/weapon/twohanded/spear/candycane/elf
+	r_hand = /obj/item/weapon/twohanded/spear/candycane/snowman
 
-/datum/outfit/job/santa/elf/contractspawn
-	name = "Contract Elf"
-	jobtype = /datum/job/santa/contractspawn
+/datum/outfit/job/dedmoroz/snowman/contractspawn
+	name = "Contract Snow man"
+	jobtype = /datum/job/dedmoroz/contractspawn
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/distress/commando
-	w_uniform = /obj/item/clothing/under/spec_operative/elf
+	w_uniform = /obj/item/clothing/under/spec_operative/snowman
 	shoes = /obj/item/clothing/shoes/ruggedboot
-	wear_suit = /obj/item/clothing/suit/space/elf
+	wear_suit = /obj/item/clothing/suit/space/snowman
 	gloves = /obj/item/clothing/gloves/ruggedgloves
-	head = /obj/item/clothing/head/helmet/space/elf/special
-	glasses = /obj/item/clothing/glasses/welding/elf
+	head = /obj/item/clothing/head/helmet/space/snowman/special
+	glasses = /obj/item/clothing/glasses/welding/snowman
 	l_store = /obj/item/storage/pouch/medkit/medic
 	r_store = /obj/item/storage/pouch/pistol/vp70
 	back = /obj/item/storage/backpack/industrial
 	suit_store = /obj/item/weapon/gun/pistol/vp70
-	r_hand = /obj/item/weapon/twohanded/spear/candycane/elf
+	r_hand = /obj/item/weapon/twohanded/spear/candycane/snowman
 
-/datum/outfit/job/santa/elf/eventspawn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/dedmoroz/snowman/eventspawn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 
@@ -213,26 +213,26 @@
 	H.equip_to_slot_or_del(new 	/obj/item/weapon/gun/pistol/vp70, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new 	/obj/item/weapon/gun/pistol/vp70, SLOT_IN_BACKPACK)
 
-/datum/outfit/job/santa/leader //he's done ho ho ho ing around
-	name = "ERT Santa Claus"
-	jobtype = /datum/job/santa/leader
+/datum/outfit/job/dedmoroz/leader //he's done ho ho ho ing around
+	name = "ERT Ded Moroz"
+	jobtype = /datum/job/dedmoroz/leader
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/storage/belt/coalbelt/full
 	ears = /obj/item/radio/headset/distress/commando
 	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/commando
-	shoes = /obj/item/clothing/shoes/galoshes/santa
-	wear_suit = /obj/item/clothing/suit/space/santa/special
-	gloves = /obj/item/clothing/gloves/marine/veteran/pmc/commando/santa
-	mask = /obj/item/clothing/mask/gas/swat/santa
-	head = /obj/item/clothing/head/helmet/space/santahat/special
-	glasses = /obj/item/clothing/glasses/thermal/eyepatch //santa lost one of his eyes in a vicious reindeer accident circa '32
+	shoes = /obj/item/clothing/shoes/galoshes/dedmoroz
+	wear_suit = /obj/item/clothing/suit/space/dedmoroz/special
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc/commando/dedmoroz
+	mask = /obj/item/clothing/mask/gas/swat/dedmoroz
+	head = /obj/item/clothing/head/helmet/space/dedmoroz/special
+	glasses = /obj/item/clothing/glasses/thermal/eyepatch //dedmoroz lost one of his eyes in a vicious reindeer accident circa '32
 	r_store = /obj/item/storage/pouch/magazine/pistol/large
 	l_store = /obj/item/storage/pouch/medkit/firstaid
-	back = /obj/item/storage/backpack/santabag
+	back = /obj/item/storage/backpack/dedmorozbag
 	suit_store = /obj/item/weapon/gun/launcher/rocket/m57a4
 
-/datum/outfit/job/santa/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/dedmoroz/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 
@@ -287,25 +287,25 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/mirage, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/mirage, SLOT_IN_BACKPACK)
 
-/datum/outfit/job/santa/eventspawn //like ERT santa, but less OP
-	name = "Event Santa Claus"
-	jobtype = /datum/job/santa/eventspawn
+/datum/outfit/job/dedmoroz/eventspawn //like ERT ded moroz, but less OP
+	name = "Event Ded Moroz"
+	jobtype = /datum/job/dedmoroz/eventspawn
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/storage/belt/coalbelt/full
 	ears = /obj/item/radio/headset/distress/commando
 	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/commando
-	shoes = /obj/item/clothing/shoes/galoshes/santa
-	wear_suit = /obj/item/clothing/suit/space/santa/special/eventspawn
-	gloves = /obj/item/clothing/gloves/marine/veteran/pmc/commando/santa
-	mask = /obj/item/clothing/mask/gas/swat/santa/eventspawn
-	head = /obj/item/clothing/head/helmet/space/santahat/special
+	shoes = /obj/item/clothing/shoes/galoshes/dedmoroz
+	wear_suit = /obj/item/clothing/suit/space/dedmoroz/special/eventspawn
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc/commando/dedmoroz
+	mask = /obj/item/clothing/mask/gas/swat/dedmoroz/eventspawn
+	head = /obj/item/clothing/head/helmet/space/dedmoroz/special
 	r_store = /obj/item/storage/pouch/magazine/large/pmc_m25
-	l_store = /obj/item/storage/pouch/santaspouch
-	back = /obj/item/storage/backpack/santabag
+	l_store = /obj/item/storage/pouch/dedmorozpouch
+	back = /obj/item/storage/backpack/dedmorozbag
 	suit_store = /obj/item/weapon/gun/smg/m25/elite
 
-/datum/outfit/job/santa/eventspawn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/dedmoroz/eventspawn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 
@@ -363,7 +363,7 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/mirage, SLOT_IN_BACKPACK)
 
 
-/datum/outfit/job/santa/elf/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/dedmoroz/snowman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 

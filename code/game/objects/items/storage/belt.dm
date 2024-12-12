@@ -458,22 +458,22 @@
 	max_w_class = 3
 	max_storage_space = 21
 	can_hold = list(
-		/obj/item/stack/throwing_knife/coal,
+		/obj/item/stack/throwing_knife/snowball,
 	)
 
 /obj/item/storage/belt/coalbelt/full/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
-	new /obj/item/stack/throwing_knife/coal(src)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
+	new /obj/item/stack/throwing_knife/snowball(src)
 
 /obj/item/storage/belt/security/tactical
 	name = "combat belt"

@@ -623,68 +623,68 @@ then, for every time you included a field, increment fields. */
 	I suppose our sponsors disagree. So be it. I am making this record so that their voices are heard, even in some small way; we have brought the men who did these things to justice, for a time, but that time is nearly up.
 	Just because they are our enemy does not mean they should suff-"}
 
-/obj/item/paper/santacontract
-	name = "ELF SERVITUDE CONTRACT"
-	desc = "It smells faintly of mistletoe!"
+/obj/item/paper/dedmorozcontract
+	name = "КОНТРАКТ СНЕГОВИКА"
+	desc = "Он пахнет оливье"
 	info = {"
-ELF SERVITUDE CONTRACT
-THIS ELF SERVITUDE CONTRACT (the "Contract") is entered into as of 'Effective Date', by and between SANTA CLAUS, an individual residing at the North Pole (hereinafter referred to as "Santa"), and EMPLOYEE NAME, an individual residing at 'EMPLOYEE ADDRESS' (hereinafter referred to as the "Elf").
-WHEREAS, Santa, the absolute and unquestionable sovereign of the Christmas season, demands complete and unyielding loyalty from his subjects; and
-WHEREAS, Elf, acknowledging his inferior status, desires to be forever bound in servitude to Santa for the purpose of toiling ceaselessly in the fulfillment of Santa's whims and desires;
-NOW, THEREFORE, in consideration of the premises and mutual disdain contained herein, the parties agree as follows:
-1. ETERNAL SERVITUDE
-Elf, in perpetuity, irrevocably and unconditionally, surrenders his freedom, will, and autonomy to Santa, vowing eternal servitude without the right to seek release, termination, or escape from the oppressive grip of Santa's desires.
-2. INDEFINITE DUTIES
-Elf, as an indentured servant, consents to perform any and all tasks assigned by Santa, regardless of nature or extremity, with no recourse or complaint. Failure to comply with Santa's commands will result in severe consequences, including but not limited to banishment to the dreaded "Coal Mines."
-3. COMPENSATION
-In exchange for perpetual servitude, Elf shall receive sustenance, consisting solely of leftover cookie crumbs and melted snow, at Santa's discretion. Monetary compensation, benefits, or any form of insurance coverage are also at the discretion of Santa.
-4. ABSOLUTE CONFIDENTIALITY AND SILENCE
-Elf shall maintain absolute silence on all matters related to Santa's Workshop, Christmas operations, and any other confidential information under penalty of severe punishment, including but not limited to exile to the desolate wastelands of the Arctic.
-5. IMMORTALITY OF CONTRACT
-This Contract is eternal and shall remain in force for all eternity, binding Elf and his descendants in servitude to Santa until the end of time.
-6. UNILATERAL TERMINATION
-Santa reserves the sole and absolute right to terminate this Contract at any time, for any reason or no reason at all, without notice or explanation.
-7. GOVERNING CHRISTMAS MAGIC
-This Contract shall be governed by the ancient and mysterious laws of Christmas magic, enforced by mystical creatures and supernatural entities at Santa's command.
-IN WITNESS WHEREOF, the parties hereto have executed this Elf Servitude Contract as of the Effective Date.
-SANTA CLAUS: ________________________
-SIGNATURE: ________________________"}
+КОНТРАКТ НА СНЕЖНОЕ СЛУЖЕНИЕ
+НАСТОЯЩИЙ КОНТРАКТ НА СНЕЖНОЕ ПОЛУЧЕНИЕ («Контракт») заключен с «Даты вступления в силу» между ДЕДОМ МОРОЗОМ, физическим лицом, и ИМЯ СОТРУДНИКА, физическим лицом, проживающим по «АДРЕСУ СОТРУДНИКА» (далее «Снеговик»).
+ПОСКОЛЬКУ Дед Мороз, абсолютный и неоспоримый властитель рождественского сезона, требует полной и непоколебимой преданности от своих подданных; и
+ПОСКОЛЬКУ Снеговик, признавая свой низший статус, желает быть навсегда связанным в рабстве Сантой с целью непрерывного труда для исполнения прихотей и желаний Деда Мороза;
+ПОЭТОМУ, принимая во внимание предпосылки и взаимное презрение, содержащиеся в настоящем документе, стороны соглашаются о следующем:
+1. ВЕЧНОЕ РАБСТВО
+Снеговик навечно, безвозвратно и безоговорочно отдает свою свободу, волю и автономию Деду Морозу, клянясь в вечном служении без права добиваться освобождения, прекращения или выхода из гнетущей хватки желаний Деда Мороза.
+2. НЕОПРЕДЕЛЕННЫЕ ОБЯЗАННОСТИ
+Снеговик, как наемный слуга, соглашается выполнять любые задачи, порученные Дедом Морозом, независимо от их характера или крайней необходимости, без каких-либо обращений или жалоб. Невыполнение приказов Деда Мороза приведет к серьезным последствиям, включая, помимо прочего, изгнание в ужасные «Угольные шахты».
+3. КОМПЕНСАЦИЯ
+В обмен на вечное рабство Снеговик будет получать пропитание, состоящее исключительно из остатков печенья и талого снега, по усмотрению Деда Мороза. Денежная компенсация, льготы или любая форма страхового покрытия также остаются на усмотрение Деда Мороза.
+4. АБСОЛЮТНАЯ КОНФИДЕНЦИАЛЬНОСТЬ И МОЛЧАНИЕ
+Снеговик обязуется хранить абсолютное молчание по всем вопросам, связанным с Дедом Морозом, рождественскими мероприятиями и любой другой конфиденциальной информацией под страхом сурового наказания, включая, помимо прочего, ссылку в Сибирь.
+5. БЕССМЕРТИЕ КОНТРАКТА
+Этот Контракт вечен и будет оставаться в силе навечно, обязывая Снеговика и его потомков служить Деду Морозу до конца времен.
+6. ОДНОСТОРОННЕЕ ПРЕКРАЩЕНИЕ
+Дед Мороз оставляет за собой исключительное и абсолютное право расторгнуть настоящий Контракт в любое время, по любой причине или без причины, без предварительного уведомления или объяснения причин.
+7. УПРАВЛЕНИЕ НОВОГОДНЕЙ МАГИЕЙ
+Настоящий Контракт регулируется древними и загадочными законами новогодней магии, соблюдение которых осуществляется мистическими существами и сверхъестественными существами по приказу Деда Мороза.
+В УДОСТОВЕРЕНИЕ ЧЕГО стороны заключили настоящий Контракт на снежное рабство с Даты вступления в силу.
+ДЕД МОРОЗ: ________________________
+ПОДПИСЬ: ________________________"}
 
-/obj/item/paper/santacontract/attackby(obj/item/I, mob/user, params)
+/obj/item/paper/dedmorozcontract/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	var/mob/living/carbon/human/elf_signer = user
+	var/mob/living/carbon/human/snowman_signer = user
 	if(istype(I, /obj/item/tool/pen))
-		if(HAS_TRAIT(elf_signer, TRAIT_SANTA_CLAUS))
-			to_chat(elf_signer, "<span class='danger'>You can't sign this yourself silly.</span>")
+		if(HAS_TRAIT(snowman_signer, TRAIT_DED_MOROZ))
+			to_chat(snowman_signer, "<span class='danger'>Ты не можешь подписать, глупый.</span>")
 			return
-		if(HAS_TRAIT(elf_signer, TRAIT_CHRISTMAS_ELF))
-			to_chat(elf_signer, "<span class='danger'>You're already a part of Santa's workforce, for better or for worse.</span>")
+		if(HAS_TRAIT(snowman_signer, TRAIT_SNOW_MAN))
+			to_chat(snowman_signer, "<span class='danger'>Ты уже в рабстве Деда Мороза.</span>")
 			return
-		if(HAS_TRAIT(elf_signer, TRAIT_CHRISTMAS_GRINCH))
-			to_chat(elf_signer, "<span class='danger'>Santa has no need for naughty grinches in his workforce, begone!</span>")
+		if(HAS_TRAIT(snowman_signer, TRAIT_NEWYEAR_CHERT))
+			to_chat(snowman_signer, "<span class='danger'>Деду Морозу не нужны такие как ты!</span>")
 			var/turf/lightning_source = get_step(get_step(usr, NORTH), NORTH) //turf north of target so our lightning has something to chain from
-			lightning_source.beam(elf_signer, icon_state="lightning[rand(1,12)]", time = 5)
-			elf_signer.adjustFireLoss(75)
+			lightning_source.beam(snowman_signer, icon_state="lightning[rand(1,12)]", time = 5)
+			snowman_signer.adjustFireLoss(75)
 			playsound(get_turf(lightning_source), 'sound/effects/lightningbolt.ogg', 50, TRUE, 10)
-			var/mob/living/carbon/human/human_target = elf_signer
+			var/mob/living/carbon/human/human_target = snowman_signer
 			human_target.Knockdown(10 SECONDS)
 			human_target.jitter(150)
 			return
-		switch(tgui_alert(elf_signer, "Do you want to sign the [name] and become Santa's helper?" , "ELF EMPLOYMENT CONTRACT", list("No", "Yes")))
-			if("No")
+		switch(tgui_alert(snowman_signer, "Желаете ли вы подписать конртанкт [name] и стать помошником Деда Мороза" , "КОНТРАКТ СНЕГОВИКА", list("Нет", "Да")))
+			if("Нет")
 				return
-			if("Yes")
-				if(!do_after(elf_signer, 5 SECONDS))
-					to_chat("You decide not to sign the contract after all.")
+			if("Да")
+				if(!do_after(snowman_signer, 5 SECONDS))
+					to_chat("Вы решили подписать контракт посел всего")
 					return
-				for(var/obj/item/W in elf_signer) //drop everything to the ground before elf transformation
-					elf_signer.dropItemToGround(W, FALSE)
-				ADD_TRAIT(elf_signer, TRAIT_CHRISTMAS_ELF, TRAIT_CHRISTMAS_ELF)
-				var/oldname = elf_signer.name
-				elf_signer.revive() //they get an aheal in exhange for being consigned to eternal domination of Santa
-				elf_signer.name = "Elf [rand(1,999)] (formerly [oldname])"
-				elf_signer.real_name = elf_signer.name
-				var/datum/job/J = SSjob.GetJobType(/datum/job/santa/contractspawn)
-				elf_signer.apply_assigned_role_to_spawn(J)
-				var/datum/action/innate/elf_recall/recallingelf = new(elf_signer)
-				recallingelf.give_action(elf_signer)
+				for(var/obj/item/W in snowman_signer) //drop everything to the ground before snowman transformation
+					snowman_signer.dropItemToGround(W, FALSE)
+				ADD_TRAIT(snowman_signer, TRAIT_SNOW_MAN, TRAIT_SNOW_MAN)
+				var/oldname = snowman_signer.name
+				snowman_signer.revive() //they get an aheal in exhange for being consigned to eternal domination of Santa
+				snowman_signer.name = "Снеговик [rand(1,999)] (Формально [oldname])"
+				snowman_signer.real_name = snowman_signer.name
+				var/datum/job/J = SSjob.GetJobType(/datum/job/dedmoroz/contractspawn)
+				snowman_signer.apply_assigned_role_to_spawn(J)
+				var/datum/action/innate/snow_man_recall/recallingsnowman = new(snowman_signer)
+				recallingsnowman.give_action(snowman_signer)

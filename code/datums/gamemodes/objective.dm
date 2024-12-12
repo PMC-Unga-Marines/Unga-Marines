@@ -281,8 +281,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/deliver_gifts
 	name = "deliver gifts"
-	explanation_text = "Deliver gifts to good members of the Terragov marine corp."
-	team_explanation_text = "Deliver gifts to good members of the Terragov marine corp."
+	explanation_text = "Доставьте подарки хорошим членам TGMC."
+	team_explanation_text = "Доставьте подарки хорошим членам TGMC"
 	var/presents_to_be_given = 0
 
 /datum/objective/deliver_gifts/New()
@@ -290,36 +290,36 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	presents_to_be_given = rand(1, length(GLOB.alive_human_list)/2)
 
 /datum/objective/deliver_gifts/check_completion()
-	if(GLOB.round_statistics.santa_presents_delivered >= presents_to_be_given)
+	if(GLOB.round_statistics.presents_delivered >= presents_to_be_given)
 		return TRUE
 	return FALSE
 
 /datum/objective/deliver_gifts/update_explanation_text()
 	. = ..()
-	explanation_text = "Deliver [presents_to_be_given] gifts to good members of Terragov marine corp."
+	explanation_text = "Доставьте [presents_to_be_given] подарки хорошим членам TGMC"
 
-/datum/objective/recruit_elves
+/datum/objective/recruit_snow_man
 	name = "recruit elves"
-	explanation_text = "The North Pole is experiencing a labor strike! Recruit some marines to your little helpers."
-	team_explanation_text = "The North Pole is experiencing a labor strike! Recruit some marines to your little helpers."
-	var/elves_to_be_recruited = 0
+	explanation_text = "Деду Морозу не хватает снеговиков! Рекрутируй несколько маринов для помощи."
+	team_explanation_text = "Деду Морозу не хватает снеговиков! Рекрутируй несколько маринов для помощи."
+	var/snow_man_to_be_recruited = 0
 
-/datum/objective/recruit_elves/update_explanation_text()
+/datum/objective/recruit_snow_man/update_explanation_text()
 	. = ..()
-	explanation_text = "The North Pole is experiencing a labor strike! Recruit [elves_to_be_recruited] marines to be your little helpers."
+	explanation_text = "Деду Морозу не хватает снеговиков! Рекрутируй [snow_man_to_be_recruited] маринов для помощи."
 
-/datum/objective/recruit_elves/New()
+/datum/objective/recruit_snow_man/New()
 	. = ..()
-	elves_to_be_recruited = rand(1, 4)
+	snow_man_to_be_recruited = rand(1, 4)
 
-/datum/objective/recruit_elves/check_completion()
-	var/elves_recruited = 0
-	for(var/mob/living/carbon/human/potentialelf in GLOB.alive_human_list)
-		if(potentialelf.stat == DEAD)
+/datum/objective/recruit_snow_man/check_completion()
+	var/snow_man_recruited = 0
+	for(var/mob/living/carbon/human/potentialsnowman in GLOB.alive_human_list)
+		if(potentialsnowman.stat == DEAD)
 			continue
-		if(HAS_TRAIT(potentialelf, TRAIT_CHRISTMAS_ELF))
-			elves_recruited += 1
-	if(elves_recruited >= elves_to_be_recruited)
+		if(HAS_TRAIT(potentialsnowman, TRAIT_SNOW_MAN))
+			snow_man_recruited += 1
+	if(snow_man_recruited >= snow_man_to_be_recruited)
 		return TRUE
 	return FALSE
 
@@ -572,8 +572,8 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/kill_xenos
 	name = "kill all xenos"
-	explanation_text = "Eliminate all xenos and destroy their silo. For the TGMC!"
-	team_explanation_text = "Eliminate all xenos and destroy their silo. For the TGMC!"
+	explanation_text = "Уничтожьте всех ксеносов и уничтожьте их сило. За ТГМС!"
+	team_explanation_text = "Уничтожьте всех ксеносов и уничтожьте их сило. За ТГМС!"
 
 /datum/objective/kill_xenos/check_completion()
 	for(var/mob/living/carbon/xenomorph/affectedmob in GLOB.mob_list)

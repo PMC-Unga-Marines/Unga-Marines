@@ -1344,8 +1344,8 @@
 			/obj/item/storage/pouch/general/medium = -1,
 		),
 		"Headwear" = list(
-			/obj/item/clothing/head/helmet/space/elf/regular = -1,
-			/obj/item/clothing/head/helmet/space/santahat = -1,
+			/obj/item/clothing/head/helmet/space/snowman/regular = -1,
+			/obj/item/clothing/head/helmet/space/dedmoroz = -1,
 			/obj/item/clothing/head/slouch = -1,
 			/obj/item/clothing/head/headband/red = -1,
 			/obj/item/clothing/head/headband/rambo = -1,

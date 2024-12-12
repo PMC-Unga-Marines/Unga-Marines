@@ -100,7 +100,7 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/chimera_blinks = 0
 	var/larva_from_xeno_core = 0
 	var/points_from_towers = 0
-	var/number_of_grinches = 0
-	var/presents_grinched = 0
+	var/number_of_chert = 0
+	var/presents_stolen = 0
 	var/presents_delivered = 0
-	var/santa_presents_delivered = 0
+	var/dedmoroz_presents_delivered = 0

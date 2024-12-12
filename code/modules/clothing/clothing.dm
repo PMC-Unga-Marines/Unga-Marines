@@ -324,8 +324,8 @@
 	if(armor_storage.storage.handle_mousedrop(usr, over_object))
 		return ..()
 
-/obj/item/clothing/suit/space/santa
-	name = "Santa's suit"
+/obj/item/clothing/suit/space/dedmoroz
+	name = "Ded Moroz suit"
 	desc = "Festive!"
 	icon_state = "santa"
 	item_state = "santa"
@@ -333,7 +333,7 @@
 	allowed = list(/obj/item) //for stuffing exta special presents
 	species_exception = list(/datum/species/robot)
 
-/obj/item/clothing/suit/space/santa/special //for ERT, when santa has to give presents to REALLY naughty children
+/obj/item/clothing/suit/space/dedmoroz/special //for ERT, when santa has to give presents to REALLY naughty children
 	desc = "That's not red dye. That's red blood."
 	soft_armor = list(MELEE = 90, BULLET = 85, LASER = 120, ENERGY = 120, BOMB = 120, BIO = 85, FIRE = 120, ACID = 40)
 	slowdown = 1
@@ -344,30 +344,30 @@
 	supporting_limbs = CHEST | GROIN | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_LEFT | LEG_RIGHT | FOOT_LEFT | FOOT_RIGHT | HEAD
 	resistance_flags = UNACIDABLE
 
-/obj/item/clothing/suit/space/santa/special/Initialize(mapload)
+/obj/item/clothing/suit/space/dedmoroz/special/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)
 
-/obj/item/clothing/suit/space/santa/special/eventspawn //lesser version of above suit, still mostly bomb proof
+/obj/item/clothing/suit/space/dedmoroz/special/eventspawn //lesser version of above suit, still mostly bomb proof
 	soft_armor = list(MELEE = 75, BULLET = 90, LASER = 90, ENERGY = 65, BOMB = 120, BIO = 70, FIRE = 55, ACID = 25)
 
-/obj/item/clothing/suit/space/santa/special/eventspawn/Initialize(mapload)
+/obj/item/clothing/suit/space/dedmoroz/special/eventspawn/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)
 
-/obj/item/clothing/suit/space/elf
-	name = "Elf suit"
+/obj/item/clothing/suit/space/snowman
+	name = "Snow man suit"
 	desc = "Festive!"
 	icon_state = "elfcostume"
 	item_state = "elfcostume"
 	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 15, ENERGY = 15, BOMB = 100, BIO = 30, FIRE = 80, ACID = 10)
 	slowdown = 0.6
-	allowed = list(/obj/item/weapon/twohanded/spear/candycane/elf)
+	allowed = list(/obj/item/weapon/twohanded/spear/candycane/snowman)
 
-/obj/item/clothing/suit/space/elf/nodrop
+/obj/item/clothing/suit/space/snowman/nodrop
 	flags_item = DELONDROP
 
-/obj/item/clothing/suit/space/elf/nodrop/Initialize(mapload)
+/obj/item/clothing/suit/space/snowman/nodrop/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_CHRISTMAS_ELF)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SNOW_MAN)
 

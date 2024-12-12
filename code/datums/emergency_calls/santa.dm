@@ -1,22 +1,22 @@
 //Santa is back in town
-/datum/emergency_call/santa
-	name = "Santa's Workshop"
+/datum/emergency_call/dedmoroz
+	name = "Ded Moroz team"
 	base_probability = 50
 	alignement_factor = 0
 
 
-/datum/emergency_call/santa/print_backstory(mob/living/carbon/human/H)
-	to_chat(H, "<B>You [pick("fed the reindeer and worked hard for 11 months a year", "worked hard to deliver presents to good boys and girls of all species", "survived the ice, snow, and low gravity working tirelessly for Santa", "were a master craftsman who snuck onto Santa's galactic sleigh ride")].</b>")
-	to_chat(H, "<B>As part of Santa's entourage, you travel with him to deliver presents to all who deserve to be rewarded.</b>")
-	to_chat(H, "<B>Santa travels the galaxy once a year, visiting every single inhabited planet in a single period of 24 standard hours. Santa maintains an active defense force to punish especially naughty sapients with lethal force, this defense force currently numbers more than 30,000 elves and ships.</b>")
+/datum/emergency_call/dedmoroz/print_backstory(mob/living/carbon/human/H)
+	to_chat(H, "<B>Ты [pick("усердно работал чтобы доставить подарки всем хорошим мальчикам и девочкам всех мастей", "пережил лед, снег и низкую гравитацию, неустанно работая на благо Деда мороза")].</b>")
+	to_chat(H, "<B>В составе кортежа Деда Мороза, вы путешествуете чтобы доставить подарки всем, кто заслуживает награды.</b>")
+	to_chat(H, "<B>Дед Мороз путешествует по галактике раз в год, посещая каждую обитаемую планету за один период в 24 стандартных часа. Дед Мороз поддерживает активные силы обороны, чтобы наказывать особо непослушных смертоносной силой. В настоящее время эти силы защиты насчитывают более 30 000 снеговиков и кораблей</b>")
 	to_chat(H, "")
-	to_chat(H, "<B>Today, while enroute to visit a TGMC vessel, [SSmapping.configs[SHIP_MAP].map_name], the artificial intelligence in Santa's sleigh detected an abnormally high level of naughtiness in the orbit of [SSmapping.configs[GROUND_MAP].map_name]. Santa has resolved to punish them in the spirit of Christmas!</b>")
-	if(GLOB.round_statistics.number_of_grinches >= 1)
-		to_chat(H, "<B>Eradicate all lifeforms aboard the ship to save Christmas, coal won't be enough this time. The only punishment Santa believes in now is hot lead!</B>")
+	to_chat(H, "<B>Сегодня, направляясь к судну TGMC, [SSmapping.configs[SHIP_MAP].map_name], магический ИИ посоха обнаружил аномально высокий уровень непослушных существ на орбите [SSmapping.configs[GROUND_MAP].map_name]. Дед Мороз решил наказать их в духе Нового года!</b>")
+	if(GLOB.round_statistics.number_of_chert >= 1)
+		to_chat(H, "<B>Уничтожьте все формы жизни на борту коробля, чтобы спасти Новый год, угля на этот раз будет недостаточно. Единственное наказание, в которое сейчас верит Дед Мороз, это горячий свинец!</B>")
 	else
-		to_chat(H, "<B>Punish the naughty </b>aliens</b> onboard the ship, coal won't be enough this time. The only punishment Santa believes in now is hot lead!</B>")
+		to_chat(H, "<B>Накажите непослушных </b>Ксеноморфов</b> на борту корабля, угля на этот раз будет недостаточно. Единственное наказание, в которое сейчас верит Дед Мороз, это горячий свинец!</B>")
 
-/datum/emergency_call/santa/create_member(datum/mind/M)
+/datum/emergency_call/dedmoroz/create_member(datum/mind/M)
 	. = ..()
 	if(!.)
 		return
@@ -30,213 +30,213 @@
 		qdel(original)
 
 	//
-	//Santa himself is a discount deathsquad leader, his elves are just fodder though and very poorly equipped
+	//Ded moroz himself is a discount deathsquad leader, his snowman are just fodder though and very poorly equipped
 	//
 
 	if(!leader)
 		leader = H
-		var/datum/job/J = SSjob.GetJobType(/datum/job/santa/leader)
-		H.name = "Santa Claus"
+		var/datum/job/J = SSjob.GetJobType(/datum/job/dedmoroz/leader)
+		H.name = "Дед Мороз"
 		H.real_name = H.name
 		H.apply_assigned_role_to_spawn(J)
 		H.set_nutrition(NUTRITION_OVERFED * 2)
 		H.grant_language(/datum/language/xenocommon)
-		ADD_TRAIT(H, TRAIT_SANTA_CLAUS, TRAIT_SANTA_CLAUS)
+		ADD_TRAIT(H, TRAIT_DED_MOROZ, TRAIT_DED_MOROZ)
 		var/datum/action/innate/summon_present/present_spawn = new(H)
 		present_spawn.give_action(H)
 		var/datum/action/innate/summon_present_bomb/present_bomb_spawn = new(H)
 		present_bomb_spawn.give_action(H)
 		var/datum/action/innate/rejuv_self/selfhealing = new(H)
 		selfhealing.give_action(H)
-		var/datum/action/innate/summon_elves/elfsummoning = new(H)
-		elfsummoning.give_action(H)
-		var/datum/action/innate/heal_elf/fixelfslave = new(H)
-		fixelfslave.give_action(H)
-		var/datum/action/innate/elf_swap/swapelf = new(H)
-		swapelf.give_action(H)
-		if(GLOB.round_statistics.number_of_grinches >= 1)
-			to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are Santa Claus! Eradicate all </b>marines and aliens</b> with overwhelming firepower! </b>Leave none of them alive!!</b>.")]</p>")
+		var/datum/action/innate/summon_snow_man/snowmansummoning = new(H)
+		snowmansummoning.give_action(H)
+		var/datum/action/innate/heal_snow_man/fixsnowmanslave = new(H)
+		fixsnowmanslave.give_action(H)
+		var/datum/action/innate/snow_man_swap/swapsnowman = new(H)
+		swapsnowman.give_action(H)
+		if(GLOB.round_statistics.number_of_chert >= 1)
+			to_chat(H, "<p style='font-size:1.5em'>[span_notice("Ты Дед Мороз! Уничтожьте всех </b>людей и ксеносов</b> с помощью подавляющей огневой мощи! </b>Не оставляйте никого из них в живых!!</b>.")]</p>")
 		else
-			to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are Santa Claus! Punish all the naughty </b>aliens</b> with overwhelming firepower, starting with their cowardly queen hiding on the ship.")]</p>")
+			to_chat(H, "<p style='font-size:1.5em'>[span_notice("Ты Дед Мороз! Накажите всех непослушных </b>ксеносов</b> подавляющей огневой мощью, начиная с их трусливой королевы, спрятавшейся на корабле.")]</p>")
 		return
 
-	ADD_TRAIT(H, TRAIT_CHRISTMAS_ELF, TRAIT_CHRISTMAS_ELF)
-	var/datum/job/J = SSjob.GetJobType(/datum/job/santa)
+	ADD_TRAIT(H, TRAIT_SNOW_MAN, TRAIT_SNOW_MAN)
+	var/datum/job/J = SSjob.GetJobType(/datum/job/dedmoroz)
 	H.apply_assigned_role_to_spawn(J)
-	H.name = "Elf [rand(1,999)]"
+	H.name = "Снеговик [rand(1,999)]"
 	H.real_name = H.name
-	var/datum/action/innate/elf_recall/recallingelf = new(H)
-	recallingelf.give_action(H)
+	var/datum/action/innate/snow_man_recall/recallingsnowman = new(H)
+	recallingsnowman.give_action(H)
 	print_backstory(H)
-	if(GLOB.round_statistics.number_of_grinches >= 1)
-		to_chat(H, span_notice("You are a member of Santa's loyal workforce, assist Santa in purging the marine ship of </b>all life</b>, human and xeno!"))
+	if(GLOB.round_statistics.number_of_chert >= 1)
+		to_chat(H, span_notice("Вы являетесь членом верной команды Деда Мороза. Помогите Деду Морозу очистить корабль от </b>всего живого</b>, от людей и ксеносов!"))
 	else
-		to_chat(H, span_notice("You are a member of Santa's loyal workforce, assist Santa in whatever way you can!"))
+		to_chat(H, span_notice("Вы — член верной команды Деда Мороза, помогите Деду Морозу, чем можете!"))
 
 /datum/action/innate/summon_present
 	name = "Summon Present"
 	action_icon_state = "present"
 
 /datum/action/innate/summon_present/Activate()
-	var/mob/living/carbon/human/santamob = usr
-	to_chat(santamob, span_notice("You begin rifling through your bag, looking for a present."))
-	if(!do_after(santamob, 7 SECONDS))
-		to_chat(santamob, span_notice("You give up looking for a present."))
+	var/mob/living/carbon/human/dedmoroz_mob = usr
+	to_chat(dedmoroz_mob, span_notice("Ты начал копаться в своем мешке в поиске подарков."))
+	if(!do_after(dedmoroz_mob, 7 SECONDS))
+		to_chat(dedmoroz_mob, span_notice("Попытка была тщетна."))
 		return
-	var/obj/item/a_gift/santa/spawnedpresent = new (get_turf(santamob))
-	santamob.put_in_hands(spawnedpresent)
+	var/obj/item/a_gift/dedmoroz/spawnedpresent = new(get_turf(dedmoroz_mob))
+	dedmoroz_mob.put_in_hands(spawnedpresent)
 
 /datum/action/innate/summon_present_bomb
 	name = "Summon Explosive Present"
 	action_icon_state = "dangerpresent"
 
 /datum/action/innate/summon_present_bomb/Activate()
-	var/mob/living/carbon/human/santamob = usr
-	to_chat(santamob, span_warning("You begin rifling through your bag, looking for a present bomb."))
-	if(!do_after(santamob, 3 SECONDS))
-		to_chat(santamob, span_notice("You stop searching for a present grenade."))
+	var/mob/living/carbon/human/dedmoroz_mob = usr
+	to_chat(dedmoroz_mob, span_warning("Ты начал копаться в своем мешке в поиске взрывного подарка."))
+	if(!do_after(dedmoroz_mob, 3 SECONDS))
+		to_chat(dedmoroz_mob, span_notice("Попытка была тщетна."))
 		return
-	var/obj/item/explosive/grenade/gift/spawnedpresentbomb = new (get_turf(santamob))
-	santamob.put_in_hands(spawnedpresentbomb)
+	var/obj/item/explosive/grenade/gift/spawnedpresentbomb = new (get_turf(dedmoroz_mob))
+	dedmoroz_mob.put_in_hands(spawnedpresentbomb)
 
 /datum/action/innate/rejuv_self
 	name = "Revitalize Self"
-	action_icon_state = "santa_heal"
+	action_icon_state = "dedmoroz_heal"
 
 /datum/action/innate/rejuv_self/Activate()
-	var/mob/living/carbon/human/santamob = usr
-	to_chat(santamob, span_notice("You begin summoning Christmas magic to heal your rounds."))
-	if(!do_after(santamob, 2 MINUTES))
-		to_chat(santamob, span_notice("With a burst of holiday spirit you heal your wounds, you're as good as new!"))
+	var/mob/living/carbon/human/dedmoroz_mob = usr
+	to_chat(dedmoroz_mob, span_notice("Ты начал использовать новогоднию силу для заживления ран."))
+	if(!do_after(dedmoroz_mob, 2 MINUTES))
+		to_chat(dedmoroz_mob, span_notice("С приливом праздничного настроения ты залечиваешь свои раны, ты как новенький!"))
 		return
-	santamob.revive()
+	dedmoroz_mob.revive()
 
-/datum/action/innate/summon_elves
-	name = "Summon Elves"
-	action_icon_state = "santa_summon"
+/datum/action/innate/summon_snow_man
+	name = "Summon Snow man"
+	action_icon_state = "dedmoroz_summon"
 
-/datum/action/innate/summon_elves/Activate()
-	var/mob/living/carbon/human/santamob = usr
-	to_chat(santamob, span_notice("You begin summoning your faithful workers to your side."))
-	if(!do_after(santamob, 15 SECONDS))
-		to_chat(santamob, span_notice("You decide not to summon your elves, they aren't much of a help anyway"))
+/datum/action/innate/summon_snow_man/Activate()
+	var/mob/living/carbon/human/dedmoroz_mob = usr
+	to_chat(dedmoroz_mob, span_notice("Ты начал призывать своих помошников."))
+	if(!do_after(dedmoroz_mob, 15 SECONDS))
+		to_chat(dedmoroz_mob, span_notice("Ты передумал созывать снеговиков, от них все равно не так много пользы."))
 		return
-	for(var/mob/living/carbon/human/elves in GLOB.humans_by_zlevel["[santamob.z]"])
-		if(HAS_TRAIT(elves, TRAIT_CHRISTMAS_ELF))
-			elves.forceMove(get_turf(santamob))
+	for(var/mob/living/carbon/human/snowman in GLOB.humans_by_zlevel["[dedmoroz_mob.z]"])
+		if(HAS_TRAIT(snowman, TRAIT_SNOW_MAN))
+			snowman.forceMove(get_turf(dedmoroz_mob))
 
-/datum/action/innate/heal_elf
-	name = "Heal Elf"
-	action_icon_state = "heal_elf"
+/datum/action/innate/heal_snow_man
+	name = "Heal Snow man"
+	action_icon_state = "heal_snow_man"
 
-/datum/action/innate/heal_elf/Activate()
-	var/list/elflist = list()
-	var/mob/living/carbon/human/santamob = usr
-	to_chat(santamob, span_notice("You concentrating on healing your elves..."))
-	if(!do_after(santamob, 10 SECONDS))
-		to_chat(santamob, span_notice("You decide there are more important things to concentrate on..."))
+/datum/action/innate/heal_snow_man/Activate()
+	var/list/snowmanlist = list()
+	var/mob/living/carbon/human/dedmoroz_mob = usr
+	to_chat(dedmoroz_mob, span_notice("Ты концентрируешься на заживления ран снеговиков."))
+	if(!do_after(dedmoroz_mob, 10 SECONDS))
+		to_chat(dedmoroz_mob, span_notice("Ты решил что есть более важные вещи для концентрации"))
 		return
-	for(var/mob/living/carbon/human/elves in GLOB.human_mob_list)
-		if(get_dist(santamob, elves) > 10)
+	for(var/mob/living/carbon/human/snowman in GLOB.human_mob_list)
+		if(get_dist(dedmoroz_mob, snowman) > 10)
 			continue
-		if(HAS_TRAIT(elves, TRAIT_CHRISTMAS_ELF))
-			elflist += elves
-	for(var/mob/living/carbon/human/blessedelf in elflist)
-		if(blessedelf.stat == DEAD) //this is basically a copypaste of defib logic, but with magic not paddles
-			var/heal_target = blessedelf.get_death_threshold() - blessedelf.health + 1
-			var/all_loss = blessedelf.getBruteLoss() + blessedelf.getFireLoss() + blessedelf.getToxLoss()
-			blessedelf.setOxyLoss(0)
-			blessedelf.updatehealth()
+		if(HAS_TRAIT(snowman, TRAIT_SNOW_MAN))
+			snowmanlist += snowman
+	for(var/mob/living/carbon/human/blessedsnowman in snowmanlist)
+		if(blessedsnowman.stat == DEAD) //this is basically a copypaste of defib logic, but with magic not paddles
+			var/heal_target = blessedsnowman.get_death_threshold() - blessedsnowman.health + 1
+			var/all_loss = blessedsnowman.getBruteLoss() + blessedsnowman.getFireLoss() + blessedsnowman.getToxLoss()
+			blessedsnowman.setOxyLoss(0)
+			blessedsnowman.updatehealth()
 			if(all_loss && (heal_target > 0))
-				var/brute_ratio = blessedelf.getBruteLoss() / all_loss
-				var/burn_ratio = blessedelf.getFireLoss() / all_loss
-				var/tox_ratio = blessedelf.getToxLoss() / all_loss
-				blessedelf.adjustBruteLoss(-10)
-				blessedelf.adjustFireLoss(-10)
-				blessedelf.adjustToxLoss(-10)
-				blessedelf.setOxyLoss(0)
+				var/brute_ratio = blessedsnowman.getBruteLoss() / all_loss
+				var/burn_ratio = blessedsnowman.getFireLoss() / all_loss
+				var/tox_ratio = blessedsnowman.getToxLoss() / all_loss
+				blessedsnowman.adjustBruteLoss(-10)
+				blessedsnowman.adjustFireLoss(-10)
+				blessedsnowman.adjustToxLoss(-10)
+				blessedsnowman.setOxyLoss(0)
 				if(tox_ratio)
-					blessedelf.adjustToxLoss(-(tox_ratio * heal_target))
-				blessedelf.heal_overall_damage(brute_ratio*heal_target, burn_ratio*heal_target, TRUE)
-				blessedelf.updatehealth()
-				blessedelf.set_stat(UNCONSCIOUS)
-				blessedelf.emote("gasp")
-		else //if the elf is alive heal them some
-			to_chat(blessedelf, span_notice("You feel the chill of Christmas magic and your wounds are healed!"))
-			blessedelf.setOxyLoss(0)
-			blessedelf.adjustBruteLoss(-30)
-			blessedelf.adjustFireLoss(-30)
-			blessedelf.adjustToxLoss(-30)
+					blessedsnowman.adjustToxLoss(-(tox_ratio * heal_target))
+				blessedsnowman.heal_overall_damage(brute_ratio*heal_target, burn_ratio*heal_target, TRUE)
+				blessedsnowman.updatehealth()
+				blessedsnowman.set_stat(UNCONSCIOUS)
+				blessedsnowman.emote("gasp")
+		else //if the snowman is alive heal them some
+			to_chat(blessedsnowman, span_notice("Ты чувствуешь расслабляющую энергию Нового года, твои раны исчезли!"))
+			blessedsnowman.setOxyLoss(0)
+			blessedsnowman.adjustBruteLoss(-30)
+			blessedsnowman.adjustFireLoss(-30)
+			blessedsnowman.adjustToxLoss(-30)
 
 /datum/action/innate/summon_paperwork
 	name = "Summon Paperwork"
 	action_icon_state = "paper"
 
 /datum/action/innate/summon_paperwork/Activate()
-	var/mob/living/carbon/human/santamob = usr
-	to_chat(santamob, span_notice("You begin producing a binding employment contract."))
-	if(!do_after(santamob, 3 SECONDS))
-		to_chat(santamob, "You stop producing a contract.")
+	var/mob/living/carbon/human/dedmoroz_mob = usr
+	to_chat(dedmoroz_mob, span_notice("Ты начал составлять трудовой контракт."))
+	if(!do_after(dedmoroz_mob, 3 SECONDS))
+		to_chat(dedmoroz_mob, "Ты перестал составлять контракт")
 		return
-	to_chat(santamob, span_notice("With a flourish, you produce an employment contract and a pen."))
-	var/obj/item/paper/santacontract/newcontract = new (get_turf(santamob))
-	santamob.put_in_hands(newcontract)
-	var/obj/item/tool/pen/newpen = new (get_turf(santamob))
-	santamob.put_in_hands(newpen)
+	to_chat(dedmoroz_mob, span_notice("С размахом ты достаешь трудовой договор и ручку"))
+	var/obj/item/paper/dedmorozcontract/newcontract = new (get_turf(dedmoroz_mob))
+	dedmoroz_mob.put_in_hands(newcontract)
+	var/obj/item/tool/pen/newpen = new (get_turf(dedmoroz_mob))
+	dedmoroz_mob.put_in_hands(newpen)
 
-/datum/action/innate/elf_swap
-	name = "Swap with elf"
-	action_icon_state = "santaswap"
+/datum/action/innate/snow_man_swap
+	name = "Swap with snow man"
+	action_icon_state = "dedmoroz_swap"
 
-/datum/action/innate/elf_swap/Activate()
-	var/list/elflist = list()
-	var/mob/living/carbon/human/santamob = usr
+/datum/action/innate/snow_man_swap/Activate()
+	var/list/snowmanlist = list()
+	var/mob/living/carbon/human/dedmoroz_mob = usr
 	var/storedzlevel
-	for(var/mob/living/carbon/human/elves in GLOB.alive_human_list)
-		if(HAS_TRAIT(elves, TRAIT_CHRISTMAS_ELF))
-			elflist += elves
-	var/mob/living/carbon/human/swappedelf = tgui_input_list(santamob , "Choose an elf to swap with", "Elf swapping", elflist)
-	to_chat(santamob, span_warning("You begin summoning your Christmas magic to swap places with an elf..."))
-	to_chat(swappedelf, span_warning("You feel odd, as though you're in two places at once..."))
-	if(HAS_TRAIT(santamob, TRAIT_TELEPORTED_ACROSS_ZLEVELS))
-		if(swappedelf.z != santamob.z)
-			to_chat(santamob, span_warning("You teleported too great a distance recently, you'll need to wait before teleporting that far again..."))
+	for(var/mob/living/carbon/human/snowman in GLOB.alive_human_list)
+		if(HAS_TRAIT(snowman, TRAIT_SNOW_MAN))
+			snowmanlist += snowman
+	var/mob/living/carbon/human/swappedsnowman = tgui_input_list(dedmoroz_mob , "Выберете с каким снеговиком поменяться", "Смена с снеговиком", snowmanlist)
+	to_chat(dedmoroz_mob, span_warning("Ты начал соберать свою энергию, чтобы поменяться местами с снеговиком..."))
+	to_chat(swappedsnowman, span_warning("Ты чувствуешь себя странно, будто находишься в двух местах одновременно..."))
+	if(HAS_TRAIT(dedmoroz_mob, TRAIT_TELEPORTED_ACROSS_ZLEVELS))
+		if(swappedsnowman.z != dedmoroz_mob.z)
+			to_chat(dedmoroz_mob, span_warning("Недавно ты телепортировался на слишком большое расстояние, тебе придется подождать, прежде чем снова телепортироваться на такое расстояние..."))
 			return
-	if(!do_after(santamob, 5 SECONDS))
-		to_chat(santamob, span_notice("You stop preparing to switch places with a lowly elf..."))
+	if(!do_after(dedmoroz_mob, 5 SECONDS))
+		to_chat(dedmoroz_mob, span_notice("Ты перестаешь готовиться поменяться местами со своим любимым снеговиком..."))
 		return
-	storedzlevel = santamob.z
-	var/turf/elfturf = get_turf(swappedelf)
-	var/turf/santaturf = get_turf(santamob)
-	santamob.forceMove(elfturf)
-	swappedelf.forceMove(santaturf)
-	swappedelf.Stun(3 SECONDS)
-	if(storedzlevel == santamob.z)
-		santamob.Stun(3 SECONDS)
-		to_chat(santamob, span_warning("You struggle to get your bearings after the swap..."))
+	storedzlevel = dedmoroz_mob.z
+	var/turf/snowmanturf = get_turf(swappedsnowman)
+	var/turf/dedmorozturf = get_turf(dedmoroz_mob)
+	dedmoroz_mob.forceMove(snowmanturf)
+	swappedsnowman.forceMove(dedmorozturf)
+	swappedsnowman.Stun(3 SECONDS)
+	if(storedzlevel == dedmoroz_mob.z)
+		dedmoroz_mob.Stun(3 SECONDS)
+		to_chat(dedmoroz_mob, span_warning("Ты пытаешься собраться с силами после обмена..."))
 	else
-		santamob.Stun(20 SECONDS)
-		ADD_TRAIT(santamob, TRAIT_TELEPORTED_ACROSS_ZLEVELS, TRAIT_SANTA_CLAUS)
-		addtimer(CALLBACK(santamob, TYPE_PROC_REF(/mob/living/carbon/human, remove_teleport_trait), santamob), 3 MINUTES) //extremely snowflaky proc, viewer beware
-		to_chat(santamob, span_warning("The strain of travelling across such a great distance unbalances you..."))
-	to_chat(swappedelf, span_notice("As the world reels around you, you struggle to get your bearings..."))
+		dedmoroz_mob.Stun(20 SECONDS)
+		ADD_TRAIT(dedmoroz_mob, TRAIT_TELEPORTED_ACROSS_ZLEVELS, TRAIT_DED_MOROZ)
+		addtimer(CALLBACK(dedmoroz_mob, TYPE_PROC_REF(/mob/living/carbon/human, remove_teleport_trait), dedmoroz_mob), 3 MINUTES) //extremely snowflaky proc, viewer beware
+		to_chat(dedmoroz_mob, span_warning("Напряжение путешествия на такое большое расстояние выводит вас из равновесия...."))
+	to_chat(swappedsnowman, span_notice("Пока мир вращается вокруг вас, вы изо всех сил пытаетесь сориентироваться..."))
 
-/datum/action/innate/elf_recall
+/datum/action/innate/snow_man_recall
 	name = "Return to Santa"
-	action_icon_state = "elf_recall"
+	action_icon_state = "snow_man_recall"
 
-/datum/action/innate/elf_recall/Activate()
-	var/list/santalist = list()
-	var/mob/living/carbon/human/elfmob = usr
-	for(var/mob/living/carbon/human/santas in GLOB.humans_by_zlevel["[elfmob.z]"])
-		if(HAS_TRAIT(santas, TRAIT_SANTA_CLAUS))
-			santalist += santas
-	if(!length(santalist))
-		to_chat(elfmob, span_warning("You can't find Santa! There is nobody to return to..."))
+/datum/action/innate/snow_man_recall/Activate()
+	var/list/dedmorozlist = list()
+	var/mob/living/carbon/human/snowmanmob = usr
+	for(var/mob/living/carbon/human/dedmoroz in GLOB.humans_by_zlevel["[snowmanmob.z]"])
+		if(HAS_TRAIT(dedmoroz, TRAIT_DED_MOROZ))
+			dedmorozlist += dedmoroz
+	if(!length(dedmorozlist))
+		to_chat(snowmanmob, span_warning("Ты не можешь найти Деда Мороза! Кажется возвращаться уже не к кому..."))
 		return
-	to_chat(elfmob, span_notice("You on concentrate on gathering enough magic to return to Santa..."))
-	if(!do_after(elfmob, 10 SECONDS))
-		to_chat(elfmob, span_notice("You decide there are more important things to do..."))
+	to_chat(snowmanmob, span_notice("Ты собираешь энергию для возвращение к Деду Морозу..."))
+	if(!do_after(snowmanmob, 10 SECONDS))
+		to_chat(snowmanmob, span_notice("Ты решил что есть более важные вещи для дел..."))
 		return
-	var/mob/living/carbon/human/selectedsanta = pick(santalist)
-	elfmob.forceMove(get_turf(selectedsanta))
+	var/mob/living/carbon/human/selecteddedmoroz = pick(dedmorozlist)
+	snowmanmob.forceMove(get_turf(selecteddedmoroz))

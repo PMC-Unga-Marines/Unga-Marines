@@ -756,7 +756,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	taste_description = "custard and alcohol"
 
 /datum/reagent/consumable/ethanol/eggnog/on_mob_life(mob/living/L, metabolism)
-	if(HAS_TRAIT(L, TRAIT_CHRISTMAS_GRINCH))
+	if(HAS_TRAIT(L, TRAIT_NEWYEAR_CHERT))
 		return ..()
 	L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
 	L.heal_limb_damage(0.4)

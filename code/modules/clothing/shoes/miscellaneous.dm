@@ -132,9 +132,9 @@
 	item_state = "tp_boots"
 	flags_inventory = NOSLIPPING
 
-/obj/item/clothing/shoes/galoshes/santa //santa has to wear galoshes to avoid slipping in all the blood he spills on Christmas
-	name = "Santa's boots"
-	desc = "Made from high quality reindeer leather, Santa owns only the finest footwear."
+/obj/item/clothing/shoes/galoshes/dedmoroz //santa has to wear galoshes to avoid slipping in all the blood he spills on Christmas
+	name = "Ded Moroz boots"
+	desc = "Made from high quality reindeer leather, Ded Moroz owns only the finest footwear."
 	icon_state = "santa_galoshes"
 	soft_armor = list(MELEE = 80, BULLET = 90, LASER = 90, ENERGY = 85, BOMB = 120, BIO = 85, FIRE = 75, ACID = 40)
 	flags_armor_protection = FEET
@@ -147,6 +147,6 @@
 	siemens_coefficient = 0.2
 	resistance_flags = UNACIDABLE
 
-/obj/item/clothing/shoes/galoshes/santa/Initialize(mapload)
+/obj/item/clothing/shoes/galoshes/dedmoroz/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)

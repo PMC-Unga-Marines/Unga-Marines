@@ -453,7 +453,7 @@
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "karambit_case_hardened"
 	item_state = "karambit_case_hardened"
-	desc = "A small high quality knife with a curved blade, good for slashing and hooking. This one has been color case-hardened through the application of wood charcoal at high temperatures."
+	desc = "A small high quality knife with a curved blade, good for slashing and hooking. This one has been color case-hardened through the application of wood charsnowball at high temperatures."
 
 /obj/item/stack/throwing_knife
 	name ="\improper M11 throwing knife"
@@ -472,7 +472,7 @@
 	hitsound = 'sound/weapons/slash.ogg'
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	flags_equip_slot = ITEM_SLOT_POCKET
-	var/iscoal = FALSE
+	var/issnowball = FALSE
 
 	max_amount = 5
 	amount = 5
@@ -549,7 +549,7 @@
 		living_user.temporarilyRemoveItemFromInventory(src)
 		forceMove(get_turf(src))
 		throw_at(current_target, throw_range, throw_speed, living_user, TRUE)
-	if(!iscoal)
+	if(!issnowball)
 		var/obj/item/stack/throwing_knife/knife_to_throw = new type(get_turf(src))
 		knife_to_throw.amount = 1
 		knife_to_throw.update_icon()
@@ -557,32 +557,36 @@
 		amount--
 		thrown_thing = knife_to_throw
 	else
-		var/obj/item/stack/throwing_knife/coal/coal_to_throw = new(get_turf(src))
-		coal_to_throw.amount = 1
-		coal_to_throw.update_icon()
-		coal_to_throw.throw_at(current_target, throw_range, throw_speed, living_user, TRUE)
+		var/obj/item/stack/throwing_knife/snowball/snowball_to_throw = new(get_turf(src))
+		snowball_to_throw.amount = 1
+		snowball_to_throw.update_icon()
+		snowball_to_throw.throw_at(current_target, throw_range, throw_speed, living_user, TRUE)
 		amount--
-		thrown_thing = coal_to_throw
+		thrown_thing = snowball_to_throw
 
 	playsound(src, 'sound/effects/throw.ogg', 30, 1)
 	visible_message(span_warning("[living_user] expertly throws [thrown_thing]."), null, null, 5)
 	update_icon()
 	return AUTOFIRE_CONTINUE
 
-/obj/item/stack/throwing_knife/coal
-	name = "\improper weighted coal"
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "Coal ore"
-	desc = "Rumor has it that Santa beans naughty children in the head with coal if they spot him delivering presents. Tightly packed and with a core consisting of discarded fruitcake, Santa's coal packs a surprisingly mean punch when thrown."
+/obj/item/stack/throwing_knife/snowball
+	name = "snow ball"
+	icon = 'icons/obj/items/toy.dmi'
+	icon_state = "snowball"
+	desc = "Увесистый снежок из которого виднеется кусочки льда."
 	force = 25
 	throwforce = 40 //less than throwing knife
 	sharp = IS_NOT_SHARP_ITEM
 	stack_name = "stack"
-	singular_name = "coal"
+	singular_name = "snow ball"
 	throw_speed = 7 //twice as fast though
 	hitsound = 'sound/weapons/punch4.ogg'
 	attack_verb = list("bruised", "smashed", "cracked", "whomped", "walloped", "battered", "smacked")
-	iscoal = TRUE
+	issnowball = TRUE
+
+/obj/item/stack/throwing_knife/update_icon_state()
+	. = ..()
+	icon_state = "snowball"
 
 ///Fills any stacks currently in the tile that this object is thrown to.
 /obj/item/stack/throwing_knife/proc/post_throw()

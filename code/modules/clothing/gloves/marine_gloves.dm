@@ -149,7 +149,7 @@
 	else
 		icon_state = "veteran_1"
 
-/obj/item/clothing/gloves/marine/veteran/pmc/commando/santa
+/obj/item/clothing/gloves/marine/veteran/pmc/commando/dedmoroz
 	name = "\improper reindeer gloves"
 	desc = "A pair of wooly insulated gloves worn exclusively by Santa Claus."
 	icon = 'icons/obj/clothing/gloves.dmi'
@@ -158,6 +158,6 @@
 	soft_armor = list(MELEE = 35, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 80, BIO = 20, FIRE = 20, ACID = 25)
 	flags_item = DELONDROP
 
-/obj/item/clothing/gloves/marine/veteran/pmc/commando/santa/Initialize(mapload)
+/obj/item/clothing/gloves/marine/veteran/pmc/commando/dedmoroz/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)

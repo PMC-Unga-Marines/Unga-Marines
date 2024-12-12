@@ -491,7 +491,7 @@
 		/obj/item/reagent_containers/hypospray,
 	)
 
-/obj/item/storage/pouch/santaspouch
+/obj/item/storage/pouch/dedmorozpouch
 	name = "Santa's storage pouch"
 	desc = "A pouch bulging with all sorts of goodies for Santa to ingest while handing out beatings to naughty boys and girls."
 	icon_state = "medkit"
@@ -517,9 +517,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/eggnog/special,
 	)
 
-/obj/item/storage/pouch/santaspouch/Initialize(mapload)
+/obj/item/storage/pouch/dedmorozpouch/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SANTA_CLAUS)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)
 
 /obj/item/storage/pouch/medkit/firstaid
 	desc = "Standard marine first-aid pouch. Contains basic pills, splints, and a stabilizing injector."
@@ -793,7 +793,7 @@
 	new /obj/item/stack/sheet/metal/large_stack (src)
 	new /obj/item/stack/sheet/plasteel/medium_stack (src)
 
-/obj/item/storage/pouch/construction/equippedengineer/elf/Initialize(mapload)
+/obj/item/storage/pouch/construction/equippedengineer/snowman/Initialize(mapload)
 	. = ..()
 	new /obj/item/stack/sandbags_empty/half (src)
 	new /obj/item/stack/sheet/metal/small_stack (src)

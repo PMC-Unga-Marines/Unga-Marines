@@ -630,7 +630,7 @@ below 100 is not dizzy
 	if(isliving(src))
 		var/mob/living/objectivemob = src
 		if(objectivemob.objectivedatum)
-			objectivemob.mind.add_antag_datum(/datum/antagonist/event_santa)
+			objectivemob.mind.add_antag_datum(/datum/antagonist/event_dedmoroz)
 			add_verb(objectivemob, /client/verb/view_objectives)
 	return TRUE
 

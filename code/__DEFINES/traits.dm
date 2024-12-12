@@ -191,11 +191,10 @@
 #define TRAIT_STEALTH "stealth" //mob is in stealth, it means that turrets and ai ignore it, also you can't bump it
 #define TRAIT_MOB_ICON_UPDATE_BLOCKED "icon_blocked" //target should not update its icon_state
 #define TRAIT_VALHALLA_XENO "valhalla_xeno"
-#define TRAIT_CHRISTMAS_GRINCH "christmas_grinch" //target has opened presents that don't belong to them
-#define TRAIT_SANTA_CLAUS "santa_claus" //target is santa claus
-#define TRAIT_CHRISTMAS_ELF "christmas_elf" //target is a christmas elf
-#define TRAIT_TELEPORTED_ACROSS_ZLEVELS "santa_medevac" //target is a christmas elf
-#define TRAIT_TOOK_COAL "taken coal" //target took coal from christmas tree
+#define TRAIT_NEWYEAR_CHERT "newyear_chert" //target has opened presents that don't belong to them
+#define TRAIT_DED_MOROZ "dedmoroz" //target is ded moroz
+#define TRAIT_SNOW_MAN "snow_man" //target is a snow man
+#define TRAIT_TELEPORTED_ACROSS_ZLEVELS "dedmoroz_medevac" //target is a snow man
 //important_recursive_contents traits
 /*
  * Used for movables that need to be updated, via COMSIG_ENTER_AREA and COMSIG_EXIT_AREA, when transitioning areas.

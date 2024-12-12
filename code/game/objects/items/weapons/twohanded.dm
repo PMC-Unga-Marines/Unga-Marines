@@ -431,17 +431,17 @@
 	reach = 1
 	edge = 0
 
-/obj/item/weapon/twohanded/spear/candycane/elf
+/obj/item/weapon/twohanded/spear/candycane/snowman
 	desc = "Too large and hardened to be eaten by children, the elves first resorted to using candy canes as impromptu battering weapons during a union strike in '95 and have never looked back."
 	force = 70
 	force_wielded = 90
 	reach = 2
 
-/obj/item/weapon/twohanded/spear/candycane/elf/Initialize(mapload)
+/obj/item/weapon/twohanded/spear/candycane/snowman/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/strappable)
 
-/obj/item/weapon/twohanded/spear/candycane/elf/examine(mob/user)
+/obj/item/weapon/twohanded/spear/candycane/snowman/examine(mob/user)
 	. = ..()
 	. += "Alt click this item to prevent dropping it"
 

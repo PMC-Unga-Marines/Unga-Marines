@@ -1,27 +1,27 @@
-/datum/antagonist/event_santa
-	name = "Santa Claus"
+/datum/antagonist/event_dedmoroz
+	name = "Ded Moroz"
 	roundend_category = "traitors"
-	var/employer = "Santa's workshop"
+	var/employer = "Ded Moroz team"
 	var/give_objectives = TRUE
 
-/datum/antagonist/event_santa/on_gain()
+/datum/antagonist/event_dedmoroz/on_gain()
 	if(give_objectives)
 		forge_traitor_objectives()
 	return ..()
 
-/datum/antagonist/event_santa/on_removal()
+/datum/antagonist/event_dedmoroz/on_removal()
 	return ..()
 
-/datum/antagonist/event_santa/proc/add_objective(datum/objective/O)
+/datum/antagonist/event_dedmoroz/proc/add_objective(datum/objective/O)
 	objectives += O
 
-/datum/antagonist/event_santa/proc/remove_objective(datum/objective/O)
+/datum/antagonist/event_dedmoroz/proc/remove_objective(datum/objective/O)
 	objectives -= O
 
-/datum/antagonist/event_santa/proc/forge_traitor_objectives()
+/datum/antagonist/event_dedmoroz/proc/forge_traitor_objectives()
 	forge_human_objectives()
 
-/datum/antagonist/event_santa/proc/forge_human_objectives()
+/datum/antagonist/event_dedmoroz/proc/forge_human_objectives()
 	var/objective_count
 	var/toa = 2
 	for(var/i = objective_count, i < toa, i++)
@@ -48,20 +48,20 @@
 		add_objective(selectedobjective)
 		return
 
-/datum/antagonist/event_santa/proc/duplicate_objective_check(datum/objective/checkedobjective)
+/datum/antagonist/event_dedmoroz/proc/duplicate_objective_check(datum/objective/checkedobjective)
 	for(var/datum/objective/i in objectives)
 		if(locate(checkedobjective) in objectives) //duplicate objective check
 			return FALSE
 	return TRUE
 
-/datum/antagonist/event_santa/proc/forge_single_human_objective() //Returns how many objectives are added
+/datum/antagonist/event_dedmoroz/proc/forge_single_human_objective() //Returns how many objectives are added
 	.=1
 	var/list/objectivelist = list()
 	objectivelist = list(
 		/datum/objective/kill_xenos = 3,
 		/datum/objective/deliver_gifts = 4,
 		/datum/objective/gather_cash = 1, ///santa needs cash for his operations, ho ho ho
-		/datum/objective/recruit_elves = 3,
+		/datum/objective/recruit_snow_man = 3,
 	)
 	var/datum/objective/selectedobjective
 	selectedobjective = pick_weight_recursive(objectivelist)
@@ -86,9 +86,9 @@
 	if(selectedobjective == /datum/objective/deliver_gifts)
 		var/datum/objective/deliver_gifts/gifts_objective = new
 		selectedobjective =	gifts_objective
-	if(selectedobjective == /datum/objective/recruit_elves)
-		var/datum/objective/recruit_elves/elves_objective = new
-		selectedobjective =	elves_objective
+	if(selectedobjective == /datum/objective/recruit_snow_man)
+		var/datum/objective/recruit_snow_man/snow_man_objective = new
+		selectedobjective =	snow_man_objective
 
 	selectedobjective.find_target()
 	if(!selectedobjective.target) //find target returned null, set target to self for sanity
@@ -97,16 +97,16 @@
 	selectedobjective.owner = owner
 	add_objective(selectedobjective)
 
-/datum/antagonist/event_santa/greet()
+/datum/antagonist/event_dedmoroz/greet()
 	playsound(owner, 'sound/effects/hohoho.ogg', 25, 1)
-	to_chat(owner, span_boldnotice("<br><B>You are Santa Claus!</B>"))
-	to_chat(owner, span_boldnotice("<br><B>You are not an antagonist, so don't act like one!</B>"))
-	to_chat(owner, span_boldnotice("Cooperate with the marines while you complete your objectives and avoid collateral damage or harm to anyone who is not a grinch!"))
-	to_chat(owner, span_boldnotice("<br><B>You can view your objectives at any time in the IC tab at the top right.</B>"))
+	to_chat(owner, span_boldnotice("<br><B>Ты Дед Мороз</B>"))
+	to_chat(owner, span_boldnotice("<br><B>Ты не антоганист так что не действуй в их стиле!</B>"))
+	to_chat(owner, span_boldnotice("Сотрудничайте с маринами, выполняя свои задачи, и избегайте сопуствующего ущерба или врда всем кто не является"))
+	to_chat(owner, span_boldnotice("<br><B>Вы можете посмотреть свои задачи в IC справа сверху.</B>"))
 	owner.announce_objectives()
 
 //TODO Collate
-/datum/antagonist/event_santa/roundend_report()
+/datum/antagonist/event_dedmoroz/roundend_report()
 	var/list/result = list()
 
 	var/traitorwin = TRUE
@@ -135,14 +135,14 @@
 
 	return result.Join("<br>")
 
-/datum/antagonist/event_santa/roundend_report_footer()
+/datum/antagonist/event_dedmoroz/roundend_report_footer()
 	return
 
-/datum/antagonist/event_santa/farewell()
+/datum/antagonist/event_dedmoroz/farewell()
 	. = ..()
 	to_chat(owner, span_boldnotice("You no longer have any objectives."))
 
-/datum/antagonist/event_santa/on_removal()
+/datum/antagonist/event_dedmoroz/on_removal()
 	. = ..()
 	for(var/datum/action/A AS in usr.actions)
 		if(istype(A, /datum/action/objectives))

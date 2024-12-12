@@ -241,12 +241,12 @@
 	. = ..()
 	AddComponent(/datum/component/clothing_tint, TINT_5, TRUE)
 
-/obj/item/clothing/glasses/welding/elf
+/obj/item/clothing/glasses/welding/snowman
 	flags_item = DELONDROP
 
-/obj/item/clothing/glasses/welding/elf/Initialize(mapload)
+/obj/item/clothing/glasses/welding/snowman/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_CHRISTMAS_ELF)
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SNOW_MAN)
 
 /obj/item/clothing/glasses/welding/verb/verbtoggle()
 	set category = "Object.Clothing"

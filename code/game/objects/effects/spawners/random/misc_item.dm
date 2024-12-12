@@ -375,5 +375,5 @@
 	icon_state = "random_santasuit"
 	spawn_nothing_percentage = 50
 	option_list = list(
-		list(/obj/item/clothing/head/helmet/space/santahat, /obj/item/clothing/suit/space/santa,),
+		list(/obj/item/clothing/head/helmet/space/dedmoroz, /obj/item/clothing/suit/space/dedmoroz,),
 	)

@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	icon_state_mini = icon_state
 
 /obj/item/explosive/grenade/gift/attack_self(mob/user)
-	if(HAS_TRAIT(user, TRAIT_SANTA_CLAUS)) //santa uses the present as a grenade
+	if(HAS_TRAIT(user, TRAIT_DED_MOROZ)) //santa uses the present as a grenade
 		to_chat(user, span_warning("This present is now live, toss it at somebody naughty!"))
 		. = ..()
 	else //anyone else opening the present gets an explosion, yes this also affects elves
@@ -35,9 +35,9 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/explosive/grenade/gift/examine(mob/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_SANTA_CLAUS))
+	if(HAS_TRAIT(user, TRAIT_DED_MOROZ))
 		. += "This present is rigged to blow! Activate it yourself to throw it like a grenade, or give it to somebody on the naughty list and watch it blow up in their face."
-	if(HAS_TRAIT(user, TRAIT_CHRISTMAS_ELF))
+	if(HAS_TRAIT(user, TRAIT_SNOW_MAN))
 		. += "One of the boss' presents, this one is explosive and will go off if you open it."
 
 
@@ -56,10 +56,10 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	///real name of the present receiver
 	var/present_receiver_name = null
 	///is santa the giver of this present?
-	var/is_santa_present = FALSE
+	var/is_dedmoroz_present = FALSE
 
-/obj/item/a_gift/santa
-	is_santa_present = TRUE
+/obj/item/a_gift/dedmoroz
+	is_dedmoroz_present = TRUE
 
 /obj/item/a_gift/Initialize(mapload)
 	. = ..()
@@ -71,19 +71,19 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/a_gift/examine(mob/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_SANTA_CLAUS)) //santa can reveal the owner of a present just by looking at it
+	if(HAS_TRAIT(user, TRAIT_DED_MOROZ)) //santa can reveal the owner of a present just by looking at it
 		if(present_receiver == null && !freepresent)
 			get_recipient()
 	if(present_receiver)
 		. += "This present is addressed to [present_receiver_name]."
 
 /obj/item/a_gift/attack_self(mob/M)
-	if(present_receiver == null && !freepresent && !HAS_TRAIT(M, TRAIT_SANTA_CLAUS))
+	if(present_receiver == null && !freepresent && !HAS_TRAIT(M, TRAIT_DED_MOROZ))
 		to_chat(M, span_warning("You start unwrapping the present, trying to locate any sign of who the present belongs to..."))
 		if(!do_after(M, 4 SECONDS))
 			return
 		get_recipient() //generate owner of gift
-	if(HAS_TRAIT(M, TRAIT_SANTA_CLAUS) || HAS_TRAIT(M, TRAIT_CHRISTMAS_ELF))
+	if(HAS_TRAIT(M, TRAIT_DED_MOROZ) || HAS_TRAIT(M, TRAIT_SNOW_MAN))
 		if(present_receiver == null && !freepresent)
 			get_recipient()
 		to_chat(M, span_notice("This present is addressed to [present_receiver_name]."))
@@ -98,11 +98,11 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 				M.visible_message(span_warning("[M] tears into [present_receiver_name]'s gift with reckless abandon!"))
 				M.balloon_alert_to_viewers("Open's [present_receiver_name]'s gift" ,ignored_mobs = M)
 				log_game("[M] has opened a present that belonged to [present_receiver_name] at [AREACOORD(loc)]")
-				if(prob(70) || HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH))
-					GLOB.round_statistics.presents_grinched += 1
-					if(!HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH))
-						GLOB.round_statistics.number_of_grinches += 1
-						ADD_TRAIT(M, TRAIT_CHRISTMAS_GRINCH, TRAIT_CHRISTMAS_GRINCH) //bad present openers are effectively cursed to receive nothing but coal for the rest of the round
+				if(prob(70) || HAS_TRAIT(M, TRAIT_NEWYEAR_CHERT))
+					GLOB.round_statistics.presents_stolen += 1
+					if(!HAS_TRAIT(M, TRAIT_NEWYEAR_CHERT))
+						GLOB.round_statistics.number_of_chert += 1
+						ADD_TRAIT(M, TRAIT_NEWYEAR_CHERT, TRAIT_NEWYEAR_CHERT) //bad present openers are effectively cursed to receive nothing but coal for the rest of the round
 						to_chat(M, span_boldannounce("Your heart feels three sizes smaller..."))
 						M.color = COLOR_LIME
 					spawnpresent(M) //they have the grinch trait, the presents will always spawn coal
@@ -130,7 +130,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	present_receiver_name = present_receiver.real_name //assign real name for maximum readability on examine
 
 /obj/item/a_gift/proc/spawnpresent(mob/M, stolen_gift)
-	if(HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH))
+	if(HAS_TRAIT(M, TRAIT_NEWYEAR_CHERT))
 		var/obj/item/C = new /obj/item/ore/coal(get_turf(M))
 		to_chat(M, span_boldannounce("You feel the icy tug of Santa's magic envelop the present before you can open it!"))
 		M.put_in_hands(C)
@@ -144,8 +144,8 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 			M.balloon_alert(M, "Nothing inside")
 			return
 		if(!freepresent)
-			if(is_santa_present)
-				GLOB.round_statistics.santa_presents_delivered += 1
+			if(is_dedmoroz_present)
+				GLOB.round_statistics.dedmoroz_presents_delivered  += 1
 			GLOB.round_statistics.presents_delivered += 1
 		if(!stolen_gift)
 			I.desc += " Property of [M.real_name]."
@@ -197,7 +197,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 		/obj/item/attachable/shoulder_mount,
 		/obj/item/attachable/burstfire_assembly,
 		list(/obj/item/clothing/gloves/techpriest, /obj/item/clothing/head/techpriest, /obj/item/clothing/shoes/techpriest, /obj/item/clothing/suit/techpriest, /obj/item/clothing/under/techpriest,),
-		/obj/item/paper/santacontract,
+		/obj/item/paper/dedmorozcontract,
 		)
 
 	gift_type_list += subtypesof(/obj/item/loot_box)
@@ -205,7 +205,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	gift_type_list += subtypesof(/obj/item/toy)
 	gift_type_list += subtypesof(/obj/item/cell)
 	gift_type_list += subtypesof(/obj/item/explosive/grenade)
-	gift_type_list += subtypesof(/obj/item/clothing/mask) - /obj/item/clothing/mask/gas/swat/santa - /obj/item/clothing/mask/rebreather/scarf - /obj/item/clothing/mask/bandanna/skull - /obj/item/clothing/mask/bandanna/green - /obj/item/clothing/mask/bandanna/white - /obj/item/clothing/mask/bandanna/black - /obj/item/clothing/mask/bandanna - /obj/item/clothing/mask/bandanna/alpha - /obj/item/clothing/mask/bandanna/bravo - /obj/item/clothing/mask/bandanna/charlie - /obj/item/clothing/mask/bandanna/delta - /obj/item/clothing/mask/balaclava - /obj/item/clothing/mask/rebreather - /obj/item/clothing/mask/breath - /obj/item/clothing/mask/gas - /obj/item/clothing/mask/gas/tactical - /obj/item/clothing/mask/gas/tactical/coif
+	gift_type_list += subtypesof(/obj/item/clothing/mask) - /obj/item/clothing/mask/gas/swat/dedmoroz - /obj/item/clothing/mask/rebreather/scarf - /obj/item/clothing/mask/bandanna/skull - /obj/item/clothing/mask/bandanna/green - /obj/item/clothing/mask/bandanna/white - /obj/item/clothing/mask/bandanna/black - /obj/item/clothing/mask/bandanna - /obj/item/clothing/mask/bandanna/alpha - /obj/item/clothing/mask/bandanna/bravo - /obj/item/clothing/mask/bandanna/charlie - /obj/item/clothing/mask/bandanna/delta - /obj/item/clothing/mask/balaclava - /obj/item/clothing/mask/rebreather - /obj/item/clothing/mask/breath - /obj/item/clothing/mask/gas - /obj/item/clothing/mask/gas/tactical - /obj/item/clothing/mask/gas/tactical/coif
 	gift_type_list += subtypesof(/obj/item/reagent_containers/food)
 	gift_type_list += subtypesof(/obj/item/reagent_containers/spray)
 	gift_type_list += subtypesof(/obj/item/reagent_containers/blood) - /obj/item/reagent_containers/blood/empty
@@ -236,13 +236,13 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	gift_type_list += subtypesof(/obj/item/clothing/head/wizard)
 	gift_type_list += subtypesof(/obj/item/clothing/head/hardhat)
 	gift_type_list += subtypesof(/obj/item/clothing/head/soft)
-	gift_type_list += subtypesof(/obj/item/clothing/head/helmet/space) - /obj/item/clothing/head/helmet/space/santahat/special - /obj/item/clothing/head/helmet/space/elf/special
+	gift_type_list += subtypesof(/obj/item/clothing/head/helmet/space) - /obj/item/clothing/head/helmet/space/dedmoroz/special - /obj/item/clothing/head/helmet/space/snowman/special
 	gift_type_list += subtypesof(/obj/item/clothing/head/collectable)
-	gift_type_list += subtypesof(/obj/item/clothing/glasses/sunglasses) - /obj/item/clothing/glasses/sunglasses/sa - /obj/item/clothing/glasses/sunglasses/sa/nodrop - /obj/item/clothing/glasses/night/sectoid - /obj/item/clothing/glasses/welding/elf - /obj/item/clothing/glasses/regular - /obj/item/clothing/glasses/eyepatch - /obj/item/clothing/glasses/sunglasses/fake/big - /obj/item/clothing/glasses/sunglasses/fake/big/prescription - /obj/item/clothing/glasses/sunglasses/fake - /obj/item/clothing/glasses/sunglasses/fake/prescription - /obj/item/clothing/glasses/mgoggles - /obj/item/clothing/glasses/mgoggles/prescription
+	gift_type_list += subtypesof(/obj/item/clothing/glasses/sunglasses) - /obj/item/clothing/glasses/sunglasses/sa - /obj/item/clothing/glasses/sunglasses/sa/nodrop - /obj/item/clothing/glasses/night/sectoid - /obj/item/clothing/glasses/welding/snowman - /obj/item/clothing/glasses/regular - /obj/item/clothing/glasses/eyepatch - /obj/item/clothing/glasses/sunglasses/fake/big - /obj/item/clothing/glasses/sunglasses/fake/big/prescription - /obj/item/clothing/glasses/sunglasses/fake - /obj/item/clothing/glasses/sunglasses/fake/prescription - /obj/item/clothing/glasses/mgoggles - /obj/item/clothing/glasses/mgoggles/prescription
 	gift_type_list += subtypesof(/obj/item/bodybag) - /obj/item/bodybag/cryobag
 	gift_type_list += subtypesof(/obj/item/implanter) - /obj/item/implanter/chem - /obj/item/implanter/neurostim
 	gift_type_list += subtypesof(/obj/item/mortal_shell)
-	gift_type_list += subtypesof(/obj/item/storage/backpack) - /obj/item/storage/backpack/santabag - /obj/item/storage/backpack/marine/standard - /obj/item/storage/backpack/marine/satchel - /obj/item/storage/backpack/marine/satchel/green - /obj/item/storage/backpack/marine/standard/molle - /obj/item/storage/backpack/marine/satchel/molle
+	gift_type_list += subtypesof(/obj/item/storage/backpack) - /obj/item/storage/backpack/dedmorozbag - /obj/item/storage/backpack/marine/standard - /obj/item/storage/backpack/marine/satchel - /obj/item/storage/backpack/marine/satchel/green - /obj/item/storage/backpack/marine/standard/molle - /obj/item/storage/backpack/marine/satchel/molle
 	gift_type_list += subtypesof(/obj/item/toy/plush)
 	var/gift_type = pick(gift_type_list)
 

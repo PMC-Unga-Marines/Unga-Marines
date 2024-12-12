@@ -697,8 +697,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
 
-/datum/skills/santaclause
-	name = "Santa Claus"
+/datum/skills/dedmoroz
+	name = "Ded Moroz"
 	engineer = SKILL_ENGINEER_MASTER
 	construction = SKILL_CONSTRUCTION_MASTER
 	firearms = SKILL_FIREARMS_TRAINED
@@ -739,8 +739,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
 
-/datum/skills/elf
-	name = "Elf"
+/datum/skills/snowman
+	name = "Snow man"
 	cqc = SKILL_CQC_WEAK
 	melee_weapons = SKILL_MELEE_TRAINED
 	engineer = SKILL_ENGINEER_MASTER

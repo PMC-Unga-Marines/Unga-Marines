@@ -16,7 +16,7 @@
 #define FACTION_PIRATE "Pirate"
 #define FACTION_SPECFORCE "Special Forces"
 #define FACTION_YAUTJA "Yautja"
-#define FACTION_SANTA "Santa's Workshop"
+#define FACTION_DEDMOROZ "Ded Moroz team"
 
 //Alignement are currently only used by req.
 ///Mob with a neutral alignement cannot be sold by anyone
@@ -29,7 +29,7 @@
 ///Alignement for each faction
 GLOBAL_LIST_INIT(faction_to_alignement, list(
 	FACTION_NEUTRAL = ALIGNEMENT_NEUTRAL,
-	FACTION_SANTA = ALIGNEMENT_NEUTRAL,
+	FACTION_DEDMOROZ = ALIGNEMENT_NEUTRAL,
 	//Friendly
 	FACTION_TERRAGOV = ALIGNEMENT_FRIENDLY,
 	FACTION_NANOTRASEN = ALIGNEMENT_FRIENDLY,
@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(faction_to_alignement, list(
 ///Iff for each faction that is able to use iff
 GLOBAL_LIST_INIT(faction_to_iff, list(
 	FACTION_NEUTRAL = TGMC_LOYALIST_IFF,
-	FACTION_SANTA =	TGMC_LOYALIST_IFF,
+	FACTION_DEDMOROZ = TGMC_LOYALIST_IFF,
 	FACTION_TERRAGOV = TGMC_LOYALIST_IFF,
 	FACTION_SPECFORCE = TGMC_LOYALIST_IFF,
 	FACTION_NANOTRASEN = TGMC_LOYALIST_IFF,
