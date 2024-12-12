@@ -17,7 +17,7 @@
 
 /obj/item/implanter/implantator/Initialize(mapload, ...)
 	. = ..()
-	name = name + " implanter"
+	name += " implanter"
 
 /obj/item/implanter/Destroy()
 	return ..()
