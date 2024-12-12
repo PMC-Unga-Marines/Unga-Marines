@@ -2066,34 +2066,34 @@
 	desc = "A water filter specifically designed to separate micro-organisms, such as viruses and bacteria, from water."
 	icon = 'icons/obj/structures/pipe_multiple.dmi'
 	icon_state = "solo_tank_water"
+	layer = ABOVE_FLY_LAYER
 	density = TRUE
 
-/obj/machinery/filtration_pipes/water/update_overlays()
+/obj/machinery/filtration_pipes/Initialize(mapload)
 	. = ..()
-	. += image(icon, src, "tank_water_top", layer = ABOVE_ALL_MOB_LAYER, pixel_x = 31)
+	add_large_transparency()
+
+/// We add the largetransparency component in here, but we need different parameters
+/obj/machinery/filtration_pipes/proc/add_large_transparency()
+	AddComponent(/datum/component/largetransparency)
 
 /obj/machinery/filtration_pipes/empty
 	icon_state = "solo_tank_empty"
 
-/obj/machinery/filtration_pipes/empty/update_overlays()
-	. = ..()
-	. += image(icon, src, "tank_water_empty", layer = ABOVE_ALL_MOB_LAYER, pixel_x = 31)
-
 /obj/machinery/filtration_pipes/waste
 	icon_state = "solo_tank_waste"
-
-/obj/machinery/filtration_pipes/waste/update_overlays()
-	. = ..()
-	. += image(icon, src, "tank_waste_top", layer = ABOVE_ALL_MOB_LAYER, pixel_x = 31)
 
 /obj/machinery/filtration_pipes/multiple
 	icon_state = "disinfection"
 	bound_width = 96
 	bound_height = 64
 
+/obj/machinery/filtration_pipes/multiple/add_large_transparency()
+	AddComponent(/datum/component/largetransparency, 0, 1, 3, 2)
+
 /obj/machinery/filtration_pipes/multiple/update_overlays()
 	. = ..()
-	. += image(icon, src, "disinfectiontop", layer = ABOVE_ALL_MOB_LAYER, pixel_x = 63)
+	. += image(icon, src, "disinfectiontop", layer = ABOVE_FLY_LAYER, pixel_y = 63)
 
 /obj/structure/prop/mainship/errorprop
 	name = "ERROR"

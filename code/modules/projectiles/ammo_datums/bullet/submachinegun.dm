@@ -27,7 +27,7 @@
 	accuracy_var_high = 7
 	damage = 20
 	accurate_range = 4
-	damage_falloff = 3
+	damage_falloff = 1.75
 	penetration = 0
 	additional_xeno_penetration = 10
 	shrapnel_chance = 25
