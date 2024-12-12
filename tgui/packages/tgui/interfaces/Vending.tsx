@@ -15,13 +15,9 @@ import { Window } from '../layouts';
 type VendingData = {
   vendor_name: string;
   displayed_records: VendingRecord[];
-  hidden_records: VendingRecord[];
-  coin_records: VendingRecord[];
   tabs: string[];
   stock: number;
   currently_vending: VendingRecord | null;
-  extended: number;
-  coin: string;
   ui_theme: string;
 };
 
@@ -36,15 +32,7 @@ type VendingRecord = {
 export const Vending = () => {
   const { act, data } = useBackend<VendingData>();
 
-  const {
-    vendor_name,
-    currently_vending,
-    hidden_records,
-    coin_records,
-    extended,
-    tabs,
-    ui_theme,
-  } = data;
+  const { vendor_name, currently_vending, tabs, ui_theme } = data;
 
   const [showDesc, setShowDesc] = useLocalState('showDesc', null);
 
