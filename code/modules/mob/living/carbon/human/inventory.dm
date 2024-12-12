@@ -547,6 +547,8 @@
 	if(!Adjacent(M)|| !I || I != M.get_item_by_slot(slot_to_process))
 		return
 	M.dropItemToGround(I)
+	if(istype(I, /obj/item/clothing/mask/facehugger))
+		GLOB.round_statistics.failed_impregnations++
 	log_combat(src, M, "removed [key_name(I)] ([slot_to_process])")
 	if(isidcard(I))
 		message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
