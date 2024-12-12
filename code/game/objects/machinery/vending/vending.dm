@@ -1,6 +1,4 @@
 #define CAT_NORMAL 0
-#define CAT_HIDDEN 1
-#define CAT_COIN 2
 
 #define VENDING_RESTOCK_IDLE 0
 #define VENDING_RESTOCK_DENY 1
@@ -27,7 +25,7 @@
 	var/price = 0
 	///What color it stays on the vend button, considering just nuking this.
 	var/display_color = "white"
-	///What category it belongs to, Normal, contraband or coin.
+	///What category it belongs to - only normal (contraband or coin are removed)
 	var/category = CAT_NORMAL
 	///Incase its a tabbed vendor what tab this belongs to.
 	var/tab
@@ -105,10 +103,6 @@
 	 *	Format for each entry is SEASON_NAME = "tab name"
 	 */
 	var/list/seasonal_items = list()
-	/// Contraband products that are only available on vendor when hacked.
-	var/list/contraband = list()
-	/// Premium products that are only available when using a coin to pay for it.
-	var/list/premium = list()
 	/// String of slogans separated by semicolons, optional
 	var/product_slogans = ""
 	///String of small ad messages in the vending screen - random chance
@@ -116,10 +110,6 @@
 	//These are where the vendor holds their item info with /datum/vending_product
 	///list of /datum/vending_product's that are always available on the vendor
 	var/list/product_records = list()
-	///list of /datum/vending_product's that are available when vendor is hacked.
-	var/list/hidden_records = list()
-	///list of /datum/vending_product's that are available on the vendor when a coin is used.
-	var/list/coin_records = list()
 	var/list/slogan_list = list()
 	/// small ad messages in the vending screen - random chance of popping up whenever you open it
 	var/list/small_ads = list()
@@ -141,8 +131,6 @@
 	var/shoot_inventory = FALSE
 	///If true the machine won't be speaking slogans randomly. Stop spouting those godawful pitches!
 	var/shut_up = FALSE
-	///If the vending machine is hacked, makes the items on contraband list available.
-	var/extended_inventory = FALSE
 	///How much tipped we are.
 	var/tipped_level = 0
 	///Stops the machine from being hacked to shoot inventory or allow all access
@@ -170,13 +158,9 @@
 		build_shared_inventory()
 	else
 		build_inventory(products)
-		build_inventory(contraband, CAT_HIDDEN)
-		build_inventory(premium, CAT_COIN)
 
 	// we won't use these anymore so we can just null them
-	premium = null
 	products = null
-	contraband = null
 	start_processing()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
@@ -216,25 +200,9 @@
 	else
 		product_records = GLOB.vending_records[type]
 
-	if(!GLOB.vending_hidden_records[type])
-		build_inventory(contraband, CAT_HIDDEN)
-		GLOB.vending_hidden_records[type] = hidden_records
-	else
-		hidden_records = GLOB.vending_hidden_records[type]
-
-	if(!GLOB.vending_coin_records[type])
-		build_inventory(premium, CAT_COIN)
-		GLOB.vending_coin_records[type] = coin_records
-	else
-		coin_records = GLOB.vending_coin_records[type]
-
 ///Builds a vending machine inventory from the given list into their records depending of category.
 /obj/machinery/vending/proc/build_inventory(list/productlist, category = CAT_NORMAL)
 	var/list/recordlist = product_records
-	if(category == CAT_HIDDEN)
-		recordlist = hidden_records
-	if(category == CAT_COIN)
-		recordlist = coin_records
 
 	for(var/entry in productlist)
 		//if this is true then this is supposed to be tab dependant.
@@ -403,8 +371,6 @@
 	. = list()
 	.["vendor_name"] = name
 	.["displayed_records"] = list()
-	.["hidden_records"] = list()
-	.["coin_records"] = list()
 	.["tabs"] = list()
 
 	for(var/datum/vending_product/R AS in product_records)
@@ -412,26 +378,15 @@
 			.["tabs"] += R.tab
 		.["displayed_records"] += list(MAKE_VENDING_RECORD_DATA(R))
 
-	for(var/datum/vending_product/R AS in hidden_records)
-		if(R.tab && !(R.tab in .["tabs"]))
-			.["tabs"] += R.tab
-		.["hidden_records"] += list(MAKE_VENDING_RECORD_DATA(R))
-
-	for(var/datum/vending_product/R AS in coin_records)
-		if(R.tab && !(R.tab in .["tabs"]))
-			.["tabs"] += R.tab
-		.["coin_records"] += list(MAKE_VENDING_RECORD_DATA(R))
-
 /obj/machinery/vending/ui_data(mob/user)
 	. = list()
 	.["stock"] = list()
 
-	for(var/datum/vending_product/R AS in product_records + hidden_records + coin_records)
+	for(var/datum/vending_product/R AS in product_records)
 		.["stock"][R.product_name] = R.amount
 
 	if(currently_vending)
 		.["currently_vending"] = MAKE_VENDING_RECORD_DATA(currently_vending)
-	.["extended"] = extended_inventory
 	.["isshared"] = isshared
 	.["ui_theme"] = "main"
 
@@ -448,7 +403,7 @@
 				flick(icon_deny, src)
 				return
 
-			var/datum/vending_product/R = locate(params["vend"]) in product_records | hidden_records | coin_records
+			var/datum/vending_product/R = locate(params["vend"]) in product_records
 			if(!istype(R) || !R.product_path || R.amount == 0)
 				return
 
@@ -468,9 +423,6 @@
 	if(!allowed(user) && (!wires.is_cut(WIRE_IDSCAN) || hacking_safety)) //For SECURE VENDING MACHINES YEAH
 		to_chat(user, span_warning("Access denied."))
 		flick(icon_deny, src)
-		return
-
-	if(R.category == CAT_HIDDEN && !extended_inventory)
 		return
 
 	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all at once with explosion
@@ -548,7 +500,7 @@
 		return FALSE
 
 	var/datum/vending_product/record //The found record matching the item_to_stock in the vending_records lists
-	for(var/datum/vending_product/checked_record AS in product_records + hidden_records + coin_records)
+	for(var/datum/vending_product/checked_record AS in product_records)
 		if(item_to_stock.type != checked_record.product_path)
 			continue
 		record = checked_record
@@ -806,8 +758,6 @@
 		tip_over()
 
 #undef CAT_NORMAL
-#undef CAT_HIDDEN
-#undef CAT_COIN
 
 #undef VENDING_RESTOCK_IDLE
 #undef VENDING_RESTOCK_DENY
