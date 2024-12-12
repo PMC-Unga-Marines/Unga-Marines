@@ -330,7 +330,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 // ***************************************
 /datum/action/ability/activable/xeno/charge/acid_dash
 	name = "Acid Dash"
-	action_icon_state = "pounce"
 	desc = "Instantly dash, tackling the first marine in your path. If you manage to tackle someone, gain another weaker cast of the ability."
 	ability_cost = 250
 	cooldown_duration = 30 SECONDS
