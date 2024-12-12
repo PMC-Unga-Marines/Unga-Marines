@@ -10,10 +10,10 @@
 /datum/xenomorph_skin/king/old
 
 	name = "Old"
-	icon = 'icons/Xeno/castes/king/oldking.dmi'
-	effects_icon = 'icons/Xeno/castes/king/oldkingeffects.dmi'
+	icon = 'icons/Xeno/castes/king/old.dmi'
+	effects_icon = 'icons/Xeno/castes/king/old_effects.dmi'
 
 /datum/xenomorph_skin/king/rogue
 	name = "Rogue"
-	icon = 'icons/Xeno/castes/king/rogueking.dmi'
-	effects_icon = 'icons/Xeno/castes/king/roguedamage.dmi'
+	icon = 'icons/Xeno/castes/king/rogue.dmi'
+	effects_icon = 'icons/Xeno/castes/king/rogue_damage.dmi'
