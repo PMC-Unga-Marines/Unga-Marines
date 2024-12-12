@@ -27,6 +27,7 @@ type VendingRecord = {
   prod_desc: string;
   ref: string;
   tab: string;
+  button_name: string;
 };
 
 export const Vending2 = () => {
@@ -117,6 +118,7 @@ type VendingProductEntryProps = {
   product_name: string;
   prod_desc: string;
   prod_ref: string;
+  button_name: string;
 };
 
 const ProductEntry = (props: VendingProductEntryProps) => {
@@ -124,8 +126,15 @@ const ProductEntry = (props: VendingProductEntryProps) => {
 
   const { currently_vending } = data;
 
-  const { stock, key, product_color, product_name, prod_desc, prod_ref } =
-    props;
+  const {
+    stock,
+    key,
+    product_color,
+    product_name,
+    prod_desc,
+    prod_ref,
+    button_name,
+  } = props;
 
   const [showDesc, setShowDesc] = useLocalState<String | null>(
     'showDesc',
@@ -163,7 +172,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
           >
             <Box color={product_color} bold={1}>
               {
-                product_name // Vend button text
+                button_name // Vend button text
               }
             </Box>
           </Button>
@@ -206,6 +215,7 @@ const Products = () => {
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
                     prod_ref={display_record.ref}
+                    button_name={display_record.button_name}
                   />
                 )
               );

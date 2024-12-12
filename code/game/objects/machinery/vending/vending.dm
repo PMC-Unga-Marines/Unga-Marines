@@ -12,6 +12,7 @@
 		"prod_desc" = initial(record.product_path.desc),\
 		"ref" = REF(record),\
 		"tab" = record.tab,\
+		"button_name" = record.button_name,\
 	)
 
 /datum/vending_product
@@ -29,8 +30,10 @@
 	var/category = CAT_NORMAL
 	///Incase its a tabbed vendor what tab this belongs to.
 	var/tab
+	///Button name in vendor
+	var/button_name = "Vend"
 
-/datum/vending_product/New(name, atom/typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab)
+/datum/vending_product/New(name, atom/typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab, product_button_name)
 	product_path = typepath
 	amount = product_amount
 	price = product_price
@@ -48,6 +51,9 @@
 		display_color = "black"
 	else
 		display_color = "white"
+
+	if(product_button_name)
+		button_name = product_button_name
 
 /obj/machinery/vending
 	name = "Vendomat"
