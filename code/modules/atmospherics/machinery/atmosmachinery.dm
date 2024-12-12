@@ -291,7 +291,11 @@
 	user.update_pipe_vision(full_refresh = TRUE)
 
 	//Would be great if this could be implemented when someone alt-clicks the image.
-	if (target_move.vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
+	if(target_move.vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
+		if(isxeno(user))
+			var/mob/living/carbon/xenomorph/xeno_user = user
+			xeno_user.handle_ventcrawl(target_move, xeno_user.xeno_caste.vent_enter_speed, xeno_user.xeno_caste.silent_vent_crawl)
+			return
 		user.handle_ventcrawl(target_move)
 		return
 
