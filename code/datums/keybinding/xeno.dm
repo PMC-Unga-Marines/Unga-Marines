@@ -517,6 +517,7 @@
 	full_name = "Gorger: Oppose"
 	description = "Violently suffuse the nearby ground with stored blood, staggering nearby marines and healing nearby xenomorphs."
 	keybind_signal = COMSIG_XENOABILITY_OPPOSE
+	hotkey_keys = list("G")
 
 /datum/keybinding/xeno/psychic_link
 	name = "psychic link"
