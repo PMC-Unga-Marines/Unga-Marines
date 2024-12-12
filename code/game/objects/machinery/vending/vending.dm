@@ -10,9 +10,9 @@
 		"product_name" = record.product_name,\
 		"product_color" = record.display_color,\
 		"prod_desc" = record.desc,\
+		"ref" = REF(record),\
 		"tab" = record.tab,\
 		"products" = record.product_paths,\
-		"ref" = REF(record),\
 	)
 
 /datum/vending_product
@@ -244,7 +244,7 @@
 					recordlist += record
 					// build inverse list for lookup later
 					for(var/product_in_group in group_products)
-						products_inverse[product_in_group[1]] = record	//add record as key, and group name as value
+						products_inverse[product_in_group[1]] = REF(record)	//add record as key, and group name as value
 					continue
 
 				else // classic entry: item/path = amount
@@ -255,7 +255,7 @@
 					var/list/created_product_list = list(list(product_entry, "Vend", "white"))
 					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
 					recordlist += record
-					products_inverse[product_entry] = record
+					products_inverse[product_entry] = REF(record)
 			continue
 
 		//This item is not tab dependent
@@ -266,7 +266,7 @@
 		var/list/created_product_list = list(list(entry, "Vend", "white"))
 		var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, product_description = initial(product_entry_atom.desc))
 		recordlist += record
-		products_inverse[entry] = record
+		products_inverse[entry] = REF(record)
 
 ///Makes additional tabs/adds to the tabs based on the seasonal_items vendor specification
 /obj/machinery/vending/proc/build_seasonal_tabs()
@@ -450,21 +450,15 @@
 				flick(icon_deny, src)
 				return
 
-			var/datum/vending_product/vended_path = params["vend"]
-			var/datum/vending_product/R = locate(products_inverse[vended_path]) in product_records
-			var/test1 = product_records
-			var/test2 = products_inverse
-			if(vended_path in product_records)	// Classic product
-				R = product_records[vended_path]
-			else		// New format with groups
-				R =
-				flag_vend_group = TRUE
+			var/list/ans = params["vend"]
+			var/datum/vending_product/R = locate(ans[1]) in product_records
+			var/datum/vending_product/vended_path = locate(ans[2]) in product_records
 
 			if(!istype(R) || !R.product_paths || R.amount == 0)
 				return
 
 			if((isAI(usr)) || (R.price == null))
-				flag_vend_group?vend(R, usr, vended_path):vend(R, usr)
+				vend(R, usr, vended_path)
 			else
 				currently_vending = R
 			. = TRUE
@@ -489,7 +483,7 @@
 	if(((last_reply + (src.vend_delay + 200)) <= world.time) && vend_reply)
 		INVOKE_ASYNC(src, PROC_REF(speak_on_vend))
 
-	var/obj/item/new_item = release_item(R, vend_delay)
+	var/obj/item/new_item = release_item(R, vend_delay, vended_product_path=vended_product_path)
 
 	if(istype(new_item))
 		new_item.on_vend(user, faction, fill_container = TRUE)
@@ -499,7 +493,7 @@
 	speak(vend_reply)
 	last_reply = world.time
 
-/obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0)
+/obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0, vended_product_path)
 	if(delay_vending)
 		if(powered(power_channel))
 			use_power(active_power_usage)	//actuators and stuff
@@ -522,10 +516,10 @@
 		playsound(src, vending_sound, 25, 0)
 	else
 		playsound(src, SFX_VENDING, 25, 0)
-	if(ispath(R.product_paths,/obj/item/weapon/gun))
-		return new R.product_paths(get_turf(src), 1)
+	if(ispath(vended_product_path,/obj/item/weapon/gun))
+		return new vended_product_path(get_turf(src), 1)
 	else
-		return new R.product_paths(get_turf(src))
+		return new vended_product_path(get_turf(src))
 
 /obj/machinery/vending/MouseDrop_T(atom/movable/A, mob/user)
 	. = ..()
@@ -553,15 +547,11 @@
 		display_message_and_visuals(user, show_feedback, "Vendor is unresponsive!", VENDING_RESTOCK_IDLE)
 		return FALSE
 
-	var/datum/vending_product/record //The found record matching the item_to_stock in the vending_records lists
-	for(var/datum/vending_product/checked_record AS in product_records)
-		if(item_to_stock.type != checked_record.product_paths)
-			continue
-		record = checked_record
-
-	if(!record) //Item isn't listed in the vending records.
+	if(!(item_to_stock.type in products_inverse))	//Item isn't listed in the vending records.
 		user?.balloon_alert(user, "[item_to_stock] doesn't belong here!")
 		return FALSE
+
+	var/datum/vending_product/record = locate(products_inverse[item_to_stock.type]) in product_records
 
 	return do_stock(item_to_stock, user, show_feedback, record)
 

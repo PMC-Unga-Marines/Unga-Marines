@@ -25,6 +25,7 @@ type VendingRecord = {
   product_name: string;
   product_color: string;
   prod_desc: string;
+  ref: string;
   tab: string;
   products: any[];
 };
@@ -116,6 +117,7 @@ type VendingProductEntryProps = {
   product_color: string;
   product_name: string;
   prod_desc: string;
+  ref: string;
   products: any[];
 };
 
@@ -124,7 +126,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
 
   const { currently_vending } = data;
 
-  const { stock, key, product_color, product_name, prod_desc, products } =
+  const { stock, key, product_color, product_name, prod_desc, ref, products } =
     props;
 
   const [showDesc, setShowDesc] = useLocalState<String | null>(
@@ -160,7 +162,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
                 currently_vending &&
                 currently_vending.product_name === product_name
               }
-              onClick={() => act('vend', { vend: product[0] })}
+              onClick={() => act('vend', { vend: ref })}
               disabled={!stock}
             >
               <Box color={product[2]} bold={1}>
@@ -208,6 +210,7 @@ const Products = () => {
                     product_color={display_record.product_color}
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
+                    ref={display_record.ref}
                     products={display_record.products}
                   />
                 )
