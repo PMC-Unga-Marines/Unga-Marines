@@ -13,6 +13,7 @@
 	light_range = 2
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_GREEN
+	vent_movement = NONE
 	var/autoeject = FALSE
 	var/release_notice = FALSE
 	var/temperature = 100
@@ -31,7 +32,6 @@
 	var/message_cooldown
 	var/breakout_time = 300
 	var/mob/living/carbon/occupant
-	vent_movement = NONE
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/Initialize(mapload)
 	. = ..()

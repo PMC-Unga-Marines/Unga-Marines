@@ -16,11 +16,11 @@
 	level = 1
 	layer = ATMOS_DEVICE_LAYER
 	flags_atom = SHUTTLE_IMMUNE
+	vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE | VENTCRAWL_ENTRANCE_ALLOWED
 	var/pump_direction = RELEASING
 	var/pressure_checks = EXT_BOUND
 	var/radio_filter_out
 	var/radio_filter_in
-	vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE | VENTCRAWL_ENTRANCE_ALLOWED
 
 	pipe_state = "uvent"
 
