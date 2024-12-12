@@ -158,7 +158,6 @@
 
 	REMOVE_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
 	target_human.blur_eyes(1)
-	target_human.blood_volume -= owner_xeno.xeno_caste.blood_drained
 	add_cooldown()
 
 /datum/action/ability/activable/xeno/drain/ai_should_use(atom/target)
@@ -493,7 +492,7 @@
 			M.adjust_stagger(2 SECONDS)
 			M.adjust_slowdown(3)
 			shake_camera(M, 3, 3)
-		else if(distance <= 1) //marines will only be staggerslowed if they're one tile away from you
+		else if(distance == 1) //marines will only be staggerslowed if they're one tile away from you
 			shake_camera(M, 2, 2)
 			to_chat(M, span_highdanger("Blood shatters the ground around you!"))
 			M.adjust_stagger(2 SECONDS)
