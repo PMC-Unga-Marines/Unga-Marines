@@ -326,11 +326,6 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 1)
 	output = list(/obj/item/ammo_magazine/tank/tank_glauncher = 1)
 
-/datum/assembly_craft/weapons/gl_smoke_tank_ammo
-	name = "Tank grenade launcher smoke magazine"
-	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 1)
-	output = list(/obj/item/ammo_magazine/tank/tank_slauncher = 1)
-
 /datum/assembly_craft/weapons/heavy_isg_he
 	name = "A 155mm HE shell for the FK-88 mounted flak gun."
 	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 6) // 35 + 48 points
