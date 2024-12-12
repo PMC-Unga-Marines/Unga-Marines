@@ -308,25 +308,30 @@ WEAPONS
 
 /datum/assembly_craft/weapons/ltb_shells
 	name = "LTB tank shell"
-	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 5)
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 2)
 	output = list(/obj/item/ammo_magazine/tank/ltb_cannon = 1)
 
 /datum/assembly_craft/weapons/ltb_cannon_apfds
 	name = "LTB tank APFDS shell"
-	input = list(/obj/item/stack/sheet/jeweler_steel = 2, /obj/item/stack/gun_powder = 3)
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 2)
 	output = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds = 1)
 
 /datum/assembly_craft/weapons/ltb_cannon_TOW
 	name = "TOW Launcher Magazine"
-	input = list(/obj/item/stack/sheet/jeweler_steel = 3, /obj/item/stack/gun_powder = 6)
+	input = list(/obj/item/stack/sheet/jeweler_steel = 2, /obj/item/stack/gun_powder = 1)
 	output = list(/obj/item/ammo_magazine/tank/towlauncher = 1)
 
+/datum/assembly_craft/weapons/gl_explosive_tank_ammo
+	name = "Tank grenade launcher magazine"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 1)
+	output = list(/obj/item/ammo_magazine/tank/tank_glauncher = 1)
+
 /datum/assembly_craft/weapons/heavy_isg_he
-	name = "A 15cm HE shell for the FK-88 mounted flak gun."
-	input = list(/obj/item/stack/sheet/jeweler_steel = 25, /obj/item/stack/gun_powder = 30)
-	output = list(/obj/item/ammo_magazine/heavy_isg/he = 1)
+	name = "A 155mm HE shell for the FK-88 mounted flak gun."
+	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 6) // 35 + 48 points
+	output = list(/obj/item/ammo_magazine/heavy_isg/he = 1) // 83 points +-
 
 /datum/assembly_craft/weapons/heavy_isg_sabot
-	name = "A 15cm APFDS shell for the FK-88 mounted flak gun"
-	input = list(/obj/item/stack/sheet/jeweler_steel = 30, /obj/item/stack/gun_powder = 25)
-	output = list(/obj/item/ammo_magazine/heavy_isg/sabot = 1)
+	name = "A 155mm APFDS shell for the FK-88 mounted flak gun"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 7) // 35 + 56 points
+	output = list(/obj/item/ammo_magazine/heavy_isg/sabot = 1) // 91 points +-
