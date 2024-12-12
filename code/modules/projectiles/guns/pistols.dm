@@ -470,6 +470,9 @@
 	scatter_unwielded = 0
 	aim_speed_modifier = 0
 
+/obj/item/weapon/gun/pistol/p17/p51
+	name = "\improper P-51 tristol"
+	desc = "Сваренные друг с другом три пистолета P17. Вот кому-то делать нефиг..."
 
 //-------------------------------------------------------
 // Browning Hipower
