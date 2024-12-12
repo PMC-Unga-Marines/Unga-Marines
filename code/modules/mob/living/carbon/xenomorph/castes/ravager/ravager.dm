@@ -20,11 +20,11 @@
 		/datum/xenomorph_skin/ravager/bonehead,
 		/datum/xenomorph_skin/ravager,
 	)
+	var/autorage = TRUE
 	var/rage_power
 	var/rage = FALSE
 	var/staggerstun_immune = FALSE
 	var/on_cooldown = FALSE
-	var/autorage = TRUE
 
 /mob/living/carbon/xenomorph/ravager/Initialize(mapload)
 	. = ..()
@@ -139,7 +139,7 @@
 	icon = 'icons/Xeno/castes/ravager/bloodthirster.dmi'
 	caste_base_type = /datum/xeno_caste/ravager/bloodthirster
 	skins = null
-	autorage = FALSE
+	autorage = null
 
 /mob/living/carbon/xenomorph/ravager/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
