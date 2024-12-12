@@ -501,6 +501,7 @@ REAGENT SCANNER
 /obj/item/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -512,6 +513,11 @@ REAGENT SCANNER
 
 	var/details = FALSE
 	var/recent_fail = FALSE
+
+/obj/item/reagent_scanner/adv
+	name = "advanced reagent scanner"
+	icon_state = "adv_spectrometer"
+	details = TRUE
 
 /obj/item/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
 	if(!proximity)
@@ -539,8 +545,3 @@ REAGENT SCANNER
 		else
 			recent_fail = TRUE
 	to_chat(user, span_notice("Chemicals found: [dat]"))
-
-/obj/item/reagent_scanner/adv
-	name = "advanced reagent scanner"
-	icon_state = "adv_spectrometer"
-	details = TRUE
