@@ -8,5 +8,4 @@
  */
 
 GLOBAL_LIST_EMPTY(vending_records)
-GLOBAL_LIST_EMPTY(vending_hidden_records)
-GLOBAL_LIST_EMPTY(vending_coin_records)
+GLOBAL_LIST_EMPTY(vending_inverse_records)

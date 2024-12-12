@@ -10,9 +10,9 @@
 		"product_name" = record.product_name,\
 		"product_color" = record.display_color,\
 		"prod_desc" = record.desc,\
-		"ref" = REF(record),\
 		"tab" = record.tab,\
-		"button_name" = record.button_name,\
+		"products" = record.product_paths,\
+		"ref" = REF(record),\
 	)
 
 /datum/vending_product
@@ -21,7 +21,7 @@
 	///Description to be put under ? button
 	var/desc = null
 	///Path for the items this product makes, in format {item/path,  button_label, color}
-	var/product_path = list()
+	var/product_paths = list()
 	///Vended product
 	var/product_vended = null
 	///How much of this product there is
@@ -38,7 +38,7 @@
 	var/button_name = "Vend"
 
 /datum/vending_product/New(name, typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab, product_button_name, product_description)
-	product_path += typepath
+	product_paths = typepath
 	amount = product_amount
 	price = product_price
 	src.category = category
@@ -111,8 +111,6 @@
 	var/use_product_groups = FALSE
 	/// Normal products that are always available on the vendor.
 	var/list/products = list()
-	/// For lookup after vending
-	var/list/products_inverse = list()
 	/** List of seasons whose products are added to the vendor's.
 	 *	Format for each entry is SEASON_NAME = "tab name"
 	 */
@@ -124,6 +122,8 @@
 	//These are where the vendor holds their item info with /datum/vending_product
 	///list of /datum/vending_product's that are always available on the vendor
 	var/list/product_records = list()
+	/// For lookup after vending
+	var/list/products_inverse = list()
 	var/list/slogan_list = list()
 	/// small ad messages in the vending screen - random chance of popping up whenever you open it
 	var/list/small_ads = list()
@@ -154,9 +154,12 @@
 	var/knockdown_threshold = 100
 	///Faction of the vendor. Can be null
 	var/faction
+	var/check = FALSE
 
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
+	if(check)
+		check = check
 	wires = new /datum/wires/vending(src)
 
 	slogan_list = splittext(product_slogans, ";")
@@ -211,8 +214,10 @@
 	if(!GLOB.vending_records[type])
 		build_inventory(products)
 		GLOB.vending_records[type] = product_records
+		GLOB.vending_inverse_records[type] = products_inverse
 	else
 		product_records = GLOB.vending_records[type]
+		products_inverse = GLOB.vending_inverse_records[type]
 
 ///Builds a vending machine inventory from the given list into their records depending of category.
 /obj/machinery/vending/proc/build_inventory(list/productlist, category = CAT_NORMAL)
@@ -239,7 +244,7 @@
 					recordlist += record
 					// build inverse list for lookup later
 					for(var/product_in_group in group_products)
-						products_inverse[product_in_group] = product_entry
+						products_inverse[product_in_group[1]] = record	//add record as key, and group name as value
 					continue
 
 				else // classic entry: item/path = amount
@@ -247,9 +252,10 @@
 					var/amount = tab_products[product_entry]
 					if(isnull(amount))
 						amount = 1
-					var/list/created_product_list = list(product_entry, "Vend", "white")
+					var/list/created_product_list = list(list(product_entry, "Vend", "white"))
 					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
 					recordlist += record
+					products_inverse[product_entry] = record
 			continue
 
 		//This item is not tab dependent
@@ -257,9 +263,10 @@
 		var/amount = productlist[entry]
 		if(isnull(amount))
 			amount = 1
-		var/list/created_product_list = list(entry, "Vend", "white")
+		var/list/created_product_list = list(list(entry, "Vend", "white"))
 		var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, product_description = initial(product_entry_atom.desc))
 		recordlist += record
+		products_inverse[entry] = record
 
 ///Makes additional tabs/adds to the tabs based on the seasonal_items vendor specification
 /obj/machinery/vending/proc/build_seasonal_tabs()
@@ -444,15 +451,16 @@
 				return
 
 			var/datum/vending_product/vended_path = params["vend"]
-			var/datum/vending_product/R = null
-			var/flag_vend_group = FALSE
+			var/datum/vending_product/R = locate(products_inverse[vended_path]) in product_records
+			var/test1 = product_records
+			var/test2 = products_inverse
 			if(vended_path in product_records)	// Classic product
 				R = product_records[vended_path]
 			else		// New format with groups
-				R = locate(products_inverse[vended_path]) in product_records
+				R =
 				flag_vend_group = TRUE
 
-			if(!istype(R) || !R.product_path || R.amount == 0)
+			if(!istype(R) || !R.product_paths || R.amount == 0)
 				return
 
 			if((isAI(usr)) || (R.price == null))
@@ -514,10 +522,10 @@
 		playsound(src, vending_sound, 25, 0)
 	else
 		playsound(src, SFX_VENDING, 25, 0)
-	if(ispath(R.product_path,/obj/item/weapon/gun))
-		return new R.product_path(get_turf(src), 1)
+	if(ispath(R.product_paths,/obj/item/weapon/gun))
+		return new R.product_paths(get_turf(src), 1)
 	else
-		return new R.product_path(get_turf(src))
+		return new R.product_paths(get_turf(src))
 
 /obj/machinery/vending/MouseDrop_T(atom/movable/A, mob/user)
 	. = ..()
@@ -547,7 +555,7 @@
 
 	var/datum/vending_product/record //The found record matching the item_to_stock in the vending_records lists
 	for(var/datum/vending_product/checked_record AS in product_records)
-		if(item_to_stock.type != checked_record.product_path)
+		if(item_to_stock.type != checked_record.product_paths)
 			continue
 		record = checked_record
 
@@ -748,7 +756,7 @@
 	for(var/datum/vending_product/R AS in product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
-		var/dump_path = R.product_path
+		var/dump_path = R.product_paths
 		if (!dump_path)
 			continue
 
@@ -770,7 +778,7 @@
 	for(var/datum/vending_product/R AS in product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
-		var/dump_path = R.product_path
+		var/dump_path = R.product_paths
 		if (!dump_path)
 			continue
 

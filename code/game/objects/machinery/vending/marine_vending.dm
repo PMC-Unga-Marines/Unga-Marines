@@ -456,6 +456,7 @@
 	)
 
 /obj/machinery/vending/weapon/valhalla
+	check = TRUE
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 	use_product_groups = TRUE
@@ -465,7 +466,7 @@
 			"AR12 Magazines" = list(-1, list(
 				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "white"),
 				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", "blue"),
-				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "green"),
+				list(/obj/item/ammo_magazine/rifle/ar12/hp, "HP", "green"),
 			),
 			"Magazines"
 			),
@@ -473,16 +474,6 @@
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 		)
 	)
-
-/obj/machinery/vending/weapon/valhalla/ui_interact(mob/user, datum/tgui/ui)
-	if(tipped_level != 0) // Don't show when tipped or being tipped
-		return
-
-	ui = SStgui.try_update_ui(user, src, ui)
-
-	if(!ui)
-		ui = new(user, src, "Vending2", name)
-		ui.open()
 
 /obj/machinery/vending/cigarette
 	name = "cigarette machine" //OCD had to be uppercase to look nice with the new formating
@@ -850,11 +841,11 @@
 	var/obj/item/reagent_containers/blood/temp_path
 	var/blood_type
 	for(var/datum/vending_product/R AS in (product_records))
-		if(R.product_path in temp_list)
-			temp_path = R.product_path
+		if(R.product_paths in temp_list)
+			temp_path = R.product_paths
 			blood_type = initial(temp_path.blood_type)
 			R.product_name += blood_type? " [blood_type]" : ""
-			temp_list -= R.product_path
+			temp_list -= R.product_paths
 			if(!length(temp_list)) break
 
 /obj/machinery/vending/MarineMed/Blood/valhalla

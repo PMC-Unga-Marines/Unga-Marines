@@ -25,8 +25,8 @@ type VendingRecord = {
   product_name: string;
   product_color: string;
   prod_desc: string;
-  ref: string;
   tab: string;
+  products: any[];
 };
 
 export const Vending = () => {
@@ -116,7 +116,7 @@ type VendingProductEntryProps = {
   product_color: string;
   product_name: string;
   prod_desc: string;
-  prod_ref: string;
+  products: any[];
 };
 
 const ProductEntry = (props: VendingProductEntryProps) => {
@@ -124,7 +124,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
 
   const { currently_vending } = data;
 
-  const { stock, key, product_color, product_name, prod_desc, prod_ref } =
+  const { stock, key, product_color, product_name, prod_desc, products } =
     props;
 
   const [showDesc, setShowDesc] = useLocalState<String | null>(
@@ -153,18 +153,23 @@ const ProductEntry = (props: VendingProductEntryProps) => {
             </Box>
           )}
           <Box inline width="4px" />
-          <Button
-            selected={
-              currently_vending &&
-              currently_vending.product_name === product_name
-            }
-            onClick={() => act('vend', { vend: prod_ref })}
-            disabled={!stock}
-          >
-            <Box color={product_color} bold={1}>
-              {'BName'}
-            </Box>
-          </Button>
+          {products.map((product) => (
+            <Button
+              key={product.id}
+              selected={
+                currently_vending &&
+                currently_vending.product_name === product_name
+              }
+              onClick={() => act('vend', { vend: product[0] })}
+              disabled={!stock}
+            >
+              <Box color={product[2]} bold={1}>
+                {
+                  product[1] // Button name
+                }
+              </Box>
+            </Button>
+          ))}
         </>
       }
       label={product_name}
@@ -203,7 +208,7 @@ const Products = () => {
                     product_color={display_record.product_color}
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
-                    prod_ref={display_record.ref}
+                    products={display_record.products}
                   />
                 )
               );
