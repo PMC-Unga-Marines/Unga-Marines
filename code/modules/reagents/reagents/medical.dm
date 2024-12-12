@@ -1679,10 +1679,10 @@
 /datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
 
-/datum/reagent/mastac
-	name = "MasTac"
+/datum/reagent/neurofrenzy
+	name = "NeuroFrenzy"
 	description = "This is a neurostimulating substance that causes the brain to maintain an increased heart rate."
-	color = COLOR_REAGENT_MASTAC
+	color = COLOR_REAGENT_NEUROFRENZY
 	custom_metabolism = 0
 	scannable = TRUE
 	taste_description = "sour coffee"
@@ -1696,18 +1696,18 @@
 		/datum/reagent/medicine/peridaxon_plus,
 	)
 
-/datum/reagent/mastac/on_mob_add(mob/living/our_living, metabolism)
+/datum/reagent/neurofrenzy/on_mob_add(mob/living/our_living, metabolism)
 	our_living.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
 	to_chat(our_living, span_userdanger("You feel like your heart could stop at any moment."))
 
-/datum/reagent/mastac/on_mob_life(mob/living/our_living, metabolism)
+/datum/reagent/neurofrenzy/on_mob_life(mob/living/our_living, metabolism)
 	. = ..()
 	if(volume < 1)
-		our_living.reagents.remove_reagent(/datum/reagent/mastac, 3)
+		our_living.reagents.remove_reagent(/datum/reagent/neurofrenzy, 3)
 		return //antiduplicate
 
 	if(volume < 5)
-		our_living.reagents.add_reagent(/datum/reagent/mastac, 0.5)
+		our_living.reagents.add_reagent(/datum/reagent/neurofrenzy, 0.5)
 	switch(current_cycle)
 		if(1 to 40)
 			our_living.adjustStaminaLoss((4) * effect_str)
@@ -1725,7 +1725,7 @@
 			var/datum/internal_organ/heart/our_heart = our_human.get_organ_slot(ORGAN_SLOT_HEART)
 			our_heart?.take_damage(15, TRUE)
 
-/datum/reagent/mastac/on_mob_delete(mob/living/our_living, metabolism)
+/datum/reagent/neurofrenzy/on_mob_delete(mob/living/our_living, metabolism)
 	to_chat(our_living, span_userdanger("It seems that something has stopped pushing your heart with force."))
 	our_living.remove_movespeed_modifier(type)
 	our_living.Paralyze(2 SECONDS)

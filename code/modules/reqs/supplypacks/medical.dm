@@ -327,18 +327,18 @@
 /datum/supply_packs/medical/Mt_neurostimulator
 	name = "M-S neurostimulator injector"
 	notes = "contains M-S neurostimulator auto injector."
-	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/mastac)
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy)
 	cost = 140
 
 /datum/supply_packs/medical/Mt_neurostimulator_kit
 	name = "M-S neurostimulator kit"
 	notes = "contains 5 M-S neurostimulator auto injectors."
 	contains = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
-		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
-		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
-		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
-		/obj/item/reagent_containers/hypospray/autoinjector/mastac,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
 	)
 	cost = 500
 
