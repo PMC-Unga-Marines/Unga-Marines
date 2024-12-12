@@ -9816,6 +9816,12 @@
 	},
 /turf/open/floor/mainship,
 /area/bigredv2/outside/monorail)
+"gop" = (
+/obj/machinery/power/apc/drained{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/bigredv2/outside/space_port/two)
 "gpg" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -19405,7 +19411,7 @@ aaa
 aaa
 hXy
 gCQ
-gCQ
+gop
 gCQ
 gCQ
 gCQ
