@@ -1934,12 +1934,6 @@
 	dir = 5
 	},
 /area/lv624/ground/sand7)
-"aVD" = (
-/obj/machinery/power/apc/drained{
-	dir = 1
-	},
-/turf/closed/wall,
-/area/lv624/lazarus/monorail)
 "aVI" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/landmark/weed_node,
@@ -3222,12 +3216,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
-"bHl" = (
-/obj/machinery/power/apc/drained{
-	dir = 8
-	},
-/turf/open/space/basic,
-/area/lv624/lazarus/spaceport2)
 "bHC" = (
 /obj/structure/flora/jungle/vines,
 /obj/structure/flora/jungle/vines/heavy,
@@ -26060,7 +26048,7 @@ gKr
 gKr
 gKr
 gKr
-bHl
+gKr
 gKr
 gKr
 gKr
@@ -40405,7 +40393,7 @@ nTs
 tIf
 rlX
 hcP
-aVD
+pmF
 pmF
 pmF
 bch

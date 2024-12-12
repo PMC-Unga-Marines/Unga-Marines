@@ -10490,12 +10490,6 @@
 /obj/item/weapon/gun/rifle/m16,
 /turf/open/floor/carpet,
 /area/magmoor/command/conference)
-"hCN" = (
-/obj/machinery/power/apc/drained{
-	dir = 1
-	},
-/turf/open/space/basic,
-/area/lv624/lazarus/spaceport2)
 "hCX" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -34930,7 +34924,7 @@ iLH
 iLH
 iLH
 iLH
-hCN
+iLH
 iLH
 iLH
 "}
