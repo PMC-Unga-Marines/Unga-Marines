@@ -338,6 +338,7 @@
 
 /obj/item/ammo_magazine/packet/t312
 	name = "packet of .500 White Express"
+	desc = "A box containing common .500 White Express rounds."
 	icon_state = "boxt500_we"
 	default_ammo = /datum/ammo/bullet/revolver/t312
 	caliber = CALIBER_500_EMB
@@ -356,21 +357,25 @@
 
 /obj/item/ammo_magazine/packet/t312/med/adrenaline
 	name = "packet of .500 Adrenaline EMB"
+	desc = "Contains adrenaline. These ammo have a stimulating effect on the patient's nervous system and heart, capable of saving a marine from a critical condition, and also allowing him to run longer than usual."
 	icon_state = "boxt500_adr"
 	default_ammo = /datum/ammo/bullet/revolver/t312/med/adrenaline
 
 /obj/item/ammo_magazine/packet/t312/med/rr
 	name = "packet of .500 Russian Red EMB"
+	desc = "Contains 5 units of Russian Red. Use only when absolutely necessary. Heals a large amount of physical damage, but deals cloneless damage."
 	icon_state = "boxt500_rr"
 	default_ammo = /datum/ammo/bullet/revolver/t312/med/rr
 
 /obj/item/ammo_magazine/packet/t312/med/md
 	name = "packet of .500 Meraderm EMB"
+	desc = "The best EMB ammo that can heal multiple patient injuries without any side effects. Contains 2.5 units of Meralyne and 2.5 units of Dermaline."
 	icon_state = "boxt500_md"
 	default_ammo = /datum/ammo/bullet/revolver/t312/med/md
 
 /obj/item/ammo_magazine/packet/t312/med/neu
 	name = "packet of .500 Neuraline EMB"
+	desc = "Contains 3.1 units of Neuraline and 1.9 Hyronalin. Warning: While the bullet is capable of taking a Marine out of critical condition, it will not neutralize all toxins from Neuraline."
 	icon_state = "boxt500_neu"
 	default_ammo = /datum/ammo/bullet/revolver/t312/med/neu
 
