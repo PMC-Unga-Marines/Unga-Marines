@@ -285,5 +285,5 @@
 		/obj/item/weapon/gun/smg/uzi = /obj/item/ammo_magazine/smg/uzi,
 		/obj/item/weapon/gun/rifle/famas = /obj/item/ammo_magazine/rifle/famas,
 		/obj/item/weapon/gun/rifle/m16 = /obj/item/ammo_magazine/rifle/m16,
-		/obj/item/storage/briefcase/anime
+		/obj/item/storage/briefcase/anime = /obj/item/weapon/karambit/fade
 	)
