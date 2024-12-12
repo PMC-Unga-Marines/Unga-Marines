@@ -363,7 +363,7 @@
 
 /obj/item/ammo_magazine/packet/t312/med/rr
 	name = "packet of .500 Russian Red EMB"
-	desc = "Contains 5 units of Russian Red. Use only when absolutely necessary. Heals a large amount of physical damage, but deals cloneless damage."
+	desc = "Contains 5 units of Russian Red. Use only when absolutely necessary. Heals a large amount of physical damage, but deals cloneloss damage."
 	icon_state = "boxt500_rr"
 	default_ammo = /datum/ammo/bullet/revolver/t312/med/rr
 
