@@ -490,7 +490,7 @@
 	recoil_unwielded = 7
 	scatter = 10
 	scatter_unwielded = 20
-	fire_delay = 0.02 SECONDS
+	fire_delay = 0.025 SECONDS
 
 //-------------------------------------------------------
 // Browning Hipower
