@@ -64,21 +64,19 @@
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	take_damage(max_integrity) // Ensure its destroyed
 
-/obj/structure/xeno/plasmacutter_act(mob/living/user, obj/item/I)
+/obj/structure/xeno/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	if(user.do_actions)
 		return FALSE
 	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
 		return FALSE
 	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
-	if(!plasmacutter.start_cut(user, name, src, charge_cost, no_string = TRUE))
+	if(!I.start_cut(user, name, src, charge_cost, no_string = TRUE))
 		return FALSE
-
-	user.changeNext_move(plasmacutter.attack_speed)
-	user.do_attack_animation(src, used_item = plasmacutter)
-	plasmacutter.cut_apart(user, name, src, charge_cost)
-	take_damage(max(0, plasmacutter.force * (1 + PLASMACUTTER_RESIN_MULTIPLIER)), plasmacutter.damtype, MELEE)
+	user.changeNext_move(I.attack_speed)
+	user.do_attack_animation(src, used_item = I)
+	I.cut_apart(user, name, src, charge_cost)
+	take_damage(max(0, I.force * (1 + PLASMACUTTER_RESIN_MULTIPLIER)), I.damtype, MELEE)
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	return TRUE
