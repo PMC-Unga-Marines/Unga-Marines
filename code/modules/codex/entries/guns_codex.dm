@@ -143,7 +143,7 @@
 				attachments_text["other"] += A.name
 		for(var/i in attachments_text)
 			var/list/attach_list_of_type = attachments_text[i]
-			if(attach_list_of_type.len == 0)
+			if(length(attach_list_of_type) <= 0)
 				continue
 
 			traits += attachments_header_text[i]
