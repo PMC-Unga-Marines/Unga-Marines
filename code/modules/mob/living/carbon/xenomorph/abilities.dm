@@ -911,22 +911,28 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HIDE,
 	)
 
-/datum/action/ability/xeno_action/xenohide/can_use_action(atom/A, silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
-		return FALSE
+/datum/action/ability/xeno_action/xenohide/remove_action(mob/living/L)
+	UnregisterSignal(L, COMSIG_XENOMORPH_POUNCE)
+	return ..()
+
+/datum/action/ability/xeno_action/xenohide/can_use_action(silent, override_flags)
 	if(HAS_TRAIT(xeno_owner, TRAIT_TANK_DESANT))
+		if(!silent)
+			xeno_owner.balloon_alert(xeno_owner, "cannot while on vehicle")
 		return FALSE
+	return ..()
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
 	if(xeno_owner.layer != XENO_HIDING_LAYER)
+		RegisterSignal(_actions, COMSIG_XENOMORPH_POUNCE, PROC_REF(action_activate))
 		xeno_owner.layer = XENO_HIDING_LAYER
 		to_chat(xeno_owner, span_notice("We are now hiding."))
-		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // RUTGMC edit - icon change
+		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 	else
+		UnregisterSignal(_actions, COMSIG_XENOMORPH_POUNCE)
 		xeno_owner.layer = MOB_LAYER
 		to_chat(xeno_owner, span_notice("We have stopped hiding."))
-		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // RUTGMC edit - icon change
+		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 
 //Neurotox Sting
 /datum/action/ability/activable/xeno/neurotox_sting
