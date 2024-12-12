@@ -19,7 +19,7 @@
 	if(flags_gun_features & GUN_WIELDED_FIRING_ONLY)
 		traits += "Can only be fired with a two-handed grip."
 	if(burst_amount > 1)
-		traits += "Can fire in short bursts. Click the Toggle Burst Fire button to change it."
+		traits += "Can fire in short bursts."
 	if(max_shells)
 		traits += "Normally holds [max_shells] rounds."
 	if(max_shots)
@@ -36,7 +36,7 @@
 		loading_ways += "cells"
 	if(load_method & POWERPACK)
 		loading_ways += "it's powerpack"
-	traits += "Can be loaded using [english_list(loading_ways)]:"
+	traits += "Can be loaded using: [english_list(loading_ways)]:"
 
 	if(allowed_ammo_types)
 		for(var/i in allowed_ammo_types)
@@ -52,7 +52,7 @@
 			if(def_ammo.bonus_projectiles_amount > 0)
 				damage_text += "x[def_ammo.bonus_projectiles_amount]"
 			var/ap_text = "AP:[def_ammo.penetration+def_ammo.additional_xeno_penetration]"
-			var/falloff_text = "FF:-[def_ammo.damage_falloff]/tile"
+			var/falloff_text = "FLF:-[def_ammo.damage_falloff]/tile"
 			var/size_text = "AMMO: [mag.max_rounds]"
 			traits += mag.name
 			traits += "-> [damage_text], [ap_text], [falloff_text], [size_text]"
@@ -61,21 +61,22 @@
 		//check is done based on caliber only
 		for (var/i in typesof(/obj/item/ammo_magazine/handful))
 			var/obj/item/ammo_magazine/handful/mag = i
-			if(mag.caliber == caliber)
-				if(!mag.default_ammo)	//no ammo in mag - just print the name, otherwise add stats
-					traits += mag.name
-					continue
+			if(mag.caliber != caliber)
+				continue
+			if(!mag.default_ammo)	//no ammo in mag - just print the name, otherwise add stats
+				traits += mag.name
+				continue
 
-				var/datum/ammo/bullet/def_ammo = mag.default_ammo
-				if(!mag.default_ammo.damage)
-					continue
-				var/damage_text = "DMG:[def_ammo.damage]"
-				if(def_ammo.bonus_projectiles_amount > 0)
-					damage_text += "x[def_ammo.bonus_projectiles_amount]"
-				var/ap_text = "AP:[def_ammo.penetration+def_ammo.additional_xeno_penetration]"
-				var/falloff_text = "FF:-[def_ammo.damage_falloff]/tile"
-				traits += def_ammo.name
-				traits += "-> [damage_text], [ap_text], [falloff_text]"
+			var/datum/ammo/bullet/def_ammo = mag.default_ammo
+			if(!mag.default_ammo.damage)
+				continue
+			var/damage_text = "DMG:[def_ammo.damage]"
+			if(def_ammo.bonus_projectiles_amount > 0)
+				damage_text += "x[def_ammo.bonus_projectiles_amount]"
+			var/ap_text = "AP:[def_ammo.penetration+def_ammo.additional_xeno_penetration]"
+			var/falloff_text = "FLF:-[def_ammo.damage_falloff]/tile"
+			traits += def_ammo.name
+			traits += "-> [damage_text], [ap_text], [falloff_text]"
 
 	traits += "Examine the ammo holders or ammunition for more info."
 
@@ -142,10 +143,12 @@
 				attachments_text["other"] += A.name
 		for(var/i in attachments_text)
 			var/list/attach_list_of_type = attachments_text[i]
-			if(attach_list_of_type.len > 0)
-				traits += attachments_header_text[i]
-				attachments_text[i] = sortList(attachments_text[i])
-				traits += attachments_text[i]
+			if(attach_list_of_type.len == 0)
+				continue
+
+			traits += attachments_header_text[i]
+			attachments_text[i] = sortList(attachments_text[i])
+			traits += attachments_text[i]
 
 	traits += "----------------------------------------------------------"
 	traits += "How to use:<br>"
