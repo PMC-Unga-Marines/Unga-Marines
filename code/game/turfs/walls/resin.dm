@@ -28,7 +28,7 @@
 	return TRUE
 
 /turf/closed/wall/resin/plasmacutter_act(mob/living/user, obj/item/I)
-	if(!isplasmacutter(I) || user.do_actions)
+	if(user.do_actions)
 		return FALSE
 	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
