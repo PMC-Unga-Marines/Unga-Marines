@@ -466,7 +466,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /datum/action/ability/activable/xeno/impale
 	name = "Impale"
 	action_icon_state = "impale"
-	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Impale a marine next to you with your tail for moderate damage. Marked enemies are impaled twice."
 	ability_cost = 100
 	cooldown_duration = 8 SECONDS
