@@ -350,6 +350,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/regen_power = 0
 	///Stored biomass
 	var/biomass = 0
+	///Stored upgrade effects, so we reapply them on evolve
+	var/list/upgrades_holder = list()
 
 	var/is_zoomed = FALSE
 	var/zoom_turf = null
@@ -434,7 +436,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
 	var/interference = 0 // Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
-	var/talk_sound = "alien_talk"  // sound when talking
+	var/talk_sound = SFX_ALIEN_TALK  // sound when talking
 
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)
 

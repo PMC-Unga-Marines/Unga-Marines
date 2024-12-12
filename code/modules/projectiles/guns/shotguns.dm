@@ -217,9 +217,6 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/scope,
-		/obj/item/attachable/scope/marine,
-		/obj/item/attachable/scope/mini,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
@@ -809,7 +806,7 @@ RU TGMC EDIT */
 	icon_state = "v51"
 	icon = 'icons/Marine/gun64.dmi'
 	item_state = "v51"
-	fire_sound = "shotgun_som"
+	fire_sound = SFX_SHOTGUN_SOM
 	dry_fire_sound = 'sound/weapons/guns/fire/v51_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/v51_load.ogg'
 	hand_reload_sound = 'sound/weapons/guns/interact/v51_load.ogg'

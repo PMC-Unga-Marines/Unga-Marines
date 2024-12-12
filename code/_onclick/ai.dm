@@ -224,7 +224,7 @@
 /obj/structure/xeno/silo/AIMiddleClick(mob/living/silicon/ai/user)
 	user.ai_ping(src, COOLDOWN_AI_PING_EXTRA_LOW)
 
-/obj/structure/xeno/xeno_turret/AIMiddleClick(mob/living/silicon/ai/user)
+/obj/structure/xeno/turret/AIMiddleClick(mob/living/silicon/ai/user)
 	user.ai_ping(src, COOLDOWN_AI_PING_EXTRA_LOW)
 
 /obj/structure/xeno/evotower/AIMiddleClick(mob/living/silicon/ai/user)
