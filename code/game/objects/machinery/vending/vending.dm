@@ -452,7 +452,7 @@
 
 			var/list/ans = params["vend"]
 			var/datum/vending_product/R = locate(ans[1]) in product_records
-			var/datum/vending_product/vended_path = locate(ans[2]) in product_records
+			var/datum/vending_product/vended_path = ans[2]
 
 			if(!istype(R) || !R.product_paths || R.amount == 0)
 				return
@@ -472,6 +472,9 @@
 		to_chat(user, span_warning("Access denied."))
 		flick(icon_deny, src)
 		return
+
+	var/test1 = R
+	var/test2 = vended_product_path
 
 	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all at once with explosion
 		to_chat(user, span_warning("The floor is too cluttered, make some space."))
@@ -494,6 +497,8 @@
 	last_reply = world.time
 
 /obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0, vended_product_path)
+	var/test1 = R
+	var/test2 = vended_product_path
 	if(delay_vending)
 		if(powered(power_channel))
 			use_power(active_power_usage)	//actuators and stuff
