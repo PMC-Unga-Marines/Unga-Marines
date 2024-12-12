@@ -103,6 +103,8 @@
 		)
 	)
 	*/
+
+	var/use_product_groups = FALSE
 	/// Normal products that are always available on the vendor.
 	var/list/products = list()
 	/** List of seasons whose products are added to the vendor's.
@@ -209,23 +211,37 @@
 ///Builds a vending machine inventory from the given list into their records depending of category.
 /obj/machinery/vending/proc/build_inventory(list/productlist, category = CAT_NORMAL)
 	var/list/recordlist = product_records
+	if(!use_product_groups)		//Default old machines
+		for(var/entry in productlist)
+			//if this is true then this is supposed to be tab dependant.
+			if(islist(productlist[entry]))
+				for(var/typepath in productlist[entry])
+					var/amount = productlist[entry][typepath]
+					if(isnull(amount))
+						amount = 1
+					var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
+					recordlist += record
+				continue
+			//This item is not tab dependent
+			var/amount = productlist[entry]
+			if(isnull(amount))
+				amount = 1
+			var/datum/vending_product/record = new(typepath = entry, product_amount = amount, category = category)
+			recordlist += record
+	else		//New machines which support product groups.
+				// Must use tabs. Grouped objects will not actually calculate amount
+		for(var/entry in productlist)
+				for(var/typepath in productlist[entry]) //items inside tab
+					if(islist(productlist[entry]))		//is this an item, or group of items?
+						// group of items - several buttons, no counts
 
-	for(var/entry in productlist)
-		//if this is true then this is supposed to be tab dependant.
-		if(islist(productlist[entry]))
-			for(var/typepath in productlist[entry])
-				var/amount = productlist[entry][typepath]
-				if(isnull(amount))
-					amount = 1
-				var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
-				recordlist += record
-			continue
-		//This item is not tab dependent
-		var/amount = productlist[entry]
-		if(isnull(amount))
-			amount = 1
-		var/datum/vending_product/record = new(typepath = entry, product_amount = amount, category = category)
-		recordlist += record
+					else //one item - can use counts
+						var/amount = productlist[entry][typepath]
+						if(isnull(amount))
+							amount = 1
+						var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
+						recordlist += record
+				continue
 
 ///Makes additional tabs/adds to the tabs based on the seasonal_items vendor specification
 /obj/machinery/vending/proc/build_seasonal_tabs()
