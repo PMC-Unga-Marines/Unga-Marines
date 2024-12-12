@@ -306,7 +306,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		set_glide_size(glide_size_override)
 	if(newloc)
 		abstract_move(newloc)
-		update_parallax_contents()
 	else
 		abstract_move(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)
@@ -432,8 +431,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		return
 
 	abstract_move(pick(get_area_turfs(A)))
-	update_parallax_contents()
-
 
 /mob/dead/observer/verb/follow_ghost()
 	set category = "Ghost"
