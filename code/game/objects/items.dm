@@ -1427,12 +1427,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			//Init armor var so we can call attachments_by_slot[] proc
 			var/obj/item/clothing/armor = src
 			//Module target which icon we want to hide
-			var/obj/item/clothing/module_to_hide =  armor.attachments_by_slot[ATTACHMENT_SLOT_MODULE]
-			if(!module_to_hide) //If it not a suit module we will pick a head module instead (dont know how to do it better than this)
+			var/obj/item/armor_module/module_to_hide =  armor.attachments_by_slot[ATTACHMENT_SLOT_MODULE]
+			if(!module_to_hide) //If it is not a suit module then it is a head module (dont know how to do it better than this)
 				module_to_hide = armor.attachments_by_slot[ATTACHMENT_SLOT_HEAD_MODULE]
 			if(!module_to_hide.icon_state) //If module is already hided we will unhide it
 				//Initial icon_state before any changes
-				var/init_icon_state = initial(module_to_hide.icon_state)
+				var/init_icon_state = module_to_hide.base_icon
 				module_to_hide.icon_state = init_icon_state
 				update_icon()
 				return
