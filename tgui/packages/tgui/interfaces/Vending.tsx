@@ -162,7 +162,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
             disabled={!stock}
           >
             <Box color={product_color} bold={1}>
-              Vend
+              {'BName'}
             </Box>
           </Button>
         </>

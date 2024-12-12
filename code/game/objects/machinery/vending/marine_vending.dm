@@ -462,9 +462,13 @@
 	products = list(
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
-			/obj/item/ammo_magazine/rifle/ar12 = -1,
-			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
-			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			"AR12 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "green"),
+			),
+			"Magazines"
+			),
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 		)

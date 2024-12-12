@@ -9,7 +9,7 @@
 #define MAKE_VENDING_RECORD_DATA(record) list(\
 		"product_name" = record.product_name,\
 		"product_color" = record.display_color,\
-		"prod_desc" = initial(record.product_path.desc),\
+		"prod_desc" = record.desc,\
 		"ref" = REF(record),\
 		"tab" = record.tab,\
 		"button_name" = record.button_name,\
@@ -18,8 +18,12 @@
 /datum/vending_product
 	///Name of the product
 	var/product_name = "generic"
-	///Path of the item this product makes
-	var/atom/product_path = null
+	///Description to be put under ? button
+	var/desc = null
+	///Path for the items this product makes, in format {item/path,  button_label, color}
+	var/product_path = list()
+	///Vended product
+	var/product_vended = null
 	///How much of this product there is
 	var/amount = 0
 	///The price of this product if any.
@@ -33,16 +37,14 @@
 	///Button name in vendor
 	var/button_name = "Vend"
 
-/datum/vending_product/New(name, atom/typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab, product_button_name)
-	product_path = typepath
+/datum/vending_product/New(name, typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab, product_button_name, product_description)
+	product_path += typepath
 	amount = product_amount
 	price = product_price
 	src.category = category
 	src.tab = tab
 
-	if(!name)
-		product_name = initial(typepath.name)
-	else
+	if(name)
 		product_name = name
 
 	if(product_display_color)
@@ -54,6 +56,8 @@
 
 	if(product_button_name)
 		button_name = product_button_name
+	if(product_description)
+		desc = product_description
 
 /obj/machinery/vending
 	name = "Vendomat"
@@ -107,6 +111,8 @@
 	var/use_product_groups = FALSE
 	/// Normal products that are always available on the vendor.
 	var/list/products = list()
+	/// For lookup after vending
+	var/list/products_inverse = list()
 	/** List of seasons whose products are added to the vendor's.
 	 *	Format for each entry is SEASON_NAME = "tab name"
 	 */
@@ -211,37 +217,49 @@
 ///Builds a vending machine inventory from the given list into their records depending of category.
 /obj/machinery/vending/proc/build_inventory(list/productlist, category = CAT_NORMAL)
 	var/list/recordlist = product_records
-	if(!use_product_groups)		//Default old machines
-		for(var/entry in productlist)
-			//if this is true then this is supposed to be tab dependant.
-			if(islist(productlist[entry]))
-				for(var/typepath in productlist[entry])
-					var/amount = productlist[entry][typepath]
+	for(var/entry in productlist)
+		if(islist(productlist[entry])) //if this is true then this is supposed to be tab dependant.
+			var/list/tab_products = productlist[entry]
+			for(var/product_entry in tab_products)
+				if(islist(tab_products[product_entry])) // new entry format: group label = {amount, {items with info}, desc}
+					var/list/group_info = tab_products[product_entry]
+					var/list/group_products = group_info[2]
+					var/prod_desc = null
+					if(length(group_info) >= 3)
+						prod_desc = group_info[3]
+
+					var/datum/vending_product/record = new(
+						name = product_entry,
+						product_amount = group_info[1],
+						typepath = group_products,
+						category = category,
+						tab = entry,
+						product_description = prod_desc
+						)
+					recordlist += record
+					// build inverse list for lookup later
+					for(var/product_in_group in group_products)
+						products_inverse[product_in_group] = product_entry
+					continue
+
+				else // classic entry: item/path = amount
+					var/atom/product_entry_atom = product_entry
+					var/amount = tab_products[product_entry]
 					if(isnull(amount))
 						amount = 1
-					var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
+					var/list/created_product_list = list(product_entry, "Vend", "white")
+					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
 					recordlist += record
-				continue
-			//This item is not tab dependent
-			var/amount = productlist[entry]
-			if(isnull(amount))
-				amount = 1
-			var/datum/vending_product/record = new(typepath = entry, product_amount = amount, category = category)
-			recordlist += record
-	else		//New machines which support product groups.
-				// Must use tabs. Grouped objects will not actually calculate amount
-		for(var/entry in productlist)
-				for(var/typepath in productlist[entry]) //items inside tab
-					if(islist(productlist[entry]))		//is this an item, or group of items?
-						// group of items - several buttons, no counts
+			continue
 
-					else //one item - can use counts
-						var/amount = productlist[entry][typepath]
-						if(isnull(amount))
-							amount = 1
-						var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
-						recordlist += record
-				continue
+		//This item is not tab dependent
+		var/atom/product_entry_atom = productlist[entry]
+		var/amount = productlist[entry]
+		if(isnull(amount))
+			amount = 1
+		var/list/created_product_list = list(entry, "Vend", "white")
+		var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, product_description = initial(product_entry_atom.desc))
+		recordlist += record
 
 ///Makes additional tabs/adds to the tabs based on the seasonal_items vendor specification
 /obj/machinery/vending/proc/build_seasonal_tabs()
@@ -425,14 +443,20 @@
 				flick(icon_deny, src)
 				return
 
-			var/datum/vending_product/R = locate(params["vend"]) in product_records
+			var/datum/vending_product/vended_path = params["vend"]
+			var/datum/vending_product/R = null
+			var/flag_vend_group = FALSE
+			if(vended_path in product_records)	// Classic product
+				R = product_records[vended_path]
+			else		// New format with groups
+				R = locate(products_inverse[vended_path]) in product_records
+				flag_vend_group = TRUE
+
 			if(!istype(R) || !R.product_path || R.amount == 0)
 				return
 
-			if(isAI(usr))
-				vend(R, usr)
-			else if(R.price == null)
-				vend(R, usr)
+			if((isAI(usr)) || (R.price == null))
+				flag_vend_group?vend(R, usr, vended_path):vend(R, usr)
 			else
 				currently_vending = R
 			. = TRUE
@@ -441,7 +465,7 @@
 			stock_vacuum(usr)
 			. = TRUE
 
-/obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user)
+/obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user, vended_product_path)
 	if(!allowed(user) && (!wires.is_cut(WIRE_IDSCAN) || hacking_safety)) //For SECURE VENDING MACHINES YEAH
 		to_chat(user, span_warning("Access denied."))
 		flick(icon_deny, src)
