@@ -893,6 +893,7 @@
 /obj/effect/turf_decal/tile/transparent/random/diagonal_centre,
 /obj/structure/table/mainship,
 /obj/item/stack/snow,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "avK" = (
@@ -3339,6 +3340,11 @@
 /obj/effect/spawner/random/food_or_drink/packagedbar,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
+"bRk" = (
+/obj/structure/table/mainship,
+/obj/item/a_gift/free,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "bRp" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 1
@@ -4627,6 +4633,7 @@
 /obj/structure/cable,
 /obj/structure/table/mainship,
 /obj/item/storage/box/nt_mre,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "cDM" = (
@@ -5310,6 +5317,11 @@
 	},
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
+"cXM" = (
+/obj/effect/turf_decal/tile/transparent/yellow/diagonal_centre,
+/obj/item/a_gift/free,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/bravo)
 "cXP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/metal{
@@ -5995,6 +6007,10 @@
 /obj/machinery/vending/tool,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
+"dtG" = (
+/obj/item/a_gift/free,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "dui" = (
 /obj/machinery/light/mainship/small{
 	dir = 4
@@ -8446,6 +8462,16 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
+"ePS" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 10
+	},
+/obj/item/a_gift/free,
+/turf/open/floor/mainship/metal,
+/area/mainship/command/cic)
 "eQf" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/prison/cleanmarked,
@@ -11125,11 +11151,13 @@
 /obj/effect/turf_decal/siding/emblem/third{
 	dir = 5
 	},
+/obj/item/a_gift/free,
 /turf/open/floor/mainship/red/full,
 /area/mainship/hallways/hangar)
 "gBI" = (
 /obj/machinery/camera/autoname,
 /obj/structure/table/mainship,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "gCf" = (
@@ -11472,6 +11500,7 @@
 /obj/item/storage/syringe_case,
 /obj/item/storage/syringe_case,
 /obj/structure/table/mainship,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "gNs" = (
@@ -14386,6 +14415,10 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
+"iLr" = (
+/obj/item/a_gift/free,
+/turf/open/floor/stairs/dark/middle,
+/area/mainship/hallways/hangar)
 "iLO" = (
 /obj/machinery/atmospherics/components/unary/cryo_cell,
 /obj/effect/turf_decal/tile/metal/medical{
@@ -14963,6 +14996,7 @@
 "jcp" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/food_or_drink/burger/normal,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "jcD" = (
@@ -17098,6 +17132,7 @@
 /obj/effect/turf_decal/siding/emblem{
 	dir = 1
 	},
+/obj/structure/flora/tree/pine/xmas/presents,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "ktn" = (
@@ -18040,6 +18075,7 @@
 "kSy" = (
 /obj/structure/table/mainship,
 /obj/item/pizzabox,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "kSZ" = (
@@ -19686,6 +19722,7 @@
 "lJv" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/food_or_drink/wine,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "lJK" = (
@@ -24035,6 +24072,7 @@
 /obj/item/reagent_containers/food/snacks/grown/corn,
 /obj/item/reagent_containers/food/snacks/grown/corn,
 /obj/item/reagent_containers/food/snacks/grown/corn,
+/obj/item/a_gift/free,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "ofG" = (
@@ -24419,6 +24457,12 @@
 /obj/effect/turf_decal/warning_stripes/cargo/arrow,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
+"orX" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/clothing/sunglasses,
+/obj/item/a_gift/free,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "osc" = (
 /obj/machinery/marine_selector/gear/marine,
 /obj/structure/window{
@@ -28389,6 +28433,11 @@
 /obj/effect/landmark/start/squad/squadcorpsman/charlie,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
+"qFm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/a_gift/free,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/hangar)
 "qFq" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
@@ -28413,6 +28462,7 @@
 /obj/item/reagent_containers/food/snacks/grown/tomato{
 	desc = "А я томат, быть красным рад!"
 	},
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/emerald,
 /area/mainship/squads/charlie)
 "qFF" = (
@@ -30568,6 +30618,18 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/charlie)
+"rYt" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/obj/machinery/floor_warn_light/self_destruct,
+/obj/item/a_gift/free,
+/turf/open/floor/mainship/metal,
+/area/mainship/command/cic)
 "rYv" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -35945,6 +36007,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
 "vpK" = (
+/obj/item/a_gift/free,
 /turf/open/floor/mainship/emerald/corner{
 	dir = 8
 	},
@@ -36307,6 +36370,7 @@
 /obj/machinery/light/mainship/small{
 	pixel_x = 12
 	},
+/obj/item/a_gift/free,
 /turf/open/floor/prison/marked,
 /area/mainship/squads/req)
 "vCD" = (
@@ -37866,6 +37930,7 @@
 /obj/structure/table/mainship,
 /obj/effect/turf_decal/tile/transparent/dark_blue/diagonal_centre,
 /obj/item/storage/pill_bottle/hypervene,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "wyo" = (
@@ -38276,6 +38341,13 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
+"wNf" = (
+/obj/structure/table/mainship,
+/obj/effect/turf_decal/tile/transparent/yellow/diagonal_centre,
+/obj/effect/spawner/random/food_or_drink/outdoors_snacks,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
+/turf/open/floor/mainship/metal,
+/area/mainship/squads/bravo)
 "wNm" = (
 /obj/effect/ai_node,
 /obj/structure/window/framed/mainship/hull/canterbury{
@@ -38351,6 +38423,12 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/engineering/engine_core)
+"wPK" = (
+/obj/item/a_gift/free,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
+/area/mainship/hallways/hangar)
 "wPV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -38436,6 +38514,10 @@
 /obj/effect/turf_decal/siding/emblem/third{
 	dir = 8
 	},
+/turf/open/floor/mainship/metal,
+/area/mainship/hallways/hangar)
+"wSs" = (
+/obj/item/a_gift/free,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "wSy" = (
@@ -38714,6 +38796,7 @@
 "xaa" = (
 /obj/structure/table/mainship,
 /obj/item/trash/tgmc_tray,
+/obj/effect/spawner/random/food_or_drink/christmas_food,
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
@@ -38965,6 +39048,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/item/a_gift/free,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
 "xih" = (
@@ -62531,7 +62615,7 @@ neu
 ooO
 abt
 adz
-bGt
+rYt
 dkj
 fcu
 xWR
@@ -62788,7 +62872,7 @@ neu
 ooO
 abt
 adY
-bHN
+ePS
 dlv
 feD
 jdT
@@ -72454,7 +72538,7 @@ oLY
 pSr
 pSr
 ikp
-hXx
+dtG
 npi
 qMe
 etc
@@ -72488,7 +72572,7 @@ pQT
 pQT
 pQT
 wnT
-wZt
+orX
 iOy
 pSR
 wnT
@@ -72717,7 +72801,7 @@ xOS
 etc
 epX
 eUq
-hXx
+dtG
 mPy
 lOm
 lOm
@@ -72968,12 +73052,12 @@ pSr
 pSr
 pSr
 ikp
-evf
+qFm
 kfL
 guh
 wSn
 kJP
-lIc
+iLr
 evf
 lLD
 kjf
@@ -73995,7 +74079,7 @@ vqD
 jwO
 xgk
 xgk
-deG
+wPK
 eFd
 ufU
 oGS
@@ -74513,7 +74597,7 @@ mKE
 bcz
 eht
 iQr
-etc
+wSs
 iQr
 mor
 hjJ
@@ -84003,8 +84087,8 @@ rVy
 iaP
 jKo
 mIx
-mIx
-iaP
+cXM
+wNf
 iaP
 rIQ
 pnv
@@ -88154,7 +88238,7 @@ dMi
 qwP
 iOy
 bcV
-yaw
+bRk
 qwP
 vHF
 uOG
