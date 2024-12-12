@@ -532,7 +532,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /datum/action/ability/activable/xeno/tail_trip
 	name = "Tail Trip"
 	action_icon_state = "tail_trip"
-	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Target a marine within two tiles of you to disorient and slows them. Marked enemies receive stronger debuffs and are stunned for a second."
 	ability_cost = 50
 	cooldown_duration = 8 SECONDS
