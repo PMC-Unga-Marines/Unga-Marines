@@ -749,6 +749,10 @@
 	isshared = TRUE
 	products = list(
 		/obj/item/storage/fancy/cigarettes/luckystars = -1,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = -1,
+		/obj/item/storage/fancy/cigarettes/kpack = -1,
+		/obj/item/storage/fancy/cigarettes/lady_finger = -1,
+		/obj/item/storage/fancy/cigarettes = -1,
 		/obj/item/storage/fancy/chemrettes = -1,
 		/obj/item/storage/box/matches = -1,
 		/obj/item/tool/lighter/random = -1,
