@@ -17,7 +17,6 @@
 	name = "Landing Zone Two"
 	minimap_color = MINIMAP_AREA_LZ
 
-
 // Volcano
 /area/magmoor/volcano
 	name = "Magmoor Central Fissure"
@@ -117,7 +116,9 @@
 /area/magmoor/compound/west
 	name = "West Magmoor Compound"
 	icon_state = "west"
-
+/area/magmoor/command/monorail
+	name = "monorail"
+	icon_state = "purple"
 //Medical
 
 /area/magmoor/medical
