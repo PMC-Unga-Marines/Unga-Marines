@@ -534,10 +534,11 @@
 	active = !active
 	SEND_SIGNAL(parent, COMSIG_ITEM_TOGGLE_ACTION, user)
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = base_icon + "[active ? "_active" : ""]"
-	item_state = icon_state + "_a"
-	parent.update_icon()
-	user.update_inv_head()
+	if(icon_state) //If icon_state null (hided) then we will not update it
+		icon_state = base_icon + "[active ? "_active" : ""]" // We do not use initial() instead of base_icon proc because it doesn't take into account variants_by_parent_type icons
+		item_state = icon_state + "_a"
+		parent.update_icon()
+		user.update_inv_head()
 
 /obj/item/armor_module/module/welding/som
 	name = "Integrated Welding Helmet Module"
@@ -583,10 +584,11 @@
 		return
 	active = zoom
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = initial(icon_state) + "[active ? "_active" : ""]"
-	item_state = icon_state + "_a"
-	parent.update_icon()
-	user.update_inv_head()
+	if(icon_state && !istype(src, /obj/item/armor_module/module/binoculars/artemis_mark_two)) //If icon_state is null (hided) then we will not update it. As for Artemis, he doesn't have the required binoculars sprite as for now
+		icon_state = base_icon + "[active ? "_active" : ""]" // We do not use initial() instead of base_icon proc because it doesn't take into account variants_by_parent_type icons
+		item_state = icon_state + "_a"
+		parent.update_icon()
+		user.update_inv_head()
 	if(active)
 		RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(zoom_item_turnoff))
 		return
