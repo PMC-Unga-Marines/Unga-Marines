@@ -1,0 +1,4 @@
+author: "Basia"
+delete-after: True
+changes:
+  - bugfix: "Исправил ошибку со спрайтом коробки Uno"
