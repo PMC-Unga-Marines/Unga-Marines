@@ -1,0 +1,6 @@
+author: "MalorMorfin"
+delete-after: True
+changes:
+  - rscadd: "Добавил Grenade launcher magazine в завод и карго"
+  - balance: "Изменил цену боезапаса танка в заводе"
+  - balance: "Изменил цену боезапаса фк в заводе"
