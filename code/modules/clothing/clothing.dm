@@ -358,8 +358,8 @@
 /obj/item/clothing/suit/space/snowman
 	name = "Snow man suit"
 	desc = "Festive!"
-	icon_state = "elfcostume"
-	item_state = "elfcostume"
+	icon_state = "snowmancostume"
+	item_state = "snowmancostume"
 	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 15, ENERGY = 15, BOMB = 100, BIO = 30, FIRE = 80, ACID = 10)
 	slowdown = 0.6
 	allowed = list(/obj/item/weapon/twohanded/spear/candycane/snowman)

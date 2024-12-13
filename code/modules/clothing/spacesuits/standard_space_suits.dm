@@ -29,7 +29,7 @@
 /obj/item/clothing/head/helmet/space/snowman
 	name = "snowman hat"
 	desc = "A slightly floppy hat worn by snow man, a careful look reveals a tag with the words 'Made on Mars' inside."
-	icon_state = "elfhat"
+	icon_state = "snowmanhat"
 	soft_armor = list(MELEE = 20, BULLET = 25, LASER = 25, ENERGY = 20, BOMB = 85, BIO = 15, FIRE = 15, ACID = 15)
 	flags_armor_features = ARMOR_NO_DECAP
 	species_exception = list(/datum/species/robot)
