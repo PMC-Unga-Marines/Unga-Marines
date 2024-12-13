@@ -496,6 +496,8 @@
 	//var/rage_sunder RU TGMC EDIT
 	///Determines the Plasma to remove when Rage ends
 	var/rage_plasma
+	var/datum/looping_sound/secretsuperrage/sound_loop
+	var/sound_active = FALSE
 
 /datum/action/ability/xeno_action/rage/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to enter our rage once again."))
@@ -532,6 +534,10 @@
 			charge.clear_cooldown() //Reset charge cooldown
 		if(ravage)
 			ravage.clear_cooldown() //Reset ravage cooldown
+		if(!sound_active && prob(99))
+			playsound(X.loc, 'sound/voice/alien/ravager_red_mist.ogg', 50, 0, 1)
+			sound_active = TRUE
+			sound_loop.start(owner)
 		RegisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
 	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius / 2, X.loc))
 		affected_tiles.Shake(duration = 1 SECONDS) //SFX
@@ -623,6 +629,9 @@ RU TGMC EDIT */
 	X.remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE) //Reset speed
 	//X.adjust_sunder(rage_sunder) //Remove the temporary Sunder restoration //RU TGMC EDIT
 	X.use_plasma(rage_plasma) //Remove the temporary Plasma
+	if(sound_active)
+		sound_active = FALSE
+		sound_loop.stop(owner)
 	REMOVE_TRAIT(X, TRAIT_STUNIMMUNE, RAGE_TRAIT)
 	REMOVE_TRAIT(X, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
 	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
