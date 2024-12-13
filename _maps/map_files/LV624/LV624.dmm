@@ -10457,7 +10457,6 @@
 /area/lv624/lazarus/bar)
 "jqO" = (
 /obj/structure/closet/crate/ammo,
-/obj/effect/spawner/random_set,
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,

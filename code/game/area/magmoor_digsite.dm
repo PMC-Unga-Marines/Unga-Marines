@@ -116,9 +116,11 @@
 /area/magmoor/compound/west
 	name = "West Magmoor Compound"
 	icon_state = "west"
+
 /area/magmoor/command/monorail
 	name = "monorail"
 	icon_state = "purple"
+
 //Medical
 
 /area/magmoor/medical
