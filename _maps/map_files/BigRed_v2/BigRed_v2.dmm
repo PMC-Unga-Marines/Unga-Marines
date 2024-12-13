@@ -424,6 +424,10 @@
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
+"afY" = (
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/monorail)
 "agb" = (
 /obj/item/reagent_containers/blood/OMinus,
 /turf/open/floor/freezer,
@@ -5740,6 +5744,12 @@
 	dir = 4
 	},
 /area/bigredv2/outside/office_complex)
+"bjK" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/bigredv2/outside/monorail)
 "bjL" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -7320,10 +7330,6 @@
 	dir = 6
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
-"bBO" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/monorail)
 "bBP" = (
 /turf/open/floor/tile/dark/red2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -7841,9 +7847,8 @@
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/c)
 "caI" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/obj/structure/cable,
+/turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/monorail)
 "cbA" = (
 /obj/structure/cable,
@@ -8335,12 +8340,6 @@
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/cargo,
 /area/bigredv2/outside/monorail)
-"deN" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/bigredv2/outside/monorail)
 "dgo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -8535,10 +8534,8 @@
 /turf/open/floor/mainship,
 /area/bigredv2/outside/monorail)
 "dym" = (
-/obj/structure/monorail{
-	icon_state = "reinforced"
-	},
-/turf/open/floor/plating,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete,
 /area/bigredv2/outside/monorail)
 "dyO" = (
 /obj/structure/cable,
@@ -8686,10 +8683,6 @@
 "dSm" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/southwest)
-"dSN" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
 "dSP" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/wood,
@@ -9436,10 +9429,6 @@
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast/garbledradio)
-"fwE" = (
-/obj/structure/cable,
-/turf/open/floor/mainship/floor,
-/area/bigredv2/outside/monorail)
 "fxl" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark/purple2{
@@ -10336,6 +10325,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
+"hjP" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/bigredv2/outside/monorail)
 "hkm" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/darkish,
@@ -10587,7 +10580,6 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/space_port)
 "hRE" = (
-/obj/structure/stairs/seamless/edge,
 /obj/structure/stairs/railstairs,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -12009,6 +12001,13 @@
 /obj/machinery/vending/snack,
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
+"kNn" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "kNO" = (
 /obj/structure/window/framed/colony/reinforced/tinted,
 /turf/open/floor/plating,
@@ -12266,10 +12265,6 @@
 /obj/effect/landmark/xeno_tunnel_spawn,
 /obj/structure/lattice,
 /turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
-"luG" = (
-/obj/structure/cable,
-/turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/monorail)
 "luJ" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
@@ -13216,10 +13211,6 @@
 "nue" = (
 /obj/structure/window/framed/colony/reinforced/hull,
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/outside/monorail)
-"nuu" = (
-/obj/structure/cable,
-/turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/monorail)
 "nux" = (
 /obj/effect/decal/cleanable/dirt,
@@ -15869,6 +15860,12 @@
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/tile/white,
 /area/bigredv2/caves/lambda_lab)
+"tnf" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
+/area/bigredv2/outside/monorail)
 "tni" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
@@ -17043,11 +17040,8 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "vEH" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4
-	},
 /obj/structure/cable,
-/turf/open/floor/mainship,
+/turf/open/floor/mainship/floor,
 /area/bigredv2/outside/monorail)
 "vIk" = (
 /obj/structure/bed,
@@ -17938,12 +17932,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
-"xzU" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 8
-	},
-/area/bigredv2/outside/monorail)
 "xAm" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/engineering/free_access{
@@ -24770,9 +24758,9 @@ aDm
 aDm
 gCQ
 dxa
-dym
-dym
-dym
+xbt
+xbt
+xbt
 hHO
 phs
 hHO
@@ -25207,7 +25195,7 @@ dxa
 dFz
 qFN
 qhO
-dSN
+hjP
 dhB
 hHO
 oef
@@ -25424,7 +25412,7 @@ dxa
 uue
 hdO
 dxa
-luG
+caI
 cfN
 hHO
 oef
@@ -25434,7 +25422,7 @@ oef
 cfN
 cfN
 oef
-caI
+cfN
 cfN
 oef
 cfN
@@ -25641,7 +25629,7 @@ ceG
 lDG
 wmH
 ceG
-dSN
+hjP
 hHO
 cfN
 hHO
@@ -26075,7 +26063,7 @@ gAf
 gAf
 gSB
 mqY
-deN
+bjK
 mqY
 fHD
 cIV
@@ -26292,7 +26280,7 @@ rWz
 kZJ
 uSs
 mqY
-deN
+bjK
 mqY
 fHD
 tsy
@@ -26505,15 +26493,15 @@ aXA
 wrG
 evZ
 sSS
-nuu
-nuu
+afY
+afY
 xCE
-bBO
-deN
-bBO
+dym
+bjK
+dym
 iui
-xzU
-xzU
+tnf
+tnf
 aSE
 aSE
 aSE
@@ -26730,7 +26718,7 @@ nUN
 mqY
 mqY
 mqY
-bBO
+dym
 mqY
 mqY
 mqY
@@ -27164,7 +27152,7 @@ mqY
 mqY
 mqY
 mqY
-deN
+bjK
 mqY
 bTj
 mqY
@@ -27179,10 +27167,10 @@ mqY
 mqY
 iDW
 xZg
-vEH
-vEH
-vEH
-vEH
+kNn
+kNn
+kNn
+kNn
 lxD
 lxD
 lxD
@@ -27381,7 +27369,7 @@ mqY
 mqY
 mqY
 iet
-deN
+bjK
 mqY
 eKH
 mqY
@@ -27395,11 +27383,11 @@ dzw
 iet
 mqY
 iDW
-fwE
+vEH
 qSP
 btF
 btF
-fwE
+vEH
 btF
 btF
 btF
