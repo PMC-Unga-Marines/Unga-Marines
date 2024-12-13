@@ -10209,11 +10209,6 @@
 	dir = 4
 	},
 /area/bigredv2/outside/sw)
-"gZp" = (
-/obj/effect/landmark/weed_node,
-/obj/structure/foamedmetal,
-/turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/west)
 "gZq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	on = 1
@@ -10712,10 +10707,6 @@
 /area/bigredv2/caves/east)
 "ihJ" = (
 /obj/machinery/door/poddoor/four_tile_ver/secure,
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/closed/wall/r_wall/unmeltable,
 /area/bigredv2/caves/rock)
 "ihU" = (
@@ -12261,11 +12252,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
-"luD" = (
-/obj/effect/landmark/xeno_tunnel_spawn,
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/bigredv2/outside/monorail)
 "luJ" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
 /turf/open/space/basic,
@@ -12405,11 +12391,6 @@
 	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
-"lJJ" = (
-/obj/effect/landmark/weed_node,
-/obj/structure/foamedmetal,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/west)
 "lJK" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -13697,11 +13678,6 @@
 	dir = 8
 	},
 /area/bigredv2/outside/c)
-"osw" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/prop/vehicle/tank/east/armor/snowplowone,
-/turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/w)
 "osM" = (
 /obj/structure/cable,
 /obj/effect/landmark/excavation_site_spawner,
@@ -14369,11 +14345,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "pZI" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/wall/r_wall/unmeltable,
 /area/bigredv2/caves/rock)
 "pZN" = (
 /obj/structure/cable,
@@ -14498,6 +14470,7 @@
 	dir = 1
 	},
 /obj/effect/spawner/gibspawner/human,
+/obj/item/key/atv,
 /turf/open/floor/mainship,
 /area/bigredv2/outside/monorail)
 "qlj" = (
@@ -19333,9 +19306,9 @@ gCQ
 gCQ
 gCQ
 qEh
-qEh
 pZI
-pZI
+gCQ
+gCQ
 ihJ
 qEh
 gCQ
@@ -19555,7 +19528,7 @@ nWz
 sNF
 sNF
 efm
-gZp
+mgl
 mgl
 sNF
 sNF
@@ -19763,18 +19736,18 @@ tQg
 tQg
 gCQ
 gCQ
-muf
+tQg
 eBb
 jbi
 jbi
 sNF
 qVW
-muf
+tQg
 tQg
 jbi
 jbi
 jbi
-muf
+tQg
 tQg
 tQg
 muf
@@ -19982,9 +19955,9 @@ sNF
 sNF
 tQg
 swX
-lJJ
 jbi
-muf
+jbi
+tQg
 qVW
 tQg
 tQg
@@ -20205,7 +20178,7 @@ tQg
 qVW
 tQg
 tQg
-lJJ
+jbi
 jbi
 tQg
 tQg
@@ -24118,7 +24091,7 @@ cfN
 cfN
 dEP
 nkO
-luD
+cfN
 dEP
 cfN
 cfN
@@ -27795,7 +27768,7 @@ fXx
 tFq
 aVG
 ieG
-osw
+uTn
 beQ
 uxS
 uxS
