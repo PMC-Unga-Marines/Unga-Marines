@@ -58,15 +58,15 @@
 	else // pump_direction == SIPHONING
 		icon_state = "[base_icon_state]_in"
 
-/obj/machinery/atmospherics/components/unary/vent_pump/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/W)
+/obj/machinery/atmospherics/components/unary/vent_pump/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	if(!welded)
-		to_chat(user, span_warning("\The [W] can only cut open welds!"))
+		to_chat(user, span_warning("\The [I] can only cut open welds!"))
 		return FALSE
-	if(!(W.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD)))
+	if(!(I.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD)))
 		return FALSE
-	if(!do_after(user, W.calc_delay(user) * PLASMACUTTER_VLOW_MOD, NONE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, I.calc_delay(user) * PLASMACUTTER_VLOW_MOD, NONE, src, BUSY_ICON_BUILD))
 		return FALSE
-	W.cut_apart(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Vents require much less charge
+	I.cut_apart(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Vents require much less charge
 	welded = FALSE
 	update_icon()
 	return TRUE

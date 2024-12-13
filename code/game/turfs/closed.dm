@@ -71,7 +71,7 @@
 			"The stone. The rock. The boulder. Its name matters not when we consume it.",
 			"Delicious, delectable, simply exquisite. Just a few more minerals and it'd be perfect...")), null, 5)
 
-/turf/closed/plasmacutter_act(mob/living/user, obj/item/I)
+/turf/closed/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	if(user.do_actions)
 		return FALSE
 	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
