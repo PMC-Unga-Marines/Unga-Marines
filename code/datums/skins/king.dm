@@ -16,4 +16,4 @@
 /datum/xenomorph_skin/king/rogue
 	name = "Rogue"
 	icon = 'icons/Xeno/castes/king/rogue.dmi'
-	effects_icon = 'icons/Xeno/castes/king/rogue_damage.dmi'
+	effects_icon = 'icons/Xeno/castes/king/rogue_effects.dmi'
