@@ -104,11 +104,7 @@
 /turf/open/floor/tile/white,
 /area/magmoor/civilian/pool)
 "aep" = (
-/obj/structure/prop/mainship/railing{
-	dir = 1
-	},
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg2,
+/turf/open/floor/plating,
 /area/magmoor/command/monorail)
 "aes" = (
 /obj/structure/rack,
@@ -1022,8 +1018,7 @@
 /area/magmoor/civilian/clean/shower)
 "aLI" = (
 /obj/structure/desertdam/decals/road/stop,
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "aLW" = (
 /obj/structure/table/woodentable,
@@ -2161,10 +2156,10 @@
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound/north)
 "bxG" = (
-/obj/item/toy/plush/gnome,
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/magmoor/cave/rock)
+/obj/structure/closet/crate/internals,
+/obj/effect/spawner/random/engineering/metal,
+/turf/open/floor/mainship/floor,
+/area/magmoor/command/monorail)
 "bxK" = (
 /obj/structure/bed,
 /obj/item/bedsheet/red,
@@ -2509,8 +2504,7 @@
 	dir = 4
 	},
 /obj/structure/prop/train,
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "bKR" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -2733,10 +2727,6 @@
 /obj/machinery/vending/security,
 /turf/open/floor/tile/red/redtaupe,
 /area/magmoor/security/infocenter)
-"bQo" = (
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg2,
-/area/magmoor/command/monorail)
 "bQv" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
@@ -3974,8 +3964,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi/storage)
 "cPF" = (
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "cPG" = (
 /obj/structure/cable,
@@ -4392,13 +4381,6 @@
 	dir = 1
 	},
 /area/magmoor/civilian/dorms)
-"ddv" = (
-/obj/structure/prop/mainship/railing{
-	dir = 1
-	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/magmoor/command/monorail)
 "dep" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4;
@@ -5780,8 +5762,7 @@
 /obj/structure/prop/mainship/railing{
 	dir = 8
 	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "ebc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -8709,6 +8690,7 @@
 /area/magmoor/civilian/bar)
 "gfo" = (
 /obj/structure/closet/crate/secure,
+/obj/effect/spawner/random/engineering/metal/nooffset,
 /turf/open/floor/mainship/floor,
 /area/magmoor/command/monorail)
 "gge" = (
@@ -9811,6 +9793,7 @@
 /area/magmoor/mining)
 "gXz" = (
 /obj/structure/closet/crate/internals,
+/obj/effect/spawner/random/engineering/plasteel,
 /turf/open/floor/mainship/floor,
 /area/magmoor/command/monorail)
 "gXB" = (
@@ -11971,10 +11954,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/magmoor/hydroponics/south)
-"iJC" = (
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
-/area/magmoor/cave/rock)
 "iKb" = (
 /obj/machinery/science/pathogenic_Isolator/inserted,
 /turf/open/floor/mainship/sterile/purple,
@@ -12229,8 +12208,7 @@
 /obj/structure/monorail{
 	dir = 4
 	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "iTJ" = (
 /obj/machinery/light{
@@ -12498,10 +12476,6 @@
 /obj/item/shard/phoron,
 /turf/open/floor/plating/platebotc,
 /area/magmoor/research/containment)
-"jeu" = (
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg1,
-/area/magmoor/command/monorail)
 "jev" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/blue/corner{
@@ -13877,8 +13851,7 @@
 /area/magmoor/research/rnd/lobby)
 "kae" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "kan" = (
 /obj/effect/ai_node,
@@ -14314,10 +14287,6 @@
 "kpH" = (
 /turf/open/floor/mainship/sterile/side,
 /area/magmoor/medical/storage)
-"kqp" = (
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/magmoor/command/monorail)
 "krk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -14674,8 +14643,7 @@
 /obj/structure/monorail{
 	dir = 4
 	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "kDW" = (
 /obj/structure/closet/firecloset/full,
@@ -15543,13 +15511,6 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/magmoor/hydroponics/north)
-"lkh" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
-/area/magmoor/command/monorail)
 "llf" = (
 /obj/machinery/smartfridge,
 /turf/open/floor/plating,
@@ -16200,12 +16161,10 @@
 /turf/open/floor/tile/bar,
 /area/magmoor/civilian/clean/shower)
 "lKQ" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/magmoor/cave/rock)
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/engineering/metal,
+/turf/open/floor/mainship/floor,
+/area/magmoor/command/monorail)
 "lLH" = (
 /turf/open/floor/mainship/cargo,
 /area/magmoor/cargo/processing/south)
@@ -16879,8 +16838,7 @@
 /obj/structure/prop/mainship/railing{
 	dir = 8
 	},
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "mjE" = (
 /obj/structure/largecrate/chick,
@@ -17906,11 +17864,6 @@
 	dir = 4
 	},
 /area/magmoor/research/rnd/lobby)
-"mZx" = (
-/obj/structure/rock,
-/obj/structure/lattice,
-/turf/open/floor/rustyplating,
-/area/magmoor/cave/rock)
 "mZA" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/mainship/cargo,
@@ -18077,9 +18030,6 @@
 	dir = 6
 	},
 /area/magmoor/civilian/mosque)
-"ngh" = (
-/turf/closed/wall/r_wall,
-/area/magmoor/cave/rock)
 "ngw" = (
 /obj/structure/xenoautopsy/tank/escaped,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -19747,9 +19697,9 @@
 	},
 /area/magmoor/compound/east)
 "oya" = (
-/obj/structure/lattice,
+/obj/machinery/door/poddoor/four_tile_ver/secure,
 /turf/open/floor/plating,
-/area/magmoor/cave/rock)
+/area/magmoor/command/monorail)
 "oyi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden,
@@ -19981,8 +19931,7 @@
 	dir = 4
 	},
 /obj/structure/prop/train/carriage,
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "oFK" = (
 /obj/effect/turf_decal/warning_stripes/thin,
@@ -20615,8 +20564,8 @@
 /obj/structure/monorail{
 	dir = 4
 	},
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg1,
+/obj/structure/rock,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "pbw" = (
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -22597,8 +22546,7 @@
 /obj/structure/prop/mainship/railing{
 	dir = 1
 	},
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "qtZ" = (
 /obj/structure/table/mainship,
@@ -23635,8 +23583,7 @@
 	dir = 4
 	},
 /obj/structure/prop/train/carriage_lit,
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "rkS" = (
 /obj/effect/landmark/weed_node,
@@ -24862,6 +24809,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
+/obj/item/toy/plush/gnome,
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
@@ -25359,8 +25307,7 @@
 /area/magmoor/cave/north)
 "sBk" = (
 /obj/machinery/light,
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "sBq" = (
 /turf/open/floor/tile/purple/taupepurple{
@@ -27180,14 +27127,10 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/cryostasis)
 "tSO" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/obj/effect/landmark/corpsespawner/PMC,
-/obj/effect/spawner/random/weaponry,
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/magmoor/cave/rock)
+/obj/structure/closet/crate/secure,
+/obj/effect/spawner/random/engineering/plasteel,
+/turf/open/floor/mainship/floor,
+/area/magmoor/command/monorail)
 "tTH" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
@@ -27596,9 +27539,10 @@
 	},
 /area/magmoor/hydroponics/south)
 "ugO" = (
-/obj/machinery/door/poddoor/four_tile_ver/secure,
-/turf/closed/mineral/smooth/indestructible,
-/area/magmoor/cave/rock)
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/engineering/metal/nooffset,
+/turf/open/floor/mainship/floor,
+/area/magmoor/command/monorail)
 "ugT" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -29304,6 +29248,7 @@
 	pixel_x = -2;
 	pixel_y = -4
 	},
+/obj/item/tool/pickaxe/plasmacutter,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -29932,8 +29877,7 @@
 "vRG" = (
 /obj/structure/rock,
 /obj/machinery/light,
-/obj/structure/lattice,
-/turf/open/floor/plating/dmg3,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/magmoor/command/monorail)
 "vRH" = (
 /turf/closed/wall/r_wall,
@@ -30104,10 +30048,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/wood,
 /area/magmoor/civilian/basket)
-"vWt" = (
-/obj/structure/lattice,
-/turf/open/floor/rustyplating,
-/area/magmoor/cave/rock)
 "vWA" = (
 /obj/structure/rock/basalt/pile/alt,
 /turf/open/floor/plating/ground/mars/dirttosand{
@@ -70959,10 +70899,10 @@ lUL
 dId
 bBP
 gUT
-ddv
-kqp
+qtX
+cPF
 kDT
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -71179,7 +71119,7 @@ cxp
 wrZ
 bHh
 hgM
-gfo
+tSO
 bJL
 wbH
 uVv
@@ -71192,8 +71132,8 @@ pFe
 idM
 xku
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
 sBk
 kyK
@@ -71413,7 +71353,7 @@ kRR
 bHh
 vEX
 vPW
-gXz
+bxG
 vPW
 wbH
 jdS
@@ -71425,10 +71365,10 @@ cDM
 jvB
 klA
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -71659,9 +71599,9 @@ sTQ
 xqz
 xqz
 aLI
-kqp
+cPF
 oFF
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -71891,10 +71831,10 @@ oYj
 xqz
 cFk
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -72124,8 +72064,8 @@ wGg
 cmJ
 iaY
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
 sBk
 kyK
@@ -72357,10 +72297,10 @@ giW
 cmJ
 lbz
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -72579,7 +72519,7 @@ bHh
 oif
 sVg
 uVv
-rVI
+lKQ
 uVv
 sql
 hgM
@@ -72591,9 +72531,9 @@ cUc
 ciU
 xqz
 aLI
-kqp
+cPF
 rki
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -72823,10 +72763,10 @@ xqz
 jGL
 kuj
 sht
-ddv
-kqp
+qtX
+cPF
 kDT
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -73056,10 +72996,10 @@ rqY
 kwY
 xku
 dCI
-ddv
-kqp
+qtX
+cPF
 kDT
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -73289,8 +73229,8 @@ ePV
 fSW
 lbz
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
 sBk
 kyK
@@ -73511,7 +73451,7 @@ bHh
 vsb
 gXz
 uVv
-rVI
+ugO
 vPW
 wbH
 ddc
@@ -73523,9 +73463,9 @@ ePV
 xqz
 xqz
 aLI
-kqp
+cPF
 bKA
-kqp
+cPF
 kyK
 rxl
 rxl
@@ -73755,8 +73695,8 @@ cRz
 kwY
 xqz
 kjh
-ddv
-kqp
+qtX
+cPF
 kDT
 cPF
 kyK
@@ -73989,7 +73929,7 @@ iPS
 iPS
 kjh
 qtX
-bQo
+cPF
 kDT
 vRG
 uIp
@@ -74221,10 +74161,10 @@ xqz
 xqz
 iPS
 vPU
-aep
+qtX
 kae
-lkh
-iPS
+kDT
+cPF
 kyK
 rxl
 rxl
@@ -74454,10 +74394,10 @@ kyK
 kyK
 kyK
 kyK
-jeu
+cPF
 cPF
 pbk
-bQo
+cPF
 kyK
 rxl
 rxl
@@ -74666,32 +74606,32 @@ rxl
 rxl
 rxl
 rxl
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-ngh
-ngh
-mZx
 rxl
 rxl
-vWt
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+kyK
+cPF
+cPF
+kDT
+cPF
+kyK
 rxl
 rxl
 rxl
@@ -74896,35 +74836,35 @@ rxl
 rxl
 rxl
 rxl
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-ngh
 rxl
-oya
 rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
+kyK
+aep
+aep
+aep
 oya
-ngh
+kyK
 rxl
 rxl
 rxl
@@ -75152,12 +75092,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-iJC
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -75385,12 +75325,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
 rxl
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -75618,12 +75558,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -75851,12 +75791,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
 rxl
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -76084,12 +76024,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -76317,12 +76257,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -76550,12 +76490,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -76783,12 +76723,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -77016,12 +76956,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -77249,12 +77189,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -77482,12 +77422,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -77715,12 +77655,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -77948,12 +77888,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -78181,12 +78121,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -78414,12 +78354,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -78647,12 +78587,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -78880,12 +78820,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -79113,12 +79053,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -79346,12 +79286,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-oya
-lKQ
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -79579,12 +79519,12 @@ rxl
 rxl
 rxl
 rxl
-ngh
-oya
-bxG
-tSO
-oya
-ngh
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 rxl
 rxl
 rxl
@@ -79791,6 +79731,7 @@ iLH
 iLH
 iLH
 iLH
+rxl
 iLH
 iLH
 iLH
@@ -79811,13 +79752,12 @@ iLH
 iLH
 iLH
 iLH
-iLH
-iLH
-iLH
-iLH
-iLH
-ugO
-iLH
+rxl
+rxl
+rxl
+rxl
+rxl
+rxl
 iLH
 iLH
 iLH
