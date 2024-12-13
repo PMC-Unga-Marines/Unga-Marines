@@ -1,0 +1,5 @@
+author: "siegluck"
+delete-after: True
+changes:
+  - rscadd: "В сигаретном вендоре теперь больше видов сигарет."
+  - image: "Спрайты сигарет и сигар теперь меньше."
