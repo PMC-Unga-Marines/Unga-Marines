@@ -1,4 +1,0 @@
-author: "MalorMorfin"
-delete-after: True
-changes:
-  - bugfix: "Параллакс меньше нагружает систему"
