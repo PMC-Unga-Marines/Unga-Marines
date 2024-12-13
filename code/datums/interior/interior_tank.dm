@@ -135,8 +135,8 @@
 		owner.interior.mob_leave(grab.grabbed_thing)
 		return
 	if(is_type_in_typecache(grab.grabbed_thing.type, owner.easy_load_list))
-		if(isitem(grabbed_thing.type))
-			user.temporarilyRemoveItemFromInventory(grabbed_thing)
+		if(isitem(grab.grabbed_thing.type))
+			user.temporarilyRemoveItemFromInventory(grab.grabbed_thing)
 		user.balloon_alert(user, "item thrown outside")
 		grab.grabbed_thing.forceMove(owner.exit_location(grab.grabbed_thing))
 		return
