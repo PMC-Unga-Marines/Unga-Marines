@@ -20,6 +20,7 @@
 		/datum/xenomorph_skin/ravager/bonehead,
 		/datum/xenomorph_skin/ravager,
 	)
+	var/autorage = TRUE
 	var/rage_power
 	var/rage = FALSE
 	var/staggerstun_immune = FALSE
@@ -28,14 +29,16 @@
 /mob/living/carbon/xenomorph/ravager/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
-	RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
+	if(autorage)
+		RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(update_rage))
 
 /mob/living/carbon/xenomorph/ravager/Life()
 	. = ..()
-	update_rage()
+	if(autorage)
+		update_rage()
 
 /mob/living/carbon/xenomorph/ravager/proc/update_rage()
-	if(health > maxHealth * RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
+	if(health > maxHealth * AUTORAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 		if(!rage)
 			return
 		rage = FALSE
@@ -52,7 +55,7 @@
 		balloon_alert(src, "We are rested enough")
 		return
 
-	var/rage_threshold = maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
+	var/rage_threshold = maxHealth * (1 - AUTORAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 	rage_power = max(0, (1 - ((health - RAVAGER_ENDURE_HP_LIMIT) / (maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold))))
 
 	add_filter("ravager_rage_outline", 5, outline_filter(rage_power, COLOR_RED))
@@ -132,22 +135,11 @@
 		emote("roar")
 		to_chat(src, span_xenodanger("The heat of the fire roars in our veins! KILL! CHARGE! DESTROY!"))
 
-// ***************************************
-// *********** Ability related
-// ***************************************
-/mob/living/carbon/xenomorph/ravager/get_crit_threshold()
-	. = ..()
-	if(!endure)
-		return
-	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
-	return endure_ability.endure_threshold
-
-/mob/living/carbon/xenomorph/ravager/get_death_threshold()
-	. = ..()
-	if(!endure)
-		return
-	var/datum/action/ability/xeno_action/endure/endure_ability = actions_by_path[/datum/action/ability/xeno_action/endure]
-	return endure_ability.endure_threshold
+/mob/living/carbon/xenomorph/ravager/bloodthirster
+	icon = 'icons/Xeno/castes/ravager/bloodthirster.dmi'
+	caste_base_type = /datum/xeno_caste/ravager/bloodthirster
+	skins = null
+	autorage = null
 
 /mob/living/carbon/xenomorph/ravager/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
