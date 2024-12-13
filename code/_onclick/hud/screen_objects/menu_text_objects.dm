@@ -92,7 +92,7 @@
 		maptext = "<span class='maptext' style=font-size:8px>ПРИСОЕДИНИТЬСЯ</span>"
 		icon_state = "join"
 		return
-	if(!hud.mymob)
+	if(!hud?.mymob)
 		return
 	var/mob/new_player/player = hud.mymob
 	maptext = "<span class='maptext' style=font-size:8px>ВЫ: [player.ready ? "" : "НЕ "]ГОТОВЫ</span>"
