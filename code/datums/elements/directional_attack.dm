@@ -34,7 +34,7 @@
 	if(!turf_to_check || !source.Adjacent(turf_to_check))
 		return
 
-	var/mob/target_mob = locate() in turf_to_check
+	var/mob/living/target_mob = locate() in turf_to_check
 	if(!target_mob || target_mob.stat == DEAD)
 		return
 	if(ishuman(source))
