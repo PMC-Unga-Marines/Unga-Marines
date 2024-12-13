@@ -79,6 +79,7 @@
 			/obj/item/ammo_magazine/hmg08/small = 10,
 		),
 		"Ближний бой" = list(
+			/obj/item/weapon/twohanded/spear/candycane = -1,
 			/obj/item/weapon/combat_knife = -1,
 			/obj/item/attachable/bayonetknife = -1,
 			/obj/item/stack/throwing_knife = -1,
@@ -317,6 +318,7 @@
 			/obj/item/ammo_magazine/mg27 = -1,
 		),
 		"Ближний бой" = list(
+			/obj/item/weapon/twohanded/spear/candycane = -1,
 			/obj/item/weapon/combat_knife = -1,
 			/obj/item/attachable/bayonetknife = -1,
 			/obj/item/stack/throwing_knife = -1,
@@ -550,6 +552,7 @@
 			/obj/item/ammo_magazine/hmg08/small = -1,
 		),
 		"Ближний бой" = list(
+			/obj/item/weapon/twohanded/spear/candycane = -1,
 			/obj/item/weapon/combat_knife = -1,
 			/obj/item/attachable/bayonetknife = -1,
 			/obj/item/stack/throwing_knife = -1,
@@ -932,12 +935,12 @@
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal6 = -1,
 		/obj/item/storage/box/MRE = -1,
 		/obj/item/reagent_containers/food/drinks/flask/marine = -1,
+		/obj/item/reagent_containers/food/snacks/mre_pack/xmas1 = 25,
+		/obj/item/reagent_containers/food/snacks/mre_pack/xmas2 = 25,
+		/obj/item/reagent_containers/food/snacks/mre_pack/xmas3 = 25,
 	)
-//Christmas inventory
-/*
-					/obj/item/reagent_containers/food/snacks/mre_pack/xmas1 = 25,
-					/obj/item/reagent_containers/food/snacks/mre_pack/xmas2 = 25,
-					/obj/item/reagent_containers/food/snacks/mre_pack/xmas3 = 25)*/
+	vend_delay = 15
+	product_ads = "Try the cornbread.;Try the pizza.;Try the pasta.;Try the tofu, wimp.;Try the pork.; 9 Flavors of Protein!; You'll never guess the mystery flavor!"
 
 /obj/machinery/vending/marineFood/valhalla
 	resistance_flags = INDESTRUCTIBLE
@@ -1345,6 +1348,8 @@
 			/obj/item/storage/pouch/general/medium = -1,
 		),
 		"Headwear" = list(
+			/obj/item/clothing/head/helmet/space/snowman/regular = -1,
+			/obj/item/clothing/head/helmet/space/dedmoroz = -1,
 			/obj/item/clothing/head/slouch = -1,
 			/obj/item/clothing/head/headband/red = -1,
 			/obj/item/clothing/head/headband/rambo = -1,
@@ -1386,6 +1391,7 @@
 			/obj/item/clothing/head/strawhat = -1,
 		),
 		"Masks" = list(
+			/obj/item/clothing/mask/gas/tactical/coif/beard = -1,
 			/obj/item/clothing/mask/rebreather/scarf = -1,
 			/obj/item/clothing/mask/bandanna/skull = -1,
 			/obj/item/clothing/mask/bandanna/green = -1,
@@ -1543,6 +1549,7 @@
 			/obj/item/ammo_magazine/m412l1_hpr = -1,
 			/obj/item/weapon/gun/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famas = -1,
+			/obj/item/weapon/twohanded/spear/candycane = -1,
 		),
 		"Mounted" = list(
 			/obj/item/weapon/gun/atr22 = -1,

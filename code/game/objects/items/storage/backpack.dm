@@ -85,15 +85,24 @@
 	else
 		return ..()
 
-/obj/item/storage/backpack/santabag
-	name = "Santa's Gift Bag"
-	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
+/obj/item/storage/backpack/dedmorozbag
+	name = "Ded Moroz Gift Bag"
+	desc = "Space Ded Moroz uses this to deliver toys to all the nice children in space in New Year! Wow, it's pretty big!"
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = WEIGHT_CLASS_BULKY
 	storage_slots = null
-	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 400 // can store a ton of shit!
+	max_w_class = 4
+	max_storage_space = 60 // can store a ton of shit!
+	flags_item = DELONDROP
+	access_delay = 0
+	bypass_w_limit = list(
+		/obj/item/weapon/gun/launcher/rocket/m57a4,
+	)
+
+/obj/item/storage/backpack/dedmorozbag/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)
 
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"

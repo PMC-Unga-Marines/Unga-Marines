@@ -91,7 +91,7 @@
 //admin only
 /obj/item/clothing/suit/storage/marine/boomvest/ob_vest
 	name = "orbital bombardment vest"
-	desc = "This is your lieutenant speaking, I know exactly what those coordinates are for."
+	desc = "HO HO HO!!!"
 
 /obj/item/clothing/suit/storage/marine/boomvest/ob_vest/attack_self(mob/living/carbon/human/activator)
 	if(activator.wear_suit != src)

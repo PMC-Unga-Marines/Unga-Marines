@@ -204,6 +204,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		/datum/objective/loseoperation,
 		/datum/objective/escape_with,
 		/datum/objective/gather_cash,
+		/datum/objective/kill_xenos,
 		/datum/objective/kill_zombies,
 		/datum/objective/seize_area,
 		/datum/objective/kill_other_factions,
@@ -277,6 +278,50 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	admin_simple_target_pick(admin)
 	if(tgui_alert(admin, "Relax escape requirements (recommended for admin events)?", "Continue?", list("Yes", "No")) != "No")
 		admin_event = TRUE
+
+/datum/objective/deliver_gifts
+	name = "deliver gifts"
+	explanation_text = "Доставьте подарки хорошим членам TGMC."
+	team_explanation_text = "Доставьте подарки хорошим членам TGMC"
+	var/presents_to_be_given = 0
+
+/datum/objective/deliver_gifts/New()
+	. = ..()
+	presents_to_be_given = rand(1, length(GLOB.alive_human_list)/2)
+
+/datum/objective/deliver_gifts/check_completion()
+	if(GLOB.round_statistics.presents_delivered >= presents_to_be_given)
+		return TRUE
+	return FALSE
+
+/datum/objective/deliver_gifts/update_explanation_text()
+	. = ..()
+	explanation_text = "Доставьте [presents_to_be_given] подарки хорошим членам TGMC"
+
+/datum/objective/recruit_snow_man
+	name = "recruit elves"
+	explanation_text = "Деду Морозу не хватает снеговиков! Рекрутируй несколько маринов для помощи."
+	team_explanation_text = "Деду Морозу не хватает снеговиков! Рекрутируй несколько маринов для помощи."
+	var/snow_man_to_be_recruited = 0
+
+/datum/objective/recruit_snow_man/update_explanation_text()
+	. = ..()
+	explanation_text = "Деду Морозу не хватает снеговиков! Рекрутируй [snow_man_to_be_recruited] маринов для помощи."
+
+/datum/objective/recruit_snow_man/New()
+	. = ..()
+	snow_man_to_be_recruited = rand(1, 4)
+
+/datum/objective/recruit_snow_man/check_completion()
+	var/snow_man_recruited = 0
+	for(var/mob/living/carbon/human/potentialsnowman in GLOB.alive_human_list)
+		if(potentialsnowman.stat == DEAD)
+			continue
+		if(HAS_TRAIT(potentialsnowman, TRAIT_SNOW_MAN))
+			snow_man_recruited += 1
+	if(snow_man_recruited >= snow_man_to_be_recruited)
+		return TRUE
+	return FALSE
 
 /datum/objective/survive
 	name = "survive"
@@ -522,6 +567,17 @@ GLOBAL_LIST_EMPTY(possible_items)
 /datum/objective/kill_zombies/check_completion()
 	for(var/mob/living/carbon/human/affectedmob in GLOB.mob_list)
 		if(iszombie(affectedmob) && affectedmob.get_organ_slot(ORGAN_SLOT_HEART))
+			return FALSE
+	return TRUE
+
+/datum/objective/kill_xenos
+	name = "kill all xenos"
+	explanation_text = "Уничтожьте всех ксеносов и уничтожьте их сило. За ТГМС!"
+	team_explanation_text = "Уничтожьте всех ксеносов и уничтожьте их сило. За ТГМС!"
+
+/datum/objective/kill_xenos/check_completion()
+	for(var/mob/living/carbon/xenomorph/affectedmob in GLOB.mob_list)
+		if(isxeno(affectedmob))
 			return FALSE
 	return TRUE
 

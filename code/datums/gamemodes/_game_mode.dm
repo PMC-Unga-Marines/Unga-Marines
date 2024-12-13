@@ -394,6 +394,14 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.grenades_thrown] total grenades exploding."
 	else
 		parts += "No grenades exploded."
+	if(GLOB.round_statistics.presents_delivered)
+		parts  += "[GLOB.round_statistics.presents_delivered] people had presents delivered to them."
+	if(GLOB.round_statistics.dedmoroz_presents_delivered )
+		parts  += "Ded Moroz personally delivered [GLOB.round_statistics.dedmoroz_presents_delivered ] of them!"
+	if(GLOB.round_statistics.presents_stolen)
+		parts  += "[GLOB.round_statistics.presents_stolen] presents were opened by somebody they didn't belong to."
+	if(GLOB.round_statistics.number_of_chert)
+		parts  += "[GLOB.round_statistics.number_of_chert] players ruined the spirit of New Year during the round."
 	if(GLOB.round_statistics.mortar_shells_fired)
 		parts += "[GLOB.round_statistics.mortar_shells_fired] mortar shells were fired."
 	if(GLOB.round_statistics.howitzer_shells_fired)
