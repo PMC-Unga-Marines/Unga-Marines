@@ -77,15 +77,14 @@
 	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		to_chat(user, span_warning("[I] can't cut through this!"))
 		return FALSE
-	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
 		return FALSE
-	if(!plasmacutter.start_cut(user, name, src))
+	if(!I.start_cut(user, name, src))
 		return FALSE
 	if(!do_after(user, PLASMACUTTER_CUT_DELAY, NONE, src, BUSY_ICON_FRIENDLY))
 		return FALSE
 
-	plasmacutter.cut_apart(user, name, src)
+	I.cut_apart(user, name, src)
 	// Change targetted turf to a new one to simulate deconstruction.
 	ChangeTurf(open_turf_type)
 	return TRUE

@@ -307,16 +307,15 @@
 		return FALSE
 	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	var/obj/item/tool/pickaxe/plasmacutter/plasmacutter = I
-	if(!plasmacutter.powered || (plasmacutter.flags_item & NOBLUDGEON))
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
 		return FALSE
 	if(user.a_intent == INTENT_HARM) // Attack normally.
 		return FALSE
-	if(!plasmacutter.start_cut(user, name, src))
+	if(!I.start_cut(user, name, src))
 		return FALSE
-	if(!do_after(user, plasmacutter.calc_delay(user), NONE, src, BUSY_ICON_HOSTILE))
+	if(!do_after(user, I.calc_delay(user), NONE, src, BUSY_ICON_HOSTILE))
 		return TRUE
 
-	plasmacutter.cut_apart(user, name, src)
+	I.cut_apart(user, name, src)
 	deconstruct(FALSE)
 	return TRUE
