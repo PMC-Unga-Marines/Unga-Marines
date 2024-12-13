@@ -18,16 +18,9 @@
 		LAZYADDASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
 
 /obj/structure/xeno/Destroy()
-	if(!locate(src) in GLOB.xeno_structures_by_hive[hivenumber])
-		//We dont want to CRASH because that'd block deletion completely. Just trace it and continue.
-		stack_trace("[src] not found in the list of xeno structures!")
-	else
-		GLOB.xeno_structures_by_hive[hivenumber] -= src
+	LAZYREMOVEASSOC(GLOB.xeno_structures_by_hive, hivenumber, src)
 	if(xeno_structure_flags & CRITICAL_STRUCTURE)
-		if(!locate(src) in GLOB.xeno_critical_structures_by_hive[hivenumber])
-			stack_trace("[src] not found in the list of critical xeno structures!")
-		else
-			GLOB.xeno_critical_structures_by_hive[hivenumber] -= src
+		LAZYREMOVEASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
 	return ..()
 
 /obj/structure/xeno/ex_act(severity)
