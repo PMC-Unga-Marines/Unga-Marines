@@ -281,7 +281,7 @@ as having entered the turf.
 			var/mob/our_mob = MN
 			// Double check for client
 			var/turf/mob_turf = get_turf(our_mob)
-			if(mob_turf.z != epicenter.z)
+			if(mob_turf?.z != epicenter.z)
 				continue
 			var/dist = get_dist(mob_turf, epicenter)
 			if(dist <= max(round(power, 1)))

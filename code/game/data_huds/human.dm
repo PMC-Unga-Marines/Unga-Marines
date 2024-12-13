@@ -218,6 +218,7 @@
 	var/static/image/ifosfamide_image = image('icons/mob/hud/reagent.dmi', icon_state = "ifosfamide")
 	var/static/image/jellyjuice_image = image('icons/mob/hud/reagent.dmi', icon_state = "jellyjuice")
 	var/static/image/russianred_image = image('icons/mob/hud/reagent.dmi', icon_state = "russian_red")
+	var/static/image/neurofrenzy_image = image('icons/mob/hud/reagent.dmi', icon_state = "neurofrenzy")
 
 	var/neurotox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin)
 	var/hemodile_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile)
@@ -228,6 +229,7 @@
 	var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicalnanites)
 	var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
 	var/ifosfamide_amount = reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide)
+	var/neurofrenzy_amount = reagents.get_reagent_amount(/datum/reagent/neurofrenzy)
 
 	if(neurotox_amount > 10) //Blinking image for particularly high concentrations
 		xeno_reagent.overlays += neurotox_high_image
@@ -269,6 +271,9 @@
 
 	if(jellyjuice_amount > 0)
 		xeno_reagent.overlays += jellyjuice_image
+
+	if(neurofrenzy_amount > 0)
+		xeno_reagent.overlays += neurofrenzy_image
 
 	hud_list[XENO_REAGENT_HUD] = xeno_reagent
 
