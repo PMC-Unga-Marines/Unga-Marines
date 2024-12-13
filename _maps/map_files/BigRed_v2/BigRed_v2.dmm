@@ -7320,6 +7320,10 @@
 	dir = 6
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
+"bBO" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete,
+/area/bigredv2/outside/monorail)
 "bBP" = (
 /turf/open/floor/tile/dark/red2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -8331,6 +8335,12 @@
 /obj/structure/closet/crate,
 /turf/open/floor/mainship/cargo,
 /area/bigredv2/outside/monorail)
+"deN" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/bigredv2/outside/monorail)
 "dgo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -8596,6 +8606,8 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
 "dFz" = (
+/obj/machinery/power/apc/high,
+/obj/structure/cable,
 /turf/open/floor/mainship/red{
 	dir = 9
 	},
@@ -8674,6 +8686,10 @@
 "dSm" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/southwest)
+"dSN" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/bigredv2/outside/monorail)
 "dSP" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/wood,
@@ -9420,6 +9436,10 @@
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast/garbledradio)
+"fwE" = (
+/obj/structure/cable,
+/turf/open/floor/mainship/floor,
+/area/bigredv2/outside/monorail)
 "fxl" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark/purple2{
@@ -10569,6 +10589,7 @@
 "hRE" = (
 /obj/structure/stairs/seamless/edge,
 /obj/structure/stairs/railstairs,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
 "hSR" = (
@@ -10799,6 +10820,7 @@
 /turf/open/space/basic,
 /area/space)
 "iui" = (
+/obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 8
 	},
@@ -11075,6 +11097,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/cargo)
 "iXM" = (
+/obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 4
 	},
@@ -12244,6 +12267,10 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
+"luG" = (
+/obj/structure/cable,
+/turf/open/floor/plating/dmg3,
+/area/bigredv2/outside/monorail)
 "luJ" = (
 /obj/effect/spawner/modularmap/bigred/southeta,
 /turf/open/space/basic,
@@ -13189,6 +13216,10 @@
 "nue" = (
 /obj/structure/window/framed/colony/reinforced/hull,
 /turf/open/floor/plating/ground/mars/random/dirt,
+/area/bigredv2/outside/monorail)
+"nuu" = (
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/monorail)
 "nux" = (
 /obj/effect/decal/cleanable/dirt,
@@ -14445,6 +14476,7 @@
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	name = "\improper Colony Security Checkpoint"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/bigredv2/outside/monorail)
 "qjc" = (
@@ -14612,6 +14644,7 @@
 /area/bigredv2/outside/nw)
 "qFN" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/structure/cable,
 /turf/open/floor/mainship/red{
 	dir = 10
 	},
@@ -17010,8 +17043,11 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "vEH" = (
-/obj/machinery/power/apc/high,
-/turf/closed/wall/r_wall,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/mainship,
 /area/bigredv2/outside/monorail)
 "vIk" = (
 /obj/structure/bed,
@@ -17902,6 +17938,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
+"xzU" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
+/area/bigredv2/outside/monorail)
 "xAm" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/engineering/free_access{
@@ -17923,6 +17965,7 @@
 "xCE" = (
 /obj/machinery/door/poddoor/opened/port,
 /obj/machinery/door/poddoor/two_tile_hor/execution,
+/obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/monorail)
 "xDW" = (
@@ -18171,6 +18214,7 @@
 	dir = 10
 	},
 /obj/vehicle/ridden/powerloader,
+/obj/structure/cable,
 /turf/open/floor/mainship,
 /area/bigredv2/outside/monorail)
 "xZD" = (
@@ -25163,7 +25207,7 @@ dxa
 dFz
 qFN
 qhO
-hHO
+dSN
 dhB
 hHO
 oef
@@ -25380,7 +25424,7 @@ dxa
 uue
 hdO
 dxa
-dhB
+luG
 cfN
 hHO
 oef
@@ -25597,7 +25641,7 @@ ceG
 lDG
 wmH
 ceG
-hHO
+dSN
 hHO
 cfN
 hHO
@@ -25813,7 +25857,7 @@ ieG
 ceG
 ceG
 dxa
-vEH
+dxa
 hRE
 bXJ
 bXJ
@@ -26031,7 +26075,7 @@ gAf
 gAf
 gSB
 mqY
-nUN
+deN
 mqY
 fHD
 cIV
@@ -26248,7 +26292,7 @@ rWz
 kZJ
 uSs
 mqY
-nUN
+deN
 mqY
 fHD
 tsy
@@ -26461,15 +26505,15 @@ aXA
 wrG
 evZ
 sSS
-kZJ
-kZJ
+nuu
+nuu
 xCE
-mqY
-nUN
-mqY
+bBO
+deN
+bBO
 iui
-aSE
-aSE
+xzU
+xzU
 aSE
 aSE
 aSE
@@ -26686,7 +26730,7 @@ nUN
 mqY
 mqY
 mqY
-mqY
+bBO
 mqY
 mqY
 mqY
@@ -27120,7 +27164,7 @@ mqY
 mqY
 mqY
 mqY
-nUN
+deN
 mqY
 bTj
 mqY
@@ -27135,10 +27179,10 @@ mqY
 mqY
 iDW
 xZg
-lxD
-lxD
-lxD
-lxD
+vEH
+vEH
+vEH
+vEH
 lxD
 lxD
 lxD
@@ -27337,7 +27381,7 @@ mqY
 mqY
 mqY
 iet
-nUN
+deN
 mqY
 eKH
 mqY
@@ -27351,11 +27395,11 @@ dzw
 iet
 mqY
 iDW
-btF
+fwE
 qSP
 btF
 btF
-btF
+fwE
 btF
 btF
 btF

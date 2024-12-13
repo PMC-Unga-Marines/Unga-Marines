@@ -9302,6 +9302,7 @@
 	name = "????";
 	stat = 2
 	},
+/obj/machinery/power/apc,
 /turf/open/floor/prison/blue/plate{
 	dir = 1
 	},
@@ -10457,7 +10458,6 @@
 "jqO" = (
 /obj/structure/closet/crate/ammo,
 /obj/effect/spawner/random_set,
-/obj/effect/spawner/random/weaponry,
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,
@@ -13891,10 +13891,6 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
-"mPC" = (
-/obj/effect/spawner/random/weaponry,
-/turf/open/floor/prison,
-/area/lv624/lazarus/monorail)
 "mPT" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -38928,7 +38924,7 @@ vvX
 gja
 jro
 tDm
-mPC
+rlX
 rlX
 ggT
 vyJ
