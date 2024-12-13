@@ -379,4 +379,4 @@
 	volume = 1
 	list_reagents = list(/datum/reagent/neurofrenzy = 1)
 	free_refills = FALSE
-	description_overlay = "Mt"
+	description_overlay = "Nf"
