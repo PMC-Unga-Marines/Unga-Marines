@@ -43,7 +43,7 @@
 /obj/item/flashlight/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, isrightclick = FALSE)
 	if(turn_light(xeno_attacker, FALSE) != CHECKS_PASSED)
 		return
-	playsound(loc, "alien_claw_metal", 25, 1)
+	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
 

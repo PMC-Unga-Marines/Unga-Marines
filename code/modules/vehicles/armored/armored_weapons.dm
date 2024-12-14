@@ -64,7 +64,7 @@
 
 ///called by the chassis: begins firing, yes this is stolen from mech but I made both so bite me
 /obj/item/armored_weapon/proc/begin_fire(mob/source, atom/target, list/modifiers)
-	if(!ammo || ammo.current_rounds < 0)
+	if(!ammo || ammo.current_rounds <= 0)
 		playsound(source, 'sound/weapons/guns/fire/empty.ogg', 15, 1)
 		return
 	if(TIMER_COOLDOWN_CHECK(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
@@ -349,7 +349,7 @@
 	name = "\improper OMR Mk.3 secondary flamer"
 	desc = "A large, vehicle mounted flamer. This one is capable of spraying it's payload due to a less solid mix."
 	icon_state = "sflamer"
-	fire_sound = "gun_flamethrower"
+	fire_sound = SFX_GUN_FLAMETHROWER
 	ammo = /obj/item/ammo_magazine/tank/secondary_flamer_tank
 	weapon_slot = MODULE_SECONDARY
 	fire_mode = GUN_FIREMODE_AUTOMATIC

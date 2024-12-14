@@ -370,3 +370,13 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/yautja/interact(mob/user)
 	return
+
+/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy
+	name = "neurofrenzy autoinjector"
+	desc = "An auto-injector loaded with 1 unit neurostimulant. !DO NOT USE WITH MEDICAL NANITES!"
+	icon_state = "RedWhite"
+	amount_per_transfer_from_this = 1
+	volume = 1
+	list_reagents = list(/datum/reagent/neurofrenzy = 1)
+	free_refills = FALSE
+	description_overlay = "Nf"

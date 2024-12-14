@@ -89,7 +89,7 @@
 
 		// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
-	spit_types = list(/datum/ammo/xeno/toxin, /datum/ammo/xeno/acid/passthrough)
+	spit_types = list(/datum/ammo/xeno/tox_loss, /datum/ammo/xeno/acid/passthrough)
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
