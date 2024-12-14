@@ -20,7 +20,7 @@
 /obj/structure/xeno/Destroy()
 	LAZYREMOVEASSOC(GLOB.xeno_structures_by_hive, hivenumber, src)
 	if(xeno_structure_flags & CRITICAL_STRUCTURE)
-		LAZYREMOVEASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
+		GLOB.xeno_critical_structures_by_hive[hivenumber] -= src
 	return ..()
 
 /obj/structure/xeno/ex_act(severity)

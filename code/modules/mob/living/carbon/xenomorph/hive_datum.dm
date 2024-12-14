@@ -622,7 +622,7 @@
 /mob/living/carbon/xenomorph/hivemind/remove_from_hive()
 	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
 	LAZYREMOVEASSOC(GLOB.xeno_structures_by_hive, hivenumber, hive_core)
-	LAZYREMOVEASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, hive_core)
+	GLOB.xeno_critical_structures_by_hive[hivenumber] -= hive_core
 	. = ..()
 	if(!QDELETED(src)) //if we aren't dead, somehow?
 		hive_core.name = "banished hivemind core"
