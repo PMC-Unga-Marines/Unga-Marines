@@ -33,10 +33,10 @@
 	desc = "Uploading knowledge of advanced mnemonics of inspiration and persuasion to the brain so that people around go under bullets even more willingly! Update leadership skills!"
 	icon_state = "leadership_implant"
 	leadership = 1
-	max_skills = list(SKILL_LEAD = SKILL_LEAD_MASTER)
+	max_skills = list(SKILL_LEADERSHIP = SKILL_LEAD_MASTER)
 
 /obj/item/implant/skill/oper_system/leadership/delux
 	name = "delux command protocols 'Graiyor' codex"
 	desc = "Uploading advanced knowledge of futuristic mnemonics of inspiration and persuasion to the brain so that people around go under bullets even more willingly! Update leadership skills even more!"
 	icon_state = "deluxleadership_implant"
-	max_skills = list(SKILL_LEAD = SKILL_LEAD_SUPER)
+	max_skills = list(SKILL_LEADERSHIP = SKILL_LEAD_SUPER)
