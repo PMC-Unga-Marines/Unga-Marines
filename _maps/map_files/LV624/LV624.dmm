@@ -1239,11 +1239,11 @@
 /area/lv624/ground/sand8)
 "aES" = (
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "aET" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "aEV" = (
 /obj/structure/girder/displaced,
 /turf/open/liquid/water/river/autosmooth,
@@ -1927,7 +1927,7 @@
 /obj/structure/flora/jungle/vines,
 /obj/structure/fence,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "aVk" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass,
@@ -2071,7 +2071,7 @@
 /obj/structure/flora/jungle/vines/heavy,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "aYp" = (
 /obj/machinery/floodlight/colony{
 	dir = 8
@@ -2283,7 +2283,7 @@
 "bdO" = (
 /obj/structure/fence,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "bdP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4
@@ -2338,7 +2338,7 @@
 "bfs" = (
 /obj/structure/flora/jungle/plantbot1,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "bfw" = (
 /obj/effect/turf_decal/sandytile,
 /obj/effect/turf_decal/sandytile,
@@ -3259,7 +3259,7 @@
 "bLv" = (
 /obj/structure/stairs/seamless,
 /obj/effect/ai_node,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "bLS" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -3552,7 +3552,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "cbv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4095,7 +4095,7 @@
 /area/lv624/ground/sand7)
 "cIl" = (
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "cIp" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -4994,7 +4994,7 @@
 "dDC" = (
 /obj/structure/foamedmetal,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "dDY" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/liquid/water/river/autosmooth,
@@ -5127,7 +5127,7 @@
 /obj/structure/platform_decoration{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "dLJ" = (
 /obj/structure/barricade/wooden,
@@ -5255,8 +5255,8 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "dRJ" = (
-/obj/structure/inflatable/wall,
-/turf/open/shuttle/dropship/floor,
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
+/turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "dRM" = (
 /turf/open/ground/grass,
@@ -5308,9 +5308,6 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle8)
-"dTK" = (
-/turf/open/shuttle/dropship/floor,
-/area/lv624/ground/sand7)
 "dUf" = (
 /obj/effect/turf_decal/sandytile,
 /obj/structure/flora/jungle/vines,
@@ -5832,8 +5829,9 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "ewN" = (
-/obj/structure/inflatable/wall,
-/turf/open/shuttle/dropship/five,
+/obj/effect/ai_node,
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
+/turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "exf" = (
 /obj/machinery/gibber,
@@ -6332,7 +6330,7 @@
 /obj/structure/fence,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "fdO" = (
 /obj/structure/table/mainship,
 /obj/structure/flora/jungle/vines,
@@ -7068,7 +7066,7 @@
 	pixel_y = 2
 	},
 /obj/machinery/cic_maptable,
-/turf/open/floor/prison/sterilewhite,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "fRm" = (
 /obj/structure/window/framed/colony/reinforced,
@@ -7207,7 +7205,7 @@
 /area/lv624/ground/caves/east1/garbledradio)
 "fYu" = (
 /obj/structure/inflatable/wall,
-/turf/open/shuttle/dropship/eight,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "fYF" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
@@ -7531,11 +7529,6 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
-"gjL" = (
-/obj/structure/flora/jungle/vines,
-/obj/structure/stairs,
-/turf/open/ground/grass,
-/area/lv624/ground/jungle6)
 "gjN" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/liquid/water/river,
@@ -7600,7 +7593,7 @@
 /area/lv624/ground/caves/east1/garbledradio)
 "gpw" = (
 /obj/structure/barricade/plasteel,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "gpQ" = (
 /obj/structure/flora/jungle/vines,
@@ -8534,7 +8527,7 @@
 "htz" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/inflatable/wall,
-/turf/open/shuttle/dropship/four,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "hur" = (
 /obj/effect/landmark/weed_node,
@@ -9029,7 +9022,7 @@
 "hVe" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/turf_decal/tile/metal,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "hVr" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -9690,7 +9683,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/six,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "iCb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -9876,7 +9869,7 @@
 "iLF" = (
 /obj/item/clothing/mask/facehugger/dead,
 /obj/structure/barricade/metal/plasteel,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "iMr" = (
 /obj/structure/table,
@@ -10425,7 +10418,7 @@
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "jqP" = (
 /obj/item/clothing/glasses/regular,
@@ -10726,7 +10719,7 @@
 /obj/structure/barricade/metal{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "jGT" = (
 /obj/structure/cable,
@@ -11206,7 +11199,7 @@
 /obj/structure/barricade/plasteel{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "kdW" = (
 /obj/structure/flora/ausbushes/fernybush,
@@ -11254,7 +11247,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
 	},
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "kgY" = (
 /obj/machinery/power/apc/drained{
@@ -11288,7 +11281,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "kir" = (
 /obj/structure/flora/jungle/vines,
 /obj/structure/flora/tree/jungle/small,
@@ -11798,10 +11791,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle1)
-"kJf" = (
-/obj/effect/turf_decal/warning_stripes/stripedsquare/tile/border,
-/turf/open/space/basic,
-/area/lv624/ground/jungle6)
 "kJH" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 2
@@ -12068,7 +12057,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "kWA" = (
 /obj/structure/rack,
@@ -12422,7 +12411,7 @@
 /area/lv624/lazarus/quartstorage)
 "ltu" = (
 /obj/item/clothing/mask/facehugger/dead,
-/turf/open/shuttle/dropship/five,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "luK" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -13395,7 +13384,7 @@
 /area/lv624/lazarus/research)
 "mrB" = (
 /turf/closed/wall,
-/area/space)
+/area/lv624/ground/jungle9)
 "mrP" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/jungle/vines,
@@ -13663,7 +13652,7 @@
 /obj/structure/flora/jungle/vines,
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "mHf" = (
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/plating,
@@ -14020,7 +14009,7 @@
 /obj/structure/flora/jungle/planttop1,
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "mYr" = (
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
@@ -14474,7 +14463,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/machinery/floodlight/colony,
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "nAQ" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /turf/open/floor/tile/white,
@@ -14648,7 +14637,7 @@
 "nMw" = (
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "nMJ" = (
 /turf/open/floor/plating/warning{
 	dir = 6
@@ -14689,7 +14678,7 @@
 /area/lv624/lazarus/security)
 "nOL" = (
 /obj/item/storage/backpack/marine/radiopack,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "nOV" = (
 /obj/structure/flora/ausbushes/stalkybush,
@@ -14863,7 +14852,7 @@
 /area/lv624/lazarus/kitchen)
 "oaw" = (
 /obj/structure/stairs/seamless,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "oax" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -15086,7 +15075,7 @@
 /obj/structure/flora/jungle/vines,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "onx" = (
 /obj/structure/dispenser/oxygen,
 /turf/open/floor/plating/ground/concrete,
@@ -15428,7 +15417,7 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "oFO" = (
 /obj/item/storage/bag/ore,
@@ -15587,7 +15576,7 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "oOc" = (
 /obj/structure/flora/jungle/vines,
@@ -16530,7 +16519,7 @@
 "pSL" = (
 /obj/item/clothing/mask/facehugger/dead,
 /obj/structure/barricade/plasteel,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "pSQ" = (
 /obj/machinery/door_control{
@@ -16735,7 +16724,7 @@
 "qdB" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "qdC" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/drinkingglass{
@@ -17161,7 +17150,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "qBQ" = (
 /obj/structure/flora/jungle/vines/heavy{
 	pixel_y = 26
@@ -17335,7 +17324,7 @@
 "qNG" = (
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "qNH" = (
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
@@ -17600,7 +17589,7 @@
 /area/lv624/ground/river3)
 "qYO" = (
 /obj/structure/barricade/metal/deployable,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "qYQ" = (
 /obj/effect/spawner/random/engineering/tool,
@@ -17790,7 +17779,7 @@
 /obj/structure/barricade/metal{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "rhv" = (
 /obj/machinery/light/small{
@@ -17917,7 +17906,7 @@
 	id = "UD6";
 	name = "\improper Shutters"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "rnJ" = (
 /obj/structure/flora/jungle/vines,
@@ -17952,7 +17941,7 @@
 "rpf" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/wall,
-/area/space)
+/area/lv624/ground/jungle9)
 "rpQ" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating,
@@ -18455,7 +18444,7 @@
 /area/lv624/ground/jungle8)
 "rLF" = (
 /obj/effect/attach_point,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "rLW" = (
 /obj/structure/monorail{
@@ -18583,7 +18572,7 @@
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "rRG" = (
 /obj/structure/table/woodentable,
@@ -18932,7 +18921,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "sgl" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -19278,7 +19267,7 @@
 "sAA" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "sBf" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/wall,
@@ -19318,7 +19307,7 @@
 "sCN" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "sDq" = (
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
@@ -19827,7 +19816,7 @@
 /obj/structure/flora/jungle/vines,
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "tga" = (
 /obj/structure/catwalk,
 /turf/open/floor/plating/ground/dirt,
@@ -20069,7 +20058,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/seven,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "trb" = (
 /obj/structure/fence,
@@ -20529,7 +20518,7 @@
 "tNv" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "tPT" = (
 /turf/open/floor/tile/green/whitegreen{
 	dir = 8
@@ -20680,7 +20669,7 @@
 "tWO" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "tXt" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle2)
@@ -20767,7 +20756,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
 	},
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "uaO" = (
 /obj/effect/landmark/weed_node,
@@ -21172,7 +21161,7 @@
 /area/lv624/lazarus/quartstorage)
 "uwW" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "uxf" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
@@ -21376,7 +21365,7 @@
 "uKY" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "uLb" = (
 /obj/item/tank/nitrogen{
 	pixel_x = 5
@@ -21692,7 +21681,7 @@
 	desc = "Берет великого инжестановца,на нем видна маркировка Ар*#@ Ч..";
 	soft_armor = list("melee" = 60, "bullet" = 60, "laser" = 60, "energy" = 15, "bomb" = 60, "bio" = 60, "fire" = 60, "acid" = 60)
 	},
-/turf/open/floor/prison/sterilewhite,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "vbA" = (
 /obj/effect/spawner/random/misc/structure/barrel,
@@ -21758,7 +21747,7 @@
 "vfk" = (
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "vfm" = (
 /obj/structure/rack,
 /obj/item/weapon/gun/smg/m25,
@@ -21873,7 +21862,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "vkR" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -21967,7 +21956,7 @@
 /area/lv624/ground/jungle8)
 "vqz" = (
 /obj/structure/barricade/metal/plasteel,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "vqE" = (
 /obj/structure/flora/ausbushes/fernybush,
@@ -22631,7 +22620,7 @@
 /area/lv624/lazarus/monorail)
 "vVs" = (
 /obj/effect/ai_node,
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "vVF" = (
 /obj/machinery/light{
@@ -23288,7 +23277,7 @@
 	},
 /obj/item/clothing/mask/facehugger/dead,
 /obj/structure/filingcabinet,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "wCy" = (
 /obj/effect/landmark/weed_node,
@@ -23548,7 +23537,7 @@
 "wNs" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
-/area/space)
+/area/lv624/ground/jungle9)
 "wNt" = (
 /obj/structure/window_frame/colony,
 /obj/structure/flora/jungle/vines,
@@ -23654,7 +23643,7 @@
 "wSP" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "wTm" = (
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 1
@@ -23781,7 +23770,7 @@
 "wWN" = (
 /obj/structure/flora/grass/green,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "wWV" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	dir = 1;
@@ -23921,7 +23910,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
 "xdX" = (
-/turf/open/shuttle/dropship/three,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "xeh" = (
 /obj/effect/spawner/random/misc/structure/supplycrate,
@@ -24684,7 +24673,7 @@
 "xMs" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "xMv" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor,
@@ -24782,7 +24771,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass,
-/area/space)
+/area/lv624/ground/jungle9)
 "xRT" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/ground/grass,
@@ -24817,7 +24806,7 @@
 "xTV" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "xUE" = (
 /obj/structure/catwalk,
 /turf/open/liquid/water/river,
@@ -24839,7 +24828,7 @@
 /area/lv624/ground/sand1)
 "xVL" = (
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
-/area/space)
+/area/lv624/ground/jungle9)
 "xWm" = (
 /obj/structure/prop/train/mech,
 /turf/open/floor/prison/darkbrown/full,
@@ -24889,7 +24878,7 @@
 	dir = 4
 	},
 /obj/item/clothing/mask/facehugger/dead,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "xZn" = (
 /obj/effect/spawner/random/misc/structure/flavorvending/colaweighted,
@@ -24983,7 +24972,7 @@
 "ycA" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/weapon/gun/sentry/premade/dumb/hostile,
-/turf/open/shuttle/dropship/floor,
+/turf/open/floor/mainship_hull,
 /area/lv624/ground/sand7)
 "ycL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -29319,7 +29308,7 @@ lry
 lry
 cAu
 cAu
-xrX
+ewN
 sib
 sib
 cAu
@@ -29863,7 +29852,7 @@ lry
 ogt
 cAu
 xGi
-cAu
+dRJ
 cAu
 jmC
 cAu
@@ -30963,7 +30952,7 @@ vqz
 htz
 bLv
 kVK
-dTK
+xdX
 qYO
 rnv
 cpL
@@ -31142,7 +31131,7 @@ nsq
 vXv
 jqO
 gpw
-ewN
+fYu
 oaw
 rLF
 hVe
@@ -31327,7 +31316,7 @@ iLF
 fYu
 bLv
 dLF
-dTK
+xdX
 qYO
 rnv
 rTO
@@ -31502,8 +31491,8 @@ djk
 ebF
 dNR
 sgg
-dRJ
-dRJ
+fYu
+fYu
 oNS
 oNS
 oEO
@@ -32048,7 +32037,7 @@ cAu
 cAu
 cAu
 cAu
-cAu
+dRJ
 cAu
 fso
 qfM
@@ -36627,7 +36616,7 @@ xWM
 avd
 avd
 avd
-gjL
+auJ
 avd
 avd
 avd
@@ -38449,7 +38438,7 @@ auJ
 auJ
 auJ
 auJ
-kJf
+avd
 pmF
 inx
 pxU
