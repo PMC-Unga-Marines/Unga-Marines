@@ -10,11 +10,11 @@
 	ToTracks(direction)
 
 /mob/living/carbon/human/proc/ToTracks(direction)
-	if(lying_angle && (src.buckled && istype(src.buckled, /obj/structure/bed/chair)))
+	if(lying_angle && (buckled && istype(buckled, /obj/structure/bed/chair)))
 		return
 
 	// Tracking blood
-	var/bloodcolor=""
+	var/bloodcolor = ""
 	var/bloodamount = 0
 	if(shoes)
 		if(shoes.track_blood && shoes.blood_overlay)
