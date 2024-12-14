@@ -586,8 +586,8 @@
 	scatter = -7
 	scatter_unwielded = -5
 	damage_mult = 0.35
-	recoil = 0
-	recoil_unwielded = 0
+	recoil = -1
+	recoil_unwielded = -1
 	accuracy_mult = 3
 	accuracy_mult_unwielded = 2
 	type_of_casings = null
