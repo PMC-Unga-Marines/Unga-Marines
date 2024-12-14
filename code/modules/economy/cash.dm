@@ -66,8 +66,8 @@
 
 /obj/item/spacecash/bundle/attack_self(mob/user)
 	var/oldloc = loc
-	var/amount = tgui_input_number(user, "How many rubles do you want to take? (0 to [worth])", "Take Money", 20, max_value = worth)
-	if(amount==0)
+	var/amount = tgui_input_number(user, "How many rubles do you want to take? (0 to [worth])", "Take Money", 20, worth)
+	if(amount == 0)
 		return 0
 	if(gc_destroyed || loc != oldloc)
 		return
