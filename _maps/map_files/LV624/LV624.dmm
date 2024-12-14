@@ -5254,10 +5254,6 @@
 /obj/effect/turf_decal/sandytile,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
-"dRJ" = (
-/obj/item/weapon/gun/sentry/premade/dumb/hostile,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "dRM" = (
 /turf/open/ground/grass,
 /area/lv624/ground/jungle8)
@@ -5828,11 +5824,6 @@
 /obj/effect/turf_decal/sandytile,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
-"ewN" = (
-/obj/effect/ai_node,
-/obj/item/weapon/gun/sentry/premade/dumb/hostile,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "exf" = (
 /obj/machinery/gibber,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
@@ -7377,7 +7368,6 @@
 /area/lv624/lazarus/quartstorage/dome)
 "geX" = (
 /obj/structure/prop/mainship/hangar_stencil/two,
-/obj/structure/razorwire,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "gff" = (
@@ -7529,6 +7519,11 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
+"gjL" = (
+/obj/structure/flora/jungle/vines,
+/obj/structure/stairs,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle6)
 "gjN" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/liquid/water/river,
@@ -8563,14 +8558,6 @@
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/lv624/ground/sand2)
-"hwx" = (
-/obj/structure/cable,
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/obj/structure/barricade/metal,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "hwV" = (
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
@@ -11791,6 +11778,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle1)
+"kJf" = (
+/obj/effect/turf_decal/warning_stripes/stripedsquare/tile/border,
+/turf/open/space/basic,
+/area/lv624/ground/jungle6)
 "kJH" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 2
@@ -16516,11 +16507,6 @@
 	dir = 1
 	},
 /area/lv624/lazarus/hydroponics)
-"pSL" = (
-/obj/item/clothing/mask/facehugger/dead,
-/obj/structure/barricade/plasteel,
-/turf/open/floor/mainship_hull,
-/area/lv624/ground/sand7)
 "pSQ" = (
 /obj/machinery/door_control{
 	id = "secure_blast";
@@ -16934,13 +16920,6 @@
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/caves/rock)
-"qrh" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "qrv" = (
 /obj/structure/barricade/metal{
 	dir = 1
@@ -17973,12 +17952,6 @@
 	},
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
-"rrH" = (
-/obj/structure/barricade/plasteel{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/sand7)
 "rsX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -19795,9 +19768,6 @@
 /area/lv624/ground/compound/se)
 "teL" = (
 /obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
-	dir = 4
-	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "teZ" = (
@@ -21954,10 +21924,6 @@
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle8)
-"vqz" = (
-/obj/structure/barricade/metal/plasteel,
-/turf/open/floor/mainship_hull,
-/area/lv624/ground/sand7)
 "vqE" = (
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
@@ -24697,9 +24663,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
-"xNH" = (
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/rock)
 "xNJ" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -29308,9 +29271,9 @@ lry
 lry
 cAu
 cAu
-ewN
-sib
-sib
+xrX
+cAu
+cAu
 cAu
 cAu
 xrX
@@ -29492,7 +29455,7 @@ cAu
 rdQ
 cAu
 cAu
-sib
+cAu
 cAu
 cAu
 cAu
@@ -29671,8 +29634,8 @@ lry
 cAu
 gfm
 maS
-qrh
-sib
+cAu
+cAu
 cAu
 cAu
 cAu
@@ -29852,7 +29815,7 @@ lry
 ogt
 cAu
 xGi
-dRJ
+cAu
 cAu
 jmC
 cAu
@@ -30034,7 +29997,7 @@ cTi
 cAu
 xrX
 orR
-rrH
+cAu
 teL
 mJX
 cAu
@@ -30948,7 +30911,7 @@ uaE
 xdX
 vVs
 nOL
-vqz
+xdX
 htz
 bLv
 kVK
@@ -31135,7 +31098,7 @@ fYu
 oaw
 rLF
 hVe
-pSL
+ltu
 rnv
 hjk
 cAu
@@ -31849,7 +31812,7 @@ gKr
 gKr
 evp
 evp
-xNH
+cAu
 cAu
 cAu
 bbw
@@ -32031,13 +31994,13 @@ gKr
 gKr
 evp
 evp
-xNH
 cAu
 cAu
 cAu
 cAu
 cAu
-dRJ
+cAu
+cAu
 cAu
 fso
 qfM
@@ -32219,8 +32182,8 @@ epX
 gxe
 gdw
 sIq
+epX
 hrS
-hwx
 eHC
 cAu
 cAu
@@ -36616,7 +36579,7 @@ xWM
 avd
 avd
 avd
-auJ
+gjL
 avd
 avd
 avd
@@ -38438,7 +38401,7 @@ auJ
 auJ
 auJ
 auJ
-avd
+kJf
 pmF
 inx
 pxU
