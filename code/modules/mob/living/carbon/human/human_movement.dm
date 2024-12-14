@@ -7,9 +7,10 @@
 	if(shoes && !buckled)
 		var/obj/item/clothing/shoes/S = shoes
 		S.step_action()
-	ToTracks(usr,direction)
+	ToTracks(direction)
 
-/mob/living/carbon/human/proc/ToTracks(mob/living/carbon/human/enteredMob,direction)
+/mob/living/carbon/human/proc/ToTracks(direction)
+	var/mob/living/carbon/human/enteredMob = src
 	if(enteredMob.lying_angle && (enteredMob.buckled && istype(enteredMob.buckled,/obj/structure/bed/chair)))
 		return
 
