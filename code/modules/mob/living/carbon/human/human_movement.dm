@@ -10,28 +10,26 @@
 	ToTracks(direction)
 
 /mob/living/carbon/human/proc/ToTracks(direction)
-	var/mob/living/carbon/human/enteredMob = src
-	if(enteredMob.lying_angle && (enteredMob.buckled && istype(enteredMob.buckled,/obj/structure/bed/chair)))
+	if(lying_angle && (src.buckled && istype(src.buckled, /obj/structure/bed/chair)))
 		return
 
 	// Tracking blood
 	var/bloodcolor=""
 	var/bloodamount = 0
-	if(enteredMob.shoes)
-		var/obj/item/clothing/shoes/shoesenteredMob = enteredMob.shoes
-		if(shoesenteredMob.track_blood && shoesenteredMob.blood_overlay)
-			bloodcolor = shoesenteredMob.blood_color
-			bloodamount = shoesenteredMob.track_blood
-			shoesenteredMob.track_blood--
-	else if(enteredMob.track_blood && enteredMob.feet_blood_color)
-		bloodcolor = enteredMob.feet_blood_color
-		bloodamount = enteredMob.track_blood
-		enteredMob.track_blood--
+	if(shoes)
+		if(shoes.track_blood && shoes.blood_overlay)
+			bloodcolor = shoes.blood_color
+			bloodamount = shoes.track_blood
+			shoes.track_blood--
+	else if(track_blood && feet_blood_color)
+		bloodcolor = feet_blood_color
+		bloodamount = track_blood
+		track_blood--
 
 	if ((bloodamount > 0) && !locate(/obj/structure) in contents)
-		var/turf/turf = get_turf(enteredMob)
+		var/turf/turf = get_turf(src)
 		turf.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, direction, 0, bloodcolor) // Coming
-		var/turf/from = get_step(enteredMob, REVERSE_DIR(direction))
+		var/turf/from = get_step(src, REVERSE_DIR(direction))
 		from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, 0, direction, bloodcolor) // Going
 
 	return
