@@ -34,7 +34,7 @@
 	if(ventcrawl_target.welded)
 		to_chat(src, span_warning("You can't crawl around a welded vent!"))
 		return
-	if(loc.density || ventcrawl_target.covered_by_shuttle)
+	if(ventcrawl_target.loc.density || ventcrawl_target.covered_by_shuttle)
 		to_chat(src, span_notice("You cannot climb out, the exit is blocked!"))
 		return
 
