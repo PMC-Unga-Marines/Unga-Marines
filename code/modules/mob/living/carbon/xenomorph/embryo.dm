@@ -56,11 +56,6 @@
 		affected_mob = null
 		return PROCESS_KILL
 
-	if(affected_mob.stat == DEAD)
-		var/mob/living/carbon/xenomorph/larva/L = locate() in affected_mob
-		L?.initiate_burst(affected_mob)
-		return PROCESS_KILL
-
 	if(HAS_TRAIT(affected_mob, TRAIT_STASIS))
 		return //If they are in cryo, bag or cell, the embryo won't grow.
 
@@ -80,6 +75,9 @@
 		counter -= 3 //Halves larval growth progress, for some tradeoffs. Larval toxin purges this
 
 	if(affected_mob.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin))
+		counter -= 1
+
+	if(affected_mob.stat == DEAD)
 		counter -= 1
 
 	if(boost_timer)
@@ -109,7 +107,7 @@
 				affected_mob.emote("[pick("sneeze", "cough")]")
 		if(4)
 			if(prob(1))
-				if(!affected_mob.IsUnconscious())
+				if(!affected_mob.IsUnconscious() && !affected_mob.stat == DEAD)
 					affected_mob.visible_message(span_danger("\The [affected_mob] starts shaking uncontrollably!"), \
 												span_danger("You start shaking uncontrollably!"))
 					affected_mob.Unconscious(20 SECONDS)

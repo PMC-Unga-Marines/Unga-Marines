@@ -58,12 +58,6 @@
 	SEND_SIGNAL(src, COMSIG_HUMAN_SET_UNDEFIBBABLE)
 	SSmobs.stop_processing(src) //Last round of processing.
 
-	if(CHECK_BITFIELD(status_flags, XENO_HOST))
-		var/obj/item/alien_embryo/parasite = locate(/obj/item/alien_embryo) in src
-		if(parasite) //The larva cannot survive without a host.
-			qdel(parasite)
-		DISABLE_BITFIELD(status_flags, XENO_HOST)
-
 	if(hud_list)
 		med_hud_set_status()
 
