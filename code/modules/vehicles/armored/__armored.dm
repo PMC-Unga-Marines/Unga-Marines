@@ -608,7 +608,7 @@
 	var/list/leftright = LeftAndRightOfDir(turret_overlay.dir)
 	var/left = leftright[1] - 1
 	var/right = leftright[2] + 1
-	if(!(left == (new_weapon_dir-1)) && !(right == (new_weapon_dir+1)))
+	if(left != (new_weapon_dir - 1) && right != (new_weapon_dir + 1))
 		return FALSE
 	if(turret_overlay.dir == new_weapon_dir)
 		return FALSE
