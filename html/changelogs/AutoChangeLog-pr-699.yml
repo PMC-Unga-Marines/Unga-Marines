@@ -1,0 +1,5 @@
+author: "mister-onion"
+delete-after: True
+changes:
+  - rscadd: "Стрейн преторианца танцора & Способности: Dodge, Impale, Tail Trip."
+  - image: "Иконки для: Dodge, Impale, Tail Trip."
