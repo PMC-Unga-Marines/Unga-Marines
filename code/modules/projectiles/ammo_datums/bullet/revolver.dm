@@ -68,7 +68,7 @@
 /datum/ammo/bullet/revolver/t312/med
 	name = ".500"
 	handful_icon_state = "nigro"
-	handful_amount = 1
+	handful_amount = 5
 	damage = 20
 	penetration = 100
 	shrapnel_chance = 0
