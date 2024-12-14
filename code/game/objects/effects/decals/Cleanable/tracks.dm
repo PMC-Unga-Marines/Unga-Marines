@@ -17,7 +17,7 @@
 // TODO VERY SHITCODE, USE TG CODE FOR ME PLEASE
 /datum/fluidtrack
 	var/direction=0
-	var/basecolor="#A10808"
+	var/basecolor="#ffffff"
 	var/wet=0
 	var/fresh=1
 	var/crusty=0
