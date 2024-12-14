@@ -17,7 +17,7 @@
 // TODO VERY SHITCODE, USE TG CODE FOR ME PLEASE
 /datum/fluidtrack
 	var/direction=0
-	var/basecolor="#ffffff"
+	var/basecolor="#A10808"
 	var/wet=0
 	var/fresh=1
 	var/crusty=0
@@ -35,6 +35,7 @@
 	var/dirs=0
 	icon = 'icons/effects/fluidtracks.dmi'
 	icon_state = ""
+	basecolor = "#ffffff"
 	var/coming_state="blood1"
 	var/going_state="blood2"
 	var/updatedtracks=0

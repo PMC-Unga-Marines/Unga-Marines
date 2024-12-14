@@ -11,7 +11,7 @@
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
 	var/base_icon = 'icons/effects/blood.dmi'
-	var/basecolor = "#830101"
+	var/basecolor = "#9b0707"
 	var/amount = 5
 	var/drying_timer
 
