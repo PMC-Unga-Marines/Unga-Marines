@@ -20843,10 +20843,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
-"ufL" = (
-/obj/structure/prop/vehicle/apc/damagedframe,
-/turf/open/floor/plating/ground/concrete,
-/area/lv624/lazarus/monorail)
 "ugE" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
@@ -37374,7 +37370,7 @@ vCm
 pxU
 pxU
 pxU
-ufL
+pxU
 oNa
 pxU
 pxU
