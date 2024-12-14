@@ -31,7 +31,7 @@
 	var/firing
 
 ///Change minimap icon if its firing or not firing
-/obj/structure/xeno/turret/proc/update_minimap_icon()
+/obj/structure/xeno/turret/update_minimap_icon()
 	SSminimaps.remove_marker(src)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]")) // RU TGMC edit - map blips
 

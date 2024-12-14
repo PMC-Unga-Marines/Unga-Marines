@@ -297,21 +297,15 @@
 	icon = 'icons/Xeno/1x1building.dmi'
 	icon_state = "hivemind_core"
 	plane = FLOOR_PLANE
-	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|DEPART_DESTRUCTION_IMMUNE
-	///The cooldown of the alert hivemind gets when a hostile is near it's core
-	COOLDOWN_DECLARE(hivemind_proxy_alert_cooldown)
+	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|DEPART_DESTRUCTION_IMMUNE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 	///The weakref to the parent hivemind mob that we're attached to
 	var/datum/weakref/parent
-	///For minimap icon change if silo takes damage or nearby hostile
-	var/warning
 
 /obj/structure/xeno/hivemindcore/Initialize(mapload)
 	. = ..()
 	GLOB.hive_datums[hivenumber].hivemindcores += src
 	new /obj/alien/weeds/node(loc)
 	set_light(7, 5, LIGHT_COLOR_PURPLE)
-	for(var/turfs in RANGE_TURFS(XENO_HIVEMIND_DETECTION_RANGE, src))
-		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(hivemind_proxy_alert))
 	update_minimap_icon()
 
 /obj/structure/xeno/hivemindcore/Destroy()
@@ -355,43 +349,9 @@
 		if(76 to INFINITY)
 			to_chat(our_parent, span_xenodanger("Your core is under attack!"))
 
-/**
- * Proc checks if we should alert the hivemind, and if it can, it does so.
- * datum/source - the atom (in this case it should be a turf) sending the crossed signal
- * atom/movable/hostile - the atom that triggered the crossed signal, in this case we're looking for a mob
- */
-/obj/structure/xeno/hivemindcore/proc/hivemind_proxy_alert(datum/source, atom/movable/hostile)
-	SIGNAL_HANDLER
-	if(!COOLDOWN_CHECK(src, hivemind_proxy_alert_cooldown)) //Proxy alert triggered too recently; abort
-		return
-
-	if(!isliving(hostile))
-		return
-
-	var/mob/living/living_triggerer = hostile
-	if(living_triggerer.stat == DEAD) //We don't care about the dead
-		return
-
-	if(isxeno(hostile))
-		var/mob/living/carbon/xenomorph/X = hostile
-		if(X.hivenumber == hivenumber) //Trigger proxy alert only for hostile xenos
-			return
-	warning = TRUE
-	update_minimap_icon()
-	to_chat(get_parent(), span_xenoannounce("Our [src.name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y])."))
-	SEND_SOUND(get_parent(), 'sound/voice/alien/help1.ogg')
-	COOLDOWN_START(src, hivemind_proxy_alert_cooldown, XENO_HIVEMIND_DETECTION_COOLDOWN) //set the cooldown.
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_HIVEMIND_DETECTION_COOLDOWN) //clear warning
-
-///Clears the warning for minimap if its warning for hostiles
-/obj/structure/xeno/hivemindcore/proc/clear_warning()
-	warning = FALSE
-	update_minimap_icon()
-
-///Updates the minimap marker
-/obj/structure/xeno/hivemindcore/proc/update_minimap_icon()
+/obj/structure/xeno/hivemindcore/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "hivemindcore[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "hivemindcore[threat_warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
 
 /// Getter for the parent of this hive core
 /obj/structure/xeno/hivemindcore/proc/get_parent()
