@@ -196,7 +196,16 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_MEDSUP, "Deployable Operating Table", 12, "yellow"),
-	/obj/item/storage/box/t312case = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 25, "red"),
+	/obj/item/weapon/gun/revolver/t312 = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 10, "red"),
+	/obj/item/ammo_magazine/packet/t312/med/adrenaline = list(CAT_MEDSUP, "packet of .500 Adrenaline EMB", 7, "orange2"),
+	/obj/item/ammo_magazine/packet/t312/med/rr = list(CAT_MEDSUP, "packet of .500 Red Russian EMB", 7, "orange2"),
+	/obj/item/ammo_magazine/packet/t312/med/md = list(CAT_MEDSUP, "packet of .500 Meraderm EMB", 10, "orange2"),
+	/obj/item/ammo_magazine/packet/t312/med/neu = list(CAT_MEDSUP, "packet of .500 Neuraline EMB", 10, "orange2"),
+	/obj/item/ammo_magazine/revolver/t312/med/adrenaline = list(CAT_MEDSUP, "R-312 Adrenaline EMB speed loader", 1, "yellow"),
+	/obj/item/ammo_magazine/revolver/t312/med/rr = list(CAT_MEDSUP, "R-312 Red Russian EMB speed loader", 1, "yellow"),
+	/obj/item/ammo_magazine/revolver/t312/med/md = list(CAT_MEDSUP, "R-312 Meraderm EMB speed loader", 1, "yellow"),
+	/obj/item/ammo_magazine/revolver/t312/med/neu = list(CAT_MEDSUP, "R-312 Neuraline EMB speed loader", 1, "yellow"),
+	/obj/item/storage/pouch/medkit/t312 = list(CAT_MEDSUP, "Medkit pouch for EMB", 1, "blue"),
 ))
 
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
