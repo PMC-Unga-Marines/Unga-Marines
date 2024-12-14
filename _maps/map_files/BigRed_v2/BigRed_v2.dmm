@@ -2942,9 +2942,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
-"aAZ" = (
-/turf/open/floor/plating/plating_catwalk/dark,
-/area/bigredv2/caves/rock)
 "aBa" = (
 /obj/machinery/light,
 /obj/structure/cable,
@@ -10676,6 +10673,10 @@
 /area/bigredv2/caves/east)
 "ihJ" = (
 /obj/machinery/door/poddoor/four_tile_ver/secure,
+/obj/effect/forcefield{
+	desc = "You can't get in. Heh.";
+	name = "Blocker"
+	},
 /turf/closed/wall/r_wall/unmeltable,
 /area/bigredv2/caves/rock)
 "ihU" = (
@@ -10744,7 +10745,11 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "iqm" = (
-/turf/open/floor/plating,
+/obj/effect/forcefield{
+	desc = "You can't get in. Heh.";
+	name = "Blocker"
+	},
+/turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "irs" = (
 /obj/docking_port/stationary/crashmode,
@@ -11869,13 +11874,6 @@
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/s)
-"kCG" = (
-/obj/structure/toilet,
-/obj/item/clothing/suit/storage/marine/B17{
-	desc = "Броня великого лорда инжестана,пропавшего после защиты Инжестана."
-	},
-/turf/open/floor/plating,
-/area/bigredv2/caves/rock)
 "kCN" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -13179,12 +13177,6 @@
 /obj/structure/cargo_container/hd_blue,
 /turf/open/floor/mainship/cargo,
 /area/bigredv2/outside/monorail)
-"nyy" = (
-/obj/structure/monorail{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/bigredv2/caves/rock)
 "nzC" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/ground/jungle/clear,
@@ -14285,9 +14277,6 @@
 	dir = 4
 	},
 /area/bigredv2/outside/marshal_office)
-"pZI" = (
-/turf/closed/wall/r_wall/unmeltable,
-/area/bigredv2/caves/rock)
 "pZN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -18790,12 +18779,12 @@ gCQ
 gCQ
 gCQ
 gCQ
-qEh
-iqm
-nyy
-iqm
-kCG
-qEh
+gCQ
+gCQ
+gCQ
+gCQ
+gCQ
+gCQ
 gCQ
 gCQ
 gCQ
@@ -19007,12 +18996,12 @@ gCQ
 gCQ
 gCQ
 gCQ
-qEh
-iqm
-nyy
-iqm
-iqm
-qEh
+gCQ
+gCQ
+gCQ
+gCQ
+gCQ
+gCQ
 gCQ
 gCQ
 gCQ
@@ -19225,9 +19214,9 @@ gCQ
 gCQ
 gCQ
 qEh
-pZI
-gCQ
-gCQ
+qEh
+iqm
+iqm
 ihJ
 qEh
 gCQ
@@ -19442,7 +19431,7 @@ tQg
 gCQ
 mgl
 mgl
-aAZ
+fUn
 nWz
 fUn
 fUn
