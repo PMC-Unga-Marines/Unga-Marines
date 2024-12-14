@@ -2298,13 +2298,8 @@
 /turf/open/floor/plating,
 /area/lv624/ground/river2)
 "beb" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall{
-	dir = 6
-	},
+/obj/effect/decal/cleanable/dirt,
+/turf/closed/wall,
 /area/lv624/lazarus/monorail)
 "bel" = (
 /obj/item/clothing/glasses/regular,
@@ -3202,10 +3197,10 @@
 /turf/open/floor/plating/ground/concrete,
 /area/lv624/lazarus/monorail)
 "bGD" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/prop/mainship/gelida/rails{
+	dir = 4
 	},
-/turf/open/floor/mainship/stripesquare,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "bGH" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -4428,15 +4423,6 @@
 	dir = 9
 	},
 /area/lv624/lazarus/sleep_female)
-"cZu" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall{
-	dir = 10
-	},
-/area/lv624/lazarus/monorail)
 "dab" = (
 /obj/structure/cable,
 /turf/open/floor/tile/whiteyellow/corner{
@@ -7052,10 +7038,11 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/captain)
 "fPn" = (
-/obj/structure/prop/mainship/gelida/rails{
-	dir = 4
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
 	},
-/turf/open/floor/mainship/black/full,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "fPI" = (
 /obj/structure/flora/jungle/vines,
@@ -7097,14 +7084,6 @@
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/monorail)
-"fRy" = (
-/obj/structure/barricade/handrail/kutjevo{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 4
-	},
-/area/lv624/lazarus/monorail)
 "fRO" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/liquid/water/river/autosmooth,
@@ -7130,10 +7109,6 @@
 /turf/open/floor/engine,
 /area/lv624/lazarus/hydroponics/aux)
 "fSQ" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/closed/wall/r_wall,
 /area/lv624/ground/jungle10)
 "fSS" = (
@@ -8366,9 +8341,8 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "hiy" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/monorail,
-/turf/open/floor/mainship/black/full,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "hiU" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -8562,10 +8536,6 @@
 /obj/structure/inflatable/wall,
 /turf/open/shuttle/dropship/four,
 /area/lv624/ground/sand7)
-"htH" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/open/floor/mainship/black/full,
-/area/lv624/lazarus/monorail)
 "hur" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/chapel{
@@ -8844,13 +8814,12 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "hLf" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cargo_container{
 	dir = 4
 	},
+/obj/structure/monorail,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "hLz" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -8918,7 +8887,6 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/machinery/light,
-/obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser/deployable,
 /turf/open/floor/prison/darkbrown/full,
 /area/lv624/lazarus/monorail)
 "hOJ" = (
@@ -10351,7 +10319,9 @@
 /turf/open/liquid/water/river/autosmooth/deep,
 /area/lv624/ground/river2)
 "jlt" = (
-/turf/open/floor/mainship/black/full,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "jlC" = (
 /obj/structure/closet/crate,
@@ -10395,10 +10365,6 @@
 	dir = 9
 	},
 /area/lv624/ground/sand7)
-"jmW" = (
-/obj/machinery/door/poddoor/two_tile_hor,
-/turf/open/floor/mainship/black/full,
-/area/lv624/lazarus/monorail)
 "jnE" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating,
@@ -11478,13 +11444,6 @@
 	dir = 2
 	},
 /area/lv624/ground/sand8)
-"kqh" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/gm/dense,
-/area/lv624/ground/caves/rock)
 "kqj" = (
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/ground/concrete,
@@ -11841,7 +11800,7 @@
 /area/lv624/ground/jungle1)
 "kJf" = (
 /obj/effect/turf_decal/warning_stripes/stripedsquare/tile/border,
-/turf/open/floor/mainship/black/full,
+/turf/open/space/basic,
 /area/lv624/ground/jungle6)
 "kJH" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -14176,10 +14135,6 @@
 	dir = 1;
 	name = "Tunnel A1"
 	},
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/caves/rock)
 "ndt" = (
@@ -14665,15 +14620,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
-"nKP" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall{
-	dir = 5
-	},
-/area/lv624/lazarus/monorail)
 "nKS" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/ground/grass,
@@ -15522,6 +15468,7 @@
 /obj/structure/rack/nometal,
 /obj/item/ore/uranium,
 /obj/item/ore/uranium,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/stripesquare,
 /area/lv624/lazarus/monorail)
 "oGS" = (
@@ -16356,11 +16303,6 @@
 	dir = 5
 	},
 /turf/open/floor/plating/ground/concrete,
-/area/lv624/lazarus/monorail)
-"pER" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/supply_drop,
-/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "pEV" = (
 /obj/structure/rack,
@@ -17536,10 +17478,6 @@
 /obj/effect/spawner/random/medical/firstaid,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
-"qVk" = (
-/obj/structure/monorail,
-/turf/open/floor/mainship/black/full,
-/area/lv624/lazarus/monorail)
 "qVt" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -18226,12 +18164,12 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/hydroponics/aux)
 "rAx" = (
-/obj/structure/barricade/handrail/kutjevo{
-	dir = 8
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cargo_container{
+	dir = 1
 	},
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 8
-	},
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "rAY" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -19153,16 +19091,12 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "spe" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cargo_container{
+	dir = 1
 	},
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall,
-/area/lv624/ground/caves/rock)
+/turf/open/floor/prison,
+/area/lv624/lazarus/monorail)
 "spI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/ground/dirt,
@@ -21131,13 +21065,6 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
-"urF" = (
-/obj/structure/prop/mainship/gelida/rails,
-/obj/structure/prop/mainship/gelida/rails{
-	dir = 10
-	},
-/turf/open/floor/mainship/black/full,
-/area/lv624/lazarus/monorail)
 "urG" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark/weed_node,
@@ -21311,6 +21238,7 @@
 /area/lv624/ground/caves/east1)
 "uzX" = (
 /obj/machinery/mineral/processing_unit,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/stripesquare,
 /area/lv624/lazarus/monorail)
 "uAZ" = (
@@ -22325,10 +22253,12 @@
 /turf/open/space/basic,
 /area/space)
 "vCI" = (
-/obj/machinery/door/poddoor/two_tile_hor{
-	bound_height = 33
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/prop/mainship/gelida/rails,
+/obj/structure/prop/mainship/gelida/rails{
+	dir = 10
 	},
-/turf/open/floor/mainship/black/full,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "vCR" = (
 /obj/structure/bed/chair/comfy{
@@ -22697,12 +22627,11 @@
 /turf/closed/wall,
 /area/lv624/lazarus/fitness)
 "vVq" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/mainship/gelida/rails,
 /obj/structure/prop/mainship/gelida/rails{
 	dir = 10
 	},
-/turf/open/floor/mainship/black/full,
+/turf/open/floor/prison,
 /area/lv624/lazarus/monorail)
 "vVs" = (
 /obj/effect/ai_node,
@@ -23323,8 +23252,6 @@
 	dir = 1
 	},
 /obj/item/minerupgrade/automatic,
-/obj/item/minerupgrade/automatic,
-/obj/item/minerupgrade/overclock,
 /turf/open/floor/prison/darkbrown/full,
 /area/lv624/lazarus/monorail)
 "wAp" = (
@@ -24469,10 +24396,6 @@
 /turf/open/floor,
 /area/lv624/ground/sand8)
 "xww" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/caves/rock)
 "xwZ" = (
@@ -24877,15 +24800,6 @@
 "xSn" = (
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/jungle4)
-"xSF" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall{
-	dir = 9
-	},
-/area/lv624/lazarus/monorail)
 "xTa" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -25050,13 +24964,6 @@
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
-"ycd" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall,
-/area/lv624/lazarus/monorail)
 "ycn" = (
 /obj/structure/barricade/wooden{
 	dir = 4
@@ -25629,11 +25536,11 @@ mOs
 mOs
 mOs
 mOs
-kqh
-kqh
-kqh
-kqh
-kqh
+mOs
+mOs
+mOs
+mOs
+mOs
 mOs
 mOs
 mOs
@@ -25811,11 +25718,11 @@ mOs
 mOs
 mOs
 mOs
-kqh
-kqh
-kqh
-kqh
-kqh
+mOs
+mOs
+mOs
+mOs
+mOs
 nmn
 fPI
 fPI
@@ -25993,11 +25900,11 @@ mOs
 mOs
 mOs
 mOs
-qNH
+tTs
 xww
 ndl
-spe
-kqh
+tTs
+mOs
 qvt
 vsk
 vsk
@@ -39658,13 +39565,13 @@ rlX
 owv
 tJT
 iXX
-pmF
+rlX
 pmF
 jBu
 uzX
 oGQ
 ffG
-pmF
+rlX
 pmF
 yiq
 tIf
@@ -39841,12 +39748,12 @@ tZl
 tDm
 ihp
 pmF
-xSF
-ycd
-ycd
-ycd
-ycd
-cZu
+beb
+beb
+beb
+beb
+pmF
+pmF
 pmF
 jlR
 srR
@@ -40023,12 +39930,12 @@ mAq
 tDm
 xvF
 aQK
-hLf
+bGD
+bGD
+bGD
+bGD
 fPn
-fPn
-fPn
-fPn
-hLf
+spe
 pmF
 ieB
 bcE
@@ -40206,11 +40113,11 @@ tDm
 mxj
 vjG
 vCI
+vCI
+vCI
 vVq
-vVq
-vVq
-urF
-hLf
+tDm
+rAx
 pmF
 pmF
 lmI
@@ -40387,11 +40294,11 @@ hsx
 fcJ
 ehl
 xWW
-jlt
+fcJ
+fcJ
+fcJ
 hiy
 hiy
-hiy
-qVk
 hLf
 pmF
 nTs
@@ -40569,12 +40476,12 @@ roe
 tDm
 tDm
 gbp
-jmW
-jlt
-jlt
-jlt
-jlt
-hLf
+tDm
+tDm
+tDm
+rlX
+pAi
+pAi
 pmF
 iAN
 tIf
@@ -40751,12 +40658,12 @@ roe
 tDm
 tDm
 xWX
+rlX
+tDm
+tDm
+rlX
 jlt
-jlt
-jlt
-jlt
-jlt
-hLf
+pAi
 pmF
 rmk
 tUL
@@ -40933,12 +40840,12 @@ roe
 tDm
 gZO
 qRU
-hLf
+tDm
+tDm
+tDm
+rlX
 jlt
-htH
-jlt
-jlt
-hLf
+pAi
 pmF
 knA
 tIf
@@ -41115,11 +41022,11 @@ soc
 rlX
 opZ
 pmF
-nKP
-ycd
-ycd
-ycd
-ycd
+pmF
+beb
+beb
+pmF
+pmF
 beb
 pmF
 knA
@@ -41278,13 +41185,13 @@ avd
 avd
 vGA
 oNa
-fRy
-fRy
-fRy
-fRy
-fRy
-fRy
-fRy
+kas
+kas
+kas
+kas
+kas
+kas
+kas
 rBS
 oNa
 pxU
@@ -41295,12 +41202,12 @@ cGW
 rlX
 vvX
 rlX
-pER
-pmF
+tDm
+rlX
 pmF
 xLT
 gLd
-bGD
+gLd
 gLd
 bfF
 joK
@@ -41460,13 +41367,13 @@ auJ
 avd
 xNh
 oNa
-rAx
-rAx
-rAx
-rAx
-rAx
-rAx
-rAx
+rMc
+rMc
+rMc
+rMc
+rMc
+rMc
+rMc
 rMc
 vib
 pxU
