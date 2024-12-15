@@ -25,6 +25,11 @@
 	contains = list(/obj/item/weapon/shield/riot/marine/deployable)
 	cost = 30
 
+/datum/supply_packs/armor/boomvest
+	name = "Tactical boomvest"
+	contains = list(/obj/item/clothing/suit/storage/marine/boomvest)
+	cost = 50
+
 /datum/supply_packs/armor/b18
 	name = "B18 Armor Set"
 	contains = list(

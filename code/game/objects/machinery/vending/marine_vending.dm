@@ -806,7 +806,7 @@
 			/obj/item/beacon/supply_beacon = 1,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
-			/obj/item/clothing/suit/storage/marine/boomvest = 20,
+			/obj/item/clothing/suit/storage/marine/boomvest = 15,
 			/obj/item/radio/headset/mainship/marine/alpha = -1,
 			/obj/item/radio/headset/mainship/marine/bravo = -1,
 			/obj/item/radio/headset/mainship/marine/charlie = -1,

@@ -46,7 +46,8 @@
 		return
 	if(bomb_message)
 		activator.say("[bomb_message]!!")
-	if(!do_after(activator, 0.5 SECONDS, IGNORE_USER_LOC_CHANGE, src, BUSY_ICON_DANGER))
+	playsound(activator, 'sound/misc/allahuakbar.ogg', 50)
+	if(!do_after(activator, 1 SECONDS, IGNORE_USER_LOC_CHANGE, src, BUSY_ICON_DANGER))
 		return FALSE
 	boom(activator)
 
@@ -59,7 +60,7 @@
 		message_admins("[activator] has detonated an explosive vest with no warcry at [ADMIN_VERBOSEJMP(target)]")
 		log_game("[activator] has detonated an explosive vest with no warcry at [AREACOORD(target)]")
 
-	cell_explosion(target, 275, 65)
+	cell_explosion(target, 415, 83)
 	flame_radius(5, target)
 
 	activator.ex_act(500)
