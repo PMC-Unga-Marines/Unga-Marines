@@ -265,7 +265,6 @@ as having entered the turf.
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = SFX_EXPLOSION_LARGE
 		var/sound/far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
-		var/sound/creak_sound = SFX_EXPLOSION_CREAK
 
 		//no need to loop this for every mob
 		switch(power)
@@ -282,19 +281,20 @@ as having entered the turf.
 			var/mob/our_mob = MN
 			// Double check for client
 			var/turf/mob_turf = get_turf(our_mob)
-			if(mob_turf?.z == epicenter.z)
-				var/dist = get_dist(mob_turf, epicenter)
-				if(dist <= max(round(power, 1)))
-					our_mob.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, sound_to_use = explosion_sound)
-					if(is_mainship_level(epicenter.z))
-						our_mob.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, sound_to_use = creak_sound)//ship groaning under explosion effect
-				// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
-				else if(dist <= far_dist)
-					var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
-					far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
-					our_mob.playsound_local(epicenter, null, far_volume, 1, frequency, falloff = 5, sound_to_use = far_explosion_sound)
-					if(is_mainship_level(epicenter.z))
-						our_mob.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, sound_to_use = creak_sound)//ship groaning under explosion effect
+			if(mob_turf?.z != epicenter.z)
+				continue
+			var/dist = get_dist(mob_turf, epicenter)
+			if(dist <= max(round(power, 1)))
+				our_mob.playsound_local(epicenter, explosion_sound, 75, 1, frequency, falloff = 5)
+				if(is_mainship_level(epicenter.z))
+					our_mob.playsound_local(epicenter, SFX_EXPLOSION_CREAK, 40, 1, frequency, falloff = 5)//ship groaning under explosion effect
+			// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
+			else if(dist <= far_dist)
+				var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
+				far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
+				our_mob.playsound_local(epicenter, far_explosion_sound, far_volume, 1, frequency, falloff = 5)
+				if(is_mainship_level(epicenter.z))
+					our_mob.playsound_local(epicenter, SFX_EXPLOSION_CREAK, far_volume * 3, 1, frequency, falloff = 5)//ship groaning under explosion effect
 	if(!orig_range)
 		orig_range = round(power / falloff)
 	new /obj/effect/temp_visual/explosion(epicenter, orig_range, color, power)

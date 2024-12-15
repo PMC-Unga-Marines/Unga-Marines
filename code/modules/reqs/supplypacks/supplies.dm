@@ -102,34 +102,29 @@
 	)
 	cost = 40
 
-/datum/supply_packs/supplies/dollarten
-	name = "10 dollars"
-	contains = list(/obj/item/spacecash/c10)
+/datum/supply_packs/supplies/rubleten
+	name = "10 rubles"
+	contains = list(/obj/item/spacecash/bundle/c10)
 	cost = 1
 
-/datum/supply_packs/supplies/dollartwenty
-	name = "20 dollars"
-	contains = list(/obj/item/spacecash/c20)
-	cost = 2
-
-/datum/supply_packs/supplies/dollarfifty
-	name = "50 dollars"
-	contains = list(/obj/item/spacecash/c50)
+/datum/supply_packs/supplies/rublefifty
+	name = "50 rubles"
+	contains = list(/obj/item/spacecash/bundle/c50)
 	cost = 5
 
-/datum/supply_packs/supplies/dollarhundred
-	name = "100 dollars"
-	contains = list(/obj/item/spacecash/c100)
+/datum/supply_packs/supplies/rublehundred
+	name = "100 rubles"
+	contains = list(/obj/item/spacecash/bundle/c100)
 	cost = 10
 
-/datum/supply_packs/supplies/dollartwohundred
-	name = "200 dollars"
-	contains = list(/obj/item/spacecash/c200)
+/datum/supply_packs/supplies/rubletwohundred
+	name = "200 rubles"
+	contains = list(/obj/item/spacecash/bundle/c200)
 	cost = 20
 
-/datum/supply_packs/supplies/dollarfivehundred
-	name = "500 dollars"
-	contains = list(/obj/item/spacecash/c500)
+/datum/supply_packs/supplies/rublefivehundred
+	name = "500 rubles"
+	contains = list(/obj/item/spacecash/bundle/c500)
 	cost = 50
 
 /datum/supply_packs/supplies/pigs

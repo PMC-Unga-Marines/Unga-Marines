@@ -34,7 +34,7 @@
 /obj/vehicle/sealed/armored/multitile/enter_locations(atom/movable/entering_thing)
 	return list(get_step_away(get_step(src, REVERSE_DIR(dir)), src, 2))
 
-/obj/vehicle/sealed/armored/multitile/exit_location(mob/M)
+/obj/vehicle/sealed/armored/multitile/exit_location(atom/movable/M)
 	return pick(enter_locations(M))
 
 /obj/vehicle/sealed/armored/multitile/enter_checks(mob/entering_mob, loc_override = FALSE)
