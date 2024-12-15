@@ -14206,7 +14206,7 @@
 /turf/open/floor/grimy,
 /area/lv624/lazarus/captain)
 "njF" = (
-/obj/item/spacecash/c100,
+/obj/item/spacecash/bundle/c100,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -23418,7 +23418,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/compound/sw)
 "wHN" = (
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c200{
 	pixel_y = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -24043,8 +24043,8 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle6)
 "xjv" = (
-/obj/item/spacecash/c100,
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c100,
+/obj/item/spacecash/bundle/c200{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -24168,7 +24168,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "xpx" = (
-/obj/item/spacecash/c100{
+/obj/item/spacecash/bundle/c100{
 	pixel_x = -12
 	},
 /obj/item/reagent_containers/food/drinks/bottle/sake,
@@ -24280,7 +24280,7 @@
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/jungle6)
 "xuL" = (
-/obj/item/spacecash/c500{
+/obj/item/spacecash/bundle/c500{
 	pixel_x = 5;
 	pixel_y = -2
 	},
