@@ -1,0 +1,6 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Запортил улучшения proc/qdel()"
+  - code_imp: "Запортил улучшения Reference Tracking-а и Garbage Cleaning."
+  - code_imp: "Запортил улучшения MC."
