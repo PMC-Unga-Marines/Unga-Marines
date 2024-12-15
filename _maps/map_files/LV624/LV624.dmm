@@ -6676,6 +6676,7 @@
 /area/lv624/lazarus/tablefort)
 "fvD" = (
 /obj/structure/table/woodentable,
+/obj/item/spacecash/bundle/c500,
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "fwb" = (
@@ -14205,15 +14206,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/grimy,
 /area/lv624/lazarus/captain)
-"njF" = (
-/obj/item/spacecash/c100,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/blue/whiteblue{
-	dir = 1
-	},
-/area/lv624/lazarus/internal_affairs)
 "njH" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -23417,14 +23409,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/compound/sw)
-"wHN" = (
-/obj/item/spacecash/c200{
-	pixel_y = 4
-	},
-/turf/open/floor/tile/blue/whiteblue{
-	dir = 8
-	},
-/area/lv624/lazarus/internal_affairs)
 "wIb" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/structure/cable,
@@ -24042,18 +24026,6 @@
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle6)
-"xjv" = (
-/obj/item/spacecash/c100,
-/obj/item/spacecash/c200{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/cable,
-/turf/open/floor/tile/blue/whiteblue{
-	dir = 1
-	},
-/area/lv624/lazarus/internal_affairs)
 "xjB" = (
 /obj/structure/bookcase,
 /obj/item/bananapeel,
@@ -24168,9 +24140,6 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "xpx" = (
-/obj/item/spacecash/c100{
-	pixel_x = -12
-	},
 /obj/item/reagent_containers/food/drinks/bottle/sake,
 /obj/machinery/light{
 	dir = 4
@@ -24279,15 +24248,6 @@
 /obj/effect/spawner/random/weaponry/melee,
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/jungle6)
-"xuL" = (
-/obj/item/spacecash/c500{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/turf/open/floor/tile/blue/whiteblue{
-	dir = 4
-	},
-/area/lv624/lazarus/internal_affairs)
 "xuT" = (
 /obj/effect/spawner/random/engineering/structure/tank/waterweighted,
 /turf/open/floor/freezer,
@@ -24969,6 +24929,7 @@
 "yff" = (
 /obj/structure/table/woodentable,
 /obj/item/megaphone,
+/obj/item/spacecash/bundle/c100,
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "yft" = (
@@ -49550,7 +49511,7 @@ oSv
 bMV
 vCc
 aYe
-xuL
+oSv
 dJH
 oSv
 tWH
@@ -49733,8 +49694,8 @@ wwM
 scB
 cbI
 vHk
-xjv
-njF
+iTu
+cUE
 fzX
 iTu
 tRR
@@ -49916,7 +49877,7 @@ viJ
 wwO
 onC
 xpx
-wHN
+onC
 uxz
 onC
 iqe
