@@ -41,6 +41,37 @@ GLOBAL_LIST_EMPTY(sorted_areas)
 /// An association from typepath to area instance. Only includes areas with `unique` set.
 GLOBAL_LIST_EMPTY_TYPED(areas_by_type, /area)
 
+GLOBAL_LIST_INIT(LZ_areas, typecacheof(list(
+	/area/barren/cave/lz1,
+	/area/barren/cave/lz2,
+	/area/bigredv2/outside/space_port,
+	/area/bigredv2/outside/space_port/two,
+	/area/deltastation/external/landingzone,
+	/area/gelida/landing_zone_1,
+	/area/gelida/landing_zone_2,
+	/area/ice_colony/exterior/surface/landing_pad,
+	/area/ice_colony/exterior/surface/landing_pad2,
+	/area/icy_caves/outpost/LZ1,
+	/area/icy_caves/outpost/LZ2,
+	/area/kutjevo/exterior/Northwest_Colony,
+	/area/kutjevo/interior/complex/Northwest_Dorms,
+	/area/kutjevo/interior/complex/Northwest_Security_Checkpoint,
+	/area/kutjevo/interior/complex/Northwest_Flight_Control,
+	/area/lawankaoutpost/colony/landingzoneone,
+	/area/lawankaoutpost/colony/landingzonetwo,
+	/area/lv624/lazarus/spaceport,
+	/area/lv624/lazarus/spaceport2,
+	/area/magmoor/landing,
+	/area/magmoor/landing/two,
+	/area/orion_outpost/surface/landing_pad_external,
+	/area/orion_outpost/surface/landing_pad2_external,
+	/area/prison/hangar/main,
+	/area/prison/hangar/civilian,
+	/area/outpost/lz1,
+	/area/outpost/lz2,
+	/area/slumbridge/landingzoneone,
+	/area/slumbridge/landingzonetwo)))
+
 GLOBAL_LIST_INIT(diagonal_smoothing_conversion, list(\
 	"[NORTHEAST]" = N_NORTHEAST, "[NORTHWEST]" = N_NORTHWEST, "[SOUTHEAST]" = N_SOUTHEAST, "[SOUTHWEST]" = N_SOUTHWEST,\
 	"[N_NORTHEAST]" = NORTHEAST, "[N_NORTHWEST]" = NORTHWEST, "[N_SOUTHEAST]" = SOUTHEAST, "[N_SOUTHWEST]" = SOUTHWEST))
