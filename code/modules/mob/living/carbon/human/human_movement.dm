@@ -16,11 +16,10 @@
 	// Tracking blood
 	var/bloodcolor = ""
 	var/bloodamount = 0
-	if(shoes)
-		if(shoes.track_blood && shoes.blood_overlay)
-			bloodcolor = shoes.blood_color
-			bloodamount = shoes.track_blood
-			shoes.track_blood--
+	if(shoes?.track_blood && shoes?.blood_overlay)
+		bloodcolor = shoes.blood_color
+		bloodamount = shoes.track_blood
+		shoes.track_blood--
 	else if(track_blood && feet_blood_color)
 		bloodcolor = feet_blood_color
 		bloodamount = track_blood
