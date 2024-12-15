@@ -129,6 +129,7 @@
 		return
 	TIMER_COOLDOWN_START(src, COOLDOWN_TADPOLE_LAUNCHING, launching_delay) // To stop spamming
 	shuttle_port.shuttle_computer = src
+	//SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LAUNCHED)
 	if(fly_state == SHUTTLE_ON_GROUND)
 		next_fly_state = SHUTTLE_IN_ATMOSPHERE
 		shuttle_port.callTime = SHUTTLE_TAKEOFF_GROUND_CALLTIME
