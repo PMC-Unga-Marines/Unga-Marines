@@ -1,6 +1,0 @@
-author: "MrFloppa"
-delete-after: True
-changes:
-  - rscadd: "Доллар заменен на рубль"
-  - refactor: "Код денег стал чище"
-  - bugfix: "Спрайт денег теперь не пропадает"
