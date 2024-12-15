@@ -215,6 +215,8 @@
 
 #define iscrowbar(I) (istype(I, /obj/item/tool/crowbar))
 
+#define isplasmacutter(I) (istype(I, /obj/item/tool/pickaxe/plasmacutter))
+
 #define iscell(I) (istype(I, /obj/item/cell))
 
 #define islascell(I) (istype(I, /obj/item/cell/lasgun))
