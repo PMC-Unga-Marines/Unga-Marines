@@ -348,6 +348,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 	to_chat(boiler_owner, span_xenonotice("We begin building up pressure."))
 
+	if(boiler_owner.icon == 'icons/Xeno/castes/boiler/rouny.dmi')
+		playsound(boiler_owner, 'sound/effects/homework_1.ogg', 25)
+
 	if(!do_after(boiler_owner, 2 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_DANGER))
 		to_chat(boiler_owner, span_warning("We decide not to launch."))
 		return fail_activate()
@@ -361,7 +364,10 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	var/obj/projectile/P = new /obj/projectile(boiler_owner.loc)
 	P.generate_bullet(boiler_owner.ammo)
 	P.fire_at(target, boiler_owner, boiler_owner, boiler_owner.ammo.max_range, boiler_owner.ammo.shell_speed)
-	playsound(boiler_owner, 'sound/effects/blobattack.ogg', 25, 1)
+	if(boiler_owner.icon == 'icons/Xeno/castes/boiler/rouny.dmi')
+		playsound(boiler_owner, 'sound/effects/homework_2.ogg', 25)
+	else
+		playsound(boiler_owner, 'sound/effects/blobattack.ogg', 25, 1)
 	if(istype(boiler_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
 		GLOB.round_statistics.boiler_acid_smokes++
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_acid_smokes")
