@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(sorted_areas)
 /// An association from typepath to area instance. Only includes areas with `unique` set.
 GLOBAL_LIST_EMPTY_TYPED(areas_by_type, /area)
 
-GLOBAL_LIST_INIT(LZ_areas, typecacheof(list(
+GLOBAL_LIST_INIT(landing_zone_areas, typecacheof(list(
 	/area/barren/cave/lz1,
 	/area/barren/cave/lz2,
 	/area/bigredv2/outside/space_port,
