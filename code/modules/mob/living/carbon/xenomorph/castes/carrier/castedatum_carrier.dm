@@ -42,8 +42,8 @@
 	minimap_icon = "carrier"
 
 	// *** Carrier Abilities *** //
-	huggers_max = 9
-	hugger_delay = 1.25 SECONDS
+	huggers_max = 4
+	hugger_delay = 1.5 SECONDS
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
