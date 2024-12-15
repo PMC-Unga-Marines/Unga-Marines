@@ -922,3 +922,10 @@
 		/obj/item/tweezers,
 		/obj/item/ammo_magazine/handful
 	)
+
+/obj/item/storage/pouch/medkit/t312/medic/PopulateContents()
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_combat_pack(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/storage/pill_bottle/meraderm(src)
+	new /obj/item/reagent_containers/hypospray/advanced/nanoblood(src)
