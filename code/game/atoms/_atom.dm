@@ -718,7 +718,7 @@ directive is properly returned.
 /atom/proc/welder_act(mob/living/user, obj/item/I)
 	return FALSE
 
-/atom/proc/weld_cut_act(mob/living/user, obj/item/I)
+/atom/proc/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	return FALSE
 
 /atom/proc/analyzer_act(mob/living/user, obj/item/I)

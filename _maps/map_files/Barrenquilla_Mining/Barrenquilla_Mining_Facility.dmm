@@ -2742,7 +2742,7 @@
 "mE" = (
 /obj/structure/closet/secure_closet,
 /obj/item/radio,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "mG" = (

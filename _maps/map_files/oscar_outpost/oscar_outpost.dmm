@@ -5538,7 +5538,7 @@
 /obj/structure/table/gamblingtable{
 	layer = 3.1
 	},
-/obj/item/spacecash/c100{
+/obj/item/spacecash/bundle/c100{
 	layer = 3.3;
 	pixel_y = 6
 	},
