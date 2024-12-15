@@ -557,7 +557,7 @@
 				return do_refill(I, user)
 
 	if(!can_be_inserted(I))
-		if(!user.s_active) // Don't close open storage menu if can't insert something, if storage dosen't open it will be open
+		if(user.s_active != src) // Don't close open storage menu if can't insert something, if storage dosen't open it will be open
 			open(user)
 		return FALSE
 	return handle_item_insertion(I, FALSE, user)
