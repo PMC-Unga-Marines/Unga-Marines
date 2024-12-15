@@ -24,14 +24,11 @@
 		bloodcolor = feet_blood_color
 		bloodamount = track_blood
 		track_blood--
-
-	if ((bloodamount > 0) && !locate(/obj/structure) in contents)
+	if (bloodamount > 0)
 		var/turf/turf = get_turf(src)
 		turf.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, direction, 0, bloodcolor) // Coming
 		var/turf/from = get_step(src, REVERSE_DIR(direction))
 		from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, 0, direction, bloodcolor) // Going
-
-	return
 
 /mob/living/carbon/human/proc/Process_Cloaking_Router(mob/living/carbon/human/user)
 	if(!user.cloaking)
