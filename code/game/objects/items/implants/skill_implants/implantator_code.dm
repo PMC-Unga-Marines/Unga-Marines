@@ -19,10 +19,20 @@
 	. = ..()
 	name += " implanter"
 
-/obj/item/implanter/Destroy()
+/obj/item/implanter/implantator/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	var/obj/item/implant/skill/implant = src?.internal_implant
+	for(var/skill in implant.max_skills)
+		if(user.skills.getRating(skill) < implant.max_skills[skill])
+			. += " You can increase your knowleadge to [implant.max_skills[skill]] level"
+			return
+		else
+			. += " You know everything about this, you can't learn more... But you can give it another man "
+
+/obj/item/implanter/implantator/Destroy()
 	return ..()
 
-/obj/item/implanter/update_icon_state()
+/obj/item/implanter/implantator/update_icon_state()
 	return
 
 /obj/item/implanter/implantator/attack(mob/target, mob/living/user)

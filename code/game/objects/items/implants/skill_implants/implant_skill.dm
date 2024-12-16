@@ -23,7 +23,7 @@
 	max_skills = list(SKILL_SURGERY = SKILL_SURGERY_PROFESSIONAL)
 
 /obj/item/implant/skill/codex/engineer
-	name = "construction support system"
+	name = "enginering implants system"
 	desc = "Laying brickwork has never been easier than with this corrective endoskeleton! Update engineering skills!"
 	engineer = 1
 	max_skills = list(SKILL_ENGINEER = SKILL_ENGINEER_MASTER)
