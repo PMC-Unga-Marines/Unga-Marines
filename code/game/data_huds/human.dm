@@ -229,7 +229,7 @@
 	var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicalnanites)
 	var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
 	var/ifosfamide_amount = reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide)
-	var/neurofrenzy_amount = reagents.get_reagent_amount(/datum/reagent/neurofrenzy)
+	// var/neurofrenzy_amount = reagents.get_reagent_amount(/datum/reagent/neurofrenzy)
 
 	if(neurotox_amount > 10) //Blinking image for particularly high concentrations
 		xeno_reagent.overlays += neurotox_high_image
