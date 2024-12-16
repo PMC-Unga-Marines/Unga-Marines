@@ -56,6 +56,7 @@
 			)
 		)
 	var/list/atom/movable/movables = list()
+	var/list/obj/structure/cable/cables = list()
 	var/list/obj/docking_port/stationary/ports = list()
 	var/list/area/areas = list()
 
@@ -69,6 +70,9 @@
 			if(istype(movable_in_turf, /obj/docking_port/mobile))
 				continue // mobile docking ports need to be initialized after their template has finished loading, to ensure that their bounds are setup
 			movables += movable_in_turf
+			if(istype(movable_in_turf, /obj/structure/cable))
+				cables += movable_in_turf
+				continue
 			if(istype(movable_in_turf, /obj/docking_port/stationary))
 				ports += movable_in_turf
 
@@ -79,6 +83,9 @@
 	SSmapping.reg_in_areas_in_z(areas)
 	if(!SSatoms.initialized)
 		return
+
+	// Sadly we still need this, so the shuttles like Canterbury properly make powernets
+	SSmachines.setup_template_powernets(cables)
 
 	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
 
