@@ -1,0 +1,4 @@
+author: "definitelynotspaghetti"
+delete-after: True
+changes:
+  - rscadd: "Блинк хантера теперь телепортирует на тайл цели, а не на случайный соседний."
