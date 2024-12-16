@@ -12,11 +12,11 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 		vehtype = new vehtype
 		GLOB.armored_modtypes[vehtype.type] = vehtype.permitted_mods
 		.[vehtype.type] = vehtype.permitted_weapons
-		qdel(vehtype)
+		vehtype.Destroy()
 	for(var/obj/item/armored_weapon/gun AS in typesof(/obj/item/armored_weapon))
 		gun = new gun
 		GLOB.armored_gunammo[gun.type] = gun.accepted_ammo
-		qdel(gun)
+		gun.Destroy()
 
 /datum/supply_ui/vehicles
 	tgui_name = "VehicleSupply"

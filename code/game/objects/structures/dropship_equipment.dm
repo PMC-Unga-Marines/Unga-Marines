@@ -359,12 +359,16 @@
 	if(!deployed_turret)
 		var/obj/new_gun = new sentry_type(src)
 		deployed_turret = new_gun.loc
-		RegisterSignal(deployed_turret, COMSIG_OBJ_DECONSTRUCT, PROC_REF(clean_refs))
+		RegisterSignal(deployed_turret, COMSIG_QDELETING, PROC_REF(clean_refs))
+
+/obj/structure/dropship_equipment/shuttle/sentry_holder/Destroy()
+	deployed_turret = null
+	return ..()
 
 ///This cleans the deployed_turret ref when the sentry is destroyed.
 /obj/structure/dropship_equipment/shuttle/sentry_holder/proc/clean_refs(atom/source, disassembled)
 	SIGNAL_HANDLER
-	UnregisterSignal(deployed_turret, COMSIG_OBJ_DECONSTRUCT)
+	UnregisterSignal(deployed_turret, COMSIG_QDELETING)
 	deployed_turret = null
 	dropship_equipment_flags &= ~IS_NOT_REMOVABLE
 
