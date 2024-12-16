@@ -5,7 +5,7 @@
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
 	sing_verb = "hisses melodically"
-	key = "x"
+	key = "4"
 	syllables = list("sss", "sSs", "SSS")
 	default_priority = 50
 
