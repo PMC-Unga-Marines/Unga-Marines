@@ -21,6 +21,7 @@
 #define SKILL_POLICE "police"
 #define SKILL_POWERLOADER "powerloader"
 #define SKILL_LARGE_VEHICLE "large_vehicle"
+#define SKILL_MECH_PILOT "mech_pilot"
 #define SKILL_STAMINA "stamina"
 #define SKILL_SWORDPLAY "swordplay"
 ////////////////////////////////////////////////
@@ -158,6 +159,10 @@
 #define SKILL_LARGE_VEHICLE_TRAINED 1 //loader
 #define SKILL_LARGE_VEHICLE_EXPERIENCED 2 //transport crew
 #define SKILL_LARGE_VEHICLE_VETERAN 3 //mech pilot and assault crew
+
+//Allow mech pilot use mechs
+#define SKILL_MECH_PILOT_DEFAULT 0
+#define SKILL_MECH_PILOT_TRAINED 1
 
 //stamina skill - you do cardio, right?
 //buff stamina related things
