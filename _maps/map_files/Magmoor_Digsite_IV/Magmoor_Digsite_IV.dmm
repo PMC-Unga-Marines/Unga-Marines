@@ -2751,13 +2751,6 @@
 	dir = 4
 	},
 /area/magmoor/engi/power)
-"bRd" = (
-/obj/effect/ai_node,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/magmoor/compound/east)
 "bRf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -3165,12 +3158,6 @@
 	},
 /turf/open/floor/mainship,
 /area/magmoor/command/monorail)
-"cjw" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/edge{
-	dir = 1
-	},
-/area/magmoor/compound/east)
 "cjx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -4383,10 +4370,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/cryostasis)
-"der" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/lines,
-/area/magmoor/compound/east)
 "deA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -7227,15 +7210,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/volcano)
-"fbX" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship/black{
-	dir = 1
-	},
-/area/magmoor/command/monorail)
 "fcp" = (
 /obj/machinery/computer/aifixer,
 /turf/open/floor/plating/mainship,
@@ -16037,12 +16011,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/magmoor/compound/east)
-"lHh" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 8
-	},
-/area/magmoor/compound/east)
 "lHv" = (
 /obj/structure/closet/firecloset/full,
 /obj/machinery/light{
@@ -17679,10 +17647,6 @@
 "mTT" = (
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/magmoor/landing)
-"mTX" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/magmoor/compound/east)
 "mUk" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/wood,
@@ -22738,8 +22702,7 @@
 /area/magmoor/engi/storage)
 "qzT" = (
 /obj/item/trash/cigbutt,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/edge{
+/turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
 	},
 /area/magmoor/compound/east)
@@ -25984,7 +25947,6 @@
 /area/magmoor/compound)
 "tcE" = (
 /obj/item/trash/boonie,
-/obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 1
 	},
@@ -26806,13 +26768,6 @@
 "tJb" = (
 /turf/open/floor/plating,
 /area/magmoor/volcano)
-"tJg" = (
-/obj/effect/ai_node,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 8
-	},
-/area/magmoor/compound/east)
 "tJz" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -29383,10 +29338,6 @@
 	},
 /turf/closed/mineral/smooth/indestructible,
 /area/magmoor/cave/rock)
-"vAK" = (
-/obj/structure/window/framed/colony/reinforced,
-/turf/open/space/basic,
-/area/magmoor/command/monorail)
 "vBf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -29995,13 +29946,6 @@
 /obj/effect/spawner/random/weaponry/gun/sidearms,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/arrival/east)
-"vVI" = (
-/obj/effect/ai_node,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete/edge{
-	dir = 8
-	},
-/area/magmoor/compound/east)
 "vVM" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/wood,
@@ -68505,14 +68449,14 @@ tzT
 hzL
 bCl
 jCp
-der
-mTX
-mTX
+xyC
+vqD
+vqD
 nfy
 nfy
 nfy
-mTX
-mTX
+vqD
+vqD
 iPS
 iPS
 vqD
@@ -68723,22 +68667,22 @@ rxl
 rxl
 rxl
 oni
-bRd
+kBs
 qzT
-lHh
-lHh
+oGV
+oGV
 tcE
-vVI
-lHh
-lHh
-lHh
-lHh
-lHh
-lHh
-lHh
-tJg
-cjw
-der
+msd
+oGV
+oGV
+oGV
+oGV
+oGV
+oGV
+oGV
+kGP
+qNE
+xyC
 vqD
 iPS
 iPS
@@ -68987,9 +68931,9 @@ iPS
 iPS
 kyK
 euZ
-fbX
+lik
 cdl
-vAK
+euZ
 kyK
 euZ
 gWG

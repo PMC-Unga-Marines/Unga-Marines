@@ -5197,6 +5197,17 @@
 	dir = 6
 	},
 /area/bigredv2/outside/c)
+"aWM" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "aWP" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -8088,6 +8099,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
+"cDn" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/bigredv2/outside/monorail)
 "cDA" = (
 /obj/effect/spawner/modularmap/bigred/swcorner,
 /turf/open/space/basic,
@@ -11899,6 +11914,25 @@
 	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
+"kFI" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/spawner/gibspawner/human,
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
+"kGc" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "kGy" = (
 /obj/structure/table,
 /obj/item/tool/hand_labeler,
@@ -12681,6 +12715,14 @@
 "mAi" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northwest)
+"mBf" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "mBm" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -12720,6 +12762,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
+"mFo" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/bigredv2/caves/west)
 "mFE" = (
 /obj/effect/ai_node,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -13020,8 +13066,10 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "nkO" = (
-/obj/effect/soundplayer/deltaplayer,
-/turf/open/floor/plating/plating_catwalk/dark,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
 /area/bigredv2/outside/monorail)
 "nln" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -13420,6 +13468,18 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/bigredv2/caves/west)
+"nWF" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/bigredv2/caves/west)
+"nYz" = (
+/obj/structure/monorail{
+	dir = 4
+	},
+/obj/effect/ai_node,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/bigredv2/outside/monorail)
 "oaq" = (
 /obj/machinery/light,
 /turf/open/floor,
@@ -13532,6 +13592,12 @@
 /obj/effect/spawner/modularmap/bigred/lambdalock,
 /turf/open/space/basic,
 /area/bigredv2/caves/lambda_lab)
+"okM" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
+/area/bigredv2/outside/monorail)
 "okZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -14199,6 +14265,13 @@
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
+"pOS" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/obj/effect/ai_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "pPJ" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
@@ -14757,6 +14830,7 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/north,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/bigredv2/outside/monorail)
 "rdR" = (
@@ -14901,6 +14975,8 @@
 	dir = 4
 	},
 /obj/effect/spawner/gibspawner/human,
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/bigredv2/outside/monorail)
 "roD" = (
@@ -16838,6 +16914,11 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
+"vvQ" = (
+/obj/machinery/door/poddoor/shutters/mainship/open/checkpoint/north,
+/obj/effect/ai_node,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/bigredv2/outside/monorail)
 "vwb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -16929,6 +17010,10 @@
 "vEH" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
+/area/bigredv2/outside/monorail)
+"vHY" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/plating_catwalk/dark,
 /area/bigredv2/outside/monorail)
 "vIk" = (
 /obj/structure/bed,
@@ -17196,6 +17281,11 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/west)
+"whu" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/effect/ai_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "whE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
@@ -17351,6 +17441,13 @@
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/floor,
 /area/bigredv2/outside/monorail)
+"wvP" = (
+/obj/structure/monorail{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/bigredv2/caves/west)
 "wwv" = (
 /obj/effect/landmark/dropship_start_location,
 /turf/open/floor/marking/asteroidwarning{
@@ -17512,6 +17609,13 @@
 	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
+"wQT" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/ai_node,
+/turf/open/floor/mainship,
+/area/bigredv2/outside/monorail)
 "wSJ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning,
@@ -17835,6 +17939,7 @@
 /obj/machinery/door/poddoor/opened/port,
 /obj/machinery/door/poddoor/two_tile_hor/execution,
 /obj/structure/cable,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/monorail)
 "xDW" = (
@@ -17986,6 +18091,13 @@
 	dir = 8
 	},
 /area/bigredv2/caves/lambda_lab)
+"xSH" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/bigredv2/outside/monorail)
 "xST" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 10
@@ -19866,8 +19978,8 @@ swX
 jbi
 jbi
 fUn
-nWz
-fUn
+wvP
+mFo
 fUn
 pln
 jbi
@@ -20517,7 +20629,7 @@ sNF
 gCQ
 gCQ
 fUn
-nWz
+wvP
 fUn
 fUn
 gCQ
@@ -20952,7 +21064,7 @@ gCQ
 gCQ
 fUn
 nWz
-fUn
+nWF
 fUn
 gCQ
 gCQ
@@ -22471,7 +22583,7 @@ gCQ
 dxa
 afI
 rdD
-afI
+vvQ
 afI
 dxa
 dxa
@@ -23146,7 +23258,7 @@ qDQ
 dyg
 exJ
 dyg
-dyg
+mBf
 dyg
 dyg
 dyg
@@ -23353,7 +23465,7 @@ jSE
 kZg
 kZg
 xFj
-kZg
+cDn
 kZg
 jSE
 kZg
@@ -23557,10 +23669,7 @@ dxa
 kZg
 jSE
 kZg
-kZg
-kZg
-kZg
-jSE
+cDn
 kZg
 kZg
 jSE
@@ -23571,6 +23680,9 @@ kZg
 kZg
 jSE
 kZg
+kZg
+jSE
+cDn
 kZg
 jSE
 kZg
@@ -23774,17 +23886,17 @@ dxa
 kZg
 jSE
 kZg
+vHY
 kZg
 kZg
+jSE
+cDn
 kZg
 jSE
 kZg
 kZg
 jSE
-kZg
-kZg
-jSE
-kZg
+cDn
 kZg
 jSE
 kZg
@@ -23792,7 +23904,7 @@ kZg
 jSE
 kZg
 pTH
-hsz
+pOS
 tyF
 wkD
 jtH
@@ -23994,17 +24106,17 @@ kZg
 kZg
 kZg
 kZg
-jSE
-kZg
-kZg
-jSE
-nkO
-kZg
-jSE
+nYz
 kZg
 kZg
 jSE
 kZg
+vHY
+jSE
+kZg
+kZg
+jSE
+vHY
 kZg
 jSE
 kZg
@@ -24014,7 +24126,7 @@ bBD
 dju
 dju
 dju
-dju
+aWM
 dju
 cfV
 dju
@@ -24649,7 +24761,7 @@ dqj
 kZg
 kZg
 rBH
-kZg
+cDn
 kZg
 hll
 kZg
@@ -25750,7 +25862,7 @@ qDQ
 dyg
 dyg
 dyg
-exJ
+kFI
 dyg
 dyg
 dyg
@@ -26378,26 +26490,26 @@ afY
 afY
 xCE
 dym
-bjK
+xSH
 dym
 iui
 tnf
 tnf
+nkO
+aSE
+aSE
+aSE
+okM
+nkO
 aSE
 aSE
 aSE
 aSE
 aSE
-aSE
-aSE
-aSE
-aSE
-aSE
-aSE
-aSE
-aSE
+okM
+nkO
 mPc
-tyF
+whu
 wkD
 jtH
 utV
@@ -26618,7 +26730,7 @@ bBD
 dju
 dju
 dju
-dju
+kGc
 dju
 dju
 dju
@@ -26835,7 +26947,7 @@ omp
 fAP
 eoH
 jpC
-fAP
+wQT
 jpC
 fAP
 aYD
