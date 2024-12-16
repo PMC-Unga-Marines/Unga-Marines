@@ -15640,8 +15640,8 @@
 /area/bigredv2/outside/marshal_office)
 "sWL" = (
 /obj/machinery/miner/damaged,
-/turf/open/floor/plating/ground/concrete,
-/area/bigredv2/outside/monorail)
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv2/outside/w)
 "sXc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -22052,7 +22052,7 @@ tQg
 gCQ
 gCQ
 gCQ
-shc
+gCQ
 gCQ
 gCQ
 gCQ
@@ -26174,7 +26174,7 @@ iDW
 mqY
 hwk
 mqY
-sWL
+mqY
 aAt
 mqY
 mqY
@@ -27237,7 +27237,7 @@ aXH
 aXK
 tPn
 tPn
-tPn
+sWL
 vUH
 tFq
 vfk

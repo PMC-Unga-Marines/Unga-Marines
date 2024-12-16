@@ -2157,7 +2157,6 @@
 /area/magmoor/compound/north)
 "bxG" = (
 /obj/structure/closet/crate/internals,
-/obj/effect/spawner/random/engineering/metal,
 /turf/open/floor/mainship/floor,
 /area/magmoor/command/monorail)
 "bxK" = (
@@ -3687,10 +3686,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/northeast)
-"cDM" = (
-/obj/effect/landmark/corpsespawner/scientist,
-/turf/open/floor/mainship,
-/area/magmoor/command/monorail)
 "cEo" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/freezer,
@@ -6078,8 +6073,8 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
-	dir = 1
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 9
 	},
 /turf/open/floor/mainship,
 /area/magmoor/command/monorail)
@@ -7074,7 +7069,6 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/magmoor/compound/north)
 "eVI" = (
-/obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood/writing,
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 5
@@ -11046,11 +11040,6 @@
 	dir = 1
 	},
 /area/magmoor/compound/southwest)
-"iaY" = (
-/obj/effect/landmark/corpsespawner/security,
-/obj/structure/bed/chair/sofa/corsat,
-/turf/open/floor/mainship,
-/area/magmoor/command/monorail)
 "ibg" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/mainship/silver{
@@ -14168,7 +14157,6 @@
 /area/magmoor/research)
 "klA" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/effect/landmark/corpsespawner/doctor,
 /obj/structure/bed/chair/sofa/corsat,
 /obj/structure/bed/chair/sofa/corsat/right,
 /obj/effect/decal/cleanable/blood/splatter{
@@ -14399,10 +14387,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/sterile,
 /area/magmoor/medical/lobby)
-"kwY" = (
-/obj/effect/landmark/corpsespawner/security,
-/turf/open/floor/mainship,
-/area/magmoor/command/monorail)
 "kxk" = (
 /obj/structure/barricade/guardrail{
 	dir = 1
@@ -14417,10 +14401,6 @@
 /obj/item/shard,
 /turf/open/floor/plating,
 /area/magmoor/medical/treatment)
-"kxn" = (
-/obj/effect/landmark/corpsespawner/security,
-/turf/open/floor/mainship/floor,
-/area/magmoor/command/monorail)
 "kxw" = (
 /obj/structure/stairs/seamless/platform{
 	dir = 1
@@ -16160,11 +16140,6 @@
 /obj/effect/turf_decal/tile/pink,
 /turf/open/floor/tile/bar,
 /area/magmoor/civilian/clean/shower)
-"lKQ" = (
-/obj/structure/closet/crate,
-/obj/effect/spawner/random/engineering/metal,
-/turf/open/floor/mainship/floor,
-/area/magmoor/command/monorail)
 "lLH" = (
 /turf/open/floor/mainship/cargo,
 /area/magmoor/cargo/processing/south)
@@ -21456,7 +21431,6 @@
 	},
 /area/magmoor/engi)
 "pFe" = (
-/obj/effect/landmark/corpsespawner/security,
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 6
 	},
@@ -23468,10 +23442,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/magmoor/compound/northwest)
-"rfK" = (
-/obj/effect/landmark/corpsespawner/security,
-/turf/open/floor/mainship/black,
-/area/magmoor/command/monorail)
 "rge" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/plating,
@@ -27528,9 +27498,6 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/structure/barricade/metal{
-	dir = 1
-	},
 /turf/open/floor/mainship,
 /area/magmoor/command/monorail)
 "ugC" = (
@@ -27538,11 +27505,6 @@
 	dir = 8
 	},
 /area/magmoor/hydroponics/south)
-"ugO" = (
-/obj/structure/closet/crate,
-/obj/effect/spawner/random/engineering/metal/nooffset,
-/turf/open/floor/mainship/floor,
-/area/magmoor/command/monorail)
 "ugT" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -28079,9 +28041,6 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/structure/barricade/metal{
-	dir = 1
-	},
 /turf/open/floor/mainship,
 /area/magmoor/command/monorail)
 "uxD" = (
@@ -29248,7 +29207,6 @@
 	pixel_x = -2;
 	pixel_y = -4
 	},
-/obj/item/tool/pickaxe/plasmacutter,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -70195,7 +70153,7 @@ tRl
 tRl
 xqq
 kes
-rfK
+jtY
 hXG
 hXG
 rBD
@@ -70426,7 +70384,7 @@ wbH
 dCN
 wbH
 kHf
-kxn
+wbH
 wbH
 eBz
 ogT
@@ -71125,7 +71083,7 @@ wbH
 uVv
 nrd
 lWY
-eog
+tOx
 kRR
 xku
 pFe
@@ -71358,10 +71316,10 @@ vPW
 wbH
 jdS
 hAd
-eog
+tOx
 kRR
 lbz
-cDM
+xqz
 jvB
 klA
 kjh
@@ -72057,12 +72015,12 @@ wbH
 eQS
 jkz
 pDs
-eog
+tOx
 kRR
 xku
 wGg
 cmJ
-iaY
+xku
 kjh
 qtX
 cPF
@@ -72519,11 +72477,11 @@ bHh
 oif
 sVg
 uVv
-lKQ
+rVI
 uVv
 sql
 hgM
-eog
+tOx
 mdG
 xqz
 esS
@@ -72989,11 +72947,11 @@ wbH
 ncy
 wbH
 lvP
-eog
+tOx
 kRR
 xku
 rqY
-kwY
+xqz
 xku
 dCI
 qtX
@@ -73222,7 +73180,7 @@ kNv
 sql
 uVv
 izC
-eog
+tOx
 kRR
 lbz
 ePV
@@ -73451,7 +73409,7 @@ bHh
 vsb
 gXz
 uVv
-ugO
+rVI
 vPW
 wbH
 ddc
@@ -73692,7 +73650,7 @@ fSv
 wrZ
 ePV
 cRz
-kwY
+xqz
 xqz
 kjh
 qtX
