@@ -245,7 +245,7 @@
 	new /obj/effect/particle_effect/sparks(target_turf)
 	playsound(target_turf, 'sound/effects/EMPulse.ogg', 25, TRUE)
 
-	X.forceMove(A.loc)
+	X.forceMove(target_turf)
 	X.apply_status_effect(/datum/status_effect/hunt)
 
 	succeed_activate()
