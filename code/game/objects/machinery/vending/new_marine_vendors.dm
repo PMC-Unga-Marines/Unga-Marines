@@ -769,6 +769,38 @@
 		/obj/item/clothing/shoes/marine/separatist,
 	)
 
+/obj/effect/vendor_bundle/robot_armor/melee
+	name = "Cingulata physical protection armor set"
+	desc = "A set of advanced robotic heavy armor, that has received additional plates to protect against aggressive fauna and firearms."
+	gear_to_spawn = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/physical,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/physical,
+	)
+
+/obj/effect/vendor_bundle/robot_armor/acid
+	name = "Exidobate acid protection armor set"
+	desc = "A set of advanced robotic heavy armor, uses nickel and golden plate technology for perfect protection against acids."
+	congear_to_spawntains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/acid,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/acid,
+	)
+
+/obj/effect/vendor_bundle/robot_armor/bomb
+	name = "Tardigrada bomb protection armor set"
+	desc = "A set of advanced robotic heavy armor, that is equipped with reinforced protection against shock waves and explosions."
+	gear_to_spawn = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/bomb,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/bomb,
+	)
+
+/obj/effect/vendor_bundle/robot_armor/fire
+	name = "Urodela fire protection armor set"
+	desc = "A set of advanced robotic heavy armor, that protects important modules and wiring from fire and lava, which gives robots high survivability in fire."
+	gear_to_spawn = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/fire,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/fire,
+	)
+
 #undef MARINE_TOTAL_BUY_POINTS
 #undef ROBOT_TOTAL_BUY_POINTS
 #undef SMARTGUNNER_TOTAL_BUY_POINTS
