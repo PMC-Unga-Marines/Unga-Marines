@@ -21,6 +21,9 @@ import { Window } from '../layouts';
 const category_icon = {
   Operations: 'parachute-box',
   Weapons: 'fighter-jet',
+  Smartguns: 'star',
+  Stationary: 'bolt',
+  Launchers: 'rocket',
   Explosives: 'bomb',
   Armor: 'hard-hat',
   Clothing: 'tshirt',

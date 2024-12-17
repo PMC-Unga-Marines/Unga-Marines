@@ -167,6 +167,15 @@
 	base_icon_state = "col_window_frame"
 	basestate = "col_window_frame"
 
+/obj/structure/window_frame/kutjevo/reinforced
+	name = "reinforced window frame"
+	icon = 'icons/obj/smooth_objects/kutjevo_window_frame_reinforced.dmi'
+	icon_state = "col_rwindow_frame-0"
+	base_icon_state = "col_rwindow_frame"
+	basestate = "col_rwindow_frame"
+	reinforced = TRUE
+	max_integrity = 300
+
 /obj/structure/window_frame/wood
 	icon = 'icons/obj/smooth_objects/wood_window_frame.dmi'
 	icon_state = "wood_window_frame-0"

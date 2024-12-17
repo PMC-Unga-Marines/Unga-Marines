@@ -55,12 +55,16 @@
 	name = "Toggle [target]"
 	button.name = name
 
+/datum/action/item_action/toggle/action_activate()
+	. = ..()
+	set_toggle(!toggled)
+
+/datum/action/item_action/toggle/remove_action(mob/M)
+	deselect()
+	return ..()
+
 /datum/action/item_action/toggle/suit_toggle
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_KB_SUITLIGHT)
-
-/datum/action/item_action/toggle/suit_toggle/update_button_icon()
-	set_toggle(holder_item.light_on)
-	return ..()
 
 /datum/action/item_action/toggle/motion_detector/action_activate()
 	. = ..()
@@ -79,7 +83,6 @@
 /datum/action/item_action/firemode/New()
 	. = ..()
 	holder_gun = holder_item
-	update_button_icon()
 
 
 /datum/action/item_action/firemode/update_button_icon()

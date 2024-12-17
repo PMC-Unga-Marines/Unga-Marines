@@ -35,7 +35,7 @@
 		break_tile()
 	return ..()
 
-/turf/open/floor/fire_act(burn_level)
+/turf/open/floor/fire_act(burn_level, flame_color)
 	if(hull_floor)
 		return
 	if(!burnt && prob(5))

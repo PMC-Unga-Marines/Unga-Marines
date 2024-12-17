@@ -504,16 +504,8 @@
 	SIGNAL_HANDLER
 	set_gun_user(null)
 
-/obj/item/weapon/gun/update_icon()
+/obj/item/weapon/gun/update_icon(updates=ALL)
 	. = ..()
-
-	for(var/datum/action/action AS in actions)
-		action.update_button_icon()
-
-	if(master_gun)
-		for(var/datum/action/action AS in master_gun.actions)
-			action.update_button_icon()
-
 	update_item_state()
 
 /obj/item/weapon/gun/update_icon_state()
@@ -1416,6 +1408,7 @@
 			user.put_in_hands(mag)
 		else
 			mag.forceMove(get_turf(src))
+			SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER))
 		chamber_items[chamber_items.Find(mag)] = null
 	else
@@ -1842,6 +1835,6 @@
 		if(!istype(lit_flashlight))
 			continue
 		lit_flashlight.turn_light(null, FALSE)
-	playsound(loc, "alien_claw_metal", 25, 1)
+	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )

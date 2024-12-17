@@ -158,7 +158,7 @@
 
 /obj/item/explosive/grenade/sticky/trailblazer/prime()
 	flame_radius(0.5, get_turf(src))
-	playsound(loc, "incendiary_explosion", 35)
+	playsound(loc, SFX_INCENDIARY_EXPLOSION, 35)
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
@@ -200,7 +200,7 @@
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/prime()
 	flame_radius(0.5, get_turf(src), colour = "blue")
-	playsound(loc, "incendiary_explosion", 35)
+	playsound(loc, SFX_INCENDIARY_EXPLOSION, 35)
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
@@ -257,7 +257,7 @@
 
 /obj/item/explosive/grenade/incendiary/prime()
 	flame_radius(2, get_turf(src))
-	playsound(loc, "incendiary_explosion", 35)
+	playsound(loc, SFX_INCENDIARY_EXPLOSION, 35)
 	qdel(src)
 
 
@@ -294,7 +294,7 @@
 
 /obj/item/explosive/grenade/incendiary/molotov/prime()
 	flame_radius(2, get_turf(src))
-	playsound(loc, "molotov", 35)
+	playsound(loc, SFX_MOLOTOV, 35)
 	qdel(src)
 
 /obj/item/explosive/grenade/incendiary/molotov/throw_impact(atom/hit_atom, speed, bounce = TRUE)
@@ -517,8 +517,8 @@
 	light_color = LIGHT_COLOR_FLARE
 	G_throw_sound = null
 	var/fuel = 0
-	var/lower_fuel_limit = 450
-	var/upper_fuel_limit = 750
+	var/lower_fuel_limit = 60
+	var/upper_fuel_limit = 75
 
 /obj/item/explosive/grenade/flare/dissolvability(acid_strength)
 	return 2

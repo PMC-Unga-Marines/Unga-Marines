@@ -21,7 +21,7 @@
 	plasma_gain = 21
 
 	// *** Health *** //
-	max_health = 300
+	max_health = 400
 
 	// *** Evolution *** //
 	evolution_threshold = 100
@@ -89,7 +89,7 @@
 
 		// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
-	spit_types = list(/datum/ammo/xeno/toxin, /datum/ammo/xeno/acid/passthrough)
+	spit_types = list(/datum/ammo/xeno/tox_loss, /datum/ammo/xeno/acid/passthrough)
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,

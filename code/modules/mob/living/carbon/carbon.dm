@@ -38,7 +38,7 @@
 
 	apply_damage(shock_damage, BURN, def_zone, updating_health = TRUE)
 
-	playsound(loc, "sparks", 25, TRUE)
+	playsound(loc, SFX_SPARKS, 25, TRUE)
 	if (shock_damage > 10)
 		src.visible_message(
 			span_warning(" [src] was shocked by the [source]!"), \
@@ -202,7 +202,7 @@
 	user.dropItemToGround(src, TRUE)
 	return src
 
-/mob/living/carbon/fire_act(burn_level)
+/mob/living/carbon/fire_act(burn_level, flame_color)
 	. = ..()
 	adjust_bodytemperature(100, 0, BODYTEMP_HEAT_DAMAGE_LIMIT_ONE+10)
 

@@ -55,7 +55,10 @@
 	if(!l_hand)
 		W.forceMove(src)
 		l_hand = W
-		W.layer = ABOVE_HUD_LAYER
+		if(istype(W, /obj/item/weapon/twohanded/offhand) || istype(W, /obj/item/riding_offhand))
+			W.layer = ABOVE_HUD_LAYER - 0.1 // so it doesn't cover items inhands
+		else
+			W.layer = ABOVE_HUD_LAYER
 		W.plane = ABOVE_HUD_PLANE
 		update_inv_l_hand()
 		W.pixel_x = initial(W.pixel_x)
@@ -83,7 +86,10 @@
 	if(!r_hand)
 		W.forceMove(src)
 		r_hand = W
-		W.layer = ABOVE_HUD_LAYER
+		if(istype(W, /obj/item/weapon/twohanded/offhand) || istype(W, /obj/item/riding_offhand))
+			W.layer = ABOVE_HUD_LAYER - 0.1 // so it doesn't cover items inhands
+		else
+			W.layer = ABOVE_HUD_LAYER
 		W.plane = ABOVE_HUD_PLANE
 		update_inv_r_hand()
 		W.pixel_x = initial(W.pixel_x)

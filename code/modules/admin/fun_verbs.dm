@@ -155,7 +155,7 @@
 		if("Yes")
 			priority_announce(input, customname, customsubtitle, sound = 'sound/AI/commandreport.ogg', color_override = override);
 		if("No")
-			priority_announce("New update available at all communication consoles.", "Classified Transmission Received", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/commandreport.ogg')
+			priority_announce("Новое объявление доступно на всех консолях связи.", "Получена конфиденциальная передача", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/commandreport.ogg')
 		else
 			return
 
@@ -1186,11 +1186,11 @@
 		if("John Woo")
 			to_chat(GLOB.mob_living_list, span_highdanger("You feel gravity grow weak, and the urge to fly."))
 			for(var/mob/living/living_mob AS in GLOB.mob_living_list)
-				living_mob.set_jump_component(duration = 1 SECONDS, cooldown = 1.5 SECONDS, cost = 2, height = 48, sound = "jump", flags = JUMP_SPIN, flags_pass = HOVERING|PASS_PROJECTILE|PASS_TANK)
+				living_mob.set_jump_component(duration = 1 SECONDS, cooldown = 1.5 SECONDS, cost = 2, height = 48, sound = SFX_JUMP, flags = JUMP_SPIN, flags_pass = HOVERING|PASS_PROJECTILE|PASS_TANK)
 		if("Exceeding orbital velocity")
 			to_chat(GLOB.mob_living_list, span_highdanger("You feel gravity fade to nothing. Will you even come back down?"))
 			for(var/mob/living/living_mob AS in GLOB.mob_living_list)
-				living_mob.set_jump_component(duration = 4 SECONDS, cooldown = 6 SECONDS, cost = 0, height = 128, sound = "jump", flags = JUMP_SPIN, flags_pass = HOVERING|PASS_PROJECTILE|PASS_TANK)
+				living_mob.set_jump_component(duration = 4 SECONDS, cooldown = 6 SECONDS, cost = 0, height = 128, sound = SFX_JUMP, flags = JUMP_SPIN, flags_pass = HOVERING|PASS_PROJECTILE|PASS_TANK)
 		else
 			return
 
