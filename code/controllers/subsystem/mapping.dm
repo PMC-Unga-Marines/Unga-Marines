@@ -474,6 +474,6 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/manage_z_level(datum/space_level/new_z, filled_with_space, contain_turfs = TRUE)
 	// First, add the z
 	z_list += new_z
+	//TODO: All the Z-plane init stuff goes below here normally, we don't have that yet
 	// Then we build our lookup lists
 	//var/z_value = new_z.z_value
-	//TODO: All the Z-plane init stuff goes below here normally, we don't have that yet
