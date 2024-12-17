@@ -1,0 +1,4 @@
+author: "LoneAsket"
+delete-after: True
+changes:
+  - qol: "При осмотре ракет КАСа пишется время подлета, урон и тип ракет."
