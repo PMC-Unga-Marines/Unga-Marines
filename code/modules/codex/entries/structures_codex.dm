@@ -36,8 +36,6 @@
 	if(anchored)
 		structure_strings += "It is anchored in place."
 
-
-
 	. += jointext(structure_strings, "<br>")
 
 /datum/codex_entry/girder
