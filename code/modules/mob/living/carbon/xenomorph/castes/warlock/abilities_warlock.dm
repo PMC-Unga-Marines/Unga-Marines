@@ -221,7 +221,7 @@
 		bound_x = -32
 		pixel_x = -32
 	if(alternative_reflection) // The easy alternative to spriting 92 frames.
-		add_atom_colour("#ff000d", FIXED_COLOR_PRIORITY)
+		add_atom_colour("#ff000d", FIXED_COLOUR_PRIORITY)
 
 /obj/effect/xeno/shield/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	if(!(cardinal_move & REVERSE_DIR(dir)))
@@ -254,9 +254,10 @@
 /obj/effect/xeno/shield/proc/reflect_projectiles(atom/targetted_atom)
 	playsound(loc, 'sound/effects/portal.ogg', 20)
 
+	var/perpendicular_angle = Get_Angle(get_turf(src), get_step(src, dir)) //the angle src is facing, get_turf because pixel_x or y messes with the angle
 	var/direction_to_atom = angle_to_dir(Get_Angle(src, targetted_atom))
 	for(var/obj/projectile/reflected_projectile AS in frozen_projectiles)
-		reflected_projectile.projectile_behavior_flags &= ~PROJECTILE_FROZEN
+		reflected_projectile.flags_projectile_behavior &= ~PROJECTILE_FROZEN
 		reflected_projectile.distance_travelled = 0
 
 		// If alternative reflection is on, try to deflect toward the targetted area that we're facing.
