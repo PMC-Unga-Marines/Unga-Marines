@@ -191,7 +191,7 @@
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_shield_blasts")
 
 
-/obj/effect/xeno/shield
+/obj/effect/xeno/shield //sss
 	icon = 'icons/Xeno/96x96.dmi'
 	icon_state = "shield"
 	resistance_flags = UNACIDABLE|PLASMACUTTER_IMMUNE
