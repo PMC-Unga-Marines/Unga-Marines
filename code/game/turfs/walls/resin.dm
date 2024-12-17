@@ -27,6 +27,23 @@
 	ChangeTurf(/turf/closed/wall/resin/thick)
 	return TRUE
 
+/turf/closed/wall/resin/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	if(user.do_actions)
+		return FALSE
+	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
+		return FALSE
+	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
+	if(!I.start_cut(user, name, src, charge_cost, no_string = TRUE))
+		return FALSE
+	user.changeNext_move(I.attack_speed)
+	user.do_attack_animation(src, used_item = I)
+	I.cut_apart(user, name, src, charge_cost)
+	take_damage(max(0, I.force * (2 + PLASMACUTTER_RESIN_MULTIPLIER)), I.damtype, MELEE)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
+	return TRUE
+
 /turf/closed/wall/resin/thick
 	name = "thick resin wall"
 	desc = "Weird slime solidified into a thick wall."
@@ -101,14 +118,8 @@
 	if(I.damtype == BURN) //Burn damage deals extra vs resin structures (mostly welders).
 		multiplier += 1
 
-	if(istype(I, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
-		var/obj/item/tool/pickaxe/plasmacutter/P = I
-		if(P.start_cut(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD))
-			multiplier += PLASMACUTTER_RESIN_MULTIPLIER
-			P.cut_apart(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD)
-
 	damage *= max(0, multiplier)
-	take_damage(damage, BRUTE, MELEE)
+	take_damage(damage, I.damtype, MELEE)
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 
 /turf/closed/wall/resin/dismantle_wall()

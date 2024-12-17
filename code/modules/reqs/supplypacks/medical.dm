@@ -284,10 +284,10 @@
 
 /datum/supply_packs/medical/imialky_kit
 	name = "ImiAlky kit"
-	notes = "contains pill bottles imidazoline and alkysine."
+	notes = "contains pill bottles imialky."
 	contains = list(
-		/obj/item/storage/pill_bottle/imidazoline,
-		/obj/item/storage/pill_bottle/alkysine,
+		/obj/item/storage/pill_bottle/imialky,
+		/obj/item/storage/pill_bottle/imialky,
 	)
 	cost = 30
 
@@ -323,6 +323,24 @@
 	notes = "contains oxycodone auto injector."
 	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/oxycodone)
 	cost = 20
+
+/datum/supply_packs/medical/nf_neurostimulator
+	name = "N-F neurostimulator injector"
+	notes = "contains M-S neurostimulator auto injector."
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy)
+	cost = 140
+
+/datum/supply_packs/medical/nf_neurostimulator_kit
+	name = "N-F neurostimulator kit"
+	notes = "contains 5 N-F neurostimulator auto injectors."
+	contains = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
+	)
+	cost = 500
 
 /datum/supply_packs/medical/neuraline_kit
 	name ="large neuraline kit"

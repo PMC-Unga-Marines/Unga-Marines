@@ -214,6 +214,10 @@
 //-------------------------------------------------------
 //DMR-37 DMR
 
+#define DMR_BUMP_FIRE_DELAY 0.3 SECONDS
+#define DMR_BUMP_DAMAGE_MULT 0.6
+#define DMR_BUMP_ACCURACY_MULT 0.9
+
 /obj/item/weapon/gun/rifle/dmr37
 	name = "\improper DMR-37 SCA designated marksman rifle"
 	desc = "The San Cristo Arms DMR-37 is the TerraGov Marine Corps designated marksman rifle. It is rather well-known for it's very consistent target placement at longer than usual range, it however lacks a burst fire mode or an automatic mode. It is mostly used by people who prefer to do more careful shooting than most. Uses 10x27mm caseless caliber."
@@ -287,12 +291,46 @@
 	burst_amount = 1
 	movement_acc_penalty_mult = 6
 
+	var/bump_fire = FALSE
+
+/obj/item/weapon/gun/rifle/dmr37/toggle_aim_mode(mob/living/carbon/human/user)
+	if(bump_fire)
+		balloon_alert(user, "You can't aim while bump fire")
+		return
+	return ..()
+
+/obj/item/weapon/gun/rifle/dmr37/unique_action(mob/user)
+	if(!user)
+		CRASH("switch_modes called with no user.")
+
+	if(bump_fire)
+		fire_delay = initial(fire_delay)
+		damage_mult = initial(damage_mult)
+		accuracy_mult = initial(accuracy_mult)
+		bump_fire = FALSE
+
+		balloon_alert(user, "You started shooting normally")
+	else
+		if(HAS_TRAIT(src, TRAIT_GUN_IS_AIMING))
+			toggle_aim_mode(user)
+		fire_delay = DMR_BUMP_FIRE_DELAY
+		damage_mult = DMR_BUMP_DAMAGE_MULT
+		accuracy_mult = DMR_BUMP_ACCURACY_MULT
+		bump_fire = TRUE
+
+		balloon_alert(user, "You started to bump fire")
+
+	SEND_SIGNAL(src, COMSIG_GUN_AUTOFIREDELAY_MODIFIED, fire_delay)
+
 /obj/item/weapon/gun/rifle/dmr37/marksman
 	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/angledgrip, /obj/item/attachable/extended_barrel)
 
 /obj/item/weapon/gun/rifle/dmr37/beginner
 	starting_attachment_types = list(/obj/item/attachable/scope, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
 
+#undef DMR_BUMP_FIRE_DELAY
+#undef DMR_BUMP_DAMAGE_MULT
+#undef DMR_BUMP_ACCURACY_MULT
 
 //-------------------------------------------------------
 //BR-64 BR
@@ -1029,7 +1067,6 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/t60stock)
 	gun_skill_category = SKILL_HEAVY_WEAPONS
 	attachable_offset = list("muzzle_x" = 42, "muzzle_y" = 21,"rail_x" = 6, "rail_y" = 23, "under_x" = 26, "under_y" = 15, "stock_x" = 8, "stock_y" = 13)
-	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 5.3
 

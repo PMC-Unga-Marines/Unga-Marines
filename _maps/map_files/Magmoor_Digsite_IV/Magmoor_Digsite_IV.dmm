@@ -247,8 +247,8 @@
 /area/magmoor/civilian/dorms)
 "aii" = (
 /obj/structure/safe,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
 /turf/open/floor/wood,
 /area/magmoor/command/office/main)
 "aix" = (
@@ -23164,13 +23164,13 @@
 /area/magmoor/medical/morgue)
 "qXu" = (
 /obj/structure/safe,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
 /turf/open/floor/mainship,
 /area/magmoor/command/commandroom)
 "qXD" = (
