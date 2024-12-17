@@ -334,7 +334,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 				. += P
 
 /obj/structure/cable/proc/auto_propagate_cut_cable(obj/O)
-	if(QDELETED(O))
+	if(!O || QDELETED(O))
 		return
 	var/datum/powernet/newPN = new()// creates a new powernet...
 	propagate_network(O, newPN)//... and propagates it to the other side of the cable
