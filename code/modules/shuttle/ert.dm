@@ -38,7 +38,7 @@
 		docks += S
 	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
-		if(!(E.destination AS in docks))
+		if(!(E.destination in docks))
 			continue
 		docks -= E.destination // another shuttle already headed there
 	return docks
