@@ -21593,7 +21593,7 @@
 	pixel_y = 25
 	},
 /turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/compound/sw)
+/area/lv624/ground/jungle6)
 "vGQ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/jungle/vines,
@@ -23063,7 +23063,7 @@
 	pixel_y = 25
 	},
 /turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/compound/sw)
+/area/lv624/ground/jungle6)
 "xcz" = (
 /obj/structure/fence,
 /turf/open/ground/grass,
@@ -39589,7 +39589,7 @@ yft
 avd
 avd
 avd
-xLK
+nny
 pmF
 pmF
 bGA
@@ -39771,7 +39771,7 @@ avd
 avd
 avd
 avd
-xLK
+nny
 oNa
 pxU
 pxU
@@ -39953,7 +39953,7 @@ avd
 avd
 avd
 avd
-xLK
+nny
 oNa
 pxU
 lsJ
@@ -40135,7 +40135,7 @@ xjr
 aFV
 avd
 avd
-xLK
+nny
 oNa
 pxU
 pxU
@@ -40499,7 +40499,7 @@ auJ
 cbx
 auJ
 avd
-xLK
+nny
 oNa
 rMc
 jiq
@@ -40681,7 +40681,7 @@ mOs
 avd
 yft
 auJ
-xLK
+nny
 oNa
 pxU
 pxU
@@ -40863,7 +40863,7 @@ mOs
 avd
 xWM
 xWM
-xLK
+nny
 oNa
 pxU
 pxU
@@ -41227,7 +41227,7 @@ mOs
 mOs
 xWM
 tlt
-xLK
+nny
 oNa
 rlX
 krO
@@ -41409,7 +41409,7 @@ mOs
 mOs
 nny
 nny
-xLK
+nny
 oNa
 krO
 ccE

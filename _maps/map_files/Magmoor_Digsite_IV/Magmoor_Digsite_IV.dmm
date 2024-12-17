@@ -17960,10 +17960,6 @@
 	},
 /turf/open/floor/mainship/blue,
 /area/magmoor/command/conference)
-"nfy" = (
-/obj/structure/cable,
-/turf/closed/mineral/smooth,
-/area/magmoor/cave/rock)
 "nfY" = (
 /turf/open/floor/carpet/side{
 	dir = 6
@@ -68449,9 +68445,9 @@ jCp
 xyC
 vqD
 vqD
-nfy
-nfy
-nfy
+rxl
+rxl
+rxl
 vqD
 vqD
 rxl

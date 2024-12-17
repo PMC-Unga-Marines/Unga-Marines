@@ -424,10 +424,6 @@
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
-"afY" = (
-/obj/structure/cable,
-/turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/monorail)
 "agb" = (
 /obj/item/reagent_containers/blood/OMinus,
 /turf/open/floor/freezer,
@@ -3196,7 +3192,10 @@
 /turf/open/floor/tile/purple/whitepurple,
 /area/bigredv2/caves/lambda_lab)
 "aDm" = (
-/turf/closed/mineral/smooth/bigred,
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/open/floor/freezer,
 /area/bigredv2/outside/virology)
 "aDn" = (
 /obj/structure/cable,
@@ -8037,10 +8036,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/red/full,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
-"cuO" = (
-/obj/structure/barricade/concrete,
-/turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/monorail)
 "cuW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -9885,11 +9880,6 @@
 "gzM" = (
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
-"gAf" = (
-/turf/open/floor/marking/asteroidwarning{
-	dir = 8
-	},
-/area/bigredv2/outside/monorail)
 "gAI" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -12006,7 +11996,7 @@
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/monorail)
+/area/bigredv2/outside/w)
 "kRr" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south/garbledradio)
@@ -12086,9 +12076,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
-"kZJ" = (
-/turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/monorail)
 "lak" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -15330,7 +15317,7 @@
 "rWz" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/monorail)
+/area/bigredv2/outside/w)
 "rXL" = (
 /obj/structure/rack/nometal,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
@@ -17962,7 +17949,7 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/monorail)
+/area/bigredv2/outside/w)
 "xFB" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -24096,7 +24083,7 @@ gne
 szi
 aNc
 bco
-aNc
+aMz
 gCQ
 gCQ
 dxa
@@ -24313,7 +24300,7 @@ aNc
 aNc
 aNc
 aNc
-aDm
+aMz
 gCQ
 gCQ
 mIT
@@ -24530,8 +24517,8 @@ wQg
 aNc
 aNc
 aNc
-aDm
-aDm
+aMz
+gCQ
 gCQ
 dxa
 kZg
@@ -24747,8 +24734,8 @@ aWj
 aXx
 aMz
 aWj
-aDm
-aDm
+aMz
+aMz
 gCQ
 dxa
 xbt
@@ -24964,9 +24951,9 @@ aYC
 aNi
 aWj
 aYC
-aDm
-aDm
-aDm
+aNi
+aMz
+gCQ
 dxa
 hAn
 hAn
@@ -25181,9 +25168,9 @@ aWT
 sIY
 aWj
 aWT
-aDm
-aDm
-aDm
+aNi
+aMz
+gCQ
 dxa
 dFz
 qFN
@@ -25399,7 +25386,7 @@ aXz
 aWj
 aWU
 aDm
-aDm
+aMz
 aMz
 dxa
 uue
@@ -25615,8 +25602,8 @@ aMz
 aMz
 aMz
 aMz
-aDm
-ieG
+aMz
+aMz
 ieG
 ceG
 lDG
@@ -26052,8 +26039,8 @@ tFq
 tFq
 ieG
 ieG
-gAf
-gAf
+aWk
+aWk
 gSB
 mqY
 bjK
@@ -26270,7 +26257,7 @@ aWk
 ieG
 ieG
 rWz
-kZJ
+ieG
 uSs
 mqY
 bjK
@@ -26486,8 +26473,8 @@ aXA
 wrG
 evZ
 sSS
-afY
-afY
+sSS
+sSS
 xCE
 dym
 xSH
@@ -26703,7 +26690,7 @@ tFq
 tFq
 aVG
 ieG
-kZJ
+ieG
 xFo
 dwR
 mqY
@@ -26921,7 +26908,7 @@ vVR
 vfk
 ieG
 kRk
-cuO
+tej
 mIT
 mqY
 avs
@@ -27137,8 +27124,8 @@ vUH
 tFq
 vfk
 ieG
-kZJ
-cuO
+ieG
+tej
 ceG
 mqY
 mqY
@@ -27354,8 +27341,8 @@ vUH
 tFq
 vfk
 ieG
-kZJ
-cuO
+ieG
+tej
 ceG
 mqY
 mqY
