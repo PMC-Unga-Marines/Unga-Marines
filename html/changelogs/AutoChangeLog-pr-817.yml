@@ -1,4 +1,0 @@
-author: "MalorMorfin"
-delete-after: True
-changes:
-  - bugfix: "При клике не вмещаемым предметом, если этот контейнер не был открыт, он откроется."
