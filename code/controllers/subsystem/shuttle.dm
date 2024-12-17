@@ -105,14 +105,16 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/getShuttle(shuttle_id)
 	for(var/obj/docking_port/mobile/mobile_port in mobile_docking_ports)
-		if(mobile_port.shuttle_id == shuttle_id)
-			return mobile_port
+		if(mobile_port.shuttle_id != shuttle_id)
+			continue
+		return mobile_port
 	WARNING("couldn't find shuttle with id: [shuttle_id]")
 
 /datum/controller/subsystem/shuttle/proc/getDock(shuttle_id)
 	for(var/obj/docking_port/stationary/stationary_port in stationary_docking_ports)
-		if(stationary_port.shuttle_id == shuttle_id)
-			return stationary_port
+		if(stationary_port.shuttle_id != shuttle_id)
+			continue
+		return stationary_port
 	WARNING("couldn't find dock with id: [shuttle_id]")
 
 //try to move/request to dockHome if possible, otherwise dockAway. Mainly used for admin buttons
