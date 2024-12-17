@@ -84,10 +84,10 @@
 	if(!SSatoms.initialized)
 		return
 
+	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
+
 	// Sadly we still need this, so the shuttles like Canterbury properly make powernets
 	SSmachines.setup_template_powernets(cables)
-
-	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
 
 /datum/map_template/proc/load_new_z(minimap = TRUE, list/traits = list(ZTRAIT_AWAY = TRUE))
 	var/x = round((world.maxx - width) * 0.5) + 1
