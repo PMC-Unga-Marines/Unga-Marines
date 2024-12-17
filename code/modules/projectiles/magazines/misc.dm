@@ -408,15 +408,13 @@
 	default_ammo = /datum/ammo/bullet/sniper/musket
 	max_rounds = 54
 	caliber = CALIBER_19MM
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "musket_sack_m"
 
 /obj/item/ammo_magazine/packet/musket/small
-	name = "sack of musket lead rounds"
-	desc = "A sack filled with lead bullets."
+	name = "a small sack of musket lead rounds"
+	desc = "A small sack filled with lead bullets."
 	icon_state = "musket_sack_s"
-	default_ammo = /datum/ammo/bullet/sniper/musket
 	max_rounds = 27
-	caliber = CALIBER_19MM
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_SMALL
 	icon_state_mini = "musket_sack_s"
