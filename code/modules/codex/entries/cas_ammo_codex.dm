@@ -4,7 +4,7 @@
 	. += "<br>--------------COMBAT INFORMATION-------------------------"
 
 	if(travelling_time)
-		var/timetohit = travelling_time / 10
+		var/timetohit = travelling_time * 0.1
 		. += "Time to drop = [timetohit] seconds.<br>"
 
 	if(explosion_power)
