@@ -31,13 +31,16 @@
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
 	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
-		if(istype(S, /obj/docking_port/stationary/ert/target))
-			if(canDock(S) == SHUTTLE_CAN_DOCK) // discards occupied docks
-				docks += S
+		if(!istype(S, /obj/docking_port/stationary/ert/target))
+			continue
+		if(canDock(S) != SHUTTLE_CAN_DOCK) // discards occupied docks
+			continue
+		docks += S
 	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
-		if(E.destination in docks)
-			docks -= E.destination // another shuttle already headed there
+		if(!(E.destination AS in docks))
+			continue
+		docks -= E.destination // another shuttle already headed there
 	return docks
 
 /obj/docking_port/mobile/ert/proc/auto_launch()
