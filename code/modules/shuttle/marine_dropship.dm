@@ -13,8 +13,9 @@
 
 /obj/docking_port/stationary/marine_dropship/LateInitialize()
 	for(var/obj/machinery/landinglight/light AS in GLOB.landing_lights)
-		if(light.id == shuttle_id)
-			light.linked_port = src
+		if(light.id != shuttle_id)
+			continue
+		light.linked_port = src
 
 /obj/docking_port/stationary/marine_dropship/on_crash()
 	for(var/obj/machinery/power/apc/A AS in GLOB.apcs_list) //break APCs
