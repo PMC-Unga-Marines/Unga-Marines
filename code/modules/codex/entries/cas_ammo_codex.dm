@@ -11,7 +11,7 @@
 		. += "The force of the explosion = [explosion_power].<br>"
 
 	if(explosion_falloff)
-		. += "Explosion will lose power per turf = [explosion_falloff].<br>"
+		. += "Explosion will lose [explosion_falloff] power per turf.<br>"
 
 	var/prediction_type_string
 	switch(prediction_type)
@@ -22,4 +22,6 @@
 			prediction_type_string= "Incendiary"
 			. += "Ammo type = [prediction_type_string] rocket.<br>"
 			. += "Radius of fire  = [fire_range] tiles.<br>"
-
+		if(CAS_AMMO_HARMLESS)
+			prediction_type_string = "Harmless"
+			. += "Ammo type = [prediction_type_string] rocket. It's do nothing.<br>"
