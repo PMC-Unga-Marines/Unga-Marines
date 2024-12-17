@@ -644,6 +644,14 @@
 	},
 /turf/open/shuttle/dropship/seven,
 /area/icy_caves/caves/northwestmonorail)
+"dh" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/outside/center)
 "di" = (
 /obj/structure/closet/l3closet/janitor,
 /obj/structure/cable,
@@ -1057,6 +1065,14 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
+"fp" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 6
+	},
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/outside/center)
 "fq" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer2,
@@ -1325,6 +1341,10 @@
 /obj/effect/landmark/sensor_tower,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
+"hM" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/icy_caves/outpost/outside)
 "hN" = (
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 1
@@ -1432,6 +1452,12 @@
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
+"ik" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark/red2{
+	dir = 4
+	},
+/area/icy_caves/outpost/security)
 "il" = (
 /obj/structure/table/reinforced/prison,
 /turf/open/floor/prison,
@@ -2183,6 +2209,7 @@
 /obj/structure/cable,
 /obj/effect/landmark/dropship_start_location,
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "mu" = (
@@ -4578,6 +4605,10 @@
 	},
 /turf/open/floor/mainship_hull,
 /area/space)
+"ye" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/wall/r_wall,
+/area/icy_caves/outpost/security)
 "yf" = (
 /obj/structure/sink{
 	dir = 1
@@ -5753,6 +5784,7 @@
 /area/icy_caves/caves/west)
 "Ec" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside/center)
 "Ee" = (
@@ -6259,6 +6291,10 @@
 /obj/effect/spawner/random/weaponry/gun,
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
+"Gs" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/outside)
 "Gv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -6595,6 +6631,10 @@
 /obj/structure/cable,
 /turf/open/floor/prison/kitchen,
 /area/icy_caves/outpost/kitchen)
+"Ic" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ2)
 "Ie" = (
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/security)
@@ -7148,6 +7188,10 @@
 "KJ" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/plating/ground/snow,
+/area/icy_caves/outpost/outside)
+"KK" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/outpost/outside)
 "KO" = (
 /obj/effect/decal/cleanable/blood/gibs,
@@ -7863,6 +7907,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
+"Ol" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/outside/center)
 "On" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark,
@@ -7899,6 +7949,11 @@
 /obj/item/ammo_magazine/smg/m25,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
+"Ow" = (
+/obj/docking_port/stationary/crashmode,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/outside/center)
 "Ox" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -8756,6 +8811,14 @@
 	dir = 1
 	},
 /area/icy_caves/caves/northern)
+"Tp" = (
+/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/outside/center)
 "Tq" = (
 /obj/effect/decal/cleanable/blood/xtracks,
 /obj/structure/cable,
@@ -9239,6 +9302,7 @@
 /area/icy_caves/outpost/security)
 "VN" = (
 /obj/machinery/door/airlock/multi_tile/mainship/secdoor/glass,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark/red2{
 	dir = 8
 	},
@@ -12888,7 +12952,7 @@ pR
 pR
 pR
 pR
-pR
+hM
 XO
 XO
 XO
@@ -14121,7 +14185,7 @@ ZI
 XO
 XO
 XO
-XO
+KK
 Za
 Ni
 vy
@@ -14284,8 +14348,8 @@ SI
 Ln
 SI
 SI
-SI
-SI
+Gs
+Gs
 SI
 SI
 SI
@@ -14450,7 +14514,7 @@ SI
 SI
 SI
 SI
-SI
+Gs
 SI
 SI
 SI
@@ -14459,8 +14523,8 @@ Dn
 SI
 SI
 SI
-SI
-SI
+Gs
+Gs
 SI
 SI
 SI
@@ -17401,7 +17465,7 @@ li
 DD
 Fp
 nu
-iu
+Tp
 mM
 nu
 nu
@@ -17591,7 +17655,7 @@ Ip
 my
 my
 my
-my
+JW
 my
 my
 my
@@ -17729,7 +17793,7 @@ li
 DD
 DD
 DD
-my
+JW
 HA
 DD
 DD
@@ -18821,7 +18885,7 @@ my
 my
 my
 my
-my
+JW
 xm
 li
 YA
@@ -18977,7 +19041,7 @@ nu
 nu
 nu
 nu
-nu
+Ol
 qK
 li
 YA
@@ -19133,7 +19197,7 @@ li
 DD
 DD
 DD
-my
+JW
 HA
 li
 YA
@@ -19289,8 +19353,8 @@ li
 DD
 pC
 DD
-oN
-HA
+Ow
+dh
 li
 YA
 Bi
@@ -19446,7 +19510,7 @@ li
 DD
 DD
 xE
-HA
+dh
 li
 YA
 YA
@@ -19602,7 +19666,7 @@ li
 li
 DD
 my
-HA
+dh
 li
 li
 ND
@@ -19758,7 +19822,7 @@ ow
 li
 DD
 my
-HA
+dh
 my
 my
 vj
@@ -19915,7 +19979,7 @@ li
 li
 my
 mt
-nu
+Ol
 mM
 bf
 WE
@@ -20070,7 +20134,7 @@ ow
 li
 DD
 DD
-HA
+dh
 my
 li
 ND
@@ -20226,7 +20290,7 @@ li
 DD
 DD
 DD
-HA
+dh
 my
 li
 ND
@@ -21319,7 +21383,7 @@ Rl
 FZ
 li
 HA
-my
+JW
 li
 ND
 Ez
@@ -22409,7 +22473,7 @@ nu
 nu
 Xg
 uo
-nu
+Ol
 zh
 nu
 mM
@@ -22564,9 +22628,9 @@ li
 li
 DD
 HA
+JW
 my
-my
-my
+JW
 my
 my
 my
@@ -22722,7 +22786,7 @@ DD
 HA
 my
 li
-li
+VC
 li
 li
 li
@@ -22878,7 +22942,7 @@ li
 HA
 my
 li
-VM
+ye
 VM
 VM
 VM
@@ -23034,7 +23098,7 @@ li
 HA
 my
 li
-VM
+ye
 Xv
 Sp
 Lf
@@ -23190,7 +23254,7 @@ li
 HA
 my
 li
-VM
+ye
 Ya
 YF
 uN
@@ -23502,7 +23566,7 @@ DD
 HA
 Iw
 my
-VQ
+ik
 Jz
 Ie
 Ie
@@ -23653,12 +23717,12 @@ ro
 ro
 ro
 li
-DD
+IE
 DD
 HA
 my
 li
-VM
+ye
 UQ
 YX
 Ie
@@ -23809,11 +23873,11 @@ Ha
 Ha
 ro
 li
-my
+JW
 SV
 HA
 my
-li
+VC
 VM
 UQ
 Zg
@@ -23965,8 +24029,8 @@ aW
 Bs
 ro
 li
-kJ
-nu
+fp
+Ol
 GS
 my
 li
@@ -24122,9 +24186,9 @@ Ha
 ro
 li
 HA
-my
-DD
-DD
+JW
+IE
+IE
 li
 VM
 VM
@@ -24278,8 +24342,8 @@ Ha
 ro
 li
 HA
-my
-DD
+JW
+IE
 li
 li
 li
@@ -26580,14 +26644,14 @@ ZP
 YT
 XO
 XO
-XO
+KK
 km
 pR
 pR
 pR
 XO
 XO
-XO
+KK
 XO
 pR
 pR
@@ -26907,7 +26971,7 @@ XO
 XO
 XO
 XO
-XO
+KK
 XO
 XO
 XO
@@ -27354,7 +27418,7 @@ YT
 et
 YT
 YT
-YT
+eK
 YT
 YT
 YT
@@ -28471,7 +28535,7 @@ on
 Uy
 IT
 IT
-IT
+Ic
 IT
 hP
 QW
@@ -29568,7 +29632,7 @@ on
 Zf
 QW
 IT
-IT
+Ic
 IT
 IT
 go
