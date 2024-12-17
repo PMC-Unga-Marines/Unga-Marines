@@ -1,5 +1,5 @@
 /obj/structure/ship_ammo/get_mechanics_info()
-	.=..()
+	. = ..()
 
 	. += "<br>--------------COMBAT INFORMATION-------------------------"
 
