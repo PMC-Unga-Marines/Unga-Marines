@@ -3,7 +3,6 @@
 	desc = "Used to implant occupants with skill implants."
 	icon = 'icons/obj/items/implants.dmi'
 	icon_state = "skill"
-	var/empty_icon = "skill"
 	item_state = "syringe_0"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
@@ -11,7 +10,8 @@
 	)
 	throw_speed = 1
 	throw_range = 5
-	w_class = WEIGHT_CLASS_TINY
+	var/spented = FALSE
+	var/empty_icon = "skill"
 	var/max_skills
 	var/allowed_limbs
 
@@ -21,25 +21,28 @@
 
 /obj/item/implanter/implantator/examine(mob/user, distance, infix, suffix)
 	. = ..()
-	var/obj/item/implant/skill/implant = src?.internal_implant
+	if(isnull(internal_implant))
+		return
+	var/obj/item/implant/skill/implant = internal_implant
 	for(var/skill in implant.max_skills)
 		if(user.skills.getRating(skill) < implant.max_skills[skill])
-			. += " You can increase your knowleadge to [implant.max_skills[skill]] level"
+			. += "You can increase your knowleadge to [implant.max_skills[skill]] level"
 			return
 		else
-			. += " You know everything about this, you can't learn more... But you can give it another man "
+			. += "You know everything about this, you can't learn more... But you can gift it..."
+			return
 
 /obj/item/implanter/implantator/Destroy()
 	return ..()
 
 /obj/item/implanter/implantator/update_icon_state()
-	return
+	icon_state = "[internal_implant ? "[icon_state]" : "[empty_icon]_s"]"
 
 /obj/item/implanter/implantator/attack(mob/target, mob/living/user)
 	. = ..()
 	if(.)
 		name += " used"
-		icon_state = empty_icon + "_s"
+		spented = TRUE
 		return TRUE
 	return
 
@@ -47,12 +50,14 @@
 	. = ..()
 	if(!.)
 		return
+	if(spented)
+		return
 	var/mob/living/carbon/human/human = target
 	if(!(user.zone_selected in allowed_limbs))
 		balloon_alert(user, "Wrong limb!")
 		return FALSE
 	var/datum/limb/targetlimb = human.get_limb(user.zone_selected)
-	for (var/obj/item/implant/skill/implant in targetlimb.implants)
+	for(var/obj/item/implant/skill/implant in targetlimb.implants)
 		if(!is_type_in_list(implant, /obj/item/implant/skill))
 			balloon_alert(user, "Limb already implanted!")
 			return FALSE
@@ -69,3 +74,8 @@
 /obj/item/implanter/implantator/oper_system
 	allowed_limbs = list(BODY_ZONE_HEAD)
 	internal_implant = /obj/item/implant/skill/oper_system
+
+/obj/item/implanter/implantator/cargo
+	icon_state = "cargo"
+	empty_icon = "cargo_full"
+	internal_implant = null

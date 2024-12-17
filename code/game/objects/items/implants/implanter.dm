@@ -41,7 +41,7 @@
 		to_chat(user, span_notice("You failed to implant [target]."))
 		return
 
-	if(internal_implant.try_implant(target, user))
+	if(internal_implant.implant(target, user))
 		target.visible_message(span_warning("[target] has been implanted by [user]."))
 		log_combat(user, target, "implanted", src)
 		internal_implant = null

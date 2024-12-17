@@ -59,7 +59,7 @@
 	if(!(user.zone_selected in allowed_limbs))
 		to_chat(user, span_warning("You cannot implant this into that limb!"))
 		return FALSE
-	return implant(target, user)
+	return TRUE
 
 /**
  * What does the implant do upon injection?
@@ -67,6 +67,8 @@
  */
 /obj/item/implant/proc/implant(mob/living/carbon/human/target, mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
+	if(!try_implant(target, user))
+		return
 	forceMove(target)
 	implant_owner = target
 	implanted = TRUE
