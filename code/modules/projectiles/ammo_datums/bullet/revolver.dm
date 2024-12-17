@@ -27,6 +27,7 @@
 	handful_amount = 5
 	damage = 100
 	penetration = 40
+	max_range = 25
 	additional_xeno_penetration = 0
 
 /datum/ammo/bullet/revolver/t500/on_hit_mob(mob/M,obj/projectile/P)
