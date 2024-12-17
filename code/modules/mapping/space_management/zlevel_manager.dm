@@ -21,20 +21,18 @@
 	UNTIL(!adding_new_zlevel)
 	adding_new_zlevel = TRUE
 	var/new_z = length(z_list) + 1
-	if (world.maxz < new_z)
+	if(world.maxz < new_z)
 		world.incrementMaxZ()
 		CHECK_TICK
 	// TODO: sleep here if the Z level needs to be cleared
 	var/datum/space_level/S = new z_type(new_z, name, traits)
 	manage_z_level(S, filled_with_space = TRUE, contain_turfs = contain_turfs)
-	//generate_linkages_for_z_level(new_z)
-	//calculate_z_level_gravity(new_z)
 	adding_new_zlevel = FALSE
 	calculate_z_level_gravity(new_z)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, S)
 	return S
 
 /datum/controller/subsystem/mapping/proc/get_level(z)
-	if (z_list && z >= 1 && z <= length(z_list))
+	if(z_list && z >= 1 && z <= length(z_list))
 		return z_list[z]
 	CRASH("Unmanaged z-level [z]! maxz = [world.maxz], z_list.len = [z_list ? length(z_list) : "null"]")
