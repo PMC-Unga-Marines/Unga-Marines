@@ -19,7 +19,7 @@
 			prediction_type_string = "Explosive"
 			. += "Ammo type = [prediction_type_string] rocket.<br>"
 		if(CAS_AMMO_INCENDIARY)
-			prediction_type_string= "Incendiary"
+			prediction_type_string = "Incendiary"
 			. += "Ammo type = [prediction_type_string] rocket.<br>"
 			. += "Radius of fire  = [fire_range] tiles.<br>"
 
