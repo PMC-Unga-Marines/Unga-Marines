@@ -24,4 +24,4 @@
 			. += "Radius of fire  = [fire_range] tiles.<br>"
 		if(CAS_AMMO_HARMLESS)
 			prediction_type_string = "Harmless"
-			. += "Ammo type = [prediction_type_string] rocket. It's do nothing.<br>"
+			. += "Ammo type = [prediction_type_string] rocket. It doesn't deal any damage.<br>"
