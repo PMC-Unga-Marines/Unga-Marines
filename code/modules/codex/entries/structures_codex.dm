@@ -36,17 +36,23 @@
 	if(anchored)
 		structure_strings += "It is anchored in place."
 
-	if(travelling_time)
-		structure_strings += "Time to drop = [travelling_time]"
+	// for (var/i in typesof(/obj/structure/ship_ammo))
+	// 	if(travelling_time)
+	// 		structure_strings += "Time to drop = [travelling_time]"
+	// 	if(explosion_power)
+	// 		structure_strings += "The force of the explosion [explosion_power]"
 
-	if(explosion_power)
-		structure_strings += "The force of the explosion [explosion_power]"
+	// if(travelling_time)
+	// 	structure_strings += "Time to drop = [travelling_time]"
 
-	if(explosion_falloff)
-		structure_strings += "explosion will lose power per turf [explosion_falloff]"
+	// if(explosion_power)
+	// 	structure_strings += "The force of the explosion [explosion_power]"
 
-	if(prediction_type)
-		structure_strings += "Ammo type = [prediction_type]"
+	// if(explosion_falloff)
+	// 	structure_strings += "explosion will lose power per turf [explosion_falloff]"
+
+	// if(prediction_type)
+	// 	structure_strings += "Ammo type = [prediction_type]"
 
 	. += jointext(structure_strings, "<br>")
 
