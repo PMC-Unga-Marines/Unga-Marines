@@ -284,10 +284,10 @@
 
 /datum/supply_packs/medical/imialky_kit
 	name = "ImiAlky kit"
-	notes = "contains pill bottles imidazoline and alkysine."
+	notes = "contains pill bottles imialky."
 	contains = list(
-		/obj/item/storage/pill_bottle/imidazoline,
-		/obj/item/storage/pill_bottle/alkysine,
+		/obj/item/storage/pill_bottle/imialky,
+		/obj/item/storage/pill_bottle/imialky,
 	)
 	cost = 30
 
