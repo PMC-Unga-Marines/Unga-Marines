@@ -26,13 +26,8 @@
 	for(var/skill in implant.max_skills)
 		if(user.skills.getRating(skill) < implant.max_skills[skill])
 			. += "You can increase your knowleadge to [implant.max_skills[skill]] level"
-			return
 		else
 			. += "You know everything about this, you can't learn more... But you can gift it..."
-			return
-
-/obj/item/implanter/implantator/Destroy()
-	return ..()
 
 /obj/item/implanter/implantator/update_icon_state()
 	icon_state = "[internal_implant ? "[icon_state]" : "[empty_icon]_s"]"
@@ -47,7 +42,7 @@
 		return FALSE
 	var/datum/limb/targetlimb = human.get_limb(user.zone_selected)
 	for(var/obj/item/implant/skill/implant in targetlimb.implants)
-		if(!is_type_in_list(implant, /obj/item/implant/skill))
+		if(!istype(implant, /obj/item/implant/skill))
 			balloon_alert(user, "Limb already implanted!")
 			return FALSE
 	return TRUE
@@ -65,17 +60,15 @@
 	internal_implant = /obj/item/implant/skill/oper_system
 
 /obj/item/implanter/implantator/cargo/attackby(obj/item/I, mob/user, params)
-	. = ..()
 	if(istype(I, /obj/item/implant/skill))
-		var/obj/item/implanter/implantator/cargo/cargo = src
 		var/obj/item/implant/skill/skill = I
-		if(cargo.icon_state == "cargo_full_s")
+		if(icon_state == "cargo_full_s")
 			balloon_alert(user, "Implantator already used!")
 			return
-		cargo.allowed_limbs = skill.allowed_limbs
-		skill.forceMove(cargo)
-		cargo.internal_implant = skill
-		cargo.icon_state = "cargo_full"
+		allowed_limbs = skill.allowed_limbs
+		internal_implant = skill
+		skill.forceMove(src)
+		icon_state = "cargo_full"
 		return
 
 /obj/item/implanter/implantator/cargo

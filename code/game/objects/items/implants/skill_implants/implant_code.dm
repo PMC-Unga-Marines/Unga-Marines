@@ -25,9 +25,6 @@
 	var/mech_pilot
 	var/stamina
 
-/obj/item/implant/skill/Initialize()
-	. = ..()
-
 /obj/item/implant/Destroy(force)
 	unimplant()
 	QDEL_NULL(activation_action)
@@ -57,7 +54,7 @@
 		return FALSE
 	implant_owner.set_skills(implant_owner.skills.modifyRating(-cqc, -melee_weapons, -firearms, -pistols, -shotguns, -rifles, -smgs, -heavy_weapons, -swordplay, -smartgun,\
 	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -mech_pilot, -stamina))
-	. = ..()
+	return ..()
 
 /obj/item/implant/skill/combat
 	name = "Сombat implants"
