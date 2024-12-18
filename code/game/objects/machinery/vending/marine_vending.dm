@@ -1,4 +1,8 @@
 #define VEND_DESCRIPTION_MAGAZINES "Majority of modern firearms come with several types of ammunition.\nFMJ is all-around ammo. AP is armor-piercing, able to hit harder targets, but with lesser consequences. HP is hollow-point, which fragments on impact and is devastating against unprotected flesh, but barely scratches harder targets. IC is incendiary, bursting into flames on impact."
+#define VEND_COLOR_FMJ "white"
+#define VEND_COLOR_AP "blue"
+#define VEND_COLOR_HP "green"
+#define VEND_COLOR_IC "yellow"
 
 /obj/machinery/vending/weapon
 	name = "automated weapons rack"
@@ -13,34 +17,34 @@
 	products = list(
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
-			"AR12 Magazines" = list(-1, list(
-				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "white"),
-				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", "blue"),
-				list(/obj/item/ammo_magazine/rifle/ar12/hp, "HP", "green"),
+			"AR-12 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/rifle/ar12/hp, "HP", VEND_COLOR_HP),
 				),
 			VEND_DESCRIPTION_MAGAZINES
 			),
 			/obj/item/weapon/gun/rifle/ar18 = -1,
-			"AR18 Magazines" = list(-1, list(
-				list(/obj/item/ammo_magazine/rifle/ar18, "FMJ", "white"),
-				list(/obj/item/ammo_magazine/rifle/ar18/ap, "AP", "blue"),
-				list(/obj/item/ammo_magazine/rifle/ar18/hp, "HP", "green"),
+			"AR-18 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar18, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/rifle/ar18/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/rifle/ar18/hp, "HP", VEND_COLOR_HP),
 				),
 			VEND_DESCRIPTION_MAGAZINES
 			),
 			/obj/item/weapon/gun/rifle/type71 = -1,
 			"Type 71 Magazines" = list(-1, list(
-				list(/obj/item/ammo_magazine/rifle/type71, "FMJ", "white"),
-				list(/obj/item/ammo_magazine/rifle/type71/ap, "AP", "blue"),
-				list(/obj/item/ammo_magazine/rifle/type71/hp, "HP", "green"),
+				list(/obj/item/ammo_magazine/rifle/type71, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/rifle/type71/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/rifle/type71/hp, "HP", VEND_COLOR_HP),
 				),
 			VEND_DESCRIPTION_MAGAZINES
 			),
 			/obj/item/weapon/gun/rifle/ar21 = -1,
-			"AR21 Magazines" = list(-1, list(
-				list(/obj/item/ammo_magazine/rifle/ar21, "FMJ", "white"),
-				list(/obj/item/ammo_magazine/rifle/ar21/ap, "AP", "blue"),
-				list(/obj/item/ammo_magazine/rifle/ar21/hp, "HP", "green"),
+			"AR-21 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar21, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/rifle/ar21/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/rifle/ar21/hp, "HP", VEND_COLOR_HP),
 				),
 			VEND_DESCRIPTION_MAGAZINES
 			),
@@ -58,17 +62,30 @@
 		),
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
-			/obj/item/ammo_magazine/smg/vector = -1,
-			/obj/item/ammo_magazine/smg/vector/ap = -1,
-			/obj/item/ammo_magazine/smg/vector/hp = -1,
+			"Vector Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/smg/vector, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/smg/vector/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/smg/vector/hp, "HP", VEND_COLOR_HP),
+				),
+				VEND_DESCRIPTION_MAGAZINES
+			),
 	),
 		"Снайперские винтовки" = list(
-			/obj/item/weapon/gun/rifle/dmr37 = -1,
-			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sr127= -1,
-			/obj/item/ammo_magazine/rifle/sr127 = -1,
-			/obj/item/weapon/gun/rifle/sniper/svd = -1,
-			/obj/item/ammo_magazine/sniper/svd = -1,
+			"DMR-37" = list(-1, list(
+				list(/obj/item/weapon/gun/rifle/dmr37, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/rifle/dmr37, "AMMO", "white")
+				),
+			),
+			"SVD" = list(-1, list(
+				list(/obj/item/weapon/gun/rifle/sniper/svd, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/sniper/svd, "AMMO", "white")
+				),
+			),
+			"SR-127" = list(-1, list(
+				list(/obj/item/weapon/gun/rifle/sr127, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/rifle/sr127, "AMMO", "white")
+				),
+			)
 		),
 		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -83,20 +100,35 @@
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
 			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/weapon/gun/shotgun/combat/shq6 = -1,
-			/obj/item/ammo_magazine/shotgun = -1,
-			/obj/item/ammo_magazine/shotgun/buckshot = -1,
-			/obj/item/ammo_magazine/shotgun/flechette = -1,
-			/obj/item/ammo_magazine/shotgun/tracker = -1,
-			/obj/item/weapon/gun/rifle/sh15 = -1,
-			/obj/item/ammo_magazine/rifle/sh15_flechette = -1,
-			/obj/item/ammo_magazine/rifle/sh15_slug = -1,
-			/obj/item/storage/holster/belt/ts34/full = 5,
+			"Shotgun ammo" = list(-1, list(
+				list(/obj/item/ammo_magazine/shotgun, "SLUG", "green"),
+				list(/obj/item/ammo_magazine/shotgun/buckshot, "BUCK", "red"),
+				list(/obj/item/ammo_magazine/shotgun/flechette, "FLCH", "purple"),
+				list(/obj/item/ammo_magazine/shotgun/tracker, "TRCK", "black")
+				),
+			),
+			"SH-15" = list(-1, list(
+				list(/obj/item/weapon/gun/rifle/sh15, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/rifle/sh15_slug, "SLUG", "green"),
+				list(/obj/item/ammo_magazine/rifle/sh15_flechette, "FLCH", "purple")
+				),
+			),
+			"SH-34 rig" = list(5, list(
+				list(/obj/item/storage/holster/belt/ts34/full, "Vend", "white")
+				),
+			),
 		),
 		"Пулемёты" = list(
-			/obj/item/weapon/gun/rifle/mg60 = -1,
-			/obj/item/ammo_magazine/mg60 = -1,
-			/obj/item/weapon/gun/mg27 = 5,
-			/obj/item/ammo_magazine/mg27 = -1,
+			"MG-60" = list(-1, list(
+				list(/obj/item/weapon/gun/rifle/mg60, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/mg60, "AMMO", "black"),
+				),
+			),
+			"MG-27" = list(-1, list(
+				list(/obj/item/weapon/gun/mg27, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/mg27, "AMMO", "black"),
+				),
+			),
 			/obj/item/storage/box/hsg102 = 1,
 			/obj/item/weapon/gun/hmg08 = 1,
 			/obj/item/ammo_magazine/hmg08 = 5,
@@ -122,18 +154,34 @@
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
 			/obj/item/storage/box/t500case = 10,
-			/obj/item/ammo_magazine/revolver/t500 = -1,
-			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
-			/obj/item/weapon/gun/pistol/p17 = -1,
-			/obj/item/ammo_magazine/pistol/p17 = -1,
+			"T-500 ammo" = list(-1, list(
+				list(/obj/item/ammo_magazine/revolver/t500, "NEXP", "black"),
+				list(/obj/item/ammo_magazine/revolver/t500/slavs, "SLAV", "white"),
+				),
+			),
+			"P-17" = list(-1, list(
+				list(/obj/item/weapon/gun/pistol/p17, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/pistol/p17, "AMMO", "black"),
+				),
+			),
 			/obj/item/weapon/gun/pistol/vp70 = -1,
-			/obj/item/ammo_magazine/pistol/vp70 = -1,
-			/obj/item/ammo_magazine/pistol/vp70/hp = -1,
-			/obj/item/ammo_magazine/pistol/vp70/incendiary = -1,
-			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
-			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
-			/obj/item/weapon/gun/shotgun/double/derringer = -1,
-			/obj/item/ammo_magazine/pistol/derringer = -1,
+			"VP-70 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/pistol/vp70, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/pistol/vp70/hp, "HP", VEND_COLOR_HP),
+				list(/obj/item/ammo_magazine/pistol/vp70/incendiary, "IC", VEND_COLOR_IC)
+				),
+				VEND_DESCRIPTION_MAGAZINES
+			),
+			"Plasma Pistol" = list(-1, list(
+				list(/obj/item/weapon/gun/pistol/plasma_pistol, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/pistol/plasma_pistol, "AMMO", "black"),
+				),
+			),
+			"Derringer" = list(-1, list(
+				list(/obj/item/weapon/gun/shotgun/double/derringer, "WEAP", "white"),
+				list(/obj/item/ammo_magazine/pistol/derringer, "AMMO", "black"),
+				),
+			),
 		),
 		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
@@ -204,44 +252,63 @@
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
 		"Коробки" = list(
-			/obj/item/ammo_magazine/packet/p9mm = -1,
-			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
-			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
-			/obj/item/ammo_magazine/packet/acp = -1,
-			/obj/item/ammo_magazine/packet/acp/ap = -1,
-			/obj/item/ammo_magazine/packet/acp/hp = -1,
-			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
-			/obj/item/ammo_magazine/packet/p380acp = -1,
-			/obj/item/ammo_magazine/packet/magnum = -1,
-			/obj/item/ammo_magazine/packet/t500 = -1,
-			/obj/item/ammo_magazine/packet/t500/qk = -1,
-			/obj/item/ammo_magazine/packet/t500/slavs = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
-			/obj/item/ammo_magazine/packet/p10x24mm = -1,
-			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
-			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
-			/obj/item/ammo_magazine/packet/p10x25mm = -1,
-			/obj/item/ammo_magazine/packet/p10x25mm/ap = -1,
-			/obj/item/ammo_magazine/packet/p10x25mm/hp = -1,
-			/obj/item/ammo_magazine/packet/groza = -1,
-			/obj/item/ammo_magazine/packet/groza/ap = -1,
-			/obj/item/ammo_magazine/packet/groza/hp = -1,
-			/obj/item/ammo_magazine/packet/p10x25mm = -1,
+			"10x24" = list(-1, list(
+				list(/obj/item/ammo_magazine/packet/p10x24mm, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/packet/p10x24mm/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/packet/p10x24mm/hp, "HP", VEND_COLOR_HP)
+				),
+			),
+			"10x25" = list(-1, list(
+				list(/obj/item/ammo_magazine/packet/p10x25mm, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/packet/p10x25mm/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/packet/p10x25mm/hp, "HP", VEND_COLOR_HP)
+				),
+			),
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
+			"7.62x39" = list(-1, list(
+				list(/obj/item/ammo_magazine/packet/groza, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/packet/groza/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/packet/groza/hp, "HP", VEND_COLOR_HP)
+				),
+			),
+			"9mm" = list(-1, list(
+				list(/obj/item/ammo_magazine/packet/p9mm, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/packet/p9mm/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/packet/p9mm/hp, "HP", VEND_COLOR_HP)
+				),
+			),
+			".45 ACP" = list(-1, list(
+				list(/obj/item/ammo_magazine/packet/acp, "FMJ", VEND_COLOR_FMJ),
+				list(/obj/item/ammo_magazine/packet/acp/ap, "AP", VEND_COLOR_AP),
+				list(/obj/item/ammo_magazine/packet/acp/hp, "HP", VEND_COLOR_HP)
+				),
+			),
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
 			/obj/item/ammo_magazine/packet/svd762x54mmR = -1,
+			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
-			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/ammo_magazine/packet/p380acp = -1,
+			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/long_special = -1,
+			"T-500" = list(-1, list(
+				list(/obj/item/ammo_magazine/packet/t500, "NEXP", "black"),
+				list(/obj/item/ammo_magazine/packet/t500/qk, "QKIL", "purple"),
+				list(/obj/item/ammo_magazine/packet/t500/slavs, "SLAV", "white")
+				),
+			),
 			/obj/item/storage/box/visual/magazine = -1,
 			/obj/item/storage/box/visual/grenade = -1,
 			/obj/structure/closet/crate/mass_produced_crate = 5,
-			/obj/structure/closet/crate/mass_produced_crate/alpha = 5,
-			/obj/structure/closet/crate/mass_produced_crate/bravo = 5,
-			/obj/structure/closet/crate/mass_produced_crate/charlie = 5,
-			/obj/structure/closet/crate/mass_produced_crate/delta = 5,
+			"Squad Crates" = list(20, list(
+				list(/obj/structure/closet/crate/mass_produced_crate/alpha, "A", "red"),
+				list(/obj/structure/closet/crate/mass_produced_crate/bravo, "B", "yellow"),
+				list(/obj/structure/closet/crate/mass_produced_crate/charlie, "C", "purple"),
+				list(/obj/structure/closet/crate/mass_produced_crate/delta, "D", "blue"),
+				),
+			),
 			/obj/structure/closet/crate/mass_produced_crate/ammo = 5,
 			/obj/structure/closet/crate/mass_produced_crate/construction = 5,
 			/obj/structure/closet/crate/mass_produced_crate/explosives = 5,
@@ -1151,7 +1218,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 	req_one_access = null
-		products = list(
+	products = list(
 		"Blood Packs" = list(
 			"Blood Pack A+" = list(-1, list(
 					list(/obj/item/reagent_containers/blood/APlus, "Vend")
@@ -1908,3 +1975,7 @@
 	)
 
 #undef VEND_DESCRIPTION_MAGAZINES
+#undef VEND_COLOR_FMJ
+#undef VEND_COLOR_AP
+#undef VEND_COLOR_HP
+#undef VEND_COLOR_IC
