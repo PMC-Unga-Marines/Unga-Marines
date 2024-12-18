@@ -1,4 +1,5 @@
 /obj/item/implant/skill
+	flags_implant = GRANT_ACTIVATION_ACTION|BENEFICIAL_IMPLANT|HIGHLANDER_IMPLANT
 	w_class = WEIGHT_CLASS_TINY
 //  Maximum skill a user can possess
 	var/list/max_skills
@@ -24,12 +25,6 @@
 	var/large_vehicle
 	var/mech_pilot
 	var/stamina
-
-/obj/item/implant/Destroy(force)
-	unimplant()
-	QDEL_NULL(activation_action)
-	part?.implants -= src
-	return ..()
 
 /obj/item/implant/skill/try_implant(mob/living/carbon/human/target, mob/living/user)
 	. = ..()

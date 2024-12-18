@@ -10,6 +10,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
+	///The implant itself
 	var/obj/item/implant/internal_implant = null
 
 /obj/item/implanter/Initialize(mapload, ...)
@@ -39,15 +40,17 @@
 
 	if(!do_after(user, 5 SECONDS, NONE, target, BUSY_ICON_GENERIC) || !internal_implant)
 		to_chat(user, span_notice("You failed to implant [target]."))
-		return
+		return FALSE
 
-	if(internal_implant.implant(target, user))
-		target.visible_message(span_warning("[target] has been implanted by [user]."))
-		log_combat(user, target, "implanted", src)
-		internal_implant = null
-		update_icon()
-		return TRUE
-	to_chat(user, span_notice("You fail to implant [target]."))
+	if(!internal_implant.implant(target, user))
+		to_chat(user, span_notice("You fail to implant [target]."))
+		return FALSE
+
+	target.visible_message(span_warning("[target] has been implanted by [user]."))
+	log_combat(user, target, "implanted", src)
+	internal_implant = null
+	update_icon()
+	return TRUE
 
 /obj/item/implanter/proc/can_implant(mob/target, mob/user)
 	if(!ishuman(target))
@@ -80,3 +83,20 @@
 /obj/item/implanter/suicide_dust
 	name = "Self-Gibbing implant"
 	internal_implant = /obj/item/implant/suicide_dust
+
+
+/obj/item/implanter/sandevistan
+	name = "sandevistan implanter"
+	icon_state = "internal_implant_spinal"
+	w_class = WEIGHT_CLASS_NORMAL
+	internal_implant = /obj/item/implant/sandevistan
+
+/obj/item/implanter/sandevistan/update_icon_state()
+	. = ..()
+	icon_state = initial(icon_state)
+
+/obj/item/implanter/sandevistan/attack(mob/target, mob/user)
+	. = ..()
+	if(!.)
+		return
+	qdel(src)

@@ -45,8 +45,6 @@
 		if(!istype(implant, /obj/item/implant/skill))
 			balloon_alert(user, "Limb already implanted!")
 			return FALSE
-	if(user.ckey == "akulishov") // https://discord.com/channels/1235677154084126861/1235677154084126865/1319014221836582932
-		user.gib() // 1984
 	return TRUE
 
 /obj/item/implanter/implantator/combat
