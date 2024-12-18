@@ -94,7 +94,6 @@
 	)
 	*/
 
-	var/use_product_groups = FALSE
 	/// Normal products that are always available on the vendor.
 	var/list/products = list()
 	/** List of seasons whose products are added to the vendor's.

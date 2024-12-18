@@ -1117,27 +1117,35 @@
 	product_slogans = "The best blood on the market!;Totally came from an ethical source!;O negative is the universal donor, use it!;Prevent hypovolemic shock starting today!"
 	req_one_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_MEDPREP)
 	products = list(
-		/obj/item/reagent_containers/blood/APlus = 5,
-		/obj/item/reagent_containers/blood/AMinus = 5,
-		/obj/item/reagent_containers/blood/BPlus = 5,
-		/obj/item/reagent_containers/blood/BMinus = 5,
-		/obj/item/reagent_containers/blood/OPlus = 5,
-		/obj/item/reagent_containers/blood/OMinus = 5,
-		/obj/item/reagent_containers/blood/empty = 10,
+		"Blood Pack A+" = list(5, list(
+				list(/obj/item/reagent_containers/blood/APlus)
+			)
+		),
+		"Blood Pack A-" = list(5, list(
+				list(/obj/item/reagent_containers/blood/AMinus)
+			)
+		),
+		"Blood Pack B+" = list(5, list(
+				list(/obj/item/reagent_containers/blood/BPlus)
+			)
+		),
+		"Blood Pack B-" = list(5, list(
+				list(/obj/item/reagent_containers/blood/BMinus)
+			)
+		),
+		"Blood Pack O+" = list(5, list(
+				list(/obj/item/reagent_containers/blood/OPlus)
+			)
+		),
+		"Blood Pack O-" = list(5, list(
+				list(/obj/item/reagent_containers/blood/OMinus)
+			)
+		),
+		"Empty Blood Pack" = list(5, list(
+				list(/obj/item/reagent_containers/blood/empty)
+			)
+		)
 	)
-
-/obj/machinery/vending/MarineMed/Blood/build_inventory(list/productlist, category)
-	. = ..()
-	var/temp_list[] = productlist
-	var/obj/item/reagent_containers/blood/temp_path
-	var/blood_type
-	for(var/datum/vending_product/R AS in (product_records))
-		if(R.product_paths in temp_list)
-			temp_path = R.product_paths
-			blood_type = initial(temp_path.blood_type)
-			R.product_name += blood_type? " [blood_type]" : ""
-			temp_list -= R.product_paths
-			if(!length(temp_list)) break
 
 /obj/machinery/vending/MarineMed/Blood/valhalla
 	resistance_flags = INDESTRUCTIBLE
