@@ -1116,35 +1116,36 @@
 	product_slogans = "The best blood on the market!;Totally came from an ethical source!;O negative is the universal donor, use it!;Prevent hypovolemic shock starting today!"
 	req_one_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_MEDPREP)
 	products = list(
-		"Blood Pack A+" = list(5, list(
-				list(/obj/item/reagent_containers/blood/APlus)
+		"Blood Packs" = list(
+			"Blood Pack A+" = list(5, list(
+					list(/obj/item/reagent_containers/blood/APlus, "Vend")
+				)
+			),
+			"Blood Pack A-" = list(5, list(
+					list(/obj/item/reagent_containers/blood/AMinus, "Vend")
+				)
+			),
+			"Blood Pack B+" = list(5, list(
+					list(/obj/item/reagent_containers/blood/BPlus, "Vend")
+				)
+			),
+			"Blood Pack B-" = list(5, list(
+					list(/obj/item/reagent_containers/blood/BMinus, "Vend")
+				)
+			),
+			"Blood Pack O+" = list(5, list(
+					list(/obj/item/reagent_containers/blood/OPlus, "Vend")
+				)
+			),
+			"Blood Pack O-" = list(5, list(
+					list(/obj/item/reagent_containers/blood/OMinus, "Vend")
+				)
+			),
+			"Empty Blood Pack" = list(5, list(
+					list(/obj/item/reagent_containers/blood/empty, "Vend")
+				)
 			)
-		),
-		"Blood Pack A-" = list(5, list(
-				list(/obj/item/reagent_containers/blood/AMinus)
-			)
-		),
-		"Blood Pack B+" = list(5, list(
-				list(/obj/item/reagent_containers/blood/BPlus)
-			)
-		),
-		"Blood Pack B-" = list(5, list(
-				list(/obj/item/reagent_containers/blood/BMinus)
-			)
-		),
-		"Blood Pack O+" = list(5, list(
-				list(/obj/item/reagent_containers/blood/OPlus)
-			)
-		),
-		"Blood Pack O-" = list(5, list(
-				list(/obj/item/reagent_containers/blood/OMinus)
-			)
-		),
-		"Empty Blood Pack" = list(5, list(
-				list(/obj/item/reagent_containers/blood/empty)
-			)
-		)
-	)
+	))
 
 /obj/machinery/vending/MarineMed/Blood/valhalla
 	resistance_flags = INDESTRUCTIBLE
