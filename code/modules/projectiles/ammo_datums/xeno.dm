@@ -241,8 +241,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/acid
 	name = "acid spit"
 	icon_state = "xeno_acid_weak"
-	sound_hit 	 = "acid_hit"
-	sound_bounce = "acid_bounce"
+	sound_hit 	 = SFX_ACID_HIT
+	sound_bounce = SFX_ACID_BOUNCE
 	damage_type = BURN
 	added_spit_delay = 5
 	spit_cost = 50
@@ -491,8 +491,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/boiler_gas/corrosive
 	name = "glob of acid"
 	icon_state = "boiler_gas"
-	sound_hit 	 = "acid_hit"
-	sound_bounce = "acid_bounce"
+	sound_hit 	 = SFX_ACID_HIT
+	sound_bounce = SFX_ACID_BOUNCE
 	icon_key = BOILER_GLOB_ACID
 	select_text = "We will now fire corrosive acid. This is lethal!"
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
@@ -641,7 +641,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/web_projectile
 	icon_state = "web_spit"
-	sound_hit = "snap"
+	sound_hit = SFX_SNAP
 	sound_bounce = "alien_resin_build3"
 	damage_type = STAMINA
 	bullet_color = COLOR_PURPLE
@@ -657,7 +657,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	. = ..()
 	if(!ishuman(target_mob))
 		return
-	playsound(get_turf(target_mob), sound(get_sfx("snap")), 30, falloff = 5)
+	playsound(get_turf(target_mob), SFX_SNAP, 30, falloff = 5)
 	var/mob/living/carbon/human/human_victim = target_mob
 	human_victim.apply_effect(hit_weaken, WEAKEN)
 

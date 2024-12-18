@@ -771,7 +771,7 @@
 		ADD_TRAIT(target, TRAIT_BANISHED, TRAIT_BANISHED)
 		target.hud_set_banished()
 
-		xeno_message("BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS))
+		xeno_message("BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS))
 		xeno_message("By [user]'s will, [target] has been banished from the hive!\n[reason]", "xenobanishannonce", 5, target.hivenumber)
 		to_chat(target, span_xenohighdanger("The [user] has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters."))
 		log_game("[key_name(user)] has banish [key_name(target)]. Reason: [reason]")
@@ -781,7 +781,7 @@
 	REMOVE_TRAIT(target, TRAIT_BANISHED, TRAIT_BANISHED)
 	target.hud_set_banished()
 
-	xeno_message("By [user]'s will, [target] has been readmitted into the Hive!\n[reason]", "xenoannounce", 5, user.hivenumber, sound= sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS))
+	xeno_message("By [user]'s will, [target] has been readmitted into the Hive!\n[reason]", "xenoannounce", 5, user.hivenumber, sound= sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS))
 	log_game("[key_name(user)] has returned [key_name(target)]. Reason: [reason]")
 	message_admins("[ADMIN_TPMONTY(user)] has returned [ADMIN_TPMONTY(target)]. Reason: [reason]")
 	return
