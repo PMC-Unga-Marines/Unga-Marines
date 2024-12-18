@@ -56,7 +56,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(!ishuman(target))
 		return FALSE
-	if(!(user.zone_selected in allowed_limbs))
+	var/limb_targeting = (user ? user.zone_selected : BODY_ZONE_CHEST)
+	if(!(limb_targeting in allowed_limbs))
 		to_chat(user, span_warning("You cannot implant this into that limb!"))
 		return FALSE
 	return TRUE
