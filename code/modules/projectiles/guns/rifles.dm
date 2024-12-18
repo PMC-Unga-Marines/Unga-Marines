@@ -1760,14 +1760,7 @@
 	max_shells = 30 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar21
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar21)
-	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/ar21,
-		/obj/item/ammo_magazine/rifle/ar21/extended,
-		/obj/item/ammo_magazine/rifle/ar21/ap,
-		/obj/item/ammo_magazine/rifle/ar21/hp,
-		/obj/item/ammo_magazine/rifle/ar21/incendiary,
-	)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar21, /obj/item/ammo_magazine/rifle/ar21/extended)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,

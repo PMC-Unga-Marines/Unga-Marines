@@ -781,6 +781,82 @@
 
 
 // ***************************************
+// *********** Sharpshooter
+// ***************************************
+///amount of slowdown done by the sharpshooter status effect
+#define STATUS_EFFECT_SHARPSHOOTER_SLOWDOWN 1.5
+
+/datum/status_effect/stacking/sharpshooter
+	id = "sharpshooter"
+	tick_interval = 1 SECONDS
+	max_stacks = 20
+	stack_threshold = 15
+	stack_decay = 2
+	consumed_on_threshold = FALSE
+	alert_type = /atom/movable/screen/alert/status_effect/sharpshooter
+	///Owner of the debuff is limited to carbons.
+	var/mob/living/carbon/debuff_owner
+	///Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
+	var/obj/effect/abstract/particle_holder/particle_holder
+
+/datum/status_effect/stacking/sharpshooter/can_gain_stacks()
+	if(owner.status_flags & GODMODE)
+		return FALSE
+	return ..()
+
+/datum/status_effect/stacking/sharpshooter/on_creation(mob/living/new_owner, stacks_to_apply)
+	if(new_owner.status_flags & GODMODE)
+		qdel(src)
+		return
+
+	. = ..()
+	debuff_owner = new_owner
+	particle_holder = new(debuff_owner, /particles/sharpshooter_status)
+	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
+
+/datum/status_effect/stacking/sharpshooter/on_remove()
+	debuff_owner = null
+	QDEL_NULL(particle_holder)
+	return ..()
+
+/datum/status_effect/stacking/sharpshooter/tick()
+	. = ..()
+	if(!debuff_owner)
+		return
+
+	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
+
+/datum/status_effect/stacking/sharpshooter/threshold_cross_effect()
+	. = ..()
+	debuff_owner.add_movespeed_modifier(MOVESPEED_ID_SHARPSHOOTER_SLOWDOWN, TRUE, 0, NONE, TRUE, STATUS_EFFECT_SHARPSHOOTER_SLOWDOWN)
+	debuff_owner.balloon_alert_to_viewers("Slowed!")
+
+/datum/status_effect/stacking/sharpshooter/on_threshold_drop()
+	debuff_owner.remove_movespeed_modifier(MOVESPEED_ID_SHARPSHOOTER_SLOWDOWN)
+
+/atom/movable/screen/alert/status_effect/sharpshooter
+	name = "Sharpshooter"
+	desc = "You're slowed down and take additional damage!"
+	icon_state = "default"
+
+/particles/sharpshooter_status
+	icon = 'icons/effects/particles/generic_particles.dmi'
+	icon_state = "down_arrow"
+	width = 100
+	height = 100
+	count = 1000
+	spawning = 4
+	lifespan = 10
+	fade = 8
+	velocity = list(0, 0)
+	position = generator(GEN_SPHERE, 16, 16, NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(-0.1, 0), list(0.1, 0))
+	gravity = list(0, -0.4)
+	scale = generator(GEN_VECTOR, list(0.3, 0.3), list(1, 1), NORMAL_RAND)
+	friction = -0.05
+	color = "#cdcdcd"
+
+// ***************************************
 // *********** Shatter
 // ***************************************
 ///Percentage reduction of armor removed by the shatter status effect

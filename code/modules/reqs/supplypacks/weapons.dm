@@ -274,12 +274,6 @@
 	cost = 45 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/box_10x25mm_incendiary
-	name = "10x25mm incendiary ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/incendiary)
-	cost = 50 //125 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
 /datum/supply_packs/weapons/p9mm_incendiary
 	name = "9mm incendiary packet"
 	contains = list(/obj/item/ammo_magazine/packet/p9mm/incendiary)
@@ -301,3 +295,10 @@
 /datum/supply_packs/weapons/xray_gun
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
 	cost = 500
+
+/datum/supply_packs/weapons/ar21_extended
+	name = "AR-21 extended skirmish rifle magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/ar21/extended)
+	cost = 80
+
+
