@@ -1151,15 +1151,37 @@
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 	req_one_access = null
-	products = list(
-		/obj/item/reagent_containers/blood/APlus = -1,
-		/obj/item/reagent_containers/blood/AMinus = -1,
-		/obj/item/reagent_containers/blood/BPlus = -1,
-		/obj/item/reagent_containers/blood/BMinus = -1,
-		/obj/item/reagent_containers/blood/OPlus = -1,
-		/obj/item/reagent_containers/blood/OMinus = -1,
-		/obj/item/reagent_containers/blood/empty = -1,
-	)
+		products = list(
+		"Blood Packs" = list(
+			"Blood Pack A+" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/APlus, "Vend")
+				)
+			),
+			"Blood Pack A-" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/AMinus, "Vend")
+				)
+			),
+			"Blood Pack B+" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/BPlus, "Vend")
+				)
+			),
+			"Blood Pack B-" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/BMinus, "Vend")
+				)
+			),
+			"Blood Pack O+" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/OPlus, "Vend")
+				)
+			),
+			"Blood Pack O-" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/OMinus, "Vend")
+				)
+			),
+			"Empty Blood Pack" = list(-1, list(
+					list(/obj/item/reagent_containers/blood/empty, "Vend")
+				)
+			)
+	))
 
 /obj/machinery/vending/armor_supply
 	name = "\improper Surplus Armor Equipment Vendor"
