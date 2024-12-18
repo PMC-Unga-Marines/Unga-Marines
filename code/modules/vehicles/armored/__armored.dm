@@ -605,6 +605,11 @@
 /obj/vehicle/sealed/armored/proc/swivel_turret(atom/A, new_weapon_dir)
 	if(!new_weapon_dir)
 		new_weapon_dir = angle_to_cardinal_dir(Get_Angle(get_turf(src), get_turf(A)))
+	var/list/leftright = LeftAndRightOfDir(turret_overlay.dir)
+	var/left = leftright[1] - 1
+	var/right = leftright[2] + 1
+	if(left != (new_weapon_dir - 1) && right != (new_weapon_dir + 1))
+		return FALSE
 	if(turret_overlay.dir == new_weapon_dir)
 		return FALSE
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_TANK_SWIVEL)) //Slight cooldown to avoid spam

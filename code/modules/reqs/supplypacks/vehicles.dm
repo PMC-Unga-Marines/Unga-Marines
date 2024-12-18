@@ -31,6 +31,12 @@
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
 
+/datum/supply_packs/vehicles/tank_glauncher
+	name = "Tank grenade laucnher magazine"
+	contains = list(/obj/item/ammo_magazine/tank/tank_glauncher)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/vehicles/motorbike
 	name = "All-Terrain Motorbike"
 	cost = 400

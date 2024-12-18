@@ -1418,6 +1418,7 @@
 #include "code\modules\codex\entries\_codex_entry.dm"
 #include "code\modules\codex\entries\ammunition_codex.dm"
 #include "code\modules\codex\entries\atmospherics_codex.dm"
+#include "code\modules\codex\entries\cas_ammo_codex.dm"
 #include "code\modules\codex\entries\clothing_codex.dm"
 #include "code\modules\codex\entries\engineering_codex.dm"
 #include "code\modules\codex\entries\faction_codex.dm"
