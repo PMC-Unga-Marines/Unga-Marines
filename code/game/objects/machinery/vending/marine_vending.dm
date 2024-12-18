@@ -11,13 +11,20 @@
 	products = list(
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
-			/obj/item/ammo_magazine/rifle/ar12 = -1,
-			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
-			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			"AR12 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/ar12/hp, "HP", "green"),
+				),
+			"Magazines"
+			),
 			/obj/item/weapon/gun/rifle/ar18 = -1,
-			/obj/item/ammo_magazine/rifle/ar18 = -1,
-			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
-			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
+			"AR18 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar18, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/ar18/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/ar18/hp, "HP", "green"),
+				),
+			),
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -250,13 +257,20 @@
 	products = list(
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
-			/obj/item/ammo_magazine/rifle/ar12 = -1,
-			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
-			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			"AR12 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar12, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/ar12/hp, "HP", "green"),
+				),
+			"Magazines"
+			),
 			/obj/item/weapon/gun/rifle/ar18 = -1,
-			/obj/item/ammo_magazine/rifle/ar18 = -1,
-			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
-			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
+			"AR18 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar18, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/ar18/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/ar18/hp, "HP", "green"),
+				),
+			),
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
