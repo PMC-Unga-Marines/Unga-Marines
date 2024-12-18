@@ -229,9 +229,14 @@
 				if(islist(tab_products[product_entry])) // new entry format: group label = {amount, {items with info}, desc}
 					var/list/group_info = tab_products[product_entry]
 					var/list/group_products = group_info[2]
+					if(length(group_info[2]) == 0)
+						continue // Somebody forgot to pupulate the list
 					var/prod_desc = null
 					if(length(group_info) >= 3)
 						prod_desc = group_info[3]
+					else	// Try to get desc of the first item in the list
+						var/atom/product_entry_atom = group_products[1][1]
+						prod_desc = initial(product_entry_atom.desc)
 
 					var/datum/vending_product/record = new(
 						name = product_entry,

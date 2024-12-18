@@ -1,3 +1,5 @@
+#define VEND_DESCRIPTION_MAGAZINES "Majority of modern firearms come with several types of ammunition.\nFMJ is all-around ammo. AP is armor-piercing, able to hit harder targets, but with lesser consequences. HP is hollow-point, which fragments on impact and is devastating against unprotected flesh, but barely scratches harder targets. IC is incendiary, bursting into flames on impact."
+
 /obj/machinery/vending/weapon
 	name = "automated weapons rack"
 	desc = "An automated weapon rack hooked up to a colossal storage of standard-issue weapons."
@@ -16,7 +18,7 @@
 				list(/obj/item/ammo_magazine/rifle/ar12/ap, "AP", "blue"),
 				list(/obj/item/ammo_magazine/rifle/ar12/hp, "HP", "green"),
 				),
-			"Magazines"
+			VEND_DESCRIPTION_MAGAZINES
 			),
 			/obj/item/weapon/gun/rifle/ar18 = -1,
 			"AR18 Magazines" = list(-1, list(
@@ -24,20 +26,35 @@
 				list(/obj/item/ammo_magazine/rifle/ar18/ap, "AP", "blue"),
 				list(/obj/item/ammo_magazine/rifle/ar18/hp, "HP", "green"),
 				),
+			VEND_DESCRIPTION_MAGAZINES
 			),
-			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
-			/obj/item/ammo_magazine/packet/p4570 = -1,
-			/obj/item/weapon/gun/shotgun/double/martini = -1,
-			/obj/item/ammo_magazine/rifle/martini = -1,
-			/obj/item/ammo_magazine/rifle/martini/white = -1,
 			/obj/item/weapon/gun/rifle/type71 = -1,
-			/obj/item/ammo_magazine/rifle/type71 = -1,
-			/obj/item/ammo_magazine/rifle/type71/ap = -1,
-			/obj/item/ammo_magazine/rifle/type71/hp = -1,
+			"Type 71 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/type71, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/type71/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/type71/hp, "HP", "green"),
+				),
+			VEND_DESCRIPTION_MAGAZINES
+			),
 			/obj/item/weapon/gun/rifle/ar21 = -1,
-			/obj/item/ammo_magazine/rifle/ar21 = -1,
-			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
-			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
+			"AR21 Magazines" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/ar21, "FMJ", "white"),
+				list(/obj/item/ammo_magazine/rifle/ar21/ap, "AP", "blue"),
+				list(/obj/item/ammo_magazine/rifle/ar21/hp, "HP", "green"),
+				),
+			VEND_DESCRIPTION_MAGAZINES
+			),
+			"Leicester Repeater" = list(-1, list(
+				list(/obj/item/weapon/gun/shotgun/pump/lever/repeater, "WEAP"),
+				list(/obj/item/ammo_magazine/packet/p4570, "AMMO"),
+				),
+			),
+			"Martini Henry" = list(-1, list(
+				list(/obj/item/weapon/gun/shotgun/double/martini, "WEAP"),
+				list(/obj/item/ammo_magazine/rifle/martini, "AMMO"),
+				list(/obj/item/ammo_magazine/rifle/martini/white, "AM WT", "white")
+				)
+			),
 		),
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,

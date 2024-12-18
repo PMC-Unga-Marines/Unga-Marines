@@ -161,7 +161,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
               </ProgressBar>
             </Box>
           )}
-          <Box inline width="4px" />
+          <Box inline width="6px" />
           {products.map((product) => (
             <Button
               key={product.id}
