@@ -445,7 +445,7 @@
 
 /datum/action/ability/activable/xeno/oppose
 	name = "Oppose"
-	action_icon_state = "stomp"
+	action_icon_state = "stomp" //в будущем обновить бы
 	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Violently suffuse the ground with stored blood. A marine on your tile is staggered and injured, ajacent marines are staggered, and any nearby xenos are healed, including you."
 	cooldown_duration = 30 SECONDS
