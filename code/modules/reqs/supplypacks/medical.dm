@@ -385,3 +385,9 @@
 		/obj/item/clothing/mask/breath/medical,
 		/obj/item/tank/anesthetic,
 	)
+
+/datum/supply_packs/medical/implanter
+	name = "Implanter"
+	notes = "contains an implanter for reinsertion of the implant."
+	contains = list(/obj/item/implanter/implantator/cargo)
+	cost = 90

@@ -34,24 +34,20 @@
 	part?.implants -= src
 	return ..()
 
-/obj/item/implant/skill/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/implanter/implantator/cargo))
-		var/obj/item/implanter/implantator/cargo = I
-		cargo.allowed_limbs = src.allowed_limbs
-		src.forceMove(cargo)
-		cargo.internal_implant = src
-		cargo.icon_state = "cargo_full"
-		return
-
 /obj/item/implant/skill/try_implant(mob/living/carbon/human/target, mob/living/user)
 	. = ..()
+	if(!.)
+		return
 	for(var/skill in max_skills)
 		if(user.skills.getRating(skill) >= max_skills[skill])
 			balloon_alert(user, "Nothing to learn!")
-			return
+			return FALSE
+	return TRUE
 
 /obj/item/implant/skill/implant(mob/living/carbon/human/target, mob/living/user)
 	. = ..()
+	if(!.)
+		return
 	target.set_skills(target.skills.modifyRating(cqc, melee_weapons, firearms, pistols, shotguns, rifles, smgs, heavy_weapons, swordplay, smartgun,\
 	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech_pilot, stamina))
 	return TRUE

@@ -1,5 +1,5 @@
 /obj/item/implanter/implantator
-	name = "skill"
+	name = "Skill"
 	desc = "Used to implant occupants with skill implants."
 	icon = 'icons/obj/items/implants.dmi'
 	icon_state = "skill"
@@ -10,7 +10,6 @@
 	)
 	throw_speed = 1
 	throw_range = 5
-	var/spented = FALSE
 	var/empty_icon = "skill"
 	var/max_skills
 	var/allowed_limbs
@@ -38,19 +37,9 @@
 /obj/item/implanter/implantator/update_icon_state()
 	icon_state = "[internal_implant ? "[icon_state]" : "[empty_icon]_s"]"
 
-/obj/item/implanter/implantator/attack(mob/target, mob/living/user)
-	. = ..()
-	if(.)
-		name += " used"
-		spented = TRUE
-		return TRUE
-	return
-
 /obj/item/implanter/implantator/can_implant(mob/target, mob/user)
 	. = ..()
 	if(!.)
-		return
-	if(spented)
 		return
 	var/mob/living/carbon/human/human = target
 	if(!(user.zone_selected in allowed_limbs))
@@ -74,6 +63,20 @@
 /obj/item/implanter/implantator/oper_system
 	allowed_limbs = list(BODY_ZONE_HEAD)
 	internal_implant = /obj/item/implant/skill/oper_system
+
+/obj/item/implanter/implantator/cargo/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/implant/skill))
+		var/obj/item/implanter/implantator/cargo/cargo = src
+		var/obj/item/implant/skill/skill = I
+		if(cargo.icon_state == "cargo_full_s")
+			balloon_alert(user, "Implantator already used!")
+			return
+		cargo.allowed_limbs = skill.allowed_limbs
+		skill.forceMove(cargo)
+		cargo.internal_implant = skill
+		cargo.icon_state = "cargo_full"
+		return
 
 /obj/item/implanter/implantator/cargo
 	icon_state = "cargo"

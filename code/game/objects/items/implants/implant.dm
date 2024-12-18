@@ -69,7 +69,7 @@
 /obj/item/implant/proc/implant(mob/living/carbon/human/target, mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!try_implant(target, user))
-		return
+		return FALSE
 	forceMove(target)
 	implant_owner = target
 	implanted = TRUE
