@@ -507,7 +507,6 @@
 	check = TRUE
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
-	use_product_groups = TRUE
 	products = list(
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
