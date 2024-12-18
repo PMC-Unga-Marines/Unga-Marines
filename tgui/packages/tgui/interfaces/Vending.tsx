@@ -23,7 +23,6 @@ type VendingData = {
 
 type VendingRecord = {
   product_name: string;
-  product_color: string;
   prod_desc: string;
   ref: string;
   tab: string;
@@ -114,7 +113,6 @@ export const Vending = () => {
 type VendingProductEntryProps = {
   stock: number;
   key: string;
-  product_color: string;
   product_name: string;
   prod_desc: string;
   prod_ref: string;
@@ -126,15 +124,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
 
   const { currently_vending } = data;
 
-  const {
-    stock,
-    key,
-    product_color,
-    product_name,
-    prod_desc,
-    prod_ref,
-    products,
-  } = props;
+  const { stock, key, product_name, prod_desc, prod_ref, products } = props;
 
   const [showDesc, setShowDesc] = useLocalState<String | null>(
     'showDesc',
@@ -214,7 +204,6 @@ const Products = () => {
                   <ProductEntry
                     stock={stock[display_record.product_name]}
                     key={display_record.product_name}
-                    product_color={display_record.product_color}
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
                     prod_ref={display_record.ref}

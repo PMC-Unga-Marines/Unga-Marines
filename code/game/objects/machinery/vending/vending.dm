@@ -8,7 +8,6 @@
 
 #define MAKE_VENDING_RECORD_DATA(record) list(\
 		"product_name" = record.product_name,\
-		"product_color" = record.display_color,\
 		"prod_desc" = record.desc,\
 		"ref" = REF(record),\
 		"tab" = record.tab,\
@@ -28,16 +27,12 @@
 	var/amount = 0
 	///The price of this product if any.
 	var/price = 0
-	///What color it stays on the vend button, considering just nuking this.
-	var/display_color = "white"
 	///What category it belongs to - only normal (contraband or coin are removed)
 	var/category = CAT_NORMAL
 	///Incase its a tabbed vendor what tab this belongs to.
 	var/tab
-	///Button name in vendor
-	var/button_name = "Vend"
 
-/datum/vending_product/New(name, typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab, product_button_name, product_description)
+/datum/vending_product/New(name, typepath, product_amount, product_price, category = CAT_NORMAL, tab, product_description)
 	product_paths = typepath
 	amount = product_amount
 	price = product_price
@@ -47,15 +42,6 @@
 	if(name)
 		product_name = name
 
-	if(product_display_color)
-		display_color = product_display_color
-	else if(ispath(typepath, /obj/item/ammo_magazine))
-		display_color = "black"
-	else
-		display_color = "white"
-
-	if(product_button_name)
-		button_name = product_button_name
 	if(product_description)
 		desc = product_description
 
@@ -264,7 +250,7 @@
 			continue
 
 		//This item is not tab dependent
-		var/atom/product_entry_atom = productlist[entry]
+		var/atom/product_entry_atom = entry
 		var/amount = productlist[entry]
 		if(isnull(amount))
 			amount = 1

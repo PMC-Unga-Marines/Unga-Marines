@@ -1876,3 +1876,5 @@
 			/obj/item/clothing/shoes/white = -1,
 		),
 	)
+
+#undef VEND_DESCRIPTION_MAGAZINES
