@@ -1431,9 +1431,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			if(!module_to_hide) //If it is not a suit module then it is a head module (dont know how to do it better than this)
 				module_to_hide = armor.attachments_by_slot[ATTACHMENT_SLOT_HEAD_MODULE]
 			if(!module_to_hide.icon_state) //If module is already hided we will unhide it
-				//Initial icon_state before any changes
-				var/init_icon_state = module_to_hide.base_icon
-				module_to_hide.icon_state = init_icon_state
+				module_to_hide.icon_state = module_to_hide.base_icon
 				update_icon()
 				return
 			module_to_hide.icon_state = null

@@ -87,7 +87,7 @@
 			if(istype(parent, selection))
 				icon_state = variants_by_parent_type[selection]
 				base_icon = variants_by_parent_type[selection]
-	if(istype(src, /obj/item/armor_module/module))
+	if(istype(src, /obj/item/armor_module/module) && !CHECK_BITFIELD(src.flags_attach_features, ATTACH_MODULE_CANNOT_BE_HIDDEN))
 		parent.colorable_allowed += MODULE_VISIBILITY_TOGGLE_ALLOWED
 	update_icon()
 
