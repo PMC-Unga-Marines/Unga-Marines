@@ -50,27 +50,27 @@
 /datum/supply_packs/supplies/carpplush
 	name = "Carp Plushie"
 	contains = list(/obj/item/toy/plush/carp)
-	cost = 10
+	cost = 50
 
 /datum/supply_packs/supplies/lizplush
 	name = "Lizard Plushie"
 	contains = list(/obj/item/toy/plush/lizard)
-	cost = 10
+	cost = 50
 
 /datum/supply_packs/supplies/slimeplush
 	name = "Slime Plushie"
 	contains = list(/obj/item/toy/plush/slime)
-	cost = 10
+	cost = 50
 
 /datum/supply_packs/supplies/mothplush
 	name = "Moth Plushie"
 	contains = list(/obj/item/toy/plush/moth)
-	cost = 10
+	cost = 50
 
 /datum/supply_packs/supplies/rounyplush
 	name = "Rouny Plushie"
 	contains = list(/obj/item/toy/plush/rouny)
-	cost = 10
+	cost = 50
 
 /datum/supply_packs/supplies/games
 	name = "Games crate"
