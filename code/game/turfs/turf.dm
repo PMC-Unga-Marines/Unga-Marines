@@ -24,6 +24,7 @@
 
 /turf
 	icon = 'icons/turf/floors.dmi'
+	luminosity = TRUE
 	var/intact_tile = 1 //used by floors to distinguish floor with/without a floortile(e.g. plating).
 	var/can_bloody = TRUE //Can blood spawn on this turf?
 	// baseturfs can be either a list or a single turf type.
@@ -32,7 +33,6 @@
 	// In the case of a list it is sorted from bottom layer to top.
 	// This shouldn't be modified directly, use the helper procs.
 	var/list/baseturfs = /turf/baseturf_bottom
-	luminosity = 1
 	var/changing_turf = FALSE
 	/// %-reduction-based armor.
 	var/datum/armor/soft_armor
@@ -48,6 +48,11 @@
 	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
 	var/list/fixed_underlay = null
 	var/list/datum/automata_cell/autocells
+	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
+	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
+	var/mob/oranges_ear/assigned_oranges_ear
+	/// The flags we give our turf
+	var/turf_flags = NONE
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
@@ -287,11 +292,17 @@
 	lighting_corner_SW = old_lighting_corner_SW
 	lighting_corner_NW = old_lighting_corner_NW
 
+	var/area/thisarea = get_area(W)
 	//static Update
 	if(SSlighting.initialized)
 		recalculate_directional_opacity()
 
-		W.static_lighting_object = old_lighting_object
+		if(thisarea.static_lighting)
+			W.static_lighting_object = old_lighting_object || new /datum/static_lighting_object(src)
+		else
+			W.static_lighting_object = null
+			if(old_lighting_object)
+				qdel(old_lighting_object, TRUE)
 
 		if(static_lighting_object && !static_lighting_object.needs_update)
 			static_lighting_object.update()
@@ -304,9 +315,9 @@
 	if(W.directional_opacity != old_directional_opacity)
 		W.reconsider_lights()
 
-	var/area/thisarea = get_area(W)
-	if(thisarea.lighting_effect)
+	if(thisarea.area_has_base_lighting)
 		W.add_overlay(thisarea.lighting_effect)
+		W.luminosity = 1
 
 	if(!W.smoothing_behavior == NO_SMOOTHING)
 		return W
@@ -690,6 +701,33 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		change_type = new_baseturfs
 	return ChangeTurf(change_type, null, flags)
 
+/// Places a turf on top - for map loading
+/turf/proc/load_on_top(turf/added_layer, flags)
+	var/area/our_area = get_area(src)
+	flags = our_area.PlaceOnTopReact(list(baseturfs), added_layer, flags)
+
+	if(flags & CHANGETURF_SKIP) // We haven't been initialized
+		if(flags_atom & INITIALIZED)
+			stack_trace("CHANGETURF_SKIP was used in a PlaceOnTop call for a turf that's initialized. This is a mistake. [src]([type])")
+		assemble_baseturfs()
+
+	var/turf/new_turf
+	if(!length(baseturfs))
+		baseturfs = list(baseturfs)
+
+	var/list/old_baseturfs = baseturfs.Copy()
+	if(!isclosedturf(src))
+		old_baseturfs += type
+
+	new_turf = ChangeTurf(added_layer, null, flags)
+	new_turf.assemble_baseturfs(initial(added_layer.baseturfs)) // The baseturfs list is created like roundstart
+	if(!length(new_turf.baseturfs))
+		new_turf.baseturfs = list(baseturfs)
+
+	// The old baseturfs are put underneath, and we sort out the unwanted ones
+	new_turf.baseturfs = baseturfs_string_list(old_baseturfs + (new_turf.baseturfs - GLOB.blacklisted_automated_baseturfs), new_turf)
+	return new_turf
+
 // Copy an existing turf and put it on top
 // Returns the new turf
 /turf/proc/CopyOnTop(turf/copytarget, ignore_bottom=1, depth=INFINITY, copy_air = FALSE)
@@ -865,6 +903,22 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	// Balloon alerts occuring on turf objects result in mass spam of alerts.
 	// Thus, no more balloon alerts for turfs.
 	return
+
+/// Call to move a turf from its current area to a new one
+/turf/proc/change_area(area/old_area, area/new_area)
+	//dont waste our time
+	if(old_area == new_area)
+		return
+
+	//move the turf
+	new_area.contents += src
+
+	//changes to make after turf has moved
+	on_change_area(old_area, new_area)
+
+/// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
+/turf/proc/on_change_area(area/old_area, area/new_area)
+	transfer_area_lighting(old_area, new_area)
 
 ///cleans any cleanable decals from the turf
 /turf/proc/clean_turf()

@@ -54,6 +54,13 @@ GLOBAL_LIST_EMPTY(all_req_one_access)
 #define ACCESS_NT_CORPORATE 200
 #define ACCESS_ILLEGAL_PIRATE 201
 
+// Yautja Access Levels
+/// Requires a visible ID chip to open
+#define ACCESS_YAUTJA_SECURE 250
+/// Elders+ only
+#define ACCESS_YAUTJA_ELDER 251
+/// Ancients only
+#define ACCESS_YAUTJA_ANCIENT 252
 //=================================================
 
 #define PAYGRADES_MARINE list("C","CMN","E1","E2","E3","E3E","E4","E5","E6","E7","E8","E8E","E9","E9E","O1","O2","O3","O4","O5","O6","WO","CWO","PO3","PO2","PO1","CPO")

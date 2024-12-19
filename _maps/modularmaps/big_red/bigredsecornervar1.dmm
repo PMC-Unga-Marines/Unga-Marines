@@ -54,7 +54,7 @@
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "s" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "t" = (
 /obj/effect/landmark/weed_node,

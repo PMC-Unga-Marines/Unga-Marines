@@ -1,6 +1,6 @@
 // -- Docks
 /obj/docking_port/stationary/crashmode
-	id = "canterbury_dock"
+	shuttle_id = "canterbury_dock"
 	name = "Canterbury Crash Site"
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "crash_site"
@@ -56,7 +56,7 @@
 
 /obj/docking_port/stationary/crashmode/hangar
 	name = "Hangar Pad One"
-	id = "canterbury"
+	shuttle_id = "canterbury"
 	roundstart_template = /datum/map_template/shuttle/tgs_canterbury
 
 /obj/docking_port/mobile/crashmode/bigbury

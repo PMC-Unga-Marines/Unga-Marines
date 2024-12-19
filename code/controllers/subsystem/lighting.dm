@@ -20,11 +20,20 @@ SUBSYSTEM_DEF(lighting)
 /datum/controller/subsystem/lighting/Initialize()
 	started = TRUE
 	if(!initialized)
-		//Handle static lightnig
 		create_all_lighting_objects()
 	fire(FALSE, TRUE)
 	return SS_INIT_SUCCESS
 
+///Handle static lightning
+/datum/controller/subsystem/lighting/proc/create_all_lighting_objects()
+	for(var/area/our_area in world)
+		if(!our_area.static_lighting)
+			continue
+
+		for(var/turf/our_turf in our_area)
+			new /datum/static_lighting_object(our_turf)
+			CHECK_TICK
+		CHECK_TICK
 
 /datum/controller/subsystem/lighting/stat_entry(msg)
 	msg = "ShCalcs:[total_shadow_calculations]|SourcQ:[length(static_sources_queue)]|CcornQ:[length(corners_queue)]|ObjQ:[length(objects_queue)]|HybrQ:[length(mask_queue)]"
