@@ -91,7 +91,8 @@
 			if(istype(parent, selection))
 				icon_state = variants_by_parent_type[selection]
 				base_icon = variants_by_parent_type[selection]
-
+	if(istype(src, /obj/item/armor_module/module) && !CHECK_BITFIELD(src.flags_attach_features, ATTACH_MODULE_CANNOT_BE_HIDDEN))
+		parent.colorable_allowed += MODULE_VISIBILITY_TOGGLE_ALLOWED
 	update_icon()
 
 /// Called when the module is removed from the armor.
@@ -101,6 +102,8 @@
 	parent.hard_armor = parent.hard_armor.detachArmor(hard_armor)
 	parent.soft_armor = parent.soft_armor.detachArmor(soft_armor)
 	parent.slowdown -= slowdown
+	if(istype(src, /obj/item/armor_module/module))
+		parent.colorable_allowed -= MODULE_VISIBILITY_TOGGLE_ALLOWED
 	UnregisterSignal(parent, COMSIG_ITEM_EQUIPPED)
 	parent = null
 	icon_state = initial(icon_state)

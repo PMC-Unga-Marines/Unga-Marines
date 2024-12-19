@@ -1369,6 +1369,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		selection_list += VARIANTS
 	if(colorable_allowed & HAIR_CONCEALING_CHANGE_ALLOWED)
 		selection_list += HAIR_CONCEALING_CHANGE
+	if(colorable_allowed & MODULE_VISIBILITY_TOGGLE_ALLOWED)
+		selection_list += MODULE_VISIBILITY_TOGGLE
 
 	var/selection
 	if(length(selection_list) == 1)
@@ -1420,6 +1422,25 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 			current_hair_concealment = concealment_variant
 			switch_hair_concealment_flags(user)
+
+		if(MODULE_VISIBILITY_TOGGLE)
+			///Init armor var so we can call attachments_by_slot[] proc
+			var/obj/item/clothing/armor = src
+			///Module we want to hide
+			var/obj/item/armor_module/module_to_hide
+			for(var/attachment_slot in armor.attachments_by_slot)
+				if(istype(armor.attachments_by_slot[attachment_slot], /obj/item/armor_module/module))
+					module_to_hide = armor.attachments_by_slot[attachment_slot]
+					break
+			if(CHECK_BITFIELD(armor.flags_armor_features, ARMOR_MODULE_HIDDEN))
+				module_to_hide.icon_state = module_to_hide.base_icon
+				armor.flags_armor_features &= ~ARMOR_MODULE_HIDDEN
+				update_icon()
+				return
+			module_to_hide.icon_state = null
+			armor.flags_armor_features |= ARMOR_MODULE_HIDDEN
+			update_icon()
+			return
 
 	if(!new_color || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		return
