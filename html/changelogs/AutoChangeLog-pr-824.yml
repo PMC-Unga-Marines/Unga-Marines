@@ -1,0 +1,4 @@
+author: "MalorMorfin"
+delete-after: True
+changes:
+  - bugfix: "Теперь тад не ломает застройку пока садится на ЛЗ"
