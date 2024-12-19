@@ -89,8 +89,8 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 #define SANDBAG_PRICE_IN_GEAR_VENDOR 3
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
-	/obj/item/implanter/implantator/combat/firearms = list(CAT_MARINE, "Aiming support implanter", 15, "cyan2"),
-	/obj/item/implanter/implantator/combat/melee = list(CAT_MARINE, "Close combat codex implanter", 15, "cyan2"),
+	/obj/item/implanter/implantator/combat/firearms = list(CAT_MARINE, "Aiming support implanter", 30, "cyan2"),
+	/obj/item/implanter/implantator/combat/melee = list(CAT_MARINE, "Close combat codex implanter", 25, "cyan2"),
 	/obj/item/implanter/implantator/codex/medical = list(CAT_MARINE, "Medtech implanter", 20, "cyan2"),
 	/obj/item/implanter/implantator/codex/engineer = list(CAT_MARINE, "Engineering support system implanter", 20, "cyan2"),
 	/obj/item/implanter/implantator/codex/construct = list(CAT_MARINE, "Construction support system implanter", 20, "cyan2"),
