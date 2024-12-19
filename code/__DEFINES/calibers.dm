@@ -58,6 +58,7 @@
 #define CALIBER_762X54 "7.62x54mm Rimmed" //SVD and mosin
 #define CALIBER_557 ".557/440" //Martini Henry
 #define CALIBER_RAILGUN "rail projectile"
+#define CALIBER_19MM "19mm ball"
 
 // --- Explosives ---
 #define CALIBER_20MM "20x28mm grenade"
