@@ -390,7 +390,7 @@
 	return abs(x - T.x) + abs(y - T.y)
 
 //Blood stuff------------
-/turf/proc/AddTracks(typepath,bloodDNA,comingdir,goingdir,bloodcolor="#A10808")
+/turf/proc/AddTracks(typepath,bloodDNA,comingdir,goingdir,bloodcolor)
 	if(!can_bloody)
 		return
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src

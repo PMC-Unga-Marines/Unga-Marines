@@ -11,7 +11,7 @@
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
 	var/base_icon = 'icons/effects/blood.dmi'
-	var/basecolor="#ff3b00" // Color when wet.
+	var/basecolor = "#9b0707"
 	var/amount = 5
 	var/drying_timer
 
@@ -64,6 +64,8 @@
 	var/hasfeet = 1
 	if((!l_foot || l_foot.limb_status & LIMB_DESTROYED) && (!r_foot || r_foot.limb_status & LIMB_DESTROYED))
 		hasfeet = 0
+	if(!isnull(blood_color))
+		basecolor = blood_color
 	if(perp.shoes && !perp.buckled)//Adding blood to shoes
 		var/obj/item/clothing/shoes/S = perp.shoes
 		if(istype(S))
