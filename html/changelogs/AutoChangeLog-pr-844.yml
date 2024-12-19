@@ -1,0 +1,4 @@
+author: "Неоморф"
+delete-after: True
+changes:
+  - balance: "реген плазмы шрики 45->55"
