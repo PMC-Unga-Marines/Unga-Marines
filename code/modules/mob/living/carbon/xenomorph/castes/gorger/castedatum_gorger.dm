@@ -42,6 +42,7 @@
 	drain_plasma_gain = 75
 	carnage_plasma_gain = 150
 	feast_plasma_drain = 20
+	blood_drained = 30
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
@@ -73,5 +74,6 @@
 		/datum/action/ability/activable/xeno/rejuvenate,
 		/datum/action/ability/activable/xeno/carnage,
 		/datum/action/ability/activable/xeno/feast,
+		/datum/action/ability/activable/xeno/oppose,
 		/datum/action/ability/activable/xeno/devour,
 	)
