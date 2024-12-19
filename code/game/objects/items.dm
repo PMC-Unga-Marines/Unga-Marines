@@ -1424,17 +1424,21 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			switch_hair_concealment_flags(user)
 
 		if(MODULE_VISIBILITY_TOGGLE)
-			//Init armor var so we can call attachments_by_slot[] proc
+			///Init armor var so we can call attachments_by_slot[] proc
 			var/obj/item/clothing/armor = src
-			//Module target which icon we want to hide
-			var/obj/item/armor_module/module_to_hide =  armor.attachments_by_slot[ATTACHMENT_SLOT_MODULE]
-			if(!module_to_hide) //If it is not a suit module then it is a head module (dont know how to do it better than this)
-				module_to_hide = armor.attachments_by_slot[ATTACHMENT_SLOT_HEAD_MODULE]
-			if(!module_to_hide.icon_state) //If module is already hided we will unhide it
+			///Module we want to hide
+			var/obj/item/armor_module/module_to_hide
+			for(var/attachment_slot in armor.attachments_by_slot)
+				if(istype(armor.attachments_by_slot[attachment_slot], /obj/item/armor_module/module))
+					module_to_hide = armor.attachments_by_slot[attachment_slot]
+					break
+			if(CHECK_BITFIELD(armor.flags_armor_features, ARMOR_MODULE_HIDDEN))
 				module_to_hide.icon_state = module_to_hide.base_icon
+				armor.flags_armor_features &= ~ARMOR_MODULE_HIDDEN
 				update_icon()
 				return
 			module_to_hide.icon_state = null
+			armor.flags_armor_features |= ARMOR_MODULE_HIDDEN
 			update_icon()
 			return
 
