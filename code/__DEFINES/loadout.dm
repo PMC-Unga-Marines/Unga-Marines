@@ -114,13 +114,9 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 
 GLOBAL_LIST_INIT(robot_gear_listed_products, list(
 	/obj/item/tool/surgery/solderingtool = list(CAT_ESS, "Essential Soldering Tool", 0, "white"),
-	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 5, "orange2"),
-	/obj/item/cell/lasgun/volkite/powerpack/marine_back = list(CAT_ROBOT, "Terra Experimental powerback", 30, "orange2"),
+	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_ROBOT, "Terra Experimental recharger battery", 9, "orange2"),
+	/obj/item/cell/lasgun/volkite/powerpack/marine_back = list(CAT_ROBOT, "Terra Experimental back powerpack", 45, "orange2"),
 	/obj/item/tool/handheld_charger = list(CAT_ROBOT, "Hand-held cell charger", 5, "yellow"),
-	/obj/effect/vendor_bundle/robot_armor/melee = list(CAT_ROBOT, "Cingulata physical protection armor set", 25, "blue"),
-	/obj/effect/vendor_bundle/robot_armor/acid = list(CAT_ROBOT, "Exidobate acid protection armor set", 25, "blue"),
-	/obj/effect/vendor_bundle/robot_armor/bomb = list(CAT_ROBOT, "Tardigrada bomb protection armor set", 25, "blue"),
-	/obj/effect/vendor_bundle/robot_armor/fire = list(CAT_ROBOT, "Urodela fire protection armor set", 25, "blue"),
 ))
 
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
