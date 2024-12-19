@@ -99,3 +99,35 @@
 	name = "Optical Imager Goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
+
+/datum/supply_packs/armor/robot/advanced/physical
+	name = "Cingulata physical protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/physical,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/physical,
+	)
+	cost = 600
+
+/datum/supply_packs/armor/robot/advanced/acid
+	name = "Exidobate acid protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/acid,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/acid,
+	)
+	cost = 600
+
+/datum/supply_packs/armor/robot/advanced/bomb
+	name = "Tardigrada bomb protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/bomb,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/bomb,
+	)
+	cost = 600
+
+/datum/supply_packs/armor/robot/advanced/fire
+	name = "Urodela fire protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/fire,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/fire,
+	)
+	cost = 600
