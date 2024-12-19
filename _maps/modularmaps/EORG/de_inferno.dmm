@@ -373,10 +373,6 @@
 /obj/structure/window/framed/wood,
 /turf/open/floor/wood,
 /area/deathmatch)
-"eN" = (
-/obj/machinery/floodlight/landing/hq,
-/turf/open/floor/plating/asteroidfloor,
-/area/space)
 "eO" = (
 /obj/structure/stairs/edge{
 	dir = 1
@@ -3208,7 +3204,7 @@ dZ
 fI
 fI
 Bs
-eN
+ei
 pj
 TP
 TP

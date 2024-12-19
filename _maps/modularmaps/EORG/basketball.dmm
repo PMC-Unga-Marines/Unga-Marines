@@ -3,8 +3,8 @@
 /turf/closed/wall/mainship/outer,
 /area/deathmatch)
 "ab" = (
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ac" = (
 /turf/closed/wall/mainship,
 /area/deathmatch)
@@ -792,7 +792,7 @@
 /area/deathmatch)
 "IC" = (
 /turf/closed/wall/mainship/outer,
-/area/space)
+/area/template_noop)
 "IS" = (
 /turf/open/floor/plating/mainship,
 /area/deathmatch)
@@ -977,7 +977,7 @@
 	name = "Blocker"
 	},
 /turf/open/floor/mainship/mono,
-/area/space)
+/area/template_noop)
 "Wi" = (
 /obj/effect/landmark/deathmatch,
 /turf/open/floor/mainship/silver/corner,

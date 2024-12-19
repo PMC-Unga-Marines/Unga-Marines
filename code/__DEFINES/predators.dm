@@ -1,14 +1,5 @@
 #define PREDATOR_TO_TOTAL_SPAWN_RATIO 1/20
 
-#define INIT_ORDER_PREDSHIPS  -22
-
-// Yautja Access Levels
-/// Requires a visible ID chip to open
-#define ACCESS_YAUTJA_SECURE 250
-/// Elders+ only
-#define ACCESS_YAUTJA_ELDER 251
-/// Ancients only
-#define ACCESS_YAUTJA_ANCIENT 252
 
 #define ACCESSORY_SLOT_ARMOR_C "chest_armor"
 
@@ -25,9 +16,6 @@
 #define ACCESSORY_SLOT_ARMOR_Y_RH "right_hand_bones"
 #define ACCESSORY_SLOT_ARMOR_Y_LH "left_hand_bones"
 
-#define JOB_PREDATOR "Predator"
-
-#define CATEGORY_YAUTJA "YAUTJA"
 #define HUNTERSHIPS_TEMPLATE_PATH "_maps/predator/huntership.dmm"
 
 #define PRED_MATERIALS list("ebony", "silver", "bronze", "crimson", "bone")
@@ -45,11 +33,8 @@
 #define SD_TYPE_BIG   0
 #define SD_TYPE_SMALL 1
 
-///Sound volume defines
-#define BLOCK_SOUND_VOLUME 70
-#define CLAN_PERMISSION_USER_VIEW 1
-
 /// Modify ranks within clan
+#define CLAN_PERMISSION_USER_VIEW 1
 #define CLAN_PERMISSION_USER_MODIFY 2
 
 #define CLAN_PERMISSION_USER_ALL (CLAN_PERMISSION_USER_MODIFY|CLAN_PERMISSION_USER_VIEW)

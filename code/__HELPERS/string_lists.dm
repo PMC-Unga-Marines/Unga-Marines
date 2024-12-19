@@ -12,3 +12,12 @@ GLOBAL_LIST_EMPTY(string_lists)
 		return
 
 	return GLOB.string_lists[string_id] = values
+
+///A wrapper for baseturf string lists, to offer support of non list values, and a stack_trace if we have major issues
+/proc/baseturfs_string_list(list/values, turf/baseturf_holder)
+	if(!islist(values))
+		return values //baseturf things
+	// return values
+	if(length(values) > 10)
+		return string_list(list(/turf/closed/cordon/debug))
+	return string_list(values)

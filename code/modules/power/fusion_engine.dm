@@ -60,12 +60,13 @@
 	return
 
 /obj/machinery/power/fusion_engine/process()
-	if(!is_on || buildstate || !anchored || !powernet || !fusion_cell) //Default logic checking
-		if(is_on)
-			is_on = FALSE
-			power_gen_percent = 0
-			update_icon()
-			stop_processing()
+	if(!is_on)
+		return FALSE
+	if(buildstate || !anchored || !powernet || !fusion_cell) //Default logic checking
+		is_on = FALSE
+		power_gen_percent = 0
+		update_icon()
+		stop_processing()
 		return FALSE
 	if(fusion_cell.fuel_amount <= 0)
 		balloon_alert_to_viewers("Is out of fuel")

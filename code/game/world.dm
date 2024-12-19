@@ -381,12 +381,25 @@ GLOBAL_VAR(restart_counter)
 	// Finally set the new status
 	status = new_status
 
+/**
+ * Handles incresing the world's maxx var and intializing the new turfs and assigning them to the global area.
+ * If map_load_z_cutoff is passed in, it will only load turfs up to that z level, inclusive.
+ * This is because maploading will handle the turfs it loads itself.
+ */
+/world/proc/increase_max_x(new_maxx)
+	if(new_maxx <= maxx)
+		return
+	maxx = new_maxx
+
+/world/proc/increase_max_y(new_maxy)
+	if(new_maxy <= maxy)
+		return
+	maxy = new_maxy
 
 /world/proc/incrementMaxZ()
 	maxz++
 	SSmobs.MaxZChanged()
 	SSidlenpcpool.MaxZChanged()
-
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)

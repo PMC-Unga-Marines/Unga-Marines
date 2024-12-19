@@ -1,5 +1,3 @@
-
-
 //turfs with density = TRUE
 /turf/closed
 	density = TRUE
@@ -24,6 +22,21 @@
 	AM.turf_collision(src, speed)
 	return TRUE
 
+/// Cordon turf marking z-level boundaries and surrounding reservations
+/turf/closed/cordon
+	name = "world border"
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "pclosed"
+	layer = ABOVE_TURF_LAYER
+	baseturfs = /turf/closed/cordon
+
+/// Used as placeholder turf when something went really wrong, as per /tg/ string lists handler
+/turf/closed/cordon/debug
+	name = "debug turf"
+	desc = "This turf shouldn't be here and probably result of incorrect turf replacement. Adminhelp about it or report it in an issue."
+	color = "#660088"
+	baseturfs = /turf/closed/cordon/debug
+
 /turf/closed/mineral
 	name = "rock"
 	icon = 'icons/turf/walls.dmi'
@@ -39,20 +52,21 @@
 	. = ..()
 	for(var/direction in GLOB.cardinals)
 		var/turf/turf_to_check = get_step(src, direction)
-		if(!isnull(turf_to_check) && !turf_to_check.density)
-			var/image/rock_side = image(icon, "[icon_state]_side", dir = REVERSE_DIR(direction))
-			switch(direction)
-				if(NORTH)
-					rock_side.pixel_y += world.icon_size
-				if(SOUTH)
-					rock_side.pixel_y -= world.icon_size
-				if(EAST)
-					rock_side.pixel_x += world.icon_size
-				if(WEST)
-					rock_side.pixel_x -= world.icon_size
-			if(!isspaceturf(turf_to_check))
-				minimap_color = MINIMAP_SOLID
-			overlays += rock_side
+		if(isnull(turf_to_check) || turf_to_check.density)
+			continue
+		var/image/rock_side = image(icon, "[icon_state]_side", dir = REVERSE_DIR(direction))
+		switch(direction)
+			if(NORTH)
+				rock_side.pixel_y += world.icon_size
+			if(SOUTH)
+				rock_side.pixel_y -= world.icon_size
+			if(EAST)
+				rock_side.pixel_x += world.icon_size
+			if(WEST)
+				rock_side.pixel_x -= world.icon_size
+		if(!isspaceturf(turf_to_check))
+			minimap_color = MINIMAP_SOLID
+		overlays += rock_side
 
 /turf/closed/mineral/attack_alien(mob/living/carbon/xenomorph/xeno_user, isrightclick = FALSE)
 	. = ..()
