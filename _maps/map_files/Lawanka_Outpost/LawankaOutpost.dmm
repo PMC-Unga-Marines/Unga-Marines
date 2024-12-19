@@ -22603,7 +22603,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "tbs" = (
 /obj/structure/table,
-/obj/item/spacecash/c10,
+/obj/item/spacecash/bundle/c10,
 /obj/machinery/light{
 	light_color = "#da2f1b"
 	},

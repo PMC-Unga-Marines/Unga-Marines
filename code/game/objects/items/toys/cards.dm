@@ -372,9 +372,9 @@
 /obj/item/toy/deck/kotahi/update_icon_state()
 	. = ..()
 	switch(length(cards))
-		if(107 to 108)
+		if(72)
 			icon_state = "deck"
-		if(37 to 106)
+		if(1 to 71)
 			icon_state = "deck_open"
-		if(0 to 36)
+		if(0)
 			icon_state = "deck_empty"

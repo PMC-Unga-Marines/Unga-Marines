@@ -2,6 +2,8 @@
 	var/mob/living/carbon/human/wearer
 	///Parent storage in which we want to collect magazines
 	var/obj/item/storage/storage
+	////Auto catching empty magazines: FALSE - disabled, TRUE - enabled
+	var/auto_catch = TRUE
 
 /datum/component/magazine_catcher/Initialize()
 	. = ..()
@@ -18,9 +20,12 @@
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(equipped_to_slot))
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED), PROC_REF(removed_from_slot))
 	storage = parent
+	storage.verbs += /datum/component/magazine_catcher/proc/toggle_auto_catch
 
 /datum/component/magazine_catcher/UnregisterFromParent()
 	. = ..()
+	if(storage)
+		storage.verbs -= /datum/component/magazine_catcher/proc/toggle_auto_catch
 	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED))
 
 /datum/component/magazine_catcher/proc/equipped_to_slot(datum/source, mob/user, slot)
@@ -43,4 +48,16 @@
 /datum/component/magazine_catcher/proc/try_to_catch_magazine(datum/source, obj/item/mag)
 	if(!storage.can_be_inserted(mag, FALSE))
 		return FALSE
+	if(!auto_catch)
+		return FALSE
 	return storage.handle_item_insertion(mag, TRUE)
+
+/datum/component/magazine_catcher/proc/toggle_auto_catch()
+	set name = "Toggle Auto Catching Magazines/Speed Loaders"
+	set category = "Object"
+	var/datum/component/magazine_catcher/comp = GetComponent(/datum/component/magazine_catcher)
+	comp.auto_catch = !comp.auto_catch
+	if(!comp.auto_catch)
+		to_chat(usr, "Auto catching disabled.")
+	else
+		to_chat(usr, "Auto catching enabled.")

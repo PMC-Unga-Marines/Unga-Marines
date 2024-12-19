@@ -863,3 +863,9 @@
 /datum/status_effect/incapacitating/spider_venom/on_remove()
 	owner.remove_movespeed_modifier(MOVESPEED_ID_SPIDER_VENOM)
 	return ..()
+
+// ***************************************
+// *********** Dancer Tagged
+// ***************************************
+/datum/status_effect/incapacitating/dancer_tagged
+	id = "dancer_tagged"

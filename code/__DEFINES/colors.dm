@@ -170,6 +170,7 @@
 #define COLOR_REAGENT_DIBORANE "#1800a3"
 #define COLOR_REAGENT_STIMULON "#19C832"
 
+
 //Color defines used by toxin
 #define COLOR_TOXIN_TOXIN "#CF3600" // rgb: 207, 54, 0
 #define COLOR_TOXIN_AMATOXIN "#792300" // rgb: 121, 35, 0

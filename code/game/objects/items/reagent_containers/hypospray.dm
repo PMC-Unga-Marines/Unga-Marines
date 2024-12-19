@@ -622,8 +622,8 @@
 	desc = "A hypospray loaded with a mixture of imidazoline and alkysine. Chemicals that will heal brain, eyes, and ears."
 	amount_per_transfer_from_this = 5
 	list_reagents = list(
-		/datum/reagent/medicine/imidazoline = 96,
-		/datum/reagent/medicine/alkysine = 24,
+		/datum/reagent/medicine/imidazoline = 60,
+		/datum/reagent/medicine/alkysine = 60,
 	)
 	description_overlay = "Im"
 
