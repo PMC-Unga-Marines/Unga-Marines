@@ -1,5 +1,5 @@
 /obj/item/implant/skill
-	flags_implant = GRANT_ACTIVATION_ACTION|BENEFICIAL_IMPLANT|HIGHLANDER_IMPLANT
+	flags_implant = BENEFICIAL_IMPLANT|HIGHLANDER_IMPLANT
 	w_class = WEIGHT_CLASS_TINY
 //  Maximum skill a user can possess
 	var/list/max_skills
@@ -68,3 +68,14 @@
 	desc = "An implant from the line of implants that increases knowledge of battle tactics"
 	icon_state = "skill_implant"
 	allowed_limbs = list(BODY_ZONE_HEAD)
+
+/obj/item/implant/skill/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/implanter/implantator/cargo))
+		var/obj/item/implanter/implantator/cargo/cargo = I
+		if(cargo.icon_state == "cargo_full_s")
+			balloon_alert(user, "Implantator already used!")
+			return
+		cargo.allowed_limbs = allowed_limbs
+		cargo.internal_implant = src
+		src.forceMove(cargo)
+		cargo.icon_state = "cargo_full"

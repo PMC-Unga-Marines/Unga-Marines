@@ -1,7 +1,7 @@
 #define SANDEVISTAN_IMPLANT "sandevistan_implant"
 
 /obj/item/implant/sandevistan
-	name = "sandevistan spinal implant"
+	name = "Sandevistan spinal implant"
 	desc = "Overloads your central nervous system in order to do everything faster. Careful not to overuse it."
 	icon_state = "internal_implant_spinal"
 	implant_color = null

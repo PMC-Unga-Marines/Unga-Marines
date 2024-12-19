@@ -59,18 +59,6 @@
 	allowed_limbs = list(BODY_ZONE_HEAD)
 	internal_implant = /obj/item/implant/skill/oper_system
 
-/obj/item/implanter/implantator/cargo/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/implant/skill))
-		var/obj/item/implant/skill/skill = I
-		if(icon_state == "cargo_full_s")
-			balloon_alert(user, "Implantator already used!")
-			return
-		allowed_limbs = skill.allowed_limbs
-		internal_implant = skill
-		skill.forceMove(src)
-		icon_state = "cargo_full"
-		return
-
 /obj/item/implanter/implantator/cargo
 	icon_state = "cargo"
 	empty_icon = "cargo_full"
