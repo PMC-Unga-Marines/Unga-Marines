@@ -1,7 +1,7 @@
 /datum/action/ability/xeno_action/proc/acid_puddle(atom/A, atom/OldLoc, Dir, Forced)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/X = owner
-	new/obj/effect/temp_visual/xenomorph/afterimage(get_turf(X), X)
+	new/obj/effect/temp_visual/after_image(get_turf(X), X)
 	new /obj/effect/xenomorph/spray(get_turf(X), 5 SECONDS, XENO_ACID_CHARGE_DAMAGE)
 	for(var/obj/O in get_turf(X))
 		O.acid_spray_act(X)
@@ -10,7 +10,7 @@
 /datum/action/ability/xeno_action/proc/afterimage(atom/A, atom/OldLoc, Dir, Forced)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/X = owner
-	new/obj/effect/temp_visual/xenomorph/afterimage(get_turf(X), X)
+	new/obj/effect/temp_visual/after_image(get_turf(X), X)
 	playsound(X, SFX_ALIEN_FOOTSTEP_LARGE, 50)
 
 // ***************************************
