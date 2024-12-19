@@ -70,6 +70,7 @@
 	allowed_limbs = list(BODY_ZONE_HEAD)
 
 /obj/item/implant/skill/attackby(obj/item/I, mob/user, params)
+	. = ..()
 	if(istype(I, /obj/item/implanter/implantator/cargo))
 		var/obj/item/implanter/implantator/cargo/cargo = I
 		if(cargo.icon_state == "cargo_full_s")
@@ -77,5 +78,5 @@
 			return
 		cargo.allowed_limbs = allowed_limbs
 		cargo.internal_implant = src
-		src.forceMove(cargo)
+		forceMove(cargo)
 		cargo.icon_state = "cargo_full"

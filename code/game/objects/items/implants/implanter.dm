@@ -84,7 +84,6 @@
 	name = "Self-Gibbing implant"
 	internal_implant = /obj/item/implant/suicide_dust
 
-
 /obj/item/implanter/sandevistan
 	name = "sandevistan implanter"
 	icon_state = "internal_implant_spinal"

@@ -87,7 +87,7 @@
 	if(!affected)
 		CRASH("[src] implanted into [target] [user ? "by [user]" : ""] but had no limb, despite being set to implant in [limb_targeting].")
 	for(var/obj/item/implant/embedded in affected.implants)
-		if((flags_implant & HIGHLANDER_IMPLANT) || (embedded.flags_implant & HIGHLANDER_IMPLANT))
+		if(flags_implant & HIGHLANDER_IMPLANT || embedded.flags_implant & HIGHLANDER_IMPLANT)
 			to_chat(user, span_warning("Cannot fit the [name] due to the [embedded.name] already there!"))
 			return FALSE
 		if(!(embedded.type == type) || (flags_implant & DUPLICATE_IMPLANT_ALLOWED))

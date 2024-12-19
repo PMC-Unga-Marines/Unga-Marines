@@ -161,9 +161,10 @@
 	if(!target)
 		return FALSE
 	var/obj/item/implant/implant = target
-	. = implant.activate()
-	if(!.)
+	if(!implant.activate())
 		return
 	if(!implant.active)
 		add_cooldown()
 	update_button_icon()
+
+#undef SANDEVISTAN_IMPLANT
