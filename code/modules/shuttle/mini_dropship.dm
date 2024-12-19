@@ -220,9 +220,6 @@
 		ui = new(user, src, "Minidropship", name)
 		ui.open()
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_close(mob/user)
-	. = ..()
-
 /// Set ui_user to null to prevent hard del
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/clean_ui_user(datum/source)
 	SIGNAL_HANDLER
