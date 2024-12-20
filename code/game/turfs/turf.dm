@@ -624,11 +624,6 @@
 	if(!target)
 		return FALSE
 
-GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
-	/turf/open/space,
-	/turf/baseturf_bottom,
-	)))
-
 /turf/proc/copyTurf(turf/T)
 	if(T.type != type)
 		T.ChangeTurf(type)
@@ -660,7 +655,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	HandleTurfChange(src)
 
 /turf/open/AfterChange(flags)
-	..()
+	. = ..()
 	RemoveLattice()
 
 // Removes all signs of lattice on the pos of the turf -Donkieyo
