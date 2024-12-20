@@ -1,8 +1,10 @@
 #define VEND_DESCRIPTION_MAGAZINES "Majority of modern firearms come with several types of ammunition.\nFMJ is all-around ammo. AP is armor-piercing, able to hit harder targets, but with lesser consequences. HP is hollow-point, which fragments on impact and is devastating against unprotected flesh, but barely scratches harder targets. IC is incendiary, bursting into flames on impact."
+#define VEND_COLOR_DEFAULT "#4972a1" //Marine theme primary color from colors.scss
+#define VEND_COLOR_AMMO "grey"
 #define VEND_COLOR_FMJ "white"
 #define VEND_COLOR_AP "blue"
-#define VEND_COLOR_HP "green"
-#define VEND_COLOR_IC "yellow"
+#define VEND_COLOR_HP "red"
+#define VEND_COLOR_IC "orange"
 
 /obj/machinery/vending/weapon
 	name = "automated weapons rack"
@@ -50,13 +52,13 @@
 			),
 			"Leicester Repeater" = list(-1, list(
 				list(/obj/item/weapon/gun/shotgun/pump/lever/repeater, "WEAP"),
-				list(/obj/item/ammo_magazine/packet/p4570, "AMMO"),
+				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", VEND_COLOR_AMMO),
 				),
 			),
 			"Martini Henry" = list(-1, list(
 				list(/obj/item/weapon/gun/shotgun/double/martini, "WEAP"),
-				list(/obj/item/ammo_magazine/rifle/martini, "AMMO"),
-				list(/obj/item/ammo_magazine/rifle/martini/white, "AM WT", "white")
+				list(/obj/item/ammo_magazine/rifle/martini, "BLK", VEND_COLOR_AMMO),
+				list(/obj/item/ammo_magazine/rifle/martini/white, "WHT", "white")
 				)
 			),
 		),
@@ -72,18 +74,18 @@
 	),
 		"Снайперские винтовки" = list(
 			"DMR-37" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/dmr37, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/rifle/dmr37, "AMMO", "white")
+				list(/obj/item/weapon/gun/rifle/dmr37, "WEAP"),
+				list(/obj/item/ammo_magazine/rifle/dmr37, "AMMO", VEND_COLOR_AMMO)
 				),
 			),
 			"SVD" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/sniper/svd, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/sniper/svd, "AMMO", "white")
+				list(/obj/item/weapon/gun/rifle/sniper/svd, "WEAP"),
+				list(/obj/item/ammo_magazine/sniper/svd, "AMMO", VEND_COLOR_AMMO)
 				),
 			),
 			"SR-127" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/sr127, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/rifle/sr127, "AMMO", "white")
+				list(/obj/item/weapon/gun/rifle/sr127, "WEAP"),
+				list(/obj/item/ammo_magazine/rifle/sr127, "AMMO", VEND_COLOR_AMMO)
 				),
 			)
 		),
@@ -104,29 +106,29 @@
 				list(/obj/item/ammo_magazine/shotgun, "SLUG", "green"),
 				list(/obj/item/ammo_magazine/shotgun/buckshot, "BUCK", "red"),
 				list(/obj/item/ammo_magazine/shotgun/flechette, "FLCH", "purple"),
-				list(/obj/item/ammo_magazine/shotgun/tracker, "TRCK", "black")
+				list(/obj/item/ammo_magazine/shotgun/tracker, "TRCK", "pink")
 				),
 			),
 			"SH-15" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/sh15, "WEAP", "white"),
+				list(/obj/item/weapon/gun/rifle/sh15, "WEAP"),
 				list(/obj/item/ammo_magazine/rifle/sh15_slug, "SLUG", "green"),
 				list(/obj/item/ammo_magazine/rifle/sh15_flechette, "FLCH", "purple")
 				),
 			),
 			"SH-34 rig" = list(5, list(
-				list(/obj/item/storage/holster/belt/ts34/full, "Vend", "white")
+				list(/obj/item/storage/holster/belt/ts34/full, "Vend")
 				),
 			),
 		),
 		"Пулемёты" = list(
 			"MG-60" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/mg60, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/mg60, "AMMO", "black"),
+				list(/obj/item/weapon/gun/rifle/mg60, "WEAP"),
+				list(/obj/item/ammo_magazine/mg60, "AMMO", VEND_COLOR_AMMO),
 				),
 			),
 			"MG-27" = list(-1, list(
-				list(/obj/item/weapon/gun/mg27, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/mg27, "AMMO", "black"),
+				list(/obj/item/weapon/gun/mg27, "WEAP"),
+				list(/obj/item/ammo_magazine/mg27, "AMMO", VEND_COLOR_AMMO),
 				),
 			),
 			/obj/item/storage/box/hsg102 = 1,
@@ -160,8 +162,8 @@
 				),
 			),
 			"P-17" = list(-1, list(
-				list(/obj/item/weapon/gun/pistol/p17, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/pistol/p17, "AMMO", "black"),
+				list(/obj/item/weapon/gun/pistol/p17, "WEAP"),
+				list(/obj/item/ammo_magazine/pistol/p17, "AMMO", VEND_COLOR_AMMO),
 				),
 			),
 			/obj/item/weapon/gun/pistol/vp70 = -1,
@@ -173,13 +175,13 @@
 				VEND_DESCRIPTION_MAGAZINES
 			),
 			"Plasma Pistol" = list(-1, list(
-				list(/obj/item/weapon/gun/pistol/plasma_pistol, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/pistol/plasma_pistol, "AMMO", "black"),
+				list(/obj/item/weapon/gun/pistol/plasma_pistol, "WEAP"),
+				list(/obj/item/ammo_magazine/pistol/plasma_pistol, "AMMO", VEND_COLOR_AMMO),
 				),
 			),
 			"Derringer" = list(-1, list(
-				list(/obj/item/weapon/gun/shotgun/double/derringer, "WEAP", "white"),
-				list(/obj/item/ammo_magazine/pistol/derringer, "AMMO", "black"),
+				list(/obj/item/weapon/gun/shotgun/double/derringer, "WEAP"),
+				list(/obj/item/ammo_magazine/pistol/derringer, "AMMO", VEND_COLOR_AMMO),
 				),
 			),
 		),
@@ -1975,6 +1977,8 @@
 	)
 
 #undef VEND_DESCRIPTION_MAGAZINES
+#undef VEND_COLOR_DEFAULT
+#undef VEND_COLOR_AMMO
 #undef VEND_COLOR_FMJ
 #undef VEND_COLOR_AP
 #undef VEND_COLOR_HP

@@ -159,10 +159,11 @@ const ProductEntry = (props: VendingProductEntryProps) => {
                 currently_vending &&
                 currently_vending.product_name === product_name
               }
+              color={product[2]}
               onClick={() => act('vend', { vend: [prod_ref, product[0]] })}
               disabled={!stock}
             >
-              <Box color={product[2]} bold={1}>
+              <Box color={'FFFFFF'} bold={1}>
                 {
                   product[1] // Button name
                 }

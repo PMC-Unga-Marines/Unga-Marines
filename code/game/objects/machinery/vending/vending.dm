@@ -242,7 +242,7 @@
 					var/amount = tab_products[product_entry]
 					if(isnull(amount))
 						amount = 1
-					var/list/created_product_list = list(list(product_entry, "Vend", "white"))
+					var/list/created_product_list = list(list(product_entry, "Vend"))
 					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
 					recordlist += record
 					products_inverse[product_entry] = REF(record)
