@@ -106,7 +106,6 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 5, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/russian_red = list(CAT_MARINE, "Emergency autoinjector", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 8, "cyan"),
-	/obj/item/storage/holster/blade/officer/valirapier/full = list(CAT_MARINE, "Vali Harvester rapier", 45, "blue"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
 	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "blue"),
