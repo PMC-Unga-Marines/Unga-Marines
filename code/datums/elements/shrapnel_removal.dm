@@ -63,8 +63,8 @@
 /datum/element/shrapnel_removal/proc/has_shrapnel(datum/limb/targetlimb)
 	for(var/obj/item/embedded AS in targetlimb.implants)
 		if(embedded.is_beneficial_implant())
-			continue
-	return TRUE
+			return TRUE
+	return FALSE
 
 /datum/element/shrapnel_removal/proc/remove_shrapnel(mob/living/user, mob/living/target, datum/limb/targetlimb, skill)
 	for(var/obj/item/embedded AS in targetlimb.implants)
