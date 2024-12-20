@@ -64,7 +64,6 @@ All ShuttleMove procs go here
 /turf/proc/afterShuttleMove(turf/oldT, rotation)
 	//Dealing with the turf we left behind
 	oldT.TransferComponents(src)
-	//SSexplosions.wipe_turf(src) // RUTGMC DELETION
 
 	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
 	if(shuttle_boundary)
@@ -76,11 +75,7 @@ All ShuttleMove procs go here
 	return TRUE
 
 /turf/proc/lateShuttleMove(turf/oldT)
-//	blocks_air = initial(blocks_air)
-//	air_update_turf(TRUE)
-//	oldT.blocks_air = initial(oldT.blocks_air)
-//	oldT.air_update_turf(TRUE)
-
+	return
 
 /////////////////////////////////////////////////////////////////////////////////////
 
