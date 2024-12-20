@@ -31,21 +31,8 @@
 	qdel(src)
 
 /obj/effect/baseturf_helper/proc/replace_baseturf(turf/thing)
-	var/list/baseturf_cache = thing.baseturfs
-	if(length(baseturf_cache))
-		for(var/i in baseturf_cache)
-			if(baseturf_to_replace[i])
-				baseturf_cache -= i
-		if(!length(baseturf_cache))
-			thing.assemble_baseturfs(baseturf)
-		else
-			thing.PlaceOnBottom(null, baseturf)
-	else if(baseturf_to_replace[thing.baseturfs])
-		thing.assemble_baseturfs(baseturf)
-	else
-		thing.PlaceOnBottom(null, baseturf)
-
-
+	thing.remove_baseturfs_from_typecache(baseturf_to_replace)
+	thing.PlaceOnBottom(fake_turf_type = baseturf)
 
 /obj/effect/baseturf_helper/space
 	name = "space baseturf editor"

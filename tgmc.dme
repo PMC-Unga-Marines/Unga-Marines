@@ -1168,6 +1168,7 @@
 #include "code\game\objects\structures\xeno\jelly.dm"
 #include "code\game\objects\structures\xeno\resin.dm"
 #include "code\game\turfs\baseturf_skipover.dm"
+#include "code\game\turfs\baseturfs.dm"
 #include "code\game\turfs\closed.dm"
 #include "code\game\turfs\floor.dm"
 #include "code\game\turfs\floor_ground.dm"
