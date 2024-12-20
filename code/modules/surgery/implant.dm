@@ -32,12 +32,13 @@
 
 /datum/surgery_step/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	if(length(affected.implants))
-
-		var/obj/item/implantfound = affected.implants[1]
-		user.visible_message(span_notice("[user] takes something out of incision on [target]'s [affected.display_name] with \the [tool]."), \
-		span_notice("You take [implantfound] out of incision on [target]'s [affected.display_name]s with \the [tool]."))
-		target.balloon_alert_to_viewers("Implant found")
-		implantfound.unembed_ourself()
+		var/choosen_object = show_radial_menu(user, target, affected.implants, radius = 50, require_near = TRUE, tooltips = TRUE)
+		if(choosen_object)
+			var/obj/item/implant_inside = choosen_object
+			implant_inside.unembed_ourself()
+			user.visible_message(span_notice("[user] takes something out of incision on [target]'s [affected.display_name] with \the [tool]."), \
+			span_notice("You take [choosen_object] out of incision on [target]'s [affected.display_name]s with \the [tool]."))
+			target.balloon_alert_to_viewers("Implant found")
 
 	else if(affected.hidden)
 		user.visible_message(span_notice("[user] takes something out of incision on [target]'s [affected.display_name] with \the [tool]."), \
