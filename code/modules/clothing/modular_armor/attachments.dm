@@ -98,7 +98,7 @@
 	parent.hard_armor = parent.hard_armor.detachArmor(hard_armor)
 	parent.soft_armor = parent.soft_armor.detachArmor(soft_armor)
 	parent.slowdown -= slowdown
-	if(istype(src, /obj/item/armor_module/module))
+	if(istype(src, /obj/item/armor_module/module) && !CHECK_BITFIELD(src.flags_attach_features, ATTACH_MODULE_CANNOT_BE_HIDDEN))
 		parent.colorable_allowed -= MODULE_VISIBILITY_TOGGLE_ALLOWED
 	UnregisterSignal(parent, COMSIG_ITEM_EQUIPPED)
 	parent = null
