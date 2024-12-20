@@ -572,7 +572,8 @@
 		/obj/item/ammo_magazine/revolver/t312/med/adrenaline,
 		/obj/item/ammo_magazine/revolver/t312/med/rr,
 		/obj/item/ammo_magazine/revolver/t312/med/md,
-		/obj/item/ammo_magazine/revolver/t312/med/neu)
+		/obj/item/ammo_magazine/revolver/t312/med/neu
+	)
 	force = 20
 	actions_types = null
 	attachable_allowed = list(
@@ -597,7 +598,7 @@
 
 /obj/item/weapon/gun/revolver/t312/able_to_fire(mob/user)
 	. = ..()
-	if (!.)
+	if(!.)
 		return
 	if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED)
 		to_chat(user, span_warning("You don't seem to know how to use [src]..."))

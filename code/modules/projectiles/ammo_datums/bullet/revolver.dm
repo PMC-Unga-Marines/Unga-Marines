@@ -62,11 +62,11 @@
 	penetration = 40
 	additional_xeno_penetration = 0
 
-/datum/ammo/bullet/revolver/t312/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/t312/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, knockback = 1)
 
 /datum/ammo/bullet/revolver/t312/med
-	name = ".500"
+	name = ".500 EMB"
 	handful_icon_state = "nigro"
 	handful_amount = 5
 	damage = 20
@@ -74,7 +74,7 @@
 	shrapnel_chance = 0
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SKIPS_ALIENS
 
-/datum/ammo/bullet/revolver/t312/med/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/t312/med/on_hit_mob(mob/M, obj/projectile/P)
 	return
 
 /datum/ammo/bullet/revolver/t312/med/adrenaline
@@ -82,7 +82,7 @@
 	handful_icon_state = "nigro_adr"
 	hud_state = "t312_adr"
 
-/datum/ammo/bullet/revolver/t312/med/adrenaline/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/t312/med/adrenaline/on_hit_mob(mob/M, obj/projectile/P)
 	if(!ishuman(M))
 		return
 	M.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 2)
@@ -93,7 +93,7 @@
 	handful_icon_state = "nigro_rr"
 	hud_state = "t312_rr"
 
-/datum/ammo/bullet/revolver/t312/med/rr/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/t312/med/rr/on_hit_mob(mob/M, obj/projectile/P)
 	if(!ishuman(M))
 		return
 	M.reagents.add_reagent(/datum/reagent/medicine/russian_red, 5)
@@ -103,7 +103,7 @@
 	handful_icon_state = "nigro_md"
 	hud_state = "t312_md"
 
-/datum/ammo/bullet/revolver/t312/med/md/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/t312/med/md/on_hit_mob(mob/M, obj/projectile/P)
 	if(!ishuman(M))
 		return
 	M.reagents.add_reagent(/datum/reagent/medicine/meralyne, 2.5)
@@ -114,7 +114,7 @@
 	handful_icon_state = "nigro_neu"
 	hud_state = "t312_neu"
 
-/datum/ammo/bullet/revolver/t312/med/neu/on_hit_mob(mob/M,obj/projectile/P)
+/datum/ammo/bullet/revolver/t312/med/neu/on_hit_mob(mob/M, obj/projectile/P)
 	if(!ishuman(M))
 		return
 	M.reagents.add_reagent(/datum/reagent/medicine/neuraline, 3.1)
