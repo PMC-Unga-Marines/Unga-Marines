@@ -16,10 +16,6 @@
 /turf/closed/wall/resin/add_debris_element()
 	AddElement(/datum/element/debris, null, -15, 8, 0.7)
 
-/turf/closed/wall/resin/Initialize(mapload)
-	. = ..()
-	return INITIALIZE_HINT_LATELOAD
-
 /turf/closed/wall/resin/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 1.25, BURN, FIRE)
 
@@ -127,14 +123,15 @@
 
 /turf/closed/wall/resin/ChangeTurf(newtype)
 	. = ..()
-	if(.)
-		var/turf/T
-		for(var/i in GLOB.cardinals)
-			T = get_step(src, i)
-			if(!istype(T))
-				continue
-			for(var/obj/structure/mineral_door/resin/R in T)
-				R.check_resin_support()
+	if(!.)
+		return
+	var/turf/T
+	for(var/i in GLOB.cardinals)
+		T = get_step(src, i)
+		if(!istype(T))
+			continue
+		for(var/obj/structure/mineral_door/resin/R in T)
+			R.check_resin_support()
 
 /**
  * Regenerating walls that start with lower health, but grow to a much higher hp over time
