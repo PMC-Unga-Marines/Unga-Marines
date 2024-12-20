@@ -16740,8 +16740,9 @@
 	},
 /area/lv624/lazarus/chapel)
 "qIJ" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
-/area/lv624/ground/caves/central4/garbledradio)
+/area/lv624/ground/sand7)
 "qIR" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/machinery/floodlight/colony{
@@ -27725,7 +27726,7 @@ noU
 noU
 noU
 noU
-xCC
+noU
 xCC
 noU
 wAU
@@ -27907,10 +27908,10 @@ sYe
 noU
 noU
 noU
-xCC
-xCC
-qIJ
-qIJ
+noU
+noU
+noU
+noU
 xCC
 xCC
 alB
@@ -28089,10 +28090,10 @@ noU
 noU
 noU
 noU
-qIJ
-qIJ
-qIJ
-lry
+noU
+sYe
+noU
+xCC
 lry
 alB
 qZG
@@ -28269,14 +28270,14 @@ noU
 noU
 noU
 noU
-qIJ
-qIJ
-qIJ
-lry
-lry
-lry
 noU
-cAu
+noU
+noU
+noU
+noU
+xCC
+lry
+qIJ
 cAu
 cAu
 cAu
