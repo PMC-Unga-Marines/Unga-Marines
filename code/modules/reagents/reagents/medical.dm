@@ -1586,7 +1586,6 @@
 	var/max_reagent = 50
 
 /datum/reagent/medicine/sulfasalazine/on_mob_life(mob/living/L, metabolism)
-
 	if(absorbtion > 0 && volume < max_reagent)
 		L.reagents.add_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
 
