@@ -266,10 +266,9 @@
 	name = "emergency autoinjector"
 	desc = "An autoinjector loaded with 3 doses of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage."
 	icon_state = "Redwood"
-	amount_per_transfer_from_this = 15
+	amount_per_transfer_from_this = 10
 	list_reagents = list(
 		/datum/reagent/medicine/russian_red = 30,
-		/datum/reagent/medicine/oxycodone = 15,
 	)
 	description_overlay = "Rr"
 	free_refills = FALSE
