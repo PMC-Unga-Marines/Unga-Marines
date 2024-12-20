@@ -215,6 +215,8 @@
 
 #define iscrowbar(I) (istype(I, /obj/item/tool/crowbar))
 
+#define isplasmacutter(I) (istype(I, /obj/item/tool/pickaxe/plasmacutter))
+
 #define iscell(I) (istype(I, /obj/item/cell))
 
 #define islascell(I) (istype(I, /obj/item/cell/lasgun))
@@ -228,6 +230,8 @@
 #define iscable(A) (istype(A, /obj/structure/cable))
 
 #define isladder(A) (istype(A, /obj/structure/ladder))
+
+#define iscrate(A) (istype(A, /obj/structure/closet/crate))
 
 #define ismachinery(A) (istype(A, /obj/machinery))
 

@@ -412,7 +412,7 @@
 		return
 	which_step = !which_step
 	step(xeno_owner, direction, 1)
-	playsound(owner_turf, "behemoth_step_sounds", 40)
+	playsound(owner_turf, SFX_BEHEMOTH_STEP_SOUNDS, 40)
 	new /obj/effect/temp_visual/behemoth/crack/landslide(owner_turf, direction, which_step)
 	new /obj/effect/temp_visual/behemoth/landslide/dust/charge(owner_turf, direction)
 	addtimer(CALLBACK(src, PROC_REF(do_charge), get_turf(xeno_owner), direction, damage, which_step), LANDSLIDE_STEP_DELAY)
@@ -876,7 +876,7 @@ RU TGMC EDIT */
 			else if(isearthpillar(affected_atom) || ismecha(affected_atom) || istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
 				affected_atom.do_jitter_animation()
 				new /obj/effect/temp_visual/behemoth/landslide/hit(affected_atom.loc)
-				playsound(affected_atom.loc, get_sfx("behemoth_earth_pillar_hit"), 40)
+				playsound(affected_atom.loc, SFX_BEHEMOTH_EARTH_PILLAR_HIT, 40)
 				if(isearthpillar(affected_atom))
 					var/obj/structure/earth_pillar/affected_pillar = affected_atom
 					if(affected_pillar.warning_flashes < initial(affected_pillar.warning_flashes))
@@ -1322,7 +1322,7 @@ RU TGMC EDIT */
 
 /obj/structure/earth_pillar/attacked_by(obj/item/I, mob/living/user, def_zone)
 	. = ..()
-	playsound(src, get_sfx("behemoth_earth_pillar_hit"), 40)
+	playsound(src, SFX_BEHEMOTH_EARTH_PILLAR_HIT, 40)
 	new /obj/effect/temp_visual/behemoth/landslide/hit(get_turf(src))
 
 // Attacking an Earth Pillar as a xeno has a few possible interactions, based on intent:
@@ -1341,7 +1341,7 @@ RU TGMC EDIT */
 			attacks_to_destroy--
 			xeno_user.do_attack_animation(src)
 			do_jitter_animation(jitter_loops = 1)
-			playsound(src, get_sfx("behemoth_earth_pillar_hit"), 40)
+			playsound(src, SFX_BEHEMOTH_EARTH_PILLAR_HIT, 40)
 			xeno_user.balloon_alert(xeno_user, "Attack [attacks_to_destroy] more time(s) to destroy")
 			new /obj/effect/temp_visual/behemoth/landslide/hit(current_turf)
 			return TRUE
@@ -1384,7 +1384,7 @@ RU TGMC EDIT */
 	if(!isxeno(usr) || !in_range(src, usr) || target_atom == src || warning_flashes < initial(warning_flashes))
 		return
 	var/source_turf = get_turf(src)
-	playsound(source_turf, get_sfx("behemoth_earth_pillar_hit"), 40)
+	playsound(source_turf, SFX_BEHEMOTH_EARTH_PILLAR_HIT, 40)
 	new /obj/effect/temp_visual/behemoth/landslide/hit(source_turf)
 	var/datum/action/ability/activable/xeno/earth_riser/earth_riser_action = xeno_owner?.actions_by_path[/datum/action/ability/activable/xeno/earth_riser]
 	earth_riser_action?.add_cooldown()
@@ -1506,7 +1506,7 @@ RU TGMC EDIT */
 			else if(isearthpillar(affected_atom) || isvehicle(affected_atom) || ishitbox(affected_atom) || istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
 				affected_atom.do_jitter_animation()
 				new /obj/effect/temp_visual/behemoth/landslide/hit(affected_atom.loc)
-				playsound(affected_atom.loc, get_sfx("behemoth_earth_pillar_hit"), 40)
+				playsound(affected_atom.loc, SFX_BEHEMOTH_EARTH_PILLAR_HIT, 40)
 				if(isearthpillar(affected_atom))
 					var/obj/structure/earth_pillar/affected_pillar = affected_atom
 					if(affected_pillar.warning_flashes < initial(affected_pillar.warning_flashes))

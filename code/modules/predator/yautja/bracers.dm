@@ -72,7 +72,16 @@
 	var/minimap_icon = "predator"
 	COOLDOWN_DECLARE(bracer_recharge)
 
-/obj/item/clothing/gloves/yautja/Destroy()
+/obj/item/clothing/gloves/yautja/Destroy() // FUCKING SHITCODE
+	left_wristblades = null
+	right_wristblades = null
+	combistick = null
+	discs.Cut()
+	real_owner = null
+	owner = null
+	QDEL_NULL(caster)
+	QDEL_NULL(embedded_id)
+	QDEL_LIST(actions_to_add)
 	STOP_PROCESSING(SSobj, src)
 	if(linked_bracer)
 		linked_bracer.linked_bracer = null
@@ -222,12 +231,12 @@
 			if(!drain_power(caller, 70)) //We should only drain power if we actually yank the chain back. Failed attempts can quickly drain the charge away.
 				return TRUE
 			caller.visible_message(span_warning("<b>[caller] yanks [combistick]'s chain back!</b>"), span_warning("<b>You yank [combistick]'s chain back!</b>"))
-			playsound(caller, "chain_swing", 25)
+			playsound(caller, SFX_CHAIN_SWING, 25)
 		else if(caller.put_in_inactive_hand(combistick))///...Try putting it in our inactive hand.
 			if(!drain_power(caller, 70)) //We should only drain power if we actually yank the chain back. Failed attempts can quickly drain the charge away.
 				return TRUE
 			caller.visible_message(span_warning("<b>[caller] yanks [combistick]'s chain back!</b>"), span_warning("<b>You yank [combistick]'s chain back!</b>"))
-			playsound(caller, "chain_swing", 25)
+			playsound(caller, SFX_CHAIN_SWING, 25)
 		else //If neither hand can hold it, you must not have a free hand.
 			to_chat(caller, span_warning("You need a free hand to do this!</b>"))
 
@@ -1033,11 +1042,6 @@
 	left_wristblades = new(src)
 	right_wristblades = new(src)
 
-/obj/item/clothing/gloves/yautja/hunter/Destroy()
-	. = ..()
-	left_wristblades = null
-	right_wristblades = null
-
 /obj/item/clothing/gloves/yautja/hunter/emp_act(severity)
 	charge = max(charge - (severity * 500), 0)
 	if(ishuman(loc))
@@ -1057,11 +1061,6 @@
 	else
 		if(embedded_id?.registered_name)
 			embedded_id.set_user_data(user)
-
-/obj/item/clothing/gloves/yautja/hunter/Destroy()
-	QDEL_NULL(caster)
-	QDEL_NULL(embedded_id)
-	return ..()
 
 /obj/item/clothing/gloves/yautja/hunter/process()
 	if(!ishuman(loc))

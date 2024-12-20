@@ -1,0 +1,4 @@
+author: "MalorMorfin"
+delete-after: True
+changes:
+  - bugfix: "Теперь следы стопы остаются на полу"

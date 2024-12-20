@@ -62,7 +62,7 @@
 	// where all the ratio values adds up to 1
 
 	var/list/taste_amounts = list()
-	if(data)
+	if(length(data))
 		taste_amounts = data.Copy()
 
 	counterlist_scale(taste_amounts, volume)

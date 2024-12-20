@@ -155,7 +155,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		if(fails & BAD_INIT_NO_HINT)
 			Fail("[path] didn't return an Initialize hint")
 		if(fails & BAD_INIT_QDEL_BEFORE)
-			Fail("[path] qdel'd in New()")
+			Fail("[path] qdel'd before we could call Initialize()")
 		if(fails & BAD_INIT_SLEPT)
 			Fail("[path] slept during Initialize()")
 

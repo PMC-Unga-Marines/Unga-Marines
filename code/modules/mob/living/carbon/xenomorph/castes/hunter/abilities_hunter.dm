@@ -239,19 +239,13 @@
 	var/turf/target_turf = get_turf(A)
 	var/turf/origin_turf = get_turf(X)
 
-	target_turf = get_step_rand(target_turf)
-
 	new /obj/effect/temp_visual/blink_portal(origin_turf)
 	new /obj/effect/temp_visual/blink_portal(target_turf)
 	new /obj/effect/particle_effect/sparks(origin_turf)
 	new /obj/effect/particle_effect/sparks(target_turf)
 	playsound(target_turf, 'sound/effects/EMPulse.ogg', 25, TRUE)
 
-	if(target_turf)
-		X.forceMove(target_turf)
-	else
-		X.forceMove(A.loc)
-
+	X.forceMove(target_turf)
 	X.apply_status_effect(/datum/status_effect/hunt)
 
 	succeed_activate()
@@ -660,7 +654,7 @@
 
 /datum/action/ability/xeno_action/crippling_strike/hunter
 	additional_damage = 1
-	heal_amount = 0
+	heal_amount = 12
 	plasma_gain = 20
 	decay_time = 15 SECONDS
 

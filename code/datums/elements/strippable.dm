@@ -285,6 +285,9 @@
 	if(!source.dropItemToGround(item))
 		return FALSE
 
+	if(istype(item, /obj/item/clothing/mask/facehugger))
+		GLOB.round_statistics.failed_impregnations++
+
 	source.log_message("[key_name(source)] has been stripped of [item] by [key_name(user)]", LOG_ATTACK, color="red")
 	user.log_message("[key_name(source)] has been stripped of [item] by [key_name(user)]", LOG_ATTACK, color="red", log_globally=FALSE)
 

@@ -129,7 +129,7 @@
 		return
 	TIMER_COOLDOWN_START(src, COOLDOWN_TADPOLE_LAUNCHING, launching_delay) // To stop spamming
 	shuttle_port.shuttle_computer = src
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LAUNCHED)
+	//SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LAUNCHED)
 	if(fly_state == SHUTTLE_ON_GROUND)
 		next_fly_state = SHUTTLE_IN_ATMOSPHERE
 		shuttle_port.callTime = SHUTTLE_TAKEOFF_GROUND_CALLTIME
@@ -220,10 +220,6 @@
 		ui = new(user, src, "Minidropship", name)
 		ui.open()
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_close(mob/user)
-	. = ..()
-	clean_ui_user()
-
 /// Set ui_user to null to prevent hard del
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/clean_ui_user(datum/source)
 	SIGNAL_HANDLER
@@ -282,6 +278,9 @@
 	if(is_ground_level(origin.z)) //Safety check to prevent instant transmission
 		to_chat(owner, span_warning("The shuttle can't move while docked on the planet"))
 		return
+	var/area/landing_area = get_area(remote_eye)
+	if(!(landing_area.flags_area & MARINE_BASE))
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ)
 	origin.shuttle_port.callTime = SHUTTLE_LANDING_CALLTIME
 	origin.next_fly_state = SHUTTLE_ON_GROUND
 	origin.open_prompt = FALSE

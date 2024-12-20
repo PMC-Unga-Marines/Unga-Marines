@@ -251,7 +251,7 @@
 	span_xenowarning("We send out a huge blast of psychic energy!"))
 
 	playsound(owner,'sound/effects/bamf.ogg', 75, TRUE)
-	playsound(owner, "alien_roar", 50)
+	playsound(owner, SFX_ALIEN_ROAR, 50)
 
 // ***************************************
 // *********** Psychic Cure
@@ -384,7 +384,7 @@
 	if(!do_after(owner, 0.5 SECONDS, NONE, T, BUSY_ICON_BUILD))
 		return
 
-	playsound(T, "alien_resin_build", 25)
+	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
 	new /obj/structure/xeno/acidwell(T, owner)
 
 	succeed_activate()
