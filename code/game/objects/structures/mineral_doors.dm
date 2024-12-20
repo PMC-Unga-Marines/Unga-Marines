@@ -83,30 +83,73 @@
 	else
 		icon_state = "[base_icon_state][smoothing_flags ? "-[smoothing_junction]" : ""]"
 
-/obj/structure/mineral_door/attackby(obj/item/W, mob/living/user)
+/obj/structure/mineral_door/attackby(obj/item/attacking_item, mob/living/user)
 	. = ..()
 	if(QDELETED(src))
 		return
 
-	var/multiplier = 1
-	if(istype(W, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
-		var/obj/item/tool/pickaxe/plasmacutter/P = W
-		if(P.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD))
-			if(istype(src, /obj/structure/mineral_door/resin))
-				multiplier += PLASMACUTTER_RESIN_MULTIPLIER //Plasma cutters are particularly good at destroying resin structures.
-			else
-				multiplier += PLASMACUTTER_RESIN_MULTIPLIER * 0.5
-			P.cut_apart(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Minimal energy cost.
-	if(W.damtype == BURN && istype(src, /obj/structure/mineral_door/resin)) //Burn damage deals extra vs resin structures (mostly welders).
-		multiplier += 1 //generally means we do double damage to resin doors
+	if(user.a_intent == INTENT_HARM)
+		return
 
-	take_damage(max(0, W.force * multiplier - W.force), W.damtype, MELEE)
+	if(!(obj_flags & CAN_BE_HIT))
+		return
+
+	return attacking_item.attack_obj(src, user)
+
+/obj/structure/mineral_door/attacked_by(obj/item/attacking_item, mob/living/user, def_zone)
+	. = ..()
+	if(attacking_item.damtype != BURN)
+		return
+	var/damage_multiplier = get_burn_damage_multiplier(attacking_item, user, def_zone)
+
+	take_damage(max(0, attacking_item.force * damage_multiplier), attacking_item.damtype, MELEE)
 
 /obj/structure/mineral_door/Destroy()
 	if(material_type)
 		for(var/i in 1 to rand(1,5))
 			new material_type(get_turf(src))
 	return ..()
+
+///Takes extra damage if our attacking item does burn damage
+/obj/structure/mineral_door/proc/get_burn_damage_multiplier(obj/item/attacking_item, mob/living/user, def_zone, bonus_damage = 0)
+	if(!isplasmacutter(attacking_item))
+		return bonus_damage
+
+	var/obj/item/tool/pickaxe/plasmacutter/attacking_pc = attacking_item
+	if(attacking_pc.start_cut(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD, no_string = TRUE))
+		bonus_damage += PLASMACUTTER_RESIN_MULTIPLIER * 0.5
+		attacking_pc.cut_apart(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Minimal energy cost.
+
+	return bonus_damage
+
+/obj/structure/mineral_door/resin/get_burn_damage_multiplier(obj/item/attacking_item, mob/living/user, def_zone, bonus_damage = 1)
+	if(!isplasmacutter(attacking_item))
+		return bonus_damage
+
+	var/obj/item/tool/pickaxe/plasmacutter/attacking_pc = attacking_item
+	if(attacking_pc.start_cut(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD, no_string = TRUE))
+		bonus_damage += PLASMACUTTER_RESIN_MULTIPLIER
+		attacking_pc.cut_apart(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Minimal energy cost.
+
+	return bonus_damage
+
+/obj/structure/mineral_door/resin/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	if(user.do_actions)
+		return FALSE
+	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
+		return FALSE
+	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
+	if(!I.start_cut(user, name, src, charge_cost, no_string = TRUE))
+		return FALSE
+
+	user.changeNext_move(I.attack_speed)
+	user.do_attack_animation(src, used_item = I)
+	I.cut_apart(user, name, src, charge_cost)
+	take_damage(max(0, I.force * (1 + PLASMACUTTER_RESIN_MULTIPLIER)), I.damtype, MELEE)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
+	return TRUE
 
 /obj/structure/mineral_door/get_explosion_resistance()
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))

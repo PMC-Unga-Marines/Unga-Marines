@@ -175,7 +175,7 @@
 	desc = "A high explosive shell for the RL-160 recoilless rifle. Causes a heavy explosion over a small area. Requires specialized storage to carry."
 	caliber = CALIBER_67MM
 	icon_state = "shell"
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	max_rounds = 1
 	default_ammo = /datum/ammo/rocket/recoilless
 	reload_delay = 30
@@ -451,4 +451,3 @@
 	max_rounds = 5
 	reload_delay = 10
 	icon_state_mini = "mag_dmr"
-

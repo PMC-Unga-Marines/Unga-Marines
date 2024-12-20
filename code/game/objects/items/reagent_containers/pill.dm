@@ -250,7 +250,7 @@
 
 /obj/item/reagent_containers/pill/imialky
 	pill_desc = "An imialky pill. Used to fix brain, ear and eye damage."
-	list_reagents = list(/datum/reagent/medicine/alkysine = 3.5, /datum/reagent/medicine/imidazoline = 11.5)
+	list_reagents = list(/datum/reagent/medicine/alkysine = 7.5, /datum/reagent/medicine/imidazoline = 7.5)
 	pill_id = 18
 
 /obj/item/reagent_containers/pill/combatmix

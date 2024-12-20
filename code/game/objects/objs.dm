@@ -222,6 +222,8 @@
 	return
 
 /mob/proc/set_machine(obj/O)
+	if(QDELETED(src) || QDELETED(O))
+		return
 	if(machine)
 		unset_machine()
 	machine = O
@@ -300,4 +302,22 @@
 	balloon_alert_to_viewers("repaired")
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 	handle_weldingtool_overlay(TRUE)
+	return TRUE
+
+/obj/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	if(user.do_actions)
+		return FALSE
+	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
+		return FALSE
+	if(user.a_intent == INTENT_HARM) // Attack normally.
+		return FALSE
+	if(!I.start_cut(user, name, src))
+		return FALSE
+	if(!do_after(user, I.calc_delay(user), NONE, src, BUSY_ICON_HOSTILE))
+		return TRUE
+
+	I.cut_apart(user, name, src)
+	deconstruct(FALSE)
 	return TRUE

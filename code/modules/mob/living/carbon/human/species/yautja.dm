@@ -15,12 +15,12 @@
 		/datum/action/predator_action/mark_panel,
 	)
 
-	screams = list(MALE = "pred_scream", FEMALE = "pred_scream")
-	paincries = list(MALE = "pred_pain", FEMALE = "pred_pain")
-	goredcries = list(MALE = "pred_pain", FEMALE = "pred_pain")
-	burstscreams = list(MALE = "pred_preburst", FEMALE = "pred_preburst")
-	warcries = list(MALE = "pred_warcry", FEMALE = "pred_warcry")
-	laughs = list(MALE = "pred_laugh", FEMALE = "pred_laugh")
+	screams = list(MALE = SFX_PRED_SCREAM, FEMALE = SFX_PRED_SCREAM)
+	paincries = list(MALE = SFX_PRED_PAIN, FEMALE = SFX_PRED_PAIN)
+	goredcries = list(MALE = SFX_PRED_PAIN, FEMALE = SFX_PRED_PAIN)
+	burstscreams = list(MALE = SFX_PRED_PREBURST, FEMALE = SFX_PRED_PREBURST)
+	warcries = list(MALE = SFX_PRED_WARCRY, FEMALE = SFX_PRED_WARCRY)
+	laughs = list(MALE = SFX_PRED_LAUGH, FEMALE = SFX_PRED_LAUGH)
 
 	unarmed_type = /datum/unarmed_attack/punch/strong
 	secondary_unarmed_type = /datum/unarmed_attack/bite/strong
