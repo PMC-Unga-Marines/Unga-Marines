@@ -86,6 +86,7 @@
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	slowdown = 0.4
 	slot = ATTACHMENT_SLOT_MODULE
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_MODULE_CANNOT_BE_HIDDEN
 
 /obj/item/armor_module/module/fire_proof/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -114,6 +115,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_MODULE_CANNOT_BE_HIDDEN
 
 /**
  * Extra armor module
@@ -534,10 +536,11 @@
 	active = !active
 	SEND_SIGNAL(parent, COMSIG_ITEM_TOGGLE_ACTION, user)
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = base_icon + "[active ? "_active" : ""]"
-	item_state = icon_state + "_a"
-	parent.update_icon()
-	user.update_inv_head()
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_IS_HIDDEN))
+		icon_state = base_icon + "[active ? "_active" : ""]" //We do not use initial() proc because it doesn't take into account variants_by_parent_type icons
+		item_state = icon_state + "_a"
+		parent.update_icon()
+		user.update_inv_head()
 
 /obj/item/armor_module/module/welding/som
 	name = "Integrated Welding Helmet Module"
@@ -583,10 +586,11 @@
 		return
 	active = zoom
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = initial(icon_state) + "[active ? "_active" : ""]"
-	item_state = icon_state + "_a"
-	parent.update_icon()
-	user.update_inv_head()
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_IS_HIDDEN) && !istype(src, /obj/item/armor_module/module/binoculars/artemis_mark_two)) //Artemis does not have currently an "active" sprite
+		icon_state = base_icon + "[active ? "_active" : ""]" //We do not use initial() proc because it doesn't take into account variants_by_parent_type icons
+		item_state = icon_state + "_a"
+		parent.update_icon()
+		user.update_inv_head()
 	if(active)
 		RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(zoom_item_turnoff))
 		return
