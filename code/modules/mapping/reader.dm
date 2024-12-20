@@ -350,7 +350,7 @@
 			locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ]))
 		for(var/turf/T as anything in turfs)
 			//we do this after we load everything in. if we don't, we'll have weird atmos bugs regarding atmos adjacent turfs
-			T.AfterChange(CHANGETURF_IGNORE_AIR)
+			T.AfterChange()
 
 	if(expanded_x || expanded_y)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, expanded_x, expanded_y)
