@@ -10,7 +10,7 @@
 	ToTracks(direction)
 
 /mob/living/carbon/human/proc/ToTracks(direction)
-	if(lying_angle && (buckled && istype(buckled, /obj/structure/bed/chair)))
+	if(lying_angle || buckled && istype(buckled, /obj/structure/bed/chair))
 		return
 
 	// Tracking blood
