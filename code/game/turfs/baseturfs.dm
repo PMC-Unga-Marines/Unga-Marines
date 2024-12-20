@@ -19,31 +19,15 @@
 		new_baseturfs = new_baseturfs[1]
 	return ChangeTurf(turf_type, new_baseturfs, flags)
 
-/// Take the input as baseturfs and put it underneath the current baseturfs
-/// If fake_turf_type is provided and new_baseturfs is not the baseturfs list will be created identical to the turf type's
-/// If both or just new_baseturfs is provided they will be inserted below the existing baseturfs
-/turf/proc/PlaceOnBottom(list/new_baseturfs, turf/fake_turf_type)
-	if(fake_turf_type)
-		if(!new_baseturfs)
-			if(!length(baseturfs))
-				baseturfs = list(baseturfs)
-			var/list/old_baseturfs = baseturfs.Copy()
-			assemble_baseturfs(fake_turf_type)
-			if(!length(baseturfs))
-				baseturfs = list(baseturfs)
-			baseturfs -= baseturfs & GLOB.blacklisted_automated_baseturfs
-			baseturfs += old_baseturfs
-			return
-		else if(!length(new_baseturfs))
-			new_baseturfs = list(new_baseturfs, fake_turf_type)
-		else
-			new_baseturfs += fake_turf_type
-	if(!length(baseturfs))
-		baseturfs = list(baseturfs)
-	baseturfs.Insert(1, new_baseturfs)
+/// Places the given turf on the bottom of the turf stack.
+/turf/proc/place_on_bottom(turf/bottom_turf)
+	baseturfs = baseturfs_string_list(
+		list(initial(bottom_turf.baseturfs), bottom_turf) + baseturfs,
+		src
+	)
 
 /// Make a new turf and put it on top
-/// The args behave identical to PlaceOnBottom except they go on top
+/// The args behave identical to place_on_bottom except they go on top
 /// Things placed on top of closed turfs will ignore the topmost closed turf
 /// Returns the new turf
 /turf/proc/PlaceOnTop(list/new_baseturfs, turf/fake_turf_type, flags)
