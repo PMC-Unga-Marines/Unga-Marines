@@ -2,7 +2,6 @@
 	category = CATEGORY_YAUTJA
 	weight = WEIGHT_MOB
 
-
 /datum/keybinding/yautja/mark_hunt
 	name = "mark_hunt"
 	full_name = "Mark For Hunt"

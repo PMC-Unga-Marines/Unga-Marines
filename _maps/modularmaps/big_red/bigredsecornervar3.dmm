@@ -569,7 +569,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/undergroundrobotics)
 "Dp" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "DB" = (
 /obj/effect/landmark/start/job/xenomorph,
