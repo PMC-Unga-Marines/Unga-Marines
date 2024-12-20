@@ -536,8 +536,8 @@
 	active = !active
 	SEND_SIGNAL(parent, COMSIG_ITEM_TOGGLE_ACTION, user)
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	if(icon_state) //If icon_state null (hided) then we will not update it
-		icon_state = base_icon + "[active ? "_active" : ""]" // We do not use initial() instead of base_icon proc because it doesn't take into account variants_by_parent_type icons
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_IS_HIDDEN))
+		icon_state = base_icon + "[active ? "_active" : ""]" //We do not use initial() proc because it doesn't take into account variants_by_parent_type icons
 		item_state = icon_state + "_a"
 		parent.update_icon()
 		user.update_inv_head()
@@ -586,8 +586,8 @@
 		return
 	active = zoom
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	if(icon_state && !istype(src, /obj/item/armor_module/module/binoculars/artemis_mark_two)) //If icon_state is null (hided) then we will not update it. As for Artemis, he doesn't have the required binoculars sprite as for now
-		icon_state = base_icon + "[active ? "_active" : ""]" // We do not use initial() instead of base_icon proc because it doesn't take into account variants_by_parent_type icons
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_IS_HIDDEN) && !istype(src, /obj/item/armor_module/module/binoculars/artemis_mark_two)) //Artemis does not have currently an "active" sprite
+		icon_state = base_icon + "[active ? "_active" : ""]" //We do not use initial() proc because it doesn't take into account variants_by_parent_type icons
 		item_state = icon_state + "_a"
 		parent.update_icon()
 		user.update_inv_head()

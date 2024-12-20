@@ -1432,13 +1432,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				if(istype(armor.attachments_by_slot[attachment_slot], /obj/item/armor_module/module))
 					module_to_hide = armor.attachments_by_slot[attachment_slot]
 					break
-			if(CHECK_BITFIELD(armor.flags_armor_features, ARMOR_MODULE_HIDDEN))
+			if(CHECK_BITFIELD(module_to_hide.flags_attach_features, ATTACH_IS_HIDDEN))
 				module_to_hide.icon_state = module_to_hide.base_icon
-				armor.flags_armor_features &= ~ARMOR_MODULE_HIDDEN
+				module_to_hide.flags_attach_features &= ~ATTACH_IS_HIDDEN
 				update_icon()
 				return
 			module_to_hide.icon_state = null
-			armor.flags_armor_features |= ARMOR_MODULE_HIDDEN
+			module_to_hide.flags_attach_features |= ATTACH_IS_HIDDEN
 			update_icon()
 			return
 
