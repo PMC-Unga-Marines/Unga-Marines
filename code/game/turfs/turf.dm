@@ -228,9 +228,9 @@
 			return
 		if(/turf/baseturf_bottom)
 			path = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/open/space
-			if (!ispath(path))
+			if(!ispath(path))
 				path = text2path(path)
-				if (!ispath(path))
+				if(!ispath(path))
 					warning("Z-level [z] has invalid baseturf '[SSmapping.level_trait(z, ZTRAIT_BASETURF)]'")
 					path = /turf/open/space
 		if(/turf/open/space/basic)
@@ -321,36 +321,34 @@
 
 	if(!W.smoothing_behavior == NO_SMOOTHING)
 		return W
-	else
-		for(var/dirn in GLOB.alldirs)
-			var/turf/D = get_step(W,dirn)
-			if(isnull(D))
-				continue
-			QUEUE_SMOOTH(D)
-			QUEUE_SMOOTH_NEIGHBORS(D)
+	for(var/dirn in GLOB.alldirs)
+		var/turf/D = get_step(W, dirn)
+		if(isnull(D))
+			continue
+		QUEUE_SMOOTH(D)
+		QUEUE_SMOOTH_NEIGHBORS(D)
 	return W
 
 /// Take off the top layer turf and replace it with the next baseturf down
 /turf/proc/ScrapeAway(amount=1, flags)
 	if(!amount)
 		return
-	if(length(baseturfs))
-		var/list/new_baseturfs = baseturfs.Copy()
-		var/turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
-		while(ispath(turf_type, /turf/baseturf_skipover))
-			amount++
-			if(amount > length(new_baseturfs))
-				CRASH("The bottomost baseturf of a turf is a skipover [src]([type])")
-			turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
-		new_baseturfs.len -= min(amount, length(new_baseturfs) - 1) // No removing the very bottom
-		if(length(new_baseturfs) == 1)
-			new_baseturfs = new_baseturfs[1]
-		return ChangeTurf(turf_type, new_baseturfs, flags)
+	if(!length(baseturfs))
+		if(baseturfs == type)
+			return src
+		return ChangeTurf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
 
-	if(baseturfs == type)
-		return src
-
-	return ChangeTurf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
+	var/list/new_baseturfs = baseturfs.Copy()
+	var/turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
+	while(ispath(turf_type, /turf/baseturf_skipover))
+		amount++
+		if(amount > length(new_baseturfs))
+			CRASH("The bottomost baseturf of a turf is a skipover [src]([type])")
+		turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
+	new_baseturfs.len -= min(amount, length(new_baseturfs) - 1) // No removing the very bottom
+	if(length(new_baseturfs) == 1)
+		new_baseturfs = new_baseturfs[1]
+	return ChangeTurf(turf_type, new_baseturfs, flags)
 
 /turf/proc/empty(turf_type = /turf/open/space, baseturf_type, list/ignore_typecache, flags)
 	// Remove all atoms except  landmarks, docking ports, ai nodes
