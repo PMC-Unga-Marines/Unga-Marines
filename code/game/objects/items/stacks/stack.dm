@@ -201,7 +201,7 @@
 		var/turf/our_turf = get_turf(user)
 		if(!isturf(our_turf))
 			return
-		our_turf.PlaceOnTop(recipe.result_type)
+		our_turf.place_on_top(recipe.result_type)
 	else
 		object = new recipe.result_type(get_turf(user))
 	if(object)
