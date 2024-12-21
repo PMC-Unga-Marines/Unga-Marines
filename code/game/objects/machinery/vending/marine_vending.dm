@@ -1590,9 +1590,6 @@
 			/obj/item/clothing/suit/storage/marine/riot = -1,
 			/obj/item/clothing/head/helmet/marine/riot = -1,
 			/obj/item/clothing/suit/storage/marine/boomvest = -1,
-			/obj/item/implanter/cloak = -1,
-			/obj/item/implanter/chem/blood = -1,
-			/obj/item/implanter/blade = -1,
 		),
 		"Assault Vehicle" = list(
 			/obj/item/armored_weapon = -1,
