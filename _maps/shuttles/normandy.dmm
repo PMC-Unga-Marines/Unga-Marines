@@ -369,9 +369,6 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	icon_state = "string_lights_red_and_green_cap"
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "stocking"
-	},
 /turf/closed/shuttle/dropship2/aisle{
 	dir = 8
 	},

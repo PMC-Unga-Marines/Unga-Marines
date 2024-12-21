@@ -468,9 +468,6 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 4
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "amp" = (
@@ -1757,22 +1754,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
-"aTv" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/command/cic)
-"aTA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/hallways/hangar)
 "aUz" = (
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
@@ -1835,16 +1816,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /turf/open/floor/wood,
 /area/mainship/squads/charlie)
-"aXt" = (
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/surgery_hallway)
 "aXF" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
@@ -2428,18 +2399,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/port_hallway)
-"bqj" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/tankerbunks)
 "bqm" = (
 /obj/machinery/marine_selector/clothes/leader,
 /turf/open/floor/wood,
@@ -2928,18 +2887,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/hallways/aft_hallway)
-"bEc" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/delta)
 "bEs" = (
 /obj/machinery/floor_warn_light/self_destruct,
 /obj/effect/turf_decal/siding/metal{
@@ -4034,17 +3981,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/mainship/command/self_destruct)
-"chD" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/shuttle/vehicle_supply)
 "chJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5596,9 +5532,6 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 8
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/delta)
 "dbR" = (
@@ -6703,19 +6636,6 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/living/starboard_emb)
-"dIV" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/delta)
 "dIY" = (
 /obj/machinery/floor_warn_light/self_destruct,
 /turf/open/floor/mainship/blue{
@@ -9542,17 +9462,7 @@
 "fkR" = (
 /obj/effect/soundplayer,
 /obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
+	dir = 4
 	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/living/pilotbunks)
@@ -9664,13 +9574,6 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/alpha)
 "fpe" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 2
 	},
@@ -9947,16 +9850,6 @@
 	},
 /turf/open/floor/mainship/red/full,
 /area/mainship/shipboard/ex_firing_range)
-"fvq" = (
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/delta)
 "fvD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -10739,18 +10632,6 @@
 /obj/item/roller,
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/upper_medical)
-"fWT" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/alpha)
 "fYr" = (
 /obj/machinery/faxmachine/research,
 /obj/structure/table/mainship,
@@ -11000,18 +10881,6 @@
 	},
 /turf/open/floor/mainship/blue/full,
 /area/mainship/hallways/hangar)
-"gkQ" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/pilotbunks)
 "glj" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
 	dir = 8
@@ -11574,12 +11443,6 @@
 	},
 /turf/open/floor/mainship/silver/full,
 /area/mainship/command/telecomms)
-"gDF" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/chemistry)
 "gDV" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
@@ -12302,17 +12165,6 @@
 	dir = 1
 	},
 /area/space)
-"hcM" = (
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/charlie)
 "hdu" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 8
@@ -12814,9 +12666,6 @@
 "hvJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "stocking"
-	},
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	icon_state = "string_lights_red_and_green_cap"
 	},
@@ -15102,10 +14951,6 @@
 /area/mainship/engineering/engine_core)
 "iQr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "iRa" = (
@@ -15211,14 +15056,6 @@
 	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/airoom)
-"iTK" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/command/cic)
 "iTQ" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/adv,
@@ -15395,19 +15232,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
-"iZs" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/delta)
 "iZL" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 4
@@ -15545,9 +15369,6 @@
 	},
 /area/mainship/squads/charlie)
 "jdi" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "stocking"
-	},
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 4
 	},
@@ -15735,19 +15556,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
-"jhN" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/alpha)
 "jhS" = (
 /turf/open/floor/mainship/red{
 	dir = 4
@@ -15987,19 +15795,6 @@
 /obj/machinery/loadout_vendor,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/medical/surgery_hallway)
-"jqx" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/delta)
 "jqP" = (
 /obj/machinery/door/airlock/mainship/maint{
 	req_one_access = list(2,7, 47)
@@ -16278,14 +16073,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
-"jxl" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/hallways/hangar)
 "jxP" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 5
@@ -19377,16 +19164,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
-"lmO" = (
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/charlie)
 "lnf" = (
 /obj/structure/largecrate/supply/medicine/blood,
 /turf/open/floor/plating,
@@ -20679,18 +20456,6 @@
 /obj/machinery/vending/cigarette,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
-"lSg" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/shuttle/vehicle_supply)
 "lSl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
@@ -21752,27 +21517,11 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 8
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "myj" = (
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
-"myo" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/alpha)
 "myC" = (
 /obj/effect/turf_decal/woodsiding,
 /obj/structure/table/woodentable,
@@ -23289,15 +23038,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
-"nnO" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/tankerbunks)
 "nnX" = (
 /obj/structure/bed,
 /obj/structure/bed{
@@ -23348,19 +23088,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/hangar)
-"npr" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/bravo)
 "npv" = (
 /obj/structure/table/black,
 /turf/open/floor/mainship/red/full,
@@ -25005,18 +24732,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
-"okk" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/bravo)
 "okm" = (
 /obj/effect/landmark/start/job/ai,
 /obj/machinery/floor_warn_light/self_destruct,
@@ -26900,19 +26615,6 @@
 	},
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
-"pom" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/surgery_hallway)
 "poo" = (
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
@@ -27133,9 +26835,6 @@
 "ptW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "stocking"
-	},
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 4
 	},
@@ -29058,18 +28757,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
-"qtf" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/surgery_hallway)
 "qtm" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt{
 	dir = 8
@@ -29629,14 +29316,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/squads/delta)
-"qND" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/req)
 "qNE" = (
 /obj/structure/closet/l3closet/security,
 /turf/open/floor/prison/whitepurple/full,
@@ -29960,19 +29639,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
-"qXm" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/outer/talos,
-/area/mainship/hallways/aft_hallway)
 "qXq" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -30673,10 +30339,6 @@
 /area/mainship/hull/starboard_hull)
 "rtB" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "wreath"
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/req)
 "rtT" = (
@@ -30725,9 +30387,6 @@
 	},
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
 	},
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/lounge)
@@ -31355,19 +31014,6 @@
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
-"rMM" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/bravo)
 "rNg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -32991,18 +32637,6 @@
 	},
 /turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/aft_hallway)
-"sIP" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "stocking"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/cafeteria)
 "sIX" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/machinery/firealarm,
@@ -33471,9 +33105,6 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 4
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "sXV" = (
@@ -33629,18 +33260,6 @@
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/hangar/droppod)
-"tdr" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/bravo)
 "tdL" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -37204,10 +36823,6 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	icon_state = "string_lights_red_and_green_corner"
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/alpha)
 "vms" = (
@@ -37912,9 +37527,6 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 6
 	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/squads/charlie)
 "vJB" = (
@@ -38261,18 +37873,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
-"vSC" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/bravo)
 "vSM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
@@ -39131,24 +38731,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
-"wrC" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/tankerbunks)
 "wsc" = (
 /obj/structure/table/fancywoodentable,
 /obj/item/storage/fancy/cigar,
@@ -39978,10 +39560,6 @@
 "wUp" = (
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
 	},
 /turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/starboard_hallway)
@@ -42116,17 +41694,6 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hallways/hangar)
-"yfe" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/lounge)
 "yfg" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -63850,10 +63417,10 @@ xWR
 xWR
 izq
 jSa
-iTK
+bUV
 mJR
 oTo
-aTv
+xWR
 xWR
 xWR
 xWR
@@ -64248,11 +63815,11 @@ vmR
 nQP
 woY
 vdI
-pom
+iHB
 fVA
 fVA
 fVA
-qtf
+fVA
 fVA
 vlU
 scm
@@ -65277,12 +64844,12 @@ eBf
 sys
 vdI
 uAl
-gDF
-gDF
-gDF
-gDF
-gDF
-gDF
+xTa
+xTa
+xTa
+xTa
+xTa
+xTa
 qJV
 eKC
 eKC
@@ -67188,7 +66755,7 @@ axA
 bUY
 dJa
 fkq
-aTv
+xWR
 lJO
 rUE
 yde
@@ -67608,14 +67175,14 @@ jmD
 pvw
 tuo
 lif
-yfe
+tuu
 fVA
 bPt
 bPt
 bPt
 bPt
 fVA
-aXt
+tyQ
 nTn
 sys
 hSK
@@ -69136,22 +68703,22 @@ gCR
 iwc
 dSI
 oed
-whN
+iwc
 wed
 biQ
 biQ
 bgi
-whN
+iwc
 sqO
 biQ
 biQ
 nlE
-whN
+iwc
 wed
 biQ
 biQ
 hTX
-whN
+iwc
 gnS
 hwV
 iwc
@@ -70704,13 +70271,13 @@ uzr
 sys
 hWr
 pQT
-qND
+arD
 ocK
 eLh
 rNK
 izl
 nlI
-qND
+arD
 fua
 pQT
 lWS
@@ -72768,7 +72335,7 @@ qoh
 lzD
 nsi
 jkU
-qND
+arD
 vdZ
 pQT
 pQT
@@ -73512,9 +73079,9 @@ pSr
 ybI
 ikp
 eRD
-whN
+iwc
 etc
-whN
+iwc
 kqo
 lLD
 dJJ
@@ -74026,9 +73593,9 @@ pSr
 ikp
 dtG
 npi
-jxl
+qMe
 etc
-jxl
+qMe
 nCj
 hXx
 lLD
@@ -74052,7 +73619,7 @@ xMA
 xMA
 fkn
 kyK
-qND
+arD
 pQT
 pQT
 pQT
@@ -75328,7 +74895,7 @@ oxR
 bQQ
 pyx
 qXc
-qXm
+sIO
 mjC
 prQ
 prQ
@@ -75568,9 +75135,9 @@ xgk
 wPK
 eFd
 ufU
-aTA
+oGS
 etc
-jxl
+qMe
 jWB
 mEE
 hjJ
@@ -76052,30 +75619,30 @@ iwc
 xot
 iRf
 moF
-gkQ
 rYD
 rYD
-gkQ
+rYD
+rYD
 rYD
 vVf
-gkQ
+rYD
 tqo
 tqo
 tqo
-bqj
-tqo
-bqj
 tqo
 tqo
-wrC
-lSg
+tqo
+tqo
+tqo
+oom
 odO
 odO
 odO
 odO
 odO
 odO
-chD
+odO
+ksU
 eJs
 xgk
 xgk
@@ -77105,8 +76672,8 @@ jOo
 eGE
 eGE
 eGE
-sIP
-sIP
+jOo
+jOo
 eGE
 eGE
 hvJ
@@ -78124,7 +77691,7 @@ kly
 oom
 oom
 oom
-nnO
+mZc
 aDw
 bhH
 wYg
@@ -79148,11 +78715,11 @@ fHQ
 rCz
 wKE
 fHQ
-vSC
 oyB
 oyB
 oyB
-tdr
+oyB
+vey
 nJN
 hwv
 nJN
@@ -79185,7 +78752,7 @@ dbN
 wXp
 wXp
 wXp
-bEc
+wXp
 ayV
 lRr
 vty
@@ -80424,11 +79991,11 @@ oeS
 lDx
 oiX
 bXX
-jhN
+kJy
 rWs
 rWs
 rWs
-fWT
+kJy
 iKo
 sEf
 whL
@@ -80479,7 +80046,7 @@ fpe
 ifJ
 ifJ
 ifJ
-vyQ
+cal
 nva
 gFw
 eiA
@@ -80690,11 +80257,11 @@ dnb
 xZI
 sFX
 dVw
-rMM
+vey
 oyB
 oyB
 oyB
-okk
+vey
 ugs
 uCC
 uBy
@@ -80723,11 +80290,11 @@ nEU
 pYj
 uYQ
 fIZ
-jqx
+jbL
 wBz
 wBz
 wBz
-fvq
+keA
 oOW
 aDy
 ccE
@@ -81966,11 +81533,11 @@ dSv
 qHi
 oiX
 xap
-jhN
+kJy
 dNx
 dNx
 dNx
-fWT
+kJy
 vbh
 sXV
 sFX
@@ -82017,7 +81584,7 @@ xqG
 aDy
 knz
 kAV
-hcM
+cal
 ifJ
 ifJ
 ifJ
@@ -82232,11 +81799,11 @@ ply
 tlc
 sFX
 jfJ
-npr
+vey
 oyB
 oyB
 oyB
-okk
+vey
 epe
 bhH
 uVL
@@ -82265,11 +81832,11 @@ hct
 mFO
 nmA
 nmQ
-dIV
+jbL
 wBz
 wBz
 wBz
-fvq
+keA
 lZo
 aDy
 jsI
@@ -83251,11 +82818,11 @@ xhq
 cVk
 srv
 sgw
-myo
+kJy
 dNx
 dNx
 dNx
-fWT
+kJy
 ifq
 noA
 vGV
@@ -83302,11 +82869,11 @@ enB
 ipe
 aBf
 aQv
-hcM
+cal
 ifJ
 ifJ
 ifJ
-lmO
+cal
 lNt
 wBM
 aLD
@@ -84031,11 +83598,11 @@ fuK
 sEf
 lYT
 dme
-npr
+vey
 gLz
 gLz
 gLz
-okk
+vey
 bTj
 sQA
 kqm
@@ -84064,11 +83631,11 @@ iSe
 iSe
 wek
 lqv
-iZs
+jbL
 wBz
 wBz
 wBz
-fvq
+keA
 bDC
 lrU
 knz
