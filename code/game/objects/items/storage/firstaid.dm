@@ -709,3 +709,12 @@
 	pill_type_to_fill = /obj/item/reagent_containers/pill/oxycodone
 	greyscale_colors = "#360570#ffffff"
 	description_overlay = "Ox"
+
+/obj/item/storage/pill_bottle/meraderm
+	name = "Meraderm pill bottle"
+	desc = "Contains pills used to heal cuts and burns, yum!"
+	icon_state = "pill_canistercomplete"
+	pill_type_to_fill = /obj/item/reagent_containers/pill/meraderm
+	greyscale_colors = "#ECFC00#ffffff"
+	greyscale_config = /datum/greyscale_config/pillbottleround
+	description_overlay = "MD"
