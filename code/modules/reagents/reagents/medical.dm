@@ -526,15 +526,21 @@
 	purge_rate = 5
 
 /datum/reagent/medicine/adrenaline/on_mob_add(mob/living/carbon/human/L, metabolism)
-	if(TIMER_COOLDOWN_CHECK(L, name))
+	var/mob/living/carbon/human/H = L
+	if(TIMER_COOLDOWN_CHECK(L, COOLDOWN_STAMINA))
 		return
 	L.adjustStaminaLoss(-30 * effect_str)
 	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
 
-	if(L.health < L.health_threshold_crit && volume >= 3)
-		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
+	if(TIMER_COOLDOWN_CHECK(L, COOLDOWN_CRIT) || L.stat == DEAD)
+		return
+	if(L.health < H.health_threshold_crit && volume >= 2)
+		to_chat(L, span_userdanger("Heart explosion! Power running in your veins!"))
 		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
+		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
+		L.adjustToxLoss(5)
 		L.jitter(5)
+		TIMER_COOLDOWN_START(L, COOLDOWN_CRIT, 120 SECONDS)
 
 /datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
@@ -561,7 +567,7 @@
 
 /datum/reagent/medicine/adrenaline/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("The room spins as your adrenaline starts to wear off!"))
-	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
+	TIMER_COOLDOWN_START(L, COOLDOWN_STAMINA, 60 SECONDS)
 
 /datum/reagent/medicine/neuraline //injected by neurostimulator implant and medic-only injector
 	name = "Neuraline"
@@ -1678,53 +1684,3 @@
 /datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
 
-/datum/reagent/neurofrenzy
-	name = "NeuroFrenzy"
-	description = "This is a neurostimulating substance that causes the brain to maintain an increased heart rate."
-	color = COLOR_REAGENT_NEUROFRENZY
-	custom_metabolism = 0
-	scannable = TRUE
-	taste_description = "sour coffee"
-	overdose_threshold = 10
-	overdose_crit_threshold = 10
-	trait_flags = TACHYCARDIC
-	purge_rate = 10
-	purge_list = list(
-		/datum/reagent/medicalnanites,
-		/datum/reagent/medicine/peridaxon,
-		/datum/reagent/medicine/peridaxon_plus,
-	)
-
-/datum/reagent/neurofrenzy/on_mob_add(mob/living/our_living, metabolism)
-	our_living.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
-	to_chat(our_living, span_userdanger("You feel like your heart could stop at any moment."))
-
-/datum/reagent/neurofrenzy/on_mob_life(mob/living/our_living, metabolism)
-	. = ..()
-	if(volume < 1)
-		our_living.reagents.remove_reagent(/datum/reagent/neurofrenzy, 3)
-		return //antiduplicate
-
-	if(volume < 5)
-		our_living.reagents.add_reagent(/datum/reagent/neurofrenzy, 0.5)
-	switch(current_cycle)
-		if(1 to 40)
-			our_living.adjustStaminaLoss((4) * effect_str)
-			our_living.jitter(2)
-		if(3)
-			to_chat(our_living, span_notice("Your heart is jumping out of your chest."))
-		if(41)
-			to_chat(our_living, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard."))
-		if(45 to INFINITY)
-			if(prob(99.775))
-				return
-			to_chat(our_living, span_userdanger("OUUH MY HEART"))
-			our_living.adjustOxyLoss(30)
-			var/mob/living/carbon/human/our_human = our_living
-			var/datum/internal_organ/heart/our_heart = our_human.get_organ_slot(ORGAN_SLOT_HEART)
-			our_heart?.take_damage(15, TRUE)
-
-/datum/reagent/neurofrenzy/on_mob_delete(mob/living/our_living, metabolism)
-	to_chat(our_living, span_userdanger("It seems that something has stopped pushing your heart with force."))
-	our_living.remove_movespeed_modifier(type)
-	our_living.Paralyze(2 SECONDS)

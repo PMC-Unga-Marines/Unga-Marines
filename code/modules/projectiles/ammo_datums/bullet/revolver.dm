@@ -24,9 +24,11 @@
 /datum/ammo/bullet/revolver/t500
 	name = ".500 Nigro Express revolver bullet"
 	handful_icon_state = "nigro"
+	accurate_range = 15
 	handful_amount = 5
 	damage = 100
 	penetration = 40
+	max_range = 25
 	additional_xeno_penetration = 0
 
 /datum/ammo/bullet/revolver/t500/on_hit_mob(mob/M,obj/projectile/P)
@@ -51,6 +53,73 @@
 		to_chat(X, span_highdanger("Something burn inside you!"))
 		return
 	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 1)
+
+/datum/ammo/bullet/revolver/t312
+	name = ".500 White Express revolver bullet"
+	handful_icon_state = "nigro_we"
+	accurate_range = 15
+	handful_amount = 5
+	damage = 100
+	penetration = 40
+	additional_xeno_penetration = 0
+
+/datum/ammo/bullet/revolver/t312/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, knockback = 1)
+
+/datum/ammo/bullet/revolver/t312/med
+	name = ".500 EMB"
+	handful_icon_state = "nigro"
+	handful_amount = 5
+	damage = 20
+	penetration = 100
+	shrapnel_chance = 0
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SKIPS_ALIENS
+
+/datum/ammo/bullet/revolver/t312/med/on_hit_mob(mob/M, obj/projectile/P)
+	return
+
+/datum/ammo/bullet/revolver/t312/med/adrenaline
+	name = ".500 Adrenaline EMB"
+	handful_icon_state = "nigro_adr"
+	hud_state = "t312_adr"
+
+/datum/ammo/bullet/revolver/t312/med/adrenaline/on_hit_mob(mob/M, obj/projectile/P)
+	if(!ishuman(M))
+		return
+	M.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 2)
+	M.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 3)
+
+/datum/ammo/bullet/revolver/t312/med/rr
+	name = ".500 Russian Red EMB"
+	handful_icon_state = "nigro_rr"
+	hud_state = "t312_rr"
+
+/datum/ammo/bullet/revolver/t312/med/rr/on_hit_mob(mob/M, obj/projectile/P)
+	if(!ishuman(M))
+		return
+	M.reagents.add_reagent(/datum/reagent/medicine/russian_red, 5)
+
+/datum/ammo/bullet/revolver/t312/med/md
+	name = "packet of .500 Meraderm EMB"
+	handful_icon_state = "nigro_md"
+	hud_state = "t312_md"
+
+/datum/ammo/bullet/revolver/t312/med/md/on_hit_mob(mob/M, obj/projectile/P)
+	if(!ishuman(M))
+		return
+	M.reagents.add_reagent(/datum/reagent/medicine/meralyne, 2.5)
+	M.reagents.add_reagent(/datum/reagent/medicine/dermaline, 2.5)
+
+/datum/ammo/bullet/revolver/t312/med/neu
+	name = ".500 Neuraline EMB"
+	handful_icon_state = "nigro_neu"
+	hud_state = "t312_neu"
+
+/datum/ammo/bullet/revolver/t312/med/neu/on_hit_mob(mob/M, obj/projectile/P)
+	if(!ishuman(M))
+		return
+	M.reagents.add_reagent(/datum/reagent/medicine/neuraline, 3.1)
+	M.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 1.9)
 
 /datum/ammo/bullet/revolver/r44
 	name = "standard revolver bullet"

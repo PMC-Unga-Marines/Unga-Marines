@@ -324,24 +324,6 @@
 	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/oxycodone)
 	cost = 20
 
-/datum/supply_packs/medical/nf_neurostimulator
-	name = "N-F neurostimulator injector"
-	notes = "contains M-S neurostimulator auto injector."
-	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy)
-	cost = 140
-
-/datum/supply_packs/medical/nf_neurostimulator_kit
-	name = "N-F neurostimulator kit"
-	notes = "contains 5 N-F neurostimulator auto injectors."
-	contains = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
-		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
-		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
-		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
-		/obj/item/reagent_containers/hypospray/autoinjector/neurofrenzy,
-	)
-	cost = 500
-
 /datum/supply_packs/medical/neuraline_kit
 	name ="large neuraline kit"
 	notes = "contains five neuraline injectors"
@@ -385,3 +367,38 @@
 		/obj/item/clothing/mask/breath/medical,
 		/obj/item/tank/anesthetic,
 	)
+
+/datum/supply_packs/medical/t312case
+	name = "R-312 'Albedo' Revolver bundle"
+	contains = list(/obj/item/storage/box/t312case)
+	cost = 500
+
+/datum/supply_packs/medical/t312
+	name = "R-312 'Albedo' Revolver"
+	contains = list(/obj/item/attachable/lace/t500, /obj/item/weapon/gun/revolver/t312)
+	cost = 150
+
+/datum/supply_packs/medical/t312_adr
+	name = "R-312 Adrenaline ammo"
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/adrenaline, /obj/item/ammo_magazine/revolver/t312/med/adrenaline)
+	cost = 50
+
+/datum/supply_packs/medical/t312_rr
+	name = "R-312 Russian Red ammo"
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/rr, /obj/item/ammo_magazine/revolver/t312/med/rr)
+	cost = 150
+
+/datum/supply_packs/medical/t312_md
+	name = "R-312 Meraderm ammo"
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/md, /obj/item/ammo_magazine/revolver/t312/med/md)
+	cost = 100
+
+/datum/supply_packs/medical/t312_neu
+	name = "R-312 Neuraline ammo"
+	contains = list(/obj/item/ammo_magazine/packet/t312/med/neu, /obj/item/ammo_magazine/revolver/t312/med/neu)
+	cost = 200
+
+/datum/supply_packs/medical/t312_medkit
+	name = "BMSS medkit pouch"
+	contains = list(/obj/item/storage/pouch/medkit/t312)
+	cost = 10
