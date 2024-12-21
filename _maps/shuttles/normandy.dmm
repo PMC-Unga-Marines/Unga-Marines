@@ -213,10 +213,6 @@
 "oF" = (
 /obj/machinery/telecomms/relay/preset/telecomms/onboard/nondense,
 /obj/machinery/light,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_cap"
-	},
 /turf/open/shuttle/dropship/five,
 /area/shuttle/dropship/normandy)
 "pm" = (
@@ -367,7 +363,10 @@
 /area/shuttle/dropship/normandy)
 "Dw" = (
 /obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_cap"
+	dir = 4
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
 	},
 /turf/closed/shuttle/dropship2/aisle{
 	dir = 8

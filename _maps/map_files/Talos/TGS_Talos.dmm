@@ -1054,13 +1054,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
-"ayV" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_cap"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/delta)
 "azd" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -1754,6 +1747,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
+"aTA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/soundplayer,
+/obj/structure/prop/holidays/wreath,
+/turf/closed/wall/mainship/talos,
+/area/mainship/hallways/hangar)
 "aUz" = (
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
@@ -2079,16 +2078,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
-"bgx" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/hallways/hangar)
 "bhg" = (
 /obj/machinery/door/airlock/mainship/generic/pilot/bunk{
 	dir = 8
@@ -8527,12 +8516,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
-"eND" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/surgery_hallway)
 "eNF" = (
 /obj/machinery/door/firedoor{
 	dir = 1
@@ -11039,13 +11022,6 @@
 /obj/effect/turf_decal/warning_stripes/cargo,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
-"grI" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/lounge)
 "grR" = (
 /mob/living/simple_animal/cat/martin,
 /turf/open/floor/prison,
@@ -11544,12 +11520,6 @@
 /obj/effect/soundplayer,
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
 	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/hallways/bow_hallway)
@@ -14843,18 +14813,6 @@
 	},
 /turf/open/floor/mainship/metal/gray,
 /area/mainship/medical/upper_medical)
-"iOa" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/bravo)
 "iOg" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -14951,6 +14909,7 @@
 /area/mainship/engineering/engine_core)
 "iQr" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/prop/holidays/wreath,
 /turf/closed/wall/mainship/talos,
 /area/mainship/hallways/hangar)
 "iRa" = (
@@ -15375,6 +15334,7 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 8
 	},
+/obj/structure/prop/holidays/stocking,
 /turf/closed/wall/mainship/talos,
 /area/mainship/living/cafeteria)
 "jdk" = (
@@ -15556,6 +15516,15 @@
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/delta)
+"jhN" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
+/turf/closed/wall/mainship/talos,
+/area/mainship/living/cafeteria)
 "jhS" = (
 /turf/open/floor/mainship/red{
 	dir = 4
@@ -16073,6 +16042,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_hallway)
+"jxl" = (
+/obj/effect/soundplayer,
+/obj/structure/prop/holidays/wreath,
+/turf/closed/wall/mainship/talos,
+/area/mainship/hallways/hangar)
 "jxP" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 5
@@ -20456,6 +20430,10 @@
 /obj/machinery/vending/cigarette,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
+"lSg" = (
+/obj/structure/prop/holidays/wreath,
+/turf/closed/wall/mainship/talos,
+/area/mainship/hallways/hangar)
 "lSl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
@@ -21336,12 +21314,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
-"mui" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/outer/talos,
-/area/mainship/command/cic)
 "muv" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/mainship{
@@ -21559,15 +21531,6 @@
 	dir = 1
 	},
 /area/mainship/hallways/port_hallway)
-"mAl" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/white,
-/area/mainship/medical/lounge)
 "mAw" = (
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
@@ -26841,6 +26804,7 @@
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 8
 	},
+/obj/structure/prop/holidays/stocking,
 /turf/closed/wall/mainship/talos,
 /area/mainship/living/cafeteria)
 "pue" = (
@@ -29757,9 +29721,6 @@
 /area/mainship/hull/port_hull)
 "qZY" = (
 /obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_cap"
-	},
 /turf/closed/wall/mainship/outer/talos,
 /area/mainship/hull/port_hull)
 "raR" = (
@@ -32637,6 +32598,16 @@
 	},
 /turf/closed/wall/mainship/outer/talos,
 /area/mainship/hallways/aft_hallway)
+"sIP" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
+/obj/structure/prop/holidays/stocking,
+/turf/closed/wall/mainship/talos,
+/area/mainship/living/cafeteria)
 "sIX" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/machinery/firealarm,
@@ -33236,16 +33207,6 @@
 	},
 /turf/open/floor/plating/mainship/reinforced,
 /area/mainship/hallways/hangar)
-"tcv" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/hallways/hangar)
 "tdl" = (
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/cic)
@@ -33386,13 +33347,6 @@
 	dir = 1
 	},
 /area/mainship/squads/delta)
-"thE" = (
-/obj/structure/prop/holidays/string_lights/green_and_red,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/pilotbunks)
 "thL" = (
 /obj/structure/cable,
 /obj/machinery/light/mainship{
@@ -34160,18 +34114,6 @@
 	},
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
-"tGo" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 8
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 4
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/alpha)
 "tGD" = (
 /obj/effect/turf_decal/warning_stripes/fulltile,
 /obj/machinery/door/window{
@@ -35620,10 +35562,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "uAl" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "string_lights_red_and_green_corner"
-	},
+/obj/structure/prop/holidays/string_lights/green_and_red,
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/chemistry)
 "uAy" = (
@@ -36371,17 +36310,6 @@
 	dir = 6
 	},
 /area/mainship/medical/medical_science)
-"uXY" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 2
-	},
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10;
-	icon_state = "strings_lights_corner"
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/hallways/hangar)
 "uYc" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/metal/corner/medical{
@@ -37523,12 +37451,6 @@
 	dir = 4
 	},
 /area/mainship/hallways/bow_hallway)
-"vJA" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/squads/charlie)
 "vJB" = (
 /turf/closed/wall/mainship/talos,
 /area/mainship/engineering/engine_core)
@@ -40364,12 +40286,6 @@
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/alpha)
-"xsG" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 6
-	},
-/turf/closed/wall/mainship/talos,
-/area/mainship/living/pilotbunks)
 "xsV" = (
 /obj/machinery/suit_storage_unit/carbon_unit,
 /obj/structure/sign/semiotic/suit_storage{
@@ -41167,9 +41083,6 @@
 /turf/closed/wall/mainship/talos,
 /area/mainship/command/telecomms)
 "xQx" = (
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	dir = 10
-	},
 /obj/structure/prop/holidays/string_lights/green_and_red{
 	dir = 2
 	},
@@ -59043,7 +58956,7 @@ neu
 neu
 ooO
 dnv
-mui
+abt
 doZ
 vDw
 doZ
@@ -64869,7 +64782,7 @@ bUd
 sVa
 nlF
 fVA
-eND
+tyQ
 efF
 pzz
 nFR
@@ -65100,14 +65013,14 @@ lOH
 imq
 wkR
 vdI
-gme
+uAl
 inE
 gSg
 kQj
 qlP
 gSg
 inE
-uFv
+tuu
 iFp
 iJI
 lla
@@ -65357,14 +65270,14 @@ dYm
 efF
 sys
 vdI
-gme
+uAl
 eyS
 iBF
 jEY
 jEY
 iBF
 hxt
-uFv
+tuu
 iFu
 tuo
 jpN
@@ -65614,14 +65527,14 @@ dYm
 efF
 sys
 vdI
-gme
+uAl
 kAq
 hSW
 jEY
 jEY
 hSW
 ikb
-uFv
+tuu
 iGQ
 tuo
 lmv
@@ -65871,7 +65784,7 @@ cWX
 efF
 sys
 mrB
-gme
+uAl
 rBw
 ikc
 ikc
@@ -66128,7 +66041,7 @@ yiZ
 dwZ
 cge
 vdI
-gme
+uAl
 scZ
 jEY
 jEY
@@ -66385,7 +66298,7 @@ qXW
 efF
 sys
 xsA
-gme
+uAl
 fCY
 bfA
 jEY
@@ -66642,7 +66555,7 @@ pNu
 eBf
 sys
 vdI
-gme
+uAl
 eyS
 ldn
 jEY
@@ -66899,7 +66812,7 @@ qXW
 efF
 sys
 vdI
-gme
+uAl
 inE
 gSg
 hkr
@@ -67163,7 +67076,7 @@ hmO
 hmO
 hmO
 xTa
-mAl
+tuu
 iLO
 rBy
 pvw
@@ -67689,7 +67602,7 @@ qaI
 jGR
 kjm
 eKC
-grI
+eMv
 isf
 isf
 isf
@@ -73079,9 +72992,9 @@ pSr
 ybI
 ikp
 eRD
-iwc
+lSg
 etc
-iwc
+lSg
 kqo
 lLD
 dJJ
@@ -73593,9 +73506,9 @@ pSr
 ikp
 dtG
 npi
-qMe
+jxl
 etc
-qMe
+jxl
 nCj
 hXx
 lLD
@@ -74887,7 +74800,7 @@ oMw
 vxU
 wfg
 wfg
-uXY
+cMp
 okc
 wcc
 qmI
@@ -75135,9 +75048,9 @@ xgk
 wPK
 eFd
 ufU
-oGS
+aTA
 etc
-qMe
+jxl
 jWB
 mEE
 hjJ
@@ -75658,9 +75571,9 @@ qVS
 wfg
 wfg
 cir
-tcv
+cMp
 pOp
-bgx
+pOp
 fDl
 fDl
 fDl
@@ -76393,10 +76306,10 @@ bhg
 hzf
 pxh
 pOa
-xsG
+xot
 cFL
 pOa
-thE
+hzf
 gBc
 tTe
 tTe
@@ -76672,8 +76585,8 @@ jOo
 eGE
 eGE
 eGE
-jOo
-jOo
+sIP
+sIP
 eGE
 eGE
 hvJ
@@ -76687,7 +76600,7 @@ jdi
 emB
 emB
 emB
-jdi
+jhN
 hNM
 mCq
 nzx
@@ -78706,10 +78619,10 @@ itn
 vys
 fqj
 yfQ
-tGo
+rWs
 oyB
 oyB
-iOa
+oyB
 oyB
 fHQ
 rCz
@@ -78753,7 +78666,7 @@ wXp
 wXp
 wXp
 wXp
-ayV
+iOn
 lRr
 vty
 wjt
@@ -82878,7 +82791,7 @@ lNt
 wBM
 aLD
 amb
-vJA
+tkN
 kss
 xxR
 enW
