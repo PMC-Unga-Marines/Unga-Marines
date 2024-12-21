@@ -88,18 +88,12 @@ GLOBAL_LIST_EMPTY(cinematics)
 			locked += M
 
 	//Actually play it
-	content()
+	pre_content()
 
 	//Cleanup
-	sleep(cleanup_time)
+	addtimer(CALLBACK(src, PROC_REF(cleanup_content), ooc_toggled), cleanup_time)
 
-	//Restore OOC
-	if(ooc_toggled)
-		GLOB.ooc_allowed = TRUE
-
-	qdel(src)
-
-//Sound helper
+///Sound helper
 /datum/cinematic/proc/cinematic_sound(s)
 	if(is_global)
 		SEND_SOUND(world, s)
@@ -107,106 +101,81 @@ GLOBAL_LIST_EMPTY(cinematics)
 		for(var/C in watching)
 			SEND_SOUND(C, s)
 
-//Fire up special callback for actual effects synchronized with animation (eg real nuke explosion happens midway)
+///Fire up special callback for actual effects synchronized with animation (eg real nuke explosion happens midway)
 /datum/cinematic/proc/special()
-	if(special_callback)
-		special_callback.Invoke()
+	if(!special_callback)
+		return
+	special_callback.Invoke()
 
-//Actual cinematic goes in here
+///Prepare for the content() proc
+/datum/cinematic/proc/pre_content()
+	content()
+
+///Actual cinematic goes in here
 /datum/cinematic/proc/content()
 	sleep(runtime)
 
-/datum/cinematic/nuke_win
+///Cleanup after the content
+/datum/cinematic/proc/cleanup_content(ooc_toggled = FALSE)
+	//Restore OOC
+	if(ooc_toggled)
+		GLOB.ooc_allowed = TRUE
+	qdel(src)
+
+/datum/cinematic/nuke
+	runtime = 3.5 SECONDS
+	var/icon_to_flick = "station_explode_fade_red"
+	var/sound_to_play = 'sound/effects/explosion/far0.ogg'
+	var/summary_icon_state = "summary_nukewin"
+
+/datum/cinematic/nuke/pre_content()
+	flick("intro_nuke", screen)
+	addtimer(CALLBACK(src, PROC_REF(content)), runtime)
+
+/datum/cinematic/nuke/content()
+	flick(icon_to_flick, screen)
+	cinematic_sound(sound(sound_to_play, channel = CHANNEL_CINEMATIC))
+	special()
+	screen.icon_state = summary_icon_state
+
+/datum/cinematic/nuke/win
 	id = CINEMATIC_NUKE_WIN
-	runtime = 3.5 SECONDS
 
-/datum/cinematic/nuke_win/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
-	flick("station_explode_fade_red", screen)
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	screen.icon_state = "summary_nukewin"
-
-/datum/cinematic/nuke_miss
+/datum/cinematic/nuke/miss
 	id = CINEMATIC_NUKE_MISS
-	runtime = 3.5 SECONDS
+	icon_to_flick = "station_intact_fade_red"
+	summary_icon_state = "summary_nukefail"
 
-/datum/cinematic/nuke_miss/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	flick("station_intact_fade_red", screen)
-	screen.icon_state = "summary_nukefail"
-
-/datum/cinematic/nuke_selfdestruct
+/datum/cinematic/nuke/selfdestruct
 	id = CINEMATIC_SELFDESTRUCT
-	runtime = 3.5 SECONDS
+	summary_icon_state = "summary_selfdes"
 
-/datum/cinematic/nuke_selfdestruct/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
-	flick("station_explode_fade_red", screen)
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	screen.icon_state = "summary_selfdes"
-
-/datum/cinematic/nuke_selfdestruct_miss
+/datum/cinematic/nuke/selfdestruct_miss
 	id = CINEMATIC_SELFDESTRUCT_MISS
-	runtime = 3.5 SECONDS
 
-/datum/cinematic/nuke_selfdestruct_miss/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
+/datum/cinematic/nuke/selfdestruct_miss/content()
 	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
 	special()
 	screen.icon_state = "station_intact"
 
-/datum/cinematic/malf
-	id = CINEMATIC_MALF
-	runtime = 7.6 SECONDS
-
-/datum/cinematic/malf/content()
-	flick("intro_malf", screen)
-	sleep(runtime)
-	flick("station_explode_fade_red", screen)
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	screen.icon_state = "summary_malf"
-
-/datum/cinematic/nuke_annihilation
+/datum/cinematic/nuke/annihilation
 	id = CINEMATIC_ANNIHILATION
-	runtime = 3.5 SECONDS
+	summary_icon_state = "summary_totala"
 
-/datum/cinematic/nuke_annihilation/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
-	flick("station_explode_fade_red", screen)
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	screen.icon_state = "summary_totala"
-
-/datum/cinematic/fake
+/datum/cinematic/nuke/fake
 	id = CINEMATIC_NUKE_FAKE
 	cleanup_time = 10 SECONDS
-	runtime = 3.5 SECONDS
 
-/datum/cinematic/fake/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
+/datum/cinematic/nuke/fake/content()
 	cinematic_sound(sound('sound/items/bikehorn.ogg', channel = CHANNEL_CINEMATIC))
 	flick("summary_selfdes", screen)
 	special()
 
-/datum/cinematic/no_core
+/datum/cinematic/nuke/no_core
 	id = CINEMATIC_NUKE_NO_CORE
 	cleanup_time = 10 SECONDS
-	runtime = 3.5 SECONDS
 
-/datum/cinematic/no_core/content()
-	flick("intro_nuke", screen)
-	sleep(runtime)
+/datum/cinematic/nuke/no_core/content()
 	flick("station_intact", screen)
 	cinematic_sound(sound('sound/ambience/signal.ogg', channel = CHANNEL_CINEMATIC))
 
@@ -218,16 +187,26 @@ GLOBAL_LIST_EMPTY(cinematics)
 	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
 	special()
 
-/datum/cinematic/crash_nuke
+/datum/cinematic/nuke/crash
 	id = CINEMATIC_CRASH_NUKE
-	runtime = 7 SECONDS
 	cleanup_time = 15 SECONDS
+	icon_to_flick = "planet_nuke"
+	summary_icon_state = "planet_end"
 
-/datum/cinematic/crash_nuke/content()
+/datum/cinematic/nuke/crash/pre_content()
 	screen.icon_state = "planet_start"
-	flick("intro_nuke", screen) // 3.5 seconds
-	sleep(5.5 SECONDS)
-	flick("planet_nuke", screen) // About 1.5 seconds length
+	return ..()
+
+/datum/cinematic/malf
+	id = CINEMATIC_MALF
+	runtime = 7.6 SECONDS
+
+/datum/cinematic/malf/pre_content()
+	flick("intro_malf", screen)
+	addtimer(CALLBACK(src, PROC_REF(content)), runtime)
+
+/datum/cinematic/malf/content()
+	flick("station_explode_fade_red", screen)
 	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
 	special()
-	screen.icon_state = "planet_end"
+	screen.icon_state = "summary_malf"
