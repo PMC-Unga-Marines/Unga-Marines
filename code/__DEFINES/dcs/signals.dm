@@ -799,6 +799,7 @@
 #define COMSIG_XENOABILITY_PSYCHIC_LINK "xenoability_psychic_link"
 #define COMSIG_XENOABILITY_CARNAGE "xenoability_carnage"
 #define COMSIG_XENOABILITY_FEAST "xenoability_feast"
+#define COMSIG_XENOABILITY_OPPOSE "xenoability_oppose"
 
 #define COMSIG_XENOABILITY_ACIDCHARGE "xenoability_acidcharge"
 #define COMSIG_XENOABILITY_BULLHEADBUTT "xenoability_bullheadbutt"
