@@ -52,12 +52,12 @@
 			),
 			"Leicester Repeater" = list(-1, list(
 				list(/obj/item/weapon/gun/shotgun/pump/lever/repeater, "WEAP"),
-				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", VEND_COLOR_AMMO),
+				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", "black"),
 				),
 			),
-			"Martini Henry" = list(-1, list(
-				list(/obj/item/weapon/gun/shotgun/double/martini, "WEAP"),
-				list(/obj/item/ammo_magazine/rifle/martini, "BLK", VEND_COLOR_AMMO),
+			/obj/item/weapon/gun/shotgun/double/martini = -1,
+			"Martini Henry Ammo" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/martini, "BLK", "black"),
 				list(/obj/item/ammo_magazine/rifle/martini/white, "WHT", "white")
 				)
 			),
@@ -109,8 +109,8 @@
 				list(/obj/item/ammo_magazine/shotgun/tracker, "TRCK", "pink")
 				),
 			),
-			"SH-15" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/sh15, "WEAP"),
+			/obj/item/weapon/gun/rifle/sh15 = -1,
+			"SH-15 Ammo" = list(-1, list(
 				list(/obj/item/ammo_magazine/rifle/sh15_slug, "SLUG", "green"),
 				list(/obj/item/ammo_magazine/rifle/sh15_flechette, "FLCH", "purple")
 				),
@@ -379,12 +379,12 @@
 			),
 			"Leicester Repeater" = list(-1, list(
 				list(/obj/item/weapon/gun/shotgun/pump/lever/repeater, "WEAP"),
-				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", VEND_COLOR_AMMO),
+				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", "black"),
 				),
 			),
-			"Martini Henry" = list(-1, list(
-				list(/obj/item/weapon/gun/shotgun/double/martini, "WEAP"),
-				list(/obj/item/ammo_magazine/rifle/martini, "BLK", VEND_COLOR_AMMO),
+			/obj/item/weapon/gun/shotgun/double/martini = -1,
+			"Martini Henry Ammo" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/martini, "BLK", "black"),
 				list(/obj/item/ammo_magazine/rifle/martini/white, "WHT", "white")
 				)
 			),
@@ -436,8 +436,8 @@
 				list(/obj/item/ammo_magazine/shotgun/tracker, "TRCK", "pink")
 				),
 			),
-			"SH-15" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/sh15, "WEAP"),
+			/obj/item/weapon/gun/rifle/sh15 = -1,
+			"SH-15 Ammo" = list(-1, list(
 				list(/obj/item/ammo_magazine/rifle/sh15_slug, "SLUG", "green"),
 				list(/obj/item/ammo_magazine/rifle/sh15_flechette, "FLCH", "purple")
 				),
@@ -692,12 +692,12 @@
 			),
 			"Leicester Repeater" = list(-1, list(
 				list(/obj/item/weapon/gun/shotgun/pump/lever/repeater, "WEAP"),
-				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", VEND_COLOR_AMMO),
+				list(/obj/item/ammo_magazine/packet/p4570, "AMMO", "black"),
 				),
 			),
-			"Martini Henry" = list(-1, list(
-				list(/obj/item/weapon/gun/shotgun/double/martini, "WEAP"),
-				list(/obj/item/ammo_magazine/rifle/martini, "BLK", VEND_COLOR_AMMO),
+			/obj/item/weapon/gun/shotgun/double/martini = -1,
+			"Martini Henry Ammo" = list(-1, list(
+				list(/obj/item/ammo_magazine/rifle/martini, "BLK", "black"),
 				list(/obj/item/ammo_magazine/rifle/martini/white, "WHT", "white")
 				)
 			),
@@ -743,15 +743,15 @@
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
 			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/weapon/gun/shotgun/combat/shq6 = -1,
-			"Shotgun ammo" = list(-1, list(
+			"Shotgun Ammo" = list(-1, list(
 				list(/obj/item/ammo_magazine/shotgun, "SLUG", "green"),
 				list(/obj/item/ammo_magazine/shotgun/buckshot, "BUCK", "red"),
 				list(/obj/item/ammo_magazine/shotgun/flechette, "FLCH", "purple"),
 				list(/obj/item/ammo_magazine/shotgun/tracker, "TRCK", "pink")
 				),
 			),
-			"SH-15" = list(-1, list(
-				list(/obj/item/weapon/gun/rifle/sh15, "WEAP"),
+			/obj/item/weapon/gun/rifle/sh15 = -1,
+			"SH-15 Ammo" = list(-1, list(
 				list(/obj/item/ammo_magazine/rifle/sh15_slug, "SLUG", "green"),
 				list(/obj/item/ammo_magazine/rifle/sh15_flechette, "FLCH", "purple")
 				),
