@@ -1,6 +1,4 @@
 #define CAT_NORMAL 0
-#define CAT_HIDDEN 1
-#define CAT_COIN 2
 
 #define VENDING_RESTOCK_IDLE 0
 #define VENDING_RESTOCK_DENY 1
@@ -10,46 +8,42 @@
 
 #define MAKE_VENDING_RECORD_DATA(record) list(\
 		"product_name" = record.product_name,\
-		"product_color" = record.display_color,\
-		"prod_desc" = initial(record.product_path.desc),\
+		"prod_desc" = record.desc,\
 		"ref" = REF(record),\
 		"tab" = record.tab,\
+		"products" = record.product_paths,\
 	)
 
 /datum/vending_product
 	///Name of the product
 	var/product_name = "generic"
-	///Path of the item this product makes
-	var/atom/product_path = null
+	///Description to be put under ? button
+	var/desc = null
+	///Path for the items this product makes, in format {item/path,  button_label, color}
+	var/product_paths = list()
+	///Vended product
+	var/product_vended = null
 	///How much of this product there is
 	var/amount = 0
 	///The price of this product if any.
 	var/price = 0
-	///What color it stays on the vend button, considering just nuking this.
-	var/display_color = "white"
-	///What category it belongs to, Normal, contraband or coin.
+	///What category it belongs to - only normal (contraband or coin are removed)
 	var/category = CAT_NORMAL
 	///Incase its a tabbed vendor what tab this belongs to.
 	var/tab
 
-/datum/vending_product/New(name, atom/typepath, product_amount, product_price, product_display_color, category = CAT_NORMAL, tab)
-	product_path = typepath
+/datum/vending_product/New(name, typepath, product_amount, product_price, category = CAT_NORMAL, tab, product_description)
+	product_paths = typepath
 	amount = product_amount
 	price = product_price
 	src.category = category
 	src.tab = tab
 
-	if(!name)
-		product_name = initial(typepath.name)
-	else
+	if(name)
 		product_name = name
 
-	if(product_display_color)
-		display_color = product_display_color
-	else if(ispath(typepath, /obj/item/ammo_magazine))
-		display_color = "black"
-	else
-		display_color = "white"
+	if(product_description)
+		desc = product_description
 
 /obj/machinery/vending
 	name = "Vendomat"
@@ -99,16 +93,13 @@
 		)
 	)
 	*/
+
 	/// Normal products that are always available on the vendor.
 	var/list/products = list()
 	/** List of seasons whose products are added to the vendor's.
 	 *	Format for each entry is SEASON_NAME = "tab name"
 	 */
 	var/list/seasonal_items = list()
-	/// Contraband products that are only available on vendor when hacked.
-	var/list/contraband = list()
-	/// Premium products that are only available when using a coin to pay for it.
-	var/list/premium = list()
 	/// String of slogans separated by semicolons, optional
 	var/product_slogans = ""
 	///String of small ad messages in the vending screen - random chance
@@ -116,10 +107,8 @@
 	//These are where the vendor holds their item info with /datum/vending_product
 	///list of /datum/vending_product's that are always available on the vendor
 	var/list/product_records = list()
-	///list of /datum/vending_product's that are available when vendor is hacked.
-	var/list/hidden_records = list()
-	///list of /datum/vending_product's that are available on the vendor when a coin is used.
-	var/list/coin_records = list()
+	/// For lookup after vending
+	var/list/products_inverse = list()
 	var/list/slogan_list = list()
 	/// small ad messages in the vending screen - random chance of popping up whenever you open it
 	var/list/small_ads = list()
@@ -141,8 +130,6 @@
 	var/shoot_inventory = FALSE
 	///If true the machine won't be speaking slogans randomly. Stop spouting those godawful pitches!
 	var/shut_up = FALSE
-	///If the vending machine is hacked, makes the items on contraband list available.
-	var/extended_inventory = FALSE
 	///How much tipped we are.
 	var/tipped_level = 0
 	///Stops the machine from being hacked to shoot inventory or allow all access
@@ -152,9 +139,12 @@
 	var/knockdown_threshold = 100
 	///Faction of the vendor. Can be null
 	var/faction
+	var/check = FALSE
 
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
+	if(check)
+		check = check
 	wires = new /datum/wires/vending(src)
 
 	slogan_list = splittext(product_slogans, ";")
@@ -170,13 +160,9 @@
 		build_shared_inventory()
 	else
 		build_inventory(products)
-		build_inventory(contraband, CAT_HIDDEN)
-		build_inventory(premium, CAT_COIN)
 
 	// we won't use these anymore so we can just null them
-	premium = null
 	products = null
-	contraband = null
 	start_processing()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
@@ -213,45 +199,64 @@
 	if(!GLOB.vending_records[type])
 		build_inventory(products)
 		GLOB.vending_records[type] = product_records
+		GLOB.vending_inverse_records[type] = products_inverse
 	else
 		product_records = GLOB.vending_records[type]
-
-	if(!GLOB.vending_hidden_records[type])
-		build_inventory(contraband, CAT_HIDDEN)
-		GLOB.vending_hidden_records[type] = hidden_records
-	else
-		hidden_records = GLOB.vending_hidden_records[type]
-
-	if(!GLOB.vending_coin_records[type])
-		build_inventory(premium, CAT_COIN)
-		GLOB.vending_coin_records[type] = coin_records
-	else
-		coin_records = GLOB.vending_coin_records[type]
+		products_inverse = GLOB.vending_inverse_records[type]
 
 ///Builds a vending machine inventory from the given list into their records depending of category.
 /obj/machinery/vending/proc/build_inventory(list/productlist, category = CAT_NORMAL)
 	var/list/recordlist = product_records
-	if(category == CAT_HIDDEN)
-		recordlist = hidden_records
-	if(category == CAT_COIN)
-		recordlist = coin_records
-
 	for(var/entry in productlist)
-		//if this is true then this is supposed to be tab dependant.
-		if(islist(productlist[entry]))
-			for(var/typepath in productlist[entry])
-				var/amount = productlist[entry][typepath]
-				if(isnull(amount))
-					amount = 1
-				var/datum/vending_product/record = new(typepath = typepath, product_amount = amount, category = category, tab = entry)
-				recordlist += record
+		if(islist(productlist[entry])) //if this is true then this is supposed to be tab dependant.
+			var/list/tab_products = productlist[entry]
+			for(var/product_entry in tab_products)
+				if(islist(tab_products[product_entry])) // new entry format: group label = {amount, {items with info}, desc}
+					var/list/group_info = tab_products[product_entry]
+					var/list/group_products = group_info[2]
+					if(length(group_info[2]) == 0)
+						continue // Somebody forgot to pupulate the list
+					var/prod_desc = null
+					if(length(group_info) >= 3)
+						prod_desc = group_info[3]
+					else	// Try to get desc of the first item in the list
+						var/atom/product_entry_atom = group_products[1][1]
+						prod_desc = initial(product_entry_atom.desc)
+
+					var/datum/vending_product/record = new(
+						name = product_entry,
+						product_amount = group_info[1],
+						typepath = group_products,
+						category = category,
+						tab = entry,
+						product_description = prod_desc
+						)
+					recordlist += record
+					// build inverse list for lookup later
+					for(var/product_in_group in group_products)
+						products_inverse[product_in_group[1]] = REF(record)	//add record as key, and group name as value
+					continue
+
+				else // classic entry: item/path = amount
+					var/atom/product_entry_atom = product_entry
+					var/amount = tab_products[product_entry]
+					if(isnull(amount))
+						amount = 1
+					var/list/created_product_list = list(list(product_entry, "Vend"))
+					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
+					recordlist += record
+					products_inverse[product_entry] = REF(record)
 			continue
+
 		//This item is not tab dependent
+		var/atom/product_entry_atom = entry
 		var/amount = productlist[entry]
 		if(isnull(amount))
 			amount = 1
-		var/datum/vending_product/record = new(typepath = entry, product_amount = amount, category = category)
+		var/list/created_product_list = list(list(entry, "Vend", "white"))
+		var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, product_description = initial(product_entry_atom.desc))
 		recordlist += record
+		products_inverse[entry] = REF(record)
 
 ///Makes additional tabs/adds to the tabs based on the seasonal_items vendor specification
 /obj/machinery/vending/proc/build_seasonal_tabs()
@@ -403,8 +408,6 @@
 	. = list()
 	.["vendor_name"] = name
 	.["displayed_records"] = list()
-	.["hidden_records"] = list()
-	.["coin_records"] = list()
 	.["tabs"] = list()
 
 	for(var/datum/vending_product/R AS in product_records)
@@ -412,26 +415,15 @@
 			.["tabs"] += R.tab
 		.["displayed_records"] += list(MAKE_VENDING_RECORD_DATA(R))
 
-	for(var/datum/vending_product/R AS in hidden_records)
-		if(R.tab && !(R.tab in .["tabs"]))
-			.["tabs"] += R.tab
-		.["hidden_records"] += list(MAKE_VENDING_RECORD_DATA(R))
-
-	for(var/datum/vending_product/R AS in coin_records)
-		if(R.tab && !(R.tab in .["tabs"]))
-			.["tabs"] += R.tab
-		.["coin_records"] += list(MAKE_VENDING_RECORD_DATA(R))
-
 /obj/machinery/vending/ui_data(mob/user)
 	. = list()
 	.["stock"] = list()
 
-	for(var/datum/vending_product/R AS in product_records + hidden_records + coin_records)
+	for(var/datum/vending_product/R AS in product_records)
 		.["stock"][R.product_name] = R.amount
 
 	if(currently_vending)
 		.["currently_vending"] = MAKE_VENDING_RECORD_DATA(currently_vending)
-	.["extended"] = extended_inventory
 	.["isshared"] = isshared
 	.["ui_theme"] = "main"
 
@@ -448,14 +440,15 @@
 				flick(icon_deny, src)
 				return
 
-			var/datum/vending_product/R = locate(params["vend"]) in product_records | hidden_records | coin_records
-			if(!istype(R) || !R.product_path || R.amount == 0)
+			var/list/ans = params["vend"]
+			var/datum/vending_product/R = locate(ans[1]) in product_records
+			var/datum/vending_product/vended_path = text2path(ans[2])
+
+			if(!istype(R) || !R.product_paths || R.amount == 0)
 				return
 
-			if(isAI(usr))
-				vend(R, usr)
-			else if(R.price == null)
-				vend(R, usr)
+			if((isAI(usr)) || (R.price == null))
+				vend(R, usr, vended_path)
 			else
 				currently_vending = R
 			. = TRUE
@@ -464,13 +457,10 @@
 			stock_vacuum(usr)
 			. = TRUE
 
-/obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user)
+/obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user, vended_product_path)
 	if(!allowed(user) && (!wires.is_cut(WIRE_IDSCAN) || hacking_safety)) //For SECURE VENDING MACHINES YEAH
 		to_chat(user, span_warning("Access denied."))
 		flick(icon_deny, src)
-		return
-
-	if(R.category == CAT_HIDDEN && !extended_inventory)
 		return
 
 	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all at once with explosion
@@ -483,7 +473,7 @@
 	if(((last_reply + (src.vend_delay + 200)) <= world.time) && vend_reply)
 		INVOKE_ASYNC(src, PROC_REF(speak_on_vend))
 
-	var/obj/item/new_item = release_item(R, vend_delay)
+	var/obj/item/new_item = release_item(R, vend_delay, vended_product_path=vended_product_path)
 
 	if(istype(new_item))
 		new_item.on_vend(user, faction, fill_container = TRUE)
@@ -493,7 +483,8 @@
 	speak(vend_reply)
 	last_reply = world.time
 
-/obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0)
+/obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0, vended_product_path)
+
 	if(delay_vending)
 		if(powered(power_channel))
 			use_power(active_power_usage)	//actuators and stuff
@@ -516,10 +507,10 @@
 		playsound(src, vending_sound, 25, 0)
 	else
 		playsound(src, SFX_VENDING, 25, 0)
-	if(ispath(R.product_path,/obj/item/weapon/gun))
-		return new R.product_path(get_turf(src), 1)
+	if(ispath(vended_product_path,/obj/item/weapon/gun))
+		return new vended_product_path(get_turf(src), 1)
 	else
-		return new R.product_path(get_turf(src))
+		return new vended_product_path(get_turf(src))
 
 /obj/machinery/vending/MouseDrop_T(atom/movable/A, mob/user)
 	. = ..()
@@ -547,15 +538,11 @@
 		display_message_and_visuals(user, show_feedback, "Vendor is unresponsive!", VENDING_RESTOCK_IDLE)
 		return FALSE
 
-	var/datum/vending_product/record //The found record matching the item_to_stock in the vending_records lists
-	for(var/datum/vending_product/checked_record AS in product_records + hidden_records + coin_records)
-		if(item_to_stock.type != checked_record.product_path)
-			continue
-		record = checked_record
-
-	if(!record) //Item isn't listed in the vending records.
+	if(!(item_to_stock.type in products_inverse))	//Item isn't listed in the vending records.
 		user?.balloon_alert(user, "[item_to_stock] doesn't belong here!")
 		return FALSE
+
+	var/datum/vending_product/record = locate(products_inverse[item_to_stock.type]) in product_records
 
 	return do_stock(item_to_stock, user, show_feedback, record)
 
@@ -750,7 +737,7 @@
 	for(var/datum/vending_product/R AS in product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
-		var/dump_path = R.product_path
+		var/dump_path = R.product_paths
 		if (!dump_path)
 			continue
 
@@ -772,7 +759,7 @@
 	for(var/datum/vending_product/R AS in product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
-		var/dump_path = R.product_path
+		var/dump_path = R.product_paths
 		if (!dump_path)
 			continue
 
@@ -806,8 +793,6 @@
 		tip_over()
 
 #undef CAT_NORMAL
-#undef CAT_HIDDEN
-#undef CAT_COIN
 
 #undef VENDING_RESTOCK_IDLE
 #undef VENDING_RESTOCK_DENY
