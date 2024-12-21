@@ -1,5 +1,5 @@
-#define CLOAK_IMPLANT_ALPHA 38
-#define CLOAK_IMPLANT_COOLDOWN_TIME 50 SECONDS
+#define CLOAK_IMPLANT_ALPHA 28
+#define CLOAK_IMPLANT_COOLDOWN_TIME 30 SECONDS
 
 /obj/item/implant/cloak
 	name = "cloak implant"
