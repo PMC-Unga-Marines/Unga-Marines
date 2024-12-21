@@ -294,7 +294,7 @@
 /obj/effect/xeno/shield/special
 	max_integrity = 325
 	alternative_reflection = TRUE
-	color ="#ff000d"
+	color = "#ff000d"
 
 // ***************************************
 // *********** psychic crush
