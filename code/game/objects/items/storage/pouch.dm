@@ -902,3 +902,30 @@
 	. = ..()
 	for(var/i in 1 to storage_slots)
 		new /obj/item/reagent_containers/food/snacks/protein_pack(src)
+
+/obj/item/storage/pouch/medkit/t312
+	name = "BMSS medkit pouch"
+	desc = "Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers."
+	icon_state = "t312"
+	can_hold = list(
+		/obj/item/healthanalyzer,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/storage/pill_bottle/packet,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/ammo_magazine/packet/t312/med,
+		/obj/item/ammo_magazine/revolver/t312/med,
+		/obj/item/tweezers,
+		/obj/item/ammo_magazine/handful
+	)
+
+/obj/item/storage/pouch/medkit/t312/medic/PopulateContents()
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_combat_pack(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/storage/pill_bottle/meraderm(src)
+	new /obj/item/reagent_containers/hypospray/advanced/nanoblood(src)
