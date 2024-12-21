@@ -142,8 +142,6 @@
 
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
-	if(check)
-		check = check
 	wires = new /datum/wires/vending(src)
 
 	slogan_list = splittext(product_slogans, ";")
