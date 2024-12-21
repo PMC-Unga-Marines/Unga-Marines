@@ -220,8 +220,6 @@
 		bound_width = 96
 		bound_x = -32
 		pixel_x = -32
-	if(alternative_reflection) // The easy alternative to spriting 92 frames.
-		add_atom_colour("#ff000d", FIXED_COLOUR_PRIORITY)
 
 /obj/effect/xeno/shield/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	if(!(cardinal_move & REVERSE_DIR(dir)))
@@ -296,6 +294,7 @@
 /obj/effect/xeno/shield/special
 	max_integrity = 325
 	alternative_reflection = TRUE
+	color ="#ff000d"
 
 // ***************************************
 // *********** psychic crush
