@@ -196,8 +196,9 @@
 	GLOB.cryoed_item_list += src
 
 /obj/item/storage/store_in_cryo()
-	for(var/obj/item/I AS in src)
-		I.store_in_cryo()
+	if(!(flags_storage & BYPASS_CRYO_CHECK))
+		for(var/obj/item/I AS in src)
+			I.store_in_cryo()
 	return ..()
 
 /obj/machinery/cryopod/attackby(obj/item/I, mob/user, params)
