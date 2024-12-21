@@ -287,3 +287,8 @@
 	pill_desc = "An oxycodone pill. Best painkiller."
 	list_reagents = list(/datum/reagent/medicine/oxycodone = 15)
 	pill_id = 7
+
+/obj/item/reagent_containers/pill/meraderm
+	pill_desc = "A meralyne and dermaline pill. Heals brute damage at a higher rate than bicaridine and heals burn damage at a higher rate than kelotane"
+	list_reagents = list(/datum/reagent/medicine/meralyne = 7.5, /datum/reagent/medicine/dermaline = 7.5)
+	pill_id = 19

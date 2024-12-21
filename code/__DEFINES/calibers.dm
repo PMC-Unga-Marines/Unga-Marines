@@ -22,6 +22,7 @@
 #define CALIBER_12X7 "12.7 Magnum"
 #define CALIBER_44LS ".44 Long Special"
 #define CALIBER_500 ".500 Nigro Express"
+#define CALIBER_500_EMB ".500 Experimental Medical Bullets" // t312
 
 // SMGs
 #define CALIBER_46X30 "4.6x30mm"
