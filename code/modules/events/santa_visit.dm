@@ -1,6 +1,6 @@
 //Supplies are dropped onto the map for both factions to fight over
 /datum/round_event_control/dedmoroz_visit
-	name = "Santa Visit"
+	name = "Ded Moroz Visit"
 	typepath = /datum/round_event/dedmoroz_visit
 	weight = 30
 	earliest_start = 30 MINUTES

@@ -4,6 +4,9 @@
 /turf/template_noop,
 /area/shuttle/dropship/normandy)
 "aD" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship2/engine_sidealt{
 	dir = 4
 	},
@@ -14,6 +17,9 @@
 	},
 /area/shuttle/dropship/normandy)
 "bg" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
 /turf/closed/shuttle/dropship2/engine_sidealt{
 	dir = 8
 	},
@@ -41,6 +47,12 @@
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "cE" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship2/aisle{
 	dir = 4
 	},
@@ -49,6 +61,9 @@
 /turf/template_noop,
 /area/template_noop)
 "cX" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
 /turf/closed/shuttle/dropship2/engine_sidealt{
 	dir = 1
 	},
@@ -131,9 +146,21 @@
 /area/shuttle/dropship/normandy)
 "kh" = (
 /obj/docking_port/mobile/marine_dropship/one,
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship2/aisle{
 	dir = 4
 	},
+/area/shuttle/dropship/normandy)
+"kr" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
+/turf/closed/shuttle/dropship2/edge/alt,
 /area/shuttle/dropship/normandy)
 "kD" = (
 /turf/closed/shuttle/dropship2/edge/alt{
@@ -186,6 +213,10 @@
 "oF" = (
 /obj/machinery/telecomms/relay/preset/telecomms/onboard/nondense,
 /obj/machinery/light,
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 10;
+	icon_state = "string_lights_red_and_green_cap"
+	},
 /turf/open/shuttle/dropship/five,
 /area/shuttle/dropship/normandy)
 "pm" = (
@@ -209,6 +240,9 @@
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
 "rJ" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship2/cornersalt,
 /area/shuttle/dropship/normandy)
 "rL" = (
@@ -250,6 +284,9 @@
 	},
 /area/shuttle/dropship/normandy)
 "uU" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
 /turf/closed/shuttle/dropship2/cornersalt{
 	dir = 1
 	},
@@ -267,6 +304,12 @@
 	},
 /area/shuttle/dropship/normandy)
 "yt" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 8
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship2/aisle,
 /area/shuttle/dropship/normandy)
 "yG" = (
@@ -311,10 +354,24 @@
 /obj/structure/bed/chair/dropship/doublewide/left,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/normandy)
+"BB" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
+/turf/closed/shuttle/dropship2/edge/alt{
+	dir = 1
+	},
+/area/shuttle/dropship/normandy)
 "Cd" = (
 /turf/open/shuttle/dropship/three,
 /area/shuttle/dropship/normandy)
 "Dw" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	icon_state = "string_lights_red_and_green_cap"
+	},
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	icon_state = "stocking"
+	},
 /turf/closed/shuttle/dropship2/aisle{
 	dir = 8
 	},
@@ -333,6 +390,9 @@
 	},
 /area/shuttle/dropship/normandy)
 "EW" = (
+/obj/structure/prop/holidays/string_lights/green_and_red{
+	dir = 4
+	},
 /turf/closed/shuttle/dropship2/engine_sidealt,
 /area/shuttle/dropship/normandy)
 "FA" = (
@@ -637,8 +697,8 @@ pO
 pO
 pO
 rJ
-kD
-kD
+BB
+BB
 EW
 aD
 fh
@@ -775,8 +835,8 @@ pO
 pO
 pO
 uU
-ex
-ex
+kr
+kr
 cX
 bg
 ax
