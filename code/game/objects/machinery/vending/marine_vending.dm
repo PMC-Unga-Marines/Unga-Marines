@@ -237,6 +237,7 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
 			/obj/item/deployable_floodlight = 5,
 		),
 	)
@@ -464,6 +465,7 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
 			/obj/item/deployable_floodlight = 5,
 		),
 	)
@@ -723,6 +725,7 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
 			/obj/item/deployable_floodlight = -1,
 			/obj/item/fulton_extraction_pack = -1,
 			/obj/item/facepaint/premium = -1,
@@ -752,6 +755,10 @@
 	isshared = TRUE
 	products = list(
 		/obj/item/storage/fancy/cigarettes/luckystars = -1,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = -1,
+		/obj/item/storage/fancy/cigarettes/kpack = -1,
+		/obj/item/storage/fancy/cigarettes/lady_finger = -1,
+		/obj/item/storage/fancy/cigarettes = -1,
 		/obj/item/storage/fancy/chemrettes = -1,
 		/obj/item/storage/box/matches = -1,
 		/obj/item/tool/lighter/random = -1,

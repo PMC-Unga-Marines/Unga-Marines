@@ -2757,7 +2757,7 @@
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/complex/botany)
 "daQ" = (
-/obj/item/spacecash/c100,
+/obj/item/spacecash/bundle/c100,
 /turf/open/floor/carpet,
 /area/kutjevo/interior/colony_South/power2)
 "dbe" = (
@@ -3799,7 +3799,7 @@
 /area/kutjevo/interior/complex/botany/east_tech)
 "efW" = (
 /obj/structure/table/mainship,
-/obj/item/spacecash/c200,
+/obj/item/spacecash/bundle/c200,
 /turf/open/floor/kutjevo/colors/green,
 /area/kutjevo/interior/complex/botany)
 "egd" = (

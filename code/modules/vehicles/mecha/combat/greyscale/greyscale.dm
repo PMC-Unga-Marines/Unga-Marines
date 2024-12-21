@@ -66,7 +66,7 @@
 
 
 /obj/vehicle/sealed/mecha/combat/greyscale/mob_try_enter(mob/entering_mob, mob/user, loc_override = FALSE)
-	if((mecha_flags & MECHA_SKILL_LOCKED) && entering_mob.skills.getRating(SKILL_LARGE_VEHICLE) < SKILL_LARGE_VEHICLE_VETERAN)
+	if((mecha_flags & MECHA_SKILL_LOCKED) && entering_mob.skills.getRating(SKILL_MECH_PILOT) < SKILL_MECH_PILOT_TRAINED)
 		balloon_alert(entering_mob, "You don't know how to pilot this")
 		return FALSE
 	return ..()
