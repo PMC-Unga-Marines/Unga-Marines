@@ -14,7 +14,8 @@
 #define COMSIG_GLOB_OPEN_SHUTTERS_EARLY "!open_shutters_early"
 #define COMSIG_GLOB_TELETOWER "!teletower"
 
-#define COMSIG_GLOB_TADPOLE_LAUNCHED "!tadpole_launched"
+//#define COMSIG_GLOB_TADPOLE_LAUNCHED "!tadpole_launched" for future
+#define COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ "!tadpole_landed_out_lz"
 #define COMSIG_GLOB_DROPPOD_LANDED "!pod_landed"
 #define COMSIG_GLOB_EVACUATION_STARTED "!evacuation_started"
 
@@ -794,6 +795,7 @@
 #define COMSIG_XENOABILITY_PSYCHIC_LINK "xenoability_psychic_link"
 #define COMSIG_XENOABILITY_CARNAGE "xenoability_carnage"
 #define COMSIG_XENOABILITY_FEAST "xenoability_feast"
+#define COMSIG_XENOABILITY_OPPOSE "xenoability_oppose"
 
 #define COMSIG_XENOABILITY_ACIDCHARGE "xenoability_acidcharge"
 #define COMSIG_XENOABILITY_BULLHEADBUTT "xenoability_bullheadbutt"

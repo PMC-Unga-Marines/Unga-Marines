@@ -22,6 +22,7 @@
 #define CALIBER_12X7 "12.7 Magnum"
 #define CALIBER_44LS ".44 Long Special"
 #define CALIBER_500 ".500 Nigro Express"
+#define CALIBER_500_EMB ".500 Experimental Medical Bullets" // t312
 
 // SMGs
 #define CALIBER_46X30 "4.6x30mm"
@@ -58,6 +59,7 @@
 #define CALIBER_762X54 "7.62x54mm Rimmed" //SVD and mosin
 #define CALIBER_557 ".557/440" //Martini Henry
 #define CALIBER_RAILGUN "rail projectile"
+#define CALIBER_19MM "19mm ball"
 
 // --- Explosives ---
 #define CALIBER_20MM "20x28mm grenade"

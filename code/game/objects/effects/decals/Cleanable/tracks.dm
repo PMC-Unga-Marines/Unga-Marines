@@ -35,6 +35,7 @@
 	var/dirs=0
 	icon = 'icons/effects/fluidtracks.dmi'
 	icon_state = ""
+	basecolor = "#ffffff"
 	var/coming_state="blood1"
 	var/going_state="blood2"
 	var/updatedtracks=0
@@ -62,7 +63,7 @@
 	* @param goingdir Direction tracks are going to (or 0).
 	* @param bloodcolor Color of the blood when wet.
 	*/
-/obj/effect/decal/cleanable/blood/tracks/proc/AddTracks(list/DNA, comingdir, goingdir, bloodcolor="#A10808")
+/obj/effect/decal/cleanable/blood/tracks/proc/AddTracks(list/DNA, comingdir, goingdir, bloodcolor)
 	var/updated=0
 	// Shift our goingdir 4 spaces to the left so it's in the GOING bitblock.
 	var/realgoing=goingdir<<4
