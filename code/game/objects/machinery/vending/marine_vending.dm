@@ -1604,6 +1604,22 @@
 			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
 			/obj/item/ammo_magazine/tank/flamer = -1,
 		),
+		"Implants" = list(
+			/obj/item/implanter/sandevistan = -1,
+			/obj/item/implanter/suicide_dust = -1,
+			/obj/item/implanter/blade = -1,
+			/obj/item/implanter/cloak = -1,
+			/obj/item/implanter/chem/blood = -1,
+			/obj/item/implanter/chem = -1,
+			/obj/item/implanter/neurostim = -1,
+			/obj/item/implanter/implantator/combat/firearms = -1,
+			/obj/item/implanter/implantator/combat/melee = -1,
+			/obj/item/implanter/implantator/codex/medical = -1,
+			/obj/item/implanter/implantator/codex/surgery = -1,
+			/obj/item/implanter/implantator/codex/engineer = -1,
+			/obj/item/implanter/implantator/codex/construct = -1,
+			/obj/item/implanter/implantator/oper_system/leadership = -1,
+		),
 	)
 
 /obj/machinery/vending/valhalla_seasonal_req
