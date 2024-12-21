@@ -161,6 +161,7 @@
 				list(/obj/item/ammo_magazine/revolver/t500/slavs, "SLAV", "white"),
 				),
 			),
+			/obj/item/ammo_magazine/revolver/t312 = -1,
 			"P-17" = list(-1, list(
 				list(/obj/item/weapon/gun/pistol/p17, "WEAP"),
 				list(/obj/item/ammo_magazine/pistol/p17, "AMMO", VEND_COLOR_AMMO),
@@ -226,6 +227,7 @@
 			/obj/item/attachable/suppressor = -1,
 			/obj/item/attachable/heavy_barrel = -1,
 			/obj/item/attachable/lace = -1,
+			/obj/item/attachable/lace/t500 = -1,
 			/obj/item/attachable/flashlight = -1,
 			/obj/item/attachable/flashlight/under = -1,
 			/obj/item/attachable/magnetic_harness = -1,
@@ -301,6 +303,7 @@
 				list(/obj/item/ammo_magazine/packet/t500/slavs, "SLAV", "white")
 				),
 			),
+			/obj/item/ammo_magazine/packet/t312 = -1,
 			/obj/item/storage/box/visual/magazine = -1,
 			/obj/item/storage/box/visual/grenade = -1,
 			/obj/structure/closet/crate/mass_produced_crate = 5,
