@@ -9309,8 +9309,8 @@
 /area/bigredv2/caves/lambda_lab)
 "fxo" = (
 /obj/structure/table,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/nanotrasen_lab/inside)

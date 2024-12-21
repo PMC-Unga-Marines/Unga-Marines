@@ -636,7 +636,7 @@
 /area/oscar_outpost/village/abandonedbase)
 "pq" = (
 /obj/structure/table/woodentable,
-/obj/item/spacecash/c10,
+/obj/item/spacecash/bundle/c10,
 /obj/item/toy/deck,
 /turf/open/floor/wood,
 /area/oscar_outpost/village/abandonedbase)
@@ -1894,7 +1894,7 @@
 "Ur" = (
 /obj/structure/table/woodentable,
 /obj/item/toy/deck,
-/obj/item/spacecash/c10,
+/obj/item/spacecash/bundle/c10,
 /turf/open/floor/wood,
 /area/oscar_outpost/village/abandonedbase)
 "UE" = (

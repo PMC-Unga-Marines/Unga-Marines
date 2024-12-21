@@ -691,7 +691,6 @@
 	name = "Alkysine"
 	description = "Alkysine is a drug used to lessen the damage to neurological and auditory tissue after a catastrophic injury. Can heal brain and ear tissue."
 	color = COLOR_REAGENT_ALKYSINE
-	custom_metabolism = REAGENTS_METABOLISM * 0.25
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	scannable = TRUE
@@ -1678,3 +1677,54 @@
 
 /datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
+
+/datum/reagent/neurofrenzy
+	name = "NeuroFrenzy"
+	description = "This is a neurostimulating substance that causes the brain to maintain an increased heart rate."
+	color = COLOR_REAGENT_NEUROFRENZY
+	custom_metabolism = 0
+	scannable = TRUE
+	taste_description = "sour coffee"
+	overdose_threshold = 10
+	overdose_crit_threshold = 10
+	trait_flags = TACHYCARDIC
+	purge_rate = 10
+	purge_list = list(
+		/datum/reagent/medicalnanites,
+		/datum/reagent/medicine/peridaxon,
+		/datum/reagent/medicine/peridaxon_plus,
+	)
+
+/datum/reagent/neurofrenzy/on_mob_add(mob/living/our_living, metabolism)
+	our_living.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -0.4)
+	to_chat(our_living, span_userdanger("You feel like your heart could stop at any moment."))
+
+/datum/reagent/neurofrenzy/on_mob_life(mob/living/our_living, metabolism)
+	. = ..()
+	if(volume < 1)
+		our_living.reagents.remove_reagent(/datum/reagent/neurofrenzy, 3)
+		return //antiduplicate
+
+	if(volume < 5)
+		our_living.reagents.add_reagent(/datum/reagent/neurofrenzy, 0.5)
+	switch(current_cycle)
+		if(1 to 40)
+			our_living.adjustStaminaLoss((4) * effect_str)
+			our_living.jitter(2)
+		if(3)
+			to_chat(our_living, span_notice("Your heart is jumping out of your chest."))
+		if(41)
+			to_chat(our_living, span_warning("It seems that your body has become accustomed to new conditions. But the heart is working hard."))
+		if(45 to INFINITY)
+			if(prob(99.775))
+				return
+			to_chat(our_living, span_userdanger("OUUH MY HEART"))
+			our_living.adjustOxyLoss(30)
+			var/mob/living/carbon/human/our_human = our_living
+			var/datum/internal_organ/heart/our_heart = our_human.get_organ_slot(ORGAN_SLOT_HEART)
+			our_heart?.take_damage(15, TRUE)
+
+/datum/reagent/neurofrenzy/on_mob_delete(mob/living/our_living, metabolism)
+	to_chat(our_living, span_userdanger("It seems that something has stopped pushing your heart with force."))
+	our_living.remove_movespeed_modifier(type)
+	our_living.Paralyze(2 SECONDS)

@@ -59,7 +59,7 @@
 		owner.balloon_alert(owner, "Savage ready")
 		owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 		STOP_PROCESSING(SSprocessing, src)
-		UnregisterSignal(COMSIG_QDELETING)
+		UnregisterSignal(owner, COMSIG_QDELETING)
 		return
 	button.cut_overlay(visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN])
 	var/mutable_appearance/cooldown = visual_references[VREF_MUTABLE_SAVAGE_COOLDOWN]

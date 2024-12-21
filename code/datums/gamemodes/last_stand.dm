@@ -32,7 +32,8 @@
 	var/last_waves_check
 
 	///the strength of the waves is ultimately multiplied by the number of people
-	var/waves_power = 1
+	var/waves_power = 0.8
+	var/health_factor = 1
 	///time from the beginning of the round when the waves will not spawn
 	var/neutral_time = 5 MINUTES
 	///list of possible wave generators
@@ -110,9 +111,10 @@
 		if(wave.max_time != -1 && wave.max_time < world.time - SSticker.round_start_time)
 			wave_checks++
 			continue
-		wave_spawned = wave.spawn_wave(points)
+		wave_spawned = wave.spawn_wave(points, health_factor)
 
-	waves_power += 0.1
+	waves_power += 0.05
+	health_factor += 0.04
 
 /datum/game_mode/last_stand/check_finished()
 	if(round_finished)
