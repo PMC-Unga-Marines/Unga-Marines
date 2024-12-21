@@ -475,7 +475,7 @@
 		return
 
 	var/turf/T = loc
-	if(length(T.contents) > 25 || locate(/obj/structure/closet/crate) in loc) // let's make crashing the server a bit harder
+	if(length(T.contents) > 30 || locate(/obj/structure/closet/crate) in loc) // let's make crashing the server a bit harder
 		to_chat(user, span_warning("The floor is too cluttered, make some space."))
 		if(icon_deny)
 			flick(icon_deny, src)
