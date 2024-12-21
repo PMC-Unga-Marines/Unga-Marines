@@ -1050,7 +1050,7 @@
 /datum/keybinding/xeno/adrenaline_rush
 	name = "Adrenaline rush"
 	full_name = "Panther: Adrenaline Rush"
-	description = "Move faster."
+	description = "Heal yourself and keep killing."
 	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_RUSH
 	hotkey_keys = list("V")
 
