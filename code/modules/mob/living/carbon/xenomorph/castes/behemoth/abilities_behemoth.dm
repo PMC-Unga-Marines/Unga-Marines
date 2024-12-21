@@ -1191,7 +1191,7 @@ RU TGMC EDIT */
 // *********** Stone Shell
 // ***************************************
 
-#define STONE_SHELL_DAMAGE_REDUCTION 0.45
+#define STONE_SHELL_DAMAGE_REDUCTION 0.25
 
 /datum/action/ability/xeno_action/stone_shell
 	name = "Stone Shell"
