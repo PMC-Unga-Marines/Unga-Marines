@@ -381,6 +381,7 @@
 	max_storage_space = 14
 	spawn_type = /obj/item/explosive/grenade/flare
 	spawn_number = 14
+	flags_storage = BYPASS_CRYO_CHECK
 
 /obj/item/storage/box/m94/update_icon_state()
 	. = ..()
@@ -408,7 +409,6 @@
 	spawn_type = /obj/item/lightstick/red
 	spawn_number = 7
 
-
 /obj/item/storage/box/MRE
 	name = "\improper TGMC MRE"
 	desc = "Meal Ready-to-Eat, meant to be consumed in the field, and has an expiration that is two decades past a marine's average combat life expectancy."
@@ -416,6 +416,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/packaged_meal)
 	storage_slots = 4
+	flags_storage = BYPASS_CRYO_CHECK
 	foldable = 0
 	var/isopened = 0
 	///the item left behind when this is used up

@@ -187,17 +187,22 @@
 	assigned_squad?.remove_from_squad(src)
 	return ..()
 
-/obj/item/proc/store_in_cryo()
+/// Move the item to the cryo, if storage_to_remove_from is set, it will try to properly remove the item from the storage
+/obj/item/proc/store_in_cryo(obj/item/storage/storage_to_remove_from)
 	if(is_type_in_typecache(src, GLOB.do_not_preserve) || HAS_TRAIT(src, TRAIT_NODROP) || (flags_item & (ITEM_ABSTRACT|DELONDROP)))
 		if(!QDELETED(src))
 			qdel(src)
 		return
-	moveToNullspace()
+	if(!isnull(storage_to_remove_from))
+		storage_to_remove_from.remove_from_storage(src, null, usr)
+	else
+		moveToNullspace()
 	GLOB.cryoed_item_list += src
 
 /obj/item/storage/store_in_cryo()
-	for(var/obj/item/I AS in src)
-		I.store_in_cryo()
+	if(!(flags_storage & BYPASS_CRYO_CHECK))
+		for(var/obj/item/I AS in src)
+			I.store_in_cryo(src)
 	return ..()
 
 /obj/machinery/cryopod/attackby(obj/item/I, mob/user, params)
