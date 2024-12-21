@@ -139,7 +139,6 @@
 	var/knockdown_threshold = 100
 	///Faction of the vendor. Can be null
 	var/faction
-	var/check = FALSE
 
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
