@@ -135,7 +135,7 @@
 /obj/item/clothing/shoes/galoshes/dedmoroz //santa has to wear galoshes to avoid slipping in all the blood he spills on Christmas
 	name = "Ded Moroz boots"
 	desc = "Made from high quality reindeer leather, Ded Moroz owns only the finest footwear."
-	icon_state = "santa_galoshes"
+	icon_state = "dedmoroz"
 	soft_armor = list(MELEE = 80, BULLET = 90, LASER = 90, ENERGY = 85, BOMB = 120, BIO = 85, FIRE = 75, ACID = 40)
 	flags_armor_protection = FEET
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT

@@ -501,7 +501,7 @@
 /obj/item/clothing/head/helmet/space/dedmorozhat
 	name = "Ded Moroz hat"
 	desc = "Ho ho ho. Happy New Year"
-	icon_state = "dedmoroz2"
+	icon_state = "dedmoroz"
 	item_icons = list(
 		slot_head_str = 'icons/mob/clothing/headwear/head_0.dmi',
 	)

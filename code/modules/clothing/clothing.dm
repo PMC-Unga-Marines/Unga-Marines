@@ -327,8 +327,8 @@
 /obj/item/clothing/suit/space/dedmoroz
 	name = "Ded Moroz suit"
 	desc = "Festive!"
-	icon_state = "santa"
-	item_state = "santa"
+	icon_state = "dedmoroz"
+	item_state = "dedmoroz"
 	slowdown = 0
 	allowed = list(/obj/item) //for stuffing exta special presents
 	species_exception = list(/datum/species/robot)

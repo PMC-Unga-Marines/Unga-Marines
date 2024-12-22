@@ -14,7 +14,7 @@
 /obj/item/clothing/head/helmet/space/dedmoroz
 	name = "Ded Moroz hat"
 	desc = "Happy New Year!"
-	icon_state = "dedmoroz2"
+	icon_state = "dedmoroz"
 	item_icons = list(
 		slot_head_str = 'icons/mob/clothing/headwear/head_0.dmi',
 	)
@@ -45,7 +45,7 @@
 	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_SNOW_MAN)
 
 /obj/item/clothing/head/helmet/space/dedmoroz/special
-	name = "Santa's hat"
+	name = "Ded Moroz hat"
 	desc = "Ho ho ho. Merrry X-mas to all! Now you're all gonna die!"
 	soft_armor = list(MELEE = 85, BULLET = 90, LASER = 90, ENERGY = 85, BOMB = 120, BIO = 85, FIRE = 75, ACID = 40)
 	flags_item = DELONDROP

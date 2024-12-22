@@ -222,7 +222,7 @@
 	to_chat(swappedsnowman, span_notice("Пока мир вращается вокруг вас, вы изо всех сил пытаетесь сориентироваться..."))
 
 /datum/action/innate/snow_man_recall
-	name = "Return to Santa"
+	name = "Return to Ded Moroz"
 	action_icon_state = "snow_man_recall"
 
 /datum/action/innate/snow_man_recall/Activate()

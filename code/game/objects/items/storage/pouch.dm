@@ -492,8 +492,8 @@
 	)
 
 /obj/item/storage/pouch/dedmorozpouch
-	name = "Santa's storage pouch"
-	desc = "A pouch bulging with all sorts of goodies for Santa to ingest while handing out beatings to naughty boys and girls."
+	name = "Ded Moroz storage pouch"
+	desc = "A pouch bulging with all sorts of goodies for Ded Moroz to ingest while handing out beatings to naughty boys and girls."
 	icon_state = "medkit"
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = 4
