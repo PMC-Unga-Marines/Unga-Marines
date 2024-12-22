@@ -87,7 +87,7 @@
 		return
 
 	if(IsAdminSleeping())
-		to_chat(shaker, span_highdanger("This player has been admin slept, do not interfere with them."))
+		to_chat(shaker, span_userdanger("This player has been admin slept, do not interfere with them."))
 		return
 
 	if(lying_angle || has_status_effect(STATUS_EFFECT_SLEEPING))

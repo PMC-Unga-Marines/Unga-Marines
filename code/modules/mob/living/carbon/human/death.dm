@@ -9,7 +9,7 @@
 			// Override the current limb status
 			E.drop_limb(silent = TRUE)
 	visible_message(span_warning("[name] explodes violently into a bloody mess!"),
-		span_highdanger("<b>You explode violently into a bloody mess!</b>"),
+		span_userdanger("<b>You explode violently into a bloody mess!</b>"),
 		span_warning("You hear a terrible sound of breaking bones and ripping flesh!"), 3)
 	return ..()
 

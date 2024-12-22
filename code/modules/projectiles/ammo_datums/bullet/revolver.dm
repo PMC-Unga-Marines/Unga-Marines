@@ -50,7 +50,7 @@
 		var/mob/living/carbon/xenomorph/X = target_mob
 		X.apply_damage(40)
 		staggerstun(target_mob, proj, stagger = 0, slowdown = 0, knockback = 0)
-		to_chat(X, span_highdanger("Something burn inside you!"))
+		to_chat(X, xenouserdanger("Something burn inside you!"))
 		return
 	staggerstun(target_mob, proj, stagger = 0, slowdown = 0, knockback = 1)
 

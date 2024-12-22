@@ -163,7 +163,7 @@
 		if(!line_of_sight(user, target))
 			continue
 
-		user.visible_message(span_highdanger("[user] slices open the guts of [target]!"), span_highdanger("You slice open the guts of [target]!"))
+		user.visible_message(span_userdanger("[user] slices open the guts of [target]!"), span_userdanger("You slice open the guts of [target]!"))
 		target.spawn_gibs()
 		playsound(get_turf(target), 'sound/effects/gibbed.ogg', 30, 1)
 		target.apply_effect(1, WEAKEN)
@@ -422,7 +422,7 @@
 		return TRUE
 
 	if(user.species.name == victim.species.name)
-		to_chat(user, span_highdanger("ARE YOU OUT OF YOUR MIND!?"))
+		to_chat(user, span_userdanger("ARE YOU OUT OF YOUR MIND!?"))
 		return
 
 	if(issynth(victim) || isrobot(victim) || victim.species.species_flags & ROBOTIC_LIMBS)

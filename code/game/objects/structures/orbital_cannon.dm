@@ -374,8 +374,8 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.show_message(span_highdanger("Небо вспыхнуло <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
-			span_highdanger("Громкий шум слышно из неба <u>[relative_dir ? ("примерно с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_userdanger("Небо вспыхнуло <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
+			span_userdanger("Громкий шум слышно из неба <u>[relative_dir ? ("примерно с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(25, target))
@@ -383,13 +383,13 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.show_message(span_highdanger("Небо ревет все громче <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
-			span_highdanger("Шум становится громче <u>[relative_dir ? ("где-то с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_userdanger("Небо ревет все громче <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
+			span_userdanger("Шум становится громче <u>[relative_dir ? ("где-то с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(15, target))
-		our_mob.show_message(span_highdanger("О БОЖЕ, НЕБО СЕЙЧАС ВЗОРВЕТСЯ!!!"), EMOTE_VISIBLE,
-			span_highdanger("СМАТЫВАЙСЯ ОТСЮДА!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_userdanger("О БОЖЕ, НЕБО СЕЙЧАС ВЗОРВЕТСЯ!!!"), EMOTE_VISIBLE,
+			span_userdanger("СМАТЫВАЙСЯ ОТСЮДА!"), EMOTE_AUDIBLE)
 
 /obj/structure/ob_ammo/warhead/explosive
 	name = "\improper HE orbital warhead"

@@ -306,7 +306,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	if(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN))
 		return
 	sentry_stop_fire()
-	visible_message(span_highdanger("[name] была опрокинута!"))
+	visible_message(span_userdanger("[name] была опрокинута!"))
 	sentry_alert(SENTRY_ALERT_FALLEN)
 	playsound(loc, 'sound/items/turrets/turret_breakdown.ogg', 50, FALSE)
 	ENABLE_BITFIELD(machine_stat, KNOCKED_DOWN)
