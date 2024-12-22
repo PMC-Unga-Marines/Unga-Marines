@@ -16,8 +16,8 @@
 	light_pixel_y= 32
 	pixel_x = -56
 	pixel_y = -48
-	max_integrity = 900
-	soft_armor = list(MELEE = 50, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 50)
+	max_integrity = 700
+	soft_armor = list(MELEE = 40, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 40)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/ability/zoom)
 	permitted_weapons = list(/obj/item/armored_weapon, /obj/item/armored_weapon/ltaap, /obj/item/armored_weapon/secondary_weapon, /obj/item/armored_weapon/secondary_flamer)
@@ -34,7 +34,7 @@
 /obj/vehicle/sealed/armored/multitile/enter_locations(atom/movable/entering_thing)
 	return list(get_step_away(get_step(src, REVERSE_DIR(dir)), src, 2))
 
-/obj/vehicle/sealed/armored/multitile/exit_location(mob/M)
+/obj/vehicle/sealed/armored/multitile/exit_location(atom/movable/M)
 	return pick(enter_locations(M))
 
 /obj/vehicle/sealed/armored/multitile/enter_checks(mob/entering_mob, loc_override = FALSE)

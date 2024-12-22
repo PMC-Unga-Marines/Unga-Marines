@@ -32,6 +32,9 @@
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "weeds_destroyed")
 	return ..()
 
+/obj/alien/weeds/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	return FALSE // Just attack normally.
+
 /obj/alien/weeds/Initialize(mapload, obj/alien/weeds/node/node, swapped = FALSE)
 	. = ..()
 	var/static/list/connections = list(

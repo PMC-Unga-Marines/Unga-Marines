@@ -116,6 +116,8 @@
 //flags_storage
 ///If a storage container can be restocked into a vendor
 #define BYPASS_VENDOR_CHECK (1<<0)
+///Upon being put into cryo, this storage won't store it's contents into the cryo
+#define BYPASS_CRYO_CHECK (1<<1)
 
 //flags_id
 ///If you can get buy a loadout
