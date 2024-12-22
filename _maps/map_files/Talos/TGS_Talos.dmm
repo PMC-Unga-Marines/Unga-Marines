@@ -35733,13 +35733,6 @@
 	},
 /turf/closed/wall/mainship/talos,
 /area/mainship/powered)
-"uIi" = (
-/obj/effect/soundplayer,
-/obj/structure/prop/holidays/string_lights/green_and_red{
-	icon_state = "string_lights_red_and_green_cap"
-	},
-/turf/closed/wall/mainship/outer/talos,
-/area/mainship/hallways/bow_hallway)
 "uIm" = (
 /obj/effect/turf_decal/siding/metal/corner,
 /turf/open/floor/mainship/metal,
@@ -73561,7 +73554,7 @@ tgM
 tgM
 tgM
 tgM
-uIi
+omN
 aJq
 fuL
 ocY
