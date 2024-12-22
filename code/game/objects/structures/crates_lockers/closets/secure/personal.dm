@@ -57,8 +57,8 @@
 			if(G.grabbed_thing)
 				src.MouseDrop_T(G.grabbed_thing, user)      //act like they were dragged onto the closet
 			return
-		user.drop_held_item()
-		if (W) W.loc = src.loc
+		if(user.drop_held_item())
+			W.loc = src.loc
 	else if(istype(W, /obj/item/card/id))
 		if(src.broken)
 			to_chat(user, span_warning("It appears to be broken."))
