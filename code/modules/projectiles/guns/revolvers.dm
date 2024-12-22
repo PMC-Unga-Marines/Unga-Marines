@@ -508,8 +508,8 @@
 //////////////////////////////////////////////////////////////////////////
 
 /obj/item/weapon/gun/revolver/t500
-	name = "\improper R-500 BF revolver"
-	desc = "The R-500 BF revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
+	name = "\improper R-500 'Nigredo' revolver"
+	desc = "The R-500 'Nigredo' revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
 	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "t500"
 	item_icons = list(
@@ -561,3 +561,57 @@
 	scatter = -1
 	recoil = 2
 	recoil_unwielded = 3
+
+//////////////////////////////////////////////////////////////////////////
+/////////////////////////// t312 revolver ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+/obj/item/weapon/gun/revolver/t312
+	name = "R-312 'Albedo' Revolver"
+	desc = "Futuristic style revolver with railgun system, using to fire EMB (experimental medical bullets). Just first make sure that you chambered EMB, but not .500 White Express."
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "t312"
+	item_state = "t312"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
+	caliber =  CALIBER_500_EMB
+	max_chamber_items = 5 //codex
+	default_ammo_type = /datum/ammo/bullet/revolver/t312
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/revolver/t312,
+		/obj/item/ammo_magazine/revolver/t312/med/adrenaline,
+		/obj/item/ammo_magazine/revolver/t312/med/rr,
+		/obj/item/ammo_magazine/revolver/t312/med/md,
+		/obj/item/ammo_magazine/revolver/t312/med/neu
+	)
+	force = 20
+	actions_types = null
+	attachable_allowed = list(
+		/obj/item/attachable/lace/t500,
+	)
+	attachable_offset = list("stock_x" = -19, "stock_y" = 0)
+	fire_sound = 'sound/weapons/guns/fire/t312.ogg'
+	dry_fire_sound = 'sound/mecha/mag_bullet_insert.ogg'
+	fire_animation = "t312_fire"
+	fire_delay = 0.2 SECONDS
+	scatter = -7
+	scatter_unwielded = -5
+	damage_mult = 0.35
+	recoil = -1
+	recoil_unwielded = -1
+	accuracy_mult = 3
+	accuracy_mult_unwielded = 2
+	type_of_casings = null
+	akimbo_additional_delay = 0.6
+	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_TOGGLES_OPEN
+
+
+/obj/item/weapon/gun/revolver/t312/able_to_fire(mob/user)
+	. = ..()
+	if(!.)
+		return
+	if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED)
+		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
+		return FALSE

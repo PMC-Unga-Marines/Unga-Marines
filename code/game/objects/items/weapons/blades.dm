@@ -131,22 +131,6 @@
 	attack_verb = list("slash", "cut")
 	w_class = WEIGHT_CLASS_BULKY
 
-/obj/item/weapon/claymore/mercsword/officersword/attack(mob/living/carbon/M, mob/living/user)
-	. = ..()
-	if(user.skills.getRating("swordplay") == SKILL_SWORDPLAY_DEFAULT)
-		attack_speed = 20
-		force = 35
-		to_chat(user, span_warning("You try to figure out how to wield [src]..."))
-		if(prob(40))
-			if(HAS_TRAIT_FROM(src, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT))
-				REMOVE_TRAIT(src, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT)
-			user.drop_held_item(src)
-			to_chat(user, span_warning("[src] slipped out of your hands!"))
-			playsound(src.loc, 'sound/misc/slip.ogg', 25, 1)
-	if(user.skills.getRating("swordplay") == SKILL_SWORDPLAY_TRAINED)
-		attack_speed = initial(attack_speed)
-		force = initial(force)
-
 /obj/item/weapon/claymore/mercsword/officersword/equipped(mob/user, slot)
 	. = ..()
 	toggle_item_bump_attack(user, TRUE)

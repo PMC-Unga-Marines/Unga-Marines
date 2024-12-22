@@ -7,7 +7,28 @@
 	if(shoes && !buckled)
 		var/obj/item/clothing/shoes/S = shoes
 		S.step_action()
+	ToTracks(direction)
 
+/mob/living/carbon/human/proc/ToTracks(direction)
+	if(lying_angle || buckled && istype(buckled, /obj/structure/bed/chair))
+		return
+
+	// Tracking blood
+	var/bloodcolor = ""
+	var/bloodamount = 0
+	if(shoes?.track_blood && shoes?.blood_overlay)
+		bloodcolor = shoes.blood_color
+		bloodamount = shoes.track_blood
+		shoes.track_blood--
+	else if(track_blood && feet_blood_color)
+		bloodcolor = feet_blood_color
+		bloodamount = track_blood
+		track_blood--
+	if(bloodamount > 0)
+		var/turf/turf = get_turf(src)
+		turf.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, direction, 0, bloodcolor) // Coming
+		var/turf/from = get_step(src, REVERSE_DIR(direction))
+		from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints, null, 0, direction, bloodcolor) // Going
 
 /mob/living/carbon/human/proc/Process_Cloaking_Router(mob/living/carbon/human/user)
 	if(!user.cloaking)

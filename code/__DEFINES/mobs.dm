@@ -643,6 +643,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define GORGER_CARNAGE_HEAL 0.2
 #define GORGER_CARNAGE_MOVEMENT -0.5
 #define GORGER_FEAST_DURATION -1 // lasts indefinitely, self-cancelled when insufficient plasma left
+#define GORGER_OPPOSE_COST 80
+#define GORGER_OPPOSE_HEAL 0.2 // in %
 
 //carrier defines
 #define CARRIER_HUGGER_THROW_SPEED 2
