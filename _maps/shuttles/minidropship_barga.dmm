@@ -5,7 +5,7 @@
 "g" = (/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,/turf/open/floor/mainship/mono,/area/shuttle/minidropship)
 "h" = (/obj/machinery/light/floor{dir = 4},/turf/open/floor/plating/plating_catwalk,/area/shuttle/minidropship)
 "l" = (/obj/structure/barricade/metal{dir = 8},/turf/open/floor/plating/plating_catwalk,/area/shuttle/minidropship)
-"m" = (/obj/structure/table/mainship,/obj/item/storage/toolbox/electrical{pixel_y = 6},/obj/item/storage/toolbox/mechanical,/turf/open/floor/plating/plating_catwalk,/area/shuttle/minidropship)
+"m" = (/obj/structure/table/mainship,/obj/item/storage/toolbox/mechanical,/turf/open/floor/plating/plating_catwalk,/area/shuttle/minidropship)
 "n" = (/obj/machinery/light{dir = 8},/obj/machinery/vending/nanomed/tadpolemed{dir = 4},/turf/open/floor/plating/plating_catwalk,/area/shuttle/minidropship)
 "o" = (/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,/turf/open/floor/plating/plating_catwalk,/area/shuttle/minidropship)
 "p" = (/obj/structure/closet/walllocker/hydrant/full,/turf/open/floor/mainship/floor,/area/shuttle/minidropship)
