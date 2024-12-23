@@ -7,7 +7,7 @@ export const Mecha = () => {
   const { data } = useBackend<MainData>();
   if (data.isoperator) {
     return (
-      <Window theme={'ntos'}>
+      <Window theme={'ntos'} width={860} height={700}>
         <Window.Content>
           <OperatorMode />
         </Window.Content>

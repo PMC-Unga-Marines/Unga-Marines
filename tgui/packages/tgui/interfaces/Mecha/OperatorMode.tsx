@@ -46,6 +46,11 @@ export const OperatorMode = () => {
             />
           </Stack.Item>
           <Stack.Item>
+              <Section>
+                <MechStatPane />
+              </Section>
+          </Stack.Item>
+          <Stack.Item>
             <Section title="Armor modules">
               <ArmorPane />
             </Section>
@@ -67,15 +72,6 @@ export const OperatorMode = () => {
           <Stack.Item>
             <Section title="Radio Control">
               <RadioPane />
-            </Section>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item grow>
-        <Stack fill vertical>
-          <Stack.Item grow>
-            <Section fill>
-              <MechStatPane />
             </Section>
           </Stack.Item>
         </Stack>
