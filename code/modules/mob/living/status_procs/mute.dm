@@ -1,10 +1,6 @@
-///Checks to see if we're muted
-/mob/living/proc/IsMute()
-	return has_status_effect(STATUS_EFFECT_MUTED)
-
 ///Checks the duration left on our mute status effect
 /mob/living/proc/AmountMute()
-	var/datum/status_effect/mute/M = IsMute()
+	var/datum/status_effect/mute/M = has_status_effect(STATUS_EFFECT_MUTED)
 	if(M)
 		return M.duration - world.time
 	return 0
@@ -15,7 +11,7 @@
 		return
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_MUTE, amount) & COMPONENT_NO_MUTE)
 		return
-	var/datum/status_effect/mute/M = IsMute()
+	var/datum/status_effect/mute/M = has_status_effect(STATUS_EFFECT_MUTED)
 	if(M)
 		M.duration = max(world.time + amount, M.duration)
 	else if(amount > 0)
@@ -28,7 +24,7 @@
 		return
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_MUTE, amount) & COMPONENT_NO_MUTE)
 		return
-	var/datum/status_effect/mute/M = IsMute()
+	var/datum/status_effect/mute/M = has_status_effect(STATUS_EFFECT_MUTED)
 
 	if(M)
 		if(amount <= 0)
@@ -50,7 +46,7 @@
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_MUTE, amount) & COMPONENT_NO_MUTE)
 		return
 
-	var/datum/status_effect/mute/M = IsMute()
+	var/datum/status_effect/mute/M = has_status_effect(STATUS_EFFECT_MUTED)
 	if(M)
 		M.duration += amount
 	else if(amount > 0)

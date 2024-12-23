@@ -1,10 +1,6 @@
-///Returns whether the mob is irradiated or not
-/mob/living/proc/is_irradiated()
-	return has_status_effect(STATUS_EFFECT_IRRADIATED)
-
 ///How many deciseconds remain in our irradiated status effect
 /mob/living/proc/amount_irradiated()
-	var/datum/status_effect/incapacitating/irradiated/irradiated = is_irradiated(FALSE)
+	var/datum/status_effect/incapacitating/irradiated/irradiated = has_status_effect(STATUS_EFFECT_IRRADIATED)
 	if(irradiated)
 		return irradiated.duration - world.time
 	return 0
@@ -13,7 +9,7 @@
 /mob/living/proc/irradiate(amount, ignore_canstun = FALSE) //Can't go below remaining duration
 	if(status_flags & GODMODE)
 		return
-	var/datum/status_effect/incapacitating/irradiated/irradiated = is_irradiated(FALSE)
+	var/datum/status_effect/incapacitating/irradiated/irradiated = has_status_effect(STATUS_EFFECT_IRRADIATED)
 	if(irradiated)
 		irradiated.duration = max(world.time + amount, irradiated.duration)
 	else if(amount > 0)
@@ -24,7 +20,7 @@
 /mob/living/proc/set_radiation(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
 		return
-	var/datum/status_effect/incapacitating/irradiated/irradiated = is_irradiated(FALSE)
+	var/datum/status_effect/incapacitating/irradiated/irradiated = has_status_effect(STATUS_EFFECT_IRRADIATED)
 	if(amount <= 0)
 		if(irradiated)
 			qdel(irradiated)
@@ -39,7 +35,7 @@
 /mob/living/proc/adjust_radiation(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
 		return
-	var/datum/status_effect/incapacitating/irradiated/irradiated = is_irradiated(FALSE)
+	var/datum/status_effect/incapacitating/irradiated/irradiated = has_status_effect(STATUS_EFFECT_IRRADIATED)
 	if(irradiated)
 		irradiated.duration += amount
 	else if(amount > 0)

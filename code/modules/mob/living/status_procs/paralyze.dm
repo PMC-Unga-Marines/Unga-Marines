@@ -1,17 +1,13 @@
-///Returns if paralyzed
-/mob/living/proc/IsParalyzed()
-	return has_status_effect(STATUS_EFFECT_PARALYZED)
-
 ///Returns remaining paralyzed duration
 /mob/living/proc/AmountParalyzed()
-	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = IsParalyzed()
+	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = has_status_effect(STATUS_EFFECT_PARALYZED)
 	return current_paralyzed ? current_paralyzed.duration - world.time : 0
 
 ///Applies paralyze only if not currently applied
 /mob/living/proc/ParalyzeNoChain(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
 		return
-	if(IsParalyzed())
+	if(has_status_effect(STATUS_EFFECT_PARALYZED))
 		return 0
 	return Paralyze(amount, ignore_canstun)
 
@@ -26,7 +22,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = IsParalyzed()
+	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = has_status_effect(STATUS_EFFECT_PARALYZED)
 	if(current_paralyzed)
 		current_paralyzed.duration = max(world.time + amount, current_paralyzed.duration)
 	else if(amount > 0)
@@ -44,7 +40,7 @@
 
 ///Used to set paralyzed to a set amount, commonly to remove it
 /mob/living/proc/SetParalyzed(amount, ignore_canstun = FALSE)
-	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = IsParalyzed()
+	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = has_status_effect(STATUS_EFFECT_PARALYZED)
 	if(amount <= 0)
 		if(current_paralyzed)
 			qdel(current_paralyzed)
@@ -76,7 +72,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = IsParalyzed()
+	var/datum/status_effect/incapacitating/paralyzed/current_paralyzed = has_status_effect(STATUS_EFFECT_PARALYZED)
 	if(current_paralyzed)
 		current_paralyzed.duration += amount
 	else if(amount > 0)

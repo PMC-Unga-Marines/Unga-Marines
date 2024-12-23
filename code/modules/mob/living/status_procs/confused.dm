@@ -1,10 +1,6 @@
-///Returns if confused
-/mob/living/proc/IsConfused()
-	return has_status_effect(STATUS_EFFECT_CONFUSED)
-
 ///Returns remaining confused duration
 /mob/living/proc/AmountConfused()
-	var/datum/status_effect/incapacitating/confused/current_confused = IsConfused()
+	var/datum/status_effect/incapacitating/confused/current_confused = has_status_effect(STATUS_EFFECT_CONFUSED)
 	return current_confused ? current_confused.duration - world.time : 0
 
 ///Applies confused from current world time unless existing duration is higher
@@ -18,7 +14,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/confused/current_confused = IsConfused()
+	var/datum/status_effect/incapacitating/confused/current_confused = has_status_effect(STATUS_EFFECT_CONFUSED)
 	if(current_confused)
 		current_confused.duration = max(world.time + amount, current_confused.duration)
 	else if(amount > 0)
@@ -28,7 +24,7 @@
 
 ///Used to set confused to a set amount, commonly to remove it
 /mob/living/proc/SetConfused(amount, ignore_canstun = FALSE)
-	var/datum/status_effect/incapacitating/confused/current_confused = IsConfused()
+	var/datum/status_effect/incapacitating/confused/current_confused = has_status_effect(STATUS_EFFECT_CONFUSED)
 	if(amount <= 0)
 		if(current_confused)
 			qdel(current_confused)
@@ -60,7 +56,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/confused/current_confused = IsConfused()
+	var/datum/status_effect/incapacitating/confused/current_confused = has_status_effect(STATUS_EFFECT_CONFUSED)
 	if(current_confused)
 		current_confused.duration += amount
 	else if(amount > 0)

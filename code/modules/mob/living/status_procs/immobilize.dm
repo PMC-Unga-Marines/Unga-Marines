@@ -1,17 +1,13 @@
-///Returns if immobilized
-/mob/living/proc/IsImmobilized()
-	return has_status_effect(STATUS_EFFECT_IMMOBILIZED)
-
 ///Returns remaining immobilize duration
 /mob/living/proc/AmountImmobilized()
-	var/datum/status_effect/incapacitating/immobilized/current_immobilized = IsImmobilized()
+	var/datum/status_effect/incapacitating/immobilized/current_immobilized = has_status_effect(STATUS_EFFECT_IMMOBILIZED)
 	return current_immobilized ? current_immobilized.duration - world.time : 0
 
 ///Applies immobilize only if not currently applied
 /mob/living/proc/ImmobilizeNoChain(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
 		return
-	if(IsImmobilized())
+	if(has_status_effect(STATUS_EFFECT_IMMOBILIZED))
 		return 0
 	return Immobilize(amount, ignore_canstun)
 
@@ -26,7 +22,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/immobilized/current_immobilized = IsImmobilized()
+	var/datum/status_effect/incapacitating/immobilized/current_immobilized = has_status_effect(STATUS_EFFECT_IMMOBILIZED)
 	if(current_immobilized)
 		current_immobilized.duration = max(world.time + amount, current_immobilized.duration)
 	else if(amount > 0)
@@ -36,7 +32,7 @@
 
 ///Used to set immobilize to a set amount, commonly to remove it
 /mob/living/proc/SetImmobilized(amount, ignore_canstun = FALSE)
-	var/datum/status_effect/incapacitating/immobilized/current_immobilized = IsImmobilized()
+	var/datum/status_effect/incapacitating/immobilized/current_immobilized = has_status_effect(STATUS_EFFECT_IMMOBILIZED)
 	if(amount <= 0)
 		if(current_immobilized)
 			qdel(current_immobilized)
@@ -68,7 +64,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/immobilized/current_immobilized = IsImmobilized()
+	var/datum/status_effect/incapacitating/immobilized/current_immobilized = has_status_effect(STATUS_EFFECT_IMMOBILIZED)
 	if(current_immobilized)
 		current_immobilized.duration += amount
 	else if(amount > 0)

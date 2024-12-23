@@ -1,10 +1,6 @@
-///Returns if sleeping
-/mob/living/proc/IsSleeping()
-	return has_status_effect(STATUS_EFFECT_SLEEPING)
-
 ///Returns remaining sleeping duration
 /mob/living/proc/AmountSleeping()
-	var/datum/status_effect/incapacitating/sleeping/current_sleeping = IsSleeping()
+	var/datum/status_effect/incapacitating/sleeping/current_sleeping = has_status_effect(STATUS_EFFECT_SLEEPING)
 	return current_sleeping ? current_sleeping.duration - world.time : 0
 
 ///Applies sleeping from current world time unless existing duration is higher
@@ -18,7 +14,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/sleeping/current_sleeping = IsSleeping()
+	var/datum/status_effect/incapacitating/sleeping/current_sleeping = has_status_effect(STATUS_EFFECT_SLEEPING)
 	if(current_sleeping)
 		current_sleeping.duration = max(world.time + amount, current_sleeping.duration)
 	else if(amount > 0)
@@ -28,7 +24,7 @@
 
 ///Used to set sleeping to a set amount, commonly to remove it
 /mob/living/proc/SetSleeping(amount, ignore_canstun = FALSE)
-	var/datum/status_effect/incapacitating/sleeping/current_sleeping = IsSleeping()
+	var/datum/status_effect/incapacitating/sleeping/current_sleeping = has_status_effect(STATUS_EFFECT_SLEEPING)
 	if(amount <= 0)
 		if(current_sleeping)
 			qdel(current_sleeping)
@@ -60,7 +56,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/sleeping/current_sleeping = IsSleeping()
+	var/datum/status_effect/incapacitating/sleeping/current_sleeping = has_status_effect(STATUS_EFFECT_SLEEPING)
 	if(current_sleeping)
 		current_sleeping.duration += amount
 	else if(amount > 0)

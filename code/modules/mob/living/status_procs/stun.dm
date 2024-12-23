@@ -1,10 +1,6 @@
-///Returns if stunned
-/mob/living/proc/IsStun()
-	return has_status_effect(STATUS_EFFECT_STUN)
-
 ///Returns remaining stun duration
 /mob/living/proc/AmountStun()
-	var/datum/status_effect/incapacitating/stun/current_stun = IsStun()
+	var/datum/status_effect/incapacitating/stun/current_stun = has_status_effect(STATUS_EFFECT_STUN)
 	return current_stun ? current_stun.duration - world.time : 0
 
 ///Applies stun from current world time unless existing duration is higher
@@ -18,7 +14,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/stun/current_stun = IsStun()
+	var/datum/status_effect/incapacitating/stun/current_stun = has_status_effect(STATUS_EFFECT_STUN)
 	if(current_stun)
 		current_stun.duration = max(world.time + amount, current_stun.duration)
 	else if(amount > 0)
@@ -28,7 +24,7 @@
 
 ///Used to set stun to a set amount, commonly to remove it
 /mob/living/proc/SetStun(amount, ignore_canstun = FALSE)
-	var/datum/status_effect/incapacitating/stun/current_stun = IsStun()
+	var/datum/status_effect/incapacitating/stun/current_stun = has_status_effect(STATUS_EFFECT_STUN)
 	if(amount <= 0)
 		if(current_stun)
 			qdel(current_stun)
@@ -60,7 +56,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/stun/current_stun = IsStun()
+	var/datum/status_effect/incapacitating/stun/current_stun = has_status_effect(STATUS_EFFECT_STUN)
 	if(current_stun)
 		current_stun.duration += amount
 	else if(amount > 0)

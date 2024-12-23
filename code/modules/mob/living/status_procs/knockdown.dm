@@ -1,17 +1,13 @@
-///Returns if knockeddown
-/mob/living/proc/IsKnockdown()
-	return has_status_effect(STATUS_EFFECT_KNOCKDOWN)
-
 ///Returns remaining knockdown duration
 /mob/living/proc/AmountKnockdown()
-	var/datum/status_effect/incapacitating/knockdown/current_knockdown = IsKnockdown()
+	var/datum/status_effect/incapacitating/knockdown/current_knockdown = has_status_effect(STATUS_EFFECT_KNOCKDOWN)
 	return current_knockdown ? current_knockdown.duration - world.time : 0
 
 ///Applies knockdown only if not currently applied
 /mob/living/proc/KnockdownNoChain(amount, ignore_canstun = FALSE)
 	if(status_flags & GODMODE)
 		return
-	if(IsKnockdown())
+	if(has_status_effect(STATUS_EFFECT_KNOCKDOWN))
 		return 0
 	return Knockdown(amount, ignore_canstun)
 
@@ -26,7 +22,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/knockdown/current_knockdown = IsKnockdown()
+	var/datum/status_effect/incapacitating/knockdown/current_knockdown = has_status_effect(STATUS_EFFECT_KNOCKDOWN)
 	if(current_knockdown)
 		current_knockdown.duration = max(world.time + amount, current_knockdown.duration)
 	else if(amount > 0)
@@ -36,7 +32,7 @@
 
 ///Used to set knockdown to a set amount, commonly to remove it
 /mob/living/proc/SetKnockdown(amount, ignore_canstun = FALSE)
-	var/datum/status_effect/incapacitating/knockdown/current_knockdown = IsKnockdown()
+	var/datum/status_effect/incapacitating/knockdown/current_knockdown = has_status_effect(STATUS_EFFECT_KNOCKDOWN)
 	if(amount <= 0)
 		if(current_knockdown)
 			qdel(current_knockdown)
@@ -68,7 +64,7 @@
 	if(absorb_stun(amount, ignore_canstun))
 		return
 
-	var/datum/status_effect/incapacitating/knockdown/current_knockdown = IsKnockdown()
+	var/datum/status_effect/incapacitating/knockdown/current_knockdown = has_status_effect(STATUS_EFFECT_KNOCKDOWN)
 	if(current_knockdown)
 		current_knockdown.duration += amount
 	else if(amount > 0)
