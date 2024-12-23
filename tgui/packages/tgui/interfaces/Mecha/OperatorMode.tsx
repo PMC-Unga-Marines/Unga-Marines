@@ -46,9 +46,9 @@ export const OperatorMode = () => {
             />
           </Stack.Item>
           <Stack.Item>
-              <Section>
-                <MechStatPane />
-              </Section>
+            <Section>
+              <MechStatPane />
+            </Section>
           </Stack.Item>
           <Stack.Item>
             <Section title="Armor modules">
