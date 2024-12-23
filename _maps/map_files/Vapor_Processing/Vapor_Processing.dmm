@@ -3675,10 +3675,6 @@
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/sleep_male)
-"uM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth/indestructible,
-/area/lv624/ground/caves/central1)
 "uU" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/ground,
@@ -3781,10 +3777,6 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
 /area/storage/tools)
-"wk" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/ground,
-/area/lv624/ground/caves/east1)
 "wp" = (
 /obj/effect/ai_node,
 /turf/open/ground/grass/grass2,
@@ -3925,10 +3917,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/scorched/two,
 /area/lv624/lazarus/research)
-"yT" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth/indestructible,
-/area/lv624/ground/caves/east1)
 "yZ" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -4695,10 +4683,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
-"Lu" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth,
-/area/lv624/ground/caves/east1)
 "Lv" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -11997,7 +11981,7 @@ UD
 bB
 BP
 PD
-LJ
+PD
 PD
 BP
 BP
@@ -12098,9 +12082,9 @@ bB
 bB
 BP
 PD
-LJ
+PD
 bB
-LJ
+PD
 PD
 BP
 BP
@@ -12199,11 +12183,11 @@ bB
 bB
 bB
 BP
-LJ
+PD
 MM
 bB
 bB
-LJ
+PD
 PD
 BP
 BP
@@ -12301,12 +12285,12 @@ bB
 bB
 bB
 BP
-LJ
+PD
 bB
 bB
 bB
 bB
-LJ
+PD
 PD
 BP
 BP
@@ -12403,13 +12387,13 @@ bB
 bB
 bB
 bB
-LJ
+PD
 bB
 bB
 bB
 UD
 bB
-LJ
+PD
 BP
 SP
 bB
@@ -12506,12 +12490,12 @@ bB
 bB
 bB
 bB
-uM
+BP
 bB
 bB
-nA
+bB
 UD
-LJ
+PD
 PD
 BP
 bB
@@ -12609,12 +12593,12 @@ UD
 bB
 bB
 UD
-uM
+BP
 bB
 bB
 bB
 UD
-LJ
+PD
 BP
 bB
 bB
@@ -12711,13 +12695,13 @@ bB
 bB
 bB
 bB
-uM
+BP
 bB
 bB
 bB
 bB
 bB
-LJ
+PD
 BP
 bB
 bB
@@ -12814,12 +12798,12 @@ bB
 bB
 bB
 BP
-uM
+BP
 bB
 bB
 bB
 bB
-LJ
+PD
 PD
 bB
 bB
@@ -12917,10 +12901,10 @@ bE
 bE
 bE
 Ww
-yT
-wk
-wk
-Lu
+Ww
+bE
+bE
+BJ
 BJ
 BJ
 Ww

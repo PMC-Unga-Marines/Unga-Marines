@@ -486,7 +486,6 @@
 /turf/open/floor/kutjevo/colors/cyan/inner_corner,
 /area/kutjevo/interior/complex/med/auto_doc)
 "aBC" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/structure/platform_decoration/metalplatform_deco{
 	dir = 1
 	},
@@ -849,7 +848,6 @@
 /turf/open/floor/plating/ground/dirtgrassborder2,
 /area/kutjevo/exterior/complex_border/med_park)
 "baL" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/structure/platform_decoration/metalplatform_deco,
 /turf/closed/wall/kutjevo,
 /area/kutjevo/interior/complex/med/operating)
@@ -2942,10 +2940,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_north)
-"dkm" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/kutjevo,
-/area/kutjevo/interior/complex/med/operating)
 "dkE" = (
 /turf/open/floor/kutjevo/grey/plate,
 /area/kutjevo/interior/complex/botany/east_tech)
@@ -6900,7 +6894,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/kutjevo/tiles,
 /area/kutjevo/interior/complex/med/triage)
 "hqO" = (
@@ -7955,12 +7948,6 @@
 /obj/structure/rock/variable/tinyrock,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_central)
-"iHI" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/dirtgrassborder2{
-	dir = 4
-	},
-/area/kutjevo/exterior/complex_border/med_park)
 "iHO" = (
 /obj/structure/window/framed/kutjevo/reinforced,
 /turf/open/floor/plating/kutjevo,
@@ -9576,10 +9563,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/colony_central)
-"kvt" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/kutjevo/tiles,
-/area/kutjevo/interior/complex/med/triage)
 "kvu" = (
 /obj/item/storage/briefcase,
 /obj/effect/ai_node,
@@ -10473,10 +10456,6 @@
 	},
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/power/comms)
-"lrw" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/r_wall/kutjevo,
-/area/kutjevo/interior/complex/med/operating)
 "lry" = (
 /obj/machinery/light{
 	dir = 8
@@ -10594,7 +10573,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/kutjevo/tiles,
 /area/kutjevo/interior/complex/med/triage)
 "lyG" = (
@@ -13894,7 +13872,6 @@
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/complex/med/operating)
 "oQV" = (
@@ -19674,10 +19651,6 @@
 	dir = 4
 	},
 /area/kutjevo/interior/complex/med/locks)
-"uPq" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/r_wall/kutjevo,
-/area/kutjevo/interior/complex/med/triage)
 "uPu" = (
 /obj/structure/platform/metalplatform{
 	dir = 1
@@ -22306,11 +22279,6 @@
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/liquid/water/river/autosmooth/desert,
 /area/kutjevo/exterior/runoff_river)
-"xzh" = (
-/obj/structure/window/framed/kutjevo,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/kutjevo,
-/area/kutjevo/interior/complex/med/operating)
 "xzB" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/kutjevo/colors/orange,
@@ -39217,15 +39185,15 @@ dxF
 dxF
 dxF
 dxF
-gxD
-gxD
-lrw
-lrw
+dxF
+dxF
+kkH
+kkH
 oQQ
 oQQ
 oQQ
-lrw
-dkm
+kkH
+xgl
 baL
 ipz
 ten
@@ -39384,7 +39352,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 dxF
 wYp
 xCc
@@ -39393,7 +39361,7 @@ uri
 pYf
 pYf
 xCc
-xzh
+oww
 soP
 iyd
 tvb
@@ -39551,7 +39519,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 gZq
 sEf
 xCc
@@ -39560,7 +39528,7 @@ vOt
 uri
 gbS
 onP
-xzh
+oww
 gUa
 kSO
 ven
@@ -39718,16 +39686,16 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 wqR
 lwL
 kNx
 hTn
 wqR
 lwL
-iHI
 lwL
-xzh
+lwL
+oww
 gUa
 dyB
 kTb
@@ -39885,7 +39853,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 cEq
 cEq
 mnn
@@ -39894,7 +39862,7 @@ cEq
 cEq
 tye
 aVv
-xzh
+oww
 jvQ
 dyB
 kTb
@@ -40052,7 +40020,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 cXA
 fQg
 dzm
@@ -40219,7 +40187,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 bGV
 dnl
 diV
@@ -40386,7 +40354,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 dxF
 wYp
 uIQ
@@ -40395,7 +40363,7 @@ wYp
 xCc
 gbS
 jUP
-kvt
+rlB
 xEs
 qBN
 jZq
@@ -40553,7 +40521,7 @@ dxF
 dxF
 dxF
 dxF
-gxD
+dxF
 dxF
 dxF
 bCy
@@ -40720,16 +40688,16 @@ dxF
 dxF
 dxF
 dxF
-gxD
-gxD
-gxD
-gxD
-gxD
-gxD
-gxD
-gxD
-uPq
-uPq
+dxF
+dxF
+dxF
+dxF
+dxF
+dxF
+dxF
+dxF
+kGU
+kGU
 kGU
 nPO
 qGu

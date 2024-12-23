@@ -695,10 +695,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/barren/security)
-"dJ" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "dK" = (
 /turf/open/floor/prison/sterilewhite,
 /area/barren/medical/research)
@@ -941,11 +937,6 @@
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/marking/delivery,
 /area/barren/cave/lz1)
-"eJ" = (
-/obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "eK" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
 /obj/structure/cable,
@@ -3146,10 +3137,6 @@
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
-"oB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
 "oC" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/lavaland/basalt,
@@ -3159,11 +3146,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
-"oF" = (
-/obj/effect/landmark/weed_node,
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/wood/variable/wide,
-/area/barren/misc/ruin)
 "oG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3578,11 +3560,6 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/open/floor/grimy,
 /area/barren/civilian)
-"qG" = (
-/obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/cave/northwest)
 "qI" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
@@ -10338,10 +10315,6 @@
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
-"XH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/lavaland/basalt,
-/area/barren/caves/southeast)
 "XJ" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/cobweb{
@@ -15037,7 +15010,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -15294,7 +15267,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -15551,7 +15524,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -15808,7 +15781,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -16065,7 +16038,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -16322,7 +16295,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -16579,7 +16552,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -16836,7 +16809,7 @@ Mq
 Mq
 ZS
 ZS
-WS
+ZS
 ZS
 fM
 AB
@@ -17089,11 +17062,11 @@ ZS
 Mq
 fq
 fq
-oF
+LH
 cY
 jf
 fM
-oB
+fM
 fM
 fM
 AB
@@ -17350,7 +17323,7 @@ fq
 Rw
 jf
 fM
-qG
+AW
 fM
 fM
 it
@@ -17607,7 +17580,7 @@ fq
 RN
 Yy
 fM
-oB
+fM
 fM
 fM
 AB
@@ -17864,7 +17837,7 @@ ZS
 ZS
 ZS
 ZS
-oB
+fM
 fM
 fM
 fM
@@ -18121,7 +18094,7 @@ ZS
 ZS
 ZS
 ZS
-oB
+fM
 fM
 fM
 AW
@@ -18378,7 +18351,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ca
@@ -18635,7 +18608,7 @@ Mq
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 fM
@@ -18892,7 +18865,7 @@ AW
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -19149,7 +19122,7 @@ fM
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -19406,7 +19379,7 @@ fM
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -19663,7 +19636,7 @@ fM
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -19906,21 +19879,21 @@ aI
 aI
 aI
 ad
-WS
-WS
-WS
-WS
-WS
-oB
-oB
-oB
-oB
-oB
-WS
-WS
-WS
-WS
-WS
+ZS
+ZS
+ZS
+ZS
+ZS
+fM
+fM
+fM
+fM
+fM
+ZS
+ZS
+ZS
+ZS
+ZS
 ZS
 ZS
 ZS
@@ -54705,30 +54678,30 @@ Lo
 wj
 Lo
 Bz
-WS
-WS
-WS
-WS
-WS
-WS
-eJ
-XH
-XH
-XH
-WS
-WS
-XH
-XH
-XH
-XH
-XH
-XH
-XH
-XH
-WS
-WS
-WS
-WS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+Bz
+wj
+wj
+wj
+ZS
+ZS
+wj
+wj
+wj
+wj
+wj
+wj
+wj
+wj
+ZS
+ZS
+ZS
+ZS
 ad
 aI
 aI
@@ -54960,9 +54933,9 @@ Bz
 wj
 wj
 wj
-WS
-WS
-WS
+ZS
+ZS
+ZS
 ZS
 ZS
 ZS
@@ -55216,8 +55189,8 @@ wj
 wj
 wj
 wj
-WS
-WS
+ZS
+ZS
 ZS
 ZS
 ZS
@@ -55473,7 +55446,7 @@ wj
 wj
 wj
 Lo
-WS
+ZS
 ZS
 ZS
 ZS
@@ -55729,8 +55702,8 @@ wj
 wj
 Bz
 wj
-WS
-WS
+ZS
+ZS
 ZS
 ZS
 ZS
@@ -55986,7 +55959,7 @@ wj
 wj
 wj
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -56243,7 +56216,7 @@ wj
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 ZS
@@ -56500,7 +56473,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 wj
@@ -56757,7 +56730,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 ZS
 wj
@@ -57014,7 +56987,7 @@ wj
 wj
 ZS
 ZS
-WS
+ZS
 ZS
 wj
 wj
@@ -57271,7 +57244,7 @@ Mx
 Bz
 wj
 ZS
-WS
+ZS
 ZS
 wj
 Bz
@@ -57528,7 +57501,7 @@ wj
 wj
 wj
 kH
-XH
+wj
 wj
 wj
 wj
@@ -57785,7 +57758,7 @@ wj
 wj
 wj
 kH
-XH
+wj
 wj
 SA
 LQ
@@ -58042,7 +58015,7 @@ Lo
 Bz
 wj
 kH
-XH
+wj
 wj
 SA
 SA
@@ -58299,7 +58272,7 @@ wj
 wj
 wj
 kH
-XH
+wj
 wj
 wj
 wj
@@ -58315,7 +58288,7 @@ SA
 wj
 wj
 wj
-dJ
+wj
 wj
 wj
 jN
@@ -58556,7 +58529,7 @@ ZS
 wj
 wj
 kH
-XH
+wj
 wj
 Bz
 wj
@@ -58813,7 +58786,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 wj
 wj
 wj
@@ -59070,7 +59043,7 @@ ZS
 ZS
 ZS
 ZS
-WS
+ZS
 ZS
 wj
 wj
