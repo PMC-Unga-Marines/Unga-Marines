@@ -370,3 +370,5 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/yautja/interact(mob/user)
 	return
+
+

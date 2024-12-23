@@ -56,6 +56,8 @@
 #define COOLDOWN_ARMORED_HORN "cooldown_armored_horn"
 #define COOLDOWN_MOB_EX_ACT "mob_ex_act"
 #define COOLDOWN_MOUNTED_GUN_ROTATE "mounted_gun_rotate"
+#define COOLDOWN_STAMINA "adrenaline_add_stamina"
+#define COOLDOWN_CRIT "adrenaline_heal_crit"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"

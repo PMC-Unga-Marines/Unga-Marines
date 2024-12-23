@@ -247,7 +247,7 @@
 	},
 /area/lv624/lazarus/internal_affairs)
 "yL" = (
-/obj/item/spacecash/c500{
+/obj/item/spacecash/bundle/c500{
 	pixel_x = 5;
 	pixel_y = -2
 	},
@@ -281,7 +281,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "Dg" = (
-/obj/item/spacecash/c100{
+/obj/item/spacecash/bundle/c100{
 	pixel_x = -12
 	},
 /obj/item/reagent_containers/food/drinks/bottle/sake,
@@ -394,7 +394,7 @@
 	},
 /area/lv624/lazarus/internal_affairs)
 "Ks" = (
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c200{
 	pixel_y = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -476,7 +476,7 @@
 	},
 /area/lv624/lazarus/internal_affairs)
 "PF" = (
-/obj/item/spacecash/c100,
+/obj/item/spacecash/bundle/c100,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
@@ -501,8 +501,8 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "QA" = (
-/obj/item/spacecash/c100,
-/obj/item/spacecash/c200{
+/obj/item/spacecash/bundle/c100,
+/obj/item/spacecash/bundle/c200{
 	pixel_x = 3;
 	pixel_y = -3
 	},

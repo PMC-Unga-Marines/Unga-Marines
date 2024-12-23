@@ -219,6 +219,7 @@
 	var/static/image/jellyjuice_image = image('icons/mob/hud/reagent.dmi', icon_state = "jellyjuice")
 	var/static/image/russianred_image = image('icons/mob/hud/reagent.dmi', icon_state = "russian_red")
 
+
 	var/neurotox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin)
 	var/hemodile_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile)
 	var/transvitox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox)
@@ -228,6 +229,7 @@
 	var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicalnanites)
 	var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
 	var/ifosfamide_amount = reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide)
+
 
 	if(neurotox_amount > 10) //Blinking image for particularly high concentrations
 		xeno_reagent.overlays += neurotox_high_image

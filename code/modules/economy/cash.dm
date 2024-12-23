@@ -1,9 +1,9 @@
 /obj/item/spacecash
-	name = "0 dollars"
-	desc = "You have no dollars."
+	name = "0 rubles"
+	desc = "You have no rubles."
 	gender = PLURAL
 	icon = 'icons/obj/stack_objects.dmi'
-	icon_state = "spacecash1"
+	icon_state = ""
 	opacity = FALSE
 	density = FALSE
 	anchored = FALSE
@@ -18,7 +18,6 @@
 
 /obj/item/spacecash/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
 	if(istype(I, /obj/item/spacecash) && !istype(I, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/bundle/bundle
 		if(!istype(I, /obj/item/spacecash/bundle))
@@ -30,120 +29,85 @@
 		else
 			bundle = I
 		bundle.worth += worth
-		bundle.update_icon()
+		bundle.update_overlays()
+		bundle.update_desc()
 		if(ishuman(user))
 			var/mob/living/carbon/human/h_user = user
 			h_user.temporarilyRemoveItemFromInventory(src)
 			h_user.temporarilyRemoveItemFromInventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, span_notice("You add [worth] dollars worth of money to the bundles.<br>It holds [bundle.worth] dollars now."))
+		to_chat(user, span_notice("You add [worth] rubles worth of money to the bundles.<br>It holds [bundle.worth] rubles now."))
 		qdel(src)
 
 /obj/item/spacecash/bundle
-	name = "stack of dollars"
-	icon_state = ""
-	desc = "They are worth 0 dollars."
+	name = "stack of rubles"
+	desc = "They are worth 0 rubles."
 	worth = 0
 
 /obj/item/spacecash/bundle/update_desc(updates)
 	. = ..()
-	desc = "They are worth [worth] dollars."
+	desc = "They are worth [worth] rubles."
 
 /obj/item/spacecash/bundle/update_overlays()
 	. = ..()
-	var/sum = worth
-	var/num = 0
-	for(var/i in list(1000,500,200,100,50,20,10,1))
-		while(sum >= i && num < 50)
-			sum -= i
-			num++
-			var/image/banknote = image('icons/obj/stack_objects.dmi', "spacecash[i]")
+	cut_overlays()
+	var/remaining_worth = worth
+	var/iteration = 0
+	var/list/banknote_denominations = list(500, 200, 100, 50, 10, 5, 1)
+	for(var/i in banknote_denominations)
+		while(remaining_worth >= i && iteration < 50)
+			remaining_worth -= i
+			iteration++
+			var/image/banknote = image('icons/obj/stack_objects.dmi', "cash[i]")
 			var/matrix/M = matrix()
 			M.Translate(rand(-6, 6), rand(-4, 8))
-			M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 			banknote.transform = M
-			. += banknote
-	if(num == 0) // Less than one thaler, let's just make it look like 1 for ease
-		var/image/banknote = image('icons/obj/stack_objects.dmi', "spacecash1")
-		var/matrix/M = matrix()
-		M.Translate(rand(-6, 6), rand(-4, 8))
-		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
-		banknote.transform = M
-		. += banknote
+			overlays += banknote
 
 /obj/item/spacecash/bundle/attack_self(mob/user)
 	var/oldloc = loc
-	var/amount = tgui_input_number(user, "How many dollars do you want to take? (0 to [src.worth])", "Take Money", 20)
-	amount = round(clamp(amount, 0, src.worth))
-	if(amount==0) return 0
-	if(gc_destroyed || loc != oldloc) return
+	var/amount = tgui_input_number(user, "How many rubles do you want to take? (0 to [worth])", "Take Money", 20, worth)
+	if(amount == 0)
+		return 0
+	if(gc_destroyed || loc != oldloc)
+		return
 
 	src.worth -= amount
 	src.update_appearance()
 	if(!worth)
 		usr.temporarilyRemoveItemFromInventory(src)
-	if(amount in list(1000,500,200,100,50,20,1))
-		var/cashtype = text2path("/obj/item/spacecash/c[amount]")
-		var/obj/cash = new cashtype (usr.loc)
-		user.put_in_hands(cash)
-	else
-		var/obj/item/spacecash/bundle/bundle = new (usr.loc)
-		bundle.worth = amount
-		bundle.update_appearance()
-		user.put_in_hands(bundle)
+	var/obj/item/spacecash/bundle/bundle = new (usr.loc)
+	bundle.worth = amount
+	bundle.update_appearance()
+	user.put_in_hands(bundle)
 	if(!worth)
 		qdel(src)
 
-/obj/item/spacecash/c1
-	name = "1 dollar bill"
-	icon_state = "spacecash1"
-	desc = "A single US Government minted one dollar bill. It has a picture of George Washington printed on it. Makes most people of english origin cry, but isn't worth very much. Could probably get you half a hot-dog in some systems. "
+/obj/item/spacecash/bundle/c1
+	icon_state = "cash1"
 	worth = 1
 
-/obj/item/spacecash/c10
-	name = "10 dollar bill"
-	icon_state = "spacecash10"
-	desc = "A single US Government minted ten dollar bill. It has a picture of Alexander Hamilton on it, federal bank enthusiast, and victim of a terrible griefing incident. Could probably pay for a meal at a cheap restaurant, before tax and tip."
+/obj/item/spacecash/bundle/c10
+	icon_state = "cash10"
 	worth = 10
 
-/obj/item/spacecash/c20
-	name = "20 dollar bill"
-	icon_state = "spacecash20"
-	desc = "A single US Government minted twenty dollar bill. It has a picture of Andrew Jackson on it, famed hero of the War of 1812 and slayer of indigenous peoples everywhere. Could probably afford you a nice 2-course meal at the local colony steakhouse."
-	worth = 20
-
-/obj/item/spacecash/c50
-	name = "50 dollar bill"
-	icon_state = "spacecash50"
-	desc = "A single US Government minted fifty dollar bill. It has a picture of Ulysses S. Grant, a man known for expendable troop tactics in the civil war, and probable distant relative of Bill Carson. You could probably buy the whole bar a beer with this, assuming there are 4 other people in the bar."
+/obj/item/spacecash/bundle/c50
+	icon_state = "cash50"
 	worth = 50
 
-/obj/item/spacecash/c100
-	name = "100 dollar bill"
-	icon_state = "spacecash100"
-	desc = "A single US Government minted hundred dollar bill. It has a picture of Ben Franklin, lightning kite extraordinaire. You could probably pay for an entire day of shore leave activities with this, provided you aren't careless. (which you are)"
+/obj/item/spacecash/bundle/c100
+	icon_state = "cash100"
 	worth = 100
 
-/obj/item/spacecash/c200
-	name = "200 dollars"
-	icon_state = "spacecash200"
-	desc = "Two US Government minted hundred dollar bills. They both have pictures of Ben Franklin on them. Both Bens look at you expectedly and passionately from different angles."
+/obj/item/spacecash/bundle/c200
+	icon_state = "cash200"
 	worth = 200
 
-/obj/item/spacecash/c500
-	name = "500 dollars"
-	icon_state = "spacecash500"
-	desc = "Five US Government minted hundred dollar bills. All of them have pictures of Ben Franklin on them. They all eagarly glare at you, making you feel as if you owe them something. "
+/obj/item/spacecash/bundle/c500
+	icon_state = "cash500"
 	worth = 500
 
-
 /proc/spawn_money(sum, spawnloc, mob/living/carbon/human/human_user)
-	if(sum in list(1000,500,200,100,50,20,10,1))
-		var/cash_type = text2path("/obj/item/spacecash/c[sum]")
-		var/obj/cash = new cash_type (usr.loc)
-		if(ishuman(human_user) && !human_user.get_active_held_item())
-			human_user.put_in_hands(cash)
-		return
 	var/obj/item/spacecash/bundle/bundle = new (spawnloc)
 	bundle.worth = sum
 	bundle.update_appearance()
@@ -159,4 +123,4 @@
 /obj/item/spacecash/ewallet/examine(mob/user)
 	. = ..()
 	if(user == loc)
-		. += span_notice("Charge card's owner: [owner_name]. Dollars remaining: [worth].")
+		. += span_notice("Charge card's owner: [owner_name]. Rubles remaining: [worth].")

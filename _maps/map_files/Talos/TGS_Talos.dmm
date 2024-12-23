@@ -3152,14 +3152,16 @@
 /turf/open/floor/plating,
 /area/mainship/squads/req)
 "bNa" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
+	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
@@ -73260,7 +73262,7 @@ qwP
 qwP
 qwP
 qwP
-kQR
+qwP
 eJU
 qwP
 qwP

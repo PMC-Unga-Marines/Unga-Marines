@@ -522,6 +522,18 @@
 	undeploy_time = 0.25 SECONDS
 	movement_acc_penalty_mult = 20 // Good luck hitting on the move, bruv
 
+/obj/item/weapon/gun/clf_heavyrifle/imported
+	name = "\improper PTR-41/1785I1"
+	desc = "PTR-41/1785I1 is an imported version of the original PTR-41 with a replacement receiver, making it possible to install the more common T-47 sight on it. However, the replacement also introduced some inconvenience, which is why it takes longer to shoot while aiming. Otherwise, it is an almost complete copy. While one could use it while standing it is obviously not a great idea. It is recommended to be used while the bipod is deployed. It uses 14.5mm high velocity rounds that will certainly leave a hole in whatever unfortunate soul is hit by it."
+	attachable_allowed = list(
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/stock/clf_heavyrifle,
+		/obj/item/attachable/scope/marine,
+	)
+
+	aim_fire_delay = 3 SECONDS
 //-------------------------------------------------------
 //AT-36 Anti Tank Gun
 
