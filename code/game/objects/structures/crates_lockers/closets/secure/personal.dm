@@ -2,7 +2,6 @@
 	desc = "It's a secure locker for personnel. The first card swiped gains control."
 	name = "personal closet"
 	req_access = list(ACCESS_CIVILIAN_PUBLIC)
-	var/registered_name = null
 
 /obj/structure/closet/secure_closet/personal/Initialize(mapload)
 	. = ..()
@@ -17,9 +16,7 @@
 /obj/structure/closet/secure_closet/personal/morgue
 	name = "Morgue Closet"
 
-/obj/structure/closet/secure_closet/personal/patient/Initialize(mapload)
-	. = ..()
-	contents = list()
+/obj/structure/closet/secure_closet/personal/patient/PopulateContents()
 	new /obj/item/clothing/under/color/white( src )
 	new /obj/item/clothing/shoes/white( src )
 
@@ -44,8 +41,6 @@
 		else
 			icon_state = icon_opened
 
-/obj/structure/closet/secure_closet/personal/cabinet/Initialize(mapload)
-	. = ..()
-	contents = list()
+/obj/structure/closet/secure_closet/personal/cabinet/PopulateContents()
 	new /obj/item/storage/backpack/satchel( src )
 	new /obj/item/radio/headset( src )
