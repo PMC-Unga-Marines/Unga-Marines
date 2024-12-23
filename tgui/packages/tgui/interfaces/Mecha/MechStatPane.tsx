@@ -11,7 +11,7 @@ import { OperatorData } from './data';
 
 export const MechStatPane = () => {
   const { act, data } = useBackend<OperatorData>();
-  const { name, integrity, weapons_safety} = data;
+  const { name, integrity, weapons_safety } = data;
   return (
     <Stack fill vertical>
       <Stack.Item>

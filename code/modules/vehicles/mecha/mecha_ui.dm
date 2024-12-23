@@ -46,9 +46,7 @@
 		ui_status_user_has_free_hands(user, src),
 		ui_status_user_is_advanced_tool_user(user),
 		ui_status_only_living(user),
-		max(
-			ui_status_user_is_adjacent(user, src),
-		)
+		max(ui_status_user_is_adjacent(user, src))
 	)
 
 /obj/vehicle/sealed/mecha/ui_assets(mob/user)

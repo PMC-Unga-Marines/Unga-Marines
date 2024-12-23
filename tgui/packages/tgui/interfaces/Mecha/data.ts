@@ -61,6 +61,7 @@ export type OperatorData = {
   weapons_safety: boolean;
   mech_equipment: string[];
   mech_view: string;
+  mineral_material_amount: number;
 };
 
 export type MechaUtility = {
