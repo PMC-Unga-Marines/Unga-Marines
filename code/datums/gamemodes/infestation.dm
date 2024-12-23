@@ -357,7 +357,7 @@
 		if(M.z == z_level)
 			shake_camera(M, 110, 4)
 
-	var/datum/cinematic/crash_nuke/C = /datum/cinematic/crash_nuke
+	var/datum/cinematic/nuke/crash/C
 	var/nuketime = initial(C.runtime) + initial(C.cleanup_time)
 	addtimer(CALLBACK(src, PROC_REF(do_nuke_z_level), z_level), nuketime * 0.5)
 

@@ -117,15 +117,15 @@
 	if(parent_item.obj_integrity <= parent_item.integrity_failure)
 		return FALSE
 
-	if(affected.IsSleeping() || affected.IsUnconscious() || affected.IsAdminSleeping())
+	if(affected.has_status_effect(STATUS_EFFECT_SLEEPING) || affected.has_status_effect(STATUS_EFFECT_UNCONSCIOUS) || affected.IsAdminSleeping())
 		return FALSE
 
-	if(affected.IsStun() || affected.IsKnockdown() || affected.IsParalyzed())
+	if(affected.has_status_effect(STATUS_EFFECT_STUN) || affected.has_status_effect(STATUS_EFFECT_KNOCKDOWN) || affected.has_status_effect(STATUS_EFFECT_PARALYZED))
 		mitigation_prob *= 0.5
 
 	if(iscarbon(affected))
 		var/mob/living/carbon/C = affected
-		if(C.IsStaggered())
+		if(C.has_status_effect(STATUS_EFFECT_STAGGER))
 			mitigation_prob *= 0.4
 
 	if(!prob(mitigation_prob))

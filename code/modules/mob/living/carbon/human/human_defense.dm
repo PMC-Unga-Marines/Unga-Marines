@@ -476,7 +476,7 @@ Contains most of the procs that are called when a mob is attacked by something
 #define BLOCK_SOUND_VOLUME 70
 
 /mob/living/carbon/human/proc/check_pred_shields(damage = 0, attack_text = "the attack", combistick = FALSE, backside_attack = FALSE, xenomorph = FALSE)
-	if(skills.getRating("swordplay") < SKILL_SWORDPLAY_TRAINED)
+	if(skills.getRating("melee_weapons") < SKILL_MELEE_MASTER)
 		return FALSE
 
 	var/block_effect = /obj/effect/temp_visual/block

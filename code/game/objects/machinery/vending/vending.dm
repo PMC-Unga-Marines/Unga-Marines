@@ -467,14 +467,18 @@
 /obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user)
 	if(!allowed(user) && (!wires.is_cut(WIRE_IDSCAN) || hacking_safety)) //For SECURE VENDING MACHINES YEAH
 		to_chat(user, span_warning("Access denied."))
-		flick(icon_deny, src)
+		if(icon_deny)
+			flick(icon_deny, src)
 		return
 
 	if(R.category == CAT_HIDDEN && !extended_inventory)
 		return
 
-	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all at once with explosion
+	var/turf/T = loc
+	if(length(T.contents) > 30 || locate(/obj/structure/closet/crate) in loc) // let's make crashing the server a bit harder
 		to_chat(user, span_warning("The floor is too cluttered, make some space."))
+		if(icon_deny)
+			flick(icon_deny, src)
 		return
 
 	vend_ready = 0 //One thing at a time!!

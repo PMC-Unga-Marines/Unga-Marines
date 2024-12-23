@@ -129,5 +129,5 @@
 	if(!use(REINFORCED_FLOOR_ROD_REQ))
 		user.balloon_alert(user, "[CATWALK_ROD_REQ] rods needed")
 		return
-	target_turf.ChangeTurf(/turf/open/floor/engine)
+	target_turf.place_on_top(/turf/open/floor/engine)
 	playsound(target_turf, 'sound/items/deconstruct.ogg', 25, TRUE)

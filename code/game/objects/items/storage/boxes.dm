@@ -381,6 +381,7 @@
 	max_storage_space = 14
 	spawn_type = /obj/item/explosive/grenade/flare
 	spawn_number = 14
+	flags_storage = BYPASS_CRYO_CHECK
 
 /obj/item/storage/box/m94/update_icon_state()
 	. = ..()
@@ -408,7 +409,6 @@
 	spawn_type = /obj/item/lightstick/red
 	spawn_number = 7
 
-
 /obj/item/storage/box/MRE
 	name = "\improper TGMC MRE"
 	desc = "Meal Ready-to-Eat, meant to be consumed in the field, and has an expiration that is two decades past a marine's average combat life expectancy."
@@ -416,6 +416,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/packaged_meal)
 	storage_slots = 4
+	flags_storage = BYPASS_CRYO_CHECK
 	foldable = 0
 	var/isopened = 0
 	///the item left behind when this is used up
@@ -1159,7 +1160,7 @@
 	closed_overlay = "grenade_box_overlay_training"
 
 /obj/item/storage/box/t500case
-	name = "\improper R-500 special case"
+	name = "\improper R-500 'Nigredo' special case"
 	desc = "High-tech case made by BMSS for delivery their special weapons. Label on this case says: 'This is the greatest handgun ever made. Five bullets. More than enough to kill anything that moves'."
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "t500case"
@@ -1189,6 +1190,41 @@
 	new /obj/item/attachable/t500barrelshort(src)
 	new /obj/item/attachable/t500barrel(src)
 	new /obj/item/weapon/gun/revolver/t500(src)
+
+/obj/item/storage/box/t312case
+	name = "R-312 'Albedo' Revolver special case"
+	desc = "High-tech case made by BMSS for delivery their special weapons. Label on this case says: 'Since we have already called Nigredo death, within the same metaphor we can call Albedo life. It is time to shoot at people legally.'"
+	icon_state = "med_case"
+	w_class = WEIGHT_CLASS_NORMAL
+	max_w_class = 1
+	storage_slots = 7
+	max_storage_space = 1
+	bypass_w_limit = list(
+		/obj/item/ammo_magazine/packet/t312/med/adrenaline,
+		/obj/item/ammo_magazine/packet/t312/med/rr,
+		/obj/item/ammo_magazine/packet/t312/med/md,
+		/obj/item/ammo_magazine/packet/t312/med/neu,
+		/obj/item/ammo_magazine/revolver/t312/med/adrenaline,
+		/obj/item/ammo_magazine/revolver/t312/med/rr,
+		/obj/item/ammo_magazine/revolver/t312/med/md,
+		/obj/item/ammo_magazine/revolver/t312/med/neu,
+		/obj/item/storage/pouch/medkit/t312,
+		/obj/item/attachable/lace/t500,
+		/obj/item/weapon/gun/revolver/t312,
+	)
+
+/obj/item/storage/box/t312case/PopulateContents()
+	new /obj/item/ammo_magazine/packet/t312/med/adrenaline(src)
+	new /obj/item/ammo_magazine/packet/t312/med/rr(src)
+	new /obj/item/ammo_magazine/packet/t312/med/md(src)
+	new /obj/item/ammo_magazine/packet/t312/med/neu(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/adrenaline(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/rr(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/md(src)
+	new /obj/item/ammo_magazine/revolver/t312/med/neu(src)
+	new /obj/item/storage/pouch/medkit/t312(src)
+	new /obj/item/attachable/lace/t500(src)
+	new /obj/item/weapon/gun/revolver/t312(src)
 
 #undef BOX_OVERLAY_SHIFT_X
 #undef BOX_OVERLAY_SHIFT_Y

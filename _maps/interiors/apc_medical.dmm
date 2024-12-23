@@ -10,6 +10,7 @@
 /turf/open/interior/apc/eleven,
 /area/interior/apc)
 "c" = (
+/obj/machinery/robotic_cradle,
 /turf/open/interior/apc/nine,
 /area/interior/apc)
 "d" = (
@@ -23,6 +24,10 @@
 /area/interior/apc)
 "h" = (
 /turf/closed/interior/apc/twelve,
+/area/interior/apc)
+"i" = (
+/obj/machinery/vending/MarineMed,
+/turf/open/interior/apc/nine,
 /area/interior/apc)
 "k" = (
 /obj/machinery/optable,
@@ -64,7 +69,9 @@
 /turf/open/interior/apc/fifteen,
 /area/interior/apc)
 "F" = (
-/obj/machinery/vending/MarineMed,
+/obj/machinery/sleeper{
+	dir = 1
+	},
 /turf/open/interior/apc/twentynine,
 /area/interior/apc)
 "H" = (
@@ -74,14 +81,16 @@
 /turf/closed/interior/apc/twentythree,
 /area/interior/apc)
 "J" = (
+/obj/machinery/computer/sleep_console{
+	dir = 1
+	},
 /turf/open/interior/apc/fourteen,
 /area/interior/apc)
 "L" = (
 /turf/closed/interior/apc/twentyeight,
 /area/interior/apc)
 "O" = (
-/obj/structure/bed/chair/dropship/doublewide/left,
-/obj/structure/bed/chair/dropship/doublewide/right,
+/obj/machinery/computer/body_scanconsole,
 /turf/open/interior/apc/twentynine,
 /area/interior/apc)
 "P" = (
@@ -91,8 +100,8 @@
 /turf/closed/interior/apc/seventeen,
 /area/interior/apc)
 "T" = (
-/obj/structure/bed/chair/comfy{
-	dir = 8
+/obj/machinery/bodyscanner{
+	dir = 4
 	},
 /turf/open/interior/apc/twentynine,
 /area/interior/apc)
@@ -139,7 +148,7 @@ l
 "}
 (4,1,1) = {"
 e
-t
+i
 D
 T
 l
