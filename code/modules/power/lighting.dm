@@ -596,6 +596,12 @@
 	base_state = "lbulb"
 	brightness = 5
 
+/obj/item/light_bulb/tube/blue
+	icon_state = "btube1"
+
+/obj/item/light_bulb/bulb/blue
+	icon_state = "bbulb1"
+
 /obj/item/light_bulb/bulb/attack_turf(turf/T, mob/living/user)
 	var/turf/open/floor/light/light_tile = T
 	if(!istype(light_tile))
@@ -767,8 +773,8 @@
 	set_light(0,0)
 
 /obj/machinery/light/blue
-	base_icon_state = "btube"
-	icon_state = "tube_empty"
+	base_state = "btube"		// base description and icon_state
+	icon_state = "btube1"
 	light_color = LIGHT_COLOR_BLUE_FLAME
 	bulb_colour = LIGHT_COLOR_BLUE_FLAME
 	desc = "A lighting fixture that is fitted with a bright blue fluorescent light tube. Looking at it for too long makes your eyes go watery."

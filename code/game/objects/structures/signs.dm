@@ -15,7 +15,7 @@
 	. = ..()
 	if(base_icon)
 		icon = base_icon
-		if(autoplace)
+	if(autoplace)
 		place_poster()
 		return
 	if(!directional) //if not directional do not initialize to a x or y offset

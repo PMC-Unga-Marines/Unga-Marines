@@ -1,7 +1,5 @@
 
 
-
-
 //Floors
 
 /turf/open/floor/mainship
@@ -158,14 +156,17 @@
 /turf/open/floor/mainship/office
 	icon_state = "office_tile"
 
-/turf/open/floor/mainship/ntlogo
-	icon_state = "nt1"
+/turf/open/floor/mainship/rubber
+	icon_state = "carpet_rubber"
 
-/turf/open/floor/mainship/ntlogo/nt2
-	icon_state = "nt2"
+/turf/open/floor/mainship/wylogo
+	icon_state = "wy1"
 
-/turf/open/floor/mainship/ntlogo/nt3
-	icon_state = "nt3"
+/turf/open/floor/mainship/wylogo/wy2
+	icon_state = "wy2"
+
+/turf/open/floor/mainship/wylogo/wy3
+	icon_state = "wy3"
 
 //Cargo elevator
 /turf/open/floor/mainship/empty
@@ -178,17 +179,42 @@
 /turf/open/floor/mainship/empty/is_weedable()
 	return FALSE
 
-/turf/open/floor/mainship/empty/fire_act(burn_level)
+/turf/open/floor/mainship/empty/fire_act(burn_level, flame_color)
 	return
 
 /turf/open/floor/mainship/empty/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
 	return
 
-
 //Others
 /turf/open/floor/mainship/terragov
+	icon = 'icons/turf/mainship.dmi'
 	icon_state = "logo_central"
 	name = "\improper TerraGov logo"
+
+/turf/open/floor/corsat
+	icon = 'icons/turf/corsat.dmi'
+	icon_state = "squareswood"
+	base_icon_state = "squareswood"
+
+/turf/open/floor/strata //Instance me!
+	icon = 'icons/turf/strata_floor.dmi'
+	base_icon_state = "floor"
+	icon_state = "floor"
+
+/turf/open/floor/strata/multi_tiles
+	icon_state = "multi_tiles"
+	color = "#5e5d5d"
+
+/turf/open/floor/sandstone
+	name = "sandstone floor"
+	icon = 'icons/turf/sandstone.dmi'
+	base_icon_state = "whiteyellowfull"
+	icon_state = "whiteyellowfull"
+
+/turf/open/floor/sandstone/runed
+	name = "sandstone temple floor"
+	base_icon_state = "runedsandstone"
+	icon_state = "runedsandstone"
 
 /turf/open/floor/mainship/terragov/west
 	icon_state = "logo_directional_west"
@@ -240,6 +266,31 @@
 /turf/open/floor/mainship/research/containment/corner4
 	icon_state = "containment_corner_4"
 
+// METAL
+
+/turf/open/floor/mainship/metal
+	icon_state = "dark"
+
+/turf/open/floor/mainship/metal/full
+	icon_state = "dark_full"
+
+/turf/open/floor/mainship/metal/steel
+	icon_state = "steel"
+
+/turf/open/floor/mainship/metal/steel/full
+	icon_state = "steel_full"
+
+/turf/open/floor/mainship/metal/lino
+	icon_state = "lino_grey_smooth"
+
+/turf/open/floor/mainship/metal/white
+	icon_state = "white"
+
+/turf/open/floor/mainship/metal/gray
+	icon_state = "metal_gray"
+
+/turf/open/floor/mainship/metal/green
+	icon_state = "metal_green"
 
 //Outerhull
 
@@ -260,10 +311,6 @@
 
 /turf/open/floor/mainship_hull/gray/dir
 	icon_state = "outerhull_gray_dir"
-
-
-
-//***********
 
 /turf/open/floor/marking/loadingarea
 	icon_state = "loadingarea"
@@ -451,13 +498,10 @@
 	burnable_tile = FALSE
 	floor_tile = null
 
-
 /turf/open/floor/engine/attackby(obj/item/I, mob/user, params)
 	if(iscrowbar(I)) // Prevent generation of infinite 'floor_tile' objs caused by the overridden make_plating() above never clearing the var
 		return
 	. = ..()
-	if(.)
-		return
 
 	if(iswrench(I))
 		user.visible_message(span_notice("[user] starts removing [src]'s protective cover."),
@@ -546,11 +590,9 @@
 	mediumxenofootstep = FOOTSTEP_GRASS
 	icon_variants = 4
 
-
 /turf/open/floor/grass/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
-
 
 /turf/open/floor/grass/LateInitialize()
 	for(var/direction in GLOB.cardinals)
@@ -880,6 +922,19 @@
 /turf/open/floor/podhatch/floor
 	icon_state = "podhatchfloor"
 
+/turf/open/floor/stairs/dark
+	icon = 'icons/turf/mainship.dmi'
+	icon_state = "darkstairs_alone"
+
+/turf/open/floor/stairs/dark/left
+	icon_state = "darkstairs_wide"
+
+/turf/open/floor/stairs/dark/right
+	icon_state = "darkstairs2_wide"
+
+/turf/open/floor/stairs/dark/middle
+	icon_state = "darkstairs_middle"
+
 /turf/open/floor/stairs/rampbottom
 	icon_state = "rampbottom"
 
@@ -1085,15 +1140,8 @@
 /turf/open/floor/carpet/ex_act(severity)
 	if(hull_floor)
 		return ..()
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			make_plating()
-		if(EXPLODE_HEAVY)
-			if(prob(80))
-				make_plating()
-		if(EXPLODE_LIGHT)
-			if(prob(50))
-				make_plating()
+	if(prob(severity * 0.3))
+		make_plating()
 	return ..()
 
 /turf/open/floor/carpet/edge2

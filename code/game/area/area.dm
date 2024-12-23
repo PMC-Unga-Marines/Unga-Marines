@@ -61,6 +61,9 @@
 	///Boolean to limit the areas (subtypes included) that atoms in this area can smooth with. Used for shuttles.
 	var/area_limited_icon_smoothing = FALSE
 
+	///string used to determine specific icon variants when structures are used in an area
+	var/area_flavor = AREA_FLAVOR_NONE
+
 /area/New()
 	// This interacts with the map loader, so it needs to be set immediately
 	// rather than waiting for atoms to initialize.
@@ -68,7 +71,6 @@
 		GLOB.areas_by_type[type] = src
 	return ..()
 
-///string used to determine specific icon variants when structures are used in an area
 /area/Initialize(mapload, ...)
 	icon_state = "" //Used to reset the icon overlay, I assume.
 	layer = AREAS_LAYER

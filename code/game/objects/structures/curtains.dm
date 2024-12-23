@@ -66,7 +66,7 @@
 	initial_icon_state = "fabric_curtain"
 	alpha = 230
 
-possiblesounds = list(
+	possiblesounds = list(
 		'sound/effects/clothcurtain.ogg',
 	)
 

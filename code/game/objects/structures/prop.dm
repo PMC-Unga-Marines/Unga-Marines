@@ -274,11 +274,23 @@
 	icon = 'icons/Marine/mainship_props.dmi'
 	icon_state = "mps"
 
+/obj/structure/prop/mainship/mission_planning_system/white
+	icon_state = "mps_w"
+
+/obj/structure/prop/mainship/mission_planning_system/black
+	icon_state = "blackmps_b"
+
 /obj/structure/prop/mainship/mapping_computer
 	name = "\improper CMPS II computer"
 	desc = "The Common Mapping Production System version II allows for sensory imput from satellites and ship systems to derive planetary maps in a standardized fashion for all UPP pilots."
 	icon = 'icons/Marine/mainship_props.dmi'
 	icon_state = "mapping_comp"
+
+/obj/structure/prop/mainship/mapping_computer/white
+	icon_state = "mapping_comp_w"
+
+/obj/structure/prop/mainship/mapping_computer/black
+	icon_state = "blackmapping_b_comp"
 
 /obj/structure/prop/mainship/sensor_computer1
 	name = "sensor computer"
@@ -289,6 +301,12 @@
 /obj/structure/prop/mainship/sensor_computer1/sd
 	name = "self destruct status computer"
 
+/obj/structure/prop/mainship/sensor_computer1/white
+	icon_state = "sensor_comp_w"
+
+/obj/structure/prop/mainship/sensor_computer1/black
+	icon_state = "blacksensor_comp_b1"
+
 /obj/structure/prop/mainship/sensor_computer2
 	name = "sensor computer"
 	desc = "The IBM series 10 computer retrofitted to work as a sensor computer for the ship. While somewhat dated it still serves its purpose."
@@ -298,6 +316,12 @@
 /obj/structure/prop/mainship/sensor_computer2/sd
 	name = "self destruct regulator"
 
+/obj/structure/prop/mainship/sensor_computer2/white
+	icon_state = "sensor_comp_w2"
+
+/obj/structure/prop/mainship/sensor_computer2/black
+	icon_state = "blacksensor_comp_b2"
+
 /obj/structure/prop/mainship/sensor_computer3
 	name = "sensor computer"
 	desc = "The IBM series 10 computer retrofitted to work as a sensor computer for the ship. While somewhat dated it still serves its purpose."
@@ -306,6 +330,12 @@
 
 /obj/structure/prop/mainship/sensor_computer3/sd
 	name = "tempature regulator"
+
+/obj/structure/prop/mainship/sensor_computer3/white
+	icon_state = "sensor_comp_w3"
+
+/obj/structure/prop/mainship/sensor_computer3/black
+	icon_state = "blacksensor_comp_b3"
 
 /obj/structure/prop/mainship/missile_tube
 	name = "\improper Mk 33 ASAT launcher system"

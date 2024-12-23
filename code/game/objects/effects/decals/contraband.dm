@@ -36,6 +36,8 @@
 
 /obj/structure/sign/poster/Initialize(mapload)
 	. = ..()
+	if(autoplace)
+		return
 	switch(dir)
 		if(NORTH)
 			pixel_y = 30
