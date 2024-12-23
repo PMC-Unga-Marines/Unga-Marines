@@ -141,7 +141,7 @@
 	//Check for and apply hard CC.
 	if(hard_size_threshold >= victim.mob_size && (stun || weaken || knockback))
 		var/mob/living/living_victim = victim
-		if(living_victim.IsStun() || living_victim.IsParalyzed()) //Prevent chain stunning.
+		if(living_victim.has_status_effect(STATUS_EFFECT_STUN) || living_victim.has_status_effect(STATUS_EFFECT_PARALYZED)) //Prevent chain stunning.
 			stun = 0
 			weaken = 0
 
@@ -165,14 +165,12 @@
 	if(iscarbon(victim))
 		var/mob/living/carbon/carbon_victim = victim
 		#if DEBUG_STAGGER_SLOWDOWN
-		to_chat(world, span_debuginfo("Damage: Initial stagger is: <b>[target.IsStaggered()]</b>"))
+		to_chat(world, span_debuginfo("Damage: Initial stagger is: <b>[target.has_status_effect(STATUS_EFFECT_STAGGER)]</b>"))
 		#endif
 		if(!HAS_TRAIT(carbon_victim, TRAIT_STAGGER_RESISTANT)) //Some mobs like the Queen are immune to projectile stagger
 			carbon_victim.adjust_stagger(stagger)
 		#if DEBUG_STAGGER_SLOWDOWN
-		to_chat(world, span_debuginfo("Damage: Final stagger is: <b>[target.IsStaggered()]</b>"))
-		#endif
-		#if DEBUG_STAGGER_SLOWDOWN
+		to_chat(world, span_debuginfo("Damage: Final stagger is: <b>[target.has_status_effect(STATUS_EFFECT_STAGGER)]</b>"))
 		to_chat(world, span_debuginfo("Damage: Initial slowdown is: <b>[target.slowdown]</b>"))
 		#endif
 		carbon_victim.add_slowdown(slowdown)
