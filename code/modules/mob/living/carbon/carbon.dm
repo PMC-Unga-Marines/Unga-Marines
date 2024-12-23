@@ -99,17 +99,17 @@
 		to_chat(shaker, span_highdanger("This player has been admin slept, do not interfere with them."))
 		return
 
-	if(lying_angle || IsSleeping())
+	if(lying_angle || has_status_effect(STATUS_EFFECT_SLEEPING))
 		if(client)
 			AdjustSleeping(-10 SECONDS)
-		if(!IsSleeping())
+		if(!has_status_effect(STATUS_EFFECT_SLEEPING))
 			set_resting(FALSE)
 		shaker.visible_message(span_notice("[shaker] shakes [src] trying to get [p_them()] up!"),
 			span_notice("You shake [src] trying to get [p_them()] up!"), null, 4)
 
 		AdjustUnconscious(-6 SECONDS)
 		AdjustStun(-6 SECONDS)
-		if(IsParalyzed())
+		if(has_status_effect(STATUS_EFFECT_PARALYZED))
 			if(staminaloss)
 				adjustStaminaLoss(-20, FALSE)
 		AdjustParalyzed(-6 SECONDS)
@@ -234,7 +234,7 @@
 	if(species.species_flags & ROBOTIC_LIMBS)
 		to_chat(src, span_warning("Your artificial body does not require sleep."))
 		return
-	if(IsSleeping())
+	if(has_status_effect(STATUS_EFFECT_SLEEPING))
 		to_chat(src, span_warning("You are already sleeping"))
 		return
 	if(tgui_alert(src, "You sure you want to sleep for a while?", "Sleep", list("Yes","No")) == "Yes")
