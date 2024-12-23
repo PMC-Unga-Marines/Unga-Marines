@@ -250,7 +250,7 @@
 				to_chat(user, span_warning("You can't build \the [recipe.title] on top of another!"))
 				return FALSE
 	if(recipe.on_floor)
-		if(!isfloorturf(T) && !isbasalt(T) && !islavacatwalk(T) && !isopengroundturf(T))
+		if(!isfloorturf(T) && !isbasalt(T) && !isopengroundturf(T))
 			to_chat(user, span_warning("\The [recipe.title] must be constructed on the floor!"))
 			return FALSE
 		for(var/obj/AM in T)

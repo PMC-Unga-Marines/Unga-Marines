@@ -480,9 +480,6 @@
 /turf/open/floor/plating/ground/dirtgrassborder/is_weedable()
 	return TRUE
 
-/turf/open/liquid/water/is_weedable()
-	return FALSE
-
 /turf/open/ground/coast/is_weedable()
 	return FALSE
 

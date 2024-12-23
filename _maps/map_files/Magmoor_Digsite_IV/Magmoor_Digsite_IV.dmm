@@ -1868,6 +1868,13 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/mineral/smooth,
 /area/magmoor/cave/rock)
+"bnl" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/magmoor/civilian/bar)
 "bnr" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
@@ -3020,7 +3027,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/north)
 "ceG" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -3273,7 +3280,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/magmoor/engi/storage)
 "cnw" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/cave/north)
 "cnx" = (
 /turf/open/floor/plating/ground/concrete/edge{
@@ -5939,7 +5946,7 @@
 /turf/open/floor/plating/ground/concrete/edge,
 /area/magmoor/cave/north)
 "ejO" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/northeast)
 "ejQ" = (
 /obj/structure/cryopods,
@@ -7163,7 +7170,7 @@
 /area/magmoor/landing)
 "eZx" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/north)
 "eZY" = (
 /obj/structure/table/mainship,
@@ -7320,7 +7327,7 @@
 /area/magmoor/engi/storage)
 "ffT" = (
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/southwest)
 "ffZ" = (
 /obj/machinery/power/apc/drained,
@@ -8411,7 +8418,7 @@
 	},
 /area/magmoor/hydroponics/north)
 "fVX" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/north)
 "fWe" = (
 /obj/structure/rack,
@@ -10194,7 +10201,7 @@
 /area/magmoor/civilian/rnr)
 "hsV" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/cave/north)
 "htj" = (
 /obj/structure/rock/basalt/alt2,
@@ -11441,7 +11448,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/north)
 "iqM" = (
 /obj/machinery/door/airlock/mainship/engineering/glass{
@@ -12129,7 +12136,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/north)
 "iSL" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -14304,7 +14311,7 @@
 	},
 /area/magmoor/compound/north)
 "ktt" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/volcano)
 "ktP" = (
 /obj/structure/cable,
@@ -17296,6 +17303,9 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/magmoor/civilian/bar)
 "mGZ" = (
@@ -18131,7 +18141,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/south)
 "nnf" = (
 /obj/effect/landmark/weed_node,
@@ -18559,7 +18569,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/southeast)
 "nFa" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/southeast)
 "nFE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -18728,7 +18738,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound)
 "nOG" = (
 /turf/open/floor/plating/ground/concrete/edge{
@@ -20611,7 +20621,7 @@
 /area/magmoor/compound/north)
 "pcT" = (
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/east)
 "pef" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -20642,7 +20652,7 @@
 /area/magmoor/cave/east)
 "pex" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound)
 "pfg" = (
 /obj/effect/ai_node,
@@ -21735,7 +21745,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi/atmos)
 "pQt" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/southwest)
 "pRo" = (
 /obj/structure/cable,
@@ -22732,7 +22742,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound)
 "qBb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -23764,7 +23774,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/magmoor/compound/southwest)
 "rup" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/south)
 "rus" = (
 /obj/item/tank/emergency_oxygen/engi{
@@ -26676,7 +26686,7 @@
 /area/magmoor/hydroponics/north)
 "tEB" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/cave/north)
 "tEZ" = (
 /obj/structure/lattice,
@@ -26799,7 +26809,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound)
 "tJC" = (
 /obj/machinery/power/port_gen/pacman,
@@ -27692,7 +27702,7 @@
 /area/magmoor/cargo/processing/south)
 "umU" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/north)
 "umZ" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
@@ -28080,7 +28090,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/cave/north)
 "uAn" = (
 /obj/structure/bed/chair/sofa/right{
@@ -28251,7 +28261,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/cave/north)
 "uGZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -28299,7 +28309,7 @@
 /area/magmoor/command/lobby)
 "uIB" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/volcano)
 "uIQ" = (
 /obj/structure/rock/basalt/alt,
@@ -29838,7 +29848,7 @@
 /turf/open/floor/mainship/cargo,
 /area/magmoor/mining/storage)
 "vSJ" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound)
 "vSQ" = (
 /obj/structure/bed/chair/office/light{
@@ -30019,7 +30029,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/cargo/processing/south)
 "vYm" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/east)
 "vYP" = (
 /obj/effect/turf_decal/siding{
@@ -30242,6 +30252,10 @@
 	},
 /turf/open/floor/mainship/sterile/purple,
 /area/magmoor/research/rnd)
+"wib" = (
+/obj/effect/landmark/sensor_tower_infestation_ground,
+/turf/open/floor/wood,
+/area/magmoor/civilian/bar)
 "wiB" = (
 /obj/structure/lattice,
 /turf/open/lavaland/basalt/dirt/autosmoothing,
@@ -30366,7 +30380,7 @@
 /area/magmoor/mining/garage)
 "wnS" = (
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/northeast)
 "wof" = (
 /obj/structure/table/reinforced,
@@ -47977,7 +47991,7 @@ ohT
 woH
 ohT
 ohT
-mAx
+uAy
 khT
 ohT
 qxc
@@ -48442,8 +48456,8 @@ woH
 oAR
 ehQ
 mlP
-ehQ
-cnO
+wib
+bnl
 ehQ
 ehQ
 oMm
@@ -48676,7 +48690,7 @@ cAw
 ehQ
 fLe
 ehQ
-cnO
+bnl
 dIR
 ehQ
 wYc
@@ -48909,7 +48923,7 @@ vSf
 ehQ
 ehQ
 ehQ
-cnO
+bnl
 mlP
 ehQ
 mAI
@@ -49142,7 +49156,7 @@ aGz
 ehQ
 ehQ
 ehQ
-cnO
+bnl
 ehQ
 ehQ
 pNn
@@ -49375,7 +49389,7 @@ tjh
 mlP
 tct
 lfP
-cnO
+bnl
 ehQ
 ehQ
 cSj
@@ -49608,7 +49622,7 @@ lpK
 ehQ
 wEz
 bzj
-cnO
+bnl
 mlP
 ehQ
 nSi
@@ -51006,7 +51020,7 @@ qlY
 ehQ
 ehQ
 ehQ
-cnO
+bnl
 mlP
 hfz
 naO
@@ -51239,7 +51253,7 @@ lxq
 prR
 dIR
 ehQ
-cnO
+bnl
 ehQ
 hfz
 cZW
@@ -51472,7 +51486,7 @@ jdR
 mlP
 ehQ
 ehQ
-cnO
+bnl
 ehQ
 hfz
 jjQ
@@ -51705,7 +51719,7 @@ inQ
 rVY
 ehQ
 ehQ
-cnO
+bnl
 ehQ
 ehQ
 hfz

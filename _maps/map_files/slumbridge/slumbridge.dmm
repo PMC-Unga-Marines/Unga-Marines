@@ -5130,7 +5130,7 @@
 /area/slumbridge/inside/engi/engineroom)
 "dSd" = (
 /obj/structure/window/framed/prison/reinforced,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outerringsouth)
 "dSm" = (
 /obj/item/spacecash/bundle/c10{
@@ -5750,7 +5750,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "etk" = (
 /obj/structure/fence,
@@ -6269,7 +6269,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outerringnorth)
 "eRY" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -9115,7 +9115,7 @@
 "gZI" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outerringsouth)
 "gZN" = (
 /turf/open/lavaland/basalt,
@@ -9205,7 +9205,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "hdl" = (
 /obj/structure/cryofeed{
@@ -14789,7 +14789,7 @@
 "lel" = (
 /obj/effect/spawner/random/misc/trash,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "leo" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -14834,7 +14834,7 @@
 /area/slumbridge/inside/houses/recreational)
 "lgx" = (
 /obj/structure/nuke_disk_candidate,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "lgK" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -15701,7 +15701,7 @@
 /area/slumbridge/inside/prison/innerring)
 "lMU" = (
 /obj/effect/landmark/weed_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/outside/northwest)
 "lNg" = (
 /obj/structure/cable,
@@ -16109,7 +16109,7 @@
 /turf/open/ground/grass/weedable,
 /area/slumbridge/outside/southeast)
 "mcs" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outerringnorth)
 "mcD" = (
 /obj/item/ore/slag{
@@ -16389,7 +16389,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "mkf" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -18820,7 +18820,7 @@
 "nZF" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "nZR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -21216,7 +21216,7 @@
 	},
 /area/slumbridge/inside/prison/outerringsouth)
 "pRV" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outerringsouth)
 "pSg" = (
 /obj/structure/closet/secure_closet/atmos_personal,
@@ -21971,7 +21971,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/houses/surgery)
 "qtQ" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/innerring)
 "qug" = (
 /obj/effect/decal/cleanable/dirt,
@@ -24022,7 +24022,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/outside/northwest)
 "rRm" = (
 /obj/effect/spawner/random/engineering/structure/tank_dispenser,
@@ -24971,7 +24971,7 @@
 /turf/open/floor/wood,
 /area/slumbridge/inside/colony/bar)
 "sBB" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outside)
 "sBD" = (
 /obj/structure/sink/bathroom,
@@ -25627,7 +25627,7 @@
 "taZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/outside/northwest)
 "tbj" = (
 /obj/structure/girder,
@@ -30210,7 +30210,7 @@
 /turf/open/floor/prison,
 /area/slumbridge/inside/prison/outerringnorth)
 "wuS" = (
-/turf/open/lavaland/catwalk,
+/turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/outside/northwest)
 "wvq" = (
 /obj/structure/table,
