@@ -155,7 +155,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "adz" = (
 /obj/structure/table/black,
 /obj/effect/spawner/random/engineering/metal/large_weighted,
@@ -982,7 +982,7 @@
 /area/mainship/shipboard/ex_firing_range)
 "awF" = (
 /turf/closed/wall/mainship/outer/talos,
-/area/space)
+/area/template_noop)
 "axb" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/window/reinforced{
@@ -2178,7 +2178,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 6
 	},
-/area/space)
+/area/template_noop)
 "bkg" = (
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/living/commandbunks)
@@ -3430,7 +3430,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 10
 	},
-/area/space)
+/area/template_noop)
 "bTX" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/item/flashlight/lantern/turned_on,
@@ -3518,8 +3518,8 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bVA" = (
 /obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
 	dir = 1
@@ -3596,7 +3596,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "bXn" = (
 /obj/structure/table/mainship,
 /obj/item/toy/dice,
@@ -3657,7 +3657,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 9
 	},
-/area/space)
+/area/template_noop)
 "bZw" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
@@ -4087,8 +4087,8 @@
 	teleport_z_offset = 1
 	},
 /obj/structure/disposalpipe/segment,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ckm" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
@@ -5185,7 +5185,7 @@
 "cRG" = (
 /obj/structure/lattice,
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "cRQ" = (
 /obj/machinery/vending/marineFood,
 /obj/machinery/camera/autoname{
@@ -5511,7 +5511,7 @@
 "ddk" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "ddo" = (
 /obj/effect/spawner/random/misc/folder,
 /obj/structure/table/reinforced,
@@ -5696,7 +5696,7 @@
 /turf/open/floor/mainship/terragov{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "djc" = (
 /obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1{
 	dir = 4
@@ -7350,7 +7350,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 5
 	},
-/area/space)
+/area/template_noop)
 "ejj" = (
 /obj/machinery/marine_selector/gear/smartgun,
 /turf/open/floor/mainship/metal,
@@ -8814,7 +8814,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "eZi" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -10310,7 +10310,7 @@
 /area/mainship/engineering/port_atmos)
 "fTD" = (
 /obj/docking_port/stationary/ert/target{
-	id = "starboard_target";
+	shuttle_id = "starboard_target";
 	name = "Starboard"
 	},
 /turf/open/floor/plating,
@@ -11233,7 +11233,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 4
 	},
-/area/space)
+/area/template_noop)
 "gDE" = (
 /obj/machinery/marine_selector/clothes/synth,
 /obj/structure/sign/semiotic/synth_storage{
@@ -11735,7 +11735,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 8
 	},
-/area/space)
+/area/template_noop)
 "gVo" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
@@ -13615,7 +13615,7 @@
 "ijT" = (
 /obj/structure/prop/mainship/name_stencil/P,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "ikb" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -15034,7 +15034,7 @@
 /area/mainship/medical/upper_medical)
 "jcM" = (
 /obj/docking_port/stationary/ert/target{
-	id = "port_target";
+	shuttle_id = "port_target";
 	name = "Port"
 	},
 /turf/open/floor/plating,
@@ -15203,7 +15203,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "jhz" = (
 /obj/structure/closet/marine/charlie,
 /obj/machinery/light/mainship{
@@ -15587,7 +15587,7 @@
 "jtb" = (
 /obj/structure/disposalpipe/segment/corner,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "jth" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -16083,8 +16083,8 @@
 /area/mainship/hallways/aft_hallway)
 "jLM" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jLN" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
@@ -17304,7 +17304,7 @@
 "kyy" = (
 /obj/structure/prop/mainship/name_stencil,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "kyB" = (
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship/talos,
@@ -17527,7 +17527,7 @@
 "kCP" = (
 /obj/structure/prop/mainship/name_stencil/U,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "kDi" = (
 /obj/item/clothing/head/warning_cone,
 /obj/effect/turf_decal/siding/dark{
@@ -18959,7 +18959,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "lsC" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "Waste Tank Control"
@@ -19396,7 +19396,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 4
 	},
-/area/space)
+/area/template_noop)
 "lAq" = (
 /obj/machinery/door/airlock/mainship/engineering/CSEoffice{
 	dir = 2
@@ -21079,7 +21079,7 @@
 /area/mainship/medical/surgery_hallway)
 "myv" = (
 /turf/closed/wall/mainship/talos,
-/area/space)
+/area/template_noop)
 "myC" = (
 /obj/effect/turf_decal/woodsiding,
 /obj/structure/table/woodentable,
@@ -23197,7 +23197,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 9
 	},
-/area/space)
+/area/template_noop)
 "nJg" = (
 /obj/machinery/door/poddoor/railing{
 	dir = 8;
@@ -24139,7 +24139,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 5
 	},
-/area/space)
+/area/template_noop)
 "oiX" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -25625,7 +25625,7 @@
 "peA" = (
 /obj/structure/cable,
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "peI" = (
 /obj/structure/cable,
 /obj/machinery/holopad,
@@ -25677,7 +25677,7 @@
 "pfo" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/mainship/outer/talos,
-/area/space)
+/area/template_noop)
 "pfp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -26555,7 +26555,7 @@
 "pDx" = (
 /obj/structure/cable,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "pDA" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
 	dir = 4
@@ -27825,8 +27825,8 @@
 /area/mainship/hallways/aft_hallway)
 "qnb" = (
 /obj/structure/disposalpipe/segment,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qnw" = (
 /obj/machinery/camera/autoname,
 /obj/machinery/air_alarm,
@@ -28345,7 +28345,7 @@
 /area/mainship/hull/upper_hull)
 "qCZ" = (
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "qDj" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plating,
@@ -28579,8 +28579,8 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qLa" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -29537,8 +29537,8 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "rpz" = (
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "rpD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -29580,7 +29580,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 8
 	},
-/area/space)
+/area/template_noop)
 "rqT" = (
 /turf/open/floor/mainship_hull,
 /area/mainship/hull/starboard_hull)
@@ -32492,7 +32492,7 @@
 /area/mainship/living/numbertwobunks)
 "tfI" = (
 /turf/open/floor/mainship_hull/dir,
-/area/space)
+/area/template_noop)
 "tfJ" = (
 /obj/effect/ai_node,
 /obj/effect/turf_decal/tile/metal/corner/medical{
@@ -33720,7 +33720,7 @@
 /area/mainship/squads/alpha)
 "tWG" = (
 /obj/docking_port/stationary/ert/target{
-	id = "starboard_target";
+	shuttle_id = "starboard_target";
 	name = "Starboard"
 	},
 /turf/open/floor/plating,
@@ -33918,8 +33918,8 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "udO" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -34535,7 +34535,7 @@
 /area/mainship/living/commandbunks)
 "uvz" = (
 /turf/open/floor/mainship/terragov/north,
-/area/space)
+/area/template_noop)
 "uvG" = (
 /obj/machinery/door/airlock/mainship/command/brief{
 	dir = 2
@@ -34728,7 +34728,7 @@
 /turf/open/floor/mainship/terragov/north{
 	dir = 6
 	},
-/area/space)
+/area/template_noop)
 "uBb" = (
 /obj/structure/paper_bin,
 /obj/item/tool/pen,
@@ -34804,8 +34804,8 @@
 	teleport_z = 1;
 	teleport_z_offset = 1
 	},
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uCC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -35142,7 +35142,7 @@
 "uOy" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "uOG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -36512,7 +36512,7 @@
 "vHi" = (
 /obj/structure/cable,
 /turf/closed/wall/mainship/outer/talos,
-/area/space)
+/area/template_noop)
 "vHo" = (
 /obj/effect/ai_node,
 /turf/open/floor/prison/yellow{
@@ -37907,7 +37907,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 4
 	},
-/area/space)
+/area/template_noop)
 "wzn" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -39836,8 +39836,8 @@
 /area/mainship/hallways/bow_hallway)
 "xJe" = (
 /obj/structure/cable,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "xJk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -40227,7 +40227,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 1
 	},
-/area/space)
+/area/template_noop)
 "xWl" = (
 /obj/structure/window/framed/mainship/hull/canterbury{
 	hit_sound = null;
@@ -40378,7 +40378,7 @@
 /turf/open/floor/mainship_hull/dir{
 	dir = 10
 	},
-/area/space)
+/area/template_noop)
 "yaw" = (
 /obj/structure/table/mainship,
 /turf/open/floor/plating,
@@ -40485,7 +40485,7 @@
 	dir = 4
 	},
 /turf/open/floor/mainship_hull,
-/area/space)
+/area/template_noop)
 "ycE" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/security/marinemainship_network,
