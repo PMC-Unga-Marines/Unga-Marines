@@ -28,7 +28,6 @@
 	internal_damage_threshold = 15
 	internal_damage_probability = 5
 	possible_int_damage = MECHA_INT_FIRE|MECHA_INT_SHORT_CIRCUIT
-	mecha_flags = ADDING_ACCESS_POSSIBLE
 	/// keyed list. values are types at init, otherwise instances of mecha limbs, order is layer order as well
 	var/list/datum/mech_limb/limbs = list(
 		MECH_GREY_TORSO = null,
@@ -70,7 +69,7 @@
 	return ..()
 
 /obj/vehicle/sealed/mecha/combat/greyscale/mob_try_enter(mob/entering_mob, mob/user, loc_override = FALSE)
-	if(entering_mob.skills.getRating(SKILL_MECH_PILOT) < SKILL_MECH_PILOT_TRAINED)
+	if(skill_locked && entering_mob.skills.getRating(SKILL_MECH_PILOT) < SKILL_MECH_PILOT_TRAINED)
 		balloon_alert(entering_mob, "You don't know how to pilot this")
 		return FALSE
 	return ..()
@@ -151,7 +150,7 @@
 	)
 
 /obj/vehicle/sealed/mecha/combat/greyscale/recon/noskill
-	mecha_flags = ADDING_ACCESS_POSSIBLE
+	skill_locked = FALSE
 
 /obj/vehicle/sealed/mecha/combat/greyscale/assault
 	name = "Assault Mecha"
@@ -164,7 +163,7 @@
 	)
 
 /obj/vehicle/sealed/mecha/combat/greyscale/assault/noskill
-	mecha_flags = ADDING_ACCESS_POSSIBLE
+	skill_locked = FALSE
 
 /obj/vehicle/sealed/mecha/combat/greyscale/vanguard
 	name = "Vanguard Mecha"
@@ -177,4 +176,4 @@
 	)
 
 /obj/vehicle/sealed/mecha/combat/greyscale/vanguard/noskill
-	mecha_flags = ADDING_ACCESS_POSSIBLE
+	skill_locked = FALSE

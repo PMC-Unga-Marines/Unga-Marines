@@ -1,4 +1,3 @@
-
 GLOBAL_LIST_INIT(mech_bodytypes, list(MECH_RECON, MECH_ASSAULT, MECH_VANGUARD))
 
 /datum/mech_limb
@@ -16,11 +15,10 @@ GLOBAL_LIST_INIT(mech_bodytypes, list(MECH_RECON, MECH_ASSAULT, MECH_VANGUARD))
 	var/icon/overlay_icon
 
 /datum/mech_limb/New(noload)
-	..()
+	. = ..()
 	if(noload)
 		return
 	update_colors(arglist(colors))
-
 
 /datum/mech_limb/proc/update_colors(color_one, color_two, ...)
 	if(!color_one && !color_two)

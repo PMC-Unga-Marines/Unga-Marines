@@ -2,12 +2,10 @@
 #define MECHA_INT_SHORT_CIRCUIT (1<<1)
 #define MECHA_INT_CONTROL_LOST (1<<2)
 
-#define ADDING_ACCESS_POSSIBLE (1<<0)
-#define ADDING_MAINT_ACCESS_POSSIBLE (1<<1)
+#define LIGHTS_ON (1<<0)
 
 #define MECHA_MELEE (1 << 0)
 #define MECHA_RANGED (1 << 1)
-#define LIGHTS_ON (1<<2)
 
 #define MECHA_FRONT_ARMOUR "mechafront"
 #define MECHA_SIDE_ARMOUR "mechaside"

@@ -30,7 +30,6 @@
 	soft_armor = list(MELEE = 20, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 100, ACID = 100)
 	force = 5
 	move_delay = 1 SECONDS
-	COOLDOWN_DECLARE(mecha_bump_smash)
 	light_system = MOVABLE_LIGHT
 	light_on = FALSE
 	light_range = 8
@@ -53,30 +52,19 @@
 	var/equipment_disabled = FALSE
 	/// Keeps track of the mech's cell
 	var/obj/item/cell/cell
-	/// Keeps track of the mech's scanning module
-	var/obj/item/stock_parts/scanning_module/scanmod
-	/// Keeps track of the mech's capacitor
-	var/obj/item/stock_parts/capacitor/capacitor
 	///Whether the mechs maintenance protocols are on or off
 	var/construction_state = MECHA_LOCKED
 	///Contains flags for the mecha
-	var/mecha_flags = ADDING_ACCESS_POSSIBLE
-	///Stores the DNA enzymes of a carbon so tht only they can access the mech
-	var/dna_lock
+	var/mecha_flags
 	///Spark effects are handled by this datum
 	var/datum/effect_system/spark_spread/spark_system = new
 	///How powerful our lights are
 	var/lights_power = 6
 	///Just stop the mech from doing anything
 	var/completely_disabled = FALSE
-	///Whether this mech is allowed to move diagonally
-	var/allow_diagonal_movement = FALSE
-	///Whether or not the mech destroys walls by running into it.
-	var/bumpsmash = FALSE
 
 	///Special version of the radio, which is unsellable
 	var/obj/item/radio/mech/radio
-	var/list/trackers = list()
 
 	///Bitflags for internal damage
 	var/internal_damage = NONE
@@ -94,10 +82,8 @@
 	///required access to change internal components
 	var/list/internals_req_access = list()
 
-	///Typepath for the wreckage it spawns when destroyed
-	var/wreckage
 	///single flag for the type of this mech, determines what kind of equipment can be attached to it
-	var/mech_type
+	//var/mech_type
 
 	///assoc list: key-typepathlist before init, key-equipmentlist after
 	var/list/equip_by_category = list(
@@ -116,8 +102,6 @@
 	///flat equipment for iteration
 	var/list/flat_equipment
 
-	///Whether our steps are silent due to no gravity
-	var/step_silent = FALSE
 	///Sound played when the mech moves
 	var/stepsound = 'sound/mecha/mechstep.ogg'
 	///Sound played when the mech walks
@@ -140,8 +124,6 @@
 	var/datum/effect_system/smoke_spread/bad/smoke_system = new
 
 	////Action vars
-	///Bool for energy shield on/off
-	var/defense_mode = FALSE
 
 	///Bool for leg overload on/off
 	var/leg_overload_mode = FALSE
@@ -158,13 +140,6 @@
 	///Cooldown between using smoke
 	var/smoke_cooldown = 10 SECONDS
 
-	///check for phasing, if it is set to text (to describe how it is phasing: "flying", "phasing") it will let the mech walk through walls.
-	var/phasing = ""
-	///Power we use every time we phaze through something
-	var/phasing_energy_drain = 200
-	///icon_state for flick() when phazing
-	var/phase_state = ""
-
 	///Wether we are strafing
 	var/strafe = FALSE
 
@@ -177,6 +152,8 @@
 	var/ui_y = 600
 	/// ref to screen object that displays in the middle of the UI
 	var/atom/movable/screen/mech_view/ui_view
+	/// boolean: Can someone use the mech without skill? Used for shitspawn
+	var/skill_locked = TRUE
 
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
@@ -197,8 +174,6 @@
 
 	GLOB.nightfall_toggleable_lights += src
 	add_cell()
-	add_scanmod()
-	add_capacitor()
 	START_PROCESSING(SSobj, src)
 	log_message("[src.name] created.", LOG_MECHA)
 	GLOB.mechas_list += src //global mech list
@@ -239,8 +214,6 @@
 	LAZYCLEARLIST(flat_equipment)
 
 	QDEL_NULL(cell)
-	QDEL_NULL(scanmod)
-	QDEL_NULL(capacitor)
 	QDEL_NULL(spark_system)
 	QDEL_NULL(smoke_system)
 	QDEL_NULL(ui_view)
@@ -253,32 +226,10 @@
 /obj/vehicle/sealed/mecha/obj_destruction(damage_amount, damage_type, damage_flag)
 	spark_system?.start()
 
-	var/mob/living/silicon/ai/unlucky_ais
 	for(var/mob/living/occupant AS in occupants)
-		if(isAI(occupant))
-			unlucky_ais = occupant
-			occupant.gib() //No wreck, no AI to recover
-			continue
 		mob_exit(occupant, FALSE, TRUE)
 		occupant.SetSleeping(destruction_sleep_duration)
-
-	if(wreckage)
-		var/obj/structure/mecha_wreckage/WR = new wreckage(loc, unlucky_ais)
-		for(var/obj/item/mecha_parts/mecha_equipment/E in flat_equipment)
-			if(E.detachable && prob(30))
-				WR.crowbar_salvage += E
-				E.detach(WR) //detaches from src into WR
-				E.activated = TRUE
-			else
-				E.detach(loc)
-				qdel(E)
-		if(cell)
-			WR.crowbar_salvage += cell
-			cell.forceMove(WR)
-			cell.use(rand(0, cell.charge), TRUE)
-			cell = null
 	return ..()
-
 
 /obj/vehicle/sealed/mecha/update_icon_state()
 	icon_state = get_mecha_occupancy_state()
@@ -357,32 +308,12 @@
 		return base_icon_state
 	return "[base_icon_state]-open"
 
-/obj/vehicle/sealed/mecha/CanPassThrough(atom/blocker, movement_dir, blocker_opinion)
-	if(!phasing || get_charge() <= phasing_energy_drain || throwing)
-		return ..()
-	if(phase_state)
-		flick(phase_state, src)
-	return TRUE
-
 /obj/vehicle/sealed/mecha/proc/restore_equipment()
 	equipment_disabled = FALSE
 	for(var/mob/mob_occupant AS in occupants)
 		SEND_SOUND(mob_occupant, sound('sound/items/timer.ogg', volume=50))
 		to_chat(mob_occupant, span_notice("Equipment control unit has been rebooted successfully."))
 	set_mouse_pointer()
-
-///Updates the values given by scanning module and capacitor tier, called when a part is removed or inserted.
-/obj/vehicle/sealed/mecha/proc/update_part_values()
-	if(scanmod)
-		normal_step_energy_drain = 20 - (5 * scanmod.rating) //10 is normal, so on lowest part its worse, on second its ok and on higher its real good up to 0 on best
-		step_energy_drain = normal_step_energy_drain
-	else
-		normal_step_energy_drain = 500
-		step_energy_drain = normal_step_energy_drain
-	if(capacitor)
-		soft_armor = soft_armor.modifyRating(energy = (capacitor.rating * 5)) //Each level of capacitor protects the mech against emp by 5%
-	else //because we can still be hit without a cap, even if we can't move
-		soft_armor = soft_armor.setRating(energy = 0)
 
 /obj/vehicle/sealed/mecha/examine(mob/user)
 	. = ..()
@@ -492,9 +423,6 @@
 		return
 	if(completely_disabled || is_currently_ejecting)
 		return
-	if(phasing)
-		balloon_alert(user, "not while [phasing]!")
-		return
 	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		return
 	if(construction_state)
@@ -569,11 +497,6 @@
 /////////////////////////
 ////// Access stuff /////
 /////////////////////////
-
-/obj/vehicle/sealed/mecha/proc/operation_allowed(mob/M)
-	req_access = operation_req_access
-	req_one_access = list()
-	return allowed(M)
 
 /obj/vehicle/sealed/mecha/proc/internals_access_allowed(mob/M)
 	req_one_access = internals_req_access
