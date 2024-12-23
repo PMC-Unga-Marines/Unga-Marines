@@ -2,8 +2,6 @@
 #define MECHA_INT_SHORT_CIRCUIT (1<<1)
 #define MECHA_INT_CONTROL_LOST (1<<2)
 
-#define LIGHTS_ON (1<<0)
-
 #define MECHA_MELEE (1 << 0)
 #define MECHA_RANGED (1 << 1)
 

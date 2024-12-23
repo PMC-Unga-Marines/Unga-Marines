@@ -154,6 +154,8 @@
 	var/atom/movable/screen/mech_view/ui_view
 	/// boolean: Can someone use the mech without skill? Used for shitspawn
 	var/skill_locked = TRUE
+	/// boolean: are light on?
+	var/lights_on = FALSE
 
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
@@ -393,7 +395,7 @@
 				break  // all good
 			checking = checking.loc
 
-	if(mecha_flags & LIGHTS_ON)
+	if(!lights_on)
 		use_power(2*delta_time)
 
 //Diagnostic HUD updates

@@ -34,15 +34,15 @@
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 
-	chassis.mecha_flags ^= LIGHTS_ON
-	if(chassis.mecha_flags & LIGHTS_ON)
+	chassis.lights_on = !chassis.lights_on
+	if(chassis.lights_on)
 		action_icon_state = "mech_lights_on"
 	else
 		action_icon_state = "mech_lights_off"
-	chassis.set_light_on(chassis.mecha_flags & LIGHTS_ON)
-	chassis.balloon_alert(owner, "toggled lights [chassis.mecha_flags & LIGHTS_ON ? "on":"off"]")
+	chassis.set_light_on(chassis.lights_on)
+	chassis.balloon_alert(owner, "toggled lights [chassis.lights_on ? "on" : "off"]")
 	playsound(chassis,'sound/mecha/brass_skewer.ogg', 40, TRUE)
-	chassis.log_message("Toggled lights [(chassis.mecha_flags & LIGHTS_ON)?"on":"off"].", LOG_MECHA)
+	chassis.log_message("Toggled lights [chassis.lights_on ? "on" : "off"].", LOG_MECHA)
 	update_button_icon()
 
 /datum/action/vehicle/sealed/mecha/mech_view_stats
@@ -82,8 +82,8 @@
 /obj/vehicle/sealed/mecha/proc/toggle_strafe()
 	strafe = !strafe
 
-	to_chat(occupants, "strafing mode [strafe?"on":"off"].")
-	log_message("Toggled strafing mode [strafe?"on":"off"].", LOG_MECHA)
+	chassis.balloon_alert(owner, "strafing mode [strafe ? "on" : "off"]")
+	log_message("Toggled strafing mode [strafe ? "on":"off"].", LOG_MECHA)
 
 	for(var/occupant in occupants)
 		var/datum/action/action = LAZYACCESSASSOC(occupant_actions, occupant, /datum/action/vehicle/sealed/mecha/strafe)
