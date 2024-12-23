@@ -14,7 +14,7 @@
 	gravity = list(0, 0.95)
 	grow = 0.05
 
-/obj/vehicle/sealed/mecha/combat/greyscale
+/obj/vehicle/sealed/mecha/greyscale
 	name = "Should not be visible"
 	icon_state = "greyscale"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -41,7 +41,7 @@
 	///right particle smoke holder
 	var/obj/effect/abstract/particle_holder/holder_right
 
-/obj/vehicle/sealed/mecha/combat/greyscale/Initialize(mapload)
+/obj/vehicle/sealed/mecha/greyscale/Initialize(mapload)
 	holder_left = new(src, /particles/mecha_smoke)
 	holder_left.layer = layer+0.001
 	holder_right = new(src, /particles/mecha_smoke)
@@ -56,7 +56,7 @@
 		var/datum/mech_limb/limb = new new_limb_type
 		limb.attach(src, key)
 
-/obj/vehicle/sealed/mecha/combat/greyscale/Destroy()
+/obj/vehicle/sealed/mecha/greyscale/Destroy()
 	var/obj/effect/temp_visual/explosion/explosion = new /obj/effect/temp_visual/explosion(loc, 4, LIGHT_COLOR_LAVA, FALSE, TRUE)
 	explosion.pixel_x = 16
 	for(var/key in limbs)
@@ -64,17 +64,17 @@
 		limb?.detach(src)
 	return ..()
 
-/obj/vehicle/sealed/mecha/combat/greyscale/restore_equipment()
+/obj/vehicle/sealed/mecha/greyscale/restore_equipment()
 	mouse_pointer = 'icons/mecha/mecha_mouse.dmi'
 	return ..()
 
-/obj/vehicle/sealed/mecha/combat/greyscale/mob_try_enter(mob/entering_mob, mob/user, loc_override = FALSE)
+/obj/vehicle/sealed/mecha/greyscale/mob_try_enter(mob/entering_mob, mob/user, loc_override = FALSE)
 	if(skill_locked && entering_mob.skills.getRating(SKILL_MECH_PILOT) < SKILL_MECH_PILOT_TRAINED)
 		balloon_alert(entering_mob, "You don't know how to pilot this")
 		return FALSE
 	return ..()
 
-/obj/vehicle/sealed/mecha/combat/greyscale/update_icon()
+/obj/vehicle/sealed/mecha/greyscale/update_icon()
 	. = ..()
 	if(QDELING(src))
 		return
@@ -106,7 +106,7 @@
 		holder_right.particles.position = list(30, 32, 0)
 		holder_left.layer = layer+0.001
 
-/obj/vehicle/sealed/mecha/combat/greyscale/update_overlays()
+/obj/vehicle/sealed/mecha/greyscale/update_overlays()
 	. = ..()
 	var/list/render_order
 	//spriter bs requires this code
@@ -135,11 +135,11 @@
 		var/datum/mech_limb/limb = limbs[key]
 		. += limb.get_overlays()
 
-/obj/vehicle/sealed/mecha/combat/greyscale/setDir(newdir)
+/obj/vehicle/sealed/mecha/greyscale/setDir(newdir)
 	. = ..()
 	update_icon() //when available pass UPDATE_OVERLAYS since this is just for layering order
 
-/obj/vehicle/sealed/mecha/combat/greyscale/recon
+/obj/vehicle/sealed/mecha/greyscale/recon
 	name = "Recon Mecha"
 	limbs = list(
 		MECH_GREY_TORSO = /datum/mech_limb/torso/recon,
@@ -149,10 +149,10 @@
 		MECH_GREY_L_ARM = /datum/mech_limb/arm/recon,
 	)
 
-/obj/vehicle/sealed/mecha/combat/greyscale/recon/noskill
+/obj/vehicle/sealed/mecha/greyscale/recon/noskill
 	skill_locked = FALSE
 
-/obj/vehicle/sealed/mecha/combat/greyscale/assault
+/obj/vehicle/sealed/mecha/greyscale/assault
 	name = "Assault Mecha"
 	limbs = list(
 		MECH_GREY_TORSO = /datum/mech_limb/torso/assault,
@@ -162,10 +162,10 @@
 		MECH_GREY_L_ARM = /datum/mech_limb/arm/assault,
 	)
 
-/obj/vehicle/sealed/mecha/combat/greyscale/assault/noskill
+/obj/vehicle/sealed/mecha/greyscale/assault/noskill
 	skill_locked = FALSE
 
-/obj/vehicle/sealed/mecha/combat/greyscale/vanguard
+/obj/vehicle/sealed/mecha/greyscale/vanguard
 	name = "Vanguard Mecha"
 	limbs = list(
 		MECH_GREY_TORSO = /datum/mech_limb/torso/vanguard,
@@ -175,5 +175,5 @@
 		MECH_GREY_L_ARM = /datum/mech_limb/arm/vanguard,
 	)
 
-/obj/vehicle/sealed/mecha/combat/greyscale/vanguard/noskill
+/obj/vehicle/sealed/mecha/greyscale/vanguard/noskill
 	skill_locked = FALSE
