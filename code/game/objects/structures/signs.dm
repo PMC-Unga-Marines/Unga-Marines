@@ -50,7 +50,7 @@
 			continue
 		else
 			switch(i)
-							if(NORTH)
+				if(NORTH)
 					pixel_y = 32
 				if(NORTHEAST)
 					pixel_y = 32

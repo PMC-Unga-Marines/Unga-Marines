@@ -403,7 +403,7 @@
 
 /obj/machinery/door/airlock/multi_tile/urban
 	name = "\improper Airlock"
-		icon_state = "door_closed"
+	icon_state = "door_closed"
 	req_access = null
 
 /obj/machinery/door/airlock/multi_tile/urban/generic

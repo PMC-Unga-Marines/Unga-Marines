@@ -910,7 +910,7 @@
 
 /obj/machinery/door/airlock/urban/medical
 	name = "\improper Airlock"
-		icon = 'icons/obj/doors/hybrisa/hybrisa_medidoor_glass.dmi'
+	icon = 'icons/obj/doors/hybrisa/hybrisa_medidoor_glass.dmi'
 	opacity = FALSE
 	glass = TRUE
 
