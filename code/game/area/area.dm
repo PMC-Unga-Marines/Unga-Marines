@@ -69,8 +69,6 @@
 	return ..()
 
 ///string used to determine specific icon variants when structures are used in an area
-	var/area_flavor = AREA_FLAVOR_NONE
-
 /area/Initialize(mapload, ...)
 	icon_state = "" //Used to reset the icon overlay, I assume.
 	layer = AREAS_LAYER
