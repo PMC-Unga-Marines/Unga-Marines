@@ -129,3 +129,10 @@
 
 /obj/structure/fence/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
+
+/obj/structure/fence/dark
+	icon = 'icons/obj/smooth_objects/dark_fence.dmi'
+	destroyed_icon = 'icons/obj/smooth_objects/brokenfence_dark.dmi'
+
+	///icon set we switch to when destroyed
+	var/destroyed_icon = 'icons/obj/smooth_objects/brokenfence.dmi'

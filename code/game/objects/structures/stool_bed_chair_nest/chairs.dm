@@ -585,3 +585,19 @@
 	buildstacktype = null
 	resistance_flags = UNACIDABLE
 	dir = WEST
+
+/obj/structure/bed/chair/sofa/corsat/white
+	icon_state = "bench_hor2"
+
+/obj/structure/bed/chair/sofa/corsat/single
+	icon_state = "sofa"
+/obj/structure/bed/chair/sofa/corsat/left/white
+	icon_state = "bench_hor1"
+/obj/structure/bed/chair/sofa/corsat/right/white
+	icon_state = "bench_hor3"
+/obj/structure/bed/chair/sofa/corsat/verticaltop/white
+	icon_state = "bench_vet3"
+/obj/structure/bed/chair/sofa/corsat/verticalmiddle/white
+	icon_state = "bench_vet2"
+/obj/structure/bed/chair/sofa/corsat/verticalsouth/white
+	icon_state = "bench_vet1"

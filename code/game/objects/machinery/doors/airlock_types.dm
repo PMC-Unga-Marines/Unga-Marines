@@ -391,6 +391,9 @@
 	name = "\improper Engineering Glass Airlock"
 	icon = 'icons/obj/doors/mainship/engidoor_glass.dmi'
 
+/obj/machinery/door/airlock/mainship/engineering/glass/free_access
+	req_one_access = null
+
 /obj/machinery/door/airlock/mainship/engineering/free_access
 	req_one_access = null
 
@@ -884,3 +887,55 @@
 	name = "\improper Research Dome"
 	icon_state = "door_locked"
 	locked = TRUE
+
+
+// urban doors
+
+/obj/machinery/door/airlock/urban
+	openspeed = 4
+	icon_state = "door_closed"
+	req_access = null
+
+/obj/machinery/door/airlock/urban/generic
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_generic_glass.dmi'
+	opacity = FALSE
+	glass = TRUE
+
+/obj/machinery/door/airlock/urban/generic_solid
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_generic.dmi'
+
+// Medical
+
+/obj/machinery/door/airlock/urban/medical
+	name = "\improper Airlock"
+		icon = 'icons/obj/doors/hybrisa/hybrisa_medidoor_glass.dmi'
+	opacity = FALSE
+	glass = TRUE
+
+/obj/machinery/door/airlock/urban/medical_solid
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_medidoor.dmi'
+
+// Personal
+/obj/machinery/door/airlock/urban/personal
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_personaldoor_glass.dmi'
+	opacity = FALSE
+	glass = TRUE
+
+/obj/machinery/door/airlock/urban/personal_solid
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_personaldoor.dmi'
+
+// Personal White
+/obj/machinery/door/airlock/urban/personal_white
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_personaldoor_glass_white.dmi'
+	opacity = FALSE
+	glass = TRUE
+
+/obj/machinery/door/airlock/urban/personal_solid_white
+	name = "\improper Airlock"
+	icon = 'icons/obj/doors/hybrisa/hybrisa_personaldoor_white.dmi'

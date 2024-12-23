@@ -8,11 +8,16 @@
 	var/directional = TRUE
 	///The icon sign will change on Initialize.
 	var/base_icon = 'icons/obj/decals.dmi'
+	///if true try to automatically find the nearest wall and put ourselves on it
+	var/autoplace = TRUE
 
 /obj/structure/sign/Initialize(mapload)
 	. = ..()
 	if(base_icon)
 		icon = base_icon
+		if(autoplace)
+		place_poster()
+		return
 	if(!directional) //if not directional do not initialize to a x or y offset
 		return
 	switch(dir)
@@ -24,6 +29,48 @@
 			pixel_x = 30
 		if(WEST)
 			pixel_x = -30
+
+//automatically adjust place and offset to make sure sign isn't floating in the middle of nowhere
+/obj/structure/sign/proc/place_poster()
+	if(isclosedturf(get_step(loc, dir)))
+		switch(dir)
+			if(NORTH)
+				pixel_y = 32
+			if(SOUTH)
+				pixel_y = -32
+			if(EAST)
+				pixel_x = 30
+			if(WEST)
+				pixel_x = -30
+		return
+	if(isclosedturf(get_turf(loc)))
+		return
+	for(var/i in CARDINAL_ALL_DIRS)
+		if(!isclosedturf(get_step(loc, i)))
+			continue
+		else
+			switch(i)
+							if(NORTH)
+					pixel_y = 32
+				if(NORTHEAST)
+					pixel_y = 32
+					pixel_x = 30
+				if(NORTHWEST)
+					pixel_y = 32
+					pixel_x = -30
+				if(SOUTH)
+					pixel_y = -32
+				if(SOUTHWEST)
+					pixel_y = -32
+					pixel_x = -30
+				if(SOUTHEAST)
+					pixel_y = -32
+					pixel_x = 30
+				if(EAST)
+					pixel_x = 30
+				if(WEST)
+					pixel_x = -30
+			return
 
 /obj/structure/sign/ex_act(severity)
 	if(severity >= EXPLODE_WEAK)

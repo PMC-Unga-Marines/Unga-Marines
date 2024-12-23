@@ -631,6 +631,9 @@
 /turf/open/lavaland/basalt/get_dirt_type()
 	return DIRT_TYPE_LAVALAND
 
+/turf/open/urbanshale/get_dirt_type()
+	return DIRT_TYPE_GROUND
+
 /turf/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(!target)

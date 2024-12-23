@@ -124,3 +124,5 @@
 	. = ..()
 	if(user == loc)
 		. += span_notice("Charge card's owner: [owner_name]. Rubles remaining: [worth].")
+
+icon = 'icons/obj/items/items.dmi'

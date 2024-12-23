@@ -8,6 +8,7 @@
 		#include "map_files\Ice_Colony_v2\Ice_Colony_v2.dmm"
 		#include "map_files\LV624\LV624.dmm"
 		#include "map_files\Prison_Station_FOP\Prison_Station_FOP.dmm"
+		#include "map_files\LV759\LV759.dmm"
 		#include "map_files\Vapor_Processing\Vapor_Processing.dmm"
 		#include "map_files\icy_caves\icy_caves.dmm"
 		#include "map_files\Research_Outpost\Research_Outpost.dmm"

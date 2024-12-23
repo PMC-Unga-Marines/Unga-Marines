@@ -8,6 +8,8 @@
 	power_equip = 0
 	power_environ = 0
 	ambience = list('sound/ambience/ambispace.ogg')
+	max_ambience_cooldown = 180 SECONDS
+	min_ambience_cooldown = 180 SECONDS
 	temperature = TCMB
 	flags_area = NO_DROPPOD
 	///What type of debuff do we apply when someone enters this area?

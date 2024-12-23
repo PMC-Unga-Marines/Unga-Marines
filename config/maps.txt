@@ -96,3 +96,8 @@ endmap
 map kutjevo
 	minplayers 35
 endmap
+
+
+map lv759
+	minplayers 40
+endmap

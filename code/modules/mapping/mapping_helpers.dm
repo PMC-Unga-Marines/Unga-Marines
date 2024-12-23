@@ -409,3 +409,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	var/datum/disease/D = new disease_type()
 	return list(component_type,D)
 	*/
+
+/obj/effect/mapping_helpers/airlock/free_access
+	name = "airlock free access helper"
+	icon_state = "airlock_free_access"
+
+/obj/effect/mapping_helpers/airlock/free_access/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in loc
+	if(!airlock)
+		CRASH("### MAP WARNING, [src] failed to find an airlock at [AREACOORD(src)]")
+	airlock.req_access = null
+	airlock.req_one_access = null
