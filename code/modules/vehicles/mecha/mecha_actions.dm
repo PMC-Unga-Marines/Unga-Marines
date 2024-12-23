@@ -82,7 +82,7 @@
 /obj/vehicle/sealed/mecha/proc/toggle_strafe()
 	strafe = !strafe
 
-	chassis.balloon_alert(owner, "strafing mode [strafe ? "on" : "off"]")
+	to_chat(occupants, span_notice("Strafing mode [strafe ? "on" : "off"]."))
 	log_message("Toggled strafing mode [strafe ? "on":"off"].", LOG_MECHA)
 
 	for(var/occupant in occupants)
