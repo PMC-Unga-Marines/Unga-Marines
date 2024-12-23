@@ -14,20 +14,21 @@
 	gravity = list(0, 0.95)
 	grow = 0.05
 
-
 /obj/vehicle/sealed/mecha/combat/greyscale
 	name = "Should not be visible"
 	icon_state = "greyscale"
 	layer = ABOVE_ALL_MOB_LAYER
-	mech_type = EXOSUIT_MODULE_GREYSCALE
 	pixel_x = -16
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	move_delay = 3
+	force = 30
+	destruction_sleep_duration = 40
+	exit_delay = 40
 	max_equip_by_category = MECH_GREYSCALE_MAX_EQUIP
 	internal_damage_threshold = 15
 	internal_damage_probability = 5
 	possible_int_damage = MECHA_INT_FIRE|MECHA_INT_SHORT_CIRCUIT
-	mecha_flags = ADDING_ACCESS_POSSIBLE | CANSTRAFE | IS_ENCLOSED | HAS_HEADLIGHTS | MECHA_SKILL_LOCKED
+	mecha_flags = ADDING_ACCESS_POSSIBLE
 	/// keyed list. values are types at init, otherwise instances of mecha limbs, order is layer order as well
 	var/list/datum/mech_limb/limbs = list(
 		MECH_GREY_TORSO = null,
@@ -64,9 +65,12 @@
 		limb?.detach(src)
 	return ..()
 
+/obj/vehicle/sealed/mecha/combat/greyscale/restore_equipment()
+	mouse_pointer = 'icons/mecha/mecha_mouse.dmi'
+	return ..()
 
 /obj/vehicle/sealed/mecha/combat/greyscale/mob_try_enter(mob/entering_mob, mob/user, loc_override = FALSE)
-	if((mecha_flags & MECHA_SKILL_LOCKED) && entering_mob.skills.getRating(SKILL_MECH_PILOT) < SKILL_MECH_PILOT_TRAINED)
+	if(entering_mob.skills.getRating(SKILL_MECH_PILOT) < SKILL_MECH_PILOT_TRAINED)
 		balloon_alert(entering_mob, "You don't know how to pilot this")
 		return FALSE
 	return ..()
@@ -147,7 +151,7 @@
 	)
 
 /obj/vehicle/sealed/mecha/combat/greyscale/recon/noskill
-	mecha_flags = ADDING_ACCESS_POSSIBLE|CANSTRAFE|IS_ENCLOSED|HAS_HEADLIGHTS
+	mecha_flags = ADDING_ACCESS_POSSIBLE
 
 /obj/vehicle/sealed/mecha/combat/greyscale/assault
 	name = "Assault Mecha"
@@ -160,7 +164,7 @@
 	)
 
 /obj/vehicle/sealed/mecha/combat/greyscale/assault/noskill
-	mecha_flags = ADDING_ACCESS_POSSIBLE|CANSTRAFE|IS_ENCLOSED|HAS_HEADLIGHTS
+	mecha_flags = ADDING_ACCESS_POSSIBLE
 
 /obj/vehicle/sealed/mecha/combat/greyscale/vanguard
 	name = "Vanguard Mecha"
@@ -173,4 +177,4 @@
 	)
 
 /obj/vehicle/sealed/mecha/combat/greyscale/vanguard/noskill
-	mecha_flags = ADDING_ACCESS_POSSIBLE|CANSTRAFE|IS_ENCLOSED|HAS_HEADLIGHTS
+	mecha_flags = ADDING_ACCESS_POSSIBLE

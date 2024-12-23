@@ -60,7 +60,7 @@
 	///Whether the mechs maintenance protocols are on or off
 	var/construction_state = MECHA_LOCKED
 	///Contains flags for the mecha
-	var/mecha_flags = ADDING_ACCESS_POSSIBLE | CANSTRAFE | IS_ENCLOSED | HAS_HEADLIGHTS
+	var/mecha_flags = ADDING_ACCESS_POSSIBLE
 	///Stores the DNA enzymes of a carbon so tht only they can access the mech
 	var/dna_lock
 	///Spark effects are handled by this datum
@@ -132,8 +132,6 @@
 	var/destruction_sleep_duration = 2 SECONDS
 	///Whether outside viewers can see the pilot inside
 	var/enclosed = TRUE
-	///In case theres a different iconstate for AI/MMI pilot(currently only used for ripley)
-	var/silicon_icon_state = null
 	///Currently ejecting, and unable to do things
 	var/is_currently_ejecting = FALSE
 	///Safety for weapons. Won't fire if enabled, and toggled by middle click.
@@ -355,8 +353,6 @@
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/strafe, VEHICLE_CONTROL_DRIVE)
 
 /obj/vehicle/sealed/mecha/proc/get_mecha_occupancy_state()
-	if((mecha_flags & SILICON_PILOT) && silicon_icon_state)
-		return silicon_icon_state
 	if(LAZYLEN(occupants))
 		return base_icon_state
 	return "[base_icon_state]-open"
@@ -408,11 +404,8 @@
 			. += "[icon2html(ME, user)] \A [ME]."
 	if(enclosed)
 		return
-	if(mecha_flags & SILICON_PILOT)
-		. += "[src] appears to be piloting itself..."
-	else
-		for(var/occupante in occupants)
-			. += "You can see [occupante] inside."
+	for(var/occupante in occupants)
+		. += "You can see [occupante] inside."
 
 //processing internal damage, alert updates, lights power use.
 /obj/vehicle/sealed/mecha/process(delta_time)
@@ -497,7 +490,7 @@
 		. = COMSIG_MOB_CLICK_CANCELED
 	if(!isturf(target) && !isturf(target.loc)) // Prevents inventory from being drilled
 		return
-	if(completely_disabled || is_currently_ejecting || (mecha_flags & CANNOT_INTERACT))
+	if(completely_disabled || is_currently_ejecting)
 		return
 	if(phasing)
 		balloon_alert(user, "not while [phasing]!")
@@ -512,7 +505,7 @@
 	if(src == target)
 		return
 	var/dir_to_target = get_dir(src,target)
-	if(!(mecha_flags & OMNIDIRECTIONAL_ATTACKS) && dir_to_target && !(dir_to_target & dir))//wrong direction
+	if(dir_to_target && !(dir_to_target & dir))//wrong direction
 		return
 	if(internal_damage & MECHA_INT_CONTROL_LOST)
 		target = pick(view(3,target))

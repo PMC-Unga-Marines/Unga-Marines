@@ -108,7 +108,7 @@
 
 /obj/vehicle/sealed/mecha/fire_act(burn_level, flame_color) //Check if we should ignite the pilot of an open-canopy mech
 	. = ..()
-	if(enclosed || mecha_flags & SILICON_PILOT)
+	if(enclosed)
 		return
 	for(var/mob/living/cookedalive AS in occupants)
 		if(cookedalive.fire_stacks < 5)
