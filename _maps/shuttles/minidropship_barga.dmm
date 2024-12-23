@@ -129,6 +129,9 @@
 /area/shuttle/minidropship)
 "M" = (
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced{
+	layer = 1
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "N" = (
