@@ -606,12 +606,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
-"cW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/outside)
 "cX" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -4573,10 +4567,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
-"ya" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/outside)
 "yb" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/prison/bright_clean/two,
@@ -5229,14 +5219,6 @@
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/prison/kitchen,
 /area/icy_caves/outpost/kitchen)
-"Bj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/outside)
 "Bm" = (
 /obj/structure/bed/chair,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8038,12 +8020,6 @@
 "Pd" = (
 /turf/closed/wall,
 /area/icy_caves/outpost/security)
-"Pe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/outside/center)
 "Pg" = (
 /obj/machinery/light{
 	dir = 4
@@ -8051,14 +8027,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
-"Pj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/outside/center)
 "Pl" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno,
 /obj/item/ammo_casing,
@@ -14157,7 +14125,7 @@ XO
 Za
 Ni
 vy
-cW
+vy
 vy
 vy
 vy
@@ -14324,7 +14292,7 @@ SI
 pY
 vy
 Al
-cW
+vy
 vy
 vy
 vy
@@ -14339,7 +14307,7 @@ Qe
 SI
 SI
 SI
-ya
+SI
 SI
 SI
 SI
@@ -14507,7 +14475,7 @@ SI
 SI
 SI
 SI
-ya
+SI
 SI
 SI
 SI
@@ -15133,7 +15101,7 @@ Dk
 tU
 KZ
 XO
-ya
+SI
 SI
 XO
 ZP
@@ -15266,7 +15234,7 @@ lM
 OE
 Gw
 XO
-ya
+SI
 Dn
 Za
 XO
@@ -16381,7 +16349,7 @@ Dk
 rX
 KZ
 XO
-ya
+SI
 SI
 XO
 XO
@@ -16826,7 +16794,7 @@ NB
 QS
 Gw
 XO
-Bj
+Dn
 SI
 XO
 pR
@@ -17593,7 +17561,7 @@ my
 my
 my
 my
-JW
+my
 my
 my
 my
@@ -17611,7 +17579,7 @@ my
 my
 my
 my
-JW
+my
 my
 my
 my
@@ -17621,7 +17589,7 @@ my
 WR
 Ip
 my
-JW
+my
 my
 my
 my
@@ -17785,7 +17753,7 @@ li
 li
 li
 DD
-JW
+my
 my
 DD
 DD
@@ -18074,7 +18042,7 @@ ow
 li
 li
 my
-Pj
+HA
 li
 YA
 YA
@@ -18678,7 +18646,7 @@ li
 ow
 ow
 li
-JW
+my
 HA
 li
 WY
@@ -19033,7 +19001,7 @@ Uz
 Ez
 ND
 li
-JW
+my
 my
 DD
 li
@@ -19612,7 +19580,7 @@ my
 my
 my
 my
-JW
+my
 my
 my
 my
@@ -19790,7 +19758,7 @@ ow
 li
 DD
 my
-Pj
+HA
 my
 my
 vj
@@ -20559,7 +20527,7 @@ my
 oN
 Iw
 my
-JW
+my
 my
 my
 kJ
@@ -20593,7 +20561,7 @@ wZ
 LC
 ND
 li
-JW
+my
 my
 DD
 DD
@@ -20710,7 +20678,7 @@ DD
 DD
 DD
 DD
-IE
+DD
 DD
 my
 li
@@ -20727,7 +20695,7 @@ li
 li
 li
 HA
-JW
+my
 li
 ND
 Ez
@@ -21685,7 +21653,7 @@ Fy
 Fa
 ND
 li
-JW
+my
 li
 li
 ZP
@@ -21804,7 +21772,7 @@ ql
 uX
 kg
 li
-JW
+my
 li
 FZ
 kX
@@ -22287,7 +22255,7 @@ li
 li
 li
 HA
-JW
+my
 li
 li
 li
@@ -22433,7 +22401,7 @@ OF
 nu
 nu
 iu
-Pe
+nu
 nu
 Ft
 nu
@@ -23088,7 +23056,7 @@ sV
 UG
 VM
 li
-IE
+DD
 ZP
 ZP
 ZP
@@ -23220,7 +23188,7 @@ li
 li
 li
 HA
-JW
+my
 li
 VM
 Ya
@@ -24310,7 +24278,7 @@ Ha
 ro
 li
 HA
-JW
+my
 DD
 li
 li
