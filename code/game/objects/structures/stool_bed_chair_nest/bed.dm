@@ -457,7 +457,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	var/area/evac_area = get_area(src)
 	if(evac_area.ceiling == CEILING_NONE) // animation evacuation if it havn't roof
 		flick("winched_stretcher",src)
-		last_teleport = world.time + MEDEVAC_FULTON_COOLDOWN
+		last_teleport = world.time + MEDEVAC_FULTON_COOLDOWN // less cooldown if teleported outside.
 		return
 	last_teleport = world.time + MEDEVAC_COOLDOWN
 
