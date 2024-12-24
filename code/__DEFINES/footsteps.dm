@@ -506,9 +506,9 @@ GLOBAL_LIST_INIT(xenostompy, list(
 		'sound/effects/footstep/alien/large2.ogg',
 		'sound/effects/footstep/alien/large3.ogg'), 55, 1),
 	FOOTSTEP_SWIM = list(list(
-		'sound/effects/footstep/alien/large1.ogg',
-		'sound/effects/footstep/alien/large2.ogg',
-		'sound/effects/footstep/alien/large3.ogg'), 50, 1),
+		'sound/effects/footstep/swimming1.ogg',
+		'sound/effects/footstep/swimming2.ogg',
+		'sound/effects/footstep/swimming3.ogg'), 100, 1),
 	FOOTSTEP_RESIN = list(list(
 		'sound/effects/footstep/alien/large1.ogg',
 		'sound/effects/footstep/alien/large2.ogg',
@@ -578,9 +578,9 @@ GLOBAL_LIST_INIT(predalienstompy, list(
 		'sound/effects/footstep/alien/medium2.ogg',
 		'sound/effects/footstep/alien/medium3.ogg'), 55, 1),
 	FOOTSTEP_SWIM = list(list(
-		'sound/effects/footstep/alien/medium1.ogg',
-		'sound/effects/footstep/alien/medium2.ogg',
-		'sound/effects/footstep/alien/medium3.ogg'), 40, -1),
+		'sound/effects/footstep/swimming1.ogg',
+		'sound/effects/footstep/swimming2.ogg',
+		'sound/effects/footstep/swimming3.ogg'), 70, -1),
 	FOOTSTEP_RESIN = list(list(
 		'sound/effects/footstep/alien/medium1.ogg',
 		'sound/effects/footstep/alien/medium2.ogg',
