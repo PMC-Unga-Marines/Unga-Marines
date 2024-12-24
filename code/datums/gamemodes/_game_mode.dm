@@ -78,6 +78,10 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///if fun tads are enabled by default
 	var/enable_fun_tads = FALSE
 
+	var/xeno_damage_taking_multiplier = 1
+	var/human_damage_taking_multiplier = 1
+	var/living_damage_taking_multiplier = 1
+
 
 /datum/game_mode/New()
 	initialize_emergency_calls()

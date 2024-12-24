@@ -16,6 +16,10 @@ mode Extended
 	votable 0
 endmode
 
+mode X2damage
+	requiredplayers 30
+endmode
+
 mode Combat Patrol
 	requiredplayers 2
 endmode

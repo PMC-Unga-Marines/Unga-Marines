@@ -33,6 +33,7 @@
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/survivor/rambo = 1,
 	)
+
 	var/siloless_hive_timer
 
 /datum/game_mode/infestation/distress/post_setup()
