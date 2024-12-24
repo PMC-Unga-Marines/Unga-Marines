@@ -212,10 +212,6 @@
 	},
 /turf/open/space/sea,
 /area/space)
-"acE" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/r_wall/prison_unmeltable,
-/area/prison/research/secret/biolab)
 "acF" = (
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
@@ -228,10 +224,6 @@
 	dir = 4
 	},
 /area/prison/cellblock/highsec/north/north)
-"acH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/r_wall/prison,
-/area/prison/research/secret/biolab)
 "acI" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -325,7 +317,6 @@
 	dir = 2;
 	id = "biological_testing_1"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
 "acV" = (
@@ -339,7 +330,6 @@
 	dir = 2;
 	id = "biological_testing_1"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
@@ -352,7 +342,6 @@
 	id = "biological_testing_1"
 	},
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
 "acX" = (
@@ -43094,10 +43083,6 @@
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/prison,
 /area/prison/research/secret/dissection)
-"iFe" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating,
-/area/prison/research/secret/biolab)
 "iFC" = (
 /turf/open/liquid/water/river,
 /area/prison/security/checkpoint/maxsec)
@@ -46307,7 +46292,6 @@
 	dir = 2;
 	id = "biological_testing_1"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
@@ -47870,11 +47854,6 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/plating,
 /area/prison/maintenance/hangar_barracks)
-"saw" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall/r_wall/prison_unmeltable,
-/area/prison/research/secret/biolab)
 "saC" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/landmark/weed_node,
@@ -86957,13 +86936,13 @@ aab
 bWl
 bWl
 bWl
-saw
-acE
-acE
-acE
-acE
-saw
-acE
+rrt
+rrt
+rrt
+rrt
+rrt
+rrt
+rrt
 xAI
 adw
 uXI
@@ -87213,8 +87192,8 @@ aab
 aab
 bWl
 bWl
-acE
-acE
+rrt
+rrt
 acI
 wcU
 acF
@@ -87470,7 +87449,7 @@ aab
 aab
 bWl
 bWl
-acE
+rrt
 acF
 gdU
 gdU
@@ -87727,7 +87706,7 @@ aab
 aab
 bWl
 bWl
-acE
+rrt
 acF
 wkm
 acF
@@ -87984,7 +87963,7 @@ aab
 aab
 bWl
 bWl
-acE
+rrt
 nwF
 oAL
 rYj
@@ -88241,10 +88220,10 @@ aab
 bWl
 bWl
 bWl
-acE
+rrt
 gdU
 acF
-iFe
+acF
 nwF
 wcU
 acF
@@ -88498,7 +88477,7 @@ aab
 bWl
 bWl
 bWl
-acE
+rrt
 acF
 nwF
 gdU
@@ -88755,7 +88734,7 @@ aab
 bWl
 bWl
 bWl
-acE
+rrt
 gdU
 gdU
 acF
@@ -89012,7 +88991,7 @@ aab
 bWl
 bWl
 bWl
-acE
+rrt
 wcU
 gdU
 acF
@@ -89269,14 +89248,14 @@ bWl
 bWl
 bWl
 bWl
-saw
-acH
-acH
-acH
-acH
-acH
-acH
-acH
+rrt
+xAI
+xAI
+xAI
+xAI
+xAI
+xAI
+xAI
 adn
 adx
 svM

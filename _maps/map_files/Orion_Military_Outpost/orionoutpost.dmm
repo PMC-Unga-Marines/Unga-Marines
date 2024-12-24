@@ -525,10 +525,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostse)
-"cU" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveN/garbledradio)
 "cV" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete/edge{
@@ -1901,10 +1897,6 @@
 "jZ" = (
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/surface/building/cargo)
-"kb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
 "kc" = (
 /turf/open/floor/mainship/blue,
 /area/orion_outpost/surface/building/command)
@@ -4464,7 +4456,6 @@
 	color = "#7a8c54";
 	dir = 9
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostse)
 "wR" = (
@@ -5141,10 +5132,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveN/garbledradio)
-"An" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
 "Ap" = (
 /obj/structure/stairs/seamless/platform_vert{
 	dir = 4
@@ -5258,14 +5245,6 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveS)
-"AT" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
-	dir = 10
-	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
 "AU" = (
 /obj/structure/desertdam/decals/road{
 	dir = 1
@@ -6990,10 +6969,6 @@
 "JX" = (
 /turf/open/floor/mainship/orange,
 /area/orion_outpost/surface/building/tadpolepad)
-"JY" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth,
-/area/orion_outpost/ground/outpostse)
 "Ka" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood,
@@ -7050,11 +7025,6 @@
 	},
 /turf/open/floor/podhatch/floor,
 /area/orion_outpost/surface/building/crashedufo)
-"Kn" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
 "Ko" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
@@ -7387,10 +7357,6 @@
 	dir = 8
 	},
 /area/orion_outpost/surface/building/command)
-"LQ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
 "LR" = (
 /obj/structure/window/framed/mainship/gray,
 /turf/open/floor/mainship/mono,
@@ -9040,10 +9006,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostsw)
-"Um" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Un" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -23538,15 +23500,15 @@ PS
 PS
 PS
 PS
-sl
-Um
-Um
-Um
-Um
-Um
-Um
-Um
-sl
+PS
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+PS
 PS
 PS
 PS
@@ -23670,7 +23632,7 @@ PS
 PS
 PS
 PS
-sl
+PS
 cr
 cr
 cr
@@ -23678,7 +23640,7 @@ cr
 cr
 cr
 cr
-sl
+PS
 PS
 PS
 PS
@@ -23802,7 +23764,7 @@ PS
 PS
 PS
 PS
-sl
+PS
 cr
 cr
 cr
@@ -23810,7 +23772,7 @@ cr
 cr
 cr
 cr
-sl
+PS
 PS
 PS
 PS
@@ -23934,15 +23896,15 @@ PS
 PS
 PS
 PS
-sl
+PS
 cr
 cr
 cr
 cr
 cr
-cU
 cr
-sl
+cr
+PS
 PS
 PS
 PS
@@ -24066,7 +24028,7 @@ PS
 PS
 PS
 PS
-sl
+PS
 Aj
 Pm
 cr
@@ -24074,7 +24036,7 @@ cr
 cr
 cr
 Aj
-sl
+PS
 PS
 PS
 PS
@@ -24134,13 +24096,13 @@ Tm
 Tm
 Tm
 zo
-kb
-Kn
-LQ
-AT
+Tm
+Oa
+Yb
+jW
 wP
-kb
-kb
+Tm
+Tm
 Tm
 Tm
 Tm
@@ -24198,7 +24160,7 @@ PS
 PS
 PS
 cr
-Um
+cr
 cr
 cr
 iI
@@ -24206,7 +24168,7 @@ cr
 cr
 cr
 cr
-yi
+Lb
 PS
 PS
 PS
@@ -24266,13 +24228,13 @@ Tm
 Tm
 Tm
 Tm
-kb
+Tm
 IQ
 Tm
 Tm
-An
 Tm
-kb
+Tm
+Tm
 Tm
 Tm
 Tm
@@ -24330,7 +24292,6 @@ PS
 PS
 PS
 cr
-Um
 cr
 cr
 cr
@@ -24338,7 +24299,8 @@ cr
 cr
 cr
 cr
-Um
+cr
+cr
 cr
 cr
 cr
@@ -24398,13 +24360,13 @@ UU
 UU
 UU
 zo
-kb
-cR
-Tm
-Tm
 Tm
 cR
-kb
+Tm
+Tm
+Tm
+cR
+Tm
 Tm
 Tm
 Tm
@@ -24462,7 +24424,6 @@ PS
 PS
 cr
 cr
-Um
 cr
 cr
 cr
@@ -24470,7 +24431,8 @@ cr
 cr
 cr
 cr
-Um
+cr
+cr
 cr
 cr
 cr
@@ -24530,13 +24492,13 @@ UU
 UU
 UU
 Tm
-kb
 Tm
 Tm
 Tm
 Tm
 Tm
-JY
+Tm
+UU
 UU
 UU
 UU
@@ -24594,15 +24556,15 @@ PS
 PS
 cr
 cr
-Um
-Um
-Um
-Um
-Um
-Um
-Um
-Um
-Um
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
 cr
 cr
 cr
@@ -24662,13 +24624,13 @@ UU
 UU
 UU
 UU
-JY
+UU
 UU
 Tm
 Tm
 Tm
 Tm
-JY
+UU
 UU
 UU
 UU
@@ -24794,13 +24756,13 @@ UU
 UU
 UU
 UU
-JY
-JY
-JY
-JY
-JY
-JY
-JY
+UU
+UU
+UU
+UU
+UU
+UU
+UU
 UU
 UU
 UU

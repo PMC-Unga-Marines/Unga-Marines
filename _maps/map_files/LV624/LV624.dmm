@@ -3346,10 +3346,6 @@
 /obj/structure/platform,
 /turf/closed/wall/r_wall/chigusa,
 /area/lv624/lazarus/sandtemple)
-"bUQ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/east1/garbledradio)
 "bVh" = (
 /obj/prop/hydroponics,
 /turf/open/floor/tile/green/greentaupe{
@@ -3758,7 +3754,6 @@
 "cwo" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "cwq" = (
@@ -4220,10 +4215,6 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
-"cUD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/east1)
 "cUE" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -6858,12 +6849,6 @@
 /obj/item/ammo_casing,
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
-"fWZ" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
-/area/lv624/ground/caves/east1/garbledradio)
 "fXa" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
@@ -7318,11 +7303,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
-"gsr" = (
-/obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/east1/garbledradio)
 "gsx" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass,
@@ -8154,11 +8134,6 @@
 /obj/machinery/vending/tool,
 /turf/open/floor/tile/vault,
 /area/lv624/lazarus/robotics)
-"htq" = (
-/obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/east1/garbledradio)
 "htz" = (
 /turf/open/floor/plating/warning,
 /area/lv624/lazarus/robotics)
@@ -10696,11 +10671,6 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating,
 /area/lv624/lazarus/sleep_male)
-"kfz" = (
-/obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/east1)
 "kfC" = (
 /obj/structure/flora/jungle/planttop1,
 /turf/open/ground/grass,
@@ -20513,10 +20483,6 @@
 "uYE" = (
 /turf/closed/gm/dense,
 /area/shuttle/drop1/lz1)
-"uYJ" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/caves/east1/garbledradio)
 "uYP" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
@@ -56520,15 +56486,15 @@ aah
 aah
 sDq
 gKr
-alB
-alB
-alB
-alB
-alB
-alB
-alB
-alB
-alB
+gKr
+gKr
+gKr
+gKr
+gKr
+gKr
+gKr
+gKr
+gKr
 gKr
 snv
 fXE
@@ -56702,7 +56668,7 @@ aah
 aah
 sDq
 gKr
-alB
+gKr
 gKr
 gKr
 aaH
@@ -56710,7 +56676,7 @@ mNv
 aaH
 gKr
 gKr
-alB
+gKr
 gKr
 gKr
 snv
@@ -56884,7 +56850,7 @@ mcN
 aah
 sDq
 gKr
-alB
+gKr
 gKr
 aaH
 aaQ
@@ -56892,7 +56858,7 @@ aaQ
 aaQ
 aaH
 gKr
-alB
+gKr
 gKr
 gKr
 snv
@@ -57066,15 +57032,15 @@ aah
 aah
 sDq
 gKr
-alB
+gKr
 aaH
 aaQ
 enS
 aaQ
-fWZ
+aaQ
 aaQ
 aaH
-alB
+gKr
 gKr
 gKr
 gKr
@@ -57248,7 +57214,7 @@ aah
 aah
 sDq
 gKr
-alB
+gKr
 aaH
 aaQ
 aaQ
@@ -57256,7 +57222,7 @@ avM
 aaQ
 aaQ
 aaQ
-htq
+chF
 mRR
 snv
 snv
@@ -57430,7 +57396,7 @@ aah
 mcN
 sDq
 gKr
-alB
+gKr
 aaH
 aaQ
 aaQ
@@ -57438,7 +57404,7 @@ enS
 aaQ
 aaQ
 aaH
-gsr
+goW
 snv
 snv
 snv
@@ -57612,7 +57578,7 @@ aah
 aah
 gKr
 gKr
-alB
+gKr
 goW
 aaH
 aaQ
@@ -57620,7 +57586,7 @@ mNv
 aaQ
 aaH
 hdX
-gsr
+goW
 snv
 snv
 snv
@@ -57794,7 +57760,7 @@ aah
 gKr
 gKr
 gKr
-alB
+gKr
 goW
 goW
 aaH
@@ -57802,7 +57768,7 @@ aaQ
 aaH
 hdX
 hdX
-bUQ
+snv
 snv
 fXE
 snv
@@ -57976,15 +57942,15 @@ aah
 gKr
 gKr
 gKr
-alB
-gsr
-gsr
-gsr
+gKr
+goW
+goW
+goW
 cwo
-gsr
-gsr
-bUQ
-bUQ
+goW
+goW
+snv
+snv
 snv
 snv
 snv
@@ -60341,14 +60307,14 @@ aah
 aah
 sDq
 aah
-alB
-alB
-alB
-alB
-alB
-alB
-alB
-cTi
+gKr
+gKr
+gKr
+gKr
+gKr
+gKr
+gKr
+evp
 evp
 evp
 evp
@@ -60522,7 +60488,7 @@ sDq
 aah
 aah
 aah
-cUD
+aah
 aym
 aym
 aym
@@ -60531,7 +60497,7 @@ aym
 aym
 gKr
 evp
-cTi
+evp
 evp
 evp
 gKr
@@ -60704,7 +60670,7 @@ aah
 aah
 mcN
 aah
-cUD
+aah
 sDq
 aah
 aah
@@ -60714,7 +60680,7 @@ aym
 gKr
 evp
 evp
-cTi
+evp
 evp
 gKr
 evp
@@ -60886,7 +60852,7 @@ mcN
 aah
 aah
 sDq
-cUD
+aah
 sDq
 aah
 mcN
@@ -60896,7 +60862,7 @@ aym
 aym
 gKr
 gKr
-alB
+gKr
 gKr
 gKr
 evp
@@ -61068,7 +61034,7 @@ aah
 aah
 aah
 aah
-cUD
+aah
 sDq
 aah
 aah
@@ -61079,7 +61045,7 @@ aym
 gKr
 gKr
 gKr
-alB
+gKr
 gKr
 gKr
 gKr
@@ -61250,7 +61216,7 @@ aah
 aah
 aah
 aah
-cUD
+aah
 vFA
 aah
 aah
@@ -61261,7 +61227,7 @@ aym
 aym
 gKr
 gKr
-cTi
+evp
 evp
 evp
 evp
@@ -61432,7 +61398,7 @@ sDq
 aah
 dUK
 aah
-cUD
+aah
 uzK
 aah
 aah
@@ -61443,7 +61409,7 @@ snv
 aym
 aym
 gKr
-cTi
+evp
 evp
 evp
 evp
@@ -61614,7 +61580,7 @@ mcN
 aah
 aah
 wwb
-cUD
+aah
 uzK
 mcN
 aah
@@ -61625,7 +61591,7 @@ snv
 snv
 aym
 aym
-ivV
+aym
 aym
 aym
 evp
@@ -61796,7 +61762,7 @@ aah
 aah
 sDq
 aah
-kfz
+dUK
 uzK
 aah
 aah
@@ -61807,7 +61773,7 @@ snv
 snv
 snv
 snv
-bUQ
+snv
 mRR
 aym
 gKr
@@ -61978,7 +61944,7 @@ aah
 aah
 aah
 dUK
-cUD
+aah
 sDq
 aah
 mcN
@@ -61988,7 +61954,7 @@ snv
 snv
 snv
 snv
-bUQ
+snv
 fXE
 snv
 mRR
@@ -62160,7 +62126,7 @@ aah
 sDq
 gKr
 mcN
-cUD
+aah
 sDq
 aah
 aah
@@ -62170,7 +62136,7 @@ snv
 snv
 fXE
 snv
-bUQ
+snv
 snv
 snv
 fXE
@@ -62342,7 +62308,7 @@ aah
 sDq
 gKr
 gKr
-cUD
+aah
 sDq
 aah
 aah
@@ -62352,7 +62318,7 @@ snv
 snv
 snv
 snv
-bUQ
+snv
 snv
 snv
 snv
@@ -62524,17 +62490,17 @@ mcN
 sDq
 gKr
 gKr
-ivV
+aym
 sDq
 aah
 aah
 aah
-uYJ
+snv
 snv
 snv
 snv
 aym
-ivV
+aym
 aym
 goW
 goW
@@ -62705,7 +62671,7 @@ aah
 sDq
 sDq
 gKr
-alB
+gKr
 gKr
 sDq
 mcN
@@ -62716,7 +62682,7 @@ snv
 snv
 aym
 aym
-alB
+gKr
 gKr
 gKr
 gKr
@@ -62887,7 +62853,7 @@ sDq
 sDq
 gKr
 gKr
-alB
+gKr
 gKr
 sDq
 aah
@@ -62899,7 +62865,7 @@ aym
 aym
 gKr
 gKr
-alB
+gKr
 gKr
 gKr
 gKr
@@ -63069,7 +63035,7 @@ gKr
 gKr
 gKr
 gKr
-alB
+gKr
 gKr
 sDq
 aah
@@ -63081,7 +63047,7 @@ aym
 aym
 gKr
 gKr
-cTi
+evp
 evp
 evp
 evp
@@ -63252,7 +63218,7 @@ gKr
 gKr
 gKr
 gKr
-alB
+gKr
 sDq
 aah
 aah
@@ -63263,7 +63229,7 @@ aym
 gKr
 gKr
 gKr
-cTi
+evp
 evp
 evp
 evp
@@ -63435,16 +63401,16 @@ gKr
 gKr
 gKr
 gKr
-ivV
-ivV
-ivV
-ivV
-ivV
-ivV
-ivV
-cTi
-cTi
-alB
+aym
+aym
+aym
+aym
+aym
+aym
+aym
+evp
+evp
+gKr
 evp
 evp
 evp
