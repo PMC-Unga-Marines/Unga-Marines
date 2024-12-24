@@ -104,6 +104,8 @@
 #define STATUS_EFFECT_SHATTER /datum/status_effect/shatter
 //widow's ability
 #define STATUS_EFFECT_SPIDER_VENOM /datum/status_effect/incapacitating/spider_venom
+//ar-21 status effect
+#define STATUS_EFFECT_SHARPSHOOTER /datum/status_effect/stacking/sharpshooter
 
 /////////////
 // NEUTRAL //
