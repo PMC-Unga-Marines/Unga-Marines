@@ -321,3 +321,6 @@
 	I.cut_apart(user, name, src)
 	deconstruct(FALSE)
 	return TRUE
+
+/obj/footstep_override(atom/movable/source, list/footstep_overrides)
+	footstep_overrides[FOOTSTEP_PLATING] = layer

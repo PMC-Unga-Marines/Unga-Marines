@@ -1606,7 +1606,7 @@
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/icy_caves/caves/northwestmonorail/medbay)
 "jg" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/misc/plushie,
@@ -1620,7 +1620,7 @@
 /area/icy_caves/caves/northwestmonorail/morgue)
 "jm" = (
 /obj/item/toy/dice/d20,
-/obj/structure/table/gamblingtable,
+/obj/structure/table/wood/gambling,
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "jo" = (
@@ -3527,7 +3527,7 @@
 /turf/closed/wall/r_wall,
 /area/icy_caves/outpost/LZ1)
 "sL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/tool/kitchen/knife/ritual,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cult,
@@ -5953,7 +5953,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "Fe" = (
-/obj/structure/table/gamblingtable,
+/obj/structure/table/wood/gambling,
 /obj/effect/spawner/random/weaponry/gun,
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
@@ -6253,7 +6253,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "Gq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/storage/bible/booze,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /obj/effect/spawner/random/weaponry/gun,
@@ -8150,7 +8150,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "PX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /obj/item/tool/pen/blue{
 	pixel_x = 5
@@ -8465,7 +8465,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "Ru" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/stamp,
 /turf/open/floor/wood,

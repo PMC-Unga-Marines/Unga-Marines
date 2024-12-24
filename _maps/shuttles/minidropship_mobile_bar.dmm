@@ -19,7 +19,7 @@
 	},
 /area/shuttle/minidropship)
 "e" = (
-/obj/structure/table/gamblingtable,
+/obj/structure/table/wood/gambling,
 /obj/machinery/chem_dispenser/beer{
 	dir = 4
 	},
@@ -44,7 +44,7 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/structure/barricade/metal{
 	dir = 4
 	},
@@ -64,7 +64,7 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/structure/barricade/metal{
 	dir = 8
 	},
@@ -99,7 +99,7 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/structure/dropship_piece/tadpole/engine{
 	dir = 1;
 	pixel_x = -23
@@ -168,7 +168,7 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/item/reagent_containers/glass/rag,
 /obj/structure/barricade/metal{
 	dir = 4
@@ -242,7 +242,7 @@
 /turf/open/floor/carpet/side,
 /area/shuttle/minidropship)
 "M" = (
-/obj/structure/table/gamblingtable,
+/obj/structure/table/wood/gambling,
 /obj/machinery/chem_dispenser/soda{
 	dir = 4
 	},
@@ -303,7 +303,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 5
 	},
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/structure/barricade/metal{
 	dir = 4
 	},

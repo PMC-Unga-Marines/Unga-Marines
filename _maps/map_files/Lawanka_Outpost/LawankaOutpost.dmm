@@ -702,7 +702,7 @@
 /area/lawankaoutpost/colony/mining)
 "aDk" = (
 /obj/item/weapon/broken_bottle,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "aDp" = (
@@ -2948,7 +2948,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/central)
 "cAs" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/book,
 /obj/machinery/light{
 	dir = 4
@@ -3797,7 +3797,7 @@
 /area/lawankaoutpost/colony/operations_hall)
 "djW" = (
 /obj/effect/spawner/random/food_or_drink/burger/normal,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "djX" = (
@@ -4367,7 +4367,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/central)
 "dND" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/paper,
 /turf/open/floor,
 /area/lawankaoutpost/colony/chapel)
@@ -4845,7 +4845,7 @@
 	},
 /area/lawankaoutpost/colony/operations_administration)
 "eiq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/holywater,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/chapel)
@@ -5352,7 +5352,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "eFc" = (
@@ -5651,7 +5651,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
@@ -6155,11 +6155,11 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/colony/operations_hall)
 "fmM" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood/variable,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "fmZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/misc/table_lighting,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/chapel)
@@ -7480,7 +7480,7 @@
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/operations_meeting)
 "glD" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/paper_bin{
 	pixel_y = 8
 	},
@@ -8017,7 +8017,7 @@
 /area/lawankaoutpost/colony/biologics)
 "gKg" = (
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "gKi" = (
@@ -8110,7 +8110,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/operations_administration)
 "gOE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/food_or_drink/packagedbar,
 /turf/open/floor/cult,
 /area/lawankaoutpost/caves/southwest)
@@ -8289,7 +8289,7 @@
 /area/lawankaoutpost/colony/southdorms)
 "gYr" = (
 /obj/effect/spawner/random/food_or_drink/drink_cans,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "gZB" = (
@@ -8396,7 +8396,7 @@
 /area/lawankaoutpost/outside/east)
 "hfd" = (
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "hfe" = (
@@ -8696,7 +8696,7 @@
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/operations_hall)
 "hvg" = (
-/obj/structure/table/gamblingtable,
+/obj/structure/table/wood/gambling,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "hvv" = (
@@ -8863,7 +8863,7 @@
 /turf/open/floor/tile/blue/taupeblue,
 /area/lawankaoutpost/colony/southdorms)
 "hFE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/tea,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/chapel)
@@ -10507,7 +10507,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/west)
 "iZB" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/computer/emails,
 /turf/open/floor,
 /area/lawankaoutpost/colony/chapel)
@@ -12453,7 +12453,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/colony/hydroponics)
 "kJu" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /turf/open/floor/cult,
 /area/lawankaoutpost/caves/southwest)
@@ -14033,7 +14033,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/recdorms)
 "lXe" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/storage/bible,
 /turf/open/floor,
 /area/lawankaoutpost/colony/chapel)
@@ -15888,7 +15888,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/central)
 "nzT" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/tool/lighter/zippo,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/chapel)
@@ -16429,7 +16429,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "nXx" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/tool/stamp,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/chapel)
@@ -18223,7 +18223,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "ptJ" = (
 /obj/item/weapon/gun/shotgun/double,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/cabin)
 "ptQ" = (
@@ -18631,7 +18631,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/engineering)
 "pHr" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
 /turf/open/floor/wood/variable,
 /area/lawankaoutpost/caves/nanotrasen_lab)
@@ -18915,7 +18915,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/southdorms)
 "pWL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/storage/bible,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/chapel)
@@ -19664,7 +19664,7 @@
 	},
 /area/lawankaoutpost/colony/medbay)
 "qCY" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/misc/table_lighting,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/chapel)
@@ -19850,7 +19850,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/southeast)
 "qPT" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/machinery/microwave,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/cabin)
@@ -20596,7 +20596,7 @@
 /area/lawankaoutpost/colony/landingzoneone)
 "rqO" = (
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "rqT" = (
@@ -21744,7 +21744,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lawankaoutpost/outside/northwest)
 "sqX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/cabin)
 "sro" = (
@@ -23178,7 +23178,7 @@
 	},
 /area/lawankaoutpost/colony/northdorms)
 "txb" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/chapel)
 "txl" = (
@@ -23325,7 +23325,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "tCI" = (
 /obj/item/reagent_containers/food/drinks/shaker,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "tCN" = (
@@ -25434,7 +25434,7 @@
 /turf/open/floor/tile/blue/taupeblue,
 /area/lawankaoutpost/colony/northdorms)
 "vvx" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/grown/sunflower,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/chapel)
@@ -25812,7 +25812,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/hydroponics)
 "vJN" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor,
 /area/lawankaoutpost/colony/chapel)
 "vJZ" = (
@@ -25831,7 +25831,7 @@
 /area/lawankaoutpost/colony/hydroponics)
 "vKx" = (
 /obj/effect/spawner/random/food_or_drink/beer,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "vKY" = (
@@ -28272,7 +28272,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/southeast)
 "xIU" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
 "xIY" = (
@@ -28770,7 +28770,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
 "ydI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/tool/candle,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/chapel)
