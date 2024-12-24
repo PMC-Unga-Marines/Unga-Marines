@@ -680,7 +680,7 @@
 		gun_overlay = null
 		return
 	flashing = FALSE
-	flash_overlay = image(icon, gun_icon_state + "_fire", pixel_x = -70, pixel_y = -69)
+	flash_overlay = image(icon, gun_icon_state + "_fire", pixel_x = -40, pixel_y = -48)
 	gun_overlay  = image(icon, gun_icon_state, pixel_x = -40, pixel_y = -48)
 	update_appearance(UPDATE_OVERLAYS)
 
