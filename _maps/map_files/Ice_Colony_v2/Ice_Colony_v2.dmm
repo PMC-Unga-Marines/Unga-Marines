@@ -6140,7 +6140,7 @@
 /turf/open/floor/wood,
 /area/ice_colony/surface/bar/bar)
 "aMe" = (
-/obj/structure/table/gamblingtable{
+/obj/structure/table/wood/gambling{
 	dir = 4;
 	flipped = 1
 	},

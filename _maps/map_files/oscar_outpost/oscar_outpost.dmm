@@ -5535,7 +5535,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "Hj" = (
-/obj/structure/table/gamblingtable{
+/obj/structure/table/wood/gambling{
 	layer = 3.1
 	},
 /obj/item/spacecash/bundle/c100{
