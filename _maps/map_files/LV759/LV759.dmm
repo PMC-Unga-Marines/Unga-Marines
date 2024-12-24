@@ -408,6 +408,7 @@
 /obj/structure/rack{
 	color = "#8B7B5B"
 	},
+/obj/effect/spawner/random/weaponry/explosive/grenade,
 /turf/open/floor/urban/carpet/carpetgreendeco,
 /area/lv759/indoors/jacks_surplus)
 "aej" = (
@@ -2912,6 +2913,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
+/obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/plating,
 /area/lv759/indoors/meridian/meridian_office)
 "aAw" = (
@@ -2981,6 +2983,23 @@
 	},
 /turf/open/floor/urban/tile/tilebeigecheckered,
 /area/lv759/indoors/apartment/northfoyer)
+"aBH" = (
+/obj/structure/prop/urban/misc/fake/lattice/full,
+/obj/structure/prop/urban/misc/floorprops/grate,
+/obj/structure/prop/urban/misc/fake/pipes/pipe1,
+/obj/structure/prop/urban/misc/fake/pipes/pipe1{
+	dir = 4
+	},
+/obj/structure/prop/urban/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = -4
+	},
+/obj/structure/prop/urban/misc/fake/wire/yellow{
+	pixel_x = 7
+	},
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
+/turf/open/urban/street/underground_unweedable,
+/area/lv759/outdoors/colony_streets/south_east_street)
 "aBO" = (
 /obj/effect/urban/decal/road/road_edge/two,
 /obj/effect/urban/decal/road/lines4,
@@ -7284,6 +7303,21 @@
 /obj/structure/lattice/autosmooth,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/vehicledeploymentbay)
+"boG" = (
+/obj/structure/rack,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/mask/gas/swat,
+/obj/item/clothing/mask/gas/swat,
+/obj/item/clothing/gloves/swat,
+/obj/item/clothing/gloves/swat,
+/obj/effect/spawner/random/weaponry/gun/rifles,
+/turf/open/floor/prison/red{
+	dir = 1
+	},
+/area/lv759/indoors/colonial_marshals/armory)
 "boN" = (
 /obj/structure/prop/urban/containersextended/blackwyright,
 /turf/open/floor/plating/plating_catwalk{
@@ -14777,6 +14811,10 @@
 	},
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/colonial_marshals/armory_firingrange)
+"cCt" = (
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
+/turf/open/urban/street/sidewalk,
+/area/lv759/outdoors/colony_streets/north_west_street)
 "cCu" = (
 /obj/structure/window/framed/urban/colony/office{
 	dir = 4
@@ -15719,6 +15757,10 @@
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
 	},
+/obj/item/armor_module/storage/uniform/webbing,
+/obj/item/armor_module/storage/uniform/webbing,
+/obj/item/armor_module/storage/uniform/webbing,
+/obj/item/armor_module/storage/uniform/webbing,
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/colonial_marshals/armory)
 "cKL" = (
@@ -16243,6 +16285,7 @@
 	pixel_x = 8
 	},
 /obj/structure/sign/poster,
+/obj/item/attachable/buildasentry,
 /turf/open/floor/urban/tile/tilebeige,
 /area/lv759/indoors/jacks_surplus)
 "cPJ" = (
@@ -16886,6 +16929,7 @@
 /obj/effect/urban/decal/trash/six{
 	pixel_y = 12
 	},
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
 /turf/open/urban/street/sidewalk{
 	dir = 9
 	},
@@ -22111,6 +22155,10 @@
 /obj/structure/cable,
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/lv759/indoors/hospital/icu)
+"dOZ" = (
+/obj/effect/spawner/random/misc/structure/girder,
+/turf/open/floor/plating,
+/area/lv759/indoors/jacks_surplus)
 "dPb" = (
 /obj/structure/prop/urban/fakeplatforms/rockplatform{
 	dir = 1
@@ -29526,6 +29574,7 @@
 /obj/structure/prop/urban/misc/buildinggreebliessmall3{
 	pixel_y = 28
 	},
+/obj/effect/spawner/random/weaponry/explosive/rocketlauncher,
 /turf/open/floor/urban/tile/tilebeige,
 /area/lv759/indoors/jacks_surplus)
 "few" = (
@@ -35111,6 +35160,7 @@
 /obj/structure/rack{
 	color = "#8B7B5B"
 	},
+/obj/effect/spawner/random/weaponry/explosive/grenade,
 /turf/open/floor/wood/variable,
 /area/lv759/indoors/jacks_surplus)
 "gau" = (
@@ -46807,6 +46857,10 @@
 	dir = 1
 	},
 /area/lv759/outdoors/colony_streets/central_streets)
+"hZL" = (
+/obj/machinery/door/airlock/mainship/maint,
+/turf/open/floor/plating,
+/area/lv759/indoors/meridian/meridian_office)
 "hZN" = (
 /turf/open/floor/prison{
 	dir = 4
@@ -49922,6 +49976,12 @@
 /obj/machinery/light/blue,
 /turf/open/urban/street/cement2,
 /area/lv759/outdoors/colony_streets/north_west_street)
+"iBR" = (
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/lv759/outdoors/colony_streets/central_streets)
 "iBT" = (
 /obj/structure/bed/urban/hospital/hospitaldivider{
 	dir = 1
@@ -57862,6 +57922,9 @@
 "jVa" = (
 /obj/structure/rack,
 /obj/structure/cable,
+/obj/item/clothing/under/marine/veteran/mercenary,
+/obj/item/clothing/suit/storage/marine/veteran/mercenary/engineer,
+/obj/item/clothing/head/helmet/marine/veteran/mercenary/engineer,
 /turf/open/floor/prison/red,
 /area/lv759/indoors/colonial_marshals/armory_evidenceroom)
 "jVp" = (
@@ -59969,6 +60032,7 @@
 	pixel_x = 24;
 	pixel_y = 12
 	},
+/obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/plating,
 /area/lv759/indoors/meridian/meridian_office)
 "koT" = (
@@ -60316,6 +60380,7 @@
 	pixel_y = 13
 	},
 /obj/effect/urban/decal/dirt,
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -66390,8 +66455,8 @@
 /turf/open/floor/urban/carpet/carpetblack,
 /area/lv759/indoors/casino)
 "luZ" = (
-/turf/open/floor/plating,
-/area/lv759/indoors/nt_research_complex/hallwaycentral)
+/turf/closed/wall/urban/colony/engineering,
+/area/lv759/indoors/meridian/meridian_office)
 "lvb" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/urban_wood,
@@ -69322,6 +69387,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/item/weapon/gun/sentry/basic,
 /turf/open/floor/kutjevo/grey,
 /area/lv759/indoors/mining_outpost/northeast)
 "lUn" = (
@@ -70943,6 +71009,19 @@
 	},
 /turf/open/urban/street/cement3,
 /area/lv759/outdoors/colony_streets/north_street)
+"miB" = (
+/obj/structure/prop/urban/misc/fake/lattice/full,
+/obj/structure/prop/urban/misc/floorprops/grate,
+/obj/structure/prop/urban/misc/fake/pipes/pipe1,
+/obj/structure/prop/urban/misc/fake/pipes/pipe1{
+	dir = 4
+	},
+/obj/structure/prop/urban/misc/fake/wire/yellow{
+	pixel_x = 7
+	},
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
+/turf/open/urban/street/underground_unweedable,
+/area/lv759/outdoors/colony_streets/south_east_street)
 "miC" = (
 /obj/structure/prop/urban/lattice_prop/lattice_5{
 	pixel_y = 16
@@ -82965,6 +83044,7 @@
 /obj/structure/prop/urban/misc/buildinggreebliessmall3{
 	pixel_y = 28
 	},
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -84397,6 +84477,7 @@
 /obj/item/clothing/mask/gas/swat,
 /obj/item/clothing/gloves/swat,
 /obj/item/clothing/gloves/swat,
+/obj/effect/spawner/random/weaponry/gun/machineguns,
 /turf/open/floor/prison/red{
 	dir = 1
 	},
@@ -89718,11 +89799,11 @@
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
 	},
-/obj/item/clothing/suit/storage/marine/veteran,
 /obj/item/ammo_magazine/shotgun/beanbag,
 /obj/item/ammo_magazine/shotgun/beanbag,
 /obj/item/storage/pouch/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/item/clothing/suit/armor/bulletproof/mp,
 /turf/open/floor/prison/red{
 	dir = 5
 	},
@@ -94740,10 +94821,11 @@
 "qjS" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/decal/cleanable/blood/oil/streak,
-/obj/item/ammo_magazine/rocket,
 /obj/structure/rack{
 	color = "#8B7B5B"
 	},
+/obj/item/ammo_magazine/rocket/sadar,
+/obj/item/clothing/glasses/night_vision,
 /turf/open/floor/urban/tile/tilebeige,
 /area/lv759/indoors/jacks_surplus)
 "qjY" = (
@@ -111690,6 +111772,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -122442,6 +122525,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/machinery/door/airlock/mainship/maint,
 /turf/open/floor/plating,
 /area/lv759/indoors/meridian/meridian_office)
 "uVV" = (
@@ -123297,6 +123381,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/item/weapon/gun/sentry/premade/dumb/hostile,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -128886,6 +128971,10 @@
 "vYx" = (
 /obj/structure/rack,
 /obj/effect/urban/decal/dirt,
+/obj/item/weapon/gun/rifle/lmg_d,
+/obj/item/weapon/gun/rifle/lmg_d/magharness,
+/obj/item/weapon/gun/rifle/lmg_d/magharness,
+/obj/item/weapon/gun/rifle/lmg_d/magharness,
 /turf/open/floor/prison/red{
 	dir = 1
 	},
@@ -131304,6 +131393,18 @@
 	},
 /turf/open/urban/street/cement2,
 /area/lv759/outdoors/colony_streets/east_central_street)
+"wtY" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/item/trash/cigbutt{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/effect/spawner/random/engineering/metal,
+/turf/open/floor/plating,
+/area/lv759/indoors/meridian/meridian_office)
 "wtZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -131688,6 +131789,10 @@
 "wxJ" = (
 /turf/closed/wall/urban,
 /area/lv759/indoors/hospital/virology)
+"wxO" = (
+/obj/item/weapon/gun/sentry/shotgun,
+/turf/open/floor/mainship,
+/area/lv759/indoors/spaceport/horizon_runner)
 "wxP" = (
 /obj/effect/urban/decal/trash/two,
 /turf/open/floor/urban/tile/cementflat,
@@ -146614,7 +146719,7 @@ wYp
 uwD
 xns
 rBo
-laZ
+cCt
 jtt
 jtt
 jtt
@@ -147305,7 +147410,7 @@ uId
 uId
 ykG
 uId
-luZ
+iiI
 uId
 uId
 ykG
@@ -147907,7 +148012,7 @@ eZR
 jSG
 gdF
 xUV
-luZ
+iiI
 aDO
 nHU
 oKC
@@ -148035,7 +148140,7 @@ srY
 uwD
 xns
 rBo
-laZ
+cCt
 jtt
 jtt
 tyc
@@ -150424,7 +150529,7 @@ oQs
 ycA
 oFt
 gyn
-mkt
+wxO
 rbv
 tdS
 atD
@@ -153953,7 +154058,7 @@ mHv
 aoS
 mHv
 xZy
-bXE
+iBR
 ubI
 nmm
 xJl
@@ -162490,7 +162595,7 @@ gSs
 ptP
 uXj
 hYb
-pch
+gSs
 cvZ
 fzK
 ldK
@@ -162693,7 +162798,7 @@ awn
 voR
 evp
 kvk
-pch
+gSs
 pyS
 giZ
 uCC
@@ -162896,7 +163001,7 @@ otQ
 foR
 rRv
 kvk
-pch
+gSs
 uVU
 gSs
 ldK
@@ -165334,8 +165439,8 @@ tXV
 asC
 aAp
 nOk
-giZ
-pch
+wtY
+hZL
 ajr
 cNs
 pch
@@ -165535,10 +165640,10 @@ hkD
 gqc
 sxw
 uXk
-pch
-lgE
+luZ
+luZ
 koG
-gSz
+qqT
 pch
 tds
 lgE
@@ -167182,7 +167287,7 @@ kzr
 jvY
 dRL
 vLO
-owV
+boG
 eRb
 cqM
 qqi
@@ -174109,7 +174214,7 @@ gas
 tGL
 sFz
 xsz
-hWc
+dOZ
 lfb
 lfb
 ldK
@@ -180784,12 +180889,12 @@ wPY
 mBG
 nSr
 ifE
-rTt
+miB
 tNJ
 psI
 psI
 dhO
-ifE
+aBH
 rTt
 hcl
 kAb
