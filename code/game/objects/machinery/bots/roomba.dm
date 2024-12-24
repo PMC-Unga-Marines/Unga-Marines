@@ -71,7 +71,7 @@
 	//Here we try to restock whatever we sucked up
 	for(var/type in GLOB.loadout_linked_vendor[VENDOR_FACTION_NEUTRAL])
 		for(var/datum/vending_product/item_to_restock AS in GLOB.vending_records[type])
-			if(sucker.type != item_to_restock.product_path)
+			if(sucker.type != item_to_restock.product_paths)
 				continue
 			if(item_to_restock.attempt_restock(sucker, null, FALSE))
 				return TRUE

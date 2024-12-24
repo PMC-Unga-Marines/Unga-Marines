@@ -15,36 +15,24 @@ import { Window } from '../layouts';
 type VendingData = {
   vendor_name: string;
   displayed_records: VendingRecord[];
-  hidden_records: VendingRecord[];
-  coin_records: VendingRecord[];
   tabs: string[];
   stock: number;
   currently_vending: VendingRecord | null;
-  extended: number;
-  coin: string;
   ui_theme: string;
 };
 
 type VendingRecord = {
   product_name: string;
-  product_color: string;
   prod_desc: string;
   ref: string;
   tab: string;
+  products: any[];
 };
 
 export const Vending = () => {
   const { act, data } = useBackend<VendingData>();
 
-  const {
-    vendor_name,
-    currently_vending,
-    hidden_records,
-    coin_records,
-    extended,
-    tabs,
-    ui_theme,
-  } = data;
+  const { vendor_name, currently_vending, tabs, ui_theme } = data;
 
   const [showDesc, setShowDesc] = useLocalState('showDesc', null);
 
@@ -115,8 +103,6 @@ export const Vending = () => {
               <Divider />
             </Section>
           )}
-          {!!(coin_records.length > 0) && <Premium />}
-          {hidden_records.length > 0 && !!extended && <Hacked />}
           <Products />
         </Section>
       </Window.Content>
@@ -127,10 +113,10 @@ export const Vending = () => {
 type VendingProductEntryProps = {
   stock: number;
   key: string;
-  product_color: string;
   product_name: string;
   prod_desc: string;
   prod_ref: string;
+  products: any[];
 };
 
 const ProductEntry = (props: VendingProductEntryProps) => {
@@ -138,8 +124,7 @@ const ProductEntry = (props: VendingProductEntryProps) => {
 
   const { currently_vending } = data;
 
-  const { stock, key, product_color, product_name, prod_desc, prod_ref } =
-    props;
+  const { stock, key, product_name, prod_desc, prod_ref, products } = props;
 
   const [showDesc, setShowDesc] = useLocalState<String | null>(
     'showDesc',
@@ -166,19 +151,25 @@ const ProductEntry = (props: VendingProductEntryProps) => {
               </ProgressBar>
             </Box>
           )}
-          <Box inline width="4px" />
-          <Button
-            selected={
-              currently_vending &&
-              currently_vending.product_name === product_name
-            }
-            onClick={() => act('vend', { vend: prod_ref })}
-            disabled={!stock}
-          >
-            <Box color={product_color} bold={1}>
-              Vend
-            </Box>
-          </Button>
+          <Box inline width="6px" />
+          {products.map((product) => (
+            <Button
+              key={product.id}
+              selected={
+                currently_vending &&
+                currently_vending.product_name === product_name
+              }
+              color={product[2]}
+              onClick={() => act('vend', { vend: [prod_ref, product[0]] })}
+              disabled={!stock}
+            >
+              <Box color={'FFFFFF'} bold={1}>
+                {
+                  product[1] // Button name
+                }
+              </Box>
+            </Button>
+          ))}
         </>
       }
       label={product_name}
@@ -214,91 +205,16 @@ const Products = () => {
                   <ProductEntry
                     stock={stock[display_record.product_name]}
                     key={display_record.product_name}
-                    product_color={display_record.product_color}
                     product_name={display_record.product_name}
                     prod_desc={display_record.prod_desc}
                     prod_ref={display_record.ref}
+                    products={display_record.products}
                   />
                 )
               );
             })
         )}
       </LabeledList>
-    </Section>
-  );
-};
-
-const Hacked = () => {
-  const { data } = useBackend<VendingData>();
-
-  const { hidden_records, stock, tabs } = data;
-
-  const [selectedTab] = useLocalState(
-    'selectedTab',
-    tabs.length ? tabs[0] : null,
-  );
-
-  return (
-    <Section title="$*FD!!F">
-      <LabeledList>
-        {hidden_records
-          .filter((record) => !record.tab || record.tab === selectedTab)
-          .map((hidden_record) => {
-            return (
-              <ProductEntry
-                stock={stock[hidden_record.product_name]}
-                key={hidden_record.product_name}
-                product_color={hidden_record.product_color}
-                product_name={hidden_record.product_name}
-                prod_desc={hidden_record.prod_desc}
-                prod_ref={hidden_record.ref}
-              />
-            );
-          })}
-      </LabeledList>
-    </Section>
-  );
-};
-
-const Premium = () => {
-  const { act, data } = useBackend<VendingData>();
-
-  const { coin_records, stock, coin, tabs } = data;
-
-  const [selectedTab] = useLocalState(
-    'selectedTab',
-    tabs.length ? tabs[0] : null,
-  );
-
-  return (
-    <Section
-      title={'Coin slot: ' + (coin ? coin : 'No coin inserted')}
-      buttons={
-        coin && (
-          <Button icon="donate" onClick={() => act('remove_coin')}>
-            Remove
-          </Button>
-        )
-      }
-    >
-      {!!coin && (
-        <LabeledList>
-          {coin_records
-            .filter((record) => !record.tab || record.tab === selectedTab)
-            .map((coin_record) => {
-              return (
-                <ProductEntry
-                  stock={stock[coin_record.product_name]}
-                  key={coin_record.product_name}
-                  product_color={coin_record.product_color}
-                  product_name={coin_record.product_name}
-                  prod_desc={coin_record.prod_desc}
-                  prod_ref={coin_record.ref}
-                />
-              );
-            })}
-        </LabeledList>
-      )}
     </Section>
   );
 };

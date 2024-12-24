@@ -28,7 +28,6 @@
 	var/list/status = list()
 	status += "The orange light is [V.seconds_electrified ? "on" : "off"]."
 	status += "The red light is [V.shoot_inventory ? "off" : "blinking"]."
-	status += "The green light is [V.extended_inventory ? "on" : "off"]."
 	status += "A [V.scan_id ? "purple" : "yellow"] light is on."
 	status += "The speaker light is [V.shut_up ? "off" : "on"]."
 	return status
@@ -39,8 +38,6 @@
 	switch(wire)
 		if(WIRE_THROW)
 			V.shoot_inventory = !V.shoot_inventory
-		if(WIRE_CONTRABAND)
-			V.extended_inventory = !V.extended_inventory
 		if(WIRE_SHOCK)
 			V.seconds_electrified = MACHINE_DEFAULT_ELECTRIFY_TIME
 		if(WIRE_IDSCAN)
@@ -54,8 +51,6 @@
 	switch(wire)
 		if(WIRE_THROW)
 			V.shoot_inventory = !mend
-		if(WIRE_CONTRABAND)
-			V.extended_inventory = FALSE
 		if(WIRE_SHOCK)
 			if(mend)
 				V.seconds_electrified = MACHINE_NOT_ELECTRIFIED
