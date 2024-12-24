@@ -20,6 +20,8 @@
 	var/wrenchable = FALSE
 	var/obj/item/circuitboard/circuit // Circuit to be created and inserted when the machinery is created
 	var/mob/living/carbon/human/operator
+	//weight for tad check
+	var/weight_mashinery = 0
 
 	///Whether bullets can bypass the object even though it's dense
 	allow_pass_flags = PASSABLE

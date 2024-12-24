@@ -145,7 +145,7 @@
 	display_name = "Tadpole NK-Haul Model"
 
 /datum/map_template/shuttle/minidropship/mobile_bar
-	suffix =	"_mobile_bar"
+	suffix = "_mobile_bar"
 	description =	"A Tadpole modified to provide drinks and disservices. God dammit it's him again, I thought we got rid of him."
 	display_name =	"Tadpole Mobile-Bar Model"
 	admin_enable = FALSE
@@ -156,7 +156,7 @@
 	display_name = "Tadpole Combat Model"
 
 /datum/map_template/shuttle/minidropship/umbilical
-	suffix =	"_umbilical"
+	suffix = "_umbilical"
 	description = "A high-point orbital shuttle with a tactical umbilical airlock for insertion of ground troops."
 	display_name = "Tadpole Umbilical Model"
 
