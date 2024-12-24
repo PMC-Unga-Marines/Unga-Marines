@@ -263,6 +263,10 @@
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
 
+	greyscale_config = /datum/greyscale_config/modules
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
+
 /obj/item/armor_module/module/chemsystem
 	name = "Vali chemical enhancement module"
 	desc = "Designed for mounting on modular armor. This experimental module runs on green blood taken from xenos with harvester class weapons; Green blood heals the user and boosts any chems in the suit injection system. \nUse the suit menu to connect harvester class weapons, control the injection system, find chem boost information, and more."

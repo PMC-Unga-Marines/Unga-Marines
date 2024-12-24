@@ -359,3 +359,8 @@
 
 /datum/greyscale_config/xenonaut/helm/mk1
 	icon_file = 'icons/mob/modular/xenonauten_mk1.dmi'
+
+//Armor modules
+/datum/greyscale_config/modules
+	icon_file = 'icons/mob/modular/modular_armor_modules.dmi'
+	json_config = 'code/datums/greyscale/json_configs/modules.json'
