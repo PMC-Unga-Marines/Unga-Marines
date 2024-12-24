@@ -212,7 +212,7 @@
 					var/list/group_info = tab_products[product_entry]
 					var/list/group_products = group_info[2]
 					if(length(group_info[2]) == 0)
-						continue // Somebody forgot to pupulate the list
+						continue // Somebody forgot to populate the list
 					var/prod_desc = null
 					if(length(group_info) >= 3)
 						prod_desc = group_info[3]
@@ -243,8 +243,6 @@
 					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
 					recordlist += record
 					products_inverse[product_entry] = REF(record)
-			continue
-
 		//This item is not tab dependent
 		var/atom/product_entry_atom = entry
 		var/amount = productlist[entry]
