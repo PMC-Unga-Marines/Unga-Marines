@@ -208,3 +208,8 @@
 /datum/map_template/shuttle/escape_shuttle
 	shuttle_id = SHUTTLE_ESCAPE_SHUTTLE
 	name = "Escape Shuttle"
+
+/datum/map_template/shuttle/minidropship/outrider
+	suffix = "_voidraier"
+	description = "An asymmetric tadpole designed with vehicle transport in mind. Built with a wide umbilical to allow fluid heavy-vehicle movement."
+	display_name = "Tadpole VoidRaider Model"
