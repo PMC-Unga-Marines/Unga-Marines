@@ -256,15 +256,12 @@
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
-"X" = (
-/turf/open/space/basic,
-/area/space)
 "Y" = (
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "Z" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 w
@@ -275,7 +272,7 @@ u
 u
 P
 A
-X
+Z
 "}
 (2,1,1) = {"
 U
@@ -341,5 +338,5 @@ a
 a
 a
 V
-X
+Z
 "}
