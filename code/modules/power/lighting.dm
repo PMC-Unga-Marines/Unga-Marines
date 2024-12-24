@@ -596,6 +596,12 @@
 	base_state = "lbulb"
 	brightness = 5
 
+/obj/item/light_bulb/tube/blue
+	icon_state = "btube1"
+
+/obj/item/light_bulb/bulb/blue
+	icon_state = "bbulb1"
+
 /obj/item/light_bulb/bulb/attack_turf(turf/T, mob/living/user)
 	var/turf/open/floor/light/light_tile = T
 	if(!istype(light_tile))
@@ -765,3 +771,28 @@
 /obj/machinery/floor_warn_light/self_destruct/proc/disable()
 	icon_state = initial(icon_state)
 	set_light(0,0)
+
+/obj/machinery/light/blue
+	base_state = "btube"		// base description and icon_state
+	icon_state = "btube1"
+	light_color = LIGHT_COLOR_BLUE_FLAME
+	bulb_colour = LIGHT_COLOR_BLUE_FLAME
+	desc = "A lighting fixture that is fitted with a bright blue fluorescent light tube. Looking at it for too long makes your eyes go watery."
+	light_type = /obj/item/light_bulb/tube/blue
+
+/obj/machinery/light/small/blue
+	light_color = LIGHT_COLOR_BLUE_FLAME
+	bulb_colour = LIGHT_COLOR_BLUE_FLAME
+	fitting = "bbulb"
+	brightness = 4
+	desc = "A small lighting fixture that is fitted with a bright blue fluorescent light bulb. Looking at it for too long makes your eyes go watery."
+	light_type = /obj/item/light_bulb/bulb/blue
+
+/obj/machinery/light/spot/blue
+	name = "spotlight"
+	light_color = LIGHT_COLOR_BLUE_FLAME
+	bulb_colour = LIGHT_COLOR_BLUE_FLAME
+	desc = "A wide light fixture fitted with a large, blue, very bright fluorescent light tube. You want to sneeze just looking at it."
+	fitting = "large tube"
+	light_type = /obj/item/light_bulb/tube/large
+	brightness = 12
