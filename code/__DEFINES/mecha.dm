@@ -2,22 +2,6 @@
 #define MECHA_INT_SHORT_CIRCUIT (1<<1)
 #define MECHA_INT_CONTROL_LOST (1<<2)
 
-#define ADDING_ACCESS_POSSIBLE (1<<0)
-#define ADDING_MAINT_ACCESS_POSSIBLE (1<<1)
-#define CANSTRAFE (1<<2)
-#define LIGHTS_ON (1<<3)
-#define SILICON_PILOT (1<<4)
-#define IS_ENCLOSED (1<<5)
-#define HAS_LIGHTS (1<<6)
-#define QUIET_STEPS (1<<7)
-#define QUIET_TURNS (1<<8)
-///blocks using equipment and melee attacking.
-#define CANNOT_INTERACT (1<<9)
-/// Can click from any direction and perform stuff
-#define OMNIDIRECTIONAL_ATTACKS (1<<10)
-///Do you need mech skill to pilot this mech
-#define MECHA_SKILL_LOCKED (1<<11)
-
 #define MECHA_MELEE (1 << 0)
 #define MECHA_RANGED (1 << 1)
 
@@ -67,30 +51,6 @@
 #define MECHA_AMMO_SNIPER "Anti-tank bullet"
 #define MECHA_AMMO_GRENADE "Frag grenade"
 #define MECHA_AMMO_FLAMER "Napalm"
-
-/// Module is compatible with Ripley Exosuit models
-#define EXOSUIT_MODULE_RIPLEY (1<<0)
-/// Module is compatible with Odyseeus Exosuit models
-#define EXOSUIT_MODULE_ODYSSEUS (1<<1)
-/// Module is compatible with Gygax Exosuit models
-#define EXOSUIT_MODULE_GYGAX (1<<2)
-/// Module is compatible with Durand Exosuit models
-#define EXOSUIT_MODULE_DURAND (1<<3)
-/// Module is compatible with H.O.N.K Exosuit models
-#define EXOSUIT_MODULE_HONK (1<<4)
-/// Module is compatible with Phazon Exosuit models
-#define EXOSUIT_MODULE_PHAZON (1<<5)
-/// Module is compatible with Savannah Exosuit models
-#define EXOSUIT_MODULE_SAVANNAH (1<<6)
-/// Module is compatible with Greyscale Exosuit models
-#define EXOSUIT_MODULE_GREYSCALE (1<<7)
-
-/// Module is compatible with "Working" Exosuit models - Ripley and Clarke
-#define EXOSUIT_MODULE_WORKING EXOSUIT_MODULE_RIPLEY
-/// Module is compatible with "Combat" Exosuit models - Gygax, H.O.N.K, Durand and Phazon
-#define EXOSUIT_MODULE_COMBAT EXOSUIT_MODULE_GYGAX | EXOSUIT_MODULE_HONK | EXOSUIT_MODULE_DURAND | EXOSUIT_MODULE_PHAZON | EXOSUIT_MODULE_SAVANNAH
-/// Module is compatible with "Medical" Exosuit modelsm - Odysseus
-#define EXOSUIT_MODULE_MEDICAL EXOSUIT_MODULE_ODYSSEUS
 
 ///degree of cone in front of which mech is allowed to fire at
 #define MECH_FIRE_CONE_ALLOWED 120

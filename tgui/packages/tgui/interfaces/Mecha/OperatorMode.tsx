@@ -9,8 +9,8 @@ import { PowerModulesPane } from './PowerModulesPane';
 import { RadioPane } from './RadioPane';
 import { UtilityModulesPane } from './UtilityModulesPane';
 
-export const OperatorMode = (props) => {
-  const { act, data } = useBackend<OperatorData>();
+export const OperatorMode = () => {
+  const { data } = useBackend<OperatorData>();
   const { left_arm_weapon, right_arm_weapon, mech_view } = data;
   return (
     <Stack fill>
@@ -46,6 +46,11 @@ export const OperatorMode = (props) => {
             />
           </Stack.Item>
           <Stack.Item>
+            <Section>
+              <MechStatPane />
+            </Section>
+          </Stack.Item>
+          <Stack.Item>
             <Section title="Armor modules">
               <ArmorPane />
             </Section>
@@ -67,15 +72,6 @@ export const OperatorMode = (props) => {
           <Stack.Item>
             <Section title="Radio Control">
               <RadioPane />
-            </Section>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item grow>
-        <Stack fill vertical>
-          <Stack.Item grow>
-            <Section fill>
-              <MechStatPane />
             </Section>
           </Stack.Item>
         </Stack>

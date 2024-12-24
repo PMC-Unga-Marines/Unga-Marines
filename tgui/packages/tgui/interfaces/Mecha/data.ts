@@ -45,13 +45,7 @@ export type MainData = {
 
 export type MaintData = {
   name: string;
-  mecha_flags: number;
-  mechflag_keys: string[];
   cell: string;
-  scanning: string;
-  capacitor: string;
-  operation_req_access: AccessData[];
-  idcard_access: AccessData[];
 };
 
 export type OperatorData = {
@@ -59,11 +53,8 @@ export type OperatorData = {
   integrity: number;
   power_level: number;
   power_max: number;
-  mecha_flags: number;
   internal_damage: number;
   internal_damage_keys: string[];
-  mechflag_keys: string[];
-  dna_lock: string | null;
   mech_electronics: MechElectronics;
   right_arm_weapon: MechWeapon | null;
   left_arm_weapon: MechWeapon | null;

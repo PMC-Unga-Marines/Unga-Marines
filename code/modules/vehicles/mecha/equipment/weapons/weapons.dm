@@ -3,7 +3,6 @@
 	range = MECHA_RANGED
 	equipment_slot = MECHA_WEAPON
 	destroy_sound = 'sound/mecha/weapdestr.ogg'
-	mech_flags = EXOSUIT_MODULE_COMBAT
 	/// ammo datum/object typepath
 	var/datum/ammo/ammotype
 	///sound file to play when this weapon you know, fires
@@ -142,8 +141,8 @@
 ///does any effects and changes to the projectile when it is fired
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/apply_weapon_modifiers(obj/projectile/projectile_to_fire, mob/firer)
 	projectile_to_fire.shot_from = src
-	if(istype(chassis, /obj/vehicle/sealed/mecha/combat/greyscale))
-		var/obj/vehicle/sealed/mecha/combat/greyscale/grey = chassis
+	if(istype(chassis, /obj/vehicle/sealed/mecha/greyscale))
+		var/obj/vehicle/sealed/mecha/greyscale/grey = chassis
 		var/datum/mech_limb/head/head = grey.limbs[MECH_GREY_HEAD]
 		if(head)
 			projectile_to_fire.accuracy *= head.accuracy_mod //todo: we can probably just make the accuracy_mod apply directly to the gun like attachments do
@@ -174,8 +173,8 @@
 
 	apply_weapon_modifiers(projectile_to_fire, current_firer)
 	var/proj_scatter = variance
-	if(istype(chassis, /obj/vehicle/sealed/mecha/combat/greyscale))
-		var/obj/vehicle/sealed/mecha/combat/greyscale/grey = chassis
+	if(istype(chassis, /obj/vehicle/sealed/mecha/greyscale))
+		var/obj/vehicle/sealed/mecha/greyscale/grey = chassis
 		var/datum/mech_limb/arm/holding
 		if(grey.equip_by_category[MECHA_R_ARM] == src)
 			holding = grey.limbs[MECH_GREY_R_ARM]
@@ -331,7 +330,6 @@
 	projectiles = 24
 	projectiles_cache = 24
 	projectiles_cache_max = 96
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_INCENDIARY
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
@@ -344,7 +342,6 @@
 	projectiles_cache = 40
 	projectiles_cache_max = 160
 	variance = 25
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_BUCKSHOT
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
@@ -358,7 +355,6 @@
 	projectiles_cache_max = 1200
 	variance = 6
 	projectile_delay = 2
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_LMG
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack
@@ -372,7 +368,6 @@
 	projectiles_cache_max = 0
 	disabledreload = TRUE
 	equip_cooldown = 60
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_MISSILE_HE
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/breaching
@@ -386,9 +381,7 @@
 	projectiles_cache_max = 0
 	disabledreload = TRUE
 	equip_cooldown = 60
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_MISSILE_AP
-
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher
 	var/missile_speed = 2

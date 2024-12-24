@@ -153,3 +153,9 @@
 		screen_overlay = "[screen_overlay]_on"
 
 	return ..()
+
+/obj/machinery/computer/mecha
+	name = "exosuit control console"
+	desc = "Used to remotely locate or lockdown exosuits."
+	screen_overlay = "mecha"
+	broken_icon = "computer_blue_broken"

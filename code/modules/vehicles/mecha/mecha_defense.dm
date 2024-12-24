@@ -108,7 +108,7 @@
 
 /obj/vehicle/sealed/mecha/fire_act(burn_level, flame_color) //Check if we should ignite the pilot of an open-canopy mech
 	. = ..()
-	if(enclosed || mecha_flags & SILICON_PILOT)
+	if(enclosed)
 		return
 	for(var/mob/living/cookedalive AS in occupants)
 		if(cookedalive.fire_stacks < 5)
@@ -131,58 +131,6 @@
 /obj/vehicle/sealed/mecha/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/mecha_ammo))
 		ammo_resupply(W, user)
-		return
-
-	if(isidcard(W))
-		if((mecha_flags & ADDING_ACCESS_POSSIBLE) || (mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE))
-			if(internals_access_allowed(user))
-				ui_interact(user)
-				return
-			to_chat(user, span_warning("Invalid ID: Access denied."))
-			return
-		to_chat(user, span_warning("Maintenance protocols disabled by operator."))
-		return
-
-	if(istype(W, /obj/item/cell))
-		if(construction_state == MECHA_OPEN_HATCH)
-			if(!cell)
-				if(!user.transferItemToLoc(W, src))
-					return
-				var/obj/item/cell/C = W
-				to_chat(user, span_notice("You install the power cell."))
-				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
-				cell = C
-				log_message("Power cell installed", LOG_MECHA)
-			else
-				to_chat(user, span_warning("There's already a power cell installed!"))
-		return
-
-	if(istype(W, /obj/item/stock_parts/scanning_module))
-		if(construction_state == MECHA_OPEN_HATCH)
-			if(!scanmod)
-				if(!user.transferItemToLoc(W, src))
-					return
-				to_chat(user, span_notice("You install the scanning module."))
-				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
-				scanmod = W
-				log_message("[W] installed", LOG_MECHA)
-				update_part_values()
-			else
-				to_chat(user, span_warning("There's already a scanning module installed!"))
-		return
-
-	if(istype(W, /obj/item/stock_parts/capacitor))
-		if(construction_state == MECHA_OPEN_HATCH)
-			if(!capacitor)
-				if(!user.transferItemToLoc(W, src))
-					return
-				to_chat(user, span_notice("You install the capacitor."))
-				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
-				capacitor = W
-				log_message("[W] installed", LOG_MECHA)
-				update_part_values()
-			else
-				to_chat(user, span_warning("There's already a capacitor installed!"))
 		return
 
 	if(istype(W, /obj/item/mecha_parts))
