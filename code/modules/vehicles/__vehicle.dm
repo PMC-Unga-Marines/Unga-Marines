@@ -43,6 +43,8 @@
 	///This vehicle will follow us when we move (like atrailer duh)
 	var/obj/vehicle/trailer
 	var/are_legs_exposed = FALSE
+	// for tad check, how heavy is vehical
+	var/weight_vehcial = 3
 
 /obj/vehicle/Initialize(mapload)
 	. = ..()

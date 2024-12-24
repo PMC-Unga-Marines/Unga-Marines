@@ -7,6 +7,7 @@
 	resistance_flags = XENO_DAMAGEABLE
 	flags_atom = PREVENT_CONTENTS_EXPLOSION
 	interaction_flags = INTERACT_MACHINE_TGUI
+	weight_mashinery = 1
 	///Curent items being processed
 	var/list/held_items
 	///Icon state displayed while something is being processed in the machine
@@ -151,6 +152,7 @@
 	anchored = FALSE // start off unanchored so its easier to move
 	resistance_flags = XENO_DAMAGEABLE
 	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	weight_mashinery = 3
 	///Curent items being processed
 	var/item_to_fabricate = /obj/item/stack/sheet/metal/large_stack
 	///Icon state displayed while something is being processed in the machine

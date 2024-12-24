@@ -116,9 +116,33 @@
 	shuttle_port.assigned_transit.reserved_area.set_turf_type(/turf/open/space/transit/atmos)
 	open_prompt = TRUE
 
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/checkpayload()
+	var/area/tadarea = get_area(src)
+	var/weightintad = 0
+	for(var/turf/turfcontent in tadarea)
+		for(var/objectontad in turfcontent.contents)
+			if(isliving(objectontad))
+				var/mob/living/living = objectontad
+				weightintad += living.mob_size
+			if(isvehicle(objectontad))
+				var/obj/vehicle/vehicle = objectontad
+				weightintad += vehicle.weight_vehcial
+			if(ismachinery(objectontad))
+				var/obj/machinery/machinery = objectontad
+				weightintad += machinery.weight_mashinery
+			if(isstructure(objectontad))
+				var/obj/structure/structure = objectontad
+				weightintad += structure.weight_structure
+	if(weightintad > 60)
+		return FALSE
+	return TRUE
+
 ///The action of taking off and sending the shuttle to the atmosphere
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/take_off()
 	shuttle_port = SSshuttle.getShuttle(shuttleId)
+	if(!checkpayload())
+		to_chat(ui_user, span_warning("Tad too heavy to liftoff"))
+		return
 	#ifndef TESTING
 	if(!(shuttle_port.shuttle_flags & GAMEMODE_IMMUNE) && world.time < SSticker.round_start_time + SSticker.mode.deploy_time_lock)
 		to_chat(ui_user, span_warning("The mothership is too far away from the theatre of operation, we cannot take off."))
@@ -142,6 +166,11 @@
 
 ///The action of sending the shuttle back to its shuttle port on main ship
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/return_to_ship()
+	if(!checkpayload())
+		to_chat(ui_user, span_warning("Tad too heavy to liftoff"))
+		to_chat(ui_user, span_userdanger("EMERGENCY LANDING"))
+		SSshuttle.moveShuttleToDock(shuttleId, last_valid_ground_port, TRUE)
+		return
 	shuttle_port = SSshuttle.getShuttle(shuttleId)
 	shuttle_port.shuttle_computer = src
 	to_transit = TRUE

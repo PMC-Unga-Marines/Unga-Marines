@@ -11,6 +11,7 @@
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
 	max_integrity = 100
 	flags_barrier = HANDLE_BARRIER_CHANCE
+	weight_structure = 1
 	///The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
 	///The amount of stack dropped when disassembled at full health

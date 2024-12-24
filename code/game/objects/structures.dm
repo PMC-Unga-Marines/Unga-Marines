@@ -4,6 +4,7 @@
 	var/climb_delay = 50
 	var/flags_barrier = NONE
 	var/broken = FALSE //similar to machinery's stat BROKEN
+	var/weight_structure = 1
 	obj_flags = CAN_BE_HIT
 	anchored = TRUE
 	allow_pass_flags = PASSABLE
