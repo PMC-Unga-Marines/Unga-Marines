@@ -1,6 +1,6 @@
 /obj/docking_port/stationary/marine_dropship
 	name = "dropship landing zone"
-	id = "dropship"
+	shuttle_id = "dropship"
 	dir = SOUTH
 	dwidth = 5
 	dheight = 10
@@ -13,8 +13,9 @@
 
 /obj/docking_port/stationary/marine_dropship/LateInitialize()
 	for(var/obj/machinery/landinglight/light AS in GLOB.landing_lights)
-		if(light.id == id)
-			light.linked_port = src
+		if(light.id != shuttle_id)
+			continue
+		light.linked_port = src
 
 /obj/docking_port/stationary/marine_dropship/on_crash()
 	for(var/obj/machinery/power/apc/A AS in GLOB.apcs_list) //break APCs
@@ -79,7 +80,7 @@
 
 /obj/docking_port/stationary/marine_dropship/crash_target
 	name = "dropshipcrash"
-	id = "dropshipcrash"
+	shuttle_id = "dropshipcrash"
 
 /obj/docking_port/stationary/marine_dropship/crash_target/Initialize(mapload)
 	. = ..()
@@ -87,7 +88,7 @@
 
 /obj/docking_port/stationary/marine_dropship/lz1
 	name = "Landing Zone One"
-	id = "lz1"
+	shuttle_id = "lz1"
 
 /obj/docking_port/stationary/marine_dropship/lz1/Initialize(mapload)
 	. = ..()
@@ -99,7 +100,7 @@
 
 /obj/docking_port/stationary/marine_dropship/lz2
 	name = "Landing Zone Two"
-	id = "lz2"
+	shuttle_id = "lz2"
 
 /obj/docking_port/stationary/marine_dropship/lz2/Initialize(mapload)
 	. = ..()
@@ -111,16 +112,16 @@
 
 /obj/docking_port/stationary/marine_dropship/lz_den
 	name = "Landing Zone Xeno Den"
-	id = "lz_xeno_den"
+	shuttle_id = "lz_xeno_den"
 
 /obj/docking_port/stationary/marine_dropship/hangar/one
 	name = "Shipside 'Normandy' Hangar Pad"
-	id = SHUTTLE_NORMANDY
+	shuttle_id = SHUTTLE_NORMANDY
 	roundstart_template = /datum/map_template/shuttle/dropship_one
 
 /obj/docking_port/stationary/marine_dropship/hangar/two
 	name = "Shipside 'Alamo' Hangar Pad"
-	id = SHUTTLE_ALAMO
+	shuttle_id = SHUTTLE_ALAMO
 	roundstart_template = /datum/map_template/shuttle/dropship_two
 	dheight = 6
 	dwidth = 4
@@ -170,7 +171,7 @@
 
 /obj/docking_port/mobile/marine_dropship/register()
 	. = ..()
-	SSshuttle.dropships += src
+	SSshuttle.dropship_list += src
 
 /obj/docking_port/mobile/marine_dropship/enterTransit()
 	. = ..()
@@ -241,7 +242,7 @@
 /obj/docking_port/mobile/marine_dropship/Destroy(force)
 	. = ..()
 	if(force)
-		SSshuttle.dropships -= src
+		SSshuttle.dropship_list -= src
 
 /obj/docking_port/mobile/marine_dropship/initiate_docking(obj/docking_port/stationary/new_dock, movement_direction, force=FALSE)
 	if(crashing)
@@ -265,16 +266,16 @@
 
 ///Send the dropship to its previous dock
 /obj/docking_port/mobile/marine_dropship/proc/go_to_previous_destination()
-	SSshuttle.moveShuttle(id, previous.id, TRUE)
+	SSshuttle.moveShuttle(shuttle_id, previous.shuttle_id, TRUE)
 
 /obj/docking_port/mobile/marine_dropship/one
 	name = "Normandy"
-	id = SHUTTLE_NORMANDY
+	shuttle_id = SHUTTLE_NORMANDY
 	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
 
 /obj/docking_port/mobile/marine_dropship/two
 	name = "Alamo"
-	id = SHUTTLE_ALAMO
+	shuttle_id = SHUTTLE_ALAMO
 	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
 	callTime = 28 SECONDS //smaller shuttle go whoosh
 	rechargeTime = 1.5 MINUTES
@@ -392,7 +393,7 @@
 		to_chat(user, span_warning("We can't call the bird from here!"))
 		return FALSE
 	var/obj/docking_port/mobile/marine_dropship/D
-	for(var/k in SSshuttle.dropships)
+	for(var/k in SSshuttle.dropship_list)
 		var/obj/docking_port/mobile/M = k
 		if(M.control_flags & SHUTTLE_MARINE_PRIMARY_DROPSHIP)
 			D = M
@@ -451,11 +452,11 @@
 // summon dropship to closest lz to A
 /datum/game_mode/proc/summon_dropship(atom/A)
 	var/list/lzs = list()
-	for(var/i in SSshuttle.stationary)
+	for(var/i in SSshuttle.stationary_docking_ports)
 		var/obj/docking_port/stationary/S = i
 		if(S.z != A.z)
 			continue
-		if(S.id == "lz1" || S.id == "lz2")
+		if(S.shuttle_id == "lz1" || S.shuttle_id == "lz2")
 			lzs[S] = get_dist(S, A)
 	if(!length(lzs))
 		stack_trace("couldn't find any lzs to call down the dropship to")
@@ -465,7 +466,7 @@
 		if(lzs[j] < lzs[closest])
 			closest = j
 	var/obj/docking_port/mobile/marine_dropship/D
-	for(var/k in SSshuttle.dropships)
+	for(var/k in SSshuttle.dropship_list)
 		var/obj/docking_port/mobile/M = k
 		if(M.control_flags & SHUTTLE_MARINE_PRIMARY_DROPSHIP)
 			D = M
@@ -608,12 +609,12 @@
 
 	var/list/options = valid_destinations()
 	var/list/valid_destinations = list()
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
-		if(!options.Find(S.id))
+	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
+		if(!options.Find(S.shuttle_id))
 			continue
 		if(!shuttle.check_dock(S, silent=TRUE))
 			continue
-		valid_destinations += list(list("name" = S.name, "id" = S.id))
+		valid_destinations += list(list("name" = S.name, "id" = S.shuttle_id))
 	.["destinations"] = valid_destinations
 
 /obj/machinery/computer/shuttle/marine_dropship/ui_act(action, list/params)
@@ -796,21 +797,21 @@
 /turf/open/shuttle/dropship/floor/out
 	icon_state = "rasputin17"
 
-/obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship))
 		return
 	var/obj/docking_port/mobile/marine_dropship/D = port
 	D.rear_airlocks += src
 
-/obj/machinery/door/airlock/dropship_hatch/left/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door/airlock/dropship_hatch/left/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship))
 		return
 	var/obj/docking_port/mobile/marine_dropship/D = port
 	D.left_airlocks += src
 
-/obj/machinery/door/airlock/dropship_hatch/right/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door/airlock/dropship_hatch/right/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship))
 		return
@@ -823,7 +824,7 @@
 	name = "Dropship Lockdown"
 	var/obj/docking_port/mobile/marine_dropship/D
 
-/obj/machinery/door_control/dropship/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
+/obj/machinery/door_control/dropship/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	D = port
 
@@ -1332,11 +1333,11 @@
 	data["linked_shuttle_name"] = M.name
 	data["shuttle_status"] = M.getStatusText()
 	for(var/option in options)
-		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary)
-			if(option != S.id)
+		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
+			if(option != S.shuttle_id)
 				continue
 			var/list/dataset = list()
-			dataset["id"] = S.id
+			dataset["id"] = S.shuttle_id
 			dataset["name"] = S.name
 			dataset["locked"] = !M.check_dock(S, silent=TRUE)
 			data["destinations"] += list(dataset)
@@ -1351,8 +1352,8 @@
 	// Getting all valid destinations into an assoc list with "name" = "portid"
 	var/list/port_assoc = list()
 	for(var/destination in all_destinations)
-		for(var/obj/docking_port/port AS in SSshuttle.stationary)
-			if(destination != port.id)
+		for(var/obj/docking_port/port AS in SSshuttle.stationary_docking_ports)
+			if(destination != port.shuttle_id)
 				continue
 			port_assoc["[port.name]"] = destination
 
@@ -1379,16 +1380,16 @@
 		M = SSshuttle.getShuttle(forcedId)
 		if(!M)
 			return FALSE
-		newId = M.id
+		newId = M.shuttle_id
 		shuttleName = M.name
 	else
 		M = null
-		for(M AS in SSshuttle.mobile)
+		for(M AS in SSshuttle.mobile_docking_ports)
 			if(!(M.control_flags & compatible_control_flags)) //Need at least one matching control flag
 				continue
-			newId = M.id
+			newId = M.shuttle_id
 			shuttleName = M.name
-			if(M.id == preferredId) //Lock selection in if we get the initial shuttleId of this console.
+			if(M.shuttle_id == preferredId) //Lock selection in if we get the initial shuttleId of this console.
 				break
 	if(!newId)
 		return FALSE //Did not relink
