@@ -13,19 +13,9 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "e" = (
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
-	dir = 2
-	},
-/obj/machinery/door/poddoor/mainship/open{
-	id = "minidropship_podlock";
-	dir = 2
-	},
-/obj/machinery/door_control{
-	id = "minidropship_podlock";
-	name = "inner door-control";
-	dir = 8
-	},
-/turf/open/floor/plating/plating_catwalk,
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "f" = (
 /obj/structure/closet/walllocker/hydrant/extinguisher{
@@ -69,16 +59,18 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "q" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/obj/structure/dropship_piece/tadpole/engine{
-	dir = 1;
-	pixel_x = 23
-	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "r" = (
+/obj/structure/dropship_piece/tadpole/engine{
+	dir = 1;
+	pixel_x = -23
+	},
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/turf/open/floor/mainship/floor,
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "s" = (
 /obj/structure/window/reinforced/west,
@@ -123,6 +115,11 @@
 	layer = 3
 	},
 /obj/machinery/light,
+/obj/machinery/door_control{
+	id = "minidropship_podlock";
+	name = "inner door-control";
+	dir = 8
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "y" = (
@@ -132,12 +129,11 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "z" = (
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
 /obj/structure/dropship_piece/tadpole/tadpole_nose{
 	dir = 1;
 	pixel_y = 32
 	},
-/turf/open/floor/mainship/floor,
+/turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
 "A" = (
 /obj/structure/dropship_piece/tadpole/engine{
@@ -256,6 +252,17 @@
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
+"W" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/obj/machinery/door_control{
+	id = "minidropship_podlock";
+	name = "inner door-control";
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
 "Y" = (
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
@@ -265,9 +272,9 @@
 
 (1,1,1) = {"
 w
-a
-A
-a
+e
+r
+e
 u
 u
 P
@@ -291,14 +298,14 @@ J
 c
 c
 c
-c
+B
 p
 a
 o
 "}
 (4,1,1) = {"
-e
-K
+U
+W
 Y
 O
 D
@@ -309,11 +316,11 @@ L
 "}
 (5,1,1) = {"
 n
-n
+a
 s
 E
 F
-B
+c
 Y
 a
 o
@@ -332,11 +339,11 @@ a
 (7,1,1) = {"
 Z
 m
+V
+a
+e
+e
 q
-r
-a
-a
-a
 V
 Z
 "}
