@@ -823,3 +823,4 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	icon_state = "hospitalcurtain"
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
+
