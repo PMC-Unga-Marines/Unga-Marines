@@ -454,6 +454,11 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	playsound(linked_beacon.loc,'sound/effects/phasein.ogg', 50, FALSE)
 
 	linked_beacon.medvac_alert(M) //We warn med channel about the mob, not what was teleported.
+	var/area/evac_area = get_area(src)
+	if(evac_area.ceiling == CEILING_NONE) // animation evacuation if it havn't roof
+		flick("winched_stretcher",src)
+		last_teleport = world.time + MEDEVAC_FULTON_COOLDOWN
+		return
 	last_teleport = world.time + MEDEVAC_COOLDOWN
 
 /obj/structure/bed/medevac_stretcher/attackby(obj/item/I, mob/user, params)
