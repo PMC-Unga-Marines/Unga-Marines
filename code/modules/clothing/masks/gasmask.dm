@@ -44,6 +44,51 @@
 	icon_state = "gascoif"
 	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
+/obj/item/clothing/mask/gas/tactical/coif/beard
+	name = "Tactical coifed Ded Moroz beard"
+	desc = "A cheap imitation of the real thing, the dense hairs still filter harmful gases out of the air via Christmas magic."
+	icon_state = "s_beard"
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDELOWHAIR
+	breathy = FALSE
+
+
+/obj/item/clothing/mask/gas/swat/dedmoroz
+	name = "\improper Ded Moroz beard"
+	desc = "A dense mat of hair surrounding Ded moroz mouth, in addition to lending Ded Moroz a sense of authority, it's also dense enough to repel harmful gases and facehuggers."
+	icon_state = "s_beard"
+	anti_hug = 15
+	breathy = FALSE
+	flags_item = DELONDROP
+	flags_inventory = COVERMOUTH|BLOCKGASEFFECT
+	soft_armor = list(MELEE = 25, BULLET = 35, LASER = 25, ENERGY = 25, BOMB = 95, BIO = 85, FIRE = 25, ACID = 25) //if he ever shaved you could use santa's facial hair as a bombvest
+
+/obj/item/clothing/mask/gas/swat/dedmoroz/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_DED_MOROZ)
+
+/obj/item/clothing/mask/gas/swat/dedmoroz/proc/handle_speech(datum/source, list/speech_args)
+	var/message = speech_args[SPEECH_MESSAGE]
+	if(message[1] != "*")
+		message = replacetext(message, "плохой", "негодяй")
+		message = replacetext(message, "хуесос", "негодяй")
+		message = replacetext(message, "блять", "негодяй")
+		message = replacetext(message, "злой", "непослушный")
+		message = replacetext(message, "ужасный", "непослушный")
+		message = replacetext(message, "друг", "товарищ")
+		message = replacetext(message, "друзья", "товарищи")
+		message = replacetext(message, "рабы", "снеговики")
+		message = replacetext(message, "новый", "только упакованный")
+		message = replacetext(message, "раб", "снеговик")
+
+	speech_args[SPEECH_MESSAGE] = message
+
+/obj/item/clothing/mask/gas/swat/dedmoroz/equipped(mob/M, slot)
+	. = ..()
+	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+
+/obj/item/clothing/mask/gas/swat/dedmoroz/eventspawn
+	anti_hug = 1
+
 /obj/item/clothing/mask/gas/pmc
 	name = "\improper M8 pattern armored balaclava"
 	desc = "An armored balaclava designed to conceal both the identity of the operator and act as an air-filter."
