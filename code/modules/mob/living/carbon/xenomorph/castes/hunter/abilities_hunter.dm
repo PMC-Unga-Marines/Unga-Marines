@@ -28,7 +28,8 @@
 		return FALSE
 	var/mob/living/carbon/xenomorph/stealthy_beno = owner
 	if(stealthy_beno.on_fire)
-		owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
+		if(!silent)
+			owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
 		return FALSE
 	return TRUE
 
