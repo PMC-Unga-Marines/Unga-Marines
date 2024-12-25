@@ -448,7 +448,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/canterbury)
 "bH" = (
-/obj/machinery/chem_dispenser,
+/obj/machinery/computer/autodoc_console,
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "bI" = (
@@ -541,7 +541,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "cf" = (
-/obj/machinery/computer/crew,
+/obj/machinery/chem_dispenser,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "cg" = (
@@ -814,6 +814,10 @@
 /obj/machinery/light/small,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"BN" = (
+/obj/machinery/autodoc,
+/turf/open/floor/mainship/sterile,
+/area/shuttle/canterbury/medical)
 "Cq" = (
 /obj/machinery/light{
 	dir = 4
@@ -899,11 +903,11 @@ aZ
 bi
 bo
 bw
-cg
+BN
 bK
 bR
 bZ
-cf
+ce
 bo
 cl
 "}
@@ -922,11 +926,11 @@ bC
 bj
 bo
 aC
-bI
+bH
 bK
 bS
 ca
-ce
+cf
 bo
 cm
 "}
@@ -972,7 +976,7 @@ bI
 bK
 bU
 cb
-bH
+cg
 bo
 cn
 "}
