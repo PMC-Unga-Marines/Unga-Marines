@@ -243,12 +243,13 @@
 					var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, tab = entry, product_description = initial(product_entry_atom.desc))
 					recordlist += record
 					products_inverse[product_entry] = REF(record)
+			continue
 		//This item is not tab dependent
 		var/atom/product_entry_atom = entry
 		var/amount = productlist[entry]
 		if(isnull(amount))
 			amount = 1
-		var/list/created_product_list = list(list(entry, "Vend", "white"))
+		var/list/created_product_list = list(list(entry, "Vend"))
 		var/datum/vending_product/record = new(name = initial(product_entry_atom.name), typepath = created_product_list, product_amount = amount, category = category, product_description = initial(product_entry_atom.desc))
 		recordlist += record
 		products_inverse[entry] = REF(record)
