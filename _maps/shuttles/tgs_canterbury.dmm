@@ -444,11 +444,11 @@
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "bG" = (
-/obj/machinery/autodoc,
-/turf/open/floor/mainship/sterile,
-/area/shuttle/canterbury/medical)
+/obj/effect/attach_point/crew_weapon/dropship1,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/canterbury)
 "bH" = (
-/obj/machinery/computer/autodoc_console,
+/obj/machinery/chem_dispenser,
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "bI" = (
@@ -475,7 +475,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "bS" = (
-/obj/structure/bed/chair/dropship/passenger,
+/obj/machinery/chem_master,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "bT" = (
@@ -536,6 +536,8 @@
 /obj/structure/sink{
 	dir = 1
 	},
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "cf" = (
@@ -779,6 +781,14 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"vQ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "vY" = (
 /obj/machinery/vending/tool,
 /turf/open/floor/mainship/orange/full,
@@ -889,7 +899,7 @@ aZ
 bi
 bo
 bw
-bG
+cg
 bK
 bR
 bZ
@@ -912,7 +922,7 @@ bC
 bj
 bo
 aC
-bH
+bI
 bK
 bS
 ca
@@ -962,7 +972,7 @@ bI
 bK
 bU
 cb
-cg
+bH
 bo
 cn
 "}
@@ -1003,7 +1013,7 @@ aD
 bO
 aD
 LT
-aD
+vQ
 bO
 bV
 bV
@@ -1030,7 +1040,7 @@ bO
 bO
 aJ
 aJ
-aJ
+bG
 aJ
 cZ
 co

@@ -122,9 +122,9 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/canterbury)
 "aH" = (
-/obj/machinery/vending/MarineMed,
-/turf/open/floor/mainship/sterile,
-/area/shuttle/canterbury/medical)
+/obj/effect/attach_point/crew_weapon/dropship1,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/canterbury)
 "aI" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 2
@@ -1266,7 +1266,7 @@ av
 aq
 aC
 aq
-aH
+aC
 az
 aW
 aA
@@ -1299,7 +1299,7 @@ vY
 aq
 aD
 aq
-aq
+aD
 aI
 aA
 aA
@@ -1434,7 +1434,7 @@ ac
 ac
 ac
 ac
-ac
+pT
 ac
 gv
 bW
@@ -1467,7 +1467,7 @@ an
 an
 an
 an
-an
+aH
 an
 gv
 bW
@@ -1500,7 +1500,7 @@ ac
 an
 ac
 ac
-ac
+ds
 ac
 gv
 bW
