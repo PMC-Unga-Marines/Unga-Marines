@@ -44,8 +44,8 @@
 
 	var/powerfactor_value = round(severity * 0.05, 1)
 	powerfactor_value = min(powerfactor_value, 20)
-	if(powerfactor_value > 10)
-		powerfactor_value /= 5
+	if(powerfactor_value > 4)
+		powerfactor_value = 4
 	else if(powerfactor_value > 0)
 		explosion_throw(severity, direction)
 
