@@ -134,6 +134,11 @@
 		icon_bundle.Insert(generated_icon, icon_state)
 	icon_bundle = fcopy_rsc(icon_bundle)
 	icon_cache[key] = icon_bundle
+	/* //////////////////////DEBUG//////////////////////
+	if(istype(src, /datum/greyscale_config/modules))
+		var/filename = "tmp/test_module_spitesheet.dmi"
+		fcopy(icon(icon_bundle), filename)
+	*/
 	return icon(icon_bundle)
 
 /// Internal recursive proc to handle nested layer groups

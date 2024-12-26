@@ -4,5 +4,12 @@
 			"type": "hyperscale",
 			"icon_state": "mod_ff_a"
 		}
+	],
+	"mod_ff": [
+		{
+			"type":"icon_state",
+			"icon_state": "mod_ff",
+			"blend_mode": "add"
+		}
 	]
 }

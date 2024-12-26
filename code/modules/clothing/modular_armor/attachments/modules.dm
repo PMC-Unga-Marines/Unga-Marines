@@ -9,6 +9,9 @@
 	name = "broken armor module"
 	desc = "You better be debugging."
 
+/obj/item/armor_module/module/color_item(obj/item/facepaint/paint, mob/user)
+	. = ..()
+	src.update_item_state()
 
 /**
  * PT belt
