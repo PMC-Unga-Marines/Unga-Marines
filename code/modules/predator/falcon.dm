@@ -23,7 +23,7 @@
 	set src in usr
 
 	var/mob/living/mob = usr
-	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.IsSleeping()) || (mob.IsParalyzed() || mob.IsUnconscious()))
+	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.has_status_effect(STATUS_EFFECT_SLEEPING)) || (mob.has_status_effect(STATUS_EFFECT_PARALYZED) || mob.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return
 
 	var/mob/living/carbon/human/H = usr

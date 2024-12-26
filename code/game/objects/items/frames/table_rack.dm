@@ -1,6 +1,3 @@
-
-
-
 /*
 * Table Parts
 */
@@ -99,7 +96,7 @@
 	desc = "A kit for a table, including a large, flat wooden surface and four legs. Some assembly required."
 	icon_state = "wood_tableparts"
 	flags_atom = null
-	table_type = /obj/structure/table/woodentable
+	table_type = /obj/structure/table/wood
 	deconstruct_type = /obj/item/stack/sheet/wood
 
 /obj/item/frame/table/wood/attackby(obj/item/I, mob/user, params)
@@ -129,7 +126,7 @@
 	desc = "A kit for a table, including a large, flat wooden and carpet surface and four legs. Some assembly required."
 	icon_state = "gamble_tableparts"
 	flags_atom = null
-	table_type = /obj/structure/table/gamblingtable
+	table_type = /obj/structure/table/wood/gambling
 	deconstruct_type = /obj/item/stack/sheet/wood
 
 /obj/item/frame/table/gambling/attackby(obj/item/I, mob/user, params)
@@ -140,11 +137,6 @@
 		new /obj/item/stack/tile/carpet(loc)
 		new /obj/item/frame/table/wood(loc)
 		qdel(src)
-
-
-
-
-
 
 /*
 * Rack Parts

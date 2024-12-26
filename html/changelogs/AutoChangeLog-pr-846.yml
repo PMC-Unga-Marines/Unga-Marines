@@ -1,7 +1,0 @@
-author: "mister-onion"
-delete-after: True
-changes:
-  - rscadd: "Исцеление горгера теперь отслеживается"
-  - rscadd: "Новая способность \"Oppose\" для примо жоржера."
-  - rscadd: "Новый визуал для способности Transfusion."
-  - qol: "Теперь способность Drain немного удерживает от передвижения."

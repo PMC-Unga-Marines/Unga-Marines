@@ -97,7 +97,7 @@
 	if(staminaloss > -max_stamina)
 		handle_staminaloss()
 
-	if(IsSleeping())
+	if(has_status_effect(STATUS_EFFECT_SLEEPING))
 		handle_dreams()
 		if(mind)
 			if((mind.active && client != null) || immune_to_ssd) //This also checks whether a client is connected, if not, sleep is not reduced.

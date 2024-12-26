@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(dream_topics, list(
 /mob/living/carbon/proc/dream()
 	if(!dream_amounts)
 		dream_amounts = rand(1,5)
-	if(!IsUnconscious())
+	if(!has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
 		dream_amounts = 0
 		return FALSE
 	to_chat(src, span_notice("<i>... [pick(GLOB.dream_topics)] ...</i>"))
