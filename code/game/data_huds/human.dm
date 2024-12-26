@@ -92,7 +92,7 @@
 			if(!client) //Nobody home.
 				status_hud.icon_state = "afk"
 				return TRUE
-			if(IsUnconscious()) //Should hopefully get out of it soon.
+			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				status_hud.icon_state = "knockout"
 				return TRUE
 			status_hud.icon_state = "sleep" //Regular sleep, else.
@@ -101,13 +101,13 @@
 			if(!key) //Nobody home. Shouldn't affect aghosting.
 				status_hud.icon_state = "afk"
 				return TRUE
-			if(IsParalyzed()) //I've fallen and I can't get up.
+			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				status_hud.icon_state = "knockdown"
 				return TRUE
-			if(IsStun())
+			if(has_status_effect(STATUS_EFFECT_STUN))
 				status_hud.icon_state = "stun"
 				return TRUE
-			if(IsStaggered())
+			if(has_status_effect(STATUS_EFFECT_STAGGER))
 				return TRUE
 			if(slowdown)
 				status_hud.icon_state = "slowdown"
@@ -170,7 +170,7 @@
 			if(!client) //Nobody home.
 				simple_status_hud.icon_state = "afk"
 				return TRUE
-			if(IsUnconscious()) //Should hopefully get out of it soon.
+			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				simple_status_hud.icon_state = "knockout"
 				return TRUE
 			simple_status_hud.icon_state = "sleep"
@@ -179,13 +179,13 @@
 			if(!key) //Nobody home. Shouldn't affect aghosting.
 				simple_status_hud.icon_state = "afk"
 				return TRUE
-			if(IsParalyzed()) //I've fallen and I can't get up.
+			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				simple_status_hud.icon_state = "knockdown"
 				return TRUE
-			if(IsStun())
+			if(has_status_effect(STATUS_EFFECT_STUN))
 				simple_status_hud.icon_state = "stun"
 				return TRUE
-			if(IsStaggered())
+			if(has_status_effect(STATUS_EFFECT_STAGGER))
 				simple_status_hud.icon_state = "stagger"
 				return TRUE
 			if(slowdown)
@@ -219,6 +219,7 @@
 	var/static/image/jellyjuice_image = image('icons/mob/hud/reagent.dmi', icon_state = "jellyjuice")
 	var/static/image/russianred_image = image('icons/mob/hud/reagent.dmi', icon_state = "russian_red")
 
+
 	var/neurotox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin)
 	var/hemodile_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile)
 	var/transvitox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox)
@@ -228,6 +229,7 @@
 	var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicalnanites)
 	var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
 	var/ifosfamide_amount = reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide)
+
 
 	if(neurotox_amount > 10) //Blinking image for particularly high concentrations
 		xeno_reagent.overlays += neurotox_high_image
@@ -285,7 +287,7 @@
 	xeno_debuff.overlays.Cut()
 	xeno_debuff.icon_state = ""
 
-	if(stat != DEAD && IsMute())
+	if(stat != DEAD && has_status_effect(STATUS_EFFECT_MUTED))
 		xeno_debuff.overlays += hunter_silence_image
 
 	if(HAS_TRAIT(src, TRAIT_HIVE_TARGET))

@@ -52,7 +52,7 @@
 		if(stat == DEAD)
 			hugger_overlays_icon.overlays += mutable_appearance(effects_icon, "clinger_[i] Knocked Down")
 		else if(lying_angle)
-			if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+			if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 				hugger_overlays_icon.overlays += mutable_appearance(effects_icon, "clinger_[i] Sleeping")
 			else
 				hugger_overlays_icon.overlays += mutable_appearance(effects_icon, "clinger_[i] Knocked Down")

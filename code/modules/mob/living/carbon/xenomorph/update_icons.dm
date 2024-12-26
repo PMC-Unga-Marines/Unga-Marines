@@ -28,7 +28,7 @@
 		else if(HAS_TRAIT(src, TRAIT_BURROWED))
 			icon_state = "[xeno_caste.caste_name] Burrowed"
 		else if(lying_angle)
-			if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+			if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 				icon_state = "[xeno_caste.caste_name] Sleeping"
 			else
 				icon_state = "[xeno_caste.caste_name] Knocked Down"
@@ -119,7 +119,7 @@
 				health_thresholds = 3
 	var/overlay_to_show
 	if(lying_angle)
-		if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+		if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 			overlay_to_show = "wounded_resting_[health_thresholds]"
 		else
 			overlay_to_show = "wounded_stunned_[health_thresholds]"
@@ -183,7 +183,7 @@
 		icon_state = ""
 		return
 	layer = layer + 0.4
-	if((!owner.lying_angle && !owner.resting && !owner.IsSleeping()))
+	if((!owner.lying_angle && !owner.resting && !owner.has_status_effect(STATUS_EFFECT_SLEEPING)))
 		icon_state = "alien_fire"
 	else
 		icon_state = "alien_fire_lying"

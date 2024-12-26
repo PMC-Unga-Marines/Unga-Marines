@@ -526,15 +526,21 @@
 	purge_rate = 5
 
 /datum/reagent/medicine/adrenaline/on_mob_add(mob/living/carbon/human/L, metabolism)
-	if(TIMER_COOLDOWN_CHECK(L, name))
+	var/mob/living/carbon/human/H = L
+	if(TIMER_COOLDOWN_CHECK(L, COOLDOWN_STAMINA))
 		return
 	L.adjustStaminaLoss(-30 * effect_str)
 	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
 
-	if(L.health < L.health_threshold_crit && volume >= 3)
-		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
+	if(TIMER_COOLDOWN_CHECK(L, COOLDOWN_CRIT) || L.stat == DEAD)
+		return
+	if(L.health < H.health_threshold_crit && volume >= 2)
+		to_chat(L, span_userdanger("Heart explosion! Power running in your veins!"))
 		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
+		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
+		L.adjustToxLoss(5)
 		L.jitter(5)
+		TIMER_COOLDOWN_START(L, COOLDOWN_CRIT, 120 SECONDS)
 
 /datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
@@ -561,7 +567,7 @@
 
 /datum/reagent/medicine/adrenaline/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("The room spins as your adrenaline starts to wear off!"))
-	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
+	TIMER_COOLDOWN_START(L, COOLDOWN_STAMINA, 60 SECONDS)
 
 /datum/reagent/medicine/neuraline //injected by neurostimulator implant and medic-only injector
 	name = "Neuraline"
@@ -691,7 +697,6 @@
 	name = "Alkysine"
 	description = "Alkysine is a drug used to lessen the damage to neurological and auditory tissue after a catastrophic injury. Can heal brain and ear tissue."
 	color = COLOR_REAGENT_ALKYSINE
-	custom_metabolism = REAGENTS_METABOLISM * 0.25
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	scannable = TRUE
@@ -1678,3 +1683,4 @@
 
 /datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustToxLoss(4*effect_str)
+

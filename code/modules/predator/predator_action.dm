@@ -11,7 +11,7 @@
 	var/mob/living/carbon/human/human = owner
 	if(!istype(human))
 		return FALSE
-	if(human.stat || (human.lying_angle && !human.resting && !human.IsSleeping()) || (human.IsParalyzed() || human.IsUnconscious()))
+	if(human.stat || (human.lying_angle && !human.resting && !human.has_status_effect(STATUS_EFFECT_SLEEPING)) || (human.has_status_effect(STATUS_EFFECT_PARALYZED) || human.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 	return TRUE
 

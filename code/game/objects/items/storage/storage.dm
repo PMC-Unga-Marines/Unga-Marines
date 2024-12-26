@@ -557,13 +557,17 @@
 				return do_refill(I, user)
 
 	if(!can_be_inserted(I))
-		open(user)
+		if(user.s_active != src) // Don't close open storage menu if can't insert something, if storage dosen't open it will be open
+			open(user)
 		return FALSE
 	return handle_item_insertion(I, FALSE, user)
 
 /obj/item/storage/AltRightClick(mob/user)
 	if(Adjacent(user) && !isxeno(user))
 		open(user)
+
+/obj/item/storage/CtrlShiftClick(mob/living/user) // Take left object in inventory
+	attempt_draw_object(user, TRUE)
 
 ///Refills the storage from the refill_types item
 /obj/item/storage/proc/do_refill(obj/item/storage/refiller, mob/user)

@@ -100,5 +100,5 @@
 	if(!use(2))
 		to_chat(user, span_warning("You need more rods."))
 		return
-	T.ChangeTurf(/turf/open/floor/engine)
+	T.PlaceOnTop(/turf/open/floor/engine)
 	playsound(src, 'sound/items/deconstruct.ogg', 25, 1)

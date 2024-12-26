@@ -71,6 +71,24 @@
 			"The stone. The rock. The boulder. Its name matters not when we consume it.",
 			"Delicious, delectable, simply exquisite. Just a few more minerals and it'd be perfect...")), null, 5)
 
+/turf/closed/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	if(user.do_actions)
+		return FALSE
+	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		to_chat(user, span_warning("[I] can't cut through this!"))
+		return FALSE
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
+		return FALSE
+	if(!I.start_cut(user, name, src))
+		return FALSE
+	if(!do_after(user, PLASMACUTTER_CUT_DELAY, NONE, src, BUSY_ICON_FRIENDLY))
+		return FALSE
+
+	I.cut_apart(user, name, src)
+	// Change targetted turf to a new one to simulate deconstruction.
+	ChangeTurf(open_turf_type)
+	return TRUE
+
 /turf/closed/mineral/smooth
 	name = "rock"
 	icon = 'icons/turf/walls/lvwall.dmi'
@@ -291,24 +309,6 @@
 
 /turf/closed/glass/thin/intersection
 	icon_state = "Intersection"
-
-/turf/closed/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(istype(I, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
-		var/obj/item/tool/pickaxe/plasmacutter/P = I
-		if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE))
-			to_chat(user, span_warning("[P] can't cut through this!"))
-			return
-		else if(!P.start_cut(user, name, src))
-			return
-		else if(!do_after(user, PLASMACUTTER_CUT_DELAY, NONE, src, BUSY_ICON_FRIENDLY))
-			return
-		else
-			P.cut_apart(user, name, src) //purely a cosmetic effect
-
-		//change targetted turf to a new one to simulate deconstruction
-		ChangeTurf(open_turf_type)
 
 //Ice Thin Wall
 /turf/closed/ice/thin
