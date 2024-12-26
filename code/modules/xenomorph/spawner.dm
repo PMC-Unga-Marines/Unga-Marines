@@ -1,11 +1,15 @@
 /obj/structure/xeno/spawner
 	icon = 'icons/Xeno/2x2building.dmi.dmi'
-	bound_width = 64
-	bound_height = 64
 	plane = FLOOR_PLANE
 	name = "spawner"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	icon_state = "spawner"
+	bound_width = 64
+	bound_height = 64
+	bound_x = -32
+	bound_y = -32
+	pixel_x = -32
+	pixel_y = -24
 	max_integrity = 500
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
