@@ -592,7 +592,7 @@
 		else
 			stun = knockback ? knockback_stun_amount : crush_stun_amount
 
-	if(!M.IsStun() && !M.IsParalyzed() && !isxenoqueen(M) && !isxenoking(M)) //Prevent chain stunning. Queen and King are protected.
+	if(!M.has_status_effect(STATUS_EFFECT_STUN) && !M.has_status_effect(STATUS_EFFECT_PARALYZED) && !isxenoqueen(M) && !isxenoking(M)) //Prevent chain stunning. Queen and King are protected.
 		M.apply_effects(stun,weaken)
 
 	return ..()

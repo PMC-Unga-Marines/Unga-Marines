@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	gas = new /datum/effect_system/smoke_spread/xeno/acid/light
 
 	owner.add_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP, TRUE, 0, NONE, TRUE, BOILER_DUMP_SPEED)
-	if(caster.IsStun() || caster.IsParalyzed())
+	if(caster.has_status_effect(STATUS_EFFECT_STUN) || caster.has_status_effect(STATUS_EFFECT_PARALYZED))
 		to_chat(caster, span_xenohighdanger("We try to emit acid but are disabled!"))
 		owner.remove_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP)
 		toggle_particles(FALSE)
