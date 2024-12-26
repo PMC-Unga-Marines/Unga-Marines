@@ -159,7 +159,6 @@
 	max_integrity = 225
 	integrity_failure = 50
 	deploy_time = 1 SECONDS
-	undeploy_time = 1 SECONDS
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	deployable_item = /obj/machinery/deployable/mounted/sentry/cope
 	turret_range = 9
