@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/static/list/one_character_prefix = list(MODE_HEADSET = TRUE, MODE_ROBOT = TRUE, MODE_WHISPER = TRUE, MODE_SING = TRUE)
 
 
-	var/datum/saymode/saymode = get_saymode(message, lowertext(convert_ru_key_to_en_key(talk_key)))
+	var/datum/saymode/saymode = get_saymode(message, talk_key)
 	var/message_mode = get_message_mode(message)
 	var/original_message = message
 	var/in_critical = InCritical()
@@ -364,4 +364,4 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 
 /mob/living/proc/get_saymode(message, talk_key)
-	return SSradio.saymodes[talk_key]
+	return SSradio.saymodes[lowertext(convert_ru_key_to_en_key(talk_key))]
