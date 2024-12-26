@@ -82,12 +82,18 @@
 		if("confirm")
 			if(!current_template_ref)
 				return FALSE
-			var/datum/map_template/shuttle/template = locate(current_template_ref) in SSmapping.minidropship_templates
+			var/datum/map_template/shuttle/minidropship/template = locate(current_template_ref) in SSmapping.minidropship_templates
 			var/obj/docking_port/mobile/shuttle = SSshuttle.action_load(template)
 			SSshuttle.moveShuttleQuickToDock(template.shuttle_id, dock_id)
 			shuttle.setTimer(0)
 			dropship_selected = TRUE
 			balloon_alert(usr, "shuttle selected, locking")
+			var/area/tadarea = get_area(shuttle)
+			for(var/turf/turfcontent in tadarea)
+				for(var/objectontad in turfcontent.contents)
+					if(istype(objectontad, /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship))
+						var/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/console = objectontad
+						console.ship_type = "[template.display_name]"
 			ui.close()
 	return TRUE
 

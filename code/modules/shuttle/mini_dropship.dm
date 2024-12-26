@@ -47,6 +47,8 @@
 	var/launching_delay = 10 SECONDS
 	///Minimap for use while in landing cam mode
 	var/datum/action/minimap/marine/external/tadmap
+	// Tad Name
+	var/ship_type = ""
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/Initialize(mapload)
 	..()
@@ -116,7 +118,11 @@
 	shuttle_port.assigned_transit.reserved_area.set_turf_type(/turf/open/space/transit/atmos)
 	open_prompt = TRUE
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/checkpayload()
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/examine(mob/user)
+	. = ..()
+	. += "TAD loaded on [check_tad_load()]"
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/check_tad_load()
 	var/area/tadarea = get_area(src)
 	var/weightintad = 0
 	for(var/turf/turfcontent in tadarea)
@@ -133,14 +139,41 @@
 			if(isstructure(objectontad))
 				var/obj/structure/structure = objectontad
 				weightintad += structure.weight_structure
-	if(weightintad > 60)
-		return FALSE
+	return weightintad
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/payload_tad()
+	var/weight = check_tad_load()
+	switch(ship_type)
+		if("Tadpole Standard Model")
+			if(weight > 55)
+				return FALSE
+		if("Tadpole Carrier Model")
+			if(weight > 60)
+				return FALSE
+		if("Tadpole NK-Haul Model")
+			if(weight > 90)
+				return FALSE
+		if("Tadpole Combat Model")
+			if(weight > 90)
+				return FALSE
+		if("Tadpole Umbilical Model")
+			if(weight > 60)
+				return FALSE
+		if("Tadpole Cargo Model")
+			if(weight > 70)
+				return FALSE
+		if("Tadpole Mobile-Bar Model") // nobody use it, maybe in future sombody will use it for payload
+			if(weight > 200)
+				return FALSE
+		if("Tadpole Food-truck Model")
+			if(weight > 200)
+				return FALSE
 	return TRUE
 
 ///The action of taking off and sending the shuttle to the atmosphere
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/take_off()
 	shuttle_port = SSshuttle.getShuttle(shuttleId)
-	if(!checkpayload())
+	if(!payload_tad())
 		to_chat(ui_user, span_warning("Tad too heavy to liftoff"))
 		return
 	#ifndef TESTING
@@ -166,7 +199,7 @@
 
 ///The action of sending the shuttle back to its shuttle port on main ship
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/return_to_ship()
-	if(!checkpayload())
+	if(!payload_tad())
 		to_chat(ui_user, span_warning("Tad too heavy to liftoff"))
 		to_chat(ui_user, span_userdanger("EMERGENCY LANDING"))
 		SSshuttle.moveShuttleToDock(shuttleId, last_valid_ground_port, TRUE)
