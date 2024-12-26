@@ -364,4 +364,4 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 
 /mob/living/proc/get_saymode(message, talk_key)
-	return SSradio.saymodes[talk_key]
+	return SSradio.saymodes[lowertext(convert_ru_key_to_en_key(talk_key))]
