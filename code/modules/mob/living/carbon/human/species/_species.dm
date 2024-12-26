@@ -202,7 +202,7 @@
 	else
 		damage = victim.modify_by_armor(damage, blocked, penetration, def_zone)
 
-	if(victim.protection_aura)
+	if(victim.protection_aura) //MARKER
 		damage = round(damage * ((20 - victim.protection_aura) / 20))
 
 	if(!damage)
