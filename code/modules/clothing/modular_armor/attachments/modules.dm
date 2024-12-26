@@ -230,7 +230,6 @@
 	permeability_coefficient_mod = -0.5
 	gas_transfer_coefficient_mod = -0.5
 
-//SOM version
 /obj/item/armor_module/module/mimir_environment_protection/som
 	name = "\improper Mithridatius Hostile Environment System"
 	desc = "Designed for mounting on modular SOM armor. This module appears to be designed to protect the user from the effects of radiological attacks, although also provides improved resistance against other environmental threats such as acid and gas. Pairing this with a Mithridatius helmet module and mask will make the user impervious to gas clouds. Will impact mobility."
