@@ -6,6 +6,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/modify_by_armor(damage_amount, armor_type, penetration, def_zone, attack_dir)
+	//Warding pheromones used to change soft armor, but now change the damage directly in apply_damage
 	var/hard_armor_remaining = get_hard_armor(armor_type, def_zone)
 
 	var/effective_penetration = max(0, penetration - hard_armor_remaining)
@@ -65,6 +66,11 @@
 		damage -= clamp(damage * (blocked - penetration) * 0.01, 0, damage)
 	else
 		damage = modify_by_armor(damage, blocked, penetration, def_zone)
+
+	// WARDING PHEROMONES EFFECT
+	if(warding_aura)
+		var/effect_per_aura_level = 0.03 // %damage decrease per level. Max base level is 6, but can be increases from upgrades
+		damage = damage * (1 - warding_aura*effect_per_aura_level)
 
 	if(!damage) //no damage
 		return FALSE

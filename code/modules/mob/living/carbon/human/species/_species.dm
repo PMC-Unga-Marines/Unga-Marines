@@ -202,7 +202,7 @@
 	else
 		damage = victim.modify_by_armor(damage, blocked, penetration, def_zone)
 
-	if(victim.protection_aura) //MARKER
+	if(victim.protection_aura)
 		damage = round(damage * (1 - victim.protection_aura*0.05)) //10% for SLs, 15% for commanders
 
 	if(!damage)
