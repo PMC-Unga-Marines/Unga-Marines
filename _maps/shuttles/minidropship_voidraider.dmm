@@ -17,18 +17,6 @@
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"f" = (
-/obj/structure/closet/walllocker/hydrant/extinguisher{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"l" = (
-/obj/machinery/vending/nanomed/tadpolemed{
-	dir = 8
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
 "m" = (
 /obj/structure/dropship_piece/tadpole/tadpole_nose/right{
 	dir = 1;
@@ -78,10 +66,12 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "t" = (
-/obj/structure/closet/walllocker/hydrant/extinguisher{
+/obj/effect/turf_decal/warning_stripes/thick/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/thick/corner{
+/obj/machinery/door_control{
+	id = "minidropship_podlock";
+	name = "inner door-control";
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -115,11 +105,6 @@
 	layer = 3
 	},
 /obj/machinery/light,
-/obj/machinery/door_control{
-	id = "minidropship_podlock";
-	name = "inner door-control";
-	dir = 8
-	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "y" = (
@@ -154,13 +139,9 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"E" = (
-/obj/structure/window/reinforced/west,
-/obj/structure/window/reinforced,
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
 "F" = (
 /obj/machinery/holopad,
+/obj/machinery/vending/nanomed/tadpolemed,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "G" = (
@@ -211,6 +192,9 @@
 /area/shuttle/minidropship)
 "O" = (
 /obj/effect/turf_decal/warning_stripes/thick/corner{
+	dir = 8
+	},
+/obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
@@ -318,9 +302,9 @@ L
 n
 a
 s
-E
+a
 F
-c
+Y
 Y
 a
 o
@@ -330,8 +314,8 @@ Z
 z
 G
 H
-f
-l
+v
+Y
 v
 a
 a
