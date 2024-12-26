@@ -143,7 +143,7 @@
  * Extra armor module
 */
 /obj/item/armor_module/module/tyr_extra_armor
-	name = "\improper Tyr Armor Reinforcement"
+	name = "\improper Mark 2 Tyr Armor Reinforcement"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility."
 	icon_state = "mod_armor"
 	item_state = "mod_armor_a"
@@ -174,7 +174,7 @@
 	slowdown = 0.2
 
 /obj/item/armor_module/module/tyr_head
-	name = "Tyr Helmet System"
+	name = "Mark 1 Tyr Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
 	icon_state = "tyr_head"
@@ -187,21 +187,9 @@
 	colorable_colors = ARMOR_PALETTES_LIST
 
 /obj/item/armor_module/module/tyr_head/mark2
-	name = "Tyr 2 Helmet System"
+	name = "Mark 2 Tyr Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
-
-/obj/item/armor_module/module/hod_head
-	name = "\improper Hod Helmet System"
-	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most gunshot wounds by providing high internal padding within the helmet's structure."
-	icon_state = "mod_ff_head"
-	item_state = "mod_ff_head_a"
-	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
-
-	greyscale_config = /datum/greyscale_config/modules
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	colorable_colors = ARMOR_PALETTES_LIST
 
 /**
  * Environment protection module
@@ -264,7 +252,9 @@
 	desc = "Designed for mounting on a modular helmet. This older model provides minor resistance to acid and biological attacks."
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
 
-//Explosive defense armor
+/**
+ * 	Module with extra armor against explosions
+*/
 /obj/item/armor_module/module/hlin_explosive_armor
 	name = "Hlin Explosive Compensation Module"
 	desc = "Designed for mounting on modular armor. Uses a complex set of armor plating and compensation to lessen the effect of explosions. Will impact mobility"
@@ -274,9 +264,9 @@
 	slowdown = 0.2
 
 /**
- * Extra armor module
+ * Anti-ff and anti-explosion module
 */
-/obj/item/armor_module/module/ballistic_armor
+/obj/item/armor_module/module/hod_armor
 	name = "\improper Hod Accident Prevention Plating"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional reflective ballistic armor plating designed to reduce the impact of friendly fire incidents, will lessen the affects of bullets and lasers. Will impact mobility."
 	icon_state = "mod_ff"
@@ -287,6 +277,19 @@
 	greyscale_config = /datum/greyscale_config/modules
 	colorable_allowed = PRESET_COLORS_ALLOWED
 	colorable_colors = ARMOR_PALETTES_LIST
+
+/obj/item/armor_module/module/hod_head
+	name = "\improper Hod Helmet System"
+	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most gunshot wounds by providing high internal padding within the helmet's structure."
+	icon_state = "mod_ff_head"
+	item_state = "mod_ff_head_a"
+	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
+	slot = ATTACHMENT_SLOT_HEAD_MODULE
+
+	greyscale_config = /datum/greyscale_config/modules
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
+
 
 /obj/item/armor_module/module/chemsystem
 	name = "Vali chemical enhancement module"

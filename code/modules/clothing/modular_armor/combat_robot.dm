@@ -21,7 +21,7 @@
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/tyr_extra_armor,
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/hod_armor,
 		/obj/item/armor_module/module/eshield,
 
 		/obj/item/armor_module/storage/general,
@@ -50,7 +50,7 @@
 //---- Medium armor with attachments
 /obj/item/clothing/suit/modular/robot/hodgrenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/hod_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
 
