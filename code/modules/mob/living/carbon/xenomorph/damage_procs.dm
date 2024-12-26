@@ -68,7 +68,7 @@
 
 	// WARDING PHEROMONES EFFECT
 	if(warding_aura)
-		damage = damage * (1 - warding_aura*0.03) // %damage decrease per level. Max base level is 6 (king)
+		damage *= (1 - warding_aura*0.03) // %damage decrease per level. Max base level is 6 (king)
 
 	if(!damage) //no damage
 		return FALSE
