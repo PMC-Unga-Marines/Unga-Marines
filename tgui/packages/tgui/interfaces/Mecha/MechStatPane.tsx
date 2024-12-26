@@ -9,9 +9,9 @@ import {
 } from '../../components';
 import { OperatorData } from './data';
 
-export const MechStatPane = (props) => {
+export const MechStatPane = () => {
   const { act, data } = useBackend<OperatorData>();
-  const { name, integrity, weapons_safety, mecha_flags, mechflag_keys } = data;
+  const { name, integrity, weapons_safety } = data;
   return (
     <Stack fill vertical>
       <Stack.Item>
@@ -47,83 +47,12 @@ export const MechStatPane = (props) => {
           </LabeledList>
         </Section>
       </Stack.Item>
-      <Stack.Item>
-        <Section title="DNA lock">
-          <DNABody />
-        </Section>
-      </Stack.Item>
-      <Stack.Item>
-        <Section title="Maintenance">
-          <LabeledList>
-            <LabeledList.Item label="Maintenance mode">
-              <Button
-                onClick={() => act('toggle_maintenance')}
-                selected={
-                  mecha_flags & mechflag_keys['ADDING_MAINT_ACCESS_POSSIBLE']
-                }
-              >
-                {mecha_flags & mechflag_keys['ADDING_MAINT_ACCESS_POSSIBLE']
-                  ? 'En'
-                  : 'Dis'}
-                abled
-              </Button>
-            </LabeledList.Item>
-            <LabeledList.Item label="ID reader panel">
-              <Button
-                onClick={() => act('toggle_id_panel')}
-                selected={mecha_flags & mechflag_keys['ADDING_ACCESS_POSSIBLE']}
-              >
-                {mecha_flags & mechflag_keys['ADDING_ACCESS_POSSIBLE']
-                  ? 'En'
-                  : 'Dis'}
-                abled
-              </Button>
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      </Stack.Item>
     </Stack>
   );
 };
 
-const DNABody = (props) => {
-  const { act, data } = useBackend<OperatorData>();
-  const { dna_lock } = data;
-  if (dna_lock === null) {
-    return (
-      <LabeledList>
-        <LabeledList.Item label="DNA Enzymes">
-          <Button onClick={() => act('dna_lock')} icon={'syringe'}>
-            Set new DNA key
-          </Button>
-        </LabeledList.Item>
-      </LabeledList>
-    );
-  } else {
-    return (
-      <LabeledList>
-        <LabeledList.Item label="DNA Enzymes">
-          <Button onClick={() => act('dna_lock')} icon={'syringe'}>
-            Set new DNA key
-          </Button>
-        </LabeledList.Item>
-        <LabeledList.Item label="Enzymes">
-          <Button onClick={() => act('view_dna')} icon={'list'}>
-            View enzyme list
-          </Button>
-        </LabeledList.Item>
-        <LabeledList.Item label="Reset DNA">
-          <Button onClick={() => act('reset_dna')} icon={'ban'}>
-            Reset DNA lock
-          </Button>
-        </LabeledList.Item>
-      </LabeledList>
-    );
-  }
-};
-
-const PowerBar = (props) => {
-  const { act, data } = useBackend<OperatorData>();
+const PowerBar = () => {
+  const { data } = useBackend<OperatorData>();
   const { power_level, power_max } = data;
   if (power_max === null) {
     return <Box content={'No Power cell installed!'} />;
