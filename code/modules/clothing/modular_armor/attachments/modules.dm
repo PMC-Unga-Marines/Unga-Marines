@@ -289,7 +289,9 @@
 	colorable_allowed = PRESET_COLORS_ALLOWED
 	colorable_colors = ARMOR_PALETTES_LIST
 
-
+/**
+ *  Vali harvester module. RIP AND TEAR
+*/
 /obj/item/armor_module/module/chemsystem
 	name = "Vali chemical enhancement module"
 	desc = "Designed for mounting on modular armor. This experimental module runs on green blood taken from xenos with harvester class weapons; Green blood heals the user and boosts any chems in the suit injection system. \nUse the suit menu to connect harvester class weapons, control the injection system, find chem boost information, and more."
@@ -323,6 +325,9 @@
 		return
 	icon_state = initial(icon_state)
 
+/**
+ *  Module which creates energy shield around wearer preventing damage until it breaks
+*/
 /obj/item/armor_module/module/eshield
 	name = "Svalinn Energy Shield System"
 	desc = "A brand new innovation in armor systems, this module creates a shield around the user that is capable of negating all damage. If it sustains too much it will deactivate, and leave the user vulnerable."
@@ -447,7 +452,6 @@
 	playsound(wearer, 'sound/items/eshield_recharge.ogg', 40)
 	START_PROCESSING(SSobj, src)
 
-
 /obj/item/armor_module/module/eshield/process()
 	shield_health = min(shield_health + recharge_rate, max_shield_health)
 	if(shield_health == max_shield_health) //Once health is full, we don't need to process until the next time we take damage.
@@ -530,6 +534,7 @@
 	return ..()
 
 //////////////////////////////////////HELMET MODULES//////////////////////////////////////
+
 /**
  *	Basic helm module
  */
