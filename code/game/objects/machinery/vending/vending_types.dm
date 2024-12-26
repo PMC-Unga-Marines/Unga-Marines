@@ -163,6 +163,7 @@
 			/obj/item/storage/pill_bottle/imidazoline = 6,
 			/obj/item/storage/pill_bottle/imialky = 6,
 			/obj/item/storage/pill_bottle/hypervene = 6,
+			/obj/item/storage/pill_bottle/russian_red = 4,
 		),
 		"Hypospray" = list (
 			/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 10,
