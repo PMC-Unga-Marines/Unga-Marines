@@ -1,15 +1,99 @@
 {
+	"mod_ff": [
+		{
+			"type":"icon_state",
+			"icon_state": "mod_ff",
+			"blend_mode": "add"
+		}
+	],
 	"mod_ff_a": [
 		{
 			"type": "hyperscale",
 			"icon_state": "mod_ff_a"
 		}
 	],
-	"mod_ff": [
+	"mod_armor": [
 		{
 			"type":"icon_state",
-			"icon_state": "mod_ff",
+			"icon_state": "mod_armor",
 			"blend_mode": "add"
+		}
+	],
+	"mod_armor_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "mod_armor_a"
+		}
+	],
+	"mod_armor_lower": [
+		{
+			"type":"icon_state",
+			"icon_state": "mod_armor_lower",
+			"blend_mode": "add"
+		}
+	],
+	"mod_armor_lower_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "mod_armor_lower_a"
+		}
+	],
+	"mod_ff_head": [
+		{
+			"type":"icon_state",
+			"icon_state": "mod_ff_head",
+			"blend_mode": "add"
+		}
+	],
+	"mod_ff_head_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "mod_ff_head_a"
+		}
+	],
+	"tyr_head": [
+		{
+			"type":"icon_state",
+			"icon_state": "tyr_head",
+			"blend_mode": "add"
+		}
+	],
+	"tyr_head_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "tyr_head_a"
+		}
+	],
+	"tyr_head_xn_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "tyr_head_xn_a"
+		}
+	],
+	"welding_head": [
+		{
+			"type":"icon_state",
+			"icon_state": "welding_head",
+			"blend_mode": "add"
+		}
+	],
+	"welding_head_active": [
+		{
+			"type":"icon_state",
+			"icon_state": "welding_head_active",
+			"blend_mode": "add"
+		}
+	],
+	"welding_head_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "welding_head_a"
+		}
+	],
+	"welding_head_active_a": [
+		{
+			"type": "hyperscale",
+			"icon_state": "welding_head_active_a"
 		}
 	]
 }

@@ -8,10 +8,35 @@
 /obj/item/armor_module/module
 	name = "broken armor module"
 	desc = "You better be debugging."
+	///If TRUE, this armor piece can be recolored when its parent is right clicked by facepaint.
+	var/secondary_color = TRUE
 
-/obj/item/armor_module/module/color_item(obj/item/facepaint/paint, mob/user)
+/obj/item/armor_module/module/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	src.update_item_state()
+	if(!secondary_color)
+		return
+	RegisterSignal(parent, COMSIG_ITEM_SECONDARY_COLOR, PROC_REF(handle_color))
+	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(extra_examine))
+
+/obj/item/armor_module/module/on_detach(obj/item/detaching_from, mob/user)
+	UnregisterSignal(parent, list(COMSIG_ATOM_EXAMINE, COMSIG_ITEM_SECONDARY_COLOR))
+	return ..()
+
+/obj/item/armor_module/module/proc/extra_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	examine_list += span_notice("<b>Right click</b> the [parent] with <b>facepaint</b> to color [src].")
+
+///Sends a list of available colored attachments to be colored when the parent is right clicked with paint.
+/obj/item/armor_module/module/proc/handle_color(datum/source, mob/user, list/obj/item/secondaries)
+	SIGNAL_HANDLER
+	secondaries += src
+	for(var/key in attachments_by_slot)
+		if(!attachments_by_slot[key] || !istype(attachments_by_slot[key], /obj/item/armor_module/module))
+			continue
+		var/obj/item/armor_module/module/module = attachments_by_slot[key]
+		if(!module.secondary_color)
+			continue
+		module.handle_color(source, user, secondaries)
 
 /**
  * PT belt
@@ -134,6 +159,10 @@
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
 
+	greyscale_config = /datum/greyscale_config/modules
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
+
 /obj/item/armor_module/module/tyr_extra_armor/mark1
 	name = "\improper Mark 1 Tyr Armor Reinforcement"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will greatly impact mobility."
@@ -142,7 +171,7 @@
 	soft_armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = 0.3
 
-/obj/item/armor_module/module/tyr_extra_armor/som
+/obj/item/armor_module/module/lorica
 	name = "\improper Lorica Armor Reinforcement"
 	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
@@ -163,6 +192,10 @@
 	soft_armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
+	greyscale_config = /datum/greyscale_config/modules
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
+
 /obj/item/armor_module/module/tyr_head/mark2
 	name = "Tyr 2 Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
@@ -176,6 +209,10 @@
 	item_state = "mod_ff_head_a"
 	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
+
+	greyscale_config = /datum/greyscale_config/modules
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
 
 /**
  * Environment protection module
@@ -514,6 +551,10 @@
 	///Mod for extra eye protection when activated.
 	var/eye_protection_mod = 2
 
+	greyscale_config = /datum/greyscale_config/modules
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
+
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/clothing_tint, TINT_5, active)
@@ -549,14 +590,6 @@
 		parent.update_icon()
 		user.update_inv_head()
 
-/obj/item/armor_module/module/welding/som
-	name = "Integrated Welding Helmet Module"
-	desc = "Built in welding module for a SOM engineering helmet. This module can be toggled on or off to function as welding protection for your delicate eyes."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "welding_head_som"
-	item_state = "welding_head_som_a"
-	flags_attach_features = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
-
 /obj/item/armor_module/module/welding/superior
 	name = "Superior Welding Helmet Module"
 	desc = "Designed for mounting on a modular helmet. This more expensive module can be toggled on or off to function as welding protection for your delicate eyes, strangely smells like potatoes."
@@ -571,6 +604,18 @@
 /obj/item/armor_module/module/welding/superior/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/clothing_tint, TINT_4, active)
+
+/obj/item/armor_module/module/welding/som
+	name = "Integrated Welding Helmet Module"
+	desc = "Built in welding module for a SOM engineering helmet. This module can be toggled on or off to function as welding protection for your delicate eyes."
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	icon_state = "welding_head_som"
+	item_state = "welding_head_som_a"
+	flags_attach_features = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+
+	greyscale_config = null
+	colorable_allowed = null
+	colorable_colors = null
 
 /obj/item/armor_module/module/binoculars
 	name = "Binocular Helmet Module"
