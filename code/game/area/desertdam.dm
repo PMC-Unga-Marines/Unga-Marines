@@ -1015,14 +1015,12 @@
 /area/desert_dam/landing/console
 	name = "LZ1 'Admin'"
 	icon_state = "tcomsatcham"
-	requires_power = 0
-	flags_area = NO_DROPPOD
+	requires_power = FALSE
 
 /area/desert_dam/landing/console2
 	name = "LZ2 'Supply'"
 	icon_state = "tcomsatcham"
-	requires_power = 0
-	flags_area = NO_DROPPOD
+	requires_power = FALSE
 
 //Transit Shuttle
 /area/shuttle/tri_trans1/alpha
