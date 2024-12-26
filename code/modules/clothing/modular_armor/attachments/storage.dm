@@ -7,7 +7,7 @@
 
 /** Storage modules */
 /obj/item/armor_module/storage
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_storage_modules.dmi'
 	icon_state = "mod_is_bag"
 	slot = ATTACHMENT_SLOT_STORAGE
 	w_class = WEIGHT_CLASS_BULKY
@@ -188,7 +188,6 @@
 /obj/item/armor_module/storage/general/som
 	name = "General Purpose Storage module"
 	desc = "Designed for mounting on SOM combat armor. Certainly not as specialised as any other storage modules, but definitely able to hold some larger things, like pistols or magazines."
-	icon = 'icons/mob/modular/som_armor_modules.dmi'
 	icon_state = "mod_general_bag_som"
 	item_state = "mod_general_bag_som_a"
 
@@ -288,7 +287,6 @@
 /obj/item/armor_module/storage/engineering/som
 	name = "Engineering Storage module"
 	desc = "Designed for mounting on SOM combat armor. Can hold about as much as a tool pouch, and sometimes small spools of things like barbed wire, or an entrenching tool."
-	icon = 'icons/mob/modular/som_armor_modules.dmi'
 	icon_state = "mod_engineer_bag_som"
 	item_state = "mod_engineer_bag_som_a"
 
@@ -335,7 +333,6 @@
 /obj/item/armor_module/storage/medical/som
 	name = "Medical Storage module"
 	desc = "Designed for mounting on SOM combat armor. Can hold a substantial variety of medical supplies and apparatus, but cannot hold as much as a medkit could."
-	icon = 'icons/mob/modular/som_armor_modules.dmi'
 	icon_state = "mod_medic_bag_som"
 	item_state = "mod_medic_bag_som_a"
 
