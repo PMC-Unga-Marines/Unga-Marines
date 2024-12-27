@@ -1434,7 +1434,7 @@
 /obj/structure/prop/vehicle/apc
 	name = "Decommissioned TAV - Athena"
 	desc = "A decomissioned APC, all methods of propulsion have been disabled and the entrances sealed."
-	icon = 'icons/Marine/apc_prop.dmi'
+	icon = 'icons/obj/structures/apc_prop.dmi'
 	icon_state = "apc_base"
 	density = TRUE
 	coverage = 70
