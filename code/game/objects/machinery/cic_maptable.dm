@@ -149,7 +149,7 @@
 		tool.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP))
 
 /obj/machinery/cic_maptable/drawable/big
-	icon = 'icons/Marine/mainship_props96.dmi'
+	icon = 'icons/obj/structures/mainship_props96.dmi'
 	layer = ABOVE_OBJ_LAYER
 	pixel_x = -16
 	pixel_y = -14
