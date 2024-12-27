@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(metal_radial_images, list(
 	"metal barricade" = image('icons/obj/structures/barricades/metal.dmi', icon_state = "metal_0"),
 	"folding metal barricade" = image('icons/obj/structures/barricades/folding_metal.dmi', icon_state = "folding_metal_0"),
 	"razorwire" = image('icons/obj/structures/barbedwire.dmi', icon_state = "barbedwire_assembly"),
-	"barbedwire" = image('icons/Marine/marine-items.dmi', icon_state = "barbed_wire")
+	"barbedwire" = image('icons/obj/stack_objects.dmi', icon_state = "barbed_wire")
 	))
 
 GLOBAL_LIST_INIT(plasteel_radial_images, list(

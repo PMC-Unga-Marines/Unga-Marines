@@ -48,10 +48,6 @@
 /datum/atom_hud/xeno_reagents
 	hud_icons = list(XENO_REAGENT_HUD)
 
-///hud component for revealing tactical elements to xenos
-/datum/atom_hud/xeno_tactical
-	hud_icons = list(XENO_TACTICAL_HUD)
-
 ///hud component for revealing xeno specific status effect debuffs to xenos
 /datum/atom_hud/xeno_debuff
 	hud_icons = list(XENO_DEBUFF_HUD)
