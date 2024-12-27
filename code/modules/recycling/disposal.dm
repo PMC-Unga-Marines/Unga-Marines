@@ -185,7 +185,7 @@
 	if(!isliving(user))
 		return
 	var/mob/living/L = user
-	if(L.stat || L.IsStun() || L.IsParalyzed() || flushing)
+	if(L.stat || L.has_status_effect(STATUS_EFFECT_STUN) || L.has_status_effect(STATUS_EFFECT_PARALYZED) || flushing)
 		return
 	if(L.loc == src)
 		go_out(L)

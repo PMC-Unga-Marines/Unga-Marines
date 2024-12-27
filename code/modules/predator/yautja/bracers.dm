@@ -152,7 +152,7 @@
 	if(forced || HAS_TRAIT(user, TRAIT_YAUTJA_TECH))
 		return FALSE
 
-	if(user.stat || (user.lying_angle && !user.resting && !user.IsSleeping()) || (user.IsParalyzed() || user.IsUnconscious())) //let's do this here to avoid to_chats to dead guys
+	if(user.stat || (user.lying_angle && !user.resting && !user.has_status_effect(STATUS_EFFECT_SLEEPING)) || (user.has_status_effect(STATUS_EFFECT_PARALYZED) || user.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))) //let's do this here to avoid to_chats to dead guys
 		return TRUE
 
 	var/workingProbability = 20
@@ -367,7 +367,7 @@
 	. = healing_capsule_internal(usr, FALSE)
 
 /obj/item/clothing/gloves/yautja/proc/healing_capsule_internal(mob/living/caller, forced = FALSE)
-	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	. = check_random_function(caller, forced)
@@ -470,7 +470,7 @@
 	var/mob/living/carbon/human/M = caller
 	var/new_alpha = cloak_alpha
 
-	if(!istype(M) || caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(!istype(M) || caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	if(cloaked) //Turn it off.
@@ -896,7 +896,7 @@
 		to_chat(wearer, span_warning("You've already claimed your equipment."))
 		return
 
-	if(wearer.stat || (wearer.lying_angle && !wearer.resting && !wearer.IsSleeping()) || (wearer.IsParalyzed() || wearer.IsUnconscious()) || wearer.lying_angle || wearer.buckled)
+	if(wearer.stat || (wearer.lying_angle && !wearer.resting && !wearer.has_status_effect(STATUS_EFFECT_SLEEPING)) || (wearer.has_status_effect(STATUS_EFFECT_PARALYZED) || wearer.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) || wearer.lying_angle || wearer.buckled)
 		to_chat(wearer, span_warning("You're not able to do that right now."))
 		return
 
@@ -1155,7 +1155,7 @@
 	. = remove_tracked_item_internal(usr, FALSE)
 
 /obj/item/clothing/gloves/yautja/hunter/proc/remove_tracked_item_internal(mob/living/caller, forced = FALSE)
-	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	. = check_random_function(caller, forced)
@@ -1183,7 +1183,7 @@
 	. = add_tracked_item_internal(usr, FALSE)
 
 /obj/item/clothing/gloves/yautja/hunter/proc/add_tracked_item_internal(mob/living/caller, forced = FALSE)
-	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	. = check_random_function(caller, forced)
@@ -1209,7 +1209,7 @@
 	set src in usr
 
 	var/mob/living/mob = usr
-	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.IsSleeping()) || (mob.IsParalyzed() || mob.IsUnconscious()))
+	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.has_status_effect(STATUS_EFFECT_SLEEPING)) || (mob.has_status_effect(STATUS_EFFECT_PARALYZED) || mob.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return
 
 	name_active = !name_active
@@ -1222,7 +1222,7 @@
 	set src in usr
 
 	var/mob/living/mob = usr
-	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.IsSleeping()) || (mob.IsParalyzed() || mob.IsUnconscious()))
+	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.has_status_effect(STATUS_EFFECT_SLEEPING)) || (mob.has_status_effect(STATUS_EFFECT_PARALYZED) || mob.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return
 
 	var/mob/living/carbon/human/H = usr

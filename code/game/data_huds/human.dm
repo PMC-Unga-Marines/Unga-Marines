@@ -92,7 +92,7 @@
 			if(!client) //Nobody home.
 				status_hud.icon_state = "afk"
 				return TRUE
-			if(IsUnconscious()) //Should hopefully get out of it soon.
+			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				status_hud.icon_state = "knockout"
 				return TRUE
 			status_hud.icon_state = "sleep" //Regular sleep, else.
@@ -101,13 +101,13 @@
 			if(!key) //Nobody home. Shouldn't affect aghosting.
 				status_hud.icon_state = "afk"
 				return TRUE
-			if(IsParalyzed()) //I've fallen and I can't get up.
+			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				status_hud.icon_state = "knockdown"
 				return TRUE
-			if(IsStun())
+			if(has_status_effect(STATUS_EFFECT_STUN))
 				status_hud.icon_state = "stun"
 				return TRUE
-			if(IsStaggered())
+			if(has_status_effect(STATUS_EFFECT_STAGGER))
 				return TRUE
 			if(slowdown)
 				status_hud.icon_state = "slowdown"
@@ -170,7 +170,7 @@
 			if(!client) //Nobody home.
 				simple_status_hud.icon_state = "afk"
 				return TRUE
-			if(IsUnconscious()) //Should hopefully get out of it soon.
+			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				simple_status_hud.icon_state = "knockout"
 				return TRUE
 			simple_status_hud.icon_state = "sleep"
@@ -179,13 +179,13 @@
 			if(!key) //Nobody home. Shouldn't affect aghosting.
 				simple_status_hud.icon_state = "afk"
 				return TRUE
-			if(IsParalyzed()) //I've fallen and I can't get up.
+			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				simple_status_hud.icon_state = "knockdown"
 				return TRUE
-			if(IsStun())
+			if(has_status_effect(STATUS_EFFECT_STUN))
 				simple_status_hud.icon_state = "stun"
 				return TRUE
-			if(IsStaggered())
+			if(has_status_effect(STATUS_EFFECT_STAGGER))
 				simple_status_hud.icon_state = "stagger"
 				return TRUE
 			if(slowdown)
@@ -287,7 +287,7 @@
 	xeno_debuff.overlays.Cut()
 	xeno_debuff.icon_state = ""
 
-	if(stat != DEAD && IsMute())
+	if(stat != DEAD && has_status_effect(STATUS_EFFECT_MUTED))
 		xeno_debuff.overlays += hunter_silence_image
 
 	if(HAS_TRAIT(src, TRAIT_HIVE_TARGET))

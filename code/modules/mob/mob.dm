@@ -259,19 +259,13 @@
 		if(!do_after(src, W.equip_delay_self, NONE, W, BUSY_ICON_FRIENDLY))
 			to_chat(src, "You stop putting on \the [W]")
 			return FALSE
-		if(!W.mob_can_equip(src, slot, warning, override_nodrop))
-			return FALSE
-		equip_to_slot(W, slot) //This proc should not ever fail.
-		//This will unwield items -without- triggering lights.
-		if(CHECK_BITFIELD(W.flags_item, TWOHANDED))
-			W.unwield(src)
-		return TRUE
-	else
-		equip_to_slot(W, slot) //This proc should not ever fail.
-		//This will unwield items -without- triggering lights.
-		if(CHECK_BITFIELD(W.flags_item, TWOHANDED))
-			W.unwield(src)
-		return TRUE
+		//calling the proc again with ignore_delay saves a boatload of copypaste
+		return equip_to_slot_if_possible(W, slot, TRUE, del_on_fail, warning, redraw_mob, override_nodrop)
+	equip_to_slot(W, slot) //This proc should not ever fail.
+	//This will unwield items -without- triggering lights.
+	if(CHECK_BITFIELD(W.flags_item, TWOHANDED))
+		W.unwield(src)
+	return TRUE
 
 /**
 *This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.

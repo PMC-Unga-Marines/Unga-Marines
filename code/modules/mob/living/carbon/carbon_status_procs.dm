@@ -30,3 +30,9 @@
 			if(old_nutrition > NUTRITION_OVERFED)
 				return
 			add_movespeed_modifier(MOVESPEED_ID_HUNGRY, TRUE, 0, NONE, TRUE, 0.5)
+
+/mob/living/carbon/dizzy(amount)
+	dizziness = clamp(dizziness + amount, 0, 1000)
+
+	if(dizziness > 100 && !is_dizzy)
+		INVOKE_ASYNC(src, PROC_REF(dizzy_process))

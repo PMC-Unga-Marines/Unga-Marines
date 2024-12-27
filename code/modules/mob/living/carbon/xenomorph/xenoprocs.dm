@@ -553,7 +553,7 @@
 	playsound(C, SFX_ALIEN_DROOL, 15, TRUE)
 	do
 		face_atom(C)
-		if(IsStaggered())
+		if(has_status_effect(STATUS_EFFECT_STAGGER))
 			return FALSE
 		do_attack_animation(C)
 		C.reagents.add_reagent(toxin, transfer_amount)

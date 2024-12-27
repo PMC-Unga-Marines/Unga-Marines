@@ -22,7 +22,7 @@
 		else
 			return 0
 	mecha_attacker.visible_message(span_danger("[mecha_attacker] hits [src]!"), span_danger("You hit [src]!"), null, COMBAT_MESSAGE_RANGE)
-	..()
+	. = ..()
 	return take_damage(mecha_attacker.force * 3, mecha_attacker.damtype, MELEE, FALSE, get_dir(src, mecha_attacker)) // multiplied by 3 so we can hit objs hard but not be overpowered against mobs.
 
 ///Mech shift click functionality
