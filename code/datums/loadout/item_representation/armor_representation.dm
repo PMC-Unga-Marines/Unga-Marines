@@ -152,6 +152,7 @@
 /datum/item_representation/armor_module
 	///List of attachments on the armor.
 	var/list/datum/item_representation/armor_module/attachments = list()
+	///Flag for hiding modules
 	var/module_is_hided = FALSE
 
 /datum/item_representation/armor_module/New(obj/item/item_to_copy)
@@ -161,7 +162,7 @@
 		CRASH("/datum/item_representation/armor_module created from an item that is not a jaeger module")
 	..()
 	var/obj/item/armor_module/module_to_copy = item_to_copy
-	if(istype(module_to_copy, /obj/item/armor_module/module) && CHECK_BITFIELD(module_to_copy.flags_attach_features, ATTACH_IS_HIDDEN))
+	if(CHECK_BITFIELD(module_to_copy.flags_attach_features, ATTACH_IS_HIDDEN))
 		module_is_hided = TRUE
 
 	for(var/key in module_to_copy.attachments_by_slot)
