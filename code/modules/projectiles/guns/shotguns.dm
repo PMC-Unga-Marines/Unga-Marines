@@ -76,7 +76,7 @@
 	desc = "The Terran Armories SH-39 combat shotgun is a semi automatic shotgun used by breachers and pointmen within the TGMC squads. Uses 12 gauge shells."
 	force = 20 //Has a stock already
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "t39"
 	item_state = "t39"
 	fire_sound = 		'sound/weapons/guns/shotgun/SH-39/SH39.ogg'
@@ -285,7 +285,7 @@
 /obj/item/weapon/gun/shotgun/pump/cmb
 	name = "\improper SH-12 Paladin pump shotgun"
 	desc = "A nine-round pump action shotgun. A shotgun used for hunting, home defence and police work, many versions of it exist and are used by just about anyone."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "pal12"
 	item_state = "pal12"
 	fire_sound = 'sound/weapons/guns/fire/shotgun_cmb.ogg'
@@ -330,7 +330,7 @@
 /obj/item/weapon/gun/shotgun/pump/trenchgun
 	name = "\improper L-4034 trenchgun"
 	desc = "A six-round pump action shotgun. A shotgun used for hunting, home defence and police work, many versions of it exist and are used by just about anyone."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "trenchgun"
 	item_state = "trenchgun"
 	fire_sound = 'sound/weapons/guns/fire/trenchgun.ogg'
@@ -384,7 +384,7 @@
 /obj/item/weapon/gun/shotgun/pump/bolt
 	name = "\improper Mosin Nagant rifle"
 	desc = "A mosin nagant rifle, even just looking at it you can feel the cosmoline already. Commonly known by its slang, \"Moist Nugget\", by downbrained colonists and outlaws."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "mosin"
 	item_state = "mosin"
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mosin.ogg'
@@ -451,7 +451,7 @@
 	name = "\improper Martini Henry lever action rifle"
 	desc = "A lever action with room for a single round of .557/440 ball. Perfect for any kind of hunt, be it elephant or xeno with how quick to the draw it is."
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "martini"
 	item_state = "martini"
 	shell_eject_animation = "martini_flick"
@@ -503,7 +503,7 @@
 /obj/item/weapon/gun/shotgun/double/musket
 	name = "\improper Croweson musket"
 	desc = "A breech-loading rifle with room for a single round of 19mm ball."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "musket"
 	item_state = "musket"
 	inhand_x_dimension = 64
@@ -553,7 +553,7 @@
 /obj/item/weapon/gun/shotgun/double/musketoon
 	name = "\improper Croweson musketoon"
 	desc = "Shorter-barrelled version of the musket with room for a single round of 19mm ball."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "musketoon"
 	item_state = "musketoon"
 	item_icons = list(
@@ -640,7 +640,6 @@
 /obj/item/weapon/gun/shotgun/pump/lever
 	name = "lever action rifle"
 	desc = "A .44 magnum lever action rifle with side loading port. It has a low fire rate, but it packs quite a punch in hunting."
-	icon = 'icons/obj/items/gun.dmi'
 	icon_state = "mares_leg"
 	item_state = "mares_leg"
 	fire_sound = 'sound/weapons/guns/fire/leveraction.ogg'//I like how this one sounds.
@@ -681,7 +680,7 @@
 /obj/item/weapon/gun/shotgun/pump/lever/repeater
 	name = "\improper Leicester Repeater"
 	desc = "The gun that won the west or so they say. But space is a very different kind of frontier all together, chambered for .45-70 Governemnt."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "leicrepeater"
 	item_state = "leicrepeater"
 	unique_reskin = list(
@@ -778,7 +777,7 @@
 	name = "\improper SH-35 pump shotgun"
 	desc = "The Terran Armories SH-35 is the shotgun used by the TerraGov Marine Corps. It's used as a close quarters tool when someone wants something more suited for close range than most people, or as an odd sidearm on your back for emergencies. Uses 12 gauge shells.\n<b>Requires a pump, which is the Unique Action key.</b>"
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "t35"
 	item_state = "t35"
 	cock_animation = "t35_pump"
@@ -851,7 +850,7 @@
 /obj/item/weapon/gun/shotgun/zx76
 	name = "\improper ZX-76 assault shotgun"
 	desc = "The ZX-76 Assault Shotgun, a incredibly rare, double barreled semi-automatic combat shotgun with a twin shot mode. Possibly the unrivaled master of CQC. Has a 9 round internal magazine."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "zx-76"
 	item_state = "zx-76"
 	flags_equip_slot = ITEM_SLOT_BACK
@@ -899,7 +898,7 @@
 	desc = "The V-51 is the main shotgun utilised by the Sons of Mars. Slower firing than some other semi automatic shotguns, but packs more of a kick."
 	flags_equip_slot = ITEM_SLOT_BACK
 	icon_state = "v51"
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	item_state = "v51"
 	fire_sound = SFX_SHOTGUN_SOM
 	dry_fire_sound = 'sound/weapons/guns/fire/v51_empty.ogg'
@@ -990,7 +989,7 @@
 	desc = "The SH-46, is a semi-automatic, 12 Gauge, gas piston-operated shotgun, released for TGMC by CAU."
 	force = 20 //Has a stock already
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "shq6"
 	item_state = "shq6"
 	item_icons = list(

@@ -21,14 +21,6 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/mg27
-	name = "MG-27 Body"
-	desc = "A stock for a MG-27 MMG."
-	icon = 'icons/Marine/marine-mmg.dmi'
-	icon_state = "t27body"
-	pixel_shift_x = 15
-	pixel_shift_y = 0
-
 /obj/item/attachable/stock/pal12
 	name = "Paladin-12 pump shotgun stock"
 	desc = "A standard light stock for the Paladin-12 shotgun."
@@ -126,7 +118,7 @@
 /obj/item/attachable/stock/clf_heavyrifle
 	name = "PTR-41/1785 body"
 	desc = "A stock for a PTR-41/1785 A-MR."
-	icon = 'icons/Marine/clf_heavyrifle.dmi'
+	icon = 'icons/obj/items/gun/clf_heavyrifle.dmi'
 	icon_state = "ptrs_stock"
 	pixel_shift_x = 15
 	pixel_shift_y = 0
