@@ -241,6 +241,9 @@
 /area/shuttle/canterbury)
 "aQ" = (
 /obj/machinery/fuelcell_recycler,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "aR" = (
@@ -269,9 +272,6 @@
 	},
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/mainship/tcomms,
@@ -309,6 +309,7 @@
 	name = "Core Power Monitoring"
 	},
 /obj/structure/cable,
+/obj/machinery/light,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "bk" = (
@@ -329,6 +330,7 @@
 /obj/item/storage/box/crate/sentry,
 /obj/item/storage/box/crate/sentry,
 /obj/item/storage/box/crate/sentry,
+/obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bn" = (
@@ -361,10 +363,10 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bu" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/marine_selector/clothes/medic,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "bv" = (
@@ -373,6 +375,7 @@
 	dir = 4;
 	layer = 4.2
 	},
+/obj/machinery/light,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "bw" = (
@@ -403,6 +406,9 @@
 /area/shuttle/canterbury/medical)
 "bB" = (
 /obj/machinery/marine_selector/clothes/engi,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "bC" = (
@@ -426,6 +432,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "bG" = (
@@ -441,6 +448,7 @@
 /area/shuttle/canterbury/medical)
 "bJ" = (
 /obj/machinery/vending/armor_supply,
+/obj/machinery/light,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "bK" = (
@@ -527,6 +535,7 @@
 /area/shuttle/canterbury/medical)
 "cf" = (
 /obj/machinery/chem_dispenser,
+/obj/machinery/light,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "cg" = (
@@ -628,6 +637,9 @@
 	dir = 4;
 	layer = 4.2
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cA" = (
@@ -651,6 +663,9 @@
 /area/shuttle/canterbury)
 "cH" = (
 /obj/machinery/vending/marineFood,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cI" = (
@@ -668,9 +683,6 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cO" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/marine_selector/gear/engi,
 /obj/structure/window/reinforced,
 /turf/open/floor/mainship/red/full,
@@ -767,9 +779,8 @@
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
 "ka" = (
-/obj/machinery/shower{
-	dir = 8
-	},
+/obj/machinery/light,
+/obj/machinery/shower,
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "pU" = (
@@ -787,6 +798,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
+"sJ" = (
+/obj/structure/cable,
+/turf/open/floor/mainship/sterile,
+/area/shuttle/canterbury/medical)
 "tC" = (
 /obj/structure/window/framed/mainship/white/canterbury,
 /turf/open/space/basic,
@@ -797,6 +812,9 @@
 /area/shuttle/canterbury)
 "vY" = (
 /obj/machinery/vending/tool,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
 "zE" = (
@@ -806,10 +824,6 @@
 /area/shuttle/canterbury)
 "zN" = (
 /obj/machinery/vending/engivend,
-/obj/machinery/light/small{
-	dir = 8;
-	status = 0
-	},
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
 "Bu" = (
@@ -825,10 +839,14 @@
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "Cq" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/vending/uniform_supply,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
+"EP" = (
+/obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Hv" = (
@@ -836,6 +854,9 @@
 	dir = 4
 	},
 /obj/machinery/quick_vendor/beginner,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "Ig" = (
@@ -954,7 +975,7 @@ an
 bp
 bq
 bq
-aD
+EP
 an
 cz
 bz
@@ -981,7 +1002,7 @@ pY
 aR
 an
 cK
-aJ
+bO
 aJ
 aJ
 aJ
@@ -1005,7 +1026,7 @@ aD
 bt
 an
 cH
-aD
+db
 aJ
 Ox
 bD
@@ -1029,7 +1050,7 @@ aJ
 bJ
 an
 br
-aJ
+bO
 aJ
 Mr
 cc
@@ -1053,11 +1074,11 @@ aJ
 aJ
 an
 Cq
-aJ
+bO
 Ig
 bQ
 aD
-aD
+EP
 an
 an
 "}
@@ -1092,14 +1113,14 @@ ak
 ar
 aw
 bO
-bO
+RS
 bO
 bO
 ao
 bO
 bO
 bO
-aJ
+bO
 bO
 bO
 aJ
@@ -1173,7 +1194,7 @@ fq
 bl
 an
 by
-bI
+sJ
 bK
 bR
 bZ
@@ -1197,7 +1218,7 @@ fq
 aT
 an
 BN
-bI
+sJ
 cy
 bS
 ca
@@ -1221,7 +1242,7 @@ bn
 zE
 an
 bH
-bI
+sJ
 cs
 cJ
 YI
@@ -1248,8 +1269,8 @@ bw
 bI
 tC
 bI
-ka
 bI
+ka
 bo
 cn
 "}

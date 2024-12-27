@@ -815,6 +815,10 @@
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"wS" = (
+/obj/effect/attach_point/crew_weapon/dropship1,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "yp" = (
 /obj/machinery/light{
 	dir = 8
@@ -1316,7 +1320,7 @@ aG
 ab
 iy
 an
-ac
+wS
 tP
 ab
 br
@@ -1646,7 +1650,7 @@ jq
 ab
 qM
 an
-ac
+wS
 OL
 ab
 PW
