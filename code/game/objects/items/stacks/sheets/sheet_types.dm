@@ -53,16 +53,16 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 
 
 GLOBAL_LIST_INIT(metal_radial_images, list(
-	"recipes" = image('icons/Marine/barricades.dmi', icon_state = "plus"),
-	"metal barricade" = image('icons/Marine/barricades.dmi', icon_state = "metal_0"),
-	"folding metal barricade" = image('icons/Marine/barricades.dmi', icon_state = "folding_metal_0"), //RUTGMC ADDON
+	"recipes" = image('icons/obj/structures/barricades/upgrades.dmi', icon_state = "plus"),
+	"metal barricade" = image('icons/obj/structures/barricades/metal.dmi', icon_state = "metal_0"),
+	"folding metal barricade" = image('icons/obj/structures/barricades/folding_metal.dmi', icon_state = "folding_metal_0"),
 	"razorwire" = image('icons/obj/structures/barbedwire.dmi', icon_state = "barbedwire_assembly"),
 	"barbedwire" = image('icons/Marine/marine-items.dmi', icon_state = "barbed_wire")
 	))
 
 GLOBAL_LIST_INIT(plasteel_radial_images, list(
-	"plasteel barricade" = image('icons/Marine/barricades.dmi', icon_state = "new_plasteel_0"),
-	"folding plasteel barricade" = image('icons/Marine/barricades.dmi', icon_state = "plasteel_closed_0"),
+	"plasteel barricade" = image('icons/obj/structures/barricades/new_plasteel.dmi', icon_state = "new_plasteel_0"),
+	"folding plasteel barricade" = image('icons/obj/structures/barricades/plasteel.dmi', icon_state = "plasteel_closed_0"),
 	))
 
 GLOBAL_LIST_INIT(plasteel_recipes, list ( \
@@ -189,8 +189,8 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	))
 
 GLOBAL_LIST_INIT(wood_radial_images, list(
-	"recipes" = image('icons/Marine/barricades.dmi', icon_state = "plus"),
-	"barricade" = image('icons/Marine/barricades.dmi', icon_state = "wooden"),
+	"recipes" = image('icons/obj/structures/barricades/upgrades.dmi', icon_state = "plus"),
+	"barricade" = image('icons/obj/structures/barricades/misc.dmi', icon_state = "wooden"),
 	"chair" = image('icons/obj/objects.dmi', icon_state = "wooden_chair"),
 	"tile" = image('icons/obj/stack_objects.dmi', icon_state = "tile-wood"),
 	"crate" = image('icons/obj/structures/crates.dmi', icon_state = "secure_crate")
