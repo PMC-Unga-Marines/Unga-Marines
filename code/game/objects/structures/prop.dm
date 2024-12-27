@@ -1746,7 +1746,7 @@
 /obj/structure/prop/vehicle/som_mech
 	name = "Marauder assault mech"
 	desc = "A heavily armed mech used by the SOM to spearhead an assault, this one seems to be non-functional."
-	icon = 'icons/Marine/mech_prop.dmi'
+	icon = 'icons/obj/structures/mech_prop.dmi'
 	icon_state = "som_mech"
 	density = TRUE
 	coverage = 70
