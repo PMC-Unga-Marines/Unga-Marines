@@ -17,35 +17,6 @@
 	slot = ATTACHMENT_SLOT_MODULE
 	slowdown = 0
 	active = FALSE
-	///If TRUE, this armor piece can be recolored when its parent is right clicked by facepaint.
-	var/secondary_color = TRUE
-
-/obj/item/armor_module/module/on_attach(obj/item/attaching_to, mob/user)
-	. = ..()
-	if(!secondary_color)
-		return
-	RegisterSignal(parent, COMSIG_ITEM_SECONDARY_COLOR, PROC_REF(handle_color))
-	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(extra_examine))
-
-/obj/item/armor_module/module/on_detach(obj/item/detaching_from, mob/user)
-	UnregisterSignal(parent, list(COMSIG_ATOM_EXAMINE, COMSIG_ITEM_SECONDARY_COLOR))
-	return ..()
-
-/obj/item/armor_module/module/proc/extra_examine(datum/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-	examine_list += span_notice("<b>Right click</b> the [parent] with <b>facepaint</b> to color [src].")
-
-///Sends a list of available colored attachments to be colored when the parent is right clicked with paint.
-/obj/item/armor_module/module/proc/handle_color(datum/source, mob/user, list/obj/item/secondaries)
-	SIGNAL_HANDLER
-	secondaries += src
-	for(var/key in attachments_by_slot)
-		if(!attachments_by_slot[key] || !istype(attachments_by_slot[key], /obj/item/armor_module/module))
-			continue
-		var/obj/item/armor_module/module/module = attachments_by_slot[key]
-		if(!module.secondary_color)
-			continue
-		module.handle_color(source, user, secondaries)
 
 /**
  * PT belt
@@ -108,7 +79,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	slowdown = 0.4
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_MODULE_CANNOT_BE_HIDDEN
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_CANNOT_BE_HIDDEN
 
 /obj/item/armor_module/module/fire_proof/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -134,7 +105,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_MODULE_CANNOT_BE_HIDDEN
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_CANNOT_BE_HIDDEN
 
 /**
  * Extra armor module

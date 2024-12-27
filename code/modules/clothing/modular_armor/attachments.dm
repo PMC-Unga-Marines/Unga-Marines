@@ -61,6 +61,9 @@
 	///The signal for this module if it can toggled
 	var/toggle_signal
 
+	///If TRUE, this armor piece can be recolored when its parent is right clicked by facepaint.
+	var/secondary_color = FALSE
+
 /obj/item/armor_module/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/attachment, slot, attach_icon, on_attach, on_detach, null, can_attach, pixel_shift_x, pixel_shift_y, flags_attach_features, attach_delay, detach_delay, mob_overlay_icon = mob_overlay_icon, mob_pixel_shift_x = mob_pixel_shift_x, mob_pixel_shift_y = mob_pixel_shift_y, attachment_layer = attachment_layer)
@@ -91,8 +94,13 @@
 			if(istype(parent, selection))
 				icon_state = variants_by_parent_type[selection]
 				base_icon = variants_by_parent_type[selection]
-	if(istype(src, /obj/item/armor_module/module) && !CHECK_BITFIELD(src.flags_attach_features, ATTACH_MODULE_CANNOT_BE_HIDDEN))
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_CANNOT_BE_HIDDEN))
 		parent.colorable_allowed += MODULE_VISIBILITY_TOGGLE_ALLOWED
+	if(greyscale_config) //If module can be colored it will gain ability to be colored via right click on parent while being attached.
+		secondary_color = TRUE
+	if(secondary_color) //Checks if the module can be colored
+		RegisterSignal(parent, COMSIG_ITEM_SECONDARY_COLOR, PROC_REF(handle_color))
+		RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(extra_examine))
 	update_icon()
 
 /// Called when the module is removed from the armor.
@@ -102,9 +110,10 @@
 	parent.hard_armor = parent.hard_armor.detachArmor(hard_armor)
 	parent.soft_armor = parent.soft_armor.detachArmor(soft_armor)
 	parent.slowdown -= slowdown
-	if(istype(src, /obj/item/armor_module/module) && !CHECK_BITFIELD(src.flags_attach_features, ATTACH_MODULE_CANNOT_BE_HIDDEN))
+	if(!CHECK_BITFIELD(src.flags_attach_features, ATTACH_CANNOT_BE_HIDDEN))
 		parent.colorable_allowed -= MODULE_VISIBILITY_TOGGLE_ALLOWED
-	UnregisterSignal(parent, COMSIG_ITEM_EQUIPPED)
+	secondary_color = FALSE
+	UnregisterSignal(parent, list(COMSIG_ATOM_EXAMINE, COMSIG_ITEM_SECONDARY_COLOR, COMSIG_ITEM_EQUIPPED))
 	parent = null
 	icon_state = initial(icon_state)
 	update_icon()
@@ -131,6 +140,26 @@
 /obj/item/armor_module/proc/activate(mob/living/user)
 	return
 
+/obj/item/armor_module/proc/extra_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	examine_list += span_notice("<b>Right click</b> the [parent] with <b>facepaint</b> to color [src].")
+
+///Sends a list of available colored attachments to be colored when the parent is right clicked with paint.
+/obj/item/armor_module/proc/handle_color(datum/source, mob/user, list/obj/item/secondaries)
+	SIGNAL_HANDLER
+	secondaries += src
+	for(var/key in attachments_by_slot)
+		if(!attachments_by_slot[key] || !istype(attachments_by_slot[key], /obj/item/armor_module))
+			continue
+		var/obj/item/armor_module/attach = attachments_by_slot[key]
+		if(!attach.secondary_color)
+			continue
+		attach.handle_color(source, user, secondaries)
+
+/obj/item/armor_module/color_item(obj/item/facepaint/paint, mob/user)
+	. = ..()
+	parent?.update_icon()
+
 /**
  *  These are the basic type for armor armor_modules. What seperates these from /armor_module is that these are designed to be recolored.
  *  These include Leg plates, Chest plates, Shoulder Plates and Visors. This could be expanded to anything that functions like armor and has greyscale functionality.
@@ -152,39 +181,6 @@
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_SAME_ICON|ATTACH_APPLY_ON_MOB
 
 	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT
-	///If TRUE, this armor piece can be recolored when its parent is right clicked by facepaint.
-	var/secondary_color = FALSE
 
 	colorable_colors = ARMOR_PALETTES_LIST
 	colorable_allowed = PRESET_COLORS_ALLOWED
-
-/obj/item/armor_module/armor/on_attach(obj/item/attaching_to, mob/user)
-	. = ..()
-	if(!secondary_color)
-		return
-	RegisterSignal(parent, COMSIG_ITEM_SECONDARY_COLOR, PROC_REF(handle_color))
-	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(extra_examine))
-
-/obj/item/armor_module/armor/on_detach(obj/item/detaching_from, mob/user)
-	UnregisterSignal(parent, list(COMSIG_ATOM_EXAMINE, COMSIG_ITEM_SECONDARY_COLOR))
-	return ..()
-
-/obj/item/armor_module/armor/color_item(obj/item/facepaint/paint, mob/user)
-	. = ..()
-	parent?.update_icon()
-
-/obj/item/armor_module/armor/proc/extra_examine(datum/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-	examine_list += span_notice("<b>Right click</b> the [parent] with <b>facepaint</b> to color [src].")
-
-///Sends a list of available colored attachments to be colored when the parent is right clicked with paint.
-/obj/item/armor_module/armor/proc/handle_color(datum/source, mob/user, list/obj/item/secondaries)
-	SIGNAL_HANDLER
-	secondaries += src
-	for(var/key in attachments_by_slot)
-		if(!attachments_by_slot[key] || !istype(attachments_by_slot[key], /obj/item/armor_module/armor))
-			continue
-		var/obj/item/armor_module/armor/armor_piece = attachments_by_slot[key]
-		if(!armor_piece.secondary_color)
-			continue
-		armor_piece.handle_color(source, user, secondaries)
