@@ -802,7 +802,6 @@
 /area/shuttle/canterbury)
 "rF" = (
 /obj/machinery/marine_selector/gear/medic,
-/turf/open/floor/plating/plating_catwalk,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "sJ" = (
