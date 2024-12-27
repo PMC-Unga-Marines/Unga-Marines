@@ -74,7 +74,7 @@
 /obj/item/attachable/foldable/skorpion_stock
 	name = "\improper Skorpion submachinegun wooden stock"
 	desc = "A foldable wire stock for a Skorpion submachinegun"
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "skorpion"
 	flags_attach_features = ATTACH_ACTIVATION
 	pixel_shift_x = 0
@@ -118,7 +118,7 @@
 	name = "\improper PL-38 machinepistol stock"
 	desc = "A submachinegun stock found on ICC subguns, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl."
 	flags_attach_features = ATTACH_ACTIVATION
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	wield_delay_mod = 0.1 SECONDS
 	melee_mod = 5
 	size_mod = 1
@@ -132,7 +132,7 @@
 /obj/item/attachable/foldable/t35stock
 	name = "\improper SH-35 stock"
 	desc = "A non-standard heavy stock for the SH-35 shotgun. Less quick and more cumbersome than the standard issue stakeout, but reduces recoil and improves accuracy. Allegedly makes a pretty good club in a fight too."
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "t35stock"
 	flags_attach_features = ATTACH_ACTIVATION
 	wield_delay_mod = 0.2 SECONDS

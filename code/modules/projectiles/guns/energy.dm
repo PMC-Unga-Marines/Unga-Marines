@@ -1284,7 +1284,7 @@
 	desc = "A Terra Experimental underbarrel laser system. Has multiple firemodes for tactical flexibility. Uses standard Terra Experimental (abbreviated as TE) power cells."
 	reload_sound = 'sound/weapons/guns/interact/standard_laser_rifle_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/Laser Rifle Standard.ogg'
-	icon = 'icons/Marine/marine-weapons.dmi'
+	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "p_beam"
 	max_shots = 4
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket

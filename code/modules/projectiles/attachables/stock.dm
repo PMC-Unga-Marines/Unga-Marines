@@ -226,7 +226,7 @@
 	flags_attach_features = ATTACH_REMOVABLE
 	wield_delay_mod = 0.2 SECONDS
 	delay_mod = -0.4 SECONDS
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "stock"
 	size_mod = 1
 	accuracy_mod = 0.15
