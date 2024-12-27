@@ -332,10 +332,8 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bn" = (
-/obj/machinery/cryopod{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
+/obj/structure/window/framed/mainship/canterbury,
+/turf/open/space/basic,
 /area/shuttle/canterbury)
 "bo" = (
 /turf/closed/wall/mainship/outer/canterbury,
@@ -363,16 +361,19 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bu" = (
-/obj/effect/landmark/start/job/crash/squadengineer,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/marine_selector/clothes/medic,
+/turf/open/floor/mainship/red,
+/area/shuttle/canterbury)
+"bv" = (
+/obj/effect/landmark/start/job/crash/squadcorpsman,
 /obj/structure/window/reinforced{
-	dir = 8;
+	dir = 4;
 	layer = 4.2
 	},
 /turf/open/floor/mainship/red/full,
-/area/shuttle/canterbury)
-"bv" = (
-/obj/machinery/computer/cryopod,
-/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bw" = (
 /obj/machinery/bodyscanner,
@@ -389,22 +390,13 @@
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "bz" = (
-/obj/structure/table/reinforced,
-/obj/machinery/recharger,
-/obj/item/defibrillator,
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/fire,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/box/bodybags,
-/obj/item/roller,
-/obj/item/roller,
-/obj/machinery/firealarm,
-/obj/item/reagent_containers/spray/cleaner,
-/obj/item/reagent_containers/glass/beaker/cryomix,
-/obj/machinery/vending/nanomed,
-/turf/open/floor/mainship/sterile,
-/area/shuttle/canterbury/medical)
+/obj/effect/landmark/start/job/crash/squadengineer,
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 4.2
+	},
+/turf/open/floor/mainship/red/full,
+/area/shuttle/canterbury)
 "bA" = (
 /obj/machinery/atmospherics/components/unary/cryo_cell,
 /turf/open/floor/mainship/sterile,
@@ -427,14 +419,7 @@
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "bE" = (
-/obj/effect/landmark/start/job/crash/squadcorpsman,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/right{
-	dir = 1
-	},
-/turf/open/floor/mainship/red,
+/turf/open/floor/mainship/tcomms,
 /area/shuttle/canterbury)
 "bF" = (
 /obj/machinery/marine_selector/clothes/smartgun,
@@ -467,8 +452,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/canterbury)
 "bQ" = (
-/obj/machinery/vending/uniform_supply,
-/turf/open/floor/mainship/red/full,
+/obj/machinery/computer/cryopod{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bR" = (
 /obj/machinery/bioprinter/stocked,
@@ -524,11 +511,9 @@
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "cd" = (
-/obj/machinery/shower{
-	dir = 8
-	},
-/turf/open/floor/mainship/sterile/dark,
-/area/shuttle/canterbury/medical)
+/obj/machinery/loadout_vendor,
+/turf/open/floor/mainship/red/full,
+/area/shuttle/canterbury)
 "ce" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/surgical_tray,
@@ -614,27 +599,36 @@
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
 "cw" = (
-/obj/machinery/marine_selector/gear/medic,
-/turf/open/floor/mainship/red/full,
-/area/shuttle/canterbury)
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/item/defibrillator,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/box/bodybags,
+/obj/item/roller,
+/obj/item/roller,
+/obj/machinery/firealarm,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/glass/beaker/cryomix,
+/obj/machinery/vending/nanomed,
+/turf/open/floor/mainship/sterile/dark,
+/area/shuttle/canterbury/medical)
 "cy" = (
-/obj/effect/landmark/start/job/crash/squadengineer,
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/shuttle/canterbury/medical)
+"cz" = (
 /obj/structure/window/reinforced{
-	dir = 8;
+	dir = 4;
 	layer = 4.2
 	},
-/obj/machinery/door/window/right{
-	dir = 2
-	},
-/turf/open/floor/mainship/red{
-	dir = 1
-	},
-/area/shuttle/canterbury)
-"cz" = (
-/obj/effect/landmark/start/job/crash/squadmarine,
-/turf/open/floor/mainship/red{
-	dir = 4
-	},
+/turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cA" = (
 /obj/structure/window/reinforced{
@@ -759,21 +753,28 @@
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "db" = (
-/obj/machinery/light{
+/obj/structure/cable,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
+"dM" = (
+/obj/effect/landmark/start/job/crash/squadmarine,
+/obj/machinery/door/window/right,
+/turf/open/floor/mainship/red{
 	dir = 4
 	},
-/obj/machinery/marine_selector/clothes/medic,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "fq" = (
-/obj/effect/landmark/start/job/crash/squadcorpsman,
-/obj/structure/window/reinforced{
+/turf/open/floor/mainship/orange/full,
+/area/shuttle/canterbury)
+"ka" = (
+/obj/machinery/shower{
 	dir = 8
 	},
-/turf/open/floor/mainship/red/full,
+/turf/open/floor/mainship/sterile,
+/area/shuttle/canterbury/medical)
+"pU" = (
+/obj/machinery/cryopod,
+/turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "pY" = (
 /obj/machinery/door/airlock/mainship/marine/canterbury{
@@ -781,13 +782,18 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"rF" = (
+/obj/machinery/marine_selector/gear/medic,
+/turf/open/floor/plating/plating_catwalk,
+/turf/open/floor/mainship/red/full,
+/area/shuttle/canterbury)
+"tC" = (
+/obj/structure/window/framed/mainship/white/canterbury,
+/turf/open/space/basic,
+/area/shuttle/canterbury/medical)
 "vQ" = (
-/obj/structure/table/reinforced,
-/obj/machinery/reagentgrinder{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/turf/open/floor/mainship/mono,
+/obj/structure/shuttle/engine/propulsion/burst/left,
+/turf/open/space/basic,
 /area/shuttle/canterbury)
 "vY" = (
 /obj/machinery/vending/tool,
@@ -832,6 +838,10 @@
 /obj/machinery/quick_vendor/beginner,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
+"Ig" = (
+/obj/machinery/bot/roomba,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "KE" = (
 /obj/effect/landmark/start/job/crash/squadmarine,
 /turf/open/floor/mainship/mono,
@@ -847,6 +857,14 @@
 /obj/machinery/marine_selector/gear/robo,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"Ni" = (
+/obj/effect/landmark/start/job/crash/squadcorpsman,
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 4.2
+	},
+/turf/open/floor/mainship/red,
+/area/shuttle/canterbury)
 "Ox" = (
 /obj/machinery/marine_selector/clothes/robo,
 /turf/open/floor/mainship/red/full,
@@ -859,6 +877,16 @@
 "UG" = (
 /obj/machinery/marine_selector/clothes/synth,
 /turf/open/floor/mainship/cargo,
+/area/shuttle/canterbury)
+"Vs" = (
+/obj/effect/landmark/start/job/crash/squadengineer,
+/obj/machinery/door/window/right{
+	dir = 2
+	},
+/obj/machinery/door/window/right,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
 /area/shuttle/canterbury)
 "YI" = (
 /obj/machinery/iv_drip,
@@ -878,40 +906,66 @@ an
 an
 an
 an
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
+an
+an
+an
+an
+an
+an
+an
+an
+an
 an
 "}
 (2,1,1) = {"
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 an
+pU
+pU
+pU
+bQ
 an
-aH
-aH
-aH
+cd
+bB
+cO
+cd
+bu
+rF
 an
-aP
-aZ
-bi
-bo
-bw
-BN
-bK
-bR
-bZ
-ce
-bo
-cl
+vQ
 "}
 (3,1,1) = {"
+aa
+aa
+aa
+an
+an
+aH
+aH
+aH
+an
+bp
+bq
+bq
+aD
+an
+cz
+bz
+Vs
+dM
+Ni
+bv
+an
+cl
+"}
+(4,1,1) = {"
 aa
 aa
 aa
@@ -921,20 +975,21 @@ aA
 aA
 ck
 an
-aQ
-bC
-bj
-bo
-aC
-bH
-bK
-bS
-ca
-cf
-bo
+aW
+bk
+pY
+aR
+an
+cK
+aJ
+aJ
+aJ
+aJ
+cA
+an
 cm
 "}
-(4,1,1) = {"
+(5,1,1) = {"
 aa
 aa
 aa
@@ -944,43 +999,45 @@ aB
 aJ
 Bu
 an
-aR
-bb
-zE
-bo
-by
-bI
-cs
-cJ
-YI
-cd
-bo
+aV
+Ig
+aD
+bt
+an
+cH
+aD
+aJ
+Ox
+bD
+bF
+an
 cm
 "}
-(5,1,1) = {"
+(6,1,1) = {"
 ab
 ac
 ac
 ab
 ab
 cV
-aJ
+bG
 aD
-aN
-zN
-cv
-aT
-bo
-bz
-bI
-bK
-bU
-cb
-cg
-bo
+an
+Hv
+bd
+aJ
+bJ
+an
+br
+aJ
+aJ
+Mr
+cc
+cE
+an
 cn
 "}
-(6,1,1) = {"
+(7,1,1) = {"
 ac
 ad
 ai
@@ -989,21 +1046,22 @@ ab
 cF
 aJ
 cR
-UG
-vY
-bg
-bl
-bo
-bA
-bT
-cI
-bK
-bK
-bK
-bo
+an
+aO
+aJ
+aJ
+aJ
+an
+Cq
+aJ
+Ig
+bQ
+aD
+aD
+an
 an
 "}
-(7,1,1) = {"
+(8,1,1) = {"
 ac
 ae
 aj
@@ -1017,7 +1075,8 @@ aD
 bO
 aD
 LT
-vQ
+aJ
+aD
 bO
 bV
 bV
@@ -1026,7 +1085,7 @@ bV
 cY
 co
 "}
-(8,1,1) = {"
+(9,1,1) = {"
 ac
 af
 ak
@@ -1034,12 +1093,13 @@ ar
 aw
 bO
 bO
-RS
+bO
 bO
 ao
 bO
 bO
 bO
+aJ
 bO
 bO
 aJ
@@ -1049,7 +1109,7 @@ aJ
 cZ
 co
 "}
-(9,1,1) = {"
+(10,1,1) = {"
 ac
 ag
 aj
@@ -1060,11 +1120,12 @@ bO
 aD
 aD
 be
+db
+aD
 aD
 aJ
 aD
-aD
-aD
+db
 aJ
 KE
 bW
@@ -1072,7 +1133,7 @@ bW
 da
 cp
 "}
-(10,1,1) = {"
+(11,1,1) = {"
 ac
 ah
 am
@@ -1081,44 +1142,46 @@ ab
 cP
 bO
 cS
-aO
-Hv
-bd
-aJ
-bJ
-Cq
-cH
-aJ
-Ox
-bD
-bF
 an
+aN
+db
+aD
+UG
+an
+bA
+bT
+cI
+bK
+bK
+bK
+bo
 an
 "}
-(11,1,1) = {"
+(12,1,1) = {"
 ab
 ac
 ac
 ab
 ab
 cQ
-bO
+RS
 cT
 an
-aV
-aD
-aD
-bt
+vY
+bg
+fq
+bl
 an
-br
-aJ
-Mr
-cc
-cE
-an
+by
+bI
+bK
+bR
+bZ
+ce
+bo
 cl
 "}
-(12,1,1) = {"
+(13,1,1) = {"
 aa
 aa
 aa
@@ -1128,20 +1191,21 @@ ci
 bO
 cU
 an
-aW
-bk
-pY
-aR
+zN
+cv
+fq
+aT
 an
-cK
-aJ
-aJ
-aJ
-cA
-an
+BN
+bI
+cy
+bS
+ca
+cf
+bo
 cm
 "}
-(13,1,1) = {"
+(14,1,1) = {"
 aa
 aa
 aa
@@ -1151,62 +1215,89 @@ aF
 aF
 cW
 an
-bp
-bq
-bq
-aD
-an
-bu
-cy
-cz
-bE
-fq
-an
-cm
-"}
-(14,1,1) = {"
-aa
-aa
-aa
-an
-an
-aK
-aK
-aK
-an
+aR
+bb
 bn
-bn
-bn
-bv
+zE
 an
-bB
-cO
-bQ
-db
+bH
+bI
+cs
+cJ
+YI
 cw
-an
-cn
+bo
+cm
 "}
 (15,1,1) = {"
 aa
 aa
 aa
+an
+an
+aK
+aK
+aK
+an
+aQ
+bC
+bE
+bj
+an
+bw
+bI
+tC
+bI
+ka
+bI
+bo
+cn
+"}
+(16,1,1) = {"
 aa
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+an
+aP
+aZ
+bE
+bi
+an
+aC
+bI
+bK
+bU
+cb
+cg
+bo
+vQ
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 an
 an
 an
 an
 an
 an
-an
-an
-an
-an
-an
-an
+bo
+bo
+bo
+bo
+bo
+bo
+bo
 an
 "}
