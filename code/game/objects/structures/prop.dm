@@ -1143,7 +1143,7 @@
 /obj/structure/prop/vehicle/tank
 	name = "Decommissioned TAV - Rhino"
 	desc = "A decomissioned tank, all methods of propulsion have been disabled and the entrances sealed."
-	icon = 'icons/Marine/tank_propns.dmi'
+	icon = 'icons/obj/structures/tank_prop_north_south.dmi'
 	icon_state = "tank_complete"
 	density = TRUE
 	coverage = 80
@@ -1152,7 +1152,7 @@
 	resistance_flags = RESIST_ALL
 
 /obj/structure/prop/vehicle/tank/north
-	icon = 'icons/Marine/tank_propns.dmi'
+	icon = 'icons/obj/structures/tank_prop_north_south.dmi'
 	icon_state = "tank_complete"
 	bound_height = 128
 	bound_width = 96
@@ -1166,7 +1166,7 @@
 	icon_state = "tank_complete_alt"
 
 /obj/structure/prop/vehicle/tank/east
-	icon = 'icons/Marine/tank_propew.dmi'
+	icon = 'icons/obj/structures/tank_prop_east_west.dmi'
 	icon_state = "tank_complete"
 	bound_height = 96
 	bound_width = 128
