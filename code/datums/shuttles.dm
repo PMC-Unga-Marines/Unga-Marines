@@ -170,7 +170,7 @@
 	description = "A cargo barge used for transporting significant forces. The combat modules were sacrificed for the sake of the internal volume."
 	display_name = "Tadpole Barge Model"
 
-	/datum/map_template/shuttle/minidropship/_voidraider
+/datum/map_template/shuttle/minidropship/_voidraider
 	suffix = "_voidraider"
 	description = "An asymmetric tadpole designed with vehicle transport in mind. Built with a wide umbilical to allow fluid heavy-vehicle movement."
 	display_name = "Tadpole VoidRaider Model"
