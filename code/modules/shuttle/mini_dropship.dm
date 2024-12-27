@@ -162,6 +162,9 @@
 		if("Tadpole Cargo Model")
 			if(weight > 70)
 				return FALSE
+		if("Tadpole Barge Model")
+			if(weight > 110)
+				return FALSE
 		if("Tadpole Mobile-Bar Model") // nobody use it, maybe in future sombody will use it for payload
 			if(weight > 200)
 				return FALSE
