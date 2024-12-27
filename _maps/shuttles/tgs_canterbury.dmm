@@ -775,6 +775,10 @@
 	dir = 4
 	},
 /area/shuttle/canterbury)
+"ex" = (
+/obj/structure/window/framed/mainship/canterbury,
+/turf/open/floor/mainship/cargo,
+/area/shuttle/canterbury)
 "fq" = (
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
@@ -783,6 +787,9 @@
 /obj/machinery/shower,
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
+"lG" = (
+/turf/open/floor/mainship/blue,
+/area/shuttle/canterbury/cic)
 "pU" = (
 /obj/machinery/cryopod,
 /turf/open/floor/mainship/mono,
@@ -845,10 +852,18 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"EJ" = (
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury/cic)
 "EP" = (
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"GF" = (
+/turf/open/floor/mainship/blue{
+	dir = 1
+	},
+/area/shuttle/canterbury/cic)
 "Hv" = (
 /obj/structure/window/reinforced/toughened{
 	dir = 4
@@ -899,6 +914,10 @@
 /obj/machinery/marine_selector/clothes/synth,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
+"Vf" = (
+/obj/structure/window/framed/mainship/hull/canterbury,
+/turf/open/space/basic,
+/area/shuttle/canterbury/cic)
 "Vs" = (
 /obj/effect/landmark/start/job/crash/squadengineer,
 /obj/machinery/door/window/right{
@@ -1083,6 +1102,30 @@ an
 an
 "}
 (8,1,1) = {"
+Vf
+GF
+EJ
+lG
+ab
+aD
+aJ
+aD
+aD
+aD
+aD
+aD
+aD
+aD
+aD
+db
+bV
+bV
+LT
+bV
+ex
+co
+"}
+(9,1,1) = {"
 ac
 ae
 aj
@@ -1099,14 +1142,14 @@ LT
 aJ
 aD
 bO
-bV
-bV
-LT
-bV
+aD
+aD
+aD
+aD
 cY
 co
 "}
-(9,1,1) = {"
+(10,1,1) = {"
 ac
 af
 ak
@@ -1130,7 +1173,7 @@ aJ
 cZ
 co
 "}
-(10,1,1) = {"
+(11,1,1) = {"
 ac
 ag
 aj
@@ -1147,14 +1190,38 @@ aD
 aJ
 aD
 db
+aD
+aD
+aD
+aD
+da
+cp
+"}
+(12,1,1) = {"
+Vf
+GF
+EJ
+lG
+ab
+aD
+bO
+aD
+aD
+aD
+db
+aD
+aD
+aD
+aD
+db
 aJ
 KE
 bW
 bW
-da
-cp
+ex
+co
 "}
-(11,1,1) = {"
+(13,1,1) = {"
 ac
 ah
 am
@@ -1178,7 +1245,7 @@ bK
 bo
 an
 "}
-(12,1,1) = {"
+(14,1,1) = {"
 ab
 ac
 ac
@@ -1202,7 +1269,7 @@ ce
 bo
 cl
 "}
-(13,1,1) = {"
+(15,1,1) = {"
 aa
 aa
 aa
@@ -1226,7 +1293,7 @@ cf
 bo
 cm
 "}
-(14,1,1) = {"
+(16,1,1) = {"
 aa
 aa
 aa
@@ -1250,7 +1317,7 @@ cw
 bo
 cm
 "}
-(15,1,1) = {"
+(17,1,1) = {"
 aa
 aa
 aa
@@ -1274,7 +1341,7 @@ ka
 bo
 cn
 "}
-(16,1,1) = {"
+(18,1,1) = {"
 aa
 aa
 aa
@@ -1298,7 +1365,7 @@ cg
 bo
 vQ
 "}
-(17,1,1) = {"
+(19,1,1) = {"
 aa
 aa
 aa
