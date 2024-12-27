@@ -15,7 +15,7 @@
 	anchored = TRUE
 	opacity = TRUE
 	density = TRUE
-	icon = 'icons/Marine/apc.dmi'
+	icon = 'icons/obj/structures/broken_apc.dmi'
 	icon_state = "apc"
 
 
