@@ -99,7 +99,7 @@
 	name = "AT-36 AP-HE shell (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns. Will penetrate walls and fortifications, before hitting a target and exploding, has less payload and punch than usual rounds."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/Marine/marine-atgun.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "tat36_shell"
 	item_state = "tat36"
 	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
@@ -152,7 +152,7 @@
 	name = "autocannon high-velocity magazine(20mm)"
 	desc = "A box of 100 high-velocity 20mm rounds for the ATR-22 mounted autocannon. Will pierce people and cover."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'icons/Marine/marine-ac.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "ac_mag"
 	item_state = "ac"
 	flags_magazine = NONE
@@ -180,7 +180,7 @@
 /obj/item/ammo_magazine/heavy_isg
 	name = "FK-88 shell (155mm Shell)"
 	desc = "A 15cm shell for the FK-88 mounted flak gun. How did you even get this?"
-	icon = 'icons/Marine/marine-fkgun.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "isg_ammo"
 	item_state = "isg_ammo"
 	w_class = WEIGHT_CLASS_BULKY

@@ -156,7 +156,7 @@
 	desc = "The ATR-22 is a recoiling barrel 20mm autocannon, created to be used against low flying targets, it is however able to engage ground targets at medium ranges with extreme efficency even if the recoil makes it near impossible to hit anything close by, its bullets will shred hard targets such as armored foes or walls. Both barrels can be fired at the same time rather than in sequence, but will incur large scatter penalties do so."
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-ac.dmi'
+	icon = 'icons/obj/artillery/atr22.dmi'
 	icon_state = "autocannon"
 	fire_sound = SFX_AC_FIRE
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
@@ -286,7 +286,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-fkgun.dmi'
+	icon = 'icons/obj/artillery/fk88.dmi'
 	icon_state = "isg"
 	fire_sound = 'sound/weapons/guns/fire/tank_cannon1.ogg'
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
@@ -541,7 +541,7 @@
 	name = "\improper AT-36 anti tank gun"
 	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the TGMC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/Marine/marine-atgun.dmi'
+	icon = 'icons/obj/artillery/at36.dmi'
 	icon_state = "tat36"
 	item_state = "tat36"
 	caliber = CALIBER_37MM // codex
