@@ -17,6 +17,10 @@
 	slot = ATTACHMENT_SLOT_MODULE
 	slowdown = 0
 	active = FALSE
+	//Moved these var's here so each module code is less piled up
+	//Armor palette so module in synergy with armor colors
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
 
 /**
  * PT belt
@@ -119,8 +123,6 @@
 	slowdown = 0.2
 
 	greyscale_config = /datum/greyscale_config/modules
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	colorable_colors = ARMOR_PALETTES_LIST
 
 /obj/item/armor_module/module/tyr_extra_armor/mark1
 	name = "\improper Mark 1 Tyr Armor Reinforcement"
@@ -134,7 +136,6 @@
 	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
 	icon = 'icons/mob/modular/modular_armor_modules_som.dmi'
 	icon_state = "lorica_armor"
-	attachment_layer = null
 	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 10, ACID = 5)
 	slowdown = 0.2
 
@@ -147,8 +148,6 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 	greyscale_config = /datum/greyscale_config/modules
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	colorable_colors = ARMOR_PALETTES_LIST
 
 /obj/item/armor_module/module/tyr_head/mark2
 	name = "Mark 2 Tyr Helmet System"
@@ -164,11 +163,11 @@
 	icon_state = "mod_biohazard"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
 	slowdown = 0.2
-	///siemens (electro resist) coefficient mod for gas protection.
+	///Siemens (electro resist) coefficient mod for gas protection.
 	var/siemens_coefficient_mod = -0.9
-	///permeability coefficient mod for gas protection.
+	///Permeability coefficient mod for gas protection.
 	var/permeability_coefficient_mod = -1
-	///gas transfer coefficient mod for gas protection.
+	///Gas transfer coefficient mod for gas protection.
 	var/gas_transfer_coefficient_mod = -1
 
 /obj/item/armor_module/module/mimir_environment_protection/on_attach(obj/item/attaching_to, mob/user)
@@ -232,8 +231,6 @@
 	slowdown = 0.2
 
 	greyscale_config = /datum/greyscale_config/modules
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	colorable_colors = ARMOR_PALETTES_LIST
 
 /obj/item/armor_module/module/hod_head
 	name = "\improper Hod Helmet System"
@@ -243,8 +240,6 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 	greyscale_config = /datum/greyscale_config/modules
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	colorable_colors = ARMOR_PALETTES_LIST
 
 /**
  *  Vali harvester module. RIP AND TEAR
@@ -511,8 +506,6 @@
 	var/eye_protection_mod = 2
 
 	greyscale_config = /datum/greyscale_config/modules
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	colorable_colors = ARMOR_PALETTES_LIST
 
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -551,9 +544,6 @@
 /obj/item/armor_module/module/welding/superior
 	name = "Superior Welding Helmet Module"
 	desc = "Designed for mounting on a modular helmet. This more expensive module can be toggled on or off to function as welding protection for your delicate eyes, strangely smells like potatoes."
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	prefered_slot = SLOT_HEAD
 
 /obj/item/armor_module/module/welding/superior/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -568,8 +558,6 @@
 	flags_attach_features = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 
 	greyscale_config = null
-	colorable_allowed = null
-	colorable_colors = null
 
 /**
  * Module for zoom
@@ -619,8 +607,6 @@
 	item_state = "artemis_head_mk2_a"
 	var/eye_protection_mod = 1
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	prefered_slot = SLOT_HEAD
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()

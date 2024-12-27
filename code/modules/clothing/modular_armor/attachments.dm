@@ -98,7 +98,6 @@
 		parent.colorable_allowed += MODULE_VISIBILITY_TOGGLE_ALLOWED
 	if(greyscale_config) //If module can be colored it will gain ability to be colored via right click on parent while being attached.
 		secondary_color = TRUE
-	if(secondary_color) //Checks if the module can be colored
 		RegisterSignal(parent, COMSIG_ITEM_SECONDARY_COLOR, PROC_REF(handle_color))
 		RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(extra_examine))
 	update_icon()
