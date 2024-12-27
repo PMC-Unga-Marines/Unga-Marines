@@ -1,4 +1,3 @@
-
 /obj/item/stack/barbed_wire
 	name = "barbed wire"
 	desc = "A spiky length of wire."

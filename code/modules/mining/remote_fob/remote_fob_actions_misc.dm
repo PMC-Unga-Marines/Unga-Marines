@@ -1,7 +1,7 @@
 /////////////////////////////// Placement Actions
 
 /datum/action/innate/remote_fob //Parent stuff
-	action_icon = 'icons/Marine/remotefob.dmi'
+	action_icon = 'icons/mob/actions.dmi'
 	var/mob/living/builder //the mob using the action
 	var/mob/camera/aiEye/remote/fobdrone //the drone belonging to the computer
 	var/obj/machinery/computer/camera_advanced/remote_fob/console //the computer itself
@@ -38,7 +38,8 @@
 
 /datum/action/innate/remote_fob/metal_cade
 	name = "Place Metal Barricade"
-	action_icon_state = "metal_cade"
+	action_icon = 'icons/obj/structures/barricades/metal.dmi'
+	action_icon_state = "metal_0"
 
 /datum/action/innate/remote_fob/metal_cade/Activate()
 	. = ..()
@@ -77,10 +78,10 @@
 		return
 	fobdrone.balloon_alert(owner, "Barricade placed. [console.metal_remaining] metal sheets remaining.")
 
-//RUTGMC ADDON BEGIN
 /datum/action/innate/remote_fob/metal_folding_cade
 	name = "Place Metal Folding Barricade"
-	action_icon_state = "metal_folding_cade"
+	action_icon = 'icons/obj/structures/barricades/folding_metal.dmi'
+	action_icon_state = "folding_metal_0"
 
 /datum/action/innate/remote_fob/metal_folding_cade/Activate()
 	. = ..()
@@ -123,7 +124,8 @@
 
 /datum/action/innate/remote_fob/plasteel_cade
 	name = "Place Plasteel Barricade"
-	action_icon_state = "plast_cade"
+	action_icon = 'icons/obj/structures/barricades/new_plasteel.dmi'
+	action_icon_state = "new_plasteel_0"
 
 /datum/action/innate/remote_fob/plasteel_cade/Activate()
 	. = ..()
@@ -163,19 +165,18 @@
 		fobdrone.balloon_alert(owner, "Barricade placed with wiring. [console.plasteel_remaining] plasteel sheets, [console.metal_remaining] metal sheets remaining.")
 		return
 	fobdrone.balloon_alert(owner, "Barricade placed. [console.plasteel_remaining] plasteel sheets remaining.")
-//RUTGMC ADDON END
 
 /datum/action/innate/remote_fob/plast_folding_cade
 	name = "Place Plasteel Barricade"
-	action_icon_state = "plast_folding_cade"
+	action_icon = 'icons/obj/structures/barricades/plasteel.dmi'
+	action_icon_state = "plasteel_0"
 
 /datum/action/innate/remote_fob/plast_folding_cade/Activate()
 	. = ..()
 	if(. || !check_spot())
 		return
 
-	//if(console.plasteel_remaining < 5) //ORIGINAL
-	if(console.plasteel_remaining < 6) //RUTGMC EDIT
+	if(console.plasteel_remaining < 6)
 		fobdrone.balloon_alert(owner, "Out of material")
 		return
 
@@ -193,8 +194,7 @@
 		return
 	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
 		return
-	//console.plasteel_remaining -= 5 //ORIGINAL
-	console.plasteel_remaining -= 6 //RUTGMC EDIT
+	console.plasteel_remaining -= 6
 	cade = new /obj/structure/barricade/plasteel(buildplace)
 	cade.setDir(fobdrone.dir)
 	cade.closed = FALSE
@@ -212,7 +212,8 @@
 
 /datum/action/innate/remote_fob/toggle_wiring
 	name = "Toggle Razorwire"
-	action_icon_state = "wire"
+	action_icon_state = "barbed_wire"
+	action_icon = 'icons/Marine/marine-items.dmi'
 
 /datum/action/innate/remote_fob/toggle_wiring/Activate()
 	. = ..()
@@ -220,6 +221,7 @@
 		return
 	console.do_wiring = !console.do_wiring
 	to_chat(owner, span_notice("Will now [console.do_wiring ? "do wiring" : "stop wiring"]."))
+
 /datum/action/innate/remote_fob/eject_metal_action
 	name = "Eject All Metal"
 	action_icon_state = "fobpc-eject_m"
