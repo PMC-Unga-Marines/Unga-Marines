@@ -148,7 +148,7 @@
 /obj/item/teleporter_kit
 	name = "\improper ASRS Bluespace teleporter"
 	desc = "A bluespace telepad for moving personnel and equipment across small distances to another prelinked teleporter. If area is unpowered, used built-in cell to provide teleportations."
-	icon = 'icons/Marine/teleporter.dmi'
+	icon = 'icons/obj/machines/teleporter.dmi'
 	icon_state = "teleporter"
 
 	max_integrity = 200
