@@ -153,7 +153,7 @@
 /obj/machinery/door_control{
 	id = "minidropship_podlock";
 	name = "inner door-control";
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
