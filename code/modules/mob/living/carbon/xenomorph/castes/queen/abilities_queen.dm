@@ -92,7 +92,8 @@
 	succeed_activate()
 	add_cooldown()
 
-	playsound(X.loc, 'sound/voice/alien/queen/screech.ogg', 75, 0)
+	var/screech_sound_effect_list = list('sound/voice/alien_queen_xmas.ogg','sound/voice/alien_queen_xmas_2.ogg')
+	playsound(X.loc, pick(screech_sound_effect_list), 75, 0)
 	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
 	GLOB.round_statistics.queen_screech++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "queen_screech")
