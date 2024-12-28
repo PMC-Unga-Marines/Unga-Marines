@@ -73,6 +73,9 @@
 	telegraph_overlay = "rain_med"
 	telegraph_sound = null
 
+	weather_duration_lower = 2000
+	weather_duration_upper = 2500
+
 	weather_message = span_danger("<i>Rain pours down around you!</i>")
 	weather_overlay = "rain_high"
 

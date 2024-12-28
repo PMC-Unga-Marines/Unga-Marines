@@ -13,6 +13,25 @@
 	desc = "THIS SHOULDN'T BE VISIBLE, AHELP 'ART-P03' IF SEEN IN ROUND WITH LOCATION"
 	icon = 'icons/Marine/mainship_props.dmi'
 	icon_state = "hangarbox"
+/obj/machinery/prop/structurelattice
+	name = "structural lattice"
+	desc = "Like rebar, but in space."
+	icon = 'icons/obj/structures/prop/mainship.dmi'
+	icon_state = "structure_lattice"
+	coverage = 50
+	max_integrity = 750
+	resistance_flags = XENO_DAMAGEABLE
+
+
+/obj/machinery/prop/fuel_enhancer
+	name = "fuel enhancer"
+	desc = "A fuel enhancement system for dropships. It improves the thrust produced by the fuel combustion for faster travels. Fits inside the engine attach points. You need a powerloader to lift it."
+	icon = 'icons/obj/structures/prop/mainship.dmi'
+	icon_state = "fuel_enhancer"
+	coverage = 25
+	max_integrity = 350
+	resistance_flags = XENO_DAMAGEABLE
+
 
 /obj/machinery/prop/mainship
 	name = "GENERIC SHIP PROP"
@@ -255,11 +274,23 @@
 	icon = 'icons/Marine/mainship_props.dmi'
 	icon_state = "mps"
 
+/obj/structure/prop/mainship/mission_planning_system/white
+	icon_state = "mps_w"
+
+/obj/structure/prop/mainship/mission_planning_system/black
+	icon_state = "blackmps_b"
+
 /obj/structure/prop/mainship/mapping_computer
 	name = "\improper CMPS II computer"
 	desc = "The Common Mapping Production System version II allows for sensory imput from satellites and ship systems to derive planetary maps in a standardized fashion for all UPP pilots."
 	icon = 'icons/Marine/mainship_props.dmi'
 	icon_state = "mapping_comp"
+
+/obj/structure/prop/mainship/mapping_computer/white
+	icon_state = "mapping_comp_w"
+
+/obj/structure/prop/mainship/mapping_computer/black
+	icon_state = "blackmapping_b_comp"
 
 /obj/structure/prop/mainship/sensor_computer1
 	name = "sensor computer"
@@ -270,6 +301,12 @@
 /obj/structure/prop/mainship/sensor_computer1/sd
 	name = "self destruct status computer"
 
+/obj/structure/prop/mainship/sensor_computer1/white
+	icon_state = "sensor_comp_w"
+
+/obj/structure/prop/mainship/sensor_computer1/black
+	icon_state = "blacksensor_comp_b1"
+
 /obj/structure/prop/mainship/sensor_computer2
 	name = "sensor computer"
 	desc = "The IBM series 10 computer retrofitted to work as a sensor computer for the ship. While somewhat dated it still serves its purpose."
@@ -279,6 +316,12 @@
 /obj/structure/prop/mainship/sensor_computer2/sd
 	name = "self destruct regulator"
 
+/obj/structure/prop/mainship/sensor_computer2/white
+	icon_state = "sensor_comp_w2"
+
+/obj/structure/prop/mainship/sensor_computer2/black
+	icon_state = "blacksensor_comp_b2"
+
 /obj/structure/prop/mainship/sensor_computer3
 	name = "sensor computer"
 	desc = "The IBM series 10 computer retrofitted to work as a sensor computer for the ship. While somewhat dated it still serves its purpose."
@@ -287,6 +330,12 @@
 
 /obj/structure/prop/mainship/sensor_computer3/sd
 	name = "tempature regulator"
+
+/obj/structure/prop/mainship/sensor_computer3/white
+	icon_state = "sensor_comp_w3"
+
+/obj/structure/prop/mainship/sensor_computer3/black
+	icon_state = "blacksensor_comp_b3"
 
 /obj/structure/prop/mainship/missile_tube
 	name = "\improper Mk 33 ASAT launcher system"
@@ -2183,3 +2232,64 @@
 
 #undef VENDOR_BROKEN
 #undef VENDOR_BLANK
+
+
+/obj/structure/prop/mainship/mission_planning_system/white
+	icon_state = "mps_w"
+
+/obj/structure/prop/mainship/mission_planning_system/black
+	icon_state = "blackmps_b"
+
+/obj/structure/prop/mainship/mapping_computer/white
+	icon_state = "mapping_comp_w"
+
+/obj/structure/prop/mainship/mapping_computer/black
+	icon_state = "blackmapping_b_comp"
+
+/obj/structure/prop/mainship/sensor_computer1/white
+	icon_state = "sensor_comp_w"
+
+/obj/structure/prop/mainship/sensor_computer1/black
+	icon_state = "blacksensor_comp_b1"
+
+/obj/structure/prop/mainship/sensor_computer2/white
+	icon_state = "sensor_comp_w2"
+
+/obj/structure/prop/mainship/sensor_computer2/black
+	icon_state = "blacksensor_comp_b2"
+
+/obj/item/prop/paint
+	name = "paint bucket"
+	desc = "It's a paint bucket."
+	icon_state = "paint_empty"
+	icon = 'icons/obj/items/items.dmi'
+
+/obj/item/prop/paint/red
+	icon_state = "paint_red"
+
+/obj/item/prop/paint/green
+	icon_state = "paint_green"
+
+/obj/item/prop/paint/neutral
+	icon_state = "paint_neutral"
+
+/obj/item/prop/paint/yellow
+	icon_state = "paint_yellow"
+
+/obj/item/prop/paint/black
+	icon_state = "paint_black"
+
+/obj/item/prop/paint/white
+	icon_state = "paint_white"
+
+/obj/item/prop/paint/blue
+	icon_state = "paint_blue"
+
+/obj/item/prop/paint/violet
+	icon_state = "paint_violet"
+
+/obj/structure/prop/computer/cryopod
+	name = "hypersleep bay console"
+	desc = "A large console controlling the ship's hypersleep bay. Mainly used for recovery of items from long-term hypersleeping crew."
+	icon_state = "cellconsole"
+	resistance_flags = RESIST_ALL

@@ -16,6 +16,8 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_FENCE)
 	canSmoothWith = list(SMOOTH_GROUP_FENCE)
+	///icon set we switch to when destroyed
+	var/destroyed_icon = 'icons/obj/smooth_objects/brokenfence.dmi'
 
 /obj/structure/fence/ex_act(severity)
 	take_damage(severity * 0.5, BRUTE, BOMB)
@@ -110,7 +112,7 @@
 		new /obj/item/stack/rods(loc)
 	cut = TRUE
 	density = FALSE
-	icon = 'icons/obj/smooth_objects/brokenfence.dmi'
+	icon = destroyed_icon
 
 /obj/structure/fence/Initialize(mapload, start_dir)
 	. = ..()
@@ -124,8 +126,12 @@
 
 /obj/structure/fence/Destroy()
 	density = FALSE
-	icon = 'icons/obj/smooth_objects/brokenfence.dmi'
+	icon = destroyed_icon
 	return ..()
 
 /obj/structure/fence/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
+
+/obj/structure/fence/dark
+	icon = 'icons/obj/smooth_objects/dark_fence.dmi'
+	destroyed_icon = 'icons/obj/smooth_objects/brokenfence_dark.dmi'
