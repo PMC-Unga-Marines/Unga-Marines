@@ -72,7 +72,16 @@
 	var/minimap_icon = "predator"
 	COOLDOWN_DECLARE(bracer_recharge)
 
-/obj/item/clothing/gloves/yautja/Destroy()
+/obj/item/clothing/gloves/yautja/Destroy() // FUCKING SHITCODE
+	left_wristblades = null
+	right_wristblades = null
+	combistick = null
+	discs.Cut()
+	real_owner = null
+	owner = null
+	QDEL_NULL(caster)
+	QDEL_NULL(embedded_id)
+	QDEL_LIST(actions_to_add)
 	STOP_PROCESSING(SSobj, src)
 	if(linked_bracer)
 		linked_bracer.linked_bracer = null
@@ -92,7 +101,7 @@
 			action.remove_action(user)
 		if(!user.hunter_data?.claimed_equipment)
 			claim_equipment.remove_action(user)
-	..()
+	return ..()
 
 /obj/item/clothing/gloves/yautja/equipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLOVES)
@@ -143,7 +152,7 @@
 	if(forced || HAS_TRAIT(user, TRAIT_YAUTJA_TECH))
 		return FALSE
 
-	if(user.stat || (user.lying_angle && !user.resting && !user.IsSleeping()) || (user.IsParalyzed() || user.IsUnconscious())) //let's do this here to avoid to_chats to dead guys
+	if(user.stat || (user.lying_angle && !user.resting && !user.has_status_effect(STATUS_EFFECT_SLEEPING)) || (user.has_status_effect(STATUS_EFFECT_PARALYZED) || user.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))) //let's do this here to avoid to_chats to dead guys
 		return TRUE
 
 	var/workingProbability = 20
@@ -222,12 +231,12 @@
 			if(!drain_power(caller, 70)) //We should only drain power if we actually yank the chain back. Failed attempts can quickly drain the charge away.
 				return TRUE
 			caller.visible_message(span_warning("<b>[caller] yanks [combistick]'s chain back!</b>"), span_warning("<b>You yank [combistick]'s chain back!</b>"))
-			playsound(caller, "chain_swing", 25)
+			playsound(caller, SFX_CHAIN_SWING, 25)
 		else if(caller.put_in_inactive_hand(combistick))///...Try putting it in our inactive hand.
 			if(!drain_power(caller, 70)) //We should only drain power if we actually yank the chain back. Failed attempts can quickly drain the charge away.
 				return TRUE
 			caller.visible_message(span_warning("<b>[caller] yanks [combistick]'s chain back!</b>"), span_warning("<b>You yank [combistick]'s chain back!</b>"))
-			playsound(caller, "chain_swing", 25)
+			playsound(caller, SFX_CHAIN_SWING, 25)
 		else //If neither hand can hold it, you must not have a free hand.
 			to_chat(caller, span_warning("You need a free hand to do this!</b>"))
 
@@ -358,7 +367,7 @@
 	. = healing_capsule_internal(usr, FALSE)
 
 /obj/item/clothing/gloves/yautja/proc/healing_capsule_internal(mob/living/caller, forced = FALSE)
-	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	. = check_random_function(caller, forced)
@@ -461,7 +470,7 @@
 	var/mob/living/carbon/human/M = caller
 	var/new_alpha = cloak_alpha
 
-	if(!istype(M) || caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(!istype(M) || caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	if(cloaked) //Turn it off.
@@ -530,8 +539,7 @@
 	sparks.set_up(5, 4, src)
 	sparks.start()
 
-	spawn()
-		decloak(wearer, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(decloak), wearer, TRUE)
 
 /obj/item/clothing/gloves/yautja/proc/track_gear_internal(mob/caller, forced = FALSE)
 	. = check_random_function(caller, forced)
@@ -888,7 +896,7 @@
 		to_chat(wearer, span_warning("You've already claimed your equipment."))
 		return
 
-	if(wearer.stat || (wearer.lying_angle && !wearer.resting && !wearer.IsSleeping()) || (wearer.IsParalyzed() || wearer.IsUnconscious()) || wearer.lying_angle || wearer.buckled)
+	if(wearer.stat || (wearer.lying_angle && !wearer.resting && !wearer.has_status_effect(STATUS_EFFECT_SLEEPING)) || (wearer.has_status_effect(STATUS_EFFECT_PARALYZED) || wearer.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) || wearer.lying_angle || wearer.buckled)
 		to_chat(wearer, span_warning("You're not able to do that right now."))
 		return
 
@@ -1034,11 +1042,6 @@
 	left_wristblades = new(src)
 	right_wristblades = new(src)
 
-/obj/item/clothing/gloves/yautja/hunter/Destroy()
-	. = ..()
-	left_wristblades = null
-	right_wristblades = null
-
 /obj/item/clothing/gloves/yautja/hunter/emp_act(severity)
 	charge = max(charge - (severity * 500), 0)
 	if(ishuman(loc))
@@ -1058,11 +1061,6 @@
 	else
 		if(embedded_id?.registered_name)
 			embedded_id.set_user_data(user)
-
-/obj/item/clothing/gloves/yautja/hunter/Destroy()
-	QDEL_NULL(caster)
-	QDEL_NULL(embedded_id)
-	return ..()
 
 /obj/item/clothing/gloves/yautja/hunter/process()
 	if(!ishuman(loc))
@@ -1157,7 +1155,7 @@
 	. = remove_tracked_item_internal(usr, FALSE)
 
 /obj/item/clothing/gloves/yautja/hunter/proc/remove_tracked_item_internal(mob/living/caller, forced = FALSE)
-	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	. = check_random_function(caller, forced)
@@ -1185,7 +1183,7 @@
 	. = add_tracked_item_internal(usr, FALSE)
 
 /obj/item/clothing/gloves/yautja/hunter/proc/add_tracked_item_internal(mob/living/caller, forced = FALSE)
-	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.IsSleeping()) || (caller.IsParalyzed() || caller.IsUnconscious()))
+	if(caller.stat || (caller.lying_angle && !caller.resting && !caller.has_status_effect(STATUS_EFFECT_SLEEPING)) || (caller.has_status_effect(STATUS_EFFECT_PARALYZED) || caller.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return FALSE
 
 	. = check_random_function(caller, forced)
@@ -1211,7 +1209,7 @@
 	set src in usr
 
 	var/mob/living/mob = usr
-	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.IsSleeping()) || (mob.IsParalyzed() || mob.IsUnconscious()))
+	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.has_status_effect(STATUS_EFFECT_SLEEPING)) || (mob.has_status_effect(STATUS_EFFECT_PARALYZED) || mob.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return
 
 	name_active = !name_active
@@ -1224,7 +1222,7 @@
 	set src in usr
 
 	var/mob/living/mob = usr
-	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.IsSleeping()) || (mob.IsParalyzed() || mob.IsUnconscious()))
+	if(mob.stat || (mob.lying_angle && !mob.resting && !mob.has_status_effect(STATUS_EFFECT_SLEEPING)) || (mob.has_status_effect(STATUS_EFFECT_PARALYZED) || mob.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		return
 
 	var/mob/living/carbon/human/H = usr

@@ -364,6 +364,7 @@
 
 	Master.UpdateTickRate()
 
+	fully_created = TRUE
 
 
 //////////////////
@@ -420,6 +421,9 @@
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	SSping.currentrun -= src
 	QDEL_NULL(tooltips)
+	QDEL_NULL(parallax_rock)
+	QDEL_LIST(parallax_layers_cached)
+	parallax_layers = null
 	Master.UpdateTickRate()
 	SSambience.ambience_listening_clients -= src
 	..() //Even though we're going to be hard deleted there are still some things like signals that want to know the destroy is happening
@@ -877,8 +881,7 @@
 	apply_clickcatcher()
 	mob.reload_fullscreens()
 
-	if(prefs.auto_fit_viewport)
-		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
+	attempt_auto_fit_viewport()
 
 ///Change the fullscreen setting of the client
 /client/proc/set_fullscreen(fullscreen_mode)

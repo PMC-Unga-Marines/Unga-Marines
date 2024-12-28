@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	name = "Clearing junk in phoron and glass? Explosion transformation power!"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 4) // 20 points
-	output = list(/obj/item/stack/sheet/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
+	output = list(/obj/item/stack/sheet/glass/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
 
 //one in one craft cuz junk is multi use resource
 /datum/assembly_craft/engineering/junk_phoron_iron
@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 /datum/assembly_craft/engineering/drop_pod
 	name = "Zeus orbital drop pod"
 	craft_time = 20 SECONDS
-	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass = 3) // 40 + 6
+	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass/glass = 3) // 40 + 6
 	output = list(/obj/structure/droppod = 1) //40 points
 
 /*******************************************************************************
@@ -98,7 +98,7 @@ CLOTHING
 
 /datum/assembly_craft/clothing/swat_mask
 	name = "SWAT mask"
-	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/glass = 3) // 24 + 6 points
+	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/glass/glass = 3) // 24 + 6 points
 	output = list(/obj/item/clothing/mask/gas/swat = 1) // 25 points from old factory
 
 
@@ -305,3 +305,33 @@ WEAPONS
 	name = "MLRS High Explosive rocket"
 	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/gun_powder = 3) // 24 + 24 points
 	output = list(/obj/item/storage/box/mlrs_rockets = 1) // 33 points from old factory
+
+/datum/assembly_craft/weapons/ltb_shells
+	name = "LTB tank shell"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 2)
+	output = list(/obj/item/ammo_magazine/tank/ltb_cannon = 1)
+
+/datum/assembly_craft/weapons/ltb_cannon_apfds
+	name = "LTB tank APFDS shell"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 2)
+	output = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds = 1)
+
+/datum/assembly_craft/weapons/ltb_cannon_TOW
+	name = "TOW Launcher Magazine"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 2, /obj/item/stack/gun_powder = 1)
+	output = list(/obj/item/ammo_magazine/tank/towlauncher = 1)
+
+/datum/assembly_craft/weapons/gl_explosive_tank_ammo
+	name = "Tank grenade launcher magazine"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 1)
+	output = list(/obj/item/ammo_magazine/tank/tank_glauncher = 1)
+
+/datum/assembly_craft/weapons/heavy_isg_he
+	name = "A 155mm HE shell for the FK-88 mounted flak gun."
+	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 6) // 35 + 48 points
+	output = list(/obj/item/ammo_magazine/heavy_isg/he = 1) // 83 points +-
+
+/datum/assembly_craft/weapons/heavy_isg_sabot
+	name = "A 155mm APFDS shell for the FK-88 mounted flak gun"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 7) // 35 + 56 points
+	output = list(/obj/item/ammo_magazine/heavy_isg/sabot = 1) // 91 points +-

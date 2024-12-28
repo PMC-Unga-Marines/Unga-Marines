@@ -133,7 +133,7 @@
 
 ///Actually changes the xenomorph to another caste
 /mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type)
-	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src))
+	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src), TRUE)
 
 	if(!istype(new_xeno))
 		//Something went horribly wrong!
@@ -148,7 +148,6 @@
 			return
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_EVOLVED, new_xeno)
-
 	for(var/obj/item/W in contents) //Drop stuff
 		dropItemToGround(W)
 
@@ -168,6 +167,11 @@
 		qdel(new_xeno.hunter_data)
 		new_xeno.hunter_data = hunter_data
 		hunter_data = null
+	new_xeno.upgrades_holder = upgrades_holder
+	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
+		new_xeno.apply_status_effect(S)
+	new_xeno.generate_name() // This is specifically for numbered xenos who want to keep their previous number instead of a random new one.
+	new_xeno.hive?.update_ruler() // Since ruler wasn't set during initialization, update ruler now.
 	transfer_observers_to(new_xeno)
 
 	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
@@ -221,7 +225,6 @@
 	selector?.set_selected_zone(zone_selected, new_xeno)
 	qdel(src)
 	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
-	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 
 ///Check if the xeno is currently able to evolve
 /mob/living/carbon/xenomorph/proc/generic_evolution_checks()

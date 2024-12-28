@@ -89,6 +89,8 @@ Godspeed, captain! And remember, you are not above the law."})
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator/yellow
 	head = null
 	back = FALSE
+	r_hand = /obj/item/weapon/gun/shotgun/double/musket
+	l_hand = /obj/item/ammo_magazine/packet/musket
 
 //Field Commander
 /datum/job/terragov/command/fieldcommander
@@ -234,6 +236,8 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	head = null
 	w_uniform = /obj/item/clothing/under/marine/whites/blacks
 	shoes = /obj/item/clothing/shoes/laceup
+	r_hand = /obj/item/weapon/gun/shotgun/double/musketoon
+	l_hand = /obj/item/ammo_magazine/packet/musket/small
 
 //Transport Officer
 /datum/job/terragov/command/transportofficer
@@ -971,7 +975,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 
 //Researcher
 /datum/job/terragov/medical/researcher
-	title = MEDICAL_RESEARCHER
+	title = FIELD_RESEARCHER
 	comm_title = "Rsr"
 	paygrade = "CD"
 	total_positions = 2
@@ -979,7 +983,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_ENGINEERING, ACCESS_CIVILIAN_ENGINEERING)
 	minimal_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP)
 	skills_type = /datum/skills/researcher
-	display_order = JOB_DISPLAY_ORDER_MEDICAL_RESEARCHER
+	display_order = JOB_DISPLAY_ORDER_FIELD_RESEARCHER
 	outfit = /datum/outfit/job/medical/researcher
 	exp_type = EXP_TYPE_MEDICAL
 	exp_requirements = XP_REQ_UNSEASONED
@@ -1025,7 +1029,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 
 
 /datum/outfit/job/medical/researcher
-	name = MEDICAL_RESEARCHER
+	name = FIELD_RESEARCHER
 	jobtype = /datum/job/terragov/medical/researcher
 
 	id = /obj/item/card/id

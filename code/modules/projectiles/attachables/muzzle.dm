@@ -5,7 +5,7 @@
 	slot = ATTACHMENT_SLOT_MUZZLE
 	silence_mod = TRUE
 	pixel_shift_y = 16
-	attach_shell_speed_mod = -1
+	attach_shell_speed_mod = -0.5
 	accuracy_mod = 0.1
 	recoil_mod = -2
 	scatter_mod = -2

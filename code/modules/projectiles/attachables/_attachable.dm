@@ -120,7 +120,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	///only used by lace, denotes whether the lace is currently deployed
 	var/lace_deployed = FALSE
 
-
 	///what ability to give the user when attached to a weapon they are holding.
 	var/attachment_action_type
 	///used for the codex to denote if a weapon has the ability to zoom in or not.
@@ -334,7 +333,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	master_gun = attached_to
 	master_gun.wield_delay					+= wield_delay_mod
 	if(gun_user)
-		UnregisterSignal(gun_user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM, COMSIG_ITEM_UNZOOM, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_FIREMODE, COMSIG_KB_GUN_SAFETY, COMSIG_KB_AUTOEJECT, COMSIG_KB_UNIQUEACTION, COMSIG_QDELETING,  COMSIG_MOB_CLICK_RIGHT))
+		UnregisterSignal(gun_user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM, COMSIG_ITEM_UNZOOM, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_GUN_SAFETY, COMSIG_KB_AUTOEJECT, COMSIG_KB_UNIQUEACTION, COMSIG_QDELETING,  COMSIG_MOB_CLICK_RIGHT))
 	var/datum/action/item_action/toggle/new_action = new /datum/action/item_action/toggle(src, master_gun)
 	if(!isliving(user))
 		return
@@ -344,7 +343,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	attached_to:gunattachment = src
 	activate(user)
 	new_action.set_toggle(TRUE)
-	new_action.update_button_icon()
 	update_icon()
 	RegisterSignal(master_gun, COMSIG_ITEM_REMOVED_INVENTORY, TYPE_PROC_REF(/obj/item/weapon/gun, drop_connected_mag))
 
@@ -380,11 +378,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		set_gun_user(null)
 		set_gun_user(master_gun.gun_user)
 		to_chat(user, span_notice("You start using [src]."))
-	for(var/datum/action/item_action/toggle/action AS in master_gun.actions)
-		if(action.target != src )
-			continue
-		action.set_toggle(master_gun.active_attachable == src)
-		action.update_button_icon()
 	return TRUE
 
 ///Called when the attachment is trying to be attached. If the attachment is allowed to go through, return TRUE.

@@ -301,7 +301,7 @@
 	else
 		visible_message(span_notice("[usr] climbs into [src]."), 3)
 	M.forceMove(src)
-	if(M.health > -100 && (M.health < 0 || M.IsSleeping()))
+	if(M.health > -100 && (M.health < 0 || M.has_status_effect(STATUS_EFFECT_SLEEPING)))
 		to_chat(M, span_boldnotice("You feel a cold liquid surround you. Your skin starts to freeze up."))
 	occupant = M
 	occupant.time_entered_cryo = world.time

@@ -467,29 +467,35 @@
 /obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user)
 	if(!allowed(user) && (!wires.is_cut(WIRE_IDSCAN) || hacking_safety)) //For SECURE VENDING MACHINES YEAH
 		to_chat(user, span_warning("Access denied."))
-		flick(icon_deny, src)
+		if(icon_deny)
+			flick(icon_deny, src)
 		return
 
 	if(R.category == CAT_HIDDEN && !extended_inventory)
 		return
 
-	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all at once with explosion
+	var/turf/T = loc
+	if(length(T.contents) > 30 || locate(/obj/structure/closet/crate) in loc) // let's make crashing the server a bit harder
 		to_chat(user, span_warning("The floor is too cluttered, make some space."))
+		if(icon_deny)
+			flick(icon_deny, src)
 		return
 
 	vend_ready = 0 //One thing at a time!!
 	R.amount--
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		spawn(0)
-			src.speak(src.vend_reply)
-			src.last_reply = world.time
+	if(((last_reply + (src.vend_delay + 200)) <= world.time) && vend_reply)
+		INVOKE_ASYNC(src, PROC_REF(speak_on_vend))
 
 	var/obj/item/new_item = release_item(R, vend_delay)
 
 	if(istype(new_item))
 		new_item.on_vend(user, faction, fill_container = TRUE)
 	vend_ready = 1
+
+/obj/machinery/vending/proc/speak_on_vend()
+	speak(vend_reply)
+	last_reply = world.time
 
 /obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0)
 	if(delay_vending)
@@ -513,7 +519,7 @@
 	if(vending_sound)
 		playsound(src, vending_sound, 25, 0)
 	else
-		playsound(src, "vending", 25, 0)
+		playsound(src, SFX_VENDING, 25, 0)
 	if(ispath(R.product_path,/obj/item/weapon/gun))
 		return new R.product_path(get_turf(src), 1)
 	else
@@ -649,6 +655,7 @@
 			var/obj/item/storage/S = item_to_stock.loc
 			S.remove_from_storage(item_to_stock, user.loc, user)
 
+	item_to_stock.removed_from_inventory(user)
 	qdel(item_to_stock)
 
 	if(amount >= 0) //R negative means infinite item, no need to restock
@@ -778,8 +785,7 @@
 		break
 	if (!throw_item)
 		return FALSE
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
+	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, 16, 3, src)
 	src.visible_message(span_warning("[src] launches [throw_item.name] at [target]!"))
 	. = TRUE
 

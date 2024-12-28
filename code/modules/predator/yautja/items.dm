@@ -660,7 +660,7 @@
 	return
 
 /obj/item/explosive/grenade/spawnergrenade/hellhound/check_eye(mob/living/user)
-	if(user.stat || (user.lying_angle && !user.resting && !user.IsSleeping()) || (user.IsParalyzed() || user.IsUnconscious()))
+	if(user.stat || (user.lying_angle && !user.resting && !user.has_status_effect(STATUS_EFFECT_SLEEPING)) || (user.has_status_effect(STATUS_EFFECT_PARALYZED) || user.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		user.unset_interaction()
 	else if (!current || get_turf(user) != activated_turf || src.loc != user ) //camera doesn't work, or we moved.
 		user.unset_interaction()

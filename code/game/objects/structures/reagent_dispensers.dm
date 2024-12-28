@@ -40,6 +40,8 @@
 
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override),
+		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -186,7 +188,7 @@
 	flame_radius(round(reagents.total_volume * 0.005), loc)
 	qdel(src)
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(burn_level)
+/obj/structure/reagent_dispensers/fueltank/fire_act(burn_level, flame_color)
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/Moved(atom/old_loc, movement_dir, forced, list/old_locs)

@@ -802,11 +802,18 @@
 		/obj/item/tool/shovel/etool,
 	)
 
-/obj/item/storage/pouch/tools/full/Initialize(mapload)
-	. = ..()
+/obj/item/storage/pouch/tools/full/PopulateContents()
 	new /obj/item/tool/screwdriver (src)
 	new /obj/item/tool/wirecutters (src)
 	new /obj/item/tool/weldingtool (src)
+	new /obj/item/tool/wrench (src)
+	new /obj/item/tool/crowbar (src)
+
+
+/obj/item/storage/pouch/tools/engineer/PopulateContents()
+	new /obj/item/tool/screwdriver (src)
+	new /obj/item/tool/wirecutters (src)
+	new /obj/item/tool/weldingtool/hugetank (src)
 	new /obj/item/tool/wrench (src)
 	new /obj/item/tool/crowbar (src)
 
@@ -845,7 +852,6 @@
 	draw_mode = 0
 	can_hold = list(/obj/item/ammo_magazine/handful)
 
-
 /obj/item/storage/pouch/shotgun/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/M = I
@@ -870,7 +876,7 @@
 				if(!cont)
 					break
 
-			playsound(user.loc, "rustle", 15, TRUE, 6)
+			playsound(user.loc, SFX_RUSTLE, 15, TRUE, 6)
 			to_chat(user, span_notice("You refill [src] with [M]."))
 			return TRUE
 
@@ -896,3 +902,30 @@
 	. = ..()
 	for(var/i in 1 to storage_slots)
 		new /obj/item/reagent_containers/food/snacks/protein_pack(src)
+
+/obj/item/storage/pouch/medkit/t312
+	name = "BMSS medkit pouch"
+	desc = "Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers."
+	icon_state = "t312"
+	can_hold = list(
+		/obj/item/healthanalyzer,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/storage/pill_bottle/packet,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/ammo_magazine/packet/t312/med,
+		/obj/item/ammo_magazine/revolver/t312/med,
+		/obj/item/tweezers,
+		/obj/item/ammo_magazine/handful
+	)
+
+/obj/item/storage/pouch/medkit/t312/medic/PopulateContents()
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_combat_pack(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/storage/pill_bottle/meraderm(src)
+	new /obj/item/reagent_containers/hypospray/advanced/nanoblood(src)

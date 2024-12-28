@@ -63,7 +63,7 @@
 	var/obj/deployed_machine
 
 	if(user)
-		if(!ishuman(user) || HAS_TRAIT(item_to_deploy, TRAIT_NODROP))
+		if(!ishuman(user) || HAS_TRAIT(item_to_deploy, TRAIT_NODROP) || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 			return
 
 		if(LinkBlocked(get_turf(user), location))
@@ -101,7 +101,7 @@
 				return
 		user.temporarilyRemoveItemFromInventory(item_to_deploy)
 
-		item_to_deploy.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_FIREMODE, COMSIG_KB_AUTOEJECT, COMSIG_MOB_CLICK_RIGHT)) //This unregisters Signals related to guns, its for safety
+		item_to_deploy.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_AUTOEJECT, COMSIG_MOB_CLICK_RIGHT)) //This unregisters Signals related to guns, its for safety
 
 		direction_to_deploy = newdir
 
@@ -145,10 +145,11 @@
 
 	if(!undeployed_item)
 		CRASH("[src] is missing it's internal item.")
-
 	if(!user)
 		CRASH("[source] has sent the signal COMSIG_ITEM_UNDEPLOY to [undeployed_item] without the arg 'user'")
 	if(!ishuman(user))
+		return
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return
 	var/obj/machinery/deployable/mounted/sentry/sentry
 	if(issentry(deployed_machine))

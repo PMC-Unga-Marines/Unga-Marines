@@ -30,10 +30,82 @@
 	edge = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	///Special attack action granted to users with the right trait
+	var/datum/action/ability/activable/weapon_skill/sword_lunge/special_attack
 
 /obj/item/weapon/claymore/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/scalping)
+	special_attack = new(src, force, penetration)
+
+/obj/item/weapon/claymore/Destroy()
+	QDEL_NULL(special_attack)
+	return ..()
+
+/obj/item/weapon/claymore/equipped(mob/user, slot)
+	. = ..()
+	if(user.skills.getRating(SKILL_MELEE_WEAPONS) > SKILL_MELEE_DEFAULT)
+		special_attack.give_action(user)
+
+/obj/item/weapon/claymore/dropped(mob/user)
+	. = ..()
+	special_attack?.remove_action(user)
+
+//Special attack
+/datum/action/ability/activable/weapon_skill/sword_lunge
+	name = "Lunging strike"
+	action_icon_state = "sword_lunge"
+	desc = "A powerful leaping strike. Cannot stun."
+	ability_cost = 8
+	cooldown_duration = 6 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_WEAPONABILITY_SWORDLUNGE,
+	)
+
+/datum/action/ability/activable/weapon_skill/sword_lunge/use_ability(atom/A)
+	var/mob/living/carbon/carbon_owner = owner
+
+	RegisterSignal(carbon_owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
+	RegisterSignals(carbon_owner, list(COMSIG_MOVABLE_IMPACT, COMSIG_MOVABLE_BUMP), PROC_REF(lunge_impact))
+	RegisterSignal(carbon_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
+
+	carbon_owner.visible_message(span_danger("[carbon_owner] charges towards \the [A]!"))
+	playsound(owner, "sound/effects/alien_tail_swipe2.ogg", 50, 0, 4)
+	carbon_owner.throw_at(A, 2, 1, carbon_owner)
+	succeed_activate()
+	add_cooldown()
+
+///Create an after image
+/datum/action/ability/activable/weapon_skill/sword_lunge/proc/movement_fx()
+	SIGNAL_HANDLER
+	new /obj/effect/temp_visual/xenomorph/afterimage(get_turf(owner), owner)
+
+///Unregisters signals after lunge complete
+/datum/action/ability/activable/weapon_skill/sword_lunge/proc/charge_complete()
+	SIGNAL_HANDLER
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_IMPACT, COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_MOVED))
+
+///Sig handler for atom impacts during lunge
+/datum/action/ability/activable/weapon_skill/sword_lunge/proc/lunge_impact(datum/source, obj/target, speed)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(do_lunge_impact), source, target)
+	charge_complete()
+
+///Actual effects of lunge impact
+/datum/action/ability/activable/weapon_skill/sword_lunge/proc/do_lunge_impact(datum/source, obj/target)
+	var/mob/living/carbon/carbon_owner = source
+	if(isobj(target))
+		var/obj/obj_victim = target
+		obj_victim.take_damage(damage, BRUTE, MELEE, TRUE, TRUE, get_dir(obj_victim, carbon_owner), penetration, carbon_owner)
+		if(!obj_victim.anchored && obj_victim.move_resist < MOVE_FORCE_VERY_STRONG)
+			obj_victim.knockback(carbon_owner, 1, 2)
+	else if(ishuman(target))
+		var/mob/living/carbon/human/human_victim = target
+		human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration)
+		human_victim.adjust_stagger(1 SECONDS)
+		playsound(human_victim, "sound/weapons/wristblades_hit.ogg", 25, 0, 5)
+		shake_camera(human_victim, 2, 1)
 
 /obj/item/weapon/claymore/mercsword
 	name = "combat sword"
@@ -58,22 +130,6 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
 	w_class = WEIGHT_CLASS_BULKY
-
-/obj/item/weapon/claymore/mercsword/officersword/attack(mob/living/carbon/M, mob/living/user)
-	. = ..()
-	if(user.skills.getRating("swordplay") == SKILL_SWORDPLAY_DEFAULT)
-		attack_speed = 20
-		force = 35
-		to_chat(user, span_warning("You try to figure out how to wield [src]..."))
-		if(prob(40))
-			if(HAS_TRAIT_FROM(src, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT))
-				REMOVE_TRAIT(src, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT)
-			user.drop_held_item(src)
-			to_chat(user, span_warning("[src] slipped out of your hands!"))
-			playsound(src.loc, 'sound/misc/slip.ogg', 25, 1)
-	if(user.skills.getRating("swordplay") == SKILL_SWORDPLAY_TRAINED)
-		attack_speed = initial(attack_speed)
-		force = initial(force)
 
 /obj/item/weapon/claymore/mercsword/officersword/equipped(mob/user, slot)
 	. = ..()

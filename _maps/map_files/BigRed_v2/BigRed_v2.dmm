@@ -263,7 +263,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/marshal_office)
 "aes" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/computer/security/wooden_tv,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
@@ -276,22 +276,22 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
 "aeO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/recharger,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "aeP" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/flask/detflask,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "aeQ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/ashtray/bronze,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "aeR" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/head/det_hat,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
@@ -1294,11 +1294,11 @@
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
 "alD" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
 "alE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "alF" = (
@@ -1515,7 +1515,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "ang" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/paper/Court,
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/marshal_office)
@@ -1617,7 +1617,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "anE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/marshal_office)
 "anF" = (
@@ -1627,7 +1627,7 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/marshal_office)
 "anG" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/suit/storage/lawyer/bluejacket,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
@@ -1713,7 +1713,7 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/marshal_office)
 "aom" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/camera,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
@@ -1793,7 +1793,7 @@
 /turf/open/floor/tile/red/full,
 /area/bigredv2/outside/marshal_office)
 "aoX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/camera_film,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
@@ -2065,7 +2065,7 @@
 /turf/open/floor/elevatorshaft,
 /area/bigredv2/caves/lambda_lab)
 "ara" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /obj/effect/spawner/random/misc/plushie{
 	pixel_x = -5;
@@ -2114,7 +2114,7 @@
 /turf/open/floor/elevatorshaft,
 /area/bigredv2/caves/lambda_lab)
 "arH" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/misc/paperbin,
 /turf/open/floor/wood,
 /area/bigredv2/caves/lambda_lab)
@@ -2182,7 +2182,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/caves/lambda_lab)
 "asq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/carpet/side{
 	dir = 10
 	},
@@ -2624,12 +2624,12 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "awA" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/tool/pen,
 /turf/open/floor/carpet/side,
 /area/bigredv2/caves/lambda_lab)
 "awB" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/coffee,
 /obj/item/phone,
 /turf/open/floor/carpet/side{
@@ -2726,10 +2726,6 @@
 /obj/machinery/light,
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
-"axF" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/n)
 "axP" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -3006,12 +3002,12 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/dorms)
 "aBr" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/toy/beach_ball,
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
 "aBs" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
 "aBt" = (
@@ -3487,7 +3483,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/dorms)
 "aFT" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/radio/survivor,
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
@@ -3500,7 +3496,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
 "aFW" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aFX" = (
@@ -3640,7 +3636,7 @@
 /area/bigredv2/outside/bar)
 "aHJ" = (
 /obj/machinery/reagentgrinder,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aHK" = (
@@ -4141,7 +4137,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aKy" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/ashtray/glass,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -4416,7 +4412,7 @@
 	},
 /area/bigredv2/outside/virology)
 "aMI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/trash/sosjerky,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -4429,7 +4425,7 @@
 /obj/machinery/chem_dispenser/soda{
 	dir = 8
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aMK" = (
@@ -4576,7 +4572,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "aOS" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/trash/cheesie,
 /obj/item/trash/pistachios,
 /turf/open/floor/wood,
@@ -8896,7 +8892,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/south)
 "eyB" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
@@ -9313,8 +9309,8 @@
 /area/bigredv2/caves/lambda_lab)
 "fxo" = (
 /obj/structure/table,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c500,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -9476,7 +9472,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/engineering)
 "fQm" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /obj/item/trash/cheesie,
 /obj/effect/ai_node,
@@ -11206,7 +11202,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/caves/lambda_lab)
 "jBy" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/carpet,
 /area/bigredv2/caves/lambda_lab)
@@ -11557,7 +11553,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/sw)
 "knk" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/paper/courtroom{
 	name = "A Crash Course in Legal SOP"
 	},
@@ -12025,7 +12021,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast)
 "lBl" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	flipped = 1
 	},
 /obj/effect/decal/cleanable/blood,
@@ -13765,7 +13761,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
 "pBb" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -14999,7 +14995,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "sqI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/marshal_office)
@@ -37102,7 +37098,7 @@ gzM
 gzM
 gzM
 gzM
-axF
+aqO
 aqO
 gzM
 gQv

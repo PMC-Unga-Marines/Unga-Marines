@@ -32,10 +32,13 @@
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "weeds_destroyed")
 	return ..()
 
+/obj/alien/weeds/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	return FALSE // Just attack normally.
+
 /obj/alien/weeds/Initialize(mapload, obj/alien/weeds/node/node, swapped = FALSE)
 	. = ..()
 	var/static/list/connections = list(
-		COMSIG_FIND_FOOTSTEP_SOUND = PROC_REF(footstep_override)
+		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override)
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -128,8 +131,7 @@
 	parent_node = null
 
 ///overrides the turf's normal footstep sound
-/obj/alien/weeds/proc/footstep_override(atom/movable/source, list/footstep_overrides)
-	SIGNAL_HANDLER
+/obj/alien/weeds/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_RESIN] = layer
 
 /obj/alien/weeds/sticky

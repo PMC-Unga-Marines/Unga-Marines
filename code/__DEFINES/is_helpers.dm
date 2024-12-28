@@ -101,6 +101,8 @@
 #define isxenospitter(A) (istype(A, /mob/living/carbon/xenomorph/spitter))
 #define isxenosentinel(A) (istype(A, /mob/living/carbon/xenomorph/sentinel))
 #define isxenowarrior(A) (istype(A, /mob/living/carbon/xenomorph/warrior))
+#define isxenowidow(A) (istype(A, /mob/living/carbon/xenomorph/widow))
+#define isxenospiderling(A) (istype(A, /mob/living/carbon/xenomorph/spiderling))
 #define isxenolarva(A) (istype(A, /mob/living/carbon/xenomorph/larva))
 #define isxenoqueen(A) (istype(A, /mob/living/carbon/xenomorph/queen))
 #define isxenoshrike(A) (istype(A, /mob/living/carbon/xenomorph/shrike))
@@ -213,6 +215,8 @@
 
 #define iscrowbar(I) (istype(I, /obj/item/tool/crowbar))
 
+#define isplasmacutter(I) (istype(I, /obj/item/tool/pickaxe/plasmacutter))
+
 #define iscell(I) (istype(I, /obj/item/cell))
 
 #define islascell(I) (istype(I, /obj/item/cell/lasgun))
@@ -226,6 +230,8 @@
 #define iscable(A) (istype(A, /obj/structure/cable))
 
 #define isladder(A) (istype(A, /obj/structure/ladder))
+
+#define iscrate(A) (istype(A, /obj/structure/closet/crate))
 
 #define ismachinery(A) (istype(A, /obj/machinery))
 
@@ -311,7 +317,7 @@
 #define isstealobjective(O) (istype(O, /datum/objective/steal))
 #define isassassinateobjective(O) (istype(O, /datum/objective/assassinate))
 
-#define isresearcher(A) (ishuman(A) && A.job.title == "Medical Researcher")
+#define isresearcher(A) (ishuman(A) && A.job.title == "Field Researcher")
 #define isyautja(H) (is_species(H, /datum/species/yautja))
 
 #define ispredatorjob(J) (istype(J, /datum/job/predator))

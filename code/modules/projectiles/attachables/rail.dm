@@ -66,10 +66,6 @@
 	else
 		return
 
-	for(var/X in master_gun.actions)
-		var/datum/action/A = X
-		A.update_button_icon()
-
 	update_icon()
 
 /obj/item/attachable/flashlight/attackby(obj/item/I, mob/user, params)
@@ -211,7 +207,6 @@
 		. = TRUE
 	for(var/datum/action/item_action/toggle/action_to_update AS in actions)
 		action_to_update.set_toggle(.)
-		action_to_update.update_button_icon()
 
 ///Handles the gun attaching to the armor.
 /obj/item/attachable/shoulder_mount/proc/handle_armor_attach(datum/source, attaching_item, mob/user)
