@@ -952,8 +952,6 @@
 		/obj/item/reagent_containers/food/snacks/mre_pack/xmas2 = 25,
 		/obj/item/reagent_containers/food/snacks/mre_pack/xmas3 = 25,
 	)
-	vend_delay = 15
-	product_ads = "Try the cornbread.;Try the pizza.;Try the pasta.;Try the tofu, wimp.;Try the pork.; 9 Flavors of Protein!; You'll never guess the mystery flavor!"
 
 /obj/machinery/vending/marineFood/valhalla
 	resistance_flags = INDESTRUCTIBLE

@@ -568,7 +568,7 @@
 	attack_verb = list("bruised", "smashed", "cracked", "whomped", "walloped", "battered", "smacked")
 	issnowball = TRUE
 
-/obj/item/stack/throwing_knife/update_icon_state()
+/obj/item/stack/throwing_knife/snowball/update_icon_state()
 	. = ..()
 	icon_state = "snowball"
 
