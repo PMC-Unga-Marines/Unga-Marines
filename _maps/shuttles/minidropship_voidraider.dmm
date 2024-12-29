@@ -10,6 +10,9 @@
 	dir = 8;
 	layer = 3
 	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "e" = (
@@ -74,6 +77,9 @@
 	name = "inner door-control";
 	dir = 4
 	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "u" = (
@@ -84,7 +90,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "v" = (
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -98,14 +104,6 @@
 	pixel_y = 32
 	},
 /turf/closed/wall/mainship/outer/canterbury,
-/area/shuttle/minidropship)
-"x" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8;
-	layer = 3
-	},
-/obj/machinery/light,
-/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "y" = (
 /obj/machinery/light{
@@ -147,9 +145,6 @@
 "G" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
 /obj/machinery/camera/autoname/mainship/dropship_two,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/door_control{
 	id = "minidropship_podlock";
 	name = "inner door-control";
@@ -197,6 +192,9 @@
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 8
 	},
+/obj/machinery/light/floor{
+	dir = 4
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "P" = (
@@ -208,7 +206,8 @@
 /area/shuttle/minidropship)
 "R" = (
 /obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
+	dir = 8;
+	layer = 3
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
@@ -272,7 +271,7 @@ y
 t
 R
 d
-x
+R
 a
 a
 "}
@@ -314,9 +313,9 @@ Z
 z
 G
 H
-v
 Y
 v
+Y
 a
 a
 "}
