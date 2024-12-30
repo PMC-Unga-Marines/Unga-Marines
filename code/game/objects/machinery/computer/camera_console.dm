@@ -235,7 +235,7 @@
 	name = "abstract dropship camera computer"
 	desc = "A computer to monitor cameras linked to the dropship."
 	density = TRUE
-	icon = 'icons/Marine/shuttle-parts.dmi'
+	icon = 'icons/obj/machines/shuttle_console.dmi'
 	icon_state = "consoleleft"
 	screen_overlay = "consoleleft_emissive"
 	circuit = null

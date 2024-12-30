@@ -384,7 +384,7 @@
 
 /obj/item/weapon/twohanded/spear/tactical/tacticool
 	name = "M-23 TACTICOOL spear"
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	desc = "A TACTICOOL spear. Used for TACTICOOLNESS in combat."
 
 /obj/item/weapon/twohanded/spear/tactical/tacticool/Initialize(mapload)

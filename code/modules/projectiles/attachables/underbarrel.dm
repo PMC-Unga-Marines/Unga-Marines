@@ -85,7 +85,7 @@
 
 /obj/item/attachable/lace/t500
 	name = "R-500 lace"
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	slot = ATTACHMENT_SLOT_STOCK
 	pixel_shift_x = 0
 	pixel_shift_y = 0
