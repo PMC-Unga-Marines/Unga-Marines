@@ -435,8 +435,16 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
-	var/interference = 0 // Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
-	var/talk_sound = SFX_ALIEN_TALK  // sound when talking
+	/// Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
+	var/interference = 0
+	/// sound when talking
+	var/talk_sound = SFX_ALIEN_TALK
+	//list of active tunnels
+	var/list/tunnels = list()
+	///Number of huggers the xeno is currently carrying
+	var/huggers = 0
+	///Boiler acid ammo
+	var/corrosive_ammo = 0
 
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)
 

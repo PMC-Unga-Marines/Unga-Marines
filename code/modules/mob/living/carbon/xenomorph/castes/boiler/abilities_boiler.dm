@@ -31,17 +31,16 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	)
 
 /datum/action/ability/xeno_action/toggle_long_range/action_activate()
-	var/mob/living/carbon/xenomorph/boiler/X = owner
-	if(X.is_zoomed)
-		X.zoom_out()
-		X.visible_message(span_notice("[X] stops looking off into the distance."), \
+	if(xeno_owner.is_zoomed)
+		xeno_owner.zoom_out()
+		xeno_owner.visible_message(span_notice("[xeno_owner] stops looking off into the distance."), \
 		span_notice("We stop looking off into the distance."), null, 5)
 	else
-		X.visible_message(span_notice("[X] starts looking off into the distance."), \
+		xeno_owner.visible_message(span_notice("[xeno_owner] starts looking off into the distance."), \
 			span_notice("We start focusing your sight to look off into the distance."), null, 5)
-		if(!do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || X.is_zoomed)
+		if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || xeno_owner.is_zoomed)
 			return
-		X.zoom_in(11)
+		xeno_owner.zoom_in(11)
 		return ..()
 
 // ***************************************
@@ -60,23 +59,21 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	)
 
 /datum/action/ability/xeno_action/toggle_bomb/action_activate()
-	var/mob/living/carbon/xenomorph/boiler/X = owner
-	var/list/spit_types = X.xeno_caste.spit_types
-	var/found_pos = spit_types.Find(X.ammo?.type)
+	var/list/spit_types = xeno_owner.xeno_caste.spit_types
+	var/found_pos = spit_types.Find(xeno_owner.ammo?.type)
 	if(!found_pos)
-		X.ammo = GLOB.ammo_list[spit_types[1]]
+		xeno_owner.ammo = GLOB.ammo_list[spit_types[1]]
 	else
-		X.ammo = GLOB.ammo_list[spit_types[(found_pos%length(spit_types))+1]]	//Loop around if we would exceed the length
-	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = X.ammo
-	to_chat(X, span_notice(boiler_glob.select_text))
+		xeno_owner.ammo = GLOB.ammo_list[spit_types[(found_pos % length(spit_types)) + 1]]	//Loop around if we would exceed the length
+	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = xeno_owner.ammo
+	to_chat(xeno_owner, span_notice(boiler_glob.select_text))
 	update_button_icon()
 
 /datum/action/ability/xeno_action/toggle_bomb/alternate_action_activate()
 	. = COMSIG_KB_ACTIVATED
-	var/mob/living/carbon/xenomorph/boiler/X = owner
 	if(!can_use_action())
 		return
-	if(length(X.xeno_caste.spit_types) <= 2)	//If we only have two or less glob types, we just use default select anyways.
+	if(length(xeno_owner.xeno_caste.spit_types) <= 2)	//If we only have two or less glob types, we just use default select anyways.
 		action_activate()
 		return
 	INVOKE_ASYNC(src, PROC_REF(select_glob_radial))
@@ -87,9 +84,8 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
  * * Dynamically adjusts depending on which globs a boiler has access to, provided the global lists are maintained, though this fact isn't too relevant unless someone adds more.
 **/
 /datum/action/ability/xeno_action/toggle_bomb/proc/select_glob_radial()
-	var/mob/living/carbon/xenomorph/boiler/X = owner
 	var/list/available_globs = list()
-	for(var/datum/ammo/xeno/boiler_gas/corrosive/glob_type AS in X.xeno_caste.spit_types)
+	for(var/datum/ammo/xeno/boiler_gas/corrosive/glob_type AS in xeno_owner.xeno_caste.spit_types)
 		var/glob_image = GLOB.boiler_glob_image_list[initial(glob_type.icon_key)]
 		if(!glob_image)
 			continue
@@ -99,14 +95,13 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	if(!glob_choice)
 		return
 	var/referenced_path = GLOB.boiler_glob_list[glob_choice]
-	X.ammo = GLOB.ammo_list[referenced_path]
-	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = X.ammo
-	to_chat(X, span_notice(boiler_glob.select_text))
+	xeno_owner.ammo = GLOB.ammo_list[referenced_path]
+	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = xeno_owner.ammo
+	to_chat(xeno_owner, span_notice(boiler_glob.select_text))
 	update_button_icon()
 
 /datum/action/ability/xeno_action/toggle_bomb/update_button_icon()
-	var/mob/living/carbon/xenomorph/boiler/X = owner
-	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = X.ammo	//Should be safe as this always selects a ammo.
+	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = xeno_owner.ammo	//Should be safe as this always selects a ammo.
 	action_icon_state = boiler_glob.icon_key
 	return ..()
 
@@ -130,26 +125,22 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	desc = "Creates a Boiler Bombard of the type currently selected. Reduces bombard cooldown by [BOILER_BOMBARD_COOLDOWN_REDUCTION] seconds for each stored. Begins to emit light when surpassing [BOILER_LUMINOSITY_THRESHOLD] globs stored."
 
 /datum/action/ability/xeno_action/create_boiler_bomb/action_activate()
-	var/mob/living/carbon/xenomorph/boiler/X = owner
-
-	if(X.is_zoomed)
-		to_chat(X, span_notice("We can not prepare globules as we are now. We must stop concentrating into the distance!"))
+	if(xeno_owner.is_zoomed)
+		xeno_owner.balloon_alert(xeno_owner,"Can't while zoomed in!")
 		return
 
-	var/current_ammo = X.corrosive_ammo
-	if(current_ammo >= X.xeno_caste.max_ammo)
-		to_chat(X, span_notice("We can carry no more globules."))
+	if(xeno_owner.corrosive_ammo >= xeno_owner.xeno_caste.max_ammo)
+		to_chat(xeno_owner, span_notice("We can carry no more globules."))
 		return
 
 	succeed_activate()
-	X.corrosive_ammo++
-	to_chat(X, span_notice("We prepare a corrosive acid globule."))
-	X.update_boiler_glow()
+	xeno_owner.corrosive_ammo++
+	to_chat(xeno_owner, span_notice("We prepare a corrosive acid globule."))
+	xeno_owner.update_boiler_glow()
 	update_button_icon()
 
 /datum/action/ability/xeno_action/create_boiler_bomb/update_button_icon()
-	var/mob/living/carbon/xenomorph/boiler/X = owner
-	action_icon_state = "bomb_count_[X.corrosive_ammo]"
+	action_icon_state = "bomb_count_[xeno_owner.corrosive_ammo]"
 	return ..()
 
 /particles/xeno_smoke/acid_light
@@ -246,18 +237,16 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	use_state_flags = NONE
 
 /datum/action/ability/activable/xeno/bombard/get_cooldown()
-	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
-	return boiler_owner.xeno_caste.bomb_delay - ((boiler_owner.neuro_ammo + boiler_owner.corrosive_ammo) * (BOILER_BOMBARD_COOLDOWN_REDUCTION SECONDS))
+	return xeno_owner.xeno_caste.bomb_delay - xeno_owner.corrosive_ammo * BOILER_BOMBARD_COOLDOWN_REDUCTION SECONDS
 
 /datum/action/ability/activable/xeno/bombard/on_cooldown_finish()
-	to_chat(owner, span_notice("We feel your toxin glands swell. We are able to bombard an area again."))
-	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
-	if(boiler_owner.selected_ability == src)
-		boiler_owner.set_bombard_pointer()
+	to_chat(xeno_owner, span_notice("We feel your toxin glands swell. We are able to bombard an area again."))
+	if(xeno_owner.selected_ability == src)
+		xeno_owner.set_bombard_pointer()
 	return ..()
 
 /// Signal proc for clicking at a distance
-/datum/action/ability/activable/xeno/bombard/proc/on_ranged_attack(mob/living/carbon/xenomorph/X, atom/A, params)
+/datum/action/ability/activable/xeno/bombard/proc/on_ranged_attack(mob/living/carbon/xenomorph/xeno_owner, atom/A, params)
 	SIGNAL_HANDLER
 	if(can_use_ability(A, TRUE))
 		INVOKE_ASYNC(src, PROC_REF(use_ability), A)
@@ -268,15 +257,14 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		return FALSE
 	var/turf/T = get_turf(A)
 	var/turf/S = get_turf(owner)
-	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 
-	if(boiler_owner.corrosive_ammo <= 0)
-		boiler_owner.balloon_alert(boiler_owner, "No corrosive globules.")
+	if(xeno_owner.corrosive_ammo <= 0)
+		xeno_owner.balloon_alert(xeno_owner, "No corrosive globules.")
 		return FALSE
 
 	if(!isturf(T) || T.z != S.z)
 		if(!silent)
-			boiler_owner.balloon_alert(boiler_owner, "Invalid target.")
+			xeno_owner.balloon_alert(xeno_owner, "Invalid target.")
 		return FALSE
 
 	if(get_dist(T, S) <= 5) //Magic number
@@ -330,45 +318,39 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
 /datum/action/ability/activable/xeno/bombard/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 	var/turf/target = get_turf(A)
 
 	if(!istype(target))
 		return
 
-	if(boiler_owner.corrosive_ammo <= 0)
-		to_chat(boiler_owner, span_warning("We have no corrosive globules available."))
-		return
+	to_chat(xeno_owner, span_xenonotice("We begin building up pressure."))
 
-	to_chat(boiler_owner, span_xenonotice("We begin building up pressure."))
-
-	if(!do_after(boiler_owner, 2 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_DANGER))
-		to_chat(boiler_owner, span_warning("We decide not to launch."))
+	if(!do_after(xeno_owner, 2 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_DANGER))
+		to_chat(xeno_owner, span_warning("We decide not to launch."))
 		return fail_activate()
 
 	if(!can_use_ability(target, FALSE, ABILITY_IGNORE_PLASMA))
 		return fail_activate()
 
-	boiler_owner.visible_message(span_xenowarning("\The [boiler_owner] launches a huge glob of acid hurling into the distance!"), \
+	xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] launches a huge glob of acid hurling into the distance!"), \
 	span_xenowarning("We launch a huge glob of acid hurling into the distance!"), null, 5)
 
-	var/obj/projectile/P = new /obj/projectile(boiler_owner.loc)
-	P.generate_bullet(boiler_owner.ammo)
-	P.fire_at(target, boiler_owner, boiler_owner, boiler_owner.ammo.max_range, boiler_owner.ammo.shell_speed)
-	playsound(boiler_owner, 'sound/effects/blobattack.ogg', 25, 1)
-	if(istype(boiler_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
-		GLOB.round_statistics.boiler_acid_smokes++
-		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_acid_smokes")
-		boiler_owner.corrosive_ammo--
-	else
-		GLOB.round_statistics.boiler_neuro_smokes++
-		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_neuro_smokes")
-		boiler_owner.neuro_ammo--
+	var/obj/projectile/P = new /obj/projectile(xeno_owner.loc)
+	P.generate_bullet(xeno_owner.ammo)
+	P.fire_at(target, xeno_owner, xeno_owner, xeno_owner.ammo.max_range, xeno_owner.ammo.shell_speed)
+	playsound(xeno_owner, 'sound/effects/blobattack.ogg', 25, 1)
+	GLOB.round_statistics.boiler_acid_smokes++
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "boiler_acid_smokes")
+	xeno_owner.corrosive_ammo--
+	owner.record_war_crime()
 
-	boiler_owner.update_boiler_glow()
+	xeno_owner.update_ammo_glow()
 	update_button_icon()
 	add_cooldown()
-	boiler_owner.reset_bombard_pointer()
+
+/datum/action/ability/activable/xeno/bombard/clean_action()
+	xeno_owner.reset_bombard_pointer()
+	return ..()
 
 // ***************************************
 // *********** Acid spray

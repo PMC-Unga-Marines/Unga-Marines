@@ -27,8 +27,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/mob/living/carbon/xenomorph/stealthy_beno = owner
-	if(stealthy_beno.on_fire)
+	if(xeno_owner.on_fire)
 		if(!silent)
 			owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
 		return FALSE
@@ -416,26 +415,24 @@
 	if(!.)
 		return
 
-	var/mob/living/carbon/xenomorph/X = owner
-
-	if(!isliving(A) && (X.xeno_caste.upgrade != XENO_UPGRADE_PRIMO) || !ismovable(A))
+	if(!isliving(A) && (xeno_owner.xeno_caste.upgrade != XENO_UPGRADE_PRIMO) || !ismovable(A))
 		if(!silent)
-			to_chat(X, span_xenowarning("We cannot psychically mark this target!"))
+			to_chat(xeno_owner, span_xenowarning("We cannot psychically mark this target!"))
 		return FALSE
 
 	if(A == marked_target)
 		if(!silent)
-			to_chat(X, span_xenowarning("This is already our target!"))
+			to_chat(xeno_owner, span_xenowarning("This is already our target!"))
 		return FALSE
 
-	if(A == X)
+	if(A == xeno_owner)
 		if(!silent)
-			to_chat(X, span_xenowarning("Why would we target ourselves?"))
+			to_chat(xeno_owner, span_xenowarning("Why would we target ourselves?"))
 		return FALSE
 
-	if(!line_of_sight(X, A)) //Need line of sight.
+	if(!line_of_sight(xeno_owner, A)) //Need line of sight.
 		if(!silent)
-			to_chat(X, span_xenowarning("We require line of sight to mark them!"))
+			to_chat(xeno_owner, span_xenowarning("We require line of sight to mark them!"))
 		return FALSE
 
 	return TRUE
@@ -446,13 +443,10 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/hunter_mark/use_ability(atom/A)
+	xeno_owner.face_atom(A) //Face towards the target so we don't look silly
 
-	var/mob/living/carbon/xenomorph/X = owner
-
-	X.face_atom(A) //Face towards the target so we don't look silly
-
-	if(!line_of_sight(X, A)) //Need line of sight.
-		to_chat(X, span_xenowarning("We lost line of sight to the target!"))
+	if(!line_of_sight(xeno_owner, A)) //Need line of sight.
+		to_chat(xeno_owner, span_xenowarning("We lost line of sight to the target!"))
 		return fail_activate()
 
 	if(marked_target)
@@ -462,8 +456,8 @@
 
 	RegisterSignal(marked_target, COMSIG_QDELETING, PROC_REF(unset_target)) //For var clean up
 
-	to_chat(X, span_xenodanger("We psychically mark [A] as our quarry."))
-	X.playsound_local(X, 'sound/effects/ghost.ogg', 25, 0, 1)
+	to_chat(xeno_owner, span_xenodanger("We psychically mark [A] as our quarry."))
+	xeno_owner.playsound_local(xeno_owner, 'sound/effects/ghost.ogg', 25, 0, 1)
 
 	succeed_activate()
 
@@ -493,9 +487,7 @@
 
 /datum/action/ability/xeno_action/psychic_trace/can_use_action(silent = FALSE, override_flags)
 	. = ..()
-
-	var/mob/living/carbon/xenomorph/X = owner
-	var/datum/action/ability/activable/xeno/hunter_mark/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
+	var/datum/action/ability/activable/xeno/hunter_mark/mark = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
 
 	if(!mark.marked_target)
 		if(!silent)
@@ -508,14 +500,13 @@
 		return FALSE
 
 /datum/action/ability/xeno_action/psychic_trace/action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
-	var/datum/action/ability/activable/xeno/hunter_mark/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
-	to_chat(X, span_xenodanger("We sense our quarry <b>[mark.marked_target]</b> is currently located in <b>[AREACOORD_NO_Z(mark.marked_target)]</b> and is <b>[get_dist(X, mark.marked_target)]</b> tiles away. It is <b>[calculate_mark_health(mark.marked_target)]</b> and <b>[mark.marked_target.status_flags & XENO_HOST ? "impregnated" : "barren"]</b>."))
-	X.playsound_local(X, 'sound/effects/ghost2.ogg', 10, 0, 1)
+	var/datum/action/ability/activable/xeno/hunter_mark/mark = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
+	to_chat(xeno_owner, span_xenodanger("We sense our quarry <b>[mark.marked_target]</b> is currently located in <b>[AREACOORD_NO_Z(mark.marked_target)]</b> and is <b>[get_dist(xeno_owner, mark.marked_target)]</b> tiles away. It is <b>[calculate_mark_health(mark.marked_target)]</b> and <b>[mark.marked_target.status_flags & XENO_HOST ? "impregnated" : "barren"]</b>."))
+	xeno_owner.playsound_local(xeno_owner, 'sound/effects/ghost2.ogg', 10, 0, 1)
 
 	var/atom/movable/screen/arrow/hunter_mark_arrow/arrow_hud = new
 	//Prepare the tracker object and set its parameters
-	arrow_hud.add_hud(X, mark.marked_target) //set the tracker parameters
+	arrow_hud.add_hud(xeno_owner, mark.marked_target) //set the tracker parameters
 	arrow_hud.process() //Update immediately
 
 	add_cooldown()
@@ -603,18 +594,16 @@
 /// Swap places of hunter and an illusion
 /datum/action/ability/xeno_action/mirage/proc/swap()
 	swap_used = TRUE
-	var/mob/living/carbon/xenomorph/X = owner
-
 	if(!length(illusions))
-		to_chat(X, span_xenowarning("We have no illusions to swap with!"))
+		to_chat(xeno_owner, span_xenowarning("We have no illusions to swap with!"))
 		return
 
 	owner.drop_all_held_items()
-	X.playsound_local(X, 'sound/effects/swap.ogg', 10, 0, 1)
-	var/turf/current_turf = get_turf(X)
+	xeno_owner.playsound_local(xeno_owner, 'sound/effects/swap.ogg', 10, 0, 1)
+	var/turf/current_turf = get_turf(xeno_owner)
 
 	var/mob/selected_illusion = illusions[1]
-	X.forceMove(get_turf(selected_illusion.loc))
+	xeno_owner.forceMove(get_turf(selected_illusion.loc))
 	selected_illusion.forceMove(current_turf)
 
 // ***************************************
@@ -649,7 +638,7 @@
 	var/target_turf = get_step_rand(target.loc)
 
 	if(prob(ILUSSION_CHANCE))
-		new /mob/illusion/xeno(target_turf, owner, owner, ILLUSION_LIFETIME)
+		new /mob/illusion/xeno(target_turf, xeno_owner, xeno_owner, ILLUSION_LIFETIME)
 
 // ***************************************
 // *********** Crippling strike

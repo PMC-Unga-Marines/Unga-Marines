@@ -56,8 +56,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	use_state_flags = ABILITY_USE_CLOSEDTURF
 
 /datum/action/ability/xeno_action/change_form/action_activate()
-	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
-	xenomorph_owner.change_form()
+	xeno_owner.change_form()
 
 /datum/action/ability/activable/xeno/command_minions
 	name = "Command minions"
@@ -154,14 +153,14 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	if(!turf_to_teleport_to)
 		return
 
-	var/mob/living/carbon/xenomorph/hivemind/hivemind_owner = owner
-	if(!hivemind_owner.check_weeds(turf_to_teleport_to, TRUE))
+	if(!xeno_owner.check_weeds(turf_to_teleport_to, TRUE))
 		owner.balloon_alert(owner, "No weeds in selected location")
 		return
-	if(!(hivemind_owner.status_flags & INCORPOREAL))
+	if(!(xeno_owner.status_flags & INCORPOREAL) && isxenohivemind(xeno_owner))
+		var/mob/living/carbon/xenomorph/hivemind/hivemind_owner = xeno_owner
 		hivemind_owner.start_teleport(turf_to_teleport_to)
 		return
-	hivemind_owner.abstract_move(turf_to_teleport_to)
+	xeno_owner.abstract_move(turf_to_teleport_to)
 
 // ***************************************
 // *********** Secrete Resin
@@ -181,22 +180,20 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	)
 
 /datum/action/ability/activable/xeno/secrete_resin/hivemind/action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
 	if(X.selected_ability != src)
 		return ..()
 	var/resin_choice = show_radial_menu(owner, owner, GLOB.hivemind_resin_images_list, radius = 48)
 	if(!resin_choice)
 		return
 	var/i = GLOB.hivemind_resin_images_list.Find(resin_choice)
-	X.selected_resin = buildable_structures[i]
-	var/atom/A = X.selected_resin
-	X.balloon_alert(X, initial(A.name))
+	xeno_owner.selected_resin = buildable_structures[i]
+	var/atom/A = xeno_owner.selected_resin
+	xeno_owner.balloon_alert(xeno_owner, initial(A.name))
 	update_button_icon()
 
 /datum/action/ability/activable/xeno/secrete_resin/hivemind/get_wait()
 	. = ..()
-	var/mob/living/carbon/xenomorph/X = owner
-	switch(X.selected_resin)
+	switch(xeno_owner.selected_resin)
 		if(/obj/alien/resin/resin_growth)
 			return 0
 		if(/obj/alien/resin/resin_growth/door)
@@ -213,8 +210,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	cooldown_duration = 200 SECONDS
 
 /datum/action/ability/xeno_action/psy_gain/hivemind/action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
-	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))\
-		SSpoints.add_psy_points("[X.hivenumber]", 100)
+	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))
+		SSpoints.add_psy_points("[xeno_owner.hivenumber]", 100)
 	succeed_activate()
 	add_cooldown()
