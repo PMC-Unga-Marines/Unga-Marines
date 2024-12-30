@@ -44,7 +44,7 @@
 
 	explosion_throw(severity, direction)
 
-	var/powerfactor_value = min(round(severity * 0.01, 1), 10)
+	var/powerfactor_value = severity * modify_by_armor(1, BOMB) * 0.01
 	if(mob_size < MOB_SIZE_BIG)
 		adjust_stagger(powerfactor_value SECONDS * 0.5)
 	adjust_slowdown(powerfactor_value)
