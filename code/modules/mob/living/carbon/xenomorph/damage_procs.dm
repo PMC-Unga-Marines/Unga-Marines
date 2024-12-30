@@ -39,12 +39,12 @@
 
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 
-	var/sunder_amount = severity * modify_by_armor(1, BOMB) * 0.125
+	var/sunder_amount = modify_by_armor(severity, BOMB) * 0.125
 	adjust_sunder(sunder_amount)
 
 	explosion_throw(severity, direction)
 
-	var/powerfactor_value = severity * modify_by_armor(1, BOMB) * 0.01
+	var/powerfactor_value = modify_by_armor(severity, BOMB) * 0.01
 	if(mob_size < MOB_SIZE_BIG)
 		adjust_stagger(powerfactor_value SECONDS * 0.5)
 	adjust_slowdown(powerfactor_value)
