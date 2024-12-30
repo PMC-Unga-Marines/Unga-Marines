@@ -183,7 +183,6 @@
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus
 	name = "\improper M45 Phosphorus trailblazer grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. But with phosphorus. It is set to detonate in 5 seconds."
-	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"
@@ -309,7 +308,6 @@
 	name = "\improper AGLS-37 HEDP grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "ags_grenade"
 	item_state = "ags_grenade"
 	det_time = 1 SECONDS

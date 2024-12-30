@@ -293,7 +293,6 @@
 	name = "combat trauma kit"
 	singular_name = "combat trauma kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
-	icon = 'icons/obj/stack_objects.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',

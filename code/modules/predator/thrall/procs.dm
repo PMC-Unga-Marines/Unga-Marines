@@ -8,7 +8,7 @@
 		to_chat(wearer, span_warning("You've already claimed your equipment."))
 		return
 
-	if(wearer.stat || (wearer.lying_angle && !wearer.resting && !wearer.IsSleeping()) || (wearer.IsParalyzed() || wearer.IsUnconscious()) || wearer.lying_angle || wearer.buckled)
+	if(wearer.stat || (wearer.lying_angle && !wearer.resting && !wearer.has_status_effect(STATUS_EFFECT_SLEEPING)) || (wearer.has_status_effect(STATUS_EFFECT_PARALYZED) || wearer.has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) || wearer.lying_angle || wearer.buckled)
 		to_chat(wearer, span_warning("You're not able to do that right now."))
 		return
 

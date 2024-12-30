@@ -109,7 +109,7 @@
 				affected_mob.emote("[pick("sneeze", "cough")]")
 		if(4)
 			if(prob(1))
-				if(!affected_mob.IsUnconscious())
+				if(!affected_mob.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
 					affected_mob.visible_message(span_danger("\The [affected_mob] starts shaking uncontrollably!"), \
 												span_danger("You start shaking uncontrollably!"))
 					affected_mob.Unconscious(20 SECONDS)

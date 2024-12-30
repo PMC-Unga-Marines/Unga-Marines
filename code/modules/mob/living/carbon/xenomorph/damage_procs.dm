@@ -66,6 +66,10 @@
 	else
 		damage = modify_by_armor(damage, blocked, penetration, def_zone)
 
+	// WARDING PHEROMONES EFFECT
+	if(warding_aura)
+		damage *= (1 - warding_aura * 0.025) // %damage decrease per level. Max base level is 6 (king)
+
 	if(!damage) //no damage
 		return FALSE
 

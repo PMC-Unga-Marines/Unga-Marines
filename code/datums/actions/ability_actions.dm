@@ -78,7 +78,7 @@
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while buckled")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_STAGGERED) && carbon_owner.IsStaggered())
+	if(!(flags_to_check & ABILITY_USE_STAGGERED) && carbon_owner.has_status_effect(STATUS_EFFECT_STAGGER))
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while staggered")
 		return FALSE

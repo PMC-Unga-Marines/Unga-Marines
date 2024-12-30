@@ -26,7 +26,7 @@
 				new/datum/stack_recipe("windoor", /obj/structure/windoor_assembly, 5, time = 4 SECONDS, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE, skill_req = SKILL_CONSTRUCTION_PLASTEEL))
 
 GLOBAL_LIST_INIT(glass_radial_images, list(
-	"recipes" = image('icons/Marine/barricades.dmi', icon_state = "plus"),
+	"recipes" = image('icons/obj/structures/barricades/upgrades.dmi', icon_state = "plus"),
 	"directional window" = image('icons/obj/structures/windows.dmi', "window"),
 	"fulltile window" = image('icons/obj/structures/windows.dmi', "window0"),
 	"windoor" = image('icons/obj/doors/windoor.dmi', icon_state = "left")
