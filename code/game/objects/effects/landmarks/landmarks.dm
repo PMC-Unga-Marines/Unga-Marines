@@ -513,7 +513,7 @@
 
 /obj/effect/landmark/xenoden_docking_port
 	name = "xenoden docking port"
-	icon = 'icons/Marine/marine-navigation.dmi'
+	icon = 'icons/obj/items/pinpointer.dmi'
 	icon_state = "pinonfar"
 
 /obj/effect/landmark/xenoden_docking_port/Initialize(mapload)

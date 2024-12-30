@@ -394,7 +394,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/admin_building)
 "qI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/camera,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
@@ -769,7 +769,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/admin_building)
 "BV" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
@@ -1070,7 +1070,7 @@
 	},
 /area/bigredv2/outside/admin_building)
 "LH" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/tool/lighter/zippo,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
@@ -1299,7 +1299,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/admin_building)
 "TY" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/pinpointer,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
@@ -1310,7 +1310,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/admin_building)
 "Ud" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/binoculars,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
@@ -1399,7 +1399,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/admin_building)
 "Xb" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
 "Xq" = (

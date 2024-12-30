@@ -15,7 +15,6 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	DATA_HUD_SQUAD_TERRAGOV = new /datum/atom_hud/squad,
 	DATA_HUD_ORDER = new /datum/atom_hud/order,
 	DATA_HUD_MEDICAL_PAIN = new /datum/atom_hud/medical/pain,
-	DATA_HUD_XENO_TACTICAL = new /datum/atom_hud/xeno_tactical,
 	DATA_HUD_XENO_DEBUFF = new /datum/atom_hud/xeno_debuff,
 	DATA_HUD_XENO_HEART = new /datum/atom_hud/xeno_heart,
 	DATA_HUD_HUNTER = new /datum/atom_hud/hunter_hud,

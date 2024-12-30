@@ -1,4 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - code_imp: "status_procs.dm был рассортирован. Is*Status_effect* проки были по большей части удалены."

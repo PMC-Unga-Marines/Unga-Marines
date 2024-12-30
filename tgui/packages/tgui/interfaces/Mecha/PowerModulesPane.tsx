@@ -4,7 +4,7 @@ import { useBackend } from '../../backend';
 import { Button, LabeledList } from '../../components';
 import { OperatorData } from './data';
 
-export const PowerModulesPane = (props) => {
+export const PowerModulesPane = () => {
   const { act, data } = useBackend<OperatorData>();
   const { mech_equipment, mineral_material_amount } = data;
   return (
