@@ -281,22 +281,24 @@ explosion resistance exactly as much as their health
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE, targetted_throw = FALSE)
 
 /mob/proc/explosion_throw(severity, direction)
+	if(severity <= 0)
+		return
 	if(anchored || !isturf(loc))
 		return
 
 	var/weight = 1
 	switch(mob_size)
 		if(MOB_SIZE_SMALL)
-			weight = 0.25
+			weight = 4
 		if(MOB_SIZE_HUMAN)
 			weight = 1
 		if(MOB_SIZE_XENO)
-			weight = 1.5
+			weight = 0.66
 		if(MOB_SIZE_BIG)
-			weight = 4
-	var/range = round(severity / weight * 0.02, 1)
+			weight = 0.25
+	var/range = round(severity * weight * 0.02, 1)
 	if(!direction)
-		range = round(range / 1.5, 1)
+		range = round(range * 0.66, 1)
 		direction = pick(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 
 	if(range <= 0)
