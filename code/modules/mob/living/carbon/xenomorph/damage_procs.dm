@@ -39,10 +39,10 @@
 
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 
-	var/modified_severity = modify_by_armor(severity, BOMB)
-	var/sunder_amount = modified_severity * 0.125
+	var/sunder_amount = severity * 0.125
 	adjust_sunder(sunder_amount)
 
+	var/modified_severity = modify_by_armor(severity, BOMB)
 	explosion_throw(modified_severity, direction)
 
 	var/powerfactor_value = modified_severity * 0.01
