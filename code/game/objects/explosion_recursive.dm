@@ -304,12 +304,12 @@ explosion resistance exactly as much as their health
 
 	var/speed = max(range * 1.5, 4)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
-	var/spin = 0
+	var/spin = FALSE
 
 	if(range > 1)
-		spin = 1
+		spin = TRUE
 	if(range >= 2)
-		var/scatter = range / 4
+		var/scatter = range * 0.25
 		var/scatter_x = rand(-scatter, scatter)
 		var/scatter_y = rand(-scatter, scatter)
 		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
