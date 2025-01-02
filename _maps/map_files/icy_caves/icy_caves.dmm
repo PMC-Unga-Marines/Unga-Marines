@@ -108,9 +108,10 @@
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
 "aw" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/machinery/miner/damaged/platinum,
-/turf/open/floor/plating/dmg1,
-/area/icy_caves/caves/crashed_ship)
+/turf/open/floor/plating/ground/ice,
+/area/icy_caves/caves/northern)
 "ax" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -2155,6 +2156,9 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "mq" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
@@ -3543,6 +3547,10 @@
 	dir = 1
 	},
 /area/icy_caves/outpost/security)
+"sO" = (
+/obj/machinery/miner/damaged/platinum,
+/turf/open/floor/plating/mainship,
+/area/icy_caves/caves/crashed_ship)
 "sP" = (
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail/breakroom)
@@ -11754,8 +11762,8 @@ ZP
 ZP
 ZP
 ZI
-ZI
-ZI
+ZU
+hU
 ZI
 ZU
 ZU
@@ -11911,7 +11919,7 @@ ZP
 ZP
 ZI
 ZU
-ZI
+ZU
 ZU
 ZU
 gx
@@ -12532,7 +12540,7 @@ ZP
 ZP
 ZP
 ZP
-hU
+ZU
 ZU
 ZI
 ZI
@@ -14681,8 +14689,8 @@ SR
 SR
 SR
 ZI
+Zl
 mq
-BZ
 Zl
 SR
 ZI
@@ -19726,7 +19734,7 @@ li
 nZ
 li
 li
-li
+mo
 li
 VC
 li
@@ -19881,7 +19889,7 @@ ow
 ow
 nL
 ZI
-mo
+li
 li
 ow
 ZI
@@ -20206,7 +20214,7 @@ li
 li
 li
 li
-DD
+IE
 my
 li
 WY
@@ -22002,7 +22010,7 @@ Sb
 Sb
 Sb
 yh
-yh
+aw
 yh
 yh
 yh
@@ -22158,7 +22166,7 @@ Mr
 ZP
 ZP
 SR
-GH
+SR
 bl
 SR
 bl
@@ -22648,9 +22656,9 @@ ZP
 ZP
 ZP
 ZP
-GH
+ZP
 ym
-ym
+fG
 gG
 ym
 Be
@@ -26817,8 +26825,8 @@ ZP
 ZP
 ZP
 ZP
-aw
-sH
+nS
+sO
 sH
 nS
 Xr
@@ -27325,7 +27333,7 @@ SR
 bl
 SR
 SR
-SR
+GH
 SR
 YT
 AU
@@ -27479,7 +27487,7 @@ ZI
 ZI
 ZI
 ZI
-GH
+SR
 SR
 SR
 ZI
@@ -27499,7 +27507,7 @@ YT
 YT
 YT
 ZP
-ZP
+YT
 YT
 YT
 ZP
