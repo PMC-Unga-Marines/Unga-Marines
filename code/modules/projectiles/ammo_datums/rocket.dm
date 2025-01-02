@@ -14,7 +14,6 @@
 	max_range = 14
 	damage = 80
 	penetration = 100
-	sundering = 100
 	bullet_color = LIGHT_COLOR_FIRE
 	barricade_clear_distance = 2
 
@@ -41,7 +40,6 @@
 	max_range = 14
 	damage = 60
 	penetration = 100
-	sundering = 100
 
 /datum/ammo/rocket/he/drop_nade(turf/T)
 	cell_explosion(T, 240, 65)
@@ -60,7 +58,7 @@
 	damage = 340
 	accurate_range = 15
 	penetration = 200
-	sundering = 0
+	sundering = 50
 
 /datum/ammo/rocket/ap/drop_nade(turf/T)
 	cell_explosion(T, 50, 25)
@@ -161,7 +159,6 @@
 	damage = 200
 	penetration = 75
 	max_range = 20
-	sundering = 100
 	///The radius for the non explosion effects
 	var/effect_radius = 3
 
@@ -179,7 +176,6 @@
 	penetration = 25
 	max_range = 30
 	sundering = 2
-
 	///The smoke system that the WP gas uses to spread.
 	var/datum/effect_system/smoke_spread/smoke_system
 
@@ -229,7 +225,6 @@
 	max_range = 30
 	damage = 50
 	penetration = 50
-	sundering = 50
 
 /datum/ammo/rocket/recoilless/drop_nade(turf/T)
 	cell_explosion(T, 200, 70)
@@ -241,7 +236,7 @@
 	flags_ammo_behavior = AMMO_SNIPER
 	damage = 200
 	penetration = 100
-	sundering = 0
+	sundering = 50
 
 /datum/ammo/rocket/recoilless/heat/drop_nade(turf/T)
 	cell_explosion(T, 50, 25)
@@ -281,7 +276,6 @@
 	max_range = 21
 	damage = 10
 	penetration = 0
-	sundering = 0
 	/// Smoke type created when projectile detonates.
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
 	/// Radius this smoke will encompass on detonation.
@@ -324,7 +318,6 @@
 	name = "explosive rocket"
 	damage = 50
 	penetration = 100
-	sundering = 100
 	max_range = 30
 
 /datum/ammo/rocket/oneuse/drop_nade(turf/T)
@@ -372,7 +365,7 @@
 	hud_state = "rpg_heat"
 	damage = 200
 	penetration = 100
-	sundering = 0
+	sundering = 50
 	accuracy = -10 //Not designed for anti human use
 	flags_ammo_behavior = AMMO_SNIPER|AMMO_UNWIELDY
 
