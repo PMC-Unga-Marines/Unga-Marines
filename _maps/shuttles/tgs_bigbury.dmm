@@ -122,9 +122,9 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/canterbury)
 "aH" = (
-/obj/machinery/vending/MarineMed,
-/turf/open/floor/mainship/sterile,
-/area/shuttle/canterbury/medical)
+/obj/effect/attach_point/crew_weapon/dropship1,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/canterbury)
 "aI" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 2
@@ -534,6 +534,14 @@
 /obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
+"ff" = (
+/obj/machinery/computer/cryopod{
+	dir = 4
+	},
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
+/area/shuttle/canterbury)
 "fL" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/glass/beaker/bluespace,
@@ -639,6 +647,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/canterbury)
+"nO" = (
+/obj/machinery/bot/roomba,
+/turf/open/floor/mainship,
+/area/shuttle/canterbury)
 "oa" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -654,6 +666,12 @@
 /turf/open/floor/mainship/orange/full,
 /area/shuttle/canterbury)
 "ow" = (
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
+/area/shuttle/canterbury)
+"oW" = (
+/obj/machinery/bot/roomba,
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
@@ -797,6 +815,10 @@
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
+"wS" = (
+/obj/effect/attach_point/crew_weapon/dropship1,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "yp" = (
 /obj/machinery/light{
 	dir = 8
@@ -880,6 +902,10 @@
 /obj/machinery/loadout_vendor/crash,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
+"HX" = (
+/obj/machinery/bot/roomba,
+/turf/open/floor/mainship/orange/full,
+/area/shuttle/canterbury)
 "JM" = (
 /obj/machinery/marine_selector/gear/smartgun,
 /turf/open/floor/mainship/mono,
@@ -954,6 +980,12 @@
 "Qg" = (
 /obj/machinery/marine_selector/clothes/robo,
 /turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
+"QH" = (
+/obj/machinery/computer/cryopod{
+	dir = 4
+	},
+/turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "Rd" = (
 /obj/structure/bed/chair/dropship/passenger,
@@ -1266,7 +1298,7 @@ av
 aq
 aC
 aq
-aH
+aC
 az
 aW
 aA
@@ -1288,18 +1320,18 @@ aG
 ab
 iy
 an
-ac
+wS
 tP
 ab
 br
-mM
+HX
 bm
 ap
 vY
 aq
 aD
 aq
-aq
+aD
 aI
 aA
 aA
@@ -1434,7 +1466,7 @@ ac
 ac
 ac
 ac
-ac
+pT
 ac
 gv
 bW
@@ -1467,7 +1499,7 @@ an
 an
 an
 an
-an
+aH
 an
 gv
 bW
@@ -1500,7 +1532,7 @@ ac
 an
 ac
 ac
-ac
+ds
 ac
 gv
 bW
@@ -1618,12 +1650,12 @@ jq
 ab
 qM
 an
-ac
+wS
 OL
 ab
 PW
 up
-ow
+oW
 ab
 cf
 DF
@@ -1662,8 +1694,8 @@ Wb
 em
 bg
 aX
-bA
-bA
+QH
+nO
 aX
 bg
 em
@@ -1722,7 +1754,7 @@ bV
 ab
 JM
 bz
-ow
+ff
 ab
 bG
 DI
