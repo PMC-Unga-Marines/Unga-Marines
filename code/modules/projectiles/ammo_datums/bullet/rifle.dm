@@ -56,28 +56,23 @@
 	penetration = 10
 	additional_xeno_penetration = 15
 
-/datum/ammo/bullet/rifle/heavy/hp
-	name = "hollow-point heavy rifle bullet"
-	hud_state = "rifle_heavy"
-	damage = 50
-	penetration = 0
-	additional_xeno_penetration = -10
+/datum/ammo/bullet/rifle/heavy/sharpshooter
+	damage = 30
+	damage_falloff = 2
+	penetration = 10
+	additional_xeno_penetration = 10
 
-/datum/ammo/bullet/rifle/heavy/ap
-	name = "armor-piercing heavy rifle bullet"
-	damage = 25
-	penetration = 25
-	additional_xeno_penetration = 20
+	var/hit_stacks = 2
 
-/datum/ammo/bullet/rifle/heavy/incendiary
-	name = "incendiaryg heavy rifle bullet"
-	hud_state = "rifle_fire"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
-	incendiary_strength = 1
-	damage_type = BURN
-	damage = 20
-	penetration = 0
-	additional_xeno_penetration = 0
+/datum/ammo/bullet/rifle/heavy/sharpshooter/on_hit_mob(mob/M, obj/projectile/proj)
+	if(istype(M,/mob/living/carbon))
+		var/mob/living/carbon/target = M
+		if(target.has_status_effect(STATUS_EFFECT_SHARPSHOOTER))
+			var/datum/status_effect/stacking/sharpshooter/debuff = target.has_status_effect(STATUS_EFFECT_SHARPSHOOTER)
+			target.apply_damage(debuff.stacks, BRUTE, blocked = BULLET, penetration = additional_xeno_penetration)
+			debuff.add_stacks(hit_stacks)
+			return
+		target.apply_status_effect(STATUS_EFFECT_SHARPSHOOTER, hit_stacks)
 
 /datum/ammo/bullet/rifle/repeater
 	name = "heavy impact rifle bullet"

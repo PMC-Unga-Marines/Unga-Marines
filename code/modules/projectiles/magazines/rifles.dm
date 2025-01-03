@@ -481,7 +481,7 @@
 	icon_state = "t21"
 	icon_state_mini = "mag_rifle"
 	ammo_band_icon = "t21_band"
-	default_ammo = /datum/ammo/bullet/rifle/heavy
+	default_ammo = /datum/ammo/bullet/rifle/heavy/sharpshooter
 	max_rounds = 30
 
 /obj/item/ammo_magazine/rifle/ar21/extended
@@ -492,24 +492,6 @@
 	icon_state_mini = "mag_rifle_big_yellow"
 	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 	bonus_overlay = "t21_ext"
-
-/obj/item/ammo_magazine/rifle/ar21/ap
-	name = "\improper AR-21 skirmish AP rifle magazine"
-	desc = "A magazine filled with 10x25mm armor piercing rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_AP
-	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
-
-/obj/item/ammo_magazine/rifle/ar21/incendiary
-	name = "\improper AR-21 skirmish incendiary rifle magazine"
-	desc = "A magazine filled with 10x25mm incendiary  rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
-	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
-
-/obj/item/ammo_magazine/rifle/ar21/hp
-	name = "\improper AR-21 skirmish HP rifle magazine"
-	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
 
 //ALF-51B
 
