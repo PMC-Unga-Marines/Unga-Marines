@@ -96,3 +96,7 @@ endmap
 map kutjevo
 	minplayers 35
 endmap
+
+map desertdam
+	minplayers 60
+endmap

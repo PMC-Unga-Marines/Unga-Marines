@@ -12,6 +12,7 @@
 #define MAP_BARRENQUILLA_MINING "Barrenquilla Mining Facility"
 #define MAP_WHISKEY_OUTPOST "Whiskey Outpost"
 #define MAP_LAST_STAND "Last Stand"
+#define MAP_CHIGUSA "Chigusa"
 #define MAP_MAGMOOR_DIGSITE "Magmoor Digsite IV"
 #define MAP_GELIDA_IV "Gelida IV"
 #define MAP_DELTA_STATION "Delta Station"
