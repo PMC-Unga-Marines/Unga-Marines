@@ -19,7 +19,7 @@
 		/obj/item/armor_module/module/pluto,
 		/obj/item/armor_module/module/valkyrie_autodoc/som,
 		/obj/item/armor_module/module/fire_proof/som,
-		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/lorica,
 		/obj/item/armor_module/module/mimir_environment_protection/som,
 		/obj/item/armor_module/module/eshield/som,
 		/obj/item/armor_module/storage/general,
@@ -91,7 +91,7 @@
 
 /obj/item/clothing/suit/modular/som/heavy/lorica
 	starting_attachments = list(
-		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/lorica,
 		/obj/item/armor_module/storage/medical/som,
 	)
 

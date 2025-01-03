@@ -152,6 +152,8 @@
 /datum/item_representation/armor_module
 	///List of attachments on the armor.
 	var/list/datum/item_representation/armor_module/attachments = list()
+	///Flag for hiding modules
+	var/module_is_hided = FALSE
 
 /datum/item_representation/armor_module/New(obj/item/item_to_copy)
 	if(!item_to_copy)
@@ -160,6 +162,9 @@
 		CRASH("/datum/item_representation/armor_module created from an item that is not a jaeger module")
 	..()
 	var/obj/item/armor_module/module_to_copy = item_to_copy
+	if(CHECK_BITFIELD(module_to_copy.flags_attach_features, ATTACH_IS_HIDDEN))
+		module_is_hided = TRUE
+
 	for(var/key in module_to_copy.attachments_by_slot)
 		if(!isitem(module_to_copy.attachments_by_slot[key]))
 			continue
@@ -191,6 +196,10 @@
 		qdel(module)
 		return
 	SEND_SIGNAL(thing_to_install_on, COMSIG_LOADOUT_VENDOR_VENDED_ARMOR_ATTACHMENT, module)
+	if(module_is_hided)
+		module.base_icon = module.icon_state
+		module.icon_state = null
+		module.flags_attach_features |= ATTACH_IS_HIDDEN
 
 /datum/item_representation/armor_module/storage
 	///Storage repressentation of storage modules.

@@ -19,7 +19,7 @@
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,
 		/obj/item/armor_module/module/mimir_environment_protection,
 		/obj/item/armor_module/module/mimir_environment_protection/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/hod_armor,
 		/obj/item/armor_module/module/chemsystem,
 		/obj/item/armor_module/module/eshield,
 
@@ -46,7 +46,7 @@
 
 /obj/item/clothing/suit/modular/xenonauten/hodgrenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/hod_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
 
@@ -150,7 +150,7 @@
 
 /obj/item/clothing/suit/modular/xenonauten/heavy/grenadier //Literally grenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/hod_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
 

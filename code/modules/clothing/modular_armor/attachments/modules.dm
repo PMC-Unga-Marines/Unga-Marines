@@ -8,18 +8,27 @@
 /obj/item/armor_module/module
 	name = "broken armor module"
 	desc = "You better be debugging."
-
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	//There is no need to write item_state if it is derived from icon_state + suffix "_a".
+	//For example if your item has icon where icon_state is "mod_lamp" and item_state is "mod_lamp_a" you can write only icon_state instead of
+	//writing both since the code will automatically substitute the suffix "_a" for the icon on the mob.
+	//DO NOT WRITE BOTH FOR BETTER AND CLEAN CODE UNLESS THEY ARE REALLY DIFFERENT NAMES.
+	item_state = ""
+	slot = ATTACHMENT_SLOT_MODULE
+	slowdown = 0
+	active = FALSE
+	//Moved these var's here so each module code is less piled up
+	//Armor palette so module in synergy with armor colors
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_colors = ARMOR_PALETTES_LIST
 
 /**
  * PT belt
  */
-
 /obj/item/armor_module/module/pt_belt
 	name = "\improper physical training reflective belt"
 	desc = "Sergeant Major ordered marines to wear reflective belt to ensure marines' safety. You can speculate what danger entail a PT belt."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "pt_belt"
-	item_state = "pt_belt_a"
 	slot = ATTACHMENT_SLOT_BELT
 	flags_attach_features = ATTACH_NO_HANDS
 
@@ -29,24 +38,17 @@
 /obj/item/armor_module/module/better_shoulder_lamp
 	name = "\improper Baldur Light Amplification System"
 	desc = "Designed for mounting on modular armor. Substantially increases the power output of your modular armor's mounted flashlight. Be the light in the darkness."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_lamp"
-	item_state = "mod_lamp_a"
-	slowdown = 0
 	light_mod = 4 /// The boost to armor shoulder light
-	slot = ATTACHMENT_SLOT_MODULE
 
 /**
- * Mini autodoc module
+ * Valkyrie autodoc module
  */
 /obj/item/armor_module/module/valkyrie_autodoc
 	name = "\improper Valkyrie Automedical Armor System"
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	desc = "Designed for mounting on modular armor. This module has advanced medical systems that inject tricordrazine and tramadol based on the user's needs, as well as automatically securing the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. Will definitely impact mobility."
 	icon_state = "mod_autodoc"
-	item_state = "mod_autodoc_a"
-	slowdown = 0
-	slot = ATTACHMENT_SLOT_MODULE
 	var/static/list/supported_limbs = list(CHEST, GROIN, ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT, LEG_LEFT, LEG_RIGHT, FOOT_LEFT, FOOT_RIGHT)
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_attach(obj/item/attaching_to, mob/user)
@@ -56,7 +58,7 @@
 	var/list/our_tox_chems = list(/datum/reagent/medicine/hyronalin, /datum/reagent/medicine/tricordrazine)
 	var/list/our_oxy_chems = list(/datum/reagent/medicine/inaprovaline)
 	var/list/our_pain_chems = list(/datum/reagent/medicine/tramadol)
-	/// This will do nothing without the autodoc update
+	///This will do nothing without the autodoc update
 	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES, our_brute_chems, our_burn_chems, our_tox_chems, our_oxy_chems, our_pain_chems, 0.5)
 	parent.AddElement(/datum/element/limb_support, supported_limbs)
 
@@ -67,25 +69,21 @@
 
 /obj/item/armor_module/module/valkyrie_autodoc/som
 	name = "\improper Apollo Automedical Armor System"
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	desc = "Designed to be mounted on SOM combat armor, or internally inside Gorgon assault armor. This module has advanced medical systems that inject tricordrazine and tramadol based on the user's needs, as well as automatically securing the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. Will definitely impact mobility."
 	icon_state = "mod_autodoc_som"
-	item_state = "mod_autodoc_som_a"
 	variants_by_parent_type = list(/obj/item/clothing/suit/modular/som/heavy/leader = "")
 
 /**
- * Fire poof module
+ *	Fire poof module
 */
 /obj/item/armor_module/module/fire_proof
 	name = "\improper Surt Pyrotechnical Insulation System"
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	desc = "Designed for mounting on modular armor. Providing a near immunity to being bathed in flames, and amazing flame retardant qualities, this is every pyromaniac's first stop to survival. Will impact mobility."
 	icon_state = "mod_fire"
-	item_state = "mod_fire_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	slowdown = 0.4
-	slot = ATTACHMENT_SLOT_MODULE
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_CANNOT_BE_HIDDEN
 
 /obj/item/armor_module/module/fire_proof/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -100,77 +98,61 @@
 /obj/item/armor_module/module/fire_proof/som
 	name = "\improper Hades Incendiary Insulation System"
 	desc = "Designed for mounting on modular SOM armor. Provides excellent resistance to fire and prevents combustion. As it is not a sealed system, it does not completely protect the user from the heat of fire. Will impact mobility."
+	icon = 'icons/mob/modular/modular_armor_modules_som.dmi'
 	icon_state = "mod_fire_som"
-	item_state = "mod_fire_som_a"
 
 /obj/item/armor_module/module/fire_proof_helmet
-
 	name = "\improper Surt Pyrotechnical Insulation Helmet System"
 	desc = "Designed for mounting on a modular helmet. Providing a near immunity to being bathed in flames, and amazing flame retardant qualities, this is every pyromaniac's first stop to survival."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_fire_head"
-	item_state = "mod_fire_head_a"
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mod_fire_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_CANNOT_BE_HIDDEN
 
 /**
  * Extra armor module
 */
 /obj/item/armor_module/module/tyr_extra_armor
-	name = "\improper Tyr Armor Reinforcement" // RU TGMC EDIT
+	name = "\improper Mark 2 Tyr Armor Reinforcement"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_armor"
-	item_state = "mod_armor_a"
 	attachment_layer = COLLAR_LAYER
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = 0.2
-	slot = ATTACHMENT_SLOT_MODULE
+
+	greyscale_config = /datum/greyscale_config/modules
 
 /obj/item/armor_module/module/tyr_extra_armor/mark1
 	name = "\improper Mark 1 Tyr Armor Reinforcement"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will greatly impact mobility."
 	icon_state = "mod_armor_lower"
-	item_state = "mod_armor_lower_a"
 	soft_armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = 0.3
 
-/obj/item/armor_module/module/tyr_extra_armor/som
+/obj/item/armor_module/module/lorica
 	name = "\improper Lorica Armor Reinforcement"
 	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'icons/mob/modular/modular_armor_modules_som.dmi'
 	icon_state = "lorica_armor"
-	item_state = "lorica_armor_a"
-	attachment_layer = null
 	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 10, ACID = 5)
 	slowdown = 0.2
-	slot = ATTACHMENT_SLOT_MODULE
 
 /obj/item/armor_module/module/tyr_head
-	name = "Tyr Helmet System"
+	name = "Mark 1 Tyr Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
 	icon_state = "tyr_head"
-	item_state = "tyr_head_a"
 	soft_armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
+	greyscale_config = /datum/greyscale_config/modules
+
 /obj/item/armor_module/module/tyr_head/mark2
-	name = "Tyr 2 Helmet System"
+	name = "Mark 2 Tyr Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
-
-/obj/item/armor_module/module/hod_head
-	name = "\improper Hod Helmet System"
-	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most gunshot wounds by providing high internal padding within the helmet's structure."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "mod_ff_head"
-	item_state = "mod_ff_head_a"
-	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /**
  * Environment protection module
@@ -178,17 +160,14 @@
 /obj/item/armor_module/module/mimir_environment_protection
 	name = "\improper Mark 2 Mimir Environmental Resistance System"
 	desc = "Designed for mounting on modular armor. This newer model provides great resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to any gas clouds. Will impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_biohazard"
-	item_state = "mod_biohazard_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
 	slowdown = 0.2
-	slot = ATTACHMENT_SLOT_MODULE
-	///siemens (electro resist) coefficient mod for gas protection.
+	///Siemens (electro resist) coefficient mod for gas protection.
 	var/siemens_coefficient_mod = -0.9
-	///permeability coefficient mod for gas protection.
+	///Permeability coefficient mod for gas protection.
 	var/permeability_coefficient_mod = -1
-	///gas transfer coefficient mod for gas protection.
+	///Gas transfer coefficient mod for gas protection.
 	var/gas_transfer_coefficient_mod = -1
 
 /obj/item/armor_module/module/mimir_environment_protection/on_attach(obj/item/attaching_to, mob/user)
@@ -207,29 +186,23 @@
 	name = "\improper Mark 1 Mimir Environmental Resistance System"
 	desc = "Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user almost impervious to any gas clouds. Will impact mobility."
 	icon_state = "mod_biohazard"
-	item_state = "mod_biohazard_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
 	slowdown = 0.3
 	permeability_coefficient_mod = -0.5
 	gas_transfer_coefficient_mod = -0.5
 
-//SOM version
 /obj/item/armor_module/module/mimir_environment_protection/som
 	name = "\improper Mithridatius Hostile Environment System"
 	desc = "Designed for mounting on modular SOM armor. This module appears to be designed to protect the user from the effects of radiological attacks, although also provides improved resistance against other environmental threats such as acid and gas. Pairing this with a Mithridatius helmet module and mask will make the user impervious to gas clouds. Will impact mobility."
+	icon = 'icons/mob/modular/modular_armor_modules_som.dmi'
 	icon_state = "mithridatius"
-	item_state = "mithridatius_a"
-	//soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet
 	name = "Mark 2 Mimir Environmental Helmet System"
 	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mimir_head"
-	item_state = "mimir_head_a"
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
-	slowdown = 0
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1
@@ -237,37 +210,44 @@
 	desc = "Designed for mounting on a modular helmet. This older model provides minor resistance to acid and biological attacks."
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
 
-//Explosive defense armor
+/**
+ * 	Module with extra armor against explosions
+*/
 /obj/item/armor_module/module/hlin_explosive_armor
 	name = "Hlin Explosive Compensation Module"
 	desc = "Designed for mounting on modular armor. Uses a complex set of armor plating and compensation to lessen the effect of explosions. Will impact mobility"
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_boomimmune"
-	item_state = "mod_boomimmune_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = 0.2
-	slot = ATTACHMENT_SLOT_MODULE
 
 /**
- * Extra armor module
+ * Anti-ff and anti-explosion module
 */
-/obj/item/armor_module/module/ballistic_armor
+/obj/item/armor_module/module/hod_armor
 	name = "\improper Hod Accident Prevention Plating"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional reflective ballistic armor plating designed to reduce the impact of friendly fire incidents, will lessen the affects of bullets and lasers. Will impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_ff"
-	item_state = "mod_ff_a"
 	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = 0.2
-	slot = ATTACHMENT_SLOT_MODULE
 
+	greyscale_config = /datum/greyscale_config/modules
+
+/obj/item/armor_module/module/hod_head
+	name = "\improper Hod Helmet System"
+	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most gunshot wounds by providing high internal padding within the helmet's structure."
+	icon_state = "mod_ff_head"
+	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
+	slot = ATTACHMENT_SLOT_HEAD_MODULE
+
+	greyscale_config = /datum/greyscale_config/modules
+
+/**
+ *  Vali harvester module. RIP AND TEAR
+*/
 /obj/item/armor_module/module/chemsystem
 	name = "Vali chemical enhancement module"
 	desc = "Designed for mounting on modular armor. This experimental module runs on green blood taken from xenos with harvester class weapons; Green blood heals the user and boosts any chems in the suit injection system. \nUse the suit menu to connect harvester class weapons, control the injection system, find chem boost information, and more."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_chemsystem"
-	item_state = "mod_chemsystem_a"
-	slot = ATTACHMENT_SLOT_MODULE
 	///Lets us keep track of what icon state we're in
 	var/chemsystem_is_active = FALSE
 
@@ -296,13 +276,13 @@
 		return
 	icon_state = initial(icon_state)
 
+/**
+ *  Module which creates energy shield around wearer preventing damage until it breaks
+*/
 /obj/item/armor_module/module/eshield
 	name = "Svalinn Energy Shield System"
 	desc = "A brand new innovation in armor systems, this module creates a shield around the user that is capable of negating all damage. If it sustains too much it will deactivate, and leave the user vulnerable."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_eshield"
-	item_state = "mod_eshield_a"
-	slot = ATTACHMENT_SLOT_MODULE
 	soft_armor = list(MELEE = -5, BULLET = -5, LASER = -5, ENERGY = -5, BOMB = -5, BIO = -5, FIRE = -5, ACID = -5)
 
 	///Current shield Health
@@ -328,7 +308,6 @@
 	///Holds id for a timer which triggers recharge start. Null if not currently delayed.
 	var/recharge_timer
 
-
 /obj/item/armor_module/module/eshield/Initialize(mapload)
 	. = ..()
 	spark_system = new()
@@ -344,7 +323,6 @@
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(handle_equip))
 	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(handle_unequip))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(parent_examine))
-
 
 /obj/item/armor_module/module/eshield/on_detach(obj/item/detaching_from, mob/user)
 	UnregisterSignal(parent, list(COMSIG_ITEM_UNEQUIPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ATOM_EXAMINE))
@@ -368,7 +346,6 @@
 	if(!recharge_timer)
 		START_PROCESSING(SSobj, src)
 		playsound(equipper, 'sound/items/eshield_recharge.ogg', 40)
-
 	RegisterSignal(equipper, COMSIG_LIVING_SHIELDCALL, PROC_REF(handle_shield))
 
 ///Handles removing the shield when the parent is unequipped
@@ -425,7 +402,6 @@
 	playsound(wearer, 'sound/items/eshield_recharge.ogg', 40)
 	START_PROCESSING(SSobj, src)
 
-
 /obj/item/armor_module/module/eshield/process()
 	shield_health = min(shield_health + recharge_rate, max_shield_health)
 	if(shield_health == max_shield_health) //Once health is full, we don't need to process until the next time we take damage.
@@ -470,40 +446,66 @@
 /obj/item/armor_module/module/style/light_armor
 	name = "\improper Light Armor Equalizer"
 	icon_state = "style_light"
-	item_state = "style_light_a"
 	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
-	item_state = "style_medium_a"
 	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
-	item_state = "style_heavy_a"
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 
 /**
- *   Helmet Modules
+ * Module for hiding your health bar from xenos
+ */
+/obj/item/armor_module/module/pluto
+	name = "\improper Pluto concealment module"
+	desc = "A special system that helps to conceal the smell and temperature from xenomorphs, hiding your condition from them. Also contains an integrated health analyzer."
+	icon_state = "mod_pluto"
+	slowdown = 0.1
+
+/obj/item/armor_module/module/pluto/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.AddComponent(/datum/component/health_stealth)
+
+/obj/item/armor_module/module/pluto/on_detach(obj/item/detaching_from, mob/user)
+	var/datum/component/health_stealth/health_stealth = parent?.GetComponent(/datum/component/health_stealth)
+	health_stealth?.RemoveComponent()
+	return ..()
+
+//////////////////////////////////////HELMET MODULES//////////////////////////////////////
+
+/**
+ *	Basic helm module
+ */
+/obj/item/armor_module/module/helm_module
+	name = "broken helm module"
+	desc = "You better be debugging."
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	slot = ATTACHMENT_SLOT_HEAD_MODULE
+	prefered_slot = SLOT_HEAD
+
+/**
+ *  Welding module for keeping your eyes safe
 */
 /obj/item/armor_module/module/welding
 	name = "Welding Helmet Module"
 	desc = "Designed for mounting on a modular helmet. This module can be toggled on or off to function as welding protection for your delicate eyes."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "welding_head"
-	item_state = "welding_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
-	active = FALSE
 	prefered_slot = SLOT_HEAD
+	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	toggle_signal = COMSIG_KB_HELMETMODULE
 	///Mod for extra eye protection when activated.
 	var/eye_protection_mod = 2
+
+	greyscale_config = /datum/greyscale_config/modules
 
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -530,52 +532,47 @@
 		ENABLE_BITFIELD(parent.flags_inv_hide, HIDEEYES)
 		ENABLE_BITFIELD(parent.flags_armor_protection, EYES)
 		parent.eye_protection += eye_protection_mod
-
 	active = !active
 	SEND_SIGNAL(parent, COMSIG_ITEM_TOGGLE_ACTION, user)
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = base_icon + "[active ? "_active" : ""]"
-	item_state = icon_state + "_a"
-	parent.update_icon()
-	user.update_inv_head()
-
-/obj/item/armor_module/module/welding/som
-	name = "Integrated Welding Helmet Module"
-	desc = "Built in welding module for a SOM engineering helmet. This module can be toggled on or off to function as welding protection for your delicate eyes."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "welding_head_som"
-	item_state = "welding_head_som_a"
-	flags_attach_features = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_IS_HIDDEN))
+		icon_state = base_icon + "[active ? "_active" : ""]"
+		item_state = icon_state + "_a"
+		parent.update_icon()
+		user.update_inv_head()
 
 /obj/item/armor_module/module/welding/superior
 	name = "Superior Welding Helmet Module"
 	desc = "Designed for mounting on a modular helmet. This more expensive module can be toggled on or off to function as welding protection for your delicate eyes, strangely smells like potatoes."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "welding_head"
-	item_state = "welding_head_a"
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
-	active = FALSE
-	prefered_slot = SLOT_HEAD
 
 /obj/item/armor_module/module/welding/superior/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/clothing_tint, TINT_4, active)
 
+/obj/item/armor_module/module/welding/som
+	name = "Integrated Welding Helmet Module"
+	desc = "Built in welding module for a SOM engineering helmet. This module can be toggled on or off to function as welding protection for your delicate eyes."
+	icon = 'icons/mob/modular/modular_armor_modules_som.dmi'
+	//A little weird situation with this icon: SOM version of the welding module does not have the typical box icon and cannot be detached, it is integrated into the SOM engineer's helmet.
+	icon_state = "welding_head_som"
+	flags_attach_features = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+
+	greyscale_config = null
+
+/**
+ * Module for zoom
+ */
 /obj/item/armor_module/module/binoculars
 	name = "Binocular Helmet Module"
 	desc = "Designed for mounting on a modular helmet. Can be flipped down to view into the distance."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "binocular_head"
-	item_state = "binocular_head_a"
-	active = FALSE
 	flags_item = DOES_NOT_NEED_HANDS
 	zoom_tile_offset = 11
 	zoom_viewsize = 12
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	toggle_signal = COMSIG_KB_HELMETMODULE
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
-	toggle_signal = COMSIG_KB_HELMETMODULE
 
 /obj/item/armor_module/module/binoculars/activate(mob/living/user)
 	zoom(user)
@@ -583,10 +580,11 @@
 		return
 	active = zoom
 	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = initial(icon_state) + "[active ? "_active" : ""]"
-	item_state = icon_state + "_a"
-	parent.update_icon()
-	user.update_inv_head()
+	if(!CHECK_BITFIELD(flags_attach_features, ATTACH_IS_HIDDEN) && !istype(src, /obj/item/armor_module/module/binoculars/artemis_mark_two)) //Artemis does not have currently an "active" sprite
+		icon_state = base_icon + "[active ? "_active" : ""]" //We do not use initial() proc because it doesn't take into account variants_by_parent_type icons
+		item_state = icon_state + "_a"
+		parent.update_icon()
+		user.update_inv_head()
 	if(active)
 		RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(zoom_item_turnoff))
 		return
@@ -599,6 +597,9 @@
 		activate(user)
 	return COMSIG_MOB_CLICK_CANCELED
 
+/**
+ * Module for those who want all the world's chemicals without blur
+ */
 /obj/item/armor_module/module/binoculars/artemis_mark_two // a little cheating with subtypes
 	name = "\improper Mark 2 Freyr Helmet Module"
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars."
@@ -621,29 +622,28 @@
 /obj/item/armor_module/module/artemis
 	name = "\improper Mark 1 Freyr Helmet Module"
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_xn")
 	icon_state = "artemis_head"
-	item_state = "artemis_head_a"
-	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB
+	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 
 /obj/item/armor_module/module/artemis/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/blur_protection)
 
+/**
+ * Antenna module
+ */
 /obj/item/armor_module/module/antenna
 	name = "Antenna helmet module"
 	desc = "Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "antenna_head"
-	item_state = "antenna_head_a"
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	toggle_signal = COMSIG_KB_HELMETMODULE
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
-	toggle_signal = COMSIG_KB_HELMETMODULE
-	/// Reference to the datum used by the supply drop console
+	///Reference to the datum used by the supply drop console
 	var/datum/supply_beacon/beacon_datum
 
 /obj/item/armor_module/module/antenna/Destroy()
@@ -672,20 +672,22 @@
 		beacon_datum.drop_location = get_turf(src)
 		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
 
-/// Signal handler to nullify beacon datum
+///Signal handler to nullify beacon datum
 /obj/item/armor_module/module/antenna/proc/clean_beacon_datum()
 	SIGNAL_HANDLER
 	beacon_datum = null
 
+/**
+ * Night-vision module
+ */
 /obj/item/armor_module/module/night_vision
 	name = "\improper BE-35 night vision kit"
 	desc = "Installation kit for the BE-35 night vision system. Slightly impedes movement."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "night_vision"
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_NO_HANDS
+	slowdown = 0.1
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
-	slowdown = 0.1
 	///The goggles this module deploys
 	var/obj/item/clothing/glasses/night_vision/mounted/attached_goggles
 
@@ -771,12 +773,13 @@
 	QDEL_NULL(attached_goggles)
 	return ..()
 
+/**
+ * Module for detecting enemy movement
+ */
 /obj/item/armor_module/module/motion_detector
 	name = "Tactical sensor helmet module"
 	desc = "Help you to detect the xeno in the darkness."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_head_scanner"
-	item_state = "mod_head_scanner_a"
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
@@ -784,9 +787,9 @@
 	var/mob/living/carbon/human/operator
 	///The range of this motion detector
 	var/range = 16
-	///таймер для работы модуля
+	///Timer
 	var/motion_timer = null
-	///время через которое будет срабатывать модуль
+	///Cooldown between new scan
 	var/scan_time = 2 SECONDS
 	///The time needed after the last move to not be detected by this motion detector
 	var/move_sensitivity = 1 SECONDS
@@ -806,7 +809,7 @@
 	stop_and_clean()
 	return ..()
 
-//убираем графическую хуйню и останавливает сканирование.
+///Clearing graphics data and stopping the module. ("убираем графическую хуйню и останавливает сканирование")
 /obj/item/armor_module/module/motion_detector/proc/stop_and_clean()
 	SIGNAL_HANDLER
 
@@ -817,7 +820,6 @@
 		deltimer(motion_timer)
 		motion_timer = null
 
-//вкл-выкл модуль
 /obj/item/armor_module/module/motion_detector/activate(mob/living/user)
 	active = !active
 	to_chat(user, span_notice("You toggle \the [src] [active ? "enabling" : "disabling"] it."))
@@ -859,7 +861,7 @@
 
 ///Clean all blips from operator screen
 /obj/item/armor_module/module/motion_detector/proc/clean_blips()
-	if(!operator)//We already cleaned
+	if(!operator) //We already cleaned
 		return
 	for(var/obj/effect/blip/blip AS in blips_list)
 		blip.remove_blip(operator)
@@ -895,24 +897,3 @@
 		blips_list += new /obj/effect/blip/edge_blip(null, status, operator, screen_pos_x, screen_pos_y, dir)
 		return
 	blips_list += new /obj/effect/blip/close_blip(get_turf(target), status, operator)
-
-/**
- * pluto
- */
-/obj/item/armor_module/module/pluto
-	name = "\improper Pluto concealment module"
-	desc = "A special system that helps to conceal the smell and temperature from xenomorphs, hiding your condition from them. Also contains an integrated health analyzer."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "mod_pluto"
-	item_state = "mod_pluto_a"
-	slowdown = 0.1
-	slot = ATTACHMENT_SLOT_MODULE
-
-/obj/item/armor_module/module/pluto/on_attach(obj/item/attaching_to, mob/user)
-	. = ..()
-	parent.AddComponent(/datum/component/health_stealth)
-
-/obj/item/armor_module/module/pluto/on_detach(obj/item/detaching_from, mob/user)
-	var/datum/component/health_stealth/health_stealth = parent?.GetComponent(/datum/component/health_stealth)
-	health_stealth?.RemoveComponent()
-	return ..()
