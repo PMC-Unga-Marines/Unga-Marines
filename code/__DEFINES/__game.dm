@@ -7,6 +7,7 @@
 #define MAP_ICE_COLONY "Ice Colony"
 #define MAP_ICY_CAVES "Icy Caves"
 #define MAP_LV_624 "LV624"
+#define MAP_LV_311 "LV311"
 #define MAP_PRISON_STATION "Prison Station"
 #define MAP_RESEARCH_OUTPOST "Research Outpost"
 #define MAP_BARRENQUILLA_MINING "Barrenquilla Mining Facility"
