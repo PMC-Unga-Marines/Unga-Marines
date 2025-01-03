@@ -179,6 +179,7 @@
 	var/point_cost = 0
 	///what kind of ammo this uses if any
 	var/ammo_type_used
+	weight_structure = 2
 
 /obj/structure/dropship_equipment/Destroy()
 	QDEL_NULL(ammo_equipped)

@@ -15,6 +15,7 @@
 	move_delay = 0.7 SECONDS
 	max_integrity = 600
 	light_range = 10
+	weight_vehcial = 5
 	///Tank bitflags
 	var/flags_armored = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS
 	///Sound file(s) to play when we drive around
