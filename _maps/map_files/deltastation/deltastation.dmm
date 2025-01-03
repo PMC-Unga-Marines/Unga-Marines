@@ -9571,7 +9571,6 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "bXK" = (
@@ -14365,7 +14364,6 @@
 	},
 /obj/structure/cable,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/iron/cafeteria,
 /area/deltastation/asteroidcaves/derelictwest)
 "cZC" = (
@@ -32842,13 +32840,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured,
 /area/deltastation/engineering/atmos/hfr_room)
-"gDb" = (
-/obj/effect/landmark/xeno_resin_door{
-	dir = 4
-	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/wood,
-/area/deltastation/asteroidcaves/derelictwest)
 "gDg" = (
 /obj/structure/grille/broken,
 /turf/open/floor/plating,
@@ -34953,7 +34944,6 @@
 /area/deltastation/commons/locker)
 "has" = (
 /obj/machinery/smartfridge,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/asteroidcaves/derelictwest)
 "hav" = (
@@ -40011,11 +40001,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/iron/sepia,
 /area/deltastation/service/library/artgallery)
-"ieI" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall,
-/area/deltastation/asteroidcaves/derelictwest)
 "ieP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -57422,13 +57407,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/deltastation/engineering/gravity_generator)
-"lJR" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/iron,
-/area/deltastation/asteroidcaves/derelictwest)
 "lJY" = (
 /obj/machinery/light{
 	dir = 8
@@ -57547,10 +57525,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/deltastation/security/checkpoint/customs/aft)
-"lLb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall,
-/area/deltastation/asteroidcaves/derelictwest)
 "lLd" = (
 /obj/structure/table,
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -58405,12 +58379,6 @@
 	},
 /turf/open/floor/iron/dark/corner,
 /area/deltastation/maintenance/disposal/incinerator)
-"lTN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/iron,
-/area/deltastation/asteroidcaves/derelictwest)
 "lTO" = (
 /obj/structure/prop/mainship/telecomms/relay,
 /turf/open/floor/plating,
@@ -62879,12 +62847,6 @@
 	},
 /turf/open/floor/plating,
 /area/deltastation/science/xenobiology)
-"mQf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/iron,
-/area/deltastation/asteroidcaves/derelictwest)
 "mQi" = (
 /turf/closed/wall,
 /area/deltastation/service/hydroponics/garden)
@@ -70696,11 +70658,6 @@
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage_shared)
-"ozk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/iron,
-/area/deltastation/asteroidcaves/derelictwest)
 "ozs" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
@@ -71090,12 +71047,6 @@
 	dir = 1
 	},
 /area/deltastation/hallway/primary/central/aft)
-"oBO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/iron,
-/area/deltastation/asteroidcaves/derelictwest)
 "oCf" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -81251,7 +81202,6 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "qAW" = (
@@ -88891,7 +88841,6 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "sfr" = (
@@ -118992,7 +118941,6 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/medical/chemistry)
 "yaa" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/structure/noticeboard,
 /turf/closed/wall,
 /area/deltastation/asteroidcaves/derelictwest)
@@ -127500,19 +127448,19 @@ ity
 gPj
 xAg
 tOn
-lLb
-lLb
+tOn
+tOn
 bXA
-lLb
-lLb
-lLb
-lLb
-lLb
+tOn
+tOn
+tOn
+tOn
+tOn
 jPi
-lLb
-lLb
-gDb
-ieI
+tOn
+tOn
+oZu
+tOn
 tOn
 oZu
 tOn
@@ -127757,7 +127705,7 @@ rvl
 upD
 xAg
 eFH
-lLb
+tOn
 xAg
 tEJ
 xAg
@@ -127769,7 +127717,7 @@ wXV
 lEP
 sEm
 wXV
-lTN
+wXV
 wXV
 wau
 rUc
@@ -128014,7 +127962,7 @@ bPf
 kae
 jPY
 xAg
-oBO
+vGT
 xAg
 wau
 sjn
@@ -128026,7 +127974,7 @@ jPY
 xAg
 nUY
 jPY
-ozk
+xAg
 iSq
 bnU
 uvI
@@ -128276,14 +128224,14 @@ xAg
 wXV
 rHW
 wXV
-mQf
+wXV
 wXV
 tOn
 tOn
 tOn
 tOn
 tOn
-ieI
+tOn
 tOn
 tOn
 tOn
@@ -128528,7 +128476,7 @@ xpL
 dDp
 xAg
 vCj
-lLb
+tOn
 sDO
 juE
 lgu
@@ -128540,7 +128488,7 @@ wla
 sKr
 sKr
 hOg
-lLb
+tOn
 xAg
 fXZ
 fXZ
@@ -128785,7 +128733,7 @@ tOn
 tOn
 tOn
 tOn
-lLb
+tOn
 kLv
 dGL
 wwz
@@ -128797,7 +128745,7 @@ tOn
 tOn
 tOn
 tOn
-lLb
+tOn
 xqd
 nUY
 xAg
@@ -129042,7 +128990,7 @@ tOn
 oww
 iXf
 wup
-lLb
+tOn
 lEi
 cUX
 xYu
@@ -129054,7 +129002,7 @@ fEI
 xAg
 lJo
 rdj
-lJR
+meB
 lwp
 wrS
 xAg
@@ -129311,7 +129259,7 @@ peP
 uvl
 jPY
 rdj
-lJR
+meB
 lwp
 bPC
 nUY
@@ -129568,7 +129516,7 @@ tOn
 xHF
 xHF
 tOn
-lLb
+tOn
 usT
 xAg
 oci
@@ -129813,7 +129761,7 @@ tOn
 vIM
 hzz
 gMQ
-lLb
+tOn
 tOn
 tOn
 tOn
@@ -129825,7 +129773,7 @@ fiu
 tYc
 xAg
 isg
-lLb
+tOn
 xAg
 xAg
 xAg
@@ -130070,7 +130018,7 @@ opX
 vjG
 lZF
 gMQ
-lLb
+tOn
 lpM
 mva
 ivn
@@ -130082,7 +130030,7 @@ wXV
 wXV
 bPC
 bRF
-lLb
+tOn
 xqv
 eEy
 tOn
@@ -130327,7 +130275,7 @@ tOn
 egX
 vjG
 qsZ
-lLb
+tOn
 taT
 vOJ
 quM
@@ -130339,7 +130287,7 @@ wcb
 nUY
 xAg
 ngg
-lLb
+tOn
 ujy
 iWU
 vgb
@@ -130584,7 +130532,7 @@ tOn
 vkZ
 tyV
 gKu
-lLb
+tOn
 ugw
 kbZ
 oUt
@@ -130596,7 +130544,7 @@ wXV
 sEV
 anV
 ioI
-lLb
+tOn
 ujy
 iWU
 vgb
@@ -130841,19 +130789,19 @@ tOn
 tOn
 tOn
 tOn
-lLb
-lLb
-lLb
-lLb
-lLb
+tOn
+tOn
+tOn
+tOn
+tOn
 sfl
 qAT
-lLb
-lLb
-lLb
-lLb
-lLb
-lLb
+tOn
+tOn
+tOn
+tOn
+tOn
+tOn
 sKf
 xCW
 sKf
