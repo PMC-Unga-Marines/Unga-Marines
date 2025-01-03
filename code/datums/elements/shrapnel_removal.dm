@@ -61,20 +61,20 @@
 
 ///returns TRUE if the argument limb has any shrapnel in it
 /datum/element/shrapnel_removal/proc/has_shrapnel(datum/limb/targetlimb)
-	for (var/obj/item/I in targetlimb.implants)
-		if(!is_type_in_list(I, GLOB.known_implants))
+	for(var/obj/item/embedded AS in targetlimb.implants)
+		if(!embedded.is_beneficial_implant())
 			return TRUE
 	return FALSE
 
 /datum/element/shrapnel_removal/proc/remove_shrapnel(mob/living/user, mob/living/target, datum/limb/targetlimb, skill)
-	for(var/obj/item/I AS in targetlimb.implants)
-		if(is_type_in_list(I, GLOB.known_implants))
+	for(var/obj/item/embedded AS in targetlimb.implants)
+		if(embedded.is_beneficial_implant())
 			continue
-		I.unembed_ourself(FALSE)
+		embedded.unembed_ourself(FALSE)
 		if(skill < SKILL_MEDICAL_PRACTICED)
-			user.visible_message(span_notice("[user] violently rips out [I] from [target]!"), span_notice("You violently rip out [I] from [target]!"))
+			user.visible_message(span_notice("[user] violently rips out [embedded] from [target]!"), span_notice("You violently rip out [embedded] from [target]!"))
 			targetlimb.take_damage_limb(5 + additional_damage * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
 		else
-			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
+			user.visible_message(span_notice("[user] pulls out [embedded] from [target]!"), span_notice("You pull out [embedded] from [target]!"))
 			targetlimb.take_damage_limb(rand(3, 7), 0, FALSE, FALSE)
 		break
