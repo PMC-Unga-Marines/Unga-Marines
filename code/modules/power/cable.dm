@@ -21,10 +21,14 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	anchored = TRUE
 	obj_flags = CAN_BE_HIT
 	plane = FLOOR_PLANE
-	var/linked_dirs = 0 //bitflag
-	var/node = FALSE //used for sprites display
-	var/cable_layer = CABLE_LAYER_2			//bitflag
-	var/machinery_layer = MACHINERY_LAYER_1 //bitflag
+	///bitflag
+	var/linked_dirs = 0
+	///used for sprites display
+	var/node = FALSE
+	///bitflag
+	var/cable_layer = CABLE_LAYER_2
+	///bitflag
+	var/machinery_layer = MACHINERY_LAYER_1
 	var/datum/powernet/powernet
 
 /obj/structure/cable/layer1
@@ -95,10 +99,11 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 						continue
 		var/inverse = REVERSE_DIR(check_dir)
 		for(var/obj/structure/cable/C in TB)
-			if(C.cable_layer & cable_layer)
-				linked_dirs |= check_dir
-				C.linked_dirs |= inverse
-				C.update_icon()
+			if(!(C.cable_layer & cable_layer))
+				continue
+			linked_dirs |= check_dir
+			C.linked_dirs |= inverse
+			C.update_icon()
 
 	update_icon()
 
@@ -106,12 +111,14 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 /obj/structure/cable/proc/Disconnect_cable()
 	for(var/check_dir in GLOB.cardinals)
 		var/inverse = REVERSE_DIR(check_dir)
-		if(linked_dirs & check_dir)
-			var/TB = get_step(loc, check_dir)
-			for(var/obj/structure/cable/C in TB)
-				if(cable_layer & C.cable_layer)
-					C.linked_dirs &= ~inverse
-					C.update_icon()
+		if(!(linked_dirs & check_dir))
+			continue
+		var/TB = get_step(loc, check_dir)
+		for(var/obj/structure/cable/C in TB)
+			if(!(cable_layer & C.cable_layer))
+				continue
+			C.linked_dirs &= ~inverse
+			C.update_icon()
 
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	Disconnect_cable()
@@ -154,7 +161,6 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		dir_string = "l[cable_layer]-[dir_string]"
 		icon_state = dir_string
 
-
 /obj/structure/cable/proc/handlecable(obj/item/W, mob/user, params)
 	var/turf/T = get_turf(src)
 	if(T.intact_tile)
@@ -182,7 +188,6 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 /obj/structure/cable/attackby(obj/item/W, mob/user, params)
 	handlecable(W, user, params)
 
-
 // shock the user with probability prb
 /obj/structure/cable/proc/shock(mob/user, prb, siemens_coeff = 1)
 	if(!prob(prb))
@@ -190,8 +195,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(electrocute_mob(user, powernet, src, siemens_coeff))
 		do_sparks(5, TRUE, src)
 		return TRUE
-	else
-		return FALSE
+	return FALSE
 
 ////////////////////////////////////////////
 // Power related
@@ -202,40 +206,39 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 // Non-machines should use add_delayedload(), delayed_surplus(), newavail()
 
 /obj/structure/cable/proc/add_avail(amount)
-	if(powernet)
-		powernet.newavail += amount
+	if(!powernet)
+		return
+	powernet.newavail += amount
 
 /obj/structure/cable/proc/add_load(amount)
-	if(powernet)
-		powernet.load += amount
+	if(!powernet)
+		return
+	powernet.load += amount
 
 /obj/structure/cable/proc/surplus()
 	if(powernet)
 		return clamp(powernet.avail-powernet.load, 0, powernet.avail)
-	else
-		return 0
+	return 0
 
 /obj/structure/cable/proc/avail(amount)
 	if(powernet)
 		return amount ? powernet.avail >= amount : powernet.avail
-	else
-		return 0
+	return 0
 
 /obj/structure/cable/proc/add_delayedload(amount)
-	if(powernet)
-		powernet.delayedload += amount
+	if(!powernet)
+		return
+	powernet.delayedload += amount
 
 /obj/structure/cable/proc/delayed_surplus()
 	if(powernet)
 		return clamp(powernet.newavail - powernet.delayedload, 0, powernet.newavail)
-	else
-		return 0
+	return 0
 
 /obj/structure/cable/proc/newavail()
 	if(powernet)
 		return powernet.newavail
-	else
-		return 0
+	return 0
 
 /////////////////////////////////////////////////
 // Cable laying helpers
@@ -301,8 +304,9 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	//now that cables are done, let's connect found machines
 	for(var/obj/machinery/power/PM in to_connect)
 		node = TRUE
-		if(!PM.connect_to_network())
-			PM.disconnect_from_network() //if we somehow can't connect the machine to the new powernet, remove it from the old nonetheless
+		if(PM.connect_to_network())
+			continue
+		PM.disconnect_from_network() //if we somehow can't connect the machine to the new powernet, remove it from the old nonetheless
 
 //////////////////////////////////////////////
 // Powernets handling helpers
@@ -312,11 +316,13 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	. = list()
 	var/turf/T = get_turf(src)
 	for(var/check_dir in GLOB.cardinals)
-		if(linked_dirs & check_dir)
-			T = get_step(src, check_dir)
-			for(var/obj/structure/cable/C in T)
-				if(cable_layer & C.cable_layer)
-					. += C
+		if(!(linked_dirs & check_dir))
+			continue
+		T = get_step(src, check_dir)
+		for(var/obj/structure/cable/C in T)
+			if(!(cable_layer & C.cable_layer))
+				continue
+			. += C
 
 /obj/structure/cable/proc/get_all_cable_connections(powernetless_only)
 	. = list()
@@ -329,14 +335,17 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 /obj/structure/cable/proc/get_machine_connections(powernetless_only)
 	. = list()
 	for(var/obj/machinery/power/P in get_turf(src))
-		if(!powernetless_only || !P.powernet)
-			if(P.anchored)
-				. += P
+		if(powernetless_only || P.powernet)
+			continue
+		if(!P.anchored)
+			continue
+		. += P
 
 /obj/structure/cable/proc/auto_propagate_cut_cable(obj/O)
-	if(O && !QDELETED(O))
-		var/datum/powernet/newPN = new()// creates a new powernet...
-		propagate_network(O, newPN)//... and propagates it to the other side of the cable
+	if(!O || QDELETED(O))
+		return
+	var/datum/powernet/newPN = new()// creates a new powernet...
+	propagate_network(O, newPN)//... and propagates it to the other side of the cable
 
 //Makes a new network for the cable and propgates it.
 //If it finds another network in the process, aborts and uses that one and propagates off of it instead
@@ -361,9 +370,10 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 	var/list/P_list = list()
 	for(var/dir_check in GLOB.cardinals)
-		if(linked_dirs & dir_check)
-			T1 = get_step(loc, dir_check)
-			P_list += locate(/obj/structure/cable) in T1
+		if(!(linked_dirs & dir_check))
+			continue
+		T1 = get_step(loc, dir_check)
+		P_list += locate(/obj/structure/cable) in T1
 
 	// remove the cut cable from its turf and powernet, so that it doesn't get count in propagate_network worklist
 	if(remove)
@@ -563,9 +573,10 @@ GLOBAL_LIST(cable_radial_layer_list)
 		return
 
 	for(var/obj/structure/cable/C in T)
-		if(C.cable_layer & target_layer)
-			to_chat(user, span_warning("There's already a cable at that position!"))
-			return
+		if(!(C.cable_layer & target_layer))
+			continue
+		to_chat(user, span_warning("There's already a cable at that position!"))
+		return
 
 	var/obj/structure/cable/C = new target_type(T)
 
@@ -579,10 +590,9 @@ GLOBAL_LIST(cable_radial_layer_list)
 
 	use(1)
 
-	if(C.shock(user, 50))
-		if(prob(50)) //fail
-			new /obj/item/stack/cable_coil(get_turf(C), 1)
-			C.deconstruct()
+	if(C.shock(user, 50) && prob(50))
+		new /obj/item/stack/cable_coil(get_turf(C), 1)
+		C.deconstruct()
 
 	return C
 
@@ -663,8 +673,9 @@ GLOBAL_LIST(cable_radial_layer_list)
 
 	var/turf/T = get_turf(src)
 	for(var/obj/structure/cable/C in T.contents - src)
-		if(C.cable_layer & cable_layer)
-			C.deconstruct()						// remove adversary cable
+		if(!(C.cable_layer & cable_layer))
+			continue
+		C.deconstruct()						// remove adversary cable
 	if(!mapload)
 		auto_propagate_cut_cable(src)
 
@@ -744,8 +755,9 @@ GLOBAL_LIST(hub_radial_layer_list)
 /obj/structure/cable/multilayer/proc/Reload()
 	var/turf/T = get_turf(src)
 	for(var/obj/structure/cable/C in T.contents - src)
-		if(C.cable_layer & cable_layer)
-			C.deconstruct()						// remove adversary cable
+		if(!(C.cable_layer & cable_layer))
+			continue
+		C.deconstruct()						// remove adversary cable
 	auto_propagate_cut_cable(src)				// update the powernets
 
 /obj/structure/cable/multilayer/CtrlClick(mob/living/user)

@@ -156,7 +156,7 @@
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	eject_user(TRUE)
 
-/obj/structure/caspart/caschair/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/structure/caspart/caschair/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship/casplane))
 		return
 	var/obj/docking_port/mobile/marine_dropship/casplane/plane = port
@@ -210,12 +210,12 @@
 			if(owner.fuel_left <= LOW_FUEL_THRESHOLD)
 				to_chat(usr, span_warning("Unable to launch, low fuel."))
 				return
-			SSshuttle.moveShuttleToDock(owner.id, SSshuttle.generate_transit_dock(owner), TRUE)
+			SSshuttle.moveShuttleToDock(owner.shuttle_id, SSshuttle.generate_transit_dock(owner), TRUE)
 			owner.currently_returning = FALSE
 		if("land")
 			if(owner.state != PLANE_STATE_FLYING)
 				return
-			SSshuttle.moveShuttle(owner.id, SHUTTLE_CAS_DOCK, TRUE)
+			SSshuttle.moveShuttle(owner.shuttle_id, SHUTTLE_CAS_DOCK, TRUE)
 			owner.end_cas_mission(usr)
 			owner.currently_returning = TRUE
 		if("deploy")

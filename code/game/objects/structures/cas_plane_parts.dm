@@ -220,7 +220,7 @@
 	else
 		. += "It's empty."
 
-/obj/structure/caspart/minigun/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/structure/caspart/minigun/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship/casplane))
 		return
 	var/obj/docking_port/mobile/marine_dropship/casplane/plane = port
@@ -241,7 +241,7 @@
 	var/image/engine_overlay
 	var/x_offset = 0
 
-/obj/structure/caspart/internalengine/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/structure/caspart/internalengine/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(!istype(port, /obj/docking_port/mobile/marine_dropship/casplane))
 		return
 	var/obj/docking_port/mobile/marine_dropship/casplane/planeport = port

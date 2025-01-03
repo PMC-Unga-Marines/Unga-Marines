@@ -7,7 +7,6 @@ SUBSYSTEM_DEF(machines)
 	var/list/currentrun = list()
 	var/list/processing = list()
 	var/list/powernets = list()
-	var/list/zlevel_cables = list() //up or down cables
 
 /datum/controller/subsystem/machines/Initialize()
 	makepowernets()
@@ -15,24 +14,25 @@ SUBSYSTEM_DEF(machines)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/machines/proc/makepowernets()
-	for(var/datum/powernet/PN in powernets)
-		qdel(PN)
+	for(var/datum/powernet/power_network AS in powernets)
+		qdel(power_network )
 	powernets.Cut()
 
-	for(var/obj/structure/cable/PC AS in GLOB.cable_list)
-		if(!PC.powernet)
-			var/datum/powernet/NewPN = new()
-			NewPN.add_cable(PC)
-			propagate_network(PC,PC.powernet)
+	for(var/obj/structure/cable/power_cable AS in GLOB.cable_list)
+		if(power_cable.powernet)
+			continue
+		var/datum/powernet/new_powernet = new()
+		new_powernet.add_cable(power_cable)
+		propagate_network(power_cable, power_cable.powernet)
 
 /datum/controller/subsystem/machines/stat_entry(msg)
 	msg = "PM:[length(processing)]|PN:[length(powernets)]"
 	return ..()
 
 /datum/controller/subsystem/machines/fire(resumed = FALSE)
-	if (!resumed)
-		for(var/datum/powernet/Powernet in powernets)
-			Powernet.reset() //reset the power state.
+	if(!resumed)
+		for(var/datum/powernet/powernet AS in powernets)
+			powernet.reset() //reset the power state.
 		src.currentrun = processing.Copy()
 
 	//cache for sanic speed (lists are references anyways)
@@ -55,11 +55,11 @@ SUBSYSTEM_DEF(machines)
 /datum/controller/subsystem/machines/proc/setup_template_powernets(list/cables)
 	for(var/A in cables)
 		var/obj/structure/cable/PC = A
-		if(!PC.powernet)
-			var/datum/powernet/NewPN = new()
-			NewPN.add_cable(PC)
-			propagate_network(PC,PC.powernet)
-
+		if(PC.powernet)
+			continue
+		var/datum/powernet/NewPN = new()
+		NewPN.add_cable(PC)
+		propagate_network(PC, PC.powernet)
 
 /datum/controller/subsystem/machines/Recover()
 	if(istype(SSmachines.processing))

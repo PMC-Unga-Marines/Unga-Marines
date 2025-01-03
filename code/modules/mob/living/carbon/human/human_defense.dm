@@ -473,6 +473,8 @@ Contains most of the procs that are called when a mob is attacked by something
 	cut_overlay(GLOB.welding_sparks)
 	return TRUE
 
+#define BLOCK_SOUND_VOLUME 70
+
 /mob/living/carbon/human/proc/check_pred_shields(damage = 0, attack_text = "the attack", combistick = FALSE, backside_attack = FALSE, xenomorph = FALSE)
 	if(skills.getRating("melee_weapons") < SKILL_MELEE_MASTER)
 		return FALSE
@@ -513,12 +515,15 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/obj/item/weapon/shield/riot/yautja/shield = back
 	if(backside_attack && istype(shield) && prob(shield.readied_block))
-		if(shield.blocks_on_back)
-			playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
-			visible_message(span_danger("<B>The [back] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
-			return TRUE
+		if(!shield.blocks_on_back)
+			return FALSE
+		playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
+		visible_message(span_danger("<B>The [back] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
+		return TRUE
 
 	return FALSE
+
+#undef BLOCK_SOUND_VOLUME
 
 /mob/living/carbon/human/emote_gored()
 	if(species.species_flags & NO_PAIN)
