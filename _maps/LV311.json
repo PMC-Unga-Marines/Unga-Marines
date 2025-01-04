@@ -1,0 +1,14 @@
+{
+		"map_name": "LV311",
+		"map_path": "map_files/LV311",
+		"map_file": "LV311.dmm",
+		"disk_sets": {
+			"basic": 1
+		},
+		"armor": "jungle",
+		"quickbuilds": 1400,
+		"announce_text": "Наша разведка передела данные о найденом корабле призарке,упавшем на планету LV-311.Сталкеры открыли отсек с xx-121 и выпустили на волю.Товарищи,избавьте зону от опастной фроры и фаунты!",
+		"traits":[{
+			"weather_acidrain": true
+		}]
+	}
