@@ -1,4 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - code_imp: "Команды теперь возвращают не стринги а tgs_message_content"
