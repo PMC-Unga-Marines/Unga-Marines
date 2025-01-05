@@ -1587,6 +1587,7 @@
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/misc/plushie,
+/obj/structure/table/woodentable,
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "jk" = (
@@ -3474,6 +3475,7 @@
 "sL" = (
 /obj/item/tool/kitchen/knife/ritual,
 /obj/effect/decal/cleanable/blood,
+/obj/structure/table/woodentable,
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "sM" = (
@@ -6181,6 +6183,7 @@
 /obj/item/storage/bible/booze,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /obj/effect/spawner/random/weaponry/gun,
+/obj/structure/table/woodentable,
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "Gv" = (
