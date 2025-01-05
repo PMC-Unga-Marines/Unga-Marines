@@ -33,7 +33,7 @@
 	for(var/i in GLOB.xeno_jelly_pod_turfs)
 		new /obj/structure/xeno/resin_jelly_pod(i, XENO_HIVE_NORMAL)
 	for(var/i in GLOB.xeno_turret_turfs)
-		new /obj/structure/xeno/xeno_turret(i, XENO_HIVE_NORMAL)
+		new /obj/structure/xeno/turret(i, XENO_HIVE_NORMAL)
 
 /datum/game_mode/infestation/process()
 	if(round_finished)
@@ -104,7 +104,7 @@
 	var/numHostsTransitr = BIOSCAN_DELTA(numHostsTransit, delta)
 	var/numXenosTransitr = BIOSCAN_DELTA(numXenosTransit, delta)
 
-	var/sound/S = sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS, volume = 50)
+	var/sound/S = sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS, volume = 50)
 	if(announce_xenos)
 		for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 			var/mob/M = i
@@ -357,7 +357,7 @@
 		if(M.z == z_level)
 			shake_camera(M, 110, 4)
 
-	var/datum/cinematic/crash_nuke/C = /datum/cinematic/crash_nuke
+	var/datum/cinematic/nuke/crash/C
 	var/nuketime = initial(C.runtime) + initial(C.cleanup_time)
 	addtimer(CALLBACK(src, PROC_REF(do_nuke_z_level), z_level), nuketime * 0.5)
 

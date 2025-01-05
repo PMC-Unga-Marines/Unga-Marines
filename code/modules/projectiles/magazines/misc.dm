@@ -336,6 +336,49 @@
 	icon_state = "boxt500_sv"
 	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
 
+/obj/item/ammo_magazine/packet/t312
+	name = "packet of .500 White Express"
+	desc = "A box containing common .500 White Express rounds."
+	icon_state = "boxt500_we"
+	default_ammo = /datum/ammo/bullet/revolver/t312
+	caliber = CALIBER_500_EMB
+	w_class = WEIGHT_CLASS_SMALL
+	current_rounds = 50
+	max_rounds = 50
+	used_casings = 5
+
+/obj/item/ammo_magazine/packet/t312/Initialize()
+	. = ..()
+	if(prob(1))
+		icon_state = "boxt500_ke"
+
+/obj/item/ammo_magazine/packet/t312/med
+	used_casings = 1
+
+/obj/item/ammo_magazine/packet/t312/med/adrenaline
+	name = "packet of .500 Adrenaline EMB"
+	desc = "Contains adrenaline. These ammo have a stimulating effect on the patient's nervous system and heart, capable of saving a marine from a critical condition, and also allowing him to run longer than usual."
+	icon_state = "boxt500_adr"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/adrenaline
+
+/obj/item/ammo_magazine/packet/t312/med/rr
+	name = "packet of .500 Russian Red EMB"
+	desc = "Contains 5 units of Russian Red. Use only when absolutely necessary. Heals a large amount of physical damage, but deals cloneloss damage."
+	icon_state = "boxt500_rr"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/rr
+
+/obj/item/ammo_magazine/packet/t312/med/md
+	name = "packet of .500 Meraderm EMB"
+	desc = "The best EMB ammo that can heal multiple patient injuries without any side effects. Contains 2.5 units of Meralyne and 2.5 units of Dermaline."
+	icon_state = "boxt500_md"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/md
+
+/obj/item/ammo_magazine/packet/t312/med/neu
+	name = "packet of .500 Neuraline EMB"
+	desc = "Contains 3.1 units of Neuraline and 1.9 Hyronalin. Warning: While the bullet is capable of taking a Marine out of critical condition, it will not neutralize all toxins from Neuraline."
+	icon_state = "boxt500_neu"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/neu
+
 /obj/item/ammo_magazine/packet/standard_magnum
 	name = "packet of .12x7mm"
 	icon_state = "box_t76"
@@ -400,3 +443,21 @@
 	caliber = CALIBER_10X27_CASELESS
 	current_rounds = 200
 	max_rounds = 200
+
+/obj/item/ammo_magazine/packet/musket
+	name = "sack of musket lead rounds"
+	desc = "A sack filled with lead bullets."
+	icon_state = "musket_sack_m"
+	default_ammo = /datum/ammo/bullet/sniper/musket
+	max_rounds = 54
+	caliber = CALIBER_19MM
+	w_class = WEIGHT_CLASS_NORMAL
+	icon_state_mini = "musket_sack_m"
+
+/obj/item/ammo_magazine/packet/musket/small
+	name = "a small sack of musket lead rounds"
+	desc = "A small sack filled with lead bullets."
+	icon_state = "musket_sack_s"
+	max_rounds = 27
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state_mini = "musket_sack_s"

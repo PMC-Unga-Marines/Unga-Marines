@@ -2,7 +2,7 @@
 	name = "alien thing"
 	desc = "theres something alien about this"
 	icon = 'icons/Xeno/Effects.dmi'
-	hit_sound = "alien_resin_break"
+	hit_sound = SFX_ALIEN_RESIN_BREAK
 	anchored = TRUE
 	max_integrity = 1
 	resistance_flags = UNACIDABLE

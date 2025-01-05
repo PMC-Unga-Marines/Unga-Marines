@@ -67,15 +67,15 @@
 	desc = "A wicked-looking folding blade capable of being concealed within a human's arm."
 	icon_state = "armblade"
 	item_state = "armblade"
-	force = 75
-	attack_speed = 8
+	force = 80
+	attack_speed = 5
 	flags_atom = CONDUCT
 	flags_equip_slot = NONE
 	w_class = WEIGHT_CLASS_BULKY //not needed but just in case why not
 	sharp = IS_SHARP_ITEM_BIG
 	hitsound = 'sound/weapons/slash.ogg'
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	
+
 /obj/item/weapon/mantisblade/equipped(mob/user, slot)
 	. = ..()
 	toggle_item_bump_attack(user, TRUE)

@@ -436,7 +436,7 @@
 			to_chat(user, span_warning("Мы не можем помешать птице улететь, так как она уже взлетает."))
 		D.silicon_lock_airlocks(TRUE)
 		to_chat(user, span_warning("Мы отменили блокировку шаттла!"))
-		playsound(user, "alien_roar", 50)
+		playsound(user, SFX_ALIEN_ROAR, 50)
 		priority_announce("Протокол блокировки Нормандии скомпрометирован. Постороннее вмешательство блокирует попытки удалённого управления.", "Шаттл Заблокирован", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_block.ogg')
 		return FALSE
 	if(D.mode != SHUTTLE_IDLE && D.mode != SHUTTLE_RECHARGING)
@@ -480,7 +480,7 @@
 
 // control computer
 /obj/machinery/computer/shuttle/marine_dropship
-	icon = 'icons/Marine/shuttle-parts.dmi'
+	icon = 'icons/obj/machines/shuttle_console.dmi'
 	icon_state = "console"
 	screen_overlay = "console_emissive"
 	resistance_flags = RESIST_ALL

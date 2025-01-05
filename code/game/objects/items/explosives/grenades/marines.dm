@@ -158,7 +158,7 @@
 
 /obj/item/explosive/grenade/sticky/trailblazer/prime()
 	flame_radius(0.5, get_turf(src))
-	playsound(loc, "incendiary_explosion", 35)
+	playsound(loc, SFX_INCENDIARY_EXPLOSION, 35)
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
@@ -183,7 +183,6 @@
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus
 	name = "\improper M45 Phosphorus trailblazer grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. But with phosphorus. It is set to detonate in 5 seconds."
-	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"
@@ -200,7 +199,7 @@
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/prime()
 	flame_radius(0.5, get_turf(src), colour = "blue")
-	playsound(loc, "incendiary_explosion", 35)
+	playsound(loc, SFX_INCENDIARY_EXPLOSION, 35)
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
@@ -257,7 +256,7 @@
 
 /obj/item/explosive/grenade/incendiary/prime()
 	flame_radius(2, get_turf(src))
-	playsound(loc, "incendiary_explosion", 35)
+	playsound(loc, SFX_INCENDIARY_EXPLOSION, 35)
 	qdel(src)
 
 
@@ -294,7 +293,7 @@
 
 /obj/item/explosive/grenade/incendiary/molotov/prime()
 	flame_radius(2, get_turf(src))
-	playsound(loc, "molotov", 35)
+	playsound(loc, SFX_MOLOTOV, 35)
 	qdel(src)
 
 /obj/item/explosive/grenade/incendiary/molotov/throw_impact(atom/hit_atom, speed, bounce = TRUE)
@@ -309,7 +308,6 @@
 	name = "\improper AGLS-37 HEDP grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "ags_grenade"
 	item_state = "ags_grenade"
 	det_time = 1 SECONDS

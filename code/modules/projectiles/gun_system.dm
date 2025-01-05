@@ -17,7 +17,7 @@
 /obj/item/weapon/gun
 	name = "Guns"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/items/gun.dmi'
+	icon = 'icons/obj/items/gun/gun.dmi'
 	icon_state = ""
 	item_state = "gun"
 	item_state_worn = TRUE
@@ -401,6 +401,7 @@
 	INVOKE_ASYNC(src, PROC_REF(fill_gun))
 
 /obj/item/weapon/gun/Destroy()
+	master_gun = null
 	active_attachable = null
 	gunattachment = null
 	QDEL_NULL(muzzle_flash)
@@ -452,7 +453,6 @@
 		COMSIG_KB_RAILATTACHMENT,
 		COMSIG_KB_UNDERRAILATTACHMENT,
 		COMSIG_KB_UNLOADGUN,
-		COMSIG_KB_FIREMODE,
 		COMSIG_KB_GUN_SAFETY,
 		COMSIG_KB_UNIQUEACTION,
 		COMSIG_KB_AUTOEJECT,
@@ -464,7 +464,7 @@
 		COMSIG_HUMAN_MARKSMAN_AURA_CHANGED))
 		gun_user.client?.mouse_pointer_icon = initial(gun_user.client.mouse_pointer_icon)
 		SEND_SIGNAL(gun_user, COMSIG_GUN_USER_UNSET)
-		gun_user.hud_used.remove_ammo_hud(src)
+		gun_user.hud_used?.remove_ammo_hud(src)
 		gun_user = null
 
 	if(!user)
@@ -475,7 +475,7 @@
 	gun_user = user
 	SEND_SIGNAL(gun_user, COMSIG_GUN_USER_SET, src)
 	if(flags_gun_features & GUN_AMMO_COUNTER)
-		gun_user.hud_used.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
+		gun_user.hud_used?.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 	if(master_gun)
 		return
 	setup_bullet_accuracy()
@@ -495,7 +495,6 @@
 	RegisterSignal(gun_user, COMSIG_KB_RAILATTACHMENT, PROC_REF(activate_rail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNDERRAILATTACHMENT, PROC_REF(activate_underrail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNLOADGUN, PROC_REF(unload_gun))
-	RegisterSignal(gun_user, COMSIG_KB_FIREMODE, PROC_REF(do_toggle_firemode))
 	RegisterSignal(gun_user, COMSIG_KB_GUN_SAFETY, PROC_REF(toggle_gun_safety_keybind))
 	RegisterSignal(gun_user, COMSIG_KB_AUTOEJECT, PROC_REF(toggle_auto_eject_keybind))
 
@@ -1734,7 +1733,7 @@
 		projectile_to_fire.point_blank_range = 0
 	if(isliving(firer))
 		var/mob/living/living_firer = firer
-		if(living_firer.IsStaggered())
+		if(living_firer.has_status_effect(STATUS_EFFECT_STAGGER))
 			projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
 
 ///Sets the projectile accuracy and scatter
@@ -1835,6 +1834,6 @@
 		if(!istype(lit_flashlight))
 			continue
 		lit_flashlight.turn_light(null, FALSE)
-	playsound(loc, "alien_claw_metal", 25, 1)
+	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )

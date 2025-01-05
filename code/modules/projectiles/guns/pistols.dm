@@ -458,6 +458,7 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/lace,
+		/obj/item/attachable/flashlight/under,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -531,7 +532,6 @@
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/lace,
 	)
 
@@ -672,7 +672,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	desc = "The PL-5 is a true and tested ICCAF handgun, used for a very long time with minimal changes to the core design, best used at close quarters with its higher than usual magazine size for its caliber. It is chambered in .45 ACP."
 	icon_state = "pl5"
 	item_state = "pl5"
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	caliber = CALIBER_45ACP //codex
 	max_shells = 18 //codex
 	fire_sound = 'sound/weapons/guns/fire/colt.ogg'
@@ -761,7 +761,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 /obj/item/weapon/gun/pistol/smart_pistol
 	name = "\improper SP-13 smart pistol"
 	desc = "The SP-13 is a IFF-capable sidearm used by the TerraGov Marine Corps. A cutting-edge miniaturization technology allows mounting of a KTLD IFF system on the pistol, albeit at high manufactoring cost and the usual specialized training required to use such a pistol. Unique design feature high-capacity mag on top of the barrel, with integrated sight."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "sp13"
 	item_state = "sp13"
 	caliber = CALIBER_9X19 //codex

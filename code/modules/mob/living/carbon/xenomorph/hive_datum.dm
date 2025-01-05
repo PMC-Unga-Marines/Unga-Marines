@@ -122,7 +122,7 @@
 	for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(resin_silo))
 	// Acid, sticky, and hugger turrets.
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
+	for(var/obj/structure/xeno/turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(turret))
 	// Psychic relays
 	for(var/obj/structure/xeno/psychictower/tower AS in GLOB.hive_datums[hivenumber].psychictowers)
@@ -771,7 +771,7 @@
 		ADD_TRAIT(target, TRAIT_BANISHED, TRAIT_BANISHED)
 		target.hud_set_banished()
 
-		xeno_message("BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS))
+		xeno_message("BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS))
 		xeno_message("By [user]'s will, [target] has been banished from the hive!\n[reason]", "xenobanishannonce", 5, target.hivenumber)
 		to_chat(target, span_xenohighdanger("The [user] has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters."))
 		log_game("[key_name(user)] has banish [key_name(target)]. Reason: [reason]")
@@ -781,7 +781,7 @@
 	REMOVE_TRAIT(target, TRAIT_BANISHED, TRAIT_BANISHED)
 	target.hud_set_banished()
 
-	xeno_message("By [user]'s will, [target] has been readmitted into the Hive!\n[reason]", "xenoannounce", 5, user.hivenumber, sound= sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS))
+	xeno_message("By [user]'s will, [target] has been readmitted into the Hive!\n[reason]", "xenoannounce", 5, user.hivenumber, sound= sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS))
 	log_game("[key_name(user)] has returned [key_name(target)]. Reason: [reason]")
 	message_admins("[ADMIN_TPMONTY(user)] has returned [ADMIN_TPMONTY(target)]. Reason: [reason]")
 	return
@@ -1017,8 +1017,6 @@ to_chat will check for valid clients itself already so no need to double check f
 			arrow_hud.add_hud(X, target)
 			if(arrow_color) //Set the arrow to our custom colour if applicable
 				arrow_hud.color = arrow_color
-			new /obj/effect/temp_visual/xenomorph/xeno_tracker_target(target, target) //Ping the source of our alert
-
 		to_chat(X, "<span class='[span_class]'><font size=[size]> [message][report_distance ? " Distance: [get_dist(X, target)]" : ""]</font></span>")
 
 // This is to simplify the process of talking in hivemind, this will invoke the receive proc of all xenos in this hive

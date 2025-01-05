@@ -718,7 +718,7 @@ directive is properly returned.
 /atom/proc/welder_act(mob/living/user, obj/item/I)
 	return FALSE
 
-/atom/proc/weld_cut_act(mob/living/user, obj/item/I)
+/atom/proc/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	return FALSE
 
 /atom/proc/analyzer_act(mob/living/user, obj/item/I)
@@ -969,7 +969,7 @@ directive is properly returned.
 ///What happens when with atom is melted by acid
 /atom/proc/do_acid_melt()
 	visible_message(span_xenodanger("[src] collapses under its own weight into a puddle of goop and undigested debris!"))
-	playsound(src, "acid_hit", 25)
+	playsound(src, SFX_ACID_HIT, 25)
 
 ///Anything called here will have failed CanPass(), so it's likely dense.
 /atom/proc/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)

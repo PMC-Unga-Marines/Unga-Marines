@@ -1,7 +1,6 @@
 /obj/item/hud_tablet
 	name = "hud tablet"
 	desc = "A tablet with a live feed to a number of headset cameras"
-	icon = 'icons/Marine/marine-navigation.dmi'
 	icon_state = "req_tablet_off"
 	req_access = list(ACCESS_NT_CORPORATE)
 	flags_equip_slot = ITEM_SLOT_POCKET
@@ -181,7 +180,7 @@
 		var/list/cameras = get_available_cameras()
 		var/obj/machinery/camera/selected_camera = cameras[c_tag]
 		active_camera = selected_camera
-		playsound(src, get_sfx("terminal_type"), 25, FALSE)
+		playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)
 
 		if(!selected_camera)
 			return TRUE

@@ -17,7 +17,7 @@
 	hud_type = /datum/hud/larva
 	hud_possible = list(HEALTH_HUD_XENO, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, HUNTER_CLAN, HUNTER_HUD)
 
-	talk_sound = "larva_talk"
+	talk_sound = SFX_LARVA_TALK
 	life_value = 0
 	default_honor_value = 0
 	inherent_verbs = list(
@@ -81,7 +81,7 @@
 		icon_state = "[bloody][base_icon_state] Cuff"
 
 	else if(lying_angle)
-		if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+		if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 			icon_state = "[bloody][base_icon_state] Sleeping"
 		else
 			icon_state = "[bloody][base_icon_state] Stunned"
@@ -131,7 +131,7 @@
 	evolution_threshold = 50
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING|CASTE_ACID_BLOOD
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
@@ -195,7 +195,7 @@
 		icon_state = "[base_icon_state] Cuff"
 
 	else if(lying_angle)
-		if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+		if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 			icon_state = "[base_icon_state] Sleeping"
 		else
 			icon_state = "[base_icon_state] Stunned"
@@ -206,4 +206,4 @@
 	. = list()
 	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP) || HAS_TRAIT(src, TRAIT_REGRESSING))
 		return
-	return list(/mob/living/carbon/xenomorph/predalien)
+	return list(/datum/xeno_caste/predalien)

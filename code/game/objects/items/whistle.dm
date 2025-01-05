@@ -1,6 +1,5 @@
 /obj/item/whistle
 	name = "\improper whistle"
-	icon = 'icons/Marine/marine-navigation.dmi'
 	desc = "A metal pea-whistle. Can be blown while held, or worn in the mouth"
 	icon_state = "whistle"
 	w_class = WEIGHT_CLASS_TINY

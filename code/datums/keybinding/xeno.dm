@@ -39,6 +39,7 @@
 	full_name = "Choose Weed"
 	description = "Choose what weed you will drop."
 	keybind_signal = COMSIG_XENOABILITY_CHOOSE_WEEDS
+	hotkey_keys = list("ShiftV")
 
 /datum/keybinding/xeno/secrete_resin
 	name = "secrete_resin"
@@ -101,7 +102,7 @@
 	full_name = "Spit"
 	description = "Spit neurotoxin or acid at your target up to 7 tiles away."
 	keybind_signal = COMSIG_XENOABILITY_XENO_SPIT
-	hotkey_keys = list("Q")
+	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/xenohide
 	name = "xenohide"
@@ -453,6 +454,7 @@
 	full_name = "Defiler: Inject Egg (Neurogas)"
 	description = "Inject an egg with neurogas, killing the little one inside"
 	keybind_signal = COMSIG_XENOABILITY_INJECT_EGG_NEUROGAS
+	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/acidic_salve
 	name = "acidic_salve"
@@ -509,6 +511,13 @@
 	description = "Drains blood continuosly, slows you down and reduces damage taken, while restoring some health over time. Cancel by activating again."
 	keybind_signal = COMSIG_XENOABILITY_REJUVENATE
 	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/oppose
+	name = "oppose"
+	full_name = "Gorger: Oppose"
+	description = "Violently suffuse the nearby ground with stored blood, staggering nearby marines and healing nearby xenomorphs."
+	keybind_signal = COMSIG_XENOABILITY_OPPOSE
+	hotkey_keys = list("G")
 
 /datum/keybinding/xeno/psychic_link
 	name = "psychic link"
@@ -689,6 +698,33 @@
 	keybind_signal = COMSIG_XENOABILITY_DASH
 	hotkey_keys = list("E")
 
+/datum/keybinding/xeno/acid_dash
+	name = "acid_dash"
+	full_name = "Praetorian: Acid Dash"
+	description = "Quickly dash, leaving acid in your path and knocking down the first marine hit. Has reset potential."
+	keybind_signal = COMSIG_XENOABILITY_ACID_DASH
+	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/dodge
+	name = "Dodge"
+	full_name = "Praetorian: Dodge"
+	description = "Gain a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
+	keybind_signal = COMSIG_XENOABILITY_DODGE
+	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/impale
+	name = "Impale"
+	full_name = "Praetorian: Impale"
+	description = "Impale a marine next to you with your tail for moderate damage. Marked enemies are impaled twice."
+	keybind_signal = COMSIG_XENOABILITY_IMPALE
+	hotkey_keys = list("Z")
+
+/datum/keybinding/xeno/tail_trip
+	name = "Tail Trip"
+	full_name = "Praetorian: Tail Trip"
+	description = "Target a marine within two tiles of you to disorient and slows them. Marked enemies receive stronger debuffs and are stunned for a second."
+	keybind_signal = COMSIG_XENOABILITY_TAIL_TRIP
+	hotkey_keys = list("R")
 /datum/keybinding/xeno/screech
 	name = "screech"
 	full_name = "Queen: Screech"
@@ -767,13 +803,13 @@
 	full_name = "Ravager: Ravage"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_RAVAGE
-	hotkey_keys = list("R")
 
 /datum/keybinding/xeno/ravage_select
 	name = "ravage select"
 	full_name = "Ravager: Select Ravage"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_RAVAGE_SELECT
+	hotkey_keys = list("R")
 
 /datum/keybinding/xeno/pounce
 	name = "pounce"
@@ -841,7 +877,7 @@
 	full_name = "Shrike: Unrelenting Force"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_UNRELENTING_FORCE
-	hotkey_keys = list("R")
+	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/unrelenting_force_select
 	name = "unrelenting_force_select"
@@ -870,7 +906,7 @@
 	full_name = "Spitter: Scatter Spit"
 	description = "Fires a scattershot of 6 acid globules which create acid puddles on impact or at the end of their range."
 	keybind_signal = COMSIG_XENOABILITY_SCATTER_SPIT
-	hotkey_keys = list("E")
+	hotkey_keys = list("V")
 
 /datum/keybinding/xeno/psychic_shield
 	name = "Psychic Shield"
@@ -911,7 +947,7 @@
 	full_name = "Warrior: Toggle Agility"
 	description = "Toggles Agility mode. While in Agility mode, you move much more quickly but can't use abilities and your armor is greatly reduced."
 	keybind_signal = COMSIG_XENOABILITY_TOGGLE_AGILITY
-	hotkey_keys = list("Space")
+	hotkey_keys = list("Shift")
 
 /datum/keybinding/xeno/lunge
 	name = "lunge"
@@ -925,7 +961,7 @@
 	full_name = "Warrior: Fling"
 	description = "Quickly flings a target 4 tiles away and inflicts a short stun. Shared cooldown with Grapple Toss."
 	keybind_signal = COMSIG_XENOABILITY_FLING
-	hotkey_keys = list("Q")
+	hotkey_keys = list("V")
 
 /datum/keybinding/xeno/grapple_toss
 	name = "grapple_toss"
@@ -939,14 +975,14 @@
 	full_name = "Warrior: Punch"
 	description = "Punch a hostile creature, a structure or piece of machinery. Damage and status durations are doubled vs creatures you are grabbing. Damage is quadrupled vs structures and machinery."
 	keybind_signal = COMSIG_XENOABILITY_PUNCH
-	hotkey_keys = list("R")
+	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/jab
 	name = "jab"
 	full_name = "Warrior: Jab"
 	description = "Precisely strike your target from further away. Resets punch cooldown."
 	keybind_signal = COMSIG_XENOABILITY_JAB
-	hotkey_keys = list("E")
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/flurry
 	name = "flurry"
@@ -960,30 +996,35 @@
 	full_name = "Behemoth: Landslide"
 	description = "Rush forward in the selected direction, damaging enemies caught in a wide path."
 	keybind_signal = COMSIG_XENOABILITY_LANDSLIDE
+	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/earth_riser
 	name = "Earth Riser"
 	full_name = "Behemoth: Earth Riser"
 	description = "Raise a pillar of earth at the selected location. This solid structure can be used for defense, and it interacts with other abilities for offensive usage."
 	keybind_signal = COMSIG_XENOABILITY_EARTH_RISER
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/earth_riser_alternate
 	name = "Destroy Earth Pillar"
 	full_name = "Behemoth: Destroy Earth Pillar"
 	description = "Destroy active Earth Pillars created by Earth Riser, starting by the oldest one."
 	keybind_signal = COMSIG_XENOABILITY_EARTH_RISER_ALTERNATE
+	hotkey_keys = list("ShiftC")
 
 /datum/keybinding/xeno/seismic_fracture
 	name = "Seismic Fracture"
 	full_name = "Behemoth: Seismic Fracture"
 	description = "Blast the earth around the selected location, inflicting heavy damage in a large radius."
 	keybind_signal = COMSIG_XENOABILITY_SEISMIC_FRACTURE
+	hotkey_keys = list("V")
 
 /datum/keybinding/xeno/primal_wrath
 	name = "Primal Wrath"
 	full_name = "Behemoth: Primal Wrath"
 	description = "Unleash your wrath. Enhances your abilities, changing their functionality and allowing them to apply a damage over time debuff."
 	keybind_signal = COMSIG_XENOABILITY_PRIMAL_WRATH
+	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/tearing_tail
 	name = "Tearing Tail"
@@ -1124,7 +1165,7 @@
 	full_name = "Praetorian: Short Acid Spray"
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
-	hotkey_keys = list("E")
+	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/burrow
 	name = "burrow"
@@ -1173,11 +1214,11 @@
 	full_name = "Widow: Unleash Spiderlings"
 	description = "Send out your spawn to attack nearby humans"
 	keybind_signal = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS
-	hotkey_keys = list("N")
+	hotkey_keys = list("O")
 
 /datum/keybinding/xeno/widow_recall
 	name = "Recall Spiderlings"
 	full_name = "Widow: Recall Spiderlings"
 	description = "Recall your siderlings to follow you once more"
 	keybind_signal = COMSIG_XENOABILITY_RECALL_SPIDERLINGS
-	hotkey_keys = list("M")
+	hotkey_keys = list("P")

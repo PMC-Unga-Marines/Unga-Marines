@@ -93,7 +93,8 @@
 	if(istype(new_magazine.loc, /obj/item/storage))
 		var/obj/item/storage/S = new_magazine.loc
 		S.remove_from_storage(new_magazine, get_turf(user), user)
-	user.put_in_any_hand_if_possible(new_magazine)
+		if(!SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine))
+			user.put_in_any_hand_if_possible(new_magazine)
 	reload(new_magazine, user)
 	if(!do_after(user, tac_reload_time * 0.2, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 		return
@@ -330,7 +331,7 @@
 /obj/item/weapon/gun/revolver/standard_magnum
 	name = "\improper R-76 KC magnum"
 	desc = "The R-76 magnum is an absolute beast of a handgun used by the TGMC, rumors say it was created as a money laundering scheme by some general due to the sheer inpracticality of this firearm. Hits hard, recommended to be used with its stock attachment. Chambered in 12.7mm."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "t76"
 	item_state = "t76"
 	fire_animation = "t76_fire"
@@ -454,7 +455,7 @@
 /obj/item/weapon/gun/revolver/r44/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
 	item_icons = list(
@@ -507,9 +508,9 @@
 //////////////////////////////////////////////////////////////////////////
 
 /obj/item/weapon/gun/revolver/t500
-	name = "\improper R-500 BF revolver"
-	desc = "The R-500 BF revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
-	icon = 'icons/Marine/gun64.dmi'
+	name = "\improper R-500 'Nigredo' revolver"
+	desc = "The R-500 'Nigredo' revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "t500"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
@@ -531,9 +532,20 @@
 		/obj/item/attachable/stock/t500stock,
 		/obj/item/attachable/t500barrelshort,
 		/obj/item/attachable/t500barrel,
-		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lace/t500,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 	attachable_offset = list("muzzle_x" = 0, "muzzle_y" = 0,"rail_x" = 10, "rail_y" = 20, "under_x" = 19, "under_y" = 13, "stock_x" = -19, "stock_y" = 0)
 	windup_delay = 0.8 SECONDS
@@ -549,3 +561,57 @@
 	scatter = -1
 	recoil = 2
 	recoil_unwielded = 3
+
+//////////////////////////////////////////////////////////////////////////
+/////////////////////////// t312 revolver ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+/obj/item/weapon/gun/revolver/t312
+	name = "R-312 'Albedo' Revolver"
+	desc = "Futuristic style revolver with railgun system, using to fire EMB (experimental medical bullets). Just first make sure that you chambered EMB, but not .500 White Express."
+	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon_state = "t312"
+	item_state = "t312"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
+	caliber =  CALIBER_500_EMB
+	max_chamber_items = 5 //codex
+	default_ammo_type = /datum/ammo/bullet/revolver/t312
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/revolver/t312,
+		/obj/item/ammo_magazine/revolver/t312/med/adrenaline,
+		/obj/item/ammo_magazine/revolver/t312/med/rr,
+		/obj/item/ammo_magazine/revolver/t312/med/md,
+		/obj/item/ammo_magazine/revolver/t312/med/neu
+	)
+	force = 20
+	actions_types = null
+	attachable_allowed = list(
+		/obj/item/attachable/lace/t500,
+	)
+	attachable_offset = list("stock_x" = -19, "stock_y" = 0)
+	fire_sound = 'sound/weapons/guns/fire/t312.ogg'
+	dry_fire_sound = 'sound/mecha/mag_bullet_insert.ogg'
+	fire_animation = "t312_fire"
+	fire_delay = 0.2 SECONDS
+	scatter = -7
+	scatter_unwielded = -5
+	damage_mult = 0.35
+	recoil = -1
+	recoil_unwielded = -1
+	accuracy_mult = 3
+	accuracy_mult_unwielded = 2
+	type_of_casings = null
+	akimbo_additional_delay = 0.6
+	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_TOGGLES_OPEN
+
+
+/obj/item/weapon/gun/revolver/t312/able_to_fire(mob/user)
+	. = ..()
+	if(!.)
+		return
+	if(user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_PRACTICED)
+		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
+		return FALSE

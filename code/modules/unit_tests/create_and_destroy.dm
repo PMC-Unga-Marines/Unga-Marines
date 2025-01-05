@@ -36,8 +36,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/effect/buildmode_line)
 	//Our system doesn't support it without warning spam from unregister calls on things that never registered
 	ignore += typesof(/obj/docking_port)
-	//Needs a linked mecha
-	ignore += typesof(/obj/effect/skyfall_landingzone)
 	//These shouldn't be spawned directly, rather they should be spawned through their weapon item counterparts
 	ignore += typesof(/obj/machinery/deployable/mounted)
 	//Various temporary effects that aren't meant to be spawned
@@ -155,7 +153,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		if(fails & BAD_INIT_NO_HINT)
 			Fail("[path] didn't return an Initialize hint")
 		if(fails & BAD_INIT_QDEL_BEFORE)
-			Fail("[path] qdel'd in New()")
+			Fail("[path] qdel'd before we could call Initialize()")
 		if(fails & BAD_INIT_SLEPT)
 			Fail("[path] slept during Initialize()")
 

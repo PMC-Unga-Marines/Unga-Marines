@@ -909,7 +909,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		to_chat(src, span_warning("You cannot give an order in your current state."))
 		return
 
-	if(IsMute())
+	if(has_status_effect(STATUS_EFFECT_MUTED))
 		to_chat(src, span_warning("You cannot give an order while muted."))
 		return
 
