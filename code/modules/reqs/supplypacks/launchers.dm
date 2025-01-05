@@ -130,4 +130,4 @@
 /datum/supply_packs/launchers/multinade_launcher
 	name = "GL-70 grenade launcher"
 	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
-	cost = 450
+	cost = 300
