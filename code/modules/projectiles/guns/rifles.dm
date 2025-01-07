@@ -682,7 +682,6 @@
 		/obj/item/ammo_magazine/rifle/zarya/carbine,
 		/obj/item/ammo_magazine/rifle/zarya/extended,
 	)
-	aim_slowdown = 0.5
 	attachable_allowed = list(
 		/obj/item/attachable/stock/mpi_km,
 		/obj/item/attachable/reddot,
@@ -722,7 +721,8 @@
 	force = 20
 	burst_amount = 2
 	autoburst_delay = 0.10 SECONDS
-	aim_slowdown = 0.5
+	aim_slowdown = 0
+	damage_falloff_mult = 0.5
 	fire_delay = 0.20 SECONDS
 	scatter = 0
 	wield_delay = 0.8 SECONDS
@@ -743,6 +743,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya/carbine
 	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/zarya,
 		/obj/item/ammo_magazine/rifle/zarya/carbine,
 		/obj/item/ammo_magazine/rifle/zarya/extended,
 	)

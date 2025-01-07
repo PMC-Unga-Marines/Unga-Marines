@@ -167,16 +167,15 @@
 // Marine mags for AK
 /obj/item/ammo_magazine/rifle/zarya
 	name = "\improper Type-16 rifle magazine (6.02x41)"
-	desc = "A 40 round 6.02x41mm magazine. The magazine well appears to be soldered shut so it now only fits the rifle."
+	desc = "A 40 round 6.02x41mm magazine."
 	caliber = CALIBER_602X41
 	icon_state = "ak_40"
 	icon_state_mini = "mag_rifle_brown"
 	bonus_overlay = "ak_40"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
 	max_rounds = 40
-	scatter_mod = 2
 	aim_speed_mod = 0.1
-	wield_delay_mod = 0.1 SECONDS
+	wield_delay_mod = 1 SECONDS
 
 /obj/item/ammo_magazine/rifle/zarya/carbine
 	name = "\improper Type-16 сarbine magazine (6.02x41)"
