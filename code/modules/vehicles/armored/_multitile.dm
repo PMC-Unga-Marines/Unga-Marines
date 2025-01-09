@@ -23,13 +23,15 @@
 	permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/ability/zoom,
-		/obj/item/tank_module/ability/smoke_launcher
+		/obj/item/tank_module/ability/smoke_launcher,
 	)
 	permitted_weapons = list(
 		/obj/item/armored_weapon,
 		/obj/item/armored_weapon/ltaap,
 		/obj/item/armored_weapon/secondary_weapon,
-		/obj/item/armored_weapon/secondary_flamer
+		/obj/item/armored_weapon/secondary_flamer,
+		/obj/item/armored_weapon/tow,
+		/obj/item/armored_weapon/microrocket_pod,
 	)
 	max_occupants = 4
 	move_delay = 0.75 SECONDS

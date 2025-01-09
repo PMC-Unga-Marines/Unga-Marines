@@ -372,7 +372,7 @@ WEAPONS
 /datum/assembly_craft/weapons/ltb_cannon_TOW
 	name = "TOW Launcher Magazine"
 	input = list(/obj/item/stack/sheet/jeweler_steel = 2, /obj/item/stack/gun_powder = 1)
-	output = list(/obj/item/ammo_magazine/tank/towlauncher = 1)
+	output = list(/obj/item/ammo_magazine/tank/microrocket_rack = 1)
 
 /datum/assembly_craft/weapons/gl_explosive_tank_ammo
 	name = "Tank grenade launcher magazine"
