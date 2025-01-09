@@ -50,24 +50,6 @@
 	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -mech_pilot, -stamina))
 	return ..()
 
-/obj/item/implant/skill/combat
-	name = "Сombat implants"
-	desc = "An implant from a line of implants that enhances combat skills"
-	icon_state = "combat_implant"
-	allowed_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
-
-/obj/item/implant/skill/codex
-	name = "CODEX implants"
-	desc = "Implant from a line of implants that increases basic knowledge"
-	icon_state = "support_implant"
-	allowed_limbs = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
-
-/obj/item/implant/skill/oper_system
-	name = "Tactics implants"
-	desc = "An implant from the line of implants that increases knowledge of battle tactics"
-	icon_state = "skill_implant"
-	allowed_limbs = list(BODY_ZONE_HEAD)
-
 /obj/item/implant/skill/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(istype(I, /obj/item/implanter/implantator/cargo))
@@ -75,7 +57,6 @@
 		if(cargo.icon_state == "cargo_full_s")
 			balloon_alert(user, "Implantator already used!")
 			return
-		cargo.allowed_limbs = allowed_limbs
 		cargo.internal_implant = src
 		forceMove(cargo)
 		cargo.icon_state = "cargo_full"

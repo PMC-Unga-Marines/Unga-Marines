@@ -12,11 +12,6 @@
 	throw_range = 5
 	var/empty_icon = "skill"
 	var/max_skills
-	var/allowed_limbs
-
-/obj/item/implanter/implantator/Initialize(mapload, ...)
-	. = ..()
-	name += " implanter"
 
 /obj/item/implanter/implantator/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -37,7 +32,7 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/human = target
-	if(!(user.zone_selected in allowed_limbs))
+	if(!(user.zone_selected in internal_implant.allowed_limbs))
 		balloon_alert(user, "Wrong limb!")
 		return FALSE
 	var/datum/limb/targetlimb = human.get_limb(user.zone_selected)
@@ -48,15 +43,12 @@
 	return TRUE
 
 /obj/item/implanter/implantator/combat
-	allowed_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 	internal_implant = /obj/item/implant/skill/combat
 
 /obj/item/implanter/implantator/codex
-	allowed_limbs = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
 	internal_implant = /obj/item/implant/skill/codex
 
 /obj/item/implanter/implantator/oper_system
-	allowed_limbs = list(BODY_ZONE_HEAD)
 	internal_implant = /obj/item/implant/skill/oper_system
 
 /obj/item/implanter/implantator/cargo

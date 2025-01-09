@@ -1,3 +1,21 @@
+/obj/item/implant/skill/combat
+	name = "Сombat implants"
+	desc = "An implant from a line of implants that enhances combat skills"
+	icon_state = "combat_implant"
+	allowed_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
+
+/obj/item/implant/skill/codex
+	name = "CODEX implants"
+	desc = "Implant from a line of implants that increases basic knowledge"
+	icon_state = "support_implant"
+	allowed_limbs = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
+
+/obj/item/implant/skill/oper_system
+	name = "Tactics implants"
+	desc = "An implant from the line of implants that increases knowledge of battle tactics"
+	icon_state = "skill_implant"
+	allowed_limbs = list(BODY_ZONE_HEAD)
+
 /obj/item/implant/skill/combat/firearms
 	name = "aiming support implant system"
 	desc = "Integrated aiming support system! Update weapons skills!"

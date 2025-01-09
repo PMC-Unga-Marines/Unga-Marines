@@ -70,7 +70,7 @@
 	if(!(limb_targeting in allowed_limbs))
 		to_chat(user, span_warning("You cannot implant this into that limb!"))
 		return FALSE
-	if((flags_implant & DUPLICATE_IMPLANT_ALLOWED))
+	if(flags_implant & DUPLICATE_IMPLANT_ALLOWED)
 		return
 	return TRUE
 
@@ -90,7 +90,7 @@
 		if(flags_implant & HIGHLANDER_IMPLANT || embedded.flags_implant & HIGHLANDER_IMPLANT)
 			to_chat(user, span_warning("Cannot fit the [name] due to the [embedded.name] already there!"))
 			return FALSE
-		if(!(embedded.type == type) || (flags_implant & DUPLICATE_IMPLANT_ALLOWED))
+		if(embedded.type != type || flags_implant & DUPLICATE_IMPLANT_ALLOWED)
 			continue
 		to_chat(user, span_warning("There is already another [name] in this limb!"))
 		return FALSE
