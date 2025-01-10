@@ -257,7 +257,6 @@
 
 /mob/living/proc/revive(admin_revive = FALSE)
 	for(var/obj/item/embedded AS in embedded_objects)
-
 		if(embedded.is_beneficial_implant())
 			continue
 		embedded.unembed_ourself()
