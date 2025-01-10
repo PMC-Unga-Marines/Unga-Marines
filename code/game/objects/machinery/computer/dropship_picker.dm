@@ -66,6 +66,8 @@
 		"_mobile_bar" = 'icons/ui_icons/dropshippicker/_mobile_bar.png',
 		"_umbilical" = 'icons/ui_icons/dropshippicker/_umbilical.png',
 		"_cargo" = 'icons/ui_icons/dropshippicker/_cargo.png',
+		"_barge" = 'icons/ui_icons/dropshippicker/_barge.png',
+		"_voidraider" = 'icons/ui_icons/dropshippicker/_voidraider.png',
 	)
 
 /obj/machinery/computer/dropship_picker/ui_act(action, list/params, datum/tgui/ui)

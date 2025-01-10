@@ -149,15 +149,15 @@
 	if(parent_item.obj_integrity <= parent_item.integrity_failure)
 		return incoming_damage
 
-	if(affected.IsSleeping() || affected.IsUnconscious() || affected.IsAdminSleeping()) //We don't do jack if we're literally KOed/sleeping/paralyzed.
+	if(affected.has_status_effect(STATUS_EFFECT_SLEEPING) || affected.has_status_effect(STATUS_EFFECT_UNCONSCIOUS) || affected.IsAdminSleeping()) //We don't do jack if we're literally KOed/sleeping/paralyzed.
 		return incoming_damage
 
-	if(affected.IsStun() || affected.IsKnockdown() || affected.IsParalyzed()) //Halve shield cover if we're paralyzed or stunned
+	if(affected.has_status_effect(STATUS_EFFECT_STUN) || affected.has_status_effect(STATUS_EFFECT_KNOCKDOWN) || affected.has_status_effect(STATUS_EFFECT_PARALYZED)) //Halve shield cover if we're paralyzed or stunned
 		status_cover_modifier *= 0.5
 
 	if(iscarbon(affected))
 		var/mob/living/carbon/C = affected
-		if(C.IsStaggered()) //Lesser penalty to shield cover for being staggered.
+		if(C.has_status_effect(STATUS_EFFECT_STAGGER)) //Lesser penalty to shield cover for being staggered.
 			status_cover_modifier *= 0.75
 
 	switch(attack_type)

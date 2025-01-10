@@ -114,6 +114,7 @@
 		),
 		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/weapon/gun/rifle/tx54 = 2,
 			/obj/item/ammo_magazine/rifle/tx54 = 10,
 			/obj/item/ammo_magazine/rifle/tx54/incendiary = 4,
@@ -355,6 +356,7 @@
 		),
 		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/explosive/grenade = 50,
 			/obj/item/explosive/grenade/m15 = 10,
 			/obj/item/explosive/grenade/sticky = 25,

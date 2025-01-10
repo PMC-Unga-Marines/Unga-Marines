@@ -18,7 +18,6 @@
 #define PAIN_HUD "pain_hud" //displays human pain / preceived health.
 #define ARMOR_SUNDER_HUD "armor_sunder_hud" //displays how much sunder has been applied.
 #define XENO_REAGENT_HUD "xeno_reagent_hud" // displays sign based on reagent in human
-#define XENO_TACTICAL_HUD "xeno_tactical_hud" // displays xeno tactical elements such as tunnels and rally hive pings
 #define MACHINE_HEALTH_HUD "machine_health_hud" // displays machine health; part of /datum/atom_hud/squad
 #define MACHINE_AMMO_HUD "machine_ammo_hud" // displays machine ammo; part of /datum/atom_hud/squad
 #define XENO_DEBUFF_HUD "xeno_debuff_hud" // displays xeno debuffs; part of /datum/atom_hud/xeno_debuff
@@ -48,11 +47,10 @@
 #define DATA_HUD_SQUAD_TERRAGOV 10
 #define DATA_HUD_ORDER 11
 #define DATA_HUD_MEDICAL_PAIN 12
-#define DATA_HUD_XENO_TACTICAL 13
-#define DATA_HUD_XENO_DEBUFF 14
-#define DATA_HUD_XENO_HEART 15
-#define DATA_HUD_HUNTER 16
-#define DATA_HUD_HUNTER_CLAN 17
+#define DATA_HUD_XENO_DEBUFF 13
+#define DATA_HUD_XENO_HEART 14
+#define DATA_HUD_HUNTER 15
+#define DATA_HUD_HUNTER_CLAN 16
 
 
 // Notification action types

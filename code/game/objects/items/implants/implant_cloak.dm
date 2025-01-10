@@ -1,4 +1,4 @@
-#define CLOAK_IMPLANT_ALPHA 38
+#define CLOAK_IMPLANT_ALPHA 26
 #define CLOAK_IMPLANT_COOLDOWN_TIME 50 SECONDS
 
 /obj/item/implant/cloak

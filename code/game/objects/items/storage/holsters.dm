@@ -517,7 +517,7 @@
 	flags_storage = BYPASS_CRYO_CHECK
 	storage_slots = 28
 	max_storage_space = 28
-	icon = 'icons/Marine/marine-pouches.dmi'
+	icon = 'icons/obj/items/storage/pouches.dmi'
 	icon_state = "flare"
 	storage_type_limits = list(/obj/item/weapon/gun/grenade_launcher/single_shot/flare = 1)
 	can_hold = list(

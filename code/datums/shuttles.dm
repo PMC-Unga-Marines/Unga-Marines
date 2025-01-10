@@ -165,6 +165,16 @@
 	description = "A Tadpole model was modified to expedite the delivery of supplies to combat zones. The weapon system attach point had to be removed to enlarge the cargo area."
 	display_name = "Tadpole Cargo Model"
 
+/datum/map_template/shuttle/minidropship/barge
+	suffix = "_barge"
+	description = "A cargo barge used for transporting significant forces. The combat modules were sacrificed for the sake of the internal volume."
+	display_name = "Tadpole Barge Model"
+
+/datum/map_template/shuttle/minidropship/_voidraider
+	suffix = "_voidraider"
+	description = "An asymmetric tadpole designed with vehicle transport in mind. Built with a wide umbilical to allow fluid heavy-vehicle movement."
+	display_name = "Tadpole VoidRaider Model"
+
 /datum/map_template/shuttle/escape_pod
 	shuttle_id = SHUTTLE_ESCAPE_POD
 	name = "Escape Pod"

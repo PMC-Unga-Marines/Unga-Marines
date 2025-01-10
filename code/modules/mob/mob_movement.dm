@@ -133,7 +133,7 @@
 
 	L.last_move_intent = world.time + 1 SECONDS
 
-	if(L.IsConfused())
+	if(L.has_status_effect(STATUS_EFFECT_CONFUSED))
 		var/newdir = 0
 		if(L.AmountConfused() > 40)
 			newdir = pick(GLOB.alldirs)

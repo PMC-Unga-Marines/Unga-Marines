@@ -462,7 +462,7 @@
 /obj/item/mortar_kit
 	name = "\improper TA-50S mortar"
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first to fire. Ctrl+Click on a tile to deploy, drag the mortar's sprites to mob's sprite to undeploy."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/artillery/mortar.dmi'
 	icon_state = "mortar"
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 0, ACID = 0)
@@ -494,6 +494,7 @@
 	name = "\improper TA-55DB mortar"
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first to fire. This one is a double barreled mortar that can hold 4 rounds usually fitted in TAV's."
 	icon_state = "mortar_db"
+	icon = 'icons/obj/artillery/mortar_double.dmi'
 	max_integrity = 400
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
@@ -513,7 +514,7 @@
 /obj/item/mortar_kit/howitzer
 	name = "\improper TA-100Y howitzer"
 	desc = "A manual, crew-operated and towable howitzer, will rain down 150mm laserguided and accurate shells on any of your foes."
-	icon = 'icons/Marine/howitzer.dmi'
+	icon = 'icons/obj/artillery/howitzer.dmi'
 	icon_state = "howitzer"
 	max_integrity = 400
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
@@ -600,6 +601,7 @@
 	name = "\improper TA-40L multiple rocket launcher system"
 	desc = "A manual, crew-operated and towable multiple rocket launcher system piece used by the TerraGov Marine Corps, it is meant to saturate an area with munitions to total up to large amounts of firepower, it thus has high scatter when firing to accomplish such a task. Fires in only bursts of up to 16 rockets, it can hold 32 rockets in total. Uses 60mm Rockets."
 	icon_state = "mlrs"
+	icon = 'icons/obj/artillery/mlrs.dmi'
 	max_integrity = 400
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
@@ -691,7 +693,7 @@
 /obj/item/mortal_shell
 	name = "\improper 80mm mortar shell"
 	desc = "An unlabeled 80mm mortar shell, probably a casing."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
@@ -735,7 +737,7 @@
 /obj/item/mortal_shell/howitzer
 	name = "\improper 150mm artillery shell"
 	desc = "An unlabeled 150mm shell, probably a casing."
-	icon = 'icons/Marine/howitzer.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "howitzer_ammo"
 	w_class = WEIGHT_CLASS_BULKY
 
@@ -792,7 +794,6 @@
 /obj/structure/closet/crate/mortar_ammo
 	name = "\improper T-50S mortar ammo crate"
 	desc = "A crate containing live mortar shells with various payloads. DO NOT DROP. KEEP AWAY FROM FIRE SOURCES."
-	icon = 'icons/Marine/mortar.dmi'
 	icon_state = "closed_mortar_crate"
 	icon_opened = "open_mortar_crate"
 	icon_closed = "closed_mortar_crate"
@@ -967,7 +968,7 @@
 /obj/item/mortar_kit/knee
 	name = "\improper TA-10 knee mortar"
 	desc = "A manual, crew-operated mortar system intended to rain down 50mm shells on anything it's aimed at, typically best known as a 'Knee' mortar. Cannot be actually fired from your kneecaps, so it needs to be set down first to fire. Has a light payload, but an extremely high rate of fire."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/artillery/knee_mortar.dmi'
 	icon_state = "knee_mortar"
 	max_integrity = 250
 	w_class = WEIGHT_CLASS_NORMAL
@@ -991,7 +992,6 @@
 /obj/item/mortal_shell/knee
 	name = "\improper 50mm high explosive mortar shell"
 	desc = "An 50mm mortar shell, loaded with a high explosive charge."
-	icon = 'icons/Marine/mortar.dmi'
 	icon_state = "knee_mortar_he"
 	w_class = WEIGHT_CLASS_TINY
 	ammo_type = /datum/ammo/mortar/knee

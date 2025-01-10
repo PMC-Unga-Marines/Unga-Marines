@@ -312,12 +312,6 @@
 	contains = list(/obj/item/storage/pill_bottle/russian_red)
 	cost = 250
 
-/datum/supply_packs/medical/russian_red_injector
-	name = "Russian Red autoinjector"
-	notes = "contains emergency autoinjector."
-	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/russian_red)
-	cost = 40
-
 /datum/supply_packs/medical/synaptizine_injector
 	name = "synaptizine auto injector"
 	notes = "contains synaptizine auto injector."

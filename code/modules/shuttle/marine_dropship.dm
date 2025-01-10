@@ -480,7 +480,7 @@
 
 // control computer
 /obj/machinery/computer/shuttle/marine_dropship
-	icon = 'icons/Marine/shuttle-parts.dmi'
+	icon = 'icons/obj/machines/shuttle_console.dmi'
 	icon_state = "console"
 	screen_overlay = "console_emissive"
 	resistance_flags = RESIST_ALL

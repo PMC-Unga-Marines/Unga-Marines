@@ -384,7 +384,7 @@
 
 /obj/item/weapon/twohanded/spear/tactical/tacticool
 	name = "M-23 TACTICOOL spear"
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	desc = "A TACTICOOL spear. Used for TACTICOOLNESS in combat."
 
 /obj/item/weapon/twohanded/spear/tactical/tacticool/Initialize(mapload)
@@ -592,7 +592,7 @@
 		else
 			stun = knockback ? knockback_stun_amount : crush_stun_amount
 
-	if(!M.IsStun() && !M.IsParalyzed() && !isxenoqueen(M) && !isxenoking(M)) //Prevent chain stunning. Queen and King are protected.
+	if(!M.has_status_effect(STATUS_EFFECT_STUN) && !M.has_status_effect(STATUS_EFFECT_PARALYZED) && !isxenoqueen(M) && !isxenoking(M)) //Prevent chain stunning. Queen and King are protected.
 		M.apply_effects(stun,weaken)
 
 	return ..()
