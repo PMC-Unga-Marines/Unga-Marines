@@ -115,9 +115,9 @@
 	if(severity >= EXPLOSION_THRESHOLD_GIB + (get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
-		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
-		create_shrapnel(oldloc, rand(5, 9), direction, 30, /datum/ammo/bullet/shrapnel/light/human/var1)
-		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
+		create_shrapnel(oldloc, rand(3, 5), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
+		create_shrapnel(oldloc, rand(3, 5), direction, 30, /datum/ammo/bullet/shrapnel/light/human/var1)
+		create_shrapnel(oldloc, rand(3, 5), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
 		return
 
 	var/stagger_amount = 0
