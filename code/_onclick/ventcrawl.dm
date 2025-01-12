@@ -17,40 +17,70 @@
 
 // VENTCRAWLING
 // Handles the entrance and exit on ventcrawling
+/mob/living/proc/ventcrawl_checks(obj/machinery/atmospherics/ventcrawl_target)
+	if(!HAS_TRAIT(src, TRAIT_CAN_VENTCRAWL))
+		return FALSE
+	if(!Adjacent(ventcrawl_target))
+		return FALSE
+	if(stat)
+		to_chat(src, span_warning("You must be conscious to do this!"))
+		return FALSE
+	if(buckled)
+		to_chat(src, span_warning("You can't vent crawl while buckled!"))
+		return FALSE
+	if(istype(ventcrawl_target, /obj/machinery/atmospherics/components))
+		var/obj/machinery/atmospherics/components/ventcrawl_component = ventcrawl_target
+		if(ventcrawl_component.welded)
+			to_chat(src, span_warning("You can't crawl around a welded vent!"))
+			return FALSE
+	if(ventcrawl_target.loc.density || ventcrawl_target.covered_by_shuttle)
+		to_chat(src, span_notice("You cannot climb out, the exit is blocked!"))
+		return FALSE
+	return TRUE
+
+/mob/living/proc/handle_pipe_exit(obj/machinery/atmospherics/components/ventcrawl_target, crawl_time = 4.5 SECONDS, stealthy = FALSE)
+	if(!ventcrawl_checks(ventcrawl_target))
+		return
+
+	if(!is_ventcrawling)
+		return
+	if(!istype(loc,/obj/machinery/atmospherics))
+		return
+	visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
+	if(!do_after(src, crawl_time, target = ventcrawl_target))\
+		return
+	if(!client)
+		return
+	if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
+		playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
+	visible_message(span_notice("[src] scrambles out from the ventilation ducts!"), span_notice("You scramble out from the ventilation ducts."))
+	forceMove(ventcrawl_target.loc)
+	is_ventcrawling = FALSE
+	update_pipe_vision()
+
+// VENTCRAWLING
+// Handles the entrance and exit on ventcrawling
 /mob/living/proc/handle_ventcrawl(obj/machinery/atmospherics/components/ventcrawl_target, crawl_time = 4.5 SECONDS, stealthy = FALSE)
 
 	// Cache the vent_movement bitflag var from atmos machineries
 	var/vent_movement = ventcrawl_target.vent_movement
-	if(!HAS_TRAIT(src, TRAIT_CAN_VENTCRAWL))
-		return
-	if(!Adjacent(ventcrawl_target))
-		return
-	if(stat)
-		to_chat(src, span_warning("You must be conscious to do this!"))
-		return
-	if(buckled)
-		to_chat(src, span_warning("You can't vent crawl while buckled!"))
-		return
-	if(ventcrawl_target.welded)
-		to_chat(src, span_warning("You can't crawl around a welded vent!"))
-		return
-	if(ventcrawl_target.loc.density || ventcrawl_target.covered_by_shuttle)
-		to_chat(src, span_notice("You cannot climb out, the exit is blocked!"))
+
+	if(!ventcrawl_checks(ventcrawl_target))
 		return
 
 	if(vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
 		//Handle the exit here
-		if(src.is_ventcrawling && istype(loc, /obj/machinery/atmospherics))
-			visible_message(span_notice("[src] begins climbing out from the ventilation system...") ,span_notice("You begin climbing out from the ventilation system..."))
+		if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics))
+			visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
 			if(!do_after(src, crawl_time, target = ventcrawl_target))\
 				return
 			if(!client)
 				return
 			if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
 				playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
-			visible_message(span_notice("[src] scrambles out from the ventilation ducts!"),span_notice("You scramble out from the ventilation ducts."))
+			visible_message(span_notice("[src] scrambles out from the ventilation ducts!"), span_notice("You scramble out from the ventilation ducts."))
 			forceMove(ventcrawl_target.loc)
-			src.is_ventcrawling = FALSE
+			is_ventcrawling = FALSE
 			update_pipe_vision()
 
 		//Entrance here
@@ -77,7 +107,7 @@
  */
 /mob/living/proc/move_into_vent(obj/machinery/atmospherics/components/ventcrawl_target)
 	forceMove(ventcrawl_target)
-	src.is_ventcrawling = TRUE
+	is_ventcrawling = TRUE
 	update_pipe_vision()
 
 /mob/living/proc/update_pipe_vision(full_refresh = FALSE)
@@ -87,7 +117,7 @@
 		lighting = hud_used?.plane_masters["[LIGHTING_PLANE]"]
 
 	// Take away all the pipe images if we're not doing anything with em
-	if(isnull(client) || !src.is_ventcrawling || !istype(loc, /obj/machinery/atmospherics))
+	if(isnull(client) || !is_ventcrawling || !istype(loc, /obj/machinery/atmospherics))
 		for(var/image/current_image in pipes_shown)
 			client.images -= current_image
 		pipes_shown.len = 0

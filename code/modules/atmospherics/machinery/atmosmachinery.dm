@@ -283,6 +283,13 @@
 		break
 
 	if(!target_move)
+		if(direction & initialize_directions)
+			if(isxeno(user))
+				var/mob/living/carbon/xenomorph/xeno_user = user
+				xeno_user.handle_pipe_exit(src, xeno_user.xeno_caste.vent_enter_speed, xeno_user.xeno_caste.silent_vent_crawl)
+				return
+			user.handle_pipe_exit(src)
+			return
 		return
 
 	if(!(target_move.vent_movement & VENTCRAWL_ALLOWED))
