@@ -747,8 +747,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		return
 	target.playsound_local(target, 'sound/machines/dotprinter.ogg', 35)
 	to_chat(target, span_notice("<b><i>New message from [sender.real_name]:</b> [message]</i>"))
-	target.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>CIC MESSAGE FROM [sender.real_name]:</u></span><br>" + message, /atom/movable/screen/text/screen_text/command_order, "#32cd32")
-	return TRUE
+	target.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>CIC MESSAGE FROM [sender.real_name]:</u></span><br>" + message, new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, sender), "#32cd32")
 
 ///Signal handler for radial menu
 /obj/machinery/computer/camera_advanced/overwatch/proc/attempt_radial(datum/source, atom/A, params)
