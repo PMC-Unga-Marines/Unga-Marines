@@ -165,8 +165,8 @@
 	if(!prob(severity * 0.3))
 		return
 
-	for(var/atom/movable/our_atom as mob|obj in src)
-		our_atom.loc = src.loc
+	for(var/atom/movable/our_atom AS in src)
+		our_atom.loc = loc
 		ex_act(severity)
 	qdel(src)
 
