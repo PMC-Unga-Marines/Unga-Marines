@@ -286,7 +286,7 @@
 		if(direction & initialize_directions)
 			if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTCRAWL))
 				return FALSE
-			TIMER_COOLDOWN_START(user, COOLDOWN_VENTCRAWL,  2 SECONDS)
+			TIMER_COOLDOWN_START(user, COOLDOWN_VENTCRAWL,  4 SECONDS)
 			if(isxeno(user))
 				var/mob/living/carbon/xenomorph/xeno_user = user
 				xeno_user.handle_pipe_exit(src, xeno_user.xeno_caste.vent_enter_speed, xeno_user.xeno_caste.silent_vent_crawl)

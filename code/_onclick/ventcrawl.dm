@@ -47,7 +47,8 @@
 	if(!istype(loc,/obj/machinery/atmospherics))
 		return
 	visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
-	if(!do_after(src, crawl_time, target = ventcrawl_target))\
+	if(!do_after(src, crawl_time, target = ventcrawl_target))
+		TIMER_COOLDOWN_END(src, COOLDOWN_VENTCRAWL)
 		return
 	if(!client)
 		return
@@ -72,7 +73,7 @@
 		//Handle the exit here
 		if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics))
 			visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
-			if(!do_after(src, crawl_time, target = ventcrawl_target))\
+			if(!do_after(src, crawl_time, target = ventcrawl_target))
 				return
 			if(!client)
 				return
