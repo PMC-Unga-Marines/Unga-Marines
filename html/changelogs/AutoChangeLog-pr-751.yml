@@ -1,4 +1,0 @@
-author: "MalorMorfin"
-delete-after: True
-changes:
-  - refactor: "Переделал код ползанья по вентиляции"
