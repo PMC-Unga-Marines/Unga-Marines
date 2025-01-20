@@ -19,8 +19,10 @@
 /mob/living/carbon/human/spawn_gibs()
 	if(species)
 		hgibs(loc, species.flesh_color, species.blood_color)
+		new /obj/effect/temp_visual/gib_particles(get_turf(src), species.blood_color)
 	else
 		hgibs(loc)
+		new /obj/effect/temp_visual/gib_particles(get_turf(src), get_blood_color())
 
 /mob/living/carbon/human/spawn_dust_remains()
 	if(species)
