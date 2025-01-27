@@ -397,6 +397,8 @@
 			/obj/item/ammo_magazine/tank/ltb_cannon/canister = -1,
 			/obj/item/armored_weapon/ltaap = -1,
 			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
+			/obj/item/armored_weapon/bfg = -1,
+			/obj/item/ammo_magazine/tank/bfg = -1,
 			/obj/item/armored_weapon/secondary_weapon = -1,
 			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
 			/obj/item/armored_weapon/secondary_flamer = -1,

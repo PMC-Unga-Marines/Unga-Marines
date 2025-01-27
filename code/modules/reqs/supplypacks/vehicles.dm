@@ -1,23 +1,31 @@
 /datum/supply_packs/vehicles
 	group = "Vehicles"
+	containertype = /obj/structure/closet/crate/weapon
+
+/datum/supply_packs/vehicles/bfg_cannon
+	name = "Tank-mounted BFG 9500"
+	contains = list(/obj/item/armored_weapon/bfg)
+	cost = 1600
+
+/datum/supply_packs/vehicles/bfg_rounds
+	name = "Tank BFG antimatter container"
+	contains = list(/obj/item/ammo_magazine/tank/bfg)
+	cost = 200
 
 /datum/supply_packs/vehicles/ltb_he_shell
 	name = "LTB high explosive tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
 	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/ltb_apfds_shell
 	name = "LTB APFDS tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds)
 	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/ltaap_rounds
 	name = "LTAAP tank magazine"
 	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
 	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/ltb_canister_shell
 	name = "LTB canister tank shell"
@@ -28,19 +36,16 @@
 	name = "Cupola tank magazine"
 	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
 	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/secondary_flamer_tank
 	name = "Spray flamer tank"
 	contains = list(/obj/item/ammo_magazine/tank/secondary_flamer_tank)
 	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/tank_glauncher
 	name = "Tank grenade laucnher magazine"
 	contains = list(/obj/item/ammo_magazine/tank/tank_glauncher)
 	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/tow_rocket
 	name = "TOW missile"
@@ -56,6 +61,7 @@
 	name = "All-terrain motorbike"
 	cost = 400
 	contains = list(/obj/vehicle/ridden/motorbike)
+	containertype = null
 
 /datum/supply_packs/vehicles/sidecar
 	name = "Sidecar motorbike upgrade"
@@ -71,22 +77,24 @@
 	name = "Combat droid with weapon equipped"
 	contains = list(/obj/vehicle/unmanned/droid)
 	cost = 400
+	containertype = null
 
 /datum/supply_packs/vehicles/droid_scout
 	name = "Scout droid"
 	contains = list(/obj/vehicle/unmanned/droid/scout)
 	cost = 300
+	containertype = null
 
 /datum/supply_packs/vehicles/droid_powerloader
 	name = "Powerloader droid"
 	contains = list(/obj/vehicle/unmanned/droid/ripley)
 	cost = 300
+	containertype = null
 
 /datum/supply_packs/vehicles/droid_weapon
 	name = "Droid weapon"
 	contains = list(/obj/item/uav_turret/droid)
 	cost = 200
-	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/tiny_uv
 	name = "Tiny unmanned vehicle - Skink"

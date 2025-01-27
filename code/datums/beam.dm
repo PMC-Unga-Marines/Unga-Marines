@@ -162,11 +162,7 @@
 	return newbeam
 
 /proc/zap_beam(atom/source, zap_range, damage, list/blacklistmobs)
-	. = list()
-	for(var/mob/living/carbon/xenomorph/beno in oview(zap_range, source))
-		. += beno
-	for(var/xeno in .)
-		var/mob/living/carbon/xenomorph/living = xeno
+	for(var/mob/living/carbon/xenomorph/living AS in cheap_get_xenos_near(source, zap_range))
 		if(!living)
 			return
 		if(living.stat == DEAD)
