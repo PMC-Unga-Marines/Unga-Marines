@@ -73,6 +73,7 @@ Godspeed, captain! And remember, you are not above the law."})
 			new_human.wear_id.paygrade = "O9"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/captain
 	name = CAPTAIN
@@ -146,7 +147,7 @@ Make the TGMC proud!"})
 			new_human.wear_id.paygrade = "MO4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "MO5"
-
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/fieldcommander
 	name = FIELD_COMMANDER
@@ -226,6 +227,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 			new_human.wear_id.paygrade = "O5"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/staffofficer
 	name = STAFF_OFFICER
@@ -289,6 +291,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 			new_human.wear_id.paygrade = "O1"
 		if(6001 to INFINITY) // 100 hrs
 			new_human.wear_id.paygrade = "O2"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/command/transportofficer/radio_help_message(mob/M)
 	. = ..()
@@ -370,6 +373,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 			new_human.wear_id.paygrade = "O4"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "O5"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/command/pilot/radio_help_message(mob/M)
 	. = ..()
@@ -444,6 +448,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "E4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "E5"
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/mech_pilot
 	name = MECH_PILOT
@@ -514,6 +519,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "E6"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/transport_crewman
 	name = TRANSPORT_CREWMAN
@@ -586,6 +592,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "E6"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/assault_crewman
 	name = ASSAULT_CREWMAN
@@ -654,6 +661,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "E6"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/command/transport_crewman
 	name = TRANSPORT_CREWMAN
@@ -719,6 +727,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "CPO"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "SCPO"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/requisitions/tech/radio_help_message(mob/M)
 	. = ..()
@@ -801,6 +810,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 			new_human.wear_id.paygrade = "O4"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "O5"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/requisitions/officer/radio_help_message(mob/M)
 	. = ..()
@@ -888,6 +898,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 			new_human.wear_id.paygrade = "MDR"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "CMO"
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/medical/professor
 	name = CHIEF_MEDICAL_OFFICER
@@ -961,6 +972,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 			new_human.wear_id.paygrade = "GP"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "AP"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/medical/medicalofficer/radio_help_message(mob/M)
 	. = ..()
@@ -1051,7 +1063,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 			new_human.wear_id.paygrade = "APROF"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "PROF"
-
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/medical/researcher
 	name = FIELD_RESEARCHER
@@ -1130,6 +1142,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 			new_human.wear_id.paygrade = "NT4"
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "NT5"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/civilian/liaison/radio_help_message(mob/M)
 	. = ..()
@@ -1225,6 +1238,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 			new_human.wear_id.paygrade = "Mk.IX"
 		if(60001 to INFINITY) // 1000 hrs and more
 			new_human.wear_id.paygrade = "Mk.X"
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/silicon/synthetic/radio_help_message(mob/M)
 	. = ..()

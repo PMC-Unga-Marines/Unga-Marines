@@ -72,6 +72,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 			new_human.wear_id.paygrade = "E3E"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E8" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/squad/standard/radio_help_message(mob/M)
 	. = ..()
@@ -134,6 +135,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 			new_human.wear_id.paygrade = "E3E"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E8" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 /datum/job/terragov/squad/robot/get_special_name(client/preference_source)
 	return preference_source.prefs.squad_robot_name
@@ -225,6 +227,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 //Squad Corpsman
 /datum/job/terragov/squad/corpsman
@@ -290,6 +293,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 //Squad Smartgunner
 /datum/job/terragov/squad/smartgunner
@@ -345,6 +349,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 
 /datum/outfit/job/marine/smartgunner
 	name = SQUAD_SMARTGUNNER
@@ -450,6 +455,7 @@ You are also in charge of communicating with command and letting them know about
 			new_human.wear_id.paygrade = "E7"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9E" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
 	if(!latejoin)
 		return
 	if(!new_human.assigned_squad)
