@@ -16,26 +16,32 @@
 	coverage = 10
 	smoothing_flags = SMOOTH_BITMASK
 	base_icon_state = "table_regular"
-	//determines if we drop metal on deconstruction
-	var/dropmetal = TRUE
-	var/parts = /obj/item/frame/table
-	var/table_status = TABLE_STATUS_FIRM
-	var/sheet_type = /obj/item/stack/sheet/metal
-	var/table_prefix = "" //used in update_icon()
-	var/reinforced = FALSE
-	var/flipped = FALSE
-	var/flip_cooldown = 0 //If flip cooldown exists, don't allow flipping or putting back. This carries a WORLD.TIME value
 	max_integrity = 40
 	smoothing_groups = list(SMOOTH_GROUP_TABLES_GENERAL)
 	canSmoothWith = list(SMOOTH_GROUP_TABLES_GENERAL)
+	/// Determines if we drop sheet_type on deconstruction
+	var/dropmetal = TRUE
+	/// What part will we drop on deconstruct?
+	var/parts = /obj/item/frame/table
+	/// Used for deconstructing reinforced tables
+	var/table_status = TABLE_STATUS_FIRM
+	/// What type of resource will we drop on destroy?
+	var/sheet_type = /obj/item/stack/sheet/metal
+	/// Used for table flip icons
+	var/table_prefix = ""
+	/// Is the table reinforced?
+	var/reinforced = FALSE
+	/// Is the table flipped?
+	var/flipped = FALSE
+	/// If flip cooldown exists, don't allow flipping or putting back. This carries a WORLD.TIME value
+	var/flip_cooldown = 0
 
 /obj/structure/table/deconstruct(disassembled)
 	if(disassembled)
 		new parts(loc)
 	else
-		if(reinforced)
-			if(prob(50))
-				new /obj/item/stack/rods(loc)
+		if(reinforced && prob(50))
+			new /obj/item/stack/rods(loc)
 		if(dropmetal)
 			new sheet_type(src)
 	return ..()
@@ -69,7 +75,7 @@
 
 /obj/structure/table/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
 	SIGNAL_HANDLER
-	if(!istype(O,/mob/living/carbon/xenomorph/ravager))
+	if(!istype(O, /mob/living/carbon/xenomorph/ravager))
 		return
 	var/mob/living/carbon/xenomorph/M = O
 	if(!M.stat) //No dead xenos jumpin on the bed~
@@ -78,27 +84,28 @@
 
 /obj/structure/table/update_icon_state()
 	. = ..()
-	if(flipped)
-		var/ttype = 0
-		var/tabledirs = 0
-		for(var/direction in list(turn(dir, 90), turn(dir, -90)) )
-			var/obj/structure/table/T = locate(/obj/structure/table, get_step(src, direction))
-			if (T?.flipped && T.dir == dir)
-				ttype++
-				tabledirs |= direction
+	if(!flipped)
+		return
 
-		icon_state = "[table_prefix]flip[ttype]"
-		if(ttype == 1)
-			if(tabledirs & turn(dir,90))
-				icon_state = icon_state+"-"
-			if(tabledirs & turn(dir,-90))
-				icon_state = icon_state+"+"
-		return TRUE
+	var/ttype = 0
+	var/tabledirs = 0
+	for(var/direction in list(turn(dir, 90), turn(dir, -90)) )
+		var/obj/structure/table/T = locate(/obj/structure/table, get_step(src, direction))
+		if(T?.flipped && T.dir == dir)
+			ttype++
+			tabledirs |= direction
+
+	icon_state = "[table_prefix]flip[ttype]"
+	if(ttype == 1)
+		if(tabledirs & turn(dir, 90))
+			icon_state = icon_state+"-"
+		if(tabledirs & turn(dir, -90))
+			icon_state = icon_state+"+"
+	return TRUE
 
 //Flipping tables, nothing more, nothing less
 /obj/structure/table/MouseDrop(over_object, src_location, over_location)
-
-	..()
+	. = ..()
 
 	if(flipped)
 		do_put()
@@ -130,50 +137,51 @@
 	deconstruct(TRUE)
 	return TRUE
 
-
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(user.a_intent == INTENT_HARM)
+		return
+	if(!user.transferItemToLoc(I, loc))
+		return
+	var/list/click_params = params2list(params)
+	//Center the icon where the user clicked.
+	if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
+		return
+	//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
+	I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
+	I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
+	return TRUE
 
-	if(istype(I, /obj/item/grab) && get_dist(src, user) <= 1)
-		if(isxeno(user))
-			return
-
-		var/obj/item/grab/G = I
-		if(!isliving(G.grabbed_thing))
-			return
-
-		var/mob/living/M = G.grabbed_thing
-		if(user.a_intent == INTENT_HARM)
-			if(user.grab_state <= GRAB_AGGRESSIVE)
-				to_chat(user, span_warning("You need a better grip to do that!"))
-				return
-
-			if(prob(15))
-				M.Paralyze(10 SECONDS)
-			M.apply_damage(8, BRUTE, "head", blocked = MELEE, updating_health = TRUE)
-			user.visible_message(span_danger("[user] slams [M]'s face against [src]!"),
-			span_danger("You slam [M]'s face against [src]!"))
-			log_combat(user, M, "slammed", "", "against \the [src]")
-			playsound(loc, 'sound/weapons/tablehit1.ogg', 25, 1)
-
-		else if(user.grab_state >= GRAB_AGGRESSIVE)
-			M.forceMove(loc)
-			M.Paralyze(10 SECONDS)
-			user.visible_message(span_danger("[user] throws [M] on [src]."),
-			span_danger("You throw [M] on [src]."))
+/obj/structure/table/grab_interact(obj/item/grab/grab, mob/user, base_damage, is_sharp)
+	if(isxeno(user))
 		return
 
-	if(user.a_intent != INTENT_HARM)
-		if(user.transferItemToLoc(I, loc))
-			var/list/click_params = params2list(params)
-			//Center the icon where the user clicked.
-			if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
-				return
-			//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-			I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
-			I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
-			return TRUE
+	if(!isliving(grab.grabbed_thing))
+		return
 
+	var/mob/living/M = grab.grabbed_thing
+	if(user.a_intent != INTENT_HARM)
+		if(user.grab_state < GRAB_AGGRESSIVE)
+			to_chat(user, span_warning("You need a better grip to do that!"))
+			return
+		M.forceMove(loc)
+		M.Paralyze(10 SECONDS)
+		user.visible_message(span_danger("[user] throws [M] on [src]."),
+		span_danger("You throw [M] on [src]."))
+		playsound(loc, 'sound/weapons/tablehit1.ogg', 25, 1)
+		return
+
+	if(user.grab_state <= GRAB_AGGRESSIVE)
+		to_chat(user, span_warning("You need a better grip to do that!"))
+		return
+
+	if(prob(15))
+		M.Paralyze(10 SECONDS)
+	M.apply_damage(8, BRUTE, "head", blocked = MELEE, updating_health = TRUE)
+	user.visible_message(span_danger("[user] slams [M]'s face against [src]!"),
+	span_danger("You slam [M]'s face against [src]!"))
+	log_combat(user, M, "slammed", "", "against \the [src]")
+	playsound(loc, 'sound/weapons/tablehit1.ogg', 25, 1)
 
 /obj/structure/table/proc/straight_table_check(direction)
 	var/obj/structure/table/T
@@ -189,7 +197,6 @@
 		if(R.table_status == TABLE_STATUS_FIRM)
 			return FALSE
 	return T.straight_table_check(direction)
-
 
 /obj/structure/table/verb/do_flip()
 	set name = "Flip table"
@@ -210,10 +217,9 @@
 	if(climbable)
 		structure_shaken()
 
-	flip_cooldown = world.time + 50
+	flip_cooldown = world.time + 5 SECONDS
 
 /obj/structure/table/proc/unflipping_check(direction)
-
 	if(world.time < flip_cooldown)
 		return FALSE
 
@@ -251,8 +257,7 @@
 
 	unflip(TRUE)
 
-	flip_cooldown = world.time + 50
-
+	flip_cooldown = world.time + 5 SECONDS
 
 /obj/structure/table/proc/flip(direction, forced)
 	if(!forced && world.time < flip_cooldown)
@@ -285,14 +290,11 @@
 			T.flip(direction)
 	update_icon()
 	update_adjacent()
-
 	return TRUE
 
-
 /obj/structure/table/proc/unflip()
-
-	verbs -=/obj/structure/table/proc/do_put
-	verbs +=/obj/structure/table/verb/do_flip
+	verbs -= /obj/structure/table/proc/do_put
+	verbs += /obj/structure/table/verb/do_flip
 
 	layer = initial(layer)
 	flipped = FALSE
@@ -306,26 +308,28 @@
 	update_icon()
 	update_adjacent()
 	QUEUE_SMOOTH(src)
-
 	return TRUE
 
+/obj/structure/table/get_explosion_resistance(direction)
+	if(flags_atom & ON_BORDER)
+		if(direction == turn(dir, 90) || direction == turn(dir, -90))
+			return 0
+		return min(obj_integrity, 40)
+	return 0
 
 /obj/structure/table/flipped
 	flipped = TRUE //Just not to get the icon updated on Initialize()
 	coverage = 60
-
 
 /obj/structure/table/flipped/Initialize(mapload)
 	. = ..()
 	flipped = FALSE //We'll properly flip it in LateInitialize()
 	return INITIALIZE_HINT_LATELOAD
 
-
 /obj/structure/table/flipped/LateInitialize()
 	. = ..()
 	if(!flipped)
 		flip(dir, TRUE)
-
 
 /*
 * Wooden tables
@@ -392,6 +396,7 @@
 	table_prefix = "gamble"
 	hit_sound = 'sound/effects/woodhit.ogg'
 	max_integrity = 20
+
 /*
 * Reinforced tables
 */
@@ -406,29 +411,24 @@
 	table_prefix = "reinf"
 	parts = /obj/item/frame/table/reinforced
 
-
 /obj/structure/table/reinforced/flipped
 	flipped = TRUE
 	table_status = TABLE_STATUS_WEAKENED
-
 
 /obj/structure/table/reinforced/flipped/Initialize(mapload)
 	. = ..()
 	flipped = FALSE
 	return INITIALIZE_HINT_LATELOAD
 
-
 /obj/structure/table/reinforced/flipped/LateInitialize()
 	. = ..()
 	if(!flipped)
 		flip(dir, TRUE)
 
-
 /obj/structure/table/reinforced/flip(direction, forced)
 	if(!forced && table_status == TABLE_STATUS_FIRM)
 		return FALSE
 	return ..()
-
 
 /obj/structure/table/reinforced/welder_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -465,7 +465,6 @@
 	table_status = TABLE_STATUS_FIRM
 	return TRUE
 
-
 /obj/structure/table/reinforced/prison
 	desc = "A square metal surface resting on four legs. This one has side panels, making it useful as a desk, but impossible to flip."
 	icon = 'icons/obj/smooth_objects/prison_table.dmi'
@@ -493,80 +492,6 @@
 /obj/structure/table/mainship/nometal
 	parts = /obj/item/frame/table/mainship/nometal
 	dropmetal = FALSE
-
-/*
-* Racks
-*/
-/obj/structure/rack
-	name = "rack"
-	desc = "A bunch of metal shelves stacked on top of eachother. Excellent for storage purposes, less so as cover."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "rack"
-	density = TRUE
-	layer = TABLE_LAYER
-	anchored = TRUE
-	coverage = 20
-	climbable = TRUE
-	var/dropmetal = TRUE   //if true drop metal when destroyed; mostly used when we need large amounts of racks without marines hoarding the metal
-	max_integrity = 40
-	resistance_flags = XENO_DAMAGEABLE
-	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
-	var/parts = /obj/item/frame/rack
-
-/obj/structure/rack/Initialize(mapload)
-	. = ..()
-	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
-		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
-	)
-	AddElement(/datum/element/connect_loc, connections)
-
-/obj/structure/rack/MouseDrop_T(obj/item/I, mob/user)
-	if (!istype(I) || user.get_active_held_item() != I)
-		return ..()
-	user.drop_held_item()
-	if(I.loc != loc)
-		step(I, get_dir(I, src))
-
-/obj/structure/rack/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(iswrench(I))
-		deconstruct(TRUE)
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		return
-
-	if(user.a_intent != INTENT_HARM)
-		return user.transferItemToLoc(I, loc)
-
-
-/obj/structure/rack/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
-	SIGNAL_HANDLER
-	if(!istype(O,/mob/living/carbon/xenomorph/ravager))
-		return
-	var/mob/living/carbon/xenomorph/M = O
-	if(!M.stat) //No dead xenos jumpin on the bed~
-		visible_message(span_danger("[O] plows straight through [src]!"))
-		deconstruct(FALSE)
-
-/obj/structure/rack/deconstruct(disassembled = TRUE)
-	if(disassembled && parts && dropmetal)
-		new parts(loc)
-	else if(dropmetal)
-		new /obj/item/stack/sheet/metal(loc)
-	density = FALSE
-	return ..()
-
-/obj/structure/rack/nometal
-	dropmetal = FALSE
-
-/obj/structure/surface/table/get_explosion_resistance(direction)
-	if(flags_atom & ON_BORDER)
-		if(direction == turn(dir, 90) || direction == turn(dir, -90))
-			return 0
-		else
-			return min(obj_integrity, 40)
-	return 0
 
 #undef TABLE_STATUS_WEAKENED
 #undef TABLE_STATUS_FIRM

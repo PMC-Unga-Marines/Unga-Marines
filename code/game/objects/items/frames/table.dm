@@ -1,10 +1,3 @@
-
-
-
-/*
-* Table Parts
-*/
-
 /obj/item/frame/table
 	name = "table parts"
 	desc = "A kit for a table, including a large, flat metal surface and four legs. Some assembly required."
@@ -18,7 +11,9 @@
 	item_state = "table_parts"
 	flags_atom = CONDUCT
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
-	var/table_type = /obj/structure/table //what type of table it creates when assembled
+	/// What type of table it creates when assembled
+	var/table_type = /obj/structure/table
+	/// What type of resource we drop on deconstruct
 	var/deconstruct_type = /obj/item/stack/sheet/metal
 
 /obj/item/frame/table/attackby(obj/item/I, mob/user, params)
@@ -132,53 +127,9 @@
 	table_type = /obj/structure/table/gamblingtable
 	deconstruct_type = /obj/item/stack/sheet/wood
 
-/obj/item/frame/table/gambling/attackby(obj/item/I, mob/user, params)
+/obj/item/frame/table/gambling/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(iscrowbar(I))
-		to_chat(user, span_notice("You pry the carpet out of [src]."))
-		new /obj/item/stack/tile/carpet(loc)
-		new /obj/item/frame/table/wood(loc)
-		qdel(src)
-
-
-
-
-
-
-/*
-* Rack Parts
-*/
-
-/obj/item/frame/rack
-	name = "rack parts"
-	desc = "A kit for a storage rack with multiple metal shelves. Relatively cheap, useful for mass storage. Some assembly required."
-	icon = 'icons/obj/items/items.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
-	)
-	icon_state = "rack_parts"
-	flags_atom = CONDUCT
-
-
-/obj/item/frame/rack/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(iswrench(I))
-		new /obj/item/stack/sheet/metal(loc)
-		qdel(src)
-
-/obj/item/frame/rack/attack_self(mob/user as mob)
-
-	if(locate(/obj/structure/table) in user.loc || locate(/obj/structure/barricade) in user.loc)
-		to_chat(user, span_warning("There is already a structure here."))
-		return
-
-	if(locate(/obj/structure/rack) in user.loc)
-		to_chat(user, span_warning("There already is a rack here."))
-		return
-
-	new /obj/structure/rack(user.loc)
-	user.drop_held_item()
+	to_chat(user, span_notice("You pry the carpet out of [src]."))
+	new /obj/item/stack/tile/carpet(loc)
+	new /obj/item/frame/table/wood(loc)
 	qdel(src)
