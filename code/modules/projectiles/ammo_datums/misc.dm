@@ -442,7 +442,7 @@
 	smoke.set_up(0, target_turf, rand(1,2))
 	smoke.start()
 
-	var/list/turf/target_turfs = generate_true_cone(target_turf, explosion_range, -1, 359, 0, air_pass = TRUE)
+	var/list/turf/target_turfs = generate_cone(target_turf, explosion_range, -1, 359, 0, pass_flags_checked = PASS_AIR)
 	for(var/turf/targetted_turf AS in target_turfs)
 		for(var/target in targetted_turf)
 			if(isliving(target))

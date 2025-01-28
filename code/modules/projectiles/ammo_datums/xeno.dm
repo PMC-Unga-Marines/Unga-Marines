@@ -699,7 +699,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 		aoe_damage = xeno_firer.xeno_caste.blast_strength
 
 	var/list/throw_atoms = list()
-	var/list/turf/target_turfs = generate_true_cone(target_turf, aoe_range, -1, 359, 0, air_pass = TRUE)
+	var/list/turf/target_turfs = generate_cone(target_turf, aoe_range, -1, 359, 0, pass_flags_checked = PASS_AIR)
 	for(var/turf/targetted_turf AS in target_turfs)
 		for(var/atom/movable/target AS in targetted_turf)
 			if(isliving(target))

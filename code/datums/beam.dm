@@ -173,9 +173,24 @@
 			continue
 		if(living in blacklistmobs)
 			continue
+		if(check_path(source, living, PASS_PROJECTILE|PASS_GLASS) != get_turf(living))
+			continue
 		source.beam(living, icon_state="lightning[rand(1,12)]", time = 3, maxdistance = zap_range + 2)
 		if(living.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA) //need 1 second more than the actual effect time
 			living.apply_status_effect(/datum/status_effect/noplasmaregen, 3 SECONDS)
 			living.apply_status_effect(/datum/status_effect/plasmadrain, 3 SECONDS)
 		living.add_slowdown(2)
 		log_attack("[living] was zapped by [source]")
+
+/// executes a BFG zap. just damages living mobs in an AOE from the source
+/proc/bfg_beam(atom/source, zap_range, damage, armor_pierce, list/blacklistmobs)
+	for(var/mob/living/target AS in cheap_get_living_near(source, zap_range))
+		if(target.stat == DEAD)
+			continue
+		if(target in blacklistmobs)
+			continue
+		if(check_path(source, target, PASS_PROJECTILE|PASS_GLASS) != get_turf(target))
+			continue
+		source.beam(target, icon_state="bfg", time = 3, maxdistance = zap_range + 2)
+		target.apply_damage(damage, BURN, BODY_ZONE_CHEST, ENERGY, FALSE, FALSE, TRUE, armor_pierce)
+		log_attack("[target] was zapped by [source]")
