@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(474 modules,
-    844/7625 macros, 11.1%)</aside></h3>
+<aside>(476 modules,
+    851/7636 macros, 11.1%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -78,6 +78,7 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/__DEFINES/flags.html" title="code&#x2F;__DEFINES&#x2F;flags">flags</a></li>
     <li><a href="code/__DEFINES/generators.html" title="code&#x2F;__DEFINES&#x2F;generators">generators</a></li>
     <li><a href="code/__DEFINES/icon_smoothing.html" title="code&#x2F;__DEFINES&#x2F;icon_smoothing">icon_smoothing</a></li>
+    <li><a href="code/__DEFINES/implants.html" title="code&#x2F;__DEFINES&#x2F;implants">implants</a></li>
     <li><a href="code/__DEFINES/instruments.html" title="code&#x2F;__DEFINES&#x2F;instruments">instruments</a></li>
     <li><a href="code/__DEFINES/jobs.html" title="code&#x2F;__DEFINES&#x2F;jobs">jobs</a></li>
     <li><a href="code/__DEFINES/layers.html" title="code&#x2F;__DEFINES&#x2F;layers">layers</a></li>
@@ -351,6 +352,7 @@ that is in the general direction relative to the parent.</li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;implants">implants</span><ul class="index-tree">
     <li><a href="code/game/objects/items/implants/implant_items.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;implants&#x2F;implant_items">implant_items</a></li>
     <li><a href="code/game/objects/items/implants/implant_suicidedust.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;implants&#x2F;implant_suicidedust">implant_suicidedust</a></li>
+    <li><span class="no-substance">skill_implants&#x2F;</span><a href="code/game/objects/items/implants/skill_implants/implantator_skill.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;implants&#x2F;skill_implants&#x2F;implantator_skill">implantator_skill</a></li>
     </ul></li>
     <li><a href="code/game/objects/items/marine_gear.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;marine_gear">marine_gear</a></li>
     <li><a href="code/game/objects/items/multitool.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;multitool">multitool</a></li>
@@ -740,7 +742,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1051 detailed/1318 documented/19778 total, 6.7%)</aside></h3>
+<aside>(1054 detailed/1324 documented/19807 total, 6.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -1068,6 +1070,7 @@ The namespace folder's name will change if any of the assets change. (excluding 
     <li class="has-children"><a href="datum/component.html" title="&#x2F;datum&#x2F;component">Component</a> - The component datum<ul class="index-tree">
     <li><a href="datum/component/admin_popup.html" title="&#x2F;datum&#x2F;component&#x2F;admin_popup">admin_popup</a> - Applied to clients when they receive an admin popup, alerting them to
 their ticket.</li>
+    <li><a href="datum/component/after_image.html" title="&#x2F;datum&#x2F;component&#x2F;after_image">after_image</a></li>
     <li><a href="datum/component/ai_controller.html" title="&#x2F;datum&#x2F;component&#x2F;ai_controller">ai_controller</a></li>
     <li><a href="datum/component/anti_juggling.html" title="&#x2F;datum&#x2F;component&#x2F;anti_juggling">anti_juggling</a></li>
     <li><a href="datum/component/attachment_handler.html" title="&#x2F;datum&#x2F;component&#x2F;attachment_handler">attachment_handler</a></li>
@@ -1987,8 +1990,16 @@ If allow_emissive is TRUE, Right clicking the Parent item will toggle the emissi
     <li><a href="obj/item/implant/cloak.html" title="&#x2F;obj&#x2F;item&#x2F;implant&#x2F;cloak">cloak</a></li>
     <li><a href="obj/item/implant/deployitem.html" title="&#x2F;obj&#x2F;item&#x2F;implant&#x2F;deployitem">deployitem</a> - Deployitem implant, holds a item that can then be placed inhand to do whatever with</li>
     <li><a href="obj/item/implant/neurostim.html" title="&#x2F;obj&#x2F;item&#x2F;implant&#x2F;neurostim">neurostim</a></li>
+    <li><a href="obj/item/implant/sandevistan.html" title="&#x2F;obj&#x2F;item&#x2F;implant&#x2F;sandevistan">sandevistan</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;implant&#x2F;suicide_dust">suicide_dust</span> - Implant meant for admin ERTs that will dust a body upon death.
 In order to prevent Marines from looting things they should not ever have</li>
+    </ul></li>
+    <li class="has-children"><a href="obj/item/implanter.html" title="&#x2F;obj&#x2F;item&#x2F;implanter">implanter</a><ul class="index-tree">
+    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;implanter&#x2F;implantator">implantator</span><ul class="index-tree">
+    <li><span class="no-substance">codex&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;implanter&#x2F;implantator&#x2F;codex&#x2F;medical">medical</span> - [SUPPORT]</li>
+    <li><span class="no-substance">combat&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;implanter&#x2F;implantator&#x2F;combat&#x2F;firearms">firearms</span> - [COMBAT]</li>
+    <li><span class="no-substance">oper_system&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;implanter&#x2F;implantator&#x2F;oper_system&#x2F;leadership">leadership</span> - [SPECIAL]</li>
+    </ul></li>
     </ul></li>
     <li><a href="obj/item/inflatable.html" title="&#x2F;obj&#x2F;item&#x2F;inflatable">inflatable</a></li>
     <li><a href="obj/item/instrument.html" title="&#x2F;obj&#x2F;item&#x2F;instrument">instrument</a></li>
@@ -2559,7 +2570,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/ff9b338b0905dc643ddcf0d1f58cdf154239c4ef">ff9b338</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/4e2dc09a71442d0c82f5ef491afb8c9ee5868da9">4e2dc09</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
