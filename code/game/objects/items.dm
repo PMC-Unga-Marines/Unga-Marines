@@ -1464,3 +1464,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		var/target = get_turf_in_angle(Get_Angle(user, src), src, 7)
 		throw_at(target, 4 + psi_power, psi_power, user, TRUE)
 	return list(3 SECONDS, 10)
+
+///Returns whether this is considered beneficial if embedded in a mob
+/obj/item/proc/is_beneficial_implant()
+	return FALSE

@@ -269,6 +269,8 @@
 
 #define issentry(A) (istype(A, /obj/machinery/deployable/mounted/sentry))
 
+#define isimplant(A) (istype(A, /obj/item/implant))
+
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
 
