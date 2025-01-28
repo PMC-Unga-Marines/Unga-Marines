@@ -36,27 +36,6 @@
 	/// If flip cooldown exists, don't allow flipping or putting back. This carries a WORLD.TIME value
 	var/flip_cooldown = 0
 
-/obj/structure/table/deconstruct(disassembled)
-	if(disassembled)
-		new parts(loc)
-	else
-		if(reinforced && prob(50))
-			new /obj/item/stack/rods(loc)
-		if(dropmetal)
-			new sheet_type(src)
-	return ..()
-
-/obj/structure/table/proc/update_adjacent(location = loc)
-	for(var/direction in CARDINAL_ALL_DIRS)
-		var/obj/structure/table/table = locate(/obj/structure/table, get_step(location,direction))
-		if(!table)
-			continue
-		INVOKE_NEXT_TICK(table, TYPE_PROC_REF(/atom, update_icon))
-
-/obj/structure/table/Destroy()
-	update_adjacent(loc) //so neighbouring tables get updated correctly
-	return ..()
-
 /obj/structure/table/Initialize(mapload)
 	. = ..()
 	for(var/obj/structure/table/evil_table in loc)
@@ -70,17 +49,24 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 		COMSIG_ATOM_EXIT = PROC_REF(on_try_exit),
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override),
+		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
-/obj/structure/table/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
-	SIGNAL_HANDLER
-	if(!istype(O, /mob/living/carbon/xenomorph/ravager))
-		return
-	var/mob/living/carbon/xenomorph/M = O
-	if(!M.stat) //No dead xenos jumpin on the bed~
-		visible_message(span_danger("[O] plows straight through [src]!"))
-		deconstruct(FALSE)
+/obj/structure/table/deconstruct(disassembled)
+	if(disassembled)
+		new parts(loc)
+	else
+		if(reinforced && prob(50))
+			new /obj/item/stack/rods(loc)
+		if(dropmetal)
+			new sheet_type(src)
+	return ..()
+
+/obj/structure/table/Destroy()
+	update_adjacent(loc) //so neighbouring tables get updated correctly
+	return ..()
 
 /obj/structure/table/update_icon_state()
 	. = ..()
@@ -182,6 +168,24 @@
 	span_danger("You slam [M]'s face against [src]!"))
 	log_combat(user, M, "slammed", "", "against \the [src]")
 	playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
+
+///Updates connected tables when required
+/obj/structure/table/proc/update_adjacent(location = loc)
+	for(var/direction in CARDINAL_ALL_DIRS)
+		var/obj/structure/table/table = locate(/obj/structure/table, get_step(location, direction))
+		if(!table)
+			continue
+		INVOKE_NEXT_TICK(table, TYPE_PROC_REF(/atom, update_icon))
+
+///Snowflake check to let ravagers kill tables
+/obj/structure/table/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
+	SIGNAL_HANDLER
+	if(!istype(O, /mob/living/carbon/xenomorph/ravager))
+		return
+	var/mob/living/carbon/xenomorph/M = O
+	if(!M.stat) //No dead xenos jumpin on the bed~
+		visible_message(span_danger("[O] plows straight through [src]!"))
+		deconstruct(FALSE)
 
 /obj/structure/table/proc/straight_table_check(direction)
 	var/obj/structure/table/T
@@ -334,7 +338,7 @@
 /*
 * Wooden tables
 */
-/obj/structure/table/woodentable
+/obj/structure/table/wood
 	name = "wooden table"
 	desc = "A square wood surface resting on four legs. Useful to put stuff on. Can be flipped in emergencies to act as cover."
 	icon = 'icons/obj/smooth_objects/wood_table_reinforced.dmi'
@@ -346,10 +350,13 @@
 	hit_sound = 'sound/effects/woodhit.ogg'
 	max_integrity = 20
 
-/obj/structure/table/woodentable/add_debris_element()
+/obj/structure/table/wood/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
 
-/obj/structure/table/fancywoodentable
+/obj/structure/table/wood/footstep_override(atom/movable/source, list/footstep_overrides)
+	footstep_overrides[FOOTSTEP_WOOD] = layer
+
+/obj/structure/table/wood/fancy
 	name = "fancy wooden table"
 	desc = "An expensive fancy wood surface resting on four legs. Useful to put stuff on. Can be flipped in emergencies to act as cover."
 	icon = 'icons/obj/smooth_objects/fancy_table.dmi'
@@ -358,10 +365,7 @@
 	table_prefix = "fwood"
 	parts = /obj/item/frame/table/fancywood
 
-/obj/structure/table/fancywoodentable/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
-
-/obj/structure/table/rusticwoodentable
+/obj/structure/table/wood/rustic
 	name = "rustic wooden table"
 	desc = "A rustic wooden surface resting on four legs. Useful to put stuff on. Can be flipped in emergencies to act as cover."
 	icon = 'icons/obj/smooth_objects/rustic_table.dmi'
@@ -369,9 +373,6 @@
 	base_icon_state = "rustic_table"
 	table_prefix = "pwood"
 	parts = /obj/item/frame/table/rusticwood
-
-/obj/structure/table/rusticwoodentable/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
 
 /obj/structure/table/black
 	name = "black metal table"
@@ -385,7 +386,7 @@
 /*
 * Gambling tables
 */
-/obj/structure/table/gamblingtable
+/obj/structure/table/wood/gambling
 	name = "gambling table"
 	desc = "A curved wood and carpet surface resting on four legs. Used for gambling games. Can be flipped in emergencies to act as cover."
 	icon = 'icons/obj/smooth_objects/pool_table.dmi'
